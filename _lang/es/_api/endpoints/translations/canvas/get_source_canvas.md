@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Ver los valores de origen predeterminados de las etiquetas de traducción de Canvas"
 article_title: "GET: Ver los valores de origen predeterminados de las etiquetas de traducción de Canvas"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 3
 
 layout: api_page
@@ -15,13 +15,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 /canvas/translations/source
 {% endapimethod %}
 
-> Utiliza este punto de conexión para ver todas las fuentes de traducción predeterminadas para las etiquetas de traducción de un Canvas. Estos son los valores con el {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de localización.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Utiliza este punto de conexión para ver todas las fuentes de traducción predeterminadas para las etiquetas de traducción de un Canvas. Estos son los valores con el {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.translations.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.translations.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -29,14 +27,14 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de consulta {#query-parameters}
 
-| Parámetro              | Obligatoria | Tipo de datos | Descripción                        |
+| Parámetro              | Obligatorio | Tipo de datos | Descripción                        |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Obligatoria | Cadena    | El ID del Canvas.              |
-| `step_id`              | Obligatoria | Cadena    | El ID de tu paso en Canvas.        |
-| `message_variation_id` | Obligatoria | Cadena | El ID de tu variación de mensaje. |
+| `workflow_id`          | Obligatorio | Cadena    | El ID del Canvas.              |
+| `step_id`              | Obligatorio | Cadena    | El ID de tu paso en Canvas.        |
+| `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
 | `locale_id`            | Opcional | Cadena    | El ID (UUID) de la configuración regional.              |
-| `post_launch_draft_version`| Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `post_launch_draft_version` | Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo.
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

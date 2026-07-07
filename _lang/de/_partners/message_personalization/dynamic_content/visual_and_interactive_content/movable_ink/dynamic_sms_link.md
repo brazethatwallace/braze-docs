@@ -16,10 +16,10 @@ search_tag: Partner
 | --- | --- |
 | Movable Ink-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Movable Ink-Konto. |
 | Datenquelle | Sie müssen eine Datenquelle mit Movable Ink verbinden. Dies kann über CSV, Website-Import oder API geschehen. |
-| MMS-Versandmöglichkeiten | Bestätigen Sie, dass Sie für MMS über Braze eingerichtet sind.
+| MMS-Versandmöglichkeiten | Bestätigen Sie, dass Sie für MMS über Braze eingerichtet sind. |
 | [Link-Verkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) | Vergewissern Sie sich, dass die Link-Verkürzung aktiviert ist. |
 | Kontaktkarte | Ihre Marke (der Sender) muss als Kontakt auf dem Telefon der Nutzer:innen gespeichert sein, damit die Link-Vorschau unter iOS funktioniert. Dies kann mit einer Kontaktkarte oder einer anderen Methode geschehen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

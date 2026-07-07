@@ -15,7 +15,7 @@ search_tag: Partner
 
 ## この連携について {#about-this-integration}
 
-BrazeとCataBoomの連携を使用して、パーソナライズされたゲームリンクをメッセージに追加できます。ユーザー識別子と属性をCatapult CampaignsとBrazeの間でリアルタイムに受け渡すことができます。そのデータを使用して、パーソナライズされたCampaigns、トリガー、フォローアップジャーニーを実行できます。
+BrazeとCataBoomの連携を使用して、パーソナライズされたゲームリンクをメッセージに追加できます。ユーザー識別子と属性をCatapultのキャンペーンとBrazeの間でリアルタイムに受け渡すことができます。そのデータを使用して、パーソナライズされたキャンペーン、トリガー、フォローアップジャーニーを実行できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,17 +26,17 @@ BrazeとCataBoomの連携を使用して、パーソナライズされたゲー�
 | Catapultアカウント | この連携を使用するにはCatapultアカウントが必要です。 |
 | Braze REST APIキー（オプション） | Catapult webhookを使用する場合、ユースケースに必要なユーザーデータ権限を持つBraze REST APIキーが必要です。Brazeの**設定** > **APIキー** > **APIキー**でキーを作成してください。 |
 | Braze RESTエンドポイント（オプション） | Catapult webhookを使用する場合、[お使いのBrazeインスタンス]({{site.baseurl}}/api/basics/#endpoints)のBraze URLに一致するRESTエンドポイントURLを使用してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ステップ 1: ゲーム体験を作成する {#step-1-create-your-game-experience}
 
 Catapultプラットフォームでゲーム体験を作成します。以下のステップでは、**Link Configuration**ページでRequest Unique URL APIを使用するシンプルなスピナーのセットアップを示します。CataBoomは、チャンスベースのメカニクス、スキルベースのメカニクス、パンチカードやコレクト・アンド・ウィンなどのユーティリティを含む200以上のゲームオプションを提供しています。他のゲームタイプでも同様のフローに従うことができます。CataBoomとCatapultの詳細については、[CataBoomのWebサイト](https://www.cataboom.com)を参照してください。
 
-1. Campaignを作成します。
+1. キャンペーンを作成します。
 
-右上の**New Campaign**を選択します。Campaign名を入力し、URLスラッグを選択し、ゲームカテゴリとゲームタイプを選択します。
+右上の**New キャンペーン**を選択します。キャンペーン名を入力し、URLスラッグを選択し、ゲームカテゴリとゲームタイプを選択します。
 
-![Campaign名、URL、ゲームカテゴリ、ゲームタイプのフィールドがあるCataBoomダッシュボードのNew Campaignフォーム。]({% image_buster /assets/img/cataboom/new_campaign.png %})
+![キャンペーン名、URL、ゲームカテゴリ、ゲームタイプのフィールドがあるCataBoomダッシュボードのNew キャンペーンフォーム。]({% image_buster /assets/img/cataboom/new_campaign.png %})
 
 {: start="2"}
 2. Request Unique URL APIを有効にします。
@@ -78,7 +78,7 @@ Catapultプラットフォームでゲーム体験を作成します。以下の
 
 Catapultは時間制限付き賞品、確率ベースの賞品、またはその両方をサポートしています。設定するには、必要に応じて**Timed Prizes and Codes**、**Prize Control and Odds Setup**、またはその両方を使用します。
 
-以下のスクリーンショットは、Campaignサマリーの**Prize Options**と、レベル1で50%の当選確率を持つシンプルな確率設定を示しています。
+以下のスクリーンショットは、キャンペーンサマリーの**Prize Options**と、レベル1で50%の当選確率を持つシンプルな確率設定を示しています。
 
 ![Prize Optionsセクションが展開されたCataBoom Summaryページ。]({% image_buster /assets/img/cataboom/prize_options_summary.png %})
 
@@ -92,7 +92,7 @@ Catapultは時間制限付き賞品、確率ベースの賞品、またはその
 
 コンテンツカードに、必要に応じてコピーとダイナミックコンテンツを追加します。CataBoomのRequest Unique URLを[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)タグで囲みます。Catapultで使用する識別子に一致するBrazeパーソナライゼーションタグを使用する`AccountID`クエリパラメーターを追加します。この例では{% raw %}`{{${user_id}}}`{% endraw %}を使用しています。
 
-ベースURLと`username`および`password`クエリパラメーターを、CatapultのCampaignの**Link Configuration**ページの値に置き換えてください。
+ベースURLと`username`および`password`クエリパラメーターを、Catapultのキャンペーンの**Link Configuration**ページの値に置き換えてください。
 
 {% raw %}
 ```liquid
@@ -100,7 +100,7 @@ Catapultは時間制限付き賞品、確率ベースの賞品、またはその
 ```
 {% endraw %}
 
-保存された`result`をカードで使用します（例えば、リンクURLやメッセージ本文として）。Campaignに対するCataBoomのAPIのレスポンス形式に従ってください。クエリパラメーターとURL内のLiquidの詳細については、[APIコールの実行]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/)を参照してください。
+保存された`result`をカードで使用します（例えば、リンクURLやメッセージ本文として）。キャンペーンに対するCataBoomのAPIのレスポンス形式に従ってください。クエリパラメーターとURL内のLiquidの詳細については、[APIコールの実行]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/)を参照してください。
 
 ![メッセージフィールドにコネクテッドコンテンツが表示され、カードのモバイルプレビューが表示されているBrazeコンテンツカードコンポーザー。]({% image_buster /assets/img/cataboom/braze_content_card.png %})
 

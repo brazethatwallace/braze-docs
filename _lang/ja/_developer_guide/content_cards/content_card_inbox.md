@@ -1,20 +1,20 @@
 ---
-nav_title: "チュートリアル: コンテンツカード受信トレイ"
-article_title: "チュートリアル: コンテンツカードを使った受信トレイの作成"
+nav_title: "チュートリアル: Content Cards受信トレイ"
+article_title: "チュートリアル: Content Cardsを使った受信トレイの作成"
 description: ""
 page_order: 6
 layout: scrolly
 ---
 
-# チュートリアル: コンテンツカードを使った受信トレイの作成
+# チュートリアル: Content Cardsを使った受信トレイの作成 {#tutorial-making-an-inbox-with-content-cards}
 
-> このチュートリアルのサンプルコードに従って、Brazeのコンテンツカードで受信トレイを構築する。
+> このチュートリアルのサンプルコードに沿って、BrazeのContent Cardsで受信トレイを構築しましょう。
 
 {% sdktabs %}
 {% sdktab android %}
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Android（Compose）向けコンテンツカードを使った受信トレイの作成
+## Android（Compose）向けContent Cardsを使った受信トレイの作成 {#making-an-inbox-with-content-cards-for-android-compose}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -170,43 +170,43 @@ fun ContentCardItem(
 !!step
 lines-MainApplication.kt=12
 
-#### 1\.デバッグを有効にする(オプション)
+### 1. デバッグを有効にする（オプション） {#1-enable-debugging-optional}
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-ContentCardsInboxScreen.kt=47-69
 
-#### 2\.UIビューを構築する
+#### 2. UIビューを構築する {#2-build-a-ui-view}
 
-Jetpack Composeでは、スクロール可能なリストにコンテンツカードを表示するために[`LazyColumn`](<https://developer.android.com/develop/ui/compose/lists#lazy>)、使用せよ。
+Jetpack Composeでは、[`LazyColumn`](<https://developer.android.com/develop/ui/compose/lists#lazy>)を使用して、スクロール可能なリストにContent Cardsを表示します。
 
 !!step
 lines-ContentCardsInboxScreen.kt=25-37
 
-#### 3\.コンテンツカードの更新を購読する
+#### 3. Content Cardsの更新をサブスクライブする {#3-subscribe-to-content-card-updates}
 
-コンポーザブルがコンポジションから離脱する際に適切なクリーンアップを保証するため、サブスクリプションのライフサイクルを管理するために[`DisposableEffect`](<https://developer.android.com/develop/ui/compose/side-effects#disposableeffect>)使用せよ。
+[`DisposableEffect`](<https://developer.android.com/develop/ui/compose/side-effects#disposableeffect>)を使用してサブスクリプションのライフサイクルを管理し、コンポーザブルがコンポジションから離脱する際に適切なクリーンアップを行います。
 
 !!step
 lines-ContentCardsInboxScreen.kt=84-95
 
-#### 4. カスタム受信トレイのUIを構築する
+#### 4. カスタム受信トレイUIを構築する {#4-build-a-custom-inbox-ui}
 
-コンテンツカードの[属性](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)（例`title`：,`description` , ）を使用することで、特定のUI要件に合ったコンテンツカード`url`を作成できる。この場合、Jetpack Composeの\``Card`Composable`と`Column`\`Composable\`を使って受信トレイを構築している。
+Content Cardsの[属性](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)（`title`、`description`、`url`など）を使用することで、特定のUI要件に合ったContent Cardsを作成できます。ここでは、Jetpack Composeの`Card`コンポーザブルと`Column`コンポーザブルを使って受信トレイを構築しています。
 
 !!step
 lines-ContentCardsInboxScreen.kt=57,62
 
-#### 5. インプレッションとクリックのトラッキング
+#### 5. インプレッションとクリックをトラッキングする {#5-track-impressions-and-clicks}
 
-コンテンツカード向けに用意されている  と[`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>)  [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>)メソッドを使って、インプレッションとクリックを記録できる。
+Content Cards向けに用意されている[`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>)メソッドと[`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>)メソッドを使って、インプレッションとクリックを記録できます。
 
-インプレッションは、ユーザーがカードを表示した際に一度だけ記録されるべきだ。カードが表示されたときにインプレッションを記録するために`LaunchedEffect`使用する。アプリのビューライフサイクルとユースケースを考慮する必要があることに注意せよ。これによりインプレッションが正しく記録されることを保証できる。
+インプレッションは、ユーザーがカードを閲覧した際に一度だけ記録する必要があります。`LaunchedEffect`を使用して、カードが表示されたときにインプレッションを記録します。アプリのビューライフサイクルやユースケースを考慮して、インプレッションが正しく記録されるようにする必要がある点にご注意ください。
 
 {% endscrolly %}
 
-## Android向けコンテンツカードを使った受信トレイの作成（RecyclerView）
+## Android向けContent Cardsを使った受信トレイの作成（RecyclerView） {#making-an-inbox-with-content-cards-for-android-recyclerview}
 
 {% scrolly %}
 
@@ -366,46 +366,46 @@ class ContentCardsActivity : ComponentActivity() {
 !!step
 lines-MainApplication.kt=12
 
-#### 1\.デバッグを有効にする(オプション)
+### 1. デバッグを有効にする（オプション）
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-content_card_inbox.xml=1-24
 
-#### 2\.UIビューを構築する
+#### 2. UIビューを構築する
 
-このチュートリアルでは、Androidの[`RecyclerView`](<https://developer.android.com/develop/ui/views/layout/recyclerview>)コンテンツカードを表示するために使用するが、実際のユースケースに合ったクラスやコンポーネントでUIを構築することを推奨する。BrazeはデフォルトでUIを提供する。しかしこのチュートリアルでは、外観と動作をカスタマイズするためのカスタムビューの作成方法を説明する。
+このチュートリアルでは、Androidの[`RecyclerView`](<https://developer.android.com/develop/ui/views/layout/recyclerview>)を使用してContent Cardsを表示しますが、ユースケースに合ったクラスやコンポーネントでUIを構築することをお勧めします。BrazeはデフォルトでUIを提供しますが、このチュートリアルでは外観と動作をカスタマイズするためのカスタムビューの作成方法を説明します。
 
 !!step
 lines-ContentCardInboxActivity.kt=29-35,40-42,44
 
-#### 3\.コンテンツカードの更新を購読する
+#### 3. Content Cardsの更新をサブスクライブする
 
-新しいコンテンツカードが利用可能になった際に、UIが応答できるように[`subscribeToContentCardsUpdates`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-content-cards-updates.html?query=abstract%20fun%20subscribeToContentCardsUpdates(subscriber:%20IEventSubscriber%3CContentCardsUpdatedEvent%3E)>)する。ここでは、サブスクライバーはアクティビティのライフサイクルフック内で登録および削除される。
+[`subscribeToContentCardsUpdates`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-content-cards-updates.html?query=abstract%20fun%20subscribeToContentCardsUpdates(subscriber:%20IEventSubscriber%3CContentCardsUpdatedEvent%3E)>)を使用して、新しいContent Cardsが利用可能になった際にUIが応答できるようにします。ここでは、サブスクライバーはアクティビティのライフサイクルフック内で登録および削除されます。
 
 !!step
 lines-ContentCardInboxActivity.kt=73-84
 
-#### 4. カスタム受信トレイのUIを構築する
+#### 4. カスタム受信トレイUIを構築する
 
-コンテンツカードの[属性](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)である`title`、`description`、およびを使用することで、特定のUI要件`url`に合うコンテンツカードを作成できる。この場合、Androidのネイティブ機能を使って受信トレイ`RecyclerView`を構築している。
+Content Cardsの[属性](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)（`title`、`description`、`url`など）を使用することで、特定のUI要件に合ったContent Cardsを作成できます。ここでは、Androidのネイティブ`RecyclerView`を使って受信トレイを構築しています。
 
 !!step
 lines-ContentCardInboxActivity.kt=90,93
 
-#### 5. インプレッションとクリックのトラッキング
+#### 5. インプレッションとクリックをトラッキングする
 
-コンテンツカード向けに用意されている  と[`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>)  [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>)メソッドを使って、インプレッションとクリックを記録できる。
+Content Cards向けに用意されている[`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>)メソッドと[`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>)メソッドを使って、インプレッションとクリックを記録できます。
 
-インプレッションは、ユーザーがカードを表示した際に一度だけ記録されるべきだ。ここでは、カードごとのフラグを用いて重複ログを防ぐ単純な仕組みを採用している。アプリのビューライフサイクルとユースケースを考慮する必要があることに注意せよ。これによりインプレッションが正しく記録されることを保証できる。
+インプレッションは、ユーザーがカードを閲覧した際に一度だけ記録する必要があります。ここでは、カードごとのフラグを用いて重複ログを防ぐシンプルな仕組みを採用しています。アプリのビューライフサイクルやユースケースを考慮して、インプレッションが正しく記録されるようにする必要がある点にご注意ください。
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} [SWIFTのアプリ内メッセージ機能]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)も[イネーブルメント]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)する必要がある。
+{% multi_lang_include developer_guide/prerequisites/swift.md %} また、[Swiftのアプリ内メッセージを有効にする]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages)必要もあります。
 
-## SWIFT用のコンテンツカードで受信トレイを作る
+## Swift向けContent Cardsを使った受信トレイの作成 {#making-an-inbox-with-content-cards-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -505,7 +505,7 @@ class BrazeInboxViewController: UITableViewController {
         // Work with the content card's title and description
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.text = [card.title, card.description].compactMap { $0 }.joined(separator: "\n")
-        
+
         return cell
     }
 
@@ -517,7 +517,7 @@ class BrazeInboxViewController: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     override func tableView(_ tableView: UITableView,
                             willDisplay cell: UITableViewCell,
                             forRowAt indexPath: IndexPath) {
@@ -532,48 +532,48 @@ class BrazeInboxViewController: UITableViewController {
 !!step
 lines-AppDelegate.swift=15
 
-#### 1\.デバッグを有効にする(オプション)
+### 1. デバッグを有効にする（オプション）
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-BrazeInboxView.swift=5
 
-#### 2\.UIビューを構築する
+#### 2. UIビューを構築する
 
-このチュートリアルではSWIFTの\`UIView\`を使用するが、ユースケースに合ったクラス[`UITableViewController`](https://developer.apple.com/documentation/uikit/uitableviewcontroller)やコンポーネントでUIを構築することを推奨する。
+このチュートリアルではSwiftの[`UITableViewController`](https://developer.apple.com/documentation/uikit/uitableviewcontroller)を使用しますが、ユースケースに合ったクラスやコンポーネントでUIを構築することをお勧めします。
 
 !!step
 lines-BrazeInboxView.swift=15-20
 
-#### 3\.コンテンツカードの更新を購読する
+#### 3. Content Cardsの更新をサブスクライブする
 
-コンテンツカードリスナーを購読して最新更新情報を受け取り、その後、そのユーザー向けの最新のコンテンツカードを要求`requestRefresh()`するために呼び出す。
+Content Cardsリスナーをサブスクライブして最新の更新を受け取り、`requestRefresh()`を呼び出してそのユーザー向けの最新のContent Cardsをリクエストします。
 
 !!step
 lines-BrazeInboxView.swift=34-35
 
-#### 4. カスタム受信トレイのUIを構築する
+#### 4. カスタム受信トレイUIを構築する
 
-コンテンツカードを使用[`attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard)することで`title`、`description`特定のUI要件に合ったコンテンツカードを作成できる`imageUrl`。この場合、SWIFTのネイティブテーブルAPIを使って受信トレイを構築している。
+Content Cardsの[`attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard)（`title`、`description`、`imageUrl`など）を使用することで、特定のUI要件に合ったContent Cardsを作成できます。ここでは、SwiftのネイティブテーブルAPIを使って受信トレイを構築しています。
 
 !!step
 lines-BrazeInboxView.swift=8,43,49-56
 
-#### 5. インプレッションとクリックのトラッキング
+#### 5. インプレッションとクリックをトラッキングする
 
-コンテンツカードで利用可能な  と[`logImpression(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logimpression(using:)/>)  [`logClick(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logclick(using:)/>)メソッドを使って、インプレッションとクリックを記録できる。
+コンテンツカード向けに用意されている[`logClick(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logclick(using:)/>)メソッドと[`logImpression(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logimpression(using:)/>)メソッドを使って、インプレッションとクリックを記録できます。
 
-さらに、解雇にも[`logDismissed(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logdismissed(using:)/>)使用できる。
+さらに、却下の記録には[`logDismissed(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logdismissed(using:)/>)も使用できます。
 
-インプレッションは、ユーザーが閲覧した際に一度だけ記録されるべきだ。ここでは、単純な機構を用いて`Set`これを実現`willDisplay`する。アプリのUIライフサイクルとユースケースを考慮する必要があることに注意せよ。これにより、インプレッションが正しく記録されることを保証できる。
+インプレッションは、ユーザーが閲覧した際に一度だけ記録する必要があります。ここでは、`Set`と`willDisplay`を使用したシンプルな仕組みでこれを実現しています。アプリのUIライフサイクルやユースケースを考慮して、インプレッションが正しく記録されるようにする必要がある点にご注意ください。
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab web %}
-{% multi_lang_include developer_guide/prerequisites/web.md %} ただし、追加の設定は不要だ。
+{% multi_lang_include developer_guide/prerequisites/web.md %} ただし、追加のセットアップは不要です。
 
-## Web用のコンテンツカードで受信トレイを作る
+## Web向けContent Cardsを使った受信トレイの作成 {#making-an-inbox-with-content-cards-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -737,41 +737,41 @@ braze.requestContentCardsRefresh();
 !!step
 lines-main.js=3-4,9
 
-#### 1\.デバッグを有効にする(オプション)
+### 1. デバッグを有効にする（オプション）
 
-開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。必要に応じて、コンソールでBraze Web SDKのメソッドを実行することもできる。
+開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。オプションとして、コンソールでBraze Web SDKのメソッドを実行することもできます。
 
 !!step
 lines-index.html=1-44
 
-#### 2\.UIを構築する
+#### 2. UIを構築する {#2-build-the-ui}
 
-受信トレイページのUIを作成する。ここでは、基本的なHTMLページを作成している。これには、idが指定`div`された要素`cards-list`が含まれている。これはコンテンツカードのレンダリング対象コンテナとして使用される。
+受信トレイページのUIを作成します。ここでは、基本的なHTMLページを作成しています。このページには、`cards-list`というIDを持つ`div`が含まれています。これはContent Cardsをレンダリングするためのターゲットコンテナとして使用されます。
 
 !!step
 lines-main.js=96-99,101
 
-#### 3\.コンテンツカードの更新を購読する
+#### 3. Content Cardsの更新をサブスクライブする
 
-コンテンツカードリスナーを購読して最新更新情報を受け取り、その後、そのユーザー向けの最新のコンテンツカードを要求[`requestContentCardsRefresh()`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh>)するために呼び出す。代わりに、セッション開始時に自動更新を行うため`openSession()`、事前にサブスクライバーに電話をかける。 
+Content Cardsリスナーをサブスクライブして最新の更新を受け取り、[`requestContentCardsRefresh()`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh>)を呼び出してそのユーザー向けの最新のContent Cardsをリクエストします。または、セッション開始時に自動更新を行うために、`openSession()`の前にサブスクライバーを呼び出すこともできます。
 
 !!step
 lines-main.js=64,67,70-74
 
-#### 4. 受信トレイの要素を作成する
+#### 4. 受信トレイの要素を作成する {#4-build-the-inbox-elements}
 
-コンテンツカードの[属性](<https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html>)（例`title`：、`description` 、 ）を使用することで、特定のUI要件に合わせてコンテンツカード`url`を表示できる。
+Content Cardsの[属性](<https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html>)（`title`、`description`、`url`など）を使用することで、特定のUI要件に合わせてContent Cardsを表示できます。
 
 !!step
 lines-main.js=22-25,28-43,84,91
 
-#### 5. インプレッションとクリックのトラッキング
+#### 5. インプレッションとクリックをトラッキングする
 
-コンテンツカード向けに用意されている  と[`logContentCardClick`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick>)  [`logContentCardImpressions`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions>)メソッドを使って、インプレッションとクリックを記録できる。
+Content Cards向けに用意されている[`logContentCardImpressions`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions>)メソッドと[`logContentCardClick`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick>)メソッドを使って、インプレッションとクリックを記録できます。
 
-さらに、解雇にも[`logCardDismissal`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcarddismissal>)使用できる。
+さらに、却下の記録には[`logCardDismissal`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcarddismissal>)も使用できます。
 
-インプレッションは、ユーザーが閲覧した際に一度だけ記録されるべきだ。ここで、  と`IntersectionObserver`  を  でキー付け`Set`すると、重複した`card.id`ログが防止される。アプリのUIライフサイクルとユースケースを考慮する必要があることに注意せよ。これにより、インプレッションが正しく記録されることを保証できる。
+インプレッションは、ユーザーが閲覧した際に一度だけ記録する必要があります。ここでは、`IntersectionObserver`と`card.id`をキーとした`Set`を使用して重複ログを防止しています。アプリのUIライフサイクルやユースケースを考慮して、インプレッションが正しく記録されるようにする必要がある点にご注意ください。
 
 {% endscrolly %}
 {% endsdktab %}

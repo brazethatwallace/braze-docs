@@ -32,7 +32,7 @@ Há duas etapas principais para criar um fluxo de trabalho de pontuação de lea
 1. Prossiga para a etapa **Cronograma de entrada** e selecione um cronograma de entrada **Baseado em ação**. Isso inserirá os usuários no Canvas quando eles realizarem ações específicas.
 
 2. Em **Opções baseadas em ação**, adicione essas duas ações:
-    - **Alterar valor de atributo personalizado** com o nome do seu atributo de pontuação de leads (como `lead score`). Se você ainda não criou um atributo de pontuação de leads, siga as etapas em [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/). Isso inserirá os usuários no Canvas sempre que a pontuação de leads deles for alterada.
+    - **Alterar valor de atributo personalizado** com o nome do seu atributo de pontuação de leads (como `lead score`). Se você ainda não criou um atributo de pontuação de leads, siga as etapas em [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). Isso inserirá os usuários no Canvas sempre que a pontuação de leads deles for alterada.
     - **Adicionar um endereço de e-mail**
 
 ![Etapa 2 da criação de um Canvas com o cronograma de entrada "Baseado em ação" e opções baseadas em ação para alterar um atributo personalizado "lead score" e adicionar um endereço de e-mail.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
@@ -41,7 +41,7 @@ Há duas etapas principais para criar um fluxo de trabalho de pontuação de lea
 
 #### Etapa 3a: Selecione os segmentos {#step-3a-select-segments}
 
-Todos os usuários são elegíveis para a pontuação de leads, então você pode adicionar regras específicas da empresa sobre quem pontuar, selecionando quais [segmentos]({{site.baseurl}}/user_guide/audience/segments/) de usuários direcionar e aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) adicionais. Por exemplo, é possível excluir colaboradores, usuários que já são clientes e similares.
+Todos os usuários são elegíveis para a pontuação de leads, então você pode adicionar regras específicas da empresa sobre quem pontuar, selecionando quais [segmentos]({{site.baseurl}}/user_guide/audience/segments) de usuários direcionar e aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) adicionais. Por exemplo, é possível excluir colaboradores, usuários que já são clientes e similares.
 
 ![Etapa 3 da criação de um Canvas com opções para selecionar segmentos e filtros para restringir o público de entrada.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
@@ -68,7 +68,7 @@ Em **Configurações de inscrição**, para **Enviar para esses usuários:** sel
 
 #### Etapa 4a: Adicionar uma jornada de ação {#step-4a-add-an-action-path}
 
-Na sua variante, selecione o ícone de mais e, em seguida, selecione **Jornadas de ação**.
+Na sua variante, selecione <i class="fas fa-plus" aria-label="Adicionar"></i> **Adicionar** e, em seguida, selecione **Jornadas de ação**.
 
 ![Canvas com "Jornadas de ação" exibidas no menu aberto pelo ícone de adição.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -102,10 +102,10 @@ Na guia **Redigir** de cada etapa de Atualização de usuário, faça o seguinte
 
 | Campo | Ação |
 | --- | --- |
-| **Nome do atributo** | Selecione o atributo de pontuação de leads que você selecionou na etapa 2 (`lead score`).|
-| **Ação** | Altere a ação para **Incrementar por** se a jornada aumentar a pontuação ou **Decrementar por** se a jornada diminuir a pontuação |
-| **Incrementar por** ou **Decrementar por** | Insira o número de pontos que serão aumentados ou diminuídos da pontuação de leads.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Nome do atributo** | Selecione o atributo de pontuação de leads que você selecionou na etapa 2 (`lead score`). |
+| **Ação** | Altere a ação para **Incrementar por** se a jornada aumentar a pontuação ou **Decrementar por** se a jornada diminuir a pontuação. |
+| **Incrementar por** ou **Decrementar por** | Insira o número de pontos que serão aumentados ou diminuídos da pontuação de leads. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
 
 ### Etapa 5: Lance seu Canvas {#step-5-launch-your-canvas}
 
@@ -113,11 +113,11 @@ Na guia **Redigir** de cada etapa de Atualização de usuário, faça o seguinte
 
 ## Pontuação externa de leads {#external-lead-scoring}
 
-Seja usando um dos nossos [parceiros de tecnologia]({{site.baseurl}}/partners/home/), seu próprio modelo interno de pontuação de leads, machine learning ou outra ferramenta de pontuação de leads, temos várias opções para você.
+Seja usando um dos nossos [parceiros de tecnologia]({{site.baseurl}}/partners/home), seu próprio modelo interno de pontuação de leads, machine learning ou outra ferramenta de pontuação de leads, temos várias opções para você.
 
 ### Parceiros externos {#external-partners}
 
-Confira [Parceiros de tecnologia]({{site.baseurl}}/partners/home/) para saber mais sobre nossos parceiros B2B que oferecem recursos de pontuação de leads. Não está vendo sua ferramenta lá? Você pode fazer a integração chamando o endpoint [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users) da nossa API.
+Confira [Parceiros de tecnologia]({{site.baseurl}}/partners/home) para saber mais sobre nossos parceiros B2B que oferecem recursos de pontuação de leads. Não está vendo sua ferramenta lá? Você pode fazer a integração chamando o endpoint [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) da nossa API.
 
 ### Modelos internos de dados de pontuação de leads {#internal-lead-scoring-data-models}
 
@@ -132,13 +132,13 @@ Como sua ferramenta de marketing, a Braze contém dados extremamente relevantes 
 
 Por exemplo, os dados de engajamento com mensagens (como aberturas e cliques de e-mail, engajamento da landing page e outros) podem determinar o nível de engajamento de um lead. Você pode enviar esses dados de volta para seu data warehouse na nuvem e disponibilizá-los como entrada para seus modelos de pontuação de leads usando as soluções de exportação de dados da Braze:
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Compartilhamento seguro de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Compartilhamento seguro de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab Braze como destino %}
 
-Depois que suas equipes internas criarem e executarem seu modelo de pontuação de leads, você pode puxar esses dados de volta para a Braze para segmentar e direcionar melhor os leads para o envio de mensagens relevantes. Você pode fazer isso com a [Ingestão de dados na nuvem da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Depois que suas equipes internas criarem e executarem seu modelo de pontuação de leads, você pode puxar esses dados de volta para a Braze para segmentar e direcionar melhor os leads para o envio de mensagens relevantes. Você pode fazer isso com a [Ingestão de dados na nuvem da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Com a Ingestão de dados na nuvem, suas equipes internas criarão uma nova tabela ou visualização com os identificadores de usuários, as pontuações de leads mais recentes e os timestamps de quando as pontuações foram atualizadas. A Braze pegará a tabela ou visualização e adicionará as pontuações de leads aos perfis de usuário.
 
@@ -184,7 +184,7 @@ Para atualizar o registro do lead no Salesforce com o status do lead da Braze, r
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Para recuperar um token, [configure um app conectado](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) para o fluxo de credenciais do cliente OAuth 2.0 e, em seguida, use o Conteúdo conectado para recuperar o bearer do Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
 
 ![Webhook sendo criado com uma URL de webhook do Salesforce, método HTTP PATCH, corpo de solicitação em texto bruto e cabeçalhos de solicitação.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

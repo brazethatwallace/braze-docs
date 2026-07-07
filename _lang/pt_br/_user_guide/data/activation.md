@@ -4,14 +4,14 @@ article_title: Ativação de dados
 page_order: 2
 layout: dev_guide
 guide_top_header: "Ativação de dados"
-guide_top_text: "Depois de unificar seus dados na Braze, é hora de usá-los. Isso envolve entender os comportamentos e preferências dos seus clientes em tempo real com [perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) e [segmentos]({{site.baseurl}}/user_guide/audience/segments/). Em seguida, ative seus dados criando mensagens direcionadas, personalizando experiências e configurando jornadas do cliente que respondem ao que seus clientes fazem em tempo real. <br><br>A ativação de dados na Braze é alimentada pelos seus dados personalizados. Para mais detalhes, consulte [Dados personalizados]({{site.baseurl}}/user_guide/data/activation/)."
+guide_top_text: "Depois de unificar seus dados na Braze, é hora de usá-los. Isso envolve entender os comportamentos e preferências dos seus clientes em tempo real com [perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) e [segmentos]({{site.baseurl}}/user_guide/audience/segments). Em seguida, ative seus dados criando mensagens direcionadas, personalizando experiências e configurando jornadas do cliente que respondem ao que seus clientes fazem em tempo real. <br><br>A ativação de dados na Braze é alimentada pelos seus dados personalizados. Para mais detalhes, consulte [Dados personalizados]({{site.baseurl}}/user_guide/data/activation)."
 page_type: landing
 description: "Ative seus dados com atributos personalizados, eventos e catálogos. Entenda os tipos de dados, gerencie dados personalizados e crie mensagens direcionadas."
 
 guide_featured_title: "Dados personalizados"
 guide_featured_list:
   - name: Dados personalizados
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: Tipos de dados
     link: /docs/user_guide/data/activation/custom_data/data_types
@@ -37,7 +37,7 @@ guide_menu_list:
   - name: Glossário de métricas de relatório
     link: /docs/user_guide/analytics/metrics_glossary
     image: /assets/img/braze_icons/book-closed.svg
-  - name: Análise de dados
+  - name: Analytics
     link: /docs/user_guide/analytics
     image: /assets/img/braze_icons/book-closed.svg
   - name: BrazeAI

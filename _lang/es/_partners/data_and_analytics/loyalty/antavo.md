@@ -22,10 +22,10 @@ La integración de Antavo y Braze te permite utilizar los datos relacionados con
 | Requisito | Descripción |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cuenta Antavo | Se necesita una cuenta [Antavo](https://antavo.com/) con la integración Braze habilitada para aprovechar esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `events.list`, `events.data_series` y `events.get`.<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `events.list`, `events.data_series` y `events.get`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
-| Identificador de la aplicación Braze | La clave del identificador de tu aplicación. <br><br>Para localizar esta clave en el panel de Braze, ve a **Settings** > **API Keys** y busca la sección **Identification**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Identificador de la aplicación Braze | La clave del identificador de tu aplicación. <br><br>Para localizar esta clave en el panel de Braze, ve a **Configuración** > **Claves de API** y busca la sección **Identification**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -54,7 +54,7 @@ Para configurar el mapeado de campos en Antavo:
 3. Introduce el **Remote field** que representa el atributo personalizado equivalente en Braze en el que se rellenarán los datos.
 
 {% alert note %}
-Puedes encontrar tu lista de atributos personalizados en Braze, en **Data Settings** > **Custom Attributes**. Si el campo que introduces no está definido en Braze, se generará automáticamente un nuevo campo con la primera sincronización.
+Puedes encontrar tu lista de atributos personalizados en Braze, en **Configuración de datos** > **Atributos personalizados**. Si el campo que introduces no está definido en Braze, se generará automáticamente un nuevo campo con la primera sincronización.
 {% endalert %}
 
 {:start="4"}

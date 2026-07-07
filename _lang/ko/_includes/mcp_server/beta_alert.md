@@ -1,3 +1,3 @@
 {% alert important %}
-브레이즈 MCP 서버는 베타 버전입니다. 더 나은 제품을 만들기 위해 도움을 주고 싶다면, [mcp-product@braze.com](mailto:mcp-product@braze.com)로 피드백을 보내주세요.
+로컬 호스팅 Braze MCP 서버(베타)는 올여름 서비스 종료 예정입니다. 기존 기능은 계속 작동하지만, 더 이상 엔드포인트를 추가하거나 베타를 지원하지 않습니다. 원격 Braze 호스팅 MCP 서버가 올여름 얼리 액세스로 제공될 예정입니다.
 {% endalert %}

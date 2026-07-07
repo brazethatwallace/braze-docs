@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Mit WhatsApp-Karussell-Templates können Sie interaktive Nachrichten mit mehreren Karten erstellen, durch die Nutzer:innen wischen können. Jedes Karussell kann bis zu 10 Karten mit Bildern oder Videos sowie anpassbare Buttons für das Engagement enthalten. Dieses Feature eignet sich ideal, um Ihre Produkte und Serviceleistungen oder mehrstufige Inhalte in einem visuell ansprechenden Format zu präsentieren.
 
-{% alert note %}
-WhatsApp-Karussell-Templates befinden sich im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
-{% endalert %}
-
 ## Voraussetzungen {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -56,7 +52,7 @@ Füllen Sie die erforderlichen Felder aus.
 | Template-Sprache | Wählen Sie die Sprache für Ihr Template. Meta beschränkt Templates auf eine einzelne Sprache, wählen Sie also die Sprache, die Ihre Zielgruppe sehen wird. |
 | Template-Name | Geben Sie einen aussagekräftigen Namen ein, der Ihnen hilft, dieses Template später zu identifizieren. Template-Namen dürfen keine Leerzeichen enthalten – verwenden Sie Unterstriche oder entfernen Sie Leerzeichen vollständig (z. B. `carousel_example` oder `carouselexample`). |
 | Kategorie | Wird automatisch auf **Marketing** gesetzt. Alle Karussell-Nachrichten werden als Marketing-Nachrichten kategorisiert. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
 
 ![Panel mit WhatsApp-Template-Details, in dem ein WhatsApp Business Account ausgewählt ist, Englisch als Template-Sprache und „welcome_message“ als Template-Name.]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
@@ -164,7 +160,7 @@ Wenn Ihr Template geladen wird, enthält es gesperrte und bearbeitbare Inhalte.
 
 Fahren Sie nach der Erstellung mit Ihrem Campaign- oder Canvas-Start-Workflow fort, einschließlich Tests. Das Karussell-Template funktioniert wie jedes andere WhatsApp-Nachrichten-Template.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 ### Inhaltsrichtlinien {#content-guidelines}
 
@@ -193,4 +189,4 @@ Fahren Sie nach der Erstellung mit Ihrem Campaign- oder Canvas-Start-Workflow fo
 | Variablen werden im Test nicht befüllt | Stellen Sie sicher, dass Ihre Liquid-Syntax korrekt ist und die Attribute in Ihren Nutzerprofilen vorhanden sind. Prüfen Sie auf Tippfehler in Variablennamen und überprüfen Sie, ob Standardwerte dort gesetzt sind, wo es angemessen ist. |
 | Template-Name enthält Leerzeichen | Template-Namen dürfen keine Leerzeichen enthalten. Verwenden Sie stattdessen Unterstriche (`template_name`) oder entfernen Sie Leerzeichen vollständig (`templatename`). |
 | Anzahl der Karten kann nicht geändert werden | Die Anzahl der Karten wird bei der Erstellung des Templates festgelegt und kann nach dem Einreichen nicht mehr geändert werden. Wenn Sie eine andere Anzahl von Karten benötigen, müssen Sie ein neues Template erstellen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }

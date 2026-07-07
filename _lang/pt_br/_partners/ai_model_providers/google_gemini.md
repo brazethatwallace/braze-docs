@@ -16,23 +16,23 @@ search_tag: Partner
 
 _Essa integração é mantida pelo Google._
 
-## Sobre a integração
+## Sobre a integração {#about-the-integration}
 
 A integração entre a Braze e o Google Gemini permite conectar sua chave de API do Google Gemini ou chave do Vertex AI à Braze para que você possa usar modelos Gemini ao criar agentes de IA personalizados. Com essa integração, seus agentes podem gerar textos personalizados, tomar decisões em tempo real ou atualizar campos do catálogo usando os modelos Gemini do Google.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 | Requisitos | Descrição |
 |---|---|
 | Conta do Google Cloud com chave de API do Gemini ou chave do Vertex AI | Uma conta do Google Cloud com uma chave de API do Gemini ou chave do Vertex AI. Para obter ajuda, entre em contato com seu administrador ou com o [suporte do Google Cloud](https://cloud.google.com/support). |
 | Instância da Braze | Você pode encontrar sua instância da Braze na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints) ou com seu gerente de integração da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
 Para conectar sua chave de API do Google Gemini à Braze:
 
-1. Acesse **Partner Integrations** > **Technology Partners** no dashboard da Braze e encontre o Google Gemini.
+1. Acesse **Integrações de parceiros** > **Parceiros de tecnologia** no dashboard da Braze e encontre o Google Gemini.
 2. Em **API Type**, selecione **Gemini API** ou **Vertex AI**.
 3. Digite sua chave de API do Google. Para o Vertex AI, insira o ID do projeto.
 4. Selecione **Save**.

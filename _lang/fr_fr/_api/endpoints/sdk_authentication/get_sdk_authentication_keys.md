@@ -1,44 +1,44 @@
 ---
-nav_title: "GET : Liste des clés d'authentification SDK"
-article_title: "GET : Liste des clés d'authentification du SDK"
+nav_title: "GET : Liste des clés d'authentification SDK"
+article_title: "GET : Liste des clés d'authentification SDK"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Cet article présente les détails du point de terminaison des clés d'authentification du SDK de la liste Braze."
+description: "Cet article présente les détails de l'endpoint Braze permettant de lister les clés d'authentification SDK."
 ---
 
 {% api %}
-# Liste des clés d'authentification du SDK
+# Liste des clés d'authentification SDK {#list-sdk-authentication-keys}
 {% apimethod get %}
 /app_group/sdk_authentication/keys
 {% endapimethod %}
 
-> Utilisez cet endpoint pour récupérer toutes les clés d'authentification du SDK pour votre application.
+> Utilisez cet endpoint pour récupérer toutes les clés d'authentification SDK pour votre application.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `sdk_authentication.keys`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sdk_authentication.keys`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Requis | Chaîne de caractères | L'identifiant de l'API de l'application. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | Requis | Chaîne de caractères | L'identifiant API de l'application. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authentication/keys?app_id=01234567-89ab-cdef-0123-456789abcdef' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 
 ```json
 {
@@ -59,22 +59,22 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }
 ```
 
-## Paramètres de réponse
+## Paramètres de réponse {#response-parameters}
 
 | Paramètre | Type de données | Description |
 | --------- | --------- | ----------- |
 | `keys` | Tableau | Tableau d'objets de clés d'authentification SDK. |
-| `keys[].id` | Chaîne de caractères | L'ID de la clé d'authentification du SDK. |
-| `keys[].rsa_public_key` | Chaîne de caractères | Chaîne de caractères de la clé publique RSA. |
-| `keys[].description` | Chaîne de caractères | Description de la clé d'authentification du SDK. |
-| `keys[].is_primary` | Valeur booléenne | Indique si cette clé est la clé d'authentification principale du SDK. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `keys[].id` | Chaîne de caractères | L'ID de la clé d'authentification SDK. |
+| `keys[].rsa_public_key` | Chaîne de caractères | La chaîne de caractères de la clé publique RSA. |
+| `keys[].description` | Chaîne de caractères | Description de la clé d'authentification SDK. |
+| `keys[].is_primary` | Valeur booléenne | Indique si cette clé est la clé d'authentification SDK principale. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
 
-### Règles de validation
+### Règles de validation {#validation-rules}
 
 Les règles de validation suivantes s'appliquent à cet endpoint :
 
-- Le paramètre `app_id` doit être un identifiant d'API d'application valide.
+- Le paramètre `app_id` doit être un identifiant API d'application valide.
 - L'application doit exister dans votre espace de travail.
 
 {% endapi %}

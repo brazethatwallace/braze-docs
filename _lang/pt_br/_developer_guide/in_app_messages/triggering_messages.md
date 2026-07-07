@@ -18,10 +18,10 @@ platform:
 
 As mensagens no app são disparadas quando o SDK registra um dos seguintes tipos de eventos personalizados: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` e `Custom Event` (os dois últimos contendo filtros de propriedade robustos).
 
-No início da sessão de um usuário, a Braze entregará todas as mensagens no app elegíveis para seu dispositivo, enquanto simultaneamente pré-carrega ativos para minimizar a latência de exibição. Se o evento de gatilho tiver mais de uma mensagem no app elegível, apenas a mensagem com a maior prioridade será entregue. Para saber mais, veja [Ciclo de vida da sessão]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#about-the-session-lifecycle).
+No início da sessão de um usuário, a Braze entregará todas as mensagens no app elegíveis para seu dispositivo, enquanto simultaneamente pré-carrega ativos para minimizar a latência de exibição. Se o evento de gatilho tiver mais de uma mensagem no app elegível, apenas a mensagem com a maior prioridade será entregue. Para saber mais, veja [Ciclo de vida da sessão]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle).
 
 {% alert note %}
-Mensagens no app não podem ser disparadas através da API ou por eventos da API—apenas eventos personalizados registrados pelo SDK. Para saber mais sobre registro, veja [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+Mensagens no app não podem ser disparadas através da API ou por eventos da API&#8212;apenas eventos personalizados registrados pelo SDK. Para saber mais sobre registro, veja [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
 {% endalert %}
 
 ## Tipos de mensagens no app {#types-of-in-app-messages}
@@ -30,9 +30,9 @@ A Braze envia os seguintes tipos de mensagens no app para os dispositivos dos us
 
 ### `inapp` (padrão) {#inapp-standard}
 
-Uma mensagem no app `inapp` (ou "[padrão]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/#standard-message-types)") já vem com o modelo preenchido com as informações necessárias, como atributos personalizados que a Braze já conhece. Geralmente, quando a mensagem no app é baixada para o dispositivo, o evento de gatilho faz com que o SDK exiba a mensagem no app `inapp` mesmo quando o dispositivo está offline ou em modo avião.
+Uma mensagem no app `inapp` (ou "[padrão]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)") já vem com o modelo preenchido com as informações necessárias, como atributos personalizados que a Braze já conhece. Geralmente, quando a mensagem no app é baixada para o dispositivo, o evento de gatilho faz com que o SDK exiba a mensagem no app `inapp` mesmo quando o dispositivo está offline ou em modo avião.
 
-### `templated_iam` (com modelo) {#templatediam-templated}
+### `templated_iam` (com modelo) {#templated_iam-templated}
 
 Uma mensagem no app `templated_iam` (ou "com modelo") ainda não tem o modelo preenchido com as informações necessárias. A Braze precisa fazer outra solicitação para obter as informações antes que a mensagem possa aparecer.
 
@@ -40,7 +40,7 @@ Uma mensagem no app `templated_iam` (ou "com modelo") ainda não tem o modelo pr
 
 ## Pares de chave-valor {#key-value-pairs}
 
-Quando você cria uma campanha na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagens no app pode usar para enviar dados para seu app.
+Quando você cria uma Campaign na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagens no app pode usar para enviar dados para seu app.
 
 {% tabs %}
 {% tab web %}
@@ -148,21 +148,21 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 Se você chamar `braze.showInAppMessage` sem remover `braze.automaticallyShowInAppMessages()`, as mensagens podem ser exibidas duas vezes.
 {% endalert %}
 
-Para um controle mais avançado sobre o tempo das mensagens, incluindo adiamento e restauração de mensagens disparadas, consulte nosso [Tutorial: Adiar e restaurar mensagens disparadas]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages/).
+Para um controle mais avançado sobre o tempo das mensagens, incluindo adiamento e restauração de mensagens disparadas, consulte nosso [Tutorial: Adiar e restaurar mensagens disparadas]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
 {% endtab %}
 
 {% tab android %}
-1. Implemente o [`IInAppMessageManagerListener`](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para definir um ouvinte personalizado.
+1. Implemente o [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para definir um ouvinte personalizado.
 2. Atualize seu método [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) para retornar [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html).
 
-Para um controle mais avançado sobre o tempo das mensagens, incluindo exibições posteriores e reenfileiramento, consulte nossa página [Personalizando mensagens](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
+Para um controle mais avançado sobre o tempo das mensagens, incluindo exibições posteriores e reenfileiramento, consulte nossa página [Personalizando mensagens]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
 {% endtab %}
 
 {% tab swift %}
 1. Implemente o delegado `BrazeInAppMessageUIDelegate` em seu app. Para um guia completo, consulte [Tutorial: UI de mensagem no app](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
 2. Atualize seu método delegado `inAppMessage(_:displayChoiceForMessage:)` para retornar `.discard`.
 
-Para um controle mais avançado sobre o tempo das mensagens, incluindo adiamento e restauração de mensagens disparadas, consulte nosso [Tutorial: Adiar e restaurar mensagens disparadas]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages/).
+Para um controle mais avançado sobre o tempo das mensagens, incluindo adiamento e restauração de mensagens disparadas, consulte nosso [Tutorial: Adiar e restaurar mensagens disparadas]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
 {% endtab %}
 
 {% tab flutter %}
@@ -261,7 +261,7 @@ Para disparar uma mensagem no app usando um evento enviado pelo servidor, envie 
 
 #### Etapa 1: Crie um retorno de chamada push para receber o push silencioso {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
-Registre seu retorno de chamada de push personalizado para ouvir uma notificação por push silenciosa específica. Para saber mais, consulte [Configuração de notificações por push]({{site.baseurl}}/developer_guide/push_notifications/#android_setting-up-push-notifications).
+Registre seu retorno de chamada de push personalizado para ouvir uma notificação por push silenciosa específica. Para saber mais, consulte [Configuração de notificações por push]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications).
 
 Dois eventos serão registrados para que a mensagem no app seja entregue, um pelo servidor e outro de dentro do seu retorno de chamada push personalizado. Para garantir que o mesmo evento não seja duplicado, o evento registrado a partir do seu retorno de chamada push deve seguir uma convenção de nomenclatura genérica, por exemplo, "evento de gatilho de mensagem no app", e não o mesmo nome do evento enviado pelo servidor. Se isso não for feito, a segmentação e os dados de usuários podem ser afetados por eventos duplicados sendo registrados para uma única ação do usuário.
 
@@ -302,15 +302,15 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Etapa 2: Crie uma Campaign de push {#step-2-create-a-push-campaign}
+#### Etapa 2: Crie uma Campaign de push silenciosa {#step-2-create-a-push-campaign}
 
-Crie uma [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) acionada pelo evento enviado pelo servidor.
+Crie uma [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) acionada pelo evento enviado pelo servidor.
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Etapa de entrega de uma Campaign de push silenciosa configurada para entrega baseada em ação com um gatilho de evento personalizado server_event.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 A Campaign de push deve incluir extras de pares de chave-valor que indiquem que esta Campaign de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app.
 
-![Dois conjuntos de pares de chave-valor: IS_SERVER_EVENT definido como "true", e CAMPAIGN_NAME definido como "nome da campanha de exemplo".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
+![Dois conjuntos de pares de chave-valor: IS_SERVER_EVENT definido como "true" e CAMPAIGN_NAME definido como "nome da campanha de exemplo".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
 O código de exemplo de retorno de chamada push anterior reconhece os pares de chave-valor e registra o evento personalizado apropriado do SDK.
 
@@ -367,19 +367,19 @@ Devido a uma mensagem por push ser usada para registrar um evento personalizado 
 
 #### Etapa 2: Crie uma Campaign de push silenciosa {#step-2-create-a-silent-push-campaign}
 
-Crie uma [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) que é disparada pelo evento enviado pelo servidor.
+Crie uma [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) que é disparada pelo evento enviado pelo servidor.
 
 ![Uma Campaign de mensagem no app baseada em ação que será entregue a usuários cujos perfis de usuário têm o evento personalizado "server_event".]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
 A Campaign de push precisa incluir extras de pares de chave-valor, que indicam que esta Campaign de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app.
 
-![Uma Campaign de mensagem no app baseada em ação que tem dois pares de chave-valor. "CAMPAIGN_NAME" definido como "exemplo de nome da mensagem no app", e "IS_SERVER_EVENT" definido como "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
+![Uma Campaign de mensagem no app baseada em ação que tem dois pares de chave-valor. "CAMPAIGN_NAME" definido como "exemplo de nome da mensagem no app" e "IS_SERVER_EVENT" definido como "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
 O código dentro do método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` verifica a chave `IS_SERVER_EVENT` e registra um evento personalizado do SDK se estiver presente.
 
 Você pode alterar o nome do evento ou as propriedades do evento enviando o valor desejado dentro dos extras de pares de chave-valor da carga útil push. Ao registrar o evento personalizado, esses extras podem ser usados como parâmetro do nome do evento ou como uma propriedade do evento.
 
-#### Etapa 3: Crie uma Campaign de mensagem no app {#step-3-create-an-in-app-message-campaign}
+#### Etapa 3: Crie uma Campaign de mensagem no app
 
 Crie sua Campaign de mensagem no app visível para o usuário no dashboard da Braze. Essa Campaign deve ter uma entrega baseada em ação e ser acionada a partir do evento personalizado registrado dentro do método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`.
 

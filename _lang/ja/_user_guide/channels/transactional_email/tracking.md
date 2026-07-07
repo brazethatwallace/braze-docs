@@ -5,14 +5,14 @@ page_order: 2
 description: "このリファレンス記事では、トランザクションメールキャンペーンのリアルタイムトラッキングの設定方法について説明します。"
 page_type: reference
 tool:
-  - Campaigns
+  - キャンペーン
 channel: email
 
 ---
 
 # トランザクションメールの追跡 {#track-transactional-emails}
 
-> このページでは、[トランザクションメールキャンペーン]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)のリアルタイムトラッキングの設定方法について説明します。エンドポイント自体の詳細については、[APIトリガー配信を使用したトランザクションメールの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/)を参照してください。
+> このページでは、[トランザクションメールキャンペーン]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)のリアルタイムトラッキングの設定方法について説明します。エンドポイント自体の詳細については、[APIトリガー配信を使用したトランザクションメールの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message)を参照してください。
 
 トランザクションメール（注文確認やパスワードリセットなど）を送信する際、それらが顧客に届いているかどうかを把握することが不可欠です。Brazeのトランザクション HTTPイベントポストバックを使用すると、すべてのトランザクションメールのステータスに関するリアルタイムのインサイトを取得できるため、問題が発生した場合に迅速に対応できます。
 
@@ -23,4 +23,4 @@ channel: email
 
 ## トランザクションメールのトラッキング {#tracking-your-transactional-emails}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}

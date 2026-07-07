@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-A [new version of the Shopify integration]({{site.baseurl}}/partners/shopify/#new-shopify-integration) will be released in phases starting in April 2025. The phases will be based on the type of Shopify store and the external ID used to set up the initial integration. <br><br>**The old version of the integration will no longer be available after August 28, 2025. Update to the new version before this date to continue using the integration without any issues.**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
@@ -61,7 +53,7 @@ There are certain browsers, such as the Naver Android and iOS apps, that don’t
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-The legacy purchase event will enter a deprecated state (maintenance mode). Purchase events will continue to work as expected, but no new functionality will be built on top of them, in favor of [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). If you're currently using purchase events, you will receive advance notice regarding the phase-out plans. For now, you can continue using purchase events until the official deprecation date. For more information, see the [recommended events overview]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+The legacy purchase event is entering maintenance mode. Existing Braze customers can continue using legacy purchase events. They'll keep working as expected, but new functionality will be built on eCommerce recommended events going forward. Braze will provide advance notice well before any end-of-life date is set. New Braze customers should use [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), as legacy purchase events will not be available.
 {% endalert %}
 
 {% endif %}
@@ -151,14 +143,6 @@ Meta has a known issue that can prevent some MP4 videos from playing on Android 
 For this integration, the user alias must use the following format so that Braze can match webhooks to the correct user profile:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Multi-language messages and locale translations are currently in early access. Contact your customer success manager if you’re interested in participating in this early access.
 {% endalert %}
 
 {% endif %}

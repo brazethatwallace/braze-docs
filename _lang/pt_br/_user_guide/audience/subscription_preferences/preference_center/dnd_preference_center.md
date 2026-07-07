@@ -13,7 +13,7 @@ page_order: 2
 Você pode gerenciar as Centrais de Preferências de arrastar e soltar existentes em **Público** > **Central de Preferências de e-mail**:
 
 - Para alterar o nome ou o conteúdo de uma Central de Preferências, abra-a no dashboard.
-- As Centrais de Preferências de arrastar e soltar não podem ser excluídas pelo dashboard. Para remover uma, primeiro remova a Liquid tag dela de quaisquer Campaigns de e-mail ou etapas do Canvas e, em seguida, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
+- As Centrais de Preferências de arrastar e soltar não podem ser excluídas pelo dashboard. Para remover uma, primeiro remova a Liquid tag dela de quaisquer Campaigns de e-mail ou etapas do Canvas e, em seguida, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 - Se uma Central de Preferências removida foi usada em mensagens enviadas anteriormente, ela deixará de funcionar nesses e-mails entregues.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -23,7 +23,6 @@ Crie uma Central de Preferências navegando até **Público** > **Central de Pre
 
 Aqui, uma lista de Centrais de Preferências personalizadas será exibida. Selecione **Criar nova** para criar uma nova Central de Preferências ou selecione o nome de uma existente para fazer alterações.
 
-![Uma lista de Centrais de Preferências personalizadas com nome, descrição, tipo, status, data da última edição e usuário que criou.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## Etapa 2: Nomear a Central de Preferências de e-mail {#step-2-name-the-email-preference-center}
 
@@ -31,7 +30,6 @@ Os nomes das Centrais de Preferências só podem conter caracteres alfanumérico
 
 Essa Liquid tag pode ser incluída em qualquer Campaign de e-mail de saída ou etapa do Canvas e direcionará os usuários para a Central de Preferências.
 
-![Um exemplo de Liquid para uma Central de Preferências.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## Etapa 3: Adicionar grupos de inscrições à Central de Preferências {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,9 +46,8 @@ Você pode configurar ainda mais os grupos de inscrições selecionados clicando
 - Adicionar ou remover uma caixa de seleção **Subscribe to all**, que inscreverá o usuário em todos os grupos de inscrições exibidos neste bloco
 - Adicionar ou remover uma caixa de seleção **Unsubscribe from all**, que cancelará a inscrição do usuário de todos os grupos de inscrições exibidos neste bloco
 
-![Um exemplo de Central de Preferências com as opções de se inscrever em todas as mensagens, marketing, newsletter e e-mails semanais, ou cancelar a inscrição de todos.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
-O botão **Unsubscribe from all** na parte inferior do modelo não pode ser removido e fará o [cancelamento global da inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states) do usuário, impedindo-o de receber qualquer mensagem de e-mail.
+O botão **Unsubscribe from all** na parte inferior do modelo não pode ser removido e fará o [cancelamento global da inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) do usuário, impedindo-o de receber qualquer mensagem de e-mail.
 
 ## Etapa 4: Personalizar a Central de Preferências usando o editor de arrastar e soltar {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -88,7 +85,7 @@ Blocos representam diferentes tipos de conteúdo que você pode usar na sua mens
 
 ![Opção para selecionar blocos, incluindo título, parágrafo, botão, imagem e espaçador.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Cada bloco tem suas próprias configurações, como controle granular de preenchimento. O painel do lado direito alterna automaticamente para um painel de estilo do elemento de conteúdo selecionado. Para saber mais, consulte [Propriedades dos blocos do editor]({{site.baseurl}}/dnd/editor_blocks/).
+Cada bloco tem suas próprias configurações, como controle granular de preenchimento. O painel do lado direito alterna automaticamente para um painel de estilo do elemento de conteúdo selecionado. Para saber mais, consulte [Blocos do editor (Central de Preferências)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center).
 
 Se você estiver usando o bloco de código personalizado na sua Central de Preferências, os iframes podem não ser gerados no código personalizado quando entregues aos seus usuários.
 
@@ -97,13 +94,13 @@ Se você estiver usando o bloco de código personalizado na sua Central de Prefe
 
 ## Etapa 5: Personalizar sua página de confirmação {#step-5-customize-your-confirmation-page}
 
-Não se esqueça de personalizar a página de confirmação! Você pode editar essa página selecionando **Confirmation Page** na parte superior da janela do editor de arrastar e soltar. Essa página será exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo acima também se aplicam a essa página.
+Não se esqueça de personalizar a página de confirmação! Você pode editar essa página selecionando **Página de confirmação** na parte superior da janela do editor de arrastar e soltar. Essa página será exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo acima também se aplicam a essa página.
 
 ![Um exemplo de página de confirmação para comunicar que as preferências do usuário foram atualizadas.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
 ## Etapa 6: Pré-visualizar e lançar sua Central de Preferências {#step-6-preview-and-launch-your-preference-center}
 
-Você pode pré-visualizar sua Central de Preferências selecionando a guia **Preview** dentro do editor. No entanto, a funcionalidade de teste está desativada. Após editar sua Central de Preferências, você pode fechar o editor selecionando o botão **Done**.
+Você pode pré-visualizar sua Central de Preferências selecionando a guia **Pré-visualização** dentro do editor. No entanto, a funcionalidade de teste está desativada. Após editar sua Central de Preferências, você pode fechar o editor selecionando o botão **Done**.
 
 Você verá uma pré-visualização tanto da Central de Preferências quanto da página de confirmação. Selecione **Salvar como rascunho** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
 
@@ -117,7 +114,7 @@ Para inserir um link para a Central de Preferências nos seus e-mails, copie a L
 
 ![A opção Copiar Liquid na linha de uma Central de Preferências.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-Adicione a Liquid tag no local desejado do seu e-mail, de forma semelhante a como as [URLs de cancelamento de inscrição]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#adding-a-custom-unsubscribe-link) são inseridas.
+Adicione a Liquid tag no local desejado do seu e-mail, de forma semelhante a como as [URLs de cancelamento de inscrição]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) são inseridas.
 
 ## Tratamento de erros {#handling-errors}
 

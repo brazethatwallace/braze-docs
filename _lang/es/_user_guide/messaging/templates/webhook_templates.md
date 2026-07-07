@@ -12,11 +12,11 @@ description: "Aprende a crear y personalizar plantillas de webhook para usarlas 
 
 # Crear una plantilla de webhook {#create-a-webhook-template}
 
-> A medida que construyes y personalizas tus webhooks, puedes crear y aprovechar plantillas de webhook para usarlas posteriormente en la plataforma Braze. De esta forma, puedes construir de manera consistente una variedad de webhooks en tus diferentes campañas.
+> A medida que construyes y personalizas tus webhooks, puedes crear y aprovechar plantillas de webhook para usarlas posteriormente en la plataforma Braze. De esta forma, puedes construir de manera consistente una variedad de webhooks en tus diferentes Campaigns.
 
 ## Paso 1: Ve al editor de plantillas de webhook {#step-1-go-to-the-webhook-template-editor}
 
-En el dashboard de Braze, ve a **Plantillas** > **Plantillas de Webhook**.
+En el panel de Braze, ve a **Contenido** > **Webhook**.
 
 ![La página "Plantillas de Webhook" con plantillas de webhook prediseñadas y guardadas.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 
@@ -24,13 +24,13 @@ En el dashboard de Braze, ve a **Plantillas** > **Plantillas de Webhook**.
 
 Desde aquí, puedes elegir crear una nueva plantilla, usar una de las plantillas de webhook prediseñadas o editar una plantilla existente.
 
-Por ejemplo, si estás usando [LINE]({{site.baseurl}}/user_guide/channels/line/) como canal de mensajería, puedes configurar varios webhooks usando las plantillas prediseñadas para **LINE Carousel** o **LINE Image**.
+Por ejemplo, si estás usando [LINE]({{site.baseurl}}/user_guide/channels/line) como canal de mensajería, puedes configurar varios webhooks usando las plantillas prediseñadas para **LINE Carousel** o **LINE Image**.
 
 ## Paso 3: Completa los detalles de la plantilla {#step-3-fill-out-template-details}
 
 1. Dale a tu plantilla de webhook un nombre único.
 2. (Opcional) Añade una descripción de la plantilla para explicar cómo se pretende usar esta plantilla.
-3. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario para ayudar a encontrar y filtrar tu plantilla.
+3. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario para ayudar a encontrar y filtrar tu plantilla.
 
 ## Paso 4: Construye tu plantilla {#step-4-build-your-template}
 
@@ -47,12 +47,12 @@ Para ver cómo se ve tu webhook antes de enviarlo a tus usuarios, puedes enviar 
 
 ## Paso 6: Guarda tu plantilla {#step-6-save-your-template}
 
-Asegúrate de guardar tu plantilla seleccionando **Save Template**. Ahora estás listo para usar esta plantilla en cualquier campaña que elijas.
+Asegúrate de guardar tu plantilla seleccionando **Save Template**. Ahora estás listo para usar esta plantilla en cualquier Campaign que elijas.
 
 {% alert note %}
-Las ediciones realizadas a una plantilla existente no se reflejan en las campañas que fueron creadas usando versiones anteriores de esa plantilla.
+Las ediciones realizadas a una plantilla existente no se reflejan en las Campaigns que fueron creadas usando versiones anteriores de esa plantilla.
 {% endalert %}
 
 ## Administrar tus plantillas {#managing-your-templates}
 
-Puedes [duplicar y archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) plantillas de webhook para ayudar a organizar y administrar mejor tu lista de plantillas.
+Puedes [duplicar y archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) plantillas de webhook para ayudar a organizar y administrar mejor tu lista de plantillas.

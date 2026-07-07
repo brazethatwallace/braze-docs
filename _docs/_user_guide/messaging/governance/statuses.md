@@ -32,10 +32,10 @@ These are the available statuses for campaigns and Canvases:
 | --- | --- |
 | Active | Active campaigns and Canvases are in the process of sending. By default, you'll see active campaigns and Canvases on the respective pages. |
 | Draft | Drafts of campaigns and Canvases are saved but not launched. To continue editing and begin sending, you can select the draft by going to **Messaging** in the Braze dashboard and selecting **Canvas** or **Campaigns**. |
-| Archived | Archived campaigns and Canvases are messages that are no longer being sent. These campaigns and Canvases are also removed from the statistic graphs on the [**Home**]({{site.baseurl}}/user_guide/analytics/dashboards/home/) and [**Revenue**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) pages.|
+| Archived | Archived campaigns and Canvases are messages that are no longer being sent. These campaigns and Canvases are also removed from the statistic graphs on the [**Home**]({{site.baseurl}}/user_guide/analytics/dashboards/home) and [**Revenue**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) pages.|
 | Stopped | Stopped campaigns and Canvases are paused, but you can still edit them. To resume a Canvas, go to the **Summary** step of the Canvas builder and select **Resume Canvas**. For campaigns, select the <i class="fas fa-ellipsis-vertical"></i> menu, then **Resume**. For more information, refer to [Stopped Canvas behavior](#stopped-canvas-behavior). |
 | Idle | When a campaign or Canvas is no longer sending messages, Braze will assign it an idle status to help sort and manage your list of campaigns and Canvases. You can view which campaigns or Canvases will be automatically stopped and the associated stop date. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available statuses" }
 
 ### Stopped Canvas behavior {#stopped-canvas-behavior}
 
@@ -43,7 +43,7 @@ When a Canvas is stopped, the following occurs:
 
 - **Scheduled messages:** Your scheduled messages won't be sent, regardless of a user's place in the Canvas. This also includes users who were queued because of rate limiting.
 - **Email sends:** Email sends may not stop immediately, as your email service provider (ESP) may continue processing your existing requests.
-- **Delay steps:** Users in a [delay step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) will remain there as normal, but will exit the Canvas when the set period ends.
+- **Delay steps:** Users in a [delay step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) will remain there as normal, but will exit the Canvas when the set period ends.
 - **Draft changes:** Any draft changes to the Canvas will be discarded when the Canvas is stopped.
 
 To resume the Canvas, go to the **Summary** step of the Canvas builder and select **Resume Canvas**. When reactivated, any previously-stopped messages will be sent as scheduled&#8212;as long as the scheduled time hasn't already passed.
@@ -55,7 +55,7 @@ To resume the Canvas, go to the **Summary** step of the Canvas builder and selec
 You can monitor your messages by status to review the performance details. For example, if you have a series of active campaigns, you can evaluate the performance of each campaign with their engagement metrics and make adjustments as needed. If instead you have a few stopped Canvases, you can consider whether they should be resumed for messaging or archived entirely.
 
 {% alert tip %}
-Looking for more ways to stay organized? Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) and [tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) to provide more context at-a-glance.
+Looking for more ways to stay organized? Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) and [tags]({{site.baseurl}}/user_guide/messaging/governance/tags) to provide more context at-a-glance.
 {% endalert %}
 
 ### Audit your active messages

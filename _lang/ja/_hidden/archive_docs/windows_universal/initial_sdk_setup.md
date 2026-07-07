@@ -54,7 +54,7 @@ Windows ユニバーサルSDKは、[NuGet Package Manager](http://www.nuget.org/
 
 - `App.xaml.cs` ファイルの `usings` に以下を追加します。
 
-```csharp
+`````````csharp
 using AppboyPlatform.PCL.Managers;
 using AppboyPlatform.Universal;
 using AppboyPlatform.Universal.Managers.PushArgs;
@@ -62,13 +62,13 @@ using AppboyPlatform.Universal.Managers.PushArgs;
 
 - `OnLaunched` ライフサイクルメソッド内で以下を呼び出します。
 
-```csharp
+`````````csharp
 Appboy.SharedInstance.OpenSession();
 ```
 
 - `OnSuspending` ライフサイクルメソッド内で以下を呼び出します。
 
-```csharp
+`````````csharp
 Appboy.SharedInstance.CloseSession();
 ```
 

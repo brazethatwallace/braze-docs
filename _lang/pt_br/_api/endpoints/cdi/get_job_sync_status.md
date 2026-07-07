@@ -1,6 +1,6 @@
 ---
-nav_title: "OBTER: Listar o status de sincronização do trabalho"
-article_title: "OBTER: Listar status de sincronização do trabalho"
+nav_title: "GET: Listar status de sincronização do trabalho"
+article_title: "GET: Listar status de sincronização do trabalho"
 search_tag: Endpoint
 page_order: 1
 alias: /api/cdi/get_job_sync/
@@ -10,40 +10,40 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Listar 
 
 ---
 {% api %}
-# Listar o status de sincronização do trabalho
+# Listar status de sincronização do trabalho {#list-job-sync-status}
 {% apimethod get %}
 /cdi/integrations/{integration_id}/job_sync_status
 {% endapimethod %}
 
-> Use esse ponto de extremidade para retornar uma lista de status de sincronização anteriores para uma determinada integração.
+> Use esse endpoint para retornar uma lista de status de sincronização anteriores para uma determinada integração.
 
 {% alert note %}
 Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `cdi.integration_job_status`.
 {% endalert %}
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi job sync status' %}
 
-## Parâmetros da jornada
+## Parâmetros de jornada {#path-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `integration_id` | Obrigatória | String | ID de integração. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
-## Parâmetros de consulta
+## Parâmetros de consulta {#query-parameters}
 
-Cada chamada a esse ponto de extremidade retornará 10 itens. Para uma integração com mais de 10 sincronizações, use o cabeçalho `Link` para recuperar os dados na próxima página, conforme mostrado no exemplo de resposta a seguir.
+Cada chamada a esse endpoint retornará 10 itens. Para uma integração com mais de 10 sincronizações, use o cabeçalho `Link` para recuperar os dados na próxima página, conforme mostrado no exemplo de resposta a seguir.
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `cursor` | Opcional | String | Determina a paginação do status de sincronização. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
-### Sem cursor
+### Sem cursor {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status' \
@@ -51,7 +51,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### Com cursor
+### Com cursor {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cursor=c2tpcDow' \
@@ -59,14 +59,14 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 O código de status `200` poderia retornar o seguinte corpo de resposta.
 
 {% alert note %}
-O cabeçalho `Link` não existirá se houver menos ou igual a 10 sincronizações no total. Nas chamadas sem cursor, o endereço `prev` não será exibido. Ao olhar a última página de itens, `next` não será exibido.
+O cabeçalho `Link` não existirá se houver 10 sincronizações ou menos no total. Nas chamadas sem cursor, `prev` não será exibido. Ao visualizar a última página de itens, `next` não será exibido.
 {% endalert %}
 
 ```
@@ -96,18 +96,18 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
 | `partial` | Algumas linhas não puderam ser sincronizadas devido a erros. |
 | `error` | Nenhuma linha foi sincronizada. |
 | `config_error` | Houve um erro na configuração da integração. Verifique sua configuração de integração. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo de resposta bem-sucedida" }
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 A tabela a seguir lista os possíveis erros retornados e as etapas de solução de problemas associadas.
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `400 Invalid cursor` | Verifique se o site `cursor` é válido. |
-| `400 Invalid integration ID` | Verifique se o site `integration_id` é válido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `400 Invalid cursor` | Verifique se o `cursor` é válido. |
+| `400 Invalid integration ID` | Verifique se o `integration_id` é válido. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
-Para códigos de status adicionais e mensagens de erro associadas, consulte [Erros fatais & respostas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para códigos de status adicionais e mensagens de erro associadas, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

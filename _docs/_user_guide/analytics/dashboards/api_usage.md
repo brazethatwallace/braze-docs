@@ -27,7 +27,7 @@ The API usage dashboard includes the following statistics:
 | Total requests | The total number of requests sent to Braze for your current workspace, given the filters and controls applied to the dashboard. |
 | Success rate   | The percentage of total requests where Braze issued a `2XX` success response. |
 | Error rate     | The percentage of total requests where Braze issued a `4XX` or `5XX` error response. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
 
 ## Using the dashboard
 
@@ -76,7 +76,14 @@ The API usage dashboard includes all REST API requests that Braze received and r
 
 Data shown in the dashboard may have up to a short delay in showing recent traffic. During periods of high usage, you can refresh the dashboard up to 4 times per minute. You may need to wait a few minutes before refreshing the dashboard again.
 
+### API keys in request body
+
+When API keys are sent in the request body instead of the request header, some requests may not appear in the API usage dashboard. This can lead to incomplete data in the dashboard and make it difficult to accurately monitor API usage.
+
+For the most accurate reporting in the API usage dashboard, [include API keys in the request header]({{site.baseurl}}/api/basics#bearer-token-authentication) rather than in the request body.
+
 ## Related articles
 
-- [API usage alerts]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
+- [API usage alerts]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Rate limits]({{site.baseurl}}/api/api_limits)
+- [Bearer token authentication]({{site.baseurl}}/api/basics#bearer-token-authentication)

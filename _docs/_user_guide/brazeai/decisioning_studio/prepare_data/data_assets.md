@@ -18,7 +18,7 @@ The three required event assets (activations, engagements, and conversions) toge
 - **Engagements** tell the model how customers responded to the message
 - **Conversions** tell the model whether the ultimate business outcome was achieved
 
-Each of these must be structured as an incremental event stream (not a snapshot). See [Snapshots versus event streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) for details.
+Each of these must be structured as an incremental event stream (not a snapshot). See [Snapshots versus event streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) for details.
 
 {% alert note %}
 If Decisioning Studio is natively integrated with your customer engagement platform (such as Braze or Salesforce Marketing Cloud), activation and engagement data may be collected automatically without additional configuration. Consult your setup documentation to confirm.
@@ -57,7 +57,7 @@ Conversion data describes what happened to the customer after a recommendation w
 | Each record has a timestamp for when the conversion event occurred | Accurate timing is essential for attribution. The model needs to know which recommendation a conversion can be attributed to. |
 | If using a non-binary success metric (for example, revenue rather than converted or not converted), the metric value must be included with each conversion record | Decisioning Studio uses the metric value to generate training experiences. Without the value, the model can only learn that a conversion happened, not how valuable it was. |
 | If conversions can be directly attributed to a specific communication (for example, coupon redemption), include the fields needed to match the conversion to the activation record | Direct attribution gives the model the clearest learning signal. If direct attribution is not possible, Decisioning Studio uses proximity-based attribution as a fallback. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversions data" }
 
 ## Optional assets
 

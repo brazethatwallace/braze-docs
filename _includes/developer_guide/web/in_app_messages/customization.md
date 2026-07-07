@@ -45,6 +45,52 @@ braze.initialize("YOUR-API-KEY", {
 });
 ```
 
+## Customizing display timing
+
+To override the default display timing, remove calls to `braze.automaticallyShowInAppMessages()` and handle messages in `braze.subscribeToInAppMessage()`. Register your callback before `braze.openSession()`, so you can intercept session-start messages and decide whether to display or defer each message.
+
+By default, Braze displays in-app messages when they are triggered and eligible to display. If you need different behavior for your app experience, use a custom callback to defer or display messages based on your own logic.
+
+The following example shows how to subscribe to triggered in-app messages, defer selected messages, and display deferred messages later:
+
+```javascript
+import * as braze from "@braze/web-sdk";
+
+braze.initialize("YOUR-API-KEY", {
+    baseUrl: "YOUR-API-ENDPOINT"
+});
+
+braze.subscribeToInAppMessage(function (message) {
+    // Control-group messages should always be "shown" to log analytics.
+    if (message.isControl || message instanceof braze.ControlMessage) {
+        braze.showInAppMessage(message);
+        return;
+    }
+
+    const shouldDefer = true; // Replace with your own display logic
+
+    if (shouldDefer) {
+        braze.deferInAppMessage(message);
+        return;
+    }
+
+    braze.showInAppMessage(message);
+});
+
+braze.openSession();
+
+// Later, when your app is ready to display a deferred message:
+const deferredMessage = braze.getDeferredInAppMessage();
+if (deferredMessage) {
+    braze.showInAppMessage(deferredMessage);
+}
+```
+
+For related delivery customization guidance, see:
+
+- [Web `deferInAppMessage` reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage)
+- [Web `subscribeToInAppMessage` reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)
+
 ## Opening links in a new tab
 
 To set your in-app message links to open in a new tab, set the `openInAppMessagesInNewTab` option to `true` to force all links from in-app message clicks open in a new tab or window.

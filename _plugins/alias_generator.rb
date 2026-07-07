@@ -109,13 +109,16 @@ module Jekyll
     # end
 
     def alias_template(site,destination_path)
-      destination_url = site.config['baseurl'] + destination_path
+      normalized_path = destination_path.to_s.gsub("index.html", "")
+      normalized_path = normalized_path.chomp("/") unless normalized_path.empty? || normalized_path == "/"
+      destination_url = site.config['baseurl'] + normalized_path
       <<-EOF
       <!DOCTYPE html>
       <html>
       <head>
       <link rel="canonical" href="#{destination_url}"/>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta charset="utf-8">
+      <meta name="robots" content="noindex">
       <meta http-equiv="refresh" content="0;url=#{destination_url}" />
       </head>
       </html>

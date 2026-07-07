@@ -9,7 +9,7 @@ tool: Dashboard
 search_rank: 5
 ---
 
-# Facturation
+# Facturation {#billing}
 
 > Découvrez comment utiliser la page **Facturation** pour surveiller et vérifier votre consommation de données à travers les espaces de travail, les applications et les sources d'événements. Cet article présente les différentes sections de la page et les informations qu'elles mettent à votre disposition.
 
@@ -25,7 +25,7 @@ La page **Facturation** comprend les onglets suivants :
 
 L'onglet **Abonnement et utilisation** comprend des graphiques d'utilisation et les détails de votre contrat. Les données de cette page sont mises à jour quotidiennement à 22 h 00, heure de l'Est (ET). Elles ne reflètent pas l'activité en temps réel.
 
-### Graphiques d'utilisation
+### Graphiques d'utilisation {#usage-graphs}
 
 Vous trouverez ici des graphiques d'utilisation qui s'appliquent à vos espaces de travail. Votre propre tableau de bord peut afficher des indicateurs d'utilisation différents en fonction des produits que vous avez achetés.
 
@@ -33,11 +33,11 @@ Vous trouverez ici des graphiques d'utilisation qui s'appliquent à vos espaces 
 
 Ces graphiques peuvent afficher les utilisateurs actifs par mois, les visiteurs uniques mensuels et les envois d'e-mails. Ce type de graphiques est particulièrement utile pour planifier votre consommation et mieux comprendre quels espaces de travail contribuent à l'utilisation globale.
 
-### Détails du contrat
+### Détails du contrat {#contract-details}
 
 Les détails du contrat indiquent les dates de début et de fin de votre contrat actuel avec Braze.
 
-#### Points d'attention
+#### Points d'attention {#considerations}
 
 Si votre contrat utilise les visiteurs uniques mensuels (MUV) et que vous passez à un contrat utilisant uniquement les utilisateurs actifs par mois (MAU), vos données historiques apparaissent toujours dans le graphique MUV et vos nouvelles données apparaissent uniquement dans le graphique MAU. Par exemple, si votre contrat se termine en octobre, le graphique MUV affiche les données jusqu'à la fin du mois de septembre.
 
@@ -47,7 +47,7 @@ Sous **Événements et attributs les plus utilisés par application**, vous pouv
 
 ![Événements et attributs les plus utilisés par application]({% image_buster /assets/img/most_used_events_attributes_time.png %})
 
-Pour chaque application, vous pouvez sélectionner **Voir la répartition** pour afficher un décompte estimé de chaque attribut personnalisé, attribut de profil et événement personnalisé pour la période sélectionnée, ainsi que le pourcentage des mises à jour d'attributs et d'événements de cette application générées par cet attribut ou événement.
+Pour chaque application, vous pouvez sélectionner **See breakdown** pour afficher un décompte estimé de chaque attribut personnalisé, attribut de profil et événement personnalisé pour la période sélectionnée, ainsi que le pourcentage des mises à jour d'attributs et d'événements de cette application générées par cet attribut ou événement.
 
 ![Onglet de répartition des événements et attributs les plus utilisés par application]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
@@ -60,6 +60,8 @@ L'onglet **Utilisation totale des points de données** offre un aperçu détaill
 {% alert note %}
 Les informations relatives aux points de données sont mises en cache toutes les 24 heures.
 {% endalert %}
+
+Si vous êtes administrateur et que vous ne parvenez pas à afficher l'onglet **Utilisation totale des points de données**, assurez-vous que votre navigateur autorise les cookies tiers pour le domaine de votre tableau de bord de Braze et qu'il n'est pas en mode navigation privée.
 
 ![Filtrage de l'utilisation des points de données par semaines]({% image_buster /assets/img/subscription_and_billing2.png %})
 
@@ -74,11 +76,9 @@ Les champs de cette section sont définis comme suit :
 - **Points de données alloués :** Le nombre de points de données alloués dans le contrat par période de facturation.
 - **Utilisation des points de données du contrat :** Total cumulé de tous les points de données enregistrés sur la durée de vie du contrat ; ce total ne se réinitialise pas lors de la période de facturation suivante.
 
-![Section Détails du contrat de l'onglet Utilisation totale des points de données]({% image_buster /assets/img/contract_details.png %})
+### Données de facturation de la société {#company-billing-data}
 
-### Données de facturation de la société
-
-#### Utilisation totale des points de données au niveau de l'application
+#### Utilisation totale des points de données au niveau de l'application {#app-level-total-data-point-usage}
 
 Ce graphique affiche votre consommation de points de données par application.
 
@@ -88,25 +88,25 @@ Sélectionnez l'un des totaux pour afficher le tableau **Utilisation des points 
 
 ![Utilisation des points de données au fil du temps montrant les totaux hebdomadaires de points de données pour deux espaces de travail.]({% image_buster /assets/img/data_point_usage_time.png %})
 
-#### Utilisation des points de données par espace de travail
+#### Utilisation des points de données par espace de travail {#workspace-data-point-usage}
 
 Ce graphique vous permet d'évaluer l'utilisation totale des points de données d'une société par espace de travail. Il vous aide à déterminer la contribution de chaque espace de travail à la consommation globale de points de données.
 
 ![Graphique d'utilisation des points de données par espace de travail pour deux espaces de travail]({% image_buster /assets/img/appgroup_datapoint_usage.png %}){: style="max-width:90%;"}
 
-#### Utilisation des points de données du cycle de facturation par source d'événement
+#### Utilisation des points de données du cycle de facturation par source d'événement {#billing-cycle-data-point-usage-by-event-source}
 
 Ce graphique vous permet de visualiser la répartition de l'utilisation des points de données entre les différentes sources d'événements, telles que les attributs API, les événements personnalisés et les sessions.
 
 ![Utilisation des points de données du cycle de facturation par source d'événement affichant la répartition des points de données entre les différentes sources d'événements.]({% image_buster /assets/img/event_source_stats.png %})
 
-#### Utilisation des points de données au fil du temps
+#### Utilisation des points de données au fil du temps {#data-point-usage-over-time}
 
 Ce graphique vous permet de visualiser rapidement votre consommation totale de points de données par rapport à votre allocation.
 
 ![Utilisation des points de données au fil du temps comparant les points de données alloués pour le cycle de facturation en cours avec le total cumulé]({% image_buster /assets/img/company_data_point_usage_time.png %}){: style="max-width:90%;"}
 
-## Étapes suivantes
+## Étapes suivantes {#next-steps}
 
-- [Préférences de notification]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) pour configurer des alertes relatives aux événements de facturation et aux seuils d'utilisation.
-- [Tableau de bord de l'utilisation des messages]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) pour surveiller la consommation de crédits SMS, WhatsApp et RCS.
+- [Préférences de notification]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) pour configurer des alertes relatives aux événements de facturation et aux seuils d'utilisation.
+- [Tableau de bord de l'utilisation des crédits]({{site.baseurl}}/credits_usage_dashboard) pour surveiller la consommation de crédits de messages.

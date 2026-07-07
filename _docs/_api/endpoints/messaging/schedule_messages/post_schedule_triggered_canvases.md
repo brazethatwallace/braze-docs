@@ -10,7 +10,7 @@ description: "This article outlines details about the Schedule API-triggered Can
 ---
 {% api %}
 # Schedule API-triggered Canvases
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
@@ -20,13 +20,13 @@ You can pass in `context` that will be templated into the messages sent by the f
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Note that to send messages with this endpoint, you must have a [Canvas ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier), created when you build a Canvas.
+Note that to send messages with this endpoint, you must have a [Canvas ID]({{site.baseurl}}/api/identifier_types#canvas-api-identifier), created when you build a Canvas.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.trigger.schedule.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.trigger.schedule.create` permission.
 
 ## Rate limit
 
@@ -64,13 +64,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|Required|String| See [Canvas identifier]({{site.baseurl}}/api/identifier_types/). |
-| `recipients` | Optional | Array of recipients objects | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Optional | Connected audience object | See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+|`canvas_id`|Required|String| See [Canvas identifier]({{site.baseurl}}/api/identifier_types). |
+| `recipients` | Optional | Array of recipients objects | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object). |
+| `audience` | Optional | Connected audience object | See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience). |
 |`broadcast`| Optional | Boolean | You must set `broadcast` to true when sending a message to an entire segment that a campaign or Canvas targets. This parameter defaults to false (as of August 31, 2017). <br><br> If `broadcast` is set to true, a `recipients` list cannot be included. However, use caution when setting `broadcast: true`, as unintentionally setting this flag may cause you to send your message to a larger than expected audience. |
-| `context` | Optional | Object | Personalization key-value pairs for all users in this send. See [Canvas context object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
-| `schedule` | Required | Schedule object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `context` | Optional | Object | Personalization key-value pairs for all users in this send. See [Canvas context object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). |
+| `schedule` | Required | Schedule object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

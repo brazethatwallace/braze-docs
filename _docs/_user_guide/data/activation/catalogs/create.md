@@ -25,7 +25,18 @@ After this information is imported, you can begin accessing it in messages in a 
 
 ## Supported data types {#supported-data-types}
 
-For supported catalog data types, descriptions, how each can be created or updated (CSV vs API and CDI), and format and examples, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+The following table lists the supported catalog data types and how they can be created or updated.
+
+| Data type    | Description                                   | Available via CSV upload | Available via API and CDI |
+|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
+| String       | A sequence of characters.                     | ✅ Yes                    | ✅ Yes                     |
+| Number       | A numeric value, either integer or float.     | ✅ Yes                    | ✅ Yes                     |
+| Boolean      | A `true` or `false` value.                    | ✅ Yes                    | ✅ Yes                     |
+| Time         | A string formatted in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.                        | ✅ Yes                    | ✅ Yes                     |
+| Geolocation  | A `[longitude, latitude]` coordinate array. Latitude must be between -90 and 90; longitude must be between -180 and 180. For example, `[-73.988103, 40.779109]`. | ✅ Yes                    | ✅ Yes                     |
+| JSON object  | A nested object with key-value pairs. Can be displayed in the platform but can only be created or updated through the API or CDI.         | ⛔ No                     | ✅ Yes                     |
+| String array | A list of strings. Can be displayed in the platform but can only be created or updated through the API or CDI. Maximum of 100 elements. | ⛔ No                     | ✅ Yes                     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Creating a catalog
 
@@ -44,7 +55,7 @@ Before you upload your CSV file, ensure that your CSV file meets the following r
 | File size | For Free plans, the total size of all CSV files across a company is limited to 100 MB. For Pro plans, the maximum file size for a single CSV file is 2 GB. |
 | Field values | Each cell (field value) can contain up to 5,000 characters. |
 | Valid characters | The `id` column and all header values can only contain letters, numbers, hyphens, and underscores. |
-| Data types | Supported data types for CSV uploads include string, number, boolean, and time. For the full list of data types, including those available only through the API and CDI, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
+| Data types | Supported data types for CSV uploads include string, number, boolean, time, and geolocation. For the full list of data types, including those available only through the API and CDI, refer to [Supported data types](#supported-data-types). |
 | Formatting | Format all text in lowercase to maintain consistency. |
 | Encoding | Save and upload the CSV file using UTF-8 encoding. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -57,7 +68,7 @@ Need more space to accommodate for your CSV files? Contact your Braze account ma
 
 Drag and drop your file to the upload zone, or select **Upload CSV** and choose your file.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![Drag and drop your file to the upload zone, or select Upload CSV and choose your file.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 Select a data type for each column.
 
@@ -65,7 +76,7 @@ Select a data type for each column.
 This data type cannot be edited after you set up your catalog. In addition, a `NULL` value isn't supported in CSV upload and will be treated as a string.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![This data type cannot be edited after you set up your catalog. In addition, a NULL value isn't supported in CSV upload and will be treated as a string.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Enter a name and optional description for your catalog. Keep the following requirements in mind when naming your catalog:
 
@@ -94,7 +105,7 @@ For this tutorial, we're using a catalog that lists two games, their cost, and a
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table class="tg" aria-label="Tutorial: Creating a catalog from a CSV file">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -133,20 +144,18 @@ Next, we'll name this catalog "games_catalog" and select the **Process Catalog**
 
 Note that you won't be able to edit this name after the catalog is created. You can delete a catalog and re-upload an updated version using the same catalog name.
 
-After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
 {% endtab %}
 
 {% tab Create in browser %}
 ### Prerequisites
 
-Before you can edit or create catalogs in the browser, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) for your workspace:
+Before you can edit or create catalogs in the browser, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) for your workspace:
 
 - View Catalogs
 - Edit Catalogs
 - Export Catalogs
 - Delete Catalogs
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ### Step 1: Enter catalog details
 
@@ -178,7 +187,20 @@ Braze processes time values based on the dashboard timestamp. For example, if a 
 {% endtab %}
 {% endtabs %}
 
-For catalog data types with format and examples, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+## Catalog data types
+
+Catalogs support various data types to help you organize and structure your data effectively. The following table describes each supported data type and how it maps to CSV and API type names:
+
+| Data Type | Format | Example | Description |
+|-----------|--------|---------|-------------|
+| String | Text | `"Hello World"` | Any sequence of characters used for text data such as names, descriptions, and IDs. Equivalent to the `string` type in CSV and API imports. |
+| Time | ISO 8601 or Unix timestamp (seconds) | `"2024-03-15T14:30:00Z"` | Date and time values formatted as ISO 8601 or Unix timestamp in seconds. Equivalent to the `time` type in the API and the `datetime` type in CSV imports. |
+| Boolean | `true` or `false` | `true` | Logical values representing true or false states. Equivalent to the `boolean` type in CSV and API imports. |
+| Number | Integer or decimal | `42` or `19.99` | Numeric values including integers and floating-point numbers for prices, quantities, ratings, and more. Equivalent to the `integer` and `float` types in CSV imports and the `number` type in the API. |
+| Geolocation | `[longitude, latitude]` array | `[-73.988103, 40.779109]` | A coordinate pair representing a geographic location. Longitude must be between -180 and 180; latitude must be between -90 and 90. API `type` value is `geo`. Can be added via the **Add Fields** drawer in the Catalogs UI, CSV upload, or the REST API. |
+| Object | JSON object | `{"key": "value", "price": 10}` | Complex nested data structures. API `type` value is `object`. Displayed as JSON Object in the dashboard. Only available via API or Cloud Data Ingestion (CDI). |
+| Array | Array of strings | `["red", "blue", "green"]` | Lists of string values. API `type` value is `array`. Displayed as String array in the dashboard. Only available through the API or CDI. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Using templates in catalog names {#template-catalog-names}
 
@@ -201,19 +223,19 @@ To update your catalog after uploading a CSV or creating a catalog in the browse
 
 ### Using the REST API
 
-As you build more catalogs, you can also use the [List catalogs endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) to return a list of the catalogs in a workspace.
+As you build more catalogs, you can also use the [List catalogs endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) to return a list of the catalogs in a workspace.
 
-The REST API supports all [catalog data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), including JSON objects and string arrays. JSON objects and string arrays can only be created or updated through the REST API.
+The REST API supports all [catalog data types](#supported-data-types), including JSON objects and string arrays. JSON objects and string arrays can only be created or updated through the REST API.
 
 ### Using Cloud Data Ingestion
 
-You can maintain catalogs through [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) by syncing catalog data directly from your data warehouse (such as Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, or S3) on a scheduled basis.
+You can maintain catalogs through [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) by syncing catalog data directly from your data warehouse (such as Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, or S3) on a scheduled basis.
 
 ## Managing catalog items
 
 In addition to managing your catalogs, you can also use asynchronous and synchronous endpoints to manage the catalog items. This includes the ability to edit and delete catalog items, and to list catalog item details. 
 
-For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
+For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Catalog storage {#tiers}
 
@@ -223,7 +245,7 @@ The free version of catalogs supports CSV file sizes of up to 100 MB for all CSV
 The package entitlement shown in the Braze dashboard is rounded to the nearest unit for visual purposes; however, you are still entitled to the full entitlement purchased. To request an upgrade for catalog storage, contact your Braze account manager.
 {% endalert %}
 
-#### Free version
+### Free version
 
 The storage size for the free version of catalogs is up to 100&nbsp;MB. You can have unlimited items as long as they're under 100&nbsp;MB. 
 

@@ -1,43 +1,43 @@
 ---
 nav_title: "GET: Lista de integraciones"
 article_title: "GET: Lista de integraciones"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 alias: /api/cdi/get_integration_list/
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Enumerar integraciones de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Listar integraciones de Braze."
 
 ---
 {% api %}
-# Lista de integraciones
+# Listar integraciones {#list-integrations}
 {% apimethod get %}
 /cdi/integrations
 {% endapimethod %}
 
-> Utiliza este punto final para obtener una lista de las integraciones existentes.
+> Utiliza este punto de conexión para obtener una lista de las integraciones existentes.
 
 
 {% alert note %}
-Para utilizar este punto final, deberás generar una clave de API con el permiso .
+Para utilizar este punto de conexión, deberás generar una clave de API con el permiso `cdi.integration_list`.
 {% endalert %}
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi list integrations' %}
 
-## Parámetros de consulta
+## Parámetros de consulta {#query-parameters}
 
-Cada llamada a este punto final devolverá 10 elementos. Para una lista con más de 10 integraciones, utiliza la cabecera `Link` para recuperar los datos en la página siguiente, como se muestra en el ejemplo de respuesta.
+Cada llamada a este punto de conexión devolverá 10 elementos. Para una lista con más de 10 integraciones, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el ejemplo de respuesta.
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `cursor` | Opcional | Cadena | Determina la paginación de la lista de integración. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cursor` | Opcional | Cadena | Determina la paginación de la lista de integraciones. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
-### Sin cursor
+### Sin cursor {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
@@ -45,7 +45,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### Con cursor
+### Con cursor {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cursor=c2tpcDow' \
@@ -53,14 +53,14 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cu
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-### Ejemplo de respuesta satisfactoria
+### Ejemplo de respuesta satisfactoria {#example-success-response}
 
 El código de estado `200` podría devolver el siguiente cuerpo de respuesta.
 
 {% alert note %}
-La cabecera `Link` no existirá si hay menos o igual a 10 integraciones en total. En las llamadas sin cursor, `prev` no se mostrará. Al consultar la última página de elementos, `next` no se mostrará.
+El encabezado `Link` no existirá si hay 10 integraciones o menos en total. En las llamadas sin cursor, `prev` no se mostrará. Al consultar la última página de elementos, `next` no se mostrará.
 {% endalert %}
 
 ```
@@ -88,15 +88,15 @@ Link: </cdi/integrations?cursor=c2tpcDow>; rel="prev",</cdi/integrations?cursor=
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `400 Invalid cursor` | Compruebe que su `cursor` es válido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `400 Invalid cursor` | Comprueba que tu `cursor` es válido. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
-Para obtener más códigos de estado y mensajes de error asociados, consulta [Respuestas&]({{site.baseurl}}/api/errors/#fatal-errors) de [errores fatales]({{site.baseurl}}/api/errors/#fatal-errors).
+Para obtener más códigos de estado y mensajes de error asociados, consulta [Errores fatales y respuestas]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

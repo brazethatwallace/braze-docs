@@ -39,13 +39,28 @@ function unEncodeURIComponent(str) {
 }
 
 function setAdaTableRole(role='presentation') {
-  // assign a role of presentation, and remove the role if it has a th or thead
   $('table').each(function(){
-    if (!$(this).attr('role')) {
-      $(this).attr('role',role);
+    var $table = $(this);
+
+    // Tables with an accessible name are data tables.
+    // Ensure they always use native table semantics by clearing any presentation role.
+    var hasAccessibleName = !!$table.attr('aria-label') ||
+                            !!$table.attr('aria-labelledby') ||
+                            $table.children('caption').length > 0;
+    if (hasAccessibleName) {
+      $table.removeAttr('role');
+      return;
     }
-    if (($(this).attr('role') == role) && (($(this).has('th').length > 0) || ($(this).has('thead').length > 0))){
-      $(this).attr('role',null);
+
+    // For tables without an accessible name, apply the original heuristic:
+    // mark as presentation, then remove that role if the table has header cells
+    // (a signal that it is a data table, not a layout table).
+    if (!$table.attr('role')) {
+      $table.attr('role', role);
+    }
+    if ($table.attr('role') === role &&
+        ($table.find('th').length > 0 || $table.find('thead').length > 0)) {
+      $table.removeAttr('role');
     }
   });
 }
@@ -56,6 +71,9 @@ function string_to_slug(str) {
   }
   return str;
 }
+// TODO: The __algolia_user cookie and algolia_user variable below are remnants of Algolia
+// Insights tracking. The Algolia frontend has been removed; confirm with the team that this
+// cookie is no longer needed and remove in a follow-up PR.
 let algolia_user = Cookies.get('__algolia_user');
 if (!algolia_user){
   algolia_user = generateUUID();
@@ -128,7 +146,7 @@ var tab_track = {
   'bigquery': 'tb_data',
   'databricks': 'tb_data',
 }
-// Set cookie to auto expire after 30 days of inactivity
+// TODO: Remove this cookie set along with the algolia_user variable above in a follow-up PR.
 Cookies.set('__algolia_user', algolia_user, { expires: 30 });
 
 String.prototype.upCaseWord = function() {
@@ -234,16 +252,11 @@ $(document).ready(function() {
       var active_toc = $('#toc').find("a.nav-link.active").last().attr("href");
       var hash = active_toc;
       if (!hash){
-        hash = '.';
+        hash = window.location.pathname || '.';
         active_toc = '.';
-        if (window.location.pathname.substr(-1) != '/') {
-          hash = window.location.pathname + '/' ;
-        }
       }
       else {
-        if (window.location.pathname.substr(-1) != '/')  {
-          hash = window.location.pathname + '/' + hash;
-        }
+        hash = window.location.pathname + hash;
       }
 
       window.history.replaceState(null, null, hash);
@@ -280,12 +293,37 @@ $(document).ready(function() {
 
   }
   //var nav_bottom_height = $('#nav_bottom').height();
+  var backToTopThreshold = 300;
+  var $backToTopBtn = $('.back-to-top-btn');
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setBackToTopVisible(isVisible) {
+    if (!$backToTopBtn.length) {
+      return;
+    }
+    $backToTopBtn.toggleClass('is-visible', isVisible);
+    $backToTopBtn.attr('tabindex', isVisible ? '0' : '-1');
+    $('body').toggleClass('btt-visible', isVisible);
+  }
+
   var scrollHandler = function() {
-    var query_str = window.location.search;
     var y_cord = $(this).scrollTop();
+    setBackToTopVisible(y_cord > backToTopThreshold);
   };
   scrollHandler();
   $(window).scroll(scrollHandler);
+
+  $backToTopBtn.on('click', function() {
+    var contentStart = document.getElementById('content_start');
+    if (!contentStart) {
+      return;
+    }
+    contentStart.scrollIntoView({
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
+    contentStart.focus({ preventScroll: true });
+  });
 
   // See if sdk tabs should be changed based on url hash
   let location_hash = window.location.hash.slice(1).replace(/[^a-zA-Z0-9_-]+/g, '');
@@ -301,12 +339,7 @@ $(document).ready(function() {
           'sdktab': sdk_tab
         };
         let query_str = replaceParams(window.location.search, tab_replace, true) + '#' + sdk_hash.attr('id');
-        if (window.location.pathname.substr(-1) != '/')  {
-          window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-        }
-        else {
-          window.history.replaceState(null, null,  window.location.pathname + query_str);
-        }
+        window.history.replaceState(null, null, window.location.pathname + query_str);
       }
     }
   }
@@ -317,12 +350,7 @@ $(document).ready(function() {
     let tab_replace = {};
     tab_replace[query_name] = encodeURIComponent(tab_norm);
     let query_str = replaceParams(window.location.search, tab_replace, true);
-    if (window.location.pathname.substr(-1) != '/')  {
-      window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-    }
-    else {
-      window.history.replaceState(null, null,  window.location.pathname + query_str);
-    }
+    window.history.replaceState(null, null, window.location.pathname + query_str);
     switch(query_name) {
       case 'sdktab': {
         Cookies.set('sdktab',tab_norm, { expires: 365 });
@@ -366,19 +394,12 @@ $(document).ready(function() {
       $this.attr('role','tab');
     }
   });
-  // set list
-  var list_tabs = $('ul').not('.ab-nav');
-  list_tabs.each(function(i){
-    var $this = $(this);
-    if (!$this.attr('role')) {
-      $this.attr('role','list');
-    }
-  });
-  var list_tab = list_tabs.children('li')
-  list_tab.each(function(i){
-    var $this = $(this);
-    if (!$this.attr('role')) {
-      $this.attr('role','listitem');
+  // Safari/WebKit drops list semantics when list-style is removed. Prose lists keep
+  // native markers in CSS; role=list reinforces the group. Do not set role=listitem
+  // on native <li> - it interferes with bullet and position announcements.
+  $('#article-main ul').not('.ab-nav').add('#article-main ol').each(function() {
+    if (!$(this).attr('role')) {
+      $(this).attr('role', 'list');
     }
   });
 
@@ -407,7 +428,7 @@ $(document).ready(function() {
     var pg_prev = nav_links.eq(nav_index - 1);//nav_active.prevAll('[data-parent="' + data_parent + '"]').first();
     nav_bottom.addClass('flex');
     pg_prev_link.attr('href',pg_prev.attr('href') );
-    pg_prev_div.html(`<div class="nav_indicator"><i class="fas fa-long-arrow-alt-left"></i> ${site_i18n['previous'] || 'PREVIOUS'}</div> ${pg_prev.html()}`);
+    pg_prev_div.html(`<span class="nav_indicator"><i class="fas fa-long-arrow-alt-left"></i> ${site_i18n['previous'] || 'PREVIOUS'}</span> ${pg_prev.html()}`);
     pg_prev_div.css('display', 'inline-block');
     if (nav_index < (nav_links.length -1)) {
       pg_prev_div.css('border-right', '0px');
@@ -421,7 +442,7 @@ $(document).ready(function() {
     var pg_next = nav_links.eq(nav_index + 1);//nav_active.nextAll('[data-parent="' + data_parent + '"]').first();
     nav_bottom.addClass('flex');
     pg_next_link.attr('href',pg_next.attr('href') );
-    pg_next_div.html(`<div class="nav_indicator">${site_i18n['next'] || 'NEXT'} <i class="fas fa-long-arrow-alt-right"></i></div> ${pg_next.html()}`);
+    pg_next_div.html(`<span class="nav_indicator">${site_i18n['next'] || 'NEXT'} <i class="fas fa-long-arrow-alt-right"></i></span> ${pg_next.html()}`);
     pg_next_div.css('display', 'inline-block');
   }
   else {
@@ -430,25 +451,264 @@ $(document).ready(function() {
   // link image fix for underline
   $('#article-main a:has(> img)').css('display','inline-block');
 
-  $('#sidebar_toggle').click(function(e){
+  // Scroll the active nav item into view on page load. Active sections are
+  // pre-expanded server-side (no collapse animation), so no delay is needed.
+  // Uses scrollTop directly on #left_navmenu rather than scrollIntoView() to
+  // avoid scrollIntoView walking up to the main viewport and fighting URL fragments.
+  var $nav = $('#left_navmenu');
+  var $navActive = $nav.find('.nav-item.active').last();
+  if ($navActive.length) {
+    $nav.scrollTop(
+      $nav.scrollTop() + $navActive.offset().top - $nav.offset().top - ($nav.height() / 2) + ($navActive.outerHeight() / 2)
+    );
+  }
+
+  function logDocNavRailCustomEvent(eventName, extraProps) {
+    if (!window.braze || typeof window.braze.logCustomEvent !== 'function') {
+      return;
+    }
+    var payload = {
+      page_url: window.location.pathname,
+      page_title: document.title
+    };
+    if (extraProps) {
+      for (var key in extraProps) {
+        if (Object.prototype.hasOwnProperty.call(extraProps, key)) {
+          payload[key] = extraProps[key];
+        }
+      }
+    }
+    braze.logCustomEvent(eventName, payload);
+    braze.requestImmediateDataFlush();
+  }
+
+  function setSidebarToggleIcon(isCollapsed) {
+    var btn = $('#sidebar_toggle');
+    var img = $('#sidebar_toggle_icon');
+    if (!btn.length || !img.length) { return; }
+    var narrowSrc = btn.attr('data-rail-src-narrow');
+    var widenSrc = btn.attr('data-rail-src-widen');
+    if (!narrowSrc || !widenSrc) { return; }
+    img.attr('src', isCollapsed ? widenSrc : narrowSrc);
+  }
+
+  var docNavFlyoutHoverLeaveTimer = null;
+
+  // Keep in sync with `$window-medium-px` / Bootstrap `md` (see assets/css/main.scss).
+  function isDocNavRailLayout() {
+    return window.matchMedia('(min-width: 768px)').matches;
+  }
+
+  function syncDocNavDisclosureState() {
     var nav_bar = $('#nav_bar');
-    var nav_icon = $('#sidebar_toggle i');
+    var btn = $('#sidebar_toggle');
+    if (!btn.length) { return; }
+    var isCollapsed = nav_bar.hasClass('hide_sidebar');
+    var flyoutOpen = nav_bar.hasClass('doc-nav-flyout-open');
+    var collapseLabel = (typeof site_i18n !== 'undefined' && site_i18n['collapse_navigation']) ? site_i18n['collapse_navigation'] : 'Collapse navigation';
+    var expandLabel = (typeof site_i18n !== 'undefined' && site_i18n['expand_navigation']) ? site_i18n['expand_navigation'] : 'Expand navigation';
+    btn.attr('aria-label', isCollapsed ? expandLabel : collapseLabel);
+    btn.attr('title', isCollapsed ? expandLabel : collapseLabel);
+    var expanded = !isCollapsed || (isCollapsed && flyoutOpen);
+    btn.attr('aria-expanded', expanded ? 'true' : 'false');
+    var hint = $('#sidebar_toggle_flyout_hint');
+    if (hint.length) {
+      hint.prop('hidden', !isCollapsed);
+      if (isCollapsed) {
+        btn.attr('aria-describedby', 'sidebar_toggle_flyout_hint');
+      } else {
+        btn.removeAttr('aria-describedby');
+      }
+    }
+  }
+
+  function closeDocNavFlyout(closeMethod) {
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    logDocNavRailCustomEvent('doc_nav_flyout_closed', { close_method: closeMethod });
+    nav_bar.removeClass('doc-nav-flyout-open');
+    if (docNavFlyoutHoverLeaveTimer) {
+      clearTimeout(docNavFlyoutHoverLeaveTimer);
+      docNavFlyoutHoverLeaveTimer = null;
+    }
+    syncDocNavDisclosureState();
+    requestAnimationFrame(function() { syncSidebarToggleDock(); });
+  }
+
+  function openDocNavFlyoutFromKeyboard() {
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('hide_sidebar') || nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    nav_bar.addClass('doc-nav-flyout-open');
+    logDocNavRailCustomEvent('doc_nav_flyout_opened', { open_method: 'keyboard' });
+    syncDocNavDisclosureState();
+    requestAnimationFrame(function() {
+      syncSidebarToggleDock();
+      var firstFocusable = $('#left_navmenu').find('a, button').filter(':visible').first();
+      if (firstFocusable.length) {
+        firstFocusable[0].focus();
+      } else {
+        var tgl = document.getElementById('sidebar_toggle');
+        if (tgl) { tgl.focus(); }
+      }
+    });
+  }
+
+  // Move rail toggle between the collapsed rail slot and the expanded-nav position.
+  // During flyout peek (hide_sidebar + doc-nav-flyout-open), the button stays in the
+  // rail slot so it doesn't jump when the flyout opens.
+  function syncSidebarToggleDock() {
+    var nav_bar = $('#nav_bar');
+    var host = $('#sidebar_toggle_host');
+    var slot = $('.left-nav-collapsed-slot');
+    var btn = $('#sidebar_toggle');
+    if (!btn.length) { return; }
+    if (nav_bar.hasClass('hide_sidebar')) {
+      // Collapsed (with or without flyout peek): button stays in the rail slot.
+      if (slot.length && !$.contains(slot[0], btn[0])) { btn.appendTo(slot); }
+    } else {
+      // Fully expanded: move button to the designated host or below the flyout panel.
+      if (host.length) {
+        btn.appendTo(host);
+      } else {
+        var primary = $('.left-nav-primary');
+        var flyout = $('#doc_nav_flyout');
+        if (primary.length && flyout.length) {
+          btn.insertAfter(flyout);
+        } else if (slot.length) {
+          btn.appendTo(slot);
+        }
+      }
+    }
+  }
+
+  $('#sidebar_toggle').on('keydown', function(e) {
+    if (e.key !== 'ArrowDown') { return; }
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('hide_sidebar') || nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    e.preventDefault();
+    openDocNavFlyoutFromKeyboard();
+  });
+
+  document.addEventListener('keydown', function docNavFlyoutOnEscape(e) {
+    if (e.key !== 'Escape') { return; }
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.length || !nav_bar.hasClass('hide_sidebar') || !nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    e.preventDefault();
+    closeDocNavFlyout('escape');
+    var t = document.getElementById('sidebar_toggle');
+    if (t) { t.focus(); }
+  }, true);
+
+  $('#nav_bar').on('mouseenter.docNavFlyout', function() {
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('hide_sidebar')) { return; }
+    var wasFlyoutOpen = nav_bar.hasClass('doc-nav-flyout-open');
+    if (docNavFlyoutHoverLeaveTimer) {
+      clearTimeout(docNavFlyoutHoverLeaveTimer);
+      docNavFlyoutHoverLeaveTimer = null;
+    }
+    nav_bar.addClass('doc-nav-flyout-open');
+    if (!wasFlyoutOpen) {
+      logDocNavRailCustomEvent('doc_nav_flyout_opened', { open_method: 'hover' });
+    }
+    syncDocNavDisclosureState();
+    syncSidebarToggleDock();
+  });
+
+  $('#nav_bar').on('mouseleave.docNavFlyout', function(e) {
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
+    if (!nav_bar.hasClass('doc-nav-flyout-open')) { return; }
+    var to = e.relatedTarget;
+    if (to && nav_bar[0].contains(to)) { return; }
+    if (docNavFlyoutHoverLeaveTimer) { clearTimeout(docNavFlyoutHoverLeaveTimer); }
+    docNavFlyoutHoverLeaveTimer = setTimeout(function() {
+      docNavFlyoutHoverLeaveTimer = null;
+      var nb = $('#nav_bar');
+      if (!nb.hasClass('doc-nav-flyout-open')) { return; }
+      var ae = document.activeElement;
+      if (ae && nb[0].contains(ae)) { return; }
+      closeDocNavFlyout('mouse_leave');
+    }, 200);
+  });
+
+  $('#sidebar_toggle').click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if (!isDocNavRailLayout()) { return; }
+    var nav_bar = $('#nav_bar');
     var curstate = nav_bar.hasClass('hide_sidebar');
     if (curstate) {
+      if (nav_bar.hasClass('doc-nav-flyout-open')) {
+        logDocNavRailCustomEvent('doc_nav_flyout_closed', { close_method: 'sidebar_expanded' });
+      }
+      logDocNavRailCustomEvent('expand_nav_clicked');
+      nav_bar.removeClass('doc-nav-flyout-open');
       nav_bar.removeClass('hide_sidebar');
-      nav_icon.removeClass('fa-bars');
-      nav_icon.addClass('fa-chevron-left');
       Cookies.set('ln', '', { expires: 365 });
     } else {
+      if (nav_bar.hasClass('doc-nav-flyout-open')) {
+        logDocNavRailCustomEvent('doc_nav_flyout_closed', { close_method: 'sidebar_collapsed' });
+      }
+      logDocNavRailCustomEvent('collapse_nav_clicked');
+      nav_bar.removeClass('doc-nav-flyout-open');
       nav_bar.addClass('hide_sidebar');
-      nav_icon.removeClass('fa-chevron-left');
-      nav_icon.addClass('fa-bars');
       Cookies.set('ln','1',  { expires: 365 });
     }
+    setSidebarToggleIcon(nav_bar.hasClass('hide_sidebar'));
+    syncDocNavDisclosureState();
+    syncSidebarToggleDock();
   });
+  // Pinned collapsed state uses cookie `ln` only (no URL param). Synthetic click avoided so layout/ARIA stay in sync on first paint.
   if (Cookies.get('ln')) {
-    $('#sidebar_toggle').trigger('click');
+    var nav_barInit = $('#nav_bar');
+    nav_barInit.addClass('hide_sidebar');
+    setSidebarToggleIcon(true);
   }
+  syncSidebarToggleDock();
+  syncDocNavDisclosureState();
+
+  $(window).on('resize.docNavRail', function() {
+    if (!isDocNavRailLayout()) {
+      closeDocNavFlyout('viewport_resize');
+    }
+    syncSidebarToggleDock();
+  });
+
+  // Keep collapse containers out of tab order; section caret buttons stay focusable (GitLab-style)
+  function setNavCollapseTabindex() {
+    $('#left_navmenu .collapse').attr('tabindex', '-1');
+  }
+  setNavCollapseTabindex();
+  $(document).on('shown.bs.collapse', '#left_navmenu .collapse', setNavCollapseTabindex);
+
+  // Update nav section caret icon and aria-label when expand/collapse (GitLab-style)
+  $(document).on('shown.bs.collapse', '#left_navmenu .collapse', function() {
+    var id = $(this).attr('id');
+    var $btn = $('#left_navmenu button[data-target="#' + $.escapeSelector(id) + '"]');
+    if (!$btn.length) { return; }
+    $btn.attr('aria-expanded', 'true');
+    $btn.each(function() {
+      var collapseLabel = $(this).attr('data-collapse-label');
+      if (collapseLabel) { $(this).attr('aria-label', collapseLabel); }
+    });
+    $btn.filter('.nav_toggle').find('i.fas').removeClass('fa-chevron-right').addClass('fa-chevron-down');
+  });
+  $(document).on('hidden.bs.collapse', '#left_navmenu .collapse', function() {
+    var id = $(this).attr('id');
+    var $btn = $('#left_navmenu button[data-target="#' + $.escapeSelector(id) + '"]');
+    if (!$btn.length) { return; }
+    $btn.attr('aria-expanded', 'false');
+    $btn.each(function() {
+      var expandLabel = $(this).attr('data-expand-label');
+      if (expandLabel) { $(this).attr('aria-label', expandLabel); }
+    });
+    $btn.filter('.nav_toggle').find('i.fas').removeClass('fa-chevron-down').addClass('fa-chevron-right');
+  });
 
   function setPanZoom(mermaid_charts){
     setTimeout(function() {
@@ -555,6 +815,45 @@ $(document).ready(function() {
     $('#' + partab + ' div.' + curtab + postfix).addClass(prefix + 'active');
   }
 
+  // Sync aria-selected and roving tabindex on all [role="tablist"] from active <li> state.
+  // Called after every tab-switch (click handler or initialization).
+  function syncTabAriaFromActiveClass() {
+    $('ul[role="tablist"]').each(function() {
+      $(this).find('li').each(function() {
+        var isActive = $(this).hasClass('active') || $(this).hasClass('sub_active');
+        $(this).find('[role="tab"]').each(function() {
+          $(this).attr('aria-selected', isActive ? 'true' : 'false');
+          $(this).attr('tabindex', isActive ? '0' : '-1');
+        });
+      });
+    });
+  }
+
+  // Arrow-key navigation between tabs within a tablist (WAI-ARIA tabs pattern).
+  $(document).on('keydown', 'ul[role="tablist"] [role="tab"]', function(e) {
+    var $tabs = $(this).closest('ul[role="tablist"]').find('[role="tab"]');
+    var currentIndex = $tabs.index(this);
+    var nextIndex;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      nextIndex = (currentIndex + 1) % $tabs.length;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      nextIndex = $tabs.length - 1;
+    } else {
+      return;
+    }
+
+    $tabs.eq(nextIndex).focus().trigger('click');
+  });
+
   // Updated Tab switcher
   $('.tab_toggle, .sdk-tab_toggle').click(function(e){
     e.preventDefault();
@@ -562,8 +861,9 @@ $(document).ready(function() {
     var tabtype = $this.attr("class").includes('sdk-') ? 'sdk-' : '';
     var curtab = $this.attr('data-' + tabtype  + 'tab');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdktab' : 'tab';
-    setTabClass(tabtype,'', '_tab', curtab)
+    setTabClass(tabtype,'', '_tab', curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.tab_toggle_only, .sdk-tab_toggle_only').click(function(e){
@@ -574,8 +874,9 @@ $(document).ready(function() {
     var curtab = $this.attr('data-' + tabtype + 'tab');
     var partab = $this.attr('data-' + tabtype + 'tab-target');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdktab' : 'tab';
-    setTabOnlyClass(tabtype,'','_tab', partab, curtab)
+    setTabOnlyClass(tabtype,'','_tab', partab, curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.sub_tab_toggle, .sub_sdk-tab_toggle').click(function(e){
@@ -585,8 +886,9 @@ $(document).ready(function() {
     var curtab = $this.attr('data-' + tabtype + 'sub_tab');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdksubtab' : 'subtab';
 
-    setTabClass('','sub_', '', curtab)
+    setTabClass('','sub_', '', curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.sub_tab_toggle_only, .sub_sdk-tab_toggle_only').click(function(e){
@@ -598,8 +900,9 @@ $(document).ready(function() {
     var partab = $this.attr('data-' + tabtype + 'sub_tab-target');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdksubtab' : 'subtab';
 
-    setTabOnlyClass(tabtype,'sub_','', partab, curtab)
+    setTabOnlyClass(tabtype,'sub_','', partab, curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   let tab_query = (new URLSearchParams(window.location.search).get('tab') || '').replace('_sub_tab','');
@@ -727,6 +1030,9 @@ $(document).ready(function() {
   });
 
 
+  // Ensure aria-selected and tabindex reflect whichever tabs were activated by URL params or cookies.
+  syncTabAriaFromActiveClass();
+
   String.prototype.upCaseWord = function() {
     return this.toString().replace(/\b\w/g, function(l){ return l.toUpperCase() });
   };
@@ -778,8 +1084,81 @@ $(document).ready(function() {
     if (is_external){
       $(this).after(' <i class="fas fa-external-link-alt"></i>');
       $(this).attr('target', '_blank');
+      $(this).attr('rel', function(_, rel) {
+        var tokens = (rel || '').split(/\s+/).filter(Boolean);
+        if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
+        if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
+        return tokens.join(' ');
+      });
     }
   });
+  // T7: add rel and sr-only warning to all target="_blank" links (static + dynamic).
+  // Uses native DOM (not jQuery) so it works on both regular DOM and Shadow DOM roots.
+  function patchNewWindowLinks(root) {
+    var links = root.querySelectorAll ? Array.prototype.slice.call(root.querySelectorAll('a[target="_blank"]')) : [];
+    if (root.nodeName === 'A' && root.getAttribute && root.getAttribute('target') === '_blank') {
+      links.push(root);
+    }
+    links.forEach(function(a) {
+      var tokens = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+      if (tokens.indexOf('noopener') < 0) { tokens.push('noopener'); }
+      if (tokens.indexOf('noreferrer') < 0) { tokens.push('noreferrer'); }
+      a.setAttribute('rel', tokens.join(' '));
+      var ariaLabel = a.getAttribute('aria-label');
+      if (ariaLabel) {
+        // aria-label overrides all text content in the accessible name computation,
+        // so the sr-only span inside the link will be ignored. Append the warning
+        // directly to aria-label instead.
+        if (ariaLabel.indexOf('(opens in new tab)') < 0) {
+          a.setAttribute('aria-label', ariaLabel.trim() + ' (opens in new tab)');
+        }
+      } else if (!a.querySelector('.sr-only')) {
+        var span = document.createElement('span');
+        span.className = 'sr-only';
+        span.textContent = ' (opens in new tab)';
+        a.appendChild(span);
+      }
+    });
+  }
+
+  // SearchUnify's full-page search widget (<su-app>) uses Shadow DOM, so we must
+  // also observe its shadow root to patch links injected there.
+  function watchShadowRoot(el) {
+    if (el.shadowRoot) {
+      t7Observer.observe(el.shadowRoot, { childList: true, subtree: true });
+      patchNewWindowLinks(el.shadowRoot);
+    } else {
+      var attempts = 0;
+      var poll = setInterval(function() {
+        if (el.shadowRoot || ++attempts > 50) {
+          clearInterval(poll);
+          if (el.shadowRoot) {
+            t7Observer.observe(el.shadowRoot, { childList: true, subtree: true });
+            patchNewWindowLinks(el.shadowRoot);
+          }
+        }
+      }, 100);
+    }
+  }
+
+  patchNewWindowLinks(document.body);
+  var t7Observer = new MutationObserver(function(mutations) {
+    for (var i = 0; i < mutations.length; i++) {
+      var added = mutations[i].addedNodes;
+      for (var j = 0; j < added.length; j++) {
+        var node = added[j];
+        if (node.nodeType !== 1) { continue; }
+        patchNewWindowLinks(node);
+        if (node.nodeName === 'SU-APP') { watchShadowRoot(node); }
+        var suApps = node.querySelectorAll ? node.querySelectorAll('su-app') : [];
+        for (var k = 0; k < suApps.length; k++) { watchShadowRoot(suApps[k]); }
+      }
+    }
+  });
+  t7Observer.observe(document.body, { childList: true, subtree: true });
+  // Handle su-app already present at load time (e.g. on the /search/ page)
+  var suAppEl = document.querySelector('su-app');
+  if (suAppEl) { watchShadowRoot(suAppEl); }
   $('.highlight .highlight .rouge-code pre').each(function(k) {
     $this = $(this);
     if ($this.html().length > 120) {

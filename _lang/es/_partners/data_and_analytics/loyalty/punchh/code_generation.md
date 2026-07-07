@@ -81,6 +81,7 @@ Sustituye lo siguiente:
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | Tu token de generación de cupones dinámicos. |
 | `CAMPAIGN_ID`                     | Tu ID de Campaign.                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Generar firma y construir URL" }
 
 ### Paso 3: Añadir el código del cupón al cuerpo del mensaje {#step-3-append-coupon-code-to-message-body}
 
@@ -108,7 +109,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 ```
 {% endraw %}
 
-A continuación, puedes aprovechar [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para insertar el código como texto sin formato en el cuerpo de cualquier mensaje. Por ejemplo:
+A continuación, puedes aprovechar el [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para insertar el código como texto sin formato en el cuerpo de cualquier mensaje. Por ejemplo:
 
 {% raw %}
 ```liquid
@@ -126,7 +127,7 @@ Para enlazar el código del cupón dentro de una imagen:
 3. Inserta tu enlace en una etiqueta HTML {% raw %}`<img>`{% endraw %}.
 
 {% tabs local %}
-{% tab example input %}
+{% tab ejemplo de entrada %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,7 +135,7 @@ Para enlazar el código del cupón dentro de una imagen:
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab ejemplo de salida %}
 ![Salida renderizada de la etiqueta de imagen del código del cupón.]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}
@@ -143,11 +144,11 @@ Para enlazar el código del cupón dentro de una imagen:
 
 | Código de error | Mensaje de error | Descripción |
 | --- | --- | --- |
-| `coupon_code_expired` | Este código promocional ha caducado | El código se utiliza después de su fecha de caducidad configurada. |
-| `coupon_code_success` | Enhorabuena, el código promocional se ha aplicado correctamente. | El código se utiliza correctamente. |
-| `coupon_code_error` | Introduce un código promocional válido | El código utilizado no es válido. |
-| `coupon_code_type_error` | Tipo de cupón incorrecto. Este cupón solo puede canjearse en `%{coupon_type}`. | Cuando un código que se supone que debe utilizarse en el TPV se utiliza en la aplicación móvil, se producirá este error. |
-| `usage_exceeded` | El uso de la campaña de este código de cupón está completo. Inténtalo la próxima vez. | El uso del código supera el número de usuarios autorizados a utilizarlo. Por ejemplo, si la configuración del dashboard permite que un código sea utilizado por 3000 usuarios y el número de usuarios supera los 3000, se producirá este error. |
-| `usage_exceeded_by_guest` | Este código promocional ya ha sido procesado. | El uso del código por un usuario supera el número de veces que un usuario puede utilizarlo. Por ejemplo, la configuración del dashboard permite que un mismo código sea utilizado tres veces por un usuario. Si se utiliza más veces, se producirá este error. |
-| `already_used_by_other_guest` | Este código promocional ya ha sido utilizado por otro invitado. | Otro usuario ya ha utilizado el código. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `coupon_code_expired` | This promo code has expired | El código se utiliza después de su fecha de caducidad configurada. |
+| `coupon_code_success` | Congratulations, Promo Code Applied Successfully. | El código se utiliza correctamente. |
+| `coupon_code_error` | Please enter a valid promo code | El código utilizado no es válido. |
+| `coupon_code_type_error` | Incorrect coupon type. This coupon can only be redeemed at `%{coupon_type}`. | Cuando un código que se supone que debe utilizarse en el TPV se utiliza en la aplicación móvil, se producirá este error. |
+| `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | El uso del código supera el número de usuarios autorizados a utilizarlo. Por ejemplo, si la configuración del dashboard permite que un código sea utilizado por 3000 usuarios y el número de usuarios supera los 3000, se producirá este error. |
+| `usage_exceeded_by_guest` | This promo code has already been processed. | El uso del código por un usuario supera el número de veces que un usuario puede utilizarlo. Por ejemplo, la configuración del dashboard permite que un mismo código sea utilizado tres veces por un usuario. Si se utiliza más veces, se producirá este error. |
+| `already_used_by_other_guest` | This promo code has already been used by some other guest. | Otro usuario ya ha utilizado el código. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajes de error" }

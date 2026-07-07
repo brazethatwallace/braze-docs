@@ -1,7 +1,7 @@
 ---
 nav_title: Sendbird
 article_title: Sendbird
-description: "このリファレンス記事では、Braze と Sendbird のパートナーシップについて説明します。Sendbird は、業界をリードするアプリ内メッセージソリューションであり、ユーザーが Sendbird プラットフォームでアプリ内通知を受信できるようにします。"
+description: "このリファレンス記事では、BrazeとSendbirdのパートナーシップについて説明します。Sendbirdは、業界をリードするアプリ内メッセージソリューションであり、ユーザーがSendbirdプラットフォームでアプリ内通知を受信できるようにします。"
 alias: /partners/sendbird/
 page_type: partner
 search_tag: Partner
@@ -29,8 +29,8 @@ BrazeとSendbird Notificationsの共同機能を活用することで、企業�
 | Sendbirdアカウント | このパートナーシップを活用するには、Sendbirdアカウントが必要です。 |
 | Sendbird UIKit | Sendbird UIKitを[iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit)または[Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit)アプリにインストールしておく必要があります。 |
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [あなたのRESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -38,7 +38,7 @@ BrazeとSendbird Notificationsの共同機能を活用することで、企業�
 
 BrazeとSendbird Notificationsの統合により、顧客エンゲージメントを高め、優れたユーザーエクスペリエンスを提供するさまざまなユースケースが提供されます。
 
-- **マーケティング**：閲覧履歴やこれまでの購買履歴に基づく限定割引など、ユーザーの好みに合わせたパーソナライズされたプロモーションやおすすめで、ターゲットを絞ったCampaignを強化します。
+- **マーケティング**：閲覧履歴やこれまでの購買履歴に基づく限定割引など、ユーザーの好みに合わせたパーソナライズされたプロモーションやおすすめで、ターゲットを絞ったキャンペーンを強化します。
 - **トランザクション**：注文、配送、請求、支払いに関するリアルタイムの最新情報（注文状況、配送の詳細、予定配送時刻の通知など）を提供して、顧客とのコミュニケーションを向上させます。
 
 ## 統合 {#integration}
@@ -77,37 +77,37 @@ Brazeの**テンプレートとメディア**から**Webhookテンプレート**
 1. テンプレートの名前を入力し、必要に応じてチームとタグを追加します。
 2. リアルタイムまたはバッチエンドポイントをSendbirdダッシュボードから**Webhook URL**にコピーします。
 3. **Receiver**フィールドで<i class="fas fa-plus"></i>アイコンをクリックし、SendbirdのユーザーIDにマッピングされているユーザー属性を挿入します。
-    - カスタム属性 `sendbird_id` をSendbirdユーザーIDとして使用している場合は `{{ '{{' }}custom_attribute.${sendbird_id}}}`。
-    - BrazeユーザーIDをSendbirdユーザーIDとして使用している場合は `{{ '{{' }}${user_id}}}`。
-4. **Settings**タブで、`SENDBIRD_API_TOKEN` をSendbirdダッシュボードの通知APIトークンに置き換えます。
+    - カスタム属性`sendbird_id`をSendbirdユーザーIDとして使用している場合は`{{ '{{' }}custom_attribute.${sendbird_id}}}`。
+    - BrazeユーザーIDをSendbirdユーザーIDとして使用している場合は`{{ '{{' }}${user_id}}}`。
+4. **Settings**タブで、`SENDBIRD_API_TOKEN`をSendbirdダッシュボードの通知APIトークンに置き換えます。
 5. テンプレートを保存します。
 {% endraw %}
 
 ## この統合を使う {#using-this-integration}
 
-### Campaigns
+### キャンペーン
 
-1. Brazeダッシュボードの**Campaigns**ページで、**キャンペーンを作成** > **Webhook**をクリックします。
-2. 上記で作成したWebhookテンプレートを選択します。Campaignにはバッチエンドポイントを使用することを強くお勧めします。
+1. Brazeダッシュボードの**キャンペーン**ページで、**キャンペーンを作成** > **Webhook**をクリックします。
+2. 上記で作成したWebhookテンプレートを選択します。キャンペーンにはバッチエンドポイントを使用することを強くお勧めします。
 3. **作成**タブでテンプレートの変数を編集して、テンプレートをカスタマイズします。
 
-### Canvas
+### キャンバス
 
-1. 新規または既存のCanvasから、**Message**コンポーネントを追加します。
+1. 新規または既存のキャンバスから、**Message**コンポーネントを追加します。
 2. コンポーネントを開き、**Messaging Channels**から**Webhook**を選択します。
-3. 上記で作成したWebhookテンプレートを選択します。Canvasにはリアルタイムエンドポイントを使用することを強くお勧めします。
+3. 上記で作成したWebhookテンプレートを選択します。キャンバスにはリアルタイムエンドポイントを使用することを強くお勧めします。
 4. **作成**タブでテンプレートの変数を編集して、テンプレートをカスタマイズします。
 
 ## カスタマイズ {#customization}
 
 ### 配信ステータスと開封ステータスを追跡する {#track-delivery-and-open-status}
 
-通知の配信および開封ステータスのイベントをCampaignのコンバージョン指標と統合するには、Brazeダッシュボードにカスタムイベントを追加します。
+通知の配信および開封ステータスのイベントをキャンペーンのコンバージョン指標と統合するには、Brazeダッシュボードにカスタムイベントを追加します。
 
 1. Brazeダッシュボードから**設定 > 設定の管理 > カスタムイベント**に移動し、**+ カスタムイベントを追加**をクリックします。
 2. カスタムイベントを作成したら、**プロパティの管理**をクリックし、「status」という名前のプロパティを追加して、プロパティの種類として「文字列」を選択します。
-3. CampaignまたはCanvasで通知を作成する場合は、**Event Name**フィールドにカスタムイベントの名前を入力します。
+3. キャンペーンまたはキャンバスで通知を作成する場合は、**Event Name**フィールドにカスタムイベントの名前を入力します。
 
 このカスタムイベントは、通知ごとに2回（メッセージが送信された時点と、ユーザーがメッセージを開封した時点）トリガーされます。
-- メッセージが送信されると、カスタムイベントが `SENT` ステータスでトリガーされます。
-- メッセージが読まれると、カスタムイベントが `READ` ステータスでトリガーされます。
+- メッセージが送信されると、カスタムイベントが`SENT`ステータスでトリガーされます。
+- メッセージが読まれると、カスタムイベントが`READ`ステータスでトリガーされます。

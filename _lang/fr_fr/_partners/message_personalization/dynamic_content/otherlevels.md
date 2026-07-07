@@ -29,7 +29,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | Un compte OtherLevels   | Un compte OtherLevels est nécessaire pour profiter de ce partenariat.                                                                     |
 | Une clé API REST de Braze  | Une clé API REST de Braze avec les autorisations `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Un endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Cette intégration nécessite d'appeler l'API de la plateforme OtherLevels Experience Platform dans le cadre du processus de génération de vidéos avant que les messages puissent être envoyés à vos utilisateurs depuis Braze. Des exemples cURL sont fournis dans cette documentation, mais nous recommandons d'utiliser des clients API tels que Postman pour automatiser les appels API.
 
@@ -132,7 +132,7 @@ Remplacez les éléments suivants :
 | `TALENT_TEMPLATE` | Un ID de modèle de talent. OtherLevels travaillera avec vous lors de l'ouverture du compte pour créer un talent (avatar). Vous recevrez un ou plusieurs ID de talents utilisables.                                                 |
 | `TALENT_MODEL` | Un ID de modèle de talent. OtherLevels travaillera avec vous lors de l'ouverture du compte pour créer un talent (avatar). Vous recevrez un ou plusieurs modèles de talents utilisables.                                                 |
 | `INSERT_SCRIPT` | Le texte exact que vous souhaitez que le talent prononce pendant la vidéo.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Call the OtherLevels Experience Platform API to generate a video #step-1" }
 
 Dans le cadre de la réponse API, OtherLevels renverra un payload JSON indiquant un appel API réussi. Le JSON contiendra un `recipe_id` unique pour identifier la vidéo générée. Le `recipe_id` sera nécessaire à l'étape suivante.
 
@@ -144,7 +144,7 @@ Voici un exemple de réponse de l'API :
 ```
 {% endraw %}
 
-### Étape 2 : Définir le `recipe_id` comme attribut personnalisé {#step-2}
+### Étape 2 : Définir le `recipe_id` comme attribut personnalisé {#step-2-setting-the-recipe_id-as-a-custom-attribute}
 
 Le `recipe_id` que vous avez reçu à l'[étape 1](#step-1) est maintenant défini comme attribut personnalisé de Braze pour le ou les utilisateurs auxquels vous souhaitez envoyer les vidéos.
 
@@ -178,9 +178,9 @@ Remplacez les éléments suivants :
 | `BRAZE_API_KEY`         | Votre clé API REST de Braze avec l'autorisation `users.track`.                                                                                                                                      |
 | `USER_ID`              | L'ID de l'utilisateur qui recevra cette vidéo. Pour plus d'exemples d'identifiants utilisables, reportez-vous à [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).                                                                                                                                                  |
 | `RECIPE_ID`       | Le `recipe_id` reçu de la réponse de l'API OtherLevels à l'[étape 1](#step-1).                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Setting the recipeid as a custom attribute" }
 
-### Étape 3 : Envoi via le Contenu connecté de Braze {#step-3}
+### Étape 3 : Envoi via le Contenu connecté de Braze {#step-3-sending-through-braze-connected-content}
 
 Pour envoyer les vidéos GenAI sous forme de messages push iOS à vos utilisateurs, suivez ces étapes :
 
@@ -210,7 +210,7 @@ L'arrière-plan vidéo peut être spécifié dans la clé `bg_image`.
 | Paramètre             | Description                  |
 |-------------------------|----------------------------|
 | `url`    | URL HTTPS pour l'image d'arrière-plan. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 La taille de l'arrière-plan vidéo peut être spécifiée dans la clé `resize_image`. Nous recommandons que l'image d'arrière-plan ait la même taille que celle configurée ici.
 
@@ -218,7 +218,7 @@ La taille de l'arrière-plan vidéo peut être spécifiée dans la clé `resize_
 |-------------------------|----------------------------|
 | `width`    | Largeur de l'image d'arrière-plan, avec des options pour les modes portrait et paysage. |
 | `height`     | Hauteur de l'image d'arrière-plan, avec des options pour les modes portrait et paysage.                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 Les options de superposition vidéo peuvent être spécifiées dans la clé `image_video_overlay`.
 
@@ -229,11 +229,11 @@ Les options de superposition vidéo peuvent être spécifiées dans la clé `ima
 | `color`              | Couleur de la superposition spécifiée en RVB avec la transparence vidéo.                                                                   |
 | `y_pos`       | Décalage de l'axe Y par rapport au centre.                                                              |
 | `x_pos`    | Décalage de l'axe X par rapport au centre. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 ### Talent et script {#talent-and-script}
 
-Dans le cadre du provisionnement, OtherLevels travaillera avec vous pour générer un ou plusieurs talents (parfois appelés avatars) à utiliser dans vos vidéos. En fonction de votre cas d'utilisation et de votre marque, cela peut prendre la forme d'un de vos ambassadeurs de marque existants ou d'une création unique.
+Dans le cadre du provisionnement, OtherLevels travaillera avec vous pour générer un ou plusieurs talents (parfois appelés avatars) à utiliser dans vos vidéos. En fonction de votre cas d'utilisation et de votre marque, cela peut prendre la forme de l'un de vos ambassadeurs de marque existants ou d'une création unique.
 
 Après leur création, vous recevrez des ID `TALENT_TEMPLATE` et `TALENT_MODEL` utilisables avec notre API.
 
@@ -242,7 +242,7 @@ Le modèle vocal utilisé pour traiter les scripts d'entrée fonctionne mieux lo
 | Paramètre             | Description                  |
 |-------------------------|----------------------------|
 | `speed`    | Spécifiez la vitesse à laquelle le talent lira le script. Par exemple, `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Talent and script" }
 
 ## Considérations supplémentaires {#additional-considerations}
 

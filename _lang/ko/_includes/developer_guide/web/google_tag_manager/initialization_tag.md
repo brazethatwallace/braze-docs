@@ -35,7 +35,7 @@
 | **API Key**   | Braze 대시보드의 **Settings** > **App Settings**에서 찾을 수 있는 [Braze API 키]({{site.baseurl}}/api/basics/#about-rest-api-keys)입니다. |
 | **API Endpoint** | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)에 대한 Braze URL에 따라 달라집니다. |
 | **SDK Version**  | [체인지로그]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web)에 나열된 웹 Braze SDK의 가장 최근 `MAJOR.MINOR` 버전입니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. 자세한 내용은 [SDK 버전 관리에 대한 정보]({{site.baseurl}}/developer_guide/sdk_integration/version_management/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 태그 구성" }
 
 추가 초기화 설정을 위해 **Braze Initialization Options**를 선택하고 필요한 옵션을 선택합니다.
 
@@ -61,6 +61,7 @@ Braze Initialization Tag는 다음 옵션을 제공합니다. 대부분은 [웹 
 | **Open Cards in New Tab** | `openCardsInNewTab` | 기본 피드 UI를 사용할 때 콘텐츠 카드 링크를 새 탭에서 엽니다. |
 | **Service Worker Location** | `serviceWorkerLocation` | 서비스 워커 파일의 커스텀 경로입니다(기본값: `/service-worker.js`). |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | 세션 타임아웃(초)입니다(기본값: 1800). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="4단계: 초기화 옵션 선택" }
 
 {% alert note %}
 Google Tag Manager Braze Initialization Tag를 사용할 때 [커스텀 HTML 인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)를 활성화하려면 **Braze Initialization Options**에서 **Allow HTML In-App Messages**를 선택하세요. 이 체크박스는 `braze.initialize()`의 `allowUserSuppliedJavascript` 초기화 옵션에 매핑되며 `true`로 설정됩니다. Google Tag Manager Braze Initialization Tag는 옵션 이름 대신 이 레이블을 사용합니다.

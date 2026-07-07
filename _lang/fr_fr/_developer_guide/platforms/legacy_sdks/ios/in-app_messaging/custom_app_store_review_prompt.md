@@ -1,6 +1,6 @@
 ---
 nav_title: "Invite d'évaluation personnalisée sur l'App Store"
-article_title: Invite d'évaluation personnalisée sur l'App Store
+article_title: "Invite d'évaluation personnalisée sur l'App Store"
 platform: iOS
 page_order: 4
 description: "Cet article de référence montre comment configurer une invite d'évaluation personnalisée sur l'App Store iOS."
@@ -15,7 +15,7 @@ noindex: true
 # Invite d'évaluation personnalisée sur l'App Store {#custom-app-store-review-prompt}
 
 {% alert note %}
-Une fois que vous avez mis en œuvre cette invite, Braze cesse de suivre automatiquement les impressions, et vous devez enregistrer vos propres [analyses]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks).
+Une fois que vous avez mis en œuvre cette invite, Braze cesse de suivre automatiquement les impressions, et vous devez enregistrer vos propres [analyses]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks).
 {% endalert %}
 
 Créer une campagne pour demander aux utilisateurs un avis sur l'App Store est une utilisation courante des messages in-app.
@@ -96,5 +96,5 @@ Créez ensuite une campagne de messages in-app avec les éléments suivants :
 {% endraw %}
 
 {% alert tip %}
-Apple limite les invites d'évaluation de l'App Store à un maximum de trois (3) fois par an pour chaque utilisateur. Votre campagne doit donc être [limitée en fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites d'évaluation de l'App Store. Par conséquent, votre invite d'évaluation personnalisée ne doit pas promettre qu'une invite d'évaluation native de l'App Store s'affichera, ni demander directement un avis.
+Apple limite les invites d'évaluation de l'App Store à un maximum de trois (3) fois par an pour chaque utilisateur. Votre campagne doit donc être [limitée en fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites d'évaluation de l'App Store. Par conséquent, votre invite d'évaluation personnalisée ne doit pas promettre qu'une invite d'évaluation native de l'App Store s'affichera, ni demander directement un avis.
 {% endalert %}

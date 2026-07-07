@@ -13,7 +13,7 @@ description: "Este artigo de referência aborda como construir features de clien
 Se você tem equipes internas de ciência de dados ou engenharia de dados, elas estão na melhor posição para construir e curar features, já que possuem mais contexto sobre quais sinais nos seus dados são significativos.
 
 {% alert note %}
-Para clientes da Braze, as features de clientes são normalmente passadas ao Decisioning Studio por meio de atributos personalizados nos perfis de usuário. Para detalhes sobre atributos personalizados versus eventos personalizados e suas respectivas estratégias de atualização, consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/).
+Para clientes da Braze, as features de clientes são normalmente passadas ao Decisioning Studio por meio de atributos personalizados nos perfis de usuário. Para detalhes sobre atributos personalizados versus eventos personalizados e suas respectivas estratégias de atualização, consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 {% endalert %}
 
 ## Tipos de features de clientes {#types-of-customer-features}
@@ -26,7 +26,7 @@ Existem quatro categorias comuns de features de clientes:
 | **Propensão do usuário** | Scores derivados de modelos para a probabilidade do cliente fazer algo | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Comportamental do usuário** | Resumos da atividade do cliente em um período de tempo | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Ambiental** | Sinais contextuais externos ao cliente | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de features de clientes" }
 
 Juntos, esses tipos de features fornecem ao modelo as informações necessárias para identificar segmentos, distinguir entre clientes e adaptar recomendações de acordo.
 
@@ -35,8 +35,8 @@ Juntos, esses tipos de features fornecem ao modelo as informações necessárias
 Tenha o seguinte em mente ao selecionar e construir features:
 
 - **Cobertura:** As features devem cobrir todos os clientes no seu público-alvo. Uma feature que está ausente ou nula para uma grande parte do seu público dá ao modelo menos informação para trabalhar com esses clientes.
-- **Granularidade:** Todas as features devem ser agregadas no nível do cliente. Consulte [Usar ID externo da Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) para orientações sobre o que "nível do cliente" significa na prática.
-- **Atualidade:** As features devem ser atualizadas em um cronograma baseado em tempo, não em eventos. Consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) para entender por que isso importa.
+- **Granularidade:** Todas as features devem ser agregadas no nível do cliente. Consulte [Usar ID externo da Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) para orientações sobre o que "nível do cliente" significa na prática.
+- **Atualidade:** As features devem ser atualizadas em um cronograma baseado em tempo, não em eventos. Consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) para entender por que isso importa.
 - **Validade:** Os valores das features devem estar dentro de faixas que façam sentido dada a definição. Uma feature para "compras nos últimos 30 dias" nunca deve ser negativa.
 - **Esparsidade:** Evite features que são zero ou nulas para a grande maioria dos clientes, a menos que haja uma razão de negócio clara. Features esparsas adicionam ruído sem adicionar sinal.
 - **Correlação:** Evite incluir features que são altamente correlacionadas entre si. Features redundantes podem introduzir viés e desacelerar o treinamento sem melhorar as previsões.

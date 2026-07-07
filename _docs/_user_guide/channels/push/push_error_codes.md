@@ -16,11 +16,11 @@ platform:
 
 {% tabs %}
 {% tab Android %} 
-### Push bounced: MismatchSenderId
+## Push bounced: MismatchSenderId
 `MismatchSenderId` indicates an authentication failure. Firebase Cloud Messaging (FCM) authenticates with a couple key pieces of data: senderID and FCM API key.  These should both be validated for accuracy. For more information see the [Android documentation](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) about this issue.
 
 Common failures may include:
-- Bad [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
+- Bad [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase)
 - Multiple registration if they register with another push service with a different senderID
 
 ### Push bounced: InvalidRegistration
@@ -29,23 +29,32 @@ Common failures may include:
 - People are registering with multiple services. We currently expect push registration intents to arrive old-style, so if folks are registering in multiple places and we catch intents from other services we can get malformed push tokens.
 
 ### Push bounced: NotRegistered {#notregistered}
+
 `NotRegistered` usually means that the app has been deleted from the device (such as our signal for Uninstall). This can also occur if multiple registration is happening and a second registration is invalidating the push token that Braze receives.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
-This error appears in the Message Activity Log as:
-
-`Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
+This error appears in the Message Activity Log as: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
 This typically occurs for one of the following reasons:
 
 - The user uninstalled the app. This is the most common cause. When the app is removed from a device, the push token becomes invalid.
 - Push credentials were updated in the app. If your team changed the FCM credentials or certificates bundled with the app, users who registered with the previous credentials have invalid tokens until the app re-registers them.
-- Custom logic is unregistering users from push. This is rare, but it's technically possible to programmatically unregister a device from push using the Firebase/Android SDK.
+- Custom logic is unregistering users from push. This is rare, but it's technically possible to programmatically unregister a device from push using the [Firebase/Android SDK](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
 This error does not mean the user is push disabled—only that a specific token was removed from their profile. This is common for users who are testing functionality and frequently installing and uninstalling the app. To check if the user still has valid tokens, go to **User Search** and review the **Contact Settings** section on the **Engagement** tab.
 {% endalert %}
+
+### Requested entity was not found
+
+This error can occur because of the following reasons:
+
+- The end user has uninstalled the app. You can check their user profile to confirm if this is the case.
+- There's an invalid notification channel. Depending on your integration, devices can have push tokens that are only valid for certain notification channels. When sending to an invalid channel, the message bounces.
+- The payload size is too large.
+
+For more information, refer to [Google's documentation](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) on stale and expired registration tokens.
 
 {% endtab %}
 {% tab iOS %}
@@ -73,7 +82,7 @@ Next steps:
 
 The `BadToken` error may occur for several reasons:
 - The push token isn't being sent to Braze correctly (for example, in `registerDeviceToken:` or your platform's equivalent).
-	- Check the token in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). It should generally look like a long string of letters and numbers (such as `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). If it doesn't, check the code involved in sending Braze the push token.<br><br>
+	- Check the token in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). It should generally look like a long string of letters and numbers (such as `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). If it doesn't, check the code involved in sending Braze the push token.<br><br>
 - Mismatched provisioning environment:
 	- If you register with a development certificate and try to send with a production one, you can see this error.  
 	- Braze only supports universal certificates for production environments. Testing push on development environments with a universal certificate will not work. 

@@ -20,7 +20,7 @@ _This integration is maintained by Oppizi._
 | Oppizi account                 | An active Oppizi account is required to use this integration.                 |
 | Oppizi API key                 | Found in your Oppizi account in **Integrations** > **Braze**.                |
 | Oppizi Direct Mail workflow ID | Create a workflow in Oppizi on the **Direct Mail Workflow** page to obtain an ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -45,11 +45,12 @@ You can manage, revoke, and create your keys from this page as needed.
 
 ### Step 2: Create a Braze webhook template
 
-Next, create a webhook template for Oppizi in Braze to use in future campaigns or Canvases.
+Next, create a webhook template for Oppizi in Braze to use in future campaigns or Canvases:
 
-1. In Braze, go to **Templates** > **Webhook templates**.
-
-In your webhook template, fill out the following fields:
+1. In Braze, go to **Content** > **Webhook**. 
+2. Select **Create **Create webhook template**.
+3. Provide a name for the template.
+4. In your webhook template, fill out the following fields:
 
 - **Webhook URL:** ```https://webhooks.oppizi.com/events```
 - **Request body:** **Raw Text**

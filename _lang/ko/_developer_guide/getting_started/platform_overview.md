@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 플랫폼 개요 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 플랫폼 개요 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > 이 문서에서는 Braze 플랫폼의 기본적인 부분과 기능에 대해 설명합니다. 이 문서의 링크는 필수 Braze 주제로 연결됩니다.
 
@@ -27,7 +27,7 @@ platform:
 
 Braze는 고객 참여 플랫폼입니다. 사용자 데이터를 수집하고, 사용자 행동과 패턴을 파악하며, 이를 기반으로 조치를 취할 수 있게 합니다. 플랫폼은 세 가지 주요 구성 요소로 이루어져 있습니다: SDK, 대시보드, 그리고 REST API입니다.
 
-Braze에 대한 보다 일반적인 개요를 찾고 있는 마케터라면, [마케터를 위한 시작하기 섹션]({{site.baseurl}}/user_guide/get_started/)을 참조하세요.
+Braze에 대한 보다 일반적인 개요를 찾고 있는 마케터라면, [마케터를 위한 시작하기 섹션]({{site.baseurl}}/user_guide/get_started)을 참조하세요.
 
 ![Braze에는 다양한 레이어가 있습니다. 전체적으로 SDK, API, 대시보드, 파트너 통합으로 구성되어 있습니다. 각각 데이터 수집 레이어, 분류 레이어, 오케스트레이션 레이어, 개인화 레이어 및 동작 레이어의 일부에 기여합니다. 동작 레이어에는 푸시, 인앱 메시지, 연결된 카탈로그, 웹훅, SMS, 이메일 등 다양한 채널이 있습니다.]({% image_buster /assets/img/getting-started/getting-started-vertically-integrated-stack.png %}){: style="max-width:55%;float:right;margin-left:15px;"}
 
@@ -50,15 +50,15 @@ Braze에 대한 보다 일반적인 개요를 찾고 있는 마케터라면, [�
 
 대시보드는 Braze 플랫폼의 중심에서 모든 데이터 및 상호작용을 제어하는 UI입니다. 마케터는 대시보드를 사용하여 업무를 수행하고 콘텐츠를 제작합니다. 개발자는 대시보드를 사용하여 API 키 및 푸시 알림 자격 증명과 같은 앱 통합을 위한 설정을 관리합니다.
 
-이제 막 시작했다면 팀 관리자가 본인 및 Braze에 액세스해야 하는 다른 모든 팀원을 [대시보드 사용자]({{site.baseurl}}/user_guide/administer/personal/)로 추가해야 합니다.
+이제 막 시작했다면 팀 관리자가 본인 및 Braze에 액세스해야 하는 다른 모든 팀원을 [대시보드 사용자]({{site.baseurl}}/user_guide/administer/personal)로 추가해야 합니다.
 
 ### REST API
 
 Braze API를 사용하면 대규모로 데이터를 Braze 안팎으로 이동할 수 있습니다. API를 사용하여 백엔드, 데이터 웨어하우스 및 기타 퍼스트파티 및 서드파티 소스에서 업데이트를 가져올 수 있습니다. 또한 API를 사용하여 웹 기반 애플리케이션에서 직접 세분화 목적으로 커스텀 이벤트를 추가할 수 있습니다. API를 통해 메시지를 트리거하고 발송할 수 있으므로 기술 리소스에서 캠페인의 일부로 복잡한 JSON 메타데이터를 포함할 수 있습니다.
 
-또한 API는 모바일 및 웹 SDK가 아닌 HTTP를 통해 사용자가 직접 수행한 작업을 기록할 수 있는 웹 서비스도 제공합니다. 웹훅과 결합하면 앱 경험 안팎에서 사용자의 작업을 추적하고 활동을 트리거할 수 있습니다. [API 가이드]({{site.baseurl}}/api/home/)에는 사용 가능한 Braze API 엔드포인트와 해당 용도가 나열되어 있습니다.
+또한 API는 모바일 및 웹 SDK가 아닌 HTTP를 통해 사용자가 직접 수행한 작업을 기록할 수 있는 웹 서비스도 제공합니다. 웹훅과 결합하면 앱 경험 안팎에서 사용자의 작업을 추적하고 활동을 트리거할 수 있습니다. [API 가이드]({{site.baseurl}}/api/home)에는 사용 가능한 Braze API 엔드포인트와 해당 용도가 나열되어 있습니다.
 
-Braze의 구성 요소에 대한 자세한 내용은 다음을 참조하세요: [시작하기: 아키텍처 개요]({{site.baseurl}}/developer_guide/getting_started/architecture_overview/).
+Braze의 구성 요소에 대한 자세한 내용은 다음을 참조하세요: [시작하기: 아키텍처 개요]({{site.baseurl}}/developer_guide/getting_started/architecture_overview).
 
 ## 데이터 분석 및 조치 {#data-analysis-and-action}
 
@@ -74,7 +74,7 @@ Braze 대시보드는 분석 측정기준과 사용자가 설정한 커스텀 �
 
 세분화를 사용하면 인앱 행동, 인구 통계 데이터 등의 강력한 필터를 기반으로 사용자 그룹을 생성할 수 있습니다. 또한, 원하는 동작이 기본적으로 캡처되지 않는 경우 Braze에서는 인앱 사용자 작업을 "커스텀 이벤트"로 정의할 수 있습니다. "커스텀 속성"을 통한 사용자 특성도 마찬가지입니다. 대시보드에 사용자 Segment가 생성되면 사용자가 정의된 기준을 충족하거나 충족하지 못할 때 Segment 안팎으로 이동하게 됩니다. 예를 들어, 인앱에서 돈을 지출하고 마지막으로 앱을 사용한 지 2주가 넘은 모든 사용자를 포함하는 Segment를 생성할 수 있습니다.
 
-데이터 모델에 대한 자세한 내용은 여기를 확인하세요: [시작하기: 분석 개요]({{site.baseurl}}/developer_guide/getting_started/architecture_overview/).
+데이터 모델에 대한 자세한 내용은 여기를 확인하세요: [시작하기: 분석 개요]({{site.baseurl}}/developer_guide/getting_started/architecture_overview).
 
 ## 멀티 채널 메시징 {#multichannel-messaging}
 
@@ -84,17 +84,17 @@ Segment를 정의한 후에는 Braze 메시징 도구를 사용하여 역동적�
 
 | 채널                                                                                              | 설명                                                                                                                                            |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)* | 고객을 방해하지 않고 고도로 타겟팅된 동적 인앱 알림을 전송하세요. |
-| [이메일]({{site.baseurl}}/user_guide/channels/email/) | 서식 있는 텍스트 편집기, 드래그 앤 드롭 편집기를 사용하거나 기존 HTML 템플릿 중 하나를 업로드하여 이메일을 작성하고 서식 있는 HTML 메시지를 전송하세요. |
-| [인앱 메시지]({{site.baseurl}}/in-app_messages/) | Braze의 맞춤형 기본 사용자 인터페이스를 사용하여 눈에 거슬리지 않는 인앱 알림을 전송하세요. |
-| [푸시]({{site.baseurl}}/user_guide/channels/push/) | iOS용 Apple 푸시 알림 서비스(APNs)나 Android용 Firebase 클라우드 메시징(FCM)을 사용하여 메시징 캠페인이나 뉴스 항목에서 푸시 알림을 자동으로 트리거합니다. |
-| [SMS, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)* | SMS, MMS 또는 RCS를 사용하여 트랜잭션 알림을 보내고, 프로모션을 공유하고, 리마인더를 보내는 등 다양한 작업을 수행하세요. |
-| [웹 푸시]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | 사용자가 현재 사이트에서 활성 상태가 아니더라도 웹 브라우저 알림을 전송합니다. |
-| [웹훅]({{site.baseurl}}/about_webhooks/) | 웹훅을 사용하여 앱 이외의 동작을 트리거해 다른 시스템 및 애플리케이션에 실시간 데이터를 제공합니다. |
-| [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | 인기 있는 P2P 메시징 플랫폼인 WhatsApp을 활용하여 사용자 및 고객과 직접 소통하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)* | 고객을 방해하지 않고 고도로 타겟팅된 동적 인앱 알림을 전송하세요. |
+| [이메일]({{site.baseurl}}/user_guide/channels/email) | 서식 있는 텍스트 편집기, 드래그 앤 드롭 편집기를 사용하거나 기존 HTML 템플릿 중 하나를 업로드하여 이메일을 작성하고 서식 있는 HTML 메시지를 전송하세요. |
+| [인앱 메시지]({{site.baseurl}}/in-app_messages) | Braze의 맞춤형 기본 사용자 인터페이스를 사용하여 눈에 거슬리지 않는 인앱 알림을 전송하세요. |
+| [푸시]({{site.baseurl}}/user_guide/channels/push) | iOS용 Apple 푸시 알림 서비스(APNs)나 Android용 Firebase 클라우드 메시징(FCM)을 사용하여 메시징 캠페인이나 뉴스 항목에서 푸시 알림을 자동으로 트리거합니다. |
+| [SMS, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)* | SMS, MMS 또는 RCS를 사용하여 트랜잭션 알림을 보내고, 프로모션을 공유하고, 리마인더를 보내는 등 다양한 작업을 수행하세요. |
+| [웹 푸시]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web) | 사용자가 현재 사이트에서 활성 상태가 아니더라도 웹 브라우저 알림을 전송합니다. |
+| [웹훅]({{site.baseurl}}/about_webhooks) | 웹훅을 사용하여 앱 이외의 동작을 트리거해 다른 시스템 및 애플리케이션에 실시간 데이터를 제공합니다. |
+| [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)* | 인기 있는 P2P 메시징 플랫폼인 WhatsApp을 활용하여 사용자 및 고객과 직접 소통하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="멀티 채널 메시징" }
 
-<sup>추가 기능으로 제공됩니다.</sup>
+<sup>*추가 기능으로 제공됩니다.*</sup>
 
 ### 커스텀 가능한 구성 요소 {#customizable-components}
 
@@ -109,15 +109,15 @@ Segment를 정의한 후에는 Braze 메시징 도구를 사용하여 역동적�
 
 ## Braze 통합 {#integrating-braze}
 
-Braze는 신속한 통합을 위해 설계되었습니다. 고객사 전체를 기준으로 평균 가치 실현 기간은 6주입니다. 통합 프로세스에 대한 자세한 내용은 [시작하기: 통합 개요]({{site.baseurl}}/developer_guide/getting_started/integration_overview/)를 참조하세요.
+Braze는 신속한 통합을 위해 설계되었습니다. 고객사 전체를 기준으로 평균 가치 실현 기간은 6주입니다. 통합 프로세스에 대한 자세한 내용은 [시작하기: 통합 개요]({{site.baseurl}}/developer_guide/getting_started/integration_overview)를 참조하세요.
 
 ## 북마크에 추가할 리소스 {#resources-to-bookmark}
 
-기술 리소스로서, Braze의 많은 세부 사항에 참여하게 됩니다. 다음은 설명서 외부에서 북마크에 추가할 수 있는 좋은 리소스입니다. 앞으로 Braze를 사용하면서 용어에 대해 궁금한 점이 있을 때를 대비해 [관련 용어]({{site.baseurl}}/user_guide/get_started/terms_to_know/) 용어집을 잘 보관해 두세요.
+기술 리소스로서, Braze의 많은 세부 사항에 참여하게 됩니다. 다음은 설명서 외부에서 북마크에 추가할 수 있는 좋은 리소스입니다. 앞으로 Braze를 사용하면서 용어에 대해 궁금한 점이 있을 때를 대비해 [관련 용어]({{site.baseurl}}/user_guide/get_started/terms_to_know) 용어집을 잘 보관해 두세요.
 
-| 리소스 | 학습 내용|
+| 리소스 | 학습 내용 |
 |---|---|
-| [SDK 디버깅]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) | 통합 문제를 해결할 때, SDK 디버깅 도구가 유용합니다. 항상 준비해 두세요! |
+| [SDK 디버깅]({{site.baseurl}}/developer_guide/sdk_integration/debugging) | 통합 문제를 해결할 때, SDK 디버깅 도구가 유용합니다. 항상 준비해 두세요! |
 | [Braze 공용 GitHub](https://github.com/braze-inc/) | 자세한 통합 정보와 샘플 코드는 GitHub 리포지토리에서 확인할 수 있습니다. |
 | [Android SDK GitHub 리포지토리](https://github.com/braze-inc/braze-android-sdk/) | Android SDK GitHub 리포지토리입니다. |
 | [Android SDK 참조](https://appboy.github.io/appboy-android-sdk/kdoc/index.html) | Android SDK용 클래스 문서입니다. |
@@ -125,7 +125,7 @@ Braze는 신속한 통합을 위해 설계되었습니다. 고객사 전체를 �
 | [iOS(Swift) SDK 참조](https://braze-inc.github.io/braze-swift-sdk/) | iOS SDK용 클래스 문서입니다. |
 | [웹 SDK GitHub 리포지토리](https://github.com/braze-inc/braze-web-sdk) | 웹 SDK GitHub 리포지토리입니다. |
 | [웹 SDK 참조](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | 웹 SDK용 클래스 문서입니다. |
-| [SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs/) | Braze는 중요한 문제와 주요 OS 업데이트에 대한 릴리스 외에도 매월 예측 가능한 릴리스를 제공합니다. |
+| [SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs) | Braze는 중요한 문제와 주요 OS 업데이트에 대한 릴리스 외에도 매월 예측 가능한 릴리스를 제공합니다. |
 | [Braze API Postman 컬렉션](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | 여기에서 Postman 컬렉션을 다운로드하세요.  |
 | [Braze 시스템 상태 모니터](https://braze.statuspage.io/) | 상태 페이지는 인시던트나 장애가 발생할 때마다 업데이트됩니다. 알림을 구독하려면 이 페이지로 이동하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="북마크에 추가할 리소스" }

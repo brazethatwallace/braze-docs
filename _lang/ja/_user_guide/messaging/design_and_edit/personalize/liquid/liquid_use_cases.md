@@ -1,18 +1,18 @@
 ---
-nav_title: Liquid ユースケースライブラリ
-article_title: Liquid ユースケースライブラリ
+nav_title: Liquidユースケースライブラリ
+article_title: Liquidユースケースライブラリ
 page_order: 10
 search_rank: 2
 excerpt_separator: ""
 page_type: glossary
 layout: liquid_use_case_glossary
-description: "このランディングページには、記念日、アプリの使用状況、カウントダウンなど、カテゴリ別に整理された Liquid のユースケースサンプルが掲載されています。"
+description: "このランディングページには、記念日、アプリの使用状況、カウントダウンなど、カテゴリ別に整理されたLiquidのユースケースサンプルが掲載されています。"
 
 ---
 
 {% api %}
 
-## 記念日と祝日
+## 記念日と祝日 {#anniversaries-and-holidays}
 
 {% apitags %}
 Anniversaries and holidays
@@ -60,9 +60,9 @@ Exactly three years ago today we met for the first time!
 ```
 {% endraw %}
 
-**説明:** ここでは、予約変数 `now` を使用して、現在の日時を [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 形式でテンプレートに挿入しています。フィルター `%B`（「May」のような月名）と `%d`（「18」のような日）で現在の月と日をフォーマットします。次に、`signup_date` の値にも同じ日時フィルターを使用して、条件タグとロジックで2つの値を比較できるようにします。
+**説明:** ここでは、予約変数`now`を使用して、現在の日時を[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式でテンプレートに挿入しています。フィルター`%B`（「May」のような月名）と`%d`（「18」のような日）で現在の月と日をフォーマットします。次に、`signup_date`の値にも同じ日時フィルターを使用して、条件タグとロジックで2つの値を比較できるようにします。
 
-さらに3つの変数ステートメントを繰り返して、`signup_date` の `%B` と `%d` を取得し、`%Y`（「2021」のような年）も追加します。これにより、`signup_date` の日時が年だけに変換されます。日と月がわかればユーザーの記念日が今日かどうかを確認でき、年がわかれば何年経ったかがわかるため、何年目のお祝いかを伝えることができます。
+さらに3つの変数ステートメントを繰り返して、`signup_date`の`%B`と`%d`を取得し、`%Y`（「2021」のような年）も追加します。これにより、`signup_date`の日時が年だけに変換されます。日と月がわかればユーザーの記念日が今日かどうかを確認でき、年がわかれば何年経ったかがわかるため、何年目のお祝いかを伝えることができます。
 
 {% alert tip %} サインアップ日を収集してきた年数分の条件を作成できます。{% endalert %}
 
@@ -89,9 +89,9 @@ No birthday for you!
 ```
 {% endraw %}
 
-**説明:** [記念年](#anniversary-year)のユースケースと同様に、ここでは予約変数 `now` を取得し、`%W` フィルター（年間52週のうちの第12週のような週番号）を使用して、ユーザーの誕生日が該当する年間の週番号を取得します。ユーザーの誕生日週が現在の週と一致する場合、お祝いメッセージを送信します。
+**説明:** [記念年](#anniversary-year)のユースケースと同様に、ここでは予約変数`now`を取得し、`%W`フィルター（年間52週のうちの第12週のような週番号）を使用して、ユーザーの誕生日が該当する年間の週番号を取得します。ユーザーの誕生日週が現在の週と一致する場合、お祝いメッセージを送信します。
 
-`last_week` と `next_week` のステートメントも含めて、メッセージングをさらにパーソナライズしています。
+`last_week`と`next_week`のステートメントも含めて、メッセージングをさらにパーソナライズしています。
 
 ### 誕生月のユーザーにキャンペーンを送信する {#birthday-month}
 
@@ -109,7 +109,7 @@ Message body
 ```
 {% endraw %}
 
-**説明:** [誕生日週](#birthday-week)のユースケースと同様ですが、ここでは `%B` フィルター（「May」のような月名）を使用して、今月が誕生日のユーザーを計算します。月次メールで誕生日のユーザーに呼びかけるなどの活用が考えられます。
+**説明:** [誕生日週](#birthday-week)のユースケースと同様ですが、ここでは`%B`フィルター（「May」のような月名）を使用して、今月が誕生日のユーザーを計算します。月次メールで誕生日のユーザーに呼びかけるなどの活用が考えられます。
 
 ### 主要な祝日にメッセージを送信しないようにする {#holiday-avoid}
 
@@ -126,7 +126,7 @@ Message if today isn't one of the provided holidays.
 ```
 {% endraw %}
 
-**説明:** ここでは、`today` という用語を予約変数 `now`（現在の日時）に割り当て、フィルター `%Y`（「2023」のような年）、`%m`（「12」のような月）、`%d`（「25」のような日）を使用して日付をフォーマットします。次に条件文を実行し、変数 `today` が指定した祝日と一致する場合、メッセージを中止します。
+**説明:** ここでは、`today`という用語を予約変数`now`（現在の日時）に割り当て、フィルター`%Y`（「2023」のような年）、`%m`（「12」のような月）、`%d`（「25」のような日）を使用して日付をフォーマットします。次に条件文を実行し、変数`today`が指定した祝日と一致する場合、メッセージを中止します。
 
 この例では、クリスマスイブ、クリスマス、ボクシングデー（クリスマスの翌日）を使用しています。
 
@@ -134,7 +134,7 @@ Message if today isn't one of the provided holidays.
 
 {% api %}
 
-## アプリの使用状況
+## アプリの使用状況 {#app-usage}
 
 {% apitags %}
 App usage
@@ -171,13 +171,13 @@ Has language - Default language
 {% endraw %}
 
 {% raw %}
-**説明:** ここでは、ネストされた2つのグループ化された `if` ステートメントを使用しています。最初の `if` ステートメントは、`last_used_app_date` が `nil` かどうかを確認して、ユーザーがセッションを開始したかどうかをチェックします。これは、`{{${language}}}` がユーザーのセッション記録時に SDK によって自動収集されるためです。ユーザーがセッションを記録していない場合、まだ言語情報がないため、言語関連のカスタム属性が保存されているかどうかを確認し、その情報に基づいて可能であればその言語でメッセージを表示します。
+**説明:** ここでは、ネストされた2つのグループ化された`if`ステートメントを使用しています。最初の`if`ステートメントは、`last_used_app_date`が`nil`かどうかを確認して、ユーザーがセッションを開始したかどうかをチェックします。これは、`{{${language}}}`がユーザーのセッション記録時にSDKによって自動収集されるためです。ユーザーがセッションを記録していない場合、まだ言語情報がないため、言語関連のカスタム属性が保存されているかどうかを確認し、その情報に基づいて可能であればその言語でメッセージを表示します。
 {% endraw %}
 
-2番目の `if` ステートメントは、標準（デフォルト）属性を確認するだけです。ユーザーの `last_used_app_date` が `nil` ではないため、セッションを記録済みであり、言語情報を取得できているからです。
+2番目の`if`ステートメントは、標準（デフォルト）属性を確認するだけです。ユーザーの`last_used_app_date`が`nil`ではないため、セッションを記録済みであり、言語情報を取得できているからです。
 
 {% alert note %}
-[`Nil`](https://shopify.github.io/liquid/basics/types/#nil) は、Liquid コードが結果を返さない場合に返される予約変数です。`Nil` は `if` ブロック内で `false` として扱われます。
+[`Nil`](https://shopify.github.io/liquid/basics/types/#nil)は、Liquidコードが結果を返さない場合に返される予約変数です。`Nil`は`if`ブロック内で`false`として扱われます。
 {% endalert %}
 
 ### ユーザーが最後にアプリを開いた時期に基づいてメッセージをパーソナライズする {#app-last-opened}
@@ -218,7 +218,7 @@ Message for a less active user
 
 {% api %}
 
-## カウントダウン
+## カウントダウン {#countdowns}
 
 {% apitags %}
 Countdowns
@@ -246,10 +246,10 @@ Here are the movies we're showing on {{ "now" | date:'%s' | plus:259200 | date:"
 ```
 {% endraw %}
 
-`plus` の値は常に秒単位なので、最後にフィルター `%F` を使用して秒を日付に変換します。
+`plus`の値は常に秒単位なので、最後にフィルター`%F`を使用して秒を日付に変換します。
 
 {% alert important %}
-メッセージにイベントリストへの URL やディープリンクを含めて、将来のアクションのリストにユーザーを誘導することをお勧めします。
+メッセージにイベントリストへのURLやディープリンクを含めて、将来のアクションのリストにユーザーを誘導することをお勧めします。
 {% endalert %}
 
 ### 設定した時点からのカウントダウンを計算する {#countdown-difference-days}
@@ -323,7 +323,7 @@ Your order will arrive in {{ difference_days }} days!
 {% endraw %}
 
 {% alert important %}
-`date` 値を持つカスタム属性フィールドが必要です。
+`date`値を持つカスタム属性フィールドが必要です。
 {% endalert %}
 
 ### 日から時間、分へのカウントダウンを作成する {#countdown-dynamic}
@@ -351,7 +351,7 @@ You have {{difference_days}} days left till your order arrives!
 {% endraw %}
 
 {% alert important %}
-`date` 値を持つカスタム属性フィールドが必要です。また、日、時間、分で時間を表示する際のしきい値を設定する必要があります。
+`date`値を持つカスタム属性フィールドが必要です。また、日、時間、分で時間を表示する際のしきい値を設定する必要があります。
 {% endalert %}
 
 ### 特定の日付までの残り日数を表示する {#countdown-future-date}
@@ -518,7 +518,7 @@ Hi, the offer is only valid today.
 {% endraw %}
 
 {% alert important %}
-`date` 値を割り当て、指定した日付が日付範囲外の場合の中止ロジックを含める必要があります。正確な日の計算には、割り当てる終了日に 23:59:59 を含める必要があります。
+`date`値を割り当て、指定した日付が日付範囲外の場合の中止ロジックを含める必要があります。正確な日の計算には、割り当てる終了日に23:59:59を含める必要があります。
 {% endalert %}
 
 ### 30日後の日付を月と日のフォーマットでテンプレートに挿入する {#countdown-template-date}
@@ -536,15 +536,16 @@ Hi, the offer is only valid today.
 
 {% api %}
 
-## カスタム属性
+## カスタム属性 {#custom-attribute}
 
 {% apitags %}
 Custom attribute
 {% endapitags %}
 
 - [一致するカスタム属性に基づいてメッセージをパーソナライズする](#attribute-matching)
+- [ヨーロッパの数値表記規則に合わせて通貨をフォーマットする](#european-currency-format)
 - [2つのカスタム属性を減算して差額を金額として表示する](#attribute-monetary-difference)
-- [フルネームが first_name フィールドに保存されている場合にユーザーの名を参照する](#attribute-first-name)
+- [フルネームがfirst_nameフィールドに保存されている場合にユーザーの名を参照する](#attribute-first-name)
 
 ### 一致するカスタム属性に基づいてメッセージをパーソナライズする {#attribute-matching}
 
@@ -566,6 +567,20 @@ There is a shovel here.
 ```
 {% endraw %}
 
+### ヨーロッパの数値表記規則に合わせて通貨をフォーマットする {#european-currency-format}
+
+小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**出力:** `1.234.567,89`
+
+**説明:** `money`フィルターは小数点以下を追加しますが、通貨記号やロケール固有の区切り文字は追加しません。`number_with_delimiter`はUS形式の千の位区切りを追加し、`replace`フィルターでヨーロッパ形式に変換します。
+{% endraw %}
+
 ### 2つのカスタム属性を減算して差額を金額として表示する {#attribute-monetary-difference}
 
 このユースケースでは、2つの金額カスタム属性を取得し、差額を計算して表示することで、目標達成までの残り金額をユーザーに知らせます。
@@ -579,7 +594,7 @@ You only have ${{ difference | round: 0 | number_with_delimiter }} left to raise
 ```
 {% endraw %}
 
-### フルネームが first_name フィールドに保存されている場合にユーザーの名を参照する {#attribute-first-name}
+### フルネームがfirst_nameフィールドに保存されている場合にユーザーの名を参照する {#attribute-first-name}
 
 このユースケースでは、ユーザーの名（姓と名が1つのフィールドに保存されている場合）を取得し、その名を使用してウェルカムメッセージを表示します。
 
@@ -590,14 +605,14 @@ You only have ${{ difference | round: 0 | number_with_delimiter }} left to raise
 Hi {{name[0]}}, here's your message!
 ```
 
-**説明:** `split` フィルターは、`{{${first_name}}}` に保持されている文字列を配列に変換します。`{{name[0]}}` を使用することで、配列の最初の項目（ユーザーの名）のみを参照します。
+**説明:** `split`フィルターは、`{{${first_name}}}`に保持されている文字列を配列に変換します。`{{name[0]}}`を使用することで、配列の最初の項目（ユーザーの名）のみを参照します。
 
 {% endraw %}
 {% endapi %}
 
 {% api %}
 
-## カスタムイベント
+## カスタムイベント {#custom-event}
 
 {% apitags %}
 Custom event
@@ -646,7 +661,7 @@ Did you forget something in your shopping cart?
 ```
 {% endraw %}
 
-{% alert important %} カスタムイベントカウントのイベントプロパティを持つか、Braze エンドポイントへの Webhook を使用する必要があります。これは、ユーザーがイベントを実行するたびにカスタム属性（`example_event_count`）をインクリメントするためです。この例では3回ごとのケイデンス（1、4、7、10など）を使用しています。ケイデンスをゼロから開始する場合（0、3、6、9など）は、`minus: 1` を削除してください。
+{% alert important %} カスタムイベントカウントのイベントプロパティを持つか、BrazeエンドポイントへのWebhookを使用する必要があります。これは、ユーザーがイベントを実行するたびにカスタム属性（`example_event_count`）をインクリメントするためです。この例では3回ごとのケイデンス（1、4、7、10など）を使用しています。ケイデンスをゼロから開始する場合（0、3、6、9など）は、`minus: 1`を削除してください。
 {% endalert %}
 
 ### 1つのカテゴリからのみ購入したユーザーにメッセージを送信する {#event-purchased-one-category}
@@ -667,7 +682,7 @@ Did you forget something in your shopping cart?
 
 ### 過去1か月間にカスタムイベントが発生した回数を追跡する {#track}
 
-このユースケースでは、当月の1日から前月までの間にカスタムイベントが記録された回数を計算します。その後、users/track コールを実行してこの値をカスタム属性として保存できます。なお、このキャンペーンは月次データを使用できるようになるまで、2か月連続で実行する必要があります。
+このユースケースでは、当月の1日から前月までの間にカスタムイベントが記録された回数を計算します。その後、users/trackコールを実行してこの値をカスタム属性として保存できます。なお、このキャンペーンは月次データを使用できるようになるまで、2か月連続で実行する必要があります。
 
 {% raw %}
 ```liquid
@@ -723,7 +738,7 @@ Did you forget something in your shopping cart?
 
 {% api %}
 
-## 言語
+## 言語 {#language}
 
 {% apitags %}
 Language
@@ -773,7 +788,7 @@ Language
 
 ### ユーザーの言語に基づいて画像を表示する {#language-image-display}
 
-このユースケースでは、ユーザーの言語に基づいて画像を表示します。なお、このユースケースは Braze メディアライブラリにアップロードされた画像でのみテストされています。
+このユースケースでは、ユーザーの言語に基づいて画像を表示します。なお、このユースケースはBrazeメディアライブラリにアップロードされた画像でのみテストされています。
 
 {% raw %}
 ```liquid
@@ -838,7 +853,7 @@ tuesday default
 
 {% api %}
 
-## その他
+## その他 {#miscellaneous}
 
 {% apitags %}
 Miscellaneous
@@ -858,10 +873,10 @@ Miscellaneous
 
 ### マーケティングメールをブロックしている顧客へのメール送信を避ける {#misc-avoid-blocked-emails}
 
-このユースケースでは、コンテンツブロックに保存されたブロック済みユーザーのリストを取得し、それらのブロック済みユーザーが今後のキャンペーンやキャンバスで連絡やターゲティングされないようにします。
+このユースケースでは、Content Blockに保存されたブロック済みユーザーのリストを取得し、それらのブロック済みユーザーが今後のキャンペーンやキャンバスで連絡やターゲティングされないようにします。
 
 {% alert important %}
-この Liquid を使用するには、まずブロック済みメールのリストをコンテンツブロック内に保存してください。リストには、メールアドレス間に余分なスペースや文字を挿入しないでください（例：`test@braze.com,abc@braze.com`）。
+このLiquidを使用するには、まずブロック済みメールのリストをContent Block内に保存してください。リストには、メールアドレス間に余分なスペースや文字を挿入しないでください（例：`test@braze.com,abc@braze.com`）。
 {% endalert %}
 
 {% raw %}
@@ -877,10 +892,10 @@ Your message here!
 ```
 {% endraw %}
 
-**説明:** ここでは、ブロック済みメールのコンテンツブロックを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
+**説明:** ここでは、ブロック済みメールのContent Blockを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
 
 {% alert note %}
-コンテンツブロックのサイズ制限は 5 MB です。
+Content Blockのサイズ制限は5 MBです。
 {% endalert %}
 
 ### 顧客のサブスクリプション状態を使用してメッセージ内のコンテンツをパーソナライズする {#misc-personalize-content}
@@ -909,7 +924,7 @@ This is an exclusive message for subscribed users!
 ```
 {% endraw %}
 
-**説明:** ここでは、選択した文字列属性に変数を割り当て、`split` フィルターを使用して文字列を配列に分割しています。次に `for` タグを使用して、新しく作成した配列の各項目に変数 `words` を割り当て、`capitalize` フィルターと `append` フィルターで各用語の間にスペースを追加して表示しています。
+**説明:** ここでは、選択した文字列属性に変数を割り当て、`split`フィルターを使用して文字列を配列に分割しています。次に`for`タグを使用して、新しく作成した配列の各項目に変数`words`を割り当て、`capitalize`フィルターと`append`フィルターで各用語の間にスペースを追加して表示しています。
 
 ### カスタム属性の値を配列と比較する {#misc-compare-array}
 
@@ -931,13 +946,13 @@ Today's offer from {{store}}
 ```
 {% endraw %}
 
-{% alert important %} このシーケンスには、主要な条件文に `break` タグがあります。これにより、一致が見つかるとループが停止します。多くの一致またはすべての一致を表示したい場合は、`break` タグを削除してください。{% endalert %}
+{% alert important %} このシーケンスには、主要な条件文に`break`タグがあります。これにより、一致が見つかるとループが停止します。多くの一致またはすべての一致を表示したい場合は、`break`タグを削除してください。{% endalert %}
 
 ### 今後のイベントリマインダーを作成する {#misc-event-reminder}
 
 このユースケースでは、カスタムイベントに基づいて今後のリマインダーを設定できます。このシナリオ例では、26日以上先のポリシー更新日に対してリマインダーを設定し、ポリシー更新日の26日前、13日前、7日前、または2日前にリマインダーを送信します。
 
-このユースケースでは、以下を [Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはキャンバスステップの本文に配置する必要があります。
+このユースケースでは、以下を[Webhookのキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)またはキャンバスステップの本文に配置する必要があります。
 
 {% raw %}
 ```liquid
@@ -1077,7 +1092,7 @@ Users are scheduled to enter the journey on day 2.
 
 {% alert important %}
 
-カスタムイベント `reminder_capture` が必要であり、カスタムイベントプロパティには少なくとも以下を含める必要があります。
+カスタムイベント`reminder_capture`が必要であり、カスタムイベントプロパティには少なくとも以下を含める必要があります。
 
 - `reminder-id`: カスタムイベントの識別子
 - `reminder_date`: ユーザーが送信したリマインダーの期日
@@ -1185,7 +1200,7 @@ All episodes of {{new_shows_clean | join: ', ' }} expire on 9/8 - watch them now
 
 ### 文字列を電話番号にフォーマットする {#phone-number}
 
-このユースケースでは、`phone_number` ユーザープロファイルフィールド（デフォルトでは整数の文字列としてフォーマットされています）をインデックスし、ローカルの電話番号標準に基づいて再フォーマットする方法を示します。たとえば、1234567890 を (123)-456-7890 に変換します。
+このユースケースでは、`phone_number`ユーザープロファイルフィールド（デフォルトでは整数の文字列としてフォーマットされています）をインデックスし、ローカルの電話番号標準に基づいて再フォーマットする方法を示します。たとえば、1234567890を(123)-456-7890に変換します。
 
 {% raw %}
 ```liquid
@@ -1199,23 +1214,23 @@ All episodes of {{new_shows_clean | join: ', ' }} expire on 9/8 - watch them now
 
 {% api %}
 
-## プラットフォームターゲティング
+## プラットフォームターゲティング {#platform-targeting}
 
 {% apitags %}
 Platform targeting
 {% endapitags %}
 
-- [デバイス OS によってコピーを差別化する](#platform-device-os)
+- [デバイスOSによってコピーを差別化する](#platform-device-os)
 - [特定のプラットフォームのみをターゲットにする](#platform-target)
-- [特定の OS バージョンの iOS デバイスのみをターゲットにする](#platform-target-ios-version)
-- [Web ブラウザのみをターゲットにする](#platform-target-web)
+- [特定のOSバージョンのiOSデバイスのみをターゲットにする](#platform-target-ios-version)
+- [Webブラウザのみをターゲットにする](#platform-target-web)
 - [特定のモバイルキャリアをターゲットにする](#platform-target-carrier)
 
-### デバイス OS によってコピーを差別化する {#platform-device-os}
+### デバイスOSによってコピーを差別化する {#platform-device-os}
 
 このユースケースでは、ユーザーがどのプラットフォームを使用しているかを確認し、プラットフォームに応じて特定のメッセージを表示します。
 
-たとえば、モバイルユーザーには短いバージョンのメッセージコピーを表示し、その他のユーザーには通常の長いバージョンのコピーを表示したい場合があります。また、モバイルユーザーに関連するメッセージを表示しつつ、Web ユーザーには関連しないメッセージを表示することもできます。たとえば、iOS のメッセージでは Apple Pay について言及し、Android のメッセージでは Google Pay について言及するなどです。
+たとえば、モバイルユーザーには短いバージョンのメッセージコピーを表示し、その他のユーザーには通常の長いバージョンのコピーを表示したい場合があります。また、モバイルユーザーに関連するメッセージを表示しつつ、Webユーザーには関連しないメッセージを表示することもできます。たとえば、iOSのメッセージではApple Payについて言及し、AndroidのメッセージではGoogle Payについて言及するなどです。
 
 {% raw %}
 ```liquid
@@ -1229,14 +1244,14 @@ This is the regular copy and much longer than the short version.
 {% endraw %}
 
 {% alert note %}
-Liquid は大文字と小文字を区別します。`targeted_device.${platform}` はすべて小文字で値を返します。
+Liquidは大文字と小文字を区別します。`targeted_device.${platform}`はすべて小文字で値を返します。
 {% endalert %}
 
 ### 特定のプラットフォームのみをターゲットにする {#platform-target}
 
 このユースケースでは、ユーザーのデバイスプラットフォームを取得し、プラットフォームに応じてメッセージを表示します。
 
-たとえば、Android ユーザーにのみメッセージを送信したい場合があります。これは、セグメンテーションツール内でアプリを選択する代替手段として使用できます。
+たとえば、Androidユーザーにのみメッセージを送信したい場合があります。これは、セグメンテーションツール内でアプリを選択する代替手段として使用できます。
 
 {% raw %}
 ```liquid
@@ -1250,11 +1265,11 @@ This is a message for an Android user!
 ```
 {% endraw %}
 
-### 特定の OS バージョンのデバイスのみをターゲットにする {#platform-target-ios-version}
+### 特定のOSバージョンのデバイスのみをターゲットにする {#platform-target-ios-version}
 
-このユースケースでは、ユーザーの OS バージョンが特定のバージョンセットに該当するかどうかを確認し、該当する場合は特定のメッセージを表示します。
+このユースケースでは、ユーザーのOSバージョンが特定のバージョンセットに該当するかどうかを確認し、該当する場合は特定のメッセージを表示します。
 
-この例では、OS バージョン 10.0 以前のユーザーに、デバイス OS のサポートを段階的に終了することを警告するメッセージを送信しています。
+この例では、OSバージョン10.0以前のユーザーに、デバイスOSのサポートを段階的に終了することを警告するメッセージを送信しています。
 
 {% raw %}
 ```liquid
@@ -1268,9 +1283,9 @@ We are phasing out support for your device's operating system. Be sure to update
 ```
 {% endraw %}
 
-### Web ブラウザのみをターゲットにする {#platform-target-web}
+### Webブラウザのみをターゲットにする {#platform-target-web}
 
-このユースケースでは、ユーザーのターゲットデバイスが Mac または Windows で動作しているかどうかを確認し、該当する場合は特定のメッセージを表示します。
+このユースケースでは、ユーザーのターゲットデバイスがMacまたはWindowsで動作しているかどうかを確認し、該当する場合は特定のメッセージを表示します。
 
 {% raw %}
 ```liquid
@@ -1284,7 +1299,7 @@ This message will display on your desktop web browser.
 ```
 {% endraw %}
 
-以下のユースケースでは、Web ユーザーが iOS または Android を使用しているかどうかを確認し、該当する場合は特定のメッセージを表示します。
+以下のユースケースでは、WebユーザーがiOSまたはAndroidを使用しているかどうかを確認し、該当する場合は特定のメッセージを表示します。
 
 {% raw %}
 ```liquid
@@ -1304,9 +1319,9 @@ Content for Android.
 
 ### 特定のモバイルキャリアをターゲットにする {#platform-target-carrier}
 
-このユースケースでは、ユーザーのデバイスキャリアが Verizon かどうかを確認し、該当する場合は特定のメッセージを表示します。
+このユースケースでは、ユーザーのデバイスキャリアがVerizonかどうかを確認し、該当する場合は特定のメッセージを表示します。
 
-プッシュ通知とアプリ内メッセージチャネルでは、Liquid を使用してメッセージ本文にデバイスキャリアを指定できます。受信者のデバイスキャリアが一致しない場合、メッセージは送信されません。
+プッシュ通知とアプリ内メッセージチャネルでは、Liquidを使用してメッセージ本文にデバイスキャリアを指定できます。受信者のデバイスキャリアが一致しない場合、メッセージは送信されません。
 
 {% raw %}
 ```liquid
@@ -1330,11 +1345,11 @@ This is a message for Verizon users!
 SMS
 {% endapitags %}
 
-- [受信 SMS キーワードに基づいて異なるメッセージで応答する](#sms-keyword-response)
+- [受信SMSキーワードに基づいて異なるメッセージで応答する](#sms-keyword-response)
 
-### 受信 SMS キーワードに基づいて異なるメッセージで応答する {#sms-keyword-response}
+### 受信SMSキーワードに基づいて異なるメッセージで応答する {#sms-keyword-response}
 
-このユースケースでは、動的な SMS キーワード処理を組み込み、特定の受信メッセージに対して異なるメッセージコピーで応答します。たとえば、「START」とテキスト送信した場合と「JOIN」とテキスト送信した場合で異なる応答を送信できます。
+このユースケースでは、動的なSMSキーワード処理を組み込み、特定の受信メッセージに対して異なるメッセージコピーで応答します。たとえば、「START」とテキスト送信した場合と「JOIN」とテキスト送信した場合で異なる応答を送信できます。
 
 {% raw %}
 ```liquid
@@ -1356,7 +1371,7 @@ Thanks for joining our SMS program!
 
 {% api %}
 
-## タイムゾーン
+## タイムゾーン {#time-zones}
 
 {% apitags %}
 Time zones
@@ -1364,18 +1379,24 @@ Time zones
 
 - [ユーザーのタイムゾーンをテンプレートに挿入する](#users-time-zone)
 - [ユーザーのタイムゾーンに応じてメッセージをパーソナライズする](#personalize-timezone)
-- [カスタム属性に CST タイムゾーンを付加する](#time-append-cst)
+- [カスタム属性にCSTタイムゾーンを付加する](#time-append-cst)
 - [タイムスタンプを挿入する](#time-insert-timestamp)
 - [ユーザーのローカルタイムゾーンの時間枠内でのみキャンバスプッシュを送信する](#time-canvas-window)
 - [ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージキャンペーンを送信する](#time-reocurring-iam-window)
 - [ユーザーのローカルタイムゾーンで平日と週末に異なるメッセージを送信する](#time-weekdays-vs-weekends)
 - [ユーザーのローカルタイムゾーンの時間帯に基づいて異なるメッセージを送信する](#time-of-day)
+- [送信時に時間範囲外の場合にメッセージを中止する](#abort-send-time-hour-range)
+- [固定タイムゾーンの時間枠外でメッセージを中止する](#abort-fixed-timezone-window)
+
+{% alert note %}
+ユーザーが予期しないローカル時刻にメッセージを受信した場合、デバイスまたはプロファイルのタイムゾーンが変更された可能性があります（たとえば、旅行後など）。ローカルタイム配信では、送信時のプロファイルのタイムゾーンを使用します。{% raw %}`{{${time_zone}}}`{% endraw %}などの値が期待どおりに反映されるには、ユーザーが通常の地域で新しいセッションを開始する必要がある場合があります。ただし、[ユーザーのタイムゾーンをテンプレートに挿入する](#users-time-zone)ことは可能です。
+{% endalert %}
 
 ### ユーザーのタイムゾーンをテンプレートに挿入する {#users-time-zone}
 
-デフォルトでは、Liquid の日付と時刻は協定世界時（UTC）で表示されます。ユーザーのローカルタイムゾーンで日付と時刻を表示するには、`time_zone` フィルターを `date` フィルターと組み合わせて使用します。
+デフォルトでは、Liquidの日付と時刻は協定世界時（UTC）で表示されます。ユーザーのローカルタイムゾーンで日付と時刻を表示するには、`time_zone`フィルターを`date`フィルターと組み合わせて使用します。
 
-#### ローカルの日付と時刻を割り当てる
+#### ローカルの日付と時刻を割り当てる {#assign-local-date-and-time}
 
 ユーザーのローカルタイムゾーンでの現在の日付と時刻を反映する変数を割り当てるには、次の形式を使用します。
 
@@ -1386,13 +1407,13 @@ Time zones
 ```
 {% endraw %}
 
-- `now`: 現在の日付と時刻を UTC で取得します。
-- `time_zone`: {% raw %}`{{${time_zone}}}`{% endraw %} パーソナライゼーションタグを使用して、デフォルト属性からユーザーのローカルタイムゾーンを取得します。
-- `date`: ユーザーのローカルの日付と時刻を指定に従ってフォーマットします。前の例では、「February 26, 2026」のようにフォーマットされた文字列が表示されます。その他のフォーマットオプションについては、[strftime.net](strftime.net) を参照してください。
+- `now`: 現在の日付と時刻をUTCで取得します。
+- `time_zone`: {% raw %}`{{${time_zone}}}`{% endraw %}パーソナライゼーションタグを使用して、デフォルト属性からユーザーのローカルタイムゾーンを取得します。
+- `date`: ユーザーのローカルの日付と時刻を指定に従ってフォーマットします。前の例では、「February 26, 2026」のようにフォーマットされた文字列が表示されます。その他のフォーマットオプションについては、[strftime.net](strftime.net)を参照してください。
 
-#### カスタム属性にユーザーのタイムゾーンを適用する
+#### カスタム属性にユーザーのタイムゾーンを適用する {#apply-the-users-time-zone-with-custom-attributes}
 
-次のように、`time_zone` フィルターをカスタム属性に適用できます。
+次のように、`time_zone`フィルターをカスタム属性に適用できます。
 
 {% raw %}
 ```liquid
@@ -1400,7 +1421,7 @@ Time zones
 ```
 {% endraw %}
 
-これにより、`date_time_attribute` が曜日の省略形、月の省略形、日、4桁の年の順にフォーマットされて出力されます。
+これにより、`date_time_attribute`が曜日の省略形、月の省略形、日、4桁の年の順にフォーマットされて出力されます。
 
 ### ユーザーのタイムゾーンに応じてメッセージをパーソナライズする {#personalize-timezone}
 
@@ -1418,18 +1439,18 @@ Message for time zone yy.
 ```
 {% endraw %}
 
-### カスタム属性に CST タイムゾーンを付加する {#time-append-cst}
+### カスタム属性にCSTタイムゾーンを付加する {#time-append-cst}
 
 このユースケースでは、指定されたタイムゾーンでカスタム日付属性を表示します。
 
-オプション 1:
+オプション1:
 {% raw %}
 ```liquid
 {{custom_attribute.${application_expires_date} | time_zone: -0005 | date: '%B, %d %Y' }}
 ```
 {% endraw %}
 
-オプション 2:
+オプション2:
 {% raw %}
 ```liquid
 {{custom_attribute.${application_expires_date} | time_zone: 'America/Chicago' | date: '%B %d %Y %z' }}
@@ -1440,7 +1461,7 @@ Message for time zone yy.
 
 このユースケースでは、現在のタイムゾーンのタイムスタンプを含むメッセージを表示します。
 
-以下の例では、日付を YYYY-mm-dd HH:MM:SS の形式で表示します（例：2021-05-03 10:41:04）。
+以下の例では、日付をYYYY-mm-dd HH:MM:SSの形式で表示します（例：2021-05-03 10:41:04）。
 
 {% raw %}
 ```liquid
@@ -1464,7 +1485,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージキャンペーンを送信する {#time-reoccurring-iam-window}
+### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージキャンペーンを送信する {#time-reocurring-iam-window}
 
 このユースケースでは、ユーザーの現在の時刻が設定された時間枠内にある場合にメッセージを表示します。
 
@@ -1518,13 +1539,47 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} これは[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options)の逆です。{% endalert %}
+{% alert note %} これは[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options)の逆です。{% endalert %}
+
+### 送信時に時間範囲外の場合にメッセージを中止する {#abort-send-time-hour-range}
+
+このユースケースでは、現在の時間が定義された範囲外の場合にメッセージを中止します。`time_zone`フィルターを適用しない限り、メッセージがレンダリングされる時刻（デフォルトではUTC）を使用し、ユーザーのローカルタイムゾーンは使用しません。ユーザーのローカルタイムゾーンに基づいてメッセージを送信するには、[ユーザーのローカルタイムゾーンの時間帯に基づいて異なるメッセージを送信する](#time-of-day)を参照してください。
+
+{% raw %}
+```liquid
+{% assign time = 'now' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour > 20 or hour < 8 %}
+{% abort_message("Outside hour range") %}
+{% endif %}
+
+Check out this new bar after work today. HH specials!
+```
+{% endraw %}
+
+### 固定タイムゾーンの時間枠外でメッセージを中止する {#abort-fixed-timezone-window}
+
+このユースケースでは、特定のタイムゾーン（この例ではシンガポール時間）で現在の時刻が定義された時間枠外の場合にメッセージを中止します。各ユーザーの`time_zone`属性ではなく、1つの地域に紐づいたクワイエットアワーのようなルールが必要な場合に、このパターンを使用できます。
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: 'Asia/Singapore' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% assign minute = time | date: '%M' | plus: 0 %}
+
+{% if hour < 20 or hour > 21 or (hour == 21 and minute > 45) %}
+{% abort_message("Not within eligible time of 8 pm–9:45 pm SGT") %}
+{% endif %}
+
+Sign up for our exclusive time-limited offer now!
+```
+{% endraw %}
 
 {% endapi %}
 
 {% api %}
 
-## 週/日/月
+## 週/日/月 {#weekdaymonth}
 
 {% apitags %}
 Week/Day/Month
@@ -1535,6 +1590,8 @@ Week/Day/Month
 - [月の最後の（平日）にキャンペーンを送信する](#day-of-month-last)
 - [月の各日に異なるメッセージを送信する](#day-of-month)
 - [曜日ごとに異なるメッセージを送信する](#day-of-week)
+- [特定のカレンダー日にメッセージを中止する](#abort-specific-calendar-date)
+- [特定の曜日にメッセージを中止する](#abort-specific-weekday)
 
 ### 前月の名前をメッセージに取り込む {#month-name}
 
@@ -1728,7 +1785,35 @@ Default copy
 {% endraw %}
 
 {% alert note %}
-「Default copy」の行を {% raw %}`{% abort_message() %}`{% endraw %} に置き換えて、曜日が不明な場合にメッセージの送信を防止できます。
+「Default copy」の行を{% raw %}`{% abort_message() %}`{% endraw %}に置き換えて、曜日が不明な場合にメッセージの送信を防止できます。
 {% endalert %}
 
+### 特定のカレンダー日にメッセージを中止する {#abort-specific-calendar-date}
+
+このユースケースでは、毎年選択した月と日（この例では5月5日）にメッセージを中止します。`date`フィルターで構築した明確な月日の文字列と現在の日付を比較します。
+
+{% raw %}
+```liquid
+{% assign date = 'now' | date: '%d/%m' %}
+{% if date == '05/05' %}
+{% abort_message('No message on the 5th of May') %}
+{% endif %}
+```
+{% endraw %}
+
+### 特定の曜日にメッセージを中止する {#abort-specific-weekday}
+
+このユースケースでは、Liquidが実行される曜日が指定した曜日（この例では`Wednesday`）の場合にメッセージを中止します。`%A`フィルターは英語の完全な曜日名を返します。
+
+{% raw %}
+```liquid
+{% assign weekday = 'now' | date: '%A' %}
+{% if weekday == 'Wednesday' %}
+{% abort_message("No message on Wednesdays") %}
+{% endif %}
+```
+{% endraw %}
+
 {% endapi %}
+
+このライブラリの多くの例では、条件が満たされない場合に送信をスキップするために`abort_message`タグを使用しています。Liquidによる送信中止の完全なリファレンス（日付や時間ベースのパターンを含む）については、[Liquidメッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を参照してください。

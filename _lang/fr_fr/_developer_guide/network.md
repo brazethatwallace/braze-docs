@@ -1,17 +1,17 @@
 ---
 nav_title: Paramètres du réseau
-article_title: Paramètres réseau pour le SDK de Braze
+article_title: Paramètres réseau pour le SDK Braze
 page_order: 4.0
-description: "Découvrez comment configurer les paramètres réseau pour le SDK de Braze."
-platform: 
+description: "Découvrez comment configurer les paramètres réseau pour le SDK Braze."
+platform:
   - Android
   - FireOS
   - Swift
 ---
 
-# Paramètres du réseau
+# Paramètres du réseau {#network-settings}
 
-> Découvrez comment configurer les paramètres réseau pour le SDK de Braze.
+> Découvrez comment configurer les paramètres réseau pour le SDK Braze.
 
 {% sdktabs %}
 {% sdktab android %}

@@ -9,54 +9,53 @@ search_tag: Partner
 
 # Blings
 
-> [Blings](https://www.blings.io/) es una plataforma de vídeo personalizado de nueva generación que te habilita para entregar experiencias de vídeo en tiempo real, interactivas y basadas en datos a través de canales a escala.  
+> [Blings](https://www.blings.io/) es una plataforma de video personalizado de nueva generación que te permite entregar experiencias de video en tiempo real, interactivas y basadas en datos a través de canales a escala.
 
 _Esta integración está mantenida por Blings._
 
-## Requisitos previos  
+## Requisitos previos {#prerequisites}
 
-| Requisito     | Descripción                                                                 |
+| Requisito | Descripción |
 |-----------------|-----------------------------------------------------------------------------|
-| Cuenta Blings  | Se necesita una cuenta Blings para beneficiarse de esta asociación.         |  
+| Cuenta de Blings | Se necesita una cuenta de Blings para beneficiarse de esta asociación. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración  
+## Integración {#integration}
 
-### Paso 1: Obtén tu fragmento de código HTML de Blings
+### Paso 1: Obtén tu fragmento de código HTML de Blings {#step-1-obtain-your-blings-html-snippet}
 
 {% tabs %}
 {% tab Blings business and free plans %}
 
-#### Blings business y planos gratuitos
+#### Planes Blings business y gratuito {#blings-business-and-free-plans}
 
-Localiza y copia tu fragmento de código HTML directamente en la aplicación Blings.
+Localiza y copia tu fragmento de código HTML directamente en la aplicación de Blings.
 
-1. Ve a la pestaña **Conectar** del Proyecto MP5 seleccionado.
-2. Añade etiquetas de Braze Liquid a las variables correspondientes de la página Blings **Connect**. Las etiquetas rellenarán dinámicamente los valores del fragmento de código HTML. 
+1. Ve a la pestaña **Conectar** del proyecto MP5 seleccionado.
+2. Añade etiquetas de Liquid de Braze a las variables correspondientes en la página **Conectar** de Blings. Las etiquetas rellenarán dinámicamente los valores en el fragmento de código HTML.
 
-![Fragmento de código HTML de Blings.]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}  
+![Fragmento de código HTML de Blings.]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}
 
 {% endtab %}
 {% tab Blings Enterprise plan %}
 
-#### Plan Blings Enterprise
+#### Plan Blings Enterprise {#blings-enterprise-plan}
 
-Solicita el fragmento de código HTML a tu representante de Blings. 
+Solicita el fragmento de código HTML a tu representante de Blings.
 
 {% endtab %}
 {% endtabs %}
 
-### Paso 2: Crear una campaña Braze  
+### Paso 2: Crea una campaña en Braze {#step-2-create-a-braze-campaign}
 
-En Braze, crea una nueva campaña de mensajería por correo electrónico o dentro de la aplicación e inserta el fragmento de código HTML de Blings.
+En Braze, crea una nueva campaña de correo electrónico o de mensaje dentro de la aplicación e inserta el fragmento de código HTML de Blings. Usa la vista previa del editor para confirmar que los campos personalizados y el contenido dinámico de Creative Suite se muestran correctamente.
 
-![Campaña Blings Braze.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})  
-
-### Paso 3: Prueba y lanzamiento  
+### Paso 3: Prueba y lanzamiento {#step-3-test-and-launch}
 
 Realiza una vista previa de la campaña en Braze para confirmar que los campos personalizados se rellenan correctamente. Después, despliega tu campaña MP5 a escala.
 
-![Vista previa de Blings Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}  
+![Vista previa de Blings en Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 
-## Conseguir apoyo  
+## Obtener soporte {#getting-support}
 
-Para cualquier pregunta o para solicitar tu fragmento de código, ponte en contacto con [Blings](https://blings.gitbook.io/blings-knowledge-base/documentation) en [support@blings.io](mailto:support@blings.io) o consulta el [centro de ayuda de Blings](https://blings.gitbook.io/blings-knowledge-base/documentation).  
+Para cualquier pregunta o para solicitar tu fragmento de código, ponte en contacto con Blings en [support@blings.io](mailto:support@blings.io) o consulta el [centro de ayuda de Blings](https://blings.gitbook.io/blings-knowledge-base/documentation).

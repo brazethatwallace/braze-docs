@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
 
 > 비즈니스 인텔리전스 및 빅데이터 분석 플랫폼인 [Looker](https://looker.com/)를 사용하면 실시간 비즈니스 분석을 원활하게 탐색, 분석 및 공유할 수 있습니다.
 
@@ -21,7 +21,7 @@ Braze와 Looker 통합을 통해 회사 사용자는 REST API를 통한 퍼스�
 | Looker 계정 | 이 파트너십을 활용하려면 [Looker 계정](https://looker.com/)이 필요합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### 고려 사항 {#considerations}
 
@@ -56,7 +56,7 @@ Braze는 [Snowflake](https://www.snowflake.com/)를 데이터 웨어하우스로
 |---|---|
 | 메시지 참여 분석 블록 | 이 블록에는 푸시, 이메일, 인앱 메시지, 웹훅, 전환, Canvas 진입 및 Campaign 대조군 등록 이벤트에 대한 데이터가 포함됩니다. <br><br>이 [Looker 블록](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)에 대해 자세히 알아보거나 [GitHub 코드](https://github.com/llooker/braze_message_engagement_block)를 확인하세요. |
 | 사용자 동작 분석 블록 | 이 블록에는 커스텀 이벤트, 구매, 세션, 위치 이벤트 및 제거에 대한 데이터가 포함됩니다.<br><br>이 [Looker 블록](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)에 대해 자세히 알아보거나 [GitHub 코드](https://github.com/llooker/braze_retention_block)를 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available Blocks" }
 
 ### Looker 액션 {#looker-actions}
 

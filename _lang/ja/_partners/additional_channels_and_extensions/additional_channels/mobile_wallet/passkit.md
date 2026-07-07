@@ -24,21 +24,21 @@ BrazeとPassKitの統合により、Apple ウォレットとGoogle Payのカス�
 | ----------- | ----------- |
 | PassKitアカウント | PassKitアカウントとPassKitアカウントマネージャーが必要です。 |
 | `userDefinedID` | PassKitとBrazeの間でユーザーへのカスタムイベントやカスタム属性を適切に更新するには、Brazeのexternal IDを`userDefinedID`として設定する必要があります。この`userDefinedID`は、PassKitのエンドポイントにAPIコールを行う際に使用されます。 |
-| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**「設定」**>**「APIキー」**から作成できます。 |
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#endpoints)に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
 顧客のモバイルウォレットエクスペリエンスをさらに充実させるために、PassKitダッシュボードから、Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint)を通じてBrazeにデータを渡すことができます。
 
 PassKitから共有するデータの例を以下に示します。
-- **Pass created**: 顧客がパスリンクをクリックして、パスが最初に表示される時点。
-- **Pass installs**: 顧客がパスを追加し、自分のウォレットアプリに保存する時点。
-- **Pass updates**: パスが更新される時点。
-- **Pass delete**: 顧客がウォレットアプリからパスを削除する時点。
+- **パス作成**: 顧客がパスリンクをクリックして、パスが最初に表示される時点。
+- **パスインストール**: 顧客がパスを追加し、自分のウォレットアプリに保存する時点。
+- **パス更新**: パスが更新される時点。
+- **パス削除**: 顧客がウォレットアプリからパスを削除する時点。
 
-データがBrazeに渡されると、オーディエンスを構築し、Liquidでコンテンツをパーソナライズし、これらのアクションが実行された後にCampaignsやCanvasesをトリガーすることができます。
+データがBrazeに渡されると、オーディエンスを構築し、Liquidでコンテンツをパーソナライズし、これらのアクションが実行された後にキャンペーンやキャンバスをトリガーすることができます。
 
 ## PassKitをBrazeに接続する {#connect-passkit-to-braze}
 
@@ -50,7 +50,7 @@ PassKitからデータを渡すには、Brazeのexternal IDをPassKitの`externa
 
 ## SmartPassリンクを使用してパスを作成する {#create-pass-using-a-smartpass-link}
 
-Brazeでは、SmartPassリンクを設定して、顧客がAndroidまたはiOSにパスをインストールするための一意のURLを生成できます。そのためには、BrazeのContent Blockから呼び出せる暗号化されたSmartPassデータペイロードを定義する必要があります。この[Content Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks)は、今後のパスやクーポンに再利用できます。以下は統合の際に使用されます。
+Brazeでは、SmartPassリンクを設定して、顧客がAndroidまたはiOSにパスをインストールするための一意のURLを生成できます。そのためには、Brazeのコンテンツブロックから呼び出せる暗号化されたSmartPassデータペイロードを定義する必要があります。この[コンテンツブロック]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks)は、今後のパスやクーポンに再利用できます。以下は統合の際に使用されます。
 
 - **PassKit URL**: PassKit URLは、PassKitプログラムの一意のURLです。<br>各プログラムには固有のURLがあり、PassKitプログラムまたはプロジェクトの**Distribution**タブで確認できます。（例: https://pub1.pskt.io/c/ww0jir）<br><br>
 - **PassKitシークレット**: URLとともに、このプログラムのPassKit Keyを手元に用意しておく必要があります。<br>これはPassKit URLと同じページで確認できます。<br><br>
@@ -66,9 +66,9 @@ Brazeでは、SmartPassリンクを設定して、顧客がAndroidまたはiOS�
 
 | コンポーネント | 必須 | タイプ | 説明 |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | 必須 | String | Brazeのexternal IDとして設定され、PassKitからBrazeへのコールバックが機能するために重要です。これにより、会社ユーザーは1つのCampaignで複数のオファーのクーポンを持つことができます。一意であることは必須ではありません。 |
-| `members.member.externalId` | オプション | String | Brazeのexternal IDとして設定します。external IDを使用してメンバーシップパスを更新できます。このフィールドを設定することで、メンバーシッププログラム内でユーザーが一意になります。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+|`person.externalId` | 必須 | 文字列 | Brazeのexternal IDとして設定され、PassKitからBrazeへのコールバックが機能するために重要です。これにより、会社ユーザーは1つのキャンペーンで複数のオファーのクーポンを持つことができます。一意であることは必須ではありません。 |
+| `members.member.externalId` | オプション | 文字列 | Brazeのexternal IDとして設定します。external IDを使用してメンバーシップパスを更新できます。このフィールドを設定することで、メンバーシッププログラム内でユーザーが一意になります。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Define your pass data payload #passkit-integrations" }
 
 使用可能なすべてのフィールドとそのタイプ、役立つ説明については、[PassKit GitHubのドキュメント](https://github.com/PassKit/smart-pass-link-from-csv-generator)を参照してください。
 
@@ -88,13 +88,13 @@ Brazeでは、SmartPassリンクを設定して、顧客がAndroidまたはiOS�
 
 ### ステップ2: 未定義のペイロード変数を作成し、エンコードする {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Brazeダッシュボード内の**テンプレート** > **Content Blocks**に移動して、新しいContent Blockを作成し、名前を付けます。
+Brazeダッシュボード内の**コンテンツ** > **コンテンツブロック**に移動して、新しいコンテンツブロックを作成し、名前を付けます。
 
 **Create Content Block**を選択して開始します。
 
-次に、**Content BlockのLiquidタグ**を定義します。このContent Blockを保存したら、メッセージを作成するときにこのLiquidタグを参照できます。この例では、Liquidタグを{% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}として割り当てています。
+次に、**コンテンツブロックのLiquidタグ**を定義します。このコンテンツブロックを保存したら、メッセージを作成するときにこのLiquidタグを参照できます。この例では、Liquidタグを{% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}として割り当てています。
 
-このContent Block内部では、ペイロードを直接含めず、{% raw %}`{{passData}}`{% endraw %}変数で参照します。Content Blockに追加する最初のコードスニペットは、{% raw %}`{{passData}}`{% endraw %}変数のBase64エンコードをキャプチャします。
+このコンテンツブロック内部では、ペイロードを直接含めず、{% raw %}`{{passData}}`{% endraw %}変数で参照します。コンテンツブロックに追加する最初のコードスニペットは、{% raw %}`{{passData}}`{% endraw %}変数のBase64エンコードをキャプチャします。
 {% raw %}
 ```liquid
 {% capture base64JsonPayload %}{{passDatapassData|base64_encode}}{% endcapture %}
@@ -105,7 +105,7 @@ Brazeダッシュボード内の**テンプレート** > **Content Blocks**に�
 
 次に、プロジェクトのURLとペイロードの[SHA1 HMAC](https://en.wikipedia.org/wiki/HMAC)ハッシュを使って暗号化署名を作成します。
 
-Content Blockに追加する2つ目のコードスニペットは、ハッシュに使用するURLをキャプチャします。
+コンテンツブロックに追加する2つ目のコードスニペットは、ハッシュに使用するURLをキャプチャします。
 {% raw %}
 ```liquid
 {% capture url %}{{projectUrl}}?data={{base64JsonPayload}}{% endcapture %}
@@ -135,7 +135,7 @@ Content Blockに追加する2つ目のコードスニペットは、ハッシュ
 ```
 {% endraw %}
 
-この時点で、次のようなContent Blockが作成されています。
+この時点で、次のようなコンテンツブロックが作成されています。
 
 {% raw %}
 ```liquid
@@ -151,27 +151,27 @@ Content Blockに追加する2つ目のコードスニペットは、ハッシュ
 ```
 {% endraw %}
 
-この例では、これらのインストールのソースをBrazeとこのCampaignまで追跡するために、UTMパラメーターが追加されています。
+この例では、これらのインストールのソースをBrazeとこのキャンペーンまで追跡するために、UTMパラメーターが追加されています。
 
 {% alert tip %}
-ページを離れる前に、Content Blockを必ず保存してください。
+ページを離れる前に、コンテンツブロックを必ず保存してください。
 {% endalert %}
 
 ### ステップ5: すべてをまとめる {#step-5-putting-it-all-together}
 
-このContent Blockが作成されたら、今後再利用できます。
+このコンテンツブロックが作成されたら、今後再利用できます。
 
-Content Blockの例では、2つの変数が未定義のままになっていることにお気づきでしょう。<br>
+コンテンツブロックの例では、2つの変数が未定義のままになっていることにお気づきでしょう。<br>
 {% raw %}`{{passData}}`{% endraw %} - [ステップ1](#passkit-integrations)で定義したJSONパスデータのペイロード<br>
 {% raw %}`{{projectUrl}}`{% endraw %} - PassKitプロジェクトのDistributionタブにあるプロジェクトまたはプログラムのURL。
 
-これは意図的な決定であり、Content Blockの再利用性をサポートします。これらの変数は参照されるだけで、Content Block内で作成されるわけではないので、Content Blockを作り直すことなく変更できます。
+これは意図的な決定であり、コンテンツブロックの再利用性をサポートします。これらの変数は参照されるだけで、コンテンツブロック内で作成されるわけではないので、コンテンツブロックを作り直すことなく変更できます。
 
-たとえば、紹介オファーを変更して、ロイヤルティプログラムに初回ポイントを追加したり、セカンダリメンバーカードやクーポンを作成したりすることがあります。これらのシナリオでは必要なPassKitの`projectURLs`またはパスペイロードが異なる可能性があります。これらはBrazeでCampaignごとに定義します。
+たとえば、紹介オファーを変更して、ロイヤルティプログラムに初回ポイントを追加したり、セカンダリメンバーカードやクーポンを作成したりすることがあります。これらのシナリオではPassKitの`projectURLs`またはパスペイロードが異なる可能性があり、Brazeでキャンペーンごとに定義します。
 
 #### メッセージ本文を作成する {#composing-the-message-body}
 
-この2つの変数をメッセージ本文にキャプチャしてから、Content Blockを呼び出します。
+この2つの変数をメッセージ本文にキャプチャしてから、コンテンツブロックを呼び出します。
 [ステップ1](#passkit-integrations)のミニファイ化されたJSONペイロードをキャプチャします。
 
 **プロジェクトURLを割り当てる**
@@ -188,7 +188,7 @@ Content Blockの例では、2つの変数が未定義のままになっている
 ```
 {% endraw %}
 
-**先ほど作成したContent Blockを参照する**
+**先ほど作成したコンテンツブロックを参照する**
 {% raw %}
 ```liquid
 {{content_block.${passkit_SmartPass_url}}}
@@ -196,7 +196,7 @@ Content Blockの例では、2つの変数が未定義のままになっている
 {% endraw %}
 
 メッセージ本文は次のようになります。
-![キャプチャされたJSONおよびContent Block参照を含むContent Blockメッセージ作成画面の画像。]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
+![キャプチャされたJSONおよびコンテンツブロック参照を含むコンテンツブロックメッセージ作成画面の画像。]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
 
 サンプルの出力URLは以下の通りです。
 ![ランダムに生成された文字と数字からなる長い文字列を含む出力URL。]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
@@ -205,7 +205,7 @@ Content Blockの例では、2つの変数が未定義のままになっている
 
 ## PassKit Webhookを使用してパスを更新する {#update-pass-using-the-passkit-webhook}
 
-Brazeでは、WebhookのCampaignやCanvas内のWebhookを設定して、ユーザーの行動に基づいて既存のパスを更新することができます。有用なPassKitエンドポイントについては、次のリンクを参照してください。
+Brazeでは、Webhookのキャンペーンやキャンバス内のWebhookを設定して、ユーザーの行動に基づいて既存のパスを更新することができます。有用なPassKitエンドポイントについては、次のリンクを参照してください。
 - [メンバープロジェクト](https://docs.passkit.io/protocols/member/)
 - [クーポンプロジェクト](https://docs.passkit.io/protocols/coupon/)
 - [フライトプロジェクト](https://docs.passkit.io/protocols/boarding/)
@@ -216,15 +216,15 @@ Brazeでは、WebhookのCampaignやCanvas内のWebhookを設定して、ユー�
 
 | データ | タイプ | 説明 |
 | ---- | ---- | ----------- |
-| `externalId` | String | 一意の顧客識別子（メンバーシップ番号など）を使用する既存のシステムとの互換性を得るために、パスレコードに一意のIDを追加できます。このエンドポイントを使用して、パスIDではなく`userDefinedId`と`campaignName`でパスデータを取得できます。この値はCampaign内で一意でなければならず、設定後は変更できません。<br><br>Braze統合では、Brazeのexternal ID {% raw %}`{{${user_id}}}`{% endraw %}を使用することをお勧めします。 |
-| `campaignId`（クーポン）<br><br> `programId`（メンバーシップ） | String | PassKitで作成したCampaignまたはプログラムテンプレートのIDです。これを確認するには、PassKitパスプロジェクトの**Settings**タブに移動します。 |
-| `expiryDate` | ISO8601日時 | パスの有効期限です。有効期限を過ぎると、パスは自動的に無効になります（`isVoided`を参照）。この値はテンプレートとCampaign終了日の値を上書きします。 |
-| `status` | String | `REDEEMED`や`UNREDEEMED`など、クーポンの現在のステータスです。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `externalId` | 文字列 | 一意の顧客識別子（メンバーシップ番号など）を使用する既存のシステムとの互換性を得るために、パスレコードに一意のIDを追加できます。このエンドポイントを使用して、パスIDではなく`userDefinedId`と`campaignName`でパスデータを取得できます。この値はキャンペーン内で一意でなければならず、設定後は変更できません。<br><br>Braze統合では、Brazeのexternal ID {% raw %}`{{${user_id}}}`{% endraw %}を使用することをお勧めします。 |
+| `campaignId`（クーポン）<br><br> `programId`（メンバーシップ） | 文字列 | PassKitで作成したキャンペーンまたはプログラムテンプレートのIDです。これを確認するには、PassKitパスプロジェクトの**Settings**タブに移動します。 |
+| `expiryDate` | IO8601日時 | パスの有効期限です。有効期限を過ぎると、パスは自動的に無効になります（`isVoided`を参照）。この値はテンプレートとキャンペーン終了日の値を上書きします。 |
+| `status` | 文字列 | `REDEEMED`や`UNREDEEMED`など、クーポンの現在のステータスです。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload parameters" }
 
 ### ステップ1: BrazeのWebhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-今後のCampaignsやCanvasesで使用するPassKit Webhookテンプレートを作成するには、Brazeダッシュボードの**テンプレートとメディア**セクションに移動します。単発のPassKit WebhookのCampaignを作成する場合、または既存のテンプレートを使用する場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
+今後のキャンペーンやキャンバスで使用するPassKit Webhookテンプレートを作成するには、Brazeダッシュボードの**テンプレートとメディア**セクションに移動します。単発のPassKit Webhookのキャンペーンを作成する場合、または既存のテンプレートを使用する場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 PassKit Webhookテンプレートを選択すると、以下のように表示されます。
 - **Webhook URL**: `https://api-pub1.passkit.io/coupon/singleUse/coupon`
@@ -260,12 +260,12 @@ Webhookをセットアップするには、リクエスト本文に新しいイ�
 **Preview**パネルでリクエストをプレビューするか、**Test**タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、Webhookをテストするために自分でカスタマイズします。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookのキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}
 
 ## コネクテッドコンテンツからパスの詳細を取得する {#retrieve-pass-details-via-connected-content}
 
-パスの作成と更新に加え、ユーザーのパスメタデータをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)から取得し、パーソナライズされたパスの詳細をメッセージングCampaignsに組み込むこともできます。
+パスの作成と更新に加え、ユーザーのパスメタデータをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)から取得し、パーソナライズされたパスの詳細をメッセージングキャンペーンに組み込むこともできます。
 
 **PassKitコネクテッドコンテンツ呼び出し**
 

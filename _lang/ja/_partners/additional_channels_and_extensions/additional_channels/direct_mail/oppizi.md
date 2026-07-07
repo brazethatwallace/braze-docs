@@ -1,77 +1,78 @@
 ---
-nav_title: オッピジー
-article_title: オッピジー 
+nav_title: Oppizi
+article_title: Oppizi
 alias: /partners/oppizi/
-description: "この参考記事では、BrazeとOppiziのパートナーシップについて概説している。"
+description: "このリファレンス記事では、BrazeとOppiziのパートナーシップについて説明します。"
 page_type: partner
 search_tag: Partner
 ---
 
-# オッピジー
+# Oppizi
 
-> [Oppiziは](https://www.oppizi.com/)オフラインマーケティングのグローバルリーダーであり、測定可能でターゲットを絞ったダイレクトメールやチラシキャンペーンを実施するためのワンストップソリューションを企業に提供している。
+> [Oppizi](https://www.oppizi.com/)はオフラインマーケティングのグローバルリーダーであり、測定可能でターゲットを絞ったダイレクトメールやチラシ配布キャンペーンを実施するためのワンストップソリューションを企業に提供しています。
 
-_この統合はOppiziによって維持されている。_
+_この統合はOppiziによって管理されています。_
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-| 必要条件                    | 説明                                                                   |
+| 必要条件 | 説明 |
 | ------------------------------ | ----------------------------------------------------------------------------- |
-| オッピジーアカウント                 | この統合を使用するには、アクティブなOppiziアカウントが必要である。                 |
-| Oppizi API キー                 | Oppiziアカウントの**Integrations**>**Brazeに**ある。                |
-| オッピジ・ダイレクトメール ワークフローID | Oppiziの**ダイレクトメールワークフローページで**ワークフローを作成し、IDを取得する。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Oppiziアカウント | この統合を使用するには、アクティブなOppiziアカウントが必要です。 |
+| Oppizi APIキー | Oppiziアカウントの**Integrations** > **Braze**で確認できます。 |
+| Oppiziダイレクトメールワークフローid | Oppiziの**Direct Mail Workflow**ページでワークフローを作成し、IDを取得します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
-Oppiziとの統合で、あなたはできる：
+Oppiziとの統合により、以下のことが可能です。
 
-* OppiziのWebhookとダイレクトメールワークフローに接続されたBrazeトリガーを使用して、**自動ダイレクトメールハガキを送信する**。
-* Oppiziのダイレクトメールワークフローで、**しきい値、ウェーブ、リミットを設定し**、キャンペーンの送信をコントロールする。
-* Oppiziの内蔵デザインツールで**プロフェッショナルなポストカードをデザイン**しよう。
-* Oppiziのダッシュボードでリアルタイムに**キャンペーンパフォーマンスを追跡**しよう。
+* OppiziのWebhookとダイレクトメールワークフローに接続されたBrazeトリガーを使用して、**自動ダイレクトメールはがきを送信**できます。
+* Oppiziのダイレクトメールワークフローで**しきい値、ウェーブ、リミットを設定**し、キャンペーンの送信をコントロールできます。
+* Oppiziの内蔵デザインツールで**プロフェッショナルなはがきをデザイン**できます。デザイン経験は不要です。
+* Oppiziのダッシュボードで**キャンペーンパフォーマンスをリアルタイムに追跡**できます。
 
-## 統合
+## 統合 {#integration}
 
-### ステップ 1: Oppizi APIキーを生成する 
+### ステップ 1: Oppizi APIキーを生成する {#step-1-generate-your-oppizi-api-key}
 
-BrazeでWebhookテンプレートを使用するには、まずOppizi APIキーを生成する必要がある。
+BrazeでWebhookテンプレートを使用するには、まずOppizi APIキーを生成する必要があります。
 
-1. Oppiziにログインする。
-2. **Integrations**>**Brazeに**進む。
-3. APIキーを生成する。
+1. Oppiziにログインします。
+2. **Integrations** > **Braze**に移動します。
+3. APIキーを生成します。
 
-必要に応じて、このページからキーのマネージャー、失効、作成ができる。
+必要に応じて、このページからキーの管理、失効、作成ができます。
 
-### ステップ 2:BrazeのWebhookテンプレートを作成する。
+### ステップ 2: BrazeでWebhookテンプレートを作成する {#step-2-create-a-braze-webhook-template}
 
-次に、今後のキャンペーンやCanvasで使用するために、BrazeでOppizi用のWebhookテンプレートを作成する。
+次に、今後のキャンペーンやキャンバスで使用するために、BrazeでOppizi用のWebhookテンプレートを作成します。
 
-1. Brazeで**Templates**> Webhook templatesに進む。
+1. Brazeで**Content** > **Webhook**に移動します。
+2. **Create webhook template**を選択します。
+3. テンプレートの名前を入力します。
+4. Webhookテンプレートに、以下のフィールドを入力します。
 
-Webhookテンプレートに、以下のフィールドを記入する：
+- **Webhook URL:** `https://webhooks.oppizi.com/events`
+- **リクエスト本文:** **Raw Text**
 
-- **WebhookのURL：** ```https://webhooks.oppizi.com/events```
-- **リクエスト本文：****Raw Text**
+リクエストメソッドとヘッダーについて、OppiziはHTTPメソッドと以下のHTTPヘッダーをテンプレートに含めることを要求しています。以下のフィールドに入力してください。
 
-リクエストメソッドとヘッダーについて、Oppizi は HTTP メソッドと以下の HTTP ヘッダーをテンプレートに含めることを要求する。以下のフィールドに入力します。
+- **HTTPメソッド:** POST
+- **リクエストヘッダー:**
+  - **Authorization:** `Bearer <oppiziAPIKey>`
+  - **Content-Type:** `application/json`
 
-- **HTTPメソッドを使用する：**POST
-- **リクエストヘッダー：**
-  - **認可する：** `Bearer <oppiziAPIKey>`
-  - **コンテンツタイプ：** `application/json`
+![BrazeでのOppizi Webhookヘッダーの例。]({% image_buster /assets/img/oppizi/oppizi_braze_webhook_headers.png %})
 
-![BrazeのOppizi webhookヘッダーの例。]({% image_buster /assets/img/oppizi/oppizi_braze_webhook_headers.png %})
-
-**リクエストボディには**、フィールド**oppiziWorkflowID** を含めなければならない。このIDは、Oppizでワークフローを作成する際に生成され、受信者をどのダイレクトメールワークフローに追加するかを指定するために必要となる。Oppiziの各ダイレクトメールワークフローには固有のIDがあるので、BrazeでOppiziのWebhookテンプレートを作成する場合は、ワークフローIDを常に正しいものに更新するようにする。
+**リクエストボディ**には、フィールド**oppiziWorkflowID**を含める必要があります。このIDはOppiziでワークフローを作成する際に生成され、受信者をどのダイレクトメールワークフローに追加するかを指定するために必要です。Oppiziの各ダイレクトメールワークフローには固有のIDがあるため、BrazeでOppizi Webhookテンプレートを作成する場合は、ワークフローIDを常に正しいものに更新してください。
 
 {% alert note %}
-ダイレクトメールを送信するために必要な、受信者の郵便住所に必要なカスタム属性がBrazeアカウントに設定されていることを確認する。
+ダイレクトメールの送信に必要な受信者の郵便住所のカスタム属性が、Brazeアカウントに設定されていることを確認してください。
 {% endalert %}
 
-![BrazeのOppizi Webhookテンプレートの例。]({% image_buster /assets/img/oppizi/oppizi_braze_webhook_example.png %})
+![BrazeでのOppizi Webhookテンプレートの例。]({% image_buster /assets/img/oppizi/oppizi_braze_webhook_example.png %})
 
-以下はリクエストボディの例である：
+以下はリクエストボディの例です。
 
 {% raw %}
 ```json
@@ -94,16 +95,16 @@ Webhookテンプレートに、以下のフィールドを記入する：
 ```
 {% endraw %}
 
-### ステップ 3:Oppiziでダイレクトメールのワークフローを作成する
+### ステップ 3: Oppiziでダイレクトメールワークフローを作成する {#step-3-create-a-direct-mail-workflow-in-oppizi}
 
-1. Oppiziで、**ダイレクトメールワークフロー**>**ワークフローを作成する**。
-2. しきい値、ウェーブ、はがきフォーマット、アートワークなど、ワークフローの詳細を設定する。
-3. Webhookの詳細セクションには、ワークフローIDを含むすぐに使えるリクエストボディがあり、Brazeに直接貼り付けることができる。
+1. Oppiziで、**Direct Mail Workflow** > **Create workflow**に移動します。
+2. しきい値、ウェーブ、はがきフォーマット、アートワークなど、ワークフローの詳細を設定します。
+3. Webhookの詳細セクションに、ワークフローIDを含むすぐに使えるリクエストボディがあり、Brazeに直接貼り付けることができます。
 
-### ステップ 4: Brazeでリクエストのプレビューとテストを行う
+### ステップ 4: Brazeでリクエストをプレビューしてテストする {#step-4-preview-and-test-your-request-in-braze}
 
-OppiziのワークフローIDでリクエストボディを追加した後、テストを実行し、セットアップが期待通りに機能していることを確認する。
+OppiziのワークフローIDを含むリクエストボディを追加した後、テストを実行してセットアップが期待どおりに機能していることを確認します。
 
-テストを実行するには、リクエストボディの`requestType` を`live` から`test` に更新する。このステップは、ダイレクトメールのオーディエンスにテスト受信者を追加しないために重要である。
+テストを実行するには、リクエストボディの`requestType`を`live`から`test`に更新します。このステップは、ダイレクトメールのオーディエンスにテスト受信者が追加されるのを防ぐために重要です。
 
-テストが終わったら、`requestType` を`live` に更新し、キャンバスを保存する。これで、自動ダイレクトメールキャンペーンを開始する準備が整った。
+テストが完了したら、`requestType`を`live`に戻してキャンバスを保存します。これで、自動ダイレクトメールキャンペーンを開始する準備が整いました。

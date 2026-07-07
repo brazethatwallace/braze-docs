@@ -27,7 +27,7 @@ Também é possível passar seus públicos da AppsFlyer (coortes) diretamente pa
 | SDK da AppsFlyer | Além do SDK da Braze obrigatório, você deve instalar o [SDK da AppsFlyer](https://dev.appsflyer.com/hc/docs/getting-started).
 | Configuração completa do domínio de e-mail | Você deve ter concluído a [etapa de configuração de IP e domínio]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) para configurar seu e-mail durante a integração com a Braze. |
 | Certificado SSL | Seu [certificado SSL]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) deve estar configurado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -108,13 +108,17 @@ Aqui, você encontra o endpoint REST e gera sua chave de importação de dados d
 3. Forneça a chave de importação de dados e o endpoint REST que você encontrou no dashboard da Braze.
 4. Desative a opção **Advanced Privacy** e salve sua configuração.
 
+{% alert important %}
+Ao inserir o endpoint REST da Braze na guia de integração da AppsFlyer, digite apenas o domínio (por exemplo, `rest.fra-02.braze.eu`) sem o protocolo `https://` e sem o caminho `/attribution/appsflyer`. A AppsFlyer adiciona automaticamente o protocolo e o caminho. Incluir qualquer um deles na sua entrada causa falhas no postback.
+{% endalert %}
+
 Informações adicionais sobre essas instruções estão disponíveis na [documentação da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Etapa 4: confirme a integração {#step-4-confirm-the-integration}
 
-Depois que a Braze recebe dados de atribuição da AppsFlyer, o indicador de status de conexão na página de parceiros de tecnologia da AppsFlyer na Braze muda de "Not Connected" para "Connected" e inclui um registro de data e hora da última solicitação bem-sucedida.
+Na página de parceiros de tecnologia da AppsFlyer na Braze, o indicador de conexão mostra **Not Connected** até que você gere uma chave de API de importação de dados na etapa 2. Depois que você gera a chave, o indicador muda para **Connected** e exibe um registro de data e hora. Esse registro reflete quando a integração foi configurada pela primeira vez na Braze (quando a chave de importação de dados foi criada), e não quando a AppsFlyer enviou o último postback.
 
-Esse status é alterado somente depois que a Braze recebe dados sobre uma atribuição de instalação. A Braze ignora as instalações orgânicas (as exclui do postback da AppsFlyer) e não as conta ao determinar se a conexão foi bem-sucedida.
+Para confirmar que os dados de atribuição de instalação estão fluindo da AppsFlyer, use a etapa 5 para verificar se os dados de instalações não orgânicas aparecem nos filtros de segmento da Braze. A Braze ignora as instalações orgânicas dos postbacks da AppsFlyer e não as armazena como dados de instalação atribuída.
 
 ### Etapa 5: visualização de dados de atribuição de usuários {#step-5-viewing-user-attribution-data}
 
@@ -128,7 +132,7 @@ Se sua integração foi bem-sucedida, a Braze mapeia todos os dados de instalaç
 | `campaign` | Campaign atribuída |
 | `af_adset` | Grupo de anúncios atribuído |
 | `af_ad` | Anúncio atribuído |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de dados disponíveis" }
 
 Você pode segmentar sua base de usuários por dados de atribuição no dashboard da Braze usando os filtros de atribuição de instalação.
 
@@ -215,7 +219,7 @@ A AppsFlyer [oferece orientação](https://support.appsflyer.com/hc/en-us/articl
 
 ## Etapa 5: confirme se o rastreamento de cliques SSL está ativado com a Braze {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-Nessa etapa, depois de compartilhar e validar os detalhes do CTD na AppsFlyer, recomendamos realizar um envio de teste para confirmar se o domínio de envio do OneLink tem um certificado SSL. Isso está de acordo com nosso guia de [configuração de e-mail](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
+Nessa etapa, depois de compartilhar e validar os detalhes do CTD na AppsFlyer, recomendamos realizar um envio de teste para confirmar se o domínio de envio do OneLink tem um certificado SSL. Isso está de acordo com nosso guia de [configuração de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
 
 Você pode realizar a garantia de qualidade e a solução de problemas enviando um deep link usando o OneLink. Consulte a [documentação da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) para obter detalhes sobre o uso do OneLink.
 

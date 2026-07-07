@@ -1,12 +1,12 @@
 ---
 nav_title: Datenerfassung verwalten
-article_title: Verwalten Sie die Datenerfassung für das Braze SDK
+article_title: Datenerfassung für das Braze SDK verwalten
 page_order: 8
 description: "Erfahren Sie, wie Sie die Datenerfassung für das Braze SDK verwalten können."
 
 ---
 
-# Datenerfassung verwalten
+# Datenerfassung verwalten {#manage-data-collection}
 
 > Erfahren Sie, wie Sie die Datenerfassung für das Braze SDK verwalten, damit Sie bei Bedarf alle Datenschutzbestimmungen einhalten können.
 
@@ -25,6 +25,10 @@ description: "Erfahren Sie, wie Sie die Datenerfassung für das Braze SDK verwal
 
 {% sdktab react native %}
 {% multi_lang_include developer_guide/react_native/analytics/managing_data_collection.md %}
+{% endsdktab %}
+
+{% sdktab roku %}
+{% multi_lang_include developer_guide/roku/analytics/managing_data_collection.md %}
 {% endsdktab %}
 
 {% endsdktabs %}

@@ -1,16 +1,16 @@
 ---
-nav_title: "LÖSCHEN: Katalog löschen"
-article_title: "LÖSCHEN: Katalog löschen"
+nav_title: "DELETE: Katalog löschen"
+article_title: "DELETE: Katalog löschen"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt Katalog löschen Braze."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Katalog löschen“."
 
 ---
 {% api %}
-# Katalog löschen
+# Katalog löschen {#delete-catalog}
 {% apimethod delete %}
 /catalogs/{catalog_name}
 {% endapimethod %}
@@ -19,22 +19,22 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt Katalog löschen Br
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c0915a86-797a-4486-8217-24cd1c689d0f {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.delete`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.delete`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Pfad-Parameter
+## Pfadparameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants' \
@@ -42,13 +42,13 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 ```
 
-## Antwort
+## Antwort {#response}
 
-Für diesen Endpunkt gibt es zwei Status Code Antworten: `200` und `404`.
+Für diesen Endpunkt gibt es zwei Statuscode-Antworten: `200` und `404`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Antwortkörper zurückgeben:
+Der Statuscode `200` könnte den folgenden Antworttext zurückgeben:
 
 ```json
 {
@@ -56,9 +56,9 @@ Der Status Code `200` könnte den folgenden Antwortkörper zurückgeben:
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `404` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `404` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {
@@ -78,13 +78,13 @@ Der Status Code `404` könnte den folgenden Antwortkörper zurückgeben. Unter [
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
 In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
 
-| Fehler | Fehlersuche |
+| Fehler | Fehlerbehebung |
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

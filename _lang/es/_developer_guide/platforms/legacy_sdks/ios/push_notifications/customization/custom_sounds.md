@@ -12,9 +12,9 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Sonidos personalizados
+# Sonidos personalizados {#custom-sounds}
 
-## Paso 1: Alojar el sonido en la aplicación
+## Paso 1: Alojar el sonido en la aplicación {#step-1-hosting-the-sound-in-the-app}
 
 Los sonidos de notificación push personalizados deben alojarse localmente dentro del paquete principal de la aplicación cliente. Se aceptan los siguientes formatos de datos de audio:
 
@@ -31,15 +31,14 @@ Puedes utilizar la herramienta afconvert para convertir sonidos. Por ejemplo, pa
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
 ```
 
-Puedes inspeccionar un sonido para determinar su formato de datos abriéndolo en QuickTime Player y eligiendo **Mostrar inspector de películas** en el menú **Película**.
+Puedes inspeccionar un sonido para determinar su formato de datos abriéndolo en QuickTime Player y eligiendo **Show Movie Inspector** en el menú **Movie**.
 
-Los sonidos personalizados deben durar menos de 30 segundos cuando se reproducen. Si un sonido personalizado supera ese límite, en su lugar, se reproduce el sonido predeterminado del sistema.
+Los sonidos personalizados deben durar menos de 30 segundos cuando se reproducen. Si un sonido personalizado supera ese límite, en su lugar se reproduce el sonido predeterminado del sistema.
 
-## Paso 2: Proporcionar al panel una URL de protocolo para el sonido
+## Paso 2: Proporcionar al dashboard una URL de protocolo para el sonido {#step-2-providing-the-dashboard-with-a-protocol-url-for-the-sound}
 
-Tu sonido debe alojarse localmente dentro de la aplicación. Debes especificar una URL de protocolo que dirija a la ubicación del archivo de sonido en la aplicación dentro del campo **Sonido** en el compositor push. Si especificas "predeterminado" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto se puede especificar a través de nuestra [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/) o de nuestro panel en **Configuración** en el compositor push, como se muestra en la siguiente captura de pantalla:
+Tu sonido debe alojarse localmente dentro de la aplicación. Debes especificar una URL de protocolo que dirija a la ubicación del archivo de sonido en la aplicación dentro del campo **Sound** en el compositor push. Si especificas "default" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto se puede especificar a través de nuestra [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) o de nuestro dashboard en **Settings** en el compositor push, como se muestra en la siguiente captura de pantalla:
 
-![]({% image_buster /assets/img_archive/sound_push_ios.png %})
+![Tu sonido debe alojarse localmente dentro de la aplicación. Debes especificar una URL de protocolo que dirija a la ubicación del archivo de sonido en la aplicación dentro del campo Sound en el compositor push. Si especificas "default" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto se puede especificar a través de nuestra API de mensajería o de nuestro dashboard en Settings en el compositor push, como se muestra en la siguiente captura de pantalla.]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Si el archivo de sonido especificado no existe o se introduce la palabra clave "predeterminado", Braze utilizará el sonido de alerta del dispositivo predeterminado. Aparte de nuestro panel, el sonido también se puede configurar a través de nuestra [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/). Consulta la documentación para desarrolladores de Apple relativa a la [preparación de sonidos de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para obtener información adicional.
-
+Si el archivo de sonido especificado no existe o se introduce la palabra clave "default", Braze utilizará el sonido de alerta predeterminado del dispositivo. Aparte de nuestro dashboard, el sonido también se puede configurar a través de nuestra [API de mensajería]({{site.baseurl}}/api/endpoints/messaging). Consulta la documentación para desarrolladores de Apple relativa a la [preparación de sonidos de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para obtener información adicional.

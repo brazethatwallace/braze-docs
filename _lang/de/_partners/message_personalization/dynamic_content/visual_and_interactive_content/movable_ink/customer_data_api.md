@@ -26,7 +26,7 @@ Weitere Informationen über Stories, die Movable Ink Customer Data API und darü
 | Movable Ink API-Zugangsdaten | Das Movable Ink Solutions-Team generiert API-Zugangsdaten für Sie. Die API-Zugangsdaten bestehen aus:{::nomarkdown}<ul><li>Einer Endpunkt-URL (an die die Daten gesendet werden)</li><li>Benutzername und Passwort (zur Authentifizierung der API)</li></ul>{:/} Falls gewünscht, kann Movable Ink den Benutzernamen und das Passwort als base64-kodierten Wert bereitstellen, der als Basic-Authorization-Header-Wert verwendet werden kann. |
 | Payloads für Verhaltens-Events | Sie müssen Ihre Event-Payloads mit Ihrem Movable Ink Client Experience Team teilen. Weitere Informationen finden Sie unter [Event-Payloads mit Movable Ink teilen](#event-payloads). |
 | Kreative Assets und Geschäftslogik | Sie müssen Movable Ink kreative Assets zur Verfügung stellen, einschließlich Adobe Photoshop (PSD)-Dateien, die Movable Ink zeigen, wie der Block erstellt werden soll, sowie ein Fallback-Bild. Außerdem müssen Sie die Geschäftslogik bereitstellen, die festlegt, wie und wann der vom Partner aktivierte Content-Block angezeigt werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -34,7 +34,7 @@ Weitere Informationen über Stories, die Movable Ink Customer Data API und darü
 
 #### Schritt 1a: Erstellen Sie eine neue Campaign {#step-1a-create-a-new-campaign}
 
-1. [Erstellen Sie in Braze eine Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+1. [Erstellen Sie in Braze eine Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 2. Geben Sie Ihrer Campaign einen Namen und eine optionale Beschreibung.
 3. Wählen Sie als Template **Blank Template** aus.
 
@@ -45,23 +45,23 @@ Weitere Informationen über Stories, die Movable Ink Customer Data API und darü
 ![Tab „Verfassen“ des Webhook-Composers in Braze mit der Movable Ink Endpunkt-URL und dem Anfrage-Body auf JSON-Schlüssel-Wert-Paare eingestellt.]({% image_buster /assets/img/movable_ink/cd_api_webhook_url.png %}){: style="max-width:75%" }
 
 {:start="2"}
-2. Wählen Sie den Tab **Settings**.
+2. Wählen Sie den Tab **Einstellungen**.
 3. Fügen Sie die folgenden Anfrage-Header als Schlüssel-Wert-Paare hinzu:
 
 | Schlüssel | Wert |
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Geben Sie die Basic-Authentifizierung ein, die Sie von Movable Ink erhalten haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1b: Customer Data API-Zugangsdaten hinzufügen" }
 
-![Tab „Settings“ des Webhook-Composers in Braze mit Schlüssel-Wert-Paaren für Content-Type und Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
+![Tab „Einstellungen“ des Webhook-Composers in Braze mit Schlüssel-Wert-Paaren für Content-Type und Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
 #### Schritt 1c: Konfigurieren Sie Ihren Payload {#step-1c-configure-your-payload}
 
-1. Kehren Sie zum Tab **Compose** zurück.
-2. Erstellen Sie für Ihren **Request Body** entweder einen eigenen Anfrage-Body mit JSON-Schlüssel-Wert-Paaren oder geben Sie Ihren Event-Payload als Rohtext ein. Beispiele für Standard-E-Commerce-Events finden Sie in den [Beispiel-Payloads](#sample-payloads).
+1. Kehren Sie zum Tab **Verfassen** zurück.
+2. Erstellen Sie für Ihren **Anfrage-Body** entweder einen eigenen Anfrage-Body mit JSON-Schlüssel-Wert-Paaren oder geben Sie Ihren Event-Payload als Rohtext ein. Beispiele für Standard-E-Commerce-Events finden Sie in den [Beispiel-Payloads](#sample-payloads).
 
-![Tab „Compose“ des Webhook-Composers in Braze mit JSON-Schlüssel-Wert-Paaren für ID, Zeitstempel, Nutzer-ID und Event-Typ.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
+![Tab „Verfassen“ des Webhook-Composers in Braze mit JSON-Schlüssel-Wert-Paaren für ID, Zeitstempel, Nutzer-ID und Event-Typ.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
 
 #### Schritt 1d: Testen Sie Ihren Webhook {#step-1d}
 
@@ -83,9 +83,9 @@ Um Ihren Webhook zu testen, gehen Sie wie folgt vor:
 
 #### Schritt 2a: Planen Sie Ihre Campaign {#step-2a-schedule-your-campaign}
 
-Wenn Sie den Webhook fertiggestellt und getestet haben, [planen Sie Ihre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Wenn Sie den Webhook fertiggestellt und getestet haben, [planen Sie Ihre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Braze unterstützt geplante, aktionsbasierte und API-getriggerte Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) ist in der Regel die beste Lösung für die meisten Anwendungsfälle mit Verhaltens-Events. Bei Fragen dazu, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre Customer-Success-Manager von Braze und Movable Ink.
+Braze unterstützt geplante, aktionsbasierte und API-getriggerte Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) ist in der Regel die beste Lösung für die meisten Anwendungsfälle mit Verhaltens-Events. Bei Fragen dazu, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre Customer-Success-Manager von Braze und Movable Ink.
 
 Für aktionsbasierte Zustellung:
 
@@ -99,7 +99,7 @@ Um sicherzustellen, dass die Daten in Echtzeit an Movable Ink gestreamt werden, 
 
 #### Schritt 2b: Bestimmen Sie Ihre Zielgruppe {#step-2b-specify-your-audience}
 
-Bestimmen Sie als Nächstes, welche Nutzer:innen Sie für diese Campaign ansprechen möchten. Einzelheiten finden Sie unter [Nutzer:innen ansprechen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/).
+Bestimmen Sie als Nächstes, welche Nutzer:innen Sie für diese Campaign ansprechen möchten. Einzelheiten finden Sie unter [Nutzer:innen ansprechen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 Stellen Sie sicher, dass Sie keine A/B-Tests in Ihrer Campaign verwenden, indem Sie das Kontrollkästchen **Control Group** deaktivieren. Wenn eine Kontrollgruppe enthalten ist, werden bei einem bestimmten Prozentsatz der Nutzer:innen keine Daten an Movable Ink gesendet. Ihre gesamte Zielgruppe sollte der Variante zugeordnet werden, nicht der Kontrollgruppe.
 
@@ -135,7 +135,7 @@ Sie können in Braze einen Event-Payload mit beliebigen Event-Eigenschaften erze
 
 Teilen Sie diesen Beispiel-Payload mit Ihrem Movable Ink Client Experience Team. Vergewissern Sie sich, dass keine sensiblen personenbezogenen Daten im Beispiel-Payload enthalten sind (wie z. B. E-Mail-Adresse, Telefonnummer oder vollständige Geburtsdaten).
 
-Wenn Sie mehr über angepasste Event-Eigenschaften und das erwartete Format der in den Eigenschaften enthaltenen Daten erfahren möchten, lesen Sie [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Wenn Sie mehr über angepasste Event-Eigenschaften und das erwartete Format der in den Eigenschaften enthaltenen Daten erfahren möchten, lesen Sie [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ### Bekannte versus anonyme Nutzer:innen {#known-versus-anonymous-users}
 
@@ -164,7 +164,7 @@ Weitere Informationen finden Sie in den Beispiel-Webhooks unter [Beispiel-Payloa
 {
   "events": [
     {
-      "email": "test@braze.com",
+      "email": "test@example.com",
       "name": "Product Viewed",
       "time": "2023-12-06T19:20:45+01:00",
       "properties": {

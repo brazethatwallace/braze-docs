@@ -1,25 +1,25 @@
 ---
 nav_title: Excluir usuários com CDI
-article_title: Excluir usuários com ingestão de dados na nuvem
-page_order: 30
+article_title: Excluir usuários com Ingestão de dados na nuvem
+page_order: 9
 page_type: reference
-description: "Esta página fornece uma visão geral do processo de exclusão de usuários com Cloud Data Ingestion."
+description: "Esta página fornece uma visão geral do processo de exclusão de usuários com Ingestão de dados na nuvem."
 
 ---
 
-# Excluir usuários com Cloud Data Ingestion
+# Excluir usuários com Ingestão de dados na nuvem {#delete-users-with-cloud-data-ingestion}
 
-> Esta página aborda o processo de exclusão de usuários com Cloud Data Ingestion.
+> Esta página aborda o processo de exclusão de usuários com Ingestão de dados na nuvem.
 
-As sincronizações de exclusão de usuários são compatíveis com todas as fontes de dados disponíveis do Cloud Data Ingestion. 
+As sincronizações de exclusão de usuários são compatíveis com todas as fontes de dados disponíveis da Ingestão de dados na nuvem.
 
-## Configuração da integração 
+## Configure a integração {#configure-the-integration}
 
-Siga o processo padrão para [criar uma nova integração no dashboard da Braze]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) para o data warehouse ao qual você deseja se conectar. Certifique-se de incluir uma função que possa acessar a tabela de exclusão. Na página **Criar sincronização de importação**, defina o **Tipo de dados** como **Excluir usuários** para que as ações adequadas sejam tomadas durante a execução da integração para excluir usuários.
+Siga o processo padrão para [criar uma nova integração no dashboard da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) para o data warehouse ao qual você deseja se conectar. Certifique-se de incluir uma função que possa acessar a tabela de exclusão. Na página **Create import sync**, defina o **Data Type** como **Delete Users** para que as ações adequadas sejam tomadas durante a execução da integração para excluir usuários.
 
-![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
+![Siga o processo padrão para criar uma nova integração no dashboard da Braze para o data warehouse ao qual você deseja se conectar. Certifique-se de incluir uma função que possa acessar a tabela de exclusão. Na página Create import sync, defina o Data Type como Delete Users para que as ações adequadas sejam tomadas durante a execução da integração para excluir usuários.]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
-## Configuração de dados de origem
+## Configure os dados de origem {#configure-source-data}
 
 As tabelas de origem para exclusões de usuários devem incluir um ou mais tipos de identificadores de usuários e um carimbo de data/hora `UPDATED_AT`. Não há suporte para colunas de carga útil para dados de exclusão de usuários.
 
@@ -27,12 +27,12 @@ As tabelas de origem para exclusões de usuários devem incluir um ou mais tipos
 
 Adicione um carimbo de data/hora `UPDATED_AT` à sua tabela de origem. Esse carimbo de data/hora indica o momento em que a linha foi atualizada ou adicionada à tabela. A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado. Linhas no limite exato do carimbo de data/hora podem ser sincronizadas novamente se novas linhas compartilharem o mesmo carimbo de data/hora.
 
-### Colunas de identificador de usuário
+### Colunas de identificador de usuário {#user-identifier-columns}
 
 Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador: `external_id`, a combinação de `alias_name` e `alias_label`, ou `braze_id`. Uma tabela de origem pode conter colunas para um, dois ou todos os três tipos de identificadores.
-- `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze. 
+- `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze.
 - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
-- `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e não é possível criar novos usuários usando um Braze ID por meio do Cloud Data Ingestion. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário. 
+- `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e não é possível criar novos usuários usando um Braze ID por meio da Ingestão de dados na nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
 
 {% alert important %}
 Não inclua uma coluna `PAYLOAD` na sua tabela para remoção de usuários. Para evitar a remoção acidental e permanente de usuários, a sincronização falhará se uma coluna de carga útil for fornecida na tabela de origem. Quaisquer outras colunas são permitidas, mas serão ignoradas pela Braze.
@@ -43,7 +43,7 @@ Não inclua uma coluna `PAYLOAD` na sua tabela para remoção de usuários. Para
 ```sql
 CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
      UPDATED_AT TIMESTAMP_NTZ(9) NOT NULL DEFAULT SYSDATE(),
-     --at least one of external_id, alias_name and alias_label, or braze_id is required  
+     --at least one of external_id, alias_name and alias_label, or braze_id is required
      EXTERNAL_ID VARCHAR(16777216),
      --if using user alias, both alias_name and alias_label are required
      ALIAS_LABEL VARCHAR(16777216),
@@ -73,11 +73,12 @@ Crie uma tabela com os seguintes campos:
 
 | Nome do campo | Tipo | Modo |
 |---|---|---|
-| `UPDATED_AT`| TIMESTAMP | OBRIGATÓRIO |
+| `UPDATED_AT`| TIMESTAMP | REQUIRED |
 | `EXTERNAL_ID`| STRING | NULLABLE |
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Colunas de identificador de usuário" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -85,19 +86,20 @@ Crie uma tabela com os seguintes campos:
 
 | Nome do campo | Tipo | Modo |
 |---|---|---|
-| `UPDATED_AT`| TIMESTAMP | OBRIGATÓRIO |
+| `UPDATED_AT`| TIMESTAMP | REQUIRED |
 | `EXTERNAL_ID`| STRING | NULLABLE |
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Colunas de identificador de usuário" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql
-CREATE OR ALTER TABLE [warehouse].[schema].[users_deletes] 
+CREATE OR ALTER TABLE [warehouse].[schema].[users_deletes]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
   PAYLOAD VARCHAR NOT NULL,
-  --at least one of external_id, alias_name and alias_label, or braze_id is required  
+  --at least one of external_id, alias_name and alias_label, or braze_id is required
   EXTERNAL_ID VARCHAR,
   --if using user alias, both alias_name and alias_label are required
   ALIAS_NAME VARCHAR,
@@ -111,14 +113,14 @@ GO
 
 {% endtabs %}
 
-### Como funciona
+### Como funciona {#how-it-works}
 
-Com o Cloud Data Ingestion da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada em uma programação definida por você, e cada integração pode ter uma programação diferente. As sincronizações podem ser executadas com frequência a cada 15 minutos ou com pouca frequência, como uma vez por mês. Para os clientes que precisam que as sincronizações ocorram com mais frequência do que a cada 15 minutos, fale com seu gerente de sucesso do cliente ou considere o uso de chamadas de API REST para ingestão de dados em tempo real.
+Com a Ingestão de dados na nuvem da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada em uma programação definida por você, e cada integração pode ter uma programação diferente. As sincronizações podem ser executadas com frequência a cada 15 minutos ou com pouca frequência, como uma vez por mês. Para os clientes que precisam que as sincronizações ocorram com mais frequência do que a cada 15 minutos, fale com seu gerente de sucesso do cliente ou considere o uso de chamadas de REST API para ingestão de dados em tempo real.
 
-Quando uma sincronização é executada, a Braze se conecta diretamente à sua instância de data warehouse, recupera todos os novos dados da tabela especificada e exclui os perfis de usuários correspondentes no seu dashboard da Braze. 
+Quando uma sincronização é executada, a Braze se conecta diretamente à sua instância de data warehouse, recupera todos os novos dados da tabela especificada e exclui os perfis de usuários correspondentes no seu dashboard da Braze.
 
 {% alert warning %}
-A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Consulte [excluir um perfil de usuário]({{site.baseurl}}/help/help_articles/api/delete_user/) para saber mais.
+A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Para mais informações, consulte [Efeitos da exclusão de perfis de usuário]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

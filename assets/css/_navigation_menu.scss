@@ -10,35 +10,95 @@ $nav_toggle_down: "f0d7"; //"f103"; /* 103 Double Arrow Down */
 
 $nav_margin_left: 20px;
 $nav_active_color: $braze-purple;
-$nav_background-color: $grey-athens;
-$nav_font_size: 12px;
+$nav_background-color: white;
+$nav_font_size: 14px;
 $nav_transition_time: 0.35s;
 
-$nav_filter_height: 0; //hidding filter 75px;
 $nav_bottom_height: 60px;
 
+// Sidebar toggle: colors chosen for WCAG 2.2 AA (3:1 for UI components)
+$nav_toggle_border: #525256;
+
+// Nav highlight colors (neutral gray, GitLab-style)
+$nav-hover-bg: $grey-ghost;
+$nav-active-bg: $grey-athens;
+// $grey-manatee (#828284) achieves ~3.84:1 on white — meets WCAG 1.4.11 for structural lines
+$nav-nesting-border: $grey-manatee;
+
+// Keyboard focus: keep outline weight consistent; offset tuned per control (see design ref)
+$nav-focus-ring: 2px solid $braze-purple;
+$nav-focus-offset-outside: 2px; // caret + padded links — matches subpage expand control
+$nav-focus-offset-rail: 0; // main rail toggle — ring hugs 40px target (less “air” than +2px)
+
 #nav_bar {
-	padding-top: $base_font_size;
-	background-color: $grey-athens;
+	padding-top: 24px;
+	background-color: white;
 	@media print {
 		display: none !important;
 	}
 	width: 100%;
-	#sidebar_toggle {
-		display: none;
+	// Persistent right edge (independent of scrollbar gutter); match #nav_bottom / status strip borders
+	@media (min-width: $window-medium-px) {
+		border-right: 1px solid $grey-ghost;
 	}
 	#nav_col {
 		@media (min-width: $window-medium-px) {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			min-height: 0;
+			.left-nav-primary {
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 auto;
+				min-height: 0;
+				position: relative;
+			}
+			.left-nav-collapsed-slot {
+				display: none;
+				flex-shrink: 0;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				padding: 4px 0 2px;
+				box-sizing: border-box;
+				position: relative;
+				z-index: 2;
+				&:empty {
+					display: none !important;
+				}
+			}
 			#sidebar_toggle {
-				background-color: unset !important;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				width: 40px;
+				min-width: 40px;
+				height: 40px;
+				min-height: 40px;
+				padding: 0;
+				border-radius: 8px;
+				background-color: transparent;
+				border: none;
 				color: $grey-boulder;
-				display: block;
-				position: absolute;
-				right: 10px;
-				z-index: 20;
-				&:focus,
-				&.focus {
-					box-shadow: none;
+				cursor: pointer;
+				@media (prefers-reduced-motion: no-preference) {
+					transition: background-color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1), color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+				}
+				&:hover {
+					background-color: $nav-hover-bg;
+					color: $black-shark;
+				}
+				&:focus-visible {
+					outline: $nav-focus-ring;
+					outline-offset: $nav-focus-offset-rail;
+				}
+				.sidebar-toggle-icon {
+					display: block;
+					width: 24px;
+					height: 24px;
+					pointer-events: none;
 				}
 			}
 		}
@@ -49,51 +109,177 @@ $nav_bottom_height: 60px;
 		min-width: $nav_width;
 		max-width: $nav_width;
 		padding: 0;
-		overflow-y: auto;
-		overflow-x: hidden;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
 		position: -webkit-sticky;
 		position: sticky;
-		//top: $calc_offset_top;
 		z-index: 101;
 
 		margin-top: 0px;
 		top: $header_height;
-		padding: 0px;
 
-		font-size: 14px;
+		font-size: 15px;
 		line-height: 20px;
-		// top: $header_height;
 		height: calc(100vh - #{$header_height});
+		@media (prefers-reduced-motion: no-preference) {
+			transition: width $nav_transition_time ease, min-width $nav_transition_time ease,
+				max-width $nav_transition_time ease, box-shadow 0.2s ease;
+		}
 
-		#left_navmenu {
-			height: calc(
-				100vh - #{$header_height + $nav_bottom_height + $nav_filter_height}
-			);
-			align-items: flex-start;
-			overflow-y: auto;
-			padding: 10px 15px 10px 15px;
+		.left-nav-primary {
+			flex: 1 1 auto;
+			min-height: 0;
 			@media (min-width: $window-medium-px) {
-				width: $nav_width - 5px;
+				width: $nav_width;
 			}
+		}
+		#doc_nav_flyout {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			flex: 1 1 auto;
+			min-height: 0;
+			@media (min-width: $window-medium-px) {
+				width: $nav_width;
+			}
+		}
+		.doc-nav-flyout-toolbar {
+			display: none;
+		}
+		#left_navmenu {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			flex: 1 1 auto;
+			min-height: 0;
+			overflow-y: auto;
+			align-items: flex-start;
+			padding: 20px 8px 16px 24px;
+			width: 100%;
+			box-sizing: border-box;
 		}
 		&.scrollnav {
 			height: calc(100vh - #{$header_height});
-			#left_navmenu {
-				height: calc(
-					100vh - #{$header_height + $nav_bottom_height + $nav_filter_height}
-				);
-			}
 		}
 		&.hide_sidebar {
-			max-width: $nav_width_collapsed;
+			flex: 0 0 $nav_width_collapsed;
+			width: $nav_width_collapsed;
 			min-width: $nav_width_collapsed;
-			#sidebar_toggle {
-				right: 0px !important;
+			max-width: $nav_width_collapsed;
+			overflow-x: visible;
+			overflow-y: visible;
+			z-index: 102;
+			pointer-events: auto;
+			@media (prefers-reduced-motion: no-preference) {
+				transition: width $nav_transition_time ease, min-width $nav_transition_time ease,
+					max-width $nav_transition_time ease, box-shadow 0.2s ease;
 			}
-			#nav_top,
-			#nav_bottom,
-			#left_navmenu {
+			#nav_col {
+				width: 100%;
+				min-width: 0;
+				overflow: visible;
+				pointer-events: auto;
+			}
+			// Rail is 48px wide — do not keep the expanded 280px width on .left-nav-primary or the toggle's 100% blows out
+			.left-nav-primary {
+				width: 100%;
+				max-width: 100%;
+				min-width: 0;
+			}
+			// Must beat `#nav_bar #nav_col .left-nav-collapsed-slot { display: none }` (two IDs), or the strip never shows
+			#nav_col .left-nav-collapsed-slot:not(:empty) {
+				display: flex;
+				width: 100%;
+				max-width: 100%;
+				min-width: 0;
+			}
+			#nav_col #sidebar_toggle {
+				width: 40px;
+				min-width: 40px;
+				max-width: 100%;
+				margin-top: 0;
+			}
+			#nav_bottom {
 				display: none;
+			}
+			&:not(.doc-nav-flyout-open) #doc_nav_flyout {
+				display: none !important;
+			}
+		}
+		&.hide_sidebar.doc-nav-flyout-open {
+			// Keep the rail slot (and toggle button inside it) above the flyout overlay
+			// so the button remains clickable without the user having to chase it.
+			#nav_col .left-nav-collapsed-slot:not(:empty) {
+				position: relative;
+				z-index: 201;
+			}
+			#doc_nav_flyout {
+				display: flex !important;
+				flex-direction: column;
+				position: fixed;
+				top: $header_height;
+				left: 0;
+				width: $nav_width;
+				min-width: $nav_width;
+				max-width: $nav_width;
+				max-height: calc(100vh - #{$header_height});
+				z-index: 200;
+				background-color: $nav_background-color;
+				box-shadow: 4px 0 24px rgba($black-shark, 0.12);
+				overflow: hidden;
+				box-sizing: border-box;
+				overscroll-behavior: contain;
+				@media (prefers-reduced-motion: no-preference) {
+					transition: box-shadow 0.2s ease, transform 0.2s ease;
+					transform: translateX(0);
+				}
+				@media (prefers-reduced-motion: reduce) {
+					transition: none;
+					transform: none;
+				}
+			}
+			#left_navmenu {
+				display: flex !important;
+				overflow-y: auto;
+				overscroll-behavior: contain;
+				// Push first nav item below the rail toggle button (slot padding 4px + button 40px + buffer 8px).
+				padding-top: 52px;
+			}
+			.doc-nav-flyout-toolbar {
+				display: flex;
+				flex-shrink: 0;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 6px 12px 8px;
+				border-top: 1px solid $grey-ghost;
+				box-sizing: border-box;
+			}
+			.doc-nav-flyout-escape-hint {
+				margin: 0;
+				max-width: 100%;
+				text-align: right;
+				font-size: 11px;
+				line-height: 1.35;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				font-family: $braze-regular;
+				color: $grey-boulder; // $grey-stardust → darkened for 5.2:1 on white
+				kbd {
+					display: inline-block;
+					margin: 0 0.2em;
+					padding: 0.1em 0.35em;
+					font-size: 10px;
+					font-family: $braze-code, monospace;
+					font-weight: normal;
+					text-transform: none;
+					letter-spacing: 0;
+					color: $grey-dust;
+					background-color: $grey-athens;
+					border: 1px solid $grey-french;
+					border-radius: 4px;
+					box-shadow: 0 1px 0 rgba($black-shark, 0.06);
+				}
 			}
 		}
 	}
@@ -115,25 +301,20 @@ $nav_bottom_height: 60px;
 	padding-left: 0px;
 	padding-right: 0px;
 
-	font-size: 14px;
-	line-height: 18px;
+	font-size: 15px;
+	line-height: 20px;
 	.showall {
 		display: block;
 	}
 	.filtered {
 		display: none;
 	}
+	#nav_top {
+		padding-right: 8px;
+	}
 	#nav_top > .nav-item {
-		border-top: 1px solid #cccccc;
-		padding-top: 10px;
-		// padding-left: 15px;
+		padding-top: 4px;
 		width: 100%;
-		&:first-child {
-			border-top: 1px solid transparent;
-		}
-		div {
-			width: fit-content;
-		}
 		a.nav_toggle i {
 			width: 15px;
 			text-align: center;
@@ -141,110 +322,270 @@ $nav_bottom_height: 60px;
 			line-height: 18px;
 		}
 	}
+
+	// First root item (for example Home) + sidebar rail toggle on one row
+	#nav_top > .nav-item--rail {
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		width: 100%;
+		min-width: 0;
+		gap: 2px;
+	}
+	#nav_top > .nav-item--rail > .nav-item--rail__main {
+		flex: 1 1 auto;
+		min-width: 0;
+		// Beat `#nav_top > .nav-item div { width: fit-content }` so the row shares the same horizontal track as sibling `.nav-item` rows
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		> .nav_item_row,
+		> .nav_reg {
+			min-height: 36px;
+			padding-top: 2px;
+			padding-bottom: 2px;
+		}
+	}
+	#nav_top > .nav-item--rail > .nav-item--rail__toggle {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 2;
+		isolation: isolate;
+	}
+
+	// Collection root (Home): when it is the current page, nudge the title to align with other top-level rows
+	#nav_top > .nav-item--rail .nav-item--rail__main .nav_item_row > span.nav_title[aria-current="page"] {
+		padding-left: 14px; // +6px vs default 8px (rail column beside the row variant)
+	}
+	#nav_top > .nav-item--rail .nav-item--rail__main > .nav_reg > span.nav_title[aria-current="page"] {
+		display: inline-block;
+		padding-left: 6px;
+	}
+
+	// GitLab-style row: link on left, caret on right
+	.nav_item_row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		min-width: 0;
+		padding: 4px 8px;
+		border-radius: 8px;
+		min-height: 40px;
+		box-sizing: border-box;
+		position: relative;
+		@media (prefers-reduced-motion: no-preference) {
+			transition: background-color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+		}
+		.nav_link,
+		.nav_title {
+			min-width: 0;
+			flex: 1 1 auto;
+		}
+		.nav_title[data-toggle="collapse"] {
+			cursor: pointer;
+		}
+		// Section-label button: wraps long titles, fills the row width up to the caret
+		button.nav_title {
+			background: none;
+			border: none;
+			flex: 1 1 auto;
+			min-width: 0;
+			width: auto;
+			max-width: calc(100% - 36px);
+			overflow-wrap: break-word;
+			word-break: break-word;
+			padding: 6px 6px 6px 8px;
+			margin: 0;
+			font: inherit;
+			color: inherit;
+			text-align: left;
+			border-radius: 8px;
+			&:focus-visible {
+				outline: $nav-focus-ring;
+				outline-offset: $nav-focus-offset-outside;
+			}
+		}
+		// Current page uses span; sibling section rows use a.nav_link — use the same box model as .nav_link (not button.nav_title)
+		> span.nav_title {
+			display: flex;
+			align-items: center;
+			flex: 1 1 auto;
+			min-width: 0;
+			width: 100%;
+			padding: 6px 8px;
+			margin: 0;
+			border-radius: 8px;
+			box-sizing: border-box;
+			color: $black-shark;
+			overflow-wrap: break-word;
+			word-break: break-word;
+		}
+		&:hover {
+			background-color: $nav-hover-bg;
+		}
+	}
+
+	// Caret toggle button — subtle but visible, GitLab-style
+	button.nav_toggle {
+		flex-shrink: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 24px;
+		min-height: 24px;
+		padding: 2px;
+		border: none;
+		border-radius: 4px;
+		background: transparent;
+		color: $grey-boulder;
+		cursor: pointer;
+		@media (prefers-reduced-motion: no-preference) {
+			transition: background-color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1), color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+		}
+		&:hover {
+			background-color: rgba($grey-ghost, 0.5);
+			color: $black-shark;
+		}
+		&:focus-visible {
+			outline: $nav-focus-ring;
+			outline-offset: $nav-focus-offset-outside;
+		}
+		i {
+			width: 8px;
+			text-align: center;
+			line-height: 1;
+			font-size: 8px;
+		}
+	}
+
+	// Focus indicator for nav links
+	a.nav_link {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		padding: 6px 8px;
+		border-radius: 8px;
+		color: $black-shark;
+		text-decoration: none;
+		box-sizing: border-box;
+		&:hover {
+			text-decoration: none;
+			color: $black-shark;
+		}
+		&:focus-visible {
+			outline: $nav-focus-ring;
+			outline-offset: $nav-focus-offset-outside;
+		}
+	}
+
+	// Consistent row height for leaf items — same as nav_item_row
+	.nav div.nav-item > .nav_reg,
+	.nav div.nav-item > .nav_block,
+	.nav div.nav-item > .nav-item--rail__main > .nav_reg,
+	.nav div.nav-item > .nav-item--rail__main > .nav_block {
+		display: flex;
+		align-items: center;
+		min-height: 40px;
+		padding: 4px 8px;
+		border-radius: 8px;
+		position: relative;
+		box-sizing: border-box;
+		@media (prefers-reduced-motion: no-preference) {
+			transition: background-color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+		}
+		&:hover {
+			background-color: $nav-hover-bg;
+		}
+	}
+
 	.nav {
 		font-family: $braze-regular;
 		width: 100%;
-		.nav_block {
-			display: inline-block;
-			margin-left: 15px;
-		}
+		// Do not set display here — nested `.nav_item_row` titles need flex/inline-block from `.nav_item_row`
+		// rules; `#nav_bar .nav .nav_title` would override `#nav_bar .nav_item_row > span.nav_title` (higher class count).
 		.nav_title {
+			color: $black-shark;
+		}
+		// Legacy section-only row (no `.nav_item_row`): combined `nav_reg nav_title` div
+		.nav_block .nav_reg.nav_title {
 			display: inline;
-			color: $left-nav;
 		}
 		div {
+			// Vertical nesting lines — GitLab-style subtle indent
 			&.nav {
-				padding-left: 16px;
+				width: auto;
+				padding-left: 8px;
+				margin-left: 12px;
+				margin-top: 2px;
+				margin-bottom: 2px;
+				border-left: 1px solid $nav-nesting-border;
 			}
 			&.nav_reg {
-				//margin-left: 15px;
 				a {
 					.nav_block {
 						margin-left: 0px;
 					}
 				}
 			}
-			border-bottom-width: 2px;
-			border-color: transparent;
 
 			&.nav-item {
 				width: 100%;
-				//padding-bottom: 8px;
-				// padding-left: $nav_margin_left;
-				padding-bottom: 4px;
+				padding-bottom: 2px;
 				font-family: $braze-regular;
-				opacity: 0.7;
-				transition: all ease $nav_transition_time;
-				-webkit-transition: all ease $nav_transition_time;
-				-moz-transition: all ease $nav_transition_time;
+				color: $black-shark;
 
 				a {
 					font-family: $braze-regular;
-					color: $left-nav;
+					color: $black-shark;
+					text-decoration: none;
 				}
-				a[aria-expanded="true"] i.fas:after {
-					content: icon($nav_expanded);
-					line-height: 18px;
-					font-size: 9px;
+				a[aria-expanded="true"] i.fas:after,
+				button.nav_toggle[aria-expanded="true"] i.fas:after {
+					content: none;
 				}
-
-				a[aria-expanded="false"] i.fas:after {
-					content: icon($nav_collapsed);
-					line-height: 18px;
-					font-size: 9px;
+				a[aria-expanded="false"] i.fas:after,
+				button.nav_toggle[aria-expanded="false"] i.fas:after {
+					content: none;
 				}
 
 				&:hover {
 					text-decoration: none;
 					color: $black-shark;
-					opacity: 1;
 					a {
 						text-decoration: none;
 						color: $black-shark;
-						&:hover {
-							text-decoration: none;
-						}
-					}
-					div.nav_title {
-						transition: all ease $nav_transition_time;
-						-webkit-transition: all ease $nav_transition_time;
-						-moz-transition: all ease $nav_transition_time;
-
-						border-bottom-width: 2px;
-						border-color: $nav_active_color;
 					}
 				}
 
-				div {
-					width: fit-content;
-					// transition: all ease $nav_transition_time;
-					// -webkit-transition:  all ease $nav_transition_time;
-					// -moz-transition:  all ease $nav_transition_time;
-					// &:after {
-					//   content:"";
-					//   height: 2px;
-					//   display: block;
-					//   margin: 3px auto 0px auto;
-					// }
-				}
-				&.active_parent {
-					opacity: 1;
-					font-family: $braze-bold;
+			&.active_parent {
 					a {
-						font-family: $braze-bold;
+						font-family: $braze-regular;
 					}
 				}
 				&.active {
-					color: $nav_active_color;
-					font-family: $braze-bold;
-					width: fit-content;
-					opacity: 1;
-					div.nav_block {
-						display: inline-block;
-						.nav_title {
-							border-bottom-width: 2px;
-							border-color: $nav_active_color;
-							display: inline;
+					width: 100%;
+					color: $black-shark;
+					> .nav_item_row,
+					> .nav_reg,
+					> .nav_block,
+					> .nav-item--rail__main > .nav_item_row,
+					> .nav-item--rail__main > .nav_reg,
+					> .nav-item--rail__main > .nav_block {
+						background-color: $nav-active-bg;
+						border-radius: 8px;
+						&::before {
+							content: '';
+							position: absolute;
+							left: 0;
+							top: 6px;
+							bottom: 6px;
+							width: 3px;
+							background-color: $braze-purple;
+							border-radius: 2px;
 						}
 					}
 				}
@@ -260,128 +601,40 @@ $nav_bottom_height: 60px;
 		}
 	}
 
-	*,
-	*::before,
-	*::after {
+	& *,
+	& *::before,
+	& *::after {
 		border-width: 0;
 		border-style: solid;
 	}
-	#filter-msg {
-		line-height: 2;
-		display: flex;
-		display: -webkit-flex; /* Safari */
-
-		margin-top: 15px;
-		flex-direction: column;
-		flex-shrink: 0;
-		width: 100%;
-		padding: 0 15px 0 15px;
-		a {
-			display: inline;
-			color: $black-shark;
-			font-weight: 700;
-			width: fit-content;
-			font-family: $braze-bold;
-			border-bottom-width: 2px;
-			border-color: $braze-link-color;
-			text-decoration: none;
-			// transition: all ease $nav_transition_time;
-			// -webkit-transition:  all ease $nav_transition_time;
-			// -moz-transition:  all ease $nav_transition_time;
-			&:hover {
-				text-decoration: none;
-				background-color: $braze-link-color;
-			}
-		}
-	}
-	#filter-action {
-		cursor: pointer;
-	}
-	#nav_filter {
-		display: none;
-		margin: 0 30px 15px 30px;
-		@media (min-width: $window-medium-px) {
-			margin-top: 24px;
-		}
-		background-color: $grey-athens;
-		opacity: 0.7;
-		font-family: $braze-bold;
-		&:hover,
-		&:focus {
-			opacity: 1;
-			#filter-form {
-				border-color: $black-shark;
-			}
-		}
-		#filter-form {
-			width: 100%;
-			border: 2px solid $grey-ghost;
-		}
-		#nav_filter_input {
-			font-size: 12px;
-			border: none;
-			// border-bottom: 1px solid $grey-ghost;
-			background-color: transparent;
-			background-image: url(#{$base_url}/assets/img/filter.svg);
-			background-position: 10px 7px;
-			background-size: 16px 16px;
-			background-repeat: no-repeat;
-			padding-left: 30px;
-		}
-
-		.input-group-append {
-			i {
-				font-size: 15px;
-				padding-top: 0.5rem;
-				padding-left: 0.75rem;
-				width: 2rem;
-			}
-		}
-		::-ms-clear {
-			display: none;
-		}
-
-		.form-control-clear {
-			z-index: 10;
-			pointer-events: auto;
-			cursor: pointer;
-		}
-		.mark,
-		mark {
-			background-color: $braze-purple;
-		}
-	}
-
 	/* Status Monitor */
 	#nav_bottom {
 		display: block;
-		@media (min-width: $window-large-px) {
-			position: absolute;
-			bottom: 0;
-			height: $nav_bottom_height;
+		@media (min-width: $window-medium-px) {
+			flex-shrink: 0;
+			border-right: 1px solid $grey-ghost;
 		}
 		width: 100%;
 
-		// transition: flex $header_transition_time,margin $header_transition_time,width $header_transition_time,-ms-flex $header_transition_time;
-		// -webkit-transition: flex $header_transition_time,margin $header_transition_time,width $header_transition_time,-ms-flex $header_transition_time;
-		// -moz-transition: flex $header_transition_time,margin $header_transition_time,width $header_transition_time,-ms-flex $header_transition_time;
+		background-color: white;
 
-		background-color: $grey-athens;
-
-		//padding: .5rem 1rem;
 		@media (min-width: $window-medium-px) {
 			padding: 0 0 15px 0;
 		}
 		font-family: $braze-regular;
 		font-size: 11px;
 		a {
+			display: block;
 			text-decoration: none;
 
 			&:hover {
 				color: inherit;
 			}
+			&:focus-visible {
+				@include focus-ring($offset: -2px, $radius: 4px);
+			}
 		}
-		#status-indicator {
+		.status-indicator {
 			&:hover {
 				.status-title {
 					opacity: 1;
@@ -401,7 +654,6 @@ $nav_bottom_height: 60px;
 			padding-bottom: 5px;
 			min-height: 30px;
 			vertical-align: middle;
-			// background-color: #EFEFEF33;
 			border-top: 1px solid $grey-ghost;
 		}
 		.color-dot {
@@ -433,7 +685,7 @@ $nav_bottom_height: 60px;
 		.status-title {
 			display: block;
 			font-family: $braze-bold;
-			margin-left: 15px;
+			margin: 0 0 0 15px;
 			opacity: 0.7;
 			letter-spacing: 0.46px;
 			color: $black-shark;
@@ -444,6 +696,40 @@ $nav_bottom_height: 60px;
 			color: $black-shark;
 			opacity: 0.7;
 			display: inline-block;
+		}
+	}
+
+	// Narrow / hamburger layout: hide desktop-only rail toggle; ease vertical rhythm in the drawer
+	@media (max-width: ($window-medium-px - 1px)) {
+		.left-nav-collapsed-slot,
+		#sidebar_toggle,
+		.nav-item--rail__toggle {
+			display: none !important;
+		}
+
+		#nav_top > .nav-item--rail {
+			gap: 0;
+		}
+
+		// Esc hint is desktop rail/flyout only — drawer closes with the header control on small screens
+		.doc-nav-flyout-toolbar {
+			display: none !important;
+		}
+
+		#left_navmenu {
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+
+		// Separate status strip from article when the drawer sits above continuous content
+		#nav_bottom {
+			border-bottom: 1px solid $grey-ghost;
+			padding-bottom: 12px;
+		}
+
+		#nav_bottom .nav_bottom_item {
+			padding-top: 14px;
 		}
 	}
 }

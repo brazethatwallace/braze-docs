@@ -23,7 +23,7 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 
 ### Paso 1: Crear un Canvas {#step-1-create-a-canvas}
 
-1. Ve a **Messaging** > **Canvas** y selecciona **Create Canvas**, y luego rellena los datos básicos de tu Canvas.
+1. Ve a **Mensajería** > **Canvas** y selecciona **Crear Canvas**, y luego rellena los datos básicos de tu Canvas.
 
 2. Dale a tu Canvas un nombre relevante como "Lead Scoring Canvas" y, para encontrarlo más fácilmente, etiquétalo con algo como "Lead Management".<br><br>![Paso 1 de la creación de un Canvas con el nombre "Lead Scoring Canvas" y la etiqueta "Lead Management".]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
@@ -32,7 +32,7 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 1. Ve al paso **Horario de entrada** y selecciona un horario de entrada **basado en acciones**. Esto introducirá a los usuarios en el Canvas cuando realicen acciones específicas.
 
 2. En **Opciones basadas en acciones**, añade estas dos acciones:
-    - **Cambiar el valor del atributo personalizado** con el nombre de tu atributo de puntuación de clientes potenciales (como `lead score`). Si aún no has creado un atributo de puntuación de clientes potenciales, sigue los pasos de [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/). Esto introducirá a los usuarios en el Canvas cada vez que cambie su puntuación de cliente potencial.
+    - **Cambiar el valor del atributo personalizado** con el nombre de tu atributo de puntuación de clientes potenciales (como `lead score`). Si aún no has creado un atributo de puntuación de clientes potenciales, sigue los pasos de [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). Esto introducirá a los usuarios en el Canvas cada vez que cambie su puntuación de cliente potencial.
     - **Agregar una dirección de correo electrónico**
 
 ![Paso 2 de la creación de un Canvas con el horario de entrada "Basado en acciones" y las opciones basadas en acciones de cambiar un atributo personalizado "lead score" y añadir una dirección de correo electrónico.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
@@ -41,7 +41,7 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 
 #### Paso 3a: Seleccionar segmentos {#step-3a-select-segments}
 
-Todos los usuarios son elegibles para la puntuación de clientes potenciales, por lo que puedes añadir reglas específicas de la empresa sobre a quién puntuar seleccionando a qué [segmentos]({{site.baseurl}}/user_guide/audience/segments/) de usuarios dirigirte y aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) adicionales. Por ejemplo, puedes excluir a empleados, usuarios que ya son clientes y similares.
+Todos los usuarios son elegibles para la puntuación de clientes potenciales, por lo que puedes añadir reglas específicas de la empresa sobre a quién puntuar seleccionando a qué [segmentos]({{site.baseurl}}/user_guide/audience/segments) de usuarios dirigirte y aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) adicionales. Por ejemplo, puedes excluir a empleados, usuarios que ya son clientes y similares.
 
 ![Paso 3 de la creación de un Canvas con opciones para seleccionar segmentos y filtros para acotar la audiencia de entrada.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
@@ -68,7 +68,7 @@ En **Configuración de suscripción**, en **Enviar a estos usuarios:** seleccion
 
 #### Paso 4a: Añadir una ruta de acción {#step-4a-add-an-action-path}
 
-Bajo tu variante, selecciona el icono más y luego selecciona **Rutas de acción**.
+Bajo tu variante, selecciona <i class="fas fa-plus"></i> **Añadir** y luego selecciona **Rutas de acción**.
 
 ![Canvas con "Rutas de acción" en el menú que se abre con el icono más.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -102,10 +102,10 @@ En la pestaña **Redactar** de cada paso de actualización de usuario, haz lo si
 
 | Campo | Acción |
 | --- | --- |
-| **Nombre del atributo** | Selecciona el atributo de puntuación de clientes potenciales que seleccionaste en el paso 2 (`lead score`).|
+| **Nombre del atributo** | Selecciona el atributo de puntuación de clientes potenciales que seleccionaste en el paso 2 (`lead score`). |
 | **Acción** | Cambia la acción a **Incrementar por** si la ruta aumenta la puntuación o **Decrementar por** si la ruta disminuye la puntuación. |
-| **Incrementar por** o **Decrementar por** | Introduce el número de puntos que se aumentarán o disminuirán de la puntuación de clientes potenciales.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Incrementar por** o **Decrementar por** | Introduce el número de puntos que se aumentarán o disminuirán de la puntuación de clientes potenciales. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4d: Añadir pasos de actualización de usuario" }
 
 ### Paso 5: Lanza tu Canvas {#step-5-launch-your-canvas}
 
@@ -113,11 +113,11 @@ En la pestaña **Redactar** de cada paso de actualización de usuario, haz lo si
 
 ## Puntuación externa de clientes potenciales {#external-lead-scoring}
 
-Ya sea utilizando uno de nuestros [socios tecnológicos]({{site.baseurl}}/partners/home/), tu propio modelo interno de puntuación de clientes potenciales, aprendizaje automático u otra herramienta de puntuación de clientes potenciales, tenemos múltiples opciones para ti.
+Ya sea utilizando uno de nuestros [socios tecnológicos]({{site.baseurl}}/partners/home), tu propio modelo interno de puntuación de clientes potenciales, aprendizaje automático u otra herramienta de puntuación de clientes potenciales, tenemos múltiples opciones para ti.
 
 ### Socios externos {#external-partners}
 
-Consulta [Socios tecnológicos]({{site.baseurl}}/partners/home/) para conocer a nuestros socios B2B que ofrecen funciones de puntuación de clientes potenciales. ¿No ves tu herramienta? Puedes realizar la integración llamando a nuestro punto de conexión de la API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).
+Consulta [Socios tecnológicos]({{site.baseurl}}/partners/home) para conocer a nuestros socios B2B que ofrecen funciones de puntuación de clientes potenciales. ¿No ves tu herramienta? Puedes realizar la integración llamando a nuestro punto de conexión de la API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users).
 
 ### Modelos de datos internos de puntuación de clientes potenciales {#internal-lead-scoring-data-models}
 
@@ -132,13 +132,13 @@ Como herramienta de marketing, Braze contiene datos extremadamente relevantes qu
 
 Por ejemplo, los datos de interacción con la mensajería (como aperturas y clics de correos electrónicos, interacción en la página de inicio y otros) pueden determinar el nivel de interacción de un cliente potencial. Puedes devolver estos datos a tu almacén de datos en la nube y hacer que estén disponibles como entrada para tus modelos de puntuación de clientes potenciales utilizando las soluciones de exportación de datos en streaming de Braze:
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab Braze como destino %}
 
-Después de que tus equipos internos hayan creado y ejecutado tu modelo de puntuación de clientes potenciales, puedes volver a introducir esos datos en Braze para poder segmentar y dirigir mejor a los clientes potenciales con mensajes relevantes. Puedes hacerlo con [Ingesta de datos de Cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Después de que tus equipos internos hayan creado y ejecutado tu modelo de puntuación de clientes potenciales, puedes volver a introducir esos datos en Braze para poder segmentar y dirigir mejor a los clientes potenciales con mensajes relevantes. Puedes hacerlo con [Ingesta de datos de Cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Con la Ingesta de datos de Cloud, tus equipos internos crearán una nueva tabla o vista con tus identificadores de usuario, las últimas puntuaciones de clientes potenciales y las marcas de tiempo en las que se actualizaron las puntuaciones. Braze recogerá la tabla o vista y añadirá las puntuaciones de los clientes potenciales a los perfiles de usuario.
 
@@ -184,7 +184,7 @@ Para actualizar el registro de clientes potenciales en Salesforce con el estado 
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Para recuperar un token, [configura una aplicación conectada](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) para el flujo de credenciales de cliente OAuth 2.0 y luego usa contenido conectado para recuperar el bearer de Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2a: Redactar webhook" }
 
 ![Webhook que se compone con una URL de webhook de Salesforce, método HTTP PATCH, cuerpo de solicitud de texto sin formato y encabezados de solicitud.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

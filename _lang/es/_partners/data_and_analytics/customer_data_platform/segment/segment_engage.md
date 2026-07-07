@@ -25,8 +25,9 @@ La integración de Braze y Segment te permite utilizar [Engage](https://segment.
 | Cuenta de Segment | Se necesita una [cuenta de Segment](https://app.segment.com/login) para beneficiarse de esta asociación. |
 | Destino en la nube Braze | Ya debes haber configurado [Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) en tu integración de Segment.<br><br>Esto incluye proporcionar el centro de datos Braze y la clave de API REST correctos en tu [configuración de conexión]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
 | Clave de importación de datos Braze | Para sincronizar audiencias de Engage con Braze como cohortes, debes generar una clave de importación de datos.<br><br>La importación de cohortes está en acceso anticipado; ponte en contacto con tu administrador del éxito del cliente de Braze para acceder a esta característica. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración del destino de cohortes {#cohorts-destination-integration}
 
@@ -78,6 +79,7 @@ Por ejemplo, si tienes un rasgo computado en Engage para "Last Product Viewed It
 | Rasgo computado | Audiencias |
 | -------------- | --------- |
 | ![La sección de atributos personalizados dentro del perfil de usuario muestra "last_product_viewed_item" como "Sweater".]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![La sección de atributos personalizados dentro de un perfil de usuario muestra "dormant_shopper" como "true".]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rasgos computados y audiencias" }
 
 {% endtab %}
 {% tab Track %}
@@ -89,6 +91,7 @@ Siguiendo con el ejemplo anterior, si un usuario tiene un rasgo computado para "
 | Rasgo computado | Audiencias |
 | -------------- | --------- |
 | ![La sección de eventos personalizados dentro del perfil de usuario muestra "Trait Computed" "1" vez, siendo la última vez "hace 20 horas".]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![La sección de atributos personalizados dentro de un perfil de usuario muestra "Audience Entered" "1" vez, siendo la última vez "9 de marzo a la 1:45 am".]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rasgos computados y audiencias" }
 
 {% endtab %}
 {% endtabs %}

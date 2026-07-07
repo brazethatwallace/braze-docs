@@ -3,108 +3,108 @@ nav_title: Workspaces
 article_title: "Erste Schritte: Workspaces"
 page_order: 3
 page_type: reference
-description: "Alles, was Sie auf der Braze-Plattform tun, geschieht innerhalb eines Workspace. Dieser Artikel beschreibt, wie sie funktionieren und was Sie bei der Planung Ihrer Workspaces in Braze beachten sollten."
+description: "Alles, was Sie auf der Braze-Plattform tun, geschieht innerhalb eines Workspace. Dieser Artikel beschreibt, wie Workspaces funktionieren und welche wichtigen Aspekte Sie bei der Planung Ihrer Workspaces in Braze beachten sollten."
 ---
 
-# Beginnen Sie: Workspaces
+# Erste Schritte: Workspaces {#get-started-workspaces}
 
-Alles, was Sie auf der Braze-Plattform tun, geschieht innerhalb eines Workspace. Workspaces fungieren als separate Silos von Daten und ermöglichen es Ihnen, verschiedene Marken oder Aktivitäten getrennt zu halten. Mehrere Versionen Ihrer Website oder mobilen Anwendung können Daten an denselben Arbeitsbereich senden. Wir bezeichnen die verschiedenen Websites und Apps, die innerhalb eines Workspace gesammelt werden, als "App-Instanzen"
+> Alles, was Sie auf der Braze-Plattform tun, geschieht innerhalb eines Workspace. Workspaces fungieren als separate Datensilos und ermöglichen es Ihnen, verschiedene Marken oder Aktivitäten voneinander zu trennen. Mehrere Versionen Ihrer Website oder mobilen App können Daten an denselben Workspace senden. Die verschiedenen Websites und Apps, die innerhalb eines Workspace zusammengefasst werden, bezeichnen wir als „App-Instanzen“.
 
-## Arbeitsbereiche verstehen
+## Workspaces verstehen {#understanding-workspaces}
 
-Arbeitsbereiche dienen zwei wichtigen Zwecken:
+Workspaces dienen zwei wesentlichen Zwecken:
 
-- **Nutzerdaten vereinheitlichen:** Wenn sich mehrere App-Instanzen in einem Workspace befinden, können Sie Nutzerdaten nahtlos über verschiedene Versionen Ihrer App, wie iOS, Android und Internet, zusammenstellen und adressieren. So stellen Sie sicher, dass Sie immer über aktuelle Informationen zu jedem Nutzer:innen verfügen, unabhängig von der Plattform, die er verwendet.
-- **Trennen Sie verschiedene Aktivitäten:** Workspaces bieten auch die Möglichkeit, verschiedene Marken oder Aktivitäten voneinander zu trennen. Wenn Sie zum Beispiel mehrere Untermarken mit unterschiedlichen Nutzerbasen haben, ist es von Vorteil, für jede Marke einen eigenen Workspace zu erstellen.
+- **Nutzerdaten vereinheitlichen:** Wenn sich mehrere App-Instanzen in einem Workspace befinden, können Sie Nutzerdaten nahtlos über verschiedene Versionen Ihrer App hinweg – wie iOS, Android und Internet – zusammenstellen und adressieren. So stellen Sie sicher, dass Sie immer über aktuelle Informationen zu jeder Nutzerin und jedem Nutzer verfügen, unabhängig von der verwendeten Plattform.
+- **Verschiedene Aktivitäten trennen:** Workspaces bieten auch die Möglichkeit, verschiedene Marken oder Aktivitäten voneinander zu trennen. Wenn Sie zum Beispiel mehrere Untermarken mit unterschiedlichen Nutzerbasen haben, ist es von Vorteil, für jede Marke einen eigenen Workspace zu erstellen.
 
 {% alert tip %}
 Dieser Ansatz ist besonders nützlich für Unternehmen wie Firmen für mobile Spiele, die individuelle Workspaces für jedes ihrer Spiele verwalten können, oder für E-Commerce-Websites, die für jede Region, in der sie tätig sind, separate Workspaces wünschen.
 {% endalert %}
 
-## Workspaces planen
+## Workspaces planen {#planning-workspaces}
 
-Sie müssen für jede Version Ihrer App auf jeder Plattform separate App-Instanzen erstellen. Wenn Sie entscheiden, welche App-Instanzen in einen Workspace aufgenommen werden sollen, denken Sie an die Nutzer:innen, die Sie ansprechen möchten, und stellen Sie sie entsprechend zusammen.
+Sie müssen für jede Version Ihrer App auf jeder Plattform separate App-Instanzen erstellen. Wenn Sie entscheiden, welche App-Instanzen in einen Workspace aufgenommen werden sollen, denken Sie an die Nutzer:innen, die Sie ansprechen möchten, und gruppieren Sie sie entsprechend.
 
-Die Möglichkeit, mehrere App-Instanzen in einem Workspace zu haben, kann verlockend sein, denn so können Sie Rate-Limits für das Messaging in Ihrem gesamten App-Portfolio festlegen. Es empfiehlt sich jedoch, verschiedene Versionen derselben (oder sehr ähnlicher) Apps nur in einem Workspace zusammenzufassen.
+Die Möglichkeit, mehrere App-Instanzen in einem Workspace zu haben, kann verlockend sein, da Sie so Rate-Limits für das Messaging in Ihrem gesamten App-Portfolio festlegen können. Es empfiehlt sich jedoch, nur verschiedene Versionen derselben (oder sehr ähnlicher) Apps in einem Workspace zusammenzufassen.
 
-### Gemeinsame Arbeitsbereiche
+### Gemeinsame Workspaces {#shared-workspaces}
 
-Häufige Beispiele dafür, dass Sie mehrere App-Instanzen im selben Workspace haben möchten:
+Häufige Beispiele dafür, wann Sie mehrere App-Instanzen im selben Workspace haben möchten:
 
-- Wenn Sie mehrere, fast identische Apps auf verschiedenen Plattformen haben
-- Wenn Sie verschiedene Hauptversionen der App haben, aber dieselben Nutzer:innen beim Upgraden weiterhin einbeziehen möchten
-- Wenn Sie verschiedene Versionen der App haben, die ein und derselbe Benutzer wechseln kann (z. B. von kostenlos zu Premium)
+- Wenn Sie mehrere, nahezu identische Apps auf verschiedenen Plattformen haben
+- Wenn Sie verschiedene Hauptversionen der App haben, aber dieselben Nutzer:innen beim Upgrade weiterhin einbeziehen möchten
+- Wenn Sie verschiedene Versionen der App haben, zwischen denen ein und dieselbe Person wechseln kann (z. B. von kostenlos zu Premium)
 
-#### Auswirkungen auf Segmentierungsfilter
+#### Auswirkungen auf Segmentierungsfilter {#impact-on-segmentation-filters}
 
-Die Daten aller Apps, die Sie in einem Workspace haben möchten, werden aggregiert. Dies hat erhebliche Auswirkungen auf die folgenden Filter zur Segmentierung in Braze (diese Liste ist nicht vollständig):
+Die Daten aller Apps, die Sie in einem Workspace zusammenfassen, werden aggregiert. Dies hat erhebliche Auswirkungen auf die folgenden Segmentierungsfilter in Braze (diese Liste ist nicht vollständig):
 
 - Letzte App-Nutzung
 - Erste App-Nutzung
 - Sitzungsanzahl
 - In-App ausgegebenes Geld
-- Push-Abonnement (Dies wird zu einer Alles-oder-Nichts-Situation - wenn Ihre Nutzer:innen sich von einer App abmelden, werden sie von allen Apps im Workspace abgemeldet).
+- Push-Abo (Dies wird zu einer Alles-oder-nichts-Situation – wenn Ihre Nutzer:innen sich von einer App abmelden, werden sie von allen Apps im Workspace abgemeldet.)
 - E-Mail-Abo (Dies wird zu einer Alles-oder-nichts-Situation und kann zu Compliance-Problemen führen.)
 
 {% alert note %}
-Die Aggregation von Daten über App-Instanzen hinweg in diesen Filtern ist der Grund, warum wir nicht empfehlen, wesentlich unterschiedliche Apps im selben Workspace unterzubringen. Das kann die Zielfindung erschweren!
+Die Aggregation von Daten über App-Instanzen hinweg in diesen Filtern ist der Grund, warum wir nicht empfehlen, wesentlich unterschiedliche Apps im selben Workspace unterzubringen. Das kann das Targeting erschweren!
 {% endalert %}
 
-### Getrennte Arbeitsbereiche
+### Getrennte Workspaces {#separate-workspaces}
 
 In anderen Fällen möchten Sie vielleicht mehrere, separate Workspaces haben. Gängige Beispiele hierfür sind:
 
-- Getrennte Arbeitsbereiche für Entwicklungs- und Produktionsumgebungen der gleichen Anwendung
-- Verschiedene Untermarken, z. B. ein Handyspiel-Unternehmen, das mehrere Spiele anbietet
-- Unterschiedliche Lokalisierungen derselben App oder Website, die in verschiedenen Ländern funktionieren oder auf verschiedene Sprachen abzielen
+- Getrennte Workspaces für Entwicklungs- und Produktionsumgebungen derselben App
+- Verschiedene Untermarken, z. B. ein Handyspiel-Unternehmen, das mehrere Spiele anbietet
+- Unterschiedliche Lokalisierungen derselben App oder Website, die in verschiedenen Ländern betrieben werden oder auf verschiedene Sprachen abzielen
 
-### Wichtige Überlegungen
+### Wichtige Überlegungen {#important-considerations}
 
-Denken Sie daran, dass Arbeitsbereiche wie separate Datensilos funktionieren. Alle Daten, seien es Nutzerdaten oder Marketing-Assets, werden in einem Workspace gespeichert. Diese Daten können nicht ohne weiteres außerhalb dieses Workspace weitergegeben werden. 
+Denken Sie daran, dass Workspaces als separate Datensilos fungieren. Alle Daten – seien es Nutzerdaten oder Marketing-Assets – werden innerhalb eines Workspace gespeichert. Diese Daten können nicht ohne Weiteres außerhalb dieses Workspace geteilt werden.
 
-Im Folgenden finden Sie alle wichtigen Elemente, die in einem Workspace konfiguriert werden:
+Im Folgenden finden Sie alle wichtigen Elemente, die innerhalb eines Workspace konfiguriert werden:
 
 - [App-Instanzen](#app-instances)
 - [Teams](#teams)
-- [Unternehmensnutzerberechtigungen](#company-user-permissions) (jedoch nicht Unternehmensnutzer:innen)
-- [Currents Konnektoren](#currents-connectors)
-- [Benutzerprofile](#user-profiles) und die zugehörigen Benutzerdaten
-- [Segmente, Kampagnen und Leinwände](#segments-campaigns-and-canvases)
+- [Unternehmensnutzer:innen-Berechtigungen](#company-user-permissions) (jedoch nicht die Unternehmensnutzer:innen selbst)
+- [Currents-Konnektoren](#currents-connectors)
+- [Nutzerprofile](#user-profiles) und die zugehörigen Nutzerdaten
+- [Segmente, Campaigns und Canvases](#segments-campaigns-and-canvases)
 
-#### App-Instanzen
+#### App-Instanzen {#app-instances}
 
-Sie müssen für jede Version Ihrer App auf jeder Plattform separate App-Instanzen erstellen. Wenn Sie zum Beispiel eine kostenlose und eine Pro-Version Ihrer App für iOS und Android haben, erstellen Sie vier App-Instanzen in Ihrem Arbeitsbereich (kostenlose iOS-App, kostenlose Android-App, Pro-iOS-App und Pro-Android-App). So erhalten Sie vier API-Schlüssel, die Sie verwenden können, einen für jede App-Instanz.
+Sie müssen für jede Version Ihrer App auf jeder Plattform separate App-Instanzen erstellen. Wenn Sie zum Beispiel eine kostenlose und eine Pro-Version Ihrer App für iOS und Android haben, erstellen Sie vier App-Instanzen in Ihrem Workspace (kostenlose iOS-App, kostenlose Android-App, Pro-iOS-App und Pro-Android-App). So erhalten Sie vier API-Schlüssel – einen für jede App-Instanz.
 
-#### Teams
+#### Teams {#teams}
 
-[Teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/) können nach Kundenstandort, Sprache und benutzerdefinierten Attributen eingerichtet werden, so dass Teammitglieder und Nicht-Teammitglieder unterschiedlichen Zugriff auf Messaging-Funktionen und Kundendaten haben.
+[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) können nach Kundenstandort, Sprache und angepassten Attributen eingerichtet werden, sodass Teammitglieder und Nicht-Teammitglieder unterschiedlichen Zugriff auf Messaging-Funktionen und Kundendaten haben.
 
-#### Benutzerberechtigungen für Nutzer:innen
+#### Unternehmensnutzer:innen-Berechtigungen {#company-user-permissions}
 
-Arbeitsbereiche haben unabhängige Zugriffs- und Benutzerberechtigungsdefinitionen. Mit [Benutzerrechten]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) können Sie genau festlegen, worauf ein einzelner Dashboard-Benutzer oder ein Team innerhalb eines einzelnen Arbeitsbereichs Zugriff hat.
+Workspaces haben unabhängige Zugriffs- und Berechtigungsdefinitionen. Mit [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) können Sie granular festlegen, worauf eine einzelne Dashboard-Nutzerin bzw. ein einzelner Dashboard-Nutzer oder ein Team innerhalb eines einzelnen Workspace Zugriff hat.
 
-#### Currents Konnektoren
+#### Currents-Konnektoren {#currents-connectors}
 
-Das [Currents-Tool]({{site.baseurl}}/user_guide/data/braze_currents/) ist ein Realtime-Daten-Stream zu Ihren Engagement-Events. Es ist der robusteste und zugleich granularste Export der Braze-Plattform. Currents-Konnektoren sind in bestimmten Braze-Paketen enthalten, und vielleicht haben Sie zunächst einen erhalten, der einen einzigen Workspace voraussetzt.
+Das [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Tool ist ein Realtime-Daten-Stream Ihrer Engagement-Ereignisse und der robusteste und zugleich granularste Export der Braze-Plattform. Currents-Konnektoren sind in bestimmten Braze-Paketen enthalten, und möglicherweise haben Sie zunächst einen erhalten, der einen einzigen Workspace voraussetzt.
 
-Wenn Sie sich entscheiden, ob Sie getrennte oder kombinierte Workspaces erstellen möchten, sollten Sie die Anzahl Ihrer Currents Konnektoren berücksichtigen, da Currents Konnektoren nicht über Workspaces hinweg gemeinsam genutzt werden. 
+Wenn Sie sich entscheiden, ob Sie getrennte oder kombinierte Workspaces erstellen möchten, sollten Sie die Anzahl Ihrer Currents-Konnektoren berücksichtigen, da Currents-Konnektoren nicht über Workspaces hinweg gemeinsam genutzt werden.
 
-Wenn Sie beispielsweise getrennte Workspaces für die Entwicklungs- und die Produktionsumgebung derselben App haben, aktivieren Sie Ihren Currents Konnektor im Workspace der Produktionsumgebung. Um Currents in beiden Workspaces zu aktivieren, müssen Sie einen zusätzlichen Currents Konnektor erwerben.
+Wenn Sie beispielsweise getrennte Workspaces für die Entwicklungs- und die Produktionsumgebung derselben App haben, aktivieren Sie Ihren Currents-Konnektor im Produktions-Workspace. Um Currents in beiden Workspaces zu aktivieren, müssen Sie einen zusätzlichen Currents-Konnektor erwerben.
 
-#### Benutzerprofile
+#### Nutzerprofile {#user-profiles}
 
-Alle dauerhaften Daten, die mit einem Benutzer verbunden sind, werden in seinem [Benutzerprofil]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/) gespeichert. Benutzerprofile sind jedoch auch eine großartige Ressource für die Fehlersuche und das Testen, da Sie ganz einfach auf Informationen über die Engagement-Historie eines Benutzers, seine Segmentzugehörigkeit, sein Gerät und sein Betriebssystem zugreifen können.
+Alle persistenten Daten, die mit einer Nutzerin oder einem Nutzer verknüpft sind, werden in ihrem [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für die Fehlerbehebung und das Testen, da Sie einfach auf Informationen zur Engagement-Historie, Segmentzugehörigkeit, zum Gerät und zum Betriebssystem zugreifen können.
 
-#### Segmente, Kampagnen und Leinwände
+#### Segmente, Campaigns und Canvases {#segments-campaigns-and-canvases}
 
-Ein Segment, eine Kampagne oder ein Canvas kann nicht auf Daten referenzieren oder zugreifen, die sich in einem anderen Workspace befinden. Befinden sich dagegen mehrere Apps im selben Workspace, werden die Daten aller Apps zusammengefasst. Dies wird sich [auf die Filter in Braze auswirken](#impact-on-segmentation-filters).
+Ein Segment, eine Campaign oder ein Canvas kann nicht auf Daten zugreifen oder diese referenzieren, die sich in einem anderen Workspace befinden. Befinden sich dagegen mehrere Apps im selben Workspace, werden die Daten aller Apps zusammengefasst. Dies hat [Auswirkungen auf die Filter in Braze](#impact-on-segmentation-filters).
 
-### Überblick über die einzelnen Ansätze
+### Überblick über die einzelnen Ansätze {#overview-of-each-approach}
 
 Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zur Workspace-Planung:
 
-- **Separate Arbeitsbereiche und Benutzerprofile:** Ein Workspace hat eine App-Instanz und eine Person hat ein Nutzerprofil für diese App-Instanz.
-- **Gemeinsame Arbeitsbereiche und Benutzerprofile:** Ein Workspace hat mehrere App-Instanzen und eine Person hat ein Nutzerprofil für alle diese App-Instanzen.
+- **Getrennte Workspaces und Nutzerprofile:** Ein Workspace hat eine App-Instanz und eine Person hat ein Nutzerprofil für diese App-Instanz.
+- **Gemeinsame Workspaces und Nutzerprofile:** Ein Workspace hat mehrere App-Instanzen und eine Person hat ein Nutzerprofil für alle diese App-Instanzen.
 
 <style type="text/css">
   table {
@@ -153,92 +153,100 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
   }
 </style>
 
-<table>
+<table aria-label="Überblick über die einzelnen Ansätze">
+  <caption>Überblick über die einzelnen Ansätze</caption>
+    <thead>
     <tr>
         <th></th>
-        <th colspan="2">Getrennte Arbeitsbereiche</th>
-        <th colspan="2">Gemeinsame Arbeitsbereiche</th>
+        <th colspan="2" scope="colgroup">Getrennte Workspaces</th>
+        <th colspan="2" scope="colgroup">Gemeinsame Workspaces</th>
     </tr>
     <tr>
         <th></th>
-        <th>Vorteile</th>
-        <th>Beeinträchtigungen</th>
-        <th>Vorteile</th>
-        <th>Beeinträchtigungen</th>
+        <th scope="col">Vorteile</th>
+        <th scope="col">Nachteile</th>
+        <th scope="col">Vorteile</th>
+        <th scope="col">Nachteile</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">Targeting</th>
+        <td>Der sicherste Weg, um die Kommunikation zu trennen. Campaigns sind garantiert nur auf bestimmte Nutzerprofile ausgerichtet.</td>
+        <td>Sie können keine Cross-Promotion-Nachrichten senden, auch wenn Sie wissen, dass eine Nutzerin oder ein Nutzer ein anderes Nutzerprofil in einem anderen Workspace hat.</td>
+        <td>Sie können Cross-Promotion-Nachrichten senden, wenn Sie wissen, dass eine Person mehrere Apps in Ihrem Workspace nutzt.<br><br>Sie können Nutzerdaten aus verschiedenen Apps referenzieren. Zum Beispiel hat John ein Attribut X, das für App 1 relevant ist, und ein Attribut Y, das für App 2 relevant ist – beide können in einer Campaign referenziert werden.</td>
+        <td>Mehr Raum für menschliche Fehler – Sie könnten versehentlich Nutzer:innen über mehrere App-Instanzen hinweg ansprechen.<br><br>Um In-App-Nachrichten zu senden, benötigen Sie app-spezifische angepasste Events, damit eine Campaign nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel <code>app_1_action</code> gegenüber <code>app_2_action</code>.</td>
     </tr>
     <tr>
-        <td>Targeting</td>
-        <td>Der sicherste Weg, um die Kommunikation zu trennen. Die Kampagnen sind garantiert nur auf bestimmte Nutzerprofile ausgerichtet.</td>
-        <td>Sie können keine werbeübergreifenden Nachrichten senden, auch wenn Sie wissen, dass ein:e Nutzer:in ein anderes Nutzerprofil in einem anderen Workspace hat.</td>
-        <td>Sie können werbeübergreifende Nachrichten senden, wenn Sie wissen, dass ein Benutzer mehrere Apps in Ihrem Arbeitsbereich verwendet.<br><br>Kann Benutzerdaten aus verschiedenen Anwendungen referenzieren. Zum Beispiel hat John ein Attribut X, das für App 1 relevant ist, und ein Attribut Y, das für App 2 relevant ist, die beide in einer Kampagne referenziert werden können.</td>
-        <td>Mehr Raum für menschliche Fehler - Sie könnten versehentlich Benutzer über mehrere App-Instanzen hinweg anvisieren.<br><br>Um In-App-Nachrichten zu senden, müssen Sie app-spezifische benutzerdefinierte Ereignisse haben, damit eine Kampagne nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel, <code>app_1_action</code> gegen <code>app_2_action</code>.</td>
+        <th scope="row">Angepasste Events und Attribute</th>
+        <td>Angepasste Attribute und Events sind garantiert spezifisch für eine App-Instanz.</td>
+        <td>Das Nutzerverhalten kann nicht über Workspaces hinweg verfolgt werden.<br><br><b>Tipp:</b> Dazu können Sie mehrere Currents-Konnektoren nutzen.</td>
+        <td>Das Nutzerverhalten kann über alle App-Instanzen im Workspace hinweg verfolgt werden.</td>
+        <td>Angepasste Attribute und Events würden für alle App-Instanzen gelten, wodurch es schwierig werden könnte, zu erkennen, welche Daten in einem Nutzerprofil für welche App-Instanz relevant sind. Ist zum Beispiel „date_of_parking“ für App 1 oder App 2 relevant? Um dem entgegenzuwirken, sollten Sie gut strukturierte Namenskonventionen verwenden.</td>
     </tr>
     <tr>
-        <td>Benutzerdefinierte Ereignisse und Attribute</td>
-        <td>Benutzerdefinierte Attribute und Ereignisse sind garantiert spezifisch für eine App-Instanz.</td>
-        <td>Das Benutzerverhalten kann nicht über Arbeitsbereiche hinweg verfolgt werden.<br><br><b>Tipp:</b> Dazu können Sie mehrere Currents-Verbindungen nutzen.</td>
-        <td>Kann das Benutzerverhalten über alle App-Instanzen im Arbeitsbereich verfolgen.</td>
-        <td>Benutzerdefinierte Attribute und Ereignisse würden für alle App-Instanzen gelten, wodurch es schwierig werden könnte, zu erkennen, welche Daten in einem Benutzerprofil für welche App-Instanz relevant sind. Ist dies beispielsweise für"date_of_parking" App 1 oder App 2 relevant? Um dem entgegenzuwirken, sollten Sie gut strukturierte Namenskonventionen verwenden.</td>
-    </tr>
-    <tr>
-        <td>Frequency-Capping</td>
+        <th scope="row">Frequency-Capping</th>
         <td>Frequency-Capping kann für jede App-Instanz separat definiert werden (basierend auf dem Workspace).</td>
-        <td>--</td>
-        <td>--</td>
-        <td>Frequency-Capping gilt für alle Kampagnen, nicht für einzelne Apps, was es schwieriger macht, zu viele Nachrichten an Kund:innen zu verhindern.</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frequency-Capping gilt für alle Campaigns, nicht pro App, was es schwieriger macht, eine Überflutung der Kund:innen mit Nachrichten zu verhindern.</td>
     </tr>
     <tr>
-        <td>Abo-Status für Nutzer:in-Profile</td>
+        <th scope="row">Abo-Status für Nutzerprofile</th>
         <td>Der Abo-Status jedes Nutzerprofils ist für jede App-Instanz eindeutig.</td>
-        <td>--</td>
-        <td>--</td>
-        <td>Die Abo-Status eines Nutzerprofils werden über App-Instanzen hinweg kombiniert.<br><br><b>Tipp:</b> Sie könnten stattdessen <a href='/docs/user_guide/data/custom_data/custom_attributes'>angepasste Attribute</a> verwenden, um die Abos Ihrer Nutzer:innen zu verwalten.</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Die Abo-Status eines Nutzerprofils werden über App-Instanzen hinweg kombiniert.<br><br><b>Tipp:</b> Sie könnten stattdessen <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>angepasste Attribute</a> verwenden, um die Abos Ihrer Nutzer:innen zu verwalten.</td>
     </tr>
     <tr>
-        <td>Benutzerberechtigungen für Nutzer:innen</td>
-        <td>--</td>
-        <td>Das Update der <a href='/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/'>Benutzerberechtigungen</a> für einen Nutzer:innen des Dashboards muss für jeden Workspace, auf den der Nutzer:innen Zugriff benötigt, separat durchgeführt werden.</td>
-        <td><a href='/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/'>Nutzer</a>:innen können einmal für einen Nutzer des Dashboards festgelegt werden und haben dann dieselben Berechtigungen für alle App-Instanzen im Workspace.</td>
-        <td>--</td>
+        <th scope="row">Unternehmensnutzer:innen-Berechtigungen</th>
+        <td>N/A</td>
+        <td>Das Aktualisieren der <a href='/docs/user_guide/administer/global/user_management/permissions'>Berechtigungen</a> für eine Dashboard-Nutzerin oder einen Dashboard-Nutzer muss für jeden Workspace, auf den die Person Zugriff benötigt, separat durchgeführt werden.</td>
+        <td><a href='/docs/user_guide/administer/global/user_management/permissions'>Berechtigungen</a> können einmalig für eine Dashboard-Nutzerin oder einen Dashboard-Nutzer festgelegt werden und gelten dann für alle App-Instanzen im Workspace.</td>
+        <td>N/A</td>
     </tr>
     <tr>
-        <td>Duplizieren von Inhalten</td>
-        <td>--</td>
-        <td>Sie können keine Segmente, Push- oder Content-Card-Kampagnen oder Canvase in verschiedenen Workspaces duplizieren.</td>
-        <td><a href='{{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/copying_across_workspaces/'>Kampagnen</a> können für die folgenden unterstützten Kanäle <a href='{{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/copying_across_workspaces/'>über Workspaces hinweg dupliziert werden</a>: SMS, In-App-Nachrichten, E-Mail, E-Mail-Vorlagen und Inhaltsblöcke. <br><br>Sie können Segmente, Kampagnen und Canvases duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
-        <td>--</td>
+        <th scope="row">Duplizieren von Inhalten</th>
+        <td>N/A</td>
+        <td>Einige Inhalte, wie Segmente und Content-Card-Kampagnen, können nicht über Workspaces hinweg kopiert werden.</td>
+        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvases für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Sie können Segmente, Campaigns, Canvases und Landing-Pages duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
+        <td>N/A</td>
     </tr>
     <tr>
-        <td>Analytics</td>
+        <th scope="row">Analytics</th>
         <td>Die globalen Statistiken werden auf der Startseite korrekt angezeigt.</td>
-        <td>--</td>
-        <td>--</td>
-        <td>Die globalen Statistiken werden für alle App-Instanzen im Arbeitsbereich auf der Startseite zusammengefasst.</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Die globalen Statistiken werden für alle App-Instanzen im Workspace auf der Startseite zusammengefasst.</td>
     </tr>
+    </tbody>
 </table>
 
-## Bewährte Praktiken
+{% alert note %}
+Informationen dazu, wie sich MAU bei der Anzeige aller Apps im Vergleich zu einer einzelnen App unterscheidet, finden Sie unter [Monatlich aktive Nutzer:innen]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
 
-### Einen Arbeitsbereich für Tests einrichten
+## Best Practices {#best-practices}
 
-Wenn Sie planen, einen Workspace für die Produktion einzurichten (einen Workspace, der Nachrichten an echte Nutzer:innen sendet), sollten Sie auch einen Test-Workspace einrichten. Ein Testarbeitsbereich ist ein Duplikat Ihres Produktionsarbeitsbereichs ohne echte Benutzerdaten. 
+### Einen Test-Workspace einrichten {#set-up-a-testing-workspace}
 
-Dies wird aus mehreren Gründen als beste Praxis angesehen:
+Wenn Sie planen, einen Produktions-Workspace einzurichten (einen Workspace, der Nachrichten an echte Nutzer:innen sendet), sollten Sie auch einen Test-Workspace einrichten. Ein Test-Workspace ist ein Duplikat Ihres Produktions-Workspace ohne echte Nutzerdaten.
 
-- **Isolierung von Änderungen:** Sie erlaubt es Ihnen, neue Features, Konfigurationen oder Updates in einer isolierten Umgebung zu testen, ohne Ihre Produktionsumgebung zu beeinträchtigen. Wenn also während der Tests etwas schief geht, bleibt Ihre Produktionsumgebung davon unberührt.
-- **Genaues Testen:** Dies lässt genauere Tests zu, da die Daten in der Testumgebung kontrolliert und bearbeitet werden können, ohne dass Sie sich Gedanken über die realen Daten machen müssen.
-- **Fehlersuche:** Es ist einfacher, Probleme in einer Testumgebung zu beheben, da Sie die Umgebung frei bearbeiten können, ohne sich Gedanken über die Auswirkungen auf die Produktionsumgebung zu machen.
+Dies gilt aus mehreren Gründen als Best Practice:
+
+- **Isolierung von Änderungen:** Sie können neue Features, Konfigurationen oder Updates in einer isolierten Umgebung testen, ohne Ihre Produktionsumgebung zu beeinträchtigen. Wenn also während der Tests etwas schiefgeht, bleibt Ihre Produktionsumgebung davon unberührt.
+- **Genaues Testen:** Die Daten in der Testumgebung können kontrolliert und bearbeitet werden, ohne dass Sie sich Gedanken über reale Daten machen müssen. Das ermöglicht genauere Tests.
+- **Fehlerbehebung:** Es ist einfacher, Probleme in einer Testumgebung zu beheben, da Sie die Umgebung frei bearbeiten können, ohne sich Gedanken über die Auswirkungen auf die Produktionsumgebung zu machen.
 - **Training:** Neue Teammitglieder können sich in einer sicheren Umgebung mit dem Workspace vertraut machen, in der Fehler keine realen Konsequenzen haben.
 
 {% alert tip %}
-Die Reihenfolge, in der Sie einen Workspace zum Testen und einen Workspace für die Produktion einrichten, kann von Ihren spezifischen Bedürfnissen und Umständen abhängen. Es ist jedoch generell eine gute Idee, zunächst einen Workspace zum Testen einzurichten. Dies erlaubt es Ihnen, Features, Konfigurationen und Updates zu testen, bevor sie im Workspace der Produktion implementiert werden. Wenn Sie mit den Tests und Ergebnissen zufrieden sind, können Sie Ihren Workspace für die Produktion einrichten.
+Die Reihenfolge, in der Sie einen Test-Workspace und einen Produktions-Workspace einrichten, kann von Ihren spezifischen Bedürfnissen und Umständen abhängen. Es ist jedoch generell eine gute Idee, zunächst einen Test-Workspace einzurichten. So können Sie Features, Konfigurationen und Updates testen, bevor sie im Produktions-Workspace implementiert werden. Wenn Sie mit den Tests und Ergebnissen zufrieden sind, können Sie anschließend Ihren Produktions-Workspace einrichten.
 {% endalert %}
 
-### Administratoren hinzufügen
+### Administrator:innen hinzufügen {#add-administrators}
 
-Sie sollten mehr als einen Braze-Benutzer mit Admin-Rechten für einen einzelnen Arbeitsbereich haben. So stellen Sie sicher, dass es in Ihrem Unternehmen genügend Personen gibt, die die Berechtigungen anderer Benutzer verwalten können.
+Sie sollten mehr als eine Braze-Nutzerin oder einen Braze-Nutzer mit Admin-Berechtigungen für einen einzelnen Workspace haben. So stellen Sie sicher, dass es in Ihrem Unternehmen genügend Personen gibt, die die Berechtigungen anderer Nutzer:innen verwalten können.
 
-## Nächste Schritte
+## Nächste Schritte {#next-steps}
 
-Nachdem Sie Ihren Workspace-Plan festgelegt haben, ist es an der Zeit, Ihren Workspace zu erstellen und App-Instanzen hinzuzufügen. Für weitere Schritte, sehen Sie sich [bitte „Workspaces erstellen und verwalten”]({{site.baseurl}}/user_guide/administrative/app_settings/workspaces/) an.
-
+Nachdem Sie Ihren Workspace-Plan festgelegt haben, ist es an der Zeit, Ihren Workspace zu erstellen und App-Instanzen hinzuzufügen. Die entsprechenden Schritte finden Sie unter [Workspaces erstellen und verwalten]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).

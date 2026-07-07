@@ -36,8 +36,8 @@ Braze와 DOTS.ECO는 고객 참여 여정을 실제 임팩트 보상으로 연�
 | DOTS.ECO 계정 | DOTS.ECO 계정 액세스. |
 | DOTS.ECO 자격 증명 | 이 문서의 요청에는 DOTS.ECO 앱 토큰, API 키 및 할당 ID가 필요합니다. 이를 확인하려면 DOTS.ECO 고객 성공 매니저에게 문의하세요. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성하세요. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## DOTS.ECO 통합하기 {#integrating-dotseco}
 
@@ -60,7 +60,7 @@ Braze 대시보드에서 사용자가 주요 이벤트(예: 구매, 구독 또�
 ```
 {% capture post_body %}
 {
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
   "impact_qty": 1,
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",

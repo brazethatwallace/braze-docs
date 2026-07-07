@@ -51,7 +51,7 @@ Para configurar el seguimiento de clics en un mensaje de elementos de lista:
 
 ## Dominios personalizados {#custom-domains}
 
-El seguimiento de clics en KakaoTalk te permite usar tu propio dominio para personalizar la apariencia de tus URL acortadas, ayudando a proyectar una imagen de marca consistente. Para más información, consulta [Dominios personalizados]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
+El seguimiento de clics en KakaoTalk te permite usar tu propio dominio para personalizar la apariencia de tus URL acortadas, ayudando a proyectar una imagen de marca consistente. Para más información, consulta [Dominios personalizados]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
 
 ## Personalización con Liquid en las URL {#liquid-personalization-in-urls}
 
@@ -78,7 +78,7 @@ Braze acorta las URL que son renderizadas por Liquid, incluso aquellas incluidas
 
 ## Pruebas {#testing}
 
-Antes de lanzar tu Campaign o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un mensaje de KakaoTalk a grupos de prueba de contenido o a un usuario individual.
+Antes de lanzar tu campaña o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un mensaje de KakaoTalk a grupos de prueba de contenido o a un usuario individual.
 
 La vista previa se actualizará con la personalización relevante y la URL acortada.
 
@@ -88,7 +88,7 @@ Si se crea un borrador dentro de un Canvas activo, no se generará una URL acort
 
 ## Informes {#reporting}
 
-La tabla de rendimiento de KakaoTalk incluye la columna **Total Clicks** que muestra un recuento de eventos de clic por variante y una tasa de clics asociada. Para más detalles sobre las métricas de KakaoTalk, consulta [Informes de KakaoTalk]({{site.baseurl}}/kakaotalk_reporting/).
+La tabla de rendimiento de KakaoTalk incluye la columna **Total Clicks** que muestra un recuento de eventos de clic por variante y una tasa de clics asociada. Para más detalles sobre las métricas de KakaoTalk, consulta [Informes de KakaoTalk]({{site.baseurl}}/kakaotalk_reporting).
 
 Los datos de clics se reportarán automáticamente en el dashboard de análisis.
 
@@ -109,7 +109,7 @@ Puedes reorientar a los usuarios que han hecho clic en una URL en un mensaje de 
 
 ### ¿Los enlaces que recibo al enviar una prueba son URL reales? {#are-the-links-i-receive-when-test-sending-real-urls}
 
-Sí, se generarán URL reales al enviar una prueba. Sin embargo, la URL exacta enviada en una Campaign lanzada puede diferir de la enviada en un envío de prueba.
+Sí, se generarán URL reales al enviar una prueba. Sin embargo, la URL exacta enviada en una campaña lanzada puede diferir de la enviada en un envío de prueba.
 
 ### ¿Puedo añadir parámetros UTM a una URL antes de que se acorte? {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 

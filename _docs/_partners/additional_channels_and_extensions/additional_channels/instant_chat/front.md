@@ -25,6 +25,7 @@ Before you start, you'll need the following:
 | A Front account            | A Front account is required to take advantage of this partnership.|
 | Braze Data Transformation Webhook URL | [Braze Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/) will be used to reformat the incoming webhook from Front so it can be accepted by the Braze /users/track endpoint.|
 | A Front REST API Key         | A Front REST API key will be used to make an outbound webhook request from Braze to Front. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -72,9 +73,7 @@ First, you'll create a new data transformation in Braze. The following steps are
     ```
     {% endraw %}
 
-    Your transformation should be similar to the following:
-
-    ![An example data transformation.]({% image_buster /assets/img/front/data_transformation.png %})
+    Your transformation should mirror the JavaScript example above, adjusting property names and paths to match your Front webhook payload.
 
 {% alert tip %}
 You can modify this template to meet your specific needs. For example, you can customize the pre-set custom event name. For more information, see [Data transformation overview]({{site.baseurl}}/user_guide/data/unification/data_transformation/). 
@@ -134,7 +133,7 @@ Next, you’ll create two new webhook campaigns in Braze so you can forward inbo
 |---|---|
 |Webhook campaign 1|Signals to Front that a live chat conversation is being requested.|
 |Webhook campaign 2|Forwards all conversational SMS responses sent inbound from the customer to the Front inbox.|
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Set up inbound-SMS forwarding" }
 
 #### Step 5.1: Create an SMS keyword category
 
@@ -145,7 +144,7 @@ In the Braze dashboard, go to **Audience**, choose your **SMS subscription group
 |Keyword Category|The name of your keyword category, such as `FrontSMS1`.|
 |Keywords|Your custom keywords, such as `TIMETOMOW`. Avoid common words to prevent accidental triggers. Keep in mind, keywords are case insensitive, so `lawn` would match `LAWN`.|
 |Reply Message|The message that will be sent when a keyword is detected, such as "A landscaper will contact you shortly."|
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5.1: Create an SMS keyword category" }
 
 ![An example SMS keyword category in Braze.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 

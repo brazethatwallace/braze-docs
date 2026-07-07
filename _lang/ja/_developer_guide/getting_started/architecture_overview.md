@@ -37,10 +37,10 @@ platform:
 Brazeは、Snowflake、Kafka、MongoDB、およびRedisを活用したストリーミングデータアーキテクチャ上に構築されています。多くのデータソースからのデータは、SDKやAPIを通じてBrazeに読み込むことができます。プラットフォームは、データがどのようにネストまたは構造化されているかに関係なく、あらゆるデータをリアルタイムで処理できます。Brazeのデータはユーザープロファイルに保存されます。
 
 {% alert tip %}
-Brazeは、ユーザーが匿名である時点から、アプリにログインして既知の状態になるまで、ユーザーのデータを追跡できます。ユーザーIDは、Brazeでは`external_id`と呼ばれ、各ユーザーに設定する必要があります。これらは変更されず、ユーザーがアプリを開いたときにアクセスできるようにする必要があり、デバイスやプラットフォームを超えてユーザーを追跡できるようにします。ベストプラクティスについては、[ユーザーライフサイクルに関する記事]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)を参照してください。
+Brazeは、ユーザーが匿名である時点から、アプリにログインして既知の状態になるまで、ユーザーのデータを追跡できます。ユーザーIDは、Brazeでは`external_id`と呼ばれ、各ユーザーに設定する必要があります。これらは変更されず、ユーザーがアプリを開いたときにアクセスできるようにする必要があり、デバイスやプラットフォームを超えてユーザーを追跡できるようにします。ベストプラクティスについては、[ユーザーライフサイクルに関する記事]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)を参照してください。
 {% endalert %}
 
-![BrazeはAPIからバックエンドデータソースを、SDKからフロントエンドデータソースを、Brazeクラウドデータ取り込みからデータウェアハウスのデータを、そしてパートナー連携からデータをインポートします。このデータはBraze APIを通じてエクスポートされます]({% image_buster /assets/img/getting-started/import-export.png %}){: style="display:block;margin:auto;" }
+![BrazeはAPIからバックエンドデータソースを、SDKからフロントエンドデータソースを、Brazeクラウドデータ取り込みからデータウェアハウスのデータを、そしてパートナー連携からデータをインポートします。このデータはBraze APIを通じてエクスポートされます。]({% image_buster /assets/img/getting-started/import-export.png %}){: style="display:block;margin:auto;" }
 
 {% alert note %}
 このユーザー中心のユーザープロファイルデータベースにより、リアルタイムでインタラクティブなスピードが実現します。Brazeはデータが到着したときに値を事前に計算し、結果を高速に取得するために軽量なドキュメント形式で保存します。そして、プラットフォームは最初からこのように設計されているため、ほとんどのメッセージングのユースケースに理想的です。特に、コネクテッドコンテンツ、製品カタログ、ネストされた属性などの他のデータ概念と組み合わせると効果的です。
@@ -58,32 +58,32 @@ Brazeはさまざまな機能に対して異なるデータストレージシス
 - ほとんどのセグメンテーションとターゲティング機能
 
 #### Snowflakeを活用した機能 {#snowflake-powered-features}
-- [SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)
-- [予測スイート]({{site.baseurl}}/user_guide/brazeai/)
-- [パーソナライズされたパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths/)と[パーソナライズされたバリアント]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/optimizations/#personalized-variant)
-- [AIによるパーソナライズされた商品レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)
-- [推定実開封率]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#estimated-real-open-rate)（カスタムイベントを使用しない）
+- [SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
+- [予測スイート]({{site.baseurl}}/user_guide/brazeai)
+- [パーソナライズされたパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths)と[パーソナライズされたバリアント]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/optimizations#personalized-variant)
+- [AIによるパーソナライズされた商品レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)
+- [推定実開封率]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#estimated-real-open-rate)（カスタムイベントを使用しません）
 
 {% alert important %}
 **データ削除に関する考慮事項：** カスタムイベントはMongoDBに保存され、Snowflakeのデータとは別物です。誤ったカスタムイベントデータを削除する必要がある場合、MongoDBで対処しなければなりません。Snowflakeを活用した機能（SQLセグメントエクステンションやその他のSnowflakeを活用した機能など）は、Snowflakeのデータを使用しており、別途扱われます。一方のシステムからデータを削除しても、もう一方のシステムから自動的に削除されるわけではありません。
 {% endalert %}
 
 ### Braze APIを介したバックエンドデータソース {#backend-data-sources-through-the-braze-api}
-Brazeは、[REST API]({{site.baseurl}}/api/endpoints/user_data/)を使用して、ユーザーデータベース、オフライントランザクション、およびデータウェアハウスからデータを取得できます。
+Brazeは、[REST API]({{site.baseurl}}/api/endpoints/user_data)を使用して、ユーザーデータベース、オフライントランザクション、およびデータウェアハウスからデータを取得できます。
 
 ### Braze SDKを介したフロントエンドデータソース {#frontend-data-sources-through-braze-sdk}
-Brazeは、[Braze SDK]({{site.baseurl}}/user_guide/get_started/sdk_overview/)を使用して、ユーザーのデバイスなどのフロントエンドデータソースからファーストパーティデータを自動的にキャプチャします。SDKは新しい（匿名の）ユーザーを処理し、ライフサイクル全体にわたってユーザープロファイルのデータを管理します。
+Brazeは、[Braze SDK]({{site.baseurl}}/user_guide/get_started/sdk_overview)を使用して、ユーザーのデバイスなどのフロントエンドデータソースからファーストパーティデータを自動的にキャプチャします。SDKは新しい（匿名の）ユーザーを処理し、ライフサイクル全体にわたってユーザープロファイルのデータを管理します。
 
 ### パートナー連携 {#partner-integrations}
-Brazeには150を超えるテクノロジーパートナーがあり、私たちはそれを「Alloys」と呼んでいます。[相互運用可能な技術とデータAPI]({{site.baseurl}}/partners/home/)の堅牢なネットワークを通じて、データフィードを補完できます。
+Brazeには150を超えるテクノロジーパートナーがあり、私たちはそれを「Alloys」と呼んでいます。[相互運用可能な技術とデータAPI]({{site.baseurl}}/partners/home)の堅牢なネットワークを通じて、データフィードを補完できます。
 
 ### Brazeクラウドデータ取り込みを介したデータウェアハウスとの直接接続 {#direct-warehouse-connection-through-braze-cloud-data-ingestion}
-[Brazeクラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を使用すると、データウェアハウスからプラットフォームに顧客データをわずか数分でストリームでき、関連するユーザー属性、イベント、購入を同期できます。クラウドデータ取り込みの統合は、ネストされたJSONやオブジェクトの配列を含む複雑なデータ構造をサポートしています。
+[Brazeクラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用すると、データウェアハウスからプラットフォームに顧客データをわずか数分でストリームでき、関連するユーザー属性、イベント、購入を同期できます。クラウドデータ取り込みの統合は、ネストされたJSONやオブジェクトの配列を含む複雑なデータ構造をサポートしています。
 
 クラウドデータ取り込みは、Snowflake、Amazon Redshift、Databricks、およびGoogle BigQueryからデータを同期できます。
 
 ## 分類 {#classification}
-分類レイヤーにより、チームはBrazeを通過するデータに基づいて[Segments]({{site.baseurl}}/user_guide/audience/segments/)と呼ばれるオーディエンスを動的に分類および構築できます。
+分類レイヤーにより、チームはBrazeを通過するデータに基づいて[セグメント]({{site.baseurl}}/user_guide/audience/segments)と呼ばれるオーディエンスを動的に分類および構築できます。
 
 {% alert note %}
 分類、オーケストレーション、パーソナライゼーションのレイヤーは、マーケティングチームが多くの作業を行う場所です。これらのレイヤーとのやり取りは、BrazeダッシュボードというWebインターフェイスを通じて最も頻繁に行われます。開発者はこれらのレイヤーの設定とカスタマイズに役割を果たします。
@@ -91,21 +91,21 @@ Brazeには150を超えるテクノロジーパートナーがあり、私たち
 
 名前、メール、生年月日、国名など、多くの一般的な種類のユーザー属性は、デフォルトでSDKによって自動的に追跡されます。開発者は、チームと協力して、ユースケースで追跡する価値のある追加のカスタムデータを定義します。カスタムデータは、ユーザー群の分類とセグメント化に影響を与えます。実装プロセス中にこのデータモデルを設定します。
 
-[自動収集されたデータとカスタムデータ]({{site.baseurl}}/developer_guide/analytics/)の詳細を参照してください。
+[自動収集されたデータとカスタムデータ]({{site.baseurl}}/developer_guide/analytics)の詳細を参照してください。
 
 ## オーケストレーション {#orchestration}
-オーケストレーションレイヤーにより、マーケティングチームはユーザーデータと以前のエンゲージメントに基づいてユーザージャーニーを設計できます。この作業は、ほとんどの場合ダッシュボードインターフェイスを使用して行われますが、[APIを使用してCampaignを起動する]({{site.baseurl}}/api/api_campaigns/#api-campaigns)オプションもあります。例えば、バックエンドがBrazeに対して、マーケターがダッシュボードで設計したメッセージやCampaignをいつ送信するかを指示し、バックエンドのロジックに従ってトリガーすることができます。APIトリガーメッセージの例としては、パスワードリセットや配送確認があります。
+オーケストレーションレイヤーにより、マーケティングチームはユーザーデータと以前のエンゲージメントに基づいてユーザージャーニーを設計できます。この作業は、ほとんどの場合ダッシュボードインターフェイスを使用して行われますが、[APIを使用してキャンペーンを起動する]({{site.baseurl}}/api/api_campaigns#api-campaigns)オプションもあります。例えば、バックエンドがBrazeに対して、マーケターがダッシュボードで設計したメッセージやキャンペーンをいつ送信するかを指示し、バックエンドのロジックに従ってトリガーすることができます。APIトリガーメッセージの例としては、パスワードリセットや配送確認があります。
 
 {% alert note %}
-APIトリガーCampaignは、より高度なトランザクションユースケースに最適です。これを使用すると、マーケターはCampaignのコピー、多変量テスト、再適格性ルールをBrazeダッシュボード内で管理しながら、サーバーやシステムからそのコンテンツの配信をトリガーできます。メッセージをトリガーするAPIリクエストには、メッセージにリアルタイムでテンプレート化する追加データを含めることもできます。
+APIトリガーキャンペーンは、より高度なトランザクションユースケースに最適です。これを使用すると、マーケターはキャンペーンのコピー、多変量テスト、再適格性ルールをBrazeダッシュボード内で管理しながら、サーバーやシステムからそのコンテンツの配信をトリガーできます。メッセージをトリガーするAPIリクエストには、メッセージにリアルタイムでテンプレート化する追加データを含めることもできます。
 {% endalert %}
 
 
 ### フィーチャーフラグ {#feature-flags}
-Brazeでは、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags/)を使用して、選択したユーザーに対して機能をリモートで有効または無効にすることができます。これにより、マーケターは、まだ全オーディエンスに展開していない機能のメッセージングを使用して、ユーザー群の正しいSegmentをターゲットにすることができます。さらに、フィーチャーフラグは追加のコードデプロイやアプリストアの更新なしに、本番環境で機能をオンおよびオフにするために使用できます。これにより、新しい機能を安全かつ確信を持ってロールアウトできます。
+Brazeでは、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags)を使用して、選択したユーザーに対して機能をリモートで有効または無効にすることができます。これにより、マーケターは、まだ全オーディエンスに展開していない機能のメッセージングを使用して、ユーザー群の正しいセグメントをターゲットにすることができます。さらに、フィーチャーフラグは追加のコードデプロイやアプリストアの更新なしに、本番環境で機能をオンおよびオフにするために使用できます。これにより、新しい機能を安全かつ確信を持ってロールアウトできます。
 
 ## パーソナライゼーション {#personalization}
-パーソナライゼーションレイヤーは、メッセージ内でダイナミックなコンテンツを提供する機能を表します。広く使用されているパーソナライゼーション言語であるLiquidを使用すると、チームは既存のデータを動的に取得して、各受信者に合わせたメッセージを表示できます。さらに、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用すれば、ウェブサーバー上でアクセス可能な情報やAPI経由で取得した情報を、プッシュ通知やメールなどの送信メッセージに直接挿入できます。コネクテッドコンテンツはLiquidの上に構築され、おなじみの構文を使用します。
+パーソナライゼーションレイヤーは、メッセージ内でダイナミックなコンテンツを提供する機能を表します。広く使用されているパーソナライゼーション言語であるLiquidを使用すると、チームは既存のデータを動的に取得して、各受信者に合わせたメッセージを表示できます。さらに、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用すれば、ウェブサーバー上でアクセス可能な情報やAPI経由で取得した情報を、プッシュ通知やメールなどの送信メッセージに直接挿入できます。コネクテッドコンテンツはLiquidの上に構築され、おなじみの構文を使用します。
 
 そして、このダイナミックなコンテンツはプログラム可能であるため、マーケターは計算された値、他の呼び出しからの応答、または製品カタログアイテムを含めることができます。これらのシステムを実装中に設定した後、マーケティングチームは技術チームからのサポートがほとんどなくてもこれを行うことができます。
 
@@ -115,24 +115,24 @@ Brazeでは、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/fea
 ### メッセージングチャネル {#messaging-channels}
 Brazeは、チャネルに依存しないユーザー中心のデータモデルによって、進化する技術的状況に対応するように設計されています。ダッシュボードはメッセージ配信とトランザクショントリガーを管理します。例えば、マーケターは、ユーザーがこの場所の近くに設定されたジオフェンスに入ると、新しくオープンした店舗のクーポンを提供するSMSメッセージをトリガーしたり、ユーザーにメールを送信してお気に入りの番組の新シーズンが始まったことを知らせたりすることができます。
 
-[Braze SDK]({{site.baseurl}}/user_guide/get_started/sdk_overview/)は、プッシュ、アプリ内メッセージ、Content Cardsなど、追加のメッセージングチャネルを提供します。SDKをアプリまたはサイトと統合すると、マーケティングチームはBrazeダッシュボードを使用して、サポートされているすべてのメッセージングチャネルでCampaignを調整できます。
+[Braze SDK]({{site.baseurl}}/user_guide/get_started/sdk_overview)は、プッシュ、In-App Messages、Content Cardsなど、追加のメッセージングチャネルを提供します。SDKをアプリまたはサイトと統合すると、マーケティングチームはBrazeダッシュボードを使用して、サポートされているすべてのメッセージングチャネルでキャンペーンを調整できます。
 
-![]({% image_buster /assets/img/getting_started/channels.png %})
+![SDKを通じて利用可能なBrazeメッセージングチャネルの図]({% image_buster /assets/img/getting_started/channels.png %})
 
 ## データのエクスポート {#exporting-data}
 重要なことに、すべてのエンドユーザーのBrazeとのやり取りが追跡されるため、エンゲージメントとアウトリーチを測定できます。そして、Brazeがこれらすべてのソースからデータを集約した後、さまざまなツールを使用してテックスタックにデータをエクスポートし、ループを閉じることができます。
 
 ### Currents
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)は、スタックの他の送信先に継続的にフィードするきめ細かいストリーミングエクスポートを提供するオプションのBrazeアドオンです。Currentsは、ユーザーごとのイベントごとの生データフィードで、5分ごと、または15,000イベントごとにデータをエクスポートします（どちらか早い方）。Currentsの下流の送信先の例としては、Segment、S3、Redshift、Mixpanelなどがあります。
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)は、スタックの他の送信先に継続的にフィードするきめ細かいストリーミングエクスポートを提供するオプションのBrazeアドオンです。Currentsは、ユーザーごとのイベントごとの生データフィードで、5分ごと、または15,000イベントごとにデータをエクスポートします（どちらか早い方）。Currentsの下流の送信先の例としては、セグメント、S3、Redshift、Mixpanelなどがあります。
 
 ### Snowflakeデータ共有 {#snowflake-data-sharing}
-Snowflakeの[Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)機能により、Brazeは、ワークフローの摩擦、障害ポイント、一般的なデータプロバイダー関係に伴う不要なコストを気にせずに、Snowflakeポータルのデータに安全にアクセスできるようになります。共有はすべてSnowflakeのユニークなサービスレイヤーとメタデータストアを通じて行われます。データは実際にはアカウント間でコピーまたは転送されません。共有データは消費者アカウントのストレージを一切使用しないため、これは重要な概念です。したがって、毎月のデータストレージ料金には影響しません。消費者に請求されるのは、共有データをクエリするために使用されるコンピューティングリソース（つまり、仮想ウェアハウス）のみです。
+Snowflakeの[Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)機能により、Brazeは、ワークフローの摩擦、障害ポイント、一般的なデータプロバイダー関係に伴う不要なコストを気にせずに、Snowflakeポータルのデータに安全にアクセスできるようになります。共有はすべてSnowflakeのユニークなサービスレイヤーとメタデータストアを通じて行われます。データは実際にはアカウント間でコピーまたは転送されません。共有データは消費者アカウントのストレージを一切使用しないため、これは重要な概念です。したがって、毎月のデータストレージ料金には影響しません。消費者に請求されるのは、共有データをクエリするために使用されるコンピューティングリソース（つまり、仮想ウェアハウス）のみです。
 
 ### BrazeエクスポートAPI {#braze-export-apis}
-Braze APIには、プログラムで集約分析をエクスポートしたり、個々のユーザーデータをエクスポートしたりできる[エンドポイント]({{site.baseurl}}/api/endpoints/export/)が用意されています。このデータは、あらゆるサイズのオーディエンスおよびSegmentに対してエクスポートできます。
+Braze APIには、プログラムで集約分析をエクスポートしたり、個々のユーザーデータをエクスポートしたりできる[エンドポイント]({{site.baseurl}}/api/endpoints/export)が用意されています。このデータは、あらゆるサイズのオーディエンスおよびセグメントに対してエクスポートできます。
 
 ### CSV {#csvs}
-最後に、ダッシュボードから直接[CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/)として集約レベルのデータをダウンロードするオプションがあります。CSVオプションを使用すると、チームメンバーはBrazeからデータを簡単にエクスポートできます。
+最後に、ダッシュボードから直接[CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data)として集約レベルのデータをダウンロードするオプションがあります。CSVオプションを使用すると、チームメンバーはBrazeからデータを簡単にエクスポートできます。
 
 {% alert tip %}
 CSVエクスポートには500,000行の基本制限がありますが、APIにはこの点に関して制限がありません。
@@ -147,4 +147,4 @@ CSVエクスポートには500,000行の基本制限がありますが、APIに�
 
 メルが通知を開くと、彼女はあなたの新しい製品をウィッシュリストに追加します。Brazeは彼女がメールをクリックしたことを自動的に追跡します。SDKは、彼女があなたの新製品をウィッシュリストに追加したことを追跡します。ブランドと関わりを持つたびに、あなたとあなたのユーザーはお互いについてより多くのことを学んでいます。
 
-![]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})
+![メッセージングチャネル全体でユーザーアクションをBrazeがどのように追跡するかを示す図]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})

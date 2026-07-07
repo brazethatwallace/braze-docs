@@ -6,11 +6,11 @@ page_order: 5
 description: "Dieser Artikel bietet eine Übersicht über das Dashboard für API-Nutzung."
 ---
 
-# Dashboard für API-Nutzung
+# Dashboard für API-Nutzung {#api-usage-dashboard}
 
 > Das Dashboard für API-Nutzung ermöglicht es Ihnen, Ihren eingehenden REST API-Traffic in Braze zu überwachen, um Trends in Ihrer Nutzung unserer REST APIs zu verstehen und potenzielle Probleme zu beheben.
 
-## Über das Dashboard für API-Nutzung
+## Über das Dashboard für API-Nutzung {#about-the-api-usage-dashboard}
 
 Um Ihr Dashboard für API-Nutzung aufzurufen, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** und wählen Sie dann **Dashboard** aus.
 
@@ -18,7 +18,7 @@ Das Standard-Dashboard zeigt alle eingehenden REST API-Anfragen für Ihren Works
 
 ![Dashboard für API-Nutzung mit insgesamt 130 Anfragen, einer Erfolgsrate von 70 Prozent und einer Fehlerrate von 30 Prozent.]({% image_buster /assets/img/api_usage_dashboard/api_usage_dashboard.png %})
 
-## Verfügbare Metriken
+## Verfügbare Metriken {#available-metrics}
 
 Das Dashboard für API-Nutzung enthält die folgenden Statistiken:
 
@@ -27,13 +27,13 @@ Das Dashboard für API-Nutzung enthält die folgenden Statistiken:
 | Anfragen gesamt | Die Gesamtzahl der Anfragen, die für Ihren aktuellen Workspace an Braze gesendet wurden, basierend auf den angewendeten Filtern und Steuerelementen des Dashboards. |
 | Erfolgsrate   | Der Prozentsatz der Gesamtanfragen, bei denen Braze eine `2XX`-Erfolgsantwort zurückgegeben hat. |
 | Fehlerrate     | Der Prozentsatz der Gesamtanfragen, bei denen Braze eine `4XX`- oder `5XX`-Fehlerantwort zurückgegeben hat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Metriken" }
 
-## Das Dashboard verwenden
+## Das Dashboard verwenden {#using-the-dashboard}
 
 ![Filter, die auf das Dashboard angewendet werden können, darunter: API-Schlüssel, Endpunkt, Antwortcodes, Daten gruppieren und Datum.]({% image_buster /assets/img/api_usage_dashboard/filters.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-### Filter
+### Filter {#filters}
 
 Wählen Sie **Filter** aus, um die Ansicht des REST API-Traffics für Ihren Workspace einzugrenzen, darunter:
 
@@ -41,7 +41,7 @@ Wählen Sie **Filter** aus, um die Ansicht des REST API-Traffics für Ihren Work
 - Endpunkt
 - Antwortcode
 
-### Daten gruppieren
+### Daten gruppieren {#group-data}
 
 Sie können Daten in verschiedene Datenreihen gruppieren, um unterschiedliche Muster in Ihrer Nutzung zu untersuchen, darunter:
 
@@ -50,7 +50,7 @@ Sie können Daten in verschiedene Datenreihen gruppieren, um unterschiedliche Mu
 - API-Schlüssel
 - Nur Erfolg und Fehler
 
-### Datum
+### Datum {#date}
 
 Passen Sie den Datumsfilter an, um bei Bedarf einen kleineren oder größeren Zeitraum anzuzeigen. Dazu gehören:
 
@@ -70,13 +70,20 @@ Passen Sie den Datumsfilter an, um bei Bedarf einen kleineren oder größeren Ze
 Die Optionen **Letzte 3 Stunden** und **Letzte 6 Stunden** zeigen den Traffic minutenweise an. Größere Zeiträume zeigen den Traffic alle fünf Minuten, stündlich oder täglich an.
 {% endalert %}
 
-## Hinweise
+## Hinweise {#considerations}
 
 Das Dashboard für API-Nutzung umfasst alle REST API-Anfragen, die Braze empfangen hat und für die eine `2XX`-, `4XX`- oder `5XX`-Antwort zurückgegeben wurde. Dies schließt Datentransformation-Ausgaben und Cloud-Datenaufnahme-Synchronisierungen ein. SDK-Traffic und Nutzeraktualisierung-Schritte sind in diesem Dashboard nicht enthalten.
 
 Die im Dashboard angezeigten Daten können eine kurze Verzögerung bei der Darstellung des aktuellen Traffics aufweisen. In Zeiten hoher Nutzung können Sie das Dashboard bis zu 4 Mal pro Minute aktualisieren. Möglicherweise müssen Sie einige Minuten warten, bevor Sie das Dashboard erneut aktualisieren können.
 
-## Verwandte Artikel
+### API-Schlüssel im Anfrage-Body {#api-keys-in-request-body}
 
-- [API-Nutzungswarnungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
+Wenn API-Schlüssel im Anfrage-Body statt im Anfrage-Header gesendet werden, werden einige Anfragen möglicherweise nicht im Dashboard für API-Nutzung angezeigt. Dies kann zu unvollständigen Daten im Dashboard führen und die genaue Überwachung der API-Nutzung erschweren.
+
+Für die genaueste Berichterstattung im Dashboard für API-Nutzung sollten Sie [API-Schlüssel im Anfrage-Header angeben]({{site.baseurl}}/api/basics#bearer-token-authentication), anstatt sie im Anfrage-Body zu senden.
+
+## Verwandte Artikel {#related-articles}
+
+- [API-Nutzungswarnungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Rate-Limits]({{site.baseurl}}/api/api_limits)
+- [Bearer-Token-Authentifizierung]({{site.baseurl}}/api/basics#bearer-token-authentication)

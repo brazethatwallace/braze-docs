@@ -22,7 +22,7 @@ Una instantánea es estática y agregada. Refleja el resultado acumulado de todo
 |-------|-----------|
 | Identificador del cliente | A quién describe este registro |
 | Fecha de la instantánea | Cuándo se tomó esta instantánea |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos obligatorios" }
 
 ### Cómo deben actualizarse las instantáneas {#how-snapshots-should-be-updated}
 
@@ -53,7 +53,7 @@ Una transmisión de eventos registra acciones discretas a medida que ocurren. Re
 | Marca de tiempo del evento | Cuándo ocurrió realmente el evento |
 | Marca de tiempo de creación | Cuándo se creó este registro en tu sistema (consulta la nota a continuación) |
 | Propiedades del evento | Metadatos adicionales sobre el evento; cuanto más enriquecidos sean, mejor podrá Decisioning Studio vincular eventos a lo largo del recorrido del cliente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos obligatorios" }
 
 {% alert important %}
 La marca de tiempo del evento y la marca de tiempo de creación son campos diferentes y ambos son obligatorios. La marca de tiempo del evento registra cuándo ocurrió realmente la acción. La marca de tiempo de creación registra cuándo se escribió la entrada de datos en tu sistema, lo cual puede ser posterior debido a retrasos en el procesamiento. No confundas ambas.

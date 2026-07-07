@@ -9,7 +9,7 @@ description: "この記事には、2019年2月のリリースノートが含ま�
 
 ## メールサブスクリプショングループ {#email-subscription-groups}
 
-[サブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups)は、上記の[グローバルサブスクリプションの状態]({{site.baseurl}}/user_guide/channels/email/subscriptions/)からさらにオーディエンスを絞り込むことができるSegmentフィルターです。これらのグループを使用すると、より詳細なサブスクリプションオプションをエンドユーザーに提示できます。
+[サブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups)は、上記の[グローバルサブスクリプションの状態]({{site.baseurl}}/user_guide/channels/email/subscriptions/)からさらにオーディエンスを絞り込むことができるセグメントフィルターです。これらのグループを使用すると、より詳細なサブスクリプションオプションをエンドユーザーに提示できます。
 
 例えば、複数のカテゴリのメールキャンペーンを送信する場合は、[メールユーザー設定センター](#email-preference-center)を使用することで、1つのページから一括で配信登録または配信停止するオプションを顧客に提供できます。
 

@@ -14,12 +14,12 @@ search_tag: Partner
 
 | Requisito | Descripción |
 | --- | --- |
-| Cuenta Movable Ink | Se necesita una cuenta Movable Ink para beneficiarse de esta asociación. |
+| Cuenta de Movable Ink | Se necesita una cuenta de Movable Ink para beneficiarse de esta asociación. |
 | Origen de datos | Necesitas conectar un origen de datos a Movable Ink. Esto puede hacerse mediante CSV, importación del sitio web o API. |
 | Capacidad de envío de MMS | Confirma que estás configurado para MMS a través de Braze.
 | [Acortamiento de enlaces]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) | Confirma que el acortamiento de enlaces está activado. |
 | Tarjeta de contacto | Tu marca (el remitente) debe estar guardada como contacto en el teléfono del usuario para que la vista previa del enlace funcione con iOS. Esto puede hacerse con una tarjeta de contacto u otro método. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -31,7 +31,7 @@ Sigue los pasos que se indican a continuación para enviar enlaces SMS dinámico
 Para permitir imágenes de vista previa de enlaces en iOS, los usuarios deben añadir tu marca (el remitente) como contacto.
 {% endalert %}
 
-#### Paso 1: Crea una Campaign de tarjetas de contacto {#step-1-create-a-contact-card-campaign}
+#### Paso 1: Crea una campaña de tarjetas de contacto {#step-1-create-a-contact-card-campaign}
 
 Después de que los usuarios guarden tu marca como contacto, ya sea a través de una [tarjeta de contacto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card/) o de otro método, podrán ver las indicaciones de **Tap to Load Preview** y los enlaces de Movable Ink.
 
@@ -39,19 +39,19 @@ Después de que los usuarios guarden tu marca como contacto, ya sea a través de
 
 #### Paso 2: Enviar enlaces de Movable Ink {#step-2-send-movable-ink-links}
 
-1. Crea una Campaign SMS en Movable Ink y genera tu URL click-through.
-2. En el dashboard de Braze, ve a **Campaigns** y configura una nueva Campaign SMS/MMS desde el desplegable **Crear campaña**.
-3. En el creador de Campaigns SMS:
+1. Crea una campaña SMS en Movable Ink y genera tu URL de click-through.
+2. En el dashboard de Braze, ve a **Campaigns** y configura una nueva campaña SMS/MMS desde el desplegable **Crear campaña**.
+3. En el compositor de la campaña SMS:
     - Configura tu grupo de suscripción.
     - Introduce tu mensaje.
-    - Añade tu enlace Movable Ink **en último lugar**, después del resto del texto del cuerpo del mensaje. <br><br>![2]{: style="max-width:50%;"}
+    - Añade tu enlace de Movable Ink **en último lugar**, después del resto del texto del cuerpo del mensaje. <br><br>![2]{: style="max-width:50%;"}
 
 {% alert tip %}
 Echa un vistazo a [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) para repasar la personalización con Liquid.
 {% endalert %}
 
 {: start="4"}
-4. Ya estás listo para probar y lanzar tu Campaign de vista previa de enlaces SMS dinámicos.
+4. Ya estás listo para probar y lanzar tu campaña de vista previa de enlaces SMS dinámicos.
 
 ![3]{: style="max-width:70%;"}
 

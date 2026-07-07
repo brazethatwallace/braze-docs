@@ -11,7 +11,7 @@ page_order: 2
 L'intégration de Braze et Zeotap Symphony vous permet de créer des orchestrations en temps réel et d'exécuter des campagnes d'e-mails et de notifications push.
 
 - Envoyez les prénoms et les noms de famille via Zeotap, ce qui permet aux utilisateurs d'envoyer des e-mails personnalisés via Braze.
-- Envoyez des événements personnalisés ou un événement d'achat en temps réel via Zeotap, ce qui permet aux utilisateurs de créer des déclencheurs de campagne au sein de Braze pour cibler leurs clients.
+- Envoyez des événements personnalisés ou un événement d'achat en temps réel via Zeotap, ce qui permet aux utilisateurs de créer des déclencheurs de Campaign dans Braze pour cibler leurs clients.
 
 {% alert note %}
 Pour créer des campagnes de marketing par e-mail, intégrez les e-mails bruts à Zeotap en les mappant à `Email Raw` dans le catalogue Zeotap.
@@ -24,7 +24,7 @@ Pour créer des campagnes de marketing par e-mail, intégrez les e-mails bruts �
 | Nom du client | Il s'agit du nom de votre client pour votre compte Braze. Vous pouvez le trouver en accédant à la console Braze. |
 | Clé API REST de Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Instance | Votre instance Braze peut être obtenue auprès de votre gestionnaire d'onboarding Braze ou sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -109,7 +109,7 @@ Vous trouverez dans cette section les détails de tous les champs Braze.
 | Langue | Sélection déroulante | • Le format accepté est la norme `ISO-639-1` (par exemple, en).<br>• Intégrez la langue correctement formatée et établissez une correspondance avec cette dernière. |
 | Date de naissance | Sélection déroulante | Établissez une correspondance avec le champ `Date of Birth` que vous intégrez. |
 | Attribut personnalisé | Entrée de données personnalisées | Mappez tout attribut utilisateur à une entrée de données personnalisées, qui est ensuite envoyée à Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Attributs pris en charge" }
 
 ## Affichage des données sur la console Braze {#viewing-data-on-braze-console}
 
@@ -123,6 +123,6 @@ Les différents attributs apparaissent dans différentes sections du tableau de 
 - L'onglet **Custom Events** contient les événements personnalisés définis par l'utilisateur.
 - L'onglet **Purchases** contient les achats effectués par l'utilisateur sur une période donnée.
 
-## Création de campagne {#campaign-creation}
+## Création de campagnes {#campaign-creation}
 
-Les utilisateurs peuvent créer des campagnes dans Braze et activer les utilisateurs en temps réel ou selon l'heure planifiée. Les campagnes peuvent être déclenchées en fonction des actions effectuées par l'utilisateur (événement personnalisé, achat) ou de ses attributs.
+Les utilisateurs peuvent créer des Campaigns dans Braze et activer les utilisateurs en temps réel ou selon l'heure planifiée. Les Campaigns peuvent être déclenchées en fonction des actions effectuées par l'utilisateur (événement personnalisé, achat) ou de ses attributs.

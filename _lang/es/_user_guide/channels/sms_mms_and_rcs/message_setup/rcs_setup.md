@@ -19,7 +19,7 @@ Configurar RCS es tan sencillo como configurar SMS. Sigue leyendo para aprender 
 
 Para ser elegible para enviar RCS con Braze, tu empresa debe cumplir tres criterios de antemano:
 
-1. Tu contrato actual de Braze debe incluir créditos de mensajes.
+1. Tu contrato actual de Braze debe incluir créditos de mensajes o de acciones.
 2. Debes enviar tus mensajes RCS a uno de los siguientes países compatibles con Braze:
 - Estados Unidos
 - Reino Unido
@@ -32,7 +32,7 @@ Para ser elegible para enviar RCS con Braze, tu empresa debe cumplir tres criter
 - Francia
 - Italia
 - Colombia
-3. Debes adquirir uno o más SKU de RCS a $0 en tu contrato.
+3. Debes adquirir uno o más SKU de RCS en tu contrato.
 
 ## Paso 2: Registrar un remitente verificado de RCS {#step-2-register-an-rcs-verified-sender}
 
@@ -50,6 +50,24 @@ Dado que la cobertura actual de los operadores varía según el país, y el hard
 
 Recomendamos encarecidamente revisar tu experiencia actual de adhesión voluntaria a SMS, los grupos de suscripción y la segmentación de audiencia antes de desplegar tu primera campaña de RCS. Si es necesario, tu administrador del éxito del cliente siempre está disponible para brindarte orientación y ayudarte a navegar el proceso de configuración.
 
+#### Cómo funciona la alternativa de SMS con eventos y segmentación {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab Comportamiento de eventos %}
+
+Cuando usas la alternativa de SMS con RCS, el comportamiento de los eventos depende de si el mensaje se envía correctamente a través de RCS o recurre a SMS:
+
+- **Si el envío de RCS tiene éxito:** recibes un evento de envío de RCS y un evento de entrega de RCS.
+- **Si el envío de RCS recurre a SMS:** recibes un evento de envío de RCS, un evento de rechazo de RCS y un evento de entrega de SMS. El evento de entrega de SMS tiene `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Comportamiento de segmentación %}
+
+Para SMS y RCS, los [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) de mensajes recibidos (como [Mensaje recibido de Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) y [Mensaje recibido de paso en Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) se evalúan cuando se envía un mensaje, no cuando llega al dispositivo del usuario. Con la alternativa de SMS habilitada, los usuarios aún pueden coincidir con estos filtros si un mensaje RCS es rechazado y recurre a SMS, o si el SMS alternativo no se entrega al dispositivo del usuario.
+
+{% endtab %}
+{% endtabs %}
+
 ### Plazo para la aprobación del operador {#timeline-for-carrier-approval}
 
 El plazo para la aprobación del operador varía según el país y también puede variar dentro de un mismo país. Ten en cuenta que el mercado de RCS aún está en sus inicios, por lo que los procesos de los operadores y agregadores están evolucionando rápidamente. En Estados Unidos, Braze estima que el tiempo de respuesta para la aprobación del operador de un remitente verificado de RCS generalmente se encuentra en el rango de 4 a 6 semanas, con un remitente de prueba generalmente aprobado en una semana.
@@ -58,7 +76,7 @@ Cuando tu remitente verificado de RCS sea aprobado, nuestro equipo de operacione
 
 ## Paso 3: Configurar los grupos de suscripción {#step-3-set-up-subscription-groups}
 
-Dependiendo de tu integración, Braze puede añadir remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos. Para instrucciones detalladas de configuración, consulta [Grupos de suscripción de SMS y RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Dependiendo de tu integración, Braze puede añadir remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos. Para instrucciones detalladas de configuración, consulta [Grupos de suscripción de SMS y RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Migrar tráfico de SMS a RCS {#migrating-sms-traffic-to-rcs}
 
@@ -72,13 +90,13 @@ Crea un Canvas y nómbralo con algo fácilmente identificable (como "Transferenc
 
 ### Paso 2: Definir tu audiencia {#step-2-define-your-audience}
 
-Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Users who are subscribed or opted-in**.
+Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Usuarios suscritos o con adhesión voluntaria**.
 
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Construye un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10% aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
-| **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Aplicar filtros de Campaign o Canvas** | Refina la audiencia en el paso **Público objetivo** de tu Campaign o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Definir tu audiencia" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
 
@@ -103,11 +121,11 @@ Añade un paso de Actualización de usuario a tu Canvas. En el paso, abre el **A
 ```
 {% endraw %}
 
-!["Objeto de Actualización de usuario" que contiene el código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
+![Objeto de Actualización de usuario que contiene el código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Paso 4: Probar el Canvas {#step-4-test-the-canvas}
 
-Recomendamos encarecidamente [probar tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) para confirmar que funciona como se espera antes de enviarlo a tu audiencia más amplia.
+Recomendamos encarecidamente [probar tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) para confirmar que funciona como se espera antes de enviarlo a tu audiencia más amplia.
 
 ### Paso 5: Lanzar tu Canvas {#step-5-launch-your-canvas}
 

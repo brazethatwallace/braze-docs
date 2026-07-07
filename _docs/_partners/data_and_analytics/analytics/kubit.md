@@ -20,10 +20,10 @@ The Braze and Kubit integration allows you to [import Kubit user cohorts]({{site
 |---|---|
 |Kubit enterprise account | A Kubit enterprise account is required to take advantage of this partnership. |
 | Matching user IDs | Your customer data in Kubit and Braze must have matching user IDs across the two platforms. This also includes anonymous UUIDs. Visit our [documentation]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android) to read about how Braze sets user IDs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Analyzing Braze data in Kubit
 
 Take advantage of [Snowflake secure data sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) to share your Braze raw campaign and impression data with Kubit to incorporate them into Kubit's self-service analytics, providing you a full picture of users' lifecycle.
 
-For reference, here are all the [Braze fields]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ed79384e6ac6a97fe3b3d9f76852b7c2) which are available to be incorporated into Kubit analytics. The details of this step are very customer-specific and require special configurations. Talk to your Kubit account manager or [support@kubit.ai](support@kubit.ai) to learn more.
+For reference, here are all the [Braze fields](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) which are available to be incorporated into Kubit analytics. The details of this step are very customer-specific and require special configurations. Talk to your Kubit account manager or [support@kubit.ai](support@kubit.ai) to learn more.

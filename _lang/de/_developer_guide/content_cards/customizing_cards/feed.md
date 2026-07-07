@@ -14,7 +14,7 @@ platform:
 
 # Den Feed für Content Cards anpassen {#customize-the-feed-for-content-cards}
 
-> Ein Content-Card-Feed ist die Abfolge von Content Cards in Ihren Mobil- oder Internet-Apps. Dieser Artikel befasst sich mit der Konfiguration, wann der Feed aktualisiert wird, der Reihenfolge der Karten, der Verwaltung mehrerer Feeds und den Fehlermeldungen „leerer Feed“. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Ein Content-Card-Feed ist die Abfolge von Content Cards in Ihren Mobil- oder Internet-Apps. Dieser Artikel befasst sich mit der Konfiguration, wann der Feed aktualisiert wird, der Reihenfolge der Karten, der Verwaltung mehrerer Feeds und den Fehlermeldungen „leerer Feed“. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
@@ -50,6 +50,8 @@ function refresh() {
 }
 ```
 
+Um Content-Card-Links in einem neuen Browser-Tab statt im selben Tab zu öffnen, setzen Sie `openCardsInNewTab: true` in Ihren Initialisierungsoptionen des Internet-SDK. Weitere Informationen zu Initialisierungsoptionen finden Sie im [Leitfaden zum Internet-SDK-Repository]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
+
 {% endtab %}
 {% tab android %}
 
@@ -81,7 +83,7 @@ Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über
 
 In Swift können Content Cards entweder mit einem optionalen Completion Handler oder mit einer asynchronen Rückgabe unter Verwendung der nativen Swift-Concurrency-APIs aktualisiert werden.
 
-#### Completion Handler
+#### Completion Handler {#completion-handler}
 
 ```swift
 AppDelegate.braze?.contentCards.requestRefresh { result in
@@ -126,7 +128,7 @@ Braze verwendet einen Token-Bucket-Algorithmus, um die folgenden Rate-Limits dur
 - `subscribeToContentCards()` gibt auch bei Rate-Limiting weiterhin zwischengespeicherte Karten zurück
 
 {% alert important %}
-Das Braze SDK wendet außerdem Rate-Limits für Performance und Zuverlässigkeit an. Beachten Sie dies, wenn Sie automatisierte Tests durchführen oder manuelle Qualitätssicherung betreiben. Weitere Informationen finden Sie unter [Braze SDK-Rate-Limits]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits/).
+Das Braze SDK wendet außerdem Rate-Limits für Performance und Zuverlässigkeit an. Beachten Sie dies, wenn Sie automatisierte Tests durchführen oder manuelle Qualitätssicherung betreiben. Weitere Informationen finden Sie unter [Braze SDK-Rate-Limits]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits).
 {% endalert %}
 
 ## Anpassen der angezeigten Kartenreihenfolge {#customizing-displayed-card-order}
@@ -383,7 +385,7 @@ Den Stil, der zur Anzeige dieser Nachricht verwendet wird, finden Sie unter [`Br
 </style>
 ```
 
-Weitere Informationen zum Anpassen der Content-Card-Stil-Elemente finden Sie unter [Stil anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/).
+Weitere Informationen zum Anpassen der Content-Card-Stil-Elemente finden Sie unter [Stil anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 {% endsubtab %}
 {% subtab Jetpack Compose %}
 Um die Fehlermeldung „Leerer Feed“ mit Jetpack Compose anzupassen, können Sie einen `emptyString` an [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html) übergeben. Sie können auch [`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721) an `ContentCardListStyling` übergeben, um diese Nachricht weiter anzupassen.
@@ -445,7 +447,7 @@ Content Cards können in Ihrer App gefiltert werden, sodass nur bestimmte Karten
 
 ### 1. Schritt: Schlüssel-Wert-Paare auf Karten setzen {#step-1-set-key-value-pairs-on-cards}
 
-Wenn Sie eine Content-Card-Kampagne erstellen, legen Sie [Schlüssel-Wert-Paar-Daten]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/) auf jeder Karte fest. Sie verwenden dieses Schlüssel-Wert-Paar, um die Karten zu kategorisieren. Schlüssel-Wert-Paare werden in der Eigenschaft `extras` im Datenmodell der Karte gespeichert.
+Wenn Sie eine Content-Card-Kampagne erstellen, legen Sie [Schlüssel-Wert-Paar-Daten]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) auf jeder Karte fest. Sie verwenden dieses Schlüssel-Wert-Paar, um die Karten zu kategorisieren. Schlüssel-Wert-Paare werden in der Eigenschaft `extras` im Datenmodell der Karte gespeichert.
 
 In diesem Beispiel legen wir ein Schlüssel-Wert-Paar mit dem Schlüssel `feed_type` fest, das angibt, in welchem Content-Card-Feed die Karte angezeigt werden soll. Der Wert entspricht dem Ihrer angepassten Feeds, z. B. `home_screen` oder `marketing`.
 

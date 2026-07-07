@@ -22,7 +22,7 @@ Una vez que los Banners están integrados en una aplicación o sitio web, los es
 | Personalización de ofertas | Muestra promociones e incentivos personalizados basados en el historial de navegación, el contenido del carrito, el nivel de suscripción y el estado de fidelización de cada usuario. |
 | Interacción con nuevos usuarios | Guía a los nuevos usuarios a través de los flujos de incorporación y la configuración de la cuenta. |
 | Ventas y promociones | Destaca el contenido destacado, los productos de tendencia y las campañas de marca en curso de forma persistente y directa en tu página de inicio sin interrumpir la experiencia del usuario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="¿Por qué utilizar Banners?" }
 
 ## Características {#features}
 
@@ -30,7 +30,7 @@ Las características de los Banners incluyen:
 
 - **Creación sencilla de contenido:** Crea y previsualiza tu Banner utilizando un editor visual de arrastrar y soltar compatible con imágenes, texto, botones, formularios de captura de correo electrónico, código personalizado y mucho más.
 - **Ubicaciones flexibles:** Define múltiples ubicaciones dentro de tu aplicación o sitio web donde puedan aparecer los Banners, lo que permite una segmentación precisa a contextos específicos o experiencias de usuario.
-- **Personalización dinámica:** Los Banners solo pueden actualizarse al inicio de una nueva sesión o a mitad de sesión si el cliente solicita explícitamente la actualización. Los Banners no se actualizan automáticamente en una nueva sesión. Si el cliente no solicita la actualización, el Banner no se actualizará.
+- **Personalización dinámica:** Los Banners solo pueden actualizarse al inicio de una nueva sesión o a mitad de sesión si solicitas explícitamente la actualización. Los Banners no se actualizan automáticamente en una nueva sesión. Si no solicitas la actualización, el Banner no se actualizará.
 - **Priorización nativa:** Establece la prioridad de visualización cuando varios Banners se dirigen a la misma ubicación, asegurándote de que el mensaje adecuado llegue a los usuarios en el momento adecuado.
 - **Bloque de editor de código personalizado:** Utiliza el bloque de editor de código personalizado para añadir HTML personalizado y así realizar personalizaciones avanzadas o integrarlo fácilmente con tus estilos web actuales.
 
@@ -76,7 +76,7 @@ Esto es lo que debes saber sobre las dimensiones y el tamaño de los Banners:
 
 ## Limitaciones {#limitations}
 
-Cada espacio de trabajo puede admitir hasta 200 campañas activas de Banner. Si se alcanza este límite, tendrás que [archivar o desactivar]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) una campaña existente antes de crear una nueva.
+Cada espacio de trabajo puede admitir hasta 200 campañas de Banner activas. Si se alcanza este límite, tendrás que [archivar o desactivar]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) una campaña existente antes de crear una nueva.
 
 Además, los mensajes de Banner no admiten las siguientes características:
 
@@ -84,11 +84,6 @@ Además, los mensajes de Banner no admiten las siguientes características:
 - Contenido conectado
 - Códigos promocionales
 - `catalog_items` usando la [etiqueta `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Descartes controlados por el usuario (solo acceso anticipado)
-
-{% alert important %}
-Permitir que los usuarios descarten manualmente un Banner está en acceso anticipado. Consulta [Configurar el comportamiento de descarte]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para más detalles. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
-{% endalert %}
 
 ## Próximos pasos {#next-steps}
 

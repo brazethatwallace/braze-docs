@@ -11,7 +11,7 @@ tool: Reports
 
 > **収益レポート**ページでは、特定の期間の収益データ、特定の製品の収益、およびアプリの総収益を表示できます。
 
-ダッシュボードから収益レポートを表示するには、**分析** > **収益レポート**に移動します。
+ダッシュボードから収益レポートを表示するには、**Analytics** > **収益レポート**に移動します。
 
 ## 収益レポートのカスタマイズ {#customizing-your-revenue-report}
 
@@ -25,17 +25,17 @@ tool: Reports
 
 ### パラメーターによるフィルタリング {#filtering-by-parameters}
 
-**経時パフォーマンス**グラフには、さまざまなパラメーターのデータが表示されます。パラメーターは**統計の対象**ドロップダウンで選択できます。オプションで、**内訳**ドロップダウンで特定のパラメーターのデータを分類できます。
+**Performance Over Time**グラフには、さまざまなパラメーターのデータが表示されます。パラメーターは**Statistics for**ドロップダウンで選択できます。オプションで、**Breakdown**ドロップダウンで特定のパラメーターのデータを分類できます。
 
-**経時パフォーマンスグラフ**では、以下のデータを表示できます。
+**Performance Over Time**グラフでは、以下のデータを表示できます。
 - KPI計算式
 - 購入
     - （オプション）製品別購入
 - 収益
-    - （オプション）Segment別収益
+    - （オプション）セグメント別収益
     - （オプション）製品別収益
 - 時間あたりの収益
-    - （オプション）Segment別の時間あたりの収益
+    - （オプション）セグメント別の時間あたりの収益
 - ユーザーあたりの収益
 
 ## 収益計算の理解 {#understanding-revenue-calculations}
@@ -50,7 +50,8 @@ tool: Reports
     }
 </style>
 
-<table>
+<table aria-label="収益計算の理解">
+  <caption>収益計算の理解</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -83,20 +84,20 @@ tool: Reports
 
 ## 製品内訳の表示 {#viewing-the-product-breakdown}
 
-**製品内訳**テーブルを参照すると、選択した日付範囲内に購入された製品の一覧、各製品の購入数、および各製品が生み出した収益を確認できます。
+**Product Breakdown**テーブルを参照すると、選択した日付範囲内に購入された製品の一覧、各製品の購入数、および各製品が生み出した収益を確認できます。
 
-![「製品名」、「購入数」、「収益」の列を表示する「製品内訳」テーブル。]({% image_buster /assets/img/revenue_report_product_breakdown.png %})
+![「Product Name」、「Purchased」、「Revenue」の列を表示する「Product Breakdown」テーブル。]({% image_buster /assets/img/revenue_report_product_breakdown.png %})
 
 ## 収益データのエクスポート {#exporting-revenue-data}
 
-収益データをエクスポートするには、**経時パフォーマンス**グラフの<i class="fas fa-bars" title="グラフのコンテキストメニュー"></i>を選択し、エクスポートオプションを選択します。
+収益データをエクスポートするには、**Performance Over Time**グラフの<i class="fas fa-bars" title="チャートコンテキストメニュー"></i> **チャートコンテキストメニュー**を選択し、エクスポートオプションを選択します。
 
 {% alert tip %}
-収益データを取得する他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)としてCampaignsやCanvasesに追加してみてください。
+収益データを取得する他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)としてキャンペーンやキャンバスに追加してみてください。
 {% endalert %}
 
-また、[Campaign分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/)ページや[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)ページで、ケースバイケースで収益統計を確認することもできます。
+また、[キャンペーン分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)ページや[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)ページで、ケースバイケースで収益統計を確認することもできます。
 
 {% alert tip %}
-収益レポートはAPIを通じてエクスポートできません。CSVエクスポートについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
+収益レポートはAPIを通じてエクスポートできません。CSVエクスポートについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}

@@ -26,11 +26,11 @@ Braze에서 푸시 프라이머 인앱 메시지를 생성하려면, iOS, Androi
 
 {% tabs local %}
 {% tab android %}
-|OS 버전|추가 정보|
+| OS 버전 | 추가 정보 |
 |----------|----------------------|
 | **Android 12 이하** | 푸시가 기본적으로 옵트인되어 있으므로 푸시 프라이머 구현은 권장되지 않습니다. |
 | **Android 13+** | 사용자가 푸시 권한 프롬프트를 두 번 거부하면, Android는 Braze 푸시 프라이머 메시지를 포함한 추가 프롬프트를 차단합니다. 이후 권한을 부여하려면 사용자가 기기 설정에서 앱의 푸시를 수동으로 활성화해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 {% endtab %}
 
 {% tab swift %}
@@ -40,6 +40,7 @@ Braze에서 푸시 프라이머 인앱 메시지를 생성하려면, iOS, Androi
 - 앱의 푸시 설정이 명시적으로 켜져 있거나 꺼져 있으면 프롬프트가 표시되지 않습니다. [임시 승인](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375)이 있는 사용자에게만 표시됩니다.
   - **앱의 푸시 설정이 켜져 있는 경우:** 사용자가 이미 옵트인했으므로 Braze는 인앱 메시지를 표시하지 않습니다.
   - **앱의 푸시 설정이 꺼져 있는 경우:** 기기 설정 내 앱의 푸시 알림 설정으로 사용자를 리디렉션해야 합니다.
+- **거부 후 재테스트:** 사용자가 네이티브 프롬프트를 거부하면, iOS는 해당 앱 설치에 대해 다시 표시하지 않습니다. 푸시 프라이머 흐름을 재테스트하려면 일반적으로 앱을 삭제하고 다시 설치하거나, **설정**에서 앱의 알림 권한을 변경해야 합니다.
 
 ### 수동 코드 제거 {#manual-code-removal}
 
@@ -76,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## 1단계: 인앱 메시지 생성 {#step-1-create-an-in-app-message}
 
-먼저 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)한 다음, 메시지 유형과 레이아웃을 선택합니다.
+먼저 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)한 다음, 메시지 유형과 레이아웃을 선택합니다.
 
 메시지와 버튼 모두를 위한 충분한 공간을 확보하려면 전체화면 또는 모달 메시지 레이아웃을 사용하세요. 전체화면을 선택하는 경우 이미지가 필수입니다.
 
@@ -96,7 +97,7 @@ Breaking news on the go! Enable push notifications to get alerts for major stori
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-모범 사례 및 추가 리소스는 [커스텀 옵트인 프롬프트 생성]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)을 참조하세요.
+모범 사례 및 추가 리소스는 [커스텀 옵트인 프롬프트 생성]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)을 참조하세요.
 
 ## 3단계: 버튼 동작 지정 {#button-actions}
 
@@ -217,4 +218,4 @@ Braze는 기기 수준이 아닌 프로필 수준에서 사용자 데이터를 �
 
 ## 6단계: 전환 이벤트 {#step-6-conversion-events}
 
-Braze는 전환에 대한 기본 설정을 제안하지만, 푸시 프라이머와 관련된 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 설정할 수도 있습니다.
+Braze는 전환에 대한 기본 설정을 제안하지만, 푸시 프라이머와 관련된 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 설정할 수도 있습니다.

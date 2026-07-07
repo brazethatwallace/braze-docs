@@ -37,7 +37,7 @@ Before you begin, you need the following:
 | DOTS.ECO credentials | The request in this article requires a DOTS.ECO app token, API key, and allocation ID. To retrieve these, contact your DOTS.ECO customer success manager. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. Create this key in the Braze dashboard under **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integrating DOTS.ECO
 
@@ -60,7 +60,7 @@ Use the `capture` tag and a Connected Content request to call DOTS.ECO's certifi
 ```  
 {% capture post_body %} 
 {  
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",  
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",  
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",  
   "impact_qty": 1,  
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",  

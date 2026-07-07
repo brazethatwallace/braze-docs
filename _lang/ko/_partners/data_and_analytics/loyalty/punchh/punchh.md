@@ -69,7 +69,7 @@ Braze의 외부 ID는 다음 엔드포인트를 사용하여 신규 및 기존 P
 `external_source` 및 `external_source_id` 필드를 사용하여 Punchh 가입 엔드포인트로 Punchh에 새 사용자를 생성합니다. Punchh는 다음 가입 엔드포인트 중 하나를 통해 사용자 프로필과 함께 외부 식별자를 보낼 수 있습니다:
 - [Mobile Signup API](https://developers.punchh.com/docs/dev-portal-mobile/2e67abf6f8e12-sign-up-register)
 - [SSO Signup API](https://developers.punchh.com/docs/dev-portal-online-ordering/58f18dfdd2a3d-signup-with-email-and-password)<br><br>
-2. 기존 Punchh 사용자<br>
+2. 기존 Punchh 사용자 <br>
 기존 Punchh 사용자의 `external_source_id`를 업데이트합니다. Punchh는 사용자 API 업데이트 엔드포인트를 통해 프로필에 외부 식별자를 추가할 수 있습니다:
 - [Mobile User Update](https://developers.punchh.com/docs/dev-portal-mobile/c9b928e35a6f3-update-user-profile)
 - [SSO User Update](https://developers.punchh.com/docs/dev-portal-online-ordering/eef4eef6c97a0-update-user-information)
@@ -164,7 +164,7 @@ Braze는 Punchh 커스텀 Segments를 활용하는 웹훅을 통해 Punchh Segme
 2. 커스텀 Segment에 사용자를 추가하기 위한 Punchh 엔드포인트를 웹훅 URL로 사용하여 Braze에서 웹훅 캠페인을 생성합니다. 여기에서 URL에서 가져온 `custom_segment_id`와 `user_id`를 키-값 페어로 제공할 수 있습니다.<br><br>![]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
 
 3. 이 웹훅은 단일 캠페인으로 설정하거나 Canvas 내의 단계로 설정할 수 있습니다. 또는 이 특정 Punchh Segment에 사용자를 추가하는 웹훅이 여러 캠페인이나 Canvases에서 사용될 경우 [템플릿]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates/)으로 설정할 수 있습니다.<br><br>
-웹훅 내의 `user_id` 키는 Punchh 사용자 ID에 매핑됩니다. 이 식별자는 Punchh 커스텀 Segment에 사용자를 추가하기 위해 Braze에서 생성된 모든 웹훅에 추가해야 합니다. `punch_user_id` 커스텀 속성은 [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#pre-formatted-variables)를 사용하여 `user_id` 키의 값으로 동적으로 채울 수 있습니다. 템플릿 텍스트 필드의 오른쪽 상단에 있는 파란색 "플러스" 아이콘을 사용하여 `punchh_user_id` 커스텀 속성 변수를 삽입할 수 있습니다.<br><br>![]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
+웹훅 내의 `user_id` 키는 Punchh 사용자 ID에 매핑됩니다. 이 식별자는 Punchh 커스텀 Segment에 사용자를 추가하기 위해 Braze에서 생성된 모든 웹훅에 추가해야 합니다. `punchh_user_id` 커스텀 속성은 [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#pre-formatted-variables)를 사용하여 `user_id` 키의 값으로 동적으로 채울 수 있습니다. 템플릿 텍스트 필드의 오른쪽 상단에 있는 파란색 "플러스" 아이콘을 사용하여 `punchh_user_id` 커스텀 속성 변수를 삽입할 수 있습니다.<br><br>![]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
 
 4. 웹훅이 저장된 후 아래와 같이 사용자를 동기화하는 데 사용할 수 있습니다. 예를 들어, 이 Braze 웹훅 캠페인이 시작될 때 136명의 게스트가 Punchh 커스텀 Segment에 추가됩니다.<br><br>![Braze와 Punchh 통합으로 인해 저장된 웹훅을 사용하여 사용자를 동기화하는 예시입니다.]({% image_buster /assets/img/punchh/punchh6.png %})
 
@@ -186,7 +186,7 @@ Braze에서 웹훅을 사용하는 방법에 대한 자세한 내용은 [웹훅 
 
 #### 세분화 {#segmentation}
 
-대부분의 경우, 이러한 이벤트를 트리거하는 사용자의 세분화가 Punchh 내에서 결정되기 때문에 Punchh 이벤트에 의해 트리거되는 Braze 캠페인과 Canvases를 "모든 사용자" 오디언스로 설정할 수 있습니다. 그러나 이벤트에 의해 트리거되는 Braze 메시징을 수신할 사용자의 오디언스를 추가로 세분화하려는 고객은 캠페인 작성기의 **타겟 오디언스** 섹션 또는 Canvas 작성기의 **진입 오디언스**에서 추가 필터와 Segments를 추가하여 이를 수행할 수 있습니다.
+대부분의 경우, 이러한 이벤트를 트리거하는 사용자의 세분화가 Punchh 내에서 결정되기 때문에 Punchh 이벤트에 의해 트리거되는 Braze 캠페인과 Canvases를 "모든 사용자" 오디언스로 설정할 수 있습니다. 그러나 이벤트에 의해 트리거되는 Braze 메시징을 수신할 사용자의 오디언스를 추가로 세분화하려는 고객은 캠페인 작성기의 **Target Audiences** 섹션 또는 Canvas 작성기의 **Entry Audience**에서 추가 필터와 Segments를 추가하여 이를 수행할 수 있습니다.
 
 ### 활용 사례 {#use-cases}
 

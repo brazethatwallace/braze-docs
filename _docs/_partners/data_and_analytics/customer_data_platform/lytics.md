@@ -35,7 +35,7 @@ Connect Braze to Lytics to [import](#importing-data-from-braze-to-lytics) email,
 | Lytics API Token | A Lytics REST API Token with Data Manager permissions. <br><br> This can be created within the Lytics dashboard from **Account Settings Console** > **Access Tokens** > **Create New Token**. |
 | Braze REST API key | A Braze REST API key with `users.track` permission. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze instance | Your [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Contact your Braze onboarding manager for this information if you aren't sure. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -47,35 +47,33 @@ In Lytics, navigate to the **Authorization** dashboard within the **Data** conso
 
 In the **Configure Authorization** prompt that appears, provide a label and a description and input your REST API key and Braze instance. Select **Complete** when finished.
 
-![]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
+![Lytics Configure Authorization prompt for Braze with fields for label, description, REST API key, and Braze instance.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 
 ### Step 2: Create a new job
 
 In Lytics, navigate to the **Jobs** dashboard within the **Data** console in the navigation bar. Select **Create New Job** and search for and select **Braze**.  In the **Select Job Type** prompt that appears, select **Export Audience**.
 
-![]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
+![Lytics Select Job Type prompt for a new Braze job with Export Audience selected.]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
 
 Next, choose an authorization within the **Select Authorization** options.
 
-![]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
+![Lytics Select Authorization step showing the Braze authorization to use for the export job.]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
 
 ### Step 3: Configure the job
 
-Within the **Configure Job** prompt, provide a label and an optional description. Next, From the **Braze External User ID Field** input, select the field in Lytics that contains the Braze external user ID (`braze_id`). The next step is the most important—select the audiences to export to Braze.
+Within the **Configure Job** prompt, provide a label and an optional description. Next, from the **Braze External User ID Field** input, select the field in Lytics that contains the Braze external user ID (`braze_id`). The next step is the most important—select the audiences to export to Braze using the audience picker in the same prompt.
 
-![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
-
-Finally, choose the preferable option for the **Existing Users** checkbox. Leaving this box checked will add users who already exist in the selected Lytics audience. If unchecked, users will only be exported to Braze when entering or exiting the audience after the workflow begins.
+Finally, choose the preferable option for the **Existing Users** checkbox. Leaving this box checked adds users who already exist in the selected Lytics audience. If unchecked, users are only exported to Braze when entering or exiting the audience after the workflow begins.
 
 {% alert note %}
-By checking this box, all existing users in the selected audience will be pushed into Braze. If your Braze pricing includes data points, monitor data point usage accordingly.
+By checking this box, all existing users in the selected audience are sent to Braze. If your Braze pricing includes data points, monitor data point usage accordingly.
 {% endalert %}
 
-Click **Complete** when finished to initiate the export and save.
+Select **Complete** when finished to initiate the export and save.
 
-![]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
+![Lytics export job summary showing Complete control and options to save or run the Braze audience export.]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
 
-After the export job is configured, Lytics will send the selected audiences to Braze through the native integration. The following is a sample audience showing the JSON structure of the audience sent to Braze.
+After the export job is configured, Lytics sends the selected audiences to Braze through the native integration. The following is a sample audience showing the JSON structure of the audience sent to Braze.
 
 ```json
 {
@@ -118,11 +116,11 @@ You can import audience data from Braze to Lytics using the following methods:
 
 Navigate to the Lytics Account Menu in the bottom left corner by selecting your account name, and select **Access Tokens** from the dropdown menu. Next, select **Create API Token**
 
-![]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
+![Lytics Access Tokens screen with Create API Token selected from the account menu.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Input a name, an optional description, and a token expiration period. Next, toggle the **Data Manager** scope for API Permissions and click on **Generate Token**. Copy the token and store it in a secure place.
+Input a name, an optional description, and a token expiration period. Next, toggle the **Data Manager** scope for API Permissions and select **Generate Token**. Copy the token and store it in a secure place.
 
-![]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
+![Lytics API token permissions with the Data Manager scope enabled before generating the token.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
 #### Step 2: Configure the Lytics webhook URL
 
@@ -149,7 +147,7 @@ After defining the request type (HTTP `POST` method) and configuring the rest of
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -157,7 +155,7 @@ After defining the request type (HTTP `POST` method) and configuring the rest of
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx" 
 }
 ```
@@ -178,9 +176,9 @@ Select the preferred type of SFTP authorization based on your business and secur
 
 Public key SFTP authorizations are for SFTP export only.
 
-![]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
+![Lytics SFTP authorization method options for Custom Integrations import, including client and Lytics-managed server choices.]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
 
-In the **Configure Authorization** prompt that appears, provide a label and a description and complete the rest of the configuration requirements. Click **Complete** when finished.
+In the **Configure Authorization** prompt that appears, provide a label and a description and complete the rest of the configuration requirements. Select **Complete** when finished.
 
 #### Step 2: Export your segment data to CSV
 
@@ -192,9 +190,9 @@ In Lytics, navigate to the **Jobs** dashboard within the **Data** console in the
 
 Next, select the job type. To import Braze CSV files into Lytics, select **Import CSV** as the job type.
 
-![]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
+![Lytics Custom Integrations job setup with Import CSV selected as the job type.]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
 
-Finally, input a label and optional description for the job and configure any other required details. Click **Complete** to initiate and save the job.
+Finally, input a label and optional description for the job and configure any other required details. Select **Complete** to initiate and save the job.
 
 
 

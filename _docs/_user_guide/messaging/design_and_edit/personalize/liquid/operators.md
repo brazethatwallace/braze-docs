@@ -23,13 +23,13 @@ This table lists the operators that are supported. Note that parentheses are inv
 | or | condition A or condition B|
 | and | condition A and condition B|
 | contains | checks to see if a string or string array contains a string|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
 
 {% alert note %}
-Operators can be used in conditional statements (`if`, `elsif`, `unless`) but not in `assign` statements, `for` loops, `case`/`when` statements, or array access brackets. For a full breakdown, see [Where to use operators and filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Operators can be used in conditional statements (`if`, `elsif`, `unless`) but not in `assign` statements, `for` loops, or array access brackets. In `case` and `when` tags, each branch compares the `case` expression to a `when` value using equality instead of arbitrary operator expressions. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). For a full breakdown, see [Where to use operators and filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Grouping conditions without parentheses
+## Grouping conditions without parentheses
 
 Liquid doesn't support parentheses for grouping expressions. To evaluate complex boolean logic such as `(a and b) or c`, use nested `if` statements or intermediate variables.
 
@@ -243,9 +243,13 @@ Stream now!
 
 ![A push notification composer with the full Liquid code from the tutorial.]({% image_buster /assets/img/abort-if.png %})
 
-You can also [abort messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) based on Connected Content.
+You can also [abort messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) based on Connected Content.
 
 ## Troubleshooting
+
+### Test send doesn't arrive when using `abort_message`
+
+If you use [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) and a test send never arrives, the preview user may be missing attributes your Liquid expects. Abort logic runs during rendering; when it fires, Braze does not send the message. Preview with a user who has the required profile data, or use **Preview as user** to test recipient fields that supply the same values your production audience would have.
 
 ### Preview may incorrectly coerce property types 
 

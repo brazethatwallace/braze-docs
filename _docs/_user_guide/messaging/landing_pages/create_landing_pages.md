@@ -11,15 +11,13 @@ page_order: 0
 
 ## Prerequisites
 
-To access the landing page builder, you need [certain permissions]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). If you don’t have access, ask your Braze admin for help.
+To access the landing page builder, you need [certain permissions]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). If you don’t have access, ask your Braze admin for help.
 
 ## Creating a landing page
 
 ### Step 1: Create a new draft
 
 Go to **Messaging** > **Landing Pages**, then select **Create landing page**. You can also select the name of an existing landing page to duplicate or make changes to it.
-
-![The landing pages section in the Braze dashboard.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### Step 2: Enter the page details
 
@@ -40,8 +38,8 @@ We suggest following these best practices:
 | Site title | The title that displays on the browser tab. | Use up to 60 characters. |
 | Meta description | A text snippet that displays in search results. | Use between 140-160 characters.|
 | Favicon | The icon that appears next to the site title on the browser tab. | Use an aspect ratio of 1:1, and a supported file type of PNG, JPEG, or ICO. |
-| Page URL | This is URL path to your landing page. This value is also referenced when using [landing page liquid tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) that you can embed in a message to automatically identify when they submit your form.| This value must be unique across your workspace. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Page URL | This is URL path to your landing page. This value is also referenced when using [landing page liquid tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) that you can embed in a message to automatically identify when they submit your form.| This value must be unique across your workspace. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### Step 3: Customize the page
 
@@ -49,7 +47,7 @@ If you haven't already, select **Save as draft**. To start customizing your page
 
 ![An example landing page being created in the drag-and-drop editor.]({% image_buster /assets/img/landing_pages/template.png %})
 
-The editor uses two types of components for landing page composition: basic blocks and form blocks. All blocks must be placed in a row.
+The editor uses two types of components for landing page composition: basic blocks and form blocks. All blocks must be placed in a row. For a dedicated reference of each block and properties, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![The 'Build' section containing 'Rows' and 'Form Blocks'.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -68,11 +66,11 @@ You can use these blocks to add content and customize the layout of your landing
 | Link        | A hyperlink that users can click to navigate to a specified URL. Can be embedded within text or standalone. |
 | Spacer      | An invisible block that adds vertical spacing between elements for improved layout and readability. |
 | Custom Code | A block that allows you to insert and run custom HTML, CSS, or JavaScript for advanced customization. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
-##### Span text
+#### Span text
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Form blocks %}
@@ -89,10 +87,10 @@ You can use these blocks to create a form that links user-submitted data to thei
 | Dropdown      | Users can select an item from a pre-defined list. You can add any custom attribute strings to the list. |
 | Checkbox      | If a user checks the box, the block's attribute is set to `true`. If left unchecked, it's attribute is set to `false`. |
 | Checkbox Group| Users can select from multiple choices presented. Values are either set or added to a defined array custom attribute. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
-After creating a landing page with a form, be sure to embed its [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) into your message. With this tag, Braze can automatically identify and update existing user profiles when they submit the form.
+After creating a landing page with a form, be sure to embed its [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) into your message. With this tag, Braze can automatically identify and update existing user profiles when they submit the form.
 {% endalert %}
 
 {% endtab %}
@@ -138,10 +136,6 @@ If you don’t include a confirmation page, users may not know their form was su
 If your confirmation page opens in a new tab, a user who returns to the original landing page and resubmits with updated information can overwrite the previous submission, resulting in inconsistent data. 
 {% endalert %}
 
-{% alert important %}
-If you configure a button with **Submit form when button is clicked** enabled and use **On-click Behavior** to open a web URL in a new tab, iOS Safari's built-in pop-up blocker may prevent the navigation from working. This occurs because form submission followed by opening a new tab is treated as a pop-up.<br><br>To avoid this issue, configure buttons with form submission to open the resulting URL in the same tab (not a new tab). Buttons without form submission can open URLs in new tabs without issues.
-{% endalert %}
-
 ### Step 5: Preview the page
 
 You can preview your landing page in the editor's **Preview** tab. After saving your landing page as a draft, you can visit the URL by going to **Landing Pages** and selecting **Copy URL** next to your landing page. You can also share the URL with collaborators.
@@ -156,13 +150,17 @@ Before you publish, make sure:
 
 When you're ready, select **Publish Landing Page**.
 
+{% alert note %}
+Aggressive pop-up blockers and ad blockers on iOS and in Safari (including Safari's built-in controls and third-party extensions) can negatively impact how landing pages behave when a form **Submit** button also opens another URL, whether that URL opens in the same tab or a new tab.
+{% endalert %}
+
 ## Using templates
 
-Use landing page templates to create templates for your next campaigns. These templates can be accessed and managed in both the landing page editor and the **Templates** section of the dashboard (**Templates** > **Landing Page Templates**). Landing page templates require a name and optionally require a description. 
+Use landing page templates to create templates for your next campaigns. These templates can be accessed and managed in both the landing page editor and from the **Landing Page Templates** page (**Content** > **Landing Page**). Landing page templates require a name and optionally require a description. 
 
 ## Managing templates
 
-You can preview, archive, edit, or duplicate landing page templates. When editing a landing page, you can also save your landing page as a template, make changes to the template, or delete the content of the landing page. 
+You can preview, archive, or edit landing page templates. You can duplicate your own landing page templates (located in **Your Templates**), but not Braze Templates. When editing a landing page, you can save your landing page as a template, make changes to the template, or delete the content of the landing page.
 
 ![A dropdown with options to save, change, and delete a landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 

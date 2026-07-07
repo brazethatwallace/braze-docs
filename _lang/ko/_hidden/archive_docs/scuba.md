@@ -1,7 +1,7 @@
 ---
 nav_title: Scuba
 article_title: Scuba Analytics
-description: "This Scuba and Braze technical reference describes how to activate Scuba's real-time data insight using Braze Segments."
+description: "이 Scuba와 Braze 기술 참조 문서에서는 Braze Segments를 사용하여 Scuba의 실시간 데이터 인사이트를 활성화하는 방법을 설명합니다."
 page_type: partner
 search_tag: Partner
 noindex: true
@@ -10,28 +10,28 @@ hidden: true
 
 # Scuba Analytics
 
->[Scuba Analytics](https://scuba.io) is a full-stack, machine-learning-powered data collaboration platform designed for high-velocity time-series data. Scuba allows you to selectively export users (also called actors) and load them into your Braze platform. In Scuba, custom actor properties are used to analyze behavioral trends, activate your data across various platforms, and conduct predictive modeling using machine learning.
+>[Scuba Analytics](https://scuba.io)는 고속 시계열 데이터를 위해 설계된 풀스택 머신 러닝 기반 데이터 협업 플랫폼입니다. Scuba를 사용하면 사용자(액터라고도 함)를 선택적으로 내보내고 Braze 플랫폼에 로드할 수 있습니다. Scuba에서는 커스텀 액터 속성을 사용하여 행동 트렌드를 분석하고, 다양한 플랫폼에서 데이터를 활성화하며, 머신 러닝을 활용한 예측 모델링을 수행할 수 있습니다.
 
-_This integration is maintained by Scuba Analytics._
+_이 통합은 Scuba Analytics에서 유지 관리합니다._
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-To use Scuba Analytics with Braze, you'll need the following:
+Scuba Analytics를 Braze와 함께 사용하려면 다음이 필요합니다.
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 |---|---|
-|Scuba API Token | A Scuba API token you can retrieve from the `https://{scuba_hostname}/api/create_token` endpoint. |
-| Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance](https://scuba.io). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Scuba API 토큰 | `https://{scuba_hostname}/api/create_token` 엔드포인트에서 가져올 수 있는 Scuba API 토큰입니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL](https://scuba.io)에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Uploading your Scuba data to Braze
+## Scuba 데이터를 Braze에 업로드하기 {#uploading-your-scuba-data-to-braze}
 
 {% alert important %}
-The following request uses curl. For better API request management, we recommend using an API client, such as Postman.
+다음 요청은 curl을 사용합니다. 더 나은 API 요청 관리를 위해 Postman과 같은 API 클라이언트를 사용하는 것을 권장합니다.
 {% endalert %}
 
-To upload your Scuba data to Braze, make a POST request to `https://scuba.pliant.io/a/scuba-connectors/prod/braze-activation` using the `application/json` content-type:
+Scuba 데이터를 Braze에 업로드하려면 `application/json` 콘텐츠 유형을 사용하여 `https://scuba.pliant.io/a/scuba-connectors/prod/braze-activation`에 POST 요청을 보냅니다.
 
 ```bash
 curl -X POST "https://scuba.pliant.io/a/scuba-connectors/prod/braze-activation" \
@@ -49,55 +49,53 @@ curl -X POST "https://scuba.pliant.io/a/scuba-connectors/prod/braze-activation" 
 "scuba_record_limit":"RECORD_LIMIT"}'
 ```
 
-Replace the following:
+다음을 교체합니다.
 
-| Placeholder             | Description                                                                                                                                                                                     |
+| 플레이스홀더 | 설명 |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | The Braze REST endpoint URL of your current Braze instance. For more information, see [Rest API keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
-| `BRAZE_API_KEY`         | Your Braze REST API key with the `users.track` permission.                                                                                                                                      |
-| `HOSTNAME`              | The hostname of your current Scuba instance.                                                                                                                                                    |
-| `SCUBA_API_TOKEN`       | Your Scuba API token.                                                                                                                                                                           |
-| `TABLE_NAME`            | The table your dataset belongs to. For more information, see [Glossary: Dataset table](https://docs.scuba.io/glossary/dataset-table).                                                                                                      |
-| `ACTOR_PROPERTY_NAME`   | The actor property your dataset belongs to. Only data matching this name will be returned. For more information, see [Glossary: Actor property](https://docs.scuba.io/glossary/actor-property).                                             |
-| `ACTOR_PROPERTY_FILTER` | The audience search filter for your actor property.                                                                                                                                             |
-| `ACTOR_ID`              | The ID of the actor property your dataset belongs to. This ID matches your `external_id` in Braze. For more information, see [Glossary: Actor](https://docs.scuba.io/glossary/actor).                                              |
-| `PERIOD_START`          | The start period as a BQL-compatible date. For more information, see [BQL syntax and usage](https://docs.scuba.io/guides/bql-syntax-and-usage).                                                                                                 |
-| `PERIOD_END`            | The end period as a BQL-compatible date. For more information, see [BQL syntax and usage](https://docs.scuba.io/guides/bql-syntax-and-usage).                                                                                                   |
-| `RECORD_LIMIT`          | **Optional**: The maximum number of records to return. If `scuba_record_limit` is omitted, Scuba will return a maximum of 100 records. To change this, assignin any non-negative number to `scuba_record_limit`.    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `BRAZE_API_ENDPOINT` | 현재 Braze 인스턴스의 Braze REST 엔드포인트 URL입니다. 자세한 내용은 [REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)를 참조하세요. |
+| `BRAZE_API_KEY` | `users.track` 권한이 있는 Braze REST API 키입니다. |
+| `HOSTNAME` | 현재 Scuba 인스턴스의 호스트 이름입니다. |
+| `SCUBA_API_TOKEN` | Scuba API 토큰입니다. |
+| `TABLE_NAME` | 데이터셋이 속한 테이블입니다. 자세한 내용은 [용어집: 데이터셋 테이블](https://docs.scuba.io/glossary/dataset-table)을 참조하세요. |
+| `ACTOR_PROPERTY_NAME` | 데이터셋이 속한 액터 속성입니다. 이 이름과 일치하는 데이터만 반환됩니다. 자세한 내용은 [용어집: 액터 속성](https://docs.scuba.io/glossary/actor-property)을 참조하세요. |
+| `ACTOR_PROPERTY_FILTER` | 액터 속성에 대한 오디언스 검색 필터입니다. |
+| `ACTOR_ID` | 데이터셋이 속한 액터 속성의 ID입니다. 이 ID는 Braze의 `external_id`와 일치합니다. 자세한 내용은 [용어집: 액터](https://docs.scuba.io/glossary/actor)를 참조하세요. |
+| `PERIOD_START` | BQL 호환 날짜 형식의 시작 기간입니다. 자세한 내용은 [BQL 구문 및 사용법](https://docs.scuba.io/guides/bql-syntax-and-usage)을 참조하세요. |
+| `PERIOD_END` | BQL 호환 날짜 형식의 종료 기간입니다. 자세한 내용은 [BQL 구문 및 사용법](https://docs.scuba.io/guides/bql-syntax-and-usage)을 참조하세요. |
+| `RECORD_LIMIT` | **선택 사항**: 반환할 최대 레코드 수입니다. `scuba_record_limit`를 생략하면 Scuba는 최대 100개의 레코드를 반환합니다. 이를 변경하려면 `scuba_record_limit`에 음이 아닌 숫자를 할당합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Uploading your Scuba data to Braze" }
 
-### Default behavior
+### 기본 동작 {#default-behavior}
 
-By default, `update_existing_only` is set to `false` which will update your existing records in Braze, as well as create new records for those that don't exist. To prevent Scuba from creating new records, set `update_existing_only` to `true`.
+기본적으로 `update_existing_only`는 `false`로 설정되어 있으며, 이 경우 Braze의 기존 레코드를 업데이트하고 존재하지 않는 레코드에 대해 새 레코드를 생성합니다. Scuba가 새 레코드를 생성하지 않도록 하려면 `update_existing_only`를 `true`로 설정합니다.
 
-### Rate limit
+### 사용량 제한 {#rate-limit}
 
-Scuba applies a rate limit of 50,000 requests per minute to this endpoint.
+Scuba는 이 엔드포인트에 분당 50,000건의 요청 사용량 제한을 적용합니다.
 
-## Creating segments using Scuba's behavioral data
+## Scuba의 행동 데이터를 사용하여 세그먼트 생성하기 {#creating-segments-using-scubas-behavioral-data}
 
-After you [upload your data](#uploading-your-scuba-data-to-braze), you can create user segments in Braze using Scuba's behavioral data.
+[데이터를 업로드](#uploading-your-scuba-data-to-braze)한 후 Scuba의 행동 데이터를 사용하여 Braze에서 사용자 세그먼트를 생성할 수 있습니다.
 
-### Step 1: Create a new segment
+### 1단계: 새 세그먼트 생성하기 {#step-1-create-a-new-segment}
 
-Braze에서 **오디언스** > **세그먼트로** 이동한 다음 **세그먼트 생성을** 선택하고 세그먼트의 이름을 입력합니다.
+Braze에서 **오디언스** > **Segments**로 이동한 다음 **세그먼트 생성**을 선택하고 세그먼트 이름을 입력합니다.
 
-![Braze에서 새 세그먼트 만들기.]({% image_buster /assets/img/scuba/analytics/segment_name.png %})
+![Braze에서 새 세그먼트 생성하기.]({% image_buster /assets/img/scuba/analytics/segment_name.png %})
 
-### 2단계: Find and select the Scuba attribute
+### 2단계: Scuba 속성 찾기 및 선택하기 {#step-2-find-and-select-the-scuba-attribute}
 
-**세그먼트 세부 정보** > **필터에서** **사용자 지정 속성을** 선택합니다.
+**Segment Details** > **Filters**에서 **Custom Attributes**를 선택합니다.
 
-!['세그먼트 세부 정보'에서 '사용자 지정 속성' 필터를 선택합니다.]({% image_buster /assets/img/scuba/analytics/filter_attribute.png %})
+!['Segment Details'에서 'Custom Attributes' 필터를 선택합니다.]({% image_buster /assets/img/scuba/analytics/filter_attribute.png %})
 
-**커스텀 속성 검색**을 선택한 다음, 이전 POST 요청에서 사용한 액터 속성정보 이름을 선택합니다.
+**Search custom attributes**를 선택한 다음, 이전 POST 요청에서 사용한 액터 속성 이름을 선택합니다.
 
-![액터 프로퍼티를 커스텀 어트리뷰트로 선택합니다.]({% image_buster /assets/img/scuba/analytics/select_property.png %})
+![액터 속성을 커스텀 속성으로 선택합니다.]({% image_buster /assets/img/scuba/analytics/select_property.png %})
 
-### 3단계: Configure the attribute
+### 3단계: 속성 구성하기 {#step-3-configure-the-attribute}
 
-Next to your actor property name, choose an operator and a value (if applicable). These values are determined by the actor properties you've defined in Scuba. 완료했으면 **저장을** 선택합니다.
+액터 속성 이름 옆에서 연산자와 값(해당하는 경우)을 선택합니다. 이 값은 Scuba에서 정의한 액터 속성에 의해 결정됩니다. 완료했으면 **저장**을 선택합니다.
 
-![선택한 항목에 대한 작업 및 값 선택 ]({% image_buster /assets/img/scuba/analytics/operator_end.png %})
-
-
+![선택한 속성에 대한 연산자와 값 선택하기.]({% image_buster /assets/img/scuba/analytics/operator_end.png %})

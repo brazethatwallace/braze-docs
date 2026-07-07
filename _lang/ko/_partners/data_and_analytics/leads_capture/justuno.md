@@ -16,27 +16,27 @@ search_tag: Partner
 
 Braze를 사용하면 모든 마케터가 어떤 소스에서든 원하는 양의 데이터를 수집하고 조치를 취할 수 있으므로, 하나의 플랫폼에서 채널 전반에 걸쳐 실시간으로 고객과 창의적으로 소통할 수 있습니다.
 
-Justuno와 Braze를 통합하면 두 가지 장점을 모두 누릴 수 있습니다. Braze에 저장된 고객 데이터와 Justuno에 저장된 방문자 및 고객 데이터를 결합하여 모든 오디언스에게 더욱 개인화된 경험을 제공할 수 있습니다. 이를 통해 마케팅 캠페인과 고객 참여의 효과를 높일 수 있습니다.
+Justuno와 Braze를 통합하면 두 가지 장점을 모두 누릴 수 있습니다. Braze에 저장된 고객 데이터와 Justuno에 저장된 방문자 및 고객 데이터를 결합하여 모든 오디언스에게 더욱 개인화된 경험을 제공할 수 있습니다. 이를 통해 마케팅 Campaign(캠페인)과 고객 참여의 효과를 높일 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
-| Braze REST API 키 | `users.track` 및 `custom_attributes.get` 권한이 있는 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST API 키 | `users.track` 및 `custom_attributes.get` 권한이 있는 Braze REST API 키.<br><br>Braze 대시보드의 **Settings** > **API Keys**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Justuno와 Braze 통합하기 {#integrating-justuno-with-braze}
 
 ### 1단계: Braze에서 커스텀 속성 생성하기 {#step-1-create-custom-attributes-in-braze}
 
-Justuno에서 Braze로 사용자 속성을 동기화하려면, 아직 생성하지 않은 경우 Braze에서 해당 속성을 먼저 생성해야 합니다. **데이터 설정** > **커스텀 속성**으로 이동한 후 커스텀 속성을 생성하면 됩니다. 전체 안내는 [Braze에서 커스텀 속성 관리하기]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)를 참조하세요.
+Justuno에서 Braze로 사용자 속성을 동기화하려면, 아직 생성하지 않은 경우 Braze에서 해당 속성을 먼저 생성해야 합니다. **Data Settings** > **Custom Attributes**로 이동한 후 커스텀 속성을 생성하면 됩니다. 전체 안내는 [Braze에서 커스텀 속성 관리하기]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)를 참조하세요.
 
 ### 2단계: Justuno에 Braze 앱 추가하기 {#step-2-add-the-braze-app-to-justuno}
 
 #### 2.1단계: 계정에 추가하기 {#step-21-add-it-to-your-account}
 
-Justuno 계정에 Braze 앱을 추가하려면 **계정 설정** > **앱**으로 이동한 후 Braze 앱을 검색하여 선택합니다.
+Justuno 계정에 Braze 앱을 추가하려면 **Account Settings** > **Apps**로 이동한 후 Braze 앱을 검색하여 선택합니다.
 
-![검색 결과 목록에 Braze 앱이 표시된 Justuno의 '앱 연결' 페이지.]({% image_buster /assets/img/justuno/search-for-braze.png %})
+![검색 결과 목록에 Braze 앱이 표시된 Justuno의 'Connect Apps' 페이지.]({% image_buster /assets/img/justuno/search-for-braze.png %})
 
 [이전에 생성한](#prerequisites) API 키와 기본 URL을 입력한 후 **Connect**를 선택합니다.
 
@@ -56,13 +56,13 @@ Justuno에서 특정 Braze 이메일 또는 SMS 구독 그룹으로 프로필 �
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
 | Braze SMS 구독 그룹 ID  | 예       | 이 ID는 사용자 프로필에서 SMS 동의를 수집하는 데 사용됩니다. Justuno에 ID를 입력하지 않으면, Justuno가 해당 프로필을 Braze로 푸시할 때 프로필에 동의가 포함되지 않습니다. |
 | Braze 이메일 구독 그룹 ID | 아니요        | Justuno에 이 ID를 입력하지 않으면, Justuno는 연결된 구독 그룹이 없는 사용자로 프로필 데이터를 Braze에 전송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3: Connect your Braze subscription groups" }
 
 #### 3.1단계: Braze에서 ID 찾기 {#step-31-locate-the-ids-in-braze}
 
 Braze 대시보드에서 이 ID를 찾으려면:
 
-1. **오디언스** > **구독**으로 이동합니다.
+1. **Audience** > **Subscriptions**로 이동합니다.
 2. 각 구독 그룹에 대해 ID 열에 있는 ID를 확인합니다.
 
 #### 3.2단계: Braze 앱에 ID 추가하기 {#step-32-add-the-ids-to-the-braze-app}

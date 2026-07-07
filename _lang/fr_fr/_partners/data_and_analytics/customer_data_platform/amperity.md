@@ -32,7 +32,7 @@ L'intégration de Braze et Amperity offre une vue unifiée de vos clients sur le
 | Instance Braze | Votre instance Braze peut être obtenue auprès de votre gestionnaire d'onboarding Braze ou sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics/#endpoints). |
 | Endpoint REST Braze | Votre URL d'endpoint Braze. Votre endpoint dépendra de votre instance Braze. |
 | Connecteur Currents (facultatif) | Le connecteur S3 Currents. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Mappage des données {#data-mapping}
 
@@ -94,8 +94,8 @@ Amperity suit les changements entre les synchronisations avec Braze et l'état d
 
 ### Étape 1 : Capturer les détails de configuration de Braze {#step-1-capture-configuration-details-for-braze}
 
-1. Créez une clé API REST Braze pour votre espace de travail Braze avec les autorisations `users.track` sous **Données utilisateur**. L'endpoint `users.track` synchronise l'audience Amperity avec Braze en tant qu'attribut personnalisé.
-2. Déterminez l'[endpoint de l'API REST]({{site.baseurl}}/api/basics/#endpoints) pour votre instance Braze. Par exemple, si votre URL Braze est `https://dashboard-03.braze.com`, votre endpoint REST API est `https://rest.iad-03.braze.com` et votre instance est « US-03 ».
+1. Créez une clé API REST Braze pour votre espace de travail Braze avec les autorisations `users.track` sous **User Data**. L'endpoint `users.track` synchronise l'audience Amperity avec Braze en tant qu'attribut personnalisé.
+2. Déterminez l'[endpoint de la REST API]({{site.baseurl}}/api/basics/#endpoints) pour votre instance Braze. Par exemple, si votre URL Braze est `https://dashboard-03.braze.com`, votre endpoint REST API est `https://rest.iad-03.braze.com` et votre instance est « US-03 ».
 3. Déterminez une liste de [champs de profil utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) et d'[attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) qui peuvent être envoyés à Braze depuis Amperity.
 
 ### Étape 2 : Configurer Braze en tant que destination — Opérateur DataGrid {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
@@ -112,23 +112,23 @@ Nommez la table « Braze Customer Attributes » et enregistrez-la. Vérifiez que
 
 Dans la plateforme Amperity, accédez à l'onglet **Destinations**. Cherchez l'option pour ajouter une nouvelle destination. Parmi les options disponibles, sélectionnez **Braze**.
 
-![La section Nouvelle destination avec un nom « Braze API », une description « Envoyer les attributs de l'audience à Braze. » et un plugin « Braze ».]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
+![La section Nouvelle destination avec un nom « Braze API », une description « Send audience attributes to Braze. » et un plugin « Braze ».]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
 
 #### Étape 2d : Configurer les détails de la destination {#step-2d-configure-destination-details}
 
-Sous **Paramètres Braze**, fournissez les identifiants Braze et les paramètres de destination, comme indiqué dans [la documentation Amperity](https://docs.amperity.com/datagrid/destination_braze.html#add-destination). Saisissez les détails de configuration collectés à l'étape précédente et définissez l'identifiant Braze. Les identifiants disponibles pour la correspondance sont :
+Sous **Braze settings**, fournissez les identifiants Braze et les paramètres de destination, comme indiqué dans [la documentation Amperity](https://docs.amperity.com/datagrid/destination_braze.html#add-destination). Saisissez les détails de configuration collectés à l'étape précédente et définissez l'identifiant Braze. Les identifiants disponibles pour la correspondance sont :
 - `braze_id` : un identifiant Braze attribué automatiquement qui est immuable et associé à un utilisateur particulier lorsqu'il est créé dans Braze.
 - `external_id` : un identifiant attribué par le client, généralement un UUID.
 
-![La section Paramètres Braze avec une instance « US-03 », un identifiant utilisateur « external_id », un nom de segment vide, un compartiment S3 « amperity-training-abc123 » et un dossier S3 « braze-attributes ».]({% image_buster /assets/img/amperity/braze_settings.png %}){: style="max-width:60%;"}
+![La section Braze settings avec une instance « US-03 », un identifiant utilisateur « external_id », un nom de segment vide, un compartiment S3 « amperity-training-abc123 » et un dossier S3 « braze-attributes ».]({% image_buster /assets/img/amperity/braze_settings.png %}){: style="max-width:60%;"}
 
 #### Étape 2e : Ajouter un modèle de données {#step-2e-add-a-data-template}
 
-Dans l'onglet **Destinations**, ouvrez le menu pour la destination Braze et sélectionnez **Ajouter un modèle de données**. Entrez un nom et une description pour le modèle (par exemple, « Braze » et « Envoyer des attributs personnalisés à Braze »), vérifiez l'accès utilisateur et vérifiez tous les paramètres de configuration.
+Dans l'onglet **Destinations**, ouvrez le menu pour la destination Braze et sélectionnez **Add data template**. Entrez un nom et une description pour le modèle (par exemple, « Braze » et « Send custom attributes to Braze »), vérifiez l'accès utilisateur et vérifiez tous les paramètres de configuration.
 
 Si des paramètres requis n'ont pas été configurés dans le cadre de la destination, configurez-les dans le cadre du modèle de données. Enregistrez le modèle de données.
 
-![La section Nom du modèle de données avec le nom « Braze Audience Attributes » et la description « Envoyer les attributs de l'audience à Braze. »]({% image_buster /assets/img/amperity/data_template_name.png %}){: style="max-width:60%;"}
+![La section Nom du modèle de données avec le nom « Braze Audience Attributes » et la description « Send audience attributes to Braze. »]({% image_buster /assets/img/amperity/data_template_name.png %}){: style="max-width:60%;"}
 
 #### Étape 2f : Enregistrer la configuration {#step-2f-save-the-configuration}
 
@@ -177,7 +177,7 @@ Consultez la documentation d'Amperity pour des exemples de différents types de 
 1. Accédez à la section **Campaign** et cliquez sur l'option pour créer une nouvelle campagne.
 2. Donnez à votre campagne un nom descriptif et unique qui vous aidera à l'identifier plus tard, surtout si vous avez plusieurs campagnes.
 3. Sélectionnez le segment de clients que vous souhaitez cibler avec cette campagne. Il doit s'agir du segment que vous avez créé précédemment. <br>![Le champ déroulant pour les segments à exclure du ciblage.]({% image_buster /assets/img/amperity/select_segments.png %}){: style="max-width:50%;"}<br><br>
-4. Choisissez les données que vous souhaitez envoyer dans le cadre de la campagne. Cela peut inclure une gamme d'attributs client. ![La fenêtre modale Modifier les attributs de la campagne permet de sélectionner une destination et des attributs client.]({% image_buster /assets/img/amperity/edit_campaign_attributes.png %}){: style="max-width:90%;"}<br><br>
+4. Choisissez les données que vous souhaitez envoyer dans le cadre de la campagne. Cela peut inclure une gamme d'attributs client. ![La fenêtre modale Edit Campaign Attributes permet de sélectionner une destination et des attributs client.]({% image_buster /assets/img/amperity/edit_campaign_attributes.png %}){: style="max-width:90%;"}<br><br>
 5. Sélectionnez **Braze** comme destination où les données de la campagne seront envoyées.
 6. Choisissez quand et à quelle fréquence vous souhaitez que la campagne s'exécute. Cela peut être un événement unique ou une planification récurrente.
 7. Enregistrez votre campagne et exécutez un test pour vous assurer qu'elle fonctionne comme prévu.

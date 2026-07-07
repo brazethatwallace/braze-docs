@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Exportar análisis de resumen de datos de Canvas"
 article_title: "GET: Exportar análisis de resumen de datos de Canvas"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -20,7 +20,7 @@ description: "Este artículo describe el punto de conexión de Braze para export
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.data_summary`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.data_summary`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -28,22 +28,23 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obligatoria | Cadena | Ver [identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `ending_at` | Obligatoria | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de finalización de la exportación de datos. Se predetermina a la hora de la solicitud. |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de API de Canvas]({{site.baseurl}}/api/identifier_types). |
+| `ending_at` | Obligatorio | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de finalización de la exportación de datos. Se predetermina a la hora de la solicitud. |
 | `starting_at` | Opcional* | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de inicio de la exportación de datos. <br><br>* Se requiere `length` o `starting_at`. |
 | `length` | Opcional* | Cadena | Número máximo de días antes de `ending_at` incluidos en la serie devuelta. Debe estar comprendido entre 1 y 14 (ambos inclusive). <br><br>* Se requiere `length` o `starting_at`. |
 | `include_variant_breakdown` | Opcional | Booleano | Si se deben incluir estadísticas de variantes (el valor predeterminado es `false`).  |
 | `include_step_breakdown` | Opcional | Booleano | Si se deben incluir estadísticas de pasos (el valor predeterminado es `false`). |
 | `include_deleted_step_data` | Opcional | Booleano | Si se deben incluir estadísticas de pasos para los pasos eliminados (el valor predeterminado es `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert important %}
-**Alineación de zonas horarias:** Los análisis del panel de Braze se agregan diariamente en la zona horaria configurada por tu empresa en el dashboard. Asegúrate de que tus marcas de tiempo coincidan con la zona horaria de tu empresa para que tus estadísticas coincidan con las del dashboard. Por ejemplo, si la hora de tu empresa es UTC+2, la marca de tiempo debería ser 12:00 a. m. UTC+2.
+Los análisis de Canvas se agregan por día en la zona horaria configurada por tu empresa en Braze (la misma zona horaria que utiliza el dashboard). La API normaliza `starting_at` y `ending_at` a medianoche en esa zona horaria.
 {% endalert %}
 
 ## Ejemplo de solicitud {#example-request}
+
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-05:00&starting_at=2018-05-28T23:59:59-05:00&length=5&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
@@ -52,6 +53,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 {% endraw %}
 
 ## Respuesta {#response}
+
+{% alert note %}
+En `total_stats`, `variant_stats` y `step_stats`, `conversions` es el recuento del [evento de conversión primaria]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) del Canvas. Cuando configuras eventos de conversión adicionales, la carga útil también puede incluir `conversions1`, `conversions2` y campos con índices superiores para el segundo, tercer y posteriores eventos. Esto es similar a la [respuesta multivariante]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) del punto de conexión `/campaigns/data_series`. Cuando están presentes, los campos que terminan en `_by_entry_time` atribuyen esas conversiones por el momento de entrada al Canvas.
+{% endalert %}
 
 ```json
 {
@@ -99,11 +104,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ```
 
 {% alert important %}
-**Campo `influenced_opens`:** En la respuesta de la API, el campo `influenced_opens` representa el número total de aperturas (tanto Direct Opens como Influenced Opens combinadas). En el panel de Braze, «Influenced Opens» se refiere únicamente a las aperturas influenciadas, excluyendo las aperturas directas. Esto se debe a una convención de nomenclatura heredada en la API.
+En la respuesta de la API, el campo `influenced_opens` representa el número total de aperturas (tanto Direct Opens como Influenced Opens combinadas). En el panel de Braze, "Influenced Opens" se refiere únicamente a las aperturas influenciadas, excluyendo las aperturas directas. Esto se debe a una convención de nomenclatura heredada en la API.
 {% endalert %}
 
-{% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
-{% endalert %}
+## Artículos relacionados {#related-articles}
+
+- [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)
+
 
 {% endapi %}

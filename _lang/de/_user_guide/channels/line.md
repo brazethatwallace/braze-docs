@@ -24,7 +24,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 - [LINE-Entwicklerkonto](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE Messaging-API-Kanal](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Eine vollständige Anleitung finden Sie unter [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup/).
+Eine vollständige Anleitung finden Sie unter [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
 ## Anwendungsfälle {#use-cases}
 
@@ -35,11 +35,11 @@ Eine vollständige Anleitung finden Sie unter [LINE-Einrichtung]({{site.baseurl}
 | Kundensupport | Ermöglichen Sie bidirektionale Konversationen, um Anfragen zu bearbeiten, Produktinformationen bereitzustellen und Probleme zu lösen. |
 | Bestellbenachrichtigungen | Halten Sie Kund:innen mit Bestellbestätigungen, Versand-Updates und Zustellbenachrichtigungen auf dem Laufenden. |
 | Event-Engagement | Steigern Sie Teilnahme und Engagement bei Events mit Einladungen, Erinnerungen und Follow-up-Nachrichten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## Nächste Schritte {#next-steps}
 
-- [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup/)
-- [Eine LINE-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/)
+- [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup)
+- [LINE-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)

@@ -13,7 +13,7 @@ platform:
 
 # バナー配置を管理する {#manage-banner-placements}
 
-> Braze SDKでバナー配置の作成と管理方法を学びます。配置固有のプロパティへのアクセスやインプレッションの記録についても説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/developer_guide/banners/)を参照してください。
+> Braze SDKでバナー配置の作成と管理方法を学びます。配置固有のプロパティへのアクセスやインプレッションの記録についても説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/developer_guide/banners)を参照してください。
 
 ## 配置リクエストについて {#requests}
 
@@ -25,13 +25,13 @@ platform:
 
 バナー配置を作成するために必要な最小SDKバージョンは以下の通りです。
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
-### ステップ 2: アプリの配置を更新する {#requestBannersRefresh}
+### ステップ2:アプリの配置を更新する {#requestBannersRefresh}
 
-配置は、以下に説明する更新メソッドを呼び出すことで更新できます。これらの配置は、ユーザーのセッションが期限切れになったとき、または`changeUser`メソッドを使用して識別済みユーザーを変更したときに自動的にキャッシュされます。
+配置を更新するには、SDKの更新メソッドを呼び出します。`subscribeToBannersUpdates`がアクティブな場合、SDKは新しいセッションの開始時および`changeUser`を呼び出したときに、キャッシュされた配置IDを自動的に再パブリッシュします。この自動更新はレート制限トークンを消費しません。
 
 {% alert tip %}
 バナーのダウンロードや表示の遅延を避けるため、できるだけ早く配置を更新してください。
@@ -112,7 +112,7 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: 更新をリッスンする {#subscribeToBannersUpdates}
+### ステップ3:更新をリッスンする {#subscribeToBannersUpdates}
 
 {% alert tip %}
 このガイドのSDKメソッドを使ってバナーを挿入する場合、すべての分析イベント（インプレッションやクリックなど）は自動的に処理され、インプレッションはバナーが表示されているときのみ記録されます。
@@ -160,36 +160,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+バナー更新リスナーは、SDKのインメモリバナー状態を反映します。1回の更新には、最新の`requestRefresh`呼び出しの配置IDだけでなく、すでにキャッシュされている配置（たとえば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定の配置のみに関心がある場合は、リスナー内で各バナーの配置IDを確認し、それ以外はスキップしてください。リスナーを登録したら、Brazeから同期したい配置に対して`requestRefresh`を呼び出します。
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+バナー更新リスナーは、SDKのインメモリバナー状態を反映します。1回の更新には、最新の`requestBannersRefresh`呼び出しの配置IDだけでなく、すでにキャッシュされている配置（たとえば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定の配置のみに関心がある場合は、リスナー内で各バナーの配置IDを確認し、それ以外はスキップしてください。リスナーを登録したら、Brazeから同期したい配置に対して`requestBannersRefresh`を呼び出します。
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -245,10 +265,10 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### ステップ 4: 配置IDを使って挿入する {#insertBanner}
+### ステップ4:配置IDを使って挿入する {#insertBanner}
 
 {% alert tip %}
-完全なステップバイステップのチュートリアルについては、[配置IDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)を参照してください。
+完全なステップバイステップのチュートリアルについては、[配置IDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)を参照してください。
 {% endalert %}
 
 {% tabs %}
@@ -400,7 +420,7 @@ Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
 {% endsubtab %}
 
 {% subtab Kotlin %}
-Androidビューを使用している場合は、次のXMLを使用します。
+Android Viewsを使用している場合は、次のXMLを使用します。
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -410,10 +430,45 @@ Androidビューを使用している場合は、次のXMLを使用します。
     app:placementId="global_banner" />
 ```
 
-Jetpack Composeを使用している場合は、次を使用できます。
+Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDK依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下の[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
+
+{% alert note %}
+一部のCompose UIライブラリは独自の`Banner`コンポーザブルを定義しています。BrazeのAPIを呼び出すには、`com.braze.jetpackcompose.banners.Banner`を明示的にインポートしてください。
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+オプションで`heightCallback`を渡すと、バナーサイズが変更されたときにレンダリングされた高さ（dp単位）を受け取ることができます。詳細については、[`Banner`のKDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)を参照してください。
+
+Jetpack Composeモジュールを追加しない場合は、[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)を[`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView)でラップします。
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 Kotlinでバナーを取得するには、以下を使用します。
@@ -498,9 +553,9 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5: テストバナーを送信する（オプション） {#handling-test-cards}
+### ステップ5:テストバナーを送信する（オプション） {#handling-test-cards}
 
-バナーCampaignを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
+バナーキャンペーンを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
 
 {% alert note %}
 テストバナーは他のバナーと同じですが、次のアプリセッションで削除される点が異なります。
@@ -508,7 +563,7 @@ This feature is not currently supported on Roku.
 
 ## インプレッションを記録する {#log-impressions}
 
-Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示されているバナーのインプレッションを自動的に記録します。そのため、インプレッションを手動でトラッキングする必要はありません。
+Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示されているバナーのインプレッションを自動的に記録します&#8212;そのため、インプレッションを手動でトラッキングする必要はありません。
 
 ## クリックを記録する {#logging-clicks}
 
@@ -528,13 +583,13 @@ Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示さ
 </button>
 ```
 
-完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
+完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
 
 ### カスタムUI実装（ヘッドレス） {#custom-ui-implementations-headless}
 
 バナーのHTMLをレンダリングする代わりに、バナーの[カスタムプロパティ](#custom-properties)を使って完全にカスタムのUIを構築する場合、アプリケーションコードからクリックとインプレッションを手動で記録する必要があります。SDKがバナーをレンダリングしていないため、カスタムUI要素とのインタラクションを自動的にトラッキングする方法がありません。
 
-メソッドシグネチャと詳細については、[Braze SDKリファレンスドキュメント]({{site.baseurl}}/developer_guide/references/)を参照してください。
+メソッドシグネチャと詳細については、[Braze SDKリファレンスドキュメント]({{site.baseurl}}/developer_guide/references)を参照してください。
 
 #### インプレッションを記録する {#logging-impressions}
 
@@ -595,7 +650,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 {% endtab %}
 {% endtabs %}
 
-#### クリックを記録する {#logging-clicks}
+#### クリックを記録する
 
 ユーザーがカスタムバナー（または特定のボタン）をタップしたときに、プラットフォームのバナークリックメソッドを呼び出します。クリックが特定のボタンに対するものである場合は、オプションの`buttonId`を渡して、分析がクリックを正しく帰属できるようにします。
 
@@ -653,24 +708,21 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 ## 非表示を記録する {#log-dismissals}
 
-バナーの非表示は、ユーザーが能動的にバナーを閉じたときに、プログラムで配置からバナーを削除します。一度非表示にすると、そのユーザーに対してバナーは抑制されます。次に配置リストが更新されたとき、ユーザーが対象であれば新しいバナーが返されます。
+バナーの非表示は、ユーザーが能動的にバナーを閉じたときに、プログラムで配置からバナーを削除します。非表示にすると、そのユーザーに対してバナーは抑制されます。次に配置リストが更新されたとき、ユーザーが対象であれば新しいバナーが返されます。
 
-{% alert important %}
-バナーの非表示は現在、早期アクセス段階です。早期アクセスへの参加に興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
-
-### 前提条件 {#prerequisites}
+### 前提条件
 
 バナーの非表示を記録するために必要な最小SDKバージョンは以下の通りです。
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### 統合 {#integrations}
+
 #### 標準バナー統合（ドラッグ＆ドロップエディター） {#standard-banner-integrations-drag-and-drop-editor}
 
 バナーがドラッグ＆ドロップエディターを使用しており、非表示ボタンコンポーネントが含まれている場合、追加のコードは不要です。ユーザーが非表示ボタンをクリックすると、メッセージが非表示になり、非表示がトリガーされ、分析用の非表示イベントが記録されます。
 
-#### カスタムコードブロック {#custom-code-blocks}
+#### カスタムコードブロック
 
 バナーが**カスタムコード**エディターブロックを使用している場合、バナーのHTML内から`brazeBridge.closeMessage()`を使って直接非表示をトリガーできます。
 
@@ -680,13 +732,103 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 </button>
 ```
 
-### バナー非表示時にカスタム分析を記録する {#log-custom-analytics-on-banner-dismissal}
+#### プログラムでバナーを非表示にする {#dismiss-a-banner-programmatically}
 
-バナーの非表示時にカスタム分析の記録などの追加ロジックを実行するには、バナービューのオプションの`onDismiss`コールバックをオーバーライドします。デフォルトでは、このコールバックは空です。
+ドラッグ＆ドロップエディターで作成した非表示ボタンを含む標準の`BrazeBannerView`を使用している場合、追加のコードは不要です。非表示は自動的に処理されます。
+
+カスタムUI統合の場合、Brazeインスタンスのdismissメソッドを直接呼び出して、プログラムでバナーを非表示にし、非表示イベントを記録できます。dismissメソッドは複数回呼び出しても安全です。SDKは同じバナーに対する重複呼び出しを無視します。
+
+プログラムでバナーを非表示にするために必要な最小SDKバージョンは以下の通りです。
+
+{% sdk_min_versions swift:15.1.0 android:42.3.0 web:6.9.0 reactnative:22.0.0 flutter:20.0.0 %}
 
 {% tabs %}
 {% tab Web %}
-Web SDKには`insertBanner`に専用の`onDismiss`コールバックがありません。代わりに、`subscribeToBannersUpdates`を使用して、更新されたバナーマップにバナーが存在しなくなったかどうかを確認することで、バナーが非表示にされたことを検出します。
+`Banner`オブジェクトを`braze.dismissBanner()`に渡します。`Banner`オブジェクトは`braze.getAllBanners()`または`subscribeToBannersUpdates`コールバックから取得できます。
+
+{% subtabs %}
+{% subtab JavaScript %}
+```javascript
+import * as braze from "@braze/web-sdk";
+
+const banners = braze.getAllBanners();
+const banner = banners["global_banner"];
+
+if (banner) {
+  braze.dismissBanner(banner);
+}
+```
+{% endsubtab %}
+{% subtab React %}
+```typescript
+import * as braze from "@braze/web-sdk";
+
+const banners = braze.getAllBanners();
+const banner = banners["global_banner"];
+
+if (banner) {
+  braze.dismissBanner(banner);
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Android %}
+{% subtabs %}
+{% subtab Java %}
+```java
+Braze.getInstance(context).dismissBanner("your-placement-id");
+```
+{% endsubtab %}
+{% subtab Kotlin %}
+```kotlin
+Braze.getInstance(context).dismissBanner("your-placement-id")
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Swift %}
+
+バナーのcontextが利用可能な場合は、`dismiss()`を使用します。このメソッドは冪等で、`onDismiss`コールバックを自動的に発火します。contextが利用できない場合は、バナーに対して直接`dismiss(using:)`を呼び出します。どちらのメソッドもメインスレッドから呼び出す必要があります。
+
+```swift
+// Preferred: dismiss via context.
+banner.context?.dismiss()
+
+// Fallback: if context is unavailable.
+banner.dismiss(using: braze)
+```
+
+Objective-Cでは、`[banner.context dismiss]`および`[banner dismissUsing:braze]`として利用できます。
+
+{% endtab %}
+
+{% tab React Native %}
+```javascript
+Braze.dismissBanner("your-placement-id");
+```
+{% endtab %}
+
+{% tab Flutter %}
+```dart
+braze.dismissBanner("your-placement-id");
+```
+{% endtab %}
+{% endtabs %}
+
+### バナー非表示時にカスタム分析を記録する {#log-custom-analytics-on-banner-dismissal}
+
+バナーの非表示時にカスタムロジック（分析の記録など）を実行するには、SDKの非表示コールバックを使用します。コールバックは、バナーの`placementId`、`stableKey`、`trackingId`を含むイベントオブジェクトを受け取ります。
+
+{% tabs %}
+{% tab Web %}
+[`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent)を使って、特定のバナーが非表示にされたときにカスタムロジックを実行します。バナーを表示する前にイベントをサブスクライブしてください。
+
+{% alert note %}
+`Banner.subscribeToDismissedEvent()`にはWeb SDK 6.9.0以降が必要です。それ以前のバージョンでは、`braze.subscribeToBannersUpdates()`を使用し、更新されたバナーマップにバナーが存在しなくなったかどうかを確認することで非表示を検出してください。
+{% endalert %}
 
 {% subtabs %}
 {% subtab JavaScript %}
@@ -694,13 +836,13 @@ Web SDKには`insertBanner`に専用の`onDismiss`コールバックがありま
 import * as braze from "@braze/web-sdk";
 
 braze.subscribeToBannersUpdates((banners) => {
-  const globalBanner = banners["global_banner"];
+  const banner = banners["global_banner"];
 
-  if (!globalBanner) {
-    // The banner was dismissed or the user is no longer eligible.
-    // Run any custom analytics here.
-    console.log("Banner was dismissed");
-    return;
+  if (banner) {
+    banner.subscribeToDismissedEvent(() => {
+      // Run any custom logic here, such as logging custom analytics
+      console.log("Banner was dismissed");
+    });
   }
 });
 
@@ -714,13 +856,13 @@ import * as braze from "@braze/web-sdk";
 
 useEffect(() => {
   const subscriptionId = braze.subscribeToBannersUpdates((banners) => {
-    const globalBanner = banners["global_banner"];
+    const banner = banners["global_banner"];
 
-    if (!globalBanner) {
-      // The banner was dismissed or the user is no longer eligible.
-      // Run any custom analytics here.
-      console.log("Banner was dismissed");
-      return;
+    if (banner) {
+      banner.subscribeToDismissedEvent(() => {
+        // Run any custom logic here, such as logging custom analytics
+        console.log("Banner was dismissed");
+      });
     }
   });
 
@@ -748,8 +890,10 @@ import kotlin.Unit;
 
 // After obtaining your BannerView instance (for example from XML via findViewById, or `new BannerView(context, "global_banner")`)
 
-bannerView.setOnDismissCallback(() -> {
-  Log.d(TAG, "Successfully dismissed banner with placementId: " + bannerView.getPlacementId());
+bannerView.setOnDismissCallback((snapshot) -> {
+  Log.d(TAG, "placementId: " + snapshot.getPlacementId()
+    + ", stableKey: " + snapshot.getStableKey()
+    + ", trackingId: " + snapshot.getTrackingId());
 
   // Run any custom logic here, such as logging custom analytics
   return Unit.INSTANCE;
@@ -765,8 +909,8 @@ import com.braze.ui.banners.BannerView
 
 // After obtaining your BannerView instance (for example via findViewById or `BannerView(context, "global_banner")`)
 
-bannerView.onDismissCallback = {
-  Log.d(TAG, "Successfully dismissed banner with placementId: ${bannerView.placementId}")
+bannerView.onDismissCallback = { snapshot ->
+  Log.d(TAG, "placementId: ${snapshot.placementId}, stableKey: ${snapshot.stableKey}, trackingId: ${snapshot.trackingId}")
 
   // Run any custom logic here, such as logging custom analytics
 }
@@ -780,11 +924,43 @@ bannerView.onDismissCallback = {
 ```swift
 // After initializing your banner view instance using UIKit or SwiftUI
 
-bannerView.onDismiss = { dismissedBanner in
-  print("Successfully dismissed banner with placementId: \(dismissedBanner.placementId)")
+bannerView.onDismiss = { event in
+  print("Banner dismissed — placementId: \(event.placementId ?? "unknown")")
+  print("  stableKey: \(event.stableKey ?? "unknown")")
+  print("  trackingId: \(event.trackingId ?? "unknown")")
 
   // Run any custom logic here, such as logging custom analytics
 }
+```
+{% endtab %}
+
+{% tab React Native %}
+`Braze.BrazeBannerView`の`onDismiss`プロパティを設定して、バナーが非表示にされたときにカスタムロジックを実行します。
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+<Braze.BrazeBannerView
+  placementId="global_banner"
+  onDismiss={(event) => {
+    console.log("placementId:", event.placementId, "stableKey:", event.stableKey, "trackingId:", event.trackingId);
+    // Run any custom logic here, such as logging custom analytics
+  }}
+/>
+```
+{% endtab %}
+
+{% tab Flutter %}
+`BrazeBannerView`の`onDismiss`パラメーターを設定して、バナーが非表示にされたときにカスタムロジックを実行します。
+
+```dart
+BrazeBannerView(
+  placementId: 'global_banner',
+  onDismiss: (BrazeBannerDismissEvent event) {
+    print('placementId: ${event.placementId}, stableKey: ${event.stableKey}, trackingId: ${event.trackingId}');
+    // Run any custom logic here, such as logging custom analytics
+  },
+)
 ```
 {% endtab %}
 {% endtabs %}
@@ -807,15 +983,15 @@ bannerView.onDismiss = { dismissedBanner in
 
 ## カスタムプロパティ {#custom-properties}
 
-バナーCampaignのカスタムプロパティを使って、SDKを通じてキーと値のデータを取得し、アプリの動作や外観を変更できます。たとえば、以下のようなことが可能です。
+バナーキャンペーンのカスタムプロパティを使って、SDKを通じてキーと値のデータを取得し、アプリの動作や外観を変更できます。たとえば、以下のようなことが可能です。
 
 - サードパーティの分析ツールや統合サービス向けにメタデータを送信する。
 - `timestamp`やJSONオブジェクトなどのメタデータを使って条件分岐ロジックをトリガーする。
 - `ratio`や`format`などのメタデータに基づいてバナーの動作をコントロールする。
 
-### 前提条件 {#prerequisites}
+### 前提条件
 
-バナーCampaignに[カスタムプロパティを追加]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties)する必要があります。さらに、カスタムプロパティにアクセスするために必要な最小SDKバージョンは以下の通りです。
+バナーキャンペーンに[カスタムプロパティを追加]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties)する必要があります。さらに、カスタムプロパティにアクセスするために必要な最小SDKバージョンは以下の通りです。
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

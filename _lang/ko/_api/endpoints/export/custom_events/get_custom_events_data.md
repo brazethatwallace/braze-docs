@@ -18,7 +18,7 @@ description: "이 문서에서는 사용자 지정 이벤트 내보내기 Braze 
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `events.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `events.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -31,7 +31,7 @@ description: "이 문서에서는 사용자 지정 이벤트 내보내기 Braze 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `cursor` | 선택 사항 | 문자열 | 커스텀 이벤트의 페이지 매김을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="쿼리 매개변수" }
 
 ## 요청 예시 {#example-requests}
 
@@ -71,10 +71,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 
 ### 심각한 오류 응답 코드 {#fatal-export}
 
-요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류]({{site.baseurl}}/api/errors/#fatal-errors)를 참조하세요.
+요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류]({{site.baseurl}}/api/errors#fatal-errors)를 참조하세요.
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 방문하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 방문하세요.
 {% endalert %}
 
 {% endapi %}

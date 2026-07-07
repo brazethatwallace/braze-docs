@@ -13,7 +13,7 @@ page_order: 2
 Vous pouvez gérer les centres de préférences par glisser-déposer existants depuis **Audience** > **Centre de préférence des e-mails** :
 
 - Pour modifier le nom ou le contenu d'un centre de préférences, ouvrez-le depuis le tableau de bord.
-- Les centres de préférences par glisser-déposer ne peuvent pas être supprimés depuis le tableau de bord. Pour en supprimer un, retirez d'abord son étiquette Liquid de toutes les Campaigns ou étapes du Canvas concernées, puis contactez l'[assistance Braze]({{site.baseurl}}/support_contact/).
+- Les centres de préférences par glisser-déposer ne peuvent pas être supprimés depuis le tableau de bord. Pour en supprimer un, retirez d'abord son étiquette Liquid de toutes les Campaigns ou étapes du Canvas concernées, puis contactez l'[assistance Braze]({{site.baseurl}}/support_contact).
 - Si un centre de préférences supprimé était utilisé dans des messages précédemment envoyés, il cessera de fonctionner dans ces e-mails déjà délivrés.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -23,7 +23,6 @@ Créez un centre de préférences en accédant à **Audience** > **Centre de pr�
 
 Une liste de centres de préférences personnalisés s'affichera. Sélectionnez **Créer** pour créer un nouveau centre de préférences, ou sélectionnez le nom d'un centre existant pour le modifier.
 
-![Une liste de centres de préférences personnalisés avec le nom, la description, le type, l'état, la date de dernière modification et l'utilisateur ayant créé le centre.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## Étape 2 : Nommer le centre de préférences e-mail {#step-2-name-the-email-preference-center}
 
@@ -31,7 +30,6 @@ Les noms des centres de préférences ne peuvent contenir que des caractères al
 
 Cette étiquette Liquid peut être incluse dans n'importe quelle Campaign ou étape du Canvas sortante et dirigera les utilisateurs vers le centre de préférences.
 
-![Un exemple de Liquid pour un centre de préférences.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## Étape 3 : Ajouter des groupes d'abonnement au centre de préférences {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,9 +46,8 @@ Vous pouvez configurer davantage les groupes d'abonnement sélectionnés en cliq
 - Ajouter ou supprimer une case à cocher **Subscribe to all** qui abonnera l'utilisateur à tous les groupes d'abonnement affichés dans ce bloc
 - Ajouter ou supprimer une case à cocher **Unsubscribe from all** qui désabonnera l'utilisateur de tous les groupes d'abonnement affichés dans ce bloc
 
-![Un exemple de centre de préférences avec les options pour s'abonner à tous les messages, au marketing, à la newsletter et aux e-mails hebdomadaires, ou pour se désabonner de tout.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
-Le bouton **Unsubscribe from all** en bas du modèle ne peut pas être supprimé et [désabonnera globalement]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states) l'utilisateur de la réception de tout message e-mail.
+Le bouton **Unsubscribe from all** en bas du modèle ne peut pas être supprimé et [désabonnera globalement]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) l'utilisateur de la réception de tout message e-mail.
 
 ## Étape 4 : Personnaliser le centre de préférences avec l'éditeur par glisser-déposer {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -88,7 +85,7 @@ Les blocs représentent différents types de contenu que vous pouvez utiliser da
 
 ![Option pour sélectionner des blocs, y compris titre, paragraphe, bouton, image et espacement.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du remplissage. Le panneau de droite bascule automatiquement vers un panneau de style pour l'élément de contenu sélectionné. Pour plus d'informations, consultez [Propriétés des blocs éditeur]({{site.baseurl}}/dnd/editor_blocks/).
+Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du remplissage. Le panneau de droite bascule automatiquement vers un panneau de style pour l'élément de contenu sélectionné. Pour plus d'informations, consultez [Blocs éditeur (centre de préférences)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center).
 
 Si vous utilisez le bloc de code personnalisé dans votre centre de préférences, les cadres intégrés (iframes) peuvent ne pas être générés dans le code personnalisé lors de la livraison à vos utilisateurs.
 
@@ -117,7 +114,7 @@ Pour placer un lien vers le centre de préférences dans vos e-mails, copiez l'�
 
 ![L'option Copier le Liquid dans la ligne d'un centre de préférences.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-Ajoutez l'étiquette Liquid à l'emplacement souhaité dans votre e-mail, de la même manière que les [URL de désabonnement]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#adding-a-custom-unsubscribe-link) sont insérées.
+Ajoutez l'étiquette Liquid à l'emplacement souhaité dans votre e-mail, de la même manière que les [URL de désabonnement]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) sont insérées.
 
 ## Gestion des erreurs {#handling-errors}
 

@@ -10,23 +10,23 @@ search_tag: Partner
 
 > La [API de personalización](https://hightouch.com/docs/destinations/personalization-api) de Hightouch es un servicio gestionado que te permite alojar una API de datos de baja latencia basada en cualquier conjunto de datos de tu almacén de datos en la nube.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Diagrama de arquitectura de la API de personalización de Hightouch que muestra el flujo de datos desde un almacén de datos a través de Hightouch hacia aplicaciones móviles, experiencias web y correos electrónicos dinámicos.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-La integración de Braze y Hightouch te permite utilizar la API con [Contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para extraer datos actualizados de clientes u objetos en tus Campaigns o Canvas en el momento del envío.
+La integración de Braze y Hightouch te permite utilizar la API con [Contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) para extraer datos actualizados de clientes u objetos en tus campañas o Canvas en el momento del envío.
 
 La API de personalización de Hightouch proporciona un punto de conexión REST para utilizar en tu configuración de Braze. En concreto, puedes utilizar la oferta de Contenido conectado de Braze para realizar una solicitud GET a la API de personalización y recuperar toda la información relacionada con un identificador concreto. Los datos expuestos por esta API pueden representar datos de clientes, productos o cualquier otro objeto.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagrama que muestra datos de Snowflake, BigQuery y Redshift fluyendo a través de la API de personalización de Hightouch hacia el Contenido conectado de Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
-| [Cuenta de Hightouch](https://app.hightouch.com/login) con la API de personalización activada | Se necesita una [cuenta de nivel empresarial](https://hightouch.com/pricing) de Hightouch para beneficiarse de esta asociación.|
+| Requisito | Descripción |
+| --- | --- |
+| [Cuenta de Hightouch](https://app.hightouch.com/login) con la API de personalización activada | Se necesita una [cuenta de nivel empresarial](https://hightouch.com/pricing) de Hightouch para beneficiarse de esta asociación. |
 | Casos de uso definidos | Antes de configurar la API, debes determinar tu caso de uso para esta integración. Consulta la siguiente lista de casos de uso comunes. |
 | Datos almacenados en un almacén de datos en la nube u otra fuente | Hightouch se integra con [más de 25 orígenes de datos](https://hightouch.com/integrations) |
 | Clave de API de Hightouch | Se puede crear en **Hightouch > Settings > API keys > Add API key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% tabs %}
 {% tab Use Cases %}
@@ -36,8 +36,8 @@ La API de personalización de Hightouch proporciona un punto de conexión REST p
 Antes de empezar, es útil planificar exactamente cómo quieres utilizar la API de personalización.
 
 Los casos de uso más comunes son:
-- **Recomendaciones de productos** para agilizar la incorporación de recomendaciones de productos personalizadas en plantillas de correo electrónico, Campaigns o experiencias dentro de la aplicación
-- **Impulsar Campaigns de marketing personalizadas** enriqueciendo los puntos de intervención de marketing con recomendaciones dinámicas de productos
+- **Recomendaciones de productos** para agilizar la incorporación de recomendaciones de productos personalizadas en plantillas de correo electrónico, campañas o experiencias dentro de la aplicación
+- **Impulsar campañas de marketing personalizadas** enriqueciendo los puntos de intervención de marketing con recomendaciones dinámicas de productos
 - **Ofrecer personalización en la aplicación o en la web**, por ejemplo, resultados de búsqueda personalizados, precios basados en cohortes y mensajería, recomendaciones de artículos o ubicaciones de las tiendas más cercanas
 - **Recomendaciones basadas en datos financieros o médicos**: los datos financieros tienen requisitos estrictos que Hightouch cumple mediante sus [estrictas políticas de seguridad de datos](https://hightouch.com/docs/security/overview#compliance). Con Hightouch, puedes crear segmentos de clientes basados en datos financieros o médicos sin exponer los atributos subyacentes utilizados en tus criterios de segmentación.
 
@@ -100,7 +100,7 @@ Se puede acceder a la API en `https://personalization.{region}.hightouch.com`, p
 
 La información está disponible utilizando este punto de conexión `/v1/collections/:collection_name/records/:index_key/:index_value`.
 
-Por ejemplo, puedes incluir este fragmento en una Campaign o Canvas:
+Por ejemplo, puedes incluir este fragmento en una campaña o Canvas:
 
 {% raw %}
 
@@ -124,7 +124,7 @@ Para el siguiente ejemplo de carga útil:
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Para el siguiente ejemplo de carga útil:
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -167,10 +167,10 @@ Las siguientes referencias de Liquid devolverían estos datos de ejemplo:
 
 | Plantilla Liquid | Ejemplo devuelto |
 | --- | --- |
-| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %}| Aphex Twin |
-| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %}| San Francisco, CA |
-| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %}| Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
+| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
+| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4: Llamar a la API de personalización a través del Contenido conectado de Braze" }
 
 ## Solución de problemas {#troubleshooting}
 

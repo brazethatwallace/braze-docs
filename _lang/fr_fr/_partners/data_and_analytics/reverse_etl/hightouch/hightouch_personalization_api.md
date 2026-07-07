@@ -10,13 +10,13 @@ search_tag: Partner
 
 > L'[API de personnalisation](https://hightouch.com/docs/destinations/personalization-api) de Hightouch est un service géré qui vous permet d'héberger une API de données à faible latence basée sur n'importe quel ensemble de données de votre entrepôt de données cloud.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Diagramme d'architecture de l'API de personnalisation Hightouch montrant le flux de données depuis un entrepôt de données via Hightouch vers des applications mobiles, des expériences web et des e-mails dynamiques.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-L'intégration de Braze et Hightouch vous permet d'utiliser l'API avec le [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) pour intégrer des données à jour sur les clients ou les objets dans vos campagnes ou Canvas au moment de l'envoi.
+L'intégration de Braze et Hightouch vous permet d'utiliser l'API avec le [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) pour intégrer des données à jour sur les clients ou les objets dans vos Campaigns ou Canvas au moment de l'envoi.
 
 L'API de personnalisation de Hightouch fournit un endpoint REST à utiliser dans votre configuration Braze. Plus précisément, vous pouvez utiliser l'offre de contenu connecté de Braze pour effectuer une requête GET à l'API de personnalisation afin de récupérer toutes les informations liées à un identifiant particulier. Les données exposées par cette API peuvent représenter des données relatives à un client, à un produit ou à tout autre objet.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagramme montrant les données de Snowflake, BigQuery et Redshift transitant par l'API de personnalisation Hightouch vers le contenu connecté de Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Conditions préalables {#prerequisites}
 
@@ -26,23 +26,23 @@ L'API de personnalisation de Hightouch fournit un endpoint REST à utiliser dans
 | Cas d'utilisation définis | Avant de configurer l'API, vous devez définir votre cas d'utilisation pour cette intégration. Consultez la liste suivante pour les cas d'utilisation courants. |
 | Données stockées dans un entrepôt de données cloud ou une autre source | Hightouch s'intègre à [plus de 25 sources de données](https://hightouch.com/integrations) |
 | Clé API Hightouch | Elle peut être créée dans **Hightouch > Settings > API keys > Add API key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% tabs %}
-{% tab Use Cases %}
+{% tab Cas d'utilisation %}
 
 ### Cas d'utilisation {#use-cases}
 
 Avant de commencer, il est utile de planifier exactement la manière dont vous souhaitez utiliser l'API de personnalisation.
 
 Les cas d'utilisation courants incluent :
-- **Recommandations de produits** pour simplifier l'intégration de recommandations de produits personnalisées dans les modèles d'e-mails, les campagnes ou les expériences in-app
-- **Campagnes marketing personnalisées** en enrichissant les points de contact marketing grâce à des recommandations de produits dynamiques
+- **Recommandations de produits** pour simplifier l'intégration de recommandations de produits personnalisées dans les modèles d'e-mails, les Campaigns ou les expériences in-app
+- **Campaigns marketing personnalisées** en enrichissant les points de contact marketing grâce à des recommandations de produits dynamiques
 - **Personnalisation in-app ou sur le Web**, par exemple des résultats de recherche personnalisés, une tarification par cohorte, l'envoi de messages, des recommandations d'articles ou les emplacements des magasins les plus proches
 - **Recommandations basées sur des données financières ou médicales** — les données financières sont soumises à des exigences strictes auxquelles Hightouch répond grâce à ses [politiques de sécurité des données strictes](https://hightouch.com/docs/security/overview#compliance). Avec Hightouch, vous pouvez créer des segments de clientèle en fonction de données financières ou médicales sans exposer les attributs sous-jacents utilisés dans vos critères de segmentation.
 
 {% endtab %}
-{% tab Datasets %}
+{% tab Ensembles de données %}
 
 ### Ensembles de données {#datasets}
 
@@ -100,7 +100,7 @@ L'API est accessible à l'adresse `https://personalization.{region}.hightouch.co
 
 Les informations sont disponibles via cet endpoint `/v1/collections/:collection_name/records/:index_key/:index_value`.
 
-Par exemple, vous pouvez inclure cet extrait de code dans une campagne ou un Canvas :
+Par exemple, vous pouvez inclure cet extrait de code dans une Campaign ou un Canvas :
 
 {% raw %}
 
@@ -124,7 +124,7 @@ Pour l'exemple de payload ci-dessous :
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Pour l'exemple de payload ci-dessous :
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ Les références Liquid suivantes renverraient ces exemples de données :
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %}| Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %}| San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %}| Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 4 : Appeler l'API de personnalisation via le contenu connecté de Braze" }
 
 ## Résolution des problèmes {#troubleshooting}
 

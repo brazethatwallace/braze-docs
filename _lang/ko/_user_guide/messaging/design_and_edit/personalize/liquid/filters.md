@@ -6,9 +6,9 @@ description: "이 참조 페이지에서는 정적 또는 동적 콘텐츠를 �
 
 ---
 
-# 필터
+# 필터 {#filters}
 
-> 이 참조 문서에서는 Liquid의 필터에 대한 개요를 제공하며, Braze에서 지원하는 필터를 다룹니다. 이러한 필터를 어떻게 사용할 수 있는지 아이디어를 찾고 계신가요? [Liquid 사용 사례 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)를 확인해 보세요.
+> 이 참조 문서에서는 Liquid의 필터에 대한 개요를 제공하며, Braze에서 지원하는 필터를 다룹니다. 이러한 필터를 어떻게 사용할 수 있는지 아이디어를 찾고 계신가요? [Liquid 사용 사례 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)를 확인해 보세요.
 
 필터는 Liquid에서 숫자, 문자열, 변수 및 오브젝트의 출력을 수정하는 방법입니다. 필터를 사용하여 문자열을 소문자에서 대문자로 변경하거나 덧셈이나 나눗셈과 같은 수학 연산을 수행하는 등 정적 또는 동적 텍스트를 다시 포맷할 수 있습니다.
 
@@ -16,7 +16,7 @@ description: "이 참조 페이지에서는 정적 또는 동적 콘텐츠를 �
 Braze는 Shopify의 모든 Liquid 필터를 지원하지는 않습니다. 이 페이지에서는 Braze가 테스트한 Liquid 필터를 설명하려고 하지만, 완전한 목록이 아닐 수 있습니다. 메시지를 발송하기 전에 항상 Liquid를 테스트하세요. <br><br>여기에 나열되지 않은 필터에 대해 궁금한 점이 있으면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
-## 필터 구문
+## 필터 구문 {#filter-syntax}
 
 {% raw %}
 
@@ -25,14 +25,14 @@ Braze는 Shopify의 모든 Liquid 필터를 지원하지는 않습니다. 이 �
 {% endraw %}
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {{"Big Sale" | upcase}}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 BIG SALE
@@ -44,22 +44,22 @@ BIG SALE
 이 예시에서 `Big Sale`은 문자열이고, `upcase`는 적용되는 필터입니다.
 
 {% alert note %}
-필터는 `assign` 문과 출력 태그 {% raw %}(`{{ }}`){% endraw %}에서 사용할 수 있지만, 조건문(`if`, `elsif`, `unless`), `case`/`when`, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. 이러한 컨텍스트에서 필터링된 값을 사용하려면 먼저 결과를 변수에 할당하세요. 자세한 내용은 [Operator와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)를 참조하세요.
+필터는 `assign` 문과 출력 태그 {% raw %}(`{{ }}`){% endraw %}에서 사용할 수 있지만, 조건문(`if`, `elsif`, `unless`), `case`/`when`, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. 이러한 컨텍스트에서 필터링된 값을 사용하려면 먼저 결과를 변수에 할당하세요. 자세한 내용은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)를 참조하세요.
 {% endalert %}
 
-### 다중 필터 구문
+### 다중 필터 구문 {#syntax-for-multiple-filters}
 
 하나의 출력에 여러 필터를 사용할 수 있습니다. 필터는 왼쪽에서 오른쪽으로 적용됩니다.
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
  {{ "Big Sale" | upcase | remove: "BIG" }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 SALE
@@ -68,54 +68,54 @@ SALE
 {% endtab %}
 {% endtabs %}
 
-## 배열 필터
+## 배열 필터 {#array-filters}
 
 배열 필터는 배열의 출력을 변경하는 데 사용됩니다.
 
-| 필터               | 정의                                                                                                         | 지원 여부 |
+| 필터 | 정의 | 지원 여부 |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------- | :-------- |
-| [join](https://shopify.dev/docs/api/liquid/filters/join)          | 배열의 요소를 매개변수로 전달된 문자로 결합합니다. 결과는 단일 문자열입니다.          | ✅  예   |
-| [first](https://shopify.dev/docs/api/liquid/filters/first)         | 배열의 첫 번째 요소를 반환합니다. 커스텀 속성 배열에서는 가장 오래전에 추가된 값입니다.                | ✅  예   |
-| [last](https://shopify.dev/docs/api/liquid/filters/last)          | 배열의 마지막 요소를 반환합니다. 커스텀 속성 배열에서는 가장 최근에 추가된 값입니다.          | ✅  예   |
-| [compact](https://shopify.dev/api/liquid/filters/compact)       | 배열에서 `nil` 항목을 제거합니다.                                                                             | ✅  예   |
-| [concat](https://shopify.dev/api/liquid/filters/concat)        | 배열을 다른 배열과 결합합니다.                                                                              | ✅  예   |
-| [find_index](https://shopify.dev/docs/api/liquid/filters/find_index)         | 배열에서 지정된 인덱스 위치의 항목을 반환합니다. 배열의 첫 번째 항목은 `[0]`으로 참조됩니다. | ⛔  아니요   |
-| [map](https://shopify.dev/api/liquid/filters/map)           | 배열 요소의 속성을 매개변수로 받아 각 배열 요소의 값으로 배열을 생성합니다.        | ✅  예   |
-| [reverse](https://shopify.dev/api/liquid/filters/reverse)       | 배열에서 항목의 순서를 뒤집습니다.                                                                       | ✅  예   |
-| [size](https://shopify.dev/api/liquid/filters/size)          | 문자열의 크기(문자 수) 또는 배열의 크기(요소 수)를 반환합니다.                      | ✅  예   |
-| [slice](https://shopify.dev/api/liquid/filters/slice)        | 지정된 인덱스에서 시작하여 문자열의 부분 문자열 또는 배열의 부분 집합을 반환합니다.                          | ✅  예   |
-| [sort](https://shopify.dev/api/liquid/filters/sort)         | 배열의 요소를 배열 내 요소의 지정된 속성으로 정렬합니다.                                    | ✅  예   |
-| [sort_natural](https://shopify.dev/api/liquid/sort_natural) | 배열의 항목을 대소문자를 구분하지 않는 알파벳 순서로 정렬합니다.                                                | ✅  예   |
-| [uniq](https://shopify.dev/api/liquid/filters/uniq)         | 배열에서 중복된 요소 인스턴스를 제거합니다.                                                           | ✅  예   |
-| [where](https://shopify.dev/api/liquid/where)        | 특정 등록정보 값을 가진 항목만 포함하도록 배열을 필터링합니다.                                             | ✅  예   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [join](https://shopify.dev/docs/api/liquid/filters/join) | 배열의 요소를 매개변수로 전달된 문자로 결합합니다. 결과는 단일 문자열입니다. | ✅  예 |
+| [first](https://shopify.dev/docs/api/liquid/filters/first) | 배열의 첫 번째 요소를 반환합니다. 커스텀 속성 배열에서는 가장 오래전에 추가된 값입니다. | ✅  예 |
+| [last](https://shopify.dev/docs/api/liquid/filters/last) | 배열의 마지막 요소를 반환합니다. 커스텀 속성 배열에서는 가장 최근에 추가된 값입니다. | ✅  예 |
+| [compact](https://shopify.dev/api/liquid/filters/compact) | 배열에서 `nil` 항목을 제거합니다. | ✅  예 |
+| [concat](https://shopify.dev/api/liquid/filters/concat) | 배열을 다른 배열과 결합합니다. | ✅  예 |
+| [find_index](https://shopify.dev/docs/api/liquid/filters/find_index) | 배열에서 지정된 인덱스 위치의 항목을 반환합니다. 배열의 첫 번째 항목은 `[0]`으로 참조됩니다. | ⛔  아니요 |
+| [map](https://shopify.dev/api/liquid/filters/map) | 배열 요소의 속성을 매개변수로 받아 각 배열 요소의 값으로 배열을 생성합니다. | ✅  예 |
+| [reverse](https://shopify.dev/api/liquid/filters/reverse) | 배열에서 항목의 순서를 뒤집습니다. | ✅  예 |
+| [size](https://shopify.dev/api/liquid/filters/size) | 문자열의 크기(문자 수) 또는 배열의 크기(요소 수)를 반환합니다. | ✅  예 |
+| [slice](https://shopify.dev/api/liquid/filters/slice) | 지정된 인덱스에서 시작하여 문자열의 부분 문자열 또는 배열의 부분 집합을 반환합니다. | ✅  예 |
+| [sort](https://shopify.dev/api/liquid/filters/sort) | 배열의 요소를 배열 내 요소의 지정된 속성으로 정렬합니다. | ✅  예 |
+| [sort_natural](https://shopify.dev/api/liquid/sort_natural) | 배열의 항목을 대소문자를 구분하지 않는 알파벳 순서로 정렬합니다. | ✅  예 |
+| [uniq](https://shopify.dev/api/liquid/filters/uniq) | 배열에서 중복된 요소 인스턴스를 제거합니다. | ✅  예 |
+| [where](https://shopify.dev/api/liquid/where) | 특정 등록정보 값을 가진 항목만 포함하도록 배열을 필터링합니다. | ✅  예 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Array filters" }
 
-## 색상 필터
+## 색상 필터 {#color-filters}
 
 [색상 필터](https://shopify.dev/api/liquid/filters/color-filters)는 Braze에서 지원되지 않습니다.
 
-## 글꼴 필터
+## 글꼴 필터 {#font-filters}
 
 [글꼴 필터](https://shopify.dev/api/liquid/filters/font-filters)는 Braze에서 지원되지 않습니다.
 
-## 수학 필터
+## 수학 필터 {#math-filters}
 
 수학 필터를 사용하면 수학 연산을 수행할 수 있습니다. 하나의 출력에 여러 필터를 사용하면 왼쪽에서 오른쪽으로 적용됩니다.
 
-| 필터  | 정의      | 지원 여부 |
+| 필터 | 정의 | 지원 여부 |
 | :------ |:----------------| :-------- |
-| [abs](https://shopify.dev/api/liquid/filters/abs)        | 숫자의 절대값을 반환합니다.     | ✅  예   |
-| [at_most](https://shopify.dev/api/liquid/filters/at_most)    | 숫자를 최대값으로 제한합니다.   | ✅  예   |
-| [at_least](https://shopify.dev/api/liquid/filters/at_least)   | 숫자를 최소값으로 제한합니다.   | ✅  예   |
-| [ceil](https://shopify.dev/api/liquid/filters/ceil)       | 출력을 가장 가까운 정수로 올림합니다.  | ✅  예   |
-| [divided_by](https://shopify.dev/api/liquid/filters/divided_by) | 출력을 숫자로 나눕니다. 출력은 가장 가까운 정수로 내림됩니다. 반올림을 방지하려면 다음 팁을 확인하세요. | ✅  예   |
-| [floor](https://shopify.dev/api/liquid/filters/floor)      | 출력을 가장 가까운 정수로 내림합니다.        | ✅  예   |
-| [minus](https://shopify.dev/api/liquid/filters/minus)      | 출력에서 숫자를 뺍니다.          | ✅  예   |
-| [plus](https://shopify.dev/api/liquid/filters/plus)       | 출력에 숫자를 더합니다.     | ✅  예   |
-| [round](https://shopify.dev/api/liquid/filters/round)      | 출력을 가장 가까운 정수 또는 지정된 소수 자릿수로 반올림합니다.  | ✅  예   |
-| [times](https://shopify.dev/api/liquid/filters/times)     | 출력에 숫자를 곱합니다.       | ✅  예   |
-| [modulo](https://shopify.dev/api/liquid/filters/modulo)    | 출력을 숫자로 나누고 나머지를 반환합니다.   | ✅  예   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [abs](https://shopify.dev/api/liquid/filters/abs) | 숫자의 절대값을 반환합니다. | ✅  예 |
+| [at_most](https://shopify.dev/api/liquid/filters/at_most) | 숫자를 최대값으로 제한합니다. | ✅  예 |
+| [at_least](https://shopify.dev/api/liquid/filters/at_least) | 숫자를 최소값으로 제한합니다. | ✅  예 |
+| [ceil](https://shopify.dev/api/liquid/filters/ceil) | 출력을 가장 가까운 정수로 올림합니다. | ✅  예 |
+| [divided_by](https://shopify.dev/api/liquid/filters/divided_by) | 출력을 숫자로 나눕니다. 출력은 가장 가까운 정수로 내림됩니다. 반올림을 방지하려면 다음 팁을 확인하세요. | ✅  예 |
+| [floor](https://shopify.dev/api/liquid/filters/floor) | 출력을 가장 가까운 정수로 내림합니다. | ✅  예 |
+| [minus](https://shopify.dev/api/liquid/filters/minus) | 출력에서 숫자를 뺍니다. | ✅  예 |
+| [plus](https://shopify.dev/api/liquid/filters/plus) | 출력에 숫자를 더합니다. | ✅  예 |
+| [round](https://shopify.dev/api/liquid/filters/round) | 출력을 가장 가까운 정수 또는 지정된 소수 자릿수로 반올림합니다. | ✅  예 |
+| [times](https://shopify.dev/api/liquid/filters/times) | 출력에 숫자를 곱합니다. | ✅  예 |
+| [modulo](https://shopify.dev/api/liquid/filters/modulo) | 출력을 숫자로 나누고 나머지를 반환합니다. | ✅  예 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Math filters" }
 
 {% alert tip %}
 Liquid에서 정수를 정수로 나눌 때, 결과가 플로트(소수가 있는 숫자)인 경우 Liquid는 자동으로 가장 가까운 정수로 내림합니다. 그러나 정수를 플로트로 나누면 항상 플로트를 반환합니다. 즉, 정수를 플로트(1.0, 2.0, 3.0)로 변환하면 플로트 결과를 얻을 수 있습니다.
@@ -124,7 +124,7 @@ Liquid에서 정수를 정수로 나눌 때, 결과가 플로트(소수가 있�
 {% endraw %}
 {% endalert %}
 
-### 커스텀 속성을 사용한 수학 연산
+### 커스텀 속성을 사용한 수학 연산 {#mathematical-operations-with-custom-attributes}
 
 두 개의 커스텀 속성 간에 수학 연산을 수행할 수 없다는 점을 유의하세요.
 
@@ -139,7 +139,7 @@ Liquid에서 정수를 정수로 나눌 때, 결과가 플로트(소수가 있�
 1. 커스텀 속성을 변수에 할당하는 줄,
 2. 덧셈을 수행하는 줄.
 
-#### 사용 사례: 현재 잔액 계산
+#### 사용 사례: 현재 잔액 계산 {#use-case-calculate-current-balance}
 
 사용자의 기프트 카드 잔액과 리워드 잔액을 더하여 현재 잔액을 계산한다고 가정해 보겠습니다.
 
@@ -153,7 +153,7 @@ Liquid에서 정수를 정수로 나눌 때, 결과가 플로트(소수가 있�
 2. `plus` 필터를 사용하여 각 사용자의 기프트 카드 잔액과 `{{balance}}` 오브젝트로 표시되는 리워드 잔액을 결합합니다.
 {% endraw %}
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
@@ -161,7 +161,7 @@ You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 You have $35 to spend!
@@ -170,16 +170,16 @@ You have $35 to spend!
 {% endtab %}
 {% endtabs %}
 
-## 금액 필터
+## 금액 필터 {#money-filters}
 
 사용자에게 구매, 계정 잔액 또는 금액과 관련된 내용을 업데이트하는 경우 금액 필터를 사용해야 합니다. 금액 필터는 소수점이 올바른 위치에 있고 업데이트의 어떤 부분도 손실되지 않도록(끝에 있는 성가신 `0`처럼) 보장합니다.
 
-| 필터         | 정의          | 지원 여부 |
+| 필터 | 정의 | 지원 여부 |
 | :--------------- | :--------------- | :-------- |
-| [money](https://shopify.dev/api/liquid/filters/money)      | 소수점이 올바른 위치에 있고 숫자 끝에서 0이 제거되지 않도록 숫자를 포맷합니다.   | ✅  예   |
-| [money_with_currency](https://shopify.dev/api/liquid/filters/money_with_currency)    | 통화 기호와 함께 숫자를 포맷합니다.     | ⛔  아니요    |
-| [money_without_currency](https://shopify.dev/api/liquid/filters/money_without_currency)     | 통화 기호 없이 숫자를 포맷합니다.      | ⛔  아니요    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [money](https://shopify.dev/api/liquid/filters/money) | 소수점이 올바른 위치에 있고 숫자 끝에서 0이 제거되지 않도록 숫자를 포맷합니다. | ✅  예 |
+| [money_with_currency](https://shopify.dev/api/liquid/filters/money_with_currency) | 통화 기호와 함께 숫자를 포맷합니다. | ⛔  아니요 |
+| [money_without_currency](https://shopify.dev/api/liquid/filters/money_without_currency) | 통화 기호 없이 숫자를 포맷합니다. | ⛔  아니요 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Money filters" }
 
 {% alert important %}
 `money` 필터로 숫자를 올바르게 포맷하려면 숫자에서 쉼표를 제거하고 `money` 필터 앞에 `plus: 0` 필터를 추가하세요. 예를 들어, 다음 Liquid를 참조하세요:<br><br>
@@ -191,7 +191,7 @@ You have $35 to spend!
 {% endraw %}
 {% endalert %}
 
-### Shopify 금액 필터 vs Braze 금액 필터
+### Shopify 금액 필터 vs Braze 금액 필터 {#shopify-money-filter-versus-braze-money-filter}
 
 {% alert warning %}
 Shopify `money` 필터의 동작은 Braze에서 사용되는 방식과 다릅니다. 예상되는 동작에 대한 정확한 설명은 다음 예시를 참조하세요.
@@ -205,23 +205,23 @@ ${{custom_attribute.${account_balance} | money}}
 ```
 {% endraw %}
 
-| 금액 필터 사용 시                       | 금액 필터 미사용 시                    |
+| 금액 필터 사용 시 | 금액 필터 미사용 시 |
 | :------------------------------------------ | :------------------------------------------ |
-| ![금액 필터 사용 시]({% image_buster /assets/img/with_money_filter.png %})                     | ![금액 필터 미사용 시]({% image_buster /assets/img/without_money_filter.png %})                  |
+| ![금액 필터 사용 시]({% image_buster /assets/img/with_money_filter.png %}) | ![금액 필터 미사용 시]({% image_buster /assets/img/without_money_filter.png %}) |
 | `account_balance`가 `17.8`로 입력된 경우. | `account_balance`가 `17.8`로 입력된 경우. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Shopify money filter versus Braze money filter" }
 
 Braze의 `money` 필터는 사전 설정에 따라 자동으로 소수점을 적용하지 않기 때문에 Shopify와 다릅니다. 예를 들어, `rewards_redeemed`에 `145` 값이 포함된 다음 시나리오를 살펴보겠습니다:
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 ${{event_properties.${rewards_redeemed} | money }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 $145.00
@@ -233,14 +233,14 @@ $145.00
 Shopify의 [money](https://shopify.dev/api/liquid/filters/money) 필터에 따르면 출력이 `$1.45`여야 하지만, Braze에서는 `$145.00`으로 출력됩니다. 해결 방법으로, `divided_by` 필터를 사용하여 금액 필터를 적용하기 전에 숫자를 소수로 변환할 수 있습니다:
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 ${{event_properties.${rewards_redeemed} | divided_by: 100.00 | money }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 $1.45
@@ -249,7 +249,7 @@ $1.45
 {% endtab %}
 {% endtabs %}
 
-## 문자열 필터
+## 문자열 필터 {#string-filters}
 
 문자열 필터는 문자열의 출력과 변수를 조작하는 데 사용됩니다. 문자열은 영숫자 문자의 조합이며 직선 따옴표로 감싸야 합니다.
 
@@ -257,51 +257,51 @@ $1.45
 직선 따옴표는 Liquid에서 곡선 따옴표와 다릅니다. 텍스트 편집기에서 Braze로 Liquid를 복사하여 붙여넣을 때 곡선 따옴표가 Liquid에 오류를 일으킬 수 있으므로 주의하세요. Braze에서 직접 Liquid를 작성하면 직선 따옴표가 자동으로 적용됩니다.
 {% endalert %}
 
-| 필터          | 설명     | 지원 여부 |
+| 필터 | 설명 | 지원 여부 |
 | :--------------- | ------------- | --------- |
-| [append](https://shopify.dev/api/liquid/filters/append)     | 문자열에 문자를 추가합니다.           | ✅  예   |
-| [camelize](https://shopify.dev/docs/api/liquid/filters/camelize)     | 문자열을 CamelCase로 변환합니다.             | ⛔  아니요    |
-| [capitalize](https://shopify.dev/api/liquid/filters/capitalize)     | 문자열의 첫 번째 단어를 대문자로 변환하고 나머지 문자를 소문자로 변환합니다.         | ✅  예   |
-| [downcase](https://shopify.dev/api/liquid/filters/downcase)      | 문자열을 소문자로 변환합니다.         | ✅  예   |
-| [escape](https://shopify.dev/api/liquid/filters/escape)    | 문자열을 이스케이프합니다.             | ✅  예   |
-| [handleize](https://shopify.dev/api/liquid/filters/handleize)        | 문자열을 핸들로 포맷합니다.        | ⛔  아니요    |
-| [md5](https://shopify.dev/api/liquid/filters/md5)    | 문자열을 MD5 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)를 참조하세요.   | ✅  예   |
-| [sha1](https://shopify.dev/api/liquid/filters/sha1)    | 문자열을 SHA-1 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)를 참조하세요.  | ✅  예   |
-| hmac_sha1_hex<br>(이전 [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-1 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)를 참조하세요. | ✅  예   |
-| [hmac_sha256](https://shopify.dev/api/liquid/filters/hmac_sha256)    | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-256 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다.       | ✅  예   |
-| hmac_sha512 | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-512 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. | ✅  예  |
-| [newline_to_br](https://shopify.dev/api/liquid/filters/newline_to_br)     | 문자열의 각 줄 바꿈 앞에 `<br>` 줄 바꿈 HTML 태그를 삽입합니다.        | ✅  예   |
-| [pluralize](https://shopify.dev/api/liquid/filters/pluralize)   | 숫자 값에 따라 영어 문자열의 단수 또는 복수 버전을 출력합니다.      | ⛔  아니요    |
-| [prepend](https://shopify.dev/api/liquid/filters/prepend)     | 문자열 앞에 문자를 추가합니다.      | ✅  예   |
-| [remove](https://shopify.dev/api/liquid/filters/remove)      | 문자열에서 부분 문자열의 모든 항목을 제거합니다.       | ✅  예   |
-| [remove_first](https://shopify.dev/api/liquid/filters/remove_first)    | 문자열에서 부분 문자열의 첫 번째 항목만 제거합니다.      | ✅  예   |
-| [replace](https://shopify.dev/api/liquid/filters/replace)        | 문자열의 모든 항목을 부분 문자열로 대체합니다.   | ✅  예   |
-| [replace_first](https://shopify.dev/api/liquid/filters/replace_first)        | 문자열의 첫 번째 항목을 부분 문자열로 대체합니다.      | ✅  예   |
-| [slice](https://shopify.dev/api/liquid/filters/slice)       | slice 필터는 지정된 인덱스에서 시작하는 부분 문자열을 반환합니다.       | ✅  예   |
-| [split](https://shopify.dev/api/liquid/filters/split)  | split 필터는 부분 문자열을 매개변수로 받습니다. 부분 문자열은 문자열을 배열로 나누는 구분자로 사용됩니다.            | ✅  예   |
-| [strip](https://shopify.dev/api/liquid/filters/strip)   | 문자열의 왼쪽과 오른쪽에서 탭, 공백 및 줄 바꿈(모든 공백)을 제거합니다.                                                                                                    | ✅  예   |
-| [lstrip](https://shopify.dev/api/liquid/filters/lstrip)     | 문자열의 왼쪽에서 탭, 공백 및 줄 바꿈(모든 공백)을 제거합니다.    | ⛔  아니요    |
-| [rstrip](https://shopify.dev/api/liquid/filters/rstrip)             | 문자열의 오른쪽에서 탭, 공백 및 줄 바꿈(모든 공백)을 제거합니다.          | ⛔  아니요    |
-| [strip_html](https://shopify.dev/api/liquid/filters/strip_html)         | 문자열에서 모든 HTML 태그를 제거합니다.        | ✅  예   |
-| [strip_newlines](https://shopify.dev/api/liquid/filters/strip_newlines)  | 문자열에서 줄 바꿈/개행을 제거합니다.        | ✅  예   |
-| [truncate](https://shopify.dev/api/liquid/filters/truncate)    | 문자열을 첫 번째 매개변수로 전달된 문자 수로 자릅니다. 잘린 문자열에 줄임표(...)가 추가되며 문자 수에 포함됩니다.    | ✅  예   |
-| [truncatewords](https://shopify.dev/api/liquid/filters/truncatewords)   | 문자열을 첫 번째 매개변수로 전달된 단어 수로 자릅니다. 잘린 문자열에 줄임표(...)가 추가됩니다.    | ✅  예   |
-| [upcase](https://shopify.dev/api/liquid/filters/upcase)   | 문자열을 대문자로 변환합니다.      | ✅  예   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [append](https://shopify.dev/api/liquid/filters/append) | 문자열에 문자를 추가합니다. | ✅  예 |
+| [camelize](https://shopify.dev/docs/api/liquid/filters/camelize) | 문자열을 CamelCase로 변환합니다. | ⛔  아니요 |
+| [capitalize](https://shopify.dev/api/liquid/filters/capitalize) | 문자열의 첫 번째 단어를 대문자로 변환하고 나머지 문자를 소문자로 변환합니다. | ✅  예 |
+| [downcase](https://shopify.dev/api/liquid/filters/downcase) | 문자열을 소문자로 변환합니다. | ✅  예 |
+| [escape](https://shopify.dev/api/liquid/filters/escape) | 문자열을 이스케이프합니다. | ✅  예 |
+| [handleize](https://shopify.dev/api/liquid/filters/handleize) | 문자열을 핸들로 포맷합니다. | ⛔  아니요 |
+| [md5](https://shopify.dev/api/liquid/filters/md5) | 문자열을 MD5 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)를 참조하세요. | ✅  예 |
+| [sha1](https://shopify.dev/api/liquid/filters/sha1) | 문자열을 SHA-1 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)를 참조하세요. | ✅  예 |
+| hmac_sha1_hex<br>(이전 [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-1 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)를 참조하세요. | ✅  예 |
+| [hmac_sha256](https://shopify.dev/api/liquid/filters/hmac_sha256) | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-256 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. | ✅  예 |
+| hmac_sha512 | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-512 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. | ✅  예 |
+| [newline_to_br](https://shopify.dev/api/liquid/filters/newline_to_br) | 문자열의 각 줄 바꿈 앞에 `<br>` 줄 바꿈 HTML 태그를 삽입합니다. | ✅  예 |
+| [pluralize](https://shopify.dev/api/liquid/filters/pluralize) | 숫자 값에 따라 영어 문자열의 단수 또는 복수 버전을 출력합니다. | ⛔  아니요 |
+| [prepend](https://shopify.dev/api/liquid/filters/prepend) | 문자열 앞에 문자를 추가합니다. | ✅  예 |
+| [remove](https://shopify.dev/api/liquid/filters/remove) | 문자열에서 부분 문자열의 모든 항목을 제거합니다. | ✅  예 |
+| [remove_first](https://shopify.dev/api/liquid/filters/remove_first) | 문자열에서 부분 문자열의 첫 번째 항목만 제거합니다. | ✅  예 |
+| [replace](https://shopify.dev/api/liquid/filters/replace) | 문자열의 모든 항목을 부분 문자열로 대체합니다. | ✅  예 |
+| [replace_first](https://shopify.dev/api/liquid/filters/replace_first) | 문자열의 첫 번째 항목을 부분 문자열로 대체합니다. | ✅  예 |
+| [slice](https://shopify.dev/api/liquid/filters/slice) | slice 필터는 지정된 인덱스에서 시작하는 부분 문자열을 반환합니다. | ✅  예 |
+| [split](https://shopify.dev/api/liquid/filters/split) | split 필터는 부분 문자열을 매개변수로 받습니다. 부분 문자열은 문자열을 배열로 나누는 구분자로 사용됩니다. | ✅  예 |
+| [strip](https://shopify.dev/api/liquid/filters/strip) | 문자열의 왼쪽과 오른쪽에서 탭, 공백 및 줄 바꿈(모든 공백)을 제거합니다. | ✅  예 |
+| [lstrip](https://shopify.dev/api/liquid/filters/lstrip) | 문자열의 왼쪽에서 탭, 공백 및 줄 바꿈(모든 공백)을 제거합니다. | ⛔  아니요 |
+| [rstrip](https://shopify.dev/api/liquid/filters/rstrip) | 문자열의 오른쪽에서 탭, 공백 및 줄 바꿈(모든 공백)을 제거합니다. | ⛔  아니요 |
+| [strip_html](https://shopify.dev/api/liquid/filters/strip_html) | 문자열에서 모든 HTML 태그를 제거합니다. | ✅  예 |
+| [strip_newlines](https://shopify.dev/api/liquid/filters/strip_newlines) | 문자열에서 줄 바꿈/개행을 제거합니다. | ✅  예 |
+| [truncate](https://shopify.dev/api/liquid/filters/truncate) | 문자열을 첫 번째 매개변수로 전달된 문자 수로 자릅니다. 잘린 문자열에 줄임표(...)가 추가되며 문자 수에 포함됩니다. | ✅  예 |
+| [truncatewords](https://shopify.dev/api/liquid/filters/truncatewords) | 문자열을 첫 번째 매개변수로 전달된 단어 수로 자릅니다. 잘린 문자열에 줄임표(...)가 추가됩니다. | ✅  예 |
+| [upcase](https://shopify.dev/api/liquid/filters/upcase) | 문자열을 대문자로 변환합니다. | ✅  예 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="String filters" }
 
-## 추가 필터
+## 추가 필터 {#additional-filters}
 
 다음 일반 필터는 콘텐츠 포맷 또는 변환을 포함한 다양한 용도로 사용됩니다.
 
-| 필터                | 설명                                                                                                                      | 지원 여부 |
+| 필터 | 설명 | 지원 여부 |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- | :-------- |
-| [date](https://shopify.dev/api/liquid/filters/date)           | 타임스탬프를 다른 날짜 형식으로 변환합니다. 자세한 내용은 [날짜 필터](#date-filter)를 참조하세요.         | ✅  예   |
-| [default](https://shopify.dev/api/liquid/filters/default)        | 할당된 값이 없는 변수에 기본값을 설정합니다. 문자열, 배열 및 해시와 함께 사용할 수 있습니다.      | ✅  예   |
-| [format_address](https://shopify.dev/api/liquid/filters/format_address) | 주소의 요소를 로케일에 따른 순서로 출력하도록 주소를 포맷합니다.        | ⛔  아니요    |
-| [highlight](https://shopify.dev/api/liquid/filters/highlight)      | 제출된 검색어와 일치하는 경우 검색 결과 내의 단어를 highlight 클래스가 있는 HTML `<strong>` 태그로 감쌉니다. | ⛔  아니요    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [date](https://shopify.dev/api/liquid/filters/date) | 타임스탬프를 다른 날짜 형식으로 변환합니다. 자세한 내용은 [날짜 필터](#date-filter)를 참조하세요. | ✅  예 |
+| [default](https://shopify.dev/api/liquid/filters/default) | 할당된 값이 없는 변수에 기본값을 설정합니다. 문자열, 배열 및 해시와 함께 사용할 수 있습니다. | ✅  예 |
+| [format_address](https://shopify.dev/api/liquid/filters/format_address) | 주소의 요소를 로케일에 따른 순서로 출력하도록 주소를 포맷합니다. | ⛔  아니요 |
+| [highlight](https://shopify.dev/api/liquid/filters/highlight) | 제출된 검색어와 일치하는 경우 검색 결과 내의 단어를 highlight 클래스가 있는 HTML `<strong>` 태그로 감쌉니다. | ⛔  아니요 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional filters" }
 
-인코딩 및 URL 필터와 같은 더 많은 지원 필터는 [고급 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/) 페이지에서 확인할 수 있습니다.
+인코딩 및 URL 필터와 같은 더 많은 지원 필터는 [고급 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters) 페이지에서 확인할 수 있습니다.
 
 ### 날짜 필터 {#date-filter}
 
@@ -310,14 +310,14 @@ $1.45
 예를 들어, `date_attribute`의 값이 타임스탬프 `2021-06-03 17:13:41 UTC`라고 가정해 보겠습니다.
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {{custom_attribute.${date_attribute} | date: '%b %d'}}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 03 June
@@ -329,14 +329,14 @@ $1.45
 `strftime` 포맷 옵션 외에도, Braze는 `%s` 날짜 필터를 사용하여 타임스탬프를 Unix 시간으로 변환하는 것도 지원합니다. 예를 들어, `date_attribute`를 Unix 시간으로 가져오려면:
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {{custom_attribute.${date_attribute} | date: '%s' }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 1433351621

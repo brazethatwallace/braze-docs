@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Erste Schritte: Übersicht über die Plattform {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Erste Schritte: Übersicht über die Plattform {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > Dieser Artikel beschreibt die grundlegenden Komponenten und Funktionen der Braze-Plattform. Links in diesem Artikel führen zu wichtigen Themen von Braze.
 
@@ -27,7 +27,7 @@ Schauen Sie sich unseren kostenlosen Kurs [Developer Learning Path](https://lear
 
 Braze ist eine Customer-Engagement-Plattform. Sie erfasst Nutzerdaten, zeigt Nutzeraktionen und -verhalten an und ermöglicht es Ihnen, darauf zu reagieren. Die Plattform umfasst drei Hauptkomponenten: das SDK, das Dashboard und die REST API.
 
-Für Marketer, die einen allgemeineren Überblick über Braze suchen, empfiehlt sich stattdessen der Abschnitt [Erste Schritte für Marketer]({{site.baseurl}}/user_guide/get_started/).
+Für Marketer, die einen allgemeineren Überblick über Braze suchen, empfiehlt sich stattdessen der Abschnitt [Erste Schritte für Marketer]({{site.baseurl}}/user_guide/get_started).
 
 ![Braze hat verschiedene Schichten. Insgesamt besteht es aus dem SDK, der API, dem Dashboard und den Partnerintegrationen. Diese tragen jeweils zu einem Datenaufnahme-Layer, einem Klassifizierungs-Layer, einem Orchestrierungs-Layer, einem Personalisierungs-Layer und einem Aktions-Layer bei. Der Aktions-Layer verfügt über verschiedene Kanäle, darunter Push-Benachrichtigungen, In-App-Nachrichten, Connected Catalog, Webhook, SMS und E-Mail.]({% image_buster /assets/img/getting-started/getting-started-vertically-integrated-stack.png %}){: style="max-width:55%;float:right;margin-left:15px;"}
 
@@ -50,15 +50,15 @@ Kurz gesagt, wenn das SDK vollständig integriert ist:
 
 Das Dashboard ist die Benutzeroberfläche, die alle Daten und Interaktionen im Zentrum der Braze-Plattform steuert. Marketer nutzen das Dashboard, um ihre Arbeit zu erledigen und Inhalte zu erstellen. Entwickler:innen nutzen das Dashboard, um Einstellungen für die Integration von Apps zu verwalten, wie z. B. API-Schlüssel und Zugangsdaten für Push-Benachrichtigungen.
 
-Wenn Sie gerade erst anfangen, sollte Ihr Teamadministrator Sie (und alle anderen Teammitglieder, die Zugriff auf Braze benötigen) als [Nutzer:innen in Ihrem Dashboard]({{site.baseurl}}/user_guide/administer/personal/) hinzufügen.
+Wenn Sie gerade erst anfangen, sollte Ihr Teamadministrator Sie (und alle anderen Teammitglieder, die Zugriff auf Braze benötigen) als [Nutzer:innen in Ihrem Dashboard]({{site.baseurl}}/user_guide/administer/personal) hinzufügen.
 
 ### REST API
 
 Mit der Braze-API können Sie Daten in großem Umfang in und aus Braze verschieben. Verwenden Sie die API, um Updates aus dem Backend, aus Data Warehouses sowie aus anderen Erst- und Drittanbieterquellen einzubringen. Darüber hinaus können Sie die API nutzen, um angepasste Events zu Segmentierungszwecken direkt aus webbasierten Anwendungen hinzuzufügen. Sie können Nachrichten über die API triggern und versenden, sodass technische Ressourcen komplexe JSON-Metadaten in Ihre Campaigns aufnehmen können.
 
-Die API stellt zudem einen Webdienst bereit, mit dem Sie Aktionen Ihrer Nutzer:innen direkt über HTTP aufzeichnen können, anstatt über die SDKs für Mobilgeräte und Web. In Kombination mit Webhooks bedeutet dies, dass Sie Aktionen verfolgen und Aktivitäten für Nutzer:innen innerhalb und außerhalb Ihres App-Erlebnisses triggern können. Der [API-Leitfaden]({{site.baseurl}}/api/home/) enthält eine Liste der verfügbaren Braze-API-Endpunkte und ihrer Verwendungsmöglichkeiten.
+Die API stellt zudem einen Webdienst bereit, mit dem Sie Aktionen Ihrer Nutzer:innen direkt über HTTP aufzeichnen können, anstatt über die SDKs für Mobilgeräte und Web. In Kombination mit Webhooks bedeutet dies, dass Sie Aktionen verfolgen und Aktivitäten für Nutzer:innen innerhalb und außerhalb Ihres App-Erlebnisses triggern können. Der [API-Leitfaden]({{site.baseurl}}/api/home) enthält eine Liste der verfügbaren Braze-API-Endpunkte und ihrer Verwendungsmöglichkeiten.
 
-Mehr über die Teile und Komponenten von Braze finden Sie hier: [Erste Schritte: Überblick über die Architektur]({{site.baseurl}}/developer_guide/getting_started/architecture_overview/).
+Mehr über die Teile und Komponenten von Braze finden Sie hier: [Erste Schritte: Überblick über die Architektur]({{site.baseurl}}/developer_guide/getting_started/architecture_overview).
 
 ## Datenanalyse und Maßnahmen {#data-analysis-and-action}
 
@@ -66,17 +66,17 @@ Die in Braze gespeicherten Daten bleiben erhalten und können für Segmentierung
 
 ![Ein Segment im Braze-Dashboard mit dem Titel „Kürzliche Käufer:innen“ wird neben einem Telefonbildschirm angezeigt, auf dem eine E-Mail mit dem Titel „Top-Empfehlungen für Linda“ zu sehen ist.]({% image_buster /assets/img/getting-started/getting-started-segment.png %}){: style="max-width:80%"}
 
-### App-Analytics
+### App-Analytics {#app-analytics}
 
 Das Braze-Dashboard zeigt Grafiken an, die in Realtime auf der Grundlage von Analytics-Metriken und angepassten Events, die Sie instrumentieren, aktualisiert werden. Konsistente Messungen und Optimierungen mithilfe von A/B-Tests, benutzerdefinierten Berichten, Analytics und automatisierter Intelligenz unterstützen Ihr Customer-Engagement und Ihre Differenzierung.
 
-### Nutzer-Segmentierung {#user-segmentation}
+### Nutzersegmentierung {#user-segmentation}
 
 Mit der Segmentierung können Sie Nutzergruppen auf der Grundlage leistungsstarker Filter ihres In-App-Verhaltens, demografischer Daten und Ähnlichem erstellen. Außerdem haben Sie in Braze die Möglichkeit, jede In-App-Nutzeraktion als „angepasstes Event“ zu definieren, wenn die gewünschte Aktion nicht standardmäßig erfasst wird. Dasselbe gilt für Nutzermerkmale über „angepasste Attribute“. Nachdem ein Nutzersegment im Dashboard erstellt wurde, bewegen sich Ihre Nutzer:innen in das Segment hinein und aus ihm heraus, wenn sie die definierten Kriterien erfüllen (oder nicht erfüllen). Sie können z. B. ein Segment erstellen, das alle Nutzer:innen umfasst, die in der App Geld ausgegeben haben und die App zuletzt vor mehr als zwei Wochen genutzt haben.
 
-Mehr über unsere Datenmodelle erfahren Sie hier: [Erste Schritte: Übersicht über Analytics]({{site.baseurl}}/developer_guide/getting_started/architecture_overview/).
+Mehr über unsere Datenmodelle erfahren Sie hier: [Erste Schritte: Übersicht über Analytics]({{site.baseurl}}/developer_guide/getting_started/architecture_overview).
 
-## Multichannel-Messaging
+## Multichannel-Messaging {#multichannel-messaging}
 
 Nachdem Sie ein Segment definiert haben, können Sie mit den Messaging-Tools von Braze auf dynamische, personalisierte Weise mit Ihren Nutzer:innen in Kontakt treten. Braze wurde mit einem kanalunabhängigen, nutzerzentrierten Datenmodell entwickelt. Die Nachrichtenübermittlung erfolgt innerhalb Ihrer App oder Website (z. B. durch das Versenden von In-App-Nachrichten oder durch grafische Elemente wie Content-Card-Karusselle und Banner) oder außerhalb Ihres App-Erlebnisses (z. B. durch das Versenden von Push-Benachrichtigungen oder E-Mails). So können Ihre Marketer beispielsweise eine Push-Benachrichtigung und eine E-Mail an das im vorherigen Abschnitt definierte Beispielsegment senden.
 
@@ -84,15 +84,15 @@ Nachdem Sie ein Segment definiert haben, können Sie mit den Messaging-Tools von
 
 | Kanal                                                                                              | Beschreibung                                                                                                                                            |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)* | Senden Sie zielgerichtete und dynamische In-App-Benachrichtigungen, ohne die Kund:innen zu unterbrechen. |
-| [E-Mail]({{site.baseurl}}/user_guide/channels/email/) | Versenden Sie Rich-HTML-Nachrichten, indem Sie Ihre E-Mail mit dem Rich-Text-Editor, unserem Drag-and-Drop-Editor oder durch Hochladen einer Ihrer vorhandenen HTML-Templates erstellen. |
-| [In-App-Nachrichten]({{site.baseurl}}/in-app_messages/) | Senden Sie unaufdringliche In-App-Benachrichtigungen über die speziell entwickelte, native Benutzeroberfläche von Braze. |
-| [Push]({{site.baseurl}}/user_guide/channels/push/) | Triggern Sie automatisch Push-Benachrichtigungen aus Messaging-Kampagnen oder Newsfeed-Elementen mithilfe des Apple Push Notification Service (APNs) für iOS oder Firebase Cloud Messaging (FCM) für Android. |
-| [SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)* | Nutzen Sie SMS, MMS oder RCS, um Transaktionsbenachrichtigungen zu versenden, Aktionen zu teilen, Erinnerungen zu senden und vieles mehr. |
-| [Web-Push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | Senden Sie Webbrowser-Benachrichtigungen, auch wenn Ihre Nutzer:innen gerade nicht auf Ihrer Website aktiv sind. |
-| [Webhooks]({{site.baseurl}}/about_webhooks/) | Verwenden Sie Webhooks, um Aktionen außerhalb der App zu triggern und andere Systeme und Anwendungen mit Echtzeitdaten zu versorgen. |
-| [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | Stellen Sie eine direkte Verbindung zu Ihren Nutzer:innen und Kund:innen her, indem Sie die beliebte Peer-to-Peer-Messaging-Plattform nutzen: WhatsApp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)* | Senden Sie zielgerichtete und dynamische In-App-Benachrichtigungen, ohne die Kund:innen zu unterbrechen. |
+| [E-Mail]({{site.baseurl}}/user_guide/channels/email) | Versenden Sie Rich-HTML-Nachrichten, indem Sie Ihre E-Mail mit dem Rich-Text-Editor, unserem Drag-and-Drop-Editor oder durch Hochladen einer Ihrer vorhandenen HTML-Templates erstellen. |
+| [In-App-Nachrichten]({{site.baseurl}}/in-app_messages) | Senden Sie unaufdringliche In-App-Benachrichtigungen über die speziell entwickelte, native Benutzeroberfläche von Braze. |
+| [Push]({{site.baseurl}}/user_guide/channels/push) | Triggern Sie automatisch Push-Benachrichtigungen aus Messaging-Kampagnen oder Newsfeed-Elementen mithilfe des Apple Push Notification Service (APNs) für iOS oder Firebase Cloud Messaging (FCM) für Android. |
+| [SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)* | Nutzen Sie SMS, MMS oder RCS, um Transaktionsbenachrichtigungen zu versenden, Aktionen zu teilen, Erinnerungen zu senden und vieles mehr. |
+| [Web-Push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web) | Senden Sie Webbrowser-Benachrichtigungen, auch wenn Ihre Nutzer:innen gerade nicht auf Ihrer Website aktiv sind. |
+| [Webhooks]({{site.baseurl}}/about_webhooks) | Verwenden Sie Webhooks, um Aktionen außerhalb der App zu triggern und andere Systeme und Anwendungen mit Echtzeitdaten zu versorgen. |
+| [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)* | Stellen Sie eine direkte Verbindung zu Ihren Nutzer:innen und Kund:innen her, indem Sie die beliebte Peer-to-Peer-Messaging-Plattform nutzen: WhatsApp. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Multichannel-Messaging" }
 
 <sup>*Als Add-on-Feature erhältlich.*</sup>
 
@@ -109,15 +109,15 @@ Nachdem Sie ein Segment definiert haben, können Sie mit den Messaging-Tools von
 
 ## Integration von Braze {#integrating-braze}
 
-Braze ist für eine schnelle Integration konzipiert. Die durchschnittliche Amortisationszeit beträgt in unserem Kundenstamm sechs Wochen. Weitere Informationen zum Integrationsprozess finden Sie unter [Erste Schritte: Übersicht über die Integration]({{site.baseurl}}/developer_guide/getting_started/integration_overview/).
+Braze ist für eine schnelle Integration konzipiert. Die durchschnittliche Amortisationszeit beträgt in unserem Kundenstamm sechs Wochen. Weitere Informationen zum Integrationsprozess finden Sie unter [Erste Schritte: Übersicht über die Integration]({{site.baseurl}}/developer_guide/getting_started/integration_overview).
 
 ## Ressourcen als Lesezeichen {#resources-to-bookmark}
 
-Als technische Ressource werden Sie an vielen Details von Braze beteiligt sein. Hier finden Sie gute Quellen, die Sie sich außerhalb unserer Dokumentation merken sollten. Halten Sie unser Glossar mit [den wichtigsten Begriffen]({{site.baseurl}}/user_guide/get_started/terms_to_know/) für den Fall bereit, dass Sie Fragen zu Braze-Begriffen haben.
+Als technische Ressource werden Sie an vielen Details von Braze beteiligt sein. Hier finden Sie gute Quellen, die Sie sich außerhalb unserer Dokumentation merken sollten. Halten Sie unser Glossar mit [den wichtigsten Begriffen]({{site.baseurl}}/user_guide/get_started/terms_to_know) für den Fall bereit, dass Sie Fragen zu Braze-Begriffen haben.
 
-| Ressource | Was Sie lernen werden|
+| Ressource | Was Sie lernen werden |
 |---|---|
-| [SDK-Debugging]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) | Bei der Fehlerbehebung Ihrer Integration ist das SDK-Debugging-Tool ein hilfreiches Werkzeug. Stellen Sie sicher, dass Sie es zur Hand haben! |
+| [SDK-Debugging]({{site.baseurl}}/developer_guide/sdk_integration/debugging) | Bei der Fehlerbehebung Ihrer Integration ist das SDK-Debugging-Tool ein hilfreiches Werkzeug. Stellen Sie sicher, dass Sie es zur Hand haben! |
 | [Öffentliches GitHub von Braze](https://github.com/braze-inc/) | In unserem GitHub-Repository finden Sie ausführliche Informationen zur Integration und Beispielcode. |
 | [GitHub-Repository für Android SDK](https://github.com/braze-inc/braze-android-sdk/) | Das Android SDK GitHub-Repository. |
 | [Android SDK-Referenz](https://appboy.github.io/appboy-android-sdk/kdoc/index.html) | Klassendokumentation für das Android SDK. |
@@ -125,7 +125,7 @@ Als technische Ressource werden Sie an vielen Details von Braze beteiligt sein. 
 | [iOS (Swift) SDK-Referenz](https://braze-inc.github.io/braze-swift-sdk/) | Klassendokumentation für das iOS SDK. |
 | [GitHub-Repository für Web SDK](https://github.com/braze-inc/braze-web-sdk) | Das Web SDK GitHub-Repository. |
 | [Web SDK-Referenz](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Klassendokumentation für das iOS SDK. |
-| [SDK-Changelogs]({{site.baseurl}}/developer_guide/changelogs/) | Braze bietet planmäßige monatliche Releases sowie zusätzliche Releases für kritische Probleme und größere Betriebssystem-Updates. |
+| [SDK-Changelogs]({{site.baseurl}}/developer_guide/changelogs) | Braze bietet planmäßige monatliche Releases sowie zusätzliche Releases für kritische Probleme und größere Betriebssystem-Updates. |
 | [Braze API Postman-Kollektion](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Laden Sie hier unsere Postman-Kollektion herunter.  |
 | [Braze Systemstatus-Monitor](https://braze.statuspage.io/) | Unsere Statusseite wird immer dann aktualisiert, wenn es zu Zwischenfällen oder Ausfällen kommt. Besuchen Sie diese Seite, um Benachrichtigungen zu abonnieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ressourcen als Lesezeichen" }

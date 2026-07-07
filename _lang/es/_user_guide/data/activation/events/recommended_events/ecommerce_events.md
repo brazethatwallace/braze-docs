@@ -1,1424 +1,198 @@
 ---
-nav_title: Eventos recomendados para el comercio electrónico
-article_title: Eventos recomendados de comercio electrónico
+nav_title: Usar eventos recomendados de comercio electrónico
+article_title: Cómo usar eventos recomendados de comercio electrónico
 page_type: reference
 alias: /ecommerce_events/
-toc_headers: h2
-description: "Este artículo de referencia describe los eventos y propiedades recomendados para el comercio electrónico, su uso, segmentación, dónde ver los análisis relevantes y mucho más."
+description: "Aprende a usar los eventos recomendados de comercio electrónico en Braze, incluyendo las características compatibles, métricas clave y mejores prácticas para segmentación, mensajería e informes."
 ---
 
-# Eventos recomendados para el comercio electrónico {#ecommerce-recommended-events}
+# Cómo usar eventos de comercio electrónico {#how-to-use-ecommerce-events}
 
-> Esta página incluye eventos y propiedades recomendados para el comercio electrónico. Estos eventos se crean para capturar comportamientos de compra clave que los especialistas en marketing necesitan para desencadenar mensajería eficaz, como los dirigidos al abandono del carrito de compras.
+> Los [eventos recomendados]({{site.baseurl}}/recommended_events) de comercio electrónico usan un esquema compartido a nivel de pedido, lo que permite a Braze construir características confiables sobre tus datos de comercio electrónico, incluyendo perfiles de usuario, segmentación, mensajería, informes y recomendaciones impulsadas por IA. Las secciones de este artículo cubren cómo usar cada capacidad en Braze.<br><br> Consulta [Esquemas de eventos]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas) para los requisitos de propiedades y tipos de datos, y [Validación de eventos y solución de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting) para saber qué sucede cuando un evento no pasa la validación.
 
-{% alert important %}
-Los eventos recomendados para el comercio electrónico se encuentran actualmente en fase de acceso anticipado. Si estás interesado en participar en este acceso anticipado, ponte en contacto con tu administrador del éxito del cliente de Braze. <br><br>Si utilizas el nuevo [conector de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), estos eventos recomendados estarán disponibles automáticamente a través de la integración.
-{% endalert %}
-
-Braze reconoce que la planificación de datos lleva tiempo. Animamos a nuestros clientes a que familiaricen a sus equipos de desarrollo y comiencen a enviar estos eventos ahora mismo. Aunque es posible que algunas características no estén disponibles de inmediato con los eventos recomendados para el comercio electrónico, puedes esperar la introducción de nuevos productos a lo largo de 2025 que mejorarán tus capacidades de comercio electrónico.
-
-## Tipos de eventos recomendados para el comercio electrónico {#types-of-ecommerce-recommended-events}
-
-{% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
-
-Cualquier moneda que no sea USD se mostrará en Braze en USD según el tipo de cambio de la fecha en que se reportó. Para evitar la conversión de moneda, codifica la moneda como USD.
-
-{% tabs %}
-{% tab ecommerce.product_viewed %}
-
-Puedes usar el evento de producto visto para desencadenar cuando un cliente ve una página de detalle de producto.
-
-#### Propiedades {#properties}
-
-| Nombre de la propiedad | Obligatoria | Tipo de datos | Descripción |
-|---|---|---|---|
-| `product_id` | Sí | String | Un identificador único para el producto que fue visto. <br> Para clientes que no usan Shopify, este será el valor que establezcas para los ID de elementos del catálogo, como los SKU. |
-| `product_name` | Sí | String | El nombre del producto que fue visto. |
-| `variant_id` | Sí | String | Un identificador único para la variante del producto. Un ejemplo es `shirt_medium_blue` |
-| `image_url` | No | String | URL de la imagen del producto. |
-| `product_url` | No | String | URL de la página del producto para más detalles. |
-| `price` | Sí | Float | El precio unitario de la variante del producto en el momento de la visualización. |
-| `currency` | Sí | String | La moneda en la que se lista el precio del producto (como "USD" o "EUR") en [formato ISO 4217](https://www.iso.org/iso-4217-currency-codes.html). |
-| `source` | Sí | String | Fuente de la que se deriva el evento. (Para Shopify, es storefront). |
-| `type` | No | Object | Funciona con [notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) y [notificaciones de bajada de precio]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/). |
-| `metadata` | No | Object | |
-| `sku` | No | String | (Solo Shopify) SKU de Shopify. Se puede configurar como el campo de ID del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-
-#### Objetos de ejemplo {#example-objects}
-
-{% subtabs %}
-{% subtab Web SDK %}
-
-{% sdk_min_versions web:6.8.0 %}
-
-En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
-
-```javascript
-braze.logEcommerceEvent({
-    "name": "ecommerce.product_viewed",
-    "properties": {
-        "product_id": "4111176",
-        "product_name": "Torchie runners",
-        "variant_id": "4111176700",
-        "image_url": "https://braze-apparel.com/images/products/large/torchie-runners.jpg",
-        "product_url": "https://braze-apparel.com/footwear-categories/sneakers/braze-orange-torchie-runners/",
-        "price": 85,
-        "currency": "GBP",
-        "source": "https://braze-apparel.com/",
-        "metadata": {
-            "sku": "",
-            "color": "ORANGE",
-            "size": "6",
-            "brand": "Braze"
-        }
-    }
-});
-```
-
-En versiones anteriores del SDK, llama a `logCustomEvent()`:
-
-```javascript
-braze.logCustomEvent("ecommerce.product_viewed", {
-    "product_id": "4111176",
-    "product_name": "Torchie runners",
-    "variant_id": "4111176700",
-    "image_url": "https://braze-apparel.com/images/products/large/torchie-runners.jpg",
-    "product_url": "https://braze-apparel.com/footwear-categories/sneakers/braze-orange-torchie-runners/",
-    "price": 85,
-    "currency": "GBP",
-    "source": "https://braze-apparel.com/",
-    "metadata": {
-        "sku": "",
-        "color": "ORANGE",
-        "size": "6",
-        "brand": "Braze"
-    }
-});
-```
-
-{% endsubtab %}
-{% subtab Android SDK %}
-
-```java
-BrazeProperties properties = new BrazeProperties()
-    .addProperty("product_id", "4111176")
-    .addProperty("product_name", "Torchie runners")
-    .addProperty("variant_id", "4111176700")
-    .addProperty("image_url", "https://braze-apparel.com/images/products/large/torchie-runners.jpg")
-    .addProperty("product_url", "https://braze-apparel.com/footwear-categories/sneakers/braze-orange-torchie-runners/")
-    .addProperty("price", 85)
-    .addProperty("currency", "GBP")
-    .addProperty("source", "https://braze-apparel.com/")
-    .addProperty("metadata", new JSONObject()
-        .put("sku", "")
-        .put("color", "ORANGE")
-        .put("size", "6")
-        .put("brand", "Braze"));
-
-Braze.getInstance(context).logCustomEvent("ecommerce.product_viewed", properties);
-```
-
-{% endsubtab %}
-{% subtab Swift SDK %}
-
-```swift
-let properties: [String: Any] = [
-    "product_id": "4111176",
-    "product_name": "Torchie runners",
-    "variant_id": "4111176700",
-    "image_url": "https://braze-apparel.com/images/products/large/torchie-runners.jpg",
-    "product_url": "https://braze-apparel.com/footwear-categories/sneakers/braze-orange-torchie-runners/",
-    "price": 85,
-    "currency": "GBP",
-    "source": "https://braze-apparel.com/",
-    "metadata": [
-        "sku": "",
-        "color": "ORANGE",
-        "size": "6",
-        "brand": "Braze"
-    ]
-]
-
-AppDelegate.braze?.logCustomEvent(name: "ecommerce.product_viewed", properties: properties)
-```
-
-{% endsubtab %}
-{% subtab API Payload %}
-
-```json
-{
-  "events": [
-    {
-      "external_id": "user_id",
-      "app_id": "your_app_identifier",
-      "name": "ecommerce.product_viewed",
-      "time": "2024-01-15T09:03:45Z",
-      "properties": {
-        "product_id": "4111176",
-        "product_name": "Torchie runners",
-        "variant_id": "4111176700",
-        "image_url": "https://braze-apparel.com/images/products/large/torchie-runners.jpg",
-        "product_url": "https://braze-apparel.com/footwear-categories/sneakers/braze-orange-torchie-runners/",
-        "price": 85,
-        "currency": "GBP",
-        "source": "https://braze-apparel.com/",
-        "metadata": {
-          "sku": "",
-          "color": "ORANGE",
-          "size": "6",
-          "brand": "Braze"
-        },
-        "type": [
-          "price_drop",
-          "back_in_stock"
-        ]
-      }
-    }
-  ]
-}
-```
-
-{% endsubtab %}
-{% endsubtabs %}
-{% endtab %}
-{% tab ecommerce.cart_updated %}
-
-Puedes usar el desencadenador **Realizar evento de carrito actualizado** para rastrear cuándo se agregan, eliminan o actualizan productos en el carrito. Este evento verifica la siguiente información antes de desencadenarse:
-
-- La hora del evento es mayor que la hora `updated_at` del carrito específico del usuario.
-- El carrito no ha avanzado al proceso de pago.
-- El array `products` no está vacío.
-
-#### Objeto de mapeado de carritos {#carts-mapping-object}
-
-El evento `ecommerce.cart_updated` tiene un objeto de mapeado de carritos. Este objeto se crea para el perfil de usuario y contiene un mapeado de carritos con todos los productos en el carrito del comprador. Puedes acceder a los productos en su carrito de compras a través de la etiqueta de Liquid:
-
-{%raw%}
-```liquid
-{% shopping_cart {{context_properties.${cart_id}}} %}
-{% for item in shopping_cart.products %}
-{% catalog_items <add_your_catalog> {{item.variant_id}} %}
-```
-{%endraw%}
-
-Si un carrito no se actualiza y no avanza a un evento de pedido realizado en 30 días, Braze elimina el carrito y los productos asociados.
+Dado que los eventos de comercio electrónico siguen un esquema predecible, Braze puede construir características confiables sobre ellos, desde el seguimiento de ingresos y plantillas de Canvas prediseñadas hasta recomendaciones impulsadas por IA. Las siguientes secciones te ofrecen un resumen rápido de cada capacidad con enlaces a la documentación completa.
 
 {% alert note %}
-Los productos por carrito no están limitados en Braze. Sin embargo, el límite de Shopify es 500.
+Los eventos de comercio electrónico de Braze y sus propiedades de eventos segmentables no cuentan como [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 {% endalert %}
 
-#### Comportamiento del carrito al fusionar perfiles de usuario {#cart-behavior-when-merging-user-profiles}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-Si hay dos carritos, ambos se agregan al usuario fusionado. Se vuelve a encolar el Canvas si es el mismo carrito o uno diferente para enviar un mensaje con la información más reciente del carrito. El evento `ecommerce.cart_updated` contendrá el último ID de carrito y los últimos productos en el carrito.
+## Pestaña Commerce {#commerce-tab}
 
-#### Propiedades {#properties}
+La pestaña **Commerce** en cada perfil de usuario combina dos módulos: **Order activity** (métricas calculadas de ingresos y pedidos) y **Active cart** (el carrito más reciente de los eventos `ecommerce.cart_updated`).
 
-| Nombre de la propiedad | Obligatoria | Tipo de datos | Descripción |
-|---|---|---|---|
-| `cart_id` | Sí | String | Si no estás usando una plataforma de terceros que proporcione un `cart_id`, puedes usar el [ID de sesión de Braze]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/). |
-| `total_value` | Sí | Float | Valor monetario total del carrito. |
-| `subtotal_value` | No | Float | Valor del subtotal del carrito después de descuentos y antes de impuestos y envío. |
-| `tax` | No | Float | Impuesto total aplicado al carrito. |
-| `shipping` | No | Float | Costo total de envío del carrito. |
-| `currency` | Sí | String | La moneda en la que se lista el precio del producto (como "USD" o "EUR") en [formato ISO 4217](https://www.iso.org/iso-4217-currency-codes.html). |
-| `products` | Sí | Array |  |
-| `product_id` | Sí | String | Un identificador único para el producto que fue visto. <br> Este valor puede ser el ID del producto o el SKU. |
-| `product_name` | Sí | String | El nombre del producto que fue visto. |
-| `variant_id` | Sí | String | Un identificador único para la variante del producto. Un ejemplo es `shirt_medium_blue` |
-| `image_url` | No | String | URL de la imagen del producto. |
-| `product_url` | No | String | URL de la página del producto para más detalles. |
-| `quantity` | Sí | Integer | Número de unidades del producto en el carrito. |
-| `price` | Sí | Float | El precio unitario de la variante del producto en el momento de la visualización. |
-| `metadata` | No | Object | Campo de metadatos adicional sobre el producto que el cliente quiere agregar para sus casos de uso. Para Shopify, agregaremos el SKU. <br> Esto tendrá un límite basado en nuestro límite general de propiedades del evento de 50 kb. |
-| `sku` | No | String | (Solo Shopify) SKU de Shopify. Se puede configurar como el campo de ID del catálogo. |
-| `source` | Sí | String | Fuente de la que se deriva el evento. (Para Shopify, es storefront). |
-| `metadata` | No | Object | Campo de metadatos adicional sobre el producto que el cliente quiere agregar para sus casos de uso. Para Shopify, agregaremos el SKU. <br> Esto tendrá un límite basado en nuestro límite general de propiedades del evento de 50 kb. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+### Actividad de pedidos {#order-activity}
 
-#### Objetos de ejemplo {#example-objects}
+El módulo **Order activity** muestra tres métricas calculadas que se actualizan en tiempo real a medida que se procesan los eventos. El modelo a nivel de pedido de estos cálculos separa claramente los precios de los productos del valor total del pedido.
 
-{% subtabs %}
-{% subtab Web SDK %}
+{% alert note %}
+Los eventos recomendados de comercio electrónico no se muestran dentro de la sección **Purchase history** de la pestaña **Commerce**. El historial de compras se llena con los eventos de compra heredados. Usa las métricas de la siguiente tabla para los ingresos y la actividad de pedidos de los eventos recomendados.
+{% endalert %}
 
-{% sdk_min_versions web:6.8.0 %}
+| Métrica | Fórmula |
+| ----- | ----- |
+| Ingresos totales | suma (`order_placed.total_value`) − suma (`order_refunded.total_value`) |
+| Total de pedidos | conteo (distintos `order_placed`) − conteo (distintos `order_cancelled`) |
+| Valor total de reembolsos | suma (`order_refunded.total_value`) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de actividad de pedidos" }
 
-En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
+### Carrito activo {#active-cart}
 
-```javascript
-braze.logEcommerceEvent({
-    "name": "ecommerce.cart_updated",
-    "properties": {
-        "cart_id": "cart_12345",
-        "currency": "USD",
-        "total_value": 199.98,
-        "products": [
-            {
-                "product_id": "8266836345064",
-                "product_name": "Classic T-Shirt",
-                "variant_id": "44610569208040",
-                "image_url": "https://braze-apparel.com/images/tshirt-blue-medium.jpg",
-                "product_url": "https://braze-apparel.com/products/classic-tshirt?variant=44610569208040",
-                "quantity": 2,
-                "price": 99.99,
-                "metadata": {
-                    "sku": "TSH-BLU-M",
-                    "color": "BLUE",
-                    "size": "Medium",
-                    "brand": "Braze"
-                }
-            }
-        ],
-        "source": "https://braze-apparel.com",
-        "metadata": {}
-    }
-});
-```
+El módulo **Active cart** muestra el carrito más reciente en el perfil de usuario. Esta vista es especialmente útil mientras realizas pruebas. Puedes usarla para confirmar el contenido del carrito, validar recorridos basados en el carrito o verificar que los eventos `ecommerce.cart_updated` están actualizando el perfil como esperas.
 
-En versiones anteriores del SDK, llama a `logCustomEvent()`:
+**Active cart** incluye lo siguiente:
 
-```javascript
-braze.logCustomEvent("ecommerce.cart_updated", {
-    "cart_id": "cart_12345",
-    "currency": "USD",
-    "total_value": 199.98,
-    "subtotal_value": 179.98,
-    "tax": 15.00,
-    "shipping": 5.00,
-    "products": [
-        {
-            "product_id": "8266836345064",
-            "product_name": "Classic T-Shirt",
-            "variant_id": "44610569208040",
-            "image_url": "https://braze-apparel.com/images/tshirt-blue-medium.jpg",
-            "product_url": "https://braze-apparel.com/products/classic-tshirt?variant=44610569208040",
-            "quantity": 2,
-            "price": 99.99,
-            "metadata": {
-                "sku": "TSH-BLU-M",
-                "color": "BLUE",
-                "size": "Medium",
-                "brand": "Braze"
-            }
-        }
-    ],
-    "source": "https://braze-apparel.com",
-    "metadata": {}
-});
-```
+- **Cart ID** — Identificador del carrito que recibió por última vez un evento `ecommerce.cart_updated`.
+- **Last updated** — Marca de tiempo de la actualización de carrito más reciente.
+- **Total cart value** — Valor total de los artículos en el carrito actual.
+- **View products** — Un enlace para abrir la lista de productos en el carrito (hasta 50 productos).
 
-{% endsubtab %}
-{% subtab Android SDK %}
+## Orquestación de comercio electrónico {#ecommerce-orchestration}
 
-```java
-JSONArray products = new JSONArray();
-JSONObject product = new JSONObject()
-    .put("product_id", "8266836345064")
-    .put("product_name", "Classic T-Shirt")
-    .put("variant_id", "44610569208040")
-    .put("image_url", "https://braze-apparel.com/images/tshirt-blue-medium.jpg")
-    .put("product_url", "https://braze-apparel.com/products/classic-tshirt?variant=44610569208040")
-    .put("quantity", 2)
-    .put("price", 99.99)
-    .put("metadata", new JSONObject()
-        .put("sku", "TSH-BLU-M")
-        .put("color", "BLUE")
-        .put("size", "Medium")
-        .put("brand", "Braze"));
-products.put(product);
+### Segmentación {#segmentation}
 
-BrazeProperties properties = new BrazeProperties()
-    .addProperty("cart_id", "cart_12345")
-    .addProperty("currency", "USD")
-    .addProperty("total_value", 199.98)
-    .addProperty("subtotal_value", 179.98)
-    .addProperty("tax", 15.00)
-    .addProperty("shipping", 5.00)
-    .addProperty("products", products)
-    .addProperty("source", "https://braze-apparel.com")
-    .addProperty("metadata", new JSONObject());
+Braze ofrece tres formas de segmentar usuarios basándose en datos de comercio electrónico:
 
-Braze.getInstance(context).logCustomEvent("ecommerce.cart_updated", properties);
-```
+- **Filtros de comercio electrónico:** Usa la categoría **eCommerce** en el segmentador, que contiene filtros impulsados por eventos recomendados de comercio electrónico (como **Last Order Placed**, **Total Revenue** y **Average Order Value**). Para una lista completa de filtros disponibles, consulta [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+- **Filtros de eventos personalizados:** Dado que los eventos de comercio electrónico se comportan como eventos personalizados, todos los filtros de eventos personalizados existentes funcionan de inmediato. Por ejemplo, puedes filtrar por "Ha realizado el evento personalizado `ecommerce.order_placed` más de X veces" o "Realizó por primera vez el evento personalizado `ecommerce.order_placed`".
+- **Extensiones de segmento:** Para segmentar por propiedades de eventos anidados, incluyendo el arreglo de productos anidados o las propiedades de los objetos de metadatos, usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) con filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios entre diferentes propiedades del mismo pedido.
 
-{% endsubtab %}
-{% subtab Swift SDK %}
+{% alert important %}
+Las Extensiones de segmento para eventos recomendados de comercio electrónico son una característica de pago y están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
+{% endalert %}
 
-```swift
-let products: [[String: Any]] = [
-    [
-        "product_id": "8266836345064",
-        "product_name": "Classic T-Shirt",
-        "variant_id": "44610569208040",
-        "image_url": "https://braze-apparel.com/images/tshirt-blue-medium.jpg",
-        "product_url": "https://braze-apparel.com/products/classic-tshirt?variant=44610569208040",
-        "quantity": 2,
-        "price": 99.99,
-        "metadata": [
-            "sku": "TSH-BLU-M",
-            "color": "BLUE",
-            "size": "Medium",
-            "brand": "Braze"
-        ]
-    ]
-]
+### Desencadenamiento {#triggering}
 
-let properties: [String: Any] = [
-    "cart_id": "cart_12345",
-    "currency": "USD",
-    "total_value": 199.98,
-    "subtotal_value": 179.98,
-    "tax": 15.00,
-    "shipping": 5.00,
-    "products": products,
-    "source": "https://braze-apparel.com",
-    "metadata": [:]
-]
+Puedes usar desencadenadores de eventos personalizados realizados con eventos de comercio electrónico en todo Braze, igual que con otros eventos personalizados. Para flujos de carrito abandonado, usa el desencadenador **Perform Cart Updated Event** para capturar correctamente las actualizaciones del carrito.
 
-AppDelegate.braze?.logCustomEvent(name: "ecommerce.cart_updated", properties: properties)
-```
+Además, Braze ofrece un desencadenador dedicado **Places Order**, que te permite iniciar recorridos o tomar acciones basadas en cualquier pedido realizado, o en pedidos que incluyan un producto específico. Puedes filtrar este desencadenador por nombre de producto, `product_id` o `variant_id` para dirigirte a escenarios de compra específicos. Para más información, consulta [Entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
-{% endsubtab %}
-{% subtab API Payload %}
+![Desencadenador Places Order con una opción seleccionada para realizar cualquier pedido.]({% image_buster /assets/img/recommended_events/places_order_trigger.png %})
 
-```json
-{
-  "events": [
-    {
-      "external_id": "user_id",
-      "app_id": "your_app_identifier",
-      "name": "ecommerce.cart_updated",
-      "time": "2024-01-15T09:15:30Z",
-      "properties": {
-        "cart_id": "cart_12345",
-        "currency": "USD",
-        "total_value": 199.98,
-        "subtotal_value": 179.98,
-        "tax": 15.00,
-        "shipping": 5.00,
-        "products": [
-          {
-            "product_id": "8266836345064",
-            "product_name": "Classic T-Shirt",
-            "variant_id": "44610569208040",
-            "image_url": "https://braze-apparel.com/images/tshirt-blue-medium.jpg",
-            "product_url": "https://braze-apparel.com/products/classic-tshirt?variant=44610569208040",
-            "quantity": 2,
-            "price": 99.99,
-            "metadata": {
-              "sku": "TSH-BLU-M",
-              "color": "BLUE",
-              "size": "Medium",
-              "brand": "Braze"
-            }
-          }
-        ],
-        "source": "https://braze-apparel.com",
-        "metadata": {}
-      }
-    }
-  ]
-}
-```
+### Personalización con Liquid {#liquid-personalization}
 
-{% endsubtab %}
-{% endsubtabs %}
+Los eventos de comercio electrónico admiten la [personalización con Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) de la misma forma que los eventos personalizados; puedes hacer referencia a las propiedades del evento directamente en tu mensajería. Para incluir imágenes de productos, precios u otros datos del catálogo en tus mensajes, vincula tu catálogo con el evento usando `product_id` o `variant_id` como identificador de enlace. La etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} te permite recorrer el contenido actual del carrito de un usuario para recordatorios de carrito abandonado, incentivos de pago o confirmaciones de pedido. Para ejemplos de código listos para usar, consulta [Casos de uso de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases).
+
+Para una alternativa sin código, los [bloques de producto de arrastrar y soltar]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks) están disponibles en el programa de acceso anticipado.
+
+### Plantillas de Canvas de comercio electrónico {#ecommerce-canvas-templates}
+
+Braze proporciona plantillas de Canvas listas para usar, preconfiguradas con eventos recomendados de comercio electrónico como criterios de entrada, salida y conversión, para que puedas lanzar flujos de ciclo de vida sin configuración personalizada. Cada plantilla incluye diseños de correo electrónico de arrastrar y soltar y admite bloques de producto de arrastrar y soltar (actualmente en acceso anticipado). Para casos de uso detallados y ejemplos de Liquid, consulta [Casos de uso de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases).
+
+Estas plantillas cubren los flujos de ciclo de vida de comercio electrónico más comunes. Úsalas como punto de partida y luego personaliza los tiempos, canales y creatividades para tu audiencia.
+
+{% tabs %}
+{% tab Navegación abandonada %}
+
+Vuelve a captar a los usuarios que vieron un producto pero no lo agregaron a su carrito.
+
+Usa esta plantilla cuando quieras traer de vuelta a los navegadores para que consideren productos que vieron recientemente pero sobre los que no actuaron.
+
+| Configuración | Valor |
+| --- | --- |
+| Evento de entrada | `ecommerce.product_viewed` |
+| Eventos de salida | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
+| Evento de conversión | Placed Order |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plantillas de Canvas de comercio electrónico" }
+
 {% endtab %}
-{% tab ecommerce.checkout_started %}
+{% tab Carrito abandonado %}
 
-Puedes usar el evento de pago iniciado para reorientar a los clientes que han comenzado el proceso de pago pero no han realizado un pedido.
+Recupera a los usuarios que agregaron artículos a su carrito pero no iniciaron el pago.
 
-De forma similar al evento `ecommerce.cart_updated`, este evento te permite aprovechar la etiqueta de Liquid del carrito de compras para acceder a todos los productos dentro del carrito en mensajes de pago abandonado:
+Usa esta plantilla cuando quieras recordar a los usuarios sobre los artículos en su carrito e impulsarlos a completar el pago.
 
-{%raw%}
-```liquid
-{% shopping_cart {{context_properties.${cart_id}}} :abort_if_not_abandoned false %}
-{% for item in shopping_cart.products %}
-{% catalog_items <add_your_catalog> {{item.variant_id}} %}
-```
-{%endraw%}
+| Configuración | Valor |
+| --- | --- |
+| Evento de entrada | `ecommerce.cart_updated` |
+| Eventos de salida | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
+| Evento de conversión | Placed Order |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plantillas de Canvas de comercio electrónico" }
 
-#### Propiedades {#properties}
+{% alert tip %}
+El evento `ecommerce.cart_updated` admite el reemplazo completo del carrito (cada evento puede describir el carrito completo) o actualizaciones incrementales usando los valores `add` y `remove` para la propiedad opcional `action`. Elige un enfoque por carrito y evita mezclar actualizaciones de reemplazo e incrementales para el mismo `cart_id`. Usa la etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %} en tu mensaje para mostrar dinámicamente el contenido actual del carrito en el momento del envío.
+{% endalert %}
 
-| Nombre de la propiedad | Obligatoria | Tipo de datos | Descripción |
-|---|---|---|---|
-| `checkout_id` | Sí | String | Identificador único para el pago. |
-| `cart_id` | No | String | Si no estás usando una plataforma de terceros que proporcione un `cart_id`, puedes usar el [ID de sesión de Braze]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/). |
-| `total_value` | Sí | Float | Valor monetario total del carrito. |
-| `subtotal_value` | No | Float | Valor del subtotal del carrito después de descuentos y antes de impuestos y envío. |
-| `tax` | No | Float | Impuesto total aplicado al carrito. |
-| `shipping` | No | Float | Costo total de envío del carrito. |
-| `currency` | Sí | String | Moneda en la que se valora el carrito. |
-| `products` | Sí | Array of objects |  |
-| `product_id` | Sí | String | Un identificador único para el producto que fue visto. Por ejemplo, este valor podría ser el ID del producto o el SKU. |
-| `product_name` | Sí | String | El nombre del producto que fue visto.  |
-| `variant_id` | Sí | String | Un identificador único para la variante del producto. Un ejemplo es `shirt_medium_blue` |
-| `image_url` | No | String | URL de la imagen del producto. |
-| `product_url` | No | String | URL de la página del producto para más detalles. |
-| `quantity` | Sí | Integer | Número de unidades del producto en el carrito. |
-| `price` | Sí | Float | El precio unitario de la variante del producto en el momento de la visualización. |
-| `metadata` | No | Object | Campo de metadatos adicional sobre el producto que el cliente quiere agregar para sus casos de uso. Para Shopify, agregaremos el SKU. <br> Esto tendrá un límite basado en nuestro límite general de propiedades del evento de 50 kb. |
-| `sku` | No | String | (Solo Shopify) SKU de Shopify. Se puede configurar como el campo de ID del catálogo. |
-| `source` | Sí | String | Fuente de la que se deriva el evento. (Para Shopify, es storefront). |
-| `metadata` | No | Object |  |
-| `checkout_url` | No | String | URL de la página de pago. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-
-#### Objetos de ejemplo {#example-objects}
-
-{% subtabs %}
-{% subtab Web SDK %}
-
-{% sdk_min_versions web:6.8.0 %}
-
-En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
-
-```javascript
-braze.logEcommerceEvent({
-    "name": "ecommerce.checkout_started",
-    "properties": {
-        "checkout_id": "checkout_abc123",
-        "cart_id": "cart_12345",
-        "total_value": 199.98,
-        "currency": "USD",
-        "products": [
-            {
-                "product_id": "632910392",
-                "product_name": "Wireless Headphones",
-                "variant_id": "808950810",
-                "quantity": 1,
-                "price": 199.98,
-                "metadata": {
-                    "sku": "WH-BLK-PRO",
-                    "color": "Black",
-                    "brand": "BrazeAudio"
-                }
-            }
-        ],
-        "source": "https://braze-audio.com",
-        "metadata": {
-            "checkout_url": "https://checkout.braze-audio.com/abc123"
-        }
-    }
-});
-```
-
-En versiones anteriores del SDK, llama a `logCustomEvent()`:
-
-```javascript
-braze.logCustomEvent("ecommerce.checkout_started", {
-    "checkout_id": "checkout_abc123",
-    "cart_id": "cart_12345",
-    "total_value": 199.98,
-    "subtotal_value": 179.98,
-    "tax": 15.00,
-    "shipping": 5.00,
-    "currency": "USD",
-    "products": [
-        {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 199.98,
-            "metadata": {
-                "sku": "WH-BLK-PRO",
-                "color": "Black",
-                "brand": "BrazeAudio"
-            }
-        }
-    ],
-    "source": "https://braze-audio.com",
-    "metadata": {
-        "checkout_url": "https://checkout.braze-audio.com/abc123"
-    }
-});
-```
-
-{% endsubtab %}
-{% subtab Android SDK %}
-
-```java
-JSONArray products = new JSONArray();
-JSONObject product = new JSONObject()
-    .put("product_id", "632910392")
-    .put("product_name", "Wireless Headphones")
-    .put("variant_id", "808950810")
-    .put("quantity", 1)
-    .put("price", 199.98)
-    .put("metadata", new JSONObject()
-        .put("sku", "WH-BLK-PRO")
-        .put("color", "Black")
-        .put("brand", "AudioTech"));
-products.put(product);
-
-BrazeProperties properties = new BrazeProperties()
-    .addProperty("checkout_id", "checkout_abc123")
-    .addProperty("cart_id", "cart_12345")
-    .addProperty("total_value", 199.98)
-    .addProperty("subtotal_value", 179.98)
-    .addProperty("tax", 15.00)
-    .addProperty("shipping", 5.00)
-    .addProperty("currency", "USD")
-    .addProperty("products", products)
-    .addProperty("source", "https://braze-audio.com")
-    .addProperty("metadata", new JSONObject()
-        .put("checkout_url", "https://checkout.braze-audio.com/abc123"));
-
-Braze.getInstance(context).logCustomEvent("ecommerce.checkout_started", properties);
-```
-
-{% endsubtab %}
-{% subtab Swift SDK %}
-
-```swift
-let products: [[String: Any]] = [
-    [
-        "product_id": "632910392",
-        "product_name": "Wireless Headphones",
-        "variant_id": "808950810",
-        "quantity": 1,
-        "price": 199.98,
-        "metadata": [
-            "sku": "WH-BLK-PRO",
-            "color": "Black",
-            "brand": "BrazeAudio"
-        ]
-    ]
-]
-
-let properties: [String: Any] = [
-    "checkout_id": "checkout_abc123",
-    "cart_id": "cart_12345",
-    "total_value": 199.98,
-    "subtotal_value": 179.98,
-    "tax": 15.00,
-    "shipping": 5.00,
-    "currency": "USD",
-    "products": products,
-    "source": "https://braze-audio.com",
-    "metadata": [
-        "checkout_url": "https://checkout.braze-audio.com/abc123"
-    ]
-]
-
-AppDelegate.braze?.logCustomEvent(name: "ecommerce.checkout_started", properties: properties)
-```
-
-{% endsubtab %}
-{% subtab API Payload %}
-
-```json
-{
-  "events": [
-    {
-      "external_id": "user_id",
-      "app_id": "your_app_identifier",
-      "name": "ecommerce.checkout_started",
-      "time": "2024-01-15T09:25:45Z",
-      "properties": {
-        "checkout_id": "checkout_abc123",
-        "cart_id": "cart_12345",
-        "total_value": 199.98,
-        "subtotal_value": 179.98,
-        "tax": 15.00,
-        "shipping": 5.00,
-        "currency": "USD",
-        "products": [
-          {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 199.98,
-            "metadata": {
-              "sku": "WH-BLK-PRO",
-              "color": "Black",
-              "brand": "BrazeAudio"
-            }
-          }
-        ],
-        "source": "https://braze-audio.com",
-        "metadata": {
-          "checkout_url": "https://checkout.braze-audio.com/abc123"
-        }
-      }
-    }
-  ]
-}
-```
-
-{% endsubtab %}
-{% endsubtabs %}
 {% endtab %}
-{% tab ecommerce.order_placed %}
+{% tab Pago abandonado %}
 
-Puedes usar el evento de pedido realizado para desencadenar cuando un cliente completa exitosamente el proceso de pago y realiza un pedido.
+Recupera a los usuarios que iniciaron el pago pero no completaron la compra.
 
-#### Propiedades {#properties}
+Usa esta plantilla cuando quieras recuperar compras en la etapa de mayor intención del embudo.
 
-| Nombre de la propiedad | Obligatoria | Tipo de datos | Descripción |
-|---|---|---|---|
-| `order_id` | Sí | String | Identificador único para el pedido realizado. |
-| `cart_id` | No | String | Si no estás usando una plataforma de terceros que proporcione un `cart_id`, puedes usar el [ID de sesión de Braze]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/). |
-| `total_value` | Sí | Float | Valor monetario total del carrito. |
-| `subtotal_value` | No | Float | Valor del subtotal del pedido después de descuentos y antes de impuestos y envío. |
-| `tax` | No | Float | Impuesto total aplicado al pedido. |
-| `shipping` | No | Float | Costo total de envío del pedido. |
-| `currency` | Sí | String | Moneda en la que se valora el carrito. |
-| `total_discounts` | No | Float | Monto total de descuentos aplicados al pedido. |
-| `discounts`| No | Array of objects | Lista detallada de descuentos aplicados al pedido. |
-| `products` | Sí | Array of objects |  |
-| `product_id` | Sí | String | Un identificador único para el producto que fue visto. Este valor puede ser el ID del producto o el SKU. |
-| `product_name` | Sí | String | El nombre del producto que fue visto. |
-| `variant_id` | Sí | String | Un identificador único para la variante del producto. Un ejemplo es `shirt_medium_blue` |
-| `image_url` | No | String | URL de la imagen del producto. |
-| `product_url` | No | String | URL de la página del producto para más detalles. |
-| `quantity` | Sí | Integer | Número de unidades del producto en el carrito. |
-| `price` | Sí | Float | El precio unitario de la variante del producto en el momento de la visualización. |
-| `metadata` | No | Object | Campo de metadatos adicional sobre el producto que el cliente quiere agregar para sus casos de uso. Para Shopify, agregaremos el SKU. <br> Esto tendrá un límite basado en nuestro límite general de propiedades del evento de 50 kb. |
-| `sku` | No | String | (Solo Shopify) SKU de Shopify. Se puede configurar como el campo de ID del catálogo. |
-| `source` | Sí | String | Fuente de la que se deriva el evento. (Para Shopify, es storefront). |
-| `order_status_url` | No | String | URL para ver el estado del pedido. |
-| `order_number` | No | String | (Solo Shopify) Número de pedido único para el pedido realizado. |
-| `tags` | No | Array | (Solo Shopify) Etiquetas del pedido. |
-| `referring_site` | No | String | (Solo Shopify) El sitio del que se originó el pedido (como Meta). |
-| `payment_gateway_names` | No | Array | (Solo Shopify) Fuente del sistema de pago (como punto de venta o móvil). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Configuración | Valor |
+| --- | --- |
+| Evento de entrada | `ecommerce.checkout_started` |
+| Evento de salida | Placed Order |
+| Evento de conversión | Placed Order |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plantillas de Canvas de comercio electrónico" }
 
-#### Objetos de ejemplo {#example-objects}
-
-{% subtabs %}
-{% subtab Web SDK %}
-
-{% sdk_min_versions web:6.8.0 %}
-
-En versiones más recientes del SDK, llama a `logEcommerceEvent()`:
-
-```javascript
-braze.logEcommerceEvent({
-    "name": "ecommerce.order_placed",
-    "properties": {
-        "order_id": "order_67890",
-        "cart_id": "cart_12345",
-        "total_value": 189.98,
-        "currency": "USD",
-        "total_discounts": 10.00,
-        "discounts": [
-            {
-                "code": "SAVE10",
-                "amount": 10.00
-            }
-        ],
-        "products": [
-            {
-                "product_id": "632910392",
-                "product_name": "Wireless Headphones",
-                "variant_id": "808950810",
-                "quantity": 1,
-                "price": 199.98,
-                "metadata": {
-                    "sku": "WH-BLK-PRO",
-                    "color": "Black",
-                    "brand": "BrazeAudio"
-                }
-            }
-        ],
-        "source": "https://braze-audio.com",
-        "metadata": {
-            "order_status_url": "https://braze-audio.com/orders/67890/status",
-            "order_number": "ORD-2024-001234",
-            "tags": ["electronics", "audio"],
-            "referring_site": "https://www.e-referrals.com",
-            "payment_gateway_names": ["tap2pay", "dotcash"]
-        }
-    }
-});
-```
-
-En versiones anteriores del SDK, llama a `logCustomEvent()`:
-
-```javascript
-braze.logCustomEvent("ecommerce.order_placed", {
-    "order_id": "order_67890",
-    "cart_id": "cart_12345",
-    "total_value": 189.98,
-    "subtotal_value": 169.98,
-    "tax": 14.40,
-    "shipping": 5.60,
-    "currency": "USD",
-    "total_discounts": 10.00,
-    "discounts": [
-        {
-            "code": "SAVE10",
-            "amount": 10.00
-        }
-    ],
-    "products": [
-        {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 199.98,
-            "metadata": {
-                "sku": "WH-BLK-PRO",
-                "color": "Black",
-                "brand": "BrazeAudio"
-            }
-        }
-    ],
-    "source": "https://braze-audio.com",
-    "metadata": {
-        "order_status_url": "https://braze-audio.com/orders/67890/status",
-        "order_number": "ORD-2024-001234",
-        "tags": ["electronics", "audio"],
-        "referring_site": "https://www.e-referrals.com",
-        "payment_gateway_names": ["tap2pay", "dotcash"]
-    }
-});
-```
-
-{% endsubtab %}
-{% subtab Android SDK %}
-
-```java
-JSONArray discounts = new JSONArray();
-discounts.put(new JSONObject()
-    .put("code", "SAVE10")
-    .put("amount", 10.00));
-
-JSONArray products = new JSONArray();
-JSONObject product = new JSONObject()
-    .put("product_id", "632910392")
-    .put("product_name", "Wireless Headphones")
-    .put("variant_id", "808950810")
-    .put("quantity", 1)
-    .put("price", 199.98)
-    .put("metadata", new JSONObject()
-        .put("sku", "WH-BLK-PRO")
-        .put("color", "Black")
-        .put("brand", "AudioTech"));
-products.put(product);
-
-BrazeProperties properties = new BrazeProperties()
-    .addProperty("order_id", "order_67890")
-    .addProperty("cart_id", "cart_12345")
-    .addProperty("total_value", 189.98)
-    .addProperty("subtotal_value", 169.98)
-    .addProperty("tax", 14.40)
-    .addProperty("shipping", 5.60)
-    .addProperty("currency", "USD")
-    .addProperty("total_discounts", 10.00)
-    .addProperty("discounts", discounts)
-    .addProperty("products", products)
-    .addProperty("source", "https://braze-audio.com")
-    .addProperty("metadata", new JSONObject()
-        .put("order_status_url", "https://braze-audio.com/orders/67890/status")
-        .put("order_number", "ORD-2024-001234")
-        .put("tags", new JSONArray().put("electronics").put("audio"))
-        .put("referring_site", "https://www.e-referrals.com")
-        .put("payment_gateway_names", new JSONArray().put("tap2pay").put("dotcash")));
-
-Braze.getInstance(context).logCustomEvent("ecommerce.order_placed", properties);
-```
-
-{% endsubtab %}
-{% subtab Swift SDK %}
-
-```swift
-let discounts: [[String: Any]] = [
-    [
-        "code": "SAVE10",
-        "amount": 10.00
-    ]
-]
-
-let products: [[String: Any]] = [
-    [
-        "product_id": "632910392",
-        "product_name": "Wireless Headphones",
-        "variant_id": "808950810",
-        "quantity": 1,
-        "price": 199.98,
-        "metadata": [
-            "sku": "WH-BLK-PRO",
-            "color": "Black",
-            "brand": "BrazeAudio"
-        ]
-    ]
-]
-
-let properties: [String: Any] = [
-    "order_id": "order_67890",
-    "cart_id": "cart_12345",
-    "total_value": 189.98,
-    "subtotal_value": 169.98,
-    "tax": 14.40,
-    "shipping": 5.60,
-    "currency": "USD",
-    "total_discounts": 10.00,
-    "discounts": discounts,
-    "products": products,
-    "source": "https://braze-audio.com",
-    "metadata": [
-        "order_status_url": "https://braze-audio.com/orders/67890/status",
-        "order_number": "ORD-2024-001234",
-        "tags": ["electronics", "audio"],
-        "referring_site": "https://www.e-referrals.com",
-        "payment_gateway_names": ["tap2pay", "dotcash"]
-    ]
-]
-
-AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_placed", properties: properties)
-```
-
-{% endsubtab %}
-{% subtab API Payload %}
-
-```json
-{
-  "events": [
-    {
-      "external_id": "user_id",
-      "app_id": "your_app_identifier",
-      "name": "ecommerce.order_placed",
-      "time": "2024-01-15T09:35:20Z",
-      "properties": {
-        "order_id": "order_67890",
-        "cart_id": "cart_12345",
-        "total_value": 189.98,
-        "subtotal_value": 169.98,
-        "tax": 14.40,
-        "shipping": 5.60,
-        "currency": "USD",
-        "total_discounts": 10.00,
-        "discounts": [
-          {
-            "code": "SAVE10",
-            "amount": 10.00
-          }
-        ],
-        "products": [
-          {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 199.98,
-            "metadata": {
-              "sku": "WH-BLK-PRO",
-              "color": "Black",
-              "brand": "BrazeAudio"
-            }
-          }
-        ],
-        "source": "https://braze-audio.com",
-        "metadata": {
-          "order_status_url": "https://braze-audio.com/orders/67890/status",
-          "order_number": "ORD-2024-001234",
-          "tags": ["electronics", "audio"],
-          "referring_site": "https://www.e-referrals.com",
-          "payment_gateway_names": ["tap2pay", "dotcash"]
-        }
-      }
-    }
-  ]
-}
-```
-
-{% endsubtab %}
-{% endsubtabs %}
 {% endtab %}
-{% tab ecommerce.order_refunded %}
+{% tab Confirmación de pedido y encuesta %}
 
-Puedes usar el evento de pedido reembolsado para desencadenar cuando un pedido es parcial o totalmente reembolsado.
+Confirma una compra exitosa y hace seguimiento con una encuesta de opinión para impulsar la recopilación de reseñas y la interacción posterior a la compra.
 
-#### Propiedades {#properties}
+Usa esta plantilla cuando quieras optimizar la comunicación posterior a la compra y recopilar comentarios de los clientes en un solo flujo de trabajo.
 
-| Nombre de la propiedad       | Obligatoria | Tipo de datos | Descripción   |
-|---------------|---------|-----------|-------------------------|
-| `order_id`            | Sí      | String    | Identificador único para el pedido realizado.        |
-| `total_value`         | Sí      | Float     | Valor monetario total del carrito.    |
-| `currency`            | Sí      | String    | Moneda en la que se valora el carrito.    |
-| `total_discounts`     | No       | Float     | Monto total de descuentos aplicados al pedido.   |
-| `discounts`           | No       | Array of objects     | Lista detallada de descuentos aplicados al pedido. |
-| `products`            | Sí      | Array of objects     |  |
-| `product_id`       | Sí      | String    | Un identificador único para el producto que fue visto. Este valor puede ser el ID del producto, SKU o similar. <br>Si se emite un reembolso parcial y no hay un `product_id` asignado al reembolso (por ejemplo, un reembolso a nivel de pedido), proporciona un `product_id` generalizado.             |
-| `product_name`     | Sí      | String    | El nombre del producto que fue visto.                                                                      |
-| `variant_id`       | Sí      | String    | Un identificador único para la variante del producto (como `shirt_medium_blue`).                                         |
-| `image_url`        | No       | String    | URL de la imagen del producto.     |
-| `product_url`      | No       | String    | URL de la página del producto para más detalles.  |
-| `quantity`         | Sí      | Integer   | Número de unidades del producto en el carrito.   |
-| `price`            | Sí      | Float     | El precio unitario de la variante del producto en el momento de la visualización.  |
-| `metadata`         | No       | Object    | Campo de metadatos adicional sobre el producto que el cliente quiere agregar para sus casos de uso. Para Shopify, agregaremos el SKU. Esto tendrá un límite basado en nuestro límite general de propiedades del evento de 50 kb. |
-| `sku`            | No       | String    | (Solo Shopify) SKU de Shopify. Se puede configurar como el campo de ID del catálogo.  |
-| `source`              | Sí      | String    | Fuente de la que se deriva el evento. (Para Shopify, es storefront).    |
-| `metadata`            | No       | Object    |                |
-| `order_status_url`  | No       | String    | URL para ver el estado del pedido.     |
-| `order_note`       | No       | String    | (Solo Shopify) Nota adjunta al pedido por el comerciante.    |
-| `order_number`     | No       | String    | (Solo Shopify) Número de pedido único para el pedido realizado.   |
-| `tags`             | No       | Array     | (Solo Shopify) Etiquetas del pedido.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-
-#### Objetos de ejemplo {#example-objects}
-
-{% subtabs %}
-{% subtab Web SDK %}
-
-```javascript
-braze.logCustomEvent("ecommerce.order_refunded", {
-    "order_id": "order_67890",
-    "total_value": 99.99,
-    "currency": "USD",
-    "total_discounts": 5.00,
-    "discounts": [
-        {
-            "code": "SAVE5",
-            "amount": 5.00
-        }
-    ],
-    "products": [
-        {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 99.99,
-            "metadata": {
-                "sku": "WH-BLK-PRO",
-                "color": "Black",
-                "brand": "BrazeAudio"
-            }
-        }
-    ],
-    "source": "https://braze-audio.com",
-    "metadata": {
-        "order_status_url": "https://braze-audio.com/orders/67890/status",
-        "order_note": "Customer requested refund due to defective item",
-        "order_number": "ORD-2024-001234",
-        "tags": ["refund", "defective"]
-    }
-});
-```
-
-{% endsubtab %}
-{% subtab Android SDK %}
-
-```java
-JSONArray discounts = new JSONArray();
-discounts.put(new JSONObject()
-    .put("code", "SAVE5")
-    .put("amount", 5.00));
-
-JSONArray products = new JSONArray();
-JSONObject product = new JSONObject()
-    .put("product_id", "632910392")
-    .put("product_name", "Wireless Headphones")
-    .put("variant_id", "808950810")
-    .put("quantity", 1)
-    .put("price", 99.99)
-    .put("metadata", new JSONObject()
-        .put("sku", "WH-BLK-PRO")
-        .put("color", "Black")
-        .put("brand", "AudioTech"));
-products.put(product);
-
-BrazeProperties properties = new BrazeProperties()
-    .addProperty("order_id", "order_67890")
-    .addProperty("total_value", 99.99)
-    .addProperty("currency", "USD")
-    .addProperty("total_discounts", 5.00)
-    .addProperty("discounts", discounts)
-    .addProperty("products", products)
-    .addProperty("source", "https://braze-audio.com")
-    .addProperty("metadata", new JSONObject()
-        .put("order_status_url", "https://braze-audio.com/orders/67890/status")
-        .put("order_note", "Customer requested refund due to defective item")
-        .put("order_number", "ORD-2024-001234")
-        .put("tags", new JSONArray().put("refund").put("defective")));
-
-Braze.getInstance(context).logCustomEvent("ecommerce.order_refunded", properties);
-```
-
-{% endsubtab %}
-{% subtab Swift SDK %}
-
-```swift
-let discounts: [[String: Any]] = [
-    [
-        "code": "SAVE5",
-        "amount": 5.00
-    ]
-]
-
-let products: [[String: Any]] = [
-    [
-        "product_id": "632910392",
-        "product_name": "Wireless Headphones",
-        "variant_id": "808950810",
-        "quantity": 1,
-        "price": 99.99,
-        "metadata": [
-            "sku": "WH-BLK-PRO",
-            "color": "Black",
-            "brand": "BrazeAudio"
-        ]
-    ]
-]
-
-let properties: [String: Any] = [
-    "order_id": "order_67890",
-    "total_value": 99.99,
-    "currency": "USD",
-    "total_discounts": 5.00,
-    "discounts": discounts,
-    "products": products,
-    "source": "https://braze-audio.com",
-    "metadata": [
-        "order_status_url": "https://braze-audio.com/orders/67890/status",
-        "order_note": "Customer requested refund due to defective item",
-        "order_number": "ORD-2024-001234",
-        "tags": ["refund", "defective"]
-    ]
-]
-
-AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: properties)
-```
-
-{% endsubtab %}
-{% subtab API Payload %}
-
-```json
-{
-  "events": [
-    {
-      "external_id": "user_id",
-      "app_id": "your_app_identifier",
-      "name": "ecommerce.order_refunded",
-      "time": "2024-01-15T10:15:30Z",
-      "properties": {
-        "order_id": "order_67890",
-        "total_value": 99.99,
-        "currency": "USD",
-        "total_discounts": 5.00,
-        "discounts": [
-          {
-            "code": "SAVE5",
-            "amount": 5.00
-          }
-        ],
-        "products": [
-          {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 99.99,
-            "metadata": {
-              "sku": "WH-BLK-PRO",
-              "color": "Black",
-              "brand": "BrazeAudio"
-            }
-          }
-        ],
-        "source": "https://braze-audio.com",
-        "metadata": {
-          "order_status_url": "https://braze-audio.com/orders/67890/status",
-          "order_note": "Customer requested refund due to defective item",
-          "order_number": "ORD-2024-001234",
-          "tags": ["refund", "defective"]
-        }
-      }
-    }
-  ]
-}
-```
-
-{% endsubtab %}
-{% endsubtabs %}
-{% endtab %}
-{% tab ecommerce.order_cancelled %}
-
-Puedes usar el evento de pedido cancelado para desencadenar cuando un cliente cancela un pedido.
-
-#### Propiedades {#properties}
-
-| Nombre de la propiedad      | Obligatoria | Tipo de datos | Descripción       |
-|---------------------|----------|-----------|-------------------|
-| `order_id`            | Sí      | String    | Identificador único para el pedido realizado.              |
-| `cancel_reason`       | Sí      | String    | Razón por la que se canceló el pedido.           |
-| `total_value`         | Sí      | Float     | Valor monetario total del carrito.         |
-| `subtotal_value`      | No       | Float     | Valor del subtotal del pedido después de descuentos y antes de impuestos y envío. |
-| `tax`                 | No       | Float     | Impuesto total aplicado al pedido. |
-| `shipping`            | No       | Float     | Costo total de envío del pedido. |
-| `currency`            | Sí      | String    | Moneda en la que se valora el carrito.           |
-| `total_discounts`     | No       | Float     | Monto total de descuentos aplicados al pedido.     |
-| `discounts`           | No       | Array of objects     | Lista detallada de descuentos aplicados al pedido.             |
-| `products`            | Sí      | Array of objects     |         |
-| `product_id`          | Sí      | String    | Un identificador único para el producto que fue visto. Este valor puede ser el ID del producto, SKU o similar.             |
-| `product_name`        | Sí      | String    | El nombre del producto que fue visto.          |
-| `variant_id`          | Sí      | String    | Un identificador único para la variante del producto (como `shirt_medium_blue`).        |
-| `image_url`           | No       | String    | URL de la imagen del producto.           |
-| `product_url`         | No       | String    | URL de la página del producto para más detalles.                                                                     |
-| `quantity`            | Sí      | Integer   | Número de unidades del producto en el carrito.        |
-| `price`               | Sí      | Float     | El precio unitario de la variante del producto en el momento de la visualización.     |
-| `metadata`            | No       | Object    | Campo de metadatos adicional sobre el producto que el cliente quiere agregar para sus casos de uso. Para Shopify, agregaremos el SKU. Esto tendrá un límite basado en nuestro límite general de propiedades del evento de 50 kb. |
-| `sku`                 | No       | String    | (Solo Shopify) SKU de Shopify. Se puede configurar como el campo de ID del catálogo.        |
-| `source`              | Sí      | String    | Fuente de la que se deriva el evento. (Para Shopify, es storefront).    |
-| `metadata`            | No       | Object    |       |
-| `order_status_url`    | No       | String    | URL para ver el estado del pedido.                                                                          |
-| `order_number`        | No       | String    | (Solo Shopify) Número de pedido único para el pedido realizado.  |
-| `tags`                | No       | Array     | (Solo Shopify) Etiquetas del pedido.            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-
-#### Objetos de ejemplo {#example-objects}
-
-{% subtabs %}
-{% subtab Web SDK %}
-
-```javascript
-braze.logCustomEvent("ecommerce.order_cancelled", {
-    "order_id": "order_67890",
-    "cancel_reason": "customer changed mind",
-    "total_value": 189.98,
-    "subtotal_value": 169.98,
-    "tax": 14.40,
-    "shipping": 5.60,
-    "currency": "USD",
-    "total_discounts": 10.00,
-    "discounts": [
-        {
-            "code": "SAVE10",
-            "amount": 10.00
-        }
-    ],
-    "products": [
-        {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 199.98,
-            "metadata": {
-                "sku": "WH-BLK-PRO",
-                "color": "Black",
-                "brand": "BrazeAudio"
-            }
-        }
-    ],
-    "source": "https://braze-audio.com",
-    "metadata": {
-        "order_status_url": "https://braze-audio.com/orders/67890/status",
-        "order_number": "ORD-2024-001234",
-        "tags": ["cancelled", "customer_request"]
-    }
-});
-```
-
-{% endsubtab %}
-{% subtab Android SDK %}
-
-```java
-JSONArray discounts = new JSONArray();
-discounts.put(new JSONObject()
-    .put("code", "SAVE10")
-    .put("amount", 10.00));
-
-JSONArray products = new JSONArray();
-JSONObject product = new JSONObject()
-    .put("product_id", "632910392")
-    .put("product_name", "Wireless Headphones")
-    .put("variant_id", "808950810")
-    .put("quantity", 1)
-    .put("price", 199.98)
-    .put("metadata", new JSONObject()
-        .put("sku", "WH-BLK-PRO")
-        .put("color", "Black")
-        .put("brand", "AudioTech"));
-products.put(product);
-
-BrazeProperties properties = new BrazeProperties()
-    .addProperty("order_id", "order_67890")
-    .addProperty("cancel_reason", "customer changed mind")
-    .addProperty("total_value", 189.98)
-    .addProperty("subtotal_value", 169.98)
-    .addProperty("tax", 14.40)
-    .addProperty("shipping", 5.60)
-    .addProperty("currency", "USD")
-    .addProperty("total_discounts", 10.00)
-    .addProperty("discounts", discounts)
-    .addProperty("products", products)
-    .addProperty("source", "https://braze-audio.com")
-    .addProperty("metadata", new JSONObject()
-        .put("order_status_url", "https://braze-audio.com/orders/67890/status")
-        .put("order_number", "ORD-2024-001234")
-        .put("tags", new JSONArray().put("cancelled").put("customer_request")));
-
-Braze.getInstance(context).logCustomEvent("ecommerce.order_cancelled", properties);
-```
-
-{% endsubtab %}
-{% subtab Swift SDK %}
-
-```swift
-let discounts: [[String: Any]] = [
-    [
-        "code": "SAVE10",
-        "amount": 10.00
-    ]
-]
-
-let products: [[String: Any]] = [
-    [
-        "product_id": "632910392",
-        "product_name": "Wireless Headphones",
-        "variant_id": "808950810",
-        "quantity": 1,
-        "price": 199.98,
-        "metadata": [
-            "sku": "WH-BLK-PRO",
-            "color": "Black",
-            "brand": "BrazeAudio"
-        ]
-    ]
-]
-
-let properties: [String: Any] = [
-    "order_id": "order_67890",
-    "cancel_reason": "customer changed mind",
-    "total_value": 189.98,
-    "subtotal_value": 169.98,
-    "tax": 14.40,
-    "shipping": 5.60,
-    "currency": "USD",
-    "total_discounts": 10.00,
-    "discounts": discounts,
-    "products": products,
-    "source": "https://braze-audio.com",
-    "metadata": [
-        "order_status_url": "https://braze-audio.com/orders/67890/status",
-        "order_number": "ORD-2024-001234",
-        "tags": ["cancelled", "customer_request"]
-    ]
-]
-
-AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_cancelled", properties: properties)
-```
-
-{% endsubtab %}
-{% subtab API Payload %}
-
-```json
-{
-  "events": [
-    {
-      "external_id": "user_id",
-      "app_id": "your_app_identifier",
-      "name": "ecommerce.order_cancelled",
-      "time": "2024-01-15T10:45:15Z",
-      "properties": {
-        "order_id": "order_67890",
-        "cancel_reason": "customer changed mind",
-        "total_value": 189.98,
-        "subtotal_value": 169.98,
-        "tax": 14.40,
-        "shipping": 5.60,
-        "currency": "USD",
-        "total_discounts": 10.00,
-        "discounts": [
-          {
-            "code": "SAVE10",
-            "amount": 10.00
-          }
-        ],
-        "products": [
-          {
-            "product_id": "632910392",
-            "product_name": "Wireless Headphones",
-            "variant_id": "808950810",
-            "quantity": 1,
-            "price": 199.98,
-            "metadata": {
-              "sku": "WH-BLK-PRO",
-              "color": "Black",
-              "brand": "BrazeAudio"
-            }
-          }
-        ],
-        "source": "https://braze-audio.com",
-        "metadata": {
-          "order_status_url": "https://braze-audio.com/orders/67890/status",
-          "order_number": "ORD-2024-001234",
-          "tags": ["cancelled", "customer_request"]
-        }
-      }
-    }
-  ]
-}
-```
-
-{% endsubtab %}
-{% endsubtabs %}
+| Configuración | Valor |
+| --- | --- |
+| Evento de entrada | `ecommerce.order_placed` |
+| Evento de conversión | Start Session o `ecommerce.product_viewed` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plantillas de Canvas de comercio electrónico" }
 
 {% endtab %}
 {% endtabs %}
 
-## Plantillas de Canvas de comercio electrónico {#ecommerce-canvas-templates}
+#### Personalizar plantillas {#customize-templates}
 
-Braze ha creado plantillas de Canvas prediseñadas que funcionan con los eventos recomendados de comercio electrónico, como dirigirse a clientes que iniciaron el proceso de pago pero se fueron antes de realizar su pedido. Puedes usar estos eventos para tomar decisiones informadas que mejoren el recorrido de tus usuarios personalizando la mensajería y dirigiéndote a audiencias específicas.
+Estas plantillas están diseñadas como punto de partida. Las personalizaciones comunes incluyen:
+  - **Personalizar el correo electrónico:** Cada plantilla incluye un correo electrónico preconfigurado creado con el editor de arrastrar y soltar, totalmente editable para que coincida con tu marca y contenido.
+  - **Agregar canales:** Combina el correo electrónico con push, SMS o mensajes dentro de la aplicación para un refuerzo multicanal.
+  - **Agregar retrasos y divisiones de decisiones:** Segmenta a los usuarios por comportamiento (por ejemplo, carrito de alto valor frente a carrito de bajo valor) o períodos de espera entre mensajes.
+  - **Cambiar la creatividad:** Reemplaza la plantilla de correo electrónico incluida con el estilo visual de tu marca.
+  - **Usar bloques de producto:** Usa bloques de producto de arrastrar y soltar (en el programa de acceso anticipado) para renderizar dinámicamente el contenido del carrito abandonado o los productos navegados sin escribir Liquid personalizado.
 
-Consulta nuestros [casos de uso de comercio electrónico]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) dedicados para conocer más formas de usar estos eventos con plantillas de Canvas.
+Para estrategias de ciclo de vida más avanzadas, incluyendo ejemplos de personalización con Liquid, consulta [Casos de uso de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases).
 
-## Campos calculados del usuario {#user-calculated-fields}
+## Informes de comercio electrónico {#ecommerce-reporting}
 
-Usamos cálculos estandarizados de campos de usuario para los siguientes campos:
+Los eventos recomendados de comercio electrónico alimentan las mismas superficies de ingresos que los clientes ya usan hoy. Cuando tu integración envía eventos de comercio electrónico, los siguientes informes incluyen los ingresos de comercio electrónico automáticamente:
 
-- **Ingresos totales** = suma del valor total de pedidos realizados - suma del valor total de pedidos reembolsados
-- **Conteo total de pedidos** = conteo de eventos distintos de pedido realizado - conteo de cancelaciones de pedido distintas
-- **Valor total de reembolsos** = suma del valor total de pedidos reembolsados
+| Informe | Qué muestra |
+|---------------------------------------------|-------------------------------------------|
+| Informe de ingresos | Ingresos totales, ingresos diarios promedio, compras diarias e ingresos por usuario a lo largo del tiempo en todas las fuentes para el rango de fechas y aplicaciones seleccionados. |
+| Dashboard de ingresos de atribución de último toque | Ingresos atribuidos a la última campaña o Canvas con los que un usuario interactuó antes de realizar un pedido. Los eventos de toque incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
+| Análisis de Campaign y Canvas | Ingresos totales atribuidos a una campaña o Canvas específicos dentro de la ventana de conversión primaria. |
+| Informe de conversiones | Ingresos vinculados a eventos de conversión en campañas y Canvas.<br> **Nota:** Para contar los ingresos de `ecommerce.order_placed`, la campaña o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
+| Información del segmento | Comparaciones de ingresos entre segmentos en el dashboard de información del segmento. |
+| Generador de informes | Métricas de ingresos en informes personalizados creados en el Generador de informes. |
+| Generador de dashboards | Métricas de ingresos en dashboards personalizados creados en el Generador de dashboards. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informes de comercio electrónico" }
 
-Estos cálculos de campos de usuario también se incluyen en la pestaña **Transacciones** de los perfiles de usuario.
+Para campos calculados que no son de usuario (por ejemplo, ingresos de una campaña o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
 
-![La pestaña "Transacciones" con campos calculados del usuario.]({% image_buster /assets/img/Shopify/transactions_tab.png %}){: style="max-width:70%;"}
+{% alert note %}
+Para evitar el doble conteo de ingresos, no envíes tanto compras heredadas como eventos recomendados de comercio electrónico para los mismos pedidos. Si planeas hacer la transición de compras heredadas a eventos recomendados, coordina el cambio con tu equipo de cuenta de Braze antes de realizar cualquier cambio en la integración.<br><br>
+Los cálculos de ingresos limitan las cantidades individuales de productos a `1,000` unidades por pedido. Si falta un campo `quantity` para un producto, se establece por defecto en `1`. El evento `order_placed` original conserva la cantidad completa que enviaste; solo el cálculo de ingresos aplica el límite.
+{% endalert %}
 
-## Preguntas frecuentes {#frequently-asked-questions}
+### BrazeAI<sup>TM</sup>
 
-### ¿Dónde puedo ver los datos de compra a nivel de producto? {#where-can-i-view-product-level-purchase-data}
+[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) y las [recomendaciones de elementos]({{site.baseurl}}/user_guide/brazeai/item_recommendations) admiten eventos de comercio electrónico como eventos objetivo y señales, y tienen una opción dedicada "Order Placed". El esquema estandarizado hace que estos modelos sean más confiables porque los datos son consistentes en toda tu base de usuarios.
 
-La pestaña **Transacciones** del perfil de usuario muestra campos calculados de alto nivel (como ingresos totales y total de pedidos). Para ver el detalle a nivel de producto de un usuario específico, usa el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para consultar datos de eventos de comercio electrónico, o exporta los datos de eventos a través de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/).
+### Exportar datos {#export-data}
 
-A diferencia de los eventos de compra heredados, los eventos recomendados de comercio electrónico almacenan los detalles del producto como propiedades de eventos anidados dentro del array `products`. Estas propiedades están disponibles en la mensajería a través de Liquid y en la segmentación a través de [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/).
+Braze ofrece varias formas de exportar datos de eventos de comercio electrónico para usarlos en tu almacén de datos, herramientas de BI o sistemas posteriores. Los eventos recomendados de comercio electrónico se exportan a través de los mismos canales que tus otros datos de eventos.
+
+| Ruta de exportación | Qué incluye |
+|------------------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) | Los eventos de comercio electrónico se transmiten como eventos personalizados; busca el espacio de nombres `ecommerce.*` para encontrarlos. Los productos de cada pedido están disponibles como compras. |
+| [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing) | Los eventos de comercio electrónico se comparten como eventos personalizados; busca el espacio de nombres `ecommerce.*` para encontrarlos. Los productos de cada pedido están disponibles en la tabla de compras. |
+| [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) | Exportación CSV de miembros del segmento. Para incluir eventos de comercio electrónico, selecciónalos por nombre en el menú desplegable de eventos personalizados. |
+| [Exportar perfil de usuario por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Datos de perfil de usuario para miembros del segmento, devueltos a través de la API. Los eventos de comercio electrónico se incluyen como eventos personalizados. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exportar datos" }
 
 ### ¿Cómo segmento usuarios por un producto específico? {#how-do-i-segment-users-by-a-specific-product}
 
-El segmentador te permite filtrar por el número de veces que un usuario realizó un evento de comercio electrónico. Para filtrar por propiedades específicas del producto (como `product_id` o `product_name`), usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), que admiten el filtrado de propiedades de eventos anidados. Por ejemplo, puedes encontrar todos los usuarios que compraron el producto "SKU-123" en los últimos 90 días.
-
-### ¿Cuál es la diferencia entre los eventos de compra heredados y los eventos recomendados de comercio electrónico? {#whats-the-difference-between-legacy-purchase-events-and-ecommerce-recommended-events}
-
-Los eventos de compra heredados usan el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) de Braze y registran compras individuales de productos con un `product_id` y `price`. Los eventos recomendados de comercio electrónico (como `ecommerce.order_placed`) usan propiedades de eventos personalizados y capturan el contexto completo del pedido, incluyendo múltiples productos, descuentos y metadatos en un solo evento.
-
-Con el lanzamiento de los eventos recomendados de comercio electrónico, Braze descontinuará el evento de compra heredado en el futuro. Si actualmente estás usando eventos de compra, recibirás un aviso con anticipación. Mientras tanto, puedes seguir usando los eventos de compra hasta la fecha oficial de descontinuación. Consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) para más detalles.
-
-### ¿Puedo agregar propiedades personalizadas a los eventos recomendados de comercio electrónico? {#can-i-add-custom-properties-to-ecommerce-recommended-events}
-
-Los eventos recomendados de comercio electrónico tienen un esquema definido con campos obligatorios y opcionales. Puedes incluir datos personalizados adicionales dentro del objeto `metadata` de cada evento. Sin embargo, las etiquetas personalizadas a nivel de pedido o campos propietarios (como canal de compra o información de tienda de comercio minorista) no son compatibles como propiedades de nivel superior. Si necesitas estos campos para la segmentación, continúa enviándolos como eventos personalizados separados junto con tus eventos de comercio electrónico.
-
-### ¿Necesito incluir external_id al enviar eventos de comercio electrónico? {#do-i-need-to-include-externalid-when-sending-ecommerce-events}
-
-Depende de cómo estés enviando los eventos:
-
-- **A través del SDK**: No. Cuando usas un SDK de Braze, los eventos se asocian automáticamente con el contexto del usuario actual del SDK (anónimo o identificado). No necesitas pasar un identificador de usuario con cada llamada de evento; en su lugar, puedes identificar al usuario en ese contexto usando métodos como `changeUser`.
-- **A través de la REST API** (`/users/track`): Sí. Cada solicitud de API debe incluir un identificador de usuario, como `external_id`, `braze_id`, `user_alias`, `email` o `phone`, porque la API no tiene un contexto de "usuario actual".
-
-### ¿Por qué las propiedades anidadas de productos no aparecen en el menú desplegable de configuración de Recomendaciones de elementos de IA? {#why-dont-nested-product-properties-appear-in-the-ai-recommendations-setup-dropdown}
-
-Al configurar las [Recomendaciones de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), el menú desplegable **Nombre de la propiedad** solo lista las propiedades del evento de nivel superior (como `order_id`, `total_value` y `currency`). Las propiedades anidadas dentro del array `products` (por ejemplo, `products.product_id` o `products.variant_id`) pueden no aparecer en esta lista, pero puedes escribirlas manualmente usando notación de punto en el campo. Para la mayoría de las implementaciones de comercio electrónico, Braze recomienda usar `products.product_id` como identificador del elemento y emparejarlo con un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) cuyos ID de elementos coincidan con tus valores de `product_id` o `variant_id`.
-
-### ¿Por qué algunos de mis eventos de comercio electrónico no aparecen en Braze? {#why-are-some-of-my-ecommerce-events-not-appearing-in-braze}
-
-Si los eventos no se muestran en los perfiles de usuario o en los registros, verifica lo siguiente:
-
-- **Temporización del envío de datos del SDK**: El SDK de Braze almacena datos en caché localmente y los carga periódicamente (normalmente en 10-60 segundos). Llama a `requestImmediateDataFlush()` después de `logCustomEvent()` para forzar una carga inmediata.
-- **Propiedades obligatorias**: Los eventos de comercio electrónico tienen propiedades obligatorias. Si falta una propiedad obligatoria o tiene un tipo de datos no válido, el evento puede ser rechazado. Verifica que la carga útil de tu evento coincida con el [esquema requerido](#types-of-ecommerce-recommended-events).
-- **Precisión del nombre del evento**: Los nombres de eventos de comercio electrónico distinguen entre mayúsculas y minúsculas y deben coincidir exactamente (por ejemplo, `ecommerce.checkout_started`, no `ecommerce.checkoutStarted`).
+El segmentador te permite filtrar por el número de veces que un usuario realizó un evento de comercio electrónico. Para filtrar por propiedades específicas del producto (como `product_id` o `product_name`), usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que admiten el filtrado de propiedades de eventos anidados. Por ejemplo, puedes encontrar todos los usuarios que compraron el producto "SKU-123" en los últimos 90 días.

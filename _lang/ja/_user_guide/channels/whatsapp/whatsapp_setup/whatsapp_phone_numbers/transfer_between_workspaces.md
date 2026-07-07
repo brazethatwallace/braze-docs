@@ -14,8 +14,8 @@ channel:
 
 ## 前提条件 {#prerequisites}
 
-- 元のワークスペースと新しいワークスペースの両方で、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)「Manage Subscription Groups」があることを確認してください。
-- WABAは複数の[Brazeクラスター]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)にまたがることはできません。1つの会社内で作業している場合、これが発生する可能性は低いです。
+- 元のワークスペースと新しいワークスペースの両方で、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)「Manage Subscription Groups」があることを確認してください。
+- WABAは複数の[Brazeクラスター]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)にまたがることはできません。1つの会社内で作業している場合、これが発生する可能性は低いです。
 
 ## 電話番号と購読グループの移行 {#transferring-a-phone-number-and-subscription-group}
 
@@ -25,7 +25,7 @@ WhatsApp購読グループをアーカイブするには、以下のステップ
 
 1. 購読グループが現在存在するワークスペースに移動します。
 2. **オーディエンス** > **購読グループ管理**に移動し、移動したいWhatsApp電話番号に関連付けられた購読グループを見つけます。
-3. 購読グループのステータスにカーソルを合わせ、<i class="fa-solid fa-box-archive"></i> **アーカイブ**を選択します。これにより購読グループは非アクティブとしてマークされますが、削除はされません。
+3. 購読グループのステータスにカーソルを合わせ、<i class="fa-solid fa-box-archive" aria-label="アーカイブ"></i> **アーカイブ**を選択します。これにより購読グループは非アクティブとしてマークされますが、削除はされません。
 
 ![購読グループの「アクティブ」ステータスにカーソルを合わせると表示される「アーカイブ」ボタン。]({% image_buster /assets/img/whatsapp/archive_subscription_group.png %}){: style="max-width:70%;"}
 

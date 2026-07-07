@@ -29,7 +29,7 @@ Die Mindest-SDK-Version, die WCAG 2.1 erfüllt, liegt nahe an v3.4.0. Wir empfeh
 | **3.1.2** | Geringfügig | Standard-Alt-Text für Bilder |
 | **2.4.1** | **Major** | Semantisches HTML (`h1` oder `button`), ARIA-Attribute, Tastaturnavigation, Fokusverwaltung |
 | **2.0.5** | Geringfügig | Fokusverwaltung, Tastaturnavigation, Beschriftungen |
-{: .reset-td-br-1, .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Wichtige Verbesserungen der Barrierefreiheit" }
 
 ## Unterstützte Barrierefreiheitsfeatures {#supported-accessibility-features}
 
@@ -43,7 +43,7 @@ Wir unterstützen die folgenden Features für Content Cards und In-App-Nachricht
 
 ## Richtlinien zur Barrierefreiheit für SDK-Integrationen {#accessibility-guidelines-for-sdk-integrations}
 
-Allgemeine Richtlinien zur Barrierefreiheit finden Sie unter [Erstellen Sie barrierefreie Nachrichten in Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/). Dieser Leitfaden enthält Tipps und bewährte Verfahren für maximale Barrierefreiheit bei der Integration des Braze Web SDK in Ihre Webanwendung.
+Allgemeine Richtlinien zur Barrierefreiheit finden Sie unter [Barrierefreie Nachrichten in Braze erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility). Dieser Leitfaden enthält Tipps und bewährte Verfahren für maximale Barrierefreiheit bei der Integration des Braze Web SDK in Ihre Webanwendung.
 
 ### Content Cards
 

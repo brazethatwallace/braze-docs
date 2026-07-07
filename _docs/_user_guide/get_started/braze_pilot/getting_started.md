@@ -36,7 +36,7 @@ Scan a QR code that includes all details required to initialize the SDK, create 
 | Pilot for Android | Pilot for iOS |
 | --- | --- |
 | ![QR code for Android.]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![QR code for iOS.]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Method 1: Demo QR codes" }
 
 {% endtab %}
 {% tab Setup wizard %}
@@ -91,4 +91,4 @@ You can use a Braze in-app message to request push permissions for the app, just
 
 Now you’re ready to start receiving campaigns and Canvases from your Braze dashboard as a user of Braze Pilot! Visit any of the launched campaigns in your demo workspace for a quick demo of Braze use cases, then head to your live workspace to get started sending your own.
 
-For more on how to set up campaigns and Canvases in Braze, see [Getting Started: Campaigns and Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+For more on how to set up campaigns and Canvases in Braze, see [Getting Started: Campaigns and Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).

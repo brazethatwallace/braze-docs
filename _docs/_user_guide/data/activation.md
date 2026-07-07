@@ -4,14 +4,14 @@ article_title: Data activation
 page_order: 2
 layout: dev_guide
 guide_top_header: "Data activation"
-guide_top_text: "After unifying your data in Braze, it's time to use it. This involves understanding your customers' behaviors and preferences in real-time with [user profiles]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) and [segments]({{site.baseurl}}/user_guide/audience/segments/). Then, activate your data by creating targeted messages, personalizing experiences, and setting up customer journeys that respond to what your customers do in real time. <br><br>Data activation in Braze is powered by your custom data. For more details, refer to [Custom data]({{site.baseurl}}/user_guide/data/activation/)."
+guide_top_text: "After unifying your data in Braze, it's time to use it. This involves understanding your customers' behaviors and preferences in real-time with [user profiles]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) and [segments]({{site.baseurl}}/user_guide/audience/segments). Then, activate your data by creating targeted messages, personalizing experiences, and setting up customer journeys that respond to what your customers do in real time. <br><br>Data activation in Braze is powered by your custom data. For more details, refer to [Custom data]({{site.baseurl}}/user_guide/data/activation)."
 page_type: landing
 description: "Activate your data with custom attributes, events, and catalogs. Understand data types, manage custom data, and build targeted messages."
 
 guide_featured_title: "Custom data"
 guide_featured_list:
   - name: Custom data
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: Data types
     link: /docs/user_guide/data/activation/custom_data/data_types

@@ -8,16 +8,19 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Brazeサポート 
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Brazeサポート {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
+
 > Brazeサポートポータルへのアクセス方法、サポートケースの送信と追跡方法、効率的なトラブルシューティングに必要な情報の提供方法について説明します。
 
 ## サポートポータルへのアクセス {#access-the-support-portal}
 
-Brazeサポートチームに連絡するには、Brazeダッシュボードに移動します。ダッシュボードで、**Support** > **Get help**を選択します。
+Brazeサポートチームに連絡するには、Brazeダッシュボードに移動し、**Support**を選択します。メニューには2つのオプションがあります。
 
-![ヘルプを見るオプションが表示された「Support」ドロップダウン。]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:60%;"}
+- **Get help with Operator**を選択すると、BrazeAI Operator<sup>TM</sup>が開きます。会話の内容と現在の画面のコンテキストを使用して、その場で問題をトラブルシューティングできます。Operatorが問題を解決できない場合は、会話に基づいてサポートチケットの下書きを作成するよう依頼できます。詳細については、[BrazeAI Operatorでサポートチケットを提出する]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)を参照してください。
+- **Get help**を選択すると、Brazeサポートポータル（指定サポート連絡先の場合）または標準のサポートフォームに直接移動し、ケースの送信と追跡ができます。Brazeサポート連絡先かどうか不明な場合は、会社のBraze管理者、Brazeサクセスマネージャー、またはアカウントオーナーにお問い合わせください。
 
-Brazeの権限と指定サポート連絡先かどうかに応じて、サポートケースの送信と追跡ができるBrazeサポートポータル、または標準のサポートフォームのいずれかに移動します。Brazeサポート連絡先かどうか不明な場合は、会社のBraze管理者、Brazeサクセスマネージャー、またはアカウントオーナーにお問い合わせください。
+![「Get help with Operator」と「Get help」のオプションが表示された「Support」ドロップダウン。]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+
 
 ## 指定サポート連絡先の追加 {#adding-designated-support-contacts}
 
@@ -27,8 +30,6 @@ Brazeの権限と指定サポート連絡先かどうかに応じて、サポー
 2. ユーザー名を選択するか、ユーザー名の行にカーソルを合わせてメニューを表示します。
 3. メニューで**Edit**を選択すると、**Edit user**ページにリダイレクトされます。
 4. **Set this user as a Designated Support Contact for Braze Support Portal**のチェックボックスをオンにします。
-
-![ユーザーを指定サポート連絡先に設定するためのチェックボックス。]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### アクセスの取得 {#gaining-access}
 
@@ -60,11 +61,11 @@ Brazeの権限と指定サポート連絡先かどうかに応じて、サポー
 
 ### できるだけ多くの情報を提供する {#provide-as-much-information-as-possible}
 
-提供できるインサイトが多いほど、より効果的に対応できます。ワークスペース、CampaignやSegmentのURL、関連するexternal IDなどの具体的な情報を含めてください。これにより、問題をより効率的にトラブルシューティングできます。
+提供できるインサイトが多いほど、より効果的に対応できます。ワークスペース、キャンペーンやセグメントのURL、関連するexternal IDなどの具体的な情報を含めてください。これにより、問題をより効率的にトラブルシューティングできます。
 
 ### ユーザーのサンプルを提供する {#provide-a-sample-of-users}
 
-影響を受けたSegment全体ではなく、ユーザーのサンプルを共有してください。少数のユーザーを提供することで、調査範囲を絞り込み、調査を迅速化できます。
+影響を受けたセグメント全体ではなく、ユーザーのサンプルを共有してください。少数のユーザーを提供することで、調査範囲を絞り込み、調査を迅速化できます。
 
 ### ネットワークログ（HARログ）を添付する {#attach-network-logs-har-logs}
 
@@ -93,6 +94,17 @@ Brazeの権限と指定サポート連絡先かどうかに応じて、サポー
 {% alert important %}
 問題を「クリティカル」としてマークすると、本番インスタンスがダウンしており、Braze内のすべての作業が停止していることを意味します。
 {% endalert %}
+
+## ダッシュボードの読み込みに関するトラブルシューティング {#troubleshooting-dashboard-load-issues}
+
+Brazeダッシュボードが正しく読み込まれない場合は、サポートに連絡する前に以下をお試しください。
+
+1. 別のブラウザ、またはシークレットウィンドウやプライベートウィンドウでダッシュボードを開きます。
+2. [ブラウザのキャッシュとCookieをクリアします]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies)。
+3. 広告ブロッカーとブラウザ拡張機能を無効にしてから、ダッシュボードを再読み込みします。
+4. VPNを使用している場合は、切断してから再度お試しください。
+
+ブラウザの開発者コンソールに`ERR_BLOCKED_BY_CLIENT`と表示される場合は、拡張機能または広告ブロッカーがダッシュボードのリソースをブロックしています。BrazeダッシュボードのURLに対してブロッカーを無効にし、ページを再読み込みしてください。
 
 ## アクセスのトラブルシューティング {#troubleshooting-access}
 

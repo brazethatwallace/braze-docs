@@ -2,15 +2,15 @@
 nav_title: Bedingte Messaging-Logik
 article_title: Bedingte Liquid-Messaging-Logik
 page_order: 6
-description: "Dieser Referenzartikel behandelt, wie Tags in Ihren Kampagnen verwendet werden können und sollten."
+description: "Dieser Referenzartikel behandelt, wie Tags in Ihren Campaigns verwendet werden können und sollten."
 
 ---
 
-# Bedingte Messaging-Logik
+# Bedingte Messaging-Logik {#conditional-messaging-logic}
 
 > [Tags](https://docs.shopify.com/themes/liquid-documentation/tags) ermöglichen es Ihnen, Programmierlogik in Ihre Messaging-Kampagnen einzubinden. Tags können sowohl für die Ausführung bedingter Anweisungen als auch für fortgeschrittene Anwendungsfälle wie das Zuweisen von Variablen oder das Iterieren durch einen Codeblock verwendet werden. <br><br>Diese Seite behandelt, wie Tags verwendet werden können und sollten, z. B. wie Sie mit null-, nil- und leeren Attributwerten umgehen und wie Sie angepasste Attribute referenzieren.
 
-## Tags formatieren
+## Tags formatieren {#formatting-tags}
 
 {% raw %}
 Ein Tag muss in `{% %}` eingeschlossen sein.
@@ -40,9 +40,9 @@ Buy now! Would 5% off convince you?
 ```
 {% endraw %}
 
-## Bedingte Logik
+## Bedingte Logik {#conditional-logic}
 
-Sie können viele Arten von [intelligenter Logik in Nachrichten](http://docs.shopify.com/themes/liquid-documentation/basics) einbinden, wie z. B. bedingte Anweisungen. Das folgende Beispiel verwendet [Bedingungen](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags), um eine Kampagne zu internationalisieren:
+Sie können viele Arten von [intelligenter Logik in Nachrichten](http://docs.shopify.com/themes/liquid-documentation/basics) einbinden, wie z. B. bedingte Anweisungen. Das folgende Beispiel verwendet [Bedingungen](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags), um eine Campaign zu internationalisieren:
 {% raw %}
 
 ```liquid
@@ -57,9 +57,9 @@ This is a message from Braze! This is going to go to anyone who did not match th
 {% endif %}
 ```
 
-### Bedingte Tags
+### Bedingte Tags {#conditional-tags}
 
-#### `if` und `elsif`
+#### `if` und `elsif` {#if-and-elsif}
 
 Bedingte Logik beginnt mit dem `if`-Tag, der die erste zu prüfende Bedingung festlegt. Nachfolgende Bedingungen verwenden den `elsif`-Tag und werden geprüft, wenn die vorherigen Bedingungen nicht erfüllt sind. In diesem Beispiel prüft der Code, wenn das Gerät einer Nutzerin oder eines Nutzers nicht auf Englisch eingestellt ist, ob das Gerät auf Spanisch eingestellt ist, und falls das fehlschlägt, ob das Gerät auf Chinesisch eingestellt ist. Wenn das Gerät der Nutzerin oder des Nutzers eine dieser Bedingungen erfüllt, erhält sie oder er eine Nachricht in der entsprechenden Sprache.
 
@@ -67,17 +67,37 @@ Bedingte Logik beginnt mit dem `if`-Tag, der die erste zu prüfende Bedingung fe
 
 Sie haben die Möglichkeit, eine `{% else %}`-Anweisung in Ihre bedingte Logik einzufügen. Wenn keine der von Ihnen festgelegten Bedingungen erfüllt ist, gibt die `{% else %}`-Anweisung die Nachricht an, die gesendet werden soll. In diesem Beispiel verwenden wir standardmäßig Englisch, wenn die Sprache einer Nutzerin oder eines Nutzers nicht Englisch, Spanisch oder Chinesisch ist.
 
+#### `case` und `when` {#case-and-when}
+
+`{% case %}`, `{% when %}` und `{% endcase %}` funktionieren wie eine Switch-Anweisung: Sie setzen einen Ausdruck nach `case`, und jeder `when`-Zweig wird ausgeführt, wenn dieser Ausdruck dem aufgelisteten Wert entspricht (Liquid verwendet im Hintergrund Gleichheit, ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können mehrere Werte in einem `when`-Tag auflisten, indem Sie sie mit einem Komma oder `or` trennen. Verwenden Sie `{% else %}` als Fallback, wenn nichts übereinstimmt, und schließen Sie dann mit `{% endcase %}`.
+
+Stellen Sie sicher, dass das Format Ihrer `when`-Werte zum Datentyp passt. Für Text (z. B. einen Sprachcode) verwenden Sie Anführungszeichen: `{% when 'es' %}`. Für Zahlen lassen Sie die Anführungszeichen weg: `{% when 2 %}`.
+
+```liquid
+{% assign handle = 'cake' %}
+{% case handle %}
+{% when 'cake' %}
+This is a cake
+{% when 'cookie' %}
+This is a cookie
+{% else %}
+This is not a cake nor a cookie
+{% endcase %}
+```
+
+Sie können dasselbe Muster mit Braze-Personalisierungs-Tags oder anderen Liquid-Ausdrücken anstelle von `handle` verwenden. Weitere Syntaxoptionen finden Sie in der Shopify-Dokumentation zum [`case`-Tag](https://shopify.dev/docs/api/liquid/tags/case).
+
 #### `endif`
 
-Der `{% endif %}`-Tag signalisiert, dass Sie Ihre bedingte Logik abgeschlossen haben. Sie müssen den `{% endif %}`-Tag in jede Nachricht mit bedingter Logik einfügen. Wenn Sie keinen `{% endif %}`-Tag in Ihre bedingte Logik einfügen, erhalten Sie einen Fehler, da Braze Ihre Nachricht nicht parsen kann.
+Der `{% endif %}`-Tag signalisiert, dass Sie einen `if`-Block abgeschlossen haben. Sie müssen den `{% endif %}`-Tag in jede Nachricht einfügen, die `if`, `elsif`, `unless` oder `else` in dieser Kette verwendet. Wenn Sie keinen `{% endif %}`-Tag einfügen, erhalten Sie einen Fehler, da Braze Ihre Nachricht nicht parsen kann. Wenn Sie stattdessen `{% case %}` verwenden, schließen Sie den Block mit `{% endcase %}`, nicht mit `{% endif %}`.
 
 {% alert note %}
-Bedingte Tags (`if`, `elsif`, `unless`) unterstützen Operatoren, aber keine Filter. Um einen gefilterten Wert in einer Bedingung auszuwerten, weisen Sie das Filterergebnis zuerst einer Variablen zu und referenzieren Sie dann diese Variable. Weitere Details finden Sie unter [Wo Operatoren und Filter verwendet werden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+In `if`-, `elsif`- und `unless`-Tags können Sie Operatoren verwenden, aber keine Filter. In `case`- und `when`-Tags stimmt jeder Zweig überein, wenn der `case`-Ausdruck einem `when`-Wert entspricht; Filter werden in diesen Ausdrücken ebenfalls nicht unterstützt. Um einen gefilterten Wert auszuwerten, weisen Sie das Filterergebnis zuerst einer Variablen zu und referenzieren Sie dann diese Variable in Ihrer `case`- oder `when`-Klausel. Weitere Details finden Sie unter [Wo Operatoren und Filter verwendet werden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Tutorial: Standortbasierte Inhalte bereitstellen
+### Tutorial: Standortbasierte Inhalte bereitstellen {#tutorial-deliver-location-based-content}
 
-Wenn Sie dieses Tutorial abgeschlossen haben, können Sie Tags mit „if"-, „elsif"- und „else"-Anweisungen verwenden, um Inhalte basierend auf dem Standort einer Nutzerin oder eines Nutzers bereitzustellen.
+Wenn Sie dieses Tutorial abgeschlossen haben, können Sie Tags mit „if“-, „elsif“- und „else“-Anweisungen verwenden, um Inhalte basierend auf dem Standort einer Nutzerin oder eines Nutzers bereitzustellen.
 
 1. Beginnen Sie mit einem `if`-Tag, um festzulegen, welche Nachricht gesendet werden soll, wenn sich der Ort der Nutzerin oder des Nutzers in New York befindet. Wenn der Ort New York ist, wird diese erste Bedingung erfüllt und die Nutzerin oder der Nutzer erhält eine Nachricht, die ihre oder seine New Yorker Identität bestätigt.
 
@@ -153,13 +173,13 @@ Wenn Sie dieses Tutorial abgeschlossen haben, können Sie Tags mit „if"-, „e
 
 Bedingte Logik ist eine nützliche Methode, um mit Attributwerten umzugehen, die in Nutzerprofilen nicht gesetzt sind.
 
-### Null- und nil-Attributwerte
+### Null- und nil-Attributwerte {#null-and-nil-attribute-values}
 
 Ein null- oder nil-Wert tritt auf, wenn der Wert eines angepassten Attributs nicht gesetzt wurde. Zum Beispiel hat eine Nutzerin oder ein Nutzer, die oder der noch keinen Vornamen festgelegt hat, keinen Vornamen in Braze hinterlegt.
 
 In manchen Fällen möchten Sie möglicherweise eine völlig andere Nachricht an Nutzer:innen senden, die einen Vornamen gesetzt haben, und an solche, die keinen Vornamen gesetzt haben.
 
-Der folgende Tag ermöglicht es Ihnen, eine Nachricht für Nutzer:innen mit einem null-Attribut „Vorname" festzulegen:
+Der folgende Tag ermöglicht es Ihnen, eine Nachricht für Nutzer:innen mit einem null-Attribut „Vorname“ festzulegen:
 
 {% raw %}
 ```liquid
@@ -169,7 +189,7 @@ Der folgende Tag ermöglicht es Ihnen, eine Nachricht für Nutzer:innen mit eine
 ```
 {% endraw %}
 
-![Eine Beispielnachricht im Braze-Dashboard, die ein null-Attribut „Vorname" verwendet.]({% image_buster /assets/img/value_null.png %}){: style="max-width:60%;"}
+![Eine Beispielnachricht im Braze-Dashboard, die ein null-Attribut „Vorname“ verwendet.]({% image_buster /assets/img/value_null.png %}){: style="max-width:60%;"}
 
 {% raw %}
 ```liquid
@@ -180,15 +200,15 @@ Hey {{${first_name} | default: 'there'}}, we're having a sale! Hurry up and get 
 {% endif %}
 ```
 
-Beachten Sie, dass ein null-Attributwert nicht streng mit einem Werttyp verknüpft ist (zum Beispiel ist ein „null"-String dasselbe wie ein „null"-Array). Im obigen Beispiel referenziert der null-Attributwert einen nicht gesetzten Vornamen, der ein String wäre.
+Beachten Sie, dass ein null-Attributwert nicht streng mit einem Werttyp verknüpft ist (zum Beispiel ist ein „null“-String dasselbe wie ein „null“-Array). Im obigen Beispiel referenziert der null-Attributwert einen nicht gesetzten Vornamen, der ein String wäre.
 
 {% endraw %}
 
-### Leere Attributwerte
+### Leere Attributwerte {#blank-attribute-values}
 
 Ein leerer Wert tritt auf, wenn das Attribut in einem Nutzerprofil nicht gesetzt ist, mit einem Leerzeichen-String (` `) gesetzt ist oder als `false` gesetzt ist. Leere Werte sollten vor anderen Variablen geprüft werden, um einen Liquid-Verarbeitungsfehler zu vermeiden.
 
-Der folgende Tag ermöglicht es Ihnen, eine Nachricht für Nutzer:innen festzulegen, die ein leeres Attribut „Vorname" haben.
+Der folgende Tag ermöglicht es Ihnen, eine Nachricht für Nutzer:innen festzulegen, die ein leeres Attribut „Vorname“ haben.
 
 {% raw %}
 ```liquid
@@ -204,13 +224,13 @@ Nachdem Sie [angepasste Attribute erstellt]({{site.baseurl}}/user_guide/data/act
 
 Bei der Verwendung bedingter Logik müssen Sie den Datentyp des angepassten Attributs kennen, um sicherzustellen, dass Sie die richtige Syntax verwenden. Suchen Sie auf der Seite **Angepasste Attribute** im Dashboard nach dem Datentyp, der Ihrem angepassten Attribut zugeordnet ist, und orientieren Sie sich dann an den folgenden Beispielen für jeden Datentyp.
 
-![Auswahl eines Datentyps für ein angepasstes Attribut. Das gezeigte Beispiel zeigt ein Attribut „Favorite_Category" mit dem Datentyp String.]({% image_buster /assets/img_archive/custom_attribute_data_type.png %}){: style="max-width:80%;"}
+![Auswahl eines Datentyps für ein angepasstes Attribut. Das gezeigte Beispiel zeigt ein Attribut „Favorite_Category“ mit dem Datentyp String.]({% image_buster /assets/img_archive/custom_attribute_data_type.png %}){: style="max-width:80%;"}
 
 {% alert tip %}
 Strings und Arrays erfordern einfache Anführungszeichen, während boolesche Werte und Ganzzahlen niemals Anführungszeichen haben.
 {% endalert %}
 
-#### Boolescher Wert
+#### Boolescher Wert {#boolean}
 
 [Boolesche Werte]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans) sind binäre Werte und können entweder auf `true` oder `false` gesetzt werden, wie z. B. `registration_complete: true`. Boolesche Werte haben keine Anführungszeichen.
 
@@ -222,7 +242,7 @@ Strings und Arrays erfordern einfache Anführungszeichen, während boolesche Wer
 
 {% endraw %}
 
-#### Zahl
+#### Zahl {#number}
 
 [Zahlen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers) sind numerische Werte, die Ganzzahlen oder Gleitkommazahlen sein können. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `shoe_size: 10` oder `levels_completed: 287` haben. Zahlenwerte haben keine Anführungszeichen.
 
@@ -244,7 +264,7 @@ Sie können auch andere [grundlegende Operatoren](https://shopify.dev/docs/theme
 
 {% endraw %}
 
-#### String
+#### String {#string}
 
 Ein [String]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings) besteht aus alphanumerischen Zeichen und speichert Daten über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnten Sie `favorite_color: red` oder `phone_number: 3025981329` haben. String-Werte müssen Anführungszeichen haben.
 
@@ -256,9 +276,9 @@ Ein [String]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 {% endraw %}
 
-Für Strings können Sie sowohl „==" als auch „contains" in Ihrem Liquid verwenden.
+Für Strings können Sie sowohl „==“ als auch „contains“ in Ihrem Liquid verwenden.
 
-#### Array
+#### Array {#array}
 
 Ein [Array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays) ist eine Liste von Informationen über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `last_viewed_shows: stranger things, planet earth, westworld` haben. Array-Werte müssen Anführungszeichen haben.
 
@@ -270,9 +290,9 @@ Ein [Array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attrib
 
 {% endraw %}
 
-Für Arrays müssen Sie „contains" verwenden und können nicht „==" verwenden.
+Für Arrays müssen Sie „contains“ verwenden und können nicht „==“ verwenden.
 
-#### Zeit
+#### Zeit {#time}
 
 Ein Zeitstempel, der angibt, wann ein Ereignis stattgefunden hat. [Zeit]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time)-Werte müssen einen [mathematischen Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters) haben, um in bedingter Logik verwendet werden zu können.
 

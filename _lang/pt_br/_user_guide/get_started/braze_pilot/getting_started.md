@@ -36,7 +36,7 @@ Escaneie um código QR que inclui todos os detalhes necessários para inicializa
 | Pilot para Android | Pilot para iOS |
 | --- | --- |
 | ![Código QR para Android.]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![Código QR para iOS.]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Método 1: Códigos QR de demonstração" }
 
 {% endtab %}
 {% tab Assistente de configuração %}
@@ -77,7 +77,7 @@ Abra as configurações do seu dispositivo e localize o Braze Pilot. Em seguida,
 {% endtab %}
 {% tab Lance uma mensagem introdutória de push %}
 
-Você pode usar uma mensagem no app da Braze para solicitar permissões de push para o app, assim como faria para seus próprios consumidores. Para saber como criar esse tipo de mensagem na Braze, consulte [Mensagens introdutórias de push no app]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages).
+Você pode usar uma mensagem no app da Braze para solicitar permissões de push para o app, assim como faria para seus próprios consumidores. Para saber como criar esse tipo de mensagem na Braze, consulte [Mensagens introdutórias de push no app]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages).
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -91,4 +91,4 @@ Você pode usar uma mensagem no app da Braze para solicitar permissões de push 
 
 Agora você está pronto para começar a receber Campaigns e Canvas do seu dashboard da Braze como usuário do Braze Pilot! Acesse qualquer uma das Campaigns lançadas no seu espaço de trabalho de demonstração para uma rápida demonstração dos casos de uso da Braze. Depois, vá para o seu espaço de trabalho ativo para começar a enviar suas próprias mensagens.
 
-Para mais informações sobre como configurar Campaigns e Canvas na Braze, consulte [Primeiros passos: Campaigns e Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Para mais informações sobre como configurar Campaigns e Canvas na Braze, consulte [Primeiros passos: Campaigns e Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).

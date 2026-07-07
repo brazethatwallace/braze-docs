@@ -30,7 +30,7 @@ Deep links are custom URIs that link to a specific part of the app and contain a
 Everything after the colon within a deep link is free-form text. It's up to you to define its structure and interpretation; however, a common convention is to model it after `http:` URLs, including a leading `//` and query parameters (for example, `?foo=1&bar=2`). For the previous example, `twitter://user?screen_name=[id]` would be used to launch a specific profile in the app.
 
 {% alert important %}
-For apps built with wrapper frameworks (for example, Flutter or Cordova), Braze does not provide wrapper-specific deep linking support. You must configure deep links at the native iOS and Android layers. For Cordova, see [Deep linking in push notifications]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova).
+For apps built with wrapper frameworks (for example, Flutter or Cordova), Braze does not provide wrapper-specific deep linking support. You must configure deep links at the native iOS and Android layers. For Cordova, see [Deep linking in push notifications]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
 
 ### UTM tags and campaign attribution
@@ -70,7 +70,7 @@ To include UTM tags in your deep links for push notifications, set the on-click 
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
 ```
 
-![]({% image_buster /assets/img_archive/push_utm_tags.png %})
+![Screenshot related to attribute push opens and in-app message clicks with utm tags.]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
 {% endtab %}
 {% tab In-app message clicks %}
@@ -81,7 +81,7 @@ To include UTM tags in the deep links in your in-app messages, use the following
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
 ```
 
-![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
+![Screenshot related to attribute push opens and in-app message clicks with utm tags.]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ You can dynamically construct your URL directly within the Braze composer, allow
 
 ### Create a URL with supported Liquid personalization tags
 
-URLs can be dynamically generated through the use of any [supported Liquid personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+URLs can be dynamically generated through the use of any [supported Liquid personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 {% raw %}
 ```liquid
@@ -113,13 +113,15 @@ https://example.com/{{url_var}}
 
 ### Shorten URLs rendered by Liquid variables
 
-We shorten URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we shorten and track that URL before sending the message. 
+**Supported channels:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
+We shorten URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we shorten and track that URL before sending the message.
 
 ### Shorten URLs in `/messages/send` endpoint
 
-Link shortening is also turned on for API-only messages through the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). For a full list of request parameters, see [request parameters]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
+Link shortening is also turned on for API-only messages through the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). For a full list of request parameters, see [request parameters]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 | Parameter | Required | Data type | Description |
 | --------- | ---------| --------- | ----------- |
 |`link_shortening_enabled`| Yes | Boolean | Set `link_shortening_enabled` to `true` to turn on link shortening. To use tracking, a `campaign_id` and `message_variation_id` must be present.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }

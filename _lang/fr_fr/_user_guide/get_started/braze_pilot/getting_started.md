@@ -27,7 +27,7 @@ Braze Pilot vous permet d'initialiser le SDK Braze sur n'importe quel tableau de
 Il existe deux méthodes pour configurer la connexion au SDK dans Pilot : les codes QR de démonstration et l'assistant de configuration.
 
 {% tabs local %}
-{% tab Demo QR codes %}
+{% tab Codes QR de démonstration %}
 
 ### Méthode 1 : Codes QR de démonstration {#method-1-demo-qr-codes}
 
@@ -36,10 +36,10 @@ Scannez un code QR contenant toutes les informations nécessaires pour initialis
 | Pilot pour Android | Pilot pour iOS |
 | --- | --- |
 | ![Code QR pour Android.]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![Code QR pour iOS.]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Méthode 1 : Codes QR de démonstration" }
 
 {% endtab %}
-{% tab Setup wizard %}
+{% tab Assistant de configuration %}
 
 ### Méthode 2 : Assistant de configuration {#method-2-setup-wizard}
 
@@ -59,7 +59,7 @@ Cette connexion est spécifique à l'espace de travail. Autrement dit, si vous i
 Enfin, il est recommandé d'autoriser l'application à vous envoyer des notifications push si vous souhaitez tester les fonctionnalités push via l'application. Vous pouvez accorder ces autorisations de différentes manières : en mettant à jour les paramètres de l'application dans les réglages de votre appareil, ou en lançant un message d'amorce push depuis Braze vers l'application.
 
 {% tabs local %}
-{% tab Update the settings for the app %}
+{% tab Mettre à jour les paramètres de l'application %}
 
 Ouvrez les paramètres de votre appareil et localisez Braze Pilot. Mettez ensuite à jour les paramètres pour autoriser l'affichage des notifications sur votre écran de verrouillage.
 
@@ -75,9 +75,9 @@ Ouvrez les paramètres de votre appareil et localisez Braze Pilot. Mettez ensuit
 <br>
 
 {% endtab %}
-{% tab Launch a push primer message %}
+{% tab Lancer un message d'amorce push %}
 
-Vous pouvez utiliser un message in-app de Braze pour demander les autorisations push pour l'application, comme vous le feriez pour vos propres utilisateurs. Pour découvrir comment créer ce type de message dans Braze, consultez [Messages in-app d'amorce push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages).
+Vous pouvez utiliser un message in-app de Braze pour demander les autorisations push pour l'application, comme vous le feriez pour vos propres utilisateurs. Pour découvrir comment créer ce type de message dans Braze, consultez [Messages in-app d'amorce push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages).
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -89,6 +89,6 @@ Vous pouvez utiliser un message in-app de Braze pour demander les autorisations 
 
 ## Étape 5 : Découvrir l'envoi de messages Braze dans Pilot {#step-5-experience-braze-messaging-in-pilot}
 
-Vous êtes maintenant prêt à recevoir des Campaign et des Canvas depuis votre tableau de bord de Braze en tant qu'utilisateur de Braze Pilot ! Consultez l'une des Campaign lancées dans votre espace de travail de démonstration pour une démonstration rapide des cas d'utilisation de Braze, puis rendez-vous dans votre espace de travail en production pour commencer à envoyer les vôtres.
+Vous êtes maintenant prêt à recevoir des campagnes et des Canvas depuis votre tableau de bord de Braze en tant qu'utilisateur de Braze Pilot ! Consultez l'une des campagnes lancées dans votre espace de travail de démonstration pour une démonstration rapide des cas d'utilisation de Braze, puis rendez-vous dans votre espace de travail en production pour commencer à envoyer les vôtres.
 
-Pour en savoir plus sur l'implémentation de Campaign et de Canvas dans Braze, consultez [Démarrer avec les campagnes et les Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Pour en savoir plus sur la mise en place de campagnes et de Canvas dans Braze, consultez [Démarrer avec les campagnes et les Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).

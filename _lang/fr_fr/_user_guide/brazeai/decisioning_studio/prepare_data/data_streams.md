@@ -22,7 +22,7 @@ Un snapshot est statique et agrégé. Il reflète le résultat cumulé de tous l
 |-------|---------|
 | Identifiant client | À qui correspond cet enregistrement |
 | Date du snapshot | Quand ce snapshot a été pris |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs requis" }
 
 ### Comment les snapshots doivent être mis à jour {#how-snapshots-should-be-updated}
 
@@ -53,7 +53,7 @@ Un flux d'événements enregistre des actions discrètes au moment où elles se 
 | Horodatage de l'événement | Quand l'événement s'est réellement produit |
 | Horodatage de création | Quand cet enregistrement a été créé dans votre système (voir la note ci-dessous) |
 | Propriétés d'événement | Métadonnées supplémentaires sur l'événement ; plus elles sont riches, mieux Decisioning Studio peut relier les événements à travers le parcours client |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs requis" }
 
 {% alert important %}
 L'horodatage de l'événement et l'horodatage de création sont des champs différents et tous deux sont requis. L'horodatage de l'événement enregistre le moment où l'action s'est réellement produite. L'horodatage de création enregistre le moment où l'entrée de données a été écrite dans votre système, ce qui peut être plus tard en raison de délais de traitement. Ne confondez pas les deux.

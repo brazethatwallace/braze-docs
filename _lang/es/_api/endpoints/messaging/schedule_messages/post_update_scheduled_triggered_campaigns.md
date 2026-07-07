@@ -1,39 +1,39 @@
 ---
-nav_title: "PUBLICAR: Actualización de campañas programadas activadas por API"
-article_title: "PUBLICAR: Actualización de campañas programadas activadas por API"
+nav_title: "POST: Actualizar Campaigns programadas activadas por API"
+article_title: "POST: Actualizar Campaigns programadas activadas por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
-description: "En este artículo se describen los detalles del punto final Actualizar campañas programadas desencadenadas por API de Braze."
+description: "En este artículo se describen los detalles del punto de conexión de Braze Actualizar Campaigns programadas activadas por API."
 
 ---
 {% api %}
-# Actualización de campañas programadas activadas por API
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+# Actualizar Campaigns programadas activadas por API {#update-scheduled-api-triggered-campaigns}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/update
 {% endapimethod %}
 
-> Utilice este punto final para actualizar las campañas programadas activadas por API creadas en el panel de control, permitiéndole decidir qué acción debe activar el envío del mensaje.
+> Usa este punto de conexión para actualizar las Campaigns programadas activadas por API creadas en el dashboard, lo que te permite decidir qué acción debe desencadenar el envío del mensaje.
 
-Puedes pasar en `trigger_properties` las plantillas de Braze al propio mensaje.
+Puedes pasar `trigger_properties` que Braze incluye como plantilla en el propio mensaje.
 
-Tenga en cuenta que para enviar mensajes con este punto final, debe tener un ID de campaña, creado al crear una [campaña activada por API]({{site.baseurl}}/api/api_campaigns/).
+Ten en cuenta que para enviar mensajes con este punto de conexión, debes tener un ID de Campaign, creado al crear una [Campaign activada por API]({{site.baseurl}}/api/api_campaigns).
 
-Cualquier programación sobrescribe completamente la que proporcionaste en la solicitud de creación de programación o en las solicitudes de actualización de programación anteriores. Por ejemplo, si originalmente estableces el horario en `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` y más tarde lo actualizas a `"schedule" : {"time" : "2015-02-20T14:14:47"}`, Braze envía el mensaje a la hora especificada en UTC, no en la hora local del usuario.
+Cualquier programación sobrescribe completamente la que proporcionaste en la solicitud de creación de programación o en las solicitudes de actualización de programación anteriores. Por ejemplo, si originalmente estableces la programación en `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` y más tarde la actualizas a `"schedule" : {"time" : "2015-02-20T14:14:47"}`, Braze envía el mensaje a la hora especificada en UTC, no en la hora local del usuario.
 
 Los desencadenantes programados que se actualizan cerca de la hora a la que debían enviarse, o durante la misma, se actualizan con el máximo esfuerzo para que Braze pueda aplicar los cambios de último momento a todos, algunos o ninguno de tus usuarios objetivo. Las actualizaciones no se aplican si la programación original utilizaba la hora local y la hora original ya ha pasado en cualquier zona horaria.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d2a6e66-9d6f-4ae1-965a-79fa52b86b1d {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.trigger.schedule.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.trigger.schedule.update`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -50,16 +50,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`|Obligatoria|Cadena| Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/)|
-| `schedule_id` | Obligatoria | Cadena | El `schedule_id` a actualizar (obtenido de la respuesta para crear un horario). |
-|`schedule` | Obligatoria | Objeto | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types) |
+| `schedule_id` | Obligatorio | Cadena | El `schedule_id` a actualizar (obtenido de la respuesta para crear una programación). |
+| `schedule` | Obligatorio | Objeto | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/schedule/update' \
 --header 'Content-Type: application/json' \

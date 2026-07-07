@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Braze Teams im Dashboar
 
 ---
 
-# Teams
+# Teams {#teams}
 
 > Als Braze-Administrator:in können Sie die Nutzer:innen Ihres Unternehmens in Teams mit unterschiedlichen Rollen und Berechtigungen gruppieren. Dies ermöglicht es Ihnen, mehrere, voneinander unabhängige Gruppen von Unternehmensnutzer:innen in einem Workspace zusammenarbeiten zu lassen, indem die Arten von Inhalten, die bearbeitet werden können, voneinander getrennt werden.
 
@@ -16,9 +16,9 @@ Teams können nach Standort der Kundenbasis, Sprache und angepassten Attributen 
 
 Teams sind nicht in allen Braze-Verträgen enthalten. Um auf dieses Feature zuzugreifen, wenden Sie sich bitte an Ihren Braze Account Manager oder [kontaktieren Sie uns](mailto:success@braze.com) für eine Beratung.
 
-## Wie unterscheiden sich Teams von Berechtigungsgruppen und Rollen?
+## Wie unterscheiden sich Teams von Berechtigungsgruppen und Rollen? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Teams erstellen {#creating-teams}
 
@@ -28,11 +28,19 @@ Gehen Sie zu **Einstellungen** > **Interne Teams** und wählen Sie <i class="fas
 
 Geben Sie den **Teamnamen** ein. Verwenden Sie bei Bedarf das Feld **Team definieren (Optional)**, um ein angepasstes Attribut, einen Standort oder eine Sprache auszuwählen und so genauer festzulegen, auf welche Nutzerdaten das Team Zugriff hat. Ein möglicher Anwendungsfall ist beispielsweise das [Testen mit Teams](#test-with-teams), indem Sie ein Entwicklungsteam erstellen, das nur Zugriff auf Testnutzer:innen hat, die durch ein angepasstes Attribut identifiziert werden. Ein weiterer Anwendungsfall ist die Einschränkung der Kommunikation mit Nutzer:innen basierend auf dem Produkt.
 
-Wenn ein Team durch ein angepasstes Attribut, eine Sprache oder ein Land definiert ist, können Sie das Team verwenden, um Endnutzer:innen für Features wie Campaigns, Canvases, Content Cards, Segments und mehr zu filtern. Weitere Informationen finden Sie unter [Team-Tags zuweisen](#tags-and-filters).
+Wenn ein Team durch ein angepasstes Attribut, eine Sprache oder ein Land definiert ist, können Sie das Team verwenden, um Endnutzer:innen für Features wie Campaigns, Canvases, Content Cards, Segmente und mehr zu filtern. Weitere Informationen finden Sie unter [Team-Tags zuweisen](#tags-and-filters).
 
-## Nutzer:innen zu Teams zuweisen
+## Nutzer:innen zu Teams zuweisen {#assign-users-to-teams}
 
 Braze-Administrator:innen und eingeschränkte Nutzer:innen mit der unternehmensweiten Berechtigung „Unternehmenseinstellungen verwalten“ können einem/einer Unternehmensnutzer:in mit eingeschränktem Zugriff Berechtigungen auf Team-Ebene zuweisen. Wenn Unternehmensnutzer:innen einem Team zugewiesen werden, sind sie darauf beschränkt, nur Daten zu lesen oder zu schreiben, die ihren jeweiligen Teams zur Verfügung stehen, wie z. B. Nutzersprache, Standort oder angepasstes Attribut, wie bei der Erstellung des Teams festgelegt.
+
+### Berechtigungen von Unternehmensnutzer:innen einschränken, ohne sie zu löschen {#limit-company-user-permissions-without-deleting-a-user}
+
+Um zu verhindern, dass sich ein:e Unternehmensnutzer:in anmeldet, ohne das Konto zu löschen, [suspendieren Sie den/die Nutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). Durch die Suspendierung wird das Konto in einen inaktiven Zustand versetzt, in dem sich der/die Nutzer:in nicht anmelden kann.
+
+Wenn der/die Nutzer:in sich weiterhin mit eingeschränkten Möglichkeiten anmelden können soll, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen**, wählen Sie den/die Nutzer:in aus und bearbeiten Sie die Berechtigungen. Entfernen Sie Berechtigungen auf Workspace-Ebene für Campaigns, Canvases, Segmente und Nutzerdaten und belassen Sie nur minimalen Zugriff – zum Beispiel „Medienbibliothek-Assets anzeigen“. Weitere Informationen finden Sie unter [Berechtigungen eines/einer Nutzer:in bearbeiten]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
+
+Team-Berechtigungen bauen auf Workspace-Berechtigungen auf. Wenn Sie den/die Nutzer:in einem Team zuweisen, gewähren Sie nur die minimal erforderlichen Berechtigungen auf Team-Ebene und vergeben Sie keine Berechtigungen für Campaigns, Canvases, Segmente oder Nutzerprofile. Der/die Nutzer:in bleibt im Workspace und kann sich anmelden, kann aber die meisten Messaging- oder Zielgruppenaktionen nicht ausführen.
 
 Um eine:n Nutzer:in einem Team zuzuweisen, navigieren Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und wählen Sie eine:n Nutzer:in aus, den/die Sie Ihrem Team hinzufügen möchten.
 
@@ -43,19 +51,14 @@ Führen Sie dann die folgenden Schritte aus:
 ![Berechtigungen auf Workspace-Ebene mit dem Berechtigungsset „Banner Template“.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Wählen Sie **+ Berechtigungen auf Team-Ebene hinzufügen** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
+2. Wählen Sie **+ Add team-level permissions** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
 3. Weisen Sie spezifische Berechtigungen im Abschnitt **Team**-Berechtigungen zu.
 
 ![Berechtigungen für Landing-Page-Templates auf Team-Ebene.]({% image_buster /assets/img/teams.png %})
 
-### Verfügbare Berechtigungen auf Team-Ebene
+### Verfügbare Berechtigungen auf Team-Ebene {#available-team-level-permissions}
 
 Im Folgenden finden Sie alle verfügbaren Berechtigungen, die Sie auf Team-Ebene zuweisen können. Alle hier nicht aufgeführten Berechtigungen werden nur auf Workspace-Ebene gewährt und erscheinen in der Spalte **Teams**-Berechtigungen als „--“.
-
-{% tabs %}
-{% tab Granulare Berechtigungen %}
-
-{% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
 - Campaigns anzeigen
 - Campaigns bearbeiten
@@ -71,9 +74,9 @@ Im Folgenden finden Sie alle verfügbaren Berechtigungen, die Sie auf Team-Ebene
 - Content Blocks bearbeiten
 - Content Blocks archivieren
 - Content Blocks starten
-- Segments anzeigen
-- Segments bearbeiten
-- Segments archivieren
+- Segmente anzeigen
+- Segmente bearbeiten
+- Segmente archivieren
 - IAM-Templates anzeigen
 - IAM-Templates bearbeiten
 - IAM-Templates archivieren
@@ -99,41 +102,18 @@ Im Folgenden finden Sie alle verfügbaren Berechtigungen, die Sie auf Team-Ebene
 - Dashboard-Berichte bearbeiten
 - Dashboard-Berichte löschen
 
-{% endtab %}
-{% tab Legacy-Berechtigungen %}
-
-- Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentren
-- Campaigns, Canvases senden
-- Content Cards starten und verwalten
-- Segments bearbeiten
-- Nutzerdaten exportieren
-- Nutzerprofile PII-konform anzeigen
-- Dashboard-Nutzer:innen verwalten
-- Medienbibliothek-Assets verwalten
-- Campaigns genehmigen und ablehnen
-- Canvases genehmigen und ablehnen
-- Canvas-Templates erstellen und bearbeiten
-- Canvas-Templates anzeigen
-- Canvas-Templates archivieren
-- Landing-Page-Templates bearbeiten
-- Landing-Page-Templates anzeigen
-- Landing-Page-Templates archivieren
-
-{% endtab %}
-{% endtabs %}
-
-Beschreibungen der einzelnen Nutzerberechtigungen und deren Verwendung finden Sie in unserem Abschnitt [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-user-permissions).
+Beschreibungen der einzelnen Nutzerberechtigungen und deren Verwendung finden Sie in unserem Abschnitt [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Team-Tags zuweisen {#tags-and-filters}
 
-Sie können ein Team Canvases, Campaigns, Content Cards, Segments, E-Mail-Templates, Webhook-Templates, Content Blocks und Medienbibliothek-Assets mit dem Filter **Team hinzufügen** zuweisen.
+Sie können ein Team Canvases, Campaigns, Content Cards, Segmenten, E-Mail-Templates, Webhook-Templates, Content Blocks und Medienbibliothek-Assets mit dem Filter **Team hinzufügen** zuweisen.
 
 ![Hinzufügen eines Team-Tags zu einer Campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
 - Basierend auf den *Definitionen*, die bei der Erstellung des Teams festgelegt wurden, wird die Zielgruppe des Engagement-Tools bei Zuweisung eines Team-Filters auf Nutzerprofile beschränkt, die der Definition entsprechen.
-- Basierend auf den zugewiesenen *Berechtigungen* können Teammitglieder nur auf Dashboard-Engagement-Tools zugreifen, für die ihr Team-Filter gesetzt ist. Wenn sie eingeschränkte oder keine Berechtigungen auf Workspace-Ebene haben, müssen sie bestimmten Objekten einen Team-Filter hinzufügen, bevor sie diese speichern oder starten können. Teammitglieder können außerdem Canvases, Campaigns, Content Cards und Segments nach Team filtern, um für sie relevante Inhalte zu identifizieren.
+- Basierend auf den zugewiesenen *Berechtigungen* können Teammitglieder nur auf Dashboard-Engagement-Tools zugreifen, für die ihr Team-Filter gesetzt ist. Wenn sie eingeschränkte oder keine Berechtigungen auf Workspace-Ebene haben, müssen sie bestimmten Objekten einen Team-Filter hinzufügen, bevor sie diese speichern oder starten können. Teammitglieder können außerdem Canvases, Campaigns, Content Cards und Segmente nach Team filtern, um für sie relevante Inhalte zu identifizieren.
 
-### Anwendungsfälle
+### Anwendungsfälle {#use-cases}
 
 Betrachten Sie die folgenden zwei Szenarien für eine Marketerin bei Braze namens Michelle. Michelle ist Mitglied eines Teams namens „Development“. Sie hat Zugriff auf alle Berechtigungen auf Team-Ebene für das Development-Team.
 
@@ -155,7 +135,7 @@ In diesem Szenario ist Michelle weiterhin Mitglied des Development-Teams, hat ab
 
 ![Angepasste Berechtigungen mit einer Berechtigung auf Workspace-Ebene und 15 teambasierten Berechtigungen.]({% image_buster /assets/img_archive/scenario2.png %})
 
-Da Michelle die Berechtigung auf Workspace-Ebene „Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentren“ hat, kann sie andere Team-Filter anzeigen und der von ihr erstellten Campaign zuweisen.
+Da Michelle die Berechtigung auf Workspace-Ebene „Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segmente, Medienbibliothek und Präferenzzentren“ hat, kann sie andere Team-Filter anzeigen und der von ihr erstellten Campaign zuweisen.
 
 ![Dropdown für Campaign-Team-Tags mit mehreren Team-Tags.]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
@@ -182,7 +162,7 @@ Für Änderungen an aktiven Campaigns:
 2. Das Development-Team nimmt Änderungen vor und teilt sie mit dem Genehmiger-Team.
 3. Das Genehmiger-Team entfernt den Team-Tag „Development“, pausiert die vorherige Campaign und startet die neue Campaign.
 
-## Ein bestehendes Team archivieren
+## Ein bestehendes Team archivieren {#archive-an-existing-team}
 
 Sie können Teams auf der Seite **Interne Teams** archivieren.
 

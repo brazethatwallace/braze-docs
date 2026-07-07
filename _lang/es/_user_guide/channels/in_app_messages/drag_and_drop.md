@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Crear un mensaje dentro de la aplicación con arrastrar y soltar {#create-an-in-app-message-with-drag-and-drop}
 
-> Con el editor de arrastrar y soltar, puedes crear mensajes dentro de la aplicación completamente personalizados en Campaigns o Canvas usando la experiencia de edición de arrastrar y soltar. Para más información sobre los bloques de construcción disponibles en el editor, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> Con el editor de arrastrar y soltar, puedes crear mensajes dentro de la aplicación completamente personalizados en Campaigns o Canvas usando la experiencia de edición de arrastrar y soltar. Para más información sobre los bloques de construcción disponibles en el editor, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Si quieres usar tus plantillas HTML personalizadas existentes o plantillas creadas por terceros, deben recrearse en el editor de arrastrar y soltar.
 
-¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una campaña o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)? Las Campaigns son mejores para campañas de mensajería únicas y dirigidas, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
+¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una campaña o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
 
 ## Requisitos previos {#prerequisites}
 
@@ -29,7 +29,7 @@ Si quieres usar tus plantillas HTML personalizadas existentes o plantillas cread
 | Versión mínima del SDK                                                       | Versión recomendada del SDK                                                   |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK" }
 
 {% details Más información sobre los SDK mínimos %}
 
@@ -45,7 +45,7 @@ A continuación se describen los requisitos mínimos individuales del SDK para e
 | Enlaces de texto*                                                   | Solicitar push primer                                                         |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK" }
 
 *Si incluyes un enlace en tu mensaje dentro de la aplicación que redirige a una URL y el usuario final no está en las versiones mínimas del SDK especificadas, al seleccionar el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
 
@@ -95,7 +95,7 @@ Puedes agregar hasta 10 páginas por mensaje dentro de la aplicación.
 
 Para duplicar una página existente:
 
-1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> para abrir más opciones.
+1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Selecciona **Duplicate**.
 3. Dale a la página un nombre significativo. Esto te ayudará cuando conectes las páginas entre sí.
 
@@ -104,7 +104,7 @@ Para duplicar una página existente:
 
 Para eliminar o renombrar una página:
 
-1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> para abrir más opciones.
+1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Selecciona **Rename** o **Delete**.
 
 {% endtab %}
@@ -134,9 +134,9 @@ Los usuarios pueden seleccionar el botón de cierre X para salir del mensaje en 
 
 Aquí es donde tu mensaje puede lucirse, vestido con el estilo distintivo de tu marca. Usando una combinación de bloques de editor y configuraciones de estilo, puedes personalizar y diseñar tu mensaje dentro de la aplicación.
 
-- Para una lista de los bloques de editor disponibles y sus propiedades, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- Para ayuda personalizando la apariencia de tu mensaje, consulta [Configuración de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- Para mejores prácticas al crear mensajes de derecha a izquierda, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- Para una lista de los bloques de editor disponibles y sus propiedades, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Para ayuda personalizando la apariencia de tu mensaje, consulta [Configuración de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- Para mejores prácticas al crear mensajes de derecha a izquierda, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Paso 5: Probar tu mensaje dentro de la aplicación {#step-5-test-your-in-app-message}
 
@@ -168,28 +168,28 @@ Considera las siguientes preguntas mientras pruebas tu mensaje dentro de la apli
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿Por qué los clics en el cuerpo no aparecen en mi página de análisis? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### ¿Por qué los clics en el cuerpo no aparecen en mi página de análisis? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Los clics en el cuerpo no se recopilan automáticamente para los mensajes dentro de la aplicación creados con el editor de arrastrar y soltar. Para más detalles, consulta los registros de cambios del SDK para [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) y [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### ¿Puedo segmentar basándome en los clics de botones? {#can-i-segment-based-on-button-clicks}
+### ¿Puedo segmentar basándome en los clics de botones? {#can-i-segment-based-on-button-clicks}
 
 Sí, puedes segmentar basándote en los clics de botones para hasta dos botones en tu mensaje. Para hacerlo, establece el **Identifier for Reporting** de tus botones en "0" y "1", que corresponderán a los filtros de segmentación "Clicked in-app message button 1" y "Clicked in-app message button 2" respectivamente.
 
 ![El campo "Identifier for Reporting" con un valor de "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### ¿Puedo personalizar mi mensaje dentro de la aplicación usando HTML o JavaScript personalizado, o transferir mensajes HTML existentes al editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### ¿Puedo personalizar mi mensaje dentro de la aplicación usando HTML o JavaScript personalizado, o transferir mensajes HTML existentes al editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-No puedes transferir directamente mensajes HTML existentes al editor, pero puedes insertar HTML sin procesar, CSS y JavaScript en un bloque de código personalizado. Puedes usar bloques de código personalizado para incrustar videos de terceros y Liquid avanzado, como Contenido conectado o sentencias condicionales.
+No puedes transferir directamente mensajes HTML existentes al editor, pero puedes insertar HTML sin procesar, CSS y JavaScript en un bloque de código personalizado. Puedes usar bloques de código personalizado para incrustar videos de terceros y Liquid avanzado, como contenido conectado o sentencias condicionales.
 
-#### ¿Cómo puedo crear un mensaje dentro de la aplicación de deslizamiento hacia arriba? {#how-can-i-create-a-slideup-in-app-message}
+### ¿Cómo puedo crear un mensaje dentro de la aplicación de deslizamiento hacia arriba? {#how-can-i-create-a-slideup-in-app-message}
 
 Actualmente, el editor está limitado solo a mensajes modales y de pantalla completa. Puedes cambiar entre tipos de visualización en la sección **Message container** del panel **Message styles**.
 
-#### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de construirlo dentro de mi campaña o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de construirlo dentro de mi campaña o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en una futura campaña o paso en Canvas, puedes guardarlo como plantilla personalizada usando el botón **Save as template**, disponible después de salir del editor. Antes de poder guardarlo como plantilla, primero debes lanzar la campaña O guardarlo como borrador.
 
 ![Una vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Templates** > **In-App Message Templates**.
+También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Content** > **In-App Message Templates**.

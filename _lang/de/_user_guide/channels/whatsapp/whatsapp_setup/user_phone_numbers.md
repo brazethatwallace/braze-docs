@@ -1,6 +1,6 @@
 ---
-nav_title: "Telefonnummern der Nutzer:innen"
-article_title: WhatsApp-Telefonnummern der Nutzer:innen
+nav_title: "Telefonnummern von Nutzer:innen"
+article_title: WhatsApp-Telefonnummern von Nutzer:innen
 page_order: 3
 description: "Dieser Referenzartikel behandelt die Formatierung von WhatsApp-Telefonnummern, den Import von Telefonnummern sowie das Hinzufügen von Nutzer:innen zu WhatsApp-Abo-Gruppen."
 page_type: reference
@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# Telefonnummern der Nutzer:innen {#user-phone-numbers}
+# Telefonnummern von Nutzer:innen {#user-phone-numbers}
 
 > In diesem Artikel werden verschiedene Themen rund um die Telefonnummern Ihrer Nutzer:innen bzw. Kund:innen behandelt.
 
@@ -17,7 +17,7 @@ Telefonnummern werden im Nutzerprofil in lokalen Formaten angezeigt, entsprechen
 
 ## Telefonnummern importieren {#importing-phone-numbers}
 
-Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) Nutzer:innen erstellen.
+Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) Nutzer:innen erstellen.
 
 ### Formatierung {#formatting}
 
@@ -29,7 +29,7 @@ Alle US-Nummern müssen gültige, 10-stellige Telefonnummern mit einer gültigen
 
 Alle internationalen Nummern sollten mit einem `+` beginnen, gefolgt von der Landesvorwahl und dann der Telefonnummer (z. B. `+442071838750`).
 
-![]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Screenshot zur Formatierung.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 Um jedoch die Genauigkeit sicherzustellen, wenn Sie in mehrere Regionen mit unterschiedlichen Landes- oder Ortsvorwahlen senden, wird empfohlen, das `E.164`-Format auch für US-basierte Telefonnummern zu verwenden.
 
@@ -40,11 +40,11 @@ Die Unterschiede zwischen der lokalen Nummernformatierung und der universellen `
 | USA | `4155552671` | 1 | `+14155552671` |
 | Großbritannien | `02071838750` | 44 | `+442071838750` |
 | Brasilien | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formatierung" }
 
 ### Nutzer:innen zu einer WhatsApp-Abo-Gruppe hinzufügen {#adding-users-to-whatsapp-a-subscription-group}
 
-Damit Kund:innen eine WhatsApp-Nachricht erhalten können, müssen sie eine gültige Telefonnummer haben und in eine Abo-Gruppe eingewilligt haben. Weitere Informationen finden Sie unter [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Damit Kund:innen eine WhatsApp-Nachricht erhalten können, müssen sie eine gültige Telefonnummer haben und in eine Abo-Gruppe eingewilligt haben. Weitere Informationen finden Sie unter [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 
 ### Mehrere Nutzer:innen mit derselben Telefonnummer {#multiple-users-with-the-same-phone-number}

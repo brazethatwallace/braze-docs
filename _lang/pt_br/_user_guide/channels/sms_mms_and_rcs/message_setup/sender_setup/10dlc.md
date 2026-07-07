@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# Application-to-Person 10-Digit Long Codes
+# Application-to-Person 10-Digit Long Codes {#application-to-person-10-digit-long-codes}
 
 > A2P 10DLC refere-se a um sistema nos Estados Unidos que permite que empresas enviem mensagens do tipo Application-to-Person (A2P) por meio de um número de telefone padrão de 10 dígitos (10DLC). Esses long codes registrados recebem maior throughput, melhor entregabilidade e conformidade aprimorada em comparação com o long code padrão.
 
@@ -44,11 +44,11 @@ O registro com A2P 10DLC pode incluir vários tipos de taxas:
 | Taxas de registro | Taxas nominais aplicadas ao registrar sua marca e caso de uso em todas as principais redes dos EUA. |
 | Taxas de verificação secundária | As marcas podem contestar sua [pontuação de confiança da marca](#trust-score) e solicitar um processo de verificação secundária para melhorar seu throughput geral; há uma taxa associada a esse processo. |
 | Taxas da operadora | Taxas cobradas pelas operadoras para mensagens SMS e MMS de saída enviadas aos usuários após o registro 10DLC. A partir de 1º de outubro de 2021, as taxas da operadora serão mais altas para tráfego não registrado (long codes padrão) do que para tráfego registrado (10DLC). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custos" }
 
 Visite o artigo da Twilio sobre 10DLC para conferir as [estimativas de taxas](https://support.twilio.com/hc/en-us/articles/1260803965530-What-pricing-and-fees-are-associated-with-the-A2P-10DLC-service-) atualizadas.
 
-### Throughput
+### Throughput {#throughput}
 
 O throughput de mensagens para seu 10DLC depende de vários fatores, incluindo a pontuação de confiança da marca, limites diários de mensagens e seus casos de uso de envio de mensagens.
 
@@ -61,7 +61,7 @@ O Campaign Registry (TCR) é uma agência terceirizada que usa um algoritmo de r
 | Alta | 75-100 | 75 MPS | 75 MPS | 75 MPS |
 | Média | 50-74 | 40 MPS | 40 MPS | 40 MPS |
 | Baixa | 1-49 | 4 MPS | 4 MPS | 4 MPS |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Brand trust score #trust-score" }
 
 {% alert tip %}
 Empresas listadas no Índice Russell 3000 receberão alto throughput e pontuação de confiança da marca após o registro e revisão do 10DLC.
@@ -90,7 +90,7 @@ Dependendo do seu caso de uso, a pontuação de confiança necessária para atin
 | 2FA | Qualquer autenticação ou verificação de conta, como OTP. |
 | Alertas de segurança | Notificação de um sistema comprometido. |
 | Alertas de fraude | Mensagens sobre atividade potencialmente fraudulenta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso de envio de mensagens" }
 
 {% tabs %}
 {% tab Caso de uso declarado %}
@@ -101,7 +101,7 @@ Um caso de uso declarado significa que você escolheu um caso de uso específico
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de envio de mensagens" }
 
 {% endtab %}
 {% tab Caso de uso de marketing misto %}
@@ -113,7 +113,7 @@ Casos de uso de marketing misto podem ser registrados para clientes que desejam 
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de envio de mensagens" }
 
 {% endtab %}
 {% endtabs %}

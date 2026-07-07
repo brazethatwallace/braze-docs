@@ -61,6 +61,8 @@ The **Total Data Points Usage** tab provides an in-depth look at your data point
 Data points information is cached every 24 hours.
 {% endalert %}
 
+If you're an admin and cannot view the **Total Data Points Usage** tab, make sure your browser allows third-party cookies for your Braze dashboard domain and is not in incognito mode.
+
 ![Filtering Data Point Usage by weeks]({% image_buster /assets/img/subscription_and_billing2.png %})
 
 ### Contract details
@@ -73,8 +75,6 @@ The fields in this section are defined as follows:
 - **Contract Start and End Date:** Start and end date of the entire contract.
 - **Allotted Data Points:** The amount of data points allotted in the contract per billing term.
 - **Contract Data Point Usage:** A cumulative total of all data points logged over the contract's lifetime, and does not reset in the next billing term.
-
-![Contract Details section of Total Data Point Usage tab]({% image_buster /assets/img/contract_details.png %})
 
 ### Company billing data
 
@@ -108,5 +108,5 @@ This graph gives you the ability to quickly see your total data point usage vers
 
 ## Next steps
 
-- [Notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to configure alerts for billing-related events and usage thresholds.
-- [Message usage dashboard]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) to monitor SMS, WhatsApp, and RCS credit consumption.
+- [Notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) to configure alerts for billing-related events and usage thresholds.
+- [Credits usage dashboard]({{site.baseurl}}/credits_usage_dashboard) to monitor message credit consumption.

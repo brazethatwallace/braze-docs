@@ -79,7 +79,7 @@ The report may take up to a few minutes to run, depending on the date range and 
 Your selection for **Rows** affects the metrics you can select.
 
 {% alert tip %}
-If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message. 
+If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message.<br><br> When you group by step, the preview table while configuring your report shows a maximum of 50 rows. Run the report or export it as a CSV to view all rows.
 
 ![The opened "Canvas View" dropdown.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -95,15 +95,17 @@ If you want to report on Canvas variants or steps, select **Canvases** for rows 
 | Total Revenue | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. Unavailable with **Channels** drilldown. |
 | Unique Impressions | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. |
 | Unique Recipients | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. Unavailable with **Channels** drilldown. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Metrics availability" }
 
 ### Deleted message variants
 
 Statistics for deleted message variants are not displayed when you break down your report by campaigns or Canvases. However, channel-level totals include all statistics regardless of whether the variant was deleted. For example, _Sends_ for email include all email sends, but if you break down those statistics by campaign, the numbers may be lower because sends for deleted message variants are filtered out.
 
+In the same report, _Unique Recipients_ can be higher than _Unique Impressions_ when a message variant was deleted after send. Campaign-level _Unique Recipients_ can still include users who received the deleted variant, while _Unique Impressions_ omit stats from deleted variants in message-level aggregations.
+
 ## Viewing a report
 
-After running your report, you can view your results in table format on the report page. 
+After running your report, you can view your results in table format on the report page.
 
 ![A table of the report data for each campaign's metrics.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 
@@ -141,7 +143,7 @@ You can share a dashboard link to the report by selecting **Share** and one of t
 1. Select the dotted icon at the top of the report table.
 2. Select **Add to dashboard**.
 3. Select whether you want to create a new dashboard or add to an existing dashboard.<br><br>![Window with options to select if you want to add the report to a new or existing dashboard.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Follow the steps in [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) to learn more about building a dashboard.
+4. Follow the steps in [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) to learn more about building a dashboard.
 
 ## Troubleshooting
 
@@ -151,3 +153,8 @@ A campaign or Canvas appears in the report when its **Last sent** date falls in 
 
 For example, suppose **Last sent** is January 1, 2025–April 14, 2025, so a campaign is included, but **Show data for** is December 1, 2024–January 14, 2025. If that campaign had no sends in December or January, it still appears in the table with no send metrics.
 
+### Download link has expired
+
+Report download links expire after one hour. If your link has expired, generate a new report and download it within the hour. There is no way to extend the expiry time.
+
+If you have an [Amazon S3 bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) connected in **Partner Integrations**, you may be able to retrieve data from older reports by browsing your S3 bucket directly.

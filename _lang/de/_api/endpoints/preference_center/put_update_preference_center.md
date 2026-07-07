@@ -1,40 +1,40 @@
 ---
-nav_title: "PUT: Update des Einstellungszentrums"
-article_title: "PUT: Update Preference Center"
+nav_title: "PUT: Update des Präferenzzentrums"
+article_title: "PUT: Update des Präferenzzentrums"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update a preference center“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update eines Präferenzzentrums“."
 
 ---
 {% api %}
-# Update des Einstellungszentrums
+# Update des Präferenzzentrums {#update-preference-center}
 {% apimethod put %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein Einstellungszentrum zu aktualisieren.
+> Verwenden Sie diesen Endpunkt, um ein Präferenzzentrum zu aktualisieren.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#bf1b43db-3f1b-461f-ad9a-2fbe35b804d7 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `preference_center.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `preference_center.update`.
 
-## Rate-Limits
+## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Erforderlich | String | Die ID für Ihr Einstellungszentrum. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preferenceCenterExternalID` | Erforderlich | String | Die ID für Ihr Präferenzzentrum. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Pfad-Parameter" }
 
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -64,18 +64,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Anfrage-Parameter
+## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`preference_center_page_html`| Erforderlich | String | Der HTML-Code für die Seite des Einstellungszentrums. |
-|`preference_center_title`| Optional | String | Der Titel für das Einstellungszentrum und die Bestätigungsseiten. Wenn kein Titel angegeben wird, lautet der Standardtitel der Seiten „Preference Center". |
-|`confirmation_page_html`| Erforderlich | String | Der HTML-Code für die Bestätigungsseite. |
-|`state` | Optional | String | Wählen Sie `active` oder `draft`.|
-|`options` | Optional | Objekt | Attribute: <br>`meta-viewport-content`: Wenn vorhanden, wird der Seite ein `viewport`-Meta-Tag mit `content= <value of attribute>` hinzugefügt.<br><br> `link-tags`: Legen Sie ein Favicon für die Seite fest. Wenn diese Option gesetzt ist, wird der Seite ein `<link>`-Tag mit einem rel-Attribut hinzugefügt.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preference_center_page_html` | Erforderlich | String | Der HTML-Code für die Seite des Präferenzzentrums. |
+| `preference_center_title` | Optional | String | Der Titel für das Präferenzzentrum und die Bestätigungsseiten. Wenn kein Titel angegeben wird, lautet der Standardtitel der Seiten „Preference Center“. |
+| `confirmation_page_html` | Erforderlich | String | Der HTML-Code für die Bestätigungsseite. |
+| `state` | Optional | String | Wählen Sie `active` oder `draft`. |
+| `options` | Optional | Objekt | Attribute: <br>`meta-viewport-content`: Wenn vorhanden, wird der Seite ein `viewport`-Meta-Tag mit `content= <value of attribute>` hinzugefügt.<br><br> `link-tags`: Legen Sie ein Favicon für die Seite fest. Wenn diese Option gesetzt ist, wird der Seite ein `<link>`-Tag mit einem rel-Attribut hinzugefügt. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
-## Beispielanfrage
+## Beispielanfrage {#example-request}
 
 {% raw %}
 ```
@@ -93,7 +93,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/preference_center/
 ```
 {% endraw %}
 
-## Beispielantwort
+## Beispielantwort {#example-response}
 {% raw %}
 ```
 {

@@ -6,7 +6,219 @@ en:
   braze_status: BRAZE SYSTEM STATUS
   braze_status_check: Checking Braze Status
   page_nav_title: On this page
+  back_to_top: Back to top
   helpful: "HOW HELPFUL WAS THIS PAGE?"
+  collapse_navigation: Collapse navigation
+  expand_navigation: Expand navigation
+  expand_section: Expand section
+  collapse_section: Collapse section
+  minimize_menu: Minimize menu
+  expand_menu: Expand menu
+  filter_navigation_topics: Filter navigation topics
+  clear_filter: Clear filter
+  documentation_nav: Documentation menu
+  breadcrumb_nav: Breadcrumb trail
+  language_select_nav: Language selection
+  language_select_mobile_nav: Language selection (mobile menu)
+  sidebar_home: Home
+  nav_flyout_esc_hint_before: "Press "
+  nav_flyout_esc_hint_after: " to close the menu"
+  nav_flyout_shortcut_hint: Press Arrow down to open the documentation menu without expanding the sidebar.
+  report_metrics_intro: "These are terms you'll find in your reports in your Braze account. Search for the metrics you need or filter by channel. This glossary does not necessarily include metrics you might see in Currents or other downloaded reports outside of your Braze account."
+  report_metrics_search_placeholder: Search
+  report_metrics_search_aria: Search glossary
+  report_metrics_search_hint: Results update automatically as you type.
+  report_metrics_filter_legend: Filter by channel
+  report_metrics_no_results: No metrics matching these filters
+  report_metrics_showing: Showing __COUNT__ of __TOTAL__ metrics
+  email_report_metrics_intro: "These are terms you'll find in the analytics section of your email campaign or Canvas, post-launch. You can search for the metrics you need or filter by the type of metric. This glossary does not necessarily include metrics you might see in Currents or in other downloaded reports outside of your Braze account."
+  email_report_metrics_search_placeholder: Search
+  email_report_metrics_search_aria: Search glossary
+  email_report_metrics_no_results: No metrics matching these filters
+  report_metrics_channel_tag_labels:
+    all: All
+    email: Email
+    "web push": Web Push
+    "ios push": iOS Push
+    "android push": Android Push
+    "in-app message": In-App Message
+    "content cards": Content Cards
+    banners: Banners
+    "sms/mms": SMS/MMS
+    rcs: RCS
+    line: LINE
+    whatsapp: WhatsApp
+    webhook: Webhook
+    "feature flags": Feature Flags
+  email_report_metrics_tag_labels:
+    count: Count
+    percentage: Percentage
+  glossary_currents_events_search_placeholder: Search
+  glossary_currents_events_search_aria: Search events
+  glossary_currents_events_search_hint: Results update automatically as you type.
+  glossary_currents_events_no_results: No events matching these filters
+  glossary_currents_events_showing: Showing __COUNT__ of __TOTAL__ events
+  glossary_currents_events_loading: Loading schema…
+  glossary_currents_events_load_error: Unable to load this schema. Refresh the page and try again.
+  glossary_sql_use_cases_search_placeholder: Search
+  glossary_sql_use_cases_search_aria: Search use cases
+  glossary_sql_use_cases_search_hint: Results update automatically as you type.
+  glossary_sql_use_cases_no_results: No use cases matching these filters
+  glossary_liquid_use_cases_search_placeholder: Search
+  glossary_liquid_use_cases_search_aria: Search use cases
+  glossary_liquid_use_cases_search_hint: Results update automatically as you type.
+  glossary_liquid_use_cases_no_results: No use cases matching these filters
+  glossary_liquid_use_cases_showing: Showing __COUNT__ of __TOTAL__ use cases
+  sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
+  liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  glossary_agents_use_cases_search_placeholder: Search
+  glossary_agents_use_cases_search_aria: Search use cases
+  glossary_agents_use_cases_search_hint: Results update automatically as you type.
+  glossary_agents_use_cases_no_results: No use cases matching these filters
+  agents_use_case_glossary_intro: "Take a look through our collection of agent instructions and use cases.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas agent
+    "catalog agent": Catalog agent
+  message_engagement_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas consist of the Braze Events that are directly related to message sending."
+  customer_behavior_events_glossary_title: Customer behavior and user events
+  customer_behavior_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas include other app or website activity such as sessions, custom events, and purchases tracked through the platform."
+  currents_customer_behavior_tag_labels:
+    attribution: Attribution
+    "custom events": Custom Events
+    "live activity": Live Activity
+    locations: Locations
+    purchases: Purchases
+    push: Push
+    "push to start token": Push To Start Token
+    "random bucket number": Random Bucket Number
+    sessions: Sessions
+    "token state change": Token State Change
+    "update token": Update Token
+  currents_customer_behavior_tag_groups:
+    attribution: category
+    "custom events": category
+    "live activity": category
+    locations: category
+    purchases: category
+    push: category
+    "push to start token": category
+    "random bucket number": category
+    sessions: category
+    "token state change": category
+    "update token": category
+  currents_customer_behavior_tag_group_labels:
+    category: Event type
+  currents_message_engagement_tag_labels:
+    abort: Abort
+    agent: Agent
+    banner: Banner
+    bounce: Bounce
+    campaign: Campaign
+    canvas: Canvas
+    clicks: Clicks
+    "content cards": Content Cards
+    conversion: Conversion
+    deferral: Deferral
+    delivery: Delivery
+    dismissal: Dismissal
+    email: Email
+    entry: Entry
+    exit: Exit
+    failure: Failure
+    "feature flags": Feature Flags
+    impressions: Impressions
+    "in-app messages": In-App Messages
+    "inbound received": Inbound Received
+    ios: iOS
+    line: LINE
+    "live activity": Live Activity
+    opens: Opens
+    outcome: Outcome
+    profile: Profile
+    progression: Progression
+    push: Push
+    rcs: RCS
+    read: Read
+    rejection: Rejection
+    retry: Retry
+    sends: Sends
+    sms: SMS
+    spam: Spam
+    subscription: Subscription
+    uninstall: Uninstall
+    webhooks: Webhooks
+    whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: Channels and platforms
+    action: Message actions
+    journey: User journey
+  sql_segment_use_cases_tag_labels:
+    carrier: Carrier
+    delivery: Delivery
+    device: Device
+    error: Error
+    event: Event
+    message: Message
+    property: Property
+    purchase: Purchase
+    session: Session
+    "time range": Time range
+  liquid_use_case_tag_labels:
+    "anniversaries and holidays": Anniversaries and holidays
+    "app usage": App usage
+    countdowns: Countdowns
+    "custom attribute": Custom attribute
+    "custom event": Custom event
+    language: Language
+    miscellaneous: Miscellaneous
+    "platform targeting": Platform targeting
+    sms: SMS
+    "time zones": Time zones
+    "week/day/month": Week/Day/Month
+  works_best_in: "Works best in:"
+  clipboard_copied: "Copied"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copy to clipboard"
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -15,9 +227,80 @@ fr:
   braze_status: ÉTAT DU SYSTÈME BRAZE
   braze_status_check: Vérification du statut Braze
   page_nav_title: Sur cette page
+  back_to_top: Retour en haut
   helpful: "CETTE PAGE A-T-ELLE ÉTÉ UTILE?"
-  translation_banner: "Cette page a été traduite automatiquement et peut contenir des inexactitudes. Pour signaler une erreur de traduction,"
-  translation_banner_link: "ouvrez un ticket sur GitHub"
+  translation_banner: "Cette page a été traduite automatiquement et peut contenir des inexactitudes. Pour signaler une erreur de traduction, utilisez le module de commentaires en bas de la table des matières, à droite de la page."
+  collapse_navigation: Réduire la navigation
+  expand_navigation: Développer la navigation
+  expand_section: Développer la section
+  collapse_section: Réduire la section
+  minimize_menu: Réduire le menu
+  expand_menu: Développer le menu
+  filter_navigation_topics: Filtrer les sujets de navigation
+  clear_filter: Effacer le filtre
+  documentation_nav: Documentation
+  breadcrumb_nav: Fil d'Ariane
+  language_select_nav: Sélection de la langue
+  language_select_mobile_nav: Sélection de la langue (menu mobile)
+  sidebar_home: Accueil
+  nav_flyout_esc_hint_before: "Appuyez sur "
+  nav_flyout_esc_hint_after: " pour fermer le menu"
+  nav_flyout_shortcut_hint: Appuyez sur la flèche vers le bas pour ouvrir le menu de documentation sans développer la barre latérale.
+  report_metrics_intro: "Ces termes désignent les indicateurs que vous trouvez dans vos rapports au sein de votre compte Braze. Recherchez les indicateurs dont vous avez besoin ou filtrez par canal. Ce glossaire ne couvre pas nécessairement tous les indicateurs que vous pourriez voir dans Currents ou dans d'autres rapports téléchargés en dehors de votre compte Braze."
+  report_metrics_search_placeholder: Rechercher
+  report_metrics_search_aria: Rechercher dans le glossaire
+  report_metrics_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
+  report_metrics_filter_legend: Filtrer par canal
+  report_metrics_no_results: Aucun indicateur ne correspond à ces filtres
+  report_metrics_showing: Affichage de __COUNT__ indicateurs sur __TOTAL__
+  email_report_metrics_intro: "Ces termes désignent les indicateurs que vous trouvez dans la section analytique de votre e-mail de campagne ou de Canvas, après lancement. Vous pouvez rechercher les indicateurs dont vous avez besoin ou filtrer par type d'indicateur. Ce glossaire ne couvre pas nécessairement tous les indicateurs que vous pourriez voir dans Currents ou dans d'autres rapports téléchargés en dehors de votre compte Braze."
+  email_report_metrics_search_placeholder: Rechercher
+  email_report_metrics_search_aria: Rechercher dans le glossaire
+  email_report_metrics_no_results: Aucun indicateur ne correspond à ces filtres
+  report_metrics_channel_tag_labels:
+    all: Tous
+    email: E-mail
+    "web push": Push Web
+    "ios push": Push iOS
+    "android push": Push Android
+    "in-app message": Message in-app
+    "content cards": Content Cards
+    banners: Bannières
+    "sms/mms": SMS/MMS
+    rcs: RCS
+    line: LINE
+    whatsapp: WhatsApp
+    webhook: Webhook
+    "feature flags": Feature Flags
+  email_report_metrics_tag_labels:
+    count: Nombre
+    percentage: Pourcentage
+  glossary_currents_events_search_placeholder: Rechercher
+  glossary_currents_events_search_aria: Rechercher des événements
+  glossary_currents_events_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
+  glossary_currents_events_no_results: Aucun événement ne correspond à ces filtres
+  glossary_currents_events_showing: Affichage de __COUNT__ événements sur __TOTAL__
+  glossary_sql_use_cases_search_placeholder: Rechercher
+  glossary_sql_use_cases_search_aria: Rechercher des cas d'usage
+  glossary_sql_use_cases_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
+  glossary_sql_use_cases_no_results: Aucun cas d'usage ne correspond à ces filtres
+  glossary_liquid_use_cases_search_placeholder: Rechercher
+  glossary_liquid_use_cases_search_aria: Rechercher des cas d'usage
+  glossary_liquid_use_cases_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
+  glossary_liquid_use_cases_no_results: Aucun cas d'utilisation ne correspond à ces filtres
+  glossary_liquid_use_cases_showing: Affichage de __COUNT__ cas d'utilisation sur __TOTAL__
+  glossary_agents_use_cases_search_placeholder: Rechercher
+  glossary_agents_use_cases_search_aria: Rechercher des cas d'usage
+  glossary_agents_use_cases_search_hint: Les résultats se mettent à jour automatiquement lorsque vous saisissez du texte.
+  glossary_agents_use_cases_no_results: Aucun cas d'usage ne correspond à ces filtres
+  agents_use_case_glossary_intro: "Parcourez notre collection d'instructions d'agents et de cas d'utilisation.<br><br>Utilisez la barre de recherche ou les cases à cocher ci-dessous pour trouver les cas d'usage qui correspondent à vos besoins."
+  agents_use_case_tag_labels:
+    "canvas agent": Agent Canvas
+    "catalog agent": Agent de catalogue
+  works_best_in: "Idéal pour :"
+  clipboard_copied: "Copié"
+  clipboard_error: "Erreur"
+  copy_to_clipboard: "Copier dans le presse-papiers"
 ja:
   next: 次へ
   previous: 前へ
@@ -26,9 +309,206 @@ ja:
   braze_status: BRAZE システム ステータス
   braze_status_check: Braze ステータスの確認
   page_nav_title: このページについて
+  back_to_top: ページの先頭へ戻る
   helpful: 「このページはどの程度役に立ちましたか?」
-  translation_banner: "このページはAIにより自動翻訳されており、不正確な内容が含まれている可能性があります。翻訳の誤りを報告するには、"
-  translation_banner_link: "GitHubでイシューを作成してください"
+  translation_banner: "このページはAIにより自動翻訳されており、不正確な内容が含まれている可能性があります。翻訳の誤りを報告するには、ページ右側の目次の下にあるフィードバックをご利用ください。"
+  collapse_navigation: ナビゲーションを折りたたむ
+  expand_navigation: ナビゲーションを展開する
+  expand_section: セクションを展開する
+  collapse_section: セクションを折りたたむ
+  minimize_menu: メニューを最小化
+  expand_menu: メニューを展開
+  filter_navigation_topics: ナビゲーションのトピックをフィルター
+  clear_filter: フィルターをクリア
+  documentation_nav: ドキュメント
+  breadcrumb_nav: パンくずリスト
+  language_select_nav: 言語選択
+  language_select_mobile_nav: 言語選択（モバイルメニュー）
+  sidebar_home: ホーム
+  nav_flyout_esc_hint_before: "メニューを閉じるには "
+  nav_flyout_esc_hint_after: " を押してください"
+  nav_flyout_shortcut_hint: サイドバーを広げずにドキュメントメニューを開くには、下矢印キーを押します。
+  report_metrics_intro: "Brazeアカウントのレポートに表示される用語をまとめています。検索で目的の指標を探すか、チャネルで絞り込みできます。Currentsや、Brazeアカウント外でダウンロードしたレポートにのみ出る指標は、この用語集に含まれない場合があります。"
+  report_metrics_search_placeholder: 検索
+  report_metrics_search_aria: 用語集を検索
+  report_metrics_search_hint: 入力に応じて結果が自動的に更新されます。
+  report_metrics_filter_legend: チャネルで絞り込む
+  report_metrics_no_results: この条件に一致する指標はありません
+  report_metrics_showing: 指標 __TOTAL__ 件中 __COUNT__ 件を表示
+  email_report_metrics_intro: "キャンペーンまたはキャンバスのメールの起動後、分析セクションに表示される用語をまとめています。検索で目的の指標を探すか、指標の種類で絞り込みできます。Currentsや、Brazeアカウント外でダウンロードしたレポートにのみ出る指標は、この用語集に含まれない場合があります。"
+  email_report_metrics_search_placeholder: 検索
+  email_report_metrics_search_aria: 用語集を検索
+  email_report_metrics_no_results: この条件に一致する指標はありません
+  report_metrics_channel_tag_labels:
+    all: すべて
+    email: メール
+    "web push": Webプッシュ
+    "ios push": iOSプッシュ
+    "android push": Androidプッシュ
+    "in-app message": アプリ内メッセージ
+    "content cards": コンテンツカード
+    banners: バナー
+    "sms/mms": SMS/MMS
+    rcs: RCS
+    line: LINE
+    whatsapp: WhatsApp
+    webhook: Webhook
+    "feature flags": フィーチャーフラグ
+  email_report_metrics_tag_labels:
+    count: 件数
+    percentage: パーセンテージ
+  glossary_currents_events_search_placeholder: 検索
+  glossary_currents_events_search_aria: イベントを検索
+  glossary_currents_events_search_hint: 入力に応じて結果が自動的に更新されます。
+  glossary_currents_events_no_results: この条件に一致するイベントはありません
+  glossary_currents_events_showing: イベント __TOTAL__ 件中 __COUNT__ 件を表示
+  glossary_currents_events_loading: スキーマを読み込んでいます…
+  glossary_currents_events_load_error: このスキーマを読み込めませんでした。ページを更新してもう一度お試しください。
+  glossary_sql_use_cases_search_placeholder: 検索
+  glossary_sql_use_cases_search_aria: ユースケースを検索
+  glossary_sql_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
+  glossary_sql_use_cases_no_results: この条件に一致するユースケースはありません
+  glossary_liquid_use_cases_search_placeholder: 検索
+  glossary_liquid_use_cases_search_aria: ユースケースを検索
+  glossary_liquid_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
+  glossary_liquid_use_cases_no_results: この条件に一致するユースケースはありません
+  glossary_liquid_use_cases_showing: ユースケース __TOTAL__ 件中 __COUNT__ 件を表示
+  sql_segment_extensions_glossary_intro: "検索バーまたは下のチェックボックスから、SQLセグメントエクステンションのサンプルクエリを参照してください。"
+  liquid_use_case_glossary_intro: "Liquidを使った理想的なパーソナライゼーションのヒントをお探しですか？カテゴリ別に整理したLiquidユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
+  glossary_agents_use_cases_search_placeholder: 検索
+  glossary_agents_use_cases_search_aria: ユースケースを検索
+  glossary_agents_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
+  glossary_agents_use_cases_no_results: この条件に一致するユースケースはありません
+  agents_use_case_glossary_intro: "エージェントのインストラクションとユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
+  agents_use_case_tag_labels:
+    "canvas agent": キャンバスエージェント
+    "catalog agent": カタログエージェント
+  message_engagement_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマは、メッセージ送信に直接関連するBrazeイベントで構成されています。"
+  customer_behavior_events_glossary_title: 顧客行動とユーザーイベント
+  customer_behavior_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマには、セッション、カスタムイベント、購入など、プラットフォームを通じて追跡されるアプリまたはWebサイトのその他のアクティビティが含まれます。"
+  currents_customer_behavior_tag_labels:
+    attribution: アトリビューション
+    "custom events": カスタムイベント
+    "live activity": ライブアクティビティ
+    locations: 位置情報
+    purchases: 購入
+    push: プッシュ
+    "push to start token": Push to Start トークン
+    "random bucket number": ランダムバケット番号
+    sessions: セッション
+    "token state change": トークン状態の変化
+    "update token": トークンの更新
+  currents_message_engagement_tag_labels:
+    abort: 中止
+    agent: エージェント
+    banner: バナー
+    bounce: バウンス
+    campaign: Campaign
+    canvas: Canvas
+    clicks: クリック数
+    "content cards": コンテンツカード
+    conversion: コンバージョン
+    deferral: 遅延
+    delivery: 配信
+    dismissal: 却下
+    email: メール
+    entry: エントリ
+    exit: 終了
+    failure: 失敗
+    "feature flags": フィーチャーフラグ
+    impressions: インプレッション
+    "in-app messages": アプリ内メッセージ
+    "inbound received": 受信
+    ios: iOS
+    line: LINE
+    "live activity": ライブアクティビティ
+    opens: 開封
+    outcome: 結果
+    profile: プロファイル
+    progression: 進行
+    push: プッシュ
+    rcs: RCS
+    read: 既読
+    rejection: 拒否
+    retry: 再試行
+    sends: 送信
+    sms: SMS
+    spam: スパム
+    subscription: 購読
+    uninstall: アンインストール
+    webhooks: Webhook
+    whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: チャネルとプラットフォーム
+    action: メッセージアクション
+    journey: ユーザージャーニー
+  sql_segment_use_cases_tag_labels:
+    carrier: キャリア
+    delivery: 配信
+    device: デバイス
+    error: エラー
+    event: イベント
+    message: メッセージ
+    property: プロパティ
+    purchase: 購入
+    session: セッション
+    "time range": 期間
+  liquid_use_case_tag_labels:
+    "anniversaries and holidays": 記念日と祝日
+    "app usage": アプリの使用状況
+    countdowns: カウントダウン
+    "custom attribute": カスタム属性
+    "custom event": カスタムイベント
+    language: 言語
+    miscellaneous: その他
+    "platform targeting": プラットフォームのターゲティング
+    sms: SMS
+    "time zones": タイムゾーン
+    "week/day/month": 週/日/月
+  works_best_in: "最適なページ："
+  clipboard_copied: "コピーしました"
+  clipboard_error: "エラー"
+  copy_to_clipboard: "クリップボードにコピー"
 ko:
   next: 다음
   previous: 이전
@@ -37,9 +517,201 @@ ko:
   braze_status: 브레이즈 시스템 상태
   braze_status_check: 브레이즈 상태 확인
   page_nav_title: 이 페이지에
+  back_to_top: 맨 위로 이동
   helpful: "이 페이지가 얼마나 도움이 되었나요?"
-  translation_banner: "이 페이지는 AI로 자동 번역되었으며 부정확한 내용이 포함될 수 있습니다. 번역 오류를 신고하려면"
-  translation_banner_link: "GitHub에서 이슈를 생성해 주세요"
+  translation_banner: "이 페이지는 AI로 자동 번역되었으며 부정확한 내용이 포함될 수 있습니다. 번역 오류를 신고하려면 페이지 오른쪽 목차 아래에 있는 피드백 기능을 사용하세요."
+  collapse_navigation: 탐색 접기
+  expand_navigation: 탐색 펼치기
+  expand_section: 섹션 펼치기
+  collapse_section: 섹션 접기
+  minimize_menu: 메뉴 최소화
+  expand_menu: 메뉴 확장
+  filter_navigation_topics: 탐색 주제 필터
+  clear_filter: 필터 지우기
+  documentation_nav: 문서
+  breadcrumb_nav: 이동 경로
+  language_select_nav: 언어 선택
+  language_select_mobile_nav: 언어 선택 (모바일 메뉴)
+  sidebar_home: 홈
+  nav_flyout_esc_hint_before: "메뉴를 닫으려면 "
+  nav_flyout_esc_hint_after: " 키를 누르세요"
+  nav_flyout_shortcut_hint: 사이드바를 넓히지 않고 문서 메뉴를 열려면 아래쪽 화살표 키를 누르세요.
+  report_metrics_intro: "이 목록은 Braze 계정의 보고서에서 확인할 수 있는 용어를 설명합니다. 필요한 측정기준을 검색하거나 채널별로 필터링하세요. Currents나 Braze 계정 밖에서 다운로드한 보고서에만 표시되는 측정기준은 여기에 없을 수 있습니다."
+  report_metrics_search_placeholder: 검색
+  report_metrics_search_aria: 용어집 검색
+  report_metrics_search_hint: 입력할 때마다 결과가 자동으로 업데이트됩니다.
+  report_metrics_filter_legend: 채널별 필터
+  report_metrics_no_results: 이 필터와 일치하는 측정기준이 없습니다
+  report_metrics_showing: 측정기준 __TOTAL__개 중 __COUNT__개 표시
+  email_report_metrics_intro: "이 목록은 캠페인 또는 캔버스 이메일 실행 후 분석 섹션에 표시되는 용어를 설명합니다. 필요한 측정기준을 검색하거나 측정기준 유형별로 필터링하세요. Currents나 Braze 계정 밖에서 다운로드한 보고서에만 표시되는 측정기준은 여기에 없을 수 있습니다."
+  email_report_metrics_search_placeholder: 검색
+  email_report_metrics_search_aria: 용어집 검색
+  email_report_metrics_no_results: 이 필터와 일치하는 측정기준이 없습니다
+  report_metrics_channel_tag_labels:
+    all: 전체
+    email: 이메일
+    "web push": 웹 푸시
+    "ios push": iOS 푸시
+    "android push": Android 푸시
+    "in-app message": 인앱 메시지
+    "content cards": 콘텐츠 카드
+    banners: 배너
+    "sms/mms": SMS/MMS
+    rcs: RCS
+    line: LINE
+    whatsapp: WhatsApp
+    webhook: Webhook
+    "feature flags": 기능 플래그
+  email_report_metrics_tag_labels:
+    count: 개수
+    percentage: 백분율
+  glossary_currents_events_search_placeholder: 검색
+  glossary_currents_events_search_aria: 이벤트 검색
+  glossary_currents_events_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
+  glossary_currents_events_no_results: 이 필터와 일치하는 이벤트가 없습니다
+  glossary_currents_events_showing: 이벤트 __TOTAL__개 중 __COUNT__개 표시
+  glossary_currents_events_loading: 스키마 로드 중…
+  glossary_currents_events_load_error: 이 스키마를 로드할 수 없습니다. 페이지를 새로 고침하여 다시 시도하십시오.
+  glossary_sql_use_cases_search_placeholder: 검색
+  glossary_sql_use_cases_search_aria: 사용 사례 검색
+  glossary_sql_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
+  glossary_sql_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
+  glossary_liquid_use_cases_search_placeholder: 검색
+  glossary_liquid_use_cases_search_aria: 사용 사례 검색
+  glossary_liquid_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
+  glossary_liquid_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
+  glossary_liquid_use_cases_showing: 사용 사례 __TOTAL__개 중 __COUNT__개 표시
+  glossary_agents_use_cases_search_placeholder: 검색
+  glossary_agents_use_cases_search_aria: 사용 사례 검색
+  glossary_agents_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
+  glossary_agents_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
+  agents_use_case_glossary_intro: "에이전트 지침 및 사용 사례 모음을 살펴보세요.<br><br>검색창 또는 아래 확인란을 사용하여 필요에 맞는 사용 사례를 찾으세요."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas 에이전트
+    "catalog agent": 카탈로그 에이전트
+  currents_customer_behavior_tag_labels:
+    attribution: 어트리뷰션
+    "custom events": 커스텀 이벤트
+    "live activity": 라이브 액티비티
+    locations: 위치
+    purchases: 구매
+    push: 푸시
+    "push to start token": Push to Start 토큰
+    "random bucket number": 무작위 버킷 번호
+    sessions: 세션
+    "token state change": 토큰 상태 변경
+    "update token": 토큰 업데이트
+  currents_message_engagement_tag_labels:
+    abort: 중단
+    agent: 에이전트
+    banner: 배너
+    bounce: 바운스
+    campaign: Campaign
+    canvas: Canvas
+    clicks: 클릭
+    "content cards": 콘텐츠 카드
+    conversion: 전환
+    deferral: 지연
+    delivery: 전달
+    dismissal: 해제
+    email: 이메일
+    entry: 진입
+    exit: 종료
+    failure: 실패
+    "feature flags": 기능 플래그
+    impressions: 노출
+    "in-app messages": 인앱 메시지
+    "inbound received": 수신
+    ios: iOS
+    line: LINE
+    "live activity": 라이브 액티비티
+    opens: 오픈
+    outcome: 결과
+    profile: 프로필
+    progression: 진행
+    push: 푸시
+    rcs: RCS
+    read: 읽음
+    rejection: 거부
+    retry: 재시도
+    sends: 발송
+    sms: SMS
+    spam: 스팸
+    subscription: 구독
+    uninstall: 제거
+    webhooks: Webhook
+    whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: 채널 및 플랫폼
+    action: 메시지 작업
+    journey: 사용자 여정
+  sql_segment_use_cases_tag_labels:
+    carrier: 통신사
+    delivery: 전달
+    device: 기기
+    error: 오류
+    event: 이벤트
+    message: 메시지
+    property: 속성
+    purchase: 구매
+    session: 세션
+    "time range": 기간
+  liquid_use_case_tag_labels:
+    "anniversaries and holidays": 기념일 및 공휴일
+    "app usage": 앱 사용
+    countdowns: 카운트다운
+    "custom attribute": 커스텀 속성
+    "custom event": 커스텀 이벤트
+    language: 언어
+    miscellaneous: 기타
+    "platform targeting": 플랫폼 타겟팅
+    sms: SMS
+    "time zones": 시간대
+    "week/day/month": 주/일/월
+  works_best_in: "최적 페이지:"
+  clipboard_copied: "복사됨"
+  clipboard_error: "오류"
+  copy_to_clipboard: "클립보드에 복사"
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -48,9 +720,80 @@ pt-br:
   braze_status: STATUS DO SISTEMA BRAZE
   braze_status_check: Verificando o status do Braze
   page_nav_title: Nesta página
+  back_to_top: Voltar ao topo
   helpful: "QUÃO ÚTIL FOI ESTA PÁGINA?"
-  translation_banner: "Esta página foi traduzida automaticamente e pode conter imprecisões. Para relatar um erro de tradução,"
-  translation_banner_link: "abra um issue no GitHub"
+  translation_banner: "Esta página foi traduzida automaticamente e pode conter imprecisões. Para relatar um erro de tradução, use o componente de feedback na parte inferior do sumário, à direita da página."
+  collapse_navigation: Recolher navegação
+  expand_navigation: Expandir navegação
+  expand_section: Expandir seção
+  collapse_section: Recolher seção
+  minimize_menu: Minimizar menu
+  expand_menu: Expandir menu
+  filter_navigation_topics: Filtrar tópicos da navegação
+  clear_filter: Limpar filtro
+  documentation_nav: Documentação
+  breadcrumb_nav: Trilha de navegação
+  language_select_nav: Seleção de idioma
+  language_select_mobile_nav: Seleção de idioma (menu móvel)
+  sidebar_home: Início
+  nav_flyout_esc_hint_before: "Pressione "
+  nav_flyout_esc_hint_after: " para fechar o menu"
+  nav_flyout_shortcut_hint: Pressione a seta para baixo para abrir o menu de documentação sem expandir a barra lateral.
+  report_metrics_intro: "Estes são termos que você encontra nos relatórios da sua conta Braze. Pesquise a métrica de que precisa ou filtre por canal. Este glossário não inclui necessariamente todas as métricas que você pode ver no Currents ou em outros relatórios baixados fora da sua conta Braze."
+  report_metrics_search_placeholder: Pesquisar
+  report_metrics_search_aria: Pesquisar no glossário
+  report_metrics_search_hint: Os resultados são atualizados automaticamente conforme você digita.
+  report_metrics_filter_legend: Filtrar por canal
+  report_metrics_no_results: Nenhuma métrica corresponde a estes filtros
+  report_metrics_showing: Exibindo __COUNT__ de __TOTAL__ métricas
+  email_report_metrics_intro: "Estes são termos que você encontra na seção de análise do seu e-mail de campanha ou Canvas após o lançamento. Você pode pesquisar a métrica de que precisa ou filtrar por tipo de métrica. Este glossário não inclui necessariamente todas as métricas que você pode ver no Currents ou em outros relatórios baixados fora da sua conta Braze."
+  email_report_metrics_search_placeholder: Pesquisar
+  email_report_metrics_search_aria: Pesquisar no glossário
+  email_report_metrics_no_results: Nenhuma métrica corresponde a estes filtros
+  report_metrics_channel_tag_labels:
+    all: Todos
+    email: E-mail
+    "web push": Push web
+    "ios push": Push iOS
+    "android push": Push Android
+    "in-app message": Mensagem no app
+    "content cards": Content Cards
+    banners: Banners
+    "sms/mms": SMS/MMS
+    rcs: RCS
+    line: LINE
+    whatsapp: WhatsApp
+    webhook: Webhook
+    "feature flags": Feature flags
+  email_report_metrics_tag_labels:
+    count: Contagem
+    percentage: Porcentagem
+  glossary_currents_events_search_placeholder: Pesquisar
+  glossary_currents_events_search_aria: Pesquisar eventos
+  glossary_currents_events_search_hint: Os resultados são atualizados automaticamente conforme você digita.
+  glossary_currents_events_no_results: Nenhum evento corresponde a esses filtros
+  glossary_currents_events_showing: Mostrando __COUNT__ de __TOTAL__ eventos
+  glossary_sql_use_cases_search_placeholder: Pesquisar
+  glossary_sql_use_cases_search_aria: Pesquisar casos de uso
+  glossary_sql_use_cases_search_hint: Os resultados são atualizados automaticamente conforme você digita.
+  glossary_sql_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
+  glossary_liquid_use_cases_search_placeholder: Pesquisar
+  glossary_liquid_use_cases_search_aria: Pesquisar casos de uso
+  glossary_liquid_use_cases_search_hint: Os resultados são atualizados automaticamente conforme você digita.
+  glossary_liquid_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
+  glossary_liquid_use_cases_showing: Mostrando __COUNT__ de __TOTAL__ casos de uso
+  glossary_agents_use_cases_search_placeholder: Pesquisar
+  glossary_agents_use_cases_search_aria: Pesquisar casos de uso
+  glossary_agents_use_cases_search_hint: Os resultados são atualizados automaticamente conforme você digita.
+  glossary_agents_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
+  agents_use_case_glossary_intro: "Confira nossa coleção de instruções e casos de uso para agentes.<br><br>Use a barra de pesquisa ou as caixas de seleção abaixo para encontrar os casos de uso que atendem às suas necessidades."
+  agents_use_case_tag_labels:
+    "canvas agent": Agente de Canvas
+    "catalog agent": Agente de catálogo
+  works_best_in: "Funciona melhor em:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Erro"
+  copy_to_clipboard: "Copiar para a área de transferência"
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -59,9 +802,80 @@ es:
   braze_status: ESTADO DEL SISTEMA BRAZE
   braze_status_check: Verificación del estado de Braze
   page_nav_title: En esta página
+  back_to_top: Volver arriba
   helpful: "¿QUÉ TAN ÚTIL FUE ESTA PÁGINA?"
-  translation_banner: "Esta página fue traducida automáticamente y puede contener errores. Para reportar un error de traducción,"
-  translation_banner_link: "abre un issue en GitHub"
+  translation_banner: "Esta página fue traducida automáticamente y puede contener errores. Para informar de un error de traducción, usa el componente de comentarios situado bajo el sumario, a la derecha de la página."
+  collapse_navigation: Contraer navegación
+  expand_navigation: Expandir navegación
+  expand_section: Expandir sección
+  collapse_section: Contraer sección
+  minimize_menu: Minimizar menú
+  expand_menu: Expandir menú
+  filter_navigation_topics: Filtrar temas de navegación
+  clear_filter: Borrar filtro
+  documentation_nav: Documentación
+  breadcrumb_nav: Ruta de navegación
+  language_select_nav: Selección de idioma
+  language_select_mobile_nav: Selección de idioma (menú móvil)
+  sidebar_home: Inicio
+  nav_flyout_esc_hint_before: "Pulse "
+  nav_flyout_esc_hint_after: " para cerrar el menú"
+  nav_flyout_shortcut_hint: Pulse la flecha hacia abajo para abrir el menú de documentación sin expandir la barra lateral.
+  report_metrics_intro: "Estos son términos que encontrará en los informes de su cuenta de Braze. Busque la métrica que necesite o filtre por canal. Este glosario no incluye necesariamente todas las métricas que pueda ver en Currents u otros informes descargados fuera de su cuenta de Braze."
+  report_metrics_search_placeholder: Buscar
+  report_metrics_search_aria: Buscar en el glosario
+  report_metrics_search_hint: Los resultados se actualizan automáticamente mientras escribe.
+  report_metrics_filter_legend: Filtrar por canal
+  report_metrics_no_results: Ninguna métrica coincide con estos filtros
+  report_metrics_showing: Mostrando __COUNT__ de __TOTAL__ métricas
+  email_report_metrics_intro: "Estos son términos que encontrará en la sección de análisis de su correo de campaña o Canvas, después del lanzamiento. Puede buscar la métrica que necesite o filtrar por tipo de métrica. Este glosario no incluye necesariamente todas las métricas que pueda ver en Currents u otros informes descargados fuera de su cuenta de Braze."
+  email_report_metrics_search_placeholder: Buscar
+  email_report_metrics_search_aria: Buscar en el glosario
+  email_report_metrics_no_results: Ninguna métrica coincide con estos filtros
+  report_metrics_channel_tag_labels:
+    all: Todos
+    email: Correo electrónico
+    "web push": Push web
+    "ios push": Push iOS
+    "android push": Push Android
+    "in-app message": Mensaje in-app
+    "content cards": Tarjetas de contenido
+    banners: Banners
+    "sms/mms": SMS/MMS
+    rcs: RCS
+    line: LINE
+    whatsapp: WhatsApp
+    webhook: Webhook
+    "feature flags": Feature flags
+  email_report_metrics_tag_labels:
+    count: Recuento
+    percentage: Porcentaje
+  glossary_currents_events_search_placeholder: Buscar
+  glossary_currents_events_search_aria: Buscar eventos
+  glossary_currents_events_search_hint: Los resultados se actualizan automáticamente mientras escribes.
+  glossary_currents_events_no_results: Ningún evento coincide con estos filtros
+  glossary_currents_events_showing: Mostrando __COUNT__ de __TOTAL__ eventos
+  glossary_sql_use_cases_search_placeholder: Buscar
+  glossary_sql_use_cases_search_aria: Buscar casos de uso
+  glossary_sql_use_cases_search_hint: Los resultados se actualizan automáticamente mientras escribes.
+  glossary_sql_use_cases_no_results: Ningún caso de uso coincide con estos filtros
+  glossary_liquid_use_cases_search_placeholder: Buscar
+  glossary_liquid_use_cases_search_aria: Buscar casos de uso
+  glossary_liquid_use_cases_search_hint: Los resultados se actualizan automáticamente mientras escribes.
+  glossary_liquid_use_cases_no_results: Ningún caso de uso coincide con estos filtros
+  glossary_liquid_use_cases_showing: Mostrando __COUNT__ de __TOTAL__ casos de uso
+  glossary_agents_use_cases_search_placeholder: Buscar
+  glossary_agents_use_cases_search_aria: Buscar casos de uso
+  glossary_agents_use_cases_search_hint: Los resultados se actualizan automáticamente mientras escribes.
+  glossary_agents_use_cases_no_results: Ningún caso de uso coincide con estos filtros
+  agents_use_case_glossary_intro: "Consulta nuestra colección de instrucciones y casos de uso para agentes.<br><br>Usa la barra de búsqueda o las casillas de abajo para encontrar los casos de uso que necesitas."
+  agents_use_case_tag_labels:
+    "canvas agent": Agente de Canvas
+    "catalog agent": Agente de catálogo
+  works_best_in: "Funciona mejor en:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copiar al portapapeles"
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -70,6 +884,77 @@ de:
   braze_status: BRAZE-SYSTEMSTATUS
   braze_status_check: Braze-Status wird geprüft
   page_nav_title: Auf dieser Seite
+  back_to_top: Nach oben
   useful: "WIE HILFREICH WAR DIESE SEITE?"
-  translation_banner: "Diese Seite wurde automatisch übersetzt und kann Ungenauigkeiten enthalten. Um einen Übersetzungsfehler zu melden,"
-  translation_banner_link: "erstellen Sie ein Issue auf GitHub"
+  translation_banner: "Diese Seite wurde automatisch übersetzt und kann Ungenauigkeiten enthalten. Um einen Übersetzungsfehler zu melden, nutzen Sie das Feedback unten im Inhaltsverzeichnis rechts auf der Seite."
+  collapse_navigation: Navigation einklappen
+  expand_navigation: Navigation erweitern
+  expand_section: Abschnitt erweitern
+  collapse_section: Abschnitt einklappen
+  minimize_menu: Menü minimieren
+  expand_menu: Menü erweitern
+  filter_navigation_topics: Navigationsthemen filtern
+  clear_filter: Filter löschen
+  documentation_nav: Dokumentation
+  breadcrumb_nav: Brotkrumen-Navigation
+  language_select_nav: Sprache auswählen
+  language_select_mobile_nav: Sprache auswählen (Mobilmenü)
+  sidebar_home: Startseite
+  nav_flyout_esc_hint_before: "Drücken Sie "
+  nav_flyout_esc_hint_after: ", um das Menü zu schließen"
+  nav_flyout_shortcut_hint: Drücken Sie die Abwärtspfeiltaste, um das Dokumentationsmenü zu öffnen, ohne die Seitenleiste zu erweitern.
+  report_metrics_intro: "Hier finden Sie Begriffe und Kennzahlen aus den Berichten in Ihrem Braze-Konto. Suchen Sie nach der passenden Kennzahl oder filtern Sie nach Kanal. Dieses Glossar umfasst nicht zwingend alle Kennzahlen, die Sie in Currents oder anderen heruntergeladenen Berichten außerhalb Ihres Braze-Kontos sehen."
+  report_metrics_search_placeholder: Suchen
+  report_metrics_search_aria: Glossar durchsuchen
+  report_metrics_search_hint: Die Ergebnisse aktualisieren sich automatisch, während Sie tippen.
+  report_metrics_filter_legend: Nach Kanal filtern
+  report_metrics_no_results: Keine Kennzahlen entsprechen diesen Filtern
+  report_metrics_showing: __COUNT__ von __TOTAL__ Kennzahlen angezeigt
+  email_report_metrics_intro: "Hier finden Sie Begriffe und Kennzahlen aus dem Analysebereich Ihrer E-Mail-Kampagne oder Ihres Canvas nach dem Start. Suchen Sie nach der passenden Kennzahl oder filtern Sie nach Kennzahltyp. Dieses Glossar umfasst nicht zwingend alle Kennzahlen, die Sie in Currents oder anderen heruntergeladenen Berichten außerhalb Ihres Braze-Kontos sehen."
+  email_report_metrics_search_placeholder: Suchen
+  email_report_metrics_search_aria: Glossar durchsuchen
+  email_report_metrics_no_results: Keine Kennzahlen entsprechen diesen Filtern
+  report_metrics_channel_tag_labels:
+    all: Alle
+    email: E-Mail
+    "web push": Web-Push
+    "ios push": iOS-Push
+    "android push": Android-Push
+    "in-app message": In-App-Nachricht
+    "content cards": Content Cards
+    banners: Banner
+    "sms/mms": SMS/MMS
+    rcs: RCS
+    line: LINE
+    whatsapp: WhatsApp
+    webhook: Webhook
+    "feature flags": Feature-Flags
+  email_report_metrics_tag_labels:
+    count: Anzahl
+    percentage: Prozentsatz
+  glossary_currents_events_search_placeholder: Suchen
+  glossary_currents_events_search_aria: Ereignisse durchsuchen
+  glossary_currents_events_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
+  glossary_currents_events_no_results: Keine Ereignisse entsprechen diesen Filtern
+  glossary_currents_events_showing: __COUNT__ von __TOTAL__ Ereignissen werden angezeigt
+  glossary_sql_use_cases_search_placeholder: Suchen
+  glossary_sql_use_cases_search_aria: Anwendungsfälle durchsuchen
+  glossary_sql_use_cases_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
+  glossary_sql_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
+  glossary_liquid_use_cases_search_placeholder: Suchen
+  glossary_liquid_use_cases_search_aria: Anwendungsfälle durchsuchen
+  glossary_liquid_use_cases_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
+  glossary_liquid_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
+  glossary_liquid_use_cases_showing: __COUNT__ von __TOTAL__ Anwendungsfällen werden angezeigt
+  glossary_agents_use_cases_search_placeholder: Suchen
+  glossary_agents_use_cases_search_aria: Anwendungsfälle durchsuchen
+  glossary_agents_use_cases_search_hint: Die Ergebnisse werden automatisch aktualisiert, während du tippst.
+  glossary_agents_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
+  agents_use_case_glossary_intro: "Durchsuchen Sie unsere Sammlung von Agentenanweisungen und Anwendungsfällen.<br><br>Verwenden Sie die Suchleiste oder die Kontrollkästchen unten, um die passenden Anwendungsfälle zu finden."
+  agents_use_case_tag_labels:
+    "canvas agent": Canvas-Agent
+    "catalog agent": Katalog-Agent
+  works_best_in: "Am besten geeignet für:"
+  clipboard_copied: "Kopiert"
+  clipboard_error: "Fehler"
+  copy_to_clipboard: "In die Zwischenablage kopieren"

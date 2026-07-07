@@ -25,7 +25,7 @@ Usando a estrutura de cupom Punchh e a Braze, você pode realizar os seguintes c
 ### Etapa 1: Criar uma campanha de cupons {#step-1-create-a-coupon-campaign}
 
 1. Usando uma campanha de cupom Punchh, crie uma campanha de cupom de geração dinâmica, conforme mostrado na imagem a seguir.
-2. A estrutura de cupons do Punchh gerará os seguintes parâmetros para ativar a geração dinâmica de cupons:
+2. A estrutura de cupons da Punchh gerará os seguintes parâmetros para ativar a geração dinâmica de cupons:
     - Token de geração de cupom dinâmico: esse é um token de segurança gerado pelo sistema para criptografia.
     - URL de geração de cupom dinâmico: esse URL será incorporado ao e-mail como um link ou imagem, conforme exigido pela empresa.
 
@@ -77,10 +77,11 @@ Para usar a API de código de cupom dinâmico da Punchh, um token JWT deve ser c
 
 Substitua o seguinte:
 
-| Espaço reservado        | Descrição                                          |
+| Espaço reservado | Descrição |
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | Seu token de geração de cupom dinâmico. |
-| `CAMPAIGN_ID`                     | Seu ID de campanha.                     |
+| `CAMPAIGN_ID` | Seu ID de campanha. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate signature and construct URL" }
 
 ### Etapa 3: Anexar o código do cupom ao corpo da mensagem {#step-3-append-coupon-code-to-message-body}
 
@@ -126,7 +127,7 @@ Para vincular o código do cupom em uma imagem:
 3. Incorpore seu link em uma tag HTML {% raw %}`<img>`{% endraw %}.
 
 {% tabs local %}
-{% tab example input %}
+{% tab exemplo de entrada %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,7 +135,7 @@ Para vincular o código do cupom em uma imagem:
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab exemplo de saída %}
 ![Saída renderizada da tag de imagem do código do cupom.]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}
@@ -150,4 +151,4 @@ Para vincular o código do cupom em uma imagem:
 | `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | O uso do código excede o número de usuários autorizados a usá-lo. Por exemplo, se a configuração do dashboard permitir que um código seja usado por 3.000 usuários e o número de usuários exceder 3.000, esse erro ocorrerá. |
 | `usage_exceeded_by_guest` | This promo code has already been processed. | O uso do código por um usuário excede o número de vezes que ele pode usá-lo. Por exemplo, a configuração do dashboard permite que um único código seja usado três vezes por um usuário. Se for usado mais do que isso, esse erro ocorrerá. |
 | `already_used_by_other_guest` | This promo code has already been used by some other guest. | Outro usuário já usou o código. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error messages" }

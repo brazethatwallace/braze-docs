@@ -9,14 +9,14 @@ channel:
 
 ---
 
-# Push Stories
+# Push Stories {#push-stories}
 
 > Push Stories는 Instagram과 Facebook에서 대중화된 사진 캐러셀 기능을 활용하여 마케터가 푸시 내에서 풍부하고 일관된 스토리를 전달하는 캐러셀 페이지를 만들 수 있게 해줍니다. 이 페이지는 이미지, 클릭 동작, 제목, 설명으로 구성됩니다. 사용자는 이 페이지를 스와이프하며 여러분이 전달하는 스토리를 볼 수 있습니다.
 
 | Android 예시 (확장됨) | iOS 예시 (확장됨) |
 | :-----: | :----------: |
-| ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ![Push Stories Android 미리보기.]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Push Stories iOS 미리보기]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
 iOS SDK 버전 3.13.0 이상에서는 SDK가 이미지를 다운로드하는 방식이 변경되어 첫 번째 이미지의 썸네일이 푸시의 축소된 보기에 표시되지 않습니다. 메시지 문구에서 사용자가 이미지를 보려면 푸시를 확장하도록 안내해야 합니다.
@@ -31,34 +31,33 @@ Push Stories를 수신하려면 다음 SDK 버전이 필요합니다:
 
 ## Push Stories 사용 방법 {#how-to-use-push-stories}
 
-![]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Push Stories 작성기 드롭다운]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
 Push Stories를 사용하려면 다음을 수행합니다:
 
-1. [푸시 Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)을 생성합니다.
-2. **Notification Type**에서 **Push Stories**를 선택합니다.
+1. [푸시 Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)을 생성합니다.
+2. **알림 유형**에서 **Push Stories**를 선택합니다.
 3. **iOS** 또는 **Android**를 선택합니다. 푸시 메시지에서 두 가지를 모두 선택하면 Push Story를 만드는 옵션이 나타나지 않습니다.
 
 ### Push Story 작성기 {#push-story-composer}
 
 페이지를 만들려면 다음 단계를 수행합니다:
 
-1. 메인 작성기에서 **Manage Pages**를 클릭합니다.
-    <br><br>![]({% image_buster /assets/img_archive/pushstories_add_pages.png %}){: style="max-width:70%"}<br><br>
+1. 메인 작성기에서 **새 페이지 추가**를 선택합니다.
 2. 각 페이지에 이미지를 삽입하고 해당 이미지의 클릭 동작을 설정합니다.
-3. 원하는 경우 각 페이지에 **Title**과 **Description**을 추가합니다. 한 페이지에 제목과 설명을 사용하면 모든 페이지에 삽입해야 합니다.
+3. 원하는 경우 각 페이지에 **제목**과 **설명**을 추가합니다. 한 페이지에 제목과 설명을 사용하면 모든 페이지에 삽입해야 합니다.
 
 미리보기가 반영되며 인터랙티브합니다.
 
-![]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
+![Push Stories 작성기]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)로 이미지를 가져오는 경우 이미지 URL이 `https://`로 시작하는지 확인합니다. `http://`를 사용하면 앱이 충돌합니다.
+[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content)로 이미지를 가져오는 경우 이미지 URL이 `https://`로 시작하는지 확인합니다. `http://`를 사용하면 앱이 충돌합니다.
 {% endalert %}
 
 ### 이미지 및 텍스트 사양 {#image-and-text-specifications}
 
-다음 이미지 및 텍스트 사양은 Push Stories의 사진 캐러셀 부분에 적용됩니다. 사용자가 Push Story를 활성화하기 위해 상호작용하는 기본 푸시에 대한 정보는 [푸시 메시지 및 이미지 형식]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)을 참조하세요.
+다음 이미지 및 텍스트 사양은 Push Stories의 사진 캐러셀 부분에 적용됩니다. 사용자가 Push Story를 활성화하기 위해 상호작용하는 기본 푸시에 대한 정보는 [푸시 메시지 및 이미지 형식]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)을 참조하세요.
 
 {% tabs %}
 {% tab 이미지 %}

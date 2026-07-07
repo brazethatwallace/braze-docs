@@ -12,7 +12,7 @@ noindex: true
 
 # Vinculación en profundidad para iOS {#deep-linking-for-ios}
 
-Para obtener información introductoria sobre los vínculos profundos, consulta [el artículo de nuestra Guía del usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Si quieres implementar vínculos en profundidad por primera vez en tu aplicación Braze, los pasos siguientes te ayudarán a empezar.
+Para obtener información introductoria sobre los vínculos profundos, consulta [el artículo de nuestra Guía del usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Si quieres implementar vínculos en profundidad por primera vez en tu aplicación Braze, los pasos siguientes te ayudarán a empezar.
 
 ## Paso 1: Registrar un esquema {#step-1-register-a-scheme}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Ejemplo de configuración de vínculo profundo en el panel de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Enlaces universales {#universal-links}
 
@@ -164,7 +164,7 @@ El cumplimiento de ATS se aplica a los enlaces abiertos dentro de la aplicación
 Puedes manejar ATS de una de las tres formas siguientes:
 
 #### Confirma que todos los enlaces cumplen con ATS (recomendado) {#confirm-all-links-are-ats-compliant-recommended}
-Tu integración con Braze puede cumplir los requisitos de ATS garantizando que cualquier enlace existente al que dirijas a los usuarios (a través de mensajes dentro de la aplicación y campañas push) cumpla los requisitos de ATS. Aunque hay formas de eludir las restricciones de ATS, te recomendamos que compruebes que todas las URL enlazadas cumplen con ATS. Dado el creciente énfasis de Apple en la seguridad de las aplicaciones, no está garantizado que Apple admita los siguientes enfoques para permitir excepciones ATS.
+Tu integración con Braze puede cumplir los requisitos de ATS garantizando que cualquier enlace existente al que dirijas a los usuarios (a través de mensajes dentro de la aplicación y Campaigns push) cumpla los requisitos de ATS. Aunque hay formas de eludir las restricciones de ATS, te recomendamos que compruebes que todas las URL enlazadas cumplen con ATS. Dado el creciente énfasis de Apple en la seguridad de las aplicaciones, no está garantizado que Apple admita los siguientes enfoques para permitir excepciones ATS.
 
 Una herramienta SSL puede ayudarte a detectar problemas de seguridad del servidor web. Esta [prueba de servidor SSL](https://www.ssllabs.com/ssltest/index.html) de Qualys, Inc. proporciona una línea específica para el cumplimiento de Apple ATS 9 e iOS 9.
 

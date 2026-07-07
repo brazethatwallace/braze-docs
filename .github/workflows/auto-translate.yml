@@ -1,41 +1,61 @@
 # Translates English docs into all supported languages using Claude.
 #
-# Trigger: workflow_dispatch only (push-to-main trigger temporarily disabled
-# during catch-up; re-enable after cleanup — restore the `push` block below).
-#
-# When enabled, push runs after deploy merges to main for changed _docs/ and
-# _includes/ markdown files.
+# Triggers:
+#   - pull_request merged into main whose head branch is nightly snapshot
+#     `auto-deploy-*` and that PR carries the `Deploy` label (both are set when
+#     Nightly Release Deploy opens the PR — see nightly-deploy.yml). This excludes
+#     unrelated merges into main. Files to translate come from merge_commit_sha
+#     versus its first parent, so the batch matches whatever English shipped in that
+#     deploy PR (not arbitrary main pushes or stale develop-only diff windows).
+#   - workflow_dispatch for catch-up (`since_commit`, `files`), auto stale
+#     detection when both are empty, or orphan-only
 #
 # Flow:
-#   1. Identify _docs/ and _includes/ markdown files changed in the push
+#   1. Identify _docs/ and _includes/ markdown files changed (deploy PR merge diff,
+#      since_commit/files dispatch, or stale-english dispatch)
 #   2. Matrix: translate each changed file into one language per job (6 jobs),
 #      then QC + Jekyll verify that locale only (avoids a single 6×locale step
-#      hitting the translate timeout on very large pages)
+#      hitting the translate timeout on very large pages). QC also applies
+#      small locale repairs (for example ES API “Obligatorio” column tokens,
+#      DE analytics capture phrasing — see scripts/auto_translate.py).
 #   3. Merge _lang/ trees + translation_results.json + qc_results.json, then
 #      orphan cleanup + alias check (full-repo only; skipped for explicit
-#      workflow_dispatch `files:` batches — PR #13327)
+#      workflow_dispatch `files:` batches — PR #13327). If the alias check
+#      runs and fails, merge-and-publish fails so the run is red (no silent
+#      “success” without a PR).
 #   4. Open one PR targeting develop with all locales
+#
+# Optional Slack (bot token): use the same secrets as Nightly Release Deploy —
+# SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL (channel ID, e.g. C0123…).
+# Invite the bot to the channel. Notifies on success and failure for runs that
+# execute prepare (skipped runs from unrelated PR merges to main post nothing).
+# If secrets are unset, notifications are skipped.
 name: Auto-translate
 
 on:
-  # push:
-  #   branches: [main]
-  #   paths: ['_docs/**', '_includes/**']
+  pull_request:
+    types: [closed]
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       files:
         description: >
-          Space-separated _docs/ or _includes/ paths to translate
-          (leave empty unless using since_commit or push-based detection).
-          When set, skips global orphan cleanup and duplicate-YAML-alias check
-          even if skip_orphan_cleanup is false — partial batches must not
-          delete or gate the whole _lang tree after IA moves (PR #13327).
+          Space-separated _docs/ or _includes/ paths to translate (optional).
+          Leave empty with since_commit empty on manual runs to auto-detect
+          stale English vs _lang mirrors (scripts/auto_translate.py
+          stale-english-sources). When non-empty, skips global orphan cleanup
+          and duplicate-YAML-alias check even if skip_orphan_cleanup is false
+          — partial batches must not delete or gate the whole _lang tree after
+          IA moves (PR #13327).
         required: false
         type: string
       since_commit:
         description: >
           Optional commit SHA: diff this commit..current ref for all changed
-          English .md under _docs/ and _includes/ (catch-up; ignores files input)
+          English .md under _docs/ and _includes/ (catch-up; ignores files input).
+          Leave empty with files empty on manual runs to auto-detect stale English
+          vs _lang mirrors instead of a commit range.
         required: false
         type: string
       skip_orphan_cleanup:
@@ -74,15 +94,27 @@ jobs:
   # Detect changes once; matrix jobs download changed_files.txt
   # --------------------------------------------------------------------------
   prepare:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.merged == true &&
+       startsWith(github.event.pull_request.head.ref, 'auto-deploy-') &&
+       contains(github.event.pull_request.labels.*.name, 'Deploy'))
     runs-on: ubuntu-latest
     outputs:
       count: ${{ steps.changes.outputs.count }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
+          ref: >-
+            ${{
+              github.event_name == 'pull_request'
+              && github.event.pull_request.merge_commit_sha
+              || github.sha
+            }}
 
       - name: Identify changed English files
         id: changes
@@ -99,24 +131,29 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
              [ -z "${{ inputs.since_commit }}" ] && \
              [ -z "${{ inputs.files }}" ]; then
-            echo "workflow_dispatch requires since_commit (catch-up diff) and/or files (explicit paths), unless orphan_cleanup_only is true."
-            exit 1
-          fi
-          if [ -n "${{ inputs.since_commit }}" ]; then
+            echo "workflow_dispatch: auto-detecting stale English sources (vs _lang/)..."
+            python3 scripts/auto_translate.py stale-english-sources > changed_files.txt
+          elif [ -n "${{ inputs.since_commit }}" ]; then
             echo "Using since_commit=${{ inputs.since_commit }}..${{ github.sha }}"
             git diff --find-renames --name-only --diff-filter=ACMR \
               "${{ inputs.since_commit }}" "${{ github.sha }}" \
               -- '_docs/' '_includes/' > changed_files.txt
           elif [ -n "${{ inputs.files }}" ]; then
             echo "${{ inputs.files }}" | tr ' ' '\n' > changed_files.txt
-          elif [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            git diff --name-only --diff-filter=ACMR \
-              ${{ github.event.before }} ${{ github.sha }} \
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            MERGE="${{ github.event.pull_request.merge_commit_sha }}"
+            if [ -z "$MERGE" ]; then
+              echo "::error::pull_request merged event missing merge_commit_sha."
+              exit 1
+            fi
+            PARENT="${MERGE}^"
+            echo "Merged nightly deploy PR (${{ github.event.pull_request.head.ref }} → main): git diff ${PARENT}..${MERGE} filtered to _docs/_includes/"
+            git diff --find-renames --name-only --diff-filter=ACMR \
+              "$PARENT" "$MERGE" \
               -- '_docs/' '_includes/' > changed_files.txt
           else
-            git diff --name-only --diff-filter=ACMR \
-              HEAD~1 HEAD \
-              -- '_docs/' '_includes/' > changed_files.txt
+            echo "::error::Unexpected event; no change-detection branch matched."
+            exit 1
           fi
 
           grep '\.md$' changed_files.txt > filtered.txt 2>/dev/null || true
@@ -144,12 +181,19 @@ jobs:
   # --------------------------------------------------------------------------
   translate-locale:
     needs: prepare
-    if: needs.prepare.outputs.count != '0'
+    if: >-
+      needs.prepare.result == 'success' &&
+      needs.prepare.outputs.count != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 210
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       PYTHONUNBUFFERED: "1"
+      TRANSLATION_API_RETRIES: "6"
+      TRANSLATION_FAILED_PASS_RETRIES: "6"
+      TRANSLATION_FAILED_PASS_ROUNDS: "2"
+      TRANSLATION_HTTP_TIMEOUT: "240"
+      TRANSLATION_WORKERS: "8"
     strategy:
       fail-fast: false
       matrix:
@@ -168,10 +212,16 @@ jobs:
             lang_dir: de
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
+          ref: >-
+            ${{
+              github.event_name == 'pull_request'
+              && github.event.pull_request.merge_commit_sha
+              || github.sha
+            }}
 
       - name: Download changed-files list
         uses: actions/download-artifact@v8
@@ -199,7 +249,11 @@ jobs:
           --languages ${{ matrix.lang }}
 
       # Deterministic repairs (duplicate {#…} heading IDs, YAML title casing,
-      # etc.) live in scripts/auto_translate.py — extend there rather than here.
+      # re-seeding locale YAML when the model drops the --- block while English
+      # has front matter—including indented English --- openers, transactional
+      # frequency_capping parenthesis repair, duplicate engagement_reports
+      # subsections, etc.) live in scripts/auto_translate.py — extend there rather
+      # than here.
       - name: Run translation QC checks
         id: qc
         run: python scripts/auto_translate.py qc
@@ -214,7 +268,10 @@ jobs:
         id: verify
         run: python scripts/auto_translate.py verify --max-attempts 3
 
+      # Upload after translate/QC even when verify fails so translation_results.json
+      # (including build_results.error tails) is available for debugging.
       - name: Upload locale artifact
+        if: ${{ always() && steps.translate.outcome == 'success' }}
         uses: actions/upload-artifact@v7
         with:
           name: translate-${{ matrix.lang }}
@@ -228,15 +285,24 @@ jobs:
   # --------------------------------------------------------------------------
   merge-and-publish:
     needs: [prepare, translate-locale]
-    if: ${{ needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
+    if: ${{ needs.prepare.result == 'success' && needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    outputs:
+      pr_number: ${{ steps.create-pr.outputs.pull-request-number }}
+      pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
+          ref: >-
+            ${{
+              github.event_name == 'pull_request'
+              && github.event.pull_request.merge_commit_sha
+              || github.sha
+            }}
 
       # Same toolchain as translate-locale: merge + check-aliases + summary run
       # auto_translate.py (PyYAML + lazy Anthropic import paths).
@@ -266,7 +332,7 @@ jobs:
         run: python scripts/auto_translate.py check-path-case-collisions
 
       # Matrix locales can diverge on explicit `{#id}` tails when English omits
-      # them but one translation adds a stable fragment (Copilot / PR #13394).
+      # them but one translation adds a stable fragment (PR #13394).
       # Uses translation_results.json so only this run's paths are touched.
       - name: Align heading anchor parity across locales
         if: steps.merge-artifacts.outcome == 'success'
@@ -282,7 +348,6 @@ jobs:
       - name: Check for duplicate YAML aliases
         id: aliases
         if: ${{ github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && inputs.skip_orphan_cleanup != 'true' && inputs.files == '') }}
-        continue-on-error: true
         run: python scripts/auto_translate.py check-aliases
 
       - name: Generate PR summary
@@ -297,7 +362,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: auto-translate/${{ github.run_id }}
           base: develop
-          title: "Auto-translations — ${{ github.event.head_commit.message || 'manual run' }}"
+          # Quote the YAML value — unquoted '#' after a space starts a YAML comment,
+          # which truncates this line and breaks the '${{ }}' expression (#13594).
+          title: "${{ github.event_name == 'pull_request' && format('Auto-translations — nightly deploy PR #{0}', github.event.pull_request.number) || 'Auto-translations — manual run' }}"
           body-path: translation_pr_body.md
           labels: |
             auto-translation
@@ -307,28 +374,6 @@ jobs:
           add-paths: |
             _lang/
 
-      - name: Request Copilot review
-        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
-          REPO: ${{ github.repository }}
-        run: |
-          set +e
-          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
-            echo "Requested Copilot review via gh CLI shortcut."
-            exit 0
-          fi
-          echo "gh CLI shortcut failed; falling back to REST API bot login..."
-          if gh api --method POST \
-            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
-            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
-            echo "Requested Copilot review via REST API fallback."
-            exit 0
-          fi
-          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
-
   # --------------------------------------------------------------------------
   # Orphan cleanup only (no translation; after batched catch-up)
   # --------------------------------------------------------------------------
@@ -337,9 +382,12 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    outputs:
+      pr_number: ${{ steps.create-pr.outputs.pull-request-number }}
+      pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -393,32 +441,11 @@ jobs:
           add-paths: |
             _lang/
 
-      - name: Request Copilot review
-        if: steps.create-pr.outputs.pull-request-number
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
-          REPO: ${{ github.repository }}
-        run: |
-          set +e
-          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
-            echo "Requested Copilot review via gh CLI shortcut."
-            exit 0
-          fi
-          echo "gh CLI shortcut failed; falling back to REST API bot login..."
-          if gh api --method POST \
-            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
-            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
-            echo "Requested Copilot review via REST API fallback."
-            exit 0
-          fi
-          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
-
   report-failures:
     needs: [prepare, translate-locale, merge-and-publish]
     if: |
       always() &&
+      needs.prepare.result == 'success' &&
       needs.prepare.outputs.count != '0' && (
         needs.translate-locale.result == 'failure' ||
         (
@@ -435,3 +462,86 @@ jobs:
           echo "  translate-locale:   ${{ needs.translate-locale.result }}"
           echo "  merge-and-publish:  ${{ needs.merge-and-publish.result }}"
           exit 1
+
+  notify:
+    name: Slack notification
+    needs: [prepare, translate-locale, merge-and-publish, orphan-cleanup-only, report-failures]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Auto-translate result to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PREPARE_RESULT: ${{ needs.prepare.result }}
+          PREPARE_COUNT: ${{ needs.prepare.outputs.count }}
+          TRANSLATE_RESULT: ${{ needs.translate-locale.result }}
+          MERGE_RESULT: ${{ needs.merge-and-publish.result }}
+          ORPHAN_JOB_RESULT: ${{ needs['orphan-cleanup-only'].result }}
+          REPORT_RESULT: ${{ needs.report-failures.result }}
+          MERGE_PR_URL: ${{ needs.merge-and-publish.outputs.pr_url }}
+          MERGE_PR_NUMBER: ${{ needs.merge-and-publish.outputs.pr_number }}
+          ORPHAN_PR_URL: ${{ needs['orphan-cleanup-only'].outputs.pr_url }}
+          ORPHAN_PR_NUMBER: ${{ needs['orphan-cleanup-only'].outputs.pr_number }}
+          EVENT_NAME: ${{ github.event_name }}
+          DEPLOY_PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_DEPLOY_NOTIFY_CHANNEL:-}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL); skipping."
+            exit 0
+          fi
+
+          if [ "${PREPARE_RESULT}" = "skipped" ]; then
+            echo "Prepare skipped (not a deploy merge or not workflow_dispatch) — not posting to Slack."
+            exit 0
+          fi
+
+          FAILED=
+          if [ "${PREPARE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${ORPHAN_JOB_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${TRANSLATE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${MERGE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${REPORT_RESULT}" = "failure" ]; then FAILED=1; fi
+
+          if [ -n "${FAILED}" ]; then
+            TEXT=":x: *Auto-translate* failed\n${RUN_URL}"
+          elif [ "${ORPHAN_JOB_RESULT}" = "success" ]; then
+            if [ -n "${ORPHAN_PR_URL:-}" ]; then
+              TEXT=":white_check_mark: *Auto-translate* — orphan cleanup PR opened <${ORPHAN_PR_URL}|#${ORPHAN_PR_NUMBER}>"
+            else
+              TEXT=":white_check_mark: *Auto-translate* — orphan cleanup finished (no PR opened; likely nothing to commit)\n${RUN_URL}"
+            fi
+          elif [ "${PREPARE_COUNT:-0}" = "0" ]; then
+            CONTEXT=
+            if [ "${EVENT_NAME}" = "pull_request" ] && [ -n "${DEPLOY_PR_NUMBER:-}" ]; then
+              CONTEXT=" (after nightly deploy PR #${DEPLOY_PR_NUMBER})"
+            elif [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+              CONTEXT=" (manual run)"
+            fi
+            TEXT=":white_check_mark: *Auto-translate* — no English markdown changes to translate${CONTEXT}\n${RUN_URL}"
+          elif [ "${MERGE_RESULT}" = "success" ] && [ -n "${MERGE_PR_URL:-}" ]; then
+            TEXT=":white_check_mark: *Auto-translate* — opened translation PR <${MERGE_PR_URL}|#${MERGE_PR_NUMBER}>"
+          elif [ "${MERGE_RESULT}" = "success" ]; then
+            TEXT=":white_check_mark: *Auto-translate* finished (merge job succeeded)\n${RUN_URL}"
+          else
+            TEXT="*Auto-translate* finished (${RUN_URL}) — prepare=${PREPARE_RESULT}, translate=${TRANSLATE_RESULT}, merge=${MERGE_RESULT}"
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$SLACK_DEPLOY_NOTIFY_CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null

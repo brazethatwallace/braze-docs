@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM Treueplattform {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) ist eine Plattform für Customer-Engagement und Kundentreue, die Marketern Features für das Kampagnenmanagement und Lösungen für das Loyalitätsmanagement zur Verfügung stellt, um das Engagement und den Gewinn durch gezielte Ansprache zu steigern.
+> [SessionM](https://sessionm.com/) ist eine Plattform für Customer-Engagement und Kundentreue, Teil von Capillary Technologies, die Marketern Features für das Kampagnenmanagement und Lösungen für das Loyalitätsmanagement zur Verfügung stellt, um das Engagement und den Gewinn durch gezielte Ansprache zu steigern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -26,10 +26,6 @@ search_tag: Partner
 | SessionM | Ein SessionM Connect REST-Autorisierungs-String | Der SessionM Connect Basic-Authorization-String, der mit Ihrer Instanz verknüpft ist. Dieser Authentifizierungs-String kann für alle verbindungsbasierten Aufrufe verwendet werden, einschließlich get_user_offers. Bitte wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
 | SessionM | Eine SessionM Connect REST-Retailer-ID | Eine eindeutige GUID-Kennung für den spezifischen Kunden, der mit Ihrer Instanz verbunden ist. Wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %}
-Wenn Sie die [ältere Navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) verwenden, können Sie einen API-Schlüssel unter **Entwicklungskonsole** > **API-Einstellungen** erstellen.
-{% endalert %}
 
 ## Anwendungsfälle {#use-cases}
 
@@ -193,7 +189,7 @@ Mit der Liquid-Dot-Notation kann dies in die Nachricht eingefügt werden. Um die
 Dies ist eine individuelle API. Wenn Sie beabsichtigen, einen Batch von mehr als 500 Nutzer:innen zu versenden, erkundigen Sie sich bei Ihrem SessionM-Team, wie Sie Massendaten in die Integration einbeziehen können.
 {% endalert %}
 
-## Getriggerte Nachrichten einrichten {#setting-up-triggered-messaging}
+## Getriggertes Messaging einrichten {#setting-up-triggered-messaging}
 
 Die Integration von SessionM und Braze ermöglicht es, Nutzerprofildaten, Angebotsdetails und Punktesalden dynamisch in Messaging einzubringen und in Echtzeit an die Kund:innen zu senden, sobald diese aktiv werden.
 
@@ -254,8 +250,8 @@ Aktualisieren Sie die erweiterten Einstellungen in der SessionM-Kampagne, um die
 
 Erstellen Sie einen Nachrichten-Trigger nach dem gewünschten Zeitplan oder Verhalten. Wählen Sie dann im Menü **External Message** die **Braze Messaging Variant** als **Messaging Variant** aus, um das Template zu verwenden.
 
-![SessionM externe Nachricht.]({% image_buster /assets/img/sessionm/SessionMExternalMessage.png %})
+![Externe Nachricht von SessionM.]({% image_buster /assets/img/sessionm/SessionMExternalMessage.png %})
 
 Dieses Template ruft die relevanten statischen und dynamischen Attribute ab und stellt eine Anfrage an den Braze-Endpunkt.
 
-![SessionM Braze Template.]({% image_buster /assets/img/sessionm/SessionMBrazeTemplate.png %}){: style="max-width:85%;"}
+![SessionM Braze-Template.]({% image_buster /assets/img/sessionm/SessionMBrazeTemplate.png %}){: style="max-width:85%;"}

@@ -1,9 +1,9 @@
 ---
 nav_title: カスタムサウンド
-article_title: iOS 用カスタムプッシュ通知サウンド
+article_title: iOS用カスタムプッシュ通知サウンド
 platform: iOS
 page_order: 3
-description: "この参照記事では、iOS プッシュ通知にカスタムサウンドを実装する方法について説明します。"
+description: "このリファレンス記事では、iOSプッシュ通知にカスタムサウンドを実装する方法について説明します。"
 channel:
   - push
 
@@ -12,11 +12,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# カスタムサウンド
+# カスタムサウンド {#custom-sounds}
 
-## ステップ1:アプリでサウンドをホスティングする
+## ステップ 1:アプリでサウンドをホスティングする {#step-1-hosting-the-sound-in-the-app}
 
-カスタムプッシュ通知サウンドは、クライアントアプリケーション内のメインバンドル内でローカルにホストする必要があります。次のオーディオデータ形式が使用できます。
+カスタムプッシュ通知サウンドは、クライアントアプリケーションのメインバンドル内でローカルにホストする必要があります。以下のオーディオデータ形式が使用できます。
 
 - リニア PCM
 - MA4
@@ -25,21 +25,20 @@ noindex: true
 
 オーディオデータは AIFF、WAV、または CAF ファイルにパッケージできます。Xcode で、サウンドファイルをアプリケーションバンドルの非ローカライズリソースとしてプロジェクトに追加します。
 
-afconvert ツールを使用して、サウンドを変換できます。たとえば、16ビットリニア PCM システムサウンド Submarine.aiff を CAF ファイルの IMA4オーディオに変換するには、ターミナルで次のコマンドを使用します。
+afconvert ツールを使用してサウンドを変換できます。たとえば、16ビットリニア PCM システムサウンド Submarine.aiff を CAF ファイルの IMA4 オーディオに変換するには、ターミナルで次のコマンドを使用します。
 
 ```bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
 ```
 
-QuickTime Player でサウンドを開き、[**ムービー**] メニューから [**ムービーインスペクターを表示**] を選択するとサウンドのデータ形式を確認できます。
+QuickTime Player でサウンドを開き、**ムービー**メニューから**ムービーインスペクターを表示**を選択すると、サウンドのデータ形式を確認できます。
 
-カスタムサウンドを再生する場合は、30 秒未満にする必要があります。カスタムサウンドがこの制限を超えている場合、デフォルトのシステムサウンドが代わりに再生されます。
+カスタムサウンドは再生時間が30秒未満である必要があります。カスタムサウンドがこの制限を超えている場合、デフォルトのシステムサウンドが代わりに再生されます。
 
-## ステップ2:ダッシュボードにサウンドのプロトコル URL を指定する
+## ステップ 2:ダッシュボードにサウンドのプロトコル URL を指定する {#step-2-providing-the-dashboard-with-a-protocol-url-for-the-sound}
 
-サウンドはアプリ内でローカルにホストする必要があります。プッシュコンポーザーの [**サウンド**] フィールドで、アプリ内のサウンドファイルにリダイレクトするプロトコル URL を指定する必要があります。このフィールドに「default」を指定すると、デフォルトの通知音がデバイスで再生されます。これは、以下のスクリーンショットに示すように、プッシュコンポーザーの [[messaging API]({{site.baseurl}}/api/endpoints/messaging/)] または [**設定**] にあるダッシュボードを使用して指定できます。
+サウンドはアプリ内でローカルにホストする必要があります。プッシュコンポーザーの**サウンド**フィールドで、アプリ内のサウンドファイルの場所を示すプロトコルURLを指定する必要があります。このフィールドに「default」を指定すると、デバイスのデフォルトの通知音が再生されます。これは、[messaging API]({{site.baseurl}}/api/endpoints/messaging)、または以下のスクリーンショットに示すようにプッシュコンポーザーの**設定**にあるダッシュボードを使用して指定できます。
 
-![]({% image_buster /assets/img_archive/sound_push_ios.png %})
+![サウンドはアプリ内でローカルにホストする必要があります。プッシュコンポーザーのサウンドフィールドで、アプリ内のサウンドファイルの場所を示すプロトコル URL を指定する必要があります。このフィールドに「default」を指定すると、デバイスのデフォルトの通知音が再生されます。messaging API またはプッシュコンポーザーの設定にあるダッシュボードを使用して指定できます。]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-指定したサウンドファイルが存在しない場合、またはキーワード「default」を入力した場合は、Braze では、デバイスのデフォルトのアラートサウンドが使用されます。ダッシュボードとは別に、[[メッセージング API]({{site.baseurl}}/api/endpoints/messaging/)] でサウンドを設定することもできます。詳細については、[[カスタムアラートサウンドの準備](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html)] に関する Apple 開発者のドキュメントを参照してください。
-
+指定したサウンドファイルが存在しない場合、またはキーワード「default」を入力した場合、Brazeはデバイスのデフォルトのアラートサウンドを使用します。ダッシュボードとは別に、[messaging API]({{site.baseurl}}/api/endpoints/messaging)でサウンドを設定することもできます。詳細については、[カスタムアラートサウンドの準備](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html)に関する Apple 開発者ドキュメントを参照してください。

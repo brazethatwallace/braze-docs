@@ -53,7 +53,7 @@ Selecting **Show Starred Only** narrows your view to the segments that were star
 Go to a segment's **Messaging Use** section for an overview of where the segment is being used, such as within other segments, campaigns, and Canvases.
 
 {% alert note %}
-To prevent loops of segments referencing one another, segments that use the **Segment Membership** filter can't be referenced by other segments. For more details, refer to [Segmentation Filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+To prevent loops of segments referencing one another, segments that use the **Segment Membership** filter can't be referenced by other segments. For more details, refer to [Segmentation Filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 {% endalert %}
 
 ## Managing specific segments
@@ -67,6 +67,10 @@ To manage a specific segment, hover over it and select the menu icon at the end 
 - **Add to starred:** Star the segment, which allows you to quickly access it by checking the Show starred only box in the segments section.
  
 You can also perform bulk actions–specifically, bulk archiving and bulk tagging–by checking the boxes next to multiple segment names.
+
+{% alert tip %}
+If you need a machine-readable export of the existing segments in the workspace (not only the current table view), use the [Export segment list endpoint]({{site.baseurl}}/api/endpoints/export/segments/get_segment) and paginate through the results. To audit archived segments, review them separately in the **Segments** dashboard using the status filter.
+{% endalert %}
 
 ![Multiple segments selected with "CRM" selected in the "Tag As" dropdown field.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 

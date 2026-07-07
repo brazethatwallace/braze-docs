@@ -57,7 +57,7 @@ Back-in-stock and price-drop triggers use the same event to subscribe the user t
 4. Select **Save** and continue to the catalog's **Settings** page.
 5. Set your notification rule. There are two options:
     - **Notify all subscribed users** notifies all customers who are waiting when the item is back in stock. 
-    - **Set notification limits** notifies a specified number of customers per your configured notification period. Braze will notify the specified number of customers in increments until there are no more customers to notify or until the item goes out of stock. Your notification rate cannot exceed notifying 10,000 users per minute.
+    - **Set notification limits** notifies a specified number of customers every 10 minutes. Braze will notify the specified number of customers in increments until there are no more customers to notify or until the item goes out of stock. Your notification rate cannot exceed notifying 10,000 users per minute.
 6. Set the **Inventory field in catalog**. This catalog field will be used to determine if the item is out of stock. The field must be a number type.
 7. Select **Save settings**.
 
@@ -74,7 +74,7 @@ After setting up the back-in-stock feature in a catalog, follow these steps to u
 1. Set up an action-based Canvas.
 2. Select **Back in stock** as the trigger.
 3. Select the name of the catalog with the back-in-stock notifications.
-4. Continue [setting up]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) your Canvas as you would.
+4. Continue [setting up]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) your Canvas as you would.
 
 Now, your customers can be notified when an item is back in stock.
 

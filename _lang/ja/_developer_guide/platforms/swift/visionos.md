@@ -1,40 +1,40 @@
 ---
-nav_title: ビジョノスのサポート
+nav_title: visionOSサポート
 article_title: visionOSサポート
 page_order: 7.2
-platform: 
+platform:
   - iOS
-description: "この記事では、visionOSでサポートされている機能について説明する。"
+description: "この記事では、visionOSでサポートされている機能について説明します。"
 ---
 
-# visionOSサポート
+# visionOSサポート {#visionos-support}
 
-> [Braze Swift SDK 8.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#800)以降、Apple Vision Pro 用の Apple 空間コンピューティングプラットフォームである [visionOS](https://developer.apple.com/visionos/) で Braze を活用できます。Brazeを使用したvisionOSアプリのサンプルは、[サンプルアプリを]({{site.baseurl}}/developer_guide/references/?tab=swift)参照のこと。
+> [Braze Swift SDK 8.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#800)以降、Apple Vision Pro向けのApple空間コンピューティングプラットフォームである[visionOS](https://developer.apple.com/visionos/)でBrazeを活用できます。Brazeを使用したvisionOSサンプルアプリについては、[サンプルアプリ]({{site.baseurl}}/developer_guide/references?tab=swift)を参照してください。
 
-## 完全にサポートされた機能
+## 完全にサポートされている機能 {#fully-supported-features}
 
-iOS で利用できるほとんどの機能は、visionOS でも利用できます。以下に例を示します。
+iOSで利用できるほとんどの機能は、visionOSでも利用できます。以下はその例です。
 
 - 分析（セッション、カスタムイベント、購入など）
 - アプリ内メッセージング（データモデルとUI）
-- コンテンツカード（データモデルとUI）
-- プッシュ通知（ユーザーが見えるアクションボタン付きの通知とサイレント通知）
+- Content Cards（データモデルとUI）
+- プッシュ通知（アクションボタン付きのユーザー可視通知とサイレント通知）
 - フィーチャーフラグ
 - ロケーション分析
 
-## 部分的にサポートされている機能
+## 部分的にサポートされている機能 {#partially-supported-features}
 
-一部の機能は visionOS では部分的にしかサポートされていませんが、Apple 社が将来的にこれらに対応する可能性は高いと思われます。
+一部の機能はvisionOSでは部分的にしかサポートされていませんが、Appleが将来的にこれらに対応する可能性があります。
 
-- リッチなプッシュ通知
-  - 画像はサポートされている。
-  - GIF とビデオでプレビューのサムネイルが表示されますが、再生することはできません。
-  - オーディオ再生はサポートされていない。
+- リッチプッシュ通知
+  - 画像はサポートされています。
+  - GIFと動画はプレビューサムネイルが表示されますが、再生することはできません。
+  - オーディオ再生はサポートされていません。
 - Push Stories
-  - プッシュストーリーページのスクロールと選択がサポートされている。
-  - [**次へ**] を使ったプッシュ通知ストーリーページ間の移動がサポートされていません。
+  - Push Storiesページのスクロールと選択はサポートされています。
+  - **Next**を使用したPush Storiesページ間のナビゲーションはサポートされていません。
 
-## サポートされていない機能
+## サポートされていない機能 {#unsupported-features}
 
-- ジオフェンスのモニタリングがサポートされていません。Apple 社は、地域監視用の Core Location API を visionOS で使用できるようにしていません。
-- ライブアクティビティはサポートされていません。現在、ActivityKitはiOSとiPadOSでのみ利用可能だ。
+- ジオフェンスモニタリングはサポートされていません。Appleは、リージョンモニタリング用のCore Location APIをvisionOSで利用可能にしていません。
+- ライブアクティビティはサポートされていません。現在、ActivityKitはiOSとiPadOSでのみ利用可能です。

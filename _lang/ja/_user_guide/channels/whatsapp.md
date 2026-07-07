@@ -23,7 +23,7 @@ WhatsAppの利用可否はBrazeパッケージによって異なります。開�
 - Meta Business Managerアカウントおよび WhatsApp Businessアカウント
 - [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)の要件を満たすWhatsApp電話番号
 
-詳細な手順については、[WhatsAppのセットアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)を参照してください。
+詳細な手順については、[WhatsAppセットアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)を参照してください。
 
 ## ユースケース {#use-cases}
 
@@ -34,9 +34,9 @@ WhatsAppの利用可否はBrazeパッケージによって異なります。開�
 | 予約リマインダー | タイムリーな予約リマインダーで無断キャンセルを減らし、顧客が確認やリスケジュールを行えるようにします。 |
 | プロモーションキャンペーン | ターゲットを絞ったプロモーション、製品ローンチ、パーソナライズされたオファーをリッチメディアメッセージで顧客に届けます。 |
 | 双方向会話 | 顧客が返信、質問、フィードバックを行えるインタラクティブなメッセージングで、より深い関係を構築します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 ## 次のステップ {#next-steps}
 
-- [WhatsAppのセットアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-- [WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [WhatsAppセットアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+- [WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)

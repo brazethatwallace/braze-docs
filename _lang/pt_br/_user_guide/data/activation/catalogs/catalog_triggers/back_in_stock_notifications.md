@@ -25,7 +25,7 @@ Siga estas etapas para configurar notificações de reposição de estoque em um
 2. Selecione a opção **Back in stock**.
 3. Se as configurações globais de reposição de estoque não tiverem sido definidas, será solicitado que você configure os eventos e propriedades personalizados que serão usados para disparar notificações de reposição de estoque:
     <br> ![Gaveta de configurações do catálogo.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
-    - **Fallback Catalog** Esse é o catálogo que será usado para a inscrição de reposição de estoque, caso não haja uma propriedade `catalog_name` presente no evento personalizado.
+    - **Fallback Catalog** é o catálogo que será usado para a inscrição de reposição de estoque, caso não haja uma propriedade `catalog_name` presente no evento personalizado.
     - **Custom event for subscriptions** é o evento personalizado da Braze que será usado para inscrever um usuário nas notificações de reposição de estoque. Quando esse evento ocorrer, o usuário que o realizou será inscrito.
     - **Custom event for unsubscribing** é o evento personalizado da Braze que será usado para cancelar a inscrição de um usuário nas notificações de reposição de estoque. Esse evento é opcional. Se o usuário não realizar esse evento, sua inscrição será cancelada após 90 dias ou quando o evento de reposição de estoque for disparado, o que ocorrer primeiro.
     - **Item ID event property** é a propriedade do evento personalizado acima que será usada para determinar o item para uma inscrição ou cancelamento de inscrição de reposição de estoque. Essa propriedade no evento personalizado deve conter um ID de item (`id`) que esteja presente em um catálogo. O ID do item deve ser enviado como uma string para que corresponda ao tipo de dado `id` armazenado no catálogo de destino. O evento personalizado também deve conter uma propriedade `catalog_name` para especificar em qual catálogo esse item está.
@@ -57,7 +57,7 @@ Os gatilhos de reposição de estoque e queda de preço usam o mesmo evento para
 4. Selecione **Save** e continue para a página de **Settings** do catálogo.
 5. Defina sua regra de notificação. Existem duas opções:
     - **Notify all subscribed users** notifica todos os clientes que estão aguardando quando o item estiver novamente em estoque.
-    - **Set notification limits** notifica um número específico de clientes por período de notificação configurado. A Braze notificará o número especificado de clientes em incrementos até que não haja mais clientes para notificar ou até que o item fique fora de estoque. Sua taxa de notificação não pode exceder 10.000 usuários por minuto.
+    - **Set notification limits** notifica um número específico de clientes a cada 10 minutos. A Braze notificará o número especificado de clientes em incrementos até que não haja mais clientes para notificar ou até que o item fique fora de estoque. Sua taxa de notificação não pode exceder 10.000 usuários por minuto.
 6. Defina o **Inventory field in catalog**. Esse campo do catálogo será usado para determinar se o item está fora de estoque. O campo deve ser do tipo numérico.
 7. Selecione **Save settings**.
 
@@ -74,7 +74,7 @@ Após configurar o recurso de reposição de estoque em um catálogo, siga estas
 1. Configure um Canvas baseado em ação.
 2. Selecione **Back in stock** como o gatilho.
 3. Selecione o nome do catálogo com as notificações de reposição de estoque.
-4. Continue [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) seu Canvas como de costume.
+4. Continue [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) seu Canvas como de costume.
 
 Agora, seus clientes podem ser notificados quando um item estiver novamente em estoque.
 

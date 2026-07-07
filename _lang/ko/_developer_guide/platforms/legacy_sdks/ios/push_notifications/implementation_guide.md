@@ -13,12 +13,12 @@ noindex: true
 
 <br>
 {% alert important %}
-기본 푸시 알림 개발자 통합 가이드를 찾고 계신가요? [여기]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/)에서 확인하세요.
+기본 푸시 알림 개발자 통합 가이드를 찾고 계신가요? [iOS 푸시 알림 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration)에서 확인하세요.
 {% endalert %}
 
 # 푸시 알림 구현 가이드 {#push-notification-implementation-guide}
 
-> 이 고급 구현 가이드(선택 사항)에서는 푸시 알림 콘텐츠 앱 확장을 활용하여 푸시 메시지를 최대한 활용하는 방법을 다룹니다. 저희 팀이 구축한 세 가지 커스텀 사용 사례와 함께 코드 스니펫 및 분석 로깅에 대한 지침도 포함되어 있습니다. [여기](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)에서 Braze 데모 리포지토리를 방문하세요! 이 구현 가이드는 Swift 구현을 중심으로 하지만 관심 있는 분을 위해 Objective-C 스니펫도 제공됩니다.
+> 이 고급 구현 가이드(선택 사항)에서는 푸시 알림 콘텐츠 앱 확장을 활용하여 푸시 메시지를 최대한 활용하는 방법을 다룹니다. 저희 팀이 구축한 세 가지 커스텀 사용 사례와 함께 코드 스니펫 및 분석 로깅에 대한 지침도 포함되어 있습니다. [Braze 데모 리포지토리](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)를 방문하세요! 이 구현 가이드는 Swift 구현을 중심으로 하지만 관심 있는 분을 위해 Objective-C 스니펫도 제공됩니다.
 
 ## 알림 콘텐츠 앱 확장 {#notification-content-app-extensions}
 
@@ -28,11 +28,11 @@ noindex: true
 
 푸시 알림은 세 가지 방법으로 확장할 수 있습니다. <br>- 푸시 배너를 길게 누르기<br>- 푸시 배너를 아래로 스와이프<br>- 배너를 왼쪽으로 스와이프하고 "보기"를 선택
 
-이러한 커스텀 보기는 대화형 알림, 사용자 데이터로 채워진 알림, 전화번호와 이메일 등의 정보를 캡처할 수 있는 푸시 메시지 등 다양한 유형의 콘텐츠를 표시하여 고객을 참여시킬 수 있는 스마트한 방법을 제공합니다. 이러한 방식으로 푸시를 구현하는 것이 생소할 수도 있지만, Braze의 잘 알려진 기능 중 하나인 [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)는 알림 콘텐츠 앱 확장을 위한 커스텀 보기가 어떤 모습일 수 있는지 보여주는 대표적인 예입니다!
+이러한 커스텀 보기는 대화형 알림, 사용자 데이터로 채워진 알림, 전화번호와 이메일 등의 정보를 캡처할 수 있는 푸시 메시지 등 다양한 유형의 콘텐츠를 표시하여 고객을 참여시킬 수 있는 스마트한 방법을 제공합니다. 이러한 방식으로 푸시를 구현하는 것이 생소할 수도 있지만, Braze의 잘 알려진 기능 중 하나인 [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)는 알림 콘텐츠 앱 확장을 위한 커스텀 보기가 어떤 모습일 수 있는지 보여주는 대표적인 예입니다!
 
-#### 요구 사항 {#requirements}
-![]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
-- 앱에 성공적으로 통합된 [푸시 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/)
+### 요구 사항 {#requirements}
+![Xcode의 '새 타겟 템플릿 선택' 화면에서 Application Extension 아래의 'Notification Content Extension'이 선택된 모습입니다.]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
+- 앱에 성공적으로 통합된 [푸시 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration)
 - iOS 10 이상
 - 코딩 언어에 따라 Xcode에서 생성되는 파일은 다음과 같습니다.
 
@@ -49,7 +49,7 @@ Objective-C<br>
 대시보드에서 커스텀 보기를 설정하려면 알림 버튼을 토글하여 켜고 커스텀 카테고리를 입력해야 합니다. 그런 다음 제공한 사전 등록된 커스텀 iOS 카테고리를 알림 콘텐츠 확장 타겟의 `.plist`에서 `UNNotificationExtensionCategory`와 비교하여 확인합니다. 여기에 입력한 값은 Braze 대시보드에 설정된 값과 일치해야 합니다.
 
 ![푸시 메시지 작성기 설정에 있는 알림 버튼 옵션입니다.]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
-![]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
+![UNNotificationExtensionCategory가 "your_custom_category"로, UNNotificationExtensionDefaultContentHidden이 1로, UNNotificationExtensionInitialContentSizeRatio가 1로 설정된 NSExtension이 포함된 plist입니다.]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
 
 {% alert tip %}
 콘텐츠 확장이 포함된 푸시가 항상 눈에 띄는 것은 아니므로, 사용자가 푸시 알림을 확장하도록 유도하는 클릭 유도 문안을 포함하는 것이 좋습니다.
@@ -72,7 +72,7 @@ Objective-C<br>
 
 대시보드에서 커스텀 보기를 설정하려면 알림 버튼 설정에서 표시하려는 특정 카테고리를 입력합니다. 다음으로, 알림 콘텐츠 확장의 `.plist`에서 커스텀 카테고리를 `UNNotificationExtensionCategory` 속성으로 설정해야 합니다. 여기에 입력한 값은 Braze 대시보드에 설정된 값과 일치해야 합니다. 마지막으로 푸시 알림에서 사용자 상호작용을 활성화하려면 `UNNotificationExtensionInteractionEnabled` 키를 true로 설정합니다.
 
-![]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
+![iOS Notification Category 필드가 "match_game"으로 설정된 Braze 대시보드의 알림 버튼 섹션입니다.]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
 
 ![푸시 메시지 작성기 설정에 있는 알림 버튼 옵션입니다.]({% image_buster /assets/img/push_implementation_guide/push14.png %}){: style="max-width:50%;"}
 
@@ -83,11 +83,11 @@ Objective-C<br>
 데이터 흐름의 진행 방식을 더 잘 이해하려면 [다음 섹션](#logging-analytics)을 참조하세요.
 
 ### 개인화된 푸시 알림 {#personalized-push-notifications}
-![두 대의 iPhone이 나란히 표시됩니다. 첫 번째 iPhone은 푸시 메시지의 확장되지 않은 보기를 표시합니다. 두 번째 iPhone에는 코스의 "진행" 화면, 다음 세션, 다음 세션의 마감 시점을 표시하는 확장된 버전의 푸시 메시지가 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
+![두 대의 iPhone이 나란히 표시됩니다. 첫 번째 iPhone은 푸시 메시지의 확장되지 않은 보기를 표시합니다. 두 번째 iPhone에는 코스의 진행 상황, 다음 세션, 다음 세션의 마감 시점을 표시하는 확장된 버전의 푸시 메시지가 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
 푸시 알림은 콘텐츠 확장 내에서 사용자별 정보를 표시할 수 있습니다. 오른쪽의 예시는 사용자가 특정 작업(Braze 학습 과정)을 완료한 후의 푸시 알림을 보여주며, 이제 이 알림을 확장하여 진행 상황을 확인하도록 권장합니다. 여기에 제공된 정보는 사용자에 따라 다르며, API 트리거를 활용하여 세션이 완료되거나 특정 사용자 동작이 수행될 때 발송될 수 있습니다.
 
-#### 대시보드 구성 {#dashboard-configuration}
+#### 대시보드 구성
 
 대시보드에서 개인화된 푸시를 설정하려면 표시하려는 특정 카테고리를 등록한 다음, 표준 Liquid를 사용하여 키-값 페어 내에서 메시지에 표시할 적절한 사용자 속성을 설정해야 합니다. 이러한 보기는 특정 고객 프로필의 특정 사용자 속성을 기반으로 개인화될 수 있습니다.
 
@@ -130,11 +130,11 @@ func didReceive(_ notification: UNNotification) {
 {% endtab %}
 {% endtabs %}
 
-#### 기타 사용 사례 {#other-use-cases}
+#### 기타 사용 사례
 
 진행 상황 기반 및 사용자 중심의 푸시 콘텐츠 확장에 대한 아이디어는 무궁무진합니다. 몇 가지 예로, 여러 플랫폼에서 진행 상황을 공유하는 옵션 추가, 잠금 해제된 업적, 펀치 카드 또는 온보딩 체크리스트가 있습니다.
 
-##### 분석을 기록할 준비가 되셨나요? {#ready-to-log-analytics}
+##### 분석을 기록할 준비가 되셨나요?
 데이터 흐름의 진행 방식을 더 잘 이해하려면 [다음 섹션](#logging-analytics)을 참조하세요.
 
 ### 정보 캡처 푸시 알림 {#information-capture-push-notification}
@@ -146,13 +146,12 @@ func didReceive(_ notification: UNNotification) {
 3. 정보가 제공되고 유효한 경우 등록 버튼이 표시됩니다.
 3. 확인 보기가 표시되고 푸시가 해제됩니다.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 여기서 요청하는 정보는 SMS 번호 캡처와 같은 광범위한 정보일 수 있으며 이메일로 한정되지 않아도 됩니다.
 
-#### 대시보드 구성 {#dashboard-configuration}
+#### 대시보드 구성
 
-대시보드에서 정보 캡처가 가능한 푸시를 설정하려면 커스텀 카테고리를 등록 및 설정하고 필요한 키-값 페어를 제공해야 합니다. 예시에서 볼 수 있듯이 푸시에 이미지를 포함할 수도 있습니다. 이렇게 하려면 [리치 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/)을 통합하고, Campaign에서 알림 스타일을 리치 알림으로 설정한 다음, 리치 푸시 이미지를 포함해야 합니다.
+대시보드에서 정보 캡처가 가능한 푸시를 설정하려면 커스텀 카테고리를 등록 및 설정하고 필요한 키-값 페어를 제공해야 합니다. 예시에서 볼 수 있듯이 푸시에 이미지를 포함할 수도 있습니다. 이렇게 하려면 [리치 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications)을 통합하고, Campaign에서 알림 스타일을 리치 알림으로 설정한 다음, 리치 푸시 이미지를 포함해야 합니다.
 
 ![세 세트의 키-값 페어가 포함된 푸시 메시지입니다. 1. "Braze_id"는 Braze ID를 검색하기 위한 Liquid 호출로 설정됩니다. 2. "cert_title"은 "Braze Marketer Certification"으로 설정됩니다. 3. "Cert_description"은 "Certified Braze marketers drive..."로 설정됩니다.]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 
@@ -195,18 +194,18 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
 2. `completion(.doNotDismiss)` - 알림이 계속 열려 있습니다.
 3. `completion(.dismissAndForward)` - 푸시가 해제되고 사용자가 애플리케이션으로 이동합니다.
 
-#### 기타 사용 사례 {#other-use-cases}
+#### 기타 사용 사례
 
 푸시 알림을 통해 사용자 입력을 요청하는 것은 많은 기업이 활용하지 않는 흥미로운 기회입니다. 이러한 푸시 메시지에서는 이름, 이메일 또는 번호와 같은 기본 정보를 요청할 수 있을 뿐만 아니라, 고객 프로필을 완성하지 않은 경우 완성하도록 유도하거나 피드백을 제출하라는 프롬프트도 표시할 수 있습니다.
 
-##### 분석을 기록할 준비가 되셨나요? {#ready-to-log-analytics}
+##### 분석을 기록할 준비가 되셨나요?
 데이터 흐름의 진행 방식을 더 잘 이해하려면 [다음 섹션](#logging-analytics)을 참조하세요.
 
 ## 분석 로깅 {#logging-analytics}
 
 ### Braze API를 사용한 로깅(권장) {#logging-with-the-braze-api-recommended}
 
-분석 로깅은 고객의 서버가 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 접속하는 방식으로 실시간으로만 수행할 수 있습니다. 분석을 기록하려면 다음 스크린샷과 같이 키-값 페어 필드에 `braze_id` 값을 보내 업데이트할 고객 프로필을 식별합니다.
+분석 로깅은 고객의 서버가 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 접속하는 방식으로 실시간으로만 수행할 수 있습니다. 분석을 기록하려면 다음 스크린샷과 같이 키-값 페어 필드에 `braze_id` 값을 보내 업데이트할 고객 프로필을 식별합니다.
 
 ![세 세트의 키-값 페어가 포함된 푸시 메시지입니다. 1. "Braze_id"는 Braze ID를 검색하기 위한 Liquid 호출로 설정됩니다. 2. "cert_title"은 "Braze Marketer Certification"으로 설정됩니다. 3. "Cert_description"은 "Certified Braze marketers drive..."로 설정됩니다.]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -221,7 +220,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
 #### 1단계: Xcode 내에서 앱 그룹 구성 {#step-1-configure-app-groups-within-xcode}
 `App Groups` 기능을 추가합니다. 앱에 앱 그룹이 없으면 기본 앱 타겟의 기능으로 이동하여 `App Groups`를 켜고 "+" 버튼을 클릭합니다. 앱의 번들 ID를 사용하여 앱 그룹을 생성합니다. 예를 들어 앱의 번들 ID가 `com.company.appname`인 경우 앱 그룹 이름을 `group.com.company.appname.xyz`로 지정할 수 있습니다. 기본 앱 타겟과 콘텐츠 확장 타겟 모두에 대해 `App Groups`가 켜져 있는지 확인합니다.
 
-![]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
+![앱 그룹을 구성하기 위한 Xcode의 '새 컨테이너 추가' 대화 상자로, 텍스트 필드에 "group."이 미리 입력되어 있습니다.]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
 
 #### 2단계: 코드 스니펫 통합 {#step-2-integrate-code-snippets}
 다음 코드 스니펫은 커스텀 이벤트, 커스텀 속성 및 사용자 속성을 저장하고 전송하는 방법에 대한 유용한 참고 자료입니다. 이 가이드에서는 UserDefaults의 관점에서 설명하지만 코드는 헬퍼 파일 `RemoteStorage`의 형태로 표현됩니다. 사용자 속성을 전송하고 저장할 때 사용되는 추가 헬퍼 파일 `UserAttributes` 및 `EventName Dictionary`도 있습니다. 모든 헬퍼 파일은 이 가이드의 마지막 부분에서 찾을 수 있습니다.

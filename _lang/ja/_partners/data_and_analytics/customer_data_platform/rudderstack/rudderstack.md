@@ -1,7 +1,7 @@
 ---
 nav_title: RudderStack
 article_title: RudderStack
-description: "この記事では、Brazeと、Android、iOS、Webアプリケーションにシームレスな Braze統合を提供するオープンソースの顧客データインフラであるRudderStackとのパートナーシップについて説明します。RudderStackを使用すると、アプリ内の顧客イベントデータをBrazeに直接送信し、文脈に応じた分析を行うことができます。"
+description: "この記事では、Brazeと、Android、iOS、WebアプリケーションにシームレスなBraze統合を提供するオープンソースの顧客データインフラであるRudderStackとのパートナーシップについて説明します。RudderStackを使用すると、アプリ内の顧客イベントデータをBrazeに直接送信し、文脈に応じた分析を行うことができます。"
 page_type: partner
 search_tag: Partner
 
@@ -19,10 +19,10 @@ BrazeとRudderStackの統合により、Android、iOS、およびWebアプリケ
 | --- | --- |
 | RudderStackアカウント | このパートナーシップを活用するには、[RudderStackアカウント](https://app.rudderstack.com/)が必要です。 |
 | 設定済みのソース | [ソース](https://www.rudderstack.com/docs/dashboard-guides/sources/)は基本的に、Webサイト、モバイルアプリ、バックエンドサーバーなど、RudderStackに送信されるあらゆるデータの提供元です。RudderStackでBrazeを送信先として設定する前に、ソースを設定する必要があります。 |
-| Braze REST APIキー | `users.track`、`users.identify`、`users.delete`、`users.alias.new`の権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。 |
-| Brazeアプリキー | Brazeダッシュボードでアプリキーを取得するには、**Settings** > **App Settings** > **Identification**に移動し、アプリ名を見つけます。関連する識別子文字列を保存してください。
-| データセンター | データセンターは、Brazeダッシュボードの[インスタンス]({{site.baseurl}}/api/basics/#endpoints)に対応しています。  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST APIキー | `users.track`、`users.identify`、`users.delete`、`users.alias.new`の権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。 |
+| Brazeアプリキー | Brazeダッシュボードでアプリキーを取得するには、**設定** > **アプリ設定** > **Identification**に移動し、アプリ名を見つけます。関連する識別子文字列を保存してください。
+| データセンター | データセンターは、Brazeダッシュボードの[インスタンス]({{site.baseurl}}/api/basics#endpoints)に対応しています。  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -35,8 +35,6 @@ Brazeへのデータ送信を開始するには、まずRudderStackアプリに�
 データソースが設定されたら、RudderStackダッシュボードで、**Destinations**の下にある**ADD DESTINATION**を選択します。使用可能な送信先のリストから**Braze**を選択し、**Next**をクリックします。
 
 Brazeの送信先で、アプリキー、Braze REST APIキー、データクラスタ、およびネイティブSDKオプション（デバイスモードのみ）を指定します。ネイティブSDKオプションをオンにすると、BrazeネイティブSDKを使用してイベントが送信されます。
-
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
 ### ステップ3:統合のタイプを選ぶ {#step-3-choose-the-type-of-integration}
 
@@ -94,15 +92,15 @@ RudderStackのサーバーサイドSDK（Java、Python、Node.js、Go、Ruby）�
 
 初期設定完了後、Brazeでデータを正しく受信するために以下の設定を行います。
 
-- **グループ呼び出しでサブスクリプショングループを有効にする**：グループイベントでサブスクリプショングループのステータスを送信するには、この設定を有効にします。詳細については、[Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group)を参照してください。
-- **Use Custom Attributes Operation**：Brazeの[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)機能を使用してセグメントを作成し、カスタム属性オブジェクトを使用してメッセージをパーソナライズする場合は、この設定を有効にします。詳細については、[ネストされたカスタム属性としてユーザー特性を送信する](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes)を参照してください。
+- **Enable subscription groups in group call**：グループイベントでサブスクリプショングループのステータスを送信するには、この設定を有効にします。詳細については、[Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group)を参照してください。
+- **Use Custom Attributes Operation**：Brazeの[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)機能を使用してセグメントを作成し、カスタム属性オブジェクトを使用してメッセージをパーソナライズする場合は、この設定を有効にします。詳細については、[ネストされたカスタム属性としてユーザー特性を送信する](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes)を参照してください。
 - **Track events for anonymous users**：この設定を有効にすると、匿名ユーザーの活動が追跡され、その情報がBrazeに送信されます。
 
 ### デバイスモード設定 {#device-mode-settings}
 
 以下の設定は、[デバイスモード](https://www.rudderstack.com/docs/destinations/rudderstack-connection-modes/#device-mode)経由でBrazeにイベントを送信する場合にのみ適用されます。
 
-- **クライアント側のイベントフィルタリング**：この設定により、Brazeに流れるイベントをブロックするか、許可するかを指定できます。この設定の詳細については、[クライアント側のイベントフィルタリング](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/)を参照してください。
+- **Client-side Events Filtering**：この設定により、Brazeに流れるイベントをブロックするか、許可するかを指定できます。この設定の詳細については、[Client-side Events Filtering](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/)を参照してください。
 - **Deduplicate Traits**：この設定を有効にすると、[`identify`](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#identify)呼び出しでユーザー特性の重複が排除されます。
 - **Show Braze logs**：この設定は、[JavaScript SDK](https://www.rudderstack.com/docs/sources/event-streams/sdks/rudderstack-javascript-sdk/)をソースとして使用する場合にのみ適用されます。Brazeのログをユーザーに表示するには、これを有効にします。
 - **OneTrust Cookieカテゴリー**：この設定により、[OneTrust](https://www.rudderstack.com/docs/sources/event-streams/sdks/onetrust/javascript/) Cookieの同意グループをBrazeに関連付けることができます。
@@ -128,7 +126,7 @@ RudderStack [Data Regulation API](https://www.rudderstack.com/docs/api/data-regu
 RudderStackの[`track`メソッド](https://rudderstack.com/docs/destinations/marketing/braze/#track)は、すべてのユーザーアクティビティと、それらのアクティビティに関連するプロパティをキャプチャします。
 
 **Order completed**<br>
-[RudderStack eCommerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/)を使用して`Order Completed`という名前のイベントに対してtrackメソッドを呼び出すと、RudderStackはそのイベントにリストされている製品を[`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data)としてBrazeに送信します。
+[RudderStack eCommerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/)を使用して`Order Completed`という名前のイベントに対してtrackメソッドを呼び出すと、RudderStackはそのイベントにリストされている製品を[`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data)としてBrazeに送信します。
 
 {% endtab %}
 {% tab Screen %}
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,
@@ -253,5 +251,5 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-更新と削除の操作では、`identifier`が必須キーとなります。add、update、remove操作がネスト配列に存在しない場合、RudderStackはデフォルトでcreate操作を使用してプロパティを作成します。階層化カスタム属性の送信の詳細については、[オブジェクト配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)を参照してください。
+更新と削除の操作では、`identifier`が必須キーとなります。add、update、remove操作がネスト配列に存在しない場合、RudderStackはデフォルトでcreate操作を使用してプロパティを作成します。階層化カスタム属性の送信の詳細については、[オブジェクト配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)を参照してください。
 {% endalert %}

@@ -88,6 +88,7 @@
       -moz-transition:  all ease $guide_transition_time;
       &:hover {
         background-color: $braze-link-color;
+        color: #fff;
       }
     }
   }
@@ -106,6 +107,14 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
     b {
       font-size: 30px;
       line-height: 1.4;
@@ -299,8 +308,11 @@
         background-color: transparent;
     }
 
-    .select:focus {
-        outline: 0
+    .select:focus:not(:focus-visible) {
+        outline: 0;
+    }
+    .select:focus-visible {
+        @include focus-ring();
     }
 
     .glossary_filter_div {

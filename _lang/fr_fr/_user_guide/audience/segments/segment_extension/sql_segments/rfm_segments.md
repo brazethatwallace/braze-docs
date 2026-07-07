@@ -21,7 +21,7 @@ L'analyse RFM est une technique marketing qui identifie vos meilleurs utilisateu
 | Récence | Date du dernier achat d'un client. Un score plus élevé signifie des achats plus récents. |
 | Fréquence | Fréquence à laquelle un client effectue des achats. Un score plus élevé signifie une fréquence plus importante. |
 | Valeur monétaire | Montant total dépensé par un client. Un score plus élevé signifie des dépenses plus importantes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="RFM categories" }
 
 {% alert note %}
 Les événements d'achat doivent être activés pour utiliser les segments SQL RFM, car la valeur monétaire de vos utilisateurs est déterminée par le chiffre d'affaires qu'ils ont généré via les événements d'achat Braze.
@@ -43,7 +43,7 @@ Les événements d'achat doivent être activés pour utiliser les segments SQL R
 | Start date | Spécifier un point de départ fixe pour votre analyse | Analyser l'activité des utilisateurs à partir d'une date spécifique, par exemple après le lancement d'une campagne. |
 | End date | Spécifier un point de fin fixe pour votre analyse | Analyser l'activité des utilisateurs jusqu'à une date spécifique, par exemple avant une mise à jour produit. |
 | Date range | Spécifier à la fois une date de début et de fin pour une période personnalisée | Analyser le comportement des utilisateurs pendant une période définie, par exemple un événement promotionnel. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating an RFM segment" }
 
 {: start="4"}
 4. Sélectionnez les [groupes RFM](#rfm-groups) générés à inclure dans votre segment. Si vous sélectionnez plusieurs groupes, votre segment inclut les utilisateurs qui font partie de l'un des groupes sélectionnés.
@@ -73,4 +73,4 @@ Les segments RFM sont évalués dans un ordre spécifique. Les utilisateurs sont
 | At Risk            | Utilisateurs ayant historiquement des scores de fréquence et de montant modérés, mais n'ayant pas acheté depuis longtemps. | 0-1              | 1-3                | 1-3               |
 | About to Sleep     | Utilisateurs ayant des scores faibles dans tous les indicateurs.                                       | 1                | 0-3                | 0-3               |
 | Hibernating        | Utilisateurs avec une fréquence modérée mais inactifs depuis une période prolongée.    | 0                | 0-2                | 0-3               |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="RFM groups" }

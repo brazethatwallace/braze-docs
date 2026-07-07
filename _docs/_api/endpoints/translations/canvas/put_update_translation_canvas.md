@@ -15,15 +15,13 @@ description: "This article outlines details about the Update translation in a Ca
 /canvas/translations
 {% endapimethod %}
 
-> Use this endpoint to update multiple translations for a Canvas. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
+> Use this endpoint to update multiple translations for a Canvas. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
-If you want to update translations after a Canvas has been launched, you'll need to [save your message as a draft]({{site.baseurl}}/post-launch_edits/) first.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+If you want to update translations after a Canvas has been launched, you'll need to [save your message as a draft]({{site.baseurl}}/post-launch_edits) first.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.translations.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.translations.update` permission.
 
 ## Rate limit
 
@@ -42,7 +40,7 @@ There are no path parameters for this endpoint.
 |`message_variation_id`| Required | String | The ID of your message variation. |
 |`locale_id`| Required | String | The ID (UUID) of the locale. |
 |`translation_map` | Required | Object | Object containing the new translations. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 All translation IDs are considered universal unique identifiers (UUIDs), which can be found in the GET endpoint's response.

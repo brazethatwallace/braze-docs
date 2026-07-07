@@ -32,7 +32,7 @@ Benefits of using this integration include:
 | Jasper Account      | You need a Jasper account to utilize this partnership. |
 | Braze REST API Key  | A Braze REST API key with the following permissions. <br>  <br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>This key can be generated in the Braze dashboard by navigating to **Settings > API Keys**.  |
 | Braze REST Endpoint | Your REST endpoint URL. Your specific endpoint depends on the Braze URL for your instance. Refer to the [Braze API Basics: Endpoints]({{site.baseurl}}/api/basics#endpoints) documentation for more details. |
-{: .reset-td-br-1 .rest-td-br-2 role=“presentation” }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Prerequisites" }
 
 ## Integration methods
 
@@ -60,7 +60,7 @@ This method is ideal for programmatically creating and updating email HTML templ
 | `ctaLink`| The URL for your call-to-action. |
 | `unsubscribeLink`| Required for marketing emails. |
 | `brandColor`| Your brand's primary color in hexadecimal format (for example, `#4dfa8a`). |
-{: .reset-td-br-1 .rest-td-br-2 role=“presentation” }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Step 1: Set up Jasper" }
 
 **Optional fields**
 
@@ -70,7 +70,7 @@ This method is ideal for programmatically creating and updating email HTML templ
 | `audienceId`| Audience segmentation |
 | `styleId`| Style guide |
 | `knowledgeIds` | Enhanced content context. You can add up to three IDs. |
-{: .reset-td-br-1 .rest-td-br-2 role=“presentation” }
+{: .reset-td-br-1 .rest-td-br-2 aria-label="Step 1: Set up Jasper" }
 
 {: start="4"}
 4. Generate your output by executing the template through the Jasper API. This will produce a JSON payload containing the `subject`, `preheader`, and `body` (HTML content).

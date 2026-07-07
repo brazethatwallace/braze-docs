@@ -39,12 +39,12 @@ LILT Braze 통합은 번역 프로세스를 자동화하고 가속화하여 글�
 
 ## 필수 조건 {#prerequisites}
 
-| 요구 사항       | 설명 |
+| 요구 사항 | 설명 |
 |-----------------------|-----------------|
-| LILT 계정   | 이 파트너십을 이용하려면 LILT 계정이 필요합니다.  |
-| Braze REST API 키  | 다음 권한이 있는 Braze REST API 키:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Braze 대시보드에서 **설정** > **API 키**로 이동하여 이 키를 생성하세요. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| LILT 계정 | 이 파트너십을 이용하려면 LILT 계정이 필요합니다. |
+| Braze REST API 키 | 다음 권한이 있는 Braze REST API 키:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Braze 대시보드에서 **설정** > **API 키**로 이동하여 이 키를 생성하세요. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 ## 통합 {#integration}

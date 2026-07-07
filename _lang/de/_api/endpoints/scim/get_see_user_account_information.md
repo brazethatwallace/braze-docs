@@ -1,47 +1,47 @@
 ---
 nav_title: "GET: Ein bestehendes Dashboard-Nutzerkonto suchen"
-article_title: "GET: Ein bestehendes Dashboard-Benutzerkonto nachschlagen"
+article_title: "GET: Ein bestehendes Dashboard-Nutzerkonto suchen"
 alias: /get_see_user_account_information/
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Braze-ID für ein bestehendes Dashboard-Nutzer:innen-Konto."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Suchen eines bestehenden Dashboard-Nutzerkontos anhand der Ressourcen-ID."
 ---
 
 {% api %}
-# Suchen Sie ein bestehendes Dashboard-Benutzerkonto nach der ID einer Ressource
+# Ein bestehendes Dashboard-Nutzerkonto anhand der Ressourcen-ID suchen {#look-up-an-existing-dashboard-user-account-by-resource-id}
 {% apimethod get %}
-/scim/v2/Benutzer:innen/{id}
+/scim/v2/Users/{id}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein bestehendes Dashboard Nutzer:in-Konto zu suchen, indem Sie die Ressource `id` angeben, die von der SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) Methode zurückgegeben wird.
+> Verwenden Sie diesen Endpunkt, um ein bestehendes Dashboard-Nutzerkonto zu suchen, indem Sie die Ressource `id` angeben, die von der SCIM-Methode [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) zurückgegeben wird.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Sie verwenden die Herkunft Ihres Dienstes in der Kopfzeile `X-Request-Origin`. Weitere Informationen finden Sie unter [Automatisierte Bereitstellung von Nutzer:innen]({{site.baseurl}}/scim/automated_user_provisioning/).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienst-Herkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='look up dashboard user' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `id` | Erforderlich | String | Die ID des Nutzers:innen. Dieser Parameter wird von den Methoden `POST` `/scim/v2/Users/` oder `GET`  `/scim/v2/Users?filter=userName eq "user@test.com"` zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `id` | Erforderlich | String | Die Ressourcen-ID der Nutzer:in. Dieser Parameter wird von den Methoden `POST` `/scim/v2/Users/` oder `GET` `/scim/v2/Users?filter=userName eq "user@example.com"` zurückgegeben. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
-## Körper der Anfrage
+## Anfrage-Body {#request-body}
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
@@ -49,12 +49,12 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 ```
 
-## Antwort
+## Antwort {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

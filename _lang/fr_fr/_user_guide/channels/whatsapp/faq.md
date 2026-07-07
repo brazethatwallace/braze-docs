@@ -28,7 +28,7 @@ channel:
 Nous vous recommandons de créer votre compte WhatsApp Business (WABA) via le flux d'inscription intégré dans le tableau de bord de Braze.
 
 #### J'ai déjà un compte Meta Business. Ai-je quand même besoin d'un compte WhatsApp Business ? {#i-already-have-a-meta-business-account-do-i-still-need-a-whatsapp-business-account}
-Oui, vous devez tout de même créer un compte WhatsApp Business. Nous vous recommandons de [rattacher votre WABA à votre compte Meta Business principal]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/).
+Oui, vous devez tout de même créer un compte WhatsApp Business. Nous vous recommandons de [rattacher votre WABA à votre compte Meta Business principal]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 #### Comment accéder à mon compte WhatsApp Business ? {#how-do-i-access-my-whatsapp-business-account}
 Après avoir complété le flux d'inscription intégré, vous pouvez accéder à votre compte sur business.facebook.com en naviguant vers la [section WhatsApp](https://business.facebook.com/wa/manage/home).
@@ -39,7 +39,7 @@ Oui, vous pouvez ajouter jusqu'à 10 comptes WhatsApp Business par espace de tra
 ![Diagramme de l'écosystème Braze et WhatsApp, montrant comment les espaces de travail et les comptes WhatsApp Business se connectent entre eux : vous pouvez connecter un groupe d'abonnement à un numéro de téléphone, plusieurs comptes WhatsApp Business à un espace de travail, et un espace de travail à plusieurs Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
 #### Puis-je changer la devise de mon compte WhatsApp Business ? {#can-i-change-my-whatsapp-business-account-currency}
-Non. Meta contrôle la devise de votre compte WhatsApp Business, et Braze ne peut pas la modifier ni la convertir. Pour utiliser une devise différente, [créez un compte WhatsApp Business distinct]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) avec cette devise, ou contactez le support Meta pour demander s'ils peuvent mettre à jour la devise de votre compte existant.
+Non. Meta contrôle la devise de votre compte WhatsApp Business, et Braze ne peut pas la modifier ni la convertir. Pour utiliser une devise différente, [créez un compte WhatsApp Business distinct]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) avec cette devise, ou contactez le support Meta pour demander s'ils peuvent mettre à jour la devise de votre compte existant.
 
 ### Numéros de téléphone du compte WhatsApp Business {#whatsapp-business-account-phone-numbers}
 
@@ -72,10 +72,10 @@ Vous devez disposer du numéro de téléphone de l'utilisateur final sur le prof
 - Si vous n'avez pas le numéro de l'utilisateur final, votre méthode d'abonnement devrait inclure la collecte du numéro de téléphone.
 
 #### Comment mettre à jour le statut d'abonnement des utilisateurs finaux qui s'abonnent ? {#how-do-i-update-the-subscription-status-of-end-users-who-opt-in}
-La gestion des abonnements du canal WhatsApp fonctionne de manière similaire aux autres canaux Braze. Consultez [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) pour plus d'informations.
+La gestion des abonnements du canal WhatsApp fonctionne de manière similaire aux autres canaux Braze. Consultez [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) pour plus d'informations.
 
 #### Si j'ai déjà une liste d'utilisateurs qui ont consenti à recevoir des messages marketing sur WhatsApp, comment mettre à jour leur statut d'abonnement dans Braze ? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-Vous pouvez mettre à jour leur statut d'abonnement via l'[importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#importing-custom-data).
+Vous pouvez mettre à jour leur statut d'abonnement via l'[importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data).
 
 #### Quelles méthodes dois-je utiliser pour recueillir les consentements ? {#what-methods-should-i-use-to-collect-opt-ins}
 Braze recommande de consulter les [directives de Meta sur les méthodes de consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) pour maintenir la conformité. Consultez la ressource suivante pour des [idées et suggestions de canaux et d'abonnement](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit) de Braze.
@@ -95,8 +95,8 @@ Les limites d'envoi de messages sont un concept d'intégrité WhatsApp. Elles d�
 
 #### Comment augmenter ma limite d'envoi de messages ? {#how-do-i-increase-my-messaging-limit}
 WhatsApp augmentera votre limite d'envoi de messages si vous remplissez les conditions suivantes :
-1. Le [statut du numéro de téléphone](https://www.facebook.com/business/help/896873687365001) est **Connecté**
-2. L'[évaluation de la qualité du numéro de téléphone](https://www.facebook.com/business/help/896873687365001) est **Moyenne** ou **Élevée**
+1. Le [statut du numéro de téléphone](https://www.facebook.com/business/help/896873687365001) est **Connected**
+2. L'[évaluation de la qualité du numéro de téléphone](https://www.facebook.com/business/help/896873687365001) est **Medium** ou **High**
 3. Au cours des sept derniers jours, vous avez initié X conversations ou plus avec des utilisateurs uniques, où X correspond à votre limite d'envoi actuelle divisée par 2
 
 Ainsi, pour passer de 100k à illimité, vous devez envoyer au moins 50 000 conversations initiées par l'entreprise sur une période de 7 jours.
@@ -131,13 +131,13 @@ Le processus d'approbation peut prendre jusqu'à 24 heures, mais souvent les mod
 Votre limite de modèles de messages dépend de votre statut de vérification d'entreprise. Vous pouvez vérifier votre limite sur la page **WhatsApp Manager > Message Templates**.
 
 #### Comment personnaliser le texte et les médias enrichis des modèles dans Braze ? {#how-do-i-personalize-template-copy-and-rich-media-in-braze}
-WhatsApp permet d'insérer des paramètres variables dans les modèles de messages. Les messages ne peuvent pas commencer ni se terminer par un paramètre variable. Les paramètres variables peuvent être remplis avec la logique Liquid dans la plateforme Braze. Consultez [Composer un message WhatsApp dans Braze]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) pour en savoir plus sur les paramètres variables.
+WhatsApp permet d'insérer des paramètres variables dans les modèles de messages. Les messages ne peuvent pas commencer ni se terminer par un paramètre variable. Les paramètres variables peuvent être remplis avec la logique Liquid dans la plateforme Braze. Consultez [Composer un message WhatsApp dans Braze]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) pour en savoir plus sur les paramètres variables.
 
 #### Mon modèle a été rejeté. Braze peut-il m'aider à le faire approuver ? {#my-template-got-rejected-can-braze-help-me-get-it-approved}
 L'équipe Braze n'a pas de visibilité sur les rejets de modèles. Vous devez travailler directement avec votre WhatsApp Business Manager pour modifier et soumettre à nouveau le modèle. Assurez-vous de fournir un exemple de modèle si nécessaire. Vérifiez que votre modèle respecte les politiques [commerciales](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) ou de [commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) de Meta.
 
 #### Les médias enrichis peuvent-ils être ciblés ou personnalisés dans Braze ? {#can-the-rich-media-be-targeted-or-personalized-in-braze}
-Les images peuvent être téléchargées depuis la bibliothèque multimédia mais ne peuvent pas être ciblées dynamiquement. Pour les URL, la dernière partie du lien peut être [remplie dynamiquement à l'aide de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#use-liquid-personalization-in-urls).
+Les images peuvent être téléchargées depuis la bibliothèque multimédia mais ne peuvent pas être ciblées dynamiquement. Pour les URL, la dernière partie du lien peut être [remplie dynamiquement à l'aide de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
 
 ### Livrabilité {#deliverability}
 
@@ -164,7 +164,7 @@ Nous ne prenons pas en charge les chatbots ni le chat assisté par un humain au 
 Si vous utilisez déjà WhatsApp comme canal de support client, nous vous recommandons de conserver votre configuration actuelle et de créer un nouveau WABA via Braze pour l'envoi de messages marketing. Ce WABA nécessitera un nouveau numéro de téléphone.
 
 #### Comment puis-je « faire le lien » entre mes messages de support client et mes messages marketing via Braze ? {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
-Vous pouvez utiliser les propriétés Liquid de WhatsApp pour transférer le contenu des messages WhatsApp entrants (y compris le corps du message et les URL des médias) de Braze vers d'autres plateformes, y compris tout outil de support client. Pour plus de détails, consultez nos [balises de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Vous pouvez utiliser les propriétés Liquid de WhatsApp pour transférer le contenu des messages WhatsApp entrants (y compris le corps du message et les URL des médias) de Braze vers d'autres plateformes, y compris tout outil de support client. Pour plus de détails, consultez nos [balises de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 Pour envoyer des informations dans Braze, par exemple pour indiquer qu'un utilisateur est dans une conversation de support active, vous pouvez enregistrer un attribut personnalisé (comme un booléen « conversation de support existante = vrai/faux ») et l'utiliser comme critère de segmentation dans vos campagnes marketing. Vous pouvez également créer des liens profonds entre deux fils de discussion pour diriger les utilisateurs vers le fil de support depuis le fil marketing et inversement.
 
@@ -172,13 +172,13 @@ Pour envoyer des informations dans Braze, par exemple pour indiquer qu'un utilis
 Les messages ne sont stockés que le temps nécessaire à leur traitement. Pour accéder aux messages des utilisateurs, utilisez Currents.
 
 #### Comment les numéros de téléphone des utilisateurs doivent-ils être stockés dans Braze ? {#how-do-user-phone-numbers-need-to-be-stored-in-braze}
-Les numéros de téléphone des utilisateurs doivent être stockés au [format E.164]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/#formatting).
+Les numéros de téléphone des utilisateurs doivent être stockés au [format E.164]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers#formatting).
 
 #### Quels types de médias enrichis sont pris en charge dans les modèles WhatsApp ? {#what-kind-of-rich-media-is-supported-in-whatsapp-templates}
 Vous pouvez ajouter des images, des appels à l'action (URL ou numéro de téléphone) et des boutons de réponse rapide aux modèles WhatsApp. Vous pouvez ajouter ces éléments lorsque vous créez des modèles directement dans WhatsApp.
 
 #### Puis-je importer des numéros de téléphone d'utilisateurs ? {#can-i-import-user-phone-numbers}
-Oui. Vous pouvez [importer des numéros de téléphone d'utilisateurs]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/).
+Oui. Vous pouvez [importer des numéros de téléphone d'utilisateurs]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers).
 
 #### Qu'est-ce que la vérification d'entreprise ? {#what-is-business-verification}
 La vérification d'entreprise est un concept WhatsApp utilisé pour s'assurer que la marque est une entreprise légitime. Elle peut être complétée dans le WhatsApp Manager. La vérification d'entreprise est également requise pour augmenter les volumes d'envoi. Sans vérification d'entreprise, les clients ne peuvent envoyer des messages qu'à 250 utilisateurs finaux uniques maximum sur une période glissante de 24 heures.
@@ -198,4 +198,8 @@ WhatsApp est un canal axé sur la messagerie bidirectionnelle et s'articule donc
 #### Quels facteurs affectent l'évaluation de la qualité du numéro de téléphone, et que se passe-t-il lorsque mon évaluation de qualité baisse trop ? {#what-factors-affect-phone-number-quality-rating-and-what-happens-when-my-quality-rating-drops-too-low}
 Les facteurs qui affectent l'évaluation de la qualité du numéro de téléphone incluent le blocage de l'entreprise par un utilisateur final (et les raisons qu'il fournit lors du blocage) et le signalement de l'entreprise par un utilisateur final.
 
-Lorsqu'une évaluation de qualité est basse, le statut du numéro de téléphone passe de **Connecté** à **Signalé**. Si la qualité ne s'améliore pas en sept jours, le statut revient à **Connecté**. Cependant, la limite d'envoi de messages diminuera au niveau inférieur. Par exemple, un numéro de téléphone qui avait une limite d'envoi de 100 000 aura désormais une limite de 10 000.
+Lorsqu'une évaluation de qualité est basse, le statut du numéro de téléphone passe de **Connected** à **Flagged**. Si la qualité ne s'améliore pas en sept jours, le statut revient à **Connected**. Cependant, la limite d'envoi de messages diminuera au niveau inférieur. Par exemple, un numéro de téléphone qui avait une limite d'envoi de 100 000 aura désormais une limite de 10 000.
+
+#### Que faire si mon modèle a été signalé à tort pour violation de la politique commerciale de WhatsApp ? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
+
+Si vous pensez que Meta a signalé votre modèle à tort, utilisez le lien de révision dans l'e-mail de WhatsApp pour demander un réexamen. L'équipe WhatsApp Business examine la décision et l'annule si nécessaire.

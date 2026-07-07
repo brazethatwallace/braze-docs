@@ -16,11 +16,11 @@ platform:
 
 {% tabs %}
 {% tab Android %}
-### 푸시 반송: MismatchSenderId {#push-bounced-mismatchsenderid}
+## 푸시 반송: MismatchSenderId {#push-bounced-mismatchsenderid}
 `MismatchSenderId`는 인증 실패를 나타냅니다. Firebase Cloud Messaging(FCM)은 senderID와 FCM API 키라는 두 가지 핵심 데이터로 인증합니다. 두 가지 모두 정확성을 검증해야 합니다. 이 문제에 대한 자세한 내용은 [Android 설명서](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes)를 참조하세요.
 
 일반적인 실패 원인은 다음과 같습니다:
-- 잘못된 [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
+- 잘못된 [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase)
 - 다른 senderID를 사용하는 다른 푸시 서비스에 등록한 경우 다중 등록
 
 ### 푸시 반송: InvalidRegistration {#push-bounced-invalidregistration}
@@ -29,23 +29,32 @@ platform:
 - 여러 서비스에 등록하는 경우. 현재 푸시 등록 인텐트가 기존 방식으로 도착할 것으로 예상하므로, 여러 곳에서 등록하고 다른 서비스의 인텐트를 수신하면 잘못된 형식의 푸시 토큰이 발생할 수 있습니다.
 
 ### 푸시 반송: NotRegistered {#notregistered}
+
 `NotRegistered`는 일반적으로 앱이 기기에서 삭제되었음을 의미합니다(앱 삭제 감지 신호). 다중 등록이 발생하여 두 번째 등록이 Braze가 수신한 푸시 토큰을 무효화하는 경우에도 발생할 수 있습니다.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
-이 오류는 메시지 활동 로그에 다음과 같이 표시됩니다:
-
-`Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
+이 오류는 메시지 활동 로그에 다음과 같이 표시됩니다: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
 이 오류는 일반적으로 다음 이유 중 하나로 발생합니다:
 
 - 사용자가 앱을 삭제한 경우. 가장 일반적인 원인입니다. 기기에서 앱이 제거되면 푸시 토큰이 무효화됩니다.
 - 앱에서 푸시 자격 증명이 업데이트된 경우. 팀에서 앱에 번들된 FCM 자격 증명이나 인증서를 변경한 경우, 이전 자격 증명으로 등록한 사용자는 앱이 다시 등록할 때까지 무효한 토큰을 갖게 됩니다.
-- 커스텀 로직이 사용자를 푸시에서 등록 해제하는 경우. 드문 경우이지만, Firebase/Android SDK를 사용하여 프로그래밍 방식으로 기기의 푸시 등록을 해제하는 것이 기술적으로 가능합니다.
+- 커스텀 로직이 사용자를 푸시에서 등록 해제하는 경우. 드문 경우이지만, [Firebase/Android SDK](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken())를 사용하여 프로그래밍 방식으로 기기의 푸시 등록을 해제하는 것이 기술적으로 가능합니다.
 
 {% alert note %}
 이 오류는 사용자가 푸시 비활성화 상태라는 의미가 아니라, 특정 토큰이 프로필에서 제거되었다는 의미입니다. 이는 기능을 테스트하면서 앱을 자주 설치하고 삭제하는 사용자에게 흔히 발생합니다. 사용자에게 여전히 유효한 토큰이 있는지 확인하려면 **사용자 검색**으로 이동하여 **참여** 탭의 **연락처 설정** 섹션을 확인하세요.
 {% endalert %}
+
+### 요청한 엔터티를 찾을 수 없음 {#requested-entity-was-not-found}
+
+이 오류는 다음과 같은 이유로 발생할 수 있습니다:
+
+- 최종 사용자가 앱을 삭제한 경우. 고객 프로필을 확인하여 해당 여부를 확인할 수 있습니다.
+- 유효하지 않은 알림 채널이 있는 경우. 통합 방식에 따라 기기에 특정 알림 채널에서만 유효한 푸시 토큰이 있을 수 있습니다. 유효하지 않은 채널로 전송하면 메시지가 반송됩니다.
+- 페이로드 크기가 너무 큰 경우.
+
+자세한 내용은 오래되고 만료된 등록 토큰에 대한 [Google 설명서](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens)를 참조하세요.
 
 {% endtab %}
 {% tab iOS %}
@@ -73,7 +82,7 @@ Braze에서 이 대시보드 메시지는 다음 APNs 오류 원인 중 하나�
 
 `BadToken` 오류는 여러 가지 이유로 발생할 수 있습니다:
 - 푸시 토큰이 Braze에 올바르게 전송되지 않는 경우(예: `registerDeviceToken:` 또는 플랫폼의 동등한 메서드에서).
-	- [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 토큰을 확인하세요. 일반적으로 `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`와 같은 긴 문자와 숫자 문자열이어야 합니다. 그렇지 않은 경우, Braze에 푸시 토큰을 전송하는 코드를 확인하세요.<br><br>
+	- [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 토큰을 확인하세요. 일반적으로 `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`와 같은 긴 문자와 숫자 문자열이어야 합니다. 그렇지 않은 경우, Braze에 푸시 토큰을 전송하는 코드를 확인하세요.<br><br>
 - 프로비저닝 환경 불일치:
 	- 개발 인증서로 등록하고 프로덕션 인증서로 전송하려고 하면 이 오류가 발생할 수 있습니다.
 	- Braze는 프로덕션 환경에서만 유니버설 인증서를 지원합니다. 유니버설 인증서를 사용한 개발 환경에서의 푸시 테스트는 작동하지 않습니다.
@@ -83,7 +92,7 @@ Braze에서 이 대시보드 메시지는 다음 APNs 오류 원인 중 하나�
 		- Braze 대시보드에서 푸시를 전송하는 데 사용되는 푸시 인증서와 프로비저닝 프로필이 올바르게 구성되어 있는지 확인합니다.
 		- APNS 인증서를 다시 생성한 다음, APNS 인증서가 `app_id`에 구성된 후 프로비저닝 프로필을 다시 생성합니다. 이렇게 하면 일부 눈에 띄는 문제가 해결될 수 있습니다.
 
-### 번들 ID가 허용되지 않음 {#bundle-id-not-allowed}
+### 번들 ID 허용되지 않음 {#bundle-id-not-allowed}
 
 `TopicDisallowed` 오류는 요청의 토픽(번들 ID)이 사용 중인 인증 자격 증명에 허용되지 않아 APNs가 푸시를 거부했음을 의미합니다. 이를 해결하려면:
 

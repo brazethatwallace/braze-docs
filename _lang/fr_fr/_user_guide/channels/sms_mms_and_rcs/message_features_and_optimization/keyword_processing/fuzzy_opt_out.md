@@ -13,15 +13,19 @@ page_order: 4
 
 # Désabonnement approximatif {#fuzzy-opt-out}
 
-> Les utilisateurs qui envoient des SMS, MMS et RCS avec Braze doivent respecter les lois, réglementations et normes du secteur applicables. En matière de désabonnement, la loi stipule que lorsqu'un utilisateur envoie « STOP », tous les messages ultérieurs liés à ce programme de messagerie doivent être interrompus. Braze traite automatiquement ces messages et désabonne l'utilisateur.<br><br>Le désabonnement approximatif tente de reconnaître lorsqu'un message entrant ne correspond pas à un [mot-clé de désabonnement]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/), mais indique une intention de désabonnement. Si le désabonnement approximatif est activé et qu'une réponse par mot-clé entrant est jugée « approximative », vous pouvez configurer Braze pour désabonner automatiquement l'utilisateur ou répondre avec un message lui indiquant comment se désabonner manuellement.
-
 ![Conversation de messages iOS montrant des messages sortants de désabonnement en réponse au désabonnement approximatif entrant « Please stopppp ».]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Actuellement, seuls les mots-clés de désabonnement créés avec l'anglais comme [langue locale]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support) sont pris en charge.
+> Les utilisateurs qui envoient des SMS, MMS et RCS avec Braze doivent respecter les lois, réglementations et normes du secteur applicables. En matière de désabonnement, des lois telles que le TCPA stipulent que lorsqu'un utilisateur envoie un message constituant une révocation raisonnable du consentement (y compris des mots-clés de désabonnement reconnus tels que « STOP », « STOPALL », « UNSUBSCRIBE », « CANCEL », « END » ou « QUIT »), tous les messages ultérieurs liés à ce programme d'envoi de messages doivent être interrompus. Braze traite automatiquement les mots-clés de désabonnement reconnus et désabonne l'utilisateur.<br><br> Le désabonnement approximatif étend cette fonctionnalité en tentant de reconnaître les messages entrants qui ne correspondent à aucun **mot-clé de désabonnement** configuré pour la catégorie **Opt-out** du groupe d'abonnement (c'est-à-dire tout [mot-clé de désabonnement par défaut]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) ou [mot-clé de désabonnement personnalisé]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)) mais qui indiquent tout de même une intention de désabonnement — par exemple, un message comme « goodbye » ou « leave me alone ».
+
+Le désabonnement approximatif est désactivé par défaut. Si le désabonnement approximatif est activé et qu'un message entrant est jugé « approximatif », vous pouvez configurer Braze pour désabonner automatiquement l'utilisateur ou envoyer un message lui indiquant comment se désabonner manuellement. Pour les marques américaines, le désabonnement automatique de l'utilisateur est fortement recommandé afin de respecter les exigences du TCPA.
+
+{% alert note %}
+Actuellement, seuls les mots-clés de désabonnement (par défaut et personnalisés) créés avec l'anglais comme [langue locale]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support) sont pris en charge.
+{% endalert %}
 
 ## Qu'est-ce qui est considéré comme approximatif ? {#what-is-deemed-as-fuzzy}
 
-Les critères pour qu'une réponse entrante soit considérée comme « approximative » sont les suivants :
+Les critères pour qu'une réponse entrante soit considérée comme « approximative » sont les suivants (les comparaisons utilisent chaque mot-clé de la catégorie **Opt-out**, y compris les mots-clés par défaut et personnalisés) :
 - Si le remplacement d'une lettre par la lettre située immédiatement à gauche ou à droite sur un clavier QWERTY produit un mot-clé de désabonnement correspondant.
 - Si une sous-chaîne du message correspond à un mot-clé de désabonnement.
 
@@ -31,7 +35,7 @@ Par exemple, « Stpo » ou « Please stopppp » seront considérés comme approx
 
 Pour configurer le désabonnement approximatif, accédez à la page de gestion des mots-clés du groupe d'abonnement.
 
-1. Accédez à **Audience** > **Subscription Group Management** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**.
+1. Accédez à **Audience** > **Gestion des groupes d'abonnement** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**.
 2. Dans **Global Keywords**, trouvez la catégorie **Opt-out** et sélectionnez l'icône de crayon.
 3. Basculez **Fuzzy Opt-Out** sur **On**.
 4. Sélectionnez votre option préférée pour la **Fuzzy Opt-Out Logic** :

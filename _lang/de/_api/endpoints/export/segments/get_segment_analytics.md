@@ -14,13 +14,13 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Segme
 /segments/data_series
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine tägliche Serie der geschätzten Größe eines Segments im Laufe der Zeit abzurufen.
+> Verwenden Sie diesen Endpunkt, um eine tägliche Serie der geschätzten Größe eines Segments im Laufe der Zeit abzurufen. <br><br>Wenn Sie die exakte Größe eines Segments benötigen, exportieren Sie dessen Nutzer:innen mit dem [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) und zählen Sie die exportierten Profile.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `segments.data_series`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `segments.data_series`.
 
 ## Rate-Limit
 
@@ -30,10 +30,10 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `segment_id` | Erforderlich | String | Siehe [Segment-API-Bezeichner]({{site.baseurl}}/api/identifier_types/).<br><br> Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) in Ihrem Braze-Konto, oder Sie können den [Endpunkt „Segmentliste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) verwenden.  |
+| `segment_id` | Erforderlich | String | Siehe [Segment-API-Bezeichner]({{site.baseurl}}/api/identifier_types).<br><br> Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) in Ihrem Braze-Konto, oder Sie können den [Endpunkt „Segmentliste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment) verwenden. |
 | `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Serie enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
 | `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird der Zeitpunkt der Anfrage verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 {% raw %}
@@ -59,7 +59,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/data_se
 ```
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

@@ -17,7 +17,7 @@ _この統合は Amazon Personalize によって管理されます。_
 
 ## 統合について {#about-the-integration}
 
-Amazon Personalizeは、機械学習とあなたが定義したアルゴリズムを使用して、Webサイトやアプリケーション向けに高品質のレコメンデーションを出力するモデルのトレーニングを支援します。これらのモデルにより、ユーザーの過去の行動に基づいたレコメンデーションリストの作成、関連性によるアイテムの並べ替え、類似性に基づく他のアイテムのレコメンデーションが可能になります。Amazon Personalize APIから取得したリストは、Brazeのコネクテッドコンテンツで使用して、パーソナライズされたBrazeレコメンデーションCampaignsを実行できます。Amazon Personalizeと統合することで、モデルのトレーニングに使用するパラメーターを自由にコントロールし、アルゴリズムの出力を最適化するオプションのビジネス目標を定義できます。
+Amazon Personalizeは、機械学習とあなたが定義したアルゴリズムを使用して、Webサイトやアプリケーション向けに高品質のレコメンデーションを出力するモデルのトレーニングを支援します。これらのモデルにより、ユーザーの過去の行動に基づいたレコメンデーションリストの作成、関連性によるアイテムの並べ替え、類似性に基づく他のアイテムのレコメンデーションが可能になります。Amazon Personalize APIから取得したリストは、Brazeのコネクテッドコンテンツで使用して、パーソナライズされたBrazeレコメンデーションキャンペーンを実行できます。Amazon Personalizeと統合することで、モデルのトレーニングに使用するパラメーターを自由にコントロールし、アルゴリズムの出力を最適化するオプションのビジネス目標を定義できます。
 
 このリファレンス記事は、Amazon Personalizeが提供するユースケース、Amazon Personalizeが扱うデータ、サービスの設定方法、Brazeとの統合方法を理解するのに役立ちます。
 
@@ -28,10 +28,10 @@ Amazon Personalizeは、機械学習とあなたが定義したアルゴリズ�
 | Amazon Web Serviceアカウント | このパートナーシップを利用するには、AWSアカウントが必要です。AWSアカウントを取得したら、Amazon Personalizeコンソール、AWS Command Line Interface (AWS CLI)、またはAWS SDKを使用してAmazon Personalizeにアクセスできます。 |
 | 定義されたユースケース | モデルを作成する前に、この統合のユースケースを決定する必要があります。一般的なユースケースについては、以下のリストを参照してください。 |
 | データセット | Amazon Personalizeのレコメンデーションモデルには、インタラクション、ユーザー、アイテムの3種類のデータセットが必要です。各データセットの要件については、以下の詳細を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
-{% tab Use Cases %}
+{% tab ユースケース %}
 
 **ユースケース**
 
@@ -43,7 +43,7 @@ Amazon Personalizeは、機械学習とあなたが定義したアルゴリズ�
 以下のガイドでは、ユーザー個別のレコメンデーションレシピに焦点を当てます。
 
 {% endtab %}
-{% tab Datasets %}
+{% tab データセット %}
 
 **データセット**
 
@@ -101,8 +101,8 @@ Amazon Personalizeでは、モデルがトレーニングに使用するハイ�
 
 ## 結果をBrazeと統合する {#integrating-results-with-braze}
 
-作成したモデルとレコメンデーションキャンペーンがあれば、Content Cardsとコネクテッドコンテンツを使って、ユーザーに対してBraze Campaignを実行する準備が整います。
-Braze Campaignを実行する前に、APIを通じてこれらのレコメンデーションを提供できるサービスを作成する必要があります。[ワークショップ記事のステップ3]({{site.baseurl}}/partners/amazon_personalize_workshop/#step-3-send-personalized-emails-from-braze)に従って、AWSサービスを使用してサービスをデプロイできます。レコメンデーションを提供する独自の独立したバックエンドサービスをデプロイすることもできます。
+作成したモデルとレコメンデーションキャンペーンがあれば、Content Cardsとコネクテッドコンテンツを使って、ユーザーに対してBraze キャンペーンを実行する準備が整います。
+Braze キャンペーンを実行する前に、APIを通じてこれらのレコメンデーションを提供できるサービスを作成する必要があります。[ワークショップ記事のステップ3]({{site.baseurl}}/partners/amazon_personalize_workshop/#step-3-send-personalized-emails-from-braze)に従って、AWSサービスを使用してサービスをデプロイできます。レコメンデーションを提供する独自の独立したバックエンドサービスをデプロイすることもできます。
 
 ### Content Cardsキャンペーンのユースケース {#content-card-campaign-use-case}
 
@@ -133,13 +133,13 @@ Brazeダッシュボードで、新しい[Content Cardsキャンペーン]({{sit
 
 {% raw %}
 
-```liquid
+`````````liquid
 {% connected_content https:/<service-endpoint.com>/recommendations?user_id={{${user_id}}} :save recommendations %}
 ```
 
 その後、結果として得られる配列の最初のアイテムを参照し、そのコンテンツをユーザーに表示できます。
 
-```liquid
+`````````liquid
 This seems like a great fit for you:
 {% recommendations[0].name %}
 {% recommendations[0].price %}
@@ -149,4 +149,4 @@ This seems like a great fit for you:
 
 タイトル、画像、URLのリンクを含めると、Content Cardsの完成形はこのようになります。
 
-![コネクテッドコンテンツがメッセージ本文と「Add Image」フィールドに追加されたCampaignの画像。この画像は、「Redirect to Web URL」フィールドに追加されたコネクテッドコンテンツロジックも示しており、ユーザーをレコメンデーションURLにリンクさせています。]({% image_buster /assets/img/amazon_personalize/content-card-campaign.png %})
+![コネクテッドコンテンツがメッセージ本文と「Add Image」フィールドに追加されたキャンペーンの画像。この画像は、「Redirect to Web URL」フィールドに追加されたコネクテッドコンテンツロジックも示しており、ユーザーをレコメンデーションURLにリンクさせています。]({% image_buster /assets/img/amazon_personalize/content-card-campaign.png %})

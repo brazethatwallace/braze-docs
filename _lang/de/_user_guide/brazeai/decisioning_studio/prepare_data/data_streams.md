@@ -6,7 +6,7 @@ page_type: reference
 description: "Dieser Referenzartikel erläutert den Unterschied zwischen Snapshot-Daten und Event-Stream-Daten und wie diese jeweils strukturiert und an BrazeAI Decisioning Studio übermittelt werden sollten."
 ---
 
-# Snapshots versus Event-Streams
+# Snapshots versus Event-Streams {#snapshots-versus-event-streams}
 
 > Daten lassen sich in eine von zwei grundlegenden Kategorien einteilen: Snapshots (Zustand) und Event-Streams (was passiert ist). Dieses Unterscheidungsmerkmal zu verstehen und korrekt anzuwenden, ist einer der wichtigsten Schritte, um sicherzustellen, dass Ihr Decisioning-Studio-Agent effektiv lernt.
 
@@ -22,7 +22,7 @@ Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis al
 |------|-------|
 | Kundenbezeichner | Wen dieser Datensatz beschreibt |
 | Snapshot-Datum | Wann dieser Snapshot erstellt wurde |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erforderliche Felder" }
 
 ### Wie Snapshots aktualisiert werden sollten {#how-snapshots-should-be-updated}
 
@@ -53,7 +53,7 @@ Ein Event-Stream zeichnet diskrete Aktionen auf, sobald sie stattfinden. Er bean
 | Event-Zeitstempel | Wann das Ereignis tatsächlich stattgefunden hat |
 | Erstellungs-Zeitstempel | Wann dieser Datensatz in Ihrem System erstellt wurde (siehe Hinweis unten) |
 | Event-Eigenschaften | Zusätzliche Metadaten über das Event; je reichhaltiger diese sind, desto besser kann Decisioning Studio Events über die Customer Journey hinweg verknüpfen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erforderliche Felder" }
 
 {% alert important %}
 Der Event-Zeitstempel und der Erstellungs-Zeitstempel sind unterschiedliche Felder, und beide sind erforderlich. Der Event-Zeitstempel erfasst, wann die Aktion tatsächlich stattgefunden hat. Der Erstellungs-Zeitstempel erfasst, wann der Dateneintrag in Ihr System geschrieben wurde, was aufgrund von Verarbeitungsverzögerungen später sein kann. Verwechseln Sie die beiden nicht.

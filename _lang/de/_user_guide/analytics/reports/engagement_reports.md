@@ -24,7 +24,7 @@ Mit Engagement-Berichten können Sie Campaigns und Canvases manuell auswählen, 
 
 Unabhängig von der Anzahl der ausgewählten Campaigns oder Canvases werden bis zu zwei CSV-Dateien generiert – eine für alle Campaign-Daten und eine für alle Canvas-Daten. Sie können über den in Ihrer Berichts-E-Mail eingebetteten Link auf diese CSV-Dateien zugreifen. Engagement-Berichte werden nicht im Braze-Dashboard gespeichert.
 
-Bestimmte Daten werden auf Campaign- oder Canvas-Ebene aggregiert und nicht auf der Ebene einzelner Kampagnenvarianten oder Canvas-Schritte. Wenn Sie [einen Canvas-Schritt nach dem Start löschen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details), werden die zugehörigen Daten ebenfalls aus den Engagement-Berichten entfernt.
+Bestimmte Daten werden auf Campaign- oder Canvas-Ebene aggregiert und nicht auf der Ebene einzelner Kampagnenvarianten oder Canvas-Schritte. Wenn Sie [einen Canvas-Schritt nach dem Start löschen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details), werden die zugehörigen Daten ebenfalls aus den Engagement-Berichten entfernt.
 
 {% alert tip %}
 Sie können den Bericht erneut ausführen, um aktualisierte Statistiken zu generieren.
@@ -51,7 +51,7 @@ Diese Option gibt Ihnen die Freiheit, beliebige Campaigns oder Canvases für die
 
 #### Campaigns oder Canvases automatisch auswählen {#automatically-select-campaigns-or-canvases}
 
-Diese Option ermöglicht es Ihnen, automatisch alle Nachrichten einzuschließen, die einen bestimmten [Tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) enthalten. Sie können Nachrichten ansprechen, die einen oder alle der aufgelisteten Tags haben. Diese Option ist nützlich, wenn Sie wiederkehrende Berichte einrichten und Ihre Engagement-Nachrichten regelmäßig taggen.
+Diese Option ermöglicht es Ihnen, automatisch alle Nachrichten einzuschließen, die einen bestimmten [Tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) enthalten. Sie können Nachrichten ansprechen, die einen oder alle der aufgelisteten Tags haben. Diese Option ist nützlich, wenn Sie wiederkehrende Berichte einrichten und Ihre Engagement-Nachrichten regelmäßig taggen.
 
 {% alert important %}
 Die Tags müssen mit mindestens einer Campaign oder einem Canvas übereinstimmen, damit ein Bericht generiert wird. Wenn Sie **Campaigns und Canvases automatisch anhand bestimmter Regeln auswählen** verwenden und einen Fehler sehen, bestätigen Sie, dass mindestens eine Campaign oder ein Canvas mit Ihren Tags und anderen Filtern übereinstimmt (z. B. wenn Sie alle aufgelisteten Tags voraussetzen, muss jede übereinstimmende Nachricht jeden Tag haben).
@@ -63,6 +63,12 @@ Im Schritt **Add Stats** werden Ihnen Statistiken für die Typen der ausgewählt
 
 ![Statistiken zum Engagement-Bericht hinzufügen]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+Engagement-Berichte aggregieren Daten pro Campaign oder Canvas, nicht auf Workspace-Ebene. Um das gesamte Sende- oder Impressionsvolumen über alle aktiven Campaigns und Canvases hinweg zu überwachen, z. B. kanalübergreifende Sends und Impressionen für einen gesamten Workspace, verwenden Sie den [Berichts-Builder]({{site.baseurl}}/report_builder).
+
+{% alert note %}
+*Sends an Carrier* ist veraltet, wird aber für Nutzer:innen, die es bereits verwenden, weiterhin unterstützt.
+{% endalert %}
+
 | Kanal | Verfügbare Statistiken |
 | ------| --------------|
 | E-Mail | Sends, Öffnungen, eindeutige Öffnungen, Klicks, eindeutige Klicks, Click-to-Open, Abmeldungen, Bounces, zugestellt, als Spam gemeldet |
@@ -71,11 +77,7 @@ Im Schritt **Add Stats** werden Ihnen Statistiken für die Typen der ausgewählt
 | In-App-Nachricht | Impressionen, Klicks, Klicks auf ersten Button, Klicks auf zweiten Button |
 | Webhook  |  Sends, Fehler |
 | SMS | Sends, Sends an Carrier, bestätigte Zustellungen, Zustellungsfehler, Ablehnungen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Sends an Carrier* ist veraltet, wird aber für Nutzer:innen, die es bereits verwenden, weiterhin unterstützt.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Statistiken hinzufügen" }
 
 ### 4. Schritt: Berichtseinrichtung abschließen {#step-4-complete-report-setup}
 
@@ -99,6 +101,14 @@ Standardmäßig basiert der angezeigte Datenbereich auf der Zeitzone Ihres Unter
 Standardmäßig werden die Daten in den Engagement-Berichten täglich (ein Tag) angezeigt. Um diese Daten in anderen Intervallen anzuzeigen, wählen Sie eine explizite Anzahl von Tagen oder Wochen, um die Daten für den Bericht zu aggregieren. Anstatt tägliche Metriken zu sehen, können Sie Ihr Engagement also nach Woche, Monat, Quartal oder ähnlich betrachten. Sollte eine zeitbasierte Aggregation nicht ausreichen, können Sie die Daten auch auf Campaign- oder Canvas-Ebene exportieren.
 
 ![Datenabdeckung des Engagement-Berichts]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### Daten nach gesamter Campaign oder Canvas anzeigen {#show-data-by-entire-campaign-or-canvas}
+
+Wenn Sie **Show Data by Entire Campaign or Canvas** auswählen, aggregiert Braze die Metriken in Blöcken von 1.825 Tagen (fünf Jahre) über den Zeitraum des Berichts hinweg.
+
+Wenn der Zeitraum mehr als einen Block umfasst, sehen Sie möglicherweise mehrere Zeilen für dieselbe Campaign oder denselben Canvas mit unterschiedlichen Daten in der Datumsspalte. Einige Zeilen enthalten möglicherweise nur Metriken, die später im Zeitraum erfasst wurden (z. B. Abmeldungen). Daten können auch Jahre vor dem Beginn Ihres Versands im Workspace liegen, da sie die Block-Grenzen im Export widerspiegeln und nicht nur Ihren ersten Versand.
+
+Um die Datumsspalte mit dem tatsächlichen Versandzeitpunkt Ihrer ausgewählten Campaigns und Canvases abzugleichen, setzen Sie das [Startdatum des Berichts unter **Zeitraum auswählen**](#select-time-frame) auf das früheste Datum, das Sie in der Datei haben möchten – in der Regel den Zeitpunkt, an dem diese Nachrichten gesendet wurden – anstatt den Standardbereich zu verwenden, der bis zur ältesten ausgewählten Nachricht zurückreicht.
 
 #### Bericht planen {#schedule-your-report}
 
@@ -130,9 +140,16 @@ Stellen Sie sicher, dass die Daten im Engagement-Bericht mit den Daten in der Ca
 Wenn die Summen in einer Tabellenkalkulation falsch aussehen, entfernen Sie zusätzliche Filter aus dem Export. Sie können die täglichen Zeilen summieren, um sie mit den Canvas- oder Campaign-Gesamtwerten für denselben Zeitraum abzugleichen.
 
 {% alert note %}
-Wenn Sie eine einzelne aggregierte Zeile für den gesamten Zeitraum anstelle von täglichen, wöchentlichen oder anderen wiederkehrenden Buckets möchten, setzen Sie **Data Display** auf **Show Data by Entire Campaign or Canvas**.
+Wenn Sie Zeilen nach gesamter Campaign oder Canvas aggregiert haben möchten anstatt nach täglichen, wöchentlichen oder anderen wiederkehrenden Buckets, setzen Sie **Data Display** auf **Show Data by Entire Campaign or Canvas**. Wenn Zeilenanzahl oder Daten in der CSV falsch aussehen, siehe [Daten nach gesamter Campaign oder Canvas anzeigen](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Doppelte Button-Klicks in HTML-In-App-Nachrichten {#duplicate-button-clicks-in-html-in-app-messages}
 
-Wenn Sie HTML-In-App-Nachrichten verwenden und **Body-Klicks** im Engagement-Bericht hoch erscheinen, protokollieren Sie möglicherweise Klicks doppelt – zum Beispiel indem Sie `brazeBridge.logClick()` für einen generischen Body-Klick und gleichzeitig `brazeBridge.logClick('body click')` (oder eine andere ID) für dieselbe Interaktion aufrufen. Durchsuchen Sie Ihr Markup nach `brazeBridge.logClick(` und vereinheitlichen Sie auf ein Muster pro Steuerelement. Für die empfohlene Verwendung siehe [Button-Tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+Wenn Sie HTML-In-App-Nachrichten verwenden und **Body-Klicks** im Engagement-Bericht hoch erscheinen, protokollieren Sie möglicherweise Klicks doppelt – zum Beispiel indem Sie `brazeBridge.logClick()` für einen generischen Body-Klick und gleichzeitig `brazeBridge.logClick('body click')` (oder eine andere ID) für dieselbe Interaktion aufrufen. Durchsuchen Sie Ihr Markup nach `brazeBridge.logClick(` und vereinheitlichen Sie auf ein Muster pro Steuerelement. Für die empfohlene Verwendung siehe [Button-Tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
+
+#### Fehlerhafte Links in per E-Mail versendeten Engagement-Berichten {#broken-links-in-emailed-engagement-reports}
+
+Wenn Links in einer geplanten Engagement-Bericht-E-Mail in Ihrem E-Mail-Client nicht korrekt geöffnet werden, versuchen Sie folgende Schritte:
+
+1. Leiten Sie den Bericht an ein Gmail-Postfach weiter und öffnen Sie die Links in Google Chrome.
+2. Überprüfen Sie in den Engagement-Bericht-Einstellungen, ob **Report Schedule** so konfiguriert ist, dass der Versand zum erwarteten Zeitpunkt erfolgt (z. B. sofort nach der Berichtserstellung und nicht nach einem verzögerten Zeitplan).

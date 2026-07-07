@@ -9,7 +9,7 @@ description: "Braze データプラットフォームについて、データの
 
 > Braze データプラットフォームについて、データの統一、有効化、配信の方法を含めて説明します。
 
-Braze データプラットフォーム (BDP) は、包括的でコンポーザブルなデータ機能とパートナー連携のセットであり、顧客向けにパーソナライズされたエクスペリエンスを作成できるようにします。Brazeでは、データを3つのデータ関連ジョブの観点で考えています：[統一]({{site.baseurl}}/user_guide/data/unification/)、[有効化]({{site.baseurl}}/user_guide/data/activation/)、[配信]({{site.baseurl}}/user_guide/data/distribution/)です。
+Braze データプラットフォーム (BDP) は、包括的でコンポーザブルなデータ機能とパートナー連携のセットであり、顧客向けにパーソナライズされたエクスペリエンスを作成できるようにします。Brazeでは、データを3つのデータ関連ジョブの観点で考えています：[統一]({{site.baseurl}}/user_guide/data/unification)、[有効化]({{site.baseurl}}/user_guide/data/activation)、[配信]({{site.baseurl}}/user_guide/data/distribution)です。
 
 Braze データプラットフォームの機能を組み合わせて使用することで、データを活用して、顧客のリアルタイムの行動に応じた意味のあるターゲットメッセージを作成できます。
 
@@ -17,19 +17,19 @@ Braze データプラットフォームの機能を組み合わせて使用す�
 
 ### データを統一する {#unify-your-data}
 
-ユーザーデータは多くのエントリポイントを通じてBrazeに流入します。[API]({{site.baseurl}}/api/home/)と[SDK]({{site.baseurl}}/developer_guide/sdk_integration/)を使用して、あらゆるソースからファーストパーティデータを収集・統合できます。また、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)などの組み込み取り込みツールを使用して、データウェアハウスやファイルストレージソリューションからBrazeへの直接統合を作成したり、[データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation/)を使用してBrazeへのデータ転送用のWebhook連携を構築・管理したりすることもできます。
+ユーザーデータは多くのエントリポイントを通じてBrazeに流入します。[API]({{site.baseurl}}/api/home)と[SDK]({{site.baseurl}}/developer_guide/sdk_integration)を使用して、あらゆるソースからファーストパーティデータを収集・統合できます。また、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)などの組み込み取り込みツールを使用して、データウェアハウスやファイルストレージソリューションからBrazeへの直接統合を作成したり、[データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation)を使用してBrazeへのデータ転送用のWebhook連携を構築・管理したりすることもできます。
 
 ### データを有効化する {#activate-your-data}
 
-データをクリーンアップ、整理し、使用できるように準備します。これには、ユーザープロファイルと**Segments**を使用して、顧客の行動や好みをリアルタイムで理解することが含まれます。ターゲットメッセージを作成する際に[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照し、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を使用して製品やコンテンツデータでメッセージを充実させましょう。顧客がこれらのパーソナライズされたエクスペリエンスにどのように反応しているかを特定します。
+データをクリーンアップ、整理し、使用できるように準備します。これには、ユーザープロファイルとセグメントを使用して、顧客の行動や好みをリアルタイムで理解することが含まれます。ターゲットメッセージを作成する際に[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照し、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)を使用して製品やコンテンツデータでメッセージを充実させましょう。顧客がこれらのパーソナライズされたエクスペリエンスにどのように反応しているかを特定します。
 
 ### データを配信する {#distribute-your-data}
 
-データを外部システムにストリーミングおよび[エクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/)して、次のステップのインサイトや意思決定に活用します。[Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用してBrazeイベントデータをデータウェアハウスにストリーミングし、ビジネスインテリジェンスツールを強化できます。また、[テクノロジーパートナー連携]({{site.baseurl}}/partners/data_and_analytics/)でデータ機能を拡張することもできます。
+データを外部システムにストリーミングおよび[エクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data)して、次のステップのインサイトや意思決定に活用します。[Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用してBrazeイベントデータをデータウェアハウスにストリーミングし、ビジネスインテリジェンスツールを強化できます。また、[テクノロジーパートナー連携]({{site.baseurl}}/partners/data_and_analytics)でデータ機能を拡張することもできます。
 
 ## データインフラ {#data-infrastructure}
 
-Brazeのデータインフラには、レイテンシー（サーバーとユーザー間のデータ転送にかかる時間）を最小限に抑える[データセンター]({{site.baseurl}}/user_guide/data/infrastructure/data_centers/)が含まれています。この地理的分散により、サービスの信頼性とスケーラビリティが確保されます。また、機密データの保護とBrazeで共有される個人を特定できる情報 (PII) の最小化を支援する[フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)も提供しています。使用量と請求の詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を参照してください。
+Brazeのデータインフラには、レイテンシー（サーバーとユーザー間のデータ転送にかかる時間）を最小限に抑える[データセンター]({{site.baseurl}}/user_guide/data/infrastructure/data_centers)が含まれています。この地理的分散により、サービスの信頼性とスケーラビリティが確保されます。また、機密データの保護とBrazeで共有される個人を特定できる情報 (PII) の最小化を支援する[フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)も提供しています。使用量と請求の詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を参照してください。
 
 ## 基本原則 {#core-principles}
 

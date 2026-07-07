@@ -24,15 +24,9 @@ For best results, refer to the following image size and message length guideline
 (iOS) 2:1 *Recommended* | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG, GIF
 (Android) Push icon | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 (Android) Expanded notification | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
-{% alert note %}
-GIFs are not supported in Android push notifications. This is an Android platform limitation, not a Braze limitation.
-
-For in-app messages and Content Cards on Android, you can support GIFs by integrating a third-party image library, such as [Glide](https://bumptech.github.io/glide/) or [Fresco](https://frescolib.org/).
-
-On iOS, push notifications support GIFs. In-app messages and Content Cards require a custom GIF image provider.
-{% endalert %}
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 {% endtab %}
 {% tab Text %}
@@ -44,9 +38,9 @@ On iOS, push notifications support GIFs. In-app messages and Content Cards requi
 (iOS) Banner Alert | 80 characters | 65 characters
 (Android) Lock Screen | 49 characters | N/A
 (Android) Notification Drawer | 597 characters | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
 
-Wondering how many characters you can use in an iOS push notification without it being truncated? Check out our [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Wondering how many characters you can use in an iOS push notification without it being truncated? Check out our [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 {% endtab %}
 {% tab Payload Size %}
@@ -56,7 +50,7 @@ Wondering how many characters you can use in an iOS push notification without it
 pre iOS 8 | 0.256 KB
 post iOS 8 | 2 KB
 Android (FCM) | 4 KB
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS and Android push" }
 
 {% endtab %}
 {% tab Image Example %}
@@ -99,14 +93,16 @@ Large image notifications display best when using an image of at least 600x300 p
 
 | **Browser** | **Recommended Icon Size**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (Icons are configurable on a per-campaign basis with Safari 16+ on macOS 13+)
 Opera | 192x192 ≥
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 
 | **Browser** | **Platform** | **Large Image Size**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 Chrome | Android | 2:1 aspect ratio
 Firefox | Android | N/A
 Chrome | Windows | 2:1 aspect ratio
@@ -117,13 +113,14 @@ Safari | macOS | N/A
 Chrome | macOS | N/A
 Firefox | macOS | N/A
 Opera | macOS | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 
 {% endtab %}
 {% tab Text %}
 
 | **Browser** | **Platform** | **Maximum Title Length**  | **Maximum Message Body Length**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120
@@ -134,7 +131,7 @@ Chrome | macOS | 35 | 50
 Safari | macOS | 38 | 84
 Firefox | macOS | 38 | 42
 Opera | macOS | 38 | 42
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
 
 {% endtab %}
 {% endtabs %}

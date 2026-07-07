@@ -1,34 +1,46 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: 顧客行動とユーザーイベント
+article_title: 顧客行動とユーザーイベント
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
 page_type: glossary
-description: "この用語集には、BrazeがCurrentsを使用して追跡し、選択したデータウェアハウスに送信できるさまざまな顧客行動とユーザーイベントがリストされています。"
+description: "この用語集では、Brazeが追跡し、Currentsを使用して選択したデータウェアハウスに送信できるさまざまな顧客行動イベントとユーザーイベントを一覧にしています。"
 tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details スキーマの範囲と関連リソース %}
+
+ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。ここに記載されているイベントと送信先の組み合わせの一部は、まだ一般提供されていません。各パートナーがサポートしているイベントについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の一覧を参照し、それぞれのページをご確認ください。
+
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。このページで必要なものが見つからない場合は、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)や[Currentsのサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。このページで必要な情報が見つからない場合は、[メッセージエンゲージメントイベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
+
+{% enddetails %}
 
 {% details 顧客行動とユーザーイベントの構造およびプラットフォーム値の説明 %}
 
-### イベントの構造 {#event-structure}
+## イベント構造 {#event-structure}
 
-この顧客行動とユーザーイベントの内訳は、一般的に顧客行動やユーザーイベントに含まれる情報のタイプを示しています。開発者とビジネスインテリジェンス戦略チームは、構成要素をしっかり理解したうえで、受信したCurrentsイベントデータを使用して、データドリブン型のレポートやグラフを作成したり、その他の貴重なデータ指標を活用したりすることができます。
+この顧客行動とユーザーイベントの内訳は、顧客行動またはユーザーイベントに一般的に含まれる情報の種類を示しています。その構成要素をしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
 
-![ユーザーイベントの内訳。購入イベントを示し、リストされたプロパティはユーザー固有のプロパティ、動作固有のプロパティ、デバイス固有のプロパティごとにグループ分けされている]({% image_buster /assets/img/customer_engagement_event.png %})
+![ユーザー固有のプロパティ、行動固有のプロパティ、デバイス固有のプロパティごとにグループ化された購入イベントを示すユーザーイベントの内訳]({% image_buster /assets/img/customer_engagement_event.png %})
 
-顧客行動およびユーザーイベントは、**ユーザー固有**のプロパティ、**動作固有**のプロパティ、および**デバイス固有**のプロパティで構成されます。
+顧客行動とユーザーイベントは、**ユーザー固有**のプロパティ、**行動固有**のプロパティ、および**デバイス固有**のプロパティで構成されています。
 
-### プラットフォームの値 {#platform-values}
+### プラットフォーム値 {#platform-values}
 
-特定のイベントは、ユーザーのデバイスのプラットフォームを示す`platform`値を返します。
-<br>次の表に、返される可能性のある値の詳細を示します。
+一部のイベントは、ユーザーのデバイスのプラットフォームを指定する`platform`値を返します。
+<br>次の表は、返される可能性のある値の詳細を示しています。
 
 | ユーザーデバイス | プラットフォーム値 |
 | --- | --- |
@@ -39,14 +51,17 @@ search_rank: 7
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プラットフォーム値" }
 
 {% enddetails %}
 
-{% alert important %}
-ストレージスキーマは、データウェアハウスのストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storageなど）に送信するフラットファイルのイベントデータに適用されます。ここにリストされているイベントと送信先の組み合わせの中には、まだ一般提供されていないものもあります。さまざまなパートナーがサポートするイベントの情報については、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。<br><br>さらに、Currentsは900&nbsp;KBを超える過度に大きいペイロードを持つイベントをドロップすることに注意してください。
-{% endalert %}
+{% details 顧客行動とユーザーイベントに関する考慮事項 %}
 
-{% alert note %}
-この用語集に含まれるイベントの多くはSDKによって開始されます。`token_state_change`などの一部のイベントは、SDKまたはバックエンドのいずれかによって開始される場合があります（例えば、プッシュバウンスへの応答として）。`sdk_version`、`gender`、`language`、`country`フィールドはSDKによって開始されたイベントでのみ設定されます。バックエンドによって開始されたイベントの場合、またはその情報が利用できないかユーザーに設定されていない場合、これらのフィールドは`null`になることがあります。
-{% endalert %}
+- Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
+- この用語集のイベントの多くはSDKによって開始されます。`token_state_change`などの一部のイベントは、SDKまたはバックエンドのいずれかによって開始される場合があります（たとえば、プッシュバウンスへの応答として）。`sdk_version`、`gender`、`language`、`country`フィールドは、SDKによって開始されたイベントに対してのみ設定されます。バックエンドによって開始されたイベント、またはその情報が利用できないかユーザーに設定されていない場合、これらのフィールドは`null`になることがあります。
+
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

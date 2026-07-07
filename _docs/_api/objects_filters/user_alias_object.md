@@ -26,14 +26,36 @@ This object is used frequently in all of our endpoints, and oftentimes within ot
 }
 ```
 
+| Field | Data type | Example | Description |
+|---|---|---|---|
+| `alias_name` | String | `john_doe_123` | A unique identifier for the user, such as an ID from a third-party system. This value must be non-empty and 236 bytes or fewer. |
+| `alias_label` | String | `crm_id` | A non-empty custom string that defines the alias type. This value isn't limited to specific options. You can use any meaningful label, such as `email_id`, `amplitude_id`, `salesforce_lead_id`, or another value that matches your use case. This value must be 236 bytes or fewer. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object body" }
+
 ### Example
 
 ```json
 {
   "user_alias": {
     "alias_name": "john_doe_123",
-    "alias_label": "email_id"
+    "alias_label": "crm_id"
   },
   "external_id": "user_456"
 }
 ```
+
+In this example, `crm_id` is a custom label indicating that the alias represents a CRM system identifier.
+
+### Additional example
+
+```json
+{
+  "user_alias": {
+    "alias_name": "a9f3c102",
+    "alias_label": "amplitude_id"
+  }
+}
+```
+
+In this example, `amplitude_id` is one possible label value. You can also use labels like `email_id` or `salesforce_lead_id`, or another custom label that fits your identifier scheme.

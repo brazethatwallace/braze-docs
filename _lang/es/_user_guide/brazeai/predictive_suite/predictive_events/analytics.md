@@ -6,92 +6,92 @@ page_order: 1.3
 
 ---
 
-# Análisis predictivo de eventos
+# Análisis predictivo de eventos {#predictive-event-analytics}
 
 > Una vez creada y entrenada tu predicción, tendrás acceso a la página **Análisis de predicciones**. Esta página te ayuda a decidir a qué usuarios debes dirigirte en función de su puntuación de probabilidad o categoría.
 
-## Acerca del análisis predictivo de eventos
+## Acerca del análisis predictivo de eventos {#about-predictive-event-analytics}
 
-En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes empezar a utilizar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_churn/messaging_users/#filters) en segmentos o campañas para empezar a utilizar los resultados del modelo. Si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
+En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes empezar a utilizar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) en segmentos o campañas para empezar a utilizar los resultados del modelo. Si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
 
 Estos son los componentes que conforman el análisis predictivo de eventos:
 
 - [Puntuación de probabilidad](#purchase_score)
 - [Calidad de la predicción](#prediction_quality)
 - [Precisión estimada](#estimated_results)
-- [Tabla de correlación de sucesos](#correlation_table)
+- [Tabla de correlación de eventos](#correlation_table)
 
 La distribución de las puntuaciones de probabilidad de toda la audiencia de predicción se muestra en la parte superior de la página. Los usuarios de los contenedores situados más a la derecha tienen puntuaciones más altas y es más probable que realicen el evento. Los usuarios de los contenedores situados más a la izquierda tienen menos probabilidades de realizar el evento. El control deslizante situado debajo del gráfico te permitirá seleccionar una sección de usuarios y estimar cuáles serían los resultados de dirigirte a esos usuarios.
 
-A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción se dirigirían utilizando la parte de la población que hayas seleccionado.
+A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"} 
+![A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Puntuación de probabilidad {#purchase_score}
 
-A los usuarios de la audiencia de predicción se les asignará una puntuación de probabilidad entre 0 y 100. Cuanto mayor sea la puntuación, mayor será la probabilidad de realizar el evento. 
+A los usuarios de la audiencia de predicción se les asignará una puntuación de probabilidad entre 0 y 100. Cuanto mayor sea la puntuación, mayor será la probabilidad de realizar el evento.
 
 A continuación se muestra cómo se clasifica a un usuario en función de su puntuación de probabilidad:
 
 - **Bajo:** entre 0 y 50
 - **Medio:** entre 50 y 75
-- **Alta:** entre 75 y 100
+- **Alto:** entre 75 y 100
 
-Las puntuaciones y las categorías correspondientes se actualizarán según el calendario que hayas elegido en la página de **creación de predicciones**. El número de usuarios con puntuaciones de probabilidad en cada uno de los 20 contenedores de igual tamaño o en cada una de las categorías de probabilidad, se muestra en el gráfico de la parte superior de la página.
+Las puntuaciones y las categorías correspondientes se actualizarán según el calendario que hayas elegido en la página de **creación de predicciones**. El número de usuarios con puntuaciones de probabilidad en cada uno de los 20 contenedores de igual tamaño o en cada una de las categorías de probabilidad se muestra en el gráfico de la parte superior de la página.
 
-### Acceso a las puntuaciones de probabilidad a nivel de usuario
+### Acceso a las puntuaciones de probabilidad a nivel de usuario {#accessing-user-level-likelihood-scores}
 
-Para ver la puntuación de probabilidad de un solo usuario, busca a ese usuario en el panel y ve a **Interacción** > **Predicciones** para ver su puntuación. Para acceder a las puntuaciones y categorías de muchos usuarios a la vez, crea un [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/) utilizando los filtros [Puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#event-likelihood-score) o [Categoría de probabilidad de evento]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#event-likelihood-category) y, a continuación, exporta los usuarios de ese segmento. Al exportar, puedes incluir las puntuaciones de probabilidad en los datos exportados.
+Para ver la puntuación de probabilidad de un solo usuario, busca a ese usuario en el dashboard y ve a **Engagement** > **Predictions** para ver su puntuación. Para acceder a las puntuaciones y categorías de muchos usuarios a la vez, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) utilizando los filtros [Puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) o [Categoría de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) y, a continuación, exporta los usuarios de ese segmento. Al exportar, puedes incluir las puntuaciones de probabilidad en los datos exportados.
 
 {% alert note %}
-Aunque tanto los eventos predictivos como [el abandono predictivo]({{site.baseurl}}/user_guide/brazeai/predictive_churn/) asignan puntuaciones a los usuarios, existen diferencias importantes:<br><br>
+Aunque tanto Predictive Events como [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) asignan puntuaciones a los usuarios, existen diferencias importantes:<br><br>
 
-- **Eventos predictivos** (predicciones de compra): Ten en cuenta a todos los usuarios de la audiencia de predicción, independientemente de si han realizado el evento objetivo anteriormente. Por ejemplo, una predicción de compra puede identificar a los usuarios que probablemente vayan a realizar su primera compra.
-- **Predictive Churn**: Solo tiene en cuenta a los usuarios que ya han realizado el evento personalizado. Las predicciones de abandono identifican a los usuarios que han hecho algo anteriormente y es probable que dejen de hacerlo. Un usuario que nunca ha iniciado sesión no puede considerarse «perdido» si no inicia sesión.
+- **Predictive Events** (predicciones de compra): tienen en cuenta a todos los usuarios de la audiencia de predicción, independientemente de si han realizado el evento objetivo anteriormente. Por ejemplo, una predicción de compra puede identificar a los usuarios que probablemente vayan a realizar su primera compra.
+- **Predictive Churn**: solo tiene en cuenta a los usuarios que ya han realizado el evento personalizado. Las predicciones de cancelación identifican a los usuarios que han hecho algo anteriormente y es probable que dejen de hacerlo. Un usuario que nunca ha iniciado sesión no puede considerarse «perdido» si no inicia sesión.
 
-Al exportar las puntuaciones de riesgo de abandono de un segmento, estas puntuaciones reflejan el modelo de predicción de abandono, que difiere de los modelos de predicción de compras u otros eventos.
+Al exportar las puntuaciones de riesgo de abandono de un segmento, estas puntuaciones reflejan el modelo de predicción de cancelación, que difiere de los modelos de predicción de compras u otros eventos.
 {% endalert %}
 
 ## Precisión estimada {#estimated_results}
 
 En la mitad derecha del panel, debajo del gráfico, mostramos estimaciones de la precisión esperada de dirigirte a la parte de la audiencia de predicción que seleccionaste de dos formas: cuántos usuarios seleccionados se espera que realicen el evento y cuántos se espera que no lo hagan.
 
-![La audiencia seleccionada y la precisión estimada que se muestran en el panel de Braze.]({% image_buster /assets/img/purchasePrediction/purchaseEstimatedResults.png %})
+![La audiencia seleccionada y la precisión estimada que se muestran en el dashboard de Braze.]({% image_buster /assets/img/purchasePrediction/purchaseEstimatedResults.png %})
 
-### Se espera que tengas un buen rendimiento
+### Se espera que realicen el evento {#expected-to-perform}
 
 Puedes utilizar la precisión estimada para comprobar cuántos usuarios seleccionados se espera que realicen el evento.
 
-La predicción no es perfectamente exacta, y ninguna predicción lo es nunca, lo que significa que Braze no podrá identificar a todos y cada uno de los futuros usuarios que realicen el evento. Las puntuaciones de probabilidad son como un conjunto de predicciones informadas y fiables. La barra de progreso indica cuántos de los "verdaderos positivos" esperados en la audiencia de predicción se dirigirán a la audiencia seleccionada. Ten en cuenta que esperamos que este número de usuarios realice el evento aunque no les envíes ningún mensaje.
+La predicción no es perfectamente exacta, y ninguna predicción lo es nunca, lo que significa que Braze no podrá identificar a todos y cada uno de los futuros usuarios que realicen el evento. Las puntuaciones de probabilidad son como un conjunto de predicciones informadas y fiables. La barra de progreso indica cuántos de los «verdaderos positivos» esperados en la audiencia de predicción serán objetivo con la audiencia seleccionada. Ten en cuenta que esperamos que este número de usuarios realice el evento aunque no les envíes ningún mensaje.
 
-### No se espera que tengas un buen rendimiento
+### No se espera que realicen el evento {#not-expected-to-perform}
 
 Puedes utilizar la precisión estimada para comprobar cuántos usuarios seleccionados se espera que no realicen el evento.
 
-Todos los modelos de aprendizaje automático cometen errores. Puede haber usuarios en tu selección que tengan una puntuación de probabilidad alta, pero que no acaben realizando realmente el evento. No realizarían el acto si no hicieras nada. Serán objetivo de todos modos, por lo que se trata de un error o "falso positivo". La anchura total de esta segunda barra de progreso representa el número previsto de usuarios que no realizarán el evento, y la parte rellena es la de aquellos a los que se dirigirá incorrectamente utilizando la posición actual del deslizador.
+Todos los modelos de aprendizaje automático cometen errores. Puede haber usuarios en tu selección que tengan una puntuación de probabilidad alta, pero que no acaben realizando realmente el evento. No realizarían el evento si no hicieras nada. Serán objetivo de todos modos, por lo que se trata de un error o «falso positivo». La anchura total de esta segunda barra de progreso representa el número previsto de usuarios que no realizarán el evento, y la parte rellena es la de aquellos a los que se dirigirá incorrectamente utilizando la posición actual del deslizador.
 
-Utilizando esta información, te animamos a que decidas cuántos de los verdaderos positivos quieres capturar, cuántos falsos positivos puedes aceptar que sean objetivo, y cuál es el coste de los errores para tu empresa. Si estás enviando una promoción valiosa, quizá quieras dirigirte sólo a los no compradores (falsos positivos) favoreciendo el lado izquierdo del gráfico. O puede que quieras animar a los compradores que compran a menudo (verdaderos positivos) a que vuelvan a hacerlo seleccionando una sección de usuarios que favorezca el lado derecho del gráfico.
+Utilizando esta información, te animamos a que decidas cuántos de los verdaderos positivos quieres capturar, cuántos falsos positivos puedes aceptar que sean objetivo y cuál es el coste de los errores para tu empresa. Si estás enviando una promoción valiosa, quizá quieras dirigirte solo a los no compradores (falsos positivos) favoreciendo el lado izquierdo del gráfico. O puede que quieras animar a los compradores que compran a menudo (verdaderos positivos) a que vuelvan a hacerlo seleccionando una sección de usuarios que favorezca el lado derecho del gráfico.
 
 ## Calidad de la predicción {#prediction_quality}
 
 {% multi_lang_include brazeai/predictive_suite/prediction_quality.md %}
 
-## Tabla de correlación de sucesos {#correlation_table}
+## Tabla de correlación de eventos {#correlation_table}
 
-Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los sucesos de la audiencia de predicción. Los atributos evaluados son Edad, País, Sexo e Idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados y campañas y pasos en Canvas recibidos en los últimos 30 días.
+Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los eventos de la audiencia de predicción. Los atributos evaluados son edad, país, sexo e idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados, y campañas y pasos en Canvas recibidos en los últimos 30 días.
 
 Las tablas se dividen en izquierda y derecha para los más y los menos propensos a realizar el evento, respectivamente. Para cada fila, en la columna de la derecha se muestra la proporción en la que los usuarios con el comportamiento o atributo de la columna de la izquierda tienen más o menos probabilidades de realizar el evento. Este número es el cociente de las puntuaciones de probabilidad de los usuarios con este comportamiento o atributo dividido por la probabilidad de realizar el evento de toda la audiencia de predicción.
 
-Esta tabla sólo se actualiza cuando se reentrena la predicción y no cuando se actualizan las puntuaciones de probabilidad del usuario.
+Esta tabla solo se actualiza cuando se reentrena la predicción y no cuando se actualizan las puntuaciones de probabilidad del usuario.
 
 {% alert note %}
-Los datos de correlación de las predicciones de la vista previa estarán parcialmente ocultos. Se requiere una compra para revelar esta información. Ponte en contacto con tu director de cuentas para obtener más información.
+Los datos de correlación de las predicciones de vista previa estarán parcialmente ocultos. Se requiere una compra para revelar esta información. Ponte en contacto con tu director de cuentas para obtener más información.
 {% endalert %}
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
-### No se puede crear una predicción.
+### No se puede crear una predicción {#unable-to-create-a-prediction}
 
-Si no puedes crear una predicción para un evento personalizado, es posible que se deba a un tamaño de muestra insuficiente. Braze calcula el número de usuarios que han realizado la acción y, si no hay suficientes usuarios que la hayan realizado, es posible que la muestra no proporcione datos suficientes para entrenar el modelo. En este caso, el sistema puede extrapolar a ningún usuario, lo que impide la creación de predicciones.
+Si no puedes crear una predicción para un evento personalizado, es posible que se deba a un tamaño de muestra insuficiente. Braze calcula el número de usuarios que han realizado el evento y, si no hay suficientes usuarios que lo hayan realizado, es posible que la muestra no proporcione datos suficientes para entrenar el modelo. En este caso, el sistema puede extrapolar a ningún usuario, lo que impide la creación de predicciones.
 
-Para crear una predicción exitosa, asegúrate de que un número suficiente de usuarios de tu audiencia de predicción haya realizado tu evento personalizado objetivo. El umbral exacto varía, pero es posible que los eventos con un uso muy bajo entre tu base de usuarios no proporcionen datos suficientes para un entrenamiento fiable del modelo.
+Para crear una predicción con éxito, asegúrate de que un número suficiente de usuarios de tu audiencia de predicción haya realizado tu evento personalizado objetivo. El umbral exacto varía, pero es posible que los eventos con un uso muy bajo entre tu base de usuarios no proporcionen datos suficientes para un entrenamiento fiable del modelo.

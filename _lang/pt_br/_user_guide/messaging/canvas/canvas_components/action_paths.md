@@ -8,7 +8,7 @@ description: "Este artigo de referência aborda como usar as Jornadas de ação,
 tool: Canvas
 ---
 
-# Jornadas de ação
+# Jornadas de ação {#action-paths}
 
 > As Jornadas de ação no Canvas permitem classificar seus usuários com base em suas ações.
 
@@ -19,11 +19,11 @@ Com as Jornadas de ação, você pode:
 * Personalizar as jornadas dos usuários com base em uma ação específica, incluindo eventos de engajamento e eventos personalizados
 * Reter os usuários por um período determinado para priorizar a próxima jornada com base nas ações realizadas durante esse período de avaliação
 
-## Criando uma jornada de ação
+## Criando uma jornada de ação {#creating-an-action-path}
 
 Para criar uma jornada de ação, adicione um componente ao seu Canvas. Arraste e solte o componente da barra lateral ou selecione o botão de adição <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Jornadas de ação**.
 
-### Configurações de ação
+### Configurações de ação {#action-settings}
 
 Em **Configurações de ação**, defina o **Período de avaliação** para determinar por quanto tempo os usuários ficam retidos na etapa. Por padrão, os usuários são avaliados dentro de um dia, mas você pode ajustar esse período por segundos, minutos, horas, dias e semanas, dependendo do seu Canvas. O período máximo de avaliação para uma jornada de ação é de 31 dias.
 
@@ -36,16 +36,16 @@ Por padrão, a **Classificação** está desativada. Quando um usuário entra na
 Quando a opção **Avançar usuários com base na ordem de classificação** está ativada, a **Classificação** fica ativa. Portanto, todos os usuários são retidos até o final do período de avaliação. Ao final desse período, os usuários avançam pelo grupo de ação de maior prioridade para o qual são elegíveis. Os usuários que não realizarem nenhuma das ações durante o período de avaliação avançam pelo grupo padrão **Restante do público**.
 
 {% alert tip %}
-Para direcionar os usuários com base em seus atributos atuais ou pertencimento a segmentos, em vez de ações realizadas, use as [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/).
+Para direcionar os usuários com base em seus atributos atuais ou pertencimento a segmentos, em vez de ações realizadas, use as [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths).
 {% endalert %}
 
 Observe que você pode disparar uma jornada de ação quando um objeto de atributo personalizado aninhado muda, mas não para vetores de atributos personalizados aninhados ou alterações em tipos de dados de vetor de objeto.
 
-#### Mensagens no app
+#### Mensagens no app {#in-app-messages}
 
 Quando o gatilho do grupo de ação é iniciar uma sessão e a próxima etapa é uma mensagem no app, o usuário precisa iniciar duas sessões para receber a mensagem no app. A primeira sessão atribui o usuário ao grupo de ação dentro da jornada de ação, e a segunda sessão dispara a mensagem no app.
 
-#### Exemplo de status de classificação
+#### Exemplo de status de classificação {#ranking-status-example}
 
 Digamos que você tenha uma jornada de ação com um período de avaliação de um dia e dois grupos de ação: Grupo 1 e Grupo 2. O Grupo 1 tem o evento de gatilho "Iniciar sessão" e o Grupo 2 tem "Realizar compra". Se a **Classificação** estiver ativada, todos os usuários na jornada de ação ficam "retidos" por um dia. Ao final do dia, se um usuário tiver iniciado uma sessão e realizado uma compra, ele avança pela jornada de maior classificação. Nesse caso, o usuário avançaria para o Grupo 1.
 
@@ -53,36 +53,44 @@ No exemplo anterior, se a **Classificação** estiver desativada e um usuário r
 
 Observe que as propriedades de entrada do Canvas são diferentes das propriedades de evento. As propriedades de entrada do Canvas são propriedades do evento que disparou o Canvas. Essas propriedades só podem ser usadas na primeira etapa completa de um Canvas ao usar o fluxo de trabalho original do Canvas. Ao usar o Canvas, as propriedades de entrada persistentes são ativadas e permitem que as propriedades de entrada sejam reutilizadas em todo o Canvas. Por outro lado, as propriedades de evento se originam de um evento ou ação que ocorre enquanto o usuário percorre seu fluxo de trabalho.
 
-### Grupos de ação
+### Grupos de ação {#action-groups}
 
 Adicione um ou vários gatilhos para definir seus grupos de ação. Aqui, você pode selecionar uma variedade de gatilhos, como quando os usuários:
 
 - Realizam uma compra
 - Iniciam uma sessão
-- Realizam um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
+- Realizam um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - Realizam um evento de conversão
 - Adicionam um endereço de e-mail
 - Alteram o valor de um atributo personalizado.
   - Isso inclui adicionar um novo atributo com um valor a um perfil de usuário pela primeira vez (quando o atributo não existia anteriormente).
   - Gatilhos de atributo não estão disponíveis para atributos de vetor.
 - Atualizam o status de inscrição ou o status do grupo de inscrições
-- Interagem com uma campanha ou cartão de conteúdo
+- Interagem com uma Campaign ou cartão de conteúdo
 - Entram em um local
 - Disparam uma geofence
 - Enviam uma mensagem de entrada por SMS ou WhatsApp
+
+#### Gatilho de adição de endereço de e-mail {#add-an-email-address-trigger}
+
+O gatilho do grupo de ação **Adicionar um endereço de e-mail** é disparado quando um endereço de e-mail é adicionado ou atualizado em um perfil de usuário durante o **Período de avaliação** da jornada de ação. Esse comportamento é igual ao de outros gatilhos de atualização de perfil: os usuários avançam pelo grupo de ação quando a alteração no perfil se qualifica de acordo com sua configuração, incluindo quaisquer filtros no gatilho.
 
 ![Um grupo de ação chamado "Grupo 1" para usuários que realizam qualquer compra.]({% image_buster /assets/img/actionpath_group.png %})
 
 Em cada configuração de grupo de ação, você também tem a opção de marcar a caixa de seleção **Quero que este grupo saia do Canvas**, o que significa que os usuários desse grupo sairão do Canvas ao final do período de avaliação.
 
-### Canvas com reelegibilidade
+### Canvas com reelegibilidade {#canvases-with-re-eligibility}
 
 Se os usuários entrarem em uma jornada de ação várias vezes e tiverem múltiplas entradas na jornada de ação ao mesmo tempo, o comportamento esperado varia dependendo do status da **Classificação**.
 
 | Status da classificação | Comportamento da jornada de ação |
 |---|--------------|
-| **Desativada** | Um usuário pode entrar em uma jornada de ação mais de uma vez. Essas entradas ficam retidas na jornada de ação até que uma ação-gatilho ou evento seja registrado. Se o evento de gatilho não satisfizer os filtros de propriedade de uma entrada (por exemplo, uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) não corresponder aos filtros de propriedade do gatilho), a entrada permanece na jornada de ação. <br><br>Se o evento de gatilho satisfizer mais de uma entrada, a Braze faz a deduplicação apenas dessas entradas e avança imediatamente a entrada correspondente mais antiga pelo grupo de ação relevante. |
+| **Desativada** | Um usuário pode entrar em uma jornada de ação mais de uma vez. Essas entradas ficam retidas na jornada de ação até que uma ação-gatilho ou evento seja registrado. Se o evento de gatilho não satisfizer os filtros de propriedade de uma entrada (por exemplo, uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables) não corresponder aos filtros de propriedade do gatilho), a entrada permanece na jornada de ação. <br><br>Se o evento de gatilho satisfizer mais de uma entrada, a Braze faz a deduplicação apenas dessas entradas e avança imediatamente a entrada correspondente mais antiga pelo grupo de ação relevante. |
 | **Ativada** | Todas as entradas avançam ao final do período de avaliação correspondente. Nenhuma deduplicação ocorre. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas com reelegibilidade" }
 
-Observe que as classificações não são [editáveis após o lançamento]({{site.baseurl}}/post-launch_edits/).
+{% alert warning %}
+Não altere a opção **Avançar usuários com base na ordem de classificação** após o lançamento quando já houver usuários na etapa. A Braze aplica a configuração de classificação atual ao processar eventos e quando o período de avaliação termina, mas o estado da jornada registrado anteriormente no período pode refletir uma configuração anterior. Por exemplo, se você desativar a classificação depois que os usuários realizaram uma ação classificada, eles podem não avançar pela jornada esperada quando o período terminar. Em vez disso, crie uma nova jornada de ação com a configuração de classificação desejada ou duplique o Canvas.
+{% endalert %}
+
+Observe que as classificações não são [editáveis após o lançamento]({{site.baseurl}}/post-launch_edits).

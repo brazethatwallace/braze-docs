@@ -69,7 +69,7 @@ Once Braze receives data from version 2.0.0 of your app, you can target users wi
 | Greater than 2.0.0 | 2.5.1 | The user and all future installs will be in the segment. |
 | Greater than 2.0.0 | 1.9.9 | The user is not in the segment. |
 | Less than or equal to 2.0.0 | 3.0.1 | The user is not in the segment. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case" }
 
 ### App version name
 
@@ -84,7 +84,7 @@ For Android, this version name is based on the [Package Version Name](https://de
 When you release a new app version and introduce new features, users may not notice new content. Running a feature awareness campaign is a great way to teach users about new features or features they have never used. To do so, you must create a [custom attribute]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) that is assigned to users who have never completed a certain action within your app or use a [custom event]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) to track a particular action. You can use this attribute (or event) to segment the users you want to send the campaign to.
 
 {% alert tip %}
-Looking to retarget a specific portion of your audience? Check out [Retargeting Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/) to learn how to retarget campaigns by leveraging your user's previous actions.
+Looking to retarget a specific portion of your audience? Check out [Retargeting Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) to learn how to retarget campaigns by leveraging your user's previous actions.
 {% endalert %}
 
 

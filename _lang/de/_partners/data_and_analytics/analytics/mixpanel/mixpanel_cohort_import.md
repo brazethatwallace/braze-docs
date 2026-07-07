@@ -12,6 +12,10 @@ search_tag: Partner
 
 ## Integration von Datenimporten {#data-import-integration}
 
+Wenn Sie eine Kohorte von Mixpanel mit Braze synchronisieren, empfängt Braze Aktualisierungen der Kohortenmitgliedschaft für Nutzer:innen, die Mixpanel bestehenden Braze-Profilen zuordnen kann. Nach einer Synchronisierung können Sie diese Nutzer:innen mit dem Segment-Filter **Mixpanel cohorts** ansprechen.
+
+Die Kohortensynchronisierung importiert keine Mixpanel-Ereignisse, Mixpanel-Nutzer:inneneigenschaften oder angepasste Attribute in Braze. Das Konnektor-Verhalten, einschließlich der Synchronisierungsfrequenz, wird in Mixpanel gesteuert. Einzelheiten zur Einrichtung finden Sie in der [Mixpanel-Dokumentation zur Braze-Kohortensynchronisierung](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). Informationen zu den Anforderungen für den Nutzer:innen-Abgleich finden Sie unter [Nutzer:innen-Abgleich](#user-matching).
+
 Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
 
 {% alert important %}

@@ -26,7 +26,7 @@ Tealium AudienceStreams et EventStreams offrent à la fois des actions de connec
 | Compte Tealium | Un [compte Tealium](https://my.tealiumiq.com/) avec accès côté serveur est requis. Nous vous recommandons également d'utiliser les intégrations côté client pour tirer parti de ce partenariat. |
 | Clé API REST | Une clé API REST Braze avec les autorisations `users.track`, `users.delete` et `subscription.status.set`.<br><br>Celle-ci peut être créée dans le **tableau de bord de Braze > Console de développement > Clé API REST > Créer une nouvelle clé API** |
 | [Endpoint REST Braze]({{site.baseurl}}/api/basics/#endpoints) | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -68,7 +68,7 @@ Les badges sont des attributs spéciaux de visiteur qui représentent des modèl
 #### Exemple d'attribut et de badge {#attribute-and-badge-example}
 
 {% tabs local %}
-{% tab Attribute %}
+{% tab Attribut %}
 
 Créez un attribut de visiteur « Lifetime Order Value » qui calcule le montant cumulé dépensé (`order_total`) par le client pour toutes les commandes terminées (événement d'achat). Pour configurer la valeur vie des commandes dans votre compte Tealium, suivez les instructions ci-dessous :
 
@@ -144,7 +144,7 @@ Tous les champs proposés ne sont pas obligatoires.
 {% endalert %}
 
 {% tabs local %}
-{% tab Track User - Batch and Non-Batch %}
+{% tab Track User — par lots et non par lots %}
 
 Cette action vous permet de suivre les attributs des utilisateurs, des événements et des achats en une seule action. Bien que l'action Track User soit la même pour AudienceStream et EventStream, Tealium recommande de définir les mappages d'attributs utilisateur avec les actions AudienceStream et les mappages d'événements et d'achats avec les actions EventStream.
 
@@ -159,24 +159,24 @@ Cette action vous permet de suivre les attributs des utilisateurs, des événeme
 | Achat | Utilisez ce champ pour suivre et mapper les attributs d'achat des utilisateurs comme ceux de l'[objet achat]({{site.baseurl}}/api/objects_filters/purchase_object/) Braze.<br><br>- Les attributs d'achat `Product ID`, `Currency` et `Price` sont requis pour chaque achat mappé.<br>- L'attribut d'achat `Time` est automatiquement défini sur l'heure actuelle à moins qu'il ne soit explicitement mappé.<br>- Par défaut, de nouveaux achats seront créés s'il n'en existe pas. En définissant `Update Existing Only` sur `true`, seuls les achats existants seront mis à jour et aucun nouvel achat ne sera créé.<br>- Mappez les attributs de type tableau pour ajouter plusieurs articles d'achat. Les attributs de type tableau doivent être de longueur égale.<br>- Les attributs à valeur unique peuvent être utilisés et s'appliqueront à chaque élément. |
 | Modèle d'achat | Les modèles peuvent être utilisés pour transformer les données avant qu'elles ne soient envoyées à Braze.<br>- Définissez un modèle d'achat si vous avez besoin de prendre en charge des objets imbriqués.<br>- Lorsqu'un modèle d'achat est défini, la configuration définie dans la section des achats de votre action sera ignorée.<br>- Reportez-vous au [guide des modèles](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) de Tealium pour en savoir plus. |
 | Variable de modèle d'achat | Fournissez des variables de modèle de produit comme entrée de données. Reportez-vous au [guide des variables de modèle](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) de Tealium pour en savoir plus. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
 {% endtab %}
-{% tab Delete User - Non-Batch %}
+{% tab Delete User — non par lots %}
 
 Cette action vous permet de supprimer des utilisateurs du tableau de bord de Braze.
 
 | Paramètres | Description |
 | ---------- | ----------- |
 | User ID | Utilisez ce champ pour mapper le champ User ID de Tealium à son équivalent Braze.<br><br>- Mappez un ou plusieurs attributs d'ID utilisateur. Lorsque plusieurs identifiants sont spécifiés, la première valeur non vide est choisie en fonction de l'ordre de priorité suivant : External ID, Braze ID, Alias Name et Alias Label.<br>- Lors de la spécification d'un alias d'utilisateur, l'Alias Name et l'Alias Label doivent être définis tous les deux.<br><br>Pour plus d'informations, consultez l'endpoint [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
 {% endtab %}
-{% tab Update User Subscription Group Status - Non-Batch %}
+{% tab Update User Subscription Group Status — non par lots %}
 Cette action vous permet d'ajouter ou de supprimer des utilisateurs des groupes d'abonnement SMS ou e-mail de Braze.
 
 | Paramètres | Description |
@@ -184,7 +184,7 @@ Cette action vous permet d'ajouter ou de supprimer des utilisateurs des groupes 
 | Type de groupe | Utilisez ce champ pour indiquer s'il s'agit d'un groupe d'abonnement SMS ou e-mail. |
 | Type de mise à jour | Mappez cette action à un événement de désabonnement ou d'abonnement. |
 | Attributs | - Subscription Group ID (requis) : l'ID du groupe d'abonnement lié au type de groupe mappé dans le champ précédent.<br>- External ID : l'ID externe de l'utilisateur.<br><br>Spécifique au groupe e-mail :<br>- Email : l'adresse e-mail de l'utilisateur.<br>**Si l'External ID n'est pas défini, l'e-mail sera requis.**<br><br>Spécifique au groupe SMS :<br>- Phone : le numéro de téléphone au format E.164. Par exemple, +14155552671.<br>**Si l'External ID n'est pas défini, le numéro de téléphone sera requis.** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
 
@@ -216,7 +216,7 @@ Reportez-vous à la [documentation Trace](https://docs.tealium.com/server-side/c
 ## Démonstration d'intégration {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Démonstration de l'intégration Tealium AudienceStream" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Dépassements potentiels de points de donnée {#potential-data-point-overages}

@@ -11,9 +11,9 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Modal durch Tippen außerhalb des Fensters ausblenden
+# Modal durch Tippen außerhalb des Fensters ausblenden {#dismiss-modal-on-outside-tap}
 
-Der Standardwert ist `NO`. Hierdurch wird festgelegt, ob die modale In-App-Nachricht ausgeblendet wird, wenn der Nutzer auf eine Stelle außerhalb der In-App-Nachricht tippt.
+Der Standardwert ist `NO`. Hierdurch wird festgelegt, ob die modale In-App-Nachricht ausgeblendet wird, wenn der/die Nutzer:in auf eine Stelle außerhalb der In-App-Nachricht tippt.
 
 Wenn Sie Ausblendungen durch Tippen außerhalb des Fensters aktivieren möchten, fügen Sie ein Wörterbuch namens `Braze` zur Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den booleschen Untereintrag `DismissModalOnOutsideTap` hinzu und setzen Sie den Wert auf `YES`. Siehe hierzu das folgende Code-Snippet. Beachten Sie, dass vor Braze iOS SDK v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
 
@@ -31,4 +31,4 @@ Sie können das Feature auch zur Laufzeit aktivieren, indem Sie `ABKEnableDismis
 |----------|-------------|
 | `YES`       | Modale In-App-Nachrichten werden ausgeblendet, wenn auf eine Stelle außerhalb des Fensters getippt wird.     |
 | `NO`        | Standardmäßig werden modale In-App-Nachrichten beim Tippen auf eine Stelle außerhalb des Fensters nicht ausgeblendet. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modal durch Tippen außerhalb des Fensters ausblenden" }

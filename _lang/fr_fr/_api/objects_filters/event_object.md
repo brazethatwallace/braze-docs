@@ -1,25 +1,25 @@
 ---
-nav_title: "Objet Événement"
-article_title: Objet Événement de l'API
+nav_title: "Objet événement"
+article_title: Objet événement de l'API
 page_order: 6
 page_type: reference
-description: "Cet article de référence explique l'objet Événement, ce qu'il est et en quoi il est essentiel dans les stratégies de Campaign basées sur les événements."
+description: "Cet article de référence explique l'objet événement, ce qu'il est et en quoi il est essentiel dans les stratégies de Campaign basées sur les événements."
 
 ---
 
-# Objet Événement {#event-object}
+# Objet événement {#event-object}
 
-> Cet article explique les différents composants d'un objet Événement, comment vous pouvez l'utiliser et des exemples dont vous pouvez vous inspirer.
+> Cet article explique les différents composants d'un objet événement, comment vous pouvez l'utiliser et des exemples dont vous pouvez vous inspirer.
 
-## Qu'est-ce qu'un objet Événement ? {#what-is-an-event-object}
+## Qu'est-ce qu'un objet événement ? {#what-is-an-event-object}
 
-Un objet Événement est un objet qui passe par l'API lorsqu'un événement spécifique se produit. Les objets Événements sont hébergés dans un tableau d'événements. Chaque objet Événement du tableau d'événements représente l'occurrence unique d'un événement personnalisé par un utilisateur particulier à la valeur de temps désignée. L'objet Événement comporte plusieurs champs qui vous permettent de le personnaliser en définissant et en utilisant les propriétés d'événement dans les messages, la collecte de données et la personnalisation.
+Un objet événement est un objet qui passe par l'API lorsqu'un événement spécifique se produit. Les objets événements sont hébergés dans un tableau d'événements. Chaque objet événement du tableau d'événements représente l'occurrence unique d'un événement personnalisé par un utilisateur particulier à la valeur de temps désignée. L'objet événement comporte plusieurs champs qui vous permettent de le personnaliser en définissant et en utilisant les propriétés d'événement dans les messages, la collecte de données et la personnalisation.
 
-Pour savoir comment configurer des événements personnalisés pour une plateforme spécifique, reportez-vous au guide d'intégration des plateformes dans le [guide du développeur]({{site.baseurl}}/developer_guide/home/). Reportez-vous à l'article correspondant à votre plateforme :
+Pour savoir comment configurer des événements personnalisés pour une plateforme spécifique, reportez-vous au guide d'intégration des plateformes dans le [guide du développeur]({{site.baseurl}}/developer_guide/home). Reportez-vous à l'article correspondant à votre plateforme :
 
-- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Corps de l'objet {#object-body}
 
@@ -42,12 +42,12 @@ Pour savoir comment configurer des événements personnalisés pour une platefor
 }
 ```
 
-- [ID utilisateur externe]({{site.baseurl}}/api/basics/#user-ids)
-- [Identifiant de l'application]({{site.baseurl}}/api/identifier_types/)
+- [ID utilisateur externe]({{site.baseurl}}/api/basics#user-ids)
+- [Identifiant de l'application]({{site.baseurl}}/api/identifier_types)
 - [Code temporel ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Certaines paires d'identifiants ne peuvent pas être utilisées conjointement dans une même requête. Lorsque `email` et `phone` sont tous deux fournis, `email` a priorité sur `phone`. Pour plus de détails, reportez-vous à la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Certaines paires d'identifiants ne peuvent pas être utilisées conjointement dans une même requête. Lorsque `email` et `phone` sont tous deux fournis, `email` a priorité sur `phone`. Pour plus de détails, reportez-vous à la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 #### Mettre à jour les profils existants uniquement {#update-existing-profiles-only}
@@ -72,9 +72,9 @@ Les valeurs de propriété peuvent être l'un des types de données suivants :
 | Chaînes de caractères | 255 caractères ou moins. |
 | Tableaux | Les tableaux ne peuvent pas inclure de dates/heures. |
 | Objets | Les objets seront ingérés en tant que chaînes de caractères. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Objet de propriétés d'événement" }
 
-Les objets de propriété d'événement qui contiennent des valeurs de tableau ou d'objet peuvent avoir un payload de propriété d'événement allant jusqu'à 100 Ko.
+Les objets de propriété d'événement qui contiennent des valeurs de tableau ou d'objet peuvent avoir un payload de propriété d'événement allant jusqu'à 100&nbsp;Ko.
 
 ### Clés réservées {#reserved-keys}
 
@@ -89,7 +89,7 @@ L'utilisation de clés réservées comme noms de propriétés d'événements per
 
 ### Persistance des propriétés d'événement {#event-property-persistence}
 
-Les propriétés d'événement sont conçues pour le filtrage et la personnalisation Liquid des messages déclenchés par leurs événements parents. Par défaut, elles ne sont pas persistantes sur le profil utilisateur Braze. Pour utiliser les valeurs des propriétés d'événement dans la segmentation, reportez-vous aux [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), qui détaillent les différentes approches de stockage à long terme des valeurs de propriétés d'événement.
+Les propriétés d'événement sont conçues pour le filtrage et la personnalisation Liquid des messages déclenchés par leurs événements parents. Par défaut, elles ne sont pas persistantes sur le profil utilisateur Braze. Pour utiliser les valeurs des propriétés d'événement dans la segmentation, reportez-vous aux [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events), qui détaillent les différentes approches de stockage à long terme des valeurs de propriétés d'événement.
 
 #### Exemple de requête d'événement {#event-example-request}
 
@@ -112,7 +112,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "time" : "2013-07-16T19:20:45+01:00",
       "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
       }
     },
     {
@@ -126,6 +126,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 - [ISO 8601 Time Code Wiki](http://en.wikipedia.org/wiki/ISO_8601)
 
-## Objets Événement {#event-objects}
+## Objets événement {#event-objects}
 
-À l'aide de l'exemple fourni, nous pouvons voir que quelqu'un a regardé une bande-annonce récemment, puis a loué un film. Bien que nous ne puissions pas accéder à une campagne et segmenter les utilisateurs en fonction de ces propriétés, nous pouvons les utiliser stratégiquement sous forme de reçu, pour envoyer un message personnalisé via un canal grâce à Liquid. Par exemple : « Bonjour **Beth**, merci d'avoir loué **The Sad Egg** de **Dan Alexander**. Voici quelques films recommandés en fonction de votre location… »
+À l'aide de l'exemple fourni, nous pouvons voir que quelqu'un a regardé une bande-annonce récemment, puis a loué un film. Bien que nous ne puissions pas accéder à une Campaign et segmenter les utilisateurs en fonction de ces propriétés, nous pouvons les utiliser stratégiquement sous forme de reçu, pour envoyer un message personnalisé via un canal grâce à Liquid. Par exemple : « Bonjour **Alex**, merci d'avoir loué **The Sad Egg** de **Alex Smith**. Voici quelques films recommandés en fonction de votre location… »

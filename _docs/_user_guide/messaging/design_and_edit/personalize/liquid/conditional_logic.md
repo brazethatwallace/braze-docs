@@ -67,12 +67,32 @@ Conditional logic begins with the `if` tag, which states the first condition to 
 
 You have the option to include an `{% else %}` statement in your conditional logic. If none of the conditions that you set are met, the `{% else %}` statement specifies the message that should be sent. In this example, we default to English if a user’s language is not English, Spanish, or Chinese.
 
+#### `case` and `when`
+
+`{% case %}`, `{% when %}`, and `{% endcase %}` work like a switch statement: you set one expression after `case`, and each `when` branch runs when that expression equals the listed value (Liquid uses equality behind the scenes, similar to chaining `if` and `elsif` with `==`). You can list multiple values in one `when` tag by separating them with a comma or `or`. Use `{% else %}` for a fallback when nothing matches, then close with `{% endcase %}`.
+
+Make sure to match the format of your `when` values to the data type. For text (such as a language code), use quotes: `{% when 'es' %}`. For numbers, omit quotes: `{% when 2 %}`.
+
+```liquid
+{% assign handle = 'cake' %}
+{% case handle %}
+{% when 'cake' %}
+This is a cake
+{% when 'cookie' %}
+This is a cookie
+{% else %}
+This is not a cake nor a cookie
+{% endcase %}
+```
+
+You can use the same pattern with Braze personalization tags or other Liquid expressions in place of `handle`. For more syntax options, see Shopify's [`case` tag documentation](https://shopify.dev/docs/api/liquid/tags/case).
+
 #### `endif`
 
-The `{% endif %}` tag signals that you've finished your conditional logic. You must include the `{% endif %}` tag in any message with conditional logic. If you don't include an `{% endif %}` tag in your conditional logic, you'll get an error as Braze will be unable to parse your message.
+The `{% endif %}` tag signals that you've finished an `if` block. You must include the `{% endif %}` tag in any message that uses `if`, `elsif`, `unless`, or `else` in that chain. If you don't include an `{% endif %}` tag, you'll get an error as Braze will be unable to parse your message. If you use `{% case %}` instead, close the block with `{% endcase %}`, not `{% endif %}`.
 
 {% alert note %}
-Conditional tags (`if`, `elsif`, `unless`) support operators but not filters. To evaluate a filtered value in a conditional, assign the filter result to a variable first, then reference that variable. For more details, see [Where to use operators and filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+In `if`, `elsif`, and `unless` tags, you can use operators but not filters. In `case` and `when` tags, each branch matches when the `case` expression equals a `when` value; filters aren't supported in those expressions either. To evaluate a filtered value, assign the filter result to a variable first, then reference that variable in your `case` or `when` clause. For more details, see [Where to use operators and filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ### Tutorial: Deliver location-based content

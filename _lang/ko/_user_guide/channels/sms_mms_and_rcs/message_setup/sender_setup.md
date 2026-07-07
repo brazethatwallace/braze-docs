@@ -11,7 +11,7 @@ channel:
   - RCS
 ---
 
-{% multi_lang_include short_and_long_codes.md %}
+{% multi_lang_include channels/sms/short_and_long_codes.md %}
 
 ## MMS 관련 요구 사항 {#mms-specific-requirements}
 
@@ -57,7 +57,7 @@ MMS 처리량은 긴 코드를 통해 초당 1개 세그먼트입니다.
 | 300&nbsp;KB | 모든 통신사가 이 크기의 MMS 메시지를 안정적으로 처리할 수 있습니다. |
 | 600&nbsp;KB | 대부분의 통신사에서 MMS의 표준 최대 파일 크기로 간주됩니다. |
 | 1&nbsp;MB | 대부분의 미국 및 캐나다 통신사가 이 크기의 MMS 메시지를 처리할 수 있지만, 통신사에 따라 다를 수 있습니다. 일부 통신사는 이보다 더 큰 파일 크기를 허용할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="통신사 파일 크기 제한" }
 
 #### 허용되는 파일 유형 {#accepted-file-types}
 

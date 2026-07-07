@@ -10,44 +10,44 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Integração de Cartago
+# Integração do Carthage {#carthage-integration}
 
-## Importar o SDK
+## Importar o SDK {#import-the-sdk}
 
-A partir da versão `4.4.0`, o SDK da Braze é compatível com o XCFrameworks durante a integração via Carthage. Para importar o SDK completo, inclua estas linhas em seu `Cartfile`:
+A partir da versão `4.4.0`, o SDK da Braze é compatível com XCFrameworks durante a integração via Carthage. Para importar o SDK completo, inclua estas linhas em seu `Cartfile`:
 ```
 binary "https://raw.githubusercontent.com/Appboy/appboy-ios-sdk/master/appboy_ios_sdk.json"
 github "SDWebImage/SDWebImage"
 ```
 
-Consulte o [guia de início rápido do Carthage](https://github.com/Carthage/Carthage#quick-start) para saber mais sobre a importação do SDK.
+Consulte o [guia de início rápido do Carthage](https://github.com/Carthage/Carthage#quick-start) para mais instruções sobre a importação do SDK.
 
-Ao migrar de uma versão anterior para `4.4.0`, siga o [guia de migração do Carthage para o XCFrameworks](https://github.com/Carthage/Carthage#migrating-a-project-from-framework-bundles-to-xcframeworks).
+Ao migrar de uma versão anterior à `4.4.0`, siga o [guia de migração do Carthage para XCFrameworks](https://github.com/Carthage/Carthage#migrating-a-project-from-framework-bundles-to-xcframeworks).
 
 {% alert note %}
-Para saber mais sobre a sintaxe do `Cartfile` ou sobre recursos como a fixação de versão, consulte a [documentação do Carthage](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
+Para mais detalhes sobre a sintaxe do `Cartfile` ou sobre recursos como a fixação de versão, consulte a [documentação do Carthage](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 Para uso específico da plataforma do Carthage, consulte o [guia do usuário](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 {% endalert %}
 
-### Versões anteriores
+### Versões anteriores {#previous-versions}
 
 Para as versões `3.24.0` a `4.3.4`, inclua o seguinte em seu `Cartfile`:
 ```
 binary "https://raw.githubusercontent.com/Appboy/appboy-ios-sdk/master/appboy_ios_sdk_full.json"
 ```
 
-Para importar versões anteriores a `3.24.0`, inclua o seguinte em seu `Cartfile`:
+Para importar versões anteriores à `3.24.0`, inclua o seguinte em seu `Cartfile`:
 ```
 github "Appboy/Appboy-iOS-SDK" "<BRAZE_IOS_SDK_VERSION>"
 ```
 
-Substitua `<BRAZE_IOS_SDK_VERSION>` pela [versão apropriada](https://github.com/Appboy/appboy-ios-sdk/releases) do Braze iOS SDK no formato "x.y.z".
+Substitua `<BRAZE_IOS_SDK_VERSION>` pela [versão apropriada](https://github.com/Appboy/appboy-ios-sdk/releases) do SDK da Braze para iOS no formato "x.y.z".
 
-## Próximas etapas
+## Próximas etapas {#next-steps}
 
-Siga as instruções para [concluir a integração]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration/).
+Siga as instruções para [concluir a integração]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration).
 
-## Integração somente do núcleo
+## Integração somente do núcleo {#core-only-integration}
 
 Para usar o SDK principal sem nenhum componente ou dependência de interface, instale a versão principal do framework da Braze para Carthage incluindo a seguinte linha em seu `Cartfile`:
 

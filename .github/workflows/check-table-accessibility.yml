@@ -1,0 +1,220 @@
+# Checks that every table in changed Markdown files has an accessible name.
+# Tables must have one of:
+#   - A Kramdown IAL with aria-label= (markdown tables)
+#   - A Kramdown IAL with role="presentation" or role="none" (explicit layout-table opt-out)
+#   - aria-label= or aria-labelledby= on the <table> tag (HTML tables)
+#   - <caption> as the first child element (HTML tables)
+#
+# On failure: posts inline review suggestions (with context) the writer can commit with one click.
+#   - 1–3 violations: inline comments only (no summary comment).
+#   - 4+ violations: summary comment with count + inline comments on each flagged line.
+# On pass: removes any previous failure comment.
+#
+# Fix guidance is also printed inline. Run locally:
+#   python3 scripts/check_table_accessibility.py            # scan all _docs/ and _includes/
+#   python3 scripts/check_table_accessibility.py path/to/file.md   # scan specific file(s)
+
+name: Check table accessibility
+
+on:
+  pull_request:
+    paths:
+      - "_docs/**/*.md"
+      - "_includes/**/*.md"
+      - "scripts/check_table_accessibility.py"
+      - "scripts/test_check_table_accessibility.py"
+      - ".github/workflows/check-table-accessibility.yml"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  test-script:
+    name: Unit tests (check_table_accessibility.py)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: pip install pytest --quiet
+
+      - name: Run tests
+        working-directory: scripts
+        run: python3 -m pytest test_check_table_accessibility.py -v
+
+  check-table-accessibility:
+    name: Table accessible names (changed Markdown)
+    runs-on: ubuntu-latest
+    needs: test-script
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch for three-dot diff
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: Get changed Markdown files
+        id: changed
+        shell: bash
+        run: |
+          BASE="origin/${{ github.base_ref }}"
+          mapfile -t FILES < <(
+            git diff --name-only --diff-filter=ACMRT "$BASE"...HEAD \
+              -- '_docs/**' '_includes/**' \
+            | grep -E '\.md$' \
+            | grep -v '^_docs/_hidden/' \
+            || true
+          )
+          if ((${#FILES[@]} == 0)); then
+            echo "ran=false" >> "$GITHUB_OUTPUT"
+            echo "No changed Markdown files to check."
+            exit 0
+          fi
+          echo "ran=true" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "${FILES[@]}" > /tmp/changed_files.txt
+          echo "Checking ${#FILES[@]} file(s):"
+          printf '  %s\n' "${FILES[@]}"
+
+      - name: Check table accessible names
+        id: lint
+        if: steps.changed.outputs.ran == 'true'
+        shell: bash
+        run: |
+          set +e
+          mapfile -t FILES < /tmp/changed_files.txt
+          python3 scripts/check_table_accessibility.py \
+            --json violations.json \
+            "${FILES[@]}" 2>&1 | tee lint-output.txt
+          LINT_EXIT=${PIPESTATUS[0]}
+          echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
+          exit "${LINT_EXIT}"
+
+      - name: Post inline suggestions and sync PR comment
+        if: always() && steps.changed.outputs.ran == 'true'
+        uses: actions/github-script@v9
+        env:
+          LINT_OUTCOME: ${{ steps.lint.outcome }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-table-a11y-bot -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+            const headSha = process.env.HEAD_SHA;
+
+            // --- Helper: find or update/delete the summary comment ---
+            async function syncSummaryComment(body) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner, repo, issue_number: prNumber, per_page: 100,
+              });
+              const existing = comments.find(c => c.body && c.body.includes(marker));
+
+              if (!body) {
+                if (existing) {
+                  await github.rest.issues.deleteComment({ owner, repo, comment_id: existing.id });
+                  core.info(`Deleted resolved table-accessibility comment ${existing.id}`);
+                }
+                return;
+              }
+              if (existing) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+                core.info(`Updated table-accessibility comment ${existing.id}`);
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+                core.info('Created table-accessibility comment');
+              }
+            }
+
+            if (process.env.LINT_OUTCOME === 'success' || process.env.LINT_OUTCOME === 'skipped') {
+              await syncSummaryComment(null);
+              return;
+            }
+
+            // --- Parse violations ---
+            const fs = require('fs');
+            let violations = [];
+            try {
+              violations = JSON.parse(fs.readFileSync('violations.json', 'utf8'));
+            } catch (e) {
+              core.warning('Could not read violations.json: ' + e.message);
+            }
+
+            // --- Post inline suggestions with context ---
+            // Each inline comment includes the violation message so writers understand
+            // why the change is needed, followed by a one-click suggestion block.
+            let suggested = 0;
+            const fallback = [];
+
+            for (const v of violations) {
+              const inlineBody =
+                `⚠️ **Table accessibility automation check failed** because ${v.message.charAt(0).toLowerCase() + v.message.slice(1)} ` +
+                `This must be resolved before the PR can be merged. Accept the suggested label or update the label to something more descriptive.\n\n` +
+                '```suggestion\n' + v.suggestion_content + '\n```';
+
+              try {
+                await github.rest.pulls.createReviewComment({
+                  owner,
+                  repo,
+                  pull_number: prNumber,
+                  commit_id: headSha,
+                  path: v.file,
+                  line: v.suggestion_line,
+                  side: 'RIGHT',
+                  body: inlineBody,
+                });
+                suggested++;
+              } catch (e) {
+                // Line is not in the diff (e.g. context-only change) — fall back to comment
+                core.info(`Could not post inline suggestion for ${v.file}:${v.suggestion_line} — ${e.message}`);
+                fallback.push(v);
+              }
+            }
+
+            // --- Summary comment logic ---
+            // ≤ 3 violations, all posted inline: inline comments carry full context,
+            // no separate summary comment needed — delete any stale one.
+            if (violations.length <= 3 && fallback.length === 0) {
+              await syncSummaryComment(null);
+              return;
+            }
+
+            // 4+ violations or fallbacks: post a summary comment.
+            const lines = [marker, ''];
+
+            if (violations.length >= 4) {
+              lines.push('### ⚠️ Table accessibility: action required');
+              lines.push('');
+              lines.push(
+                `**${violations.length} tables** in this PR are missing an accessible name. ` +
+                (suggested > 0
+                  ? `Inline suggestions have been posted on each flagged line — look for the **"Commit suggestion"** button in the **Files changed** tab, or apply them all at once with **"Commit all suggestions"**.`
+                  : `Fix each one before merging.`)
+              );
+            }
+
+            if (fallback.length > 0) {
+              if (violations.length >= 4) lines.push('');
+              lines.push(
+                fallback.length === 1
+                  ? `1 table could not be fixed inline (the affected line is outside the diff) — fix it manually:`
+                  : `${fallback.length} tables could not be fixed inline (the affected lines are outside the diff) — fix these manually:`
+              );
+              lines.push('');
+              for (const v of fallback) {
+                lines.push(`- **\`${v.file}:${v.table_start_line}\`**: ${v.message}`);
+                lines.push(`  \`\`\`\n  ${v.fix_hint}\n  \`\`\``);
+              }
+            }
+
+            await syncSummaryComment(lines.join('\n'));

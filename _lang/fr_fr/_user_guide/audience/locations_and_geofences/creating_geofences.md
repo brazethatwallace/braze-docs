@@ -38,7 +38,7 @@ Le tableau suivant décrit les termes courants liés aux géorepérages :
 | Latitude et longitude | Le centre géographique du géorepérage. |
 | Rayon | Le rayon du géorepérage en mètres, mesuré à partir du centre géographique. Définissez un rayon minimum de 100 à 150 mètres pour tous les géorepérages. |
 | Période de refroidissement | Les utilisateurs reçoivent des notifications déclenchées par géorepérage après avoir effectué des transitions d'entrée ou de sortie sur des géorepérages individuels. Après une transition, il existe une période prédéfinie pendant laquelle cet utilisateur ne peut pas effectuer la même transition sur ce géorepérage individuel. Cette « période de refroidissement » est prédéfinie par Braze et son objectif principal est d'éviter les requêtes réseau inutiles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fonctionnement" }
 
 ## Conditions préalables {#prerequisites}
 
@@ -46,7 +46,6 @@ Le tableau suivant décrit les termes courants liés aux géorepérages :
 
 Les campagnes déclenchées par géorepérage sont disponibles sur iOS et Android. Pour prendre en charge les géorepérages, les éléments suivants sont requis :
 
-* Votre intégration doit prendre en charge les notifications push en arrière-plan.
 * Les géorepérages Braze ou la collecte de localisation doivent être activés.
 * L'utilisateur doit accorder l'accès à la localisation « Toujours autoriser ».
 
@@ -54,7 +53,7 @@ Les campagnes déclenchées par géorepérage sont disponibles sur iOS et Androi
 La collecte de localisation Braze est désactivée par défaut. Pour vérifier qu'elle est activée sur Android, confirmez que `com_braze_enable_location_collection` est défini sur `true` dans votre `braze.xml`.
 {% endalert %}
 
-Pour les instructions de configuration spécifiques à chaque plateforme, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences/) dans le guide du développeur.
+Pour les instructions de configuration spécifiques à chaque plateforme, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences) dans le guide du développeur.
 
 ### Autorisations de localisation {#location-permissions}
 
@@ -75,7 +74,7 @@ iOS et Android offrent tous deux plusieurs niveaux d'accès à la localisation. 
 | **Autoriser pendant l'utilisation de l'app** | Accorde l'accès à la localisation chaque fois que l'application est au premier plan. Une fois cette autorisation accordée, iOS peut présenter une invite de suivi demandant à l'utilisateur de passer à « Toujours autoriser ». | Oui. iOS active la surveillance de la localisation en arrière-plan, y compris les transitions de géorepérage, pour les applications disposant de cette autorisation. |
 | **Toujours autoriser** | Accorde un accès continu à la localisation, y compris en arrière-plan et lorsque l'application est fermée. | Oui. Cela fournit la surveillance de géorepérage la plus fiable. |
 | **Ne pas autoriser** | Refuse tout accès à la localisation. | Non. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveaux d'autorisation" }
 
 {% endtab %}
 {% tab Android %}
@@ -85,7 +84,7 @@ iOS et Android offrent tous deux plusieurs niveaux d'accès à la localisation. 
 | **Pendant l'utilisation de l'app** | Accorde l'accès à la localisation lorsque l'application est au premier plan. | Non. Sur Android, l'accès à la localisation en arrière-plan est requis pour la surveillance des géorepérages. |
 | **Toujours autoriser** | Accorde un accès continu à la localisation, y compris en arrière-plan. Sur Android 10 et versions ultérieures, cela nécessite une invite séparée après l'octroi initial de l'autorisation « Pendant l'utilisation de l'app ». | Oui. Cela est requis pour le géorepérage sur Android. |
 | **Ne pas autoriser** | Refuse tout accès à la localisation. Sur Android 13 et versions ultérieures, si un utilisateur refuse l'invite de localisation deux fois, le système d'exploitation bloque les invites ultérieures dans l'application. | Non. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveaux d'autorisation" }
 
 {% endtab %}
 {% endtabs %}
@@ -98,7 +97,7 @@ Sur iOS 14+ et Android 12+, les utilisateurs peuvent choisir entre la localisati
 |---|---|---|
 | **Localisation précise (activée)** | Précision de l'ordre de 5 à 50 mètres, utilisant le GPS, le Wi-Fi et la triangulation cellulaire. | Les géorepérages fonctionnent comme prévu. Recommandé pour tous les cas d'utilisation basés sur le géorepérage. |
 | **Localisation approximative (désactivée)** | Précision d'environ 3 kilomètres carrés (environ 1 mile carré). L'appareil renvoie une zone générale plutôt que des coordonnées exactes. | Les géorepérages ne se déclenchent pas de manière fiable. L'appareil ne peut pas déterminer avec précision si un utilisateur se trouve à l'intérieur ou à l'extérieur d'une limite de géorepérage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Localisation précise versus approximative" }
 
 {% alert important %}
 Pour que le géorepérage fonctionne de manière fiable, les utilisateurs doivent activer la localisation précise. Incluez cette recommandation dans votre message d'amorçage des autorisations de localisation afin que les utilisateurs comprennent pourquoi la localisation précise est importante.
@@ -115,13 +114,13 @@ Un message d'amorçage des autorisations de localisation est un message in-app q
 - Un lien profond qui déclenche l'invite native d'autorisation de localisation depuis votre application.
 - Un lien profond qui ouvre la page des paramètres de localisation de l'application dans les paramètres du système d'exploitation de l'appareil, ce qui est utile pour relancer les utilisateurs qui ont précédemment refusé ou limité leurs autorisations.
 
-Pour plus d'informations sur les liens profonds, consultez [Création de liens profonds vers le contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/). Pour des conseils spécifiques à chaque plateforme sur l'intégration de la localisation et du géorepérage, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences/) dans le guide du développeur.
+Pour plus d'informations sur les liens profonds, consultez [Création de liens profonds vers le contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls). Pour des conseils spécifiques à chaque plateforme sur l'intégration de la localisation et du géorepérage, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences) dans le guide du développeur.
 
 ### Étape 2 : Créer le message in-app d'amorçage de localisation {#step-2-build-the-location-primer-in-app-message}
 
 Créez une campagne de message in-app qui explique la valeur de l'accès à la localisation. Tous les types de messages in-app prennent en charge cet abonnement, y compris le glisser-déposer.
 
-1. Allez dans **Messaging** > **Campaigns**, puis sélectionnez **Create Campaign** > **In-App Message**.
+1. Allez dans **Messaging** > **Campaigns**, puis sélectionnez **Créer une campagne** > **In-App Message**.
 2. Choisissez un type de message et une disposition. Une disposition **Modal** ou **Full** vous donne plus d'espace pour expliquer les avantages.
 3. Rédigez un message qui explique clairement pourquoi l'accès à la localisation profite à l'utilisateur. Par exemple :
     - « Activez la localisation pour être informé des offres à proximité. »
@@ -150,12 +149,12 @@ Dans les deux cas, rappelez aux utilisateurs de garder la **Localisation précis
 
 Si un utilisateur a précédemment refusé l'accès à la localisation ou sélectionné une autorisation limitée, vous ne pouvez pas déclencher à nouveau l'invite native depuis l'application sur la plupart des versions du système d'exploitation. Au lieu de cela, dirigez-les vers la mise à jour de leurs autorisations dans les paramètres de l'appareil.
 
-Utilisez un lien profond dans un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) personnalisé pour diriger l'utilisateur vers la page des paramètres de localisation de l'application dans le système d'exploitation. Votre équipe de développement peut configurer un lien profond à cet effet dans le cadre de la gestion des autorisations de localisation de votre application (consultez l'[Étape 1](#step-1-work-with-your-development-team)).
+Utilisez un lien profond dans un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) personnalisé pour diriger l'utilisateur vers la page des paramètres de localisation de l'application dans le système d'exploitation. Votre équipe de développement peut configurer un lien profond à cet effet dans le cadre de la gestion des autorisations de localisation de votre application (consultez l'[étape 1](#step-1-work-with-your-development-team)).
 
 Lors de la création de ce message in-app, tenez compte des éléments suivants :
 
 - **Quand l'afficher :** Ciblez les utilisateurs qui ont l'autorisation « Pendant l'utilisation de l'app » lorsque vous avez besoin de « Toujours autoriser », ou les utilisateurs qui ont précédemment refusé l'accès à la localisation.
-- **Exemple de message :** « Pour profiter pleinement des fonctionnalités basées sur la localisation, mettez à jour vos paramètres de localisation sur "Toujours autoriser". Appuyez ci-dessous pour accéder aux Paramètres. »
+- **Exemple de message :** « Pour profiter pleinement des fonctionnalités basées sur la localisation, mettez à jour vos paramètres de localisation sur "Toujours autoriser". Appuyez ci-dessous pour accéder aux paramètres. »
 
 {% alert tip %}
 Vous pouvez déclencher ce message in-app à tout moment du parcours utilisateur, après un achat, lors de la consultation de contenu à proximité ou dans le cadre d'un flux Canvas. Soyez sélectif lorsque vous relancez : limitez ces campagnes aux utilisateurs fidèles ou très engagés pour éviter la lassitude liée aux demandes d'abonnement.
@@ -203,7 +202,7 @@ Ensuite, ajoutez des géorepérages à votre ensemble de géorepérages.
 1. Sélectionnez **Draw Geofence** pour cliquer et faire glisser le cercle sur la carte. Répétez l'opération pour ajouter d'autres géorepérages à votre ensemble selon vos besoins.
 2. (Facultatif) Sélectionnez **Edit** et remplacez la description du géorepérage par un nom.
 3. (Facultatif) Sélectionnez **Show Advanced Settings**, puis utilisez ces paramètres pour contrôler la façon dont les analyses de géorepérage sont enregistrées :
-  - Sélectionnez **Enable Analytics for Enter** et **Enable Analytics for Exit** pour enregistrer l'activité d'entrée et de sortie dans la [table SQL `USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) à des fins de reporting et d'analyse.
+  - Sélectionnez **Enable Analytics for Enter** et **Enable Analytics for Exit** pour enregistrer l'activité d'entrée et de sortie dans la [table SQL `USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) à des fins de reporting et d'analyse.
   - Configurez une période de refroidissement pour définir le nombre de secondes qui doivent s'écouler avant que le même utilisateur puisse déclencher un autre événement d'entrée ou de sortie pour ce géorepérage. Si vous ne définissez pas de période de refroidissement, la valeur par défaut est de six heures.
   - Utilisez **Android Notification Responsiveness** pour définir le délai maximum, en secondes, que les appareils Android utilisent lors de la transmission des événements d'entrée ou de sortie à votre application.
 
@@ -211,7 +210,7 @@ Ensuite, ajoutez des géorepérages à votre ensemble de géorepérages.
 4. Sélectionnez **Save Geofence Set** pour enregistrer.
 
 {% alert tip %}
-Créez des géorepérages avec un rayon d'au moins 200 mètres pour un fonctionnement optimal. Pour plus d'informations, consultez les [Bonnes pratiques pour les géorepérages](#geofence-best-practices).
+Créez des géorepérages avec un rayon d'au moins 200 mètres pour un fonctionnement optimal. Pour plus d'informations, consultez les [bonnes pratiques pour les géorepérages](#geofence-best-practices).
 {% endalert %}
 
 ![Un ensemble de géorepérages avec deux géorepérages « EastCoastGreaterNY » et « WesternRegion » avec deux cercles sur la carte.]({% image_buster /assets/img/geofence_example.png %})
@@ -265,9 +264,9 @@ L'exemple suivant montre le format GeoJSON correct pour spécifier deux géorep�
 
 Après avoir configuré vos géorepérages, vous pouvez les utiliser pour enrichir et améliorer la façon dont vous communiquez avec vos utilisateurs.
 
-### Déclencher des Campaigns et des Canvas {#triggering-campaigns-and-canvases}
+### Déclencher des campagnes et des Canvas {#triggering-campaigns-and-canvases}
 
-Pour utiliser les données de géorepérage dans le cadre des déclencheurs de Campaign et de Canvas, choisissez **Action-Based Delivery** comme méthode de réception. Ensuite, ajoutez une action de déclenchement `Trigger a Geofence`. Enfin, choisissez l'ensemble de géorepérages et les types d'événements de transition de géorepérage pour votre message. Vous pouvez également faire progresser les utilisateurs dans un Canvas à l'aide d'événements de géorepérage.
+Pour utiliser les données de géorepérage dans le cadre des déclencheurs de campagne et de Canvas, choisissez **Livraison par événement** comme méthode de réception. Ensuite, ajoutez une action de déclenchement `Trigger a Geofence`. Enfin, choisissez l'ensemble de géorepérages et les types d'événements de transition de géorepérage pour votre message. Vous pouvez également faire progresser les utilisateurs dans un Canvas à l'aide d'événements de géorepérage.
 
 ![Une campagne par événement avec un géorepérage qui se déclenchera lorsqu'un utilisateur entre dans les aéroports allemands.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
 
@@ -284,8 +283,6 @@ Pour utiliser les données de géorepérage afin de personnaliser un message, vo
 
 Le SDK Braze ne demande les géorepérages qu'une seule fois par jour au démarrage de la session. Si vous apportez des modifications aux ensembles de géorepérages après le démarrage de la session, vous devez attendre 24 heures à partir du moment où les ensembles sont initialement téléchargés pour recevoir l'ensemble mis à jour.
 
-Si l'utilisateur a activé les notifications push en arrière-plan, Braze envoie une notification push silencieuse toutes les 24 heures lorsque les ensembles de géorepérages sont mis à jour pour télécharger les derniers emplacements sur l'appareil.
-
 {% alert note %}
 Si les géorepérages ne sont pas chargés localement sur l'appareil, l'utilisateur ne peut pas déclencher le géorepérage même s'il entre dans la zone.
 {% endalert %}
@@ -297,29 +294,24 @@ Si les géorepérages ne sont pas chargés localement sur l'appareil, l'utilisat
 - Utilisez un rayon de 200 mètres ou plus pour un déclenchement fiable.
 - Évitez de configurer des géorepérages qui se chevauchent ou sont imbriqués les uns dans les autres, car cela peut causer des problèmes de déclenchement.
 - Un géorepérage ne peut déclencher un événement d'entrée qu'une seule fois toutes les six heures. Cette période de refroidissement est appliquée localement. Si un utilisateur désinstalle l'application ou efface les données de l'application, toutes les périodes de refroidissement sont réinitialisées.
-- Un maximum de 20 géorepérages peut être stocké sur un appareil. Si l'utilisateur est éligible pour plus de 20, Braze télécharge les emplacements les plus proches en fonction de la proximité au démarrage de la session ou lors de l'actualisation par notification push silencieuse.
+- Un maximum de 20 géorepérages peut être stocké sur un appareil. Si l'utilisateur est éligible pour plus de 20, Braze télécharge les emplacements les plus proches en fonction de la proximité au démarrage de la session.
 - Braze n'envoie que les géorepérages situés dans un rayon de 2 000 kilomètres de l'utilisateur vers l'appareil.
 
 ### Exigences de l'appareil {#device-requirements}
 
-- Les autorisations de notification push et de localisation doivent toutes deux être activées pour l'application.
-- Un jeton de notification push de premier plan valide est requis.
+- Les utilisateurs de votre application doivent accorder les autorisations de localisation. Consultez la section [Autorisations de localisation](#location-permissions) pour plus d'informations.
 
 {% alert note %}
-L'intégration SDK de base active uniquement le suivi de localisation. Le géorepérage nécessite des étapes de configuration supplémentaires pour iOS et Android. Pour plus de détails, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences/) dans le guide du développeur.
+L'intégration SDK de base active uniquement le suivi de localisation. Le géorepérage nécessite des étapes de configuration supplémentaires pour iOS et Android. Pour plus de détails, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences) dans le guide du développeur.
 {% endalert %}
 
-Vous pouvez également utiliser les géorepérages avec les partenaires technologiques de Braze, tels que [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) et [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
+Vous pouvez également utiliser les géorepérages avec les partenaires technologiques de Braze, tels que [Radar]({{site.baseurl}}/partners/message_personalization/location/radar) et [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare).
+
+## Différences entre les géorepérages et le suivi de localisation {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
 
 ## Questions fréquemment posées {#frequently-asked-questions}
-
-### Quelle est la différence entre les géorepérages et le suivi de localisation ? {#whats-the-difference-between-geofences-and-location-tracking}
-
-Dans Braze, un géorepérage est un concept différent du suivi de localisation. Les géorepérages sont utilisés comme déclencheurs pour certaines actions : lorsqu'un utilisateur entre ou sort d'une limite virtuelle définie autour d'un emplacement géographique, cela peut déclencher une action spécifique, comme l'envoi d'un message.
-
-Le suivi de localisation collecte et stocke les données de localisation les plus récentes d'un utilisateur. Ces données peuvent être utilisées pour segmenter les utilisateurs en fonction du filtre `Most Recent Location`. Par exemple, vous pourriez utiliser le filtre `Most Recent Location` pour cibler les utilisateurs situés à New York.
-
-Pour plus d'informations, consultez [Suivi de localisation]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### Quelle est la précision des géorepérages Braze ? {#how-accurate-are-braze-geofences}
 

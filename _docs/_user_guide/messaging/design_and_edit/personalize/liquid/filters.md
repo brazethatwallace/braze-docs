@@ -8,7 +8,7 @@ description: "This reference page lists filters that can be used to reformat sta
 
 # Filters
 
-> This reference article provides an overview of filters in Liquid, and covers which filters are supported by Braze. Looking for ideas on how you can use these filters? Check out our [Liquid use case library]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/).
+> This reference article provides an overview of filters in Liquid, and covers which filters are supported by Braze. Looking for ideas on how you can use these filters? Check out our [Liquid use case library]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases).
 
 Filters are how you can modify the output of numbers, strings, variables, and objects in Liquid. You can use filters to reformat static or dynamic text, such as changing a string from lowercase to uppercase or to perform mathematical operations, like addition or division.
 
@@ -88,7 +88,7 @@ Array filters are used to change the output of arrays.
 | [sort_natural](https://shopify.dev/api/liquid/sort_natural) | Sorts the items in an array in case-insensitive alphabetical order.                                                | ✅  Yes   |
 | [uniq](https://shopify.dev/api/liquid/filters/uniq)         | Removes any duplicate instances of elements in an array.                                                           | ✅  Yes   |
 | [where](https://shopify.dev/api/liquid/where)        | Filters an array to only include items with a specific property value.                                             | ✅  Yes   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Array filters" }
 
 ## Color filters
 
@@ -115,7 +115,7 @@ Math filters allow you to perform mathematical operations. If you use multiple f
 | [round](https://shopify.dev/api/liquid/filters/round)      | Rounds the output to the nearest integer or specified number of decimals.  | ✅  Yes   |
 | [times](https://shopify.dev/api/liquid/filters/times)     | Multiplies an output by a number.       | ✅  Yes   |
 | [modulo](https://shopify.dev/api/liquid/filters/modulo)    | Divides an output by a number and returns the remainder.   | ✅  Yes   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Math filters" }
 
 {% alert tip %}
 When dividing integers (whole numbers) by integers in Liquid, if the answer is a float (number with a decimal), Liquid will automatically round down to the nearest integer. However, dividing integers by floats will always give you a float. That means you can turn your integers into a float (1.0, 2.0, 3.0) to return a float.
@@ -179,7 +179,7 @@ If you're updating a user on their purchase, an account balance, or anything reg
 | [money](https://shopify.dev/api/liquid/filters/money)      | Formats numbers to ensure that decimals are in the proper place, and zeros are not dropped off the end of any numbers.   | ✅  Yes   |
 | [money_with_currency](https://shopify.dev/api/liquid/filters/money_with_currency)    | Formats numbers with the currency symbol.     | ⛔  No    |
 | [money_without_currency](https://shopify.dev/api/liquid/filters/money_without_currency)     | Formats numbers without the currency symbol.      | ⛔  No    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Money filters" }
 
 {% alert important %}
 To properly format a number with the `money` filter, remove any commas in the number and add the `plus: 0` filter before the `money` filter. For example, see the following Liquid:<br><br>
@@ -209,7 +209,7 @@ ${{custom_attribute.${account_balance} | money}}
 | :------------------------------------------ | :------------------------------------------ |
 | ![With money filter]({% image_buster /assets/img/with_money_filter.png %})                     | ![Without money filter]({% image_buster /assets/img/without_money_filter.png %})                  |
 | Where `account_balance` is input at `17.8`. | Where `account_balance` is input at `17.8`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Shopify money filter versus Braze money filter" }
 
 The `money` filter in Braze differs from Shopify because it doesn't automatically apply decimal points according to a preset setting. For example, take the following scenario where `rewards_redeemed` contains a value of `145`:
 
@@ -287,7 +287,7 @@ Straight quotes are different from curly quotes in Liquid. Be careful when copyi
 | [truncate](https://shopify.dev/api/liquid/filters/truncate)    | Truncates a string down to the number of characters passed as the first parameter. An ellipsis (...) is appended to the truncated string and is included in the character count.    | ✅  Yes   |
 | [truncatewords](https://shopify.dev/api/liquid/filters/truncatewords)   | Truncates a string down to the number of words passed as the first parameter. An ellipsis (...) is appended to the truncated string.    | ✅  Yes   |
 | [upcase](https://shopify.dev/api/liquid/filters/upcase)   | Converts a string into uppercase.      | ✅  Yes   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="String filters" }
 
 ## Additional filters
 
@@ -299,9 +299,9 @@ The following general filters serve many purposes, including formatting or conve
 | [default](https://shopify.dev/api/liquid/filters/default)        | Sets a default value for any variable with no assigned value. Can be used with strings, arrays, and hashes.      | ✅  Yes   |
 | [format_address](https://shopify.dev/api/liquid/filters/format_address) | Formats an address to print the elements of the address in order according to their locale.        | ⛔  No    |
 | [highlight](https://shopify.dev/api/liquid/filters/highlight)      | Wraps words inside search results with an HTML `<strong>` tag with the class highlight if it matches the submitted search terms. | ⛔  No    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional filters" }
 
-You can find more supported filters, such as encoding and URL filters, on our [Advanced Filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/) page.
+You can find more supported filters, such as encoding and URL filters, on our [Advanced Filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters) page.
 
 ### Date filter {#date-filter}
 

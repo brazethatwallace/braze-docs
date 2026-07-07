@@ -18,7 +18,7 @@ description: "This article outlines details about the Create SDK Authentication 
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `sdk_authentication.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `sdk_authentication.create` permission.
 
 ## Rate limit
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `rsa_public_key_str` | Required | String | The RSA public key string. Must be a valid RSA public key or it will return an error. |
 | `description` | Required | String | Description for the SDK Authentication key. |
 | `make_primary` | Optional | Boolean | If set to `true`, this key will be made the primary SDK Authentication key when it is created. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 
@@ -74,7 +74,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 | Parameter | Data type | Description |
 | --------- | --------- | ----------- |
 | `id` | String | The ID of the newly created SDK Authentication key. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
 ### Validation rules
 

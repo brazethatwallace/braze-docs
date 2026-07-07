@@ -1,73 +1,73 @@
 ---
-nav_title: Esplio
-article_title: Esplio
+nav_title: Splio
+article_title: Splio
 alias: /partners/splio/
-description: "Este artigo de referência descreve a parceria entre o Braze e a Splio, que permite que você envie campanhas mais direcionadas, encontre novas oportunidades de produtos e aumente a receita."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Splio, que permite enviar campanhas mais direcionadas, encontrar novas oportunidades de produtos e aumentar a receita."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Esplio
+# Splio
 
-> [O Splio](https://splio.com/) é uma ferramenta de criação de público que permite aumentar o número de campanhas e a receita sem prejudicar a experiência do cliente, além de fornecer análises de dados para rastrear a performance das campanhas de CRM on-line e off-line.
+> A [Splio](https://splio.com/) é uma ferramenta de criação de público que permite aumentar o número de campanhas e a receita sem prejudicar a experiência do cliente, além de fornecer análise de dados para rastrear o desempenho das campanhas de CRM on-line e off-line.
 
-A integração do Braze e do Splio permite planejar e executar melhores estratégias de CRM, enviar campanhas mais direcionadas, encontrar novas oportunidades de produtos e aumentar a receita.
+A integração da Braze com a Splio permite planejar e executar melhores estratégias de CRM, enviar campanhas mais direcionadas, encontrar novas oportunidades de produtos e aumentar a receita.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 |---|---|
 | Conta Splio | Você precisa de uma conta Splio para essa parceria. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Integração de importação de dados
+## Integração de importação de dados {#data-import-integration}
 
-Para integrar o Braze e o Splio, é necessário configurar a plataforma do Splio, exportar uma campanha existente do Splio e criar um segmento de coorte no Braze para direcionamento de usuários em campanhas futuras.
+Para integrar a Braze e a Splio, é necessário configurar a plataforma da Splio, exportar uma campanha existente da Splio e criar um segmento de coorte na Braze para direcionar usuários em campanhas futuras.
 
-### Etapa 1: Obter a chave de importação de dados do Braze
+### Etapa 1: Obter a chave de importação de dados da Braze {#step-1-get-the-braze-data-import-key}
 
-No Braze, acesse **Partner Integrations** > **Technology Partners** e selecione **Splio**.
+Na Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Splio**.
 
-Encontre seu endpoint REST e gere sua chave de importação de dados do Braze. Depois de gerar a chave, você pode criar uma nova chave ou invalidar uma existente.<br><br>![A página do parceiro de tecnologia Splio com o ponto de extremidade REST e a chave de importação de dados.]({% image_buster /assets/img/tinyclues/tinyclues_6.png %}){: style="max-width:90%;"}
+Encontre seu endpoint REST e gere sua chave de importação de dados da Braze. Depois de gerar a chave, você pode criar uma nova chave ou invalidar uma existente.<br><br>![A página do parceiro de tecnologia Splio com o endpoint REST e a chave de importação de dados.]({% image_buster /assets/img/tinyclues/tinyclues_6.png %}){: style="max-width:90%;"}
 
-Para concluir a integração, forneça a chave de importação de dados e o ponto de extremidade REST à sua equipe de operações de dados do Splio. O Splio estabelece a conexão e entra em contato com você após a conclusão da configuração.
+Para concluir a integração, forneça a chave de importação de dados e o endpoint REST à sua equipe de operações de dados da Splio. A Splio estabelece a conexão e entra em contato com você após a conclusão da configuração.
 
-### Etapa 2: Exportar uma campanha da plataforma Splio
+### Etapa 2: Exportar uma campanha da plataforma Splio {#step-2-export-a-campaign-from-the-splio-platform}
 
-Toda vez que quiser criar um coorte de usuários do Splio no Braze, você deve primeiro exportá-lo da plataforma do Splio.
+Toda vez que quiser criar uma coorte de usuários da Splio na Braze, você deve primeiro exportá-la da plataforma da Splio.
 
-Em Splio, selecione as campanhas que você deseja exportar e clique em **Export Campaigns (Exportar campanhas**). Após a exportação, o público é automaticamente feito upload para sua conta Braze.
+Na Splio, selecione as campanhas que deseja exportar e clique em **Export Campaigns**. Após a exportação, o público é automaticamente enviado para sua conta na Braze.
 
 ![Exportação de campanhas da plataforma Splio.]({% image_buster /assets/img/tinyclues/tinyclues_1.png %})
 
-### Etapa 3: Criar um segmento a partir do público personalizado do Splio
+### Etapa 3: Criar um segmento a partir do público personalizado da Splio {#step-3-create-a-segment-from-the-splio-custom-audience}
 
-No Braze, navegue até **Segments (Segmentos**), nomeie seu segmento de coorte Splio e selecione **Splio Cohorts (Coortes Splio** ) como seu filtro. A partir daí, escolha o coorte do Splio a ser incluído. Depois de criar seu segmento de coorte do Splio, você pode selecioná-lo como um filtro de público ao criar uma campanha ou um Canva.
+Na Braze, navegue até **Segments**, nomeie seu segmento de coorte Splio e selecione **Splio Cohorts** como seu filtro. A partir daí, escolha a coorte da Splio a ser incluída. Depois de criar seu segmento de coorte da Splio, você pode selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
 
-![Criação de um segmento de coorte Splio no Braze.]({% image_buster /assets/img/tinyclues/tinyclues_3.png %}){: style="max-width:90%;"}<br><br>
-![No criador de segmentos do Braze, o filtro de atribuições do usuário "Splio cohort" é definido como "includes" e "Primary cohort".]({% image_buster /assets/img/tinyclues/tinyclues_4.png %}){: style="max-width:90%;"}
+![Criação de um segmento de coorte Splio na Braze.]({% image_buster /assets/img/tinyclues/tinyclues_3.png %}){: style="max-width:90%;"}<br><br>
+![No criador de segmentos da Braze, o filtro de atributos do usuário "Splio cohort" está definido como "includes" e "Primary cohort".]({% image_buster /assets/img/tinyclues/tinyclues_4.png %}){: style="max-width:90%;"}
 
-Está tendo problemas para localizar seu coorte? Consulte a seção [de solução de problemas](#troubleshooting) para obter orientação.
+Está tendo problemas para localizar sua coorte? Consulte a seção de [solução de problemas](#troubleshooting) para obter orientação.
 
 {% alert important %}
-Somente os usuários que já existem no Braze são adicionados ou removidos de um coorte. A importação de coorte não cria novos usuários no Braze.
+Somente os usuários que já existem na Braze são adicionados ou removidos de uma coorte. A importação de coorte não cria novos usuários na Braze.
 {% endalert %}
 
-## Usando essa integração
+## Usando essa integração {#using-this-integration}
 
-Para usar seu segmento Splio, crie uma campanha Braze ou uma tela e selecione o segmento como seu público-alvo.
+Para usar seu segmento Splio, crie uma Campaign ou um Canvas na Braze e selecione o segmento como seu público-alvo.
 
-![No criador de campanhas do Braze, na etapa de direcionamento, o filtro "Direcionar usuários por segmento" está definido como "Coorte de Splio".]({% image_buster /assets/img/tinyclues/tinyclues_5.png %}){: style="max-width:90%;"}
+![No criador de campanhas da Braze, na etapa de direcionamento, o filtro "Direcionar usuários por segmento" está definido como "Coorte Splio".]({% image_buster /assets/img/tinyclues/tinyclues_5.png %}){: style="max-width:90%;"}
 
-## Correspondência de usuários
+## Correspondência de usuários {#user-matching}
 
-O Braze faz a correspondência entre os usuários identificados pelo endereço `external_id` ou `alias`. Os usuários anônimos são combinados pelo site `device_id`. Os usuários identificados que foram originalmente criados como usuários anônimos não podem ser correspondidos por seu `device_id`, e devem ser correspondidos por seu `external_id` ou `alias`.
+A Braze faz a correspondência de usuários identificados pelo `external_id` ou `alias`. Usuários anônimos são correspondidos pelo `device_id`. Usuários identificados que foram originalmente criados como anônimos não podem ser correspondidos pelo `device_id` e devem ser correspondidos pelo `external_id` ou `alias`.
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
-Se não conseguir encontrar o coorte correto na lista, visualize os detalhes de sua campanha no Splio e verifique o nome verificando o **Nome do arquivo de exportação**.
+Se não conseguir encontrar a coorte correta na lista, visualize os detalhes da sua campanha na Splio e verifique o nome consultando o **Export File Name**.
 
-![A parte inferior da página de detalhes da campanha mostra o nome de seu coorte.]({% image_buster /assets/img/tinyclues/tinyclues_2.png %}){: style="max-width:30%;"}
+![A parte inferior da página de detalhes da campanha mostra o nome da sua coorte.]({% image_buster /assets/img/tinyclues/tinyclues_2.png %}){: style="max-width:30%;"}
 
-Se estiver tendo problemas para recuperar seu público, entre em contato com a [equipe do Splio](mailto:support-team@splio.com) para obter suporte.
+Se estiver tendo problemas para recuperar seu público, entre em contato com a [equipe da Splio](mailto:support-team@splio.com) para obter suporte.

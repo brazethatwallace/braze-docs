@@ -21,7 +21,7 @@ The Braze and Amplitude bi-directional integration allows you to [sync your Ampl
 |---|---|
 | Amplitude account | An [Amplitude account](https://amplitude.com/) is required to take advantage of this partnership. |
 | Currents | In order to export data back into Amplitude, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Data export integration
 
@@ -73,71 +73,9 @@ Devices should not report more than 30 events/second or 500K events/day under no
 
 ## Supported Currents events
 
-Braze supports exporting the following data listed in the Currents [user behavior]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) and [message engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) event glossaries to Amplitude:
+Braze supports exporting the following events to Amplitude:
 
-### Behaviors
-- Custom event: `users.behaviors.CustomEvent`
-- Install Attribution: `users.behaviors.InstallAttribution`
-- Location: `users.behaviors.Location`
-- Purchase: `users.behaviors.Purchase`
-- Uninstall: `users.behaviors.Uninstall`
-- App (first session, session end, session start)
-  - `users.behaviors.app.FirstSession`
-  - `users.behaviors.app.SessionEnd`
-  - `users.behaviors.app.SessionStart`
-- Subscription (global state change): `users.behaviors.subscription.GlobalStateChange`
-- Subscription Group (state change): `users.behaviors.subscriptiongroup.StateChange`
-  
-### Campaigns
-- Abort: `users_campaigns_abort`
-- Conversion: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-  
-### Canvas
-- Abort: `users_canvas_abort`
-- Conversion: `users.canvas.Conversion`
-- Entry: `users.canvas.Entry`
-- Exit (matched audience, performed event)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Experiment Step (conversion, split entry)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
+- [Message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Customer behavior events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-### Messages
-- Content Card (abort, click, dismiss, impression, send)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- Email (abort, bounce, click, delivery, markasspam, open, send, softbounce, unsubscribe)
-- In-app message (abort, click, impression)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Push notification (abort, bounce, iOSforeground, open, send)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (abort, carrier send, delivery, delivery failure, inbound receive, rejection, send, short link click)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (abort, send)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (abort, delivery, failure, inbound receive, read, send)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
-  
+For the payload structure of each event, select the **Amplitude** tab in the [message engagement events glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) and [customer behavior events glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).

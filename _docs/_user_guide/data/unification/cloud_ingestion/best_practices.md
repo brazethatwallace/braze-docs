@@ -51,7 +51,7 @@ When using CDI to sync data from external sources (such as Databricks or Snowfla
 - **Numbers stored as strings:** Cast numeric columns to integer or float types in your source query before syncing.
 - **Inconsistent types across syncs:** If a column type changes between syncs, Braze may reject the new data. Verify your source schema remains consistent.
 
-For forcing or changing data types for custom attributes in the Braze dashboard, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+For forcing or changing data types for custom attributes in the Braze dashboard, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 You can update user data by external ID, user alias, Braze ID, email, or phone number. You can delete users by external ID, user alias, or Braze ID. 
 
@@ -313,7 +313,8 @@ This example shows the general process for syncing data for the first time, then
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Example: Managing subsequent updates">
+  <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -418,9 +419,10 @@ None of this has synced to Braze before, so add all of it to the source table fo
   </tbody>
 </table>
 
-A sync runs, and Braze records that you synced all available data up until “2023-03-16 15:00:00”. Then, on the morning of day 2, you have an ETL that runs and some fields in your users table are updated (highlighted):
+A sync runs, and Braze records that you synced all available data up until “2023-03-16 15:00:00”. Then, on the morning of day 2, you have an ETL that runs and some fields in your users table are updated (marked with *):
 
-<table>
+<table aria-label="Example: Managing subsequent updates">
+  <caption>Example: Managing subsequent updates. * indicates a field updated since the last sync.</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -433,14 +435,14 @@ A sync runs, and Braze records that you synced all available data up until “20
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -449,13 +451,13 @@ A sync runs, and Braze records that you synced all available data up until “20
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -463,7 +465,7 @@ A sync runs, and Braze records that you synced all available data up until “20
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -570,6 +572,7 @@ If you prefer to store each attribute in its own column internally, you need to 
 
 {% tabs local %}
 {% tab Snowflake %}
+Use this query in Snowflake to format source columns into CDI fields.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -592,6 +595,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
+Use this query in Redshift to format source columns into CDI fields.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -614,6 +618,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
+Use this query in BigQuery to format source columns into CDI fields.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
@@ -634,6 +639,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Databricks %}
+Use this query in Databricks to format source columns into CDI fields.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
@@ -656,6 +662,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
+Use this query in Microsoft Fabric to format source columns into CDI fields.
 ```sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
@@ -688,99 +695,12 @@ We have a public [GitHub repository](https://github.com/braze-inc/braze-examples
 
 ### Data formatting
 
-Any operations that are possible through the Braze `/users/track` endpoint are supported through Cloud Data Ingestion, including updating nested custom attributes, adding subscription status, and syncing custom events or purchases. 
+Cloud Data Ingestion table setup requirements and payload formatting requirements are documented on [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
-Fields within the payload should follow the same format as the corresponding `/users/track` endpoint. For detailed formatting requirements, refer to the following:
+Use that page to distinguish:
 
-| Data type | Formatting specifications |
-| --------- | ---------| --------- | ----------- |
-| `attributes` | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-Note the special requirement for [capturing dates]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties) in nested attributes. 
-
-{% tabs local %}
-{% tab Nested Custom Attributes %}
-You may include nested custom attributes in the payload column for a custom attributes sync. 
-
-```json
-{
-      "most_played_song": {
-        "song_name": "Solea",
-        "artist_name": "Miles Davis",
-        "album_name": "Sketches of Spain",
-        "genre": "Jazz",
-        "play_analytics": {
-            "count": 1000,
-            "top_10_listeners": true
-        }
-      }
-}
-```
-
-{% endtab %}
-{% tab Event %}
-To sync events, an event name is required. Format the `time` field as an ISO 8601 string or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. If the `time` field is not present, Braze uses the `UPDATED_AT` column value as the event time. Other fields including `app_id` and `properties` are optional. 
-
-Note that you can only sync one event per row.
-
-```json
-{
-    "app_id" : "your-app-id",
-    "name" : "rented_movie",
-    "time" : "2013-07-16T19:20:45+01:00",
-    "properties": {
-        "movie": "The Sad Egg",
-        "director": "Dan Alexander"
-    }
-} 
-```
-
-{% endtab %}
-{% tab Purchase %}
-To sync purchase events, `product_id`, `currency`, and `price` are required. Format the `time` field, which is optional, as an ISO 8601 string or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. If the `time` field is not present, Braze uses the `UPDATED_AT` column value as the event time. Other fields, including `app_id`, `quantity` and `properties` are optional.
-
-Note that you can only sync one purchase event per row.
-
-```json
-{
-    "app_id" : "11ae5b4b-2445-4440-a04f-bf537764c9ad",
-    "product_id" : "Completed Order",
-    "currency" : "USD",
-    "price" : 219.98,
-    "time" : "2013-07-16T19:20:30+01:00",
-    "properties" : {
-        "products" : [ { "name": "Monitor", "category": "Gaming", "product_amount": 19.99 },
-        { "name": "Gaming Keyboard", "category": "Gaming ", "product_amount": 199.99 }
-        ]
-    }
-}
-```
-
-{% endtab %}
-{% tab Subscription Groups %}
-```json
-{
-    "subscription_groups" : [
-        {
-            "subscription_group_id": "subscription_group_identifier_1",
-            "subscription_state": "unsubscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_2",
-            "subscription_state": "subscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_3",
-            "subscription_state": "subscribed"
-        }
-      ]
-}
-```
-{% endtab %}
-{% endtabs %}
+- Source table requirements (required columns, identifier columns, and `UPDATED_AT` behavior)
+- Payload requirements (which fields must match the `/users/track` object format for each data type)
 
 ### Avoid timeouts for data warehouse queries
 
@@ -797,6 +717,6 @@ We recommend that queries be completed within one hour for optimal performance a
 | Data type              | You can sync user attributes, events, and purchases through Cloud Data Ingestion.                                                                                                  |
 | Braze region           | This product is available in all Braze regions. Any Braze region can connect to any source data region.                                                                              |
 | Source region       | Braze will connect to your data warehouse or cloud environment in any region or cloud provider.                                                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }
 
 <br><br>

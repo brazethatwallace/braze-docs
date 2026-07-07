@@ -1,6 +1,6 @@
 ---
 nav_title: FAQ
-article_title: "FAQ sur Audience Sync"
+article_title: FAQ sur Audience Sync
 alias: /partners/audience_sync_faq/
 description: "Cet article fournit des réponses aux questions fréquemment posées sur Audience Sync."
 page_order: 80
@@ -53,4 +53,4 @@ L'utilisateur qui se reconnecte doit disposer d'un accès en lecture et en écri
 | Tentative d'accès au compte publicitaire | Cette erreur se produit si vous n'avez pas les autorisations nécessaires pour le compte publicitaire, une audience que vous avez sélectionnée, ou les deux. | Contactez les administrateurs de votre compte publicitaire pour obtenir l'accès et les autorisations nécessaires. |
 | Paramètres non valides | Cela peut se produire si vous n'avez pas configuré une destination Audience Sync spécifique dans Canvas, notamment le compte publicitaire, l'audience ou les champs utilisateur à faire correspondre. | Complétez la configuration de chaque partenaire avant le lancement. |
 | Conditions d'utilisation | Pour certaines destinations Audience Sync, comme Facebook, le réseau publicitaire exige d'accepter des conditions d'utilisation spécifiques pour utiliser la fonctionnalité Audience Sync. Cette erreur se déclenche si vous n'avez pas accepté les conditions appropriées. | Vérifiez que vous avez accepté les conditions requises par chaque partenaire. Pour Facebook en particulier, consultez l'article [Résolution des problèmes Facebook]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync/#troubleshooting). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Quelles sont les erreurs courantes qui peuvent survenir lors de la création et de la gestion de mes synchronisations d'audience ?" }

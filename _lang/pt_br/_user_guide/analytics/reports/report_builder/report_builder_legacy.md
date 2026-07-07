@@ -12,7 +12,7 @@ tool:
 
 # Criador de relatórios (legado) {#report-builder-legacy}
 
-> O Criador de relatórios permite comparar os resultados de várias Campaigns ou Canvas em uma única visualização, facilitando a identificação de quais estratégias de engajamento mais impactaram suas métricas principais. Tanto para Campaigns quanto para Canvas, você pode exportar seus dados e salvar seu relatório para consulta futura.<br><br>Para uma lista descritiva das métricas que você encontrará em seus relatórios, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+> O Criador de relatórios permite comparar os resultados de várias Campaigns ou Canvas em uma única visualização, facilitando a identificação de quais estratégias de engajamento mais impactaram suas métricas principais. Tanto para Campaigns quanto para Canvas, você pode exportar seus dados e salvar seu relatório para consulta futura.<br><br>Para uma lista descritiva das métricas que você encontrará em seus relatórios, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ![Exemplo de comparação de Campaigns]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
@@ -35,7 +35,7 @@ Tente usar os mesmos eventos de conversão para conversão A, B e assim por dian
 
 ### Etapa 1: Criar um novo relatório {#step-1-create-a-new-report}
 
-No dashboard, navegue até **Análise de dados** > **Criador de relatórios**.
+No dashboard, navegue até **Analytics** > **Report Builder**.
 
 Selecione **Criar novo relatório** e escolha entre um relatório de comparação de Campaigns ou um relatório de comparação de Canvas.
 
@@ -48,12 +48,12 @@ A seguir estão as diferenças entre essas duas opções:
 | **Ação** | **Manual** | **Automatizado** |
 | ---- | ---------- | ------------- |
 | **Criação do relatório** | Você poderá refinar sua lista de Campaigns usando filtros e, em seguida, marcar Campaigns específicas. | Você criará seu relatório usando as opções de filtro para refinar sua lista de Campaigns. |
-| **Salvar e visualizar o relatório** | Você pode salvar seu relatório. Na próxima vez que visualizá-lo, poderá ver as mesmas Campaigns adicionadas anteriormente, pois elas ainda se enquadram no filtro "Último envio". | Você pode salvar seu relatório. Na próxima vez que visualizá-lo, o relatório será atualizado automaticamente para incluir todas as Campaigns que correspondem aos seus filtros. |
+| **Salvar e visualizar o relatório** | Você pode salvar seu relatório. Na próxima vez que visualizá-lo, poderá ver as mesmas Campaigns adicionadas anteriormente, pois elas ainda se enquadram no filtro "Last Sent". | Você pode salvar seu relatório. Na próxima vez que visualizá-lo, o relatório será atualizado automaticamente para incluir todas as Campaigns que correspondem aos seus filtros. |
 | **Editar o relatório** | Você pode selecionar **Editar relatório** para adicionar ou remover Campaigns do seu relatório. | Você pode editar seu relatório ajustando os critérios de filtro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1: Criar um novo relatório" }
 
 {% alert note %}
-Tanto os relatórios **Manuais** quanto os **Automatizados** podem incluir no máximo 250 Campaigns em um relatório.
+Tanto os relatórios **Manual** quanto os **Automatizado** podem incluir no máximo 250 Campaigns em um relatório.
 {% endalert %}
 
 Os relatórios de Canvas funcionam de forma semelhante a um relatório manual de Campaigns, pois as seleções de Canvas e as atualizações do relatório também devem ser feitas manualmente. Você pode incluir no máximo cinco Canvas em um relatório.
@@ -64,7 +64,7 @@ Depois de criar seu relatório, você encontrará uma tabela em branco com Campa
 
 ![Opções de Campaigns]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
-Sua tabela será preenchida com as métricas escolhidas. Para definições dessas métricas, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/). Algumas métricas estão disponíveis apenas para relatórios de comparação de Campaigns.
+Sua tabela será preenchida com as métricas escolhidas. Para definições dessas métricas, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Algumas métricas estão disponíveis apenas para relatórios de comparação de Campaigns.
 
 Você também pode alternar os cálculos de **Média** para qualquer taxa ou métrica numérica e **Total** para qualquer métrica numérica.
 
@@ -112,7 +112,7 @@ Selecionar **detalhamento por etapas** permite visualizar métricas no nível de
 
 ### Mensagem {#message}
 
-Semelhante ao detalhamento por etapa, selecionar **detalhamento por mensagem** mostra o nome das etapas em cada linha. No entanto, em **editar colunas**, você terá acesso a métricas no nível de mensagem, como estatísticas específicas de canal, como cliques em e-mail e aberturas de push.
+Semelhante ao detalhamento por etapa, selecionar **detalhamento por mensagem** mostra o nome das etapas em cada linha. No entanto, em **Editar colunas**, você terá acesso a métricas no nível de mensagem, como estatísticas específicas de canal, como cliques em e-mail e aberturas de push.
 
 ![Relatório]({% image_buster /assets/img/campaign_comparison/campaign_comparison3.png %}){: style="max-width:90%;"}
 
@@ -120,15 +120,15 @@ Observe que, no dashboard da Braze, você pode pré-visualizar as primeiras 50 l
 
 ## Acessando relatórios salvos {#accessing-saved-reports}
 
-Ao acessar um **Relatório manual** salvo, você pode visualizar as mesmas Campaigns adicionadas anteriormente, pois elas ainda se enquadram no filtro "Último envio".
+Ao acessar um **relatório manual** salvo, você pode visualizar as mesmas Campaigns adicionadas anteriormente, pois elas ainda se enquadram no filtro "Last Sent".
 
-Ao acessar um **Relatório automatizado** salvo, o relatório será atualizado automaticamente para incluir todas as Campaigns que correspondem aos seus filtros. Por exemplo, se seu relatório filtrou Campaigns com a tag "Promoção", cada vez que você visualizar este relatório, poderá ver todas as Campaigns com a tag "Promoção", mesmo que essas Campaigns tenham sido criadas após a criação do relatório.
+Ao acessar um **relatório automatizado** salvo, o relatório será atualizado automaticamente para incluir todas as Campaigns que correspondem aos seus filtros. Por exemplo, se seu relatório filtrou Campaigns com a tag "Promotion", cada vez que você visualizar este relatório, poderá ver todas as Campaigns com a tag "Promotion", mesmo que essas Campaigns tenham sido criadas após a criação do relatório.
 
 ## Editando relatórios {#editing-reports}
 
-Em um **Relatório manual**, você pode editar um relatório selecionando **Editar**. A partir daí, você pode selecionar ou desmarcar Campaigns para incluir no seu relatório.
+Em um **relatório manual**, você pode editar um relatório selecionando **Editar**. A partir daí, você pode selecionar ou desmarcar Campaigns para incluir no seu relatório.
 
-Em um **Relatório automatizado**, alterne seus filtros para refinar os resultados do seu relatório.
+Em um **relatório automatizado**, alterne seus filtros para refinar os resultados do seu relatório.
 
 ## Exportando relatórios {#exporting-reports}
 

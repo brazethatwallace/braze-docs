@@ -11,7 +11,7 @@ description: "O dashboard da Braze é seu espaço de trabalho central para criar
 
 > O dashboard da Braze é seu espaço de trabalho central para criar, gerenciar e analisar o engajamento com clientes. Acesse em [dashboard.braze.com](https://dashboard.braze.com/) ou [dashboard.braze.eu](https://dashboard.braze.eu/).
 
-Use o dashboard da Braze para planejar Campaigns, lançar e gerenciar mensagens, explorar insights de público, ajustar a segmentação e revisar métricas de desempenho e engajamento em tempo real a partir de uma única interface.
+Use o dashboard da Braze para planejar campanhas, lançar e gerenciar mensagens, explorar insights de público, ajustar a segmentação e revisar métricas de desempenho e engajamento em tempo real a partir de uma única interface.
 
 ## Visão geral do dashboard {#dashboard-overview}
 
@@ -21,11 +21,11 @@ Ao fazer login, o dashboard oferece uma visão centralizada das suas ferramentas
 - **Navegação lateral:** Organiza as ferramentas por função (envio de mensagens, público, análise de dados, configurações)
 - **Cabeçalho global:** Oferece acesso rápido a pesquisa, suporte, configurações de idioma, notificações e sua conta
 
-Sua experiência no dashboard é organizada por [espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces/), que ajudam a gerenciar conteúdo para diferentes marcas, regiões ou equipes. Você pode [alternar entre espaços de trabalho](#workspace-switcher) a qualquer momento pela navegação lateral.
+Sua experiência no dashboard é organizada por [espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces), que ajudam a gerenciar conteúdo para diferentes marcas, regiões ou equipes. Você pode [alternar entre espaços de trabalho](#workspace-switcher) a qualquer momento pela navegação lateral.
 
 ## Acessar seu dashboard {#access-your-dashboard}
 
-Para começar, [faça login na sua conta da Braze]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). Seu acesso às páginas do dashboard e a permissão para realizar determinadas ações são baseados nas suas [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) atribuídas. Se precisar de ajuda com suas permissões, entre em contato com os administradores da Braze.
+Para começar, [faça login na sua conta da Braze]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Seu acesso às páginas do dashboard e a permissão para realizar determinadas ações são baseados nas suas [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) atribuídas. Se precisar de ajuda com suas permissões, entre em contato com os administradores da Braze.
 
 ## Navegar na Braze {#navigate-braze}
 
@@ -35,10 +35,10 @@ O cabeçalho global está quase sempre visível na parte superior da tela. Ele o
 
 - [Pesquisa](#search-your-dashboard)
 - Links de suporte e comunidade
-- [Idioma do dashboard]({{site.baseurl}}/user_guide/administer/personal/language_settings/)
+- [Idioma do dashboard]({{site.baseurl}}/user_guide/administer/personal/language_settings)
 - Notificações
 - Configurações da conta
-- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)
+- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)
 
 ### Usar a navegação lateral {#use-the-side-navigation}
 
@@ -50,7 +50,7 @@ O menu vertical à esquerda organiza as ferramentas da Braze por função e mant
 
 Localizado no topo da navegação lateral, o seletor de espaço de trabalho permite alternar entre diferentes espaços de trabalho na sua instância da Braze. O espaço de trabalho ativo fica destacado.
 
-[Espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces/) ajudam a organizar conteúdo por marca, região, linha de produto ou equipe. Cada espaço de trabalho inclui seus próprios dados, Campaigns e configurações. Seu acesso pode variar entre espaços de trabalho. Por exemplo, você pode ter acesso de edição em um espaço de trabalho e acesso somente leitura em outro.
+[Espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces) ajudam a organizar conteúdo por marca, região, linha de produto ou equipe. Cada espaço de trabalho inclui seus próprios dados, Campaigns e configurações. Seu acesso pode variar entre espaços de trabalho. Por exemplo, você pode ter acesso de edição em um espaço de trabalho e acesso somente leitura em outro.
 
 Para alternar entre espaços de trabalho, selecione o menu suspenso de espaço de trabalho no topo da navegação lateral e escolha o espaço de trabalho que deseja acessar. Você também pode [adicionar espaços de trabalho favoritos](#favorite-workspaces) para acesso mais rápido aos que usa com mais frequência.
 
@@ -126,7 +126,7 @@ table td {
 | Mover entre resultados da pesquisa | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Selecionar um resultado da pesquisa | <kbd>Enter</kbd>    |
 | Fechar o menu de pesquisa         | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Atalhos de teclado" }
 
 ## Recursos de produtividade {#productivity-features}
 
@@ -134,7 +134,7 @@ O dashboard da Braze inclui vários recursos para ajudar você a trabalhar de fo
 
 ### BrazeAI Operator
 
-BrazeAI Operator™ é um assistente com tecnologia de IA integrado ao dashboard. Use-o para obter respostas, acompanhar configurações, solucionar problemas e gerar ideias. Abra-o em **BrazeAI Operator™** no cabeçalho global ao lado do seu perfil. Para saber mais, consulte [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+BrazeAI Operator™ é um assistente com tecnologia de IA integrado ao dashboard. Use-o para obter respostas, acompanhar configurações, solucionar problemas e gerar ideias. Abra-o em **BrazeAI Operator™** no cabeçalho global ao lado do seu perfil. Para saber mais, consulte [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ### Continue de onde parou {#pick-up-where-you-left-off}
 
@@ -142,7 +142,7 @@ Na página **Inicial**, o dashboard exibe suas Campaigns, Canvas e Segments edit
 
 ![Um rascunho de Canvas, um Segment ativo e um rascunho de Campaign na seção "Continue de onde parou".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-Para saber mais, consulte [Dashboard inicial]({{site.baseurl}}/user_guide/analytics/dashboards/home/#pick-up-where-you-left-off).
+Para saber mais, consulte [Dashboard inicial]({{site.baseurl}}/user_guide/analytics/dashboards/home#pick-up-where-you-left-off).
 
 ### Espaços de trabalho favoritos {#favorite-workspaces}
 
@@ -175,15 +175,15 @@ Quer nos dizer o que pensa? Você pode compartilhar feedback sobre navegação, 
 
 ### Tarefas administrativas {#administrative-tasks}
 
-- [Criar e gerenciar espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)
-- [Gerenciar usuários da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)
-- [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)
-- [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)
+- [Criar e gerenciar espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)
+- [Gerenciar usuários da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)
+- [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)
+- [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 ### Tarefas principais e próximos passos {#key-tasks-and-next-steps}
 
-- **Criar Campaigns**: [Criar uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- **Criar jornadas**: [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
-- **Definir públicos**: [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)
-- **Revisar desempenho**: [Visão geral de análise de dados]({{site.baseurl}}/user_guide/analytics/dashboards/home/)
-- **Definir configurações**: [Configurações do app]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)
+- **Criar Campaigns**: [Criar uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **Criar jornadas**: [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
+- **Definir públicos**: [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **Revisar desempenho**: [Visão geral de análise de dados]({{site.baseurl}}/user_guide/analytics/dashboards/home)
+- **Definir configurações**: [Configurações do app]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

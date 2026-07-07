@@ -12,7 +12,7 @@ platform: API
 
 > This page helps you decide when to use export APIs instead of CSV downloads from the dashboard.
 
-The Braze export APIs let you programmatically export Braze data as JSON. For details on what you can export, prerequisites, and how delivery works, see [Export endpoints]({{site.baseurl}}/api/endpoints/export/). 
+The Braze export APIs let you programmatically export Braze data as JSON. For details on what you can export, prerequisites, and how delivery works, see [Export endpoints]({{site.baseurl}}/api/endpoints/export). 
 
 ## When to use export APIs instead of CSV downloads
 
@@ -25,8 +25,8 @@ The following table describes common scenarios where using the export API is a b
 | You need to feed data into external tools | Pull export data directly into BI tools, data warehouses, or other analytics platforms. |
 | You need data not available as a dashboard CSV export | Some data categories, including KPIs, revenue series, custom event analytics, and session data, are only available through the API. |
 | You want to interact with the data programmatically | Use the JSON output for custom processing, transformations, or integrations. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="When to use export APIs instead of CSV downloads" }
 
 {% alert tip %}
-For help with CSV and API exports, refer to [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, refer to [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

@@ -10,7 +10,7 @@ channel:
 
 # 커스텀 HTML 인앱 메시지의 동영상 {#video}
 
-> 이 문서는 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)의 [커스텀 HTML 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)에 적용됩니다.
+> 이 문서는 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)의 [커스텀 HTML 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)에 적용됩니다.
 
 ## 동영상 삽입 {#embed-videos}
 
@@ -32,9 +32,9 @@ HTML 인앱 메시지에서 동영상을 재생하려면 HTML에 다음 `<video>
 
 ## Android 고려 사항 {#android-considerations}
 
-Android에서 HTML 인앱 메시지에 동영상 및 기타 HTML5 콘텐츠를 삽입하려면 인앱 메시지가 표시되는 Activity에서 하드웨어 가속이 활성화되어 있어야 합니다. 자세한 내용은 [Android 개발자 가이드]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/#android_embedding-youtube-content)를 참조하세요.
+Android에서 HTML 인앱 메시지에 동영상 및 기타 HTML5 콘텐츠를 삽입하려면 인앱 메시지가 표시되는 Activity에서 하드웨어 가속이 활성화되어 있어야 합니다. 자세한 내용은 [Android 개발자 가이드]({{site.baseurl}}/developer_guide/in_app_messages/html_messages#android_embedding-youtube-content)를 참조하세요.
 
-**자동 재생**: 하드웨어 가속이 활성화되어 있더라도 Android WebView에서는 미디어 재생을 시작하기 위해 사용자 제스처가 필요할 수 있습니다. 자동 재생이 필요한 경우, HTML 인앱 메시지를 렌더링하는 데 사용되는 WebView에서 [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean))를 설정하여 사용자 제스처 요구 사항을 비활성화하도록 구성하세요. 이를 위해서는 HTML 인앱 메시지 표시 방식에 대한 SDK 수준의 커스터마이징이 필요합니다. 설정 안내는 [Braze SDK의 인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android)을 참조하세요.
+**자동 재생**: 하드웨어 가속이 활성화되어 있더라도 Android WebView에서는 미디어 재생을 시작하기 위해 사용자 제스처가 필요할 수 있습니다. 자동 재생이 필요한 경우, HTML 인앱 메시지를 렌더링하는 데 사용되는 WebView에서 [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean))를 설정하여 사용자 제스처 요구 사항을 비활성화하도록 구성하세요. 이를 위해서는 HTML 인앱 메시지 표시 방식에 대한 SDK 수준의 커스터마이징이 필요합니다. 설정 안내는 [Braze SDK의 인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android)을 참조하세요.
 
 ## iOS 고려 사항 {#ios-considerations}
 
@@ -43,7 +43,7 @@ iOS 기기를 지원하려면:
 - 전체 화면 재생이 지원되지 않으므로 `playsinline` 속성을 포함해야 합니다.
 - **iOS에서는 자동 재생이 보장되지 않습니다**. iOS 재생 동작은 `WKWebView` 및 OS 수준의 미디어 정책에 따라 달라지며, `autoplay`와 `muted`가 설정되어 있어도 사용자 제스처가 필요할 수 있습니다. 대상 iOS 버전 및 기기에서 HTML 인앱 메시지를 테스트하세요.
 
-자동 재생이 필요한데 테스트 결과 기본적으로 작동하지 않는 경우, HTML 인앱 메시지에서 사용하는 `WKWebViewConfiguration`을 커스터마이징하여 미디어 재생 사용자 동작 요구 사항을 조정할 수 있습니다. 예를 들어 `mediaTypesRequiringUserActionForPlayback` 속성을 설정할 수 있습니다. 이를 위해서는 SDK 수준의 커스터마이징이 필요합니다. Swift 리소스는 [Braze SDK의 인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=swift) 및 [Swift용 WebView에 Braze JavaScript 인터페이스 추가]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/?sdktab=swift)를 참조하세요.
+자동 재생이 필요한데 테스트 결과 기본적으로 작동하지 않는 경우, HTML 인앱 메시지에서 사용하는 `WKWebViewConfiguration`을 커스터마이징하여 미디어 재생 사용자 동작 요구 사항을 조정할 수 있습니다. 예를 들어 `mediaTypesRequiringUserActionForPlayback` 속성을 설정할 수 있습니다. 이를 위해서는 SDK 수준의 커스터마이징이 필요합니다. Swift 리소스는 [Braze SDK의 인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=swift) 및 [Swift용 WebView에 Braze JavaScript 인터페이스 추가]({{site.baseurl}}/developer_guide/in_app_messages/html_messages?sdktab=swift)를 참조하세요.
 
 ## 웹 고려 사항 {#web-considerations}
 

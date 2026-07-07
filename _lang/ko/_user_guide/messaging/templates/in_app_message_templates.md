@@ -4,11 +4,17 @@ article_title: 인앱 메시지 템플릿
 page_order: 4
 layout: dev_guide
 guide_top_header: "인앱 메시지 템플릿"
-guide_top_text: "인앱 메시지 템플릿은 드래그 앤 드롭 편집기에서만 사용할 수 있습니다. 작성기에서 나만의 템플릿을 저장하거나, 미리 만들어진 Braze 템플릿을 사용하여 빠르게 시작하세요."
-description: "드래그 앤 드롭 편집기에서 만들 수 있는 Braze 템플릿과 커스텀 템플릿을 포함한 Braze의 인앱 메시지 템플릿에 대해 알아보세요."
+guide_top_text: "**Templates** > **In-App Message Templates**에서 인앱 메시지 템플릿을 생성하고 관리하세요. 드래그 앤 드롭 편집기에서 레이아웃을 저장하거나, 기존 편집기용 색상 프로필 및 CSS 템플릿을 만들 수 있습니다. 미리 만들어진 Braze 템플릿으로 시작할 수도 있습니다."
+description: "인앱 메시지 템플릿을 만드는 방법, Braze 템플릿, 기존 편집기용 색상 프로필 및 CSS 템플릿 등 Braze의 인앱 메시지 템플릿에 대해 알아보세요."
 
-guide_featured_title: "Braze 템플릿"
+guide_featured_title: "섹션 문서"
 guide_featured_list:
+  - name: 인앱 메시지 템플릿 만들기
+    link: /docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template
+    image: /assets/img/braze_icons/brush-02.svg
+
+guide_menu_title: "Braze 템플릿"
+guide_menu_list:
   - name: 온보딩 플로우
     link: /docs/user_guide/messaging/templates/in_app_message_templates/onboarding
     image: /assets/img/braze_icons/flag-01.svg
@@ -21,13 +27,13 @@ guide_featured_list:
   - name: 할인 포함 이메일 가입
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_discount
     image: /assets/img/braze_icons/sale-03.svg
-  - name: 이미지 포함 이메일 가입
+  - name: 이미지가 포함된 이메일 가입
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_image
     image: /assets/img/braze_icons/image-01.svg
-  - name: 혜택 포함 이메일 가입
+  - name: 특별 혜택이 포함된 이메일 가입
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_offer
     image: /assets/img/braze_icons/gift-02.svg
-  - name: 확인 페이지 포함 이메일 가입
+  - name: 확인 페이지가 있는 이메일 가입
     link: /docs/user_guide/messaging/templates/in_app_message_templates/email_confirmation_page
     image: /assets/img/braze_icons/check-verified-02.svg
   - name: 제품 공지
@@ -36,16 +42,6 @@ guide_featured_list:
   - name: 이미지 포함 시즌 프로모션
     link: /docs/user_guide/messaging/templates/in_app_message_templates/seasonal_promo
     image: /assets/img/braze_icons/calendar-check-02.svg
-
-guide_menu_title: "기타 템플릿 유형"
-guide_menu_list:
-  - name: 색상 프로필 및 CSS 템플릿
-    link: /docs/user_guide/channels/in_app_messages/traditional/customize/color_profiles_and_css
-    image: /assets/img/braze_icons/brush-02.svg
 ---
 
-## 템플릿으로 저장하기 {#saving-as-a-template}
-
-드래그 앤 드롭 편집기에서 인앱 메시지를 작성할 때, 작성기 툴바에서 **템플릿으로 저장**을 선택하여 작업 내용을 템플릿으로 저장할 수 있습니다. 저장된 템플릿은 다음에 인앱 메시지를 만들 때 사용할 수 있으며, 레이아웃과 스타일이 이미 적용된 상태로 빠르게 시작할 수 있습니다.
-
-저장된 템플릿에 접근하려면 **템플릿** > **인앱 메시지 템플릿**으로 이동하세요.
+작성기에서 템플릿을 저장하거나, 색상 프로필 또는 CSS 템플릿을 만들거나, 라이브러리를 관리하는 방법은 [인앱 메시지 템플릿 만들기]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template)를 참조하세요.

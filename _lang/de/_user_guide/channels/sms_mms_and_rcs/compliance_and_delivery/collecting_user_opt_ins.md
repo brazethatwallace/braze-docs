@@ -19,11 +19,11 @@ Bitten Sie Nutzer:innen, „START“, „UNSTOP“, „YES“ oder ein angepasst
 
 ## Option 2: Nutzer:innen melden sich per In-App-Nachricht an {#option-2-users-opt-in-via-in-app-message}
 
-Um Nutzer:innen die Möglichkeit zu geben, sich über eine In-App-Nachricht für SMS anzumelden, verwenden Sie das von Braze bereitgestellte [Telefonnummern-Erfassungsformular]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture/), um ein markengerechtes Formular zu erstellen, mit dem Sie Telefonnummern erfassen und Ihre SMS-Liste erweitern können.
+Um Nutzer:innen die Möglichkeit zu geben, sich über eine In-App-Nachricht für SMS anzumelden, verwenden Sie das von Braze bereitgestellte [Telefonnummern-Erfassungsformular]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture), um ein markengerechtes Formular zu erstellen, mit dem Sie Telefonnummern erfassen und Ihre SMS-Liste erweitern können.
 
 ![Nachrichten-Editor für In-App-Nachrichten mit einem Template zur Telefonnummern-Erfassung.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
-Braze empfiehlt, dass Sie auch das Feature [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) verwenden. Dieses Feature funktioniert automatisch mit dem Telefonnummern-Erfassungsformular für In-App-Nachrichten und fordert Nutzer:innen auf, ihre Absicht zu bestätigen, nachdem sie ihre Telefonnummer über das Formular übermittelt haben.
+Braze empfiehlt, dass Sie auch das Feature [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) verwenden. Dieses Feature funktioniert automatisch mit dem Telefonnummern-Erfassungsformular für In-App-Nachrichten und fordert Nutzer:innen auf, ihre Absicht zu bestätigen, nachdem sie ihre Telefonnummer über das Formular übermittelt haben.
 
 ## Option 3: Registrierungsablauf {#option-3-sign-up-flow}
 
@@ -31,8 +31,9 @@ Wenn sich neue Nutzer:innen auf der Website oder in der App registrieren oder an
 
 Nachdem sich die Nutzer:innen registriert haben, gehen Sie wie folgt vor:
 
-1. Verwenden Sie den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/#update-users-subscription-group-status), um die Nutzer:innen zu erstellen und ihre Attribute zu speichern.
+1. Verwenden Sie den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status), um die Nutzer:innen zu erstellen und ihre Attribute zu speichern.
 
+{% raw %}
 ```http
 POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 --header 'Content-Type: application/json' \
@@ -46,10 +47,12 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 }
 '
 ```
+{% endraw %}
 
 {: start="2"}
-2. Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), um die Nutzer:innen für SMS zu abonnieren.
+2. Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um die Nutzer:innen für SMS zu abonnieren.
 
+{% raw %}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
@@ -70,12 +73,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   ]
 }'
 ```
+{% endraw %}
 
 {% alert tip %}
-Um Nutzer:innen in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)-Workflow aufzunehmen, wenn Sie sie über die REST API abonnieren, setzen Sie den Parameter `use_double_opt_in_logic` in Ihrer Anfrage auf `true`. Wenn Sie diesen Parameter weglassen, werden Nutzer:innen abonniert, ohne eine Double-Opt-in-Bestätigung zu erhalten.
+Um Nutzer:innen in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)-Workflow aufzunehmen, wenn Sie sie über die REST API abonnieren, setzen Sie den Parameter `use_double_opt_in_logic` in Ihrer Anfrage auf `true`. Wenn Sie diesen Parameter weglassen, werden Nutzer:innen abonniert, ohne eine Double-Opt-in-Bestätigung zu erhalten.
 
 Dieser Parameter wird von den folgenden Endpunkten unterstützt:<br><br>
-- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)
-- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2/)
-- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)
+- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)
+- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 {% endalert %}

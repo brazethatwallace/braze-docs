@@ -24,7 +24,7 @@ Avec les rapports d'engagement, vous pouvez sélectionner manuellement les Campa
 
 Quel que soit le nombre de Campaigns ou de Canvas sélectionnés, jusqu'à deux fichiers CSV sont générés : un pour toutes les données de Campaign et un pour toutes les données de Canvas. Vous pouvez accéder à ces fichiers CSV via le lien intégré dans l'e-mail de votre rapport. Les rapports d'engagement ne sont pas enregistrés dans le tableau de bord de Braze.
 
-Certaines données sont agrégées au niveau de la Campaign ou du Canvas plutôt qu'au niveau de la variante de campagne individuelle ou de l'étape du Canvas. Si vous [supprimez une étape du Canvas après le lancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details), cela supprimera également les données des rapports d'engagement.
+Certaines données sont agrégées au niveau de la Campaign ou du Canvas plutôt qu'au niveau de la variante de campagne individuelle ou de l'étape du Canvas. Si vous [supprimez une étape du Canvas après le lancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details), cela supprimera également les données des rapports d'engagement.
 
 {% alert tip %}
 Vous pouvez relancer le rapport pour générer des statistiques mises à jour.
@@ -51,7 +51,7 @@ Cette option vous donne la liberté de choisir les Campaigns ou les Canvas que v
 
 #### Sélectionner automatiquement les Campaigns ou les Canvas {#automatically-select-campaigns-or-canvases}
 
-Cette option vous permet d'inclure automatiquement tous les messages qui comportent une [étiquette]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) spécifique. Vous pouvez cibler les messages qui possèdent une ou toutes les étiquettes répertoriées. Cette option est utile si vous configurez des rapports récurrents et que vous étiquetez régulièrement vos messages d'engagement.
+Cette option vous permet d'inclure automatiquement tous les messages qui comportent une [étiquette]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) spécifique. Vous pouvez cibler les messages qui possèdent une ou toutes les étiquettes répertoriées. Cette option est utile si vous configurez des rapports récurrents et que vous étiquetez régulièrement vos messages d'engagement.
 
 {% alert important %}
 Les étiquettes doivent correspondre à au moins une Campaign ou un Canvas pour qu'un rapport soit généré. Si vous utilisez **Automatically select campaigns and Canvases based on specific rules** et que vous voyez une erreur, confirmez qu'au moins une Campaign ou un Canvas correspond à vos étiquettes et autres filtres (par exemple, lorsque vous exigez toutes les étiquettes répertoriées, chaque message correspondant doit posséder chaque étiquette).
@@ -63,6 +63,12 @@ L'étape **Add Stats** vous présente les statistiques correspondant aux types d
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et non au niveau de l'espace de travail. Pour surveiller le volume total d'envois ou d'impressions sur l'ensemble des Campaigns et Canvas actifs, comme les envois et impressions par canal à l'échelle d'un espace de travail entier, utilisez le [Générateur de rapports]({{site.baseurl}}/report_builder).
+
+{% alert note %}
+*Envois à l'opérateur* est obsolète, mais continuera d'être pris en charge pour les utilisateurs qui en disposent déjà.
+{% endalert %}
+
 | Canal | Statistiques disponibles |
 | ------| --------------|
 | E-mail | Envois, Ouvertures, Ouvertures uniques, Clics, Clics uniques, Taux de clics par ouverture, Désabonnements, Rebonds, Réceptions, Signalements de spam |
@@ -71,11 +77,7 @@ L'étape **Add Stats** vous présente les statistiques correspondant aux types d
 | Message in-app | Impressions, Clics, Clics sur le premier bouton, Clics sur le deuxième bouton |
 | Webhook  |  Envois, Erreurs |
 | SMS | Envois, Envois à l'opérateur, Réceptions confirmées, Échecs de réception, Rejets |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Envois à l'opérateur* est obsolète, mais continuera d'être pris en charge pour les utilisateurs qui en disposent déjà.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Ajouter des statistiques" }
 
 ### Étape 4 : Finaliser la configuration du rapport {#step-4-complete-report-setup}
 
@@ -100,12 +102,20 @@ Par défaut, les données affichées dans les rapports d'engagement sont quotidi
 
 ![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
+##### Afficher les données par Campaign ou Canvas entier {#show-data-by-entire-campaign-or-canvas}
+
+Lorsque vous sélectionnez **Show Data by Entire Campaign or Canvas**, Braze agrège les indicateurs par blocs de 1 825 jours (cinq ans) sur la plage temporelle du rapport.
+
+Si la plage temporelle couvre plus d'un bloc, vous pouvez voir plusieurs lignes pour la même Campaign ou le même Canvas avec des dates différentes dans la colonne de date. Certaines lignes peuvent inclure uniquement des indicateurs enregistrés plus tard dans la plage (par exemple, les désabonnements). Les dates peuvent également remonter à des années avant le début de vos envois dans l'espace de travail, car elles reflètent les limites des blocs dans l'export, et pas uniquement votre premier envoi.
+
+Pour aligner la colonne de date avec le moment où vos Campaigns et Canvas sélectionnés ont réellement été envoyés, définissez la [date de début du rapport dans **Sélectionner la période**](#select-time-frame) à la date la plus ancienne que vous souhaitez dans le fichier — généralement le moment où ces messages ont commencé à être envoyés — plutôt que de laisser la plage par défaut qui remonte au message sélectionné le plus ancien.
+
 #### Planifier votre rapport {#schedule-your-report}
 
 Il existe deux options pour planifier votre rapport :
 
-- **Send immediately :** Une fois le rapport lancé, Braze enverra ce rapport immédiatement.
-- **Send at a designated time :** Cette option vous offre la flexibilité de choisir la fréquence à laquelle vous recevez ce rapport. Vous pouvez choisir d'envoyer ce rapport tous les X jours, semaines ou mois. Vous pouvez également définir quand arrêter l'envoi du rapport.
+- **Send immediately :** une fois le rapport lancé, Braze enverra ce rapport immédiatement.
+- **Send at a designated time :** cette option vous offre la flexibilité de choisir la fréquence à laquelle vous recevez ce rapport. Vous pouvez choisir d'envoyer ce rapport tous les X jours, semaines ou mois. Vous pouvez également définir quand arrêter l'envoi du rapport.
 
 ![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
@@ -115,7 +125,7 @@ La dernière étape de la configuration de votre rapport affiche un aperçu en l
 
 ### Étape 6 : Vérifier votre e-mail {#step-6-check-your-email}
 
-Vous recevrez un e-mail contenant des liens vers vos rapports à l'heure ou selon le calendrier choisi. **Ces liens expirent 1 heure après l'envoi du rapport.** Lorsque vous sélectionnez les liens fournis, vous téléchargerez automatiquement un fichier ZIP contenant vos fichiers CSV, un pour toutes les Campaigns.
+Vous recevrez un e-mail contenant des liens vers vos rapports à l'heure ou selon le calendrier choisi. **Ces liens expirent 1 heure après l'envoi du rapport.** Lorsque vous sélectionnez les liens fournis, vous téléchargerez automatiquement un fichier ZIP contenant vos fichiers CSV — un pour toutes les Campaigns.
 
 Le rapport contient toutes les statistiques sélectionnées dans la section [Ajouter des statistiques](#add-statistics-to-your-reports) du processus de configuration.
 
@@ -130,9 +140,16 @@ Assurez-vous que les dates du rapport d'engagement correspondent aux dates dans 
 Si les totaux semblent incorrects dans un tableur, supprimez les filtres supplémentaires sur l'export. Vous pouvez additionner les lignes quotidiennes pour les réconcilier avec les totaux du Canvas ou de la Campaign pour la même plage de dates.
 
 {% alert note %}
-Si vous souhaitez une seule ligne agrégée pour la plage complète au lieu de compartiments quotidiens, hebdomadaires ou autres récurrents, définissez **Data Display** sur **Show Data by Entire Campaign or Canvas**.
+Si vous souhaitez une seule ligne agrégée pour la plage complète au lieu de compartiments quotidiens, hebdomadaires ou autres récurrents, définissez **Data Display** sur **Show Data by Entire Campaign or Canvas**. Si le nombre de lignes ou les dates semblent incorrects dans le CSV, consultez [Afficher les données par Campaign ou Canvas entier](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Clics de bouton en double dans les messages in-app HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
-Si vous utilisez des messages in-app HTML et que les **Clics sur le corps** semblent élevés dans le rapport d'engagement, il est possible que vous déclenchiez la journalisation des clics deux fois, par exemple en appelant `brazeBridge.logClick()` pour un clic générique sur le corps et également `brazeBridge.logClick('body click')` (ou un autre ID) sur la même interaction. Recherchez `brazeBridge.logClick(` dans votre code et alignez-vous sur un seul modèle par contrôle. Pour l'utilisation recommandée, consultez [Suivi des boutons]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+Si vous utilisez des messages in-app HTML et que les **Clics sur le corps** semblent élevés dans le rapport d'engagement, il est possible que vous déclenchiez la journalisation des clics deux fois — par exemple en appelant `brazeBridge.logClick()` pour un clic générique sur le corps et également `brazeBridge.logClick('body click')` (ou un autre ID) sur la même interaction. Recherchez `brazeBridge.logClick(` dans votre code et alignez-vous sur un seul modèle par contrôle. Pour l'utilisation recommandée, consultez [Suivi des boutons]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
+
+#### Liens cassés dans les rapports d'engagement envoyés par e-mail {#broken-links-in-emailed-engagement-reports}
+
+Si les liens d'un e-mail de rapport d'engagement planifié ne s'ouvrent pas correctement dans votre client de messagerie, essayez les étapes suivantes :
+
+1. Transférez le rapport vers une boîte de réception Gmail et ouvrez les liens dans Google Chrome.
+2. Dans les paramètres du rapport d'engagement, confirmez que **Report Schedule** est configuré pour envoyer le rapport au moment prévu (par exemple, immédiatement après la génération du rapport plutôt que selon un calendrier différé).

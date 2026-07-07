@@ -6,11 +6,11 @@ description: "Cet article de référence explique comment les balises peuvent et
 
 ---
 
-# Logique conditionnelle dans les messages
+# Logique conditionnelle dans les messages {#conditional-messaging-logic}
 
 > Les [balises](https://docs.shopify.com/themes/liquid-documentation/tags) vous permettent d'inclure une logique de programmation dans vos campagnes de communication. Les balises peuvent être utilisées pour exécuter des instructions conditionnelles ainsi que pour des cas d'utilisation avancés, comme l'affectation de variables ou l'itération à travers un bloc de code. <br><br>Cette page explique comment les balises peuvent et doivent être utilisées, notamment comment gérer les valeurs d'attributs null, nil et vides, et comment référencer des attributs personnalisés.
 
-## Mise en forme des balises
+## Mise en forme des balises {#formatting-tags}
 
 {% raw %}
 Une balise doit être encadrée par `{% %}`.
@@ -40,7 +40,7 @@ Buy now! Would 5% off convince you?
 ```
 {% endraw %}
 
-## Logique conditionnelle
+## Logique conditionnelle {#conditional-logic}
 
 Vous pouvez inclure de nombreux types de [logique intelligente dans les messages](http://docs.shopify.com/themes/liquid-documentation/basics), comme une instruction conditionnelle. L'exemple suivant utilise des [conditionnels](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags) pour internationaliser une campagne :
 {% raw %}
@@ -57,9 +57,9 @@ This is a message from Braze! This is going to go to anyone who did not match th
 {% endif %}
 ```
 
-### Balises conditionnelles
+### Balises conditionnelles {#conditional-tags}
 
-#### `if` et `elsif`
+#### `if` et `elsif` {#if-and-elsif}
 
 La logique conditionnelle commence par la balise `if`, qui définit la première condition à vérifier. Les conditions suivantes utilisent la balise `elsif` et sont vérifiées si les conditions précédentes ne sont pas remplies. Dans cet exemple, si l'appareil d'un utilisateur n'est pas configuré en anglais, ce code vérifiera si l'appareil est configuré en espagnol, et en cas d'échec, il vérifiera si l'appareil est configuré en chinois. Si l'appareil de l'utilisateur remplit l'une de ces conditions, l'utilisateur recevra un message dans la langue correspondante.
 
@@ -67,15 +67,35 @@ La logique conditionnelle commence par la balise `if`, qui définit la première
 
 Vous avez la possibilité d'inclure une instruction `{% else %}` dans votre logique conditionnelle. Si aucune des conditions que vous avez définies n'est remplie, l'instruction `{% else %}` spécifie le message qui doit être envoyé. Dans cet exemple, nous utilisons l'anglais par défaut si la langue de l'utilisateur n'est ni l'anglais, ni l'espagnol, ni le chinois.
 
+#### `case` et `when` {#case-and-when}
+
+`{% case %}`, `{% when %}` et `{% endcase %}` fonctionnent comme une instruction switch : vous définissez une expression après `case`, et chaque branche `when` s'exécute lorsque cette expression est égale à la valeur indiquée (Liquid utilise l'égalité en arrière-plan, de manière similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous pouvez lister plusieurs valeurs dans une même balise `when` en les séparant par une virgule ou `or`. Utilisez `{% else %}` comme solution de repli lorsqu'aucune valeur ne correspond, puis fermez avec `{% endcase %}`.
+
+Assurez-vous de faire correspondre le format de vos valeurs `when` au type de données. Pour du texte (comme un code de langue), utilisez des guillemets : `{% when 'es' %}`. Pour les nombres, omettez les guillemets : `{% when 2 %}`.
+
+```liquid
+{% assign handle = 'cake' %}
+{% case handle %}
+{% when 'cake' %}
+This is a cake
+{% when 'cookie' %}
+This is a cookie
+{% else %}
+This is not a cake nor a cookie
+{% endcase %}
+```
+
+Vous pouvez utiliser le même schéma avec des balises de personnalisation Braze ou d'autres expressions Liquid à la place de `handle`. Pour plus d'options de syntaxe, consultez la [documentation de la balise `case`](https://shopify.dev/docs/api/liquid/tags/case) de Shopify.
+
 #### `endif`
 
-La balise `{% endif %}` signale que vous avez terminé votre logique conditionnelle. Vous devez inclure la balise `{% endif %}` dans tout message contenant une logique conditionnelle. Si vous n'incluez pas de balise `{% endif %}` dans votre logique conditionnelle, vous obtiendrez une erreur car Braze ne pourra pas analyser votre message.
+La balise `{% endif %}` signale que vous avez terminé un bloc `if`. Vous devez inclure la balise `{% endif %}` dans tout message utilisant `if`, `elsif`, `unless` ou `else` dans cette chaîne. Si vous n'incluez pas de balise `{% endif %}`, vous obtiendrez une erreur car Braze ne pourra pas analyser votre message. Si vous utilisez `{% case %}` à la place, fermez le bloc avec `{% endcase %}`, et non `{% endif %}`.
 
 {% alert note %}
-Les balises conditionnelles (`if`, `elsif`, `unless`) prennent en charge les opérateurs mais pas les filtres. Pour évaluer une valeur filtrée dans un conditionnel, affectez d'abord le résultat du filtre à une variable, puis référencez cette variable. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Dans les balises `if`, `elsif` et `unless`, vous pouvez utiliser des opérateurs mais pas des filtres. Dans les balises `case` et `when`, chaque branche correspond lorsque l'expression `case` est égale à une valeur `when` ; les filtres ne sont pas non plus pris en charge dans ces expressions. Pour évaluer une valeur filtrée, affectez d'abord le résultat du filtre à une variable, puis référencez cette variable dans votre clause `case` ou `when`. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Tutoriel : diffuser du contenu basé sur la localisation
+### Tutoriel : diffuser du contenu basé sur la localisation {#tutorial-deliver-location-based-content}
 
 À la fin de ce tutoriel, vous serez en mesure d'utiliser les balises avec les instructions « if », « elsif » et « else » pour diffuser du contenu en fonction de la localisation d'un utilisateur.
 
@@ -149,11 +169,11 @@ Les balises conditionnelles (`if`, `elsif`, `unless`) prennent en charge les op�
 
 {% enddetails %}
 
-## Gestion des valeurs d'attributs null, nil et vides
+## Gestion des valeurs d'attributs null, nil et vides {#accounting-for-null-nil-and-blank-attribute-values}
 
 La logique conditionnelle est un moyen utile de gérer les valeurs d'attributs qui ne sont pas définies dans les profils utilisateur.
 
-### Valeurs d'attributs null et nil
+### Valeurs d'attributs null et nil {#null-and-nil-attribute-values}
 
 Une valeur null ou nil se produit lorsque la valeur d'un attribut personnalisé n'a pas été définie. Par exemple, un utilisateur qui n'a pas encore défini son prénom n'aura pas de prénom enregistré dans Braze.
 
@@ -184,7 +204,7 @@ Notez qu'une valeur d'attribut null n'est pas strictement associée à un type d
 
 {% endraw %}
 
-### Valeurs d'attributs vides
+### Valeurs d'attributs vides {#blank-attribute-values}
 
 Une valeur vide se produit lorsque l'attribut d'un profil utilisateur n'est pas défini, est défini avec une chaîne d'espaces (` `), ou est défini comme `false`. Les valeurs vides doivent être vérifiées avant les autres variables pour éviter une erreur de traitement Liquid.
 
@@ -198,7 +218,7 @@ La balise suivante vous permet de spécifier un message pour les utilisateurs do
 ```
 {% endraw %}
 
-## Référencer des attributs personnalisés
+## Référencer des attributs personnalisés {#referencing-custom-attributes}
 
 Après avoir [créé des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes), vous pouvez référencer ces attributs personnalisés dans vos messages Liquid.
 
@@ -210,7 +230,7 @@ Lorsque vous utilisez la logique conditionnelle, vous devez connaître le type d
 Les chaînes de caractères et les tableaux nécessitent des apostrophes droites autour d'eux, tandis que les valeurs booléennes et les entiers n'en ont jamais.
 {% endalert %}
 
-#### Valeur booléenne
+#### Valeur booléenne {#boolean}
 
 Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans) sont des valeurs binaires et peuvent être définies sur `true` ou `false`, comme `registration_complete: true`. Les valeurs booléennes n'ont pas d'apostrophes autour d'elles.
 
@@ -222,7 +242,7 @@ Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes
 
 {% endraw %}
 
-#### Nombre
+#### Nombre {#number}
 
 Les [nombres]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers) sont des valeurs numériques, qui peuvent être des entiers ou des floats. Par exemple, un utilisateur peut avoir `shoe_size: 10` ou `levels_completed: 287`. Les valeurs numériques n'ont pas d'apostrophes autour d'elles.
 
@@ -244,7 +264,7 @@ Vous pouvez également utiliser d'autres [opérateurs de base](https://shopify.d
 
 {% endraw %}
 
-#### Chaîne de caractères
+#### Chaîne de caractères {#string}
 
 Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings) est composée de caractères alphanumériques et stocke une donnée concernant votre utilisateur. Par exemple, vous pouvez avoir `favorite_color: red` ou `phone_number: 3025981329`. Les valeurs de chaîne de caractères doivent avoir des apostrophes autour d'elles.
 
@@ -258,7 +278,7 @@ Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/attribu
 
 Pour les chaînes de caractères, vous pouvez utiliser à la fois « == » ou « contains » dans votre Liquid.
 
-#### Tableau
+#### Tableau {#array}
 
 Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays) est une liste d'informations concernant votre utilisateur. Par exemple, un utilisateur peut avoir `last_viewed_shows: stranger things, planet earth, westworld`. Les valeurs de tableau doivent avoir des apostrophes autour d'elles.
 
@@ -272,7 +292,7 @@ Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 Pour les tableaux, vous devez utiliser « contains » et ne pouvez pas utiliser « == ».
 
-#### Horodatage
+#### Horodatage {#time}
 
 Un horodatage indiquant quand un événement a eu lieu. Les valeurs de type [horodatage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time) doivent avoir un [filtre mathématique]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters) appliqué pour être utilisées dans la logique conditionnelle.
 

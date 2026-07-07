@@ -1,10 +1,10 @@
-## Acerca de las tarjetas de contenido de Flutter
+## Acerca de las tarjetas de contenido de Flutter {#about-flutter-content-cards}
 
 El SDK de Braze incluye una fuente de tarjetas predeterminada para que empieces a utilizar las tarjetas de contenido. Para mostrar la fuente de tarjetas, puedes utilizar el método `braze.launchContentCards()`. La fuente predeterminada de tarjetas incluida en el SDK de Braze gestionará todo el seguimiento de análisis, los descartes y la representación de las tarjetas de contenido de un usuario.
 
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
-## Métodos de tarjeta
+## Métodos de tarjeta {#card-methods}
 
 Puedes utilizar estos métodos adicionales para crear una fuente de tarjetas de contenido personalizada dentro de tu aplicación, usando los siguientes métodos disponibles en la [interfaz pública del complemento](https://github.com/braze-inc/braze-flutter-sdk/blob/master/lib/braze_plugin.dart):
 
@@ -14,15 +14,15 @@ Puedes utilizar estos métodos adicionales para crear una fuente de tarjetas de 
 | `braze.logContentCardClicked(contentCard)`    | Registra un clic para el objeto de tarjeta de contenido dado.                                                            |
 | `braze.logContentCardImpression(contentCard)` | Registra una impresión para el objeto de tarjeta de contenido dado.                                                      |
 | `braze.logContentCardDismissed(contentCard)`  | Registra un descarte para el objeto de tarjeta de contenido dado.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 
-## Recepción de datos de tarjetas de contenido
+## Recepción de datos de tarjetas de contenido {#receiving-content-card-data}
 
 Para recibir datos de tarjetas de contenido en tu aplicación Flutter, `BrazePlugin` admite el envío de datos de tarjetas de contenido mediante [Dart Streams](https://dart.dev/tutorials/language/streams).
 
 El [objeto](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazeContentCard-class.html) `BrazeContentCard` admite un subconjunto de campos disponibles en los objetos del modelo nativo, como `description`, `title`, `image`, `url`, `extras`, etc.
 
-### Escuchar datos de tarjetas de contenido en la capa Dart
+### Escuchar datos de tarjetas de contenido en la capa Dart {#listen-for-content-card-data-in-the-dart-layer}
 
 Para recibir los datos de tarjetas de contenido en la capa Dart, utiliza el código siguiente para crear un `StreamSubscription` y llamar a `braze.subscribeToContentCards()`. Recuerda llamar a `cancel()` en la suscripción al stream cuando ya no la necesites.
 
@@ -40,7 +40,7 @@ contentCardsStreamSubscription.cancel();
 
 Para ver un ejemplo, consulta [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) en la aplicación de ejemplo del SDK de Braze para Flutter.
 
-### Transmitir datos de tarjetas de contenido desde la capa nativa de iOS
+### Transmitir datos de tarjetas de contenido desde la capa nativa de iOS {#forward-content-card-data-from-the-native-ios-layer}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -57,7 +57,7 @@ Para ver un ejemplo, consulta [AppDelegate.swift](https://github.com/braze-inc/b
 {% endtab %}
 {% endtabs %}
 
-#### Repetición de la devolución de llamada para tarjetas de contenido
+#### Repetición de la devolución de llamada para tarjetas de contenido {#replaying-the-callback-for-content-cards}
 
 Para almacenar las tarjetas de contenido desencadenadas antes de que la devolución de llamada esté disponible y reproducirlas una vez establecida, añade la siguiente entrada al mapa `customConfigs` al inicializar `BrazePlugin`:
 ```dart

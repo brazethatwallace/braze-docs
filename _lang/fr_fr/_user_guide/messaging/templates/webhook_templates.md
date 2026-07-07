@@ -16,7 +16,7 @@ description: "Découvrez comment créer et personnaliser des modèles de webhook
 
 ## Étape 1 : Accéder à l'éditeur de modèles de webhook {#step-1-go-to-the-webhook-template-editor}
 
-Dans le tableau de bord de Braze, accédez à **Modèles** > **Modèles de webhook**.
+Dans le tableau de bord de Braze, accédez à **Contenu** > **Webhook**.
 
 ![La page « Modèles de webhook » avec les modèles de webhook préconçus et enregistrés.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 
@@ -24,13 +24,13 @@ Dans le tableau de bord de Braze, accédez à **Modèles** > **Modèles de webho
 
 À partir de là, vous pouvez choisir de créer un nouveau modèle, d'utiliser l'un des modèles de webhook préconçus ou de modifier un modèle existant.
 
-Par exemple, si vous utilisez [LINE]({{site.baseurl}}/user_guide/channels/line/) comme canal de communication, vous pouvez configurer plusieurs webhooks à l'aide des modèles préconçus pour **LINE Carousel** ou **LINE Image**.
+Par exemple, si vous utilisez [LINE]({{site.baseurl}}/user_guide/channels/line) comme canal de communication, vous pouvez configurer plusieurs webhooks à l'aide des modèles préconçus pour **LINE Carousel** ou **LINE Image**.
 
 ## Étape 3 : Renseigner les détails du modèle {#step-3-fill-out-template-details}
 
 1. Donnez un nom unique à votre modèle de webhook.
 2. (Facultatif) Ajoutez une description du modèle pour expliquer comment ce modèle est destiné à être utilisé.
-3. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) selon vos besoins pour faciliter la recherche et le filtrage de votre modèle.
+3. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins pour faciliter la recherche et le filtrage de votre modèle.
 
 ## Étape 4 : Créer votre modèle {#step-4-build-your-template}
 
@@ -55,4 +55,4 @@ Les modifications apportées à un modèle existant ne sont pas répercutées da
 
 ## Gérer vos modèles {#managing-your-templates}
 
-Vous pouvez [dupliquer et archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) des modèles de webhook pour mieux organiser et gérer votre liste de modèles.
+Vous pouvez [dupliquer et archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) des modèles de webhook pour mieux organiser et gérer votre liste de modèles.

@@ -6,9 +6,9 @@ description: "Cette page de référence répertorie les filtres qui peuvent êtr
 
 ---
 
-# Filtres
+# Filtres {#filters}
 
-> Cet article de référence fournit un aperçu des filtres dans Liquid et présente les filtres pris en charge par Braze. Vous cherchez des idées sur la façon d'utiliser ces filtres ? Consultez notre [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/).
+> Cet article de référence fournit un aperçu des filtres dans Liquid et présente les filtres pris en charge par Braze. Vous cherchez des idées sur la façon d'utiliser ces filtres ? Consultez notre [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases).
 
 Les filtres permettent de modifier la sortie de nombres, chaînes de caractères, variables et objets dans Liquid. Vous pouvez utiliser des filtres pour reformater du texte statique ou dynamique, par exemple pour convertir une chaîne de caractères de minuscules en majuscules ou pour effectuer des opérations mathématiques comme l'addition ou la division.
 
@@ -16,7 +16,7 @@ Les filtres permettent de modifier la sortie de nombres, chaînes de caractères
 Braze ne prend pas en charge tous les filtres Liquid de Shopify. Cette page tente de répertorier les filtres Liquid que Braze a testés, mais il ne s'agit pas nécessairement d'une liste exhaustive. Testez toujours votre code Liquid avant d'envoyer des messages. <br><br>Si vous avez des questions sur un filtre qui n'est pas répertorié ici, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
-## Syntaxe des filtres
+## Syntaxe des filtres {#filter-syntax}
 
 {% raw %}
 
@@ -44,10 +44,10 @@ BIG SALE
 Dans cet exemple, `Big Sale` est une chaîne de caractères et `upcase` est le filtre appliqué.
 
 {% alert note %}
-Les filtres peuvent être utilisés dans les instructions `assign` et les balises de sortie {% raw %}(`{{ }}`){% endraw %}, mais pas dans les conditions (`if`, `elsif`, `unless`), les blocs `case`/`when`, les boucles `for` ou les crochets d'accès aux tableaux. Pour utiliser une valeur filtrée dans l'un de ces contextes, assignez d'abord le résultat à une variable. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Les filtres peuvent être utilisés dans les instructions `assign` et les balises de sortie {% raw %}(`{{ }}`){% endraw %}, mais pas dans les conditions (`if`, `elsif`, `unless`), les blocs `case`/`when`, les boucles `for` ou les crochets d'accès aux tableaux. Pour utiliser une valeur filtrée dans l'un de ces contextes, assignez d'abord le résultat à une variable. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Syntaxe pour plusieurs filtres
+### Syntaxe pour plusieurs filtres {#syntax-for-multiple-filters}
 
 Vous pouvez utiliser plusieurs filtres sur une même sortie. Ils sont appliqués de gauche à droite.
 
@@ -68,7 +68,7 @@ SALE
 {% endtab %}
 {% endtabs %}
 
-## Filtres de tableaux
+## Filtres de tableaux {#array-filters}
 
 Les filtres de tableaux sont utilisés pour modifier la sortie des tableaux.
 
@@ -88,17 +88,17 @@ Les filtres de tableaux sont utilisés pour modifier la sortie des tableaux.
 | [sort_natural](https://shopify.dev/api/liquid/sort_natural) | Trie les éléments d'un tableau par ordre alphabétique sans tenir compte de la casse.                                                | ✅  Oui   |
 | [uniq](https://shopify.dev/api/liquid/filters/uniq)         | Supprime les doublons d'éléments dans un tableau.                                                           | ✅  Oui   |
 | [where](https://shopify.dev/api/liquid/where)        | Filtre un tableau pour n'inclure que les éléments ayant une valeur de propriété spécifique.                                             | ✅  Oui   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres de tableaux" }
 
-## Filtres de couleur
+## Filtres de couleur {#color-filters}
 
 Les [filtres de couleur](https://shopify.dev/api/liquid/filters/color-filters) ne sont pas pris en charge dans Braze.
 
-## Filtres de police
+## Filtres de police {#font-filters}
 
 Les [filtres de police](https://shopify.dev/api/liquid/filters/font-filters) ne sont pas pris en charge dans Braze.
 
-## Filtres mathématiques
+## Filtres mathématiques {#math-filters}
 
 Les filtres mathématiques vous permettent d'effectuer des opérations mathématiques. Si vous utilisez plusieurs filtres sur une même sortie, ils seront appliqués de gauche à droite.
 
@@ -115,7 +115,7 @@ Les filtres mathématiques vous permettent d'effectuer des opérations mathémat
 | [round](https://shopify.dev/api/liquid/filters/round)      | Arrondit la sortie à l'entier le plus proche ou au nombre de décimales spécifié.  | ✅  Oui   |
 | [times](https://shopify.dev/api/liquid/filters/times)     | Multiplie une sortie par un nombre.       | ✅  Oui   |
 | [modulo](https://shopify.dev/api/liquid/filters/modulo)    | Divise une sortie par un nombre et renvoie le reste.   | ✅  Oui   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres mathématiques" }
 
 {% alert tip %}
 Lorsque vous divisez des entiers par des entiers dans Liquid, si le résultat est un float (nombre à décimales), Liquid arrondira automatiquement à l'entier inférieur. En revanche, diviser des entiers par des floats donnera toujours un float. Vous pouvez donc convertir vos entiers en float (1.0, 2.0, 3.0) pour obtenir un float en retour.
@@ -124,7 +124,7 @@ Lorsque vous divisez des entiers par des entiers dans Liquid, si le résultat es
 {% endraw %}
 {% endalert %}
 
-### Opérations mathématiques avec des attributs personnalisés
+### Opérations mathématiques avec des attributs personnalisés {#mathematical-operations-with-custom-attributes}
 
 Gardez à l'esprit que vous ne pouvez pas effectuer d'opérations mathématiques entre deux attributs personnalisés.
 
@@ -139,7 +139,7 @@ Cet exemple ne fonctionnerait pas car vous ne pouvez pas référencer plusieurs 
 1. Une pour assigner l'attribut personnalisé à une variable,
 2. Une pour effectuer l'addition.
 
-#### Cas d'utilisation : calculer le solde actuel
+#### Cas d'utilisation : calculer le solde actuel {#use-case-calculate-current-balance}
 
 Supposons que nous voulions calculer le solde actuel d'un utilisateur en additionnant le solde de sa carte cadeau et le solde de ses récompenses.
 
@@ -170,7 +170,7 @@ You have $35 to spend!
 {% endtab %}
 {% endtabs %}
 
-## Filtres monétaires
+## Filtres monétaires {#money-filters}
 
 Si vous informez un utilisateur de son achat, d'un solde de compte ou de tout ce qui concerne de l'argent, vous devriez utiliser les filtres monétaires. Ces filtres garantissent que vos décimales sont au bon endroit et qu'aucune partie de votre mise à jour n'est perdue (comme ce `0` gênant à la fin).
 
@@ -179,7 +179,7 @@ Si vous informez un utilisateur de son achat, d'un solde de compte ou de tout ce
 | [money](https://shopify.dev/api/liquid/filters/money)      | Formate les nombres pour s'assurer que les décimales sont au bon endroit et que les zéros ne sont pas supprimés à la fin des nombres.   | ✅  Oui   |
 | [money_with_currency](https://shopify.dev/api/liquid/filters/money_with_currency)    | Formate les nombres avec le symbole de la devise.     | ⛔  Non    |
 | [money_without_currency](https://shopify.dev/api/liquid/filters/money_without_currency)     | Formate les nombres sans le symbole de la devise.      | ⛔  Non    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres monétaires" }
 
 {% alert important %}
 Pour formater correctement un nombre avec le filtre `money`, supprimez les virgules dans le nombre et ajoutez le filtre `plus: 0` avant le filtre `money`. Par exemple, consultez le code Liquid suivant :<br><br>
@@ -191,7 +191,7 @@ Pour formater correctement un nombre avec le filtre `money`, supprimez les virgu
 {% endraw %}
 {% endalert %}
 
-### Filtre money de Shopify versus filtre money de Braze
+### Filtre money de Shopify versus filtre money de Braze {#shopify-money-filter-versus-braze-money-filter}
 
 {% alert warning %}
 Le comportement du filtre `money` de Shopify diffère de son utilisation dans Braze. Consultez les exemples suivants pour une description précise du comportement attendu.
@@ -205,11 +205,11 @@ ${{custom_attribute.${account_balance} | money}}
 ```
 {% endraw %}
 
-| Avec le filtre money                       | Sans le filtre money                    |
+| AVEC LE FILTRE MONEY                       | SANS LE FILTRE MONEY                    |
 | :------------------------------------------ | :------------------------------------------ |
 | ![Avec le filtre money]({% image_buster /assets/img/with_money_filter.png %})                     | ![Sans le filtre money]({% image_buster /assets/img/without_money_filter.png %})                  |
 | Où `account_balance` est saisi à `17.8`. | Où `account_balance` est saisi à `17.8`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtre money de Shopify versus filtre money de Braze" }
 
 Le filtre `money` dans Braze diffère de celui de Shopify car il n'applique pas automatiquement les points décimaux selon un paramètre prédéfini. Par exemple, prenons le scénario suivant où `rewards_redeemed` contient une valeur de `145` :
 
@@ -249,7 +249,7 @@ $1.45
 {% endtab %}
 {% endtabs %}
 
-## Filtres de chaînes de caractères
+## Filtres de chaînes de caractères {#string-filters}
 
 Les filtres de chaînes de caractères sont utilisés pour manipuler les sorties et les variables de chaînes de caractères. Les chaînes de caractères sont une combinaison de caractères alphanumériques et doivent être entourées de guillemets droits.
 
@@ -265,9 +265,9 @@ Les guillemets droits sont différents des guillemets courbes dans Liquid. Faite
 | [downcase](https://shopify.dev/api/liquid/filters/downcase)      | Convertit une chaîne de caractères en minuscules.         | ✅  Oui   |
 | [escape](https://shopify.dev/api/liquid/filters/escape)    | Échappe une chaîne de caractères.             | ✅  Oui   |
 | [handleize](https://shopify.dev/api/liquid/filters/handleize)        | Formate une chaîne de caractères en handle.        | ⛔  Non    |
-| [md5](https://shopify.dev/api/liquid/filters/md5)    | Convertit une chaîne de caractères en hash MD5. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters) pour en savoir plus.   | ✅  Oui   |
-| [sha1](https://shopify.dev/api/liquid/filters/sha1)    | Convertit une chaîne de caractères en hash SHA-1. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters) pour en savoir plus.  | ✅  Oui   |
-| hmac_sha1_hex<br>(anciennement [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | Convertit une chaîne de caractères en hash SHA-1 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters) pour en savoir plus. | ✅  Oui   |
+| [md5](https://shopify.dev/api/liquid/filters/md5)    | Convertit une chaîne de caractères en hash MD5. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters) pour en savoir plus.   | ✅  Oui   |
+| [sha1](https://shopify.dev/api/liquid/filters/sha1)    | Convertit une chaîne de caractères en hash SHA-1. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters) pour en savoir plus.  | ✅  Oui   |
+| hmac_sha1_hex<br>(anciennement [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | Convertit une chaîne de caractères en hash SHA-1 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters) pour en savoir plus. | ✅  Oui   |
 | [hmac_sha256](https://shopify.dev/api/liquid/filters/hmac_sha256)    | Convertit une chaîne de caractères en hash SHA-256 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre.       | ✅  Oui   |
 | hmac_sha512 | Convertit une chaîne de caractères en hash SHA-512 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre. | ✅  Oui  |
 | [newline_to_br](https://shopify.dev/api/liquid/filters/newline_to_br)     | Insère une balise HTML de saut de ligne `<br>` devant chaque saut de ligne dans une chaîne de caractères.        | ✅  Oui   |
@@ -287,9 +287,9 @@ Les guillemets droits sont différents des guillemets courbes dans Liquid. Faite
 | [truncate](https://shopify.dev/api/liquid/filters/truncate)    | Tronque une chaîne de caractères au nombre de caractères passé en premier paramètre. Des points de suspension (...) sont ajoutés à la chaîne tronquée et sont inclus dans le nombre de caractères.    | ✅  Oui   |
 | [truncatewords](https://shopify.dev/api/liquid/filters/truncatewords)   | Tronque une chaîne de caractères au nombre de mots passé en premier paramètre. Des points de suspension (...) sont ajoutés à la chaîne tronquée.    | ✅  Oui   |
 | [upcase](https://shopify.dev/api/liquid/filters/upcase)   | Convertit une chaîne de caractères en majuscules.      | ✅  Oui   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres de chaînes de caractères" }
 
-## Filtres supplémentaires
+## Filtres supplémentaires {#additional-filters}
 
 Les filtres généraux suivants servent à de nombreuses fins, notamment le formatage ou la conversion de contenu.
 
@@ -299,9 +299,9 @@ Les filtres généraux suivants servent à de nombreuses fins, notamment le form
 | [default](https://shopify.dev/api/liquid/filters/default)        | Définit une valeur par défaut pour toute variable sans valeur assignée. Peut être utilisé avec des chaînes de caractères, des tableaux et des hashes.      | ✅  Oui   |
 | [format_address](https://shopify.dev/api/liquid/filters/format_address) | Formate une adresse pour afficher les éléments de l'adresse dans l'ordre correspondant à leur localisation.        | ⛔  Non    |
 | [highlight](https://shopify.dev/api/liquid/filters/highlight)      | Entoure les mots dans les résultats de recherche avec une balise HTML `<strong>` ayant la classe highlight s'ils correspondent aux termes de recherche soumis. | ⛔  Non    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres supplémentaires" }
 
-Vous trouverez d'autres filtres pris en charge, tels que les filtres d'encodage et d'URL, sur notre page [Filtres avancés]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/).
+Vous trouverez d'autres filtres pris en charge, tels que les filtres d'encodage et d'URL, sur notre page [Filtres avancés]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters).
 
 ### Filtre date {#date-filter}
 

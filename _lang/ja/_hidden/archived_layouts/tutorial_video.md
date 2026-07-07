@@ -11,9 +11,9 @@ page_type: tutorial
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -35,6 +35,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
@@ -44,7 +45,7 @@ noindex: true
 このレイアウトは、クイックスタートガイド、製品ウォークスルー、およびトラブルシューティングウォークスルー用で、動画付きです。動画は右側に配置され、固定表示されます。TOCにはH2ヘッダーのみが表示されるため、H2にすべきステップは以下のように記述してください：
 「ステップ1：ステップの内容」。
 チュートリアル：
-指導的な概念の一般的なウォークスルーです。実用的な知識を含める必要があります。単一のトピックに焦点を当てます（例：Campaignの作成方法、Canvasの作成方法など）。特定の問題をステップバイステップで解決する、目標またはタスク指向の記事です（特定のユーザーをターゲットにする方法、ロケーションに基づいてセグメント化する方法など）。
+指導的な概念の一般的なウォークスルーです。実用的な知識を含める必要があります。単一のトピックに焦点を当てます（例：キャンペーンの作成方法、キャンバスの作成方法など）。特定の問題をステップバイステップで解決する、目標またはタスク指向の記事です（特定のユーザーをターゲットにする方法、ロケーションに基づいてセグメント化する方法など）。
 {% endcomment %}
 # このビデオチュートリアルのタイトルの付け方 {#how-to-title-this-video-tutorial}
 
@@ -81,7 +82,7 @@ noindex: true
 | -------- | ----------- |
 | Page Title | ページのタイトルは自由に設定できます。これは必須です。 |
 | My First Heading | 大文字で記載することをお勧めします。これはオプションです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code Sample" }
 
 
 ## ステップ2：次のことを行う {#step-2-do-the-next-thing}

@@ -1,5 +1,5 @@
 ---
-nav_title: Workspace-Messaging-Rate-Limits
+nav_title: Messaging-Rate-Limits
 article_title: Workspace-Messaging-Rate-Limits
 alias: /workspace_messaging_rate_limits/
 page_type: reference
@@ -7,7 +7,7 @@ description: "Dieser Referenzartikel beschreibt Workspace-Messaging-Rate-Limits 
 page_order: 10
 ---
 
-# Workspace-Messaging-Rate-Limits
+# Workspace-Messaging-Rate-Limits {#workspace-messaging-rate-limits}
 
 > Verwenden Sie Workspace-Messaging-Rate-Limits, um die Zustellrate Ihrer ausgehenden Nachrichten von Ihrer Plattform zu regulieren und sicherzustellen, dass Ihre Nutzer:innen die Nachrichten erhalten, die sie benötigen.
 
@@ -15,22 +15,22 @@ page_order: 10
 Workspace-Messaging-Rate-Limits werden schrittweise eingeführt. Möglicherweise sehen Sie diese Einstellungen noch nicht in Ihrem Dashboard.
 {% endalert %}
 
-## So funktioniert es
+## So funktioniert es {#how-it-works}
 
 Workspace-Messaging-Rate-Limits gelten für die Gesamtheit der in Ihrem Workspace gesendeten Nachrichten. Indem Sie ein Rate-Limit auf Workspace-Ebene festlegen und optimieren, können Sie den ausgehenden Datenverkehr Ihrer Braze-Nachrichten besser kontrollieren und potenzielle Lastspitzen vermeiden, die die Server-Performance beeinträchtigen könnten.
 {% alert note %}
 Beachten Sie, dass Nachrichten, die über API-Messaging-Endpunkte wie `/messages/send` und `/messages/schedule/create` gesendet werden, ebenfalls gezählt werden und von Workspace-Messaging-Rate-Limits betroffen sind.
 {% endalert %}
-Die Gesamtzahl der pro Minute gesendeten Nachrichten überschreitet nicht die konfigurierten Workspace-Rate-Limits. Es gibt keine bestimmte Reihenfolge, welche Campaigns in den ersten Minuten im Vergleich zu den späteren Minuten versendet werden.
+Die Gesamtzahl der pro Minute gesendeten Nachrichten überschreitet nicht die konfigurierten Workspace-Rate-Limits. Es gibt keine bestimmte Reihenfolge, welche Kampagnen in den ersten Minuten im Vergleich zu den späteren Minuten versendet werden.
 
 Nehmen wir zum Beispiel an, Sie haben ein Workspace-Messaging-Rate-Limit von 100.000 Nachrichten pro Minute, und die folgenden Nachrichten werden alle um 12:00 Uhr verarbeitet:
 
-| Campaign   | Anzahl der Nachrichten | Sendezeit |
-|------------|-----------------------|-----------|
-| Campaign 1 | 100.000               | 12:00 Uhr |
-| Campaign 2 | 100.000               | 12:00 Uhr |
-| Campaign 3 | 100.000               | 12:00 Uhr |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Campaign   | Anzahl der Nachrichten | Sendezeit  |
+|------------|------------------------|------------|
+| Campaign 1 | 100.000                | 12:00 Uhr  |
+| Campaign 2 | 100.000                | 12:00 Uhr  |
+| Campaign 3 | 100.000                | 12:00 Uhr  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="So funktioniert es" }
 
 Die Nachrichten werden über ein 3-Minuten-Intervall versendet.
 
@@ -40,11 +40,11 @@ Nachrichten werden parallel verarbeitet. Bei der Verarbeitung werden Nachrichten
 
 Betrachten Sie das nächste Beispiel mit einem Workspace-Messaging-Rate-Limit von 100.000 Nachrichten pro Minute und den folgenden eingerichteten Nachrichten:
 
-| Campaign   | Anzahl der Nachrichten | Sendezeit |
-|------------|-----------------------|-----------|
-| Campaign 1 | 1.000.000             | 9:00 Uhr  |
-| Campaign 2 | 1.000.000             | 9:05 Uhr  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Campaign   | Anzahl der Nachrichten | Sendezeit  |
+|------------|------------------------|------------|
+| Campaign 1 | 1.000.000              | 9:00 Uhr   |
+| Campaign 2 | 1.000.000              | 9:05 Uhr   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="So funktioniert es" }
 
 Der erwartete Versandzeitplan und die pro Minute gesendeten Nachrichten sehen wie folgt aus:
 
@@ -57,26 +57,26 @@ Der erwartete Versandzeitplan und die pro Minute gesendeten Nachrichten sehen wi
 Nachdem Sie das Workspace-Messaging-Rate-Limit festgelegt haben, können Sie es erhöhen. Allerdings verwenden alle Nachrichten, die vor der Erhöhung bereits verarbeitet wurden, das zuvor festgelegte Limit.
 {% endalert %}
 
-## Workspace-Messaging-Rate-Limit festlegen
+## Workspace-Messaging-Rate-Limit festlegen {#setting-your-workspace-messaging-rate-limit}
 
 1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Workspace-Einstellungen** > **Messaging-Rate-Limits**.
-2. Wählen Sie **+ Rate-Limit hinzufügen** und dann einen Messaging-Kanal aus.
-3. Geben Sie unter **Messages pro Minute** das Rate-Limit ein.
-4. Wählen Sie **Speichern**.
+2. Wählen Sie **+ Add rate limit** und dann einen Messaging-Kanal aus.
+3. Geben Sie unter **Messages per minute** das Rate-Limit ein.
+4. Wählen Sie **Save**.
 
-## Wissenswertes
+## Wissenswertes {#things-to-know}
 
 Das Rate-Limit wird auf den Versand angewendet, also auf den Beginn des Nachrichtensendeversuchs. Wenn es Schwankungen in der Zeit gibt, die für den Abschluss des Versands benötigt wird, kann die Anzahl der abgeschlossenen Sendungen in einigen Minuten das Rate-Limit leicht überschreiten. Über die Zeit gleicht sich die Anzahl der Sendungen pro Minute auf nicht mehr als das Rate-Limit aus.
 
-Wenn eine Campaign oder ein Canvas ein eigenes Rate-Limit hat und ein Rate-Limit auf Workspace-Ebene gilt, werden beide angewendet. Wenn eine Campaign beispielsweise ein Rate-Limit von 500.000 hat, aber aufgrund von Workspace-Rate-Limits derzeit nur 100.000 Nachrichten pro Minute senden kann, greift das Workspace-Rate-Limit.
+Wenn eine Kampagne oder ein Canvas ein eigenes Rate-Limit hat und ein Rate-Limit auf Workspace-Ebene gilt, werden beide angewendet. Wenn eine Kampagne beispielsweise ein Rate-Limit von 500.000 hat, aber aufgrund von Workspace-Rate-Limits derzeit nur 100.000 Nachrichten pro Minute senden kann, greift das Workspace-Rate-Limit.
 
-Braze versucht, die Nachrichtenversendungen gleichmäßig über die Minute zu verteilen, kann dies aber nicht garantieren. Wenn Sie beispielsweise eine Campaign mit einem Rate-Limit von 500.000 Nachrichten pro Minute haben, versuchen wir, die 500.000 Nachrichten gleichmäßig über die Minute zu verteilen (etwa 8.400 Nachrichten pro Sekunde), aber es kann Abweichungen in der Rate pro Sekunde geben.
+Braze versucht, die Nachrichtenversendungen gleichmäßig über die Minute zu verteilen, kann dies aber nicht garantieren. Wenn Sie beispielsweise eine Kampagne mit einem Rate-Limit von 500.000 Nachrichten pro Minute haben, versuchen wir, die 500.000 Nachrichten gleichmäßig über die Minute zu verteilen (etwa 8.400 Nachrichten pro Sekunde), aber es kann Abweichungen in der Rate pro Sekunde geben.
 
 Beachten Sie, dass Sie weiterhin individuelle Rate-Limits in Ihren Campaigns und Canvases festlegen können. Diese werden unabhängig von Workspace-Messaging-Rate-Limits angewendet.
 
-### Nachrichten, die nicht in den Workspace-Messaging-Rate-Limits enthalten sind
+### Nachrichten, die nicht in den Workspace-Messaging-Rate-Limits enthalten sind {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
-- Nachrichten, die über [Transaktions-E-Mail-Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/) gesendet werden, sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen eigenen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
-- Nachrichten an [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) und [Testsendungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
+- Nachrichten, die über [Transaktions-E-Mail-Kampagnen]({{site.baseurl}}/user_guide/channels/transactional_email) gesendet werden, sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen eigenen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
+- Nachrichten an [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) und [Testsendungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
 - Automatische SMS-Antworten sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
 - Workspace-Messaging-Rate-Limits werden für In-App-Nachrichten, Feature-Flags und Banner nicht unterstützt.

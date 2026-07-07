@@ -1,23 +1,23 @@
 ---
-nav_title: "Sample Queries"
-article_title: Snowflake Sample Queries
+nav_title: "샘플 쿼리"
+article_title: Snowflake 샘플 쿼리
 page_order: 1
-description: "This partner page offers some sample queries of possible use cases to reference when setting up your Snowflake queries."
+description: "이 파트너 페이지에서는 Snowflake 쿼리를 설정할 때 참조할 수 있는 활용 사례별 샘플 쿼리를 제공합니다."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Sample queries
+# 샘플 쿼리 {#sample-queries}
 
-> This partner page offers some sample queries of possible use cases to reference when setting up your queries.
+> 이 파트너 페이지에서는 쿼리를 설정할 때 참조할 수 있는 활용 사례별 샘플 쿼리를 제공합니다.
 
 {% tabs %}
-{% tab Filter By Time%}
+{% tab 시간별 필터링%}
 
-A common query might be to filter events by time.
+일반적인 쿼리 중 하나는 이벤트를 시간별로 필터링하는 것입니다.
 
-You can filter them by the time of occurrence. Event tables are clustered by `time` which makes filtering by `time` optimal:
+발생 시간을 기준으로 필터링할 수 있습니다. 이벤트 테이블은 `time`을 기준으로 클러스터링되어 있으므로 `time`으로 필터링하는 것이 최적입니다:
 ```sql
 -- find custom events that occurred after 04/15/2019 @ 7:02pm (UTC) i.e., timestamp=1555354920
 SELECT *
@@ -25,7 +25,7 @@ FROM users_behaviors_customevent_shared
 WHERE time > 1555354920
 LIMIT 10;
 ```
-You can also filter events by the time at which they were persisted in the Snowflake data warehouse by using `sf_created_at`. `sf_created_at` and `time` are not the same but are usually close, so this query should have similar performance characteristics:
+`sf_created_at`을 사용하여 Snowflake 데이터 웨어하우스에 저장된 시간을 기준으로 이벤트를 필터링할 수도 있습니다. `sf_created_at`과 `time`은 동일하지 않지만 일반적으로 비슷하므로, 이 쿼리도 유사한 성능 특성을 가집니다:
 ```sql
 -- find custom events that arrived in Snowflake after time 04/15/2019 @ 7:02pm (UTC)
 SELECT *
@@ -34,15 +34,15 @@ WHERE sf_created_at > to_timestamp_ntz('2019-04-15 19:02:00')
 LIMIT 10;
 ```
 {% alert note %}
-The value of `sf_created_at` is reliable only for events that were persisted after `Nov 15th, 2019 9:31 pm UTC`.
+`sf_created_at` 값은 `2019년 11월 15일 오후 9:31 UTC` 이후에 저장된 이벤트에 대해서만 신뢰할 수 있습니다.
 {% endalert %}
 {% endtab %}
 
-{% tab Querying Changelogs%}
-  
-Campaign names and Canvas names are not present in the events themselves. Instead, they are published in a changelog table. 
+{% tab 체인지로그 쿼리%}
 
-You can see campaign names for events related to a campaign by joining with the campaign changelog table using a query like:
+Campaign 이름과 Canvas 이름은 이벤트 자체에 포함되어 있지 않습니다. 대신 체인지로그 테이블에 게시됩니다.
+
+Campaign 체인지로그 테이블과 조인하여 Campaign 관련 이벤트의 Campaign 이름을 확인할 수 있습니다. 다음과 같은 쿼리를 사용합니다:
 
 ```sql
 SELECT event.id, event.time, ccs.time, ccs.name, ccs.conversion_behaviors[event.conversion_behavior_index]
@@ -52,18 +52,18 @@ ON ccs.id = event.campaign_id
 AND ccs.time < event.time
 qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 ```
-Some important things to note include:
-- The Snowflake's [window](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) functions are used here.
-- The left join will ensure that events unrelated to a campaign will also be included.
-- If you see events with `campaign_id`s but no campaign names then there is a possibility that the campaign was created with a name before Data Sharing existed as a product.
-- You can see Canvas names using a similar query, joining with the `CHANGELOGS_CANVAS_SHARED` table instead.
+주의할 사항은 다음과 같습니다:
+- 여기서는 Snowflake의 [윈도우](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) 함수가 사용됩니다.
+- LEFT JOIN을 사용하면 Campaign과 관련 없는 이벤트도 포함됩니다.
+- `campaign_id`가 있지만 Campaign 이름이 없는 이벤트가 보이는 경우, 데이터 공유가 제품으로 존재하기 전에 이름이 지정된 Campaign이 생성되었을 가능성이 있습니다.
+- `CHANGELOGS_CANVAS_SHARED` 테이블과 조인하는 유사한 쿼리를 사용하여 Canvas 이름을 확인할 수 있습니다.
 
-If you want to see both campaign and Canvas names, you may have to use the following sub-query:
+Campaign 이름과 Canvas 이름을 모두 확인하려면 다음 서브쿼리를 사용해야 할 수 있습니다:
 ```sql
 SELECT campaign_join.*, canvas.name AS canvas_name
-FROM 
+FROM
 (SELECT e.id AS event_id, e.external_user_id, e.time, e.user_id, e.device_id, e.sf_created_at,
-    e.campaign_api_id, e.canvas_id, e.canvas_step_api_id, 
+    e.campaign_api_id, e.canvas_id, e.canvas_step_api_id,
     campaign.name AS campaign_name
   FROM USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED AS e
   LEFT JOIN CHANGELOGS_CAMPAIGN_SHARED AS campaign ON campaign.id = e.campaign_id
@@ -73,9 +73,9 @@ LEFT JOIN CHANGELOGS_CANVAS_SHARED AS Canvas ON canvas.id = campaign_join.canvas
 qualify row_number() over (partition by campaign_join.event_id ORDER BY canvas.time DESC) = 1;
 ```
 {% endtab %}
-{% tab Push Funnel %}
+{% tab 푸시 퍼널 %}
 
-You can use this push funnel query to aggregate push sends raw event data, through to deliveries raw event data, through to opens raw event data. This query shows how all the tables should be joined since each raw event typically has a separate table:
+이 푸시 퍼널 쿼리를 사용하여 푸시 발송 원시 이벤트 데이터부터 전달 원시 이벤트 데이터, 열람 원시 이벤트 데이터까지 집계할 수 있습니다. 이 쿼리는 각 원시 이벤트가 일반적으로 별도의 테이블을 가지므로 모든 테이블을 어떻게 조인해야 하는지 보여줍니다:
 
 ```sql
 
@@ -102,10 +102,10 @@ LIMIT 500;
 ```
 
 {% endtab %}
-{% tab Email Cadence %}
-You can use this daily email messaging cadence query to analyze the time between emails that a user receives.
+{% tab 이메일 발송 주기 %}
+이 일별 이메일 메시징 주기 쿼리를 사용하여 사용자가 이메일을 수신하는 간격을 분석할 수 있습니다.
 
-For example, if a user received two emails in one day, they would fall under `0 "days since last received"`. If they received one email on Monday and one on Tuesday, they would fall into the `1 "days since last received"` cohort.
+예를 들어, 사용자가 하루에 이메일 두 통을 받았다면 `0 "days since last received"`에 해당합니다. 월요일에 한 통, 화요일에 한 통을 받았다면 `1 "days since last received"` 코호트에 해당합니다.
 
 ```sql
 WITH email_messaging_cadence AS (WITH deliveries AS
@@ -145,15 +145,15 @@ ORDER BY 1
 LIMIT 500;
 ```
 {% endtab %}
-{% tab Unique Email Clicks %}
+{% tab 고유 이메일 클릭 수 %}
 
-You can use this unique email clicks query to analyze the unique email click in a given time window. The algorithm to calculate this is as follows:
-  1. Partition the events by the key (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
-  2. In each partition, order the events by time, and the first event is always a unique event.
-  3. For every subsequent event, if it occurred more than seven days after its predecessor, is considered a unique event.
-  
-We can use Snowflake's [windowing functions](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) to help us achieve this. The following query gives us all email clicks in the last 365 days and indicates which events are unique in the `is_unique` column:
-  
+이 고유 이메일 클릭 수 쿼리를 사용하여 지정된 기간 내의 고유 이메일 클릭을 분석할 수 있습니다. 이를 계산하는 알고리즘은 다음과 같습니다:
+  1. 키(`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`)를 기준으로 이벤트를 파티셔닝합니다.
+  2. 각 파티션에서 이벤트를 시간순으로 정렬하며, 첫 번째 이벤트는 항상 고유 이벤트입니다.
+  3. 이후의 모든 이벤트에 대해, 이전 이벤트로부터 7일 이상 경과한 경우 고유 이벤트로 간주합니다.
+
+Snowflake의 [윈도우 함수](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)를 사용하여 이를 구현할 수 있습니다. 다음 쿼리는 최근 365일간의 모든 이메일 클릭을 반환하며, `is_unique` 열에서 어떤 이벤트가 고유한지 표시합니다:
+
 ```sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
@@ -162,11 +162,11 @@ SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, t
   IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
 FROM USERS_MESSAGES_EMAIL_CLICK_SHARED
 WHERE
-  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
-  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600; 
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
 ```
 
-If you just want to see the unique events, use the `QUALIFY` clause:
+고유 이벤트만 확인하려면 `QUALIFY` 절을 사용합니다:
 ```sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
@@ -175,11 +175,11 @@ SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, t
   IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
 FROM USERS_MESSAGES_EMAIL_CLICK_SHARED
 WHERE
-  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
 QUALIFY is_unique = true;
 ```
-To further see unique event counts grouped by email address:
+이메일 주소별로 그룹화된 고유 이벤트 수를 추가로 확인하려면 다음을 사용합니다:
 ```sql
 WITH unique_events AS(
   SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
@@ -189,12 +189,89 @@ WITH unique_events AS(
   IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
 FROM USERS_MESSAGES_EMAIL_CLICK_SHARED
 WHERE
-  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
-QUALIFY is_unique = true) 
+QUALIFY is_unique = true)
 SELECT email_address, count(*) AS count
 FROM unique_events
 GROUP BY email_address;
 ```
+{% endtab %}
+{% tab 고유 이메일 열람 %}
+
+이 쿼리를 사용하여 Snowflake 이메일 열람 이벤트에서 **고유 열람**을 근사적으로 계산할 수 있습니다. 예를 들어, 대시보드의 **고유 열람** 열과 비교하여 검증하는 데 활용할 수 있습니다.
+
+이 예시는 세 가지 수치를 반환합니다:
+
+- **고유 열람(7일 롤링):** 7일 롤링 기간 동안의 고유 열람 수입니다.
+- **고유 열람(지정 기간 내):** 지정된 기간 내의 고유 열람 수입니다. 해당 기간 이전에 발생한 열람과는 무관합니다.
+- **고유 열람(동일 기간 내 전달된 이메일 대상):** 동일한 기간 내에 전달 이벤트도 발생한 이메일에 대한 고유 열람 수입니다(해당 기간에 전달된 메시지에 연결된 열람만 확인하려는 경우 유용합니다).
+
+{% raw %}
+```sql
+/*
+    Set or comment out variables if not required. These are set per session.
+    You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
+
+    For example, endDate=1656799199&startDate=1656194400
+
+    To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
+*/
+
+SET fromDateTime = '1656194400';
+SET toDateTime = '1656799199';
+-- SET campaignID = '';
+-- SET canvasID = '';
+SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+
+SELECT
+    'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    not exists (select
+                umeo.user_id
+            from
+                users_messages_email_open_shared umeo
+            where
+                umeo.user_id = users_messages_email_open_shared.user_id and
+                umeo.canvas_step_id = users_messages_email_open_shared.canvas_step_id and
+                to_timestamp(umeo.time) between dateadd(day, -7, to_timestamp(users_messages_email_open_shared.time)) and dateadd(second, -1, to_timestamp(users_messages_email_open_shared.time)))
+UNION
+SELECT
+    'Unique Opens (during date window)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime
+UNION
+SELECT
+    'Unique Opens (for emails delivered within same timeframe)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    EXISTS (select user_id
+            from users_messages_email_delivery_shared umed
+            where
+                umed.user_id = users_messages_email_open_shared.user_id and
+                umed.dispatch_id = users_messages_email_open_shared.dispatch_id and
+                umed.time between $fromDateTime and $toDateTime);
+```
+{% endraw %}
+
 {% endtab %}
 {% endtabs %}

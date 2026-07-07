@@ -6,45 +6,45 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "Este artículo te guiará sobre cómo configurar las Extensiones de segmento CDI, que te permiten segmentar usuarios mediante consultas directas a tu almacén de datos."
+description: "Este artículo explica cómo las extensiones de segmento CDI utilizan la Ingesta de datos de Cloud para consultar tu almacén de datos y definir audiencias en Braze."
 
 ---
 
 # Extensiones de segmento CDI {#cdi-segment-extensions}
 
-> Con la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) (CDI) de Braze, puedes configurar una conexión directa desde tu almacén de datos o sistema de almacenamiento de archivos a Braze para sincronizar datos relevantes de usuarios o catálogos de forma recurrente.
+> Con la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) (CDI) de Braze, puedes configurar una conexión directa desde tu almacén de datos o sistema de almacenamiento de archivos a Braze para sincronizar datos relevantes de usuarios o catálogos de forma recurrente.
 
 {% alert warning %}
-Las Extensiones de segmento CDI consultan tu almacén de datos directamente, por lo que incurrirás en todos los costos asociados con la ejecución de estas consultas en tu almacén de datos. Las Extensiones de segmento CDI no consumen [créditos de segmentos SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage), no cuentan para tu límite de extensiones de segmento y no registran puntos de datos.
+Las extensiones de segmento CDI consultan tu almacén de datos directamente, por lo que incurrirás en todos los costos asociados con la ejecución de estas consultas en tu almacén de datos. Las extensiones de segmento CDI no consumen [créditos de segmentos SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage), no cuentan para tu límite de extensiones de segmento y no registran puntos de datos.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar los datos de tu almacén de datos para la segmentación dentro de tu espacio de trabajo de Braze, necesitarás crear una [fuente conectada]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) y luego crear un segmento CDI dentro de tus [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Las extensiones de segmento CDI te permiten escribir SQL que consulta directamente tu propio almacén de datos utilizando los datos disponibles a través de tus conexiones CDI, y crear un grupo de usuarios al que puedes dirigirte dentro de Braze.
+Para usar los datos de tu almacén de datos para la segmentación dentro de tu espacio de trabajo de Braze, necesitarás crear una [fuente conectada]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) y luego crear un segmento CDI dentro de tus [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Las extensiones de segmento CDI te permiten escribir SQL que consulta directamente tu propio almacén de datos utilizando los datos disponibles a través de tus conexiones CDI, y crear un grupo de usuarios al que puedes dirigirte dentro de Braze.
 
 ## Crear un segmento CDI {#creating-a-cdi-segment}
 
 ### Paso 1: Configura tu fuente {#step-1-set-up-your-source}
 
-Antes de crear tu primera extensión de segmento CDI, configura una nueva fuente conectada con tu almacén de datos siguiendo los pasos en [Fuentes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/).
+Antes de crear tu primera extensión de segmento CDI, configura una nueva fuente conectada con tu almacén de datos siguiendo los pasos en [Fuentes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources).
 
 ### Paso 2: Crea un segmento {#step-2-create-a-segment}
 
-Primero, crea una nueva [extensión de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) y luego selecciona **Full refresh**.
+Primero, crea una nueva [extensión de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) y luego selecciona **Full refresh**.
 
-![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:60%;"}
+![Ejemplo de ubicación del modal de tarjeta de contenido.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:60%;"}
 
 Para tu origen de datos, elige **CDI Data Tables**.
 
-![]({% image_buster /assets/img/segment/cdi_data_tables.png %}){: style="max-width:60%;"}
+![Captura de pantalla relacionada con el paso 2: crear un segmento.]({% image_buster /assets/img/segment/cdi_data_tables.png %}){: style="max-width:60%;"}
 
 Como parte de tu configuración CDI, puedes seleccionar entre diferentes conexiones para usar en las extensiones de segmento CDI. Cada conexión tiene un conjunto específico de tablas de datos. Tu equipo de desarrollo puede configurar tus conexiones y tablas de datos durante la configuración CDI.
 
-Para ver las tablas de datos disponibles, incluyendo su esquema y cualquier descripción disponible, selecciona **Reference**. Cuando estés listo, selecciona una conexión.
+Para ver las tablas de datos disponibles, incluyendo su esquema y cualquier descripción disponible, selecciona **Referencia**. Cuando estés listo, selecciona una conexión.
 
-![]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
+![Para ver las tablas de datos disponibles, incluyendo su esquema y cualquier descripción disponible, selecciona Referencia. Cuando estés listo, selecciona una conexión.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
 
-A continuación, escribe el SQL para tu segmento usando [la sintaxis SQL de Braze]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#writing-sql).
+A continuación, escribe el SQL para tu segmento usando [la sintaxis SQL de Braze]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#writing-sql).
 
 Ten en cuenta que todas las extensiones de segmento CDI deben usar `external_user_id` como la columna seleccionada, y tu `external_user_id` debe coincidir con el configurado en Braze para los usuarios.
 
@@ -55,10 +55,10 @@ Ten en cuenta que todas las extensiones de segmento CDI deben usar `external_use
 Si los resultados de tu consulta incluyen usuarios que no existen en Braze, esos usuarios serán ignorados. Braze no crea nuevos usuarios basándose en la salida de tu extensión de segmento CDI.
 
 {% alert tip %}
-Para aprender cómo puedes previsualizar tus extensiones de segmento, administrarlas y ejecutar actualizaciones automáticas de membresía, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/).
+Para aprender cómo puedes previsualizar tus extensiones de segmento, administrarlas y ejecutar actualizaciones automáticas de membresía, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 {% endalert %}
 
-Finalmente, puedes [usar esta extensión de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-5-use-your-extension-in-a-segment) dentro de un segmento de Braze para enviar una campaña o Canvas a esta audiencia.
+Finalmente, puedes [usar esta extensión de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-5-use-your-extension-in-a-segment) dentro de un segmento de Braze para enviar una campaña o Canvas a esta audiencia.
 
 ## Consideraciones {#considerations}
 

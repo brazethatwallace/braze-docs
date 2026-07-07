@@ -8,7 +8,7 @@ page_order: 4.8
 
 # API use cases
 
-> The [Braze REST API]({{site.baseurl}}/api/basics/) provides a wide range of endpoints designed to help manage and optimize your customer engagement strategy. In this article, we’ll explore several use cases for each endpoint collection: catalogs, email lists and addresses, export, messages, preference center, SMS, subscription groups, templates, and user data.<br><br>Each section introduces a scenario with a step-by-step guide, code sample, and expected outcome. By the end of this article, you’ll better understand how to use the Braze REST API to enhance your customer engagement efforts.
+> The [Braze REST API]({{site.baseurl}}/api/basics) provides a wide range of endpoints designed to help manage and optimize your customer engagement strategy. In this article, we’ll explore several use cases for each endpoint collection: catalogs, email lists and addresses, export, messages, preference center, SMS, subscription groups, templates, and user data.<br><br>Each section introduces a scenario with a step-by-step guide, code sample, and expected outcome. By the end of this article, you’ll better understand how to use the Braze REST API to enhance your customer engagement efforts.
 
 ## Deleting multiple items in a catalog
 
@@ -18,7 +18,7 @@ A new year welcomes new product launches at Kitchenerie, a retail brand speciali
 * Pearl Porcelain
 * Pink Shimmer
 
-To remove these products from its catalog, Kitchener can use the [`/catalogs/{catalog_name}/items` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk/) to pass in the item IDs.
+To remove these products from its catalog, Kitchener can use the [`/catalogs/{catalog_name}/items` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk) to pass in the item IDs.
 
 Here's the example request:
 
@@ -82,7 +82,7 @@ Siege Valley Health is a hospital system that includes 10 operating hospitals an
 
 Let’s dive into how Siege Valley Health can accomplish these two tasks using a combination of endpoints rather than filtering through the Braze dashboard.
 
-For the first task of auditing Canvases, use the [`/canvas/list` endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) to export a list of Canvases that includes the name and tags. Here’s an example request:
+For the first task of auditing Canvases, use the [`/canvas/list` endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) to export a list of Canvases that includes the name and tags. Here’s an example request:
 
 {% details Here’s the response that the Siege Valley Health marketing team would receive. %}
 ```json
@@ -111,7 +111,7 @@ For the first task of auditing Canvases, use the [`/canvas/list` endpoint]({{sit
 ```
 {% enddetails %}
 
-Let’s move on to the next task of viewing the analytics summary for the first Canvas from Siege Valley Health’s list of Canvases. To do so, we would use the [`/canvas/data_summary` endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) with the following request parameters:
+Let’s move on to the next task of viewing the analytics summary for the first Canvas from Siege Valley Health’s list of Canvases. To do so, we would use the [`/canvas/data_summary` endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) with the following request parameters:
 
 * `canvas_id`: "canvas_identifier_2"
 * `ending_at`: 2023-07-10T23:59:59
@@ -126,7 +126,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 
 ## Checking upcoming scheduled campaigns and Canvases
 
-The busiest time of year is quickly approaching for Flash & Thread, a retail brand that sells clothing and beauty products online and in stores. Its marketing team wants to check the upcoming campaigns and Canvases from the Braze dashboard before March 31, 2024, at 12 pm. This can be accomplished using the [`/messages/scheduled_broadcasts` endpoint]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/).
+The busiest time of year is quickly approaching for Flash & Thread, a retail brand that sells clothing and beauty products online and in stores. Its marketing team wants to check the upcoming campaigns and Canvases from the Braze dashboard before March 31, 2024, at 12 pm. This can be accomplished using the [`/messages/scheduled_broadcasts` endpoint]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled).
 
 Here's the example request:
 
@@ -141,7 +141,7 @@ This endpoint returns the list of upcoming campaigns and Canvases. From here, th
 
 PoliterWeekly is a digital magazine whose subscribers are reachable through email. In an effort to better understand its subscribers' user journey, the marketing team wants to review the details for PoliterWeekly's preference center to check when it was created and last updated.
 
-Using the [`/preference_center/v1/{preferenceCenterExternalID}` endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/), the marketing team only needs to insert the preference center external ID as the path parameter, which would look like this:
+Using the [`/preference_center/v1/{preferenceCenterExternalID}` endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center), the marketing team only needs to insert the preference center external ID as the path parameter, which would look like this:
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/politer_weekly_preference_center_api_id \
@@ -180,7 +180,7 @@ At CashBlastr, the primary goal is to streamline how people can send and receive
 - 14235662245
 - 14324567892
 
-To send a request with the [`/sms/invalid_phone_numbers/remove` endpoint]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/), the phone numbers must be in an array of strings in [e.164 format](https://en.wikipedia.org/wiki/E.164), with up to 50 phone numbers per request. Because the list doesn’t exceed 50 phone numbers, here’s an example of the request body CashBlastr’s developer team would send:
+To send a request with the [`/sms/invalid_phone_numbers/remove` endpoint]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers), the phone numbers must be in an array of strings in [e.164 format](https://en.wikipedia.org/wiki/E.164), with up to 50 phone numbers per request. Because the list doesn’t exceed 50 phone numbers, here’s an example of the request body CashBlastr’s developer team would send:
 
 ```http
 Content-Type: application/json
@@ -200,7 +200,7 @@ After sending this payload, the response confirms that Braze removed the invalid
 
 ## Viewing a user's subscription group status
 
-SandwichEmperor is a quick-service restaurant chain in the United States, and its marketing team wants to check the subscription group statuses for a randomized list of its users for SMS. Using the [`/subscription/status/get` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/), SandwichEmperor can accomplish this task for an individual user with the following example request:
+SandwichEmperor is a quick-service restaurant chain in the United States, and its marketing team wants to check the subscription group statuses for a randomized list of its users for SMS. Using the [`/subscription/status/get` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status), SandwichEmperor can accomplish this task for an individual user with the following example request:
 
 {% raw %}
 ```
@@ -235,4 +235,4 @@ In this scenario, WorkFriends has historically used a singular HTML template wit
 
 {% enddetails %}
 
-After reviewing this template information, WorkFriends can also use the [`/templates/email/update` endpoint]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) to update the email template through the API. The email template in the Braze dashboard reflects these edits.
+After reviewing this template information, WorkFriends can also use the [`/templates/email/update` endpoint]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) to update the email template through the API. The email template in the Braze dashboard reflects these edits.

@@ -1,0 +1,316 @@
+---
+layout: default
+hide_toc: false
+hide_bottom_nav: false
+hide_breadcrumb: false
+hide_binary_feedback: false
+---
+
+
+
+{%- comment -%} Same behavior as liquid_use_case_glossary; intro is agents-specific. {%- endcomment -%}
+{%- assign hide_nav = page.hide_nav -%}
+
+
+{%- assign hide_bottom_nav = page.hide_bottom_nav -%}
+{%- assign hide_breadcrumb = page.hide_breadcrumb -%}
+{%- assign hide_feedback = page.hide_feedback -%}
+{%- assign hide_toc = page.hide_toc -%}
+{%- unless hide_nav -%}
+{%- assign hide_nav = layout.hide_nav -%}
+{%- endunless -%}
+{%- unless hide_toc -%}
+{%- assign hide_toc = layout.hide_toc -%}
+{%- endunless -%}
+
+{%- unless hide_bottom_nav -%}
+{%- assign hide_bottom_nav = layout.hide_bottom_nav -%}
+{%- endunless -%}
+{%- unless hide_breadcrumb -%}
+{%- assign hide_breadcrumb = layout.hide_breadcrumb -%}
+{%- endunless -%}
+{%- unless hide_feedback -%}
+{%- assign hide_feedback = layout.hide_feedback -%}
+{%- endunless -%}
+{%- assign glossary_loc = site.data.i18n[site.language] -%}
+{%- assign i18n_en = site.data.i18n.en -%}
+
+{% unless hide_nav %}
+<!-- button id="sidebar_toggle" class="btn btn-info d-print-none" data-toggle="collapse" aria-expanded="true" href="#nav_bar" >
+   <i class="fas"></i>
+</button -->
+
+<script type="application/json" id="glossary-agents-use-cases-i18n-json">
+{
+  "noResults": {{ glossary_loc.glossary_agents_use_cases_no_results | default: i18n_en.glossary_agents_use_cases_no_results | jsonify }}
+}
+</script>
+<script type="application/json" id="glossary-agents-use-case-tag-labels-json">
+{{ glossary_loc.agents_use_case_tag_labels | default: i18n_en.agents_use_case_tag_labels | jsonify }}
+</script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  var agentsUseCasesI18n = { noResults: '' };
+  var agentsUseCaseTagLabels = {};
+  try {
+    var _aui = document.getElementById('glossary-agents-use-cases-i18n-json');
+    if (_aui && _aui.textContent) {
+      agentsUseCasesI18n = JSON.parse(_aui.textContent);
+    }
+  } catch (e) { /* keep defaults */ }
+  try {
+    var _autl = document.getElementById('glossary-agents-use-case-tag-labels-json');
+    if (_autl && _autl.textContent) {
+      agentsUseCaseTagLabels = JSON.parse(_autl.textContent) || {};
+    }
+  } catch (e) { agentsUseCaseTagLabels = {}; }
+  function string_to_slug(str) {
+    str = str.replace(/^\s+|\s+$/g, ''); // trim
+    str = str.toLowerCase();
+
+    // remove accents, swap ñ for n, etc
+    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+    var to   = "aaaaeeeeiiiioooouuuunc------";
+    for (var i=0, l=from.length ; i<l ; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
+
+  str = str.replace(/[\(\)]/g, '') // remove parenthesis
+        .replace(/[^a-z0-9 -]/g, '-') // remove invalid chars
+        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+        .replace(/-+/g, '-');  // collapse dashes
+
+    return str;
+  }
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+
+
+  var alltags = {}
+
+  function matchterms(searchterm, items) {
+    var found = false;
+    if (Array.isArray(items)) {
+      for (var i = 0; i < items.length; i++ ) {
+        if (Array.isArray(searchterm)) {
+          for (var j = 0; j < searchterm.length; j++ ) {
+            if (items[i].trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
+              found = true
+            }
+          }
+        }
+        else {
+          if (items[i].trim().toLowerCase() == searchterm.trim().toLowerCase()) {
+            found = true
+          }
+        }
+      }
+    }
+    else {
+      if (Array.isArray(searchterm)) {
+        for (var j = 0; j < searchterm.length; j++ ) {
+          if (items.trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
+            found = true
+          }
+        }
+      }
+      else {
+        if (items.trim().toLowerCase().indexOf(searchterm.trim().toLowerCase()) > -1) {
+          found = true
+        }
+      }
+    }
+    return found;
+  }
+
+  function find_tags(){
+    var api_tags = $('.api_tags');
+    var alltags = {};
+    api_tags.each(function(k,v){
+      var curtag = $(this);
+      var tag_list = curtag.attr('data-tags').split(',');
+      for (var i = 0; i < tag_list.length; i++) {
+        var trimtag = tag_list[i].trim();
+        if (trimtag.toLowerCase() != 'all') {
+          alltags[trimtag.toLowerCase()] = trimtag;
+        }
+      }
+    });
+    return alltags;
+  }
+  function set_tags(alltags) {
+    var tag_div = $('#api_filter_list');
+    var sorted_tags = []
+    $.each(alltags, function(k,v){
+      sorted_tags.push(k)
+    });
+    sorted_tags.sort();
+    $.each(sorted_tags,function(k,v){
+      var filter_slug = string_to_slug(v);
+      var filter_div = $('<div>').addClass('api_filter_div');
+      var filter_label = $('<label>').attr('for','api_' + filter_slug);
+      var filter_cb = $('<input>').attr('id','api_' + filter_slug).attr('type','checkbox').attr('name','filter_' + filter_slug).val(v)
+      var labelText = (agentsUseCaseTagLabels && Object.prototype.hasOwnProperty.call(agentsUseCaseTagLabels, v)) ? agentsUseCaseTagLabels[v] : alltags[v];
+      filter_label.append(filter_cb).append(' ' + labelText);
+      filter_div.append(filter_label);
+      tag_div.append(filter_div);
+    })
+  }
+
+
+    function search_apis(api_hash) {
+      var result_cnt = 0;
+      $('#results_msg').hide();
+      var api_div = $('#api_list .api_div');
+      var search_str = $('#api_search').val().toLowerCase();
+      var selected_vals = [];
+      $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
+       selected_vals.push($(this).val());
+      })
+      var showall = true;
+      if (selected_vals.length || search_str) {
+        showall = false;
+      }
+      api_div.each(function(k,v){
+        var filtered = false;
+        var curdiv = $(this);
+        curdiv.show();
+        if (!showall) {
+          var curtag = curdiv.find('.api_tags').first();
+          var apitags = []
+          if (curtag) {
+            apitags = curtag.attr('data-tags-lower').split(',');
+          }
+
+          if (selected_vals.length) {
+            // api doesn't have an all tag filter explicitly
+            if (apitags.indexOf('all') == -1) {
+              // check if tag
+
+              if (!matchterms(selected_vals, apitags) && !filtered) {
+                filtered = true;
+              }
+            }
+          }
+          if (!filtered && search_str) {
+            var curcontent = curdiv.text().replace(/(\n|\r\n|\r)\d+/g,"").toLowerCase().replace(/\s\s+/g, ' ');
+            if (curcontent.indexOf(search_str) < 0) {
+              filtered = true
+            }
+          }
+          if (filtered) {
+            curdiv.hide();
+          }
+          else {
+            curdiv.show();
+            result_cnt++;
+          }
+        }
+      })
+      if (!result_cnt && !showall) {
+        $('#results_msg').html('<p>' + (agentsUseCasesI18n.noResults || '') + '</p>');
+        $('#results_msg').show();
+      }
+    };
+
+
+  function initialize() {
+    alltags = find_tags();
+    set_tags(alltags);
+    var query_str = getUrlParameter('tags').toLowerCase().split(',');
+    $('.api_filter_div input[type="checkbox"]').each(function(e){
+      $(this).on('click', function(e){
+        search_apis();
+      });
+      if (matchterms($(this).val(), query_str)) {
+        $(this).prop('checked',true);
+      }
+    });
+
+    if (query_str.length) {
+      search_apis();
+    }
+
+    $('#api_search').on('keyup',function(e){
+      search_apis();
+    });
+
+    var location_hash = (location.hash || "").replace('%20','-').replace('+','-').replace(/[^a-zA-Z0-9_-]+/g, '');
+    if (location_hash && $(location_hash).offset()) {
+      // Scroll to generated hash
+      $('html, body').animate({
+        scrollTop: $(location_hash).offset().top
+      });
+    }
+  };
+  initialize();
+});
+</script>
+
+
+<div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 d-print-none collapse d-md-block" id="nav_bar"  >
+  <div id="nav_col" class="  ">
+  {% include left_nav_menu.html  %}
+  </div>
+</div>
+{% endunless %}
+
+<div class="col d-print-block " id="main_content" >
+
+    <div id="api-main">
+    <div id="content_start"></div>
+    {%- unless hide_breadcrumb -%}
+    <div id="breadcrumb">
+    </div>
+    {%- endunless -%}
+
+    {% include ai_translation_banner.html %}
+    {%- assign glossary_page_title = page.article_title | default: page.nav_title -%}
+    {% multi_lang_include layouts/agents_use_case_intro.html %}
+
+    <div id="api_filter">
+        <input id="api_search" type="search" role="searchbox" placeholder="{{ glossary_loc.glossary_agents_use_cases_search_placeholder | default: i18n_en.glossary_agents_use_cases_search_placeholder }}" aria-label="{{ glossary_loc.glossary_agents_use_cases_search_aria | default: i18n_en.glossary_agents_use_cases_search_aria }}" aria-describedby="agents-search-hint" />
+        <span id="agents-search-hint" class="sr-only">{{ glossary_loc.glossary_agents_use_cases_search_hint | default: i18n_en.glossary_agents_use_cases_search_hint }}</span>
+        <div id="api_filter_list"></div>
+    </div>
+
+    <div id="api_list" class="flex mx-auto api_div">
+      {{content}}
+    </div>
+    <div id="results_msg"></div>
+
+
+  </div>
+    {%- unless hide_bottom_nav -%}
+    <div id="bottom_nav" >
+      {%- unless hide_feedback -%}
+      {% include feedback.html  %}
+      {%- endunless -%}
+      <!-- div class="gradient-line" ></div -->
+      <div id="bottom_page_nav">
+        <a id="page_prev_link"><div id="page_prev" ></div></a>
+        <a id="page_next_link"><div id="page_next" ></div></a>
+      </div>
+    </div>
+
+    {%- endunless -%}
+
+    {% include footer.html class="footer_api" %}
+</div>
+<!-- button id="toc_toggle" class="btn btn-info collapsed notoc d-print-none" data-toggle="collapse" aria-expanded="false" href="#toc_col" >
+   <i class="fas"></i>
+</button -->
+<div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  <div class="gitedit_div" style="margin-top: 30px;padding-left: 5px;" aria-hidden="true"></div>
+  {%- unless hide_toc -%}
+  <div id="toc" ></div>
+  {%- endunless -%}
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
+</div>

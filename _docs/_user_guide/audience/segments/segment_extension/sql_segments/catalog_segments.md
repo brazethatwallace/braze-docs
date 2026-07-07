@@ -31,14 +31,14 @@ Here are guidelines to select the variables:
 | `Catalog field`| The field in your catalog that contains the same values as your `Custom event property`. This is often a type of ID. In the eCommerce use case, this would be `shopify_id`. |
 | `Custom event` | The name of your custom event, which is the same event that contains a property with values matching your `Catalog field`. In the eCommerce use case, this would be `Made Order`. |
 | `Custom event property` | The name of your custom event property, which matches values with your `Catalog field`. In the eCommerce example use case, this would be `Shopify_ID.`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a catalog segment" }
 
 {: start="4"}
 4. If needed, fill in additional optional fields for your use case to segment by a particular field value within your catalog:
 - `Catalog field`: A particular field (column name) within this catalog
 - `Value`: A specific value within that field or column <br><br> Using the health app as an example, let’s say that within the catalog for each doctor you could book, there’s a field called `specialty` that contains a value such as `vision` or `dental`. To segment users who have visited any doctors with the value `dental`, you can select `specialty` as the `Catalog field`, and select `dental` as the `Value`.
 
-5. After creating a SQL Segment, we recommend clicking **Run Preview** to see if your query returns users or if there are errors. For more information about [previewing query results]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#previewing-results), managing [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#managing-sql-segment-extensions), and more, check out [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). 
+5. After creating a SQL Segment, we recommend clicking **Run Preview** to see if your query returns users or if there are errors. For more information about [previewing query results]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), managing [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions), and more, check out [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments). 
 
 {% alert note %}
 If you're creating a SQL segment that uses the table `CATALOGS_ITEMS_SHARED`, you must specify a catalog ID. For example:
@@ -72,7 +72,7 @@ If you created a segment where you expect users to enter and exit regularly, man
 
 ### Designating refresh settings
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Use cases
 
@@ -97,7 +97,7 @@ You would set up a catalog segment by using the following variables:
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
 | `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Health app" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -120,7 +120,7 @@ You would set up a catalog segment by using the following variables:
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS platform" }
 
 {% endtab %}
 {% endtabs %}
@@ -129,7 +129,7 @@ You would set up a catalog segment by using the following variables:
 
 ### Does running a catalog segment consume SQL Segment Extension credits?
 
-Yes, catalog segments are powered by SQL and consume SQL Segment Extension credits. To learn more, check out [SQL Segments usage]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage).
+Yes, catalog segments are powered by SQL and consume SQL Segment Extension credits. To learn more, check out [SQL Segments usage]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage).
 
 ### Does creating a catalog segment consume SQL Segment Extension allotments?
 
@@ -137,5 +137,5 @@ Yes. In the same way SQL Segment Extensions count toward your Segment Extension 
 
 ### I have a catalog segment use case that the current template doesn't serve. How should I set that up?
 
-Contact your customer support manager or [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) for additional guidance.
+Contact your customer support manager or [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) for additional guidance.
 

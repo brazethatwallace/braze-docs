@@ -17,14 +17,14 @@ Este artículo te guiará a través de un caso de uso de la plantilla **Post-Pur
 
 Para utilizar esta plantilla con éxito, necesitarás lo siguiente:
 
-- Un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) como referencia para los resultados del cuestionario de comentarios.
-- Una [sincronización de audiencia de Braze]({{site.baseurl}}/partners/canvas_audience_sync/) configurada con los socios y audiencias que utilizas.
+- Un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) como referencia para los resultados del cuestionario de comentarios.
+- Una [sincronización de audiencia de Braze]({{site.baseurl}}/partners/canvas_audience_sync) configurada con los socios y audiencias que utilizas.
 
 ## Adaptar la plantilla a tus necesidades {#tailoring-the-template-to-your-needs}
 
 Supongamos que trabajamos para Decorumsoft, un desarrollador de videojuegos para móviles. Utilizaremos la plantilla de comentarios posteriores a la compra para medir los comentarios sobre el lanzamiento de nuestro último videojuego, Proxy War 3: War of Thirst. Usando estos comentarios, informaremos nuestros planes de desarrollo para el paquete de expansión, Liquid Mirage.
 
-Antes de crear el Canvas, configuramos la integración de [sincronización de audiencia de Braze con Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) para poder añadir datos de usuario de Braze a Google Audiences y enviar anuncios basados en desencadenantes de comportamiento, segmentación y más.
+Antes de crear el Canvas, configuramos la integración de [sincronización de audiencia de Braze con Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) para poder añadir datos de usuario de Braze a Google Audiences y enviar anuncios basados en desencadenantes de comportamiento, segmentación y más.
 
 Para acceder a la plantilla de comentarios posteriores a la compra, al crear un nuevo Canvas, selecciona **Use a Canvas template** > **Braze templates**. Luego, junto a **Post-Purchase Feedback**, selecciona **Apply Template**. Ahora podemos recorrer la plantilla para adaptarla a nuestras necesidades.
 
@@ -60,10 +60,10 @@ Mantendremos la fecha límite de conversión de tres días de la plantilla porqu
 
 Nuestra audiencia objetivo para los comentarios son los usuarios que han comprado recientemente Proxy War 3.
 
-1. Selecciona nuestro Segment objetivo, "Purchased Proxy War 3", que consiste en usuarios que han comprado el juego.
+1. Selecciona nuestro segmento objetivo, "Purchased Proxy War 3", que consiste en usuarios que han comprado el juego.
 2. Selecciona un filtro para incluir usuarios que han comprado "Proxy War 3" más de "0" veces.
 
-![Un Segment llamado "Purchased Proxy War 3" que segmenta a los usuarios que han comprado el juego.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/entry_window_segment.png %}){: style="max-width:90%;"}
+![Un segmento llamado "Purchased Proxy War 3" que segmenta a los usuarios que han comprado el juego.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/entry_window_segment.png %}){: style="max-width:90%;"}
 
 {: start="3"}
 3. Actualiza los controles de entrada para no permitir que los usuarios vuelvan a entrar en el Canvas después de la duración máxima del Canvas.
@@ -90,7 +90,7 @@ Comenzaremos nuestra personalización recorriendo cada componente de mensajería
 4. Selecciona **Edit message** para reemplazar el mensaje de correo electrónico de la plantilla con nuestro mensaje de cuestionario de comentarios. Esto incluye reemplazar los enlaces de cada llamada a la acción para capturar qué opción se selecciona, lo cual se referenciará en el paso de ruta de acción de nuestro recorrido del usuario.
 
 {% alert tip %}
-Puedes usar las [propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) para personalizar los mensajes en tu Canvas según el producto al que te refieras.
+Puedes usar las [propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar los mensajes en tu Canvas según el producto al que te refieras.
 {% endalert %}
 
 #### Configurar el cuestionario de comentarios {#set-up-feedback-survey}
@@ -123,10 +123,10 @@ Para el paso de mensaje llamado **Support Case Creation**, actualizaremos la pla
 
 ![Un webhook que crea casos de soporte para clientes que tienen un sentimiento negativo y quieren un reembolso por su compra de Proxy War 3.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/webhook_example.png %}){: style="max-width:90%;"}
 
-### Paso 6: Probar y lanzar el Canvas {#step-6-test-and-launch-the-canvas}
+### Paso 7: Probar y lanzar el Canvas {#step-6-test-and-launch-the-canvas}
 
 Después de probar y revisar nuestro Canvas para asegurarnos de que funciona como se espera, selecciona **Launch Canvas** para lanzar el Canvas. ¡Ahora podemos dirigirnos de manera cuidadosa a los usuarios con un recorrido de usuario personalizado para animarlos a responder a nuestro cuestionario de comentarios basado en su compra reciente de Proxy War 3!
 
 {% alert tip %}
-Consulta nuestra [lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
+Consulta nuestra [lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
 {% endalert %}

@@ -14,7 +14,7 @@ tool:
 
 > Use the **Simple Survey** in-app message template to collect user attributes, insights, and preferences that power your campaign strategy. 
 
-This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 Common survey use cases include asking users how they'd like to use your app, learning more about their personal preferences, or asking about their satisfaction with a particular feature.
 
@@ -32,7 +32,7 @@ To enable HTML in-app messages through the Web SDK, you must supply the `allowUs
 
 ## Creating a survey {#create}
 
-When creating an [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), select **Simple Survey** for your **Message Type**.
+When creating an [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), select **Simple Survey** for your **Message Type**.
 
 This survey template is supported for both mobile apps and web browsers. Remember to check that your SDKs are on the [minimum SDK versions](#supported-sdk-versions) required for this feature.
 
@@ -60,7 +60,7 @@ Then, determine if you will [collect custom attributes](#custom-attributes) or [
 
 Select **Log attributes upon submission** to collect attributes based on the user's submission. You can use this option to create new segments and retargeting campaigns. For example, in a [satisfaction survey](#user-satisfaction), you could send a follow-up email to all users who were not happy.
 
-To add a custom attribute to each choice, select a custom attribute name from the dropdown menu (or create a new one), and then enter the value to set when this choice is submitted. You can also create a new custom attribute in your [Settings Page]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+To add a custom attribute to each choice, select a custom attribute name from the dropdown menu (or create a new one), and then enter the value to set when this choice is submitted. You can also create a new custom attribute in your [Settings Page]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 
 The data type of your custom attributes matters depending on how you've set up your survey.
 
@@ -73,7 +73,7 @@ When custom attribute collection is enabled, choices that share the same custom 
 
 ##### Example 
 
-For example, in a [notification preferences survey](#notification-preferences), you might make each choice a boolean (true/false) attribute to allow users to select which topics they're interested in. If a user checks the "Promotions" choice, that will update their [user profile]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) with the custom attribute `Promotions Topic` set to `true`. If they leave the choice unchecked, that same attribute will remain unchanged.
+For example, in a [notification preferences survey](#notification-preferences), you might make each choice a boolean (true/false) attribute to allow users to select which topics they're interested in. If a user checks the "Promotions" choice, that will update their [user profile]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) with the custom attribute `Promotions Topic` set to `true`. If they leave the choice unchecked, that same attribute will remain unchanged.
 
 You can then use the `Custom Attribute` filter to create a segment for users with the custom attribute `Promotions Topic` `is` `true` to make sure that only users interested in your promotions will receive the relevant campaigns.
 
@@ -119,9 +119,9 @@ You can find your survey performance metrics by expanding the **Results** dropdo
 - **Survey results** display a breakdown of how many users selected each response option, along with the percentage of total submissions each choice represents.
 - **Confirmation page metrics** (if enabled) include how many users viewed the confirmation screen, clicked its button, or dismissed it without interacting.
 
-For definitions of survey metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by "In-App Message".
+For definitions of survey metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary) and filter by "In-App Message".
 
-Check out [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) for a breakdown of your campaign metrics.
+Check out [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) for a breakdown of your campaign metrics.
 
 ### Currents {#currents}
 
@@ -145,7 +145,7 @@ To set this up, use a single-choice selection survey with five options ranging f
 | 🙂 Neither Satisfied nor Dissatisfied | `customer_satisfaction` | 3     |
 | 😊 Satisfied                          | `customer_satisfaction` | 4     |
 | 😍 Very Satisfied                     | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User satisfaction" }
 
 When a user submits the survey, their selected value is logged as a custom attribute. You can then build follow-up campaigns using audience filters. For example, target win-back messages to users whose `customer_satisfaction` attribute is "1" or "2".
 
@@ -165,7 +165,7 @@ To set this up, use a multiple-choice selection survey where each choice represe
 | Event Invites      | `wants_event_invites`  | `true` |
 | Surveys & Feedback | `wants_surveys`        | `true` |
 | Tips & Tutorials   | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification preferences" }
 
 {% endtab %}
 {% tab Identify customer goals %}
@@ -183,7 +183,7 @@ To set this up, use a single-choice selection survey with each option representi
 | Scheduling an appointment  | `product_goal`   | `schedule`|
 | Customer support           | `product_goal`   | `support` |
 | Just Browsing              | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identify customer goals" }
 
 When a user submits the survey, the selected value is logged as a custom attribute on their profile. You can then use this data to personalize future experiences or segment users based on their primary goal.
 
@@ -203,7 +203,7 @@ To set this up, use a single-choice selection survey with each option representi
 | Difficult To Use    | `upgrade_reason` | `difficult` |
 | Using a Competitor  | `upgrade_reason` | `competitor`|
 | Other Reason        | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Improve conversion rates" }
 
 When a user submits the survey, the selected value is saved to their profile. You can then target these users with campaigns tailored to their specific objection, like discount offers or usability improvements.
 
@@ -225,7 +225,7 @@ To set this up, use a multiple-choice selection survey where each option represe
 | Customization     | `favorite_features`| `custom`     |
 | Price / Value     | `favorite_features`| `value`      |
 | Community         | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Favorite features" }
 
 Because this survey uses multiple-choice selection, the user's profile will be updated with a list of all selected feature values.
 

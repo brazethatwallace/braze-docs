@@ -26,7 +26,7 @@ Braze와 PassKit 통합을 통해 커스텀 Apple Wallet 및 Google Pay 패스�
 | `userDefinedID` | PassKit과 Braze 간에 커스텀 이벤트 및 커스텀 속성을 사용자에게 적절하게 업데이트하려면 Braze 외부 ID를 `userDefinedID`로 설정해야 합니다. 이 `userDefinedID`는 PassKit 엔드포인트에 API 호출을 할 때 사용됩니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -50,7 +50,7 @@ PassKit에서 데이터를 전달하려면 Braze 외부 ID를 PassKit의 `extern
 
 ## SmartPass 링크를 사용하여 패스 생성 {#create-pass-using-a-smartpass-link}
 
-Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에 패스를 설치할 수 있는 고유 URL을 생성할 수 있습니다. 이를 위해 Braze Content Block에서 호출할 수 있는 암호화된 SmartPass 데이터 페이로드를 정의해야 합니다. 이 [Content Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks)은 향후 패스 및 쿠폰에 재사용할 수 있습니다. 통합 과정에서 다음이 사용됩니다:
+Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에 패스를 설치할 수 있는 고유 URL을 생성할 수 있습니다. 이를 위해 Braze 콘텐츠 블록에서 호출할 수 있는 암호화된 SmartPass 데이터 페이로드를 정의해야 합니다. 이 [콘텐츠 블록]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks)은 향후 패스 및 쿠폰에 재사용할 수 있습니다. 통합 과정에서 다음이 사용됩니다:
 
 - **PassKit URL**: PassKit URL은 PassKit 프로그램의 고유 URL입니다.<br>각 프로그램에는 고유 URL이 있으며, PassKit 프로그램 또는 프로젝트의 **Distribution** 탭에서 찾을 수 있습니다. (예: https://pub1.pskt.io/c/ww0jir)<br><br>
 - **PassKit 시크릿**: URL과 함께 이 프로그램을 위한 PassKit 키가 준비되어 있어야 합니다.<br>PassKit URL과 같은 페이지에서 찾을 수 있습니다.<br><br>
@@ -66,9 +66,9 @@ Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에
 
 | 구성요소 | 필수 | 유형 | 설명 |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | 필수 | 문자열 | Braze 외부 ID로 설정되며, PassKit에서 Braze로의 콜백이 작동하는 데 중요합니다. 이를 통해 회사 사용자가 하나의 Campaign에서 여러 오퍼에 대한 쿠폰을 가질 수 있습니다. 고유성이 강제되지 않습니다. |
-| `members.member.externalId` | 선택 사항 | 문자열 | Braze 외부 ID로 설정되며, 외부 ID를 사용하여 멤버십 패스를 업데이트할 수 있습니다. 이 필드를 설정하면 멤버십 프로그램 내에서 사용자가 고유하게 적용됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `person.externalId` | 필수 | 문자열 | Braze 외부 ID로 설정되며, PassKit에서 Braze로의 콜백이 작동하는 데 중요합니다. 이를 통해 회사 사용자가 하나의 Campaign에서 여러 오퍼에 대한 쿠폰을 가질 수 있습니다. 고유성이 강제되지 않습니다. |
+| `members.member.externalId` | 선택 사항 | 문자열 | Braze 외부 ID로 설정되며, 외부 ID를 사용하여 멤버십 패스를 업데이트할 수 있습니다. 이 필드를 설정하면 멤버십 프로그램 내에서 사용자가 고유하게 적용됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Define your pass data payload #passkit-integrations" }
 
 사용 가능한 필드, 유형 및 유용한 설명의 전체 목록은 [PassKit GitHub 설명서](https://github.com/PassKit/smart-pass-link-from-csv-generator)를 참조하세요.
 
@@ -88,13 +88,13 @@ Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에
 
 ### 2단계: 정의되지 않은 페이로드 변수 생성 및 인코딩 {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Braze 대시보드에서 **Templates** > **Content Blocks**로 이동하여 새 Content Block을 생성하고 이름을 지정합니다.
+Braze 대시보드에서 **콘텐츠** > **콘텐츠 블록**으로 이동하여 새 콘텐츠 블록을 생성하고 이름을 지정합니다.
 
-**Create Content Block**을 선택하여 시작합니다.
+**콘텐츠 블록 생성**을 선택하여 시작합니다.
 
-다음으로 **Content Block Liquid Tag**를 정의해야 합니다. 이 Content Block을 저장한 후 메시지를 작성할 때 이 Liquid 태그를 참조할 수 있습니다. 이 예시에서는 Liquid 태그를 {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}로 할당했습니다.
+다음으로 **콘텐츠 블록 Liquid 태그**를 정의해야 합니다. 이 콘텐츠 블록을 저장한 후 메시지를 작성할 때 이 Liquid 태그를 참조할 수 있습니다. 이 예시에서는 Liquid 태그를 {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}로 할당했습니다.
 
-이 Content Block에서는 페이로드를 직접 포함하지 않고 {% raw %}`{{passData}}`{% endraw %} 변수에서 참조합니다. Content Block에 추가해야 하는 첫 번째 코드 스니펫은 {% raw %}`{{passData}}`{% endraw %} 변수의 Base64 인코딩을 캡처합니다.
+이 콘텐츠 블록에서는 페이로드를 직접 포함하지 않고 {% raw %}`{{passData}}`{% endraw %} 변수에서 참조합니다. 콘텐츠 블록에 추가해야 하는 첫 번째 코드 스니펫은 {% raw %}`{{passData}}`{% endraw %} 변수의 Base64 인코딩을 캡처합니다.
 {% raw %}
 ```liquid
 {% capture base64JsonPayload %}{{passDatapassData|base64_encode}}{% endcapture %}
@@ -105,7 +105,7 @@ Braze 대시보드에서 **Templates** > **Content Blocks**로 이동하여 새 
 
 다음으로 프로젝트 URL과 페이로드의 [SHA1 HMAC](https://en.wikipedia.org/wiki/HMAC) 해시를 사용하여 암호화 서명을 생성합니다.
 
-Content Block에 추가해야 하는 두 번째 코드 스니펫은 해싱에 사용할 URL을 캡처합니다.
+콘텐츠 블록에 추가해야 하는 두 번째 코드 스니펫은 해싱에 사용할 URL을 캡처합니다.
 {% raw %}
 ```liquid
 {% capture url %}{{projectUrl}}?data={{base64JsonPayload}}{% endcapture %}
@@ -135,7 +135,7 @@ Content Block에 추가해야 하는 두 번째 코드 스니펫은 해싱에 �
 ```
 {% endraw %}
 
-이 시점에서 다음과 같은 Content Block을 만들었습니다:
+이 시점에서 다음과 같은 콘텐츠 블록을 만들었습니다:
 
 {% raw %}
 ```liquid
@@ -154,24 +154,24 @@ Content Block에 추가해야 하는 두 번째 코드 스니펫은 해싱에 �
 이 예시에서는 이러한 설치의 소스를 Braze와 이 Campaign으로 추적하기 위해 UTM 매개변수가 추가되었습니다.
 
 {% alert tip %}
-페이지를 떠나기 전에 Content Block을 저장하세요.
+페이지를 떠나기 전에 콘텐츠 블록을 저장하세요.
 {% endalert %}
 
 ### 5단계: 모두 합치기 {#step-5-putting-it-all-together}
 
-이 Content Block이 만들어지면 향후에 다시 재사용할 수 있습니다.
+이 콘텐츠 블록이 만들어지면 향후에 다시 재사용할 수 있습니다.
 
-예시 Content Block에 정의되지 않은 두 개의 변수가 남아 있는 것을 알 수 있습니다.<br>
+예시 콘텐츠 블록에 정의되지 않은 두 개의 변수가 남아 있는 것을 알 수 있습니다.<br>
 {% raw %}`{{passData}}`{% endraw %} - [1단계](#passkit-integrations)에서 정의한 JSON 패스 데이터 페이로드 <br>
 {% raw %}`{{projectUrl}}`{% endraw %} - PassKit 프로젝트의 배포 탭에서 찾을 수 있는 프로젝트 또는 프로그램의 URL.
 
-이 결정은 의도적이며 Content Block의 재사용성을 지원합니다. 이러한 변수는 Content Block 내에서 생성되는 것이 아니라 참조만 되기 때문에 Content Block을 다시 만들지 않고도 변수를 변경할 수 있습니다.
+이 결정은 의도적이며 콘텐츠 블록의 재사용성을 지원합니다. 이러한 변수는 콘텐츠 블록 내에서 생성되는 것이 아니라 참조만 되기 때문에 콘텐츠 블록을 다시 만들지 않고도 변수를 변경할 수 있습니다.
 
 예를 들어, 로열티 프로그램에 더 많은 초기 포인트를 포함하도록 소개 오퍼를 변경하거나 보조 멤버 카드 또는 쿠폰을 만들고 싶을 수 있습니다. 이러한 시나리오에서는 서로 다른 PassKit `projectURLs` 또는 서로 다른 패스 페이로드가 필요하며, Braze에서 Campaign별로 정의합니다.
 
 #### 메시지 본문 작성 {#composing-the-message-body}
 
-메시지 본문에서 이 두 변수를 모두 캡처한 다음 Content Block을 호출해야 합니다.
+메시지 본문에서 이 두 변수를 모두 캡처한 다음 콘텐츠 블록을 호출해야 합니다.
 [1단계](#passkit-integrations)에서 축소된 JSON 페이로드를 캡처합니다:
 
 **프로젝트 URL 할당**
@@ -188,7 +188,7 @@ Content Block에 추가해야 하는 두 번째 코드 스니펫은 해싱에 �
 ```
 {% endraw %}
 
-**방금 만든 Content Block 참조**
+**방금 만든 콘텐츠 블록 참조**
 {% raw %}
 ```liquid
 {{content_block.${passkit_SmartPass_url}}}
@@ -196,7 +196,7 @@ Content Block에 추가해야 하는 두 번째 코드 스니펫은 해싱에 �
 {% endraw %}
 
 메시지 본문은 다음과 같이 표시되어야 합니다:
-![캡처한 JSON 및 Content Block 참조가 표시된 Content Block 메시지 작성기의 이미지.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
+![캡처한 JSON 및 콘텐츠 블록 참조가 표시된 콘텐츠 블록 메시지 작성기의 이미지.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
 
 샘플의 출력 URL은 다음과 같습니다:
 ![무작위로 생성된 긴 문자 및 숫자 문자열이 포함된 출력 URL.]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
@@ -220,11 +220,11 @@ Braze 내에서 웹훅 Campaign 또는 Canvas 내 웹훅을 설정하여 사용�
 | `campaignId` (쿠폰) <br><br> `programId` (멤버십) | 문자열 | PassKit에서 생성한 Campaign 또는 프로그램 템플릿의 ID입니다. 이를 찾으려면 PassKit 패스 프로젝트의 **Settings** 탭으로 이동하세요. |
 | `expiryDate` | IO8601 datetime | 패스 만료 날짜입니다. 만료 날짜 이후 패스는 자동으로 무효화됩니다(`isVoided` 참조). 이 값은 템플릿 및 Campaign 종료 날짜 값을 재정의합니다. |
 | `status` | 문자열 | 쿠폰의 현재 상태(예: `REDEEMED` 또는 `UNREDEEMED`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload parameters" }
 
 ### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-향후 Campaign이나 Canvas에서 사용할 PassKit 웹훅 템플릿을 만들려면 Braze 대시보드의 **Templates & Media** 섹션으로 이동하세요. 일회성 PassKit 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 만들 때 Braze에서 **Webhook**을 선택하세요.
+향후 Campaign이나 Canvas에서 사용할 PassKit 웹훅 템플릿을 만들려면 Braze 대시보드의 **템플릿 및 미디어** 섹션으로 이동하세요. 일회성 PassKit 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 만들 때 Braze에서 **Webhook**을 선택하세요.
 
 PassKit 웹훅 템플릿을 선택하면 다음이 표시됩니다:
 - **Webhook URL**: `https://api-pub1.passkit.io/coupon/singleUse/coupon`

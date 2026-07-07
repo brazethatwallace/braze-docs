@@ -19,11 +19,11 @@ Demandez aux utilisateurs d'envoyer « START », « UNSTOP », « YES » ou un m
 
 ## Option 2 : Les utilisateurs s'abonnent via un message in-app {#option-2-users-opt-in-via-in-app-message}
 
-Pour permettre aux utilisateurs de s'abonner aux SMS depuis un message in-app, utilisez le [formulaire de capture de numéro de téléphone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture/) fourni par Braze pour créer un formulaire personnalisé qui vous permet de collecter des numéros de téléphone et de développer votre liste SMS.
+Pour permettre aux utilisateurs de s'abonner aux SMS depuis un message in-app, utilisez le [formulaire de capture de numéro de téléphone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture) fourni par Braze pour créer un formulaire personnalisé qui vous permet de collecter des numéros de téléphone et de développer votre liste SMS.
 
 ![Éditeur de messages in-app avec un modèle de capture de numéro de téléphone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
-Braze recommande également d'utiliser la fonctionnalité de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/). Cette fonctionnalité fonctionne automatiquement avec le formulaire de capture de numéro de téléphone du message in-app, en invitant les utilisateurs à confirmer leur intention après avoir soumis leur numéro de téléphone via le formulaire.
+Braze recommande également d'utiliser la fonctionnalité de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in). Cette fonctionnalité fonctionne automatiquement avec le formulaire de capture de numéro de téléphone du message in-app, en invitant les utilisateurs à confirmer leur intention après avoir soumis leur numéro de téléphone via le formulaire.
 
 ## Option 3 : Flux d'inscription {#option-3-sign-up-flow}
 
@@ -31,8 +31,9 @@ Lorsqu'un nouvel utilisateur s'inscrit ou crée un compte sur le site web ou l'a
 
 Après l'inscription de l'utilisateur, procédez comme suit :
 
-1. Utilisez l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/#update-users-subscription-group-status) pour créer l'utilisateur et enregistrer ses attributs.
+1. Utilisez l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status) pour créer l'utilisateur et enregistrer ses attributs.
 
+{% raw %}
 ```http
 POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 --header 'Content-Type: application/json' \
@@ -46,10 +47,12 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 }
 '
 ```
+{% endraw %}
 
 {: start="2"}
-2. Utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour abonner l'utilisateur aux SMS.
+2. Utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour abonner l'utilisateur aux SMS.
 
+{% raw %}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
@@ -70,12 +73,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   ]
 }'
 ```
+{% endraw %}
 
 {% alert tip %}
-Pour faire entrer les utilisateurs dans le flux de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) lorsque vous les abonnez via la REST API, définissez le paramètre `use_double_opt_in_logic` sur `true` dans votre requête. Si vous omettez ce paramètre, les utilisateurs sont abonnés sans recevoir de confirmation de double abonnement.
+Pour faire entrer les utilisateurs dans le flux de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) lorsque vous les abonnez via la REST API, définissez le paramètre `use_double_opt_in_logic` sur `true` dans votre requête. Si vous omettez ce paramètre, les utilisateurs sont abonnés sans recevoir de confirmation de double abonnement.
 
 Ce paramètre est pris en charge par les endpoints suivants :<br><br>
-- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)
-- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2/)
-- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)
+- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)
+- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 {% endalert %}

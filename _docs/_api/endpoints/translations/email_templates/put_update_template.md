@@ -15,13 +15,11 @@ description: "This article outlines details about the Update translations for an
 /templates/email/translations/
 {% endapimethod %}
 
-> Use this endpoint to update translations for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Use this endpoint to update translations for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `templates.translations.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `templates.translations.update` permission.
 
 ## Rate limit
 
@@ -38,7 +36,7 @@ There are no path parameters for this endpoint.
 | `template_id` | Required | String | The ID of your email template. |
 | `locale_id` | Required | String | The ID of the locale. |
 | `translations_map` | Required | String | The map of the translations for your email template. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 All translation IDs are considered universal unique identifiers (UUIDs), which can be found in the GET endpoint's response.

@@ -24,12 +24,12 @@ Esta integración funciona igual para las balizas de Infillion y las soluciones 
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
+| Requisito | Descripción |
+| --- | --- |
 | [Cuenta de administrador de Infillion](https://manager.gimbal.com/login/users/sign_in) | Se necesita una cuenta de administrador de Infillion para beneficiarse de esta asociación. |
-|[SDK de ubicación de Infillion](https://docs.gimbal.com/index.html) | El SDK de ubicación de Infillion impulsa experiencias móviles basadas en macro y micro ubicaciones utilizando balizas de proximidad y geovallas que te permiten comunicarte más eficazmente con los usuarios de tu aplicación. Debes tener implementado el SDK y configuradas las geovallas (o balizas). |
+| [SDK de ubicación de Infillion](https://docs.gimbal.com/index.html) | El SDK de ubicación de Infillion impulsa experiencias móviles basadas en macro y micro ubicaciones utilizando balizas de proximidad y geovallas que te permiten comunicarte más eficazmente con los usuarios de tu aplicación. Debes tener implementado el SDK y configuradas las geovallas (o balizas). |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de SDK {#sdk-integration}
 

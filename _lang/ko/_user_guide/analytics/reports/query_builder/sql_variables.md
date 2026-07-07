@@ -37,7 +37,7 @@ SQL 변수를 사용하면 다음과 같은 이점이 있습니다:
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | 사용하려는 사전 정의된 변수 유형(예: `campaign` 또는 `catalog_fields`). 전체 목록은 [지원되는 변수 유형](#variable-types)을 참조하세요. |
 | `custom_label` | 쿼리 빌더의 **변수** 탭에서 변수를 식별하는 데 사용되는 레이블입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="1단계: 변수 추가" }
 
 다음 예시에서는 한 달의 첫째 날과 마지막 날 사이의 총 사용자 수를 Campaign에 대해 쿼리합니다. 각 변수에는 다음 단계에서 값이 할당됩니다.
 
@@ -183,7 +183,7 @@ time > {{start_date.${custom_label}}} AND time < {{end_date.${custom_label}}}
 | 시작 날짜 | 시작 날짜를 지정합니다 | `start_date` 필요 |
 | 종료 날짜 | 종료 날짜를 지정합니다 | `end_date` 필요 |
 | 날짜 범위 | 시작 날짜와 종료 날짜를 모두 지정합니다 | `start_date`와 `end_date` 모두 필요 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="날짜 범위" }
 
 Liquid는 지정된 날짜 범위 내에서 캘린더를 표시하는 데 사용됩니다:
 
@@ -243,7 +243,7 @@ message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 모든 Campaign 및 Canvas 변수는 단일 그룹 내에서 상태를 동기화하기 위해 동일한 식별자를 사용해야 합니다.
 {% endalert %}
 
-### Canvases
+### Canvases {#canvases}
 
 {% tabs local %}
 {% tab 단일 Canvas %}
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-[분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/)이 활성화된 Segment를 선택하는 데 사용합니다. 이 열이 사용 가능한 테이블의 `user_segment_membership_ids` 열에 저장된 ID에 해당하는 Segment 분석 ID로 설정합니다.
+[분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 Segments를 선택하는 데 사용합니다. 이 열이 사용 가능한 테이블의 `user_segment_membership_ids` 열에 저장된 ID에 해당하는 Segment 분석 ID로 설정합니다.
 
 {% tabs %}
 {% tab 사용법 %}

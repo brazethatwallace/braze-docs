@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Plataforma de fidelidade SessionM {#sessionm-loyalty-platform}
 
-> A [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) é uma plataforma de engajamento com clientes e fidelidade que oferece recursos de gerenciamento de campanhas e soluções de gerenciamento de fidelidade para ajudar os profissionais de marketing a impulsionar o direcionamento para aumentar o engajamento e a lucratividade.
+> A [SessionM](https://sessionm.com/) é uma plataforma de engajamento com clientes e fidelidade, parte da Capillary Technologies, que oferece recursos de gerenciamento de campanhas e soluções de gerenciamento de fidelidade para ajudar os profissionais de marketing a impulsionar o direcionamento para aumentar o engajamento e a lucratividade.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -26,10 +26,6 @@ search_tag: Partner
 | SessionM | Uma string de autorização REST do SessionM Connect | A string de autorização básica do SessionM Connect associada à sua instância. Essa string de autenticação pode ser usada para todas as chamadas baseadas em connect, incluindo get_user_offers. Entre em contato com o gerente técnico de conta da SessionM ou com a equipe de Delivery para obter. |
 | SessionM | Um ID de varejista do SessionM Connect REST | Um GUID de identificação exclusivo para o cliente específico associado à sua instância. Entre em contato com o gerente técnico de conta da SessionM ou com a equipe de Delivery para obter. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %}
-Se estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), você pode criar uma chave de API em **Console de desenvolvedor** > **Configurações de API**.
-{% endalert %}
 
 ## Casos de uso {#use-cases}
 

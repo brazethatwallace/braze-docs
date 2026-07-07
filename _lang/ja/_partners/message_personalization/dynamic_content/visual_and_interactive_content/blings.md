@@ -1,62 +1,61 @@
 ---
-nav_title: 盲検性
-article_title: 盲検性
-description: "このリファレンス記事では、Brazeとブライングの統合について概説します。"
+nav_title: Blings
+article_title: Blings
+description: "このリファレンス記事では、BrazeとBlingsの連携について説明します。"
 alias: /partners/blings/
 page_type: partner
 search_tag: Partner
 ---
 
-# 盲検性
+# Blings
 
-> [Blings](https://www.blings.io/) は、リアルタイム、対話型、およびデータドリブン型の 動画の体験を、スケールでチャネル s 間で配信できる次世代パーソナライズされた 動画 プラットフォームです。  
+> [Blings](https://www.blings.io/) は、リアルタイムでインタラクティブなデータドリブン型の動画体験を、チャネルを横断して大規模に配信できる次世代パーソナライズド動画プラットフォームです。
 
-_この統合は、Blings によって維持されます。_
+_この連携はBlingsによって管理されています。_
 
-## 前提条件  
+## 前提条件 {#prerequisites}
 
-| 必要条件     | 説明                                                                 |
+| 要件 | 説明 |
 |-----------------|-----------------------------------------------------------------------------|
-| Blingsアカウント  | この提携の前進タグeを考慮するためには、盲検性の考慮が必要である。         |  
+| Blingsアカウント | このパートナーシップを利用するには、Blingsアカウントが必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合  
+## 連携 {#integration}
 
-### ステップ 1: 盲検化HTMLの抜粋を入手する
+### ステップ 1: BlingsのHTMLスニペットを取得する {#step-1-obtain-your-blings-html-snippet}
 
 {% tabs %}
 {% tab Blings business and free plans %}
 
-#### 盲人事業とフリープラン
+#### Blingsビジネスプランおよびフリープラン {#blings-business-and-free-plans}
 
-盲検化アプリで、HTMLの抜粋コードを直接的に見つけて複写します。
+BlingsアプリでHTMLスニペットを直接見つけてコピーします。
 
-1. 選択したMP5プロジェクトの**Connect**タブに移動します。
-2. Blings **Connect**ページの対応する変数にBrazeリキッドタグs を追加します。タグs は、HTML スニペットに値をダイナミックな入力します。 
+1. 選択したMP5プロジェクトの**接続**タブに移動します。
+2. Blingsの**接続**ページで、対応する変数にBraze Liquidタグを追加します。タグによってHTMLスニペット内の値がダイナミックに入力されます。
 
-![盲検化HTMLの抜粋。]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}  
+![BlingsのHTMLスニペット。]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}
 
 {% endtab %}
 {% tab Blings Enterprise plan %}
 
-#### 盲検解除計画
+#### Blingsエンタープライズプラン {#blings-enterprise-plan}
 
-ブライング担当者にHTMLの抜粋を依頼してください。 
+Blingsの担当者にHTMLスニペットをリクエストしてください。
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2:Brazeのキャンペーンを作成する  
+### ステップ 2: Brazeでキャンペーンを作成する {#step-2-create-a-braze-campaign}
 
-Braze で、新しいメールまたはアプリ内メッセージ キャンペーンを作成し、盲検HTMLの抜粋を挿入します。
+Brazeで新しいメールまたはアプリ内メッセージのキャンペーンを作成し、BlingsのHTMLスニペットを挿入します。エディター内プレビューを使用して、パーソナライズされたフィールドとCreative Suiteのダイナミックなコンテンツが期待どおりに表示されることを確認します。
 
-![盲人Braze運動]({% image_buster /assets/img/blings/blings_braze_campaign.png %})  
+### ステップ 3: テストして起動する {#step-3-test-and-launch}
 
-### ステップ 3:テストと起動  
+Brazeでキャンペーンをプレビューし、パーソナライズされたフィールドが正しく入力されていることを確認します。その後、MP5 キャンペーンを大規模に展開します。
 
-Braze でキャンペーンをプレビューして、パーソナライズされた フィールドが正しく入力されていることを確認します。次に、MP5 キャンペーンをスケールで展開します。
+![Braze Blingsプレビュー。]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 
-![盲検Braze プレビュー]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}  
+## サポートを受ける {#getting-support}
 
-## サポートを受ける  
-
-質問またはスニペットのリクエストについては、[support@blings.io](mailto:support@blings.io)でBlingsに問い合わせるか、[Blings help center](https://blings.gitbook.io/blings-knowledge-base/documentation)を参照してください。  
+ご質問やスニペットのリクエストについては、[support@blings.io](mailto:support@blings.io) でBlingsにお問い合わせいただくか、[Blingsヘルプセンター](https://blings.gitbook.io/blings-knowledge-base/documentation)を参照してください。

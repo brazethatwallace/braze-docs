@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}Introdução: Visão geral da integração {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}Introdução: Visão geral da integração {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > Este artigo fornece uma visão geral básica do processo de integração.
 
@@ -49,10 +49,10 @@ Durante o período de integração da sua empresa, a Braze realizará sessões d
 ### Planejamento de campanhas {#campaign-planning}
 
 Sua equipe de CRM planejará os casos de uso de envio de mensagens que serão lançados em um futuro próximo. Isso inclui:
-* [Canal]({{site.baseurl}}/user_guide/channels/) (por exemplo, notificações por push ou mensagens no app)
-* [Método de entrega]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) (por exemplo, entrega programada ou entrega baseada em ação)
-* [Público-alvo]({{site.baseurl}}/user_guide/audience/segments/)
-* [Métricas de sucesso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)
+* [Canal]({{site.baseurl}}/user_guide/channels) (por exemplo, notificações por push ou mensagens no app)
+* [Método de entrega]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) (por exemplo, entrega programada ou entrega baseada em ação)
+* [Público-alvo]({{site.baseurl}}/user_guide/audience/segments)
+* [Métricas de sucesso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
 Por exemplo, uma Campaign para novos clientes pode ser: um e-mail enviado diariamente às 10h para um segmento de clientes que registraram sua primeira sessão ontem. O evento de conversão (a métrica de sucesso) é o registro de uma sessão.
 
@@ -73,7 +73,7 @@ Como desenvolvedor, você trabalhará com sua equipe para definir quais dados ad
 Mantenha a nomenclatura dos dados consistente em todas as ferramentas. Por exemplo, seu data warehouse pode registrar "comprar oferta por tempo limitado" de uma maneira específica. Você precisará decidir se é necessário um evento personalizado na Braze para corresponder a esse formato.
 {% endalert %}
 
-Saiba mais sobre [dados coletados automaticamente e dados personalizados]({{site.baseurl}}/developer_guide/analytics/).
+Saiba mais sobre [dados coletados automaticamente e dados personalizados]({{site.baseurl}}/developer_guide/analytics).
 
 ### Planejamento de personalizações {#customizations-planning}
 
@@ -87,9 +87,9 @@ O administrador da sua equipe deve adicionar você (e todos os outros membros da
 
 ### Espaços de trabalho e chaves de API {#workspaces-and-api-keys}
 
-O administrador da sua equipe também criará diferentes [espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/). Os espaços de trabalho agrupam seus dados — usuários, segmentos, chaves de API — em um único local. Como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app ou de apps muito semelhantes em um único espaço de trabalho.
+O administrador da sua equipe também criará diferentes [espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces). Os espaços de trabalho agrupam seus dados — usuários, segmentos, chaves de API — em um único local. Como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app ou de apps muito semelhantes em um único espaço de trabalho.
 
-É importante ressaltar que os espaços de trabalho fornecem chaves de API para várias plataformas (como iOS e Android). Você usará as chaves de API correlacionadas para associar os dados do SDK a um espaço de trabalho específico. Navegue até seus espaços de trabalho para acessar a chave de API de cada um de seus apps. Confira se cada chave de API tem as permissões corretas para executar o trabalho que você definiu como escopo. Consulte o [artigo sobre provisionamento da API]({{site.baseurl}}/api/basics/#rest-api-key) para saber mais.
+É importante ressaltar que os espaços de trabalho fornecem chaves de API para várias plataformas (como iOS e Android). Você usará as chaves de API correlacionadas para associar os dados do SDK a um espaço de trabalho específico. Navegue até seus espaços de trabalho para acessar a chave de API de cada um de seus apps. Confira se cada chave de API tem as permissões corretas para executar o trabalho que você definiu como escopo. Consulte o [artigo sobre provisionamento da API]({{site.baseurl}}/api/basics#rest-api-key) para saber mais.
 
 {% alert important %}
 É importante que você configure ambientes diferentes para desenvolvimento e produção. A configuração de um ambiente de teste evitará que você gaste dinheiro real durante a integração e o controle de qualidade. Para criar um ambiente de teste, configure um espaço de trabalho de teste e certifique-se de usar a respectiva chave de API para não preencher o espaço de trabalho de produção com dados de teste.
@@ -111,14 +111,14 @@ Você precisará de desenvolvedores que estejam familiarizados com:
 
 ### Integração com parceiros de CDP {#cdp-integration-partners}
 
-Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma plataforma de dados do cliente (CDP) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle/) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/).
+Muitos clientes usam a integração da Braze como uma oportunidade de também se integrar a uma plataforma de dados do cliente (CDP) como parceiro de integração. A Braze oferece rastreamento e análise de dados, enquanto uma CDP pode oferecer roteamento e orquestração de dados adicionais. A Braze oferece integração perfeita com muitas CDPs, como a [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) e o [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Se estiver realizando a integração lado a lado com uma CDP, você mapeará as chamadas do SDK da sua CDP para o SDK da Braze. Essencialmente, você irá:
 * Mapear chamadas de identificação para `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) e definir atributos.
 * Mapear chamadas de flush de dados para `requestImmediateDataFlush` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush()), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)).
 * Registrar eventos personalizados ou compras.
 
-Exemplos de integrações entre o SDK da Braze e a CDP de sua escolha podem estar disponíveis, dependendo da plataforma que você escolheu. Para saber mais, consulte nossa [lista de parceiros de tecnologia CDP]({{site.baseurl}}/partners/data_and_analytics/).
+Exemplos de integrações entre o SDK da Braze e a CDP de sua escolha podem estar disponíveis, dependendo da plataforma que você escolheu. Para saber mais, consulte nossa [lista de parceiros de tecnologia CDP]({{site.baseurl}}/partners/data_and_analytics).
 
 ### Integração do SDK da Braze {#braze-sdk-integration}
 
@@ -129,7 +129,7 @@ Quando estiver totalmente integrado ao seu app ou site, o SDK da Braze oferece u
 {% endalert %}
 
 {% alert note %}
-Para adicionar uma camada adicional de segurança, você pode ativar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/) para evitar solicitações não autorizadas ao SDK. Este recurso está disponível em todas as principais plataformas, incluindo Web, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) e Expo.
+Para adicionar uma camada adicional de segurança, você pode ativar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para evitar solicitações não autorizadas ao SDK. Este recurso está disponível em todas as principais plataformas, incluindo Web, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) e Expo.
 {% endalert %}
 
 Durante a implementação do SDK, você irá:
@@ -145,7 +145,7 @@ Você usará nossa REST API para diferentes tarefas em diferentes momentos ao lo
 1. Importação de dados históricos; e
 2. Atualizações contínuas que não são disparadas na Braze. Por exemplo, o perfil de um usuário faz upgrade para VIP sem que ele faça login em um app, portanto, a API precisa comunicar essas informações à Braze.
 
-Comece com a [API da Braze]({{site.baseurl}}/api/basics/).
+Comece com a [API da Braze]({{site.baseurl}}/api/basics).
 
 {% alert important %}
 Ao usar a API, certifique-se de agrupar suas solicitações em lote e enviar apenas valores delta. A Braze reescreve todos os atributos que são enviados. Não atualize nenhum atributo personalizado se seu valor não tiver sido alterado.
@@ -155,29 +155,29 @@ Ao usar a API, certifique-se de agrupar suas solicitações em lote e enviar ape
 
 A Braze tem tudo a ver com dados. Os dados na Braze são armazenados no perfil do usuário.
 
-Os pontos de dados são uma estrutura por meio da qual você garante que está capturando os dados certos para seus profissionais de marketing, e não apenas "qualquer" dado que possa ser aspirado. Familiarize-se com os [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
+Os pontos de dados são uma estrutura por meio da qual você garante que está capturando os dados certos para seus profissionais de marketing, e não apenas "qualquer" dado que possa ser aspirado. Familiarize-se com os [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 ### Migração de dados de usuários antigos {#migrating-legacy-user-data}
 
-Você pode usar o [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze para migrar dados históricos que foram registrados fora da Braze. Exemplos de dados comumente importados incluem tokens por push e compras anteriores. Esse endpoint pode ser usado para importações pontuais ou atualizações regulares em lote.
+Você pode usar o [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze para migrar dados históricos que foram registrados fora da Braze. Exemplos de dados comumente importados incluem tokens por push e compras anteriores. Esse endpoint pode ser usado para importações pontuais ou atualizações regulares em lote.
 
-Também é possível importar usuários e atualizar os valores dos atributos de clientes por meio de um único [upload de CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#importing-a-csv) para o dashboard. Fazer upload de CSVs pode ser útil para profissionais de marketing, enquanto nossa REST API permite maior flexibilidade.
+Também é possível importar usuários e atualizar os valores dos atributos de clientes por meio de um único [upload de CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv) para o dashboard. Fazer upload de CSVs pode ser útil para profissionais de marketing, enquanto nossa REST API permite maior flexibilidade.
 
 ### Configuração do rastreamento de sessão {#setting-up-session-tracking}
 
-O SDK da Braze gera pontos de dados de "sessão aberta" e "sessão fechada". O SDK da Braze também libera os dados em intervalos regulares. Consulte esses links para obter os valores padrão de rastreamento de sessão, todos os quais podem ser personalizados ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)).
+O SDK da Braze gera pontos de dados de "sessão aberta" e "sessão fechada". O SDK da Braze também libera os dados em intervalos regulares. Consulte esses links para obter os valores padrão de rastreamento de sessão, todos os quais podem ser personalizados ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)).
 
 ### Rastreamento de eventos personalizados, atributos e eventos de compra {#tracking-custom-events-attributes-and-purchase-events}
 
-Coordene-se com sua equipe para configurar o esquema de dados planejado, incluindo eventos personalizados, atributos de usuários e eventos de compra. Seu [esquema de dados personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) será inserido usando o dashboard e deve corresponder exatamente ao que foi implementado durante a integração do SDK.
+Coordene-se com sua equipe para configurar o esquema de dados planejado, incluindo eventos personalizados, atributos de usuários e eventos de compra. Seu [esquema de dados personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events) será inserido usando o dashboard e deve corresponder exatamente ao que foi implementado durante a integração do SDK.
 
 {% alert tip %}
-Os IDs de usuário, chamados de `external_id`s na Braze, devem ser definidos para todos os usuários conhecidos. Eles devem ser imutáveis e acessíveis quando um usuário abre o app, permitindo o rastreamento dos seus usuários entre dispositivos e plataformas. Consulte o artigo [Ciclo de vida do usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) para obter as práticas recomendadas.
+Os IDs de usuário, chamados de `external_id`s na Braze, devem ser definidos para todos os usuários conhecidos. Eles devem ser imutáveis e acessíveis quando um usuário abre o app, permitindo o rastreamento dos seus usuários entre dispositivos e plataformas. Consulte o artigo [Ciclo de vida do usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) para obter as práticas recomendadas.
 {% endalert %}
 
 ### Outras ferramentas {#other-tools}
 
-Com base no seu caso de uso, pode haver outras ferramentas que você precise configurar. Por exemplo, talvez seja necessário configurar uma ferramenta como [geofences]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences/) para realizar suas histórias de usuários. Descobrimos que os clientes que têm a capacidade de configurar essas ferramentas adicionais depois de concluir as etapas essenciais de integração são mais bem-sucedidos.
+Com base no seu caso de uso, pode haver outras ferramentas que você precise configurar. Por exemplo, talvez seja necessário configurar uma ferramenta como [geofences]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) para realizar suas histórias de usuários. Descobrimos que os clientes que têm a capacidade de configurar essas ferramentas adicionais depois de concluir as etapas essenciais de integração são mais bem-sucedidos.
 
 ## Controle de qualidade {#qa}
 Ao executar a integração, você realizará o controle de qualidade para garantir que tudo o que está sendo configurado esteja funcionando conforme o esperado. Esse controle de qualidade se divide em duas categorias gerais: ingestão de dados e canais de envio de mensagens.
@@ -199,18 +199,18 @@ Confira se os seus ambientes de produção e teste estão configurados antes de 
 |                           | Teste se os Content Cards são entregues e se as métricas são registradas. |
 |                           | Facilite o Conteúdo conectado (por exemplo, AccuWeather). |
 |                           | Confirme se todas as integrações de canais de envio de mensagens estão funcionando corretamente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Controle de qualidade" }
 
 {% alert note %}
-Ao realizar o controle de qualidade na sua integração de SDK, use o [Depurador do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) para solucionar problemas sem ativar o registro detalhado para seu app.
+Ao realizar o controle de qualidade na sua integração de SDK, use o [Depurador do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sem ativar o registro detalhado para seu app.
 {% endalert %}
 
 ### Passando a Braze para os profissionais de marketing {#passing-braze-off-to-marketers}
 
 Depois de integrar a plataforma ou o site, envolva a equipe de marketing para passar a propriedade da plataforma para eles. Esse processo é diferente em cada empresa, mas pode incluir o seguinte:
 
-* Criação de uma [lógica Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/#about-liquid) complexa
-* Ajuda para facilitar o [aquecimento de IP de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)
+* Criação de uma [lógica Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid) complexa
+* Ajuda para facilitar o [aquecimento de IP de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
 * Garantia de que outras partes interessadas entendam o tipo de dados que estão sendo rastreados
 
 ### Desenvolver para o futuro {#develop-for-the-future}

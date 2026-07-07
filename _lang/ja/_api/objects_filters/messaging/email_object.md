@@ -1,16 +1,16 @@
 ---
 nav_title: "メールオブジェクト"
-article_title: 電子メール・メッセージング・オブジェクト
+article_title: メールメッセージングオブジェクト
 page_order: 5
 page_type: reference
 channel: email
-description: "この参考記事では、Braze メールオブジェクトのさまざまなコンポーネントについて説明します。"
+description: "このリファレンス記事では、Brazeメールオブジェクトのさまざまなコンポーネントについて説明します。"
 
 ---
 
-# メールオブジェクト
+# メールオブジェクト {#email-object}
 
-> `email` オブジェクトを使うと、[メッセージング・エンドポイントを通じて]({{site.baseurl}}/api/endpoints/messaging)電子メールを修正したり作成したりすることができる。
+> `email` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を通じてメールを変更または作成できます。
 
 ## メールオブジェクト
 
@@ -18,8 +18,8 @@ description: "この参考記事では、Braze メールオブジェクトのさ
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -35,21 +35,21 @@ description: "この参考記事では、Braze メールオブジェクトのさ
 }
 ```
 
-- [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
-  - アプリがワークスペースに設定されている場合、有効な`app_id` は、ユーザーのプロファイルに固有のアプリがあるかどうかに関係なく、ワークスペース内のすべてのユーザーで動作します。
-- プリヘッダーの詳細とベストプラクティスについては、[メール本文のスタイル]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#body-styling)に関するヘルプ記事を参照してください。
+- [アプリ識別子]({{site.baseurl}}/api/identifier_types)
+  - ワークスペースに設定されたアプリの有効な `app_id` は、ユーザーのプロファイルにそのアプリがあるかどうかに関係なく、ワークスペース内のすべてのユーザーに対して機能します。
+- プリヘッダーの詳細とベストプラクティスについては、[メールのスタイル設定]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling)を参照してください。
 
 {% alert warning %}
-Braze では、添付ファイルの `url` に Google Drive のリンクを使用しないことを推奨しています。これにより、ファイルを取得するためのサーバー呼び出しがブロックされる可能性があり、それによってメールメッセージが送信されなくなる可能性があるからです。
+Brazeでは、添付ファイルの `url` にGoogle Driveのリンクを使用しないことを推奨しています。サーバーがファイルを取得する際の呼び出しがブロックされ、メールメッセージが送信されなくなる可能性があるためです。
 {% endalert %}
 
 有効な添付ファイルの種類には次が含まれます: `txt`、`csv`、`log`、`css`、`ics`、`jpg`、`jpe`、`jpeg`、`gif`、`png`、`bmp`、`psd`、`tif`、`tiff`、`svg`、`indd`、`ai`、`eps`、`doc`、`docx`、`rtf`、`odt`、`ott`、`pdf`、`pub`、`pages`、`mobi`、`epub`、`mp3`、`m4a`、`m4v`、`wma`、`ogg`、`flac`、`wav`、`aif`、`aifc`、`aiff`、`mp4`、`mov`、`avi`、`mkv`、`mpeg`、`mpg`、`wmv`、`xls`、`xlsx`、`ods`、`numbers`、`odp`、`ppt`、`pptx`、`pps`、`key`、`zip`、`vcf`、`pkpass`。
 
-`email_template_id` は、HTML エディターで作成されたメールテンプレートの下部から取得できます。以下は、このIDがどのように見えるかの例である：
+`email_template_id` は、HTMLエディターで作成されたメールテンプレートの下部から取得できます。以下は、このIDがどのように表示されるかの例です。
 
-![HTML メール テンプレートのAPI ID セクション。]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
+![HTMLメールテンプレートのAPI識別子セクション。]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
 
-## 添付ファイル付き電子メールオブジェクトの例
+## 添付ファイル付きメールオブジェクトの例 {#example-email-object-with-attachment}
 
 ```json
 {
@@ -66,11 +66,11 @@ Braze では、添付ファイルの `url` に Google Drive のリンクを使�
 }
 ```
 
-## 電子メール添付ファイルの認証
+## メール添付ファイルの認証 {#authentication-for-email-file-attachments}
 
-1. **設定]>**[**接続コンテンツ]**に移動し、**[認証情報の追加]**をクリックして認証情報を追加する。
-2. 名前を入力し、ユーザー名とパスワードを追加する。
-3. `/messages/send` エンドポイントの電子メール・オブジェクトに、添付ファイルの詳細でクレデンシャル名を指定する`basic_auth_credential` プロパティを含める。クレデンシャル名を`company_basic_auth_credential_name` とした、以下の例を参照のこと：
+1. **設定** > **コネクテッドコンテンツ**に移動し、**認証情報の追加**をクリックして認証情報を追加します。
+2. 名前を入力し、ユーザー名とパスワードを追加します。
+3. `/messages/send` エンドポイントのメールオブジェクトに、添付ファイルの詳細で認証情報名を指定する `basic_auth_credential` プロパティを含めます。認証情報名を `company_basic_auth_credential_name` とした以下の例を参照してください。
 
 ```json
 {
@@ -79,7 +79,7 @@ Braze では、添付ファイルの `url` に Google Drive のリンクを使�
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -91,3 +91,11 @@ Braze では、添付ファイルの `url` に Google Drive のリンクを使�
 }
 ```
 
+## 添付ファイルの取得、キャッシュ、パフォーマンス {#attachment-retrieval-caching-and-performance}
+
+Brazeが添付ファイルの `url` からファイルを取得する際の注意点:
+
+- **キャッシュ:** Brazeは最近取得したファイルを最大約24時間再利用する場合があります。送信のたびに最新バージョンのファイルを取得する必要がある場合は、バージョンごとに異なるURLを使用してください（例: ファイルが変更されたときにパスやクエリが変わるようにする）。
+- **タイムアウト:** ホストは迅速に応答する必要があります。添付ファイルのURLが遅い場合やハングした場合、メッセージの送信が失敗する可能性があります。約2分以内の応答を目指してください。
+- **セキュリティ:** 添付ファイルのURL（クエリ文字列を含む）に個人を特定できる情報（PII）や機密情報を含めないでください。URLはログや下流のシステムに表示される可能性があります。
+- **ファイアウォール:** URLが特定のネットワークからのみアクセス可能な場合は、[コネクテッドコンテンツのIP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)に従ってBrazeからのトラフィックを許可してください。ファイルにログインが必要な場合は、[基本認証の認証情報](#authentication-for-email-file-attachments)を使用してください。

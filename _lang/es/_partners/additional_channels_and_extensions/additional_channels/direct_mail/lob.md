@@ -23,11 +23,11 @@ Con esta integración, puedes:
 
 ## Requisitos previos {#prerequisites}
 
-|Requisito| Descripción|
-| ---| ---|
-|Cuenta de Lob | Se necesita una cuenta de Lob para beneficiarse de esta asociación. |
+| Requisito | Descripción |
+| --- | --- |
+| Cuenta de Lob | Se necesita una cuenta de Lob para beneficiarse de esta asociación. |
 | Clave de API de Lob | Tu clave de API de Lob se encuentra en la sección de configuración, debajo de tu nombre, en el dashboard de Lob. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Enviar correo utilizando webhooks de Braze {#sending-mail-using-braze-webhooks}
 
@@ -38,11 +38,11 @@ Dependiendo de lo que quieras hacer en Lob, tendrás que utilizar el punto de co
 | URL base | Puntos finales disponibles |
 | ------------ | ------------------- |
 | `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Elige un punto de conexión de Lob" }
 
 ### Paso 2: Crea tu plantilla de webhook de Braze {#step-2-create-your-braze-webhook-template}
 
-Para crear una plantilla de webhook de Lob para utilizarla en futuras Campaigns o Canvas, ve a **Plantillas** > **Plantillas de Webhook** en el dashboard de Braze.
+Para crear una plantilla de webhook de Lob para utilizarla en futuras Campaigns o Canvas, ve a **Contenido** > **Webhook** en el panel de Braze. A continuación, selecciona **Crear plantilla de webhook**.
 
 Si quieres hacer una Campaign de webhook de Lob única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva Campaign.
 
@@ -105,7 +105,7 @@ La plantilla de Transformación de datos de Lob envía eventos utilizando tu [pu
 
 ### Paso 1: Crea una transformación en Braze {#step-1-create-a-transformation-in-braze}
 
-1. En el dashboard de Braze, ve a **Configuración de datos** > **Transformaciones de datos** y, a continuación, selecciona **Crear transformación**.
+1. En el panel de Braze, ve a **Configuración de datos** > **Transformaciones de datos** y, a continuación, selecciona **Crear transformación**.
 2. Introduce un nombre corto y descriptivo para tu transformación.
 3. En **Experiencia de edición**, selecciona **Utilizar una plantilla**, busca Lob y marca la casilla.
 4. Cuando hayas terminado, selecciona **Crear transformación**. Se te redirigirá al editor de transformaciones, que utilizarás en el siguiente paso.

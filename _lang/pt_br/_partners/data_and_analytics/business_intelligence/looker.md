@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
 
 > O [Looker](https://looker.com/), uma plataforma de business intelligence e análise de big data, permite que você explore, analise e compartilhe análises de negócios em tempo real de forma integrada.
 
@@ -21,7 +21,7 @@ A integração entre a Braze e o Looker permite que os usuários da empresa apro
 | Conta Looker | É necessário ter uma [conta Looker](https://looker.com/) para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint REST da Braze | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 #### Considerações {#considerations}
 
@@ -56,7 +56,7 @@ Esteja ciente das diferentes convenções de nomenclatura! Nomes personalizados 
 |---|---|
 | Bloco de análise de engajamento com mensagem | Esse bloco inclui dados sobre push, e-mail, mensagens no app, webhook, conversão, entrada no Canvas e eventos de inscrição no grupo de controle de Campaign. <br><br>Saiba mais sobre este [bloco do Looker](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) ou confira o [código do GitHub](https://github.com/llooker/braze_message_engagement_block). |
 | Bloco de análise de comportamento do usuário | Este bloco inclui dados sobre eventos personalizados, compras, sessões, eventos de localização e desinstalações.<br><br>Saiba mais sobre este [bloco do Looker](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) ou confira o [código do GitHub](https://github.com/llooker/braze_retention_block). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Blocos disponíveis" }
 
 ### Looker Actions {#looker-actions}
 

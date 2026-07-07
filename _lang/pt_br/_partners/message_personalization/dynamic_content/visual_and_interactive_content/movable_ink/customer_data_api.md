@@ -26,7 +26,7 @@ Para saber mais sobre o Stories, a API de dados de clientes da Movable Ink e com
 | Credenciais da API da Movable Ink | A equipe de soluções da Movable Ink gerará credenciais de API para você. As credenciais da API consistem em:{::nomarkdown}<ul><li>Um URL de endpoint (para onde os dados serão enviados)</li><li>Nome de usuário e senha (usados para autenticar a API)</li></ul>{:/} Se desejar, a Movable Ink poderá fornecer o nome de usuário e a senha como um valor codificado em base64 a ser usado como um valor de cabeçalho de autorização básica. |
 | Cargas úteis de eventos comportamentais | Será necessário compartilhar as cargas úteis do evento com a equipe de experiência do cliente da Movable Ink. Consulte [Compartilhamento de cargas úteis de eventos](#event-payloads) com a Movable Ink para obter detalhes. |
 | Ativos criativos e lógica de negócios | Será necessário compartilhar ativos criativos com a Movable Ink, incluindo arquivos do Adobe Photoshop (PSD) que orientem a Movable Ink sobre como criar o bloco e uma imagem de fallback. Você também precisará fornecer a lógica de negócios para saber como e quando exibir o bloco de conteúdo ativado pelo parceiro. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -34,7 +34,7 @@ Para saber mais sobre o Stories, a API de dados de clientes da Movable Ink e com
 
 #### Etapa 1a: Criar uma nova campanha {#step-1a-create-a-new-campaign}
 
-1. Na Braze, [crie uma campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+1. Na Braze, [crie uma campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 2. Dê um nome e uma descrição opcional à sua campanha.
 3. Selecione **Blank Template** como seu modelo.
 
@@ -52,7 +52,7 @@ Para saber mais sobre o Stories, a API de dados de clientes da Movable Ink e com
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Insira a autenticação básica que você recebeu da Movable Ink. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1b: Adicione suas credenciais da API de dados de clientes" }
 
 ![Guia Configurações do criador do webhook na Braze com pares de chave-valor para Content-Type e Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
@@ -83,9 +83,9 @@ Para testar seu webhook, faça o seguinte:
 
 #### Etapa 2a: Agende sua campanha {#step-2a-schedule-your-campaign}
 
-Quando terminar de redigir e testar o webhook, [agende sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Quando terminar de redigir e testar o webhook, [agende sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-A Braze oferece suporte a entregas agendadas, baseadas em ação e disparadas por API. A [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) é geralmente a melhor opção para a maioria dos casos de uso de eventos comportamentais. Em caso de dúvidas sobre o que faz sentido para o seu caso de uso, entre em contato com os gerentes de sucesso do cliente da Braze e da Movable Ink.
+A Braze oferece suporte a entregas agendadas, baseadas em ação e disparadas por API. A [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) é geralmente a melhor opção para a maioria dos casos de uso de eventos comportamentais. Em caso de dúvidas sobre o que faz sentido para o seu caso de uso, entre em contato com os gerentes de sucesso do cliente da Braze e da Movable Ink.
 
 Para entrega baseada em ação:
 
@@ -99,7 +99,7 @@ Para garantir que os dados sejam transmitidos para a Movable Ink em tempo real, 
 
 #### Etapa 2b: Especifique seu público {#step-2b-specify-your-audience}
 
-Em seguida, determine quais usuários você deseja direcionar para essa campanha. Para obter detalhes, consulte [Direcionamento de usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/).
+Em seguida, determine quais usuários você deseja direcionar para essa campanha. Para obter detalhes, consulte [Direcionamento de usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 Certifique-se de não usar testes A/B em sua campanha, desmarcando a caixa de seleção **Control Group**. Se um grupo de controle for incluído, uma porcentagem dos usuários não terá dados enviados para a Movable Ink. Todo o seu público deve ir para a variante em vez do grupo de controle.
 
@@ -135,7 +135,7 @@ Você pode gerar uma carga útil de evento na Braze usando qualquer propriedade 
 
 Compartilhe essa carga útil de exemplo com a equipe de experiência do cliente da Movable Ink. Verifique se não há informações confidenciais de identificação pessoal na carga útil de exemplo (como endereço de e-mail, número de telefone ou datas de nascimento completas).
 
-Para saber mais sobre as propriedades de eventos personalizados e o formato esperado dos dados contidos nas propriedades, consulte [Propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Para saber mais sobre as propriedades de eventos personalizados e o formato esperado dos dados contidos nas propriedades, consulte [Propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ### Usuários conhecidos versus anônimos {#known-versus-anonymous-users}
 
@@ -164,7 +164,7 @@ Para saber mais, consulte os exemplos de webhooks em [cargas úteis de exemplo](
 {
   "events": [
     {
-      "email": "test@braze.com",
+      "email": "test@example.com",
       "name": "Product Viewed",
       "time": "2023-12-06T19:20:45+01:00",
       "properties": {

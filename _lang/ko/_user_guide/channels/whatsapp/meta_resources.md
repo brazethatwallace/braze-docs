@@ -26,6 +26,51 @@ channel:
 
 ## WhatsApp 제품 업데이트 {#whatsapp-product-updates}
 
+### 2026: 비즈니스 사용자 이름 {#2026-business-usernames}
+*최종 업데이트: 2026년 5월*
+
+Meta는 WhatsApp에 비즈니스 사용자 이름을 도입합니다. 이는 비즈니스가 WhatsApp 전화번호에 대해 채택할 수 있는 선택적 표시 이름입니다. 사용자 이름이 설정되면 WhatsApp 및 WhatsApp Business 앱 채팅 창에서 전화번호 대신 표시됩니다. 사용자 이름을 채택해도 전화번호가 숨겨지지는 않으며, 비즈니스 프로필에서 항상 확인할 수 있습니다.
+
+사용자 이름은 모든 WhatsApp 전화번호에서 고유합니다. 소비자든 비즈니스든 두 번호가 동일한 사용자 이름을 공유할 수 없습니다. 고유성 판단 시 대소문자를 구분하지 않지만, 마침표와 밑줄은 별개의 문자로 취급됩니다. 예를 들어, `myid`, `my.id`, `my_id`는 모두 서로 다른 사용자 이름으로 간주되지만, `myID`와 `myid`는 동일한 것으로 취급됩니다.
+
+비즈니스 사용자 이름은 다음 형식 요구 사항을 충족해야 합니다:
+
+- 영문자(a–z), 숫자(0–9), 마침표(`.`), 밑줄(`_`)만 포함
+- 3자 이상 35자 이하
+- 영문자를 하나 이상 포함
+- 마침표로 시작하거나 끝나지 않으며, 연속된 두 개의 마침표를 포함하지 않음
+- `www`로 시작하지 않음
+- 일반적인 도메인 접미사(`.com`, `.org`, `.net` 등)로 끝나지 않음
+
+#### 예약된 사용자 이름 신청 {#claiming-a-reserved-username}
+
+사용자 이름 기능이 널리 제공되기 전에, Meta가 귀사의 비즈니스를 위해 사용자 이름을 사전 예약했을 수 있습니다. 일반적으로 기존 Facebook 페이지 또는 Instagram 사용자 이름과 일치합니다. [WhatsApp Manage](https://business.facebook.com/wa/manage/)를 통해 이 예약된 사용자 이름을 신청하거나 다른 사용자 이름을 선택할 수 있습니다. 신청된 사용자 이름은 Meta가 기능을 제공할 때까지 활성화되지 않습니다.
+
+예약된 사용자 이름이 Facebook 페이지 또는 Instagram 계정에 이미 연결된 사용자 이름과 일치하는 경우, 먼저 비즈니스 전화번호를 해당 페이지 또는 계정에 연결해야 합니다. WhatsApp Manager 또는 Meta Business Suite에서 사용자 이름을 신청하는 동안 이 작업을 수행하거나, 관련 페이지 또는 계정에서 직접 전화번호를 추가할 수 있습니다. 연결하려면 페이지 또는 계정에 대한 전체 제어 권한이 있거나, `manage_phone` 권한이 포함된 기본 부분 접근 권한이 필요합니다.
+
+#### 채팅 창에서의 표시 우선순위 {#display-priority-in-chat-windows}
+
+비즈니스 프로필이 채팅 창에 표시될 때, WhatsApp은 다음 우선순위(높은 순서에서 낮은 순서)를 사용합니다:
+
+1. 저장된 연락처 이름
+2. 인증된 비즈니스 이름 또는 공식 비즈니스 계정(OBA) 이름
+3. 사용자 이름
+4. 전화번호
+
+자세한 내용은 [비즈니스 사용자 이름](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames)에 대한 Meta의 설명서를 참조하세요.
+
+### 2026년 4월: 비활성 템플릿 자동 아카이브 {#april-2026-automatic-archival-of-inactive-templates}
+*최종 업데이트: 2026년 4월*
+
+- Meta는 12개월 이상 비활성 상태인 템플릿을 자동으로 아카이브합니다.
+- 자동 아카이브는 모든 WhatsApp Business 계정에 활성화되어 있으며 비활성화할 수 없습니다.
+- 템플릿 활동에는 생성, 편집, 발송, 이의 제기 또는 아카이브 해제가 포함됩니다.
+- 아카이브된 템플릿은 발송할 수 없으며 28일 후 영구 삭제가 예약됩니다.
+- 28일 이내에 템플릿을 아카이브 해제하여 복원하고 예약된 삭제를 취소할 수 있습니다.
+- 알림은 `message_template_status_update` 웹훅, 이메일 및 일회성 WhatsApp Manager 배너를 통해 발송됩니다.
+
+자세한 내용은 [템플릿 아카이브](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival)에 대한 Meta의 설명서를 참조하세요.
+
 ### 2026년 6월: 비즈니스 범위 사용자 ID {#june-2026-business-scoped-user-ids}
 *최종 업데이트: 2026년 3월*
 
@@ -90,12 +135,12 @@ Meta는 특정 기간 동안 사용자가 모든 비즈니스로부터 수신할
 
 한 가지 예외는, 사용자가 마케팅 메시지에 응답하면 24시간 고객 서비스 기간이 시작된다는 것입니다. 이 기간 내에 발송된 마케팅 메시지는 해당 사용자의 제한에 포함되지 않습니다.
 
-구체적인 제한은 사용자의 참여 수준에 따라 다릅니다. WhatsApp의 사용자별 마케팅 템플릿 메시지 제한에 대해 [여기](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)에서 자세히 알아보세요.
+구체적인 제한은 사용자의 참여 수준에 따라 다릅니다. WhatsApp의 사용자별 마케팅 템플릿 메시지 제한에 대해 [WhatsApp의 사용자별 마케팅 템플릿 메시지 제한 설명서](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)에서 자세히 알아보세요.
 
 ### 2025년 1월: WhatsApp, 4월 1일부터 미국 사용자에게 마케팅 메시지 발송 일시 중지 {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *최종 업데이트: 2025년 1월*
 
-WhatsApp은 2025년 4월 1일부터 미국 사용자(미국 전화번호를 가진 사용자)에게 마케팅 메시지 발송을 일시 중지합니다. [유틸리티, 서비스, 인증](https://developers.facebook.com/docs/whatsapp/pricing/) 및 [응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages)는 미국에서 계속 허용됩니다.
+WhatsApp은 2025년 4월 1일부터 미국 사용자(미국 전화번호를 가진 사용자)에게 마케팅 메시지 발송을 일시 중지합니다. [유틸리티, 서비스, 인증](https://developers.facebook.com/docs/whatsapp/pricing/) 및 [응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages)는 미국에서 계속 허용됩니다.
 
 마케팅 메시지 발송(및 기타 모든 메시지 유형)은 다른 모든 국가 또는 지역에서 계속 허용되며 영향을 받지 않습니다.
 

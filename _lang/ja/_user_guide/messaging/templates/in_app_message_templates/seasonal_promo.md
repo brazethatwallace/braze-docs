@@ -2,7 +2,7 @@
 nav_title: 背景画像付き季節プロモーション
 article_title: 背景画像付き季節プロモーション
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "このページでは、アプリ内メッセージのドラッグ＆ドロップエディターを使用して、季節限定のオファーやセールをプロモーションし、ユーザーエンゲージメントを促進する方法について説明します。"
 ---
 
@@ -30,11 +30,11 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ![ボタン要素をカスタマイズするためのサイドメニューが表示されたアプリ内メッセージエディター。]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_button.png %})
 
-また、**Pages**セクションで季節プロモーションにメッセージを追加し、それらをリンクして順次フローを作成することもできます。たとえば、製品の機能を簡単に説明する一連のメッセージを作成し、最後にユーザーを製品ページに誘導するボタンを配置できます。その方法については、[ページを接続する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together)をご覧ください。
+また、**Pages**セクションで季節プロモーションにメッセージを追加し、それらをリンクして順次フローを作成することもできます。たとえば、製品の機能を簡単に説明する一連のメッセージを作成し、最後にユーザーを製品ページに誘導するボタンを配置できます。その方法については、[ページを接続する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together)をご覧ください。
 
 ### ステップ 4: メッセージのスタイルを設定する {#step-4-style-your-message}
 
-ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)を使用して、季節プロモーションの外観をカスタマイズします。**Message container**メニューでデフォルトの背景画像URLを置き換えて独自の背景画像を追加するか、URLを削除して[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)から画像を選択します。
+ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)を使用して、季節プロモーションの外観をカスタマイズします。**Message container**メニューでデフォルトの背景画像URLを置き換えて独自の背景画像を追加するか、URLを削除して[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)から画像を選択します。
 
 ![背景画像を選択するためのサイドメニューが表示されたアプリ内メッセージエディター。]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_image.png %})
 

@@ -1,27 +1,25 @@
 ---
-nav_title: "GET: Campaignの翻訳タグのデフォルトソース値を表示する"
-article_title: "GET: Campaignの翻訳タグのデフォルトソース値を表示する"
-search_tag: エンドポイント
+nav_title: "GET: キャンペーンの翻訳タグのデフォルトソース値を表示する"
+article_title: "GET: キャンペーンの翻訳タグのデフォルトソース値を表示する"
+search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "この記事では、Campaignの翻訳ソースエンドポイントについて詳しく説明します。"
+description: "この記事では、キャンペーンの翻訳ソースエンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
-# Campaignの翻訳タグのデフォルトソース値を表示する {#view-default-source-values-for-a-campaigns-translation-tags}
+# キャンペーンの翻訳タグのデフォルトソース値を表示する {#view-default-source-values-for-a-campaigns-translation-tags}
 {% apimethod get %}
 /campaigns/translations/source
 {% endapimethod %}
 
-> このエンドポイントを使用して、Campaignの翻訳タグに対するすべてのデフォルト翻訳ソースを表示します。これらは{% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}内の値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> このエンドポイントを使用して、キャンペーンの翻訳タグに対するすべてのデフォルト翻訳ソースを表示します。これらは{% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}内の値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -31,11 +29,11 @@ description: "この記事では、Campaignの翻訳ソースエンドポイン�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | CampaignのID。|
+| `campaign_id` | 必須 | 文字列 | キャンペーンのID。|
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。|
 | `locale_id` | オプション | 文字列 | 応答をフィルタリングするためのロケールUUID。|
 | `post_launch_draft_version` | オプション | ブール値 | `true`の場合、最新の公開済みライブバージョンではなく、最新の下書きバージョンを返します。デフォルトは`false`で、最新のライブバージョンを返します。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="クエリパラメーター" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。

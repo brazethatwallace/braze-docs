@@ -28,17 +28,17 @@ Veja as diretrizes para selecionar as variáveis:
 | Campo de variável | Descrição |
 | --- | --- |
 | `Catalog` | O nome do catálogo que você está usando para direcionar usuários. |
-| `Catalog field`| O campo no seu catálogo que contém os mesmos valores que a sua `Custom event property`. Geralmente é um tipo de ID. No caso de uso de eCommerce, seria `shopify_id`. |
+| `Catalog field` | O campo no seu catálogo que contém os mesmos valores que a sua `Custom event property`. Geralmente é um tipo de ID. No caso de uso de eCommerce, seria `shopify_id`. |
 | `Custom event` | O nome do seu evento personalizado, que é o mesmo evento que contém uma propriedade com valores correspondentes ao seu `Catalog field`. No caso de uso de eCommerce, seria `Made Order`. |
-| `Custom event property` | O nome da propriedade do seu evento personalizado, que corresponde aos valores do seu `Catalog field`. No exemplo de caso de uso de eCommerce, seria `Shopify_ID.`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Custom event property` | O nome da propriedade do seu evento personalizado, que corresponde aos valores do seu `Catalog field`. No exemplo de caso de uso de eCommerce, seria `Shopify_ID.` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Criando um segment de catálogo" }
 
 {: start="4"}
 4. Se necessário, preencha campos opcionais adicionais para o seu caso de uso, a fim de segmentar por um valor de campo específico dentro do seu catálogo:
 - `Catalog field`: Um campo específico (nome da coluna) dentro deste catálogo
 - `Value`: Um valor específico dentro desse campo ou coluna <br><br> Usando o app de saúde como exemplo, digamos que dentro do catálogo de cada médico que você pode agendar, existe um campo chamado `specialty` que contém um valor como `vision` ou `dental`. Para segmentar usuários que visitaram médicos com o valor `dental`, você pode selecionar `specialty` como o `Catalog field` e selecionar `dental` como o `Value`.
 
-5. Após criar uma extensão de segmento SQL, recomendamos clicar em **Executar pré-visualização** para verificar se a sua consulta retorna usuários ou se há erros. Para saber mais sobre [pré-visualização de resultados de consulta]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#previewing-results), gerenciamento de [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#managing-sql-segment-extensions) e mais, confira [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/).
+5. Após criar uma extensão de segmento SQL, recomendamos clicar em **Executar pré-visualização** para verificar se a sua consulta retorna usuários ou se há erros. Para saber mais sobre [pré-visualização de resultados de consulta]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), gerenciamento de [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions) e mais, confira [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 {% alert note %}
 Se você estiver criando um segment SQL que usa a tabela `CATALOGS_ITEMS_SHARED`, é necessário especificar um ID de catálogo. Por exemplo:
@@ -72,7 +72,7 @@ Se você criou um segment em que espera que os usuários entrem e saiam regularm
 
 ### Definindo configurações de atualização {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Casos de uso {#use-cases}
 
@@ -91,13 +91,13 @@ Você configuraria um segment de catálogo usando as seguintes variáveis:
 
 | Variável | Propriedade |
 | --- | --- |
-| `Catalog`| Doctors |
+| `Catalog` | Doctors |
 | `Catalog field` | doctor ID |
-| `Custom event`| Booked Visit|
+| `Custom event` | Booked Visit |
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
-| `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `(Under Filter SQL Results) Value` | Dental |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="App de saúde" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -115,12 +115,12 @@ Você configuraria um segment de catálogo usando as seguintes variáveis:
 | Variável | Propriedade |
 | --- | --- |
 | `Catalog` | Accounts |
-| `Catalog field `| account ID |
+| `Catalog field` | account ID |
 | `Custom event` | Event Attendance |
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plataforma SaaS" }
 
 {% endtab %}
 {% endtabs %}
@@ -129,7 +129,7 @@ Você configuraria um segment de catálogo usando as seguintes variáveis:
 
 ### Executar um segment de catálogo consome créditos de extensão de segmento SQL? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-Sim, segments de catálogo são alimentados por SQL e consomem créditos de extensão de segmento SQL. Para saber mais, confira [Uso de Segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage).
+Sim, segments de catálogo são alimentados por SQL e consomem créditos de extensão de segmento SQL. Para saber mais, confira [Uso de Segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage).
 
 ### Criar um segment de catálogo consome a cota de extensões de segmento SQL? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 
@@ -137,4 +137,4 @@ Sim. Da mesma forma que as extensões de segmento SQL contam para a sua cota de 
 
 ### Tenho um caso de uso de segment de catálogo que o modelo atual não atende. Como devo configurar isso? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
-Fale com o seu gerente de suporte ao cliente ou com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) para orientação adicional.
+Fale com o seu gerente de suporte ao cliente ou com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para orientação adicional.

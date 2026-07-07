@@ -1,61 +1,67 @@
 ---
 nav_title: Puntos de datos
 article_title: Resumen de puntos de datos
-page_order: 10
+page_order: 3
 page_type: reference
 description: "Este artículo de referencia describe qué son los puntos de datos en Braze y cómo puedes estar al tanto de su uso."
 search_rank: 6
 ---
 
-# Puntos de datos
+# Puntos de datos {#data-points}
 
 > En Braze, los datos significan acción: cada dato que llega a Braze actualiza la pertenencia a un segmento, puede desencadenar y cancelar la mensajería, está disponible inmediatamente para la personalización de la mensajería, y mucho más. Los puntos de datos te ayudan a definir la información más impactante para tu negocio. Al considerar cuidadosamente qué información rastrear, te aseguras de que estás apuntando a los datos de mayor impacto para la experiencia de tus usuarios.
 
-Los puntos de datos se basan en la información registrada en los perfiles de usuario. Puedes encontrar un desglose más detallado de esta definición en tu contrato con Braze. Nuestro equipo de éxito del cliente puede ayudarte a recomendar las mejores prácticas de datos que se ajusten a tus necesidades. 
+Los puntos de datos se basan en la información registrada en los perfiles de usuario. Puedes encontrar un desglose más detallado de esta definición en tu contrato con Braze. Nuestro equipo de éxito del cliente puede ayudarte a recomendar las mejores prácticas de datos que se ajusten a tus necesidades.
 
-## Definición
+## Definición {#definition}
 
 "Puntos de datos" hará referencia a una unidad facturable de uso de los servicios de Braze, medida por un inicio de sesión, un fin de sesión, un evento personalizado o una compra registrada, así como cualquier atributo establecido en un perfil de usuario final. Para mayor claridad, cada uno de los datos mencionados (como inicio de sesión, fin de sesión, evento personalizado o compra registrada, así como cualquier atributo) establecido en el perfil de un usuario final en un momento dado contará como un único punto de datos.
 
-Los datos y eventos recopilados de forma predeterminada por los servicios de Braze, incluidos, por ejemplo, los tokens de notificaciones push, la información del dispositivo y todos los eventos de seguimiento de interacción en campañas, como aperturas de correos electrónicos y clics en notificaciones push, *no* se contabilizan como puntos de datos.
+Los datos y eventos recopilados de forma predeterminada por los servicios de Braze, incluidos, por ejemplo, los tokens de notificaciones push, la información del dispositivo y todos los eventos de seguimiento de interacción en Campaigns, como aperturas de correos electrónicos y clics en notificaciones push, *no* se contabilizan como puntos de datos.
 
 Consulta la sección [Recuento de consumo](#consumption-count) de este artículo para saber qué datos cuentan para tu asignación de puntos de datos.
 
-## Visualización del uso de puntos de datos
+## Visualización del uso de puntos de datos {#viewing-data-point-usage}
 
-Para ver tu uso de puntos de datos, ve a **Configuración** > **Facturación** y selecciona la pestaña **Uso total de puntos de datos**.
+Para ver tu uso de puntos de datos, ve a **Configuración** > **Facturación** y selecciona la pestaña **Total Data Points Usage**.
 
-Para más información sobre los componentes del dashboard de puntos de datos, consulta [Facturación]({{site.baseurl}}/user_guide/administrative/app_settings/subscription_and_usage/).
+### Programación de actualización de puntos de datos {#data-point-refresh-schedule}
+
+El uso de puntos de datos se almacena en caché (no es en tiempo real) cada 24 horas, aproximadamente a las 2 am ET. Hasta que la caché se actualice, diferentes usuarios del dashboard pueden ver los mismos totales incluso si abren la pestaña en diferentes momentos del mismo día. Para el mismo comportamiento de caché en otras vistas de facturación, consulta [Dashboard de puntos de datos totales]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
+
+Para más información sobre los componentes del dashboard de puntos de datos, consulta [Facturación]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **¡No desperdicies puntos de datos. Actualiza solo los datos que cambian!**<br><br>
-Para minimizar el uso de puntos de datos, recomendamos configurar un programa para evitar el envío de los mismos datos invariables y solo pasar datos nuevos y relevantes a Braze. Braze trabajará contigo para establecer esta práctica óptima durante la incorporación. 
+Para minimizar el uso de puntos de datos, recomendamos configurar un programa para evitar el envío de los mismos datos invariables y solo pasar datos nuevos y relevantes a Braze. Braze trabajará contigo para establecer esta práctica óptima durante la incorporación.
 {% endalert %}
 
-## Recuento de consumo
+## Recuento de consumo {#consumption-count}
 
 En resumen, los puntos de datos se acumulan cuando se actualizan los datos del perfil de un usuario o cuando este realiza acciones específicas. Esencialmente, los puntos de datos son recuentos de cada uno de los `session starts`, `session ends`, `events` y `purchases` de tus usuarios.
 
 Puedes encontrar un desglose de cómo Braze acumula puntos de datos en las siguientes secciones. Si alguna vez tienes preguntas sobre los matices de los puntos de datos de Braze, tu director de cuentas de Braze puede respondértelas.
 
+Para la ingesta a través de la API, cada actualización facturable mediante [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) sigue las mismas reglas que otras actualizaciones de perfil: por ejemplo, cada **evento personalizado** registrado cuenta como un punto de datos, y los **atributos personalizados** generalmente cuentan por atributo actualizado en esa solicitud (consulta las tablas facturables a continuación y las [Circunstancias especiales](#special-circumstances)).
+
 Las siguientes acciones no registran puntos de datos:
 - Eliminar usuarios de Braze
 - Uso de contenido conectado en la mensajería
 - Cambios de estado de suscripción a nivel global y en torno a los grupos de suscripción
-- Renombrar los ID externos de tus usuarios mediante [llamadas a la API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
+- Renombrar los ID externos de tus usuarios mediante [llamadas a la API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Bloqueo de eventos, atributos o propiedades del evento
 
-### Circunstancias especiales
+### Circunstancias especiales {#special-circumstances}
 
-#### Matrices
+#### Matrices {#arrays}
 
-Una matriz es una colección ordenada de elementos almacenados dentro de un atributo personalizado. Actualizar una matriz cuesta un punto de datos por llamada a la API, incluso si la matriz no cambia realmente. Por ejemplo, enviar una operación `remove` para un valor que no existe en la matriz igualmente consume un punto de datos. De forma similar, establecer un atributo personalizado en `null` para eliminarlo del perfil consume un punto de datos. Si añades valores a una matriz de forma incremental, contará como un punto de datos por valor. 
+Una matriz es una colección ordenada de elementos almacenados dentro de un atributo personalizado. Actualizar una matriz cuesta un punto de datos por llamada a la API, incluso si la matriz no cambia realmente. Por ejemplo, enviar una operación `remove` para un valor que no existe en la matriz igualmente consume un punto de datos. De forma similar, establecer un atributo personalizado en `null` para eliminarlo del perfil consume un punto de datos. Si añades valores a una matriz de forma incremental, contará como un punto de datos por valor.
 
 {% alert tip %}
 En el caso de las matrices simples, si configuras toda la matriz a la vez, contará como un único punto de datos. Como tales, las matrices son una gran herramienta para mantener actualizados los perfiles de los usuarios con información relevante y reducir costes. <br><br> Las matrices de objetos consumen un punto de datos por cada clave que se actualiza. Reduce el consumo innecesario de puntos de datos pasando solo las actualizaciones a Braze.
 {% endalert %}
 
-#### Atributos personalizados anidados
+#### Atributos personalizados anidados {#nested-custom-attributes}
 
 Los atributos personalizados anidados se refieren a un objeto que define un conjunto de atributos como propiedad de otro atributo. Cada clave del objeto contará como un punto de datos.
 
@@ -72,13 +78,13 @@ Además, como los cambios de estado de suscripción no registran puntos de datos
 ## Puntos de datos
 
 {% alert note %}
-Las tablas siguientes tienen carácter ilustrativo. Para conocer las convenciones de nomenclatura exactas, las mayúsculas y los valores aceptados para determinados campos, consulta la documentación correspondiente a tu método de ingestión.
+Las tablas siguientes tienen carácter ilustrativo. Para conocer las convenciones de nomenclatura exactas, las mayúsculas y los valores aceptados para determinados campos, consulta la documentación correspondiente a tu método de ingesta.
 {% endalert %}
 
 {% tabs %}
 {% tab Non-billable %}
 
-#### Puntos de datos no facturables (predeterminado)
+### Puntos de datos no facturables (predeterminado) {#non-billable-data-points-default}
 
 <div class="small_table"></div>
 
@@ -97,9 +103,9 @@ Las tablas siguientes tienen carácter ilustrativo. Para conocer las convencione
 | Configuración de contacto | Push suscrito |
 | Configuración de contacto | Aplicaciones registradas para push |
 | Configuración de contacto | Grupo de suscripción |
-| Campañas recibidas | Dirección de correo electrónico |
+| Campaigns recibidas | Dirección de correo electrónico |
 | Atribución de instalación | Fuente de instalación |
-| Atribución de instalación | Campaña |
+| Atribución de instalación | Campaign |
 | Atribución de instalación | Grupo de anuncios |
 | Atribución de instalación | Anuncio |
 | Varios | Número de contenedor aleatorio |
@@ -109,12 +115,12 @@ Las tablas siguientes tienen carácter ilustrativo. Para conocer las convencione
 | Twitter | Siguiendo |
 | Twitter | Número de tweets |
 | Facebook | Me gusta |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Puntos de datos no facturables (predeterminado)" }
 
 {% endtab %}
 {% tab Billable %}
 
-#### Puntos de datos facturables
+### Puntos de datos facturables {#billable-data-points}
 
 {% alert important %}
 Añadir, eliminar o actualizar los siguientes tipos de datos generará un punto de datos facturable.
@@ -163,7 +169,7 @@ table td {
 | Asignación de cohortes de Appsflyer | Todas las asignaciones | |
 | Ubicación más reciente | Todas las ubicaciones más recientes | Entrar o salir de geovallas no registra puntos de datos porque los datos de geovalla no se almacenan en el perfil de usuario. Las geovallas son monitorizadas por los servicios de ubicación de Apple y Google; Braze solo recibe una notificación cuando un usuario activa una geovalla. |
 | Twitter | Nombre de usuario | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Puntos de datos facturables" }
 
 {% endtab %}
 {% endtabs %}

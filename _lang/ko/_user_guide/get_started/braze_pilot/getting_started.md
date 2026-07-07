@@ -27,7 +27,7 @@ Braze Pilot을 사용하면 모든 Braze 대시보드에 대해 Braze SDK를 초
 Pilot에서 SDK 연결을 구성하는 방법은 두 가지입니다: 데모 QR 코드와 설정 마법사입니다.
 
 {% tabs local %}
-{% tab Demo QR codes %}
+{% tab 데모 QR 코드 %}
 
 ### 방법 1: 데모 QR 코드 {#method-1-demo-qr-codes}
 
@@ -36,10 +36,10 @@ SDK 초기화에 필요한 모든 세부 정보가 포함된 QR 코드를 스캔
 | Android용 Pilot | iOS용 Pilot |
 | --- | --- |
 | ![Android용 QR 코드.]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![iOS용 QR 코드.]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="방법 1: 데모 QR 코드" }
 
 {% endtab %}
-{% tab Setup wizard %}
+{% tab 설정 마법사 %}
 
 ### 방법 2: 설정 마법사 {#method-2-setup-wizard}
 
@@ -59,7 +59,7 @@ Braze 대시보드의 **앱 설정** 페이지에서 대시보드 워크스페�
 마지막으로, 앱을 통해 푸시 기능을 테스트하려면 앱이 푸시 알림을 보낼 수 있도록 허용하는 것이 좋습니다. 다음과 같은 방법으로 앱에 권한을 부여할 수 있습니다: 기기 설정에서 앱 설정을 업데이트하거나, Braze에서 앱으로 푸시 프라이머 메시지를 실행하는 방법입니다.
 
 {% tabs local %}
-{% tab Update the settings for the app %}
+{% tab 앱 설정 업데이트 %}
 
 기기 설정을 열고 Braze Pilot을 찾으세요. 그런 다음, 잠금 화면에 알림이 표시되도록 설정을 업데이트하세요.
 
@@ -75,9 +75,9 @@ Braze 대시보드의 **앱 설정** 페이지에서 대시보드 워크스페�
 <br>
 
 {% endtab %}
-{% tab Launch a push primer message %}
+{% tab 푸시 프라이머 메시지 실행 %}
 
-일반 소비자에게 하는 것처럼 Braze 인앱 메시지를 사용하여 앱에 대한 푸시 권한을 요청할 수 있습니다. Braze에서 이러한 유형의 메시지를 구축하는 방법은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages)를 참조하세요.
+일반 소비자에게 하는 것처럼 Braze 인앱 메시지를 사용하여 앱에 대한 푸시 권한을 요청할 수 있습니다. Braze에서 이러한 유형의 메시지를 구축하는 방법은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages)를 참조하세요.
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -91,4 +91,4 @@ Braze 대시보드의 **앱 설정** 페이지에서 대시보드 워크스페�
 
 이제 Braze Pilot 사용자로서 Braze 대시보드에서 Campaigns와 Canvases를 수신할 준비가 되었습니다! 데모 워크스페이스에서 실행된 Campaign을 방문하여 Braze 활용 사례에 대한 간단한 데모를 확인한 후, 라이브 워크스페이스로 이동하여 직접 메시지를 보내기 시작하세요.
 
-Braze에서 Campaigns와 Canvases를 설정하는 방법에 대한 자세한 내용은 [시작하기: Campaigns 및 Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/)를 참조하세요.
+Braze에서 캠페인 설정과 Canvases 구성 방법에 대한 자세한 내용은 [시작하기: Campaigns 및 Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases)를 참조하세요.

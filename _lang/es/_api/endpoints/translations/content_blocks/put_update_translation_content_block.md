@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Actualizar traducción en un bloque de contenido"
 article_title: "PUT: Actualizar traducción en un bloque de contenido"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -15,13 +15,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión A
 /content_blocks/translations
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar múltiples traducciones de un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
-
-{% include early_access_beta_alert.md feature='This endpoint' %}
+> Utiliza este punto de conexión para actualizar múltiples traducciones de un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `content_blocks.translations.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `content_blocks.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -33,12 +31,12 @@ No hay parámetros de ruta para este punto de conexión.
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id` | Obligatoria | Cadena | El ID de tu bloque de contenido. |
-| `locale_id` | Obligatoria | Cadena | El ID (UUID) de la configuración regional. |
-| `translation_map` | Obligatoria | Objeto | Objeto que contiene las nuevas traducciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content_block_id` | Obligatorio | Cadena | El ID de tu bloque de contenido. |
+| `locale_id` | Obligatorio | Cadena | El ID (UUID) de la configuración regional. |
+| `translation_map` | Obligatorio | Objeto | Objeto que contiene las nuevas traducciones. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de solicitud" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

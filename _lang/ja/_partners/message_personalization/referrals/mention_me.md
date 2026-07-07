@@ -17,12 +17,12 @@ _この統合はMention Meによって管理されます。_
 
 開始する前に、以下が必要です。
 
-| 前提条件          | 説明                                                                                                                                |
+| 前提条件 | 説明 |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Mention Meアカウント   | このパートナーシップを活用するには、[Mention Me](https://mention-me.com/login)アカウントが必要です。                                                                     |
-| Braze REST APIキー  | `users.track`および`templates.email.create`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Mention Meアカウント | このパートナーシップを活用するには、[Mention Me](https://mention-me.com/login)アカウントが必要です。 |
+| Braze REST APIキー | `users.track`および`templates.email.create`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 

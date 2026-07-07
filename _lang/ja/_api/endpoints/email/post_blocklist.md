@@ -1,16 +1,16 @@
 ---
-nav_title: "POST:ブロックリストのメール"
-article_title: "POST:ブロックリストのメール"
+nav_title: "POST: メールのブロックリスト登録"
+article_title: "POST: メールのブロックリスト登録"
 search_tag: Endpoint
 page_order: 8
 layout: api_page
 page_type: reference
-description: "この記事では、ブロックリストのメールBrazeエンドポイントに関する詳細を説明します。"
+description: "この記事では、メールのブロックリスト登録Brazeエンドポイントに関する詳細を説明します。"
 
 ---
 {% api %}
-# ブロックリストのメール
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints %}。
+# メールのブロックリスト登録 {#blocklist-emails}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 
@@ -18,15 +18,15 @@ description: "この記事では、ブロックリストのメールBrazeエン�
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d51155a1-a6e8-4dcc-9f2b-88c54ab9e8c6 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`email.blacklist`の権限が必要です。
+このエンドポイントを使用するには、`email.blacklist` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -39,14 +39,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | -----------|----------| --------|------- |
-| `email` | 必須 | 文字列または配列 | 禁止リストに追加するメールアドレスの文字列、または禁止リストに追加する最大50件のメールアドレスの配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email` | 必須 | 文字列または配列 | ブロックリストに追加するメールアドレスの文字列、またはブロックリストに追加する最大50件のメールアドレスの配列。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/email/blocklist' \
 --header 'Content-Type: application/json' \

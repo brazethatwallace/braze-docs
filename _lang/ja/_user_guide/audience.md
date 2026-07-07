@@ -4,10 +4,10 @@ article_title: オーディエンス
 page_order: 4
 layout: dev_guide
 guide_top_header: "オーディエンス"
-guide_top_text: "メッセージングを支えるオーディエンスを構築・管理しましょう。ユーザーの動作や属性に基づいてSegmentを作成し、ユーザープロファイルやサブスクリプションを管理し、CampaignsやCanvases全体で正確なターゲティングを行うためにオーディエンスデータを整理できます。ユーザーデータの収集と管理については、<a href='/docs/user_guide/data/unification/user_data'>ユーザーデータ</a>を参照してください。"
+guide_top_text: "メッセージングを支えるオーディエンスを構築・管理しましょう。ユーザーの動作や属性に基づいてセグメントを作成し、ユーザープロファイルやサブスクリプションを管理し、キャンペーンやキャンバス全体で正確なターゲティングを行うためにオーディエンスデータを整理できます。ユーザーデータの収集と管理については、<a href='/docs/user_guide/data/unification/user_data'>ユーザーデータ</a>を参照してください。"
 
 page_type: landing
-description: "このセクションでは、Brazeにおけるオーディエンス管理（Segments、ユーザープロファイル、サブスクリプション設定、ロケーションターゲティング）について説明します。"
+description: "このセクションでは、Brazeにおけるオーディエンス管理（セグメント、ユーザープロファイル、サブスクリプション設定、ロケーションターゲティング）について説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:

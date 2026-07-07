@@ -12,6 +12,10 @@ search_tag: Partner
 
 ## Integração de importação de dados {#data-import-integration}
 
+Quando você sincroniza uma coorte do Mixpanel para a Braze, a Braze recebe atualizações de associação à coorte para os usuários que o Mixpanel consegue corresponder a perfis existentes na Braze. Após a sincronização, você pode direcionar esses usuários com o filtro de segmento **Mixpanel cohorts**.
+
+A sincronização de coorte não importa eventos do Mixpanel, propriedades de usuário do Mixpanel nem atributos personalizados para a Braze. O comportamento do conector, incluindo a cadência de sincronização, é controlado no Mixpanel. Para detalhes de configuração, consulte a [documentação de sincronização de coortes da Braze do Mixpanel](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). Para requisitos de correspondência de usuários, consulte [Correspondência de usuários](#user-matching).
+
 Qualquer integração configurada registrará pontos de dados. Se você tiver alguma dúvida sobre as nuances dos pontos de dados da Braze, seu gerente de conta da Braze poderá respondê-la.
 
 {% alert important %}
@@ -53,7 +57,7 @@ Depois de salvar, você pode fazer referência a esse segmento durante a criaç�
 
 ## Correspondência de usuários {#user-matching}
 
-Os usuários identificados podem ser combinados pelo `external_id` ou `alias`. Os usuários anônimos podem ser combinados pelo `device_id`. Os usuários identificados que foram originalmente criados como usuários anônimos não podem ser identificados pelo `device_id` e devem ser identificados pelo `external_id` ou `alias`.
+Os usuários identificados podem ser correspondidos pelo `external_id` ou `alias`. Os usuários anônimos podem ser correspondidos pelo `device_id`. Os usuários identificados que foram originalmente criados como usuários anônimos não podem ser identificados pelo `device_id` e devem ser identificados pelo `external_id` ou `alias`.
 
 ## Solução de problemas {#troubleshooting}
 

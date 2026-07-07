@@ -6,30 +6,30 @@ description: "Diese Referenzseite beschreibt die von Liquid unterstützten Opera
 
 ---
 
-# Operatoren
+# Operatoren {#operators}
 
 > Liquid unterstützt viele [Operatoren](https://docs.shopify.com/themes/liquid/basics/operators), die Sie in Ihren bedingten Anweisungen verwenden können. Diese Seite behandelt die von Liquid unterstützten Operatoren und zeigt Anwendungsfälle, wie Sie diese in Ihren Nachrichten einsetzen können.
 
 Diese Tabelle listet die unterstützten Operatoren auf. Beachten Sie, dass Klammern in Liquid ungültige Zeichen sind und verhindern, dass Ihre Tags funktionieren.
 
-|   Syntax| Beschreibung des Operators|
+| Syntax | Beschreibung des Operators |
 |---------|-----------|
 | ==  | ist gleich        |
-| !=  | ist nicht gleich|
+| !=  | ist nicht gleich |
 |  >  | größer als  |
 | <   | kleiner als     |
-| >=| größer als oder gleich|
+| >= | größer als oder gleich |
 | <= | kleiner als oder gleich |
-| or | Bedingung A oder Bedingung B|
-| and | Bedingung A und Bedingung B|
-| contains | prüft, ob ein String oder String-Array einen String enthält|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| or | Bedingung A oder Bedingung B |
+| and | Bedingung A und Bedingung B |
+| contains | prüft, ob ein String oder String-Array einen String enthält |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operatoren" }
 
 {% alert note %}
-Operatoren können in bedingten Anweisungen (`if`, `elsif`, `unless`) verwendet werden, jedoch nicht in `assign`-Anweisungen, `for`-Schleifen, `case`/`when`-Anweisungen oder Array-Zugriffsklammern. Eine vollständige Aufschlüsselung finden Sie unter [Wo Operatoren und Filter verwendet werden können]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Operatoren können in bedingten Anweisungen (`if`, `elsif`, `unless`) verwendet werden, jedoch nicht in `assign`-Anweisungen, `for`-Schleifen oder Array-Zugriffsklammern. In `case`- und `when`-Tags vergleicht jeder Branch den `case`-Ausdruck mit einem `when`-Wert mittels Gleichheit anstelle beliebiger Operator-Ausdrücke. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Eine vollständige Aufschlüsselung finden Sie unter [Wo Operatoren und Filter verwendet werden können]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Bedingungen ohne Klammern gruppieren
+## Bedingungen ohne Klammern gruppieren {#grouping-conditions-without-parentheses}
 
 Liquid unterstützt keine Klammern zum Gruppieren von Ausdrücken. Um komplexe boolesche Logik wie `(a and b) or c` auszuwerten, verwenden Sie verschachtelte `if`-Anweisungen oder Zwischenvariablen.
 
@@ -50,11 +50,11 @@ You qualify for a reward!
 ```
 {% endraw %}
 
-## Tutorials
+## Tutorials {#tutorials}
 
 Lassen Sie uns einige Tutorials durchgehen, um zu lernen, wie Sie diese Operatoren für Ihre Marketing-Kampagnen einsetzen können:
 
-### Eine Nachricht mit einem ganzzahligen angepassten Attribut auswählen
+### Eine Nachricht mit einem ganzzahligen angepassten Attribut auswählen {#choose-a-message-with-an-integer-custom-attribute}
 
 Senden wir Push-Benachrichtigungen mit personalisierten Rabattaktionen an Nutzer:innen, die Käufe getätigt haben oder nicht. Die Push-Benachrichtigung verwendet ein ganzzahliges angepasstes Attribut namens `total_spend`, um die Gesamtausgaben der Nutzer:innen zu prüfen.
 
@@ -100,18 +100,18 @@ Need a sign to update your wardrobe? We added a 15% discount code to your accoun
 {% endraw %}
 {% enddetails %}
 
-Wenn nun das angepasste Attribut „Total Spend" der Nutzer:innen größer als `0` ist, erhalten sie folgende Nachricht:
+Wenn nun das angepasste Attribut „Total Spend“ der Nutzer:innen größer als `0` ist, erhalten sie folgende Nachricht:
 
 ```
 Surprise! We added a 15% discount code to your account that automatically applies to your next order.
 ```
-Wenn das angepasste Attribut „Total Spend" der Nutzer:innen nicht existiert oder gleich `0` ist, erhalten sie folgende Nachricht:
+Wenn das angepasste Attribut „Total Spend“ der Nutzer:innen nicht existiert oder gleich `0` ist, erhalten sie folgende Nachricht:
 
 ```
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
 ```
 
-### Eine Nachricht mit einem String-basierten angepassten Attribut auswählen
+### Eine Nachricht mit einem String-basierten angepassten Attribut auswählen {#choose-a-message-with-a-string-custom-attribute}
 
 Senden wir Push-Benachrichtigungen an Nutzer:innen und personalisieren die Nachricht basierend auf dem zuletzt gespielten Spiel jeder Person. Dazu wird ein String-basiertes angepasstes Attribut namens `recent_game` verwendet, um zu prüfen, welches Spiel zuletzt gespielt wurde.
 
@@ -135,7 +135,7 @@ Your fleet awaits your next orders. Log on when you're ready to rejoin the war f
 {% endraw %}
 
 {: start="3"}
-3. Verwenden Sie den `elsif`-Tag mit den Operatoren „ist nicht gleich" (`!=`) und „und" (`and`), um zu prüfen, ob die Nutzer:innen ein kürzlich gespieltes Spiel haben (d. h. der Wert ist nicht leer) und dass das Spiel weder *Awkward Dinner Party* noch *Proxy War 3: War of Thirst* ist. Erstellen Sie dann eine Nachricht, die an diese Nutzer:innen gesendet wird.
+3. Verwenden Sie den `elsif`-Tag mit den Operatoren „ist nicht gleich“ (`!=`) und „und“ (`and`), um zu prüfen, ob die Nutzer:innen ein kürzlich gespieltes Spiel haben (d. h. der Wert ist nicht leer) und dass das Spiel weder *Awkward Dinner Party* noch *Proxy War 3: War of Thirst* ist. Erstellen Sie dann eine Nachricht, die an diese Nutzer:innen gesendet wird.
 
 {% raw %}
 ```liquid
@@ -205,7 +205,7 @@ Wenn Nutzer:innen keine Spiele gespielt haben oder dieses angepasste Attribut in
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 ```
 
-### Nachricht basierend auf dem Standort abbrechen
+### Nachricht basierend auf dem Standort abbrechen {#abort-message-based-on-location}
 
 Sie können eine Nachricht basierend auf nahezu allem abbrechen. Brechen wir eine Nachricht ab, wenn Nutzer:innen sich nicht in einem bestimmten Gebiet befinden, da sie möglicherweise nicht für die Aktion, Sendung oder Zustellung qualifiziert sind.
 
@@ -243,11 +243,15 @@ Stream now!
 
 ![Ein Push-Benachrichtigungs-Composer mit dem vollständigen Liquid-Code aus dem Tutorial.]({% image_buster /assets/img/abort-if.png %})
 
-Sie können Nachrichten auch basierend auf Connected-Content [abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/).
+Sie können Nachrichten auch basierend auf Connected Content [abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content).
 
-## Fehlerbehebung
+## Fehlerbehebung {#troubleshooting}
 
-### Die Vorschau kann Eigenschaftstypen falsch umwandeln
+### Testversand kommt bei Verwendung von `abort_message` nicht an {#test-send-doesnt-arrive-when-using-abort_message}
+
+Wenn Sie [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) verwenden und ein Testversand nie ankommt, fehlen der Vorschau-Nutzer:in möglicherweise Attribute, die Ihr Liquid erwartet. Die Abbruchlogik wird beim Rendern ausgeführt; wenn sie greift, sendet Braze die Nachricht nicht. Verwenden Sie für die Vorschau Nutzer:innen mit den erforderlichen Profildaten oder nutzen Sie **Als Nutzer:in anzeigen**, um Empfängerfelder zu testen, die dieselben Werte liefern wie Ihre Produktionszielgruppe.
+
+### Die Vorschau kann Eigenschaftstypen falsch umwandeln {#preview-may-incorrectly-coerce-property-types}
 
 Bei der Vorschau einer Nachricht im Dashboard werden die meisten Variablen (wie angepasste Attribute) in den korrekten Typ umgewandelt. Einige Variablen haben jedoch keinen definierten Typ, den die Vorschau nachschlagen kann:
 

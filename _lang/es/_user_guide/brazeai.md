@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## Resumen de características {#feature-overview}
+
+| Tu objetivo | Característica recomendada |
+| --- | --- |
+| Personalizar el texto del mensaje por usuario utilizando su contexto | [Agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) o [catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); para borradores puntuales, [IA generativa]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| Optimizar qué contenido del mensaje (como asunto o CTA) tiene mejor rendimiento a lo largo del tiempo | [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (correo electrónico, notificaciones push o SMS/MMS/RCS) o [variante ganadora]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| Maximizar una métrica empresarial (ingresos, conversiones) con decisiones 1:1 en ofertas, canales y tiempos | [Estudio de toma de decisiones]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| Encontrar usuarios con probabilidad de abandono o de realizar un evento | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) o [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| Recomendar productos específicos de un catálogo en los mensajes | [Recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| Enviar en el mejor momento o por el mejor canal para cada usuario | [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| Crear o perfeccionar textos y creatividades directamente en el dashboard | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Resumen de características" }

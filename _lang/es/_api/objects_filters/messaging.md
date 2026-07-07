@@ -1,5 +1,5 @@
 ---
-nav_title: Objetos de mensajería
+nav_title: Objetos de mensaje
 config_only: true
 noindex: true
 ---

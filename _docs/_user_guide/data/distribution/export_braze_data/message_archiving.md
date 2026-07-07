@@ -16,7 +16,7 @@ Message archiving is available as an add-on feature. To get started with message
 
 ## How it works
 
-When this feature is turned on, Braze writes a gzipped JSON file for each message sent to a user through your selected channels (email, SMS/MMS, or push). Braze writes these files to your default data export destination. This includes all campaign types for each channel, such as transactional email campaigns sent through the [Transactional Email API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
+When this feature is turned on, Braze writes a gzipped JSON file for each message sent to a user through your selected channels (email, SMS/MMS, or push). Braze writes these files to your default data export destination. This includes all campaign types for each channel, such as transactional email campaigns sent through the [Transactional Email API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 
 This file will contain the fields defined under [File references](#file-references) and reflect the final templated messages sent to the user. Any templated values defined in your campaign (for example, {% raw %}`{{${first_name}}}`{% endraw %}) will show the final value that the user received based on their profile information. This allows you to retain a copy of the message sent to satisfy compliance, audit, or customer support requirements.
 
@@ -49,7 +49,7 @@ This section guides you through setting up message archiving for your workspace.
 
 ### Step 1: Connect a cloud storage bucket
 
-If you haven't done so already, connect a cloud storage bucket to Braze. For steps, refer to our partner documentation on [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) or [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/).
+If you haven't done so already, connect a cloud storage bucket to Braze. For steps, refer to our partner documentation on [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3), [Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) or [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents).
 
 {% alert note %}
 You don't need to set up Currents for message archiving, so you can skip that prerequisite in the partner documentation.
@@ -71,6 +71,12 @@ To select channels:
 If you don't see **Message Archiving** in **Settings**, confirm that your company has purchased and turned on message archiving.
 {% endalert %}
 
+## IP allowlisting
+
+When message archiving uploads files to your cloud storage bucket, Braze makes network requests from our servers to your AWS S3, Azure Blob Storage, or Google Cloud Storage endpoint. With IP allowlisting, you can verify that these requests are coming from Braze, adding a layer of security.
+
+Braze sends message archiving uploads from the same IP addresses used for Connected Content and Currents. For the complete list of IPs by instance, refer to [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting).
+
 ## File references
 
 The following are references to the JSON payload delivered to your cloud storage bucket each time a message is sent. Refer to our code example repository for [message archive sample files](https://github.com/braze-inc/braze-examples/tree/main/message-archiving).
@@ -84,7 +90,7 @@ The following are references to the JSON payload delivered to your cloud storage
   "to": ToAddress, ("customer@example.com")
   "subject": SubjectLine ("20% off coupon inside!"),
   "from_name": DisplayName ("Braze"),
-  "from_address": FromAddress ("no-reply@braze.com"),
+  "from_address": FromAddress ("no-reply@example.com"),
   "html_body": HtmlBody,
   "plaintext_body": PlainTextBody,
   "amp_body": AMPEmailBody,
@@ -106,9 +112,9 @@ The following are references to the JSON payload delivered to your cloud storage
 }
 ```
 
-The `extras` field contains the key-value pairs configured in the **Email Extras** field when composing an email in the HTML editor. Email extras work for all email service providers (including SendGrid and Sparkpost) and are included in archived messages regardless of which provider is used. For more information on configuring email extras, see [Creating an email campaign]({{site.baseurl}}/user_guide/channels/email/html_editor/#adding-email-extras). For sending data back to Currents, refer to [Message extras]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/).
+The `extras` field contains the key-value pairs configured in the **Email Extras** field when composing an email in the HTML editor. Email extras work for all email service providers (including SendGrid and Sparkpost) and are included in archived messages regardless of which provider is used. For more information on configuring email extras, see [Creating an email campaign]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). For sending data back to Currents, refer to [Message extras]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
-![]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
+![Email composer Email Extras section with key and value fields and Add New Extra option.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
 {% tab SMS/MMS %}
@@ -211,7 +217,7 @@ If your cloud storage bucket is unreachable, Braze will retry up to three times 
 
 ### What happens if my credentials are invalid?
 
-If your cloud storage credentials become invalid at any point, Braze won't be able to save any messages to your cloud storage bucket, and those messages will be lost. We recommend configuring your [notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) for Amazon Web Services, Google Cloud Services, or Azure (Microsoft Cloud Services) so you'll receive alerts for any credential issues.
+If your cloud storage credentials become invalid at any point, Braze won't be able to save any messages to your cloud storage bucket, and those messages will be lost. We recommend configuring your [notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) for Amazon Web Services, Google Cloud Services, or Azure (Microsoft Cloud Services) so you'll receive alerts for any credential issues.
 
 ### Why does my archive file's `sent_at` timestamp differ slightly from the sent timestamp in Currents?
 
@@ -219,7 +225,7 @@ The rendered copy is uploaded immediately before sending the message to the user
 
 ### Can I create a new bucket specifically for message archiving while keeping the current bucket used for Currents data?
 
-No. If you're interested in creating these specific buckets, submit [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+No. If you're interested in creating these specific buckets, submit [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal).
 
 ### Is archived data written to a dedicated folder in an existing bucket, similar to how Currents data exports are structured?
 

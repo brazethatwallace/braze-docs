@@ -3,34 +3,35 @@ nav_title: Canvas データ
 article_title: Canvas データのエクスポート
 page_order: 3
 page_type: reference
-description: "この参照記事では、Canvas の分析データのエクスポート方法について説明します。"
+description: "このリファレンス記事では、Canvasの分析データをエクスポートする方法について説明します。"
 tool:
   - Canvas
   - Reports
 
 ---
-# Canvas データのエクスポート
 
-> ユーザーデータを CSV にエクスポートできます。このページでは、Canvas 全体または特定の Canvas コンポーネントのデータをエクスポートする方法について説明します。
+# キャンバス データのエクスポート {#export-canvas-data}
 
-## Canvas のデータをエクスポートする
+> ユーザーデータをCSVにエクスポートできます。このページでは、キャンバス全体または特定のキャンバスコンポーネントのデータをエクスポートする方法について説明します。
 
-Canvas のデータをエクスポートするには、次の手順に従います。
+## キャンバスのデータをエクスポートする {#exporting-data-for-a-canvas}
 
-1. **メッセージング** > **Canvas** に移動し、Canvas を選択します。
-2. **Canvas Details** セクションで **ユーザーデータ** ドロップダウンを選択します。
+キャンバスのデータをエクスポートするには、次の手順に従います。
+
+1. **メッセージング** > **キャンバス** に移動し、キャンバスを選択します。
+2. **キャンバスの詳細** セクションで**ユーザーデータ**ドロップダウンを選択します。
 3. 次のいずれかのエクスポートオプションを選択します。
   - **ユーザーデータを CSV 形式でエクスポート**、または
-  - **CSV Export Email Address**
+  - **メールアドレスを CSV 形式でエクスポート**
 
-Canvas に入った全ユーザーのデータをCSVファイルとしてエクスポートすることもできます。
+キャンバスに入った全ユーザーのデータをCSVファイルとしてエクスポートすることもできます。
 
-## コンポーネントのデータをエクスポートする（元のワークフローのみ）
+## コンポーネントのデータをエクスポートする（元のワークフローのみ） {#exporting-data-for-a-component-original-workflow-only}
 
-Canvas の結果は、元の Canvas ワークフローのコンポーネント単位でエクスポートできます。これを行うには、特定のコンポーネントを選択し、**キャンバスステップ詳細**ページで**ユーザーデータ**ドロップダウンを選択します。
+キャンバスの結果は、元のキャンバスワークフローのコンポーネント単位でエクスポートできます。これを行うには、特定のコンポーネントを選択し、**キャンバスステップ Details** ページで**ユーザーデータ**ドロップダウンを選択します。
 
-![Canvas Details ページのユーザーデータドロップダウン。]({% image_buster /assets/img/canvas_csv_export.png %})
+![キャンバスの詳細 ページのユーザーデータドロップダウン。]({% image_buster /assets/img/canvas_csv_export.png %})
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」の記事を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」の記事を参照してください。
 {% endalert %}

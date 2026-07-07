@@ -19,7 +19,7 @@ Configurar o RCS é tão simples quanto configurar o SMS. Continue lendo para sa
 
 Para ser elegível para enviar RCS com a Braze, sua empresa deve atender a três critérios iniciais:
 
-1. Seu contrato atual com a Braze deve incluir créditos de mensagem.
+1. Seu contrato atual com a Braze deve incluir créditos de mensagem ou de ação.
 2. Você deve enviar suas mensagens RCS para um dos seguintes países suportados pela Braze:
 - Estados Unidos
 - Reino Unido
@@ -32,7 +32,7 @@ Para ser elegível para enviar RCS com a Braze, sua empresa deve atender a três
 - França
 - Itália
 - Colômbia
-3. Você deve adquirir um ou mais SKUs de RCS a $0 no seu contrato.
+3. Você deve adquirir um ou mais SKUs de RCS no seu contrato.
 
 ## Etapa 2: Registrar um remetente verificado de RCS {#step-2-register-an-rcs-verified-sender}
 
@@ -50,6 +50,24 @@ Como a cobertura atual das operadoras varia por país, e o suporte de hardware e
 
 Recomendamos fortemente que você revise sua experiência atual de opt-in de SMS, grupos de inscrições e segmentação de público antes de implantar sua primeira Campaign de RCS. Se necessário, seu gerente de sucesso do cliente está sempre disponível para fornecer orientação e ajudá-lo a navegar pelo processo de configuração.
 
+#### Como o fallback de SMS funciona com eventos e segmentação {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab Comportamento de eventos %}
+
+Quando você usa o fallback de SMS com RCS, o comportamento dos eventos depende de a mensagem ter sido enviada com sucesso via RCS ou ter recorrido ao fallback de SMS:
+
+- **Se o envio de RCS for bem-sucedido:** Você recebe um evento de envio de RCS e um evento de entrega de RCS.
+- **Se o envio de RCS recorrer ao fallback de SMS:** Você recebe um evento de envio de RCS, um evento de rejeição de RCS e um evento de entrega de SMS. O evento de entrega de SMS tem `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Comportamento de segmentação %}
+
+Para SMS e RCS, os [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) de mensagens recebidas (como [Recebeu mensagem de Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) e [Recebeu mensagem de etapa do Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) são avaliados quando uma mensagem é enviada, não quando ela chega ao dispositivo do usuário. Com o fallback de SMS ativado, os usuários ainda podem corresponder a esses filtros se uma mensagem RCS for rejeitada e recorrer ao fallback de SMS, ou se o SMS de fallback não for entregue ao dispositivo do usuário.
+
+{% endtab %}
+{% endtabs %}
+
 ### Prazo para aprovação da operadora {#timeline-for-carrier-approval}
 
 O prazo para aprovação da operadora varia por país e também pode variar dentro de um mesmo país. Tenha em mente que o mercado de RCS ainda está em seus estágios iniciais, então os processos das operadoras e agregadores estão evoluindo rapidamente. Nos Estados Unidos, a Braze estima que o tempo de resposta para aprovação de um remetente verificado de RCS pela operadora normalmente fica na faixa de 4 a 6 semanas, com um remetente de teste geralmente aprovado em uma semana.
@@ -58,7 +76,7 @@ Quando seu remetente verificado de RCS for aprovado, nossa equipe de operações
 
 ## Etapa 3: Configurar grupos de inscrições {#step-3-set-up-subscription-groups}
 
-Dependendo da sua integração, a Braze pode adicionar remetentes verificados de RCS aos seus grupos de inscrições de SMS existentes ou configurar novos. Para instruções detalhadas de configuração, consulte [Grupos de inscrições de SMS e RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Dependendo da sua integração, a Braze pode adicionar remetentes verificados de RCS aos seus grupos de inscrições de SMS existentes ou configurar novos. Para instruções detalhadas de configuração, consulte [Grupos de inscrições de SMS e RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Migrar tráfego de SMS para RCS {#migrating-sms-traffic-to-rcs}
 
@@ -68,7 +86,7 @@ A Braze recomenda que você teste o envio de RCS para volumes menores de usuári
 
 ### Etapa 1: Criar um Canvas e preencher o cronograma de entrada {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, programe o Canvas no momento mais conveniente para você.
+Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de usuários do grupo de inscrições SMS-RCS"). Em seguida, programe o Canvas no momento mais conveniente para você.
 
 ### Etapa 2: Definir seu público {#step-2-define-your-audience}
 
@@ -78,9 +96,9 @@ Defina seu público usando um dos métodos a seguir. Em seguida, vá para a etap
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Criar um segmento** | Crie um segmento que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os segmentos são atualizados antes de cada envio para refletir sua base de usuários atual. |
 | **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Público-alvo** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Definir seu público" }
 
-### Etapa 3: Configurar uma etapa de Atualização de usuário {#step-3-configure-a-user-update-step}
+### Etapa 3: Configurar uma etapa de Atualização de Usuário {#step-3-configure-a-user-update-step}
 
 Adicione uma etapa de Atualização de Usuário ao seu Canvas. Na etapa, abra o **Editor JSON avançado** e insira o seguinte (para o campo de identificador único do usuário, recomendamos usar o campo `braze_id`):
 
@@ -107,7 +125,7 @@ Adicione uma etapa de Atualização de Usuário ao seu Canvas. Na etapa, abra o 
 
 ### Etapa 4: Testar o Canvas {#step-4-test-the-canvas}
 
-Recomendamos fortemente [testar seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) para confirmar que ele funciona conforme esperado antes de enviá-lo para seu público mais amplo.
+Recomendamos fortemente [testar seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) para confirmar que ele funciona conforme esperado antes de enviá-lo para seu público mais amplo.
 
 ### Etapa 5: Lançar seu Canvas {#step-5-launch-your-canvas}
 

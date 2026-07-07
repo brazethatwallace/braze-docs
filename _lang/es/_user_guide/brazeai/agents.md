@@ -10,12 +10,12 @@ description: "Los agentes de Braze pueden generar contenido, tomar decisiones in
 > Los agentes de Braze son asistentes basados en inteligencia artificial que puedes crear dentro de Braze. Los agentes pueden generar contenido, tomar decisiones inteligentes y enriquecer tus datos para que puedas entregar experiencias del cliente más personalizadas.
 
 {% alert important %}
-Se necesitan créditos de mensajes para acceder y utilizar los agentes de Braze. Si actualmente no tienes créditos de mensajes y quieres utilizar los agentes de Braze, ponte en contacto con tu director de cuentas para conocer los pasos a seguir.
+Se necesitan créditos de mensajes o de acciones para acceder y utilizar los agentes de Braze. Si actualmente no tienes créditos de acciones y quieres utilizar los agentes de Braze, ponte en contacto con tu director de cuentas para conocer los pasos a seguir.
 {% endalert %}
 
 Mira este video para obtener un resumen de los agentes de Braze en la Consola de Agente.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## ¿Por qué utilizar los agentes de Braze? {#why-use-braze-agents}
 
@@ -37,7 +37,7 @@ Por el contrario, otras herramientas de BrazeAI están diseñadas para maximizar
 
 Las características de los agentes de Braze incluyen:
 
-- **Configuración flexible:** Utiliza un LLM proporcionado por Braze o conecta tus propios [proveedores de modelos de IA]({{site.baseurl}}/partners/ai_model_providers/) (como OpenAI, Anthropic o Google Gemini).
+- **Configuración flexible:** Utiliza un LLM proporcionado por Braze o conecta tus propios [proveedores de modelos de IA]({{site.baseurl}}/partners/ai_model_providers) (como OpenAI, Anthropic, Google Gemini o Databricks Mosaic).
 - **Integración fluida:** Implementa agentes directamente en los pasos en Canvas o en los campos del catálogo.
 - **Herramientas de prueba y registro:** Obtén una vista previa del resultado de tu agente probando con entradas de muestra antes de lanzarlo. Consulta los registros de cada vez que se ejecuta el agente, incluyendo la entrada y salida de esa ejecución.
 - **Controles de uso:** Los límites diarios ayudan a administrar el rendimiento y los costes.
@@ -50,24 +50,35 @@ Los agentes se configuran con instrucciones (indicaciones del sistema) que defin
 
 | Término | Definición |
 | --- | --- |
-| [Modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) | El «cerebro» del agente, en este caso un modelo de lenguaje grande (LLM). Interpreta las entradas, genera respuestas y realiza razonamientos. Un modelo más sólido (entrenado con datos más relevantes) hace que el agente sea más capaz y versátil. |
-| [Instrucciones]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | Las reglas o directrices que le das al agente (indicación del sistema). Definen cómo debe comportarse el agente cada vez que se ejecuta. Las instrucciones claras hacen que el agente sea más fiable y predecible. |
+| [Modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) | El «cerebro» del agente, en este caso un modelo de lenguaje grande (LLM). Interpreta las entradas, genera respuestas y realiza razonamientos. Un modelo más sólido (entrenado con datos más relevantes) hace que el agente sea más capaz y versátil. |
+| [Instrucciones]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) | Las reglas o directrices que le das al agente (indicación del sistema). Definen cómo debe comportarse el agente cada vez que se ejecuta. Las instrucciones claras hacen que el agente sea más fiable y predecible. |
 | Contexto | Datos que se transmiten al agente en tiempo de ejecución, independientemente de dónde se implemente, como campos del perfil de usuario o filas del catálogo. Esta entrada proporciona la información que el agente utiliza para generar resultados. |
-| [Variables de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Datos temporales que puedes crear y utilizar dentro del recorrido de un usuario a través de un Canvas específico. |
-| [Variable de salida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | El resultado que produce el agente cuando se utiliza en los pasos en Canvas. Las variables de salida almacenan el resultado del agente para personalizar contenido o guiar las rutas del flujo de trabajo. Las variables de salida pueden ser de tipo cadena, número o booleano. |
-| [Ejecución](#limitations) | Una sola ejecución del agente. Esto cuenta para tus límites diarios. |
-| [Formato de salida]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | La estructura de datos predefinida de la respuesta del agente. |
-| [Temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | El nivel de desviación del resultado del agente. Esto define el grado de precisión o creatividad que puede alcanzar tu agente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Variables de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#how-context-variables-work) | Datos temporales que puedes crear y utilizar dentro del recorrido de un usuario a través de un Canvas específico. |
+| [Variable de salida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | El resultado que produce el agente cuando se utiliza en los pasos en Canvas. Las variables de salida almacenan el resultado del agente para personalizar contenido o guiar las rutas del flujo de trabajo. Las variables de salida pueden ser de tipo cadena, número o booleano. |
+| [Invocación](#limitations) | Una sola ejecución del agente. Esto cuenta para tus límites diarios. |
+| [Formato de salida]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | La estructura de datos predefinida de la respuesta del agente. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conceptos clave" }
 
 ## Limitaciones {#limitations}
 
 Se aplican las siguientes limitaciones:
 
-- Cada agente tiene un límite de ejecución diario predeterminado de 250 000 ejecuciones, que se puede aumentar hasta un máximo de 1 000 000 de ejecuciones por día. Ponte en contacto con tu administrador del éxito del cliente si te interesa aumentar este límite.
-- De forma predeterminada, cada ejecución debe completarse en un plazo de 15 segundos. Después de 15 segundos, el agente devuelve una respuesta `null` donde se utiliza.
+- Cada agente tiene un límite de invocación diario predeterminado de 250 000 ejecuciones, que se puede aumentar hasta un máximo de 1 000 000 de ejecuciones por día. Ponte en contacto con tu administrador del éxito del cliente si te interesa aumentar este límite.
+- De forma predeterminada, cada ejecución debe completarse en un plazo de 20 segundos. Después de 20 segundos, el agente devuelve una respuesta `null` donde se utiliza.
     - Si tus agentes agotan constantemente el tiempo de espera, ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
 - Los datos de entrada están limitados a 25 KB por solicitud. Las entradas más largas se truncan.
+
+## Buenas prácticas {#best-practices}
+
+Apunta a casos de uso de alto valor donde los agentes puedan generar el mayor retorno de la inversión (ROI), y elige audiencias que tengan probabilidades de responder. Una audiencia más pequeña y con alta oportunidad a menudo supera a una audiencia grande con baja oportunidad; por ejemplo, reorientar a usuarios que buscaron recientemente pero no convirtieron, en lugar de enviar textos generados por agentes a toda tu base de usuarios.
+
+Para validar el ROI antes de escalar, utiliza un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para enviar solo una parte de tu audiencia a través de un paso de agente. Para obtener más orientación sobre la implementación, consulta [Implementar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
+
+## Gestión de errores {#error-handling}
+
+Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM durante un **paso de agente en Canvas**, Braze reintenta continuamente la solicitud utilizando retirada exponencial. Los agentes de catálogo no reintentan las invocaciones con límite de velocidad. Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la salida del agente en Canvas se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en la Consola de Agente (solo agentes de pasos en Canvas). Si un agente alcanza su límite de invocación diario, Braze aplica los valores alternativos configurados cuando están presentes; de lo contrario, la salida se establece en `null`.
+
+Cuando muchos usuarios entran en un paso de agente a la vez, el procesamiento puede tardar más debido a los [controles de flujo de invocación]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configura valores alternativos en la Consola de Agente para los agentes de Canvas de modo que los usuarios sigan recibiendo resultados cuando una invocación falle, o utiliza [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) en los pasos de mensaje posteriores.
 
 ## ¿Cómo se utilizan mis datos y cómo se envían a los LLM proporcionados por Braze? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 
@@ -79,5 +90,5 @@ El LLM proporcionado por Braze para los agentes de Braze, identificado como «Au
 
 Ahora que ya conoces los agentes de Braze, estás listo para los siguientes pasos:
 
-- [Crear agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
-- [Implementar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
+- [Crear agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+- [Implementar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)

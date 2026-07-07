@@ -42,26 +42,26 @@ platform:
 - `TIMEZONE`
 
 {% alert note %}
-`AD_TRACKING_ENABLED` と `TIMEZONE` は `null` または空白の場合は収集されません。`GOOGLE_ADVERTISING_ID` はSDKによって自動的に収集されないため、[`setGoogleAdvertisingId`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html) 経由で渡す必要があります。
+`AD_TRACKING_ENABLED`と`TIMEZONE`は`null`または空白の場合は収集されません。`GOOGLE_ADVERTISING_ID`はSDKによって自動的に収集されないため、[`setGoogleAdvertisingId`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html)経由で渡す必要があります。
 {% endalert %}
 {% endtab %}
 
 {% tab swift %}
-- デバイスの通信事業者（[`CTCarrier` 非推奨](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty/carrier)に関する注記を参照）
+- デバイスの通信事業者（[`CTCarrier`非推奨](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty/carrier)に関する注記を参照）
 - デバイスのロケール
 - デバイスモデル
-- デバイス OS のバージョン
-- プッシュ許可のステータス
+- デバイスOSのバージョン
+- プッシュ許可ステータス
 - プッシュ表示オプション
-- プッシュ通知が有効
+- プッシュ有効
 - デバイスの解像度
 - デバイスのタイムゾーン
 
 {% alert note %}
 Braze SDKはIDFAを自動的に収集しません。アプリはオプションで、以下のメソッドを直接実装することでIDFAをBrazeに渡すことができます。アプリはIDFAをBrazeに渡す前に、App Tracking Transparencyフレームワークを通じてエンドユーザーによるトラッキングへの明示的なオプトインを取得する必要があります。
 
-1. 広告のトラッキング状態を設定するには、[`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/) を使用します。
-2. 広告主の識別子（IDFA）を設定するには、[`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/) を使用します。
+1. 広告のトラッキング状態を設定するには、[`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/)を使用します。
+2. 広告主の識別子（IDFA）を設定するには、[`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/)を使用します。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -70,7 +70,7 @@ Braze SDKはIDFAを自動的に収集しません。アプリはオプション�
 
 {% tabs %}
 {% tab web %}
-例えば、許可リストに登録するデバイスの言語を指定できます。詳細については、[`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) の `devicePropertyAllowlist` オプションを参照してください。
+例えば、許可リストに登録するデバイスの言語を指定できます。詳細については、[`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)の`devicePropertyAllowlist`オプションを参照してください。
 
 ```javascript
 import * as braze from"@braze/web-sdk";
@@ -82,7 +82,7 @@ braze.initialize("API-KEY", {
 {% endtab %}
 
 {% tab android %}
-例えば、許可リストに登録するAndroid OSバージョンとデバイスロケールを指定できます。詳細については、[`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) と [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html) メソッドを参照してください。
+例えば、許可リストに登録するAndroid OSバージョンとデバイスロケールを指定できます。詳細については、[`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html)と[`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html)メソッドを参照してください。
 
 ```java
 new BrazeConfig.Builder()
@@ -92,7 +92,7 @@ new BrazeConfig.Builder()
 {% endtab %}
 
 {% tab swift %}
-例えば、許可リストに登録するタイムゾーンとロケールの収集を指定できます。詳細については、`configuration` オブジェクトの [`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) プロパティを参照してください。
+例えば、許可リストに登録するタイムゾーンとロケールの収集を指定できます。詳細については、`configuration`オブジェクトの[`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist)プロパティを参照してください。
 
 {% subtabs %}
 {% subtab swift %}
@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-自動的に収集されるデバイスプロパティの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)を参照してください。
+自動的に収集されるデバイスプロパティの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)を参照してください。
 {% endalert %}
 
 ## Cookieの保存（Webのみ） {#cookies}
@@ -126,18 +126,18 @@ configuration.devicePropertyAllowList = @[
 
 以下のCookieが保存されます。
 
-|Cookie|説明|サイズ|
+| Cookie | 説明 | サイズ |
 | --- | ---- | --- |
-|`ab.storage.userId.[your-api-key]`|現在ログインしているユーザーが変更されたかどうかを判断し、イベントを現在のユーザーに関連付けるために使用されます。|`changeUser` に渡された値のサイズに基づきます|
-|`ab.storage.sessionId.[your-api-key]`|メッセージを同期し、セッション分析を計算するために、ユーザーが新しいセッションを開始しているか既存のセッションを継続しているかを判断するために使用されるランダム生成文字列です。|~200バイト|
-|`ab.storage.deviceId.[your-api-key]`|匿名ユーザーを識別し、ユーザーのデバイスを区別し、デバイスベースのメッセージングを可能にするために使用されるランダム生成文字列です。|~200バイト|
-|`ab.optOut`|`disableSDK` が呼び出されたときにユーザーのオプトアウト設定を格納するために使用されます。|~40バイト|
-|`ab._gd`|ルートレベルのCookieドメインを決定するために一時的に作成（その後削除）されます。これにより、サブドメイン間でSDKが適切に動作できるようになります。|該当なし|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `ab.storage.userId.[your-api-key]` | 現在ログインしているユーザーが変更されたかどうかを判断し、イベントを現在のユーザーに関連付けるために使用されます。 | `changeUser`に渡された値のサイズに基づきます |
+| `ab.storage.sessionId.[your-api-key]` | メッセージを同期し、セッション分析を計算するために、ユーザーが新しいセッションを開始しているか既存のセッションを継続しているかを判断するために使用されるランダム生成文字列です。 | ~200バイト |
+| `ab.storage.deviceId.[your-api-key]` | 匿名ユーザーを識別し、ユーザーのデバイスを区別し、デバイスベースのメッセージングを可能にするために使用されるランダム生成文字列です。 | ~200バイト |
+| `ab.optOut` | `disableSDK`が呼び出されたときにユーザーのオプトアウト設定を格納するために使用されます。 | ~40バイト |
+| `ab._gd` | ルートレベルのCookieドメインを決定するために一時的に作成（その後削除）されます。これにより、サブドメイン間でSDKが適切に動作できるようになります。 | 該当なし |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cookieの保存（Webのみ）" }
 
 ### Cookieの有効期限を変更する {#cookie-expiry}
 
-デフォルトでは、BrazeのCookieは400日後に期限切れになります。これを上書きするには、Web SDKを初期化する際に `cookieExpiryInDays` オプションを使用します。値は0より大きい必要があります。このオプションが省略された場合、または0以下に設定された場合は、400日のデフォルトが適用されます。このオプションにはWeb SDK 6.6.0以降が必要です。
+デフォルトでは、BrazeのCookieは400日後に期限切れになります。これを上書きするには、Web SDKを初期化する際に`cookieExpiryInDays`オプションを使用します。値は0より大きい必要があります。このオプションが省略された場合、または0以下に設定された場合は、400日のデフォルトが適用されます。このオプションにはWeb SDK 6.6.0以降が必要です。
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -149,7 +149,7 @@ braze.initialize("API-KEY", {
 
 ### Cookieを無効にする {#disable-cookies}
 
-すべてのCookieを無効にするには、Web SDKを初期化する際に [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) オプションを使用します。これにより、サブドメインをまたいで移動する匿名ユーザーを関連付けることができなくなり、各サブドメインで新しいユーザーが生成されます。
+すべてのCookieを無効にするには、Web SDKを初期化する際に[`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)オプションを使用します。これにより、サブドメインをまたいで移動する匿名ユーザーを関連付けることができなくなり、各サブドメインで新しいユーザーが生成されます。
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -159,4 +159,4 @@ braze.initialize("API-KEY", {
 });
 ```
 
-Brazeのトラッキング全般を停止したり、保存されたブラウザデータをすべて消去したりするには、それぞれ [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) および [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata) SDKメソッドを参照してください。これらの2つのメソッドは、ユーザーが同意を取り消した場合や、SDKの初期化後にBrazeのすべての機能を停止したい場合に役立ちます。
+Brazeのトラッキング全般を停止したり、保存されたブラウザデータをすべて消去したりするには、それぞれ[`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK)および[`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata) SDKメソッドを参照してください。これらの2つのメソッドは、ユーザーが同意を取り消した場合や、SDKの初期化後にBrazeのすべての機能を停止したい場合に役立ちます。

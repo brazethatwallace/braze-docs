@@ -20,10 +20,10 @@ La integración de Braze y Tealium te permite controlar fácilmente el flujo de 
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Tealium EventStream o Tealium AudienceStream | Se necesita una [cuenta Tealium](https://my.tealiumiq.com/) para beneficiarse de esta asociación. |
+| Tealium EventStream o Tealium AudienceStream | Se necesita una [cuenta de Tealium](https://my.tealiumiq.com/) para beneficiarse de esta asociación. |
 | Currents | Para poder exportar datos a Tealium, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. |
 | URL de Tealium | Puedes obtenerla navegando a tu dashboard de Tealium y copiando la URL de ingesta.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -35,7 +35,7 @@ Las instrucciones para crear un origen de datos se encuentran en el sitio de [Te
 
 En Braze, ve a **Currents** > **+ Create Current** > **Tealium Export**. Proporciona un nombre de integración, un correo electrónico de contacto y tu URL de Tealium.
 
-A continuación, selecciona lo que deseas rastrear de la lista de eventos disponibles. Por defecto, todos los eventos enviados a Tealium incluyen el `external_user_id` del usuario. Sin embargo, puedes seleccionar la casilla **Include events from anonymous users** para enviar también a Tealium los eventos que no tengan un `external_user_id`.
+A continuación, selecciona lo que deseas rastrear de la lista de eventos disponibles. De forma predeterminada, todos los eventos enviados a Tealium incluyen el `external_user_id` del usuario. Sin embargo, puedes seleccionar la casilla **Include events from anonymous users** para enviar también a Tealium los eventos que no tengan un `external_user_id`.
 
 Después de configurar tu integración, selecciona **Launch Current**.
 

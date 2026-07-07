@@ -22,7 +22,7 @@ description: "이 참조 문서에서는 스냅샷 데이터와 이벤트 스트
 |-------|---------|
 | 고객 식별자 | 이 레코드가 설명하는 대상 |
 | 스냅샷 날짜 | 이 스냅샷이 생성된 시점 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
 
 ### 스냅샷 업데이트 방법 {#how-snapshots-should-be-updated}
 
@@ -53,7 +53,7 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 | 이벤트 타임스탬프 | 이벤트가 실제로 발생한 시점 |
 | 생성 타임스탬프 | 이 레코드가 시스템에 생성된 시점(아래 참고 사항 참조) |
 | 이벤트 등록정보 | 이벤트에 대한 추가 메타데이터; 이 정보가 풍부할수록 Decisioning Studio가 고객 여정 전반에 걸쳐 이벤트를 더 잘 연결할 수 있습니다 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
 
 {% alert important %}
 이벤트 타임스탬프와 생성 타임스탬프는 서로 다른 필드이며 둘 다 필수입니다. 이벤트 타임스탬프는 동작이 실제로 발생한 시점을 기록합니다. 생성 타임스탬프는 데이터 항목이 시스템에 기록된 시점을 기록하며, 처리 지연으로 인해 더 늦을 수 있습니다. 이 두 가지를 혼동하지 마세요.

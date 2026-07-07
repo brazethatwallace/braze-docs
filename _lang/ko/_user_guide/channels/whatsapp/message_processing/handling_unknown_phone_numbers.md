@@ -16,7 +16,7 @@ page_order: 50
 
 Braze는 먼저 일치하는 번호를 가진 사용자를 찾으려고 시도합니다. 일치하는 사용자가 없으면 Braze는 다음 두 가지 방법 중 하나로 알 수 없는 번호를 자동으로 처리합니다.
 
-1. **트리거 단어가 포함된 [옵트인 Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/)가 설정된 경우:**
+1. **트리거 단어가 포함된 [옵트인 Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs)가 설정된 경우:**
 - Braze가 익명 프로필을 생성합니다
 - 다음 세부 정보로 프로필에 사용자 별칭을 할당합니다:
   - 사용자가 제공한 전화번호를 값으로 하는 `alias_name`

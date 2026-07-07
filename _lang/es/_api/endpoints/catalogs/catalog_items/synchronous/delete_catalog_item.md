@@ -6,40 +6,40 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Eliminar elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Eliminar elemento del catálogo de Braze."
 
 ---
 {% api %}
-# Eliminar un elemento del catálogo
+# Eliminar un elemento del catálogo {#delete-a-catalog-item}
 {% apimethod delete %}
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Utiliza este punto final para eliminar un elemento de tu catálogo.
+> Utiliza este punto de conexión para eliminar un elemento de tu catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0dcce797-1346-472f-9384-082f14541689 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.delete_item`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.delete_item`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `catalog_name` | Obligatoria | Cadena | Nombre del catálogo. |
-| `item_id` | Obligatoria | Cadena | El ID del elemento del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
+| `item_id` | Obligatorio | Cadena | El ID del elemento del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-No hay cuerpo de petición para este punto final.
+No hay cuerpo de solicitud para este punto de conexión.
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants/items/restaurant1' \
@@ -47,11 +47,11 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto final: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 
@@ -61,9 +61,9 @@ El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {
@@ -83,15 +83,15 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `arbitrary-error` | Se ha producido un error arbitrario. Vuelva a intentarlo o póngase en contacto con [el servicio de asistencia]({{site.baseurl}}/support_contact/). |
-| `catalog-not-found` | Compruebe que el nombre del catálogo es válido. |
+| `arbitrary-error` | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact). |
+| `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `item-not-found` | Comprueba que el elemento a eliminar existe en tu catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

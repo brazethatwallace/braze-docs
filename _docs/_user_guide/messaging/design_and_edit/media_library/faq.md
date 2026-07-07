@@ -12,6 +12,8 @@ description: "This article provides answers to frequently asked questions about 
 
 > This page provides answers to frequently asked questions about the media library in Braze.
 
+## General
+
 ### Are there storage limits for images within the media library?
 
 No, there are no storage limits for assets within the media library. However, there are size limits for assets (maximum 5 MB).
@@ -27,6 +29,10 @@ No, the media library doesn't support video files. We recommend you host these e
 ### Can I crop all image types?
 
 No, the media library doesn't support cropping GIF images.
+
+### Can I use SVG images in email?
+
+SVG images are not recommended for email due to limited support across email clients. Gmail and several other major email providers do not render SVG images, which can result in broken or missing images for recipients. For reliable email rendering, use PNG, JPEG, or GIF formats instead.
 
 ### How do I crop an existing image?
 
@@ -54,4 +60,12 @@ This can happen for two main reasons:
 ### Why can't I upload any image I want into the push composers?
 
 This is because most composers have restrictions on the image ratio size that is allowed.
+
+### Generate an image using AI
+
+You can generate images from **Content** > **Media Library** by selecting **AI Image Generator**. You need **Edit Media Library Assets** permission. If you don't see the option, contact your Braze customer team. For steps and policy details, see [Generate images with BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) and [Generating images with BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
+
+### Can I create vanity URLs for media library image assets?
+
+Vanity URLs for Media Library assets aren't supported because custom URLs would break CDN delivery. You can replace an image at its existing URL when campaigns already reference that URL. For more information, see [Replace a file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 

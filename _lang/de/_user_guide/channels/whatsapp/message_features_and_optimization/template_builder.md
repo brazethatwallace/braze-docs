@@ -8,13 +8,9 @@ channel:
   - WhatsApp
 ---
 
-# WhatsApp-Template-Builder
+# WhatsApp-Template-Builder {#whatsapp-template-builder}
 
-> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Kampagnen und Canvases verwenden.
-
-{% alert note %}
-Der WhatsApp-Template-Builder befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, um Zugang zu erhalten.
-{% endalert %}
+> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -24,7 +20,7 @@ Der WhatsApp-Template-Builder befindet sich derzeit im Early Access. Kontaktiere
 
 ### 1. Schritt: WhatsApp-Templates aufrufen {#step-1-go-to-whatsapp-templates}
 
-Gehen Sie zu **Templates** > **WhatsApp Templates** und wählen Sie **Create new template**.
+Gehen Sie zu **Inhalt** > **WhatsApp** und wählen Sie **Neues Template erstellen**.
 
 ![WhatsApp-Templates-Seite mit Button zum Erstellen eines neuen Templates.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -34,29 +30,29 @@ Füllen Sie die folgenden Felder aus:
 
 | Feld | Beschreibung |
 | ----- | ----- |
-| **Account** | Das WhatsApp Business Account (WABA), bei dem Sie das Template einreichen möchten. Alle Abo-Gruppen und Telefonnummern innerhalb eines WABA teilen sich den Template-Zugriff. |
-| **Language** | Die Sprache für dieses Template. WhatsApp erfordert ein separates Template für jede Sprache. |
-| **Template name** | Ein eindeutiger Name für Ihr Template. Template-Namen dürfen nur Kleinbuchstaben, Zahlen und Unterstriche enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Konto** | Das WhatsApp Business Account (WABA), bei dem Sie das Template einreichen möchten. Alle Abo-Gruppen und Telefonnummern innerhalb eines WABA teilen sich den Template-Zugriff. |
+| **Sprache** | Die Sprache für dieses Template. WhatsApp erfordert ein separates Template für jede Sprache. |
+| **Template-Name** | Ein eindeutiger Name für Ihr Template. Template-Namen dürfen nur Kleinbuchstaben, Zahlen und Unterstriche enthalten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Template-Einstellungen konfigurieren" }
 
 ### 3. Schritt: Layout auswählen {#step-3-choose-a-layout}
 
 Wählen Sie unter **Layout** den Template-Typ:
 
-- **Default:** Eine Standard-WhatsApp-Nachricht. Dies ist das in diesem Artikel behandelte Layout.
-- **Carousel:** Eine Nachricht mit horizontal scrollbaren Karten. Weitere Informationen finden Sie unter [Karussell-Templates]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Standard:** Eine Standard-WhatsApp-Nachricht. Dies ist das in diesem Artikel behandelte Layout.
+- **Karussell:** Eine Nachricht mit horizontal scrollbaren Karten. Weitere Informationen finden Sie unter [Karussell-Templates]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### 4. Schritt: Template erstellen {#step-4-build-your-template}
 
-#### Header (optional)
+#### Header (optional) {#header-optional}
 
 Fügen Sie einen Header hinzu, der über dem Nachrichtentext erscheint. Sie können wählen:
 
 - **Text:** Ein kurzer Text-Header.
-- **Media:** Ein Bild, Video oder Dokument (nur URL). Braze speichert die Medienreferenz und reicht ein Beispiel bei Meta zur Genehmigung ein.
-- **None:** Kein Header
+- **Medien:** Ein Bild, Video oder Dokument (nur URL). Braze speichert die Medienreferenz und reicht ein Beispiel bei Meta zur Genehmigung ein.
+- **Keiner:** Kein Header
 
-#### Body
+#### Body {#body}
 
 Geben Sie den Hauptinhalt Ihrer Nachricht ein und personalisieren Sie den Text nach Bedarf mit Liquid oder generischen Variablen:
 
@@ -67,11 +63,11 @@ Geben Sie den Hauptinhalt Ihrer Nachricht ein und personalisieren Sie den Text n
 
 Sie können überall dort Personalisierung hinzufügen, wo der **+**-Plus-Button erscheint. Nicht alle Felder unterstützen Personalisierung.
 
-#### Footer (optional)
+#### Footer (optional) {#footer-optional}
 
 Fügen Sie einen kurzen Footer hinzu, der unter dem Nachrichtentext erscheint.
 
-#### Buttons (optional)
+#### Buttons (optional) {#buttons-optional}
 
 Fügen Sie Ihrem Template bis zu 10 Buttons hinzu. Button-Typen haben unterschiedliche Kategorien und Spezifikationen.
 
@@ -81,7 +77,7 @@ Fügen Sie Ihrem Template bis zu 10 Buttons hinzu. Button-Typen haben unterschie
 | Telefonnummer | Call-to-Action-Buttons | {::nomarkdown}<ul><li><b>Maximale Anzahl:</b> 1</li><li><b>Button-Text:</b> Bis zu 25 Zeichen</li><li><b>Telefonnummer:</b> Gültige Telefonnummer mit Ländervorwahl, ohne + (z. B. „14155552671“)</li></ul> {:/}|
 | Website besuchen | Call-to-Action-Buttons | {::nomarkdown}<ul><li><b>Maximale Anzahl:</b> 2</li><li><b>Button-Text:</b> Bis zu 25 Zeichen</li><li><b>Website-URL:</b> Bis zu 2.000 Zeichen</li></ul> {:/}|
 | Angebotscode kopieren | Call-to-Action-Buttons | {::nomarkdown}<ul><li><b>Maximale Anzahl:</b> 1</li><li><b>Button-Text:</b> „Copy offer code“ (kann nicht bearbeitet werden)</li><li><b>Angebotscode:</b> Bis zu 15 Zeichen</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
 
 ![WhatsApp-Template-Editor mit Schnellantwort- und Call-to-Action-Buttons.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -89,28 +85,28 @@ Fügen Sie Ihrem Template bis zu 10 Buttons hinzu. Button-Typen haben unterschie
 
 Sehen Sie sich vor dem Einreichen eine Vorschau an, wie Ihre Nachricht für Empfänger:innen aussehen wird:
 
-- **Preview as a user:** Sehen Sie eine generische Vorschau der Nachricht.
-- **Preview as a specific user:** Wählen Sie ein Nutzerprofil aus, um zu sehen, wie das Template mit den Daten dieser Person dargestellt wird.
+- **Vorschau als Nutzer:in:** Sehen Sie eine generische Vorschau der Nachricht.
+- **Vorschau als bestimmte:r Nutzer:in:** Wählen Sie ein Nutzerprofil aus, um zu sehen, wie das Template mit den Daten dieser Person dargestellt wird.
 
 ### 6. Schritt: Zur Überprüfung einreichen {#step-6-submit-for-review}
 
-Wählen Sie **Submit**, um Ihr Template zur Überprüfung an Meta zu senden. Die Überprüfung dauert in der Regel wenige Minuten, kann aber bis zu 24 Stunden in Anspruch nehmen. Das Template erscheint auf Ihrer **WhatsApp Templates**-Seite, sobald es eingereicht wurde, und der Status wird aktualisiert, wenn Sie die **WhatsApp Templates**-Seite aktualisieren.
+Wählen Sie **Senden**, um Ihr Template zur Überprüfung an Meta zu senden. Die Überprüfung dauert in der Regel wenige Minuten, kann aber bis zu 24 Stunden in Anspruch nehmen. Das Template erscheint auf Ihrer **WhatsApp-Templates**-Seite, sobald es eingereicht wurde, und der Status wird aktualisiert, wenn Sie die **WhatsApp-Templates**-Seite aktualisieren.
 
 ## Unterstützte Template-Kategorien {#supported-template-categories}
 
 Im WhatsApp-Template-Builder werden derzeit nur Marketing-Templates unterstützt.
 
-## Ein genehmigtes Template in einer Kampagne verwenden {#use-an-approved-template-in-a-campaign}
+## Ein genehmigtes Template in einer Campaign verwenden {#use-an-approved-template-in-a-campaign}
 
-Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Kampagne oder einem Canvas verwenden.
+Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Campaign oder einem Canvas verwenden.
 
-1. Gehen Sie zu **Campaigns** und wählen Sie **Create Campaign** > **WhatsApp**.
+1. Gehen Sie zu **Campaigns** und wählen Sie **Kampagne erstellen** > **WhatsApp**.
 2. Wählen Sie im Nachrichten-Editor Ihr genehmigtes Template aus.
 3. Braze füllt den Inhalt des Templates automatisch aus – einschließlich aller Medien und Liquid-Elemente, die Sie bei der Template-Erstellung eingegeben haben – sodass Sie diese nicht erneut eingeben müssen.
 4. Aktualisieren Sie bei Bedarf variable Inhalte oder Personalisierungen. Von Meta gesperrte Felder (grau dargestellt) können nicht bearbeitet werden. Um gesperrte Inhalte zu ändern, müssen Sie das Template bearbeiten und erneut zur Genehmigung einreichen.
 5. Verwenden Sie den Tab **Test**, um eine Vorschau der Nachricht anzuzeigen, Text-Variablen zu aktualisieren und zu bestätigen, dass die Nachricht vor dem Start wie erwartet aussieht.
 
-Weitere Informationen zum Erstellen von WhatsApp-Kampagnen finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+Weitere Informationen zum Erstellen von WhatsApp-Campaigns finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -120,7 +116,7 @@ Weitere Informationen zum Erstellen von WhatsApp-Kampagnen finden Sie unter [Wha
 
 ### Kann ich ein Template nach der Genehmigung bearbeiten? {#can-i-edit-a-template-after-its-been-approved}
 
-Alle Änderungen an gesperrten Inhalten (Textkörper oder andere von Meta kontrollierte Felder) erfordern eine erneute Einreichung des Templates zur Genehmigung, die über den WhatsApp Business Manager erfolgen muss. Sie können Inhalte und Personalisierungen beim Erstellen Ihrer Kampagne oder Ihres Canvas aktualisieren.
+Alle Änderungen an gesperrten Inhalten (Textkörper oder andere von Meta kontrollierte Felder) erfordern eine erneute Einreichung des Templates zur Genehmigung, die über den WhatsApp Business Manager erfolgen muss. Sie können Inhalte und Personalisierungen beim Erstellen Ihrer Campaign oder Ihres Canvas aktualisieren.
 
 ### Was passiert mit Templates, die ich vor der Verfügbarkeit des Template Builders eingereicht habe? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 

@@ -6,19 +6,19 @@ page_order: 5
 description: "Cet article fournit un aperçu du tableau de bord d'utilisation de l'API."
 ---
 
-# Tableau de bord d'utilisation de l'API
+# Tableau de bord d'utilisation de l'API {#api-usage-dashboard}
 
 > Le tableau de bord d'utilisation de l'API vous permet de surveiller le trafic entrant de l'API REST vers Braze, de comprendre les tendances d'utilisation de nos API REST et de résoudre d'éventuels problèmes.
 
-## À propos du tableau de bord d'utilisation de l'API
+## À propos du tableau de bord d'utilisation de l'API {#about-the-api-usage-dashboard}
 
-Pour afficher votre tableau de bord d'utilisation de l'API, accédez à **Paramètres** > **Clés API**, puis sélectionnez **Tableau de bord**.
+Pour afficher votre tableau de bord d'utilisation de l'API, accédez à **Paramètres** > **Clés API**, puis sélectionnez **Dashboard**.
 
 Par défaut, le tableau de bord affiche l'ensemble des requêtes entrantes de l'API REST pour votre espace de travail au cours de la dernière journée (24 heures). Selon votre cas d'utilisation, vous pouvez ajuster les contrôles du tableau de bord pour filtrer ou regrouper le trafic, ainsi que configurer la plage temporelle.
 
 ![Tableau de bord d'utilisation de l'API avec 130 requêtes au total, un taux de réussite de 70 % et un taux d'échec de 30 %.]({% image_buster /assets/img/api_usage_dashboard/api_usage_dashboard.png %})
 
-## Indicateurs disponibles
+## Indicateurs disponibles {#available-metrics}
 
 Le tableau de bord d'utilisation de l'API comprend les statistiques suivantes :
 
@@ -27,13 +27,13 @@ Le tableau de bord d'utilisation de l'API comprend les statistiques suivantes :
 | Total des requêtes | Le nombre total de requêtes envoyées à Braze pour votre espace de travail actuel, en fonction des filtres et contrôles appliqués au tableau de bord. |
 | Taux de réussite | Le pourcentage de requêtes totales pour lesquelles Braze a renvoyé une réponse de succès `2XX`. |
 | Taux d'erreur | Le pourcentage de requêtes totales pour lesquelles Braze a renvoyé une réponse d'erreur `4XX` ou `5XX`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs disponibles" }
 
-## Utiliser le tableau de bord
+## Utiliser le tableau de bord {#using-the-dashboard}
 
 ![Filtres à appliquer au tableau de bord, notamment : clé API, endpoint, codes de réponse, regroupement des données et date.]({% image_buster /assets/img/api_usage_dashboard/filters.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-### Filtres
+### Filtres {#filters}
 
 Sélectionnez **Filtres** pour affiner la vue du trafic de l'API REST pour votre espace de travail. Les filtres disponibles sont :
 
@@ -41,7 +41,7 @@ Sélectionnez **Filtres** pour affiner la vue du trafic de l'API REST pour votre
 - Endpoint
 - Code de réponse
 
-### Regrouper les données
+### Regrouper les données {#group-data}
 
 Vous pouvez regrouper les données en différentes séries pour explorer divers schémas d'utilisation :
 
@@ -50,7 +50,7 @@ Vous pouvez regrouper les données en différentes séries pour explorer divers 
 - Clé API
 - Réussites et échecs uniquement
 
-### Date
+### Date {#date}
 
 Ajustez le filtre de date pour afficher une plage temporelle plus courte ou plus longue selon vos besoins. Les options disponibles sont :
 
@@ -70,13 +70,20 @@ Ajustez le filtre de date pour afficher une plage temporelle plus courte ou plus
 Les options **3 dernières heures** et **6 dernières heures** affichent le trafic par minute. Les périodes plus longues affichent le trafic toutes les cinq minutes, par heure ou par jour.
 {% endalert %}
 
-## Remarques
+## Remarques {#considerations}
 
 Le tableau de bord d'utilisation de l'API inclut toutes les requêtes de l'API REST reçues par Braze et pour lesquelles une réponse `2XX`, `4XX` ou `5XX` a été renvoyée. Cela comprend les sorties de Transformation des données et les synchronisations d'Ingestion de données cloud. Le trafic SDK et les étapes de Mise à jour utilisateur ne sont pas inclus dans ce tableau de bord.
 
 Les données affichées peuvent présenter un léger délai pour le trafic récent. En période de forte utilisation, vous pouvez actualiser le tableau de bord jusqu'à 4 fois par minute. Il peut être nécessaire d'attendre quelques minutes avant de pouvoir l'actualiser à nouveau.
 
-## Articles connexes
+### Clés API dans le corps de la requête {#api-keys-in-request-body}
 
-- [Alertes d'utilisation de l'API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
+Lorsque les clés API sont envoyées dans le corps de la requête plutôt que dans l'en-tête, certaines requêtes peuvent ne pas apparaître dans le tableau de bord d'utilisation de l'API. Cela peut entraîner des données incomplètes dans le tableau de bord et rendre difficile le suivi précis de l'utilisation de l'API.
+
+Pour obtenir des rapports plus précis dans le tableau de bord d'utilisation de l'API, [incluez les clés API dans l'en-tête de la requête]({{site.baseurl}}/api/basics#bearer-token-authentication) plutôt que dans le corps de la requête.
+
+## Articles connexes {#related-articles}
+
+- [Alertes d'utilisation de l'API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Limites de débit]({{site.baseurl}}/api/api_limits)
+- [Authentification par jeton Bearer]({{site.baseurl}}/api/basics#bearer-token-authentication)

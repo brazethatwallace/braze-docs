@@ -24,7 +24,7 @@ tool:
 
 선택한 Campaigns 또는 Canvases의 수에 관계없이 최대 두 개의 CSV 파일이 생성됩니다. 하나는 모든 캠페인 데이터용이고 다른 하나는 모든 Canvas 데이터용입니다. 보고서 이메일에 포함된 링크에서 이 CSV 파일에 액세스할 수 있습니다. 참여 보고서는 Braze 대시보드에 저장되지 않습니다.
 
-일부 데이터는 개별 캠페인 배리언트 또는 캔버스 단계 수준이 아닌 캠페인 또는 Canvas 수준에서 집계됩니다. [시작 후 캔버스 단계를 삭제]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details)하면 참여 보고서에서도 해당 데이터가 제거됩니다.
+일부 데이터는 개별 캠페인 배리언트 또는 캔버스 단계 수준이 아닌 캠페인 또는 Canvas 수준에서 집계됩니다. [시작 후 캔버스 단계를 삭제]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details)하면 참여 보고서에서도 해당 데이터가 제거됩니다.
 
 {% alert tip %}
 보고서를 다시 실행하여 업데이트된 통계를 생성할 수 있습니다.
@@ -34,7 +34,7 @@ tool:
 
 ### 1단계: 보고서 생성 {#step-1-create-a-report}
 
-대시보드 계정에서 **분석** > **참여 보고서**로 이동합니다. **+ 새 보고서 생성**을 선택합니다.
+대시보드 계정에서 **Analytics** > **참여 보고서**로 이동합니다. **+ 새 보고서 생성**을 선택합니다.
 
 ### 2단계: 메시지 추가 {#step-2-add-messages}
 
@@ -51,7 +51,7 @@ tool:
 
 #### Campaigns 또는 Canvases를 자동으로 선택 {#automatically-select-campaigns-or-canvases}
 
-이 옵션을 사용하면 특정 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)가 포함된 모든 메시지를 자동으로 포함할 수 있습니다. 나열된 태그 중 하나 또는 모든 태그가 있는 메시지를 타겟팅할 수 있습니다. 이 옵션은 반복 보고서를 설정하고 참여 메시지에 정기적으로 태그를 지정하는 경우에 유용합니다.
+이 옵션을 사용하면 특정 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)가 포함된 모든 메시지를 자동으로 포함할 수 있습니다. 나열된 태그 중 하나 또는 모든 태그가 있는 메시지를 타겟팅할 수 있습니다. 이 옵션은 반복 보고서를 설정하고 참여 메시지에 정기적으로 태그를 지정하는 경우에 유용합니다.
 
 {% alert important %}
 보고서가 생성되려면 태그가 하나 이상의 캠페인 또는 Canvas와 일치해야 합니다. **특정 규칙에 따라 Campaigns 및 Canvases를 자동으로 선택**을 사용하고 오류가 표시되면, 하나 이상의 캠페인 또는 Canvas가 태그 및 기타 필터와 일치하는지 확인하세요(예: 나열된 모든 태그를 요구하는 경우, 일치하는 모든 메시지에 모든 태그가 있어야 합니다).
@@ -63,6 +63,12 @@ tool:
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+참여 보고서는 캠페인 또는 Canvas별로 데이터를 집계하며, 워크스페이스 수준에서 집계하지 않습니다. 모든 활성 Campaigns 및 Canvases에 걸친 총 발송 수 또는 노출 횟수(예: 전체 워크스페이스의 채널별 발송 수 및 노출 횟수)를 모니터링하려면 [보고서 빌더]({{site.baseurl}}/report_builder)를 사용하세요.
+
+{% alert note %}
+*통신사 전송 수*는 더 이상 사용되지 않지만, 이미 사용 중인 사용자에게는 계속 지원됩니다.
+{% endalert %}
+
 | 채널 | 사용 가능한 통계 |
 | ------| --------------|
 | 이메일 | 발송 수, 열람 수, 고유 열람 수, 클릭 수, 고유 클릭 수, 클릭 대비 열람률, 탈퇴 수, 반송 수, 전달 수, 스팸 신고 수 |
@@ -71,11 +77,7 @@ tool:
 | 인앱 메시지 | 노출 횟수, 클릭 수, 첫 번째 버튼 클릭 수, 두 번째 버튼 클릭 수 |
 | 웹훅  |  발송 수, 오류 수 |
 | SMS | 발송 수, 통신사 전송 수, 전달 확인 수, 전달 실패 수, 거부 수 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*통신사 전송 수*는 더 이상 사용되지 않지만, 이미 사용 중인 사용자에게는 계속 지원됩니다.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### 4단계: 보고서 설정 완료 {#step-4-complete-report-setup}
 
@@ -99,6 +101,14 @@ tool:
 기본적으로 참여 보고서에 표시되는 데이터는 일별(1일)입니다. 다른 간격으로 이 데이터를 보려면 보고서의 데이터를 집계할 명시적인 일수 또는 주수를 선택합니다. 따라서 일별 측정기준을 보는 대신 주별, 월별, 분기별 또는 유사한 기간별로 참여를 볼 수 있습니다. 시간 중심 집계가 충분하지 않은 경우 캠페인 또는 Canvas 수준에서 데이터를 내보내도록 선택할 수도 있습니다.
 
 ![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### 전체 Campaign 또는 Canvas별 데이터 표시 {#show-data-by-entire-campaign-or-canvas}
+
+**전체 Campaign 또는 Canvas별 데이터 표시**를 선택하면 Braze가 보고서의 기간 범위에 걸쳐 1,825일(5년) 단위로 측정기준을 집계합니다.
+
+기간 범위가 하나 이상의 단위를 포함하는 경우, 동일한 캠페인 또는 Canvas에 대해 날짜 열에 서로 다른 날짜가 있는 여러 행이 표시될 수 있습니다. 일부 행에는 범위 후반에 기록된 측정기준만 포함될 수 있습니다(예: 탈퇴). 또한 워크스페이스에서 발송을 시작하기 수년 전의 날짜가 표시될 수 있는데, 이는 첫 번째 발송 시점만이 아니라 내보내기의 단위 경계를 반영하기 때문입니다.
+
+날짜 열을 선택한 Campaigns 및 Canvases가 실제로 발송된 시점과 맞추려면 보고서의 [**기간 선택**에서 시작 날짜](#select-time-frame)를 파일에 포함하려는 가장 이른 날짜(일반적으로 해당 메시지가 발송되기 시작한 시점)로 설정하세요. 가장 오래된 선택 메시지까지 거슬러 올라가는 기본 범위를 그대로 두지 마세요.
 
 #### 보고서 예약 {#schedule-your-report}
 
@@ -130,9 +140,16 @@ tool:
 스프레드시트에서 합계가 잘못된 것처럼 보이면 내보내기에서 추가 필터를 지우세요. 일별 행을 합산하여 동일한 기간의 Canvas 또는 캠페인 합계와 대조할 수 있습니다.
 
 {% alert note %}
-일별, 주별 또는 기타 반복 버킷 대신 전체 범위에 대한 하나의 집계 행을 원하면 **데이터 표시**를 **전체 캠페인 또는 Canvas별 데이터 표시**로 설정하세요.
+일별, 주별 또는 기타 반복 버킷 대신 전체 캠페인 또는 Canvas별로 행을 집계하려면 **데이터 표시**를 **전체 Campaign 또는 Canvas별 데이터 표시**로 설정하세요. 행 수나 날짜가 CSV에서 잘못된 것처럼 보이면 [전체 Campaign 또는 Canvas별 데이터 표시](#show-data-by-entire-campaign-or-canvas)를 참조하세요.
 {% endalert %}
 
 #### HTML 인앱 메시지의 중복 버튼 클릭 {#duplicate-button-clicks-in-html-in-app-messages}
 
-HTML 인앱 메시지를 사용하고 참여 보고서에서 **본문 클릭 수**가 높게 나타나는 경우, 클릭 로깅이 두 번 실행되고 있을 수 있습니다. 예를 들어 일반 본문 클릭에 대해 `brazeBridge.logClick()`을 호출하고 동일한 인터랙션에서 `brazeBridge.logClick('body click')`(또는 다른 ID)도 호출하는 경우입니다. 마크업에서 `brazeBridge.logClick(`을 검색하고 컨트롤당 하나의 패턴으로 맞추세요. 권장 사용법은 [버튼 추적]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements)을 참조하세요.
+HTML 인앱 메시지를 사용하고 참여 보고서에서 **본문 클릭 수**가 높게 나타나는 경우, 클릭 로깅이 두 번 실행되고 있을 수 있습니다. 예를 들어 일반 본문 클릭에 대해 `brazeBridge.logClick()`을 호출하고 동일한 인터랙션에서 `brazeBridge.logClick('body click')`(또는 다른 ID)도 호출하는 경우입니다. 마크업에서 `brazeBridge.logClick(`을 검색하고 컨트롤당 하나의 패턴으로 맞추세요. 권장 사용법은 [버튼 추적]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements)을 참조하세요.
+
+#### 이메일로 발송된 참여 보고서의 링크가 작동하지 않음 {#broken-links-in-emailed-engagement-reports}
+
+예약된 참여 보고서 이메일의 링크가 메일 클라이언트에서 올바르게 열리지 않는 경우 다음 단계를 시도해 보세요:
+
+1. 보고서를 Gmail 받은편지함으로 전달하고 Google Chrome에서 링크를 엽니다.
+2. 참여 보고서 설정에서 **보고서 스케줄**이 예상대로 발송되도록 구성되어 있는지 확인합니다(예: 지연된 스케줄이 아닌 보고서가 생성된 직후 즉시 발송).

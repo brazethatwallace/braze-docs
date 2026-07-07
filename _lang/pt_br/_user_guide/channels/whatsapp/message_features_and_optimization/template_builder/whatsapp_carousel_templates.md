@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Os modelos de carrossel do WhatsApp permitem criar mensagens interativas com vários cartões pelos quais os usuários podem deslizar. Cada carrossel pode conter até 10 cartões com imagens ou vídeos, além de botões personalizáveis para engajamento. Esse recurso é ideal para apresentar seus produtos e serviços, ou conteúdo em várias etapas em um formato visualmente atraente.
 
-{% alert note %}
-Os modelos de carrossel do WhatsApp estão em acesso antecipado. Fale com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
-{% endalert %}
-
 ## Pré-requisitos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -56,7 +52,7 @@ Preencha os campos obrigatórios.
 | Idioma do modelo | Selecione o idioma do seu modelo. A Meta restringe os modelos a um único idioma, então escolha o idioma que seu público verá. |
 | Nome do modelo | Insira um nome descritivo que ajude a identificar este modelo posteriormente. Os nomes de modelo não podem conter espaços — use underscores ou remova os espaços completamente (como `carousel_example` ou `carouselexample`). |
 | Categoria | Definida automaticamente como **Marketing**. Todas as mensagens de carrossel são categorizadas como mensagens de marketing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Configurar as definições do modelo" }
 
 ![Painel de detalhes do modelo de WhatsApp com uma conta do WhatsApp Business selecionada, inglês como idioma do modelo e o nome do modelo "welcome_message".]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
@@ -150,7 +146,7 @@ Quando seu modelo é carregado, ele contém conteúdo bloqueado e editável.
 - Se você enviou o modelo com Liquid (por exemplo, `{{first_name}}`), a Braze preserva e exibe automaticamente esse Liquid.
 - Você pode alterar o Liquid para variáveis diferentes (por exemplo, trocar de `{{first_name}}` para `{{last_name}}`).
 - Imagens com variáveis podem ser tornadas dinâmicas usando URLs com Liquid.
-- Você pode fazer upload de novas imagens da biblioteca de mídia da Braze em vez de usar a mídia enviada.
+- Você pode fazer upload de novas imagens da Biblioteca de mídia da Braze em vez de usar a mídia enviada.
 {% endraw %}
 
 #### Exemplo {#example}
@@ -193,4 +189,4 @@ Após a composição, prossiga com o fluxo de lançamento da sua Campaign ou Can
 | As variáveis não são preenchidas no teste | Verifique se a sintaxe Liquid está correta e se os atributos existem nos perfis dos seus usuários. Confira se há erros de digitação nos nomes das variáveis e verifique se os valores padrão estão definidos quando apropriado. |
 | O nome do modelo contém espaços | Os nomes de modelo não podem conter espaços. Use underscores (`template_name`) ou remova os espaços completamente (`templatename`). |
 | Não é possível alterar o número de cartões | O número de cartões é fixado quando você cria o modelo e não pode ser alterado após o envio. Se precisar de um número diferente de cartões, será necessário criar um novo modelo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }

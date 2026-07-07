@@ -1,16 +1,16 @@
 ---
-nav_title: "POST : Déclencheur de synchronisation"
-article_title: "POST : Déclencher la synchronisation"
+nav_title: "POST : Déclencheur de synchronisation"
+article_title: "POST : Déclencher la synchronisation"
 search_tag: Endpoint
 page_order: 2
 alias: /api/cdi/post_trigger_sync/
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Déclencher la synchronisation."
+description: "Cet article présente en détail l'endpoint Braze Déclencher la synchronisation."
 
 ---
 {% api %}
-# Déclencher une synchronisation
+# Déclencher une synchronisation {#trigger-a-sync}
 {% apimethod post %}
 /cdi/integrations/{integration_id}/sync
 {% endapimethod %}
@@ -18,21 +18,21 @@ description: "Cet article présente en détail l’endpoint Braze Déclencher la
 > Utilisez cet endpoint pour déclencher une synchronisation pour une intégration donnée.
 
 {% alert note %}
-Pour utiliser cet endpoint, il est nécessaire de générer une clé API avec `cdi.integration_sync`l'autorisation.
+Pour utiliser cet endpoint, vous devez générer une clé API avec l'autorisation `cdi.integration_sync`.
 {% endalert %}
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi job sync' %}
 
-## Paramètres de chemin
+## Paramètres de chemin {#path-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `integration_id` | Requis | Chaîne de caractères | ID d'intégration. Cette information est disponible dans l'URL lorsque vous consultez une intégration dans le tableau de bord de Braze. Le format de l'URL est `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/sync' \
@@ -40,11 +40,11 @@ curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/0
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
-Le code de statut `202` pourrait renvoyer le corps de réponse suivant :
+Le code de statut `202` pourrait renvoyer le corps de réponse suivant :
 
 ```json
 {
@@ -52,7 +52,7 @@ Le code de statut `202` pourrait renvoyer le corps de réponse suivant :
 }
 ```
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
 Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
 
@@ -61,8 +61,8 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | `400 Invalid integration ID` | Vérifiez que votre `integration_id` est valide. |
 | `404 Integration not found` | Il n'existe pas d'intégration pour l'ID d'intégration donné. Assurez-vous que votre ID d'intégration est valide. |
 | `429 Another job is in progress` | Une synchronisation est actuellement en cours pour cette intégration. Réessayez une fois la synchronisation terminée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
-Pour obtenir des codes d'état supplémentaires et les messages d'erreur associés, veuillez vous référer aux [&réponses aux erreurs fatales]({{site.baseurl}}/api/errors/#fatal-errors).
+Pour obtenir des codes de statut supplémentaires et les messages d'erreur associés, consultez la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

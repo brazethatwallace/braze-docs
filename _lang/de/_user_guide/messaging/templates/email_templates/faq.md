@@ -32,7 +32,7 @@ Sie könnten den Abmeldelink in der angepassten Fußzeile von {% raw %} `{{${set
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Anschließend könnten Sie den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) aufrufen, um den Abo-Status der/des Nutzer:in zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Anschließend könnten Sie den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) aufrufen, um den Abo-Status der/des Nutzer:in zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Um diesen neuen Link zu speichern, muss das Standard-Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} in der Fußzeile vorhanden sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken“ – entweder indem Sie das Tag in einen Kommentar oder in ein verstecktes `<div>`-Tag setzen.
 
@@ -43,7 +43,7 @@ Um diesen neuen Link zu speichern, muss das Standard-Braze-Abmelde-Tag {%raw%}(`
 
 Änderungen an einem bestehenden Template werden nicht in Campaigns übernommen, die mit früheren Versionen dieses Templates erstellt wurden. Bei API-Campaigns, die ein Template im REST-API-Body verwenden, nutzt Braze zum Sendezeitpunkt die neueste Version des Templates.
 
-## Link-Templates
+## Link-Templates {#link-templates}
 
 ### Kann ich mehrere Link-Templates in meine E-Mail einfügen? {#can-i-upload-multiple-link-templates-to-my-email}
 
@@ -51,7 +51,7 @@ Ja, Sie können beliebig viele Templates in Ihre E-Mail-Nachrichten einfügen. A
 
 ### Wie kann ich eine Vorschau meiner Links mit allen angewendeten Tags anzeigen? {#how-do-i-preview-my-links-with-all-of-the-tags-applied}
 
-Es gibt mehrere Möglichkeiten, eine Vorschau Ihrer Links anzuzeigen. Nachdem Sie das [Link-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/) angewendet haben, können Sie eine [Test-E-Mail]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) an sich selbst senden, um alle Links anzuzeigen.
+Es gibt mehrere Möglichkeiten, eine Vorschau Ihrer Links anzuzeigen. Nachdem Sie das [Link-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template) angewendet haben, können Sie eine [Test-E-Mail]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) an sich selbst senden, um alle Links anzuzeigen.
 
 Im Vorschaufenster in einem neuen Tab können Sie auch die Links öffnen, um sie anzuzeigen. Sie können auch mit der Maus über die Links im Vorschaufenster fahren und sie am unteren Rand Ihres Browsers sehen.
 
@@ -61,13 +61,13 @@ Link-Templates werden erweitert und vor jeder Liquid-Erweiterung zu jeder URL hi
 
 Vermeiden Sie es, das Fragezeichen (?) zu Ihrem Liquid hinzuzufügen, da dies dazu führt, dass Link-Templates zuerst ein Fragezeichen (?) hinzufügen und dann der Liquid-Erweiterungsprozess ein zweites Fragezeichen (?) hinzufügt.
 
-## Link Aliasing
+## Link Aliasing {#link-aliasing}
 
 ### Wie wirkt sich die Aktivierung von Link Aliasing auf meine Content Blocks und Link-Templates aus? {#how-will-enabling-link-aliasing-impact-my-content-blocks-and-link-templates}
 
 Für alle neu erstellten Content Blocks wird Link Aliasing workspace-übergreifend angewendet, da es sich um ein Feature auf Unternehmensebene handelt.
 
-Bestehende Content Blocks werden bei der Aktivierung von Link Aliasing nicht geändert. Bestehende Link-Templates werden zwar nicht geändert, aber der bestehende Link-Template-Abschnitt in einer Nachricht wird entfernt. Weitere Informationen finden Sie unter [Link Aliasing in Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-aliasing-in-content-blocks).
+Bestehende Content Blocks werden bei der Aktivierung von Link Aliasing nicht geändert. Bestehende Link-Templates werden zwar nicht geändert, aber der bestehende Link-Template-Abschnitt in einer Nachricht wird entfernt. Weitere Informationen finden Sie unter [Link Aliasing in Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks).
 
 ### Kann ich bedingte Liquid-Logik vollständig innerhalb eines HTML-Anchor-Tags verwenden? {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 

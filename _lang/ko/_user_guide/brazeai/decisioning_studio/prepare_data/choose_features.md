@@ -13,7 +13,7 @@ description: "이 참조 문서에서는 BrazeAI Decisioning Studio를 위한 �
 내부 데이터 사이언스 또는 데이터 엔지니어링 팀이 있다면, 데이터에서 어떤 신호가 의미 있는지에 대한 맥락을 가장 잘 파악하고 있으므로 기능을 구성하고 관리하는 데 가장 적합합니다.
 
 {% alert note %}
-Braze 고객의 경우, 고객 기능은 일반적으로 고객 프로필의 커스텀 속성을 통해 Decisioning Studio에 전달됩니다. 커스텀 속성과 커스텀 이벤트 및 각각의 업데이트 전략에 대한 자세한 내용은 [스냅샷 대 이벤트 스트림]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)을 참조하세요.
+Braze 고객의 경우, 고객 기능은 일반적으로 고객 프로필의 커스텀 속성을 통해 Decisioning Studio에 전달됩니다. 커스텀 속성과 커스텀 이벤트 및 각각의 업데이트 전략에 대한 자세한 내용은 [스냅샷 대 이벤트 스트림]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams)을 참조하세요.
 {% endalert %}
 
 ## 고객 기능의 유형 {#types-of-customer-features}
@@ -26,7 +26,7 @@ Braze 고객의 경우, 고객 기능은 일반적으로 고객 프로필의 커
 | **사용자 성향** | 고객이 특정 행동을 할 가능성에 대한 모델 기반 점수 | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **사용자 행동** | 특정 기간 동안의 고객 활동 요약 | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **환경적** | 고객 외부의 상황별 신호 | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="고객 기능의 유형" }
 
 이러한 기능 유형을 함께 사용하면 모델이 세그먼트를 식별하고, 고객 간의 차이를 구분하며, 그에 따라 추천을 조정하는 데 필요한 정보를 제공합니다.
 
@@ -35,8 +35,8 @@ Braze 고객의 경우, 고객 기능은 일반적으로 고객 프로필의 커
 기능을 선택하고 구성할 때 다음 사항을 유의하세요:
 
 - **커버리지:** 기능은 타겟 오디언스의 모든 고객을 포함해야 합니다. 오디언스의 상당 부분에서 누락되거나 null인 기능은 해당 고객에 대해 모델이 활용할 수 있는 정보가 줄어듭니다.
-- **세분화:** 모든 기능은 고객 수준으로 집계되어야 합니다. 실제로 "고객 수준"이 무엇을 의미하는지에 대한 안내는 [Braze 외부 ID 사용]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/)을 참조하세요.
-- **최신성:** 기능은 이벤트 기반이 아닌 시간 기반 스케줄에 따라 업데이트되어야 합니다. 이것이 중요한 이유는 [스냅샷 대 이벤트 스트림]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)을 참조하세요.
+- **세분화:** 모든 기능은 고객 수준으로 집계되어야 합니다. 실제로 "고객 수준"이 무엇을 의미하는지에 대한 안내는 [Braze 외부 ID 사용]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id)을 참조하세요.
+- **최신성:** 기능은 이벤트 기반이 아닌 시간 기반 스케줄에 따라 업데이트되어야 합니다. 이것이 중요한 이유는 [스냅샷 대 이벤트 스트림]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams)을 참조하세요.
 - **유효성:** 기능 값은 정의에 맞는 범위 내에 있어야 합니다. "지난 30일간 구매" 기능은 절대 음수가 되어서는 안 됩니다.
 - **희소성:** 명확한 비즈니스 이유가 없는 한, 대다수 고객에 대해 0이거나 null인 기능은 피하세요. 희소한 기능은 신호를 추가하지 않으면서 노이즈만 더합니다.
 - **상관관계:** 서로 높은 상관관계를 가진 기능을 포함하는 것은 피하세요. 중복 기능은 편향을 유발하고 예측을 개선하지 않으면서 학습 속도를 저하시킬 수 있습니다.

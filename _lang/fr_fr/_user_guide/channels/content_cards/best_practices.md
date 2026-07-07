@@ -13,15 +13,14 @@ channel: Content Card
 guide_featured_title: "Articles de la section"
 guide_featured_list:
 - name: "Ce qu'il faut savoir avant d'envoyer"
-  link: /docs/know_before_send/
+  link: /docs/know_before_send
   image: /assets/img/braze_icons/send-01.svg
 - name: "Envoyer des messages de test"
-  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=content%20card
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card
   image: /assets/img/braze_icons/mail-01.svg
 - name: "Améliorer les exigences de faible latence"
   image: /assets/img/braze_icons/send-01.svg
   link: /docs/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements
-
 ---
 
 <br><br>

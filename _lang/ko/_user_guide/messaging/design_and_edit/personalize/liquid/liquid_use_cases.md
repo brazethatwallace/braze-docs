@@ -12,7 +12,7 @@ description: "이 랜딩 페이지에는 기념일, 앱 사용, 카운트다운 
 
 {% api %}
 
-## 기념일 및 공휴일
+## 기념일 및 공휴일 {#anniversaries-and-holidays}
 
 {% apitags %}
 Anniversaries and holidays
@@ -20,7 +20,7 @@ Anniversaries and holidays
 
 - [사용자의 가입 기념 연도에 따라 메시지 개인화하기](#anniversary-year)
 - [사용자의 생일 주간에 따라 메시지 개인화하기](#birthday-week)
-- [생일이 있는 달에 사용자에게 캠페인 보내기](#birthday-month)
+- [생일이 있는 달에 사용자에게 Campaign 보내기](#birthday-month)
 - [주요 공휴일에 메시지 발송 피하기](#holiday-avoid)
 
 ### 사용자의 가입 기념 연도에 따라 메시지 개인화하기 {#anniversary-year}
@@ -93,7 +93,7 @@ No birthday for you!
 
 `last_week`와 `next_week`에 대한 문도 포함하여 메시징을 더욱 개인화할 수 있습니다.
 
-### 생일이 있는 달에 사용자에게 캠페인 보내기 {#birthday-month}
+### 생일이 있는 달에 사용자에게 Campaign 보내기 {#birthday-month}
 
 이 사용 사례는 사용자의 생일 월을 계산하고, 생일이 현재 월에 해당하는지 확인한 후, 해당하면 특별한 메시지를 보내는 방법을 보여줍니다.
 
@@ -134,7 +134,7 @@ Message if today isn't one of the provided holidays.
 
 {% api %}
 
-## 앱 사용
+## 앱 사용 {#app-usage}
 
 {% apitags %}
 App usage
@@ -218,7 +218,7 @@ Message for a less active user
 
 {% api %}
 
-## 카운트다운
+## 카운트다운 {#countdowns}
 
 {% apitags %}
 Countdowns
@@ -536,13 +536,14 @@ Hi, the offer is only valid today.
 
 {% api %}
 
-## 커스텀 속성
+## 커스텀 속성 {#custom-attribute}
 
 {% apitags %}
 Custom attribute
 {% endapitags %}
 
 - [일치하는 커스텀 속성에 따라 메시지 개인화하기](#attribute-matching)
+- [유럽식 숫자 표기법에 맞게 통화 포맷하기](#european-currency-format)
 - [두 커스텀 속성을 빼서 차이를 금액으로 표시하기](#attribute-monetary-difference)
 - [전체 이름이 first_name 필드에 저장된 경우 사용자의 이름 참조하기](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### 유럽식 숫자 표기법에 맞게 통화 포맷하기 {#european-currency-format}
+
+소수점 구분 기호로 쉼표를, 천 단위 구분 기호로 마침표를 사용하는 로케일(예: 독일 또는 이탈리아)의 경우, [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) 및 [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) 필터와 `replace`를 함께 사용하여 구분 기호를 교체합니다. 마침표와 쉼표가 같은 패스에서 교체되지 않도록 `#`을 임시 플레이스홀더로 사용합니다.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**출력:** `1.234.567,89`
+
+**설명:** `money` 필터는 소수점 자릿수를 추가하지만 통화 기호나 로케일별 구분 기호는 추가하지 않습니다. `number_with_delimiter`는 미국식 천 단위 구분 기호를 추가하고, `replace` 필터가 이를 유럽식 포맷으로 변환합니다.
 {% endraw %}
 
 ### 두 커스텀 속성을 빼서 차이를 금액으로 표시하기 {#attribute-monetary-difference}
@@ -597,14 +612,14 @@ Hi {{name[0]}}, here's your message!
 
 {% api %}
 
-## 커스텀 이벤트
+## 커스텀 이벤트 {#custom-event}
 
 {% apitags %}
 Custom event
 {% endapitags %}
 
 - [커스텀 이벤트가 현재로부터 2시간 이내인 경우 푸시 알림 중단하기](#event-abort-push)
-- [사용자가 커스텀 이벤트를 3회 수행할 때마다 캠페인 보내기](#event-three-times)
+- [사용자가 커스텀 이벤트를 3회 수행할 때마다 Campaign 보내기](#event-three-times)
 - [한 카테고리에서만 구매한 사용자에게 메시지 보내기](#event-purchased-one-category)
 - [지난 한 달간 커스텀 이벤트 발생 횟수 추적하기](#track)
 
@@ -630,9 +645,9 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 ```
 {% endraw %}
 
-### 사용자가 커스텀 이벤트를 3회 수행할 때마다 캠페인 보내기 {#event-three-times}
+### 사용자가 커스텀 이벤트를 3회 수행할 때마다 Campaign 보내기 {#event-three-times}
 
-이 사용 사례는 사용자가 커스텀 이벤트를 세 번 수행했는지 확인하고, 수행한 경우 메시지를 표시하거나 캠페인을 보냅니다.
+이 사용 사례는 사용자가 커스텀 이벤트를 세 번 수행했는지 확인하고, 수행한 경우 메시지를 표시하거나 Campaign을 보냅니다.
 
 {% raw %}
 ```liquid
@@ -667,7 +682,7 @@ Did you forget something in your shopping cart?
 
 ### 지난 한 달간 커스텀 이벤트 발생 횟수 추적하기 {#track}
 
-이 사용 사례는 현재 월의 1일과 이전 월 사이에 커스텀 이벤트가 기록된 횟수를 계산합니다. 그런 다음 users/track 호출을 실행하여 이 값을 커스텀 속성으로 업데이트하고 저장할 수 있습니다. 이 캠페인은 월간 데이터를 사용하기 전에 연속 두 달 동안 실행되어야 합니다.
+이 사용 사례는 현재 월의 1일과 이전 월 사이에 커스텀 이벤트가 기록된 횟수를 계산합니다. 그런 다음 users/track 호출을 실행하여 이 값을 커스텀 속성으로 업데이트하고 저장할 수 있습니다. 이 Campaign은 월간 데이터를 사용하기 전에 연속 두 달 동안 실행되어야 합니다.
 
 {% raw %}
 ```liquid
@@ -723,7 +738,7 @@ Did you forget something in your shopping cart?
 
 {% api %}
 
-## 언어
+## 언어 {#language}
 
 {% apitags %}
 Language
@@ -838,7 +853,7 @@ tuesday default
 
 {% api %}
 
-## 기타
+## 기타 {#miscellaneous}
 
 {% apitags %}
 Miscellaneous
@@ -858,10 +873,10 @@ Miscellaneous
 
 ### 마케팅 이메일을 차단한 고객에게 이메일 발송 피하기 {#misc-avoid-blocked-emails}
 
-이 사용 사례는 콘텐츠 블록에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 캠페인이나 캔버스에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
+이 사용 사례는 Content Blocks에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 Campaigns이나 Canvases에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
 
 {% alert important %}
-이 Liquid를 사용하려면 먼저 차단된 이메일 목록을 콘텐츠 블록에 저장해야 합니다. 목록에는 이메일 주소 사이에 추가 공백이나 문자가 삽입되지 않아야 합니다(예: `test@braze.com,abc@braze.com`).
+이 Liquid를 사용하려면 먼저 차단된 이메일 목록을 Content Blocks에 저장해야 합니다. 목록에는 이메일 주소 사이에 추가 공백이나 문자가 삽입되지 않아야 합니다(예: `test@braze.com,abc@braze.com`).
 {% endalert %}
 
 {% raw %}
@@ -877,10 +892,10 @@ Your message here!
 ```
 {% endraw %}
 
-**설명:** 여기서는 차단된 이메일의 콘텐츠 블록을 참조하여 잠재적 수신자의 이메일이 이 목록에 있는지 확인합니다. 이메일이 발견되면 메시지가 발송되지 않습니다.
+**설명:** 여기서는 차단된 이메일의 Content Blocks를 참조하여 잠재적 수신자의 이메일이 이 목록에 있는지 확인합니다. 이메일이 발견되면 메시지가 발송되지 않습니다.
 
 {% alert note %}
-콘텐츠 블록의 크기 제한은 5MB입니다.
+Content Blocks의 크기 제한은 5MB입니다.
 {% endalert %}
 
 ### 고객의 구독 상태를 사용하여 메시지 콘텐츠 개인화하기 {#misc-personalize-content}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 이 사용 사례를 통해 사용자는 커스텀 이벤트를 기반으로 다가오는 리마인더를 설정할 수 있습니다. 예시 시나리오에서는 사용자가 26일 이상 남은 보험 갱신 날짜에 대한 리마인더를 설정할 수 있으며, 보험 갱신 날짜 26일, 13일, 7일 또는 2일 전에 리마인더가 발송됩니다.
 
-이 사용 사례에서는 다음 내용이 [웹훅 캠페인]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) 또는 캔버스 단계의 본문에 들어가야 합니다.
+이 사용 사례에서는 다음 내용이 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 또는 캔버스 단계의 본문에 들어가야 합니다.
 
 {% raw %}
 ```liquid
@@ -1199,7 +1214,7 @@ All episodes of {{new_shows_clean | join: ', ' }} expire on 9/8 - watch them now
 
 {% api %}
 
-## 플랫폼 타겟팅
+## 플랫폼 타겟팅 {#platform-targeting}
 
 {% apitags %}
 Platform targeting
@@ -1356,7 +1371,7 @@ Thanks for joining our SMS program!
 
 {% api %}
 
-## 시간대
+## 시간대 {#time-zones}
 
 {% apitags %}
 Time zones
@@ -1366,16 +1381,22 @@ Time zones
 - [사용자의 시간대에 따라 메시지 개인화하기](#personalize-timezone)
 - [커스텀 속성에 CST 시간대 추가하기](#time-append-cst)
 - [타임스탬프 삽입하기](#time-insert-timestamp)
-- [사용자의 현지 시간대에서 특정 시간 범위 내에만 캔버스 푸시 보내기](#time-canvas-window)
-- [사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 캠페인 보내기](#time-reocurring-iam-window)
+- [사용자의 현지 시간대에서 특정 시간 범위 내에만 Canvas 푸시 보내기](#time-canvas-window)
+- [사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 Campaign 보내기](#time-reocurring-iam-window)
 - [사용자의 현지 시간대에서 평일과 주말에 다른 메시지 보내기](#time-weekdays-vs-weekends)
 - [사용자의 현지 시간대에서 시간대별로 다른 메시지 보내기](#time-of-day)
+- [발송 시점에 시간 범위 밖이면 메시지 중단하기](#abort-send-time-hour-range)
+- [고정 시간대에서 시간 범위 밖이면 메시지 중단하기](#abort-fixed-timezone-window)
+
+{% alert note %}
+사용자가 예상치 못한 현지 시간에 메시지를 받는 경우, 기기 또는 프로필 시간대가 변경되었을 수 있습니다(예: 여행 후). 현지 시간 전달은 발송 시점의 프로필 시간대를 사용하며, 사용자가 평소 지역에서 새 세션을 시작해야 {% raw %}`{{${time_zone}}}`{% endraw %}와 같은 값이 예상대로 반영됩니다. 그러나 [사용자의 시간대를 템플릿에 삽입](#users-time-zone)할 수 있습니다.
+{% endalert %}
 
 ### 사용자의 시간대를 템플릿에 삽입하기 {#users-time-zone}
 
 기본적으로 Liquid의 날짜와 시간은 협정 세계시(UTC)로 렌더링됩니다. 사용자의 현지 시간대로 날짜와 시간을 표시하려면 `date` 필터와 함께 `time_zone` 필터를 사용하세요.
 
-#### 현지 날짜 및 시간 할당
+#### 현지 날짜 및 시간 할당 {#assign-local-date-and-time}
 
 사용자의 현지 시간대에서 현재 날짜와 시간을 반영하는 변수를 할당하려면 다음 형식을 사용하세요:
 
@@ -1390,7 +1411,7 @@ Time zones
 - `time_zone`: {% raw %}`{{${time_zone}}}`{% endraw %} 개인화 태그를 사용하여 기본 속성에서 사용자의 현지 시간대를 가져옵니다.
 - `date`: 사용자의 현지 날짜와 시간을 지정한 형식에 따라 포맷합니다. 이전 예시에서는 시스템이 "February 26, 2026"과 같은 형식의 문자열을 표시합니다. 더 많은 포맷 옵션은 [strftime.net](strftime.net)을 참조하세요.
 
-#### 커스텀 속성에 사용자의 시간대 적용
+#### 커스텀 속성에 사용자의 시간대 적용 {#apply-the-users-time-zone-with-custom-attributes}
 
 다음과 같이 커스텀 속성에 `time_zone` 필터를 적용할 수 있습니다:
 
@@ -1448,7 +1469,7 @@ Message for time zone yy.
 ```
 {% endraw %}
 
-### 사용자의 현지 시간대에서 특정 시간 범위 내에만 캔버스 푸시 보내기 {#time-canvas-window}
+### 사용자의 현지 시간대에서 특정 시간 범위 내에만 Canvas 푸시 보내기 {#time-canvas-window}
 
 이 사용 사례는 사용자의 현지 시간대에서 시간을 확인하고, 설정된 시간 범위 내에 해당하면 특정 메시지를 표시합니다.
 
@@ -1464,7 +1485,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### 사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 캠페인 보내기 {#time-reoccurring-iam-window}
+### 사용자의 현지 시간대에서 특정 시간 범위 내에 반복 인앱 메시지 Campaign 보내기 {#time-reoccurring-iam-window}
 
 이 사용 사례는 사용자의 현재 시간이 설정된 범위 내에 해당하면 메시지를 표시합니다.
 
@@ -1518,23 +1539,59 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} 이것은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options)의 반대입니다. {% endalert %}
+{% alert note %} 이것은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options)의 반대입니다. {% endalert %}
+
+### 발송 시점에 시간 범위 밖이면 메시지 중단하기 {#abort-send-time-hour-range}
+
+이 사용 사례는 현재 시간이 정의된 범위를 벗어나면 메시지를 중단합니다. `time_zone` 필터를 적용하지 않는 한 메시지가 렌더링되는 시점의 시간(기본적으로 UTC)을 사용하며, 사용자의 현지 시간대가 아닙니다. 사용자의 현지 시간대를 기준으로 메시지를 보내려면 [사용자의 현지 시간대에서 시간대별로 다른 메시지 보내기](#time-of-day)를 참조하세요.
+
+{% raw %}
+```liquid
+{% assign time = 'now' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour > 20 or hour < 8 %}
+{% abort_message("Outside hour range") %}
+{% endif %}
+
+Check out this new bar after work today. HH specials!
+```
+{% endraw %}
+
+### 고정 시간대에서 시간 범위 밖이면 메시지 중단하기 {#abort-fixed-timezone-window}
+
+이 사용 사례는 현재 시간이 특정 시간대(이 예시에서는 싱가포르 시간)의 정의된 범위를 벗어나면 메시지를 중단합니다. 각 사용자의 `time_zone` 속성 대신 하나의 지역에 연결된 방해금지 시간 스타일의 규칙이 필요할 때 이 패턴을 사용할 수 있습니다.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: 'Asia/Singapore' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% assign minute = time | date: '%M' | plus: 0 %}
+
+{% if hour < 20 or hour > 21 or (hour == 21 and minute > 45) %}
+{% abort_message("Not within eligible time of 8 pm–9:45 pm SGT") %}
+{% endif %}
+
+Sign up for our exclusive time-limited offer now!
+```
+{% endraw %}
 
 {% endapi %}
 
 {% api %}
 
-## 주/일/월
+## 주/일/월 {#weekdaymonth}
 
 {% apitags %}
 Week/Day/Month
 {% endapitags %}
 
 - [이전 월의 이름을 메시지에 가져오기](#month-name)
-- [매월 말에 캠페인 보내기](#month-end)
-- [월의 마지막 (평일)에 캠페인 보내기](#day-of-month-last)
+- [매월 말에 Campaign 보내기](#month-end)
+- [월의 마지막 (평일)에 Campaign 보내기](#day-of-month-last)
 - [매일 다른 메시지 보내기](#day-of-month)
 - [요일별로 다른 메시지 보내기](#day-of-week)
+- [특정 날짜에 메시지 중단하기](#abort-specific-calendar-date)
+- [특정 요일에 메시지 중단하기](#abort-specific-weekday)
 
 ### 이전 월의 이름을 메시지에 가져오기 {#month-name}
 
@@ -1584,7 +1641,7 @@ Here's an overview of what your spending looked like in {{last_month_name}}.
 ```
 {% endraw %}
 
-### 매월 말에 캠페인 보내기 {#month-end}
+### 매월 말에 Campaign 보내기 {#month-end}
 
 이 사용 사례는 현재 날짜가 날짜 목록에 해당하는지 확인하고, 날짜에 따라 특정 메시지를 표시합니다.
 
@@ -1604,7 +1661,7 @@ The date is correct
 ```
 {% endraw %}
 
-### 월의 마지막 (평일)에 캠페인 보내기 {#day-of-month-last}
+### 월의 마지막 (평일)에 Campaign 보내기 {#day-of-month-last}
 
 이 사용 사례는 현재 월과 일을 캡처하고, 현재 일이 해당 월의 마지막 평일에 해당하는지 계산합니다.
 
@@ -1731,4 +1788,32 @@ Default copy
 "Default copy" 줄을 {% raw %}`{% abort_message() %}`{% endraw %}로 대체하여 요일을 알 수 없는 경우 메시지가 발송되지 않도록 할 수 있습니다.
 {% endalert %}
 
+### 특정 날짜에 메시지 중단하기 {#abort-specific-calendar-date}
+
+이 사용 사례는 매년 선택한 월과 일(예시에서는 5월 5일)에 메시지를 중단합니다. `date` 필터로 만든 명확한 월-일 문자열과 현재 날짜를 비교합니다.
+
+{% raw %}
+```liquid
+{% assign date = 'now' | date: '%d/%m' %}
+{% if date == '05/05' %}
+{% abort_message('No message on the 5th of May') %}
+{% endif %}
+```
+{% endraw %}
+
+### 특정 요일에 메시지 중단하기 {#abort-specific-weekday}
+
+이 사용 사례는 Liquid가 실행되는 시점의 요일이 지정된 요일(예시에서는 `Wednesday`)인 경우 메시지를 중단합니다. `%A` 필터는 영어 요일 전체 이름을 반환합니다.
+
+{% raw %}
+```liquid
+{% assign weekday = 'now' | date: '%A' %}
+{% if weekday == 'Wednesday' %}
+{% abort_message("No message on Wednesdays") %}
+{% endif %}
+```
+{% endraw %}
+
 {% endapi %}
+
+이 라이브러리의 많은 예시에서는 조건이 충족되지 않을 때 발송을 건너뛰기 위해 `abort_message` 태그를 사용합니다. Liquid를 사용한 발송 중단에 대한 전체 참조(날짜 및 시간 기반 패턴 포함)는 [Liquid 메시지 중단하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 참조하세요.

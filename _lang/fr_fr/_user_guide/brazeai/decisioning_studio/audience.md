@@ -18,7 +18,7 @@ description: "Découvrez comment définir et configurer l'audience de votre agen
 | **Contrôle aléatoire** | Clients qui reçoivent des options sélectionnées aléatoirement (comparaison de référence) |
 | **Business-as-Usual (facultatif)** | Clients qui reçoivent le parcours marketing actuel (pour comparer avec les performances existantes) |
 | **Holdout (facultatif)** | Clients qui ne reçoivent aucune communication (pour mesurer l'impact global de la campagne) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Groupes de traitement" }
 
 ## Configurer votre audience {#configure-your-audience}
 
@@ -46,9 +46,9 @@ Fournissez l'ID de l'extension et la clé API à notre équipe AI Decisioning Se
 
 ### Google Cloud Storage
 
-Si l'audience n'est pas actuellement stockée dans Braze ou Salesforce Marketing Cloud, la meilleure étape suivante consiste à configurer un export automatisé directement vers un bucket Google Cloud Storage (GCS) contrôlé par Braze.
+Si l'audience n'est pas actuellement stockée dans Braze ou Salesforce Marketing Cloud, la meilleure étape suivante consiste à configurer un export automatisé directement vers un compartiment Google Cloud Storage (GCS) contrôlé par Braze.
 
-Pour déterminer si cela est faisable, consultez la documentation de votre plateforme. Par exemple, mParticle propose une [intégration native avec Google Cloud Storage](https://www.mparticle.com/integration/google-cloud-storage/). Si c'est le cas, nous pouvons fournir un bucket GCS vers lequel exporter les données d'audience.
+Pour déterminer si cela est faisable, consultez la documentation de votre plateforme. Par exemple, mParticle propose une [intégration native avec Google Cloud Storage](https://www.mparticle.com/integration/google-cloud-storage/). Si c'est le cas, nous pouvons fournir un compartiment GCS vers lequel exporter les données d'audience.
 
 ### Ressources supplémentaires {#additional-resources}
 
@@ -64,4 +64,4 @@ Pour déterminer si cela est faisable, consultez la documentation de votre plate
 
 Après avoir défini votre audience, passez à la configuration de l'orchestration :
 
-- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

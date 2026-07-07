@@ -22,7 +22,7 @@ The primary key can't be deleted. If you attempt to delete the primary key, this
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `sdk_authentication.delete` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `sdk_authentication.delete` permission.
 
 ## Rate limit
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | -------- | --------- | ----------- |
 | `app_id` | Required | String | The app API identifier. |
 | `key_id` | Required | String | The ID of the SDK Authentication key to delete. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 
@@ -84,7 +84,7 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 | `keys[].rsa_public_key` | String | The RSA public key string. |
 | `keys[].description` | String | Description of the SDK Authentication key. |
 | `keys[].is_primary` | Boolean | Whether this key is the primary SDK Authentication key. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
 ### Validation rules
 

@@ -16,7 +16,7 @@ Se precisar de inspiração ou ajuda para elaborar sua consulta, escolha **Query
 
 Seu relatório recebe automaticamente um nome com a data e a hora atuais. Passe o mouse sobre o nome e selecione <i class="fas fa-pencil" alt="Editar"></i> para dar à sua consulta de SQL um nome significativo.
 
-![Um exemplo de relatório chamado "Channel engagement for May 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
+![Um exemplo de nome de relatório "Channel engagement for May 2025".]({% image_buster /assets/img_archive/report_name_example.png %}){: style="max-width:80%;"}
 
 ### Etapa 2: Crie sua consulta {#step-2-build-your-query}
 
@@ -73,7 +73,7 @@ Se você consultar `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CAMPAIGN_ID`, suas
 | `CANVAS_ID` | Nome do Canvas |
 | `CANVAS_VARIATION_API_ID` | Nome da Variante do Canvas |
 | `CAMPAIGN_ID` | Nome da Campaign |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
 
 Essa consulta recupera todos os três IDs e suas colunas de nome associadas com um máximo de 100 linhas:
 
@@ -100,7 +100,7 @@ Quando terminar de criar sua consulta, selecione **Run Query**. Se não houver e
 
 Para baixar o relatório CSV, selecione **Export**.
 
-![O Criador de consultas mostra os resultados da consulta modelada "Channel engagement and revenue for the last 30 days".]({% image_buster /assets/img_archive/query_builder.png %})
+![O Criador de consultas mostrando os resultados da consulta modelada "Channel engagement and revenue for the last 30 days".]({% image_buster /assets/img_archive/query_builder.png %})
 
 {% alert important %}
 Cada relatório só pode gerar resultados uma vez por dia. Se você executar o mesmo relatório várias vezes em um único dia do calendário, verá os mesmos resultados em cada relatório.
@@ -114,7 +114,7 @@ Se o seu relatório continuar a apresentar tempo limite após várias tentativas
 
 ## Consultando motivos de cancelamento {#querying-abort-reasons}
 
-Você pode consultar a coluna `ABORT_TYPE` em qualquer tabela `USERS_MESSAGES_*_ABORT_SHARED` para analisar por que as mensagens não foram enviadas. O campo `ABORT_TYPE` contém um valor da string descrevendo o motivo específico do cancelamento, e o campo complementar `ABORT_LOG` contém informações adicionais (como a regra de limite de frequência que foi acionada).
+Você pode consultar a coluna `ABORT_TYPE` em qualquer tabela `USERS_MESSAGES_*_ABORT_SHARED` para analisar por que as mensagens não foram enviadas. O campo `ABORT_TYPE` contém um valor de string descrevendo o motivo específico do cancelamento, e o campo complementar `ABORT_LOG` contém informações adicionais (como a regra de limite de frequência que foi acionada).
 
 Por exemplo, para contar cancelamentos de e-mail por tipo nos últimos 30 dias:
 
@@ -134,7 +134,7 @@ Todas as consultas apresentam dados dos últimos 60 dias. Quando você exportar 
 
 ## Créditos do Snowflake {#snowflake-credits}
 
-Cada empresa tem 5 créditos Snowflake disponíveis por mês, compartilhados em todos os espaços de trabalho. Uma pequena parte de um crédito do Snowflake é usada sempre que você executa uma consulta ou visualiza a pré-visualização de uma tabela.
+Cada empresa tem 5 créditos do Snowflake disponíveis por mês, compartilhados em todos os espaços de trabalho. Uma pequena parte de um crédito do Snowflake é usada sempre que você executa uma consulta ou visualiza a pré-visualização de uma tabela.
 
 {% alert note %}
 Os créditos do Snowflake não são compartilhados entre os recursos. Por exemplo, os créditos nas extensões de segmento de SQL e no Criador de consultas são independentes um do outro.
@@ -144,6 +144,6 @@ O uso de crédito está correlacionado ao tempo de execução da sua consulta de
 
 Os créditos não são usados ao escrever, editar ou salvar relatórios no editor SQL da Braze. Seus créditos serão redefinidos para 5 no primeiro dia de cada mês, às 12h UTC. Você pode monitorar o uso mensal de créditos na parte superior da página do Criador de consultas.
 
-![O Criador de consultas mostra a quantidade de créditos usados no mês atual.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
+![O Criador de consultas mostrando a quantidade de créditos usados no mês atual.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
 
 Quando você atinge o limite de crédito, não pode executar consultas, mas pode criar, editar e salvar relatórios de SQL. Se quiser comprar mais créditos do Criador de consultas, entre em contato com o gerente da sua conta.

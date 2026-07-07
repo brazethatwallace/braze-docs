@@ -30,6 +30,10 @@ For a user to be listed as reachable through a certain channel, the user must ha
 
 A single user may belong to different reachable user groups. For example, a user might have both a valid email address and valid Android push token and be opted in to both, but have no associated iOS push token. The gap between the total reachable users and the sum of the different channels are the number of users who qualified for the segment but they are not reachable through those communication channels.
 
+{% alert note %}
+**Total reachable users** includes everyone who matches your segment filters, even if they are no longer subscribed to a channel. Channel rows such as **iOS** count users who are reachable only on that channel under the rules in [Reachable users by channel](#reachable-users-by-channel). To align segment totals with subscribed users, add filters like **Push enabled for iOS** is true (or the equivalent for your channel).
+{% endalert %}
+
 ## Statistics for segment size
 
 Estimated statistics are approximated by sampling only a portion of your segment, so you should expect to see estimated sizes that are larger or smaller than the actual value, with larger workspaces seeing potentially larger margins of error. To get an accurate count of users in your segment, select **Calculate Exact Statistics**. The exact segment membership will always be calculated before a segment is affected by a message sent in a campaign or Canvas. 
@@ -84,7 +88,7 @@ The following filters are applied for each channel when determining reachable us
 | Email | **Email Available** is true. |
 | Push | **Foreground Push Enabled** is true. |
 | SMS | **Subscription Group** is any SMS subscription group. **Invalid Phone Number** is false. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Applied filters for channel-specific reachable users" }
 
 ## Calculating exact statistics 
 
@@ -95,7 +99,7 @@ To update the stats for a calculation you've previously run, select **Refresh ex
 Note that a calculation's accuracy is only 99.999% or greater. So for large segments, you may notice slight variations&#8212;even when calculating exact statistics&#8212;which is normal behavior. In addition, exact statistics results are cached for 24 hours unless you make edits to your segment, in which case you can re-calculate the exact statistics.
 
 {% alert note %}
-Segments divided evenly by [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) won't be the same size. For example, if you create one segment with the filter **Random Bucket # less than 5000** and one segment with the filter **Random Bucket # at least 5000**, it is possible and expected for the segment sizes to vary by up to a few percentage points. This is because of situations such as inactive users getting deleted and users being unreachable.
+Segments divided evenly by [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) won't be the same size. For example, if you create one segment with the filter **Random Bucket # less than 5000** and one segment with the filter **Random Bucket # at least 5000**, it is possible and expected for the segment sizes to vary by up to a few percentage points. This is because of situations such as inactive users getting deleted and users being unreachable.
 {% endalert %}
 
 ![Screenshot of the Reachable users panel showing exact statistics and an expanded breakdown menu.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})
@@ -106,9 +110,8 @@ Braze prioritizes one calculation at a time per workspace, so running multiple c
 
 ![A calculation queue with one calculation.]({% image_buster /assets/img_archive/calculation_queue.png %})
 
-You can cancel an exact statistics calculation by selecting **Cancel**. This can be beneficial if there are multiple calculations in the queue and you want to prioritize another calculation first. 
+You can cancel an exact statistics calculation by selecting **Cancel**. This can be beneficial if there are multiple calculations in the queue and you want to prioritize another calculation first.
 
-![An active calculation with the option to cancel]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## Viewing historical segment membership size
 
@@ -138,4 +141,4 @@ The membership count may significantly change for a number of reasons, such as t
 | Users are deleted | A significant number of users were deleted. |
 | A partner integration synced with Braze | A third party sent data to Braze that significantly influenced segment membership. |
 | Dormant users are archived | A significant number of inactive profiles were archived. For example, a large number of CSV-imported users never log activity and get archived at the same time. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reasons for significant changes" }

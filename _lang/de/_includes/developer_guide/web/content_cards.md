@@ -8,7 +8,7 @@ Bevor Sie Content Cards verwenden können, müssen Sie [das Braze Web SDK]({{sit
 Einige Werbeblocker und Browser-Datenschutzerweiterungen können das Braze Web SDK-Skript oder zugehörige Netzwerkanfragen blockieren, was dazu führen kann, dass Content Cards nicht geladen werden. Wenn Sie die CDN-Integrationsmethode verwenden, sollten Sie einen Wechsel zur [NPM-Integrationsmethode]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web) in Betracht ziehen, die SDK-Bibliotheken lokal auf Ihrer Website speichert und einige Probleme im Zusammenhang mit Werbeblockern vermeiden kann.
 {% endalert %}
 
-## Standard-Feed-UI {#standard-feed-ui}
+## Standard-Feed-UI
 
 Um die integrierte Content-Cards-UI zu verwenden, müssen Sie angeben, wo der Feed auf Ihrer Website angezeigt werden soll.
 
@@ -47,11 +47,11 @@ In diesem Beispiel möchten wir den Content-Cards-Feed in `<div id="feed"></div>
 
 Wenn Sie die Methoden `toggleContentCards(parentNode, filterFunction)` und `showContentCards(parentNode, filterFunction)` verwenden und keine Argumente angeben, werden alle Content Cards in einer Seitenleiste mit fester Position auf der rechten Seite der Seite angezeigt. Andernfalls wird der Feed in der angegebenen Option `parentNode` platziert.
 
-|Parameter | Beschreibung |
+| Parameter | Beschreibung |
 |---|---|
-|`parentNode` | Der HTML-Knoten, in den die Content Cards gerendert werden sollen. Wenn der übergeordnete Knoten bereits eine Braze Content-Cards-Ansicht als direktes untergeordnetes Element hat, werden die vorhandenen Content Cards ersetzt. Sie sollten zum Beispiel `document.querySelector(".my-container")` übergeben.|
-|`filterFunction` | Eine Filter- oder Sortierfunktion für Karten, die in dieser Ansicht angezeigt werden. Wird mit dem Array von `Card`-Objekten aufgerufen, sortiert nach `{pinned, date}`. Erwartet die Rückgabe eines Arrays von sortierten `Card`-Objekten, die für diese:n Nutzer:in dargestellt werden sollen. Wenn Sie diese Option auslassen, werden alle Karten angezeigt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `parentNode` | Der HTML-Knoten, in den die Content Cards gerendert werden sollen. Wenn der übergeordnete Knoten bereits eine Braze Content-Cards-Ansicht als direktes untergeordnetes Element hat, werden die vorhandenen Content Cards ersetzt. Sie sollten zum Beispiel `document.querySelector(".my-container")` übergeben. |
+| `filterFunction` | Eine Filter- oder Sortierfunktion für Karten, die in dieser Ansicht angezeigt werden. Wird mit dem Array von `Card`-Objekten aufgerufen, sortiert nach `{pinned, date}`. Erwartet die Rückgabe eines Arrays von sortierten `Card`-Objekten, die für diese:n Nutzer:in dargestellt werden sollen. Wenn Sie diese Option auslassen, werden alle Karten angezeigt. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard feed UI" }
 
 In der [SDK-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) finden Sie weitere Informationen zum Umschalten von Content Cards.
 
@@ -78,22 +78,22 @@ Um Content-Card-Daten zu protokollieren, siehe [Analytics protokollieren]({{site
 
 Alle Content Cards haben diese gemeinsamen Eigenschaften:
 
-|Eigenschaft|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
-| `expiresAt` | Der Unix-Zeitstempel des Verfallszeitpunkts der Karte.|
-| `extras`| (Optional) Schlüssel-Wert-Paar-Daten, formatiert als String-Objekt mit einem Wert-String. |
+| `expiresAt` | Der Unix-Zeitstempel des Verfallszeitpunkts der Karte. |
+| `extras` | (Optional) Schlüssel-Wert-Paar-Daten, formatiert als String-Objekt mit einem Wert-String. |
 | `id` | (Optional) Die ID der Karte. Diese wird zu Analytics-Zwecken zusammen mit den Events an Braze zurückgemeldet. |
-| `pinned` | Diese Eigenschaft zeigt an, ob die Karte im Dashboard als „angeheftet“ eingerichtet wurde.|
+| `pinned` | Diese Eigenschaft zeigt an, ob die Karte im Dashboard als „angeheftet“ eingerichtet wurde. |
 | `updated` | Der Unix-Zeitstempel, wann diese Karte zuletzt geändert wurde. |
-| `viewed` | Diese Eigenschaft zeigt an, ob die:der Nutzer:in die Karte angesehen hat oder nicht.|
-| `isControl` | Diese Eigenschaft ist `true`, wenn eine Karte eine „Kontrollgruppe“ innerhalb eines A/B-Tests ist.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `viewed` | Diese Eigenschaft zeigt an, ob die:der Nutzer:in die Karte angesehen hat oder nicht. |
+| `isControl` | Diese Eigenschaft ist `true`, wenn eine Karte eine „Kontrollgruppe“ innerhalb eines A/B-Tests ist. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
 
 ### Nur Bild {#image-only}
 
 [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html)-Karten sind anklickbare Bilder in voller Größe.
 
-|Eigenschaft|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
 | `aspectRatio` | Das Seitenverhältnis des Kartenbildes, das als Hinweis dient, bevor das Laden des Bildes abgeschlossen ist. Beachten Sie, dass diese Eigenschaft unter bestimmten Umständen nicht übermittelt werden kann. |
 | `categories` | Diese Eigenschaft dient lediglich der Organisation in Ihrer angepassten Implementierung; diese Kategorien können im Dashboard Composer festgelegt werden. |
@@ -101,16 +101,16 @@ Alle Content Cards haben diese gemeinsamen Eigenschaften:
 | `created` | Der Unix-Zeitstempel der Erstellungszeit der Karte von Braze. |
 | `dismissed` | Diese Eigenschaft zeigt an, ob diese Karte geschlossen wurde. |
 | `dismissible` | Diese Eigenschaft gibt an, ob die:der Nutzer:in die Karte schließen und damit aus der Ansicht entfernen kann. |
-| `imageUrl` | Die URL des Bildes der Karte.|
+| `imageUrl` | Die URL des Bildes der Karte. |
 | `linkText` | Der Anzeigetext für die URL. |
 | `url` | Die URL, die geöffnet wird, nachdem auf die Karte geklickt wurde. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only" }
 
 ### Bildunterschrift {#captioned-image}
 
 [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html)-Karten sind anklickbare Bilder in voller Größe mit begleitendem beschreibendem Text.
 
-|Eigenschaft|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
 | `aspectRatio` | Das Seitenverhältnis des Kartenbildes, das als Hinweis dient, bevor das Laden des Bildes abgeschlossen ist. Beachten Sie, dass diese Eigenschaft unter bestimmten Umständen nicht übermittelt werden kann. |
 | `categories` | Diese Eigenschaft dient lediglich der Organisation in Ihrer angepassten Implementierung; diese Kategorien können im Dashboard Composer festgelegt werden. |
@@ -118,17 +118,17 @@ Alle Content Cards haben diese gemeinsamen Eigenschaften:
 | `created` | Der Unix-Zeitstempel der Erstellungszeit der Karte von Braze. |
 | `dismissed` | Diese Eigenschaft zeigt an, ob diese Karte geschlossen wurde. |
 | `dismissible` | Diese Eigenschaft gibt an, ob die:der Nutzer:in die Karte schließen und damit aus der Ansicht entfernen kann. |
-| `imageUrl` | Die URL des Bildes der Karte.|
+| `imageUrl` | Die URL des Bildes der Karte. |
 | `linkText` | Der Anzeigetext für die URL. |
 | `title` | Der Titeltext für diese Karte. |
 | `url` | Die URL, die geöffnet wird, nachdem auf die Karte geklickt wurde. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
 
 ### Klassisch {#classic}
 
 Das [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html)-Modell kann ein Bild ohne Text oder einen Text mit Bild enthalten.
 
-|Eigenschaft|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
 | `aspectRatio` | Das Seitenverhältnis des Kartenbildes, das als Hinweis dient, bevor das Laden des Bildes abgeschlossen ist. Beachten Sie, dass diese Eigenschaft unter bestimmten Umständen nicht übermittelt werden kann. |
 | `categories` | Diese Eigenschaft dient lediglich der Organisation in Ihrer angepassten Implementierung; diese Kategorien können im Dashboard Composer festgelegt werden. |
@@ -137,11 +137,11 @@ Das [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.clas
 | `description` | Der Fließtext für diese Karte. |
 | `dismissed` | Diese Eigenschaft zeigt an, ob diese Karte geschlossen wurde. |
 | `dismissible` | Diese Eigenschaft gibt an, ob die:der Nutzer:in die Karte schließen und damit aus der Ansicht entfernen kann. |
-| `imageUrl` | Die URL des Bildes der Karte.|
+| `imageUrl` | Die URL des Bildes der Karte. |
 | `linkText` | Der Anzeigetext für die URL. |
 | `title` | Der Titeltext für diese Karte. |
 | `url` | Die URL, die geöffnet wird, nachdem auf die Karte geklickt wurde. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
 
 ## Kontrollgruppe {#control-group}
 
@@ -157,31 +157,31 @@ Um festzustellen, ob sich eine Content Card in der Kontrollgruppe für einen A/B
 
 Verwenden Sie diese Methoden, wenn Sie Content Cards mit der standardmäßigen Braze-Feed-UI anzeigen:
 
-|Methode | Beschreibung |
+| Methode | Beschreibung |
 |---|---|
-|[`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards)| Zeigt den standardmäßigen Content-Cards-Feed an. Rendert Karten in ein bereitgestelltes `parentNode`-HTML-Element oder als Seitenleiste mit fester Position auf der rechten Seite der Seite, wenn kein Element angegeben wird. Akzeptiert eine optionale `filterFunction`, um Karten vor der Anzeige zu sortieren oder zu filtern. |
-|[`hideContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#hidecontentcards)| Blendet den standardmäßigen Content-Cards-Feed aus, wenn er gerade angezeigt wird. |
-|[`toggleContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards)| Zeigt den standardmäßigen Content-Cards-Feed an, wenn er ausgeblendet ist, oder blendet ihn aus, wenn er sichtbar ist. Wenn Sie mehrere Content-Card-Feeds gleichzeitig anzeigen müssen, verwenden Sie stattdessen `showContentCards` und `hideContentCards`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards) | Zeigt den standardmäßigen Content-Cards-Feed an. Rendert Karten in ein bereitgestelltes `parentNode`-HTML-Element oder als Seitenleiste mit fester Position auf der rechten Seite der Seite, wenn kein Element angegeben wird. Akzeptiert eine optionale `filterFunction`, um Karten vor der Anzeige zu sortieren oder zu filtern. |
+| [`hideContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#hidecontentcards) | Blendet den standardmäßigen Content-Cards-Feed aus, wenn er gerade angezeigt wird. |
+| [`toggleContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) | Zeigt den standardmäßigen Content-Cards-Feed an, wenn er ausgeblendet ist, oder blendet ihn aus, wenn er sichtbar ist. Wenn Sie mehrere Content-Card-Feeds gleichzeitig anzeigen müssen, verwenden Sie stattdessen `showContentCards` und `hideContentCards`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Default feed methods" }
 
 ### Methoden für angepasste Feeds {#custom-feed-methods}
 
 Verwenden Sie diese Methoden, wenn Sie Ihre eigene Content-Card-UI erstellen:
 
-|Methode | Beschreibung |
+| Methode | Beschreibung |
 |---|---|
-|[`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates)| Registriert eine Callback-Funktion, die aufgerufen wird, wenn Content Cards für die:den aktuelle:n Nutzer:in aktualisiert werden, z. B. beim Sitzungsstart. Verwenden Sie dies als primäre Methode, um Kartendaten für Ihren angepassten Feed zu erhalten. Muss vor `openSession()` aufgerufen werden, um Updates bei der ersten Sitzung zu erhalten. |
-|[`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards)| Gibt alle aktuell verfügbaren Karten von der letzten Content-Cards-Aktualisierung zurück. Verwenden Sie dies, um Karten beim Seitenaufruf sofort anzuzeigen, ohne auf eine neue Serveranfrage zu warten, z. B. wenn die:der Nutzer:in während einer aktiven Sitzung zu einer Seite zurückkehrt. |
-|[`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh)| Fordert eine sofortige Aktualisierung der Content Cards von den Braze-Servern an. Standardmäßig werden Karten beim Sitzungsstart und beim erneuten Öffnen des Standard-Feeds aktualisiert. Verwenden Sie dies, um eine Aktualisierung zu anderen Zeitpunkten zu erzwingen, z. B. nach einer bestimmten Nutzeraktion. Beachten Sie die [Rate-Limits]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit). |
-|[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| Protokolliert Impression-Events für ein Array von Karten. Rufen Sie dies auf, wenn Karten gerendert und für die:den Nutzer:in sichtbar sind. Erforderlich für genaues Kampagnen-Reporting bei Verwendung einer angepassten UI, da Impressionen außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
-|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| Protokolliert ein Klick-Event für eine einzelne Karte. Rufen Sie dies auf, wenn eine:ein Nutzer:in mit einer Karte in Ihrer angepassten UI interagiert. Erforderlich für genaues Kampagnen-Reporting, da Klicks außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
-|[`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)| Verarbeitet die URL einer Karte und führt die konfigurierte Klick-Aktion aus, einschließlich Braze-Aktionen (`brazeActions://`-URLs) und Standard-URL-Navigation. Rufen Sie dies in Ihrem Karten-Klick-Handler auf, um sicherzustellen, dass im Braze-Dashboard konfigurierte Klick-Verhaltensweisen ausgeführt werden. |
-|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| Schließt eine Karte programmatisch und entfernt sie aus dem Feed der:des Nutzer:in. Verwenden Sie dies, um Nutzer:innen das Schließen von Karten in Ihrer angepassten UI zu ermöglichen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates) | Registriert eine Callback-Funktion, die aufgerufen wird, wenn Content Cards für die:den aktuelle:n Nutzer:in aktualisiert werden, z. B. beim Sitzungsstart. Verwenden Sie dies als primäre Methode, um Kartendaten für Ihren angepassten Feed zu erhalten. Muss vor `openSession()` aufgerufen werden, um Updates bei der ersten Sitzung zu erhalten. |
+| [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) | Gibt alle aktuell verfügbaren Karten von der letzten Content-Cards-Aktualisierung zurück. Verwenden Sie dies, um Karten beim Seitenaufruf sofort anzuzeigen, ohne auf eine neue Serveranfrage zu warten, z. B. wenn die:der Nutzer:in während einer aktiven Sitzung zu einer Seite zurückkehrt. |
+| [`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) | Fordert eine sofortige Aktualisierung der Content Cards von den Braze-Servern an. Standardmäßig werden Karten beim Sitzungsstart und beim erneuten Öffnen des Standard-Feeds aktualisiert. Verwenden Sie dies, um eine Aktualisierung zu anderen Zeitpunkten zu erzwingen, z. B. nach einer bestimmten Nutzeraktion. Beachten Sie die [Rate-Limits]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit). |
+| [`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions) | Protokolliert Impression-Events für ein Array von Karten. Rufen Sie dies auf, wenn Karten gerendert und für die:den Nutzer:in sichtbar sind. Erforderlich für genaues Kampagnen-Reporting bei Verwendung einer angepassten UI, da Impressionen außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
+| [`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick) | Protokolliert ein Klick-Event für eine einzelne Karte. Rufen Sie dies auf, wenn eine:ein Nutzer:in mit einer Karte in Ihrer angepassten UI interagiert. Erforderlich für genaues Kampagnen-Reporting, da Klicks außerhalb des Standard-Feeds nicht automatisch getrackt werden. |
+| [`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction) | Verarbeitet die URL einer Karte und führt die konfigurierte Klick-Aktion aus, einschließlich Braze-Aktionen (`brazeActions://`-URLs) und Standard-URL-Navigation. Rufen Sie dies in Ihrem Karten-Klick-Handler auf, um sicherzustellen, dass im Braze-Dashboard konfigurierte Klick-Verhaltensweisen ausgeführt werden. |
+| [`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard) | Schließt eine Karte programmatisch und entfernt sie aus dem Feed der:des Nutzer:in. Verwenden Sie dies, um Nutzer:innen das Schließen von Karten in Ihrer angepassten UI zu ermöglichen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom feed methods" }
 
 Weitere Einzelheiten finden Sie in der [SDK-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
-## Best Practices {#best-practices}
+## Best Practices
 
 ### Methoden in der richtigen Reihenfolge aufrufen {#call-methods-in-the-correct-order}
 
@@ -285,7 +285,7 @@ Google Tag Manager funktioniert, indem das [Braze CDN]({{site.baseurl}}/develope
 ### Content Cards einrichten {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab google tag manager %}
+{% tab Google Tag Manager %}
 Für eine Standardintegration des Content-Card-Feeds können Sie ein **Custom HTML**-Tag im Google Tag Manager verwenden. Fügen Sie Ihrem Custom-HTML-Tag Folgendes hinzu, um den standardmäßigen Content-Card-Feed zu aktivieren:
 
 ```html
@@ -297,15 +297,15 @@ Für eine Standardintegration des Content-Card-Feeds können Sie ein **Custom HT
 ![Tag-Konfiguration im Google Tag Manager eines Custom-HTML-Tags, das den Content-Card-Feed anzeigt.]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
 {% endtab %}
 
-{% tab manual %}
+{% tab Manuell %}
 Um das Erscheinungsbild von Content Cards und ihres Feeds stärker anpassen zu können, können Sie Content Cards direkt in Ihre native Website integrieren. Hierfür gibt es zwei Möglichkeiten: Sie können die Standard-Feed-UI verwenden oder eine angepasste Feed-UI erstellen.
 
 {% subtabs local %}
-{% subtab standard feed %}
+{% subtab Standard-Feed %}
 Bei der Implementierung der [Standard-Feed-UI]({{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration/#standard-feed-ui) müssen die Methoden von Braze mit `window.` beginnen. `braze.showContentCards` sollte dann beispielsweise `window.braze.showContentCards` lauten.
 {% endsubtab %}
 
-{% subtab custom feed %}
+{% subtab Angepasster Feed %}
 Für den Stil des [angepassten Feeds]({{site.baseurl}}/developer_guide/content_cards/creating_cards/) sind die gleichen Schritte durchzuführen wie bei der Integration des SDK ohne GTM. Wenn Sie zum Beispiel die Breite des Content-Card-Feeds anpassen möchten, können Sie Folgendes in Ihre CSS-Datei einfügen:
 
 {% raw %}

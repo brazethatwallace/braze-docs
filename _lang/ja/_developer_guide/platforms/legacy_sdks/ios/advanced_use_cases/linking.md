@@ -12,7 +12,7 @@ noindex: true
 
 # iOS のディープリンク {#deep-linking-for-ios}
 
-ディープリンクの基本情報については、[ユーザーガイドの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。Braze アプリにディープリンクを初めて実装する場合は、以下の手順で開始できます。
+ディープリンクの基本情報については、[ユーザーガイドの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)を参照してください。Braze アプリにディープリンクを初めて実装する場合は、以下の手順で開始できます。
 
 ## ステップ 1:スキームを登録する {#step-1-register-a-scheme}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Brazeダッシュボードでのディープリンク設定の例。]({% image_buster /assets/img_archive/deep_link.png %})
 
 # ユニバーサルリンク {#universal-links}
 
@@ -135,13 +135,13 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
 詳細については、[Apple](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) を参照してください。
 
 {% alert note %}
-デフォルトのユニバーサルリンク統合は、Braze プッシュ通知やアプリ内メッセージとは互換性がありません。アプリケーション内のユニバーサルリンクを処理するには、[リンクのカスタマイズ](#linking-handling-customization)を参照してください。または、プッシュ通知やアプリ内メッセージでは[スキームベースのディープリンク](#step-1-registering-a-scheme)を使用することをお勧めします。
+デフォルトのユニバーサルリンク統合は、Brazeプッシュ通知やアプリ内メッセージとは互換性がありません。アプリケーション内のユニバーサルリンクを処理するには、[リンクのカスタマイズ](#linking-handling-customization)を参照してください。または、プッシュ通知やアプリ内メッセージでは[スキームベースのディープリンク](#step-1-registering-a-scheme)を使用することをお勧めします。
 {% endalert%}
 
 ## アプリトランスポートセキュリティ (ATS) {#app-transport-security-ats}
 iOS 9 では、アプリ内メッセージやプッシュ通知に埋め込まれた Web URL に影響を与える破壊的変更が導入されました。
 
-### ATS の要件 {#ats-requirements}
+### ATSの要件 {#ats-requirements}
 [Apple のドキュメント](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14)から:「アプリトランスポートセキュリティは、アプリと Web サービス間の接続のセキュリティを向上させる機能です。この機能は、安全な接続のベストプラクティスに準拠したデフォルトの接続要件で構成されています。アプリでこのデフォルトの動作をオーバーライドして、トランスポートセキュリティを無効にできます。」
 
 ATS は iOS 9 以降にデフォルトで適用されます。すべての接続が HTTPS を使用し、前方秘匿性を備えた TLS 1.2 で暗号化される必要があります。詳細については、[ATS を使用して接続するための要件](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)を参照してください。Brazeによりエンドデバイスに提供されるすべての画像は、TLS 1.2 をサポートし、ATS と互換性のあるコンテンツ配信ネットワーク (「CDN」) によって処理されます。
@@ -164,7 +164,7 @@ ATS コンプライアンスは、モバイルアプリ内で開かれたリン�
 ATS は、次の 3 つの方法のいずれかで処理できます。
 
 #### すべてのリンクが ATS に準拠していることを確認する (推奨) {#confirm-all-links-are-ats-compliant-recommended}
-(アプリ内メッセージやプッシュCampaignsから) ユーザーを誘導する既存のリンクが ATS の要件を満たすようにすることで、Braze 統合が ATS 要件を満たすことができます。ATS の制限を回避する方法はありますが、リンクされたすべての URL が ATS に準拠するようにすることをお勧めします。Apple がアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATS の例外を許可する以下のアプローチが Apple によってサポートされる保証はありません。
+(アプリ内メッセージやプッシュキャンペーンから) ユーザーを誘導する既存のリンクが ATS の要件を満たすようにすることで、Braze 統合が ATS 要件を満たすことができます。ATS の制限を回避する方法はありますが、リンクされたすべての URL が ATS に準拠するようにすることをお勧めします。Apple がアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATS の例外を許可する以下のアプローチが Apple によってサポートされる保証はありません。
 
 SSL ツールにより、Web サーバーのセキュリティの問題を正確に特定できます。この Qualys, Inc. の [SSL サーバーテスト](https://www.ssllabs.com/ssltest/index.html)は、Apple ATS 9 および iOS 9 への準拠に特化した項目を提供します。
 

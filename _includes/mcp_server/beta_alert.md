@@ -1,3 +1,3 @@
 {% alert important %}
-Braze MCP Server is in beta. If you want to help us make it better, send us feedback at [mcp-product@braze.com](mailto:mcp-product@braze.com).
+The locally hosted Braze MCP server (beta) is sunsetting this summer. It will continue to work, but we're no longer adding endpoints or supporting the beta. A remote, Braze-hosted MCP server is coming to Early Access this summer.
 {% endalert %}

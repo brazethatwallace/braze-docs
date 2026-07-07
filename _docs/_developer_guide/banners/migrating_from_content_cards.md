@@ -64,7 +64,11 @@ Continue using Content Cards if you need:
 
 Before migrating, ensure your Braze SDK meets the minimum version requirements:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
+
+Dismissals and re-eligibility require the following minimum SDK versions:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Subscribe to updates
 
@@ -782,9 +786,10 @@ Banners only support scheduled delivery campaigns. To migrate a message that was
 | **Display & Targeting** |
 | Feed UI | ✅ Default feed available | ❌ Placement-based only |
 | Context-specific placement | ❌ Feed-based | ✅ Native placement support |
-| Native prioritization | ❌ Requires custom logic | ✅ Built-in prioritization |
+| Prioritization | ❌ Requires custom logic | ✅ Native prioritization |
 | **User Interaction** |
-| Manual dismissal | ✅ Supported | ❌ Not supported |
+| Manual dismissal | ✅ Supported | ✅ Supported |
+| Re-eligibility after dismissal | ❌ Requires custom filters or campaign logic | ✅ Default waiting period |
 | Pinned cards | ✅ Supported | N/A |
 | **Analytics** |
 | Automatic analytics (default UI) | ✅ Supported | ✅ Supported |
@@ -792,7 +797,7 @@ Banners only support scheduled delivery campaigns. To migrate a message that was
 | **Content Updates** |
 | Liquid templating refresh | ❌ Once per card at send/launch | ✅ Refreshes on every refresh |
 | Eligibility refresh | ❌ Once per card at send/launch | ✅ Refreshes on every session |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Feature differences" }
 
 ### Product limitations
 

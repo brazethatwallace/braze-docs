@@ -9,43 +9,43 @@ search_tag: Partner
 
 # Kickbox
 
-> [Kickbox](https://kickbox.com/) é uma plataforma de verificação de e-mail tudo-em-um, repleta de recursos, integrações e segurança que você precisa para manter seus dados de e-mail limpos e entregáveis. A integração da Kickbox melhora a entregabilidade de suas campanhas Braze usando a verificação de e-mail da Kickbox para identificar endereços de e-mail indesejados e de baixa qualidade antes de você enviar.
+> [Kickbox](https://kickbox.com/) é uma plataforma de verificação de e-mail tudo-em-um, repleta de recursos, integrações e segurança que você precisa para manter seus dados de e-mail limpos e entregáveis. A integração da Kickbox melhora a entregabilidade das suas Campaigns na Braze usando a verificação de e-mail da Kickbox para identificar endereços de e-mail não entregáveis e de baixa qualidade antes de você enviar.
 
-A Kickbox permite que você valide a qualidade dos endereços de e-mail de seus usuários no momento em que um perfil de usuário é atualizado na Braze. Isso é alcançado por meio de um Canvas ou fluxo de trabalho de campanha dedicado, que é acionado pela população do campo `email` de um perfil.
+A Kickbox permite que você valide a qualidade dos endereços de e-mail dos seus usuários no momento em que um perfil de usuário é atualizado na Braze. Isso é alcançado por meio de um Canvas ou fluxo de trabalho de Campaign dedicado, que é acionado pelo preenchimento do campo `email` de um perfil.
 
-O Canvas ou campanha enviará um webhook para a Kickbox, compartilhando o endereço de e-mail do usuário. A Kickbox validará o endereço de e-mail e usará o endpoint da API REST da Braze para atualizar o perfil do usuário com um atributo personalizado detalhando sua qualidade.
+O Canvas ou Campaign enviará um webhook para a Kickbox, compartilhando o endereço de e-mail do usuário. A Kickbox validará o endereço de e-mail e usará o endpoint da REST API da Braze para atualizar o perfil do usuário com um atributo personalizado detalhando sua qualidade.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-| Requisito                           | Descrição                                                                   |
+| Requisito | Descrição |
 | --------------------------------------|-------------------------------------------------------------------------------|
-| Conta da Kickbox                       | Uma conta ativa da Kickbox é necessária para usar esta integração.                |
-| Chave da API REST da Braze   | Uma chave da API REST da Braze com permissões `users.track`. <br><br>Isso pode ser criado no painel da Braze indo para **Configurações** > **APIs e Identificadores** > **Chaves da API**|
-| Solicitar acesso à integração.     | Peça à equipe de suporte da Kickbox para conceder acesso à integração da Braze.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Conta da Kickbox | Uma conta ativa da Kickbox é necessária para usar esta integração. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br>Isso pode ser criado no dashboard da Braze acessando **Configurações** > **APIs e identificadores** > **Chaves de API** |
+| Solicitar acesso à integração. | Peça à equipe de suporte da Kickbox para conceder acesso à integração da Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
-Para integrar com a Kickbox, siga os passos em [Integrando com a Braze](https://docs.kickbox.com/docs/integrating-with-braze#/).
+Para integrar com a Kickbox, siga as etapas em [Integrando com a Braze](https://docs.kickbox.com/docs/integrating-with-braze#/).
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
-### Verificação em massa
+### Verificação em massa {#bulk-verification}
 
-Você também pode optar por verificar toda a sua lista a cada poucos meses ou trimestralmente, para se proteger de e-mails que churn ou listas que se degradam ao longo do tempo e lentamente diminuem sua entregabilidade.
+Você também pode optar por verificar toda a sua lista a cada poucos meses ou trimestralmente, para se proteger de e-mails que sofrem churn ou listas que se degradam ao longo do tempo e lentamente diminuem sua entregabilidade.
 
-Para fazer isso, você precisará alterar as configurações de **Configurações de Entrada** do fluxo de trabalho, conforme descrito pela Kickbox. Em vez de selecionar **Entrega Baseada em Ação**, selecione **Agendado**. Então escolha um horário agendado para que sua lista seja verificada de uma só vez.
+Para fazer isso, você precisará alterar as **Configurações de entrada** do fluxo de trabalho, conforme descrito pela Kickbox. Em vez de selecionar **Entrega baseada em ação**, selecione **Agendado**. Então escolha um horário agendado para que sua lista seja verificada de uma só vez.
 
-### Crie segmentos verificados
+### Criar Segments verificados {#create-verified-segments}
 
-Os atributos personalizados do Kickbox têm um esquema consistente, correspondendo aos seguintes exemplos.
+Os atributos personalizados da Kickbox têm um esquema consistente, correspondendo aos seguintes exemplos.
 
 {% raw %}
 ```json
    {
   "attributes": [
     {
-      "email": "example1@kickbox.com",
+      "email": "example1@example.com",
       "_update_existing_only": true,
       "success": true,
       "code": null,
@@ -59,10 +59,10 @@ Os atributos personalizados do Kickbox têm um esquema consistente, corresponden
       "did_you_mean": null,
       "sendex": 1,
       "user": "example1",
-      "domain": "kickbox.com"
+      "domain": "example.com"
     },
     {
-      "email": "example2@gamil.com",
+      "email": "example2@exampl.com",
       "_update_existing_only": true,
       "success": true,
       "code": "44312",
@@ -73,21 +73,21 @@ Os atributos personalizados do Kickbox têm um esquema consistente, corresponden
       "free": false,
       "disposable": false,
       "accept_all": false,
-      "did_you_mean": "example2@gmail.com",
+      "did_you_mean": "example2@example.com",
       "sendex": 0.23,
       "user": "example2",
-      "domain": "gamil.com"
+      "domain": "exampl.com"
     }
   ]
 }
 ```
 {% endraw %}
 
-Isso significa que você pode criar segmentos de público de usuários com endereços de e-mail verificados, para que suas campanhas e canvases tenham uma taxa de sucesso de entrega mais alta, protegendo sua reputação com os ESPs.
+Isso significa que você pode criar Segments de público com usuários que possuem endereços de e-mail verificados, para que suas Campaigns e Canvas tenham uma taxa de sucesso de entrega mais alta, protegendo sua reputação com os ESPs.
 
 Para fazer isso, siga estas etapas:
 
-1. No Braze, acesse **Audience** > **Segments** > **Create Segment**.
-2. Na seção **Filter Group**, adicione o filtro **Custom Attribute** e selecione "result" no menu suspenso. 
+1. Na Braze, acesse **Público** > **Segments** > **Criar segmento**.
+2. Na seção **Grupo de filtros**, adicione o filtro **Atributo personalizado** e selecione "result" no menu suspenso.
 
-Dependendo do seu caso de uso, pode ser apropriado criar um segmento onde o atributo personalizado do Kickbox "result" exista em um perfil de usuário, ou onde seu valor seja igual a "deliverable". Esse filtro pode ser usado sozinho para criar um segmento, ou pode ser parte de todos os segmentos futuros para validar todos os usuários dentro. 
+Dependendo do seu caso de uso, pode ser apropriado criar um Segment onde o atributo personalizado da Kickbox "result" exista em um perfil de usuário, ou onde seu valor seja igual a "deliverable". Esse filtro pode ser usado sozinho para criar um Segment, ou pode ser parte de todos os Segments futuros para validar todos os usuários dentro deles.

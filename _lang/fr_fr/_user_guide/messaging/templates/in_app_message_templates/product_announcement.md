@@ -2,7 +2,7 @@
 nav_title: Annonce de produit
 article_title: Annonce de produit
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "Cette page explique comment utiliser l'éditeur par glisser-déposer de messages in-app pour accroître la notoriété des lancements de nouveaux produits."
 ---
 
@@ -30,11 +30,11 @@ Pour commencer à créer votre annonce de produit, sélectionnez le composant bo
 
 ![L'éditeur de messages in-app avec un menu latéral pour personnaliser l'élément bouton.]({% image_buster /assets/img/drag_and_drop/templates/product_announcement_button.png %})
 
-Vous pouvez également ajouter des messages supplémentaires à votre annonce de produit dans la section **Pages**, puis les relier de manière séquentielle. Par exemple, vous pouvez assembler une séquence de messages qui décrivent brièvement les fonctionnalités du produit et se terminent par un bouton qui dirige les utilisateurs vers la page du produit. Découvrez comment faire dans [Relier les pages entre elles]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Vous pouvez également ajouter des messages supplémentaires à votre annonce de produit dans la section **Pages**, puis les relier de manière séquentielle. Par exemple, vous pouvez assembler une séquence de messages qui décrivent brièvement les fonctionnalités du produit et se terminent par un bouton qui dirige les utilisateurs vers la page du produit. Découvrez comment faire dans [Relier les pages entre elles]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Étape 4 : Styliser votre message {#step-4-style-your-message}
 
-Personnalisez l'apparence de votre annonce de produit à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) par glisser-déposer.
+Personnalisez l'apparence de votre annonce de produit à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) par glisser-déposer.
 
 ## Analyser les résultats {#analyzing-the-results}
 

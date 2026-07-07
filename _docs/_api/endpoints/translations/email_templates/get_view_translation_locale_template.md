@@ -15,13 +15,11 @@ description: "This article outlines details about the View specific translation 
 /templates/translations/email
 {% endapimethod %}
 
-> Use this endpoint to view a specific translation and locale for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Use this endpoint to view a specific translation and locale for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `templates.translations.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `templates.translations.get` permission.
 
 ## Rate limit
 
@@ -33,7 +31,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | Required | String    | The ID for your email template. |
 | `locale_id`   | Optional | String    | The ID (UUID) of the locale.           |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 All translation IDs are considered universal unique identifiers (UUIDs), which can be found in the GET endpoint's response.

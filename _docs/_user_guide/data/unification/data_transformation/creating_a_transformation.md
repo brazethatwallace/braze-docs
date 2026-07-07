@@ -14,9 +14,9 @@ description: "This reference article provides steps to create a transformation u
 
 | Requirement | Description |
 | --- | --- |
-| Two-factor authentication or SSO | You must have [two-factor authentication]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) or [single sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) enabled for your account. |
+| Two-factor authentication or SSO | You must have [two-factor authentication]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) or [single sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) enabled for your account. |
 | Correct permissions | You must be either an account admin or a workspace admin, or have "Manage Transformations" user permissions. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Step 1: Identify a source platform
 
@@ -24,11 +24,11 @@ Identify an external platform you want to connect to Braze and check that the pl
 
 The following is an example [Typeform webhook](https://www.typeform.com/help/a/webhooks-360029573471/), which is configurable by logging into their platform:
 
-![]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![An example Typeform webhook payload in the Typeform platform settings.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## Step 2: Create a transformation
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ## Step 3: Send a test webhook (recommended)
 
@@ -46,7 +46,7 @@ Here’s what it looks like for Typeform:
 ![Example Data Transformation code that maps the webhook to Braze user profiles.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Braze Data Transformation may not yet support external platforms that require special verification or authentication for webhooks. Consider leaving [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal/) if you're interested in using this type of platform with Braze Data Transformation.
+Braze Data Transformation may not yet support external platforms that require special verification or authentication for webhooks. Consider leaving [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal) if you're interested in using this type of platform with Braze Data Transformation.
 {% endalert %}
 
 ## Step 4: Write transformation code
@@ -56,9 +56,9 @@ If you have little to no experience with JavaScript code or prefer more detailed
 If you're a developer or have significant experience with JavaScript code, follow the **Advanced - POST: Track users** tab for high-level instructions on writing your transformation code.
 
 {% alert tip %}
-Braze Data Transformation has an AI copilot that asks ChatGPT to help you write your code. To access the AI copilot, select <i class="fa-solid fa-wand-magic-sparkles"></i> **Generate transformation code**. To use this, a webhook must be sent to your transformation. You can also access the template library by selecting **Insert code** > **Insert template**.
+To generate transformation code with AI, choose **Code with Operator** above the transformation code editor. To use this, a webhook must be sent to your transformation. To start from a pre-built template instead, choose **Insert Template**. For example prompts, see [Generate data transformation code]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
 
-![]({% image_buster /assets/img/data_transformation/data_transformation3.png %})
+**Code with Operator** is only available if Operator is enabled for your account. If you don't see it, contact your account manager.
 {% endalert %}
 
 {% tabs %}
@@ -144,7 +144,7 @@ let brazecall = {
   "catalog_name": "catalog_name",
   
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
-  // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
+  // Documentation for the destination endpoint: {{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
     {
       "id": payload.item_id_1,

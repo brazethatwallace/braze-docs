@@ -13,15 +13,19 @@ page_order: 4
 
 # Descadastramento fuzzy {#fuzzy-opt-out}
 
-> Usuários que enviam SMS, MMS e RCS com a Braze devem seguir as leis, regulamentações e padrões do setor aplicáveis. Para o descadastramento, as leis determinam que, quando um usuário envia "STOP", todas as mensagens subsequentes relacionadas àquele programa de envio de mensagens devem ser interrompidas. A Braze processa automaticamente essas mensagens e cancela a inscrição do usuário.<br><br>O descadastramento fuzzy tenta reconhecer quando uma mensagem recebida não corresponde a uma [palavra-chave de descadastramento]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/), mas indica intenção de descadastramento. Se o descadastramento fuzzy estiver ativado e uma resposta de palavra-chave recebida for considerada "fuzzy", você pode configurar a Braze para cancelar automaticamente a inscrição do usuário ou responder com uma mensagem que instrua como se descadastrar manualmente.
-
 ![Conversa de mensagens no iOS mostrando mensagens de descadastramento enviadas em resposta ao descadastramento fuzzy recebido "Please stopppp".]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Atualmente, apenas palavras-chave de descadastramento criadas usando inglês como [idioma local]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support) são suportadas.
+> Usuários que enviam SMS, MMS e RCS com a Braze devem seguir as leis, regulamentações e padrões do setor aplicáveis. Para o descadastramento, leis como o TCPA determinam que, quando um usuário envia qualquer mensagem que constitua uma revogação razoável de consentimento (incluindo palavras-chave de descadastramento reconhecidas como "STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END" ou "QUIT"), todas as mensagens subsequentes relacionadas àquele programa de envio de mensagens devem ser interrompidas. A Braze processa automaticamente as palavras-chave de descadastramento reconhecidas e cancela a inscrição do usuário.<br><br> O descadastramento fuzzy estende essa capacidade ao tentar reconhecer mensagens recebidas que não correspondem a nenhuma **palavra-chave de descadastramento** configurada para a categoria **Descadastramento** do grupo de inscrições (ou seja, qualquer [palavra-chave de descadastramento padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) ou [palavra-chave de descadastramento personalizada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)), mas que ainda indicam intenção de descadastramento — por exemplo, uma mensagem como "goodbye" ou "leave me alone".
+
+O descadastramento fuzzy está desativado por padrão. Se o descadastramento fuzzy estiver ativado e uma mensagem recebida for considerada "fuzzy", você pode configurar a Braze para cancelar automaticamente a inscrição do usuário ou enviar uma mensagem instruindo como se descadastrar manualmente. Para marcas dos EUA, cancelar automaticamente a inscrição do usuário é fortemente recomendado para estar em conformidade com os requisitos do TCPA.
+
+{% alert note %}
+Atualmente, apenas palavras-chave de descadastramento (padrão e personalizadas) criadas usando inglês como [idioma local]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support) são suportadas.
+{% endalert %}
 
 ## O que é considerado fuzzy? {#what-is-deemed-as-fuzzy}
 
-Os critérios para uma resposta recebida ser considerada "fuzzy" são os seguintes:
+Os critérios para uma resposta recebida ser considerada "fuzzy" são os seguintes (as comparações usam todas as palavras-chave na categoria **Descadastramento**, incluindo padrão e personalizadas):
 - Se trocar uma letra pela letra imediatamente à esquerda ou à direita dela em um teclado QWERTY resultar em uma palavra-chave de descadastramento correspondente.
 - Uma substring da mensagem corresponde a uma palavra-chave de descadastramento.
 
@@ -31,7 +35,7 @@ Por exemplo, "Stpo" ou "Please stopppp" serão considerados fuzzy, e uma respost
 
 Para configurar o descadastramento fuzzy, navegue até a página de gerenciamento de palavras-chave do grupo de inscrições.
 
-1. Acesse **Audience** > **Subscription Group Management** e selecione um grupo de inscrições **SMS/MMS/RCS**.
+1. Acesse **Público** > **Gerenciamento de grupos de inscrições** e selecione um grupo de inscrições **SMS/MMS/RCS**.
 2. Em **Global Keywords**, encontre a categoria **Opt-out** e selecione o ícone de lápis.
 3. Alterne **Fuzzy Opt-Out** para **On**.
 4. Selecione sua opção preferida de **Fuzzy Opt-Out Logic**:

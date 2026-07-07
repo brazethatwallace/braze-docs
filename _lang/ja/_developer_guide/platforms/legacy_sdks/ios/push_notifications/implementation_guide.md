@@ -13,7 +13,7 @@ noindex: true
 
 <br>
 {% alert important %}
-基本的なプッシュ通知開発者統合ガイドをお探しですか？[こちら]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/)をご覧ください。
+基本的なプッシュ通知開発者統合ガイドをお探しですか？[iOS プッシュ通知の統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration)をご覧ください。
 {% endalert %}
 
 # プッシュ通知実装ガイド {#push-notification-implementation-guide}
@@ -28,11 +28,11 @@ noindex: true
 
 プッシュ通知は、次の3つの方法で展開できます。<br>- プッシュバナーを長押しする<br>- プッシュバナーを下にスワイプする<br>- バナーを左にスワイプし、「表示」を選択する
 
-これらのカスタムビューでは、顧客を引き付けるスマートな方法が提供され、インタラクティブな通知、ユーザーデータを含む通知、電話番号やメールなどの情報を取得できるプッシュメッセージなど、さまざまな種類のコンテンツを表示できます。この方法でプッシュを実装することに慣れていない方もいるかもしれませんが、Brazeでよく知られている機能の1つである [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) は、通知コンテンツアプリ拡張機能のカスタムビューがどのように表示されるかを示す良い例です。
+これらのカスタムビューでは、顧客を引き付けるスマートな方法が提供され、インタラクティブな通知、ユーザーデータを含む通知、電話番号やメールなどの情報を取得できるプッシュメッセージなど、さまざまな種類のコンテンツを表示できます。この方法でプッシュを実装することに慣れていない方もいるかもしれませんが、Brazeでよく知られている機能の1つである [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories) は、通知コンテンツアプリ拡張機能のカスタムビューがどのように表示されるかを示す良い例です。
 
-#### 要件 {#requirements}
-![]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
-- [プッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/)がアプリに正常に統合されていること
+### 要件 {#requirements}
+![Xcodeの「新しいターゲットのテンプレートを選択」画面で、Application Extension の下にある「Notification Content Extension」が選択されている。]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
+- [プッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration)がアプリに正常に統合されていること
 - iOS 10以上
 - コーディング言語に基づいて Xcode が生成する以下のファイル：
 
@@ -46,10 +46,10 @@ Objective-C<br>
 
 ### カスタムカテゴリの設定 {#custom-category-configuration}
 
-ダッシュボードでカスタムビューを設定するには、通知ボタンを切り替えてカスタムカテゴリを入力する必要があります。指定したあらかじめ登録されたカスタム iOS カテゴリは、通知コンテンツ拡張ターゲットの `.plist` の `UNNotificationExtensionCategory` と照合されます。ここで指定される値は、Braze ダッシュボードで設定されている値と一致する必要があります。
+ダッシュボードでカスタムビューを設定するには、通知ボタンを切り替えてカスタムカテゴリを入力する必要があります。指定したあらかじめ登録されたカスタム iOS カテゴリは、通知コンテンツ拡張ターゲットの `.plist` の `UNNotificationExtensionCategory` と照合されます。ここで指定される値は、Brazeダッシュボードで設定されている値と一致する必要があります。
 
 ![プッシュメッセージ作成画面の設定にある通知ボタンオプション。]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
-![]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
+![UNNotificationExtensionCategory が「your_custom_category」に設定され、UNNotificationExtensionDefaultContentHidden が 1 に設定され、UNNotificationExtensionInitialContentSizeRatio が 1 に設定された NSExtension を含む plist。]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
 
 {% alert tip %}
 コンテンツ拡張を使用したプッシュは必ずしも明らかではないため、プッシュ通知を展開するようにユーザーに促すための行動喚起を含めることをお勧めします。
@@ -57,7 +57,7 @@ Objective-C<br>
 
 ## ユースケースと実装のウォークスルー {#use-case-and-implementation-walkthrough}
 
-3つのプッシュ通知コンテンツアプリ拡張タイプが用意されています。各タイプには、概念のウォークスルー、潜在的なユースケース、および Braze ダッシュボードでプッシュ通知変数がどのように表示され、どのように使用されるかの考察があります。
+3つのプッシュ通知コンテンツアプリ拡張タイプが用意されています。各タイプには、概念のウォークスルー、潜在的なユースケース、およびBrazeダッシュボードでプッシュ通知変数がどのように表示され、どのように使用されるかの考察があります。
 - [インタラクティブなプッシュ通知](#interactive-push-notification)
 - [パーソナライズされたプッシュ通知](#personalized-push-notifications)
 - [情報キャプチャプッシュ通知](#information-capture-push-notification)
@@ -70,9 +70,9 @@ Objective-C<br>
 
 #### ダッシュボードの設定 {#dashboard-configuration}
 
-ダッシュボードでカスタムビューを設定するには、通知ボタン設定で表示する特定のカテゴリを入力します。次に、通知コンテンツ拡張の `.plist` で、カスタムカテゴリを `UNNotificationExtensionCategory` 属性に設定する必要があります。ここで指定される値は、Braze ダッシュボードで設定されている値と一致する必要があります。最後に、プッシュ通知でユーザーインタラクションを有効にするには、`UNNotificationExtensionInteractionEnabled` キーを true に設定します。
+ダッシュボードでカスタムビューを設定するには、通知ボタン設定で表示する特定のカテゴリを入力します。次に、通知コンテンツ拡張の `.plist` で、カスタムカテゴリを `UNNotificationExtensionCategory` 属性に設定する必要があります。ここで指定される値は、Brazeダッシュボードで設定されている値と一致する必要があります。最後に、プッシュ通知でユーザーインタラクションを有効にするには、`UNNotificationExtensionInteractionEnabled` キーを true に設定します。
 
-![]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
+![Brazeダッシュボードの通知ボタンセクションで、iOS 通知カテゴリフィールドが「match_game」に設定されている。]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
 
 ![プッシュメッセージ作成画面の設定にある通知ボタンオプション。]({% image_buster /assets/img/push_implementation_guide/push14.png %}){: style="max-width:50%;"}
 
@@ -87,7 +87,7 @@ Objective-C<br>
 
 プッシュ通知では、コンテンツ拡張の内部にユーザー固有の情報を表示できます。右の例では、ユーザーが特定のタスク（Brazeラーニングコース）を完了し、この通知を展開して進捗状況を確認するように求められた後のプッシュ通知を示しています。ここで提供される情報はユーザー固有であり、セッションが完了するか、API トリガーを利用して特定のユーザーアクションが実行されたときに呼び出すことができます。
 
-#### ダッシュボードの設定 {#dashboard-configuration}
+#### ダッシュボードの設定
 
 ダッシュボードでパーソナライズされたプッシュを設定するには、表示する特定のカテゴリを登録し、標準の Liquid を使用してキーと値のペア内で、メッセージに表示する適切なユーザー属性を設定する必要があります。これらのビューは、特定のユーザープロファイルの特定のユーザー属性に基づいてカスタマイズできます。
 
@@ -130,11 +130,11 @@ func didReceive(_ notification: UNNotification) {
 {% endtab %}
 {% endtabs %}
 
-#### その他のユースケース {#other-use-cases}
+#### その他のユースケース
 
 進捗ベースでユーザーにフォーカスしたプッシュコンテンツ拡張のアイデアは無限にあります。いくつかの例としては、異なるプラットフォーム間で進捗状況を共有するオプションの追加、アンロックされた成果の表現、パンチカード、またはオンボーディングチェックリストなどがあります。
 
-##### 分析をログに記録する準備はできましたか？ {#ready-to-log-analytics}
+##### 分析をログに記録する準備はできましたか？
 [以下のセクション](#logging-analytics)を参照して、データのフローがどうあるべきかを理解してください。
 
 ### 情報キャプチャプッシュ通知 {#information-capture-push-notification}
@@ -146,13 +146,12 @@ func didReceive(_ notification: UNNotification) {
 3. 情報が提供され、有効な場合は、登録ボタンが表示されます。
 3. 確認画面が表示され、プッシュが解除されます。
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ここで要求される情報は、SMS 番号のキャプチャなど広範なものである可能性があり、メール固有である必要はないことに注意してください。
 
-#### ダッシュボードの設定 {#dashboard-configuration}
+#### ダッシュボードの設定
 
-ダッシュボードで情報キャプチャ対応プッシュを設定するには、カスタムカテゴリを登録および設定し、必要なキーと値のペアを指定する必要があります。例にあるように、プッシュに画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/)を統合し、Campaignの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
+ダッシュボードで情報キャプチャ対応プッシュを設定するには、カスタムカテゴリを登録および設定し、必要なキーと値のペアを指定する必要があります。例にあるように、プッシュに画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications)を統合し、キャンペーンの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
 
 ![キーと値のペアが3セットあるプッシュメッセージ。1.「Braze_id」は Braze ID を取得するための Liquid 呼び出しとして設定。2.「cert_title」は「Braze Marketer Certification」として設定。3.「Cert_description」は「Certified Braze marketers drive...」として設定。]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 
@@ -195,18 +194,18 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
 2. `completion(.doNotDismiss)` - 通知は開いたままです
 3. `completion(.dismissAndForward)` - プッシュが解除され、ユーザーがアプリケーションに転送されます。
 
-#### その他のユースケース {#other-use-cases}
+#### その他のユースケース
 
 プッシュ通知を介してユーザー入力を要求することは、多くの企業が利用していない魅力的な機会です。これらのプッシュメッセージでは、名前、メール、または番号などの基本的な情報を要求できるだけでなく、ユーザープロファイルが未完了の場合は完了するようにユーザーに促したり、フィードバックを送信するように促すこともできます。
 
-##### 分析をログに記録する準備はできましたか？ {#ready-to-log-analytics}
+##### 分析をログに記録する準備はできましたか？
 [以下のセクション](#logging-analytics)を参照して、データのフローがどうあるべきかを理解してください。
 
 ## 分析のロギング {#logging-analytics}
 
 ### Braze APIを使用したロギング（推奨） {#logging-with-the-braze-api-recommended}
 
-分析のロギングは、顧客のサーバーが [`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)にアクセスすることで、リアルタイムでのみ実行できます。分析をログに記録するには、`braze_id` 値をキーと値のペアフィールド（次のスクリーンショットを参照）に送信し、更新するユーザープロファイルを識別します。
+分析のロギングは、顧客のサーバーが[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)にアクセスすることで、リアルタイムでのみ実行できます。分析をログに記録するには、`braze_id` 値をキーと値のペアフィールド（次のスクリーンショットを参照）に送信し、更新するユーザープロファイルを識別します。
 
 ![キーと値のペアが3セットあるプッシュメッセージ。1.「Braze_id」は Braze ID を取得するための Liquid 呼び出しとして設定。2.「cert_title」は「Braze Marketer Certification」として設定。3.「Cert_description」は「Certified Braze marketers drive...」として設定。]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -214,14 +213,14 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
 
 手動でログを記録するには、まず Xcode 内でアプリグループを設定してから、分析を作成、保存、および取得する必要があります。これには、お客様側でカスタム開発者の作業が必要になります。以下に示すコードスニペットは、これを解決するのに役立ちます。
 
-また、モバイルアプリケーションが後で起動されるまで、分析は Braze に送信されないことに注意してください。つまり、解除設定に応じて、プッシュ通知が解除されてモバイルアプリが起動し、分析が取得されるまでに不確定な期間が存在することがよくあります。この時間バッファーがすべてのユースケースに影響するとは限りませんが、ユーザーは影響を考慮し、必要に応じて、アプリケーションを開いてこの問題に対処するようにユーザージャーニーを調整する必要があります。
+また、モバイルアプリケーションが後で起動されるまで、分析はBrazeに送信されないことに注意してください。つまり、解除設定に応じて、プッシュ通知が解除されてモバイルアプリが起動し、分析が取得されるまでに不確定な期間が存在することがよくあります。この時間バッファーがすべてのユースケースに影響するとは限りませんが、ユーザーは影響を考慮し、必要に応じて、アプリケーションを開いてこの問題に対処するようにユーザージャーニーを調整する必要があります。
 
-![Braze で分析がどのように処理されるかを説明する図。1. 分析データが作成されます。2. 分析データが保存されます。3. プッシュ通知が解除されます。4. プッシュ通知が解除されてからモバイルアプリが起動するまでの不確定な期間。5. モバイルアプリが起動します。6. 分析データを受信します。7. 分析データが Braze に送信されます。]({% image_buster /assets/img/push_implementation_guide/push13.png %})
+![Brazeで分析がどのように処理されるかを説明する図。1. 分析データが作成されます。2. 分析データが保存されます。3. プッシュ通知が解除されます。4. プッシュ通知が解除されてからモバイルアプリが起動するまでの不確定な期間。5. モバイルアプリが起動します。6. 分析データを受信します。7. 分析データがBrazeに送信されます。]({% image_buster /assets/img/push_implementation_guide/push13.png %})
 
 #### ステップ1:Xcode 内でのアプリグループの設定 {#step-1-configure-app-groups-within-xcode}
 機能 `App Groups` を追加します。アプリにアプリグループがない場合は、メインアプリターゲットの機能に移動し、`App Groups` をオンにして、「+」をクリックします。アプリのバンドル ID を使用してアプリグループを作成します。たとえば、アプリのバンドル ID が `com.company.appname` の場合、アプリグループに `group.com.company.appname.xyz` という名前を付けることができます。メインアプリターゲットとコンテンツ拡張ターゲットの両方で `App Groups` がオンになっていることを確認します。
 
-![]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
+![Xcodeのアプリグループ設定ダイアログで、「group.」がプリフィルされたテキストフィールドが表示されている。]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
 
 #### ステップ2:コードスニペットの統合 {#step-2-integrate-code-snippets}
 以下のコードスニペットは、カスタムイベント、カスタム属性、およびユーザー属性を保存および送信する方法についての役立つ参考情報です。このガイドでは UserDefaults の観点から説明しますが、コード表現はヘルパーファイル `RemoteStorage` の形式になります。また、追加のヘルパーファイル `UserAttributes` と `EventName Dictionary` もあり、ユーザー属性の送信と保存に使用されます。ヘルパーファイルはすべて、このガイドの末尾にあります。
@@ -282,9 +281,9 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### カスタムイベントの Braze への送信 {#sending-custom-events-to-braze}
+##### カスタムイベントのBrazeへの送信 {#sending-custom-events-to-braze}
 
-SDKの初期化後は、通知コンテンツアプリの拡張機能から保存された分析をログに記録するのに最適なタイミングです。これは、保留中のイベントをループして、「Event Name」キーをチェックし、Braze で適切な値を設定し、次回この関数が必要になったときに備えてストレージをクリアすることで実行できます。
+SDKの初期化後は、通知コンテンツアプリの拡張機能から保存された分析をログに記録するのに最適なタイミングです。これは、保留中のイベントをループして、「Event Name」キーをチェックし、Brazeで適切な値を設定し、次回この関数が必要になったときに備えてストレージをクリアすることで実行できます。
 
 1. 保留中のイベントの配列をループします
 2. `pendingEvents` 辞書の各キーと値のペアをループします
@@ -423,9 +422,9 @@ func saveCustomAttribute() {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### カスタム属性の Braze への送信 {#sending-custom-attributes-to-braze}
+##### カスタム属性のBrazeへの送信 {#sending-custom-attributes-to-braze}
 
-SDKの初期化後は、通知コンテンツアプリの拡張機能から保存された分析をログに記録するのに最適なタイミングです。これは、保留中の属性をループし、Braze で適切なカスタム属性を設定し、次回この関数が必要になったときに備えてストレージをクリアすることで実行できます。
+SDKの初期化後は、通知コンテンツアプリの拡張機能から保存された分析をログに記録するのに最適なタイミングです。これは、保留中の属性をループし、Brazeで適切なカスタム属性を設定し、次回この関数が必要になったときに備えてストレージをクリアすることで実行できます。
 
 1. 保留中の属性の配列をループします
 2. `pendingAttributes` 辞書の各キーと値のペアをループします
@@ -546,9 +545,9 @@ func saveUserAttribute() {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### ユーザー属性の Braze への送信 {#sending-user-attributes-to-braze}
+##### ユーザー属性のBrazeへの送信 {#sending-user-attributes-to-braze}
 
-SDKの初期化後は、通知コンテンツアプリの拡張機能から保存された分析をログに記録するのに最適なタイミングです。これは、保留中の属性をループし、Braze で適切なカスタム属性を設定し、次回この関数が必要になったときに備えてストレージをクリアすることで実行できます。
+SDKの初期化後は、通知コンテンツアプリの拡張機能から保存された分析をログに記録するのに最適なタイミングです。これは、保留中の属性をループし、Brazeで適切なカスタム属性を設定し、次回この関数が必要になったときに備えてストレージをクリアすることで実行できます。
 
 1. `pendingAttributes` データの配列をループします
 2. 属性データからエンコードされた `UserAttribute` オブジェクトを初期化します

@@ -4,14 +4,14 @@ article_title: Datenaktivierung
 page_order: 2
 layout: dev_guide
 guide_top_header: "Datenaktivierung"
-guide_top_text: "Nachdem Sie Ihre Daten in Braze vereinheitlicht haben, ist es an der Zeit, sie zu nutzen. Dazu gehört, das Verhalten und die Präferenzen Ihrer Kund:innen in Realtime über [Nutzerprofile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) und [Segmente]({{site.baseurl}}/user_guide/audience/segments/) zu verstehen. Aktivieren Sie dann Ihre Daten, indem Sie gezielte Nachrichten erstellen, Erlebnisse personalisieren und Customer Journeys einrichten, die in Realtime auf das Verhalten Ihrer Kund:innen reagieren. <br><br>Die Datenaktivierung in Braze basiert auf Ihren angepassten Daten. Weitere Informationen finden Sie unter [Angepasste Daten]({{site.baseurl}}/user_guide/data/activation/)."
+guide_top_text: "Nachdem Sie Ihre Daten in Braze vereinheitlicht haben, ist es an der Zeit, sie zu nutzen. Dazu gehört, das Verhalten und die Präferenzen Ihrer Kund:innen in Realtime über [Nutzerprofile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) und [Segmente]({{site.baseurl}}/user_guide/audience/segments) zu verstehen. Aktivieren Sie dann Ihre Daten, indem Sie gezielte Nachrichten erstellen, Erlebnisse personalisieren und Customer Journeys einrichten, die in Realtime auf das Verhalten Ihrer Kund:innen reagieren. <br><br> Die Datenaktivierung in Braze basiert auf Ihren angepassten Daten. Weitere Informationen finden Sie unter [Angepasste Daten]({{site.baseurl}}/user_guide/data/activation)."
 page_type: landing
 description: "Aktivieren Sie Ihre Daten mit angepassten Attributen, Events und Katalogen. Verstehen Sie Datentypen, verwalten Sie angepasste Daten und erstellen Sie gezielte Nachrichten."
 
 guide_featured_title: "Angepasste Daten"
 guide_featured_list:
   - name: Angepasste Daten
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: Datentypen
     link: /docs/user_guide/data/activation/custom_data/data_types
@@ -34,7 +34,7 @@ guide_featured_list:
 
 guide_menu_title: "Weitere Artikel"
 guide_menu_list:
-  - name: Glossar der Metriken für Berichte
+  - name: Glossar der Berichtsmetriken
     link: /docs/user_guide/analytics/metrics_glossary
     image: /assets/img/braze_icons/book-closed.svg
   - name: Analytics

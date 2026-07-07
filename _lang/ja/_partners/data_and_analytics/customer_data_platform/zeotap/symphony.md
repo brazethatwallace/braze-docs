@@ -8,13 +8,13 @@ page_order: 2
 
 # Zeotap Symphony
 
-BrazeとZeotap Symphonyの統合により、リアルタイムのオーケストレーションを作成し、メールやプッシュ通知のCampaignsを実行できます。
+BrazeとZeotap Symphonyの統合により、リアルタイムのオーケストレーションを作成し、メールやプッシュ通知のキャンペーンを実行できます。
 
 - Zeotapを通じて姓と名を送信し、それに基づいてユーザーはBrazeからパーソナライズされたメールを送信できます。
-- Zeotapを通じてカスタムイベントまたは購入イベントをリアルタイムで送信し、それに基づいてユーザーはBraze内でCampaignトリガーを作成して顧客をターゲットにできます。
+- Zeotapを通じてカスタムイベントまたは購入イベントをリアルタイムで送信し、それに基づいてユーザーはBraze内でキャンペーントリガーを作成して顧客をターゲットにできます。
 
 {% alert note %}
-メールマーケティングCampaignsを作成するには、生のメールをZeotap Catalogueの`Email Raw`にマッピングしてZeotapに登録します。
+メールマーケティングキャンペーンを作成するには、生のメールをZeotap Catalogueの`Email Raw`にマッピングしてZeotapに登録します。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -24,7 +24,7 @@ BrazeとZeotap Symphonyの統合により、リアルタイムのオーケスト
 | クライアント名 | Brazeアカウントのクライアント名です。Brazeコンソールに移動して確認できます。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | インスタンス | Brazeインスタンスは、Brazeオンボーディングマネージャーから入手するか、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)で確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -38,7 +38,7 @@ BrazeとZeotap Symphonyの統合により、リアルタイムのオーケスト
 - `User traits`は、**Data To Send**タブの各Brazeフィールドにマッピングする必要があります。`Event`と`Purchase`の属性をマッピングすると、Braze内でイベントが重複します。
 - Braze SDKの設定時に構成した`User ID`に`External ID`をマッピングします。
 
-統合が正常に設定されると、Symphonyを通じてBrazeに送信されるカスタム属性に基づいて、メールやプッシュ通知のCampaignsを作成できます。
+統合が正常に設定されると、Symphonyを通じてBrazeに送信されるカスタム属性に基づいて、メールやプッシュ通知のキャンペーンを作成できます。
 
 ### 方法2 {#method-2}
 この方法では、Symphonyを介してBrazeとZeotapを統合できます。
@@ -46,7 +46,7 @@ BrazeとZeotap Symphonyの統合により、リアルタイムのオーケスト
 - この方法では、アプリ内メッセージ、Content Cards、プッシュ通知などのBraze UI機能はサポートされません。
 - Zeotapでは、Zeotap Catalogueで利用可能な`hashed email`を`External ID`にマッピングすることを推奨しています。
 
-統合が正常に設定されると、Symphonyを通じてBrazeに送信されたカスタム属性に基づいてのみ、メールCampaignsを作成できるようになります。
+統合が正常に設定されると、Symphonyを通じてBrazeに送信されたカスタム属性に基づいてのみ、メールキャンペーンを作成できるようになります。
 
 ## Brazeへのデータフローとサポートされる識別子 {#data-flow-to-braze-and-supported-identifiers}
 
@@ -109,7 +109,7 @@ Symphonyでユーザーにフィルターを適用した後、またはユーザ
 | 言語 | ドロップダウン選択 | • 使用可能なフォーマットは`ISO-639-1`標準（例：en）です。<br>• 正しい形式の言語を登録してそれにマッピングします。 |
 | 生年月日 | ドロップダウン選択 | 登録する`Date of Birth`フィールドにマッピングします。 |
 | カスタム属性 | カスタムデータ入力 | 任意のユーザー属性をカスタムデータ入力にマッピングし、それをBrazeに送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported attributes" }
 
 ## Brazeコンソールでデータを確認する {#viewing-data-on-braze-console}
 
@@ -123,6 +123,6 @@ Symphonyでユーザーにフィルターを適用した後、またはユーザ
 - **Custom Events**タブには、ユーザーが定義したカスタムイベントが表示されます。
 - **Purchases**タブには、ユーザーが一定期間内に行った購入が表示されます。
 
-## Campaignの作成 {#campaign-creation}
+## キャンペーンの作成 {#campaign-creation}
 
-ユーザーはBraze内でCampaignsを作成し、リアルタイムまたはスケジュールされた時間に基づいてユーザーをアクティブ化できます。Campaignsは、ユーザーが実行したアクション（カスタムイベント、購入）またはユーザー属性に基づいてトリガーできます。
+ユーザーはBraze内でキャンペーンを作成し、リアルタイムまたはスケジュールされた時間に基づいてユーザーをアクティブ化できます。キャンペーンは、ユーザーが実行したアクション（カスタムイベント、購入）またはユーザー属性に基づいてトリガーできます。

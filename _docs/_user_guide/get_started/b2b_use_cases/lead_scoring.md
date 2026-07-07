@@ -32,7 +32,7 @@ There are two key steps to creating a lead-scoring workflow in Braze:
 1. Proceed to the **Entry Schedule** step and select an **Action-Based** entry schedule. This will enter users into the Canvas when they perform specific actions.
 
 2. In **Action-Based Options**, add these two actions:
-    - **Change Custom Attribute Value** with the name of your lead scoring attribute (such as `lead score`). If you haven’t created a lead scoring attribute yet, follow the steps in [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/). This will enter users into the Canvas whenever their lead score changes.
+    - **Change Custom Attribute Value** with the name of your lead scoring attribute (such as `lead score`). If you haven’t created a lead scoring attribute yet, follow the steps in [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). This will enter users into the Canvas whenever their lead score changes.
     - **Add an Email Address**
 
 ![Step 2 of creating a Canvas with the entry schedule of “Action-Based” and action-based options of changing a custom attribute “lead score” and adding an email address.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
@@ -41,7 +41,7 @@ There are two key steps to creating a lead-scoring workflow in Braze:
 
 #### Step 3a: Select segments
 
-All users are eligible for lead scoring, so you can add company-specific rules about who to score by selecting which user [segments]({{site.baseurl}}/user_guide/audience/segments/) to target and applying additional [filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). For example, you can exclude employees, users who are already customers, and similar. 
+All users are eligible for lead scoring, so you can add company-specific rules about who to score by selecting which user [segments]({{site.baseurl}}/user_guide/audience/segments) to target and applying additional [filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). For example, you can exclude employees, users who are already customers, and similar. 
 
 ![Step 3 of creating a Canvas with options for selecting segments and filters to narrow down the entry audience.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
@@ -68,7 +68,7 @@ Under **Subscription Settings**, for **Send to these users:** select **all users
 
 #### Step 4a: Add an Action Path
 
-Under your variant, select the plus icon and then select **Action Paths**.
+Under your variant, select <i class="fas fa-plus"></i> **Add** and then select **Action Paths**.
 
 ![Canvas with “Action Paths” displaying in the menu opened by the plus icon.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -105,7 +105,7 @@ In each User Update step’s **Compose** tab, do the following for the respectiv
 | **Attribute Name** | Select the lead score attribute you selected in step 2 (`lead score`).|
 | **Action** | Change the action to **Increment By** if the path increases the score or **Decrement By** if the path decreases the score |
 | **Increment By** or **Decrement By** | Enter the number of points that will be increased or decreased from the lead score.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
 
 ### Step 5: Launch your Canvas
 
@@ -113,7 +113,7 @@ That’s it! Your lead scoring Canvas is ready to launch.
 
 ## External lead scoring
 
-Whether using one of our [technology partners]({{site.baseurl}}/partners/home/), your own internal lead scoring model, machine learning, or another lead scoring tool, we have multiple options for you.
+Whether using one of our [technology partners]({{site.baseurl}}/partners/home), your own internal lead scoring model, machine learning, or another lead scoring tool, we have multiple options for you.
 
 ### External partners
 
@@ -132,13 +132,13 @@ As your marketing tool, Braze contains extremely relevant data that could supple
 
 For example, messaging engagement data (such as email opens and clicks, landing page engagement, and others) can determine a lead’s engagement level. You can pass this data back to your cloud data warehouse and make it available as input for your lead scoring models by using Braze streaming export data solutions:
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab Braze as a destination %}
 
-After your internal teams have created and run your lead scoring model, you can pull that data back into Braze so you can better segment and target leads for relevant messaging. You can do this with [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/). 
+After your internal teams have created and run your lead scoring model, you can pull that data back into Braze so you can better segment and target leads for relevant messaging. You can do this with [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). 
 
 With Cloud Data Ingestion, your internal teams will create a new table or view with your user identifiers, the latest lead scores, and the timestamps when the scores were updated. Braze will pick up the table or view and add the lead scores to the user profiles.
 
@@ -184,7 +184,7 @@ To update the lead record in Salesforce with the lead status from Braze, we reco
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>To retrieve a token, [configure a connected app](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) for the OAuth 2.0 client credentials flow and then use Connected Content to retrieve the bearer from Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
 
 ![Webhook being composed with a Salesforce webhook URL, PATCH HTTP method, raw text request body, and request headers.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

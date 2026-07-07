@@ -6,11 +6,11 @@ description: "Este artigo de referência aborda como as tags podem e devem ser u
 
 ---
 
-# Lógica condicional de mensagens
+# Lógica condicional de mensagens {#conditional-messaging-logic}
 
 > As [tags](https://docs.shopify.com/themes/liquid-documentation/tags) permitem incluir lógica de programação nas suas campanhas de mensagens. As tags podem ser usadas para executar instruções condicionais, bem como para casos de uso avançados, como atribuir variáveis ou iterar por um bloco de código. <br><br>Esta página aborda como as tags podem e devem ser usadas, como lidar com valores de atributos nulos, nil e em branco, e como referenciar atributos personalizados.
 
-## Formatação de tags
+## Formatação de tags {#formatting-tags}
 
 {% raw %}
 Uma tag deve estar envolvida em `{% %}`.
@@ -40,7 +40,7 @@ Buy now! Would 5% off convince you?
 ```
 {% endraw %}
 
-## Lógica condicional
+## Lógica condicional {#conditional-logic}
 
 Você pode incluir muitos tipos de [lógica inteligente nas mensagens](http://docs.shopify.com/themes/liquid-documentation/basics), como uma instrução condicional. O exemplo a seguir usa [condicionais](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags) para internacionalizar uma campanha:
 {% raw %}
@@ -57,9 +57,9 @@ This is a message from Braze! This is going to go to anyone who did not match th
 {% endif %}
 ```
 
-### Tags condicionais
+### Tags condicionais {#conditional-tags}
 
-#### `if` e `elsif`
+#### `if` e `elsif` {#if-and-elsif}
 
 A lógica condicional começa com a tag `if`, que define a primeira condição a ser verificada. As condições subsequentes usam a tag `elsif` e serão verificadas se as condições anteriores não forem atendidas. Neste exemplo, se o dispositivo de um usuário não estiver configurado para inglês, o código verificará se o dispositivo está configurado para espanhol e, se isso falhar, verificará se está configurado para chinês. Se o dispositivo do usuário atender a uma dessas condições, o usuário receberá uma mensagem no idioma correspondente.
 
@@ -67,15 +67,35 @@ A lógica condicional começa com a tag `if`, que define a primeira condição a
 
 Você tem a opção de incluir uma instrução `{% else %}` na sua lógica condicional. Se nenhuma das condições definidas for atendida, a instrução `{% else %}` especifica a mensagem que deve ser enviada. Neste exemplo, o padrão é inglês se o idioma do usuário não for inglês, espanhol ou chinês.
 
+#### `case` e `when` {#case-and-when}
+
+`{% case %}`, `{% when %}` e `{% endcase %}` funcionam como uma instrução switch: você define uma expressão após `case`, e cada ramificação `when` é executada quando essa expressão é igual ao valor listado (o Liquid usa igualdade nos bastidores, semelhante a encadear `if` e `elsif` com `==`). Você pode listar vários valores em uma tag `when` separando-os com vírgula ou `or`. Use `{% else %}` como fallback quando nada corresponder e, em seguida, feche com `{% endcase %}`.
+
+Certifique-se de que o formato dos valores `when` corresponda ao tipo de dados. Para texto (como um código de idioma), use aspas: `{% when 'es' %}`. Para números, omita as aspas: `{% when 2 %}`.
+
+```liquid
+{% assign handle = 'cake' %}
+{% case handle %}
+{% when 'cake' %}
+This is a cake
+{% when 'cookie' %}
+This is a cookie
+{% else %}
+This is not a cake nor a cookie
+{% endcase %}
+```
+
+Você pode usar o mesmo padrão com tags de personalização da Braze ou outras expressões Liquid no lugar de `handle`. Para mais opções de sintaxe, consulte a [documentação da tag `case` da Shopify](https://shopify.dev/docs/api/liquid/tags/case).
+
 #### `endif`
 
-A tag `{% endif %}` sinaliza que você terminou sua lógica condicional. Você deve incluir a tag `{% endif %}` em qualquer mensagem com lógica condicional. Se você não incluir uma tag `{% endif %}` na sua lógica condicional, receberá um erro, pois a Braze não conseguirá processar sua mensagem.
+A tag `{% endif %}` sinaliza que você terminou um bloco `if`. Você deve incluir a tag `{% endif %}` em qualquer mensagem que use `if`, `elsif`, `unless` ou `else` nessa cadeia. Se você não incluir uma tag `{% endif %}`, receberá um erro, pois a Braze não conseguirá processar sua mensagem. Se você usar `{% case %}`, feche o bloco com `{% endcase %}`, não com `{% endif %}`.
 
 {% alert note %}
-As tags condicionais (`if`, `elsif`, `unless`) suportam operadores, mas não filtros. Para avaliar um valor filtrado em uma condicional, atribua o resultado do filtro a uma variável primeiro e depois referencie essa variável. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Nas tags `if`, `elsif` e `unless`, você pode usar operadores, mas não filtros. Nas tags `case` e `when`, cada ramificação corresponde quando a expressão `case` é igual a um valor `when`; filtros também não são suportados nessas expressões. Para avaliar um valor filtrado, atribua o resultado do filtro a uma variável primeiro e depois referencie essa variável na sua cláusula `case` ou `when`. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Tutorial: Entregar conteúdo baseado em localização
+### Tutorial: Entregar conteúdo baseado em localização {#tutorial-deliver-location-based-content}
 
 Ao concluir este tutorial, você será capaz de usar tags com instruções "if", "elsif" e "else" para entregar conteúdo com base na localização do usuário.
 
@@ -149,11 +169,11 @@ Ao concluir este tutorial, você será capaz de usar tags com instruções "if",
 
 {% enddetails %}
 
-## Lidando com valores de atributos nulos, nil e em branco
+## Lidando com valores de atributos nulos, nil e em branco {#accounting-for-null-nil-and-blank-attribute-values}
 
 A lógica condicional é uma forma útil de lidar com valores de atributos que não estão definidos nos perfis de usuário.
 
-### Valores de atributos nulos e nil
+### Valores de atributos nulos e nil {#null-and-nil-attribute-values}
 
 Um valor nulo ou nil ocorre quando o valor de um atributo personalizado não foi definido. Por exemplo, um usuário que ainda não definiu seu nome não terá um nome registrado na Braze.
 
@@ -184,7 +204,7 @@ Observe que um valor de atributo nulo não está estritamente associado a um tip
 
 {% endraw %}
 
-### Valores de atributos em branco
+### Valores de atributos em branco {#blank-attribute-values}
 
 Um valor em branco ocorre quando o atributo em um perfil de usuário não está definido, está definido com uma string de espaço em branco (` `) ou está definido como `false`. Valores em branco devem ser verificados antes de outras variáveis para evitar um erro de processamento Liquid.
 
@@ -198,7 +218,7 @@ A tag a seguir permite especificar uma mensagem para usuários que têm um atrib
 ```
 {% endraw %}
 
-## Referenciando atributos personalizados
+## Referenciando atributos personalizados {#referencing-custom-attributes}
 
 Depois de [criar atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes), você pode referenciar esses atributos personalizados nas suas mensagens Liquid.
 
@@ -210,7 +230,7 @@ Ao usar lógica condicional, você precisará saber o tipo de dados do atributo 
 Strings e arrays exigem apóstrofos retos ao redor deles, enquanto booleanos e inteiros nunca terão apóstrofos.
 {% endalert %}
 
-#### Booleano
+#### Booleano {#boolean}
 
 [Booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans) são valores binários e podem ser definidos como `true` ou `false`, como `registration_complete: true`. Valores booleanos não têm apóstrofos ao redor deles.
 
@@ -222,7 +242,7 @@ Strings e arrays exigem apóstrofos retos ao redor deles, enquanto booleanos e i
 
 {% endraw %}
 
-#### Número
+#### Número {#number}
 
 [Números]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers) são valores numéricos, que podem ser inteiros ou decimais. Por exemplo, um usuário pode ter `shoe_size: 10` ou `levels_completed: 287`. Valores numéricos não têm apóstrofos ao redor deles.
 
@@ -244,7 +264,7 @@ Você também pode usar outros [operadores básicos](https://shopify.dev/docs/th
 
 {% endraw %}
 
-#### String
+#### String {#string}
 
 Uma [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings) é composta por caracteres alfanuméricos e armazena um dado sobre o seu usuário. Por exemplo, você pode ter `favorite_color: red` ou `phone_number: 3025981329`. Valores de string devem ter apóstrofos ao redor deles.
 
@@ -258,7 +278,7 @@ Uma [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 Para strings, você pode usar tanto "==" quanto "contains" no seu Liquid.
 
-#### Array
+#### Array {#array}
 
 Um [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays) é uma lista de informações sobre o seu usuário. Por exemplo, um usuário pode ter `last_viewed_shows: stranger things, planet earth, westworld`. Valores de array devem ter apóstrofos ao redor deles.
 
@@ -272,7 +292,7 @@ Um [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attribu
 
 Para arrays, você deve usar "contains" e não pode usar "==".
 
-#### Hora
+#### Hora {#time}
 
 Um registro de data e hora de quando um evento ocorreu. Valores de [hora]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time) devem ter um [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters) aplicado para serem usados em lógica condicional.
 

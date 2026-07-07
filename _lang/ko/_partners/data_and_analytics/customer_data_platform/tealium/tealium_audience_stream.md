@@ -5,13 +5,13 @@ page_order: 2
 alias: /partners/tealium_audience_stream/
 description: "이 참조 문서에서는 모바일, 웹 및 대체 데이터를 다른 서드파티 소스에 연결할 수 있는 범용 데이터 허브인 Tealium과 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 
 ---
 
 # Tealium AudienceStream
 
-> Tealium [AudienceStream](https://docs.tealium.com/server-side/getting-started/audiencestream-cdp/introduction/)은 옴니채널 고객 세분화 및 실시간 액션 엔진입니다. AudienceStream은 EventStream으로 유입되는 데이터를 가져와 브랜드에 대한 고객 참여의 가장 중요한 속성을 나타내는 방문자 프로필을 생성합니다.
+> Tealium [AudienceStream](https://docs.tealium.com/server-side/getting-started/audiencestream-cdp/introduction/)은 옴니채널 고객 세분화 및 실시간 동작 엔진입니다. AudienceStream은 EventStream으로 유입되는 데이터를 가져와 브랜드에 대한 고객 참여의 가장 중요한 속성을 나타내는 방문자 프로필을 생성합니다.
 
 Braze와 Tealium 통합은 AudienceStream 방문자 프로필을 활용합니다. 공유된 행동은 이러한 프로필을 세분화하여 공통 특성을 가진 방문자 집합(오디언스)을 생성합니다. 이러한 오디언스는 커넥터를 통해 실시간으로 마케팅 기술 스택을 지원할 수 있습니다.
 
@@ -26,7 +26,7 @@ Tealium AudienceStream과 EventStream은 배치 및 비배치 커넥터 동작�
 | Tealium 계정 | 서버 측 액세스가 가능한 [Tealium 계정](https://my.tealiumiq.com/)이 필요합니다. 이 파트너십을 최대한 활용하려면 클라이언트 측 통합도 사용하는 것을 권장합니다. |
 | REST API 키 | `users.track`, `users.delete`, `subscription.status.set` 권한이 있는 Braze REST API 키.<br><br>**Braze 대시보드 > 개발자 콘솔 > REST API 키 > 새 API 키 생성**에서 생성할 수 있습니다. |
 | [Braze REST 엔드포인트]({{site.baseurl}}/api/basics/#endpoints) | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -159,7 +159,7 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 | 구매 | 이 필드를 사용하여 Braze [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)와 같은 사용자 구매 속성을 추적하고 매핑합니다.<br><br>- 구매 속성 `Product ID`, `Currency`, `Price`는 매핑된 모든 구매에 필수입니다.<br>- 구매 속성 `Time`은 명시적으로 매핑되지 않는 한 자동으로 현재 시간으로 설정됩니다.<br>- 기본적으로 존재하지 않는 경우 새 구매가 생성됩니다. `Update Existing Only`를 `true`로 설정하면 기존 구매만 업데이트되며 새 구매는 생성되지 않습니다.<br>- 배열 유형 속성을 매핑하여 여러 구매 항목을 추가합니다. 배열 유형 속성은 동일한 길이여야 합니다.<br>- 단일 값 속성을 사용할 수 있으며 각 항목에 적용됩니다. |
 | 구매 템플릿 | 템플릿을 사용하여 Braze로 보내기 전에 데이터를 변환할 수 있습니다.<br>- 중첩된 오브젝트 지원이 필요한 경우 구매 템플릿을 정의합니다.<br>- 구매 템플릿이 정의되면 동작의 구매 섹션에서 설정한 구성은 무시됩니다.<br>- 자세한 내용은 Tealium의 [템플릿 가이드](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/)를 참조하세요. |
 | 구매 템플릿 변수 | 제품 템플릿 변수를 데이터 입력으로 제공합니다. 자세한 내용은 Tealium의 [템플릿 변수 가이드](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
@@ -171,7 +171,7 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 | 매개변수 | 설명 |
 | ---------- | ----------- |
 | 사용자 ID | 이 필드를 사용하여 Tealium 사용자 ID 필드를 Braze에 해당하는 필드에 매핑합니다.<br><br>- 하나 이상의 사용자 ID 속성을 매핑합니다. 여러 ID가 지정된 경우 다음 우선순위에 따라 첫 번째 비어 있지 않은 값이 선택됩니다: 외부 ID, Braze ID, 별칭 이름, 별칭 라벨.<br>- 사용자 별칭을 지정하는 경우 별칭 이름과 별칭 라벨을 모두 설정해야 합니다.<br><br>자세한 내용은 Braze [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
@@ -184,7 +184,7 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 | 그룹 유형 | 이 필드를 사용하여 SMS 또는 이메일 구독 그룹인지 표시합니다. |
 | 업데이트 유형 | 이 동작을 구독 취소 또는 구독 이벤트에 매핑합니다. |
 | 속성 | - 구독 그룹 ID (필수): 앞의 필드에서 매핑된 그룹 유형과 관련된 구독 그룹의 ID입니다.<br>- 외부 ID: 사용자의 외부 ID입니다.<br><br>이메일 그룹 전용:<br>- 이메일: 사용자의 이메일 주소입니다.<br>**외부 ID가 정의되지 않은 경우 이메일이 필수입니다.**<br><br>SMS 그룹 전용:<br>- 전화번호: E.164 형식의 전화번호입니다. 예: +14155552671.<br>**외부 ID가 정의되지 않은 경우 전화번호가 필수입니다.** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
 
@@ -216,7 +216,7 @@ Tealium의 Trace 도구 구현에 대한 자세한 지침은 Tealium의 [Trace �
 ## 통합 데모 {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Tealium AudienceStream 통합 데모" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## 잠재적 데이터 포인트 초과 {#potential-data-point-overages}

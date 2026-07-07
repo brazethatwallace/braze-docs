@@ -24,7 +24,7 @@ Com a integração da Braze e da Yotpo, você pode extrair e exibir dinamicament
 | Conta Yotpo | É necessário ter uma conta na Yotpo para aproveitar essa parceria. |
 | Chave de API de avaliações da Yotpo | Esta API será implementada no snippet de código do Conteúdo conectado.<br><br>Para saber mais, consulte como [encontrar sua chave do app Yotpo e a chave secreta](https://support.yotpo.com/en/article/finding-your-yotpo-app-key-and-secret-key). |
 | Chave de API de fidelidade da Yotpo | Esta chave de API e o identificador globalmente único (GUID) serão implementados no snippet de código do Conteúdo conectado.<br><br>Para saber mais, consulte como [encontrar sua chave de API e GUID de fidelidade e indicações](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Antes de continuar, confirme se o ID do produto Yotpo é igual ao `product_id` que será extraído dinamicamente da Braze. Isso é obrigatório para que a integração funcione.
 
@@ -42,7 +42,7 @@ Para encontrar seu ID de produto Yotpo, execute as etapas a seguir:
 Para integrar a Yotpo e a Braze, execute as etapas a seguir:
 
 1. Acesse seu dashboard da Braze.
-2. Na página **Campaigns**, clique em **Criar campanha** e selecione **E-mail**.
+2. Na página **Campaigns**, clique em **Create Campaign** e selecione **Email**.
 3. Selecione seu modelo preferido.
 4. Clique em **Edit email body** e adicione o respectivo snippet de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para seu caso de uso:
     - [Exibir a classificação por estrelas e o número de avaliações de um produto](#star-review-count)

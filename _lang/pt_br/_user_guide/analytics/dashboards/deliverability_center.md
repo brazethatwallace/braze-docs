@@ -9,17 +9,15 @@ channel:
 
 ---
 
-# Centro de Entregabilidade
+# Centro de Entregabilidade {#deliverability-center}
 
-> O Centro de Entregabilidade oferece mais insights sobre a performance dos seus e-mails, com suporte ao uso do [Gmail Postmaster Tools](https://www.gmail.com/postmaster/) para rastrear dados de e-mails enviados e coletar informações sobre o seu domínio de envio.
+> O Centro de Entregabilidade oferece mais insights sobre o desempenho dos seus e-mails, com suporte ao uso do [Gmail Postmaster Tools](https://www.gmail.com/postmaster/) para rastrear dados de e-mails enviados e coletar informações sobre o seu domínio de envio.
 
-A entregabilidade de e-mail é o ponto central do sucesso de uma campanha. Usando o Centro de Entregabilidade no dashboard da Braze, você pode visualizar seus domínios por **Reputação de IP** ou **Erros de Entrega** para identificar e solucionar possíveis problemas de entregabilidade de e-mail.
+A entregabilidade de e-mail é o ponto central do sucesso de uma campanha. Usando o Centro de Entregabilidade no dashboard da Braze, você pode visualizar seus domínios por **IP Reputation** ou **Delivery Errors** para identificar e solucionar possíveis problemas de entregabilidade de e-mail.
 
-Para acessar o Centro de Entregabilidade, você precisa das [permissões de usuário legadas]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) "Access Campaigns, Canvases, Cards, Segments, Media Library" e "View Usage Data", ou das [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions) listadas no dropdown a seguir para o seu espaço de trabalho.
+Para acessar o Centro de Entregabilidade, você precisa das [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) listadas no dropdown a seguir para o seu espaço de trabalho.
 
 {% details Permissões de usuário para o Centro de Entregabilidade %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 - View Campaigns
 - Edit Campaigns
@@ -65,12 +63,12 @@ Para acessar o Centro de Entregabilidade, você precisa das [permissões de usu�
 
 {% enddetails %}
 
-## Configure sua conta do Google Postmaster
+## Configure sua conta do Google Postmaster {#set-up-your-google-postmaster-account}
 
 Antes de conectar ao Centro de Entregabilidade, você precisa configurar uma conta do Google Postmaster Tools. Você pode usar uma conta do Gmail pessoal ou corporativa para configurar o Google Postmaster.
 
 1. Acesse o [dashboard do Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. No canto inferior direito, selecione o ícone de <i class="fas fa-plus-circle"></i> mais.
+2. No canto inferior direito, selecione <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Insira o domínio raiz (principal) para autenticar seu e-mail. Certifique-se de que o registro TXT esteja vinculado a esse domínio raiz (principal), e **não** ao subdomínio que você está usando na Braze. Verificar o domínio raiz (principal) permite que você adicione subdomínios posteriormente no Postmaster Tools sem criar registros TXT adicionais. Por exemplo, ao verificar `braze.com`, você pode adicionar `demo.braze.com` como um subdomínio separado no Postmaster Tools para visualizar métricas no nível do subdomínio.
 4. O Google gera um registro TXT que pode ser adicionado diretamente ao DNS do seu domínio. Geralmente, isso é gerenciado por quem administra o seu DNS. Para informações e orientações sobre como atualizar o seu DNS específico, consulte [Verificar seu domínio (etapas específicas por host)](https://support.google.com/a/topic/1409901).
 5. Selecione **Next**. <br>![Um exemplo de domínio "demo.braze.com" para autenticar um e-mail.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -82,6 +80,13 @@ Se seus subdomínios não aparecem no Centro de Entregabilidade do Google Postma
 {% endalert %}
 
 ## Integrar o Google Postmaster {#integrating-google-postmaster}
+
+{% alert important %}
+**Migração do Google Postmaster Tools v2**<br>
+O Google está descontinuando a versão antiga do Postmaster Tools (v1) e lançou uma versão de nova geração (v2) com uma interface moderna e novos dashboards, incluindo um dashboard de conformidade para ajudar a monitorar a aderência às diretrizes de remetente do Gmail. Todos os usuários devem migrar para a v2 até 31 de outubro de 2026.<br><br>
+Para reautorizar sua conexão com o Google Postmaster Tools, acesse **Integrações de parceiros** > **Parceiros de tecnologia**, abra **Google Postmaster** e selecione **Change Account** para reautenticar com as novas permissões da v2. Ao concluir, você será atualizado para a v2 e terá acesso aos novos dashboards e dados.<br><br>
+Para saber mais, consulte o [anúncio do Google sobre o novo Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Antes de configurar o Centro de Entregabilidade, verifique se seus domínios foram [adicionados ao Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
@@ -98,17 +103,17 @@ Seus domínios verificados serão exibidos no Centro de Entregabilidade.
 
 Você também pode acessar o Google Postmaster no dashboard da Braze em **Integrações de parceiros** > **Parceiros de tecnologia** > **Google Postmaster**. Após a integração, a Braze importa dados de reputação e erros dos últimos 30 dias. Os dados podem não estar disponíveis imediatamente e podem levar alguns minutos para serem carregados.
 
-### Autorização inválida ou expirada
+### Autorização inválida ou expirada {#invalid-or-expired-authorization}
 
 Se você receber um alerta informando que as credenciais de autorização do Google Postmaster Tools são inválidas, o envio de e-mails pela Braze **não** é afetado. Apenas a conexão entre a Braze e o Google Postmaster é interrompida, o que impede a sincronização dos dados de reputação e erros do Gmail com o Centro de Entregabilidade até que você reconecte.
 
 Para restaurar a integração, acesse **Integrações de parceiros** > **Parceiros de tecnologia**, abra **Google Postmaster**, selecione **Disconnect** e depois refaça o fluxo de conexão (mesmas etapas de [Integrar o Google Postmaster](#integrating-google-postmaster)).
 
-### Métricas e definições
+### Métricas e definições {#metrics-and-definitions}
 
 As métricas e definições a seguir se aplicam ao Google Postmaster Tools.
 
-#### Reputação de IP
+#### Reputação de IP {#ip-reputation}
 
 Para entender as classificações de reputação de IP, consulte esta tabela:
 
@@ -118,9 +123,9 @@ Para entender as classificações de reputação de IP, consulte esta tabela:
 | Média/Razoável | Conhecido por gerar engajamento positivo, mas ocasionalmente recebe reclamações de spam. A maioria dos e-mails deste domínio é entregue na caixa de entrada, exceto quando as reclamações de spam aumentam. |
 | Baixa | Conhecido por receber taxas elevadas de reclamações de spam regularmente. E-mails deste remetente provavelmente serão filtrados para a pasta de spam. |
 | Ruim | Tem um histórico de receber taxas elevadas de reclamações de spam. E-mails deste domínio quase sempre são rejeitados no momento da conexão ou filtrados para a pasta de spam. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reputação de IP" }
 
-#### Reputação do domínio
+#### Reputação do domínio {#domain-reputation}
 
 Use a tabela a seguir para monitorar e entender as classificações de reputação do seu domínio e evitar que seus e-mails sejam filtrados para a pasta de spam.
 
@@ -130,9 +135,9 @@ Use a tabela a seguir para monitorar e entender as classificações de reputaç�
 | Média/Razoável | Conhecido por gerar engajamento positivo, mas ocasionalmente recebe um baixo volume de reclamações de spam. A maioria dos e-mails deste domínio chega à caixa de entrada (exceto quando há um aumento notável nos níveis de spam). |
 | Baixa | Conhecido por receber reclamações de spam regularmente. E-mails deste remetente provavelmente serão filtrados para a pasta de spam. |
 | Ruim | Tem um histórico de receber taxas elevadas de reclamações de spam. E-mails deste domínio quase sempre são rejeitados no momento da conexão ou filtrados para a pasta de spam. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reputação do domínio" }
 
-#### Autenticação
+#### Autenticação {#authentication}
 
 Use o dashboard de autenticação para verificar a porcentagem de e-mails que passaram pelo Sender Policy Framework (SPF), DomainKeys Identified Mail (DKIM) e Domain-based Message Authentication, Reporting and Conformance (DMARC).
 
@@ -141,9 +146,9 @@ Use o dashboard de autenticação para verificar a porcentagem de e-mails que pa
 | SPF | Mostra a porcentagem de e-mails que passaram pelo SPF em relação a todos os e-mails do domínio que tentaram o SPF. Isso exclui qualquer e-mail falsificado. |
 | DKIM | Mostra a porcentagem de e-mails que passaram pelo DKIM em relação a todos os e-mails do domínio que tentaram o DKIM. |
 | DMARC | Mostra a porcentagem de e-mails que passaram pelo alinhamento DMARC em relação a todos os e-mails recebidos do domínio que passaram pelo SPF ou DKIM. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Autenticação" }
 
-#### Criptografia
+#### Criptografia {#encryption}
 
 Consulte esta tabela para entender qual porcentagem do seu tráfego de entrada e saída é criptografada.
 
@@ -151,16 +156,16 @@ Consulte esta tabela para entender qual porcentagem do seu tráfego de entrada e
 | ----- | ---------- |
 | TLS de entrada | Mostra a porcentagem de e-mails recebidos (para o Gmail) que passaram pelo TLS em relação a todos os e-mails recebidos daquele domínio. |
 | TLS de saída | Mostra a porcentagem de e-mails enviados (do Gmail) aceitos via TLS em relação a todos os e-mails enviados para aquele domínio. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Criptografia" }
 
-Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
+Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
 
-## Configurar o Microsoft Smart Network Data Services (SNDS)
+## Configurar o Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
 Se a Microsoft é o seu principal provedor de caixa de e-mail, você pode usar essa integração para acessar e visualizar seus dados de reputação da Microsoft. Dessa forma, você pode monitorar a integridade dos seus IPs para entender como seus e-mails estão sendo recebidos.
 
 {% alert important %}
-Se você não vê seus dados no Centro de Entregabilidade, entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) com uma lista dos seus endereços IP.
+Se você não vê seus dados no Centro de Entregabilidade, entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) com uma lista dos seus endereços IP.
 {% endalert %}
 
 ![Um exemplo de resultados do Microsoft SNDS, incluindo IPs de amostra, destinatários, comandos RCPT, comandos DATA, resultado do filtro, taxa de reclamação, período de início e fim de mensagens de spam trap e hits de spam trap.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
@@ -169,15 +174,15 @@ Se você não vê seus dados no Centro de Entregabilidade, entre em contato com 
 
 As métricas a seguir se aplicam ao Microsoft SNDS.
 
-#### Destinatários
+#### Destinatários {#recipients}
 
 Esta métrica se refere ao número de destinatários em mensagens transmitidas pelo IP.
 
-#### Comandos DATA
+#### Comandos DATA {#data-commands}
 
 Esta métrica rastreia o número de comandos DATA enviados pelo IP. Os comandos DATA fazem parte do protocolo SMTP usado para enviar e-mails.
 
-#### Resultados do filtro
+#### Resultados do filtro {#filter-results}
 
 Consulte esta tabela para entender os resultados do filtro.
 
@@ -186,9 +191,9 @@ Consulte esta tabela para entender os resultados do filtro.
 | Verde | Considerado spam pelo filtro de spam da Microsoft em até 10% do período analisado. |
 | Amarelo | Considerado spam pelo filtro de spam da Microsoft entre 10% e 90% do período analisado. |
 | Vermelho | Considerado spam pelo filtro de spam da Microsoft em mais de 90% do período analisado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Resultados do filtro" }
 
-#### Taxa de reclamação
+#### Taxa de reclamação {#complaint-rate}
 
 Esta é a fração de vezes em que uma mensagem recebida do IP é reportada como spam por um usuário do Hotmail ou Windows Live durante o período de atividade. Os usuários têm a opção de reportar praticamente todas as mensagens como lixo eletrônico pela interface web.
 
@@ -199,9 +204,9 @@ Para calcular a taxa de reclamação, divida o número de reclamações pelo nú
 | Menos de 0,3% | A taxa de reclamação ideal. |
 | Mais de 0,3% | Revise seu processo de cadastro e verifique se o link de cancelamento de inscrição está funcionando. Considere também se o e-mail poderia ser mais personalizado para o seu público. |
 | Mais de 100% | Observe que o SNDS exibe as reclamações no dia em que foram reportadas, e não retroativamente no dia em que o e-mail reclamado foi entregue. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Taxa de reclamação" }
 
-#### Hits de spam trap
+#### Hits de spam trap {#spam-trap-hits}
 
 Hits de spam trap são o número de mensagens enviadas para "contas armadilha", que são contas mantidas pelo Outlook.com que não solicitam nenhum e-mail. É provável que qualquer mensagem enviada para essas contas armadilha seja considerada spam, por isso é importante monitorar essa métrica e garantir que ela esteja baixa. Hits de spam trap baixos significam que as mensagens não estão sendo enviadas para essas contas e estão sendo entregues para contas reais.
 

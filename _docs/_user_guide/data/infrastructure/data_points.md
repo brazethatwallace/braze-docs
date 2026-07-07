@@ -25,7 +25,11 @@ See this article's [Consumption count](#consumption-count) section to understand
 
 To view your data point usage, go to **Settings** > **Billing** and select the **Total Data Points Usage** tab.
 
-For more information on the data point dashboard components, refer to [Billing]({{site.baseurl}}/user_guide/administer/global/billing/).
+### Data point refresh schedule
+
+Data point usage is cached (not real-time) every 24 hours around 2 am ET. Until the cache refreshes, different dashboard users may see the same totals even if they open the tab at different times on the same day. For the same caching behavior on other billing views, see [Total data points dashboard]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
+
+For more information on the data point dashboard components, see [Billing]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **Don't waste data points. Only update changing data!**<br><br>
@@ -38,11 +42,13 @@ In sum, data points are accumulated when a user's profile data is updated or whe
 
 You can find a breakdown of how Braze accumulates data points in the following sections. If you ever have any questions about the nuances of Braze data points, your Braze account manager can answer them.
 
+For API ingestion, each billable update through [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) follows the same rules as other profile updates: for example, each **custom event** logged counts as a data point, and **custom attributes** generally count per attribute updated in that request (see the billable tables below and [Special circumstances](#special-circumstances)).
+
 The following actions do not log data points:
 - Deleting users from Braze
 - Using Connected Content in messaging
 - Subscription state changes globally and around subscription groups
-- Renaming your users' external IDs through [API calls]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
+- Renaming your users' external IDs through [API calls]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Blocking events, attributes, or event properties
 
 ### Special circumstances
@@ -78,7 +84,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 {% tabs %}
 {% tab Non-billable %}
 
-#### Non-billable data points (default)
+### Non-billable data points (default)
 
 <div class="small_table"></div>
 
@@ -109,12 +115,12 @@ The following tables are intended to be illustrative. For exact naming conventio
 | Twitter | Following |
 | Twitter | Number of tweets |
 | Facebook | Likes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
 
 {% endtab %}
 {% tab Billable %}
 
-#### Billable data points
+### Billable data points
 
 {% alert important %}
 Adding, removing, or updating the following data types will incur a billable data point.
@@ -163,8 +169,7 @@ table td {
 | Appsflyer cohort assignment | All assignments | |
 | Most recent location | All most recent locations | Entering or exiting geofences doesn't log data points because geofence data is not stored against the user profile. Geofences are monitored by Apple and Google location services; Braze only gets notified upon a user triggering a geofence. |
 | Twitter | Username | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
 
 {% endtab %}
 {% endtabs %}
-

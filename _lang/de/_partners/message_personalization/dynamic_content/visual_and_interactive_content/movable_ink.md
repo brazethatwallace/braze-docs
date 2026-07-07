@@ -24,7 +24,7 @@ Erweitern Sie Ihre kreativen Möglichkeiten, indem Sie die Intelligent-Creative-
 |---|---|
 | Movable Ink Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Movable Ink-Konto. |
 | Datenquelle | Sie müssen eine Datenquelle mit Movable Ink verbinden. Dies kann über CSV, Website-Import oder API geschehen. Achten Sie darauf, dass Sie Daten mit einem einheitlichen Bezeichner zwischen Braze und Movable Ink übergeben (z. B. `external_id`).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -42,17 +42,17 @@ Intelligent Creative bietet viele Möglichkeiten, die Unternehmensnutzer:innen n
 | Movable Ink-Fähigkeit | Feature | Rich-Push-Benachrichtigung | In-App Messaging / Content Cards / E-Mail | Details |
 | ---------------------- |---| ---------------------- | -------------------------------- | ------- |
 | Kreativ-Optimierer | A/B-Inhalte anzeigen | ✗ | ✔ | |
-|| Optimieren | ✗ | ✔* | * Die Deeplinking-Lösung von Branch muss verwendet werden |
+| Optimieren | ✗ | ✔* | * Die Deeplinking-Lösung von Branch muss verwendet werden |
 | Targeting-Regeln | Datum | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
-|| Wochentag | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
-|| Tageszeit | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
+| Wochentag | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
+| Tageszeit | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
 | Stories/Verhaltensaktivität | | ✔* | ✔* | * Der eindeutige Nutzer:innen-Bezeichner für Braze muss mit dem Bezeichner Ihres ESP verknüpft sein |
 | Deeplinking innerhalb der App | | ✔* | ✔* | * Um Ihren Kund:innen ein optimiertes Erlebnis zu bieten, verwenden Sie entweder die etablierte Deeplinking-Lösung über Branch oder eine validierte Lösung mit dem Client-Experience-Team von Movable Ink. |
 | Apps | Countdown-Timer | ✔* | ✔ | * Unterstützt, aber nicht empfohlen, da Push-Benachrichtigungen beim Empfang zwischengespeichert und nicht aktualisiert werden |
-|| Polling | ✗ | ✔* | * Nach der Abstimmung wird die App verlassen und eine mobile Landing-Page angezeigt |
-|| Scratch-Off | ✔* | ✔* | * Bei Klick wird die App für das Scratch-Off-Erlebnis verlassen |
-|| Video | ✔* | ✔* | * Nur animierte GIFs, <br>Für Android benötigt Braze [GIF-Unterstützung]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android) bei der Implementierung |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| Polling | ✗ | ✔* | * Nach der Abstimmung wird die App verlassen und eine mobile Landing-Page angezeigt |
+| Scratch-Off | ✔* | ✔* | * Bei Klick wird die App für das Scratch-Off-Erlebnis verlassen |
+| Video | ✔* | ✔* | * Nur animierte GIFs, <br>Für Android benötigt Braze [GIF-Unterstützung]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android) bei der Implementierung |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Supported Movable Ink capabilities" }
 
 ## Integration
 

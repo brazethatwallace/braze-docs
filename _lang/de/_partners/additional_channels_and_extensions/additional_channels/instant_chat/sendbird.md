@@ -30,7 +30,7 @@ Durch die Nutzung der gemeinsamen Fähigkeiten von Braze und Sendbird Notificati
 | Sendbird UIKit | Sie müssen das Sendbird UIKit in Ihrer [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit)- oder [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit)-App installiert haben. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -87,16 +87,16 @@ Gehen Sie in Braze unter **Templates und Medien** zu **Webhook-Templates** und w
 
 ### Campaigns
 
-1. Klicken Sie im Braze-Dashboard auf der Seite **Campaigns** auf **Create Campaign** > **Webhook**.
+1. Klicken Sie im Braze-Dashboard auf der Seite **Campaigns** auf **Kampagne erstellen** > **Webhook**.
 2. Wählen Sie das Webhook-Template aus, das Sie oben erstellt haben. Es wird dringend empfohlen, den Batch-Endpunkt für Campaigns zu verwenden.
-3. Passen Sie das Template an, indem Sie seine Variablen im Tab **Compose** bearbeiten.
+3. Passen Sie das Template an, indem Sie seine Variablen im Tab **Verfassen** bearbeiten.
 
 ### Canvas
 
 1. Fügen Sie in einem neuen oder bestehenden Canvas eine **Message**-Komponente hinzu.
-2. Öffnen Sie die Komponente und wählen Sie **Webhook** aus den **Messaging Channels**.
+2. Öffnen Sie die Komponente und wählen Sie **Webhook** aus den **Messaging-Kanälen**.
 3. Wählen Sie das Webhook-Template aus, das Sie oben erstellt haben. Es wird dringend empfohlen, den Realtime-Endpunkt für Canvases zu verwenden.
-4. Passen Sie das Template an, indem Sie seine Variablen im Tab **Compose** bearbeiten.
+4. Passen Sie das Template an, indem Sie seine Variablen im Tab **Verfassen** bearbeiten.
 
 ## Anpassung {#customization}
 

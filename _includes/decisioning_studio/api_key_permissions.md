@@ -19,4 +19,4 @@
 | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) | Pushes updates to Decisioning Studio-created template copies when experimentation criteria change, such as call-to-actions. | &#10003; |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/#prerequisites) | Retrieves information about Decisioning Studio-created templates in your Braze instance. | &#10003; |
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | Validates that templates were successfully copied over to your Braze instance. | &#10003; |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }

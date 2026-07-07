@@ -18,7 +18,7 @@
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **기능 플래그 관리**                                                      | 기능 플래그를 보고, 만들고, 편집합니다.     |
 | **Campaigns, Canvases, 카드, 기능 플래그, Segments, 미디어 라이브러리에 액세스** | 사용 가능한 기능 플래그 목록을 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 권한" }
 
 ## 기능 플래그 만들기 {#creating-a-feature-flag}
 
@@ -41,28 +41,29 @@
 | ID           | 코드에서 이 기능이 [사용자에 대해 활성화되어](#enabled) 있는지 확인하기 위해 사용할 고유 ID입니다. 이 ID는 나중에 변경할 수 없으므로 계속하기 전에 [ID 이름 지정 모범 사례](#naming-conventions)를 검토하세요. |
 | 설명  | 기능 플래그에 대한 컨텍스트를 제공하는 선택적 설명입니다.   |
 | 등록정보   | 기능 플래그를 원격으로 구성하는 선택적 등록정보입니다. 캔버스 단계나 기능 플래그 실험에서 덮어쓸 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 세부 정보 입력" }
 
 ### 2a단계: 커스텀 등록정보 만들기 {#step-2a-create-custom-properties}
 
 **등록정보** 아래에서 기능이 활성화될 때 앱이 Braze SDK를 통해 접근할 수 있는 커스텀 등록정보를 선택적으로 생성할 수 있습니다. 각 변수에 문자열, 부울, 이미지, 타임스탬프, JSON 또는 숫자 값을 할당할 수 있으며 기본값을 설정할 수 있습니다.
 
 {% tabs local %}
-{% tab example %}
-다음 예제에서 기능 플래그는 나열된 커스텀 등록정보를 사용하여 전자상거래 상점에 품절 배너를 표시합니다:
+{% tab 예시 %}
+다음 예시에서 기능 플래그는 나열된 커스텀 등록정보를 사용하여 전자상거래 상점에 품절 배너를 표시합니다:
 
-|등록정보 이름|유형|값|
+| 등록정보 이름 | 유형 | 값 |
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
 |`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2a단계: 커스텀 등록정보 만들기" }
 
 {% alert tip %}
-추가할 수 있는 등록정보 수에는 제한이 없습니다. 그러나 기능 플래그의 등록정보는 총 10KB로 제한됩니다. 등록정보 값과 키의 길이는 모두 255자로 제한됩니다.
+추가할 수 있는 등록정보 수에는 제한이 없습니다. 그러나 기능 플래그의 등록정보는 총 10,000자로 제한됩니다.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -837,11 +838,11 @@ featureFlagsStreamSubscription.cancel();
 기능 플래그 데이터는 Android 및 iOS 네이티브 레이어 모두에서 자동으로 전달됩니다. 추가 설정이 필요하지 않습니다.
 
 {% endsubtab %}
-{% subtab Flutter SDK 17.1.0 and earlier %}
+{% subtab Flutter SDK 17.1.0 이하 %}
 
 Flutter SDK 17.1.0 이하를 사용하는 경우, iOS 네이티브 레이어에서의 기능 플래그 데이터 전달에는 수동 설정이 필요합니다. 애플리케이션에 `BrazePlugin.processFeatureFlags(featureFlags)`를 호출하는 `featureFlags.subscribeToUpdates` 콜백이 포함되어 있을 수 있습니다. Flutter SDK 18.0.0으로 마이그레이션하려면 `BrazePlugin.processFeatureFlags(_:)` 호출을 제거하세요. 데이터 전달이 이제 자동으로 처리됩니다.
 
-예제는 Braze Flutter SDK 샘플 애플리케이션의 [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift)를 참조하세요.
+예시는 Braze Flutter SDK 샘플 애플리케이션의 [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift)를 참조하세요.
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -888,7 +889,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Braze에서 사용자가 어떤 기능 플래그에 자격이 있는지 확인하려면 **오디언스** > **사용자 검색**으로 이동한 다음 사용자를 검색하고 선택하세요.
 
-**기능 플래그 자격** 탭에서 플랫폼, 애플리케이션 또는 기기별로 자격이 있는 기능 플래그 목록을 필터링할 수 있습니다. 기능 플래그 옆에 있는 <i class="fa-solid fa-eye"></i>를 선택하여 사용자에게 반환될 페이로드를 미리 볼 수도 있습니다.
+**기능 플래그 자격** 탭에서 플랫폼, 애플리케이션 또는 기기별로 자격이 있는 기능 플래그 목록을 필터링할 수 있습니다. 기능 플래그 옆에 있는 <i class="fa-solid fa-eye" aria-label="미리보기"></i>를 선택하여 사용자에게 반환될 페이로드를 미리 볼 수도 있습니다.
 
 ![사용자가 자격이 있는 기능 플래그의 테이블을 보여주는 이미지.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
@@ -896,7 +897,7 @@ Braze에서 사용자가 어떤 기능 플래그에 자격이 있는지 확인�
 
 기능 플래그의 체인지로그를 보려면 기능 플래그를 열고 **체인지로그**를 선택합니다.
 
-![기능 플래그의 "편집" 페이지로, "체인지로그" 버튼이 강조 표시되어 있습니다.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
+![기능 플래그의 편집 페이지로, 체인지로그 버튼이 강조 표시되어 있습니다.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 
 여기에서 변경이 발생한 시기, 변경을 수행한 사람, 변경이 속한 카테고리 등을 검토할 수 있습니다.
 
@@ -906,7 +907,7 @@ Braze에서 사용자가 어떤 기능 플래그에 자격이 있는지 확인�
 
 Braze는 현재 어떤 사용자가 기능 플래그를 활성화했는지 자동으로 추적합니다. [**피처 플래그** 필터]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags)를 사용하여 Segment 또는 타겟 메시지를 생성할 수 있습니다. Segment 필터링에 대한 자세한 내용은 [Segment 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)을 참조하세요.
 
-![필터 검색창에 "피처 플래그"가 입력된 "필터" 섹션.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
+![필터 검색창에 "피처 플래그"가 입력된 필터 섹션.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
 재귀 Segment를 방지하기 위해 다른 기능 플래그를 참조하는 Segment를 생성할 수 없습니다.
@@ -933,9 +934,9 @@ BEHAVIOR_PRODUCT_FEATURE
 | `BEHAVIOR`  | 기능의 동작. 코드에서 동작이 기본적으로 비활성화되어 있는지 확인하고 기능 플래그 이름에 `disabled`와 같은 문구를 사용하지 마세요. |
 | `PRODUCT`   | 해당 기능이 속한 제품입니다.                                                                                       |
 | `FEATURE`    | 기능의 이름입니다.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이름 지정 규칙" }
 
-다음은 기능 플래그의 예제입니다. 여기서 `show`는 동작, `animation_profile`은 제품, `driver`는 기능입니다:
+다음은 기능 플래그의 예시입니다. 여기서 `show`는 동작, `animation_profile`은 제품, `driver`는 기능입니다:
 
 ```plaintext
 show_animation_profile_driver

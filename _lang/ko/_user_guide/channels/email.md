@@ -9,24 +9,24 @@ channel:
 search_rank: 2
 ---
 
-# 이메일
+# 이메일 {#email}
 
-> Braze의 이메일을 사용하면 Campaigns 또는 Canvas에서 완전히 맞춤화되고 개인화된 이메일 메시지를 만들어 앱이나 웹사이트 외부에서도 사용자의 관심을 끌 수 있습니다. 오디언스 관리부터 눈길을 끄는 멀티미디어 콘텐츠 포함까지 이메일 메시지를 자유롭게 커스터마이즈하세요. 이메일 Campaigns 예시는 Braze [사례 연구](https://www.braze.com/customers/)를 참조하세요.
+> Braze의 이메일을 사용하면 Campaigns 또는 Canvas에서 완전히 맞춤화되고 개인화된 이메일 메시지를 만들어 앱이나 웹사이트 외부에서도 사용자의 관심을 끌 수 있습니다. 오디언스 관리부터 눈길을 끄는 멀티미디어 콘텐츠 포함까지 이메일 메시지를 자유롭게 커스터마이즈하세요. 이메일 Campaign 예시는 Braze [사례 연구](https://www.braze.com/customers/)를 참조하세요.
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
-Braze로 이메일을 보내려면 먼저 전용 IP, 도메인, 이메일 인증 및 IP 워밍을 구성해야 합니다. 전체 안내는 [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/)을 참조하세요.
+Braze로 이메일을 보내려면 먼저 전용 IP, 도메인, 이메일 인증 및 IP 워밍을 구성해야 합니다. 전체 안내는 [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup)을 참조하세요.
 
-## 이메일 커스터마이즈하기
+## 이메일 커스터마이즈하기 {#customize-your-emails}
 
 다음과 같은 다양한 방법으로 이메일 메시지를 맞춤 설정할 수 있습니다:
 
-- [Braze 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [커스텀 HTML 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [드래그 앤 드롭 편집기 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/)
-- [사용자 구독]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Braze 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [커스텀 HTML 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [사용자 구독]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
-## 활용 사례
+## 활용 사례 {#use-cases}
 
 | 활용 사례 | 설명 |
 | --- | --- |
@@ -35,8 +35,8 @@ Braze로 이메일을 보내려면 먼저 전용 IP, 도메인, 이메일 인증
 | 풍부한 메시지 | 풍부하고 동적인 HTML 메시지를 활용할 수 있습니다. |
 | 멀티미디어 콘텐츠 | 동영상, 이미지 등 사용자의 참여를 유도하는 멀티미디어 콘텐츠를 쉽게 배치할 수 있습니다. |
 | 뉴스레터 | 월간 또는 주간 뉴스레터를 편리하게 전송하여 사용자 참여를 유지하세요. |
-| 트랜잭션 | [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)을 통해 최근 구매 내역을 사용자에게 알리고 중요한 제품 및 배송 정보를 전달하세요.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 트랜잭션 | [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)을 통해 최근 구매 내역을 사용자에게 알리고 중요한 제품 및 배송 정보를 전달하세요.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 ## 이메일 서비스 {#email-services}
 
@@ -45,21 +45,21 @@ Braze로 이메일을 보내려면 먼저 전용 IP, 도메인, 이메일 인증
 ### 이메일 전달 가능성 서비스 {#email-deliverability-services}
 
 Braze는 두 가지 등급의 정기 이메일 지원을 제공합니다:
-1. Deluxe
-2. Standard
+1. 디럭스
+2. 스탠다드
 
 이러한 서비스에는 다음이 포함될 수 있습니다:
 
 - 타겟팅, 발송 주기 및 메시징 전략에 대한 검토를 포함한 과거 및 현재 이메일 발송 관행 감사
 - 이메일 전달 가능성 전문가가 작성한 화이트라벨 구성 및 맞춤형 IP 워밍 계획
-  - 첫 달 동안 정기 체크인 통화(Deluxe는 주 3회, Standard는 주 1회)
-- 전달 가능성 전문가와의 정기 통화(Deluxe는 월 2회, Standard는 월 1회)를 통해 다음을 제공합니다:
+  - 첫 달 동안 정기 체크인 통화(디럭스는 주 3회, 스탠다드는 주 1회)
+- 전달 가능성 전문가와의 정기 통화(디럭스는 월 2회, 스탠다드는 월 1회)를 통해 다음을 제공합니다:
   - 도메인별 전달 가능성 성과 모니터링
   - 데이터 및 확립된 모범 사례를 활용하여 이메일 프로그램 성과 및 결과 개선을 위한 추천
 - 차단 목록 등록과 같은 전달 가능성 문제를 초래하는 이벤트에 대한 위기 대응 완화 및 해결
 
-## 다음 단계
+## 다음 단계 {#next-steps}
 
-- [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [드래그 앤 드롭 편집기로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [HTML 편집기로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [드래그 앤 드롭 편집기로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [HTML 편집기로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/html_editor)

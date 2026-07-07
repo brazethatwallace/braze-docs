@@ -48,7 +48,7 @@ Todos los operadores de EE. UU. requieren la siguiente información de la empres
 | Dirección legal completa de la empresa (calle, ciudad, estado, código postal) |                                                               |                                                              |
 | Tipo de empresa (privada, sin ánimo de lucro, gubernamental, pública (proporciona el símbolo bursátil)) |                                       |                                                              |
 | Si es pública, proporciona tu símbolo bursátil                |                                                               |                                                              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Company Information (10DLC)" }
 
 ## Información de campaña de SMS {#sms-campaign-information}
 
@@ -74,4 +74,4 @@ Necesitaremos registrar cada grupo de suscripción de SMS que contenga un códig
 | Volumen diario estimado | | Indica el número promedio estimado de mensajes enviados por día para este caso de uso/grupo de suscripción en particular, por ejemplo, 10 000. |
 | Lista de verificación de llamada a la acción | | {::nomarkdown} <p>La llamada a la acción debe incluir lo siguiente:</p><ol><li>Descripción del producto</li><li>Divulgación de la frecuencia de mensajes</li><li>Enlace a los términos y condiciones completos</li><li>Enlace a la política de privacidad completa</li><li>Instrucciones de la palabra clave STOP</li><li>Instrucciones de la palabra clave HELP</li><li>Aviso de "Pueden aplicarse tarifas de mensajes y datos"</li></ol> {:/} |
 | Ejemplo de llamada a la acción | | ![Ejemplo de llamada a la acción que contiene todos los detalles obligatorios.]({{site.baseurl}}/assets/img_archive/10dlc_cta_example.png) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS campaign information" }

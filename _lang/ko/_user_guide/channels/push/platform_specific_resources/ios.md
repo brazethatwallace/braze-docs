@@ -14,7 +14,7 @@ guide_top_text: "다음 문서에서는 Braze의 iOS 전용 푸시와 관련된 
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
-- name: "푸시 프라이머 Campaign"
+- name: "푸시 프라이머 캠페인"
   link: /docs/user_guide/channels/push/best_practices/push_primer_messages
   image: /assets/img/braze_icons/message-square-02.svg
 - name: "커스텀 앱 아이콘"

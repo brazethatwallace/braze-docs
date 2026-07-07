@@ -1,5 +1,5 @@
 ---
-nav_title: "DELETE: Remova a conta de usuário do dashboard"
+nav_title: "DELETE: Remover conta de usuário do dashboard"
 article_title: "DELETE: Remover conta de usuário do dashboard"
 alias: /delete_existing_dashboard_user/
 search_tag: Endpoint
@@ -10,33 +10,33 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Remover
 ---
 
 {% api %}
-# Remova a conta de usuário do dashboard
+# Remover conta de usuário do dashboard {#remove-dashboard-user-account}
 {% apimethod delete %}
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Use esse endpoint para excluir permanentemente um usuário do dashboard existente, especificando o recurso `id` retornado pelo método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/).
+> Use esse endpoint para excluir permanentemente um usuário do dashboard existente, especificando o recurso `id` retornado pelo método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
-Isso é semelhante à exclusão de um usuário na seção **Company Users (Usuários da empresa** ) do dashboard do Braze.
+Isso é semelhante à exclusão de um usuário na seção **Usuários da empresa** do dashboard da Braze.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#9c7c71ea-afd6-414a-99d1-4eb1fe274f16 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem de seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem do seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='delete dashboard user' %}
 
-## Parâmetros da jornada
+## Parâmetros de caminho {#path-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `id` | Obrigatória | String | A ID do recurso do usuário. Este parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@test.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `id` | Obrigatória | String | A ID do recurso do usuário. Este parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```http
 Content-Type: application/json
@@ -44,7 +44,7 @@ X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
@@ -52,9 +52,9 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 --header 'Authorization: Bearer YOUR-SCIM-TOKEN-HERE' \
 ```
 
-## Resposta
+## Resposta {#response}
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
 ```http
 HTTP/1.1 204 Not Found

@@ -26,7 +26,7 @@ Antes de começar, você precisa do seguinte:
 | Conta Catapult | Uma conta Catapult é necessária para usar esta integração. |
 | Chave da API REST da Braze (opcional) | Se você usar webhooks do Catapult, precisará de uma chave da API REST da Braze com as permissões de dados de usuários que seu caso de uso exige. Crie a chave na Braze em **Configurações** > **APIs e identificadores** > **Chaves de API**. |
 | Endpoint REST da Braze (opcional) | Se você usar webhooks do Catapult, use a URL do endpoint REST que corresponde à URL da Braze para [sua instância da Braze]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Etapa 1: Crie sua experiência de jogo {#step-1-create-your-game-experience}
 
@@ -92,7 +92,7 @@ Este exemplo mostra como criar um **cartão de conteúdo** que usa a Request Uni
 
 No seu cartão de conteúdo, adicione texto e conteúdo dinâmico conforme necessário. Envolva sua Request Unique URL da CataBoom em uma tag de [Conteúdo conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/). Adicione um parâmetro de consulta `AccountID` que use uma tag de personalização da Braze correspondente ao identificador que você usa no Catapult. O exemplo usa {% raw %}`{{${user_id}}}`{% endraw %}.
 
-Substitua a URL base e os parâmetros de consulta `username` e `password` pelos valores da página **Link Configuration** da sua Campaign no Catapult.
+Substitua a URL base e os parâmetros de consulta `username` e `password` pelos valores da página **Link Configuration** da sua campanha no Catapult.
 
 {% raw %}
 ```liquid
@@ -100,7 +100,7 @@ Substitua a URL base e os parâmetros de consulta `username` e `password` pelos 
 ```
 {% endraw %}
 
-Use o `result` salvo no seu cartão (por exemplo, como a URL do link ou no corpo da mensagem). Siga o formato de resposta da API da CataBoom para sua Campaign. Para saber mais sobre parâmetros de consulta e Liquid em URLs, consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/).
+Use o `result` salvo no seu cartão (por exemplo, como a URL do link ou no corpo da mensagem). Siga o formato de resposta da API da CataBoom para sua campanha. Para saber mais sobre parâmetros de consulta e Liquid em URLs, consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/).
 
 ![Criador de cartão de conteúdo da Braze mostrando Conteúdo conectado no campo de mensagem e uma pré-visualização mobile do cartão.]({% image_buster /assets/img/cataboom/braze_content_card.png %})
 

@@ -1,3 +1,3 @@
 {% alert important %}
-Braze MCPサーバーはベータ版である。改善に協力したいなら、[mcp-product@](mailto:mcp-product@braze.com) までフィードバック[braze.com](mailto:mcp-product@braze.com)を送ってくれ。
+ローカルホスト型のBraze MCPサーバー（ベータ版）は、今夏にSunsetting（配信停止）となります。引き続き動作しますが、エンドポイントの追加やベータ版のサポートは終了しています。リモートのBrazeホスト型MCPサーバーは、今夏に早期アクセスとして提供される予定です。
 {% endalert %}

@@ -1,0 +1,32 @@
+# Deletes the remote snapshot branch after its deploy PR merges into main.
+# Keeps the repo free of stale auto-deploy-* heads (no reliance on GitHub UI).
+#
+name: Delete auto-deploy branch after merge
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  delete-snapshot-branch:
+    if: >-
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'main' &&
+      startsWith(github.event.pull_request.head.ref, 'auto-deploy-')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete merged snapshot branch on origin
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tmp=$(mktemp -d)
+          cd "$tmp"
+          git init -q
+          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPO}.git"
+          git push origin --delete "$BRANCH" || echo "Branch ${BRANCH} was already deleted on origin."

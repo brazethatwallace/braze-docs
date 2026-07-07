@@ -33,7 +33,7 @@ Die Integration von Braze und Punchh ermöglicht es Ihnen, Daten für Geschenk- 
 | Punchh-Konto | Sie benötigen ein aktives Punchh-Konto, um die Vorteile dieser Partnerschaft zu nutzen. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Was sollte ich sonst noch wissen? {#what-else-should-i-know}
 
@@ -44,7 +44,7 @@ Die Integration von Braze und Punchh ermöglicht es Ihnen, Daten für Geschenk- 
 
 #### Wichtige Hinweise {#important-things-to-note}
 
-- Punchh bietet die Möglichkeit, das Senden von Standard-Nutzerattributen an Braze zu deaktivieren, sodass dem Kunden keine Mehrkosten für Datenpunkte entstehen. Dies wird bei der Einrichtung des Adapters konfiguriert.
+- Punchh bietet die Möglichkeit, das Senden von Standard-Nutzerattributen an Braze zu deaktivieren, sodass der Kund:in keine Mehrkosten für Datenpunkte entstehen. Dies wird bei der Einrichtung des Adapters konfiguriert.
 - Wenn Sie angepasste Segmente für wiederkehrende Kampagnen verwenden, muss der Kampagnenname anstelle der Kampagnen-ID verwendet werden, da sich die IDs bei jedem Kampagnendurchlauf ändern.
 - Zu den Kommunikationskanälen, die innerhalb jeder Punchh-Geschenkkampagne zur Verfügung stehen, gehören Rich Messages, Push-Benachrichtigungen, SMS und E-Mail.
 - Nachdem Nutzer:innen von Braze an ein angepasstes Punchh-Segment gesendet wurden, können sie nicht mehr entfernt werden. Einem bestehenden angepassten Segment können nur neue Gäste hinzugefügt werden. Wenn Gäste aus einem bestehenden angepassten Punchh-Segment entfernt werden sollen, muss in Braze eine neue Webhook-Kampagne erstellt werden, um Nutzer:innen an ein neues angepasstes Punchh-Segment zu senden.
@@ -128,15 +128,15 @@ curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mob
 **Plattform-Konfiguration:** Um externe Bezeichner in Punchh zu aktivieren, navigieren Sie im Punchh-Dashboard zu **Cockpit** > **Dashboard** > **External User Identifier**.
 {% endalert %}
 
-### 2. Schritt: Braze-Adapter-Einrichtung in Punchh {#step-2-braze-adapter-setup-in-punchh}
+### 2. Schritt: Braze-Adapter-Einrichtung in Punchh {#available-events-to-sync}
 
-#### Verfügbare zu synchronisierende Ereignisse {#available-events-to-sync}
+#### Verfügbare zu synchronisierende Ereignisse
 
 1. **Gast:** Ausgelöst bei jeder Registrierung, Aktualisierung des Gastprofils, Deaktivierung oder Löschung
 2. **Loyalitäts-Check-in:** Ausgelöst bei Treuetransaktionen oder durch Scannen des Barcodes auf dem Kassenbon
 3. **Geschenk-Check-in:** Ausgelöst durch Punkte, die aus einer Kampagne verschenkt werden
 4. **Einlösung:** Ausgelöst bei jeder Prämieneinlösung mit Ausnahme von Punchh-Coupons, da diese separat als Coupon-Ereignisse gesendet werden, einschließlich Ausgabe und Einlösung
-5. **Rewards:** Ausgelöst durch geschenkte Rewards aus Kampagnen, Aktivität, Konversion von Punkten in Rewards oder Admin-Geschenke
+5. **Rewards:** Ausgelöst durch geschenkte Rewards aus Kampagnen, Aktivität, Conversion von Punkten in Rewards oder Admin-Geschenke
 6. **Transaktionsbenachrichtigungen:** Ausgelöst bei Transaktionsaktivitäten einer Nutzer:in innerhalb des Punchh-Systems (z. B. Punkteverfall)
 7. **Marketing-Benachrichtigungen:** Ausgelöst auf der Grundlage verschiedener Kampagnen-Setups in Punchh für ein zugehöriges Segment von Nutzer:innen
 

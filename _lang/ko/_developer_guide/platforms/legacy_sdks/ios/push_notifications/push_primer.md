@@ -1,9 +1,9 @@
 ---
-nav_title: "푸시 프라이머 밀어내기"
+nav_title: "푸시 프라이머"
 article_title: iOS용 푸시 프라이머
 page_order: 6
 page_type: reference
-description: "이 참조 문서에서는 iOS 푸시 프라이머를 통합하는 방법에 대해 설명합니다."
+description: "이 참조 문서에서는 iOS 푸시 프라이머를 통합하는 방법을 다룹니다."
 platform: iOS
 channel:
   - push
@@ -13,13 +13,13 @@ alias: /push_primer/
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# 푸시 프라이머 통합
+# 푸시 프라이머 통합 {#push-primer-integration}
 
-푸시 프라이머 캠페인은 사용자가 기기에서 앱에 대한 푸시를 활성화할 것을 권장합니다. 사용자로부터 사용자의 기기로 직접 메시지를 보낼 수 있는 권한을 부여받는 작업은 복잡할 수 있지만, 본 가이드가 도움이 될 수 있습니다! 이 가이드에서는 개발자가 푸시 프라이밍을 통합하기 위해 수행해야 하는 단계를 보여줍니다.
+푸시 프라이머 캠페인(Campaign)은 사용자가 기기에서 앱의 푸시를 활성화하도록 유도합니다. 사용자의 기기로 직접 메시지를 보낼 수 있는 권한을 얻는 것은 복잡할 수 있지만, 이 가이드가 도움이 됩니다! 이 가이드에서는 개발자가 푸시 프라이밍을 통합하기 위해 수행해야 하는 단계를 안내합니다.
 
-## 1단계: AppDelegate.m 파일에 스니펫 추가
+## 1단계: AppDelegate.m 파일에 스니펫 추가 {#step-1-add-snippet-in-appdelegatem-file}
 
-표준 통합 대신 `AppDelegate.m` 파일에 다음 코드 줄을 추가합니다:
+표준 통합 대신 `AppDelegate.m` 파일에 다음 코드를 추가합니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## 2단계: AppDelegate.m 파일에 사용자 지정 이벤트 검사기 추가
+## 2단계: AppDelegate.m 파일에 커스텀 이벤트 검사기 추가 {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-다음 코드 스니펫은 사용자 지정 이벤트가 실행되어야 하는지 여부를 확인합니다. `AppDelegate.m` 에 다음 코드 줄을 추가합니다.
+다음 코드 스니펫은 커스텀 이벤트를 실행해야 하는지 확인합니다. `AppDelegate.m`에 다음 코드를 추가합니다.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## 3단계: 딥링크 핸들러 설정
+## 3단계: 딥링크 핸들러 설정 {#step-3-set-up-a-deep-link-handler}
 
-딥링크 처리 코드 안에 다음 코드 스니펫을 배치하세요. 푸시 프라이머 인앱 메시지에 대해서만 이 딥링킹 코드를 실행해야 합니다.
+딥링크 처리 코드 안에 다음 코드 스니펫을 배치합니다. 푸시 프라이머 인앱 메시지에 대해서만 이 딥링킹 코드를 실행해야 합니다.
 
-딥링크에 대한 자세한 내용은 [링크 처리 사용자 지정을]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-handling-customization) 참조하세요.
+딥링킹에 대한 자세한 내용은 [링크 처리 커스터마이징]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization)을 참조하세요.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

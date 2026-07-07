@@ -6,40 +6,40 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Enumerar los detalles del elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Enumerar los detalles del elemento del catálogo de Braze."
 
 ---
 {% api %}
-# Enumerar los detalles del elemento del catálogo
+# Enumerar los detalles del elemento del catálogo {#list-catalog-item-details}
 {% apimethod get %}
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Utiliza este punto final para devolver un elemento del catálogo y su contenido.
+> Utiliza este punto de conexión para devolver un elemento del catálogo y su contenido.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#52c6631c-7366-48e5-9e0e-16de7b6285cc {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.get_item`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.get_item`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `catalog_name` | Obligatoria | Cadena | Nombre del catálogo. |
-| `item_id` | Obligatoria | Cadena | El ID del elemento del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
+| `item_id` | Obligatorio | Cadena | El ID del elemento del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-No hay cuerpo de petición para este punto final.
+No hay cuerpo de solicitud para este punto de conexión.
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items/restaurant1' \
@@ -47,11 +47,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto final: `200` y `404`.
+Hay dos respuestas de código de estado para este punto de conexión: `200` y `404`.
 
-### Ejemplo de respuesta satisfactoria
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `200` podría devolver el siguiente cuerpo de respuesta.
 
@@ -72,7 +72,7 @@ El código de estado `200` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
 El código de estado `404` podría devolver la siguiente respuesta. Consulta la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedas encontrar.
 
@@ -94,14 +94,14 @@ El código de estado `404` podría devolver la siguiente respuesta. Consulta la 
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas, si procede.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `catalog-not-found` | Compruebe que el nombre del catálogo es válido. |
-| `item-not-found` | Compruebe que el artículo está en el catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
+| `item-not-found` | Comprueba que el elemento está en el catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

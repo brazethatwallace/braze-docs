@@ -18,16 +18,16 @@ La integración de Braze y Dixa ofrece una mejor visión de todos tus usuarios, 
 
 Antes de empezar, necesitarás lo siguiente:
 
-| Requisito          | Descripción                                                                                                                                                       |
+| Requisito | Descripción |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Una cuenta de Dixa        | Se necesita una cuenta de administrador de Dixa para beneficiarse de esta asociación.                                                                                           |
-| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia.              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Una cuenta de Dixa | Se necesita una cuenta de administrador de Dixa para beneficiarse de esta asociación. |
+| Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
-Muestra los datos de Braze en la vista del agente de atención al cliente mientras te comunicas con tus usuarios en diferentes canales de comunicación, como correo electrónico, Messenger o chat. Además, utiliza la Transformación de datos de Braze para enviar datos de Dixa a Braze y pausar el marketing mientras resuelves el problema de un usuario.
+Muestra los datos de Braze en la vista del agente de atención al cliente mientras te comunicas con tus usuarios en diferentes canales de comunicación, como correo electrónico, Messenger o chat. Además, utiliza la Transformación de datos de Braze para enviar datos de Dixa a Braze y pausar el marketing mientras resuelves el problema de un usuario, o utiliza los cuestionarios de satisfacción de Dixa para la segmentación.
 
 ## Integración {#integration}
 
@@ -83,6 +83,8 @@ A continuación se muestra un ejemplo de la integración:
 
 Dixa utiliza webhooks para enviar datos a Braze. Debes ser administrador de Dixa para configurar webhooks.
 
+### Rastrear conversaciones en Dixa {#track-conversations-in-dixa}
+
 El primer paso es crear una transformación de datos en Braze.
 
 1. Ve a **Data Settings** > **Data Transformations** > **Create transformation**.
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### Usar la puntuación CSAT en Braze {#use-csat-score-in-braze}
+
+1. Ve a **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Selecciona **Start from scratch**, selecciona el destino **POST: Track Users** y selecciona **Create transformation**.
+3. En el editor de transformación, copia el código de ejemplo de **Rastrear puntuación CSAT** a continuación e insértalo en el campo **Transformation code**. Selecciona **Save**, copia la **Webhook URL** y abre Dixa.
+4. En Dixa, ve a **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
+5. En la página de configuración del webhook, pega la URL de Braze y activa los eventos que quieras rastrear. **Conversation created** es un buen punto de partida para rastrear las conversaciones de los clientes.
+6. Selecciona **Save** para finalizar la configuración de Dixa.
+
+#### Rastrear puntuación CSAT {#track-csat-score}
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

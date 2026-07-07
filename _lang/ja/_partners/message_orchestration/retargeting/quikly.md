@@ -12,11 +12,11 @@ search_tag: Partner
 
 > 緊急マーケティングプラットフォームである[Quikly](https://www.quikly.com)は、心理学を利用して消費者のモチベーションを高めるため、ブランドは主要なマーケティング施策のレスポンスを即座に高めることができます。
 
-_この統合はQuiklyによって管理されます。_
+_この統合はQuiklyによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとQuiklyのパートナーシップにより、Brazeのカスタマージャーニー内のイベントでコンバージョンを加速させることができます。Quiklyは、緊急性の心理学を利用して、消費者を楽しく、そして即座に動機付けることでこれを実現します。たとえば、ブランドがQuiklyを使用して、新しいメールやSMSサブスクライバーをBrazeに直接取り込んだり、モバイルアプリのダウンロードなどの他の重要なマーケティング目標達成を促進したりできます。
+BrazeとQuiklyのパートナーシップにより、Brazeのカスタマージャーニー内のイベントでコンバージョンを加速させることができます。Quiklyは、緊急性の心理学を利用して、消費者を楽しく、そして即座に動機付けることでこれを実現します。たとえば、ブランドがQuiklyを使用して、新しいメールやSMSサブスクライバーをBrazeに直接取り込んだり、モバイルアプリのダウンロードなどの他の重要なマーケティング目標の達成を促進したりできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -92,7 +92,7 @@ Quiklyアクティベーションは、顧客から直接携帯電話番号を�
 
 Quiklyは顧客の電話番号を使用してサブスクリプション検索を実行し、SMSサブスクリプションが既に存在する場合はアクティベーションで自動的にクレジットを付与します。それ以外の場合は、新しいサブスクリプションが開始され、サブスクリプションのステータスが確認された後、顧客にクレジットが付与されます。
 
-顧客がQuiklyで携帯電話番号と同意を提供する際の全体的なワークフローは次のとおりです:
+顧客がQuiklyで携帯電話番号と同意を提供する際の全体的なワークフローは次のとおりです。
 1. Quiklyは、[サブスクリプショングループステータス]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)を使用してサブスクリプション検索を実行し、指定された`phone`が`subscription_group_id`にサブスクライブされているかどうかを確認します。サブスクリプションが存在する場合、Quiklyアクティベーションでユーザーにクレジットを付与します。さらなるアクションは必要ありません。
 2. Quiklyは、[識別子によるユーザープロファイルのエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)を使用してユーザー検索を実行し、指定された`email_address`でユーザープロファイルが存在するかどうかを確認します。ユーザーが存在しない場合、Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を介してエイリアスのみのプロファイルを作成し、ユーザーのメールをユーザーエイリアスとして設定して、将来そのユーザーを参照できるようにします（ユーザーにはexternal IDがないため）。
 3. [ユーザーのサブスクリプショングループステータスの更新エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)を使用してサブスクリプションのステータスを更新します。
@@ -104,13 +104,13 @@ Brazeでは、`/users/track`エンドポイントを使用して新しいユー�
 {% endalert %}
 
 {% details Detailed /subscription/status/set request %}
-#### リクエストヘッダー {#request-headers}
+#### リクエストヘッダー
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### リクエストボディ {#request-body}
+#### リクエストボディ
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -135,11 +135,11 @@ Webhookを使用して、カスタマージャーニーの特定のイベント�
 
 ### BrazeでQuiklyのWebhookを作成する {#create-a-quikly-webhook-in-braze}
 
-将来のCampaignsやCanvasesのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
+将来のキャンペーンやキャンバスのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**Content** > **Webhook**に移動します。次に、**Create webhook template**を選択します。
 
-新しいCampaignを作成する際に、QuiklyのWebhook Campaignを一度だけ作成するか、既存のテンプレートを使用する場合は、Brazeで**Webhook**を選択してください。
+QuiklyのWebhook キャンペーンを一度だけ作成するか、既存のテンプレートを使用する場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択してください。
 
-**Blank Template**を選択し、Webhook URLとリクエストボディに次の内容を入力します:
+**Blank Template**を選択し、Webhook URLとリクエストボディに次の内容を入力します。
 - **Webhook URL**: https://api.quikly.com/webhook/braze
 - **リクエストボディ**: JSONキー/値のペア
 
@@ -152,9 +152,9 @@ Quiklyでは認証に`HTTP Header`が必要です。
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### リクエストボディ {#request-body}
+#### リクエストボディ
 
-***JSONキー/値のペア***を選択し、次のペアを追加します:
+***JSONキー/値のペア***を選択し、次のペアを追加します。
 {% raw %}
 ```
 "q_scope": "your-activations-scope-id"
@@ -168,7 +168,7 @@ Quiklyでは認証に`HTTP Header`が必要です。
 **プレビュー**パネルでリクエストをプレビューするか、`Test`タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、Webhookをテストするために独自のユーザーをカスタマイズできます。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}
 
 {% endtab %}

@@ -29,23 +29,21 @@ BrazeとGRAVTY®の統合は、両プラットフォーム間でロイヤルテ�
 | Brazeアカウント | APIアクセスが有効になっているアクティブなBrazeアカウント。 |
 | Braze REST APIキー | `campaigns.trigger.send`、`canvas.trigger.send`、`users.track`の権限を持つREST APIキー。<br><br> このキーはBrazeダッシュボードの**設定** > **APIキー**から作成します。 |
 | Braze APIエンドポイント | BrazeのRESTエンドポイント（例：`https://rest.fra-01.braze.eu`）。詳細については、[Brazeインスタンスとエンドポイント]({{site.baseurl}}/api/basics/#endpoints)を参照してください。 |
-| CampaignまたはCanvas ID | GRAVTY®からトリガーする**Campaigns**または**Canvas**ワークフローのID。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| キャンペーンまたはキャンバス ID | GRAVTY®からトリガーする**キャンペーン**または**キャンバス**ワークフローのID。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
 この統合は、以下のBraze機能をサポートします。
 
 - **ユーザーデータ同期（`/users/track`）：** メンバーの属性、イベント、購入をBrazeに同期し、セグメンテーションとパーソナライゼーションに活用します。
-- **Campaignトリガー（`/campaigns/trigger/send`）：** Braze Campaignsを使用して、ワンタイムまたはトランザクションメッセージをトリガーします。
-- **Canvasトリガー（`/canvas/trigger/send`）：** Braze **Canvas**を使用して、マルチステップジャーニーとライフサイクルメッセージングを開始します。
+- **キャンペーントリガー（`/campaigns/trigger/send`）：** Braze キャンペーンを使用して、ワンタイムまたはトランザクションメッセージをトリガーします。
+- **キャンバストリガー（`/canvas/trigger/send`）：** Braze **キャンバス**を使用して、マルチステップジャーニーとライフサイクルメッセージングを開始します。
 - **セグメンテーションとパーソナライゼーション：** 同期されたデータからターゲットオーディエンスを構築し、パーソナライズされたコミュニケーションを配信します。
 
 ## 統合 {#integration}
 
-GRAVTY®とBrazeの統合はAPIベースです。リアルタイムのデータ同期とコミュニケーショントリガーをサポートします。
-
-![GRAVTY®がBraze APIにデータとトリガーを送信し、SMS、メール、プッシュ、WhatsAppにメッセージを配信するフロー図。]({% image_buster /assets/img/lji/braze-gravty-integration.png %})
+GRAVTY®とBrazeの統合はAPIベースであり、GRAVTY®とBraze間のリアルタイムデータ同期とコミュニケーショントリガーを可能にします。
 
 ### ステップ 1: BrazeをGRAVTY®に接続する {#step-1-connect-braze-with-gravty}
 
@@ -59,33 +57,61 @@ GRAVTY®とBrazeの統合はAPIベースです。リアルタイムのデータ�
 
 ![Brazeが選択され、API URLとAPIキーフィールド、およびアクティブなサブスクライバートグルが表示されたGRAVTY® Add Subscriberフォーム。]({% image_buster /assets/img/lji/braze-subscriber-setup.png %}){: style="max-width:70%;"}
 
-### ステップ 2: テンプレート属性マッピングを設定する {#step-2-configure-template-attribute-mapping}
+### ステップ 2: イベントトリガーを設定する {#step-2-configure-event-trigger}
 
-Brazeサブスクライバーを保存すると、GRAVTY®は**Template Attribute Mapping**ページを開きます。これを使用してフィールドをBrazeにマッピングします。
+GRAVTY®で、メンバーのアクティビティが定義した条件（例：トランザクション、ポイント獲得、ティア変更、プログラム登録）を満たしたときに実行されるイベントを作成します。
 
-1. **Add New Field**を選択します。
-2. リストから**GRAVTY®属性**を選択します。
-3. 値がBrazeに表示される**Braze属性名**（カスタム属性）を入力します。
+1. GRAVTY®の**Events**セクションに移動します。
+2. **Create Event**をクリックします。
+3. イベント条件を定義します（例：トランザクション作成、ポイント獲得、ティアアップグレード）。
+4. イベントがトリガーされるタイミングを決定するルールを設定します。
+5. Brazeサブスクライバーをイベントに紐付けて、コミュニケーショントリガーを有効にします。
+6. イベント設定を保存します。
+
+以下は、メンバーがプログラムに登録されたときにトリガーされるよう設定されたイベントの例です。
+
+![メンバーのプログラム登録用に設定されたGRAVTY®イベント設定。Brazeがサブスクライバーとして紐付けられています。]({% image_buster /assets/img/lji/event-configuration.png %})
+
+### ステップ 3: テンプレート属性マッピングを設定する {#step-3-configure-template-attribute-mapping}
+
+イベントを設定した後、サブスクライバー設定を完了してデータ同期とコミュニケーショントリガーを有効にします。
+
+1. サブスクライバードロップダウンから、ステップ1で作成した**Brazeサブスクライバー**を選択します。
+2. ユースケースに基づいて、適切な**チャネル**（**キャンペーン**または**キャンバス**）を選択します。データ同期のみのシナリオでは、チャネルを未選択のままにできます。
+3. 該当する場合、**Template Name**フィールドに対応する**キャンペーン ID**または**キャンバス ID**を入力します。
+4. 同期やトリガーベースのメッセージングをサポートするようにコミュニケーションタイプを設定します。
+
+GRAVTY®でフィールドマッピングを設定するには：
+
+1. **Add New Field**をクリックします。
+2. ドロップダウンから**GRAVTY®属性**を選択します。
+3. データのマッピング先となる対応する**Braze属性名**を入力します。
 
 {% alert important %}
-`external_id`をマッピングする必要はありません。GRAVTY®はメンバーIDをハッシュ化して内部的に生成し、Brazeはそのハッシュ値をユーザープロファイルの`external_id`として受け取ります。<br><br> 統合を有効にする前に、これが現在Brazeで`external_id`を設定している方法と一致していることを確認してください。Brazeが同じユーザーに対して異なる`external_id`を既に使用している場合は、データを同期する前にLJIと協力して識別子を整合させてください。
+`external_id`をマッピングする必要はありません。GRAVTY®はメンバーID（GRAVTY®内の一意のメンバー識別子）をハッシュ化して内部的に生成し、Brazeはそのハッシュ値をユーザープロファイルの`external_id`として受け取ります。<br><br> 統合を有効にする前に、これが現在Brazeで`external_id`を設定している方法と一致していることを確認してください。Brazeが同じユーザーに対して異なる`external_id`を既に使用している場合は、データを同期する前にLJIと協力して識別子を整合させてください。
 {% endalert %}
 
 {: start="4"}
-4. ステップ1〜3を繰り返して、さらにマッピングを追加します。
-5. **Save**を選択します。
+4. 必要に応じてステップ**1〜3**を繰り返し、追加のマッピングを行います。
+5. **Save**をクリックして設定を適用します。
 
-![テンプレート設定、同期設定、およびBraze用のエンティティ、GRAVTY®属性、テンプレート属性フィールドをマッピングするテーブルが表示されたGRAVTY® Subscription Setupページ。]({% image_buster /assets/img/lji/gravty-attribute-mapping.png %})
+![Brazeメンバー同期用の属性マッピング設定。]({% image_buster /assets/img/lji/gravty-attribute-mapping.png %})
 
 {% alert note %}
-この統合は、数値（整数、浮動小数点）、文字列、配列、ブール値、オブジェクト、オブジェクトの配列、日付を含むBrazeカスタム属性データタイプをサポートします。
+この統合は、数値（整数、浮動小数点）、文字列、配列、ブール値、オブジェクト、オブジェクトの配列、日付を含むすべてのBrazeカスタム属性データタイプをサポートします。
 {% endalert %}
 
-### ステップ 3: 統合をテストする {#step-3-test-the-integration}
+### ステップ 4: 統合をテストする {#step-4-test-the-integration}
 
-GRAVTY®でサンプルイベントをトリガーして、同期、コミュニケーショントリガー、エンドツーエンドのフローを確認します。
+GRAVTY®でサンプルイベントをトリガーして、同期、コミュニケーショントリガー、および統合全体が期待どおりに動作していることを確認します。
 
-![GRAVTY®マッピングから入力されたプロファイル、カスタム属性（ティア、日付、国、市区町村）、カスタムイベントが表示されたBrazeユーザープロファイル概要。]({% image_buster /assets/img/lji/braze-member-profile.png %})
+* メンバーデータがBrazeに同期され、メンバープロファイルに反映されます。
+
+![設定されたフィールドマッピングに基づいてデータフィールドが入力されたBrazeメンバープロファイル。]({% image_buster /assets/img/lji/braze-member-profile.png %})
+
+* 設定されたキャンペーンまたはキャンバスに基づいてコミュニケーションがトリガーされます。
+
+![Brazeからトリガーされたメールの例。]({% image_buster /assets/img/lji/braze-email-example.png %})
 
 ## サポート {#support}
 

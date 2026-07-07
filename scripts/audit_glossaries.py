@@ -2,17 +2,23 @@
 """
 Audit braze-docs glossaries against source-of-truth localization files.
 
-Compares scripts/glossaries/*.json against:
+``scripts/glossaries/*.json`` are synced from Phrase TMS term bases
+(``scripts/sync_glossaries_from_phrase.py``). This script compares those
+glossaries against in-product locale files to surface drift:
+
   - Platform dashboard locale files (dashboard/config/locales/*.{lang}.braze.json)
   - Android SDK strings (android-sdk-ui/src/main/res/values*/strings.xml)
   - Swift SDK strings (Sources/BrazeUI/Resources/Localization/*.lproj/*.strings)
   - GrapesJS locale files (src/i18n/locale/{lang}.js)
 
-With --fix, automatically updates glossary files and writes a PR-ready summary.
+With ``--fix``, updates glossary files from product repos and propagates
+changes into ``_lang/`` docs. **Deprecated for routine use** — prefer
+updating Phrase term bases and re-running the Phrase sync instead.
 
 Usage:
     python audit_glossaries.py [--platform-repo ../platform] [--output report.json]
-    python audit_glossaries.py --fix [--output report.json]
+    python audit_glossaries.py --fix [--output report.json]   # legacy; avoid in CI
+    python audit_glossaries.py --fix --no-propagate-locales
 """
 
 import argparse
@@ -32,6 +38,7 @@ GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 # flagged by Copilot on PR #13303.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _glossary_protected_terms import PROTECTED_PRODUCT_TERMS  # noqa: E402
+from _glossary_locale_propagation import propagate_glossary_changes  # noqa: E402
 
 
 def _protected_value(term, lang_key):
@@ -256,13 +263,16 @@ def find_mismatches(
             original_key = source_en_lower[gloss_en_lower]
             source_trans = source_pairs[original_key]
             if not _translations_match(gloss_trans, source_trans):
-                mismatches.append({
+                mismatch = {
                     "term": gloss_en,
                     "match_type": "exact",
                     "glossary_value": gloss_trans,
                     "source_value": source_trans,
                     "source": source_name,
-                })
+                }
+                if _source_likely_untranslated(gloss_trans, gloss_en, source_trans):
+                    mismatch["source_likely_untranslated"] = True
+                mismatches.append(mismatch)
             continue
 
         if not include_substring_mismatches:
@@ -359,13 +369,39 @@ COMMON_WORDS = frozenset({
 })
 
 
+def _strip_yaml_front_matter(text):
+    """Return markdown body text without the leading YAML front matter block."""
+    if not text.startswith("---"):
+        return text
+    end = text.find("\n---", 3)
+    if end == -1:
+        return text
+    return text[end + 4 :]
+
+
+def _count_bold_ui_label(term, body):
+    """Count ``**term**`` occurrences (dashboard UI label style in docs)."""
+    if not term:
+        return 0
+    pattern = re.compile(rf"\*\*{re.escape(term)}\*\*", re.IGNORECASE)
+    return len(pattern.findall(body))
+
+
+def _source_likely_untranslated(glossary_value, term, source_value):
+    """True when a product-repo locale string looks like untranslated English."""
+    if source_value.strip().lower() == term.strip().lower():
+        return True
+    return should_skip_ascii_downgrade(glossary_value, source_value)
+
+
 def find_missing_terms(source_pairs, glossary, docs_path, min_occurrences=5):
     """Find source terms that appear in docs but aren't in the glossary.
 
     Filters aggressively to surface only genuinely useful terminology:
     - 6+ characters or multi-word (contains a space)
     - Not a common English word
-    - Appears at least min_occurrences times in docs
+    - Appears as a bold UI label (**Term**) at least min_occurrences times in
+      English docs body (front matter and non-UI prose are excluded)
     """
     glossary_lower = {k.lower() for k in glossary}
     candidates = {}
@@ -389,12 +425,11 @@ def find_missing_terms(source_pairs, glossary, docs_path, min_occurrences=5):
     if not candidates:
         return []
 
-    docs_content = _load_docs_content(docs_path)
-    docs_lower = docs_content.lower()
+    docs_body = _load_docs_body_content(docs_path)
 
     missing = []
     for en_val, trans_val in candidates.items():
-        count = docs_lower.count(en_val.lower())
+        count = _count_bold_ui_label(en_val, docs_body)
         if count >= min_occurrences:
             missing.append({
                 "term": en_val,
@@ -425,6 +460,23 @@ def _load_docs_content(docs_path):
     return content
 
 
+def _load_docs_body_content(docs_path):
+    """Load English docs with YAML front matter stripped (cached)."""
+    key = f"{docs_path}:body"
+    if key in _docs_cache:
+        return _docs_cache[key]
+
+    parts = []
+    for md in Path(docs_path).rglob("*.md"):
+        try:
+            parts.append(_strip_yaml_front_matter(md.read_text(errors="replace")))
+        except OSError:
+            pass
+    content = "\n".join(parts)
+    _docs_cache[key] = content
+    return content
+
+
 # ---------------------------------------------------------------------------
 # Auto-fix
 # ---------------------------------------------------------------------------
@@ -440,13 +492,15 @@ def apply_fixes(report):
     - Substring mismatches are skipped (ambiguous, need human judgment).
 
     Returns {"fixes_applied": N, "terms_added": M, "fixes_skipped_downgrade": K,
-             "skipped_downgrade_details": [...], "details": {...}}.
+             "skipped_downgrade_details": [...], "details": {...},
+             "locale_changes": [...]}.
     """
     total_fixed = 0
     total_added = 0
     total_skipped_downgrade = 0
     skipped_downgrade_details = []
     details = {}
+    locale_changes = []
 
     for lang_key, lang_data in sorted(report["languages"].items()):
         glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
@@ -500,6 +554,14 @@ def apply_fixes(report):
                     continue
                 glossary[term] = new_val
                 lang_fixed += 1
+                if old_val != new_val:
+                    locale_changes.append({
+                        "lang": lang_key,
+                        "term": term,
+                        "kind": "updated",
+                        "search": old_val,
+                        "replace": new_val,
+                    })
             else:
                 print(f"  {lang_key}: skipping '{term}' — conflicting sources: {source_values}")
 
@@ -510,11 +572,20 @@ def apply_fixes(report):
                 # Protected product terms always land as their English
                 # canonical, regardless of what the upstream source says.
                 protected = _protected_value(term, lang_key)
-                glossary[term] = (
+                new_val = (
                     protected if protected is not None else m["source_translation"]
                 )
+                glossary[term] = new_val
                 glossary_lower.add(term.lower())
                 lang_added += 1
+                if term != new_val:
+                    locale_changes.append({
+                        "lang": lang_key,
+                        "term": term,
+                        "kind": "added",
+                        "search": term,
+                        "replace": new_val,
+                    })
 
         if lang_fixed or lang_added:
             sorted_glossary = {k: glossary[k] for k in sorted(glossary, key=str.lower)}
@@ -539,6 +610,7 @@ def apply_fixes(report):
         "fixes_skipped_downgrade": total_skipped_downgrade,
         "skipped_downgrade_details": skipped_downgrade_details,
         "details": details,
+        "locale_changes": locale_changes,
     }
 
 
@@ -546,7 +618,7 @@ def apply_fixes(report):
 # Report generation
 # ---------------------------------------------------------------------------
 
-def generate_markdown_report(report, fix_results=None):
+def generate_markdown_report(report, fix_results=None, locale_results=None):
     """Generate a markdown summary from the audit report.
 
     When fix_results is provided, the report is formatted as a PR body
@@ -565,6 +637,11 @@ def generate_markdown_report(report, fix_results=None):
             lines.append(
                 f"**Fixes skipped (de-localization guard):** {sk}"
             )
+        if locale_results:
+            lines.append(
+                f"**Locale docs updated:** {locale_results['files_changed']} files, "
+                f"{locale_results['replacements']} replacements"
+            )
         lines.append(f"**Languages audited:** {stats['languages_audited']}")
         lines.append(f"**Source strings scanned:** {stats['total_source_strings']}")
     else:
@@ -573,6 +650,12 @@ def generate_markdown_report(report, fix_results=None):
         lines.append(f"**Source strings scanned:** {stats['total_source_strings']}")
         lines.append(f"**Mismatches found:** {stats['total_mismatches']}")
         lines.append(f"**Missing high-value terms:** {stats['total_missing']}")
+        lines.append("")
+        lines.append(
+            "*Missing terms are counted only when the English term appears as a "
+            "bold UI label (`**Term**`) in `_docs/` body text (YAML front matter "
+            "and generic prose are excluded).*"
+        )
     lines.append("")
 
     for lang_key, lang_data in sorted(report["languages"].items()):
@@ -589,20 +672,40 @@ def generate_markdown_report(report, fix_results=None):
         if exact:
             header = "Fixed — exact mismatches" if fixed_mode else "Exact mismatches"
             lines.append(f"**{header}**\n")
-            lines.append("| Term | Old value | New value (source) | Source repo |")
-            lines.append("|------|-----------|-------------------|-------------|")
+            untranslated = [m for m in exact if m.get("source_likely_untranslated")]
+            if untranslated and not fixed_mode:
+                lines.append(
+                    "Rows marked *untranslated source* mean the product locale file "
+                    "still has English (or would de-localize the glossary if applied). "
+                    "Fix upstream in the source repo or keep the Phrase glossary value.\n"
+                )
+            lines.append(
+                "| Term | Old value | New value (source) | Source repo | Note |"
+            )
+            lines.append(
+                "|------|-----------|-------------------|-------------|------|"
+            )
             for m in exact:
+                note = (
+                    "untranslated source"
+                    if m.get("source_likely_untranslated")
+                    else ""
+                )
                 lines.append(
                     f"| {m['term']} | {m['glossary_value']} "
-                    f"| {m['source_value']} | {m['source']} |"
+                    f"| {m['source_value']} | {m['source']} | {note} |"
                 )
             lines.append("")
 
         if missing:
-            header = "Added — new terms" if fixed_mode else "Missing terms (appear in docs but not in glossary)"
+            header = (
+                "Added — new terms"
+                if fixed_mode
+                else "Missing terms (bold UI labels in docs but not in glossary)"
+            )
             lines.append(f"**{header}**\n")
-            lines.append("| Term | Translation | Docs occurrences |")
-            lines.append("|------|-------------|-----------------|")
+            lines.append("| Term | Translation | Bold UI occurrences |")
+            lines.append("|------|-------------|---------------------|")
             for m in missing[:50]:
                 lines.append(
                     f"| {m['term']} | {m['source_translation']} "
@@ -653,6 +756,23 @@ def generate_markdown_report(report, fix_results=None):
             if len(substr) > 30:
                 lines.append(f"\n*...and {len(substr) - 30} more*\n")
             lines.append("")
+
+    if fixed_mode and locale_results and locale_results.get("details"):
+        lines.append("### Locale doc propagation\n")
+        lines.append(
+            "Glossary adds/updates were applied to matching prose in "
+            "``_lang/`` (code fences, alert keys, glossary identifiers, and "
+            "partner/UI literals are skipped).\n"
+        )
+        lines.append("| File | Replacements |")
+        lines.append("|------|-------------|")
+        for row in locale_results["details"][:40]:
+            lines.append(f"| `{row['file']}` | {row['replacements']} |")
+        if len(locale_results["details"]) > 40:
+            lines.append(
+                f"\n*...and {len(locale_results['details']) - 40} more files*\n"
+            )
+        lines.append("")
 
     if fixed_mode and fix_results.get("skipped_downgrade_details"):
         lines.append("### Skipped — de-localization guard\n")
@@ -796,6 +916,7 @@ def run_audit(args):
 
     # Auto-fix if requested
     fix_results = None
+    locale_results = None
     if getattr(args, "fix", False) and (total_mismatches > 0 or total_missing > 0):
         print("\nApplying fixes...")
         fix_results = apply_fixes(report)
@@ -805,9 +926,25 @@ def run_audit(args):
             f"{fix_results.get('fixes_skipped_downgrade', 0)} skipped (de-localization)"
         )
 
+        if (
+            not getattr(args, "no_propagate_locales", False)
+            and fix_results.get("locale_changes")
+        ):
+            print("\nPropagating glossary changes to _lang/ docs...")
+            locale_results = propagate_glossary_changes(
+                fix_results["locale_changes"],
+                repo_root=REPO_ROOT,
+            )
+            print(
+                f"  Locale docs: {locale_results['files_changed']} files, "
+                f"{locale_results['replacements']} replacements"
+            )
+
     # Write markdown report
     md_output = output.with_suffix(".md")
-    md_output.write_text(generate_markdown_report(report, fix_results))
+    md_output.write_text(
+        generate_markdown_report(report, fix_results, locale_results)
+    )
     print(f"Markdown report written to {md_output}")
 
     print(f"\nAudit complete:")
@@ -815,17 +952,26 @@ def run_audit(args):
     print(f"  Mismatches:  {total_mismatches}")
     print(f"  Missing:     {total_missing}")
 
+    gh_output = os.environ.get("GITHUB_OUTPUT")
+    if gh_output:
+        with open(gh_output, "a", encoding="utf-8") as handle:
+            handle.write(f"total_mismatches={total_mismatches}\n")
+            handle.write(f"total_missing={total_missing}\n")
+
     if fix_results:
         total_changes = fix_results["fixes_applied"] + fix_results["terms_added"]
-        gh_output = os.environ.get("GITHUB_OUTPUT")
+        locale_files = locale_results["files_changed"] if locale_results else 0
         if gh_output:
-            with open(gh_output, "a") as f:
-                f.write(f"fixes_applied={fix_results['fixes_applied']}\n")
-                f.write(f"terms_added={fix_results['terms_added']}\n")
-                f.write(f"total_changes={total_changes}\n")
+            with open(gh_output, "a", encoding="utf-8") as handle:
+                handle.write(f"fixes_applied={fix_results['fixes_applied']}\n")
+                handle.write(f"terms_added={fix_results['terms_added']}\n")
+                handle.write(f"total_changes={total_changes}\n")
+                handle.write(f"locale_files_changed={locale_files}\n")
         return 0
 
-    return 1 if total_mismatches > 0 or total_missing > 0 else 0
+    # Report-only runs treat mismatches as findings, not a failed process (CI
+    # must reach the create-pull-request step when drift exists).
+    return 0
 
 
 def main():
@@ -846,6 +992,14 @@ def main():
         help=(
             "Report fuzzy substring mismatches (noisy; not auto-fixed). "
             "Default is exact mismatches only."
+        ),
+    )
+    parser.add_argument(
+        "--no-propagate-locales",
+        action="store_true",
+        help=(
+            "With --fix, update glossaries only; do not search _lang/ docs "
+            "for new or updated terms."
         ),
     )
     args = parser.parse_args()

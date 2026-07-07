@@ -19,7 +19,7 @@ search_tag: Partner
 | Compte AppsFlyer | Un compte AppsFlyer est nécessaire pour bénéficier de ce partenariat. |
 | Application iOS ou Android | Cette intégration prend en charge les applications iOS et Android. En fonction de votre plateforme, des extraits de code peuvent être requis dans votre application. Vous trouverez des informations détaillées sur ces exigences à l'étape 1 du processus d'intégration. |
 | SDK AppsFlyer | Outre le SDK Braze requis, vous devez installer le [SDK AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de l'importation de données {#data-import-integration}
 
@@ -46,7 +46,7 @@ NSDictionary *brazeInfo = @{
 
 Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **AppsFlyer**.
 
-Vous y trouverez l'endpoint REST et pourrez générer votre clé d'importation des données Braze. Une fois la clé générée, vous pouvez en créer une nouvelle ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés à l'étape suivante lors de la configuration d'un postback dans le tableau de bord d'AppsFlyer.<br><br>![La case « Importation de données à l'aide de l'importation de cohortes » sur la page technologique d'AppsFlyer. Dans cette zone, vous pouvez voir la clé d'importation des données et l'endpoint REST.]({% image_buster /assets/img/appsflyer_audiences/appsflyer_data_import_key.png %}){: style="max-width:90%;"}
+Vous y trouverez l'endpoint REST et pourrez générer votre clé d'importation des données Braze. Une fois la clé générée, vous pouvez en créer une nouvelle ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés à l'étape suivante lors de la configuration d'un postback dans le tableau de bord d'AppsFlyer.<br><br>![La zone « Importation de données à l'aide de l'importation de cohortes » sur la page technologique d'AppsFlyer. Dans cette zone, vous pouvez voir la clé d'importation des données et l'endpoint REST.]({% image_buster /assets/img/appsflyer_audiences/appsflyer_data_import_key.png %}){: style="max-width:90%;"}
 
 ### Étape 3 : Configurer une connexion Braze dans AppsFlyer Audiences {#step-3-configure-a-braze-connection-in-appsflyer-audiences}
 

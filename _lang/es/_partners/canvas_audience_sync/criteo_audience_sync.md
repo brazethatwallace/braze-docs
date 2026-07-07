@@ -29,13 +29,13 @@ Braze Audience Sync to Criteo es una integración de Audience Sync Pro. Para má
 
 ## Requisitos previos {#prerequisites}
 
-Debes asegurarte de que tienes los siguientes elementos creados y/o completados antes de configurar la sincronización de tu audiencia con Criteo.
+Debes asegurarte de que tienes los siguientes elementos creados o completados antes de configurar la sincronización de tu audiencia con Criteo.
 
 | Requisito | Origen | Descripción |
 | --- | --- | --- |
 | Cuenta publicitaria de Criteo | [Criteo](https://marketing.criteo.com/) | Una cuenta de anuncios de Criteo activa vinculada a tu marca.<br><br>Asegúrate de que tu administrador de Criteo te ha concedido los permisos adecuados para acceder a audiencias. |
 | [Directrices publicitarias de Criteo](https://www.criteo.com/advertising-guidelines/)<br>y<br>[Directrices de seguridad de marca de Criteo](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Como cliente activo de Criteo, debes asegurarte de que puedes cumplir las directrices de publicidad y seguridad de marca de Criteo antes de lanzar cualquier campaña de Criteo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integración {#integration}
 
@@ -92,7 +92,7 @@ Selecciona **Criteo** como socio de Audience Sync deseado.
 A continuación, selecciona la cuenta de anuncios de Criteo que desees. En el desplegable **Choose a New or Existing Audience**, escribe el nombre de una audiencia nueva o existente.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Crear una nueva audiencia %}
 **Crear una nueva audiencia**<br>
 Introduce un nombre para la nueva audiencia, selecciona **Add Users to Audience** y selecciona los campos que deseas sincronizar con Criteo. A continuación, guarda tu audiencia haciendo clic en el botón **Create Audience** en la parte inferior del editor de pasos.
 
@@ -104,7 +104,7 @@ Braze muestra una notificación en la parte superior del editor de pasos si la a
 
 Cuando lanzas un Canvas con una nueva audiencia, Braze sincroniza a los usuarios casi en tiempo real a medida que entran en el componente de Audience Sync.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar con una audiencia existente %}
 **Sincronizar con una audiencia existente**<br>
 Braze también ofrece la posibilidad de añadir usuarios a las audiencias de Criteo existentes para garantizar que estas audiencias estén actualizadas. Para sincronizar con una audiencia existente, escribe el nombre de la audiencia existente en el desplegable y selecciona **Add to the Audience**. A continuación, Braze añadirá usuarios casi en tiempo real a medida que entren en el componente de Audience Sync.
 
@@ -140,7 +140,7 @@ La siguiente tabla incluye métricas y descripciones que te ayudarán a comprend
 | Usuarios pendientes | Número de usuarios procesados actualmente por Braze para sincronizar en Criteo. |
 | Usuarios con errores | Número de usuarios que no se sincronizaron con Criteo debido a un error de la API tras unas 13 horas de reintentos. Las causas potenciales de los errores pueden incluir un token de Criteo no válido o si la audiencia fue eliminada en Criteo. |
 | Salieron del Canvas | Número de usuarios que han salido del Canvas. Esto ocurre cuando el último paso de un Canvas es un componente de Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Recuerda que se producirá un retraso en los informes de las métricas de usuarios sincronizados y usuarios con errores debido a la descarga masiva y al reintento de 13 horas, respectivamente.

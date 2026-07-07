@@ -47,9 +47,9 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und
 Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) haben, um Snapchat mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
-Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Snapchat** aus. Wählen Sie unter Snapchat Audience Sync die Option **Snapchat verbinden** aus.
+Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Snapchat** aus. Wählen Sie unter Snapchat Audience Sync die Option **Connect Snapchat** aus.
 
-![Snapchat-Technologieseite in Braze mit einem Übersichtsabschnitt und einem Snapchat Audience Sync-Abschnitt mit dem Button „Snapchat verbinden“.]({% image_buster /assets/img/snapchat/snapchat1.png %}){: style="max-width:80%;"}
+![Snapchat-Technologieseite in Braze mit einem Übersichtsabschnitt und einem Snapchat Audience Sync-Abschnitt mit dem Button „Connect Snapchat“.]({% image_buster /assets/img/snapchat/snapchat1.png %}){: style="max-width:80%;"}
 
 Sie werden dann auf die Snapchat-OAuth-Seite weitergeleitet, um Braze für die Berechtigungen im Zusammenhang mit Ihrer Audience Sync-Integration zu autorisieren.
 
@@ -73,14 +73,14 @@ Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie **Audience Sync
 
 Klicken Sie auf den Button **Custom Audience**, um den Komponenteneditor zu öffnen.
 
-Wählen Sie **TikTok** als den gewünschten Audience Sync-Partner aus.
+Wählen Sie **Snapchat** als den gewünschten Audience Sync-Partner aus.
 
 ![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Wählen Sie dann Ihr gewünschtes Snapchat-Anzeigenkonto aus. Geben Sie in der Dropdown-Liste **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Eine neue Zielgruppe erstellen %}
 
 **Eine neue Zielgruppe erstellen**<br>
 Geben Sie einen Namen für die neue Zielgruppe ein, wählen Sie **Add Users to Audience** und wählen Sie aus, welche Felder Sie mit Snapchat synchronisieren möchten. Speichern Sie anschließend Ihre Zielgruppe, indem Sie unten im Schritteditor auf den Button **Create Audience** klicken.
@@ -94,7 +94,7 @@ Braze zeigt am oberen Rand des Schritteditors eine Benachrichtigung an, wenn die
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, synchronisiert Braze die Nutzer:innen nahezu in Realtime, sobald sie die Audience Sync-Komponente betreten.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit einer bestehenden Zielgruppe synchronisieren %}
 **Mit einer bestehenden Zielgruppe synchronisieren**<br>
 Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Snapchat-Zielgruppen hinzuzufügen, um sicherzustellen, dass diese Zielgruppen auf dem neuesten Stand sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, geben Sie den Namen der bestehenden Zielgruppe in das Dropdown-Menü ein und wählen Sie **Add to the Audience**. Braze fügt dann Nutzer:innen nahezu in Realtime hinzu, sobald sie die Audience Sync-Komponente betreten.
 

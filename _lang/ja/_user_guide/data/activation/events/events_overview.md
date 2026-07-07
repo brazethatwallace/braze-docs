@@ -51,7 +51,7 @@ Brazeの標準イベントは、Brazeがプラットフォーム全体で認識�
 
 Brazeは複数通貨での購入もサポートしています。USD以外の通貨で購入が報告された場合、購入が報告された日付の為替レートに基づいて、BrazeダッシュボードではUSDで表示されます。
 
-詳細については、専用の[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)の記事をご覧ください。
+詳細については、専用の[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)の記事をご覧ください。
 
 {% details 実装例 %}
 
@@ -85,9 +85,9 @@ Appboy.sharedInstance()?.logPurchase("product_name", inCurrency: "USD", atPrice:
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、Campaignのトリガーやメッセージングのパーソナライズに使用できます。
+この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、キャンペーンのトリガーやメッセージングのパーソナライズに使用できます。
 
-詳細については、専用の[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)の記事をご覧ください。
+詳細については、専用の[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)の記事をご覧ください。
 
 {% details 実装例 %}
 

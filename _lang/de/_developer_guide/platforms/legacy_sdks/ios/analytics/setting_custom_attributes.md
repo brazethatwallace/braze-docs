@@ -14,7 +14,7 @@ noindex: true
 
 Braze bietet Methoden für die Zuweisung von Attributen an Nutzer:innen. Im Dashboard können Sie Ihre Nutzer:innen nach diesen Attributen filtern und segmentieren.
 
-Lesen Sie vor der Implementierung unbedingt die Beispiele für die Segmentierungsoptionen, die angepasste Events, angepasste Attribute und Kauf-Events bieten, in unseren [Best Practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection) sowie unsere Hinweise zu den [Namenskonventionen für Events]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Lesen Sie vor der Implementierung unbedingt die Beispiele für die Segmentierungsoptionen, die angepasste Events, angepasste Attribute und Kauf-Events bieten, in unseren [Best Practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection) sowie unsere Hinweise zu den [Namenskonventionen für Events]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Zuweisen von Standard-Nutzerattributen {#assigning-default-user-attributes}
 
@@ -54,7 +54,7 @@ Die folgenden Attribute sollten für das `ABKUser`-Objekt festgelegt werden:
 
 ## Zuweisen von angepassten Nutzerattributen {#assigning-custom-user-attributes}
 
-Neben den Standard-Nutzerattributen können Sie in Braze auch angepasste Attribute mit verschiedenen Datentypen definieren. Weitere Informationen zu den Segmentierungsoptionen, die Ihnen jedes dieser Attribute bietet, finden Sie in unserer Dokumentation zur [Datenerfassung]({{site.baseurl}}/developer_guide/analytics/).
+Neben den Standard-Nutzerattributen können Sie in Braze auch angepasste Attribute mit verschiedenen Datentypen definieren. Weitere Informationen zu den Segmentierungsoptionen, die Ihnen jedes dieser Attribute bietet, finden Sie in unserer Dokumentation zur [Datenerfassung]({{site.baseurl}}/developer_guide/analytics).
 
 ### Angepasstes Attribut mit einem String-Wert {#custom-attribute-with-a-string-value}
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### Festlegen eines angepassten Attributs über die REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-Sie können auch die REST API verwenden, um Nutzerattribute festzulegen. Einzelheiten finden Sie in der [Nutzer-API-Dokumentation]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Sie können auch die REST API verwenden, um Nutzerattribute festzulegen. Einzelheiten finden Sie in der [Nutzer-API-Dokumentation]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ### Wertgrenzen für angepasste Attribute {#custom-attribute-value-limits}
 
@@ -253,11 +253,11 @@ Um ein Abo für Ihre Nutzer:innen einzurichten (entweder E-Mail oder Push), rufe
 | `ABKOptedin` | Abonniert und ausdrücklich angemeldet |
 | `ABKSubscribed` | Abonniert, aber nicht ausdrücklich angemeldet |
 | `ABKUnsubscribed` | Abbestellt und/oder ausdrücklich abgemeldet |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Einrichten von Nutzer-Abos" }
 
 Nutzer:innen, die einer App die Erlaubnis erteilen, ihnen Push-Benachrichtigungen zu senden, haben standardmäßig den Status `ABKOptedin`, da iOS eine ausdrückliche Zustimmung verlangt.
 
-Nutzer:innen werden bei Erhalt einer gültigen E-Mail-Adresse automatisch auf `ABKSubscribed` gesetzt. Wir empfehlen Ihnen jedoch, ein ausdrückliches Opt-in-Verfahren einzurichten und diesen Wert bei Erhalt einer ausdrücklichen Zustimmung auf `OptedIn` zu setzen. Weitere Einzelheiten finden Sie unter [Verwalten von Nutzer-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions/).
+Nutzer:innen werden bei Erhalt einer gültigen E-Mail-Adresse automatisch auf `ABKSubscribed` gesetzt. Wir empfehlen Ihnen jedoch, ein ausdrückliches Opt-in-Verfahren einzurichten und diesen Wert bei Erhalt einer ausdrücklichen Zustimmung auf `OptedIn` zu setzen. Weitere Einzelheiten finden Sie unter [Verwalten von Nutzer-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 
 ### Einstellen von E-Mail-Abos {#setting-email-subscriptions}
 
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-Weitere Einzelheiten finden Sie unter [Verwalten von Nutzer-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions/).
+Weitere Einzelheiten finden Sie unter [Verwalten von Nutzer-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions).

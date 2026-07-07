@@ -20,8 +20,8 @@ Braze와 Nexla 통합을 통해 [Currents]({{site.baseurl}}/user_guide/data/dist
 |---|---|
 | Nexla 계정 | 이 파트너십을 활용하려면 [Nexla 계정](https://www.nexla.com/get-demo)이 필요합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트  | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints))에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints))에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -36,7 +36,7 @@ Nexla의 제품형 데이터인 [Nexsets](https://nexla.zendesk.com/hc/en-us/art
 ### 2단계: 소스 추가 {#step-2-add-your-source}
 
 #### Braze가 데이터 소스인 경우 {#if-braze-is-your-data-source}
-1. Nexla 플랫폼에서 왼쪽 도구 모음의 **Flows > Create a New Flow**로 이동합니다.
+1. Nexla 플랫폼에서 왼쪽 도구 모음의 **Flows** > **Create a New Flow**로 이동합니다.
 2. **Create New Source**를 클릭하고 Braze 커넥터를 선택한 다음 **Next**를 클릭합니다.
 3. **Add a New Credential**을 선택하고 자격 증명 이름을 지정한 후 Braze API 키와 REST 엔드포인트를 추가하고 **Save**를 클릭합니다.
 4. 마지막으로 데이터를 선택하고 **Save**를 클릭합니다.

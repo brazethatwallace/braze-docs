@@ -5,7 +5,7 @@ article_title: Braze SDK-Rate-Limits
 description: "Erfahren Sie mehr über das intelligente, clientseitige Rate-Limiting des Braze SDK, das die Akkulaufzeit optimiert, die Bandbreitennutzung reduziert und eine zuverlässige Zustellung der Daten gewährleistet."
 ---
 
-# Braze SDK-Rate-Limits
+# Braze SDK-Rate-Limits {#braze-sdk-rate-limits}
 
 > Erfahren Sie mehr über das intelligente, clientseitige Rate-Limiting des Braze SDK, das die Akkulaufzeit optimiert, die Bandbreitennutzung reduziert und eine zuverlässige Zustellung der Daten gewährleistet.
 
@@ -47,7 +47,7 @@ Das Braze SDK enthält mehrere integrierte Funktionen zur Verbesserung der Effiz
 - **Graceful Degradation**: Gewährleistet die Funktionalität auch bei schlechten Netzwerkbedingungen.
 - **Hintergrund-/Vordergrund-Erkennung**: Optimiert das Verhalten, wenn sich der Lebenszyklus der App ändert.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Befolgen Sie diese Best Practices, um Probleme mit Rate-Limits zu vermeiden:
 
@@ -57,7 +57,7 @@ Befolgen Sie diese Best Practices, um Probleme mit Rate-Limits zu vermeiden:
 | Aktualisieren Sie Inhalte nur bei Bedarf | Aktualisieren Sie Inhalte bei jeder Nutzeraktion (z. B. bei Scroll-Ereignissen) |
 | Lassen Sie das SDK die Stapelverarbeitung automatisch durchführen | Erzwingen Sie eine sofortige Übertragung der Daten (sofern nicht unbedingt erforderlich) |
 | Konzentrieren Sie sich auf Ereignisse, die einen Mehrwert für Analytics bieten | Rufen Sie SDK-Methoden in schneller Folge auf, ohne die Häufigkeit zu berücksichtigen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Best Practices" }
 
 ## Hilfe erhalten {#getting-help}
 
@@ -69,7 +69,7 @@ Sollten Sie Probleme mit den SDK-Rate-Limits haben, überprüfen Sie bitte die f
 - `logCustomEvent()`
 - `logPurchase()`
 
-Wenn Sie den [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) kontaktieren, geben Sie bitte die folgenden Details für jede der von Ihnen verwendeten Netzwerk-SDK-Methoden an:
+Wenn Sie den [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) kontaktieren, geben Sie bitte die folgenden Details für jede der von Ihnen verwendeten Netzwerk-SDK-Methoden an:
 
 ```plaintext
 Method name:

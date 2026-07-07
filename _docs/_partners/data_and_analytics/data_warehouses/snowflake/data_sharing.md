@@ -36,7 +36,7 @@ To learn more about Snowflake's data sharing, see [Introduction to Secure Data S
 | ----------- | ----------- |
 | Braze access | Contact your Braze account or customer success manager to set up Data Sharing. |
 | Snowflake account | A Snowflake account with `admin` permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Setting up Secure Data Sharing
 
@@ -77,7 +77,7 @@ Similar to Currents, you can use your Snowflake Secure Data Sharing to:
 - Map raw event or user data to a CRM (like Salesforce)
 - And more
 
-[Download the raw table schemas here.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[Download the raw table schemas.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### User ID schema
 
@@ -87,7 +87,7 @@ Note the following differences between Braze and Snowflake naming conventions fo
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | The unique identifier that is automatically assigned by Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | The unique identifier of a user's profile that is set by the customer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ## Important information and limitations
 

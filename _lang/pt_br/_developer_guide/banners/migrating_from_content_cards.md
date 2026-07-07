@@ -1,7 +1,7 @@
 ---
-nav_title: "Migrar de Cartões de conteúdo"
-article_title: "Migrar de Cartões de conteúdo para Banners"
-description: "Aprenda como migrar de Cartões de conteúdo para Banners, incluindo exemplos de código para todos os SDKs suportados, limitações e benefícios."
+nav_title: "Migrar de Content Cards"
+article_title: "Migrar de Content Cards para Banners"
+description: "Aprenda como migrar de Content Cards para Banners, incluindo exemplos de código para todos os SDKs suportados, limitações e benefícios."
 page_order: 5
 toc_headers: h2
 channel:
@@ -14,61 +14,65 @@ platform:
   - React Native
 ---
 
-# Migrar de Cartões de conteúdo para Banners
+# Migrar de Content Cards para Banners {#migrate-from-content-cards-to-banners}
 
-> Este guia ajuda você a migrar de Cartões de conteúdo para Banners para casos de uso de envio de mensagens em estilo banner. Banners são ideais para mensagens inline e persistentes no app e na web que aparecem em locais específicos na sua aplicação.
+> Este guia ajuda você a migrar de Content Cards para Banners para casos de uso de envio de mensagens em estilo banner. Banners são ideais para mensagens inline e persistentes no app e na web que aparecem em posicionamentos específicos na sua aplicação.
 
-## Por que migrar para Banners?
+## Por que migrar para Banners? {#why-migrate-to-banners}
 
-- Se sua equipe de engenharia está construindo ou mantendo Cartões de conteúdo personalizados, migrar para Banners pode reduzir esse investimento contínuo. Banners permitem que os profissionais de marketing controlem a interface do usuário diretamente, liberando os desenvolvedores para outros trabalhos.
-- Se você está lançando novas mensagens na página inicial, fluxos de integração ou anúncios persistentes, comece com Banners em vez de construir sobre Cartões de conteúdo. Você pode se beneficiar de personalização em tempo real, sem expiração de 30 dias, sem limite de tamanho e priorização nativa desde o primeiro dia.
+- Se sua equipe de engenharia está construindo ou mantendo Content Cards personalizados, migrar para Banners pode reduzir esse investimento contínuo. Banners permitem que os profissionais de marketing controlem a interface do usuário diretamente, liberando os desenvolvedores para outros trabalhos.
+- Se você está lançando novas mensagens na página inicial, fluxos de integração ou anúncios persistentes, comece com Banners em vez de construir sobre Content Cards. Você pode se beneficiar de personalização em tempo real, sem expiração de 30 dias, sem limite de tamanho e priorização nativa desde o primeiro dia.
 - Se você está lidando com o limite de expiração de 30 dias, gerenciando lógica de reelegibilidade complexa ou frustrado com personalização desatualizada, Banners resolvem esses problemas de forma nativa.
 
-Banners oferecem várias vantagens sobre Cartões de conteúdo para envio de mensagens em estilo banner:
+Banners oferecem várias vantagens sobre Content Cards para envio de mensagens em estilo banner:
 
-### Produção acelerada
+### Produção acelerada {#accelerated-production}
 
 - **Suporte de engenharia contínuo reduzido**: Os profissionais de marketing podem criar mensagens personalizadas usando um editor de arrastar e soltar e HTML personalizado sem precisar de assistência de desenvolvedores para personalização
 - **Opções de personalização flexíveis**: Desenhe diretamente no editor, use HTML ou aproveite modelos de dados existentes com propriedades personalizadas
 
-### Melhor experiência do usuário
+### Melhor experiência do usuário {#better-ux}
 
 - **Atualizações de conteúdo dinâmico**: Banners atualizam a lógica Liquid e a elegibilidade a cada atualização, garantindo que os usuários vejam sempre o conteúdo mais relevante
 - **Suporte de posicionamento nativo**: As mensagens aparecem em contextos específicos em vez de um feed, proporcionando melhor relevância contextual
 - **Priorização nativa**: Controle sobre a ordem de exibição sem lógica personalizada, facilitando a gestão da hierarquia das mensagens
 
-### Persistência
+### Persistência {#persistence}
 
-- **Sem limite de expiração**: Campanhas de banner não têm um limite de expiração de 30 dias como os Cartões de conteúdo, permitindo a verdadeira persistência das mensagens
+- **Sem limite de expiração**: Campaigns de banner não têm um limite de expiração de 30 dias como Content Cards, permitindo a verdadeira persistência das mensagens
 
-## Quando migrar
+## Quando migrar {#when-to-migrate}
 
-Considere migrar para Banners se você estiver usando Cartões de conteúdo para:
+Considere migrar para Banners se você estiver usando Content Cards para:
 
 - Destaques da página inicial, promoções de página de produto, ofertas de checkout
 - Anúncios de navegação persistente ou mensagens na barra lateral
 - Mensagens sempre ativas que duram mais de 30 dias
 - Mensagens onde você deseja personalização em tempo real e elegibilidade
 
-## Quando manter os Cartões de conteúdo
+## Quando manter Content Cards {#when-to-keep-content-cards}
 
-Continue usando os Cartões de conteúdo se você precisar de:
+Continue usando Content Cards se você precisar de:
 
 - **Experiências de feed:** Qualquer caso de uso envolvendo várias mensagens roláveis ou uma "Caixa de Entrada" baseada em cartões.
-- **Recursos específicos:** Mensagens que requerem Conteúdo conectado ou Códigos Promocionais, pois os Banners não suportam isso nativamente.
-- **Entrega disparada:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora os Banners não suportem entrega disparada por API ou entrega baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao segmento a cada atualização.
+- **Recursos específicos:** Mensagens que requerem Conteúdo conectado ou códigos promocionais, pois Banners não suportam isso nativamente.
+- **Entrega disparada:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora Banners não suportem entrega disparada por API ou entrega baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao segmento a cada atualização.
 
-## Guia de migração
+## Guia de migração {#migration-guide}
 
-### Pré-requisitos
+### Pré-requisitos {#prerequisites}
 
 Antes de migrar, certifique-se de que seu SDK da Braze atende aos requisitos mínimos de versão:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
-### Inscrever-se para receber atualizações
+Descartes e reelegibilidade exigem as seguintes versões mínimas do SDK:
 
-#### Abordagem de Cartões de conteúdo
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
+
+### Inscrever-se para receber atualizações {#subscribe-to-updates}
+
+#### Abordagem de Content Cards {#content-cards-approach}
 
 {% tabs %}
 {% tab Web %}
@@ -126,7 +130,7 @@ StreamSubscription contentCardsStreamSubscription = braze.subscribeToContentCard
 {% endtab %}
 {% endtabs %}
 
-#### Abordagem de Banners
+#### Abordagem de Banners {#banners-approach}
 
 {% tabs %}
 {% tab Web %}
@@ -192,13 +196,13 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 {% endtab %}
 {% endtabs %}
 
-### Exibir conteúdo
+### Exibir conteúdo {#display-content}
 
 {% alert note %}
-Os Cartões de conteúdo podem ser renderizados manualmente com lógica de UI personalizada, enquanto os Banners só podem ser renderizados com os métodos padrão do SDK.
+Content Cards podem ser renderizados manualmente com lógica de UI personalizada, enquanto Banners só podem ser renderizados com os métodos padrão do SDK.
 {% endalert %}
 
-#### Abordagem de Cartões de conteúdo
+#### Abordagem de Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -379,13 +383,13 @@ braze.requestBannersRefresh(["sample_placement_id"]);
 {% endtab %}
 {% endtabs %}
 
-### Registrar análise de dados (implementações personalizadas)
+### Registrar análise de dados (implementações personalizadas) {#log-analytics-custom-implementations}
 
 {% alert note %}
-Tanto os Cartões de conteúdo quanto os Banners rastreiam automaticamente a análise de dados ao usar seus componentes de UI padrão. Os exemplos abaixo são para implementações personalizadas onde você está construindo sua própria UI.
+Tanto Content Cards quanto Banners rastreiam automaticamente a análise de dados ao usar seus componentes de UI padrão. Os exemplos abaixo são para implementações personalizadas onde você está construindo sua própria UI.
 {% endalert %}
 
-#### Abordagem de Cartões de conteúdo
+#### Abordagem de Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -539,9 +543,9 @@ A análise de dados é rastreada automaticamente ao usar BrazeBannerView. Nenhum
 {% endtab %}
 {% endtabs %}
 
-### Obtendo propriedades
+### Obtendo propriedades {#getting-properties}
 
-#### Abordagem de Cartões de conteúdo
+#### Abordagem de Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -629,9 +633,9 @@ if (banner != null) {
 {% endtab %}
 {% endtabs %}
 
-### Tratamento de grupos de controle
+### Tratamento de grupos de controle {#handling-control-groups}
 
-#### Abordagem de Cartões de conteúdo
+#### Abordagem de Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -753,20 +757,20 @@ BrazeBannerView(
 {% endtab %}
 {% endtabs %}
 
-## Limitações
+## Limitações {#limitations}
 
-Ao migrar de Cartões de conteúdo para Banners, esteja ciente das seguintes limitações:
+Ao migrar de Content Cards para Banners, esteja ciente das seguintes limitações:
 
-### Migrando mensagens disparadas
+### Migrando mensagens disparadas {#migrating-triggered-messages}
 
-Banners suportam apenas campanhas de entrega agendada. Para migrar uma mensagem que era anteriormente disparada por API ou baseada em ação, converta-a para direcionamento baseado em segmento:
+Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem que era anteriormente disparada por API ou baseada em ação, converta-a para direcionamento baseado em segmento:
 
 - **Exemplo:** Em vez de disparar um cartão "Completar Perfil" com a API, crie um segmento para usuários que se inscreveram nos últimos 7 dias, mas não completaram seu perfil.
 - **Elegibilidade em tempo real:** Os usuários se qualificam ou desqualificam para o Banner instantaneamente a cada atualização com base na associação ao segmento.
 
-### Diferenças de recursos
+### Diferenças de recursos {#feature-differences}
 
-| Recurso | Cartões de conteúdo | Banners |
+| Recurso | Content Cards | Banners |
 |---------|--------------|---------|
 | **Estrutura de conteúdo** |
 | Múltiplos cartões no feed | ✅ Suportado | ✅ É possível criar múltiplos posicionamentos para alcançar uma implementação semelhante a carrossel. Apenas um banner é retornado por posicionamento. |
@@ -782,29 +786,30 @@ Banners suportam apenas campanhas de entrega agendada. Para migrar uma mensagem 
 | **Exibição e direcionamento** |
 | Interface do feed | ✅ Feed padrão disponível | ❌ Apenas baseado em posicionamento |
 | Posicionamento específico de contexto | ❌ Baseado em feed | ✅ Suporte nativo a posicionamento |
-| Priorização nativa | ❌ Requer lógica personalizada | ✅ Priorização integrada |
+| Priorização | ❌ Requer lógica personalizada | ✅ Priorização nativa |
 | **Interação do usuário** |
-| Descarte manual | ✅ Suportado | ❌ Não suportado |
+| Descarte manual | ✅ Suportado | ✅ Suportado |
+| Reelegibilidade após descarte | ❌ Requer filtros personalizados ou lógica de Campaign | ✅ Período de espera padrão |
 | Cartões fixados | ✅ Suportado | N/D |
-| **Análise de dados** |
+| **Analytics** |
 | Análise automática (UI padrão) | ✅ Suportado | ✅ Suportado |
 | Classificação por prioridade | ❌ Não suportado | ✅ Suportado |
 | **Atualizações de conteúdo** |
 | Atualização de template Liquid | ❌ Uma vez por cartão ao enviar/lançar | ✅ Atualiza a cada atualização |
 | Atualização de elegibilidade | ❌ Uma vez por cartão ao enviar/lançar | ✅ Atualiza a cada sessão |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Diferenças de recursos" }
 
-### Limitações do produto
+### Limitações do produto {#product-limitations}
 
 - Até 25 mensagens ativas por posicionamento.
 - Até 10 IDs de posicionamento por solicitação de atualização; solicitações além disso são truncadas.
 
-### Limitações do SDK
+### Limitações do SDK {#sdk-limitations}
 
 - Banners não são atualmente suportados em .NET MAUI (Xamarin), Cordova, Unity, Vega ou plataformas de TV.
 - Certifique-se de que está usando as versões mínimas do SDK listadas nos pré-requisitos.
 
-## Artigos relacionados
+## Artigos relacionados {#related-articles}
 
 - [Posicionamentos de banner]({{site.baseurl}}/developer_guide/banners/placements)
 - [Tutorial: Exibindo um banner pelo ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)

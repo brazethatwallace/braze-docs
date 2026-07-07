@@ -81,10 +81,6 @@ Para resolver isso, faça o seguinte:
 
 1. Conclua a configuração da sua etapa de mensagem WhatsApp.
 2. Confirme que você marcou **Save Flow responses as a custom attribute**.
-
-![Seção Meta Flow com uma caixa de seleção para salvar respostas do Flow como atributo personalizado.]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
-
-{: start="3"}
 3. Envie uma mensagem de teste para si mesmo e conclua o Flow como um usuário.
 
 Agora, a Braze tem o formato da resposta JSON do Flow e pode gerar o atributo personalizado.
@@ -137,7 +133,7 @@ Após a geração do esquema, a seção **Custom Attribute** do Flow exibirá a 
 
 ### Etapa 1: Criar uma jornada de ação {#step-1-create-an-action-path}
 
-Crie uma etapa de Canvas de [jornada de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) ou uma Campaign baseada em ação. Selecione um gatilho **Send a WhatsApp inbound message** e a condição **Responded to Flow**, e então selecione o Flow relevante ou **Any Flow**.
+Crie uma etapa de Canvas de [jornada de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) ou uma Campaign baseada em ação. Selecione um gatilho **Send a WhatsApp inbound message** e a condição **Responded to Flow**, e então selecione o Flow relevante ou **Any Flow**.
 
 ![Um gatilho para usuários que enviaram uma mensagem WhatsApp de entrada e responderam a qualquer Flow.]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
 
@@ -188,11 +184,11 @@ Uma nova mensagem WhatsApp "limpa" a capacidade do Canvas de usar (e reutilizar)
 
 ## Adicionando uma tag de personalização de Flow {#adding-a-flow-personalization-tag}
 
-Para usar a resposta do Flow por meio de Liquid com [tags de personalização compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), siga estas etapas:
+Para usar a resposta do Flow por meio de Liquid com [tags de personalização compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), siga estas etapas:
 
-1. Ao redigir sua mensagem WhatsApp, selecione o ícone de mais para abrir a janela **Add Personalization**.
+1. Ao redigir sua mensagem WhatsApp, selecione <i class="fas fa-plus-circle" aria-label="Adicionar personalização" title="Adicionar personalização"></i> **Add Personalization** para abrir a janela **Add Personalization**.
 2. Selecione **WhatsApp Properties** para o tipo de personalização e **inbound_flow_response** para o atributo personalizado. Isso pode ser usado para salvar informações em perfis de usuário, incluí-las em mensagens ou encaminhá-las para outros serviços, como webhooks.
 
 ![Criador de mensagens WhatsApp com um componente "Add Personalization" para inserir uma personalização de propriedades WhatsApp com o atributo personalizado "inbound_flow_response".]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-Para dúvidas ou assistência adicional, fale com o [Suporte]({{site.baseurl}}/braze_support/).
+Para dúvidas ou assistência adicional, fale com o [Suporte]({{site.baseurl}}/braze_support).

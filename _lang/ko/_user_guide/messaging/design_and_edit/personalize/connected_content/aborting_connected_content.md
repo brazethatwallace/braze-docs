@@ -20,16 +20,16 @@ description: "이 참조 문서에서는 연결된 콘텐츠에 대한 메시지
 ```
 {% endraw %}
 
-## 중단 사유 지정
+## 중단 사유 지정 {#specify-an-abort-reason}
 
-중단 사유를 지정할 수도 있으며, 이는 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에 저장됩니다. 이 중단 사유는 문자열이어야 하며 Liquid를 포함할 수 없습니다.
+중단 사유를 지정할 수도 있으며, 이는 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 저장됩니다. 이 중단 사유는 문자열이어야 하며 Liquid를 포함할 수 없습니다.
 
 {% raw %}
 `{% abort_message('Could not get enough recommendations') %}`
 {% endraw %}
 
 {% alert important %}
-Braze는 중단된 메시지를 Braze 계정 또는 커런츠의 발송 수에 포함하지 않습니다.
+Braze는 중단된 메시지를 Braze 계정 또는 Currents의 발송 수에 포함하지 않습니다.
 {% endalert %}
 
 {% multi_lang_include connected_content/abort_and_retry_logic.md %}

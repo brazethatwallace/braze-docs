@@ -3,65 +3,65 @@ nav_title: プッシュ設定
 article_title: プッシュ設定
 page_order: 5
 page_type: reference
-description: "この記事では、Braze ダッシュボードのプッシュ設定の概要について説明します。"
+description: "この記事では、Brazeダッシュボードのプッシュ設定の概要について説明します。"
 channel: push
 
 ---
 
-# プッシュ設定
+# プッシュ設定 {#push-settings}
 
-> **Push Settings** ページでは、Push Time to Live (TTL) やAndroid キャンペーンのデフォルトのFCM 優先度など、プッシュ通知のキー設定を行うことができます。これらの設定により、プッシュ通知の配信と効果が最適化され、ユーザーの体験が向上します。
+> **プッシュ設定**ページでは、プッシュTTL（Time to Live）やAndroid キャンペーンのデフォルトの FCM 優先度など、プッシュ通知の主要な設定を行うことができます。これらの設定により、プッシュ通知の配信と効果が最適化され、ユーザーの体験が向上します。
 
-## プッシュTTLとは
+## プッシュTTLとは {#what-is-push-ttl}
 
-Push Time to Live (TTL) は、キャンペーンの送信時にオフラインのデバイスにBraze がプッシュ通知を配信しようとする時間を制御します。TTL の有効期限が切れた後にデバイスが再接続された場合、メッセージは配信されません。この設定では、ユーザーのデバイスがすでに受信している通知は削除されません。プッシュプロバイダーが通知を配信しようとする時間のみが制御されます。
+プッシュTTL（Time to Live）は、キャンペーンの送信時にオフラインのデバイスに対してBrazeがプッシュ通知を配信しようとする時間を制御します。TTLの有効期限が切れた後にデバイスが再接続された場合、メッセージは配信されません。この設定では、ユーザーのデバイスがすでに受信している通知は削除されません。プッシュプロバイダーが通知を配信しようとする時間のみが制御されます。
 
-## デフォルトのプッシュTTL 値の設定
+## デフォルトのプッシュTTL値の設定 {#setting-default-push-ttl-values}
 
-デフォルトでは、Braze はプッシュ TTL を各プッシュメッセージングサービスの最大値に設定します。
+デフォルトでは、BrazeはプッシュTTLを各プッシュメッセージングサービスの最大値に設定します。
 
 | プッシュメッセージングサービス | 最大TTL |
 | --- | --- |
-| Web（FCM または Web プッシュサービス経由） | 28日 |
+| Web（FCMまたはWebプッシュサービス経由） | 28日 |
 | Firebase Cloud Messaging (FCM) | 28日 |
 | Kindle (ADM) | 31日 |
-| Huawei (HMS) | 15日間 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Huawei (HMS) | 15日 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting default Push TTL values" }
 
-これらの設定は、特定のメッセージに別のTTL が設定されていない限り、すべてのプッシュキャンペーンにグローバルに適用されます。メッセージのTTL を調整するには、[詳細なキャンペーン設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#ttl)を参照してください。
+これらの設定は、特定のメッセージに別のTTLが設定されていない限り、すべてのプッシュキャンペーンにグローバルに適用されます。メッセージのTTLを調整するには、[詳細なキャンペーン設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#ttl)を参照してください。
 
-別のデフォルトのプッシュTTL を設定するには:
+別のデフォルトのプッシュTTLを設定するには:
 
-1. **設定** > **設定の管理** > **プッシュ設定** に移動します。
-2. Android プラットフォームごとに、デフォルトの有効期限値を定義します。より正確な制御を行うには、時間や秒などのより小さな増分を設定できます。
-3. **Save** を選択して変更を適用します。
+1. **設定** > **設定の管理** > **プッシュ設定**に移動します。
+2. Androidプラットフォームごとに、デフォルトの有効期限値を定義します。より正確な制御を行うには、時間や秒などのより小さな増分を設定できます。
+3. **Save**を選択して変更を適用します。
 
-![Firebase、Web、Kindle、HuaweiデバイスのTTL設定をプッシュする。]({% image_buster /assets/img/push_ttl.png %})
+![Firebase、Web、Kindle、HuaweiデバイスのプッシュTTL設定。]({% image_buster /assets/img/push_ttl.png %})
 
-## Android キャンペーンのデフォルトのFCM 優先順位
+## Android キャンペーンのデフォルトのFCM優先度 {#default-fcm-priority-for-android-campaigns}
 
-すべてのAndroid プッシュキャンペーンのデフォルトのFirebase Cloud Messaging (FCM) 優先順位を設定できます。この優先度によって、プッシュ通知をユーザーのデバイスに配信する方法が決まります。
+すべてのAndroidプッシュキャンペーンのデフォルトのFirebase Cloud Messaging（FCM）優先度を設定できます。この優先度によって、プッシュ通知がユーザーのデバイスにどのように配信されるかが決まります。
 
-FCM の優先順位オプションは次のとおりです。
+FCMの優先度オプションは次のとおりです。
 
-| 優先順位 | 説明 | ユースケース |
+| 優先度 | 説明 | ユースケース |
 | --- | --- | --- |
-| 通常 | バッテリーの使用量に合わせて最適化された標準の配信優先度 | 即時の対応を必要としないコンテンツ |
+| 通常 | バッテリー使用量に合わせて最適化された標準の配信優先度 | 即時の対応を必要としないコンテンツ |
 | 高 | メッセージは即座に送信されます | 迅速な配信が必要な時間的制約のある通知 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default FCM Priority for Android キャンペーン" }
 
-デフォルトのFCM 優先順位を設定するには:
+デフォルトのFCM優先度を設定するには:
 
-1. **設定** > **設定の管理** > **プッシュ設定** に移動します。
-2. FCM 優先順位セクションで、デフォルト設定として「通常」または「高」を選択します。
-3. **Save** を選択して変更を適用します。
+1. **設定** > **設定の管理** > **プッシュ設定**に移動します。
+2. FCM優先度セクションで、デフォルト設定として「通常」または「高」を選択します。
+3. **Save**を選択して変更を適用します。
 
-![Android の配信優先度設定。]({% image_buster /assets/img/push_fcm_priority_settings.png %})
+![Androidの配信優先度設定。]({% image_buster /assets/img/push_fcm_priority_settings.png %})
 
-この設定は、特定のキャンペーンの作成時に別の優先順位が選択されていない限り、すべての新しいAndroid プッシュキャンペーンにグローバルに適用されます。
+この設定は、特定のキャンペーンの作成時に別の優先度が選択されていない限り、すべての新しいAndroidプッシュキャンペーンにグローバルに適用されます。
 
 {% alert note %}
-FCM が、アプリがユーザーに表示される通知やユーザーエンゲージメントにつながらない高優先度メッセージを頻繁に送信していることを検出した場合、それらのメッセージは自動的に通常の優先度に降格される場合があります。
+FCMが、アプリがユーザーに表示される通知やユーザーエンゲージメントにつながらない高優先度メッセージを頻繁に送信していることを検出した場合、それらのメッセージは自動的に通常の優先度に降格される場合があります。
 {% endalert %}
 
-FCM の優先順位レベルと優先度の降格の詳細については、[詳細なキャンペーン設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#fcm-priority)を参照してください。
+FCMの優先度レベルと優先度の降格の詳細については、[詳細なキャンペーン設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#fcm-priority)を参照してください。

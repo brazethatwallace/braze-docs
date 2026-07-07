@@ -6,7 +6,7 @@ WhatsApp テンプレートを作成する前に、[WhatsAppのセットアッ�
     - テンプレートビルダーで新規テンプレートを作成するユーザーの場合:
         - 「View WhatsApp Message Templates」
         - 「Edit WhatsApp Message Templates」
-    - カルーセルテンプレートを使用してCampaignsまたはCanvasesを作成するユーザーの場合:
+    - カルーセルテンプレートを使用してキャンペーンまたはキャンバスを作成するユーザーの場合:
         - 「View WhatsApp Message Templates」
 - Liquidテンプレートの理解（オプション、ダイナミックなコンテンツ向け）
 

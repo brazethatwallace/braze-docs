@@ -11,18 +11,18 @@ local_redirect: #optimizations
 
 # Multivariate und A/B-Tests erstellen {#creating-tests}
 
-> Sie können einen multivariaten oder A/B-Test für jede Campaign erstellen, die auf einen einzelnen Kanal und ein einzelnes Gerät ausgerichtet ist. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Campaign verwenden möchten, können Sie nur iOS-Geräte oder nur Android-Geräte ansprechen – nicht beide Gerätetypen in derselben Campaign.
+> Sie können einen multivariaten oder A/B-Test für jede Campaign erstellen, die auf einen einzelnen Kanal ausgerichtet ist. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Campaign verwenden möchten, können Sie iOS- und Android-Geräte in derselben Campaign ansprechen.
 
 ![Das Dropdown-Menü nach Auswahl des Buttons „Kampagne erstellen“, um entweder Multichannel oder Einzelkanal auszuwählen.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
 ## 1. Schritt: Erstellen Sie Ihre Campaign {#step-1-create-your-campaign}
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Kampagne erstellen** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Kampagne erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
+2. Wählen Sie **Kampagne erstellen** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Kampagne erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
 
 ## 2. Schritt: Verfassen Sie Ihre Varianten {#step-2-compose-your-variants}
 
-Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variablen, während ein multivariater Test zwei oder mehr untersucht.
+Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variable, während ein multivariater Test zwei oder mehr untersucht.
 
 Ideen für den Einstieg in die Differenzierung Ihrer Varianten finden Sie unter [Tipps für verschiedene Kanäle](#tips-different-channels).
 
@@ -30,19 +30,19 @@ Ideen für den Einstieg in die Differenzierung Ihrer Varianten finden Sie unter 
 
 ## 3. Schritt: Planen Sie Ihre Campaign {#step-3-schedule-your-campaign}
 
-Die Planung Ihrer multivariaten Campaign funktioniert genauso wie die Planung jeder anderen Braze-Campaign. Alle standardmäßigen [Zustellungstypen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/) sind verfügbar.
+Die Planung Ihrer multivariaten Campaign funktioniert genauso wie die Planung jeder anderen Braze-Campaign. Alle standardmäßigen [Zustellungstypen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) sind verfügbar.
 
 Nachdem ein multivariater Test begonnen hat, können Sie keine Änderungen mehr an der Campaign vornehmen. Wenn Sie Parameter wie die Betreffzeile oder den HTML-Body ändern, betrachtet Braze das Experiment als kompromittiert und deaktiviert es sofort.
 
 {% alert important %}
-Um eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) zu verwenden (verfügbar für ausgewählte Kanäle), planen Sie Ihre Campaign für einen einmaligen Versand. Optimierungen sind nicht für Campaigns verfügbar, die sich wiederholen oder bei denen die erneute Berechtigung aktiviert ist.
+Um eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) zu verwenden (verfügbar für ausgewählte Kanäle), planen Sie Ihre Campaign für einen einmaligen Versand. Optimierungen sind nicht für Campaigns verfügbar, die sich wiederholen oder bei denen die erneute Berechtigung aktiviert ist.
 {% endalert %}
 
 ## 4. Schritt: Wählen Sie ein Segment und verteilen Sie Ihre Nutzer:innen auf die Varianten {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
 Wählen Sie Segmente als Zielgruppe aus und verteilen Sie die Mitglieder auf Ihre ausgewählten Varianten und die optionale [Kontrollgruppe](#including-a-control-group). Best Practices zur Auswahl eines Segments für Tests finden Sie unter [Ein Segment auswählen](#choosing-a-segment).
 
-Für Push-, E-Mail- und Webhook-Campaigns, die für einen einmaligen Versand geplant sind, können Sie auch eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) verwenden. Eine Optimierung reserviert einen Teil Ihrer Zielgruppe vom A/B-Test und hält ihn für einen zweiten, optimierten Versand zurück, der auf den Ergebnissen des ersten Tests basiert.
+Für Push-, E-Mail- und Webhook-Campaigns, die für einen einmaligen Versand geplant sind, können Sie auch eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) verwenden. Eine Optimierung reserviert einen Teil Ihrer Zielgruppe vom A/B-Test und hält ihn für einen zweiten, optimierten Versand zurück, der auf den Ergebnissen des ersten Tests basiert.
 
 ### Kontrollgruppe {#including-a-control-group}
 
@@ -62,17 +62,17 @@ Bei Verwendung von Rate-Limiting mit einem A/B-Test wird das Rate-Limit nicht au
 
 #### Kontrollgruppen mit Intelligenter Auswahl {#control-groups-with-intelligent-selection}
 
-Die Größe der Kontrollgruppe für eine Campaign mit [Intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) basiert auf der Anzahl der Varianten. Wenn jede Variante an mehr als 20 % der Nutzer:innen gesendet wird, beträgt die Kontrollgruppe 20 %, und die Varianten werden gleichmäßig auf die verbleibenden 80 % aufgeteilt. Wenn Sie jedoch genügend Varianten haben, sodass jede Variante an weniger als 20 % der Nutzer:innen gesendet wird, muss die Kontrollgruppe kleiner werden. Wenn die Intelligente Auswahl beginnt, die Performance Ihres Tests zu analysieren, wächst oder schrumpft die Kontrollgruppe basierend auf den Ergebnissen.
+Die Größe der Kontrollgruppe für eine Campaign mit [Intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) basiert auf der Anzahl der Varianten. Wenn jede Variante an mehr als 20 % der Nutzer:innen gesendet wird, beträgt die Kontrollgruppe 20 %, und die Varianten werden gleichmäßig auf die verbleibenden 80 % aufgeteilt. Wenn Sie jedoch genügend Varianten haben, sodass jede Variante an weniger als 20 % der Nutzer:innen gesendet wird, muss die Kontrollgruppe kleiner werden. Wenn die Intelligente Auswahl beginnt, die Performance Ihres Tests zu analysieren, wächst oder schrumpft die Kontrollgruppe basierend auf den Ergebnissen.
 
 ## 5. Schritt: Legen Sie ein Konversions-Event fest (optional) {#step-5-designate-a-conversion-event-optional}
 
 Das Festlegen eines Konversions-Events für eine Campaign ermöglicht es Ihnen zu sehen, wie viele Empfänger:innen dieser Campaign nach dem Erhalt eine bestimmte Aktion durchgeführt haben.
 
-Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primäre Konversionsrate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primary Conversion Rate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 
 ## 6. Schritt: Überprüfen und starten {#step-6-review-and-launch}
 
-Überprüfen Sie auf der Bestätigungsseite die Details Ihrer multivariaten Campaign und starten Sie den Test! Erfahren Sie als Nächstes, wie Sie [Ihre Testergebnisse verstehen]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/).
+Überprüfen Sie auf der Bestätigungsseite die Details Ihrer multivariaten Campaign und starten Sie den Test! Erfahren Sie als Nächstes, wie Sie [Ihre Testergebnisse verstehen]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics).
 
 ## Wissenswertes {#things-to-know}
 
@@ -89,18 +89,18 @@ Je nachdem, welchen Kanal Sie auswählen, können Sie verschiedene Komponenten I
 | ---------------------| --------------- | ------------- |
 | Push | Text <br> Bild- und Emoji-Verwendung <br> Deeplinks <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
 | E-Mail | Betreff <br> Anzeigename <br> Anrede <br> Fließtext <br> Bild- und Emoji-Verwendung <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
-| In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | Klick <br> Konversionsrate |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Klick <br> Konversionsrate |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipps für verschiedene Kanäle" }
 
 {% alert tip %}
-Vergessen Sie bei der Durchführung von A/B-Tests nicht, [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) zu generieren, mit denen Sie verstehen können, wie jede Variante Ihren Konversionstrichter beeinflusst hat – insbesondere wenn „Conversion“ für Ihr Unternehmen mehrere Schritte oder Aktionen umfasst.
+Vergessen Sie bei der Durchführung von A/B-Tests nicht, [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) zu generieren, mit denen Sie verstehen können, wie jede Variante Ihren Konversionstrichter beeinflusst hat – insbesondere wenn „Conversion“ für Ihr Unternehmen mehrere Schritte oder Aktionen umfasst.
 {% endalert %}
 
 Darüber hinaus kann die ideale Dauer Ihres Tests je nach Kanal variieren. Bedenken Sie die durchschnittliche Zeit, die die meisten Nutzer:innen benötigen, um mit jedem Kanal zu interagieren.
 
 Wenn Sie beispielsweise einen Push testen, erzielen Sie möglicherweise schneller signifikante Ergebnisse als beim Testen von E-Mails, da Nutzer:innen Push-Nachrichten sofort sehen, es aber Tage dauern kann, bis sie eine E-Mail sehen oder öffnen. Wenn Sie In-App-Nachrichten testen, bedenken Sie, dass Nutzer:innen die App öffnen müssen, um die Campaign zu sehen. Sie sollten daher länger auf Ergebnisse warten, sowohl von Ihren aktivsten App-Nutzer:innen als auch von Ihren typischeren Nutzer:innen.
 
-Wenn Sie unsicher sind, wie lange Ihr Test laufen sollte, kann das Feature [Intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) nützlich sein, um eine Gewinnervariante effizient zu finden.
+Wenn Sie unsicher sind, wie lange Ihr Test laufen sollte, kann das Feature [Intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) nützlich sein, um eine Gewinnervariante effizient zu finden.
 
 ### Ein Segment auswählen {#choosing-a-segment}
 
@@ -129,5 +129,5 @@ Wenn Sie beispielsweise eine Push-Nachricht an eine breite Zielgruppe mit einer 
 Beachten Sie, dass wenn eine Kontrollvariante keine Canvas-Schritte enthält, Exit-Kriterien-Events für Nutzer:innen in der Kontrollvariante nicht protokolliert werden.
 
 {% alert note %}
-Wenn Sie manuell zufällige Bucket-Nummern für Kontrollgruppen verwenden, lesen Sie die [Hinweise]({{site.baseurl}}/user_guide/audience/global_control_group/#things-to-watch-for) zu Ihren Kontrollgruppen.
+Wenn Sie manuell zufällige Bucket-Nummern für Kontrollgruppen verwenden, lesen Sie die [Hinweise]({{site.baseurl}}/user_guide/audience/global_control_group#things-to-watch-for) zu Ihren Kontrollgruppen.
 {% endalert %}

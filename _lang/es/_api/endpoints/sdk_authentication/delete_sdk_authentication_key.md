@@ -1,34 +1,34 @@
 ---
-nav_title: "DELETE: Eliminar la clave de autenticación del SDK"
-article_title: "DELETE: Eliminar la clave de autenticación del SDK"
-search_tag: Punto de conexión
+nav_title: "DELETE: Eliminar clave de autenticación SDK"
+article_title: "DELETE: Eliminar clave de autenticación SDK"
+search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto final SDK de Braze para eliminar la clave de autenticación del SDK."
+description: "Este artículo describe los detalles del punto de conexión de Braze para eliminar una clave de autenticación SDK."
 ---
 
 {% api %}
-# Eliminar la clave de autenticación del SDK
+# Eliminar clave de autenticación SDK {#delete-sdk-authentication-key}
 {% apimethod delete %}
 /app_group/sdk_authentication/delete
 {% endapimethod %}
 
-> Utiliza este punto final SDK para eliminar una clave de autenticación SDK para tu aplicación.
+> Utiliza este punto de conexión para eliminar una clave de autenticación SDK de tu aplicación.
 
 {% alert important %}
-La clave principal no se puede eliminar. Si intentas eliminar la clave principal, este punto final devolverá un error.
+La clave principal no se puede eliminar. Si intentas eliminar la clave principal, este punto de conexión devolverá un error.
 {% endalert %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `sdk_authentication.delete`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sdk_authentication.delete`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -40,15 +40,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Obligatoria | Cadena | El identificador API de la aplicación. |
-| `key_id` | Obligatoria | Cadena | El ID de la clave de autenticación del SDK que deseas eliminar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | Obligatorio | Cadena | El identificador de API de la aplicación. |
+| `key_id` | Obligatorio | Cadena | El ID de la clave de autenticación SDK que se va a eliminar. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_authentication/delete' \
@@ -60,7 +60,7 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -75,23 +75,23 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 }
 ```
 
-## Parámetros de respuesta
+## Parámetros de respuesta {#response-parameters}
 
 | Parámetro | Tipo de datos | Descripción |
 | --------- | --------- | ----------- |
 | `keys` | Matriz | Matriz de objetos de clave de autenticación SDK restantes. |
-| `keys[].id` | Cadena | El ID de la clave de autenticación del SDK. |
+| `keys[].id` | Cadena | El ID de la clave de autenticación SDK. |
 | `keys[].rsa_public_key` | Cadena | La cadena de clave pública RSA. |
-| `keys[].description` | Cadena | Descripción de la clave de autenticación del SDK. |
+| `keys[].description` | Cadena | Descripción de la clave de autenticación SDK. |
 | `keys[].is_primary` | Booleano | Si esta clave es la clave de autenticación SDK principal. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros de respuesta" }
 
-### Reglas de validación
+### Reglas de validación {#validation-rules}
 
-Este punto final tiene las siguientes reglas de validación:
+Este punto de conexión tiene las siguientes reglas de validación:
 
-- Debe`key_id` ser un ID de clave de autenticación SDK válido.
-- Debe ser un identificador`app_id` API válido de la aplicación.
+- El `key_id` debe ser un ID de clave de autenticación SDK válido.
+- El `app_id` debe ser un identificador de API de aplicación válido.
 - La clave de autenticación SDK debe existir para la aplicación especificada.
 - La clave de autenticación SDK principal no se puede eliminar.
 

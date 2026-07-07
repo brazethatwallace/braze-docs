@@ -1,0 +1,23 @@
+---
+description: Screenshot PII checks before committing docs images
+globs: assets/img/**/*
+alwaysApply: false
+---
+
+# Screenshot PII audit
+
+When adding or updating files under `assets/img/`:
+
+1. Take screenshots from [dashboard-06](https://dashboard-06.braze.com/) (FakeBrandz) — never production customer data.
+2. Blur or replace **external_id** values, preview-row user data, customer-specific attribute names, and production CSV filenames.
+3. Before opening a PR, run:
+
+   ```bash
+   python3 scripts/check_screenshot_pii.py path/to/your-image.png
+   ```
+
+4. CI **Check screenshot PII** is **blocking** on image changes.
+
+False positives: add `your-image.png.pii-audit-dismiss.json` with a documented `reason`, or ask a maintainer to add the `pii-audit-dismissed` label after review.
+
+See [.github/skills/screenshot-pii-audit/SKILL.md](.github/skills/screenshot-pii-audit/SKILL.md) and [image style guide](docs/contributing/style_guide/image_style_guide.md).

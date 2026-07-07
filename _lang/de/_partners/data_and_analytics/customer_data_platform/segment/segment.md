@@ -3,7 +3,7 @@ nav_title: Segment
 article_title: Segment
 page_order: 1
 alias: /partners/segment/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Segment, einer Customer Data Platform, die Informationen sammelt und zwischen den Quellen in Ihrem Marketing Stack weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Segment, einer Customer Data Platform, die Informationen zwischen den Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
 page_type: partner
 search_tag: Partner
 
@@ -13,9 +13,9 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="RfOHfZ34hYM" align="right" %}
 
-> [Segment](https://segment.com) ist eine Customer Data Platform (CDP), mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können.
+> [Segment](https://segment.com) ist eine Customer Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können.
 
-Die Integration von Braze und Segment erlaubt es Ihnen, Ihre Nutzer:innen zu tracken und Daten an verschiedene Anbieter von Analytics weiterzuleiten. Segment ermöglicht Ihnen:
+Die Integration von Braze und Segment ermöglicht es Ihnen, Ihre Nutzer:innen zu tracken und Daten an verschiedene Anbieter von Analytics weiterzuleiten. Segment ermöglicht Ihnen:
 
 - [Segment Engage]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_engage/) mit Braze zu synchronisieren, um es in Braze-Campaigns und Canvas-Segmentierung zu verwenden.
 - [Daten zwischen den beiden Plattformen zu importieren](#integration-options). Wir bieten eine Side-by-side-SDK-Integration für Ihre Android-, iOS- und Web-Anwendungen sowie eine Server-zu-Server-Integration zur Synchronisierung Ihrer Daten mit den Braze REST APIs.
@@ -27,7 +27,7 @@ Die Integration von Braze und Segment erlaubt es Ihnen, Ihre Nutzer:innen zu tra
 | ----------- | ----------- |
 | Segment-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
 | Installierte Quelle und Segment-Quell-[Bibliotheken](https://segment.com/docs/sources/) | Die Herkunft der Daten, die an Segment gesendet werden, wie z. B. mobile Apps, Websites oder Backend-Server.<br><br>Sie müssen die Bibliotheken in Ihrer App, Ihrer Website oder Ihrem Server installieren, bevor Sie einen erfolgreichen `Source > Destination`-Ablauf einrichten können. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -50,8 +50,8 @@ Die Wahl des Verbindungsmodus hängt von der Art der Quelle ab, für die das Zie
 | Integration | Details |
 | ----------- | ------- |
 | [Side-by-side<br>(Gerätemodus)](#side-by-side-sdk-integration) | Verwendet das SDK von Segment, um Events in native Braze-Aufrufe zu übersetzen, was den Zugriff auf tiefere Features und eine umfassendere Nutzung von Braze als bei der Server-zu-Server-Integration ermöglicht.<br><br>Beachten Sie, dass Segment nicht alle Braze-Methoden unterstützt (z. B. Content Cards). Um eine Braze-Methode zu verwenden, die nicht durch eine entsprechende Abbildung abgedeckt ist, müssen Sie die Methode aufrufen, indem Sie Ihrer Codebasis nativen Braze-Code hinzufügen. |
-| [Server-zu-Server<br>(Cloud-Modus)](#server-to-server-integration) | Leitet Daten von Segment an Braze REST API-Endpunkte weiter.<br><br>Unterstützt keine Braze-UI-Features wie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen. Es gibt auch automatisch erfasste Daten, wie z. B. Felder auf Geräteebene, die mit dieser Methode nicht verfügbar sind.<br><br>Ziehen Sie eine Side-by-side-Integration in Betracht, wenn Sie diese Features nutzen möchten.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Server-zu-Server<br>(Cloud-Modus)](#server-to-server-integration) | Leitet Daten von Segment an Braze REST API-Endpunkte weiter.<br><br>Unterstützt keine Braze-UI-Features wie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen. Es gibt auch automatisch erfasste Daten, wie z. B. Felder auf Geräteebene, die mit dieser Methode nicht verfügbar sind.<br><br>Ziehen Sie eine Side-by-side-Integration in Betracht, wenn Sie diese Features nutzen möchten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Ziel-Framework und Verbindungstyp wählen" }
 
 {% alert note %}
 Besuchen Sie [Segment](https://segment.com/docs/destinations/#connection-modes), um mehr über die beiden Integrationsmöglichkeiten (Verbindungsmodi) zu erfahren, einschließlich der jeweiligen Vorteile.
@@ -88,7 +88,7 @@ Welches Braze SDK Sie verwenden, hängt davon ab, welches Segment SDK Sie verwen
 | - | ----------- | --------- |
 | Bevorzugt | [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin) | [Braze Segment Kotlin](https://github.com/braze-inc/braze-segment-kotlin) |
 | Legacy | [Analytics-Android](https://github.com/segmentio/analytics-android) | [Braze Segment Android](https://github.com/braze-inc/braze-segment-android) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side-SDK-Integration" }
 
 
 {% endalert %}
@@ -112,7 +112,7 @@ Welches Braze SDK Sie verwenden, hängt davon ab, welches Segment SDK Sie verwen
 | - | ----------- | --------- |
 | Bevorzugt | [Analytics-Swift](https://github.com/segmentio/analytics-swift) | [Braze Segment Swift](https://github.com/braze-inc/braze-segment-swift) |
 | Legacy | [Analytics-iOS](https://github.com/segmentio/analytics-ios) | [Braze Segment iOS](https://github.com/Appboy/appboy-segment-ios) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side-SDK-Integration" }
 {% endalert %}
 
 Um Braze als Gerätemodus-Ziel für Ihre iOS-Quelle einzurichten, wählen Sie **Actions** als **Destination framework** und dann **Save**.
@@ -122,7 +122,7 @@ Um die Side-by-side-Integration abzuschließen, müssen Sie das [Braze Swift-Zie
 Der Quellcode für die [iOS-Gerätemodus](https://github.com/braze-inc/braze-segment-swift)-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK-Versionen zu berücksichtigen.
 
 {% endtab %}
-{% tab Web or JavaScript %}
+{% tab Web oder JavaScript %}
 
 Das Braze Web Mode (Actions) Framework von Segment wird empfohlen, um Braze als Gerätemodus-Ziel für Ihre Web-Quelle einzurichten.
 
@@ -172,7 +172,7 @@ Definieren Sie die Einstellungen für Ihr Ziel. Nicht alle Einstellungen gelten 
 | Angepasster API-Endpunkt<br>(SDK-Endpunkt) | Ihr Braze SDK-Endpunkt, der Ihrer Instanz entspricht (z. B. `sdk.iad-01.braze.com`) |
 | Endpunkt-Region | Ihre Braze-Instanz (z. B. US 01, US 02, EU 01 usw.) |
 | Automatische Registrierung von In-App-Nachrichten aktivieren | Deaktivieren Sie dies, wenn Sie In-App-Nachrichten manuell registrieren möchten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Einstellungen" }
 
 {% endtab %}
 {% tab Web Device-Mode %}
@@ -206,7 +206,7 @@ Definieren Sie die Einstellungen für Ihr Ziel. Nicht alle Einstellungen gelten 
 | Nur benannte Seiten tracken | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Dadurch werden nur Seitenaufrufe an Braze gesendet, die mit einem Namen verknüpft sind. |
 | Kauf protokollieren, wenn Umsatz vorhanden ist | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Wenn diese Option aktiviert ist, triggern alle Track-Aufrufe mit der Umsatz-Eigenschaft ein Kauf-Event. |
 | Nur bekannte Nutzer:innen tracken | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung durch Abbildungen aktiviert werden kann.<br><br>Falls aktiviert, verzögert diese Einstellung den Aufruf von `window.braze.initialize`, bis eine gültige `userId` vorliegt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Einstellungen" }
 
 {% endtab %}
 {% tab Cloud-Mode %}
@@ -217,7 +217,7 @@ Definieren Sie die Einstellungen für Ihr Ziel. Nicht alle Einstellungen gelten 
 | REST-API-Schlüssel | Diesen finden Sie in Ihrem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Angepasster REST API-Endpunkt | Ihr Braze REST-Endpunkt, der Ihrer Instanz entspricht (z. B. rest.iad-01.braze.com). |
 | Nur vorhandene Nutzer:innen aktualisieren | **Nur klassisches Ziel Cloud-Modus (Wartung)**<br><br>Segment empfiehlt die Migration zum Cloud Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Legt fest, ob nur bestehende Nutzer:innen aktualisiert werden sollen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Einstellungen" }
 
 {% endtab %}
 {% endtabs %}
@@ -235,7 +235,7 @@ Obwohl Nutzer-Aliase als Bezeichner im Ziel Braze Cloud Mode (Actions) unterstü
 | `userId` (`external_id`) | Alle |
 | Anonyme Nutzer:innen | Gerätemodus-Ziele |
 | Nutzer-Alias | Cloud-Modus-Ziele |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4: Methoden abbilden" }
 
 Das Cloud-Modus (Actions)-Ziel bietet eine [Aktion „Alias erstellen“](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#create-alias), mit der Sie einen reinen Alias-Nutzer:in erstellen oder einen Alias zu einem bestehenden `external_id`-Profil hinzufügen können. Die [Aktion „Nutzer:in identifizieren“](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#identify-user) kann zusammen mit der Aktion „Alias erstellen“ verwendet werden, um einen reinen Alias-Nutzer:in mit einer `external_id` zusammenzuführen, nachdem eine solche für den/die Nutzer:in verfügbar geworden ist.
 
@@ -264,7 +264,7 @@ Bestimmte spezielle Segment-Traits werden Standard-Attribut-Profilfeldern in Bra
 | `address.country` | `country` |
 | `address.city` | `home_city` |
 | `gender` | `gender` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identify" }
 
 Andere reservierte Braze-Profilfelder wie `email_subscribe` und `push_subscribe` können gesendet werden, indem Sie die Braze-Namenskonvention für diese Felder verwenden und sie als Traits innerhalb eines Identify-Aufrufs übergeben.
 
@@ -352,7 +352,7 @@ Alle anderen Traits werden als [angepasste Attribute]({{site.baseurl}}/user_guid
 | Identify mit reservierten Traits | Nutzer:innen-Attribute setzen | Segment: `analytics.identify({email: "dawei@braze.com"});`<br> Braze: `Braze.getUser().setEmail("dawei@braze.com");`
 | Identify mit angepassten Traits | Angepasste Attribute setzen | Segment: `analytics.identify({fav_cartoon: "Naruto"});`<br>Braze: `Braze.getUser().setCustomAttribute("fav_cartoon": "Naruto")`;
 | Identify mit Nutzer-ID und Traits | Segment: Externe ID und Attribut setzen | Kombinieren Sie die vorangegangenen Methoden. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Attribute" }
 
 In den Zielen [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) und [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile) können die oben genannten Abbildungen mit der Aktion „Nutzerprofil aktualisieren“ eingestellt werden.
 
@@ -373,10 +373,10 @@ In den Zielen [Web Mode Actions](https://segment.com/docs/connections/destinatio
 
 | Segment-Methode | Braze-Methode | Beispiel |
 |---|---|---|
-| [Track](https://segment.com/docs/spec/track/) | Als [angepasstes Event]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) protokolliert. | Segment: `analytics.track("played_game");` <br>Braze: `Braze.logCustomEvent("played_game");`|
+| [Track](https://segment.com/docs/spec/track/) | Als [angepasstes Event]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) protokolliert. | Segment: `analytics.track("played_game");` <br>Braze: `Braze.logCustomEvent("played_game");` |
 | [Track mit Eigenschaften](https://segment.com/docs/spec/track/) | Als [Event-Eigenschaft]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) protokolliert. | Segment: `analytics.track("played_game", {name: "BotW", weapon: "boomerang"});` <br>Braze: `Braze.logCustomEvent("played_game", { "name": "BotW", "weapon": "boomerang"});` |
 | [Track mit Produkt](https://segment.com/docs/spec/track/) | Als [Kauf-Event]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web) protokolliert. | Segment: `analytics.track("Order Completed", {products: [product_id: "ab12", price: 19]});` <br>Braze: `Braze.logPurchase("ab12", 19);` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Track" }
 
 ##### Bestellung abgeschlossen {#order-completed}
 
@@ -440,7 +440,7 @@ Segment schränkt die Anzahl der Datenelemente, die Kund:innen an sie senden, **
 | ----------------- | ------------------ |
 | Braze SDK-Endpunkt | Angepasster API-Endpunkt |
 | Braze REST-Endpunkt | Angepasster REST API-Endpunkt |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bewährte Praktiken" }
 
 Ihr Braze API-Endpunkt (in Segment als „Custom API Endpoint“ bezeichnet) ist der SDK-Endpunkt, den Braze für Ihr SDK einrichtet (zum Beispiel `sdk.iad-03.braze.com`). Ihr Braze REST API-Endpunkt (in Segment als „Custom REST API Endpoint“ bezeichnet) ist der REST API-Endpunkt (zum Beispiel `https://rest.iad-03.braze.com`).
 {% enddetails %}
@@ -451,7 +451,7 @@ Ihr Braze API-Endpunkt (in Segment als „Custom API Endpoint“ bezeichnet) ist
 | ----------------- | ------------------ |
 | Braze SDK-Endpunkt | Angepasster API-Endpunkt |
 | Braze REST-Endpunkt | Angepasster REST API-Endpunkt |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bewährte Praktiken" }
 
 Um sicherzustellen, dass Sie Ihren Braze SDK-Endpunkt korrekt eingeben, müssen Sie das richtige Format einhalten. Ihr Braze SDK-Endpunkt darf nicht `https://` enthalten (z. B. `sdk.iad-03.braze.com`), da sonst die Braze-Integration fehlschlägt. Dies ist erforderlich, da Segment Ihrem Endpunkt automatisch `https://` voranstellt, was dazu führt, dass Braze mit einem ungültigen Endpunkt `https://https://sdk.iad-03.braze.com` initialisiert wird.
 

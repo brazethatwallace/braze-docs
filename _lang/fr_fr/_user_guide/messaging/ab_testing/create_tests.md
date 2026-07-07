@@ -11,14 +11,14 @@ local_redirect: #optimizations
 
 # Créer des tests multivariés et des tests A/B {#creating-tests}
 
-> Vous pouvez créer un test multivarié ou un test A/B pour toute campagne ciblant un seul canal et un seul type d'appareil. Par exemple, si vous souhaitez utiliser un test multivarié ou un test A/B pour une campagne push, vous pouvez cibler uniquement les appareils iOS ou uniquement les appareils Android, mais pas les deux types d'appareils dans la même campagne.
+> Vous pouvez créer un test multivarié ou un test A/B pour toute campagne ciblant un seul canal. Par exemple, si vous souhaitez utiliser un test multivarié ou un test A/B pour une campagne push, vous pouvez cibler les appareils iOS et Android dans la même campagne.
 
 ![Le menu déroulant qui s'affiche lorsque vous sélectionnez le bouton « Créer une campagne » pour choisir entre multicanal et canal unique.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
 ## Étape 1 : Créer votre campagne {#step-1-create-your-campaign}
 
 1. Accédez à **Messaging** > **Campaigns**.
-2. Sélectionnez **Create campaign** et choisissez un canal pour la campagne dans la section qui permet les tests multivariés et A/B. Pour une documentation détaillée sur chaque canal de communication, consultez [Créer une campagne]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
+2. Sélectionnez **Create Campaign** et choisissez un canal pour la campagne dans la section qui permet les tests multivariés et A/B. Pour une documentation détaillée sur chaque canal de communication, consultez [Créer une campagne]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
 
 ## Étape 2 : Rédiger vos variantes {#step-2-compose-your-variants}
 
@@ -30,19 +30,19 @@ Pour des idées sur la façon de différencier vos variantes, consultez [Conseil
 
 ## Étape 3 : Planifier votre campagne {#step-3-schedule-your-campaign}
 
-La planification de votre campagne multivariée fonctionne de la même manière que pour toute autre campagne Braze. Tous les [types de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/) standard sont disponibles.
+La planification de votre campagne multivariée fonctionne de la même manière que pour toute autre campagne Braze. Tous les [types de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) standard sont disponibles.
 
 Une fois qu'un test multivarié a commencé, vous ne pouvez plus modifier la campagne. Si vous changez les paramètres, comme la ligne d'objet ou le corps HTML, Braze considère l'expérience comme compromise et la désactive immédiatement.
 
 {% alert important %}
-Pour utiliser une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) (disponible pour certains canaux), planifiez votre campagne pour un envoi unique. Les optimisations ne sont pas disponibles pour les campagnes récurrentes ou celles pour lesquelles la rééligibilité est activée.
+Pour utiliser une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) (disponible pour certains canaux), planifiez votre campagne pour un envoi unique. Les optimisations ne sont pas disponibles pour les campagnes récurrentes ou celles pour lesquelles la rééligibilité est activée.
 {% endalert %}
 
 ## Étape 4 : Choisir un segment et répartir vos utilisateurs entre les variantes {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
 Sélectionnez les segments à cibler, puis répartissez les membres entre vos variantes sélectionnées et le [groupe de contrôle](#including-a-control-group) facultatif. Pour les bonnes pratiques concernant le choix d'un segment pour vos tests, consultez [Choisir un segment](#choosing-a-segment).
 
-Pour les campagnes push, e-mail et webhook planifiées pour un envoi unique, vous pouvez également utiliser une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Une optimisation réserve une partie de votre audience cible en dehors du test A/B et la conserve pour un second envoi optimisé basé sur les résultats du premier test.
+Pour les campagnes push, e-mail et webhook planifiées pour un envoi unique, vous pouvez également utiliser une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Une optimisation réserve une partie de votre audience cible en dehors du test A/B et la conserve pour un second envoi optimisé basé sur les résultats du premier test.
 
 ### Groupe de contrôle {#including-a-control-group}
 
@@ -62,17 +62,17 @@ Lorsque vous utilisez une limite de débit avec un test A/B, la limite de débit
 
 #### Groupes de contrôle avec la Sélection intelligente {#control-groups-with-intelligent-selection}
 
-La taille du groupe de contrôle pour une campagne avec la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) est basée sur le nombre de variantes. Si chaque variante est envoyée à plus de 20 % des utilisateurs, le groupe de contrôle représente 20 % et les variantes sont réparties équitablement sur les 80 % restants. Cependant, si vous avez suffisamment de variantes pour que chacune soit envoyée à moins de 20 % des utilisateurs, le groupe de contrôle doit être réduit. Lorsque la Sélection intelligente commence à analyser les performances de votre test, le groupe de contrôle augmente ou diminue en fonction des résultats.
+La taille du groupe de contrôle pour une campagne avec la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) est basée sur le nombre de variantes. Si chaque variante est envoyée à plus de 20 % des utilisateurs, le groupe de contrôle représente 20 % et les variantes sont réparties équitablement sur les 80 % restants. Cependant, si vous avez suffisamment de variantes pour que chacune soit envoyée à moins de 20 % des utilisateurs, le groupe de contrôle doit être réduit. Lorsque la Sélection intelligente commence à analyser les performances de votre test, le groupe de contrôle augmente ou diminue en fonction des résultats.
 
 ## Étape 5 : Définir un événement de conversion (facultatif) {#step-5-designate-a-conversion-event-optional}
 
 Définir un événement de conversion pour une campagne vous permet de voir combien de destinataires de cette campagne ont effectué une action particulière après l'avoir reçue.
 
-Cela n'affecte le test que si vous avez choisi **Primary Conversion Rate** dans les étapes précédentes. Pour plus d'informations, consultez [Événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Cela n'affecte le test que si vous avez choisi **Primary Conversion Rate** dans les étapes précédentes. Pour plus d'informations, consultez [Événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 
 ## Étape 6 : Vérifier et lancer {#step-6-review-and-launch}
 
-Sur la page de confirmation, vérifiez les détails de votre campagne multivariée et lancez le test ! Ensuite, découvrez comment [comprendre les résultats de votre test]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/).
+Sur la page de confirmation, vérifiez les détails de votre campagne multivariée et lancez le test ! Ensuite, découvrez comment [comprendre les résultats de votre test]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics).
 
 ## Bon à savoir {#things-to-know}
 
@@ -89,18 +89,18 @@ Selon le canal que vous sélectionnez, vous pouvez tester différents composants
 | ---------------------| --------------- | ------------- |
 | Push | Texte <br> Utilisation d'images et d'emojis <br> Liens profonds <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
 | E-mail | Objet <br> Nom d'affichage <br> Formule de salutation <br> Corps du texte <br> Utilisation d'images et d'emojis <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
-| Message in-app | Aspects listés pour « push » <br> [Spécifications des images de messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | Clics <br> Taux de conversion |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Message in-app | Aspects listés pour « push » <br> [Spécifications des images de messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Clics <br> Taux de conversion |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conseils pour les différents canaux" }
 
 {% alert tip %}
-Lorsque vous effectuez des tests A/B, n'oubliez pas de générer des [rapports d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) qui vous permettent de comprendre comment chaque variante a impacté votre tunnel de conversion, surtout si la « conversion » pour votre entreprise implique plusieurs étapes ou actions.
+Lorsque vous effectuez des tests A/B, n'oubliez pas de générer des [rapports d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) qui vous permettent de comprendre comment chaque variante a impacté votre tunnel de conversion, surtout si la « conversion » pour votre entreprise implique plusieurs étapes ou actions.
 {% endalert %}
 
 De plus, la durée idéale de votre test peut varier selon le canal. Gardez à l'esprit le temps moyen dont la plupart des utilisateurs ont besoin pour interagir avec chaque canal.
 
 Par exemple, si vous testez une notification push, vous pouvez obtenir des résultats significatifs plus rapidement qu'avec un test par e-mail, car les utilisateurs voient les notifications push immédiatement, alors qu'il peut s'écouler plusieurs jours avant qu'ils ne voient ou n'ouvrent un e-mail. Si vous testez des messages in-app, gardez à l'esprit que les utilisateurs doivent ouvrir l'application pour voir la campagne. Vous devriez donc attendre plus longtemps pour collecter les résultats, aussi bien de vos utilisateurs les plus actifs que de vos utilisateurs plus occasionnels.
 
-Si vous n'êtes pas sûr de la durée idéale de votre test, la fonctionnalité [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) peut être utile pour identifier efficacement une variante gagnante.
+Si vous n'êtes pas sûr de la durée idéale de votre test, la fonctionnalité [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) peut être utile pour identifier efficacement une variante gagnante.
 
 ### Choisir un segment {#choosing-a-segment}
 
@@ -129,5 +129,5 @@ Par exemple, si vous envoyez une notification push à une large audience avec un
 Notez que si une variante de contrôle ne contient aucune étape de Canvas, les événements de critères de sortie ne sont pas enregistrés pour les utilisateurs de la variante de contrôle.
 
 {% alert note %}
-Si vous utilisez manuellement des numéros de compartiment aléatoires pour les groupes de contrôle, consultez les [points de vigilance]({{site.baseurl}}/user_guide/audience/global_control_group/#things-to-watch-for) concernant vos groupes de contrôle.
+Si vous utilisez manuellement des numéros de compartiment aléatoires pour les groupes de contrôle, consultez les [points de vigilance]({{site.baseurl}}/user_guide/audience/global_control_group#things-to-watch-for) concernant vos groupes de contrôle.
 {% endalert %}

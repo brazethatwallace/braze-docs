@@ -14,7 +14,7 @@ page_type: reference
 Braze utilise le jeton d'appareil Apple pour iOS.
 
 | **Perspective de Braze :**<br>Nous veillons à ce que les clients puissent communiquer en continu avec leurs utilisateurs (par exemple via des notifications push) lors du processus de migration d'Airship vers Braze (qu'il s'agisse d'un basculement complet à 100 % vers Braze ou d'une transition progressive de type 50 % Airship / 50 % Braze, etc.). |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Gestion des jetons" }
 
 #### Migration des jetons de notification push {#push-token-migration}
 
@@ -44,7 +44,7 @@ Avec Braze, un utilisateur peut disposer de plusieurs jetons de notification pus
 Braze nécessite des canaux distincts pour les notifications push (un pour iOS, un pour Android).
 
 | **Perspective de Braze :**<br>Nous permettons à nos clients de bénéficier des avantages des deux solutions au lieu de devoir faire des concessions. Le fait de pouvoir utiliser chaque canal à sa pleine capacité offre plus de flexibilité au marketeur et améliore l'expérience utilisateur. Cela nous permet d'adopter les dernières fonctionnalités de chaque système d'exploitation ; par exemple, Android a pris en charge les notifications enrichies avant iOS. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Notifications push" }
 
 Braze peut envoyer des notifications push aux utilisateurs qui ne mettent pas à jour leur application avec le SDK de Braze installé. Étant donné que Braze dispose d'un jeton de notification push valide, Braze peut envoyer la notification push sans le SDK Braze, car les APNs se chargent du reste. Il est crucial de noter que **les analyses de ces notifications push ne seront pas disponibles pour les builds sans le SDK Braze**.
 
@@ -59,7 +59,7 @@ Pour remplacer la fonctionnalité de centre de messages d'Airship, nous vous rec
 Braze propose de multiples filtres de [segmentation]({{site.baseurl}}/user_guide/audience/segments/) afin d'offrir une expérience utilisateur riche à vos clients.
 
 | **Perspective de Braze** :<br> Dans Braze, les segments sont entièrement dynamiques, de sorte que les utilisateurs entrent et sortent du segment au fur et à mesure que les conditions définies changent. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Segmentation" }
 
 #### Migration de segments utilisateur {#user-segment-migration}
 

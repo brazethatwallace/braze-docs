@@ -29,7 +29,7 @@ Utilisez les noms de champs de profil utilisateur Braze (énumérés ci-après o
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean),
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -41,25 +41,33 @@ Utilisez les noms de champs de profil utilisateur Braze (énumérés ci-après o
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects
+  // Adding to an array of objects (nested custom attribute syntax)
   "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
-  // Removing from an array of objects
+  // Removing from an array of objects (nested custom attribute syntax)
   "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
-- [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Alias d'utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+- [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Alias d'utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+
+{% alert note %}
+Pour les attributs personnalisés de type tableau classique, utilisez `add` et `remove` (sans `$`).
+
+Pour les tableaux d'objets (attributs personnalisés imbriqués), utilisez `$add`, `$remove` et `$update` dans les payloads de requêtes `/users/track`. Ces opérateurs appliquent des modifications au niveau de l'objet en faisant correspondre les identifiants (`$identifier_key` et `$identifier_value`) et prennent en charge les mises à jour sur place avec `$new_object`.
+
+Utilisez ce format lorsque vous devez ajouter, supprimer ou mettre à jour des objets au sein d'un tableau existant tout en préservant le reste de l'état du tableau. Pour des exemples de requêtes complets, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example) et l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example).
+{% endalert %}
 
 Pour supprimer un attribut de profil, définissez-le sur `null`. Certains champs, tels que `external_id` et `user_alias`, ne peuvent pas être supprimés après avoir été ajoutés à un profil utilisateur.
 
-#### Résolution des identifiants {#identifier-resolution}
+### Résolution des identifiants {#identifier-resolution}
 
 À moins que vous n'effectuiez une [importation anonyme de jetons de notification push](#push-token-import), chaque objet d'attributs utilisateur doit inclure au moins un identifiant : `external_id`, `user_alias`, `braze_id`, `email` ou `phone`. Dans la mesure du possible, incluez un seul identifiant par objet afin d'éviter toute ambiguïté quant au profil utilisateur mis à jour ou créé.
 
 Gardez les points suivants à l'esprit lors de l'utilisation d'identifiants :
 
-- **`external_id` et `user_alias` sont mutuellement exclusifs.** L'inclusion des deux dans le même objet d'attributs utilisateur renvoie une erreur. Pour ajouter un alias à un utilisateur qui possède déjà un `external_id`, utilisez l'[endpoint `/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias/).
+- **`external_id` et `user_alias` sont mutuellement exclusifs.** L'inclusion des deux dans le même objet d'attributs utilisateur renvoie une erreur. Pour ajouter un alias à un utilisateur qui possède déjà un `external_id`, utilisez l'[endpoint `/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias).
 - **`email` a priorité sur `phone`.** Si `email` et `phone` sont tous deux inclus dans le même objet, Braze utilise `email` comme identifiant. Cela signifie que les attributs sont appliqués au profil utilisateur associé à cette adresse e-mail, même si le numéro de téléphone appartient à un profil différent.
 
 {% alert important %}
@@ -102,18 +110,18 @@ Les types de données suivants peuvent être stockés en tant qu'attribut person
 
 | Type de données | Remarques |
 | --- | --- |
-| Tableaux | Les tableaux d'attributs personnalisés sont pris en charge. Lorsque vous ajoutez un élément, il est ajouté à la fin du tableau. Si l'élément existe déjà, il est déplacé de sa position actuelle vers la fin.<br><br>Seules les valeurs uniques sont enregistrées. Par exemple, l'importation de `['hotdog','hotdog','hotdog','pizza']` donne `['hotdog', 'pizza']`.<br><br>Vous pouvez définir un tableau directement (par exemple, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), ajouter des éléments à un tableau existant avec `"my_array_custom_attribute" : { "add" : ["Value3"] }`, ou supprimer des valeurs avec `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>Le nombre maximum d'éléments par défaut est de 500 par tableau. Vous pouvez modifier le nombre maximum de tableaux dans le tableau de bord de Braze, sous **Paramètres des données** > **Attributs personnalisés**. Pour plus d'informations, consultez la section [Tableaux]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Tableau d'objets | Utilisez un tableau d'objets pour définir une liste d'objets où chaque objet contient un ensemble d'attributs. Utilisez ce type pour stocker plusieurs ensembles de données associées à un utilisateur, telles que les séjours à l'hôtel ou les préférences.<br><br>Par exemple, définissez un attribut personnalisé nommé `hotel_stays` sur un profil utilisateur sous forme de tableau où chaque objet représente un séjour distinct, avec des attributs tels que `hotel_name`, `check_in_date` et `nights_stayed`.<br><br>Les tableaux d'objets n'ont pas de limite quant au nombre d'éléments, mais ont une taille maximale de 100&nbsp;Ko. Si une mise à jour entraîne le dépassement de cette limite, Braze rejette la mise à jour et l'attribut reste inchangé.<br><br>Ajoutez des éléments avec `$add`, supprimez des éléments avec `$remove` et mettez à jour des éléments avec `$update`. Pour plus de détails, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) et l'[exemple de tableau d'objets](#array-of-objects-example). |
+| Tableaux | Les tableaux d'attributs personnalisés sont pris en charge. Lorsque vous ajoutez un élément, il est ajouté à la fin du tableau. Si l'élément existe déjà, il est déplacé de sa position actuelle vers la fin.<br><br>Seules les valeurs uniques sont enregistrées. Par exemple, l'importation de `['hotdog','hotdog','hotdog','pizza']` donne `['hotdog', 'pizza']`.<br><br>Vous pouvez définir un tableau directement (par exemple, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), ajouter des éléments à un tableau existant avec `"my_array_custom_attribute" : { "add" : ["Value3"] }`, ou supprimer des valeurs avec `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>Le nombre maximum d'éléments par défaut est de 500 par tableau. Vous pouvez modifier le nombre maximum de tableaux dans le tableau de bord de Braze, sous **Paramètres des données** > **Attributs personnalisés**. Pour plus d'informations, consultez la section [Tableaux]({{site.baseurl}}/developer_guide/analytics#arrays). |
+| Tableau d'objets | Utilisez un tableau d'objets pour définir une liste d'objets où chaque objet contient un ensemble d'attributs. Utilisez ce type pour stocker plusieurs ensembles de données associées à un utilisateur, telles que les séjours à l'hôtel, l'historique d'achats ou les préférences.<br><br>Par exemple, définissez un attribut personnalisé nommé `hotel_stays` sur un profil utilisateur sous forme de tableau où chaque objet représente un séjour distinct, avec des attributs tels que `hotel_name`, `check_in_date` et `nights_stayed`.<br><br>Les tableaux d'objets n'ont pas de limite quant au nombre d'éléments, mais ont une taille maximale de 100&nbsp;Ko. Si une mise à jour entraîne le dépassement de cette limite, Braze rejette la mise à jour et l'attribut reste inchangé.<br><br>Pour les payloads `/users/track` et SDK, utilisez `$add`, `$remove` et `$update` pour les opérations sur les tableaux d'objets. Utilisez `add` et `remove` (sans `$`) pour les attributs personnalisés de type tableau classique contenant des valeurs scalaires. Pour plus de détails, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example), l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example) et l'[exemple de tableau d'objets](#array-of-objects-example). |
 | Booléens | `true` ou `false` |
-| Dates | Doivent être enregistrées au format [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) ou dans l'un des formats suivants : <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Notez que le « T » est un indicateur de temps, et non une marque substitutive. Il ne doit pas être modifié ou supprimé. <br><br>Les attributs temporels sans fuseau horaire sont définis par défaut à minuit UTC (et sont formatés sur le tableau de bord comme l'équivalent de minuit UTC dans le fuseau horaire de l'entreprise). Pour spécifier un fuseau horaire, ajoutez un décalage UTC à l'horodatage (par exemple, `2024-11-10T18:00:00-05:00` pour EST). Si le décalage de fuseau horaire est manquant ou mal formaté, la valeur est définie par défaut sur UTC. <br><br>Les heures sont affichées sur le tableau de bord dans le fuseau horaire de votre entreprise. Par exemple, `2024-11-10T18:00:00-05:00` (18 h 00 EST) s'afficherait à l'heure équivalente dans le fuseau horaire configuré de votre entreprise. <br><br>Les événements dont l'horodatage est défini dans le futur sont automatiquement réglés sur l'heure actuelle. <br><br>Pour les attributs personnalisés standard, si l'année est inférieure à 0 ou supérieure à 3000, Braze enregistre la valeur sous forme de chaîne de caractères dans le profil utilisateur. |
-| Floats | Les attributs personnalisés de type float sont des nombres positifs ou négatifs avec une virgule. Par exemple, vous pouvez utiliser des floats pour stocker des soldes de comptes ou des évaluations de produits ou de services par les utilisateurs. |
+| Dates | Doivent être enregistrées au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (recommandé) ou dans l'un des formats suivants : <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Notez que le « T » est un indicateur de temps, et non une marque substitutive. Il ne doit pas être modifié ou supprimé. <br><br>Les valeurs de date qui ne correspondent à aucun des formats répertoriés sont stockées sous forme de chaînes de caractères dans le profil utilisateur au lieu du type de données Time. Cela signifie que les filtres de segmentation basés sur le temps (tels que « avant », « après » ou « au cours des X derniers jours ») ne fonctionnent pas pour ces attributs. Par exemple, `Mar 26 2026 06:12 PM +00:00` est stocké sous forme de chaîne de caractères car il ne correspond pas à un format pris en charge. Pour éviter cela, utilisez le format ISO 8601 (par exemple, `2026-03-26T18:12:00Z`). <br><br>Les attributs temporels sans fuseau horaire sont définis par défaut à minuit UTC (et sont formatés sur le tableau de bord comme l'équivalent de minuit UTC dans le fuseau horaire de l'entreprise). Pour spécifier un fuseau horaire, ajoutez un décalage UTC à l'horodatage (par exemple, `2024-11-10T18:00:00-05:00` pour EST). Si le décalage de fuseau horaire est manquant ou mal formaté, la valeur est définie par défaut sur UTC. <br><br>Les heures sont affichées sur le tableau de bord dans le fuseau horaire de votre entreprise. Par exemple, `2024-11-10T18:00:00-05:00` (18 h 00 EST) s'afficherait à l'heure équivalente dans le fuseau horaire configuré de votre entreprise. <br><br>Les événements dont l'horodatage est défini dans le futur sont automatiquement réglés sur l'heure actuelle. <br><br>Pour les attributs personnalisés standard, si l'année est inférieure à 0 ou supérieure à 3000, Braze enregistre la valeur sous forme de chaîne de caractères dans le profil utilisateur. |
+| Floats | Les attributs personnalisés de type float sont des nombres positifs ou négatifs avec un point décimal. Par exemple, vous pouvez utiliser des floats pour stocker des soldes de comptes ou des évaluations de produits ou de services par les utilisateurs. |
 | Entiers | Vous pouvez incrémenter des attributs personnalisés de type entier en assignant un objet avec le champ « inc » et la valeur à ajouter. <br><br>Exemple : `"my_custom_attribute_2" : {"inc" : int_value},`|
-| Attributs personnalisés imbriqués | Les attributs personnalisés imbriqués définissent un ensemble d'attributs en tant que propriété d'un autre attribut. Lorsque vous définissez un objet d'attribut personnalisé, vous ajoutez un ensemble d'attributs à cet objet. Pour plus d'informations, consultez la section [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
+| Attributs personnalisés imbriqués | Les attributs personnalisés imbriqués définissent un ensemble d'attributs en tant que propriété d'un autre attribut. Lorsque vous définissez un objet d'attribut personnalisé, vous ajoutez un ensemble d'attributs à cet objet. Pour plus d'informations, consultez la section [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). |
 | Chaînes de caractères | Les attributs personnalisés de type chaîne sont des séquences de caractères utilisées pour stocker des données textuelles. Par exemple, vous pouvez utiliser des chaînes de caractères pour stocker les noms et prénoms, les adresses e-mail ou les préférences. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types de données des attributs personnalisés" }
 
 {% alert tip %}
-Pour savoir quand utiliser un événement personnalisé plutôt qu'un attribut personnalisé, consultez les sections [Événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) et [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Pour savoir quand utiliser un événement personnalisé plutôt qu'un attribut personnalisé, consultez les sections [Événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events) et [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 {% endalert %}
 
 ##### Exemple de tableau d'objets {#array-of-objects-example}
@@ -127,12 +135,16 @@ Ce tableau d'objets vous permet de créer des segments en fonction de critères 
 ]}
 ```
 
-Pour des exemples d'API utilisant `add`, `remove` et `update`, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example). Pour des exemples SDK utilisant `$add`, `$remove` et `$update`, consultez l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Pour des exemples de tableaux d'objets utilisant `$add`, `$remove` et `$update`, consultez l'[exemple d'API de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example) et l'[exemple SDK de tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example).
 
 #### Champs de profil utilisateur Braze {#braze-user-profile-fields}
 
 {% alert important %}
 Les champs de profil utilisateur suivants sont sensibles à la casse. Veillez à les référencer en minuscules.
+{% endalert %}
+
+{% alert tip %}
+Pour une référence des attributs standard destinée aux utilisateurs, organisée par catégorie et incluant des conseils pour le SDK, l'API, le CSV et l'Ingestion de données cloud, consultez la section [Attributs standard]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes).
 {% endalert %}
 
 | Champ de profil utilisateur | Spécification du type de données |
@@ -154,16 +166,16 @@ Les champs de profil utilisateur suivants sont sensibles à la casse. Veillez à
 | first_name | (string) |
 | gender | (chaîne de caractères) « M », « F », « O » (autre), « N » (sans objet), « P » (préfère ne pas dire) ou nil (inconnu). |
 | home_city | (string) |
-| language | (chaîne de caractères) Nous exigeons que la langue soit transmise à Braze selon la [norme ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Pour connaître les langues prises en charge, consultez notre [liste des langues acceptées]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/).<br><br>La définition de `language` sur un utilisateur par importation CSV ou API empêche Braze de capturer automatiquement cette information via le SDK. |
+| language | (chaîne de caractères) Nous exigeons que la langue soit transmise à Braze selon la [norme ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Pour connaître les langues prises en charge, consultez notre [liste des langues acceptées]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes).<br><br>La définition de `language` sur un utilisateur par importation CSV ou API empêche Braze de capturer automatiquement cette information via le SDK. |
 | last_name | (string) |
 | marked_email_as_spam_at | (chaîne de caractères) Date à laquelle l'e-mail de l'utilisateur a été marqué comme courrier indésirable. Apparaît au format ISO 8601 ou dans l'un des formats suivants : <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
-| phone | (chaîne de caractères) Nous recommandons de fournir les numéros de téléphone au format [E.164](https://en.wikipedia.org/wiki/E.164). Pour plus de détails, consultez la section [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format).|
+| phone | (chaîne de caractères) Nous recommandons de fournir les numéros de téléphone au format [E.164](https://en.wikipedia.org/wiki/E.164). Pour plus de détails, consultez la section [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format).|
 | push_subscribe | (chaîne de caractères) Les valeurs disponibles sont « opted_in » (explicitement inscrit pour recevoir des notifications push), « unsubscribed » (explicitement désabonné des notifications push) et « subscribed » (ni inscrit ni désabonné).  |
 | push_tokens | Tableau d'objets avec `app_id` et la chaîne de caractères `token`. Vous pouvez éventuellement fournir un `device_id` pour l'appareil auquel ce jeton est associé, par exemple, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si aucun `device_id` n'est fourni, un identifiant est généré de manière aléatoire. |
 | subscription_groups| Tableau d'objets avec les chaînes de caractères `subscription_group_id` et `subscription_state`, par exemple, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Les valeurs disponibles pour `subscription_state` sont « subscribed » et « unsubscribed ».|
 | time_zone | (chaîne de caractères) Nom du fuseau horaire provenant de la [base de données des fuseaux horaires de l'IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (par exemple, « America/New_York » ou « Eastern Time (US & Canada) »). Seules les valeurs de fuseau horaire valides sont définies. |
 | twitter | Hachage contenant l'un des éléments suivants : `id` (integer), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (integer), `friends_count` (integer), `statuses_count` (integer). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs de profil utilisateur Braze" }
 
 Les paramètres linguistiques explicitement définis via cette API ont priorité sur les informations régionales que Braze reçoit automatiquement de l'appareil.
 
@@ -179,21 +191,21 @@ Authorization: Bearer YOUR-REST-API-KEY
   "attributes" : [
     {
       "external_id" : "user1",
-      "first_name" : "Jon",
+      "first_name" : "Alex",
       "has_profile_picture" : true,
       "dob": "1988-02-14",
       "music_videos_favorited" : { "add" : [ "calvinharris-summer" ], "remove" : ["nickiminaj-anaconda"] }
     },
     {
       "external_id" : "user2",
-      "first_name" : "Jill",
+      "first_name" : "Lee",
       "has_profile_picture" : false,
       "push_tokens": [{"app_id": "Your App Identifier", "token": "abcd", "device_id": "optional_field_value"}]
 
     },
     {
       "user_alias" : { "alias_name" : "device123", "alias_label" : "my_device_identifier"},
-      "first_name" : "Alice",
+      "first_name" : "Yuri",
       "has_profile_picture" : false
     },
     {
@@ -210,7 +222,7 @@ Si vous envoyiez des notifications push avant d'intégrer Braze, que ce soit par
 
 ### Migration automatique via le SDK {#automatic-migration-through-sdk}
 
-Une fois [le SDK Braze intégré]({{site.baseurl}}/developer_guide/sdk_integration/), les jetons de notification push de vos utilisateurs abonnés sont automatiquement migrés lors de leur prochaine ouverture de l'application. Jusqu'à ce moment-là, il n'est pas possible d'envoyer des notifications push à ces utilisateurs via Braze.
+Une fois [le SDK Braze intégré]({{site.baseurl}}/developer_guide/sdk_integration), les jetons de notification push de vos utilisateurs abonnés sont automatiquement migrés lors de leur prochaine ouverture de l'application. Jusqu'à ce moment-là, il n'est pas possible d'envoyer des notifications push à ces utilisateurs via Braze.
 
 Vous pouvez également [migrer vos jetons de notification push manuellement](#manual-migration-through-api), ce qui vous permet de réengager vos utilisateurs plus rapidement.
 
@@ -221,16 +233,16 @@ En raison de la nature des jetons de notification push pour le Web, tenez compte
 | Considération | Détails |
 |----------------------|------------|
 | **Service de traitement**  | Par défaut, le SDK Web recherche un service de traitement à l'adresse `./service-worker`, à moins qu'une autre option ne soit spécifiée, telle que `manageServiceWorkerExternally` ou `serviceWorkerLocation`. Si votre service de traitement n'est pas configuré correctement, les jetons de notification push de vos utilisateurs risquent d'expirer. |
-| **Jetons expirés**   | Si un utilisateur n'a pas démarré de session Web dans les 60 jours, son jeton de notification push expire. Étant donné que Braze ne peut pas migrer les jetons expirés, vous devez envoyer un [message push d'amorce]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) pour les réengager. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Jetons expirés**   | Si un utilisateur n'a pas démarré de session Web dans les 60 jours, son jeton de notification push expire. Étant donné que Braze ne peut pas migrer les jetons expirés, vous devez envoyer un [message push d'amorce]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) pour les réengager. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considérations relatives aux jetons Web" }
 
 ### Migration manuelle via l'API {#manual-migration-through-api}
 
 La migration manuelle des jetons de notification push consiste à importer ces clés précédemment créées dans votre plateforme Braze via l'API.
 
-Migrez par programmation les jetons iOS (APNs) et Android (FCM) vers votre plateforme en utilisant l'[endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Vous pouvez migrer à la fois les utilisateurs identifiés (utilisateurs avec un ID externe associé) et les utilisateurs anonymes (utilisateurs sans ID externe).
+Migrez par programmation les jetons iOS (APNs) et Android (FCM) vers votre plateforme en utilisant l'[endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Vous pouvez migrer à la fois les utilisateurs identifiés (utilisateurs avec un ID externe associé) et les utilisateurs anonymes (utilisateurs sans ID externe).
 
-Spécifiez l'`app_id` de votre application lors de la migration des jetons de notification push pour associer le jeton approprié à l'application correspondante. Chaque application (iOS, Android, etc.) possède son propre `app_id`, disponible dans la section **Identification** de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Assurez-vous d'utiliser le bon `app_id` pour chaque plateforme.
+Spécifiez l'`app_id` de votre application lors de la migration des jetons de notification push pour associer le jeton approprié à l'application correspondante. Chaque application (iOS, Android, etc.) possède son propre `app_id`, disponible dans la section **Identification** de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Assurez-vous d'utiliser le bon `app_id` pour chaque plateforme.
 
 {% alert important %}
 Il n'est pas possible de migrer les jetons de notification push Web via l'API. En effet, les jetons de notification push Web n'utilisent pas le même schéma que les autres plateformes.
@@ -242,7 +254,7 @@ En guise d'alternative à la migration via l'API, nous vous recommandons d'inté
 {% endalert %}
 
 {% tabs local %}
-{% tab External ID present %}
+{% tab ID externe présent %}
 Pour les utilisateurs identifiés, définissez l'indicateur `push_token_import` sur `false` (ou omettez le paramètre) et spécifiez les valeurs `external_id`, `app_id` et `token` dans l'objet `attributes` utilisateur.
 
 Par exemple :
@@ -268,7 +280,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 {% endtab %}
 
-{% tab External ID missing %}
+{% tab ID externe absent %}
 Lors de l'importation de jetons de notification push provenant d'autres systèmes, un `external_id` n'est pas toujours disponible. Dans ce cas, définissez votre indicateur `push_token_import` sur `true` et spécifiez les valeurs `app_id` et `token`. Braze crée un profil utilisateur temporaire et anonyme pour chaque jeton afin de vous permettre de continuer à envoyer des messages à ces personnes. Si le jeton existe déjà dans Braze, la requête est ignorée.
 
 Par exemple :
@@ -281,7 +293,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
     {
       "push_token_import" : true,
-      "email": "braze.test1@testbraze.com",
+      "email": "braze.test1@example.com",
       "country": "US",
       "language": "en",
       "YOUR_CUSTOM_ATTRIBUTE": "YOUR_VALUE",
@@ -292,7 +304,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
     {
       "push_token_import" : true,
-      "email": "braze.test2@testbraze.com",
+      "email": "braze.test2@example.com",
       "country": "US",
       "language": "en",
       "YOUR_CUSTOM_ATTRIBUTE_1": "YOUR_VALUE",
@@ -311,7 +323,23 @@ Braze effectue une vérification mensuelle afin d'identifier tout profil anonyme
 {% endtab %}
 {% endtabs %}
 
-### Importation de jetons de notification push Android {#importing-android-push-tokens}
+### Importation de jetons de notification push iOS {#import-ios-push-tokens}
+
+Lors de la migration de jetons de notification push iOS avec `/users/track`, le champ `gateway` n'est pas défini sur le jeton de notification push. Braze considère que les jetons importés via l'API sont des jetons de notification push de premier plan valides, mais ne peut pas déterminer à quel environnement APNs le jeton appartient.
+
+Sans le champ gateway, Braze utilise le paramètre d'environnement de secours configuré pour votre application lors de l'envoi de notifications push. Cela peut entraîner des erreurs `BadDeviceToken` si l'environnement réel du jeton diffère de l'environnement de secours configuré. Par exemple, un jeton de développement envoyé via la passerelle de production échouera.
+
+Pour éviter les problèmes de distribution :
+
+- Assurez-vous que le paramètre d'environnement de votre application dans le tableau de bord de Braze correspond aux jetons que vous importez.
+- Pour les applications en production, importez uniquement les jetons de production.
+- Pour les environnements de test, vérifiez que la configuration de votre application et les jetons importés utilisent l'environnement de développement.
+
+{% alert note %}
+Les jetons enregistrés via le SDK Braze incluent automatiquement le champ gateway, car le SDK détecte l'environnement à partir des droits de votre application.
+{% endalert %}
+
+### Importation de jetons de notification push Android {#import-android-push-tokens}
 
 {% alert important %}
 La remarque suivante s'applique uniquement aux applications Android. Les applications iOS ne nécessitent pas ces étapes, car cette plateforme ne dispose que d'un seul framework pour l'affichage des notifications push, et celles-ci s'affichent immédiatement dès lors que Braze dispose des jetons et certificats de notification push nécessaires.
@@ -324,3 +352,9 @@ Vous devez disposer d'un récepteur pour gérer et afficher les payloads de noti
 {% alert note %}
 Pour certains fournisseurs de notifications push, Braze doit aplatir les paires clé-valeur afin qu'elles puissent être correctement interprétées. Pour aplatir les paires clé-valeur d'une application Android spécifique, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
+
+## Questions fréquemment posées {#frequently-asked-questions}
+
+### Comment trouver les utilisateurs traités comme courrier indésirable ou bloqués pour l'envoi de messages ? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+Braze ne fournit pas de liste de courrier indésirable dédiée dans le tableau de bord. Braze bloque les utilisateurs individuels ayant plus de cinq millions de sessions (« utilisateurs factices ») et n'ingère plus leurs événements SDK. Si un identifiant est bloqué, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) peut renvoyer l'erreur `"provided external_id is blacklisted and disallowed"`. Ce libellé est repris tel quel de la réponse de l'API. Pour trouver les profils concernés, créez un [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) avec le filtre **Nombre de sessions** défini sur **plus de 5 000 000**, exportez le segment au format CSV, puis vérifiez les champs de profil dans **Engagement** > **Rechercher des utilisateurs** ou avec l'endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier).

@@ -15,7 +15,7 @@ Dans cet article, nous allons parcourir un cas d'utilisation du modèle **Adopti
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser ce modèle avec succès, vous aurez besoin d'un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) qui référence le moment où les utilisateurs ont utilisé la fonctionnalité.
+Pour utiliser ce modèle avec succès, vous aurez besoin d'un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) qui référence le moment où les utilisateurs ont utilisé la fonctionnalité.
 
 ## Adapter le modèle à vos besoins {#tailoring-the-template-to-your-needs}
 
@@ -110,5 +110,5 @@ Ensuite, nous irons à l'étape de message nommée **Feedback Survey** pour incl
 Après avoir testé et vérifié que notre Canvas fonctionne comme prévu, sélectionnez **Launch Canvas** pour lancer le Canvas. Nous pouvons maintenant cibler les utilisateurs avec un parcours utilisateur personnalisé pour les encourager à adopter notre nouvelle fonctionnalité Cruise Control.
 
 {% alert tip %}
-Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
+Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
 {% endalert %}

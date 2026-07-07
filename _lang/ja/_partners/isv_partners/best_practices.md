@@ -8,16 +8,16 @@ hidden: true
 ## データ収集 {#data-collection}
 
 Brazeでのデータ収集方法について詳しくは、以下を参照してください。
-- [SDKによるデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)
-- [データ収集のベストプラクティス]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices/)
-- [ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
+- [SDKによるデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)
+- [データ収集のベストプラクティス]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)
+- [ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 
 ## Brazeの識別子 {#braze-identifiers}
 
 - `braze_id`: Brazeが割り当てる識別子で、変更不可能であり、データベース内で作成された時点で特定のユーザーに関連付けられます。
 - `external_id`: 顧客が割り当てる識別子で、通常はUUIDです。ユーザーを一意に識別できる場合、`external_id`を割り当てることを推奨します。ユーザーが識別された後は、匿名に戻すことはできません。
-- `user_alias`: `external_id`が割り当てられる前に、IDによってユーザーを参照する手段として顧客が割り当てることができる一意の代替識別子です。ユーザーエイリアスは、Brazeの[ユーザー識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)エンドポイントを通じて`external_id`が利用可能になった時点で、他のエイリアスまたは`external_id`とマージできます。
-    - [ユーザー識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)エンドポイント内では、`merge_behavior`フィールドを使用して、ユーザーエイリアスプロファイルのどのデータを既知のユーザープロファイルに保持するかを指定できます。
+- `user_alias`: `external_id`が割り当てられる前に、IDによってユーザーを参照する手段として顧客が割り当てることができる一意の代替識別子です。ユーザーエイリアスは、Brazeの[ユーザー識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)エンドポイントを通じて`external_id`が利用可能になった時点で、他のエイリアスまたは`external_id`とマージできます。
+    - [ユーザー識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)エンドポイント内では、`merge_behavior`フィールドを使用して、ユーザーエイリアスプロファイルのどのデータを既知のユーザープロファイルに保持するかを指定できます。
     - ユーザーエイリアスを送信可能なプロファイルにするには、メールまたは電話番号あるいはその両方を標準属性項目としてプロファイルに含める必要がある点にご注意ください。
 - `device_id`: 自動的に生成される、デバイス固有の識別子です。ユーザープロファイルには複数の`device_ids`を関連付けることができます。たとえば、仕事用コンピューター、自宅のコンピューター、タブレット、iOSアプリでアカウントにログインしたユーザーは、プロファイルに4つの`device_ids`が関連付けられます。
 - メールアドレスと電話番号:
@@ -27,15 +27,15 @@ Brazeでのデータ収集方法について詳しくは、以下を参照して
         2. このメールアドレス/電話番号を持つプロファイルがBraze内にすでに存在する場合、リクエストで送信されたデータを含むようにプロファイルが更新されます。
         3. このメールアドレス/電話番号を持つプロファイルが複数あるユースケースでは、最後に更新されたプロファイルが優先されます。
     - メールのみ/電話番号のみのユーザープロファイルが存在し、同じメールアドレス/電話番号を持つ識別済みプロファイルが作成された場合（同じメールアドレスとexternal IDを持つ別のプロファイルなど）、Brazeは2つ目のプロファイルを作成します。それ以降の更新は、external IDを持つプロファイルに送られます。
-        - 2つのプロファイルは、Brazeの[/merge/users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)エンドポイントを使用してマージできます。
+        - 2つのプロファイルは、Brazeの[/merge/users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントを使用してマージできます。
 
 ## 匿名ユーザーの取り扱い {#handling-anonymous-users}
 
-`external_id`にアクセスできない状態でBrazeのユーザープロファイルを作成または更新する必要があるユースケースでは、メールアドレスや電話番号などの別の識別子をBrazeの[識別子によるユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントに渡すことで、そのユーザーのプロファイルがBraze内に存在するかどうかを判断できます。
+`external_id`にアクセスできない状態でBrazeのユーザープロファイルを作成または更新する必要があるユースケースでは、メールアドレスや電話番号などの別の識別子をBrazeの[識別子によるユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)エンドポイントに渡すことで、そのユーザーのプロファイルがBraze内に存在するかどうかを判断できます。
 
 ```json
 {
- "email_address": "test@braze.com",
+ "email_address": "test@example.com",
  "fields_to_export": ["braze_id", "user_aliases"]
 }
 ```
@@ -55,10 +55,10 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
    "attributes": [
    {
      "user_alias" : {
-       "alias_name" : "test@braze.com",
+       "alias_name" : "test@example.com",
        "alias_label" : "email"
      },
-     "email": "test@braze.com",
+     "email": "test@example.com",
      "_update_existing_only": false,
      "string_attribute": "sherman",
      "boolean_attribute_1": true,
@@ -69,7 +69,7 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 }
 ```
 
-後で`external_id`が利用可能になった時点で、[ユーザー識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)エンドポイントを通じてこのユーザーエイリアスを識別し、マージできます。
+後で`external_id`が利用可能になった時点で、[ユーザー識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)エンドポイントを通じてこのユーザーエイリアスを識別し、マージできます。
 
 ### メールのみのユーザーの作成 {#creating-an-email-only-user}
 
@@ -79,7 +79,7 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 {
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 25,
@@ -97,27 +97,27 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 
 ## ユーザープロファイルへのデータ同期 {#syncing-data-to-user-profiles}
 
-[ユーザートラック]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+[ユーザートラック]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 - これは一般にアクセス可能なエンドポイントで、ユーザープロファイルへの属性の記録など、Brazeでユーザーを作成および更新できます。このエンドポイントには、ワークスペースレベルで1分あたり50,000件のリクエストというレート制限が適用されています。
 - このエンドポイントを使用する場合は、パートナーのドキュメントに記載されているように`partner`キーを含めてください。
 
-[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/cloud_ingestion/overview/#what-is-cloud-data-ingestion)
+[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/cloud_ingestion/overview#what-is-cloud-data-ingestion)
 - ユーザートラックエンドポイントと同様に、クラウドデータ取り込みを通じてデータをユーザープロファイルに同期できます。このツールを使用する場合、目的のBrazeワークスペースに同期するデータウェアハウスのテーブルまたはビューを設定して接続することで、属性、イベント、および購入がプロファイルに記録されます。
 
-[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)
+[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)
 - Brazeには、値が変更されたかどうかに関係なく、ユーザープロファイルへの「書き込み」ごとにデータポイントが記録されるデータポイントモデルがあります。このため、変更のあった属性のみをBrazeに送信することを推奨します。
 
 ## Brazeへのユーザーオーディエンスの送信 {#sending-audiences-of-users-to-braze}
 
-[コホートインポート同期パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/cohort_import/)<br>
+[コホートインポート同期パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/cohort_import)<br>
 - ユーザーのオーディエンスは、Braze Cohort Import APIエンドポイントを使用して、コホートとしてBrazeに同期できます。これらのオーディエンスをユーザー属性としてユーザープロファイルに保存するのではなく、セグメンテーションツール内のパートナーブランドフィルターを使用してこのコホートを作成し、ターゲットに設定できます。これにより、特定のユーザーセグメントをより効率的に見つけてターゲットにすることができます。
 - コホートインポートエンドポイントはパブリックではなく、各パートナーに固有です。このため、コホートエンドポイントへの同期は、顧客のワークスペースのレート制限にカウントされません。
 
-[ユーザートラック]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)<br>
+[ユーザートラック]({{site.baseurl}}/api/endpoints/user_data/post_user_track)<br>
 - これは一般にアクセス可能なエンドポイントで、ユーザー属性を通じて特定のオーディエンスのユーザーを示すことで、Brazeでユーザーをすぐに作成するために使用できます。このエンドポイントとコホートインポートエンドポイントの主な違いは、このエンドポイントを使用して送信されたオーディエンスはユーザープロファイルに保存されるのに対し、コホートインポートエンドポイントではセグメンテーションツールでフィルターとして表示されることです。このエンドポイントには、ワークスペースレベルで1分あたり50,000件のリクエストというレート制限が適用されています。
-- このエンドポイントを使用する場合は、パートナーの[ドキュメント]({{site.baseurl}}/partners/isv_partners/api_partner/)に記載されているように`partner`キーを必ず含めてください。
+- このエンドポイントを使用する場合は、[パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/api_partner)に記載されているように`partner`キーを必ず含めてください。
 
-[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)<br>
+[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)<br>
 - Brazeには、値が変更されたかどうかに関係なく、ユーザープロファイルへの「書き込み」ごとにデータポイントが記録されるデータポイントモデルがあります。
 - データポイントは、コホートインポートエンドポイントとユーザートラックエンドポイントの両方で発生します。
 
@@ -125,45 +125,45 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 
 ### Currents
 
-Currentsは、Brazeのほぼリアルタイムのメッセージエンゲージメント分析ストリーミングツールです。顧客のワークスペースから送信されたCampaignsおよびCanvasesのすべての送信、配信、開封、クリックなどに関するユーザーレベルのデータがストリーミングされます。いくつかの注意点があります。Currentsの価格は顧客のコネクターあたりで設定されるため、すべての新しいCurrentsパートナーはEAプロセスを経る必要があります。カスタムブランドのUIを構築し、コネクターを一般に公開する前に、パートナーにはEAの一部として5社の顧客を確保していただくようお願いしています。
-- [パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/currents_integration/)
-- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) - Currentsコネクターを購入したすべての顧客がこれらのイベントにアクセスできます。
-- [ユーザー行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) - Currentsコネクターを購入したすべての顧客が、これらのイベントを含む「すべてのイベント」コネクターを購入するとは限りません。
+Currentsは、Brazeのほぼリアルタイムのメッセージエンゲージメント分析ストリーミングツールです。顧客のワークスペースから送信されたキャンペーンおよびキャンバスのすべての送信、配信、開封、クリックなどに関するユーザーレベルのデータがストリーミングされます。いくつかの注意点があります。Currentsの価格は顧客のコネクターあたりで設定されるため、すべての新しいCurrentsパートナーはEAプロセスを経る必要があります。カスタムブランドのUIを構築し、コネクターを一般に公開する前に、パートナーにはEAの一部として5社の顧客を確保していただくようお願いしています。
+- [パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector)
+- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) - Currentsコネクターを購入したすべての顧客がこれらのイベントにアクセスできます。
+- [ユーザー行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) - Currentsコネクターを購入したすべての顧客が、これらのイベントを含む「すべてのイベント」コネクターを購入するとは限りません。
 
 ### Snowflakeデータシェア {#snowflake-data-share}
 
 Snowflakeデータシェアコネクターを購入した顧客は、メッセージエンゲージメントイベントとユーザー行動イベントの両方に自動的にアクセスできるようになります。Snowflakeデータシェアがパートナー連携として使用される場合、Brazeは顧客に代わってパートナーのSnowflakeインスタンスに共有をプロビジョニングします。クロスリージョンのデータ共有は顧客にとってより高い価格帯となるため、Snowflakeとの連携を希望するパートナーには`US-EAST-1`および/または`EU-CENTRAL-1`にアカウントが必要であるというガイダンスをお伝えしています。
-- [パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector)
 
-## CampaignsとCanvasesの構築とトリガー {#building-and-triggering-campaigns-and-canvases}
+## キャンペーンとキャンバスの構築とトリガー {#building-and-triggering-campaigns-and-canvases}
 
 ### Brazeでのアセット作成 {#creating-assets-in-braze}
-Brazeは、顧客やパートナーが顧客のワークスペース内でメールテンプレートやContent Blocksを作成・更新できるエンドポイントを多数提供しています。これらのテンプレートとContent Blocksは、顧客のBraze CampaignsおよびCanvases全体で使用できます。
+Brazeは、顧客やパートナーが顧客のワークスペース内でメールテンプレートやContent Blocksを作成・更新できるエンドポイントを多数提供しています。これらのテンプレートとContent Blocksは、顧客のBraze キャンペーンおよびキャンバス全体で使用できます。
 - メールテンプレート
-    - [テンプレート作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/)
-    - [テンプレート更新エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/#rate-limit)
-- [Content Blocks]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks)
-    - [Content Block作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/)
-    - [Content Block更新エンドポイント]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)
+    - [テンプレート作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template)
+    - [テンプレート更新エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template#rate-limit)
+- [Content Blocks]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks#content-blocks)
+    - [Content Block作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block)
+    - [Content Block更新エンドポイント]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)
 
-### APIトリガーによるCampaignsとCanvases {#api-triggered-campaigns-and-canvases}
+### APIトリガーによるキャンペーンとキャンバス {#api-triggered-campaigns-and-canvases}
 
-顧客はCampaignsやCanvasesをAPIトリガーで起動するように設定できます。これらのCampaignsをトリガーするAPIリクエストを使用して、APIトリガープロパティとオーディエンスパラメーターまたは受信者パラメーターを渡すことで、Campaignをさらにパーソナライズおよびセグメント化できます。
-- [APIを使用したCampaignsのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)
-    - Campaignsは、個々のメールのような単発のメッセージです。
-- [APIを使用したCanvasesのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#request-body)
-    - Canvasは、マーケターが複数のメッセージとステップでCampaignsを作成し、一貫性のあるジャーニーを形成するための統合インターフェイスです。Canvasをトリガーすると、ユーザーがキャンバスフローに入り、Canvasの条件に合わなくなるまでメッセージングを受け取り続けます。
-- [APIトリガープロパティ/Canvasエントリープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)
+顧客はキャンペーンやキャンバスをAPIトリガーで起動するように設定できます。これらのキャンペーンをトリガーするAPIリクエストを使用して、APIトリガープロパティとオーディエンスパラメーターまたは受信者パラメーターを渡すことで、キャンペーンをさらにパーソナライズおよびセグメント化できます。
+- [APIを使用したキャンペーンのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#request-body)
+    - キャンペーンは、個々のメールのような単発のメッセージです。
+- [APIを使用したキャンバスのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#request-body)
+    - キャンバスは、マーケターが複数のメッセージとステップでキャンペーンを作成し、一貫性のあるジャーニーを形成するための統合インターフェイスです。キャンバスをトリガーすると、ユーザーがキャンバスフローに入り、キャンバスの条件に合わなくなるまでメッセージングを受け取り続けます。
+- [APIトリガープロパティ/Canvasエントリープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
     - 送信時にメッセージに動的に入力できるデータです。
 
-### API Campaign {#api-campaigns}
-API Campaign（上記のAPIトリガーによるCampaignsとは異なります）を作成する場合、Brazeダッシュボードは`campaign_id`を生成するためにのみ使用されます。これにより顧客はCampaignレポートのために分析を追跡できます。Campaignメッセージ自体はAPIリクエスト内で定義されます。
-- [API Campaignをすぐに送信する]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
-- [API Campaignをスケジュールする]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
+### API キャンペーン
+API キャンペーン（上記のAPIトリガーによるキャンペーンとは異なります）を作成する場合、Brazeダッシュボードは`campaign_id`を生成するためにのみ使用されます。これにより顧客はキャンペーンレポートのために分析を追跡できます。キャンペーンメッセージ自体はAPIリクエスト内で定義されます。
+- [API キャンペーンをすぐに送信する]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
+- [API キャンペーンをスケジュールする]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
 
 ### 送信ID {#send-ids}
-Brazeエンドポイントを使用して送信IDを生成し、Campaign分析を送信別に分類できるようにします。たとえば、ロケーションごとに`campaign_id`（API Campaign）が作成されている場合、送信ごとに送信IDを生成して、特定のロケーションに対して異なるメッセージングがどの程度効果的に機能しているかを追跡できます。
-- [送信ID]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/)
+Brazeエンドポイントを使用して送信IDを生成し、キャンペーン分析を送信別に分類できるようにします。たとえば、ロケーションごとに`campaign_id`（API キャンペーン）が作成されている場合、送信ごとに送信IDを生成して、特定のロケーションに対して異なるメッセージングがどの程度効果的に機能しているかを追跡できます。
+- [送信ID]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids)
 
 ## コネクテッドコンテンツ {#connected-content}
 
@@ -183,6 +183,6 @@ Brazeエンドポイントを使用して送信IDを生成し、Campaign分析�
 - Brazeのシステムは、各受信者に対して同じコネクテッドコンテンツAPI呼び出しを複数回行う場合があります。これは、BrazeがメッセージペイロードをレンダリングするためにコネクテッドコンテンツAPI呼び出しを行う必要がある場合があり、メッセージペイロードは検証、再試行ロジック、またはその他の内部目的のために受信者ごとに複数回レンダリングされることがあるためです。
 
 コネクテッドコンテンツの詳細については、以下の記事を参照してください。
-- [コネクテッドコンテンツ呼び出しを実行する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)
-- [コネクテッドコンテンツを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)
-- [コネクテッドコンテンツの再試行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)
+- [コネクテッドコンテンツ呼び出しを実行する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)
+- [コネクテッドコンテンツを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)
+- [コネクテッドコンテンツの再試行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)

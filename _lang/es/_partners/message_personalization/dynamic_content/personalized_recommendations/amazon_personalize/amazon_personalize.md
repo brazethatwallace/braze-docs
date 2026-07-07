@@ -23,12 +23,12 @@ Este artículo de referencia te ayudará a comprender los casos de uso que ofrec
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
+| Requisito | Descripción |
+| --- | --- |
 | Cuenta de Amazon Web Service | Se necesita una cuenta de AWS para beneficiarse de esta asociación. Después de tener una cuenta de AWS, puedes acceder a Amazon Personalize a través de la consola de Amazon Personalize, la interfaz de línea de comandos de AWS (CLI de AWS) o los SDK de AWS. |
 | Casos de uso definidos | Antes de crear un modelo, debes determinar tu caso de uso para esta integración. Consulta la siguiente lista de casos de uso comunes. |
 | Conjuntos de datos | Los modelos de recomendación de Amazon Personalize requieren tres tipos diferentes de conjuntos de datos: interacciones, usuarios y artículos. Consulta los siguientes detalles para ver los requisitos de cada conjunto de datos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
 {% tab Use Cases %}

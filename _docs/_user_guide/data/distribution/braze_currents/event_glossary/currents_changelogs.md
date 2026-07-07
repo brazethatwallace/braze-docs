@@ -1,14 +1,49 @@
 ---
-nav_title: Currents changelog
-article_title: Currents changelog
-page_order: 3
+nav_title: Currents Event Changelogs
+page_order: 6
 description: "This page includes the event changes for each Currents release."
 tool: Currents
 ---
 
 # Currents changelog
 
-> This page lists event and schema changes for each Braze Currents release.
+## Changes in Version 10 (release date 2026-07-01)
+
+### Changes for Storage:
+
+* Added new event type `users.canvas.costep.Send`.
+
+* Added new event type `users.UserDeleteRequest`.
+
+* Added new event type `users.UserOrphan`.
+
+* Field changes to event type `users.messages.rcs.Abort`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+
+* Field changes to event type `users.messages.rcs.Click`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+
+* Field changes to event type `users.messages.rcs.Delivery`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+
+* Field changes to event type `users.messages.rcs.InboundReceive`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+
+* Field changes to event type `users.messages.rcs.Read`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+
+* Field changes to event type `users.messages.rcs.Rejection`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+
+* Field changes to event type `users.messages.rcs.Send`:
+    * Added new `string` field `canvas_id`: API ID of the Canvas this event belongs to
+
+## Changes in Version 9 (release date 2026-06-03)
+
+### Changes for Storage:
+
+* Field changes to event type `users.messages.email.Send`:
+    * Added new `string` field `from_domain`: Sending domain for the email
 
 ## Changes in Version 8 (release date 2026-05-06)
 
@@ -41,6 +76,8 @@ tool: Currents
 ## Changes in Version 7 (release date 2026-04-01)
 
 ### Changes for Storage:
+
+* Added new event type `users.profile.Update`.
 
 * Field changes to event type `users.messages.banner.Abort`:
     * Added new `string` field `canvas_name`: Name of the Canvas
@@ -161,7 +198,7 @@ tool: Currents
     * Added new `boolean` field `is_sms_fallback`: Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID
 
 * Field changes to event type `users.messages.sms.Rejection`:
-    * Added new `boolean` field `is_sms_fallback`: Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID It can be linked to the RCS Rejection event via a send ID and dispatch ID. (Event property)
+    * Added new `boolean` field `is_sms_fallback`: Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID
 
 * Field changes to event type `users.messages.whatsapp.Delivery`:
     * Added new `string` field `flow_id`: The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow

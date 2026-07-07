@@ -5,15 +5,12 @@ noindex: true
 page_type: update
 description: "Este artículo contiene notas de la versión de junio de 2018."
 ---
-# Junio de 2018
+# Junio de 2018 {#june-2018}
 
-## Reusabilidad de la contraseña
+## Reutilización de contraseñas {#password-reusability}
 
-Ahora los administradores pueden determinar el número mínimo de contraseñas nuevas y únicas que otros usuarios de Braze de su empresa deben utilizar antes de poder reutilizar una contraseña anterior. Esto se puede controlar desde el panel [Reglas de autenticación[]({{site.baseurl}}/user_guide/onboarding/platform_administrative_features/#authentication-rules) ] de la **Configuración de la empresa** en la pestaña **Configuración de seguridad**.
+Ahora los administradores pueden determinar el número mínimo de contraseñas nuevas y únicas que otros usuarios de la empresa deben utilizar antes de poder reutilizar una contraseña anterior. Esto se puede controlar desde el panel [Reglas de autenticación]({{site.baseurl}}/user_guide/onboarding/platform_administrative_features/#authentication-rules) en la **Configuración de empresa** en la pestaña **Configuración de seguridad**.
 
-## Pasos de Uninstall Tracking para Canvas
+## Uninstall Tracking para pasos en Canvas {#uninstall-tracking-for-canvas-steps}
 
-Ahora se hace un seguimiento de las desinstalaciones por pasos en Canvas y se pueden ver como estadísticas.
-
-![Uninstall Tracking para Canvas]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
-
+Ahora se hace un seguimiento de las desinstalaciones por paso en Canvas y se pueden ver como estadísticas en el análisis de Canvas.

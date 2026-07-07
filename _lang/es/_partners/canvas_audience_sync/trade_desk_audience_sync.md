@@ -25,8 +25,8 @@ Asegúrate de tener los siguientes elementos creados, completados o aceptados an
 | Requisito | Origin | Descripción |
 | --- | --- | --- |
 | Token de API | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Un token de API estándar creado en la plataforma de The Trade Desk. Recomendamos configurar la duración del token de API en hasta un año para evitar interrupciones mínimas en tus Canvas con The Trade Desk Audience Sync. |
-| Términos y políticas de The Trade Desk | The Trade Desk | Debes aceptar una política de participación de UID2/CRM antes de que se te habilite para enviar datos a The Trade Desk. Ponte en contacto con tu representante en The Trade Desk para confirmar que tienes la firma adecuada para habilitar la entrega de datos a The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirma que el acceso a la gestión de datos de CRM está habilitado en tu cuenta&#8212tu representante en The Trade Desk puede ayudarte con esto. Debes tener tu ID de anunciante.</li><li>Ten listo tu token de API estándar. Puedes seguir las instrucciones de esta página para generar uno.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Términos y políticas de The Trade Desk | The Trade Desk | Debes aceptar una política de participación de UID2/CRM antes de que se te habilite para enviar datos a The Trade Desk. Ponte en contacto con tu representante en The Trade Desk para confirmar que tienes la firma adecuada para habilitar la entrega de datos a The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirma que el acceso a la gestión de datos de CRM está habilitado en tu cuenta&#8212;tu representante en The Trade Desk puede ayudarte con esto. Debes tener tu ID de anunciante.</li><li>Ten listo tu token de API estándar. Puedes seguir las instrucciones de esta página para generar uno.</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

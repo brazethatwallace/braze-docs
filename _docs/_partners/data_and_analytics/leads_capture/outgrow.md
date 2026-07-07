@@ -29,7 +29,7 @@ Before setting up the Outgrow and Braze integration, confirm you have the follow
 | **Braze account** | A Braze account with access to REST API credentials |
 | **API key** | An API key from Braze with the `users.track` permission to enable user data transfer |
 | **Custom attributes in Braze** | Custom attributes set up in Braze to capture Outgrow responses (such as quiz scores, segments, and others) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -97,7 +97,7 @@ You can use the custom segments created from Outgrow data to personalize your Br
 | **Data isn't transferring to Braze** | Verify that the API key and endpoint URL are correct in your Outgrow integration settings. Make sure the API key has the `users.track` permission turned on. |
 | **Incorrect data mapping** | Make sure that each mapped Outgrow response corresponds to a valid Braze custom attribute and that the attribute names match exactly. |
 | **Segment not filtering correctly** | Make sure that custom attributes in Braze are properly set up and receiving data. Re-check your segment filter logic. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting common issues" }
 
 ## Additional considerations
 

@@ -1,5 +1,5 @@
 ---
-nav_title: ドキュメント請求
+nav_title: ドキュメントリクエスト
 permalink: "/request/"
 hide_nav: true
 layout: basic
@@ -367,7 +367,7 @@ hide_toc: true
     $(document).ready(function() {
       var braze_internal = $('#braze_internal').remove();
       $('#header_nav').after(braze_internal);
-      
+
       // Handle Form Element visibility
       function toggleFormElements() {
         var selectedValue = $('#doc_urgent').val();
@@ -388,18 +388,18 @@ hide_toc: true
             $('[id^="resource_urls"]').hide();
         }
       }
-      
+
       // Show/hide disclosures on page load
       toggleFormElements();
-      
+
       // Show/hide disclosures when selection changes
       $('#doc_urgent').change(function() {
         toggleFormElements();
       });
-      
+
       $('#doc_form').submit(function(e) {
         $('#submit_progress').css('display','inline');
-        $('#submit_text').html('Submitting');
+        $('#submit_text').html('送信中');
         $('#ticket_submit_button').prop("disabled",true);
 
         e.preventDefault();
@@ -415,7 +415,7 @@ hide_toc: true
           $('#doc_div').hide();
           $('#doc_thankyou').show();
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
-              $(this).html('<h3>Thanks for your submission!</h3> Someone from our team will contact you if we have any questions. To view the status of your ticket or add comments, check your email for your ticket confirmation.').fadeTo(800,1);
+              $(this).html('<h3>送信いただきありがとうございます。</h3> ご質問がある場合は、チームの担当者からご連絡いたします。チケットのステータスの確認やコメントの追加については、チケット確認メールをご確認ください。').fadeTo(800,1);
           });
         });
 
@@ -431,8 +431,8 @@ hide_toc: true
         <form id="doc_form">
           <div class="row">
             <div class="col">
-              <h1 class="h1">Documentation Request Form</h1>
-              <p class="subhead">All fields are required unless otherwise noted.</p>
+              <h1 class="h1">ドキュメントリクエストフォーム</h1>
+              <p class="subhead">特に記載がない限り、すべてのフィールドは必須です。</p>
               <div class="gradient-line"></div>
             </div>
           </div>
@@ -442,63 +442,63 @@ hide_toc: true
               <div class="form-group" id="doc_urgent_div">
               <div class="form-check">
                 <label class="form-check-label" for="doc_urgent" style="display: block;">
-                Request Type
+                リクエストタイプ
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
-              <option value="urgent">Urgent: I am raising smoke about an issue on Braze Docs or have a high-priority update</option>
-              <option value="feature">Feature: I have a new feature or new behavior for an existing feature</option>
-              <option value="suggestion" selected="selected">Suggestion: I have a proposed improvement or need clarification for an article</option>
+              <option value="urgent">緊急: Braze Docsの問題について報告がある、または優先度の高い更新がある</option>
+              <option value="feature">機能: 新機能、または既存機能の新しい動作がある</option>
+              <option value="suggestion" selected="selected">提案: 記事の改善提案、または明確化が必要</option>
               </select>
 
               </div>
-            
+
               <div style="height: 12px;"></div>
 
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
-                  <b>Important: </b>
-                  Copilot will author this suggestion, and it will be reviewed by the Docs team. Confirm that <strong>no customer-specific information</strong> or <strong>links</strong> are included.
+                  <b>重要: </b>
+                  この提案はCopilotが作成し、Docsチームがレビューします。<strong>顧客固有の情報</strong>や<strong>リンク</strong>が含まれていないことを確認してください。
                 </div>
               </div>
               </div>
 
               <div class="form-group">
-                <label for="doc_due_date" id="doc_due_date_label">Due date (optional)</label>
-                <div class="sublabel">If this request is time-sensitive or related to a feature release, please enter a due date.</div>
+                <label for="doc_due_date" id="doc_due_date_label">期限（オプション）</label>
+                <div class="sublabel">このリクエストが期限付きの場合、または機能リリースに関連する場合は、期限を入力してください。</div>
                 <div class="input-group">
                   <input type="date" class="form-control" id="doc_due_date" maxlength="80" name="Due_Date" value="" />
                 </div>
               </div>
               <div class="form-group">
 
-                <label for="doc_email" id="doc_email_label">Email address</label>
+                <label for="doc_email" id="doc_email_label">メールアドレス</label>
                 <div class="input-group">
                   <input type="email" class="form-control email-input" id="doc_email" maxlength="80" name="Email" placeholder="e.g., firstname.lastname@braze.com" required="required" value="" />
                   <i class="fa-solid fa-envelope email-icon"></i>
                   </div>
               </div>
               <div class="form-group" id="doc_request_div">
-                <label for="doc_request" id="doc_request_label">Request summary</label>
-                <div class="sublabel">This is the name for your ticket</div>
-                <input type="text" name="Request_Subject" id="doc_request" maxlength="180" required="required" value="" placeholder="Enter your request" class="form-control" />
+                <label for="doc_request" id="doc_request_label">リクエスト概要</label>
+                <div class="sublabel">チケットの名前になります</div>
+                <input type="text" name="Request_Subject" id="doc_request" maxlength="180" required="required" value="" placeholder="リクエストを入力してください" class="form-control" />
               </div>
 
               <div class="form-group" id="doc_request_url">
                 <label for="doc_request" id="doc_request_url_label">Braze URL</label>
-                <input type="url" name="Request_Url" id="doc_request_url" maxlength="180" required="required" value="" placeholder="e.g., https://www.braze.com/docs/" class="form-control" />
+                <input type="url" name="Request_Url" id="doc_request_url" maxlength="180" required="required" value="" placeholder="e.g., {{ site.homeurl }}{{ site.baseurl }}/" class="form-control" />
               </div>
 
               <div class="form-group">
 
-                <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">Description</label>
-                <div class="sublabel" style="margin-bottom:6px;">Provide as much detail as possible about the requested update.</div>
+                <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">説明</label>
+                <div class="sublabel" style="margin-bottom:6px;">リクエストする更新について、できるだけ詳しく記載してください。</div>
                 <textarea name="Description" class="form-control" id="doc_description" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
 
               <div class="form-group" id="resource_urls">
-                <label for="resource_urls" id="resource_urls_label">Resource URLs</label>
-                 <div class="sublabel" style="margin-bottom:6px;">Include URLs from Confluence, Productboard, Google Docs, Jira, or any other resources about this feature.</div>
+                <label for="resource_urls" id="resource_urls_label">リソースURL</label>
+                 <div class="sublabel" style="margin-bottom:6px;">Confluence、Productboard、Google Docs、Jira、またはこの機能に関するその他のリソースのURLを記載してください。</div>
                 <textarea name="Resource_Urls" class="form-control" id="resource_urls" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="2" ></textarea>
 
@@ -506,8 +506,8 @@ hide_toc: true
 
               <div class="form-group">
 
-                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Code snippets (optional)</label>
-                <div class="sublabel" style="margin-bottom:6px;">This is useful if you're a developer. Include context and make sure it's clear what code language is used.</div>
+                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">コードスニペット（オプション）</label>
+                <div class="sublabel" style="margin-bottom:6px;">開発者の方に便利です。コンテキストを含め、使用しているコード言語が明確になるようにしてください。</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
@@ -515,17 +515,17 @@ hide_toc: true
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="Y" id="doc_verify" name="Verified">
                 <label class="form-check-label" for="doc_verify" id="doc_verify_label">
-                <span></span> I have verified this information with the respective product team
+                <span></span> この情報を担当プロダクトチームに確認済みです
               </label>
               </div>
-              </div>          
+              </div>
               <div class="inline_text">
-              Please wait up to ten seconds after submitting for your request to process.
+              送信後、リクエストの処理に最大10秒かかる場合があります。しばらくお待ちください。
               </div>
               <button type="submit" name="Submit Question" value="Submit" class="btn" id="ticket_submit_button" role="button">
 
               <div id="submit_progress"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-              <div id="submit_text"> Submit Request </div></button>
+              <div id="submit_text"> リクエストを送信 </div></button>
 
             </div>
 

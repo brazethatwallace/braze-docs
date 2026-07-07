@@ -12,7 +12,7 @@ description: "Cette page regroupe des exemples de cas d'utilisation Liquid organ
 
 {% api %}
 
-## Anniversaires et jours fériés
+## Anniversaires et jours fériés {#anniversaries-and-holidays}
 
 {% apitags %}
 Anniversaries and holidays
@@ -20,7 +20,7 @@ Anniversaries and holidays
 
 - [Personnaliser les messages en fonction de l'année d'anniversaire d'inscription d'un utilisateur](#anniversary-year)
 - [Personnaliser les messages en fonction de la semaine d'anniversaire d'un utilisateur](#birthday-week)
-- [Envoyer des campagnes aux utilisateurs pendant leur mois d'anniversaire](#birthday-month)
+- [Envoyer des Campaigns aux utilisateurs pendant leur mois d'anniversaire](#birthday-month)
 - [Éviter d'envoyer des messages lors des jours fériés importants](#holiday-avoid)
 
 ### Personnaliser les messages en fonction de l'année d'anniversaire d'inscription d'un utilisateur {#anniversary-year}
@@ -93,7 +93,7 @@ No birthday for you!
 
 Nous incluons également des déclarations pour `last_week` et `next_week` afin de personnaliser davantage vos messages.
 
-### Envoyer des campagnes aux utilisateurs pendant leur mois d'anniversaire {#birthday-month}
+### Envoyer des Campaigns aux utilisateurs pendant leur mois d'anniversaire {#birthday-month}
 
 Ce cas d'utilisation montre comment calculer le mois d'anniversaire d'un utilisateur, vérifier si son anniversaire tombe dans le mois en cours, et si c'est le cas, envoyer un message spécial.
 
@@ -134,13 +134,13 @@ L'exemple fourni utilise la veille de Noël, le jour de Noël et le lendemain de
 
 {% api %}
 
-## Utilisation de l'application
+## Utilisation de l'application {#app-usage}
 
 {% apitags %}
 App usage
 {% endapitags %}
 
-- [Envoyer des messages dans la langue d'un utilisateur s'il a enregistré une session](#app-session-language)
+- [Envoyer des messages dans la langue d'un utilisateur s'il n'a pas enregistré de session](#app-session-language)
 - [Personnaliser les messages en fonction de la dernière ouverture de l'application par l'utilisateur](#app-last-opened)
 - [Afficher un message différent si l'utilisateur a utilisé l'application il y a moins de trois jours](#app-last-opened-less-than)
 
@@ -218,7 +218,7 @@ Message for a less active user
 
 {% api %}
 
-## Comptes à rebours
+## Comptes à rebours {#countdowns}
 
 {% apitags %}
 Countdowns
@@ -536,13 +536,14 @@ Ce cas d'utilisation affiche la date dans 30 jours pour l'utiliser dans les mess
 
 {% api %}
 
-## Attribut personnalisé
+## Attribut personnalisé {#custom-attribute}
 
 {% apitags %}
 Custom attribute
 {% endapitags %}
 
 - [Personnaliser un message en fonction d'attributs personnalisés correspondants](#attribute-matching)
+- [Formater une devise selon les conventions numériques européennes](#european-currency-format)
 - [Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire](#attribute-monetary-difference)
 - [Référencer le prénom d'un utilisateur si son nom complet est stocké dans le champ first_name](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Formater une devise selon les conventions numériques européennes {#european-currency-format}
+
+Pour les locales qui utilisent une virgule comme séparateur décimal et un point comme séparateur de milliers (par exemple, l'Allemagne ou l'Italie), utilisez les filtres [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) et [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) avec `replace` pour intervertir les séparateurs. Utilisez `#` comme marque substitutive temporaire afin que les points et les virgules ne soient pas intervertis lors de la même passe.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Résultat :** `1.234.567,89`
+
+**Explication :** Le filtre `money` ajoute les décimales mais n'ajoute pas de symbole monétaire ni de séparateurs spécifiques à la locale. `number_with_delimiter` ajoute les séparateurs de milliers au format américain, et les filtres `replace` les convertissent au format européen.
 {% endraw %}
 
 ### Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire {#attribute-monetary-difference}
@@ -597,14 +612,14 @@ Hi {{name[0]}}, here's your message!
 
 {% api %}
 
-## Événement personnalisé
+## Événement personnalisé {#custom-event}
 
 {% apitags %}
 Custom event
 {% endapitags %}
 
 - [Annuler une notification push si un événement personnalisé est dans les deux heures à venir](#event-abort-push)
-- [Envoyer une campagne chaque fois qu'un utilisateur effectue un événement personnalisé trois fois](#event-three-times)
+- [Envoyer une Campaign chaque fois qu'un utilisateur effectue un événement personnalisé trois fois](#event-three-times)
 - [Envoyer un message aux utilisateurs qui n'ont acheté que dans une seule catégorie](#event-purchased-one-category)
 - [Suivre le nombre de fois qu'un événement personnalisé s'est produit au cours du mois précédent](#track)
 
@@ -630,9 +645,9 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 ```
 {% endraw %}
 
-### Envoyer une campagne chaque fois qu'un utilisateur effectue un événement personnalisé trois fois {#event-three-times}
+### Envoyer une Campaign chaque fois qu'un utilisateur effectue un événement personnalisé trois fois {#event-three-times}
 
-Ce cas d'utilisation vérifie si un utilisateur a effectué un événement personnalisé trois fois et, si c'est le cas, affiche un message ou envoie une campagne.
+Ce cas d'utilisation vérifie si un utilisateur a effectué un événement personnalisé trois fois et, si c'est le cas, affiche un message ou envoie une Campaign.
 
 {% raw %}
 ```liquid
@@ -667,7 +682,7 @@ Ce cas d'utilisation capture la liste des catégories dans lesquelles un utilisa
 
 ### Suivre le nombre de fois qu'un événement personnalisé s'est produit au cours du mois précédent {#track}
 
-Ce cas d'utilisation calcule le nombre de fois qu'un événement personnalisé a été enregistré entre le 1er du mois en cours et le mois précédent. Vous pouvez ensuite exécuter un appel users/track pour mettre à jour et stocker cette valeur en tant qu'attribut personnalisé. Notez que cette campagne doit fonctionner pendant deux mois consécutifs avant que les données mensuelles puissent être utilisées.
+Ce cas d'utilisation calcule le nombre de fois qu'un événement personnalisé a été enregistré entre le 1er du mois en cours et le mois précédent. Vous pouvez ensuite exécuter un appel users/track pour mettre à jour et stocker cette valeur en tant qu'attribut personnalisé. Notez que cette Campaign doit fonctionner pendant deux mois consécutifs avant que les données mensuelles puissent être utilisées.
 
 {% raw %}
 ```liquid
@@ -723,7 +738,7 @@ Ce cas d'utilisation calcule le nombre de fois qu'un événement personnalisé a
 
 {% api %}
 
-## Langue
+## Langue {#language}
 
 {% apitags %}
 Language
@@ -838,7 +853,7 @@ tuesday default
 
 {% api %}
 
-## Divers
+## Divers {#miscellaneous}
 
 {% apitags %}
 Miscellaneous
@@ -858,10 +873,10 @@ Miscellaneous
 
 ### Éviter d'envoyer des e-mails aux clients qui ont bloqué les e-mails marketing {#misc-avoid-blocked-emails}
 
-Ce cas d'utilisation prend une liste d'utilisateurs bloqués enregistrée dans un bloc de contenu et vérifie que ces utilisateurs bloqués ne sont pas contactés ou ciblés dans les campagnes ou Canvas à venir.
+Ce cas d'utilisation prend une liste d'utilisateurs bloqués enregistrée dans un Content Block et vérifie que ces utilisateurs bloqués ne sont pas contactés ou ciblés dans les Campaigns ou Canvas à venir.
 
 {% alert important %}
-Pour utiliser ce Liquid, enregistrez d'abord la liste des e-mails bloqués dans un bloc de contenu. La liste ne doit contenir aucun espace ni caractère supplémentaire entre les adresses e-mail (par exemple, `test@braze.com,abc@braze.com`).
+Pour utiliser ce Liquid, enregistrez d'abord la liste des e-mails bloqués dans un Content Block. La liste ne doit contenir aucun espace ni caractère supplémentaire entre les adresses e-mail (par exemple, `test@braze.com,abc@braze.com`).
 {% endalert %}
 
 {% raw %}
@@ -877,10 +892,10 @@ Your message here!
 ```
 {% endraw %}
 
-**Explication :** Ici, nous vérifions si l'e-mail du destinataire potentiel figure dans cette liste en référençant le bloc de contenu des e-mails bloqués. Si l'e-mail est trouvé, le message ne sera pas envoyé.
+**Explication :** Ici, nous vérifions si l'e-mail du destinataire potentiel figure dans cette liste en référençant le Content Block des e-mails bloqués. Si l'e-mail est trouvé, le message ne sera pas envoyé.
 
 {% alert note %}
-Les blocs de contenu ont une limite de taille de 5 Mo.
+Les Content Blocks ont une limite de taille de 5 Mo.
 {% endalert %}
 
 ### Utiliser l'état d'abonnement d'un client pour personnaliser le contenu des messages {#misc-personalize-content}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 Ce cas d'utilisation permet aux utilisateurs de configurer des rappels à venir basés sur des événements personnalisés. Le scénario d'exemple permet à un utilisateur de définir un rappel pour une date de renouvellement de police à 26 jours ou plus, les rappels étant envoyés 26, 13, 7 ou 2 jours avant la date de renouvellement.
 
-Avec ce cas d'utilisation, le contenu suivant doit être placé dans le corps d'une [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) ou d'une étape du Canvas.
+Avec ce cas d'utilisation, le contenu suivant doit être placé dans le corps d'une [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) ou d'une étape du Canvas.
 
 {% raw %}
 ```liquid
@@ -1199,7 +1214,7 @@ Ce cas d'utilisation vous montre comment indexer le champ `phone_number` du prof
 
 {% api %}
 
-## Ciblage par plateforme
+## Ciblage par plateforme {#platform-targeting}
 
 {% apitags %}
 Platform targeting
@@ -1356,7 +1371,7 @@ Thanks for joining our SMS program!
 
 {% api %}
 
-## Fuseaux horaires
+## Fuseaux horaires {#time-zones}
 
 {% apitags %}
 Time zones
@@ -1370,12 +1385,18 @@ Time zones
 - [Envoyer une campagne de messages in-app récurrente pendant une fenêtre horaire dans le fuseau horaire local de l'utilisateur](#time-reocurring-iam-window)
 - [Envoyer des messages différents en semaine et le week-end dans le fuseau horaire local de l'utilisateur](#time-weekdays-vs-weekends)
 - [Envoyer des messages différents en fonction de l'heure de la journée dans le fuseau horaire local de l'utilisateur](#time-of-day)
+- [Annuler un message en dehors d'une plage horaire au moment de l'envoi](#abort-send-time-hour-range)
+- [Annuler un message en dehors d'une fenêtre horaire dans un fuseau horaire fixe](#abort-fixed-timezone-window)
+
+{% alert note %}
+Si un utilisateur reçoit un message à une heure locale inattendue, le fuseau horaire de son appareil ou de son profil a peut-être changé (par exemple, après un voyage). La distribution en heure locale utilise le fuseau horaire du profil au moment de l'envoi ; les utilisateurs peuvent avoir besoin d'une nouvelle session dans leur région habituelle avant que des valeurs telles que {% raw %}`{{${time_zone}}}`{% endraw %} reflètent ce que vous attendez. Cependant, vous pouvez [insérer dans un modèle le fuseau horaire de l'utilisateur](#users-time-zone).
+{% endalert %}
 
 ### Insérer dans un modèle le fuseau horaire de l'utilisateur {#users-time-zone}
 
 Par défaut, les dates et heures dans Liquid sont affichées en temps universel coordonné (UTC). Pour afficher les dates et heures dans le fuseau horaire local de l'utilisateur, utilisez le filtre `time_zone` avec le filtre `date`.
 
-#### Assigner la date et l'heure locales
+#### Assigner la date et l'heure locales {#assign-local-date-and-time}
 
 Pour assigner une variable qui reflète la date et l'heure actuelles dans le fuseau horaire local de l'utilisateur, utilisez ce format :
 
@@ -1390,7 +1411,7 @@ Pour assigner une variable qui reflète la date et l'heure actuelles dans le fus
 - `time_zone` : récupère le fuseau horaire local de l'utilisateur à partir de l'attribut par défaut en utilisant la balise de personnalisation {% raw %}`{{${time_zone}}}`{% endraw %}.
 - `date` : formate la date et l'heure locales de l'utilisateur selon vos spécifications. Dans l'exemple précédent, le système affiche une chaîne formatée comme « February 26, 2026 ». Pour plus d'options de formatage, consultez [strftime.net](strftime.net).
 
-#### Appliquer le fuseau horaire de l'utilisateur avec des attributs personnalisés
+#### Appliquer le fuseau horaire de l'utilisateur avec des attributs personnalisés {#apply-the-users-time-zone-with-custom-attributes}
 
 Vous pouvez appliquer le filtre `time_zone` aux attributs personnalisés, comme ceci :
 
@@ -1518,23 +1539,59 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} C'est l'opposé des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} C'est l'opposé des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
+
+### Annuler un message en dehors d'une plage horaire au moment de l'envoi {#abort-send-time-hour-range}
+
+Ce cas d'utilisation annule le message lorsque l'heure actuelle se situe en dehors d'une plage définie. Il utilise l'heure à laquelle le message est rendu, qui est en UTC par défaut sauf si vous appliquez le filtre `time_zone`, et non le fuseau horaire local de l'utilisateur. Pour envoyer des messages en fonction du fuseau horaire local d'un utilisateur, consultez [Envoyer des messages différents en fonction de l'heure de la journée dans le fuseau horaire local de l'utilisateur](#time-of-day).
+
+{% raw %}
+```liquid
+{% assign time = 'now' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour > 20 or hour < 8 %}
+{% abort_message("Outside hour range") %}
+{% endif %}
+
+Check out this new bar after work today. HH specials!
+```
+{% endraw %}
+
+### Annuler un message en dehors d'une fenêtre horaire dans un fuseau horaire fixe {#abort-fixed-timezone-window}
+
+Ce cas d'utilisation annule le message lorsque l'heure actuelle se situe en dehors d'une fenêtre définie dans un fuseau horaire spécifique (l'heure de Singapour dans cet exemple). Vous pouvez utiliser ce modèle lorsque vous avez besoin d'une règle de type heures calmes liée à une région plutôt qu'à l'attribut `time_zone` de chaque utilisateur.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: 'Asia/Singapore' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% assign minute = time | date: '%M' | plus: 0 %}
+
+{% if hour < 20 or hour > 21 or (hour == 21 and minute > 45) %}
+{% abort_message("Not within eligible time of 8 pm–9:45 pm SGT") %}
+{% endif %}
+
+Sign up for our exclusive time-limited offer now!
+```
+{% endraw %}
 
 {% endapi %}
 
 {% api %}
 
-## Semaine/Jour/Mois
+## Semaine/Jour/Mois {#weekdaymonth}
 
 {% apitags %}
 Week/Day/Month
 {% endapitags %}
 
 - [Récupérer le nom du mois précédent dans un message](#month-name)
-- [Envoyer une campagne à la fin de chaque mois](#month-end)
-- [Envoyer une campagne le dernier jour ouvrable du mois](#day-of-month-last)
+- [Envoyer une Campaign à la fin de chaque mois](#month-end)
+- [Envoyer une Campaign le dernier jour ouvrable du mois](#day-of-month-last)
 - [Envoyer un message différent chaque jour du mois](#day-of-month)
 - [Envoyer un message différent chaque jour de la semaine](#day-of-week)
+- [Annuler un message à une date calendaire spécifique](#abort-specific-calendar-date)
+- [Annuler un message un jour spécifique de la semaine](#abort-specific-weekday)
 
 ### Récupérer le nom du mois précédent dans un message {#month-name}
 
@@ -1584,7 +1641,7 @@ Here's an overview of what your spending looked like in {{last_month_name}}.
 ```
 {% endraw %}
 
-### Envoyer une campagne à la fin de chaque mois {#month-end}
+### Envoyer une Campaign à la fin de chaque mois {#month-end}
 
 Ce cas d'utilisation vérifie si la date actuelle fait partie d'une liste de dates et, en fonction de la date, affiche un message spécifique.
 
@@ -1604,7 +1661,7 @@ The date is correct
 ```
 {% endraw %}
 
-### Envoyer une campagne le dernier jour ouvrable du mois {#day-of-month-last}
+### Envoyer une Campaign le dernier jour ouvrable du mois {#day-of-month-last}
 
 Ce cas d'utilisation capture le mois et le jour actuels et calcule si le jour actuel tombe dans la dernière semaine ouvrable du mois.
 
@@ -1731,4 +1788,32 @@ Default copy
 Vous pouvez remplacer la ligne « Default copy » par {% raw %}`{% abort_message() %}`{% endraw %} pour empêcher l'envoi du message si le jour de la semaine est inconnu.
 {% endalert %}
 
+### Annuler un message à une date calendaire spécifique {#abort-specific-calendar-date}
+
+Ce cas d'utilisation annule le message à un mois et un jour choisis chaque année (le 5 mai dans l'exemple). Il compare la date actuelle à une chaîne mois-jour non ambiguë construite avec le filtre `date`.
+
+{% raw %}
+```liquid
+{% assign date = 'now' | date: '%d/%m' %}
+{% if date == '05/05' %}
+{% abort_message('No message on the 5th of May') %}
+{% endif %}
+```
+{% endraw %}
+
+### Annuler un message un jour spécifique de la semaine {#abort-specific-weekday}
+
+Ce cas d'utilisation annule le message lorsque Liquid s'exécute un jour de la semaine donné (`Wednesday` dans l'exemple). Le filtre `%A` renvoie le nom complet du jour de la semaine en anglais.
+
+{% raw %}
+```liquid
+{% assign weekday = 'now' | date: '%A' %}
+{% if weekday == 'Wednesday' %}
+{% abort_message("No message on Wednesdays") %}
+{% endif %}
+```
+{% endraw %}
+
 {% endapi %}
+
+De nombreux exemples de cette bibliothèque utilisent la balise `abort_message` pour ignorer un envoi lorsque les conditions ne sont pas remplies. Pour une référence complète sur l'annulation d'envois avec Liquid, y compris les modèles basés sur la date et l'heure, consultez [Annuler les messages Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

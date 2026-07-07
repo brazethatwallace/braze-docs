@@ -14,7 +14,7 @@ platform:
 
 # Personnaliser le style des Content Cards {#customize-the-style-of-content-cards}
 
-> Les Content Cards de Braze sont livrées avec une apparence par défaut. Cet article présente les options de style disponibles pour vos Content Cards, afin de les adapter à l'identité de votre marque. Pour consulter la liste complète des types de cartes de contenu, voir [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Les Content Cards de Braze sont livrées avec une apparence par défaut. Cet article présente les options de style disponibles pour vos Content Cards, afin de les adapter à l'identité de votre marque. Pour consulter la liste complète des types de cartes de contenu, voir [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Créer un style personnalisé {#creating-a-custom-style}
 
@@ -23,7 +23,7 @@ L'interface utilisateur par défaut des Content Cards est importée depuis la co
 ![Deux cartes de contenu, l'une avec la police par défaut et des coins carrés, l'autre avec des coins arrondis et une police bouclée]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Les propriétés des Content Cards telles que `title`, `cardDescription`, `imageUrl`, etc., sont directement modifiables depuis le [tableau de bord]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/). C'est la méthode recommandée pour modifier ces informations.
+Les propriétés des Content Cards telles que `title`, `cardDescription`, `imageUrl`, etc., sont directement modifiables depuis le [tableau de bord]({{site.baseurl}}/user_guide/channels/content_cards/creative_details). C'est la méthode recommandée pour modifier ces informations.
 {% endalert %}
 
 
@@ -249,7 +249,7 @@ Voici un exemple tronqué avec une famille de polices personnalisée `my_custom_
   </style>
 ```
 
-Pour en savoir plus sur la personnalisation des polices dans le SDK Android, consultez le [guide des familles de polices]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization/#font-customization).
+Pour en savoir plus sur la personnalisation des polices dans le SDK Android, consultez le [guide des familles de polices]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization#font-customization).
 {% endtab %}
 {% tab Jetpack Compose %}
 Pour modifier la police par défaut par programmation, vous pouvez définir le paramètre [`titleTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#715371549%2FProperties%2F-1725759721) de `ContentCardStyling`.
@@ -494,7 +494,7 @@ La personnalisation de l'indicateur de non-consultation uniquement via `Attribut
 
 ### Mode sombre {#dark-mode}
 
-Pour afficher différentes images ou styles selon le mode sombre ou clair de l'appareil, utilisez des [paires clé-valeur]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs) dans votre message Content Card. Par exemple, ajoutez une paire clé-valeur comme `dark_mode_image` avec l'URL de votre ressource d'image en mode sombre. Ensuite, dans votre application, ajoutez une logique personnalisée pour vérifier le mode d'apparence actuel de l'appareil et afficher l'image appropriée.
+Pour afficher différentes images ou styles selon le mode sombre ou clair de l'appareil, utilisez des [paires clé-valeur]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs) dans votre message Content Card. Par exemple, ajoutez une paire clé-valeur comme `dark_mode_image` avec l'URL de votre ressource d'image en mode sombre. Ensuite, dans votre application, ajoutez une logique personnalisée pour vérifier le mode d'apparence actuel de l'appareil et afficher l'image appropriée.
 
 {% tabs %}
 {% tab swift %}
@@ -531,7 +531,7 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-Ce modèle fonctionne pour tout contenu dépendant de l'apparence, y compris le texte, les couleurs ou les dispositions. Téléchargez vos ressources d'image en mode sombre dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/), puis référencez-les dans une paire clé-valeur.
+Ce modèle fonctionne pour tout contenu dépendant de l'apparence, y compris le texte, les couleurs ou les dispositions. Téléchargez vos ressources d'image en mode sombre dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications), puis référencez-les dans une paire clé-valeur.
 
 ### Désactiver l'indicateur de non-lecture {#disabling-unread-indicator}
 

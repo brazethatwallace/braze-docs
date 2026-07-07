@@ -8,15 +8,15 @@ noindex: true
 
 # プッシュ分析とカスタムイベントのログ記録 {#push-analytics-and-custom-event-logging}
 
-> このページでは、ネイティブプッシュ分析（開封、影響を受けた開封、Campaignレポート）とプッシュペイロードからのカスタムデータのログ記録（カスタムイベントと属性）のワークフローについて説明します。このガイドを使用して、ユースケースに該当するワークフローを特定し、プラットフォームに応じた手順に従ってください。
+> このページでは、ネイティブプッシュ分析（開封、影響を受けた開封、キャンペーンレポート）とプッシュペイロードからのカスタムデータのログ記録（カスタムイベントと属性）のワークフローについて説明します。このガイドを使用して、ユースケースに該当するワークフローを特定し、プラットフォームに応じた手順に従ってください。
 
 ## 前提条件 {#prerequisites}
 
 開始する前に、プラットフォームの初期プッシュ通知統合を完了してください：
 
-- [Androidプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
-- [Swiftプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)
-- [Webプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)
+- [Androidプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
+- [Swiftプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
+- [Webプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## ネイティブプッシュ分析とカスタムイベントのログ記録の違い {#native-push-analytics-vs-custom-event-logging}
 
@@ -24,23 +24,23 @@ noindex: true
 
 | 分析カテゴリ | 説明 | 表示場所 |
 | --- | --- | --- |
-| ネイティブプッシュ分析 | 開封や影響を受けた開封など、BrazeプッシュCampaignに紐づくプッシュ指標 | プッシュCampaign分析、Currentsメッセージエンゲージメントイベント、レポートビルダー |
-| カスタムイベントと属性 | SDKメソッドまたは`/users/track`エンドポイントを通じて定義・ログ記録する分析 | ユーザープロファイル、セグメンテーション、アクションベースのCampaignsとCanvases、カスタムイベント分析 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| ネイティブプッシュ分析 | 開封や影響を受けた開封など、Brazeプッシュキャンペーンに紐づくプッシュ指標 | プッシュキャンペーン分析、Currentsメッセージエンゲージメントイベント、レポートビルダー |
+| カスタムイベントと属性 | SDKメソッドまたは`/users/track`エンドポイントを通じて定義・ログ記録する分析 | ユーザープロファイル、セグメンテーション、アクションベースのキャンペーンとキャンバス、カスタムイベント分析 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ネイティブプッシュ分析とカスタムイベントのログ記録の違い" }
 
 {% alert important %}
-カスタムイベント（`push_notification_opened`など）のログ記録は、Brazeのネイティブプッシュ開封トラッキングとは異なります。カスタムイベントは、ネイティブプッシュCampaignの開封指標やプッシュアトリビューションには反映されません。
+カスタムイベント（`push_notification_opened`など）のログ記録は、Brazeのネイティブプッシュ開封トラッキングとは異なります。カスタムイベントは、ネイティブプッシュキャンペーンの開封指標やプッシュアトリビューションには反映されません。
 {% endalert %}
 
 ## Brazeが自動的にログ記録するもの {#what-braze-logs-automatically}
 
-SDK統合が設定されている場合、Brazeはプッシュ開封や影響を受けた開封を含むコアチャネルインタラクションデータを自動的にログ記録します。標準的なプッシュ分析には追加のコードは不要です。自動的に収集されるデータの完全なリストについては、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)を参照してください。
+SDK統合が設定されている場合、Brazeはプッシュ開封や影響を受けた開封を含むコアチャネルインタラクションデータを自動的にログ記録します。標準的なプッシュ分析には追加のコードは不要です。自動的に収集されるデータの完全なリストについては、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)を参照してください。
 
 詳細については、以下を参照してください：
 
-- [SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)：自動的に収集されるデータとオプションデータの完全なリスト。
-- [影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)：Brazeが影響を受けた開封を計算する方法。
-- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)：Currentsのダウンストリームイベントスキーマ。
+- [SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)：自動的に収集されるデータとオプションデータの完全なリスト。
+- [影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)：Brazeが影響を受けた開封を計算する方法。
+- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)：Currentsのダウンストリームイベントスキーマ。
 
 ## カスタムプッシュ処理でネイティブプッシュ分析を維持する {#preserving-native-push-analytics-with-custom-push-handling}
 
@@ -120,7 +120,7 @@ func userNotificationCenter(
 {% endtab %}
 {% tab Web %}
 
-Webプッシュの場合、[Webプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)の説明に従って、サービスワーカーとSDKの初期化を設定してください。
+Webプッシュの場合、[Webプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)の説明に従って、サービスワーカーとSDKの初期化を設定してください。
 
 その他のコードサンプルについては、[Braze Web SDKリポジトリ](https://github.com/braze-inc/braze-web-sdk)を参照してください。
 
@@ -131,11 +131,11 @@ Webプッシュの場合、[Webプッシュ通知]({{site.baseurl}}/developer_gu
 
 プッシュペイロードのキーと値のペアから、ビジネスロジックに紐づくカスタムイベントや属性などの追加データをログ記録する必要がある場合は、このセクションを使用してください。
 
-カスタムイベントの詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。SDKメソッドを通じてカスタムイベントをログ記録するには、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。
+カスタムイベントの詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。SDKメソッドを通じてカスタムイベントをログ記録するには、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。
 
 ### オプションA：`/users/track`エンドポイントでログ記録する {#option-a-log-with-the-userstrack-endpoint}
 
-[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを呼び出すことで、リアルタイムに分析をログ記録できます。
+[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを呼び出すことで、リアルタイムに分析をログ記録できます。
 
 ユーザープロファイルを識別するには、プッシュペイロードのキーと値のペアに`braze_id`を含めてください。
 
@@ -165,18 +165,18 @@ Xcodeで、メインアプリターゲットに`App Groups`機能を追加しま
 
 スニペットを実装する前に、ログ記録したい分析カテゴリを選択してください：
 
-- **カスタムイベント：** ユーザーが行うアクション（例：フローの完了や特定のUI要素のタップ）。カスタムイベントは、アクションベースのトリガー、セグメンテーション、イベント分析に使用します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)と[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。
-- **カスタム属性：** 定義するプロファイルフィールド（例：`plan_tier`や`preferred_language`）で、時間の経過とともに更新されます。詳細については、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)と[ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)を参照してください。
+- **カスタムイベント：** ユーザーが行うアクション（例：フローの完了や特定のUI要素のタップ）。カスタムイベントは、アクションベースのトリガー、セグメンテーション、イベント分析に使用します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)と[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。
+- **カスタム属性：** 定義するプロファイルフィールド（例：`plan_tier`や`preferred_language`）で、時間の経過とともに更新されます。詳細については、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)と[ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)を参照してください。
 - **ユーザー属性：** 標準プロファイルフィールド（例：メール、名、電話番号）。サンプルコードでは、型付き`UserAttribute`モデルで表現され、Brazeのユーザーフィールドにマッピングされます。
 
-このセクションのヘルパーファイル（`RemoteStorage`、`UserAttribute`、`EventName Dictionary`）は、このサンプル実装で使用されるローカルユーティリティファイルです。SDK組み込みのクラスではありません。ペイロード由来のデータを`UserDefaults`に保存し、保留中のユーザー更新の型付きモデルを定義し、イベントペイロードの構築を標準化します。ローカルデータストレージの動作の詳細については、[ストレージ]({{site.baseurl}}/developer_guide/storage/?tab=swift)を参照してください。
+このセクションのヘルパーファイル（`RemoteStorage`、`UserAttribute`、`EventName Dictionary`）は、このサンプル実装で使用されるローカルユーティリティファイルです。SDK組み込みのクラスではありません。ペイロード由来のデータを`UserDefaults`に保存し、保留中のユーザー更新の型付きモデルを定義し、イベントペイロードの構築を標準化します。ローカルデータストレージの動作の詳細については、[ストレージ]({{site.baseurl}}/developer_guide/storage?tab=swift)を参照してください。
 
 {% alert note %}
-このセクションのヘルパーファイルの例はiOS固有（SwiftおよびObjective-C）です。AndroidおよびWebでのカスタムイベントと属性のログ記録方法については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)（[Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)、[Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)）と[ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)（[Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=android)、[Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=web)）を参照してください。
+このセクションのヘルパーファイルの例はiOS固有（SwiftおよびObjective-C）です。AndroidおよびWebでのカスタムイベントと属性のログ記録方法については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)（[Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)、[Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)）と[ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)（[Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=android)、[Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=web)）を参照してください。
 {% endalert %}
 
 {% tabs local %}
-{% tab Custom events %}
+{% tab カスタムイベント %}
 
 #### カスタムイベントの保存 {#saving-custom-events}
 
@@ -318,7 +318,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab カスタム属性 %}
 
 #### カスタム属性の保存 {#saving-custom-attributes}
 
@@ -436,7 +436,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab User attributes %}
+{% tab ユーザー属性 %}
 
 #### ユーザー属性の保存 {#saving-user-attributes}
 
@@ -563,7 +563,7 @@ func logPendingUserAttributesIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Helper files %}
+{% tab ヘルパーファイル %}
 
 #### RemoteStorageヘルパーファイル {#remotestorage-helper-file}
 
@@ -801,18 +801,18 @@ extension Dictionary where Key == String, Value == Any {
 
 | 分析カテゴリ | Brazeでの確認場所 |
 | --- | --- |
-| ネイティブプッシュ分析 | Campaignレベルのプッシュ開封指標を確認するには、プッシュCampaignの**Campaign Analytics**ページに移動します。指標の定義については、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)を参照してください。カスタム分析ビューを作成するには、**Analytics** > **Report Builder (New)**に移動します。操作手順については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を参照してください。ウェアハウスレベルのイベントスキーマについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。 |
-| カスタムイベントと属性 | カスタムイベントのトレンドを確認するには、**Analytics** > **Custom Events Report**に移動します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。ユーザーレベルの値を確認するには、**Search Users**ページに移動してプロファイルを開きます。手順については、[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)を参照してください。これらの値でオーディエンスをフィルタリングするには、**Audience** > **Segments**に移動します。操作手順については、[Segmentの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)と[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)のフィルターオプションを参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ネイティブプッシュ分析 | キャンペーンレベルのプッシュ開封指標を確認するには、プッシュキャンペーンの**キャンペーン Analytics**ページに移動します。指標の定義については、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。カスタム分析ビューを作成するには、**Analytics** > **Report Builder (New)**に移動します。操作手順については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を参照してください。ウェアハウスレベルのイベントスキーマについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)を参照してください。 |
+| カスタムイベントと属性 | カスタムイベントのトレンドを確認するには、**Analytics** > **カスタムイベントレポート**に移動します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。ユーザーレベルの値を確認するには、**ユーザーを検索**ページに移動してプロファイルを開きます。手順については、[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)を参照してください。これらの値でオーディエンスをフィルタリングするには、**Audience** > **セグメント**に移動します。操作手順については、[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)と[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)のフィルターオプションを参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="結果の分析" }
 
-カスタムレポートの作成については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を参照してください。
+カスタムレポートの作成については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を参照してください。
 
 ## 関連リファレンス {#related-references}
 
-- [プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/)
-- [カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)
-- [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
-- [ユーザートラッキングエンドポイント（`/users/track`）]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications)
+- [カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)
+- [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
+- [ユーザートラッキングエンドポイント（`/users/track`）]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 - [Braze Android SDKリポジトリ](https://github.com/braze-inc/braze-android-sdk)
 - [Braze Swift SDKリポジトリ](https://github.com/braze-inc/braze-swift-sdk)
 - [Braze Web SDKリポジトリ](https://github.com/braze-inc/braze-web-sdk)

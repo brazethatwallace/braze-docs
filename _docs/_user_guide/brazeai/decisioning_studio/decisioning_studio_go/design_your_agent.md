@@ -9,7 +9,7 @@ description: "Learn how to design a BrazeAI Decisioning Studio Go agent, includi
 
 > This article covers how to design your Decisioning Studio Go agent, including defining your audience, selecting dimensions, and understanding Go-specific capabilities and limitations.
 
-For foundational concepts about decisioning agents, including success metrics, dimensions, action banks, and constraints, see [Design decisioning agents]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/).
+For foundational concepts about decisioning agents, including success metrics, dimensions, action banks, and constraints, see [Design decisioning agents]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents).
 
 ## Go versus Pro capabilities
 
@@ -23,7 +23,7 @@ Decisioning Studio Go is a self-service platform with streamlined capabilities c
 | **Customer data** | Engagement only | All 1P Data |
 | **Setup** | Self-service | AI Decisioning Services support |
 | **Experiment groups** | Go + Random Control + optional BAU | Fully customizable |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go versus Pro capabilities" }
 
 ## Design your Go agent
 
@@ -82,7 +82,7 @@ Decisioning Studio Go automatically creates experiment groups to measure perform
 | **Decisioning Studio Go** | Customers who receive AI-optimized recommendations |
 | **Random Control** | Customers who receive randomly selected options (baseline comparison) |
 | **Business as Usual (optional)** | Customers who receive your existing campaign (if comparing against current performance) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
 
 {% alert important %}
 For an accurate comparison, ensure no customer can belong to more than one experiment group, and that customers are randomly assigned to groups without bias.
@@ -107,4 +107,4 @@ When designing your Go agent, keep these limitations in mind:
 
 After you've designed your agent and configured it in the Decisioning Studio Go portal, you're ready to launch:
 
-- [Launch your agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+- [Launch your agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

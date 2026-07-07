@@ -4,7 +4,7 @@ article_title: アプリ内メッセージタイプ
 page_order: 3
 layout: dev_guide
 guide_top_header: "アプリ内メッセージタイプ"
-guide_top_text: "Brazeは、さまざまなユースケースに対応した複数のアプリ内メッセージタイプを提供しています。クリエイティブな作成に取りかかる前に、各タイプのガイドラインを確認して、スマートフォン、タブレット、コンピューターでメッセージが適切に表示されることを確認してください。起動前に必ず<a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message'>メッセージをテスト</a> してください。"
+guide_top_text: "Brazeは、さまざまなユースケースに対応した複数のアプリ内メッセージタイプを提供しています。クリエイティブな作成に取りかかる前に、各タイプのガイドラインを確認して、スマートフォン、タブレット、コンピューターでメッセージが適切に表示されることを確認してください。起動前に必ず<a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message'>メッセージをテスト</a> してください。"
 description: "このランディングページでは、フルスクリーン、モーダル、スライドアップ、カスタムHTML、メールキャプチャフォーム、シンプルアンケートなど、Brazeで利用可能なさまざまなアプリ内メッセージタイプについて説明しています。"
 
 channel:

@@ -4,6 +4,7 @@ Auto-translate English Braze docs into all supported languages using Claude.
 
 Usage:
     python auto_translate.py translate --changed-files changed_files.txt
+    python auto_translate.py stale-english-sources
     python auto_translate.py qc
     python auto_translate.py check-aliases
     python auto_translate.py check-path-case-collisions
@@ -44,17 +45,16 @@ def _get_anthropic_client():
 
     With the timeout in place, a stalled stream raises after
     ``TRANSLATION_HTTP_TIMEOUT`` seconds of silence; ``call_claude``'s
-    3-retry loop then reissues the request. Worst-case per-task time
-    is ``3 * TRANSLATION_HTTP_TIMEOUT`` seconds (~9 min at the default
-    of 180s), and the workflow's ``timeout-minutes`` gives a final
-    wall-clock ceiling on top of that.
+    retry loop then reissues the request (default ``TRANSLATION_API_RETRIES``
+    is 6). Worst-case per-task time scales with retries and timeout; the
+    workflow's ``timeout-minutes`` gives a final wall-clock ceiling on top.
     """
     try:
         from anthropic import Anthropic
     except ImportError:
         print("ERROR: Install the Anthropic SDK: pip install anthropic")
         sys.exit(1)
-    timeout_seconds = float(os.environ.get("TRANSLATION_HTTP_TIMEOUT", "180"))
+    timeout_seconds = float(os.environ.get("TRANSLATION_HTTP_TIMEOUT", "240"))
     return Anthropic(timeout=timeout_seconds)
 
 
@@ -91,17 +91,37 @@ MODEL = os.environ.get("TRANSLATION_MODEL", "claude-opus-4-6")
 MAX_TOKENS = int(os.environ.get("TRANSLATION_MAX_TOKENS", "128000"))
 MAX_FILE_KB = int(os.environ.get("TRANSLATION_MAX_FILE_KB", "130"))
 CHUNK_TARGET_KB = int(os.environ.get("TRANSLATION_CHUNK_KB", "50"))
+# Table-heavy confidential pricing pages (~50KB+) are chunked even below
+# MAX_FILE_KB — single-shot requests often trigger transient API 500s (June 2026).
+FORCE_CHUNK_MIN_KB = int(os.environ.get("TRANSLATION_FORCE_CHUNK_MIN_KB", "40"))
+_FORCE_CHUNK_PATH_PREFIXES = tuple(
+    p.strip()
+    for p in os.environ.get(
+        "TRANSLATION_FORCE_CHUNK_PATH_PREFIXES",
+        "_docs/_unlisted_docs/pricing/",
+    ).split(",")
+    if p.strip()
+)
 MAX_WORKERS = int(os.environ.get("TRANSLATION_WORKERS", "12"))
+API_RETRIES = int(os.environ.get("TRANSLATION_API_RETRIES", "6"))
+FAILED_PASS_RETRIES = int(os.environ.get("TRANSLATION_FAILED_PASS_RETRIES", "6"))
+FAILED_PASS_ROUNDS = int(os.environ.get("TRANSLATION_FAILED_PASS_ROUNDS", "2"))
 REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 RESULTS_FILE = REPO_ROOT / "translation_results.json"
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 STYLEGUIDE_DIR = REPO_ROOT / "scripts" / "styleguides"
 QC_RESULTS_FILE = REPO_ROOT / "qc_results.json"
 
+# Paths under `_lang/` use folder names (`fr_fr`, `pt_br`) while glossary files
+# and ``PROTECTED_PRODUCT_TERMS`` overrides use CLI keys (`fr`, `pt-br`). Map
+# so ``load_glossary`` and glossary compliance checks apply the intended
+# Canvases → Canvas Romance overrides (Copilot / locale-key drift vs PR #13303).
+_LANG_DIR_TO_GLOSSARY_LANG = {"fr_fr": "fr", "pt_br": "pt-br"}
+
 NON_TRANSLATABLE_FM_KEYS = frozenset({
     "page_order", "layout", "page_type", "channel", "platform", "tool",
     "link", "image", "permalink", "hidden", "noindex", "config_only",
-    "search_rank", "page_layout",
+    "search_rank", "page_layout", "hide_nav", "hide_toc",
 })
 
 BRAZE_PRODUCT_NAMES = [
@@ -157,12 +177,17 @@ def load_prompt():
 
 def load_styleguide(lang_key):
     """Load the style guide for a language. Returns '' if not found."""
-    sg_path = STYLEGUIDE_DIR / f"{lang_key}.md"
+    sg_path = STYLEGUIDE_DIR / f"{_glossary_language_key(lang_key)}.md"
     if sg_path.exists():
         content = sg_path.read_text().strip()
         if content:
             return f"\n\n## Style guide for this language\n\n{content}"
     return ""
+
+
+def _glossary_language_key(lang_key):
+    """Map ``_lang/`` folder suffix (for example ``fr_fr``) to glossary file key."""
+    return _LANG_DIR_TO_GLOSSARY_LANG.get(lang_key, lang_key)
 
 
 def load_glossary(lang_key):
@@ -183,7 +208,8 @@ def load_glossary(lang_key):
     canonical ``"Campaign"`` / ``"Segment"`` entries we then inject are
     the only protected-term rows the LLM sees.
     """
-    glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
+    file_key = _glossary_language_key(lang_key)
+    glossary_path = GLOSSARY_DIR / f"{file_key}.json"
     raw = (
         json.loads(glossary_path.read_text())
         if glossary_path.exists()
@@ -193,7 +219,7 @@ def load_glossary(lang_key):
         if _canonical_protected_term(key) is not None:
             del raw[key]
     for term in PROTECTED_PRODUCT_TERMS:
-        raw[term] = protected_term_for_locale(term, lang_key)
+        raw[term] = protected_term_for_locale(term, file_key)
     return raw
 
 
@@ -237,40 +263,125 @@ def strip_code_fences(text):
     return match.group(1) if match else stripped
 
 
-def split_into_chunks(content, max_chunk_kb=None):
-    """Split a large Markdown file into translatable chunks at H2 boundaries.
+_LIQUID_TAG_RE = re.compile(r"\{%[-\s]*(.*?)[-\s]*%\}", re.DOTALL)
+_LIQUID_BLOCK_PAIRS = {
+    "api": "endapi",
+    "details": "enddetails",
+    "tabs": "endtabs",
+    "tab": "endtab",
+    "alert": "endalert",
+    "apitags": "endapitags",
+    "capture": "endcapture",
+    "if": "endif",
+    "unless": "endunless",
+    "for": "endfor",
+}
+_LIQUID_CLOSE_TO_OPEN = {close: open_ for open_, close in _LIQUID_BLOCK_PAIRS.items()}
+_LIQUID_PAIRED_TAGS_FOR_QC = tuple(_LIQUID_BLOCK_PAIRS.items())
 
-    Returns a list of strings.  The first element is everything before the
-    first ``## `` heading (front matter + intro).  Subsequent elements group
-    consecutive H2 sections so that each chunk stays under *max_chunk_kb*.
-    If the file has no H2 headings, falls back to a line-count split.
+
+def _liquid_tag_token(inner):
+    """Return ('open', name), ('close', name), or (None, None) for a Liquid tag body."""
+    parts = inner.strip().split()
+    if not parts:
+        return None, None
+    name = parts[0]
+    if name in _LIQUID_CLOSE_TO_OPEN:
+        return "close", _LIQUID_CLOSE_TO_OPEN[name]
+    if name in _LIQUID_BLOCK_PAIRS:
+        return "open", name
+    return None, None
+
+
+def _liquid_block_stack_at(content, position):
+    """Return open Liquid block tag names at *position* in *content*."""
+    stack = []
+    for match in _LIQUID_TAG_RE.finditer(content[:position]):
+        kind, name = _liquid_tag_token(match.group(1))
+        if kind == "open":
+            stack.append(name)
+        elif kind == "close" and stack and stack[-1] == name:
+            stack.pop()
+    return stack
+
+
+def _liquid_safe_split_offsets(content):
+    """Byte offsets where a chunk boundary will not split an open Liquid block."""
+    offsets = [0]
+    stack = []
+    for match in _LIQUID_TAG_RE.finditer(content):
+        kind, name = _liquid_tag_token(match.group(1))
+        if kind == "open":
+            stack.append(name)
+        elif kind == "close" and stack and stack[-1] == name:
+            stack.pop()
+        if not stack:
+            offsets.append(match.end())
+    if offsets[-1] != len(content):
+        offsets.append(len(content))
+    return sorted(set(offsets))
+
+
+def _count_liquid_tag(content, tag_name):
+    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", content))
+
+
+def validate_liquid_paired_tags(content, label="translation"):
+    """Raise ValueError when paired Liquid block tags are unbalanced."""
+    problems = []
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        open_count = _count_liquid_tag(content, open_tag)
+        close_count = _count_liquid_tag(content, close_tag)
+        if open_count != close_count:
+            problems.append(f"{open_tag}={open_count} {close_tag}={close_count}")
+    if problems:
+        raise ValueError(
+            f"Liquid paired-tag imbalance in {label}: " + ", ".join(problems)
+        )
+
+
+def split_into_chunks(content, max_chunk_kb=None):
+    """Split a large Markdown file into translatable chunks.
+
+    Boundaries are chosen only where no Liquid block tag remains open, so
+    ``{% details %}`` / ``{% api %}`` regions are never cut in half.  When
+    possible, groups consecutive safe segments up to *max_chunk_kb* each.
     """
     if max_chunk_kb is None:
         max_chunk_kb = CHUNK_TARGET_KB
     max_bytes = max_chunk_kb * 1024
 
-    parts = re.split(r'(?=\n## )', content)
-
-    if len(parts) <= 1:
-        lines = content.split('\n')
+    safe_offsets = _liquid_safe_split_offsets(content)
+    if len(safe_offsets) <= 2:
+        lines = content.split("\n")
         target_lines = max(200, len(lines) // ((len(content) // max_bytes) + 1))
         chunks = []
         for i in range(0, len(lines), target_lines):
-            chunks.append('\n'.join(lines[i:i + target_lines]))
+            chunk = "\n".join(lines[i:i + target_lines])
+            start = sum(len(l) + 1 for l in lines[:i])
+            if _liquid_block_stack_at(content, start + len(chunk)):
+                raise ValueError(
+                    "Line-based chunk split would break an open Liquid block"
+                )
+            chunks.append(chunk)
         return chunks
 
-    preamble = parts[0]
-    sections = parts[1:]
+    segments = [
+        content[safe_offsets[i]:safe_offsets[i + 1]]
+        for i in range(len(safe_offsets) - 1)
+    ]
 
-    chunks = [preamble]
+    chunks = []
     current_chunk = ""
-
-    for section in sections:
-        if current_chunk and len((current_chunk + section).encode()) > max_bytes:
+    for segment in segments:
+        if (
+            current_chunk
+            and len((current_chunk + segment).encode()) > max_bytes
+        ):
             chunks.append(current_chunk)
-            current_chunk = section
+            current_chunk = segment
         else:
-            current_chunk += section
+            current_chunk += segment
 
     if current_chunk:
         chunks.append(current_chunk)
@@ -346,8 +457,63 @@ def _build_system_blocks(system_prompt):
     return blocks
 
 
-def call_claude(client, system_prompt, user_message, retries=3):
+_RETRYABLE_API_ERROR_TOKENS = (
+    "overloaded",
+    "timeout",
+    "timed out",
+    "rate limit",
+    "rate_limit",
+    "529",
+    "502",
+    "503",
+    "504",
+    "connection reset",
+    "connection error",
+    "connection aborted",
+    "connection closed",
+    "peer closed",
+    "incomplete chunked",
+    "chunked read",
+    "broken pipe",
+    "remote protocol",
+    "server disconnected",
+    "internal server error",
+    "api_error",
+)
+
+
+def _uses_chunked_translation(fpath, size_kb):
+    """Return True when a file should use chunked translation."""
+    if size_kb > MAX_FILE_KB:
+        return True
+    if size_kb >= FORCE_CHUNK_MIN_KB:
+        norm = fpath.replace("\\", "/")
+        if any(norm.startswith(prefix) for prefix in _FORCE_CHUNK_PATH_PREFIXES):
+            return True
+    return False
+
+
+def _is_retryable_api_error(exc):
+    """Return True when another Claude API attempt may succeed."""
+    msg = str(exc).lower()
+    return any(token in msg for token in _RETRYABLE_API_ERROR_TOKENS)
+
+
+def _api_retry_wait_seconds(exc, attempt):
+    """Backoff delay before the next Claude API attempt."""
+    wait = min(90, 2 ** (attempt + 1))
+    msg = str(exc).lower()
+    if "overloaded" in msg:
+        wait = min(120, wait * 2)
+    elif any(token in msg for token in ("peer closed", "incomplete chunked", "broken pipe")):
+        wait = min(120, wait + 10)
+    return wait
+
+
+def call_claude(client, system_prompt, user_message, retries=None):
     """Call the Claude API via streaming with exponential-backoff retry."""
+    if retries is None:
+        retries = API_RETRIES
     system_blocks = _build_system_blocks(system_prompt)
     for attempt in range(retries):
         try:
@@ -365,8 +531,8 @@ def call_claude(client, system_prompt, user_message, retries=3):
                 stop_reason = stream.get_final_message().stop_reason
             full_text = "".join(text_chunks)
         except Exception as exc:
-            if attempt < retries - 1:
-                wait = 2 ** (attempt + 1)
+            if attempt < retries - 1 and _is_retryable_api_error(exc):
+                wait = _api_retry_wait_seconds(exc, attempt)
                 print(f"    API error: {exc} — retrying in {wait}s...")
                 time.sleep(wait)
                 continue
@@ -380,7 +546,10 @@ def call_claude(client, system_prompt, user_message, retries=3):
         return strip_code_fences(full_text)
 
 
-def translate_file(client, prompt, english_content, existing_translation, language_name, extra_context=""):
+def translate_file(
+    client, prompt, english_content, existing_translation, language_name,
+    extra_context="", api_retries=None,
+):
     """Translate a single English file into the target language."""
     system = [(prompt, True)]
     if extra_context:
@@ -397,7 +566,7 @@ def translate_file(client, prompt, english_content, existing_translation, langua
     else:
         user_msg += "## Existing translation\nNone — this is a new file. Translate from scratch.\n"
 
-    return call_claude(client, system, user_msg)
+    return call_claude(client, system, user_msg, retries=api_retries)
 
 
 def fix_file(client, prompt, translated_content, build_error, language_name):
@@ -438,9 +607,12 @@ get_started, messaging, analytics, onboarding_faq), keep locale-established card
 labels, headings, and common nouns aligned with the locale's linked pages; avoid \
 introducing English variants where that locale already uses translated labels.
 8. **Procedure UI labels**: In each numbered or bulleted procedure, bold \
-dashboard controls must not mix English with localized forms—either mirror \
-the English source bold strings verbatim for that whole list or localize \
-every control in that list per the style guide; fix any half-and-half lists.
+dashboard controls must not mix English with localized forms—localize every \
+breadcrumb, tab, button, and menu label together to match the in-product UI \
+for that locale, or keep the whole list verbatim when the locale already uses \
+English-only breadcrumbs; fix any half-and-half lists. Localized Settings \
+paths (for example ES **Configuración** > **Configuración de administrador**) \
+are correct—do not revert them to English.
 9. **Heading anchor parity**: If some section headings use explicit Kramdown \
 `{#id}` blocks, ensure peer headings that need stable deep links include the \
 expected `{#slug}` (especially multi-table `_includes`).
@@ -506,7 +678,7 @@ the top (typical for `_includes/` partials), do not add a translated \
 `nav_title`/`article_title` block—strip it so the file starts like the English \
 body (auto-translate PR #13353).
 22. **Markdown tables + permission code cells**: In table rows, keep a **space** \
-after each ``|`` before an opening ``\``...\`` inline code token (never ``||``\`slug\```). \
+after each ``|`` before an opening inline code token (never ``||`slug` `` with no space). \
 **Spanish** ``_includes/whatsapp/template_prerequisites.md``: keep quoted \
 WhatsApp permission bullets exactly as English (**View/Edit WhatsApp Message Templates**). \
 **Portuguese (Brazil)**: use **um** ``delay`` (not *uma*) before the borrowed \
@@ -576,9 +748,13 @@ keep their **casing consistent** (match `article_title` to `nav_title` when \
 they would otherwise differ only by capitalization) (auto-translate PR #13380).
 31. **Administer / dashboard polish** (PR #13384): Do not paste huge invented \
 `{#slug}` tails on headings when English has none. Keep `<style>` CSS \
-selectors valid (no `nth-child(N), {` before `{`). Localize known \
+selectors valid (no `nth-child(N), {` before `{`). **Table / Kramdown IAL \
+and HTML `<table>` `aria-label` values** should be **localized** with the \
+rest of the page (for example `"Use cases"` → `"Casos de uso"`). Do not \
+revert localized table `aria-label` strings to English. The translation QC \
+pass still re-localizes known nav icon phrases \
 `aria-label="Open navigation menu"` / `aria-label="Select your language"` \
-when the surrounding prose is localized.
+when they slip through as English.
 32. **Brazilian Portuguese — Braze ``Analytics`` menu**: When English uses bold \
 ``**Analytics**`` as the dashboard section name in navigation paths (for example \
 ``**Analytics** > **Report Builder (New)**``) or phrases like "the **Analytics** \
@@ -627,7 +803,10 @@ no commentary. If the translation is already high quality, return it unchanged.\
 """
 
 
-def review_file(client, english_content, translated_content, language_name, extra_context=""):
+def review_file(
+    client, english_content, translated_content, language_name,
+    extra_context="", api_retries=None,
+):
     """Second-pass review of a translation for quality improvement."""
     system = [(REVIEW_PROMPT, True)]
     if extra_context:
@@ -637,7 +816,7 @@ def review_file(client, english_content, translated_content, language_name, extr
     user_msg += f"## English source\n\n{english_content}\n\n"
     user_msg += f"## Translation to review and improve\n\n{translated_content}\n"
 
-    return call_claude(client, system, user_msg)
+    return call_claude(client, system, user_msg, retries=api_retries)
 
 
 
@@ -659,6 +838,143 @@ def _relative_for_translation(fpath):
 def translation_path(english_relative, lang_dir):
     """Map an English-relative path to its _lang/ counterpart."""
     return REPO_ROOT / "_lang" / lang_dir / english_relative
+
+
+def _git_path_last_commit_ts(rel_path: str) -> int:
+    """Latest commit unix time touching ``rel_path`` (0 if unknown)."""
+    r = subprocess.run(
+        ["git", "log", "-1", "--format=%ct", "--", rel_path],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+    )
+    if r.returncode != 0:
+        return 0
+    s = (r.stdout or "").strip()
+    return int(s) if s.isdigit() else 0
+
+
+def _parse_git_touch_map(max_commits: int) -> dict[str, int]:
+    """Map repo-relative paths to the latest commit time touching them.
+
+    Built from recent first-parent history so routine ``workflow_dispatch``
+    runs avoid one ``git log`` per file.
+    """
+    lang_roots = [f"_lang/{info['dir']}/" for info in LANGUAGES.values()]
+    r = subprocess.run(
+        [
+            "git",
+            "log",
+            "-m",
+            "--first-parent",
+            f"-n{max_commits}",
+            "--format=%ct",
+            "--name-only",
+            "HEAD",
+            "--",
+            "_docs/",
+            "_includes/",
+            *lang_roots,
+        ],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if r.returncode != 0:
+        return {}
+    touch: dict[str, int] = {}
+    current_ts: Optional[int] = None
+    for raw in (r.stdout or "").splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if line.isdigit():
+            current_ts = int(line)
+            continue
+        if current_ts is None:
+            continue
+        prev = touch.get(line)
+        if prev is None or current_ts > prev:
+            touch[line] = current_ts
+    return touch
+
+
+def _list_git_english_markdown_paths() -> list[str]:
+    """Tracked ``*.md`` under ``_docs/`` and ``_includes/`` (repo-relative)."""
+    r = subprocess.run(
+        ["git", "ls-files"],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    paths: list[str] = []
+    for line in r.stdout.splitlines():
+        p = line.strip()
+        if not p.endswith(".md"):
+            continue
+        if p.startswith("_docs/") or p.startswith("_includes/"):
+            paths.append(p)
+    return paths
+
+
+def cmd_stale_english_sources(args: argparse.Namespace) -> None:
+    """Print English paths that are missing or older than any locale mirror.
+
+    Used when ``workflow_dispatch`` runs with no ``since_commit`` / ``files``:
+    compare last-touch times from git so operators do not paste SHAs.
+    Locale files live under ``_lang/<dir>/`` using ``_relative_for_translation``
+    (``_docs/`` prefix stripped); stdout still lists canonical ``_docs/…`` /
+    ``_includes/…`` paths for the workflow.
+    """
+    lang_dirs = [info["dir"] for info in LANGUAGES.values()]
+    touch_map = _parse_git_touch_map(args.max_history_commits)
+    fallback_cache: dict[str, int] = {}
+
+    def ts_for(rel: str) -> int:
+        if rel in touch_map:
+            return touch_map[rel]
+        if rel in fallback_cache:
+            return fallback_cache[rel]
+        t = _git_path_last_commit_ts(rel)
+        fallback_cache[rel] = t
+        return t
+
+    english_paths = _list_git_english_markdown_paths()
+    stale: list[str] = []
+    for en in english_paths:
+        en_ts = ts_for(en)
+        trans_rel = _relative_for_translation(en)
+        need = False
+        for ld in lang_dirs:
+            loc_rel = f"_lang/{ld}/{trans_rel}"
+            loc_path = REPO_ROOT / loc_rel
+            if not loc_path.is_file():
+                need = True
+                break
+            loc_ts = ts_for(loc_rel)
+            if loc_ts < en_ts:
+                need = True
+                break
+        if need:
+            stale.append(en)
+
+    stale.sort()
+    if len(stale) > 250:
+        print(
+            "stale-english-sources: WARNING: large batch - consider "
+            "`since_commit` or `files` to narrow scope if this was unintentional.",
+            file=sys.stderr,
+        )
+    print(
+        f"stale-english-sources: {len(stale)} file(s) need translation "
+        f"(of {len(english_paths)} English markdown paths tracked in git)",
+        file=sys.stderr,
+    )
+    body = "\n".join(stale) + ("\n" if stale else "")
+    sys.stdout.write(body)
+    sys.stdout.flush()
 
 
 # Keys whose values carry cross-section terminology (nav labels, page
@@ -963,7 +1279,7 @@ def save_results(results):
 # ---------------------------------------------------------------------------
 
 def translate_one(client, prompt, fpath, relative, english_content,
-                  lang_key, lang_info, glossary, styleguide):
+                  lang_key, lang_info, glossary, styleguide, api_retries=None):
     """Translate + review a single file into one language. Returns a result dict."""
     target = translation_path(relative, lang_info["dir"])
     existing = target.read_text() if target.exists() else None
@@ -978,11 +1294,11 @@ def translate_one(client, prompt, fpath, relative, english_content,
     try:
         translated = translate_file(
             client, prompt, english_content, existing,
-            lang_info["name"], extra_context,
+            lang_info["name"], extra_context, api_retries=api_retries,
         )
         translated = review_file(
             client, english_content, translated,
-            lang_info["name"], extra_context,
+            lang_info["name"], extra_context, api_retries=api_retries,
         )
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(translated)
@@ -1002,8 +1318,89 @@ def translate_one(client, prompt, fpath, relative, english_content,
         }
 
 
+def _retry_failed_translations(
+    client,
+    prompt,
+    failed_items,
+    active_langs,
+    glossaries,
+    styleguides,
+    round_num=1,
+):
+    """Re-run failed translations sequentially (normal and chunked paths)."""
+    retriable = [
+        item
+        for item in failed_items
+        if _is_retryable_api_error(item.get("error", ""))
+    ]
+    if not retriable:
+        return [], list(failed_items)
+
+    print(
+        f"\nRetrying {len(retriable)} failed translation(s) sequentially "
+        f"(round {round_num}/{FAILED_PASS_ROUNDS}, "
+        f"{FAILED_PASS_RETRIES} API attempts each)..."
+    )
+    recovered = []
+    still_failed = [item for item in failed_items if item not in retriable]
+
+    for item in retriable:
+        fpath = item["source"]
+        lang_key = item["lang"]
+        lang_info = active_langs.get(lang_key)
+        if not lang_info:
+            still_failed.append(item)
+            continue
+
+        relative = _relative_for_translation(fpath)
+        english_content = (REPO_ROOT / fpath).read_text()
+        mode = "chunked" if item.get("chunked") else "normal"
+        print(f"  RETRY ({mode}): {relative} → {lang_info['name']}...")
+        time.sleep(10)
+
+        if item.get("chunked"):
+            result = translate_one_chunked(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossaries[lang_key],
+                styleguides[lang_key],
+                api_retries=FAILED_PASS_RETRIES,
+            )
+        else:
+            result = translate_one(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossaries[lang_key],
+                styleguides[lang_key],
+                api_retries=FAILED_PASS_RETRIES,
+            )
+
+        if result["ok"]:
+            recovered.append(result)
+            print(f"  RETRY OK: {relative} → {lang_info['name']}")
+        else:
+            still_failed.append(result)
+            print(
+                f"  RETRY FAILED: {relative} → {lang_info['name']} "
+                f"({result['error']})"
+            )
+
+    return recovered, still_failed
+
+
 def translate_one_chunked(client, prompt, fpath, relative, english_content,
-                          lang_key, lang_info, glossary, styleguide):
+                          lang_key, lang_info, glossary, styleguide,
+                          api_retries=None):
     """Translate a large file by splitting into chunks, translating each, and
     reassembling.  Skips the second-pass review (chunks are self-contained and
     the review would require the full file which exceeds context limits)."""
@@ -1029,11 +1426,15 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
                   f"({len(en_chunk) // 1024}KB)...")
             translated = translate_file(
                 client, prompt, en_chunk, tr_chunk or None,
-                lang_info["name"], extra_context,
+                lang_info["name"], extra_context, api_retries=api_retries,
             )
             translated_chunks.append(translated)
 
         full_translation = "\n\n".join(c.strip() for c in translated_chunks)
+        validate_liquid_paired_tags(
+            full_translation,
+            label=str(target.relative_to(REPO_ROOT)),
+        )
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(full_translation)
         return {
@@ -1079,9 +1480,17 @@ def cmd_translate(args):
     chunked = []
     for fpath in md_files:
         size_kb = (REPO_ROOT / fpath).stat().st_size / 1024
-        if size_kb > MAX_FILE_KB:
+        if _uses_chunked_translation(fpath, size_kb):
             chunked.append(fpath)
-            print(f"  CHUNKED: {fpath} ({round(size_kb)} KB — will use chunked translation)")
+            reason = (
+                "pricing table path"
+                if size_kb <= MAX_FILE_KB
+                else "size limit"
+            )
+            print(
+                f"  CHUNKED: {fpath} ({round(size_kb)} KB — "
+                f"will use chunked translation, {reason})"
+            )
         else:
             translatable.append(fpath)
 
@@ -1174,12 +1583,28 @@ def cmd_translate(args):
                           f"({result.get('chunks', '?')} chunks)")
                 else:
                     results["failed"].append({
-                        "source": result["source"],
-                        "target": result["target"],
-                        "lang": result["lang"],
-                        "error": result["error"],
+                        k: result[k]
+                        for k in ("source", "target", "lang", "error", "chunked", "chunks")
+                        if k in result
                     })
                     print(f"    {lang_info['name']} FAILED ({result['error']})")
+
+    for round_num in range(1, FAILED_PASS_ROUNDS + 1):
+        if not results["failed"]:
+            break
+        recovered, still_failed = _retry_failed_translations(
+            client,
+            prompt,
+            results["failed"],
+            active_langs,
+            glossaries,
+            styleguides,
+            round_num=round_num,
+        )
+        results["translated"].extend(recovered)
+        results["failed"] = still_failed
+        if not recovered:
+            break
 
     save_results(results)
     ok = len(results["translated"])
@@ -1202,11 +1627,18 @@ def _extract_front_matter(content):
     glossary substring counts for keys like ``segment`` inside YAML (PR
     #13348). Only horizontal space may follow the closing ``---`` before that
     newline or EOF so blank lines after the delimiter stay in the body.
+
+    Optional leading spaces or tabs before the opening ``---`` are ignored so
+    files such as ``_docs/_hidden/other/support_contact.md`` (indented YAML)
+    still parse; otherwise QC treats English as having no front matter and
+    cannot re-seed dropped locale YAML (auto-translate PR #13475).
     """
     # After the closing ``---``, only horizontal space may appear before the
     # body newline or EOF — ``\s*`` would swallow blank lines that belong to
     # the markdown body.
-    match = re.match(r'^---\s*\n(.*?)\n---[ \t]*(?:\n|\Z)', content, re.DOTALL)
+    match = re.match(
+        r'^[ \t]*---\s*\n(.*?)\n---[ \t]*(?:\n|\Z)', content, re.DOTALL
+    )
     if match:
         return match.group(1), content[match.end():]
     return None, content
@@ -1276,6 +1708,30 @@ def repair_spurious_front_matter_when_english_has_none(
     return tr_body, [
         "front_matter — removed (English source has no YAML block; "
         "includes must not start with ---)"
+    ]
+
+
+def repair_missing_locale_front_matter_from_english(
+    english_content, translated_content
+):
+    """Re-seed YAML front matter from English when the locale file lost it entirely.
+
+    :func:`repair_front_matter` only syncs keys when *both* sides parse with a
+    leading ``---`` block. Models sometimes return a translation body that starts
+    with HTML or markdown while the English source has Jekyll metadata (routing,
+    ``layout``, ``hide_nav``). Without this repair, localized pages lose their
+    front matter entirely (Copilot / auto-translate PR #13466, e.g.
+    ``_hidden/other/support_contact.md``).
+    """
+    en_fm, _ = _extract_front_matter(english_content)
+    tr_fm, tr_body = _extract_front_matter(translated_content)
+    if not en_fm or tr_fm is not None:
+        return translated_content, []
+    merged = f"---\n{en_fm}\n---\n{tr_body}"
+    return merged, [
+        "front_matter — re-seeded from English (locale had no parseable "
+        "--- header; translate nav_title/article_title on a follow-up pass "
+        "if needed)"
     ]
 
 
@@ -2015,6 +2471,79 @@ def repair_pt_br_push_channel_token(translated_path, translated_content, lang_ke
     ]
 
 
+def repair_es_api_obligatorio_typo(translated_path, translated_content, lang_key):
+    """Normalize ``Obligatoria`` → ``Obligatorio`` in Spanish API parameter tables.
+
+    MT sometimes uses the feminine form in the fixed ``| Parámetro | … |``
+    column; sibling ES API pages use **Obligatorio** for that column (Copilot /
+    auto-translate PR #13458).
+    """
+    if lang_key != "es":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/es/_api/" not in rel:
+        return translated_content, []
+    if "Obligatoria" not in translated_content:
+        return translated_content, []
+    new_content, n = re.subn(
+        r"(\|)\s*Obligatoria(\*?)\s*(\|)",
+        r"\1 Obligatorio\2 \3",
+        translated_content,
+    )
+    if not n:
+        return translated_content, []
+    return new_content, [
+        f"es api — Obligatorio column/token repair ({n} occurrence(s))",
+    ]
+
+
+def repair_de_dashboard_capture_english_bleed(
+    translated_path, translated_content, lang_key
+):
+    """Replace known English ``dashboard_match`` captures in DE includes.
+
+    Alerts that interpolate ``{{ dashboard_match }}`` read poorly when the
+    capture still uses English hyphen labels (Copilot / auto-translate PR
+    #13458).
+    """
+    if lang_key != "de":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "/_lang/de/" not in rel or "/_includes/" not in rel:
+        return translated_content, []
+    if "dashboard_match" not in translated_content:
+        return translated_content, []
+    replacements = (
+        (
+            "{% capture dashboard_match %}Dashboard-Canvas-Analytics{% endcapture %}",
+            "{% capture dashboard_match %}Canvas-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}Dashboard-Engagement-Analytics{% endcapture %}",
+            "{% capture dashboard_match %}Engagement-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}dashboard Canvas analytics{% endcapture %}",
+            "{% capture dashboard_match %}Canvas-Analytics im Dashboard{% endcapture %}",
+        ),
+        (
+            "{% capture dashboard_match %}dashboard Engagement analytics{% endcapture %}",
+            "{% capture dashboard_match %}Engagement-Analytics im Dashboard{% endcapture %}",
+        ),
+    )
+    out = translated_content
+    applied = 0
+    for old, new_val in replacements:
+        if old in out:
+            out = out.replace(old, new_val)
+            applied += 1
+    if not applied:
+        return translated_content, []
+    return out, [
+        f"de include — localized dashboard_match capture ({applied} block(s))",
+    ]
+
+
 def check_guide_featured_list_duplicate_links(
     english_content, translated_content, english_path="", translated_path=""
 ):
@@ -2247,8 +2776,8 @@ _MD_LINK_FRAGMENT_ANCHOR_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9_-]*$")
 
 
 def _normalize_single_internal_link_url(url):
-    """If ``url`` is a ``{{site.baseurl}}`` doc link whose path omits ``/``
-    before ``#anchor``, insert the slash. Returns ``(new_url, changed)``.
+    """If ``url`` is a ``{{site.baseurl}}`` doc link with ``/`` before ``#anchor``,
+    remove the slash. Returns ``(new_url, changed)``.
     """
     if "{{site.baseurl}}" not in url:
         return url, False
@@ -2258,17 +2787,17 @@ def _normalize_single_internal_link_url(url):
     if hashidx <= 0:
         return url, False
     before, frag = url[:hashidx], url[hashidx + 1 :]
-    if not frag or before.endswith("/"):
+    if not frag or not before.endswith("/"):
         return url, False
     bl = before.lower()
     if bl.endswith((".md", ".html", ".htm", ".json", ".xml")):
         return url, False
-    last_seg = before.rsplit("/", 1)[-1]
+    last_seg = before.rstrip("/").rsplit("/", 1)[-1]
     if "." in last_seg:
         return url, False
     if not _MD_LINK_FRAGMENT_ANCHOR_RE.match(frag):
         return url, False
-    return f"{before}/#{frag}", True
+    return f"{before.rstrip('/')}#{frag}", True
 
 
 _SUP_BOLD_STAR_TYPO = re.compile(r"<sup>\*\*([^*<]+)\*</sup>")
@@ -2289,22 +2818,22 @@ def repair_sup_addon_footnote_bold_typo(translated_content: str):
 
 
 def repair_ideas_and_strategies_internal_link_trailing_slash(translated_content: str):
-    """Ensure ``ideas_and_strategies`` doc links use a trailing ``/`` before ``)``."""
+    """Remove trailing ``/`` from ``ideas_and_strategies`` doc links."""
     repairs = []
     new = translated_content
     for wrong, right in (
         (
-            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
             "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)",
+            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
         ),
         (
-            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
             "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/)",
+            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
         ),
     ):
         if wrong in new:
             new = new.replace(wrong, right)
-            repairs.append("md-link — ideas_and_strategies trailing /")
+            repairs.append("md-link — ideas_and_strategies trailing / removed")
     if repairs:
         return new, repairs
     return translated_content, []
@@ -2314,9 +2843,14 @@ def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
     """Repair malformed ``{{site.baseurl}}`` Markdown links (extra parentheses).
 
     Models occasionally emit ``[label](({{site.baseurl}}/path`` instead of correct
-    ``[label]({{site.baseurl}}/path``, or they close links with duplicate ``)``
-    endings. Either pattern breaks Markdown (Copilot PR #13396). Run before
+    ``[label]({{site.baseurl}}/path`` (Copilot PR #13396). Run before
     ``repair_markdown_internal_link_fragments``.
+
+    We intentionally do **not** collapse ``]({{site.baseurl}}/path))`` to a
+    single ``)``: prose often wraps the link in parentheses, so the first ``)``
+    closes the markdown link and the second closes the outer ``(…`` (for example
+    ``unless they are [encrypted](url))``). A prior ``dup_pat`` rule stripped that
+    outer close and broke list rendering (Cursor Bugbot / PR #13605).
     """
     repairs = []
     new = translated_content
@@ -2329,20 +2863,13 @@ def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
             "md-link — removed extra '(' before {{site.baseurl}} "
             f"({n}x; PR #13396)"
         )
-    dup_pat = re.compile(r"(\]\(\{\{site\.baseurl\}\}[^)]+\))\)")
-    new, dn = dup_pat.subn(r"\1", new)
-    if dn:
-        repairs.append(
-            "md-link — collapsed duplicate closing ')' after site.baseurl URL "
-            f"({dn}x; PR #13396)"
-        )
     if repairs:
         return new, repairs
     return translated_content, []
 
 
 def repair_markdown_internal_link_fragments(content):
-    """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
+    """Normalize ``]({{site.baseurl}}/...slug/#anchor)`` → ``.../slug#anchor``."""
     repairs = []
 
     def repl(match):
@@ -2351,7 +2878,7 @@ def repair_markdown_internal_link_fragments(content):
         if changed:
             preview = url if len(url) <= 100 else url[:97] + "..."
             repairs.append(
-                f"md-fragment — inserted '/' before # in internal link ({preview})"
+                f"md-fragment — removed '/' before # in internal link ({preview})"
             )
         return f"]({new_url})"
 
@@ -2446,6 +2973,124 @@ def _clamp_reset_td_br_ial(ial_line, header_cols):
     return new, removed
 
 
+def repair_markdown_double_leading_pipe_table_rows(content: str):
+    """Replace ``||`` at the start of markdown table rows with ``|``.
+
+    Models sometimes emit ``|| cell | cell |`` (Copilot on auto-translate
+    PR #13398), which reads as an extra empty leading column. Skips lines
+    inside fenced code blocks (`` ``` `` / ``~~~``) so shell ``||`` and
+    similar aren't touched.
+    """
+    lines = content.splitlines()
+    in_fence = False
+    fence_delim = None
+    fixed = 0
+    out = []
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```") and (fence_delim in (None, "```")):
+            in_fence = not in_fence
+            fence_delim = "```" if in_fence else None
+            out.append(line)
+            continue
+        if stripped.startswith("~~~") and (fence_delim in (None, "~~~")):
+            in_fence = not in_fence
+            fence_delim = "~~~" if in_fence else None
+            out.append(line)
+            continue
+        if in_fence:
+            out.append(line)
+            continue
+        m = re.match(r"^(\s*(?:>\s*)*)\|\|(.+)$", line)
+        if m:
+            rest = m.group(2)
+            if "|" in rest:
+                line = m.group(1) + "|" + rest
+                fixed += 1
+        out.append(line)
+    if not fixed:
+        return content, []
+    result = "\n".join(out)
+    if content.endswith("\n"):
+        result += "\n"
+    return result, [
+        f"md-table — normalized {fixed} double-leading-pipe row(s) (||→|)"
+    ]
+
+
+def repair_html_href_space_before_liquid_open(content: str) -> tuple[str, list]:
+    r"""Remove stray whitespace between ``href``\ 's opening quote and ``{%``.
+
+    Copilot on auto-translate PR #13398 flagged ``href=" {% landing_page_url``
+    in HTML-in-Markdown examples — the space breaks the attribute value.
+    Also covers single-quoted ``href=`` and optional Liquid whitespace
+    control ``{%-``.
+    """
+    new, n = re.subn(
+        r"href=(['\"])\s+(\{\%-?)",
+        r"href=\1\2",
+        content,
+    )
+    if n:
+        return new, [
+            f"html-href — removed {n} stray space(s) before Liquid in href=…"
+        ]
+    return content, []
+
+
+def repair_redirect_to_trailing_stray_quote_unquoted_url(
+    translated_path: str, translated_content: str
+) -> tuple[str, list]:
+    r"""Remove a stray ``"`` after an unquoted ``redirect_to`` URL.
+
+    Invalid pattern: ``redirect_to: https://example.com/path/"`` (opening
+    quote missing — YAML breaks). Copilot flagged this across locales on
+    auto-translate PR #13405. Scoped to ``_docs_pages/redirects/`` paths only.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_docs_pages/redirects/" not in rel:
+        return translated_content, []
+    new, n = re.subn(
+        r"^(redirect_to:\s*https://[^\s\"\n]+)/\"\s*$",
+        r"\1/",
+        translated_content,
+        flags=re.MULTILINE,
+    )
+    if n:
+        return new, [
+            f"yaml-redirect_to — removed {n} stray trailing quote(s) on unquoted URL"
+        ]
+    return translated_content, []
+
+
+_REDIRECT_FM_FUSED_CLOSE_RE = re.compile(
+    r"^(redirect_to:\s*https://[^\n]+)/---\s*$",
+    re.MULTILINE,
+)
+
+
+def repair_redirect_front_matter_fused_close_delimiter(
+    translated_path: str, translated_content: str
+) -> tuple[str, list]:
+    r"""Split ``redirect_to: …/---`` when the closing ``---`` was fused onto the URL line.
+
+    Auto-translate PR #13405 / Copilot follow-up: invalid front matter breaks
+    Jekyll and redirect-list validation. Scoped to ``_docs_pages/redirects/``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_docs_pages/redirects/" not in rel:
+        return translated_content, []
+    new, n = _REDIRECT_FM_FUSED_CLOSE_RE.subn(
+        r"\1/\n---\n",
+        translated_content,
+    )
+    if n:
+        return new, [
+            f"yaml-fm — split {n} fused redirect_to/--- closing fence(s)"
+        ]
+    return translated_content, []
+
+
 def repair_markdown_table_column_count(content):
     """Repair markdown tables whose separator row's cell count doesn't match
     the header row's cell count (and prune trailing ``.reset-td-br-N`` IAL
@@ -2537,17 +3182,15 @@ _SLASH_SKIP_EXTS = (
 
 
 def _normalize_trailing_slash_on_baseurl(url):
-    """Add trailing ``/`` to extensionless ``{{site.baseurl}}`` doc links.
+    """Remove trailing ``/`` from extensionless ``{{site.baseurl}}`` doc links.
 
-    Braze docs are directory-style (Jekyll permalinks end in ``/``). Bare
-    ``{{site.baseurl}}/path)`` without a trailing slash causes redirects
-    and inconsistent in-page link formats (Copilot flag on PR #13302).
+    Production URLs omit trailing slashes (Vercel ``trailingSlash: false``).
     """
     if "{{site.baseurl}}" not in url:
         return url, False
     if "?" in url or "#" in url:
         return url, False
-    if url.endswith("/"):
+    if not url.endswith("/"):
         return url, False
     if url.rstrip().endswith("}}"):
         return url, False
@@ -2555,7 +3198,7 @@ def _normalize_trailing_slash_on_baseurl(url):
     tail = url[idx + len("{{site.baseurl}}") :]
     if not tail or not tail.startswith("/"):
         return url, False
-    last_seg = tail.rsplit("/", 1)[-1]
+    last_seg = tail.rstrip("/").rsplit("/", 1)[-1]
     if not last_seg:
         return url, False
     lower = last_seg.lower()
@@ -2563,18 +3206,11 @@ def _normalize_trailing_slash_on_baseurl(url):
         return url, False
     if "." in last_seg:
         return url, False
-    return url + "/", True
+    return url.rstrip("/"), True
 
 
 def repair_markdown_internal_link_trailing_slash(content):
-    """Generalize ``repair_ideas_and_strategies_internal_link_trailing_slash``
-    to every extensionless ``{{site.baseurl}}`` directory-style link.
-
-    PR #13302 had the same link appearing both as
-    ``.../ecommerce_use_cases)`` and ``.../ecommerce_use_cases/)`` within a
-    single localized file. The translation prompt already asks for trailing
-    ``/`` on directory-style links; this is a deterministic backstop.
-    """
+    """Remove trailing ``/`` from extensionless ``{{site.baseurl}}`` directory-style links."""
     repairs = []
     counts = {}
 
@@ -2590,7 +3226,7 @@ def repair_markdown_internal_link_trailing_slash(content):
         total = sum(counts.values())
         distinct = len(counts)
         repairs.append(
-            f"md-link — added trailing / to {total} directory-style "
+            f"md-link — removed trailing / from {total} directory-style "
             f"{{{{site.baseurl}}}} link(s) ({distinct} distinct path(s))"
         )
         return new, repairs
@@ -2626,16 +3262,198 @@ def repair_korean_query_hangul_typo(translated_path, translated_content, lang_ke
     ]
 
 
-# Latin Braze product / SDK tokens immediately followed by a Japanese
-# particle should not have an ASCII space in between — models often emit
-# ``Segment を`` / ``Canvas の`` (seen on auto-translate PR #13316) which
-# reads like sloppy typography next to native ``を``/``の``.
+# Latin SDK / feature tokens and localized JA product names immediately
+# followed by a Japanese particle should not have an ASCII space in between.
 _JA_LATIN_TOKEN_PARTICLE_RE = re.compile(
     r"(?P<tok>"
-    r"Content Cards|In-App Messages|REST API|"
-    r"Campaigns?|Segment|Canvas|SDK"
+    r"Content Cards|In-App Messages|REST API|SDK|"
+    r"キャンペーン|キャンバス|セグメント"
     r")\s+(?P<particle>[をのとはがも])"
 )
+
+_JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS = (
+    "Campaign",
+    "Campaigns",
+    "Canvas",
+    "Canvases",
+    "Segment",
+    "Segments",
+)
+
+# Preserve English Liquid tab labels and multi-word UI strings during token repair.
+_JA_PROTECTED_ENGLISH_PHRASES = (
+    "Save Campaign",
+    "{% tab Campaigns %}",
+    "{% tab Canvas %}",
+    "{% tab Segments %}",
+)
+
+
+def _mask_ja_protected_english_phrases(chunk: str) -> tuple[str, dict[str, str]]:
+    placeholders: dict[str, str] = {}
+    for i, phrase in enumerate(_JA_PROTECTED_ENGLISH_PHRASES):
+        if phrase not in chunk:
+            continue
+        token = f"__JA_PHRASE_PROTECT_{i}__"
+        chunk = chunk.replace(phrase, token)
+        placeholders[token] = phrase
+    return chunk, placeholders
+
+
+def _unmask_ja_protected_english_phrases(
+    chunk: str, placeholders: dict[str, str]
+) -> str:
+    for token, phrase in placeholders.items():
+        chunk = chunk.replace(token, phrase)
+    return chunk
+
+
+def _ja_campaign_canvas_segment_replacement_pairs():
+    """Longest-first ``(english, japanese)`` pairs for Campaign/Canvas/Segment repair."""
+    glossary_path = GLOSSARY_DIR / "ja.json"
+    raw = (
+        json.loads(glossary_path.read_text())
+        if glossary_path.exists()
+        else {}
+    )
+    pairs = []
+    for en, ja in raw.items():
+        if not ja or en == ja:
+            continue
+        if not re.search(r"[ぁ-んァ-ン一-龥]", ja):
+            continue
+        if not re.search(r"(?i)(campaign|canvas|segment)", en):
+            continue
+        # Lowercase single tokens (``campaign``, ``canvas``, ``segment``) appear
+        # inside URL slugs and anchor IDs — only Title Case + multi-word UI.
+        if " " not in en and en[:1].islower():
+            continue
+        pairs.append((en, ja))
+    for en, ja in (
+        ("Canvases", "キャンバス"),
+        ("Campaigns", "キャンペーン"),
+        ("Segments", "セグメント"),
+        ("Canvas", "キャンバス"),
+        ("Campaign", "キャンペーン"),
+        ("Segment", "セグメント"),
+    ):
+        pairs.append((en, ja))
+    seen = set()
+    out = []
+    for en, ja in sorted(pairs, key=lambda x: len(x[0]), reverse=True):
+        if en in seen:
+            continue
+        seen.add(en)
+        out.append((en, ja))
+    return out
+
+
+def _replace_ja_product_terms_in_text_segment(segment, pairs):
+    """Apply glossary replacements outside code fences, URLs, and ``{#anchors}``."""
+
+    def _replace_plain(chunk: str) -> str:
+        chunk, protected = _mask_ja_protected_english_phrases(chunk)
+        for en, ja in pairs:
+            if re.search(r"\s", en):
+                chunk = chunk.replace(en, ja)
+            else:
+                chunk = re.sub(
+                    rf"(?<![A-Za-z/_-]){re.escape(en)}(?![A-Za-z/_-])",
+                    ja,
+                    chunk,
+                )
+        return _unmask_ja_protected_english_phrases(chunk, protected)
+
+    parts = re.split(r"(\{#[^}]+\})", segment)
+    out: list[str] = []
+    for part in parts:
+        if part.startswith("{#") and part.endswith("}"):
+            out.append(part)
+            continue
+
+        def _fix_link(m: re.Match) -> str:
+            return f"[{_replace_plain(m.group(1))}]({m.group(2)})"
+
+        part = re.sub(r"\[([^\]]*)\]\(([^)]*)\)", _fix_link, part)
+        out.append(_replace_plain(part))
+    return "".join(out)
+
+
+def repair_japanese_english_product_terms(
+    translated_path, translated_content, lang_key
+):
+    """Replace English Campaign/Canvas/Segment tokens with JA glossary forms.
+
+    JA docs historically kept Title Case product nouns in English via
+    ``PROTECTED_PRODUCT_TERMS``; partner review (2026-06) expects
+    **キャンペーン** / **キャンバス** / **セグメント** in prose and UI
+  labels where ``ja.json`` defines a translation.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    pairs = _ja_campaign_canvas_segment_replacement_pairs()
+    fm_match = re.match(
+        r"^([ \t]*---\s*\n.*?\n---[ \t]*(?:\n|\Z))",
+        translated_content,
+        re.DOTALL,
+    )
+    if fm_match:
+        prefix = fm_match.group(1)
+        body = translated_content[fm_match.end() :]
+    else:
+        prefix = ""
+        body = translated_content
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    for i in range(0, len(parts), 2):
+        parts[i] = _replace_ja_product_terms_in_text_segment(parts[i], pairs)
+    new = prefix + "".join(parts)
+    if new == translated_content:
+        return translated_content, []
+    return new, [
+        "ja-product-terms — replaced English Campaign/Canvas/Segment "
+        "with glossary Japanese forms"
+    ]
+
+
+def check_japanese_english_product_terms_in_prose(
+    translated_path, translated_content, lang_key
+):
+    """Warn when JA docs still use English Campaign/Canvas/Segment in prose."""
+    if lang_key != "ja":
+        return []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return []
+    # API/event schema pages intentionally keep English field tokens.
+    if any(
+        part in rel
+        for part in (
+            "/_api/",
+            "/event_glossary/",
+            "/_includes/snowflake_users_messages/",
+        )
+    ):
+        return []
+
+    _, body = _extract_front_matter(translated_content)
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    prose = "".join(parts[i] for i in range(0, len(parts), 2))
+    warnings = []
+    for term in _JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS:
+        matches = re.findall(
+            rf"(?<![A-Za-z]){re.escape(term)}(?![A-Za-z])",
+            prose,
+        )
+        if matches:
+            warnings.append(
+                f"ja-product-terms — English '{term}' appears {len(matches)}x "
+                f"in prose; use glossary Japanese (キャンペーン/キャンバス/セグメント)"
+            )
+    return warnings
 
 
 def repair_japanese_latin_token_particle_spacing(
@@ -3667,7 +4485,7 @@ _TABLE_PIPE_TOUCHING_CODE_SPAN_RE = re.compile(
 
 
 def repair_markdown_table_pipe_adjacent_to_underscored_code(translated_content):
-    """Insert a space between ``|`` and ``\``...\`` when a slug-style code token follows."""
+    r"""Insert a space between ``|`` and `\`...\` when a slug-style code token follows."""
     repairs = []
     lines_out = []
     for line in translated_content.split("\n"):
@@ -4509,6 +5327,28 @@ def repair_glossary_identifiers(english_content, translated_content, lang_key):
     return translated_content, repairs
 
 
+def check_liquid_paired_block_tags(english_content, translated_content):
+    """Warn when paired Liquid block open/close counts drift from English."""
+    warnings = []
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        en_open = _count_liquid_tag(english_content, open_tag)
+        tr_open = _count_liquid_tag(translated_content, open_tag)
+        en_close = _count_liquid_tag(english_content, close_tag)
+        tr_close = _count_liquid_tag(translated_content, close_tag)
+        if tr_open != tr_close:
+            warnings.append(
+                f"liquid_paired — {open_tag}/{close_tag} unbalanced in translation "
+                f"({open_tag}={tr_open}, {close_tag}={tr_close})"
+            )
+        elif tr_open != en_open or tr_close != en_close:
+            warnings.append(
+                f"liquid_paired — {open_tag}/{close_tag} count drift "
+                f"(English {open_tag}={en_open}/{close_tag}={en_close}, "
+                f"translation {open_tag}={tr_open}/{close_tag}={tr_close})"
+            )
+    return warnings
+
+
 def check_liquid_tags(english_content, translated_content):
     """Check that Liquid tags are preserved between source and translation."""
     warnings = []
@@ -4593,6 +5433,48 @@ def check_completeness(english_content, translated_content):
             f"(max threshold: {COMPLETENESS_MAX_RATIO:.0%}); possible hallucination"
         ]
     return []
+
+
+_IMG_BUSTER_ALT_RE = re.compile(
+    r"!\[([^\]]*)\]\(\{%\s*image_buster\b",
+    re.IGNORECASE,
+)
+# Lowercase Latin snake_case with multiple segments (internal slug style).
+_SNAKE_CASE_IMAGE_ALT_RE = re.compile(
+    r"^[a-z][a-z0-9]*(?:_[a-z][a-z0-9]*)+$",
+)
+
+
+def check_image_buster_alt_identifier_style(translated_path, translated_content):
+    """Warn when ``image_buster`` image alts look like English slug identifiers.
+
+    Models often copy ``![engagement_reports_foo]({% image_buster ...`` verbatim
+    into localized docs; screen readers and Copilot expect a short descriptive
+    phrase instead (auto-translate PR #13407). Only runs for paths under
+    ``_lang/``.
+    """
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/" not in rel:
+        return []
+    warnings = []
+    seen = set()
+    for m in _IMG_BUSTER_ALT_RE.finditer(translated_content):
+        alt = m.group(1).strip()
+        if len(alt) < 18 or "_" not in alt:
+            continue
+        if not _SNAKE_CASE_IMAGE_ALT_RE.match(alt):
+            continue
+        if alt in seen:
+            continue
+        seen.add(alt)
+        preview = alt if len(alt) <= 72 else f"{alt[:69]}..."
+        warnings.append(
+            f"image_alt — `{preview}` looks like an English slug/identifier; "
+            f"use descriptive localized alt (PR #13407)"
+        )
+        if len(warnings) >= 12:
+            break
+    return warnings
 
 
 def check_untranslated(english_content, translated_content):
@@ -4985,10 +5867,12 @@ def _auto_slug(text: str) -> str:
     text is ASCII (so the English counterpart produces a stable slug). This is
     all we need, because we only look up English headings for references.
     """
-    text = re.sub(r"[*_`]", "", text)
+    # Drop emphasis/backtick markers only — keep ``_`` so identifiers like
+    # ``send_to_existing_only`` survive into the slug (PR #13623).
+    text = re.sub(r"[*`]", "", text)
     text = re.sub(r"<[^>]+>", "", text)
     text = text.lower().strip()
-    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"[^a-z0-9\s\-_]", "", text)
     text = re.sub(r"\s+", "-", text)
     text = re.sub(r"-+", "-", text).strip("-")
     return text
@@ -5040,6 +5924,84 @@ def _iter_doc_headings(text):
 _DUPLICATE_ADJACENT_EXPLICIT_ANCHOR_RE = re.compile(
     r"(\{#[A-Za-z][A-Za-z0-9_\-:\.]*\})(?:\s+\1)+"
 )
+
+
+_TRANSACTIONAL_EMAIL_FREQ_CAP_FRAGMENT = (
+    "{{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/"
+)
+_SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR = "{#show-data-by-entire-campaign-or-canvas}"
+
+
+def repair_frequency_capping_transactional_outer_paren(
+    translated_path, translated_content,
+):
+    """Restore a missing outer ``)`` after the transactional-email link bullet.
+
+    English wraps the link in parentheses ending in ``…/))`` (link ``)`` plus
+    parenthetical ``)``). Some locales drop the final ``)``, leaving
+    ``…email/)`` at EOL and breaking the list (Cursor Bugbot / auto-translate
+    PR #13514).
+    """
+    rel = str(translated_path).replace("\\", "/")
+    if "/messaging/messaging_fundamentals/frequency_capping.md" not in rel:
+        return translated_content, []
+    needle = _TRANSACTIONAL_EMAIL_FREQ_CAP_FRAGMENT
+    changed = False
+    out_parts = []
+    for line in translated_content.splitlines(keepends=True):
+        core = line.rstrip("\r\n")
+        sep = line[len(core):]
+        s = core.rstrip()
+        if needle in core and s.endswith("/)"):
+            core = s + ")" + core[len(s):]
+            changed = True
+        out_parts.append(core + sep)
+    if not changed:
+        return translated_content, []
+    return "".join(out_parts), [
+        "md_paren — added missing ) after transactional email link in "
+        "frequency_capping (PR #13514)"
+    ]
+
+
+def repair_duplicate_engagement_show_data_sections(
+    translated_path, translated_content,
+):
+    """Remove a duplicated ``##### … {#show-data-by-entire-campaign-or-canvas}`` block.
+
+    Auto-translation sometimes pasted the same subsection twice with the same
+    explicit Kramdown ID, duplicating HTML anchors (Cursor Bugbot /
+    auto-translate PR #13514).
+    """
+    rel = str(translated_path).replace("\\", "/")
+    if "analytics/reports/engagement_reports.md" not in rel:
+        return translated_content, []
+    if translated_content.count(_SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR) < 2:
+        return translated_content, []
+
+    repairs = []
+    content = translated_content
+    while True:
+        lines = content.splitlines(keepends=True)
+        idxs = [
+            i for i, L in enumerate(lines)
+            if _SHOW_DATA_ENTIRE_CAMPAIGN_ANCHOR in L
+            and re.match(r"^#{5}\s", L)
+        ]
+        if len(idxs) < 2:
+            break
+        i0, i1 = idxs[0], idxs[1]
+        if lines[i0].strip() != lines[i1].strip():
+            break
+        content = "".join(lines[:i0] + lines[i1:])
+        repairs.append(
+            "dedupe — removed duplicate «Show data by entire campaign» subsection "
+            "(PR #13514)"
+        )
+
+    if not repairs:
+        return translated_content, []
+    return content, repairs
 
 
 def repair_duplicate_adjacent_explicit_heading_anchors(translated_content):
@@ -5646,6 +6608,21 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(fm_strip_repairs)
 
+    translated_content, fm_seed_repairs = (
+        repair_missing_locale_front_matter_from_english(
+            english_content, translated_content
+        )
+    )
+    findings["repairs"].extend(fm_seed_repairs)
+
+    if not english_content.strip():
+        if translated_content.strip():
+            translated_content = ""
+            findings["repairs"].append(
+                "empty-source — cleared locale file (English source empty or "
+                "whitespace-only; auto-translate PR #13405)"
+            )
+
     translated_content, fm_repairs = repair_front_matter(
         english_content, translated_content
     )
@@ -5705,10 +6682,34 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(pt_push_ch_repairs)
 
+    translated_content, es_oblig_repairs = repair_es_api_obligatorio_typo(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(es_oblig_repairs)
+
+    translated_content, de_dash_cap_repairs = repair_de_dashboard_capture_english_bleed(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(de_dash_cap_repairs)
+
     translated_content, dup_anchor_repairs = (
         repair_duplicate_adjacent_explicit_heading_anchors(translated_content)
     )
     findings["repairs"].extend(dup_anchor_repairs)
+
+    translated_content, fc_paren_repairs = (
+        repair_frequency_capping_transactional_outer_paren(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(fc_paren_repairs)
+
+    translated_content, eng_show_repairs = (
+        repair_duplicate_engagement_show_data_sections(
+            translated_path, translated_content
+        )
+    )
+    findings["repairs"].extend(eng_show_repairs)
 
     translated_content, unused_tr_id_repairs = (
         repair_unreferenced_explicit_heading_ids_when_english_has_none(
@@ -5931,6 +6932,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(ko_query_repairs)
 
+    translated_content, ja_product_repairs = (
+        repair_japanese_english_product_terms(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_product_repairs)
+
     translated_content, ja_particle_repairs = (
         repair_japanese_latin_token_particle_spacing(
             translated_path, translated_content, lang_key
@@ -6054,6 +7062,30 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(link_slash_repairs)
 
+    translated_content, href_liquid_repairs = (
+        repair_html_href_space_before_liquid_open(translated_content)
+    )
+    findings["repairs"].extend(href_liquid_repairs)
+
+    translated_content, redirect_quote_repairs = (
+        repair_redirect_to_trailing_stray_quote_unquoted_url(
+            str(translated_path), translated_content
+        )
+    )
+    findings["repairs"].extend(redirect_quote_repairs)
+
+    translated_content, redirect_fuse_repairs = (
+        repair_redirect_front_matter_fused_close_delimiter(
+            str(translated_path), translated_content
+        )
+    )
+    findings["repairs"].extend(redirect_fuse_repairs)
+
+    translated_content, dbl_pipe_repairs = (
+        repair_markdown_double_leading_pipe_table_rows(translated_content)
+    )
+    findings["repairs"].extend(dbl_pipe_repairs)
+
     translated_content, table_col_repairs = repair_markdown_table_column_count(
         translated_content
     )
@@ -6167,10 +7199,23 @@ def qc_check_file(english_path, translated_path, lang_key):
         check_liquid_tags(english_content, translated_content)
     )
     findings["warnings"].extend(
+        check_liquid_paired_block_tags(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_japanese_english_product_terms_in_prose(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["warnings"].extend(
         check_glossary_compliance(english_content, translated_content, lang_key)
     )
     findings["warnings"].extend(
         check_completeness(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_image_buster_alt_identifier_style(
+            str(translated_path), translated_content
+        )
     )
     findings["warnings"].extend(
         check_untranslated(english_content, translated_content)
@@ -6278,10 +7323,43 @@ def jekyll_build(lang_config_key):
     return result.returncode == 0, result.stderr + "\n" + result.stdout
 
 
+VERIFY_BUILD_LOG_TAIL = 3000
+
+
+def _jekyll_output_tail(output, max_chars=None):
+    """Return the trailing slice of Jekyll stdout/stderr for logs and results."""
+    if max_chars is None:
+        max_chars = VERIFY_BUILD_LOG_TAIL
+    if not output:
+        return ""
+    return output[-max_chars:]
+
+
+def _print_build_failure_output(lang_name, output, attempt, max_attempts):
+    """Emit Jekyll output to CI logs when a locale build fails."""
+    tail = _jekyll_output_tail(output)
+    print(f"  --- Jekyll build output ({lang_name}, attempt {attempt}/{max_attempts}) ---")
+    if tail:
+        print(tail)
+    else:
+        print("  (no build output captured)")
+    print("  --- end Jekyll build output ---")
+
+
 def extract_error_files(error_output, lang_dir):
-    """Pull file paths from Jekyll error output that belong to a language dir."""
-    pattern = rf"_lang/{re.escape(lang_dir)}/\S+\.md"
-    return list(set(re.findall(pattern, error_output)))
+    """Pull locale markdown paths from Jekyll error output."""
+    paths = set()
+    patterns = (
+        rf"_lang/{re.escape(lang_dir)}/\S+\.md",
+        rf"(?<![\w/]){re.escape(lang_dir)}/\S+\.md",
+    )
+    for pattern in patterns:
+        for match in re.findall(pattern, error_output):
+            if match.startswith("_lang/"):
+                paths.add(match)
+            else:
+                paths.add(f"_lang/{match}")
+    return list(paths)
 
 
 def cmd_verify(args):
@@ -6312,11 +7390,14 @@ def cmd_verify(args):
                 break
 
             print(f"  {lang_info['name']} build failed")
+            _print_build_failure_output(
+                lang_info["name"], output, attempt, args.max_attempts,
+            )
 
             if attempt == args.max_attempts:
                 build_results["failed"].append({
                     "lang": lang_key,
-                    "error": output[-3000:],
+                    "error": _jekyll_output_tail(output),
                 })
                 print(f"  {lang_info['name']} still failing after {args.max_attempts} attempts")
                 break
@@ -6326,7 +7407,7 @@ def cmd_verify(args):
                 print("  Could not identify failing file(s) from build output")
                 build_results["failed"].append({
                     "lang": lang_key,
-                    "error": output[-3000:],
+                    "error": _jekyll_output_tail(output),
                 })
                 break
 
@@ -6337,7 +7418,10 @@ def cmd_verify(args):
                 print(f"  Fixing {efile}...")
                 try:
                     content = epath.read_text()
-                    fixed = fix_file(client, prompt, content, output[-3000:], lang_info["name"])
+                    fixed = fix_file(
+                        client, prompt, content, _jekyll_output_tail(output),
+                        lang_info["name"],
+                    )
                     epath.write_text(fixed)
                 except Exception as exc:
                     print(f"  Fix attempt failed: {exc}")
@@ -6614,6 +7698,33 @@ def cmd_summary(_args):
     print(body)
 
 
+def cmd_repair_ja_product_terms(args: argparse.Namespace) -> None:
+    """Batch-apply ``repair_japanese_english_product_terms`` under ``_lang/ja/``."""
+    ja_root = REPO_ROOT / "_lang" / "ja"
+    if not ja_root.is_dir():
+        print("No _lang/ja/ directory found.", file=sys.stderr)
+        sys.exit(1)
+
+    changed = 0
+    for path in sorted(ja_root.rglob("*.md")):
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        original = path.read_text()
+        updated, repairs = repair_japanese_english_product_terms(
+            rel, original, "ja"
+        )
+        if not repairs:
+            continue
+        changed += 1
+        if args.dry_run:
+            print(f"would repair: {rel}")
+        else:
+            path.write_text(updated)
+            print(f"repaired: {rel}")
+
+    label = "Would repair" if args.dry_run else "Repaired"
+    print(f"{label} {changed} file(s) under _lang/ja/")
+
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -6687,6 +7798,39 @@ def main():
 
     sp = sub.add_parser("summary", help="Generate a PR body from translation results")
     sp.set_defaults(func=cmd_summary)
+
+    st = sub.add_parser(
+        "stale-english-sources",
+        help=(
+            "Print English doc paths that need translation (missing or older "
+            "locale mirror vs English in git)"
+        ),
+    )
+    st.add_argument(
+        "--max-history-commits",
+        type=int,
+        default=12000,
+        metavar="N",
+        help=(
+            "First-parent commits to scan for path→time map (default: 12000); "
+            "paths not touched there use per-path git log"
+        ),
+    )
+    st.set_defaults(func=cmd_stale_english_sources)
+
+    rj = sub.add_parser(
+        "repair-ja-product-terms",
+        help=(
+            "Replace English Campaign/Canvas/Segment tokens in _lang/ja/ "
+            "with glossary Japanese forms (one-off corpus repair)"
+        ),
+    )
+    rj.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print files that would change without writing",
+    )
+    rj.set_defaults(func=cmd_repair_ja_product_terms)
 
     args = parser.parse_args()
     args.func(args)

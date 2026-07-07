@@ -99,18 +99,18 @@ Los administradores también pueden crear atributos personalizados y marcarlos c
 
 ### Añadir descripciones {#adding-descriptions}
 
-Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
+Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
 
 ### Añadir etiquetas {#adding-tags}
 
-Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". Luego puedes usar las etiquetas para filtrar la lista de atributos.
+Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) "Manage Events, Attributes, Purchases". Luego puedes usar las etiquetas para filtrar la lista de atributos.
 
 ### Eliminar atributos personalizados {#removing-custom-attributes}
 
 Hay dos formas de eliminar atributos personalizados de los perfiles de usuario:
 
-* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
+* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
 
 #### Establecer el valor `null` {#setting-the-null-value}
 
@@ -145,21 +145,21 @@ A continuación se enumeran los métodos en varias plataformas que se utilizan p
 
 {% details Expandir para ver la documentación por plataforma %}
 
-- [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
+- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## Almacenamiento de atributos personalizados {#custom-attribute-storage}
 
-Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users).
 
-## Tipos de datos de atributos personalizados {#custom-attribute-data-types}
+## Tipos de datos de atributos personalizados
 
 Los atributos personalizados son herramientas extraordinariamente flexibles que permiten una gran capacidad de segmentación.
 
@@ -170,8 +170,8 @@ Los siguientes tipos de datos pueden almacenarse como atributos personalizados:
 - [Cadenas](#strings)
 - [Matrices](#arrays)
 - [Hora](#time)
-- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Matrices de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [Matrices de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Booleanos (verdadero/falso) {#booleans}
 
@@ -184,13 +184,13 @@ Para los atributos **booleanos**, están disponibles las siguientes opciones de 
 | Comprobar si el valor booleano **es** verdadero, falso, verdadero o no establecido, o falso o no establecido | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** o **FALSE OR NOT SET** | Si este filtro especifica `coffee_drinker`, un usuario coincidirá con este filtro en las siguientes circunstancias: <br> {::nomarkdown}<ul><li>Si este filtro es <code>true</code> y el usuario tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>false</code> y el usuario no tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>true or not set</code> y el usuario tiene el valor <code>coffee_drinker</code> o ningún valor</li><li>Si este filtro es <code>false or not set</code> y el usuario no tiene <code>coffee_drinker</code> o ningún valor</li></ul>{:/} |
 | Comprobar si el valor booleano **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario tiene un valor para el atributo `coffee_drinker`, el usuario coincidirá con este filtro. |
 | Comprobar si el valor booleano **no existe** en el perfil de un usuario o es nulo | **IS BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario no tiene el atributo `coffee_drinker` o el valor de `coffee_drinker` es nulo, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab Números %}
 
 {% alert tip %}
-El dinero gastado no debe registrarse con este método. Más bien, debe registrarse a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+El dinero gastado no debe registrarse con este método. Más bien, debe registrarse a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 {% endalert %}
 
 Para los atributos **numéricos**, están disponibles las siguientes opciones de segmentación.
@@ -203,7 +203,7 @@ Para los atributos **numéricos**, están disponibles las siguientes opciones de
 | Comprobar si el atributo numérico **es menor que** un **número**| **LESS THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor menor que `10`, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo numérico **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si un perfil de usuario contiene el atributo numérico especificado, independientemente del valor, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo numérico **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si un perfil de usuario no contiene el atributo numérico especificado o el valor del atributo es nulo, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### Detalles de atributos numéricos {#number-attribute-details}
 
@@ -227,7 +227,7 @@ Para los atributos de **cadena**, están disponibles las siguientes opciones de 
 | Comprobar si el atributo de cadena **no coincide exactamente con ninguna** de las cadenas introducidas | **IS NONE OF** |**STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario no contiene ninguna de esas cadenas, el usuario coincidirá con el filtro.|
 | Comprobar si el atributo de cadena **coincide parcialmente con alguna** de las cadenas introducidas | **CONTAINS ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `gold` y un perfil de usuario contiene `gold` en cualquier cadena, como `gold_tier` o `former_gold_tier`, el usuario coincidirá con el filtro. |
 | Comprobar si el atributo de cadena **no coincide parcialmente con ninguna** de las cadenas introducidas | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `gold` y un perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -240,7 +240,7 @@ Al segmentar usando el filtro **DOES NOT MATCH REGEX**, ya debes tener un atribu
 
 Las matrices tienen un tamaño máximo de 100&nbsp;KB. La longitud predeterminada de un atributo es de hasta 500 elementos (por ejemplo, si envías un atributo como "Películas vistas" configurado en 500, cuando un usuario vea una película número 501, la primera película se elimina y se añade la más reciente). Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también comprobará esos mismos espacios.
 
-Los atributos personalizados de tipo matriz no se pueden importar mediante [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/). Para cargar valores de matriz, usa el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
+Los atributos personalizados de tipo matriz no se pueden importar mediante [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para cargar valores de matriz, usa el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 La opción de aumentar la longitud máxima no estará disponible si el atributo está configurado para detectar automáticamente el tipo de datos; el tipo de datos debe establecerse como matriz.
@@ -261,12 +261,12 @@ Para los atributos de **matriz**, están disponibles las siguientes opciones de 
 | Comprobar si el atributo de matriz **no incluye un valor que coincida parcialmente con ninguno** de los valores introducidos | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `gold` y una matriz del perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro. Esto significa que los usuarios con valores de cadena como `gold_tier` y `former_gold_tier` no coincidirán con este filtro.|
 | Comprobar si el atributo de matriz **incluye todos** los valores introducidos | **IS ALL OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene todos esos valores, el usuario coincidirá con este filtro. El usuario también puede tener `horror` u otros valores y coincidir con este filtro.|
 | Comprobar si el atributo de matriz **no incluye todos** los valores introducidos | **ISN'T ALL OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256)|  Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene todos esos valores, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 Para más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
 - [Expresiones regulares compatibles con Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex con Braze]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Regex con Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Depurador y probador de regex](https://www.regex101.com/)
 - [Tutorial de regex](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -276,7 +276,7 @@ Para más información sobre cómo usar expresiones regulares (regex), consulta 
 
 Los atributos de hora son útiles para almacenar la última vez que se realizó una acción específica, de modo que puedas ofrecer mensajería de reactivación de la interacción con contenido específico a tus usuarios.
 
-Los filtros de hora que usan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier Campaign que ejecutes usando estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la Campaign. Lo mismo se aplica a Campaigns configuradas con rangos de fechas más largos, por lo que cinco días desde la activación significarán las 120 horas anteriores.
+Los filtros de hora que usan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier campaña que ejecutes usando estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la campaña. Lo mismo se aplica a campañas configuradas con rangos de fechas más largos, por lo que cinco días desde la activación significarán las 120 horas anteriores.
 
 Para segmentar usuarios que tienen un atributo de hora dentro de un rango de tiempo, usa dos filtros de audiencia: `in more than` para el límite inferior e `in less than` para el límite superior. Un solo filtro no puede expresar ambos lados de ese rango. Por ejemplo, para segmentar usuarios con un atributo de hora en las próximas 24 horas (entre ahora y un día a partir de ahora), aplica `in more than 0 days` e `in less than 1 day`.
 
@@ -296,7 +296,7 @@ Para los atributos de **hora**, están disponibles las siguientes opciones de se
 | Comprobar si el atributo de hora es **en menos de X número** de **días en el futuro** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de menos de siete días en el futuro, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de hora **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si este filtro especifica un atributo de hora que está en un perfil de usuario, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de hora **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si este filtro especifica un atributo de hora que no está en un perfil de usuario, el usuario coincidirá con este filtro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### Detalles de atributos de hora {#time-attribute-details}
 
@@ -309,12 +309,12 @@ Para los atributos de **hora**, están disponibles las siguientes opciones de se
 {% endtab %}
 {% tab Objetos %}
 
-Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Matrices de objetos %}
 
-Usa una matriz de objetos para agrupar atributos relacionados. Para más detalles, consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Usa una matriz de objetos para agrupar atributos relacionados. Para más detalles, consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 
 {% endtab %}
 {% endtabs %}
@@ -331,7 +331,7 @@ Hemos consolidado la lista de operadores disponibles para usar en filtros de atr
 | Cadena | does not equal | is none of | Al menos 1 valor |
 | Matriz | includes value | includes any of | Al menos 1 valor |
 | Matriz | doesn't include value | includes none of | Al menos 1 valor |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## Tipos de datos de propiedades del evento {#event-property-data-types}
 
@@ -345,19 +345,19 @@ Reglas específicas de las propiedades del evento:
 
 - **Hora (Datetime):** Usa el formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) o `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. No es compatible dentro de matrices.
 - **Matriz:** Las fechas y horas no son compatibles dentro de matrices.
-- **Objeto anidado:** Consulta [Objetos anidados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+- **Objeto anidado:** Consulta [Objetos anidados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 - **Carga útil:** Los objetos de propiedades del evento que contienen valores de matriz u objeto pueden tener hasta 102.400 bytes (100&nbsp;KiB).
 
 Puedes cambiar el tipo de datos de tu propiedad de evento personalizado, pero ten en cuenta los impactos de [cambiar los tipos de datos](#changing-custom-attribute-or-event-data-type) después de que se hayan recopilado datos.
 
-Para conocer el comportamiento completo de las propiedades del evento, las claves reservadas y el uso en desencadenantes y personalización, consulta [Propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Para conocer el comportamiento completo de las propiedades del evento, las claves reservadas y el uso en desencadenantes y personalización, consulta [Propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ## Eventos de compra e ingresos {#purchase-events-and-revenue}
 
-Los datos de compras e ingresos se registran a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/) o eventos recomendados de comercio electrónico.
+Los datos de compras e ingresos se registran a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) o eventos recomendados de comercio electrónico.
 
 {% alert note %}
-Los eventos recomendados tienen esquemas predefinidos con tipos de datos establecidos. Para más detalles, consulta [Eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Los eventos recomendados tienen esquemas predefinidos con tipos de datos establecidos. Para más detalles, consulta [Eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
 Registrar eventos de compra establece el valor de duración del ciclo de vida (LTV) para cada perfil de usuario, y estos datos se pueden ver en la página de ingresos en series temporales. Puedes segmentar por dinero gastado, fecha de última compra, número de compras en un período de tiempo y más.
@@ -368,7 +368,7 @@ Los valores de las propiedades de eventos de compra (el objeto `properties` en u
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-Para el esquema completo del objeto de compra y ejemplos, consulta [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/). Para registrar eventos de compra, filtros de segmentación y detalles completos, consulta [Eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Para el esquema completo del objeto de compra y ejemplos, consulta [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object). Para registrar eventos de compra, filtros de segmentación y detalles completos, consulta [Eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 
 ## Cambiar el tipo de datos de un atributo personalizado o evento {#changing-custom-attribute-or-event-data-type}
 
@@ -381,8 +381,8 @@ Para cambiar el tipo de datos de un atributo personalizado o evento:
 
 Si cambias el tipo de datos de un atributo personalizado o evento (por ejemplo, cambiar `time` a `string`), ten en cuenta lo siguiente:
 
-- **Los filtros no se actualizan automáticamente.** Los Segments, Campaigns, Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier Campaign o Canvas que use el atributo en Segments o filtros, y elimina el atributo de los filtros que lo referencian.
-- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de Segments que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) para que coincidan con el nuevo tipo y vuelvan a entrar en el Segment si es necesario.
+- **Los filtros no se actualizan automáticamente.** Los Segments, Campaigns, Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier campaña o Canvas que use el atributo en Segments o filtros, y elimina el atributo de los filtros que lo referencian.
+- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de Segments que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que coincidan con el nuevo tipo y vuelvan a entrar en el Segment si es necesario.
 - **Los nuevos datos deben coincidir con el nuevo tipo.** Las llamadas a la API que envíen el tipo de datos anterior para el atributo modificado no se aceptan. Envía el nuevo tipo de datos.
 
 {% alert important %}
@@ -401,7 +401,7 @@ Los catálogos admiten los tipos enumerados en la tabla de [Definiciones](#defin
 | Hora | Fecha y hora en formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) o marca de tiempo Unix en segundos. | ✅ Sí | ✅ Sí |
 | Objeto JSON (Objeto) | Objeto anidado con pares clave-valor. Se muestra en la plataforma pero solo se puede crear o actualizar a través de la API o CDI. | ❌ No | ✅ Sí |
 | Matriz de cadenas (Matriz) | Una lista de cadenas. Se muestra en la plataforma pero solo se puede crear o actualizar a través de la API o CDI. Máximo de 100 elementos. | ❌ No | ✅ Sí |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de datos de catálogos" }
 
 ### Formato y ejemplos {#format-and-examples}
 
@@ -413,6 +413,6 @@ Los catálogos admiten los tipos enumerados en la tabla de [Definiciones](#defin
 | Número | Entero o decimal | <code>42</code> o <code>19.99</code> |
 | Objeto | Objeto JSON | <code>{"key": "value", "price": 10}</code> |
 | Matriz | Matriz de cadenas | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Formato y ejemplos" }
 
-Para crear y actualizar catálogos, consulta [Crear un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).
+Para crear y actualizar catálogos, consulta [Crear un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create).

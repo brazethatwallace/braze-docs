@@ -34,11 +34,11 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 Pour suivre en continu l'emplacement/localisation d'un utilisateur, vous devez déclarer l'intention de votre application de collecter des données d'emplacement/localisation en ajoutant au moins l'une des autorisations suivantes à votre fichier `AndroidManifest.xml`.
 
-|Autorisation|Description|
+| Autorisation | Description |
 |---|---|
 | `ACCESS_COARSE_LOCATION` | Utilise le fournisseur non GPS le plus économe en batterie (comme le réseau domestique). En général, cela suffit pour la plupart des besoins en données d'emplacement/localisation. Avec le modèle d'autorisations d'exécution, accorder l'autorisation d'emplacement/localisation autorise implicitement la collecte de données d'emplacement/localisation précises. |
 | `ACCESS_FINE_LOCATION`   | Inclut les données GPS pour un emplacement/localisation plus précis. Avec le modèle d'autorisations d'exécution, accorder l'autorisation d'emplacement/localisation couvre également l'accès à l'emplacement/localisation précis. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi continu de l'emplacement/localisation" }
 
 Votre fichier `AndroidManifest.xml` devrait ressembler à ceci :
 

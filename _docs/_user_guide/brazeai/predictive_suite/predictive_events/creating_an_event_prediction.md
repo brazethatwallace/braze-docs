@@ -8,7 +8,7 @@ description: "This article covers how to create an event prediction within the B
 
 # Create an event prediction
 
-> A prediction is one instance of a trained machine learning model and all the parameters and data it uses. To learn more about Predictive Events, refer to the [Predictive Events overview]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/).
+> A prediction is one instance of a trained machine learning model and all the parameters and data it uses. To learn more about Predictive Events, refer to the [Predictive Events overview]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events).
 
 In Braze, go to **Analytics** > **Predictive Events**.
 
@@ -25,18 +25,18 @@ There is a limit of five concurrently active predictions. Before purchasing Pred
 {: start="2"}
 2. Give your prediction a unique name. You can also provide a description to save any relevant notes.
 
-![]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
+![Screenshot related to step 1: create a new prediction.]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
 
 {: start="3"}
 3. Click **Forward** to move to the next step. <br><br>Optionally, you can click **Build Now** to use all the default settings and skip to the last step of creation. You will have a chance to review the settings before starting the build process. Also, you can return to any step later by clicking it in the top bar.
 
 ## Step 2: Specify event tracking {#event-tracking}
 
-Specify if your users' events are stored in Braze as [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/) or [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
+Specify if your users' events are stored in Braze as [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), or the [order placed event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed).
 
 Here, you'll see if the selected method provides enough data for Braze to create a machine learning model. If the requirement is not met, try and select the other logging method if it is also used by your application. Unfortunately, if it is not, Braze is unable to create a prediction with the quantity of data available. If you believe you're incorrectly seeing this error, get in touch with your customer success manager.
 
-#### Event window
+### Event window
 
 The event window is the time frame in which you want to predict if a user will perform the event. It can be set up to 60 days. This window is used to query historical data for training the prediction. Additionally, after the prediction is created and users receive scores, the likelihood score indicates how likely a user is to perform the event within the number of days specified by the event window.
 
@@ -56,7 +56,7 @@ The prediction audience defines the group of users the machine learning model lo
 The prediction audience cannot exceed 100 million users.
 {% endalert %}
 
-When the Event Window is 14 days or less, the time window for filters that begin with "Last..." like "Last Used App" and "Last Made Purchase" **cannot exceed the Event Window specified in [event tracking](#event-tracking)**. For example, if the Event Window is set to 14 days, the time window for the "Last..." filters cannot exceed 14 days.
+When the Event Window is 14 days or less, the time window for filters that begin with "Last..." like "Last Used App" and "Last placed an order" **cannot exceed the Event Window specified in [event tracking](#event-tracking)**. For example, if the Event Window is set to 14 days, the time window for the "Last..." filters cannot exceed 14 days.
 
 #### Full Filter Mode
 
@@ -68,7 +68,7 @@ For example, if the event window is set to 14 days, it will take 14 days to coll
 
 The machine learning model will generate event likelihood scores for users, and those scores will be updated based on the schedule you select here. You'll be able to target users based on their event likelihood score. 
 
-Select the **maximum frequency of updates** that you'll find useful. For example, if you're predicting purchases and planning to send a weekly promotion, set the update frequency to **Weekly** on the day and time of your choosing.
+Select the **maximum frequency of updates** that you'll find useful. For example, if you're predicting orders and planning to send a weekly promotion, set the update frequency to **Weekly** on the day and time of your choosing.
 
 {% alert note %}
 Preview and demo prediction will never update users' likelihood scores.
@@ -78,7 +78,7 @@ Preview and demo prediction will never update users' likelihood scores.
 
 Verify that the details you've provided are correct, and choose **Build Prediction**. You can also save your changes in draft form by selecting **Save As Draft** to return to this page and build the model later. 
 
-After you click **Build Prediction**, the process that generates the model will begin. This could take between 30 minutes to a few hours, depending on data volumes. For this prediction, you will see a page explaining that training is in progress for the duration of the model building process. The Braze model takes into account custom events, purchase events, campaign interaction events, and session data.
+After you click **Build Prediction**, the process that generates the model will begin. This could take between 30 minutes to a few hours, depending on data volumes. For this prediction, you will see a page explaining that training is in progress for the duration of the model building process. The Braze model takes into account custom events, purchase events, eCommerce events, campaign interaction events, and session data.
 
 When completed, the page will switch to the analytics view automatically, and you will receive an email informing you that the prediction and results are ready. In the event of an error, the page will return to the editing mode with an explanation of what went wrong.
 

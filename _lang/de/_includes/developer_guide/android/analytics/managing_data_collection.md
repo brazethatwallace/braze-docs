@@ -1,28 +1,29 @@
 ## Fragebogen zum Datenschutz bei Google Play {#privacy-questionnaire}
 
-Ab April 2022 müssen Android-Entwickler:in das Google [Play-Formular für Datensicherheit](https://support.google.com/googleplay/android-developer/answer/10787469) eintragen, um Datenschutz und Sicherheitspraktiken offenzulegen. In diesem Leitfaden finden Sie Anweisungen zum Ausfüllen dieses neuen Formulars sowie Informationen darüber, wie Braze Ihre App-Daten verarbeitet. 
+Ab April 2022 müssen Android-Entwickler:innen das Google-Play-Formular für [Datensicherheit](https://support.google.com/googleplay/android-developer/answer/10787469) ausfüllen, um Datenschutz- und Sicherheitspraktiken offenzulegen. In diesem Leitfaden finden Sie Anweisungen zum Ausfüllen dieses neuen Formulars sowie Informationen darüber, wie Braze Ihre App-Daten verarbeitet.
 
-Als App-Entwickler haben Sie die Kontrolle darüber, welche Daten Sie an Braze senden. Die von Braze erhaltenen Daten werden gemäß Ihren Anweisungen verarbeitet. Das ist es, was Google als [Dienstanbieter](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cwhat-kinds-of-activities-can-service-providers-perform) klassifiziert. 
+Als App-Entwickler:in haben Sie die Kontrolle darüber, welche Daten Sie an Braze senden. Die von Braze empfangenen Daten werden gemäß Ihren Anweisungen verarbeitet. Das ist es, was Google als [Dienstanbieter](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cwhat-kinds-of-activities-can-service-providers-perform) klassifiziert.
 
 {% alert important %}
-Dieser Artikel enthält Informationen zu den Daten, die das Braze SDK im Zusammenhang mit dem Fragebogen im Abschnitt zur Datensicherheit von Google Play verarbeitet. Dieser Artikel stellt keine Rechtsberatung dar. Wir empfehlen Ihnen daher, sich mit Ihrer Rechtsabteilung zu beraten, bevor Sie Informationen an Google übermitteln.
+Dieser Artikel enthält Informationen zu den Daten, die das Braze SDK im Zusammenhang mit dem Fragebogen im Abschnitt zur Datensicherheit von Google verarbeitet. Dieser Artikel stellt keine Rechtsberatung dar. Wir empfehlen Ihnen daher, sich mit Ihrer Rechtsabteilung zu beraten, bevor Sie Informationen an Google übermitteln.
 {% endalert %}
 
-### Fragen
+### Fragen {#questions}
 
-|Fragen|Antworten für Braze SDK|
+| Fragen | Antworten für Braze SDK |
 |---|---|
-|Werden die erforderlichen Nutzerdatentypen von Ihrer App erfasst oder geteilt?|Ja, das Braze Android SDK erfasst Daten entsprechend der vom App-Entwickler vorgenommenen Konfiguration. |
-|Sind alle von Ihrer App gesammelten Benutzerdaten während der Übertragung verschlüsselt?|Ja|
-|Können Nutzer eine Anfrage zur Löschung ihrer Daten stellen?|Ja|
+| Werden die erforderlichen Nutzerdatentypen von Ihrer App erfasst oder geteilt? | Ja, das Braze Android SDK erfasst Daten entsprechend der von der/dem App-Entwickler:in vorgenommenen Konfiguration. |
+| Sind alle von Ihrer App gesammelten Nutzerdaten während der Übertragung verschlüsselt? | Ja. |
+| Können Nutzer:innen eine Anfrage zur Löschung ihrer Daten stellen? | Ja. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Questions" }
 
-Weitere Informationen über den Umgang mit Benutzeranfragen zu ihren Daten und deren Löschung finden Sie unter [Braze Data Retention Information]({{site.baseurl}}/api/data_retention/).
+Weitere Informationen über den Umgang mit Nutzeranfragen zu ihren Daten und deren Löschung finden Sie unter [Braze Data Retention Information]({{site.baseurl}}/api/data_retention/).
 
-### Datenerfassung
+### Datenerfassung {#data-collection}
 
 Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzerdaten abhängig, die Sie sammeln möchten. Weitere Informationen darüber, welche Daten standardmäßig von Braze erfasst werden und wie Sie bestimmte Attribute deaktivieren können, finden Sie unter [Optionen für die SDK-Datenerfassung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
 
-<table id="datatypes">
+<table aria-label="Data collection" id="datatypes">
     <thead>
         <tr>
             <th width="25%">Kategorie</th>
@@ -34,7 +35,7 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
         <tr>
             <td rowspan="2">Standort</td>
             <td>Ungefährer Standort</td>
-            <td rowspan="15">Wird standardmäßig nicht erhoben.</td>
+            <td rowspan="15">Wird standardmäßig nicht erfasst.</td>
         </tr>
         <tr>
             <td>Genauer Standort</td>
@@ -47,7 +48,7 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
             <td>E-Mail-Adresse</td>
         </tr>
         <tr>
-            <td>Benutzer-IDs</td>
+            <td>Nutzer-IDs</td>
         </tr>
         <tr>
             <td>Adresse</td>
@@ -69,7 +70,7 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
         </tr>
         <tr>
             <td rowspan="4">Finanzielle Informationen</td>
-            <td>Zahlungsinformationen von Nutzern</td>
+            <td>Zahlungsinformationen von Nutzer:innen</td>
         </tr>
         <tr>
             <td>Kaufhistorie</td>
@@ -78,32 +79,32 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
             <td>Kreditwürdigkeit</td>
         </tr>
         <tr>
-            <td>Andere Finanzinformationen</td>      
+            <td>Andere Finanzinformationen</td>
         </tr>
         <tr>
             <td rowspan="2">Gesundheit und Fitness</td>
             <td>Informationen zur Gesundheit</td>
-            <td rowspan="2">Wird standardmäßig nicht erhoben.</td>
+            <td rowspan="2">Wird standardmäßig nicht erfasst.</td>
         </tr>
         <tr>
-            <td>Informationen zur Fitness</td>     
+            <td>Informationen zur Fitness</td>
         </tr>
         <tr>
             <td rowspan="3">Nachrichten</td>
             <td>E-Mails</td>
-            <td rowspan="2">Wird standardmäßig nicht erhoben.</td>
+            <td rowspan="2">Wird standardmäßig nicht erfasst.</td>
         </tr>
         <tr>
-            <td>SMS oder MMS</td>          
+            <td>SMS oder MMS</td>
         </tr>
         <tr>
             <td>Andere In-App-Nachrichten</td>
-            <td>Wenn Sie In-App-Nachrichten oder Push-Benachrichtigungen über Braze senden, sammeln wir Informationen darüber, wann Benutzer diese Nachrichten geöffnet oder gelesen haben.</td>
+            <td>Wenn Sie In-App-Nachrichten oder Push-Benachrichtigungen über Braze senden, erfassen wir Informationen darüber, wann Nutzer:innen diese Nachrichten geöffnet oder gelesen haben.</td>
         </tr>
         <tr>
             <td rowspan="2">Fotos und Videos</td>
             <td>Fotos</td>
-            <td rowspan="8">Nicht gesammelt.</td>
+            <td rowspan="8">Nicht erfasst.</td>
         </tr>
         <tr>
             <td>Videos</td>
@@ -111,12 +112,12 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
         <tr>
             <td rowspan="3">Audio-Dateien</td>
             <td>Sprach- oder Tonaufnahmen</td>
-        </tr>        
+        </tr>
         <tr>
             <td>Musikdateien</td>
         </tr>
         <tr>
-            <td>Andere Audiodateien</td>
+            <td>Andere Audio-Dateien</td>
         </tr>
         <tr>
             <td>Dateien und Dokumente</td>
@@ -124,7 +125,7 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
         </tr>
         <tr>
             <td>Kalender</td>
-            <td>Kalender-Events</td>
+            <td>Kalender-Ereignisse</td>
         </tr>
         <tr>
             <td>Kontakte</td>
@@ -137,15 +138,15 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
         </tr>
         <tr>
             <td>In-App-Suchverlauf</td>
-            <td>Nicht gesammelt.</td>            
+            <td>Nicht erfasst.</td>
         </tr>
         <tr>
             <td>Installierte Apps</td>
-            <td>Nicht gesammelt.</td>            
+            <td>Nicht erfasst.</td>
         </tr>
         <tr>
-            <td>Sonstige von Nutzern generierte Inhalte</td>
-            <td rowspan="2">Wird standardmäßig nicht erhoben.</td>            
+            <td>Sonstige von Nutzer:innen generierte Inhalte</td>
+            <td rowspan="2">Wird standardmäßig nicht erfasst.</td>
         </tr>
         <tr>
             <td>Andere Aktionen</td>
@@ -153,39 +154,39 @@ Die von Braze erfassten Daten sind von der jeweiligen Integration und den Nutzer
         <tr>
             <td>Besuchte Internetseiten</td>
             <td>Internetverlauf</td>
-            <td>Nicht gesammelt.</td>
+            <td>Nicht erfasst.</td>
         </tr>
         <tr>
-            <td rowspan="3">Informationen und Leistung der App</td>
+            <td rowspan="3">Informationen und Performance der App</td>
             <td>Absturzprotokolle</td>
-            <td>Braze erfasst Absturzprotokolle für Fehler, die innerhalb des SDK auftreten. Diese enthalten Angaben zum Smartphone-Modell und Betriebssystem des Nutzers sowie eine Braze-spezifische Nutzer-ID.</td>
+            <td>Braze erfasst Absturzprotokolle für Fehler, die innerhalb des SDK auftreten. Diese enthalten Angaben zum Smartphone-Modell und Betriebssystem der Nutzer:innen sowie eine Braze-spezifische Nutzer-ID.</td>
         </tr>
         <tr>
             <td>Diagnostik</td>
-            <td>Nicht gesammelt.</td>            
+            <td>Nicht erfasst.</td>
         </tr>
         <tr>
-            <td>Andere Leistungsdaten der App</td>
-            <td>Nicht gesammelt.</td>
+            <td>Andere Performance-Daten der App</td>
+            <td>Nicht erfasst.</td>
         </tr>
         <tr>
             <td>Gerät oder andere IDs</td>
             <td>Gerät oder andere IDs</td>
-            <td>Braze generiert eine Geräte-ID, um die Geräte der Benutzer zu unterscheiden, und überprüft, ob die Nachrichten an das richtige Gerät gesendet werden.</td>
+            <td>Braze generiert eine Geräte-ID, um die Geräte der Nutzer:innen zu unterscheiden, und überprüft, ob die Nachrichten an das richtige vorgesehene Gerät gesendet werden.</td>
         </tr>
     </tbody>
 </table>
 
-Wenn Sie mehr über andere Gerätedaten erfahren möchten, die Braze sammelt und die möglicherweise nicht in den Geltungsbereich der Google Play-Datenschutzrichtlinien fallen, lesen Sie unsere [Übersicht über Android-Speicher]({{site.baseurl}}/developer_guide/storage/?tab=android) und unsere [SDK-Datenerfassungsoptionen]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
+Wenn Sie mehr über andere Gerätedaten erfahren möchten, die Braze erfasst und die möglicherweise nicht in den Geltungsbereich der Google-Play-Datensicherheitsrichtlinien fallen, lesen Sie unsere [Übersicht über Android-Speicher]({{site.baseurl}}/developer_guide/storage/?tab=android) und unsere [Optionen für die SDK-Datenerfassung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
 
-## Deaktivieren des Trackings von Daten
+## Deaktivieren des Trackings von Daten {#disabling-data-tracking}
 
-Um das Tracking von Daten auf dem Android SDK zu deaktivieren, verwenden Sie die Methode [`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html). Dies führt dazu, dass alle Netzwerkverbindungen abgebrochen werden, d.h. das Braze SDK gibt keine Daten mehr an Braze Server weiter.
+Um das Tracking von Daten auf dem Android SDK zu deaktivieren, verwenden Sie die Methode [`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html). Dies führt dazu, dass alle Netzwerkverbindungen abgebrochen werden, d. h. das Braze SDK gibt keine Daten mehr an Braze-Server weiter.
 
-## Löschen von zuvor gespeicherten Daten
+## Löschen von zuvor gespeicherten Daten {#wiping-previously-stored-data}
 
-Sie können die Methode [`wipeData()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/wipe-data.html) verwenden, um alle auf dem Gerät gespeicherten client-seitigen Daten vollständig zu löschen.
+Sie können die Methode [`wipeData()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/wipe-data.html) verwenden, um alle auf dem Gerät gespeicherten clientseitigen Daten vollständig zu löschen.
 
-## Wiederaufnahme des Trackings von Daten
+## Wiederaufnahme des Trackings von Daten {#resuming-data-tracking}
 
-Um die Datenerfassung wieder aufzunehmen, können Sie die [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) Methode nutzen. Denken Sie daran, dass dadurch keine zuvor gelöschten Daten wiederhergestellt werden können.
+Um die Datenerfassung wieder aufzunehmen, können Sie die Methode [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) nutzen. Beachten Sie, dass dadurch keine zuvor gelöschten Daten wiederhergestellt werden.

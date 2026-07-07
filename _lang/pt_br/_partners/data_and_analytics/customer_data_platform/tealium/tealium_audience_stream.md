@@ -68,7 +68,7 @@ Os emblemas são atributos especiais do visitante que representam padrões de co
 #### Exemplo de atributo e emblema {#attribute-and-badge-example}
 
 {% tabs local %}
-{% tab Attribute %}
+{% tab Atributo %}
 
 Crie um atributo de visitante "Valor dos pedidos no tempo de vida" que calcule o valor cumulativo gasto (`order_total`) pelo cliente para todos os pedidos concluídos (evento de compra). Para configurar o valor dos pedidos no tempo de vida na sua conta Tealium, siga as instruções a seguir:
 
@@ -85,7 +85,7 @@ Crie um atributo de visitante "Valor dos pedidos no tempo de vida" que calcule o
 Agora todos os clientes terão um atributo de valor dos pedidos no tempo de vida vinculado a eles.
 
 {% endtab %}
-{% tab Badge %}
+{% tab Emblema %}
 
 Você pode criar emblemas que ajudem a classificar e direcionar seus usuários por determinados atributos que eles compartilham. No exemplo a seguir, criamos um emblema VIP para usuários com um "Valor dos pedidos no tempo de vida" superior a $500.
 
@@ -144,7 +144,7 @@ Nem todos os campos oferecidos são obrigatórios.
 {% endalert %}
 
 {% tabs local %}
-{% tab Track User - Batch and Non-Batch %}
+{% tab Rastrear usuário - Com e sem lote %}
 
 Essa ação permite rastrear atributos de usuário, evento e compra, tudo em uma única ação. Embora a ação Track User seja a mesma para AudienceStream e EventStream, a Tealium recomenda definir mapeamentos de atributos de usuário com ações do AudienceStream e mapeamentos de evento e compra com ações do EventStream.
 
@@ -156,15 +156,15 @@ Essa ação permite rastrear atributos de usuário, evento e compra, tudo em uma
 | Evento | Um evento representa uma única ocorrência de um evento personalizado por um usuário específico em um registro de data e hora. Use esse campo para rastrear e mapear atributos de eventos como os do [objeto de evento]({{site.baseurl}}/api/objects_filters/event_object/) da Braze. <br><br>- O atributo de evento `Name` é obrigatório para cada evento mapeado.<br>- O atributo de evento `Time` é automaticamente definido para a hora atual, a menos que seja explicitamente mapeado. <br>- Por padrão, novos eventos serão criados se não houver nenhum. Ao definir `Update Existing Only` como `true`, somente os eventos existentes serão atualizados, e nenhum novo evento será criado.<br>- Mapeie atributos do tipo array para adicionar vários eventos. Os atributos do tipo array devem ter o mesmo comprimento.<br>- Atributos de valor único podem ser usados e aplicados a cada evento. |
 | Modelo de evento | Forneça modelos de eventos a serem referenciados nos dados do corpo. Os modelos podem ser usados para transformar os dados antes de enviá-los à Braze. Consulte o [Guia de modelos](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) da Tealium para saber mais. |
 | Variável de modelo de evento | Forneça variáveis de modelo de evento como entrada de dados. Consulte o [Guia de variáveis de modelo](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) da Tealium para saber mais. |
-| Compra | Use esse campo para rastrear e mapear os atributos de compra do usuário, como os do [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) da Braze.<br><br>- Os atributos de compra `Product ID`, `Currency` e `Price` são obrigatórios para cada compra mapeada.<br>- O atributo de compra `Time` é automaticamente definido para a hora atual, a menos que seja explicitamente mapeado.<br>- Por padrão, novas compras serão criadas se não houver uma. Ao definir `Update Existing Only` como `true`, somente as compras existentes serão atualizadas, e nenhuma nova compra será criada.<br>- Mapeie atributos do tipo array para adicionar vários itens de compra. Os atributos do tipo array devem ter o mesmo comprimento.<br>- Os atributos de valor único podem ser usados e se aplicarão a cada item.|
-| Modelo de compra | Os modelos podem ser usados para transformar os dados antes de serem enviados à Braze.<br>- Defina um modelo de compra se você precisar de suporte a objetos aninhados.<br>- Quando um modelo de compra é definido, a configuração definida na seção de compras da sua ação será ignorada.<br>- Consulte o [Guia de modelos](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) da Tealium para saber mais.|
+| Compra | Use esse campo para rastrear e mapear os atributos de compra do usuário, como os do [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) da Braze.<br><br>- Os atributos de compra `Product ID`, `Currency` e `Price` são obrigatórios para cada compra mapeada.<br>- O atributo de compra `Time` é automaticamente definido para a hora atual, a menos que seja explicitamente mapeado.<br>- Por padrão, novas compras serão criadas se não houver uma. Ao definir `Update Existing Only` como `true`, somente as compras existentes serão atualizadas, e nenhuma nova compra será criada.<br>- Mapeie atributos do tipo array para adicionar vários itens de compra. Os atributos do tipo array devem ter o mesmo comprimento.<br>- Os atributos de valor único podem ser usados e se aplicarão a cada item. |
+| Modelo de compra | Os modelos podem ser usados para transformar os dados antes de serem enviados à Braze.<br>- Defina um modelo de compra se você precisar de suporte a objetos aninhados.<br>- Quando um modelo de compra é definido, a configuração definida na seção de compras da sua ação será ignorada.<br>- Consulte o [Guia de modelos](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) da Tealium para saber mais. |
 | Variável do modelo de compra | Forneça variáveis de modelo de produto como entrada de dados. Consulte o [Guia de variáveis de modelo](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) da Tealium para saber mais. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
 {% endtab %}
-{% tab Delete User - Non-Batch %}
+{% tab Excluir usuário - Sem lote %}
 
 Essa ação permite excluir usuários do dashboard da Braze.
 
@@ -176,7 +176,7 @@ Essa ação permite excluir usuários do dashboard da Braze.
 ![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
 {% endtab %}
-{% tab Update User Subscription Group Status - Non-Batch %}
+{% tab Atualizar status do grupo de inscrições do usuário - Sem lote %}
 Essa ação permite adicionar ou remover usuários dos grupos de inscrições para e-mail ou SMS da Braze.
 
 | Parâmetros | Descrição |
@@ -216,7 +216,7 @@ Consulte a [documentação do Trace](https://docs.tealium.com/server-side/connec
 ## Demonstração da integração {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Demonstração da integração Tealium AudienceStream" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Potenciais excedentes de pontos de dados {#potential-data-point-overages}

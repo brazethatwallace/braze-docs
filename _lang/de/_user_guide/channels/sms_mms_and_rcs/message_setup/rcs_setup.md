@@ -19,7 +19,7 @@ Die Einrichtung von RCS ist genauso unkompliziert wie die Einrichtung von SMS. L
 
 Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei Kriterien erfüllen:
 
-1. Ihr aktueller Braze-Vertrag muss Message Credits beinhalten.
+1. Ihr aktueller Braze-Vertrag muss Message oder Action Credits beinhalten.
 2. Sie müssen Ihre RCS-Nachrichten an eines der folgenden von Braze unterstützten Länder senden:
 - Vereinigte Staaten
 - Vereinigtes Königreich
@@ -32,7 +32,7 @@ Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei 
 - Frankreich
 - Italien
 - Kolumbien
-3. Sie müssen eine oder mehrere RCS-SKUs für 0 $ in Ihrem Vertrag erwerben.
+3. Sie müssen eine oder mehrere RCS-SKUs in Ihrem Vertrag erwerben.
 
 ## 2. Schritt: Einen RCS-verifizierten Sender registrieren {#step-2-register-an-rcs-verified-sender}
 
@@ -48,7 +48,25 @@ Wenn Sie Ihre ausgefüllten Formulare an Braze übermittelt haben, schließen wi
 
 Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und Software-Unterstützung der Nutzer:innen individuell unterschiedlich ist, ist SMS-Fallback eine Schlüsselkomponente für ein erfolgreiches RCS-Programm. Wir empfehlen, SMS-Fallback einzurichten. Wenn ein Carrier RCS nicht unterstützt oder das Gerät einer Nutzerin oder eines Nutzers keine RCS-Nachrichten empfangen kann, wird Ihre Nachricht durch SMS-Fallback trotzdem zugestellt, sodass Sie keinen wichtigen Moment mit Ihren Nutzer:innen verpassen.
 
-Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Campaign bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
+Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Kampagne bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
+
+#### Wie SMS-Fallback mit Ereignissen und Segmentierung funktioniert {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab Ereignisverhalten %}
+
+Wenn Sie SMS-Fallback mit RCS verwenden, hängt das Ereignisverhalten davon ab, ob die Nachricht erfolgreich über RCS gesendet wird oder auf SMS zurückfällt:
+
+- **Wenn der RCS-Versand erfolgreich ist:** Sie erhalten ein RCS-Sendeereignis und ein RCS-Zustellungsereignis.
+- **Wenn der RCS-Versand auf SMS zurückfällt:** Sie erhalten ein RCS-Sendeereignis, ein RCS-Ablehnungsereignis und ein SMS-Zustellungsereignis. Das SMS-Zustellungsereignis hat `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Segmentierungsverhalten %}
+
+Für SMS und RCS werden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) ausgewertet, wenn eine Nachricht gesendet wird, nicht wenn sie das Gerät der Nutzerin oder des Nutzers erreicht. Bei aktiviertem SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf SMS zurückfällt, oder wenn die Fallback-SMS nicht auf dem Gerät der Nutzerin oder des Nutzers zugestellt wird.
+
+{% endtab %}
+{% endtabs %}
 
 ### Zeitrahmen für die Carrier-Genehmigung {#timeline-for-carrier-approval}
 
@@ -58,7 +76,7 @@ Wenn Ihr RCS-verifizierter Sender genehmigt wurde, aktualisiert unser Operations
 
 ## 3. Schritt: Abo-Gruppen einrichten {#step-3-set-up-subscription-groups}
 
-Abhängig von Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue einrichten. Detaillierte Einrichtungsanweisungen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Abhängig von Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue einrichten. Detaillierte Einrichtungsanweisungen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## SMS-Traffic zu RCS migrieren {#migrating-sms-traffic-to-rcs}
 
@@ -77,8 +95,8 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 | Methode | Beschreibung |
 |---------|-------------|
 | **Ein Segment erstellen** | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segmente werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln. |
-| **Campaign- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Campaign oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Kampagnen- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Kampagne oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Ihre Zielgruppe definieren" }
 
 ### 3. Schritt: Einen Nutzeraktualisierungs-Schritt konfigurieren {#step-3-configure-a-user-update-step}
 
@@ -107,7 +125,7 @@ Fügen Sie Ihrem Canvas einen Nutzeraktualisierungs-Schritt hinzu. Öffnen Sie i
 
 ### 4. Schritt: Den Canvas testen {#step-4-test-the-canvas}
 
-Wir empfehlen dringend, [Ihren Canvas zu testen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/), um sicherzustellen, dass er wie erwartet funktioniert, bevor Sie ihn an Ihre breitere Zielgruppe senden.
+Wir empfehlen dringend, [Ihren Canvas zu testen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases), um sicherzustellen, dass er wie erwartet funktioniert, bevor Sie ihn an Ihre breitere Zielgruppe senden.
 
 ### 5. Schritt: Ihren Canvas starten {#step-5-launch-your-canvas}
 

@@ -81,6 +81,7 @@ Replace the following:
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | Your dynamic coupon generation token. |
 | `CAMPAIGN_ID`                     | Your campaign ID.                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate signature and construct URL" }
 
 ### Step 3: Append coupon code to message body
 
@@ -150,5 +151,5 @@ To link the coupon code inside an image:
 | `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | The usage of the code exceeds the number of users allowed to use it. For example, if the dashboard configuration allows a code to be used by 3,000 users and the number of users exceeds 3,000, this error will occur. |
 | `usage_exceeded_by_guest` | This promo code has already been processed. | The usage of the code by a user exceeds the number of times a user can use it. For example, the dashboard configuration allows a single code to be used three times by a user. If it is used more than that, this error will occur. |
 | `already_used_by_other_guest` | This promo code has already been used by some other guest. | Another user has already used the code. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error messages" }
 

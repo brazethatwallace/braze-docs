@@ -15,11 +15,11 @@ platform:
   - Unity
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 통합 개요 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 통합 개요 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > 이 문서에서는 온보딩 프로세스에 대한 기본적인 개요를 제공합니다.
 
-!["가치 실현 시간"을 중심으로 발견, 통합, 품질 보증, 유지 관리 등 4개의 원으로 구성된 벤 다이어그램입니다.]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
+![발견, 통합, 품질 보증, 유지 관리 등 4개의 원이 "가치 실현 시간"을 중심으로 구성된 벤 다이어그램]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
 
 기술 리소스로서 Braze를 기술 스택에 통합하여 팀의 역량을 강화할 수 있습니다. 온보딩은 크게 네 단계로 나뉩니다:
 * [발견 및 계획](#discovery): 팀과 협력하여 범위를 조정하고, 데이터 및 Campaign의 구조를 계획하며, 적절한 워크스페이스 구조를 구축합니다.
@@ -44,15 +44,15 @@ platform:
 회사의 온보딩 기간에 Braze는 기술 개요 세션을 진행합니다. 엔지니어는 이 세션에 참석할 것을 적극 권장합니다. 기술 개요 세션에서는 플랫폼 아키텍처의 확장성에 대한 대화를 나누고, 비슷한 규모의 기업이 유사한 사용 사례로 어떻게 성공했는지 실제 사례를 확인할 수 있습니다.
 {% endalert %}
 
-![이메일, 장바구니, 이미지, 지리 위치 등 다양한 채널에 대한 아이콘입니다.]({% image_buster /assets/img/getting-started/data-graphic-2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
+![이메일, 장바구니, 이미지, 지리 위치 등 다양한 채널에 대한 아이콘]({% image_buster /assets/img/getting-started/data-graphic-2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
 ### Campaign 계획 {#campaign-planning}
 
 CRM 팀은 가까운 시일 내에 출시할 메시징 사용 사례를 계획합니다. 여기에는 다음이 포함됩니다:
-* [채널]({{site.baseurl}}/user_guide/channels/) (예: 푸시 알림 또는 인앱 메시지)
-* [전달 방법]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) (예: 예약 전달 또는 실행 기반 전달)
-* [타겟 오디언스]({{site.baseurl}}/user_guide/audience/segments/)
-* [성공 측정기준]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)
+* [채널]({{site.baseurl}}/user_guide/channels) (예: 푸시 알림 또는 인앱 메시지)
+* [전달 방법]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) (예: 예약 전달 또는 실행 기반 전달)
+* [타겟 오디언스]({{site.baseurl}}/user_guide/audience/segments)
+* [성공 측정기준]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
 예를 들어, 어제 첫 세션을 기록한 고객 세그먼트에 매일 오전 10시에 이메일을 보내는 신규 고객 Campaign이 있을 수 있습니다. 전환 이벤트(성공 측정기준)는 세션을 기록하는 것입니다.
 
@@ -73,7 +73,7 @@ Campaign 계획 단계가 완료될 때까지 통합을 시작할 수 없습니�
 여러 도구에서 데이터 명명법을 일관되게 유지하세요. 예를 들어, 데이터 웨어하우스에서 "구매 기간 한정 혜택"을 특정 방식으로 기록할 수 있습니다. 이 형식에 맞게 Braze에서 커스텀 이벤트가 필요한지 결정해야 합니다.
 {% endalert %}
 
-[자동 수집 데이터 및 커스텀 데이터]({{site.baseurl}}/developer_guide/analytics/)에 대해 자세히 알아보세요.
+[자동 수집 데이터 및 커스텀 데이터]({{site.baseurl}}/developer_guide/analytics)에 대해 자세히 알아보세요.
 
 ### 커스터마이징 계획 {#customizations-planning}
 
@@ -87,9 +87,9 @@ Braze 대시보드는 웹 UI 인터페이스입니다. 마케터는 대시보드
 
 ### 워크스페이스 및 API 키 {#workspaces-and-api-keys}
 
-팀 관리자는 다른 [워크스페이스]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)도 만들 수 있습니다. 워크스페이스는 사용자, Segments, API 키와 같은 데이터를 한 곳에 그룹화합니다. 모범 사례로 동일한 앱의 서로 다른 버전 또는 매우 유사한 앱만 하나의 워크스페이스에 모으는 것을 권장합니다.
+팀 관리자는 다른 [워크스페이스]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)도 만들 수 있습니다. 워크스페이스는 사용자, Segments, API 키와 같은 데이터를 한 곳에 그룹화합니다. 모범 사례로 동일한 앱의 서로 다른 버전 또는 매우 유사한 앱만 하나의 워크스페이스에 모으는 것을 권장합니다.
 
-중요한 점은 워크스페이스가 여러 플랫폼(예: iOS 및 Android)에 대한 API 키를 제공한다는 것입니다. 연관된 API 키를 사용하여 SDK 데이터를 특정 워크스페이스에 연결할 수 있습니다. 워크스페이스로 이동하여 각 앱의 API 키에 액세스합니다. 각 API 키에 범위를 지정한 작업을 수행할 수 있는 올바른 권한이 있는지 확인합니다. 자세한 내용은 [API 프로비저닝 문서]({{site.baseurl}}/api/basics/#rest-api-key)를 참조하세요.
+중요한 점은 워크스페이스가 여러 플랫폼(예: iOS 및 Android)에 대한 API 키를 제공한다는 것입니다. 연관된 API 키를 사용하여 SDK 데이터를 특정 워크스페이스에 연결할 수 있습니다. 워크스페이스로 이동하여 각 앱의 API 키에 액세스합니다. 각 API 키에 범위를 지정한 작업을 수행할 수 있는 올바른 권한이 있는지 확인합니다. 자세한 내용은 [API 프로비저닝 문서]({{site.baseurl}}/api/basics#rest-api-key)를 참조하세요.
 
 {% alert important %}
 개발과 프로덕션을 위해 서로 다른 환경을 설정하는 것이 중요합니다. 테스트 환경을 설정하면 온보딩 및 QA 과정에서 실제 비용의 지출을 방지할 수 있습니다. 테스트 환경을 구축하려면 테스트 워크스페이스를 설정하고 프로덕션 워크스페이스에 테스트 데이터를 채우지 않도록 해당 API 키를 사용해야 합니다.
@@ -97,7 +97,7 @@ Braze 대시보드는 웹 UI 인터페이스입니다. 마케터는 대시보드
 
 ## 통합 {#integration}
 
-![데이터 소스에서 사용자 기기로의 정보 흐름을 나타내는 추상적인 피라미드 그래픽입니다.]({% image_buster /assets/img/getting-started/data-graphic.png %}){: style="max-width:45%;float:right;margin-left:15px;"}
+![데이터 소스에서 사용자 기기로의 정보 흐름을 나타내는 추상적인 피라미드 그래픽]({% image_buster /assets/img/getting-started/data-graphic.png %}){: style="max-width:45%;float:right;margin-left:15px;"}
 
 Braze는 iOS 앱, Android 앱, 웹 앱 등을 지원합니다. React Native 또는 Unity와 같은 크로스플랫폼 래퍼 SDK를 사용할 수도 있습니다. 일반적으로 고객은 1~6주 내에 통합을 완료합니다. 많은 고객이 기술 역량과 가용 시간에 따라 단 한 명의 엔지니어만으로 Braze를 통합했습니다. 전적으로 구체적인 통합 범위와 팀이 Braze 프로젝트에 얼마나 많은 시간을 할애하는지에 따라 달라집니다.
 
@@ -111,14 +111,14 @@ Braze는 iOS 앱, Android 앱, 웹 앱 등을 지원합니다. React Native 또�
 
 ### CDP 통합 파트너 {#cdp-integration-partners}
 
-많은 고객이 Braze 온보딩을 통합 파트너로서 고객 데이터 플랫폼(CDP)과도 통합할 수 있는 기회로 활용합니다. Braze는 데이터 추적 및 분석을 제공하며, CDP는 추가적인 데이터 라우팅 및 오케스트레이션을 제공할 수 있습니다. Braze는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle/), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) 등 다양한 CDP와 원활하게 통합할 수 있습니다.
+많은 고객이 Braze 온보딩을 통합 파트너로서 고객 데이터 플랫폼(CDP)과도 통합할 수 있는 기회로 활용합니다. Braze는 데이터 추적 및 분석을 제공하며, CDP는 추가적인 데이터 라우팅 및 오케스트레이션을 제공할 수 있습니다. Braze는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) 등 다양한 CDP와 원활하게 통합할 수 있습니다.
 
 CDP와 병렬 통합을 수행하는 경우, CDP의 SDK에서 Braze SDK로 호출을 매핑합니다. 기본적으로 다음을 수행합니다:
 * `changeUser`([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [웹](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser))에 식별 호출을 매핑하고 속성을 설정합니다.
 * `requestImmediateDataFlush`([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush()), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()), [웹](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush))에 데이터 플러시 호출을 매핑합니다.
 * 커스텀 이벤트 또는 구매를 기록합니다.
 
-선택한 플랫폼에 따라 Braze SDK와 선택한 CDP 간의 통합 예제를 사용할 수 있습니다. 자세한 내용은 [CDP 기술 파트너 목록]({{site.baseurl}}/partners/data_and_analytics/)을 참조하세요.
+선택한 플랫폼에 따라 Braze SDK와 선택한 CDP 간의 통합 예제를 사용할 수 있습니다. 자세한 내용은 [CDP 기술 파트너 목록]({{site.baseurl}}/partners/data_and_analytics)을 참조하세요.
 
 ### Braze SDK 통합 {#braze-sdk-integration}
 
@@ -129,7 +129,7 @@ Braze SDK는 두 가지 중요한 기능을 제공합니다: 사용자 데이터
 {% endalert %}
 
 {% alert note %}
-추가 보안 계층을 추가하려면 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)을 활성화하여 무단 SDK 요청을 방지할 수 있습니다. 이 기능은 웹, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI(Xamarin) 및 Expo를 포함한 모든 주요 플랫폼에서 사용할 수 있습니다.
+추가 보안 계층을 추가하려면 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication)을 활성화하여 무단 SDK 요청을 방지할 수 있습니다. 이 기능은 웹, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI(Xamarin) 및 Expo를 포함한 모든 주요 플랫폼에서 사용할 수 있습니다.
 {% endalert %}
 
 SDK를 구현하는 동안 다음을 수행합니다:
@@ -145,7 +145,7 @@ Braze를 사용하는 동안 여러 시점에 다양한 작업을 위해 REST AP
 1. 기록 데이터 가져오기
 2. Braze에서 트리거되지 않는 지속적인 업데이트. 예를 들어, 사용자가 앱에 로그인하지 않고도 사용자 프로필이 VIP로 업그레이드되는 경우 API는 이 정보를 Braze에 전달해야 합니다.
 
-[Braze API]({{site.baseurl}}/api/basics/) 시작하기.
+[Braze API]({{site.baseurl}}/api/basics)로 시작하세요.
 
 {% alert important %}
 API를 사용하는 동안 요청을 배치로 처리하고 델타 값만 전송해야 합니다. Braze는 전송되는 모든 속성을 다시 작성합니다. 값이 변경되지 않은 커스텀 속성은 업데이트하지 마세요.
@@ -155,29 +155,29 @@ API를 사용하는 동안 요청을 배치로 처리하고 델타 값만 전송
 
 Braze는 기본적으로 데이터를 다룹니다. Braze의 데이터는 사용자 프로필에 저장됩니다.
 
-데이터 포인트는 마케터가 단순히 모을 수 있는 "모든" 데이터가 아니라 올바른 데이터를 수집할 수 있도록 지원하는 구조입니다. [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)에 익숙해지세요.
+데이터 포인트는 마케터가 단순히 모을 수 있는 "모든" 데이터가 아니라 올바른 데이터를 수집할 수 있도록 지원하는 구조입니다. [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points)에 익숙해지세요.
 
 ### 레거시 사용자 데이터 마이그레이션 {#migrating-legacy-user-data}
 
-Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 Braze 외부에 기록된 과거 데이터를 마이그레이션할 수 있습니다. 일반적으로 가져오는 데이터의 예로 푸시 토큰과 과거 구매 내역이 있습니다. 이 엔드포인트는 일회성 가져오기 또는 정기적인 배치 업데이트에 사용할 수 있습니다.
+Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 Braze 외부에 기록된 과거 데이터를 마이그레이션할 수 있습니다. 일반적으로 가져오는 데이터의 예로 푸시 토큰과 과거 구매 내역이 있습니다. 이 엔드포인트는 일회성 가져오기 또는 정기적인 배치 업데이트에 사용할 수 있습니다.
 
-대시보드에 한 번의 [CSV 업로드]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#importing-a-csv)를 통해 사용자를 가져오고 고객 속성 값을 업데이트할 수도 있습니다. CSV 업로드는 마케터에게 유용한 반면, REST API를 사용하면 더 큰 유연성을 확보할 수 있습니다.
+대시보드에 한 번의 [CSV 업로드]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv)를 통해 사용자를 가져오고 고객 속성 값을 업데이트할 수도 있습니다. CSV 업로드는 마케터에게 유용한 반면, REST API를 사용하면 더 큰 유연성을 확보할 수 있습니다.
 
 ### 세션 추적 설정 {#setting-up-session-tracking}
 
-Braze SDK는 "세션 열기" 및 "세션 닫기" 데이터 포인트를 생성합니다. Braze SDK는 정기적으로 데이터를 플러시하기도 합니다. 세션 추적 기본값은 아래 링크를 참조하세요. 모두 커스터마이징할 수 있습니다([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)).
+Braze SDK는 "세션 열기" 및 "세션 닫기" 데이터 포인트를 생성합니다. Braze SDK는 정기적으로 데이터를 플러시하기도 합니다. 세션 추적 기본값은 아래 링크를 참조하세요. 모두 커스터마이징할 수 있습니다([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)).
 
-### 커스텀 이벤트, 속성 및 구매 이벤트 추적하기 {#tracking-custom-events-attributes-and-purchase-events}
+### 커스텀 이벤트, 속성 및 구매 이벤트 추적 {#tracking-custom-events-attributes-and-purchase-events}
 
-팀과 협력하여 커스텀 이벤트, 사용자 속성, 구매 이벤트 등 계획한 데이터 스키마를 설정합니다. [커스텀 데이터 스키마]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)는 대시보드를 사용하여 입력되며 SDK 통합 중에 구현한 내용과 정확히 일치해야 합니다.
+팀과 협력하여 커스텀 이벤트, 사용자 속성, 구매 이벤트 등 계획한 데이터 스키마를 설정합니다. [커스텀 데이터 스키마]({{site.baseurl}}/user_guide/data/activation/events/custom_events)는 대시보드를 사용하여 입력되며 SDK 통합 중에 구현한 내용과 정확히 일치해야 합니다.
 
 {% alert tip %}
-Braze에서 `external_id`라고 하는 사용자 ID는 알려진 모든 사용자에 대해 설정해야 합니다. 사용자가 앱을 열었을 때 변경되지 않고 액세스할 수 있어야 여러 기기와 플랫폼에서 사용자를 추적할 수 있습니다. 모범 사례는 [사용자 수명 주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) 문서를 참조하세요.
+Braze에서 `external_id`라고 하는 사용자 ID는 알려진 모든 사용자에 대해 설정해야 합니다. 사용자가 앱을 열었을 때 변경되지 않고 액세스할 수 있어야 여러 기기와 플랫폼에서 사용자를 추적할 수 있습니다. 모범 사례는 [사용자 수명 주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) 문서를 참조하세요.
 {% endalert %}
 
 ### 기타 도구 {#other-tools}
 
-사용 사례에 따라 설정해야 하는 다른 도구가 있을 수 있습니다. 예를 들어 사용자 스토리를 구현하기 위해 [지오펜스]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences/)와 같은 도구를 구성해야 할 수 있습니다. 필수 통합 단계를 완료한 후 이러한 추가 도구를 설정할 수 있는 고객이 가장 성공적인 것으로 나타났습니다.
+사용 사례에 따라 설정해야 하는 다른 도구가 있을 수 있습니다. 예를 들어 사용자 스토리를 구현하기 위해 [지오펜스]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences)와 같은 도구를 구성해야 할 수 있습니다. 필수 통합 단계를 완료한 후 이러한 추가 도구를 설정할 수 있는 고객이 가장 성공적인 것으로 나타났습니다.
 
 ## 품질 보증 {#qa}
 통합을 실행할 때 설정한 모든 기능이 예상대로 작동하는지 확인하기 위해 품질 보증을 수행합니다. 이 QA는 데이터 수집과 메시지 채널이라는 두 가지 일반적인 범주로 분류됩니다.
@@ -199,18 +199,18 @@ QA를 시작하기 전에 프로덕션 및 테스트 환경이 설정되어 있�
 |                           | Content Cards가 전달되고 측정기준이 기록되는지 테스트합니다. |
 |                           | 연결된 콘텐츠를 활성화합니다(예: AccuWeather). |
 |                           | 모든 메시지 채널 통합이 제대로 작동하는지 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="품질 보증" }
 
 {% alert note %}
-SDK 통합에 대한 QA를 수행하는 동안 [SDK 디버거]({{site.baseurl}}/developer_guide/sdk_integration/debugging/)를 사용하면 앱에 대한 상세 로깅을 켜지 않고도 문제를 해결할 수 있습니다.
+SDK 통합에 대한 QA를 수행하는 동안 [SDK 디버거]({{site.baseurl}}/developer_guide/sdk_integration/debugging)를 사용하면 앱에 대한 상세 로깅을 켜지 않고도 문제를 해결할 수 있습니다.
 {% endalert %}
 
 ### 마케터에게 Braze 전달 {#passing-braze-off-to-marketers}
 
 플랫폼이나 사이트를 통합한 후에는 마케팅 팀을 참여시켜 플랫폼의 소유권을 넘겨주는 것이 좋습니다. 이 프로세스는 회사마다 다르지만 다음과 같은 사항이 포함될 수 있습니다:
 
-* 복잡한 [Liquid 로직]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/#about-liquid) 구성
-* [이메일 IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) 지원
+* 복잡한 [Liquid 로직]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid) 구성
+* [이메일 IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) 지원
 * 다른 이해관계자가 추적되는 데이터의 종류를 이해하는지 확인
 
 ### 미래를 위한 개발 {#develop-for-the-future}

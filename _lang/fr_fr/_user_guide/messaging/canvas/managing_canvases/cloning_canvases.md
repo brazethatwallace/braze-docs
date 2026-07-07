@@ -7,13 +7,13 @@ description: "Cet article de référence décrit comment cloner un Canvas de l'�
 tool: Canvas
 ---
 
-# Cloner des Canvas vers Canvas Flow
+# Cloner des Canvas vers Canvas Flow {#clone-canvases-to-canvas-flow}
+
+> Si vous disposez d'un Canvas existant créé dans l'éditeur d'origine, vous pouvez le cloner pour en créer une copie dans Canvas Flow. En passant au workflow Canvas actuel, vous accédez à des [composants Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) légers, aux [propriétés d'entrée persistantes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#canvas-entry-properties) et à l'[édition post-lancement]({{site.baseurl}}/post-launch_edits). Votre Canvas d'origine ne sera ni modifié ni supprimé.
 
 {% alert important %}
 Vous ne pouvez plus créer ni dupliquer de Canvas à l'aide de l'expérience Canvas d'origine. Braze recommande aux utilisateurs de l'expérience Canvas d'origine de passer à Canvas Flow, l'expérience Canvas actuelle.
 {% endalert %}
-
-> Si vous disposez d'un Canvas existant créé dans l'éditeur d'origine, vous pouvez le cloner pour en créer une copie dans Canvas Flow. En passant au workflow Canvas actuel, vous accédez à des [composants Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/) légers, aux [propriétés d'entrée persistantes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#canvas-entry-properties) et à l'[édition post-lancement]({{site.baseurl}}/post-launch_edits). Votre Canvas d'origine ne sera ni modifié ni supprimé.
 
 Pour cloner votre Canvas, procédez comme suit :
 
@@ -21,12 +21,12 @@ Pour cloner votre Canvas, procédez comme suit :
 2. Identifiez le Canvas dont vous souhaitez créer une copie dans le workflow Canvas Flow. Vous pouvez cloner des Canvas ayant l'état **Brouillon**, **Actif** ou **Arrêté**.
 3. Cliquez sur <i class="fas fa-ellipsis-vertical"></i> **Plus d'actions** et sélectionnez **Cloner vers Canvas Flow**.
 
-![]({% image_buster /assets/img_archive/clone_to_v2_workflow.png %}){: style="max-width:25%;"}
+![Diagramme de flux du processus décrit.]({% image_buster /assets/img_archive/clone_to_v2_workflow.png %}){: style="max-width:25%;"}
 
 {: start="4"}
 4. Saisissez le nom de votre nouveau Canvas et cliquez sur **Cloner vers Canvas Flow**.
 
-![]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
+![Exemple de placement d'une fenêtre modale de carte de contenu.]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
 
 Vous disposez désormais de deux versions de votre Canvas : le Canvas d'origine et la version Canvas Flow. Votre Canvas d'origine conserve son état initial, et le Canvas cloné a l'état **Brouillon**. Vous pouvez toujours accéder au Canvas d'origine, mais Braze recommande d'utiliser le workflow Canvas Flow pour continuer à créer vos Canvas.
 
@@ -40,7 +40,7 @@ Si vous clonez un Canvas actif, Braze continuera d'envoyer les utilisateurs à t
 
 Le clonage de votre Canvas vers le workflow Canvas Flow est terminé. Vous pouvez maintenant continuer à créer vos Canvas dans cette expérience mise à jour !
 
-## Recommandations
+## Recommandations {#recommendations}
 
 Pour permettre aux utilisateurs existants de poursuivre leur parcours après avoir cloné votre Canvas d'origine vers Canvas Flow, vous pouvez ajouter des filtres à votre Canvas existant afin d'empêcher les nouveaux utilisateurs d'entrer dans le nouveau Canvas.
 
@@ -50,4 +50,4 @@ Si la rééligibilité est désactivée, ajoutez le filtre « Entered Canvas Var
 
 Pour les Canvas déclenchés par API, coordonnez-vous avec votre équipe technique pour vous assurer que ces Canvas utilisent le nouvel ID de Canvas lorsque les nouveaux Canvas sont prêts à être lancés.
 
-Pour en savoir plus sur les différences entre l'éditeur Canvas d'origine et l'expérience Canvas Flow, consultez la [FAQ Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor).
+Pour en savoir plus sur les différences entre l'éditeur Canvas d'origine et l'expérience Canvas Flow, consultez la [FAQ Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor).

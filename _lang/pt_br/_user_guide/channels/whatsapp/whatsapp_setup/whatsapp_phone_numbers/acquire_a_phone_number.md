@@ -26,6 +26,10 @@ Seu número de telefone deve atender a estes requisitos da API do WhatsApp:
 - Não ter sido usado anteriormente com a WhatsApp Business Platform
 - Não estar conectado a uma conta pessoal do WhatsApp
 
+{% alert note %}
+A Braze recomenda fortemente o uso de um número que sua empresa possua e ao qual tenha acesso total e contínuo. Durante o processo de inscrição integrada do WhatsApp, você precisa ter acesso às mensagens enviadas para esse número para verificá-lo. Pode ser necessário verificar o número novamente no futuro, então você deve manter o acesso a ele.
+{% endalert %}
+
 ## Adquirindo um número de telefone da Twilio {#acquiring-a-twilio-phone-number}
 
 ### Etapa 1: Comprar um número de telefone pelo console ou API da Twilio {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
@@ -38,24 +42,19 @@ Seu número de telefone deve atender a estes requisitos da API do WhatsApp:
 
 ### Etapa 2: Configurar seu número de telefone {#step-2-configure-your-phone-number}
 
-Siga as instruções da Twilio para configurar seu número de telefone da Twilio para receber o código de verificação por e-mail usando **apenas** o [Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number). **Não siga as instruções das outras etapas.**
+Configure seu número de telefone da Twilio para receber códigos de verificação por e-mail. **Não vincule seu número de telefone ao WhatsApp no console da Twilio.**
 
 {% alert warning %}
-Siga apenas as instruções da Twilio para receber um código de verificação.
-Se você seguir as próximas etapas, conectará seu número de telefone à Twilio, o que significa que não poderá conectar esse número à Braze, a menos que faça uma migração ou compre um número diferente.
+Não vincule seu número de telefone ao WhatsApp no console da Twilio. Se fizer isso, o número será registrado na conta WhatsApp Business da Twilio, o que impedirá que você o conecte à Braze pelo fluxo de inscrição integrado.
 {% endalert %}
 
 1. No console da Twilio, acesse a [página Active Numbers](https://www.twilio.com/console/phone-numbers/incoming) e selecione o número de telefone que você comprou.
 2. Acesse a seção **Voice Configuration** e, no menu suspenso **Configure with**, selecione **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**.
 3. Na linha **A call comes in**, selecione **Webhook** e defina a URL como `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`, substituindo `YOUR_EMAIL_ADDRESS` pelo seu endereço de e-mail.
-4. No console da Twilio, acesse **2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register** e selecione **Copy** ao lado do número de telefone.
-5. Na janela **Self Sign-up**, na página **Add your WhatsApp phone number**, selecione **Add a new phone number** e cole o número de telefone.
-6. Selecione **Phone call** como método de verificação e, em seguida, selecione **Next**.
-7. Você receberá o código de verificação no seu e-mail em até 10 minutos.
 
 ### Etapa 3: Concluir o fluxo de inscrição integrado {#step-3-complete-the-embedded-sign-up-workflow}
 
-1. Após a configuração da Twilio, acesse o dashboard da Braze > **Parceiros de tecnologia** > **WhatsApp** e selecione **Begin integration** ou **Add WhatsApp Business Account**, o que estiver disponível, para acionar o [fluxo de inscrição integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).<br><br>Na etapa **Add a phone number for WhatsApp**, selecione **Phone call** para escolher como você deseja verificar seu número de telefone. <br><br>![Seção com as opções para verificar seu número de telefone por mensagem de texto ou chamada telefônica.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
+1. Após a configuração da Twilio, acesse o dashboard da Braze > **Parceiros de Tecnologia** > **WhatsApp** e selecione **Begin integration** ou **Add WhatsApp Business Account**, o que estiver disponível, para acionar o [fluxo de inscrição integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).<br><br>Na etapa **Add a phone number for WhatsApp**, selecione **Phone call** para escolher como você deseja verificar seu número de telefone. <br><br>![Seção com as opções para verificar seu número de telefone por mensagem de texto ou chamada telefônica.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
 
 2. Aguarde alguns minutos para que o código de verificação seja enviado para sua caixa de entrada de e-mail, insira o código de verificação e conclua a configuração.
 
@@ -71,6 +70,6 @@ Se você seguir as próximas etapas, conectará seu número de telefone à Twili
 
 5. Dependendo do país selecionado, aguarde a equipe da Infobip entrar em contato com você para obter detalhes de registro (como para 10DLC nos EUA).<br><br>
 
-6. Quando seu número de telefone estiver pronto na Infobip, acesse o dashboard da Braze > **Parceiros de tecnologia** > **WhatsApp** e selecione **Begin integration** ou **Add WhatsApp Business Account**, o que estiver disponível, para acionar o [fluxo de inscrição integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).<br><br> Na etapa **Add a phone number for WhatsApp**, selecione **Text message** para escolher como você deseja verificar seu número de telefone.<br><br>![Seção com as opções para verificar seu número de telefone por mensagem de texto ou chamada telefônica.]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
+6. Quando seu número de telefone estiver pronto na Infobip, acesse o dashboard da Braze > **Parceiros de Tecnologia** > **WhatsApp** e selecione **Begin integration** ou **Add WhatsApp Business Account**, o que estiver disponível, para acionar o [fluxo de inscrição integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).<br><br> Na etapa **Add a phone number for WhatsApp**, selecione **Text message** para escolher como você deseja verificar seu número de telefone.<br><br>![Seção com as opções para verificar seu número de telefone por mensagem de texto ou chamada telefônica.]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
 
 7. Verifique os [registros de análise](https://www.infobip.com/docs/analyze/analyze-logs) da Infobip no portal do cliente para obter o código de verificação, que pode levar alguns minutos para aparecer. Em seguida, insira o código de verificação e conclua a configuração.

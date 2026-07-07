@@ -12,25 +12,25 @@ description: "Esta seção apresenta uma introdução ao Decisioning Studio e co
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
   - name: Projete seu agente
-    link: /docs/user_guide/brazeai/decisioning_studio/design_agents/
+    link: /docs/user_guide/brazeai/decisioning_studio/design_agents
     image: /assets/img/braze_icons/settings-01.svg
   - name: Prepare seus dados
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data
     image: /assets/img/braze_icons/database-01.svg
   - name: Defina seu público
-    link: /docs/user_guide/brazeai/decisioning_studio/audience/
+    link: /docs/user_guide/brazeai/decisioning_studio/audience
     image: /assets/img/braze_icons/users-01.svg
   - name: Configure a orquestração
-    link: /docs/user_guide/brazeai/decisioning_studio/orchestration_setup/
+    link: /docs/user_guide/brazeai/decisioning_studio/orchestration_setup
     image: /assets/img/braze_icons/dataflow-04.svg
 
 guide_menu_title: "Recursos adicionais"
 guide_menu_list:
   - name: Sobre o Decisioning Studio
-    link: /docs/user_guide/brazeai/decisioning_studio/
+    link: /docs/user_guide/brazeai/decisioning_studio
     image: /assets/img/braze_icons/info-circle.svg
   - name: Perguntas frequentes sobre o Decisioning Studio
-    link: /docs/user_guide/brazeai/decisioning_studio/faq/
+    link: /docs/user_guide/brazeai/decisioning_studio/faq
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
@@ -50,7 +50,7 @@ Trabalhe com a equipe de AI Decisioning Services para tomar as seguintes decisõ
 | **Dimensões** | Quais decisões o agente deve personalizar? | Horário do dia, linha de assunto, frequência, ofertas, canal |
 | **Opções** | Quais opções o agente tem para trabalhar? | Modelos específicos, ofertas, períodos |
 | **Restrições** | Quais decisões o agente nunca deve tomar? | Restrições geográficas, limites de orçamento, regras de elegibilidade |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Principais decisões de design" }
 
 Cada uma dessas decisões tem implicações sobre quanto incremento adicional o agente pode gerar e com que rapidez. Nossa equipe de AI Decisioning Services trabalhará com você para projetar um agente que gere o máximo de valor, respeitando todas as suas regras de negócios.
 
@@ -65,7 +65,7 @@ Cada uma dessas decisões tem implicações sobre quanto incremento adicional o 
 | **Qualquer CEP** | Integrações nativas com a Braze, Salesforce Marketing Cloud ou integrações personalizadas para qualquer plataforma |
 | **AI Decisioning Services** | Suporte dedicado da equipe de ciência de dados da Braze |
 | **Design avançado de experimentos** | Grupos de tratamento e holdouts totalmente personalizáveis |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Capacidades do Decisioning Studio" }
 
 ## Práticas recomendadas {#best-practices}
 

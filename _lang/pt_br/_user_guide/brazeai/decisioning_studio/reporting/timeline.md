@@ -5,7 +5,7 @@ page_order: 4
 description: "Saiba como usar o relatório de linha do tempo para visualizar eventos-chave junto com métricas de performance no BrazeAI Decisioning Studio."
 ---
 
-# Relatório de linha do tempo
+# Relatório de linha do tempo {#timeline-report}
 
 > O relatório de linha do tempo oferece um registro visual de eventos-chave junto com suas métricas de performance. Esses eventos incluem execuções de agentes, alterações de configuração, atualizações de guardrails e muito mais.
 
@@ -22,4 +22,4 @@ Para comparar a performance entre dois grupos, use os menus suspensos para selec
 | Rótulo | O nome ou identificador atribuído ao evento. |
 | Informações | Informações adicionais que descrevem o evento. |
 | Visível nos gráficos | Indica se o evento é exibido nos gráficos relacionados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Timeline report" }

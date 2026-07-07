@@ -9,11 +9,11 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 
 # Objeto destinatários {#recipients-object}
 
-> O objeto recipients permite que você solicite ou grave informações em nossos endpoints.
+> O objeto de destinatários permite que você solicite ou grave informações em nossos endpoints.
 
 Você deve incluir um dos seguintes neste objeto: `external_user_id`, `user_alias`, `braze_id` ou `email`. **As solicitações devem especificar apenas um.**
 
-O objeto de destinatários permite combinar o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/), o [objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), o [objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) e o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+O objeto de destinatários permite combinar o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object), o [objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object), o [objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) e o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 
 ## Corpo do objeto {#object-body}
 
@@ -26,18 +26,22 @@ O objeto de destinatários permite combinar o [objeto de alias do usuário]({{si
   "prioritization": (optional, array) see Prioritization; required when using email,
   "trigger_properties": (optional, object) personalization key-value pairs for this user when sending a campaign or message; see Trigger Properties,
   "context": (optional, object) personalization key-value pairs for this user when triggering a Canvas; see Canvas context object,
-  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases,
+  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases; if set to `false`, an `attributes` object must also be included,
   "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
 }]
 ```
 
-Quando `send_to_existing_only` é `true`, a Braze envia a mensagem apenas para usuários existentes. No entanto, você não pode usar essa flag com aliases de usuário. Quando `send_to_existing_only` é `false`, você deve incluir um atributo. A Braze cria um usuário com o `id` e os atributos antes de enviar a mensagem.
+Quando `send_to_existing_only` é `true`, a Braze envia a mensagem apenas para usuários existentes. No entanto, você não pode usar essa flag com aliases de usuário.
 
-- [ID da Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
-- [Aliases do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
-- [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Priorização]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
+Quando `send_to_existing_only` é `false`, você deve incluir um objeto `attributes` no mesmo destinatário. A flag não substitui `attributes`. A Braze usa `attributes` para criar ou atualizar o perfil antes do envio (por exemplo, adicionando campos de `email` ou telefone para entrega de e-mail ou SMS, ou atualizando grupos de inscrições). Sem esse objeto, você não obtém o comportamento combinado esperado para usuários novos em [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+
+Esse perfil ainda precisa atender às regras de público e elegibilidade de canal da mensagem antes que a Braze faça o envio.
+
+- [ID da Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [Aliases do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Priorização]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)
+- [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
 
 ## Deduplicação do objeto de destinatário {#recipient-object-deduping}
 

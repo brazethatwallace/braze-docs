@@ -9,7 +9,7 @@ page_order: 10
 
 > 이 문서에서는 Braze 에이전트에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
-## 일반 {#general}
+## 기본설정 {#general}
 
 ### Canvas 에이전트와 카탈로그 에이전트의 차이점은 무엇인가요? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 
@@ -32,15 +32,23 @@ Braze Auto 모델을 사용하면 다음과 같은 이점이 있습니다:
 
 ### 에이전트가 제가 전달한 특정 Liquid 속성이나 값 이외의 사용자 데이터에 접근할 수 있나요? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
-아니요. 에이전트는 Liquid를 사용하여 전달된 특정 사용자 데이터 포인트와 에이전트 컨텍스트에 추가된 [리소스]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources)만 수신합니다. 에이전트는 마케터가 조회하도록 구성하지 않은 속성에 대해 사용자 프로필을 검색할 수 없습니다.
+아니요. 에이전트는 Liquid를 사용하여 전달된 특정 사용자 데이터 포인트와 에이전트 컨텍스트에 추가된 [리소스]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources)만 수신합니다. 에이전트는 마케터가 조회하도록 구성하지 않은 속성에 대해 사용자 프로필을 검색할 수 없습니다.
 
 ## 문제 해결 {#troubleshooting}
 
 ### 에이전트가 지침이나 규칙을 따르지 않는 이유는 무엇인가요? {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-[Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 사용하여 에이전트가 지침을 따르지 않는 이유를 문제 해결해 보세요. Operator는 단계별 지침과 자세한 설명을 제공할 수 있습니다.
+[Operator]({{site.baseurl}}/user_guide/brazeai/operator)를 사용하여 에이전트가 지침을 따르지 않는 이유를 문제 해결해 보세요. Operator는 단계별 지침과 자세한 설명을 제공할 수 있습니다.
 
-### 에이전트가 복잡한 작업을 처리하는 데 어려움을 겪고 있습니다. 성과를 어떻게 개선할 수 있나요? {#subagent-approach}
+### 카탈로그 에이전트가 일부 행을 건너뛰는 이유는 무엇인가요? {#why-did-my-catalog-agent-skip-some-rows}
+
+카탈로그 에이전트는 **실행에 필수**로 표시한 열이 비어 있거나 누락된 경우 해당 행을 건너뜁니다. 예를 들어, 아직 채워지지 않은 `gender` 필드가 이에 해당합니다. 입력 열을 선택한 후 카탈로그 필드에 대해 필수 입력 제어를 활성화하고 에이전트가 실행되기 전에 값이 포함되어야 하는 열을 선택하세요. 선택된 열은 기본적으로 필수로 시작되지만, 호출을 차단하지 않고 비어 있어도 되는 열은 제거할 수 있습니다. 이렇게 하면 불완전한 데이터에 토큰을 낭비하는 것을 방지할 수 있습니다.
+
+에이전트는 열 종속성도 준수합니다. 출력 열이 다른 열에 종속되는 경우(예: 열 D가 열 B와 C의 값을 필요로 하는 경우), 해당 행에 대해 업스트림 열이 채워질 때까지 에이전트가 실행되지 않습니다.
+
+자세한 내용은 [카탈로그 에이전트 모범 사례]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices)를 참조하세요.
+
+### 에이전트가 복잡한 작업을 처리하는 데 어려움을 겪고 있습니다. 성능을 어떻게 개선할 수 있나요? {#subagent-approach}
 
 에이전트가 요청한 작업을 처리하는 데 어려움을 겪고 있다면 하위 에이전트 접근 방식을 고려해 보세요. 예를 들어, 세 개의 에이전트를 사용하여 다음을 수행할 수 있습니다:
 
@@ -57,14 +65,16 @@ Braze Auto 모델을 사용하면 다음과 같은 이점이 있습니다:
 - 에이전트 지침이 **출력** 탭에 지정된 것과 다른 출력 형식을 요청하는 경우(예: 에이전트 지침에서는 문자열을 요청하지만 **출력** 탭에서는 출력이 숫자로 정의된 경우)
 - 에이전트의 작업이 너무 복잡하여 [하위 에이전트 접근 방식](#subagent-approach)이 더 적합한 경우
 
+Canvas 에이전트의 경우, 호출이 실패했을 때 사용자가 여전히 출력을 받을 수 있도록 에이전트 콘솔에서 [대체 값]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)을 구성하세요.
+
 ## 규정 준수 {#compliance}
 
 ### 에이전트 콘솔은 GDPR/CCPA를 준수하나요? {#is-agent-console-gdprccpa-compliant}
 
 네. 고객이 Braze Auto 모델(Gemini 기반)을 사용하는 경우, Google은 고객과 Braze 간의 데이터 처리 부록(DPA) 조건에 따라 Braze 하위 처리자로서 역할을 합니다.
 
-### 에이전트 콘솔은 HIPAA(미국의료정보보호법)를 준수하나요? {#is-agent-console-hipaa-compliant}
+### 에이전트 콘솔은 HIPAA를 준수하나요? {#is-agent-console-hipaa-compliant}
 
-네. Braze Auto 모델을 사용하는 경우, Auto 모델을 구동하는 Gemini를 대상으로 Google과 특정 HIPAA(미국의료정보보호법) 계약인 비즈니스 제휴 부록(BAA)을 체결하고 있습니다.
+네. Braze Auto 모델을 사용하는 경우, Auto 모델을 구동하는 Gemini를 대상으로 Google과 특정 HIPAA 계약인 비즈니스 제휴 부록(BAA)을 체결하고 있습니다.
 
-BAA는 Braze Auto 모델을 사용하는 고객에게만 적용됩니다. 고객이 자체 LLM 키를 사용하는 경우, Braze는 HIPAA(미국의료정보보호법) 적용 대상인 보호 대상 건강 정보(PHI)를 고객을 대신하여 LLM에 전송하지 않으며, 고객이 직접 전송합니다. 이 경우 Braze와 Google 간의 BAA는 적용되지 않습니다. 자체 LLM 키를 통한 데이터 처리는 고객의 계약 및 LLM 제공업체와 직접 체결한 BAA에 의해 관리됩니다.
+BAA는 Braze Auto 모델을 사용하는 고객에게만 적용됩니다. 고객이 자체 LLM 키를 사용하는 경우, Braze는 HIPAA 적용 대상인 보호 대상 건강 정보(PHI)를 고객을 대신하여 LLM에 전송하지 않으며, 고객이 직접 전송합니다. 이 경우 Braze와 Google 간의 BAA는 적용되지 않습니다. 자체 LLM 키를 통한 데이터 처리는 고객의 계약 및 LLM 제공업체와 직접 체결한 BAA에 의해 관리됩니다.

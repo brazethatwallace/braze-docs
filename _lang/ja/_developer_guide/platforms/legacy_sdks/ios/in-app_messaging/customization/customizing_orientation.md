@@ -3,7 +3,7 @@ nav_title: 向きをカスタマイズする
 article_title: iOS向けアプリ内メッセージの向きをカスタマイズする
 platform: iOS
 page_order: 3
-description: "この参考記事では、iOS アプリケーションのアプリ内メッセージの向きを設定する方法について説明します。"
+description: "この参照記事では、iOSアプリケーションのアプリ内メッセージの向きを設定する方法について説明します。"
 channel:
   - in-app messages
 
@@ -12,11 +12,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# 向きをカスタマイズする
+# 向きをカスタマイズする {#customize-orientation}
 
-## すべてのアプリ内メッセージの向きの設定
+## すべてのアプリ内メッセージの向きの設定 {#setting-orientation-for-all-in-app-messages}
 
-すべてのアプリ内メッセージの向きを固定するには、`ABKInAppMessageUIController` で `supportedOrientationMask` プロパティを設定します。アプリが `startWithApiKey:inApplication:withLaunchOptions:` を呼び出した後に、次のコードを追加します。
+すべてのアプリ内メッセージの向きを固定するには、`ABKInAppMessageUIController`の`supportedOrientationMask`プロパティを設定します。アプリが`startWithApiKey:inApplication:withLaunchOptions:`を呼び出した後に、次のコードを追加します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -42,11 +42,11 @@ if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessage
 {% endtab %}
 {% endtabs %}
 
-その後、すべてのアプリ内メッセージは、デバイスの向きに関係なく、サポートされている向きで表示されます。メッセージを表示するには、デバイスの向きがアプリ内メッセージの `orientation` プロパティでもサポートされている必要があることに注意してください。
+その後、すべてのアプリ内メッセージは、デバイスの向きに関係なく、サポートされている向きで表示されます。メッセージを表示するには、デバイスの向きがアプリ内メッセージの`orientation`プロパティでもサポートされている必要があることに注意してください。
 
-## アプリ内メッセージごとの向きの設定
+## アプリ内メッセージごとの向きの設定 {#setting-orientation-per-in-app-message}
 
-または、メッセージごとに方向を設定することもできます。これを行うには、[アプリ内メッセージデリゲート]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates/)を設定します。次に、`beforeInAppMessageDisplayed:` デリゲートメソッドで、`ABKInAppMessage` の `orientation` プロパティを設定します。
+または、メッセージごとに向きを設定することもできます。これを行うには、[アプリ内メッセージデリゲート]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates)を設定します。次に、`beforeInAppMessageDisplayed:`デリゲートメソッドで、`ABKInAppMessage`の`orientation`プロパティを設定します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -62,7 +62,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% tab swift %}
 
-```swift    
+```swift
   // Set inAppMessage orientation to portrait
   inAppMessage.orientation = ABKInAppMessageOrientation.portrait
 
@@ -73,15 +73,14 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% endtabs %}
 
-`orientation` デバイスの向きがアプリ内メッセージのプロパティと一致しない場合、アプリ内メッセージは表示されません。
+デバイスの向きがアプリ内メッセージの`orientation`プロパティと一致しない場合、アプリ内メッセージは表示されません。
 
 {% alert note %}
-iPad の場合、アプリ内メッセージは、実際の画面の向きに関係なく、ユーザーが希望する向きのスタイルで表示されます。
+iPadの場合、アプリ内メッセージは、実際の画面の向きに関係なく、ユーザーが希望する向きのスタイルで表示されます。
 {% endalert %}
 
-## メソッド宣言
+## メソッド宣言 {#method-declarations}
 
 追加情報については、次のヘッダーファイルを参照してください。
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

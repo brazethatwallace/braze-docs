@@ -38,7 +38,7 @@ search_rank: 9
 | 위도 및 경도 | 지오펜스의 지리적 중심입니다. |
 | 반경 | 지리적 중심에서 측정한 지오펜스의 반경(미터 단위)입니다. 모든 지오펜스에 대해 최소 반경을 100미터에서 150미터로 설정하세요. |
 | 쿨다운 | 사용자는 개별 지오펜스에서 진입 또는 이탈 전환을 수행한 후 지오펜스 트리거 알림을 받습니다. 전환이 발생한 후, 해당 사용자가 동일한 개별 지오펜스에서 동일한 전환을 다시 수행할 수 없는 사전 정의된 기간이 있습니다. 이 "쿨다운"은 Braze에 의해 사전 정의되며, 주요 목적은 불필요한 네트워크 요청을 방지하는 것입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="작동 방식" }
 
 ## 필수 조건 {#prerequisites}
 
@@ -46,7 +46,6 @@ search_rank: 9
 
 지오펜스 트리거 캠페인은 iOS 및 Android에서 사용할 수 있습니다. 지오펜스를 지원하려면 다음이 필요합니다:
 
-* 통합이 백그라운드 푸시 알림을 지원해야 합니다.
 * Braze 지오펜스 또는 위치 수집이 활성화되어 있어야 합니다.
 * 사용자가 "항상 허용" 위치 접근 권한을 부여해야 합니다.
 
@@ -54,7 +53,7 @@ search_rank: 9
 Braze 위치 수집은 기본적으로 비활성화되어 있습니다. Android에서 활성화되어 있는지 확인하려면 `braze.xml`에서 `com_braze_enable_location_collection`이 `true`로 설정되어 있는지 확인하세요.
 {% endalert %}
 
-플랫폼별 설정 지침은 개발자 가이드의 [지오펜스]({{site.baseurl}}/developer_guide/geofences/)를 참조하세요.
+플랫폼별 설정 지침은 개발자 가이드의 [지오펜스]({{site.baseurl}}/developer_guide/geofences)를 참조하세요.
 
 ### 위치 권한 {#location-permissions}
 
@@ -75,7 +74,7 @@ iOS와 Android 모두 여러 수준의 위치 접근 권한을 제공합니다. 
 | **앱 사용 중 허용** | 앱이 포그라운드에 있을 때마다 위치 접근 권한을 부여합니다. 이 권한이 부여된 후 iOS는 사용자에게 "항상 허용"으로 업그레이드할 것을 요청하는 후속 프롬프트를 표시할 수 있습니다. | 예. iOS는 이 권한이 있는 앱에 대해 지오펜스 전환을 포함한 백그라운드 위치 모니터링을 활성화합니다. |
 | **항상 허용** | 백그라운드 및 앱이 닫혀 있을 때를 포함하여 지속적인 위치 접근 권한을 부여합니다. | 예. 가장 안정적인 지오펜스 모니터링을 제공합니다. |
 | **허용 안 함** | 모든 위치 접근을 거부합니다. | 아니요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="권한 수준" }
 
 {% endtab %}
 {% tab Android %}
@@ -85,7 +84,7 @@ iOS와 Android 모두 여러 수준의 위치 접근 권한을 제공합니다. 
 | **앱 사용 중** | 앱이 포그라운드에 있는 동안 위치 접근 권한을 부여합니다. | 아니요. Android에서는 지오펜스 모니터링을 위해 백그라운드 위치 접근이 필요합니다. |
 | **항상 허용** | 백그라운드를 포함하여 지속적인 위치 접근 권한을 부여합니다. Android 10 이상에서는 초기 "앱 사용 중" 권한이 부여된 후 별도의 프롬프트가 필요합니다. | 예. Android에서 지오펜싱에 필요합니다. |
 | **허용 안 함** | 모든 위치 접근을 거부합니다. Android 13 이상에서는 사용자가 위치 프롬프트를 두 번 거부하면 OS가 추가 인앱 프롬프트를 차단합니다. | 아니요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="권한 수준" }
 
 {% endtab %}
 {% endtabs %}
@@ -98,7 +97,7 @@ iOS 14+ 및 Android 12+에서 사용자는 정밀 위치와 대략적 위치 중
 |---|---|---|
 | **정밀 위치 (켜짐)** | GPS, Wi-Fi 및 셀룰러 삼각측량을 사용하여 5미터에서 50미터 범위의 정확도입니다. | 지오펜스가 예상대로 작동합니다. 모든 지오펜스 기반 사용 사례에 권장됩니다. |
 | **대략적 위치 (꺼짐)** | 약 3제곱킬로미터(약 1제곱마일)의 정확도입니다. 기기가 정확한 좌표 대신 일반적인 영역을 반환합니다. | 지오펜스가 안정적으로 트리거되지 않습니다. 기기가 사용자가 지오펜스 경계 안에 있는지 밖에 있는지 정확하게 판단할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="정밀 위치 vs 대략적 위치" }
 
 {% alert important %}
 지오펜싱이 안정적으로 작동하려면 사용자가 정밀 위치를 활성화해야 합니다. 사용자가 정밀 위치가 왜 중요한지 이해할 수 있도록 위치 권한 프라이머 메시지에 이 안내를 포함하세요.
@@ -115,7 +114,7 @@ Braze 인앱 메시지에는 네이티브 위치 권한 프롬프트를 호출�
 - 앱 내에서 네이티브 위치 권한 프롬프트를 트리거하는 딥링크.
 - 기기의 OS 설정에서 앱의 위치 설정 페이지를 여는 딥링크. 이전에 권한을 거부하거나 제한한 사용자에게 다시 프롬프트를 표시하는 데 유용합니다.
 
-딥링크에 대한 자세한 내용은 [인앱 콘텐츠로의 딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)을 참조하세요. 위치 및 지오펜스 통합에 대한 플랫폼별 안내는 개발자 가이드의 [지오펜스]({{site.baseurl}}/developer_guide/geofences/)를 참조하세요.
+딥링크에 대한 자세한 내용은 [인앱 콘텐츠로의 딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls)을 참조하세요. 위치 및 지오펜스 통합에 대한 플랫폼별 안내는 개발자 가이드의 [지오펜스]({{site.baseurl}}/developer_guide/geofences)를 참조하세요.
 
 ### 2단계: 위치 프라이머 인앱 메시지 구축 {#step-2-build-the-location-primer-in-app-message}
 
@@ -150,7 +149,7 @@ Braze 인앱 메시지에는 네이티브 위치 권한 프롬프트를 호출�
 
 사용자가 이전에 위치 접근을 거부했거나 제한된 권한을 선택한 경우, 대부분의 OS 버전에서 앱 내에서 네이티브 프롬프트를 다시 트리거할 수 없습니다. 대신 기기 설정에서 권한을 업데이트하도록 안내하세요.
 
-커스텀 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) 내에서 딥링크를 사용하여 사용자를 OS의 앱 위치 설정 페이지로 이동시키세요. 개발팀은 앱의 위치 권한 처리의 일부로 이를 위한 딥링크를 설정할 수 있습니다([1단계](#step-1-work-with-your-development-team) 참조).
+커스텀 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) 내에서 딥링크를 사용하여 사용자를 OS의 앱 위치 설정 페이지로 이동시키세요. 개발팀은 앱의 위치 권한 처리의 일부로 이를 위한 딥링크를 설정할 수 있습니다([1단계](#step-1-work-with-your-development-team) 참조).
 
 이 인앱 메시지를 구축할 때 다음을 고려하세요:
 
@@ -203,7 +202,7 @@ Braze 인앱 메시지에는 네이티브 위치 권한 프롬프트를 호출�
 1. **지오펜스 그리기**를 선택하여 지도에서 원을 클릭하고 드래그합니다. 필요에 따라 반복하여 세트에 더 많은 지오펜스를 추가합니다.
 2. (선택 사항) **편집**을 선택하고 지오펜스 설명을 이름으로 바꿉니다.
 3. (선택 사항) **고급 설정 표시**를 선택한 다음 이 설정을 사용하여 지오펜스 분석이 기록되는 방식을 제어합니다:
-  - **진입 분석 활성화** 및 **이탈 분석 활성화**를 선택하여 보고 및 분석을 위해 [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED` SQL 테이블]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED)에 진입 및 이탈 활동을 기록합니다.
+  - **진입 분석 활성화** 및 **이탈 분석 활성화**를 선택하여 보고 및 분석을 위해 [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED` SQL 테이블]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED)에 진입 및 이탈 활동을 기록합니다.
   - 동일한 사용자가 해당 지오펜스에 대해 다른 진입 또는 이탈 이벤트를 트리거하기 전에 경과해야 하는 시간(초)을 설정하는 쿨다운 기간을 구성합니다. 쿨다운을 설정하지 않으면 기본값은 6시간입니다.
   - **Android 알림 응답성**을 사용하여 Android 기기가 앱에 진입 또는 이탈 이벤트를 전달할 때 사용하는 최대 지연 시간(초)을 설정합니다.
 
@@ -267,7 +266,7 @@ JSON 파일을 업로드하려면 **더 보기** > **JSON 업로드**를 선택�
 
 ### Campaigns 및 Canvases 트리거 {#triggering-campaigns-and-canvases}
 
-지오펜스 데이터를 캠페인 및 Canvas 트리거의 일부로 사용하려면 전달 방법으로 **실행 기반 전달**을 선택합니다. 다음으로 `Trigger a Geofence` 트리거 동작을 추가합니다. 마지막으로 메시지에 대한 지오펜스 세트와 지오펜스 전환 이벤트 유형을 선택합니다. 지오펜스 이벤트를 사용하여 Canvas를 통해 사용자를 진행시킬 수도 있습니다.
+지오펜스 데이터를 Campaign 및 Canvas 트리거의 일부로 사용하려면 전달 방법으로 **실행 기반 전달**을 선택합니다. 다음으로 `Trigger a Geofence` 트리거 동작을 추가합니다. 마지막으로 메시지에 대한 지오펜스 세트와 지오펜스 전환 이벤트 유형을 선택합니다. 지오펜스 이벤트를 사용하여 Canvas를 통해 사용자를 진행시킬 수도 있습니다.
 
 ![사용자가 독일 공항에 진입할 때 트리거되는 지오펜스가 있는 실행 기반 캠페인.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
 
@@ -284,8 +283,6 @@ JSON 파일을 업로드하려면 **더 보기** > **JSON 업로드**를 선택�
 
 Braze SDK는 세션 시작 시 하루에 한 번만 지오펜스를 요청합니다. 세션 시작 후 지오펜스 세트를 변경하면 세트가 처음 다운로드된 시점부터 24시간을 기다려야 업데이트된 세트를 수신할 수 있습니다.
 
-사용자가 백그라운드 푸시를 활성화한 경우, Braze는 지오펜스 세트가 업데이트될 때 24시간마다 사일런트 푸시를 보내 최신 위치를 기기로 다운로드합니다.
-
 {% alert note %}
 지오펜스가 기기에 로컬로 로드되지 않은 경우, 사용자가 해당 영역에 진입하더라도 지오펜스를 트리거할 수 없습니다.
 {% endalert %}
@@ -297,29 +294,24 @@ Braze SDK는 세션 시작 시 하루에 한 번만 지오펜스를 요청합니
 - 안정적인 트리거를 위해 200미터 이상의 반경을 사용하세요.
 - 서로 겹치거나 중첩된 지오펜스를 설정하지 마세요. 트리거에 문제가 발생할 수 있습니다.
 - 지오펜스는 6시간마다 한 번만 진입 이벤트를 트리거할 수 있습니다. 이 쿨다운 기간은 로컬에서 적용됩니다. 사용자가 앱을 제거하거나 앱 데이터를 삭제하면 모든 쿨다운이 초기화됩니다.
-- 기기에 총 20개 이하의 지오펜스만 저장할 수 있습니다. 사용자가 20개 이상의 자격이 있는 경우, Braze는 세션 시작 또는 사일런트 푸시 새로고침 시 근접성을 기반으로 가장 가까운 위치를 다운로드합니다.
+- 기기에 총 20개 이하의 지오펜스만 저장할 수 있습니다. 사용자가 20개 이상의 자격이 있는 경우, Braze는 세션 시작 시 근접성을 기반으로 가장 가까운 위치를 다운로드합니다.
 - Braze는 사용자로부터 2,000킬로미터 반경 내의 지오펜스만 기기로 전송합니다.
 
 ### 기기 요구 사항 {#device-requirements}
 
-- 앱에 대해 푸시 권한과 위치 권한이 모두 활성화되어 있어야 합니다.
-- 유효한 포그라운드 푸시 토큰이 필요합니다.
+- 앱 사용자가 위치 권한을 부여해야 합니다. 자세한 내용은 [위치 권한](#location-permissions) 섹션을 참조하세요.
 
 {% alert note %}
-기본 SDK 통합은 위치 추적만 활성화합니다. 지오펜싱은 iOS와 Android 모두에 대해 추가 설정 단계가 필요합니다. 자세한 내용은 개발자 가이드의 [지오펜스]({{site.baseurl}}/developer_guide/geofences/)를 참조하세요.
+기본 SDK 통합은 위치 추적만 활성화합니다. 지오펜싱은 iOS와 Android 모두에 대해 추가 설정 단계가 필요합니다. 자세한 내용은 개발자 가이드의 [지오펜스]({{site.baseurl}}/developer_guide/geofences)를 참조하세요.
 {% endalert %}
 
-[Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) 및 [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)와 같은 Braze 기술 파트너와 함께 지오펜스를 사용할 수도 있습니다.
+[Radar]({{site.baseurl}}/partners/message_personalization/location/radar) 및 [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)와 같은 Braze 기술 파트너와 함께 지오펜스를 사용할 수도 있습니다.
+
+## 지오펜스와 위치 추적의 차이점 {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
-
-### 지오펜스와 위치 추적의 차이점은 무엇인가요? {#whats-the-difference-between-geofences-and-location-tracking}
-
-Braze에서 지오펜스는 위치 추적과 다른 개념입니다. 지오펜스는 특정 동작의 트리거로 사용됩니다—사용자가 지리적 위치 주변에 설정된 가상 경계에 진입하거나 이탈할 때 메시지 전송과 같은 특정 동작을 트리거할 수 있습니다.
-
-위치 추적은 사용자의 가장 최근 위치 데이터를 수집하고 저장합니다. 이 데이터는 `Most Recent Location` 필터를 기반으로 사용자를 세분화하는 데 사용할 수 있습니다. 예를 들어, `Most Recent Location` 필터를 사용하여 뉴욕에 위치한 사용자를 타겟팅할 수 있습니다.
-
-자세한 내용은 [위치 추적]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/)을 참조하세요.
 
 ### Braze 지오펜스는 얼마나 정확한가요? {#how-accurate-are-braze-geofences}
 

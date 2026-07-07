@@ -17,7 +17,7 @@ Event
 
 Selecciona usuarios que abrieron una determinada Campaign de correo electrónico más de una vez en el pasado.
 
-Esto también funciona para limitar mensajes dentro de la aplicación por número de impresiones, como seleccionar usuarios con más de tres impresiones como exclusión de Segment en la misma Campaign.
+Esto también funciona para limitar mensajes dentro de la aplicación por número de impresiones, como seleccionar usuarios con más de tres impresiones como exclusión de segmento en la misma Campaign.
 
 ```sql
 SELECT user_id FROM "USERS_MESSAGES_EMAIL_OPEN_SHARED"
@@ -67,7 +67,7 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-Selecciona usuarios que realizaron una compra en cada uno de los últimos cuatro trimestres. Este segmento de usuarios se puede utilizar con [audience sync]({{site.baseurl}}/partners/canvas_audience_sync/) para identificar clientes similares de alto valor para la adquisición.
+Selecciona usuarios que realizaron una compra en cada uno de los últimos cuatro trimestres. Este segmento de usuarios se puede utilizar con [audience sync]({{site.baseurl}}/partners/canvas_audience_sync) para identificar clientes similares de alto valor para la adquisición.
 
 ```sql
 ELECT DISTINCT user_id
@@ -123,7 +123,7 @@ HAVING COUNT(id) > 0;
 Message, Delivery
 {% endapitags %}
 
-Selecciona usuarios a los que se les envió una campaña o Canvas de SMS, pero el mensaje no llegó al operador. Por ejemplo, el mensaje podría haber sido detenido por un desbordamiento de cola.
+Selecciona usuarios a los que se les envió una Campaign de SMS o un Canvas, pero el mensaje no llegó al operador. Por ejemplo, el mensaje podría haber sido detenido por un desbordamiento de cola.
 
 ```sql
 SELECT
@@ -289,7 +289,7 @@ AND to_timestamp_ntz(time) <= '2023-11-30'::timestamp_ntz;
 Event, Property
 {% endapitags %}
 
-Enviar un mensaje a usuarios que vieron una serie en los últimos seis meses y están a punto de abandonar la plataforma.
+Envía un mensaje a usuarios que vieron una serie en los últimos seis meses y están a punto de abandonar la plataforma.
 
 La propiedad es el ID del título; de lo contrario, necesitarías incluir más de 100 ID de título en un filtro. La extensión de segmento incremental se puede optimizar en cuanto a costos y puedes especificar el rango de fechas en el encabezado.
 

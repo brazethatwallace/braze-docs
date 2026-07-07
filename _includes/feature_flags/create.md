@@ -18,7 +18,7 @@ To manage feature flags in the dashboard, you'll either need to be an Administra
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Manage Feature Flags**                                                      | View, create, and edit feature flags.     |
 | **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | View the list of available feature flags. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Braze permissions" }
 
 ## Creating a feature flag
 
@@ -41,7 +41,7 @@ Under **Feature flag details**, enter a name, ID, and description for your featu
 | ID           | The unique ID you'll use in your code to check if this feature is [enabled for a user](#enabled). This ID cannot be changed later, so review the [ID naming best practices](#naming-conventions) before continuing. |
 | Description  | An optional description that gives some context about your feature flag.   |
 | Properties   | Optional properties that remotely configure your feature flag. They can be overwritten in Canvas steps or feature flag experiments. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Fill out the details" }
 
 ### Step 2a: Create custom properties
 
@@ -60,9 +60,10 @@ In the following example, the feature flag shows an out-of-stock banner for an e
 |`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
 |`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
 |`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2a: Create custom properties" }
 
 {% alert tip %}
-There is no limit to the number of properties you can add. However, a feature flag's properties are limited to a total of 10 KB. Both property values and keys are limited to 255 characters in length.
+There is no limit to the number of properties you can add. However, a feature flag's properties are limited to a total of 10,000 characters.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -933,7 +934,7 @@ Replace the following:
 | `BEHAVIOR`  | The behavior of the feature. In your code, be sure the behavior is disabled by default and avoid using phrases like `disabled` in the feature flag name. |
 | `PRODUCT`   | The product the feature belongs to.                                                                                       |
 | `FEATURE`    | The name of the feature.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Naming conventions" }
 
 Here's an example feature flag where `show` is the behavior, `animation_profile` is the product, and `driver` is the feature:
 

@@ -17,9 +17,9 @@ Antes de começar, você precisará do seguinte:
 
 | Requisito | Descrição |
 | --- | --- |
-| Conta Kameleoon | É necessário ter uma conta Kameleoon para aproveitar essa parceria.|
-| Conta Braze | Uma conta Braze ativa com o [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado em sua página da web. Você também precisará ativar a segmentação de propriedades de eventos. Para solicitá-la, consulte [Considerações](#considerations).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Conta Kameleoon | É necessário ter uma conta Kameleoon para aproveitar essa parceria. |
+| Conta Braze | Uma conta Braze ativa com o [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado em sua página da web. Você também precisará ativar a segmentação de propriedades de eventos. Para solicitá-la, consulte [Considerações](#considerations). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -101,7 +101,8 @@ Além disso, esses eventos poderão ser acessados por meio de [objetos de evento
 
 Antes de poder usar a segmentação de propriedades de eventos, você precisará ativá-la na Braze. Use o modelo a seguir para entrar em contato com o CSM da Braze ou com a equipe de suporte para obter acesso.
 
-   <table>
+   <table aria-label="Solicitar segmentação de propriedades de eventos">
+     <caption>Solicitar segmentação de propriedades de eventos</caption>
    <thead>
       <tr>
          <th>Campo</th>
@@ -126,7 +127,7 @@ Antes de poder usar a segmentação de propriedades de eventos, você precisará
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Solicitar segmentação de propriedades de eventos" }
 
 ### Pontos de dados da Braze {#braze-data-points}
 

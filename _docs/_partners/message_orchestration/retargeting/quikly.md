@@ -26,7 +26,7 @@ The Braze and Quikly partnership allows you to accelerate conversions on events 
 | Braze REST API key | A Braze REST API key with `users.track`, `subscription.status.set`, `users.export.ids`, and `subscription.status.get` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
 | Quikly API key (optional) | A Quikly API key provided by your client success manager (webhook only). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -135,7 +135,7 @@ Use webhooks to trigger incentives for specific events in the customer journey. 
 
 ### Create a Quikly webhook in Braze
 
-To create a Quikly webhook template for future campaigns or Canvases, navigate to **Templates** > **Webhook Templates** in the Braze platform. 
+To create a Quikly webhook template for future campaigns or Canvases, navigate to **Content** > **Webhook** in the Braze platform. Then, select **Create webhook template**.
 
 If you would like to create a one-off Quikly webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
 

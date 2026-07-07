@@ -15,13 +15,11 @@ description: "この記事では、コンテンツブロックの翻訳ソース
 /content_blocks/translations/source
 {% endapimethod %}
 
-> このエンドポイントを使用して、コンテンツブロックの翻訳タグのデフォルト翻訳ソースをすべて表示します。これらは {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %} 内の値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
-
-{% include early_access_beta_alert.md feature='This endpoint' %}
+> このエンドポイントを使用して、コンテンツブロックの翻訳タグのデフォルト翻訳ソースをすべて表示します。これらは {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %} 内の値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`content_blocks.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`content_blocks.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -31,9 +29,9 @@ description: "この記事では、コンテンツブロックの翻訳ソース
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id`| 必須 | 文字列 | コンテンツブロックのID。|
-| `locale_id`| オプション | 文字列 | レスポンスをフィルタリングするためのロケールUUID。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content_block_id` | 必須 | 文字列 | コンテンツブロックのID。 |
+| `locale_id` | オプション | 文字列 | レスポンスをフィルタリングするためのロケールUUID。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="クエリパラメーター" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントのレスポンスで確認できます。

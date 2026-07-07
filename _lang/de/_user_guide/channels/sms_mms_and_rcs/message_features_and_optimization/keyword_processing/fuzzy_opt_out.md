@@ -13,15 +13,19 @@ page_order: 4
 
 # Fuzzy-Abmeldung {#fuzzy-opt-out}
 
-> Nutzer:innen, die SMS, MMS und RCS mit Braze versenden, müssen die geltenden Gesetze, Vorschriften und Branchenstandards einhalten. Für die Abmeldung schreiben die Gesetze vor, dass bei einer „STOP“-Nachricht eines Nutzers bzw. einer Nutzerin alle nachfolgenden Nachrichten im Zusammenhang mit diesem Messaging-Programm eingestellt werden. Braze verarbeitet diese Nachrichten automatisch und meldet die Nutzer:innen ab.<br><br>Die Fuzzy-Abmeldung versucht zu erkennen, wenn eine eingehende Nachricht keinem [Abmelde-Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) entspricht, aber eine Abmeldeabsicht signalisiert. Wenn die Fuzzy-Abmeldung aktiviert ist und eine eingehende Keyword-Antwort als „fuzzy“ eingestuft wird, können Sie Braze so konfigurieren, dass Nutzer:innen entweder automatisch abgemeldet werden oder eine Nachricht erhalten, die erklärt, wie sie sich manuell abmelden können.
-
 ![iOS-Nachrichtenchat, der ausgehende Abmeldenachrichten als Antwort auf die eingehende Fuzzy-Abmeldung „Please stopppp“ zeigt.]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Derzeit werden nur Abmelde-Keywords unterstützt, die mit Englisch als [lokaler Sprache]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support) erstellt wurden.
+> Nutzer:innen, die SMS, MMS und RCS mit Braze versenden, müssen die geltenden Gesetze, Vorschriften und Branchenstandards einhalten. Für die Abmeldung schreiben Gesetze wie der TCPA vor, dass bei einer Nachricht, die eine angemessene Widerrufung der Einwilligung darstellt (einschließlich anerkannter Abmelde-Keywords wie „STOP“, „STOPALL“, „UNSUBSCRIBE“, „CANCEL“, „END“ oder „QUIT“), alle nachfolgenden Nachrichten im Zusammenhang mit diesem Messaging-Programm eingestellt werden müssen. Braze verarbeitet anerkannte Abmelde-Keywords automatisch und meldet die Nutzer:innen ab.<br><br> Die Fuzzy-Abmeldung erweitert diese Funktion, indem sie versucht, eingehende Nachrichten zu erkennen, die keinem konfigurierten **Abmelde-Keyword** in der Kategorie **Opt-out** der Abo-Gruppe entsprechen (also weder einem [Standard-Abmelde-Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) noch einem [benutzerdefinierten Abmelde-Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)), aber dennoch eine Abmeldeabsicht signalisieren – zum Beispiel eine Nachricht wie „goodbye“ oder „leave me alone“.
+
+Die Fuzzy-Abmeldung ist standardmäßig deaktiviert. Wenn die Fuzzy-Abmeldung aktiviert ist und eine eingehende Nachricht als „fuzzy“ eingestuft wird, können Sie Braze so konfigurieren, dass Nutzer:innen entweder automatisch abgemeldet werden oder eine Nachricht erhalten, die erklärt, wie sie sich manuell abmelden können. Für US-Marken wird die automatische Abmeldung dringend empfohlen, um die TCPA-Anforderungen einzuhalten.
+
+{% alert note %}
+Derzeit werden nur Abmelde-Keywords (Standard und benutzerdefiniert) unterstützt, die mit Englisch als [lokaler Sprache]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support) erstellt wurden.
+{% endalert %}
 
 ## Was wird als „fuzzy“ eingestuft? {#what-is-deemed-as-fuzzy}
 
-Die Kriterien, damit eine eingehende Antwort als „fuzzy“ eingestuft wird, sind wie folgt:
+Die Kriterien, damit eine eingehende Antwort als „fuzzy“ eingestuft wird, sind wie folgt (Vergleiche verwenden jedes Keyword in der Kategorie **Opt-out**, einschließlich Standard- und benutzerdefinierter Keywords):
 - Wenn das Vertauschen eines Buchstabens mit dem Buchstaben links oder rechts davon auf einer QWERTY-Tastatur ein passendes Abmelde-Keyword ergibt.
 - Ein Teilstring der Nachricht einem Abmelde-Keyword entspricht.
 
@@ -36,7 +40,7 @@ Um die Fuzzy-Abmeldung zu konfigurieren, navigieren Sie zur Keyword-Verwaltungss
 3. Schalten Sie **Fuzzy Opt-Out** auf **On** um.
 4. Wählen Sie Ihre bevorzugte Option für **Fuzzy Opt-Out Logic** aus:
    - **Automatically unsubscribe:** Wenn Nutzer:innen eine Nachricht senden, die einem Abmelde-Keyword ähnelt, werden sie sofort abgemeldet, ohne eine Aufforderung zu erhalten. Die Standard-Abmeldebestätigungsnachricht wird dann gesendet.
-   - **Send opt-out instructions:** Wenn Nutzer:innen eine Nachricht senden, die einem Abmelde-Keyword ähnelt, sendet Braze eine benutzerdefinierte Antwort (die **Opt-out instruction message**), die erklärt, wie man sich abmeldet.
+   - **Send opt-out instructions:** Wenn Nutzer:innen eine Nachricht senden, die einem Abmelde-Keyword ähnelt, sendet Braze eine benutzerdefinierte Antwort (die **Opt-out instruction message**), die erklärt, wie sie sich abmelden können.
 5. Wenn Sie **Send opt-out instructions** ausgewählt haben, geben Sie Ihren benutzerdefinierten Text im Feld **Opt-out instruction message** ein. Dieses Feld ist für diese Einstellung erforderlich.
 6. Wählen Sie **Save** aus.
 
@@ -79,16 +83,16 @@ Wenn Sie **Send opt-out instructions** wählen, konzentrieren Sie Ihre Nachricht
   </thead>
   <tbody>
     <tr>
-      <td>„To unsubscribe from all messages, please reply with the word STOP.“ (Um sich von allen Nachrichten abzumelden, antworten Sie bitte mit dem Wort STOP.)</td>
-      <td>„You have successfully been unsubscribed. You will not receive any more messages from this number. Reply START to resubscribe.“ (Dies ist eine direkte Abmeldebestätigung, die in einem Fuzzy-Abmeldeszenario irreführend ist.)</td>
+      <td>„Um sich von allen Nachrichten abzumelden, antworten Sie bitte mit dem Wort STOP.“</td>
+      <td>„Sie wurden erfolgreich abgemeldet. Sie erhalten keine weiteren Nachrichten mehr von dieser Nummer. Antworten Sie mit START, um sich erneut anzumelden.“ (Dies ist eine direkte Abmeldebestätigung, die in einem Fuzzy-Abmeldeszenario irreführend ist.)</td>
     </tr>
     <tr>
-      <td>„We received your message. If you'd like to stop receiving texts, please text STOP.“ (Wir haben Ihre Nachricht erhalten. Wenn Sie keine Textnachrichten mehr erhalten möchten, senden Sie bitte STOP.)</td>
+      <td>„Wir haben Ihre Nachricht erhalten. Wenn Sie keine Textnachrichten mehr erhalten möchten, senden Sie bitte STOP.“</td>
       <td>„STOP.“ (Dies ist nur das exakte Keyword selbst, das die Nutzer:innen nicht anleitet.)</td>
     </tr>
     <tr>
-      <td>„Did you mean to unsubscribe? Reply STOP to opt out of all future messages.“ (Wollten Sie sich abmelden? Antworten Sie mit STOP, um sich von allen zukünftigen Nachrichten abzumelden.)</td>
-      <td>„Text STOP to unsubscribe.“ (Wenn „STOP“ auch Ihr exaktes Keyword ist, ist dies redundant und klärt die Aktion nicht, wenn die ursprüngliche Nachricht fuzzy war.)</td>
+      <td>„Wollten Sie sich abmelden? Antworten Sie mit STOP, um sich von allen zukünftigen Nachrichten abzumelden.“</td>
+      <td>„Senden Sie STOP, um sich abzumelden.“ (Wenn „STOP“ auch Ihr exaktes Keyword ist, ist dies redundant und klärt die Aktion nicht, wenn die ursprüngliche Nachricht fuzzy war.)</td>
     </tr>
   </tbody>
 </table>

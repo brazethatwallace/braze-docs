@@ -13,10 +13,10 @@ noindex: true
 > This guide describes Braze-related changes introduced in iOS 14 and the required upgrade steps for your Braze iOS SDK integration. For a complete list of new iOS 14 updates, see Apple's [iOS 14 Page](https://www.apple.com/ios/ios-14/).
 
 {% alert tip %}
-As of iOS 14.5, **IDFA** collection and [certain data sharing](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) will require the new [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) Framework permission prompt ([Learn More](#idfa)).
+As of iOS 14.5, **IDFA** collection and [certain data sharing](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) will require the new [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) Framework permission prompt ([Learn more about IDFA](#idfa)).
 {% endalert %}
 
-#### Summary of iOS 14 breaking changes
+## Summary of iOS 14 breaking changes
 
 - Apps targeting iOS 14 / Xcode 12 must use our [official iOS 14 release](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.27.0).
 - Geofences are [no longer supported by iOS](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) for users who choose the new  _approximate location_ permission.
@@ -43,6 +43,7 @@ table td {
 |Xcode 12|**Upgrade to iOS SDK v3.27 or later**|Customers using Xcode 12 must use v3.27.0+ for compatibility. If you experience any issues or questions related to our iOS 14 compatibility, open a new [GitHub issue](https://github.com/Appboy/appboy-ios-sdk/issues).|
 |Most Recent Location| **Upgrade to iOS SDK v3.26.1 or later**|If you use the Most Recent Location targeting feature and are still using Xcode 11, you should upgrade to at least iOS SDK v3.26.1 which supports the new  _Approximate Location_ feature. Older SDKs will not be able to reliably collect location when a user upgrades to iOS 14 _and_ choose Approximate Location.<br><br>Even though your app might not target iOS 14, your users may upgrade to iOS 14 and begin to use the new location accuracy option. Apps that do not upgrade to iOS SDK v3.26.1+ will not be able to reliably collect location attributes when users provide their _approximate location_  on iOS 14 devices.|
 |IDFA Ad Tracking ID| **Upgrade to Xcode 12 and iOS SDK v3.27 may be required**|Sometime in 2021, Apple will begin to require a permission prompt for the collection of the IDFA. At that time, apps must upgrade to Xcode 12 and use the new `AppTrackingTransparency` framework in order to continue collecting IDFA. If you pass IDFA to the Braze SDK you must also upgrade to v3.27.0+ at that time.<br><br>Apps that do not use the new iOS 14 APIs will be unable to collect IDFA, and will instead collect a blank ID (`00000000-0000-0000-0000-000000000000`) after Apple begins to enforce this change in 2021. For more information on whether or not this applies to your app, see [IDFA details](#idfa).|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Upgrade summary" }
 
 
 ## iOS 14 behavior changes
@@ -94,7 +95,7 @@ These IDFA updates will take effect after end-users upgrade their device to iOS 
 
 3. If you use the "Ad Tracking Enabled" field for campaign targeting or analytics, you will need to upgrade to Xcode 12 and use the new AppTrackingTransparency framework to report your users' opt-in status. The reason for this change is that in iOS 14, the old [`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled) field will always return No.
 
-4. If your app has used IDFA or IDFV as your Braze external ID, we strongly recommend migrating away from these identifiers in favor of a UUID. For more information on migrating external IDs, see our [External ID migration API endpoints]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
+4. If your app has used IDFA or IDFV as your Braze external ID, we strongly recommend migrating away from these identifiers in favor of a UUID. For more information on migrating external IDs, see our [External ID migration API endpoints]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 Read more from Apple about their [Privacy Updates](https://developer.apple.com/app-store/user-privacy-and-data-use/) and the new [App Tracking Transparency framework](https://developer.apple.com/documentation/apptrackingtransparency).
 

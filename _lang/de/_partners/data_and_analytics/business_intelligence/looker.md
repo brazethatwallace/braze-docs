@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
 
 > [Looker](https://looker.com/), eine Business-Intelligence- und Big-Data-Analytics-Plattform, ermöglicht es Ihnen, Realtime-Business-Analytics nahtlos zu erforschen, zu analysieren und zu teilen.
 
@@ -21,7 +21,7 @@ Die Integration von Braze und Looker erlaubt es Unternehmensnutzer:innen, First-
 | Looker-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Looker-Konto](https://looker.com/). |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Braze-REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 #### Hinweise {#considerations}
 
@@ -56,7 +56,7 @@ Achten Sie auf unterschiedliche Namenskonventionen! Angepasste Namen können zu 
 |---|---|
 | Analytics-Block für das Engagement von Nachrichten | Dieser Block enthält Daten zu Push-, E-Mail-, In-App-Nachrichten-, Webhook-, Conversion-, Canvas-Eingangs- und Campaign-Kontrollgruppen-Events. <br><br>Erfahren Sie mehr über diesen [Looker Block](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), oder sehen Sie sich den [GitHub-Code](https://github.com/llooker/braze_message_engagement_block) an. |
 | Block für Verhaltensanalysen von Nutzer:innen | Dieser Block enthält Daten zu angepassten Events, Käufen, Sitzungen, Standort-Events und Deinstallationen.<br><br>Erfahren Sie mehr über diesen [Looker Block](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), oder sehen Sie sich den [GitHub-Code](https://github.com/llooker/braze_retention_block) an. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Blöcke" }
 
 ### Looker-Aktionen {#looker-actions}
 
@@ -102,7 +102,7 @@ Beachten Sie die folgenden Einschränkungen:
 
 #### 4. Schritt: Looker-Aktion senden {#step-4-send-the-looker-action}
 
-1. Klicken Sie innerhalb eines Looks, für den eine Dimension `braze_id` ausgewählt ist, auf das Einstellungsrad ( <i class="fas fa-cog"></i> ) oben rechts und wählen Sie **Send...**.
+1. Klicken Sie innerhalb eines Looks, für den eine Dimension `braze_id` ausgewählt ist, auf das Einstellungsrad (<i class="fas fa-cog"></i>) oben rechts und wählen Sie **Send...**.
 2. Wählen Sie die angepasste Braze-Aktion aus.
 3. Geben Sie unter **Unique Key** den primären Nutzer:innen-Zuordnungsschlüssel für das Braze-Konto an (`external_id` oder `braze_id`).
 4. Geben Sie dem Export einen Namen. Wenn keine Angabe gemacht wird, wird `LOOKER_EXPORT` verwendet.

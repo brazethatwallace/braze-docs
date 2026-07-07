@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Crear bloque de contenido"
 article_title: "POST: Crear bloque de contenido"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -14,12 +14,16 @@ description: "En este artículo se describen los detalles del punto de conexión
 /content_blocks/create
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
+> Utiliza este punto de conexión para crear un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks).
+
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks). Esto permite que herramientas de IA como Claude y Cursor creen bloques de contenido mediante indicaciones en lenguaje natural.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `content_blocks.create`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `content_blocks.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -44,14 +48,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `name` | Obligatoria | Cadena | Nombre del bloque de contenido. Debe tener menos de 100 caracteres. |
+| `name` | Obligatorio | Cadena | Nombre del bloque de contenido. Debe tener menos de 100 caracteres. |
 | `description` | Opcional | Cadena | Descripción del bloque de contenido. Debe tener menos de 250 caracteres. |
-| `content` | Obligatoria | Cadena | Contenido HTML o de texto dentro del bloque de contenido. |
+| `content` | Obligatorio | Cadena | Contenido HTML o de texto dentro del bloque de contenido. |
 | `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |
-| `tags` | Opcional | Matriz de cadenas | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/) ya deben existir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `tags` | Opcional | Matriz de cadenas | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags) ya deben existir. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```bash
@@ -100,7 +104,7 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `Tags must be an array` | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
 | `Some tags could not be found` | Para añadir una etiqueta al crear un bloque de contenido, la etiqueta debe existir ya en Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 
 {% endapi %}

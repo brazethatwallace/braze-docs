@@ -5,14 +5,14 @@ page_order: 40
 hide_toc: true
 layout: dev_guide
 guide_top_header: "Tutoriales de mensajes dentro de la aplicación"
-guide_top_text: "Estos son tutoriales de mensajes dentro de la aplicación para el SDK de Braze que incluyen código desplazable paso a paso. Para ver la lista completa, consulta <a href='/docs/developer_guide/tutorials/'>los tutoriales de Braze SDK</a>."
+guide_top_text: "> Estos son tutoriales de mensajes dentro de la aplicación para el SDK de Braze que incluyen código desplazable paso a paso. Para ver la lista completa, consulta <a href='/docs/developer_guide/tutorials'>los tutoriales de Braze SDK</a>."
 
 guide_featured_title: "Artículos de sección"
 guide_featured_list:
   - name: Estilo personalizado
     link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
     image: /assets/img/braze_icons/brush-02.svg
-  - name: Mostrar condicionalmente
+  - name: Mostrar de forma condicional
     link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
     image: /assets/img/braze_icons/zap-off.svg
   - name: Aplazar y restaurar mensajes desencadenados

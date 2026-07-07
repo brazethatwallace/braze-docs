@@ -9,7 +9,7 @@ tool: Dashboard
 search_rank: 5
 ---
 
-# 청구
+# 청구 {#billing}
 
 > **청구** 페이지를 사용하여 워크스페이스, 앱 및 이벤트 소스 전반의 데이터 소비를 모니터링하고 확인하는 방법을 알아보세요. 이 문서에서는 페이지의 다양한 섹션과 각 섹션에서 제공하는 정보를 다룹니다.
 
@@ -25,7 +25,7 @@ search_rank: 5
 
 **구독 및 사용량** 탭에는 사용량 그래프와 계약 세부 정보가 포함되어 있습니다. 이 페이지의 데이터는 매일 미국 동부 시간(ET) 오후 10시에 업데이트됩니다. 실시간 활동을 반영하지 않습니다.
 
-### 사용량 그래프
+### 사용량 그래프 {#usage-graphs}
 
 여기에서 워크스페이스에 적용되는 사용량 그래프를 확인할 수 있습니다. 구매한 제품에 따라 대시보드에 다른 사용량 측정기준이 표시될 수 있습니다.
 
@@ -33,11 +33,11 @@ search_rank: 5
 
 이 그래프는 월간 활성 사용자, 월간 고유 방문자 및 이메일 발송 수를 보여줄 수 있습니다. 이러한 사용량 그래프는 사용량을 예산 책정하고 어떤 워크스페이스가 전체 사용량에 기여하는지 더 깊이 이해하려고 할 때 특히 유용합니다.
 
-### 계약 세부 정보
+### 계약 세부 정보 {#contract-details}
 
 계약 세부 정보에는 Braze와의 현재 계약 시작일과 종료일이 나열됩니다.
 
-#### 고려 사항
+#### 고려 사항 {#considerations}
 
 계약에서 월간 고유 방문자(MUV)를 사용하다가 월간 활성 사용자(MAU)만 사용하는 계약으로 변경하면, 이전 데이터는 여전히 MUV 그래프에 표시되고 새 데이터는 MAU 그래프에만 표시됩니다. 예를 들어, 계약이 10월에 종료되면 MUV 그래프는 9월 말까지의 데이터를 보여줍니다.
 
@@ -61,6 +61,8 @@ search_rank: 5
 데이터 포인트 정보는 24시간마다 캐시됩니다.
 {% endalert %}
 
+관리자인데 **총 데이터 포인트 사용량** 탭을 볼 수 없는 경우, 브라우저가 Braze 대시보드 도메인에 대해 서드파티 쿠키를 허용하고 있는지, 시크릿 모드가 아닌지 확인하세요.
+
 ![주별 데이터 포인트 사용량 필터링]({% image_buster /assets/img/subscription_and_billing2.png %})
 
 ### 계약 세부 정보
@@ -74,11 +76,9 @@ search_rank: 5
 - **할당된 데이터 포인트:** 청구 기간당 계약에서 할당된 데이터 포인트 양입니다.
 - **계약 데이터 포인트 사용량:** 계약 기간 동안 기록된 모든 데이터 포인트의 누적 합계이며, 다음 청구 기간에 초기화되지 않습니다.
 
-![총 데이터 포인트 사용량 탭의 계약 세부 정보 섹션]({% image_buster /assets/img/contract_details.png %})
+### 회사 청구 데이터 {#company-billing-data}
 
-### 회사 청구 데이터
-
-#### 앱 수준 총 데이터 포인트 사용량
+#### 앱 수준 총 데이터 포인트 사용량 {#app-level-total-data-point-usage}
 
 이 그래프는 앱 전반의 데이터 포인트 사용량을 보여줍니다.
 
@@ -86,27 +86,27 @@ search_rank: 5
 
 합계 중 하나를 선택하면 **기간별 데이터 포인트 사용량** 테이블이 표시되며, 각 워크스페이스의 주간 데이터 포인트 합계를 보여줍니다. **앱 이름** 열이 비어 있는 행은 어떤 앱과도 연결되지 않은 데이터 포인트를 나타냅니다(예: `app_id`를 지정하지 않은 요청에서 사용된 데이터 포인트).
 
-![두 워크스페이스의 주간 총 데이터 포인트를 보여주는 기간별 데이터 포인트 사용량.]({% image_buster /assets/img/data_point_usage_time.png %})
+![두 워크스페이스의 주간 총 데이터 포인트를 보여주는 기간별 데이터 포인트 사용량]({% image_buster /assets/img/data_point_usage_time.png %})
 
-#### 워크스페이스 데이터 포인트 사용량
+#### 워크스페이스 데이터 포인트 사용량 {#workspace-data-point-usage}
 
 이 그래프를 통해 워크스페이스별 회사의 총 데이터 포인트 사용량을 평가할 수 있습니다. 각 워크스페이스가 회사의 데이터 포인트 사용량에 어떻게 기여하고 있는지 파악하는 데 유용합니다.
 
 ![두 워크스페이스의 워크스페이스 데이터 포인트 사용량 그래프]({% image_buster /assets/img/appgroup_datapoint_usage.png %}){: style="max-width:90%;"}
 
-#### 이벤트 소스별 청구 주기 데이터 포인트 사용량
+#### 이벤트 소스별 청구 주기 데이터 포인트 사용량 {#billing-cycle-data-point-usage-by-event-source}
 
 이 그래프를 통해 다양한 API 속성, 커스텀 이벤트, 세션 등 여러 이벤트 소스에 걸쳐 데이터 포인트 사용량이 어떻게 분포되어 있는지 확인할 수 있습니다.
 
-![다양한 이벤트 소스 간의 데이터 포인트 할당을 표시하는 이벤트 소스별 청구 주기 데이터 포인트 사용량.]({% image_buster /assets/img/event_source_stats.png %})
+![다양한 이벤트 소스 간의 데이터 포인트 할당을 표시하는 이벤트 소스별 청구 주기 데이터 포인트 사용량]({% image_buster /assets/img/event_source_stats.png %})
 
-#### 기간별 데이터 포인트 사용량
+#### 기간별 데이터 포인트 사용량 {#data-point-usage-over-time}
 
 이 그래프를 통해 총 데이터 포인트 사용량과 할당된 데이터 포인트 양을 빠르게 비교할 수 있습니다.
 
 ![현재 청구 주기 할당 데이터 포인트와 누적 합계를 비교하는 기간별 데이터 포인트 사용량]({% image_buster /assets/img/company_data_point_usage_time.png %}){: style="max-width:90%;"}
 
-## 다음 단계
+## 다음 단계 {#next-steps}
 
-- [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)에서 청구 관련 이벤트 및 사용량 임계값에 대한 알림을 구성할 수 있습니다.
-- [메시지 사용량 대시보드]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/)에서 SMS, WhatsApp 및 RCS 크레딧 소비를 모니터링할 수 있습니다.
+- [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)에서 청구 관련 이벤트 및 사용량 임계값에 대한 알림을 구성할 수 있습니다.
+- [크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard)에서 메시지 크레딧 소비를 모니터링할 수 있습니다.

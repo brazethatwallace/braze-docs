@@ -2,18 +2,20 @@
 nav_title: Mixpanel
 article_title: Mixpanel
 alias: /partners/mixpanel/
-description: "Dieser Artikel referenziert die Partnerschaft zwischen Braze und Mixpanel, einer Business Analytics-Plattform, die es Ihnen erlaubt, Mixpanel Kohorten in Braze zu importieren, um Braze Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze Campaigns oder Canvases verwendet werden können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Mixpanel, einer Business-Analytics-Plattform, die es Ihnen erlaubt, Mixpanel-Kohorten in Braze zu importieren, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können."
 page_type: partner
 search_tag: Partner
 tool: Currents
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
 
-> [Mixpanel](https://mixpanel.com/) ist eine Analytics-Plattform für Unternehmen, die es Ihnen erlaubt, Events aus Mixpanel in andere Plattformen zu exportieren, um tiefere Analysen durchzuführen. Die gesammelten Daten können dann dazu verwendet werden, angepasste Berichte zu erstellen und das Engagement und die Bindung der Nutzer:innen zu messen.
+> [Mixpanel](https://mixpanel.com/) ist eine Business-Analytics-Plattform, die es Ihnen erlaubt, Events aus Mixpanel in andere Plattformen zu exportieren, um tiefere Analysen durchzuführen. Die gesammelten Daten können dann dazu verwendet werden, angepasste Berichte zu erstellen und das Engagement und die Bindung der Nutzer:innen zu messen.
 
-Die Integration von Braze und Mixpanel erlaubt es Ihnen, [Mixpanel Kohorten in Braze zu importieren]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/), um Braze Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze Campaigns oder Canvases verwendet werden können. Sie können Braze-Currents auch nutzen, um [Ihre Braze-Events nach Mixpanel zu exportieren](#data-export-integration) und so tiefere Analytics zu Conversions, Bindung und Produktnutzung zu erhalten.
+Die Integration von Braze und Mixpanel erlaubt es Ihnen, [Mixpanel-Kohorten in Braze zu importieren]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/), um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können. Die Kohortensynchronisierung aktualisiert die Kohortenmitgliedschaft in Braze und importiert keine Mixpanel-Events oder Nutzer:innen-Eigenschaften. Weitere Informationen finden Sie unter [Mixpanel-Kohortenimport]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration).
+
+Sie können Braze-Currents auch nutzen, um [Ihre Braze-Events nach Mixpanel zu exportieren](#data-export-integration) und so tiefere Analytics zu Conversions, Bindung und Produktnutzung zu erhalten.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -21,7 +23,7 @@ Die Integration von Braze und Mixpanel erlaubt es Ihnen, [Mixpanel Kohorten in B
 |---|---|
 | Mixpanel-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Mixpanel-Konto](https://mixpanel.com/). |
 | Currents | Um Daten zurück in Mixpanel zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Datenexport-Integration {#data-export-integration}
 
@@ -50,82 +52,12 @@ Lesen Sie die [Integrationsdokumentation](https://help.mixpanel.com/hc/en-us/art
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 
-Braze unterstützt den Export der folgenden Daten, die in den Currents-Glossaren zum [Nutzer:innen-Verhalten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und zum [Nachrichten-Engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) aufgeführt sind, nach Mixpanel:
+Braze unterstützt den Export der folgenden Events nach Mixpanel:
 
-### Verhaltensweisen {#behaviors}
-- Angepasstes Event: `users.behaviors.CustomEvent`
-- Install-Attribution: `users.behaviors.InstallAttribution`
-- Standort: `users.behaviors.Location`
-- Kauf: `users.behaviors.Purchase`
-- Deinstallation: `users.behaviors.Uninstall`
-- App (erste Sitzung, Sitzungsende, Sitzungsbeginn)
-  - `users.behaviors.app.FirstSession`
-  - `users.behaviors.app.SessionEnd`
-  - `users.behaviors.app.SessionStart`
-- Abo (globale Statusänderung): `users.behaviors.subscription.GlobalStateChange`
-- Abo-Gruppe (Statusänderung): `users.behaviors.subscriptiongroup.StateChange`
+- [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Campaigns
-- Abbruch: `users_campaigns_abort`
-- Conversion: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-
-### Canvas
-- Abbruch: `users_canvas_abort`
-- Conversion: `users.canvas.Conversion`
-- Eingang: `users.canvas.Entry`
-- Exit (passende Zielgruppe, ausgeführtes Event)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Experiment-Schritt (Conversion, Split-Eingang)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### Nachrichten {#messages}
-- Content-Card (Abbruch, Klick, Verwerfen, Impression, Senden)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- E-Mail (Abbruch, Bounce, Klick, Zustellung, als Spam markieren, Öffnung, Senden, Soft-Bounce, Abmelden)
-  - `users.messages.email.Abort`
-  - `users.messages.email.Bounce`
-  - `users.messages.email.Click`
-  - `users.messages.email.Delivery`
-  - `users.messages.email.MarkAsSpam`
-  - `users.messages.email.Open`
-  - `users.messages.email.Send`
-  - `users.messages.email.SoftBounce`
-  - `users.messages.email.Unsubscribe`
-- In-App-Nachricht (Abbruch, Klick, Impression)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Push-Benachrichtigung (Abbruch, Bounce, iOS-Vordergrund, Öffnung, Senden)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (Abbruch, Carrier-Versand, Zustellung, Zustellungsfehler, eingehender Empfang, Ablehnung, Senden, Kurzlink-Klick)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (Abbruch, Senden)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (Abbruch, Zustellung, Fehler, eingehender Empfang, Gelesen, Senden)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
+Informationen zur Payload-Struktur der einzelnen Events finden Sie auf dem Tab **Mixpanel** im [Glossar der Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
 
 ## Fehlerbehebung {#troubleshooting}
 

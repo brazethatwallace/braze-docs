@@ -9,7 +9,7 @@ tool:
 description: "Este artigo de instruções mostra como usar, interpretar e compartilhar os Insights de segmento."
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Insights de segmento {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Insights de segmento {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
 
 > Saiba como usar, interpretar e compartilhar os Insights de segmento.
 
@@ -31,7 +31,7 @@ O segmento de linha de base pode ser um segmento específico que você seleciona
 | Lifetime Revenue em dólares | Lifetime Revenue médio em dólares para os usuários do segmento | gasto total do usuário |
 | Dias desde a primeira compra | Número médio de dias entre a primeira sessão e a primeira compra dos usuários do segmento | data da primeira compra – data da primeira sessão |
 | Dias desde a última compra | Número médio de dias entre a última compra dos usuários do segmento e agora | hoje – data da última compra |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Visualizando os Insights de segmento" }
 
 Você pode compartilhar facilmente comparações específicas com seus colegas usando a URL exclusiva da página, e também pode selecionar o ícone de olho ao lado de cada segmento para ver mais informações sobre ele. Essas comparações serão redefinidas quando você alternar entre espaços de trabalho.
 
@@ -41,7 +41,7 @@ Você pode compartilhar facilmente comparações específicas com seus colegas u
 
 Os Insights de segmento também foram integrados diretamente à visualização **Segment Details**. Ao analisar um segmento específico que você configurou anteriormente, você encontrará as mesmas seis estatísticas descritas na caixa dinâmica e cinza de estatísticas do segmento. A partir daqui, você pode iniciar rapidamente a ferramenta de Insights de segmento para comparar esse segmento específico com qualquer outro que você tenha configurado anteriormente, mas observe que isso substituirá quaisquer segmentos que você tenha selecionado anteriormente na ferramenta de Insights de segmento.
 
-![]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
+![Os Insights de segmento também foram integrados diretamente à visualização Segment Details. Ao analisar um segmento específico que você configurou anteriormente, você encontrará as mesmas seis estatísticas descritas na caixa dinâmica e cinza de estatísticas do segmento. A partir daqui, você pode iniciar rapidamente a ferramenta de Insights de segmento para comparar esse segmento específico com qualquer outro que você tenha configurado anteriormente, mas observe que isso substituirá quaisquer segmentos que você tenha selecionado anteriormente na ferramenta de Insights de segmento.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
 
 ## Casos de uso {#insights-use-cases}
 
@@ -60,7 +60,7 @@ Os Insights de segmento podem ajudar a revelar diferenças entre grupos demográ
 
 Neste exemplo, os falantes de alemão se inscreveram há mais tempo em média, o que pode explicar por que não são mais tão ativos. Isso pode ser devido a vários fatores. Por exemplo, se o app foi lançado primeiro na Europa, mas agora é mais popular nos EUA, onde a maioria das pessoas fala inglês ou espanhol. Para resultados mais robustos, ao analisar KPIs entre grupos demográficos, é sensato testar as descobertas de um estudo geral de demografia (por exemplo, se o idioma impacta o LTV em todos os usuários) analisando uma população menor e mais semelhante para verificar se as descobertas persistem.
 
-Para melhorar as conversões entre falantes de idiomas que não sejam inglês, um bom primeiro passo seria [localizar as campanhas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/) para o idioma do dispositivo do usuário e garantir que o texto dessas mensagens esteja engajando os usuários usando uma [campanha multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/#creating-tests) para testar diferentes versões do texto em idioma estrangeiro.
+Para melhorar as conversões entre falantes de idiomas que não sejam inglês, um bom primeiro passo seria [localizar as campanhas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) para o idioma do dispositivo do usuário e garantir que o texto dessas mensagens esteja engajando os usuários usando uma [campanha multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing#creating-tests) para testar diferentes versões do texto em idioma estrangeiro.
 
 ### Entendendo indicadores de maior receita {#understanding-indicators-of-higher-revenue}
 
@@ -68,4 +68,4 @@ Converter usuários em compradores pode ser difícil, e tentar empurrar usuário
 
 ![Detalhamento dos Insights de segmento para usuários que compartilharam em redes sociais, se inscreveram para promoções e se inscreveram para newsletter.]({% image_buster /assets/img_archive/Segment_Insights_Events1.png %})
 
-Neste caso, relativamente poucos usuários estão atualmente inscritos para mensagens promocionais e não são tão ativos, mas esses usuários geram um Lifetime Revenue mais alto. Para aumentar a receita, pode ser uma boa ideia incluir um convite para se inscrever em mensagens promocionais nas campanhas de integração. Para reengajar usuários inativos, um bom plano seria enviar uma [campanha típica para usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) e direcionar [usuários que converteram]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#converted-from-campaign-filter) com uma campanha subsequente para se inscrever em mensagens promocionais.
+Neste caso, relativamente poucos usuários estão atualmente inscritos para mensagens promocionais e não são tão ativos, mas esses usuários geram um Lifetime Revenue mais alto. Para aumentar a receita, pode ser uma boa ideia incluir um convite para se inscrever em mensagens promocionais nas campanhas de integração. Para reengajar usuários inativos, um bom plano seria enviar uma [campanha típica para usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) e direcionar [usuários que converteram]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign-filter) com uma campanha subsequente para se inscrever em mensagens promocionais.

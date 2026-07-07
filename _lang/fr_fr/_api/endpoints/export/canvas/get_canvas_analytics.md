@@ -16,11 +16,13 @@ description: "Cet article présente en détail l'endpoint Braze Exporter l'analy
 
 > Utilisez cet endpoint pour exporter des données de séries temporelles pour un Canvas.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `canvas.data_series`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.data_series`.
 
 ## Limite de débit {#rate-limit}
 
@@ -30,14 +32,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Requis | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle l'exportation de données doit se terminer. Par défaut, l'heure de la requête. |
 | `starting_at` | Facultatif* | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle l'exportation de données doit commencer. <br><br>* `length` ou `starting_at` est requis. |
 | `length` | Facultatif* | Chaîne de caractères | Nombre maximum de jours avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 14 (inclus). <br><br>* `length` ou `starting_at` est requis. |
 | `include_variant_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques de variante (par défaut `false`).  |
 | `include_step_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques d'étape (par défaut `false`). |
 | `include_deleted_step_data` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques d'étape pour les étapes supprimées (par défaut `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 
@@ -115,7 +117,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
 ```
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

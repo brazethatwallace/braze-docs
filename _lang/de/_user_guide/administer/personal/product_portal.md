@@ -7,11 +7,13 @@ page_type: reference
 description: "Dieser Referenzartikel beschreibt, wie Sie auf das Braze-Produktportal zugreifen und es nutzen können, um Feedback direkt aus dem Dashboard zu geben."
 ---
 
-# Produktportal ![Ressourcen-Menü im Braze-Dashboard]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"}
+# Produktportal {#product-portal}
 
 > Mit dem Produktportal können Sie auf die Braze-Produkt-Roadmap zugreifen und Ideen einreichen. So erhalten Sie einen Einblick in kürzlich veröffentlichte Features, neue Features, an denen wir arbeiten, und Ideen, die wir in Betracht ziehen. Im Portal können Sie für die Features abstimmen, die Sie sich wünschen, indem Sie die Wichtigkeit eines Features bewerten und einen Kommentar mit Feedback oder einer Anfrage hinterlassen.
 
 Das Produktportal finden Sie unter **Community** > **Product Roadmap**.
+
+![Ressourcen-Menü im Braze-Dashboard]({% image_buster /assets/img/portal.png %}){: style="max-width:40%;"}
 
 ## Was im Portal enthalten ist {#whats-in-the-portal}
 
@@ -21,7 +23,7 @@ Das Produktportal finden Sie unter **Community** > **Product Roadmap**.
 | Geplante Features | Features, zu deren Entwicklung wir uns verpflichtet haben und die innerhalb des Quartals in die Entwicklung gehen. <br>Es gibt keinen bestätigten Termin, wann diese Features veröffentlicht werden. |
 | In Erwägung | Features, die wir in Betracht ziehen und zu denen unser Produktteam gerne Ihr Feedback hätte. <br>Dies sind Ideen und es gibt keine Garantie, dass wir dieses Feature entwickeln werden. |
 | Ideen einreichen | Es gibt 10 Produktkategorien, in denen Sie für allgemeine Verbesserungen abstimmen oder einen Kommentar mit einer konkreten Feature-Anfrage oder Idee hinterlassen können. <br>Unser Produktteam wird Ihre Anfragen erhalten und lesen, aber eine eingereichte Idee garantiert nicht, dass sie umgesetzt wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Was im Portal enthalten ist" }
 
 ## So können Sie sich an der Diskussion beteiligen {#how-you-can-join-the-conversation}
 
@@ -31,7 +33,7 @@ Das Produktportal finden Sie unter **Community** > **Product Roadmap**.
 | Ein Feature kommentieren | Nachdem Sie ein Feature bewertet haben, können Sie einen Kommentar mit Ihrem Feedback hinterlassen. |
 | Fragen einer Product Manager:in beantworten | Suchen Sie auf einer Feature-Karte nach „How Customers Can Help“, um Fragen unseres Produktteams zu beantworten. |
 | Eine Idee einreichen | Gehen Sie zur Seite **Submit Ideas** im Portal und wählen Sie eine der zehn Karten aus, um deren Wichtigkeit zu bewerten. Fügen Sie Ihre Idee oder Anfrage in den Kommentaren hinzu! <br><br>Nach dem Einreichen wird Ihre Idee von einem Mitglied unseres Produktteams geprüft. Wir können keine Updates zum Status einer Anfrage geben. Schauen Sie gelegentlich vorbei, ob Ihre Idee in den Abschnitten „In Erwägung“ oder „Geplante Features“ aufgenommen wurde. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="So können Sie sich an der Diskussion beteiligen" }
 
 ## Produkt-Feedback bei Braze {#product-feedback-at-braze}
 
@@ -51,4 +53,4 @@ Je mehr Informationen und Kontext, desto besser! Fügen Sie Links zu Campaigns, 
 - Haben Sie zusätzliche Insights? (Zum Beispiel, wie dies Ihnen und Ihren Teams zugutekommen würde)
 - Gibt es aktuelle Workarounds? (Dies dient nicht unserem Priorisierungsprozess, kann aber bei der Lösungsfindung helfen)
 
-Ein Beispiel für eine gut formulierte Produktanfrage finden Sie in diesem [Beispiel für eine Produktanfrage]({{site.baseurl}}/product_request/).
+Ein Beispiel für eine gut formulierte Produktanfrage finden Sie in diesem [Beispiel für eine Produktanfrage]({{site.baseurl}}/product_request).

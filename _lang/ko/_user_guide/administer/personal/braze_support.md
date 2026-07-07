@@ -8,16 +8,19 @@ page_type: reference
 search_rank: 7
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze 고객지원 
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/the-braze-support-portal/){: style="float:right;width:120px;border:0;" class="noimgborder"}Braze 고객지원 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomthe-braze-support-portal-stylefloatrightwidth120pxborder0-classnoimgborderbraze-support}
+
 > Braze 고객지원 포털에 접근하고, 지원 케이스를 제출 및 추적하며, 효율적인 문제 해결에 필요한 정보를 제공하는 방법을 알아보세요.
 
 ## 고객지원 포털 접근 {#access-the-support-portal}
 
-Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하세요. 대시보드에서 **고객지원** > **도움 받기**를 선택합니다.
+Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **고객지원**을 선택합니다. 메뉴에서 두 가지 옵션을 제공합니다:
 
-!["고객지원" 드롭다운에서 도움 받기 옵션을 선택하는 화면.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:60%;"}
+- **Operator로 도움 받기**를 선택하면 BrazeAI Operator<sup>TM</sup>가 열리며, 대화 컨텍스트와 현재 화면을 활용하여 문제를 즉시 해결할 수 있습니다. Operator가 문제를 해결하지 못하는 경우, 대화 내용을 기반으로 지원 티켓 초안을 작성하도록 요청할 수 있습니다. 자세한 내용은 [BrazeAI Operator로 지원 티켓 제출하기]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)를 참조하세요.
+- **도움 받기**를 선택하면 Braze 고객지원 포털(지정된 지원 연락처인 경우) 또는 표준 지원 양식으로 바로 이동하여 케이스를 제출하고 추적할 수 있습니다. Braze 지원 연락처인지 확실하지 않은 경우, 회사의 Braze 관리자, Braze 성공 매니저 또는 계정 소유자에게 문의하세요.
 
-Braze 권한과 지정된 지원 연락처 여부에 따라, 케이스를 제출하고 추적할 수 있는 Braze 고객지원 포털 또는 표준 지원 양식으로 이동하게 됩니다. Braze 지원 연락처인지 확실하지 않은 경우, 회사의 Braze 관리자, Braze 성공 매니저 또는 계정 소유자에게 문의하세요.
+!["고객지원" 드롭다운에서 "Operator로 도움 받기"와 "도움 받기" 옵션을 보여주는 화면.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+
 
 ## 지정된 지원 연락처 추가 {#adding-designated-support-contacts}
 
@@ -27,8 +30,6 @@ Braze 권한과 지정된 지원 연락처 여부에 따라, 케이스를 제출
 2. 사용자 이름을 선택하거나 사용자 이름 행 위에 마우스를 올려 메뉴를 표시합니다.
 3. 메뉴에서 **편집**을 선택하면 **사용자 편집** 페이지로 이동합니다.
 4. **이 사용자를 Braze 고객지원 포털의 지정된 지원 연락처로 설정** 체크박스를 선택합니다.
-
-![사용자를 지정된 지원 연락처로 설정하는 체크박스.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### 접근 권한 획득 {#gaining-access}
 
@@ -42,17 +43,17 @@ Braze 권한과 지정된 지원 연락처 여부에 따라, 케이스를 제출
 
 고객지원팀과 소통할 때 추가 정보를 제공하기 위해 개발자 콘솔에 접근해야 할 수 있습니다:
 - Chrome
-  1. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **검사**를 선택합니다.
+  1. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **Inspect**를 선택합니다.
   2. 열린 창에서 **Console** 탭을 선택합니다.
   3. 콘솔 탭의 스크린샷을 캡처합니다.<br><br>
 - Firefox
-  1. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **요소 검사**를 선택합니다.
+  1. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **Inspect Element**를 선택합니다.
   2. 열린 창에서 **Console** 탭을 선택합니다.
   3. 콘솔 탭의 스크린샷을 캡처합니다.<br><br>
 - Safari
-  1. 화면 상단 메뉴 바에서 Safari로 이동한 다음 **환경설정**을 선택합니다.
-  2. **고급**을 선택한 다음 **메뉴 바에서 개발자용 메뉴 보기** 옆의 체크박스를 선택합니다. 그런 다음 창을 닫을 수 있습니다.
-  3. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **요소 검사**를 선택합니다.
+  1. 화면 상단 메뉴 바에서 Safari로 이동한 다음 **Preferences**를 선택합니다.
+  2. **Advanced**를 선택한 다음 **Show Develop menu in menu bar** 옆의 체크박스를 선택합니다. 그런 다음 창을 닫을 수 있습니다.
+  3. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **Inspect Element**를 선택합니다.
   4. 열린 창에서 **Console** 탭을 선택합니다.
   5. 콘솔 탭의 스크린샷을 캡처합니다.
 
@@ -93,6 +94,17 @@ Braze 권한과 지정된 지원 연락처 여부에 따라, 케이스를 제출
 {% alert important %}
 문제를 "심각(Critical)"으로 표시하면 프로덕션 인스턴스가 다운되어 Braze 내 모든 작업이 중단되었음을 의미합니다.
 {% endalert %}
+
+## 대시보드 로드 문제 해결 {#troubleshooting-dashboard-load-issues}
+
+Braze 대시보드가 올바르게 로드되지 않는 경우, 고객지원팀에 연락하기 전에 다음을 시도해 보세요:
+
+1. 다른 브라우저 또는 시크릿/프라이빗 창에서 대시보드를 엽니다.
+2. [브라우저 캐시 및 쿠키를 삭제합니다]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies).
+3. 광고 차단기 및 브라우저 확장 프로그램을 비활성화한 다음 대시보드를 다시 로드합니다.
+4. VPN을 사용 중인 경우, 연결을 해제하고 다시 시도합니다.
+
+브라우저 개발자 콘솔에 `ERR_BLOCKED_BY_CLIENT`가 표시되면, 확장 프로그램 또는 광고 차단기가 대시보드 리소스를 차단하고 있는 것입니다. Braze 대시보드 URL에 대해 차단기를 비활성화하고 페이지를 다시 로드하세요.
 
 ## 접근 문제 해결 {#troubleshooting-access}
 

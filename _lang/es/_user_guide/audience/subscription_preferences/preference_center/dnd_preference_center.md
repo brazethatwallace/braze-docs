@@ -13,7 +13,7 @@ page_order: 2
 Puedes administrar los centros de preferencias de arrastrar y soltar existentes desde **Audiencia** > **Centro de preferencias de correo electrónico**:
 
 - Para cambiar el nombre o el contenido de un centro de preferencias, ábrelo desde el dashboard.
-- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el dashboard. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier Campaign de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
+- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el dashboard. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier Campaign de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact).
 - Si un centro de preferencias eliminado se utilizó en mensajes enviados anteriormente, dejará de funcionar en esos correos electrónicos entregados.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -23,7 +23,6 @@ Crea un centro de preferencias navegando a **Audiencia** > **Centro de preferenc
 
 Aquí se mostrará una lista de centros de preferencias personalizados. Selecciona **Crear nuevo** para crear un nuevo centro de preferencias, o selecciona el nombre de uno existente para realizar cambios.
 
-![Una lista de centros de preferencias personalizados con el nombre, la descripción, el tipo, el estado, la fecha de última modificación y el usuario que lo creó.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## Paso 2: Nombrar el centro de preferencias de correo electrónico {#step-2-name-the-email-preference-center}
 
@@ -31,7 +30,6 @@ Los nombres de los centros de preferencias solo pueden contener caracteres alfan
 
 Esta etiqueta de Liquid se puede incluir en cualquier Campaign de correo electrónico saliente o paso en Canvas y dirigirá a los usuarios al centro de preferencias.
 
-![Un ejemplo de Liquid para un centro de preferencias.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## Paso 3: Añadir grupos de suscripción al centro de preferencias {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,9 +46,8 @@ Puedes configurar aún más los grupos de suscripción seleccionados seleccionan
 - Añadir o quitar una casilla de verificación **Suscribirse a todos** que suscribirá al usuario a todos los grupos de suscripción mostrados en este bloque
 - Añadir o quitar una casilla de verificación **Cancelar suscripción de todos** que cancelará la suscripción del usuario de todos los grupos de suscripción mostrados en este bloque
 
-![Un ejemplo de un centro de preferencias con las opciones de suscribirse a todos los mensajes, marketing, boletín informativo y correos electrónicos semanales, o cancelar la suscripción de todos.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
-El botón **Cancelar suscripción de todos** en la parte inferior de la plantilla no se puede eliminar y [cancelará globalmente la suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states) del usuario para que no reciba ningún mensaje de correo electrónico.
+El botón **Cancelar suscripción de todos** en la parte inferior de la plantilla no se puede eliminar y [cancelará globalmente la suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) del usuario para que no reciba ningún mensaje de correo electrónico.
 
 ## Paso 4: Personalizar el centro de preferencias usando el editor de arrastrar y soltar {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -88,7 +85,7 @@ Los bloques representan diferentes tipos de contenido que puedes usar en tu mens
 
 ![Opción para seleccionar bloques, incluyendo título, párrafo, botón, imagen y espaciador.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/dnd/editor_blocks/).
+Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Bloques del editor (centro de preferencias)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center).
 
 Si estás usando el bloque de código personalizado en tu centro de preferencias, es posible que los marcos en línea no se generen en el código personalizado cuando se entregue a tus usuarios.
 
@@ -117,7 +114,7 @@ Para colocar un enlace al centro de preferencias en tus correos electrónicos, c
 
 ![La opción Copiar Liquid en la fila de un centro de preferencias.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-Añade la etiqueta de Liquid en el lugar deseado de tu correo electrónico, de manera similar a cómo se insertan las [URL de cancelación de suscripción]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#adding-a-custom-unsubscribe-link).
+Añade la etiqueta de Liquid en el lugar deseado de tu correo electrónico, de manera similar a cómo se insertan las [URL de cancelación de suscripción]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link).
 
 ## Manejo de errores {#handling-errors}
 

@@ -30,7 +30,7 @@ En exploitant les capacités conjointes de Braze et de Sendbird Notifications, l
 | Sendbird UIKit | Vous devez avoir installé le Sendbird UIKit dans votre application [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit) ou [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit). |
 | Clé REST API de Braze | Une clé REST API de Braze avec les autorisations `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -71,11 +71,11 @@ Un ID utilisateur Sendbird doit être ajouté au profil utilisateur Braze en tan
 
 ### Étape 5 : Configurer votre modèle de webhook {#step-5-set-up-your-webhook-template}
 
-Dans Braze, à partir de **Modèles et médias**, accédez à **Modèles de webhook** et choisissez le **modèle de webhook Sendbird**. Notez que ce modèle ne sera disponible que si vous avez installé l'extension Sendbird Notification Builder.
+Dans Braze, à partir de **Modèles et médias**, accédez à **Modèles de webhook** et choisissez le **Sendbird Webhook Template**. Notez que ce modèle ne sera disponible que si vous avez installé l'extension Sendbird Notification Builder.
 
 {% raw %}
 1. Donnez un nom au modèle et ajoutez des équipes et des étiquettes si nécessaire.
-2. Copiez un endpoint en temps réel ou par lot depuis le tableau de bord de Sendbird dans l'**URL du webhook**.
+2. Copiez un endpoint en temps réel ou par lot depuis le tableau de bord de Sendbird dans le champ **Webhook URL**.
 3. Dans le champ **Receiver**, cliquez sur l'icône <i class="fas fa-plus"></i> et insérez l'attribut utilisateur mappé à l'ID utilisateur Sendbird.
     - `{{ '{{' }}custom_attribute.${sendbird_id}}}` si vous utilisez un attribut personnalisé `sendbird_id` comme ID utilisateur Sendbird.
     - `{{ '{{' }}${user_id}}}` si vous utilisez l'ID utilisateur Braze comme ID utilisateur Sendbird.
@@ -87,16 +87,16 @@ Dans Braze, à partir de **Modèles et médias**, accédez à **Modèles de webh
 
 ### Campaigns
 
-1. Dans le tableau de bord de Braze, sur la page **Campaigns**, cliquez sur **Create Campaign** > **Webhook**.
+1. Dans le tableau de bord de Braze, sur la page **Campaigns**, cliquez sur **Créer une campagne** > **Webhook**.
 2. Sélectionnez le modèle de webhook que vous avez créé ci-dessus. Il est fortement recommandé d'utiliser l'endpoint Batch pour les Campaigns.
-3. Personnalisez le modèle en modifiant ses variables dans l'onglet **Compose**.
+3. Personnalisez le modèle en modifiant ses variables dans l'onglet **Rédiger**.
 
 ### Canvas
 
 1. À partir d'un Canvas nouveau ou existant, ajoutez un composant **Message**.
-2. Ouvrez le composant et sélectionnez **Webhook** dans les **Messaging Channels**.
+2. Ouvrez le composant et sélectionnez **Webhook** dans les **Canaux de communication**.
 3. Sélectionnez le modèle de webhook que vous avez créé ci-dessus. Il est fortement recommandé d'utiliser l'endpoint en temps réel pour les Canvas.
-4. Personnalisez le modèle en modifiant ses variables dans l'onglet **Compose**.
+4. Personnalisez le modèle en modifiant ses variables dans l'onglet **Rédiger**.
 
 ## Personnalisation {#customization}
 
@@ -104,7 +104,7 @@ Dans Braze, à partir de **Modèles et médias**, accédez à **Modèles de webh
 
 Pour intégrer les événements de distribution et d'ouverture des notifications à l'indicateur de conversion d'une campagne, ajoutez un événement personnalisé sur le tableau de bord de Braze.
 
-1. Depuis le tableau de bord de Braze, accédez à **Settings > Manage Settings > Custom Events**, puis cliquez sur **+ Add Custom Event**.
+1. Depuis le tableau de bord de Braze, accédez à **Paramètres** > **Gérer les paramètres** > **Événements personnalisés**, puis cliquez sur **+ Add Custom Event**.
 2. Après avoir créé un événement personnalisé, cliquez sur **Manage Properties**, ajoutez une propriété nommée « status » et choisissez « String » comme type de propriété.
 3. Lorsque vous composez une notification dans les Campaigns ou les Canvas, saisissez le nom de l'événement personnalisé dans le champ **Event Name**.
 

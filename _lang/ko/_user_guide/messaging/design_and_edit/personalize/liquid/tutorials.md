@@ -6,7 +6,7 @@ description: "이 참조 페이지에는 Liquid 코드를 시작하는 데 도�
 page_type: tutorial
 ---
 
-# 튜토리얼: Liquid 코드 작성하기
+# 튜토리얼: Liquid 코드 작성하기 {#tutorials-writing-liquid-code}
 
 > Liquid가 처음이신가요? 이 튜토리얼은 초보자 친화적인 사용 사례를 위한 Liquid 코드 작성을 시작하는 데 도움이 됩니다. 각 튜토리얼은 조건 로직과 Operator 등 다양한 학습 목표 조합을 다룹니다.
 
@@ -24,7 +24,7 @@ page_type: tutorial
 | [이벤트 카운트다운](#countdown) | 변수, 날짜 필터 |
 | [월별 생일 메시지](#birthday) | 변수, 날짜 필터, Operator |
 | [좋아하는 제품 프로모션](#favorite-product) | 변수, 날짜 필터, 수식, Operator |
-{: .reset-br-td-1 .reset-br-td-2}
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutorials: Writing Liquid code" }
 
 ## 사용자 세그먼트별 개인화된 메시지 {#segments}
 
@@ -316,6 +316,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 
 {: start="4"}
 4. 구매일이 있는 경우 오늘 날짜와 비교할 수 있도록 변수에 할당해야 합니다. 먼저 변수 `today`를 `now`(현재 날짜 및 시간)에 할당하고 `date: "%s"` 필터를 사용하여 값을 초 단위로 표현되는 타임스탬프 형식으로 변환하여 오늘 날짜의 값을 만듭니다. `plus: 0` 필터를 추가하여 타임스탬프에 "0"을 더합니다. 이는 타임스탬프의 값을 변경하지 않지만 향후 수식에서 타임스탬프를 사용하는 데 유용합니다.
+
 
 {% raw %}
 ```liquid

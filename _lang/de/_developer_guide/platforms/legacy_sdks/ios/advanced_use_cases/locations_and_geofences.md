@@ -1,10 +1,10 @@
 ---
 nav_title: Standorte und Geofences
-article_title: Standort & Geofences für iOS
+article_title: Standorte und Geofences für iOS
 platform: iOS
 page_order: 6
 description: "Dieser Referenzartikel beschreibt, wie Sie Standorte und Geofences in Ihrer iOS-Anwendung implementieren."
-Tool:
+tool:
   - Location
 
 noindex: true
@@ -12,22 +12,22 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Standorte und Geofences
+# Standorte und Geofences {#locations-and-geofences}
 
 Zur Unterstützung von Geofences für iOS:
 
 1. Ihre Integration muss Push-Benachrichtigungen im Hintergrund unterstützen.
-2. Braze Geofences [müssen]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/location_tracking/#enabling-automatic-location-tracking) über das SDK aktiviert werden – entweder implizit durch Aktivieren der Standorterfassung oder explizit durch Aktivieren der Geofence-Erfassung. Sie sind standardmäßig nicht aktiviert.
+2. Braze Geofences [müssen]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/location_tracking#enabling-automatic-location-tracking) über das SDK aktiviert werden – entweder implizit durch Aktivieren der Standorterfassung oder explizit durch Aktivieren der Geofence-Erfassung. Sie sind standardmäßig nicht aktiviert.
 
 {% alert important %}
 Ab iOS 14 funktionieren Geofences nicht mehr zuverlässig für Nutzer:innen, die lediglich ihren ungefähren Standort freigeben.
 {% endalert %}
 
-## 1. Schritt: Push im Hintergrund aktivieren
+## 1. Schritt: Push im Hintergrund aktivieren {#step-1-enable-background-push}
 
-Um unsere Strategie zur Synchronisierung von Geofences vollständig nutzen zu können, müssen Sie zusätzlich zur standardmäßigen Push-Integration die [Hintergrund-Push-Funktion]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/silent_push_notifications/#use-silent-remote-notifications-to-trigger-background-work) aktivieren.
+Um unsere Strategie zur Synchronisierung von Geofences vollständig nutzen zu können, müssen Sie zusätzlich zur standardmäßigen Push-Integration die [Hintergrund-Push-Funktion]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/silent_push_notifications#use-silent-remote-notifications-to-trigger-background-work) aktivieren.
 
-## 2. Schritt: Geofences aktivieren
+## 2. Schritt: Geofences aktivieren {#step-2-enable-geofences}
 
 Standardmäßig sind Geofences aktiviert, wenn die automatische Standorterfassung aktiviert ist. Sie können Geofences über die Datei `Info.plist` aktivieren. Fügen Sie das Wörterbuch `Braze` zu Ihrer Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den booleschen Untereintrag `EnableGeofences` hinzu und setzen Sie den Wert auf `YES`. Beachten Sie, dass vor Braze iOS SDK v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
 
@@ -56,16 +56,16 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 {% endtab %}
 {% endtabs %}
 
-## 3. Schritt: Auf Braze-Hintergrund-Push prüfen
+## 3. Schritt: Auf Braze-Hintergrund-Push prüfen {#step-3-check-for-braze-background-push}
 
-Braze synchronisiert Geofences mit Geräten über Push-Benachrichtigungen im Hintergrund. Befolgen Sie den Artikel zur [iOS-Anpassung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push/), um sicherzustellen, dass Ihre Anwendung keine unerwünschten Aktionen ausführt, wenn sie Braze-Benachrichtigungen zur Geofence-Synchronisierung empfängt.
+Braze synchronisiert Geofences mit Geräten über Push-Benachrichtigungen im Hintergrund. Befolgen Sie den Artikel zur [iOS-Anpassung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push), um sicherzustellen, dass Ihre Anwendung keine unerwünschten Aktionen ausführt, wenn sie Braze-Benachrichtigungen zur Geofence-Synchronisierung empfängt.
 
-## 4. Schritt: NSLocationAlwaysUsageDescription zu Ihrer Info.plist hinzufügen
+## 4. Schritt: NSLocationAlwaysUsageDescription zu Ihrer Info.plist hinzufügen {#step-4-add-nslocationalwaysusagedescription-to-your-infoplist}
 
 Fügen Sie Ihrer `info.plist` die Schlüssel `NSLocationAlwaysUsageDescription` und `NSLocationAlwaysAndWhenInUseUsageDescription` mit einem `String`-Wert hinzu, der beschreibt, warum Ihre Anwendung den Standort tracken muss. Beide Schlüssel sind ab iOS 11 erforderlich.
 Diese Beschreibung wird angezeigt, wenn die Standortabfrage des Systems eine Autorisierung verlangt, und sollte Ihren Nutzer:innen die Vorteile des Standort-Trackings deutlich erklären.
 
-## 5. Schritt: Freigabe von Nutzer:innen anfordern
+## 5. Schritt: Freigabe von Nutzer:innen anfordern {#step-5-request-authorization-from-the-user}
 
 Das Geofence-Feature ist nur funktionsfähig, wenn die Standortfreigabe auf `Always` festgelegt ist.
 
@@ -90,21 +90,21 @@ locationManager.requestAlwaysAuthorization()
 {% endtab %}
 {% endtabs %}
 
-## 6. Schritt: Geofences auf dem Dashboard aktivieren
+## 6. Schritt: Geofences auf dem Dashboard aktivieren {#step-6-enable-geofences-on-the-dashboard}
 
 Unter iOS können nur bis zu 20 Geofences für eine bestimmte App gespeichert werden. Durch die Verwendung von Standorten werden einige dieser 20 verfügbaren Geofence-Slots verbraucht. Um eine versehentliche oder unerwünschte Beeinträchtigung anderer Geofence-bezogener Funktionen in Ihrer App zu verhindern, müssen Standort-Geofences für einzelne Apps auf dem Dashboard aktiviert werden.
 
 Damit die Standortfunktion korrekt funktioniert, sollten Sie außerdem sicherstellen, dass Ihre App nicht alle verfügbaren Geofence-Slots nutzt.
 
-### Geofences auf der Standortseite aktivieren:
+### Geofences auf der Standortseite aktivieren: {#enable-geofences-from-the-locations-page}
 
 ![Die Geofence-Optionen auf der Braze-Standortseite.]({% image_buster /assets/img_archive/enable-geofences-locations-page.png %})
 
-### Geofences auf der Einstellungsseite aktivieren:
+### Geofences auf der Einstellungsseite aktivieren: {#enable-geofences-from-the-settings-page}
 
 ![Das Geofence-Kontrollkästchen auf den Braze-Einstellungsseiten.]({% image_buster /assets/img_archive/enable-geofences-app-settings-page.png %})
 
-## Automatische Geofence-Anfragen deaktivieren
+## Automatische Geofence-Anfragen deaktivieren {#disabling-automatic-geofence-requests}
 
 Ab iOS SDK Version 3.21.3 können Sie automatische Geofence-Anfragen deaktivieren. Verwenden Sie hierzu die Datei `Info.plist`. Fügen Sie das Wörterbuch `Braze` zu Ihrer Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den booleschen Untereintrag `DisableAutomaticGeofenceRequests` hinzu und setzen Sie den Wert auf `YES`.
 
@@ -135,7 +135,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 
 Wenn Sie sich für diese Option entscheiden, müssen Sie die Geofences manuell anfragen, damit das Feature funktioniert.
 
-## Geofences manuell anfragen
+## Geofences manuell anfragen {#manually-requesting-geofences}
 
 Wenn das Braze SDK Geofences zur Überwachung vom Backend anfragt, meldet es den aktuellen Standort der Nutzer:innen und erhält Geofences, die auf Grundlage des gemeldeten Standorts als optimal relevant eingestuft werden. Es gibt ein Rate-Limit von einer Geofence-Aktualisierung pro Sitzung.
 

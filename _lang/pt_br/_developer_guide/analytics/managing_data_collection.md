@@ -1,12 +1,12 @@
 ---
 nav_title: Gerenciar a coleta de dados
-article_title: Gerenciar a coleta de dados para o SDK Braze
+article_title: Gerenciar a coleta de dados para o SDK da Braze
 page_order: 8
 description: "Aprenda a gerenciar a coleta de dados para o SDK da Braze."
 
 ---
 
-# Gerenciar a coleta de dados
+# Gerenciar a coleta de dados {#manage-data-collection}
 
 > Aprenda a gerenciar a coleta de dados para o SDK da Braze, para que você possa cumprir todas as regulamentações de privacidade de dados, conforme necessário.
 
@@ -25,6 +25,10 @@ description: "Aprenda a gerenciar a coleta de dados para o SDK da Braze."
 
 {% sdktab react native %}
 {% multi_lang_include developer_guide/react_native/analytics/managing_data_collection.md %}
+{% endsdktab %}
+
+{% sdktab roku %}
+{% multi_lang_include developer_guide/roku/analytics/managing_data_collection.md %}
 {% endsdktab %}
 
 {% endsdktabs %}

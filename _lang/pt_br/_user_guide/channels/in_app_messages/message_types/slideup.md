@@ -14,7 +14,7 @@ description: "Este artigo de referência aborda os requisitos de mensagem e desi
 
 > Nossos slideups geralmente aparecem na parte superior ou inferior da tela do app (você pode definir isso ao criar sua mensagem). Eles são ótimos para alertar seus usuários sobre novos termos de serviço, cookies e outros trechos de informação. São discretos e permitem que seus usuários continuem interagindo com o app enquanto a mensagem é exibida.
 
-Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ![Duas mensagens no app do tipo slideup, uma aparecendo na parte superior da tela e outra na parte inferior, detalhando as recomendações de imagem e texto. Consulte as seções a seguir para mais informações.]({% image_buster /assets/img/slideup-spec.png %}){: style="max-width: 40%; border: none;"}
 
@@ -31,9 +31,15 @@ As mensagens slideup podem conter até três linhas de texto antes de serem trun
 | Disposição | Tamanho do ativo | Notas |
 |--- | --- | --- |
 | Imagem + Texto | Proporção 1:1<br>Alta resolução 150 x 150&nbsp;px<br> Mínimo 50 x 50&nbsp;px | Imagens de diversas proporções se ajustarão a um contêiner de imagem quadrado, sem cortes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comportamento de imagem e texto" }
 
-Você deve sempre [pré-visualizar e testar suas mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) em diversos dispositivos para garantir que as áreas mais importantes da sua imagem e mensagem apareçam conforme esperado. Observe que, ao pré-visualizar sua mensagem no criador, a renderização real nos dispositivos pode ser diferente.
+Você deve sempre [pré-visualizar e testar suas mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) em diversos dispositivos para garantir que as áreas mais importantes da sua imagem e mensagem apareçam conforme esperado. Observe que, ao pré-visualizar sua mensagem no criador, a renderização real nos dispositivos pode ser diferente.
+
+## Hiperlinks e texto âncora {#hyperlinks-and-anchor-text}
+
+Para adicionar um link em um slideup, insira o texto da mensagem no campo **Corpo** e defina o destino em **Comportamento ao clicar** (por exemplo, **Redirecionar para URL**). Quando o **Comportamento ao clicar** está configurado, toques em qualquer lugar da mensagem, exceto no controle de fechar, acionam essa ação.
+
+Para mensagens no app em HTML personalizado, você pode usar links HTML diretamente. Consulte [Mensagens no app em HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 
 ## Dispositivos móveis {#mobile-devices}
 

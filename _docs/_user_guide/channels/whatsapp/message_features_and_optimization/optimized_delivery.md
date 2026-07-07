@@ -18,14 +18,14 @@ WhatsApp messages with optimized delivery are sent using Meta’s [Marketing Mes
 
 Brands can expect equal or greater deliverability with MM API for WhatsApp, compared to Cloud API. In India, high engagement marketing messages saw up to 9% more messages delivered compared to Cloud API, according to Meta. Note that MM API for WhatsApp still does not guarantee 100% deliverability.
 
-### Regional availability
+## Regional availability
 
 The availability and optimization capabilities of optimized delivery depend on the region of the business phone number and the user. To learn more, refer to [Geographic availability of features](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/get-started#geographic-availability-of-features). 
 
 ## Setting up optimized delivery
 
 1. In Braze, go to **Partner Integrations** > **Technology Partners** > **WhatsApp**.
-2. In the section **Optimize your sending with optimized delivery**, select **Upgrade setting** to trigger the [embedded sign-up workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+2. In the section **Optimize your sending with optimized delivery**, select **Upgrade setting** to trigger the [embedded sign-up workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 ![The WhatsApp Message Integration section with an option to optimize sending with optimized delivery.]({% image_buster /assets/img/whatsapp/whatsapp_messaging_integration.png %})
 
@@ -38,7 +38,7 @@ Alternatively, you can enable optimized delivery directly in your WhatsApp manag
 
 ### Troubleshooting your setup
 
-- **General error:** If something goes wrong during the upgrade, this error banner will display and advise you to [contact Support]({{site.baseurl}}/braze_support/).
+- **General error:** If something goes wrong during the upgrade, this error banner will display and advise you to [contact Support]({{site.baseurl}}/braze_support).
 - **Ineligible error:** If you are restricted by Meta, this error banner will display: "At least one WhatsApp Business Account is restricted by Meta. Accounts must be in good standing to upgrade.” This can’t be dismissed until the issue is resolved.
 
 ## Using optimized delivery in campaigns and Canvases

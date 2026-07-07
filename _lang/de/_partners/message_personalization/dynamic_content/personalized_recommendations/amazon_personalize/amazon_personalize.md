@@ -23,12 +23,12 @@ In diesem Referenzartikel erfahren Sie, welche Anwendungsfälle Amazon Personali
 
 ## Voraussetzungen {#prerequisites}
 
-| Anforderung| Beschreibung|
-| ---| ---|
+| Anforderung | Beschreibung |
+| --- | --- |
 | Amazon Web Service Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein AWS-Konto. Nachdem Sie über ein AWS-Konto verfügen, können Sie über die Amazon Personalize-Konsole, die AWS Command Line Interface (AWS CLI) oder die AWS SDKs auf Amazon Personalize zugreifen. |
 | Definierte Anwendungsfälle | Bevor Sie ein Modell erstellen, müssen Sie Ihren Anwendungsfall für diese Integration festlegen. In der folgenden Liste finden Sie gängige Anwendungsfälle. |
 | Datensätze | Amazon Personalize Empfehlungsmodelle benötigen drei verschiedene Arten von Datensätzen: Interaktionen, Nutzer:innen und Artikel. In den folgenden Details finden Sie die Anforderungen für jeden Datensatz. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% tabs %}
 {% tab Use Cases %}

@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Fusionar usuarios"
 article_title: "POST: Fusionar usuarios"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
@@ -22,7 +22,7 @@ Se pueden especificar hasta 50 fusiones por solicitud. Este punto de conexión e
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.merge`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.merge`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -43,14 +43,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `merge_updates` | Obligatoria | Matriz | Una matriz de objetos. Cada objeto debe contener un objeto `identifier_to_merge` y un objeto `identifier_to_keep`, cada uno de los cuales debe hacer referencia a un usuario mediante `external_id`, `user_alias`, `phone` o `email`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `merge_updates` | Obligatorio | Matriz | Una matriz de objetos. Cada objeto debe contener un objeto `identifier_to_merge` y un objeto `identifier_to_keep`, cada uno de los cuales debe hacer referencia a un usuario mediante `external_id`, `user_alias`, `phone` o `email`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Comportamiento de la fusión {#merge-behavior}
 
-El comportamiento que se documenta a continuación es válido para todas las características de Braze que **no** funcionan con Snowflake. Las fusiones de usuarios no se reflejarán en la pestaña **Historial de mensajería**, Extensiones de segmento, Generador de consultas ni Currents.
+El comportamiento que se documenta a continuación es válido para todas las características de Braze que **no** funcionan con Snowflake. Las fusiones de usuarios no se reflejarán en la pestaña **Messaging History**, Extensiones de segmento, Generador de consultas ni Currents.
 
 {% alert important %}
 El punto de conexión no garantiza la secuencia de actualización de los objetos de `merge_updates`.
@@ -60,7 +60,7 @@ Este punto de conexión fusiona los siguientes campos si no se encuentran en el 
 
 - Nombre
 - Apellido
-- Direcciones de correo electrónico (a menos que estén [encriptadas]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Direcciones de correo electrónico (a menos que estén [encriptadas]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption))
 - Género
 - Fecha de nacimiento
 - Número de teléfono
@@ -94,6 +94,8 @@ Este punto de conexión fusiona los siguientes campos si no se encuentran en el 
 Al fusionar usuarios, el uso del punto de conexión `/users/merge` funciona del mismo modo que el [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
+Braze gestiona de forma diferente tres tipos de usuarios durante la fusión: usuarios marcados para eliminación, usuarios de prueba y usuarios del Grupo de control global. Para más detalles, consulta [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
+
 #### Comportamiento de la fecha de eventos personalizados y la fecha de eventos de compra {#custom-event-date-and-purchase-event-date-behavior}
 
 Estos campos fusionados actualizan los filtros «para X eventos en Y días». Para los eventos de compra, estos filtros incluyen «número de compras en Y días» y «dinero gastado en los últimos Y días».
@@ -114,6 +116,10 @@ En la matriz de priorización solo puede existir una de las siguientes opciones 
 - `identified` se refiere a dar prioridad a un usuario con un `external_id`
 - `unidentified` se refiere a dar prioridad a un usuario sin un `external_id`
 
+{% alert important %}
+Si ambos perfiles tienen números de teléfono no válidos, Braze no los fusiona. Los números no válidos no se almacenan en formato E.164 y el proceso de fusión no combina esos perfiles. El punto de conexión sigue devolviendo `202 Accepted` con un mensaje de éxito, por lo que la respuesta HTTP no indica que la fusión se omitió. Corrige los números de teléfono en uno o ambos perfiles antes de fusionar.
+{% endalert %}
+
 ## Ejemplos de solicitudes {#example-requests}
 
 ### Solicitud básica {#basic-request}
@@ -125,7 +131,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -137,11 +142,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -165,18 +170,17 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Fusionar usuario no identificado {#merging-unidentified-user}
 
-La siguiente solicitud fusionaría el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@braze.com` con el usuario con un ID externo `john`. En este ejemplo, el uso de `most_recently_updated` filtra la consulta a un usuario no identificado. Por lo tanto, si hubiera dos usuarios no identificados con esta dirección de correo electrónico, solo uno se fusionaría con el usuario que tiene un ID externo `john`.
+La siguiente solicitud fusionaría el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@example.com` con el usuario con ID externo `john`. En este ejemplo, el uso de `most_recently_updated` filtra la consulta a un usuario no identificado. Por lo tanto, si hubiera dos usuarios no identificados con esta dirección de correo electrónico, solo uno se fusionaría con el usuario que tiene el ID externo `john`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -189,7 +193,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Fusionar usuario no identificado en usuario identificado {#merging-unidentified-user-into-identified-user}
 
-El siguiente ejemplo fusiona el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@braze.com` con el usuario identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@braze.com`.
+El siguiente ejemplo fusiona el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@example.com` con el usuario identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@example.com`.
 
 El uso de `most_recently_updated` filtra las consultas a un usuario (un usuario no identificado para `identifier_to_merge` y un usuario identificado para `identifier_to_keep`).
 
@@ -198,15 +202,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -214,20 +217,19 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### Fusionar un usuario no identificado sin incluir la priorización most_recently_updated {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### Fusionar un usuario no identificado sin incluir la priorización most_recently_updated {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
-Si hay dos usuarios no identificados con la dirección de correo electrónico `john.smith@braze.com`, esta solicitud de ejemplo no fusiona ningún usuario porque hay dos usuarios no identificados con esa dirección de correo electrónico. Esta solicitud solo funciona si hay un único usuario no identificado con la dirección de correo electrónico `john.smith@braze.com`.
+Si hay dos usuarios no identificados con la dirección de correo electrónico `john.smith@example.com`, esta solicitud de ejemplo no fusiona ningún usuario porque hay dos usuarios no identificados con esa dirección de correo electrónico. Esta solicitud solo funciona si hay un único usuario no identificado con la dirección de correo electrónico `john.smith@example.com`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {
@@ -264,7 +266,15 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 
 ## Solución de problemas {#troubleshooting}
 
-En la tabla siguiente se enumeran los posibles mensajes de error que pueden aparecer.
+### Se devolvió una respuesta satisfactoria, pero el usuario fusionado sigue siendo localizable {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+Una respuesta satisfactoria confirma que la solicitud fue aceptada, pero la operación de fusión implica dos pasos: fusionar los perfiles y luego eliminar el perfil de origen. Debido a esto, el perfil `identifier_to_merge` puede seguir siendo localizable en el dashboard durante un breve periodo después de una respuesta satisfactoria. Este es el comportamiento esperado: espera unos minutos y luego verifica que la fusión se haya completado.
+
+Si el usuario fusionado sigue existiendo después de varios minutos, verifica que los identificadores de tu solicitud sean correctos y pertenezcan a usuarios del mismo espacio de trabajo que la clave de API utilizada para la solicitud.
+
+### Referencia de errores {#error-reference}
+
+La siguiente tabla enumera los posibles mensajes de error que pueden aparecer.
 
 | Error | Solución de problemas |
 | --- | --- |
@@ -272,6 +282,6 @@ En la tabla siguiente se enumeran los posibles mensajes de error que pueden apar
 | `a single request may not contain more than 50 merge updates` | Solo puedes especificar hasta 50 actualizaciones de fusión en una única solicitud. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Comprueba los identificadores de tu solicitud. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Comprueba que `merge_updates` solo contiene los dos objetos `identifier_to_merge` e `identifier_to_keep`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

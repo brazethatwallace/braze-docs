@@ -9,11 +9,11 @@ search_tag: Partner
 
 # Cloudinary
 
-> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page)は、画像と動画の管理、編集、最適化、配信に使用される画像・動画プラットフォームで、チャネルやカスタマージャーニー全体にわたるあらゆるCampaignに対してスケーラブルに提供します。統合して有効にすると、Cloudinaryのメディア管理機能により、BrazeのCampaignやCanvasesに対してダイナミックで文脈に応じたパーソナライズ済みのアセット配信が可能になります。
+> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page)は、画像と動画の管理、編集、最適化、配信に使用される画像・動画プラットフォームで、チャネルやカスタマージャーニー全体にわたるあらゆるキャンペーンに対してスケーラブルに提供します。統合して有効にすると、Cloudinaryのメディア管理機能により、Brazeのキャンペーンやキャンバスに対してダイナミックで文脈に応じたパーソナライズ済みのアセット配信が可能になります。
 
 ## この連携について {#about-this-integration}
 
-CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されているビジュアルメディアをBrazeのメッセージングチャネルで使用できるようになります。Cloudinaryのダイナミックリンクを使用すると、Brazeのユーザー属性に基づいてリアルタイムで画像や動画を選択・カスタマイズできます。CloudinaryとBrazeを組み合わせることで、各製品のストーリーを伝え、唯一無二の体験をスケーラブルに提供する、視覚的にリッチでパーソナライズされたCampaignの構築を支援します。
+CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されているビジュアルメディアをBrazeのメッセージングチャネルで使用できるようになります。Cloudinaryのダイナミックリンクを使用すると、Brazeのユーザー属性に基づいてリアルタイムで画像や動画を選択・カスタマイズできます。CloudinaryとBrazeを組み合わせることで、各製品のストーリーを伝え、唯一無二の体験をスケーラブルに提供する、視覚的にリッチでパーソナライズされたキャンペーンの構築を支援します。
 
 このページでは、CloudinaryとBrazeの間で可能な4つの連携方法について説明します（ただし、これらに限定されるものではありません）。これらの連携方法は、主にCloudinaryのメディアライブラリから手動でコピーしたアセットリンクの変更に依存しています。
 
@@ -26,7 +26,7 @@ CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されている
 | 要件     | 説明 |
 |-----------------------|-----------------|
 | Cloudinaryアカウント  | この連携を利用するには、[Cloudinaryアカウント](https://cloudinary.com/users/register_free?utm_source=braze+docs+page)が必要です  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 連携方法 {#integration-methods}
 
@@ -37,9 +37,9 @@ CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されている
 {% tabs %}
 {% tab Cloudinary DAM %}
 
-## Cloudinary DAMからCampaignアセットを選択する {#select-campaign-assets-through-cloudinary-dam}
+## Cloudinary DAMからキャンペーンアセットを選択する {#select-campaign-assets-through-cloudinary-dam}
 
-BrazeのCampaignやCanvasesでCloudinaryのDAMから画像や動画を直接使用する最も簡単な方法は、Cloudinaryメディアライブラリの**アセット**ページからURLを取得することです。
+BrazeのキャンペーンやキャンバスでCloudinaryのDAMから画像や動画を直接使用する最も簡単な方法は、Cloudinaryメディアライブラリの**アセット**ページからURLを取得することです。
 
 ![Cloudinaryの画像アセットライブラリのグリッドビュー。画像の右上に「URLをコピー」ツールチップがハイライト表示されています。]({% image_buster /assets/img/cloudinary/one.png %})
 
@@ -75,7 +75,7 @@ BrazeのCampaignやCanvasesでCloudinaryのDAMから画像や動画を直接使�
 AndroidおよびiOS固有の考慮事項については、[動画]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/)を参照してください。
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab 動画をGIFに変換 %}
 
 ## メール用に動画をGIFに変換する {#convert-videos-to-gifs-for-emails}
 
@@ -97,29 +97,29 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab ターゲット属性 %}
 
-## ターゲティング属性に基づいてCampaignアセットを動的に選択する {#dynamically-select-campaign-assets-based-on-targeting-attributes}
+## ターゲティング属性に基づいてキャンペーンアセットを動的に選択する {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
 この連携方法は、各ユーザーの属性に基づいてリアルタイムで最適なアセットをインテリジェントに選択することで、ダイナミックなメディアパーソナライゼーションを実現します。
 
-BrazeのCampaignメッセージ内のCloudinaryリンクにLiquidタグをパラメータとして含めると、メッセージ送信時に関連するBraze属性がLiquidタグを動的に置き換えます。これには、言語や顧客ティアなどのユーザー固有のデータを使用できます。Cloudinaryはこれらの属性を使用して、そのユーザーに最も適したCampaignアセットを判断し、正しい画像または動画を自動的に返します。これにより、受信者は文脈に応じた関連性があり、ブランド承認済みのアセットのみを受け取ります。
+Brazeのキャンペーンメッセージ内のCloudinaryリンクにLiquidタグをパラメータとして含めると、メッセージ送信時に関連するBraze属性がLiquidタグを動的に置き換えます。これには、言語や顧客ティアなどのユーザー固有のデータを使用できます。Cloudinaryはこれらの属性を使用して、そのユーザーに最も適したキャンペーンアセットを判断し、正しい画像または動画を自動的に返します。これにより、受信者は文脈に応じた関連性があり、ブランド承認済みのアセットのみを受け取ります。
 
 ### 仕組み {#how-it-works}
 
-Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#tags)および[構造化メタデータ（SMD）](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#structured_metadata)を使用してCampaignアセットを整理し、検索可能にします。
+Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#tags)および[構造化メタデータ（SMD）](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#structured_metadata)を使用してキャンペーンアセットを整理し、検索可能にします。
 
-各Campaignアセットは、Campaignタグ（例：`spring_launch`）でグループ化され、`language=en`や`tier=gold`などのBraze属性に対応する構造化メタデータフィールドで拡張されます。BrazeがCloudinaryリンクを呼び出すと、[Custom Function](https://cloudinary.com/documentation/custom_functions#javascript_filters)が受信属性を処理し、一致するタグとメタデータを持つアセットを検索して、最適な一致を返します。
+各キャンペーンアセットは、キャンペーンタグ（例：`spring_launch`）でグループ化され、`language=en`や`tier=gold`などのBraze属性に対応する構造化メタデータフィールドで拡張されます。BrazeがCloudinaryリンクを呼び出すと、[Custom Function](https://cloudinary.com/documentation/custom_functions#javascript_filters)が受信属性を処理し、一致するタグとメタデータを持つアセットを検索して、最適な一致を返します。
 
 完全一致が見つからない場合は、すべてのエクスペリエンスで継続性を確保するために、フォールバックまたは「次善」のオプションが自動的に選択されます。アセットが選択されると、Cloudinaryのトランスフォーメーションレイヤー（例：`f_auto`や`q_auto`）が配信用にメディアを最適化します。このようにタグ付け、メタデータ、カスタムファンクションを組み合わせることで、開発者はパーソナライズされたアセット配信を自動化する柔軟なAPI駆動の方法を利用できます。
 
 {% alert tip %}
-カスタムファンクションの作成と適用の手順、および特定のCampaignのアセット選択とフォールバックオプションのカスタムファンクション例については、Cloudinaryの[`braze-personalization` GitHubリポジトリ](https://github.com/cloudinary-devs/braze-personalization)を参照してください。詳しいガイダンスについては、Cloudinaryサポートチームにお問い合わせください。
+カスタムファンクションの作成と適用の手順、および特定のキャンペーンのアセット選択とフォールバックオプションのカスタムファンクション例については、Cloudinaryの[`braze-personalization` GitHubリポジトリ](https://github.com/cloudinary-devs/braze-personalization)を参照してください。詳しいガイダンスについては、Cloudinaryサポートチームにお問い合わせください。
 {% endalert %}
 
-### 前提条件 {#prerequisites}
+### 前提条件
 
-ダイナミックなアセット選択を有効にするには、Cloudinaryがタグとメタデータに基づいてアセットのセットを返せる必要があります。リスト配信タイプが制限されている場合、CloudinaryはBrazeのCampaignでのパーソナライズされたアセット選択に必要なダイナミックリストを提供できません。
+ダイナミックなアセット選択を有効にするには、Cloudinaryがタグとメタデータに基づいてアセットのセットを返せる必要があります。リスト配信タイプが制限されている場合、CloudinaryはBrazeのキャンペーンでのパーソナライズされたアセット選択に必要なダイナミックリストを提供できません。
 - リスト配信タイプの制限を解除します：Cloudinaryコンソールでセキュリティ設定を開き、制限画像タイプのリソースリスト項目をクリアします。
 
 ### ダイナミック選択の設定 {#dynamic-selection-setup}
@@ -131,7 +131,7 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 
 #### URLの例 {#example-url}
 
-この例では、Cloudinaryのアセットに、Braze属性に対応する期待値が入力された2つの定義済みSMDフィールド（「locale」と「audience」）があることを前提としています。また、Campaignに必要なアセットには「samples」タグが付与され、カスタムファンクション`segmentedBanner.js`がCloudinaryアカウントにアップロードされています。
+この例では、Cloudinaryのアセットに、Braze属性に対応する期待値が入力された2つの定義済みSMDフィールド（「locale」と「audience」）があることを前提としています。また、キャンペーンに必要なアセットには「samples」タグが付与され、カスタムファンクション`segmentedBanner.js`がCloudinaryアカウントにアップロードされています。
 
 {% raw %}
 ```bash
@@ -140,8 +140,8 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,29 +149,29 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 
 - オーディエンスが`internal`でロケールが`en`のユーザーの出力URL：
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - オーディエンスが`external`でロケールが`es`のユーザーの出力URL：
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - フォールバック画像URL：
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab パーソナライズ画像の生成 %}
 
 ## パーソナライズ画像の生成 {#personalized-image-generation}
 
 Cloudinaryの[テキストオーバーレイトランスフォーメーション](https://cloudinary.com/documentation/accessible_media_visual_audio_clarity#text_overlays_on_images_and_videos/)は、Cloudinaryアセット内でBrazeのユーザーデータを直接使用します。
 
-以下の例では、`l_text`トランスフォーメーションを使用してユーザーの名前をアセットに挿入する方法を示しています。CampaignやCanvasesを開発する際にLiquidタグを活用して、`l_text`パラメータに入力するテキストを決定することで、さらなるカスタマイズが可能です。
+以下の例では、`l_text`トランスフォーメーションを使用してユーザーの名前をアセットに挿入する方法を示しています。キャンペーンやキャンバスを開発する際にLiquidタグを活用して、`l_text`パラメータに入力するテキストを決定することで、さらなるカスタマイズが可能です。
 
 トランスフォーメーションパラメータを使用してアセットをデザインする方法の詳細については、Cloudinaryサポートチームにお問い合わせください。
 
-### `l_text`トランスフォーメーションの例 {#example-ltext-transformation}
+### `l_text`トランスフォーメーションの例 {#example-l_text-transformation}
 
 {% raw %}
 ```bash

@@ -1,18 +1,18 @@
 ---
-nav_title: Operator
-article_title: Liquid Operator
+nav_title: オペレーター
+article_title: Liquidオペレーター
 page_order: 2
-description: "このリファレンスページでは、Liquid がサポートする演算子と関連する例について説明します。"
+description: "このリファレンスページでは、Liquidがサポートする演算子と関連する例について説明します。"
 
 ---
 
-# Operator {#operators}
+# オペレーター {#operators}
 
-> Liquid は、条件文で使用できる多くの [演算子](https://docs.shopify.com/themes/liquid/basics/operators) をサポートしています。このページでは、Liquid がサポートする演算子と、メッセージでの使用方法のユースケースを紹介します。
+> Liquidは、条件文で使用できる多くの[演算子](https://docs.shopify.com/themes/liquid/basics/operators)をサポートしています。このページでは、Liquidがサポートする演算子と、メッセージでの使用方法のユースケースを紹介します。
 
-以下の表は、サポートされている演算子の一覧です。Liquid ではかっこは無効な文字であり、タグが正しく動作しなくなることに注意してください。
+以下の表は、サポートされている演算子の一覧です。Liquidではかっこは無効な文字であり、タグが正しく動作しなくなることに注意してください。
 
-|   構文| 演算子の説明|
+| 構文 | 演算子の説明 |
 |---------|-----------|
 | ==  | 等しい        |
 | !=  | 等しくない|
@@ -20,18 +20,18 @@ description: "このリファレンスページでは、Liquid がサポート�
 | <   | より小さい     |
 | >=| 以上|
 | <= | 以下 |
-| or | 条件 A または条件 B|
-| and | 条件 A かつ条件 B|
+| or | 条件Aまたは条件B|
+| and | 条件Aかつ条件B|
 | contains | 文字列または文字列配列に特定の文字列が含まれているかを確認する|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="演算子" }
 
 {% alert note %}
-演算子は条件文（`if`、`elsif`、`unless`）で使用できますが、`assign` 文、`for` ループ、`case`/`when` 文、配列アクセスの角かっこでは使用できません。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
+演算子は条件文（`if`、`elsif`、`unless`）で使用できますが、`assign` 文、`for` ループ、配列アクセスの角かっこでは使用できません。`case` と `when` タグでは、各分岐は任意の演算子式ではなく、等価比較を使用して `case` 式を `when` 値と比較します。例については、[条件付きメッセージングロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags)を参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)を参照してください。
 {% endalert %}
 
-### かっこを使わずに条件をグループ化する {#grouping-conditions-without-parentheses}
+## かっこを使わずに条件をグループ化する {#grouping-conditions-without-parentheses}
 
-Liquid は式のグループ化にかっこをサポートしていません。`(a and b) or c` のような複雑なブール論理を評価するには、ネストされた `if` 文または中間変数を使用します。
+Liquidは式のグループ化にかっこをサポートしていません。`(a and b) or c` のような複雑なブール論理を評価するには、ネストされた `if` 文または中間変数を使用します。
 
 たとえば、値が複合条件を満たすかどうかを確認するには、中間変数を割り当てます。
 
@@ -86,9 +86,9 @@ Need a sign to update your wardrobe? We added a 15% discount code to your accoun
 ```
 {% endraw %}
 
-![チュートリアルの完全な Liquid コードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/liquid-if-totalspend.png %}){: width="100%"}
+![チュートリアルの完全なLiquidコードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/liquid-if-totalspend.png %}){: width="100%"}
 
-{% details 完全な Liquid コード %}
+{% details 完全なLiquidコード %}
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${total_spend}}} >0 %}
@@ -163,7 +163,7 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 ```
 {% endraw %}
 
-{% details 完全な Liquid コード %}
+{% details 完全なLiquidコード %}
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${recent_game}}} == 'Awkward Dinner Party' %}
@@ -179,7 +179,7 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 {% endraw %}
 {% enddetails %}
 
-![チュートリアルの完全な Liquid コードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/liquid-if-elsif-games.png %})
+![チュートリアルの完全なLiquidコードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/liquid-if-elsif-games.png %})
 
 これで、ユーザーが最後に *Awkward Dinner Party* をプレイした場合、次のメッセージが届きます。
 
@@ -229,7 +229,7 @@ Stream now!
 ```
 {% endraw %}
 
-{% details 完全な Liquid コード %}
+{% details 完全なLiquidコード %}
 {% raw %}
 ```liquid
 {% if {{${time_zone}}} =='America/Los_Angeles' %}
@@ -241,11 +241,15 @@ Stream now!
 {% endraw %}
 {% enddetails %}
 
-![チュートリアルの完全な Liquid コードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/abort-if.png %})
+![チュートリアルの完全なLiquidコードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/abort-if.png %})
 
-コネクテッドコンテンツに基づいて[メッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)こともできます。
+コネクテッドコンテンツに基づいて[メッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)こともできます。
 
 ## トラブルシューティング {#troubleshooting}
+
+### `abort_message` 使用時にテスト送信が届かない {#test-send-doesnt-arrive-when-using-abort_message}
+
+[`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を使用していてテスト送信が届かない場合、プレビューユーザーにLiquidが期待する属性が不足している可能性があります。中止ロジックはレンダリング中に実行され、発動するとBrazeはメッセージを送信しません。必要なプロファイルデータを持つユーザーでプレビューするか、**ユーザーとしてプレビュー**を使用して、本番オーディエンスと同じ値を提供する受信者フィールドをテストしてください。
 
 ### プレビューでプロパティの型が誤って変換される場合がある {#preview-may-incorrectly-coerce-property-types}
 
@@ -257,7 +261,7 @@ Stream now!
 
 これらのプロパティについては、プレビューは値から型を推測しようとします。つまり、**文字列**として意図した値が**数値**として誤って解釈される可能性があります。たとえば、プロパティの値が文字列 `"3"` の場合、プレビューはそれを整数 `3` に変換することがあり、`contains` や `split` などの文字列操作で予期しない動作が発生する可能性があります。
 
-これらのプロパティタイプを使用する際にプレビューで予期しない結果が表示された場合、プレビューの型推測が送信時の動作と一致しない可能性があることに留意してください。送信時には、トリガーイベントまたは API 呼び出しからの実際のデータ型が保持されます。
+これらのプロパティタイプを使用する際にプレビューで予期しない結果が表示された場合、プレビューの型推測が送信時の動作と一致しない可能性があることに留意してください。送信時には、トリガーイベントまたはAPI呼び出しからの実際のデータ型が保持されます。
 
 プレビューで特定の型を強制するには、値を明示的にキャストできます。
 

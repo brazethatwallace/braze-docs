@@ -9,7 +9,7 @@ tool: Dashboard
 search_rank: 5
 ---
 
-# Abrechnung
+# Abrechnung {#billing}
 
 > Erfahren Sie, wie Sie die Seite **Abrechnung** nutzen, um Ihren Datenverbrauch über Workspaces, Apps und Event-Quellen hinweg zu überwachen und zu prüfen. Dieser Artikel behandelt die verschiedenen Abschnitte auf der Seite und die Informationen, die sie Ihnen liefern können.
 
@@ -25,7 +25,7 @@ Die Seite **Abrechnung** enthält die folgenden Tabs:
 
 Der Tab **Abos und Nutzung** enthält Nutzungsdiagramme und Ihre Vertragsdetails. Die Daten auf dieser Seite werden täglich um 22:00 Uhr Eastern Time (ET) aktualisiert. Sie spiegeln keine Realtime-Aktivität wider.
 
-### Nutzungsdiagramme
+### Nutzungsdiagramme {#usage-graphs}
 
 Hier finden Sie Nutzungsdiagramme, die für Ihre Workspaces gelten. Ihr eigenes Dashboard zeigt möglicherweise andere Nutzungsmetriken an, je nachdem, welche Produkte Sie erworben haben.
 
@@ -33,11 +33,11 @@ Hier finden Sie Nutzungsdiagramme, die für Ihre Workspaces gelten. Ihr eigenes 
 
 Diese Diagramme können monatlich aktive Nutzer:innen, monatlich eindeutige Besucher:innen und E-Mail-Versendungen anzeigen. Nutzungsdiagramme wie diese sind besonders hilfreich, wenn Sie die Nutzung budgetieren und ein tieferes Verständnis dafür gewinnen möchten, welche Workspaces zur Gesamtnutzung beitragen.
 
-### Vertragsdetails
+### Vertragsdetails {#contract-details}
 
 Die Vertragsdetails listen das Start- und Enddatum Ihres aktuellen Vertrags mit Braze auf.
 
-#### Hinweise
+#### Hinweise {#considerations}
 
 Wenn Ihr Vertrag monatlich eindeutige Besucher:innen (MUV) verwendet und Sie zu einem Vertrag wechseln, der nur monatlich aktive Nutzer:innen (MAU) verwendet, werden Ihre historischen Daten weiterhin im MUV-Diagramm angezeigt und Ihre neuen Daten erscheinen nur im MAU-Diagramm. Wenn Ihr Vertrag beispielsweise im Oktober endet, zeigt das MUV-Diagramm Daten bis Ende September an.
 
@@ -61,6 +61,8 @@ Der Tab **Datenpunkt-Nutzung gesamt** bietet einen detaillierten Einblick in Ihr
 Datenpunkt-Informationen werden alle 24 Stunden zwischengespeichert.
 {% endalert %}
 
+Wenn Sie Admin sind und den Tab **Datenpunkt-Nutzung gesamt** nicht sehen können, stellen Sie sicher, dass Ihr Browser Drittanbieter-Cookies für Ihre Braze-Dashboard-Domain zulässt und sich nicht im Inkognito-Modus befindet.
+
 ![Datenpunkt-Nutzung nach Wochen filtern]({% image_buster /assets/img/subscription_and_billing2.png %})
 
 ### Vertragsdetails
@@ -74,11 +76,9 @@ Die Felder in diesem Abschnitt sind wie folgt definiert:
 - **Zugeteilte Datenpunkte:** Die Menge der im Vertrag pro Abrechnungszeitraum zugeteilten Datenpunkte.
 - **Vertragliche Datenpunkt-Nutzung:** Eine kumulative Gesamtsumme aller über die Lifetime des Vertrags protokollierten Datenpunkte, die im nächsten Abrechnungszeitraum nicht zurückgesetzt wird.
 
-![Abschnitt „Vertragsdetails“ im Tab „Datenpunkt-Nutzung gesamt“]({% image_buster /assets/img/contract_details.png %})
+### Abrechnungsdaten des Unternehmens {#company-billing-data}
 
-### Abrechnungsdaten des Unternehmens
-
-#### Datenpunkt-Nutzung gesamt auf App-Ebene
+#### Datenpunkt-Nutzung gesamt auf App-Ebene {#app-level-total-data-point-usage}
 
 Dieses Diagramm zeigt Ihre Datenpunkt-Nutzung über Apps hinweg.
 
@@ -88,25 +88,25 @@ Wählen Sie eine der Gesamtsummen aus, um die Tabelle **Datenpunkt-Nutzung im Ze
 
 ![Datenpunkt-Nutzung im Zeitverlauf mit wöchentlichen Datenpunkt-Gesamtwerten für zwei Workspaces.]({% image_buster /assets/img/data_point_usage_time.png %})
 
-#### Workspace-Datenpunkt-Nutzung
+#### Workspace-Datenpunkt-Nutzung {#workspace-data-point-usage}
 
 Dieses Diagramm ermöglicht es Ihnen, die gesamte Datenpunkt-Nutzung eines Unternehmens nach Workspace zu bewerten. Es gibt Ihnen die Möglichkeit einzuschätzen, wie jeder Workspace zur Datenpunkt-Nutzung des Unternehmens beiträgt.
 
 ![Diagramm „Workspace-Datenpunkt-Nutzung“ für zwei Workspaces]({% image_buster /assets/img/appgroup_datapoint_usage.png %}){: style="max-width:90%;"}
 
-#### Datenpunkt-Nutzung im Abrechnungszyklus nach Event-Quelle
+#### Datenpunkt-Nutzung im Abrechnungszyklus nach Event-Quelle {#billing-cycle-data-point-usage-by-event-source}
 
 Dieses Diagramm ermöglicht es Ihnen zu sehen, wie die Datenpunkt-Nutzung auf verschiedene Event-Quellen verteilt ist, z. B. verschiedene API-Attribute, angepasste Events und Sessions.
 
 ![Datenpunkt-Nutzung im Abrechnungszyklus nach Event-Quelle mit der Datenpunkt-Verteilung auf verschiedene Event-Quellen.]({% image_buster /assets/img/event_source_stats.png %})
 
-#### Datenpunkt-Nutzung im Zeitverlauf
+#### Datenpunkt-Nutzung im Zeitverlauf {#data-point-usage-over-time}
 
 Dieses Diagramm gibt Ihnen die Möglichkeit, Ihre gesamte Datenpunkt-Nutzung schnell mit Ihrer zugeteilten Datenpunktmenge zu vergleichen.
 
 ![Datenpunkt-Nutzung im Zeitverlauf mit Gegenüberstellung der zugeteilten Datenpunkte des aktuellen Abrechnungszyklus und der laufenden Gesamtsumme]({% image_buster /assets/img/company_data_point_usage_time.png %}){: style="max-width:90%;"}
 
-## Nächste Schritte
+## Nächste Schritte {#next-steps}
 
-- [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/), um Benachrichtigungen für abrechnungsbezogene Ereignisse und Nutzungsschwellenwerte zu konfigurieren.
-- [Dashboard zur Nachrichtennutzung]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/), um den Verbrauch von SMS-, WhatsApp- und RCS-Credits zu überwachen.
+- [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences), um Benachrichtigungen für abrechnungsbezogene Ereignisse und Nutzungsschwellenwerte zu konfigurieren.
+- [Dashboard zur Nutzung von Credits]({{site.baseurl}}/credits_usage_dashboard), um den Verbrauch von Nachrichten-Credits zu überwachen.

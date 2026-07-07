@@ -11,7 +11,7 @@ page_order: 3
 
 # Generador de informes {#report-builder}
 
-> Esta página explica cómo usar el Generador de informes para crear y ver informes detallados con datos de Braze, y cómo añadir informes a dashboards.
+> Esta página explica cómo usar el Generador de informes para crear y ver informes detallados con datos de Braze, y cómo añadir informes a paneles.
 
 El siguiente video ofrece un resumen de cómo crear y personalizar informes en el Generador de informes.
 
@@ -20,7 +20,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
 ## Usar una plantilla de informe {#using-a-report-template}
 
 1. Ve a **Analytics** > **Report Builder (New)**.
-2. Selecciona la flecha de **Más opciones** junto al botón **Crear informe nuevo** y luego selecciona **Use a report template**.<br><br>![Desplegable del botón "Crear informe nuevo" con opciones para crear un informe personalizado o usar una plantilla.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
+2. Selecciona la flecha de **Más opciones** junto al botón **Create New Report** y luego selecciona **Use a report template**.<br><br>![Desplegable del botón "Create New Report" con opciones para crear un informe personalizado o usar una plantilla.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Selecciona una de las plantillas de informe de la biblioteca de plantillas de Braze.
     - Usa los desplegables **Row items** y **Tags** para encontrar informes relevantes para tus casos de uso.<br><br>![Ventana "Plantillas de informe de Braze" con una lista de plantillas de Braze para seleccionar.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
 4. Sigue desde el paso 3 en adelante en [Crear un informe](#creating-a-report) para personalizar aún más el informe según tu caso de uso.
@@ -28,7 +28,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
 ## Crear un informe {#creating-a-report}
 
 1. Ve a **Analytics** > **Report Builder (New)**.
-2. Selecciona **Crear informe nuevo**.
+2. Selecciona **Create New Report**.
 3. En el desplegable **Rows**, selecciona sobre qué quieres generar el informe:
     - Campaigns
     - Canvas
@@ -36,7 +36,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
     - Canales
     - Etiquetas
 
-    Ten en cuenta que tu selección de **Rows** afectará [las métricas que puedes ver](#metrics-availability). Por ejemplo, puedes ver métricas multivariantes solo si generas un informe sobre **Canvas** o **Campaigns** con un desglose por **Variant**. No puedes ver esas métricas cuando generas un informe sobre **Campaigns y Canvas**, incluso si esas campañas y Canvas tienen pruebas multivariantes.
+    Ten en cuenta que tu selección de **Rows** afectará [las métricas que puedes ver](#metrics-availability). Por ejemplo, puedes ver métricas multivariantes solo si generas un informe sobre **Canvas** o **Campaigns** con un desglose por **Variant**. No puedes ver esas métricas cuando generas un informe sobre **Campaigns y Canvas**, incluso si esas Campaigns y Canvas tienen pruebas multivariantes.
 
 ![La sección "Filas y columnas" con campos para seleccionar las filas y agrupaciones de tu informe.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -58,7 +58,7 @@ Prueba diferentes configuraciones de opciones de desglose para explorar las [muc
 {: start="5"}
 5. En la sección **Columns**, selecciona **Customize Metrics**.
 
-![La sección "Personalizar métricas" con opciones para seleccionar múltiples métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
+![La sección "Customize Metrics" con opciones para seleccionar múltiples métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
 
 {: start="6"}
 6. Examina las métricas por categoría y selecciona la casilla correspondiente para añadir una métrica a tu informe.
@@ -79,7 +79,7 @@ El informe puede tardar hasta unos minutos en ejecutarse, dependiendo del rango 
 Tu selección de **Rows** afecta las métricas que puedes seleccionar.
 
 {% alert tip %}
-Si deseas generar un informe sobre variantes o pasos de Canvas, selecciona **Canvas** para las filas y deja el campo vacío o selecciona **Date** como desglose. Esto crea un desplegable **Canvas View** para ver métricas solo del Canvas, o agrupar métricas por variante, paso o mensaje.
+Si deseas generar un informe sobre variantes o pasos de Canvas, selecciona **Canvas** para las filas y deja el campo vacío o selecciona **Date** como desglose. Esto crea un desplegable **Canvas View** para ver métricas solo del Canvas, o agrupar métricas por variante, paso o mensaje.<br><br> Cuando agrupas por paso, la tabla de vista previa mientras configuras tu informe muestra un máximo de 50 filas. Ejecuta el informe o expórtalo como CSV para ver todas las filas.
 
 ![El desplegable "Canvas View" abierto.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -88,18 +88,20 @@ Si deseas generar un informe sobre variantes o pasos de Canvas, selecciona **Can
 | --- | --- |
 | Métricas de conversión | Disponibles para Campaigns, Canvas, Campaigns y Canvas. |
 | Entradas | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. |
-| Fecha del último envío | Disponible para Campaigns, Canvas, Campaigns y Canvas. Solo se muestra para campañas planificadas; no se completa para campañas basadas en acciones o desencadenadas por API. |
+| Fecha del último envío | Disponible para Campaigns, Canvas, Campaigns y Canvas. Solo se muestra para campañas programadas; no se completa para campañas basadas en acciones o desencadenadas por API. |
 | Envíos | Disponibles para cada canal relevante. |
 | Mensajes enviados | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. |
-| Línea del asunto | Disponible para campañas de correo electrónico con desglose por **Variant**, Canvas y Canvas con desglose por **Variant**. |
+| Línea del asunto | Disponible para Campaigns de correo electrónico con desglose por **Variant**, Canvas y Canvas con desglose por **Variant**. |
 | Ingresos totales | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |
 | Impresiones únicas | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. |
 | Destinatarios únicos | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilidad de métricas" }
 
 ### Variantes de mensaje eliminadas {#deleted-message-variants}
 
 Las estadísticas de variantes de mensaje eliminadas no se muestran cuando desglosas tu informe por campañas o Canvas. Sin embargo, los totales a nivel de canal incluyen todas las estadísticas independientemente de si la variante fue eliminada. Por ejemplo, _Envíos_ para correo electrónico incluye todos los envíos de correo electrónico, pero si desglosas esas estadísticas por campaña, los números pueden ser menores porque los envíos de variantes de mensaje eliminadas se filtran.
+
+En el mismo informe, _Destinatarios únicos_ puede ser mayor que _Impresiones únicas_ cuando una variante de mensaje fue eliminada después del envío. Los _Destinatarios únicos_ a nivel de campaña aún pueden incluir usuarios que recibieron la variante eliminada, mientras que las _Impresiones únicas_ omiten las estadísticas de variantes eliminadas en las agregaciones a nivel de mensaje.
 
 ## Ver un informe {#viewing-a-report}
 
@@ -125,23 +127,23 @@ Para descargar una imagen del gráfico del informe, selecciona el icono de punto
 
 ## Compartir un informe {#sharing-a-report}
 
-Puedes compartir un enlace del dashboard al informe seleccionando **Share** y una de estas opciones:
+Puedes compartir un enlace del panel al informe seleccionando **Share** y una de estas opciones:
 - **Compartir un enlace:** Copia y comparte el enlace.
 
 ![Desplegable "Compartir un enlace" con un enlace al informe.]({% image_buster /assets/img/report_builder_2/share_this_report.png %}){: style="max-width:70%;"}
 
-- **Enviar o programar un correo electrónico:** Envía un correo electrónico de inmediato o en un momento designado que contenga un enlace de descarga que expira después de una hora. Puedes seleccionar destinatarios de los usuarios de la empresa listados en el desplegable **Email Recipients** o introducir cualquier otra dirección de correo electrónico.
+- **Enviar o programar un correo electrónico:** Envía un correo electrónico de inmediato o en un momento designado que contenga un enlace de descarga que caduca después de una hora. Puedes seleccionar destinatarios de los usuarios de la empresa listados en el desplegable **Email Recipients** o introducir cualquier otra dirección de correo electrónico.
 
 ![Ventana "Programar un correo electrónico" con campos para elegir el formato del informe, quién debe recibirlo y cuándo debe enviarse.]({% image_buster /assets/img/report_builder_2/schedule_an_email.png %}){: style="max-width:70%;"}
 
 - **Descargar CSV:** Descarga un CSV del informe.
 
-## Añadir un informe a un dashboard {#adding-a-report-to-a-dashboard}
+## Añadir un informe a un panel {#adding-a-report-to-a-dashboard}
 
 1. Selecciona el icono de puntos en la parte superior de la tabla del informe.
 2. Selecciona **Add to dashboard**.
-3. Selecciona si deseas crear un nuevo dashboard o añadirlo a un dashboard existente.<br><br>![Ventana con opciones para seleccionar si deseas añadir el informe a un dashboard nuevo o existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Sigue los pasos en [Generador de dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) para aprender más sobre cómo construir un dashboard.
+3. Selecciona si deseas crear un nuevo panel o añadirlo a un panel existente.<br><br>![Ventana con opciones para seleccionar si deseas añadir el informe a un panel nuevo o existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
+4. Sigue los pasos en [Generador de paneles]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) para aprender más sobre cómo construir un panel.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -150,3 +152,9 @@ Puedes compartir un enlace del dashboard al informe seleccionando **Share** y un
 Una campaña o Canvas aparece en el informe cuando su fecha de **Last sent** se encuentra dentro de la ventana de **Last sent** que configuraste. **Envíos** y otras métricas solo se completan para la actividad dentro del rango de fechas de **Show data for**. Si el mensaje no se envió durante **Show data for**, la fila puede seguir mostrando la campaña o Canvas con cero envíos.
 
 Por ejemplo, supongamos que **Last sent** es del 1 de enero de 2025 al 14 de abril de 2025, por lo que se incluye una campaña, pero **Show data for** es del 1 de diciembre de 2024 al 14 de enero de 2025. Si esa campaña no tuvo envíos en diciembre o enero, seguirá apareciendo en la tabla sin métricas de envío.
+
+### El enlace de descarga ha caducado {#download-link-has-expired}
+
+Los enlaces de descarga de informes caducan después de una hora. Si tu enlace ha caducado, genera un nuevo informe y descárgalo dentro de la hora. No hay forma de extender el tiempo de caducidad.
+
+Si tienes un [contenedor de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) conectado en **Partner Integrations**, es posible que puedas recuperar datos de informes anteriores navegando directamente por tu contenedor de S3.

@@ -8,20 +8,19 @@ description: "Este artículo de referencia cubre brevemente los pasos de integra
 
 # Vínculos profundos de navegación en Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot admite vinculación en profundidad desde la mensajería de Braze a partes concretas de la aplicación Pilot. Esto te permite crear casos de uso de interacción, dirigiendo a los usuarios a diversas partes de la aplicación Pilot. También puedes utilizar parámetros opcionales de vínculos profundos para personalizar el contenido de páginas concretas de la aplicación para el usuario. Para obtener más información sobre la vinculación en profundidad, consulta [Vínculo profundo a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Braze Pilot admite vinculación en profundidad desde la mensajería de Braze a partes concretas de la aplicación Pilot. Esto te permite crear casos de uso de interacción, dirigiendo a los usuarios a diversas partes de la aplicación Pilot. También puedes utilizar parámetros opcionales de vínculos profundos para personalizar el contenido de páginas concretas de la aplicación para el usuario. Para obtener más información sobre la vinculación en profundidad, consulta [Vínculo profundo a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## General {#general}
-
 Estos son los vínculos profundos para las páginas de navegación principales de la aplicación Pilot.
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Proyectos | `braze-pilot://navigation/projects` |
-| Datos de registro | `braze-pilot://navigation/logdata` |
-| Configuración | `braze-pilot://navigation/setup` |
-| Cambiar idioma | `braze-pilot://navigation/selectlanguage` |
-| Cámara | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Projects | `braze-pilot://navigation/projects` |
+| Log Data | `braze-pilot://navigation/logdata` |
+| Setup | `braze-pilot://navigation/setup` |
+| Change Language | `braze-pilot://navigation/selectlanguage` |
+| Camera | `braze-pilot://navigation/camera` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 ## Steppington
 Estos son los vínculos profundos para la aplicación de la marca ficticia Steppington en Pilot.
@@ -35,11 +34,11 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Stepp
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Pantalla de inicio | `braze-pilot://navigation/steppington/splash` |
-| Inicio | `braze-pilot://navigation/steppington/home` |
+| Home | `braze-pilot://navigation/steppington/home` |
 | Página de Steppington+ | `braze-pilot://navigation/steppington/plus` |
 | Pantalla de objetivos | `braze-pilot://navigation/steppington/goals` |
 | Pantalla de cambiar objetivos | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vínculos profundos sin parámetros" }
 
 ### Vínculos profundos con parámetros {#steppington-deep-links-with-parameters}
 
@@ -47,7 +46,7 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Stepp
 | --- | --- |
 | Entrenamiento | `braze-pilot://navigation/steppington/workout` |
 | Entrenamiento activo | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vínculos profundos con parámetros" }
 
 #### Parámetros aceptados {#steppington-accepted-parameters}
 
@@ -75,7 +74,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Parámetros aceptados">
+  <caption>Parámetros aceptados</caption>
     <thead>
         <tr>
             <th>Parámetro</th>
@@ -204,7 +204,7 @@ th:nth-child(6), td:nth-child(6) {
 | `YOGA_HOME` | ![Icono de una persona en postura de yoga.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![Icono de una bicicleta.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![Icono de una mancuerna.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Opciones de iconos" }
 
 ## PantsLabyrinth
 Estos son los vínculos profundos para la aplicación de la marca ficticia PantsLabyrinth en Pilot.
@@ -217,19 +217,19 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Pants
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Pantalla de carga inicial | `braze-pilot://navigation/pantslabyrinth/splash` |
+| Pantalla de presentación | `braze-pilot://navigation/pantslabyrinth/splash` |
 | Pantalla de bienvenida | `braze-pilot://navigation/pantslabyrinth/welcome` |
 | Pantalla de listado | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Página del carrito | `braze-pilot://navigation/pantslabyrinth/cart` |
 | Página de lista de deseos | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vínculos profundos sin parámetros" }
 
 ### Vínculos profundos con parámetros {#pantslabyrinth-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Página de detalles del artículo | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vínculos profundos con parámetros" }
 
 #### Parámetros aceptados {#pantslabyrinth-accepted-parameters}
 
@@ -257,7 +257,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Parámetros aceptados">
+  <caption>Parámetros aceptados</caption>
     <thead>
         <tr>
             <th>Parámetro</th>
@@ -358,14 +359,14 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Movie
 | Pantalla de presentación | `braze-pilot://navigation/moviecannon/splash` |
 | Pantalla de bienvenida | `braze-pilot://navigation/moviecannon/welcome` |
 | Página de listado de películas | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vínculos profundos sin parámetros" }
 
 ### Vínculos profundos con parámetros {#moviecanon-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Página de detalles de la película | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vínculos profundos con parámetros" }
 
 #### Parámetros aceptados {#moviecanon-accepted-parameters}
 
@@ -376,4 +377,4 @@ Estos son los vínculos profundos para la aplicación de la marca ficticia Movie
 | `thumbnail` | La URL web de la miniatura que se mostrará antes de la película. | Sí | Cadena | `https://picsum.photos/400` |
 | `video` | El índice en la lista de videos que se mostrarán. | No | Número | 0 |
 | `description` | La descripción del video. | Sí | Cadena | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Parámetros aceptados" }

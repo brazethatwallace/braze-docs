@@ -12,7 +12,7 @@ description: "Cet article décrit en détail l'endpoint de suivi des utilisateur
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs (en masse) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -24,7 +24,7 @@ Cet endpoint est actuellement en **bêta limitée**. Bien que nous n'ajoutions p
 
 ## Quand utiliser cet endpoint {#when-to-use-this-endpoint}
 
-Comme l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), vous pouvez utiliser cet endpoint pour mettre à jour les profils utilisateur. Cet endpoint est mieux adapté aux mises à jour en masse :
+Comme l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), vous pouvez utiliser cet endpoint pour mettre à jour les profils utilisateur. Cet endpoint est mieux adapté aux mises à jour en masse :
 
 - **Requêtes plus volumineuses :** Envoyez jusqu'à 1 000 utilisateurs par requête, ce qui vous permet de faire moins de requêtes pour les remplissages et synchronisations importants.
 - **Priorisation :** En cas de pic de trafic, les requêtes vers `/users/track` sont prioritaires par rapport aux requêtes vers `/users/track/bulk`.
@@ -37,11 +37,13 @@ Les limites de l'objet de requête de l'endpoint `/users/track` varient en fonct
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous devez disposer d'une [clé API]({{site.baseurl}}/api/api_key/) avec la permission `users.track.bulk`.
+Pour utiliser cet endpoint, vous devez disposer d'une [clé API]({{site.baseurl}}/api/api_key) avec la permission `users.track.bulk`.
 
-Si vous effectuez des appels serveur à serveur derrière un pare-feu, vous devrez peut-être ajouter votre endpoint REST Braze à votre liste d'autorisation (par exemple, `rest.iad-01.braze.com`). Pour plus d'informations, consultez [Endpoints API]({{site.baseurl}}/api/basics/#api-definitions).
+Si vous effectuez des appels serveur à serveur derrière un pare-feu, vous devrez peut-être ajouter votre endpoint REST Braze à votre liste d'autorisation (par exemple, `rest.iad-01.braze.com`). Pour plus d'informations, consultez [Endpoints API]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Limite de débit {#rate-limit}
+
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
 
 Pour la plupart des clients, cet endpoint a une limite de vitesse de base de 50 requêtes par seconde.
 
@@ -74,10 +76,10 @@ Pour chaque objet de requête, vous devez inclure l'un des éléments suivants :
 
 | Paramètre | Requis | Type de données | Description |
 | --- | --- | --- | --- |
-| `attributes` | Facultatif | Tableau d'objets d'attributs | Voir [objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | Facultatif | Tableau d'objets d'événements | Voir [objet d'événements]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Facultatif | Tableau d'objets d'achats | Voir [objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `attributes` | Facultatif | Tableau d'objets d'attributs | Voir [objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | Facultatif | Tableau d'objets d'événements | Voir [objet d'événements]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Facultatif | Tableau d'objets d'achats | Voir [objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de la requête" }
 
 ## Exemples de requêtes {#example-requests}
 
@@ -208,9 +210,9 @@ Si votre requête comporte une erreur fatale, vous recevez la réponse suivante 
 
 ### Codes de réponse pour les erreurs fatales {#fatal-error-response-codes}
 
-Pour les codes d'état et les messages d'erreur associés que Braze renvoie lorsque votre requête comporte une erreur fatale, consultez [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
+Pour les codes d'état et les messages d'erreur associés que Braze renvoie lorsque votre requête comporte une erreur fatale, consultez [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors).
 
-Si vous recevez l'erreur « provided external_id is blacklisted and disallowed », votre requête peut inclure un « utilisateur fictif ». Pour plus d'informations, consultez [Blocage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Si vous recevez l'erreur « provided external_id is blacklisted and disallowed », votre requête peut inclure un « utilisateur fictif ». Pour plus d'informations, consultez [Blocage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 

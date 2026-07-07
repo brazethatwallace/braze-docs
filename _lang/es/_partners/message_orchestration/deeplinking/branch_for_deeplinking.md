@@ -143,6 +143,6 @@ Abre el enlace de Branch desde la aplicación Notas en un dispositivo iOS físic
 | El enlace funciona desde push pero no desde correo electrónico | Falta AASA en el dominio de seguimiento de clics | Aloja el AASA en el dominio de seguimiento de clics de tu ESP; consulta [Configuración de correo electrónico](#deep-linking-in-email) |
 | `shouldOpenURL` nunca se activa para los enlaces de Branch | `forwardUniversalLinks` no está habilitado | Establece `configuration.forwardUniversalLinks = true` |
 | El enlace de Branch funciona desde Notas pero no desde Braze | `BrazeDelegate` devuelve `true` para las URL de Branch | Verifica la comprobación de dominio en `shouldOpenURL` para que coincida con tu dominio de Branch |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Problemas comunes" }
 
 Para más escenarios de solución de problemas de vinculación en profundidad, consulta [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).

@@ -5,50 +5,50 @@ description: "Erfahren Sie mehr über Analytics für Artikel-Empfehlungen und wi
 page_order: 1.3
 ---
 
-# Analytics für Artikel-Empfehlungen
+# Analytics für Artikel-Empfehlungen {#item-recommendation-analytics}
 
 > Erfahren Sie mehr über Analytics für Artikel-Empfehlungen und wie Sie diese in Braze anzeigen können.
 
-## Analytik anzeigen
+## Analytics anzeigen {#viewing-analytics}
 
-Sie können die Analysen für Ihre Empfehlungen einsehen, um zu sehen, welche Artikel Benutzern empfohlen wurden und wie genau das Empfehlungsmodell war.
+Sie können die Analytics für Ihre Empfehlung einsehen, um zu sehen, welche Artikel Nutzer:innen empfohlen wurden und wie genau das Empfehlungsmodell war.
 
-1. Gehen Sie zu **Analytics** > **Artikel-Empfehlung**.
+1. Gehen Sie zu **Analytics** > **Item Recommendation**.
 2. Wählen Sie Ihre Empfehlung aus der Liste aus.
 
-## Verfügbare Metriken
+## Verfügbare Metriken {#available-metrics}
 
-### Zielgruppe
+### Zielgruppe {#audience}
 
-Dies sind Metriken, die sich auf Ihre Zielgruppe beziehen. Dazu gehören Präzision, Reichweite und Art der Empfehlung.
+Dies sind Metriken, die sich auf Ihre Empfehlungs-Zielgruppe beziehen. Dazu gehören Präzision, Abdeckung und Empfehlungstyp.
 
-![Empfehlungs-Zielgruppen-Metriken, die Präzision (25,3 %), Reichweite (54,3 %) und Empfehlungstypen, unterteilt in personalisierte und beliebteste Artikel, anzeigen.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Empfehlungs-Zielgruppen-Metriken, die Präzision (25,3 %), Abdeckung (54,3 %) und Empfehlungstypen, unterteilt in personalisierte und beliebteste Artikel, anzeigen.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Weitere Informationen finden Sie in der folgenden Tabelle:
 
-| Metrisch              | Beschreibung |
+| Metrik | Beschreibung |
 | ------------------- | ---------- |
-| **Präzision**           | Der Prozentsatz der Zeit, in der das Modell den nächsten Artikel, den ein Benutzer gekauft hat, richtig erraten hat. Die Genauigkeit hängt stark von Ihrer spezifischen Kataloggröße und -mischung ab und sollte als Richtwert dienen, um zu verstehen, wie oft das Modell korrekt ist.<br><br>Bei Tests haben wir festgestellt, dass Modelle mit einer Genauigkeit von 6–20% am besten abschneiden. Diese Metrik wird aktualisiert, wenn das Modell das nächste Mal neu trainiert wird.  |
-| **Abdeckung**            | Wie viel Prozent der verfügbaren Artikel im Katalog werden mindestens einem Benutzer empfohlen. Sie können davon ausgehen, dass Sie eine höhere Artikelabdeckung mit personalisierten Artikelempfehlungen als mit den beliebtesten Artikeln erreichen. |
-| **Empfehlungstyp** | Der Prozentsatz der Nutzer:innen, die personalisierte oder neueste Empfehlungen erhalten, im Vergleich zum Fallback der beliebtesten Artikel. Der Fallback wird an Benutzer gesendet, die nicht über genügend Daten verfügen, um eine personalisierte oder aktuelle Empfehlung zu erstellen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Präzision** | Der Prozentsatz der Fälle, in denen das Modell den nächsten Artikel, den ein:e Nutzer:in gekauft hat, korrekt vorhergesagt hat. Die Präzision hängt stark von Ihrer spezifischen Kataloggröße und -zusammensetzung ab und sollte als Richtwert dienen, um zu verstehen, wie oft das Modell korrekt liegt.<br><br>Bei bisherigen Tests haben wir festgestellt, dass Modelle mit Präzisionswerten von 6–20 % gut abschneiden. Diese Metrik wird aktualisiert, wenn das Modell das nächste Mal neu trainiert wird. |
+| **Abdeckung** | Welcher Prozentsatz der verfügbaren Artikel im Katalog mindestens einer Nutzer:in empfohlen wird. Sie können davon ausgehen, dass Sie mit personalisierten Artikel-Empfehlungen eine höhere Artikelabdeckung erzielen als mit den beliebtesten Artikeln. |
+| **Empfehlungstyp** | Der Prozentsatz der Nutzer:innen, die personalisierte oder neueste Empfehlungen erhalten, im Vergleich zum Fallback der beliebtesten Artikel. Der Fallback wird an Nutzer:innen gesendet, die nicht über genügend Daten verfügen, um eine personalisierte oder aktuelle Empfehlung zu generieren. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zielgruppe" }
 
-### Artikel
+### Artikel {#items}
 
 Diese Tabelle enthält Metriken zu Ihren personalisierten, neuesten und beliebtesten Artikeln aus Ihrem Katalog.
 
-![Nebeneinander angeordnete Tabellen mit den den Nutzer:innen zugewiesenen Artikeln, getrennt nach personalisierten Empfehlungen und beliebtesten Empfehlungen.]({% image_buster /assets/img/item_recs_analytics_2.png %})
+![Nebeneinander angeordnete Tabellen mit den Nutzer:innen zugewiesenen Artikeln, getrennt nach personalisierten Empfehlungen und beliebtesten Empfehlungen.]({% image_buster /assets/img/item_recs_analytics_2.png %})
 
 Weitere Informationen finden Sie in der folgenden Tabelle:
 
-| Metrisch              | Beschreibung |
+| Metrik | Beschreibung |
 | ------------------- | ---------- |
-| **Personalisierte Artikel**<br><br>**Letzte Artikel** | Diese Spalte listet jeden Artikel im Katalog in absteigender Reihenfolge der am häufigsten empfohlenen Artikel auf. In dieser Spalte sehen Sie auch, wie viele Benutzer den einzelnen Artikeln durch das Modell zugeordnet wurden.<br><br>Je nach [Art der Empfehlung]({{site.baseurl}}/user_guide/brazeai/recommendations/) werden entweder **personalisierte** Artikel oder **die neuesten** Artikel aufgelistet. |
-| **Beliebteste Artikel** | Diese Spalte listet jeden Artikel im Katalog in absteigender Reihenfolge seiner Beliebtheit auf. Beliebtheit bezieht sich hier auf die Objekte im Katalog, mit denen Benutzer im gesamten Arbeitsbereich am häufigsten interagieren. Beliebteste wird als Ausweichlösung verwendet, wenn für einen einzelnen Benutzer keine personalisierte oder neueste Version berechnet werden kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Personalisierte Artikel**<br><br>**Neueste Artikel** | Diese Spalte listet jeden Artikel im Katalog in absteigender Reihenfolge der Häufigkeit auf, mit der er Nutzer:innen empfohlen wurde. Diese Spalte zeigt auch, wie vielen Nutzer:innen jeder Artikel durch das Modell zugewiesen wurde.<br><br>Je nach [Empfehlungstyp]({{site.baseurl}}/user_guide/brazeai/item_recommendations) werden entweder **personalisierte** oder **neueste** Artikel aufgelistet. |
+| **Beliebteste Artikel** | Diese Spalte listet jeden Artikel im Katalog in absteigender Reihenfolge seiner Beliebtheit auf. Beliebtheit bezieht sich hier auf die Artikel im Katalog, mit denen Nutzer:innen im gesamten Workspace am häufigsten interagieren. „Beliebteste“ wird als Fallback verwendet, wenn für eine:n einzelne:n Nutzer:in keine personalisierte oder neueste Empfehlung berechnet werden kann. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Artikel" }
 
-### Übersicht
+### Übersicht {#overview}
 
-Dies ist eine Übersicht über die von Ihnen gewählte Empfehlungskonfiguration, die auch angibt, wann die Empfehlung zuletzt aktualisiert wurde.
+Dies ist eine Übersicht über die von Ihnen gewählte Empfehlungskonfiguration, einschließlich des Zeitpunkts, zu dem die Empfehlung zuletzt aktualisiert wurde.
 
-![Übersichtstabelle für Empfehlungen, die den Typ, den Katalog, den Ereignistyp, den Namen des angepassten Events, den Namen der Eigenschaft und das Datum des letzten Updates anzeigt.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }
+![Übersichtstabelle für Empfehlungen mit Typ, Katalog, Event-Typ, Name des angepassten Events, Name der Eigenschaft und Datum des letzten Updates.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }

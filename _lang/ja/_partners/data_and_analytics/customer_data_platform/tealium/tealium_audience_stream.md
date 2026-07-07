@@ -182,7 +182,7 @@ Tealiumのホームページから、サイドバーナビゲーションの**Au
 | パラメーター | 説明 |
 | ---------- | ----------- |
 | グループタイプ | このフィールドを使用して、SMSサブスクリプショングループかメールサブスクリプショングループかを示します。 |
-| 更新タイプ | このアクションを配信停止または購読イベントにマッピングします。
+| 更新タイプ | このアクションを配信停止またはサブスクリプションイベントにマッピングします。 |
 | 属性 | - Subscription group ID（必須）：前のフィールドでマップされたグループタイプに関連するサブスクリプショングループのID。<br>- External ID：ユーザーのexternal ID。<br><br>メールグループ固有：<br>- Email：ユーザーのメールアドレス。<br>**external IDが定義されていない場合はメールが必須です。**<br><br>SMSグループ固有：<br>- Phone：E.164形式の電話番号。例：+14155552671。<br>**external IDが定義されていない場合は電話番号が必須です。** |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -216,7 +216,7 @@ TealiumのTraceツールの詳しい実装手順については、Tealiumの[Tra
 ## 統合デモ {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Tealium AudienceStream integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## データポイント超過料金の可能性 {#potential-data-point-overages}

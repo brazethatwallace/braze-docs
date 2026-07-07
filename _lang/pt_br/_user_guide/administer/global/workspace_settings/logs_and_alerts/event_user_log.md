@@ -7,7 +7,7 @@ description: "Este artigo de referência aborda o Registro de usuários de event
 
 ---
 
-# Registro de usuários de eventos
+# Registro de usuários de eventos {#event-user-log}
 
 > O Registro de usuários de eventos pode ajudar você a detalhar, depurar ou solucionar problemas na sua integração com a Braze. Essa guia fornece um registro de erros que detalha o tipo de erro, a qual app ele está associado, quando aconteceu e, frequentemente, a oportunidade de visualizar os dados brutos associados.
 
@@ -40,13 +40,13 @@ Os registros de usuários de eventos permanecerão no dashboard por 30 dias apó
 
 ![Registros brutos de eventos]({% image_buster /assets/img_archive/rawlogs.png %}){: style="max-width:60%;"}
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
-### Registros de SDK ausentes para usuários teste
+### Registros de SDK ausentes para usuários teste {#missing-sdk-logs-for-test-users}
 
-Se você adicionou um usuário a um grupo interno, mas ele não está exibindo nenhum registro de SDK no Registro de usuários de eventos, isso pode ser resultado de uma opção de configuração ausente. Para capturar registros de SDK, certifique-se de selecionar **Registrar eventos de usuário para membros do grupo** nas **Configurações do grupo interno** daquele [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/).
+Se você adicionou um usuário a um grupo interno, mas ele não está exibindo nenhum registro de SDK no Registro de usuários de eventos, isso pode ser resultado de uma opção de configuração ausente. Para capturar registros de SDK, certifique-se de selecionar **Registrar eventos de usuário para membros do grupo** nas **Configurações do grupo interno** daquele [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups).
 
-### Postergação nas atualizações de registros
+### Postergação nas atualizações de registros {#delay-in-logs-updates}
 
 Isso é potencialmente uma lentidão normal por parte da nossa API.
 
@@ -54,15 +54,15 @@ Quando você chama métodos do SDK, geralmente o SDK armazena esses eventos loca
 
 Se você deseja que os eventos cheguem o mais rápido possível, tente chamar a função `requestImmediateDataFlush()`.
 
-### Falhas de impressão de mensagens no app
+### Falhas de impressão de mensagens no app {#in-app-message-impression-failures}
 
-Se uma mensagem no app não for exibida, você pode encontrar o motivo no Registro de usuários de eventos expandindo os dados JSON brutos da solicitação de SDK relevante e procurando o campo `error_code` na resposta. O `error_code` identifica o motivo específico pelo qual a impressão falhou (por exemplo, um valor de cor inválido ou um problema de renderização). Compartilhe esse código de erro com o [suporte da Braze]({{site.baseurl}}/braze_support/) se uma investigação mais aprofundada for necessária.
+Se uma mensagem no app não for exibida, você pode encontrar o motivo no Registro de usuários de eventos expandindo os dados JSON brutos da solicitação de SDK relevante e procurando o campo `error_code` na resposta. O `error_code` identifica o motivo específico pelo qual a impressão falhou (por exemplo, um valor de cor inválido ou um problema de renderização). Compartilhe esse código de erro com o [suporte da Braze]({{site.baseurl}}/braze_support) se uma investigação mais aprofundada for necessária.
 
-### Fim de sessão e início de sessão com timestamps semelhantes (iOS)
+### Fim de sessão e início de sessão com timestamps semelhantes (iOS) {#session-end-and-session-start-have-similar-timestamps-ios}
 
 O Registro de usuários de eventos mostra o timestamp de quando a Braze foi notificada de que a sessão terminou, que será milissegundos antes do início da próxima sessão. A Braze não consegue saber que a sessão terminou antes que o app seja reaberto, porque o iOS é agressivo ao interromper a execução de threads quando o app está em segundo plano — portanto, nenhum dado pode ser enviado para a Braze até que o app seja reaberto.
 
-Embora o horário de fim de sessão seja especificado como segundos antes do início da sessão, quando o evento é enviado, a Duração da Sessão é enviada separadamente e está correta — refletindo o tempo em que o app esteve aberto. Portanto, esse comportamento não impacta o filtro `Median Session Duration`.
+Embora o horário de fim de sessão seja especificado como segundos antes do início da sessão, quando o evento é enviado, a duração da sessão é enviada separadamente e está correta — refletindo o tempo em que o app esteve aberto. Portanto, esse comportamento não impacta o filtro `Median Session Duration`.
 
 Em relação às sessões de usuário, você pode usar a Braze para monitorar dados como:
 

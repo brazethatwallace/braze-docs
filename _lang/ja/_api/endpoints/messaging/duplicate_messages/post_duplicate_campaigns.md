@@ -1,30 +1,30 @@
 ---
-nav_title: "POST:重複したキャンペーン"
-article_title: "POST:重複キャンペーン"
-search_tag: エンドポイント
+nav_title: "POST: キャンペーンの複製"
+article_title: "POST: キャンペーンの複製"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Duplicate campaigns（キャンペーンの重複）エンドポイントについての詳細を概説する。"
+description: "この記事では、キャンペーンの複製エンドポイントについて詳しく説明します。"
 
 ---
 {% api %}
-# API を使用したキャンペーンの複製
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
+# APIを使用してキャンペーンを複製する {#duplicate-campaigns-using-the-api}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
-> キャンペーンを複製するには、このエンドポイントを使用する。このAPIエンドポイントは、[Brazeダッシュボードでキャンペーンを複製する][1]のと似ている。
+> このエンドポイントを使用して、キャンペーンを複製します。このAPIエンドポイントは、[Brazeダッシュボードでキャンペーンを複製する][1]のと同様です。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.duplicate` 権限を持つ API キーを生成する必要があります。
+このエンドポイントを使用するには、`campaigns.duplicate` 権限を持つAPIキーを生成する必要があります。
 
-## レート制限
+## レート制限 {#rate-limit}
 
-このエンドポイントは、1分あたり100個のAPIコールに制限されます。
+このエンドポイントは、1分あたり100回のAPI呼び出しに制限されています。
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -36,22 +36,24 @@ Authorization: Bearer YOUR-REST-API-KEY
   "campaign_id": (required, string) The campaign identifier,
   "name": (required, string) The name of the resulting campaign,
   "description": (optional, string) The description of the resulting campaign,
+  "tag_names": (optional, string) The tags of the resulting campaign,
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| 必須かどうか | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-|`name`| 必須かどうか | 文字列 | 結果のキャンペーン名。 |
-|`description`| オプション | 文字列 | 結果のキャンペーンの説明フィールド。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
+| `name` | 必須 | 文字列 | 作成されるキャンペーンの名前。 |
+| `description` | オプション | 文字列 | 作成されるキャンペーンの説明フィールド。 |
+| `tag_names` | オプション | 文字列 | 作成されるキャンペーンのタグ。既存のタグである必要があります。リクエストに新しいタグを追加すると、元のキャンペーンにあったタグが上書きされます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 
-## 応答
+## 応答 {#response}
 
-このエンドポイントは `202` ステータスコードを返し、キャンペーン作成は非同期に行われます。[セキュリティイベントのダウンロード][2]を使えば、キャンペーンがいつ複製されたか、どの API キーによって複製されたかの記録を見ることができます。
+このエンドポイントは `202` ステータスコードを返し、キャンペーンの作成は非同期で行われます。[セキュリティイベントのダウンロード][2]を使用して、キャンペーンがいつ複製されたか、どのAPIキーによって複製されたかの記録を確認できます。
 
 
 [1]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-campaigns-and-canvases

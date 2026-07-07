@@ -127,12 +127,12 @@ Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in d
 | `badge_count`      | Zahl   | Stellt die Badge-Anzahl der Benachrichtigung dar. |
 | `timestamp`        | Zahl | Stellt den Zeitpunkt dar, zu dem die Nutzlast von der Anwendung empfangen wurde. |
 | `is_silent`        | Boolescher Wert   | Wenn `true`, wird die Nutzlast still empfangen. Einzelheiten zum Senden von stillen Push-Benachrichtigungen unter Android finden Sie unter [Stille Push-Benachrichtigungen unter Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Einzelheiten zum Senden von stillen Push-Benachrichtigungen unter iOS finden Sie unter [Stille Push-Benachrichtigungen unter iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Boolescher Wert   | Dies ist `true`, wenn eine Benachrichtigungsnutzlast für eine interne SDK-Funktion gesendet wurde, wie z. B. die Synchronisierung von Geofences, die Synchronisierung von Feature-Flags oder das Uninstall-Tracking. Die Nutzlast wird für die Nutzer:innen unbemerkt empfangen. |
+| `is_braze_internal`| Boolescher Wert   | Dies ist `true`, wenn eine Benachrichtigungsnutzlast für eine interne SDK-Funktion gesendet wurde, wie z. B. die Synchronisierung von Feature-Flags oder das Uninstall-Tracking. Die Nutzlast wird für die Nutzer:innen unbemerkt empfangen. |
 | `image_url`        | String    | Gibt die URL an, die mit dem Benachrichtigungsbild verknüpft ist. |
 | `braze_properties` | Objekt    | Stellt die mit der Campaign verbundenen Braze-Eigenschaften dar (Schlüssel-Wert-Paare). |
 | `ios`              | Objekt    | Stellt iOS-spezifische Felder dar. |
 | `android`          | Objekt    | Stellt Android-spezifische Felder dar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### 3. Schritt: Deeplinking aktivieren (optional) {#step-3-enable-deep-linking-optional}
 
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Schritt 3.2: Deeplinks aus einem geschlossenen Zustand heraus behandeln {#step-32-handle-deep-links-from-a-closed-state}
+#### Schritt 3.2: Deeplinks aus einem geschlossenen Zustand heraus behandeln
 
 Zusätzlich zu den Basisszenarien, die von [React Native Linking](https://reactnative.dev/docs/linking) behandelt werden, implementieren Sie die Methode `Braze.getInitialPushPayload` und rufen den Wert `url` ab, um Deeplinks von Push-Benachrichtigungen zu berücksichtigen, die Ihre App öffnen, wenn sie nicht läuft. Zum Beispiel:
 

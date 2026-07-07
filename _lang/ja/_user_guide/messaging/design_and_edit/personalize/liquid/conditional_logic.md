@@ -6,17 +6,17 @@ description: "このリファレンス記事では、キャンペーンでタグ
 
 ---
 
-# 条件付きメッセージングロジック
+# 条件付きメッセージングロジック {#conditional-messaging-logic}
 
-> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングキャンペーンにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blank の属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
+> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングキャンペーンにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blankの属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
 
-## タグのフォーマット
+## タグのフォーマット {#formatting-tags}
 
 {% raw %}
 タグは `{% %}` で囲む必要があります。
 {% endraw %}
 
-作業を少し楽にするために、Braze では Liquid 構文が正しくフォーマットされている場合に緑色と紫色で表示されるカラーフォーマットが含まれています。緑色のフォーマットはタグの識別に役立ち、紫色のフォーマットはパーソナライゼーションを含む領域をハイライトします。
+作業を少し楽にするために、Brazeでは Liquid 構文が正しくフォーマットされている場合に緑色と紫色で表示されるカラーフォーマットが含まれています。緑色のフォーマットはタグの識別に役立ち、紫色のフォーマットはパーソナライゼーションを含む領域をハイライトします。
 
 条件付きメッセージングの使用に苦労している場合は、カスタム属性やその他の Liquid 要素を挿入する前に、条件構文を書き出してみてください。
 
@@ -40,7 +40,7 @@ Buy now! Would 5% off convince you?
 ```
 {% endraw %}
 
-## 条件ロジック
+## 条件ロジック {#conditional-logic}
 
 [メッセージ内にインテリジェントロジック](http://docs.shopify.com/themes/liquid-documentation/basics)を多数含めることができます（条件文など）。以下の例では、[条件](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)を使用してキャンペーンを国際化しています:
 {% raw %}
@@ -57,9 +57,9 @@ This is a message from Braze! This is going to go to anyone who did not match th
 {% endif %}
 ```
 
-### 条件タグ
+### 条件タグ {#conditional-tags}
 
-#### `if` と `elsif`
+#### `if` と `elsif` {#if-and-elsif}
 
 条件ロジックは `if` タグで始まり、最初にチェックする条件を記述します。後続の条件は `elsif` タグを使用し、前の条件が満たされない場合にチェックされます。この例では、ユーザーのデバイスが英語に設定されていない場合、このコードはユーザーのデバイスがスペイン語に設定されているかどうかをチェックし、それも該当しない場合はデバイスが中国語に設定されているかどうかをチェックします。ユーザーのデバイスがこれらの条件のいずれかを満たす場合、ユーザーは該当する言語でメッセージを受け取ります。
 
@@ -67,15 +67,35 @@ This is a message from Braze! This is going to go to anyone who did not match th
 
 条件ロジックに `{% else %}` 文を含めることもできます。設定した条件のいずれも満たされない場合、`{% else %}` 文は送信すべきメッセージを指定します。この例では、ユーザーの言語が英語、スペイン語、中国語のいずれでもない場合、デフォルトで英語になります。
 
+#### `case` と `when` {#case-and-when}
+
+`{% case %}`、`{% when %}`、`{% endcase %}` は switch 文のように機能します。`case` の後に1つの式を設定し、各 `when` ブランチはその式がリストされた値と等しい場合に実行されます（Liquidは内部的に等価比較を使用しており、`if` と `elsif` を `==` で連鎖させるのと同様です）。1つの `when` タグにカンマまたは `or` で区切って複数の値をリストできます。何も一致しない場合のフォールバックには `{% else %}` を使用し、`{% endcase %}` で閉じます。
+
+`when` の値のフォーマットをデータタイプに合わせてください。テキスト（言語コードなど）の場合は引用符を使用します: `{% when 'es' %}`。数値の場合は引用符を省略します: `{% when 2 %}`。
+
+```liquid
+{% assign handle = 'cake' %}
+{% case handle %}
+{% when 'cake' %}
+This is a cake
+{% when 'cookie' %}
+This is a cookie
+{% else %}
+This is not a cake nor a cookie
+{% endcase %}
+```
+
+`handle` の代わりにBrazeのパーソナライゼーションタグやその他の Liquid 式を使用して同じパターンを適用できます。構文オプションの詳細については、Shopifyの [`case` タグドキュメント](https://shopify.dev/docs/api/liquid/tags/case)を参照してください。
+
 #### `endif`
 
-`{% endif %}` タグは、条件ロジックが終了したことを示します。条件ロジックを含むすべてのメッセージに `{% endif %}` タグを含める必要があります。条件ロジックに `{% endif %}` タグを含めないと、Braze がメッセージを解析できないためエラーが発生します。
+`{% endif %}` タグは `if` ブロックが終了したことを示します。そのチェーン内で `if`、`elsif`、`unless`、または `else` を使用するすべてのメッセージに `{% endif %}` タグを含める必要があります。`{% endif %}` タグを含めないと、Brazeがメッセージを解析できないためエラーが発生します。`{% case %}` を使用する場合は、`{% endif %}` ではなく `{% endcase %}` でブロックを閉じてください。
 
 {% alert note %}
-条件タグ（`if`、`elsif`、`unless`）は演算子をサポートしますが、フィルターはサポートしません。フィルター処理された値を条件で評価するには、まずフィルター結果を変数に割り当ててから、その変数を参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
+`if`、`elsif`、`unless` タグでは演算子を使用できますが、フィルターは使用できません。`case` と `when` タグでは、`case` 式が `when` の値と等しい場合に各ブランチが一致します。これらの式でもフィルターはサポートされていません。フィルター処理された値を評価するには、まずフィルター結果を変数に割り当ててから、その変数を `case` または `when` 句で参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
 {% endalert %}
 
-### チュートリアル: ロケーションベースのコンテンツを配信する
+### チュートリアル: ロケーションベースのコンテンツを配信する {#tutorial-deliver-location-based-content}
 
 このチュートリアルを完了すると、「if」、「elsif」、「else」文を含むタグを使用して、ユーザーのロケーションに基づいたコンテンツを配信できるようになります。
 
@@ -149,17 +169,17 @@ This is a message from Braze! This is going to go to anyone who did not match th
 
 {% enddetails %}
 
-## null、nil、blank の属性値の処理
+## null、nil、blankの属性値の処理 {#accounting-for-null-nil-and-blank-attribute-values}
 
 条件ロジックは、ユーザープロファイルに設定されていない属性値を処理するのに便利な方法です。
 
-### null および nil の属性値
+### nullおよびnilの属性値 {#null-and-nil-attribute-values}
 
-null または nil の値は、カスタム属性の値が設定されていない場合に発生します。たとえば、まだ名を設定していないユーザーは、Braze に名が記録されていません。
+nullまたはnilの値は、カスタム属性の値が設定されていない場合に発生します。たとえば、まだ名を設定していないユーザーは、Brazeに名が記録されていません。
 
 状況によっては、名が設定されているユーザーと名が設定されていないユーザーに、まったく異なるメッセージを送信したい場合があります。
 
-以下のタグを使用すると、「名」属性が null のユーザーに対するメッセージを指定できます:
+以下のタグを使用すると、「名」属性がnullのユーザーに対するメッセージを指定できます:
 
 {% raw %}
 ```liquid
@@ -169,7 +189,7 @@ null または nil の値は、カスタム属性の値が設定されていな�
 ```
 {% endraw %}
 
-![Braze ダッシュボードでの、null の「名」属性を使用したメッセージの例。]({% image_buster /assets/img/value_null.png %}){: style="max-width:60%;"}
+![Brazeダッシュボードでの、nullの「名」属性を使用したメッセージの例。]({% image_buster /assets/img/value_null.png %}){: style="max-width:60%;"}
 
 {% raw %}
 ```liquid
@@ -180,15 +200,15 @@ Hey {{${first_name} | default: 'there'}}, we're having a sale! Hurry up and get 
 {% endif %}
 ```
 
-null の属性値は、値の型に厳密に関連付けられていないことに注意してください（たとえば、「null」の文字列は「null」の配列と同じです）。そのため、上記の例では、null の属性値は未設定の名を参照しており、これは文字列になります。
+nullの属性値は、値の型に厳密に関連付けられていないことに注意してください（たとえば、「null」の文字列は「null」の配列と同じです）。そのため、上記の例では、nullの属性値は未設定の名を参照しており、これは文字列になります。
 
 {% endraw %}
 
-### blank の属性値
+### blankの属性値 {#blank-attribute-values}
 
-blank の値は、ユーザープロファイルの属性が設定されていない場合、空白文字列（` `）で設定されている場合、または `false` として設定されている場合に発生します。blank の値は、Liquid 処理エラーを回避するために、他の変数より先にチェックする必要があります。
+blankの値は、ユーザープロファイルの属性が設定されていない場合、空白文字列（` `）で設定されている場合、または `false` として設定されている場合に発生します。blankの値は、Liquid 処理エラーを回避するために、他の変数より先にチェックする必要があります。
 
-以下のタグを使用すると、「名」属性が blank のユーザーに対するメッセージを指定できます。
+以下のタグを使用すると、「名」属性がblankのユーザーに対するメッセージを指定できます。
 
 {% raw %}
 ```liquid
@@ -198,7 +218,7 @@ blank の値は、ユーザープロファイルの属性が設定されてい�
 ```
 {% endraw %}
 
-## カスタム属性の参照
+## カスタム属性の参照 {#referencing-custom-attributes}
 
 [カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)した後、Liquid メッセージングでこれらのカスタム属性を参照できます。
 
@@ -210,7 +230,7 @@ blank の値は、ユーザープロファイルの属性が設定されてい�
 文字列と配列はストレートアポストロフィで囲む必要がありますが、ブール値と整数にはアポストロフィは不要です。
 {% endalert %}
 
-#### ブール値
+#### ブール値 {#boolean}
 
 [ブール値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans)はバイナリ値で、`registration_complete: true` のように `true` または `false` に設定できます。ブール値にはアポストロフィは付きません。
 
@@ -222,7 +242,7 @@ blank の値は、ユーザープロファイルの属性が設定されてい�
 
 {% endraw %}
 
-#### 数値
+#### 数値 {#number}
 
 [数値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers)は整数または浮動小数点数の数値です。たとえば、ユーザーは `shoe_size: 10` や `levels_completed: 287` を持つことがあります。数値にはアポストロフィは付きません。
 
@@ -244,7 +264,7 @@ blank の値は、ユーザープロファイルの属性が設定されてい�
 
 {% endraw %}
 
-#### 文字列
+#### 文字列 {#string}
 
 [文字列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings)は英数字で構成され、ユーザーに関するデータを格納します。たとえば、`favorite_color: red` や `phone_number: 3025981329` などがあります。文字列の値はアポストロフィで囲む必要があります。
 
@@ -256,9 +276,9 @@ blank の値は、ユーザープロファイルの属性が設定されてい�
 
 {% endraw %}
 
-文字列の場合、Liquid で「==」と「contains」の両方を使用できます。
+文字列の場合、Liquidで「==」と「contains」の両方を使用できます。
 
-#### 配列
+#### 配列 {#array}
 
 [配列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays)は、ユーザーに関する情報のリストです。たとえば、ユーザーは `last_viewed_shows: stranger things, planet earth, westworld` を持つことがあります。配列の値はアポストロフィで囲む必要があります。
 
@@ -272,7 +292,7 @@ blank の値は、ユーザープロファイルの属性が設定されてい�
 
 配列の場合、「contains」を使用する必要があり、「==」は使用できません。
 
-#### 時間
+#### 時間 {#time}
 
 イベントが発生した時点のタイムスタンプです。[時間]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time)の値を条件ロジックで使用するには、[数学フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters)を適用する必要があります。
 

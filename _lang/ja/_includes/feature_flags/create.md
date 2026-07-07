@@ -17,8 +17,8 @@
 | 権限                                                                    | できること                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **フィーチャーフラグを管理する**                                                      | フィーチャーフラグを表示、作成、編集します。     |
-| **Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **キャンペーン、キャンバス、カード、フィーチャーフラグ、セグメント、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeの権限" }
 
 ## フィーチャーフラグを作成する {#creating-a-feature-flag}
 
@@ -41,41 +41,42 @@
 | ID           | この機能が[ユーザーに対して有効か](#enabled)どうかをチェックするために、コード内で使用する一意のIDです。このIDは後で変更できないため、続ける前に[ID命名のベストプラクティス](#naming-conventions)を確認してください。 |
 | 説明  | フィーチャーフラグに関するコンテキストを提供するオプションの説明です。   |
 | プロパティ   | フィーチャーフラグをリモートで設定するオプションのプロパティです。キャンバスステップやフィーチャーフラグ実験で上書きできます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:詳細を記入する" }
 
 ### ステップ2a:カスタムプロパティを作成する {#step-2a-create-custom-properties}
 
 **プロパティ**では、機能が有効な場合にアプリがBraze SDKを通じてアクセスできるカスタムプロパティをオプションで作成できます。各変数には文字列、ブール値、画像、タイムスタンプ、JSON、数値を割り当てることができ、デフォルト値を設定することもできます。
 
 {% tabs local %}
-{% tab example %}
+{% tab 例 %}
 次の例では、フィーチャーフラグが指定されたカスタムプロパティを使用して、eコマースストアに在庫切れバナーを表示します。
 
-|プロパティ名|タイプ|値|
+| プロパティ名 | タイプ | 値 |
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
 |`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2a:カスタムプロパティを作成する" }
 
 {% alert tip %}
-追加できるプロパティ数に制限はありません。ただし、フィーチャーフラグのプロパティは合計10 KBに制限されています。プロパティ値とキーの長さはともに255文字に制限されています。
+追加できるプロパティ数に制限はありません。ただし、フィーチャーフラグのプロパティは合計10,000文字に制限されています。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-### ステップ4:ターゲットとするSegmentを選ぶ {#step-4-choose-segments-to-target}
+### ステップ4:ターゲットとするセグメントを選ぶ {#step-4-choose-segments-to-target}
 
-フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとSegmentのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
+フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[セグメント]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとセグメントのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
 
-![Segmentとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![セグメントとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
 ### ステップ5:ロールアウトトラフィックを設定する {#rollout}
 
-デフォルトでは、フィーチャーフラグは常に無効になっています。これにより、機能リリースの日付と全ユーザーへの有効化を分離できます。ロールアウトを開始するには、**ロールアウトトラフィック**セクションのテキストボックスにパーセンテージを入力します。これにより、選択したSegment内のランダムなユーザーの割合が決定され、この新機能がそのユーザーに提供されます。
+デフォルトでは、フィーチャーフラグは常に無効になっています。これにより、機能リリースの日付と全ユーザーへの有効化を分離できます。ロールアウトを開始するには、**ロールアウトトラフィック**セクションのテキストボックスにパーセンテージを入力します。これにより、選択したセグメント内のランダムなユーザーの割合が決定され、この新機能がそのユーザーに提供されます。
 
 {% alert important %}
 新機能の本番準備が整うまでは、ロールアウトトラフィックを0%以上に設定しないでください。ダッシュボードで最初にフィーチャーフラグを定義する際、この設定は0%のままにしてください。
@@ -118,13 +119,13 @@
 
 例えば、eコマースブランドで働いていて、新しいチェックアウトページを安定性を確保しながら異なる地域に展開したい場合を考えてみましょう。複数ルールのフィーチャーフラグを使用すると、以下の設定が可能です。
 
-- **ルール1:** 米国Segmentを100%に設定します。
-- **ルール2:** ブラジルユーザーの50%に設定し、全員が同時にフローを受け取らないようにします。
+- **ルール1:** 米国セグメントを100%に設定します。
+- **ルール2:** ブラジルユーザーの50%にセグメントを設定し、全員が同時にフローを受け取らないようにします。
 - **ルール3（その他のユーザー）:** その他の全ユーザーに対しては、「その他のユーザー」ルールを有効にし、15%に設定します。これにより、全ユーザーの一部が新しいフローでチェックアウトできるようになります。
 
 #### まず内部テスターに届ける {#reach-internal-testers-first}
 
-例えば、プロダクトマネージャーとして、新製品をリリースする際に内部テスターが常にフィーチャーフラグを受け取れるようにしたい場合を考えてみましょう。内部テスターのSegmentを最初のルールに追加し、100%に設定すれば、内部テスターはすべての機能ロールアウト時に対象となります。
+例えば、プロダクトマネージャーとして、新製品をリリースする際に内部テスターが常にフィーチャーフラグを受け取れるようにしたい場合を考えてみましょう。内部テスターのセグメントを最初のルールに追加し、100%に設定すれば、内部テスターはすべての機能ロールアウト時に対象となります。
 
 ## フィーチャーフラグの「enabled」フィールドの使用 {#enabled}
 
@@ -832,12 +833,12 @@ featureFlagsStreamSubscription.cancel();
 ```
 
 {% subtabs %}
-{% subtab Flutter SDK 18.0.0+ %}
+{% subtab Flutter SDK 18.0.0以降 %}
 
 フィーチャーフラグのデータは、AndroidとiOSの両方のネイティブレイヤーから自動的に転送されます。追加のセットアップは不要です。
 
 {% endsubtab %}
-{% subtab Flutter SDK 17.1.0 and earlier %}
+{% subtab Flutter SDK 17.1.0以前 %}
 
 Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイヤーからのフィーチャーフラグデータの転送には手動セットアップが必要です。アプリケーションには、`BrazePlugin.processFeatureFlags(featureFlags)`を呼び出す`featureFlags.subscribeToUpdates`コールバックが含まれている可能性があります。Flutter SDK 18.0.0に移行するには、`BrazePlugin.processFeatureFlags(_:)`の呼び出しを削除してください。データ転送は自動的に処理されるようになりました。
 
@@ -904,19 +905,19 @@ Brazeでユーザーがどのフィーチャーフラグを利用できるか確
 
 ## フィーチャーフラグでセグメント化する {#segmentation}
 
-Brazeは、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[**フィーチャーフラグ**フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags)を使ってSegmentまたはターゲットメッセージングを作成できます。Segmentでのフィルタリングの詳細については、[Segmentの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
+Brazeは、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[**フィーチャーフラグ**フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags)を使ってセグメントまたはターゲットメッセージングを作成できます。セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
 
 ![「フィルター」セクションで、フィルター検索バーに「フィーチャーフラグ」と入力した状態。]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
-再帰的なSegmentを防ぐため、他のフィーチャーフラグを参照するSegmentを作成することはできません。
+再帰的なセグメントを防ぐため、他のフィーチャーフラグを参照するセグメントを作成することはできません。
 {% endalert %}
 
 ## ベストプラクティス {#best-practices}
 
-### ロールアウトをCanvasや実験と組み合わせない {#dont-combine-rollouts-with-canvases-or-experiments}
+### ロールアウトをキャンバスや実験と組み合わせない {#dont-combine-rollouts-with-canvases-or-experiments}
 
-異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウトスライダーをゼロより大きな値に設定するか、Canvasまたは実験でフィーチャーフラグを有効にするかのいずれかにしてください。ベストプラクティスとして、Canvasや実験でフィーチャーフラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておいてください。
+異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウトスライダーをゼロより大きな値に設定するか、キャンバスまたは実験でフィーチャーフラグを有効にするかのいずれかにしてください。ベストプラクティスとして、キャンバスや実験でフィーチャーフラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておいてください。
 
 ### 命名規則 {#naming-conventions}
 
@@ -933,7 +934,7 @@ BEHAVIOR_PRODUCT_FEATURE
 | `BEHAVIOR`  | 機能の動作です。コードでは、その動作がデフォルトで無効になっていることを確認し、フィーチャーフラグ名に`disabled`のような表現を使わないようにしてください。 |
 | `PRODUCT`   | その機能が属する製品です。                                                                                       |
 | `FEATURE`    | 機能の名前です。                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="命名規則" }
 
 `show`が動作、`animation_profile`が製品、`driver`が機能であるフィーチャーフラグの例を次に示します。
 

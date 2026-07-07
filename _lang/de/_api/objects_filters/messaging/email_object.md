@@ -1,25 +1,25 @@
 ---
 nav_title: "E-Mail-Objekt"
-article_title: E-Mail Messaging Objekt
+article_title: E-Mail-Messaging-Objekt
 page_order: 5
 page_type: reference
 channel: email
-description: "In diesem referenzierten Artikel werden die verschiedenen Komponenten des E-Mail-Objekts von Braze erläutert."
+description: "Dieser Referenzartikel erläutert die verschiedenen Komponenten des E-Mail-Objekts von Braze."
 
 ---
 
-# E-Mail Objekt
+# E-Mail-Objekt {#email-object}
 
 > Mit dem Objekt `email` können Sie über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) E-Mails ändern oder erstellen.
 
-## E-Mail Objekt
+## E-Mail-Objekt
 
 ```json
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -35,21 +35,21 @@ description: "In diesem referenzierten Artikel werden die verschiedenen Komponen
 }
 ```
 
-- [Bezeichner der App]({{site.baseurl}}/api/identifier_types/)
-  - Jede gültige `app_id` von einer App, die in Ihrem Workspace konfiguriert ist, funktioniert für alle Nutzer:innen in Ihrem Workspace, unabhängig davon, ob der Nutzer die spezifische App in seinem Profil hat oder nicht.
-- Weitere Informationen und bewährte Verfahren für Preheader finden Sie in unserem Hilfeartikel zur [Gestaltung von E-Mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#body-styling).
+- [App-Bezeichner]({{site.baseurl}}/api/identifier_types)
+  - Jede gültige `app_id` von einer App, die in Ihrem Workspace konfiguriert ist, funktioniert für alle Nutzer:innen in Ihrem Workspace, unabhängig davon, ob die Nutzer:innen die spezifische App in ihrem Profil haben oder nicht.
+- Weitere Informationen und Best Practices zu Preheadern finden Sie unter [E-Mail-Gestaltung]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling).
 
 {% alert warning %}
-Braze empfiehlt, die Verwendung von Google Drive-Links für Ihre Anhänge `url` zu vermeiden, da dies die Aufrufe unserer Server zum Abrufen der Datei blockieren und dazu führen kann, dass die Nachricht nicht gesendet wird.
+Braze empfiehlt, keine Google-Drive-Links für die `url` Ihrer Anhänge zu verwenden, da dies die Aufrufe unserer Server zum Abrufen der Datei blockieren und dazu führen kann, dass die E-Mail-Nachricht nicht gesendet wird.
 {% endalert %}
 
 Gültige Anhangstypen sind: `txt`, `csv`, `log`, `css`, `ics`, `jpg`, `jpe`, `jpeg`, `gif`, `png`, `bmp`, `psd`, `tif`, `tiff`, `svg`, `indd`, `ai`, `eps`, `doc`, `docx`, `rtf`, `odt`, `ott`, `pdf`, `pub`, `pages`, `mobi`, `epub`, `mp3`, `m4a`, `m4v`, `wma`, `ogg`, `flac`, `wav`, `aif`, `aifc`, `aiff`, `mp4`, `mov`, `avi`, `mkv`, `mpeg`, `mpg`, `wmv`, `xls`, `xlsx`, `ods`, `numbers`, `odp`, `ppt`, `pptx`, `pps`, `key`, `zip`, `vcf` und `pkpass`.
 
-Eine `email_template_id` kann am Ende jeder mit dem HTML-Editor erstellten E-Mail-Vorlage abgerufen werden. Im Folgenden sehen Sie ein Beispiel dafür, wie diese ID aussieht:
+Eine `email_template_id` kann am Ende jedes mit dem HTML-Editor erstellten E-Mail-Templates abgerufen werden. Im Folgenden sehen Sie ein Beispiel dafür, wie diese ID aussieht:
 
-![API Bezeichner Abschnitt einer HTML E-Mail Vorlage.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
+![API-Bezeichner-Abschnitt eines HTML-E-Mail-Templates.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:70%;"}
 
-## Beispiel für ein E-Mail-Objekt mit Anhang
+## Beispiel für ein E-Mail-Objekt mit Anhang {#example-email-object-with-attachment}
 
 ```json
 {
@@ -66,11 +66,11 @@ Eine `email_template_id` kann am Ende jeder mit dem HTML-Editor erstellten E-Mai
 }
 ```
 
-## Authentifizierung für E-Mail Dateianhänge
+## Authentifizierung für E-Mail-Dateianhänge {#authentication-for-email-file-attachments}
 
-1. Navigieren Sie zu **Einstellungen** > **Connected-Content** und klicken Sie auf **Zugangsdaten hinzufügen**, um Ihre Zugangsdaten hinzuzufügen.
-2. Geben Sie einen Namen ein, und fügen Sie einen Benutzernamen und ein Passwort hinzu.
-3. Fügen Sie in das E-Mail-Objekt des Endpunkts `/messages/send` eine Eigenschaft `basic_auth_credential` ein, die den Namen der Zugangsdaten in den Anlagedetails angibt. Referenzieren Sie auf das folgende Beispiel mit dem Zugangsdaten-Namen `company_basic_auth_credential_name`:
+1. Navigieren Sie zu **Einstellungen** > **Connected-Content** und klicken Sie auf **Zugangsdaten hinzufügen**, um Ihre Authentifizierungsdaten hinzuzufügen.
+2. Geben Sie einen Namen ein und fügen Sie einen Benutzernamen und ein Passwort hinzu.
+3. Fügen Sie im E-Mail-Objekt des Endpunkts `/messages/send` eine Eigenschaft `basic_auth_credential` hinzu, die den Namen der Zugangsdaten in den Anhangsdetails angibt. Sehen Sie sich das folgende Beispiel mit dem Zugangsdaten-Namen `company_basic_auth_credential_name` an:
 
 ```json
 {
@@ -79,7 +79,7 @@ Eine `email_template_id` kann am Ende jeder mit dem HTML-Editor erstellten E-Mai
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -91,3 +91,11 @@ Eine `email_template_id` kann am Ende jeder mit dem HTML-Editor erstellten E-Mai
 }
 ```
 
+## Abrufen, Caching und Performance von Anhängen {#attachment-retrieval-caching-and-performance}
+
+Wenn Braze eine Datei von einer Anhangs-`url` abruft:
+
+- **Caching:** Braze kann eine kürzlich abgerufene Datei bis zu etwa 24 Stunden lang wiederverwenden. Wenn jeder Versand sofort eine neue Version der Datei verwenden soll, nutzen Sie eine eindeutige URL pro Version (z. B. einen Pfad oder Query-Parameter, der sich bei Dateiänderungen ändert).
+- **Timeouts:** Hosts sollten schnell antworten. Wenn die Anhangs-URL langsam ist oder hängt, kann der Nachrichtenversand fehlschlagen – streben Sie Antwortzeiten von etwa zwei Minuten an.
+- **Sicherheit:** Fügen Sie keine personenbezogenen Daten (PII) oder Geheimnisse in Anhangs-URLs ein (einschließlich Query-Strings), da URLs in Logs oder nachgelagerten Systemen erscheinen können.
+- **Firewalls:** Wenn die URL nur aus bestimmten Netzwerken erreichbar ist, erlauben Sie den Datenverkehr von Braze gemäß der [IP-Freigabeliste für Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Verwenden Sie [grundlegende Authentifizierungsdaten](#authentication-for-email-file-attachments), wenn die Datei eine Anmeldung erfordert.

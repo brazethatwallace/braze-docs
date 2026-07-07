@@ -47,11 +47,11 @@ Content Cardsを使用するには、[Braze Web SDK]({{site.baseurl}}/developer_
 
 `toggleContentCards(parentNode, filterFunction)` および `showContentCards(parentNode, filterFunction)` メソッドを使用する際、引数が指定されない場合、すべてのContent Cardsはページ右側の固定位置サイドバーに表示されます。引数が指定された場合は、フィードは指定された `parentNode` オプションに配置されます。
 
-|パラメーター | 説明 |
+| パラメーター | 説明 |
 |---|---|
-|`parentNode` | Content Cardsをレンダリングする HTML ノード。親ノードがすでに直系の子孫として Braze Content Cardsビューを持っている場合、既存のContent Cardsは置き換えられます。たとえば、`document.querySelector(".my-container")` を渡します。|
-|`filterFunction` | このビューに表示されるカードのフィルターまたはソート関数。`Card` オブジェクトの配列で呼び出され、`{pinned, date}` でソートされます。このユーザーにレンダリングするソート済みの `Card` オブジェクトの配列を返す必要があります。省略した場合は、すべてのカードが表示されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `parentNode` | Content Cardsをレンダリングする HTML ノード。親ノードがすでに直系の子孫として Braze Content Cardsビューを持っている場合、既存のContent Cardsは置き換えられます。たとえば、`document.querySelector(".my-container")` を渡します。|
+| `filterFunction` | このビューに表示されるカードのフィルターまたはソート関数。`Card` オブジェクトの配列で呼び出され、`{pinned, date}` でソートされます。このユーザーにレンダリングするソート済みの `Card` オブジェクトの配列を返す必要があります。省略した場合は、すべてのカードが表示されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard feed UI" }
 
 Content Cardsの切り替えに関する詳細は、[SDKリファレンスドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards)を参照してください。
 
@@ -59,7 +59,7 @@ Content Cardsの切り替えに関する詳細は、[SDKリファレンスドキ
 
 ブラウザーの開発者ツールを使用して、Content Cardsの統合をテストできます。
 
-1. Content Cards Campaignを作成し、テストユーザーをターゲットにします。
+1. Content Cards キャンペーンを作成し、テストユーザーをターゲットにします。
 2. Web SDKが統合されているWebサイトにログインします。
 3. ブラウザーのコンソールを開きます。Chromeの場合、ページを右クリックし、**検証**を選択してから、**Console** タブを選択します。
 4. コンソールで以下のコマンドを実行します。
@@ -68,7 +68,7 @@ Content Cardsの切り替えに関する詳細は、[SDKリファレンスドキ
 
 ## カードの種類とプロパティ {#card-types-and-properties}
 
-Content CardsデータモデルはWeb SDKで利用でき、次のContent Cardsタイプを提供します。[ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html)、[CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html)、[ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html)です。各タイプはベースモデル [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) から共通のプロパティを継承し、以下の追加プロパティを持ちます。
+Content CardsデータモデルはWeb SDKで利用でき、次のContent Cardsタイプを提供します：[ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html)、[CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html)、[ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html)です。各タイプはベースモデル [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) から共通のプロパティを継承し、以下の追加プロパティを持ちます。
 
 {% alert tip %}
 Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)を参照してください。
@@ -78,7 +78,7 @@ Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}
 
 すべてのContent Cardsは、以下の共有プロパティを持っています。
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
 | `expiresAt` | カードの有効期限を示す UNIX タイムスタンプ。|
 | `extras`| （オプション）値が文字列の文字列オブジェクトとしてフォーマットされたキーと値のペアデータ。 |
@@ -87,13 +87,13 @@ Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}
 | `updated` | このカードが最後に変更された UNIX タイムスタンプ。 |
 | `viewed` | このプロパティは、ユーザーがカードを閲覧したかどうかを反映します。|
 | `isControl` | カードが A/B テスト内の「コントロール」グループである場合、このプロパティは `true` になります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
 
 ### 画像のみ {#image-only}
 
 [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html) カードは、クリック可能なフルサイズの画像です。
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
 | `aspectRatio` | カードの画像のアスペクト比で、画像の読み込みが完了する前のヒントとして機能します。特定の状況ではこのプロパティが提供されない場合があります。 |
 | `categories` | このプロパティは、カスタム実装での整理のみを目的としています。これらのカテゴリーはダッシュボードコンポーザーで設定できます。 |
@@ -104,13 +104,13 @@ Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}
 | `imageUrl` | カードの画像の URL。|
 | `linkText` | URL の表示テキスト。 |
 | `url` | カードがクリックされた後に開かれる URL。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only" }
 
 ### キャプション付き画像 {#captioned-image}
 
 [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html) カードは、クリック可能なフルサイズの画像で、説明文が添えられています。
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
 | `aspectRatio` | カードの画像のアスペクト比で、画像の読み込みが完了する前のヒントとして機能します。特定の状況ではこのプロパティが提供されない場合があります。 |
 | `categories` | このプロパティは、カスタム実装での整理のみを目的としています。これらのカテゴリーはダッシュボードコンポーザーで設定できます。 |
@@ -122,13 +122,13 @@ Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}
 | `linkText` | URL の表示テキスト。 |
 | `title` | このカードのタイトルテキスト。 |
 | `url` | カードがクリックされた後に開かれる URL。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
 
 ### クラシック {#classic}
 
 [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html) モデルは、テキストなしの画像、または画像付きのテキストを含むことができます。
 
-|プロパティ|説明|
+| プロパティ | 説明 |
 |---|---|
 | `aspectRatio` | カードの画像のアスペクト比で、画像の読み込みが完了する前のヒントとして機能します。特定の状況ではこのプロパティが提供されない場合があります。 |
 | `categories` | このプロパティは、カスタム実装での整理のみを目的としています。これらのカテゴリーはダッシュボードコンポーザーで設定できます。 |
@@ -141,13 +141,13 @@ Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}
 | `linkText` | URL の表示テキスト。 |
 | `title` | このカードのタイトルテキスト。 |
 | `url` | カードがクリックされた後に開かれる URL。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
 
 ## コントロールグループ {#control-group}
 
 デフォルトのContent Cardsフィードを使用すると、インプレッションとクリックが自動的に追跡されます。
 
-Content Cardsのカスタム統合を使用している場合、コントロールカードが表示されるはずだったタイミングで[インプレッションを記録する]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)必要があります。この作業の一環として、A/B テストでインプレッションを記録する際には、必ずコントロールカードを処理するようにしてください。これらのカードは空白であり、ユーザーに表示されませんが、コントロールカードでないカードとのパフォーマンスを比較するために、インプレッションを記録する必要があります。
+Content Cardsのカスタム統合を使用している場合、コントロールカードが表示されるはずだったタイミングで[インプレッションを記録する]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)必要があります。この作業の一環として、A/Bテストでインプレッションを記録する際には、必ずコントロールカードを処理するようにしてください。これらのカードは空白であり、ユーザーに表示されませんが、コントロールカードでないカードとのパフォーマンスを比較するために、インプレッションを記録する必要があります。
 
 Content CardsがA/Bテストのコントロールグループにあるかどうかを判断するには、`card.isControl` プロパティ（Web SDK v4.5.0+）を確認するか、カードが `ControlCard` インスタンス（`card instanceof braze.ControlCard`）かどうかをチェックします。
 
@@ -157,27 +157,27 @@ Content CardsがA/Bテストのコントロールグループにあるかどう�
 
 Brazeのデフォルトフィード UIを使用してContent Cardsを表示する場合は、以下のメソッドを使用します。
 
-|メソッド | 説明 |
+| メソッド | 説明 |
 |---|---|
-|[`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards)| デフォルトのContent Cardsフィードを表示します。指定された `parentNode` HTML要素にカードをレンダリングします。要素が指定されていない場合は、ページ右側の固定位置サイドバーとして表示されます。オプションの `filterFunction` を使用して、表示前にカードをソートまたはフィルターできます。 |
-|[`hideContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#hidecontentcards)| 現在表示されているデフォルトのContent Cardsフィードを非表示にします。 |
-|[`toggleContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards)| デフォルトのContent Cardsフィードが非表示の場合は表示し、表示されている場合は非表示にします。複数のContent Cardsフィードを同時に表示する必要がある場合は、代わりに `showContentCards` と `hideContentCards` を使用してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards) | デフォルトのContent Cardsフィードを表示します。指定された `parentNode` HTML要素にカードをレンダリングします。要素が指定されていない場合は、ページ右側の固定位置サイドバーとして表示されます。オプションの `filterFunction` を使用して、表示前にカードをソートまたはフィルターできます。 |
+| [`hideContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#hidecontentcards) | 現在表示されているデフォルトのContent Cardsフィードを非表示にします。 |
+| [`toggleContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) | デフォルトのContent Cardsフィードが非表示の場合は表示し、表示されている場合は非表示にします。複数のContent Cardsフィードを同時に表示する必要がある場合は、代わりに `showContentCards` と `hideContentCards` を使用してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Default feed methods" }
 
 ### カスタムフィードメソッド {#custom-feed-methods}
 
 独自のContent Cards UIを構築する場合は、以下のメソッドを使用します。
 
-|メソッド | 説明 |
+| メソッド | 説明 |
 |---|---|
-|[`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates)| 現在のユーザーのContent Cardsが更新されるたびに（セッション開始時など）呼び出されるコールバック関数を登録します。カスタムフィード用のカードデータを受信する主要な方法として使用してください。初回セッションの更新を受信するには、`openSession()` の前に呼び出す必要があります。 |
-|[`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards)| 最新のContent Cards更新から、現在利用可能なすべてのカードを返します。新しいサーバーリクエストを待たずにページ読み込み時にカードを即座に表示する場合に使用します（例：アクティブなセッション中にユーザーがページに戻った場合）。 |
-|[`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh)| BrazeサーバーからContent Cardsの即時更新をリクエストします。デフォルトでは、カードはセッション開始時およびデフォルトフィードが再度開かれたときに更新されます。特定のユーザーアクション後など、他のタイミングで強制的に更新する場合に使用します。[レート制限]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit)に注意してください。 |
-|[`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions)| カードの配列に対してインプレッションイベントを記録します。カードがレンダリングされ、ユーザーに表示されたときに呼び出します。カスタムUIを使用する場合、デフォルトフィード以外ではインプレッションが自動的に追跡されないため、正確なCampaignレポートに必要です。 |
-|[`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)| 単一のカードに対してクリックイベントを記録します。カスタムUIでユーザーがカードを操作したときに呼び出します。デフォルトフィード以外ではクリックが自動的に追跡されないため、正確なCampaignレポートに必要です。 |
-|[`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)| カードのURLを処理し、設定されたクリック時アクション（Brazeアクション（`brazeActions://` URL）や標準URLナビゲーションなど）を実行します。Brazeダッシュボードで設定されたクリック時の動作が実行されるように、カードのクリックハンドラーで呼び出してください。 |
-|[`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard)| プログラムでカードを却下し、ユーザーのフィードから削除します。カスタムUIでユーザーがカードを却下できるようにする場合に使用します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates) | 現在のユーザーのContent Cardsが更新されるたびに（セッション開始時など）呼び出されるコールバック関数を登録します。カスタムフィード用のカードデータを受信する主要な方法として使用してください。初回セッションの更新を受信するには、`openSession()` の前に呼び出す必要があります。 |
+| [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) | 最新のContent Cards更新から、現在利用可能なすべてのカードを返します。新しいサーバーリクエストを待たずにページ読み込み時にカードを即座に表示する場合に使用します（例：アクティブなセッション中にユーザーがページに戻った場合）。 |
+| [`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) | BrazeサーバーからContent Cardsの即時更新をリクエストします。デフォルトでは、カードはセッション開始時およびデフォルトフィードが再度開かれたときに更新されます。特定のユーザーアクション後など、他のタイミングで強制的に更新する場合に使用します。[レート制限]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit)に注意してください。 |
+| [`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions) | カードの配列に対してインプレッションイベントを記録します。カードがレンダリングされ、ユーザーに表示されたときに呼び出します。カスタムUIを使用する場合、デフォルトフィード以外ではインプレッションが自動的に追跡されないため、正確なキャンペーンレポートに必要です。 |
+| [`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick) | 単一のカードに対してクリックイベントを記録します。カスタムUIでユーザーがカードを操作したときに呼び出します。デフォルトフィード以外ではクリックが自動的に追跡されないため、正確なキャンペーンレポートに必要です。 |
+| [`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction) | カードのURLを処理し、設定されたクリック時アクション（Brazeアクション（`brazeActions://` URL）や標準URLナビゲーションなど）を実行します。Brazeダッシュボードで設定されたクリック時の動作が実行されるように、カードのクリックハンドラーで呼び出してください。 |
+| [`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard) | プログラムでカードを却下し、ユーザーのフィードから削除します。カスタムUIでユーザーがカードを却下できるようにする場合に使用します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom feed methods" }
 
 詳細については、[SDKリファレンスドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)を参照してください。
 
@@ -187,7 +187,7 @@ Brazeのデフォルトフィード UIを使用してContent Cardsを表示す�
 
 カスタムフィードの場合、`subscribeToContentCardsUpdates()` を `openSession()` の前に呼び出した場合にのみ、セッション開始時にContent Cardsが更新されます。Brazeメソッドは以下の順序で呼び出してください。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 // Step 1: Initialize the SDK
@@ -210,7 +210,7 @@ braze.openSession();
 
 `subscribeToContentCardsUpdates()` は新しい更新がある場合（セッション開始時など）にのみコールバックを呼び出すため、ユーザーがセッション中にページを更新すると、カスタムフィードからカードが消えることがあります。これを防ぐには、`getCachedContentCards()` を使用してローカルキャッシュからカードを即座にレンダリングし、新しい更新のサブスクリプションと併用してください。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 function renderCards(cards) {
@@ -288,7 +288,7 @@ Google Tag Managerは、[Braze CDN]({{site.baseurl}}/developer_guide/platform_in
 {% tab google tag manager %}
 Content Cardsフィードを標準的に統合するには、Google Tag Managerで**カスタムHTML**タグを使用できます。以下をカスタムHTMLタグに追加すると、標準のContent Cardsフィードが有効になります。
 
-```html
+`````````html
 <script>
    window.braze.showContentCards();
 </script>
@@ -309,7 +309,7 @@ Content Cardsとそのフィードの外観をより自由にカスタマイズ�
 [カスタムフィード]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)のスタイリングについては、GTMなしでSDKを統合した場合と同じステップです。たとえば、Content Cardsフィードの幅をカスタマイズする場合は、以下をCSSファイルに貼り付けます。
 
 {% raw %}
-```css
+`````````css
 body .ab-feed {
     width: 800px;
 }

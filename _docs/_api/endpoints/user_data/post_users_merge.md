@@ -22,7 +22,7 @@ Up to 50 merges may be specified per request. This endpoint is asynchronous.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.merge` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.merge` permission.
 
 ## Rate limit
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `merge_updates` | Required | Array | An object array. Each object should contain an `identifier_to_merge` object and an `identifier_to_keep` object, which should each reference a user either by `external_id`,  `user_alias`, `phone`, or `email`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Merge behavior
 
@@ -60,7 +60,7 @@ This endpoint merges the following fields if they're not found on the target use
 
 - First name
 - Last name
-- Email addresses (unless they are [encrypted]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Email addresses (unless they are [encrypted]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption))
 - Gender
 - Date of birth
 - Phone number
@@ -94,6 +94,8 @@ This endpoint merges the following fields if they're not found on the target use
 When merging users, using the `/users/merge` endpoint works the same way as using the [`changeUser()` method](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
+Braze handles three user types differently when merging: users marked for deletion, test users, and Global Control Group users. For details, see [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
+
 #### Custom event date and purchase event date behavior
 
 These merged fields update "for X events in Y days" filters. For purchase events, these filters include "number of purchases in Y days" and "money spent in last Y days".
@@ -114,6 +116,10 @@ Only one of the following options may exist in the prioritization array at a tim
 - `identified` refers to prioritizing a user with an `external_id`
 - `unidentified` refers to prioritizing a user without an `external_id`
 
+{% alert important %}
+If both profiles have invalid phone numbers, Braze does not merge them. Invalid numbers are not stored in E.164 format, and the merge job does not combine those profiles. The endpoint still returns `202 Accepted` with a success message, so the HTTP response does not indicate that the merge was skipped. Correct the phone numbers on one or both profiles before merging.
+{% endalert %}
+
 ## Example requests
 
 ### Basic request
@@ -125,7 +131,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -137,11 +142,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -165,18 +170,17 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Merging unidentified user
 
-The following request would merge the most recently updated unidentified user with email address `john.smith@braze.com` into the user with an external ID `john`. In this example, using `most_recently_updated` filters the query to one unidentified user. So, if there were two unidentified users with this email address, only one would get merged into the user who has an external ID `john`.
+The following request would merge the most recently updated unidentified user with email address `john.smith@example.com` into the user with an external ID `john`. In this example, using `most_recently_updated` filters the query to one unidentified user. So, if there were two unidentified users with this email address, only one would get merged into the user who has an external ID `john`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -189,7 +193,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Merging unidentified user into identified user
 
-This next example merges the most recently updated unidentified user with email address `john.smith@braze.com` into the most recently updated identified user with email address `john.smith@braze.com`.
+This next example merges the most recently updated unidentified user with email address `john.smith@example.com` into the most recently updated identified user with email address `john.smith@example.com`.
 
 Using `most_recently_updated` filters the queries to one user (one unidentified user for `identifier_to_merge`, and one identified user for the `identifier_to_keep`).
 
@@ -198,15 +202,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -216,18 +219,17 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Merging an unidentified user without including the most_recently_updated prioritization
 
-If there are two unidentified users with the mail address `john.smith@braze.com`, this example request doesn't merge any users because there are two unidentified users with that email address. This request only works if there is only one unidentified user with the email address `john.smith@braze.com`.
+If there are two unidentified users with the mail address `john.smith@example.com`, this example request doesn't merge any users because there are two unidentified users with that email address. This request only works if there is only one unidentified user with the email address `john.smith@example.com`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {
@@ -264,6 +266,14 @@ The status code `400` could return the following response body. Refer to [Troubl
 
 ## Troubleshooting
 
+### A success response was returned but the merged user is still searchable
+
+A successful response confirms the request was accepted, but the merge operation involves two steps: merging the profiles and then removing the source profile. Because of this, the `identifier_to_merge` profile may remain searchable in the dashboard for a short period after a successful response. This is expected behavior—wait a few minutes and then verify the merge is complete.
+
+If the merged user still exists after several minutes, verify that the identifiers in your request are correct and belong to users in the same workspace as the API key used for the request.
+
+### Error reference
+
 The following table lists possible error messages that may occur.
 
 | Error | Troubleshooting |
@@ -272,6 +282,6 @@ The following table lists possible error messages that may occur.
 | `a single request may not contain more than 50 merge updates` | You can only specify up to 50 merge updates in a single request. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Check the identifiers in your request. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Check that `merge_updates` only contains the two objects `identifier_to_merge` and `identifier_to_keep`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

@@ -1,33 +1,33 @@
 ---
 nav_title: Exportação de eventos de segurança com S3
-article_title: Exportação de Configurações de Segurança com S3
+article_title: Exportação de configurações de segurança com S3
 page_order: 1
 page_type: reference
 description: "Este artigo de referência cobre como exportar automaticamente eventos de segurança todos os dias à meia-noite UTC para o Amazon S3."
 ---
 
-# Exportação de eventos de segurança com Amazon S3
+# Exportação de eventos de segurança com Amazon S3 {#security-events-export-with-amazon-s3}
 
-> Você pode exportar automaticamente eventos de segurança para o Amazon S3, um provedor de armazenamento em nuvem, com um trabalho diário que é executado à meia-noite UTC. Após a configuração, você não precisa exportar manualmente eventos de segurança do dashboard. O trabalho exporta os eventos de segurança das últimas 24 horas em formato CSV para o seu armazenamento S3 configurado. O arquivo CSV tem a mesma estrutura que um relatório exportado manualmente.
+> Você pode exportar automaticamente eventos de segurança para o Amazon S3, um provedor de armazenamento em nuvem, com um trabalho diário que é executado à meia-noite UTC. Após a configuração, você não precisa exportar manualmente eventos de segurança do dashboard. O trabalho exporta os eventos de segurança das últimas 24 horas em formato CSV para o seu armazenamento S3 configurado. O arquivo CSV usa as mesmas colunas de um relatório exportado manualmente, além de uma coluna `Version`.
 
 {% alert note %}
 O limite de 10.000 linhas se aplica apenas ao download manual do relatório CSV do dashboard. As exportações de eventos de segurança para S3 não estão sujeitas a esse limite de linhas.
 {% endalert %}
 
-Braze suporta dois métodos diferentes de autenticação e autorização S3 para configurar a exportação do Amazon S3:
+A Braze suporta dois métodos diferentes de autenticação e autorização S3 para configurar a exportação do Amazon S3:
 
 - Método da chave de acesso secreta da AWS
 - Método ARN da função AWS
 
-## Método da chave de acesso secreta da AWS
+## Método da chave de acesso secreta da AWS {#aws-secret-access-key-method}
 
 Este método gera uma chave secreta e um ID de chave de acesso que permite à Braze se autenticar como um usuário na sua conta AWS para gravar dados no seu bucket.
 
-### Etapa 1: Crie um usuário de Gerenciamento de Identidade e Acesso (IAM)
+### Etapa 1: Crie um usuário de Gerenciamento de Identidade e Acesso (IAM) {#step-1-create-an-identity-and-access-management-iam-user}
 
 Para recuperar sua chave de acesso secreta e ID de chave de acesso, você precisará criar um usuário IAM, seguindo as instruções em [Configurando sua conta AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started-account-iam.html#create-an-admin).
 
-### Etapa 2: Obtenha as credenciais
+### Etapa 2: Obtenha as credenciais {#step-2-get-credentials}
 
 1. Após criar um novo usuário, gere a chave de acesso e baixe seu ID de chave de acesso e chave de acesso secreta.
 
@@ -38,7 +38,7 @@ Para recuperar sua chave de acesso secreta e ID de chave de acesso, você precis
 
 ![Campos contendo a chave de acesso e a chave de acesso secreta.]({% image_buster /assets/img/security_export/retrieve_access_keys.png %})
 
-### Etapa 3: Crie uma política
+### Etapa 3: Crie uma política {#step-3-create-policy}
 
 1. Acesse **IAM** (Gerenciamento de Identidade e Acesso) > **Policies** > **Create Policy** para adicionar permissões ao seu usuário.
 2. Selecione **Create Your Own Policy**, que concede permissões limitadas para que a Braze possa acessar apenas os buckets especificados.
@@ -63,37 +63,36 @@ Para recuperar sua chave de acesso secreta e ID de chave de acesso, você precis
 }
 ```
 
-### Etapa 4: Anexe a política
+### Etapa 4: Anexe a política {#step-4-attach-policy}
 
 1. Após criar uma nova política, acesse **Users** e selecione seu usuário específico.
 2. Na guia **Permissions**, selecione **Add Permissions**, anexe diretamente a política e selecione essa política.
 
 Agora você está pronto para vincular suas credenciais AWS à sua conta da Braze!
 
-### Etapa 5: Vincule a Braze à AWS
+### Etapa 5: Vincule a Braze à AWS {#step-5-link-braze-to-aws}
 
 1. Na Braze, acesse **Configurações** > **Configurações da empresa** > **Configurações de administrador** > **Configurações de segurança** e role até a seção **Security Event Download**.
 2. Ative **Export to AWS S3** em **Export to cloud storage** e selecione **AWS secret access key**, que ativa a exportação S3.
 3. Insira as seguintes informações:
+
 - ID da chave de acesso AWS
+- Nome do bucket AWS
 - Chave de acesso secreta AWS
     - Ao inserir essa chave, primeiro selecione **Test Credentials** para confirmar que suas credenciais funcionam.
-- Nome do bucket AWS
 
 ![A página "Security Event Download" com os campos de conta da Braze e IDs externos da Braze preenchidos.]({% image_buster /assets/img/security_export/security_event_download1.png %})
 
 {: start="4"}
 4. Selecione **Salvar alterações**.
 
-![Botão "Salvar alterações".]({% image_buster /assets/img/security_export/save_changes_button.png %}){: style="max-width:50%;"}
-
 Você integrou o AWS S3 à sua conta da Braze!
 
-## Método ARN da função AWS
+## Método ARN da função AWS {#aws-role-arn-method}
 
 O método ARN da função AWS gera um Nome de Recurso Amazon (ARN) de função que permite à conta Amazon da Braze se autenticar como membro dessa função.
 
-### Etapa 1: Crie uma política
+### Etapa 1: Crie uma política {#step-1-create-policy}
 
 1. Faça login no console de gerenciamento da AWS como administrador da conta.
 2. No console da AWS, acesse a seção **IAM** (Gerenciamento de Identidade e Acesso) > **Policies** e selecione **Create Policy**.
@@ -131,7 +130,7 @@ O método ARN da função AWS gera um Nome de Recurso Amazon (ARN) de função q
 
 ![Uma página para revisar e criar sua política.]({% image_buster /assets/img/security_export/review_and_create.png %})
 
-### Etapa 2: Crie uma função
+### Etapa 2: Crie uma função {#step-2-create-role}
 
 1. Na Braze, acesse **Configurações** > **Configurações da empresa** > **Configurações de administrador** > **Configurações de segurança** e role até a seção **Security Event Download**.
 2. Selecione **AWS Role ARN**.
@@ -146,7 +145,7 @@ O método ARN da função AWS gera um Nome de Recurso Amazon (ARN) de função q
 
 ![Uma página com opções para selecionar um tipo de entidade confiável e fornecer informações sobre sua conta AWS.]({% image_buster /assets/img/security_export/select_trusted_entity.png %})
 
-### Etapa 3: Anexe a política
+### Etapa 3: Anexe a política {#step-3-attach-policy}
 
 1. Pesquise a política que você criou anteriormente na barra de pesquisa e marque a caixa de seleção ao lado da política para anexá-la.
 2. Selecione **Next**.
@@ -160,7 +159,7 @@ O método ARN da função AWS gera um Nome de Recurso Amazon (ARN) de função q
 
 Sua função recém-criada aparecerá na lista!
 
-### Etapa 4: Vincule à Braze AWS
+### Etapa 4: Vincule à AWS na Braze {#step-4-link-to-braze-aws}
 
 1. No console da AWS, encontre sua função recém-criada na lista. Selecione o nome para abrir os detalhes dessa função e anote o **ARN**.
 
@@ -175,7 +174,5 @@ Sua função recém-criada aparecerá na lista!
 3. Certifique-se de que **AWS role ARN** esteja selecionado e insira o ARN da sua função e o nome do bucket AWS S3 nos campos designados.
 4. Selecione **Test Credentials** para confirmar que suas credenciais funcionam corretamente.
 5. Selecione **Salvar alterações**.
-
-![Botão "Salvar alterações".]({% image_buster /assets/img/security_export/save_changes_button.png %}){: style="max-width:40%;"}
 
 Você integrou o AWS S3 à sua conta da Braze!

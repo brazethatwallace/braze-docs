@@ -14,7 +14,7 @@ page_type: reference
 Braze verwendet das Gerätetoken von Apple für iOS.
 
 | **Braze-Perspektive:**<br>Wir stellen sicher, dass Kund:innen bei der Migration von Airship zu Braze kontinuierlich mit ihren Nutzer:innen kommunizieren können (z. B. durch Push-Benachrichtigungen). Dabei spielt es keine Rolle, ob es sich um einen harten Umstieg auf 100 % Braze oder einen granularen Übergang wie 50 % Airship / 50 % Braze usw. handelt. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Token-Verwaltung" }
 
 #### Push-Token-Migration
 
@@ -44,7 +44,7 @@ Braze ist ein wirklich einzigartiges Customer-Engagement-Tool. Aufgrund unserer 
 Braze benötigt separate Kanäle für Push (einen für iOS, einen für Android).
 
 | **Braze-Perspektive:**<br>Wir ermöglichen es unseren Kund:innen, die Vorteile von beidem zu nutzen, anstatt Zugeständnisse machen zu müssen. Die Möglichkeit, den einzelnen Kanal in vollem Umfang zu nutzen, bietet dem Marketer mehr Flexibilität und den Nutzer:innen ein besseres Erlebnis. Dies ermöglicht es uns, die neuesten Funktionen des jeweiligen Betriebssystems zu übernehmen. So unterstützte Android beispielsweise Rich-Benachrichtigungen vor iOS. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Push-Benachrichtigungen" }
 
 Braze kann Push-Benachrichtigungen auch an Nutzer:innen senden, die ihre Anwendung nicht mit dem installierten Braze SDK aktualisieren. Sofern Braze über ein gültiges Push-Token verfügt, kann Braze die Push-Benachrichtigung auch ohne das Braze SDK senden, da die APNs den Rest übernehmen. Dabei ist zu beachten, dass **Analytics für Push-Nachrichten bei Builds ohne Braze SDK nicht verfügbar sind**.
 
@@ -59,7 +59,7 @@ Um die Campaign-Funktionalität der Airship-Nachrichtenzentrale zu ersetzen, emp
 Braze bietet mehrere [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/), um Ihren Kund:innen ein reichhaltiges Nutzererlebnis zu bieten.
 
 | **Braze-Perspektive**:<br> Segments in Braze sind komplett dynamisch, sodass Nutzer:innen das Segment betreten und verlassen, wenn sich die definierten Bedingungen ändern. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Segmentierung" }
 
 #### Migration von Nutzersegmenten {#user-segment-migration}
 

@@ -14,7 +14,7 @@ platform:
 
 # Content Cardsのスタイルをカスタマイズする {#customize-the-style-of-content-cards}
 
-> Braze Content Cardsには、デフォルトのルックアンドフィールが含まれています。この記事では、ブランドアイデンティティに合わせるためのContent Cardsのスタイルオプションについて説明します。コンテンツカードタイプの完全なリストについては、[Content Cardsについて]({{site.baseurl}}/developer_guide/content_cards/)を参照してください。
+> Braze Content Cardsには、デフォルトのルックアンドフィールが含まれています。この記事では、ブランドアイデンティティに合わせるためのContent Cardsのスタイルオプションについて説明します。コンテンツカードタイプの完全なリストについては、[Content Cardsについて]({{site.baseurl}}/developer_guide/content_cards)を参照してください。
 
 ## カスタムスタイルの作成 {#creating-a-custom-style}
 
@@ -23,7 +23,7 @@ platform:
 ![2枚のコンテンツカード。1枚はデフォルトのフォントで角が四角いもの、もう1枚は角が丸くカーリーフォントのもの]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Content Cardsのプロパティ（`title`、`cardDescription`、`imageUrl` など）は、[ダッシュボード]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/)から直接編集できます。これは、詳細を変更するための推奨される方法です。
+Content Cardsのプロパティ（`title`、`cardDescription`、`imageUrl` など）は、[ダッシュボード]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)から直接編集できます。これは、詳細を変更するための推奨される方法です。
 {% endalert %}
 
 
@@ -59,10 +59,10 @@ body .ab-feed {
   </style>
 ```
 
-Content Cardsのスタイルをカスタマイズするには、このデフォルトのスタイルをオーバーライドします。スタイルをオーバーライドするには、スタイル全体をプロジェクトの`styles.xml`ファイルにコピーし、変更を加えます。すべての属性が正しく設定されるようにするには、スタイル全体をローカルの`styles.xml`にコピーする必要があります。
+Content Cardsのスタイルをカスタマイズするには、このデフォルトのスタイルをオーバーライドします。スタイルをオーバーライドするには、スタイル全体をプロジェクトの`styles.xml`ファイルにコピーし、変更を加えます。すべての属性が正しく設定されるようにするには、スタイル全体をローカルの`styles.xml`ファイルにコピーする必要があります。
 
 {% subtabs local %}
-{% subtab Correct style override %}
+{% subtab 正しいスタイルオーバーライド %}
 
 ```xml
 <style name="Braze.ContentCardsDisplay">
@@ -77,7 +77,7 @@ Content Cardsのスタイルをカスタマイズするには、このデフォ�
 ```
 
 {% endsubtab %}
-{% subtab Incorrect style override %}
+{% subtab 誤ったスタイルオーバーライド %}
 
 ```xml
 <style name="Braze.ContentCardsDisplay">
@@ -249,7 +249,7 @@ Content Cardsで使用されるフォントをカスタマイズすると、ブ�
   </style>
 ```
 
-Android SDKでのフォントのカスタマイズの詳細については、[フォントファミリーガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization/#font-customization)を参照してください。
+Android SDKでのフォントのカスタマイズの詳細については、[フォントファミリーガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization#font-customization)を参照してください。
 {% endtab %}
 {% tab Jetpack Compose %}
 デフォルトのフォントをプログラムで変更するには、`ContentCardStyling`の[`titleTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#715371549%2FProperties%2F-1725759721)を設定します。
@@ -494,7 +494,7 @@ BRZContentCardUIViewController *viewController = [[BRZContentCardUIViewControlle
 
 ### ダークモード {#dark-mode}
 
-デバイスのダークモードまたはライトモードに基づいて異なる画像やスタイルを表示するには、Content Cardsメッセージで[キーと値のペア]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs)を使用します。たとえば、`dark_mode_image`というキーと値のペアにダークモード画像アセットのURLを追加します。次に、アプリにカスタムロジックを追加して、デバイスの現在の外観モードを確認し、適切な画像を表示します。
+デバイスのダークモードまたはライトモードに基づいて異なる画像やスタイルを表示するには、Content Cardsメッセージで[キーと値のペア]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs)を使用します。たとえば、`dark_mode_image`というキーと値のペアにダークモード画像アセットのURLを追加します。次に、アプリにカスタムロジックを追加して、デバイスの現在の外観モードを確認し、適切な画像を表示します。
 
 {% tabs %}
 {% tab swift %}
@@ -531,7 +531,7 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-このパターンは、テキスト、色、レイアウトなど、外観に依存するあらゆるコンテンツに使用できます。ダークモードの画像アセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/)にアップロードし、キーと値のペアで参照します。
+このパターンは、テキスト、色、レイアウトなど、外観に依存するあらゆるコンテンツに使用できます。ダークモードの画像アセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications)にアップロードし、キーと値のペアで参照します。
 
 ### 未読インジケーターを無効にする {#disabling-unread-indicator}
 

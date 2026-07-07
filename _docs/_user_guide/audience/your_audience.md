@@ -15,7 +15,7 @@ In Braze, a user (and their user profile) represents an individual person you ca
 
 ## User profiles
 
-A [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) acts as a single source of truth for everything Braze knows about that person, including:
+A [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) acts as a single source of truth for everything Braze knows about that person, including:
 
 - Identifiers (such as user IDs or external IDs)  
 - Devices and messaging channels  
@@ -31,7 +31,7 @@ Users in Braze generally fall into one of two states.
 
 ### Anonymous users
 
-An [anonymous user]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/) is someone who has interacted with your app or website but has not yet been assigned an identifier from your system (such as an `external_id`).
+An [anonymous user]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) is someone who has interacted with your app or website but has not yet been assigned an identifier from your system (such as an `external_id`).
 
 - Anonymous users are automatically created when the Braze SDK initializes  
 - You can still track events, attributes, and message engagement  
@@ -39,7 +39,7 @@ An [anonymous user]({{site.baseurl}}/user_guide/data/unification/user_data/user_
 
 ### Identified users
 
-An [identified user]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#identified-user-profiles) is one that has been associated with an `external_id` you provide (for example, a customer ID or account ID).
+An [identified user]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) is one that has been associated with an `external_id` you provide (for example, a customer ID or account ID).
 
 Identifying a user allows you to:
 
@@ -48,21 +48,21 @@ Identifying a user allows you to:
 - Segment and personalize using long-term user data  
 - Manage profiles through APIs and integrations
 
-When an anonymous user is later identified, Braze merges eligible data into the identified profile according to [this merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior). For example, push tokens and messaging history carry over, and many fields from the anonymous profile merge only when they are not already set on the identified profile; when values conflict, the identified profile is kept.
+When an anonymous user is later identified, Braze merges eligible data into the identified profile according to [this merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior). For example, push tokens and messaging history carry over, and many fields from the anonymous profile merge only when they are not already set on the identified profile; when values conflict, the identified profile is kept.
 
 ## Message users through channels
 
-A [channel]({{site.baseurl}}/user_guide/channels/) is a specific way Braze can deliver a message to a user. Common channels include:
+A [channel]({{site.baseurl}}/user_guide/channels) is a specific way Braze can deliver a message to a user. Common channels include:
 
-- [Push (web or mobile)]({{site.baseurl}}/user_guide/channels/push/)  
-- [Email]({{site.baseurl}}/user_guide/channels/email/)  
-- [SMS, MMS, and RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)  
-- [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/)  
-- [In-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/)  
-- [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)  
-- [Banners]({{site.baseurl}}/user_guide/channels/banners/)  
-- [LINE]({{site.baseurl}}/user_guide/channels/line/)  
-- [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/)  
+- [Push (web or mobile)]({{site.baseurl}}/user_guide/channels/push)  
+- [Email]({{site.baseurl}}/user_guide/channels/email)  
+- [SMS, MMS, and RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)  
+- [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp)  
+- [In-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages)  
+- [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)  
+- [Banners]({{site.baseurl}}/user_guide/channels/banners)  
+- [LINE]({{site.baseurl}}/user_guide/channels/line)  
+- [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks)  
 
 A single user profile can have multiple channels attached, such as both an email address and a mobile device. Braze uses this model to coordinate messaging across channels while maintaining a unified view of the user.
 
@@ -91,7 +91,7 @@ Users are created in Braze whenever someone interacts with your brand through a 
 {% endtab %}
 
 {% tab APIs and integrations %}
-- You can create or update users directly through [REST APIs]({{site.baseurl}}/api/endpoints/user_data/) or [importing a CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+- You can create or update users directly through [REST APIs]({{site.baseurl}}/api/endpoints/user_data) or [importing a CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 - External tools (such as CDPs, CRMs, or data warehouses) can sync users into Braze automatically.
 {% endtab %}
 {% endtabs %}
@@ -112,7 +112,7 @@ Braze SDKs automatically collect contextual data such as:
 {% tab User behavior %}
 When users interact with your app or messages, Braze records:
 
-- [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) (for example, purchases or feature usage)
+- [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) (for example, purchases or feature usage)
 - Message opens, clicks, and conversions  
 - Session activity and engagement trends
 {% endtab %}
@@ -120,8 +120,8 @@ When users interact with your app or messages, Braze records:
 {% tab Your systems %}
 You can send data from your own tools into Braze using:
 
-- [REST APIs]({{site.baseurl}}/api/endpoints/user_data/)  
-- [CSV uploads]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)  
+- [REST APIs]({{site.baseurl}}/api/endpoints/user_data)  
+- [CSV uploads]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)  
 - Scheduled data syncs
 
 This often includes identifiers, account data, or historical context.
@@ -132,13 +132,13 @@ This often includes identifiers, account data, or historical context.
 
 Users may provide data directly through:
 
-- [Preference centers]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/)  
+- [Preference centers]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)  
 - Forms or surveys (SDKs or integrations)
 - In-app experiences
 
 ### Integrations
 
-Braze integrates with platforms like [Segment]({{site.baseurl}}/partners/segment/), data warehouses, and analytics tech partners through integrations, allowing user data to flow automatically into user profiles.
+Braze integrates with platforms like [Segment]({{site.baseurl}}/partners/segment), data warehouses, and analytics tech partners through integrations, allowing user data to flow automatically into user profiles.
 
 ## Manage user data
 
@@ -167,4 +167,4 @@ Once user data is in Braze, it powers nearly every engagement capability. The mo
 | Automation and orchestration  | Trigger messages and journeys based on: {::nomarkdown}<ul><li>User actions</li> <li>Attribute changes</li> <li>Time-based conditions</li></ul>{:/} |
 | Cross-channel coordination | Reach users on the most appropriate channel while respecting: {::nomarkdown}<ul><li>Opt-in status</li> <li>Frequency caps</li> <li>Channel preferences</li></ul>{:/} |
 | [Analytics and insights]({{site.baseurl}}/user_guide/analytics) | Understand how different audiences behave by analyzing: {::nomarkdown}<ul><li>Engagement rates</li> <li>Conversion paths</li> <li>Segment performance over time</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience data features" }

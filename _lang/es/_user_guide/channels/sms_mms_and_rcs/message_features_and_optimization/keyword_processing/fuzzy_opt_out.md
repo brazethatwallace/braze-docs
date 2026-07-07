@@ -13,15 +13,19 @@ page_order: 4
 
 # Cancelación de suscripción difusa {#fuzzy-opt-out}
 
-> Los usuarios que envían SMS, MMS y RCS con Braze deben cumplir con las leyes, regulaciones y estándares del sector aplicables que se hayan definido. En lo que respecta a la cancelación de suscripción, las leyes dictan que cuando un usuario envía "STOP", todos los mensajes posteriores relacionados con ese programa de mensajería deben detenerse. Braze procesa automáticamente estos mensajes y cancela la suscripción del usuario.<br><br>La cancelación de suscripción difusa intenta reconocer cuándo un mensaje de entrada no coincide con una [palabra clave de cancelación de suscripción]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/), pero indica intención de cancelar la suscripción. Si la cancelación de suscripción difusa está habilitada y una respuesta de palabra clave de entrada se considera "difusa", puedes configurar Braze para que cancele automáticamente la suscripción del usuario o responda con un mensaje que le indique cómo cancelar la suscripción manualmente.
-
 ![Chat de mensajes en iOS que muestra mensajes salientes de cancelación de suscripción en respuesta al mensaje difuso de entrada "Please stopppp".]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Actualmente, solo se admiten las palabras clave de cancelación de suscripción creadas con el inglés como [idioma local]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support).
+> Los usuarios que envían SMS, MMS y RCS con Braze deben cumplir con las leyes, regulaciones y estándares del sector aplicables que se hayan definido. En lo que respecta a la cancelación de suscripción, leyes como la TCPA dictan que cuando un usuario envía cualquier mensaje que constituya una revocación razonable del consentimiento (incluidas las palabras clave de cancelación de suscripción reconocidas como "STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END" o "QUIT"), todos los mensajes posteriores relacionados con ese programa de mensajería deben detenerse. Braze procesa automáticamente las palabras clave de cancelación de suscripción reconocidas y cancela la suscripción del usuario.<br><br> La cancelación de suscripción difusa amplía esta capacidad al intentar reconocer mensajes de entrada que no coinciden con ninguna **palabra clave de cancelación de suscripción** configurada para la categoría **Opt-out** del grupo de suscripción (es decir, cualquier [palabra clave de cancelación de suscripción predeterminada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) o [palabra clave de cancelación de suscripción personalizada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)) pero que aún indican intención de cancelar la suscripción; por ejemplo, un mensaje como "goodbye" o "leave me alone".
+
+La cancelación de suscripción difusa está deshabilitada de forma predeterminada. Si la cancelación de suscripción difusa está habilitada y un mensaje de entrada se considera "difuso", puedes configurar Braze para que cancele automáticamente la suscripción del usuario o envíe un mensaje que le indique cómo cancelar la suscripción manualmente. Para las marcas de EE. UU., se recomienda encarecidamente cancelar automáticamente la suscripción del usuario para cumplir con los requisitos de la TCPA.
+
+{% alert note %}
+Actualmente, solo se admiten las palabras clave de cancelación de suscripción (predeterminadas y personalizadas) creadas con el inglés como [idioma local]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support).
+{% endalert %}
 
 ## ¿Qué se considera difuso? {#what-is-deemed-as-fuzzy}
 
-Los criterios para que una respuesta de entrada se considere "difusa" son los siguientes:
+Los criterios para que una respuesta de entrada se considere "difusa" son los siguientes (las comparaciones utilizan todas las palabras clave de la categoría **Opt-out**, incluidas las predeterminadas y las personalizadas):
 - Si al intercambiar una letra con la letra inmediatamente a la izquierda o a la derecha en un teclado QWERTY se obtiene una coincidencia con una palabra clave de cancelación de suscripción.
 - Una subcadena del mensaje coincide con una palabra clave de cancelación de suscripción.
 
@@ -31,7 +35,7 @@ Por ejemplo, "Stpo" o "Please stopppp" se considerarán difusos y se enviará un
 
 Para configurar la cancelación de suscripción difusa, ve a la página de administración de palabras clave del grupo de suscripción.
 
-1. Ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**.
+1. Ve a **Audiencia** > **Administración del grupo de suscripción** y selecciona un grupo de suscripción **SMS/MMS/RCS**.
 2. En **Global Keywords**, busca la categoría **Opt-out** y selecciona el icono de lápiz.
 3. Alterna **Fuzzy Opt-Out** a **On**.
 4. Selecciona tu opción preferida de **Fuzzy Opt-Out Logic**:

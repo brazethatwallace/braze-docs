@@ -23,8 +23,8 @@ Mit der Integration von Braze und Yotpo können Sie in E-Mails und anderen Kommu
 | ----------- | ----------- |
 | Yotpo-Konto | Ein Yotpo-Konto ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. |
 | Yotpo-Bewertungen-API-Schlüssel | Diese API wird im Connected-Content-Code-Snippet implementiert.<br><br>Weitere Informationen finden Sie unter [Finden Sie Ihren Yotpo-App-Schlüssel und geheimen Schlüssel](https://support.yotpo.com/en/article/finding-your-yotpo-app-key-and-secret-key). |
-| Yotpo-Loyalitäts-API-Schlüssel | Dieser API-Schlüssel und der weltweit eindeutige Bezeichner (GUID) werden im Connected-Content-Code-Snippet implementiert.<br><br>Weitere Informationen finden Sie unter [Finden Sie Ihren Treue- & Empfehlungs-API-Schlüssel und GUID](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Yotpo-Loyalitäts-API-Schlüssel | Dieser API-Schlüssel und der weltweit eindeutige Bezeichner (GUID) werden im Connected-Content-Code-Snippet implementiert.<br><br>Weitere Informationen finden Sie unter [Finden Sie Ihren Treue- und Empfehlungs-API-Schlüssel und GUID](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Bevor Sie fortfahren, vergewissern Sie sich, dass die Yotpo-Produkt-ID mit der `product_id` übereinstimmt, die dynamisch von Braze abgerufen wird. Dies ist ein Pflichtfeld, damit die Integration funktioniert.
 
@@ -42,7 +42,7 @@ Um Ihre Yotpo-Produkt-ID zu finden, führen Sie die folgenden Schritte aus:
 Um Yotpo und Braze zu integrieren, führen Sie die folgenden Schritte durch:
 
 1. Gehen Sie zu Ihrem Braze-Dashboard.
-2. Klicken Sie auf der Seite **Campaigns** auf **Kampagne erstellen** und wählen Sie **E-Mail** aus.
+2. Klicken Sie auf der Seite **Campaigns** auf **Create Campaign** und wählen Sie **Email** aus.
 3. Wählen Sie Ihr bevorzugtes Template aus.
 4. Klicken Sie auf **Edit email body** und fügen Sie das entsprechende [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)-Snippet für Ihren Anwendungsfall hinzu:
     - [Sternebewertung und Anzahl der Bewertungen eines Produkts anzeigen](#star-review-count)

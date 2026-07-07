@@ -1,11 +1,11 @@
 ---
-title: API oder Code Glossar
+title: API- oder Code-Glossar
 navlink: apitest
 layout: api_page
 page_order: 2
 
 #Required
-description: "Dies ist die Beschreibung der Google-Suche. Zeichen, die über 160 hinausgehen, werden abgeschnitten, fassen Sie sich kurz."
+description: "Dies ist die Beschreibung für die Google-Suche. Zeichen nach 160 werden abgeschnitten, fassen Sie sich kurz."
 page_type: glossary
 #Use if applicable
 
@@ -42,21 +42,21 @@ noindex: true
 excerpt_separator: ""
 ---
 {% api %}
-## 1 E-Mail Template erstellen
+## 1 E-Mail-Template erstellen {#1-create-email-template}
 {% apimethod post %}
 /templates/email/create
 {% endapimethod %}
 {% apitags %}
-Posten,E-Mail,Erstellen,Template,REST,API
+Post,Email,Create,Template,REST,API
 {% endapitags %}
 
-Verwenden Sie die E-Mail Template REST APIs, um die E-Mail Templates, die Sie auf den Braze Dashboards gespeichert haben, auf der Seite Templates & Medien programmatisch zu verwalten. Braze bietet zwei Endpunkte zum Erstellen und Aktualisieren Ihrer E-Mail Templates.
+Verwenden Sie die E-Mail-Template-REST-APIs, um die E-Mail-Templates, die Sie in den Braze-Dashboards auf der Seite Templates und Medien gespeichert haben, programmatisch zu verwalten. Braze bietet zwei Endpunkte zum Erstellen und Aktualisieren Ihrer E-Mail-Templates.
 
-Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das zum Update des Templates in nachfolgenden API-Aufrufen verwendet werden kann.
+Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das zum Aktualisieren des Templates in nachfolgenden API-Aufrufen verwendet werden kann.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### ANFRAGE KÖRPER
+#### ANFRAGEKÖRPER {#request-body}
 ```
 {
   "template_name": "email_template_name",
@@ -68,7 +68,7 @@ Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das 
 
 ```
 
-#### BEISPIELANTWORT
+#### BEISPIELANTWORT {#example-response}
 ```
 {
   "template_name": "email_template_name",
@@ -84,28 +84,28 @@ Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das 
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `modified_after`  | Kein:e | String in ISO 8601 | Ruft nur Templates ab, die zum oder nach dem angegebenen Zeitpunkt aktualisiert wurden. |
-| `modified_before`  |  Kein:e | String in ISO 8601 | Ruft nur Templates ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
-| `limit` | Kein:e | Positive Zahl | Maximale Anzahl der abzurufenden Templates, Standard ist 100, wenn nicht angegeben, der maximal zulässige Wert ist 1000. |
-| `offset`  |  Kein:e | Positive Zahl | Anzahl der Templates, die übersprungen werden sollen, bevor der Rest der Templates, die den Suchkriterien entsprechen, zurückgegeben wird. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `modified_after`  | Nein | String in ISO 8601 | Ruft nur Templates ab, die zum oder nach dem angegebenen Zeitpunkt aktualisiert wurden. |
+| `modified_before`  |  Nein | String in ISO 8601 | Ruft nur Templates ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
+| `limit` | Nein | Positive Zahl | Maximale Anzahl der abzurufenden Templates. Standard ist 100, wenn nicht angegeben; der maximal zulässige Wert ist 1000. |
+| `offset`  |  Nein | Positive Zahl | Anzahl der Templates, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parameter-Details" }
 
 
 {% endapi %}
 {% api %}
-## 2 Liste verfügbarer E-Mails Template
+## 2 Verfügbare E-Mail-Templates auflisten {#2-list-available-email-template}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-Holen,E-Mail,Template,Liste,REST
+Get,Email,Template,List,REST
 {% endapitags %}
 
-Verwenden Sie die folgenden Endpunkte, um eine Liste der verfügbaren Templates zu erhalten.
+Verwenden Sie die folgenden Endpunkte, um eine Liste der verfügbaren Templates abzurufen.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### ANFRAGE KÖRPER
+#### ANFRAGEKÖRPER
 ```
 GET https://YOUR_REST_API_URL/templates/email/list
 
@@ -139,22 +139,22 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `email_template_id`  | Ja | String | Der API Bezeichner Ihrer E-Mail Vorlage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | Ja | String | Der API-Bezeichner Ihres E-Mail-Templates. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parameter-Details" }
 
 {% endapi %}
 
 
 {% api %}
-## 3 Kampagnen triggern das Senden
-{% apimethod post %}Kampagnen/triggern/senden{% endapimethod %}
-{% apitags %}Posten, Kampagnen, Triggern, Senden{% endapitags %}
+## 3 Campaigns per Trigger senden {#3-campaigns-trigger-send}
+{% apimethod post %}campaigns/trigger/send{% endapimethod %}
+{% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
 
-Mit der API-getriggerten Zustellung können Sie den Inhalt von Nachrichten innerhalb des Braze-Dashboards unterbringen und gleichzeitig über Ihre API festlegen, wann und an wen eine Nachricht gesendet wird. 
+Die API-getriggerte Zustellung ermöglicht es Ihnen, Nachrichteninhalte im Braze-Dashboard zu hinterlegen und gleichzeitig über Ihre API festzulegen, wann und an wen eine Nachricht gesendet wird.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### ANFRAGE KÖRPER
+#### ANFRAGEKÖRPER
 ```
 POST https://YOUR_REST_API_URL/campaigns/trigger/send
 Content-Type: application/json
@@ -186,7 +186,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 {
   "canvas_id": (required, string) see Canvas Identifier,
-  "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to all users in this request,
+  "context": (optional, object) personalization key-value pairs that will apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if "recipients" is omitted,
   "audience": (optional, Connected Audience Object) see Connected Audience,
   // Including 'audience' will only send to users in the audience
@@ -195,7 +195,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       // Either "external_user_id" or "user_alias" is required. Requests must specify only one.
       "user_alias": (optional, User Alias Object) User Alias of user to receive message,
       "external_user_id": (optional, string) External ID of user to receive message,
-      "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent canvas_entry_properties)
+      "context": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent context)
     },
     ...
   ]
@@ -207,22 +207,22 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `email_template_id`  | Ja | String | Der API Bezeichner Ihrer E-Mail Vorlage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | Ja | String | Der API-Bezeichner Ihres E-Mail-Templates. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parameter-Details" }
 
 {% endapi %}
 
 
 {% api %}
-## 4 Kampagnen triggern das Senden
-{% apimethod put %}Nutzer:innen/Tracking{% endapimethod %}
-{% apitags %}PUT, Kampagnen, Triggern, Senden{% endapitags %}
+## 4 Campaigns per Trigger senden {#4-campaigns-trigger-send}
+{% apimethod put %}users/track{% endapimethod %}
+{% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
 
-Mit diesem Endpunkt können Sie angepasste Events, Benutzer-Attribute und Käufe für Nutzer:innen aufzeichnen. Sie können bis zu 75 Attribute, Ereignisse und Kauf-Objekte pro Anfrage hinzufügen. Das heißt, Sie können nur Attribute für bis zu 75 Nutzer:innen gleichzeitig veröffentlichen, aber im selben API-Aufruf können Sie auch bis zu 75 Ereignisse und bis zu 75 Käufe bereitstellen.
+Dieser Endpunkt kann verwendet werden, um angepasste Events, Nutzerattribute und Käufe für Nutzer:innen aufzuzeichnen. Sie können bis zu 75 Attribute-, Event- und Kauf-Objekte pro Anfrage einschließen. Das heißt, Sie können nur Attribute für bis zu 75 Nutzer:innen gleichzeitig senden, aber im selben API-Aufruf können Sie auch bis zu 75 Events und bis zu 75 Käufe bereitstellen.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### ANFRAGE KÖRPER
+#### ANFRAGEKÖRPER
 ```
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
@@ -248,7 +248,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean).
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -263,30 +263,30 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 #### PARAMETER-DETAILS
 
-| Feld Nutzer:in | Spezifikation des Datentyps |
+| Nutzerprofil-Feld | Datentyp-Spezifikation |
 | ---| --- |
-| Land | (String) Wir verlangen, dass die Ländercodes im [ISO-3166-1 alpha-2 Standard][17] an Braze übergeben werden. |
-| current_location | (object) Der Form {"longitude": -73.991443, "latitude": 40.753824} |
-| date_of_first_session | (Datum, an dem der Nutzer:innen die App zum ersten Mal benutzt hat) String im Format ISO 8601 oder im Format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
-| date_of_last_session | (Datum, an dem der Nutzer:innen die App zuletzt benutzt hat) String im Format ISO 8601 oder im Format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
-| Geburtsdatum | (Geburtsdatum) String im Format "JJJJ-MM-TT", zum Beispiel 1980-12-21. |
-| E-Mail | (String) |
-| email_subscribe | (String) Verfügbare Werte sind "opted_in" (explizit für den Erhalt von E-Mail-Nachrichten registriert), "abgemeldet" (explizit gegen E-Mail-Nachrichten) und "abonniert" (weder Opt-in noch Opt-out).  |
-| external_id | (String) des eindeutigen Bezeichners des Nutzers:in. |
-| Facebook | Hash mit einem der folgenden Werte: `id` (String), `likes` (String-Array), `num_friends` (Ganzzahl). |
+| country | (String) Wir verlangen, dass Ländercodes im [ISO-3166-1-alpha-2-Standard][17] an Braze übergeben werden. |
+| current_location | (Objekt) In der Form {"longitude": -73.991443, "latitude": 40.753824} |
+| date_of_first_session | (Datum, an dem die Nutzer:in die App zum ersten Mal verwendet hat) String im ISO-8601-Format oder im Format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
+| date_of_last_session | (Datum, an dem die Nutzer:in die App zuletzt verwendet hat) String im ISO-8601-Format oder im Format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
+| dob | (Geburtsdatum) String im Format „JJJJ-MM-TT“, zum Beispiel 1980-12-21. |
+| email | (String) |
+| email_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von E-Mail-Nachrichten registriert), „unsubscribed“ (explizit von E-Mail-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out). |
+| external_id | (String) Der eindeutige Nutzer-Bezeichner. |
+| facebook | Hash mit beliebigen der folgenden Werte: `id` (String), `likes` (String-Array), `num_friends` (Ganzzahl). |
 | first_name | (String) |
-| Geschlecht | (String) "M", "F", "O" (andere), "N" (nicht zutreffend), "P" (lieber nicht sagen) oder nil (unbekannt). |
+| gender | (String) „M“, „F“, „O“ (andere), „N“ (nicht zutreffend), „P“ (möchte ich nicht angeben) oder nil (unbekannt). |
 | home_city | (String) |
 | image_url | (String) URL des Bildes, das mit dem Nutzerprofil verknüpft werden soll. |
-| Sprache | (String) verlangen wir, dass die Sprache an Braze im [ISO-639-1-Standard][24] übergeben wird. <br>[Liste der akzeptierten Sprachen](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/)|
+| language | (String) Wir verlangen, dass die Sprache im [ISO-639-1-Standard][24] an Braze übergeben wird. <br>[Liste der akzeptierten Sprachen](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
 | last_name | (String) |
-|marked_email_as_spam_at| (String) Datum, an dem die E-Mail des Nutzers:in als Spam markiert wurde. Erscheint im Format ISO 8601 oder im Format jjjj-MM-tt'T'HH:mm:ss:SSSZ.|
-| Telefon | (String) |
-| push_subscribe | (String) Verfügbare Werte sind "opted_in" (explizit für den Empfang von Push-Nachrichten registriert), "abgemeldet" (explizit von Push-Nachrichten abgemeldet) und "abonniert" (weder Opt-in noch abgemeldet).  |
-| push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token verbunden ist, z.B. `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
-| time_zone | (String) Der Name der Zeitzone aus der [IANA-Zeitzonendatenbank][26] (zum Beispiel "America/New_York" oder "Eastern Time (US & Canada)"). Es werden nur gültige Zeitzonenwerte eingestellt. |
-| Twitter | Hash mit einem der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| marked_email_as_spam_at | (String) Datum, an dem die E-Mail der Nutzer:in als Spam markiert wurde. Erscheint im ISO-8601-Format oder im Format yyyy-MM-dd'T'HH:mm:ss:SSSZ. |
+| phone | (String) |
+| push_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von Push-Nachrichten registriert), „unsubscribed“ (explizit von Push-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out). |
+| push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token verknüpft ist, zum Beispiel `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
+| time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank][26] (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte gesetzt. |
+| twitter | Hash mit beliebigen der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Parameter-Details" }
 
 {% endapi %}
 

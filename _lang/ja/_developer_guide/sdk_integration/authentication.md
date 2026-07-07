@@ -2,19 +2,19 @@
 page_order: 1.2
 nav_title: 認証
 article_title: Braze SDKの認証を設定する
-description: "この参考記事では、SDK 認証と、Braze SDK でこの機能を有効にする方法について説明します。"
+description: "この参考記事では、SDK認証と、Braze SDKでこの機能を有効にする方法について説明します。"
 platform:
   - iOS
   - Android
   - Web
-  
+
 ---
 
-# SDK認証を設定する
+# SDK認証を設定する {#set-up-sdk-authentication}
 
-> SDK 認証を使用すると、ログインしているユーザーの代わりに行われた SDK リクエストに対して（サーバー側で生成された）暗号証明を提供できます。
+> SDK認証を使用すると、ログインしているユーザーの代わりに行われたSDKリクエストに対して（サーバー側で生成された）暗号証明を提供できます。
 
-## 仕組み
+## 仕組み {#how-it-works}
 
 アプリでこの機能を有効にした後、無効または欠落しているJSON Web Token（JWT）を含むリクエストを拒否するようにBrazeダッシュボードを設定できます。これには次のものが含まれます。
 
@@ -25,11 +25,11 @@ platform:
 
 認証されていないログインユーザーが、アプリのSDK APIキーを使って悪意のあるアクション（他のユーザーになりすますなど）を行うのを防げるようになります。
 
-## 認証のセットアップ
+## 認証のセットアップ {#setting-up-authentication}
 
 ### ステップ1:サーバーのセットアップ {#server-side-integration}
 
-#### ステップ1.1：公開鍵と秘密鍵のペアを生成する {#generate-keys}
+#### ステップ1.1:公開鍵と秘密鍵のペアを生成する {#generate-keys}
 
 RSA256公開鍵/秘密鍵ペアを生成します。公開キーは最終的にBrazeのダッシュボードに追加されますが、秘密キーはサーバーに安全に保管する必要があります。
 
@@ -39,7 +39,7 @@ RS256 JWTアルゴリズムで使用する2048ビットのRSA鍵を推奨しま�
 秘密キーは必ず_非公開_にしてください。アプリやWebサイトに秘密鍵を公開したり、ハードコードしたりしてはなりません。あなたの秘密キーを知っている人なら誰でも、あなたのアプリケーションに代わってユーザーになりすましたり、ユーザーを作成したりすることができます。
 {% endalert %}
 
-#### ステップ1.2：現在のユーザーのJSON Web Tokenを作成する {#create-jwt}
+#### ステップ1.2:現在のユーザーのJSON Web Tokenを作成する {#create-jwt}
 
 秘密キーが手に入ったら、サーバー側のアプリケーションはそれを使って、現在ログインしているユーザーのアプリまたはWebサイトにJWTを返す必要があります。
 
@@ -53,17 +53,19 @@ JWTを生成する際には、以下のフィールドが必要です：
 | ----- | -------- | ----------------------------------- |
 | `alg` | はい  | サポートされているアルゴリズムは`RS256`です。 |
 | `typ` | はい  | タイプは`JWT`と同じでなければなりません。        |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する #create-jwt" }
 
 **JWTペイロード**
 
 | フィールド | 必須 | 説明                                                                            |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | はい  | 「subject」は、`changeUser`の呼び出し時にBraze SDKに指定したユーザーIDと同じである必要があります。  |
-| `exp` | はい | このトークンをいつ期限切れにするかの「有効期限」。                                |
+| `exp` | はい | このトークンをいつ期限切れにするかの「有効期限」（Unixタイムスタンプ（秒単位）で指定します。例：2030年1月1日の場合は`1893456000`）。                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する #create-jwt" }
 
 {% alert tip %}
 JSON Web Tokenについての詳細や、この署名プロセスを簡素化する多くのオープンソースライブラリを参照するには、[https://jwt.io](https://jwt.io)をチェックしてください。
@@ -79,7 +81,7 @@ JSON Web Tokenについての詳細や、この署名プロセスを簡素化す
 iOS統合については、このページでBraze Swift SDKのステップを詳しく説明します。レガシーAppboyKit iOS SDKでの使用例については、[このファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/AppDelegate.m)と[このファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/Utils/SdkAuthDelegate.m)を参照してください。
 {% endalert %}
 
-#### ステップ2.1:Braze SDKで認証を有効にする
+#### ステップ2.1:Braze SDKで認証を有効にする {#step-21-enable-authentication-in-the-braze-sdk}
 
 この機能が有効な場合、Braze SDKは、Brazeサーバーに対して行われたネットワークリクエストに、現在のユーザーの最新の既知のJWTを追加します。
 
@@ -281,7 +283,7 @@ Braze Expoプラグインを使用する際は、アプリ設定で`enableSdkAut
 {% endtab %}
 {% endtabs %}
 
-#### ステップ2.2:現在のユーザーのJWTを設定する
+#### ステップ2.2:現在のユーザーのJWTを設定する {#step-22-set-the-current-users-jwt}
 
 アプリがBrazeの`changeUser`メソッドを呼び出すたびに、[サーバー側で生成された](#braze-dashboard)JWTも指定します。
 
@@ -517,7 +519,7 @@ braze.subscribeToSdkAuthenticationFailures((error) => {
   console.log("Error code:", error.errorCode);
   console.log("User ID:", error.userId);
   // Note: Do not log error.signature as it contains sensitive authentication credentials
-  
+
   // Verify the error.userId matches the currently logged-in user
   // Fetch a new token from your server and set it
   fetchNewSignature(error.userId).then((newSignature) => {
@@ -534,7 +536,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
   Braze.Events.SDK_AUTHENTICATION_ERROR,
   (error) => {
     console.log(`SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.`);
-    
+
     const updated_jwt = getNewTokenSomehow(error);
     Braze.setSdkAuthenticationSignature(updated_jwt);
   }
@@ -607,7 +609,7 @@ BrazePlugin braze = BrazePlugin();
 
 braze.setBrazeSdkAuthenticationErrorCallback((BrazeSdkAuthenticationError error) async {
   print("SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.");
-  
+
   String newSignature = getNewTokenSomehow(error);
   braze.setSdkAuthenticationSignature(newSignature);
 });
@@ -643,7 +645,7 @@ Braze.GetInstance(this).SubscribeToSdkAuthenticationFailures((error) => {
 ```javascript
 BrazePlugin.subscribeToSdkAuthenticationFailures((error) => {
   console.log(`SDK Authentication for ${error.user_id} failed with error code ${error.error_code}.`);
-  
+
   const newSignature = getNewTokenSomehow(error);
   BrazePlugin.setSdkAuthenticationSignature(newSignature);
 });
@@ -691,7 +693,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
   Braze.Events.SDK_AUTHENTICATION_ERROR,
   (error) => {
     console.log(`SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.`);
-    
+
     const updated_jwt = getNewTokenSomehow(error);
     Braze.setSdkAuthenticationSignature(updated_jwt);
   }
@@ -715,12 +717,12 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 
 ダッシュボードの**設定の管理**ページでは、各アプリに3つのSDK認証ステートがあり、Brazeがどのようにリクエストを検証するかを制御します。
 
-| 設定| 説明|
+| 設定 | 説明 |
 | ------ | ---------- |
 | **無効** | Brazeは、ユーザーに提供されたJWTを検証しません。（デフォルト設定）|
 | **オプション** | Brazeは、ログインしているユーザーのリクエストを検証しますが、無効なリクエストは拒否しません。 |
 | **必須** | Brazeは、ログインしているユーザーのリクエストを検証し、無効なJWTは拒否します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="適用オプション" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -728,30 +730,30 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 
 無効なJWTは**オプション**と**必須**の両方の状態で報告されますが、**必須**状態でのみSDKリクエストが拒否され、アプリは再試行して新しいJWTをリクエストします。
 
-## 公開鍵を管理する {#key-management}
+## 公開鍵の管理 {#key-management}
 
-### 公開鍵を追加する
+### 公開鍵を追加する {#adding-a-public-key}
 
 アプリごとに、プライマリ、セカンダリ、ターシャリの最大3つの公開キーを追加できます。必要に応じて、同じキーを複数のアプリに追加することもできます。公開鍵を追加するには：
 
-1. Brazeのダッシュボードに行き、**設定** > **アプリ設定**を選択します。
+1. Brazeダッシュボードに移動し、**設定** > **アプリ設定**を選択します。
 2. 利用可能なアプリのリストからアプリを選びます。
 3. **SDK認証**で、**公開キーを追加**を選択します。
 4. オプションの説明を入力し、公開キーを貼り付け、**公開キーを追加**を選択します。
 
-### 新しいプライマリキーを割り当てる
+### 新しいプライマリキーを割り当てる {#assign-a-new-primary-key}
 
 セカンダリキーまたはターシャリキーを新しいプライマリキーとして割り当てるには：
 
-1. Brazeのダッシュボードに行き、**設定** > **アプリ設定**を選択します。
+1. Brazeダッシュボードに移動し、**設定** > **アプリ設定**を選択します。
 2. 利用可能なアプリのリストからアプリを選びます。
 3. **SDK認証**でキーを選択し、**管理** > **プライマリキーに設定**を選択します。
 
-### キーを削除する
+### キーを削除する {#deleting-a-key}
 
 プライマリキーを削除するには、まず[新たなプライマリキーを割り当て](#assign-a-new-primary-key)、それからキーを削除します。非プライマリキーを削除するには：
 
-1. Brazeのダッシュボードに行き、**設定** > **アプリ設定**を選択します。
+1. Brazeダッシュボードに移動し、**設定** > **アプリ設定**を選択します。
 2. 利用可能なアプリのリストからアプリを選びます。
 3. **SDK認証**でプライマリキー以外のキーを選択し、**管理** > **公開キーを削除**を選択します。
 
@@ -759,13 +761,13 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 
 各アプリには、この機能が**オプション**状態と**必須**状態にある間に収集されたSDK認証エラーの内訳が表示されます。
 
-データはリアルタイムで入手でき、チャート上のポイントにカーソルを合わせると、指定した日付のエラーの内訳を見ることができます。
+データはリアルタイムで利用でき、チャート上のポイントにカーソルを合わせると、指定した日付のエラーの内訳を確認できます。
 
 ![認証エラーの発生件数を示すグラフ。また、エラーの総数、エラーの種類、調整可能な日付範囲も表示されます。]({% image_buster /assets/img/sdk-auth-analytics.png %}){: style="max-width:80%"}
 
 ## エラーコード {#error-codes}
 
-| エラーコード| エラーの理由 | 説明 | 解決手順 |
+| エラーコード | エラーの理由 | 説明 | 解決手順 |
 | --------  | ------------ | ---------  | ---------  |
 | 10 | `EXPIRATION_REQUIRED` | Brazeを使用する場合、有効期限は必須フィールドです。| JWT生成ロジックに`exp`または有効期限フィールドを追加してください。 |
 | 20 | `DECODING_ERROR` | 公開鍵が一致しないか、一般的な捕捉不能エラーが発生しました。| JWTをJWTテストツールにコピーして、JWTが無効な形式である理由を診断してください。 |
@@ -777,7 +779,7 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 | 26 | `MISSING_TOKEN` | リクエストにトークンが指定されていません。| `changeUser(id, token)`を呼び出す際にトークンを渡していることを確認し、そのトークンが空白でないことを確認してください。|
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | 提供されたトークンに一致する公開鍵がありませんでした。| JWTで使用されている秘密キーは、アプリに設定されている公開キーのいずれとも一致しません。このAPIキーに対応するワークスペース内の正しいアプリに公開キーを追加したことを確認してください。|
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | リクエストのペイロード内のユーザーIDがすべて、要求通りに一致しているわけではありません。| これは予期しないエラーであり、不正なペイロードを引き起こす可能性があります。サポートチケットを開いてお問い合わせください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="エラーコード" }
 
 ## よくある質問（FAQ） {#faq}
 
@@ -815,7 +817,7 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 
 認証エラーが原因でリクエストが拒否されると、SDKはユーザーのJWTを更新するために使用されるコールバックを呼び出します。
 
-リクエストは指数バックオフアプローチを使用して定期的に再試行されます。50回連続で失敗すると、次のセッション開始まで再試行は一時停止されます。各SDKには、手動でデータフラッシュをリクエストするメソッドもあります。
+リクエストはエクスポネンシャルバックオフアプローチを使用して定期的に再試行されます。50回連続で失敗すると、次のセッション開始まで再試行は一時停止されます。各SDKには、手動でデータフラッシュをリクエストするメソッドもあります。
 
 #### 匿名ユーザーに対してSDK認証は使えますか？ {#faq-anonymous-users}
 

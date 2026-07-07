@@ -22,23 +22,27 @@ Let's say you have a mobile app that sends push notifications to users. If a use
 
 ### Australia
 
-{% multi_lang_include data_centers.md datacenters='AU' %}
+{% multi_lang_include administer/data_centers.md datacenters='AU' %}
 
 ### European Union
 
-{% multi_lang_include data_centers.md datacenters='EU' %}
+{% multi_lang_include administer/data_centers.md datacenters='EU' %}
 
 ### Indonesia
 
-{% multi_lang_include data_centers.md datacenters='ID' %}
+{% multi_lang_include administer/data_centers.md datacenters='ID' %}
 
 ### Japan
 
-{% multi_lang_include data_centers.md datacenters='JP' %}
+{% multi_lang_include administer/data_centers.md datacenters='JP' %}
+
+### South Korea
+
+{% multi_lang_include administer/data_centers.md datacenters='KR' %}
 
 ### United States
 
-{% multi_lang_include data_centers.md datacenters='US' %}
+{% multi_lang_include administer/data_centers.md datacenters='US' %}
 
 ## Signing up for region-specific data centers
 

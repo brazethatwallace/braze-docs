@@ -10,14 +10,14 @@ description: "Este artículo contiene notas de la versión de octubre de 2021."
 
 ## Panel de uso de puntos de datos {#data-points-usage-dashboard}
 
-Utiliza el panel **Total de uso de puntos de datos** para hacer un seguimiento de tu ritmo de uso de puntos de datos en relación con tu asignación de contrato. Este panel proporciona información sobre tu contrato, ciclo de facturación actual, datos de facturación de la empresa y datos de facturación del espacio de trabajo. Para más información, consulta [Facturación]({{site.baseurl}}/user_guide/onboarding_with_braze/subscription_and_usage/#total-data-points-dashboard).
+Utiliza el panel **Total de uso de puntos de datos** para hacer un seguimiento de tu ritmo de uso de puntos de datos en relación con tu asignación de contrato. Este panel proporciona información sobre tu contrato, ciclo de facturación actual, datos de facturación de la empresa y datos de facturación del espacio de trabajo. Para más información, consulta [Facturación]({{site.baseurl}}/user_guide/onboarding_with_braze/subscription_and_usage#total-data-points-dashboard).
 
 ## Cambio en la regeneración de extensiones de segmento {#change-to-segment-extension-regeneration}
 
-A partir del 1 de febrero de 2022, la configuración para regenerar extensiones diariamente se desactivará automáticamente para las [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) no utilizadas. Braze define las extensiones no usadas como aquellas que cumplen con los siguientes criterios:
+A partir del 1 de febrero de 2022, la configuración para regenerar extensiones diariamente se desactivará automáticamente para las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) no utilizadas. Braze define las extensiones no usadas como aquellas que cumplen con los siguientes criterios:
 
-- No se utilizan en ninguna campaña, Canvas o segmento activos
-- No se utilizan en ninguna campaña, Canvas o segmento inactivos (borrador, detenido o archivado)
+- No se utilizan en ninguna Campaign, Canvas ni segmento activos
+- No se utilizan en ninguna Campaign, Canvas ni segmento inactivos (borrador, detenido o archivado)
 - No han sido modificadas en los últimos 7 días
 
 Cuando esta configuración se desactive, Braze notificará al contacto de la empresa y al creador de la extensión. La opción de regenerar extensiones diariamente puede volver a activarse en cualquier momento.
@@ -26,7 +26,7 @@ Cuando esta configuración se desactive, Braze notificará al contacto de la emp
 
 ### Content Cards
 
-Esta [guía de implementación]({{site.baseurl}}/developer_guide/content_cards/) opcional y avanzada abarca consideraciones sobre códigos de Content Cards, tres casos de uso personalizados creados por nuestro equipo, fragmentos de código que los acompañan y orientaciones sobre el registro de impresiones, clics y descartes.
+Esta [guía de implementación]({{site.baseurl}}/developer_guide/content_cards) opcional y avanzada abarca consideraciones sobre códigos de Content Cards, tres casos de uso personalizados creados por nuestro equipo, fragmentos de código que los acompañan y orientaciones sobre el registro de impresiones, clics y descartes.
 
 ### Mensajería dentro de la aplicación {#in-app-messaging}
 
@@ -34,7 +34,7 @@ Esta [guía de implementación]({{site.baseurl}}/developer_guide/in_app_messages
 
 ### Notificaciones push {#push-notifications}
 
-Esta [guía de implementación]({{site.baseurl}}/developer_guide/push_notifications/examples/?sdktab=android) opcional y avanzada cubre formas de aprovechar una subclase personalizada de `FirebaseMessagingService` para sacar el máximo partido a tus mensajes push. Se incluye un caso de uso personalizado creado por nuestro equipo, fragmentos de código que lo acompañan y orientaciones sobre el registro de análisis.
+Esta [guía de implementación]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) opcional y avanzada cubre formas de aprovechar una subclase personalizada de `FirebaseMessagingService` para sacar el máximo partido a tus mensajes push. Se incluye un caso de uso personalizado creado por nuestro equipo, fragmentos de código que lo acompañan y orientaciones sobre el registro de análisis.
 
 ## Nuevas asociaciones de Braze {#new-braze-partnerships}
 
@@ -42,8 +42,8 @@ Esta [guía de implementación]({{site.baseurl}}/developer_guide/push_notificati
 
 La plataforma de datos de los clientes en tiempo real (CDP en tiempo real) de Adobe, creada en Adobe Experience Platform, ayuda a las empresas a reunir datos conocidos y anónimos de múltiples fuentes empresariales para crear perfiles de clientes que puedan utilizarse para ofrecer experiencias del cliente personalizadas en todos los canales y dispositivos en tiempo real.
 
-La integración de Braze y [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe/) CDP permite a las marcas conectar y mapear sus datos de Adobe (atributos personalizados y segmentos) con Braze en tiempo real. Las marcas pueden, entonces, actuar sobre estos datos y entregar experiencias personalizadas dirigidas a esos usuarios.
+La integración de Braze y [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) CDP permite a las marcas conectar y mapear sus datos de Adobe (atributos personalizados y segmentos) con Braze en tiempo real. Las marcas pueden, entonces, actuar sobre estos datos y entregar experiencias personalizadas dirigidas a esos usuarios.
 
 ### Shopify - Comercio electrónico {#shopify-ecommerce}
 
-[Shopify]({{site.baseurl}}/partners/shopify/) es una empresa líder en comercio global que proporciona herramientas de confianza para iniciar, hacer crecer, comercializar y administrar un negocio minorista de cualquier tamaño. Juntas, la integración de Braze y Shopify permite a las marcas conectar fácilmente su tienda Shopify con Braze para pasar determinados webhooks de Shopify a Braze. Aprovecha las estrategias de canales cruzados de Braze y Canvas para reorientar a tus usuarios con mensajes de pago abandonado y animar a los clientes a completar su compra, o reorientar a los usuarios en función de sus compras anteriores.
+[Shopify]({{site.baseurl}}/partners/shopify) es una empresa líder en comercio global que proporciona herramientas de confianza para iniciar, hacer crecer, comercializar y administrar un negocio minorista de cualquier tamaño. Juntas, la integración de Braze y Shopify permite a las marcas conectar fácilmente su tienda Shopify con Braze para pasar determinados webhooks de Shopify a Braze. Aprovecha las estrategias multicanal de Braze y Canvas para reorientar a tus usuarios con mensajes de pago abandonado y animar a los clientes a completar su compra, o reorientar a los usuarios en función de sus compras anteriores.

@@ -1,26 +1,26 @@
 ---
-nav_title: Ações de braze deeplinks
-article_title: Deep links de ação da Braze
+nav_title: Deep links de ações da Braze
+article_title: Deep links de ações da Braze
 page_order: 100
-description: "Este artigo de referência aborda como usar os deep links de ação da Braze para executar ações do SDK nos botões do canal de envio de mensagens."
+description: "Este artigo de referência aborda como usar os deep links de ações da Braze para executar ações do SDK nos botões do canal de envio de mensagens."
 hidden: true
 ---
 
-# Deep links de ação da Braze
+# Deep links de ações da Braze {#braze-actions-deeplinks}
 
-> As ações da Braze permitem que você use deep links para executar a funcionalidade nativa do SDK.<br><br>O dashboard da Braze inclui várias ações padrão ao clicar (Solicitar permissão para push, Registrar evento personalizado e Registrar atributo personalizado) que podem ser usadas em mensagens no app e cartões de conteúdo.<br><br>Para todas as outras ações, ou para combinar várias ações, use este guia para construir seu próprio deeplink Braze Action.
+> As ações da Braze permitem que você use "deep links" para executar a funcionalidade nativa do SDK.<br><br>O dashboard da Braze inclui várias ações padrão ao clicar (Solicitar permissão para push, Registrar evento personalizado e Registrar atributo personalizado) que podem ser usadas em mensagens no app e Content Cards.<br><br>Para todas as outras ações, ou para combinar várias ações, use este guia para construir seu próprio deep link de Braze Action.
 
-## Suporte a SDK
+## Suporte ao SDK {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-O esquema de deep link `brazeActions://` pode ser usado sempre que houver uma opção de deep link ou redirecionamento nas mensagens no app e nos cartões de conteúdo.
+O esquema de deep link `brazeActions://` pode ser usado sempre que houver uma opção de deep link ou redirecionamento nas mensagens no app e nos Content Cards.
 
-Para mensagens no app em HTML, use o [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge) em vez disso, pois os deep links não são compatíveis com tipos de mensagens HTML.
+Para mensagens no app em HTML, use o [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge) em vez disso, pois os deep links não são compatíveis com tipos de mensagens HTML.
 
-## Esquema
+## Esquema {#schema}
 
-Você pode incluir várias ações `steps` em um tipo de ação `container`. Uma única etapa sem um `container` também é válida.
+Você pode incluir várias `steps` de ação em um tipo de ação `container`. Uma única etapa sem um `container` também é válida.
 
 ```json
 {
@@ -29,7 +29,7 @@ Você pode incluir várias ações `steps` em um tipo de ação `container`. Uma
 }
 ```
 
-Um `step` individual contém uma ação `type` e um vetor `args` opcional:
+Um `step` individual contém um `type` de ação e um array `args` opcional:
 
 ```json
 {
@@ -38,9 +38,9 @@ Um `step` individual contém uma ação `type` e um vetor `args` opcional:
 }
 ```
 
-## URI 
+## URI
 
-O esquema de URI do Braze Actions é `brazeActions://v1/{base64encodedJsonString}`.
+O esquema de URI das Braze Actions é `brazeActions://v1/{base64encodedJsonString}`.
 
 O JavaScript a seguir mostra como codificar e decodificar a string JSON:
 
@@ -61,7 +61,7 @@ function decode(encoded) {
  * Converts a UTF-16 string to UTF-8 to comply with base64 encoding limitations.
  */
 function encode(input) {
-    // Split the original 16-bit char code into two 8-bit char codes then 
+    // Split the original 16-bit char code into two 8-bit char codes then
     // reconstitute a new string (of double length) using those 8-bit codes
     // into a UTF-8 string.
     const codeUnits = new Uint16Array(input.length);
@@ -77,26 +77,27 @@ function encode(input) {
 }
 ```
 
-## Ações apoiadas
+## Ações compatíveis {#supported-actions}
 
-|Tipo|Args|
+| Tipo | Args |
 |--|--|
-|`container`|Uma matriz de outras ações a serem executadas|
-|`logCustomEvent`|1. `event name`<br>2. `event properties JSON object` (opcional)|
-|`setEmailNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
-|`setPushNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
-|`setCustomUserAttribute`|1. `attribute_name`<br>2. `attribute_value`|
-|`requestPushPermission`| N/D |
-|`openLink`|1. `url`<br>2. `openInNewTab` (booleano)|
-|`openLinkInWebview`| `url`|
-|`addToSubscriptionGroup`| `subscriptionGroupId`|
-|`removeFromSubscriptionGroup`| `subscriptionGroupId`|
-|`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
-|`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+| `container` | Um array de outras ações a serem executadas |
+| `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object` (opcional) |
+| `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
+| `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
+| `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
+| `requestPushPermission` | N/D |
+| `openLink` | 1. `url`<br>2. `openInNewTab` (booleano) |
+| `openLinkInWebview` | `url` |
+| `addToSubscriptionGroup` | `subscriptionGroupId` |
+| `removeFromSubscriptionGroup` | `subscriptionGroupId` |
+| `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+| `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ações compatíveis" }
 
-## Codificador JSON
+## Codificador JSON {#json-encoder}
 
-Insira uma string JSON para ver o URI `brazeActions://` resultante. Ou digite um URI `brazeActions://` para decodificar seu JSON.
+Insira uma string JSON para ver o URI `brazeActions://` resultante. Ou insira um URI `brazeActions://` para decodificar seu JSON.
 
 <div><h4>Entrada JSON</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>

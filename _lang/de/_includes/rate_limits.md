@@ -149,6 +149,10 @@ Dieser Endpunkt hat ein Rate-Limit von 20 Anfragen pro Minute.
 {% elsif include.endpoint == "cdi job sync status" %}
 Dieser Endpunkt hat ein Rate-Limit von 100 Anfragen pro Minute.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+Dieser Endpunkt hat ein Rate-Limit von 100 Anfragen pro Stunde, wie in [API-Rate-Limits]({{site.baseurl}}/api/api_limits/) dokumentiert.
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->

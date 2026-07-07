@@ -38,7 +38,7 @@ Funnel-Berichte sind an folgenden Stellen im Dashboard verfügbar:
 - Die Seite **Canvas Details** für einen bestimmten Canvas, über den Button **Analyze Variants**
 
 {% alert important %}
-Funnel-Berichte sind nicht verfügbar für [API-Kampagnen]({{site.baseurl}}/api/api_campaigns/).
+Funnel-Berichte sind nicht verfügbar für [API-Kampagnen]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 ### 1. Schritt: Datumsbereich auswählen {#step-1-select-a-date-range}
@@ -49,7 +49,7 @@ Sie können einen Zeitrahmen für Ihren Bericht auswählen (innerhalb der letzte
 Wenn Sie das Fenster zum Abschluss des Funnels auf einen Tag setzen, muss das Funnel-Event innerhalb von 24 Stunden nach Nachrichtenempfang stattfinden. Wenn Sie jedoch mehrere Tage auswählen, wird das Zeitfenster als Kalendertage in der Zeitzone des Unternehmens gezählt.
 {% endalert %}
 
-![Funnel-Bericht für einen Canvas mit „Last 7 Days“ als ausgewähltem Zeitrahmen im Dropdown.]({% image_buster /assets/img/funnel_report/funnel_report5.png %}){: style="max-width:90%;"}
+![Funnel-Bericht für einen Canvas mit „Letzte 7 Tage“ als ausgewähltem Zeitrahmen im Dropdown.]({% image_buster /assets/img/funnel_report/funnel_report5.png %}){: style="max-width:90%;"}
 
 ### 2. Schritt: Events für Funnel-Schritte auswählen {#step-2-select-events-for-funnel-steps}
 
@@ -59,7 +59,7 @@ Für jeden Funnel-Bericht ist das erste Event der Empfang Ihrer Nachricht durch 
 
 | Campaign | Sitzung gestartet, Kauf getätigt, angepasstes Event ausgeführt, Nachrichten-Engagement-Event |
 | Canvas | Sitzung gestartet, Kauf getätigt, angepasstes Event ausgeführt, Canvas-Schritt erhalten, mit Schritt interagiert |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Funnel-Bericht-Events" }
 
 {% alert note %}
 Das Bericht-Event **Mit Schritt interagiert** kann nur mit Canvas-Schritten verwendet werden, die die Messaging-Kanäle E-Mail oder Push nutzen.
@@ -121,7 +121,7 @@ Große Abfragen können ein Timeout verursachen. Versuchen Sie ein kürzeres Ber
 
 Canvas-Schritt-Analytics können für dieselben Kalenderdaten höhere Zahlen als der Funnel anzeigen, da Schritt-Analytics ein breiteres Engagement und breitere Conversions umfassen, während der Funnel Event-Reihenfolge und Timing-Regeln durchsetzt.
 
-#### Canvas Analytics (Analyze Variants)
+#### Canvas Analytics (Analyze Variants) {#canvas-analytics-analyze-variants}
 
 Der Datumsbereich filtert Events danach, **wann sie aufgetreten sind**. Wenn Sie den 1.–7. Januar auswählen, sehen Sie alle Eintritte und Konversions-Events, die in diesem Zeitfenster stattgefunden haben – unabhängig davon, wann die/der Nutzer:in den Canvas betreten hat. Ein:e Nutzer:in, der/die am 1. Januar eingetreten ist, aber am 8. Januar konvertiert hat, würde einen Eintritt und null Conversions anzeigen, da die Conversion außerhalb der ausgewählten Daten lag. Das auf dem Canvas-Schritt konfigurierte Conversion-Fenster kann über das maximale Nachverfolgungsfenster des Funnels hinausgehen, sodass Schritt-Analytics Conversions über einen längeren Zeitraum erfassen können.
 

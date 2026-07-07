@@ -31,7 +31,7 @@ channel:
   - ユーザーの電話番号
   - オプトインした言語<br><br>
 
-2. **送信するSMS、MMS、またはRCSの種類を明確に伝えてください。** ユーザーは、このチャネルでブランドからどのようなメッセージを受け取るか、どのような情報やオファーを受け取るかを理解する必要があります。今後のCampaignの目的、メッセージの頻度を明示し、メッセージ/データ料金が適用されることをユーザーに通知してください。<br><br>
+2. **送信するSMS、MMS、またはRCSの種類を明確に伝えてください。** ユーザーは、このチャネルでブランドからどのようなメッセージを受け取るか、どのような情報やオファーを受け取るかを理解する必要があります。今後のキャンペーンの目的、メッセージの頻度を明示し、メッセージ/データ料金が適用されることをユーザーに通知してください。<br><br>
 
 3. **重要な情報を最新の状態に保ち、見やすくしてください。** ブランドの利用規約およびSMS/MMS/RCSマーケティングプライバシーポリシーの最新版が、オプトインページから明確に表示され、簡単にアクセスできるようにしてください。<br><br>
 
@@ -53,11 +53,11 @@ RCSは新興かつ進化中の分野です。州、国、その他の規制機�
 
 - **規制の重複を理解する：** RCSとSMSには多くの類似点があるため、同じ法律、規制、キャリアポリシーが適用されます。これには、オプトイン収集に関するTCPAルールやCTIAガイドライン（SHAFTなど）が含まれます。
 - **同意：** 法務チームと協力して、既存のSMSユーザーにRCSを送信するために追加の同意を収集する必要があるかどうかを評価してください。
-- **ポリシーと免責事項の更新：** モバイル利用規約とプライバシーポリシーを更新してRCSへの言及を含めることをお勧めします。また、オプトインCampaignにSMSに加えてRCSに関する文言を含めることもお勧めします。
+- **ポリシーと免責事項の更新：** モバイル利用規約とプライバシーポリシーを更新してRCSへの言及を含めることをお勧めします。また、オプトインキャンペーンにSMSに加えてRCSに関する文言を含めることもお勧めします。
 
 ## リソース {#resources}
 
-SMS、MMS、またはRCSのCampaignを構築する際に参照が必要になる可能性のあるリンクを以下に示します。
+SMS、MMS、またはRCSのキャンペーンを構築する際に参照が必要になる可能性のあるリンクを以下に示します。
 
 - [CTIAの2023年メッセージング原則とベストプラクティス](https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf)
 - [Twilioの米国SMSコンプライアンスガイド](https://www.twilio.com/learn/call-and-text-marketing/guide-to-us-sms-compliance)
@@ -69,32 +69,32 @@ SMS、MMS、またはRCSのCampaignを構築する際に参照が必要になる
 
 顧客のプライバシーは、有意義で敬意のある関係の鍵です。顧客のプライバシーと情報を尊重することは、顧客とブランドの間に絆を築くもう1つの機会です。マーケティングツールを使用すると、データとプライバシーが後回しになることがあります。
 
-幸いなことに、Brazeは[GDPR]({{site.baseurl}}/dp-technical-assistance/)を含む多くの[セキュリティ規制]({{site.baseurl}}/developer_guide/disclosures/security_qualifications/#security-qualifications)のガイドラインに従っています。
+幸いなことに、Brazeは[GDPR]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications)を含む多くの[セキュリティ規制]({{site.baseurl}}/dp-technical-assistance)のガイドラインに従っています。
 
 [CTIA](https://www.ctia.org/)（米国のワイヤレス通信業界を代表する業界団体）は、明確でわかりやすいプライバシーポリシーを維持し、目立つように表示することを推奨しています。
 
 ### 同意 {#consent}
 
-オプトイン、ヘルプ、オプトアウトのオプションは、SMS、MMS、またはRCSのCampaignを作成する際に絶対に必要です。
+オプトイン、ヘルプ、オプトアウトのオプションは、SMS、MMS、またはRCSのキャンペーンを作成する際に絶対に必要です。
 
 電話消費者保護法（[TCPA](https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991)）は、企業が顧客にメッセージを送信するために「明示的な書面による同意」を取得しなければならないと定めています。これはWebまたはモバイルなど、さまざまな方法で行うことができます。SMSを使用して顧客とどのようにコミュニケーションを取るかについて、顧客に明確に伝える必要があります。
 
 [全国電話勧誘拒否登録簿](https://www.donotcall.gov/)に準拠することを忘れないでください。
 
-Brazeは[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)を使用して、同意レベルに基づいてユーザーのグループを管理します。
+Brazeは[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing)を使用して、同意レベルに基づいてユーザーのグループを管理します。
 
 #### ファジーオプトアウトによるコンプライアンス {#compliance-through-fuzzy-opt-out}
 
 非標準のオプトアウトリクエストの認識を自動化するために、米国の顧客の場合はサブスクリプショングループ設定でファジーオプトアウトを有効にすることができます。
 
-- **即時設定：** デフォルトでは、ファジーオプトアウトは確認メッセージを送信します。確認の代わりに即時オプトアウトを実行するには、[ファジーオプトアウトセクション]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/#configure-fuzzy-opt-out)の手順に従ってワークスペースを設定できます。
+- **即時設定：** デフォルトでは、ファジーオプトアウトは確認メッセージを送信します。確認の代わりに即時オプトアウトを実行するには、[ファジーオプトアウトセクション]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out)の手順に従ってワークスペースを設定できます。
 - **手動キーワード追加：** デフォルトで提供されているキーワードに加えて、「REMOVE」「END」「HALT」「CEASE」「DISCONTINUE」「UNSUBSCRIBE」などのリスクの高い単語を**オプトアウト**キーワードカテゴリに手動で追加することをお勧めします。
 
 ### スパムと送信頻度 {#spam-and-cadence}
 
 メールと同様に、ユーザーや顧客は受信トレイの疲労を経験する可能性があります。しかし、これは顧客に絶え間なくメッセージを送信しない理由の1つにすぎません。コンプライアンスを確保するために、[FTC法第5条](https://www.federalreserve.gov/boarddocs/supmanual/cch/ftca.pdf)を具体的に確認してください（米国の場合）。
 
-一部のスパム対策は、SMS機能全般（ロングコードおよびショートコードの送信制限）やBrazeのレート制限に組み込まれています。ただし、Campaignを計画する際にはコンプライアンス法を考慮する必要があります。
+一部のスパム対策は、SMS機能全般（ロングコードおよびショートコードの送信制限）やBrazeのレート制限に組み込まれています。ただし、キャンペーンを計画する際にはコンプライアンス法を考慮する必要があります。
 
 ### コンテンツ {#content}
 

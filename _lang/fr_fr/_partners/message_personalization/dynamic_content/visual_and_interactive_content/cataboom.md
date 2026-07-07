@@ -26,7 +26,7 @@ Avant de commencer, vous avez besoin des éléments suivants :
 | Compte Catapult | Un compte Catapult est requis pour utiliser cette intégration. |
 | Clé API REST Braze (facultatif) | Si vous utilisez les webhooks Catapult, vous avez besoin d'une clé API REST Braze avec les autorisations de données utilisateur requises par votre cas d'utilisation. Créez la clé dans Braze sous **Paramètres** > **API et identifiants** > **Clés API**. |
 | Endpoint REST Braze (facultatif) | Si vous utilisez les webhooks Catapult, utilisez l'URL de l'endpoint REST correspondant à l'URL Braze de [votre instance Braze]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Étape 1 : Créer votre expérience de jeu {#step-1-create-your-game-experience}
 
@@ -65,7 +65,7 @@ Vous avez maintenant suffisamment d'éléments configurés pour effectuer un tes
 
 Dans le menu de gauche, sélectionnez **Creative**.
 
-Téléchargez vos ressources. Catapult prend en charge un contrôle complet de l'image de marque pour votre expérience de jeu.
+Téléversez vos ressources. Catapult prend en charge un contrôle complet de l'image de marque pour votre expérience de jeu.
 
 ![Page Creative de CataBoom avec les actions de téléchargement et de téléversement de graphiques et un aperçu du jeu.]({% image_buster /assets/img/cataboom/creative.png %})
 

@@ -5,11 +5,11 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt Externe IDs umbenennen."
+description: "Dieser Artikel beschreibt Details zum Endpunkt „Externe IDs umbenennen“."
 
 ---
 {% api %}
-# Externe ID umbenennen
+# Externe ID umbenennen {#rename-external-id}
 {% apimethod post %}
 /users/external_ids/rename
 {% endapimethod %}
@@ -18,7 +18,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt Externe IDs umbenen
 
 Sie können bis zu 50 Umbenennungsobjekte pro Anfrage senden.
 
-Dieser Endpunkt legt eine neue (primäre) `external_id` für den Nutzer:innen fest und veraltet seine bestehende `external_id`. Das bedeutet, dass der Nutzer:innen durch einen der beiden `external_id` identifiziert werden kann, bis der veraltete Bezeichner entfernt wird. Mehrere externe IDs sind für eine Migration zulässig, so dass ältere Versionen Ihrer Apps, die das frühere Namensschema für externe IDs verwenden, nicht beschädigt werden.
+Dieser Endpunkt legt eine neue (primäre) `external_id` für die Nutzer:innen fest und markiert die bestehende `external_id` als veraltet. Das bedeutet, dass Nutzer:innen über beide `external_id` identifiziert werden können, bis die veraltete ID entfernt wird. Mehrere externe IDs ermöglichen einen Migrationszeitraum, sodass ältere Versionen Ihrer Apps, die das frühere Namensschema für externe IDs verwenden, nicht beeinträchtigt werden.
 
 Nachdem Ihr altes Namensschema nicht mehr verwendet wird, empfehlen wir dringend, veraltete externe IDs über den [Endpunkt `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove) zu entfernen.
 
@@ -28,15 +28,15 @@ Stellen Sie sicher, dass Sie veraltete externe IDs mit dem Endpunkt `/users/exte
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#17682d2b-1546-4a3c-9703-aa5a12861d7c {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.external_ids.rename`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.external_ids.rename`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='external id migration' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -49,20 +49,20 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `external_id_renames` | Erforderlich | Array mit externen Bezeichnern Objekte umbenennen | Sehen Sie sich das Beispiel der Anfrage und die folgenden Einschränkungen für die Struktur des Objekts "Externer Bezeichner umbenennen" an. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_id_renames` | Erforderlich | Array von Objekten zum Umbenennen externer Bezeichner | Sehen Sie sich das Anfragebeispiel und die folgenden Einschränkungen für die Struktur des Objekts zum Umbenennen externer Bezeichner an. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-Beachten Sie das Folgende:
+Beachten Sie Folgendes:
 
-- Die `current_external_id` muss die primäre ID des Nutzers:innen sein und darf keine veraltete ID sein.
+- Die `current_external_id` muss die primäre ID der Nutzer:innen sein und darf keine veraltete ID sein.
 - Die `new_external_id` darf nicht bereits als primäre ID oder als veraltete ID verwendet werden.
-- Die `current_external_id` und `new_external_id` können nicht dasselbe sein.
+- Die `current_external_id` und `new_external_id` dürfen nicht identisch sein.
 
-## Beispiel für eine Anfrage
+## Anfragebeispiel {#request-example}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids/rename' \
 --header 'Content-Type: application/json' \
@@ -77,9 +77,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Die Antwort bestätigt alle erfolgreichen Umbenennungen sowie erfolglose Umbenennungen mit den entsprechenden Fehlern. Fehlermeldungen im Feld `rename_errors` referenzieren den Index des Objekts im Array der ursprünglichen Anfrage.
+Die Antwort bestätigt alle erfolgreichen Umbenennungen sowie erfolglose Umbenennungen mit den zugehörigen Fehlern. Fehlermeldungen im Feld `rename_errors` referenzieren den Index des Objekts im Array der ursprünglichen Anfrage.
 
 ```
 {
@@ -89,28 +89,28 @@ Die Antwort bestätigt alle erfolgreichen Umbenennungen sowie erfolglose Umbenen
 }
 ```
 
-Das Feld `message` gibt `success` für jede gültige Anfrage zurück. Spezifischere Fehler werden im Array `rename_errors` festgehalten. Das Feld `message` gibt einen Fehler zurück, wenn der Fall eintritt:
+Das Feld `message` gibt `success` für jede gültige Anfrage zurück. Spezifischere Fehler werden im Array `rename_errors` erfasst. Das Feld `message` gibt einen Fehler zurück in folgenden Fällen:
 
 - Ungültiger API-Schlüssel
-- Leeres `external_id_renames` Array
-- `external_id_renames` Array mit mehr als 50 Objekten
-- Erreichen des Rate-Limits (mehr als 1.000 Anfragen pro Minute)
+- Leeres `external_id_renames`-Array
+- `external_id_renames`-Array mit mehr als 50 Objekten
+- Rate-Limit erreicht (mehr als 1.000 Anfragen pro Minute)
 
-## Häufig gestellte Fragen
+## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Hat dies Auswirkungen auf MAU?
-Nein, denn die Anzahl der Nutzer:innen bleibt gleich, sie haben eine neue `external_id`.
+### Hat dies Auswirkungen auf MAU? {#does-this-impact-mau}
+Nein, da die Anzahl der Nutzer:innen gleich bleibt – sie haben lediglich eine neue `external_id`.
 
-### Hat sich das Verhalten der Nutzer:innen im Laufe der Zeit verändert?
-Nein, denn die Nutzer:innen sind immer noch dieselben, und ihr gesamtes historisches Verhalten ist immer noch mit ihnen verbunden.
+### Ändert sich das historische Verhalten der Nutzer:innen? {#does-user-behavior-change-historically}
+Nein, da es sich weiterhin um dieselben Nutzer:innen handelt und ihr gesamtes historisches Verhalten nach wie vor mit ihnen verknüpft ist.
 
-### Kann es in Entwickler:in oder Staging Workspaces ausgeführt werden?
-Ja Wir empfehlen dringend, die Migration in einem Staging- oder Entwicklungs-Workspace zu testen und sicherzustellen, dass alles reibungslos funktioniert, bevor Sie die Migration mit den Produktionsdaten durchführen.
+### Kann dies in Entwicklungs- oder Staging-Workspaces ausgeführt werden? {#can-it-be-run-on-development-or-staging-workspaces}
+Ja. Wir empfehlen sogar dringend, eine Testmigration in einem Staging- oder Entwicklungs-Workspace durchzuführen und sicherzustellen, dass alles reibungslos funktioniert, bevor Sie die Migration mit Produktionsdaten ausführen.
 
-### Werden damit Datenpunkte aufgezeichnet?
-Mit diesem Feature werden keine Datenpunkte protokolliert.
+### Werden dabei Datenpunkte protokolliert? {#does-this-log-data-points}
+Dieses Feature protokolliert keine Datenpunkte.
 
-### Welcher Zeitraum wird für die Abschreibung empfohlen?
-Es gibt keine feste Grenze, wie lange Sie veraltete externe IDs beibehalten können, aber wir empfehlen dringend, sie zu entfernen, wenn es nicht mehr notwendig ist, Nutzer:innen mit der veralteten ID zu referenzieren.
+### Welcher Zeitraum wird für die Deprecation empfohlen? {#what-is-the-recommended-deprecation-period}
+Es gibt keine feste Grenze, wie lange Sie veraltete externe IDs beibehalten können. Wir empfehlen jedoch dringend, sie zu entfernen, sobald es nicht mehr notwendig ist, Nutzer:innen über die veraltete ID zu referenzieren.
 
 {% endapi %}

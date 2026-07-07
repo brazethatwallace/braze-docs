@@ -15,7 +15,7 @@ _이 통합은 Antavo에서 유지 관리합니다._
 
 ## 통합 소개 {#about-the-integration}
 
-Antavo와 Braze 통합을 사용하면 로열티 프로그램 관련 데이터를 활용하여 고객 경험을 향상시키는 개인화된 Campaign을 구축할 수 있습니다. Antavo는 두 플랫폼 간의 로열티 데이터 동기화를 지원하며, 이는 Antavo에서 Braze로의 단방향 데이터 동기화만 지원합니다. 이 통합은 `external_id` Braze 필드를 지원하며, Antavo는 이를 사용하여 로열티 회원 ID를 동기화합니다.
+Antavo와 Braze 통합을 사용하면 로열티 프로그램 관련 데이터를 활용하여 고객 경험을 향상시키는 개인화된 Campaign(캠페인)을 구축할 수 있습니다. Antavo는 두 플랫폼 간의 로열티 데이터 동기화를 지원하며, 이는 Antavo에서 Braze로의 단방향 데이터 동기화만 지원합니다. 이 통합은 `external_id` Braze 필드를 지원하며, Antavo는 이를 사용하여 로열티 회원 ID를 동기화합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -25,7 +25,7 @@ Antavo와 Braze 통합을 사용하면 로열티 프로그램 관련 데이터�
 | Braze REST API 키 | `users.track`, `events.list`, `events.data_series`, `events.get` 권한이 있는 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 | Braze 앱 식별자 | 앱 식별자 키. <br><br>이 키를 Braze 대시보드에서 찾으려면 **설정** > **API 키**로 이동하여 **Identification** 섹션을 찾으세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

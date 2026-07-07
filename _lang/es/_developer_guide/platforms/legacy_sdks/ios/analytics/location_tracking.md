@@ -4,7 +4,7 @@ article_title: Seguimiento de ubicación para iOS
 platform: iOS
 page_order: 6
 description: "Este artículo muestra cómo configurar el seguimiento de ubicación para tu aplicación iOS."
-Tool:
+tool:
   - Location
 
 noindex: true

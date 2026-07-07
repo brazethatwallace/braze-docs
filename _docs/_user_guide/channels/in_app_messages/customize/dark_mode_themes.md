@@ -10,7 +10,7 @@ channel:
 
 # Dark Mode themes
 
-> This article applies to the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/). Dark Mode offers users the opportunity to set a system-wide color preference (introduced on [Android 10](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) and [iOS 13](https://developer.apple.com/documentation/appkit/supporting_dark_mode_in_your_interface/)). "Dark" themes are intended to conserve battery life and reduce strain on users' eyes while providing app developers a way to implement dark color themes.
+> This article applies to the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional). Dark Mode offers users the opportunity to set a system-wide color preference (introduced on [Android 10](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) and [iOS 13](https://developer.apple.com/documentation/appkit/supporting_dark_mode_in_your_interface/)). "Dark" themes are intended to conserve battery life and reduce strain on users' eyes while providing app developers a way to implement dark color themes.
 
 Braze in-app messages support adding an alternate Dark theme to deliver the right color message to your users based on their preference and maintain consistency with your app's design.
 
@@ -22,11 +22,11 @@ When Dark Mode is enabled, the device's native menus and screens (push notificat
 
 ## Setting a Dark Mode theme
 
-Dark Mode, located in the **Design** tab when [creating an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), lets you add an alternate color theme for users who are in Dark Mode on their device.
+Dark Mode, located in the **Design** tab when [creating an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), lets you add an alternate color theme for users who are in Dark Mode on their device.
 
 ![User switching between Light Mode style and Dark Mode styles in the Style tab when creating an in-app message.]({% image_buster /assets/img_archive/iam-dark-mode.gif %})
 
-When this option is enabled, you can choose dark theme colors for your in-app message using the color picker, or by selecting existing [Color Profiles]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) to reuse existing Dark or Light themes.
+When this option is enabled, you can choose dark theme colors for your in-app message using the color picker, or by selecting existing [Color Profiles]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) to reuse existing Dark or Light themes.
 
 {% alert note %}
 You may still use this feature even if your app does not offer its own dark theme. However, devices which do not support Dark Mode will display the Light theme by default. Changing the devices theme on Android while an in-app message is being displayed won't change which theme is used for that in-app message.
@@ -34,9 +34,13 @@ You may still use this feature even if your app does not offer its own dark them
 
 ### Using Dark Mode consistently
 
-To use Dark Mode for all in-app messages, go to **Templates** > **In-App Message Templates**.
+To use Dark Mode for all in-app messages, first create a color profile that aligns with your Dark Mode theme.
 
-From there, select [Create Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) from the dropdown. Create a Color Profile that aligns with your Dark Mode theme. Then, anytime you create a Dark Mode version of an in-app message, you can select that Color Profile and keep the look of your in-app messages consistent.
+1. Go to **Content** > **In-App Message**.
+2. Select **Create Templates** and choose [Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) from the dropdown.
+3. Create and save your color profile. 
+ 
+When creating a Dark Mode version of an in-app message, you can select that color profile to keep the look of your in-app messages consistent.
 
 ## Compatibility
 

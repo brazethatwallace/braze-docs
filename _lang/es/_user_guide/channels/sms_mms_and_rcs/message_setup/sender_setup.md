@@ -11,7 +11,7 @@ channel:
   - RCS
 ---
 
-{% multi_lang_include short_and_long_codes.md %}
+{% multi_lang_include channels/sms/short_and_long_codes.md %}
 
 ## Requisitos específicos de MMS {#mms-specific-requirements}
 
@@ -57,7 +57,7 @@ Los operadores imponen sus propios límites de tamaño de archivo, que determina
 | 300&nbsp;KB | Todos los operadores deberían manejar de forma fiable los mensajes MMS de este tamaño. |
 | 600&nbsp;KB | Este se considera el tamaño máximo estándar de archivo para MMS en la mayoría de los operadores. |
 | 1&nbsp;MB | La mayoría de los operadores de EE. UU. y Canadá pueden manejar mensajes MMS de este tamaño, aunque esto puede variar según el operador. Algunos operadores pueden permitir tamaños de archivo mayores. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Límites de tamaño de archivo por operador" }
 
 #### Tipos de archivo aceptados {#accepted-file-types}
 

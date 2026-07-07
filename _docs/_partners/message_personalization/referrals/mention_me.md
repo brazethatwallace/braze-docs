@@ -22,7 +22,7 @@ Before you start, you'll need the following:
 | A Mention Me account   | A [Mention Me](https://mention-me.com/login) account is required to take advantage of this partnership.                                                                     |
 | A Braze REST API key  | A Braze REST API key with `users.track` and `templates.email.create` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

@@ -19,7 +19,7 @@ Em seguida, atualize seu arquivo `app.json` para Android e iOS:
 
 #### Etapa 1.2: Adicione seu ID de remetente do Google {#step-12-add-your-google-sender-id}
 
-Primeiro, acesse o Firebase Console, abra seu projeto e selecione <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**.
+Primeiro, acesse o Firebase Console, abra seu projeto e selecione <i class="fa-solid fa-gear" aria-label="Configurações"></i>&nbsp;**Settings** > **Project settings**.
 
 ![O projeto Firebase com o menu "Settings" aberto.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
@@ -27,7 +27,7 @@ Selecione **Cloud Messaging** e, em **Firebase Cloud Messaging API (V1)**, copie
 
 ![A página "Cloud Messaging" do projeto Firebase com o "Sender ID" destacado.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-Em seguida, abra o arquivo `app.json` do seu projeto e defina a propriedade `firebaseCloudMessagingSenderId` como o ID do remetente na área de transferência. Por exemplo:
+Em seguida, abra o arquivo `app.json` do seu projeto e defina a propriedade `firebaseCloudMessagingSenderId` como o Sender ID na área de transferência. Por exemplo:
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
@@ -116,23 +116,23 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 Para obter uma lista completa dos campos de notificação por push, consulte a tabela abaixo:
 
-| Nome do campo         | Tipo      | Descrição |
+| Nome do campo | Tipo | Descrição |
 | ------------------ | --------- | ----------- |
-| `payload_type`     | String    | Especifica o tipo de carga útil da notificação. Os dois valores enviados pelo SDK da Braze para React Native são `push_opened` e `push_received`. |
-| `url`              | String    | Especifica a URL que foi aberta pela notificação. |
-| `use_webview`      | booleano   | Se for `true`, a URL será aberta no app em uma webview modal. Se `false`, a URL será aberta no navegador do dispositivo. |
-| `title`            | String    | Representa o título da notificação. |
-| `body`             | String    | Representa o corpo ou o texto do conteúdo da notificação. |
-| `summary_text`     | String    | Representa o texto resumido da notificação. Isso é mapeado a partir de `subtitle` no iOS. |
-| `badge_count`      | Número   | Representa a contagem de emblemas da notificação. |
-| `timestamp`        | Número | Representa a hora em que a carga útil foi recebida pelo aplicativo. |
-| `is_silent`        | booleano   | Se `true`, a carga útil é recebida silenciosamente. Para detalhes sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para detalhes sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| booleano   | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de geofences, sincronização de Feature Flags ou rastreamento de desinstalação. A carga útil é recebida silenciosamente para o usuário. |
-| `image_url`        | String    | Especifica a URL associada à imagem da notificação. |
-| `braze_properties` | Objeto    | Representa as propriedades da Braze associadas à Campaign (pares chave-valor). |
-| `ios`              | Objeto    | Representa campos específicos do iOS. |
-| `android`          | Objeto    | Representa campos específicos do Android. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `payload_type` | String | Especifica o tipo de carga útil da notificação. Os dois valores enviados pelo SDK da Braze para React Native são `push_opened` e `push_received`. |
+| `url` | String | Especifica a URL que foi aberta pela notificação. |
+| `use_webview` | booleano | Se for `true`, a URL será aberta no app em uma webview modal. Se `false`, a URL será aberta no navegador do dispositivo. |
+| `title` | String | Representa o título da notificação. |
+| `body` | String | Representa o corpo ou o texto do conteúdo da notificação. |
+| `summary_text` | String | Representa o texto resumido da notificação. Isso é mapeado a partir de `subtitle` no iOS. |
+| `badge_count` | Número | Representa a contagem de emblemas da notificação. |
+| `timestamp` | Número | Representa a hora em que a carga útil foi recebida pelo aplicativo. |
+| `is_silent` | booleano | Se `true`, a carga útil é recebida silenciosamente. Para detalhes sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para detalhes sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
+| `is_braze_internal` | booleano | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de Feature Flags ou rastreamento de desinstalação. A carga útil é recebida silenciosamente para o usuário. |
+| `image_url` | String | Especifica a URL associada à imagem da notificação. |
+| `braze_properties` | Objeto | Representa as propriedades da Braze associadas à Campaign (pares chave-valor). |
+| `ios` | Objeto | Representa campos específicos do iOS. |
+| `android` | Objeto | Representa campos específicos do Android. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Etapa 3: Ativar deep linking (opcional) {#step-3-enable-deep-linking-optional}
 
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Etapa 3.2: Gerencie deep links a partir de um estado fechado {#step-32-handle-deep-links-from-a-closed-state}
+#### Etapa 3.2: Gerencie deep links a partir de um estado fechado
 
 Além dos cenários básicos tratados pelo [React Native Linking](https://reactnative.dev/docs/linking), implemente o método `Braze.getInitialPushPayload` e recupere o valor `url` para considerar deep links de notificações por push que abrem seu app quando ele não está em execução. Por exemplo:
 

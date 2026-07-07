@@ -4,14 +4,14 @@ article_title: データのアクティベーション
 page_order: 2
 layout: dev_guide
 guide_top_header: "データのアクティベーション"
-guide_top_text: "Brazeでデータを統合したら、次はそのデータを活用しましょう。[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)と[セグメント]({{site.baseurl}}/user_guide/audience/segments/)を使って、顧客の動作や好みをリアルタイムで把握します。そして、ターゲットを絞ったメッセージの作成、体験のパーソナライズ、顧客がリアルタイムで行うアクションに応じたカスタマージャーニーの設定を通じて、データをアクティベーションします。<br><br>Brazeのデータアクティベーションは、カスタムデータによって実現されます。詳細については、[カスタムデータ]({{site.baseurl}}/user_guide/data/activation/)を参照してください。"
+guide_top_text: "Brazeでデータを統合したら、次はそのデータを活用しましょう。[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)と[Segments]({{site.baseurl}}/user_guide/audience/segments)を使って、顧客の動作や好みをリアルタイムで把握します。そして、ターゲットを絞ったメッセージの作成、体験のパーソナライズ、顧客がリアルタイムで行うアクションに応じたカスタマージャーニーの設定を通じて、データをアクティベーションします。<br><br>Brazeのデータアクティベーションは、カスタムデータによって実現されます。詳細については、[カスタムデータ]({{site.baseurl}}/user_guide/data/activation)を参照してください。"
 page_type: landing
 description: "カスタム属性、イベント、カタログを使ってデータをアクティベーションします。データタイプの理解、カスタムデータの管理、ターゲットを絞ったメッセージの作成について説明します。"
 
 guide_featured_title: "カスタムデータ"
 guide_featured_list:
   - name: カスタムデータ
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: データタイプ
     link: /docs/user_guide/data/activation/custom_data/data_types

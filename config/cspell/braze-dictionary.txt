@@ -127,8 +127,11 @@ Braze
 brazeai
 brazecall
 Brazei
+Burkina
 brazexml
 BRZURL
+BSUIDs
+BSUID
 Camila
 Camila’s
 Canva
@@ -136,6 +139,7 @@ Canvas
 CANVASSTEP
 Cardable
 CARRIERSEND
+Caicos
 Cata
 cataboom
 ccdd
@@ -143,7 +147,9 @@ ccemail
 CCPA
 ccpa
 Celebrus
+Celular
 centricity
+Certiverse
 Certona
 chatbots
 checkins
@@ -164,12 +170,15 @@ codepaths
 codepoints
 Cofounder
 Cofounders
+Comcel
+Comunicacion
 companyid
 Content Cards
 CONTENTCARD
 Contentful
 Contentful's
 Contentsquare
+Convercus
 cookieless
 Cooldown
 cooldowns
@@ -188,6 +197,7 @@ cutover
 DALL
 DATAEVENT
 datagrail
+dailyplay
 dataops
 Datashare
 datasharing
@@ -198,6 +208,7 @@ DAU
 DAWIDA
 debouncer
 Decisioning
+Dealz
 Decorumsoft
 Deeplink
 Deeplinking
@@ -216,6 +227,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+drawables
 Dreamhost
 drilldown
 drilldowns
@@ -246,6 +258,7 @@ Erdelyi
 Eshop
 ESP
 Espa
+Eswatini
 Eventbrite
 EWONDO
 exfiltration
@@ -256,6 +269,7 @@ Extole’s
 Ezgif
 Factual
 Failz
+Faso
 fanbase
 FAROESE
 Fastly
@@ -282,6 +296,7 @@ flyering
 Fmms
 fontawesome
 FONYI
+focusout
 Foursquare
 Français
 FREQUENCYCAP
@@ -290,6 +305,7 @@ fullscreens
 Fullstory
 Fullstory's
 Fullstory’s
+Futuna
 Gafas
 GAID
 gamified
@@ -317,6 +333,7 @@ Grouparoo's
 growthloop
 Hailo
 handleize
+Harborlight
 Hashanah
 hashpart
 Heartbleed
@@ -391,6 +408,7 @@ Kameloon
 keyup
 Kickbox
 Kickbox's
+Kitts
 Kjlpvt
 KIEMBU
 KINYARWANDA
@@ -410,6 +428,7 @@ Kubit's
 Lemnisk
 Leste
 LGBTQ
+libphonenumber
 Lifecycles
 Lifesum
 LiftIgniter
@@ -447,17 +466,20 @@ Luka
 Luka's
 LUXEMBOURGISH
 LUYIA
+Lycamobile
 Lytics
 MACHAME
 MailBakery
 Mailizio
 Mailizio's
 Mailjet
+Maarten
 mainform
 Makhuwa
 Makonde
 MARKASSPAM
 Marketo
+Marino
 martech
 MATCHEDAUDIENCE
 MAU
@@ -490,6 +512,7 @@ ML
 Montclair
 MORISYEN
 Morty
+Movistar
 mouseleave
 mParticle
 MPID
@@ -559,12 +582,15 @@ OROMO
 otherlevels
 OTT
 ouibounce's
+overconsumption
 oversaturating
 Pangle
+Pegaso
 Pandoc
 parentheticals
 passback
 PassKit
+Pastd
 Patricks
 PCRE
 PERFORMEDEVENT
@@ -602,11 +628,13 @@ Quikly
 Radar
 RAETO
 RANDOMBUCKETNUMBERUPDATE
+RAWLLMREQUEST
 React
 reactnative
 reapproved
 rebalances
 Receipient's
+Recertification
 recherchez
 RECORDEVENT
 Recurly
@@ -634,6 +662,8 @@ RGBA
 ridesharing
 Rish
 Rishing
+Rica
+Rican
 Rokt
 Rokt Calendar
 roleplay
@@ -680,6 +710,7 @@ SENA
 Sendbird
 sendds
 Sendgrid
+Selfservice
 senni
 SESSIONEND
 sessionm
@@ -704,6 +735,8 @@ showtimes
 simondata
 simphone
 Singular
+Singtel
+Sint
 Sisu
 Skyscanner
 Slideup
@@ -717,6 +750,7 @@ snapshottable
 SNCM
 SNDS
 Snowflake
+Snowsight
 Snowpipe
 Snowpipes
 sobjects
@@ -785,6 +819,7 @@ Taxi for Email
 TCPA
 tcpdump
 Tealium
+Telcel
 TeleSign
 Tellius
 templatable
@@ -804,6 +839,7 @@ Toolkits
 Toovio
 Toovio's
 torchie
+TOTP
 Touchpoint
 Touchpoints
 trackpad
@@ -821,6 +857,7 @@ Typeform's
 Türkiye
 Unarchived
 Unarchiving
+undercounted
 Unfavorited
 unfavorites
 unfavoriting
@@ -831,6 +868,7 @@ unhide
 Unichrs
 unicodeinput
 Unity
+unitypackage
 unpublishing
 unreviewed
 unsetcustomattribute

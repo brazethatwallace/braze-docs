@@ -24,7 +24,7 @@ Um E-Mail-Marketing-Campaigns zu erstellen, onboarden Sie die Roh-E-Mails in Zeo
 | Client Name | Dies ist Ihr Client-Name für Ihr Braze-Konto. Sie finden ihn, indem Sie zur Braze-Konsole navigieren. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -109,7 +109,7 @@ In diesem Abschnitt finden Sie Details zu allen Braze-Feldern.
 | Sprache | Dropdown-Auswahl | • Das akzeptierte Format ist der `ISO-639-1`-Standard (zum Beispiel en).<br>• Onboarden Sie die korrekt formatierte Sprache und bilden Sie sie ab. |
 | Geburtsdatum | Dropdown-Auswahl | Bilden Sie es auf das `Date of Birth`-Feld ab, das Sie onboarden. |
 | Angepasstes Attribut | Eingabe angepasster Daten | Bilden Sie jedes Nutzerattribut auf eine angepasste Dateneingabe ab, die dann an Braze gesendet wird. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterstützte Attribute" }
 
 ## Daten in der Braze-Konsole anzeigen {#viewing-data-on-braze-console}
 

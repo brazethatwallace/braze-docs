@@ -15,7 +15,7 @@ tool:
 
 ## Disponibilidad de la característica {#feature-availability}
 
-Todos los clientes de Braze tienen acceso inmediato a Audience Sync con Google y Facebook, pero los clientes que utilizan créditos de mensajes pueden acceder a todos los socios de Audience Sync. Para desbloquear destinos adicionales de Audience Sync para clientes que no utilizan créditos de mensajes, compra Audience Sync Pro. Ponte en contacto con tu director de cuentas de Braze para obtener más información.
+Todos los clientes de Braze tienen acceso inmediato a Audience Sync con Google y Facebook, pero los clientes con Action Credits pueden acceder a todos los socios de Audience Sync. Para desbloquear destinos adicionales de Audience Sync para clientes que no utilizan Action Credits, compra Audience Sync Pro. Ponte en contacto con tu director de cuentas de Braze para obtener más información.
 
 ## Casos de uso {#use-cases}
 
@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat procesa 10 consultas por segundo y 100.000 usuarios por solicitud. Braze agrupa a los usuarios cada 5 segundos. | Sí | Snapchat admite hasta 1.000 audiencias de anuncios. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Hasta 24 horas | N/A | Sí | {::nomarkdown}<ul><li>No hay un tamaño mínimo de audiencia para las audiencias de CRM en The Trade Desk.</li><li>No hay límite en la cantidad de audiencias que admite The Trade Desk.</li><li>Si sincronizas con una audiencia con una región configurada en la UE, el número de teléfono no es compatible.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Entre 24 y 48 horas | TikTok procesa 50 consultas por segundo y 10.000 usuarios por solicitud. Braze agrupa a los usuarios cada 5 segundos. | Sí | {::nomarkdown}<ul><li>TikTok admite hasta 400 audiencias de anuncios.</li><li>Las audiencias de TikTok requieren al menos 1.000 usuarios para empezar a mostrar anuncios.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Resumen" }
 <sup>Cuando se alcance el límite de velocidad, Braze reintentará las sincronizaciones durante 13 horas.</sup>
 
 ## Cómo funciona {#how-it-works}
@@ -76,7 +76,7 @@ Para utilizar un socio de Audience Sync Pro, como TikTok, Pinterest, Snapchat o 
 
 ![Audience Sync Pro sin socios seleccionados todavía.]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
-Primero, selecciona los socios que pretendes utilizar haciendo clic en Select Partners. Cada compra de Audience Sync Pro te proporcionará 3 destinos asignados de Audience Sync Pro, que estarán disponibles en cada uno de tus espacios de trabajo dentro de tu dashboard.
+Primero, selecciona los socios que pretendes utilizar haciendo clic en **Select Partners**. Cada compra de Audience Sync Pro te proporcionará 3 destinos asignados de Audience Sync Pro, que estarán disponibles en cada uno de tus espacios de trabajo dentro de tu dashboard.
 
 ![Opción de seleccionar hasta tres socios para conectarse a Braze.]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
 
@@ -87,6 +87,22 @@ Después de seleccionar tus destinos de Audience Sync Pro, conecta la cuenta pub
 ![Configuración de Audience Sync de Snapchat con el mensaje: "Has conectado correctamente 1 cuenta de Snapchat".]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
 Por último, crea tu paso de Audience Sync en Canvas utilizando este destino de Audience Sync Pro.
+
+### Procesamiento por lotes y latencia {#batching-and-latency}
+
+Cuando los usuarios entran en un paso de Audience Sync en Canvas, Braze los pone en cola en un sistema de procesamiento por lotes que agrega las actualizaciones de usuarios antes de enviarlas a la API del socio. Un lote se envía cuando ocurre alguna de las siguientes situaciones:
+
+- **El lote alcanza su límite de tamaño.** Esto varía según el socio:
+  - El valor predeterminado admite hasta 2.000 usuarios
+  - Google Ads admite hasta 10.000 usuarios
+  - Facebook y TikTok admiten hasta 2.000 usuarios
+- **El temporizador de latencia del lote expira.** El valor predeterminado es de una hora, pero es configurable por socio. Por ejemplo, The Trade Desk utiliza 10 minutos.
+
+Los Canvas de alto volumen pueden enviar antes porque los lotes se llenan más rápido. Los Canvas de bajo volumen esperan hasta que el temporizador de latencia expire. Braze no garantiza un tiempo de envío fijo; el momento depende del tamaño del lote y la ventana de latencia configurada.
+
+Braze registra la actividad de envío en registros internos para monitoreo y solución de problemas, pero estas marcas de tiempo no están expuestas como campos consultables. Después de que Braze envía un lote a la API del socio, el socio procesa la actualización de la audiencia de acuerdo con sus propios acuerdos de nivel de servicio, normalmente entre 6 y 48 horas.
+
+Braze no recibe confirmación de los socios de que los usuarios individuales hayan sido emparejados o sincronizados. Las respuestas de los socios son confirmaciones HTTP de recepción, no confirmaciones de coincidencia. Para verificar que una audiencia se ha completado, consulta la plataforma publicitaria del socio (como Google Ads Audience Manager o Meta Business Manager).
 
 ### Correos electrónicos de error de Audience Sync {#audience-sync-error-emails}
 

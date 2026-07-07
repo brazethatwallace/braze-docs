@@ -116,23 +116,23 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 푸시 알림 필드의 전체 목록은 아래 표를 참조하세요:
 
-| 필드 이름         | 유형      | 설명 |
+| 필드 이름 | 유형 | 설명 |
 | ------------------ | --------- | ----------- |
-| `payload_type`     | 문자열    | 알림 페이로드 유형을 지정합니다. Braze React Native SDK에서 전송되는 두 가지 값은 `push_opened`와 `push_received`입니다. |
-| `url`              | 문자열    | 알림에 의해 열린 URL을 지정합니다. |
-| `use_webview`      | 부울   | `true`이면 URL이 인앱 모달 웹뷰에서 열립니다. `false`이면 기기 브라우저에서 URL이 열립니다. |
-| `title`            | 문자열    | 알림의 제목을 나타냅니다. |
-| `body`             | 문자열    | 알림의 본문 또는 콘텐츠 텍스트를 나타냅니다. |
-| `summary_text`     | 문자열    | 알림의 요약 텍스트를 나타냅니다. iOS에서는 `subtitle`에서 매핑됩니다. |
-| `badge_count`      | 숫자   | 알림의 배지 수를 나타냅니다. |
-| `timestamp`        | 숫자 | 애플리케이션이 페이로드를 수신한 시간을 나타냅니다. |
-| `is_silent`        | 부울   | `true`이면 페이로드가 무음으로 수신됩니다. Android 무음 푸시 알림 전송에 대한 자세한 내용은 [Android 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 참조하세요. iOS 무음 푸시 알림 전송에 대한 자세한 내용은 [iOS 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 참조하세요. |
-| `is_braze_internal`| 부울   | 지오펜스 동기화, 피처 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
-| `image_url`        | 문자열    | 알림 이미지와 연결된 URL을 지정합니다. |
-| `braze_properties` | 오브젝트    | Campaign과 관련된 Braze 등록정보(키-값 페어)를 나타냅니다. |
-| `ios`              | 오브젝트    | iOS 전용 필드를 나타냅니다. |
-| `android`          | 오브젝트    | Android 전용 필드를 나타냅니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `payload_type` | 문자열 | 알림 페이로드 유형을 지정합니다. Braze React Native SDK에서 전송되는 두 가지 값은 `push_opened`와 `push_received`입니다. |
+| `url` | 문자열 | 알림에 의해 열린 URL을 지정합니다. |
+| `use_webview` | 부울 | `true`이면 URL이 인앱 모달 웹뷰에서 열립니다. `false`이면 기기 브라우저에서 URL이 열립니다. |
+| `title` | 문자열 | 알림의 제목을 나타냅니다. |
+| `body` | 문자열 | 알림의 본문 또는 콘텐츠 텍스트를 나타냅니다. |
+| `summary_text` | 문자열 | 알림의 요약 텍스트를 나타냅니다. iOS에서는 `subtitle`에서 매핑됩니다. |
+| `badge_count` | 숫자 | 알림의 배지 수를 나타냅니다. |
+| `timestamp` | 숫자 | 애플리케이션이 페이로드를 수신한 시간을 나타냅니다. |
+| `is_silent` | 부울 | `true`이면 페이로드가 무음으로 수신됩니다. Android 무음 푸시 알림 전송에 대한 자세한 내용은 [Android 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 참조하세요. iOS 무음 푸시 알림 전송에 대한 자세한 내용은 [iOS 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 참조하세요. |
+| `is_braze_internal`| 부울 | 피처 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
+| `image_url` | 문자열 | 알림 이미지와 연결된 URL을 지정합니다. |
+| `braze_properties` | 오브젝트 | Campaign과 관련된 Braze 등록정보(키-값 페어)를 나타냅니다. |
+| `ios` | 오브젝트 | iOS 전용 필드를 나타냅니다. |
+| `android` | 오브젝트 | Android 전용 필드를 나타냅니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### 3단계: 딥링킹 활성화(선택 사항) {#step-3-enable-deep-linking-optional}
 
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### 3.2단계: 종료 상태에서의 딥링크 처리 {#step-32-handle-deep-links-from-a-closed-state}
+#### 3.2단계: 종료 상태에서의 딥링크 처리
 
 [React Native Linking](https://reactnative.dev/docs/linking)이 처리하는 기본 시나리오 외에도, `Braze.getInitialPushPayload` 메서드를 구현하고 `url` 값을 가져와서 앱이 실행되지 않는 상태에서 푸시 알림으로 열리는 딥링크를 처리하세요. 예를 들면 다음과 같습니다:
 
@@ -462,7 +462,7 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 {% endalert %}
 
 1. `Braze.changeUserId('your-user-id')` 메서드를 호출하여 React Native 애플리케이션에서 활성 사용자를 설정합니다.
-2. **Campaigns**으로 이동하여 새 푸시 알림 Campaign을 만듭니다. 테스트할 플랫폼을 선택합니다.
+2. **Campaigns**로 이동하여 새 푸시 알림 Campaign을 만듭니다. 테스트할 플랫폼을 선택합니다.
 3. 테스트 알림을 작성하고 **Test** 탭으로 이동합니다. 테스트 사용자와 동일한 `user-id`를 추가하고 **Send Test**를 클릭합니다. 곧 기기에서 알림을 받을 수 있습니다.
 
 ![자신의 사용자 ID를 테스트 수신자로 추가하여 푸시 알림을 테스트할 수 있는 Braze 푸시 Campaign.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")

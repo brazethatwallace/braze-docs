@@ -25,7 +25,7 @@ In general, since extensions are HTML and JavaScript, you can use Braze for the 
 
 ## What's not supported
 
-* Service workers are not supported by the Braze Web SDK, however, this is on the roadmap for future consideration.
+* Using the Braze SDK from within a service worker is not supported. You can still use the Braze SDK in your extension's popup or settings page.
 
 ## Extension types
 
@@ -36,7 +36,7 @@ Braze can be included in the following areas of your extension:
 | Popup Page | The [Popup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) page is a dialog that can be shown to users when clicking on your extension's icon in the browser toolbar.| Analytics, in-app messages, and Content Cards |
 | Background Scripts | [Background Scripts](https://developer.chrome.com/extensions/background_pages) (Manifest v2 only) allow your extension to inspect and interact with user navigation or modify webpages (for example, how ad blockers detect and change content on pages). | Analytics, in-app messages, and Content Cards.<br><br>Background scripts aren't visible to users, so for messaging, you would need to communicate with browser tabs or your popup page when displaying messages. |
 | Options Pages | The [Options Page](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) lets your users toggle settings within your extension. It's a standalone HTML page that opens a new tab. | Analytics, in-app messages, and Content Cards |
-{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="Extension types" }
 
 ## Permissions
 
@@ -47,7 +47,7 @@ However, if you use [Google Tag Manager]({{ site.baseurl }}/developer_guide/plat
 ## Getting started
 
 {% alert tip %}
-Before you get started, make sure you've read through the Web SDK's [Initial SDK setup guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) to learn more about our JavaScript integration in general.  <br><br>You may also want to bookmark the [JavaScript SDK reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) for full details on all of the different SDK methods and configuration options.
+Before you get started, make sure you've read through the Web SDK's [Initial SDK setup guide]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) to learn more about our JavaScript integration in general.  <br><br>You may also want to bookmark the [JavaScript SDK reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) for full details on all of the different SDK methods and configuration options.
 {% endalert %}
 
 To integrate the Braze Web SDK, you'll first need to download a copy of the latest JavaScript library. This can be done using NPM or directly downloading it from the [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js).

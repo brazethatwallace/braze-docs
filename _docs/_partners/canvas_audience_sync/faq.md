@@ -53,5 +53,5 @@ The user reconnecting must have both read and write access to all the audiences 
 | Ad Account Access Attempt | This error occurs if you don’t have permission for the ad account, an audience that you selected, or both. | Work with the administrators of your ad account to get proper access and permissions. |
 | Invalid Settings | This can occur if you haven't configured a specific Audience Sync destination in Canvas, including the ad account, audience, or user fields to match. | Complete the configuration of each partner before launching. |
 | Terms of Service | For some Audience Sync destinations, like Facebook, it is required by the ad network to accept specific terms of service to use the Audience Sync feature. This error will trigger if you have not accepted the appropriate terms. | Confirm you have accepted each partner's required terms. For Facebook specifically, review [Facebook troubleshooting]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync/#troubleshooting). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What are common errors that can occur when creating and managing my Audience Syncs?" }
 

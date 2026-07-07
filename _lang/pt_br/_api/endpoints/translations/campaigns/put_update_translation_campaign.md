@@ -15,23 +15,21 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 /campaigns/translations
 {% endapimethod %}
 
-> Use este endpoint para atualizar várias traduções para uma campanha. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
+> Use este endpoint para atualizar várias traduções para uma campanha. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para saber mais sobre os recursos de tradução.
 
-Se você quiser atualizar as traduções após uma campanha ter sido lançada, precisará [salvar sua mensagem como rascunho]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/) primeiro.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+Se você quiser atualizar as traduções após uma campanha ter sido lançada, precisará [salvar sua mensagem como rascunho]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch) primeiro.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.translations.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `campaigns.translations.update`.
 
 ## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros de caminho {#path-parameters}
+## Parâmetros de jornada {#path-parameters}
 
-Não há parâmetros de caminho para este endpoint.
+Não há parâmetros de jornada para este endpoint.
 
 ## Parâmetros de solicitação {#request-parameters}
 
@@ -41,7 +39,7 @@ Não há parâmetros de caminho para este endpoint.
 | `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
 | `locale_id` | Obrigatória | String | O ID (UUID) do local. |
 | `translation_map` | Obrigatória | Objeto | Objeto contendo as novas traduções. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

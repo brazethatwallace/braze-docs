@@ -16,11 +16,11 @@ platform:
 
 {% tabs %}
 {% tab Android %}
-### Rebond push : MismatchSenderId {#push-bounced-mismatchsenderid}
+## Rebond push : MismatchSenderId {#push-bounced-mismatchsenderid}
 `MismatchSenderId` indique un échec d'authentification. Firebase Cloud Messaging (FCM) s'authentifie avec deux éléments clés : le senderID et la clé API FCM. Ces deux éléments doivent être validés pour leur exactitude. Pour plus d'informations, consultez la [documentation Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) à ce sujet.
 
 Les échecs courants peuvent inclure :
-- Un [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase) incorrect
+- Un [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase) incorrect
 - Des enregistrements multiples si l'utilisateur s'enregistre auprès d'un autre service push avec un senderID différent
 
 ### Rebond push : InvalidRegistration {#push-bounced-invalidregistration}
@@ -29,30 +29,39 @@ Les échecs courants peuvent inclure :
 - Les utilisateurs s'enregistrent auprès de plusieurs services. Nous nous attendons actuellement à ce que les intentions d'enregistrement push arrivent dans l'ancien format, donc si les utilisateurs s'enregistrent à plusieurs endroits et que nous interceptons des intentions provenant d'autres services, nous pouvons obtenir des jetons de notification push malformés.
 
 ### Rebond push : NotRegistered {#notregistered}
+
 `NotRegistered` signifie généralement que l'application a été supprimée de l'appareil (ce qui constitue notre signal de désinstallation). Cela peut également se produire en cas d'enregistrements multiples, lorsqu'un second enregistrement invalide le jeton de notification push que Braze reçoit.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
-Cette erreur apparaît dans le journal d'activité des messages sous la forme :
-
-`Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
+Cette erreur apparaît dans le journal d'activité des messages sous la forme : `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
 Cela se produit généralement pour l'une des raisons suivantes :
 
 - L'utilisateur a désinstallé l'application. C'est la cause la plus courante. Lorsque l'application est supprimée d'un appareil, le jeton de notification push devient invalide.
 - Les identifiants push ont été mis à jour dans l'application. Si votre équipe a modifié les identifiants FCM ou les certificats intégrés à l'application, les utilisateurs enregistrés avec les anciens identifiants ont des jetons invalides jusqu'à ce que l'application les réenregistre.
-- Une logique personnalisée désenregistre les utilisateurs des notifications push. C'est rare, mais il est techniquement possible de désenregistrer programmatiquement un appareil des notifications push en utilisant le SDK Firebase/Android.
+- Une logique personnalisée désenregistre les utilisateurs des notifications push. C'est rare, mais il est techniquement possible de désenregistrer programmatiquement un appareil des notifications push en utilisant le [SDK Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
 Cette erreur ne signifie pas que l'utilisateur a désactivé les notifications push — seulement qu'un jeton spécifique a été supprimé de son profil. C'est courant pour les utilisateurs qui testent des fonctionnalités et installent et désinstallent fréquemment l'application. Pour vérifier si l'utilisateur dispose encore de jetons valides, accédez à **Recherche d'utilisateurs** et consultez la section **Paramètres de contact** dans l'onglet **Engagement**.
 {% endalert %}
+
+### L'entité demandée est introuvable {#requested-entity-was-not-found}
+
+Cette erreur peut se produire pour les raisons suivantes :
+
+- L'utilisateur final a désinstallé l'application. Vous pouvez consulter son profil utilisateur pour confirmer si c'est le cas.
+- Le canal de notification est invalide. Selon votre intégration, les appareils peuvent avoir des jetons de notification push qui ne sont valides que pour certains canaux de notification. Lors de l'envoi vers un canal invalide, le message rebondit.
+- La taille du payload est trop importante.
+
+Pour plus d'informations, consultez la [documentation de Google](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) sur les jetons d'enregistrement obsolètes et expirés.
 
 {% endtab %}
 {% tab iOS %}
 
 ### Erreur d'envoi push car le payload était invalide {#error-sending-push-because-the-payload-was-invalid}
 
-Ce message peut apparaître dans l'onglet **Engagement** du profil utilisateur sous **Paramètres de contact** > **Journal des modifications push** lorsque le service Apple Push Notification (APNs) rejette la requête push en raison d'un payload invalide.
+Ce message peut apparaître dans l'onglet **Engagement** du profil utilisateur sous **Paramètres de contact** > **Push Changelog** lorsque le service Apple Push Notification (APNs) rejette la requête push en raison d'un payload invalide.
 
 Dans Braze, ce message du tableau de bord peut correspondre à l'une des raisons d'erreur APNs suivantes :
 
@@ -73,7 +82,7 @@ Les causes courantes incluent :
 
 L'erreur `BadToken` peut se produire pour plusieurs raisons :
 - Le jeton de notification push n'est pas envoyé correctement à Braze (par exemple, dans `registerDeviceToken:` ou l'équivalent de votre plateforme).
-	- Vérifiez le jeton dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Il devrait généralement ressembler à une longue chaîne de lettres et de chiffres (comme `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Si ce n'est pas le cas, vérifiez le code impliqué dans l'envoi du jeton de notification push à Braze.<br><br>
+	- Vérifiez le jeton dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Il devrait généralement ressembler à une longue chaîne de lettres et de chiffres (comme `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Si ce n'est pas le cas, vérifiez le code impliqué dans l'envoi du jeton de notification push à Braze.<br><br>
 - Environnement de provisionnement non concordant :
 	- Si vous vous enregistrez avec un certificat de développement et essayez d'envoyer avec un certificat de production, vous pouvez voir cette erreur.
 	- Braze ne prend en charge que les certificats universels pour les environnements de production. Tester les notifications push dans les environnements de développement avec un certificat universel ne fonctionnera pas.

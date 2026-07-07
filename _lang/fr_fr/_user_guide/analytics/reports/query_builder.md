@@ -2,20 +2,20 @@
 nav_title: Générateur de requêtes
 article_title: Générateur de requêtes
 page_order: 4
-description: "Cet article de référence décrit comment créer des rapports à partir des données Braze dans Snowflake avec le Générateur de requêtes."
+description: "Cet article de référence décrit comment créer des rapports à partir des données de Braze dans Snowflake à l'aide du Générateur de requêtes."
 tool: Reports
 alias: /query_builder/
 ---
 
 # Générateur de requêtes {#query-builder}
 
-> Le Générateur de requêtes génère des rapports à partir des données Braze dans Snowflake. Il est fourni avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) SQL prédéfinis pour vous aider à démarrer, ou vous pouvez écrire vos propres requêtes SQL personnalisées pour obtenir encore plus d'informations.
+> Le Générateur de requêtes génère des rapports à partir des données de Braze dans Snowflake. Il est fourni avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) SQL prédéfinis pour vous aider à démarrer, ou vous pouvez écrire vos propres requêtes SQL personnalisées pour obtenir encore plus d'informations.
 
-Étant donné que le Générateur de requêtes permet un accès direct à certaines données client, vous ne pouvez y accéder que si vous disposez de l'[autorisation]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) « View PII ».
+Étant donné que le Générateur de requêtes permet un accès direct à certaines données client, vous ne pouvez y accéder que si vous disposez de l'[autorisation]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) « View PII ».
 
 ## Tables de données disponibles {#available-data-tables}
 
-Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Exécuter des rapports dans le Générateur de requêtes {#running-reports-in-the-query-builder}
 
@@ -37,11 +37,11 @@ Les résultats de chaque rapport peuvent être générés une fois par jour. Si 
 
 Accédez aux modèles de requêtes en sélectionnant **Create SQL Query** > **Query Template** lors de la création initiale d'un rapport.
 
-Consultez [Modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) pour une liste des modèles disponibles.
+Consultez [Modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) pour une liste des modèles disponibles.
 
 ### Période des données {#data-timeframe}
 
-Les requêtes renvoient les données des 60 derniers jours. Si vous utilisez Currents ou le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/), vous pourrez peut-être interroger jusqu'à deux ans de données, ce qui correspond à la durée de conservation de vos données dans Snowflake. Pour plus de détails sur la conservation étendue des données, contactez votre gestionnaire de la satisfaction client.
+Les requêtes renvoient les données des 60 derniers jours. Si vous utilisez Currents ou le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), vous pourrez peut-être interroger jusqu'à deux ans de données, ce qui correspond à la durée de conservation de vos données dans Snowflake. Pour plus de détails sur la conservation étendue des données, contactez votre gestionnaire de la satisfaction client.
 
 ### Fuseau horaire du Générateur de requêtes {#query-builder-time-zone}
 
@@ -90,21 +90,21 @@ Pour générer du SQL avec l'AI Query Builder :
 
 ### Conseils {#tips}
 
-- Familiarisez-vous avec les tables et colonnes disponibles dans la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Demander des données qui n'existent pas dans ces tables peut amener ChatGPT à inventer une fausse table.
-- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql) pour cette fonctionnalité. Le non-respect de ces règles entraînera une erreur.
+- Familiarisez-vous avec les tables et colonnes disponibles dans la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Demander des données qui n'existent pas dans ces tables peut amener ChatGPT à inventer une fausse table.
+- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) pour cette fonctionnalité. Le non-respect de ces règles entraînera une erreur.
 - Vous pouvez envoyer jusqu'à 20 prompts par minute avec l'AI Query Builder.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Écrire des requêtes SQL personnalisées {#custom-sql}
 
-Écrivez votre requête SQL en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference). Consultez la [référence des tables]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) pour une liste complète des tables et colonnes disponibles pour les requêtes.
+Écrivez votre requête SQL en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference). Consultez la [référence des tables]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) pour une liste complète des tables et colonnes disponibles pour les requêtes.
 
 Pour afficher les détails des tables dans le Générateur de requêtes :
 
 1. Depuis la page **Query Builder**, ouvrez le panneau **Reference** et sélectionnez **Available Data Tables** pour afficher les tables de données disponibles et leurs noms.
 3. Sélectionnez <i class="fas fa-chevron-down" alt=""></i> **See Details** pour afficher la description de la table et les informations sur les colonnes, telles que les types de données.
-4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copier le nom de la table dans l'éditeur SQL"></i>.
+4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copier le nom de la table dans l'éditeur SQL"></i> **Copy table name to SQL editor**.
 
 Pour utiliser des requêtes pré-écrites fournies par Braze, sélectionnez **Query Template** lors de la création initiale d'un rapport dans le Générateur de requêtes.
 
@@ -131,7 +131,7 @@ Si vous interrogez `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CAMPAIGN_ID`, les 
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Écrire des requêtes SQL personnalisées" }
 
 Cette requête récupère les trois ID et leurs colonnes de noms associées avec un maximum de 100 lignes :
 
@@ -166,7 +166,7 @@ Utilisez des variables pour employer des types de variables prédéfinis en SQL 
 
 Une fois une variable créée, elle apparaîtra dans l'onglet **Variables** de votre rapport du Générateur de requêtes. Les avantages de l'utilisation de variables SQL incluent :
 
-- Gagner du temps en créant une variable de campagne à sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des ID de campagne.
+- Gagner du temps en créant une variable Campaign à sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des identifiants Campaign.
 - Permuter les valeurs en ajoutant des variables qui vous permettent de réutiliser le rapport pour des cas d'utilisation légèrement différents à l'avenir (comme un événement personnalisé différent).
 - Réduire les erreurs utilisateur lors de la modification de votre SQL en diminuant la quantité de modifications nécessaires pour chaque rapport. Les collègues plus à l'aise avec SQL peuvent créer des rapports que des collègues moins techniques peuvent ensuite utiliser.
 
@@ -215,7 +215,7 @@ Les quatre types sont affichés si `start_date` et `end_date` sont utilisés ave
 | Date de début | Spécifie une date de début | Nécessite `start_date` |
 | Date de fin | Spécifie une date de fin | Nécessite `end_date` |
 | Plage de dates | Spécifie à la fois une date de début et une date de fin | Nécessite à la fois `start_date` et `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemples de valeurs" }
 
 - **Valeur de remplacement :** Remplace `start_date` et `end_date` par un horodatage Unix en secondes pour une date spécifiée en UTC, tel que `1696517353`.
 - **Exemple d'utilisation :** Pour toutes les variables relatives, date de début, date de fin et plage de dates :
@@ -228,56 +228,56 @@ Toutes les variables d'envoi de messages doivent partager le même identifiant l
 
 ##### Canvas
 
-Pour sélectionner un Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la campagne.
+Pour sélectionner un Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (multiples) {#canvases}
 
-Pour sélectionner plusieurs Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la campagne.
+Pour sélectionner plusieurs Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON des Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign
 
-Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la Campaign.
+Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON de la Campaign
 - **Exemple d'utilisation :** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns
 
-Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit la Campaign.
+Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON des Campaigns
 - **Exemple d'utilisation :** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
-##### Variantes de campagne {#campaign-variants}
+##### Variantes de Campaign {#campaign-variants}
 
-Pour sélectionner les variantes de campagne appartenant à la Campaign sélectionnée. Doit être utilisé conjointement avec une variable de Campaign ou de Campaigns.
+Pour sélectionner les variantes de Campaign appartenant à la Campaign sélectionnée. Doit être utilisé conjointement avec une variable Campaign ou Campaigns.
 
-- **Valeur de remplacement :** ID API des variantes de campagne, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
+- **Valeur de remplacement :** ID API des variantes de Campaign, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes de Canvas {#canvas-variants}
 
-Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable de Canvas ou de Canvas (multiples).
+Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable Canvas ou Canvas (multiples).
 
 - **Valeur de remplacement :** ID API des variantes de Canvas, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### Étape du Canvas {#canvas-step}
 
-Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable de Canvas.
+Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable Canvas.
 
 - **Valeur de remplacement :** ID API de l'étape du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### Étapes du Canvas {#canvas-steps}
 
-Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Doit être utilisé avec une variable de Canvas ou de Canvas (multiples).
+Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Doit être utilisé avec une variable Canvas ou Canvas (multiples).
 
 - **Valeur de remplacement :** ID API des étapes du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

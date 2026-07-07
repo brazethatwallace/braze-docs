@@ -104,13 +104,13 @@ Braze aconseja que, al crear nuevos usuarios a través del punto de conexión `/
 {% endalert %}
 
 {% details Detailed /subscription/status/set request %}
-#### Encabezados de solicitud {#request-headers}
+#### Encabezados de solicitud
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Cuerpo de la solicitud {#request-body}
+#### Cuerpo de la solicitud
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -135,13 +135,13 @@ Utiliza webhooks para desencadenar incentivos para eventos específicos en el re
 
 ### Crear un webhook de Quikly en Braze {#create-a-quikly-webhook-in-braze}
 
-Para crear una plantilla de webhook de Quikly para futuras campañas o Canvas, navega a **Templates** > **Webhook Templates** en la plataforma Braze.
+Para crear una plantilla de webhook de Quikly para futuras Campaigns o Canvas, navega a **Content** > **Webhook** en la plataforma Braze. Luego, selecciona **Create webhook template**.
 
-Si deseas crear una campaña de webhook de Quikly única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
+Si deseas crear una Campaign de webhook de Quikly única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva Campaign.
 
 Selecciona **Blank Template** e introduce lo siguiente para la URL del webhook y el cuerpo de la solicitud:
 - **Webhook URL**: https://api.quikly.com/webhook/braze
-- **Request Body**: Pares clave/valor JSON
+- **Request Body**: pares clave/valor JSON
 
 #### Encabezados de solicitud y método {#request-headers-and-method}
 
@@ -152,7 +152,7 @@ Quikly requiere un `HTTP Header` para la autorización.
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### Cuerpo de la solicitud {#request-body}
+#### Cuerpo de la solicitud
 
 Selecciona ***JSON key/value pairs*** y añade los siguientes pares:
 {% raw %}
@@ -168,7 +168,7 @@ Selecciona ***JSON key/value pairs*** y añade los siguientes pares:
 Previsualiza tu solicitud en el panel de **Preview** o navega hasta la pestaña `Test`, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Saved Webhook Templates** al crear una nueva [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
 
 {% endtab %}

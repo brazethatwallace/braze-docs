@@ -1,7 +1,7 @@
 ---
 nav_title: Canva
 article_title: Canva
-description: "Este artículo de referencia describe la asociación entre Braze y Canva para enviar activos de medios a la biblioteca de medios de Braze y publicar diseños de correo electrónico de Canva como plantillas de correo electrónico de Braze."
+description: "Este artículo de referencia describe la asociación entre Braze y Canva para enviar activos de medios a la Biblioteca de medios de Braze y publicar diseños de correo electrónico de Canva como plantillas de correo electrónico de Braze."
 alias: /partners/canva/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Canva
 
-> [Canva](https://www.canva.com/) es una plataforma y herramienta de diseño gráfico que te permite crear contenido visual para publicaciones en redes sociales, presentaciones, videos y más. La aplicación de Braze en Canva también permite exportar diseños de **correo electrónico** como plantillas de correo electrónico de Braze, además de enviar diseños estáticos a tu biblioteca de medios.
+> [Canva](https://www.canva.com/) es una plataforma y herramienta de diseño gráfico que te permite crear contenido visual para publicaciones en redes sociales, presentaciones, videos y más. La aplicación de Braze en Canva también permite exportar diseños de **correo electrónico** como plantillas de correo electrónico de Braze, además de enviar diseños estáticos a tu Biblioteca de medios.
 
 ## Acerca de la integración {#about-the-integration}
 
@@ -18,9 +18,9 @@ La integración de Braze y Canva admite dos rutas de exportación:
 
 | Tipo de exportación | Qué hace |
 | --- | --- |
-| **Imagen o diseño a la biblioteca de medios** | Envía tu diseño como un activo a la biblioteca de medios de Braze. |
+| **Imagen o diseño a la Biblioteca de medios** | Envía tu diseño como un activo a la Biblioteca de medios de Braze. |
 | **Diseño de correo electrónico a Braze** | Publica un documento de **correo electrónico** de Canva como una plantilla de correo electrónico de Braze, incluyendo los metadatos de la línea del asunto. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de la integración" }
 
 ## Integrar Braze con Canva {#integrate-braze-with-canva}
 
@@ -34,15 +34,24 @@ Después de instalar la aplicación, estará disponible dentro de un diseño, en
 
 ### Paso 2: Autorizar tu cuenta de Braze {#step-2-authorize-your-braze-account}
 
-La primera vez que uses la aplicación de Braze, ya sea que la abras desde el menú **Apps** (exportación a la biblioteca de medios) o desde el menú **Share** (exportación de correo electrónico), selecciona **Connect** para iniciar la autorización. Esto permite que Canva liste los espacios de trabajo de Braze a los que puedes acceder y cree activos en la biblioteca de medios en tu nombre.
+La primera vez que uses la aplicación de Braze, ya sea que la abras desde el menú **Apps** (exportación a la Biblioteca de medios) o desde el menú **Share** (exportación de correo electrónico), selecciona **Connect** para iniciar la autorización. Esto permite que Canva liste los espacios de trabajo de Braze a los que puedes acceder y cree activos en la Biblioteca de medios en tu nombre.
 
 Para las exportaciones de **correo electrónico**, Canva puede pedirte que inicies sesión de nuevo y apruebes acceso adicional, incluyendo el permiso para **crear plantillas de correo electrónico**. Acepta esos permisos para terminar de publicar diseños de correo electrónico en Braze.
 
 ![Botón Connect y flujo de autorización para vincular Canva con Braze.]({% image_buster /assets/img/canva_integration/canva-connect-panel.jpg %})
 
-## Exportar imágenes a la biblioteca de medios {#export-images-to-the-media-library}
+## Exportar imágenes a la Biblioteca de medios {#export-images-to-the-media-library}
 
-Usa este flujo para diseños estándar de Canva cuando quieras un archivo en la biblioteca de medios de Braze.
+Usa este flujo para diseños estándar de Canva cuando quieras un archivo en la Biblioteca de medios de Braze.
+
+Los siguientes videos muestran cómo enviar diseños desde Canva a tu Biblioteca de medios de Braze.
+
+Video: Abre la aplicación de Braze en Canva e inicia una exportación a la Biblioteca de medios.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+Video: Elige un espacio de trabajo de Braze y completa la exportación a la Biblioteca de medios.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
 
 1. Desde el menú **Apps** en tu diseño, abre la aplicación de Braze. Si aún no estás conectado, selecciona **Connect** y completa los pasos en [Autorizar tu cuenta de Braze](#step-2-authorize-your-braze-account).
 2. Elige tu espacio de trabajo de destino, opcionalmente ingresa un nombre de archivo y selecciona **Start Export**.
@@ -50,9 +59,9 @@ Usa este flujo para diseños estándar de Canva cuando quieras un archivo en la 
 ![Pantalla de exportación de Canva con el espacio de trabajo de destino y el botón Start Export.]({% image_buster /assets/img/canva_integration/canva-upload-screen.jpg %})
 
 {: start="3"}
-3. Cuando tu exportación se complete, tu nuevo activo estará disponible en la **biblioteca de medios**, con una fuente de "Canva".
+3. Cuando tu exportación se complete, tu nuevo activo estará disponible en la **Biblioteca de medios**, con una fuente de "Canva".
 
-![Activo de Canva exportado en la biblioteca de medios de Braze.]({% image_buster /assets/img/canva_integration/media-library-source.jpg %})
+![Activo de Canva exportado en la Biblioteca de medios de Braze.]({% image_buster /assets/img/canva_integration/media-library-source.jpg %})
 
 ## Exportar diseños de correo electrónico como plantillas de Braze {#export-email-designs-as-braze-templates}
 
@@ -69,7 +78,7 @@ Usa este flujo cuando tu archivo de Canva sea un tipo de diseño de **correo ele
 ![Barra lateral de Braze en Canva solicitando Connect para la exportación de correo electrónico.]({% image_buster /assets/img/canva_integration/canva-email-connect-sidebar.png %})
 
 {: start="4"}
-4. En el panel de Braze, selecciona qué página de **correo electrónico** publicar (si el diseño tiene varias páginas), elige tu **espacio de trabajo de Braze**, ingresa un **nombre de plantilla** y una **línea del asunto**, y luego selecciona **Publish now**. Canva muestra el progreso mientras tu diseño se publica.
+4. En el panel de Braze, selecciona qué página de **correo electrónico** publicar (si el diseño tiene varias páginas), elige tu **espacio de trabajo de Braze**, ingresa un **Template name** y una **Subject line**, y luego selecciona **Publish now**. Canva muestra el progreso mientras tu diseño se publica.
 
 ![Panel de Braze en Canva con espacio de trabajo, nombre de plantilla, línea del asunto y Publish now.]({% image_buster /assets/img/canva_integration/canva-email-publish-fields.png %})
 

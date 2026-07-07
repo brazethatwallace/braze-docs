@@ -12,6 +12,10 @@ search_tag: Partner
 
 ## Integración de importación de datos {#data-import-integration}
 
+Cuando sincronizas una cohorte de Mixpanel a Braze, Braze recibe actualizaciones de pertenencia a la cohorte para los usuarios que Mixpanel puede asociar con perfiles de Braze existentes. Después de una sincronización, puedes dirigirte a esos usuarios con el filtro de segmento **Mixpanel cohorts**.
+
+La sincronización de cohortes no importa eventos de Mixpanel, propiedades de usuario de Mixpanel ni atributos personalizados a Braze. El comportamiento del conector, incluida la cadencia de sincronización, se controla en Mixpanel. Para obtener detalles de configuración, consulta la [documentación de sincronización de cohortes de Braze de Mixpanel](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). Para los requisitos de coincidencia de usuarios, consulta [Coincidencia de usuarios](#user-matching).
+
 Cualquier integración que configures registrará puntos de datos. Si tienes alguna pregunta sobre los matices de los puntos de datos de Braze, tu director de cuentas de Braze puede responderte.
 
 {% alert important %}
@@ -20,7 +24,7 @@ En cumplimiento de las políticas de retención de datos de Mixpanel, los evento
 
 ### Paso 1: Obtener la clave de importación de datos de Braze {#step-1-get-the-braze-data-import-key}
 
-En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Mixpanel**. Aquí encontrarás el punto de conexión REST y generarás tu clave de importación de datos de Braze.
+En Braze, ve a **Partner Integrations** > **Technology Partners** y selecciona **Mixpanel**. Aquí encontrarás el punto de conexión REST y generarás tu clave de importación de datos de Braze.
 
 Una vez generada, puedes crear una nueva clave o invalidar una existente. La clave de importación de datos y el punto de conexión REST se utilizan en el siguiente paso al configurar un postback en el dashboard de Mixpanel.<br><br>![]({% image_buster /assets/img_archive/currents-mixpanel-edit.png %})
 

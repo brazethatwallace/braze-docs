@@ -42,7 +42,7 @@ Aqui está um exemplo de como você adicionaria um bloco de produto HTML ao seu 
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned browse product personalization for emails" style="width:100%">
   <tr>
     <th><img src="{{context.${image_url}}}" width="200" height="200"><img></th>
     <th align="left">
@@ -73,11 +73,11 @@ Use o modelo **Carrinho abandonado** para recuperar vendas potencialmente perdid
 
 ![Um modelo de Canvas "Carrinho Abandonado" aplicado com "Regras de Entrada" expandidas.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### Configuração {#setup}
+#### Configuração
 
 Na página do Canvas, selecione **Use a Canvas Template** > **Braze templates** e aplique o modelo **Carrinho abandonado**.
 
-##### Configurações padrão {#default-settings}
+##### Configurações padrão
 
 As seguintes configurações estão pré-configuradas no seu Canvas:
 - Básico
@@ -121,7 +121,7 @@ Aqui está um exemplo de como você adicionaria um bloco HTML com sua Liquid tag
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned cart product personalization for emails #abandoned-cart-checkout" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -174,11 +174,11 @@ Use o modelo **Checkout abandonado** para direcionar clientes que iniciaram o pr
 
 ![Um modelo de Canvas "Checkout Abandonado" aplicado com "Regras de Entrada" expandidas.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### Configuração {#setup}
+#### Configuração
 
 Na página do Canvas, selecione **Use a Canvas Template** > **Braze templates** e aplique o modelo **Checkout abandonado**.
 
-##### Configurações padrão {#default-settings}
+##### Configurações padrão
 
 As seguintes configurações estão pré-configuradas no seu Canvas:
 
@@ -212,7 +212,7 @@ Aqui está um exemplo de como você adicionaria um bloco HTML com sua Liquid tag
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned checkout personalization for emails" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -241,7 +241,7 @@ O parâmetro `abort_if_not_abandoned` é específico do caso de uso de checkout 
 | ----- | -------- |
 | `true` (padrão) | A mensagem é cancelada se o carrinho não tiver sido abandonado — ou seja, se o usuário já tiver concluído o pedido. |
 | `false` | A mensagem é enviada mesmo que o carrinho não esteja em estado de abandono, permitindo que o e-mail inclua os detalhes do carrinho independentemente do status atual do checkout. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="abortifnotabandoned #abort-if-not-abandoned" }
 
 Defina `abort_if_not_abandoned` como `false` quando quiser enviar o lembrete de checkout independentemente de o carrinho ainda ser considerado abandonado no momento do envio. Se você omitir o parâmetro ou defini-lo como `true`, a Braze cancelará a mensagem para usuários que já concluíram a compra.
 
@@ -262,11 +262,11 @@ Use o modelo **Confirmação de pedido e pesquisa de feedback** para confirmar p
 
 ![Um modelo de Canvas "Confirmação de pedido" aplicado com "Regras de Entrada" expandidas.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### Configuração {#setup}
+#### Configuração
 
 Na página do Canvas, selecione **Use a Canvas Template** > **Braze templates** e aplique o modelo **Confirmação de pedido e pesquisa de feedback**.
 
-##### Configurações padrão {#default-settings}
+##### Configurações padrão
 
 As seguintes configurações estão pré-configuradas no seu Canvas:
 
@@ -296,7 +296,7 @@ Aqui está um exemplo de como você adicionaria um bloco de produto HTML à sua 
 
 {% raw %}
 ```json
-<table style="width:100%">
+<table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
   <tr>

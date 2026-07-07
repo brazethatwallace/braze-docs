@@ -23,5 +23,5 @@ description: "This reference article explains the different components of the Br
 }
 ```
 
-- [App identifier]({{site.baseurl}}/api/identifier_types/)
+- [App identifier]({{site.baseurl}}/api/identifier_types)
   - Any valid `app_id` from an app configured in your workspace works for all users in your workspace, regardless of whether the user has the specific app on their profile or not.

@@ -13,7 +13,7 @@ tool:
 
 # Content Blocks
 
-> Content Blocks allow you to manage reusable, cross-channel content in a single, centralized location. Use them to create a consistent look and feel across your campaigns, distribute the same offer codes through different channels, or build pre-defined assets for consistent messaging at scale. You can also create and manage your Content Blocks [using the API]({{site.baseurl}}/api/endpoints/templates/).
+> Content Blocks allow you to manage reusable, cross-channel content in a single, centralized location. Use them to create a consistent look and feel across your campaigns, distribute the same offer codes through different channels, or build pre-defined assets for consistent messaging at scale. You can also create and manage your Content Blocks [using the API]({{site.baseurl}}/api/endpoints/templates).
 
 ## Create a Content Block
 
@@ -22,7 +22,7 @@ There are two types of Content Blocks: drag-and-drop and HTML. Each type corresp
 {% tabs %}
 {% tab Drag-and-drop %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Each drag-and-drop Content Block is limited to one row. However, you can use drag-and-drop editor blocks to build and customize the Content Block to suit your email messaging.
@@ -31,7 +31,7 @@ Each drag-and-drop Content Block is limited to one row. However, you can use dra
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}
@@ -40,12 +40,12 @@ Each drag-and-drop Content Block is limited to one row. However, you can use dra
 
 | Content Block attribute | Specifications |
 |---|---|
-| Name | Required field with a maximum of 100 characters. It cannot be renamed after the Content Block has been saved. Additionally, you cannot name a new Content Block the same name as a previous Content Block, even if the previous one has been archived. |
+| Name | Required field with a maximum of 100 characters. Content Block names can contain only letters (A-Z), numbers (0-9), dashes (`-`), and underscores (`_`). Spaces and other special characters are not allowed and are automatically converted (for example, spaces are replaced with underscores). Names cannot be changed after the Content Block is saved, and you cannot reuse the name of a previous Content Block, even if archived. |
 | Description | (optional) Maximum of 250 characters. Describe the Content Block so that other Braze users know what it's for and where it's used. |
 | Content Size | Maximum of 50 KB. |
 | Placement | Content Blocks cannot be used within an email footer, but you can [create a Content Block that includes a footer](#email-footers) for use in your emails. |
 | Creation | HTML editor or drag-and-drop editor. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
 
 {% alert tip %}
 When creating Content Blocks, it can be beneficial to visualize HTML and Liquid by adding line breaks. If these line breaks are left in during sending, you risk having extraneous spaces that can affect how the block will render. To avoid this, use the **Capture** tag on your block along with the **&#124; strip** filter. 
@@ -98,6 +98,7 @@ Content Blocks inserted via Liquid **are linked** to the original Content Block 
 ### Things to know
 
 - Using HTML Content Blocks in drag-and-drop emails **or** drag-and-drop Content Blocks in HTML emails may result in unexpected rendering issues. This is because the drag-and-drop editor generates HTML and CSS that dynamically renders the content, whereas the HTML editor is more static.
+- If you insert a drag-and-drop Content Block using Liquid, Braze doesn't include styles from the block's HTML `<head>`. Responsive styles, such as mobile-specific CSS, may not render as expected. If the block relies on responsive CSS, add that CSS to the message or template that includes the Content Block.
 - Canvas event properties are only supported in a Canvas. If you reference a Content Block with Canvas entry properties in a campaign, it won't populate.
 
 ## Preview Content Blocks
@@ -106,11 +107,9 @@ After adding a Content Block in an active campaign or Canvas, you can preview it
 
 This preview includes information about the Content Block such as who created it, tags, creation date, last edited date, description, editor type, inclusion count with details (a clickable list of messages or Content Blocks that use the Content Block), and an actual preview of the Content Block.
 
-![A preview of a Content Block "Workout_Promo" for cycling and dancing that has one inclusion.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"} 
-
 ## Nest Content Blocks
 
-Content Blocks can be nested, but only once. You can nest Content Block A into Content Block B, but you will not be able to then nest Content Block B into Content Block C.
+Content Blocks can be nested, but only once. You can nest Content Block A into Content Block B, but you can't then nest Content Block B into Content Block C.
 
 {% alert warning %}
 Nothing will prevent you from nesting a third level of Content Block, but you will not see the content expand in nests beyond the second. The content and the Liquid snippet are removed from the message.

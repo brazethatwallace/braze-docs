@@ -19,9 +19,9 @@ channel:
 - 백엔드에서 실시간으로 SMS 메시지를 트리거합니다.
 - 모든 마케팅 소유 Campaigns 및 Canvases와 함께 분석을 추적합니다.
 - 메시지 지연, 후속 리타겟팅, A/B 테스트와 같은 추가 Braze 기능으로 사용 사례를 확장합니다.
-- 선택적으로, [API 트리거 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)로 전환하여 Braze 대시보드에서 메시지 템플릿을 정의하면서도 백엔드에서 전송을 트리거할 수 있습니다.
+- 선택적으로, [API 트리거 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)로 전환하여 Braze 대시보드에서 메시지 템플릿을 정의하면서도 백엔드에서 전송을 트리거할 수 있습니다.
 
-REST API를 통해 SMS 메시지를 전송하려면 Braze 대시보드에서 API 캠페인을 설정한 다음 [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) 엔드포인트를 사용하여 메시지를 전송해야 합니다.
+REST API를 통해 SMS 메시지를 전송하려면 Braze 대시보드에서 API 캠페인을 설정한 다음 [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) 엔드포인트를 사용하여 메시지를 전송해야 합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -32,7 +32,7 @@ REST API를 통해 SMS 메시지를 전송하려면 Braze 대시보드에서 API
 | Braze REST API 키 | `messages.send` 권한이 있는 키. 키를 생성하려면 **설정** > **API 키** > **API 키**로 이동합니다. |
 | SMS 구독 그룹 | Braze 워크스페이스에 구성된 SMS 구독 그룹. |
 | 백엔드 서비스 | Braze REST API에 HTTP POST 요청을 보낼 수 있는 백엔드 서비스 또는 스크립팅 환경. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 1단계: API 캠페인 생성 {#step-1-create-an-api-campaign}
 
@@ -45,10 +45,10 @@ REST API를 통해 SMS 메시지를 전송하려면 Braze 대시보드에서 API
 
 ## 2단계: API를 사용하여 SMS 메시지 전송 {#step-2-send-an-sms-message-using-the-api}
 
-[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) 엔드포인트에 POST 요청을 구성합니다. 요청 페이로드에 캠페인 ID, 수신자의 외부 사용자 ID 및 SMS 콘텐츠를 포함합니다.
+[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) 엔드포인트에 POST 요청을 구성합니다. 요청 페이로드에 캠페인 ID, 수신자의 외부 사용자 ID 및 SMS 콘텐츠를 포함합니다.
 
 {% alert important %}
-`external_user_ids`에 참조된 각 수신자는 Braze에 이미 존재해야 합니다. API 전용 전송은 새로운 고객 프로필을 생성하지 않습니다. 전송의 일환으로 사용자를 생성해야 하는 경우, 먼저 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)을 사용하거나 대신 [API 트리거 Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)을 사용하세요.
+`external_user_ids`에 참조된 각 수신자는 Braze에 이미 존재해야 합니다. API 전용 전송은 새로운 고객 프로필을 생성하지 않습니다. 전송의 일환으로 사용자를 생성해야 하는 경우, 먼저 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)을 사용하거나 대신 [API 트리거 Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)을 사용하세요.
 {% endalert %}
 
 ### 예시 요청 {#example-request}
@@ -59,7 +59,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-`YOUR_REST_ENDPOINT`를 워크스페이스의 [REST 엔드포인트 URL]({{site.baseurl}}/api/basics/#endpoints)로 교체하세요.
+`YOUR_REST_ENDPOINT`를 워크스페이스의 [REST 엔드포인트 URL]({{site.baseurl}}/api/basics#endpoints)로 교체하세요.
 
 {% raw %}
 ```json
@@ -78,7 +78,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 ```
 {% endraw %}
 
-플레이스홀더 값을 실제 ID로 교체하세요. `body` 필드는 [Liquid 개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 지원하므로 각 수신자에게 맞춤화된 메시지 콘텐츠를 작성할 수 있습니다. SMS 메시징 오브젝트에서 지원하는 매개변수의 전체 목록은 [SMS 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/sms_object/)를 참조하세요.
+플레이스홀더 값을 실제 ID로 교체하세요. `body` 필드는 [Liquid 개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 지원하므로 각 수신자에게 맞춤화된 메시지 콘텐츠를 작성할 수 있습니다. SMS 메시징 오브젝트에서 지원하는 매개변수의 전체 목록은 [SMS 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/sms_object)를 참조하세요.
 
 요청을 구성한 후, 백엔드 서비스에서 Braze REST API로 POST 요청을 전송합니다.
 
@@ -93,6 +93,6 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## 고려 사항 {#considerations}
 
-- SMS 캠페인이 관련 규정 및 통신사 요구 사항을 준수하는지 확인하세요. 모든 메시지에 옵트아웃 안내(예: "옵트아웃하려면 STOP을 문자로 보내세요")를 포함하세요. 자세한 내용은 [SMS 법률 및 규정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/) 및 [옵트인 및 옵트아웃 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)를 참조하세요.
-- Braze [개인화 기능]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)을 사용하여 동적 콘텐츠 및 사용자별 데이터를 포함하여 SMS 콘텐츠를 개별 소비자에 맞게 조정하세요.
-- Braze REST API는 메시지 스케줄링, 캠페인 트리거 등을 위한 추가 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 제공합니다.
+- SMS 캠페인이 관련 규정 및 통신사 요구 사항을 준수하는지 확인하세요. 모든 메시지에 옵트아웃 안내(예: "옵트아웃하려면 STOP을 문자로 보내세요")를 포함하세요. 자세한 내용은 [SMS 법률 및 규정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) 및 [옵트인 및 옵트아웃 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)를 참조하세요.
+- Braze [개인화 기능]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize)을 사용하여 동적 콘텐츠 및 사용자별 데이터를 포함하여 SMS 콘텐츠를 개별 소비자에 맞게 조정하세요.
+- Braze REST API는 메시지 스케줄링, 캠페인 트리거 등을 위한 추가 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 제공합니다.

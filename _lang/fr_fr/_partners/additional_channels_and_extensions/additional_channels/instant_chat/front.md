@@ -25,6 +25,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | Un compte Front | Un compte Front est nécessaire pour tirer parti de ce partenariat. |
 | URL du webhook de Transformation des données Braze | La [Transformation des données de Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation/) sera utilisée pour reformater le webhook entrant de Front afin qu'il puisse être accepté par l'endpoint Braze /users/track. |
 | Une clé API REST Front | Une clé API REST de Front sera utilisée pour effectuer une requête webhook sortante de Braze vers Front. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -33,7 +34,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 ## Intégration de Front {#integrating-front}
 
-### Étape 1 : Créer une transformation de données {#step-1-set-up-a-data-transformation-in-braze}
+### Étape 1 : Créer une transformation de données {#step-1-create-a-data-transformation}
 
 Tout d'abord, vous allez créer une nouvelle transformation de données dans Braze. Les étapes suivantes sont simplifiées ; pour une description complète, consultez [Création d'une transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/).
 
@@ -72,9 +73,7 @@ Tout d'abord, vous allez créer une nouvelle transformation de données dans Bra
     ```
     {% endraw %}
 
-    Votre transformation devrait ressembler à ce qui suit :
-
-    ![Un exemple de transformation de données.]({% image_buster /assets/img/front/data_transformation.png %})
+    Votre transformation doit refléter l'exemple JavaScript ci-dessus, en adaptant les noms de propriétés et les chemins à la charge utile du webhook Front.
 
 {% alert tip %}
 Vous pouvez modifier ce modèle pour répondre à vos besoins spécifiques. Par exemple, vous pouvez personnaliser le nom de l'événement personnalisé prédéfini. Pour plus d'informations, consultez l'[aperçu de la Transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation/).
@@ -112,7 +111,7 @@ Enfin, sous **Contrôles de l'envoi**, activez la rééligibilité.
 
 ![Rééligibilité activée sous « Contrôles de l'envoi ».]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
-### Étape 3 : Créer un canal personnalisé {#step-3-configure-the-settings-for-your-new-custom-braze-channel}
+### Étape 3 : Créer un canal personnalisé {#step-3-create-a-custom-channel}
 
 Dans le tableau de bord de Front, accédez à **Settings** > **Channels** > **Add Channels**, puis sélectionnez **Custom Channel** et saisissez un nom pour votre nouveau canal Braze.
 
@@ -134,7 +133,7 @@ Ensuite, vous allez créer deux nouvelles campagnes webhook dans Braze afin de p
 |---|---|
 | Campagne webhook 1 | Signale à Front qu'une conversation en direct par chat est demandée. |
 | Campagne webhook 2 | Transfère toutes les réponses SMS conversationnelles envoyées par le client vers la boîte de réception de Front. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 5 : Configurer le transfert des SMS entrants" }
 
 #### Étape 5.1 : Créer une catégorie de mots-clés SMS {#step-51-create-an-sms-keyword-category}
 
@@ -145,7 +144,7 @@ Dans le tableau de bord de Braze, accédez à **Audience**, choisissez votre **g
 | Catégorie de mots-clés | Le nom de votre catégorie de mots-clés, par exemple `FrontSMS1`. |
 | Mots-clés | Vos mots-clés personnalisés, tels que `TIMETOMOW`. Évitez les mots courants pour prévenir les déclenchements accidentels. Gardez à l'esprit que les mots-clés ne sont pas sensibles à la casse, de sorte que `lawn` correspondra à `LAWN`. |
 | Message de réponse | Le message qui sera envoyé lorsqu'un mot-clé est détecté, par exemple « Un paysagiste vous contactera sous peu. » |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 5.1 : Créer une catégorie de mots-clés SMS" }
 
 ![Un exemple de catégorie de mots-clés SMS dans Braze.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
@@ -176,19 +175,19 @@ Ajoutez ce qui suit au corps de votre requête :
 ```
 {% endraw %}
 
-Dans l'onglet Settings, configurez vos en-têtes de requête `Authorization`, `content-type` et `accept`.
+Dans l'onglet Paramètres, configurez vos en-têtes de requête `Authorization`, `content-type` et `accept`.
 
 ![Un exemple de requête avec les trois en-têtes requis.]({% image_buster /assets/img/front/webhook_settings.png %}){: style="max-width:65%;"}
 
 #### Étape 5.3 : Planifier la première distribution {#step-53-schedule-the-first-delivery}
 
-Pour **Schedule Delivery**, sélectionnez **Action-Based Delivery**, puis choisissez **Send an SMS Inbound Message** pour votre type de déclencheur. Ajoutez également le groupe d'abonnement SMS et la catégorie de mots-clés que vous avez [définis précédemment](#step-51-create-an-sms-keyword-category).
+Pour **Planifier la distribution**, sélectionnez **Livraison par événement**, puis choisissez **Send an SMS Inbound Message** pour votre type de déclencheur. Ajoutez également le groupe d'abonnement SMS et la catégorie de mots-clés que vous avez [définis précédemment](#step-51-create-an-sms-keyword-category).
 
 ![La page « Planifier la distribution » pour la première campagne webhook.]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 
-Sous **Delivery Controls**, activez la rééligibilité.
+Sous **Contrôles de l'envoi**, activez la rééligibilité.
 
-![Rééligibilité sélectionnée sous « Delivery Controls » pour la première campagne webhook.]({% image_buster /assets/img/front/braze_reeligibility.png %})
+![Rééligibilité sélectionnée sous « Contrôles de l'envoi » pour la première campagne webhook.]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
 #### Étape 5.4 : Créer votre deuxième campagne webhook {#step-54-create-your-second-webhook-campaign}
 
@@ -196,13 +195,13 @@ Comme votre deuxième campagne webhook est identique à la première, vous pouve
 
 #### Étape 5.5 : Planifier la seconde distribution {#step-55-schedule-the-second-delivery}
 
-Pour **Schedule Delivery**, définissez le **déclencheur basé sur l'action** et le **groupe d'abonnement SMS** de la même manière que pour [la première distribution](#step-53-schedule-the-first-delivery). Toutefois, pour la **catégorie de mots-clés**, choisissez **Other**.
+Pour **Planifier la distribution**, définissez le **déclencheur basé sur l'action** et le **groupe d'abonnement SMS** de la même manière que pour [la première distribution](#step-53-schedule-the-first-delivery). Toutefois, pour la **catégorie de mots-clés**, choisissez **Other**.
 
 ![La page « Planifier la distribution » pour la deuxième campagne webhook, avec « Other » choisi comme catégorie de mots-clés.]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
 
 #### Étape 5.6 : Ajouter un filtre d'audience {#step-56-add-an-audience-filter}
 
-Votre campagne webhook peut désormais transférer les réponses SMS entrantes de vos clients. Pour filtrer les réponses SMS afin que seuls les messages destinés aux chats en direct soient transférés, ajoutez le filtre de segmentation **Last Received Message From Specific Campaign** à l'**étape Target Audiences**.
+Votre campagne webhook peut désormais transférer les réponses SMS entrantes de vos clients. Pour filtrer les réponses SMS afin que seuls les messages destinés aux chats en direct soient transférés, ajoutez le filtre de segmentation **Last Received Message From Specific Campaign** à l'**étape Audiences cibles**.
 
 ![Un filtre d'audience avec « Last Received Message From Specific Campaign » sélectionné.]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
 

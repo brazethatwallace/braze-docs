@@ -4,7 +4,7 @@ nav_title: "Cas d'utilisation avec vidéo"
 page_order: 7
 
 #Required
-description: "Il s’agit de la description Google Search. Les phrases de plus de 160 caractères seront tronquées… soyez concis !"
+description: "Il s'agit de la description Google Search. Les phrases de plus de 160 caractères seront tronquées, soyez concis."
 page_type: reference
 tool:
   - Dashboard
@@ -32,47 +32,47 @@ channel:
   - Push
   - SMS
   - Webhooks
-  
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
 ---
 
-# Nom du cas d’utilisation
+# Nom du cas d'utilisation {#use-case-name}
 
 {% multi_lang_include video.html id="XY5uXoKIvFY" align="right" %}
 
-> Bienvenue dans le modèle dédié aux cas d’utilisation ! Vous trouverez ici tout ce dont vous avez besoin pour rédiger un article sur un cas d’utilisation de Braze. Cette première section vous permet de décrire le cas d’utilisation en quelques phrases. Vous pourriez par exemple écrire : « ce cas d’utilisation explique comment présenter votre contenu aux utilisateurs inactifs en utilisant des notifications push, des e-mails, etc. ».
+> Bienvenue dans le modèle dédié aux cas d'utilisation ! Vous trouverez ici tout ce dont vous avez besoin pour rédiger un article sur un cas d'utilisation de Braze. Cette première section vous permet de décrire le cas d'utilisation en quelques phrases. Vous pourriez par exemple écrire : « ce cas d'utilisation explique comment réengager les utilisateurs inactifs grâce aux notifications push, aux e-mails, etc. ».
 >
-> Vous pouvez maintenant exposer le scénario de votre cas d’utilisation. Pourquoi cette page est-elle digne d’intérêt ? Présentez un scénario accrocheur pour capter l’attention du lecteur dès le début. Par exemple : « L’entreprise de Sally, une entreprise fictive de produits de maquillage, constate qu’une partie de ses utilisateurs n’a que peu voire pas d’intérêt pour son application, bien qu’ils ouvrent les e-mails envoyés par l’entreprise. Ils ne cliquent sur rien, mais ils ouvrent tout de même les e-mails ! Sally a décidé de reconvertir 20 % de ces personnes en utilisateurs d'applications"
+> Vous pouvez maintenant exposer le scénario de votre cas d'utilisation. Pourquoi cette page est-elle digne d'intérêt ? Présentez un scénario accrocheur pour capter l'attention du lecteur dès le début. Par exemple : « L'entreprise de Sally, une entreprise fictive de produits de maquillage, constate qu'une partie de ses utilisateurs n'a que peu voire pas d'intérêt pour son application, bien qu'ils ouvrent les e-mails envoyés par l'entreprise. Ils ne cliquent sur rien, mais ils ouvrent tout de même les e-mails ! Sally a décidé de reconvertir 20 % de ces personnes en utilisateurs actifs de l'application. »
 >
-> Les objectifs de ce cas d’utilisation sont les suivants (analysez le scénario précédent) :
-> - Objectif 1
-> - Objectif 2
-> - Objectif 3
+> Les objectifs de ce cas d'utilisation sont les suivants (analysez le scénario précédent) :
+> - Objectif 1
+> - Objectif 2
+> - Objectif 3
 
 
-## Indicateurs suggérés
+## Indicateurs suggérés {#suggested-metrics}
 
-Le moment est venu de parler des indicateurs ! Comment les utilisateurs de Braze doivent-ils mesurer leurs campagnes ? Quels indicateurs de conversion doivent-ils configurer ? Répertoriez-les dans le tableau ci-dessous.
+Le moment est venu de parler des indicateurs ! Comment les utilisateurs de Braze doivent-ils mesurer leurs campagnes ? Quels indicateurs de conversion doivent-ils configurer ? Répertoriez-les dans le tableau ci-dessous.
 
 | Indicateur | Description | Type de données |
 | ------ | ----------- | --------- |
-| Conversion 1 | Ceci est une conversion. Elle doit être mesurée, car « raisons ». | Booléen. |
-| Conversion 2 | Ceci est une autre conversion. Elle doit être mesurée, car « raisons ». | Booléen. |
-| Âge | Il s’agit d’un attribut utilisateur. Elle doit être mesurée, car « raisons ». | Entier. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Conversion 1 | Ceci est une conversion. Elle doit être mesurée, car « raisons ». | Valeur booléenne. |
+| Conversion 2 | Ceci est une autre conversion. Elle doit être mesurée, car « raisons ». | Valeur booléenne. |
+| Âge | Il s'agit d'un attribut utilisateur. Il doit être mesuré, car « raisons ». | Entier. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Indicateurs suggérés" }
 
-## Comment créer cette campagne ou ce Canvas
+## Comment créer cette Campaign ou ce Canvas {#how-to-build-this-campaigncanvas}
 
-Dans cette partie de l’article, décrivez en détail ce qu’ils doivent faire en présentant une stratégie et plusieurs étapes. Pour que vos explications soient clairement compréhensibles, vous pouvez également nommer les différentes étapes comme suit. N'écrivez pas explicitement les étapes (i.e., cliquez ici ; cliquez là). Mieux vaut les orienter en décrivant les étapes qui leur permettront d’atteindre les objectifs du cas d’utilisation.
+Dans cette partie de l'article, décrivez en détail ce que les utilisateurs doivent faire en présentant une stratégie et plusieurs étapes. Pour que vos explications soient clairement compréhensibles, vous pouvez nommer les différentes étapes comme suit. N'écrivez pas explicitement les étapes (c'est-à-dire cliquez ici ; cliquez là). Mieux vaut les orienter en décrivant les étapes qui leur permettront d'atteindre les objectifs du cas d'utilisation.
 
-### Étape 1 : Configurer votre Canvas pour des utilisateurs inactifs (conseil concernant les audiences)
+### Étape 1 : Configurer votre Canvas pour des utilisateurs inactifs (conseil concernant l'audience) {#step-1-set-up-your-canvas-for-lapsing-users-advise-on-audience}
 
-Lorsque vous abordez le sujet des audiences, il n’est pas nécessaire de leur expliquer comment utiliser des segments ou des filtres. Donnez-leur des conseils pour les aider à cibler uniquement les utilisateurs inactifs de leur audience en s’assurant de n’inclure aucune autre personne et expliquez pourquoi cela est important. Vous pouvez par exemple leur dire : « il existe plusieurs façons de cibler uniquement les utilisateurs inactifs. Vous pouvez sélectionner ceux qui n’ont pas utilisé l’application ou qui n’ont pas ouvert un e-mail depuis quelques jours, si c’est ce que vous recherchez. Veillez à appliquer un filtre si vous souhaitez exclure toute personne ayant quitté l'application depuis si longtemps qu'elle ne vaut peut-être pas les points de données."
+Lorsque vous abordez le sujet de l'audience, il n'est pas nécessaire d'expliquer comment utiliser des Segments ou des filtres. Donnez des conseils pour aider à cibler uniquement les utilisateurs inactifs de l'audience en s'assurant de n'inclure aucune autre personne, et expliquez pourquoi cela est important. Vous pouvez par exemple écrire : « il existe plusieurs façons de cibler uniquement les utilisateurs inactifs. Vous pouvez sélectionner ceux qui n'ont pas utilisé l'application ou qui n'ont pas ouvert un e-mail depuis quelques jours, si c'est ce que vous recherchez. Veillez à appliquer un filtre si vous souhaitez exclure toute personne ayant quitté l'application depuis si longtemps qu'elle ne vaut peut-être pas les points de données. »
 
 
-### Exemple de code
+### Exemple de code {#code-sample}
 
 Si vous expliquez un concept technique, notez-le ici et présentez un exemple de code.
 
@@ -91,43 +91,42 @@ Si vous expliquez un concept technique, notez-le ici et présentez un exemple de
 </html>
 ```
 
-Pensez à définir les paramètres ou éléments que les utilisateurs devront ajuster dans l’exemple de code. De nombreux utilisateurs se contenteront de le copier-coller.
+Pensez à définir les paramètres ou éléments que les utilisateurs devront ajuster dans l'exemple de code. De nombreux utilisateurs se contenteront de le copier-coller.
 
 | Variable | Description |
 | -------- | ----------- |
-| Titre de la page | Choisissez le nom que vous voulez pour votre page. Votre page doit comporter un nom. |
-| Mon premier titre | Nous recommandons de le mettre en majuscule. Cependant, cela reste optionnel. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Choisissez le nom que vous voulez pour votre page. Votre page doit comporter un titre. |
+| My First Heading | Nous recommandons de le mettre en majuscules. Cependant, cela reste facultatif. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple de code" }
 
 
-### Étape 2 : Envoyer votre message au bon moment
+### Étape 2 : Envoyer votre message au bon moment {#step-2-send-your-message-at-the-right-time}
 
-Parlez du moment auquel le message doit être envoyé, si cela est important. Cela ne l’est peut-être pas ! Mais dites-leur tout de même de penser à envoyer leurs messages en fonction de l’heure locale. Vous pouvez également leur expliquer comment déclencher cette situation par API, ou qu’il vaut mieux déclencher cette étape avec un événement s’ils utilisent un Canvas (comme le fait d’ouvrir un e-mail sans cliquer sur son contenu pendant au moins une journée).
+Parlez du moment auquel le message doit être envoyé, si cela est important. Cela ne l'est peut-être pas ! Mais dites-leur tout de même de penser à envoyer leurs messages en fonction de l'heure locale. Vous pouvez également leur expliquer comment déclencher cette situation par API, ou qu'il vaut mieux déclencher cette étape avec un événement s'ils utilisent un Canvas (comme le fait d'ouvrir un e-mail sans cliquer sur son contenu pendant au moins une journée).
 
-### Étape 3 : Développer votre message
+### Étape 3 : Développer votre message {#step-3-building-your-message}
 
-Vous pouvez maintenant parler des bonnes pratiques à suivre. Cette étape est importante, même si vous ne mentionnez que quelques points. Vous pouvez également leur montrer quelques images d’exemple.
+Vous pouvez maintenant parler des bonnes pratiques à suivre. Cette étape est vivement recommandée, même si vous ne mentionnez que quelques points. Vous pouvez également ajouter quelques images d'exemple.
 
-### Étape 4 : Autres commentaires
+### Étape 4 : Autres commentaires {#step-4-anything-else}
 
-Si vous avez besoin d’aborder un autre sujet, qu’il s’agisse des étapes de délai ou d’un point similaire dans un Canvas, faites-le à ce moment-là ou une fois arrivé aux prochaines étapes. Cependant, pensez à rester bref pour ne pas perdre l’attention de votre audience.
+Si vous avez besoin d'aborder un autre sujet, qu'il s'agisse des étapes de délai ou d'un point similaire dans un Canvas, faites-le à ce moment-là ou dans les étapes suivantes. Cependant, pensez à rester concis pour ne pas perdre l'attention de votre audience.
 
 
-## Étapes suivantes
+## Étapes suivantes {#next-steps}
 
-Félicitations ! Vous avez terminé ce tutoriel, cet article de résolution des problèmes ou cette solution ! Cela signifie que vous devriez avoir :
-1. Chose que vous devriez avoir apprise ;
-2. Tâche que vous devriez avoir effectuée ; et
-3. Chose que vous devriez être en mesure de faire maintenant ou par la suite.
+Félicitations ! Vous avez terminé ce tutoriel, cet article de résolution des problèmes ou cette solution ! Cela signifie que vous devriez avoir :
+1. Appris quelque chose de nouveau,
+2. Effectué une tâche, et
+3. Être en mesure de faire quelque chose maintenant ou par la suite.
 
-### Articles connexes
+### Articles connexes {#related-articles}
 
-Pour en savoir plus sur les sujets abordés dans cet article, consultez :
-- [Article connexe 1](#solution-1) : Description de l’utilité de l’article.
-- [Article connexe 2](#solution-2) : Description de l’utilité de l’article.
-- [Article connexe 3](#solution-3) : Description de l’utilité de l’article.
+Pour en savoir plus sur les sujets abordés dans cet article, consultez :
+- [Article connexe 1](#solution-1) : Description de l'utilité de l'article.
+- [Article connexe 2](#solution-2) : Description de l'utilité de l'article.
+- [Article connexe 3](#solution-3) : Description de l'utilité de l'article.
 
-### Vous êtes toujours perdu ?
+### Vous êtes toujours perdu ? {#still-lost}
 
-Si cet article ne vous a pas aidé, laissez vos commentaires ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/)!
-
+Si cet article ne vous a pas aidé, laissez vos commentaires ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/) !

@@ -1,0 +1,8 @@
+---
+description: >
+  Pre-PR WCAG 2.2 Level AA gate. Use when asked to "check accessibility",
+  "run a11y", "WCAG check", or before any PR touching site files or documentation.
+alwaysApply: false
+---
+
+Follow [`.github/skills/check-accessibility/SKILL.md`](.github/skills/check-accessibility/SKILL.md).

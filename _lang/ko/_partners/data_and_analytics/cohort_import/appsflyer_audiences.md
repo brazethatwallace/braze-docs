@@ -19,7 +19,7 @@ search_tag: Partner
 | AppsFlyer 계정 | 이 파트너십을 활용하려면 AppsFlyer 계정이 필요합니다. |
 | iOS 또는 Android 앱 | 이 통합은 iOS 및 Android 앱을 지원합니다. 플랫폼에 따라 애플리케이션에 코드 스니펫이 필요할 수 있습니다. 이러한 요구 사항에 대한 세부 정보는 통합 프로세스의 1단계에서 확인할 수 있습니다. |
 | AppsFlyer SDK | 필수 Braze SDK 외에도 [AppsFlyer SDK](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview)를 설치해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 데이터 가져오기 통합 {#data-import-integration}
 

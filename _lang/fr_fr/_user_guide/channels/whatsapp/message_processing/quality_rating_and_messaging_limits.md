@@ -19,9 +19,9 @@ channel:
 | --- | --- |
 | Évaluation de la qualité | Une évaluation basée sur les messages récents que vos clients ont reçus au cours des sept derniers jours. Cette évaluation est déterminée par les retours de vos clients, tels que les raisons de bloquer votre numéro de téléphone et d'autres signalements. Consultez la documentation de Meta pour en savoir plus [sur votre évaluation de la qualité](https://www.facebook.com/business/help/896873687365001). |
 | Limite d'envoi de messages | Le nombre maximum de conversations initiées par l'entreprise que vous pouvez démarrer avec chacun de vos numéros de téléphone sur une période glissante de 24 heures. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définitions" }
 
-## Onboarding
+## Onboarding {#onboarding}
 
 Lorsqu'un nouveau compte WhatsApp Business est créé, Meta utilise divers facteurs pour déterminer la limite d'envoi initiale. Vous pouvez trouver cette limite dans votre WhatsApp Business Manager, ainsi que des détails supplémentaires sur votre page Phone Number Insights.
 

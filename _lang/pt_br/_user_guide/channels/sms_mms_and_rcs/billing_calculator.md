@@ -28,7 +28,7 @@ O Serviço de Mensagens Curtas (SMS) é um protocolo de comunicação padronizad
 
 Ao criar uma Campaign ou Canvas de SMS usando a Braze, as mensagens que você cria no criador são representativas do que seus usuários podem ver quando a mensagem for entregue em seus telefones, mas **não indicam como sua mensagem será dividida em segmentos e, em última análise, como você será cobrado**. Entender quantos segmentos serão enviados e estar ciente dos possíveis excedentes que podem ocorrer é sua responsabilidade, mas fornecemos alguns recursos para facilitar isso. Confira nossa [calculadora de segmentos](#segment-calculator) integrada.
 
-![]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
+![Ao criar uma Campaign ou Canvas de SMS usando a Braze, as mensagens que você cria no criador são representativas do que seus usuários podem ver quando a mensagem for entregue, mas não indicam como sua mensagem será dividida em segmentos e como você será cobrado. Entender quantos segmentos serão enviados e estar ciente dos possíveis excedentes é sua responsabilidade, mas fornecemos recursos para facilitar isso. Confira nossa calculadora de segmentos integrada.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Detalhamento de segmentos {#segment-breakdown}
 
@@ -40,7 +40,7 @@ O limite de caracteres para **um segmento de SMS independente** é de 160 caract
 - **Codificação UCS-2**
     - Se você incluir caracteres não GSM, como emojis, caracteres chineses, coreanos ou japoneses em mensagens SMS, essas mensagens precisarão ser enviadas via codificação UCS-2. Mensagens que excedem o limite inicial de 70 caracteres farão com que toda a mensagem seja concatenada em segmentos de 67 caracteres. Por exemplo, uma mensagem de 71 caracteres será enviada como duas mensagens, uma com 67 caracteres e a segunda com 4 caracteres.
 
-Independentemente do tipo de codificação, cada mensagem SMS enviada pela Braze tem um limite de até 10 segmentos e é compatível com [modelos Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/), [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), emojis e links.
+Independentemente do tipo de codificação, cada mensagem SMS enviada pela Braze tem um limite de até 10 segmentos e é compatível com [modelos Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), emojis e links.
 
 {% tabs %}
 {% tab Codificação GSM-7 %}
@@ -56,7 +56,7 @@ Independentemente do tipo de codificação, cada mensagem SMS enviada pela Braze
 | 1072 - 1224 caracteres | 8 segmentos |
 | 1225 - 1377 caracteres | 9 segmentos |
 | 1378 - 1530 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhamento de segmentos" }
 {% endtab %}
 {% tab Codificação UCS-2 %}
 | Número de caracteres | Quantos segmentos? |
@@ -71,7 +71,7 @@ Independentemente do tipo de codificação, cada mensagem SMS enviada pela Braze
 | 470 - 536 caracteres | 8 segmentos |
 | 537 - 603 caracteres | 9 segmentos |
 | 604 - 670 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhamento de segmentos" }
 {% endtab %}
 {% endtabs %}
 
@@ -86,7 +86,7 @@ Independentemente do tipo de codificação, cada mensagem SMS enviada pela Braze
 - **Compatível com modelos Liquid, Conteúdo conectado, emojis e links**
     - Modelos Liquid e Conteúdo conectado podem fazer com que sua mensagem ultrapasse o limite de caracteres para o seu tipo de codificação. Você pode usar o [filtro truncate words](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords) para limitar o número de palavras que o Liquid pode adicionar à mensagem.
     - Emojis não têm uma contagem de caracteres padrão entre todos os emojis, então certifique-se de testar se suas mensagens estão sendo segmentadas e exibidas corretamente.
-    - Links podem usar muitos caracteres, resultando em mais segmentos de mensagem do que o pretendido. Embora o uso de encurtadores de links seja possível, eles funcionam melhor com códigos curtos. Visite nosso [FAQ de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/) para mais informações.<br><br>
+    - Links podem usar muitos caracteres, resultando em mais segmentos de mensagem do que o pretendido. Embora o uso de encurtadores de links seja possível, eles funcionam melhor com códigos curtos. Visite nosso [FAQ de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) para mais informações.<br><br>
 - **Testes**
     - Sempre teste suas mensagens SMS antes do lançamento, especialmente ao usar Liquid e Conteúdo conectado, pois ultrapassar os limites de mensagem ou texto pode resultar em cobranças adicionais. Observe que as mensagens de teste contam para seus limites de mensagem.
 
@@ -145,8 +145,8 @@ As mensagens Rich Media incluem um arquivo de mídia (imagem, vídeo) ou um Rich
 {% endtab %}
 {% endtabs %}
 
-### Criador de mensagens e dashboard de uso de mensagens {#message-composer-and-message-usage-dashboard}
+### Criador de mensagens e dashboard de uso de créditos {#message-composer-and-credits-usage-dashboard}
 
 Ao criar sua mensagem, o criador de mensagens exibirá o tipo de faturamento em tempo real por meio de um rótulo (Basic RCS, Single RCS, Rich ou Rich Media), ajudando você a acompanhar os custos antes de enviar.
 
-Seu [dashboard de uso de mensagens]({{site.baseurl}}/message_usage_dashboard/) refletirá esses tipos de faturamento e fornecerá o número de segmentos usados para mensagens dos EUA, oferecendo uma visão transparente do consumo de créditos de mensagem.
+Seu [dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard) refletirá esses tipos de faturamento e fornecerá o número de segmentos usados para mensagens dos EUA, oferecendo uma visão transparente do consumo de créditos de mensagem.

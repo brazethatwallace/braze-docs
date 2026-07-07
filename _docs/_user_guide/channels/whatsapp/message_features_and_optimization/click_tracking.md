@@ -37,34 +37,81 @@ Any static URLs that start with `http://` or `https://` will be shortened. Short
 
 ![WhatsApp message composer with content body and a button.]({% image_buster /assets/img/whatsapp/click_tracking/message_composer.png %})
 
-### Template messages 
+### Template messages
 
-For template messages, the base URL must be submitted correctly when creating the template to turn on click tracking.
+We recommend enabling click tracking for template messages through the **WhatsApp Template Builder** in Braze. This enablement method automatically handles the URL formatting requirements, so you don't need to manually configure anything in WhatsApp Business Manager.
 
-#### Step 1: Build a click-tracking supported template in WhatsApp
+If you're creating templates directly in WhatsApp Business Manager instead, see [Configuring click tracking from WhatsApp Business Manager](#configuring-click-tracking-from-whatsapp-business-manager).
 
-1. In your WhatsApp Manager, create a base URL that is either your custom domain or `brz.ai`.
+#### Use the Template Builder
+
+When creating a template in the Template Builder, click tracking is configured in the **Settings** tab.
+
+##### Step 1: Enable click tracking
+
+In the Template Builder, go to the **Settings** tab. In **Link options**, select the **Click tracking** checkbox. When enabled, all links in your template (in both the message body and CTA website buttons) are shortened and tracked.
+
+![Settings tab in the Template Builder showing the Link options section with the Click tracking checkbox enabled and a Custom domain dropdown.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_settings.png %})
+
+##### Step 2: Select a custom domain (optional)
+
+Under **Custom domain**, select the domain you'd like to use for shortened links. The dropdown shows all custom tracking domains configured for your workspace. If you don't select one, Braze uses the default `brz.ai` domain.
+
+To add or change domains, select **Subscription Group Management**.
+
+{% alert important %}
+After a template is submitted to Meta for approval, the tracking domain cannot be changed. Confirm you've selected the correct domain before submitting.
+{% endalert %}
+
+##### Step 3: Add your destination URLs
+
+Go back to the **Compose** tab and add your message content.
+
+- **For CTA website buttons:** Enter the destination URL in the **Click tracking URL** field. Braze stores your destination URL and automatically formats the button's website URL with the tracking domain and a variable placeholder {% raw %}(for example, `https://brz.ai/{{1}}`){% endraw %}. This placeholder is what is submitted to Meta. At send time, Braze generates the full tracked URL for each user and populates the variable.
+- **For body text links:** Enter URLs directly in the body. 
+
+You can preview the tracked URL format for each button directly below the **Website URL** field (for example, `https://brz.ai/XXXXXXXX`).
+
+![Call to Action buttons section showing a Visit website button with Website URL pre-filled to the tracked format and a Click tracking URL field for the destination.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
+
+##### Update destination URLs after submission
+
+After a template is submitted to Meta, the tracking domain is locked, but the destination URL remains editable at any time. To update where a link points, edit the **Click tracking URL** field for that button. The tracked URL format stays the same; Braze redirects users to the new destination at send time.
+
+#### Configure click tracking from WhatsApp Business Manager
+
+If you're creating templates in WhatsApp Business Manager rather than the Template Builder, follow these steps so click tracking works correctly when the template is used in Braze.
+
+##### Step 1: Build a click-tracking supported template in WhatsApp Business Manager
+
+1. In your WhatsApp Business Manager, create a base URL that is either your custom domain or `brz.ai`.
 2. Make sure that the links included in the template are compatible with click tracking.
 3. Don’t change the template variables after it’s set up as a campaign in Braze; downstream changes can’t be incorporated.
-4. For CTA button links, select **Dynamic**, and then provide the base URL (`brz.ai` or your custom domain).<br><br>![Section to create a call to action.]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %})<br><br>
-5. For links in the body text, when writing the template in your WhatsApp Manager, remove any inserted spaces for links contained in the body that you want to track.<br><br>![Textbox to enter the content body for the call to action.]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %})
+4. For CTA button links, select **Dynamic**, and then provide the base URL (`brz.ai` or your custom domain).
 
-#### Step 2: Complete your template in Braze
+![Section to create a call to action.]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
 
-When composing, Braze will automatically detect which templates have supportable URL domains, both in the body text and for CTA buttons. The status will be shown at the bottom of the template. 
+{: start="5"}
+5. For links in the body text, when writing the template in your WhatsApp Business Manager, remove any inserted spaces for links contained in the body that you want to track.
 
-!["Link Status" section showing an active status for click tracking.]({% image_buster /assets/img/whatsapp/click_tracking/link_status.png %}){: style="max-width:70%;"}
+![Textbox to enter the content body for the call to action.]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
 
-- **Supported links:** Links that are submitted with the matching base URL will have click tracking enabled.
+##### Step 2: Complete your template in Braze
+
+When composing, Braze automatically detects which templates have supportable URL domains, both in the body text and for CTA buttons. The status is shown at the bottom of the template.
+
+![Link Status section showing an active status for click tracking.]({% image_buster /assets/img/whatsapp/click_tracking/link_status.png %}){: style="max-width:70%;"}
+
+- **Supported links:** Links submitted with the matching base URL have have click tracking enabled.
 - **Partially-supported links:** If some links in a template are submitted as full URLs, click tracking **won't** be applied to those links.
 - **Unsupported links:** Links without an approved base URL **won't** have click tracking capabilities.
 
-The destination URL will need to be provided for any link with a base URL that matches either `brz.ai` or your custom domain. 
+The destination URL needs to be provided for any link with a base URL that matches either `brz.ai` or your custom domain.
 
-!["Buttons" section with fields for a button name, website URL, and click tracking URL.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
+![Buttons section with fields for a button name, website URL, and click tracking URL.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Sending template messages via the API**: WhatsApp click tracking (using `brz.ai` or a custom tracking domain and the **Click tracking URL** field in the message composer) isn't supported when sending WhatsApp template messages through the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
+**Sending template messages via the API**: WhatsApp click tracking (using `brz.ai` or a custom tracking domain and the **Click tracking URL** field in the message composer) isn't supported when sending WhatsApp template messages through the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 
 If you send a template message through the API, you can populate CTA URL variables (using `button_variables`), but Braze doesn't generate a click-tracking URL or redirect link in the API request flow. To use click tracking, send the template from the Braze dashboard or via a Braze campaign trigger.
 {% endalert %}
@@ -107,7 +154,7 @@ If a draft is created within an active Canvas, a shortened URL won’t be genera
 
 ## Reporting
 
-When click tracking is turned on or used with supported templates, the WhatsApp performance table includes the column **Total Clicks** that shows a count of click events per variant and an associated click rate. For more details on WhatsApp metrics, refer to [WhatsApp message performance]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/).
+When click tracking is turned on or used with supported templates, the WhatsApp performance table includes the column **Total Clicks** that shows a count of click events per variant and an associated click rate. For more details on WhatsApp metrics, refer to [WhatsApp message performance]({{site.baseurl}}/user_guide/channels/whatsapp/reporting).
 
 ![WhatsApp Message Canvas step.]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 

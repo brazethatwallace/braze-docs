@@ -9,7 +9,7 @@ tool: Dashboard
 search_rank: 5
 ---
 
-# Facturación
+# Facturación {#billing}
 
 > Aprende a usar la página **Facturación** para supervisar y comprobar tu consumo de datos en espacios de trabajo, aplicaciones y fuentes de eventos. Este artículo cubre las diferentes secciones de la página y la información que pueden proporcionarte.
 
@@ -25,7 +25,7 @@ La página **Facturación** incluye las siguientes pestañas:
 
 La pestaña **Suscripciones y uso** incluye gráficos de uso y los detalles de tu contrato. Los datos de esta página se actualizan diariamente a las 10:00 PM hora del este (ET). No reflejan la actividad en tiempo real.
 
-### Gráficos de uso
+### Gráficos de uso {#usage-graphs}
 
 Aquí encontrarás gráficos de uso que aplican a tus espacios de trabajo. Es posible que tu propio dashboard muestre diferentes métricas de uso según los productos que hayas adquirido.
 
@@ -33,11 +33,11 @@ Aquí encontrarás gráficos de uso que aplican a tus espacios de trabajo. Es po
 
 Estos gráficos pueden mostrar usuarios activos al mes, visitantes únicos mensuales y envíos de correo electrónico. Los gráficos de uso como estos son particularmente útiles cuando intentas presupuestar el uso y obtener una comprensión más profunda de qué espacios de trabajo contribuyen al uso general.
 
-### Detalles del contrato
+### Detalles del contrato {#contract-details}
 
 Los detalles del contrato enumeran la fecha de inicio y finalización de tu contrato actual con Braze.
 
-#### Consideraciones
+#### Consideraciones {#considerations}
 
 Si tu contrato utiliza visitantes únicos mensuales (MUV) y cambias a un contrato que solo utiliza usuarios activos al mes (MAU), tus datos históricos seguirán apareciendo en el gráfico de MUV y tus nuevos datos aparecerán solo en el gráfico de MAU. Por ejemplo, si tu contrato finaliza en octubre, el gráfico de MUV muestra datos hasta finales de septiembre.
 
@@ -61,6 +61,8 @@ La pestaña **Total de uso de puntos de datos** proporciona una visión detallad
 La información de puntos de datos se almacena en caché cada 24 horas.
 {% endalert %}
 
+Si eres administrador y no puedes ver la pestaña **Total de uso de puntos de datos**, asegúrate de que tu navegador permita cookies de terceros para el dominio de tu dashboard de Braze y de que no esté en modo incógnito.
+
 ![Filtrado del uso de puntos de datos por semanas]({% image_buster /assets/img/subscription_and_billing2.png %})
 
 ### Detalles del contrato
@@ -74,11 +76,9 @@ Los campos en esta sección se definen de la siguiente manera:
 - **Puntos de datos asignados:** La cantidad de puntos de datos asignados en el contrato por período de facturación.
 - **Uso de puntos de datos del contrato:** Un total acumulado de todos los puntos de datos registrados durante la vigencia del contrato, que no se restablece en el siguiente período de facturación.
 
-![Sección de detalles del contrato en la pestaña de total de uso de puntos de datos]({% image_buster /assets/img/contract_details.png %})
+### Datos de facturación de la empresa {#company-billing-data}
 
-### Datos de facturación de la empresa
-
-#### Uso total de puntos de datos a nivel de aplicación
+#### Uso total de puntos de datos a nivel de aplicación {#app-level-total-data-point-usage}
 
 Este gráfico muestra el uso de puntos de datos en todas las aplicaciones.
 
@@ -88,25 +88,25 @@ Selecciona uno de los totales para ver la tabla **Uso de puntos de datos a lo la
 
 ![Uso de puntos de datos a lo largo del tiempo que muestra los totales semanales de puntos de datos para dos espacios de trabajo.]({% image_buster /assets/img/data_point_usage_time.png %})
 
-#### Uso de puntos de datos por espacio de trabajo
+#### Uso de puntos de datos por espacio de trabajo {#workspace-data-point-usage}
 
 Este gráfico te permite evaluar el uso total de puntos de datos de una empresa por espacio de trabajo. Te da la posibilidad de ver cómo cada espacio de trabajo contribuye al uso de puntos de datos de la empresa.
 
 ![Gráfico de uso de puntos de datos por espacio de trabajo para dos espacios de trabajo]({% image_buster /assets/img/appgroup_datapoint_usage.png %}){: style="max-width:90%;"}
 
-#### Uso de puntos de datos del ciclo de facturación por fuente de eventos
+#### Uso de puntos de datos del ciclo de facturación por fuente de eventos {#billing-cycle-data-point-usage-by-event-source}
 
 Este gráfico te permite ver cómo se distribuye el uso de puntos de datos entre diferentes fuentes de eventos, como diferentes atributos de API, eventos personalizados y sesiones.
 
 ![Uso de puntos de datos del ciclo de facturación por fuente de eventos que muestra la asignación de puntos de datos entre diferentes fuentes de eventos.]({% image_buster /assets/img/event_source_stats.png %})
 
-#### Uso de puntos de datos a lo largo del tiempo
+#### Uso de puntos de datos a lo largo del tiempo {#data-point-usage-over-time}
 
 Este gráfico te permite ver rápidamente tu uso total de puntos de datos en comparación con tu cantidad asignada de puntos de datos.
 
 ![Uso de puntos de datos a lo largo del tiempo que contrasta los puntos de datos asignados del ciclo de facturación actual con el total acumulado]({% image_buster /assets/img/company_data_point_usage_time.png %}){: style="max-width:90%;"}
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
-- [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para configurar alertas de eventos relacionados con la facturación y umbrales de uso.
-- [Dashboard de uso de mensajes]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) para supervisar el consumo de créditos de SMS, WhatsApp y RCS.
+- [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para configurar alertas de eventos relacionados con la facturación y umbrales de uso.
+- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard) para supervisar el consumo de créditos de mensajes.

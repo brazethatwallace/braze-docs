@@ -47,25 +47,25 @@ guide_featured_list:
 
 ---
 
-## Sobre o Liquid
+## Sobre o Liquid {#about-liquid}
 
 O Liquid funciona como uma ponte entre sua mensagem e os dados dos seus usuários. Quando você envia uma mensagem, a Braze analisa o texto em busca de sintaxe Liquid. Ao encontrá-la, ela busca os dados relevantes daquele usuário específico e substitui o código pelo valor real antes de a mensagem ser enviada.
 
-Por exemplo, você pode recuperar um atributo personalizado de um perfil de usuário que seja do tipo inteiro e arredondar esse valor para o número inteiro mais próximo. Para saber mais sobre a sintaxe e o uso do Liquid, consulte [**Tags de personalização compatíveis**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Por exemplo, você pode recuperar um atributo personalizado de um perfil de usuário que seja do tipo inteiro e arredondar esse valor para o número inteiro mais próximo. Para saber mais sobre a sintaxe e o uso do Liquid, consulte [**Tags de personalização compatíveis**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 A linguagem de modelo Liquid suporta o uso de objetos, tags e filtros.
 
-- [**Objetos**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) permitem inserir atributos personalizados nas suas mensagens.
-- [**Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) permitem inserir dados nas mensagens e usar lógica condicional para enviar mensagens quando determinadas condições são atendidas. Por exemplo, você pode usar tags para incluir lógica inteligente, como instruções "if", nas suas campanhas.
-- [**Filtros**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) permitem reformatar atributos personalizados e conteúdo dinâmico. Por exemplo, você pode usar o [filtro `date`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#date-filter) para converter um timestamp, como *2016-09-07 08:43:50 UTC*, em uma data, como *7 de setembro de 2016*.
+- [**Objetos**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) permitem inserir atributos personalizados nas suas mensagens.
+- [**Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) permitem inserir dados nas mensagens e usar lógica condicional para enviar mensagens quando determinadas condições são atendidas. Por exemplo, você pode usar tags para incluir lógica inteligente, como instruções "if", nas suas campanhas.
+- [**Filtros**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) permitem reformatar atributos personalizados e conteúdo dinâmico. Por exemplo, você pode usar o [filtro `date`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#date-filter) para converter um timestamp, como *2016-09-07 08:43:50 UTC*, em uma data, como *7 de setembro de 2016*.
 
 {% alert warning %}
 Atualmente, a Braze não oferece suporte a 100% do Liquid da Shopify, apenas a determinadas partes que tentamos descrever em nossa documentação. Recomendamos fortemente testar todas as mensagens que usam Liquid antes de enviá-las, para reduzir o risco de erros ou de uso de Liquid não compatível.
 {% endalert %}
 
-### Suporte ao Liquid 5
+### Suporte ao Liquid 5 {#liquid-5-support}
 
-A Braze oferece suporte ao Liquid até e incluindo o **Liquid 5 da Shopify**. A implementação do Liquid suporta tipos de tags de personalização de sintaxe e controle de espaços em branco. Para saber mais sobre tags específicas, consulte [tags de sintaxe]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#syntax-tags).
+A Braze oferece suporte ao Liquid até e incluindo o **Liquid 5 da Shopify**. A implementação do Liquid suporta tipos de tags de personalização de sintaxe e controle de espaços em branco. Para saber mais sobre tags específicas, consulte [tags de sintaxe]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#syntax-tags).
 
 Os seguintes filtros novos de array e matemáticos estão disponíveis para uso no seu Liquid ao criar suas mensagens.
 - `at_least`
@@ -75,9 +75,9 @@ Os seguintes filtros novos de array e matemáticos estão disponíveis para uso 
 - `sort_natural`
 - `where`
 
-Consulte [Filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) para ver as definições.
+Consulte [Filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) para ver as definições.
 
-## Termos importantes
+## Termos importantes {#terms-to-know}
 
 Estes termos são reinterpretados a partir da [**documentação da Shopify**](https://shopify.github.io/liquid/basics/introduction/) com base no nosso nível de suporte.
 
@@ -90,7 +90,7 @@ Estes termos são reinterpretados a partir da [**documentação da Shopify**](ht
 | Tag de lógica condicional | Usada para criar lógica e controlar o fluxo do conteúdo da mensagem. Na Braze, as tags de lógica condicional são usadas para criar exceções e variações nas mensagens com base em determinados critérios predefinidos. | ```{% if ${language} == 'en' %}``` acionará sua mensagem de uma forma específica caso o usuário tenha definido "Inglês" como idioma. |
 | Filtros | Usados para alterar, restringir ou reformatar a saída do objeto Liquid. Frequentemente utilizados para criar operações matemáticas. | ```{{"Big Sale" | upcase}}``` fará com que as palavras "Big Sale" apareçam como "BIG SALE" na mensagem. |
 | Operadores | Usados nas mensagens para criar dependências ou critérios que podem afetar qual mensagem o usuário recebe. | Se um usuário atender aos critérios definidos em uma mensagem marcada com `{% custom_attribute.${Total_Revenue} > 0%}`, ele receberá a mensagem. Caso contrário, receberá outra mensagem designada (ou não), dependendo do que você configurou. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Termos importantes" }
 
 {% endraw %}
 

@@ -9,7 +9,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Remover números de
 
 ---
 {% api %}
-# Remover números de telefone inválidos
+# Remover números de telefone inválidos {#remove-invalid-phone-numbers}
 {% apimethod post %}
 /sms/invalid_phone_numbers/remove
 {% endapimethod %}
@@ -20,15 +20,15 @@ Isso pode ser usado para revalidar números de telefone depois de terem sido mar
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76495aac-8c2d-4e1a-8cac-12e3856ab1d3 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `sms.invalid_phone_numbers.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sms.invalid_phone_numbers.remove`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -41,14 +41,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Obrigatória | Matriz de strings no formato e.164  | Uma matriz de até 50 números telefônicos para modificar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone_number` | Obrigatória | Matriz de strings no formato e.164 | Uma matriz de até 50 números de telefone para modificar. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers/remove' \

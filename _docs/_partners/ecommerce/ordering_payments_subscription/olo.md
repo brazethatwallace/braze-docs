@@ -22,7 +22,7 @@ By integrating Olo and Braze, you can:
 | ----------- | ----------- |
 | Olo account | An Olo account with access to webhooks is required to take advantage of this partnership. Set up webhook subscriptions via the [self-service webhooks tool](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) within the Olo Dashboard. |
 | Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/data_transformation/) is necessary to receive data from Olo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 A webhook is a way for Olo to send event-driven information to Braze about users and their actions, including events like Order Placed, Guest Opt In, Order Picked Up and more. The Olo Webhook delivers the event to Braze generally within seconds of the action being performed.
 
@@ -36,7 +36,7 @@ To handle multiple Olo events within this single transformation, look for the `X
 
 ### Step 1: Set up the Braze Data Transformation to accept Olo's test event {#step-1}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### Step 2: Set up Olo webhooks
 

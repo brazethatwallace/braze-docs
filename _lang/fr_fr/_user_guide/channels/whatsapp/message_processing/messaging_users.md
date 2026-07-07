@@ -105,7 +105,7 @@ Vous ne pouvez ajouter des messages de liste WhatsApp qu'aux Canvas basés sur l
 
 #### Étape 2 : Créer une étape de message WhatsApp {#step-2-create-a-whatsapp-message-step}
 
-Ajoutez une [étape de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) WhatsApp, puis sélectionnez la disposition du message de réponse **List Message**.
+Ajoutez une [étape de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) WhatsApp, puis sélectionnez la disposition du message de réponse **List Message**.
 
 ![Une collection sélectionnable des différents types de messages de réponse WhatsApp que vous pouvez créer, y compris « List Message ».]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +121,7 @@ Modifiez l'ordre des sections et des lignes en sélectionnant et en faisant glis
 
 ![Glissement d'une section de liste vers un nouvel emplacement.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-De retour dans le compositeur de Canvas, ajoutez un [parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) après l'étape de message avec un groupe pour chaque réponse de liste. Dans chaque groupe :
+De retour dans le compositeur de Canvas, ajoutez un [parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) après l'étape de message avec un groupe pour chaque réponse de liste. Dans chaque groupe :
 
 1. Ajoutez un déclencheur pour **Sent inbound WhatsApp subscription group** et sélectionnez le groupe d'abonnement WhatsApp correspondant.
 2. Cochez la case **Where the message body**.
@@ -133,7 +133,7 @@ Continuez à construire votre Canvas.
 
 ### Créer des parcours d'action pour les descriptions longues {#creating-actions-paths-for-long-descriptions}
 
-Si vous avez des descriptions de lignes, vous devez utiliser **Matches regex** pour spécifier une ligne. Par exemple, si vous souhaitez spécifier une ligne avec la description « Notre nouveau style qui se porte par-dessus votre paire préférée de bottines », vous pourriez utiliser une [expression régulière]({{site.baseurl}}/user_guide/audience/segments/regex/) avec « bottines ».
+Si vous avez des descriptions de lignes, vous devez utiliser **Matches regex** pour spécifier une ligne. Par exemple, si vous souhaitez spécifier une ligne avec la description « Notre nouveau style qui se porte par-dessus votre paire préférée de bottines », vous pourriez utiliser une [expression régulière]({{site.baseurl}}/user_guide/audience/segments/regex) avec « bottines ».
 
 ![Un déclencheur WhatsApp utilisant le filtre « Matches regex » pour capturer les messages de réponse contenant « ankle boots ».]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
@@ -146,11 +146,11 @@ Les messages de réponse doivent être envoyés dans les 24 heures suivant la r�
 Les événements suivants débloquent les messages de réponse :
 
 - Message entrant
-  - [Parcours d'action]({{site.baseurl}}/action_paths/) ou [entrée basée sur l'action]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) avec le déclencheur **Envoyer un message WhatsApp entrant**.
+  - [Parcours d'action]({{site.baseurl}}/action_paths) ou [entrée basée sur l'action]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) avec le déclencheur **Envoyer un message WhatsApp entrant**.
 
 ![Une étape d'entrée basée sur l'action avec le déclencheur « Envoyer un message WhatsApp entrant ».]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [Entrée déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [Entrée déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - Message produit entrant
   - Événement [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)
 
@@ -158,4 +158,14 @@ Les événements suivants débloquent les messages de réponse :
 
 ### Filtrage par un attribut de temps personnalisé {#filtering-by-a-custom-time-attribute}
 
-Si l'audience de votre Campaign ou Canvas WhatsApp basé sur l'action dépend d'un attribut de temps personnalisé se situant dans une fenêtre relative (par exemple, entre maintenant et les prochaines 24 heures), combinez deux filtres comme décrit dans [Temps]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time).
+Si l'audience de votre Campaign ou Canvas WhatsApp basé sur l'action dépend d'un attribut de temps personnalisé se situant dans une fenêtre relative (par exemple, entre maintenant et les prochaines 24 heures), combinez deux filtres comme décrit dans [Temps]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
+
+### Stockage des médias entrants et expiration des URL {#inbound-media-storage-and-url-expiration}
+
+Lorsqu'un utilisateur envoie un message WhatsApp contenant un média (comme une image, un fichier audio ou un document), Braze stocke ce média dans Amazon S3 pendant 30 jours à compter de la réception du message.
+
+Cependant, le champ Liquid `inbound_media_urls`, qui référence l'URL de ce média, est valide pendant sept jours à compter de la réception du message entrant par Braze. Comme l'URL est générée une seule fois à la réception et n'est pas régénérée, la fenêtre de sept jours s'applique quel que soit le moment où vous accédez au champ. C'est la plus courte des deux limites qui s'applique, donc en pratique, `inbound_media_urls` doit être considéré comme valide pendant sept jours maximum.
+
+{% alert note %}
+Si vous enregistrez une valeur `inbound_media_urls` dans un attribut personnalisé utilisateur pour une utilisation ultérieure, tenez compte de cette expiration de sept jours. Toute tentative d'accès à l'URL après son expiration entraînera un lien cassé.
+{% endalert %}

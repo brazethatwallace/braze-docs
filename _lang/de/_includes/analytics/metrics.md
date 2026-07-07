@@ -7,11 +7,11 @@
 {% endif %}
 
 {% if include.metric == "Audience" %}
-Die <i>Zielgruppe</i> ist der Prozentsatz der Nutzer, die eine bestimmte Nachricht erhalten haben. Diese Nummer wird von Braze empfangen.
+Die <i>Zielgruppe</i> ist der Prozentsatz der Nutzer:innen, die eine bestimmte Nachricht erhalten haben. Diese Zahl wird von Braze bereitgestellt.
 {% endif %}
 
 {% if include.metric == "Bounces" %}
-<i>Bounces</i> ist die Gesamtzahl der Nachrichten, die nicht an die vorgesehenen Empfänger zugestellt werden konnten.
+<i>Bounces</i> ist die Gesamtzahl der Nachrichten, die nicht erfolgreich an die vorgesehenen Empfänger:innen zugestellt werden konnten.
 {% endif %}
 
 {% if include.metric == "Estimated Real Opens" %}
@@ -19,47 +19,47 @@ Die <i>geschätzten realen Öffnungen</i> sind eine Schätzung der Anzahl der ei
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Hilfe</i> bedeutet, dass ein Benutzer auf Ihre Nachricht mit dem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HILFE</a> geantwortet hat und eine automatische HILFE-Antwort erhalten hat.
+<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HELP</a> geantwortet hat und eine automatische HELP-Antwort erhalten hat.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
-Ein <i>Hard Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines dauerhaften Zustellungsfehlers nicht an den Empfänger zugestellt werden kann. Ein Hard Bounce kann auftreten, weil der Domänenname nicht existiert oder weil der Empfänger unbekannt ist.
+Ein <i>Hard Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines dauerhaften Zustellungsfehlers nicht an die Empfänger:in zugestellt werden kann. Ein Hard Bounce kann auftreten, weil der Domainname nicht existiert oder weil die Empfänger:in unbekannt ist.
 {% endif %}
 
 {% if include.metric == "Soft Bounce" %}
-Ein <i>Soft Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines vorübergehenden Zustellungsfehlers nicht an den Empfänger zugestellt werden kann, obwohl die E-Mail-Adresse des Empfängers gültig ist. Ein Soft Bounce kann auftreten, weil der Posteingang des Empfängers voll ist, der Server ausgefallen ist oder die Nachricht zu groß für den Posteingang des Empfängers war.
+Ein <i>Soft Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines vorübergehenden Zustellungsfehlers nicht an die Empfänger:in zugestellt werden kann, obwohl die E-Mail-Adresse der Empfänger:in gültig ist. Ein Soft Bounce kann auftreten, weil der Posteingang der Empfänger:in voll ist, der Server ausgefallen ist oder die Nachricht zu groß für den Posteingang der Empfänger:in war.
 {% endif %}
 
 {% if include.metric == "Deferral" %}
-Eine <i>Zurückstellung</i> liegt vor, wenn eine E-Mail nicht sofort zugestellt werden konnte. Braze versucht jedoch, die E-Mail bis zu 72 Stunden nach diesem vorübergehenden Zustellungsfehler erneut zuzustellen, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezifische Kampagne eingestellt werden.
+Eine <i>Zurückstellung</i> liegt vor, wenn eine E-Mail nicht sofort zugestellt werden konnte. Braze versucht jedoch, die E-Mail bis zu 72 Stunden nach diesem vorübergehenden Zustellungsfehler erneut zuzustellen, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezifische Campaign eingestellt werden.
 {% endif %}
 
 {% if include.metric == "Body Click" %}
-Push-Story-Benachrichtigungen zeichnen einen <i>Body Click</i> auf, wenn die Benachrichtigung angeklickt wird. Sie wird nicht aufgezeichnet, wenn eine Nachricht erweitert oder ein Aktions-Button angeklickt wird.
+Push-Story-Benachrichtigungen zeichnen einen <i>Body Click</i> auf, wenn die Benachrichtigung angeklickt wird. Er wird nicht aufgezeichnet, wenn eine Nachricht erweitert oder ein Aktions-Button angeklickt wird.
 {% endif %}
 
 {% if include.metric == "Body Clicks" %}
-<i>Body Clicks</i> treten auf, wenn ein Benutzer auf eine Nachricht klickt, die keine Schaltflächen (Schaltfläche 1, Schaltfläche 2) hat und mit dem traditionellen Editor erstellt wurde, und wenn eine Nachricht, die mit dem HTML-Editor oder dem Drag-and-Drop-Editor erstellt wurde, die <code>brazeBridge.logClick()</code> ohne Argumente.
+<i>Body Clicks</i> treten auf, wenn ein:e Nutzer:in auf eine Nachricht klickt, die keine Buttons (Button 1, Button 2) hat und mit dem traditionellen Editor erstellt wurde, und wenn eine Nachricht, die mit dem HTML-Editor oder dem Drag-and-Drop-Editor erstellt wurde, <code>brazeBridge.logClick()</code> ohne Argumente verwendet.
 {% endif %}
 
 {% if include.metric == "Button 1 Clicks" %}
-<i>Button 1 Klicks</i> ist die Gesamtzahl der Klicks auf Button 1 der Nachricht.
+<i>Button-1-Klicks</i> ist die Gesamtzahl der Klicks auf Button 1 der Nachricht.
 {% endif %}
 
 {% if include.metric == "Button 2 Clicks" %}
-<i>Button 2 Klicks</i> ist die Gesamtzahl der Klicks auf Button 2 der Nachricht.
+<i>Button-2-Klicks</i> ist die Gesamtzahl der Klicks auf Button 2 der Nachricht.
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>Eingereichte Auswahlen</i> ist die Gesamtzahl der ausgewählten Auswahlen, wenn der Benutzer auf der Seite mit den Umfragefragen einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen</a> Umfrage auf die Schaltfläche Senden klickt.
+<i>Eingereichte Auswahlen</i> ist die Gesamtzahl der ausgewählten Optionen, wenn ein:e Nutzer:in auf der Seite mit den Umfragefragen einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a> auf den Button „Senden“ klickt.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-<i>Die Klick-Öffnungsrate</i> ist der Prozentsatz der geöffneten E-Mails, die mindestens einmal von einem einzelnen Nutzer oder einem Gerät angeklickt wurden, und ist nur im <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>Berichts-Builder</a> verfügbar.
+Die <i>Klick-Öffnungsrate</i> ist der Prozentsatz der geöffneten E-Mails, die mindestens einmal von einer einzelnen Nutzer:in oder einem Gerät angeklickt wurden, und ist nur im <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>Berichts-Builder</a> verfügbar.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
-<i>Nachricht schließen</i> ist die Gesamtzahl der Klicks auf den Nachrichtenbutton "Schließen". Dies gilt nur für In-App-Nachrichten, die per Drag-and-Drop-Editor erstellt wurden – nicht für den herkömmlichen Editor.
+<i>Nachricht schließen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ der Nachricht. Dies gilt nur für In-App-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, nicht mit dem traditionellen Editor.
 {% endif %}
 
 {% if include.metric == "Confirmed Deliveries" %}
@@ -71,43 +71,43 @@ Die <i>Konfidenz</i> ist der Prozentsatz des Vertrauens, dass eine bestimmte Var
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>Bestätigungsseite Schaltfläche</i> ist die Gesamtzahl der Klicks auf die Schaltfläche mit der Aufforderung zum Handeln auf der Bestätigungsseite einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Bestätigungsseiten-Button</i> ist die Gesamtzahl der Klicks auf den Call-to-Action-Button auf der Bestätigungsseite einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>Bestätigungsseite Ausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Bestätigungsseite einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Bestätigungsseiten-Ausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Bestätigungsseite einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
-<i>Die Konversionsrate</i> ist der Prozentsatz der Häufigkeit eines bestimmten Ereignisses im Vergleich zu allen Empfängern einer Nachricht. Dieses definierte Event wird festgelegt, wenn Sie die Kampagne erstellen.
+Die <i>Konversionsrate</i> ist der Prozentsatz der Häufigkeit, mit der ein definiertes Ereignis im Vergleich zu allen Empfänger:innen einer Nachricht eingetreten ist. Dieses definierte Ereignis wird festgelegt, wenn Sie die Campaign erstellen.
 {% endif %}
 
 {% if include.metric == "Conversion Window" %}
-Das <i>Konversionsfenster</i> zeigt die Anzahl der Tage nach Erhalt der Nachricht, in denen die Aktionen des Benutzers verfolgt und einem Konversions-Event zugeordnet werden. Konversionen, die nach diesem Fenster stattfinden, werden nicht dem Konversions-Event zugeschrieben.
+Das <i>Konversionsfenster</i> ist die Anzahl der Tage nach Erhalt der Nachricht, in denen die Aktionen der Nutzer:innen verfolgt und einem Konversions-Event zugeordnet werden. Conversions, die nach diesem Fenster stattfinden, werden nicht dem Konversions-Event zugeschrieben.
 {% endif %}
 
 {% if include.metric == "Conversions (B, C, D)" %}
-<i>Konversionen (B, C, D)</i> sind zusätzliche Konversions-Events, die nach dem primären Konversions-Event hinzugefügt werden. Dies ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Kampagne eingetreten ist.
+<i>Conversions (B, C, D)</i> sind zusätzliche Konversions-Events, die nach dem primären Konversions-Event hinzugefügt werden. Dies ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Campaign eingetreten ist.
 {% endif %}
 
 {% if include.metric == "Total Conversions" %}
-Die <i>Gesamtzahl der Konversionen</i> ist die Gesamtzahl der Fälle, in denen ein Nutzer ein bestimmtes Konversions-Event abschließt, nachdem er eine In-App-Nachrichtenkampagne gesehen hat.
+Die <i>Gesamtzahl der Conversions</i> ist die Gesamtzahl der Fälle, in denen ein:e Nutzer:in ein bestimmtes Konversions-Event abschließt, nachdem er/sie eine In-App-Nachrichten-Campaign gesehen hat.
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>Zustellungen</i> ist die Gesamtzahl der Nachrichtenanfragen, die vom empfangenden Server angenommen wurden. Das bedeutet nicht, dass die Nachricht an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht vom Server akzeptiert wurde.
+<i>Zustellungen</i> ist die Gesamtzahl (oder der Prozentsatz) der Nachrichtenanfragen, die vom empfangenden Server angenommen wurden. Das bedeutet nicht, dass die Nachricht an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht vom Server akzeptiert wurde.
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
-<i>Zustellungen %</i> ist der prozentuale Anteil an der Gesamtzahl der Nachrichten (Sendungen), die erfolgreich an Empfänger gesendet und von diesen empfangen wurden.
+<i>Zustellungen %</i> ist der prozentuale Anteil an der Gesamtzahl der Nachrichten (Sendungen), die erfolgreich an E-Mail-fähige Empfänger:innen gesendet und von diesen empfangen wurden.
 {% endif %}
 
 {% if include.metric == "Delivery Failures" %}
-<i>Von Zustellungsfehlern</i> spricht man, wenn die SMS nicht versendet werden konnte, weil die Warteschlangen überfüllt waren (Versand von SMS mit einer höheren Rate, als Ihre Lang- oder Kurzcodes verarbeiten können).
+<i>Zustellungsfehler</i> treten auf, wenn die SMS nicht gesendet werden konnte, weil die Warteschlangen überlaufen sind (SMS werden mit einer höheren Rate gesendet, als Ihre Lang- oder Shortcodes verarbeiten können).
 {% endif %}
 
 {% if include.metric == "Delivery Failures RCS" %}
-<i>Zustellungsfehler</i> liegen vor, wenn der RCS nicht gesendet werden konnte, weil die Warteschlangen überlaufen sind (RCS werden mit einer höheren Rate gesendet, als Ihr RCS-überprüfter Sender verarbeiten kann).
+<i>Zustellungsfehler</i> treten auf, wenn die RCS nicht gesendet werden konnte, weil die Warteschlangen überlaufen sind (RCS werden mit einer höheren Rate gesendet, als Ihr RCS-verifizierter Sender verarbeiten kann).
 {% endif %}
 
 {% if include.metric == "Failed Delivery Rate" %}
@@ -115,11 +115,11 @@ Die <i>Rate der fehlgeschlagenen Zustellungen</i> ist der Prozentsatz der Sendun
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>Direkte Öffnungen</i> ist die Gesamtzahl der Nutzer:innen, die Ihre App oder Website durch direktes Drücken der Benachrichtigung geöffnet haben.
+<i>Direkte Öffnungen</i> ist die Gesamtzahl (oder der Prozentsatz) der Nutzer:innen, die Ihre App oder Website durch direktes Drücken der Benachrichtigung geöffnet haben.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
-<i>Erreichbar</i> ist die Gesamtzahl der Nutzer, die über eine E-Mail-Adresse verfügen und sich explizit angemeldet oder abonniert haben.
+<i>E-Mail-erreichbar</i> ist die Gesamtzahl der Nutzer:innen, die über eine hinterlegte E-Mail-Adresse verfügen und sich explizit angemeldet oder abonniert haben.
 {% endif %}
 
 {% if include.metric == "Errors" %}
@@ -127,119 +127,119 @@ Die <i>Rate der fehlgeschlagenen Zustellungen</i> ist der Prozentsatz der Sendun
 {% endif %}
 
 {% if include.metric == "Failures" %}
-<i>Misserfolge</i> sind, wenn die WhatsApp-Nachricht nicht gesendet werden konnte, weil der Internet-Provider einen Hard Bounce zurückgegeben hat. Ein Hard Bounce bedeutet einen dauerhaften Zustellbarkeitsfehler.
+<i>Fehlschläge</i> treten auf, wenn die WhatsApp-Nachricht nicht gesendet werden konnte, weil der Internet-Provider einen Hard Bounce zurückgegeben hat. Ein Hard Bounce bedeutet einen dauerhaften Zustellbarkeitsfehler.
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-<i>Beeinflusste Öffnungen</i> ist die Gesamtzahl (und der Prozentsatz) der Nutzer, die die App geöffnet haben, nachdem die Push-Benachrichtigung gesendet wurde, ohne die Push-Nachricht direkt zu öffnen.
+<i>Beeinflusste Öffnungen</i> ist die Gesamtzahl (oder der Prozentsatz) der Nutzer:innen, die die App geöffnet haben, nachdem die Push-Benachrichtigung gesendet wurde, ohne die Push-Nachricht direkt zu öffnen.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
-<i>Lifetime-Umsatz</i> ist der <code>PurchaseEvents</code> Gesamtpreiswert (in USD), der seit der Auflegung eingenommen wurde.
+<i>Lifetime-Umsatz</i> ist der gesamte <code>PurchaseEvents</code>-Preiswert (in USD), der seit der Einführung eingenommen wurde.
 {% endif %}
 
 {% if include.metric == "Lifetime Value Per User" %}
-Der <i>Lifetime-Value pro Nutzer</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer</i>:innen (an den Standorten Ihrer Homepage).
+Der <i>Lifetime-Value pro Nutzer:in</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer:innen</i> (auf Ihrer Startseite).
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
-<i>Der durchschnittliche Tagesumsatz</i> ist der Durchschnitt der Summe der Kampagnen- und Canvas-Einnahmen für einen bestimmten Tag.
+Der <i>durchschnittliche Tagesumsatz</i> ist der Durchschnitt der Summe der Campaign- und Canvas-Einnahmen für einen bestimmten Tag.
 {% endif %}
 
 {% if include.metric == "Daily Purchases" %}
-<i>Tägliche Käufe</i> ist der Durchschnitt der gesamten einzigartigen <code>PurchaseEvents</code> im Laufe des Zeitraums.
+<i>Tägliche Käufe</i> ist der Durchschnitt der gesamten eindeutigen <code>PurchaseEvents</code> über den Zeitraum.
 {% endif %}
 
 {% if include.metric == "Daily Revenue Per User" %}
-Der <i>Tagesumsatz pro Benutzer</i> ist der durchschnittliche Tagesumsatz pro täglich aktivem Benutzer.
+Der <i>Tagesumsatz pro Nutzer:in</i> ist der durchschnittliche Tagesumsatz pro täglich aktiver Nutzer:in.
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>Automatische Öffnungen</i> beinhaltet den Anteil der „Öffnungen“, die von Apples Mail Privacy Protection (MPP) für iOS 15 betroffen sind. Wenn ein Benutzer zum Beispiel eine E-Mail mit der Mail-App auf einem Apple-Gerät öffnet, wird dies als <i>Automatische Öffnungen</i> protokolliert.
+<i>Automatische Öffnungen</i> beinhaltet den Anteil der „Öffnungen“, die von Apples Mail Privacy Protection (MPP) für iOS 15 betroffen sind. Wenn ein:e Nutzer:in beispielsweise eine E-Mail mit der Mail-App auf einem Apple-Gerät öffnet, wird dies als <i>Automatische Öffnungen</i> protokolliert.
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Andere Öffnungen</i> umfasst E-Mails, die nicht als <i>Automatische Öffnungen</i> identifiziert wurden. Wenn ein Benutzer beispielsweise eine E-Mail auf einer anderen Plattform öffnet (z. B. Gmail-App auf einem Telefon, Gmail auf einem Desktop-Browser), wird dies als <i>"Andere Öffnungen</i>" protokolliert.
+<i>Andere Öffnungen</i> umfasst E-Mails, die nicht als <i>Automatische Öffnungen</i> identifiziert wurden. Wenn ein:e Nutzer:in beispielsweise eine E-Mail auf einer anderen Plattform öffnet (z. B. Gmail-App auf einem Telefon, Gmail auf einem Desktop-Browser), wird dies als <i>Andere Öffnungen</i> protokolliert.
 {% endif %}
 
 {% if include.metric == "Opens" %}
-<i>Öffnungen</i> sind sowohl <i>direkte Öffnungen</i> als auch <i>beeinflusste Öffnungen</i>, bei denen das Braze SDK mithilfe eines proprietären Algorithmus festgestellt hat, dass eine Push-Benachrichtigung einen Benutzer zum Öffnen der App veranlasst hat.
+<i>Öffnungen</i> sind Instanzen, die sowohl <i>direkte Öffnungen</i> als auch <i>beeinflusste Öffnungen</i> umfassen, bei denen das Braze SDK mithilfe eines proprietären Algorithmus festgestellt hat, dass eine Push-Benachrichtigung ein:e Nutzer:in zum Öffnen der App veranlasst hat.
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>Opt-Out</i> liegt vor, wenn ein Nutzer:innen auf Ihre Nachricht mit einem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Opt-Out-Schlüsselwort</a> geantwortet hat und sich von Ihrem SMS- oder RCS-Programm abgemeldet hat.
+<i>Opt-Out</i> liegt vor, wenn ein:e Nutzer:in auf Ihre Nachricht mit einem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Opt-Out-Schlüsselwort</a> geantwortet hat und sich von Ihrem SMS- oder RCS-Programm abgemeldet hat.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
-<i>Pending Retry</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Dienstanbieter (ESP) aber dennoch versucht hat, sie erneut zuzustellen. Der ESP versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
+<i>Ausstehende Wiederholung</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Anbieter (ESP) aber dennoch versucht hat, sie erneut zuzustellen. Der ESP versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
-<i>Primäre Conversions (A)</i> oder <i>primäres Conversion-Ereignis</i> ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Kampagne eingetreten ist. Dieses definierte Event wird von Ihnen bei der Erstellung der Kampagne festgelegt.
+<i>Primäre Conversions (A)</i> oder <i>primäres Konversions-Event</i> ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Campaign eingetreten ist. Dieses definierte Ereignis wird von Ihnen bei der Erstellung der Campaign festgelegt.
 {% endif %}
 
 {% if include.metric == "Reads" %}
-<i>Gelesen</i> ist, wenn der Nutzer:innen die Nachricht liest. Die Lesebestätigungen des Benutzers müssen aktiviert sein, damit Braze die Lesevorgänge verfolgen kann.
+<i>Gelesen</i> bedeutet, dass ein:e Nutzer:in die Nachricht gelesen hat. Die Lesebestätigungen der Nutzer:innen müssen aktiviert sein, damit Braze die Lesevorgänge verfolgen kann.
 {% endif %}
 
 {% if include.metric == "Read Rate" %}
-Die <i>Leserate</i> ist der Prozentsatz der Sendungen, die zu einem Lesevorgang führten. Dies ist nur für Nutzer:innen möglich, die Lesebestätigungen aktiviert haben.
+Die <i>Leserate</i> ist der Prozentsatz der Sendungen, die zu einem Lesevorgang geführt haben. Dies gilt nur für Nutzer:innen, die Lesebestätigungen aktiviert haben.
 {% endif %}
 
 {% if include.metric == "Received" %}
-Der <i>Empfang</i> wird je nach Kanal unterschiedlich definiert und kann erfolgen, wenn Benutzer die Nachricht ansehen, wenn Benutzer eine definierte Auslöseaktion ausführen oder wenn die Nachricht an den Nachrichtenanbieter gesendet wird.
+<i>Empfangen</i> wird je nach Kanal unterschiedlich definiert und kann erfolgen, wenn Nutzer:innen die Nachricht ansehen, eine definierte Trigger-Aktion ausführen oder die Nachricht an den Nachrichtenanbieter gesendet wird.
 {% endif %}
 
 {% if include.metric == "Rejections" %}
-<i>Ablehnungen</i> liegen vor, wenn die SMS oder RCS vom Netzbetreiber abgelehnt wurde. Dies kann verschiedene Gründe haben, z. B. die Filterung von Inhalten durch den Anbieter, die Verfügbarkeit des Zielgeräts, die Telefonnummer ist nicht mehr in Betrieb und ähnliches.
+<i>Ablehnungen</i> liegen vor, wenn die SMS oder RCS vom Netzbetreiber abgelehnt wurde. Dies kann verschiedene Gründe haben, z. B. die Filterung von Inhalten durch den Anbieter, die Verfügbarkeit des Zielgeräts, die Telefonnummer ist nicht mehr in Betrieb und Ähnliches.
 {% endif %}
 
 {% if include.metric == "Revenue" %}
-Der <i>Umsatz</i> ist der Gesamtumsatz in Dollar von Kampagnenempfängern innerhalb des festgelegten <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>primären Konversionsfensters</a>.
+Der <i>Umsatz</i> ist der Gesamtumsatz in Dollar von Campaign-Empfänger:innen innerhalb des festgelegten <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>primären Konversionsfensters</a>.
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
-<i>Gesendete Nachrichten</i> ist die Gesamtzahl der gesendeten Nachrichten in einer Kampagne. Nach dem Start einer geplanten Kampagne umfasst diese Metrik alle gesendeten Nachrichten, unabhängig davon, ob sie aufgrund der Ratenbegrenzung bereits versendet wurden. Das bedeutet nicht, dass die Nachricht empfangen oder an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht gesendet wurde.
+<i>Gesendete Nachrichten</i> ist die Gesamtzahl der in einer Campaign gesendeten Nachrichten. Nach dem Start einer geplanten Campaign umfasst diese Metrik alle gesendeten Nachrichten, unabhängig davon, ob sie aufgrund von Rate-Limiting bereits versendet wurden. Das bedeutet nicht, dass die Nachricht empfangen oder an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht gesendet wurde.
 {% endif %}
 
 {% if include.metric == "Sent" %}
-<i>Gesendet</i> wird jedes Mal, wenn eine Kampagne oder ein Canvas-Schritt gestartet oder getriggert wurde und eine SMS oder RCS von Braze gesendet wurde. Es ist möglich, dass die SMS oder RCS das Gerät eines Nutzer:innen aufgrund von Fehlern nicht erreicht hat.
+<i>Gesendet</i> bedeutet, dass eine Campaign oder ein Canvas-Schritt gestartet oder getriggert wurde und eine SMS oder RCS von Braze gesendet wurde. Es ist möglich, dass die SMS oder RCS das Gerät einer Nutzer:in aufgrund von Fehlern nicht erreicht hat.
 {% endif %}
 
 {% if include.metric == "Sends" %}
-<i>Sendungen</i> ist die Gesamtzahl der gesendeten Nachrichten in einer Kampagne. Nach dem Start einer geplanten Kampagne umfasst diese Metrik alle gesendeten Nachrichten, unabhängig davon, ob sie aufgrund der Ratenbegrenzung bereits versendet wurden. Das bedeutet nicht, dass die Nachricht empfangen oder an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht gesendet wurde.
+<i>Sendungen</i> ist die Gesamtzahl der in einer Campaign gesendeten Nachrichten. Nach dem Start einer geplanten Campaign umfasst diese Metrik alle gesendeten Nachrichten, unabhängig davon, ob sie aufgrund von Rate-Limiting bereits versendet wurden. Das bedeutet nicht, dass die Nachricht empfangen oder an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht gesendet wurde.
 {% endif %}
 
 {% if include.metric == "Sends to Carrier" %}
-<i>Sendungen an Netzbetreiber</i> ist veraltet, wird aber für Benutzer, die es bereits haben, weiterhin unterstützt. Es handelt sich um die Summe der <i>Bestätigten Zustellungen</i>, <i>Ablehnungen</i> und <i>Sendungen</i>, bei denen die Zustellung oder Ablehnung nicht vom Zusteller bestätigt wurde. Dies gilt auch für Fälle, in denen Zusteller keine Zustell- oder Ablehnungsbestätigung liefern, da einige Zusteller diese Bestätigung nicht liefern oder zum Zeitpunkt des Versands nicht liefern können.
+<i>Sendungen an Netzbetreiber</i> ist veraltet, wird aber für Nutzer:innen, die es bereits haben, weiterhin unterstützt. Es handelt sich um die Summe der <i>bestätigten Zustellungen</i>, <i>Ablehnungen</i> und <i>Sendungen</i>, bei denen die Zustellung oder Ablehnung nicht vom Netzbetreiber bestätigt wurde. Dies umfasst auch Fälle, in denen Netzbetreiber keine Zustell- oder Ablehnungsbestätigung liefern, da einige Netzbetreiber diese Bestätigung nicht liefern oder zum Zeitpunkt des Versands nicht liefern können.
 {% endif %}
 
 {% if include.metric == "Sends to Carrier Rate" %}
-<i>Die Rate der an den Netzbetreiber gesendeten Nachrichten</i> ist der Prozentsatz der insgesamt gesendeten Nachrichten, die als <i>an den Netzbetreiber gesendete Nachrichten</i> eingestuft wurden. Dies gilt auch für Instanzen, in denen Zustellungen oder Ablehnungen nicht bestätigt werden, da einige Spediteure diese Bestätigung nicht liefern oder zum Zeitpunkt der Sendung nicht liefern können. Diese Metrik ist veraltet, wird aber für Nutzer:innen, die sie bereits haben, weiterhin unterstützt.
+Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt gesendeten Nachrichten, die als <i>Sendungen an Netzbetreiber</i> eingestuft wurden. Dies umfasst auch Fälle, in denen Netzbetreiber keine Zustell- oder Ablehnungsbestätigung liefern, da einige Netzbetreiber diese Bestätigung nicht liefern oder zum Zeitpunkt des Versands nicht liefern können. Diese Metrik ist veraltet, wird aber für Nutzer:innen, die sie bereits haben, weiterhin unterstützt.
 {% endif %}
 
 {% if include.metric == "Spam" %}
-<i>Spam</i> ist die Gesamtzahl der zugestellten E-Mails, die vom Empfänger:in als "Spam" markiert wurden. Braze ändert zwar nicht den Abo-Status dieser Nutzer:innen, aber diese Nutzer:innen werden in zukünftigen E-Mails automatisch ausgeschlossen, es sei denn, Sie senden eine Transaktions-E-Mail, die so konfiguriert ist, dass sie an alle Nutzer:innen gesendet wird, einschließlich Abmelden.
+<i>Spam</i> ist die Gesamtzahl der zugestellten E-Mails, die von der Empfänger:in als „Spam“ markiert wurden. Braze ändert zwar nicht den Abo-Status dieser Nutzer:innen, aber diese Nutzer:innen werden in zukünftigen E-Mails automatisch ausgeschlossen, es sei denn, Sie senden eine Transaktions-E-Mail, die so konfiguriert ist, dass sie „an alle Nutzer:innen gesendet wird, einschließlich Abgemeldeter“.
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>Umfrageseitenausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Seite mit den Umfragefragen einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Umfrageseiten-Ausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Seite mit den Umfragefragen einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>Umfrageübermittlungen</i> ist die Gesamtzahl der Klicks auf den Button „Senden“ einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Umfrage-Übermittlungen</i> ist die Gesamtzahl der Klicks auf den Button „Senden“ einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-<i>Klicks insgesamt</i> ist die Anzahl eindeutiger Empfänger:innen, die auf einen Link in der zugestellten Nachricht geklickt haben.
+<i>Klicks insgesamt</i> ist die Anzahl (oder der Prozentsatz) der eindeutigen Empfänger:innen, die auf einen Link in der zugestellten Nachricht geklickt haben.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Ausblendungen insgesamt</i> ist die Anzahl der Ablehnungen von Content-Cards aus einer Kampagne.
+<i>Ausblendungen insgesamt</i> ist die Anzahl der Fälle, in denen Nutzer:innen eine Nachricht aus einer Campaign ausgeblendet haben. Bei Content Cards wird jede Karten-Ausblendung gezählt. Bei Bannern wird jedes Mal gezählt, wenn ein:e Nutzer:in das Banner ausgeblendet hat, sofern das Ausblendungsverhalten aktiviert ist.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
-<i>Die Gesamtanzahl der Impressionen</i> entspricht der Häufigkeit, mit der eine Nachricht angezeigt wird. Braze protokolliert eine Impression nur dann, wenn die Nachricht für den Nutzer:in auf seinem Bildschirm sichtbar wird. Wenn beispielsweise eine Nachricht am Ende einer Seite platziert wird, wird die Impression erst protokolliert, wenn der Nutzer:in nach unten scrollt und die Nachricht sichtbar wird. Wenn einer Nutzer:in dieselbe Nachricht zweimal angezeigt wird, wird dies als zwei Impressionen gezählt.
+<i>Impressionen insgesamt</i> ist die Anzahl der Fälle, in denen eine Nachricht angezeigt wird. Braze protokolliert eine Impression nur dann, wenn die Nachricht für die Nutzer:in auf dem Bildschirm sichtbar wird. Wenn beispielsweise eine Nachricht am Ende einer Seite platziert wird, wird die Impression erst protokolliert, wenn die Nutzer:in nach unten scrollt und die Nachricht sichtbar wird. Wenn einer Nutzer:in dieselbe Nachricht zweimal angezeigt wird, wird dies als zwei Impressionen gezählt.
 {% endif %}
 
 {% if include.metric == "Total Opens" %}
@@ -247,39 +247,43 @@ Der <i>Umsatz</i> ist der Gesamtumsatz in Dollar von Kampagnenempfängern innerh
 {% endif %}
 
 {% if include.metric == "Total Revenue" %}
-<i>Gesamtumsatz</i> ist der Gesamtumsatz in Dollar von Kampagnenempfängern innerhalb des festgelegten primären Umrechnungsfensters.
+<i>Gesamtumsatz</i> ist der Gesamtumsatz in Dollar von Campaign-Empfänger:innen innerhalb des festgelegten primären Konversionsfensters.
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Einzigartige Klicks</i>  bezeichnen die eindeutige Anzahl von Empfängern:innen, die mindestens einmal auf einen Link innerhalb einer Nachricht geklickt haben, und werden gemessen durch <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+<i>Eindeutige Klicks</i> ist die eindeutige Anzahl von Empfänger:innen, die mindestens einmal auf einen Link innerhalb einer Nachricht geklickt haben, und wird gemessen durch <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
-<i>Unique Dismissals</i> ist die Anzahl der eindeutigen Empfänger:innen, die eine Content-Card aus einer Kampagne entlassen haben. Ein Benutzer, der eine Content-Card aus einer Kampagne mehrmals ausblendet, stellt eine eindeutige Ausblendung dar.
+<i>Eindeutige Ausblendungen</i> ist die Anzahl der eindeutigen Empfänger:innen, die eine Content Card aus einer Campaign ausgeblendet haben. Wenn ein:e Nutzer:in eine Content Card aus einer Campaign mehrmals ausblendet, zählt dies als eine eindeutige Ausblendung.
 {% endif %}
 
 <!-- Unique Impressions & Unique Recipients have a dedicated section in campaign_analytics.md -->
 
 {% if include.metric == "Unique Impressions" %}
-<i>Einzigartige Impressionen</i> sind die Gesamtzahl der Nutzer:innen, die eine Nachricht aus einer bestimmten Kampagne angesehen haben. Eine Impression wird nur dann protokolliert, wenn die Nachricht auf dem Bildschirm einer Nutzer:in sichtbar wird.
+<i>Eindeutige Impressionen</i> ist die Gesamtzahl der Nutzer:innen, die eine Nachricht aus einer bestimmten Campaign angesehen haben. Eine Impression wird nur dann protokolliert, wenn die Nachricht auf dem Bildschirm einer Nutzer:in sichtbar wird.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+<i>Eindeutige tägliche Impressionen</i> ist die Anzahl der eindeutigen Nutzer:innen, die die Nachricht an einem bestimmten Tag angesehen haben. Dieser Zähler wird jeden Kalendertag zurückgesetzt, sodass ein:e Nutzer:in, die dieselbe Nachricht an zwei verschiedenen Tagen ansieht, zweimal gezählt wird. Diese Metrik entspricht der gleichnamigen Abrechnungsmetrik.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}
-<i>Eindeutige Empfänger:innen</i> ist die Anzahl der eindeutigen täglichen Empfänger:innen, also der Nutzer:innen, die an einem Tag eine neue Nachricht erhalten haben. Damit diese Zahl für einen Nutzer:innen mehr als einmal erhöht wird, muss der Nutzer:innen eine neue Nachricht an einem anderen Tag erhalten.
+<i>Eindeutige Empfänger:innen</i> ist die Anzahl der eindeutigen täglichen Empfänger:innen, also der Nutzer:innen, die an einem Tag eine neue Nachricht erhalten haben. Damit diese Zahl für ein:e Nutzer:in mehr als einmal erhöht wird, muss die Person eine neue Nachricht an einem anderen Tag erhalten.
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-<i>Unique Opens</i> ist die Gesamtzahl der zugestellten Nachrichten, die von einem einzelnen Nutzer mindestens einmal geöffnet wurden und über einen Zeitraum von sieben Tagen verfolgt werden.
+<i>Eindeutige Öffnungen</i> ist die Gesamtzahl (oder der Prozentsatz) der zugestellten Nachrichten, die von einer einzelnen Nutzer:in mindestens einmal geöffnet wurden und über einen Zeitraum von sieben Tagen verfolgt werden.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}
-<i>Unsubscribers</i> oder <i>Unsub</i> ist die Anzahl der Nachrichten, die zu einer Abmeldung führen. Abmeldungen erfolgen, wenn ein Benutzer auf den Braze Abmeldelink klickt.
+<i>Abmelder:innen</i> oder <i>Unsub</i> ist die Anzahl der Nachrichten, die zu einer Abmeldung geführt haben. Abmeldungen erfolgen, wenn Braze eine Abmeldung über die Braze-Abmelde-URL im Nachrichtentext oder über den List-Unsubscribe-Header verarbeitet, sofern dieser Pfad von Braze gehandhabt wird.
 {% endif %}
 
 {% if include.metric == "Unsubscribes" %}
-<i>Abbestellungen</i> ist die Anzahl der Empfänger, deren Abonnementstatus sich in „Abbestellt“ geändert hat, nachdem sie auf die von Braze bereitgestellte Abmeldungs-URL geklickt haben.
+<i>Abmeldungen</i> ist die Anzahl der Empfänger:innen, deren Abo-Status sich über einen von Braze verwalteten Abmeldepfad in „Abgemeldet“ geändert hat, einschließlich der Braze-Abmelde-URL im Nachrichtentext und des List-Unsubscribe-Headers, wenn Braze die Anfrage verarbeitet.
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>Variation</i> ist die Anzahl der Variationen einer Kampagne, die sich nach den Vorgaben des Erstellers unterscheiden.
+<i>Variante</i> ist die Anzahl der Varianten einer Campaign, die sich nach den Vorgaben der Ersteller:in unterscheiden.
 {% endif %}

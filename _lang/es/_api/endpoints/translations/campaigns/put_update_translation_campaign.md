@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Actualizar traducción en una campaña"
 article_title: "PUT: Actualizar traducción en una campaña"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -15,15 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /campaigns/translations
 {% endapimethod %}
 
-> Usa este punto de conexión para actualizar múltiples traducciones de una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de localización.
+> Usa este punto de conexión para actualizar múltiples traducciones de una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de localización.
 
-Si deseas actualizar las traducciones después de que se haya lanzado una campaña, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/).
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+Si deseas actualizar las traducciones después de que se haya lanzado una campaña, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch).
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -41,7 +39,7 @@ No hay parámetros de ruta para este punto de conexión.
 | `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
 | `locale_id` | Obligatorio | Cadena | El ID (UUID) de la configuración regional. |
 | `translation_map` | Obligatorio | Objeto | Objeto que contiene las nuevas traducciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de solicitud" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

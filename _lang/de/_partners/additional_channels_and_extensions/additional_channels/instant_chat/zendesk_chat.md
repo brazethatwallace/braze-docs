@@ -17,13 +17,14 @@ search_tag: Partner
 
 | Voraussetzung | Beschreibung |
 |---|---|
-| Ein Zendesk-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Zendesk-Konto.|
-| Ein Zendesk Basic Authorization Token | Ein Zendesk Basic Authorization Token wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Zendesk zu stellen.|
-| Ein Braze REST-API-Schlüssel  | Ein Braze REST-API-Schlüssel mit `campaigns.trigger.send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.|
+| Ein Zendesk-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Zendesk-Konto. |
+| Ein Zendesk Basic Authorization Token | Ein Zendesk Basic Authorization Token wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Zendesk zu stellen. |
+| Ein Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `campaigns.trigger.send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-Verbessern Sie die Effizienz des Kund:innen-Supports, indem Sie die SMS-Funktionen von Braze mit den Antworten von Zendesk-Live-Agenten kombinieren, um Nutzer:innen bei Anfragen umgehend mit menschlichem Support zu unterstützen.
+Verbessern Sie die Effizienz des Kundensupports, indem Sie die SMS-Funktionen von Braze mit den Antworten von Zendesk-Live-Agenten kombinieren, um Nutzer:innen bei Anfragen umgehend mit menschlichem Support zu unterstützen.
 
 ## Integration von Zendesk Chat {#integrating-zendesk-chat}
 
@@ -153,30 +154,30 @@ Wählen Sie unter **Actions** die Option **Notify by Webhook** aus und wählen S
 ```
 {% endraw %}
 
-### 5. Schritt: Angepasstes Nutzer:innen-Feld in Zendesk hinzufügen {#step-5-add-a-custom-user-field-in-zendesk}
+### 5. Schritt: Angepasstes Nutzerfeld in Zendesk hinzufügen {#step-5-add-a-custom-user-field-in-zendesk}
 
-Wählen Sie im Admin Center in der Seitenleiste **People** und dann **Configuration** > **User fields**. Fügen Sie das angepasste Nutzer:innen-Feld `braze_external_id` hinzu.
+Wählen Sie im Admin Center in der Seitenleiste **People** und dann **Configuration** > **User fields**. Fügen Sie das angepasste Nutzerfeld `braze_external_id` hinzu.
 
 ### 6. Schritt: Eingehende SMS-Weiterleitung einrichten {#step-6-set-up-inbound-sms-forwarding}
 
 Als Nächstes erstellen Sie zwei neue Webhook-Campaigns in Braze, damit Sie eingehende SMS von Kund:innen an den Zendesk-Posteingang weiterleiten können.
 
-| Campaign           | Zweck                                                                              |
+| Campaign | Zweck |
 |--------------------|--------------------------------------------------------------------------------------|
-| Webhook-Campaign 1 | Erstellt ein neues Ticket in Zendesk.                                                     |
+| Webhook-Campaign 1 | Erstellt ein neues Ticket in Zendesk. |
 | Webhook-Campaign 2 | Leitet alle konversationellen SMS-Antworten weiter, die eingehend von Kund:innen an Zendesk gesendet werden. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 6: Eingehende SMS-Weiterleitung einrichten" }
 
 #### Schritt 6.1: Erstellen Sie eine SMS-Schlüsselwortkategorie {#step-61-create-an-sms-keyword-category}
 
 Gehen Sie im Braze-Dashboard auf **Audience**, wählen Sie Ihre **SMS subscription group** und wählen Sie dann **Add Custom Keyword**. Füllen Sie die folgenden Felder aus, um eine exklusive SMS-Schlüsselwortkategorie für Zendesk zu erstellen.
 
-| Feld            | Beschreibung                                                                                                               |
+| Feld | Beschreibung |
 |------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Keyword Category | Der Name Ihrer Schlüsselwortkategorie, z. B. `ZendeskSMS1`.                                                                 |
-| Keywords         | Ihre angepassten Schlüsselwörter, z. B. `SUPPORT`.                                                                                  |
-| Reply Message    | Die Nachricht, die gesendet wird, wenn ein Schlüsselwort erkannt wird, z. B. „Ein Kundenservice-Mitarbeiter wird sich in Kürze bei Ihnen melden.“ |
-{: .reset-td-br-1 .reset-td-br-2 }
+| Keyword Category | Der Name Ihrer Schlüsselwortkategorie, z. B. `ZendeskSMS1`. |
+| Keywords | Ihre angepassten Schlüsselwörter, z. B. `SUPPORT`. |
+| Reply Message | Die Nachricht, die gesendet wird, wenn ein Schlüsselwort erkannt wird, z. B. „Ein Kundenservice-Mitarbeiter wird sich in Kürze bei Ihnen melden.“ |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 6.1: Erstellen Sie eine SMS-Schlüsselwortkategorie" }
 
 ![Ein Beispiel für eine SMS-Schlüsselwortkategorie in Braze.]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 

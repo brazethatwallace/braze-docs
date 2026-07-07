@@ -1,61 +1,67 @@
 ---
 nav_title: Datenpunkte
 article_title: Datenpunkte – Übersicht
-page_order: 10
+page_order: 3
 page_type: reference
 description: "In diesem Referenzartikel erfahren Sie, was Datenpunkte bei Braze sind und wie Sie deren Nutzung im Blick behalten können."
 search_rank: 6
 ---
 
-# Datenpunkte
+# Datenpunkte {#data-points}
 
 > Bei Braze sind Daten gleichbedeutend mit Aktion: Jede Information, die in Braze eingeht, aktualisiert die Segment-Zugehörigkeit, kann Nachrichten triggern und stornieren, ist sofort für die Personalisierung von Nachrichten verfügbar und vieles mehr. Datenpunkte helfen Ihnen, die wichtigsten Informationen für Ihr Unternehmen zu definieren. Indem Sie sich genau überlegen, welche Daten Sie tracken möchten, stellen Sie sicher, dass Sie das Targeting auf die Daten mit dem höchsten Wirkungsgrad für die Erfahrung Ihrer Nutzer:innen ausrichten.
 
-Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgezeichnet werden. Eine genauere Aufschlüsselung dieser Definition finden Sie in Ihrem Braze-Vertrag. Unser Customer-Success-Team kann Ihnen helfen, die besten Datenpraktiken an Ihre Bedürfnisse anzupassen. 
+Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgezeichnet werden. Eine genauere Aufschlüsselung dieser Definition finden Sie in Ihrem Braze-Vertrag. Unser Customer-Success-Team kann Ihnen helfen, die besten Datenpraktiken an Ihre Bedürfnisse anzupassen.
 
-## Definition
+## Definition {#definition}
 
-"Datenpunkte" beziehen sich auf eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsbeginn, einem Sitzungsende, einem angepassten Event oder einem aufgezeichneten Kauf sowie an jedem Attribut, das in einem Endnutzerprofil gesetzt wird. Der Klarheit halber gilt jeder der oben genannten Datenpunkte (wie z. B. Sitzungsbeginn, Sitzungsende, angepasstes Event oder aufgezeichneter Kauf sowie jedes Attribut), die dem Profil eines Endnutzers zu einem bestimmten Zeitpunkt zugeordnet werden, als ein einzelner Datenpunkt.
+„Datenpunkte“ beziehen sich auf eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsbeginn, einem Sitzungsende, einem angepassten Event oder einem aufgezeichneten Kauf sowie an jedem Attribut, das in einem Endnutzerprofil gesetzt wird. Der Klarheit halber gilt jeder der oben genannten Datenpunkte (wie z. B. Sitzungsbeginn, Sitzungsende, angepasstes Event oder aufgezeichneter Kauf sowie jedes Attribut), die dem Profil eines Endnutzers zu einem bestimmten Zeitpunkt zugeordnet werden, als ein einzelner Datenpunkt.
 
-Daten und Ereignisse, die standardmäßig von den Braze-Diensten erfasst werden, wie z. B. Push-Token, Geräteinformationen und alle Ereignisse zum Tracking des Kampagnen-Engagements, wie z. B. E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen, werden *nicht* als Datenpunkte gezählt.
+Daten und Events, die standardmäßig von den Braze-Diensten erfasst werden, wie z. B. Push-Token, Geräteinformationen und alle Events zum Tracking des Campaign-Engagements, wie z. B. E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen, werden *nicht* als Datenpunkte gezählt.
 
 Lesen Sie den Abschnitt [Verbrauchszählung](#consumption-count) in diesem Artikel, um zu verstehen, welche Daten auf Ihre Datenpunkt-Zuweisung angerechnet werden.
 
-## Anzeigen der Datenpunkt-Nutzung
+## Anzeigen der Datenpunkt-Nutzung {#viewing-data-point-usage}
 
-Um Ihre Datenpunkt-Nutzung einzusehen, gehen Sie zu **Einstellungen** > **Abrechnung** und wählen Sie den Tab **Gesamtdatenpunkt-Nutzung**.
+Um Ihre Datenpunkt-Nutzung einzusehen, gehen Sie zu **Einstellungen** > **Abrechnung** und wählen Sie den Tab **Datenpunkt-Nutzung gesamt**.
 
-Weitere Informationen zu den Komponenten des Datenpunkt-Dashboards finden Sie unter [Abrechnung]({{site.baseurl}}/user_guide/administrative/app_settings/subscription_and_usage/).
+### Aktualisierungszeitplan für Datenpunkte {#data-point-refresh-schedule}
+
+Die Datenpunkt-Nutzung wird alle 24 Stunden zwischengespeichert (nicht in Realtime), jeweils gegen 2 Uhr morgens ET. Bis der Cache aktualisiert wird, sehen verschiedene Dashboard-Nutzer:innen möglicherweise dieselben Gesamtwerte, auch wenn sie den Tab zu unterschiedlichen Zeiten am selben Tag öffnen. Informationen zum gleichen Caching-Verhalten bei anderen Abrechnungsansichten finden Sie unter [Dashboard „Datenpunkte gesamt“]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
+
+Weitere Informationen zu den Komponenten des Datenpunkt-Dashboards finden Sie unter [Abrechnung]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **Verschwenden Sie keine Datenpunkte – aktualisieren Sie nur sich ändernde Daten!**<br><br>
 Um die Datenpunkt-Nutzung zu minimieren, empfehlen wir Ihnen, ein Programm einzurichten, das verhindert, dass immer dieselben unveränderlichen Daten gesendet werden, und nur neue und relevante Daten an Braze weitergibt. Braze wird mit Ihnen zusammenarbeiten, um diese Best Practice während des Onboardings zu etablieren.
 {% endalert %}
 
-## Verbrauchszählung
+## Verbrauchszählung {#consumption-count}
 
 Insgesamt werden Datenpunkte gesammelt, wenn die Profildaten von Nutzer:innen aktualisiert werden oder wenn sie bestimmte Aktionen durchführen. Im Wesentlichen handelt es sich bei den Datenpunkten um die Anzahl der einzelnen `session starts`, `session ends`, `events` und `purchases` Ihrer Nutzer:innen.
 
 In den folgenden Abschnitten finden Sie eine Aufschlüsselung, wie Braze Datenpunkte sammelt. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
 
+Bei der API-Ingestion folgt jedes abrechenbare Update über [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) denselben Regeln wie andere Profilupdates: Beispielsweise zählt jedes protokollierte **angepasste Event** als Datenpunkt, und **angepasste Attribute** zählen in der Regel pro aktualisiertem Attribut in dieser Anfrage (siehe die abrechenbaren Tabellen unten und [Besondere Umstände](#special-circumstances)).
+
 Bei den folgenden Aktionen werden keine Datenpunkte protokolliert:
 - Löschen von Nutzer:innen aus Braze
 - Verwendung von Connected-Content im Messaging
 - Änderungen des Abo-Status global und in Bezug auf Abo-Gruppen
-- Umbenennung der externen IDs Ihrer Nutzer:innen durch [API-Aufrufe]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
-- Blockieren von Ereignissen, Attributen oder Event-Eigenschaften
+- Umbenennung der externen IDs Ihrer Nutzer:innen durch [API-Aufrufe]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
+- Blockieren von Events, Attributen oder Event-Eigenschaften
 
-### Besondere Umstände
+### Besondere Umstände {#special-circumstances}
 
-#### Arrays
+#### Arrays {#arrays}
 
-Ein Array ist eine geordnete Sammlung von Elementen, die in einem angepassten Attribut gespeichert sind. Das Update eines Arrays kostet einen Datenpunkt pro API-Aufruf, selbst wenn sich das Array tatsächlich nicht ändert. Wenn Sie beispielsweise eine `remove`-Operation für einen Wert senden, der im Array nicht vorhanden ist, wird trotzdem ein Datenpunkt verbraucht. Ebenso verbraucht das Setzen eines angepassten Attributs auf `null`, um es aus dem Profil zu entfernen, einen Datenpunkt. Wenn Sie einem Array schrittweise Werte hinzufügen, wird dies als ein Datenpunkt pro Wert gezählt. 
+Ein Array ist eine geordnete Sammlung von Elementen, die in einem angepassten Attribut gespeichert sind. Das Update eines Arrays kostet einen Datenpunkt pro API-Aufruf, selbst wenn sich das Array tatsächlich nicht ändert. Wenn Sie beispielsweise eine `remove`-Operation für einen Wert senden, der im Array nicht vorhanden ist, wird trotzdem ein Datenpunkt verbraucht. Ebenso verbraucht das Setzen eines angepassten Attributs auf `null`, um es aus dem Profil zu entfernen, einen Datenpunkt. Wenn Sie einem Array schrittweise Werte hinzufügen, wird dies als ein Datenpunkt pro Wert gezählt.
 
 {% alert tip %}
 Wenn Sie bei einfachen Arrays das gesamte Array auf einmal setzen, gilt dies als ein einziger Datenpunkt. Daher sind Arrays ein hervorragendes Instrument, um Nutzerprofile mit relevanten Informationen auf dem neuesten Stand zu halten und Kosten zu senken. <br><br> Arrays von Objekten verbrauchen einen Datenpunkt für jeden Schlüssel, der aktualisiert wird. Reduzieren Sie unnötigen Datenpunkt-Verbrauch, indem Sie nur Updates an Braze weitergeben.
 {% endalert %}
 
-#### Verschachtelte angepasste Attribute
+#### Verschachtelte angepasste Attribute {#nested-custom-attributes}
 
 Verschachtelte angepasste Attribute beziehen sich auf ein Objekt, das eine Reihe von Attributen als Eigenschaft eines anderen Attributs definiert. Jeder Schlüssel des Objekts gilt als Datenpunkt.
 
@@ -76,9 +82,9 @@ Die folgenden Tabellen dienen der Veranschaulichung. Die genauen Namenskonventio
 {% endalert %}
 
 {% tabs %}
-{% tab Non-billable %}
+{% tab Nicht abrechenbar %}
 
-#### Nicht abrechenbare Datenpunkte (Standard)
+### Nicht abrechenbare Datenpunkte (Standard) {#non-billable-data-points-default}
 
 <div class="small_table"></div>
 
@@ -97,24 +103,24 @@ Die folgenden Tabellen dienen der Veranschaulichung. Die genauen Namenskonventio
 | Kontakt-Einstellungen | Push abonniert |
 | Kontakt-Einstellungen | Für Push registrierte Apps |
 | Kontakt-Einstellungen | Abo-Gruppe |
-| Erhaltene Kampagnen | E-Mail-Adresse |
+| Erhaltene Campaigns | E-Mail-Adresse |
 | Install-Attribution | Installationsquelle |
-| Install-Attribution | Kampagne |
+| Install-Attribution | Campaign |
 | Install-Attribution | Anzeigengruppe |
 | Install-Attribution | Anzeige |
 | Verschiedenes | Zufällige Bucket-Nummer |
 | Empfangene Canvas-Nachrichten | Empfangene Canvas-Nachrichten |
-| Messaging-Engagement | Alle Engagement-Ereignisse (wie Öffnungen, Klicks, Impressionen und Abbrüche) |
+| Messaging-Engagement | Alle Engagement-Events (wie Öffnungen, Klicks, Impressionen und Abbrüche) |
 | Twitter | Follower |
 | Twitter | Folgt |
 | Twitter | Anzahl der Tweets |
 | Facebook | Likes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nicht abrechenbare Datenpunkte (Standard)" }
 
 {% endtab %}
-{% tab Billable %}
+{% tab Abrechenbar %}
 
-#### Abrechenbare Datenpunkte
+### Abrechenbare Datenpunkte {#billable-data-points}
 
 {% alert important %}
 Das Hinzufügen, Entfernen oder Aktualisieren der folgenden Datentypen führt zu einem abrechenbaren Datenpunkt.
@@ -154,7 +160,7 @@ table td {
 | App-Nutzungsdaten | Sitzungsende | |
 | Angepasste Attribute | Alle angepassten Attribute | |
 | Angepasste Events | Alle angepassten Events | |
-| Angepasste Event-Eigenschaften | Alle angepassten Event-Eigenschaften | Angepasste Event-Eigenschaften, die für die Segmentierung mit den Filtern `X Custom Event Property in Y Days` oder `X Purchase Property in Y Days` aktiviert wurden, werden alle als separate Datenpunkte gezählt – zusätzlich zu dem Datenpunkt, der durch das angepasste Event selbst gezählt wird.
+| Angepasste Event-Eigenschaften | Alle angepassten Event-Eigenschaften | Angepasste Event-Eigenschaften, die für die Segmentierung mit den Filtern `X Custom Event Property in Y Days` oder `X Purchase Property in Y Days` aktiviert wurden, werden alle als separate Datenpunkte gezählt – zusätzlich zu dem Datenpunkt, der durch das angepasste Event selbst gezählt wird. |
 | Käufe | Alle Käufe | |
 | Kauf-Details | Alle Kauf-Details | |
 | Amplitude-Kohorte – Zuweisung | Alle Zuweisungen | |
@@ -163,7 +169,7 @@ table td {
 | Appsflyer-Kohorte – Zuweisung | Alle Zuweisungen | |
 | Letzter Standort | Alle letzten Standorte | Beim Betreten oder Verlassen von Geofences werden keine Datenpunkte protokolliert, da Geofence-Daten nicht im Nutzerprofil gespeichert werden. Geofences werden von den Standortdiensten von Apple und Google überwacht; Braze wird nur benachrichtigt, wenn Nutzer:innen einen Geofence triggern. |
 | Twitter | Nutzername | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abrechenbare Datenpunkte" }
 
 {% endtab %}
 {% endtabs %}

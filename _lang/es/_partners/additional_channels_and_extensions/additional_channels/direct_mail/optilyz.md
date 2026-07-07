@@ -25,7 +25,7 @@ Usa la integración de webhook de optilyz y Braze para enviar a tus clientes cor
 | Cuenta de optilyz | Se necesita una cuenta de optilyz para aprovechar esta asociación. |
 | Clave de API de optilyz<br><br>`<OPTILYZ_API_KEY>` | Tu administrador del éxito del cliente de optilyz te proporcionará tu clave de API de optilyz.<br><br>Esta clave de API te permitirá conectar tus cuentas de Braze y optilyz. |
 | ID de automatización de optilyz<br><br>`<OPTILYZ_AUTOMATION_ID>` | El ID de automatización se encuentra en un recuadro en el encabezado de la página.<br><br>Cuando hayas iniciado sesión en optilyz, puedes navegar hasta la automatización a la que deseas enviar los datos.<br>Primero hay que activar la automatización. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}
 
@@ -40,20 +40,20 @@ Para integrarte con optilyz, usa la [API de optilyz](https://www.optilyz.com/doc
 
 ### Paso 1: Crea tu plantilla de webhook de Braze {#step-1-create-your-braze-webhook-template}
 
-Para crear una plantilla de webhook de optilyz que puedas usar en futuras campañas o Canvas, navega a **Plantillas** > **Plantillas de Webhook** en la plataforma Braze.
+Para crear una plantilla de webhook de optilyz que puedas usar en futuras Campaigns o Canvas, ve a **Contenido** > **Webhook** en la plataforma Braze. Luego, selecciona **Crear plantilla de webhook**.
 
 Si deseas crear una campaña de webhook de optilyz única o usar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
 
 En tu nueva plantilla de webhook, completa los siguientes campos:
-- **URL del webhook**: La URL del webhook es única para cada cliente y tu administrador del éxito del cliente de optilyz te la proporcionará.
-- **Cuerpo de la solicitud**: Texto sin procesar
+- **Webhook URL**: La URL del webhook es única para cada cliente y tu administrador del éxito del cliente de optilyz te la proporcionará.
+- **Request Body**: Texto sin procesar
 
 #### Encabezados de solicitud y método {#request-headers-and-method}
 
-optilyz también requiere un encabezado HTTP para la autorización y un método HTTP. Lo siguiente ya estará incluido dentro de la plantilla como un par clave-valor, pero en la pestaña **Configuración**, debes reemplazar `<OPTILYZ_API_KEY>` con tu clave de API de optilyz. Esta clave debe incluir un ":" justo después de la clave y estar codificada en base 64.
+optilyz también requiere un encabezado HTTP para la autorización y un método HTTP. Lo siguiente ya estará incluido dentro de la plantilla como un par clave-valor, pero en la pestaña **Settings**, debes reemplazar `<OPTILYZ_API_KEY>` con tu clave de API de optilyz. Esta clave debe incluir un ":" justo después de la clave y estar codificada en base 64.
 
-- **Método HTTP**: POST
-- **Encabezados de solicitud**:
+- **HTTP Method**: POST
+- **Request Headers**:
   - **Authorization**: {% raw %} `{{ '<OPTILYZ_API_KEY>:' | base64_encode }}` {% endraw %}
   - **Content-Type**: application/json
 
@@ -88,7 +88,7 @@ El campo `variation` es opcional y puede definir qué diseño dentro de la autom
 
 ### Paso 2: Previsualiza tu solicitud {#step-2-preview-your-request}
 
-A continuación, previsualiza tu solicitud en el panel **Vista previa** o navega a la pestaña **Prueba**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook. Recuerda guardar tu plantilla antes de salir de la página.
+A continuación, previsualiza tu solicitud en el panel **Preview** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook. Recuerda guardar tu plantilla antes de salir de la página.
 
 ![Diferentes campos de prueba disponibles en la pestaña de prueba del constructor de webhooks de Braze.]({% image_buster /assets/img/optilyz/optilyz_testing.png %})
 

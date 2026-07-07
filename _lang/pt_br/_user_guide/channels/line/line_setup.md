@@ -25,10 +25,10 @@ Você precisará do seguinte para integrar o LINE com a Braze:
 - [Conta de desenvolvedor do LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [Canal da API de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-O envio de mensagens LINE a partir da Braze consome os Créditos de Mensagem da sua conta.
+O envio de mensagens LINE a partir da Braze consome os Créditos de Mensagem ou Créditos de Ação da sua conta.
 
 {% alert note %}
-**Configurando `native_line_id`**: Você pode definir `native_line_id` enviando atualizações de usuário para a Braze (por exemplo, com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). Se o SDK do lado do cliente não tiver um campo dedicado para `native_line_id`, envie-o nas atualizações de usuário do lado do servidor usando um desses métodos.
+**Configurando `native_line_id`**: Você pode definir `native_line_id` enviando atualizações de usuário para a Braze (por exemplo, com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Se o SDK do lado do cliente não tiver um campo dedicado para `native_line_id`, envie-o nas atualizações de usuário do lado do servidor usando um desses métodos.
 {% endalert %}
 
 ## Tipos de contas LINE {#types-of-line-accounts}
@@ -38,7 +38,7 @@ O envio de mensagens LINE a partir da Braze consome os Créditos de Mensagem da 
 | Conta não verificada | Uma conta não revisada que pode ser obtida por qualquer pessoa (individual ou corporativa). Esta conta é representada por um selo cinza e não aparecerá nos resultados de pesquisa dentro do app LINE. |
 | Conta verificada | Uma conta que passou pela análise do LINE Yahoo. Esta conta é representada por um selo azul e aparecerá nos resultados de pesquisa dentro do app LINE.<br><br>Esta conta está disponível apenas para contas baseadas no Japão, Taiwan, Tailândia e Indonésia. |
 | Conta premium | Uma conta que passou pela análise do LINE Yahoo. Esta conta é representada por um selo verde e aparecerá nos resultados de pesquisa dentro do app LINE. Este tipo de conta é concedido automaticamente durante a análise, a critério do LINE. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de contas LINE" }
 
 ### Tipo de conta necessário {#required-account-type}
 
@@ -73,7 +73,7 @@ Você só pode ter uma conta LINE em um único espaço de trabalho. Se você tiv
 
 Esta etapa é necessária se você já tem um usuário LINE existente e identificado, pois a Braze posteriormente extrairá automaticamente o estado de inscrição e atualizará o perfil de usuário correto. Se você não reconciliou previamente os usuários com seus IDs LINE, pule esta etapa.
 
-Você pode importar ou atualizar usuários usando qualquer um dos métodos suportados pela Braze, incluindo o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Você pode importar ou atualizar usuários usando qualquer um dos métodos suportados pela Braze, incluindo o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Independentemente do método utilizado, atualize o `native_line_id` para fornecer o ID LINE do usuário. Para saber mais sobre o `native_line_id`, consulte [Configuração de usuários](#user-setup).
 
@@ -99,7 +99,11 @@ Após a conclusão do processo de integração, a Braze extrairá automaticament
 | Channel ID | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings** |
 | Channel secret | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings**. |
 | Channel access token | Selecione seu provedor e acesse **Channels** > seu canal > **Messaging API**. Se não houver um channel access token, selecione **Issue**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2.1: Editar configurações de webhook" }
+
+{% alert note %}
+Se você precisar atualizar ou rotacionar o channel secret de um canal LINE já integrado, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) para solicitar uma atualização.
+{% endalert %}
 
 {: start="3"}
 3. Acesse sua página **Settings** > **Response settings** e faça o seguinte:
@@ -119,7 +123,7 @@ Após a conclusão do processo de integração, a Braze extrairá automaticament
    - Channel secret
    - Channel access token
 
-Se você quiser adicionar lista de permissões de IP na sua conta LINE, adicione todos os endereços IP listados para o seu cluster em [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting) à sua lista de permissões.
+Se você quiser adicionar lista de permissões de IP na sua conta LINE, adicione todos os endereços IP listados para o seu cluster em [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting) à sua lista de permissões.
 
 {% alert important %}
 Durante a integração, certifique-se de verificar se o channel secret está correto. Se estiver incorreto, pode haver inconsistências no status de inscrição.
@@ -142,7 +146,7 @@ Supondo que você já tenha um método para fornecer atualizações de usuários
 
 Perfis de usuários não identificados com um `native_line_id` podem existir na Braze, tendo sido criados como parte do processo de sincronização de status de inscrição ou quando um novo seguidor seguiu seu canal.
 
-Quando um usuário LINE é identificado no seu aplicativo por meio da [reconciliação de usuários](#user-id-reconciliation) ou outros meios, você pode direcionar um perfil de usuário potencialmente não identificado na Braze usando o endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/). Todo perfil de usuário não identificado com um `native_line_id` também possui um alias de usuário `line_id` que pode ser usado para direcionar o perfil de usuário a ser identificado.
+Quando um usuário LINE é identificado no seu aplicativo por meio da [reconciliação de usuários](#user-id-reconciliation) ou outros meios, você pode direcionar um perfil de usuário potencialmente não identificado na Braze usando o endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Todo perfil de usuário não identificado com um `native_line_id` também possui um alias de usuário `line_id` que pode ser usado para direcionar o perfil de usuário a ser identificado.
 
 Aqui está um exemplo de carga útil para `/users/identify` que direciona um perfil de usuário não identificado pelo alias de usuário `line_id`:
 
@@ -164,7 +168,7 @@ Aqui está um exemplo de carga útil para `/users/identify` que direciona um per
 
 Se nenhum perfil de usuário existente for encontrado para o `external_id` fornecido, ele será adicionado ao perfil de usuário não identificado, tornando-o identificado. Se um perfil de usuário já existir para o `external_id`, todos os atributos que estão exclusivamente no perfil de usuário não identificado serão copiados para o perfil de usuário conhecido, incluindo `native_line_id` e o status de inscrição do usuário.
 
-Você pode atualizar usuários LINE que são conhecidos no seu aplicativo por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) passando seus identificadores externos e `native_line_id`. Se um perfil de usuário não identificado já existir para um usuário e o mesmo `native_line_id` for adicionado a um perfil de usuário diferente por meio de `/users/track`, ele herdará todos os estados de inscrição do perfil de usuário não identificado. No entanto, perfis de usuários duplicados existirão com o mesmo `native_line_id`. Quaisquer atualizações de inscrição subsequentes provenientes de atualizações de eventos atualizarão todos os perfis adequadamente.
+Você pode atualizar usuários LINE que são conhecidos no seu aplicativo por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) passando seus identificadores externos e `native_line_id`. Se um perfil de usuário não identificado já existir para um usuário e o mesmo `native_line_id` for adicionado a um perfil de usuário diferente por meio de `/users/track`, ele herdará todos os estados de inscrição do perfil de usuário não identificado. No entanto, perfis de usuários duplicados existirão com o mesmo `native_line_id`. Quaisquer atualizações de inscrição subsequentes provenientes de atualizações de eventos atualizarão todos os perfis adequadamente.
 
 {% alert note %}
 Os estados de inscrição do LINE são rastreados por `native_line_id`, não por `external_id`. Por exemplo, se o perfil de usuário do Usuário B for criado com o mesmo `native_line_id` do Usuário A, mas não com o mesmo `external_id`, o Usuário B herdará o status de inscrição LINE do Usuário A.
@@ -213,7 +217,7 @@ Aqui está um exemplo de carga útil para `/users/merge` que direciona um perfil
 {% endraw %}
 
 {% alert tip %}
-Para saber mais sobre como gerenciar usuários duplicados na Braze, consulte [Usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
+Para saber mais sobre como gerenciar usuários duplicados na Braze, consulte [Usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 {% endalert %}
 
 ## Configuração de usuários {#user-setup}
@@ -227,19 +231,19 @@ Para ajudar a gerenciar isso, a Braze oferece ferramentas e lógica que suportam
 1. **Ferramenta de sincronização de inscrições:** Esta ferramenta é implantada automaticamente após uma integração bem-sucedida do canal LINE. Use-a para atualizar perfis existentes e criar novos perfis.<br><br>Todos os perfis de usuários da Braze que possuem um `native_line_id` que segue o canal LINE serão atualizados para ter um status de grupo de inscrições de `subscribed`. Qualquer seguidor do canal LINE que não tenha um perfil de usuário da Braze com o `native_line_id` terá:<br><br>- Um perfil de usuário anônimo criado com `native_line_id` definido como o ID LINE do usuário que segue o canal <br>- Um alias de usuário `line_id` definido como o ID LINE do usuário que segue o canal <br>- Um status de grupo de inscrições de `subscribed`
 
 {: start="2"}
-2. **Atualizações de eventos:** São usadas para atualizar o status de inscrição de um usuário. Quando a Braze recebe atualizações de eventos de usuários para o canal LINE integrado e o evento é um seguir, o perfil de usuário terá um status de grupo de inscrições de `subscribed`. Se o evento for um deixar de seguir, o perfil de usuário terá um status de grupo de inscrições de `unsubscribed`.<br><br>- Todos os perfis de usuários da Braze com um `native_line_id` correspondente serão atualizados automaticamente. <br>- Se nenhum perfil de usuário correspondente existir para um evento, a Braze [criará um usuário anônimo]({{site.baseurl}}/line/user_management/).
+2. **Atualizações de eventos:** São usadas para atualizar o status de inscrição de um usuário. Quando a Braze recebe atualizações de eventos de usuários para o canal LINE integrado e o evento é um seguir, o perfil de usuário terá um status de grupo de inscrições de `subscribed`. Se o evento for um deixar de seguir, o perfil de usuário terá um status de grupo de inscrições de `unsubscribed`.<br><br>- Todos os perfis de usuários da Braze com um `native_line_id` correspondente serão atualizados automaticamente. <br>- Se nenhum perfil de usuário correspondente existir para um evento, a Braze [criará um usuário anônimo]({{site.baseurl}}/line/user_management).
 
 ## Casos de uso {#use-cases}
 
 Estes são casos de uso de como os usuários podem ser atualizados após você seguir as etapas de configuração acima.
 
-##### Perfil de usuário existente na Braze já segue o canal LINE {#existing-braze-user-profile-already-follows-line-channel}
+### Perfil de usuário existente na Braze já segue o canal LINE {#existing-braze-user-profile-already-follows-line-channel}
 
 1. O perfil de usuário da Braze é atualizado com um atributo `native_line_id`. Seu status de inscrição padrão é `unsubscribed`.
 2. A ferramenta de sincronização de inscrições é executada, encontra que o usuário está seguindo o canal LINE e então atualiza o perfil de usuário com o status de inscrição `subscribed`.
 3. Se ocorrerem alterações no status de inscrição (como o usuário bloquear, remover da lista de amigos ou voltar a seguir o canal), a Braze recebe a atualização do LINE e atualiza o perfil de usuário com o `native_line_id` adequadamente.
 
-##### Perfil de usuário existente bloqueou, removeu da lista de amigos ou deixou de seguir o canal LINE {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
+#### Perfil de usuário existente bloqueou, removeu da lista de amigos ou deixou de seguir o canal LINE {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
 
 1. O perfil de usuário da Braze é atualizado com um atributo `native_line_id`. Seu status de inscrição padrão é `unsubscribed`.
 2. A ferramenta de sincronização de inscrições não encontra que o usuário está seguindo o canal LINE e o status de inscrição do usuário permanece como `unsubscribed`.
@@ -250,7 +254,7 @@ Estes são casos de uso de como os usuários podem ser atualizados após você s
 1. O canal recebe um novo seguidor LINE.
 2. A Braze cria um perfil de usuário anônimo com o atributo `native_line_id` definido como o ID LINE do seguidor e um alias de usuário `line_id` definido como o ID LINE do seguidor. O perfil tem um status de inscrição de `subscribed`.
 3. O usuário é identificado como tendo o ID LINE por meio da [reconciliação de usuários](#user-id-reconciliation).
-  - O perfil de usuário anônimo pode ser identificado usando o endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/). Atualizações subsequentes (por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)) para este perfil de usuário podem direcionar o usuário por este `external_id` conhecido.
+  - O perfil de usuário anônimo pode ser identificado usando o endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Atualizações subsequentes (por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) para este perfil de usuário podem direcionar o usuário por este `external_id` conhecido.
 
 {% raw %}
 ```json
@@ -268,7 +272,7 @@ Estes são casos de uso de como os usuários podem ser atualizados após você s
 ```
 {% endraw %}
 
-  - Um novo perfil de usuário pode ser criado (por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)) definindo o `native_line_id`. Este novo perfil herdará o estado de status de inscrição do perfil de usuário anônimo existente. Observe que isso resultará em vários perfis compartilhando o mesmo `native_line_id`. Eles podem ser mesclados a qualquer momento usando o endpoint `/users/merge` no processo descrito na [Etapa 5](#step-5-merge-profiles-optional).
+  - Um novo perfil de usuário pode ser criado (por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) definindo o `native_line_id`. Este novo perfil herdará o estado de status de inscrição do perfil de usuário anônimo existente. Observe que isso resultará em vários perfis compartilhando o mesmo `native_line_id`. Eles podem ser mesclados a qualquer momento usando o endpoint `/users/merge` no processo descrito na [Etapa 5](#step-5-merge-profiles-optional).
 
 ##### A criação do perfil de usuário ocorre antes de seguir o LINE {#user-profile-creation-occurs-before-line-follow}
 
@@ -285,10 +289,10 @@ Os IDs LINE são recebidos automaticamente pela Braze quando um usuário segue s
 
 Existem duas maneiras de combinar um ID LINE com um perfil de usuário existente na Braze:
 
-- [LINE Login](#line-login)
+- [Login com LINE](#line-login)
 - [Vinculação de conta de usuário](#user-account-linking)
 
-### LINE Login {#line-login}
+### Login com LINE {#line-login}
 
 Este método usa logins de redes sociais para reconciliação. Quando um usuário faz login no seu app, ele tem a opção de usar o [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) para criar uma conta de usuário ou fazer login.
 
@@ -307,7 +311,7 @@ Para adquirir o ID LINE correto para cada usuário, configure o LINE Login sob o
 
 4. Salve o ID LINE do usuário (`native_line_id`) no perfil do usuário com um e-mail correspondente no seu banco de dados, ou crie um novo perfil de usuário com o e-mail e o ID LINE do usuário.
 
-5. Envie as informações novas ou atualizadas do usuário para a Braze usando o [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users/), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+5. Envie as informações novas ou atualizadas do usuário para a Braze usando o [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 #### Fluxos de trabalho {#workflows}
 
@@ -382,7 +386,7 @@ if (user && isLoggedIn && lineUserId) {
 1. O LINE envia um evento de seguir para a Braze.
 2. A Braze cria um perfil de usuário anônimo com o ID LINE, alias de usuário `line_id` e status de grupo de inscrições LINE de `subscribed`.
 3. O usuário recebe uma mensagem LINE com um link para seu site e app e faz login. Seu perfil de usuário agora é conhecido.
-4. O perfil de usuário anônimo que foi criado é identificado e mesclado por meio do [endpoint /users/identify]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) no perfil de usuário conhecido. O perfil de usuário conhecido agora contém o ID LINE e tem um status de inscrição de `subscribed`.
+4. O perfil de usuário anônimo que foi criado é identificado e mesclado por meio do [endpoint /users/identify]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) no perfil de usuário conhecido. O perfil de usuário conhecido agora contém o ID LINE e tem um status de inscrição de `subscribed`.
 5. (Opcional) O usuário recebe uma mensagem LINE com o código do cupom e a Braze registra o envio no perfil de usuário da Braze.
 
 ## Criando usuários teste LINE na Braze {#creating-line-test-users-in-braze}

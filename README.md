@@ -13,6 +13,16 @@ If you'd like to help improve the docs, you can:
 - [Submit a request](https://www.braze.com/docs/request) or ask in [#ask-docs](https://braze.enterprise.slack.com/archives/C0D10FTGQ) on Slack
 - [Contribute](.github/CONTRIBUTING.md) (see [docs/contributing/README.md](docs/contributing/README.md) for the full handbook)
 
+## For Cursor / Claude Code users
+
+This repository includes **agent skills**—reusable workflows for common documentation tasks in Cursor and Claude Code. Examples:
+
+- **braze-docs** — draft, edit, and review `_docs/` articles; fix links and merge conflicts
+- **support-analyzer** — triage support case exports for documentation gaps
+- **reference-repos** — verify product and SDK behavior against sibling source repos
+
+In Cursor, type `/skill-name` in chat; in Claude Code, use the Skill tool. See [CAPABILITIES.md](CAPABILITIES.md) for the full list.
+
 ## Quick start
 
 > [!TIP]
@@ -57,18 +67,15 @@ rake ja
 rake ko
 rake pt_br
 
-# to render content in '{% markdown_embed %}' tags:
+# Partner hub tiles (Sanity) fetch automatically when `partner_api: true` in `_config.yml`.
+# To skip that network call (offline / faster builds): PARTNER_API=false rake
+
+# to render content in '{% markdown_embed %}' tags (e.g. Developer Guide changelogs):
 MARKDOWN_API=true rake
-
-# to render tiles on partner landing pages:
-PARTNER_API=true rake
-
-# to render both APIs:
-MARKDOWN_API=true PARTNER_API=true rake
 ```
 
 > [!NOTE]
-> Prepending `MARKDOWN_API=true` to your rake command lets you preview content within a `{% markdown_embed %}` tag, such as the content on the [Developer Guide: Changelogs](https://www.braze.com/docs/developer_guide/changelogs/) page. Prepending `PARTNER_API=true` lets you render the tiles on a partner landing page, such as [Technology Partners](https://www.braze.com/docs/partners/home/).
+> Prepending `MARKDOWN_API=true` to your rake command lets you preview content within a `{% markdown_embed %}` tag, such as the content on the [Developer Guide: Changelogs](https://www.braze.com/docs/developer_guide/changelogs/) page. Technology [Partners](https://www.braze.com/docs/partners/home/) hub tiles load from Sanity whenever `partner_api` is enabled in `_config.yml` (the default). Use `PARTNER_API=false` if you need to skip that network request locally.
 
 ### Faster local builds
 

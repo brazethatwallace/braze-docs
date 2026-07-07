@@ -29,6 +29,7 @@ O Braze Audience Sync com o Pinterest é uma integração do Audience Sync Pro. 
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
+
 É necessário garantir que os itens a seguir sejam criados, concluídos e/ou aceitos antes de configurar a etapa do público do Pinterest no Canvas.
 
 | Requisito | Origin | Descrição |
@@ -36,7 +37,7 @@ O Braze Audience Sync com o Pinterest é uma integração do Audience Sync Pro. 
 | Pinterest Business Hub | [Pinterest](https://www.pinterest.com/business/hub/) | Uma ferramenta centralizada para gerenciar os ativos do Pinterest da sua marca (como contas de anúncios, páginas, apps). |
 | Conta de anúncios do Pinterest | [Pinterest](https://ads.pinterest.com/) | Uma conta ativa de anúncios do Pinterest vinculada ao Pinterest Business Hub da sua marca.<br><br>Certifique-se de que o administrador do Pinterest Business Hub lhe concedeu permissões de administrador para as contas de anúncios do Pinterest que você planeja usar com a Braze. |
 | Termos e políticas do Pinterest | Pinterest | Concordar em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo Pinterest relacionados ao seu uso do Pinterest Audience Sync, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência, que podem incluir: os Termos de Serviço, os Termos de Serviço para Empresas, a Política de Privacidade, os Termos de Serviço para Desenvolvedores e API, os Termos de Dados de Anúncios, as Diretrizes de Publicidade, o Contrato de Serviços de Publicidade, as Diretrizes da Comunidade e as Diretrizes da Marca. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -79,7 +80,7 @@ Selecione **Pinterest** como parceiro desejado do Audience Sync.
 Em seguida, selecione sua conta de anúncios do Pinterest desejada. No menu suspenso **Choose a New or Existing Audience**, digite o nome de um público novo ou existente.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Criar um novo público %}
 
 **Criar um novo público**<br>
 Digite um nome para o novo público, selecione **Add Users to Audience** e selecione os campos que deseja sincronizar com o Pinterest. Em seguida, salve seu público clicando no botão **Create Audience** na parte inferior do editor de etapas.
@@ -92,7 +93,7 @@ A Braze exibe uma notificação na parte superior do editor de etapas se o públ
 
 Ao lançar um Canvas com um novo público, a Braze sincroniza os usuários quase em tempo real quando eles entram na etapa do Audience Sync.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar com um público existente %}
 **Sincronização com um público existente**<br>
 A Braze também oferece a capacidade de adicionar usuários a públicos existentes no Pinterest para garantir que esses públicos estejam atualizados. Para sincronizar com um público existente, digite o nome do público existente no menu suspenso e adicione-o ao público. A Braze adicionará usuários quase em tempo real quando eles entrarem na etapa do Audience Sync.
 
@@ -128,7 +129,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários que estão sendo processados pela Braze para sincronização com o Pinterest. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o Pinterest devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido do Pinterest ou a exclusão do público no Pinterest. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é um componente de Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compreensão da análise de dados" }
 
 {% alert important %}
 Lembre-se de que haverá um atraso nos relatórios de usuários sincronizados e métricas com erro devido ao envio em massa e à nova tentativa de 13 horas, respectivamente.

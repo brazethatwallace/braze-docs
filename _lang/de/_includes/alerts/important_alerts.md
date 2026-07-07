@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-Eine [neue Version der Shopify-Integration]({{site.baseurl}}/partners/shopify/#new-shopify-integration) wird ab April 2025 schrittweise veröffentlicht. Die Phasen richten sich nach der Art des Shopify-Shops und der externen ID, die zur Einrichtung der ursprünglichen Integration verwendet wurde. <br><br>**Die alte Version der Integration wird nach dem 28. August 2025 nicht mehr verfügbar sein. Aktualisieren Sie vor diesem Datum auf die neue Version, um die Integration weiterhin ohne Probleme nutzen zu können.**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
@@ -45,7 +37,7 @@ Beachten Sie, dass diese E-Mails, auch wenn sie nicht an das SMS-Gateway zugeste
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Für zusätzliche Sicherheit empfehlen wir, unser Feature zur [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/authentication/) hinzuzufügen, um einen Identitätswechsel von Nutzer:innen zu verhindern.
+Für zusätzliche Sicherheit empfehlen wir, unser Feature zur [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/authentication) hinzuzufügen, um einen Identitätswechsel von Nutzer:innen zu verhindern.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +53,7 @@ Es gibt bestimmte Browser, wie die Naver Android- und iOS-Apps, die das Braze-Pr
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+Das bisherige Kauf-Event befindet sich im Wartungsmodus. Bestehende Braze-Kund:innen können bisherige Kauf-Events weiterhin verwenden. Sie funktionieren weiterhin wie erwartet, aber neue Funktionen werden künftig auf Basis der empfohlenen E-Commerce-Events entwickelt. Braze wird Sie rechtzeitig informieren, bevor ein Einstellungsdatum festgelegt wird. Neue Braze-Kund:innen sollten [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events) verwenden, da bisherige Kauf-Events nicht mehr verfügbar sein werden.
 {% endalert %}
 
 {% endif %}
@@ -69,7 +61,7 @@ Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) überg
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Wenn dies geschieht, werden die Segment-Filter nicht mehr unter Kaufverhalten angezeigt.<br><br> Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
+Das bisherige Kauf-Event wird in einen veralteten Zustand (Wartungsmodus) übergehen. Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events). Wenn dies geschieht, werden die Segment-Filter nicht mehr unter dem Kaufverhalten angezeigt.<br><br> Wenn Sie derzeit Kauf-Events verwenden, werden Sie rechtzeitig über die Pläne zur schrittweisen Einstellung informiert. Vorerst können Sie Kauf-Events bis zum offiziellen Einstellungsdatum weiter verwenden. Weitere Informationen finden Sie in der [Übersicht zu empfohlenen Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events).
 {% endalert %}
 
 {% endif %}
@@ -85,7 +77,7 @@ In S3-Buckets gespeicherte Exportdateien werden automatisch gelöscht, sobald de
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Aktualisierung von Kund:innen, die sich in Ihren Datenkonfigurationseinstellungen befinden. Wenn ein Nutzerprofil in Shopify erstellt oder aktualisiert wird, wird ein entsprechendes Nutzerprofil in Braze erstellt oder aktualisiert. <br><br>Diese Aktionen triggern keine angepassten Events in Braze und dienen ausschließlich dazu, [Shopify-Nutzerdaten mit Braze zu synchronisieren]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Die synchronisierten Daten umfassen [angepasste Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [Standardattribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) und, sofern in Ihrer Konfiguration aktiviert, [den Status von Abo-Gruppen]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins).
+Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Aktualisierung von Kund:innen, die sich in Ihren Datenkonfigurationseinstellungen befinden. Wenn ein Nutzerprofil in Shopify erstellt oder aktualisiert wird, wird ein entsprechendes Nutzerprofil in Braze erstellt oder aktualisiert. <br><br>Diese Aktionen triggern keine angepassten Events in Braze und dienen ausschließlich dazu, [Shopify-Nutzerdaten mit Braze zu synchronisieren]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works). Die synchronisierten Daten umfassen [angepasste Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes), [Standardattribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes) und, sofern in Ihrer Konfiguration aktiviert, [den Status von Abo-Gruppen]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +85,7 @@ Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Ak
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, dass `canvas_entry_properties` als `context` referenziert wird. Jede `context`-Variable enthält einen Namen, einen Datentyp und einen Wert, der Liquid enthalten kann. Derzeit sind `canvas_entry_properties` abwärtskompatibel. Weitere Informationen finden Sie unter [Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) und [Canvas-Kontextobjekt]({{site.baseurl}}/api/objects_filters/context_object/).
+Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, dass `canvas_entry_properties` als `context` referenziert wird. Jede `context`-Variable enthält einen Namen, einen Datentyp und einen Wert, der Liquid enthalten kann. Derzeit sind `canvas_entry_properties` abwärtskompatibel. Weitere Informationen finden Sie unter [Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#how-it-works) und [Canvas-Kontextobjekt]({{site.baseurl}}/api/objects_filters/context_object).
 {% endalert %}
 
 {% endif %}
@@ -101,7 +93,7 @@ Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeute
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren Customer-Success-Manager.
+Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 {% endif %}
@@ -124,7 +116,7 @@ Die Verwendung von „Tag des Jahres“ für absolute Datumsangaben kann zu fals
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-Granulare Berechtigungen befinden sich derzeit in der Early-Access-Phase. Wenn für Ihr Unternehmen eine Migration geplant ist, erhalten Ihre Braze-Administratoren E-Mails und Banner im Dashboard, die sie über die [Migration der granularen Berechtigungen]({{site.baseurl}}/granular_permissions_migration/) informieren.
+Granulare Berechtigungen befinden sich derzeit in der Early-Access-Phase. Wenn für Ihr Unternehmen eine Migration geplant ist, erhalten Ihre Braze-Administratoren E-Mails und Banner im Dashboard, die sie über die [Migration der granularen Berechtigungen]({{site.baseurl}}/granular_permissions_migration) informieren.
 {% endalert %}
 
 {% endif %}
@@ -132,7 +124,7 @@ Granulare Berechtigungen befinden sich derzeit in der Early-Access-Phase. Wenn f
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library/) unterstützt nur Bilder und Video. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
+Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library) unterstützt nur Bilder und Video. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
 {% endalert %}
 
 {% endif %}
@@ -155,14 +147,6 @@ Für diese Integration muss der Nutzer-Alias das folgende Format verwenden, dami
 
 {% endif %}
 
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Mehrsprachige Nachrichten und Gebietsschema-Übersetzungen befinden sich derzeit in der Early-Access-Phase. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an diesem Early Access teilnehmen möchten.
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}
@@ -174,7 +158,7 @@ Content Cards, In-App-Nachrichten, Banner und Feature-Flags sind auf die Geräte
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-Wenn Sie Bilder über [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) oder [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) einbinden, stellen Sie sicher, dass Ihre Bild-URL mit `https://` beginnt. Die Verwendung von `http://` führt zum Absturz Ihrer App.
+Wenn Sie Bilder über [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) oder [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) einbinden, stellen Sie sicher, dass Ihre Bild-URL mit `https://` beginnt. Die Verwendung von `http://` führt zum Absturz Ihrer App.
 {% endalert %}
 
 {% endif %}

@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Crear plantilla de correo electrónico"
 article_title: "POST: Crear plantillas de correo electrónico"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -17,10 +17,14 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 Estas plantillas estarán disponibles en la página **Plantillas y medios**. La respuesta de este punto de conexión incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
 
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates). Esto permite que herramientas de IA como Claude y Cursor creen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `templates.email.create`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -54,9 +58,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `body` | Obligatorio | Cadena | Cuerpo de la plantilla de correo electrónico que puede incluir HTML. Hasta 400&nbsp;KB. |
 | `plaintext_body` | Opcional | Cadena | Una versión en texto plano del cuerpo de la plantilla de correo electrónico. |
 | `preheader` | Opcional | Cadena | Preencabezado de correo electrónico utilizado para generar vistas previas en algunos clientes. |
-| `tags` | Opcional | Cadena | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/) ya deben existir. |
+| `tags` | Opcional | Cadena | Las [etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags) ya deben existir. |
 | `should_inline_css` | Opcional | Booleano | Habilita o deshabilita la característica `inline_css` por plantilla. Si no se proporciona, Braze utilizará la configuración predeterminada para el grupo de aplicaciones. Se espera uno de `true` o `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -93,7 +97,7 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | Todas las etiquetas deben ser cadenas | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
 | No se han encontrado algunas etiquetas | Para añadir una etiqueta al crear una plantilla de correo electrónico, la etiqueta debe existir ya en Braze. |
 | El correo electrónico debe tener nombres de Content Blocks válidos | El correo electrónico puede contener Content Blocks que no existen en este entorno. |
-| Valor no válido para `should_inline_css`. Se esperaba uno de `true` o `false` | Este parámetro solo acepta valores booleanos (verdadero o falso). Asegúrate de que el valor de `should_inline_css` no esté entre comillas (`""`), lo que hace que el valor se envíe como una cadena en lugar de un booleano. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Valor no válido para `should_inline_css`. Se esperaba uno de `true` o `false` | Este parámetro solo acepta valores booleanos (true o false). Asegúrate de que el valor de `should_inline_css` no esté entre comillas (`""`), lo que hace que el valor se envíe como una cadena en lugar de un booleano. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

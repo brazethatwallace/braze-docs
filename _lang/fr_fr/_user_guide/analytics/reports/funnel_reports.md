@@ -1,6 +1,6 @@
 ---
 nav_title: Rapports d'entonnoir
-article_title: Rapports d'entonnoir pour les Campaigns et les Canvas
+article_title: Rapports d'entonnoir pour les campagnes et les Canvas
 page_order: 8
 page_type: reference
 description: "Cette page présente les avantages des rapports d'entonnoir, comment les configurer et comment interpréter votre rapport."
@@ -9,9 +9,9 @@ tool: Reports
 
 # Rapports d'entonnoir {#funnel-reports}
 
-> La page **Rapport d'entonnoir** propose un rapport visuel qui vous permet d'analyser les parcours de vos clients après la réception d'une Campaign ou d'un Canvas, y compris les différentes actions effectuées sur le chemin de la conversion et les points d'abandon. ![Capture d'écran de la page Rapport d'entonnoir montrant un tunnel de conversion pour les performances d'une Campaign ou d'un Canvas]({% image_buster /assets/img/funnel_report/funnel_report2.png %}){: style="float:right;max-width:15%;margin-bottom:15px; border: 0"}
+> La page **Rapport d'entonnoir** propose un rapport visuel qui vous permet d'analyser les parcours de vos clients après la réception d'une campagne ou d'un Canvas, y compris les différentes actions effectuées sur le chemin de la conversion et les points d'abandon. ![Capture d'écran de la page Rapport d'entonnoir montrant un tunnel de conversion pour les performances d'une campagne ou d'un Canvas]({% image_buster /assets/img/funnel_report/funnel_report2.png %}){: style="float:right;max-width:15%;margin-bottom:15px; border: 0"}
 
-Si votre Campaign ou Canvas utilise un groupe de contrôle ou plusieurs variantes, vous pouvez comprendre comment les différentes variantes ont influencé le tunnel de conversion à un niveau plus granulaire et optimiser en fonction de ces données.
+Si votre campagne ou Canvas utilise un groupe de contrôle ou plusieurs variantes, vous pouvez comprendre comment les différentes variantes ont influencé le tunnel de conversion à un niveau plus granulaire et optimiser en fonction de ces données.
 
 ![Rapport d'entonnoir 1]({% image_buster /assets/img/funnel_report/funnel_report1.jpg %}){: style="max-width:80%;"}
 
@@ -24,26 +24,26 @@ Les rapports d'entonnoir peuvent répondre à des questions telles que :
 - **Conversions personnalisées :** quelle proportion d'utilisateurs a démarré une session, écouté un titre et créé une playlist après un push « Nouvelle sortie » ?
 - **Abandons d'upsell :** dans un Canvas d'upsell, à quel moment les utilisateurs ont-ils quitté le parcours avant de s'abonner ?
 - **Comportements post-engagement :** quelle variante d'e-mail a généré le plus d'achats après ouverture ?
-- **Fréquence de conversion :** quel pourcentage d'utilisateurs a parrainé un ami au moins trois fois après avoir reçu une Campaign ?
+- **Fréquence de conversion :** quel pourcentage d'utilisateurs a parrainé un ami au moins trois fois après avoir reçu une campagne ?
 
 ## Configurer les rapports d'entonnoir {#setting-up-funnel-reports}
 
 ![Rapport d'entonnoir 5]({% image_buster /assets/img/funnel_report/canvas_campaign.png %}){: style="float:right;max-width:40%;border:0;margin-left:15px;"}
 
-Vous pouvez exécuter des rapports d'entonnoir pour les Campaigns et Canvas actifs existants. Ces rapports affichent une série d'événements par lesquels un destinataire de Campaign progresse sur une période de 1 à 30 jours à partir de la date d'entrée dans le Canvas ou la Campaign. Un utilisateur est considéré comme converti à une étape de l'entonnoir s'il effectue l'événement dans l'ordre spécifié.
+Vous pouvez exécuter des rapports d'entonnoir pour les campagnes et Canvas actifs existants. Ces rapports affichent une série d'événements par lesquels un destinataire de campagne progresse sur une période de 1 à 30 jours à partir de la date d'entrée dans le Canvas ou la campagne. Un utilisateur est considéré comme converti à une étape de l'entonnoir s'il effectue l'événement dans l'ordre spécifié.
 
 Les rapports d'entonnoir sont disponibles aux emplacements suivants dans le tableau de bord :
 
-- La page **Campaign Analytics** pour une Campaign spécifique
+- La page **Campaign Analytics** pour une campagne spécifique
 - La page **Canvas Details** pour un Canvas spécifique, en sélectionnant le bouton **Analyze Variants**
 
 {% alert important %}
-Les rapports d'entonnoir ne sont pas disponibles pour les [Campaigns API]({{site.baseurl}}/api/api_campaigns/).
+Les rapports d'entonnoir ne sont pas disponibles pour les [campagnes API]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 ### Étape 1 : Sélectionner une plage de dates {#step-1-select-a-date-range}
 
-Vous pouvez sélectionner une période pour votre rapport (au cours des six derniers mois) et affiner les données pour voir les utilisateurs qui, en entrant dans la Campaign ou le Canvas, ont complété les événements de l'entonnoir dans une fenêtre définie (maximum 30 jours). Dans l'exemple suivant, votre entonnoir rechercherait les utilisateurs ayant reçu cette Campaign ou ce Canvas au cours des sept derniers jours et ayant complété l'entonnoir en trois jours.
+Vous pouvez sélectionner une période pour votre rapport (au cours des six derniers mois) et affiner les données pour voir les utilisateurs qui, en entrant dans la campagne ou le Canvas, ont complété les événements de l'entonnoir dans une fenêtre définie (maximum 30 jours). Dans l'exemple suivant, votre entonnoir rechercherait les utilisateurs ayant reçu cette campagne ou ce Canvas au cours des sept derniers jours et ayant complété l'entonnoir en trois jours.
 
 {% alert note %}
 Si vous définissez la fenêtre de complétion de l'entonnoir à un jour, l'événement de l'entonnoir doit se produire dans les 24 heures suivant la réception du message. Cependant, si vous sélectionnez plusieurs jours, la fenêtre de temps est comptée en jours calendaires dans le fuseau horaire de l'entreprise.
@@ -59,7 +59,7 @@ Pour chaque rapport d'entonnoir, le premier événement est la réception du mes
 
 | Campaign | Démarrage de session, Achat effectué, Événement personnalisé effectué, Événement d'engagement lié aux messages |
 | Canvas | Démarrage de session, Achat effectué, Événement personnalisé effectué, Étape du Canvas reçue, Interaction avec l'étape |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements disponibles pour les rapports d'entonnoir" }
 
 {% alert note %}
 L'événement de rapport **Interaction avec l'étape** ne peut être utilisé qu'avec les étapes du Canvas qui utilisent les canaux e-mail ou push.
@@ -69,7 +69,7 @@ L'événement de rapport **Interaction avec l'étape** ne peut être utilisé qu
 
 Les rapports d'entonnoir vous permettent de comparer le succès de vos messages au-delà des événements de conversion ou des événements d'engagement que vous avez initialement configurés. Ainsi, si vous n'avez pas ajouté un événement de conversion au départ, vous pouvez tout de même suivre les conversions pour cet événement à l'aide d'un entonnoir.
 
-Par exemple, si vous sélectionnez une fenêtre de rapport de 14 jours, suivie des événements `Added to cart` et `Made purchase`, vous verrez à la fois le nombre d'utilisateurs ayant ajouté au panier dans les 14 jours suivant la réception du message et le nombre d'utilisateurs ayant ajouté au panier puis effectué un achat dans les 14 jours suivant la réception de la Campaign.
+Par exemple, si vous sélectionnez une fenêtre de rapport de 14 jours, suivie des événements `Added to cart` et `Made purchase`, vous verrez à la fois le nombre d'utilisateurs ayant ajouté au panier dans les 14 jours suivant la réception du message et le nombre d'utilisateurs ayant ajouté au panier puis effectué un achat dans les 14 jours suivant la réception de la campagne.
 
 Autre exemple : vous souhaitez peut-être connaître le pourcentage d'utilisateurs ayant converti sur un e-mail après avoir cliqué dessus. Pour calculer cela, vous pourriez créer un rapport où le deuxième événement est le clic sur votre e-mail et le troisième événement est l'exécution de votre événement de conversion.
 
@@ -88,15 +88,15 @@ Dans votre rapport d'entonnoir, vous pouvez comparer directement le groupe de co
 
 ![Graphique du rapport d'entonnoir.]({% image_buster /assets/img/funnel_report/funnel_report4.jpg %})
 
-**Pour les Campaigns avec plusieurs variantes** : Braze affichera un tableau avec les indicateurs pour chaque événement et variante, ainsi que la variation en pourcentage par rapport au groupe de contrôle. Le taux de conversion correspond au nombre d'utilisateurs ayant effectué l'événement (et les suivants) par destinataire du message.
+**Pour les campagnes avec plusieurs variantes** : Braze affichera un tableau avec les indicateurs pour chaque événement et variante, ainsi que la variation en pourcentage par rapport au groupe de contrôle. Le taux de conversion correspond au nombre d'utilisateurs ayant effectué l'événement (et les suivants) par destinataire du message.
 
-**Pour les Campaigns avec rééligibilité** : si un utilisateur reçoit la Campaign plus d'une fois dans la fenêtre de rapport, Braze déterminera si l'utilisateur doit être inclus dans l'entonnoir en fonction des actions effectuées après la première réception de la Campaign dans la fenêtre de temps.
+**Pour les campagnes avec rééligibilité** : si un utilisateur reçoit la campagne plus d'une fois dans la fenêtre de rapport, Braze déterminera si l'utilisateur doit être inclus dans l'entonnoir en fonction des actions effectuées après la première réception de la campagne dans la fenêtre de temps.
 - Notez qu'il peut y avoir un écart entre les valeurs de conversion de l'entonnoir et les valeurs de conversion standard, car les utilisateurs peuvent convertir plus d'une fois avec la rééligibilité, mais les rapports d'entonnoir comptabilisent au maximum une conversion même si un utilisateur effectue l'événement plus d'une fois.
 
-**Pour les Campaigns multivariantes avec rééligibilité** : si un utilisateur reçoit plusieurs variantes de la Campaign pendant la fenêtre de rapport, Braze déterminera s'il doit être inclus dans l'entonnoir de la variante en fonction des actions effectuées après la première réception de la variante de Campaign. Cela signifie qu'un même utilisateur pourrait être comptabilisé dans plusieurs variantes différentes s'il a reçu plusieurs variantes pendant la fenêtre de temps de l'entonnoir.
+**Pour les campagnes multivariantes avec rééligibilité** : si un utilisateur reçoit plusieurs variantes de la campagne pendant la fenêtre de rapport, Braze déterminera s'il doit être inclus dans l'entonnoir de la variante en fonction des actions effectuées après la première réception de la variante de campagne. Cela signifie qu'un même utilisateur pourrait être comptabilisé dans plusieurs variantes différentes s'il a reçu plusieurs variantes pendant la fenêtre de temps de l'entonnoir.
 
 {% alert important %}
-Les utilisateurs orphelins ne sont pas suivis dans les rapports d'entonnoir. Lorsqu'un utilisateur anonyme entre dans un Canvas ou une Campaign et devient ensuite identifié via la méthode `changeUser()`, son identifiant Braze change. Les rapports d'entonnoir ne suivent que les événements ultérieurs correspondant à l'identifiant utilisateur au moment de l'entrée et ne tiennent pas compte des événements effectués par l'utilisateur après le changement d'identifiant. Cela signifie que les événements de conversion effectués par l'utilisateur après son identification ne seront pas inclus dans le rapport d'entonnoir.
+Les utilisateurs orphelins ne sont pas suivis dans les rapports d'entonnoir. Lorsqu'un utilisateur anonyme entre dans un Canvas ou une campagne et devient ensuite identifié via la méthode `changeUser()`, son identifiant Braze change. Les rapports d'entonnoir ne suivent que les événements ultérieurs correspondant à l'identifiant utilisateur au moment de l'entrée et ne tiennent pas compte des événements effectués par l'utilisateur après le changement d'identifiant. Cela signifie que les événements de conversion effectués par l'utilisateur après son identification ne seront pas inclus dans le rapport d'entonnoir.
 {% endalert %}
 
 ## Questions fréquentes {#frequently-asked-questions}

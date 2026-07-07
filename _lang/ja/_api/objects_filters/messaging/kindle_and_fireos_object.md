@@ -1,19 +1,19 @@
 ---
-nav_title: "Kindle およびFireOS プッシュオブジェクト"
-article_title: Kindle およびFireOS プッシュメッセージングオブジェクト
+nav_title: "KindleおよびFireOSプッシュオブジェクト"
+article_title: KindleおよびFireOSプッシュメッセージングオブジェクト
 page_order: 7
 page_type: reference
 channel: push
 platform:
   - Android
   - FireOS
-description: "このリファレンス記事では、Braze Kindle と FireOS プッシュオブジェクトのさまざまなコンポーネントについて説明します。"
+description: "このリファレンス記事では、Braze KindleおよびFireOSプッシュオブジェクトのさまざまなコンポーネントについて説明します。"
 
 ---
 
-# Kindle およびFireOS プッシュオブジェクト
+# KindleおよびFireOSプッシュオブジェクト {#kindle-and-fireos-push-object}
 
-> `kindle_push` オブジェクトを使用すると、[ メッセージング エンドポイント s]({{site.baseurl}}/api/endpoints/messaging) でKindle およびFire OS プッシュ通知を変更または作成できます。
+> `kindle_push`オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)でKindleおよびFireOSプッシュ通知を変更または作成できます。
 
 ```json
 {
@@ -29,4 +29,4 @@ description: "このリファレンス記事では、Braze Kindle と FireOS プ
 }
 ```
 
-`priority` パラメータは、`-2` から `2` までの値を受け入れます。ここで、`-2` は最低の優先度を表し、`2` は最高の優先度を表します。`0` はデフォルト値です。その整数範囲外に送信された値は、デフォルトで `0` に設定されます。
+`priority`パラメータは`-2`から`2`までの値を受け入れます。`-2`は最低の優先度を表し、`2`は最高の優先度を表します。`0`はデフォルト値です。この整数範囲外で送信された値は、デフォルトの`0`に設定されます。

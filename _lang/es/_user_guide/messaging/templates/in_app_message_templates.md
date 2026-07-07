@@ -4,11 +4,17 @@ article_title: Plantillas de mensajes dentro de la aplicación
 page_order: 4
 layout: dev_guide
 guide_top_header: "Plantillas de mensajes dentro de la aplicación"
-guide_top_text: "Las plantillas de mensajes dentro de la aplicación solo están disponibles en el editor de arrastrar y soltar. Guarda tus propias plantillas desde el compositor o usa una plantilla prediseñada de Braze para comenzar rápidamente."
-description: "Aprende sobre las plantillas de mensajes dentro de la aplicación en Braze, incluyendo plantillas de Braze y plantillas personalizadas que puedes crear en el editor de arrastrar y soltar."
+guide_top_text: "Crea y administra plantillas de mensajes dentro de la aplicación desde **Plantillas** > **Plantillas de mensajes dentro de la aplicación**. Guarda diseños del editor de arrastrar y soltar, o crea perfiles de color y plantillas CSS para el editor tradicional. También puedes empezar a partir de una plantilla prediseñada de Braze."
+description: "Aprende sobre las plantillas de mensajes dentro de la aplicación en Braze, incluyendo cómo crear plantillas, plantillas de Braze y perfiles de color y plantillas CSS para el editor tradicional."
 
-guide_featured_title: "Plantillas de Braze"
+guide_featured_title: "Artículos de la sección"
 guide_featured_list:
+  - name: Crear una plantilla de mensaje dentro de la aplicación
+    link: /docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template
+    image: /assets/img/braze_icons/brush-02.svg
+
+guide_menu_title: "Plantillas de Braze"
+guide_menu_list:
   - name: Flujo de incorporación
     link: /docs/user_guide/messaging/templates/in_app_message_templates/onboarding
     image: /assets/img/braze_icons/flag-01.svg
@@ -36,16 +42,6 @@ guide_featured_list:
   - name: Promoción de temporada con imagen
     link: /docs/user_guide/messaging/templates/in_app_message_templates/seasonal_promo
     image: /assets/img/braze_icons/calendar-check-02.svg
-
-guide_menu_title: "Otros tipos de plantillas"
-guide_menu_list:
-  - name: Perfiles de color y plantillas CSS
-    link: /docs/user_guide/channels/in_app_messages/traditional/customize/color_profiles_and_css
-    image: /assets/img/braze_icons/brush-02.svg
 ---
 
-## Guardar como plantilla {#saving-as-a-template}
-
-Al redactar un mensaje dentro de la aplicación en el editor de arrastrar y soltar, puedes guardar tu trabajo como plantilla seleccionando **Guardar como plantilla** en la barra de herramientas del compositor. Tus plantillas guardadas estarán disponibles la próxima vez que crees un mensaje dentro de la aplicación, dándote una ventaja con tu diseño y estilo ya configurados.
-
-Para acceder a tus plantillas guardadas, ve a **Plantillas** > **Plantillas de mensajes dentro de la aplicación**.
+Para conocer los pasos para guardar plantillas desde el compositor, crear perfiles de color o plantillas CSS y administrar tu biblioteca, consulta [Crear una plantilla de mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template).

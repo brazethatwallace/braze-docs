@@ -16,7 +16,7 @@ description: "이 문서에서는 Canvas 목록 내보내기 Braze 엔드포인�
 
 > 이 엔드포인트를 사용하여 이름, Canvas API 식별자 및 관련 태그를 포함한 Canvases 목록을 내보낼 수 있습니다.
 
-Canvases는 생성 시간별로 정렬된 100개 그룹으로 반환됩니다(기본적으로 가장 오래된 것부터 최신 것 순).
+Canvases는 생성 시간별로 정렬된 100개 그룹으로 반환됩니다(기본적으로 가장 오래된 것부터 최신 순).
 
 아카이브된 Canvases는 `include_archived` 필드가 지정되지 않는 한 API 응답에 포함되지 않습니다. 그러나 중지되었지만 아카이브되지 않은 Canvases는 기본적으로 반환됩니다.
 
@@ -24,7 +24,7 @@ Canvases는 생성 시간별로 정렬된 100개 그룹으로 반환됩니다(�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -38,7 +38,7 @@ Canvases는 생성 시간별로 정렬된 100개 그룹으로 반환됩니다(�
 | `include_archived` | 선택 사항 | 부울 | 아카이브된 Canvases를 포함할지 여부이며, 기본값은 `false`입니다. |
 | `sort_direction` | 선택 사항 | 문자열 | - 생성 시간을 최신에서 오래된 순으로 정렬: `desc` 값을 전달합니다.<br> - 생성 시간을 가장 오래된 것부터 최신 순으로 정렬: `asc` 값을 전달합니다. <br><br>`sort_direction`이 포함되지 않은 경우 기본 순서는 가장 오래된 것부터 최신 순입니다. |
 | `last_edit.time[gt]` | 선택 사항 | 시간 | 결과를 필터링하여 제공된 시간 이후에 편집된 Canvases만 반환합니다. 형식은 `yyyy-MM-DDTHH:mm:ss`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -65,7 +65,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

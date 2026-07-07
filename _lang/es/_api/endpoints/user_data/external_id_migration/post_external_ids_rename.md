@@ -1,42 +1,42 @@
 ---
-nav_title: "PUBLICAR: Renombrar ID externo"
-article_title: "PUBLICAR: Renombrar ID externo"
+nav_title: "POST: Renombrar ID externo"
+article_title: "POST: Renombrar ID externo"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Renombrar ID externos."
+description: "En este artículo se describen los detalles del punto de conexión Renombrar ID externos."
 
 ---
 {% api %}
-# Renombrar ID externo
+# Renombrar ID externo {#rename-external-id}
 {% apimethod post %}
 /users/external_ids/rename
 {% endapimethod %}
 
-> Utiliza este punto final para renombrar los ID externos de tus usuarios.
+> Utiliza este punto de conexión para renombrar los ID externos de tus usuarios.
 
 Puedes enviar hasta 50 objetos de renombramiento por solicitud.
 
-Con este punto final se establece un nuevo (principal) `external_id` para el usuario y se elimina su `external_id` existente. Esto significa que el usuario puede ser identificado por cualquiera de los dos `external_id` hasta que se elimine el obsoleto. Tener varios ID externos permite un periodo de migración para que no se rompan las versiones heredadas de tus aplicaciones que utilizan el esquema de nombres de ID externos anterior.
+Con este punto de conexión se establece un nuevo (principal) `external_id` para el usuario y se deja obsoleto su `external_id` existente. Esto significa que el usuario puede ser identificado por cualquiera de los dos `external_id` hasta que se elimine el obsoleto. Tener varios ID externos permite un periodo de migración para que no se rompan las versiones heredadas de tus aplicaciones que utilizan el esquema de nombres de ID externos anterior.
 
-Cuando ya no utilices tu antiguo esquema de nombres, te recomendamos encarecidamente que elimines los ID externos obsoletos utilizando el [punto final`/users/external_ids/remove` ]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove).
+Cuando ya no utilices tu antiguo esquema de nombres, te recomendamos encarecidamente que elimines los ID externos obsoletos utilizando el [punto de conexión `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove).
 
 {% alert warning %}
-Asegúrate de eliminar los ID externos obsoletos con el punto final `/users/external_ids/remove` en lugar de `/users/delete`. Enviar una solicitud a `/users/delete` con el ID externo obsoleto elimina el perfil de usuario por completo y no se puede deshacer.
+Asegúrate de eliminar los ID externos obsoletos con el punto de conexión `/users/external_ids/remove` en lugar de `/users/delete`. Enviar una solicitud a `/users/delete` con el ID externo obsoleto elimina el perfil de usuario por completo y no se puede deshacer.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#17682d2b-1546-4a3c-9703-aa5a12861d7c {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.external_ids.rename`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.external_ids.rename`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='external id migration' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -49,12 +49,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `external_id_renames` | Obligatoria | Matriz de identificadores externos renombrar objetos | Consulta el ejemplo de solicitud y las limitaciones siguientes para conocer la estructura del objeto renombrar identificador externo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_id_renames` | Obligatorio | Matriz de objetos de renombramiento de identificadores externos | Consulta el ejemplo de solicitud y las limitaciones siguientes para conocer la estructura del objeto de renombramiento de identificador externo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de solicitud" }
 
 Toma nota de lo siguiente:
 
@@ -62,7 +62,7 @@ Toma nota de lo siguiente:
 - El `new_external_id` no debe estar ya en uso ni como ID principal ni como ID obsoleto.
 - El `current_external_id` y el `new_external_id` no pueden ser iguales.
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#request-example}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids/rename' \
 --header 'Content-Type: application/json' \
@@ -77,7 +77,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 La respuesta confirmará todos los renombramientos realizados con éxito, así como los renombramientos fallidos con los errores asociados. Los mensajes de error en el campo `rename_errors` harán referencia al índice del objeto en la matriz de la solicitud original.
 
@@ -92,25 +92,25 @@ La respuesta confirmará todos los renombramientos realizados con éxito, así c
 El campo `message` devolverá `success` para cualquier solicitud válida. Los errores más específicos se recogen en la matriz `rename_errors`. El campo `message` devuelve un error en caso de:
 
 - Clave de API no válida
-- Matriz vacía `external_id_renames` 
-- `external_id_renames` matriz con más de 50 objetos
-- Alcanzado el límite de velocidad (más de 1.000 solicitudes por minuto)
+- Matriz vacía `external_id_renames`
+- Matriz `external_id_renames` con más de 50 objetos
+- Límite de velocidad alcanzado (más de 1000 solicitudes por minuto)
 
-## Preguntas más frecuentes
+## Preguntas más frecuentes {#frequently-asked-questions}
 
-### ¿Influye esto en los MAU?
-No, porque el número de usuarios sigue siendo el mismo, tienen un nuevo `external_id`.
+### ¿Influye esto en los MAU? {#does-this-impact-mau}
+No, porque el número de usuarios sigue siendo el mismo, solo tienen un nuevo `external_id`.
 
-### ¿Cambia históricamente el comportamiento de los usuarios?
+### ¿Cambia históricamente el comportamiento de los usuarios? {#does-user-behavior-change-historically}
 No, porque el usuario sigue siendo el mismo, y todo su comportamiento histórico sigue vinculado a él.
 
-### ¿Puede ejecutarse en espacios de trabajo de desarrollador o de puesta en escena?
-Sí. De hecho, recomendamos encarecidamente realizar una migración de prueba en un espacio de trabajo de ensayo o de desarrollador, y asegurarse de que todo ha ido bien antes de ejecutarla en los datos de producción.
+### ¿Puede ejecutarse en espacios de trabajo de desarrollo o de pruebas? {#can-it-be-run-on-development-or-staging-workspaces}
+Sí. De hecho, recomendamos encarecidamente realizar una migración de prueba en un espacio de trabajo de pruebas o de desarrollo, y asegurarte de que todo ha ido bien antes de ejecutarla en los datos de producción.
 
-### ¿Registra puntos de datos?
+### ¿Registra puntos de datos? {#does-this-log-data-points}
 Esta característica no registra puntos de datos.
 
-### ¿Cuál es el periodo de amortización recomendado?
+### ¿Cuál es el periodo de obsolescencia recomendado? {#what-is-the-recommended-deprecation-period}
 No tenemos un límite estricto sobre el tiempo que puedes mantener ID externos obsoletos, pero recomendamos encarecidamente eliminarlos cuando ya no sea necesario hacer referencia a los usuarios por el ID obsoleto.
 
 {% endapi %}

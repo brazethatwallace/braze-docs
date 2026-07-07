@@ -14,7 +14,7 @@ tool:
 
 > Verwenden Sie das In-App-Nachrichten-Template **Simple Survey**, um Nutzerattribute, Insights und Präferenzen zu erfassen, die Ihre Campaign-Strategie unterstützen.
 
-Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) verfügbar.
+Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) verfügbar.
 
 Häufige Anwendungsfälle für Umfragen sind z. B. die Frage, wie Nutzer:innen Ihre App nutzen möchten, mehr über ihre persönlichen Präferenzen zu erfahren oder ihre Zufriedenheit mit einem bestimmten Feature abzufragen.
 
@@ -22,7 +22,7 @@ Häufige Anwendungsfälle für Umfragen sind z. B. die Frage, wie Nutzer:innen I
 
 ## SDK-Anforderungen {#supported-sdk-versions}
 
-Diese In-App-Nachricht wird nur an Geräte ausgeliefert, die [Flex CSS](https://caniuse.com/flexbox) unterstützen, und erfordert mindestens die folgenden [SDK-Versionen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Diese In-App-Nachricht wird nur an Geräte ausgeliefert, die [Flex CSS](https://caniuse.com/flexbox) unterstützen, und erfordert mindestens die folgenden [SDK-Versionen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
@@ -32,7 +32,7 @@ Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Init
 
 ## Eine Umfrage erstellen {#create}
 
-Wenn Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) erstellen, wählen Sie **Simple Survey** als **Nachrichtentyp** aus.
+Wenn Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) erstellen, wählen Sie **Simple Survey** als **Nachrichtentyp** aus.
 
 Dieses Umfrage-Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt. Stellen Sie sicher, dass Ihre SDKs die für dieses Feature erforderlichen [Mindest-SDK-Versionen](#supported-sdk-versions) erfüllen.
 
@@ -60,7 +60,7 @@ Legen Sie dann fest, ob Sie [angepasste Attribute erfassen](#custom-attributes) 
 
 Wählen Sie **Log attributes upon submission**, um Attribute basierend auf der Antwort der Nutzer:innen zu erfassen. Sie können diese Option verwenden, um neue Segmente und Retargeting-Campaigns zu erstellen. Beispielsweise könnten Sie in einer [Zufriedenheitsumfrage](#user-satisfaction) eine Follow-up-E-Mail an alle Nutzer:innen senden, die nicht zufrieden waren.
 
-Um jeder Auswahlmöglichkeit ein angepasstes Attribut hinzuzufügen, wählen Sie einen Namen für das angepasste Attribut aus dem Dropdown-Menü aus (oder erstellen Sie ein neues) und geben Sie dann den Wert ein, der gesetzt werden soll, wenn diese Auswahl abgesendet wird. Sie können auch ein neues angepasstes Attribut auf Ihrer [Einstellungsseite]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) erstellen.
+Um jeder Auswahlmöglichkeit ein angepasstes Attribut hinzuzufügen, wählen Sie einen Namen für das angepasste Attribut aus dem Dropdown-Menü aus (oder erstellen Sie ein neues) und geben Sie dann den Wert ein, der gesetzt werden soll, wenn diese Auswahl abgesendet wird. Sie können auch ein neues angepasstes Attribut auf Ihrer [Einstellungsseite]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) erstellen.
 
 Der Datentyp Ihrer angepassten Attribute ist wichtig und hängt davon ab, wie Sie Ihre Umfrage eingerichtet haben.
 
@@ -73,7 +73,7 @@ Wenn die Erfassung angepasster Attribute aktiviert ist, werden Auswahlmöglichke
 
 ##### Beispiel {#example}
 
-In einer [Umfrage zu Benachrichtigungspräferenzen](#notification-preferences) könnten Sie beispielsweise jede Auswahlmöglichkeit als boolesches (true/false) Attribut anlegen, damit Nutzer:innen auswählen können, welche Themen sie interessieren. Wenn eine Nutzer:in die Auswahl „Aktionen“ ankreuzt, wird ihr [Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) mit dem angepassten Attribut `Promotions Topic` auf `true` aktualisiert. Wenn die Auswahl nicht angekreuzt wird, bleibt dasselbe Attribut unverändert.
+In einer [Umfrage zu Benachrichtigungspräferenzen](#notification-preferences) könnten Sie beispielsweise jede Auswahlmöglichkeit als boolesches (true/false) Attribut anlegen, damit Nutzer:innen auswählen können, welche Themen sie interessieren. Wenn eine Nutzer:in die Auswahl „Aktionen“ ankreuzt, wird ihr [Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) mit dem angepassten Attribut `Promotions Topic` auf `true` aktualisiert. Wenn die Auswahl nicht angekreuzt wird, bleibt dasselbe Attribut unverändert.
 
 Sie können dann den Filter `Custom Attribute` verwenden, um ein Segment für Nutzer:innen mit dem angepassten Attribut `Promotions Topic` `is` `true` zu erstellen, damit nur Nutzer:innen, die an Ihren Aktionen interessiert sind, die relevanten Campaigns erhalten.
 
@@ -110,7 +110,7 @@ Sie können die Schriftfarbe und die Akzentfarbe der Nachricht mit dem **Color T
 Sobald Ihre Campaign gestartet wurde, können Sie die Ergebnisse in Echtzeit analysieren, um die Aufschlüsselung jeder ausgewählten Option zu sehen. Wenn Sie die [Erfassung angepasster Attribute](#custom-attributes) aktiviert haben, können Sie auch neue Segmente oder Follow-up-Campaigns für Nutzer:innen erstellen, die die Umfrage abgesendet haben.
 
 {% alert note %}
-Gelöschte Umfrageoptionen werden weiterhin in den Analytics angezeigt, aber neuen Nutzer:innen nicht mehr als Auswahlmöglichkeit präsentiert.
+Gelöschte Umfrageoptionen werden weiterhin in Analytics angezeigt, aber neuen Nutzer:innen nicht mehr als Auswahlmöglichkeit präsentiert.
 {% endalert %}
 
 Sie finden Ihre Umfrage-Performance-Metriken, indem Sie das Dropdown **Ergebnisse** für eine bestimmte Variante im Abschnitt **In-App Message Performance** der Analytics aufklappen. Hier ist eine Aufschlüsselung dessen, was Sie sehen werden:
@@ -119,13 +119,13 @@ Sie finden Ihre Umfrage-Performance-Metriken, indem Sie das Dropdown **Ergebniss
 - **Umfrageergebnisse** zeigen eine Aufschlüsselung, wie viele Nutzer:innen jede Antwortoption ausgewählt haben, zusammen mit dem prozentualen Anteil an den Gesamtabsendungen, den jede Auswahl repräsentiert.
 - **Bestätigungsseiten-Metriken** (falls aktiviert) umfassen, wie viele Nutzer:innen den Bestätigungsbildschirm gesehen, seinen Button angeklickt oder ihn ohne Interaktion geschlossen haben.
 
-Definitionen der Umfrage-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/). Filtern Sie dort nach „In-App Message“.
+Definitionen der Umfrage-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach „In-App Message“.
 
-Sehen Sie sich den [In-App-Nachrichten-Bericht]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) für eine Aufschlüsselung Ihrer Campaign-Metriken an.
+Sehen Sie sich den [In-App-Nachrichten-Bericht]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) für eine Aufschlüsselung Ihrer Campaign-Metriken an.
 
 ### Currents {#currents}
 
-Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#api_fzzdoylmrtwe). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
+Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -138,14 +138,14 @@ Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `butt
 
 Um dies einzurichten, verwenden Sie eine Einfachauswahl-Umfrage mit fünf Optionen von „😡 Sehr unzufrieden“ bis „😍 Sehr zufrieden“. Jede Auswahl ist dem angepassten Attribut `customer_satisfaction` zugeordnet, mit einem numerischen Wert von 1 bis 5 – wobei 1 die geringste Zufriedenheit und 5 die höchste Zufriedenheit angibt. Beachten Sie, dass diese numerischen Werte als Strings gespeichert werden, da für die Einfachauswahl angepasste String-Attribute erforderlich sind.
 
-| Auswahl                                     | Attribut               | Wert  |
-|---------------------------------------------|------------------------|-------|
-| 😡 Sehr unzufrieden                         | `customer_satisfaction` | 1     |
-| 😟 Unzufrieden                              | `customer_satisfaction` | 2     |
-| 🙂 Weder zufrieden noch unzufrieden         | `customer_satisfaction` | 3     |
-| 😊 Zufrieden                                | `customer_satisfaction` | 4     |
-| 😍 Sehr zufrieden                           | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Auswahl | Attribut | Wert |
+|---------|----------|------|
+| 😡 Sehr unzufrieden | `customer_satisfaction` | 1 |
+| 😟 Unzufrieden | `customer_satisfaction` | 2 |
+| 🙂 Weder zufrieden noch unzufrieden | `customer_satisfaction` | 3 |
+| 😊 Zufrieden | `customer_satisfaction` | 4 |
+| 😍 Sehr zufrieden | `customer_satisfaction` | 5 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kundenzufriedenheit" }
 
 Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert als angepasstes Attribut protokolliert. Sie können dann Follow-up-Campaigns mithilfe von Zielgruppen-Filtern erstellen. Senden Sie beispielsweise Rückgewinnungsnachrichten an Nutzer:innen, deren Attribut `customer_satisfaction` den Wert „1“ oder „2“ hat.
 
@@ -158,14 +158,14 @@ Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert als angepas
 
 Um dies einzurichten, verwenden Sie eine Mehrfachauswahl-Umfrage, bei der jede Auswahl ein Benachrichtigungsthema darstellt. Anstatt dasselbe Attribut mit verschiedenen Werten zuzuweisen, wird jede Auswahl einem eigenen booleschen Attribut zugeordnet, das das Interesse der Nutzer:innen an diesem Thema widerspiegelt. Wenn eine Nutzer:in eine Auswahl trifft, wird das entsprechende Attribut auf `true` gesetzt. Wenn die Auswahl nicht getroffen wird, bleibt das Attribut unverändert.
 
-| Auswahl              | Attribut               | Wert   |
-|----------------------|------------------------|--------|
-| Produkt-Updates      | `wants_product_updates`| `true` |
-| Aktionen             | `wants_promotions`     | `true` |
-| Event-Einladungen    | `wants_event_invites`  | `true` |
-| Umfragen und Feedback| `wants_surveys`        | `true` |
-| Tipps und Tutorials  | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Auswahl | Attribut | Wert |
+|---------|----------|------|
+| Produkt-Updates | `wants_product_updates` | `true` |
+| Aktionen | `wants_promotions` | `true` |
+| Event-Einladungen | `wants_event_invites` | `true` |
+| Umfragen und Feedback | `wants_surveys` | `true` |
+| Tipps und Tutorials | `wants_tips` | `true` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Benachrichtigungspräferenzen" }
 
 {% endtab %}
 {% tab Kundenziele identifizieren %}
@@ -176,14 +176,14 @@ Um dies einzurichten, verwenden Sie eine Mehrfachauswahl-Umfrage, bei der jede A
 
 Um dies einzurichten, verwenden Sie eine Einfachauswahl-Umfrage, bei der jede Option ein häufiges Ziel oder eine Absicht darstellt. Jede Auswahl ist dem angepassten Attribut `product_goal` zugeordnet, mit einem Wert, der der ausgewählten Absicht der Nutzer:innen entspricht.
 
-| Auswahl                    | Attribut         | Wert      |
-|----------------------------|------------------|-----------|
-| Status prüfen              | `product_goal`   | `status`  |
-| Mein Konto upgraden        | `product_goal`   | `upgrade` |
-| Einen Termin vereinbaren   | `product_goal`   | `schedule`|
-| Kundensupport              | `product_goal`   | `support` |
-| Nur stöbern                | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Auswahl | Attribut | Wert |
+|---------|----------|------|
+| Status prüfen | `product_goal` | `status` |
+| Mein Konto upgraden | `product_goal` | `upgrade` |
+| Einen Termin vereinbaren | `product_goal` | `schedule` |
+| Kundensupport | `product_goal` | `support` |
+| Nur stöbern | `product_goal` | `browse` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kundenziele identifizieren" }
 
 Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert als angepasstes Attribut in ihrem Profil protokolliert. Sie können diese Daten dann nutzen, um zukünftige Erlebnisse zu personalisieren oder Nutzer:innen basierend auf ihrem primären Ziel zu segmentieren.
 
@@ -196,14 +196,14 @@ Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert als angepas
 
 Um dies einzurichten, verwenden Sie eine Einfachauswahl-Umfrage, bei der jede Option ein häufiges Hindernis für ein Upgrade darstellt. Jede Auswahl ist dem angepassten Attribut `upgrade_reason` zugeordnet, mit einem entsprechenden Wert, der die Auswahl der Nutzer:innen widerspiegelt.
 
-| Auswahl               | Attribut         | Wert        |
-|-----------------------|------------------|-------------|
-| Zu teuer              | `upgrade_reason` | `expensive` |
-| Nicht wertvoll genug  | `upgrade_reason` | `value`     |
-| Schwer zu bedienen    | `upgrade_reason` | `difficult` |
-| Nutze einen Wettbewerber | `upgrade_reason` | `competitor`|
-| Anderer Grund         | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Auswahl | Attribut | Wert |
+|---------|----------|------|
+| Zu teuer | `upgrade_reason` | `expensive` |
+| Nicht wertvoll genug | `upgrade_reason` | `value` |
+| Schwer zu bedienen | `upgrade_reason` | `difficult` |
+| Nutze einen Wettbewerber | `upgrade_reason` | `competitor` |
+| Anderer Grund | `upgrade_reason` | `other` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Konversionsraten verbessern" }
 
 Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert in ihrem Profil gespeichert. Sie können diese Nutzer:innen dann mit Campaigns ansprechen, die auf ihren spezifischen Einwand zugeschnitten sind, wie z. B. Rabattangebote oder Verbesserungen der Benutzerfreundlichkeit.
 
@@ -216,16 +216,16 @@ Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert in ihrem Pr
 
 Um dies einzurichten, verwenden Sie eine Mehrfachauswahl-Umfrage, bei der jede Option ein Feature Ihrer App darstellt. Jede Auswahl ist dem angepassten Attribut `favorite_features` zugeordnet, und wenn die Nutzer:in die Umfrage absendet, wird das Attribut auf ein Array der ausgewählten Werte gesetzt.
 
-| Auswahl             | Attribut           | Wert         |
-|---------------------|--------------------|--------------|
-| Lesezeichen         | `favorite_features`| `bookmarks`  |
-| Mobile App          | `favorite_features`| `mobile`     |
-| Beiträge teilen     | `favorite_features`| `sharing`    |
-| Kundensupport       | `favorite_features`| `support`    |
-| Anpassung           | `favorite_features`| `custom`     |
-| Preis / Wert        | `favorite_features`| `value`      |
-| Community           | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Auswahl | Attribut | Wert |
+|---------|----------|------|
+| Lesezeichen | `favorite_features` | `bookmarks` |
+| Mobile App | `favorite_features` | `mobile` |
+| Beiträge teilen | `favorite_features` | `sharing` |
+| Kundensupport | `favorite_features` | `support` |
+| Anpassung | `favorite_features` | `custom` |
+| Preis / Wert | `favorite_features` | `value` |
+| Community | `favorite_features` | `community` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Lieblings-Features" }
 
 Da diese Umfrage die Mehrfachauswahl verwendet, wird das Profil der Nutzer:innen mit einer Liste aller ausgewählten Feature-Werte aktualisiert.
 

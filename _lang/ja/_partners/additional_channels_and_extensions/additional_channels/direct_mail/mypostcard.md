@@ -17,12 +17,12 @@ MyPostcardとBrazeの統合を使用すると、印刷物の郵送を簡単に�
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件                      | 説明                                                                                                             |
+| 必要条件 | 説明 |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| MyPostcard B2Bアカウント           | この統合を利用するには、MyPostcardへの登録が必要です。                                          |
-| B2B APIキーと認証情報        | APIキーと認証情報は、MyPostcard B2B管理ツールで確認できます。                                         |
+| MyPostcard B2Bアカウント | この統合を利用するには、MyPostcardへの登録が必要です。 |
+| B2B APIキーと認証情報 | APIキーと認証情報は、MyPostcard B2B管理ツールで確認できます。 |
 | 承認されたMyPostcard B2Bキャンペーン | この統合を利用するには、MyPostcard B2Bツールで印刷郵送キャンペーンを設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -34,30 +34,27 @@ MyPostcardとBrazeの統合を使用すると、印刷物の郵送を簡単に�
 
 ## 統合 {#integration}
 
-MyPostcardと統合するには、[ログインまたはサインアップ](https://www.mypostcard.com/b2b/admin/)して、[Braze Webhook]({{site.baseurl}}/user_guide/channels/webhooks/)を使って最初のキャンペーンを作成します。
+MyPostcardと統合するには、[ログインまたはサインアップ](https://www.mypostcard.com/b2b/admin/)して、[Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/)を使って最初のキャンペーンを作成します。
 
-### ステップ1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
+### ステップ 1:Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-Brazeプラットフォームで**テンプレート** > **Webhookテンプレート**に移動し、今後のCampaignsやCanvasesで使用するMyPostcard Webhookテンプレートを作成します。
-
-{% alert note %}
-[古いナビゲーション]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)を使用している場合は、**エンゲージメント** > **テンプレートとメディア** > **Webhookテンプレート**に移動してください。
-{% endalert %}
+今後のキャンペーンやキャンバスで使用するMyPostcard Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
 単発のMyPostcard Webhookキャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新規キャンペーン作成時にBrazeで**Webhook**を選択します。以下のフィールドに入力してください。
 
-| フィールド         | 説明                                               |
+| フィールド | 説明 |
 |---------------|-----------------------------------------------------------|
-| **Webhook URL** | B2B管理ツールに表示されるWebhook URL。             |
-| **リクエスト本文** | 生テキスト（B2B管理ツールにあるJSON形式）。        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Webhook URL** | B2B管理ツールに表示されるWebhook URL。 |
+| **リクエスト本文** | 生テキスト（B2B管理ツールにあるJSON形式）。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### リクエストメソッドとヘッダー {#request-method-and-headers}
 
 MyPostcardでは、HTTPメソッドと以下のHTTPヘッダーをテンプレートに含める必要があります。
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
+  <caption>リクエストメソッドとヘッダー</caption>
   <thead>
     <tr>
       <th><strong>フィールド</strong></th>
@@ -84,7 +81,7 @@ MyPostcardでは、HTTPメソッドと以下のHTTPヘッダーをテンプレ�
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### リクエスト本文 {#request-body}
 
@@ -92,12 +89,12 @@ B2B管理ツールに表示されているリクエスト本文をコピーし�
 
 ![JSON本文とWebhook情報を示す「作成」タブ。]({% image_buster /assets/img/mypostcard/mypostcard_compose.jpg %})
 
-### ステップ2: リクエストをプレビューする {#step-2-preview-your-request}
+### ステップ 2:リクエストをプレビューする {#step-2-preview-your-request}
 
 次に、**プレビュー**パネルでリクエストをプレビューするか、**テスト**タブに移動して、ランダムユーザー、既存ユーザーを選択するか、カスタムユーザーを作成してWebhookをテストします。ページを離れる前にテンプレートを保存することを忘れないでください。
 
 ![実装を検証するためのさまざまなフィールドを持つWebhookテストタブ。]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}

@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt die Details zum Braze-Endpunkt „Segmen
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `segments.details`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `segments.details`.
 
 ## Rate-Limit
 
@@ -30,8 +30,8 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter    | Erforderlich | Datentyp | Beschreibung            |
 | ------------ | -------- | --------- | ---------------------- |
-| `segment_id` | Erforderlich | String | Siehe [Segment-API-Bezeichner]({{site.baseurl}}/api/identifier_types/).<br><br> Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) in Ihrem Braze-Konto, oder Sie können den [Endpunkt „Segmentliste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) verwenden.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `segment_id` | Erforderlich | String | Siehe [Segment-API-Bezeichner]({{site.baseurl}}/api/identifier_types).<br><br> Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) in Ihrem Braze-Konto, oder Sie können den [Endpunkt „Segmentliste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment) verwenden.  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 {% raw %}
@@ -57,7 +57,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 ```
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

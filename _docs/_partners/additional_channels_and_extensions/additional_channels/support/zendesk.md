@@ -24,7 +24,7 @@ The Braze and Zendesk server-to-server integration allows you to utilize:
 | Zendesk API token | A Zendesk [API token](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-\) is required to send requests from Braze to the Zendesk ticket endpoint. |
 | Common identifier (recommended) | A [common identifier](#common-identifier) between Braze and Zendesk is recommended. |
 | Braze API key | A Braze API key is required to send requests from Zendesk to a Braze endpoint. Ensure that the API key you use has the correct permissions for the Braze endpoint your Zendesk webhook is using. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Braze to Zendesk integration
 

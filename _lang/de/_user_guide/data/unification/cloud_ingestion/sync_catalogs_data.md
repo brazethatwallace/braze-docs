@@ -1,27 +1,27 @@
 ---
 nav_title: Katalogdaten synchronisieren und löschen
 article_title: Katalogdaten synchronisieren und löschen
-page_order: 4
+page_order: 6
 page_type: reference
-description: "Auf dieser Seite finden Sie eine Übersicht darüber, wie Sie Katalogdaten synchronisieren können."
+description: "Diese Seite bietet eine Übersicht darüber, wie Sie Katalogdaten synchronisieren können."
 
 ---
 
-# Katalogdaten synchronisieren und löschen
+# Katalogdaten synchronisieren und löschen {#sync-and-delete-catalog-data}
 
 > Diese Seite beschreibt, wie Sie Katalogdaten synchronisieren können.
- 
-## 1. Schritt: Einen neuen Katalog erstellen
 
-Bevor Sie eine neue Cloud-Datenaufnahme-Integration (CDI) für [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/) erstellen, müssen Sie einen neuen Katalog erstellen oder einen vorhandenen Katalog identifizieren, den Sie für die Integration verwenden möchten. Es gibt mehrere Möglichkeiten, einen neuen Katalog zu erstellen. Sie alle eignen sich für die CDI-Integration:
-- [CSV-Datei]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog/#method-1-upload-csv) hochladen
-- Erstellen Sie einen Katalog im [Braze-Dashboard]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog/#method-2-create-in-browser) oder bei der CDI-Einrichtung.
-- Erstellen Sie einen Katalog mithilfe des [Endpunkts „Katalog erstellen"]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog/)
+## 1. Schritt: Einen neuen Katalog erstellen {#step-1-create-a-new-catalog}
 
-Änderungen am Katalogschema (wie die Ergänzung neuer Felder oder Änderungen am Feldtyp) müssen stets über das Katalog-Dashboard vorgenommen werden, bevor die aktualisierten Daten über CDI synchronisiert werden. Wir empfehlen, diese Aktualisierungen vorzunehmen, wenn die Synchronisierung pausiert ist oder keine ansteht. So vermeiden Sie Konflikte zwischen den Daten aus Ihrem Data Warehouse und dem Schema in Braze.
+Bevor Sie eine neue Cloud-Datenaufnahme-Integration (CDI) für [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) erstellen, müssen Sie einen neuen Katalog erstellen oder einen vorhandenen Katalog identifizieren, den Sie für die Integration verwenden möchten. Es gibt mehrere Möglichkeiten, einen neuen Katalog zu erstellen. Sie alle eignen sich für die CDI-Integration:
+- Eine [CSV-Datei]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv) hochladen
+- Einen Katalog im [Braze-Dashboard]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) oder bei der CDI-Einrichtung erstellen
+- Einen Katalog mithilfe des [Endpunkts „Katalog erstellen“]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog) erstellen
 
-## 2. Schritt: Integration von Cloud-Datenaufnahme mit Katalogdaten
-Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für [Nutzerdaten-CDI-Integrationen]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations#product-setup). 
+Änderungen am Katalogschema (z. B. das Hinzufügen neuer Felder oder Änderungen am Feldtyp) müssen über das Katalog-Dashboard vorgenommen werden, bevor aktualisierte Daten über CDI synchronisiert werden. Wir empfehlen, diese Aktualisierungen vorzunehmen, wenn die Synchronisierung pausiert ist oder keine Ausführung geplant ist, um Konflikte zwischen den Daten aus Ihrem Data Warehouse und dem Schema in Braze zu vermeiden.
+
+## 2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
+Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für [Nutzerdaten-CDI-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
 
 {% tabs %}
 {% tab Snowflake %}
@@ -40,7 +40,7 @@ Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für 
          DELETED BOOLEAN
     );
     ```
-2. Richten Sie eine Rolle, ein Warehouse und einen Benutzer ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie jedoch sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern.
+2. Richten Sie eine Rolle, ein Warehouse und eine Nutzer:in ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie jedoch sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern.
     ```sql
     CREATE ROLE BRAZE_INGESTION_ROLE;
 
@@ -54,14 +54,14 @@ Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für 
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Wenn Ihr Snowflake-Konto Netzwerkrichtlinien hat, setzen Sie die Braze-IPs auf die Allowlist, damit der CDI-Dienst eine Verbindung herstellen kann. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-4. Navigieren Sie im Braze-Dashboard zu **Technology Partners** > **Snowflake** und erstellen Sie eine neue Synchronisierung.
+3. Wenn Ihr Snowflake-Konto Netzwerkrichtlinien hat, setzen Sie die Braze-IPs auf die Allowlist, damit der CDI-Dienst eine Verbindung herstellen kann. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+4. Navigieren Sie im Braze-Dashboard zu **Technologie-Partner** > **Snowflake** und erstellen Sie eine neue Synchronisierung.
 5. Geben Sie die Verbindungsdetails (oder vorhandene Zugangsdaten) und die Quelltabelle ein.
-6. Fahren Sie mit Schritt 2 des Einrichtungsablaufs fort, wählen Sie den Synchronisierungstyp „Catalogs" und geben Sie den Integrationsnamen und den Zeitplan ein. Beachten Sie, dass der Name der Integration **exakt übereinstimmen** muss mit dem Namen des zuvor erstellten Katalogs.
+6. Fahren Sie mit Schritt 2 des Einrichtungsablaufs fort, wählen Sie den Synchronisierungstyp „Catalogs“ und geben Sie den Integrationsnamen und den Zeitplan ein. Beachten Sie, dass der Name der Integration **exakt übereinstimmen** muss mit dem Namen des zuvor erstellten Katalogs.
 7. Wählen Sie eine Synchronisierungshäufigkeit und fahren Sie mit dem nächsten Schritt fort.
-8. Fügen Sie den im Dashboard angezeigten Public Key dem Benutzer hinzu, den Sie für die Verbindung von Braze mit Snowflake erstellt haben. Für diesen Schritt benötigen Sie jemanden mit `SECURITYADMIN`-Zugriff oder höher in Snowflake. 
-9. Wählen Sie **Test Connection**, um sicherzustellen, dass alles wie erwartet funktioniert. 
-10. Speichern Sie die Synchronisierung und nutzen Sie die synchronisierten Katalogdaten für all Ihre Personalisierungs-Anwendungsfälle. 
+8. Fügen Sie den im Dashboard angezeigten Public Key der Nutzer:in hinzu, die Sie für die Verbindung von Braze mit Snowflake erstellt haben. Für diesen Schritt benötigen Sie jemanden mit `SECURITYADMIN`-Zugriff oder höher in Snowflake.
+9. Wählen Sie **Test Connection**, um sicherzustellen, dass alles wie erwartet funktioniert.
+10. Speichern Sie die Synchronisierung und nutzen Sie die synchronisierten Katalogdaten für all Ihre Personalisierungs-Anwendungsfälle.
 {% endtab %}
 {% tab Redshift %}
 
@@ -79,20 +79,20 @@ Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für 
        deleted boolean
     )
     ```
-2. Richten Sie einen Benutzer ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie jedoch sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern.
+2. Richten Sie eine Nutzer:in ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie jedoch sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern.
     {% raw %}
-    ```sql 
+    ```sql
     CREATE USER braze_user PASSWORD '{password}';
     GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Wenn Sie eine Firewall oder andere Netzwerkrichtlinien haben, müssen Sie Braze Netzwerkzugriff auf Ihre Redshift-Instanz gewähren. Erlauben Sie den Zugriff von den unten aufgeführten IPs, die der Region Ihres Braze-Dashboards entsprechen. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Wenn Sie eine Firewall oder andere Netzwerkrichtlinien haben, müssen Sie Braze Netzwerkzugriff auf Ihre Redshift-Instanz gewähren. Erlauben Sie den Zugriff von den unten aufgeführten IPs, die der Region Ihres Braze-Dashboards entsprechen. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab BigQuery %}
 
-1. Optional können Sie ein neues Projekt oder Dataset für Ihre Quelltabelle einrichten. 
+1. Optional können Sie ein neues Projekt oder Dataset für Ihre Quelltabelle einrichten.
 
 ```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
@@ -116,10 +116,11 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | ERFORDERLICH |
 | ID | STRING | ERFORDERLICH |
 | DELETED | BOOLEAN | OPTIONAL |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
 
 {:start="2"}
 
-2. Richten Sie einen Benutzer ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie jedoch sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern. 
+2. Richten Sie eine Nutzer:in ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie jedoch sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern.
 Das Dienstkonto sollte über die folgenden Berechtigungen verfügen:
 - BigQuery Connection User: Ermöglicht Braze, Verbindungen herzustellen.
 - BigQuery User: Ermöglicht Braze, Abfragen auszuführen, Dataset-Metadaten zu lesen und Tabellen aufzulisten.
@@ -127,7 +128,7 @@ Das Dienstkonto sollte über die folgenden Berechtigungen verfügen:
 - BigQuery Job User: Ermöglicht Braze, Jobs auszuführen.<br><br>Nachdem Sie das Dienstkonto erstellt und die Berechtigungen erteilt haben, generieren Sie einen JSON-Schlüssel. Weitere Informationen finden Sie unter [Erstellen und Löschen von Schlüsseln](https://cloud.google.com/iam/docs/keys-create-delete). Diesen laden Sie später im Braze-Dashboard hoch.
 
 {:start="3"}
-3. Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre BigQuery-Instanz gewähren. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre BigQuery-Instanz gewähren. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab Databricks %}
@@ -154,6 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT oder MAP | ERFORDERLICH |
 | ID | STRING | ERFORDERLICH |
 | DELETED | BOOLEAN | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
 
 {:start="2"}
 
@@ -161,13 +163,13 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 - a. Wählen Sie Ihren Databricks-Benutzernamen und dann im Dropdown-Menü **User Settings**.
 - b. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new token**.
-- c. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token zu identifizieren, z. B. „Braze CDI". 
+- c. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token zu identifizieren, z. B. „Braze CDI“.
 - d. Ändern Sie die Lifetime des Tokens auf unbegrenzt, indem Sie das Feld **Lifetime (days)** leer lassen. Wählen Sie **Generate**.
-- e. Kopieren Sie das angezeigte Token und wählen Sie dann **Done**. 
+- e. Kopieren Sie das angezeigte Token und wählen Sie dann **Done**.
 - f. Bewahren Sie das Token an einem sicheren Ort auf, bis Sie es bei der Erstellung der Zugangsdaten im Braze-Dashboard eingeben müssen.
 
 {:start="3"}
-3. Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre Databricks-Instanz gewähren. Eine Liste der IPs finden Sie auf der Seite [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre Databricks-Instanz gewähren. Eine Liste der IPs finden Sie auf der Seite [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -175,7 +177,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 Erstellen Sie eine oder mehrere Tabellen für Ihre CDI-Integration mit den folgenden Feldern:
 
 ```sql
-CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name] 
+CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
   PAYLOAD VARCHAR NOT NULL,
@@ -187,41 +189,78 @@ GO
 
 {:start="2"}
 
-2. Richten Sie einen Dienstprinzipal ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie nur sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern. Weitere Informationen zur Erstellung eines neuen Dienstprinzipals und der Zugangsdaten finden Sie auf der Seite [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views). 
+2. Richten Sie einen Dienstprinzipal ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits über Zugangsdaten aus einer bestehenden Synchronisierung verfügen, können Sie diese wiederverwenden – stellen Sie nur sicher, dass Sie den Zugriff auf die Katalogquelltabelle erweitern. Weitere Informationen zur Erstellung eines neuen Dienstprinzipals und der Zugangsdaten finden Sie auf der Seite [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {:start="3"}
-3. Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre Microsoft Fabric-Instanz gewähren. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre Microsoft Fabric-Instanz gewähren. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab S3 %}
-Richten Sie Ihre Quelldateien in S3 ein, indem Sie JSON- oder CSV-Dateien bereitstellen. Bitte beachten Sie:
+Erstellen Sie Quelldateien in S3 im JSON- oder CSV-Format. Jede Datei muss die folgenden Felder enthalten:
 
-- Dateien dürfen keine Spalte `UPDATED_AT` enthalten.  
-- Sie können ein optionales Feld `DELETED` hinzufügen, um Artikel zum Entfernen zu markieren. 
+| Feld | Erforderlich? | Beschreibung |
+| --- | --- | --- |
+| `ID` | Ja | Die ID des zu erstellenden oder zu aktualisierenden Katalogartikels. |
+| `PAYLOAD` | Ja | Ein JSON-String der Felder, die mit dem Katalogartikel in Braze synchronisiert werden sollen. |
+| `DELETED` | Optional | Wenn auf `true` gesetzt, wird der entsprechende Katalogartikel aus dem Katalog entfernt. |
+| `UPDATED_AT` | *Nicht unterstützt* | Dateispeicher unterstützt keine `UPDATED_AT`-Spalten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
+
+{% alert note %}
+Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen.
+{% endalert %}
+
+Die vollständige S3-Einrichtung erfordert einen S3-Bucket, eine Amazon-SQS-Warteschlange sowie eine AWS-IAM-Rolle und -Richtlinie. Braze verarbeitet nur Dateien, die nach der Erstellung der Synchronisierung hochgeladen werden. Laden Sie daher vorhandene Dateien, die Sie aufnehmen möchten, erneut hoch.
+
+Den vollständigen S3-Einrichtungsablauf finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations), insbesondere:
+
+- [Cloud-Datenaufnahme in AWS einrichten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
+- [Cloud-Datenaufnahme in Braze einrichten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
+- [Fehlerbehebung]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#troubleshooting)
+
+Informationen zu häufigen AWS-seitigen Benachrichtigungs- und Berechtigungsproblemen finden Sie unter [Berechtigungen zum Veröffentlichen von Ereignisbenachrichtigungen an ein Ziel erteilen](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html).
+
+Die folgenden Beispiele zeigen gültige JSON- und CSV-Formate für die Synchronisierung von Katalogdaten aus dem Dateispeicher.
 
 {% subtabs %}
-{% subtab JSON %}
+{% subtab JSON-Kataloge %}
 ```jsonl
 {"id":"85","payload":"{\"product_name\":\"Product 85\",\"price\":85.85}"}
+{"id":"86","payload":"{\"product_name\":\"Product 86\",\"price\":86.86}"}
 {"id":"1","payload":"{\"product_name\":\"Product 1\",\"price\":1.01}","deleted":true}
 ```
-{% endsubtab %}
 
-{% subtab CSV %}
+{% alert important %}
+Jede Zeile in Ihrer Quelldatei muss gültiges JSON enthalten, andernfalls wird die Datei übersprungen.
+{% endalert %}
+{% endsubtab %}
+{% subtab CSV-Kataloge mit Löschung %}
 ```plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
+86,"{""product_name"": ""Product 86"", ""price"": 86.86}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
+```
+{% endsubtab %}
+{% subtab CSV-Kataloge ohne Löschung %}
+```plaintext
+ID,PAYLOAD
+85,"{""product_name"": ""Product 85"", ""price"": 85.85}"
+86,"{""product_name"": ""Product 86"", ""price"": 86.86}"
 ```
 {% endsubtab %}
 {% endsubtabs %}
 
-Einzelheiten zur Einrichtung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
+Weitere Dateibeispiele finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 
 {% endtab %}
 {% endtabs %}
 
-## So funktioniert die Integration
+## So funktioniert die Integration {#how-the-integration-works}
+
+{% alert note %}
+Die Synchronisierungsansichten in diesem Abschnitt gelten nur für Data-Warehouse-Integrationen. Für S3-Dateispeicher verarbeitet Braze neue Dateien, sobald sie in Ihren Bucket hochgeladen werden. Weitere Informationen finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+{% endalert %}
 
 Bei jeder Synchronisierung ruft Braze alle Zeilen ab, deren `UPDATED_AT`-Zeitstempel nach dem zuletzt synchronisierten Wert liegt. Zeilen, die exakt auf dem Grenz-Zeitstempel liegen, können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen. Wir empfehlen, in Ihrem Data Warehouse eine Ansicht aus Ihren Katalogdaten zu erstellen, um eine Quelltabelle einzurichten, die bei jeder Synchronisierung vollständig aktualisiert wird. Mit Ansichten müssen Sie die Abfrage nicht jedes Mal neu schreiben.
 
@@ -230,7 +269,7 @@ Wenn Sie zum Beispiel eine Tabelle mit Produktdaten (`product_catalog_1`) mit `p
 {% tabs %}
 {% tab Snowflake %}
 ```sql
-CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS 
+CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
     product_id as id,
@@ -273,7 +312,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SEL
       attribute_2,
       attribute_3,
       )
-    ) as PAYLOAD 
+    ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.product_catalog_1`);
 ```
 {% endtab %}
@@ -288,14 +327,14 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SEL
       attribute_2,
       attribute_3,
       )
-    ) as PAYLOAD 
+    ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.product_catalog_1`);
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql
 CREATE VIEW [braze].[user_update_example]
-AS SELECT 
+AS SELECT
     id as ID,
     CURRENT_TIMESTAMP as UPDATED_AT,
     JSON_OBJECT('attribute_1':attribute_1, 'attribute_2':attribute_2, 'attribute_3':attribute_3, 'attribute_4':attribute_4) as PAYLOAD

@@ -26,6 +26,51 @@ Consulte a documentação da Meta a seguir para orientações sobre nomes de exi
 
 ## Atualizações de produto do WhatsApp {#whatsapp-product-updates}
 
+### 2026: Nomes de usuário comerciais {#2026-business-usernames}
+*Última atualização em maio de 2026*
+
+A Meta está introduzindo nomes de usuário comerciais para o WhatsApp — um nome de exibição opcional que os negócios podem adotar para seu número de telefone do WhatsApp. Quando um nome de usuário é definido, ele aparece nas janelas de chat do WhatsApp e do WhatsApp Business no lugar do número de telefone. Observe que adotar um nome de usuário não oculta seu número de telefone; ele sempre permanece visível no seu perfil comercial.
+
+Os nomes de usuário são únicos em todos os números de telefone do WhatsApp — dois números, sejam de consumidores ou comerciais, não podem compartilhar o mesmo nome de usuário. Eles não diferenciam maiúsculas de minúsculas para fins de unicidade, mas pontos e underscores são tratados como caracteres distintos. Por exemplo, `myid`, `my.id` e `my_id` são todos considerados nomes de usuário diferentes, enquanto `myID` e `myid` são tratados como o mesmo.
+
+Os nomes de usuário comerciais devem atender aos seguintes requisitos de formato:
+
+- Contém apenas letras em inglês (a–z), dígitos (0–9), pontos (`.`) ou underscores (`_`)
+- Tem entre 3 e 35 caracteres
+- Contém pelo menos uma letra em inglês
+- Não começa nem termina com um ponto e não contém dois pontos consecutivos
+- Não começa com `www`
+- Não termina com um sufixo de domínio comum (como `.com`, `.org` ou `.net`)
+
+#### Reivindicando um nome de usuário reservado {#claiming-a-reserved-username}
+
+Antes de o recurso de nome de usuário estar amplamente disponível, a Meta pode ter pré-reservado um nome de usuário para o seu negócio — geralmente correspondendo a um nome de usuário existente de Página do Facebook ou Instagram. Você pode reivindicar esse nome de usuário reservado ou escolher um diferente pelo [WhatsApp Manage](https://business.facebook.com/wa/manage/). Os nomes de usuário reivindicados não são ativados até que a Meta disponibilize o recurso.
+
+Se o nome de usuário reservado corresponder a um já associado à sua Página do Facebook ou conta do Instagram, você deve primeiro vincular seu número de telefone comercial a essa Página ou conta. Você pode fazer isso ao reivindicar o nome de usuário no WhatsApp Manager ou Meta Business Suite, ou adicionando seu número de telefone diretamente da Página ou conta relevante. A vinculação requer controle total da Página ou conta, ou acesso parcial básico com a permissão `manage_phone`.
+
+#### Prioridade de exibição nas janelas de chat {#display-priority-in-chat-windows}
+
+Quando seu perfil comercial aparece em uma janela de chat, o WhatsApp usa a seguinte ordem de prioridade (da mais alta para a mais baixa):
+
+1. Nome do contato salvo
+2. Nome comercial verificado ou nome de Conta Comercial Oficial (OBA)
+3. Nome de usuário
+4. Número de telefone
+
+Para saber mais, consulte a documentação da Meta sobre [nomes de usuário comerciais](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### Abril de 2026: Arquivamento automático de modelos inativos {#april-2026-automatic-archival-of-inactive-templates}
+*Última atualização em abril de 2026*
+
+- A Meta arquiva automaticamente modelos que estão inativos há 12 meses ou mais.
+- O arquivamento automático está ativado para todas as contas do WhatsApp Business e não pode ser desativado.
+- A atividade do modelo inclui criar, editar, enviar, recorrer ou desarquivar um modelo.
+- Modelos arquivados não podem ser enviados e são programados para exclusão permanente após 28 dias.
+- Você pode desarquivar modelos dentro da janela de 28 dias para restaurá-los e cancelar a exclusão programada.
+- As notificações são enviadas pelo webhook `message_template_status_update`, por e-mail e por um banner único no WhatsApp Manager.
+
+Para saber mais, consulte a documentação da Meta sobre [arquivamento de modelos](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### Junho de 2026: IDs de usuário com escopo de negócio {#june-2026-business-scoped-user-ids}
 *Última atualização em março de 2026*
 
@@ -60,7 +105,7 @@ Consulte a documentação da Meta a seguir para orientações sobre nomes de exi
 - Os limites agora são compartilhados entre todos os números de telefone em um portfólio
 - Os portfólios herdam o limite mais alto existente
 - Acesso mais rápido a limites mais altos (em até 6 horas)
-- Risco: Negócios sem um número "ilimitado" podem ver os limites agregados diminuírem
+- Risco: negócios sem um número "ilimitado" podem ver os limites agregados diminuírem
 
 ### 1º de julho de 2025: Reformulação de preços {#july-1-2025-pricing-overhaul}
 *Última atualização em março de 2026*
@@ -90,12 +135,12 @@ A Meta limitará o número de mensagens de modelo de marketing que um usuário p
 
 Uma exceção é: se uma pessoa responder a uma mensagem de marketing, isso iniciará uma janela de atendimento ao cliente de 24 horas. Mensagens de marketing enviadas dentro dessa janela não contarão para o limite da pessoa.
 
-O limite específico varia por usuário, dependendo do nível de engajamento. Saiba mais sobre os limites de mensagens de modelo de marketing por usuário do WhatsApp [aqui](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
+O limite específico varia por usuário, dependendo do nível de engajamento. Saiba mais sobre os limites de mensagens de modelo de marketing por usuário do WhatsApp na [documentação de limites de mensagens de modelo de marketing por usuário do WhatsApp](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
 
 ### Janeiro de 2025: WhatsApp pausando o envio de mensagens de marketing para usuários dos EUA a partir de 1º de abril {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Última atualização em janeiro de 2025*
 
-O WhatsApp pausará o envio de mensagens de marketing para usuários dos EUA (pessoas com números de telefone dos EUA) a partir de 1º de abril de 2025. [Mensagens de utilidade, serviço e autenticação](https://developers.facebook.com/docs/whatsapp/pricing/) e [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages) ainda serão permitidas nos EUA.
+O WhatsApp pausará o envio de mensagens de marketing para usuários dos EUA (pessoas com números de telefone dos EUA) a partir de 1º de abril de 2025. [Mensagens de utilidade, serviço e autenticação](https://developers.facebook.com/docs/whatsapp/pricing/) e [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) ainda serão permitidas nos EUA.
 
 O envio de mensagens de marketing (além de todos os outros tipos de mensagem) para todos os outros países ou regiões ainda é permitido e não será afetado.
 
@@ -191,7 +236,7 @@ No ano passado, o WhatsApp introduziu o ritmo de modelo para mensagens de market
 
 O WhatsApp está testando novas abordagens, começando com consumidores na Índia, para criar experiências mais valiosas e maximizar o engajamento com as conversas de marketing dos negócios. Isso pode incluir limitar o número de conversas de marketing que uma pessoa recebe de qualquer negócio em um determinado período, começando com um pequeno número de conversas que têm menor probabilidade de serem lidas. A Braze receberá um código de erro se uma mensagem não for entregue.
 
-O WhatsApp começará a considerar as taxas de leitura como parte da classificação de qualidade para modelos de marketing, juntamente com métricas tradicionais como bloqueios e denúncias. O WhatsApp pode pausar temporariamente Campaigns de mensagens de marketing com baixas taxas de leitura, dando aos negócios tempo para iterar nos modelos com menor engajamento antes de escalar o volume, a partir de 1º de abril de 2024.
+O WhatsApp começará a considerar as taxas de leitura como parte da classificação de qualidade para modelos de marketing, juntamente com métricas tradicionais como bloqueios e denúncias. O WhatsApp pode pausar temporariamente campanhas de mensagens de marketing com baixas taxas de leitura, dando aos negócios tempo para iterar nos modelos com menor engajamento antes de escalar o volume, a partir de 1º de abril de 2024.
 
 ### Fevereiro de 2024: Experimentação de conversas de marketing {#february-2024-marketing-conversations-experimentation}
 *Última atualização em fevereiro de 2024*
@@ -201,7 +246,7 @@ A partir de 6 de fevereiro de 2024, o WhatsApp está testando novas abordagens, 
 ### Outubro de 2023: Ritmo de modelo {#october-2023-template-pacing}
 *Última atualização em outubro de 2023*
 
-A partir de 12 de outubro de 2023, o WhatsApp está introduzindo um conceito chamado "ritmo de modelo" para mensagens de marketing. Em vez de enviar sua mensagem para todo o público da Campaign simultaneamente, o "ritmo de modelo" inicialmente entrega a mensagem a um subconjunto menor de usuários para coletar feedback em tempo real dos destinatários da Campaign antes de enviar as mensagens restantes.
+A partir de 12 de outubro de 2023, o WhatsApp está introduzindo um conceito chamado "ritmo de modelo" para mensagens de marketing. Em vez de enviar sua mensagem para todo o público da campanha simultaneamente, o "ritmo de modelo" inicialmente entrega a mensagem a um subconjunto menor de usuários para coletar feedback em tempo real dos destinatários da campanha antes de enviar as mensagens restantes.
 
 O "limite de ritmo" (o subconjunto inicial de mensagens enviadas) é variável dependendo do modelo. Após o envio inicial, o WhatsApp reterá as mensagens restantes por no máximo 30 minutos. Durante esse período de retenção, eles avaliam a qualidade do modelo com base no feedback dos clientes. Se o feedback for positivo, indicando um modelo de alta qualidade, eles entregam as mensagens restantes. Se o feedback for negativo, eles descartam as mensagens restantes não entregues, evitando mais feedback negativo de uma parcela maior dos seus clientes e ajudando você a evitar possíveis problemas de aplicação de qualidade (como impactos na classificação de qualidade do número de telefone).
 
@@ -244,4 +289,4 @@ Não há um prazo fixo para esse experimento. Sendo assim, um consumidor pode co
 
 ### O que posso fazer se minhas mensagens de marketing não forem entregues devido ao experimento da Meta? {#what-can-i-do-if-my-marketing-messages-are-not-delivered-due-to-metas-experiment}
 
-Recomendamos usar outros canais da Braze, como e-mail, SMS, notificações por push ou In-App Messages para enviar uma mensagem com conteúdo semelhante aos seus usuários pretendidos.
+Recomendamos usar outros canais da Braze, como e-mail, SMS, notificações por push ou mensagens no app, para enviar uma mensagem com conteúdo semelhante aos seus usuários pretendidos.

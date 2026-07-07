@@ -14,12 +14,12 @@ description: "Cet article présente en détail l'endpoint Braze permettant de li
 /content_blocks/list
 {% endapimethod %}
 
-> Utilisez cet endpoint pour lister les informations relatives à vos [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) existants.
+> Utilisez cet endpoint pour lister les informations relatives à vos [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) existants.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `content_blocks.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `content_blocks.list`.
 
 ## Limite de débit {#rate-limit}
 
@@ -29,11 +29,11 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `modified_after`  | Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour à partir de la date et de l'heure indiquées. |
-| `modified_before`  |  Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour au plus tard à la date et à l'heure indiquées. |
+| `modified_after` | Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour à partir de la date et de l'heure indiquées. |
+| `modified_before` | Facultatif | Chaîne de caractères au format [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Récupérer uniquement les Content Blocks mis à jour au plus tard à la date et à l'heure indiquées. |
 | `limit` | Facultatif | Nombre positif | Nombre maximum de Content Blocks à récupérer. Par défaut à 100 si non renseigné, avec une valeur maximale acceptable de 1 000. |
-| `offset`  |  Facultatif | Nombre positif | Nombre de Content Blocks à ignorer avant de renvoyer le reste des modèles correspondant aux critères de recherche. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `offset` | Facultatif | Nombre positif | Nombre de Content Blocks à ignorer avant de renvoyer le reste des modèles correspondant aux critères de recherche. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 ```
@@ -75,6 +75,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `Content Block number limit exceeds maximum of 1000` | Modifiez le paramètre `limit` pour qu'il soit un entier inférieur à 1 000. |
 | `Offset is invalid` | Le paramètre `offset` doit être un entier supérieur à 0. |
 | `Offset must be greater than 0` | Modifiez le paramètre `offset` pour qu'il soit un entier supérieur à 0. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

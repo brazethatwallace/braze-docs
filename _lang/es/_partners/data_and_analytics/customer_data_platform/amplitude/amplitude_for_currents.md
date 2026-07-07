@@ -9,7 +9,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude para Currents {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude para Currents {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
 
 > [Amplitude](https://amplitude.com/) es una plataforma de análisis de productos e inteligencia empresarial.
 
@@ -21,7 +21,7 @@ La integración bidireccional de Braze y Amplitude te permite [sincronizar tus c
 |---|---|
 | Cuenta de Amplitude | Se necesita una [cuenta de Amplitude](https://amplitude.com/) para beneficiarse de esta asociación. |
 | Currents | Para poder exportar datos a Amplitude, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de la exportación de datos {#data-export-integration}
 
@@ -73,70 +73,9 @@ Los dispositivos no deberían reportar más de 30 eventos/segundo o 500K eventos
 
 ## Eventos de Currents compatibles {#supported-currents-events}
 
-Braze admite la exportación a Amplitude de los siguientes datos enumerados en los glosarios de eventos de [comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) e [interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) de Currents:
+Braze admite la exportación de los siguientes eventos a Amplitude:
 
-### Comportamientos {#behaviors}
-- Evento personalizado: `users.behaviors.CustomEvent`
-- Atribución de instalación: `users.behaviors.InstallAttribution`
-- Ubicación: `users.behaviors.Location`
-- Compra: `users.behaviors.Purchase`
-- Desinstalación: `users.behaviors.Uninstall`
-- Aplicación (primera sesión, fin de sesión, inicio de sesión)
-  - `users.behaviors.app.FirstSession`
-  - `users.behaviors.app.SessionEnd`
-  - `users.behaviors.app.SessionStart`
-- Suscripción (cambio de estado global): `users.behaviors.subscription.GlobalStateChange`
-- Grupo de suscripción (cambio de estado): `users.behaviors.subscriptiongroup.StateChange`
+- [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Campaigns
-- Cancelación: `users_campaigns_abort`
-- Conversión: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-
-### Canvas
-- Cancelación: `users_canvas_abort`
-- Conversión: `users.canvas.Conversion`
-- Entrada: `users.canvas.Entry`
-- Salida (audiencia coincidente, evento realizado)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Paso del experimento (conversión, entrada dividida)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### Mensajes {#messages}
-- Tarjeta de contenido (cancelación, clic, descarte, impresión, envío)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- Correo electrónico (cancelación, rebote, clic, entrega, marcar como correo no deseado, apertura, envío, rebote suave, cancelación de suscripción)
-- Mensaje dentro de la aplicación (cancelación, clic, impresión)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Notificación push (cancelación, rebote, iOSforeground, apertura, envío)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (cancelación, envío del operador, entrega, fallo de entrega, recepción de entrada, rechazo, envío, clic en enlace corto)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (cancelación, envío)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (cancelación, entrega, fallo, recepción de entrada, lectura, envío)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
+Para la estructura de la carga útil de cada evento, selecciona la pestaña **Amplitude** en el [glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) y el [glosario de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).

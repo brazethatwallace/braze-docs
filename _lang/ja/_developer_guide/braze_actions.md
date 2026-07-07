@@ -1,24 +1,24 @@
 ---
 nav_title: Brazeアクションのディープリンク
-article_title: Braze Actions ディープリンク
+article_title: Brazeアクションのディープリンク
 page_order: 100
-description: "このリファレンス記事では、Braze Actions ディープリンクを使用して、メッセージングチャネルボタン内でSDKアクションを実行する方法について説明する。"
+description: "このリファレンス記事では、Brazeアクションのディープリンクを使用して、メッセージングチャネルボタン内でSDKアクションを実行する方法について説明します。"
 hidden: true
 ---
 
-# Braze Actions ディープリンク
+# Brazeアクションのディープリンク {#braze-actions-deeplinks}
 
-> Braze Actionsを使えば、「ディープリンク」を使ってネイティブSDKの機能を実行できる。<br><br>Braze ダッシュボードには、いくつかの標準的なクリック時アクション (プッシュ通知の権限を要求、カスタムイベントをログに記録、カスタム属性をログに記録) が含まれており、アプリ内メッセージやコンテンツカードで使用することができます。<br><br>その他のすべてのアクション、または複数のアクションを組み合わせる場合は、このガイドを使用して独自のBraze Actionディープリンクを構築する。
+> Brazeアクションを使用すると、「ディープリンク」を使ってネイティブSDKの機能を実行できます。<br><br>Brazeダッシュボードには、いくつかの標準的なクリック時アクション（プッシュ通知の権限をリクエスト、カスタムイベントをログに記録、カスタム属性をログに記録）が含まれており、アプリ内メッセージやContent Cardsで使用できます。<br><br>その他のすべてのアクション、または複数のアクションを組み合わせる場合は、このガイドを使用して独自のBrazeアクションディープリンクを構築してください。
 
-## SDKサポート
+## SDKサポート {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-`brazeActions://` ディープリンク・スキームは、アプリ内メッセージやコンテンツ・カード内にディープリンクやリダイレクト・オプションがあれば、どこでも使用できる。
+`brazeActions://` ディープリンクスキームは、アプリ内メッセージやContent Cards内にディープリンクやリダイレクトオプションがあれば、どこでも使用できます。
 
-HTML アプリ内メッセージの場合、HTML メッセージタイプではディープリンクはサポートされていないため、代わりに [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge) を使用してください。
+HTMLアプリ内メッセージの場合、HTMLメッセージタイプではディープリンクはサポートされていないため、代わりに[`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge)を使用してください。
 
-## スキーマ
+## スキーマ {#schema}
 
 複数のアクションの `steps` を `container` アクションタイプに含めることができます。`container` を含まない単一のステップも有効です。
 
@@ -29,7 +29,7 @@ HTML アプリ内メッセージの場合、HTML メッセージタイプでは�
 }
 ```
 
-個々の `step` には、アクションの `type` とオプションの `args` 配列が含まれています。
+個々の `step` には、アクションの `type` とオプションの `args` 配列が含まれます。
 
 ```json
 {
@@ -38,11 +38,11 @@ HTML アプリ内メッセージの場合、HTML メッセージタイプでは�
 }
 ```
 
-## URI 
+## URI
 
-Braze ActionsのURIスキームは`brazeActions://v1/{base64encodedJsonString}` 。
+BrazeアクションのURIスキームは `brazeActions://v1/{base64encodedJsonString}` です。
 
-次のJavaScriptは、JSON文字列のエンコードとデコードの方法を示している：
+次のJavaScriptは、JSON文字列のエンコードとデコードの方法を示しています。
 
 ```javascript
 function decode(encoded) {
@@ -61,7 +61,7 @@ function decode(encoded) {
  * Converts a UTF-16 string to UTF-8 to comply with base64 encoding limitations.
  */
 function encode(input) {
-    // Split the original 16-bit char code into two 8-bit char codes then 
+    // Split the original 16-bit char code into two 8-bit char codes then
     // reconstitute a new string (of double length) using those 8-bit codes
     // into a UTF-8 string.
     const codeUnits = new Uint16Array(input.length);
@@ -77,26 +77,27 @@ function encode(input) {
 }
 ```
 
-## 対応アクション
+## 対応アクション {#supported-actions}
 
-|タイプ|引数|
+| タイプ | 引数 |
 |--|--|
-|`container`|実行する他のアクションの配列|
-|`logCustomEvent`|1. `event name`<br>2. `event properties JSON object` (オプション)|
-|`setEmailNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
-|`setPushNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
-|`setCustomUserAttribute`|1. `attribute_name`<br>2. `attribute_value`|
-|`requestPushPermission`| 該当なし |
-|`openLink`|1. `url`<br>2\.`openInNewTab` (boolean)|
-|`openLinkInWebview`| `url`|
-|`addToSubscriptionGroup`| `subscriptionGroupId`|
-|`removeFromSubscriptionGroup`| `subscriptionGroupId`|
-|`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
-|`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+| `container` | 実行する他のアクションの配列 |
+| `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object`（オプション） |
+| `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
+| `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
+| `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
+| `requestPushPermission` | 該当なし |
+| `openLink` | 1. `url`<br>2. `openInNewTab`（ブール値） |
+| `openLinkInWebview` | `url` |
+| `addToSubscriptionGroup` | `subscriptionGroupId` |
+| `removeFromSubscriptionGroup` | `subscriptionGroupId` |
+| `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+| `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="対応アクション" }
 
-## JSONエンコーダー
+## JSONエンコーダー {#json-encoder}
 
-JSON文字列を入力すると、結果の`brazeActions://` URIが表示される。または、`brazeActions://` URIを入力してJSONをデコードする。
+JSON文字列を入力すると、結果の `brazeActions://` URIが表示されます。または、`brazeActions://` URIを入力してJSONをデコードできます。
 
 <div><h4>JSON入力</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>

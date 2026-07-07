@@ -1,6 +1,6 @@
 ---
 nav_title: "Email Love"
-article_title: Email Love
+article_title: "Email Love"
 description: "Erfahren Sie, wie Sie Braze mit Email Love integrieren, einem Figma-Plugin, mit dem Sie responsive und barrierefreie HTML-E-Mails direkt aus Figma entwerfen und exportieren können."
 alias: /partners/email_love/
 page_type: partner
@@ -18,7 +18,7 @@ search_tag: Partner
 |------------------------|------------------------------------------------------------------|
 | **Email Love-Konto** | Ein Email Love-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 | **Braze REST-API-Schlüssel** | Ein Braze REST-API-Schlüssel mit vollständig aktivierter `Templates`-Berechtigung. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Email Love mit Braze verwenden {#using-email-love-with-braze}
 
@@ -32,7 +32,7 @@ Wählen Sie im Plugin den Button **[+ No Template Selected]**, um einen neuen Fr
 
 ### 3. Schritt: Template mit den vorgefertigten Komponenten von Email Love gestalten {#step-3-design-the-template-with-email-loves-pre-built-components}
 
-Wählen Sie den erstellten Frame aus und fügen Sie Komponenten (Header, Content-Blöcke, CTAs und Footer) aus der **Assets**-Bibliothek des Plugins hinzu, um Ihre E-Mail zu strukturieren.
+Wählen Sie den erstellten Frame aus und fügen Sie Komponenten (Header, Content Blocks, CTAs und Footer) aus der **Assets**-Bibliothek des Plugins hinzu, um Ihre E-Mail zu strukturieren.
 
 ![Vorgefertigte Komponenten von Email Love.]({% image_buster /assets/img/email_love/emaillove1_content.png %})
 

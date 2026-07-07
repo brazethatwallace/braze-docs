@@ -1,0 +1,1 @@
+[데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation/) 편집기에서 **코드 삽입**을 선택하여 수신 웹훅 페이로드를 유효한 Braze API 요청으로 변환하는 변환 코드를 생성합니다.

@@ -20,9 +20,9 @@ description: "この記事では、カスタムイベントプロパティ、そ
 
 ## 想定されるフォーマット {#expected-format}
 
-プロパティ値はオブジェクトである必要があります。キーはプロパティ名（空でない文字列、255文字以下、先頭に `$` なし）で、値はプロパティ値です。サポートされるデータタイプ、フォーマット要件、およびペイロード制限については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types)を参照してください。
+プロパティ値はオブジェクトである必要があります。キーはプロパティ名（空でない文字列、255文字以下、先頭に `$` なし）で、値はプロパティ値です。サポートされるデータタイプ、フォーマット要件、およびペイロード制限については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#event-property-data-types)を参照してください。
 
-カスタムイベントプロパティのデータタイプは変更できますが、データが収集された後に[データタイプを変更する]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#changing-custom-attribute-or-event-data-type)ことの影響に注意してください。
+カスタムイベントプロパティのデータタイプは変更できますが、データが収集された後に[データタイプを変更する]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type)ことの影響に注意してください。
 
 ### 予約キー {#reserved-keys}
 
@@ -31,28 +31,28 @@ description: "この記事では、カスタムイベントプロパティ、そ
 | プロパティ | 予約キー |
 | --- | --- |
 | カスタムイベント | `time` および `event_name` |
-| 購入イベント |`time`、`product_id`、`quantity`、`event_name`、`price`、`currency` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 購入イベント | `time`、`product_id`、`quantity`、`event_name`、`price`、`currency` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="予約キー" }
 
 ## カスタムイベントプロパティの使用 {#using-custom-event-properties}
 
-カスタムイベントプロパティは、Campaignのトリガー条件の絞り込み、コンバージョンのトラッキング、およびメッセージングのパーソナライズに使用できます。
+カスタムイベントプロパティは、キャンペーンのトリガー条件の絞り込み、コンバージョンのトラッキング、およびメッセージングのパーソナライズに使用できます。
 
 ### メッセージのトリガー {#trigger-messages}
 
-カスタムイベントプロパティを使用して、特定のCampaignやCanvasのオーディエンスをさらに絞り込みます。たとえば、eコマースアプリケーションがあり、ユーザーがカートを放棄したときにメッセージを送信したい場合、`price` のカスタムイベントプロパティを追加して、ターゲットオーディエンスを改善し、Campaignのパーソナライゼーションを向上させることができます。
+カスタムイベントプロパティを使用して、特定のキャンペーンやキャンバスのオーディエンスをさらに絞り込みます。たとえば、eコマースアプリケーションがあり、ユーザーがカートを放棄したときにメッセージを送信したい場合、`price` のカスタムイベントプロパティを追加して、ターゲットオーディエンスを改善し、キャンペーンのパーソナライゼーションを向上させることができます。
 
-![放棄カートのカスタムイベントプロパティフィルター。2つのフィルターがAND演算子で組み合わされ、価格が100ドルから200ドルの間でカートを放棄したユーザーにこのCampaignを送信します]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
+![放棄カートのカスタムイベントプロパティフィルター。2つのフィルターがAND演算子で組み合わされ、価格が100ドルから200ドルの間でカートを放棄したユーザーにこのキャンペーンを送信します]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
-ネストされたカスタムイベントプロパティも[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)でサポートされています。
+ネストされたカスタムイベントプロパティも[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)でサポートされています。
 
 ![放棄カートのカスタムイベントプロパティフィルター。カート内のいずれかのアイテムの価格が100ドルを超える場合に1つのフィルターが選択されます。]({% image_buster /assets/img_archive/customEventPropertiesNested.png %} "customEventPropertiesNested.png"){: style="max-width:70%;"}
 
 ### メッセージのパーソナライズ {#personalize-messages}
 
-メッセージングテンプレート内でのパーソナライゼーションにもカスタムイベントプロパティを使用できます。トリガーイベントを持つ[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)を使用するCampaignでは、そのイベントのカスタムイベントプロパティをメッセージングのパーソナライゼーションに使用できます。
+メッセージングテンプレート内でのパーソナライゼーションにもカスタムイベントプロパティを使用できます。トリガーイベントを持つ[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を使用するキャンペーンでは、そのイベントのカスタムイベントプロパティをメッセージングのパーソナライゼーションに使用できます。
 
-たとえば、ゲームアプリがあり、レベルをクリアしたユーザーにメッセージを送信したい場合、そのレベルのクリアにかかった時間のプロパティでメッセージをさらにパーソナライズできます。この例では、[条件付きロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)を使用して3つの異なるSegmentに対してメッセージがパーソナライズされています。`time_spent` というカスタムイベントプロパティは、``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` を呼び出すことでメッセージに含めることができます。
+たとえば、ゲームアプリがあり、レベルをクリアしたユーザーにメッセージを送信したい場合、そのレベルのクリアにかかった時間のプロパティでメッセージをさらにパーソナライズできます。この例では、[条件付きロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic)を使用して3つの異なるセグメントに対してメッセージがパーソナライズされています。`time_spent` というカスタムイベントプロパティは、``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` を呼び出すことでメッセージに含めることができます。
 
 {% raw %}
 ```liquid
@@ -70,7 +70,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 ユーザーがインターネットに接続していない場合、テンプレート化されたカスタムイベントプロパティを含むトリガーされたアプリ内メッセージ（例: {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}）は失敗し、表示されません。
 {% endalert %}
 
-アプリ内メッセージをテンプレート化されたアプリ内メッセージとして配信するLiquidタグの完全なリストについては、[よくある質問]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages/)を参照してください。
+アプリ内メッセージをテンプレート化されたアプリ内メッセージとして配信するLiquidタグの完全なリストについては、[よくある質問]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages)を参照してください。
 
 #### フィルターに関する注意事項 {#considerations-with-filters}
 
@@ -81,13 +81,11 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 イベントプロパティセグメンテーションを使用して、実行されたカスタムイベントとそれらのイベントに関連するプロパティに基づいてユーザーをターゲットにします。これにより、購入およびカスタムイベントによるセグメンテーション時のフィルタリングオプションが増えます。
 
-カスタムイベントのイベントプロパティは、それらを使用するSegmentに対してリアルタイムで更新されます。プロパティは、**データ設定** > **カスタムイベント**に移動し、関連するカスタムイベントの**プロパティを管理**を選択することで管理できます。特定のSegmentフィルターで使用されるカスタムイベントプロパティには、最大30日間のルックバック履歴があります。
+カスタムイベントのイベントプロパティは、それらを使用するセグメントに対してリアルタイムで更新されます。プロパティは、**データ設定** > **カスタムイベント**に移動し、関連するカスタムイベントの**プロパティを管理**を選択することで管理できます。特定のセグメントフィルターで使用されるカスタムイベントプロパティには、最大30日間のルックバック履歴があります。
 
 #### セグメンテーション用のイベントプロパティの追加 {#adding-event-properties-for-segmentation}
 
-イベントプロパティの頻度と最新性に基づいてSegmentを作成するには、「Edit Custom Event Property Segmentation」[ユーザー権限]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage)が必要です。
-
-{% multi_lang_include deprecations/user_permissions.md %}
+イベントプロパティの頻度と最新性に基づいてセグメントを作成するには、「Edit Custom Event Property Segmentation」[ユーザー権限]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)が必要です。
 
 デフォルトでは、ワークスペースごとに20個のセグメント可能なイベントプロパティを設定できます。この制限を引き上げるには、Brazeアカウントマネージャーにお問い合わせください。
 
@@ -113,15 +111,15 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 - `X Custom Event Property in Y Days`
 - `X Purchase Property in Y Days`
 
-### Canvasのエントリプロパティとイベントプロパティ {#canvas-entry-properties-and-event-properties}
+### キャンバスのエントリプロパティとイベントプロパティ {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### ネストされたオブジェクト {#nested-objects}
 
 ネストされたオブジェクト（別のオブジェクト内のオブジェクト）を使用して、カスタムイベントおよび購入のプロパティとしてネストされたJSONデータを送信できます。このネストされたデータは、メッセージ内のパーソナライズされた情報のテンプレート化、メッセージ送信のトリガー、およびユーザーのセグメンテーションに使用できます。
 
-詳細については、[ネストされたオブジェクト]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/)の専用ページを参照してください。
+詳細については、[ネストされたオブジェクト]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)の専用ページを参照してください。
 
 ## カスタムイベントプロパティのストレージ {#custom-event-property-storage}
 
@@ -129,7 +127,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 イベントプロパティの値に基づいてセグメント化するには、2つの方法があります。
 
-1. **30日以内:** Brazeの Segment内で、特定のイベントプロパティ値の頻度と最新性に基づいたイベントプロパティセグメンテーションを使用できます。このオプションはデータ使用量に影響します。<br><br>
-2. **30日以内および30日を超える場合:** 短期および長期の両方のイベントプロパティセグメンテーションに対応するには、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用できます。この機能は、過去2年間にトラッキングされたカスタムイベントとイベントプロパティに基づいてユーザーをセグメント化します。このオプションはデータ使用量に影響しません。
+1. **30日以内:** Brazeのセグメント内で、特定のイベントプロパティ値の頻度と最新性に基づいたイベントプロパティセグメンテーションを使用できます。このオプションはデータ使用量に影響します。<br><br>
+2. **30日以内および30日を超える場合:** 短期および長期の両方のイベントプロパティセグメンテーションに対応するには、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用できます。この機能は、過去2年間にトラッキングされたカスタムイベントとイベントプロパティに基づいてユーザーをセグメント化します。このオプションはデータ使用量に影響しません。
 
 特定のニーズに応じた最適なアプローチについては、Brazeカスタマーサクセスマネージャーにお問い合わせください。

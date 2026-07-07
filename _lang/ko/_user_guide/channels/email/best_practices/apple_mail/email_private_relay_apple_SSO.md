@@ -9,7 +9,7 @@ channel:
 toc_headers: h2
 ---
 
-# Apple Private Relay에 이메일 보내기
+# Apple Private Relay에 이메일 보내기 {#send-emails-to-apple-private-relay}
 
 > Apple의 싱글 사인온(SSO) 기능을 사용하면 사용자가 자신의 이메일 주소(`example@icloud.com`)를 공유하거나, 개인 이메일 주소 대신 브랜드에 제공되는 주소를 마스킹(`tq1234snin@privaterelay.appleid.com`)하여 이메일 주소를 숨길 수 있습니다. 이 경우 Apple이 릴레이 주소로 전송된 메시지를 사용자의 실제 이메일 주소로 전달합니다.
 
@@ -17,7 +17,7 @@ Apple의 비공개 이메일 릴레이로 이메일을 보내려면 Apple에 발
 
 사용자가 앱의 릴레이 이메일로의 이메일 전달을 비활성화하면 Braze는 평소와 같이 이메일 반송 정보를 수신합니다. 사용자는 Apple ID 설정 페이지에서 Apple로 로그인을 사용하는 앱을 관리할 수 있습니다([Apple 설명서](https://support.apple.com/en-us/HT210426) 참조).
 
-## 이메일 공급업체 구성
+## 이메일 공급업체 구성 {#configure-your-email-provider}
 
 {% tabs %}
 {% tab SendGrid %}
@@ -41,7 +41,7 @@ SparkPost용 Apple Private Relay를 설정하려면 다음 단계를 따르세�
 2. [Apple 설명서](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service)를 참고하여 이메일 도메인을 등록합니다.
 3. Apple이 자동으로 도메인을 확인하고, 인증된 도메인을 표시하며, 재인증 또는 삭제 옵션을 제공합니다.
 
-### 발송 도메인이 반송 도메인이기도 한 경우
+### 발송 도메인이 반송 도메인이기도 한 경우 {#when-the-sending-domain-is-also-the-bounce-domain}
 
 발송 도메인이 반송 도메인으로도 사용되는 경우 레코드를 저장할 수 없으므로 다음 추가 단계를 따라야 합니다:
 
@@ -51,7 +51,7 @@ SparkPost용 Apple Private Relay를 설정하려면 다음 단계를 따르세�
 |----------|-----------------------------|-----------------------------------------------|
 | US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
 | EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="발송 도메인이 반송 도메인이기도 한 경우" }
 
 {% alert important %}
 SPF 실패를 방지하려면 CNAME 레코드를 삭제하기 **전에** MX 및 TXT 레코드를 생성하고 DNS에 전파되도록 해야 합니다.
@@ -80,4 +80,4 @@ Apple Private Relay를 설정하려면 커스텀 MAIL FROM 도메인을 설정�
 {% endtab %}
 {% endtabs %}
 
-추가 질문이 있으면 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요.
+추가 질문이 있으면 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.

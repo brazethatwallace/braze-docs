@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Plateforme de fidélisation SessionM {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) est une plateforme d'engagement client et de fidélisation qui offre des fonctionnalités de gestion de campagne et des solutions de gestion de la fidélisation pour aider les marketeurs à mener des actions de ciblage afin d'augmenter l'engagement et la rentabilité.
+> [SessionM](https://sessionm.com/) est une plateforme d'engagement client et de fidélisation, faisant partie de Capillary Technologies, qui offre des fonctionnalités de gestion de campagne et des solutions de gestion de la fidélisation pour aider les marketeurs à mener des actions de ciblage afin d'augmenter l'engagement et la rentabilité.
 
 ## Conditions préalables {#prerequisites}
 
@@ -20,16 +20,12 @@ search_tag: Partner
 | Braze et SessionM | Identifiant correspondant | Pour utiliser l'intégration, assurez-vous que SessionM et Braze disposent tous deux d'un enregistrement des identifiants utilisés par chaque plateforme. Les références à `user_id` correspondent à l'identifiant utilisateur de SessionM généré au moment de la création du profil dans SessionM. |
 | SessionM | Un compte SessionM | Un compte SessionM est nécessaire pour profiter de ce partenariat. |
 | SessionM | Un endpoint REST SessionM Core | Votre endpoint dépendra de l'URL SessionM de votre instance. Il peut être créé dans le tableau de bord SessionM depuis **Digital Properties**. |
-| SessionM | Une clé API REST SessionM Core | La clé API SessionM associée à votre instance et à l'intégration Braze. Cette clé peut être utilisée pour tous les appels de base, y compris les tags. Elle peut être créée dans le tableau de bord SessionM depuis **Digital Properties**. |
-| SessionM | Un secret API REST SessionM Core | Le secret API SessionM associé à votre instance et à l'intégration Braze. Cette clé peut être utilisée pour tous les appels de base, y compris les tags. Elle peut être créée dans le tableau de bord SessionM depuis **Digital Properties**. |
+| SessionM | Une clé API REST SessionM Core | La clé API SessionM associée à votre instance et à l'intégration Braze. Cette clé peut être utilisée pour tous les appels de base, y compris les étiquettes. Elle peut être créée dans le tableau de bord SessionM depuis **Digital Properties**. |
+| SessionM | Un secret API REST SessionM Core | Le secret API SessionM associé à votre instance et à l'intégration Braze. Cette clé peut être utilisée pour tous les appels de base, y compris les étiquettes. Elle peut être créée dans le tableau de bord SessionM depuis **Digital Properties**. |
 | SessionM | Un endpoint REST SessionM Connect | Votre endpoint dépendra de l'URL SessionM de votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
 | SessionM | Une chaîne d'autorisation REST SessionM Connect | La chaîne d'autorisation Basic de SessionM Connect associée à votre instance. Cette chaîne d'authentification peut être utilisée pour tous les appels basés sur Connect, y compris get_user_offers. Veuillez contacter votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
-| SessionM | Un Retailer ID REST SessionM Connect | Un identifiant guid unique du client spécifique associé à votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %}
-Si vous utilisez l'[ancienne navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), vous pouvez créer une clé API depuis **Developer Console** > **API Settings**.
-{% endalert %}
+| SessionM | Un Retailer ID REST SessionM Connect | Un identifiant GUID unique du client spécifique associé à votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -55,7 +51,7 @@ Dans Braze, créez un segment d'utilisateurs à cibler avec des promotions et de
 
 Tout d'abord, créez une campagne webhook dans Braze et définissez l'URL du webhook sur {% raw %}`{{endpoint_core}}/priv/v1/apps/{{appkey_core}}/users/{{${user_id}}}/tags`{% endraw %}. Utilisez Liquid pour définir le `user_id` dans l'URL.
 
-En utilisant un **corps de requête** en texte brut, composez le corps du webhook pour inclure les tags souhaités à ajouter au profil utilisateur dans SessionM et la durée de vie souhaitée. Voici un exemple :
+En utilisant un **corps de requête** en texte brut, composez le corps du webhook pour inclure les étiquettes souhaitées à ajouter au profil utilisateur dans SessionM et la durée de vie souhaitée. Voici un exemple :
 
  ```
  {
@@ -77,7 +73,7 @@ Dans l'onglet **Settings**, ajoutez les paires clé-valeur pour chaque champ d'e
 Planifiez votre envoi, définissez vos **Target Audiences** pour cibler le segment [que vous avez créé précédemment](#step-1-create-a-segment-in-braze), puis lancez votre campagne.
 
 {% alert important %}
-Ce processus peut également être effectué via un client API, tel que Postman, en effectuant une requête directement vers l'[endpoint SessionM Tag](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) en spécifiant le client, le nom du tag et une durée de vie pour chaque utilisateur dans l'appel (un seul utilisateur par appel).
+Ce processus peut également être effectué via un client API, tel que Postman, en effectuant une requête directement vers l'[endpoint SessionM Tag](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) en spécifiant le client, le nom de l'étiquette et une durée de vie pour chaque utilisateur dans l'appel (un seul utilisateur par appel).
 <br><br>
 L'exemple de requête suivant utilise cURL.
 
@@ -99,7 +95,7 @@ curl --location -g --request POST '{{endpoint_core}}/priv/v1/apps/{{apikey_core}
 
 #### Option 2 : Importation CSV {#option-2-csv-import}
 
-Exportez votre segment Braze à l'aide du segmenteur Braze et fournissez à SessionM un fichier CSV contenant les clients à étiqueter, le nom du tag et la durée de vie pour chaque utilisateur du fichier.
+Exportez votre segment Braze à l'aide du segmenteur Braze et fournissez à SessionM un fichier CSV contenant les clients à étiqueter, le nom de l'étiquette et la durée de vie pour chaque utilisateur du fichier.
 
 ## Récupération du portefeuille d'offres en temps réel avec Braze {#retrieving-real-time-offer-wallet-with-braze}
 
@@ -227,7 +223,7 @@ Créez dans Braze une campagne ou un Canvas déclenché par API qui sera déclen
 
 ![Propriétés du déclencheur API.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-Dans l'onglet **Schedule Delivery**, notez l'ID de la campagne ou du Canvas car il sera ajouté aux **paramètres avancés** de la campagne SessionM.
+Dans l'onglet **Schedule Delivery**, notez l'ID de la campagne ou du Canvas car il sera ajouté aux **Advanced Settings** de la campagne SessionM.
 
 ![Campagne déclenchée par API.]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 

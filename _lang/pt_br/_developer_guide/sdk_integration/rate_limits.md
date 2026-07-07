@@ -57,7 +57,7 @@ Siga estas melhores práticas para ajudar a evitar problemas de limite de taxa:
 | Atualize o conteúdo apenas quando necessário | Atualize o conteúdo em cada ação do usuário (como eventos de rolagem) |
 | Deixe o SDK lidar com o agrupamento automaticamente | Force a transmissão imediata de dados (a menos que absolutamente necessário) |
 | Concentre-se em eventos que agregam valor à análise de dados | Chame métodos do SDK em rápida sucessão sem considerar a frequência |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Melhores práticas" }
 
 ## Obtendo ajuda {#getting-help}
 
@@ -69,7 +69,7 @@ Se você está enfrentando problemas de limite de taxa do SDK, revise os seguint
 - `logCustomEvent()`
 - `logPurchase()`
 
-Ao entrar em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/), inclua os seguintes detalhes para cada um dos métodos de rede do SDK que você usa:
+Ao entrar em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support), inclua os seguintes detalhes para cada um dos métodos de rede do SDK que você usa:
 
 ```plaintext
 Method name:

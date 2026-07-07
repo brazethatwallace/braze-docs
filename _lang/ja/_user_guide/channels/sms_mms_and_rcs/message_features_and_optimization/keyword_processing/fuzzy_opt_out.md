@@ -13,15 +13,19 @@ page_order: 4
 
 # ファジーオプトアウト {#fuzzy-opt-out}
 
-> BrazeでSMS、MMS、RCSを送信するユーザーは、定められた適用法令、規制、および業界標準を遵守する必要があります。オプトアウトに関しては、ユーザーが「STOP」とテキスト送信した場合、そのメッセージングプログラムに関連するすべての後続メッセージが停止されることが法律で定められています。Brazeはこれらのメッセージを自動的に処理し、ユーザーの配信停止を行います。<br><br>ファジーオプトアウトは、受信メッセージが[オプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)に一致しないものの、オプトアウトの意図を示している場合にそれを認識しようとします。ファジーオプトアウトが有効で、受信キーワード応答が「ファジー」と判定された場合、Brazeがユーザーを自動的に配信停止にするか、手動でオプトアウトする方法を案内するメッセージで応答するかを設定できます。
-
 ![受信されたファジーオプトアウト「Please stopppp」に対するアウトバウンドオプトアウトメッセージを表示するiOSメッセージチャット。]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-現在、[ローカル言語]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support)として英語を使用して作成されたオプトアウトキーワードのみがサポートされています。
+> BrazeでSMS、MMS、RCSを送信するユーザーは、定められた適用法令、規制、および業界標準を遵守する必要があります。オプトアウトに関しては、TCPAなどの法律により、ユーザーが同意の合理的な撤回を構成するメッセージ（「STOP」、「STOPALL」、「UNSUBSCRIBE」、「CANCEL」、「END」、「QUIT」などの認識されたオプトアウトキーワードを含む）を送信した場合、そのメッセージングプログラムに関連するすべての後続メッセージを停止する必要があると定められています。Brazeは認識されたオプトアウトキーワードを自動的に処理し、ユーザーの配信停止を行います。<br><br>ファジーオプトアウトは、サブスクリプショングループの**オプトアウト**カテゴリに設定された**オプトアウトキーワード**（つまり、[デフォルトのオプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)または[カスタムオプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)）のいずれにも一致しないものの、オプトアウトの意図を示している受信メッセージ（たとえば「goodbye」や「leave me alone」など）を認識しようとすることで、この機能を拡張します。
+
+ファジーオプトアウトはデフォルトで無効になっています。ファジーオプトアウトが有効で、受信メッセージが「ファジー」と判定された場合、Brazeがユーザーを自動的に配信停止にするか、手動でオプトアウトする方法を案内するメッセージを送信するかを設定できます。米国のブランドの場合、TCPAの要件に準拠するため、ユーザーを自動的に配信停止にすることを強く推奨します。
+
+{% alert note %}
+現在、[ローカル言語]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support)として英語を使用して作成されたオプトアウトキーワード（デフォルトおよびカスタム）のみがサポートされています。
+{% endalert %}
 
 ## ファジーと判定される条件 {#what-is-deemed-as-fuzzy}
 
-受信応答が「ファジー」と判定される基準は以下のとおりです。
+受信応答が「ファジー」と判定される基準は以下のとおりです（比較は、デフォルトおよびカスタムキーワードを含む**オプトアウト**カテゴリのすべてのキーワードを使用して行われます）。
 - QWERTYキーボード上で、ある文字をその左右隣の文字に入れ替えた場合に、一致するオプトアウトキーワードが得られる場合。
 - メッセージの部分文字列がオプトアウトキーワードに一致する場合。
 
@@ -32,7 +36,7 @@ page_order: 4
 ファジーオプトアウトを設定するには、サブスクリプショングループのキーワード管理ページに移動します。
 
 1. **Audience** > **Subscription Group Management**に移動し、**SMS/MMS/RCS**サブスクリプショングループを選択します。
-2. **Global Keywords**で、**Opt-out**カテゴリを見つけ、鉛筆アイコンを選択します。
+2. **Global Keywords**で**Opt-out**カテゴリを見つけ、鉛筆アイコンを選択します。
 3. **Fuzzy Opt-Out**を**On**に切り替えます。
 4. 希望する**Fuzzy Opt-Out Logic**オプションを選択します。
    - **Automatically unsubscribe:** ユーザーがオプトアウトキーワードに類似したメッセージを送信すると、プロンプトなしで即座に配信停止になります。その後、標準のオプトアウト確認メッセージが送信されます。

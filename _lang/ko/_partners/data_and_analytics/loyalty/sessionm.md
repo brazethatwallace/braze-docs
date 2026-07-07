@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM 로열티 플랫폼 {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm)은 마케터가 타겟팅된 아웃리치를 통해 참여와 수익성을 높일 수 있도록 캠페인 관리 기능과 로열티 관리 솔루션을 제공하는 고객 참여 및 로열티 플랫폼입니다.
+> [SessionM](https://sessionm.com/)은 Capillary Technologies의 일부로, 마케터가 타겟팅된 아웃리치를 통해 참여와 수익성을 높일 수 있도록 캠페인 관리 기능과 로열티 관리 솔루션을 제공하는 고객 참여 및 로열티 플랫폼입니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -25,11 +25,7 @@ search_tag: Partner
 | SessionM | SessionM Connect REST 엔드포인트 | 엔드포인트는 인스턴스의 SessionM URL에 따라 달라집니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
 | SessionM | SessionM Connect REST 승인 문자열 | 인스턴스와 연결된 SessionM Connect 기본 승인 문자열입니다. 이 인증 문자열은 get_user_offers를 포함한 모든 연결 기반 호출에 사용할 수 있습니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
 | SessionM | SessionM Connect REST 리테일러 ID | 인스턴스와 연결된 특정 고객에 대한 고유 GUID 식별자입니다. SessionM 기술 계정 매니저 또는 전달 팀에 문의하여 제공받으세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %}
-[이전 탐색]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)을 사용하는 경우 **개발자 콘솔** > **API 설정**에서 API 키를 생성할 수 있습니다.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -68,7 +64,7 @@ Braze에서 SessionM 프로모션 및 오퍼로 타겟팅할 사용자 세그먼
 
 ![]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
 
-**설정** 탭에서 각 요청 헤더 필드에 대한 키-값 페어를 추가합니다:
+**Settings** 탭에서 각 요청 헤더 필드에 대한 키-값 페어를 추가합니다:
     - 키 `Content-Type`을 생성하고 해당 값을 `application/json`으로 설정합니다.
     - 키 `Authorization`을 생성하고 해당 값을 `Basic YOUR-ENCODED-STRING-KEY`로 설정합니다. 엔드포인트의 인코딩된 문자열 키는 SessionM 팀에 문의하세요.
 
@@ -225,7 +221,7 @@ SessionM의 모든 템플릿에 포함된 표준 필드는 다음과 같습니�
 
 SessionM에 의해 트리거될 API 트리거 Campaign 또는 Canvas를 Braze에서 생성합니다. `offer_id` 또는 `offer title`과 같은 추가 필드가 구성된 경우, Liquid(예: {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %})를 사용하여 메시징에 개인화된 필드를 추가합니다.
 
-![API 트리거 속성.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
+![API 트리거 등록정보.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
 **Schedule Delivery** 탭에서 Campaign 또는 Canvas ID를 기록해 두세요. 이 ID는 SessionM 캠페인 **Advanced Settings**에 추가됩니다.
 

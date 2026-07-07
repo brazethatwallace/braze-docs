@@ -10,7 +10,7 @@ description: "This article outlines details about the Duplicate campaigns endpoi
 ---
 {% api %}
 # Duplicate campaigns using the API
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
@@ -36,6 +36,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "campaign_id": (required, string) The campaign identifier,
   "name": (required, string) The name of the resulting campaign,
   "description": (optional, string) The description of the resulting campaign,
+  "tag_names": (optional, string) The tags of the resulting campaign,
 }
 ```
 
@@ -43,10 +44,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| Required | String | See [campaign identifier]({{site.baseurl}}/api/identifier_types/). |
+|`campaign_id`| Required | String | See [campaign identifier]({{site.baseurl}}/api/identifier_types). |
 |`name`| Required | String | The name of the resulting campaign. |
 |`description`| Optional | String | The description field for the resulting campaign. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+|`tag_names` | Optional | String | The tags for the resulting campaign. These must be existing tags. If you add new tags in the request, they overwrite any tags that were on the original campaign. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
 ## Response

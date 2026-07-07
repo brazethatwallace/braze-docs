@@ -1,28 +1,28 @@
 ---
-nav_title: Segments
-article_title: Segments
+nav_title: セグメント
+article_title: セグメント
 page_order: 3
 layout: dev_guide
-guide_top_header: "Segments"
+guide_top_header: "セグメント"
 guide_top_text: "オーディエンスのセグメンテーションは戦略的マーケティングの鍵です。過剰なターゲティング、ユーザーへの不要な干渉、顧客との潜在的なつながりの見逃しを防ぐことができます。以下の記事を参照して、オーディエンスをセグメント化およびフィルタリングし、あなた（そしてユーザー）にとって最大の効果を得る方法を学びましょう。"
 descriptions: "オーディエンスのセグメンテーションは戦略的マーケティングの鍵です。過剰なターゲティング、ユーザーへの不要な干渉、顧客との潜在的なつながりの見逃しを防ぐことができます。このランディングページで、オーディエンスをセグメント化およびフィルタリングし、あなた（そしてユーザー）にとって最大の効果を得る方法を学びましょう。"
 search_rank: 4
 tool: Segments
 page_type: landing
-description: "このランディングページでは、ダッシュボードのCampaignsにおけるセグメンテーションに関する記事を掲載しています。Segmentの設定方法、フィルター、ファネル、インサイト、エクステンションなどの情報をご覧いただけます。"
+description: "このランディングページでは、ダッシュボードのキャンペーンにおけるセグメンテーションに関する記事を掲載しています。セグメントの設定方法、フィルター、ファネル、インサイト、エクステンションなどの情報をご覧いただけます。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
-  - name: Segmentを作成する
+  - name: セグメントを作成する
     link: /docs/user_guide/audience/segments/creating_a_segment
     image: /assets/img/braze_icons/pie-chart-01.svg
-  - name: Segmentsを管理する
+  - name: セグメントの管理
     link: /docs/user_guide/audience/segments/managing_segments
     image: /assets/img/braze_icons/edit-05.svg
   - name: セグメンテーションフィルター
     link: /docs/user_guide/audience/segments/segmentation_filters
     image: /assets/img/braze_icons/flag-02.svg
-  - name: Segmentデータ
+  - name: セグメントデータ
     link: /docs/user_guide/audience/segments/segment_data
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: セグメントエクステンション
@@ -40,7 +40,7 @@ guide_menu_list:
   - name: 正規表現
     link: /docs/user_guide/audience/segments/regex
     image: /assets/img/braze_icons/search-sm.svg
-  - name: Segmentサイズを測定する
+  - name: セグメントサイズを測定する
     link: /docs/user_guide/audience/segments/measuring_segment_size
     image: /assets/img/braze_icons/pie-chart-02.svg
   - name: "ユースケース：階層化カスタム属性でセグメント化する"
@@ -52,13 +52,13 @@ guide_menu_list:
 
 ---
 
-## Braze Segmentsについて {#about-braze-segments}
+## Brazeのセグメントについて {#about-braze-segments}
 
-Brazeでは、Segmentsはユーザー属性、ユーザーの動作、カスタムイベントなど、定義した特定の条件に一致するユーザーのダイナミックなグループです。Segmentsを他のSegments内にネストし、追加機能を適用することで条件を細かく設定でき、オーディエンスの範囲を絞り込んで、適切なユーザーに高度にパーソナライズされた魅力的なコンテンツを送信できます。
+Brazeでは、セグメントはユーザー属性、ユーザーの動作、カスタムイベントなど、定義した特定の条件に一致するユーザーのダイナミックなグループです。セグメントを他のセグメント内にネストし、追加機能を適用することで条件を細かく設定でき、オーディエンスの範囲を絞り込んで、適切なユーザーに高度にパーソナライズされた魅力的なコンテンツを送信できます。
 
-ユーザーをターゲットにするためのSegmentsはいくつでも作成できます。Segment機能とセグメンテーションフィルターのさまざまな組み合わせを試して、ユーザーデータを活用するクリエイティブな方法を発見し、ユーザーに関連性の高いメッセージを送信してエンゲージメントを向上させる新しい方法を見つけましょう。
+ユーザーをターゲットにするためのセグメントはいくつでも作成できます。セグメント機能とセグメンテーションフィルターのさまざまな組み合わせを試して、ユーザーデータを活用するクリエイティブな方法を発見し、ユーザーに関連性の高いメッセージを送信してエンゲージメントを向上させる新しい方法を見つけましょう。
 
-以下のユースケースで、Braze Segmentsがユーザーのターゲティングにどのように役立つかの一部をご覧ください。
+以下のユースケースで、Brazeのセグメントがユーザーのターゲティングにどのように役立つかの一部をご覧ください。
 
 ### ユースケース {#use-cases}
 
@@ -70,10 +70,10 @@ Brazeでは、Segmentsはユーザー属性、ユーザーの動作、カスタ�
 
 #### セグメントエクステンションのユースケース {#segment-extension-use-cases}
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、ユーザープロファイルの全期間にわたって保存されたカスタムイベントや購入行動に基づいてユーザーをターゲットにすることで、Segmentsをさらに絞り込むことができます。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して、ユーザープロファイルの全期間にわたって保存されたカスタムイベントや購入行動に基づいてユーザーをターゲットにすることで、セグメントをさらに絞り込むことができます。
 
 - **過去の購入:** 過去2年間に特定の商品の特定の色を少なくとも2回購入したかどうかでユーザーをセグメント化できます。
 - **イベントとメッセージのインタラクション:** 過去30日間に購入を行い、かつ特定のアプリ内メッセージとインタラクションしたかどうかでユーザーをセグメント化できます。
 - **データのクエリ:**
-  - **Snowflakeへのクエリ:** [SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)を使用してSnowflakeにクエリを実行し、Brazeと外部ソース（CRMやデータウェアハウスなど）のデータを組み合わせてユーザーをセグメント化できます。
-  - **データウェアハウスからの同期:** [CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)を使用して、データウェアハウスやファイルストレージシステムからBrazeに直接同期されたデータでユーザーをセグメント化できます。
+  - **Snowflakeへのクエリ:** [SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)を使用してSnowflakeにクエリを実行し、Brazeと外部ソース（CRMやデータウェアハウスなど）のデータを組み合わせてユーザーをセグメント化できます。
+  - **データウェアハウスからの同期:** [CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)を使用して、データウェアハウスやファイルストレージシステムからBrazeに直接同期されたデータでユーザーをセグメント化できます。

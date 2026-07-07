@@ -2,7 +2,7 @@
 nav_title: Optimizely
 article_title: Optimizely
 page_order: 2
-description: "Este artículo de referencia describe la asociación entre Braze y Optimizely que te permite sincronizar tus Segments de clientes, eventos y eventos de Currents de Braze con Optimizely Data Platform."
+description: "Este artículo de referencia describe la asociación entre Braze y Optimizely que te permite sincronizar tus segmentos de clientes, eventos y eventos de Currents de Braze con Optimizely Data Platform."
 alias: /partners/optimizely/
 page_type: partner
 search_tag: Partner
@@ -14,7 +14,7 @@ search_tag: Partner
 
 La integración de Braze y Optimizely es una integración bidireccional que te permite:
 
-- Sincronizar tus Segments y eventos de clientes de Braze con Optimizely Data Platform (ODP) cada noche para enriquecer los perfiles, informes y la segmentación de clientes de Optimizely.
+- Sincronizar tus segmentos y eventos de clientes de Braze con Optimizely Data Platform (ODP) cada noche para enriquecer los perfiles, informes y la segmentación de clientes de Optimizely.
 - Enviar eventos de Braze Currents desde Braze a la herramienta de informes de Optimizely.
 - Sincronizar datos de clientes y eventos de ODP con Braze para enriquecer tus datos de clientes de Braze y desencadenar mensajería de Braze basada en eventos de clientes en ODP.
 
@@ -26,7 +26,7 @@ La integración de Braze y Optimizely es una integración bidireccional que te p
 | Clave de API REST de Braze               | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` y `canvas.trigger.send`. |
 | Currents                         | Para volver a exportar datos a Optimizely, necesitas tener Braze Currents configurado en tu cuenta. |
 | URL y token de Optimizely         | Esto se puede obtener navegando a tu dashboard de Optimizely y copiando la URL de ingesta y el token. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -39,7 +39,7 @@ La integración de Braze y Optimizely es una integración bidireccional que te p
     2. Selecciona **Verify API Key**.
 3. En Braze, ve a **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)**.
 4. Selecciona **Create New Current** > **Custom Currents Export**.
-5. Configura el Current utilizando el endpoint y el token proporcionados en ODP. Esto es necesario para sincronizar los eventos de Braze con ODP.
+5. Configura el Current utilizando el punto de conexión y el token proporcionados en ODP. Esto es necesario para sincronizar los eventos de Braze con ODP.
 
 ![Autorización de Optimizely.]({% image_buster /assets/img/optimizely/image1_authorization.png %})
 
@@ -48,7 +48,7 @@ La integración de Braze y Optimizely es una integración bidireccional que te p
 7. Añade los [mapeados de campo adicionales](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/29918568615949-Integrate-Braze%23h_01J6Z1P53JVDBFZ758Q78CK1QB&sa=D&source=editors&ust=1733948158380300&usg=AOvVaw3WSAND5ie3LCVuSxUlLanR) que quieras entre Braze y ODP.
 8. Selecciona **Save**.
 
-![Sincronización de Segments de Optimizely y Braze.]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
+![Sincronización de segmentos de Optimizely y Braze.]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
 
 {% alert tip %}
 Debes seleccionar segmentos para importar perfiles de clientes de Braze. Si no seleccionas ningún segmento, la integración no importará ningún perfil de cliente.
@@ -68,7 +68,7 @@ Si hay campos de datos adicionales en Braze que quieras mapear en ODP, haz lo si
 2. Selecciona el campo de ODP de la lista desplegable **ODP Customer Fields**.
 3. Selecciona **Save Field Map**.
 
-![Guardar mapeados de campo de Segments de Optimizely y Braze]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
+![Guardar mapeados de campo de segmentos de Optimizely y Braze]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
 
 #### Eliminar mapeados de campos no obligatorios (opcional) {#delete-non-required-field-mappings-optional}
 
@@ -77,7 +77,7 @@ También puedes eliminar los mapeados de campos de datos que no sean necesarios.
 1. En la sección **Segments** de la aplicación, selecciona el mapeado de campos que quieras eliminar de la lista desplegable **Field Map**.
 2. Selecciona **Delete Field Map**.
 
-![Eliminar mapeados de campo de Segments de Optimizely y Braze]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
+![Eliminar mapeados de campo de segmentos de Optimizely y Braze]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
 
 ### Paso 3: Sincronizar datos de Optimizely Data Platform (ODP) con Braze {#step-3-sync-data-from-optimizely-data-platform-odp-to-braze}
 

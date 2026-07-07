@@ -33,7 +33,7 @@ For example, use a Data Push to pass relevant custom events and attributes to Br
 | --- | --- |
 | Oracle Crowdtwist account | An [Oracle Crowdtwist Account](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) is required to take advantage of this partnership. |
 | Braze Data Transformation Endpoint| This integration relies on Braze's [Data Transformation Tool]({{site.baseurl}}/user_guide/data/unification/data_transformation/). When you create a Data Transformation, Braze generates a unique endpoint that you can add as a destination for Crowdtwist's Data Push.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -241,11 +241,9 @@ The templates in this guide are created to deliver to the "Track Users" destinat
 
 ### Testing
 
-After you modify the template to your liking, you must validate that it operates correctly. Click “Validate” to return a preview of your code’s output and to check if it is an acceptable request for your chosen destination. 
+After you modify the template to your liking, you must validate that it operates correctly. In the transformation editor, select **Validate** to generate a preview in the **Output** section and confirm Braze accepts the mapped request for your chosen destination.
 
-![Screenshot of Braze Data transformation UI]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
-When you're happy with the object you see in the "output" field, click **Activate** so that the Data Transformation endpoint is ready to accept data. 
+When you're happy with the object you see in the **Output** field, select **Activate** so that the Data Transformation endpoint is ready to accept data.
 
 You'll find your Data Transformation's webhook URL on the left-hand side panel. Copy this and use it for configuration within Oracle Crowdtwist's Integration Hub.
 

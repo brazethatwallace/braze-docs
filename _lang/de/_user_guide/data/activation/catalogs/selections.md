@@ -2,18 +2,15 @@
 nav_title: Auswahlen
 article_title: Auswahlen
 page_order: 5
+alias: /catalog_selections/
 description: "In diesem Referenzartikel erfahren Sie, wie Sie Auswahlen mit Ihren Katalogen erstellen und verwenden, um Daten in Ihren Braze Campaigns zu referenzieren."
 ---
 
 # Auswahlen {#selections}
 
-> Auf dieser Seite erfahren Sie, wie Sie Auswahlen mit Ihren [Katalogen]({{site.baseurl}}/user_guide/data/activation/catalogs/) erstellen und verwenden.
+> Auswahlen sind Gruppen von Daten, die dazu verwendet werden können, eine Nachricht für jede:n Nutzer:in in Ihrer Campaign zu personalisieren. Wenn Sie eine Auswahl verwenden, richten Sie im Wesentlichen angepasste Filter ein, die auf bestimmten Spalten in Ihrem Katalog basieren. Dies kann Filter für Marke, Größe, Standort, Hinzufügedatum und mehr umfassen. Damit haben Sie die Kontrolle darüber, was Sie den Nutzer:innen zeigen, indem Sie Kriterien festlegen, die die Artikel zuerst erfüllen müssen.<br><br>Auf dieser Seite erfahren Sie, wie Sie Auswahlen mit Ihren Katalogen erstellen und verwenden.
 
-## So funktioniert es {#how-it-works}
-
-Auswahlen sind Gruppen von Daten, die dazu verwendet werden können, eine Nachricht für jede:n Nutzer:in in Ihrer Campaign zu personalisieren. Wenn Sie eine Auswahl verwenden, richten Sie im Wesentlichen angepasste Filter ein, die auf bestimmten Spalten in Ihrem Katalog basieren. Dies kann Filter für Marke, Größe, Standort, Hinzufügedatum und mehr umfassen. Damit haben Sie die Kontrolle darüber, was Sie den Nutzer:innen zeigen, indem Sie Kriterien festlegen, die die Artikel zuerst erfüllen müssen.
-
-Nachdem Sie einen Katalog erstellt haben, können Sie Ihre Katalogdaten weiter referenzieren, indem Sie Auswahlen in Ihre Braze Campaigns oder Empfehlungen einbauen.
+Nachdem Sie einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs) erstellt haben, können Sie Ihre Katalogdaten weiter referenzieren, indem Sie Auswahlen in Ihre Braze Campaigns oder Empfehlungen einbauen.
 
 ![Der Abschnitt „Auswahlen“ in einem Beispielkatalog.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -21,7 +18,35 @@ Nachdem Sie einen Katalog erstellt haben, können Sie Ihre Katalogdaten weiter r
 
 - Sie können bis zu 30 Auswahlen pro Katalog erstellen.
 - Sie können bis zu 10 Filter pro Auswahl hinzufügen.
-- Auswahlen eignen sich hervorragend zur Verfeinerung von Empfehlungen aus Braze-Katalogdaten. Wenn Sie nach Inspiration suchen, sehen Sie sich die Anwendungsbeispiele unter [Über Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) an.
+- Auswahlen eignen sich hervorragend zur Verfeinerung von Empfehlungen aus Braze-Katalogdaten. Wenn Sie nach Inspiration suchen, sehen Sie sich die Anwendungsbeispiele unter [Über Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/recommendations) an.
+
+## Geolocation-Filter {#geolocation-filters}
+
+Wenn Ihr Katalog einen [Geolocation-Feldtyp]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types) enthält, können Sie geolocation-basierte Filter in Ihren Auswahlen verwenden, um Katalogartikel basierend auf ihrer Nähe zu einem geografischen Punkt anzuzeigen.
+
+Zwei Geolocation-Operatoren stehen zur Verfügung:
+
+| Operator | Beschreibung |
+| -------- | ----------- |
+| `geo within` | Gibt Artikel zurück, deren Geolocation-Feld innerhalb eines bestimmten Radius um einen Mittelpunkt liegt. |
+| `geo outside` | Gibt Artikel zurück, deren Geolocation-Feld außerhalb eines bestimmten Radius um einen Mittelpunkt liegt. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+Wenn ein Geolocation-Filter angewendet wird, werden die Ergebnisse nach Entfernung sortiert, wobei der nächstgelegene Artikel zuerst angezeigt wird.
+
+### Den Mittelpunkt mit Liquid festlegen {#setting-the-center-point-with-liquid}
+
+Sie können den Mittelpunkt dynamisch mit Liquid festlegen. Um beispielsweise Artikel relativ zum letzten bekannten Standort jeder Nutzerin oder jedes Nutzers zu filtern, verwenden Sie das Attribut {% raw %}`{{${most_recent_location}}}`{% endraw %} als Filterwert:
+
+{% raw %}
+```
+{{${most_recent_location}}}
+```
+{% endraw %}
+
+### Anwendungsfall: Die nächstgelegenen Shop-Standorte anzeigen {#use-case-show-the-nearest-store-locations}
+
+Angenommen, Ihr Katalog enthält ein Feld `store_location` vom Typ Geolocation. Sie können eine Auswahl erstellen, die den Operator `geo within` verwendet, um Shop-Standorte innerhalb eines festgelegten Radius um den letzten bekannten Standort jeder Nutzerin oder jedes Nutzers zurückzugeben. Setzen Sie den Filterwert auf {% raw %}`{{${most_recent_location}}}`{% endraw %}, damit der Mittelpunkt pro Nutzer:in aktualisiert wird. Da die Ergebnisse nach Entfernung sortiert werden, ist der erste zurückgegebene Artikel immer der nächstgelegene Shop.
 
 ## Eine Auswahl erstellen {#creating-a-selection}
 
@@ -54,7 +79,7 @@ Connected-Content-Liquid wird in diesen Filtereinstellungen nicht unterstützt.
 
 Nachdem Sie Ihre Auswahl erstellt haben, personalisieren Sie Ihre Nachrichten mit Liquid, um die gefilterten Artikel aus diesem Katalog einzufügen. Sie können Braze das Liquid über das Personalisierungsfenster in den Nachrichten-Editoren für Sie generieren lassen:
 
-1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i>, um das Personalisierungsfenster zu öffnen.
+1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Personalisierung hinzufügen"></i> **Add personalization**, um das Personalisierungsfenster zu öffnen.
 2. Wählen Sie für **Personalization Type** die Option **Catalog Items**.
 3. Wählen Sie Ihren Katalognamen aus.
 4. Wählen Sie für **Item selection method** die Option **Use a selection**.

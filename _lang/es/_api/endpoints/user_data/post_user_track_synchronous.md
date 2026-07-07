@@ -5,19 +5,19 @@ alias: /post_user_track_synchronous/
 layout: api_page
 page_order: 4.5
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión sincrónico de seguimiento de usuarios de Braze."
+description: "En este artículo se describen los detalles del endpoint sincrónico de seguimiento de usuarios de Braze."
 
 ---
 {% api %}
 # Crear y actualizar usuarios (sincrónico) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
-> Utiliza este punto de conexión para registrar eventos personalizados y compras, y actualizar los atributos del perfil de usuario de forma sincrónica. Este punto de conexión funciona de forma similar al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), que actualiza los perfiles de usuario de forma asíncrona.
+> Utiliza este endpoint para registrar eventos personalizados y compras, y actualizar los atributos del perfil de usuario de forma sincrónica. Este endpoint funciona de forma similar al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), que actualiza los perfiles de usuario de forma asíncrona.
 
 {% alert important %}
-Este punto de conexión se encuentra actualmente en **fase beta limitada**. Aunque por el momento no estamos añadiendo nuevos clientes a la versión beta, comunícaselo a tu director de cuentas de Braze si crees que esta característica podría ser útil para tu integración con Braze.
+Este endpoint se encuentra actualmente en **fase beta limitada**. Aunque por el momento no estamos añadiendo nuevos clientes a la versión beta, comunícaselo a tu director de cuentas de Braze si crees que esta característica podría ser útil para tu integración con Braze.
 {% endalert %}
 
 ## Llamadas a la API síncronas y asíncronas {#synchronous-and-asynchronous-api-calls}
@@ -26,19 +26,21 @@ En una llamada asíncrona, la API devuelve el código de estado `201`, lo que in
 
 En una llamada sincrónica, la API devuelve un código de estado `201` que indica que tu solicitud se ha recibido, comprendido, aceptado y completado correctamente. La respuesta a la llamada muestra campos seleccionados del perfil de usuario como resultado de la operación.
 
-Este punto de conexión tiene un límite de velocidad menor que el punto de conexión `/users/track` (consulta [límite de velocidad](#rate-limit) más abajo). Cada solicitud de `/users/track/sync` solo puede contener un objeto de evento, un objeto de atributo **o** un objeto de compra. Este punto de conexión debe reservarse para las actualizaciones del perfil de usuario en las que se necesite una llamada sincrónica. Para una implementación saludable, te recomendamos que utilices `/users/track/sync` y `/users/track` juntos.
+Este endpoint tiene un límite de velocidad menor que el endpoint `/users/track` (consulta [Límite de velocidad](#rate-limit)). Cada solicitud de `/users/track/sync` solo puede contener un objeto de evento, un objeto de atributo **o** un objeto de compra. Este endpoint debe reservarse para las actualizaciones del perfil de usuario en las que se necesite una llamada sincrónica. Para una implementación saludable, te recomendamos que utilices `/users/track/sync` y `/users/track` juntos.
 
-Por ejemplo, si envías solicitudes consecutivas para el mismo usuario durante un breve período de tiempo, es posible que se produzcan condiciones de carrera con el punto de conexión asíncrono `/users/track`, pero con el punto de conexión `/users/track/sync` puedes enviar esas solicitudes en secuencia, cada una después de recibir una respuesta `2XX`.
+Por ejemplo, si envías solicitudes consecutivas para el mismo usuario durante un breve período de tiempo, es posible que se produzcan condiciones de carrera con el endpoint asíncrono `/users/track`, pero con el endpoint `/users/track/sync` puedes enviar esas solicitudes en secuencia, cada una después de recibir una respuesta `2XX`.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.track.sync`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.track.sync`.
 
 Es posible que los clientes que utilicen la API para llamadas de servidor a servidor tengan que incluir en la lista de permitidos `rest.iad-01.braze.com` si están detrás de un cortafuegos.
 
 ## Límite de velocidad {#rate-limit}
 
-Aplicamos un límite de velocidad base de 500 solicitudes por minuto a este punto de conexión para todos los clientes. Cada solicitud de `/users/track/sync` puede contener hasta un objeto de evento, un objeto de atributo o un objeto de compra. Cada objeto (evento, atributo y matrices de compra) puede actualizar un usuario cada uno.
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+
+Aplicamos un límite de velocidad base de 500 solicitudes por minuto a este endpoint para todos los clientes. Cada solicitud de `/users/track/sync` puede contener hasta un objeto de evento, un objeto de atributo o un objeto de compra. Cada objeto (evento, atributo y matrices de compra) puede actualizar un usuario cada uno.
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -61,16 +63,16 @@ Authorization: Bearer YOUR_REST_API_KEY
 Para cada componente de solicitud que se indica en la tabla siguiente, debes incluir uno de los siguientes: `external_id`, `user_alias`, `braze_id`, `email` o `phone`.
 {% endalert %}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Opcional | Un objeto de atributos | Ver [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | Opcional | Un objeto de evento | Ver [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Opcional | Un objeto de compra | Ver [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `attributes` | Opcional | Un objeto de atributos | Ver [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | Opcional | Un objeto de evento | Ver [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Opcional | Un objeto de compra | Ver [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Respuestas {#responses}
 
-Al utilizar los [parámetros de solicitud](#request-parameters) de este punto de conexión, deberías recibir una de las siguientes respuestas: un mensaje correcto o un mensaje con errores fatales.
+Al utilizar los [parámetros de solicitud](#request-parameters) de este endpoint, deberías recibir una de las siguientes respuestas: un mensaje correcto o un mensaje con errores fatales.
 
 ### Mensaje correcto {#successful-message}
 
@@ -151,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Actualizar un evento personalizado por correo electrónico {#update-a-custom-event-by-email}
 
-#### Solicitud {#request}
+#### Solicitud
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -160,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -183,13 +185,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Respuesta {#response}
+#### Respuesta
 
 ```
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",
@@ -206,7 +208,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Actualizar un evento de compra por alias de usuario {#update-a-purchase-event-by-user-alias}
 
-#### Solicitud {#request}
+#### Solicitud
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -243,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Respuesta {#response}
+#### Respuesta
 
 ```
 {
@@ -267,13 +269,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }
 ```
 
-## Preguntas más frecuentes {#frequently-asked-questions}
+## Preguntas frecuentes {#frequently-asked-questions}
 
-### ¿Debo utilizar el punto de conexión asíncrono o sincrónico? {#should-i-use-the-asynchronous-or-synchronous-endpoint}
+### ¿Debo utilizar el endpoint asíncrono o sincrónico? {#should-i-use-the-asynchronous-or-synchronous-endpoint}
 
-Para la mayoría de las actualizaciones de perfiles, el punto de conexión `/users/track` funciona mejor debido a su mayor límite de velocidad y flexibilidad, que te permite agrupar solicitudes. Sin embargo, el punto de conexión `/users/track/sync` es útil si experimentas condiciones de carrera debido a solicitudes rápidas y consecutivas para el mismo usuario.
+Para la mayoría de las actualizaciones de perfiles, el endpoint `/users/track` funciona mejor debido a su mayor límite de velocidad y flexibilidad, que te permite agrupar solicitudes. Sin embargo, el endpoint `/users/track/sync` es útil si experimentas condiciones de carrera debido a solicitudes rápidas y consecutivas para el mismo usuario.
 
-### ¿Difiere el tiempo de respuesta del punto de conexión `/users/track`? {#does-the-response-time-differ-from-the-userstrack-endpoint}
+### ¿Difiere el tiempo de respuesta del endpoint `/users/track`? {#does-the-response-time-differ-from-the-userstrack-endpoint}
 
 Con una llamada sincrónica, la API espera hasta que Braze complete la solicitud para devolver una respuesta. Como resultado, las solicitudes sincrónicas tardan más tiempo en promedio que las solicitudes asíncronas a `/users/track`. Para la mayoría de las solicitudes, puedes esperar una respuesta en cuestión de segundos.
 
@@ -283,10 +285,12 @@ Sí, siempre que las solicitudes sean para usuarios diferentes, o que cada solic
 
 Si envías varias solicitudes para un usuario, para el mismo atributo, evento o compra, Braze recomienda esperar una respuesta satisfactoria entre cada solicitud para evitar que se produzcan condiciones de carrera.
 
+Si sigues observando un estado de perfil inconsistente al llamar a `/users/track` para el mismo usuario en rápida sucesión, cambia esas actualizaciones a `/users/track/sync` y envía una solicitud a la vez, esperando cada respuesta `2XX` antes de la siguiente. Ese orden es la forma admitida de evitar condiciones de carrera de lectura-después-de-escritura en bucles cerrados o workers paralelos.
+
 ### ¿Por qué el valor de respuesta no coincide con el de mi solicitud original? {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
 Aunque tu solicitud se ha completado, es posible que el valor de tu atributo personalizado no se haya actualizado. Esto puede ocurrir cuando la actualización de tu atributo personalizado supera el número máximo de caracteres, supera los límites de la matriz o si el usuario no existe en Braze y tienes `_update_existing_only = true`.
 
-En estos casos, trata la respuesta como una indicación de que, aunque tu solicitud se completó, la actualización deseada no se ha realizado. Investiga las posibles razones mencionadas anteriormente para resolver el problema.
+En estos casos, trata la respuesta como una indicación de que, aunque tu solicitud se completó, la actualización deseada no se ha realizado. Investiga las posibles razones mencionadas en [¿Por qué el valor de respuesta no coincide con el de mi solicitud original?](#why-doesnt-the-response-value-match-the-one-in-my-original-request).
 
 {% endapi %}

@@ -9,6 +9,15 @@
 	@media (min-width: $window-large-px) {
 		width: calc(100% - #{$nav_width + $toc_width});
 	}
+	// Pinned collapsed sidebar: reclaim horizontal space (stable — do not tie to :hover or peek would thrash layout)
+	.row:has(> #nav_bar.hide_sidebar) > & {
+		@media (min-width: $window-medium-px) {
+			width: calc(100% - #{$nav_width_collapsed});
+		}
+		@media (min-width: $window-large-px) {
+			width: calc(100% - #{$nav_width_collapsed + $toc_width});
+		}
+	}
 	padding-left: 15px;
 	padding-right: 15px;
 	@media (min-width: $window-medium-px) {
@@ -120,23 +129,16 @@
     }
 
 		ul {
-			list-style: square;
 			margin-left: 20px;
+			list-style: disc;
 
 			> li {
 				p {
-					display: inline-block;
+					display: inline;
 				}
 
-				&::before {
-					content: none;
+				&::marker {
 					color: $black-shark;
-					margin-right: 10px;
-					margin-top: auto;
-					margin-bottom: auto;
-					font-size: 15px;
-					display: inline-block;
-					font-family: $braze-bold;
 				}
 
 				div {
@@ -148,25 +150,17 @@
 		}
 
 		ol {
-			list-style: none;
-			counter-reset: li;
+			list-style: decimal;
 			margin-left: 20px;
 
 			> li {
-				counter-increment: li;
-
 				p {
 					display: inline;
 				}
 
-				&::before {
-					content: counter(li) "."; // Add a period right after the counter value
+				&::marker {
 					font-family: $braze-bold;
 					color: $black-shark;
-					display: inline-block;
-					margin-right: 10px;
-					margin-top: auto;
-					margin-bottom: auto;
 				}
 
 				div {
@@ -174,11 +168,6 @@
 						margin-top: 15px;
 					}
 				}
-			}
-		}
-		@for $oli from 1 through 12 {
-			ol[start="#{$oli}"] {
-				counter-reset: li #{$oli - 1};
 			}
 		}
 
@@ -247,6 +236,19 @@
 			li {
 				&::before {
 					content: counter(li) ":";
+				}
+			}
+		}
+
+		#breadcrumb {
+			nav ol {
+				counter-reset: none;
+				margin-left: 0;
+				> li {
+					counter-increment: none;
+					&::before {
+						content: none;
+					}
 				}
 			}
 		}
@@ -477,6 +479,13 @@
 		&:hover {
 			opacity: 1 !important;
 		}
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+		&:focus-visible {
+			opacity: 1;
+			@include focus-ring();
+		}
 	}
 
 	.heading-copy-feedback {
@@ -588,13 +597,24 @@ div.highlight {
 }
 
 #breadcrumb {
-	margin-top: 45px;
+	margin-top: 40px;
 	padding-bottom: 15px;
 	min-height: 15px;
 	font-size: 13px;
 	font-family: $braze-regular;
 	line-height: 1.7;
 	color: $grey-boulder;
+
+	nav ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: inline;
+	}
+
+	nav ol li {
+		display: inline;
+	}
 
 	a {
 		border-bottom-width: 1px !important;
@@ -725,6 +745,10 @@ table td code.highlighter-rouge {
 	}
 }
 
+/* Pricing/credit-ratio tables use class="credits-table" for future
+   targeted styling if needed. Header highlight is handled by the
+   table > thead rule above. */
+
 /* Definitions table: prevent awkward line breaks in support columns and definition column */
 table.definitions-table {
 	th:nth-child(3),
@@ -815,7 +839,7 @@ blockquote {
 		color: $grey-dust;
 
 		.c {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment */
@@ -825,7 +849,7 @@ blockquote {
 		}
 		/* Error */
 		.k {
-			color: $blue-ocean;
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword */
@@ -834,31 +858,31 @@ blockquote {
 		}
 		/* Operator */
 		.ch {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.Hashbang */
 		.cm {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.Multiline */
 		.cp {
-			color: #557799;
+			color: #802200; // a11y-light: brown
 		}
 		/* Comment.Preproc */
 		.cpf {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.PreprocFile */
 		.c1 {
-			color: #666666;
+			color: #802200; // a11y-light: brown
 			font-style: italic;
 		}
 		/* Comment.Single */
 		.cs {
-			color: #cc0000;
+			color: #802200; // a11y-light: brown
 			font-weight: bold;
 			font-style: italic;
 		}
@@ -872,7 +896,7 @@ blockquote {
 		}
 		/* Generic.Emph */
 		.gr {
-			color: #ff0000;
+			color: #cc0000; // #ff0000 → darkened for 5.3:1 on $grey-athens
 		}
 		/* Generic.Error */
 		.gh {
@@ -907,17 +931,17 @@ blockquote {
 		}
 		/* Generic.Traceback */
 		.kc {
-			color: $blue-ocean;
+			color: #9200D1; // a11y-light: purple
 			font-weight: bold;
 		}
 		/* Keyword.Constant */
 		.kd {
-			color: $blue-ocean;
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword.Declaration */
 		.kn {
-			color: $blue-ocean;
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword.Namespace */
@@ -927,12 +951,12 @@ blockquote {
 		}
 		/* Keyword.Pseudo */
 		.kr {
-			color: $blue-ocean;
+			color: #1F7C93; // a11y-light: cyan
 			font-weight: bold;
 		}
 		/* Keyword.Reserved */
 		.kt {
-			color: $navy-cove;
+			color: #9200D1; // a11y-light: purple
 			font-weight: bold;
 		}
 		/* Keyword.Type */
@@ -942,11 +966,11 @@ blockquote {
 		}
 		/* Literal.Number */
 		.s {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String */
 		.n {
-			color: $navy-cove;
+			color: #545454; // a11y-light: near-black
 			font-weight: bold;
 		}
 		/* Literal.Name */
@@ -955,16 +979,16 @@ blockquote {
 		}
 		/* Name.Attribute */
 		.nb {
-			color: $green-grass;
+			color: #326BAD; // a11y-light: blue, 5.19:1 against #F9F9FA
 		}
 		/* Name.Builtin */
 		.nc {
-			color: $navy-cove;
+			color: #326BAD; // a11y-light: blue
 			font-weight: bold;
 		}
 		/* Name.Class */
 		.no {
-			color: $blue-scooter;
+			color: #D81E18; // a11y-light: red
 			font-weight: bold;
 		}
 		/* Name.Constant */
@@ -983,22 +1007,22 @@ blockquote {
 		}
 		/* Name.Exception */
 		.nf {
-			color: $blue-scooter;
+			color: #856514; // a11y-light: yellow
 			font-weight: bold;
 		}
 		/* Name.Function */
 		.nl {
-			color: #997700;
+			color: #886600; // #997700 → darkened for 4.9:1 on $grey-athens
 			font-weight: bold;
 		}
 		/* Name.Label */
 		.nn {
-			color: #0e84b5;
+			color: #326BAD; // a11y-light: blue
 			font-weight: bold;
 		}
 		/* Name.Namespace */
 		.nx {
-			color: $navy-cove;
+			color: #545454; // a11y-light: near-black
 			font-weight: bold;
 		}
 		/* Name.Class.Other */
@@ -1016,7 +1040,7 @@ blockquote {
 		}
 		/* Operator.Word */
 		.w {
-			color: #bbbbbb;
+			color: #666666; // #bbbbbb → darkened for 5.2:1 on $grey-athens
 		}
 		/* Text.Whitespace */
 		.mb {
@@ -1035,7 +1059,7 @@ blockquote {
 		}
 		/* Literal.Number.Hex */
 		.mi {
-			color: $navy-cove;
+			color: #9200D1; // a11y-light: purple
 			font-weight: bold;
 		}
 		/* Literal.Number.Integer */
@@ -1045,15 +1069,15 @@ blockquote {
 		}
 		/* Literal.Number.Oct */
 		.sa {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Affix */
 		.sb {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Backtick */
 		.sc {
-			color: #8888ff;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Char */
 		.dl {
@@ -1061,20 +1085,21 @@ blockquote {
 		}
 		/* Literal.String.Delimiter */
 		.sd {
-			color: #dd4422;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Doc */
 		.s2 {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Double */
 		.se {
-			color: #666666;
+			color: #ffffff; // #666666 → white for 5.9:1 on $red-rose background
 			font-weight: bold;
 			background-color: $red-rose;
 		}
 		/* Literal.String.Escape */
 		.sh {
+			color: #ffffff; // explicit white for 5.9:1 on $red-rose background
 			background-color: $red-rose;
 		}
 		/* Literal.String.Heredoc */
@@ -1093,15 +1118,15 @@ blockquote {
 		}
 		/* Literal.String.Regex */
 		.s1 {
-			color: $red-rose;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Single */
 		.ss {
-			color: #ffcc88;
+			color: #008000; // a11y-light: green
 		}
 		/* Literal.String.Symbol */
 		.bp {
-			color: $green-grass;
+			color: #1F7C93; // a11y-light: cyan, 4.57:1 against #F9F9FA
 		}
 		/* Name.Builtin.Pseudo */
 		.fm {
@@ -1110,15 +1135,15 @@ blockquote {
 		}
 		/* Name.Function.Magic */
 		.vc {
-			color: #ccccff;
+			color: #5454B0; // #ccccff → darkened for 5.1:1 on $grey-athens
 		}
 		/* Name.Variable.Class */
 		.vg {
-			color: #ff8844;
+			color: #9E4400; // #ff8844 → darkened for 5.3:1 on $grey-athens
 		}
 		/* Name.Variable.Global */
 		.vi {
-			color: #aaaaff;
+			color: #4444AA; // #aaaaff → darkened for 6.5:1 on $grey-athens
 		}
 		/* Name.Variable.Instance */
 		.vm {
@@ -1171,7 +1196,7 @@ blockquote {
 	.rouge-code {
 		font-size: 14px;
 		font-family: $braze-code;
-		background-color: $grey-athens;
+		background-color: #F9F9FA;
 	}
 }
 
@@ -1234,4 +1259,56 @@ svg[id^="mermaid"] {
 
 .toc_container .heading-copy-btn {
 	display: none;
+}
+
+.prompt-library-tabs .sdk-tab-content {
+  padding-top: 16px !important;
+}
+
+.copy-block {
+  position: relative;
+  padding: 16px 52px 6px 16px;
+  margin-bottom: 12px;
+  background-color: #f8f8fa;
+  border: 1px solid $grey-ghost;
+  border-radius: 10px;
+
+  .copy-block-text {
+    margin-bottom: 0;
+    font-family: monospace;
+    font-size: 0.875rem;
+  }
+
+  .copy-block-available {
+    margin-top: 6px;
+    margin-bottom: 0 !important;
+    font-size: 0.75rem;
+    color: $grey-dust;
+  }
+
+  .copy-block-btn {
+    opacity: 0.45;
+    padding: 2px 6px;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 1rem;
+    color: inherit;
+  }
+
+  &:hover .copy-block-btn {
+    opacity: 1;
+  }
+
+  .copy-feedback {
+    position: absolute;
+    top: -20px;
+    right: 8px;
+    opacity: 0;
+    font-size: 12px;
+  }
 }

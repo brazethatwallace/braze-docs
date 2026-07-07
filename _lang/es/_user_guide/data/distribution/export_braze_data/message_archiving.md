@@ -8,7 +8,7 @@ description: "Este artículo de referencia trata sobre el archivado de mensajes,
 
 ---
 
-# Archivado de mensajes
+# Archivado de mensajes {#message-archiving}
 
 > El archivado de mensajes te permite guardar una copia de los mensajes enviados a los usuarios con fines de archivo o cumplimiento normativo en tu contenedor de AWS S3, contenedor de Azure Blob Storage o contenedor de Google Cloud Storage. <br><br> Este artículo trata sobre cómo configurar el archivado de mensajes, las referencias de carga útil JSON y las preguntas frecuentes.
 
@@ -16,9 +16,9 @@ El archivado de mensajes está disponible como característica adicional. Para e
 
 ## Cómo funciona {#how-it-works}
 
-Cuando esta característica está activada, Braze escribe un archivo JSON comprimido con gzip por cada mensaje enviado a un usuario a través de los canales seleccionados (correo electrónico, SMS/MMS o push). Braze escribe estos archivos en tu destino predeterminado de exportación de datos. Esto incluye todos los tipos de Campaign para cada canal, como las Campaigns de correo electrónico transaccional enviadas a través de la [API de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
+Cuando esta característica está activada, Braze escribe un archivo JSON comprimido con gzip por cada mensaje enviado a un usuario a través de los canales seleccionados (correo electrónico, SMS/MMS o push). Braze escribe estos archivos en tu destino predeterminado de exportación de datos. Esto incluye todos los tipos de campañas para cada canal, como las campañas de correo electrónico transaccional enviadas a través de la [API de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 
-Este archivo contendrá los campos definidos en [Referencias de archivos](#file-references) y reflejará los mensajes finales con plantilla enviados al usuario. Cualquier valor de plantilla definido en tu Campaign (por ejemplo, {% raw %}`{{${first_name}}}`{% endraw %}) mostrará el valor final que el usuario recibió basándose en la información de su perfil. Esto te permite conservar una copia del mensaje enviado para satisfacer requisitos de cumplimiento, auditoría o atención al cliente.
+Este archivo contendrá los campos definidos en [Referencias de archivos](#file-references) y reflejará los mensajes finales con plantilla enviados al usuario. Cualquier valor de plantilla definido en tu campaña (por ejemplo, {% raw %}`{{${first_name}}}`{% endraw %}) mostrará el valor final que el usuario recibió basándose en la información de su perfil. Esto te permite conservar una copia del mensaje enviado para satisfacer requisitos de cumplimiento, auditoría o atención al cliente.
 
 Si configuras credenciales para varios proveedores de almacenamiento en la nube, el archivado de mensajes solo se exportará al marcado como destino predeterminado de exportación de datos. Si no estableces un valor predeterminado explícito y hay un contenedor de AWS S3 conectado, el archivado de mensajes se cargará en ese contenedor.
 
@@ -43,19 +43,19 @@ El resumen MD5 solo puede calcularse utilizando una dirección de correo electr�
 Braze convierte tus tokens de notificaciones push a minúsculas antes de aplicarles el hash. El resultado es que el token de notificaciones push `Test_Push_Token12345` se convierte a `test_push_token12345` en la ruta de claves con el hash `32b802170652af2b5624b695f34de089`.
 {% endalert %}
 
-## Configurar el archivado de mensajes
+## Configurar el archivado de mensajes {#setting-up-message-archiving}
 
 Esta sección te guía en la configuración del archivado de mensajes para tu espacio de trabajo. Antes de continuar, confirma que tu empresa ha adquirido y activado el archivado de mensajes.
 
-### Paso 1: Conecta un contenedor de almacenamiento en la nube
+### Paso 1: Conecta un contenedor de almacenamiento en la nube {#step-1-connect-a-cloud-storage-bucket}
 
-Si aún no lo has hecho, conecta un contenedor de almacenamiento en la nube a Braze. Para conocer los pasos, consulta la documentación de nuestros socios sobre [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) o [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/).
+Si aún no lo has hecho, conecta un contenedor de almacenamiento en la nube a Braze. Para conocer los pasos, consulta la documentación de nuestros socios sobre [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3), [Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) o [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents).
 
 {% alert note %}
 No es necesario configurar Currents para el archivado de mensajes, por lo que puedes omitir ese requisito previo en la documentación para socios.
 {% endalert %}
 
-### Paso 2: Selecciona canales para el archivado de mensajes
+### Paso 2: Selecciona canales para el archivado de mensajes {#step-2-select-channels-for-message-archiving}
 
 La página de configuración de **Archivado de mensajes** controla qué canales guardarán una copia de los mensajes enviados en tu contenedor de almacenamiento en la nube.
 
@@ -71,12 +71,18 @@ Para seleccionar canales:
 Si no ves **Archivado de mensajes** en **Configuración**, confirma que tu empresa ha adquirido y activado el archivado de mensajes.
 {% endalert %}
 
+## Lista de IP permitidas {#ip-allowlisting}
+
+Cuando el archivado de mensajes carga archivos en tu contenedor de almacenamiento en la nube, Braze realiza solicitudes de red desde nuestros servidores a tu punto de conexión de AWS S3, Azure Blob Storage o Google Cloud Storage. Con la lista de IP permitidas, puedes verificar que estas solicitudes provienen de Braze, añadiendo una capa de seguridad.
+
+Braze envía las cargas del archivado de mensajes desde las mismas direcciones IP utilizadas para contenido conectado y Currents. Para consultar la lista completa de IP por instancia, consulta [Lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
 ## Referencias de archivos {#file-references}
 
 A continuación se incluyen referencias a la carga útil JSON entregada a tu contenedor de almacenamiento en la nube cada vez que se envía un mensaje. Consulta nuestro repositorio de ejemplos de código para ver [archivos de ejemplo de archivado de mensajes](https://github.com/braze-inc/braze-examples/tree/main/message-archiving).
 
 {% tabs %}
-{% tab Email %}
+{% tab Correo electrónico %}
 
 ```json
 {
@@ -84,7 +90,7 @@ A continuación se incluyen referencias a la carga útil JSON entregada a tu con
   "to": ToAddress, ("customer@example.com")
   "subject": SubjectLine ("20% off coupon inside!"),
   "from_name": DisplayName ("Braze"),
-  "from_address": FromAddress ("no-reply@braze.com"),
+  "from_address": FromAddress ("no-reply@example.com"),
   "html_body": HtmlBody,
   "plaintext_body": PlainTextBody,
   "amp_body": AMPEmailBody,
@@ -106,9 +112,9 @@ A continuación se incluyen referencias a la carga útil JSON entregada a tu con
 }
 ```
 
-El campo `extras` contiene los pares clave-valor configurados en el campo **Extras de correo electrónico** al redactar un correo electrónico en el editor HTML. Los extras de correo electrónico funcionan con todos los proveedores de servicios de correo electrónico (incluidos SendGrid y SparkPost) y se incluyen en los mensajes archivados independientemente del proveedor que se utilice. Para obtener más información sobre cómo configurar los extras de correo electrónico, consulta [Crear una campaña de correo electrónico]({{site.baseurl}}/user_guide/channels/email/html_editor/#adding-email-extras). Para enviar datos de vuelta a Currents, consulta [Extras de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/).
+El campo `extras` contiene los pares clave-valor configurados en el campo **Extras de correo electrónico** al redactar un correo electrónico en el editor HTML. Los extras de correo electrónico funcionan con todos los proveedores de servicios de correo electrónico (incluidos SendGrid y SparkPost) y se incluyen en los mensajes archivados independientemente del proveedor que se utilice. Para obtener más información sobre cómo configurar los extras de correo electrónico, consulta [Crear una campaña de correo electrónico]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Para enviar datos de vuelta a Currents, consulta [Extras de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
-![]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
+![Sección de extras de correo electrónico del compositor de correo electrónico con campos de clave y valor y la opción Añadir nuevo extra.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
 {% tab SMS/MMS %}
@@ -161,7 +167,7 @@ El campo `extras` contiene los pares clave-valor configurados en el campo **Extr
 }
 ```
 
-### Variaciones en la estructura de la carga útil push
+### Variaciones en la estructura de la carga útil push {#push-payload-structure-variations}
 
 {% alert important %}
 El campo `payload` de nivel superior en los archivos de notificaciones push contiene toda la carga útil del proveedor tal como se envía al dispositivo. Dentro de este JSON, claves como `aps` (para APNs) o `notification` y `data` (para FCM) pueden variar significativamente dependiendo del tipo de mensaje, la plataforma y la configuración.
@@ -191,40 +197,40 @@ El formato de la carga útil JSON puede variar entre mensajes y cambiar con el t
 {% endtab %}
 {% endtabs %}
 
-## Preguntas frecuentes
+## Preguntas frecuentes {#frequently-asked-questions}
 
-### ¿Qué plantillas no se incluyen en la carga útil?
+### ¿Qué plantillas no se incluyen en la carga útil? {#what-templating-is-not-included-in-the-payload}
 
 Las modificaciones realizadas después de que el mensaje salga de Braze no se reflejarán en el archivo guardado en tu contenedor de almacenamiento en la nube. Esto incluye las modificaciones que hacen nuestros socios de entrega de correo, como envolver los enlaces para el seguimiento de clics e insertar píxeles de seguimiento.
 
-### ¿Qué mensajes aparecen bajo el valor "no asociado" en la ruta de la Campaign?
+### ¿Qué mensajes aparecen bajo el valor "no asociado" en la ruta de la campaña? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-Cuando un mensaje se envía fuera de una Campaign o Canvas, el ID de la Campaign en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el dashboard, cuando Braze envíe respuestas automáticas por SMS/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de Campaign.
+Cuando un mensaje se envía fuera de una Campaign o Canvas, el ID de la campaña en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el dashboard, cuando Braze envíe respuestas automáticas por SMS/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de campaña.
 
-### ¿Cómo puedo encontrar más información sobre este envío?
+### ¿Cómo puedo encontrar más información sobre este envío? {#how-do-i-find-more-information-about-this-send}
 
 Puedes utilizar `external_id` o `dispatch_id` junto con `user_id` para cruzar la información del mensaje con plantilla con nuestros datos de Currents y obtener más información, como la fecha y hora en que se entregó, si el usuario abrió o hizo clic en el mensaje, y mucho más.
 
-### ¿Cómo se gestionan los reintentos?
+### ¿Cómo se gestionan los reintentos? {#how-are-retries-handled}
 
 Si no se puede acceder a tu contenedor de almacenamiento en la nube, Braze lo reintentará hasta tres veces con un [jitter de retroceso](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/#Jitter). Braze gestiona automáticamente los reintentos del límite de velocidad de AWS S3.
 
-### ¿Qué ocurre si mis credenciales no son válidas?
+### ¿Qué ocurre si mis credenciales no son válidas? {#what-happens-if-my-credentials-are-invalid}
 
-Si tus credenciales de almacenamiento en la nube dejan de ser válidas en algún momento, Braze no podrá guardar ningún mensaje en tu contenedor de almacenamiento en la nube, y esos mensajes se perderán. Te recomendamos que configures tus [preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para Amazon Web Services, Google Cloud Services o Azure (Microsoft Cloud Services) para que recibas alertas sobre cualquier problema relacionado con las credenciales.
+Si tus credenciales de almacenamiento en la nube dejan de ser válidas en algún momento, Braze no podrá guardar ningún mensaje en tu contenedor de almacenamiento en la nube, y esos mensajes se perderán. Te recomendamos que configures tus [preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para Amazon Web Services, Google Cloud Storage o Azure (Microsoft Cloud Services) para que recibas alertas sobre cualquier problema relacionado con las credenciales.
 
-### ¿Por qué la marca de tiempo `sent_at` de mi archivo difiere ligeramente de la marca de tiempo de envío en Currents?
+### ¿Por qué la marca de tiempo `sent_at` de mi archivo difiere ligeramente de la marca de tiempo de envío en Currents? {#why-does-my-archive-files-sent_at-timestamp-differ-slightly-from-the-sent-timestamp-in-currents}
 
 La copia renderizada se carga inmediatamente antes de enviar el mensaje al usuario. Debido a los tiempos de carga del almacenamiento en la nube, puede haber un retraso de unos segundos entre la marca de tiempo `sent_at` de la copia renderizada y el momento real en que se produce el envío.
 
-### ¿Puedo crear un nuevo contenedor específico para el archivado de mensajes y mantener el contenedor actual para los datos de Currents?
+### ¿Puedo crear un nuevo contenedor específico para el archivado de mensajes y mantener el contenedor actual para los datos de Currents? {#can-i-create-a-new-bucket-specifically-for-message-archiving-while-keeping-the-current-bucket-used-for-currents-data}
 
-No. Si estás interesado en crear estos contenedores específicos, envía [tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+No. Si estás interesado en crear estos contenedores específicos, envía [tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
 
-### ¿Los datos archivados se escriben en una carpeta dedicada en un contenedor existente, de forma similar a cómo se estructuran las exportaciones de datos de Currents?
+### ¿Los datos archivados se escriben en una carpeta dedicada en un contenedor existente, de forma similar a cómo se estructuran las exportaciones de datos de Currents? {#is-archived-data-written-to-a-dedicated-folder-in-an-existing-bucket-similar-to-how-currents-data-exports-are-structured}
 
 Los datos se escriben en una sección `sent_messages` del contenedor. Consulta [Cómo funciona](#how-it-works) para obtener más detalles.
 
-### ¿Puedo utilizar el archivado de mensajes para agrupar archivos en diferentes espacios de trabajo?
+### ¿Puedo utilizar el archivado de mensajes para agrupar archivos en diferentes espacios de trabajo? {#can-i-use-message-archiving-to-group-files-into-different-workspaces}
 
 No. El archivado de mensajes no admite la agrupación de archivos por espacios de trabajo. En su lugar, puedes determinar a qué espacio de trabajo pertenece el ID de API de la Campaign o del paso en Canvas y, a continuación, agruparlos en función de esa información.

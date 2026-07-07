@@ -7,34 +7,34 @@ description: "Dieser Artikel führt Sie durch die Einrichtung der Microsoft Entr
 
 ---
 
-# Microsoft Entra SSO
+# Microsoft Entra SSO {#microsoft-entra-sso}
 
 > [Microsoft Entra SSO](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) ist der cloudbasierte Identitäts- und Zugriffsverwaltungsdienst von Microsoft, der Ihren Mitarbeitenden hilft, sich anzumelden und auf Ressourcen zuzugreifen. Sie können Entra SSO verwenden, um den Zugriff auf Ihre Apps und Ihre App-Ressourcen basierend auf Ihren Geschäftsanforderungen zu steuern.
 
-## Voraussetzungen
+## Voraussetzungen {#requirements}
 
 Bei der Einrichtung werden Sie aufgefordert, eine Assertion Consumer Service (ACS)-URL anzugeben.
 
 | Voraussetzung | Details |
 |---|---|
 | Assertion Consumer Service (ACS)-URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br> Bei einigen Identitätsanbietern kann dies auch als Reply-URL, Audience-URL oder Audience-URI bezeichnet werden. |
-| Entity-ID | `braze_dashboard`|
+| Entity-ID | `braze_dashboard` |
 | RelayState-API-Schlüssel | Um die Anmeldung über den Identitätsanbieter zu aktivieren, gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen API-Schlüssel mit `sso.saml.login`-Berechtigungen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Vom SP (Service Provider) initiierte Anmeldung innerhalb von Microsoft Entra SSO
+## Vom SP (Service Provider) initiierte Anmeldung innerhalb von Microsoft Entra SSO {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
 
-### 1. Schritt: Braze aus der Galerie hinzufügen
+### 1. Schritt: Braze aus der Galerie hinzufügen {#step-1-add-braze-from-the-gallery}
 
 1. Gehen Sie in Ihrem Microsoft Entra Admin Center zu **Identity** > **Applications** > **Enterprise Applications** und wählen Sie dann **New application**.
 2. Suchen Sie im Suchfeld nach **Braze**, wählen Sie es aus dem Ergebnisbereich aus und wählen Sie dann **Add**.
 
-### 2. Schritt: Microsoft Entra SSO konfigurieren
+### 2. Schritt: Microsoft Entra SSO konfigurieren {#step-2-configure-microsoft-entra-sso}
 
 1. Gehen Sie in Ihrem Microsoft Entra Admin Center zur Braze-Anwendungsintegrationsseite und wählen Sie **Single sign-on**.
 2. Wählen Sie auf der Seite **Select a single sign-on method** die Option **SAML** als Ihre Methode.
 3. Wählen Sie auf der Seite **Set up Single Sign-On with SAML** das Bearbeitungssymbol für **Basic SAML Configuration**.
-4. Konfigurieren Sie die Anwendung im IdP-initiierten Modus, indem Sie eine **Reply URL** eingeben, die Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/#braze-instances) mit dem folgenden Muster kombiniert: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. Konfigurieren Sie die Anwendung im IdP-initiierten Modus, indem Sie eine **Reply URL** eingeben, die Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances) mit dem folgenden Muster kombiniert: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. Konfigurieren Sie den RelayState, indem Sie Ihren generierten RelayState-API-Schlüssel in das Feld **Relay State** eingeben.
 
 {% alert important %}
@@ -101,10 +101,10 @@ Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie wie
 | Voraussetzung | Details |
 |---|---|
 | `SAML Name` | Dies wird als Button-Text auf dem Anmeldebildschirm angezeigt. Dies ist in der Regel der Name Ihres Identitätsanbieters, z. B. „Microsoft Entra“. |
-| `Target URL` | Dies ist die von Microsoft Entra bereitgestellte Anmelde-URL.|
+| `Target URL` | Dies ist die von Microsoft Entra bereitgestellte Anmelde-URL. |
 | `Certificate` | Das `x.509` PEM-kodierte Zertifikat wird von Ihrem Identitätsanbieter bereitgestellt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Microsoft Entra SSO in Braze konfigurieren" }
 
 {% alert tip %}
-Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen nur mit SAML SSO anmelden, können Sie die [Single Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) auf der Seite **Unternehmenseinstellungen**.
+Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen nur mit SAML SSO anmelden, können Sie die [Single Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) auf der Seite **Unternehmenseinstellungen**.
 {% endalert %}

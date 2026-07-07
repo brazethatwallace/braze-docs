@@ -26,7 +26,7 @@ Die Integration von Braze und Inkit erlaubt es Ihnen, mit Braze-Webhooks Dokumen
 | Inkit API-Schlüssel<br><br>`<INKIT_API_TOKEN>` | Dieser Schlüssel befindet sich auf Ihrem [Inkit Dashboard](https://app.inkit.io/#/account/integrations) unter dem Tab **Development** und ermöglicht es Ihnen, Ihre Braze- und Inkit-Konten zu verbinden. |
 | Inkit Template-ID<br><br>`<INKIT_TEMPLATE_ID>` | Nachdem Sie ein Template erstellt haben, können Sie die Template-ID aus dem Tab **Templates** kopieren, um sie in Ihrem Template in Braze zu verwenden.<br><br>Sie könnten zum Beispiel in der Inkit-Umgebung ein Template namens `invoice_template` mit der Template-ID `tmpl_3bDScFl9cwr3OAVR1RSdEC` erstellen. |
 | HTTP-Header | Der HTTP-Header ist Teil der API-Anfrage, die Sie von Braze an Inkit senden. Darin enthalten ist Ihr Inkit API-Schlüssel zur Authentifizierung und Autorisierung von Aufrufen der Inkit API. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -36,7 +36,7 @@ Erstellen Sie auf der Inkit-Plattform ein Template, das Sie in Ihrer Braze-Campa
 
 ### 2. Schritt: Ihr Braze-Webhook-Template erstellen {#step-2-create-your-braze-webhook-template}
 
-Um ein Inkit-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie auf der Braze-Plattform zu **Templates** > **Webhook-Templates**.
+Um ein Inkit-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie auf der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige Inkit-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 

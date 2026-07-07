@@ -12,7 +12,7 @@ description: "Diese Landing-Page enthält Beispiele für Liquid-Anwendungsfälle
 
 {% api %}
 
-## Jubiläen und Feiertage
+## Jubiläen und Feiertage {#anniversaries-and-holidays}
 
 {% apitags %}
 Anniversaries and holidays
@@ -20,7 +20,7 @@ Anniversaries and holidays
 
 - [Nachrichten basierend auf dem Jubiläumsjahr personalisieren](#anniversary-year)
 - [Nachrichten basierend auf der Geburtstagswoche personalisieren](#birthday-week)
-- [Kampagnen an Nutzer:innen in ihrem Geburtstagsmonat senden](#birthday-month)
+- [Campaigns an Nutzer:innen in ihrem Geburtstagsmonat senden](#birthday-month)
 - [Nachrichtenversand an wichtigen Feiertagen vermeiden](#holiday-avoid)
 
 ### Nachrichten basierend auf dem Jubiläumsjahr personalisieren {#anniversary-year}
@@ -60,9 +60,9 @@ Exactly three years ago today we met for the first time!
 ```
 {% endraw %}
 
-**Erklärung:** Hier verwenden wir die reservierte Variable `now`, um das aktuelle Datum und die Uhrzeit im [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)-Format einzufügen. Die Filter `%B` (Monat wie „May") und `%d` (Tag wie „18") formatieren den aktuellen Monat und Tag. Anschließend verwenden wir dieselben Datums- und Zeitfilter auf die `signup_date`-Werte, um sicherzustellen, dass wir die beiden Werte mithilfe von bedingten Tags und Logik vergleichen können.
+**Erklärung:** Hier verwenden wir die reservierte Variable `now`, um das aktuelle Datum und die Uhrzeit im [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)-Format einzufügen. Die Filter `%B` (Monat wie „May“) und `%d` (Tag wie „18“) formatieren den aktuellen Monat und Tag. Anschließend verwenden wir dieselben Datums- und Zeitfilter auf die `signup_date`-Werte, um sicherzustellen, dass wir die beiden Werte mithilfe von bedingten Tags und Logik vergleichen können.
 
-Dann wiederholen wir drei weitere Variablenzuweisungen, um `%B` und `%d` für das `signup_date` zu erhalten, wobei wir zusätzlich `%Y` (Jahr wie „2021") hinzufügen. Dadurch wird das Datum und die Uhrzeit des `signup_date` auf nur das Jahr reduziert. Wenn wir Tag und Monat kennen, können wir prüfen, ob das Jubiläum heute ist, und wenn wir das Jahr kennen, wissen wir, wie viele Jahre vergangen sind – und können entsprechend gratulieren!
+Dann wiederholen wir drei weitere Variablenzuweisungen, um `%B` und `%d` für das `signup_date` zu erhalten, wobei wir zusätzlich `%Y` (Jahr wie „2021“) hinzufügen. Dadurch wird das Datum und die Uhrzeit des `signup_date` auf nur das Jahr reduziert. Wenn wir Tag und Monat kennen, können wir prüfen, ob das Jubiläum heute ist, und wenn wir das Jahr kennen, wissen wir, wie viele Jahre vergangen sind – und können entsprechend gratulieren!
 
 {% alert tip %} Sie können so viele Bedingungen erstellen, wie Sie Jahre an Registrierungsdaten gesammelt haben. {% endalert %}
 
@@ -93,7 +93,7 @@ No birthday for you!
 
 Wir fügen außerdem Anweisungen für `last_week` und `next_week` hinzu, um Ihre Nachrichten weiter zu personalisieren.
 
-### Kampagnen an Nutzer:innen in ihrem Geburtstagsmonat senden {#birthday-month}
+### Campaigns an Nutzer:innen in ihrem Geburtstagsmonat senden {#birthday-month}
 
 Dieser Anwendungsfall zeigt, wie der Geburtstagsmonat berechnet wird, ob der Geburtstag in den aktuellen Monat fällt, und falls ja, eine spezielle Nachricht gesendet wird.
 
@@ -109,7 +109,7 @@ Message body
 ```
 {% endraw %}
 
-**Erklärung:** Ähnlich wie beim Anwendungsfall [Geburtstagswoche](#birthday-week), nur dass wir hier den Filter `%B` (Monat wie „May") verwenden, um zu berechnen, welche Nutzer:innen in diesem Monat Geburtstag haben. Eine mögliche Anwendung wäre, Geburtstagskinder in einer monatlichen E-Mail anzusprechen.
+**Erklärung:** Ähnlich wie beim Anwendungsfall [Geburtstagswoche](#birthday-week), nur dass wir hier den Filter `%B` (Monat wie „May“) verwenden, um zu berechnen, welche Nutzer:innen in diesem Monat Geburtstag haben. Eine mögliche Anwendung wäre, Geburtstagskinder in einer monatlichen E-Mail anzusprechen.
 
 ### Nachrichtenversand an wichtigen Feiertagen vermeiden {#holiday-avoid}
 
@@ -126,7 +126,7 @@ Message if today isn't one of the provided holidays.
 ```
 {% endraw %}
 
-**Erklärung:** Hier weisen wir den Begriff `today` der reservierten Variable `now` (aktuelles Datum und Uhrzeit) zu und verwenden die Filter `%Y` (Jahr wie „2023"), `%m` (Monat wie „12") und `%d` (Tag wie „25"), um das Datum zu formatieren. Anschließend führen wir unsere bedingte Anweisung aus: Wenn die Variable `today` mit den gewählten Feiertagen übereinstimmt, wird die Nachricht abgebrochen.
+**Erklärung:** Hier weisen wir den Begriff `today` der reservierten Variable `now` (aktuelles Datum und Uhrzeit) zu und verwenden die Filter `%Y` (Jahr wie „2023“), `%m` (Monat wie „12“) und `%d` (Tag wie „25“), um das Datum zu formatieren. Anschließend führen wir unsere bedingte Anweisung aus: Wenn die Variable `today` mit den gewählten Feiertagen übereinstimmt, wird die Nachricht abgebrochen.
 
 Das bereitgestellte Beispiel verwendet Heiligabend, den ersten und den zweiten Weihnachtsfeiertag.
 
@@ -134,13 +134,13 @@ Das bereitgestellte Beispiel verwendet Heiligabend, den ersten und den zweiten W
 
 {% api %}
 
-## App-Nutzung
+## App-Nutzung {#app-usage}
 
 {% apitags %}
 App usage
 {% endapitags %}
 
-- [Nachrichten in der Sprache senden, wenn eine Sitzung protokolliert wurde](#app-session-language)
+- [Nachrichten in der Sprache senden, wenn keine Sitzung protokolliert wurde](#app-session-language)
 - [Nachrichten basierend auf der letzten App-Öffnung personalisieren](#app-last-opened)
 - [Andere Nachricht anzeigen, wenn die App vor weniger als drei Tagen genutzt wurde](#app-last-opened-less-than)
 
@@ -330,7 +330,7 @@ Sie benötigen ein angepasstes Attribut-Feld mit einem `date`-Wert.
 
 Dieser Anwendungsfall berechnet die verbleibende Zeit zwischen einem bestimmten Event und dem aktuellen Datum. Je nach verbleibender Zeit wird der Zeitwert (Tage, Stunden, Minuten) geändert, um verschiedene personalisierte Nachrichten anzuzeigen.
 
-Wenn beispielsweise noch zwei Tage bis zur Lieferung einer Bestellung verbleiben, könnte die Nachricht lauten: „Ihre Bestellung kommt in 2 Tagen an." Wenn es weniger als ein Tag ist, könnte sie zu „Ihre Bestellung kommt in 17 Stunden an" geändert werden.
+Wenn beispielsweise noch zwei Tage bis zur Lieferung einer Bestellung verbleiben, könnte die Nachricht lauten: „Ihre Bestellung kommt in 2 Tagen an.“ Wenn es weniger als ein Tag ist, könnte sie zu „Ihre Bestellung kommt in 17 Stunden an“ geändert werden.
 
 {% raw %}
 ```liquid
@@ -392,7 +392,7 @@ Your surgery is in 2 days on {{custom_attribute.${surgery_date}}}
 
 Dieser Anwendungsfall berechnet, wie lange es bis zu einem bestimmten Datum dauert, und bricht den Nachrichtenversand ab, wenn das Datum zu nah ist. Je nach verbleibender Zeit werden verschiedene personalisierte Nachrichten angezeigt.
 
-Beispiel: „Sie haben noch x Stunden, um Ihr Ticket nach London zu kaufen", aber die Nachricht wird nicht gesendet, wenn es weniger als zwei Stunden bis zur Abflugzeit nach London sind.
+Beispiel: „Sie haben noch x Stunden, um Ihr Ticket nach London zu kaufen“, aber die Nachricht wird nicht gesendet, wenn es weniger als zwei Stunden bis zur Abflugzeit nach London sind.
 
 {% raw %}
 ```liquid
@@ -536,13 +536,14 @@ Dieser Anwendungsfall zeigt das Datum 30 Tage ab heute an, um es in Nachrichten 
 
 {% api %}
 
-## Angepasstes Attribut
+## Angepasstes Attribut {#custom-attribute}
 
 {% apitags %}
 Custom attribute
 {% endapitags %}
 
 - [Nachricht basierend auf übereinstimmenden angepassten Attributen personalisieren](#attribute-matching)
+- [Währung für europäische Zahlenkonventionen formatieren](#european-currency-format)
 - [Zwei angepasste Attribute subtrahieren und die Differenz als Geldwert anzeigen](#attribute-monetary-difference)
 - [Vornamen referenzieren, wenn der vollständige Name im first_name-Feld gespeichert ist](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Währung für europäische Zahlenkonventionen formatieren {#european-currency-format}
+
+Für Regionen, die ein Komma als Dezimaltrennzeichen und einen Punkt als Tausendertrennzeichen verwenden (z. B. Deutschland oder Italien), verwenden Sie die Filter [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) und [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) mit `replace`, um die Trennzeichen zu tauschen. Verwenden Sie `#` als temporären Platzhalter, damit Punkte und Kommas nicht im selben Durchgang vertauscht werden.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Ausgabe:** `1.234.567,89`
+
+**Erklärung:** Der `money`-Filter fügt Dezimalstellen hinzu, aber kein Währungssymbol oder regionsspezifische Trennzeichen. `number_with_delimiter` fügt US-amerikanische Tausendertrennzeichen hinzu, und die `replace`-Filter wandeln sie in das europäische Format um.
 {% endraw %}
 
 ### Zwei angepasste Attribute subtrahieren und die Differenz als Geldwert anzeigen {#attribute-monetary-difference}
@@ -597,14 +612,14 @@ Hi {{name[0]}}, here's your message!
 
 {% api %}
 
-## Angepasstes Event
+## Angepasstes Event {#custom-event}
 
 {% apitags %}
 Custom event
 {% endapitags %}
 
 - [Push-Benachrichtigung abbrechen, wenn ein angepasstes Event innerhalb von zwei Stunden stattfindet](#event-abort-push)
-- [Kampagne senden, wenn ein angepasstes Event dreimal ausgeführt wurde](#event-three-times)
+- [Campaign senden, wenn ein angepasstes Event dreimal ausgeführt wurde](#event-three-times)
 - [Nachricht an Nutzer:innen senden, die nur aus einer Kategorie gekauft haben](#event-purchased-one-category)
 - [Verfolgen, wie oft ein angepasstes Event im letzten Monat aufgetreten ist](#track)
 
@@ -630,9 +645,9 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 ```
 {% endraw %}
 
-### Kampagne senden, wenn ein angepasstes Event dreimal ausgeführt wurde {#event-three-times}
+### Campaign senden, wenn ein angepasstes Event dreimal ausgeführt wurde {#event-three-times}
 
-Dieser Anwendungsfall prüft, ob ein angepasstes Event dreimal ausgeführt wurde, und zeigt in diesem Fall eine Nachricht an oder sendet eine Kampagne.
+Dieser Anwendungsfall prüft, ob ein angepasstes Event dreimal ausgeführt wurde, und zeigt in diesem Fall eine Nachricht an oder sendet eine Campaign.
 
 {% raw %}
 ```liquid
@@ -667,7 +682,7 @@ Dieser Anwendungsfall erfasst eine Liste der Kategorien, aus denen gekauft wurde
 
 ### Verfolgen, wie oft ein angepasstes Event im letzten Monat aufgetreten ist {#track}
 
-Dieser Anwendungsfall berechnet, wie oft ein angepasstes Event zwischen dem 1. des aktuellen Monats und dem Vormonat protokolliert wurde. Anschließend können Sie einen users/track-Aufruf ausführen, um diesen Wert als angepasstes Attribut zu speichern. Beachten Sie, dass diese Kampagne zwei aufeinanderfolgende Monate laufen muss, bevor monatliche Daten verwendet werden können.
+Dieser Anwendungsfall berechnet, wie oft ein angepasstes Event zwischen dem 1. des aktuellen Monats und dem Vormonat protokolliert wurde. Anschließend können Sie einen users/track-Aufruf ausführen, um diesen Wert als angepasstes Attribut zu speichern. Beachten Sie, dass diese Campaign zwei aufeinanderfolgende Monate laufen muss, bevor monatliche Daten verwendet werden können.
 
 {% raw %}
 ```liquid
@@ -723,7 +738,7 @@ Dieser Anwendungsfall berechnet, wie oft ein angepasstes Event zwischen dem 1. d
 
 {% api %}
 
-## Sprache
+## Sprache {#language}
 
 {% apitags %}
 Language
@@ -838,7 +853,7 @@ tuesday default
 
 {% api %}
 
-## Verschiedenes
+## Verschiedenes {#miscellaneous}
 
 {% apitags %}
 Miscellaneous
@@ -858,7 +873,7 @@ Miscellaneous
 
 ### E-Mail-Versand an Kund:innen vermeiden, die Marketing-E-Mails blockiert haben {#misc-avoid-blocked-emails}
 
-Dieser Anwendungsfall nimmt eine Liste blockierter Nutzer:innen, die in einem Content-Block gespeichert ist, und stellt sicher, dass diese blockierten Nutzer:innen in kommenden Kampagnen oder Canvases nicht kontaktiert oder angesprochen werden.
+Dieser Anwendungsfall nimmt eine Liste blockierter Nutzer:innen, die in einem Content-Block gespeichert ist, und stellt sicher, dass diese blockierten Nutzer:innen in kommenden Campaigns oder Canvases nicht kontaktiert oder angesprochen werden.
 
 {% alert important %}
 Um dieses Liquid zu verwenden, speichern Sie zunächst die Liste der blockierten E-Mail-Adressen in einem Content-Block. Die Liste sollte keine zusätzlichen Leerzeichen oder Zeichen zwischen den E-Mail-Adressen enthalten (z. B. `test@braze.com,abc@braze.com`).
@@ -880,7 +895,7 @@ Your message here!
 **Erklärung:** Hier prüfen wir, ob die E-Mail-Adresse des potenziellen Empfängers/der potenziellen Empfängerin in dieser Liste enthalten ist, indem wir den Content-Block mit den blockierten E-Mails referenzieren. Wenn die E-Mail gefunden wird, wird die Nachricht nicht gesendet.
 
 {% alert note %}
-Content-Blöcke haben eine Größenbeschränkung von 5 MB.
+Content Blocks haben eine Größenbeschränkung von 5 MB.
 {% endalert %}
 
 ### Abo-Status zur Personalisierung von Nachrichteninhalten verwenden {#misc-personalize-content}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 Dieser Anwendungsfall ermöglicht es Nutzer:innen, bevorstehende Erinnerungen basierend auf angepassten Events einzurichten. Das Beispielszenario ermöglicht es, eine Erinnerung für ein Verlängerungsdatum einer Police einzurichten, das 26 oder mehr Tage entfernt ist, wobei Erinnerungen 26, 13, 7 oder 2 Tage vor dem Verlängerungsdatum gesendet werden.
 
-Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Kampagne]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) oder eines Canvas-Schritts stehen.
+Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) oder eines Canvas-Schritts stehen.
 
 {% raw %}
 ```liquid
@@ -1199,7 +1214,7 @@ Dieser Anwendungsfall zeigt, wie das Nutzerprofil-Feld `phone_number` (standardm
 
 {% api %}
 
-## Plattform-Targeting
+## Plattform-Targeting {#platform-targeting}
 
 {% apitags %}
 Platform targeting
@@ -1306,7 +1321,7 @@ Content for Android.
 
 Dieser Anwendungsfall prüft, ob der Mobilfunkanbieter des Geräts Verizon ist, und zeigt in diesem Fall eine spezifische Nachricht an.
 
-Für Push-Benachrichtigungen und In-App-Nachrichten-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
+Für Push-Benachrichtigungen und In-App Messages-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
 
 {% raw %}
 ```liquid
@@ -1334,7 +1349,7 @@ SMS
 
 ### Verschiedene Nachrichten basierend auf eingehenden SMS-Schlüsselwörtern senden {#sms-keyword-response}
 
-Dieser Anwendungsfall nutzt die dynamische Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START" im Vergleich zu „JOIN" schreibt.
+Dieser Anwendungsfall nutzt die dynamische SMS-Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START“ im Vergleich zu „JOIN“ schreibt.
 
 {% raw %}
 ```liquid
@@ -1356,7 +1371,7 @@ Thanks for joining our SMS program!
 
 {% api %}
 
-## Zeitzonen
+## Zeitzonen {#time-zones}
 
 {% apitags %}
 Time zones
@@ -1370,12 +1385,18 @@ Time zones
 - [Wiederkehrende In-App-Nachricht innerhalb eines Zeitfensters in der lokalen Zeitzone senden](#time-reocurring-iam-window)
 - [Verschiedene Nachrichten an Wochentagen und Wochenenden in der lokalen Zeitzone senden](#time-weekdays-vs-weekends)
 - [Verschiedene Nachrichten basierend auf der Tageszeit in der lokalen Zeitzone senden](#time-of-day)
+- [Nachricht außerhalb eines Stundenbereichs zum Sendezeitpunkt abbrechen](#abort-send-time-hour-range)
+- [Nachricht außerhalb eines Zeitfensters in einer festen Zeitzone abbrechen](#abort-fixed-timezone-window)
+
+{% alert note %}
+Wenn ein/e Nutzer:in eine Nachricht zu einer unerwarteten Ortszeit erhält, hat sich möglicherweise die Zeitzone des Geräts oder Profils geändert (z. B. nach einer Reise). Die Zustellung zur Ortszeit verwendet die Zeitzone im Profil zum Sendezeitpunkt; Nutzer:innen benötigen möglicherweise eine neue Sitzung in ihrer gewohnten Region, bevor Werte wie {% raw %}`{{${time_zone}}}`{% endraw %} das erwartete Ergebnis liefern. Sie können jedoch [die Zeitzone des/der Nutzer:in einfügen](#users-time-zone).
+{% endalert %}
 
 ### Zeitzone des/der Nutzer:in einfügen {#users-time-zone}
 
 Standardmäßig werden Daten und Uhrzeiten in Liquid in koordinierter Weltzeit (UTC) dargestellt. Um Daten und Uhrzeiten in der lokalen Zeitzone anzuzeigen, verwenden Sie den `time_zone`-Filter zusammen mit dem `date`-Filter.
 
-#### Lokales Datum und Uhrzeit zuweisen
+#### Lokales Datum und Uhrzeit zuweisen {#assign-local-date-and-time}
 
 Um eine Variable zuzuweisen, die das aktuelle Datum und die Uhrzeit in der lokalen Zeitzone widerspiegelt, verwenden Sie dieses Format:
 
@@ -1388,9 +1409,9 @@ Um eine Variable zuzuweisen, die das aktuelle Datum und die Uhrzeit in der lokal
 
 - `now`: Ruft das aktuelle Datum und die Uhrzeit in UTC ab.
 - `time_zone`: Ruft die lokale Zeitzone aus dem Standardattribut mithilfe des {% raw %}`{{${time_zone}}}`{% endraw %}-Personalisierungs-Tags ab.
-- `date`: Formatiert das lokale Datum und die Uhrzeit gemäß Ihren Angaben. Im vorherigen Beispiel zeigt das System einen String im Format „February 26, 2026" an. Weitere Formatierungsoptionen finden Sie unter [strftime.net](strftime.net).
+- `date`: Formatiert das lokale Datum und die Uhrzeit gemäß Ihren Angaben. Im vorherigen Beispiel zeigt das System einen String im Format „February 26, 2026“ an. Weitere Formatierungsoptionen finden Sie unter [strftime.net](strftime.net).
 
-#### Zeitzone mit angepassten Attributen anwenden
+#### Zeitzone mit angepassten Attributen anwenden {#apply-the-users-time-zone-with-custom-attributes}
 
 Sie können den `time_zone`-Filter auf angepasste Attribute anwenden, wie folgt:
 
@@ -1464,7 +1485,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### Wiederkehrende In-App-Nachricht innerhalb eines Zeitfensters in der lokalen Zeitzone senden {#time-reoccurring-iam-window}
+### Wiederkehrende In-App-Nachricht innerhalb eines Zeitfensters in der lokalen Zeitzone senden {#time-reocurring-iam-window}
 
 Dieser Anwendungsfall zeigt eine Nachricht an, wenn die aktuelle Uhrzeit innerhalb eines festgelegten Fensters liegt.
 
@@ -1518,23 +1539,59 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
+
+### Nachricht außerhalb eines Stundenbereichs zum Sendezeitpunkt abbrechen {#abort-send-time-hour-range}
+
+Dieser Anwendungsfall bricht die Nachricht ab, wenn die aktuelle Stunde außerhalb eines definierten Bereichs liegt. Er verwendet die Uhrzeit, zu der die Nachricht gerendert wird, die standardmäßig UTC ist, es sei denn, Sie wenden den `time_zone`-Filter an – nicht die lokale Zeitzone des/der Nutzer:in. Um Nachrichten basierend auf der lokalen Zeitzone zu senden, siehe [Verschiedene Nachrichten basierend auf der Tageszeit in der lokalen Zeitzone senden](#time-of-day).
+
+{% raw %}
+```liquid
+{% assign time = 'now' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour > 20 or hour < 8 %}
+{% abort_message("Outside hour range") %}
+{% endif %}
+
+Check out this new bar after work today. HH specials!
+```
+{% endraw %}
+
+### Nachricht außerhalb eines Zeitfensters in einer festen Zeitzone abbrechen {#abort-fixed-timezone-window}
+
+Dieser Anwendungsfall bricht die Nachricht ab, wenn die aktuelle Uhrzeit außerhalb eines definierten Fensters in einer bestimmten Zeitzone liegt (in diesem Beispiel Singapur-Zeit). Sie können dieses Muster verwenden, wenn Sie eine Ruhezeiten-ähnliche Regel benötigen, die an eine Region gebunden ist, anstatt an das `time_zone`-Attribut jedes/jeder Nutzer:in.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: 'Asia/Singapore' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% assign minute = time | date: '%M' | plus: 0 %}
+
+{% if hour < 20 or hour > 21 or (hour == 21 and minute > 45) %}
+{% abort_message("Not within eligible time of 8 pm–9:45 pm SGT") %}
+{% endif %}
+
+Sign up for our exclusive time-limited offer now!
+```
+{% endraw %}
 
 {% endapi %}
 
 {% api %}
 
-## Woche/Tag/Monat
+## Woche/Tag/Monat {#weekdaymonth}
 
 {% apitags %}
 Week/Day/Month
 {% endapitags %}
 
 - [Namen des Vormonats in eine Nachricht einfügen](#month-name)
-- [Kampagne am Ende jedes Monats senden](#month-end)
-- [Kampagne am letzten (Wochen-)Tag des Monats senden](#day-of-month-last)
+- [Campaign am Ende jedes Monats senden](#month-end)
+- [Campaign am letzten (Wochen-)Tag des Monats senden](#day-of-month-last)
 - [Jeden Tag des Monats eine andere Nachricht senden](#day-of-month)
 - [Jeden Wochentag eine andere Nachricht senden](#day-of-week)
+- [Nachricht an einem bestimmten Kalenderdatum abbrechen](#abort-specific-calendar-date)
+- [Nachricht an einem bestimmten Wochentag abbrechen](#abort-specific-weekday)
 
 ### Namen des Vormonats in eine Nachricht einfügen {#month-name}
 
@@ -1584,7 +1641,7 @@ Here's an overview of what your spending looked like in {{last_month_name}}.
 ```
 {% endraw %}
 
-### Kampagne am Ende jedes Monats senden {#month-end}
+### Campaign am Ende jedes Monats senden {#month-end}
 
 Dieser Anwendungsfall prüft, ob das aktuelle Datum in einer Liste von Daten enthalten ist, und zeigt je nach Datum eine spezifische Nachricht an.
 
@@ -1604,7 +1661,7 @@ The date is correct
 ```
 {% endraw %}
 
-### Kampagne am letzten (Wochen-)Tag des Monats senden {#day-of-month-last}
+### Campaign am letzten (Wochen-)Tag des Monats senden {#day-of-month-last}
 
 Dieser Anwendungsfall erfasst den aktuellen Monat und Tag und berechnet, ob der aktuelle Tag auf den letzten Wochentag des Monats fällt.
 
@@ -1728,7 +1785,35 @@ Default copy
 {% endraw %}
 
 {% alert note %}
-Sie können die Zeile „Default copy" durch {% raw %}`{% abort_message() %}`{% endraw %} ersetzen, um zu verhindern, dass die Nachricht gesendet wird, wenn der Wochentag unbekannt ist.
+Sie können die Zeile „Default copy“ durch {% raw %}`{% abort_message() %}`{% endraw %} ersetzen, um zu verhindern, dass die Nachricht gesendet wird, wenn der Wochentag unbekannt ist.
 {% endalert %}
 
+### Nachricht an einem bestimmten Kalenderdatum abbrechen {#abort-specific-calendar-date}
+
+Dieser Anwendungsfall bricht die Nachricht an einem gewählten Monat und Tag jedes Jahr ab (im Beispiel der 5. Mai). Er vergleicht das aktuelle Datum mit einem eindeutigen Monat-Tag-String, der mit dem `date`-Filter erstellt wird.
+
+{% raw %}
+```liquid
+{% assign date = 'now' | date: '%d/%m' %}
+{% if date == '05/05' %}
+{% abort_message('No message on the 5th of May') %}
+{% endif %}
+```
+{% endraw %}
+
+### Nachricht an einem bestimmten Wochentag abbrechen {#abort-specific-weekday}
+
+Dieser Anwendungsfall bricht die Nachricht ab, wenn Liquid an einem bestimmten Wochentag ausgeführt wird (im Beispiel `Wednesday`). Der Filter `%A` gibt den vollständigen englischen Wochentagsnamen zurück.
+
+{% raw %}
+```liquid
+{% assign weekday = 'now' | date: '%A' %}
+{% if weekday == 'Wednesday' %}
+{% abort_message("No message on Wednesdays") %}
+{% endif %}
+```
+{% endraw %}
+
 {% endapi %}
+
+Viele Beispiele in dieser Bibliothek verwenden den `abort_message`-Tag, um einen Versand zu überspringen, wenn Bedingungen nicht erfüllt sind. Eine vollständige Referenz zum Abbrechen von Versendungen mit Liquid, einschließlich datums- und zeitbasierter Muster, finden Sie unter [Liquid-Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

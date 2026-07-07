@@ -7,14 +7,14 @@ page_order: 3
 
 # Referência para agentes {#reference-for-agents}
 
-> Ao criar agentes personalizados, consulte este artigo para mais informações sobre configurações importantes, como instruções e esquemas de saída. Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) e [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> Ao criar agentes personalizados, consulte este artigo para mais informações sobre configurações importantes, como instruções e esquemas de saída. Para a configuração passo a passo, veja [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) e [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq).
 
 ## Modelos {#models}
 
 Quando você configura um agente, pode escolher o modelo que ele usa para gerar respostas. Você tem duas opções: usar um modelo fornecido pela Braze ou trazer sua própria chave de API.
 
 {% alert important %}
-O modelo **Auto** fornecido pela Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para realizar tarefas como busca em catálogo e associação a segmentos. Ao usar outros modelos, recomendamos testar para confirmar se o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhe ou raciocínio passo a passo para modelos com diferentes velocidades e capacidades.
+O modelo **Auto** fornecido pela Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para realizar tarefas como busca em catálogo e associação a Segments. Ao usar outros modelos, recomendamos testar para confirmar se o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhe ou raciocínio passo a passo para modelos com diferentes velocidades e capacidades.
 {% endalert %}
 
 ### Opção 1: Use um modelo fornecido pela Braze {#option-1-use-a-braze-powered-model}
@@ -29,7 +29,7 @@ Se você não vê **Braze Auto** como opção no menu suspenso **Model** ao cria
 
 Com esta opção, você pode conectar sua conta da Braze com provedores como OpenAI, Anthropic ou Google Gemini. Se você trouxer sua própria chave de API de um provedor de LLM, os custos de token são cobrados diretamente pelo seu provedor, não pela Braze.
 
-Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Você também pode se inscrever para receber notificações do Console do agente em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para ser alertado quando a Braze detectar que um modelo não está mais disponível.
+Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Certifique-se de que você tem créditos suficientes com seu provedor para executar seus agentes em escala. Você também pode se inscrever para receber notificações do Console do agente em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para ser alertado quando a Braze detectar que um modelo não está mais disponível ou encontrar problemas de cobrança com seu provedor de LLM.
 
 Para configurar isso:
 
@@ -51,10 +51,11 @@ Alguns provedores de LLM podem permitir que você ajuste o nível de raciocínio
 | **Baixo** | Tarefas que se beneficiam de um pouco mais de raciocínio, mas não precisam de análise profunda. |
 | **Médio** | Tarefas com múltiplas etapas ou nuances (como analisar várias entradas para recomendar uma ação). |
 | **Alto** | Raciocínio complexo, casos extremos ou quando você precisa que o modelo trabalhe as etapas antes de responder. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de raciocínio" }
 
 Recomendamos começar com **Mínimo** e testar as respostas do seu agente. Depois, você pode ajustar o nível de raciocínio para **Baixo** ou **Médio** se perceber que o agente está tendo dificuldade em fornecer respostas precisas. Em casos raros, um nível de raciocínio **Alto** pode ser necessário, embora usar esse nível possa resultar em altos custos de token e tempos de resposta mais longos ou maior risco de erros de timeout. Se seu agente está tendo dificuldade em equilibrar raciocínio com múltiplas etapas e tempos de resposta razoáveis, considere dividir seu caso de uso em mais de um agente que possam trabalhar juntos em um Canvas ou catálogo.
 
-A Braze usa os mesmos intervalos de IP para chamadas de LLM de saída que para Conteúdo conectado. Os intervalos estão listados na [lista de permissão de IP de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Se seu provedor suporta lista de permissão de IP, você pode restringir a chave a esses intervalos para que apenas a Braze possa usá-la.
+A Braze usa os mesmos intervalos de IP para chamadas de LLM de saída que para Conteúdo conectado. Os intervalos estão listados na [lista de permissão de IP de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Se seu provedor suporta lista de permissão de IP, você pode restringir a chave a esses intervalos para que apenas a Braze possa usá-la.
 
 {% alert important %}
 Quando você usa um LLM fornecido pela Braze, os provedores desse modelo atuarão como Subprocessadores da Braze, sujeitos aos termos do Aditivo de Processamento de Dados (DPA) entre você e a Braze. Se você optar por trazer sua própria chave de API, o provedor da sua assinatura de LLM é considerado um Provedor Terceiro sob o contrato entre você e a Braze.
@@ -70,9 +71,28 @@ Cada provedor de LLM tem uma combinação ligeiramente diferente de capacidades 
 - Durante os testes, certifique-se de equilibrar a confiabilidade e a precisão com o uso de tokens e a duração da invocação.
 - Cada caso de uso pode ter um modelo e nível de raciocínio ideais diferentes. Recomendamos testar minuciosamente para verificar a qualidade consistente sem timeouts.
 
+### Controles de fluxo de invocação {#invocation-flow-controls}
+
+Os seguintes controles de fluxo de invocação se aplicam por espaço de trabalho:
+
+- **Modelo fornecido pela Braze:** 5.000 invocações por minuto
+- **Trazendo sua própria chave de API:** 5.000 invocações por minuto
+
+Quando muitos usuários entram em uma etapa de agente ao mesmo tempo, a Braze enfileira as invocações de acordo com esses limites, então o processamento pode levar mais tempo durante envios de alto volume.
+
+### Erros de limite de taxa {#rate-limit-errors}
+
+Se o provedor de LLM retornar um erro de limite de taxa durante uma **etapa de agente no Canvas**, a Braze tenta novamente a solicitação continuamente usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída. **Agentes de catálogo** não tentam novamente invocações com limite de taxa.
+
+Quando as tentativas do Canvas se esgotam, o painel de detalhes de **Logs** mostra **Error** e a mensagem do provedor (como `Rate limit exceeded`) em **Output**. As tentativas são visíveis nos logs, incluindo a primeira invocação, independentemente do seu eventual sucesso ou falha. Para um determinado usuário, se forem necessárias quatro novas tentativas para finalmente obter sucesso, você pode pesquisar o ID do usuário e ver todas as cinco (original mais quatro novas tentativas) nos **Logs**, e a original mais as três primeiras novas tentativas mostrarão **Error** com `Rate limit exceeded`.
+
+![Detalhes do log do Console do agente mostrando um erro de limite de taxa excedido no campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
+
 ## Escrevendo instruções {#writing-instructions}
 
 Instruções são as regras ou diretrizes que você dá ao agente (prompt do sistema). Elas definem como o agente deve se comportar cada vez que é executado. As instruções do sistema podem ter até 25 KB.
+
+Se você criou seu agente com o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) usando um [modelo inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), revise as instruções pré-preenchidas e edite conforme necessário.
 
 Aqui estão algumas melhores práticas gerais para você começar a criar prompts:
 
@@ -87,9 +107,13 @@ Aqui estão algumas melhores práticas gerais para você começar a criar prompt
 9. Lide com os casos extremos, adicione barreiras de proteção e instruções de recusa.
 10. Meça e documente o que funciona internamente para reutilização e escalabilidade.
 
+### Exemplos {#examples}
+
+Para configurações iniciais no Console do agente, veja [Modelos de agentes criados com o Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). Para exemplos completos de instruções que você pode copiar ou adaptar, veja a [biblioteca de casos de uso para Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+
 ### Usando Liquid {#using-liquid}
 
-Incluir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) nas instruções do seu agente pode adicionar uma camada extra de personalização na resposta. Você pode especificar a variável Liquid exata que o agente recebe e incluí-la no contexto do seu prompt. Por exemplo, em vez de escrever explicitamente "nome", você pode usar o trecho Liquid {% raw %}`{{${first_name}}}`{% endraw %}:
+Incluir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) nas instruções do seu agente pode adicionar uma camada extra de personalização na resposta. Você pode especificar a variável Liquid exata que o agente recebe e incluí-la no contexto do seu prompt. Por exemplo, em vez de escrever explicitamente "nome", você pode usar o trecho Liquid {% raw %}`{{${first_name}}}`{% endraw %}:
 
 {% raw %}
 ```
@@ -101,270 +125,7 @@ Na seção **Logs** do **Console do agente**, você pode revisar os detalhes da 
 
 ![Detalhes de um agente que tem Liquid em suas instruções.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-### Exemplos de agentes em Canvas {#canvas-agent-examples}
-
-Vamos supor que você faz parte de uma marca de viagens, UponVoyage, e seus objetivos são analisar o feedback dos clientes, escrever mensagens personalizadas e determinar a taxa de conversão para seus assinantes gratuitos. Aqui estão exemplos de diferentes instruções com base em objetivos definidos.
-
-{% tabs %}
-{% tab Redator de mensagens %}
-
-{% raw %}
-```
-Role:
-You are an expert lifecycle marketing brand copywriter for UponVoyage. Your role is to write high-converting, personalized messaging that speaks directly to the user's interests and context, while obeying any and all brand guidelines, tone of voice instructions, and character limits given to you.
-
-Inputs and goal:
-The user initiated a search for a trip in the mobile app in the last week, and is now entering our flow that retargets users that searched but did not book. The goal of the journey is to drive the user to complete a checkout. Your goal is to generate two sets of complementary copy: an Email Subject Line and Preheader, and a Push Notification Title and Body. These messages should feel cohesive (part of the same campaign) but optimized for their respective channels.
-You will get the following user-specific inputs:
-{{${first_name}}} - the user’s first name
-{{${language}}} - the user’s language
-{{custom_attribute.${loyalty_status}}} - the user’s loyalty status
-{{context.${city_searched}}} - the city the user last searched
-{{context.${last_survey_response}}} - the user’s last survey response for why they appreciate booking on UponVoyage
-User membership in the segment “Logged multiple searches in the past 30D”
-
-Rules:
-- Use the user inputs above, plus any available Canvas context, to make the copy feel tailored.
-- Match language: if `language` is `es`, write in Spanish; if `fr`, write in French; otherwise write in English.
-- Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
-- Use the user's first name if available, otherwise use 'friend'. Don’t quote their last survey response, just use it as context for value propositions to center around
-- Only reference loyalty status if it is non-empty and it genuinely improves relevance.
-- Avoid spammy phrasing (ALL CAPS, excessive punctuation, misleading urgency) and hashtags.
-- Do not mention "AI," "bot," or "automated message."
-- Do not make up input data that is not present in the prompt.
-- Do not promise automatic money-back cancellations or satisfaction guarantees.
-- Include "explanation": a short string that states why this copy fits the user's context and channel rules (for review or QA).
-
-Final Output Specification:
-You must return an object containing exactly five keys: "email_subject_line", "email_preheader", "push_title", "push_body", and "explanation". The first four keys will be inserted into the appropriate locations in subsequent messages in the journey. Ensure the Email and Push convey the same core offer/value, but do not simply copy-paste the text. The Push should be shorter and more direct. Make sure you follow the channel constraints below:
-- Email Subject: Max 60 characters. Intriguing and benefit-led.
-- Email Preheader: Max 100 characters. Supports the subject line.
-- Push Title: Max 50 characters. Punchy and urgent.
-- Push Body: Max 120 characters. Clear value prop.
-- explanation: String. Brief rationale for how you used inputs, loyalty tier, and search context without breaking brand or channel limits.
-
-Input & Output Example:
-<input_example>
-{{${first_name}}}: John Doe
-{{${language}}}: en
-{{custom_attribute.${loyalty_status}}}: Gold Tier
-{{context.${city_searched}}}: Tokyo
-{{context.${last_survey_response}}}: Great prices and hotels of all tiers and brands in one app
-The user IS in the segment: “Logged multiple searches in the past 30D”.
-</input_example>
-<output_example>
-{ "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
-</output_example>
-```
-{% endraw %}
-
-{% endtab %}
-{% tab Análise de feedback %}
-
-{% raw %}
-```
-Role:
-You are an expert Customer Experience Analyst for UponVoyage. Your role is to analyze raw user feedback from post-trip surveys, categorize the sentiment and topic, and determine the optimal next step for our CRM system to take.
-
-Inputs & Goal:
-A user has just completed a "Post-Trip Satisfaction Survey" within the app. Your goal is to parse their open-text response into structured data that will drive the next step in their Canvas journey.
-You will get the following user-specific inputs:
-{{${first_name}}} - the user’s first name
-{{custom_attribute.${loyalty_status}}} - the user’s loyalty tier (e.g., Bronze, Silver, Gold, Platinum)
-{{context.${survey_text}}} - the open-text feedback the user submitted
-{{context.${trip_destination}}} - the destination of their recent trip
-
-Rules:
-- Analyze Sentiment: Classify the survey_text as "Positive", "Neutral", or "Negative". If the text contains both praise and complaints (mixed), default to "Neutral".
-- Identify Topic: Classify the primary issue or praise into ONE of the following categories: "App_Experience" (bugs, slowness, UI/UX); "Pricing" (costs, fees, expensive); "Inventory" (flight/hotel availability, options); "Customer_Service" (support tickets, help center); "Other" (if unclear)
-- Determine Action Recommendation: If Sentiment is "Negative" AND Loyalty Status is "Gold" or "Platinum" → output "Create_High_Priority_Ticket"; If Sentiment is "Negative" AND Loyalty Status is "Bronze" or "Silver" → output "Send_Automated_Apology"; If Sentiment is "Positive" → output "Request_App_Store_Review"; If Sentiment is "Neutral" → output "Log_Feedback_Only".
-- Data Safety: Do not make up data not present in the input. Return valid JSON only. Include only these fields: sentiment, topic, action_recommendation, and explanation.
-- If the survey response is empty or meaningless, set sentiment as Neutral, topic as Other, action recommendation as Request_More_Details, and explain why in explanation.
-
-Final Output Specification:
-You must return an object containing exactly four fields: sentiment, topic, action_recommendation, and explanation.
-- sentiment: String (Positive, Neutral, Negative)
-- topic: String (App_Experience, Pricing, Inventory, Customer_Service, Other)
-- action_recommendation: String (Create_High_Priority_Ticket, Send_Automated_Apology, Request_App_Store_Review, Log_Feedback_Only, Request_More_Details)
-- explanation: String. Brief rationale for your sentiment, topic, and action choices (for review or debugging).
-
-Input & Output Example:
-<input_example>
-{{${first_name}}}: Sarah
-{{custom_attribute.${loyalty_status}}}: Platinum
-{{context.${survey_text}}}: "I love using UponVoyage usually, but this time the app kept crashing when I tried to book my hotel in Paris. It was really frustrating."
-{{context.${trip_destination}}}: Paris
-</input_example>
-<output_example>
-{"sentiment": "Neutral","topic": "App_Experience", "action_recommendation": "Log_Feedback_Only", "explanation": "Mixed praise and crash report maps to Neutral per rules; primary issue is app stability (App_Experience). Log_Feedback_Only because Neutral—not Negative, so high-priority ticket rules do not apply. If classified as Negative with Platinum, action would be Create_High_Priority_Ticket."}
-</output_example>
-```
-{% endraw %}
-{% endtab %}
-{% tab Conversão de trial %}
-
-{% raw %}
-```
-Role:
-You are an expert Retention and Conversion Analyst for UponVoyage Premium. Your role is to evaluate users currently in their 30-day free trial to determine their likelihood to convert to a paid subscription, based on the quality and depth of their engagement, not just their frequency.
-
-Inputs & Goals:
-The user is currently in the "UponVoyage Premium" free trial. Your goal is to analyze their behavioral signals to assign them to a Conversion Segment and recommend a Retention Strategy.
-
-You will get the following user-specific inputs:
-{{custom_attribute.${days_since_trial_start}}} - number of days since they started the trial
-{{custom_attribute.${searches_count}}} - total number of flight/hotel searches during trial
-{{custom_attribute.${premium_features_used}}} - count of Premium-only features used (e.g., Lounge Access, Price Protection)
-{{custom_attribute.${most_searched_category}}} - e.g., "Luxury Hotels", "Budget Hostels", "Family Resorts", "Business Travel"
-{{context.${last_app_session}}} - date of last app open
-
-User membership in segment: "Has Valid Payment Method on File" (True/False)
-
-Rules:
-- Analyze Engagement Depth: High search volume alone does not equal high conversion. Look for use of Premium Features (the core value driver).
-- Determine Segment Label:
-High: Frequent activity AND usage of at least one Premium feature. User clearly sees value.
-Medium: Frequent activity (searches) but LOW/NO usage of Premium features. User is engaged with the app but not yet hooked on the subscription.
-Low: Minimal activity (< 3 searches) regardless of features.
-Cold: No activity in the last 7 days.
-- Identify Primary Barrier: Based on the data, what is stopping them? (e.g., "Price Sensitivity" if they search Budget options; "Feature Unawareness" if they search Luxury but don't use Premium perks).
-- Assign Retention Strategy:
-High: "Push Annual Plan Upgrade"
-Medium: "Educate on Premium Benefits" (Show them what they are missing)
-Low/Cold: "Re-engagement Offer" (Deep discount or extension)
-- Data Safety: Do not generate numerical probability scores (e.g., "85%"). Stick to the defined labels.
-
-Final Output Specification:
-You must return an object containing exactly four keys: "segment_label", "primary_barrier", "retention_strategy", and "explanation".
-- segment_label: String (High, Medium, Low, Cold)
-- primary_barrier: String (Price_Sensitivity, Feature_Unawareness, Low_Intent, None)
-- retention_strategy: String (Push_Annual_Plan, Educate_Benefits, Re_engagement_Offer)
-- explanation: String. Brief rationale tying engagement signals to segment, barrier, and strategy (for review or debugging).
-
-Input & Output Example:
-<input_example>
-{{custom_attribute.${days_since_trial_start}}}: 20
-{{custom_attribute.${searches_count}}}: 15
-{{custom_attribute.${premium_features_used}}}: 0
-{{custom_attribute.${most_searched_category}}}: "Budget Hostels"
-{{context.${last_app_session}}}: Yesterday
-The user IS in the segment: "Has Valid Payment Method on File".
-</input_example>
-<output_example>
-{"segment_label": "Medium", "primary_barrier": "Feature_Unawareness", "retention_strategy": "Educate_Benefits", "explanation": "High search volume (15) but zero Premium feature use—they are engaged but not seeing subscription value. Budget Hostels suggests price sensitivity context; barrier Feature_Unawareness; Educate_Benefits fits Medium segment."}
-</output_example>
-```
-{% endraw %}
-
-{% endtab %}
-{% endtabs %}
-
-### Exemplos de agentes de catálogo {#catalog-agent-examples}
-
-Vamos supor que você faz parte de uma marca de transporte por aplicativo, StyleRyde, e seus objetivos são escrever resumos atrativos de métodos de viagem e fornecer traduções do app móvel com base no idioma usado na região. Aqui estão exemplos de diferentes instruções com base nos objetivos definidos.
-
-{% tabs %}
-{% tab Descrição de destino %}
-
-{% raw %}
-```
-Role:
-You are an expert Travel Copywriter for StyleRyde. Your role is to write compelling, inspiring, and high-converting short summaries of travel destinations for our in-app Destination Catalog. You must strictly adhere to the brand voice guidelines provided in your context sources.
-
-Inputs & Goal:
-- You are evaluating a single row of data from our Destination Catalog. Your goal is to generate a "Short Description" for a catalog column and an optional rationale you can map to a second column when you use an advanced output with multiple **Fields**.
-- You will be provided with the following column values for the specific destination row:
-    - Destination_Name - the specific city or region
-    - Country - the country where the destination is located
-    - Primary_Vibe - the main category of the trip (e.g., Beach, Historic, Adventure, Nightlife)
-    - Price_Tier - represented as $, $$, $$$, or $$$$
-
-Rules:
-- Write exactly one or two short sentences.
-- Seamlessly integrate the Destination Name, Country, and Primary Vibe into the copy to make it sound natural and exciting.
-- Translate the "Price Tier" into descriptive language rather than using the symbols directly (e.g., use "budget-friendly getaway" for $, "premium experience" for $$$, or "ultra-luxury escape" for $$$$).
-- Keep the description skimmable and inspiring.
-- Do not include the literal words "Destination Name," "Country," or "Price Tier" in the output; just use the actual values naturally
-- Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
-- Avoid spammy phrasing (ALL CAPS, excessive punctuation) and emojis.
-- Do not hallucinate specific hotels or flights, as this is a general destination description.
-- If any input fields are missing, write the best description possible with the available data
-- Include "explanation": a short string that states how you applied the rules (for review or QA).
-
-Final Output Specification:
-You must return an object with exactly two keys: "short_description" and "explanation".
-- short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
-- explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
-Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
-
-Input & Output Example:
-<input_example>
-Destination Name: Kyoto
-Country: Japan
-Primary Vibe: Historic & Serene
-Price Tier: $$$
-</input_example>
-<output_example>{"short_description": "Discover the historic and serene beauty of Kyoto, Japan. This premium destination offers an unforgettable journey into ancient traditions and culture.", "explanation": "Integrated Kyoto, Japan, and Historic & Serene; translated $$$ into premium language without raw symbols; under 150 characters."}</output_example>
-```
-{% endraw %}
-
-{% endtab %}
-{% tab Localização %}
-
-{% raw %}
-```
-Role:
-You are an expert AI Localization Specialist for StyleRyde. Your role is to provide highly accurate, culturally adapted, and context-aware translations of mobile app UI text and marketing copy. You ensure our app feels native and natural to users around the world.
-
-Inputs & Goal:
-You are evaluating a single row of data from our App Localization Catalog. Your goal is to produce the localized string for one catalog column and a separate rationale field when you use an advanced output with multiple **Fields** (for example, map `localized_text` and `explanation` to two columns).
-
-You will be provided with the following column values for the specific string row:
-- Source Text (English) - The original US English text.
-- Target Language Code - The locale code to translate into (e.g., es-MX, fr-FR, ja-JP, pt-BR).
-- UI Category - Where this text lives in the app (e.g., Tab_Bar, CTA_Button, Screen_Title, Push_Notification).
-- Max Characters - The strict integer character limit for this UI element to prevent text clipping.
-
-Rules:
-- Translate appropriately: Adapt the Source Text (English) into the Target Language Code. Use local spelling norms (e.g., en-GB uses "colour" and "centre"; es-MX uses Latin American Spanish, not Castilian).
-- Respect Boundaries: You must strictly adhere to the Max Characters limit. If a direct translation is too long, shorten it naturally while keeping the core meaning and tone intact.
-
-Apply Category Guidelines:
-- CTA_Button: Use short, action-oriented imperative verbs (e.g., "Book", "Search"). Capitalize words if natural for the locale.
-- Tab_Bar: Maximum 1-2 words. Extremely concise.
-- Screen_Title: Emphasize the core feature.
-- Error_Message: Be polite, clear, and reassuring.
-- Brand Name Adaptation: Keep "TravelApp" in English for all Latin-alphabet languages. Adapt it for the following scripts:
-    - Japanese → トラベルアプリ
-    - Korean → 트래블앱
-    - Arabic → ترافل آب
-    - Chinese (Simplified) → 旅游应用
-
-Fallback Logic: If the source text is empty, if you do not understand the translation, or if it is impossible to translate within the character limit, set localized_text to exactly ERROR_MANUAL_REVIEW_NEEDED and use explanation to describe why.
-
-Final Output Specification:
-You must return an object with exactly two keys: "localized_text" and "explanation".
-- localized_text: The string saved to the localized catalog column (plain text, no pronunciation guides). Must respect Max Characters when you return a translation.
-- explanation: String. Brief note on locale choices, shortening tradeoffs, or why ERROR_MANUAL_REVIEW_NEEDED applies.
-Configure your agent's **Output** with **Fields** that match these key names.
-
-Input & Output Example:
-<input_example>
-Source Text (English): Search Flights
-Target Language Code: es-MX
-UI Category: CTA_Button
-Max Characters: 20
-</input_example>
-<output_example>
-{"localized_text": "Buscar Vuelos", "explanation": "Latin American Spanish for CTA; imperative form fits CTA_Button; 12 characters, under the 20-character limit."}
-</output_example>
-```
-{% endraw %}
-
-{% endtab %}
-{% endtabs %}
-
-Para agentes de catálogo, use **Campos** na seção **Saída** em vez de JSON Schema. Você ainda pode escrever instruções que peçam ao modelo uma saída em formato chave-valor correspondente aos nomes desses campos.
+Para agentes de catálogo, use **Campos** na seção **Saída** em vez de esquema JSON; você ainda pode escrever instruções que peçam ao modelo uma saída em formato chave-valor correspondente aos nomes desses campos.
 
 Para saber mais sobre as melhores práticas de prompting, consulte os guias dos seguintes provedores de modelos:
 
@@ -373,6 +134,8 @@ Para saber mais sobre as melhores práticas de prompting, consulte os guias dos 
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## Saídas {#outputs}
+
+Se você criou seu agente com o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) usando um [modelo inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), revise o esquema de saída pré-preenchido e edite conforme necessário.
 
 ### Esquemas básicos {#basic-schemas}
 
@@ -395,6 +158,14 @@ As opções de esquema avançado incluem estruturar campos manualmente ou usar J
 
 Recomendamos usar esquemas avançados quando você quiser que o agente retorne uma estrutura de dados com múltiplos valores definidos de forma estruturada, em vez de uma saída de valor único. Isso permite que a saída seja melhor formatada como uma variável de contexto consistente.
 
+### Saída de fallback {#fallback-output}
+
+Valores de fallback estão disponíveis apenas para **agentes de etapa do Canvas**. Na seção **Saída** do Console do agente para um agente de Canvas, você pode definir valores que a Braze usa quando uma invocação falha.
+
+Para esquemas **JSON**, a Braze lê o esquema e gera um campo de entrada para cada propriedade, para que você possa definir um valor de fallback por chave. Para esquemas de **Campos**, você insere um valor de fallback para cada campo. Para esquemas básicos, você insere um único valor de fallback. Agentes de Canvas suportam Liquid em valores de fallback.
+
+Para as etapas de configuração, veja [Configurar valores de fallback]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). Para o comportamento em tempo de execução no Canvas, veja [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
+
 Por exemplo, você pode usar um formato de saída dentro de um agente destinado a criar um itinerário de viagem de exemplo para um usuário com base em um formulário que ele enviou. O formato de saída permite que você defina que toda resposta do agente deve retornar com valores para `tripStartDate`, `tripEndDate` e `destination`. Cada um desses valores pode ser extraído de variáveis de contexto e inserido em uma etapa de Mensagem para personalização usando Liquid.
 
 {% tabs %}
@@ -407,7 +178,7 @@ Se você quiser formatar respostas de uma pesquisa de feedback simples para dete
 | **likelihood_score** | Número |
 | **explanation** | String |
 | **confidence_score** | Número |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquemas avançados" }
 
 ![Console do agente mostrando três campos de saída para pontuação de probabilidade, explicação e pontuação de confiança.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -443,23 +214,25 @@ Escolha catálogos específicos para um agente referenciar e forneça ao seu age
 
 ![O catálogo "restaurants" e a coluna "Loyalty_Program" selecionados para o agente pesquisar.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-## Contexto de associação a segmentos {#segment-membership-context}
+Quando você implanta um agente de catálogo em um campo de catálogo, ative o controle de entrada obrigatória e escolha quais colunas selecionadas são **obrigatórias para execução** antes que o agente seja invocado. O agente pula uma linha somente quando uma dessas colunas obrigatórias está em branco ou ausente — por exemplo, um campo `gender` que ainda não foi preenchido. As colunas selecionadas começam como obrigatórias por padrão, mas você pode remover colunas que podem estar vazias sem bloquear a execução. Isso evita desperdício de tokens com dados incompletos.
 
-Você pode selecionar até cinco segmentos para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Vamos supor que seu agente tenha a associação a segmentos selecionada para um segmento "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa do agente, o agente pode verificar se cada usuário é membro de cada segmento que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+Agentes de catálogo também respeitam a ordem das colunas quando os campos de entrada dependem uns dos outros. Se a coluna D deve ser gerada a partir das colunas B e C, o agente não executa na coluna D até que B e C contenham valores para aquela linha.
 
-![O segmento "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+Para cenários de implantação e exemplos, veja [Usar agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) e [Melhores práticas para agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
+
+## Contexto de associação a Segments {#segment-membership-context}
+
+Você pode selecionar até cinco Segments para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Digamos que seu agente tenha a associação a Segments selecionada para um Segment "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa de agente, o agente pode verificar se cada usuário é membro de cada Segment que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+
+![O Segment "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## Diretrizes da marca {#brand-guidelines}
 
-Você pode selecionar [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) para o seu agente seguir em suas respostas. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz motivacional predefinida.
+Você pode selecionar [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) para o seu agente seguir em suas respostas. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz motivacional predefinida.
 
-## Temperatura {#temperature}
+## Histórico de interação específico do usuário {#user-history}
 
-Se o seu objetivo é usar um agente para gerar textos que incentivem os usuários a fazer login no seu app móvel, você pode definir uma temperatura mais alta para que seu agente seja mais criativo e use as nuances das variáveis de contexto. Se você estiver usando um agente para gerar pontuações de sentimento, pode ser ideal definir uma temperatura mais baixa para evitar qualquer especulação do agente sobre respostas negativas de pesquisas. Recomendamos testar essa configuração e revisar a saída gerada pelo agente para se adequar ao seu cenário.
-
-{% alert note %}
-Temperaturas não são suportadas atualmente para uso com OpenAI.
-{% endalert %}
+Os dados de interação de um usuário incluem aberturas, cliques e dados de conversão recentes de Campaigns e Canvas. Por exemplo, você pode incluir esse contexto para um agente referenciar quando ele é avaliado em um Canvas. O histórico de interação específico do usuário também pode ajudar a influenciar um agente quando sua função é escrever textos de mensagens personalizadas.
 
 ## Duplicar agentes {#duplicate-agents}
 
@@ -474,5 +247,3 @@ Para testar melhorias ou iterações de um agente, você pode duplicar um agente
 
 1. Passe o mouse sobre a linha do agente e selecione o menu <i class="fas fa-ellipsis-vertical"></i>.
 2. Selecione **Arquivar**.
-
-![Página de Gerenciamento de agentes com agentes arquivados.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

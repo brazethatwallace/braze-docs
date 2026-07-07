@@ -2,7 +2,7 @@
 Geofences are supported on **both iOS and Android** in the React Native SDK. The `requestLocationInitialization` method is Android-only and is not required for iOS. The `requestGeofences` method is available on both platforms. By default, the SDK can automatically request and monitor geofences when location is available; you can rely on this automatic configuration or call `requestGeofences` to request manually.
 {% endalert %}
 
-{% multi_lang_include developer_guide/prerequisites/react_native.md %} On Android, you'll need to [set up silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) for geofence sync.
+{% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
 ## Setting up geofences {#setting-up-geofences}
 

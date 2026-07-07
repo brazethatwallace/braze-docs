@@ -14,7 +14,7 @@ noindex: true
 
 # Mensajes dentro de la aplicación {#in-app-messages}
 
-[Los mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/) te ayudan a hacer llegar contenido a tu usuario sin interrumpir su día con una notificación push. Los mensajes dentro de la aplicación, personalizados y adaptados, mejoran la experiencia del usuario y ayudan a tu audiencia a obtener el máximo valor de tu aplicación. Con una gran variedad de diseños y herramientas de personalización para elegir, los mensajes dentro de la aplicación atraen a tus usuarios más que nunca.
+[Los mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages) te ayudan a hacer llegar contenido a tu usuario sin interrumpir su día con una notificación push. Los mensajes dentro de la aplicación, personalizados y adaptados, mejoran la experiencia del usuario y ayudan a tu audiencia a obtener el máximo valor de tu aplicación. Con una gran variedad de diseños y herramientas de personalización para elegir, los mensajes dentro de la aplicación atraen a tus usuarios más que nunca.
 
 Consulta nuestros [casos de estudio](https://www.braze.com/customers) para ver ejemplos de mensajes dentro de la aplicación.
 
@@ -59,16 +59,16 @@ Los mensajes dentro de la aplicación [`Modal`](https://appboy.github.io/appboy-
 ![Un mensaje modal dentro de la aplicación en el centro de una pantalla de teléfono que muestra "Los humanos somos complicados. La interacción personalizada no debería serlo". En el fondo se muestra el mismo mensaje dentro de la aplicación en el centro de una página web.]({% image_buster /assets/img/modal-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Full Screen %}
+{% tab Pantalla completa %}
 
 Los mensajes dentro de la aplicación [`Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_full.html) son útiles para maximizar el contenido y el impacto de tu comunicación con el usuario. La mitad superior de un mensaje dentro de la aplicación `full` contiene una imagen, y la mitad inferior muestra texto y hasta dos botones con acción de clic y habilitados para análisis.
 
 ![Un mensaje dentro de la aplicación a pantalla completa que se muestra en toda la pantalla del teléfono y que dice: "Los humanos somos complicados. La interacción personalizada no debería serlo". En el fondo se muestra el mismo mensaje dentro de la aplicación, en gran parte en el centro de una página web.]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Custom HTML %}
+{% tab HTML personalizado %}
 
-Los mensajes dentro de la aplicación [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) son útiles para crear contenido de usuario totalmente personalizado. El contenido HTML completo de los mensajes dentro de la aplicación, definido por el usuario, se muestra en un `WKWebView` y puede contener opcionalmente otros contenidos enriquecidos, como imágenes y fuentes, lo que permite un control total sobre el aspecto y la funcionalidad de los mensajes. <br><br>Los mensajes dentro de la aplicación de iOS admiten una interfaz JavaScript `brazeBridge` para llamar a métodos del SDK web de Braze desde dentro de tu HTML; consulta nuestras [mejores prácticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/) para obtener más detalles.
+Los mensajes dentro de la aplicación [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) son útiles para crear contenido de usuario totalmente personalizado. El contenido HTML completo de los mensajes dentro de la aplicación, definido por el usuario, se muestra en un `WKWebView` y puede contener opcionalmente otros contenidos enriquecidos, como imágenes y fuentes, lo que permite un control total sobre el aspecto y la funcionalidad de los mensajes. <br><br>Los mensajes dentro de la aplicación de iOS admiten una interfaz JavaScript `brazeBridge` para llamar a métodos del SDK web de Braze desde dentro de tu HTML; consulta nuestras [mejores prácticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obtener más detalles.
 
 El siguiente ejemplo muestra un mensaje HTML completo paginado dentro de la aplicación:
 

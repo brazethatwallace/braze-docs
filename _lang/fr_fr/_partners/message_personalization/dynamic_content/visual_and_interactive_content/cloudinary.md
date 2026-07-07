@@ -26,7 +26,7 @@ Des méthodes d'intégration plus avancées, notamment l'utilisation du [contenu
 | Exigences     | Description |
 |-----------------------|-----------------|
 | Compte Cloudinary  | Un [compte Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) est nécessaire pour profiter de ce partenariat.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Méthodes d'intégration {#integration-methods}
 
@@ -75,7 +75,7 @@ La façon la plus directe d'utiliser des images et des vidéos directement depui
 Consultez [Vidéo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) pour les considérations spécifiques à Android et iOS.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab Convertir des vidéos en GIF %}
 
 ## Convertir des vidéos en GIF pour les e-mails {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab Attributs de ciblage %}
 
 ## Sélectionner dynamiquement les ressources de la campagne en fonction des attributs de ciblage {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -117,7 +117,7 @@ Si aucune correspondance exacte n'est trouvée, la fonction sélectionne automat
 Consultez le [dépôt GitHub `braze-personalization`](https://github.com/cloudinary-devs/braze-personalization) de Cloudinary pour obtenir des instructions sur la création et l'application de fonctions personnalisées, ainsi qu'un exemple de fonction personnalisée pour la sélection des ressources et les options de repli pour une campagne donnée. Pour plus de conseils, contactez votre équipe d'assistance Cloudinary.
 {% endalert %}
 
-### Conditions préalables {#prerequisites}
+### Conditions préalables
 
 Pour permettre une sélection dynamique des ressources, Cloudinary doit pouvoir renvoyer un ensemble de ressources en fonction des tags et des métadonnées. Si le type de distribution de la liste est restreint, Cloudinary ne peut pas fournir la liste dynamique nécessaire à la sélection personnalisée des ressources dans les Campaigns Braze.
 - Libérez le type de distribution de la liste : ouvrez les paramètres de sécurité dans votre console Cloudinary, et décochez l'élément de la liste des ressources sous Types d'images restreints.
@@ -140,8 +140,8 @@ Cet exemple suppose que les ressources dans Cloudinary ont deux champs SMD défi
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,19 +149,19 @@ Cet exemple suppose que les ressources dans Cloudinary ont deux champs SMD défi
 
 - URL de sortie pour les utilisateurs ayant l'audience `internal` et la locale `en` :
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL de sortie pour les utilisateurs ayant l'audience `external` et la locale `es` :
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL de l'image de repli :
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab Génération d'images personnalisées %}
 
 ## Génération d'images personnalisées {#personalized-image-generation}
 
@@ -171,7 +171,7 @@ L'exemple suivant montre comment la transformation `l_text` peut être utilisée
 
 Pour plus de conseils sur la façon dont les paramètres de transformation peuvent être utilisés pour concevoir une ressource, contactez votre équipe d'assistance Cloudinary.
 
-### Exemple de transformation `l_text` {#example-ltext-transformation}
+### Exemple de transformation `l_text` {#example-l_text-transformation}
 
 {% raw %}
 ```bash

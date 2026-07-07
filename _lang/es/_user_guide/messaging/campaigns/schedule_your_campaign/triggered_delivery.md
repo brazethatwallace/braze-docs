@@ -8,13 +8,13 @@ tool: Campaigns
 
 ---
 
-# Entrega basada en acciones
+# Entrega basada en acciones {#action-based-delivery}
 
 > Las campañas de entrega basada en acciones o campañas desencadenadas por eventos son muy eficaces para mensajes transaccionales o basados en logros. En lugar de enviar tu campaña en días determinados, puedes desencadenarlas para que se envíen después de que un usuario complete un evento determinado.
 
-## Configurar una campaña desencadenada
+## Configurar una campaña desencadenada {#setting-up-a-triggered-campaign}
 
-### Paso 1: Selecciona un evento desencadenante
+### Paso 1: Selecciona un evento desencadenante {#step-1-select-a-trigger-event}
 
 Selecciona un evento desencadenante. Puede incluir cualquiera de los siguientes:
 - Realizar una compra
@@ -55,11 +55,11 @@ Selecciona un evento desencadenante. Puede incluir cualquiera de los siguientes:
 - Enviar un mensaje SMS de entrada
 - Enviar un mensaje WhatsApp de entrada
 
-También puedes filtrar aún más los eventos desencadenantes a través de las [propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) de Braze, lo que permite propiedades de eventos personalizables para eventos personalizados y compras dentro de la aplicación. Esta característica te permite personalizar aún más qué usuarios reciben un mensaje en función de los atributos específicos del evento personalizado, lo que permite una mayor personalización de la campaña y una recopilación de datos más sofisticada.
+También puedes filtrar aún más los eventos desencadenantes a través de las [propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) de Braze, lo que permite propiedades de eventos personalizables para eventos personalizados y compras dentro de la aplicación. Esta característica te permite personalizar aún más qué usuarios reciben un mensaje en función de los atributos específicos del evento personalizado, lo que permite una mayor personalización de la campaña y una recopilación de datos más sofisticada.
 
 Por ejemplo, supongamos que tenemos una campaña con un evento personalizado de carrito abandonado que se segmenta aún más por el filtro de propiedad "valor del carrito". Esta campaña solo llegará a los usuarios que hayan dejado entre $100 y $200 en productos en sus carritos.
 
-![]({% image_buster /assets/img_archive/customEventProperties.png %})
+![Campaña de carrito abandonado filtrada por una propiedad de evento personalizado para un valor de carrito entre $100 y $200.]({% image_buster /assets/img_archive/customEventProperties.png %})
 
 {% alert note %}
 El evento desencadenante "iniciar sesión" puede ser la primera apertura de la aplicación del usuario si el segmento de tu campaña se aplica a nuevos usuarios (por ejemplo, si tu segmento está compuesto por aquellos sin sesiones).
@@ -74,9 +74,9 @@ Con respecto al evento desencadenante de cuando un usuario añade una dirección
 
 Además, los mensajes dentro de la aplicación desencadenados siguen cumpliendo las reglas de entrega de mensajes dentro de la aplicación y aparecen al inicio de una sesión de la aplicación.
 
-![]({% image_buster /assets/img_archive/schedule_triggered1.png %})
+![Planificación de entrega de campaña basada en acciones mostrando las opciones de configuración del evento desencadenante.]({% image_buster /assets/img_archive/schedule_triggered1.png %})
 
-### Paso 2: Selecciona la duración del retraso
+### Paso 2: Selecciona la duración del retraso {#step-2-select-delay-length}
 
 Selecciona cuánto tiempo esperar antes de enviar la campaña después de que se cumplan los criterios de desencadenamiento. Si la duración del retraso elegida es mayor que la duración del envío del mensaje, ningún usuario recibirá la campaña.
 
@@ -86,18 +86,18 @@ Braze utiliza la marca de tiempo enviada con el evento personalizado para evalua
 
 Además, los usuarios que completen el evento desencadenante después del lanzamiento de tu campaña serán los primeros en comenzar a recibir el mensaje una vez transcurrido el retraso. Los usuarios que hayan completado el evento desencadenante antes del lanzamiento de la campaña no serán elegibles para recibir la campaña.
 
-![]({% image_buster /assets/img_archive/schedule_triggered22.png %})
+![Captura de pantalla relacionada con el paso 2: seleccionar la duración del retraso.]({% image_buster /assets/img_archive/schedule_triggered22.png %})
 
-También puedes optar por enviar la campaña en un día específico de la semana (seleccionando "el próximo" y luego eligiendo un día) o un número específico de días (seleccionando "en") en el futuro. Alternativamente, puedes elegir enviar tu mensaje utilizando la función [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) en lugar de seleccionar manualmente una hora de entrega.
+También puedes optar por enviar la campaña en un día específico de la semana (seleccionando "el próximo" y luego eligiendo un día) o un número específico de días (seleccionando "en") en el futuro. Alternativamente, puedes elegir enviar tu mensaje utilizando la función [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) en lugar de seleccionar manualmente una hora de entrega.
 
-![]({% image_buster /assets/img_archive/schedule_triggered7.png %})
-![]({% image_buster /assets/img_archive/schedule_triggered8.png %})
+![También puedes optar por enviar la campaña en un día específico de la semana (seleccionando "el próximo" y luego eligiendo un día) o un número específico de días (seleccionando "en") en el futuro. Alternativamente, puedes elegir enviar tu mensaje utilizando la función Intelligent Timing en lugar de seleccionar manualmente una hora de entrega.]({% image_buster /assets/img_archive/schedule_triggered7.png %})
+![También puedes optar por enviar la campaña en un día específico de la semana (seleccionando "el próximo" y luego eligiendo un día) o un número específico de días (seleccionando "en") en el futuro. Alternativamente, puedes elegir enviar tu mensaje utilizando la función Intelligent Timing en lugar de seleccionar manualmente una hora de entrega.]({% image_buster /assets/img_archive/schedule_triggered8.png %})
 
-### Paso 3: Selecciona eventos de excepción
+### Paso 3: Selecciona eventos de excepción {#step-3-select-exception-events}
 
-Selecciona un evento de excepción que descalificará a los usuarios de recibir esta campaña. Solo puedes hacer esto si tu mensaje desencadenado se envía después de un retraso de tiempo. Los [eventos de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) pueden ser realizar una compra, iniciar una sesión, realizar uno de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) designados de una campaña o realizar un evento personalizado. Si un usuario completa el evento desencadenante pero luego completa tu evento de excepción antes de que se envíe el mensaje debido al retraso de tiempo, no recibirá la campaña. Los usuarios que no reciban la campaña debido al evento de excepción serán automáticamente elegibles para recibirla en el futuro, la próxima vez que completen el evento desencadenante, incluso si no eliges que los usuarios sean [reelegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
+Selecciona un evento de excepción que descalificará a los usuarios de recibir esta campaña. Solo puedes hacer esto si tu mensaje desencadenado se envía después de un retraso de tiempo. Los [eventos de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) pueden ser realizar una compra, iniciar una sesión, realizar uno de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) designados de una campaña o realizar un evento personalizado. Si un usuario completa el evento desencadenante pero luego completa tu evento de excepción antes de que se envíe el mensaje debido al retraso de tiempo, no recibirá la campaña. Los usuarios que no reciban la campaña debido al evento de excepción serán automáticamente elegibles para recibirla en el futuro, la próxima vez que completen el evento desencadenante, incluso si no eliges que los usuarios sean [reelegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 
-![]({% image_buster /assets/img_archive/schedule_triggered32.png %})
+![Selecciona un evento de excepción que descalificará a los usuarios de recibir esta campaña. Solo puedes hacer esto si tu mensaje desencadenado se envía después de un retraso de tiempo. Los eventos de excepción pueden ser realizar una compra, iniciar una sesión, realizar uno de los eventos de conversión designados de una campaña o realizar un evento personalizado. Si un usuario completa el evento desencadenante pero luego completa tu evento de excepción antes de que se envíe el mensaje debido al retraso de tiempo, no recibirá la campaña. Los usuarios que no reciban la campaña debido al evento de excepción serán automáticamente elegibles para recibirla en el futuro, la próxima vez que completen el evento desencadenante, incluso si no eliges que los usuarios sean reelegibles.]({% image_buster /assets/img_archive/schedule_triggered32.png %})
 
 Puedes leer más sobre cómo utilizar eventos de excepción en nuestra sección sobre [casos de uso]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#use-cases).
 
@@ -107,35 +107,35 @@ Puedes leer más sobre cómo utilizar eventos de excepción en nuestra sección 
 No puedes hacer que un "inicio de sesión" sea tanto el evento desencadenante como el evento de excepción de una campaña. Sin embargo, siempre tienes la opción de seleccionar cualquier otro evento personalizado fuera de esta opción.
 {% endalert %}
 
-### Paso 4: Asigna la duración
+### Paso 4: Asigna la duración {#step-4-assign-duration}
 
 Asigna la duración de la campaña especificando una hora de inicio y una hora de finalización opcional.
 
-![]({% image_buster /assets/img_archive/schedule_triggered43.png %})
+![Captura de pantalla relacionada con el paso 4: asignar la duración.]({% image_buster /assets/img_archive/schedule_triggered43.png %})
 
 Si un usuario completa un evento desencadenante durante el período de tiempo especificado pero se vuelve elegible para el mensaje fuera del período de tiempo debido a un retraso programado, entonces no recibirá la campaña. Por lo tanto, si estableces un retraso de tiempo mayor que el período de tiempo del mensaje, ningún usuario recibirá tu campaña. Además, puedes optar por enviar el mensaje en las [zonas horarias locales]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) de los usuarios.
 
-### Paso 5: Selecciona el período de tiempo
+### Paso 5: Selecciona el período de tiempo {#step-5-select-time-frame}
 
 Selecciona si el usuario recibirá la campaña durante una parte específica del día. Si le das al mensaje un período de tiempo y el usuario completa el evento desencadenante fuera del período de tiempo o el retraso del mensaje hace que pierda el período de tiempo, entonces, de forma predeterminada, el usuario no recibirá tu mensaje.
 
-![]({% image_buster /assets/img_archive/schedule_triggered5.png %})
+![Selecciona si el usuario recibirá la campaña durante una parte específica del día. Si le das al mensaje un período de tiempo y el usuario completa el evento desencadenante fuera del período de tiempo o el retraso del mensaje hace que pierda el período de tiempo, entonces, de forma predeterminada, el usuario no recibirá tu mensaje.]({% image_buster /assets/img_archive/schedule_triggered5.png %})
 
 En el caso de que un usuario complete el evento desencadenante dentro del período de tiempo, pero el retraso del mensaje haga que el usuario quede fuera del período de tiempo, puedes marcar la siguiente casilla para que estos usuarios sigan recibiendo la campaña.
 
-![]({% image_buster /assets/img_archive/schedule_triggered_next_available.png %})
+![Captura de pantalla relacionada con el paso 5: seleccionar el período de tiempo.]({% image_buster /assets/img_archive/schedule_triggered_next_available.png %})
 
-Si un usuario no recibe el mensaje porque pierde el período de tiempo, seguirá siendo elegible para recibirlo la próxima vez que complete el evento desencadenante, incluso si no elegiste que los usuarios sean [reelegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/). Si eliges que los usuarios sean reelegibles, entonces los usuarios pueden recibir la campaña cada vez que completen el evento desencadenante, siempre que califiquen durante el período de tiempo especificado.
+Si un usuario no recibe el mensaje porque pierde el período de tiempo, seguirá siendo elegible para recibirlo la próxima vez que complete el evento desencadenante, incluso si no elegiste que los usuarios sean [reelegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility). Si eliges que los usuarios sean reelegibles, entonces los usuarios pueden recibir la campaña cada vez que completen el evento desencadenante, siempre que califiquen durante el período de tiempo especificado.
 
 Si también has asignado una duración determinada a la campaña, entonces un usuario debe calificar tanto dentro de la duración como de la parte específica del día para recibir el mensaje.
 
-### Paso 6: Determina la reelegibilidad
+### Paso 6: Determina la reelegibilidad {#step-6-determine-re-eligibility}
 
 Determina si los usuarios pueden ser [reelegibles]({% image_buster /assets/img_archive/ReEligible.png %}) para la campaña. Si permites que los usuarios sean reelegibles, puedes especificar un retraso de tiempo antes de que el usuario pueda recibir la campaña de nuevo. Esto evitará que tus campañas desencadenadas se conviertan en spam.
 
-![]({% image_buster /assets/img_archive/schedule_triggered6.png %})
+![Captura de pantalla relacionada con el paso 6: determinar la reelegibilidad.]({% image_buster /assets/img_archive/schedule_triggered6.png %})
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
 Las campañas desencadenadas son muy eficaces para mensajes transaccionales o basados en logros.
 
@@ -143,18 +143,18 @@ Las campañas transaccionales incluyen mensajes enviados después de que el usua
 
 Además, al crear campañas de bienvenida, puedes desencadenar mensajes para que se envíen después de que el usuario se registre o configure una cuenta. Escalonar los mensajes para que se envíen en diferentes días después del registro te permitirá crear un proceso de incorporación completo.
 
-## ¿Por qué un usuario no recibió mi campaña desencadenada?
+## ¿Por qué un usuario no recibió mi campaña desencadenada? {#why-did-a-user-not-receive-my-triggered-campaign}
 
 Cualquiera de estas situaciones impedirá que un usuario que haya completado el evento desencadenante reciba la campaña:
 
 - El usuario completó el evento de excepción antes de que el retraso de tiempo transcurriera por completo.
-- Se utilizó la [lógica `abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) de Liquid y el mensaje fue abortado según la lógica o reglas de `abort_message`.
+- Se utilizó la [lógica `abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) de Liquid y el mensaje fue abortado según la lógica o reglas de `abort_message`.
 - El retraso de tiempo hizo que el usuario se volviera elegible para recibir la campaña después de que la duración haya finalizado.
 - El retraso de tiempo hizo que el usuario se volviera elegible para recibir la campaña fuera de la parte específica del día.
 - El usuario ya ha recibido la campaña (incluyendo la atribución a través de identificadores de canal compartidos; por ejemplo, si comparten un correo electrónico con alguien que lo recibió, abrió o hizo clic en él), y los usuarios no son reelegibles.
 - Aunque los usuarios son reelegibles para recibir la campaña, solo pueden volver a desencadenarla después de un cierto período de tiempo, y ese período de tiempo aún no ha transcurrido.
 
-[Segmentar]({{site.baseurl}}/user_guide/audience/segments/) una campaña desencadenada basándose en datos de usuario registrados en el momento del evento puede causar una [condición de carrera]({{site.baseurl}}/help/best_practices/race_conditions/#race-conditions). Esto ocurre cuando el atributo de usuario en el que se segmenta la campaña cambia, pero el cambio no se ha procesado para el usuario cuando se envía la campaña. Dado que las campañas verifican la pertenencia al segmento en la entrada, esto puede llevar a que el usuario no reciba la campaña.
+[Segmentar]({{site.baseurl}}/user_guide/audience/segments) una campaña desencadenada basándose en datos de usuario registrados en el momento del evento puede causar una [condición de carrera]({{site.baseurl}}/help/best_practices/race_conditions#race-conditions). Esto ocurre cuando el atributo de usuario en el que se segmenta la campaña cambia, pero el cambio no se ha procesado para el usuario cuando se envía la campaña. Dado que las campañas verifican la pertenencia al segmento en la entrada, esto puede llevar a que el usuario no reciba la campaña.
 
 Por ejemplo, imagina que quieres enviar una campaña desencadenada por evento a usuarios masculinos que acaban de registrarse. Cuando el usuario se registra, registras un evento personalizado `registration` y simultáneamente estableces el atributo `gender` del usuario. El evento puede desencadenar la campaña antes de que Braze haya procesado el género del usuario, impidiendo que reciba la campaña.
 
@@ -162,7 +162,7 @@ Como práctica recomendada, asegúrate de que el atributo en el que se segmenta 
 
 Además, si una campaña está basada en acciones y tiene un retraso, puedes marcar la opción de **Reevaluar la pertenencia al segmento en el momento del envío** para asegurarte de que los usuarios sigan formando parte de la audiencia objetivo cuando se envíe el mensaje.
 
-### Evaluación de criterios de audiencia
+### Evaluación de criterios de audiencia {#audience-criteria-evaluation}
 
 Para campañas que implican un retraso antes del envío (incluyendo límite de velocidad, zona horaria local, Intelligent Timing o una planificación de desencadenamiento), cuando el segmento se reevalúa depende del tipo de campaña y la configuración.
 
@@ -175,19 +175,19 @@ Si tu campaña se desencadena por un evento personalizado específico y seleccio
 
 Recomendamos cambiar la audiencia objetivo para incluir a todos los usuarios, o verificar que los usuarios que se espera que realicen el evento ya formen parte de la audiencia de la campaña para que el mensaje se desencadene.
 
-![]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
+![Captura de pantalla relacionada con la evaluación de criterios de audiencia.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
-### Solución de problemas con eventos personalizados
+### Solución de problemas con eventos personalizados {#troubleshooting-custom-events}
 
-Primero, confirma que el evento personalizado se está enviando a Braze. Ve a **Análisis** > **Informe de eventos personalizados**, y luego selecciona el evento personalizado y el rango de fechas correspondientes. Si el evento no aparece, confirma que está configurado correctamente y que el usuario realizó la acción correcta.
+Primero, confirma que el evento personalizado se está enviando a Braze. Ve a **Analytics** > **Informe de eventos personalizados**, y luego selecciona el evento personalizado y el rango de fechas correspondientes. Si el evento no aparece, confirma que está configurado correctamente y que el usuario realizó la acción correcta.
 
 Si el evento personalizado aparece, continúa con la solución de problemas haciendo lo siguiente:
 
-- Revisa la descarga del perfil del usuario para confirmar que desencadenó el evento y cuándo lo hizo. Si el evento fue desencadenado, compara la marca de tiempo de cuándo se desencadenó el evento con el momento en que la campaña se puso en vivo. El evento puede haberse desencadenado antes de que la campaña se pusiera en vivo.
+- Revisa la descarga del perfil del usuario para confirmar que desencadenó el evento y cuándo lo hizo. Si el evento fue desencadenado, compara la marca de tiempo de cuándo se desencadenó el evento con el momento en que la campaña se puso en marcha. El evento puede haberse desencadenado antes de que la campaña se pusiera en marcha.
 - Revisa los registros de cambios de la campaña y cualquier segmento utilizado en la segmentación para determinar si el usuario estaba en el segmento cuando se desencadenó su evento personalizado. Si no estaba en el segmento, no habría recibido la campaña.
 - Verifica si el usuario fue incluido en un grupo de control a través de la segmentación y, en consecuencia, se le impidió recibir la campaña.
 - Si hay un retraso programado, verifica si el evento personalizado del usuario se desencadenó antes del retraso. Si el evento se desencadenó antes del retraso, no habría recibido la campaña.
 
 {% alert note %}
-Los mensajes dentro de la aplicación solo pueden ser desencadenados por eventos enviados a través del SDK, no de la API REST.
+Los mensajes dentro de la aplicación solo pueden ser desencadenados por eventos enviados a través del SDK, no de la REST API.
 {% endalert %}

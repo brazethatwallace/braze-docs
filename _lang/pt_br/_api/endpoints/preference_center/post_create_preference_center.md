@@ -9,24 +9,24 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar C
 
 ---
 {% api %}
-# Criar Central de Preferências
+# Criar Central de Preferências {#create-preference-center}
 {% apimethod post %}
 /preference_center/v1
 {% endapimethod %}
 
-> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para suas campanhas de e-mail. Consulte [Criar uma Central de Preferências com API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api) para ver as etapas de como criar uma Central de Preferências gerada por API.
+> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para suas campanhas de e-mail. Consulte [Criar uma Central de Preferências com API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para ver as etapas de como criar uma Central de Preferências gerada por API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `preference_center.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `preference_center.update`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -55,17 +55,17 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parâmetros da solicitação
+## Parâmetros da solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`name`| Obrigatória | String | O nome da Central de Preferências que atende aos seguintes requisitos: <br>- Contém apenas letras, números, hífens e sublinhados <br>- Não possui espaços |
-|`preference_center_title`| Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas terá como padrão "Preference Center". |
-|`preference_center_page_html`| Obrigatória | String | O HTML da página da Central de Preferências. |
-|`confirmation_page_html`| Obrigatória | String | O HTML da página de confirmação. |
-|`state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
-|`options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Quando presente, uma meta tag `viewport` será adicionada à página com `content= <value of attribute>`.<br><br> `link-tags`: Defina um favicon para a página. Quando definido, uma tag `<link>` com um atributo rel é adicionada à página.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `name` | Obrigatória | String | O nome da Central de Preferências que atende aos seguintes requisitos: <br>- Contém apenas letras, números, hífens e sublinhados <br>- Não possui espaços |
+| `preference_center_title` | Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas terá como padrão "Preference Center". |
+| `preference_center_page_html` | Obrigatória | String | O HTML da página da Central de Preferências. |
+| `confirmation_page_html` | Obrigatória | String | O HTML da página de confirmação. |
+| `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
+| `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Quando presente, uma meta tag `viewport` será adicionada à página com `content= <value of attribute>`.<br><br> `link-tags`: Defina um favicon para a página. Quando definido, uma tag `<link>` com um atributo rel é adicionada à página. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros da solicitação" }
 
 {% alert note %}
 O nome da Central de Preferências não pode ser editado depois de criado.
@@ -77,26 +77,26 @@ Consulte as seguintes Liquid tags que podem ser incluídas no HTML para gerar o 
 
 {% raw %}
 
-#### Estado da inscrição do usuário
+#### Estado da inscrição do usuário {#user-subscription-state}
 
 | Liquid | Descrição |
 | --------- | ---------|
-|`{{subscribed_state.${email_global}}}`| Obtém o estado global de inscrição de e-mail do usuário (como "opted_in", "subscribed" ou "unsubscribed"). |
-|`{{subscribed_state.${<subscription_group_id>}}}`| Obtém o estado de inscrição do grupo de inscrições especificado para o usuário (como "subscribed" ou "unsubscribed"). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `{{subscribed_state.${email_global}}}` | Obtém o estado global de inscrição de e-mail do usuário (como "opted_in", "subscribed" ou "unsubscribed"). |
+| `{{subscribed_state.${<subscription_group_id>}}}` | Obtém o estado de inscrição do grupo de inscrições especificado para o usuário (como "subscribed" ou "unsubscribed"). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estado da inscrição do usuário" }
 
-#### Entradas e ações do formulário
+#### Entradas e ações do formulário {#form-inputs-and-action}
 
 | Liquid | Descrição |
 | --------- | ---------|
-|`{% form_field_name :email_global_state %}`| Indica que um elemento de entrada de formulário específico corresponde ao estado global de inscrição de e-mail do usuário. O estado de seleção do usuário deve ser "opted_in", "subscribed" ou "unsubscribed" quando o formulário for enviado com dados de seleção para o estado global de inscrição de e-mail. Se for uma caixa de seleção, o usuário será "opted_in" ou "unsubscribed". Para uma entrada oculta, o estado "subscribed" também será válido. |
-|`{% form_field_name :subscription_group <subscription_group_id> %}`| Indica que um elemento de entrada de formulário específico corresponde a um determinado grupo de inscrições. O estado de seleção do usuário deve ser "subscribed" ou "unsubscribed" quando o formulário for enviado com dados de seleção para um grupo de inscrições específico. |
-|`{{preference_center_submit_url}}`| Gera a URL para envio do formulário. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `{% form_field_name :email_global_state %}` | Indica que um elemento de entrada de formulário específico corresponde ao estado global de inscrição de e-mail do usuário. O estado de seleção do usuário deve ser "opted_in", "subscribed" ou "unsubscribed" quando o formulário for enviado com dados de seleção para o estado global de inscrição de e-mail. Se for uma caixa de seleção, o usuário será "opted_in" ou "unsubscribed". Para uma entrada oculta, o estado "subscribed" também será válido. |
+| `{% form_field_name :subscription_group <subscription_group_id> %}` | Indica que um elemento de entrada de formulário específico corresponde a um determinado grupo de inscrições. O estado de seleção do usuário deve ser "subscribed" ou "unsubscribed" quando o formulário for enviado com dados de seleção para um grupo de inscrições específico. |
+| `{{preference_center_submit_url}}` | Gera a URL para envio do formulário. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entradas e ações do formulário" }
 
 {% endraw %}
 
-## Exemplos de respostas
+## Exemplos de respostas {#example-responses}
 
 ### Criar Central de Preferências
 
@@ -111,7 +111,7 @@ Consulte as seguintes Liquid tags que podem ser incluídas no HTML para gerar o 
 ```
 {% endraw %}
 
-### HTML com entradas de formulário
+### HTML com entradas de formulário {#html-with-form-inputs}
 
 {% raw %}
 ```

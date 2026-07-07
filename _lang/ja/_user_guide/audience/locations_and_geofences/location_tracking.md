@@ -10,17 +10,17 @@ search_rank: 2
 
 # 位置情報の追跡 {#location-tracking}
 
-> 位置情報の収集は、アプリが開かれた際に GPS 位置データを使用してユーザーの最新の位置情報をキャプチャします。この情報を使用して、定義された位置にいたユーザーに基づいてデータをセグメント化できます。
+> 位置情報の収集は、アプリが開かれた際にGPS位置データを使用してユーザーの最新の位置情報をキャプチャします。この情報を使用して、定義された位置にいたユーザーに基づいてデータをセグメント化できます。
 
 ## 位置情報の追跡を有効にする {#enabling-location-tracking}
 
 アプリで位置情報の収集を有効にするには、使用しているプラットフォームの開発者ガイドを参照してください。
 
-- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=android)
-- [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=android)
+- [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=web)
 
-一般的に、モバイルアプリはデバイスの GPS チップやその他のシステム（Wi-Fi スキャンなど）を使用してユーザーの位置を追跡します。Webアプリは WPS（Wi-Fi Positioning System）を使用してユーザーの位置を追跡します。これらのプラットフォームはすべて、ユーザーが位置情報の追跡にオプトインする必要があります。位置情報の追跡データの精度は、ユーザーがデバイスで Wi-Fi を有効にしているかどうかによって影響を受ける場合があります。Android ユーザーは異なる位置モードを選択することもできます。「バッテリー節約」または「デバイスのみ」モードのユーザーは、不正確なデータになる可能性があります。
+一般的に、モバイルアプリはデバイスのGPSチップやその他のシステム（Wi-Fiスキャンなど）を使用してユーザーの位置を追跡します。WebアプリはWPS（Wi-Fi Positioning System）を使用してユーザーの位置を追跡します。これらのプラットフォームはすべて、ユーザーが位置情報の追跡にオプトインする必要があります。位置情報の追跡データの精度は、ユーザーがデバイスでWi-Fiを有効にしているかどうかによって影響を受ける場合があります。Androidユーザーは異なる位置モードを選択することもできます。「バッテリー節約」または「デバイスのみ」モードのユーザーは、不正確なデータになる可能性があります。
 
 ### IPアドレスによるSDKユーザーの位置情報 {#sdk-user-location-by-ip-address}
 
@@ -34,17 +34,17 @@ Brazeは、最初のSDKセッション開始時のIPアドレスを使用して�
 
 有効にすると、SDKの自動位置情報の収集はIPベースの国の動作とは別のものです。これは、ユーザーが許可を付与した場合のGPSなどのデバイス位置信号に関連し、`Most Recent Location` などのフィルターを動作させます。IPのみから市区町村などの詳細なフィールドを自動的に入力するものではありません。
 
-市区町村や郵便番号レベルのターゲティングには、[`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location/)（お使いのプラットフォームのSDK記事を参照）、カスタム属性を書き込む独自のIPジオロケーションサービス、または収集したデータを使用した[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting/)を使用してください。
+市区町村や郵便番号レベルのターゲティングには、[`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location)（お使いのプラットフォームのSDK記事を参照）、カスタム属性を書き込む独自のIPジオロケーションサービス、または収集したデータを使用した[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting)を使用してください。
 
 ## 位置情報ターゲティング {#location-targeting}
 
-位置情報の追跡データとSegmentsを使用して、位置情報ベースのCampaignsと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションCampaignを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
+位置情報の追跡データとセグメントを使用して、位置情報ベースのキャンペーンと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションキャンペーンを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
 
-位置情報Segmentの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting/)を参照してください。
+位置情報セグメントの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting)を参照してください。
 
 ## デフォルトの位置属性をハード設定する {#hard-setting-the-default-location-attribute}
 
-APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) 標準属性項目を更新することもできます。例を以下に示します。
+APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 標準属性項目を更新することもできます。例を以下に示します。
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -64,9 +64,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 既存のビーコンまたはジオフェンスサポートとターゲティングおよびメッセージング機能を組み合わせることで、ユーザーの物理的なアクションに関するより多くの情報を得て、それに応じてメッセージを送信できます。一部のパートナーと位置情報の追跡を活用できます。
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)
+
+## ジオフェンスと位置情報の追跡の違い {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -106,7 +110,7 @@ BrazeはデフォルトでSDKを通じてユーザーの最新の位置情報を
 
 ユーザーの位置データがBrazeに送信されているかどうかを確認するには、**Location Available** フィルターを使用します。このフィルターを使用すると、「最新の位置」を持つユーザーの割合を確認できます。
 
-![「Location Available」フィルターを使用した「Test Location」Segment。]({% image_buster /assets/img_archive/trouble7.png %})
+![「Location Available」フィルターを使用した「Test Location」セグメント。]({% image_buster /assets/img_archive/trouble7.png %})
 
 #### データ転送 {#data-transfer}
 

@@ -59,7 +59,7 @@ Esse método de autenticação gera uma chave secreta e um ID de chave de acesso
 ### Etapa 1: Criar usuário {#secret-key-1}
 
 {% alert note %}
-Se estiver configurando apenas o arquivamento de mensagens, siga as etapas na guia **Exportação de dados do dashboard**.
+Se estiver configurando apenas o arquivamento de mensagens, siga as etapas na guia **Dashboard Data Export**.
 {% endalert %}
 
 Para recuperar o ID da chave de acesso e a chave de acesso secreta, [crie um usuário IAM e um grupo de administradores na AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html).
@@ -83,7 +83,7 @@ São necessárias políticas diferentes para Currents e exportação de dados do
 Especifique um nome de política de sua escolha e insira o seguinte trecho de código na seção **Policy Document**. Não se esqueça de substituir `INSERTBUCKETNAME` pelo nome do seu bucket. Sem essas permissões, a integração não passa na verificação de credenciais e não será criada.
 
 {% alert note %}
-Se estiver configurando apenas o arquivamento de mensagens, use o trecho de código na guia **Exportação de dados do dashboard**.
+Se estiver configurando apenas o arquivamento de mensagens, use o trecho de código na guia **Dashboard Data Export**.
 {% endalert %}
 
 {% tabs %}
@@ -136,7 +136,7 @@ Depois de criar uma nova política, acesse **Users** e selecione o usuário espe
 ### Etapa 5: Vincular a Braze à AWS {#secret-key-5}
 
 {% alert note %}
-Se estiver configurando apenas o arquivamento de mensagens, siga as etapas na guia **Exportação de dados do dashboard**.
+Se estiver configurando apenas o arquivamento de mensagens, siga as etapas na guia **Dashboard Data Export**.
 {% endalert %}
 
 {% tabs %}
@@ -198,7 +198,7 @@ São necessárias políticas diferentes para Currents e exportação de dados do
 Abra a guia **JSON** e insira o seguinte trecho de código na seção **Policy Document**. Não se esqueça de substituir `INSERTBUCKETNAME` pelo nome do seu bucket. Selecione **Review Policy** quando terminar.
 
 {% alert note %}
-Se estiver configurando apenas o arquivamento de mensagens, use o trecho de código na guia **Exportação de dados do dashboard**.
+Se estiver configurando apenas o arquivamento de mensagens, use o trecho de código na guia **Dashboard Data Export**.
 {% endalert %}
 
 {% tabs %}
@@ -292,7 +292,7 @@ Observe o **Role ARN** na parte superior da página de resumo da função.
 Retorne à sua conta da Braze e copie o ARN da função no campo fornecido.
 
 {% alert note %}
-Se estiver configurando apenas o arquivamento de mensagens, siga as etapas na guia **Exportação de dados do dashboard**.
+Se estiver configurando apenas o arquivamento de mensagens, siga as etapas na guia **Dashboard Data Export**.
 {% endalert %}
 
 {% tabs %}
@@ -333,6 +333,14 @@ Uma notificação informa se suas credenciais foram validadas com sucesso. O AWS
 {% endtab %}
 {% endtabs %}
 
+## Atualização das credenciais do Amazon S3 para Currents {#updating-currents-credentials}
+
+Você pode atualizar as credenciais do Amazon S3 em um conector Braze Currents existente sem interromper a integração ou perder dados já exportados para o seu bucket.
+
+Para atualizar as credenciais — ou para alternar entre **AWS Secret Access Key** e **AWS Role ARN** — conclua as etapas do lado do IAM e da AWS para o método escolhido descritas anteriormente neste artigo (políticas, usuário ou função e identificadores conforme necessário).
+
+Quando terminar de preparar as credenciais na AWS, acesse **Integrações de parceiros** > **Currents** na Braze, localize seu conector Amazon S3 na lista, selecione **Edit**, atualize as **Credentials** e selecione **Update Current**. A Braze valida as credenciais inseridas; seu conector continua funcionando e os dados já no seu bucket permanecem disponíveis. Para saber mais, consulte [Atualização de Currents em Configurar Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
+
 ## Comportamento de exportação {#export-behavior}
 
 Os usuários que integraram uma solução de armazenamento de dados na nuvem e exportam APIs, relatórios de dashboard ou relatórios CSV experimentam o seguinte:
@@ -340,8 +348,14 @@ Os usuários que integraram uma solução de armazenamento de dados na nuvem e e
 - Todas as exportações de API não retornam uma URL de download no corpo da resposta e devem ser recuperadas por meio do armazenamento de dados.
 - Todos os relatórios de dashboard e CSV são enviados para o e-mail do usuário para download (sem necessidade de permissões de armazenamento) e armazenados em backup no Data Storage.
 
+### Erro `Unable to connect to S3, please validate that your credentials are correct` {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
+
+Se você vir esse erro ao baixar uma exportação CSV, abra a integração do [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) na página **Parceiros de tecnologia** e selecione **Test Credentials**. O resultado explica o que falhou na validação — por exemplo, a chave pode estar sem a permissão `GetObject`, o que impede a Braze de gerar links de download.
+
+Atualize sua política IAM para que o usuário ou a função da integração possa chamar `s3:GetObject` no bucket S3 e no caminho do objeto configurados na sua integração da Braze. Para mais problemas de exportação, consulte [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+
 {% alert important %}
-**Requisito de formato JSON:** Para exportações JSON, a Braze usa o formato JSONL (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato é diferente do JSON padrão, que é um único array ou objeto JSON. Cada linha do arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um único documento JSON válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON.
+**Requisito de formato JSON:** para exportações JSON, a Braze usa o formato JSONL (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato é diferente do JSON padrão, que é um único array ou objeto JSON. Cada linha do arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um único documento JSON válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON.
 
 As exportações do Currents usam o formato Apache Avro (arquivos `.avro`), não JSON. Esse requisito de formato JSON se aplica às exportações de dados do dashboard e às exportações de API.
 {% endalert %}
@@ -354,7 +368,7 @@ Se você planeja usar o mesmo bucket S3 para Currents e exportações de dados, 
 
 ## Solução de problemas {#troubleshooting}
 
-### Erro: A conta não tem acesso `PutObject` {#error-account-does-not-have-putobject-access}
+### Erro: a conta não tem acesso `PutObject` {#error-account-does-not-have-putobject-access}
 
 Se você vir o seguinte erro ao salvar as credenciais do Amazon S3 para exportações de dados do dashboard, isso pode ser devido a permissões incorretas ou configurações de criptografia do lado do servidor.
 
@@ -366,7 +380,7 @@ Para resolver esse problema, verifique as seguintes áreas.
 
 #### Política de bucket incorreta {#incorrect-bucket-policy}
 
-Confirme que você criou uma política com as permissões corretas conforme descrito em [Integração com o Amazon S3](#integration) (use a política de **Exportação de dados do dashboard** para o seu método de autenticação).
+Confirme que você criou uma política com as permissões corretas conforme descrito em [Integração com o Amazon S3](#integration) (use a política de **Dashboard Data Export** para o seu método de autenticação).
 
 #### Criptografia do lado do servidor {#server-side-encryption}
 

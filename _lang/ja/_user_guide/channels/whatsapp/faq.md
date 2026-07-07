@@ -2,7 +2,7 @@
 nav_title: FAQ
 article_title: FAQ
 page_order: 30
-description: "この記事では、WhatsApp Campaignの設定時に最もよく寄せられる質問について説明します。"
+description: "この記事では、WhatsApp キャンペーンの設定時に最もよく寄せられる質問について説明します。"
 page_type: FAQ
 channel:
   - WhatsApp
@@ -28,7 +28,7 @@ channel:
 Brazeダッシュボードの埋め込みサインアップフローを通じてWhatsAppビジネスアカウント（WABA）を作成することをお勧めします。
 
 #### すでにMetaビジネスアカウントを持っています。それでもWhatsAppビジネスアカウントは必要ですか？ {#i-already-have-a-meta-business-account-do-i-still-need-a-whatsapp-business-account}
-はい、WhatsAppビジネスアカウントを作成する必要があります。[メインのMetaビジネスアカウントの下にWABAをネストする]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)ことをお勧めします。
+はい、WhatsAppビジネスアカウントを作成する必要があります。[メインのMetaビジネスアカウントの下にWABAをネストする]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)ことをお勧めします。
 
 #### WhatsAppビジネスアカウントにアクセスするにはどうすればよいですか？ {#how-do-i-access-my-whatsapp-business-account}
 埋め込みサインアップフローを完了した後、business.facebook.comの[WhatsAppセクション](https://business.facebook.com/wa/manage/home)に移動してアカウントにアクセスできます。
@@ -39,7 +39,7 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 ![BrazeとWhatsAppのエコシステムの図。ワークスペースとWhatsAppビジネスアカウントの接続関係を示しています。1つのサブスクリプショングループを1つの電話番号に、複数のWhatsAppビジネスアカウントを1つのワークスペースに、1つのワークスペースを複数のMeta Business Portfolioに接続できます。]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
 #### WhatsAppビジネスアカウントの通貨を変更できますか？ {#can-i-change-my-whatsapp-business-account-currency}
-いいえ。MetaがWhatsAppビジネスアカウントの通貨を管理しており、Brazeでは変更や変換ができません。別の通貨を使用するには、その通貨で[別のWhatsAppビジネスアカウントを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)か、Metaサポートに連絡して既存のアカウントの通貨を更新できるかどうかを確認してください。
+いいえ。MetaがWhatsAppビジネスアカウントの通貨を管理しており、Brazeでは変更や変換ができません。別の通貨を使用するには、その通貨で[別のWhatsAppビジネスアカウントを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)か、Metaサポートに連絡して既存のアカウントの通貨を更新できるかどうかを確認してください。
 
 ### WhatsAppビジネスアカウントの電話番号 {#whatsapp-business-account-phone-numbers}
 
@@ -72,10 +72,10 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 - エンドユーザーの番号を持っていない場合は、オプトイン方法に電話番号の取得を含める必要があります。
 
 #### オプトインしたエンドユーザーのサブスクリプションステータスを更新するにはどうすればよいですか？ {#how-do-i-update-the-subscription-status-of-end-users-who-opt-in}
-WhatsAppチャネルのサブスクリプション管理は、他のBrazeチャネルと同様に機能します。詳細については、[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)を参照してください。
+WhatsAppチャネルのサブスクリプション管理は、他のBrazeチャネルと同様に機能します。詳細については、[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を参照してください。
 
 #### WhatsAppでマーケティングメッセージの受信にオプトインしたユーザーのリストがすでにある場合、Brazeでサブスクリプションステータスを更新するにはどうすればよいですか？ {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#importing-custom-data)を通じてサブスクリプションステータスを更新できます。
+[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data)を通じてサブスクリプションステータスを更新できます。
 
 #### オプトインを収集するためにどのような方法を使用すべきですか？ {#what-methods-should-i-use-to-collect-opt-ins}
 コンプライアンスを維持するために、[Metaのオプトイン方法に関するガイドライン](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)を参照することをBrazeは推奨しています。Brazeの[チャネルとオプトインのアイデアと提案](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit)も参照してください。
@@ -108,13 +108,13 @@ WhatsAppチャネルのサブスクリプション管理は、他のBrazeチャ�
 **WhatsApp Manager > Overview Dashboard > Insights**タブで現在のメッセージング制限を確認できます。
 
 #### メッセージング制限に達した状態でメッセージを送信しようとするとどうなりますか？ {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
-現在の制限を超えるユニークユーザーにCampaignまたはCanvasを送信しようとすると、メッセージの送信に失敗します。Brazeは、メッセージング制限が引き上げられた場合に備えて、最大1日間メッセージの再送信を試み続けます。
+現在の制限を超えるユニークユーザーにキャンペーンまたはキャンバスを送信しようとすると、メッセージの送信に失敗します。Brazeは、メッセージング制限が引き上げられた場合に備えて、最大1日間メッセージの再送信を試み続けます。
 
 #### メッセージング制限は下がることがありますか？ {#can-my-messaging-limit-decrease}
 はい、電話番号の品質評価が低くなりすぎると、WhatsAppがメッセージング制限を引き下げるリスクがあります。Brazeは、電話番号のステータスやメッセージング制限レベルの更新など、WhatsAppからの品質関連の更新を購読して通知を受け取ることをお勧めします。WhatsApp Managerダッシュボードで直接通知を購読できます。
 
 #### Metaのスループット制限とは何ですか？ {#what-is-the-meta-throughput-limit}
-Metaには、WABAのメッセージング制限とは別のスループット制限があります。クラウドAPIがサポートするデフォルトの制限は、1秒あたり80メッセージです。Campaignがこの制限を超える可能性がある場合は、制限の引き上げを[リクエスト](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput)できます。Metaは、Campaign送信の少なくとも3日前にこのリクエストを提出することを推奨しています。
+Metaには、WABAのメッセージング制限とは別のスループット制限があります。クラウドAPIがサポートするデフォルトの制限は、1秒あたり80メッセージです。キャンペーンがこの制限を超える可能性がある場合は、制限の引き上げを[リクエスト](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput)できます。Metaは、キャンペーン送信の少なくとも3日前にこのリクエストを提出することを推奨しています。
 
 ### WhatsAppテンプレート {#whatsapp-templates}
 
@@ -131,13 +131,13 @@ WhatsAppでは、すべてのビジネス発信メッセージが承認済みテ
 メッセージテンプレートの制限は、ビジネス認証ステータスによって異なります。**WhatsApp Manager > Message Templates**ページで制限を確認できます。
 
 #### Brazeでテンプレートのコピーとリッチメディアをパーソナライズするにはどうすればよいですか？ {#how-do-i-personalize-template-copy-and-rich-media-in-braze}
-WhatsAppでは、メッセージテンプレートに変数パラメーターを挿入できます。メッセージは変数パラメーターで開始または終了することはできません。変数パラメーターは、BrazeプラットフォームのLiquidロジックで入力できます。変数パラメーターの詳細については、[BrazeでのWhatsAppメッセージの作成]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message)を参照してください。
+WhatsAppでは、メッセージテンプレートに変数パラメーターを挿入できます。メッセージは変数パラメーターで開始または終了することはできません。変数パラメーターは、BrazeプラットフォームのLiquidロジックで入力できます。変数パラメーターの詳細については、[BrazeでのWhatsAppメッセージの作成]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message)を参照してください。
 
 #### テンプレートが却下されました。Brazeが承認を手助けしてくれますか？ {#my-template-got-rejected-can-braze-help-me-get-it-approved}
 Brazeチームはテンプレートの却下理由を確認することができません。WhatsApp Business Managerで直接テンプレートを編集して再提出してください。必要に応じてサンプルテンプレートを提供してください。テンプレートがMetaの[ビジネス](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw)または[コマース](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ)ポリシーに準拠していることを再確認してください。
 
 #### Brazeでリッチメディアをターゲティングまたはパーソナライズできますか？ {#can-the-rich-media-be-targeted-or-personalized-in-braze}
-画像はメディアライブラリからアップロードできますが、動的にターゲティングすることはできません。URLについては、リンクの最後の部分を[Liquidを使用して動的に入力]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#use-liquid-personalization-in-urls)できます。
+画像はメディアライブラリからアップロードできますが、動的にターゲティングすることはできません。URLについては、リンクの最後の部分を[Liquidを使用して動的に入力]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls)できます。
 
 ### 配信到達性 {#deliverability}
 
@@ -164,21 +164,21 @@ Braze内または直接統合を通じたチャットボットや有人チャッ
 すでにWhatsAppをカスタマーサポートチャネルとして使用している場合は、現在のセットアップを維持し、マーケティングメッセージング用にBraze経由で新しいWABAを作成することをお勧めします。このWABAには新しい電話番号が必要です。
 
 #### カスタマーサポートメッセージングとBraze経由のマーケティングメッセージングの間の「ギャップを埋める」にはどうすればよいですか？ {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
-WhatsAppのLiquidプロパティを使用して、受信WhatsAppメッセージのコンテンツ（メッセージ本文やメディアURLを含む）をBrazeから他のプラットフォーム（カスタマーサポートツールを含む）に転送できます。詳細については、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を参照してください。
+WhatsAppのLiquidプロパティを使用して、受信WhatsAppメッセージのコンテンツ（メッセージ本文やメディアURLを含む）をBrazeから他のプラットフォーム（カスタマーサポートツールを含む）に転送できます。詳細については、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。
 
-Brazeに情報を送信するには、たとえばユーザーがアクティブなサポート会話中であることを示すために、カスタム属性（ブール値の「既存のサポートチャットあり = true/false」など）をログに記録し、マーケティングCampaignのセグメンテーション基準として使用できます。また、2つのチャットスレッド間でディープリンクを設定して、マーケティングスレッドからサポートスレッドへ、またはその逆にユーザーを誘導することもできます。
+Brazeに情報を送信するには、たとえばユーザーがアクティブなサポート会話中であることを示すために、カスタム属性（ブール値の「既存のサポートチャットあり = true/false」など）をログに記録し、マーケティングキャンペーンのセグメンテーション基準として使用できます。また、2つのチャットスレッド間でディープリンクを設定して、マーケティングスレッドからサポートスレッドへ、またはその逆にユーザーを誘導することもできます。
 
 #### Brazeはユーザーの応答を保存しますか？ {#does-braze-store-user-responses}
 メッセージは処理に必要な時間のみ保存されます。ユーザーメッセージにアクセスするには、Currentsを使用してください。
 
 #### ユーザーの電話番号はBrazeでどのように保存する必要がありますか？ {#how-do-user-phone-numbers-need-to-be-stored-in-braze}
-ユーザーの電話番号は[E.164形式]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/#formatting)で保存する必要があります。
+ユーザーの電話番号は[E.164形式]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers#formatting)で保存する必要があります。
 
 #### WhatsAppテンプレートではどのようなリッチメディアがサポートされていますか？ {#what-kind-of-rich-media-is-supported-in-whatsapp-templates}
 WhatsAppテンプレートには、画像、コールトゥアクション（URLまたは電話番号）、クイック返信ボタンを追加できます。これらの要素は、WhatsAppで直接テンプレートを作成する際に追加できます。
 
 #### ユーザーの電話番号をインポートできますか？ {#can-i-import-user-phone-numbers}
-はい。[ユーザーの電話番号をインポート]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/)できます。
+はい。[ユーザーの電話番号をインポート]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers)できます。
 
 #### ビジネス認証とは何ですか？ {#what-is-business-verification}
 ビジネス認証は、ブランドが正当なビジネスであることを確認するために使用されるWhatsAppの概念です。WhatsApp Managerで完了できます。ビジネス認証は、メッセージングのスケーリングにも必要です。ビジネス認証がない場合、顧客はローリング24時間内に最大250人のユニークエンドユーザーにのみ送信できます。
@@ -187,7 +187,7 @@ WhatsAppテンプレートには、画像、コールトゥアクション（URL
 OBA（公式ビジネスアカウント）は、表示名の横に緑色のチェックマークが付き、任意で取得できます。ビジネス認証の完了後に公式ビジネスアカウントを申請できます。ビジネス認証と公式ビジネスアカウントは異なるWhatsAppの概念であることに注意してください。
 
 #### Brazeダッシュボードではどのような指標が利用できますか？ {#what-metrics-are-available-in-the-braze-dashboard}
-Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、エンドユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、Campaignのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
+Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、エンドユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、キャンペーンのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
 
 #### WhatsApp会話とは何ですか？ {#what-is-a-whatsapp-conversation}
 WhatsAppは双方向メッセージングに焦点を当てたチャネルであるため、（個々のメッセージ数ではなく）会話を基準としています。会話とは、ビジネスとエンドユーザー間の24時間のスレッドです。
@@ -199,3 +199,7 @@ WhatsAppは双方向メッセージングに焦点を当てたチャネルであ
 電話番号の品質評価に影響する要因には、エンドユーザーがビジネスをブロックすること（およびブロック時に提供する理由）やエンドユーザーがビジネスを報告することが含まれます。
 
 品質評価が低い場合、電話番号のステータスは**Connected**から**Flagged**に変わります。7日間で品質が改善されない場合、ステータスは**Connected**に戻ります。ただし、メッセージング制限は次のレベルに引き下げられます。たとえば、以前100,000のメッセージング制限を持っていた電話番号は、10,000のメッセージング制限になります。
+
+#### テンプレートがWhatsAppのコマースポリシーに違反しているとして誤ってフラグ付けされた場合はどうすればよいですか？ {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
+
+Metaがテンプレートを誤ってフラグ付けしたと思われる場合は、WhatsAppからのメールに記載されている審査リンクを使用して再審査をリクエストしてください。WhatsApp Businessチームが判断を審査し、適切であれば取り消します。

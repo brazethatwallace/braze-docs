@@ -1,30 +1,30 @@
 ---
-nav_title: "POST : Créer une clé d'authentification SDK"
-article_title: "POST : Créer une clé d'authentification SDK"
+nav_title: "POST : Créer une clé d'authentification SDK"
+article_title: "POST : Créer une clé d'authentification SDK"
 search_tag: Endpoint
 page_order: 0
 layout: api_page
 page_type: reference
-description: "Cet article présente les détails du point de terminaison Créer une clé d'authentification SDK Braze."
+description: "Cet article présente les détails de l'endpoint Braze Créer une clé d'authentification SDK."
 ---
 
 {% api %}
-# Créer une clé d'authentification SDK
+# Créer une clé d'authentification SDK {#create-sdk-authentication-key}
 {% apimethod post %}
 /app_group/sdk_authentication/create
 {% endapimethod %}
 
 > Utilisez cet endpoint pour créer une nouvelle clé d'authentification SDK pour votre application.
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `sdk_authentication.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sdk_authentication.create`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corps de la demande
+## Corps de la demande {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -38,17 +38,17 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande
+## Paramètres de demande {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Requis | Chaîne de caractères | L'identifiant de l'API de l'application. |
-| `rsa_public_key_str` | Requis | Chaîne de caractères | Chaîne de caractères de la clé publique RSA. Il doit s'agir d'une clé publique RSA valide, sinon une erreur sera renvoyée. |
-| `description` | Requis | Chaîne de caractères | Description de la clé d'authentification du SDK. |
-| `make_primary` | Facultatif | Valeur booléenne | Si la valeur est `true`, cette clé devient la clé d'authentification principale du SDK lors de sa création. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | Requis | Chaîne de caractères | L'identifiant API de l'application. |
+| `rsa_public_key_str` | Requis | Chaîne de caractères | La chaîne de caractères de la clé publique RSA. Il doit s'agir d'une clé publique RSA valide, sinon une erreur sera renvoyée. |
+| `description` | Requis | Chaîne de caractères | Description de la clé d'authentification SDK. |
+| `make_primary` | Facultatif | Valeur booléenne | Si la valeur est `true`, cette clé devient la clé d'authentification SDK principale lors de sa création. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
-## Exemple de demande
+## Exemple de demande {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_authentication/create' \
@@ -62,27 +62,27 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 }'
 ```
 
-## Réponse
+## Réponse {#response}
 ```json
 {
   "id": "key id"
 }
 ```
 
-## Paramètres de réponse
+## Paramètres de réponse {#response-parameters}
 
 | Paramètre | Type de données | Description |
 | --------- | --------- | ----------- |
 | `id` | Chaîne de caractères | L'ID de la clé d'authentification SDK nouvellement créée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
 
-### Règles de validation
+### Règles de validation {#validation-rules}
 
 Les règles de validation suivantes s'appliquent à cet endpoint :
 
 - Vous pouvez avoir jusqu'à 3 clés d'authentification SDK par application.
 - La chaîne de caractères de la clé publique RSA doit être une clé publique RSA valide dans le format approprié.
-- L'adresse `app_id` doit être un identifiant d'API d'application valide.
+- Le paramètre `app_id` doit être un identifiant API d'application valide.
 - La description ne peut pas être vide.
 
 {% endapi %}

@@ -1,53 +1,52 @@
-## サポートされるデータ型
+## サポートされるデータタイプ {#supported-data-types}
 
-以下のデータタイプがサポートされている：
+以下のデータタイプがサポートされています。
 
-<table>
+<table aria-label="サポートされるデータタイプ">
   <thead>
     <tr>
-      <th>データ型</th>
+      <th>データタイプ</th>
       <th>説明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>数値</td>
-      <td>のような数値である。 <code>1</code> または <code>5.5</code>.</td>
+      <td><code>1</code> や <code>5.5</code> などの数値です。</td>
     </tr>
     <tr>
-      <td>string</td>
-      <td>のようなテキスト値である。 <code>"Hello"</code> または <code>"The Hobbit"</code>.</td>
+      <td>文字列</td>
+      <td><code>"Hello"</code> や <code>"The Hobbit"</code> などのテキスト値です。</td>
     </tr>
     <tr>
       <td>ブール値</td>
-      <td>と評価される値。 <code>true</code> または <code>false</code>.</td>
+      <td><code>true</code> または <code>false</code> のいずれかに評価される値です。</td>
     </tr>
     <tr>
       <td>配列</td>
-      <td>のような値のリストである。 <code>["red", "blue", "green"]</code>.</td>
+      <td><code>["red", "blue", "green"]</code> などの値のリストです。</td>
     </tr>
     <tr>
       <td>時刻</td>
       <td>
-        日付と時刻の比較に使われるタイムスタンプ値。階層化された時間カスタム属性をフィルターする際に、選択できる：<br><br>
+        日付と時刻の比較に使用されるタイムスタンプ値です。ネストされた時刻カスタム属性をフィルターする際に、以下を選択できます。<br><br>
         <ul>
-          <li><strong>年中無休</strong>：比較のために月と日だけをチェックする。 <code>03-15</code>.</li>
-          <li><strong>時間</strong>:次のように、年を含む完全なタイムスタンプを比較する。 <code>2023-03-15T12:00:00Z</code>.</li>
+          <li><strong>Day of Year</strong>: <code>03-15</code> のように、月と日のみを比較対象としてチェックします。</li>
+          <li><strong>Time</strong>: <code>2023-03-15T12:00:00Z</code> のように、年を含む完全なタイムスタンプを比較します。</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td>オブジェクト</td>
-      <td>のようなキーと値のペアを持つ構造化された値。 <code>{"author": "Tolkien"}</code>.</td>
+      <td><code>{"author": "Tolkien"}</code> のようなキーと値のペアを持つ構造化された値です。</td>
     </tr>
     <tr>
-      <td>オブジェクト配列</td>
+      <td>オブジェクトの配列</td>
       <td>
-        などのオブジェクトのリストである。 <code>[{"title": "The Hobbit"}, {"title": "Dune"}]</code>.
-        詳細は以下を参照のこと。 
-        <a href="{{site.baseurl}}/array_of_objects/">オブジェクトの配列</a>。
+        <code>[{"title": "The Hobbit"}, {"title": "Dune"}]</code> のようなオブジェクトのリストです。
+        詳細については、<a href="{{site.baseurl}}/array_of_objects/">オブジェクトの配列</a> を参照してください。
       </td>
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported data types" }

@@ -1,34 +1,34 @@
 ---
-nav_title: "PUBLICAR: Borrar Lienzos programados desencadenados por la API"
-article_title: "PUBLICAR: Eliminar Canvas programados desencadenados por API"
+nav_title: "POST: Eliminar Canvas programados desencadenados por API"
+article_title: "POST: Eliminar Canvas programados desencadenados por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Eliminar Canvas programados desencadenados por API de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Eliminar Canvas programados desencadenados por API de Braze."
 
 ---
 {% api %}
-# Borrar Lienzos programados desencadenados por la API
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+# Eliminar Canvas programados desencadenados por API {#delete-scheduled-api-triggered-canvases}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
-> El punto final para eliminar la programación te permite cancelar un mensaje que hayas programado antes a través de Canvas desencadenados por API antes de que se haya enviado.
+> El punto de conexión para eliminar la programación te permite cancelar un mensaje que hayas programado previamente a través de Canvas desencadenados por API antes de que se haya enviado.
 
 Los mensajes programados o desencadenados que se eliminan cerca de la hora a la que debían enviarse o durante la misma se actualizan con el máximo esfuerzo, por lo que Braze puede aplicar eliminaciones de último momento a todos, a algunos o a ninguno de tus usuarios objetivo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d34037f-4bf2-4fab-bc9c-c972988051a7 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.trigger.schedule.delete`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.trigger.schedule.delete`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,16 +42,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id`| Obligatoria | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `schedule_id` | Obligatoria | Cadena | El `schedule_id` a borrar (obtenido de la respuesta a crear horario). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types). |
+| `schedule_id` | Obligatorio | Cadena | El `schedule_id` a eliminar (obtenido de la respuesta a crear programación). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/delete' \
 --header 'Content-Type: application/json' \

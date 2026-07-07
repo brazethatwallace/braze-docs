@@ -1,6 +1,6 @@
 ---
 nav_title: "Email Love"
-article_title: Email Love
+article_title: "Email Love"
 description: "Aprende a integrar Braze con Email Love, un complemento de Figma que te permite diseñar y exportar correos electrónicos HTML receptivos y accesibles directamente desde Figma."
 alias: /partners/email_love/
 page_type: partner
@@ -14,11 +14,11 @@ search_tag: Partner
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito            | Descripción                                                      |
+| Requisito | Descripción |
 |------------------------|------------------------------------------------------------------|
 | **Cuenta de Email Love** | Se necesita una cuenta de Email Love para beneficiarse de esta asociación. |
 | **Clave de API REST de Braze** | Una clave de API REST de Braze con el permiso completo de `Templates` habilitado. Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Utilizar Email Love con Braze {#using-email-love-with-braze}
 

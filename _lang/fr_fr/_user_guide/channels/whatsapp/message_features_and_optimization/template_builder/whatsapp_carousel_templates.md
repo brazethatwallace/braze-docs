@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Les modèles carrousel WhatsApp vous permettent de créer des messages interactifs à plusieurs cartes que les utilisateurs peuvent faire défiler. Chaque carrousel peut contenir jusqu'à 10 cartes avec des images ou des vidéos, ainsi que des boutons personnalisables pour l'engagement. Cette fonctionnalité est idéale pour présenter vos produits et services, ou du contenu en plusieurs étapes dans un format visuellement attrayant.
 
-{% alert note %}
-Les modèles carrousel WhatsApp sont en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé.
-{% endalert %}
-
 ## Conditions préalables {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -56,7 +52,7 @@ Remplissez les champs requis.
 | Langue du modèle | Sélectionnez la langue de votre modèle. Meta limite les modèles à une seule langue, choisissez donc la langue que votre audience verra. |
 | Nom du modèle | Saisissez un nom descriptif qui vous aidera à identifier ce modèle ultérieurement. Les noms de modèles ne peuvent pas contenir d'espaces — utilisez des underscores ou supprimez les espaces entièrement (par exemple `carousel_example` ou `carouselexample`). |
 | Catégorie | Automatiquement définie sur **Marketing**. Tous les messages carrousel sont catégorisés comme messages marketing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
 
 ![Panneau de détails du modèle WhatsApp avec un compte WhatsApp Business sélectionné, l'anglais comme langue du modèle et un nom de modèle « welcome_message ».]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
@@ -193,4 +189,4 @@ Après la composition, poursuivez avec le workflow de lancement de votre campagn
 | Les variables ne se remplissent pas lors du test | Assurez-vous que votre syntaxe Liquid est correcte et que les attributs existent dans vos profils utilisateur. Vérifiez les fautes de frappe dans les noms de variables et confirmez que les valeurs par défaut sont définies le cas échéant. |
 | Le nom du modèle contient des espaces | Les noms de modèles ne peuvent pas contenir d'espaces. Utilisez des underscores à la place (`template_name`) ou supprimez les espaces entièrement (`templatename`). |
 | Impossible de modifier le nombre de cartes | Le nombre de cartes est fixé lors de la création du modèle et ne peut pas être modifié après la soumission. Si vous avez besoin d'un nombre différent de cartes, vous devrez créer un nouveau modèle. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }

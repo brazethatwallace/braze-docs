@@ -1,7 +1,7 @@
 ---
 nav_title: Poq
 article_title: Poq mit Braze integrieren
-description: "Erfahren Sie mehr über die Integration von Poq und Braze für native mobile App-Erlebnisse, einschließlich Push, In-App-Nachrichten, Analytics, Content-Cards und Bannern."
+description: "Erfahren Sie mehr über die Integration von Poq und Braze für native mobile App-Erlebnisse, einschließlich Push, In-App-Nachrichten, Analytics, Content Cards und Banner."
 page_type: partner
 search_tag: Partner
 alias: /partners/poq/
@@ -13,32 +13,32 @@ alias: /partners/poq/
 
 *Diese Integration wird von Poq gepflegt.*
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Poq und Braze ermöglicht es Ihnen, Ihr natives mobiles App-Erlebnis mit der Customer-Engagement-Plattform von Braze zu verbinden. Mithilfe der Braze iOS- und Android-SDKs wird Braze direkt in eine Poq-basierte App integriert und ermöglicht so Segmentierung, Personalisierung und gezielte Kampagnenzustellung auf Mobilgeräten.
+Die Integration von Poq und Braze ermöglicht es Ihnen, Ihr natives mobiles App-Erlebnis mit der Customer-Engagement-Plattform von Braze zu verbinden. Mithilfe der Braze iOS- und Android-SDKs wird Braze direkt in eine Poq-basierte App integriert und ermöglicht so Segmentierung, Personalisierung und gezielte Campaign-Zustellung auf Mobilgeräten.
 
-## Was unterstützt wird
+## Was unterstützt wird {#whats-supported}
 
 Die folgenden Kanäle und Features werden unterstützt.
 
 | Kanal/Feature | Beschreibung |
 | :---- | :---- |
 | Push-Benachrichtigungen | Senden Sie gezielte, personalisierte Push-Benachrichtigungen über Braze an App-Nutzer:innen, einschließlich Rich-Push-Benachrichtigungen. |
-| In-App-Nachrichten | Zeigen Sie Braze In-App-Nachrichten innerhalb des nativen App-Erlebnisses an, um Nutzer:innen im richtigen Moment ihrer Journey anzusprechen. |
-| Analytics und Event-Tracking | Poq sendet einen umfassenden Satz von App-Events an Braze, der die gesamte Customer Journey abdeckt. Diese Daten ermöglichen Segmentierung, Kampagnen-Trigger und Personalisierung in Braze. |
-| Content-Cards und Nachrichten-Posteingang | Stellen Sie persistente Braze Content-Cards innerhalb der App bereit – entweder in einem dedizierten Nachrichten-Posteingang oder auf Seiten, die mit dem Dynamic-Content-Seiteneditor von Poq erstellt wurden, oder in vordefinierten Bereichen innerhalb der App. Content-Cards werden mithilfe von Schlüssel-Wert-Paaren gefiltert, die in Braze konfiguriert werden. |
+| In-App-Nachrichten | Zeigen Sie Braze In-App Messages innerhalb des nativen App-Erlebnisses an, um Nutzer:innen im richtigen Moment ihrer Journey anzusprechen. |
+| Analytics und Event-Tracking | Poq sendet einen umfassenden Satz von App-Events an Braze, der die gesamte Customer Journey abdeckt. Diese Daten ermöglichen Segmentierung, Campaign-Trigger und Personalisierung in Braze. |
+| Content Cards und Nachrichten-Posteingang | Stellen Sie persistente Braze Content Cards innerhalb der App bereit – entweder in einem dedizierten Nachrichten-Posteingang oder auf Seiten, die mit dem Dynamic-Content-Seiteneditor von Poq erstellt wurden, oder in vordefinierten Bereichen innerhalb der App. Content Cards werden mithilfe von Schlüssel-Wert-Paaren gefiltert, die in Braze konfiguriert werden. |
 | Banner | Zeigen Sie Braze-Banner innerhalb der App an – entweder auf Seiten, die mit dem Dynamic-Content-Seiteneditor von Poq erstellt wurden, oder in vordefinierten Bereichen innerhalb der App. Banner-Inhalte werden über eine Placement-ID abgerufen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Was unterstützt wird" }
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Sie benötigen Folgendes, um diese Integration zu nutzen.
 
 | Anforderungen | Beschreibung |
 | :---- | :---- |
 | Poq-App | Eine Poq-App ist erforderlich, um diese Integration nutzen zu können. |
-| Braze-App-API-Schlüssel | Ein Braze-App-API-Schlüssel wird für jede Plattform (iOS und Android) benötigt. Sie finden diese unter **Einstellungen** > **APIs und Bezeichner** > **App-Bezeichner** im Braze-Dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze-App-API-Schlüssel | Ein Braze-App-API-Schlüssel wird für jede Plattform (iOS und Android) benötigt. Sie finden diese unter **Settings** > **APIs and Identifiers** > **App Identifiers** im Braze-Dashboard. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

@@ -28,7 +28,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Push-Integration
+# Push-Integration {#push-integration}
 
 ## 1. Schritt: Laden Sie Ihr APNs-Token hoch {#step-1-upload-your-apns-token}
 
@@ -38,7 +38,7 @@ noindex: true
 
 Vergewissern Sie sich in Ihren Projekteinstellungen, dass auf dem Tab **Capabilities** die Funktion **Push Notifications** aktiviert ist.
 
-![]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![Vergewissern Sie sich in Ihren Projekteinstellungen, dass auf dem Tab „Capabilities“ die Funktion „Push Notifications“ aktiviert ist.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
 Wenn Sie über getrennte Push-Zertifikate für Entwicklung und Produktion verfügen, müssen Sie auf dem Tab **General** das Kontrollkästchen **Automatically manage signing** deaktivieren. Auf diese Weise können Sie für jede Build-Konfiguration unterschiedliche Bereitstellungsprofile wählen, da das Feature zur automatischen Code-Signierung in Xcode nur für die Entwicklung gilt.
 
@@ -48,10 +48,10 @@ Wenn Sie über getrennte Push-Zertifikate für Entwicklung und Produktion verfü
 
 Das entsprechende Code-Beispiel muss in der Delegate-Methode `application:didFinishLaunchingWithOptions:` Ihrer App enthalten sein, damit sich das Gerät Ihrer Nutzer:innen bei APNs registrieren kann. Stellen Sie sicher, dass Sie den gesamten Code für die Push-Integration im Hauptthread Ihrer Anwendung aufrufen.
 
-Braze bietet auch Standard-Push-Kategorien für die Unterstützung von Push-Action-Buttons, die manuell zu Ihrem Code für die Push-Registrierung hinzugefügt werden müssen. Weitere Schritte zur Integration finden Sie unter [Push-Action-Buttons]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/).
+Braze bietet auch Standard-Push-Kategorien für die Unterstützung von Push-Action-Buttons, die manuell zu Ihrem Code für die Push-Registrierung hinzugefügt werden müssen. Weitere Schritte zur Integration finden Sie unter [Push-Action-Buttons]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons).
 
 {% alert warning %}
-Wenn Sie einen angepassten Push-Prompt wie in unseren [Best Practices für Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting/) beschrieben implementiert haben, stellen Sie sicher, dass Sie den folgenden Code **jedes Mal aufrufen, wenn die App ausgeführt wird**, nachdem die Push-Berechtigungen für Ihre App erteilt wurden. **Apps müssen sich bei APNs neu registrieren, da [sich Geräte-Token beliebig ändern können](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
+Wenn Sie einen angepassten Push-Prompt wie in unseren [Best Practices für Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting) beschrieben implementiert haben, stellen Sie sicher, dass Sie den folgenden Code **jedes Mal aufrufen, wenn die App ausgeführt wird**, nachdem die Push-Berechtigungen für Ihre App erteilt wurden. **Apps müssen sich bei APNs neu registrieren, da [sich Geräte-Token beliebig ändern können](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
 {% endalert %}
 
 ### UserNotification-Framework verwenden (iOS 10+) {#using-usernotification-framework-ios-10}
@@ -59,7 +59,7 @@ Wenn Sie einen angepassten Push-Prompt wie in unseren [Best Practices für Push-
 Wenn Sie das in iOS 10 eingeführte Framework `UserNotifications` verwenden (empfohlen), fügen Sie den folgenden Code zur Methode `application:didFinishLaunchingWithOptions:` Ihres App-Delegaten hinzu.
 
 {% alert important %}
-Das folgende Code-Beispiel enthält die Integration für die vorläufige Push-Authentifizierung (Zeilen 5 und 6). Wenn Sie nicht vorhaben, eine vorläufige Autorisierung in Ihrer App zu verwenden, können Sie die Zeilen des Codes entfernen, die `UNAuthorizationOptionProvisional` zu den `requestAuthorization`-Optionen hinzufügen.<br>In den [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/) erfahren Sie mehr über die vorläufige Push-Authentifizierung.
+Das folgende Code-Beispiel enthält die Integration für die vorläufige Push-Authentifizierung (Zeilen 5 und 6). Wenn Sie nicht vorhaben, eine vorläufige Autorisierung in Ihrer App zu verwenden, können Sie die Zeilen des Codes entfernen, die `UNAuthorizationOptionProvisional` zu den `requestAuthorization`-Optionen hinzufügen.<br>In den [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options) erfahren Sie mehr über die vorläufige Push-Authentifizierung.
 {% endalert %}
 
 {% tabs %}
@@ -304,8 +304,8 @@ Appboy.sharedInstance()?.register(application,
 
 ## 6. Schritt: Deeplinking {#step-6-deep-linking}
 
-Deeplinks von einem Push in die App werden automatisch über unsere standardmäßige Dokumentation zur Push-Integration verarbeitet. Wenn Sie mehr darüber erfahren möchten, wie Sie Deeplinks zu bestimmten Stellen in Ihrer App hinzufügen, sehen Sie sich unsere [fortgeschrittenen Anwendungsfälle]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-implementation) an.
+Deeplinks von einem Push in die App werden automatisch über unsere standardmäßige Dokumentation zur Push-Integration verarbeitet. Wenn Sie mehr darüber erfahren möchten, wie Sie Deeplinks zu bestimmten Stellen in Ihrer App hinzufügen, sehen Sie sich unsere [fortgeschrittenen Anwendungsfälle]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-implementation) an.
 
 ## 7. Schritt: Unit-Tests (optional) {#step-7-unit-tests-optional}
 
-Um die Testabdeckung für die soeben durchgeführten Integrationsschritte zu erhöhen, implementieren Sie [Push-Unit-Tests]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests/).
+Um die Testabdeckung für die soeben durchgeführten Integrationsschritte zu erhöhen, implementieren Sie [Push-Unit-Tests]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests).

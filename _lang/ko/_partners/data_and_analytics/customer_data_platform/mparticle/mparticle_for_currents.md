@@ -1,15 +1,15 @@
 ---
-nav_title: mParticle for Currents
-article_title: mParticle for Currents
+nav_title: Currents용 mParticle
+article_title: Currents용 mParticle
 alias: /partners/mparticle_for_currents/
-description: "이 참조 문서에서는 Braze 커런츠와 마케팅 스택의 소스 간에 정보를 수집하고 라우팅하는 고객 데이터 플랫폼인 mParticle 간의 파트너십에 대해 설명합니다."
+description: "이 참조 문서에서는 Braze Currents와 마케팅 스택의 소스 간에 정보를 수집하고 라우팅하는 고객 데이터 플랫폼인 mParticle 간의 파트너십에 대해 설명합니다."
 page_type: partner
 tool: Currents
 search_tag: Partner
 
 ---
 
-# mParticle for Currents
+# Currents용 mParticle {#mparticle-for-currents}
 
 > [mParticle](https://www.mparticle.com)은 여러 소스에서 정보를 수집하여 마케팅 스택의 다양한 위치로 라우팅하는 고객 데이터 플랫폼입니다.
 
@@ -19,10 +19,10 @@ Braze와 mParticle 통합을 통해 두 시스템 간의 정보 흐름을 원활
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Currents | 데이터를 mParticle로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
+| Currents | 데이터를 mParticle로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
 | mParticle 계정 | 이 파트너십을 활용하려면 [mParticle 계정](https://app.mparticle.com/login)이 필요합니다. |
-| mParticle 서버 간 키 및 시크릿 | mParticle 대시보드로 이동하여 mParticle이 iOS, Android 및 웹 플랫폼에 대한 Braze 상호작용 데이터를 수신할 수 있도록 [필요한 피드](#step-1-create-feeds)를 생성하면 얻을 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| mParticle 서버 간 키 및 시크릿 | mParticle 대시보드로 이동하여 mParticle이 iOS, Android 및 웹 플랫폼에 대한 Braze 상호작용 데이터를 수신할 수 있도록 [필요한 피드](#step-1-create-feeds)를 생성하면 얻을 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## mParticle 자격 증명 정보 {#about-mparticle-credentials}
 
@@ -63,64 +63,11 @@ mParticle로 전송되는 모든 이벤트에는 사용자의 `external_user_id`
 
 ## 지원되는 Currents 이벤트 {#supported-currents-events}
 
-Braze는 Currents [사용자 행동]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 및 [메시지 참여]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 이벤트 용어집에 나열된 다음 데이터를 mParticle로 내보내는 것을 지원합니다.
+Braze는 다음 이벤트를 mParticle로 내보내는 것을 지원합니다.
 
-### 동작 {#behaviors}
-- 제거: `users.behaviors.Uninstall`
-- 구독(글로벌 상태 변경): `users.behaviors.subscription.GlobalStateChange`
-- 구독 그룹(상태 변경): `users.behaviors.subscriptiongroup.StateChange`
+- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Campaigns
-- 중단: `users_campaigns_abort`
-- 전환: `users.campaigns.Conversion`
-- 컨트롤 등록: `users.campaigns.EnrollInControl`
+각 이벤트의 페이로드 구조에 대해서는 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 및 [고객 행동 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)에서 **mParticle** 탭을 선택하세요.
 
-### Canvas
-- 중단: `users_canvas_abort`
-- 전환: `users.canvas.Conversion`
-- 진입: `users.canvas.Entry`
-- 종료(일치하는 오디언스, 수행된 이벤트)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- 실험 단계(전환, 분할 진입)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### 메시지 {#messages}
-- 콘텐츠 카드(중단, 클릭, 닫기, 노출, 전송)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- 이메일(중단, 반송, 클릭, 전달, 스팸 신고, 열기, 전송, 소프트 반송, 구독 취소)
-- 인앱 메시지(중단, 클릭, 노출)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- 푸시 알림(중단, 반송, 열기, 전송)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS(중단, 통신사 전송, 전달, 전달 실패, 인바운드 수신, 거부, 전송, 단축 링크 클릭)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- 웹훅(중단, 전송)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp(중단, 전달, 실패, 인바운드 수신, 읽음, 전송)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
-
-
-mParticle 통합에 대해 자세히 알아보려면 [여기](http://docs.mparticle.com/integrations/braze/feed)에서 해당 설명서를 참조하세요.
+mParticle 통합에 대해 자세히 알아보려면 [mParticle 설명서](http://docs.mparticle.com/integrations/braze/feed)를 참조하세요.

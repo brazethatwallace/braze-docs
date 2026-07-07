@@ -1,4 +1,4 @@
-# Criar bandeiras de recurso {#create-feature-flags}
+# Criar Feature Flags {#create-feature-flags}
 
 > As Feature Flags permitem ativar ou desativar remotamente a funcionalidade para uma seleção de usuários. Crie uma nova Feature Flag no dashboard da Braze. Forneça um nome e um `ID`, um público-alvo e uma porcentagem de usuários para os quais ativar esse recurso. Em seguida, usando o mesmo `ID` no código do seu app ou site, você pode executar condicionalmente determinadas partes da sua lógica de negócios. Para saber mais sobre as Feature Flags e como você pode usá-las na Braze, consulte [Sobre as Feature Flags]({{site.baseurl}}/developer_guide/feature_flags/).
 
@@ -18,7 +18,7 @@ Para gerenciar as Feature Flags no dashboard, você precisará ser um administra
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Gerenciar Feature Flags**                                                      | Visualizar, criar e editar Feature Flags.     |
 | **Acessar Campaigns, Canvas, cartões, Feature Flags, Segments, Biblioteca de mídia** | Visualizar a lista de Feature Flags disponíveis. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões da Braze" }
 
 ## Criação de uma Feature Flag {#creating-a-feature-flag}
 
@@ -41,7 +41,7 @@ Em **Detalhes da Feature Flag**, insira um nome, ID e descrição para sua Featu
 | ID           | O ID exclusivo que você usará em seu código para verificar se esse recurso está [ativado para um usuário](#enabled). Esse ID não pode ser alterado posteriormente, portanto, revise as [práticas recomendadas de nomenclatura de ID](#naming-conventions) antes de continuar. |
 | Descrição  | Uma descrição opcional que fornece algum contexto sobre sua Feature Flag.   |
 | Propriedades   | Propriedades opcionais que configuram remotamente sua Feature Flag. Elas podem ser sobrescritas em etapas do Canvas ou em experimentos de Feature Flag. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Preencha os detalhes" }
 
 ### Etapa 2a: Criar propriedades personalizadas {#step-2a-create-custom-properties}
 
@@ -53,16 +53,17 @@ No exemplo a seguir, a Feature Flag mostra um banner de produto esgotado para um
 
 |Nome da propriedade|Tipo|Valor|
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
 |`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2a: Criar propriedades personalizadas" }
 
 {% alert tip %}
-Não há limite para o número de propriedades que você pode adicionar. No entanto, as propriedades de uma Feature Flag são limitadas a um total de 10 KB. Tanto os valores de propriedade quanto as chaves estão limitados a 255 caracteres de comprimento.
+Não há limite para o número de propriedades que você pode adicionar. No entanto, as propriedades de uma Feature Flag são limitadas a um total de 10.000 caracteres.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -888,7 +889,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar usuários** e pesquise e selecione um usuário.
 
-Na guia **Elegibilidade das Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de uma Feature Flag.
+Na guia **Elegibilidade das Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye" aria-label="Pré-visualizar"></i> ao lado de uma Feature Flag.
 
 ![Uma imagem mostrando a tabela de Feature Flags para as quais um usuário é elegível.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
@@ -933,7 +934,7 @@ Substitua o seguinte:
 | `BEHAVIOR`  | O comportamento do recurso. Em seu código, certifique-se de que o comportamento esteja desativado por padrão e evite usar frases como `disabled` no nome da Feature Flag. |
 | `PRODUCT`   | O produto ao qual o recurso pertence.                                                                                       |
 | `FEATURE`    | O nome do recurso.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Convenções de nomenclatura" }
 
 Veja um exemplo de Feature Flag em que `show` é o comportamento, `animation_profile` é o produto e `driver` é o recurso:
 

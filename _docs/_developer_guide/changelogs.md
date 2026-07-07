@@ -17,7 +17,7 @@ platform:
 
 # Braze SDK changelogs
 
-> This reference page includes the changelogs for each Braze SDK and a link to the changelog in their public GitHub repository. For the full list of resources, see [References, Repositories, and Sample Apps]({{site.baseurl}}/developer_guide/references/).
+> This reference page includes the changelogs for each Braze SDK and a link to the changelog in their public GitHub repository. For the full list of resources, see [References, Repositories, and Sample Apps]({{site.baseurl}}/developer_guide/references).
 
 {% sdktabs %}
 {% sdktab web %}

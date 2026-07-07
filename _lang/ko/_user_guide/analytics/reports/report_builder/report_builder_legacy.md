@@ -12,7 +12,7 @@ tool:
 
 # 보고서 빌더 (레거시) {#report-builder-legacy}
 
-> 보고서 빌더를 사용하면 여러 Campaign 또는 Canvases의 결과를 단일 뷰에서 비교할 수 있으므로, 어떤 참여 전략이 핵심 측정기준에 가장 큰 영향을 미쳤는지 쉽게 파악할 수 있습니다. Campaign과 Canvases 모두에서 데이터를 내보내고 보고서를 저장하여 나중에 확인할 수 있습니다.<br><br>보고서에서 확인할 수 있는 측정기준의 상세 목록은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요.
+> 보고서 빌더를 사용하면 여러 Campaign 또는 Canvases의 결과를 단일 뷰에서 비교할 수 있으므로, 어떤 참여 전략이 핵심 측정기준에 가장 큰 영향을 미쳤는지 쉽게 파악할 수 있습니다. Campaign과 Canvases 모두에서 데이터를 내보내고 보고서를 저장하여 나중에 확인할 수 있습니다.<br><br>보고서에서 확인할 수 있는 측정기준의 상세 목록은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
 
 ![Campaign 비교 예시]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
@@ -35,7 +35,7 @@ tool:
 
 ### 1단계: 새 보고서 생성 {#step-1-create-a-new-report}
 
-대시보드에서 **분석** > **보고서 빌더**로 이동합니다.
+대시보드에서 **Analytics** > **보고서 빌더**로 이동합니다.
 
 **새 보고서 생성**을 선택하고 Campaign 비교 보고서 또는 Canvas 비교 보고서 중 하나를 선택합니다.
 
@@ -50,7 +50,7 @@ Campaign에 대한 보고서를 실행하려면 **수동** 또는 **자동** 보
 | **보고서 작성** | 필터를 사용하여 Campaign 목록을 좁힌 다음 특정 Campaign을 선택할 수 있습니다. | 필터 옵션을 사용하여 Campaign 목록을 좁혀 보고서를 작성합니다. |
 | **보고서 저장 및 보기** | 보고서를 저장할 수 있습니다. 다음에 볼 때 이전에 추가한 동일한 Campaign을 볼 수 있으며, 이는 해당 Campaign이 여전히 "마지막 발송" 필터에 해당하기 때문입니다. | 보고서를 저장할 수 있습니다. 다음에 볼 때 보고서가 현재 필터와 일치하는 모든 Campaign을 포함하도록 자동으로 업데이트됩니다. |
 | **보고서 편집** | **보고서 편집**을 선택하여 보고서에서 Campaign을 추가하거나 삭제할 수 있습니다. | 필터 기준을 조정하여 보고서를 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1단계: 새 보고서 생성" }
 
 {% alert note %}
 **수동** 및 **자동** 보고서 모두 하나의 보고서에 최대 250개의 Campaign을 포함할 수 있습니다.
@@ -64,7 +64,7 @@ Canvas 보고서는 수동 Campaign 보고서와 유사하게 작동하며, Canv
 
 ![Campaign 옵션]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
-선택한 측정기준으로 테이블이 채워집니다. 이러한 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요. 일부 측정기준은 Campaign 비교 보고서에서만 사용할 수 있습니다.
+선택한 측정기준으로 테이블이 채워집니다. 이러한 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요. 일부 측정기준은 Campaign 비교 보고서에서만 사용할 수 있습니다.
 
 또한 모든 비율 또는 수치 측정기준의 **평균** 계산과 모든 수치 측정기준의 **합계** 계산을 토글할 수 있습니다.
 

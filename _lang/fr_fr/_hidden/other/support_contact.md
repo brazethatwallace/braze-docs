@@ -5,8 +5,7 @@ hide_nav: true
 layout: basic
 hide_toc: true
 ---
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-
+<!-- Legacy Algolia/DocSearch CSS and autocomplete JS removed; support suggestions use SearchUnify (see in-page fetch to searchunify.com). -->
 
 <style type="text/css">
   .legal-disclaimer{
@@ -411,72 +410,6 @@ line-height: 18px; /* 138.462% */
   }
 }
 
-.algolia-autocomplete-listbox-2 {
-    display: inline !important;
-}
-
-#algolia-autocomplete-listbox-2 {
-  position: relative !important;
-}
-
-.algolia-autocomplete {
-  line-height: normal;
-  display: inline !important;
-}
-#search-input {
-    padding: 0 0 20px;
-    position: relative;
-}
-
-#search-input input[type="text"] {
-    padding: .5em 0 .5em 0;
-    outline: 0;
-    border: 0;
-    border-bottom: solid 2px #c9c9c9;
-    width: 100%;
-    font-size: 15px;
-    display: inline-block;
-    background-image:url(/docs/assets/img/search_black_shark.svg);
-    background-position: right 10px top 9px;
-    background-size: 14px 14px;
-    background-repeat: no-repeat;
-}
-
-#search-input .fa-search {
-  line-height: normal;
-  position: relative;
-  top: 15px;
-  left: 5px;
-}
-
-.aa-suggestion {
-  margin-top: 5px;
-  line-height: 25px;
-}
-
-#ticket_search div.aa-suggestion {
-  color: #6d6d70;
-  cursor: pointer;
-  display: inline;
-  border-bottom-width: 0px;
-}
-
-#ticket_search aa-suggestions:hover div {
-  text-decoration: none;
-  color: #6d6d70;
-  border-bottom-width: 2px;
-  border-color: #3accdd;
-}
-
-
-#ticket_search aa-suggestion--highlight{
-
-}
-
-#ticket_search .algolia-docsearch-footer {
-  padding-top: 5px;
-}
-
 .gradient-line {
   background: linear-gradient(90deg, rgba(201,196,255,1) 30%, rgba(128,30,215,1) 60%, rgba(255,165,36,1) 90%);
   height: 3px;
@@ -641,33 +574,6 @@ a:hover {
   color: #3accdd;
   text-decoration: none;
 }
-#support-search-panel .aa-Panel {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-}
-#support-search-panel .aa-Item {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-  min-height: 1.8em;
-  line-height: 1.3em;
-}
-#support-search-panel .aa-PanelLayout {
-  padding-top: 0px;
-}
-#support-search-div {
-  padding-bottom: 15px;
-}
-#support-search-div .aa-Form {
-  box-shadow: none;
-  border-color: transparent;
-  border-radius: 0px;
-  border-bottom: solid 2px #c9c9c9;
-}
-#support-search-div .aa-Form button {
-  padding-top: 10px;
-}
 .hidden {
               display: none !important;
             }
@@ -751,8 +657,17 @@ a:hover {
         .form-group textarea:focus,
         .form-group select:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible,
+        .form-group select:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible),
+        .form-group select:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -916,8 +831,15 @@ a:hover {
         .form-group input[type="text"]:focus,
         .form-group textarea:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -1053,7 +975,7 @@ a:hover {
               <strong>Résolvez vos problèmes plus vite avec BrazeAI Operator&#8482;</strong>
               <span class="operator-callout-badge">Nouveau</span>
             </div>
-            <p class="operator-callout-body">Operator peut résoudre de nombreux problèmes en temps réel. S'il n'y parvient pas, il vous aidera à créer un ticket. <a href="https://dashboard.braze.com/?openOperator=true" target="_blank" rel="noopener noreferrer">Obtenir de l'aide avec Operator<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only"> (s'ouvre dans un nouvel onglet)</span></a></p>
+            <p class="operator-callout-body">Operator peut résoudre de nombreux problèmes en temps réel. S'il n'y parvient pas, il vous aidera à créer un ticket. <a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Obtenir de l'aide avec Operator<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only"> (s'ouvre dans un nouvel onglet)</span></a></p>
           </div>
         </aside>
         <div class="main-border">
@@ -1079,7 +1001,7 @@ a:hover {
 
 <div class="form-container">
         <form id="supportForm">
-            <!-- Step 1 -->
+            <!-- Étape 1 -->
             <div id="step1">
                 <div class="form-group">
                     <label for="subject" class="required">Objet</label>
@@ -1094,7 +1016,7 @@ a:hover {
                 <button type="button" class="submit-btn" id="toStep2" >Continuer vers le contenu suggéré</button>
             </div>
 
-            <!-- Step 2 -->
+            <!-- Étape 2 -->
             <div id="step2" style="display:none;">
                 <h2 class='gpt-heading'></h2>
                  <h2 class='gpt-heading'></h2>
@@ -1174,7 +1096,7 @@ a:hover {
     <form  id="ticket_form">
       <div id="step3">
         <h2>Vous ne trouvez pas ce dont vous avez besoin ? Contactez notre équipe d'assistance.</h2>
-        <!-- Row 1 -->
+        <!-- Ligne 1 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -1190,7 +1112,7 @@ a:hover {
           </div>
         </div>
 
-        <!-- Row 2 -->
+        <!-- Ligne 2 -->
         <div class="row">
           <div class="col-md-6" id="subcategory_div" style="display:none;">
             <div class="form-group">
@@ -1208,7 +1130,7 @@ a:hover {
 
         <!-- <h2>Vous ne trouvez pas ce dont vous avez besoin ? Contactez notre équipe d'assistance.</h2> -->
 
-        <!-- Row 3 -->
+        <!-- Ligne 3 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -1224,7 +1146,7 @@ a:hover {
           </div>
         </div>
 
-        <!-- Row 4 -->
+        <!-- Ligne 4 -->
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -1245,24 +1167,24 @@ a:hover {
           </div>
         </div>
 
-        <!-- Subject (Full width) -->
+        <!-- Objet (pleine largeur) -->
         <div class="form-group">
           <label for="ticket_subject" class="required">Objet </label>
           <input type="text" id="ticket_subject" name="Subject" placeholder="Quel est le sujet de votre question ?" class="form-control" required>
         </div>
 
-        <!-- Question (Full width) -->
+        <!-- Question (pleine largeur) -->
         <div class="form-group">
           <label for="ticket_issue" class="required">Question </label>
           <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Incluez des détails tels que la plateforme, la version du SDK, les endpoints REST API, les étapes pour reproduire le problème…"></textarea>
         </div>
 
-        <!-- Info text -->
+        <!-- Texte d'information -->
         <div class="form-group small-text">
           <p>Afin de vous fournir une assistance technique ou de résoudre des problèmes de service ou techniques, sachez que Braze peut avoir besoin d'accéder à votre tableau de bord et à vos données. L'assistance technique de Braze fonctionne pendant les heures ouvrables standard sur plusieurs fuseaux horaires pour servir notre clientèle mondiale. Pour connaître les horaires d'assistance spécifiques à votre région ou pour les problèmes signalés en dehors des heures ouvrables, veuillez consulter le guide d'assistance. Les délais de réponse peuvent varier en fonction du moment où votre demande est soumise, de votre niveau d'assistance et de la gravité du problème.</p>
         </div>
 
-        <!-- Submit button -->
+        <!-- Bouton d'envoi -->
         <div class="form-group text-right">
           <button type="submit" name="Submit" value="Submit" class="btn btn-black" id="ticket_submit_button" role="button"> ENVOYER </button>
         </div>
@@ -1331,11 +1253,6 @@ nextButton.addEventListener('keypress', function(e) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-function support_doc_submit(){
-  window.location = base_url + '/search/?query=' + encodeURIComponent($('#support-search-form .aa-Form .aa-Input').val());
-  return false;
-}
-
 String.prototype.mapReplace = function(map) {
   var mstr = this;
   for (var wd in map) {
@@ -1363,7 +1280,7 @@ var ticket_lookuptable = {
   'Label': '* What can we help you with?',
   'SelectDefault': 'Select a topic...',
   'LinksTitle': ['Marketer documentation','Developer documentation','Marketer troubleshooting guide','Frequently Asked Questions'],
-  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/help/home/','{{site.baseurl}}/help/faqs/'],
+  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/user_guide/home/'],
   'SelectOption': {
     'Technical Issue': {
       'Label': '* Category',
@@ -1635,7 +1552,7 @@ var ticket_lookuptable = {
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
@@ -1687,12 +1604,12 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
@@ -1702,7 +1619,7 @@ var ticket_lookuptable = {
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },
@@ -1754,7 +1671,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
@@ -1764,7 +1681,7 @@ var ticket_lookuptable = {
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
           'LinksTitle': ['Best Practices and Frequently Asked Questions'],
-          'Links':  ['{{site.baseurl}}/help/faqs']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/best_practices/']
         },
         'Other' :{
           'ShowSubmit': true,
@@ -2230,122 +2147,6 @@ $( document ).ready(function() {
     }
     return str;
   }
-  const algoliaInsightsPluginSupport = createAlgoliaInsightsPlugin({
-    insightsClient,
-    onItemsChange({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Viewed from Support Search',
-      }));
-      insights.viewedObjectIDs(...events);
-    },
-    onSelect({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Clicked from Support Search',
-      }));
-      insights.clickedObjectIDsAfterSearch(...events);
-    },
-  });
-  autocomplete({
-    container: "#support-search-div",
-    panelContainer: "#support-search-panel",
-    debug: true,
-    placeholder: "Search",
-    plugins: [algoliaInsightsPluginSupport],
-    detachedMediaQuery: 'none',
-    onSubmit(e){
-      var query = e.state.query;
-      window.location = base_url + '/search/?query=' + encodeURIComponent(query);
-    },
-    getSources() {
-      return [{
-          sourceId: "querySuggestions",
-          getItemInputValue: ({ item }) => item.query,
-          getItems({ query }) {
-            return getAlgoliaResults({
-              searchClient,
-              queries: [
-                {
-                  indexName: "DocSearch",
-                  query,
-                  params: {
-                    hitsPerPage: 5,
-                    attributesToSnippet: ["description:12"],
-                    snippetEllipsisText: " ...",
-                    clickAnalytics: true,
-                  },
-                },
-              ],
-            });
-          },
-          getItemUrl({ item }) {
-           return base_url + item.url;
-         },
-         templates: {
-           noResults({createElement}) {
-             return createElement("div", {
-               dangerouslySetInnerHTML: {
-                 __html: '<div class="no_results">No results were found with your current search. Try to change the search query.</div>',
-                 },
-               })
-          },
-
-          item({ item, createElement }) {
-            var content = "";
-            var title = "";
-            var type = "";
-            var category = "";
-            var platform = "";
-            var subname = "";
-            var heading = "";
-
-            if ("nav_title" in item) {
-              title = item.nav_title.replaceUnder();
-            } else {
-              title = item.title.replaceUnder();
-            }
-            if ("type" in item) {
-              type = item.type.replaceUnder().upCaseWord();
-            }
-            if ("category" in item) {
-              category = item.category.replaceUnder();
-            }
-
-            if ("platform" in item) {
-              if (Array.isArray(item.platform)){
-                platform = item.platform.join(',').replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-              else {
-                platform = item.platform.replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-            }
-            if ("headings" in item) {
-              if (item["headings"]) {
-                heading = item["headings"][item["headings"].length - 1];
-              }
-            }
-
-            var url = item.url;
-            if (heading) {
-              url += "#" + string_to_slug(heading);
-            }
-            var resulttemplate = '<a href="' +
-                base_url + url + '"><div class="title"> * ' +
-                platform + title + ' <div class="category">' +
-                subname.replace(/\_/g, " ") +
-                "</div></div></a>";
-            return createElement("div", {
-              dangerouslySetInnerHTML: {
-                __html: resulttemplate,
-              },
-            });
-          },
-        },
-      }];
-    }
-  });
-
  if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ) {
    var ff_div = $('#firefox_warning').detach();
    ff_div.insertBefore($('#basic_page')).show();
@@ -2656,9 +2457,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>Voici quelques articles qui pourraient vous aider :</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>Aucune suggestion trouvée.</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2692,6 +2493,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2707,7 +2516,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,

@@ -10,11 +10,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Integração de beacons
+# Integração de beacons {#beacon-integration}
 
-Aqui, veremos como integrar tipos específicos de beacons ao Braze para permitir a segmentação e o envio de mensagens.
+Aqui, veremos como integrar tipos específicos de beacons com a Braze para permitir a segmentação e o envio de mensagens.
 
-## Beacons Infillion
+## Beacons Infillion {#infillion-beacons}
 
 Uma vez que você tenha seus Beacons Infillion configurados e integrados ao seu app, você pode registrar eventos personalizados, como o início ou o fim de uma visita ou um beacon sendo avistado. Também é possível registrar propriedades para esses eventos, como o nome do local ou o tempo de permanência.
 
@@ -39,4 +39,4 @@ Appboy.sharedInstance()?.flushDataAndProcessRequestQueue()
 {% endtab %}
 {% endtabs %}
 
-O site `flushDataAndProcessRequestQueue` confirma que seu evento será registrado mesmo que o app esteja em segundo plano, e o mesmo processo pode ser implementado para sair de um local. Note que isso criará e incrementará um evento personalizado exclusivo para cada novo local em que o usuário entrar. Se você prevê a criação de mais de 50 lugares, recomendamos que crie um evento personalizado genérico "Place Entered" (Lugar inserido) e inclua o nome do lugar como uma propriedade do evento.
+O `flushDataAndProcessRequestQueue` confirma que seu evento será registrado mesmo que o app esteja em segundo plano, e o mesmo processo pode ser implementado para sair de um local. Note que isso criará e incrementará um evento personalizado exclusivo para cada novo local em que o usuário entrar. Se você prevê a criação de mais de 50 locais, recomendamos que crie um evento personalizado genérico "Place Entered" e inclua o nome do local como uma propriedade do evento.

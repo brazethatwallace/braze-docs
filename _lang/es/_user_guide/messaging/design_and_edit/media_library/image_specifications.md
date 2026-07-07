@@ -2,7 +2,6 @@
 nav_title: Especificaciones de imágenes
 article_title: Especificaciones de imágenes
 page_order: 1
-
 page_type: reference
 description: "Este artículo de referencia describe los tamaños y especificaciones de imagen recomendados para cada tipo de canal."
 tool:
@@ -11,53 +10,55 @@ tool:
 
 ---
 
-# Especificaciones de imágenes
+# Especificaciones de imágenes {#image-specifications}
 
 > En general, las imágenes más pequeñas y de alta calidad se cargan más rápido, por lo que recomendamos usar el activo más pequeño posible para lograr el resultado deseado. Para maximizar el uso de tus imágenes en canales específicos, consulta los detalles en este artículo.
 
-Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) en una variedad de dispositivos para confirmar que las áreas más importantes de tu imagen y mensaje se muestren como se espera.
+Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) en una variedad de dispositivos para confirmar que las áreas más importantes de tu imagen y mensaje se muestren como se espera.
 
-## Comportamiento de las imágenes
+## Comportamiento de las imágenes {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
-## Video
+## Video {#video}
 
-Los videos cargados en la biblioteca de medios solo se pueden usar en mensajes de WhatsApp. Para más información, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages).
+Los videos cargados en la biblioteca de medios solo se pueden usar en mensajes de WhatsApp. Para más información, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
-## GIF
+## GIF {#gifs}
 
-Los GIF son compatibles con push de iOS, mensajes dentro de la aplicación, correo electrónico, Tarjetas de contenido y mensajes MMS o RCS. Los GIF con formas muy alargadas (por ejemplo, 3000 x 2 píxeles) o con 300 o más fotogramas pueden fallar al cargarse, incluso si el tamaño total del archivo es pequeño.
+Los GIF son compatibles con push de iOS, mensajes dentro de la aplicación, correo electrónico, Content Cards y mensajes MMS o RCS. Los GIF con formas muy alargadas (por ejemplo, 3000 x 2 píxeles) o con 300 o más fotogramas pueden fallar al cargarse, incluso si el tamaño total del archivo es pequeño.
 
-## Guía por canal
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
-### Tarjetas de contenido
+## Guía por canal {#channel-guidance}
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+### Content Cards
 
-### Correo electrónico
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+### Correo electrónico {#email}
 
-### Mensajes dentro de la aplicación
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+### Mensajes dentro de la aplicación {#in-app-messages}
+
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} ¡Crea activos con confianza! Nuestras plantillas de imágenes para mensajes dentro de la aplicación y las superposiciones de zona segura están diseñadas para funcionar bien con dispositivos de todos los tamaños. [Descargar ZIP de plantillas de diseño]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-Para más información, consulta [Detalles creativos de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Para más información, consulta [Detalles creativos de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
 #### Font Awesome
 
 Braze admite el uso de [Font Awesome v4.3.0](https://fontawesome.com/v4.7.0/cheatsheet/) para los iconos de mensajes modales dentro de la aplicación.
 
-### Notificaciones push
+### Notificaciones push {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
-#### Longitudes de mensaje recomendadas
+#### Longitudes de mensaje recomendadas {#recommended-message-lengths}
 
 Para obtener los mejores resultados, consulta las siguientes directrices de longitud de mensaje al redactar mensajes push. Puede haber cierta variación dependiendo de la presencia de una imagen, el estado de la notificación (iOS) y la configuración de pantalla del dispositivo del usuario, así como del tamaño del dispositivo.
 
@@ -68,11 +69,11 @@ Para obtener los mejores resultados, consulta las siguientes directrices de long
 | Banner de alerta de iOS | 80 caracteres | 65 caracteres |
 | Pantalla de bloqueo de Android | 49 caracteres | N/A |
 | Panel de notificaciones de Android | 597 caracteres | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Longitudes de mensaje recomendadas" }
 
-Para más información sobre el conteo de caracteres en iOS, consulta las [directrices de conteo de caracteres en iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Para más información sobre el conteo de caracteres en iOS, consulta las [directrices de conteo de caracteres en iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
-#### Notificación push web
+#### Notificación push web {#web-push}
 
 {% tabs %}
 {% tab Imágenes %}
@@ -83,7 +84,7 @@ Para más información sobre el conteo de caracteres en iOS, consulta las [direc
 | Firefox | 192 x 192 px o más |
 | Safari | 192 x 192 px o más (configurable por campaña con Safari 16 en macOS 13+) |
 | Opera | 192 x 192 px o más |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Notificación push web" }
 
 | Navegador | Plataforma | Tamaño de imagen grande |
 | --- | --- | --- |
@@ -97,7 +98,7 @@ Para más información sobre el conteo de caracteres en iOS, consulta las [direc
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificación push web" }
 
 {% endtab %}
 {% tab Texto %}
@@ -114,12 +115,12 @@ Para más información sobre el conteo de caracteres en iOS, consulta las [direc
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Notificación push web" }
 
 {% endtab %}
 {% endtabs %}
 
-#### Ejemplos de notificaciones push
+#### Ejemplos de notificaciones push {#push-notification-examples}
 
 {% tabs %}
 {% tab iOS %}
@@ -139,4 +140,4 @@ Las notificaciones con imágenes grandes se muestran mejor cuando se usa una ima
 {% endtab %}
 {% endtabs %}
 
-Para recursos adicionales, consulta [Especificaciones de imagen y texto para push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Para recursos adicionales, consulta [Especificaciones de imagen y texto para push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).

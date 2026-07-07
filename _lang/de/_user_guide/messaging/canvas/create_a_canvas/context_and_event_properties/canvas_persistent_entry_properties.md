@@ -13,20 +13,20 @@ page_order: 5
 > Wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird, können Sie Metadaten aus dem API-Aufruf, dem angepassten Event oder dem Kauf-Event zur Personalisierung in jedem Schritt Ihres Canvas-Workflows verwenden. Sie können diese Eigenschaften nutzen, um besser kuratierte Nachrichten zu senden.
 
 {% alert important %}
-Persistente Eingangs-Eigenschaften sind ein Artefakt des ursprünglichen Canvas-Editors, daher gibt es veraltete Verweise auf Begriffe wie Canvas-Eingangs-Eigenschaften, die aus historischen Gründen bestehen bleiben. Für den aktuellen aktualisierten Canvas-Editor lesen Sie [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+Persistente Eingangs-Eigenschaften sind ein Artefakt des ursprünglichen Canvas-Editors, daher gibt es veraltete Verweise auf Begriffe wie Canvas-Eingangs-Eigenschaften, die aus historischen Gründen bestehen bleiben. Für den aktuellen Canvas-Editor lesen Sie [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).<br><br>Um persistente Eingangs-Eigenschaften im aktuellen Canvas-Editor zu verwenden, müssen Sie entweder einen neuen Canvas erstellen oder einen bestehenden in den aktuellen Editor [klonen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 {% endalert %}
 
 ## Eingangs-Eigenschaften verwenden {#using-entry-properties}
 
 Eingangs-Eigenschaften können in aktionsbasierten und API-getriggerten Canvases verwendet werden. Diese Eingangs-Eigenschaften werden definiert, wenn ein Canvas durch ein angepasstes Event, einen Kauf oder einen API-Aufruf getriggert wird. Weitere Informationen finden Sie in den folgenden Artikeln:
 
-- [Canvas-Eingangs-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
-- [Event-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/event_object/)
-- [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
+- [Canvas-Eingangs-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Event-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/event_object)
+- [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
 
 Eigenschaften, die von diesen Objekten übergeben werden, können mit dem Liquid-Tag `canvas_entry_properties` referenziert werden. Zum Beispiel könnte eine Anfrage mit `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` das Wort „shoes“ zu einer Nachricht hinzufügen, indem der Liquid-Code {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %} verwendet wird.
 
-Wenn ein Canvas eine Nachricht mit dem Liquid-Tag `canvas_entry_properties` enthält, werden die mit diesen Eigenschaften verknüpften Werte für die Dauer der Journey einer Nutzer:in im Canvas gespeichert und gelöscht, wenn die Nutzer:in den Canvas verlässt. Beachten Sie, dass Canvas-Eingangs-Eigenschaften nur zur Referenzierung in Liquid verfügbar sind. Um innerhalb des Canvas nach den Eigenschaften zu filtern, verwenden Sie stattdessen die [Event-Eigenschafts-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+Wenn ein Canvas eine Nachricht mit dem Liquid-Tag `canvas_entry_properties` enthält, werden die mit diesen Eigenschaften verknüpften Werte für die Dauer der Journey einer Nutzer:in im Canvas gespeichert und gelöscht, wenn die Nutzer:in den Canvas verlässt. Beachten Sie, dass Canvas-Eingangs-Eigenschaften nur zur Referenzierung in Liquid verfügbar sind. Um innerhalb des Canvas nach den Eigenschaften zu filtern, verwenden Sie stattdessen die [Event-Eigenschafts-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 {% alert note %}
 Das Canvas-Eingangs-Eigenschaften-Objekt hat eine maximale Größenbeschränkung von 50 KB.
@@ -47,7 +47,7 @@ Falls eine Canvas-Eingangs-Eigenschaft null oder leer ist, können Sie Nachricht
 ```
 {%endraw%}
 
-Weitere Informationen zum Abbrechen von Nachrichten mit Liquid finden Sie in unserer [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages).
+Weitere Informationen zum Abbrechen von Nachrichten mit Liquid finden Sie in unserer [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
 
 ## Globale Canvas-Eingangs-Eigenschaften {#global-canvas-entry-properties}
 
@@ -85,8 +85,8 @@ In dieser Anfrage ist der globale Wert für „food allergies“ „none“. Fü
 
 Wenn Sie einen Canvas haben, der getriggert wird, wenn eine Nutzer:in einen Artikel auf Ihrer E-Commerce-Website ansieht, ihn aber nicht in den Warenkorb legt, könnte der erste Schritt des Canvas eine Push-Benachrichtigung sein, die fragt, ob Interesse am Kauf des Artikels besteht. Sie könnten den Produktnamen referenzieren, indem Sie {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %} verwenden.
 
-![]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
+![Wenn Sie einen Canvas haben, der getriggert wird, wenn eine Nutzer:in einen Artikel auf Ihrer E-Commerce-Website ansieht, ihn aber nicht in den Warenkorb legt, könnte der erste Schritt des Canvas eine Push-Benachrichtigung sein, die fragt, ob Interesse am Kauf des Artikels besteht. Sie könnten den Produktnamen referenzieren, indem Sie {% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %} verwenden.]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
 
 Der zweite Schritt könnte eine weitere Push-Benachrichtigung senden, die die Nutzer:in zum Checkout auffordert, wenn der Artikel in den Warenkorb gelegt, aber noch nicht gekauft wurde. Sie können weiterhin die Eingangs-Eigenschaft `product_name` referenzieren, indem Sie {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %} verwenden.
 
-![]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
+![Screenshot zum Anwendungsfall.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}

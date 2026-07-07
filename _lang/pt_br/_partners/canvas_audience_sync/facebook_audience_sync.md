@@ -40,7 +40,7 @@ Você precisará confirmar que os itens a seguir foram criados e concluídos ant
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Uma ferramenta centralizada para gerenciar os ativos do Facebook da sua marca (por exemplo, contas de anúncios, páginas e apps). |
 | Conta de anúncio do Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Uma conta de anúncio ativa do Facebook vinculada ao gerente de negócios da sua marca.<br><br>Certifique-se de que o administrador do Facebook Business Manager tenha concedido permissões de "Manage Campaigns" ou "Manage ad accounts" para as contas de anúncios do Facebook que você planeja usar com a Braze. Além disso, verifique se você aceitou os termos e condições da sua conta de anúncios. |
 | Termos de públicos personalizados do Facebook | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Aceite os Termos de Públicos Personalizados do Facebook para as contas de anúncios do Facebook que você planeja usar com a Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -148,7 +148,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários atualmente sendo processados pela Braze para sincronizar com o Facebook. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o Facebook devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido do Facebook ou a exclusão do público personalizado no Facebook. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é uma etapa do Facebook. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Há um atraso nos relatórios de métricas de usuários sincronizados e usuários com erro devido ao processamento interno.
@@ -216,6 +216,14 @@ Depois de aceitar os termos de serviço do público personalizado do Facebook, f
 
 A partir daí, a Braze poderá sincronizar os usuários assim que eles chegarem à etapa de sincronização de público do Facebook.
 
+### O que aconteceu com os filtros **Connected Facebook** e **Number of Facebook Friends Using App**? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+
+Os filtros de segmentação da Braze **Number of Facebook Friends Using App** e **Connected Facebook** foram descontinuados. O Facebook e os SDKs da Braze não coletam mais os dados subjacentes nos quais esses filtros se baseavam.
+
+Substitua os filtros descontinuados por atributos personalizados, eventos personalizados ou segmentos baseados em engajamento — por exemplo, login do Facebook ou vinculação social em vez de **Connected Facebook**, ou indicações, convites e compartilhamentos em vez de **Number of Facebook Friends Using App**.
+
+Para redirecionamento no Canvas, combine os usuários com e-mail, telefone, nome e sobrenome, conforme demonstrado na [Etapa 4: Configuração de sincronização](#step-4-sync-setup). Para ampliar o alcance, sincronize um segmento de alto valor com o Facebook e crie um público semelhante no Meta Ads Manager.
+
 ## Solução de problemas {#troubleshooting}
 
 <style>
@@ -233,7 +241,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Solução de problemas">
   <thead>
     <tr>
       <th>Erro</th>
@@ -278,6 +286,21 @@ table td {
       <td>Na página Parceiro de tecnologia do Facebook, você está vendo "Conectado", mas há um erro na etapa Sincronização de público do Facebook ao sincronizar um público: "Falha ao criar o público 'nome do público'". A autorização da sua conta do Facebook falhou. Visite a página Parceiros de tecnologia para reconectar sua conta.</td>
       <td>Siga as etapas <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>desta seção de solução de problemas</a> para verificar se há algum problema na sua conta.
       </td>
+    </tr>
+    <tr>
+      <td><b>Conta de anúncios ausente no menu suspenso</b></td>
+      <td>Ao configurar a etapa Facebook Audience, uma conta de anúncios esperada não aparece no seletor de contas de anúncios.</td>
+      <td>Confirme se o seu app do Facebook concluiu a <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">Revisão de App</a> para <code>ads_management</code> com o nível de acesso que o Facebook exige para uso da API de marketing. No <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirme se o token de usuário do sistema tem as permissões corretas e está associado às contas de anúncios que você usa na Braze, e se os termos da conta de anúncios foram aceitos. <br><br>Se o menu suspenso funcionar em um novo Canvas, mas não em um Canvas que você já editou, tente atualizar o navegador (ou limpar o cache) e confirme se você está conectado como um usuário que ainda tem acesso a essas contas de anúncios.</td>
+    </tr>
+    <tr>
+      <td><b>Erro ao validar o token de acesso</b></td>
+      <td>Você vê um erro sobre a validação do token de acesso do Facebook ao conectar a Braze ao Facebook ou ao sincronizar públicos.</td>
+      <td>Saia do Facebook no seu navegador. Na Braze, acesse <b>Integrações de parceiros</b> &gt; <b>Facebook</b>, remova as credenciais salvas do Facebook e conecte o Facebook novamente. Na página de Parceiros de tecnologia do Facebook para a Braze, desconecte e reconecte a integração, se a opção estiver disponível. <br><br>Se os problemas continuarem, siga <a href="#audit-your-facebook-account">Audite sua conta do Facebook</a>.</td>
+    </tr>
+    <tr>
+      <td><b>Erros de permissão de exportação ou sincronização de público</b></td>
+      <td>A exportação ou sincronização de um público do Facebook falha com erros de autorização, administrador ou conta de anúncios.</td>
+      <td>No <a href="https://developers.facebook.com/">Meta for Developers</a>, abra seu app e confirme se o seu usuário tem uma função de <b>Admin</b> em <b>App roles</b>. Em <b>App settings</b> &gt; <b>Advanced</b>, confirme se <b>Advertising accounts</b> inclui as contas que você usa com a Braze. Em <a href="https://business.facebook.com/latest/settings">Business settings</a>, confirme se o usuário que está conectando ou o usuário do sistema tem acesso à conta de anúncios correta.</td>
     </tr>
   </tbody>
 </table>

@@ -13,17 +13,13 @@ search_tag: Partner
 
 Die Integration von Braze und Zeotap ermöglicht es Ihnen, den Umfang und die Reichweite Ihrer Campaigns zu erweitern, indem Sie Zeotap-Kundensegmente mit Braze-Nutzerprofilen synchronisieren. Mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) können Sie Daten auch mit Zeotap verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
 
-{% alert important %}
-Der angepasste HTTP-Konnektor befindet sich derzeit in der Betaphase. Wenn Sie daran interessiert sind, diese Integration einzurichten, wenden Sie sich an Ihren Customer-Success-Manager.
-{% endalert %}
-
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | --- | --- |
 | Zeotap-Konto | Um diese Partnerschaft zu nutzen, benötigen Sie ein [Zeotap-Konto](https://zeotap.com/). |
 | Currents | Um Daten zurück in Zeotap zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) für Ihr Konto eingerichtet haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Implementierung {#implementation}
 
@@ -40,7 +36,7 @@ Der angepasste HTTP-Konnektor befindet sich derzeit in der Betaphase. Wenn Sie d
 
 ### 2. Schritt: Konfigurieren Sie das Datenstreaming in Currents {#step-2-configure-data-streaming-in-currents}
 
-1. Gehen Sie in Braze zu **Partnerintegrationen** > **Datenexport**.
+1. Gehen Sie in Braze zu **Partner Integrations** > **Data Export**.
 2. Wählen Sie **Create New Current** und **Custom Currents Export**.<br><br>![Der Button „Create New Current“ mit einem Dropdown-Menü, das „Custom Currents Export“ enthält.]({% image_buster /assets/img/zeotap/custom_currents_export.png %}){: style="max-width:60%;"}<br><br>
 3. Geben Sie einen Integrationsnamen und eine E-Mail-Adresse ein, über die Sie bei Fehlern mit der Integration kontaktiert werden können.
 4. Geben Sie unter **Credentials** die folgenden Informationen ein, die Sie in [Schritt 1](#step-1-create-a-currents-source) notiert haben:
