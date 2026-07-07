@@ -76,7 +76,7 @@ Use SDK eCommerce event APIs where available. For platform-specific implementati
 | `currency`     | String           | Yes      | Three-letter ISO 4217 code (for example, `USD` or `EUR`).                                                                                               |
 | `source`       | String           | Yes      | Source the event originates from (for example, `web`, `ios`, or `android`).                                                                               |
 | `type`         | Array of strings | No       | Required to use Braze’s catalog trigger features for back-in-stock and price-drop alerts. Accepted values: `"price_drop"`, `"back_in_stock"`     |
-| `metadata`     | Object           | No       | Flexible key-value pairs. Recognized sub-property: `sku` (String)                                                                                   |
+| `metadata`     | Object           | No       | Flexible key-value pairs (for example, `category` or `brand`).                                                                                   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### REST API example
@@ -99,7 +99,6 @@ Use SDK eCommerce event APIs where available. For platform-specific implementati
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
