@@ -6,7 +6,7 @@ description: "GitHubからミラーリングされたBraze React Native SDK READ
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# React Native SDKリポジトリガイド
+# React Native SDKリポジトリガイド {#react-native-sdk-repository-guide}
 
 ## Braze React Native SDKについて {#about-the-braze-react-native-sdk}
 

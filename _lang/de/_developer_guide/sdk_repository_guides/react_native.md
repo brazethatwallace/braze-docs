@@ -6,7 +6,7 @@ description: "Braze React Native SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# React Native SDK Repository-Leitfaden
+# React Native SDK Repository-Leitfaden {#react-native-sdk-repository-guide}
 
 ## Über das Braze React Native SDK {#about-the-braze-react-native-sdk}
 
