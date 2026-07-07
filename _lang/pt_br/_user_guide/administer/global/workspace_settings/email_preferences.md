@@ -3,9 +3,10 @@ nav_title: Preferências de e-mail
 article_title: Preferências de e-mail
 page_type: reference
 page_order: 2
-description: "Este artigo de referência aborda as preferências de e-mail no dashboard da Braze, incluindo configurações de envio, pixels de rastreamento de abertura, páginas e rodapés da inscrição, e mais."
+description: "Este artigo de referência aborda as preferências de e-mail no dashboard da Braze, incluindo configurações de envio, pixels de rastreamento de abertura, páginas e rodapés de inscrição, e mais."
 tool: Dashboard
 channel: email
+alias: /email_preferences/
 toc_headers: h2
 
 ---
@@ -140,12 +141,12 @@ O rastreamento de cliques se aplica apenas a links que começam com `http://` ou
 ## Cabeçalho list-unsubscribe {#list-unsubscribe}
 
 {% alert note %}
-Desde 15 de fevereiro de 2024, novas empresas têm o cabeçalho list-unsubscribe (com cancelamento de inscrição com um clique) ativado por padrão.
+Desde 15 de junho de 2026, quando o cabeçalho de cancelamento de inscrição com um clique está configurado para um grupo de inscrições específico, a Braze não inclui mais o cabeçalho mailto nos e-mails. Usuários que cancelam a inscrição pelo cabeçalho list-unsubscribe são cancelados apenas daquele grupo de inscrições específico, não globalmente.
 {% endalert %}
 
 Usar um cabeçalho list-unsubscribe permite que seus destinatários cancelem facilmente a inscrição de e-mails de marketing exibindo um botão **Unsubscribe** na interface da caixa de e-mail, e não no corpo da mensagem.
 
-Envios de teste normalmente **não** incluem cabeçalhos list-unsubscribe. A exibição do cabeçalho em produção depende do provedor de caixa de e-mail e é baseada na reputação — uma reputação do remetente mais forte geralmente melhora a visibilidade.
+Envios de teste normalmente não incluem cabeçalhos list-unsubscribe. A exibição do cabeçalho em produção depende do provedor de caixa de e-mail e é baseada na reputação — uma reputação do remetente mais forte geralmente melhora a visibilidade.
 
 ![Interface da caixa de e-mail com a opção Unsubscribe ao lado da mensagem, onde o list-unsubscribe aparece fora do corpo da mensagem.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
@@ -157,7 +158,7 @@ Ao [gerenciar suas inscrições no Gmail](https://support.google.com/mail/answer
 
 ### Desativar o cabeçalho list-unsubscribe remove o botão Unsubscribe do Gmail? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
 
-Não. Desativar a configuração de cabeçalho list-unsubscribe da Braze remove o cabeçalho `List-Unsubscribe` das mensagens que a Braze envia, mas não controla se o Gmail exibe uma opção **Unsubscribe** na interface da caixa de e-mail. Conforme mencionado acima, o Gmail ainda pode exibir uma opção de cancelamento de inscrição a partir de links no corpo da mensagem ou usar outra lógica do provedor. A presença do cabeçalho na mensagem bruta é separada da exibição de uma opção de cancelamento de inscrição pelo Gmail para os destinatários. Para saber mais, consulte o [FAQ das diretrizes de remetente de e-mail do Gmail](https://support.google.com/a/answer/14229414).
+Não. Desativar a configuração de cabeçalho list-unsubscribe da Braze remove o cabeçalho `List-Unsubscribe` das mensagens que a Braze envia, mas não controla se o Gmail exibe uma opção **Unsubscribe** na interface da caixa de e-mail. Conforme mencionado na seção anterior, o Gmail ainda pode exibir uma opção de cancelamento de inscrição a partir de links no corpo da mensagem ou usar outra lógica do provedor. A presença do cabeçalho na mensagem bruta é separada da exibição de uma opção de cancelamento de inscrição pelo Gmail para os destinatários. Para saber mais, consulte o [FAQ das diretrizes de remetente de e-mail do Gmail](https://support.google.com/a/answer/14229414).
 
 ### Suporte de provedores de caixa de e-mail {#mailbox-provider-support}
 
@@ -185,7 +186,7 @@ Se o cabeçalho estiver na versão bruta do e-mail mas não for exibido, o prove
 
 ![Selecionando "users who are subscribed or opted in" para quais usuários enviar.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Quando o recurso de cabeçalho de cancelamento de inscrição de e-mail está ativado, essa configuração se aplica a todo o espaço de trabalho, não ao nível da empresa. Ela é adicionada a Campaigns e Canvas que estão configurados para enviar a usuários inscritos ou com opt-in, ou apenas usuários com opt-in, na etapa **Público-alvo** dos construtores de Campaign e Canvas.
+Quando o recurso de cabeçalho de cancelamento de inscrição de e-mail está ativado, essa configuração se aplica a todo o espaço de trabalho, não ao nível da empresa. Ela é adicionada a Campaigns e Canvas que estão configurados para enviar a usuários inscritos ou com opt-in, ou apenas usuários com opt-in, na etapa **Target Audience** dos construtores de Campaign e Canvas.
 
 Ao usar o "padrão do espaço de trabalho", a Braze não adiciona o cabeçalho de cancelamento de inscrição com um clique para Campaigns consideradas transacionais, que são configuradas para "enviar a todos os usuários, incluindo usuários cancelados". Para substituir isso e adicionar o cabeçalho de cancelamento de inscrição com um clique ao enviar para usuários cancelados, você pode selecionar **Unsubscribe globally from all emails** nas configurações de list-unsubscribe com um clique no nível da mensagem.
 
@@ -208,7 +209,7 @@ A Braze suporta as seguintes versões do cabeçalho list-unsubscribe:
 | Mailto | Especifica um endereço de e-mail como destino para a mensagem de solicitação de cancelamento de inscrição a ser enviada do destinatário para a marca. <br><br> _Para processar solicitações de cancelamento de inscrição via mailto list-unsubscribe, essas solicitações precisam incluir o endereço de e-mail conforme armazenado na Braze para o usuário final que está cancelando a inscrição. Isso pode ser fornecido pelo "from-address" do e-mail de onde o usuário final está cancelando a inscrição, pelo assunto codificado ou pelo corpo codificado do e-mail recebido pelo usuário final do qual está cancelando a inscrição. Em casos muito limitados, alguns provedores de caixa de entrada não aderem ao protocolo [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368), resultando no endereço de e-mail não sendo passado corretamente. Isso pode fazer com que uma solicitação de cancelamento de inscrição não possa ser processada na Braze._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cabeçalho list-unsubscribe padrão" }
 
-Quando a Braze recebe uma solicitação de list-unsubscribe de um usuário por qualquer um dos métodos acima, o estado global de inscrição de e-mail desse usuário é definido como cancelado. Se não houver correspondência, a Braze não processa essa solicitação.
+Quando a Braze recebe uma solicitação de list-unsubscribe de um usuário por qualquer um dos métodos do [cabeçalho list-unsubscribe padrão](#default-list-unsubscribe-header), o estado global de inscrição de e-mail desse usuário é definido como cancelado. Se não houver correspondência, a Braze não processa essa solicitação.
 
 ### Cancelamento de inscrição com um clique {#one-click-unsubscribe}
 
@@ -235,7 +236,7 @@ No seu editor de e-mail, acesse **Sending Settings** > **Sending Info**. Selecio
     - Ao selecionar um grupo de inscrições, adicione o filtro **Subscription Group** em **Target Audiences** para direcionar apenas usuários que estão inscritos nesse grupo específico. O grupo de inscrições selecionado para o cancelamento de inscrição com um clique deve corresponder ao grupo de inscrições que você está direcionando. Se houver uma incompatibilidade no grupo de inscrições, você pode correr o risco de enviar para um usuário que está tentando cancelar a inscrição de um grupo de inscrições do qual já está cancelado.
 
 {% alert important %}
-A configuração **Unsubscribe from specific subscription group** se aplica apenas ao cabeçalho list-unsubscribe com um clique. O cabeçalho mailto list-unsubscribe não é afetado ao selecionar essa opção. Isso significa que um destinatário que cancela a inscrição usando esse método registra um cancelamento global, não um cancelamento do grupo de inscrições específico. Para excluir o cabeçalho mailto list-unsubscribe do cancelamento global de inscrição dos usuários ao selecionar essa configuração, entre em contato com o [Suporte]({{site.baseurl}}/support_contact).
+A configuração **Unsubscribe from specific subscription group** se aplica apenas ao cabeçalho list-unsubscribe com um clique. O cabeçalho mailto list-unsubscribe não é afetado ao selecionar essa opção. Isso significa que um destinatário que cancela a inscrição usando esse método registra um cancelamento global, não um cancelamento do grupo de inscrições específico. Para excluir o cabeçalho mailto list-unsubscribe do cancelamento global de inscrição dos usuários ao selecionar essa configuração, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 - **Custom**: Adiciona sua URL personalizada de cancelamento de inscrição com um clique para você processar cancelamentos diretamente.
@@ -280,7 +281,7 @@ Você pode reinscrever automaticamente os usuários quando eles alteram seu ende
 
 ![Configuração do espaço de trabalho que reinscreve automaticamente os usuários quando seu endereço de e-mail muda.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
-## Páginas e rodapés da inscrição {#subscription-pages-and-footers}
+## Páginas e rodapés de inscrição {#subscription-pages-and-footers}
 
 {% tabs local %}
 {% tab Rodapé personalizado %}
@@ -302,7 +303,7 @@ A Braze permite que você defina uma **Página de cancelamento de inscrição pe
 
 ![Editor de HTML e pré-visualização da página de cancelamento de inscrição personalizada exibida após o usuário cancelar a inscrição de e-mail.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
 {% tab Página de opt-in personalizada %}
@@ -311,7 +312,7 @@ Você pode criar uma página personalizada de opt-in usando seu próprio HTML. I
 
 ![Editor de HTML e pré-visualização da página de opt-in personalizada para confirmação de inscrição de e-mail com a marca.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
 {% endtab %}
 {% endtabs %}
@@ -355,7 +356,7 @@ Os cabeçalhos de e-mail adicionados para list-unsubscribe com um clique se apli
 {% enddetails %}
 
 {% details Por que os grupos de inscrições precisam corresponder entre as variantes da mensagem para lançar? %}
-Para uma Campaign com testes A/B, a Braze envia aleatoriamente uma das variantes para o usuário. Se você tiver dois grupos de inscrições diferentes definidos na mesma Campaign (a Variante A está definida para o Grupo de inscrições A e a Variante B está definida para o Grupo de inscrições B), não podemos garantir que os usuários inscritos apenas no Grupo de inscrições B recebam a Variante B. Pode haver um cenário em que os usuários estão cancelando a inscrição de um grupo de inscrições do qual já cancelaram.
+Para uma Campaign com testes A/B, a Braze envia aleatoriamente uma das variantes para o usuário. Se você tiver dois grupos de inscrições diferentes definidos na mesma Campaign (a variante A está definida para o grupo de inscrições A e a variante B está definida para o grupo de inscrições B), não podemos garantir que os usuários inscritos apenas no grupo de inscrições B recebam a variante B. Pode haver um cenário em que os usuários estão cancelando a inscrição de um grupo de inscrições do qual já cancelaram.
 {% enddetails %}
 
 {% details A configuração de cabeçalho de cancelamento de inscrição de e-mail está desativada em Preferências de e-mail, mas nas informações de envio da minha Campaign, a configuração de list-unsubscribe com um clique está definida como "Use workspace default". Isso é um bug? %}

@@ -29,3 +29,27 @@ guide_featured_list:
 ---
 <br>
 <br>
+
+
+## 구독 그룹 시계열 이해하기 {#understand-subscription-group-timeseries}
+
+**구독 그룹** 페이지에서 시계열 차트는 다음을 보고합니다:
+
+- **구독 그룹 크기:** 특정 날짜에 해당 그룹에 가입된 사용자 수
+- **구독 그룹 가입 취소 크기:** 특정 날짜에 해당 그룹에서 가입 취소된 사용자 수
+
+대시보드 안내는 [구독 그룹 크기 보기]({{site.baseurl}}/user_guide/channels/email/subscriptions#viewing-subscription-group-sizes)를 참조하세요.
+
+이 측정기준은 그룹별로 다릅니다. 글로벌 이메일 구독 상태를 반영하는 세그먼트 필터 `Email Subscription Status is Unsubscribed`와는 다를 수 있으며, 이 필터는 단일 구독 그룹이 아닌 전체 이메일 구독 상태를 나타냅니다. 매우 큰 워크스페이스의 경우, 정확한 수치를 사용할 수 없을 때 Braze가 추정 수치를 표시할 수 있습니다.
+
+## 이메일 캡처 양식에서 중복 사용자 방지하기 {#avoid-duplicate-users-from-email-capture-forms}
+
+이메일 캡처 양식에서 사용자를 생성하기 전에 [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)을 호출하여 프로필이 이미 존재하는지 확인하세요. 응답이 "User not found"인 경우 [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)을 사용하여 사용자를 생성합니다. 그렇지 않으면 중복을 생성하는 대신 기존 프로필을 업데이트하세요.
+
+## Snowflake `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` 이벤트 {#snowflake-users_messages_email_unsubscribe-events}
+
+`USERS_MESSAGES_EMAIL_UNSUBSCRIBE` Snowflake 테이블은 수신자 측에서 발생한 메시지 수준의 이메일 가입 취소를 기록합니다. 여기에는 가입 취소 링크 클릭, 이메일 클라이언트의 원클릭 List-Unsubscribe, 환경설정 센터 제출, 이메일 서비스 공급자가 보고한 가입 취소가 포함됩니다. REST API를 통한 가입 취소는 이 테이블에 포함되지 않으며, 대신 [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) 또는 [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) 이벤트를 발생시킵니다.
+
+## SMS 테스트 메시지와 구독 그룹 {#sms-test-messages-and-subscription-groups}
+
+SMS 테스트 메시지를 수신하려면 수신자가 테스트 발송 시 선택한 SMS 구독 그룹에 속해 있어야 합니다.

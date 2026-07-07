@@ -57,7 +57,7 @@ Você não precisa configurar o Currents para o arquivamento de mensagem, então
 
 ### Etapa 2: Selecione canais para o arquivamento de mensagem {#step-2-select-channels-for-message-archiving}
 
-A página de configurações de **Arquivamento de mensagem** controla quais canais salvarão uma cópia das mensagens enviadas no seu bucket de armazenamento na nuvem.
+A página de configurações de **Arquivamento de mensagem** controla quais canais salvarão uma cópia das mensagens enviadas no seu bucket de armazenamento em nuvem.
 
 Para selecionar canais:
 
@@ -70,6 +70,12 @@ Para selecionar canais:
 {% alert note %}
 Se você não vir **Arquivamento de mensagem** em **Configurações**, confirme se sua empresa comprou e ativou o arquivamento de mensagem.
 {% endalert %}
+
+## Lista de permissões de IP {#ip-allowlisting}
+
+Quando o arquivamento de mensagem faz upload de arquivos para o seu bucket de armazenamento em nuvem, a Braze faz solicitações de rede dos nossos servidores para o seu endpoint do AWS S3, Azure Blob Storage ou Google Cloud Storage. Com a lista de permissões de IP, você pode verificar se essas solicitações estão vindo da Braze, adicionando uma camada de segurança.
+
+A Braze envia os uploads de arquivamento de mensagem a partir dos mesmos endereços IP usados para Conteúdo conectado e Currents. Para a lista completa de IPs por instância, consulte [Lista de permissões de IP de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
 
 ## Referências de arquivo {#file-references}
 

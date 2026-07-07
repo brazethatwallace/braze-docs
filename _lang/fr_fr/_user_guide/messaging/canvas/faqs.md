@@ -41,7 +41,7 @@ De plus, nous ne pouvons pas garantir exactement à quoi ressemblera cette répa
 
 ### Comment les audiences Canvas sont-elles évaluées ? {#how-are-canvas-audiences-evaluated}
 
-Par défaut, les filtres et Segments pour les étapes complètes du Canvas sont vérifiés au moment de l'envoi. L'étape Arbre décisionnel effectue une évaluation juste après la réception d'une étape précédente (ou avant un délai).
+Par défaut, les filtres et Segments pour les étapes complètes du Canvas sont vérifiés au moment de l'envoi. L'étape de l'arbre décisionnel effectue une évaluation juste après la réception d'une étape précédente (ou avant un délai).
 
 ### Quand un événement d'exception se déclenche-t-il ? {#when-does-an-exception-event-trigger}
 
@@ -81,7 +81,19 @@ L'arrêt d'un Canvas ne fera pas sortir du parcours utilisateur les utilisateurs
 
 Si les _Messages envoyés_ sont toujours à zéro pour un Canvas contenant une étape de message in-app, c'est parce que la distribution des messages in-app fonctionne différemment des autres canaux de communication.
 
-Les messages in-app sont « récupérés » par le SDK, plutôt qu'« envoyés » par Braze. Les messages in-app pour les utilisateurs éligibles sont distribués automatiquement au démarrage de la session et « attendent » l'événement déclencheur avant de s'afficher. Comme les utilisateurs éligibles reçoivent le message lorsqu'ils démarrent une session, Braze ne signale pas cela comme un événement d'envoi. Lorsque les utilisateurs effectuent l'événement déclencheur, le message s'affiche et Braze enregistre une impression et marque l'étape Canvas (ou la campagne) comme reçue sur le profil utilisateur. Par conséquent, le total des _Envois_ sera de zéro pour les messages in-app.
+Les messages in-app sont « récupérés » par le SDK, plutôt qu'« envoyés » par Braze. Les messages in-app pour les utilisateurs éligibles sont distribués automatiquement au démarrage de la session et « attendent » l'événement déclencheur avant de s'afficher. Comme les utilisateurs éligibles reçoivent le message lorsqu'ils démarrent une session, Braze ne signale pas cela comme un événement d'envoi. Lorsque les utilisateurs effectuent l'événement déclencheur, le message s'affiche et Braze enregistre une impression et marque l'étape Canvas (ou la campagne) comme reçue sur le profil utilisateur. Par conséquent, le total des _Envois_ est de zéro pour les messages in-app.
+
+### Pourquoi les utilisateurs n'ont-ils pas reçu mon message in-app après un long délai ou une branche ? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
+
+Après la fin des étapes de [Délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) en amont et des vérifications d'audience, les utilisateurs ne deviennent éligibles à un message in-app que lorsqu'ils atteignent l'étape Message. Si le message expire à une date calendaire ou dans une courte fenêtre de **durée après la disponibilité de l'étape**, les utilisateurs sur des branches plus lentes peuvent arriver après l'expiration et ne jamais voir le message. Alignez l'expiration avec les délais les plus longs réalistes de votre parcours. Pour plus d'informations et d'exemples, consultez [Expiration des messages in-app]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration).
+
+### Pourquoi le message « Canvas Entry Properties may not be used in In-App Messages. » s'affiche-t-il ? {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
+
+Ce message apparaît lorsque la personnalisation fait référence à des champs que les messages in-app ne peuvent pas résoudre dans Canvas. Utilisez l'objet `context` tel que décrit dans [Propriétés de contexte et d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) et [Étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). L'espace de noms Liquid hérité `canvas_entry_properties` a des contraintes différentes de `context`. Si vous avez besoin que des valeurs persistent à travers plusieurs étapes, consultez les [propriétés persistantes dans l'éditeur Canvas d'origine]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) avec votre équipe Braze. Les valeurs stockées sont effacées lorsqu'un utilisateur quitte le Canvas avant que l'appareil ne télécharge le payload in-app.
+
+### Où puis-je trouver les clics sur les boutons pour les messages in-app en glisser-déposer dans Canvas ? {#where-can-i-find-button-clicks-for-drag-and-drop-in-app-messages-in-canvas}
+
+Les indicateurs au niveau des boutons pour les messages in-app en glisser-déposer apparaissent sur la carte d'analyse de l'étape **Message** dans **Canvas Details**, et non uniquement dans le récapitulatif de haut niveau du Canvas. Ouvrez le Canvas, sélectionnez l'étape Message et consultez l'engagement in-app à cet endroit. Pour les concepts de reporting, consultez [Mesurer et tester avec les analyses Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
 
 ### Puis-je planifier des heures d'envoi différentes pour chaque variante dans la même étape Message Canvas ou le même envoi multivarié ? {#can-i-schedule-different-send-times-for-each-variant-in-the-same-canvas-message-step-or-multivariate-send}
 
@@ -112,6 +124,10 @@ Des facteurs spécifiques à Canvas s'appliquent également :
 - **Heures calmes et délais :** les messages peuvent être retenus ou replanifiés, décalant les envois en dehors de la fenêtre de reporting que vous consultez.
 - **Limites d'entrée ou d'audience maximales :** les limites d'entrée ou d'envoi empêchent des utilisateurs supplémentaires même lorsque le Segment sous-jacent est plus large.
 - **Fenêtre de reporting :** la plage d'analyse peut ne pas inclure tous les envois que vous comparez à l'estimation.
+
+### Pourquoi l'audience estimée et le nombre d'utilisateurs Canvas ne correspondent-ils pas ? {#why-dont-estimated-audience-and-canvas-user-counts-match}
+
+L'**Audience estimée** reflète les utilisateurs qui correspondent à votre Segment et à vos filtres d'entrée au moment où l'estimation est exécutée. Après ce moment, les entrées différées ou basées sur une action, la rééligibilité, les déclencheurs API ou le routage par branche peuvent augmenter le nombre de profils qui touchent le parcours par rapport à l'instantané. Les utilisateurs peuvent également être exclus lorsque les filtres au moment de l'envoi échouent, ce qui réduit les entrées ou envois réalisés. Comparez le timing, les limites et les paramètres d'évaluation en parallèle avec [Pourquoi les envois sont-ils inférieurs à la taille estimée de l'audience ?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Pourquoi les _Destinataires uniques_ sont-ils supérieurs au nombre d'utilisateurs ciblés ? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
@@ -176,9 +192,25 @@ Vous pouvez [créer un Segment]({{site.baseurl}}/user_guide/audience/segments/cr
 
 Non, mais vous pouvez [archiver un Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
+### Comment reprendre un Canvas ou une campagne archivé ? {#how-do-i-resume-an-archived-canvas-or-campaign}
+
+Les messages archivés ne sont pas envoyés tant que vous ne les remettez pas dans un état modifiable. [Désarchivez]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases) la campagne ou le Canvas, définissez le calendrier d'entrée ou l'heure d'envoi sur une fenêtre future (ou dupliquez le parcours si vous avez besoin d'une copie vierge), puis cliquez sur **Reprendre** ou lancez selon les besoins. Consultez [Archiver les campagnes et les Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
+
+### Pourquoi mon Canvas ne s'enregistre-t-il pas alors qu'aucune erreur n'apparaît ? {#why-doesnt-my-canvas-save-when-no-error-appears}
+
+Des filtres **Attribut personnalisé** vides dans les filtres d'audience ou au niveau de l'étape peuvent bloquer l'enregistrement sans message de validation détaillé. Ouvrez chaque carte de filtre, supprimez les règles d'attribut personnalisé incomplètes, ou saisissez à la fois le nom et la valeur de l'attribut, puis sélectionnez **Enregistrer** à nouveau.
+
+### Pourquoi une étiquette a-t-elle disparu de mon Canvas ou de ma campagne ? {#why-did-a-tag-disappear-from-my-canvas-or-campaign}
+
+Lorsqu'une [étiquette]({{site.baseurl}}/user_guide/messaging/governance/tags) est supprimée de votre espace de travail, Braze la retire de chaque campagne et Canvas qui y faisait référence. Ce nettoyage ne génère pas toujours sa propre ligne dans le journal des modifications du Canvas.
+
 ### Comment puis-je consulter les analyses de chacun de mes composants Canvas ? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Pour consulter les analyses d'un composant Canvas, accédez à votre Canvas et faites défiler la page **Canvas Details**. Vous pouvez y voir les analyses de chaque composant. Consultez [Analyses Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) pour plus de détails.
+
+### Quand l'engagement d'une étape Canvas est-il visible sur un profil utilisateur ? {#when-is-engagement-from-a-canvas-step-visible-on-a-user-profile}
+
+Les filtres tels que `Received Message from Canvas Step` sont mis à jour après que Braze a enregistré l'événement d'envoi, de réception ou d'engagement correspondant pour cette étape. Les messages in-app peuvent enregistrer les impressions séparément des indicateurs de type envoi. Consultez [Pourquoi un Canvas peut-il afficher zéro envoi alors que des impressions sont enregistrées ?](#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged). Ces mêmes événements apparaissent dans les indicateurs de l'étape sur **Canvas Details**.
 
 ### En ce qui concerne le nombre d'utilisateurs uniques, les analyses Canvas ou le segmenteur sont-ils plus précis ? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
@@ -238,7 +270,7 @@ Auparavant, chaque étape complète incluait des informations telles que les par
 
 #### Avancement du composant Message {#message-component-advancement}
 
-Les [composants Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) font avancer tous les utilisateurs qui entrent dans l'étape. Il n'est pas nécessaire de spécifier le comportement d'avancement des messages, ce qui simplifie la configuration globale de l'étape. Si vous souhaitez implémenter l'option **Avancer lorsque le message est envoyé**, ajoutez un Parcours d'audience séparé pour filtrer les utilisateurs qui n'ont pas reçu l'étape précédente.
+Les [composants Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) font avancer tous les utilisateurs qui entrent dans l'étape. Il n'est pas nécessaire de spécifier le comportement d'avancement des messages, ce qui simplifie la configuration globale de l'étape. Si vous souhaitez implémenter l'option **Avancer lorsque le message est envoyé**, ajoutez un parcours d'audience séparé pour filtrer les utilisateurs qui n'ont pas reçu l'étape précédente.
 
 #### Comportement du délai « dans » {#delay-in-behavior}
 
@@ -262,13 +294,13 @@ Notez que si le timing intelligent est activé, le message sera envoyé dans les
 
 ##### Heures calmes {#quiet-hours}
 
-L'événement d'exception est appliqué à l'aide des Parcours d'actions, qui sont séparés des étapes Message. Les heures calmes sont appliquées dans le composant Message. Cela signifie que si un utilisateur a déjà passé le Parcours d'actions (et n'a pas été exclu par l'événement d'exception), puis rencontre les heures calmes lorsqu'il arrive au composant Message, et que son Canvas est configuré pour renvoyer le message après la période d'heures calmes, l'événement d'exception ne sera plus appliqué. Notez que ce cas d'usage n'est pas courant.
+L'événement d'exception est appliqué à l'aide des parcours d'action, qui sont séparés des étapes Message. Les heures calmes sont appliquées dans le composant Message. Cela signifie que si un utilisateur a déjà passé le parcours d'action (et n'a pas été exclu par l'événement d'exception), puis rencontre les heures calmes lorsqu'il arrive au composant Message, et que son Canvas est configuré pour renvoyer le message après la période d'heures calmes, l'événement d'exception ne sera plus appliqué. Notez que ce cas d'usage n'est pas courant.
 
 Pour les Segments et les filtres, l'étape Message dispose de validations de distribution qui permettent aux utilisateurs de configurer des Segments et filtres supplémentaires qui sont validés au moment de l'envoi. Cela évite le cas limite mentionné ci-dessus concernant les heures calmes.
 
 ##### Paramètre de planification « dans » ou « au prochain » {#in-or-on-the-next-schedule-setting}
 
-Les événements d'exception sont créés à l'aide des Parcours d'actions. Les Parcours d'actions ne prennent en charge que « après une fenêtre de temps X » et non « dans X temps » ou « au prochain X temps ».
+Les événements d'exception sont créés à l'aide des parcours d'action. Les parcours d'action ne prennent en charge que « après une fenêtre de temps X » et non « dans X temps » ou « au prochain X temps ».
 
 {% enddetails %}
 
@@ -325,3 +357,15 @@ Commencez par [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_
 ### Qui reçoit l'e-mail « Canvas Messages Delayed 24+ Hours » ? {#who-receives-the-canvas-messages-delayed-24-hours-email}
 
 Braze envoie cette notification lorsque des messages Canvas sont retardés par la limite de débit pendant 24 heures ou plus. L'e-mail est envoyé aux utilisateurs du tableau de bord qui ont précédemment apporté des modifications au Canvas concerné (en se basant sur les journaux de modifications du Canvas). Si Braze ne peut pas déterminer ces destinataires, l'e-mail est envoyé aux **administrateurs de l'entreprise** pour l'espace de travail.
+
+### Quand un utilisateur cesse-t-il de recevoir des messages après un événement d'exception ? {#when-does-a-user-stop-receiving-messages-after-an-exception-event}
+
+Braze enregistre la sortie dès que l'événement d'exception se produit, mais les utilisateurs peuvent rester dans une étape jusqu'à ce que les minuteries se terminent — c'est particulièrement visible dans les étapes de délai. Le comportement diffère également entre les étapes planifiées et les étapes déclenchées par un événement. Pour les chronologies, exemples et nuances analytiques, consultez [Critères de sortie]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria).
+
+### Pourquoi mon étape Parcours d'action affiche-t-elle une erreur lorsque je sélectionne une interaction d'alias de lien ? {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
+
+Les groupes d'actions qui utilisent des déclencheurs d'interactivité e-mail (par exemple, **Clic sur un alias dans un e-mail** ou **A cliqué sur un alias dans une campagne ou une étape Canvas**) nécessitent une étape Message qui a déjà envoyé le message contenant ce lien. Ajoutez ou réorganisez les étapes de sorte que l'e-mail soit envoyé avant que l'étape Parcours d'action n'évalue le clic, ou choisissez une interaction correspondant à un message que l'utilisateur a déjà reçu dans ce Canvas. Pour la liste complète des déclencheurs d'interaction, consultez [Livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
+
+### Comment les horodatages historiques d'événements personnalisés affectent-ils les Canvas et campagnes basés sur une action ? {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
+
+Braze évalue les parcours basés sur une action lorsque les événements éligibles sont ingérés et que l'utilisateur répond à vos règles d'audience. Si un événement arrive sur le profil en dehors de la fenêtre pendant laquelle votre Canvas ou campagne était actif, ou avant que l'utilisateur ne corresponde à votre audience, l'entrée ou les envois en aval peuvent ne pas se produire comme prévu. Comparez les horodatages des événements avec les dates de mise en production et l'appartenance au Segment en utilisant le journal d'activité du profil utilisateur et les étapes de résolution des problèmes dans [Résolution des problèmes liés aux événements personnalisés]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events). Si le comportement ne correspond toujours pas aux attentes, contactez l'[assistance Braze]({{site.baseurl}}/braze_support).

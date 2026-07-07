@@ -13,9 +13,9 @@ description: "Erfahren Sie, wie Sie mit Hilfe Ihres Katalogs und angepasster Eve
 
 Sie können ein angepasstes Event als Abo-Event einrichten, z. B. ein `product_clicked`-Event. Dieses Event muss eine Eigenschaft mit der Artikel-ID enthalten (Katalogartikel-IDs). Wir empfehlen, einen Katalognamen anzugeben, dies ist jedoch nicht erforderlich. Außerdem müssen Sie den Namen eines Bestandsmengenfelds angeben, das vom Datentyp „Zahl“ sein muss.
 
-Beachten Sie, dass der Bestand eines Katalogartikels auf Null stehen muss, damit ein:e Nutzer:in diesen Artikel erfolgreich abonnieren kann. Wenn ein Artikel eine Bestandsmenge größer als Null hat, sucht Braze alle Nutzer:innen, die diesen Artikel abonniert haben, und sendet ein angepasstes Event, das Sie zum Triggern einer Campaign oder eines Canvas verwenden können.
+Beachten Sie, dass der Bestand eines Katalogartikels auf Null stehen muss, damit ein:e Nutzer:in diesen Artikel erfolgreich abonnieren kann. Wenn ein Artikel eine Bestandsmenge größer als Null hat, sucht Braze alle Nutzer:innen, die diesen Artikel abonniert haben, und sendet ein angepasstes Event, das Sie zum Triggern einer Kampagne oder eines Canvas verwenden können.
 
-Die Event-Eigenschaften werden zusammen mit den Nutzerdaten gesendet, sodass Sie die Artikeldetails als Template in die Campaign oder das Canvas einfügen können.
+Die Event-Eigenschaften werden zusammen mit den Nutzerdaten gesendet, sodass Sie die Artikeldetails als Template in die Kampagne oder das Canvas einfügen können.
 
 ## „Wieder verfügbar“-Benachrichtigungen einrichten {#setting-up-back-in-stock-notifications}
 
@@ -25,7 +25,7 @@ Führen Sie die folgenden Schritte aus, um „Wieder verfügbar“-Benachrichtig
 2. Wählen Sie den Schalter **Back in stock**.
 3. Wenn die globalen „Wieder verfügbar“-Einstellungen noch nicht konfiguriert wurden, werden Sie aufgefordert, die angepassten Events und Eigenschaften einzurichten, die zum Auslösen von „Wieder verfügbar“-Benachrichtigungen verwendet werden:
     <br> ![Katalogeinstellungen.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
-    - **Fallback-Katalog** Dies ist der Katalog, der für das „Wieder verfügbar“-Abo verwendet wird, wenn die Eigenschaft `catalog_name` im angepassten Event nicht vorhanden ist.
+    - **Fallback-Katalog:** Dies ist der Katalog, der für das „Wieder verfügbar“-Abo verwendet wird, wenn die Eigenschaft `catalog_name` im angepassten Event nicht vorhanden ist.
     - **Angepasstes Event für Abos** ist das angepasste Braze-Event, mit dem ein:e Nutzer:in für „Wieder verfügbar“-Benachrichtigungen registriert wird. Wenn dieses Event eintritt, wird die Person, die das Event ausgeführt hat, abonniert.
     - **Angepasstes Event zum Abmelden** ist das angepasste Braze-Event, mit dem ein:e Nutzer:in von „Wieder verfügbar“-Benachrichtigungen abgemeldet wird. Dieses Event ist optional. Wenn die Person dieses Event nicht ausführt, wird sie nach 90 Tagen oder wenn das „Wieder verfügbar“-Event ausgelöst wird, abgemeldet – je nachdem, was zuerst eintritt.
     - **Artikel-ID-Event-Eigenschaft** ist die Eigenschaft des oben genannten angepassten Events, die verwendet wird, um den Artikel für ein „Wieder verfügbar“-Abo oder eine Abmeldung zu bestimmen. Diese Eigenschaft des angepassten Events sollte eine Artikel-ID (`id`) enthalten, die in einem Katalog vorhanden ist. Die Artikel-ID muss als String gesendet werden, damit sie mit dem im Zielkatalog gespeicherten Datentyp `id` übereinstimmt. Das angepasste Event sollte außerdem eine `catalog_name`-Eigenschaft enthalten, um anzugeben, in welchem Katalog sich dieser Artikel befindet.
@@ -57,7 +57,7 @@ Back-in-Stock- und Price-Drop-Trigger verwenden dasselbe Event, um Nutzer:innen 
 4. Wählen Sie **Save** und fahren Sie mit der Seite **Einstellungen** des Katalogs fort.
 5. Legen Sie Ihre Benachrichtigungsregel fest. Es gibt zwei Optionen:
     - **Alle abonnierten Nutzer:innen benachrichtigen** benachrichtigt alle Kund:innen, die warten, wenn der Artikel wieder vorrätig ist.
-    - **Benachrichtigungslimits festlegen** benachrichtigt eine bestimmte Anzahl von Kund:innen pro konfiguriertem Benachrichtigungszeitraum. Braze benachrichtigt die angegebene Anzahl von Kund:innen schrittweise, bis keine Kund:innen mehr zu benachrichtigen sind oder bis der Artikel nicht mehr vorrätig ist. Ihre Benachrichtigungsrate darf 10.000 Nutzer:innen pro Minute nicht überschreiten.
+    - **Benachrichtigungslimits festlegen** benachrichtigt eine bestimmte Anzahl von Kund:innen alle 10 Minuten. Braze benachrichtigt die angegebene Anzahl von Kund:innen schrittweise, bis keine Kund:innen mehr zu benachrichtigen sind oder bis der Artikel nicht mehr vorrätig ist. Ihre Benachrichtigungsrate darf 10.000 Nutzer:innen pro Minute nicht überschreiten.
 6. Legen Sie das **Bestandsfeld im Katalog** fest. Dieses Katalogfeld wird verwendet, um festzustellen, ob der Artikel nicht vorrätig ist. Das Feld muss vom Typ „Zahl“ sein.
 7. Wählen Sie **Einstellungen speichern**.
 

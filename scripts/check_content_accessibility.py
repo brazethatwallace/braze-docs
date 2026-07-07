@@ -20,6 +20,12 @@ Checks
 4.1.2  Name, Role, Value — inline iframes
   FAIL  <iframe> tag in markdown content without a title= attribute
 
+1.3.3  Sensory Characteristics — spatial directionals
+  FAIL  Layout-referencing words such as "above", "below", or "to the left"
+        when they point readers to content by position on the page
+  PASS  Numeric comparisons ("below the input field", "above the threshold")
+  PASS  Text direction terms ("left-to-right", "bi-directional")
+
 Decorative image heuristic
   Filenames containing "divider", "spacer", "separator", "background", or "bg"
   (as a path component or filename segment) are treated as decorative.
@@ -99,6 +105,48 @@ NONDESCRIPTIVE_LINK_TEXT: frozenset = frozenset({
 # Trailing punctuation to strip before lookup
 _TRAILING_PUNCT_RE = re.compile(r'[.,;:!?]+$')
 
+# WCAG 1.3.3 — layout-referencing spatial language (not numeric comparisons)
+SPATIAL_ABOVE_BELOW_RE = re.compile(r'\b(above|below)\b', re.IGNORECASE)
+
+# Multi-word patterns only — never match bare "left" or "right" alone.
+# Bare words produce too many false positives ("right users", "right approach",
+# "float:right" in inline styles, "left" as past tense of "leave", etc.).
+# A spatial UI reference almost always has a qualifying prefix or suffix.
+_SPATIAL_NOT_RIGHT_LEFT_NOUNS = (
+    # "right" / "left" meaning "correct" or "remaining", not a UI position.
+    # Add to this list when new false-positive noun patterns are confirmed in docs.
+    r'user|users|person|people|customer|customers|audience|audiences'
+    r'|message|messages|content|data|format|type|approach|way|tool|tools'
+    r'|channel|channels|segment|segments|campaign|campaigns|template|templates'
+    r'|method|strategy|option|options|choice|choices|decision|decisions'
+    r'|time|timing|place|partner|partners|team|teams|vendor|vendors'
+)
+
+SPATIAL_LEFT_RIGHT_RE = re.compile(
+    r'\b(?:'
+    # Prefix-anchored: "to/on/from the left/right", but NOT followed by a non-positional noun
+    # (e.g. "to the right users", "on the right channel" = "correct", not a UI position).
+    r'(?:to|on|from)\s+the\s+(?:left|right)(?!\s+(?:' + _SPATIAL_NOT_RIGHT_LEFT_NOUNS + r')\b)'
+    # Suffix-anchored: "left/right [side|panel|column|corner|sidebar|toolbar|bar|menu|nav|hand|of]"
+    r'|(?:left|right)\s+(?:of\b|side\b|panel\b|column\b|corner\b|sidebar\b|toolbar\b|bar\b|menu\b|nav\b|hand\b)'
+    # Compound: "left/right-hand side"
+    r'|(?:left|right)[\s-]hand\s+side'
+    # Cardinal qualifier: "upper/lower/top/bottom left/right" (with or without hyphen)
+    r'|(?:upper|lower|top|bottom)[\s-](?:left|right)'
+    r')\b',
+    re.IGNORECASE,
+)
+
+# Phrases allowed on the same line as an above/below match (comparison or typography)
+_SPATIAL_ALLOWLIST_RES: tuple = (
+    re.compile(
+        r'(?:above|below)\s+the\s+(?:entered\s+)?(?:number|threshold|value|limit|input(?:\s+field)?)',
+        re.IGNORECASE,
+    ),
+    re.compile(r'left-to-right|right-to-left', re.IGNORECASE),
+    re.compile(r'bi-?directional', re.IGNORECASE),
+)
+
 
 # ---------------------------------------------------------------------------
 # Violation factory
@@ -112,7 +160,7 @@ def make_violation(
     current_content: str,     # current line text
     message: str,
     fix_hint: str,
-    violation_type: str,      # image_missing_alt | nondescriptive_link | heading_skip | iframe_missing_title
+    violation_type: str,      # image_missing_alt | nondescriptive_link | heading_skip | iframe_missing_title | spatial_directional
     wcag_criterion: str,      # e.g. "1.1.1"
 ) -> dict:
     return {
@@ -324,6 +372,70 @@ def check_inline_iframes(lines: list, skip: list, path: str) -> list:
     return violations
 
 
+def _spatial_match_allowlisted(line: str, start: int, end: int) -> bool:
+    """Return True when a spatial match sits inside an allowed phrase."""
+    for pat in _SPATIAL_ALLOWLIST_RES:
+        for m in pat.finditer(line):
+            if m.start() <= start and m.end() >= end:
+                return True
+    return False
+
+
+def _left_right_spatial_matches(line: str) -> list:
+    """Return left/right layout matches.
+
+    The regex already requires a qualifying prefix or suffix, so bare words
+    like "right users", "right approach", and CSS tokens like "float:right" or
+    "margin-left" never reach this function. Hyphen-adjacency filtering is not
+    needed here; it was previously suppressing true positives such as
+    "top-left corner" and "bottom-right of the panel".
+    """
+    return list(SPATIAL_LEFT_RIGHT_RE.finditer(line))
+
+
+def check_spatial_directionals(lines: list, skip: list, path: str) -> list:
+    """Flag layout-referencing above/below/left/right (WCAG 1.3.3)."""
+    violations: list = []
+    for i, line in enumerate(lines):
+        if skip[i]:
+            continue
+
+        flagged_terms: list = []
+
+        for m in SPATIAL_ABOVE_BELOW_RE.finditer(line):
+            if not _spatial_match_allowlisted(line, m.start(), m.end()):
+                flagged_terms.append(m.group(0).lower())
+
+        for m in _left_right_spatial_matches(line):
+            if not _spatial_match_allowlisted(line, m.start(), m.end()):
+                flagged_terms.append(m.group(0).lower())
+
+        if not flagged_terms:
+            continue
+
+        terms = ', '.join(sorted(set(flagged_terms)))
+        violations.append(make_violation(
+            file=path,
+            table_start_line=i + 1,
+            suggestion_line=i + 1,
+            suggestion_content='',
+            current_content=line.rstrip('\n'),
+            message=(
+                f'Spatial directional language ({terms}) relies on page layout. '
+                'Use a section name, anchor link, or tab name instead.'
+            ),
+            fix_hint=(
+                'Replace layout references like "above", "below", or "to the left" '
+                'with the section heading, `#anchor`, or "in the previous tab". '
+                'Numeric comparisons ("below the input field", "above the threshold") '
+                'and text-direction terms ("left-to-right") are allowed.'
+            ),
+            violation_type='spatial_directional',
+            wcag_criterion='1.3.3',
+        ))
+    return violations
+
+
 # ---------------------------------------------------------------------------
 # File runner
 # ---------------------------------------------------------------------------
@@ -342,6 +454,7 @@ def check_file(path: str) -> list:
     violations += check_link_purpose(lines, skip, path)
     violations += check_heading_hierarchy(lines, skip, path)
     violations += check_inline_iframes(lines, skip, path)
+    violations += check_spatial_directionals(lines, skip, path)
     return violations
 
 
@@ -351,6 +464,7 @@ def check_file(path: str) -> list:
 
 _WCAG_TITLES: dict = {
     '1.1.1': 'Missing alt text',
+    '1.3.3': 'Spatial directional language',
     '2.4.4': 'Non-descriptive link text',
     '2.4.6': 'Heading level skip',
     '4.1.2': 'Missing iframe title',

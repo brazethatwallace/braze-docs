@@ -111,7 +111,7 @@ Ils peuvent comporter jusqu'à 11 caractères et contenir des lettres majuscules
 
 | Avantages | Inconvénients |
 | ---- | ---- |
-| {::nomarkdown} <ul><li> Reconnaissance accrue de la marque </li><li> Sur de nombreux marchés internationaux, les opérateurs locaux préenregistrent et vérifient les expéditeurs alphanumériques afin que vos messages soient moins susceptibles d'être interceptés par les filtres anti-spam agressifs des opérateurs, qui pourraient autrement bloquer les codes longs aléatoires. </li><li> Disponible sous une semaine si aucune préinscription n'est requise. </li></ul> {:/} | {::nomarkdown} <ul><li> L'<a href='/docs/user_guide/message_building_by_channel/sms/keywords/#two-way-messaging-custom-keyword-responses/'>envoi de messages bidirectionnel</a> n'est pas pris en charge. </li><li> Cette fonctionnalité n'est pas disponible dans tous les pays. Par exemple, elle est prise en charge au Royaume-Uni, mais bloquée aux États-Unis. </li><li> Certains pays ont mis en place un processus de préinscription complexe qui nécessite la soumission de documents juridiques et des délais plus longs. </li></ul> {:/} |
+| {::nomarkdown} <ul><li> Reconnaissance accrue de la marque </li><li> Sur de nombreux marchés internationaux, les opérateurs locaux préenregistrent et vérifient les expéditeurs alphanumériques afin que vos messages soient moins susceptibles d'être interceptés par les filtres anti-spam agressifs des opérateurs, qui pourraient autrement bloquer les codes longs aléatoires. </li><li> Disponible sous une semaine si aucune préinscription n'est requise </li></ul> {:/} | {::nomarkdown} <ul><li> L'<a href='/docs/user_guide/message_building_by_channel/sms/keywords/#two-way-messaging-custom-keyword-responses/'>envoi de messages bidirectionnel</a> n'est pas pris en charge </li><li> Cette fonctionnalité n'est pas disponible dans tous les pays. Par exemple, elle est prise en charge au Royaume-Uni, mais bloquée aux États-Unis. </li><li> Certains pays ont mis en place un processus de préinscription complexe qui nécessite la soumission de documents juridiques et des délais plus longs. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Avantages et inconvénients" }
 
 Pour plus d'informations sur les ID alphanumériques de l'expéditeur, contactez votre gestionnaire de la satisfaction client.
@@ -145,6 +145,14 @@ Les numéros gratuits ont des indicatifs régionaux distincts à trois chiffres 
 
 {% endtab %}
 {% endtabs %}
+
+## Utilisation conjointe des codes courts et des codes longs {#using-short-codes-and-long-codes-together}
+
+Si votre groupe d'abonnement comprend à la fois des codes courts et des codes longs, les codes courts sont généralement prioritaires pour les messages sortants. Cependant, certains fournisseurs proposent une fonctionnalité de « sticky sender » (expéditeur persistant), qui peut entraîner l'utilisation continue d'un code long pour certains utilisateurs même après l'ajout d'un code court au pool d'expéditeurs.
+
+Le « sticky sender » maintient la continuité des messages en acheminant tous les messages destinés à un utilisateur spécifique depuis le même numéro de téléphone. Si un utilisateur a reçu un message depuis un code long avant l'ajout d'un code court à votre groupe d'abonnement, votre fournisseur peut continuer à utiliser ce code long pour les messages futurs destinés à cet utilisateur, même si le code court serait normalement prioritaire.
+
+Ce comportement est contrôlé par les fournisseurs et ne peut pas être modifié dans Braze.
 
 ## Configuration {#setup}
 

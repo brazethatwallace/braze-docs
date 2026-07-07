@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze Roku SDK READMEリフ
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Roku SDKリポジトリガイド {#roku-sdk-repository-guide}
+
 ## Braze Roku SDKについて {#about-the-braze-roku-sdk}
 
 Braze Roku SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。

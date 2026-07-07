@@ -183,7 +183,7 @@ No entanto, o Intelligent Timing está programado para entregar às 14h, horári
 
 ## Considerações {#considerations}
 
-- In-App Messages e webhooks são entregues imediatamente e não recebem horários ideais.
+- Mensagens no app e webhooks são entregues imediatamente e não recebem horários ideais.
 - O Intelligent Timing não está disponível para campanhas baseadas em ações ou disparadas por API.
 - O Intelligent Timing não deve ser usado nos seguintes cenários:
     - **Limite de taxa:** Se tanto o limite de taxa quanto o Intelligent Timing forem usados, não há garantia sobre quando a mensagem será entregue. Campanhas recorrentes diárias com Intelligent Timing não suportam com precisão um limite total de envio de mensagens.
@@ -303,3 +303,7 @@ Sim, as aberturas por máquina são filtradas pelo Intelligent Timing, de modo q
 #### Como posso garantir que o Intelligent Timing funcione da melhor forma possível? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 O Intelligent Timing usa o histórico individual de engajamento com mensagens de cada usuário, considerando os horários em que eles receberam mensagens. Antes de usar o Intelligent Timing, certifique-se de ter enviado mensagens aos usuários em diferentes horários do dia. Dessa forma, você consegue "amostrar" qual pode ser o melhor horário para cada usuário. Uma amostragem inadequada de diferentes horários do dia pode fazer com que o Intelligent Timing escolha um horário de envio abaixo do ideal para um usuário.
+
+#### Como ativo o Intelligent Timing em uma etapa do Canvas? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+No Canvas, adicione ou abra uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), acesse as **Delivery Settings** e selecione **Using Intelligent Timing**. Conforme as orientações de configuração do Canvas neste artigo, inclua uma [etapa de postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) de pelo menos dois dias corridos entre a entrada no Canvas e essa mensagem, para que o Intelligent Timing tenha um histórico de engajamento adequado para avaliar.

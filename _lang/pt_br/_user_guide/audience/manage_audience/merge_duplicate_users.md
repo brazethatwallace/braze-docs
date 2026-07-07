@@ -67,16 +67,22 @@ Para pré-visualizar os resultados antes de mesclar os duplicados, selecione **G
 
 A Braze gerará a pré-visualização e a enviará para o seu endereço de e-mail como um arquivo CSV.
 
+O arquivo CSV inclui uma coluna **Created from** que mostra como cada perfil foi criado inicialmente (por exemplo, por meio do [SDK]({{site.baseurl}}/developer_guide/sdk_integration), da [REST API]({{site.baseurl}}/api/basics) ou de uma [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)). Isso ajuda a entender a origem do perfil antes de mesclar duplicados.
+
+Ao revisar as linhas duplicadas, compare **Created from** com identificadores como `external_id`, endereço de e-mail e número de telefone. Use esse contexto para decidir qual perfil deve ser mantido como perfil principal antes de selecionar **Merge all duplicates**.
+
+O campo **Created from** é especialmente útil quando perfis duplicados contêm valores semelhantes, mas vêm de caminhos de ingestão diferentes. Ele fornece mais contexto para decisões de mesclagem e ajuda a reduzir mesclagens acidentais de perfis que você preferiria manter separados até uma análise mais detalhada.
+
 
 No exemplo a seguir, a Braze usa o ID externo do usuário para sinalizar perfis duplicados e identificar qual deve ser mantido. Se esses perfis forem mesclados em massa, a Braze usará o perfil com um ID externo como o novo perfil principal do usuário.
 
 {% tabs local %}
 {% tab example csv file %}
-| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Profile to keep | Profile to merge |
-| ---------------- | ----------- | -------------- | --------------------- | ------------------- | --------------- | ---------------- |
-| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
-| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
-| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
+| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Created from | Profile to keep | Profile to merge |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | ------------ | --------------- | ---------------- |
+| jane.doe@example.com   | 123-external-id | 555 123-4567 | example-id-12345 | email               | sdk          | TRUE            | FALSE            |
+| john.doe@example.com   |                 | 555 123-4567 | example-id-12346 | email               | rest         | FALSE           | TRUE             |
+| jordan.doe@example.com |                 | 555 123-4567 | example-id-12347 | email               | csv          | FALSE           | TRUE             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Pré-visualizar os resultados (opcional)" }
 {% endtab %}
 {% endtabs %}

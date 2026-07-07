@@ -2,7 +2,7 @@
 nav_title: Timing intelligent
 article_title: Timing intelligent
 page_order: 1.3
-description: "Cet article propose un aperçu du timing intelligent (appelé auparavant Livraison intelligente) et comment vous pouvez tirer parti de cette fonctionnalité dans vos campagnes et vos Canvas."
+description: "Cet article propose un aperçu du timing intelligent (appelé auparavant Livraison intelligente) et explique comment tirer parti de cette fonctionnalité dans vos campagnes et vos Canvas."
 
 ---
 
@@ -42,7 +42,7 @@ Cette section décrit comment configurer le timing intelligent pour vos campagne
 1. Créez une campagne et composez votre message.
 2. Sélectionnez **Scheduled Delivery** comme type de réception/distribution.
 3. Sous **Time-Based Scheduling Options**, sélectionnez **Intelligent Timing**.
-4. Réglez la fréquence d'entrée. Pour les envois uniques, sélectionnez **Once** et choisissez une date d'envoi. Pour les envois récurrents, sélectionnez **Daily**, **Weekly** ou **Monthly** et configurez les options de récurrence. Voir les [considérations](#considerations) pour plus d'informations.
+4. Réglez la fréquence d'entrée. Pour les envois uniques, sélectionnez **Once** et choisissez une date d'envoi. Pour les envois récurrents, sélectionnez **Daily**, **Weekly** ou **Monthly** et configurez les options de récurrence. Consultez les [considérations](#considerations) pour plus d'informations.
 5. En option, configurez les [heures calmes](#quiet-hours).
 6. Spécifiez une [heure de secours](#campaign-fallback). Il s'agit de l'heure à laquelle le message est envoyé si le profil d'un utilisateur ne contient aucun événement pertinent permettant de calculer un moment optimal.
 
@@ -303,3 +303,7 @@ Oui, les ouvertures de machines sont filtrées par le timing intelligent, de sor
 #### Comment puis-je m'assurer que le timing intelligent fonctionne le mieux possible ? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 Le timing intelligent utilise l'historique individuel d'engagement de chaque utilisateur avec les messages, quelle que soit l'heure à laquelle il les a reçus. Avant d'utiliser le timing intelligent, assurez-vous d'avoir envoyé aux utilisateurs des messages à différents moments de la journée. De cette manière, vous pouvez « échantillonner » le moment le plus propice pour chaque utilisateur. Un échantillonnage inadéquat des différents moments de la journée peut conduire le timing intelligent à choisir une heure d'envoi non optimale pour un utilisateur.
+
+#### Comment activer le timing intelligent sur une étape Canvas ? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+Dans Canvas, ajoutez ou ouvrez une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), allez dans **Delivery Settings** et sélectionnez **Using Intelligent Timing**. Conformément aux instructions de configuration de Canvas dans cet article, incluez une [étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) d'au moins deux jours calendaires entre l'entrée dans le Canvas et cette étape de message, afin que le timing intelligent dispose d'un historique d'engagement suffisant pour son évaluation.

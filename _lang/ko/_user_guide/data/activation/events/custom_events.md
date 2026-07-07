@@ -116,7 +116,7 @@ search_rank: 2
 - 데이터 내보내기를 설정하지 않고도 특정 사용자에 대한 고객지원 문제를 조사합니다.
 
 {% alert note %}
-**이벤트 기록** 탭을 보려면 이벤트 속성정보에 개인 데이터가 포함될 수 있으므로 **사용자 검색** 및 **PII 보기** 사용자 권한이 모두 필요합니다. 자세한 내용은 [회사 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
+**이벤트 기록** 탭을 보려면 이벤트 속성정보에 개인 데이터가 포함될 수 있으므로 **사용자 검색**, **PII 보기** 및 **사용자 이벤트 속성정보 보기** 사용자 권한이 필요합니다. 자세한 내용은 [회사 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 {% endalert %}
 
 ## 세분화 필터 {#segmentation-filters}
@@ -145,7 +145,7 @@ Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막�
 
 ![대시보드의 커스텀 이벤트 페이지에서 커스텀 이벤트의 추세를 보여주는 커스텀 이벤트 횟수 그래프]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-**필터**를 사용하여 시간별, 월간 활성 사용자(MAU), Segments 또는 KPI 공식별로 커스텀 이벤트를 분류할 수도 있습니다.
+**필터**를 사용하여 시간별, 월간 활성 사용자(MAU), Segments 또는 핵심 성과 지표(KPI) 공식별로 커스텀 이벤트를 분류할 수도 있습니다.
 
 ![커스텀 이벤트 그래프 필터]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 

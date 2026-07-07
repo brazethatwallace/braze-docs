@@ -3,7 +3,7 @@ nav_title: Solução de problemas
 article_title: Solução de problemas de push
 page_order: 5
 page_type: reference
-description: "Esta página contém etapas de solução de problemas para diversos problemas relacionados ao canal de envio de mensagens push."
+description: "Etapas de solução de problemas para questões com o canal de envio de mensagens push."
 channel: push
 ---
 
@@ -13,12 +13,12 @@ channel: push
 
 ## Notificações por push ausentes {#missing-push-notifications}
 
-Está enfrentando dificuldades na entrega de notificações por push? Há várias etapas que você pode seguir para solucionar esse problema, verificando:
+Se as notificações por push não estão chegando como esperado, verifique os seguintes itens:
 
 - [Status da inscrição para push](#push-subscription-status)
 - [Segment](#segment)
 - [Limites de notificações por push](#push-notification-caps)
-- [Limites de taxa](#rate-limits)
+- [Limites de frequência](#rate-limits)
 - [Status do grupo de controle](#control-group-status)
 - [Token por push válido](#valid-push-token)
 - [Tipo de notificação por push](#push-notification-type)
@@ -26,57 +26,62 @@ Está enfrentando dificuldades na entrega de notificações por push? Há vária
 
 ### Status da inscrição para push {#push-subscription-status}
 
-Pushes só podem ser enviados para usuários inscritos ou que optaram por receber. Verifique o perfil do usuário na guia [Engajamento]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) na seção **Perfil de usuário** para confirmar se você está ativamente registrado para push no espaço de trabalho que está testando. Se você estiver registrado em vários apps, eles serão listados no campo **Push Registered For**:
+Pushes só podem ser enviados para usuários inscritos ou que optaram por receber. No **Perfil de usuário**, abra a guia [Engajamento]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) e confirme que você está ativamente registrado para push no espaço de trabalho que está testando. Se você estiver registrado em vários apps, eles serão listados em **Push Registered For**:
 
 ![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
 
-Você também pode exportar os perfis de usuário usando os endpoints de exportação da Braze:
+Você também pode exportar perfis de usuário usando os endpoints de exportação da Braze:
+
 - [Usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
 - [Usuários por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
-Ambos os endpoints retornarão um objeto de token por push que inclui informações de ativação de push por dispositivo.
+Ambos os endpoints retornam um objeto de token por push que inclui informações de ativação de push por dispositivo.
 
-#### Segment {#segment}
+### Segment {#segment}
 
-Certifique-se de que você faz parte do segmento que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você verá uma lista de segmentos nos quais o usuário está atualmente incluído. Lembre-se de que essa é uma variável em constante mudança, pois a segmentação é atualizada em tempo real.
+Confirme que você faz parte do segmento que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você pode ver em quais segmentos o usuário está atualmente incluído. A associação ao segmento é atualizada em tempo real.
 
 ![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, use [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
+Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, consulte [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![Seção de pesquisa de usuário com um campo de busca.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
-#### Limites de notificações por push {#push-notification-caps}
+### Limites de notificações por push {#push-notification-caps}
 
-Verifique os limites de frequência globais. É possível que você não tenha recebido a notificação por push porque seu espaço de trabalho tem um limite de frequência global ativo e você já atingiu o limite de notificações por push para o período especificado.
-
-Você pode fazer isso verificando o [limite de frequência global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) no dashboard. Se a Campaign estiver configurada para obedecer às regras do limite de frequência, haverá um número de usuários impactados por essas configurações.
+Se o seu espaço de trabalho usa limite de frequência global, é possível que você já tenha atingido o limite para o período e não receba o push. No dashboard, consulte o [limite de frequência global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) e seus limites. Se a Campaign seguir as regras de limite de frequência, os detalhes da Campaign mostrarão quantos usuários foram afetados.
 
 ![Detalhes da Campaign]({% image_buster /assets/img_archive/trouble3.png %})
 
-#### Limites de taxa {#rate-limits}
+### Limites de frequência {#rate-limits}
 
-Se você tiver um limite de taxa definido para sua Campaign ou Canvas, pode estar deixando de receber mensagens por ter excedido esse limite. Para saber mais, consulte [Limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
+Se você tiver um limite de frequência definido para sua Campaign ou Canvas, pode estar deixando de receber mensagens por ter excedido esse limite. Para saber mais, consulte [Limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
 
-#### Status do grupo de controle {#control-group-status}
+### Status do grupo de controle {#control-group-status}
 
 Se for uma Campaign de canal único ou um Canvas com grupo de controle, é possível que você esteja no grupo de controle.
 
   1. Verifique a [distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants) para ver se há um grupo de controle.
   2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv) e verifique se o ID do seu usuário está nessa lista.
 
-#### Token por push válido {#valid-push-token}
-Um token por push é um identificador que os remetentes usam para direcionar dispositivos específicos com uma notificação por push. Portanto, se o dispositivo não tiver um token por push válido, não há como enviar uma notificação por push para ele.
+### Token por push válido {#valid-push-token}
 
-#### Tipo de notificação por push {#push-notification-type}
+Um token por push é um identificador que os remetentes usam para direcionar um dispositivo específico com uma notificação por push. Sem um token por push válido, a Braze não consegue enviar um push para esse dispositivo.
 
-Verifique se você está usando o tipo correto de notificação por push. Por exemplo, se quiser direcionar uma FireTV, você usaria uma notificação por push Kindle, não uma Campaign de push para Android. Da mesma forma, se quiser direcionar um Android, use uma notificação por push para Android e não uma Campaign de push para iOS. Confira os artigos a seguir para mais informações sobre como entender o fluxo de trabalho da Braze para:
-- [Apple Push Notification]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=swift)
-- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=android)
+A Braze armazena até 20 dispositivos por perfil de usuário. Quando um 21º dispositivo é registrado, o dispositivo mais antigo é removido (primeiro a entrar, primeiro a sair, ou FIFO). Chamar [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids) no SDK registra novamente o dispositivo atual no perfil.
 
-#### App atual {#current-app}
+### Tipo de notificação por push {#push-notification-type}
 
-Ao testar envios de push com usuários internos, certifique-se de que o usuário que você deseja que receba a notificação por push esteja atualmente logado no app relevante. Isso pode fazer com que o usuário não receba um push ou receba um push para o qual você acredita que ele não está segmentado.
+Use o tipo de push que corresponde ao dispositivo ou plataforma que você está direcionando. Por exemplo, use uma notificação por push Kindle para Fire TV, não uma Campaign de push para Android. Para dispositivos Android, use uma notificação por push para Android em vez de uma Campaign de push para iOS.
+
+Para fluxos de trabalho de solução de problemas específicos por plataforma, consulte:
+
+- [Solução de problemas de notificações por push da Apple]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
+- [Solução de problemas do Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+
+### App atual {#current-app}
+
+Ao testar push com usuários internos, confirme que o destinatário pretendido está logado no app correto. Caso contrário, ele pode não receber o push ou pode receber um que você não esperava com base na segmentação.
 
 {% alert note %}
 Se você está enviando mensagens push com imagens no Android, o FCM pode, às vezes, descartar a imagem e exibir apenas o texto na mensagem push. Esse problema geralmente é causado por problemas de conectividade com o servidor.
@@ -116,10 +121,10 @@ Suas notificações por push podem atrasar por estes motivos:
 
 ### Notificações por push estão sendo enviadas mais lentamente do que o esperado {#push-notifications-are-sending-slower-than-expected}
 
-Certifique-se de que a configuração das suas notificações por push segue estas práticas recomendadas:
+Confirme que a configuração das suas notificações por push segue estas práticas recomendadas:
 
 - Se você está enviando para grandes públicos sem considerar o status de ativação de push, isso pode levar a uma velocidade de envio mais lenta. Em vez disso, considere enviar apenas para usuários com push ativado para reduzir o tamanho do seu público.
-- Se possível, tente programar suas Campaigns com antecedência em vez de imediatamente.
+- Se possível, tente agendar suas Campaigns com antecedência em vez de imediatamente.
 - Se você está direcionando um número maior de usuários com notificações por push em um Canvas, pode esperar que as etapas de mensagem subsequentes no Canvas exijam tempos de processamento diferentes de uma Campaign que envia para os usuários imediatamente. Nesse caso, as Campaigns normalmente terminam o envio antes de um Canvas, pois a primeira "etapa" de um Canvas é verificar se os usuários se qualificam para a jornada específica do usuário.
 
 ## Clicar em uma notificação por push não abre o app {#clicking-a-push-notification-doesnt-open-the-app}
@@ -142,7 +147,7 @@ Se clicar em uma notificação por push não abrir seu app, verifique o seguinte
 
 ## Cliques em push abrem inesperadamente no app {#push-clicks-unexpectedly-open-in-app}
 
-Se você está enfrentando problemas com links em notificações por push que abrem inesperadamente no seu app em vez do navegador web, pode haver um problema com a configuração da sua Campaign ou com a implementação do SDK. Consulte estas etapas para obter ajuda.
+Se você está enfrentando problemas com links em notificações por push que abrem inesperadamente no seu app em vez do navegador web, pode haver um problema com a configuração da sua Campaign ou com a implementação do SDK. Consulte as etapas a seguir para obter ajuda.
 
 ### Verifique o comportamento ao clicar {#verify-on-click-behavior}
 
@@ -175,6 +180,8 @@ Se você está usando atualmente um certificado `.p12` ou `.pem`, migre para uma
 
 ### Chaves .p8 versus certificados .p12 {#p8-keys-versus-p12-certificates}
 
+Use a tabela a seguir para comparar tipos de credenciais, expiração e como cada um aparece no dashboard.
+
 | Credencial | Expiração | Indicador de status no dashboard |
 | --- | --- | --- |
 | Chave de autenticação `.p8` | Não expira | Sem indicador verde de status (isso é esperado) |
@@ -189,7 +196,7 @@ Apps com [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/r
 
 ## Notificações por push para a web não estão funcionando como esperado {#web-push-notifications-arent-behaving-as-expected}
 
-Se você está enfrentando problemas com notificações por push no seu navegador, pode ser necessário redefinir as permissões de notificação do site e limpar o armazenamento do site. Consulte estas etapas para obter ajuda.
+Se você está enfrentando problemas com notificações por push no seu navegador, pode ser necessário redefinir as permissões de notificação do site e limpar o armazenamento do site. Consulte as etapas a seguir para obter ajuda.
 
 {% tabs %}
 {% tab Chrome %}
@@ -252,7 +259,7 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 
 ### Redefinir o Firefox no Android {#reset-firefox-on-android}
 
-Para redefinir as permissões de push no Android, consulte este [artigo de suporte da Mozilla](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser).
+Para redefinir as permissões de push no Android, consulte [Limpar seu histórico de navegação e outros dados pessoais](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser) no suporte da Mozilla.
 
 {% endtab %}
 {% tab Safari %}
@@ -260,7 +267,7 @@ Para redefinir as permissões de push no Android, consulte este [artigo de supor
 ### Redefinir o Safari no macOS {#reset-safari-on-macos}
 
 {% alert note %}
-Estas etapas são apenas para macOS, pois a Apple não oferece suporte a push para a web no Safari para Windows.
+Estas etapas são apenas para macOS, pois a Apple não oferece suporte a web push no Safari para Windows.
 {% endalert %}
 
 1. Abra o Safari.
@@ -277,8 +284,16 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 {% endtab %}
 {% endtabs %}
 
+## Métricas de abertura de push {#push-open-metrics}
+
+A Braze registra uma abertura direta quando um usuário toca na notificação e seu app inicia uma sessão. Expandir uma notificação por push rich sem abrir o app não registra uma abertura direta.
+
+Se um usuário abrir seu app após receber um push sem tocar na notificação, a Braze pode registrar uma Abertura por Influência. Para definições e relatórios, consulte [Aberturas por Influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
+
 ## Mensagens de erro de push {#push-error-messages}
 
-Para informações detalhadas sobre mensagens de erro comuns de push (como `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered` e outras), consulte [Mensagens de erro comuns de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
+Para definições de códigos de erro comuns de push (incluindo `DEVICE_UNREGISTERED`, `NotRegistered` e `Unregistered`), consulte [Mensagens de erro comuns de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
+
+Quando o FCM retorna erros como `DEVICE_UNREGISTERED` ou `NotRegistered`, a Braze normalmente remove o token por push afetado do perfil do usuário. Essa remoção geralmente indica que o app foi desinstalado ou que o token não é mais válido. As campanhas de Uninstall Tracking usam a mesma lógica de remoção de token em escala.
 
 Ainda precisa de ajuda? Abra um [ticket de suporte]({{site.baseurl}}/braze_support).

@@ -285,3 +285,19 @@ Les causes typiques incluent :
 - Demandez-leur de vérifier les enregistrements MX et les enregistrements DNS associés, y compris les enregistrements PTR de leurs serveurs de messagerie, auprès de leur fournisseur DNS.
 
 Les autres destinataires ne sont généralement pas affectés. Pour savoir comment les échecs provisoires d'envoi apparaissent dans les rapports, consultez [Échec provisoire d'envoi]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
+
+### Pourquoi est-ce que je reçois une alerte de spam lorsque j'envoie un e-mail depuis Braze à moi-même ? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
+
+Si vous envoyez un e-mail de test depuis Braze à votre propre adresse e-mail et que vous voyez un avertissement de spam ou d'hameçonnage — tel que « le domaine d'envoi est similaire au domaine de votre entreprise, mais nous ne le reconnaissons pas » — il s'agit d'une fonctionnalité de sécurité anti-hameçonnage courante, et non d'une erreur dans votre configuration Braze.
+
+Cette alerte apparaît généralement lorsque le domaine d'envoi de l'e-mail correspond au domaine du destinataire (par exemple, les deux sont `@votreentreprise.com`). Les systèmes de sécurité des e-mails signalent cela parce que les escrocs usurpent souvent des domaines qui ressemblent au domaine de l'entreprise du destinataire.
+
+Pour vérifier que votre e-mail est correctement configuré :
+
+1. Affichez le message original (en-têtes bruts de l'e-mail) dans votre client de messagerie.
+2. Vérifiez que les authentifications SPF, DKIM et DMARC sont toutes validées.
+3. Si les trois sont validées, votre envoi d'e-mails Braze est correctement configuré.
+
+Pour empêcher cette alerte d'apparaître :
+
+Demandez à votre équipe informatique d'ajouter votre domaine d'envoi Braze et vos adresses IP à la liste d'autorisation dans les services de sécurité des e-mails ou la passerelle de messagerie de votre entreprise. Cela indique à votre système de sécurité de faire confiance aux e-mails provenant de votre infrastructure d'envoi Braze.

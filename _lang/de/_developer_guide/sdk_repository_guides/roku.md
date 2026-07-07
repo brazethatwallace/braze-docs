@@ -6,6 +6,8 @@ description: "Braze Roku SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Roku SDK Repository-Leitfaden {#roku-sdk-repository-guide}
+
 ## Über das Braze Roku SDK {#about-the-braze-roku-sdk}
 
 Das Braze Roku SDK hilft Ihnen, Braze Messaging, Analytics und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
@@ -19,12 +21,12 @@ Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
 Das Braze Roku SDK stellt Ihnen eine API zur Verfügung, um Informationen für Analytics, Segmentierung und Engagement zu übermitteln.
 
-## 1. Schritt: Dateien hinzufügen {#step-1-add-files}
+## Schritt 1: Dateien hinzufügen {#step-1-add-files}
 
 1. Fügen Sie `BrazeSDK.brs` zu Ihrer App im Verzeichnis `source` hinzu.
 2. Fügen Sie `BrazeTask.brs` und `BrazeTask.xml` zu Ihrer App in das Verzeichnis `components` hinzu.
 
-## 2. Schritt: Referenzen hinzufügen {#step-2-add-references}
+## Schritt 2: Referenzen hinzufügen {#step-2-add-references}
 
 Fügen Sie einen Verweis auf `BrazeSDK.brs` in Ihre Hauptszene ein, indem Sie das folgende `script`-Element verwenden:
 
@@ -32,7 +34,7 @@ Fügen Sie einen Verweis auf `BrazeSDK.brs` in Ihre Hauptszene ein, indem Sie da
 <script type="text/brightscript" uri="pkg:/source/BrazeSDK.brs"/>
 ```
 
-## 3. Schritt: Konfigurieren {#step-3-configure}
+## Schritt 3: Konfigurieren {#step-3-configure}
 
 Legen Sie unter `main.brs` die Braze-Konfiguration auf dem globalen Knoten fest:
 
@@ -46,7 +48,7 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-## 4. Schritt: Braze initialisieren {#step-4-initialize-braze}
+## Schritt 4: Braze initialisieren {#step-4-initialize-braze}
 
 Initialisieren Sie die Braze-Instanz:
 

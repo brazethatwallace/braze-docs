@@ -26,7 +26,7 @@ Pour plus de détails, consultez l'article [Analyse de campagne]({{site.baseurl}
 
 ### Sélection de variante BrazeAI<sup>TM</sup> (push uniquement) {#brazeai-variant-selection-push-only}
 
-Si vous utilisez la sélection de variante BrazeAI<sup>TM</sup>, selon qu'il s'agit d'un envoi unique ou d'une campagne récurrente, une fois la fenêtre d'expérimentation (ou la première période pour les campagnes récurrentes) écoulée, vous verrez le gain éventuel sur la page d'accueil de la campagne. Vous trouverez également des détails supplémentaires similaires à ceux de la variante gagnante ci-dessous si vous lancez une campagne à envoi unique.
+Si vous utilisez la sélection de variante BrazeAI<sup>TM</sup>, selon qu'il s'agit d'un envoi unique ou d'une campagne récurrente, une fois la fenêtre d'expérimentation (ou la première période pour les campagnes récurrentes) écoulée, vous verrez le gain éventuel sur la page d'accueil de la campagne. Vous trouverez également des détails supplémentaires similaires à ceux de la variante gagnante si vous lancez une campagne à envoi unique.
 
 Pour plus de détails sur la façon dont nous rapportons le gain de la sélection de variante BrazeAI<sup>TM</sup>, consultez [Sélection de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
@@ -168,6 +168,8 @@ Par exemple, supposons qu'une campagne ait une audience cible de 200 utilisateur
 Les 100 utilisateurs de la variante reçoivent le payload du message in-app, et 50 d'entre eux effectuent l'action de déclenchement et voient le message in-app. Les 100 utilisateurs du groupe de contrôle ne sont suivis que s'ils effectuent l'action de déclenchement de la campagne, et 75 d'entre eux effectuent l'action de déclenchement et enregistrent une impression sans voir le message in-app.
 
 Malgré la répartition initiale 50/50, les impressions uniques enregistrées ne sont pas équilibrées. Le groupe de la variante a 50 impressions, tandis que le groupe de contrôle en a 75.
+
+De plus, les messages de variante nécessitant un temps de rendu plus long, comme ceux contenant des images volumineuses ou du contenu connecté avec modèle, peuvent enregistrer moins d'impressions que le groupe de contrôle lorsque les utilisateurs déclenchent le message mais quittent avant la fin du rendu.
 
 ### Délais des messages in-app {#in-app-message-delays}
 

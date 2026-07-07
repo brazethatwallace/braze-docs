@@ -26,7 +26,7 @@ APIキャンペーンは通常トランザクション型であるため、グ�
 
 ## 新しいキャンペーンを作成する {#create-a-new-campaign}
 
-**Messaging** > **キャンペーン**に移動して**キャンペーンを作成**を選択し、**API キャンペーン**を選択します。これで、APIキャンペーンの設定に進むことができます。
+**メッセージング** > **キャンペーン**に移動して**キャンペーンを作成**を選択し、**API キャンペーン**を選択します。これで、APIキャンペーンの設定に進むことができます。
 
 [APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)は、APIキャンペーンとは異なります。
 

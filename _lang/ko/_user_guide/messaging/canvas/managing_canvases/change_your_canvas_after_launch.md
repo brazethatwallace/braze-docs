@@ -37,7 +37,7 @@ tool:
 - 캔버스 진입 설정에서 사용자가 단계에 재진입할 수 있도록 허용하는 경우, 새로 생성된 단계를 이미 지나간 사용자도 재진입할 자격이 있습니다.
 - 현재 시작된 캔버스에 있지만 새 단계가 추가된 사용자 여정 지점에 아직 도달하지 않은 사용자는 새로 추가된 단계를 받을 자격이 있습니다.
 
-[지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) 또는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계를 삭제하는 경우, 현재 해당 단계에서 대기 중인 사용자를 다른 캔버스 단계로 선택적으로 리디렉션할 수 있습니다. 지연의 경우 사용자는 지연 기간이 끝날 때까지 해당 단계에 남아 있습니다. 행동 경로의 경우 사용자는 평가 기간이 끝날 때까지 해당 단계에 남아 있습니다.
+[지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) 또는 [작업 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계를 삭제하는 경우, 현재 해당 단계에서 대기 중인 사용자를 다른 캔버스 단계로 선택적으로 리디렉션할 수 있습니다. 지연의 경우 사용자는 지연 기간이 끝날 때까지 해당 단계에 남아 있습니다. 작업 경로의 경우 사용자는 평가 기간이 끝날 때까지 해당 단계에 남아 있습니다.
 
 캔버스를 처음 시작할 때 Braze는 사용자가 현재 위치한 메시지 단계에 대해 대기줄에 넣으며, 캔버스의 모든 후속 메시지에 대해 대기줄에 넣지는 않습니다. 시작 후 캔버스를 편집하면 일부 사용자가 이미 대기줄에 들어가 있어 변경 사항을 반영하지 못할 수 있습니다. 캔버스를 중지하고 복제한 다음 변경하여 새 버전을 시작하면, 캔버스는 이미 대기줄에 들어간 사용자뿐만 아니라 모든 사용자를 다시 평가합니다.
 
@@ -78,8 +78,8 @@ tool:
 캔버스가 시작된 후:
 
 - 전환 이벤트는 편집할 수 없습니다.
-- 다음 단계는 추가하거나 제거할 수 없으며, 순위를 조정하기 위해 재정렬할 수 없습니다: [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step).
-  - **해결 방법 1:** 새 오디언스 경로, 행동 경로 또는 실험 경로를 생성하고 해당 새 단계로 경로를 재구성합니다.
+- 다음 단계는 추가하거나 제거할 수 없으며, 순위를 조정하기 위해 재정렬할 수 없습니다: [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), [작업 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step).
+  - **해결 방법 1:** 새 오디언스 경로, 작업 경로 또는 실험 경로를 생성하고 해당 새 단계로 경로를 재구성합니다.
   - **해결 방법 2:** 캔버스를 복제하여 편집합니다.
 
 ### 개별 단계 {#individual-steps}
@@ -93,7 +93,18 @@ tool:
 * 예외 이벤트
 * 지연(지연 단계에만 해당)
 
-그러나 단계의 스케줄 유형과 제어 비율은 시작 후 편집할 수 없습니다. 행동 경로 및 오디언스 경로 단계의 경우, 순위와 평가 기간은 시작 후 편집할 수 없습니다.
+그러나 단계의 스케줄 유형과 제어 비율은 시작 후 편집할 수 없습니다. 작업 경로 및 오디언스 경로 단계의 경우, 순위와 평가 기간은 시작 후 편집할 수 없습니다.
+
+#### 목적지로 보내기 단계 {#send-to-destination-step}
+
+라이브 Canvas에서 [목적지로 보내기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) 단계를 편집할 때 다음 동작이 적용됩니다:
+
+- **목적지 Canvas 변경:** 목적지로 보내기 단계를 다른 목적지 Canvas를 가리키도록 편집하면 일반적인 시작 후 편집 규칙을 따릅니다. 변경 사항은 아직 목적지로 보내기 단계에 도달하지 않은 사용자에게만 영향을 미칩니다.
+  - 이미 해당 단계를 통과한 사용자는 원래 목적지 Canvas에 남아 있으며, 다시 라우팅되지 않습니다.
+  - 이전 단계(예: 목적지로 보내기 단계 전의 지연 단계에서 대기 중인 사용자)에서 현재 대기줄에 있는 사용자는 해당 단계에 도달할 때 새 목적지 Canvas의 진입 및 오디언스 기준에 따라 평가됩니다. 자격이 있는 사용자는 새 목적지 Canvas로 보내집니다.
+- **중지된 목적지 Canvas:** 소스 Canvas가 여전히 활성 상태인 동안 목적지 Canvas가 중지되면, 목적지로 보내기 단계에 도달한 사용자는 목적지 Canvas로 보내지지 않습니다. 이는 목적지가 중지된 동안 일시 중지되는 것이 아니라 핸드오프에서 사용자 이탈을 유발합니다.
+  - 중지된 목적지에 진입할 수 없는 사용자는 목적지로 보내기 단계 이후에 더 많은 단계가 있는 경우 소스 Canvas에서 계속 진행합니다. 진행 동작에 대한 자세한 내용은 [목적지로 보내기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination#how-does-advancement-behavior-work-for-send-to-destination-steps)를 참조하세요.
+  - 중지된 목적지를 가리키는 목적지로 보내기 단계가 있는 소스 Canvas는 시작할 수 없습니다. 이 동작은 소스 Canvas가 이미 라이브 상태인 후에 목적지 Canvas가 중지된 경우에 적용됩니다.
 
 ### 캔버스 배리언트 비율 {#canvas-variant-percentages}
 
@@ -154,7 +165,7 @@ tool:
 시간 지연이 있는 캔버스를 편집하는 것은 다소 까다로울 수 있으므로, 캔버스를 편집할 때 다음 세부 사항을 참고하세요:
 
 - 지연 단계에서 지연을 업데이트하면, 캔버스에 새로 진입하는 사용자와 아직 해당 단계의 대기줄에 들어가지 않은 사용자만 업데이트된 시간 지연으로 메시지를 받습니다.
-- 시간 지연이 있는 단계(예: 지연 또는 행동 경로)를 삭제하고 해당 사용자를 다른 캔버스 단계로 리디렉션하기로 결정한 경우, 사용자는 단계의 시간 지연이 완료된 후에만 리디렉션됩니다. 예를 들어, 1일 지연이 있는 지연 단계를 삭제하고 해당 사용자를 메시지 단계로 리디렉션한다고 가정해 보겠습니다. 이 경우 사용자는 1일 지연이 완료된 후에만 리디렉션됩니다.
+- 시간 지연이 있는 단계(예: 지연 또는 작업 경로)를 삭제하고 해당 사용자를 다른 캔버스 단계로 리디렉션하기로 결정한 경우, 사용자는 단계의 시간 지연이 완료된 후에만 리디렉션됩니다. 예를 들어, 1일 지연이 있는 지연 단계를 삭제하고 해당 사용자를 메시지 단계로 리디렉션한다고 가정해 보겠습니다. 이 경우 사용자는 1일 지연이 완료된 후에만 리디렉션됩니다.
 - 캔버스에 하나 이상의 실험 경로 단계가 있는 경우, 단계를 삭제하면 이 단계의 결과가 무효화될 수 있습니다.
 
 ### 캔버스 중지 {#stopping-canvases}

@@ -21,7 +21,7 @@ Pour récupérer les indicateurs d'une campagne ou d'un Canvas sur une période 
 
 ## Comment modifier une intégration Currents en production ? {#how-do-i-edit-a-live-currents-integration}
 
-Pour modifier un connecteur Currents en production, ouvrez l'intégration et cliquez sur **Modifier** en bas à gauche de la page. Sans **Modifier**, l'interface de l'intégration reste en lecture seule et vous ne pouvez pas modifier les paramètres du connecteur à partir des icônes seules.
+Pour modifier un connecteur Currents en production, ouvrez l'intégration et sélectionnez **Modifier**. Sans **Modifier**, l'interface de l'intégration reste en lecture seule et vous ne pouvez pas modifier les paramètres du connecteur à partir des icônes seules.
 
 ## Comment Braze gère-t-il les fichiers Avro dans Azure Blob Storage après le téléchargement ? {#how-does-braze-handle-azure-blob-storage-avro-files-after-upload}
 
@@ -95,7 +95,7 @@ Braze ne remplit pas rétroactivement les événements dans Currents. Cependant,
 
 ## Quels identifiants utilisateur sont inclus dans les événements Currents ? {#what-user-identifiers-are-included-in-currents-events}
 
-Les événements d'engagement lié aux messages (envois, ouvertures, clics, etc.) incluent l'ID utilisateur Braze (`user_id`) et, lorsqu'il est présent sur le profil, l'identifiant externe (`external_user_id` dans les payloads d'événements, nommé `external_id` dans la table de mappage du schéma Braze). Certains événements d'engagement lié aux e-mails incluent également `email_address`. Les attributs personnalisés ne sont pas inclus — voir ci-dessous.
+Les événements d'engagement lié aux messages (envois, ouvertures, clics, etc.) incluent l'ID utilisateur Braze (`user_id`) et, lorsqu'il est présent sur le profil, l'identifiant externe (`external_user_id` dans les payloads d'événements, nommé `external_id` dans la table de mappage du schéma Braze). Certains événements d'engagement lié aux e-mails incluent également `email_address`. Les attributs personnalisés ne sont pas inclus.
 
 Si vous envoyez les données Currents vers un entrepôt de données ou un CRM et que vous devez effectuer une jointure sur les données de profil, réalisez cette jointure dans votre système en aval en utilisant `user_id` ou `external_user_id`.
 
@@ -109,7 +109,7 @@ Non. Currents n'inclut pas les étiquettes de campagne ou de Canvas, ni les pair
 
 ## Comment Braze informe-t-il ses clients des modifications apportées à Currents ? {#how-does-braze-notify-customers-of-changes-to-currents}
 
-Lorsque des modifications sont apportées à Currents (nouveaux champs ou types d'événements, par exemple), Braze envoie un e-mail à tous les clients disposant d'intégrations Currents actives et ayant utilisé le tableau de bord au cours des 30 derniers jours. Vous pouvez également consulter le [journal des modifications de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) pour connaître les dernières modifications.
+Dans les rares cas où des modifications majeures sont apportées, Braze envoie un e-mail anticipé au contact de toute intégration active ainsi qu'à tous les administrateurs disposant d'intégrations Currents actives et ayant utilisé le tableau de bord au cours des 30 derniers jours. Pour les modifications non majeures, comme de nouveaux événements ou de nouveaux champs sur un événement existant, Braze n'envoie pas de notification. Vous pouvez consulter le [journal des modifications de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) pour connaître les dernières modifications.
 
 ## De combien d'espace de stockage ai-je besoin pour les données Currents ? {#how-much-storage-do-i-need-for-currents-data}
 

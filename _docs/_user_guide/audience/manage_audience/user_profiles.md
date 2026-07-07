@@ -100,7 +100,7 @@ The **Engagement** tab contains information about a user's interactions with the
 ### Event History tab
 
 {% alert note %}
-To view the **Event History** tab, you need the **Search Users** and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), because event properties can contain personal data.
+To view the **Event History** tab, you need the **Search Users**, **View User Event Properties**, and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), because event properties can contain personal data.
 {% endalert %}
 
 The **Event History** tab shows the custom events and purchases a user has logged. Use it to verify event data is arriving correctly and troubleshoot user-level issues directly in the dashboard—no data exports or external tooling required.
@@ -137,8 +137,10 @@ These descriptions cover when a send is logged for **Campaigns received**. They 
 
 The **Message History** tab of the user profile shows recent messaging-related events (about 40) for an individual user from the past 30 days. These events include the messages that the user was sent, received, interacted with, and more. 
 
-{% alert note %}
 The data in this tab isn't updated after a user is merged. Additionally, any events associated with messages sent through API (for example, the [/messages/send endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)) do not appear in this tab if there is no campaign ID specified in those sends.
+
+{% alert important %}
+RCS events aren't currently supported in the **Messaging History** tab.
 {% endalert %}
 
 ![The Messaging History tab showing which campaigns and Canvases a user has received.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
