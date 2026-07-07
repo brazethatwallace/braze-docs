@@ -475,7 +475,7 @@ glossaries:
     tags:
       - Devices
   - name: Device OS Version Number
-    description: Segments your users that have one or more devices with an operating system version that is within a specified range. For example, you can target users who have an iOS operating system version that is above or equal to 26.0.
+    description: Segments your users that have one or more devices with an operating system version that is within a specified range. For example, you can target users who have an iOS operating system version that is greater than or equal to 26.0.
     tags:
       - Devices
   - name: Most Recent Device Locale
@@ -491,7 +491,7 @@ glossaries:
     tags:
       - Devices
   - name: Web Browser
-    description: Segments your users by the web browser they use to access your website.
+    description: Segments your users by the web browser they use to access your website. This filter matches against any browser in the user's device history, not only the most recently used browser.
     tags:
       - Devices
   - name: Device IDFA
