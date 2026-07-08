@@ -12,29 +12,35 @@ description: "Diagnose CSV and API export failures using a symptom index, standa
 
 ## Start here: Match your symptom
 
+Find the behavior you're seeing in the table, then go to that section for targeted checks.
+
 | Symptom | Go to |
 | --- | --- |
-| CSV download link returns `AccessDenied`, `ExpiredToken`, or "file doesn't exist" | [Default export: CSV errors](#csv-exports) or [Cloud storage: CSV errors](#csv-exports-1) |
+| CSV download link returns `AccessDenied`, `ExpiredToken`, or "file doesn't exist" | [Default export: CSV errors](#defaultexport_csv-exports) or [Cloud storage: CSV errors](#cloud-storage-connected) |
 | API export download URL returns `403 Forbidden` | [Can't download an exported segment ZIP](#cant-download-an-exported-segment-zip-from-a-braze-url) |
 | Segment export fails or says segment is too large | [Segment is too large](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
 | No segment export email received | [No segment export email](#why-arent-i-receiving-segment-export-emails) |
 | CSV row count doesn't match campaign analytics | [Campaign and Canvas analytics mismatch](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
 | Expected columns missing from export file | [Missing columns](#expected-columns-are-missing-from-a-segment-export-file) |
-| Cloud storage export shows `AccessDenied` or `ExpiredToken` | [Cloud storage connected: API errors](#common-errors-1) |
+| Cloud storage export shows `AccessDenied` or `ExpiredToken` | [Cloud storage connected: API errors](#cloud-storage-connected) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Export symptom" }
 
 ## Standard investigation path
 
 Use this workflow for every export incident. Start at step 1.
 
-1. Confirm whether you're exporting to the **default Braze S3 bucket** or a **connected cloud storage partner** (tabs below). Link expiration and retry behavior differ between the two.
+1. Confirm whether you're exporting to the default Braze S3 bucket or a connected cloud storage partner. Link expiration and retry behavior differ between the two.
 2. For dashboard CSV exports, confirm you're logged in to Braze when opening the download link. Default-bucket links require an active dashboard session.
-3. Check how long ago the export completed. Default-bucket download links expire after **four hours**. Custom storage partner copies follow your bucket retention policies and may remain available longer.
-4. For large segment exports, confirm the audience is under the **500,000-user** dashboard CSV export limit. Segment builder estimates can differ from the export pipeline evaluation.
+3. Check how long ago the export completed. Default-bucket dashboard links expire after four hours. When a storage partner is connected, emailed links typically expire after 24 hours, while the copy in your bucket follows your retention policies and may remain available longer.
+4. For large segment exports, confirm the audience is under the 500,000-user dashboard CSV export limit. Segment builder estimates can differ from the export pipeline evaluation.
 5. For API exports, wait for processing to finish before downloading. Use `callback_endpoint` on [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) or poll with exponential backoff instead of requesting the URL immediately.
 6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support) with the export type (CSV or API), segment or campaign ID, timestamp (with timezone), and the exact error message.
 
-Use the tabs to select whether you're exporting to the **default Braze S3 bucket** or to a **cloud storage partner**.
+Use the tabs to select whether you're exporting to the default Braze S3 bucket or to a cloud storage partner.
+
+### Cloud storage connected {#cloud-storage-connected}
+
+For cloud storage guidance, open the **Cloud storage connected** tab and review the CSV and API sections.
 
 {% sdktabs %}
 {% sdktab Default export %}
@@ -62,7 +68,7 @@ You must be logged in to the Braze dashboard to use the link, and the file is av
 
 When you export through the Export APIs without cloud storage, Braze writes the files to its S3 bucket. You won't receive an email—instead, the API response includes a temporary download URL. The export comes as a ZIP containing multiple JSON files, each with one user per line.
 
-Like CSV exports, links from the API expire after four hours. If you click the link too early, you may see errors because the file isn't ready yet. You can provide a `callback_endpoint` in your request if you want Braze to notify you when the file is available.
+Like CSV exports, links from the API expire after four hours. If you open the link too early, you may see errors because the file isn't ready yet. You can provide a `callback_endpoint` in your request if you want Braze to notify you when the file is available.
 
 Large API exports can also time out. If that happens, try making smaller requests or connect a storage partner to handle the volume.
 
