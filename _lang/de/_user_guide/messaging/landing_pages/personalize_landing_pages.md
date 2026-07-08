@@ -67,6 +67,10 @@ Das Vorausfüllen funktioniert nur für [identifizierte Nutzer:innen](#use-liqui
 - **Eingabefelder:** Zeigen ihren Platzhaltertext an.
 - **Kontrollkästchen, Optionsfelder und ähnliche Steuerelemente:** Bleiben nicht ausgewählt, bis Nutzer:innen mit ihnen interagieren.
 
+{% alert warning %}
+Wenn Nutzer:innen einen Landing-Page-Link (aus einer E-Mail, SMS oder einer anderen Nachricht) an eine andere Person weiterleiten, sieht die empfangende Person die vorausgefüllten Daten, die für die ursprünglichen Nutzer:innen bestimmt waren. Dies ist die gleiche Sicherheitsüberlegung, die auch für Abmeldelinks und Preference-Center-Links gilt. Berücksichtigen Sie die Sensibilität der vorausgefüllten Daten und das Weiterleitungsverhalten Ihrer Zielgruppe, wenn Sie dieses Feature verwenden.
+{% endalert %}
+
 ## Externe Daten mit benutzerdefiniertem Code abrufen {#fetching-external-data-with-custom-code}
 
 Sie können einen **Custom-Code**-Block verwenden, um Daten von externen Endpunkten abzurufen und auf Ihrer Landing-Page anzuzeigen. Dieser Ansatz führt die Anfrage clientseitig (im Browser der Nutzer:innen) aus, sodass die Seite schnell geladen wird, ohne serverseitige Rendering-Verzögerungen.

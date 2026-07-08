@@ -169,6 +169,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 `alias_name` 및 `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) 설명서를 참조하세요.
 {% endalert %}
 
+### 식별 요청이 성공을 반환했는데 프로필이 병합되지 않은 이유는 무엇인가요? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
+
+`201 Created`와 `message: success`는 요청이 수락되었음을 의미합니다. 페이로드의 모든 별칭이나 이메일이 기존 프로필과 일치했음을 보장하지는 않습니다. `alias_name`의 대소문자 불일치, 중복 프로필 또는 우선순위 규칙으로 인해 호출이 성공하더라도 실제 병합이 이루어지지 않을 수 있습니다. `alias_name`의 대소문자가 저장된 값과 정확히 일치하는지 확인하고, [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)를 사용하여 중복 프로필을 확인하며, `emails_to_identify`를 사용할 때는 [`prioritization`](#identifying-users-by-email)을 검토하세요.
+
 ## 응답 {#response}
 
 ```json

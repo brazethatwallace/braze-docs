@@ -32,7 +32,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 
 ## Creating a role
 
-Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. To create a role, go to **Settings** > **User Management** > **Roles**, then select **Create role**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the appropriate workspaces and directly grant them the associated permissions. To create a role, go to **Settings** > **User Management** > **Roles**, then select **Create role**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
@@ -222,6 +222,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | User Data | Export User Data | Download users from the dashboard |
 | Duplicate Users | View User Merge Records | View a list of user merge records |
 | Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
+| Users | View User Event Properties | View event properties in the **Event History** tab on user profiles |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Delete Users | View User Deletion Records | View a list of user deletion records |
 | Delete Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
@@ -361,7 +362,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Domain Settings | Edit Domain Settings | Add delegated domains and custom domains under Verified Domains |
 | Field Level Encryption | Edit Identifier Field-Level Encryption | Enable and update Field-Level Encryption settings |
 | Media Library Assets | View Media Library Assets | View media library assets |
-| Media Library Assets | Delete Media Library Assets | Permanently delete media library assets |
+| Media Library Assets | Delete Media Library Assets | Remove media library assets from the UI. Deleted assets remain hosted by Braze to prevent breaking messages that reference them. To permanently delete an asset, contact Braze Support. |
 | Media Library Assets | Edit Media Library Assets | Create and update media library assets |
 | Media Library Assets | Replace Media Library Assets | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 | Messaging Rate Limits | View Messaging Rate Limits | View workspace-level messaging rate limits |

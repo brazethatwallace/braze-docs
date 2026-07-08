@@ -66,7 +66,7 @@ Email, Web Push, iOS Push
 
 | Canal | Información adicional |
 |-------|-----------------------|
-| Correo electrónico | Un rebote de correo electrónico para clientes que usan SendGrid consiste en rebotes duros, correo no deseado (`spam_report_drops`) y correos electrónicos enviados a direcciones no válidas (`invalid_emails`).<br><br>Para correo electrónico, *% de rebote* o *Tasa de rebote* es el porcentaje de mensajes que no se enviaron correctamente o que fueron designados como "devueltos" o "no recibidos" por los servicios de envío utilizados, o que no fueron recibidos por los usuarios con correo electrónico válido.|
+| Correo electrónico | Un rebote de correo electrónico para clientes que usan SendGrid consiste en rebotes duros, correo no deseado (`spam_report_drops`) y correos electrónicos enviados a direcciones no válidas (`invalid_emails`).<br><br>Para correo electrónico, *% de rebote* o *tasa de rebote* es el porcentaje de mensajes que no se enviaron correctamente o que fueron designados como "devueltos" o "no recibidos" por los servicios de envío utilizados, o que no fueron recibidos por los usuarios con correo electrónico válido.|
 | Push | Estos usuarios han sido dados de baja automáticamente de todas las notificaciones push futuras.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Rebotes" }
 
@@ -831,7 +831,7 @@ Email
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Si un correo electrónico recibe un rebote blando, normalmente reintentaremos dentro de las 72 horas, pero el número de intentos de reintento varía de un receptor a otro.
 
-Ten en cuenta que los *Soft Bounces* difieren de los *Deferrals*. Si no se entrega correctamente ningún correo electrónico durante este período de reintento, Braze envía un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contaban como múltiples rebotes blandos para un envío de campaña.
+Ten en cuenta que los *rebotes blandos* difieren de los *aplazamientos*. Si no se entrega correctamente ningún correo electrónico durante este período de reintento, Braze envía un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contaban como múltiples rebotes blandos para un envío de campaña.
 
 Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). También puedes excluir a estos usuarios de tu envío o consultar la cantidad de rebotes blandos de los últimos 30 días con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los "envíos" y las "entregas" de tus campañas de correo electrónico.
 
@@ -998,7 +998,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Revenue' %} Esta métrica solo está disponible en los informes de comparación de Campaigns a través del <a href='/docs/user_guide/analytics/reports/report_builder'>Generador de informes</a>.
+{% multi_lang_include analytics/metrics.md metric='Total Revenue' %} Esta métrica solo está disponible en los informes de comparación de Campaigns a través del <a href='/docs/user_guide/analytics/reports/report_builder'>generador de informes</a>.
 
 {% endapi %}
 
@@ -1091,7 +1091,7 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Al evaluar un período de tiempo específico, las <i>Unique Opens</i> pueden parecer más altas que los <i>Sends</i> para ese mismo período. Esto puede ocurrir porque los usuarios aún pueden registrar eventos de apertura para mensajes que se enviaron fuera de ese período de tiempo. Durante toda la duración de la campaña, las <i>Unique Opens</i> siempre son menores que el total de <i>Sends</i>.
 
 | Canal | Información adicional |
 |-------|-----------------------|
@@ -1165,7 +1165,7 @@ Email
 
 {% api %}
 
-## Variación {#variation}
+## Variante {#variation}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp

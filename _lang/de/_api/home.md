@@ -34,6 +34,7 @@ guide_featured_list:
 
 # channel to icon/fa or image mapping
 glossary_tags:
+  - name: Apps
   - name: Campaigns
   - name: Canvas
   - name: Catalogs
@@ -57,6 +58,10 @@ glossary_tags:
   - name: Cloud Data Ingestion
 
 glossaries:
+  - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
+    description: Die Push-Zugangsdaten für eine einzelne App aktualisieren.
+    tags:
+      - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
     description: Neue Nutzer-Aliase für bestehende identifizierte Nutzer:innen hinzufügen oder neue nicht identifizierte Nutzer:innen erstellen.
     tags:
@@ -70,7 +75,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_global_control_group'>/users/export/global_control_group</a>
-    description: Alle Nutzer:innen innerhalb einer Globalen Kontrollgruppe exportieren.
+    description: Alle Nutzer:innen innerhalb einer globalen Kontrollgruppe exportieren.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_identifier'>/users/export/ids</a>
@@ -158,7 +163,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/get_messages_scheduled'>/messages/scheduled_broadcasts</a>
-    description: Eine JSON-Liste mit Informationen über geplante Campaigns und Eingangs-Canvases zwischen jetzt und einer in der Anfrage angegebenen <code>end_time</code> zurückgeben.
+    description: Eine JSON-Liste mit Informationen über geplante Campaigns und Entry-Canvases zwischen jetzt und einer in der Anfrage angegebenen <code>end_time</code> zurückgeben.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/live_activity/update'>/messages/live_activity/update</a>
@@ -230,7 +235,7 @@ glossaries:
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaigns'>/campaigns/list</a>
-    description: Eine Liste von Campaigns exportieren, die jeweils den Namen, den Campaign-API-Bezeichner, die Angabe, ob es sich um eine API-Kampagne handelt, sowie die zugehörigen Tags enthält.
+    description: Eine Liste von Campaigns exportieren, die jeweils den Namen, den Campaign-API-Bezeichner, die Angabe, ob es sich um eine API-Campaign handelt, sowie die zugehörigen Tags enthält.
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_send_analytics'>/sends/data_series</a>

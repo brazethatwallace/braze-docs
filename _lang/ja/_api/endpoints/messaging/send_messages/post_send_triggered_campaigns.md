@@ -18,7 +18,7 @@ description: "この記事では、APIトリガー配信を使用したキャン
 
 APIトリガー配信を使用すると、メッセージのコンテンツをBrazeダッシュボード内に保存しながら、メッセージの送信タイミングと送信先をAPIを使用して指定できます。
 
-セグメントをターゲットにしている場合、リクエストの記録は[開発者コンソール](https://dashboard.braze.com/app_settings/developer_console/activitylog/)に保存されます。このエンドポイントを使用してメッセージを送信するには、[APIトリガーキャンペーン]({{site.baseurl}}/api/identifier_types)を構築する際に作成した[キャンペーン ID]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)が必要です。
+セグメントをターゲットにしている場合、リクエストの記録は[開発者コンソール](https://dashboard.braze.com/app_settings/developer_console/activitylog/)に保存されます。このエンドポイントを使用してメッセージを送信するには、[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)を構築する際に作成した[キャンペーンID]({{site.baseurl}}/api/identifier_types)が必要です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -95,7 +95,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 - `send_to_existing_only`が`true`（デフォルト）の場合、Brazeは既存ユーザーにのみメッセージを送信します。
 - `send_to_existing_only`が`false`で`attributes`オブジェクトが提供されている場合、Brazeはユーザーが存在しない場合に新規ユーザーを作成します。
 - **新規プロファイルには`send_to_existing_only: false`と`attributes`が必要です。** Brazeは同じ受信者内の`attributes`オブジェクトから送信前の作成または更新を実行します。`send_to_existing_only`を`false`に設定しても`attributes`を省略した場合（または空のオブジェクトを送信した場合）、Brazeは同じ方法でプロファイルデータをハイドレートしないため、このパターンが意図する「ユーザーの作成または更新後に送信」という動作は得られません。
-- **メールおよびSMSのアドレス指定。** まだBrazeに存在しないユーザーへのメールまたはSMS APIトリガー送信のほとんどの場合、`attributes`内に必要な配信フィールド（例：`email`、またはワークスペースがSMSに使用する電話属性）を含めてください。同じ呼び出しでオプトイン状態を変更する必要がある場合は、サブスクリプショングループのメンバーシップやサブスクリプションステータスもそこで設定できます。
+- **メールおよびSMSのアドレス指定。** まだBrazeに存在しないユーザーへのメールまたはSMSのAPIトリガー送信のほとんどの場合、`attributes`内に必要な配信フィールド（例：`email`、またはワークスペースがSMSに使用する電話属性）を含めてください。同じ呼び出しでオプトイン状態を変更する必要がある場合は、サブスクリプショングループのメンバーシップやサブスクリプションステータスもそこで設定できます。
 - **キャンペーンの適格性。** プロファイルが存在または更新された後も、そのユーザーはキャンペーンのダッシュボードターゲットオーディエンスとチャネル送信ルール（例：メールのオプトイン済み）に一致する必要があります。一致しない場合、Brazeはメッセージを送信しません。
 - `send_to_existing_only`を`false`に設定することはユーザーエイリアスではサポートされていません。このエンドポイントを通じてエイリアスのみの新規ユーザーを作成することはできません。エイリアスのみのユーザーに送信するには、そのユーザーが既にBrazeに存在している必要があります。
 
@@ -214,5 +214,9 @@ Brazeには`attributes`というメッセージングオブジェクトがあり
 {% alert tip %}
 このエンドポイントのキャンバスバージョンをお探しですか？[APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint)をご確認ください。
 {% endalert %}
+
+### JSONボディにLiquidを直接記述してもレンダリングされないのはなぜですか？ {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
+
+リクエストボディが有効なJSONの場合、Brazeはペイロード内のLiquidをサーバー上で評価します。Liquidを生の文字列として埋め込む場合は、ボディが有効なJSONのままになるよう、文字列を引用符で囲みエスケープしてください。たとえば、文字列内のダブルクォートをエスケープします。ボディがJSONの解析に失敗した場合、BrazeはLiquidを評価する前に`400`を返します。サポートされている場合は、ペイロードにLiquidを直接埋め込む代わりに、[`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を通じて動的な値を渡してください。
 
 {% endapi %}

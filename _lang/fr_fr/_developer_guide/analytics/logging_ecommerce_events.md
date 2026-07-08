@@ -39,7 +39,7 @@ Se déclenche lorsqu'un utilisateur consulte une page de détail produit.
 | `currency` | Chaîne de caractères | Oui | Code ISO 4217 à trois lettres (par exemple, `USD` ou `EUR`). |
 | `source` | Chaîne de caractères | Oui | Source d'où provient l'événement (par exemple, `web`, `ios` ou `android`). |
 | `type` | Tableau de chaînes de caractères | Non | Requis pour utiliser les fonctionnalités de déclenchement par catalogue Braze pour les alertes de retour en stock et de baisse de prix. Valeurs acceptées : `"price_drop"`, `"back_in_stock"`. |
-| `metadata` | Objet | Non | Paires clé-valeur flexibles. Sous-propriété reconnue : `sku` (chaîne de caractères). |
+| `metadata` | Objet | Non | Paires clé-valeur flexibles (par exemple, `category` ou `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement product_viewed" }
 
 {% endtab %}
@@ -274,7 +274,6 @@ import com.braze.models.outgoing.BrazeProperties
 import com.braze.models.recommended.ecommerce.ProductViewedEvent
 
 val metadata = BrazeProperties()
-  .addProperty("sku", "SS-R-101")
   .addProperty("category", "Apparel")
 
 val productViewedEvent = ProductViewedEvent(
@@ -480,7 +479,6 @@ import com.braze.models.outgoing.BrazeProperties;
 import com.braze.models.recommended.ecommerce.ProductViewedEvent;
 
 BrazeProperties metadata = new BrazeProperties()
-    .addProperty("sku", "SS-R-101")
     .addProperty("category", "Apparel");
 
 ProductViewedEvent productViewedEvent = new ProductViewedEvent(
@@ -692,7 +690,6 @@ if let productViewedEvent = try? Braze.Ecommerce.ProductViewedEvent(
     currency: "GBP",
     source: "https://braze-apparel.com/",
     metadata: [
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -899,7 +896,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 {% endtab %}
 {% endtabs %}
 
-## Web
+## Web {#web}
 
 Avec le SDK Web [6.8.0+](https://github.com/braze-inc/braze-web-sdk), appelez `logEcommerceEvent` avec un `name` d'événement et des `properties`. Sur les versions antérieures du SDK, appelez `logCustomEvent` avec le nom de l'événement et un objet de propriétés. `ecommerce.order_cancelled` et `ecommerce.order_refunded` utilisent `logCustomEvent`.
 
@@ -925,7 +922,6 @@ braze.logEcommerceEvent({
         "currency": "GBP",
         "source": "https://braze-apparel.com/",
         "metadata": {
-            "sku": "",
             "color": "ORANGE",
             "size": "6",
             "brand": "Braze"
@@ -947,7 +943,6 @@ braze.logCustomEvent("ecommerce.product_viewed", {
     "currency": "GBP",
     "source": "https://braze-apparel.com/",
     "metadata": {
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"

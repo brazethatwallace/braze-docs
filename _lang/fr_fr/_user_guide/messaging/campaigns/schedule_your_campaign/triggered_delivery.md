@@ -30,7 +30,7 @@ Sélectionnez un événement déclencheur. Celui-ci peut inclure l'un des élém
     - Cliquer sur les boutons d'un message in-app
     - Cliquer sur un e-mail
     - Cliquer sur un alias dans un e-mail
-    - Cliquer sur un alias dans une campagne ou une étape du canvas
+    - Cliquer sur un alias dans une campagne ou une étape du Canvas
     - Ouvrir un e-mail
     - Ouvrir un e-mail (ouvertures automatiques)
     - Ouvrir un e-mail (autres ouvertures)
@@ -44,12 +44,12 @@ Sélectionnez un événement déclencheur. Celui-ci peut inclure l'un des élém
     - Recevoir une notification push
     - Recevoir un webhook
     - Être inscrit dans un groupe de contrôle
-    - Voir une carte de contenu
-    - Cliquer sur une carte de contenu
-    - Fermer une carte de contenu
+    - Voir une Content Card
+    - Cliquer sur une Content Card
+    - Fermer une Content Card
 - Entrer dans un emplacement
 - Effectuer l'événement d'exception d'une autre campagne
-- Interagir avec une étape du canvas
+- Interagir avec une étape du Canvas
 - Déclencher un géorepérage
 - Envoyer un message SMS entrant
 - Envoyer un message WhatsApp entrant
@@ -98,7 +98,7 @@ Sélectionnez un événement d'exception qui disqualifiera les utilisateurs de l
 
 ![Sélectionnez un événement d'exception qui disqualifiera les utilisateurs de la réception de cette campagne. Vous ne pouvez le faire que si votre message déclenché est envoyé après un délai. Les événements d'exception peuvent être un achat, le démarrage d'une session, l'exécution de l'un des événements de conversion désignés de la campagne, ou l'exécution d'un événement personnalisé. Si un utilisateur effectue l'événement déclencheur puis effectue votre événement d'exception avant l'envoi du message en raison du délai, il ne recevra pas la campagne. Les utilisateurs qui ne reçoivent pas la campagne en raison de l'événement d'exception seront automatiquement éligibles pour la recevoir à l'avenir, la prochaine fois qu'ils effectueront l'événement déclencheur, même si vous n'avez pas activé la rééligibilité.]({% image_buster /assets/img_archive/schedule_triggered32.png %})
 
-Pour en savoir plus sur l'utilisation des événements d'exception, consultez notre section sur les [cas d'utilisation]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#use-cases).
+Pour en savoir plus sur l'utilisation des événements d'exception, consultez notre section sur les [cas d'usage]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#use-cases).
 
 > Si vous envoyez une campagne avec un événement déclencheur identique à l'événement d'exception, Braze annulera la campagne et reprogrammera automatiquement une nouvelle campagne basée sur l'heure de distribution de l'événement d'exception. Par exemple, si votre premier événement déclencheur commence à cinq minutes et que l'événement d'exception commence à 10 minutes, l'heure de distribution officielle de la campagne sera celle de l'événement d'exception, soit 10 minutes.
 
@@ -134,15 +134,17 @@ Déterminez si les utilisateurs peuvent devenir [rééligibles]({% image_buster 
 
 ![Capture d'écran relative à l'étape 6 : déterminer la rééligibilité.]({% image_buster /assets/img_archive/schedule_triggered6.png %})
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Les campagnes déclenchées sont très efficaces pour les messages transactionnels ou liés à des accomplissements.
 
 Les campagnes transactionnelles incluent les messages envoyés après qu'un utilisateur a effectué un achat ou ajouté un article à son panier. Ce dernier cas est un excellent exemple de campagne qui bénéficierait d'un événement d'exception. Imaginons que votre campagne rappelle aux utilisateurs les articles dans leur panier qu'ils n'ont pas achetés. L'événement d'exception, dans ce cas, serait l'achat des produits dans leur panier. Pour les campagnes liées à des accomplissements, vous pouvez envoyer un message 5 minutes après qu'un utilisateur a effectué une conversion ou franchi un niveau de jeu.
 
-De plus, lors de la création de campagnes de bienvenue, vous pouvez déclencher l'envoi de messages après qu'un utilisateur s'est inscrit ou a configuré un compte. Échelonner les messages sur différents jours suivant l'inscription vous permettra de créer un processus d'onboarding complet.
+De plus, lors de la création de campagnes d'accueil, vous pouvez déclencher l'envoi de messages après qu'un utilisateur s'est inscrit ou a configuré un compte. Échelonner les messages sur différents jours suivant l'inscription vous permettra de créer un processus d'onboarding complet.
 
-## Pourquoi un utilisateur n'a-t-il pas reçu ma campagne déclenchée ? {#why-did-a-user-not-receive-my-triggered-campaign}
+## Questions fréquentes {#frequently-asked-questions}
+
+### Pourquoi un utilisateur n'a-t-il pas reçu ma campagne déclenchée ? {#why-did-a-user-not-receive-my-triggered-campaign}
 
 L'une de ces raisons peut empêcher un utilisateur ayant effectué l'événement déclencheur de recevoir la campagne :
 
@@ -161,9 +163,9 @@ En bonne pratique, assurez-vous que l'attribut sur lequel la campagne est segmen
 
 De plus, si une campagne est basée sur une action et comporte un délai, vous pouvez cocher l'option **Réévaluer l'appartenance au segment au moment de l'envoi** pour vous assurer que les utilisateurs font toujours partie de l'audience cible lorsque le message est envoyé.
 
-### Évaluation des critères d'audience {#audience-criteria-evaluation}
+#### Évaluation des critères d'audience {#audience-criteria-evaluation}
 
-Pour les campagnes impliquant un délai avant l'envoi (y compris la limite de débit, le fuseau horaire local, le timing intelligent ou une planification de déclenchement), le moment de la réévaluation du segment dépend du type de campagne et de ses paramètres.
+Pour les campagnes impliquant un délai avant l'envoi (y compris la limitation du débit, le fuseau horaire local, le timing intelligent ou une planification de déclenchement), le moment de la réévaluation du segment dépend du type de campagne et de ses paramètres.
 
 Dans les campagnes par événement avec un délai, si vous sélectionnez **Réévaluer l'appartenance au segment au moment de l'envoi**, les utilisateurs sont réévalués avant l'envoi du message, de sorte que seuls les utilisateurs qui remplissent encore les critères du segment au moment de l'envoi reçoivent le message.
 
@@ -176,7 +178,7 @@ Nous recommandons soit de modifier l'audience cible pour inclure tous les utilis
 
 ![Capture d'écran relative à l'évaluation des critères d'audience.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
-### Résolution des problèmes liés aux événements personnalisés {#troubleshooting-custom-events}
+#### Résolution des problèmes liés aux événements personnalisés {#troubleshooting-custom-events}
 
 Commencez par confirmer que l'événement personnalisé est bien transmis à Braze. Accédez à **Analytics** > **Rapport d'événements personnalisés**, puis sélectionnez l'événement personnalisé concerné et la plage de dates. Si l'événement ne s'affiche pas, vérifiez qu'il est correctement configuré et que l'utilisateur a bien effectué l'action correspondante.
 
@@ -190,3 +192,9 @@ Si l'événement personnalisé s'affiche, poursuivez la résolution des problèm
 {% alert note %}
 Les messages in-app ne peuvent être déclenchés que par des événements envoyés via le SDK, et non par la REST API.
 {% endalert %}
+
+### Quand les campagnes par événement évaluent-elles l'appartenance à l'audience ? {#when-do-action-based-campaigns-evaluate-audience-membership}
+
+Braze évalue l'appartenance à l'audience lorsqu'il traite l'événement déclencheur, avant l'envoi du message. Par défaut, Braze vérifie si l'utilisateur correspond à l'audience cible au moment de la mise en file d'attente. Si la campagne comporte un délai, vous pouvez sélectionner **Réévaluer l'appartenance au segment au moment de l'envoi** pour vérifier à nouveau les critères d'audience juste avant l'envoi — par exemple, lorsqu'un utilisateur pourrait effectuer l'action de déclenchement puis quitter l'audience avant la fin de l'envoi.
+
+Pour plus d'informations, consultez la section [Évaluation des critères d'audience](#audience-criteria-evaluation).

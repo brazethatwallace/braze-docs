@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## 푸시 토큰 마이그레이션 {#migrating-push-tokens}
+## 푸시 토큰 마이그레이션 {#migrate-push-tokens}
 
 Braze를 통합하기 전에 자체적으로 또는 다른 제공업체를 통해 푸시 알림을 보내고 있었다면, 푸시 토큰 마이그레이션을 통해 등록된 푸시 토큰이 있는 사용자에게 푸시 알림을 계속 보낼 수 있습니다.
 
@@ -352,3 +352,9 @@ Braze SDK 통합이 완료되기 전에 사용자에게 Android 푸시 알림을
 {% alert note %}
 일부 푸시 알림 제공업체의 경우, Braze에서 키-값 페어를 평탄화해야 올바르게 해석할 수 있습니다. 특정 Android 앱에 대한 키-값 페어를 평탄화하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
+
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### 스팸으로 처리되거나 메시지 발송이 차단된 사용자를 어떻게 찾나요? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+Braze는 대시보드에 전용 스팸 목록을 제공하지 않습니다. Braze는 500만 건 이상의 세션을 가진 개별 사용자("더미 사용자")를 차단하고 해당 사용자의 SDK 이벤트를 더 이상 수집하지 않습니다. 식별자가 차단된 경우 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에서 `"provided external_id is blacklisted and disallowed"` 오류가 반환될 수 있습니다. 이 문구는 API 응답에서 그대로 가져온 것입니다. 영향을 받는 프로필을 찾으려면 **세션 수** 필터를 **5,000,000 초과**로 설정한 [세그먼트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 생성하고, 세그먼트를 CSV로 내보낸 다음 **참여** > **사용자 검색** 또는 [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) 엔드포인트에서 프로필 필드를 교차 확인하세요.

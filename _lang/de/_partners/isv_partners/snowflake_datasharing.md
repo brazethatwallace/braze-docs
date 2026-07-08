@@ -9,11 +9,11 @@ hidden: true
 
 Freigaben werden pro Kund:in bereitgestellt, nachdem die Kund:innen eine Berechtigung für Snowflake Data Share erworben haben. Wenn Kund:innen eine Datenfreigabe anfordern, fügt Braze dem Workspace der Kund:innen eine Freigabe hinzu, und die Kund:innen können die Self-Service-UI verwenden, um die entsprechenden Daten des Partner-Snowflake-Kontos hinzuzufügen.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Bereitstellung der Snowflake-Datenfreigabe im Braze-Dashboard]({% image_buster /assets/img/snowflake.png %})
 
 Sobald die Freigabe bereitgestellt ist, sind alle Daten sofort innerhalb der Snowflake-Instanz als eingehende Datenfreigabe zugänglich.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![Eingehende Snowflake-Datenfreigabe in der Snowflake-Instanz der Kund:innen]({% image_buster /assets/img/snowflake2.png %})
 
 Innerhalb Ihrer Snowflake-Instanz sehen Sie eine Freigabe pro Region. Jede Tabelle hat eine Spalte, `app_group_id`, die im Grunde ein Mandantenschlüssel für Braze ist. Wenn neue Kund:innen innerhalb derselben Region zu einer Freigabe hinzugefügt werden, erscheinen sie als unterschiedliche `app_group_ids` in den bestehenden Tabellen.
 

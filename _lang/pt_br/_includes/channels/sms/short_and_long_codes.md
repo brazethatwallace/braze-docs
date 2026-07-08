@@ -146,6 +146,14 @@ Números gratuitos têm códigos de área distintos de três dígitos (por exemp
 {% endtab %}
 {% endtabs %}
 
+## Usando códigos curtos e códigos longos juntos {#using-short-codes-and-long-codes-together}
+
+Se o seu grupo de inscrições inclui tanto códigos curtos quanto códigos longos, os códigos curtos são normalmente priorizados para mensagens de saída. No entanto, alguns provedores oferecem a funcionalidade de remetente fixo (sticky sender), que pode fazer com que um código longo continue sendo usado para determinados usuários mesmo após um código curto ser adicionado ao pool de remetentes.
+
+O remetente fixo mantém a continuidade das mensagens roteando todas as mensagens para um usuário específico a partir do mesmo número de telefone. Se um usuário recebeu uma mensagem de um código longo antes de um código curto ser adicionado ao seu grupo de inscrições, seu provedor pode continuar usando aquele código longo para futuras mensagens para aquele usuário, mesmo que o código curto normalmente fosse priorizado.
+
+Esse comportamento é controlado pelos provedores e não pode ser alterado na Braze.
+
 ## Configuração {#setup}
 
 Os requisitos e prazos de configuração variam de acordo com o tipo de remetente e o país em que o remetente está sendo provisionado.

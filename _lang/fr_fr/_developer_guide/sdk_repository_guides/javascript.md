@@ -6,6 +6,8 @@ description: "Référence du README du SDK JavaScript de Braze, miroir depuis Gi
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK JavaScript {#javascript-sdk-repository-guide}
+
 ## À propos du SDK JavaScript de Braze {#about-the-braze-javascript-sdk}
 
 Le SDK JavaScript de Braze vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.
@@ -542,7 +544,7 @@ destroy();
 await initialize({ /* new config */ });
 ```
 
-### Cas d'utilisation courants {#common-use-cases}
+### Cas d'usage courants {#common-use-cases}
 
 #### Identification des utilisateurs et suivi des attributs {#user-identification-and-attribute-tracking}
 

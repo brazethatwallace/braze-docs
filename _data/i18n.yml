@@ -6,6 +6,7 @@ en:
   braze_status: BRAZE SYSTEM STATUS
   braze_status_check: Checking Braze Status
   page_nav_title: On this page
+  back_to_top: Back to top
   helpful: "HOW HELPFUL WAS THIS PAGE?"
   collapse_navigation: Collapse navigation
   expand_navigation: Expand navigation
@@ -226,6 +227,7 @@ fr:
   braze_status: ÉTAT DU SYSTÈME BRAZE
   braze_status_check: Vérification du statut Braze
   page_nav_title: Sur cette page
+  back_to_top: Retour en haut
   helpful: "CETTE PAGE A-T-ELLE ÉTÉ UTILE?"
   translation_banner: "Cette page a été traduite automatiquement et peut contenir des inexactitudes. Pour signaler une erreur de traduction, utilisez le module de commentaires en bas de la table des matières, à droite de la page."
   collapse_navigation: Réduire la navigation
@@ -307,6 +309,7 @@ ja:
   braze_status: BRAZE システム ステータス
   braze_status_check: Braze ステータスの確認
   page_nav_title: このページについて
+  back_to_top: ページの先頭へ戻る
   helpful: 「このページはどの程度役に立ちましたか?」
   translation_banner: "このページはAIにより自動翻訳されており、不正確な内容が含まれている可能性があります。翻訳の誤りを報告するには、ページ右側の目次の下にあるフィードバックをご利用ください。"
   collapse_navigation: ナビゲーションを折りたたむ
@@ -514,6 +517,7 @@ ko:
   braze_status: 브레이즈 시스템 상태
   braze_status_check: 브레이즈 상태 확인
   page_nav_title: 이 페이지에
+  back_to_top: 맨 위로 이동
   helpful: "이 페이지가 얼마나 도움이 되었나요?"
   translation_banner: "이 페이지는 AI로 자동 번역되었으며 부정확한 내용이 포함될 수 있습니다. 번역 오류를 신고하려면 페이지 오른쪽 목차 아래에 있는 피드백 기능을 사용하세요."
   collapse_navigation: 탐색 접기
@@ -716,6 +720,7 @@ pt-br:
   braze_status: STATUS DO SISTEMA BRAZE
   braze_status_check: Verificando o status do Braze
   page_nav_title: Nesta página
+  back_to_top: Voltar ao topo
   helpful: "QUÃO ÚTIL FOI ESTA PÁGINA?"
   translation_banner: "Esta página foi traduzida automaticamente e pode conter imprecisões. Para relatar um erro de tradução, use o componente de feedback na parte inferior do sumário, à direita da página."
   collapse_navigation: Recolher navegação
@@ -797,6 +802,7 @@ es:
   braze_status: ESTADO DEL SISTEMA BRAZE
   braze_status_check: Verificación del estado de Braze
   page_nav_title: En esta página
+  back_to_top: Volver arriba
   helpful: "¿QUÉ TAN ÚTIL FUE ESTA PÁGINA?"
   translation_banner: "Esta página fue traducida automáticamente y puede contener errores. Para informar de un error de traducción, usa el componente de comentarios situado bajo el sumario, a la derecha de la página."
   collapse_navigation: Contraer navegación
@@ -878,6 +884,7 @@ de:
   braze_status: BRAZE-SYSTEMSTATUS
   braze_status_check: Braze-Status wird geprüft
   page_nav_title: Auf dieser Seite
+  back_to_top: Nach oben
   useful: "WIE HILFREICH WAR DIESE SEITE?"
   translation_banner: "Diese Seite wurde automatisch übersetzt und kann Ungenauigkeiten enthalten. Um einen Übersetzungsfehler zu melden, nutzen Sie das Feedback unten im Inhaltsverzeichnis rechts auf der Seite."
   collapse_navigation: Navigation einklappen

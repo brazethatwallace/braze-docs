@@ -180,7 +180,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     <tr>
         <th scope="row">Événements et attributs personnalisés</th>
         <td>Les attributs et les événements personnalisés sont garantis comme étant spécifiques à une instance d'application.</td>
-        <td>Impossible de suivre le comportement des utilisateurs entre les espaces de travail.<br><br><b>Conseil :</b> Pour ce faire, vous pouvez utiliser plusieurs connecteurs Currents.</td>
+        <td>Impossible de suivre le comportement des utilisateurs entre les espaces de travail.<br><br><b>Conseil :</b> Pour ce faire, vous pouvez tirer parti de plusieurs connecteurs Currents.</td>
         <td>Possibilité de suivre le comportement de l'utilisateur dans toutes les instances d'applications de l'espace de travail.</td>
         <td>Les attributs et événements personnalisés s'appliqueraient à toutes les instances de l'application, ce qui pourrait rendre difficile de déterminer quelles données d'un profil utilisateur sont pertinentes pour telle ou telle instance de l'application. Par exemple, « date_of_parking » concerne-t-il l'application 1 ou l'application 2 ? Pour y remédier, veillez à utiliser des conventions de nommage bien structurées.</td>
     </tr>
@@ -208,8 +208,8 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     <tr>
         <th scope="row">Duplication de contenu</th>
         <td>S.O.</td>
-        <td>Certains contenus, comme les segments et les campagnes de cartes de contenu, ne peuvent pas être copiés entre les espaces de travail.</td>
-        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copier des Campaigns, des Canvas et des pages d'accueil entre les espaces de travail</a>. Les contenus pris en charge incluent les Campaigns et les Canvas pour les canaux éligibles, ainsi que les pages d'accueil, les modèles d'e-mails, les indicateurs de fonctionnalité et les Content Blocks.<br><br>Possibilité de dupliquer les segments, les Campaigns, les Canvas et les pages d'accueil pour réutiliser le contenu d'une instance d'application à l'autre.</td>
+        <td>Certains contenus, comme les Segments et les campagnes de content cards, ne peuvent pas être copiés entre les espaces de travail.</td>
+        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copier des Campaigns, des Canvas et des pages de destination entre les espaces de travail</a>. Les contenus pris en charge incluent les Campaigns et les Canvas pour les canaux éligibles, ainsi que les pages de destination, les modèles d'e-mails, les feature flags et les Content Blocks.<br><br>Possibilité de dupliquer les Segments, les Campaigns, les Canvas et les pages de destination pour réutiliser le contenu d'une instance d'application à l'autre.</td>
         <td>S.O.</td>
     </tr>
     <tr>
@@ -221,6 +221,10 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     </tr>
     </tbody>
 </table>
+
+{% alert note %}
+Pour comprendre comment les MAU diffèrent lorsque vous consultez toutes les applications par rapport à une seule application, consultez [Utilisateurs actifs mensuels]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
 
 ## Bonnes pratiques {#best-practices}
 

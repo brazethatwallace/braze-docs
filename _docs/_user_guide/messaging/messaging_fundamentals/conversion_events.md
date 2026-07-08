@@ -40,7 +40,7 @@ For more on conversions, check out our [Braze Learning course](https://learning.
 
 ### Conversion tracking rules
 
-Conversion events attribute user actions back to a point of engagement. In general, while a conversion window is open, a user converts at most once per conversion event for that campaign or Canvas. If they perform the same conversion action more than once before the deadline (for example, two purchases), Braze still counts only one conversion for that event. Multichannel campaigns can record a separate conversion opportunity for each messaging channel, which can produce conversion rates above 100% when you compare conversion counts with unique recipients (see below).
+Conversion events attribute user actions back to a point of engagement. In general, while a conversion window is open, a user converts at most once per conversion event for that campaign or Canvas. If they perform the same conversion action more than once before the deadline (for example, two purchases), Braze still counts only one conversion for that event. Multichannel campaigns can record a separate conversion opportunity for each messaging channel, which can produce conversion rates greater than 100% when you compare conversion counts with unique recipients (as described in the following bullets).
 
 Note the following about how Braze handles multiple conversions:
 
@@ -108,3 +108,19 @@ If you don't select any conversion events during campaign creation, the time def
 Additionally, for multivariate messages, you can see the number of conversions and conversion percentages for your control group and each variant.
 
 ![Four conversion events that track conversions based on when a purchase was made within three hours, made a purchase within two hours, started a session within 30 minutes, and started a session within 25 minutes.]({% image_buster /assets/img_archive/conversion_event_details.png %})
+
+## Canvas step versus variant conversion rates
+
+It's common for a Canvas variant's total conversion count to be higher than the sum of its individual steps' conversion counts. This happens because conversions are tracked differently at the variant level and the step level:
+
+- Variant conversions are counted as soon as the user enters the variant.
+- Step conversions are counted only after the step's message is sent to the user.
+
+This means any user who enters the Canvas and performs the conversion event before receiving a step counts toward the variant total but not toward any step.
+
+The following scenarios can also cause this discrepancy:
+
+- **User exits Canvas before receiving any step.** If a user enters the Canvas but exits (for example, due to a filter or audience mismatch) before any message is sent, a conversion they perform still counts at the variant level but doesn't count at any step level.
+- **Step targets a subset of users.** If a step is configured to send only to a specific platform (such as mobile), users on other platforms (such as web) can still enter the Canvas and convert. Because those users never receive the step message, the conversion doesn't count at the step level — only at the variant level.
+
+For more information on Canvas analytics, see [Measuring and testing with Canvas analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).

@@ -376,6 +376,11 @@ Supply the JWT when calling [`changeUser`](https://braze-inc.github.io/braze-swi
 ```swift
 AppDelegate.braze?.changeUser(userId: "userId", sdkAuthSignature: "JWT-FROM-SERVER")
 ```
+
+{% alert note %}
+`changeUser` returns immediately on the calling thread. The SDK authentication signature supplied here is attached after the user-switch work completes.
+{% endalert %}
+
 Or, when you have refreshed the user's token mid-session:
 
 ```swift

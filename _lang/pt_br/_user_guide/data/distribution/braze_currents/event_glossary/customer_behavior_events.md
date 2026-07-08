@@ -26,7 +26,7 @@ Fale com seu representante da Braze ou abra um [ticket de suporte]({{site.baseur
 
 {% details Explicação da estrutura de eventos de comportamento do cliente e do usuário e valores de plataforma %}
 
-### Estrutura do evento {#event-structure}
+## Estrutura do evento {#event-structure}
 
 Esse detalhamento do comportamento do cliente e dos eventos do usuário mostra que tipo de informação é geralmente incluído em um evento de comportamento do cliente ou do usuário. Com uma boa compreensão de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos do Currents recebidos para criar relatórios e gráficos orientados por dados e aproveitar outras métricas de dados valiosas.
 
@@ -255,7 +255,7 @@ Esse evento ocorre quando um evento personalizado específico é disparado. Use 
 {% endapi %}
 
 {% api %}
-## Eventos de atribuição da instalação {#install-attribution-events}
+## Eventos de atribuição de instalação {#install-attribution-events}
 
 {% apitags %}
 Attribution
@@ -1575,7 +1575,7 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
   - Se o usuário permitiu explicitamente a permissão de notificação por push no dispositivo, o valor será `false`, e o token poderá receber notificações por push em primeiro plano.
   - Se o usuário negou explicitamente a permissão de notificação por push no dispositivo, o valor será `true`, e o token só poderá receber notificações por push em segundo plano.
   - Se a permissão de push ainda não foi determinada (por exemplo, o usuário ainda não respondeu ao prompt do sistema operacional), o valor será `true`, e o token só poderá receber notificações por push em segundo plano.
-  - Esse campo pode ser `null` (ou vazio, dependendo do formato do destino) para registros de token de SDK mais antigos que ainda não reportaram o status de permissão e para tokens de push para a web. Trate `null` da mesma forma que `false` (habilitado para push em primeiro plano), pois a Braze ainda tenta enviar notificações por push em primeiro plano para esses tokens.
+  - Esse campo pode ser `null` (ou vazio, dependendo do formato do destino) para registros de token de SDK mais antigos que ainda não reportaram o status de permissão e para tokens de web push. Trate `null` da mesma forma que `false` (habilitado para push em primeiro plano), pois a Braze ainda tenta enviar notificações por push em primeiro plano para esses tokens.
   - Uma tentativa de envio de push não atualiza esse campo. Se um envio for bem-sucedido, nenhum evento `TokenStateChange` é emitido. Se um envio sofrer bounce porque o token é inválido, a Braze emite um evento "remove" e exclui o token.
   - Esse campo só muda quando a Braze recebe uma atualização de estado do token do SDK (por exemplo, uma sincronização de sessão posterior que reporta o status de permissão de push).
 - O campo `push_token_provisionally_opted_in` se aplica apenas a tokens por push do iOS.
@@ -1594,15 +1594,15 @@ Um evento "add" é registrado quando um novo token é cadastrado. Isso acontece 
 {% alert note %}
 Para o iOS Swift SDK 13.3.0 e posterior, e Android SDK 40.0.0 e posterior, o status de permissão de push e o token por push são enviados juntos. Para novos registros desses SDKs, `push_token_foreground_push_disabled` é preenchido no evento "add" (normalmente `false` quando as notificações estão ativadas).<br><br>
 
-Registros de token mais antigos ainda podem ter esse campo como `null` até que o SDK reporte posteriormente o status de permissão de push. Tokens de push para a web também podem ter esse campo como `null` por design.
+Registros de token mais antigos ainda podem ter esse campo como `null` até que o SDK reporte posteriormente o status de permissão de push. Tokens de web push também podem ter esse campo como `null` por design.
 {% endalert %}
 
 ##### Update {#update}
 
-Um evento "update" é registrado quando uma propriedade muda em um token existente sem que a string do token em si mude. O token tem a mesma string, mesmo usuário e mesmo app, mas um ou mais dos seguintes campos mudaram: `foreground_push_disabled`, gateway APNs, chaves de push para a web, `provisionally_opted_in` ou `device_id`. Essas atualizações vêm de eventos de sincronização de estado do token (por exemplo, quando o SDK reporta um novo estado de permissão), não de resultados de envio de push.
+Um evento "update" é registrado quando uma propriedade muda em um token existente sem que a string do token em si mude. O token tem a mesma string, mesmo usuário e mesmo app, mas um ou mais dos seguintes campos mudaram: `foreground_push_disabled`, gateway APNs, chaves de web push, `provisionally_opted_in` ou `device_id`. Essas atualizações vêm de eventos de sincronização de estado do token (por exemplo, quando o SDK reporta um novo estado de permissão), não de resultados de envio de push.
 
 {% alert note %}
-Na maioria dos casos, a reinstalação do app ou a restauração de backup resulta em um novo evento "add" com um novo `push_token` e novo `device_id` (porque o SDK gera um novo `device_id` e o sistema operacional fornece uma nova string de token por push). Isso cria duas entradas separadas de token e dispositivo no perfil do usuário, e a entrada mais antiga é removida posteriormente por meio do rastreamento de desinstalação ou envio de Campaign.<br><br>
+Na maioria dos casos, a reinstalação do app ou a restauração de backup resulta em um novo evento "add" com um novo `push_token` e novo `device_id` (porque o SDK gera um novo `device_id` e o sistema operacional fornece uma nova string de token por push). Isso cria duas entradas separadas de token e dispositivo no perfil do usuário, e a entrada mais antiga é removida posteriormente por meio do Uninstall Tracking ou envio de Campaign.<br><br>
 
 Seria extremamente raro que apenas o `device_id` mudasse sem que o `push_token` mudasse (isso exigiria que o sistema operacional retornasse a mesma string de token após a reinstalação).
 {% endalert %}

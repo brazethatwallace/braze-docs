@@ -15,7 +15,7 @@ description: "이 문서에서는 Intelligent Timing(이전의 지능형 전달)
 Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상호작용에 대한 통계적 분석을 바탕으로 최적의 발송 시간을 계산합니다. 다음 상호작용 데이터가 사용됩니다:
 
 - 세션 시간
-- 직접 열람 수
+- 푸시 직접 열람 수
 - 푸시 영향 열람
 - 이메일 클릭 수
 - 이메일 열람 수([머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) 제외)
@@ -303,3 +303,7 @@ Braze는 IP 워밍을 처음 진행할 때 Intelligent Timing을 사용하는 �
 #### Intelligent Timing이 최대한 잘 작동하도록 하려면 어떻게 해야 하나요? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 Intelligent Timing은 각 사용자가 메시지를 수신한 시간에 대한 개별 메시지 참여 이력을 사용합니다. Intelligent Timing을 사용하기 전에 하루 중 다양한 시간에 사용자에게 메시지를 보내세요. 이렇게 하면 각 사용자에게 가장 좋은 시간이 언제인지 "샘플링"할 수 있습니다. 하루 중 다양한 시간대를 충분히 샘플링하지 않으면 Intelligent Timing이 사용자에게 최적이 아닌 발송 시간을 선택할 수 있습니다.
+
+#### Canvas 단계에서 Intelligent Timing을 활성화하려면 어떻게 해야 하나요? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가하거나 열고, **Delivery Settings**로 이동한 다음 **Using Intelligent Timing**을 선택합니다. 이 문서의 Canvas 설정 안내에 따라, Canvas 진입과 해당 메시지 사이에 최소 2일 이상의 캘린더 일수를 [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)로 추가하여 Intelligent Timing이 평가할 충분한 참여 이력을 확보하세요.

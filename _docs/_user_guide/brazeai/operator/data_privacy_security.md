@@ -71,7 +71,7 @@ There are several steps you can take to limit PII exposure when using Operator:
 - **Disable the View PII setting** for any users who use Operator. If a user cannot view PII, Operator cannot access it either.
 - **Do not open Operator on a user profile page.** Page content is scraped and included in each request sent to OpenAI.
 - **When testing, use a custom user profile** rather than selecting an existing one. This is Operator's default behavior.
-- **Do not type or paste PII** directly into the Operator prompt.
+- **Do not type or paste PII** directly into the Operator prompt. Operator does not block PII included in user prompts. If a user manually types PII into a request, that content is sent to the underlying language model.
 - **Disable auto-approval for actions** to maintain control over what Operator can access and execute.
 - **Do not ask Operator to display preview values for attributes** when building a segment or writing Liquid.
 
@@ -79,7 +79,7 @@ There are several steps you can take to limit PII exposure when using Operator:
 
 ### Restrict access to Operator
 
-Access to Operator is managed at the workspace level through [Granular User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Administrators can grant or revoke the **Use BrazeAI Operator** permission for individual users, ensuring that only authorized personnel can interact with the tool. Without these specific permissions, the Operator interface is completely suppressed and backend endpoints remain secured.
+Access to Operator is managed at the workspace level through [Granular User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Administrators can grant or revoke the "Use BrazeAI Operator" permission for individual users, ensuring that only authorized personnel can interact with the tool. Without these specific permissions, the Operator interface is completely suppressed and backend endpoints remain secured.
 
 ### Human-in-the-loop model
 
@@ -90,6 +90,17 @@ Users can enable **Auto-approve actions** in the Operator chat panel, which caus
 ### User permission inheritance
 
 Operator fully inherits the permission profile of the logged-in user. It is restricted from viewing data or executing actions, such as campaign modifications, that the user is not already authorized to perform independently.
+
+### View PII permission
+
+Operator does not require the "View PII" permission to function, and this is intentional. Operator has no direct access to your data store and does not query your database independently. Instead, it makes requests to the same backend endpoints as the rest of the dashboard using the authenticated user's session credentials. This means Operator is fully bounded by the user's existing [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) and cannot access anything the user cannot already see.
+
+PII can only reach Operator in two ways:
+
+- The user types PII directly into a prompt.
+- The user is already viewing PII in the dashboard when they use Operator.
+
+If a user does not have the "View PII" permission, Operator cannot surface PII to them. Keep in mind that Operator does not filter content typed directly into prompts—PII entered manually is sent to the underlying language model. To reduce this risk, see [Minimize PII exposure](#minimize-pii-exposure).
 
 ### Audit team usage
 

@@ -26,7 +26,7 @@ search_rank: 7
 
 {% details 顧客行動とユーザーイベントの構造およびプラットフォーム値の説明 %}
 
-### イベントの構造 {#event-structure}
+## イベントの構造 {#event-structure}
 
 この顧客行動とユーザーイベントの内訳は、一般的に顧客行動やユーザーイベントに含まれる情報のタイプを示します。開発者とビジネスインテリジェンス戦略チームは、構成要素をしっかり理解したうえで、受信したCurrentsイベントデータを使用して、データドリブン型のレポートやグラフを作成したり、その他の貴重なデータ指標を活用したりすることができます。
 
@@ -249,7 +249,7 @@ Custom Events
 ### プロパティの詳細 {#property-details}
 
 - カスタムイベントの場合、ペイロードには、イベントに関連付けられている任意の[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties)も含まれます。
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)のリンク先を参照してください。
 - Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
 
 {% endapi %}
@@ -536,7 +536,7 @@ Locations
 
 ### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)のリンク先を参照してください。
 - Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
 
 {% endapi %}
@@ -707,7 +707,7 @@ Purchases
 ### プロパティの詳細
 
 - 購入イベントの場合、ペイロードには、イベントに関連付けられている[購入イベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties)も含まれます。
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)のリンク先を参照してください。
 - Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
 
 {% endapi %}

@@ -69,6 +69,10 @@ Beachten Sie, dass die folgenden Tabellen Campaign- und Canvas-Felder abdecken u
 
 Landing-Pages werden als Entwürfe kopiert. Überprüfen Sie vor der Veröffentlichung einer kopierten Landing-Page deren Seiten-URL, benutzerdefinierte Domain-Einstellungen, Formularübermittlungsverarbeitung sowie alle Liquid- oder Workspace-spezifischen Referenzen.
 
+{% alert note %}
+Übersetzungen werden beim Kopieren von E-Mail-Campaigns, Canvases oder Templates zwischen Workspaces nicht mitkopiert. Geben Sie nach dem Kopieren die Übersetzungen im Ziel-Workspace erneut ein oder laden Sie sie erneut hoch.
+{% endalert %}
+
 ### Details {#details}
 
 {% tabs local %}
@@ -335,7 +339,7 @@ Filterkriterien aus Canvas-Schritten (zum Beispiel [Decision-Split]({{site.baseu
 
 ## Nachrichten mit Liquid-Referenzen kopieren {#copying-messages-that-contain-liquid}
 
-Liquid-Referenzen innerhalb von Nachrichtentexten werden in den Ziel-Workspace kopiert, funktionieren dort aber möglicherweise nicht wie erwartet. Das bedeutet: Wenn ein Canvas aus Workspace A in Workspace B kopiert wird, kann Workspace B nicht auf die Details von Workspace A zugreifen, einschließlich Liquid-Referenzen. Beispielsweise werden Felder wie Trigger-Aktionen, Zielgruppen-Filter und [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Filterkriterien nicht kopiert.
+Liquid-Referenzen innerhalb von Nachrichtentexten werden in den Ziel-Workspace kopiert, funktionieren dort aber möglicherweise nicht wie erwartet. Das bedeutet: Wenn ein Canvas aus Workspace A in Workspace B kopiert wird, kann Workspace B nicht auf die Details von Workspace A zugreifen, einschließlich Liquid-Referenzen. Beispielsweise werden Felder wie Trigger-Aktionen, Zielgruppenfilter und [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Filterkriterien nicht kopiert.
 
 Behalten Sie die folgenden Liquid-Referenzen mit Abhängigkeiten im Blick, wenn Sie Campaigns, Canvases und Landing-Pages zwischen Workspaces kopieren:
 
@@ -356,6 +360,6 @@ Wenn Sie eine Campaign oder ein Canvas mit einem Feature-Flag-Schritt kopieren, 
 
 ## Nachrichten mit Content Blocks kopieren {#copying-messages-with-content-blocks}
 
-Wenn Sie eine Campaign zwischen Workspaces kopieren, werden Content Blocks nicht mitkopiert. Ein Content-Block kann jedoch im Ziel-Workspace referenziert werden, wenn dort ein Block mit demselben Namen existiert. Alternativ können Sie den Content-Block (oder diese Liquid-Referenzen) im Ziel-Workspace erstellen, um Fehler beim Starten einer Campaign zu vermeiden.
+Wenn Sie eine Campaign zwischen Workspaces kopieren, werden Content Blocks nicht mitkopiert. Ein Content Block kann jedoch im Ziel-Workspace referenziert werden, wenn dort ein Block mit demselben Namen existiert. Alternativ können Sie den Content Block (oder diese Liquid-Referenzen) im Ziel-Workspace erstellen, um Fehler beim Starten einer Campaign zu vermeiden.
 
-Bei Canvases, die einen Content-Block referenzieren, muss der Content-Block zuerst in den Ziel-Workspace kopiert werden.
+Bei Canvases, die einen Content Block referenzieren, muss der Content Block zuerst in den Ziel-Workspace kopiert werden.

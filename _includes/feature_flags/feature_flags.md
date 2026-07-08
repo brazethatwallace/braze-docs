@@ -112,6 +112,26 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+Reading `braze.featureFlags.featureFlags` or `braze.featureFlags.featureFlag(id:)` blocks the calling thread until the SDK has completed its post-initialization operations. For main-thread or latency-sensitive contexts, use [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)) instead.
+
+```swift
+// Non-blocking — completion handler always delivers on the main thread.
+braze.featureFlags.getAllFeatureFlags { flags in
+  let liveChatEnabled = flags.first(where: { $0.id == "enable_live_chat" })?.enabled ?? false
+  liveChatView.isHidden = !liveChatEnabled
+}
+```
+
+In Objective-C:
+
+```objc
+[braze.featureFlags getAllFeatureFlagsWithCompletion:^(NSArray<BRZFeatureFlag *> *flags) {
+  // Use `flags` here.
+}];
+```
+{% endalert %}
+
 ```swift
 // Get the initial value from the Braze SDK
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")

@@ -285,3 +285,19 @@ Las causas típicas incluyen:
 - Pídeles que auditen los registros MX y los registros de DNS relacionados, incluidos los registros PTR de sus servidores de correo, con su proveedor de DNS.
 
 Los demás destinatarios generalmente no se ven afectados. Para ver cómo aparecen los rebotes blandos en los informes, consulta [Rebote blando]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
+
+### ¿Por qué recibo una alerta de correo no deseado al enviarme un correo electrónico desde Braze a mí mismo? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
+
+Si te envías un correo electrónico de prueba desde Braze a tu propia dirección de correo electrónico y ves una advertencia de correo no deseado o una alerta de phishing, como "el dominio de envío es similar al dominio de tu empresa, pero no lo reconocemos", se trata de una función de seguridad antiphishing común, no de un error en tu configuración de Braze.
+
+Esta alerta suele aparecer cuando el dominio de envío del correo electrónico coincide con el dominio del destinatario (por ejemplo, ambos son `@tuempresa.com`). Los sistemas de seguridad de correo electrónico lo marcan porque los estafadores a menudo falsifican dominios que se parecen al dominio de la empresa del destinatario.
+
+Para verificar que tu correo electrónico está configurado correctamente:
+
+1. Visualiza el mensaje original (encabezados del correo electrónico sin procesar) en tu cliente de correo electrónico.
+2. Comprueba que la autenticación SPF, DKIM y DMARC pase correctamente.
+3. Si las tres pasan, tu configuración de envío de correo electrónico en Braze es correcta.
+
+Para evitar que aparezca esta alerta:
+
+Pide a tu equipo de TI que añada tu dominio de envío de Braze y las direcciones IP a la lista de permitidos en los servicios de seguridad de correo electrónico o la puerta de enlace de correo de tu empresa. Esto le indica a tu sistema de seguridad que confíe en los correos electrónicos provenientes de tu infraestructura de envío de Braze.

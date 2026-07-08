@@ -285,3 +285,19 @@ Typische Ursachen sind:
 - Bitten Sie sie, die MX- und zugehörigen DNS-Einträge, einschließlich der PTR-Einträge für ihre Mailserver, bei ihrem DNS-Anbieter zu überprüfen.
 
 Andere Empfänger:innen sind in der Regel nicht betroffen. Informationen dazu, wie Soft Bounces im Reporting erscheinen, finden Sie unter [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
+
+### Warum erhalte ich eine Spam-Warnung, wenn ich eine E-Mail von Braze an mich selbst sende? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
+
+Wenn Sie eine Test-E-Mail von Braze an Ihre eigene E-Mail-Adresse senden und eine Spam-Warnung oder Phishing-Warnung sehen – wie z. B. „Die Absenderdomain ähnelt der Domain Ihres Unternehmens, aber wir erkennen sie nicht“ –, handelt es sich um ein gängiges Anti-Phishing-Sicherheitsfeature, nicht um einen Fehler in Ihrem Braze-Setup.
+
+Diese Warnung erscheint typischerweise, wenn die Absenderdomain der E-Mail mit der Empfängerdomain übereinstimmt (z. B. beide sind `@yourcompany.com`). E-Mail-Sicherheitssysteme kennzeichnen dies, weil Betrüger häufig Domains fälschen, die der Unternehmensdomain einer/eines Empfängers:in ähneln.
+
+Um zu überprüfen, ob Ihre E-Mail korrekt konfiguriert ist:
+
+1. Zeigen Sie die Originalnachricht (Roh-E-Mail-Header) in Ihrem E-Mail-Client an.
+2. Prüfen Sie, ob SPF-, DKIM- und DMARC-Authentifizierung alle bestehen.
+3. Wenn alle drei bestehen, ist Ihr Braze-E-Mail-Versand korrekt konfiguriert.
+
+Um zu verhindern, dass diese Warnung erscheint:
+
+Bitten Sie Ihr IT-Team, Ihre Braze-Absenderdomain und IP-Adressen in den E-Mail-Sicherheitsdiensten oder dem Mail-Gateway Ihres Unternehmens auf die Allowlist zu setzen. Dadurch wird Ihrem Sicherheitssystem mitgeteilt, dass E-Mails von Ihrer Braze-Sendeinfrastruktur vertrauenswürdig sind.

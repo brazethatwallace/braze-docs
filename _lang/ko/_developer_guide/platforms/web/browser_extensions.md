@@ -12,7 +12,7 @@ description: "이 문서에서는 브라우저 확장 프로그램(Google Chrome
 
 > 이 문서에서는 브라우저 확장 프로그램(Google Chrome, Firefox)에서 Braze 웹 SDK를 사용하는 방법을 설명합니다.
 
-브라우저 확장 프로그램에 Braze 웹 SDK를 통합하여 분석을 수집하고 사용자에게 리치 메시징을 표시할 수 있습니다. 여기에는 **Google Chrome 확장 프로그램** 및 **Firefox 추가 기능**이 모두 포함됩니다.
+브라우저 확장 프로그램에 Braze 웹 SDK를 통합하여 분석 데이터를 수집하고 사용자에게 리치 메시징을 표시할 수 있습니다. 여기에는 **Google Chrome 확장 프로그램** 및 **Firefox 추가 기능**이 모두 포함됩니다.
 
 ## 지원되는 항목 {#whats-supported}
 
@@ -25,7 +25,7 @@ description: "이 문서에서는 브라우저 확장 프로그램(Google Chrome
 
 ## 지원되지 않는 항목 {#whats-not-supported}
 
-* 서비스 워커는 Braze 웹 SDK에서 지원되지 않지만, 향후 검토를 위한 로드맵에 포함되어 있습니다.
+* 서비스 워커 내에서 Braze SDK를 사용하는 것은 지원되지 않습니다. 확장 프로그램의 팝업 또는 설정 페이지에서는 Braze SDK를 계속 사용할 수 있습니다.
 
 ## 확장 프로그램 유형 {#extension-types}
 
