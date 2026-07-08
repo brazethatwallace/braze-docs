@@ -72,13 +72,30 @@ en:
   sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
   liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
   glossary_agents_use_cases_search_placeholder: Search
-  glossary_agents_use_cases_search_aria: Search use cases
+  glossary_agents_use_cases_search_aria: Search examples
   glossary_agents_use_cases_search_hint: Results update automatically as you type.
-  glossary_agents_use_cases_no_results: No use cases matching these filters
-  agents_use_case_glossary_intro: "Take a look through our collection of agent instructions and use cases.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  glossary_agents_use_cases_no_results: No examples matching these filters
+  glossary_agents_use_cases_showing: Showing __COUNT__ of __TOTAL__ examples
+  agents_use_case_glossary_intro: "Browse our library of ready-to-adapt agent instructions. Each example includes the scenario it solves, the data it expects, and a complete instruction block you can copy into the Agent Console and tailor to your brand.<br><br>Use the search bar or the filters on the right to find the instructions that fit your need."
   agents_use_case_tag_labels:
-    "canvas agent": Canvas agent
-    "catalog agent": Catalog agent
+    "content generation": Content generation
+    "affinity agent": Affinity agent
+    "data standardization": Data standardization
+    "classification and routing": Classification and routing
+    "catalog enrichment": Catalog enrichment
+    "canvas step agent": Canvas Step Agent
+    "catalog agent": Catalog Agent
+  agents_use_case_tag_groups:
+    "content generation": use_case_category
+    "affinity agent": use_case_category
+    "data standardization": use_case_category
+    "classification and routing": use_case_category
+    "catalog enrichment": use_case_category
+    "canvas step agent": agent_type
+    "catalog agent": agent_type
+  agents_use_case_tag_group_labels:
+    use_case_category: Category
+    agent_type: Agent type
   message_engagement_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas consist of the Braze Events that are directly related to message sending."
   customer_behavior_events_glossary_title: Customer behavior and user events
   customer_behavior_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas include other app or website activity such as sessions, custom events, and purchases tracked through the platform."
