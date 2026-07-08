@@ -254,7 +254,7 @@ See the Apple Developer Documentation regarding [preparing custom alert sounds](
 
 When creating a push campaign through the dashboard, click the **Settings** tab on the **Compose** step to view the advanced settings available.
 
-![]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Braze iOS push campaign compose settings tab with advanced options.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Key-value pairs
 

@@ -52,11 +52,11 @@ In the Braze dashboard, go to **Partner Integrations** > **Technology Partners**
 
 You'll then be redirected to the TikTok OAuth page to authorize Braze for ad account management and Audience Management. After you have selected **Confirm**, you'll be redirected back into Braze to select which TikTok ad accounts you wish to sync to. 
 
-![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
+![TikTok OAuth authorization page requesting access for Braze audience management.]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
 Once successfully connected, you will return to the partner page. Here, you can view which accounts are connected and disconnect existing accounts.
 
-![]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
+![Braze TikTok partner page showing connected TikTok ad accounts.]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
 Your TikTok connection will be applied at the Braze app-group level. If your TikTok admin removes you from your TikTok Business Center or access to the connected TikTok accounts, Braze will detect an invalid token. As a result, your active Canvases using TikTok Audience components will show errors, and Braze will not be able to sync users.
 
@@ -64,7 +64,7 @@ Your TikTok connection will be applied at the Braze app-group level. If your Tik
 
 Add a component in your Canvas and select **Audience Sync**. 
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Canvas step selector with the Audience Sync component option.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Sync component card added to a Canvas path.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### Step 3: Sync setup
 
@@ -72,11 +72,11 @@ Click on the **Custom Audience** button to open the component editor.
 
 Select **TikTok** as the desired Audience Sync partner.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Audience Sync component editor with TikTok selected as the sync partner.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Then select the desired TikTok ad account. Under the **Choose a New or Existing Audience** dropdown, type in the name of a new or existing audience.
 
-![]({% image_buster /assets/img/tiktok/tiktok11.png %})
+![TikTok Audience Sync editor showing ad account selection and audience dropdown.]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
 {% tab Create a New Audience %}
@@ -84,11 +84,11 @@ Then select the desired TikTok ad account. Under the **Choose a New or Existing 
 **Create a New Audience**<br>
 Enter a name for the new audience, select **Add Users to Audience**, and select which fields you would like to sync with TikTok. Next, save your audience by clicking the **Create Audience** button at the bottom of the step editor.
 
-![]({% image_buster /assets/img/audience_sync/tiktok3.png %})
+![Create New Audience form in the TikTok Audience Sync step with match fields selected.]({% image_buster /assets/img/audience_sync/tiktok3.png %})
 
 Braze displays a notification at the top of the step editor if the audience is created successfully or if errors arise. Users can reference this audience for user removal later in the Canvas journey because the audience was created in draft mode.
 
-![]({% image_buster /assets/img/audience_sync/tiktok2.png %})
+![Success notification in the Audience Sync step after creating a new TikTok audience.]({% image_buster /assets/img/audience_sync/tiktok2.png %})
 
 When you launch a Canvas with a new audience, Braze syncs users in near real-time as they enter the audience step.
 

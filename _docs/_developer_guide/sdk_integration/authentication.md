@@ -729,7 +729,7 @@ In the dashboard **Manage Settings** page, each app has three SDK Authentication
 | **Required** | Braze will verify requests for logged-in users and will reject invalid JWTs.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
-![]({% image_buster /assets/img/sdk-auth-settings.png %})
+![Braze SDK Authentication settings showing Disabled, Optional, and Required enforcement options.]({% image_buster /assets/img/sdk-auth-settings.png %})
 
 The **Optional** setting is a useful way to monitor the potential impact this feature will have on your app's SDK traffic.
 
@@ -788,7 +788,7 @@ Data is available in real-time, and you can hover over points in the chart to se
 
 ## Frequently Asked Questions (FAQ) {#faq}
 
-#### Does this feature need to be enabled on all of my apps at the same time? {#faq-app-by-app}
+### Does this feature need to be enabled on all of my apps at the same time? {#faq-app-by-app}
 
 No, this feature can be enabled for specific apps and doesn't need to be used on all of your apps, all at once.
 

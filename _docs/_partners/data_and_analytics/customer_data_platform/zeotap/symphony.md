@@ -62,7 +62,7 @@ You can find details about the different attributes under the [Data To Send](#da
 
 After applying filters or adding a condition for your users in Symphony, you can activate them in Braze under **Send to Destinations**. A new window opens, where you can set up your destination. You can use an existing destination from the list of **Available Destinations** or create a new one.
 
-#### Add new destination
+### Add new destination
 Perform the following steps to add a new destination:
 1. Select **Add New Destination**.
 2. Search for **Braze**.
@@ -71,11 +71,11 @@ Perform the following steps to add a new destination:
 The destination is created and made available under **Available Destinations**.
 
 #### Add workflow-level inputs
-After creating a destination, next, you have to add workflow-level inputs, as mentioned below.
+After creating a destination, next, you have to add workflow-level inputs, as mentioned in this section.
 1. Choose the destination from the list of available destinations using the search feature.
 2. The **Client Name**, **API Key**, and **Instance** fields are automatically populated based on the value you entered while creating the destination.
 3. Enter the **Audience Name** you want to create for this workflow node. This is sent as a **Custom Attribute** to Braze.
-4. Complete the Catalog to Destination mapping under the **Data To Send** tab. You can find details on how to perform the mapping below.
+4. Complete the Catalog to Destination mapping under the **Data To Send** tab. You can find details on how to perform the mapping in this section.
 
 #### Data to send tab
 The **Data To Send** tab allows the you to map the Zeotap Catalogue fields to the Braze fields that can be sent to Braze. The mapping can be done in one of the following ways:
@@ -115,7 +115,7 @@ You can find details of all the Braze fields in this section.
 
 After you have mapped the relevant attributes to be sent and published in the workflow, the events start flowing to Braze based on the criteria defined. You can search by email ID or external ID on the Braze console.
 
-![]({% image_buster /assets/img/zeotap/zeotap6.jpg %})
+![Braze user profile view in the console showing Zeotap-synced profile, custom attributes, events, and purchases.]({% image_buster /assets/img/zeotap/zeotap6.jpg %})
 
 Various attributes come under different sections of the user dashboard within Braze.
 - The **Profile** tab contains the user attributes.
