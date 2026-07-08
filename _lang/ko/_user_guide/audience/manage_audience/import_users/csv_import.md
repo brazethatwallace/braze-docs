@@ -18,7 +18,7 @@ CSV 가져오기를 사용하여 다음 사용자 속성과 커스텀 이벤트�
 | 기본 속성 | Braze에서 인식하는 예약된 사용자 속성입니다. | `first_name`, `email` | 500 MB |
 | 커스텀 속성 | 비즈니스에 고유한 사용자 속성입니다. | `last_destination_searched` | 500 MB |
 | 커스텀 이벤트 | 사용자 행동을 나타내는 비즈니스 고유 이벤트입니다. | `trip_booked` | 50 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="About CSV import" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="CSV 가져오기 소개" }
 
 ## CSV 가져오기 사용하기 {#using-csv-import}
 
@@ -43,7 +43,7 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 - 다운로드: [CSV 이벤트 가져오기 템플릿: 외부 ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
 
 {% alert note %}
-`external_id`가 있는 사용자와 없는 사용자를 혼합하여 업로드하는 경우 각 가져오기에 대해 별도의 CSV를 만들어야 합니다. 하나의 CSV에 `external_ids`와 사용자 별칭을 모두 포함할 수 없습니다.
+`external_id`가 있는 사용자와 없는 사용자를 혼합하여 업로드하는 경우 각 가져오기에 대해 별도의 CSV를 만들어야 합니다. 하나의 CSV에 `external_id`와 사용자 별칭을 모두 포함할 수 없습니다.
 {% endalert %}
 {% endtab %}
 
@@ -60,7 +60,7 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 | :---- | :---- | :---- | :---- | :---- |
 | 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
 | 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 2: Choose an identifier #choose-an-identifier" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="2단계: 식별자 선택" }
 
 가져오기에서 `user_alias_name`과 `user_alias_label`을 모두 제공하면 Braze는 동일한 `user_alias_name`과 `user_alias_label`을 가진 기존 사용자를 업데이트합니다. 사용자를 찾을 수 없는 경우 Braze는 해당 `user_alias_name`이 설정된 새로 식별된 사용자를 생성합니다.
 
@@ -136,7 +136,7 @@ CSV 파일 작성을 시작할 준비가 되면 다음 정보를 참조합니다
 | 숫자 | 공백이나 쉼표 없는 정수 또는 플로트여야 합니다. 플로트는 마침표(`.`)를 소수점 구분 기호로 사용해야 합니다. |
 | 문자열 | 값이 큰따옴표(`""`)로 감싸져 있으면 쉼표를 포함할 수 있습니다. |
 | 빈 값 | 빈 값은 사용자 프로필의 기존 값을 덮어쓰지 않으며, CSV 파일에 모든 기존 사용자 속성을 포함할 필요가 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 속성" }
 
 {% alert important %}
 배열, 푸시 토큰 및 커스텀 이벤트 데이터 유형은 사용자 가져오기에서 지원되지 않습니다. CSV 파일의 쉼표가 열 구분 기호로 해석되어 파일 파싱 시 오류가 발생할 수 있기 때문입니다.<br><br>이러한 종류의 값을 업로드하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 대신 사용합니다.
@@ -176,7 +176,7 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV, 클라우드
 | `date_of_first_session`  `date_of_last_session` | 문자열 | 다음 ISO 8601 형식 중 하나로 전달할 수 있습니다: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS"(예: 2019-11-20T18:38:57) | 아니요 |
 | `subscription_group_id` | 문자열 | 구독 그룹의 `id`입니다. 이 식별자는 대시보드의 구독 그룹 페이지에서 찾을 수 있습니다. | 아니요 |
 | `subscription_state` | 문자열 | `subscription_group_id`로 지정된 구독 그룹의 구독 상태입니다. 허용되는 값은 `unsubscribed`(구독 그룹에 없음) 또는 `subscribed`(구독 그룹에 있음)입니다. | 아니요, 하지만 `subscription_group_id`를 사용하는 경우 강력히 권장됩니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Default attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="기본 속성" }
 
 #### 구독 그룹 상태 업데이트(선택 사항) {#updating-subscription-group-status-optional}
 
@@ -191,7 +191,7 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV, 클라우드
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Updating subscription group status (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="구독 그룹 상태 업데이트(선택 사항)" }
 
 {% alert note %}
 사용자 가져오기에서 행당 하나의 `subscription_group_id`만 설정할 수 있습니다. 행마다 다른 `subscription_group_id` 값을 가질 수 있습니다. 그러나 동일한 사용자를 여러 구독 그룹에 등록해야 하는 경우 여러 번 가져오기를 수행해야 합니다.
@@ -202,7 +202,7 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV, 클라우드
 {% tab 커스텀 이벤트 %}
 #### 필수 식별자 {#required-identifiers-custom-events}
 
-`external_id`는 필수가 아니지만 CSV 파일의 헤더에 다음 식별자 중 **하나**를 **반드시** 포함해야 합니다. 각 식별자에 대한 자세한 내용은 [식별자 선택](#choose-an-identifier)을 참조합니다.
+`external_id`는 필수가 아니지만 CSV 파일에는 다음 식별자 중 **하나**에 매핑되는 사용자 식별자가 포함되어야 합니다. 각 식별자에 대한 자세한 내용은 [식별자 선택](#choose-an-identifier)을 참조합니다.
 
 - `external_id`
 - `braze_id`
@@ -212,9 +212,9 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV, 클라우드
 
 #### 커스텀 이벤트 필드 {#custom-event-fields}
 
-다음 외에도 CSV에 이벤트 속성정보에 대한 추가 열 헤더를 포함할 수 있습니다. 이러한 속성정보의 열 헤더는 `<event_name>.properties.<property name>` 형식이어야 합니다.
+다음 표에 나열된 표준 필드 외에도 CSV에 이벤트 속성정보에 대한 추가 열 헤더를 포함할 수 있습니다. 이러한 속성정보의 열 헤더는 `<event_name>.properties.<property name>` 또는 `<property name>` 형식이어야 합니다.
 
-예를 들어 커스텀 이벤트 `trip_booked`에 `destination`과 `duration` 속성정보가 있을 수 있습니다. 이는 열 헤더 `trip_booked.properties.destination`과 `trip_booked.properties.duration`을 사용하여 가져올 수 있습니다.
+예를 들어 커스텀 이벤트 `trip_booked`에 `destination`과 `duration` 속성정보가 있을 수 있습니다. 이는 열 헤더 `trip_booked.properties.destination`과 `trip_booked.properties.duration`을 사용하여 가져올 수 있습니다. 또한 `<property name>` 형식으로 헤더에 속성정보를 나타낼 수도 있습니다. Braze는 해당 CSV 셀에 값이 있는지 여부에 따라 각 이벤트에 대한 관련 속성정보를 감지합니다.
 
 | 사용자 프로필 필드 | 데이터 유형 | 정보 | 필수 여부 |
 | :---- | :---- | :---- | :---- |
@@ -227,7 +227,8 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV, 클라우드
 | `name` | 문자열 | 사용자의 커스텀 이벤트입니다. | 예 |
 | `time` | 문자열 | 이벤트 시간입니다. 다음 ISO-8601 형식 중 하나로 전달할 수 있습니다: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS"(예: 2019-11-20T18:38:57) | 예 |
 | `<event name>.properties.<property name>` | 다중 | 커스텀 이벤트와 연결된 이벤트 속성정보입니다. 예시: `trip_booked.properties.destination` | 아니요 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Custom event fields" }
+| `<property name>` | 다중 | 여러 이벤트 유형에서 사용할 수 있는 이벤트 속성정보입니다. 예시: `destination`. 이 속성정보는 해당 CSV 셀에 null이 아닌 값이 있을 때 이벤트와 연결됩니다. | 아니요 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="커스텀 이벤트 필드" }
 
 #### 커스텀 이벤트 포맷 요구 사항 {#format-requirements-for-custom-events}
 
@@ -235,7 +236,7 @@ CSV를 사용하여 커스텀 이벤트를 가져올 때 데이터 가져오기�
 
 ##### 커스텀 이벤트 포맷 이해하기 {#understanding-custom-event-formatting}
 
-각 속성정보가 올바른 이벤트에 매핑되도록 점 표기법을 사용하여 커스텀 이벤트 CSV를 올바르게 포맷하는 것이 중요합니다. 포맷이 올바르지 않으면 속성정보가 누락되거나 가져오기가 실패할 수 있으며, 특히 하나의 파일에 여러 이벤트 유형이 포함된 경우 더욱 그렇습니다.
+Braze가 각 속성정보를 올바른 이벤트에 매핑하도록 점 표기법을 사용하거나 해당 셀에 null이 아닌 값을 넣어 커스텀 이벤트 CSV를 올바르게 포맷합니다. 포맷이 올바르지 않으면 속성정보가 누락되거나 가져오기가 실패할 수 있으며, 특히 하나의 파일에 여러 이벤트 유형이 포함된 경우 더욱 그렇습니다.
 
 ##### 이벤트 속성정보에 점 표기법 사용 {#use-dot-notation-for-event-properties}
 
@@ -258,6 +259,8 @@ CSV를 사용하여 커스텀 이벤트를 가져올 때 데이터 가져오기�
 
 이 표기법은 Braze에 `rented_movie`라는 커스텀 이벤트를 생성하고 해당 특정 이벤트 인스턴스에 `movie_name`과 `genre` 속성정보를 첨부하도록 지시합니다.
 
+점 표기법과 비점 표기법을 조합하여 속성정보를 가져오면 Braze가 중복 헤더를 감지하여 CSV 업로드가 실패할 수 있습니다. 이는 동일한 파일 내에 `rented_movie.properties.movie_name`과 `movie_name` 헤더가 있는 경우 발생합니다. 이를 방지하려면 헤더에 하나의 속성정보 형식만 사용합니다.
+
 ##### 행당 하나의 이벤트 {#one-event-per-row}
 
 CSV의 각 행은 단일 사용자에 대한 단일 커스텀 이벤트를 나타냅니다. 사용자에게 여러 이벤트가 있는 경우 동일한 사용자 식별자를 공유하더라도 각 이벤트에 대해 별도의 행을 포함해야 합니다.
@@ -274,7 +277,7 @@ CSV의 각 행은 단일 사용자에 대한 단일 커스텀 이벤트를 나�
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | 123 | rented_movie | 2024-06-10T12:00:00Z | Ghostbusters | Action | | |
 | 456 | bought_movie | 2024-06-12T12:00:00Z | | | Ghostbusters | Action |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Example CSV structure" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="CSV 구조 예시" }
 
 이 예시에서:
 
@@ -297,9 +300,11 @@ CSV 파일을 업로드하기 전에 Braze에서 보고 싶은 가져오기 이�
 파일 미리보기는 파일의 처음 몇 행만 표시합니다. 가져오기 전에 모든 행을 확인하려면 [파일 유효성 검사](#file-validation)를 사용합니다.
 {% endalert %}
 
-### 5단계: 필드 매핑(속성의 경우) {#csv-data-mapping}
+### 5단계: 필드 매핑 {#csv-data-mapping}
 
-미리보기 후 CSV 헤더를 Braze 속성에 매핑할 수 있습니다. Braze는 CSV 파일의 필드를 동일한 이름의 속성에 자동으로 매핑하고 필요한 경우 새 속성을 생성합니다. 또한 제안을 수동으로 조정하거나 열에 대해 다른 속성을 선택할 수 있는 유연성도 있습니다.
+미리보기 후 CSV 헤더를 Braze 속성, 이벤트 또는 이벤트 속성정보에 매핑할 수 있습니다. Braze는 CSV 파일의 필드를 동일한 이름의 속성, 이벤트 또는 이벤트 속성정보에 자동으로 매핑하고 필요한 경우 새 필드를 생성합니다. 또한 제안을 수동으로 조정하거나 다른 속성, 이벤트 또는 속성정보를 선택할 수 있는 유연성도 있습니다.
+
+이벤트 속성정보의 경우 Braze는 CSV 셀에 null이 아닌 값이 포함되어 있는지 또는 `<event name>.properties.<property name>` 형식의 점 표기법을 사용하는 헤더를 기반으로 속성정보를 감지하고 관련 이벤트와 연결합니다.
 
 ![열 매핑 페이지.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
 
@@ -309,23 +314,24 @@ CSV 파일을 업로드하기 전에 Braze에서 보고 싶은 가져오기 이�
 
 | 매핑 상태 | 의미 |
 |:---|:---|
-| **매핑됨** | 기존 속성 또는 식별자에 매핑된 필드입니다. |
-| **새 속성** | Braze가 가져오기 시 새 속성을 생성합니다. **새 속성 편집** 버튼을 선택하여 이 속성을 편집할 수 있습니다. |
-| **데이터 유형 불일치** | CSV 열의 감지된 데이터 유형이 기존 속성 또는 식별자의 데이터 유형과 일치하지 않습니다. Braze는 가져오기 시 기존 속성에 맞게 데이터 유형을 변환하려고 시도합니다. 변환이 불가능한 경우 값이 삭제됩니다. |
-| **차단 목록 속성** | CSV 필드가 차단 목록에 있는 속성의 이름과 일치합니다. 매핑할 다른 속성을 선택하지 않으면 해당 열은 가져오지 않습니다. |
+| **매핑됨** | 기존 속성, 이벤트 또는 식별자에 매핑된 필드입니다. |
+| **새 속성**, **새 이벤트** 또는 **새 이벤트 속성정보** | Braze가 가져오기 시 새 속성 또는 이벤트를 생성합니다. **새 속성 편집**, **새 이벤트 편집** 또는 **새 속성정보 편집** 버튼을 선택하여 편집할 수 있습니다. |
+| **데이터 유형 불일치** | CSV 열의 감지된 데이터 유형이 기존 속성, 이벤트 또는 식별자의 데이터 유형과 일치하지 않습니다. Braze는 가져오기 시 기존 속성에 맞게 데이터 유형을 변환하려고 시도합니다. 변환이 불가능한 경우 Braze는 해당 값을 삭제합니다. |
+| **차단 목록 속성** 또는 **차단 목록 이벤트** | CSV 필드가 차단 목록에 있는 속성 또는 이벤트의 이름과 일치합니다. 매핑할 다른 속성 또는 이벤트를 선택하지 않으면 가져오지 않습니다. |
 | **중복 속성** | CSV 파일에 동일한 이름의 필드가 하나 이상 있습니다. 동일한 이름의 열을 다른 속성에 매핑하지 않으면 첫 번째 열만 가져옵니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Mapping statuses" }
+| **예약된 이벤트 키** | 이벤트 속성정보의 이름이 Braze의 예약된 이벤트 키(예: `time` 또는 `event_name`)와 일치합니다. 다른 이름을 입력하거나 매핑할 다른 속성정보를 선택하지 않으면 삭제됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="매핑 상태" }
 
 
-#### 새 속성 편집 {#editing-new-attributes}
+#### 새 속성, 이벤트 및 속성정보 편집 {#editing-new-attributes-events-and-properties}
 
-워크스페이스에 일치하는 속성이 없는 경우 Braze는 CSV 필드의 이름과 감지된 데이터 유형을 사용하여 가져오기 시 새 속성을 생성하려고 시도합니다. 매핑 상태 옆의 **새 속성 편집** 버튼을 선택하여 가져오기 전에 이 새 속성을 편집할 수 있습니다.
+워크스페이스에 일치하는 속성, 이벤트 또는 이벤트 속성정보가 없는 경우 Braze는 CSV 필드의 이름과 감지된 데이터 유형을 사용하여 가져오기 시 새 속성, 이벤트 또는 속성정보를 생성하려고 시도합니다. 매핑 상태 옆의 **새 속성 편집**, **새 이벤트 편집** 또는 **새 속성정보 편집** 버튼을 선택하여 가져오기 전에 이 새 필드를 편집할 수 있습니다.
 
 ![열 매핑 페이지의 새 속성 편집 버튼.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
 
 {% alert note %}
-식별자가 매핑될 때까지 매핑 단계를 넘어갈 수 없습니다. Braze는 가능한 경우 식별자를 자동으로 매핑합니다. 식별자가 매핑되었는지 확인하려면 **필수 필드** 섹션을 참조합니다.
+식별자가 매핑될 때까지 매핑 단계를 넘어갈 수 없습니다. Braze는 가능한 경우 식별자를 자동으로 매핑합니다. 커스텀 이벤트의 경우 `name`과 `time` 열도 매핑해야 합니다. 자세한 내용은 **필수 필드** 섹션을 참조합니다.
 {% endalert %}
 
 ### 6단계: 타겟팅 기본 설정 선택 {#targeting-preferences}
@@ -336,7 +342,7 @@ CSV 파일을 업로드하기 전에 Braze에서 보고 싶은 가져오기 이�
 |---|---|
 | 타겟팅 필터 | CSV 파일을 사용자 Segment 구축 시 리타겟팅 옵션으로 변환하려면 **CSV에서 업데이트/가져오기** 드롭다운에서 파일을 선택한 다음 **타겟팅 필터 생성**을 선택합니다. |
 | 새 Segment | 새 타겟팅 필터에서 새 Segment도 생성하려면 **타겟팅 필터 생성 및 새 Segment에 추가**를 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Choose targeting preferences #targeting-preferences" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="6단계: 타겟팅 기본 설정 선택" }
 
 !["Halloween season fun"이라는 CSV 파일이 포함된 "CSV에서 업데이트/가져오기" 필터가 있는 필터 그룹.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
@@ -356,7 +362,7 @@ CSV 파일을 업로드하기 전에 Braze에서 보고 싶은 가져오기 이�
 | **문제 발견** | 일부 행에 오류 또는 경고가 있습니다. | 오류 보고서를 다운로드하여 검토한 다음 **그래도 가져오기**를 선택하여 진행하거나 **취소**를 선택하여 파일을 먼저 수정합니다. |
 | **유효성 검사 시간 초과** | 유효성 검사 시간이 초과되었습니다. 확인된 행에는 문제가 없었습니다. | **데이터 가져오기**를 선택합니다. 전체 보고서는 몇 분 후에 사용할 수 있습니다. |
 | **문제가 있는 유효성 검사 시간 초과** | 유효성 검사 시간이 초과되었으며 확인된 일부 행에서 오류가 발견되었습니다. | 부분 보고서를 다운로드하여 발견된 내용을 검토한 다음 **그래도 가져오기** 또는 **취소**를 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation results" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="유효성 검사 결과" }
 
 ![오류 및 경고가 있는 행 수를 표시하고 뒤로 가기, 오류 보고서 다운로드 또는 가져오기 시작 옵션이 있는 문제 발견 섹션이 표시된 요약 페이지.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
@@ -368,7 +374,7 @@ CSV 파일을 업로드하기 전에 Braze에서 보고 싶은 가져오기 이�
 |---|---|
 | **오류** | 가져오기 중 해당 행이 완전히 건너뛰어집니다. |
 | **경고** | 해당 행은 가져오지만 일부 값이 삭제됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding the error report" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="오류 보고서 이해하기" }
 
 보고서를 검토한 후 원본 파일에서 문제를 수정하고 다시 업로드하거나, 가져오기를 진행하고 부분 결과를 수락할 수 있습니다.
 
@@ -392,7 +398,7 @@ CSV 크기에 따라 처리에 몇 분에서 몇 시간이 걸릴 수 있습니�
 | **완료** | 모든 행이 성공적으로 가져와졌습니다. |
 | **부분 성공** | 일부 행이 실패했습니다. 가져오기 옆의 점 세 개 메뉴를 선택하여 오류 보고서 또는 원본 업로드된 CSV를 다운로드합니다. |
 | **진행 중** | 가져오기가 현재 실행 중입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Import statuses" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="가져오기 상태" }
 
 ![부분 성공 상태가 표시된 사용자 가져오기 페이지에서 컨텍스트 메뉴가 열려 있고 오류 보고서 다운로드 및 업로드된 CSV 다운로드 옵션이 표시됩니다.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
@@ -411,7 +417,7 @@ CSV 파일에서 가져온 각 고객 데이터는 사용자 프로필의 기존
 | 외부 ID | `external_id`만 포함된 CSV를 업로드하면 데이터 포인트가 기록되지 않습니다. 이를 통해 데이터 제한에 영향을 주지 않고 기존 Braze 사용자를 세분화할 수 있습니다. 그러나 `email` 또는 `phone`과 같은 필드를 포함하면 기존 사용자 데이터를 덮어쓰고 데이터 포인트가 **기록됩니다**. <br><br>`external_id`, `braze_id` 또는 `user_alias_name`만 포함하는 세분화 전용 CSV 가져오기는 데이터 포인트를 기록하지 않습니다. |
 | 빈 값 | CSV의 빈 값은 기존 사용자 프로필 데이터를 덮어쓰지 않습니다. 가져올 때 모든 사용자 속성이나 커스텀 이벤트를 포함할 필요가 없습니다. |
 | 구독 상태 | `email_subscribe`, `push_subscribe`, `subscription_group_id` 또는 `subscription_state`를 업데이트해도 데이터 포인트 사용량에 **포함되지 않습니다**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Data point considerations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 포인트 고려 사항" }
 
 {% alert important %}
 CSV 가져오기 또는 API를 통해 사용자에게 `language` 또는 `country`를 설정하면 Braze가 SDK를 통해 이 정보를 자동으로 캡처하지 못하게 됩니다.
@@ -471,7 +477,7 @@ CSV 파일에 빈 행이 있고 CSV 파일의 총 줄 수보다 적은 행이 �
 | 이스케이프되지 않거나 균형이 맞지 않는 큰따옴표(`"`) | 큰따옴표는 쉼표가 포함된 문자열 값을 감쌉니다. 값 자체에 큰따옴표가 포함된 경우 이를 두 번 입력하여(`""`) 이스케이프합니다. 이스케이프되지 않거나 균형이 맞지 않는 큰따옴표는 잘못된 형식의 행을 유발합니다. |
 | 일관되지 않은 줄 바꿈 | 혼합된 줄 바꿈(예: `\n`과 `\r\n`)으로 인해 데이터의 첫 번째 행이 헤더의 일부로 처리될 수 있습니다. 16진수 또는 고급 텍스트 편집기를 사용하여 검사하고 수정합니다. |
 | 잘못 인코딩된 파일 | 악센트가 허용되더라도 파일은 UTF-8로 인코딩되어야 합니다. 다른 인코딩은 부분적으로 작동할 수 있지만 완전히 지원되지는 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Missing row" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="누락된 행" }
 
 #### 문자열 따옴표 {#string-quotation}
 
@@ -525,4 +531,4 @@ brazetest2,test2@example.com,Unsubscribed,Unsubscribed
 | 팝업 차단기 | 페이지가 표시되지 않을 수 있습니다. 브라우저가 Braze 대시보드 웹사이트에서 팝업을 허용하고 있는지 확인합니다. |
 | 오래된 브라우저 | 브라우저가 최신 상태인지 확인합니다. 최신 상태가 아니면 최신 버전으로 업데이트합니다. |
 | 백그라운드 프로세스 | 모든 브라우저 인스턴스를 닫은 다음 컴퓨터를 다시 시작합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label=""Select CSV File" is not working" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="'CSV 파일 선택'이 작동하지 않음" }

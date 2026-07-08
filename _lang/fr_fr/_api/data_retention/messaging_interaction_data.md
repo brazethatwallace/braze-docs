@@ -11,19 +11,19 @@ page_type: reference
 
 > Découvrez les données d'interaction de messagerie pour les campagnes et Canvas, notamment la durée de conservation par Braze et les fonctionnalités qui les utilisent pour le reciblage.
 
-### Que sont les données d'interaction de messagerie ? {#what-is-messaging-interaction-data}
+## Que sont les données d'interaction de messagerie ? {#what-is-messaging-interaction-data}
 
 Les données d'interaction de messagerie font référence à la manière dont un utilisateur interagit avec une campagne ou un Canvas qu'il a reçu (par exemple, lorsqu'un utilisateur ouvre la campagne A ou qu'un utilisateur reçoit la variante A). Ces données sont utilisées pour le reciblage.
 
-### Quand les données d'interaction de messagerie sont-elles disponibles ? {#when-is-messaging-interaction-data-available}
+## Quand les données d'interaction de messagerie sont-elles disponibles ? {#when-is-messaging-interaction-data-available}
 
 Les données d'interaction sont toujours disponibles. Pour les campagnes et Canvas actifs, les données d'interaction sont toujours disponibles en temps réel.
 
-Pour les campagnes et Canvas arrêtés, leurs données d'interaction expirent après trois mois, sauf si elles sont utilisées dans des filtres de reciblage par des campagnes ou Canvas actifs. Les données d'interaction expirées sont déplacées vers un stockage à long terme et ne sont pas disponibles à l'utilisation, sauf si elles sont restaurées en suivant le processus décrit ci-dessous.
+Pour les campagnes et Canvas arrêtés, leurs données d'interaction expirent après trois mois, sauf si elles sont utilisées dans des filtres de reciblage par des campagnes ou Canvas actifs. Les données d'interaction expirées sont déplacées vers un stockage à long terme et ne sont pas disponibles à l'utilisation, sauf si elles sont restaurées en suivant le processus décrit.
 
 Les données d'interaction expirées ne sont jamais supprimées et peuvent être restaurées à tout moment.
 
-#### Fonctionnalités qui utilisent les données d'interaction {#features-that-use-interaction-data}
+### Fonctionnalités qui utilisent les données d'interaction {#features-that-use-interaction-data}
 
 Les fonctionnalités suivantes utilisent les données d'interaction de messagerie :
 
@@ -54,13 +54,13 @@ Ces fonctionnalités n'incluent pas les données d'interaction expirées dans le
 
 Par exemple, les Canvas ne peuvent pas être lancés si les données d'interaction ont expiré, ce qui signifie qu'une modification comme l'ajout d'une équipe au Canvas ne peut pas être enregistrée.
 
-#### Fonctionnalités qui n'utilisent pas les données d'interaction {#features-that-dont-use-interaction-data}
+### Fonctionnalités qui n'utilisent pas les données d'interaction {#features-that-dont-use-interaction-data}
 
 Les fonctionnalités suivantes **n'utilisent pas** les données d'interaction de messagerie, ce qui signifie qu'elles ne sont pas affectées par l'expiration des données d'interaction de messagerie :
 
 - Configuration des campagnes et Canvas
 - Analyses des campagnes et Canvas
-- Rapports d'analyse (tels que le Générateur de rapports, le Générateur de requêtes et les Rapports d'engagement)
+- Rapports d'analyse (tels que le générateur de rapports, le générateur de requêtes et les rapports d'engagement)
 - Currents
 - Snowflake Data Share
 - Extensions de segments
@@ -85,7 +85,7 @@ Les fonctionnalités suivantes **n'utilisent pas** les données d'interaction de
     - Last Viewed News Feed
     - News Feed View Count
 
-### Comment restaurer les données d'interaction de messagerie ? {#how-do-i-restore-messaging-interaction-data}
+## Comment restaurer les données d'interaction de messagerie ? {#how-do-i-restore-messaging-interaction-data}
 
 Pour restaurer vos données d'interaction, suivez ces étapes :
 
@@ -96,7 +96,7 @@ Vous pouvez également restaurer les données d'interaction pour plusieurs campa
 
 Le temps de restauration des données d'interaction peut varier, mais dans la plupart des cas, ce processus peut prendre de 5 à 15 minutes. Une fois la restauration terminée, vous recevrez un e-mail.
 
-#### Restauration par étiquette {#restoring-by-tag}
+### Restauration par étiquette {#restoring-by-tag}
 
 Vous pouvez également restaurer les données d'interaction pour les campagnes ou Canvas expirés avec une étiquette donnée.
 
@@ -106,7 +106,7 @@ Vous pouvez également restaurer les données d'interaction pour les campagnes o
 
 Après trois mois supplémentaires d'inactivité, ces campagnes ou Canvas expirent à nouveau.
 
-#### Reciblage par étiquette {#retargeting-by-tag}
+### Reciblage par étiquette {#retargeting-by-tag}
 
 Les campagnes qui utilisent des filtres de reciblage ciblant par étiquette ne sont pas exemptées de l'expiration. Les filtres de reciblage qui ciblent par étiquette incluent :
 
@@ -114,7 +114,7 @@ Les campagnes qui utilisent des filtres de reciblage ciblant par étiquette ne s
 - Clicked/Opened Campaign or Canvas With Tag
 - Last Received Message from Campaign or Canvas With Tag
 
-### Quand les données d'interaction de messagerie étaient-elles disponibles par le passé ? {#when-was-messaging-interaction-data-available-in-the-past}
+## Quand les données d'interaction de messagerie étaient-elles disponibles par le passé ? {#when-was-messaging-interaction-data-available-in-the-past}
 
 Auparavant, les données d'interaction de messagerie étaient supprimées lorsqu'une campagne ou un Canvas :
 
@@ -122,3 +122,16 @@ Auparavant, les données d'interaction de messagerie étaient supprimées lorsqu
 - N'était pas utilisé pour le reciblage dans des campagnes, Canvas ou Content Cards actifs.
 
 Les campagnes et Canvas dont les données d'interaction de messagerie ont été précédemment supprimées ne peuvent pas être utilisés dans les filtres de reciblage pour les campagnes, Canvas et segments.
+
+## Résolution des problèmes {#troubleshooting}
+
+Vous pouvez rencontrer les messages d'erreur suivants lorsque vous essayez de reprendre ou de désarchiver des campagnes, Canvas ou Content Cards dont les données d'interaction ont expiré :
+
+| Message d'erreur | Quand il apparaît | Résolution |
+| --- | --- | --- |
+| « Can't resume Canvases because at least one Canvas is using filters or segments that have expired data. Remove these and try again. » | Lorsque vous essayez de reprendre un ou plusieurs Canvas (action groupée) qui utilisent des filtres ou segments avec des données d'interaction expirées | [Restaurez les données d'interaction](#how-do-i-restore-messaging-interaction-data) pour les campagnes ou Canvas référencés dans les filtres, ou supprimez les filtres concernés du Canvas |
+| « Can't resume {name} because it is using filters or segments that have expired data. Remove these and try again. » | Lorsque vous essayez de reprendre un seul Canvas qui utilise des filtres ou segments avec des données d'interaction expirées | [Restaurez les données d'interaction](#how-do-i-restore-messaging-interaction-data) pour les campagnes ou Canvas référencés dans les filtres, ou supprimez les filtres concernés du Canvas |
+| « Resume is only available for stopped Canvases with available interaction data » | Lorsque vous essayez de reprendre un Canvas depuis le menu d'action groupée, mais que le Canvas a des données d'interaction expirées | [Restaurez les données d'interaction](#how-do-i-restore-messaging-interaction-data) pour le Canvas |
+| « You can't resume these Campaigns. One or more Campaigns include expired filters. » | Lorsque vous essayez de reprendre une ou plusieurs campagnes qui utilisent des filtres avec des données d'interaction expirées | [Restaurez les données d'interaction](#how-do-i-restore-messaging-interaction-data) pour les campagnes ou Canvas référencés dans les filtres, ou supprimez les filtres concernés de la campagne |
+| « You can't unarchive these Cards. One or more Cards include expired filters. » | Lorsque vous essayez de désarchiver une ou plusieurs Content Cards qui utilisent des filtres avec des données d'interaction expirées | [Restaurez les données d'interaction](#how-do-i-restore-messaging-interaction-data) pour les campagnes ou Canvas référencés dans les filtres, ou supprimez les filtres concernés de la Content Card |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages d'erreur courants" }

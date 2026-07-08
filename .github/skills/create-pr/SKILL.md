@@ -42,6 +42,7 @@ Run applicable gates **before** writing the PR description. Skip gates that do n
 | Changed paths | Run first |
 |---------------|-----------|
 | `_docs/**`, root `_includes/**`, `_layouts/**`, `assets/js/**`, `assets/css/**`, `assets/scss/**` | **REQUIRED SUB-SKILL:** [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) |
+| `_docs/**/*.md`, root `_includes/**/*.md` | **REQUIRED SUB-SKILL:** [spell-check](../spell-check/SKILL.md) (`braze-docs:spell-check`) |
 | `assets/img/**` (new or updated screenshots) | **REQUIRED SUB-SKILL:** [screenshot-pii-audit](../screenshot-pii-audit/SKILL.md) (`braze-docs:screenshot-pii-audit`). Skip for deletion-only image-pruner batches with no added or replaced images. |
 | Product behavior claims in prose | **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) when verifying against source; note verification in the PR body without pasting `platform/` or SDK paths |
 

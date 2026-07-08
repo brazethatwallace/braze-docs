@@ -43,7 +43,7 @@ Lors de l'importation de vos données client, vous pouvez utiliser un `external_
 - Télécharger : [Modèle d'importation d'événements CSV : ID externe](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
 
 {% alert note %}
-Si vous téléversez un mélange d'utilisateurs avec un `external_id` et d'utilisateurs sans, vous devez créer un CSV pour chaque importation. Un CSV ne peut pas contenir à la fois des `external_ids` et des alias d'utilisateur.
+Si vous téléversez un mélange d'utilisateurs avec un `external_id` et d'utilisateurs sans, vous devez créer un CSV pour chaque importation. Un CSV ne peut pas contenir à la fois des `external_id` et des alias d'utilisateur.
 {% endalert %}
 {% endtab %}
 
@@ -60,7 +60,7 @@ Si vous téléversez ou mettez à jour des profils utilisateur qui ne possèdent
 | :---- | :---- | :---- | :---- | :---- |
 | 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
 | 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Étape 2 : Choisir un identifiant #choose-an-identifier" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Étape 2 : Choisir un identifiant" }
 
 Lorsque vous fournissez à la fois un `user_alias_name` et un `user_alias_label` dans votre importation, Braze met à jour tout utilisateur existant ayant les mêmes `user_alias_name` et `user_alias_label`. Si aucun utilisateur n'est trouvé, Braze crée un nouvel utilisateur identifié avec ce `user_alias_name`.
 
@@ -202,7 +202,7 @@ Un seul `subscription_group_id` peut être défini par ligne dans l'importation 
 {% tab Événements personnalisés %}
 #### Identifiants requis {#required-identifiers-custom-events}
 
-Bien que `external_id` ne soit pas requis, vous **devez** inclure **l'un** des identifiants suivants comme en-tête dans votre fichier CSV. Pour plus de détails sur chacun d'entre eux, consultez [Choisir un identifiant](#choose-an-identifier).
+Bien que `external_id` ne soit pas requis, votre fichier CSV doit inclure un identifiant utilisateur pouvant être associé à **l'un** des identifiants suivants. Pour plus de détails sur chacun d'entre eux, consultez [Choisir un identifiant](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -212,9 +212,9 @@ Bien que `external_id` ne soit pas requis, vous **devez** inclure **l'un** des i
 
 #### Champs d'événements personnalisés {#custom-event-fields}
 
-En plus des champs suivants, votre CSV peut également contenir des en-têtes de colonne supplémentaires pour les propriétés d'événement. Ces propriétés doivent avoir un en-tête de colonne au format `<event_name>.properties.<property name>.`
+En plus des champs standard listés dans le tableau suivant, votre CSV peut également contenir des en-têtes de colonne supplémentaires pour les propriétés d'événement. Ces propriétés doivent avoir un en-tête de colonne au format `<event_name>.properties.<property name>` ou `<property name>`.
 
-Par exemple, l'événement personnalisé `trip_booked` peut avoir les propriétés `destination` et `duration`. Celles-ci peuvent être importées en utilisant les en-têtes de colonne `trip_booked.properties.destination` et `trip_booked.properties.duration`.
+Par exemple, l'événement personnalisé `trip_booked` peut avoir les propriétés `destination` et `duration`. Vous pouvez les importer en utilisant les en-têtes de colonne `trip_booked.properties.destination` et `trip_booked.properties.duration`. Vous pouvez également représenter les propriétés dans les en-têtes sous la forme `<property name>`. Braze détecte les propriétés pertinentes pour chaque événement en fonction de la présence d'une valeur dans la cellule CSV correspondante.
 
 | Champ du profil utilisateur | Type de données | Informations | Requis ? |
 | :---- | :---- | :---- | :---- |
@@ -227,6 +227,7 @@ Par exemple, l'événement personnalisé `trip_booked` peut avoir les propriét�
 | `name` | Chaîne de caractères | Un événement personnalisé de vos utilisateurs. | Oui |
 | `time` | Chaîne de caractères | L'heure de l'événement. Peut être transmis dans l'un des formats ISO-8601 suivants : « AAAA-MM-JJ » « AAAA-MM-JJTHH:MM:SS+00:00 » « AAAA-MM-JJTHH:MM:SSZ » « AAAA-MM-JJTHH:MM:SS » (par exemple, 2019-11-20T18:38:57) | Oui |
 | `<event name>.properties.<property name>` | Plusieurs | Une propriété d'événement associée à un événement personnalisé. Un exemple est `trip_booked.properties.destination` | Non |
+| `<property name>` | Plusieurs | Une propriété d'événement que vous pouvez utiliser pour plusieurs types d'événements. Un exemple est `destination`. Cette propriété est associée à un événement lorsqu'il y a une valeur non nulle dans la cellule CSV correspondante. | Non |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Champs d'événements personnalisés" }
 
 #### Exigences de format pour les événements personnalisés {#format-requirements-for-custom-events}
@@ -235,11 +236,11 @@ Lors de l'importation d'événements personnalisés par CSV, vous devez formater
 
 ##### Comprendre le formatage des événements personnalisés {#understanding-custom-event-formatting}
 
-Il est important de formater correctement votre CSV d'événements personnalisés en utilisant la notation par points afin que chaque propriété soit associée au bon événement. Si le format est incorrect, les propriétés peuvent être ignorées ou l'importation peut échouer, en particulier lorsque plusieurs types d'événements sont inclus dans un même fichier.
+Formatez correctement votre CSV d'événements personnalisés en utilisant la notation par points, ou avec une valeur non nulle dans la cellule correspondante, afin que Braze associe chaque propriété au bon événement. Si le format est incorrect, les propriétés peuvent être ignorées ou l'importation peut échouer, en particulier lorsque plusieurs types d'événements sont inclus dans un même fichier.
 
 ##### Utiliser la notation par points pour les propriétés d'événement {#use-dot-notation-for-event-properties}
 
-La notation par points est utilisée pour définir la relation hiérarchique entre un événement personnalisé et ses propriétés. Cette convention de formatage vous permet d'importer des données d'événement structurées qui incluent des attributs spécifiques pour chaque événement.
+Utilisez la notation par points pour définir la relation hiérarchique entre un événement personnalisé et ses propriétés. Cette convention de formatage vous permet d'importer des données d'événement structurées qui incluent des attributs spécifiques pour chaque événement.
 
 Le format de la notation par points suit cette structure : `event_name.properties.property_name`
 
@@ -257,6 +258,8 @@ Pour un événement personnalisé appelé `rented_movie` avec les propriétés `
 - `rented_movie.properties.genre`
 
 Cette notation indique à Braze de créer un événement personnalisé nommé `rented_movie` et d'attacher les propriétés `movie_name` et `genre` à cette instance d'événement spécifique.
+
+Si vous utilisez une combinaison de notation par points et de notation sans points pour importer des propriétés, votre téléversement CSV peut échouer car Braze détecte des en-têtes en double. Cela se produit lorsque vous avez les en-têtes `rented_movie.properties.movie_name` et `movie_name` dans le même fichier. Pour éviter cela, n'utilisez qu'un seul format de propriétés pour vos en-têtes.
 
 ##### Un événement par ligne {#one-event-per-row}
 
@@ -297,9 +300,11 @@ Avant de téléverser votre fichier CSV, renommez-le avec le nom d'importation q
 L'aperçu du fichier n'affiche que les premières lignes de votre fichier. Pour vérifier chaque ligne avant l'importation, utilisez la [validation du fichier](#file-validation).
 {% endalert %}
 
-### Étape 5 : Mapper vos champs (pour les attributs) {#csv-data-mapping}
+### Étape 5 : Mapper vos champs {#csv-data-mapping}
 
-Après l'aperçu, vous pouvez mapper les en-têtes de votre CSV aux attributs Braze. Braze mappe automatiquement les champs de votre fichier CSV aux attributs portant des noms identiques et crée de nouveaux attributs si nécessaire. Vous avez également la possibilité d'ajuster manuellement les suggestions ou de sélectionner des attributs différents pour n'importe quelle colonne.
+Après l'aperçu, vous pouvez mapper les en-têtes de votre CSV aux attributs, événements ou propriétés d'événement Braze. Braze mappe automatiquement les champs de votre fichier CSV aux attributs, événements ou propriétés d'événement portant des noms identiques et crée de nouveaux champs si nécessaire. Vous avez également la possibilité d'ajuster manuellement les suggestions ou de sélectionner des attributs, événements ou propriétés différents.
+
+Pour les propriétés d'événement, Braze détecte les propriétés et les associe aux événements pertinents en fonction de la présence d'une valeur non nulle dans une cellule CSV, ou à partir des en-têtes utilisant la notation par points au format `<event name>.properties.<property name>`.
 
 ![La page de mappage des colonnes.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
 
@@ -309,23 +314,24 @@ La colonne de statut de mappage indique l'action qui se produit lorsque votre fi
 
 | Statut de mappage | Signification |
 |:---|:---|
-| **Mappé** | Champ mappé à un attribut ou identifiant existant. |
-| **Nouvel attribut** | Braze crée un nouvel attribut lors de l'importation. Vous pouvez modifier cet attribut en sélectionnant le bouton **Edit new attribute**. |
-| **Incompatibilité de type de données** | Le type de données détecté de la colonne CSV ne correspond pas au type de données de l'attribut ou identifiant existant. Braze tente de convertir le type de données lors de l'importation pour correspondre à l'attribut existant. La valeur est ignorée si cela n'est pas possible. |
-| **Attribut sur liste de blocage** | Le champ CSV correspond au nom d'un attribut sur liste de blocage. Sélectionnez un attribut différent pour le mappage, sinon la colonne ne sera pas importée. |
+| **Mappé** | Champ mappé à un attribut, événement ou identifiant existant. |
+| **Nouvel attribut**, **Nouvel événement** ou **Nouvelle propriété d'événement** | Braze crée un nouvel attribut ou événement lors de l'importation. Vous pouvez le modifier en sélectionnant le bouton **Edit new attribute**, **Edit new event** ou **Edit new property**. |
+| **Incompatibilité de type de données** | Le type de données détecté de la colonne CSV ne correspond pas au type de données de l'attribut, de l'événement ou de l'identifiant existant. Braze tente de convertir le type de données lors de l'importation pour correspondre à l'attribut existant. La valeur est ignorée si cela n'est pas possible. |
+| **Attribut sur liste de blocage** ou **Événement sur liste de blocage** | Le champ CSV correspond au nom d'un attribut ou événement sur liste de blocage. Sélectionnez un attribut ou événement différent pour le mappage, sinon il ne sera pas importé. |
 | **Attribut en double** | Il y a un ou plusieurs champs portant le même nom dans votre fichier CSV. Mappez les colonnes portant le même nom à des attributs différents, sinon seule la première colonne sera importée. |
+| **Clé d'événement réservée** | Le nom de votre propriété d'événement correspond à une clé d'événement réservée dans Braze, telle que `time` ou `event_name`. Saisissez un nom différent ou sélectionnez une propriété différente pour le mappage, sinon elle sera ignorée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statuts de mappage" }
 
 
-#### Modifier les nouveaux attributs {#editing-new-attributes}
+#### Modifier les nouveaux attributs, événements et propriétés {#editing-new-attributes-events-and-properties}
 
-Lorsqu'un attribut correspondant n'existe pas dans votre espace de travail, Braze tente de créer un nouvel attribut lors de l'importation en utilisant le nom du champ CSV et le type de données détecté. Vous pouvez modifier ce nouvel attribut avant l'importation en sélectionnant le bouton **Edit new attribute** à côté du statut de mappage.
+Lorsqu'un attribut, événement ou propriété d'événement correspondant n'existe pas dans votre espace de travail, Braze tente de créer un nouvel attribut, événement ou propriété lors de l'importation en utilisant le nom du champ CSV et le type de données détecté. Vous pouvez modifier ce nouveau champ avant l'importation en sélectionnant le bouton **Edit new attribute**, **Edit new event** ou **Edit new property** à côté du statut de mappage.
 
 ![Le bouton de modification du nouvel attribut sur la page de mappage des colonnes.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
 
 {% alert note %}
-Vous ne pouvez pas passer à l'étape suivante tant qu'un identifiant n'est pas mappé. Braze mappe automatiquement un identifiant lorsque c'est possible. Consultez la section **Champs requis** pour vérifier si un identifiant est mappé.
+Vous ne pouvez pas passer à l'étape suivante tant qu'un identifiant n'est pas mappé. Braze mappe automatiquement un identifiant lorsque c'est possible. Pour les événements personnalisés, vous devez également mapper les colonnes `name` et `time`. Consultez la section **Champs requis** pour plus d'informations.
 {% endalert %}
 
 ### Étape 6 : Choisir les préférences de ciblage {#targeting-preferences}
@@ -336,7 +342,7 @@ Après le mappage, vous pouvez choisir parmi les préférences de ciblage suivan
 |---|---|
 | Filtre de ciblage | Pour convertir votre fichier CSV en option de reciblage lors de la création de segments, choisissez votre fichier dans le menu déroulant **Updated/Imported from CSV**, puis sélectionnez **Create targeting filter**. |
 | Nouveaux segments | Pour créer également un nouveau segment à partir de votre nouveau filtre de ciblage, sélectionnez **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 6 : Choisir les préférences de ciblage #targeting-preferences" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 6 : Choisir les préférences de ciblage" }
 
 ![Un groupe de filtres avec le filtre « Updated/Imported from CSV » incluant un fichier CSV intitulé « Halloween season fun ».]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 

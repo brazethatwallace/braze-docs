@@ -69,6 +69,10 @@ Observe que as tabelas a seguir cobrem campos de Campaigns e Canvas, e não são
 
 Landing pages são copiadas como rascunhos. Antes de publicar uma landing page copiada, revise a URL da página, as configurações de domínio personalizado, o tratamento de envio de formulários e quaisquer referências Liquid ou específicas do espaço de trabalho.
 
+{% alert note %}
+As traduções não são copiadas ao copiar Campaigns de e-mail, Canvas ou modelos entre espaços de trabalho. Após a cópia, insira novamente ou faça o upload das traduções no espaço de trabalho de destino.
+{% endalert %}
+
 ### Informações {#details}
 
 {% tabs local %}
@@ -197,7 +201,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Corpo do e-mail | Endereço do remetente |
+| Corpo do e-mail | Endereço de remetente |
 | Extras da mensagem | Responder para |
 | Título | CCO |
 | Assunto | Modelo de link |
@@ -210,7 +214,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Corpo do e-mail | Endereço do remetente |
+| Corpo do e-mail | Endereço de remetente |
 | Extras da mensagem | Responder para |
 | Título | CCO |
 | Assunto | Modelo de link |

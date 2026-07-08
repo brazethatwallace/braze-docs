@@ -1,7 +1,7 @@
 ---
 nav_title: Información general de Shopify
 article_title: Información general de Shopify
-description: "Este artículo de referencia describe la asociación entre Braze y Shopify, una empresa de comercio global que te permite conectar fácilmente tu tienda Shopify con Braze para pasar determinados webhooks de Shopify a Braze. Aprovecha las estrategias de canales cruzados de Braze y Canvas para animar a los clientes a completar sus compras o reorientar a los usuarios en función de sus compras anteriores."
+description: "Este artículo de referencia describe la asociación entre Braze y Shopify, una empresa de comercio global que te permite conectar fácilmente tu tienda Shopify con Braze para pasar determinados webhooks de Shopify a Braze. Aprovecha las estrategias multicanal de Braze y Canvas para animar a los clientes a completar sus compras o reorientar a los usuarios en función de sus compras anteriores."
 page_type: partner
 search_tag: Partner
 alias: /shopify_overview/
@@ -54,7 +54,7 @@ Durante la incorporación de la integración, tendrás que seleccionar cuándo l
 
 {% alert note %}
 - Las visitas al sitio web (sesiones) cuentan para tu asignación de usuarios activos al mes (MAU).
-- Las versiones de Braze Web SDK y JavaScript SDK se establecerán automáticamente en v5.4.0.
+- Las versiones de Braze Web SDK y JavaScript SDK se establecen automáticamente en v6.8.0. Puedes actualizar la versión de tu SDK en cualquier momento desde los ajustes de integración.
 {% endalert %}
 
 Braze utiliza la integración de Shopify para dar soporte a múltiples identificadores que siguen a tus usuarios desde su experiencia de compra como invitados hasta que se convierten en usuarios identificados:
@@ -85,19 +85,19 @@ El estado de adhesión voluntaria al marketing por correo electrónico y SMS de 
 - **Proceso de pago:** Si un usuario actualiza su estado de adhesión voluntaria durante el pago.
 
 {% alert note %}
-El estado de adhesión voluntaria al marketing por correo electrónico de Shopify no cambiará el [estado de suscripción global al correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions) de un usuario en Braze. El estado de suscripción predeterminado cuando se crea un perfil de usuario es "suscrito". Recuerda utilizar el grupo de suscripción como parte de los criterios de entrada de tu campaña o Canvas.
+El estado de adhesión voluntaria al marketing por correo electrónico de Shopify no cambiará el [estado de suscripción global al correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions) de un usuario en Braze. El estado de suscripción predeterminado cuando se crea un perfil de usuario es "suscrito". Recuerda utilizar el grupo de suscripción como parte de los criterios de entrada de tu Campaign o Canvas.
 {% endalert %}
 
 Esta tabla muestra qué estados de adhesión voluntaria al marketing de Shopify se correlacionan con los estados dentro de tu grupo de suscripción de Braze.
 
 | Estado de adhesión voluntaria al marketing de Shopify | Estado del grupo de suscripción de Braze |
 | --- | --- |
-| El correo electrónico está suscrito | Suscrito |
-| El correo electrónico está dado de baja | No suscrito |
-| El correo electrónico está pendiente de confirmación | No suscrito |
-| El correo electrónico no es válido | No suscrito |
-| SMS suscrito | Suscrito |
-| SMS dado de baja | No suscrito |
+| El correo electrónico está suscrito | Subscribed |
+| El correo electrónico está dado de baja | Unsubscribed |
+| El correo electrónico está pendiente de confirmación | Unsubscribed |
+| El correo electrónico no es válido | Unsubscribed |
+| SMS suscrito | Subscribed |
+| SMS dado de baja | Unsubscribed |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronización de las adhesiones voluntarias al correo electrónico y al marketing por SMS de Shopify" }
 
 ### Formularios de registro {#sign-up-forms}
@@ -129,7 +129,7 @@ Braze proporciona dos tipos de plantillas de formulario de registro:
 Cuando utilizas estas plantillas de formulario de registro, Braze actualiza automáticamente el estado global de suscripción por correo electrónico en el perfil de usuario. Para más detalles sobre cómo se gestiona el estado global de suscripción por correo electrónico, incluida información sobre la validación del correo electrónico, consulta la documentación de cada tipo de plantilla de formulario.
 
 {% alert note %}
-- Asegúrate de incluir criterios de entrada en tu campaña o Canvas que incluyan tanto el estado de suscripción global por correo electrónico como el grupo de suscripción conectados a tu tienda de Shopify. Esto te ayudará a dirigirte a la audiencia adecuada.
+- Asegúrate de incluir criterios de entrada en tu Campaign o Canvas que incluyan tanto el estado de suscripción global por correo electrónico como el grupo de suscripción conectados a tu tienda de Shopify. Esto te ayudará a dirigirte a la audiencia adecuada.
 - Braze recopila información de los visitantes, como direcciones de correo electrónico y números de teléfono, a través de mensajes en el explorador. Esta información se envía a la API de visitantes de Shopify, pero no crea un perfil de cliente en Shopify. Para más detalles, consulta la [API de visitantes](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
 {% endalert %}
 

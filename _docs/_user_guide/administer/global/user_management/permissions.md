@@ -362,7 +362,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Domain Settings | Edit Domain Settings | Add delegated domains and custom domains under Verified Domains |
 | Field Level Encryption | Edit Identifier Field-Level Encryption | Enable and update Field-Level Encryption settings |
 | Media Library Assets | View Media Library Assets | View media library assets |
-| Media Library Assets | Delete Media Library Assets | Permanently delete media library assets |
+| Media Library Assets | Delete Media Library Assets | Remove media library assets from the UI. Deleted assets remain hosted by Braze to prevent breaking messages that reference them. To permanently delete an asset, contact Braze Support. |
 | Media Library Assets | Edit Media Library Assets | Create and update media library assets |
 | Media Library Assets | Replace Media Library Assets | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 | Messaging Rate Limits | View Messaging Rate Limits | View workspace-level messaging rate limits |

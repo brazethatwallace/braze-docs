@@ -66,7 +66,7 @@ Email, Web Push, iOS Push
 
 | Canal | Informations complémentaires |
 |-------|-----------------------|
-| E-mail | Un rebond d'e-mail pour les clients utilisant SendGrid comprend les échecs d'envoi définitifs, le spam (`spam_report_drops`) et les e-mails envoyés à des adresses invalides (`invalid_emails`).<br><br>Pour les e-mails, le *% de rebonds* ou le *taux de rebond* est le pourcentage de messages qui n'ont pas été envoyés avec succès ou qui ont été désignés comme « retournés » ou « non reçus » par les services d'envoi utilisés, ou qui n'ont pas été reçus par les utilisateurs joignables par e-mail visés. |
+| E-mail | Un rebond d'e-mail pour les clients utilisant Sendgrid comprend les échecs d'envoi définitifs, le spam (`spam_report_drops`) et les e-mails envoyés à des adresses invalides (`invalid_emails`).<br><br>Pour les e-mails, le *% de rebonds* ou le *taux de rebond* est le pourcentage de messages qui n'ont pas été envoyés avec succès ou qui ont été désignés comme « retournés » ou « non reçus » par les services d'envoi utilisés, ou qui n'ont pas été reçus par les utilisateurs joignables par e-mail visés. |
 | Push | Ces utilisateurs ont été automatiquement désabonnés de toutes les futures notifications push. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Rebonds" }
 
@@ -581,7 +581,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Cet indicateur est suivi depuis le 11 novembre 2021 pour SendGrid et le 2 décembre 2021 pour SparkPost. Pour Amazon SES, les analyses s'afficheront sous la forme d'_ouvertures_. Cependant, le filtrage des bots pour les clics sera pris en charge.
+{% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Cet indicateur est suivi depuis le 11 novembre 2021 pour Sendgrid et le 2 décembre 2021 pour SparkPost. Pour Amazon SES, les analyses s'afficheront sous la forme d'_ouvertures_. Cependant, le filtrage des bots pour les clics sera pris en charge.
 
 {% endapi %}
 
@@ -765,7 +765,7 @@ SMS/MMS
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Sends' %} Cet indicateur est fourni par Braze. Notez que lors du lancement d'une campagne planifiée, cet indicateur inclura tous les messages envoyés, qu'ils aient déjà été effectivement envoyés ou non en raison de la limite de débit.
+{% multi_lang_include analytics/metrics.md metric='Sends' %} Cet indicateur est fourni par Braze. Notez que lors du lancement d'une campagne planifiée, cet indicateur inclura tous les messages envoyés, qu'ils aient déjà été effectivement envoyés ou non en raison de la limitation du débit.
 
 {% alert tip %}
 Pour les Content Cards, cet indicateur est calculé différemment selon ce que vous avez sélectionné pour la [création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation) :
@@ -786,7 +786,7 @@ Pour les Content Cards, cet indicateur est calculé différemment selon ce que v
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Cet indicateur est fourni par Braze. Notez que lors du lancement d'une campagne planifiée, cet indicateur inclura tous les messages envoyés, qu'ils aient déjà été effectivement envoyés ou non en raison de la limite de débit.
+{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Cet indicateur est fourni par Braze. Notez que lors du lancement d'une campagne planifiée, cet indicateur inclura tous les messages envoyés, qu'ils aient déjà été effectivement envoyés ou non en raison de la limitation du débit.
 
 {% alert tip %}
 Pour les Content Cards, cet indicateur est calculé différemment selon ce que vous avez sélectionné pour la [création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation) :
@@ -1091,7 +1091,7 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Lors de l'évaluation d'une période spécifique, les <i>ouvertures uniques</i> peuvent apparaître plus élevées que les <i>envois</i> pour cette même période. Cela peut se produire parce que les utilisateurs peuvent encore enregistrer des événements d'ouverture pour des messages envoyés en dehors de cette période. Sur la durée totale de la campagne, les <i>ouvertures uniques</i> sont toujours inférieures au total des <i>envois</i>.
 
 | Canal | Informations complémentaires |
 |-------|-----------------------|

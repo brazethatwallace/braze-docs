@@ -15,7 +15,7 @@ description: "Este artigo de referência descreve os eventos recomendados, que s
 
 Os [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events) cobrem seis etapas da jornada de compra: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` e `order_refunded`. Quando você envia esses eventos com sucesso, a Braze valida os dados e os disponibiliza para um conjunto crescente de recursos da plataforma.
 
-Esses recursos incluem modelos de Canvas para fluxos de navegação abandonada, carrinho abandonado, checkout abandonado e confirmação de pedido; relatórios de eCommerce; e campos calculados no perfil do usuário para _Receita Total_, _Total de Pedidos_ e _Total de Reembolsos_. Você também pode criar segmentos usando filtragem de propriedades de produto aninhadas por meio de [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), personalizar mensagens de carrinho abandonado com a tag Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, e alimentar recursos do BrazeAI<sup>TM</sup> como [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) e [recomendações de itens]({{site.baseurl}}/user_guide/brazeai/item_recommendations), entre outros recursos.
+Esses recursos incluem modelos de Canvas para fluxos de navegação abandonada, carrinho abandonado, checkout abandonado e confirmação de pedido; relatórios de eCommerce; e campos calculados no perfil do usuário para _Receita Total_, _Total de Pedidos_ e _Total de Reembolsos_. Você também pode criar segmentos usando filtragem de propriedades de produto aninhadas por meio de [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), personalizar mensagens de carrinho abandonado com a tag Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, e alimentar recursos do BrazeAI<sup>TM</sup> como [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) e [recomendações de itens]({{site.baseurl}}/user_guide/brazeai/item_recommendations), entre outros recursos.
 
 Como esses eventos seguem um esquema definido, cada recurso compatível pode ler os dados estruturados sem mapeamento personalizado de propriedades ou configuração por recurso da sua parte.
 
@@ -76,7 +76,7 @@ Use as APIs de eventos de eCommerce do SDK quando disponíveis. Para exemplos de
 | `currency`     | String           | Sim      | Código ISO 4217 de três letras (por exemplo, `USD` ou `EUR`). |
 | `source`       | String           | Sim      | Origem do evento (por exemplo, `web`, `ios` ou `android`). |
 | `type`         | Array of strings | Não      | Obrigatório para usar os recursos de gatilho de catálogo da Braze para alertas de volta ao estoque e queda de preço. Valores aceitos: `"price_drop"`, `"back_in_stock"` |
-| `metadata`     | Object           | Não      | Pares chave-valor flexíveis. Sub-propriedade reconhecida: `sku` (String) |
+| `metadata`     | Object           | Não      | Pares chave-valor flexíveis (por exemplo, `category` ou `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriedades do evento" }
 
 #### Exemplo de REST API {#rest-api-example}
@@ -99,7 +99,6 @@ Use as APIs de eventos de eCommerce do SDK quando disponíveis. Para exemplos de
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -1190,7 +1189,7 @@ POST /users/track
 
 ### Pontos de dados e cobrança {#data-points-and-billing}
 
-Os eventos de eCommerce não consomem [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points). Você pode registrá-los sem nenhum impacto no seu consumo de pontos de dados.
+Os eventos de eCommerce não consomem [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points). Você pode registrá-los sem nenhum impacto no seu uso de pontos de dados.
 
 ### Limite de tamanho do evento {#event-size-limit}
 
@@ -1212,7 +1211,7 @@ A propriedade source é uma string obrigatória que identifica de onde o evento 
 
 ### Flexibilidade de metadata {#metadata-flexibility}
 
-Tanto o objeto metadata no nível do evento quanto no nível do produto aceitam pares chave-valor arbitrários, permitindo que você anexe dimensões personalizadas sem modificar o esquema principal. Exemplos comuns incluem `order_status_url`, `gift_wrapped`, `loyalty_points_earned` ou `warehouse_id`. Essas propriedades estão disponíveis na personalização com Liquid, exportações do Currents e segmentação por meio de [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
+Tanto o objeto metadata no nível do evento quanto no nível do produto aceitam pares chave-valor arbitrários, permitindo que você anexe dimensões personalizadas sem modificar o esquema principal. Exemplos comuns incluem `order_status_url`, `gift_wrapped`, `loyalty_points_earned` ou `warehouse_id`. Essas propriedades estão disponíveis na personalização com Liquid, exportações do Currents e segmentação por meio de [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
 
 {% alert important %}
 Os eventos recomendados usam um esquema rígido. Portanto, adicionar propriedades personalizadas no nível superior de properties falhará na validação. Coloque todas as propriedades personalizadas dentro do objeto `metadata` no nível do evento ou do objeto `metadata` no nível do produto dentro de `products[]`. Elas continuam disponíveis para Liquid, Currents e segmentação da mesma forma que campos de nível superior.

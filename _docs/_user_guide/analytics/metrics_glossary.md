@@ -1091,7 +1091,7 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} When evaluating a specific time period, <i>Unique Opens</i> may appear higher than <i>Sends</i> for that same period. This can occur because users may still log open events for messages that were sent outside of that time period. For the entire campaign duration, <i>Unique Opens</i> is always lower than the total <i>Sends</i>.
 
 |Channel|Additional information|
 |-------|-----------------------|

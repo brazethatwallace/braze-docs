@@ -18,14 +18,14 @@ Integra el SDK Web de Braze en la extensión de tu navegador para recopilar aná
 
 En general, dado que las extensiones son HTML y JavaScript, puedes usar Braze para lo siguiente:
 
-* **Análisis**: Captura eventos personalizados, atributos e incluso identifica a usuarios recurrentes dentro de tu extensión. Usa estos rasgos de perfil para potenciar la mensajería de canales cruzados.
-* **Mensajes dentro de la aplicación**: Desencadena mensajes dentro de la aplicación cuando los usuarios realicen una acción dentro de tu extensión, utilizando nuestra mensajería nativa o HTML personalizada.
+* **Análisis**: Captura eventos personalizados, atributos e incluso identifica a usuarios recurrentes dentro de tu extensión. Usa estos rasgos de perfil para potenciar la mensajería multicanal.
+* **In-App Messages**: Desencadena mensajes dentro de la aplicación cuando los usuarios realicen una acción dentro de tu extensión, utilizando nuestra mensajería nativa o HTML personalizada.
 * **Content Cards**: Añade una fuente de tarjetas nativas a tu extensión para la incorporación o el contenido promocional.
 * **Notificación push web**: Envía notificaciones puntuales aunque tu página web no esté abierta en ese momento.
 
 ## Lo que no se admite {#whats-not-supported}
 
-* Los prestadores de servicios no son compatibles con el SDK Web de Braze; sin embargo, esto está en la hoja de ruta para considerarlo en el futuro.
+* No se admite el uso del SDK de Braze desde un prestador de servicios. Aun así, puedes usar el SDK de Braze en la ventana emergente o la página de configuración de tu extensión.
 
 ## Tipos de extensión {#extension-types}
 
@@ -35,7 +35,7 @@ Braze puede incluirse en las siguientes áreas de tu extensión:
 |--------|-------|------|
 | Página emergente | La página [emergente](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) es un diálogo que puede mostrarse a los usuarios al hacer clic en el icono de tu extensión en la barra de herramientas del navegador. | Análisis, mensajes dentro de la aplicación y Content Cards |
 | Scripts de fondo | [Los scripts de fondo](https://developer.chrome.com/extensions/background_pages) (solo Manifest v2) permiten a tu extensión inspeccionar e interactuar con la navegación del usuario o modificar páginas web (por ejemplo, cómo los bloqueadores de anuncios detectan y cambian el contenido de las páginas). | Análisis, mensajes dentro de la aplicación y Content Cards.<br><br>Los scripts de fondo no son visibles para los usuarios, por lo que para la mensajería, necesitarías comunicarte con las pestañas del navegador o con tu página emergente al mostrar los mensajes. |
-| Páginas de opciones | La [página de opciones](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) permite a tus usuarios alternar configuraciones dentro de tu extensión. Es una página HTML independiente que abre una nueva pestaña. | Análisis, mensajes dentro de la aplicación y Content Cards |
+| Páginas de opciones | La [página de opciones](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) permite a tus usuarios alternar la configuración dentro de tu extensión. Es una página HTML independiente que abre una nueva pestaña. | Análisis, mensajes dentro de la aplicación y Content Cards |
 {: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="Tipos de extensión" }
 
 ## Permisos {#permissions}
