@@ -44,12 +44,16 @@ python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py [--limit N] [--d
 python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py --pr-url '...' --pr-title '[BD-####](SF) ...' --doc-path '_docs/...'   # needs JIRA_USER_EMAIL + JIRA_API_TOKEN
 
 python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
+
+python3 scripts/prune_data_files.py --dry-run [--group support-csv|kb-generated|all]
+python3 scripts/prune_data_files.py --confirm [--group support-csv|kb-generated|all]
 ```
 
 | Script | Purpose |
 |--------|---------|
 | `generate_kb_phase1_outputs.py` | Phase 1 gates, path inference, actioned/skipped markdown; `--infer-doc-paths` / prune flags |
 | `sf_kb_sync_tracker.py` | PR-labeled `article_id`s → drop from CSV → rerun Phase 1 markdown |
+| `prune_data_files.py` | Remove stale `_data/` artifacts (`--group kb-generated` after Phase 3 write-back) |
 | `sf_kb_phase2_run_batches.py` | `gh` (+ optional Jira): pastes full `suggested_change` into `_docs/` (expects strong draft); polish to ship-ready before merge |
 | `sf_kb_jira_ticket.py` | BD Task under epic BD-6308 |
 | `sf_kb_sync_epic_pr_titles.py` | PR titles → `[BD-####](SF) …` |
@@ -139,6 +143,17 @@ After Phase 2 is complete for a batch, write the PR and Jira ticket IDs back to 
 **After saving:** Export `kb_articles.csv` to a new sheet in the source Google Spreadsheet. Rows with `jira_ticket_id` and `pr_url` are the actioned articles; rows without are unactionable or pending.
 
 > **Do not run Phase 1 prune** until after write-back is complete and the CSV has been exported — the prune step drops `actioned` rows, removing the write-back data before it can be shared.
+
+### Prune Phase 1 markdown (after write-back)
+
+After Phase 3 write-back is saved and `kb_articles.csv` has been exported to the stakeholder spreadsheet, remove the generated queue files so `_data/` does not accumulate stale triage output. Phase 1 regenerates these files on the next run.
+
+```bash
+python3 scripts/prune_data_files.py --dry-run --group kb-generated
+python3 scripts/prune_data_files.py --confirm --group kb-generated
+```
+
+Run this **after** Phase 2 PRs for the batch have merged and write-back is complete — not while `kb_articles_actioned.md` still lists open work. [`scripts/prune_data_files.py`](../../../scripts/prune_data_files.py) only deletes files under `_data/`.
 
 ---
 

@@ -195,6 +195,23 @@ If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you cha
 
 ---
 
+## Step 8: Prune stale support CSVs (optional)
+
+After manual triage is complete and any related digest or Phase 2 PRs have merged, remove **dated local exports** you no longer need. The CI canonical file is always **`_data/support_cases_latest.csv`** on branch **`support-analyzer-data`** — never prune that path.
+
+Local exports from `scripts/export_support_cases_from_looker.py` default to `_data/support_cases_<YYYYMMDD>.csv` when `SUPPORT_ANALYZER_OUTPUT` is unset. Prune only snapshots you have finished analyzing.
+
+From the repo root:
+
+```bash
+python3 scripts/prune_data_files.py --dry-run --group support-csv
+python3 scripts/prune_data_files.py --confirm --group support-csv
+```
+
+[`scripts/prune_data_files.py`](../../../scripts/prune_data_files.py) only deletes files under `_data/` and refuses live site config, sitemaps, and `support_cases_latest.csv`.
+
+---
+
 ## Source layout (verification)
 
 | Context | Product source |
