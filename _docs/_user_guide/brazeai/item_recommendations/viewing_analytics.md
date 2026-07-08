@@ -20,9 +20,9 @@ You can view analytics for your recommendation to see which items users were rec
 
 ### Audience
 
-These are metrics related to your recommendation audience, which includes precision, coverage, and recommendation type.
+These are metrics related to your recommendation audience, which includes precision, coverage, and personalization rate (for **AI Personalized** recommendations) or recommendation type (for other recommendation types).
 
-![Recommendation audience metrics showing precision (25.3%), coverage (54.3%), and recommendation types split between personalized and most popular items.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Recommendation audience metrics showing precision (25.3%), coverage (54.3%), and personalization rate split between personalized and most popular items.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Refer to the following table for more information:
 
@@ -30,7 +30,8 @@ Refer to the following table for more information:
 | ------------------- | ---------- |
 | **Precision**           | The percentage of time the model correctly guessed the next item a user purchased. Precision is heavily dependent on your specific catalog size and mix, and should be used as a guide to understand how often the model is correct.<br><br>In past testing, we have seen models perform well with precision numbers ranging from 6-20%. This metric updates when the model next retrains.  |
 | **Coverage**            | What percentage of available items in the catalog are recommended to at least one user. You can expect to see higher item coverage with personalized item recommendations over most popular ones. |
-| **Recommendation type** | The percentage of users who will receive personalized or most recent recommendations versus the fallback of most popular items. The fallback is sent to users who don’t have enough data to generate a personalized or most recent recommendation. |
+| **Personalization rate** | For **AI Personalized** recommendations, the percentage of users with personalized recommendations stored on their profile, calculated against the total number of users who have performed the configured event in the past 24 months. Users who performed the event but don't have enough data to generate a personalized recommendation receive most popular items as a fallback when messaged. |
+| **Recommendation type** | For **Most Recent**, **Most Popular**, and **Trending** recommendations, the percentage of users who receive that recommendation type versus the fallback of most popular items. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Audience" }
 
 ### Items
