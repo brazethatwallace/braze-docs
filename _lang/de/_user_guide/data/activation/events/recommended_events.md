@@ -76,7 +76,7 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 | `currency`     | String           | Ja      | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
 | `source`       | String           | Ja      | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
 | `type`         | String-Array     | Nein       | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
-| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `sku` (String) |
+| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `category` oder `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### REST-API-Beispiel {#rest-api-example}
@@ -99,7 +99,6 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }

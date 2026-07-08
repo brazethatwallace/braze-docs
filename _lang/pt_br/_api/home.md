@@ -28,12 +28,13 @@ guide_featured_list:
   - name: Retenção de dados
     link: /docs/api/data_retention
     image: /assets/img/braze_icons/laptop-02.svg
-  - name: Limites de taxa
+  - name: Limites de frequência
     link: /docs/api/api_limits
     image: /assets/img/braze_icons/hand.svg
 
 # channel to icon/fa or image mapping
 glossary_tags:
+  - name: Apps
   - name: Campaigns
   - name: Canvas
   - name: Catalogs
@@ -57,6 +58,10 @@ glossary_tags:
   - name: Cloud Data Ingestion
 
 glossaries:
+  - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
+    description: Atualize as credenciais de push para um único app.
+    tags:
+      - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
     description: Adicione novos aliases de usuário para usuários identificados existentes ou crie novos usuários não identificados.
     tags:
@@ -78,7 +83,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_segment'>/users/export/segment</a>
-    description: Exporte todos os usuários de um segmento.
+    description: Exporte todos os usuários de um Segment.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename'>/users/external_ids/rename</a>
@@ -190,7 +195,7 @@ glossaries:
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/email/post_remove_spam'>/email/spam/remove</a>
-    description: Remova endereços de e-mail da sua lista de spam da Braze.
+    description: Remova endereços de e-mail da sua lista de SPAM da Braze.
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/email/post_email_subscription_status'>/email/status</a>
@@ -254,19 +259,19 @@ glossaries:
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_analytics'>/segments/data_series</a>
-    description: Recupere uma série diária do tamanho estimado de um segmento ao longo do tempo.
+    description: Recupere uma série diária do tamanho estimado de um Segment ao longo do tempo.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_details'>/segments/details</a>
-    description: Recupere informações relevantes sobre um segmento.
+    description: Recupere informações relevantes sobre um Segment.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment'>/segments/list</a>
-    description: "Exporte uma lista de segmentos, cada um incluindo seu nome, identificador de API do segmento e se possui rastreamento de análise de dados ativado."
+    description: "Exporte uma lista de Segments, cada um incluindo seu nome, identificador de API do Segment e se possui rastreamento de análise de dados ativado."
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/post_cancel_export'>/export/segment/cancel</a>
-    description: Cancele exportações para o ID de segmento fornecido.
+    description: Cancele exportações para o ID de Segment fornecido.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/sessions/get_sessions_analytics'>/sessions/data_series</a>

@@ -71,15 +71,15 @@ Existem várias etapas que você pode seguir para limitar a exposição de IPI a
 - **Desative a configuração Visualizar IPI** para qualquer usuário que use o Operator. Se um usuário não pode visualizar IPI, o Operator também não pode acessá-las.
 - **Não abra o Operator em uma página de perfil de usuário.** O conteúdo da página é extraído e incluído em cada requisição enviada à OpenAI.
 - **Ao testar, use um perfil de usuário personalizado** em vez de selecionar um existente. Este é o comportamento padrão do Operator.
-- **Não digite nem cole IPI** diretamente no prompt do Operator.
+- **Não digite nem cole IPI** diretamente no prompt do Operator. O Operator não bloqueia IPI incluídas nos prompts do usuário. Se um usuário digitar IPI manualmente em uma requisição, esse conteúdo será enviado ao modelo de linguagem subjacente.
 - **Desative a aprovação automática de ações** para manter o controle sobre o que o Operator pode acessar e executar.
-- **Não peça ao Operator para exibir valores de pré-visualização de atributos** ao criar um Segment ou escrever Liquid.
+- **Não peça ao Operator para exibir valores de prévia de atributos** ao criar um segmento ou escrever Liquid.
 
 ## Governança e controle de acesso {#governance-and-access-control}
 
 ### Restringir o acesso ao Operator {#restrict-access-to-operator}
 
-O acesso ao Operator é gerenciado no nível do espaço de trabalho por meio de [Permissões granulares de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Os administradores podem conceder ou revogar a permissão **Use BrazeAI Operator** para usuários individuais, garantindo que apenas pessoal autorizado possa interagir com a ferramenta. Sem essas permissões específicas, a interface do Operator é completamente suprimida e os endpoints de backend permanecem protegidos.
+O acesso ao Operator é gerenciado no nível do espaço de trabalho por meio de [Permissões granulares de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Os administradores podem conceder ou revogar a permissão "Use BrazeAI Operator" para usuários individuais, garantindo que apenas pessoal autorizado possa interagir com a ferramenta. Sem essas permissões específicas, a interface do Operator é completamente suprimida e os endpoints de backend permanecem protegidos.
 
 ### Modelo com humano no circuito {#human-in-the-loop-model}
 
@@ -90,6 +90,17 @@ Os usuários podem ativar **Aprovação automática de ações** no painel de ch
 ### Herança de permissões do usuário {#user-permission-inheritance}
 
 O Operator herda completamente o perfil de permissões do usuário conectado. Ele é impedido de visualizar dados ou executar ações, como modificações de Campaign, que o usuário não está autorizado a realizar de forma independente.
+
+### Permissão Visualizar IPI {#view-pii-permission}
+
+O Operator não requer a permissão "Visualizar IPI" para funcionar, e isso é intencional. O Operator não tem acesso direto ao seu armazenamento de dados e não consulta seu banco de dados de forma independente. Em vez disso, ele faz requisições aos mesmos endpoints de backend que o restante do dashboard, usando as credenciais de sessão do usuário autenticado. Isso significa que o Operator é totalmente limitado pelas [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) existentes do usuário e não pode acessar nada que o usuário já não consiga ver.
+
+IPI só podem chegar ao Operator de duas formas:
+
+- O usuário digita IPI diretamente em um prompt.
+- O usuário já está visualizando IPI no dashboard quando usa o Operator.
+
+Se um usuário não tem a permissão "Visualizar IPI", o Operator não pode exibir IPI para ele. Lembre-se de que o Operator não filtra conteúdo digitado diretamente nos prompts — IPI inseridas manualmente são enviadas ao modelo de linguagem subjacente. Para reduzir esse risco, consulte [Minimizar a exposição de IPI](#minimize-pii-exposure).
 
 ### Auditar o uso da equipe {#audit-team-usage}
 

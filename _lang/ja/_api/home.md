@@ -34,6 +34,7 @@ guide_featured_list:
 
 # channel to icon/fa or image mapping
 glossary_tags:
+  - name: Apps
   - name: Campaigns
   - name: Canvas
   - name: Catalogs
@@ -57,6 +58,10 @@ glossary_tags:
   - name: Cloud Data Ingestion
 
 glossaries:
+  - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
+    description: 単一アプリのプッシュ認証情報を更新します。
+    tags:
+      - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
     description: 識別された既存のユーザーに新しいユーザーエイリアスを追加するか、未識別の新規ユーザーを作成します。
     tags:
@@ -166,19 +171,19 @@ glossaries:
     tags:
       - Live Activity
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status'>/subscription/status/set</a>
-    description: Brazeダッシュボード上で最大50ユーザーのサブスクリプション状態を一括更新します。
+    description: Brazeダッシュボード上で最大50ユーザーの購読状態を一括更新します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2'>/v2/subscription/status/set</a>
-    description: Brazeダッシュボード上で最大50ユーザーのサブスクリプション状態を一括更新します。
+    description: Brazeダッシュボード上で最大50ユーザーの購読状態を一括更新します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status'>/subscription/status/get</a>
-    description: サブスクリプショングループ内のユーザーのサブスクリプション状態を取得します。
+    description: 購読グループ内のユーザーの購読状態を取得します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/get_list_user_subscription_groups'>/subscription/user/status</a>
-    description: 特定のユーザーのサブスクリプショングループをリストアップして取得します。
+    description: 特定のユーザーの購読グループをリストアップして取得します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/email/post_blacklist'>/email/blacklist</a>
@@ -194,7 +199,7 @@ glossaries:
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/email/post_email_subscription_status'>/email/status</a>
-    description: ユーザーのメールサブスクリプション状態を設定します。
+    description: ユーザーのメール購読状態を設定します。
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/templates/email_templates/post_create_email_template'>/templates/email/create</a>
@@ -210,7 +215,7 @@ glossaries:
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/email/get_query_unsubscribed_email_addresses'>/email/unsubscribes</a>
-    description: <code>start_date</code>から<code>end_date</code>までの期間に配信停止したメールアドレスを返します。
+    description: <code>start_date</code>から<code>end_date</code>までの期間に購読解除したメールアドレスを返します。
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/templates/email_templates/get_see_email_template_information'>/templates/email/info</a>
@@ -222,7 +227,7 @@ glossaries:
     tags:
       - Email Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
-    description: キャンペーンに関するさまざまな統計の日次データを取得します。
+    description: キャンペーンに関するさまざまな統計の日次データを時系列で取得します。
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_details'>/campaigns/details</a>
@@ -230,7 +235,7 @@ glossaries:
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaigns'>/campaigns/list</a>
-    description: キャンペーンのリストをエクスポートします。各キャンペーンには、名前、キャンペーン API識別子、APIキャンペーンかどうか、およびキャンペーンに関連付けられたタグが含まれます。
+    description: キャンペーンのリストをエクスポートします。各キャンペーンには、名前、キャンペーンAPI識別子、APIキャンペーンかどうか、およびキャンペーンに関連付けられたタグが含まれます。
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_send_analytics'>/sends/data_series</a>
@@ -250,7 +255,7 @@ glossaries:
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvases'>/canvas/list</a>
-    description: 名前、キャンバス API識別子、関連タグを含むキャンバスのリストをエクスポートします。
+    description: 名前、キャンバスAPI識別子、関連タグを含むキャンバスのリストをエクスポートします。
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_analytics'>/segments/data_series</a>
@@ -450,11 +455,11 @@ glossaries:
     tags:
       - SCIM
   - name: <a href='/docs/api/endpoints/cdi/get_integration_list'>/cdi/integrations</a>
-    description: 既存の統合のリストを返します。
+    description: 既存のインテグレーションのリストを返します。
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/cdi/post_job_sync'>/cdi/integrations/{integration_id}/sync</a>
-    description: 指定した統合の同期をトリガーします。
+    description: 指定したインテグレーションの同期をトリガーします。
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/cdi/get_job_sync_status'>/cdi/integrations/{integration_id}/job_sync_status</a>

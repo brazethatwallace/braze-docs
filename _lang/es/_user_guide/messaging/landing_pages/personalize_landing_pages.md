@@ -10,7 +10,7 @@ page_order: 4
 > Usa la personalización con Liquid en las páginas de inicio para adaptar dinámicamente el contenido con datos del perfil de usuario. Por ejemplo, puedes personalizar los títulos en función de diferentes atributos de usuario sin gestionar múltiples páginas de inicio estáticas.
 
 {% alert important %}
-La personalización con Liquid para páginas de inicio solo está disponible en el nivel Pro de páginas de inicio. Actualmente, [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), [multiidioma]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) y [códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) no son compatibles con la personalización con Liquid en páginas de inicio.
+La personalización con Liquid para páginas de inicio solo está disponible en el nivel Pro de páginas de inicio. Actualmente, [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), [multiidioma]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) y [códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) no son compatibles con la personalización con Liquid en páginas de inicio.
 {% endalert %}
 
 ## Insertar Liquid {#inserting-liquid}
@@ -67,9 +67,13 @@ El prerrellenado solo funciona para [usuarios identificados](#use-liquid-for-ide
 - **Campos de entrada:** Muestran su texto de marcador de posición.
 - **Casillas de verificación, botones de radio y controles similares:** Permanecen sin seleccionar hasta que el usuario interactúe con ellos.
 
+{% alert warning %}
+Si un usuario reenvía un enlace de página de inicio (desde un correo electrónico, SMS u otro mensaje) a otra persona, el destinatario verá los datos prerrellenados destinados al usuario original. Esta es la misma consideración de seguridad que se aplica a los enlaces para cancelar suscripción y a los enlaces del centro de preferencias. Ten en cuenta la sensibilidad de los datos que estás prerrellenando y el comportamiento de tu audiencia al compartir cuando uses esta característica.
+{% endalert %}
+
 ## Obtener datos externos con código personalizado {#fetching-external-data-with-custom-code}
 
-Puedes usar un bloque de **código personalizado** para obtener datos de puntos de conexión externos y mostrarlos en tu página de inicio. Este enfoque realiza la solicitud en el lado del cliente (en el navegador del usuario), por lo que la página se carga rápidamente sin retrasos de renderizado del lado del servidor.
+Puedes usar un bloque de **código personalizado** para obtener datos de endpoints externos y mostrarlos en tu página de inicio. Este enfoque realiza la solicitud en el lado del cliente (en el navegador del usuario), por lo que la página se carga rápidamente sin retrasos de renderizado del lado del servidor.
 
 {% alert warning %}
 Al obtener datos externos, eres responsable de la seguridad de tu implementación. Los identificadores externos utilizados en las llamadas a la API deben ser UUID o usar un esquema de nomenclatura equivalentemente seguro; consulta las [mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
@@ -81,7 +85,7 @@ Este patrón es útil cuando necesitas mostrar datos específicos del usuario qu
 
 ### Ejemplo de implementación {#example-implementation}
 
-Este ejemplo muestra cómo obtener datos de usuario desde una API externa. Reemplaza el punto de conexión de la API con tu propio punto de conexión seguro y usa un identificador seguro.
+Este ejemplo muestra cómo obtener datos de usuario desde una API externa. Reemplaza el endpoint de la API con tu propio endpoint seguro y usa un identificador seguro.
 
 {% raw %}
 ```html
@@ -124,10 +128,10 @@ window.onload = () => {
 
 Al obtener datos externos en páginas de inicio:
 
-- **Estados de carga:** Los usuarios verán texto de marcador de posición hasta que el punto de conexión responda. Considera añadir un indicador de carga o una pantalla esqueleto.
-- **Gestión de errores:** Si el punto de conexión falla o tarda en responder, la página puede parecer rota. Implementa mensajes de error y alternativas apropiados.
+- **Estados de carga:** Los usuarios verán texto de marcador de posición hasta que el endpoint responda. Considera añadir un indicador de carga o una pantalla esqueleto.
+- **Gestión de errores:** Si el endpoint falla o tarda en responder, la página puede parecer rota. Implementa mensajes de error y alternativas apropiados.
 - **Rendimiento:** La página se carga de inmediato, pero los datos aparecen después de que se complete la solicitud externa. Mantén las respuestas de tu API rápidas para la mejor experiencia de usuario.
-- **Seguridad:** Asegúrate de que tu punto de conexión de la API valide el identificador y solo devuelva datos que el usuario esté autorizado a ver. Implementa límites de velocidad para prevenir abusos. Para orientación sobre cómo elegir identificadores seguros, consulta las [mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+- **Seguridad:** Asegúrate de que tu endpoint de la API valide el identificador y solo devuelva datos que el usuario esté autorizado a ver. Implementa límites de velocidad para prevenir abusos. Para orientación sobre cómo elegir identificadores seguros, consulta las [mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 ## Páginas alternativas {#fallback-pages}
 

@@ -703,8 +703,8 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | Push | Erhalten, wenn Nachrichten vom Braze-Server an den Push-Anbieter gesendet werden. |
 | E-Mail | Erhalten, wenn Nachrichten vom Braze-Server an den E-Mail-Anbieter gesendet werden. |
 | SMS/MMS | „Zugestellt“, nachdem der SMS-Anbieter eine Bestätigung vom vorgelagerten Carrier und dem Zielgerät erhalten hat. |
-| In-App-Nachricht | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Aktion. |
-| WhatsApp | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Aktion. |
+| In-App-Nachricht | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Trigger-Aktion. |
+| WhatsApp | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Trigger-Aktion. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erhalten" }
 
 {% endapi %}
@@ -1075,7 +1075,7 @@ In-App Message, Content Cards
 
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
-| In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting">In-App-Nachrichten-Reporting</a>. |
+| In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Trigger-Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting">In-App-Nachrichten-Reporting</a>. |
 | Content Cards | Die Zählung sollte sich nicht erhöhen, wenn Nutzer:innen eine Card ein zweites Mal ansehen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eindeutige Impressionen" }
 
@@ -1091,7 +1091,7 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Bei der Auswertung eines bestimmten Zeitraums können die <i>eindeutigen Öffnungen</i> höher erscheinen als die <i>Sends</i> für denselben Zeitraum. Dies kann auftreten, weil Nutzer:innen möglicherweise noch Öffnungs-Events für Nachrichten protokollieren, die außerhalb dieses Zeitraums gesendet wurden. Über die gesamte Campaign-Dauer sind die <i>eindeutigen Öffnungen</i> immer niedriger als die gesamten <i>Sends</i>.
 
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
