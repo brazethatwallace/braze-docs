@@ -34,9 +34,9 @@ To connect your Google Gemini API key to Braze:
 
 1. Go to **Partner Integrations** > **Technology Partners** in the Braze dashboard and find Google Gemini.
 2. For the **Authentication Method**, choose one of the following:
-   - **Gemini API**: Enter your API key from Google.
-   - **Vertex AI**: Enter your Vertex AI API key and project ID.
-   - **Connect Google Account**: Authenticate with your Google account, then select your Google Cloud Project from the dropdown in the UI.
+   - **Gemini API:** Enter your API key from Google.
+   - **Vertex AI:** Enter your Vertex AI API key and project ID.
+   - **Connect Google Account:** Authenticate with your Google account, then select your Google Cloud Project from the dropdown in the UI.
 3. Select **Save**.
 
 After saving, you can select Gemini models when [creating a custom agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) in the Agent Console.
