@@ -10,6 +10,11 @@ description: >
 
 Use support-case exports to find doc gaps, triage by category, verify against product source when possible, then propose **`_docs`** updates. Two paths coexist: **scheduled CI** (digest + optional Phase 2 rules) and **manual Cursor triage** (this rule, full steps below).
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only $(git merge-base HEAD $(git rev-parse --verify origin/develop 2>/dev/null || git rev-parse --verify develop 2>/dev/null || echo HEAD~1))..HEAD 2>/dev/null`
+- Open PR: !`gh pr view --json number,title,body 2>/dev/null || echo "none"`
+
 ---
 
 ## How the pieces fit together
