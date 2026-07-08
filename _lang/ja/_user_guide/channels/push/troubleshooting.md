@@ -3,17 +3,17 @@ nav_title: トラブルシューティング
 article_title: プッシュ通知のトラブルシューティング
 page_order: 5
 page_type: reference
-description: "このページでは、プッシュ通知メッセージングチャネルに関するさまざまな問題のトラブルシューティング手順を説明します。"
+description: "プッシュメッセージングチャネルに関する問題のトラブルシューティング手順です。"
 channel: push
 ---
 
 # プッシュ通知のトラブルシューティング {#troubleshoot-push}
 
-> このページでは、プッシュ通知メッセージングチャネルに関する問題のトラブルシューティングを行います。
+> このページでは、プッシュメッセージングチャネルに関する問題のトラブルシューティングを行います。
 
 ## プッシュ通知が届かない {#missing-push-notifications}
 
-プッシュ通知の配信に問題がありますか？以下の項目を確認することで、この問題をトラブルシューティングできます。
+プッシュ通知が期待どおりに届かない場合は、以下の項目を順に確認してください。
 
 - [プッシュサブスクリプションステータス](#push-subscription-status)
 - [セグメント](#segment)
@@ -26,57 +26,62 @@ channel: push
 
 ### プッシュサブスクリプションステータス {#push-subscription-status}
 
-プッシュ通知は、購読中またはオプトインしたユーザーにのみ送信できます。**ユーザープロファイル**セクションの[エンゲージメント]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab)タブでユーザープロファイルを確認し、テスト対象のワークスペースでプッシュ通知に登録されているかどうかを確認してください。複数のアプリに登録している場合は、**Push Registered For**フィールドに一覧表示されます。
+プッシュ通知は、購読中またはオプトインしたユーザーにのみ送信できます。**ユーザープロファイル**で[エンゲージメント]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab)タブを開き、テスト対象のワークスペースでプッシュ通知に登録されていることを確認してください。複数のアプリに登録している場合は、**Push Registered For**に一覧表示されます。
 
 ![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
 
 Brazeのエクスポートエンドポイントを使用してユーザープロファイルをエクスポートすることもできます。
+
 - [識別子によるユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
 - [セグメントによるユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
 いずれのエンドポイントも、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
 
-#### セグメント {#segment}
+### セグメント {#segment}
 
-ターゲットにしているセグメントに自分が含まれていることを確認してください（ライブキャンペーンの場合、テストではない場合）。**ユーザープロファイル**には、ユーザーが現在含まれているセグメントの一覧が表示されます。セグメンテーションはリアルタイムで更新されるため、これは常に変化する変数であることに注意してください。
+ターゲットにしているセグメントに自分が含まれていることを確認してください（ライブキャンペーンの場合、テストではない場合）。**ユーザープロファイル**には、ユーザーが現在含まれているセグメントの一覧が表示されます。セグメントメンバーシップはリアルタイムで更新されます。
 
 ![List of セグメント]({% image_buster /assets/img_archive/trouble2.png %})
 
-セグメントを作成する際に**ユーザー検索**を使用して、ユーザーがそのセグメントに含まれていることを確認することもできます。**ユーザー検索**は`external_id`または`braze_id`のみを受け付けます。メールアドレスや電話番号は使用できません。メール、電話番号、プッシュトークン、またはユーザーエイリアスで検索するには、[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)を使用してください。
+セグメントを作成する際に**ユーザー検索**を使用して、ユーザーがそのセグメントに含まれていることを確認することもできます。**ユーザー検索**は`external_id`または`braze_id`のみを受け付けます。メールアドレスや電話番号は使用できません。メール、電話番号、プッシュトークン、またはユーザーエイリアスで検索するには、[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)を参照してください。
 
 ![検索フィールドを含むユーザー検索セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
-#### プッシュ通知キャップ {#push-notification-caps}
+### プッシュ通知キャップ {#push-notification-caps}
 
-グローバルフリークエンシーキャップを確認してください。ワークスペースにグローバルフリークエンシーキャップが設定されており、指定された期間のプッシュ通知キャップにすでに達しているため、プッシュ通知を受信できなかった可能性があります。
+ワークスペースにグローバルフリークエンシーキャップが設定されている場合、指定された期間のキャップにすでに達しているため、プッシュ通知を受信できなかった可能性があります。ダッシュボードで[グローバルフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)と制限値を確認してください。キャンペーンがフリークエンシーキャップルールに従っている場合、キャンペーンの詳細に影響を受けたユーザー数が表示されます。
 
-ダッシュボードで[グローバルフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)を確認することで、これを確認できます。キャンペーンがフリークエンシーキャップルールに従うように設定されている場合、これらの設定の影響を受けるユーザーが存在します。
+![キャンペーン Details]({% image_buster /assets/img_archive/trouble3.png %})
 
-![キャンペーンの詳細]({% image_buster /assets/img_archive/trouble3.png %})
+### レート制限 {#rate-limits}
 
-#### レート制限 {#rate-limits}
+キャンペーンまたはキャンバスにレート制限が設定されている場合、その制限を超えたためにメッセージを受信できなくなっている可能性があります。詳細については、[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)を参照してください。
 
-キャンペーンまたはキャンバスにレート制限が設定されている場合、この制限を超えたためにメッセージを受信できなくなっている可能性があります。詳細については、[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)を参照してください。
-
-#### コントロールグループのステータス {#control-group-status}
+### コントロールグループのステータス {#control-group-status}
 
 単一チャネルのキャンペーンまたはコントロールグループを含むキャンバスの場合、コントロールグループに入っている可能性があります。
 
   1. [バリアント配分]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants)を確認して、コントロールグループがあるかどうかを確認します。
-  2. コントロールグループがある場合は、[キャンペーンコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter)でフィルタリングするセグメントを作成し、[セグメントをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv)して、自分のユーザーIDがこのリストに含まれているかどうかを確認します。
+  2. コントロールグループがある場合は、[キャンペーンコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter)でフィルタリングするセグメントを作成し、[セグメントをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv)して、自分のユーザーIDがリストに含まれているかどうかを確認します。
 
-#### 有効なプッシュトークン {#valid-push-token}
-プッシュトークンは、送信者が特定のデバイスにプッシュ通知を送信するために使用する識別子です。そのため、デバイスに有効なプッシュトークンがない場合、プッシュ通知を送信する方法はありません。
+### 有効なプッシュトークン {#valid-push-token}
 
-#### プッシュ通知の種類 {#push-notification-type}
+プッシュトークンは、送信者が特定のデバイスにプッシュ通知を送信するために使用する識別子です。有効なプッシュトークンがなければ、Brazeはそのデバイスにプッシュ通知を送信できません。
 
-正しい種類のプッシュ通知を使用しているか確認してください。たとえば、FireTVをターゲットにする場合は、AndroidプッシュキャンペーンではなくKindleプッシュ通知を使用します。同様に、Androidをターゲットにする場合は、iOSプッシュキャンペーンではなくAndroidプッシュ通知を使用します。Brazeのワークフローの詳細については、以下の記事を参照してください。
-- [Appleプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=swift)
-- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=android)
+Brazeはユーザープロファイルごとに最大20台のデバイスを保存します。21台目のデバイスが登録されると、最も古いデバイスが削除されます（先入れ先出し、FIFO）。SDKで[`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids)を呼び出すと、現在のデバイスがプロファイルに再登録されます。
 
-#### 現在のアプリ {#current-app}
+### プッシュ通知の種類 {#push-notification-type}
 
-内部ユーザーでプッシュ送信をテストする場合、プッシュ通知を受信させたいユーザーが現在関連するアプリにログインしていることを確認してください。これにより、ユーザーがプッシュ通知を受信しなかったり、セグメンテーション対象外と思われるプッシュ通知を受信したりする可能性があります。
+ターゲットにしているデバイスまたはプラットフォームに合ったプッシュの種類を使用してください。たとえば、Fire TVをターゲットにする場合は、AndroidプッシュキャンペーンではなくKindleプッシュ通知を使用します。Androidデバイスの場合は、iOSプッシュキャンペーンではなくAndroidプッシュ通知を使用します。
+
+プラットフォーム固有のトラブルシューティングワークフローについては、以下を参照してください。
+
+- [Appleプッシュ通知のトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
+- [Firebase Cloud Messagingのトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+
+### 現在のアプリ {#current-app}
+
+内部ユーザーでプッシュをテストする場合、プッシュ通知を受信させたいユーザーが正しいアプリにサインインしていることを確認してください。そうでない場合、プッシュ通知を受信しなかったり、セグメンテーションに基づいて予期しないプッシュ通知を受信したりする可能性があります。
 
 {% alert note %}
 Androidで画像付きのプッシュメッセージを送信する場合、FCMが画像を破棄し、プッシュメッセージにテキストのみを表示することがあります。この問題は通常、サーバー接続の問題が原因です。
@@ -175,6 +180,8 @@ Appleの`.p8`認証キーは、BrazeでのAPNsプッシュに必要なアプロ�
 
 ### .p8キーと.p12証明書の比較 {#p8-keys-versus-p12-certificates}
 
+以下の表で、認証情報の種類、有効期限、およびダッシュボードでの表示を比較できます。
+
 | 認証情報 | 有効期限 | ダッシュボードのステータスインジケーター |
 | --- | --- | --- |
 | `.p8`認証キー | 有効期限なし | 緑色のステータスインジケーターなし（これは想定どおりです） |
@@ -206,9 +213,9 @@ table {
 }
 </style>
 
-| OS | キーボードショートカット |
+| OS      | キーボードショートカット                                                  |
 | ------- | ------------------------------------------------------------------- |
-| Mac | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
+| Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="デスクトップでChromeをリセットする" }
 
@@ -224,7 +231,7 @@ table {
 
 サイトからの通知がAndroidの通知ドロワーに表示されている場合:
 
-1. プッシュ通知から<i class="fas fa-cog" title="設定"></i>をタップし、**Site settings**を選択します。
+1. プッシュ通知から<i class="fas fa-cog" title="Settings"></i> **設定**をタップし、**Site settings**を選択します。
 2. **Site settings**から**Clear & Reset**をタップします。
 
 サイトからの通知が開いていない場合:
@@ -243,8 +250,8 @@ table {
 
 ### デスクトップでFirefoxをリセットする {#reset-firefox-on-desktop}
 
-1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="情報アイコン"></i>または<i class="fas fa-lock" alt="ロックアイコン"></i>を選択します。
-2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="この権限をクリアして再度確認する"></i>を選択して通知権限をクリアします。
+1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="info icon"></i>または<i class="fas fa-lock" alt="lock icon"></i>を選択します。
+2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> **権限をクリア**を選択して通知権限をクリアします。
 3. 同じメニューで、**Cookieとサイトデータを消去**を選択します。
 4. 確認ダイアログで**OK**を選択します。
 
@@ -252,7 +259,7 @@ table {
 
 ### AndroidでFirefoxをリセットする {#reset-firefox-on-android}
 
-Androidでプッシュ権限をリセットするには、この[Mozillaサポート記事](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)を参照してください。
+Androidでプッシュ権限をリセットするには、Mozillaサポートの[閲覧履歴やその他の個人データを消去する](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)を参照してください。
 
 {% endtab %}
 {% tab Safari %}
@@ -277,8 +284,16 @@ Androidでプッシュ権限をリセットするには、この[Mozillaサポ�
 {% endtab %}
 {% endtabs %}
 
+## プッシュ開封指標 {#push-open-metrics}
+
+Brazeは、ユーザーが通知をタップしてアプリがセッションを開始したときに直接開封を記録します。リッチプッシュ通知を展開しただけでアプリを開かなかった場合、直接開封は記録されません。
+
+ユーザーがプッシュ通知を受信した後、通知をタップせずにアプリを開いた場合、Brazeは代わりに影響を受けた開封を記録することがあります。定義とレポートについては、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。
+
 ## プッシュエラーメッセージ {#push-error-messages}
 
-一般的なプッシュエラーメッセージ（`DEVICE_UNREGISTERED`、`Unregistered`、`NotRegistered`など）の詳細については、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes)を参照してください。
+一般的なプッシュエラーコード（`DEVICE_UNREGISTERED`、`NotRegistered`、`Unregistered`など）の定義については、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes)を参照してください。
+
+FCMが`DEVICE_UNREGISTERED`や`NotRegistered`などのエラーを返した場合、Brazeは通常、影響を受けたプッシュトークンをユーザープロファイルから削除します。この削除は、アプリがアンインストールされたか、トークンが無効になったことを示す場合が多いです。アンインストール追跡キャンペーンは、同じトークン削除ロジックを大規模に使用します。
 
 さらにサポートが必要ですか？[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。

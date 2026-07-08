@@ -46,7 +46,7 @@ Vergewissern Sie sich, dass die folgenden Punkte erstellt und abgeschlossen sind
 
 ### Erforderliche SDK-Versionen {#required-sdk-versions}
 
-Wenn Sie Braze SDKs zum Sammeln von Einwilligungssignalen verwenden, stellen Sie sicher, dass Sie die folgenden Mindestversionen erfüllen:
+Wenn Sie Braze SDKs zum Sammeln von Zustimmungssignalen verwenden, stellen Sie sicher, dass Sie die folgenden Mindestversionen erfüllen:
 
 {% sdk_min_versions swift:7.6.0 android:1.3.2 web:3.0.0 %}
 
@@ -115,7 +115,7 @@ Wenn Sie iOS IDFA oder Google Advertising IDs in Ihre Zielgruppen-Synchronisieru
 ![Die aktualisierte Seite zur Google Ads-Technologie zeigt die verbundenen Anzeigenkonten an und ermöglicht eine erneute Synchronisierung der Konten sowie das Hinzufügen von IDs für mobile Werbung.]({% image_buster /assets/img/google_sync/google_sync5.png %}){: style="max-width:75%;"}
 <br><br>
 
-Wenn Sie mehrere Apps in einem Workspace haben, können Sie bei der Einrichtung jede Ihrer App IDs eingeben, da die mobilen Anzeigen-IDs für Ihre Nutzer:innen in allen Apps gleich sind. Das liegt daran, dass sowohl der Android GAID als auch der iOS IDFA universelle Bezeichner für Anzeigen auf dem Gerät sind und nicht App-spezifisch. Um mobile Werbe-IDs für Nutzer:innen einer bestimmten App zu synchronisieren, können Sie Segmentfilter („Zuletzt verwendete bestimmte App“ oder „Neueste App-Version“) verwenden, um diese Nutzer:innen gezielt anzusprechen.
+Wenn Sie mehrere Apps in einem Workspace haben, können Sie bei der Einrichtung jede Ihrer App IDs eingeben, da die mobilen Anzeigen-IDs für Ihre Nutzer:innen in allen Apps gleich sind. Das liegt daran, dass sowohl der Android GAID als auch der iOS IDFA universelle Bezeichner für Anzeigen auf dem Gerät sind und nicht App-spezifisch. Um mobile Anzeigen-IDs für Nutzer:innen einer bestimmten App zu synchronisieren, können Sie Segmentfilter („Zuletzt verwendete bestimmte App“ oder „Neueste App-Version“) verwenden, um diese Nutzer:innen gezielt anzusprechen.
 
 ### Schritt 2: Google Audience-Schritt in Canvas hinzufügen {#step-2-add-a-google-audience-step-in-canvas}
 
@@ -195,7 +195,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 
 | Metrik | Beschreibung |
 | ------ | ----------- |
-| *Entered* | Anzahl der Nutzer:innen, die diesen Schritt eingegeben haben, um mit Google synchronisiert zu werden. |
+| *Entered* | Anzahl der Nutzer:innen, die diesen Schritt betreten haben, um mit Google synchronisiert zu werden. |
 | *Proceeded to Next Step* | Wie viele Nutzer:innen zur nächsten Komponente weitergeleitet wurden, falls es eine gibt. Alle Nutzer:innen werden automatisch weitergeleitet. Wenn dies der letzte Schritt in der Canvas-Verzweigung ist, wird diese Metrik 0 sein. |
 | *Users Synced* | Anzahl der Nutzer:innen, die erfolgreich mit Google synchronisiert wurden. |
 | *User Not Synced* | Anzahl der Nutzer:innen, die nicht synchronisiert wurden, weil Felder zum Abgleich fehlen oder das Einwilligungsattribut auf `false` gesetzt wurde. |

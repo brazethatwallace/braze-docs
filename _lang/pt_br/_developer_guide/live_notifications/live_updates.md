@@ -147,13 +147,13 @@ Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa ch
 
 | Chave | Descrição |
 |------------------------------|------------|
-| `REST_API_KEY` | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| `BRAZE_REST_ENDPOINT` | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
-| `USER_ID` | O ID do usuário para quem você está enviando a notificação. |
+| `REST_API_KEY`               | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| `BRAZE_REST_ENDPOINT`         | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| `USER_ID`                    | O ID do usuário para quem você está enviando a notificação. |
 | `messages.android_push.title` | O título da mensagem. Por padrão, não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback. |
 | `messages.android_push.alert` | O corpo da mensagem. Por padrão, não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback. |
-| `messages.extra` | Pares de chave-valor que a fábrica de notificações personalizada usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor&#8212;no entanto, no [exemplo de comando curl](#example-curl-command), `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo. |
-| `ASSIGNED_NOTIFICATION_ID` | O ID da notificação que você deseja atribuir à notificação ao vivo do usuário escolhido. O ID deve ser exclusivo para este jogo e deve ser usado para [atualizar a notificação existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
+| `messages.extra`             | Pares de chave-valor que a fábrica de notificações personalizada usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor&#8212;no entanto, no [exemplo de comando curl](#example-curl-command), `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo. |
+| `ASSIGNED_NOTIFICATION_ID`   | O ID da notificação que você deseja atribuir à notificação ao vivo do usuário escolhido. O ID deve ser exclusivo para este jogo e deve ser usado para [atualizar a notificação existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parâmetros da solicitação" }
 
 ### Etapa 5: Atualizar a atividade {#step-5-update-the-activity}

@@ -183,11 +183,11 @@ Complete o restante da sua jornada de usuário dentro do Canvas e depois lance! 
 
 Os usuários então avançarão para o próximo componente do Canvas, se houver um, ou sairão do Canvas se for a última etapa da jornada do usuário.
 
-## Considerações sobre sincronização de usuários e limite de taxa {#user-syncing-and-rate-limit-considerations}
+## Considerações sobre sincronização de usuários e limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-À medida que os usuários alcançam o componente Audience Sync, a Braze os sincronizará quase em tempo real, respeitando os limites de taxa da API do Google Ads. Na prática, isso significa que a Braze tentará agrupar e processar o maior número possível de usuários a cada 5 segundos antes de enviá-los para o Google.
+À medida que os usuários alcançam o componente Audience Sync, a Braze os sincronizará quase em tempo real, respeitando os limites de frequência da API do Google Ads. Na prática, isso significa que a Braze tentará agrupar e processar o maior número possível de usuários a cada 5 segundos antes de enviá-los para o Google.
 
-Quando um cliente estiver perto de atingir o limite de taxa da API do Google Ads, o Google fornecerá feedback à Braze sobre as recomendações de novas tentativas. Se um cliente da Braze atingir seu limite de taxa, o Canvas tentará sincronizar novamente por até &#126;13 horas. Se a sincronização não for possível, esses usuários são listados na métrica de Usuários com Erro.
+Quando um cliente estiver perto de atingir o limite de frequência da API do Google Ads, o Google fornecerá feedback à Braze sobre as recomendações de novas tentativas. Se um cliente da Braze atingir seu limite de frequência, o Canvas tentará sincronizar novamente por até &#126;13 horas. Se a sincronização não for possível, esses usuários são listados na métrica de Usuários com Erro.
 
 ## Detalhes da análise de dados {#understanding-analytics}
 

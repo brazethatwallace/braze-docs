@@ -217,7 +217,7 @@ L'utilisation du désabonnement en un clic pour l'en-tête list-unsubscribe ([RF
 
 ### Désabonnement en un clic au niveau du message {#message-level-one-click-list-unsubscribe}
 
-Le paramètre de désabonnement en un clic au niveau du message remplace la fonctionnalité d'en-tête de désabonnement des e-mails définie pour les espaces de travail. Appliquez le comportement de désabonnement en un clic par Campaign ou étape Canvas pour les utilisations suivantes :
+Le paramètre de désabonnement en un clic au niveau du message remplace la fonctionnalité d'en-tête de désabonnement des e-mails définie pour les espaces de travail. Appliquez le comportement de désabonnement en un clic par Campaign ou étape Canvas pour les cas d'usage suivants :
 
 - Ajouter un désabonnement en un clic Braze pour un groupe d'abonnement spécifique afin de prendre en charge plusieurs marques/listes au sein d'un même espace de travail
 - Basculer entre le désabonnement par défaut de Braze ou une URL personnalisée
@@ -364,7 +364,7 @@ Non. Si le paramètre de l'espace de travail est désactivé et que le paramètr
 {% enddetails %}
 
 {% details Que se passe-t-il si un groupe d'abonnement est archivé ? Cela casse-t-il le désabonnement en un clic sur les e-mails envoyés ? %}
-Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de Segment, profil utilisateur et zones similaires).
+Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de segment, profil utilisateur et zones similaires).
 {% enddetails %}
 
 {% details Le paramètre de désabonnement en un clic est-il disponible pour les modèles d'e-mail ? %}

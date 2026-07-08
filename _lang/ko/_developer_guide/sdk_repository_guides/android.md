@@ -77,13 +77,13 @@ Font Awesome|4.3.0
 
 모듈 | 설명
 :----|:----
-`android-sdk-base`|Braze SDK 기본 분석 라이브러리입니다.
-`android-sdk-ui`|인앱 메시지, 푸시, Content Cards 및 배너를 위한 Braze SDK 사용자 인터페이스 라이브러리입니다.
-`android-sdk-location`|위치 및 지오펜스를 위한 Braze SDK 위치 라이브러리입니다.
-`android-sdk-jetpack-compose`|Jetpack Compose 지원을 위한 Braze SDK 라이브러리입니다.
-`droidboy`|Braze를 심층적으로 사용하는 방법을 보여주는 샘플 앱입니다.
-`android-sdk-unity`|Unity에서 Braze SDK 통합을 가능하게 하는 라이브러리입니다.
-`samples`|다양한 통합 옵션을 위한 샘플 앱이 포함된 폴더입니다.
+`android-sdk-base` | Braze SDK 기본 분석 라이브러리입니다.
+`android-sdk-ui` | 인앱 메시지, 푸시, Content Cards 및 배너를 위한 Braze SDK 사용자 인터페이스 라이브러리입니다.
+`android-sdk-location` | 위치 및 지오펜스를 위한 Braze SDK 위치 라이브러리입니다.
+`android-sdk-jetpack-compose` | Jetpack Compose 지원을 위한 Braze SDK 라이브러리입니다.
+`droidboy` | Braze를 심층적으로 사용하는 방법을 보여주는 샘플 앱입니다.
+`android-sdk-unity` | Unity에서 Braze SDK 통합을 가능하게 하는 라이브러리입니다.
+`samples` | 다양한 통합 옵션을 위한 샘플 앱이 포함된 폴더입니다.
 
 ## 연락처 {#contact}
 

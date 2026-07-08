@@ -22,7 +22,7 @@ tool:
 
 Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 접근하여 이전 작업을 이어서 할 수 있습니다. 이 섹션은 Braze 대시보드 **홈** 페이지 상단에 표시됩니다.
 
-최근에 편집하거나 생성한 Campaigns, Canvases, Segments를 다시 확인할 수 있습니다. 각 카드에는 콘텐츠 유형(Campaign, Canvas, Segment)과 상태(활성, 초안, 아카이브됨, 중지됨)를 나타내는 태그가 함께 표시됩니다.
+최근에 편집하거나 생성한 Campaign(캠페인), Canvas, Segment를 다시 확인할 수 있습니다. 각 카드에는 콘텐츠 유형(Campaign, Canvas, Segment)과 상태(활성, 초안, 아카이브됨, 중지됨)를 나타내는 태그가 함께 표시됩니다.
 
 {% alert note %}
 **이전 작업 이어서 하기** 섹션은 Campaign, Canvas 또는 Segment를 편집하거나 생성한 후에 표시됩니다.
