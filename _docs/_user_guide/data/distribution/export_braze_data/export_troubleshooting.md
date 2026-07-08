@@ -19,7 +19,7 @@ Find the behavior you're seeing in the table, then go to that section for target
 | CSV download link returns `AccessDenied`, `ExpiredToken`, or "file doesn't exist" | [Default export: CSV errors](#defaultexport_csv-exports) or [Cloud storage: CSV errors](#cloud-storage-connected) |
 | API export download URL returns `403 Forbidden` | [Can't download an exported segment ZIP](#cant-download-an-exported-segment-zip-from-a-braze-url) |
 | Segment export fails or says segment is too large | [Segment is too large](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
-| No segment export email received | [No segment export email](#why-arent-i-receiving-segment-export-emails) |
+| No segment export email received | [No segment export email](#not-receiving-segment-export-emails) |
 | CSV row count doesn't match campaign analytics | [Campaign and Canvas analytics mismatch](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
 | Expected columns missing from export file | [Missing columns](#expected-columns-are-missing-from-a-segment-export-file) |
 | Cloud storage export shows `AccessDenied` or `ExpiredToken` | [Cloud storage connected: API errors](#cloud-storage-connected) |
@@ -138,7 +138,7 @@ The CSV export gives a snapshot of existing users who received a given campaign 
 
 Dashboard segment **size is an estimate**. CSV export uses that estimate to enforce the [500,000-user export limit]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details); the export pipeline may also evaluate size differently than the segment builder UI. If exports fail for a segment near that threshold, use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) or split the audience into smaller segments, or use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) as described in [Exporting large segments]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
 
-### Why aren't I receiving segment export emails? {#why-arent-i-receiving-segment-export-emails}
+### Why aren't I receiving segment export emails? {#not-receiving-segment-export-emails}
 
 **Symptom:** A segment CSV export was triggered but no email arrived.
 
