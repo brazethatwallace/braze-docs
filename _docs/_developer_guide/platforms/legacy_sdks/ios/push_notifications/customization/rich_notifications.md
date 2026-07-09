@@ -20,7 +20,7 @@ iOS 10 introduces the ability to send push notifications with images, GIFs, and 
 
 To create a [`Notification Service Extension`](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension), navigate to **File > New > Target** in Xcode and select **Notification Service Extension**.
 
-![]({% image_buster /assets/img_archive/ios10_se_at.png %}){: style="max-width:90%"}
+![Xcode target picker creating a Notification Service Extension for rich notifications.]({% image_buster /assets/img_archive/ios10_se_at.png %}){: style="max-width:90%"}
 
 Ensure that **Embed In Application** is set to embed the extension in your application.
 

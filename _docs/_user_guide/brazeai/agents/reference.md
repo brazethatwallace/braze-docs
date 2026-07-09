@@ -109,7 +109,23 @@ Here are some general best practices to get you started with prompting:
 
 ### Examples {#examples}
 
-For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+
+For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/examples).
+
+| Example | Category | Agent type | What it does |
+| --- | --- | --- | --- |
+| [Write personalized messaging based on a user's context]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Content generation | Canvas Step Agent | Generates coordinated email subject/preheader and push title/body for users who searched but didn't book. |
+| [Analyze user feedback to determine next steps]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Data standardization | Canvas Step Agent | Classifies post-trip survey sentiment and topic, then recommends a CRM next step. |
+| [Categorize users into interest buckets from existing attributes]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Affinity agent | Canvas Step Agent | Classifies users into interest buckets from attributes and high-intent signals, then recommends the best next experience or item. |
+| [Route users to the most relevant Canvas path from recent behavior]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Affinity agent | Canvas Step Agent | Infers motivation from recent behavior and returns the best route key for the user's next Canvas step. |
+| [Assign users to interest categories from real-time high-intent actions]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Affinity agent | Canvas Step Agent | Assigns interest categories from high-intent actions and recommends the best next experience or item. |
+| [Classify inbound messages for opt-out intent]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Classification and routing | Canvas Step Agent | Returns a strict boolean indicating whether a message is an opt-out request. |
+| [Standardize inbound messages into structured data for automation]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Data standardization | Canvas Step Agent | Normalizes inbound SMS or chat into structured intent, entities, and compliance flags for downstream automation. |
+| [Write high-converting descriptions that align with brand guidelines]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Content generation | Catalog Agent | Generates short, on-brand descriptions for each catalog row. |
+| [Provide translations based on language used by region]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Catalog enrichment | Catalog Agent | Localizes UI and marketing strings per locale and character limit. |
+| [Enrich catalog items with descriptions, categories, and tags]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Catalog enrichment | Catalog Agent | Generates enhanced descriptions, categories, and tags from existing catalog item data. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Summary of examples" }
 
 ### Using Liquid
 

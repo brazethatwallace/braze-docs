@@ -8,7 +8,7 @@ Newer phones manufactured by [Huawei](https://huaweimobileservices.com/) come eq
 
 Before getting started, you'll need to register and set up a [Huawei Developer account](https://developer.huawei.com/consumer/en/console). In your Huawei account, go to **My Projects > Project Settings > App Information**, and take note of the `App ID` and `App secret`.
 
-![]({% image_buster /assets/img/huawei/huawei-credentials.png %})
+![Huawei developer console app information page showing the App ID and App secret.]({% image_buster /assets/img/huawei/huawei-credentials.png %})
 
 ### Step 2: Create a new Huawei app in the Braze dashboard
 
@@ -16,11 +16,11 @@ In the Braze dashboard, go to **App Settings**, listed under the **Settings** na
 
 Click **+ Add App**, provide a name (such as My Huawei App), select `Android` as the platform.
 
-![]({% image_buster /assets/img/huawei/huawei-create-app.png %}){: style="max-width:60%;"}
+![Braze Add App dialog creating an Android Huawei app.]({% image_buster /assets/img/huawei/huawei-create-app.png %}){: style="max-width:60%;"}
 
 Once your new Braze app has been created, locate the push notification settings and select `Huawei` as the push provider. Next, provide your `Huawei Client Secret` and `Huawei App ID`.
 
-![]({% image_buster /assets/img/huawei/huawei-dashboard-credentials.png %})
+![Braze Huawei push provider settings with Huawei App ID and Client Secret fields.]({% image_buster /assets/img/huawei/huawei-dashboard-credentials.png %})
 
 ### Step 3: Integrate the Huawei messaging SDK into your app
 
@@ -121,6 +121,6 @@ Since your Huawei app in the Braze dashboard is built upon the Android push plat
 
 To send push to only Huawei apps, [create a new Segment]({{ site.baseurl }}/user_guide/engagement_tools/segments/creating_a_segment/#step-3-choose-your-app-or-platform) and select your Huawei App within the **Apps** section.
 
-![]({% image_buster /assets/img/huawei/huawei-segmentation.png %})
+![Braze segment app filter selecting the Huawei app for push targeting.]({% image_buster /assets/img/huawei/huawei-segmentation.png %})
 
 Of course, if you want to send the same push to all Android push providers, you can choose not to specify the app which will send to all Android apps configured within the current workspace.

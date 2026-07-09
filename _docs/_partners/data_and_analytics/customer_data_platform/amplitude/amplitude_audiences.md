@@ -66,11 +66,11 @@ User trait and computation syncs will create new users for user identifiers that
 
 Refer to Amplitude's documentation to learn more about [syncing properties, recommendations, and cohorts to third-party destinations](https://help.amplitude.com/hc/en-us/articles/360060055531).
 
-#### How to sync user properties and computations
+### How to sync user properties and computations
 
 In Amplitude Audiences, select **Syncs > Create Sync**.
 
-![]({% image_buster /assets/img/amplitude11.png %})
+![Amplitude Audiences Syncs page with Create Sync selected.]({% image_buster /assets/img/amplitude11.png %})
 
 Next, choose to sync a user property, computation, cohort, or recommendation. 
 
@@ -79,11 +79,11 @@ Next, choose to sync a user property, computation, cohort, or recommendation.
 
 Select **User Property** and then the desired user property to sync.
 
-![]({% image_buster /assets/img/amplitude7.png %})
+![Amplitude sync setup step selecting a user property to sync.]({% image_buster /assets/img/amplitude7.png %})
 
 Next, select a destination to sync your user property to.
 
-![]({% image_buster /assets/img/amplitude8.png %})
+![Amplitude destination selector for syncing properties to Braze.]({% image_buster /assets/img/amplitude8.png %})
 
 Lastly, define the frequency of your sync.
 
@@ -94,11 +94,11 @@ Lastly, define the frequency of your sync.
 
 Select **Computation** and then the desired computation to sync
 
-![]({% image_buster /assets/img/amplitude10.png %})
+![Amplitude sync setup step selecting a computation to sync.]({% image_buster /assets/img/amplitude10.png %})
 
 Next, select a destination to sync your computation to.
 
-![]({% image_buster /assets/img/amplitude8.png %})
+![Amplitude destination selector for syncing computations to Braze.]({% image_buster /assets/img/amplitude8.png %})
 
 Lastly, define the frequency of your sync.
 

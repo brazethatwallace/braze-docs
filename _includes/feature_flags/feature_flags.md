@@ -340,7 +340,7 @@ Once we determine our winner, we can stop this campaign and increase the rollout
 
 Use the **Feature Flag** filter to create a segment or target messaging at users based on whether they have a feature flag enabled. For example, let's say we have a feature flag that controls premium content in our app. We could create a segment that filters for users who don't have the feature flag enabled, and then send that segment a message urging them to upgrade their account to view premium content.
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
+![Braze segment builder using a Feature Flag enabled-value filter.]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
 
 For more information about filtering on segments, see [Creating a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 

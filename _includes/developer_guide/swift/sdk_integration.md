@@ -14,9 +14,9 @@ We recommend using the [Swift Package Manager (SwiftPM)](https://swift.org/packa
 {% tab Swift Package Manager %}
 #### Step 1.1: Import SDK version
 
-Open your project and navigate to your project's settings. Select the **Swift Packages** tab and click on the <i class="fas fa-plus"></i> add button below the packages list.
+Open your project and navigate to your project's settings. Select the **Swift Packages** tab and click on the <i class="fas fa-plus"></i> add button under the packages list.
 
-![]({% image_buster /assets/img/swiftpackages.png %})
+![Xcode project settings with the Swift Packages tab and add package button.]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
 Starting in version 7.4.0, the Braze Swift SDK has additional distribution channels as [static XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) and [dynamic XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). If you'd like to use either of these formats instead, follow the installation instructions from its respective repository.
@@ -24,7 +24,7 @@ Starting in version 7.4.0, the Braze Swift SDK has additional distribution chann
 
 Enter the URL of our iOS Swift SDK repository `https://github.com/braze-inc/braze-swift-sdk` in the text field. Under the **Dependency Rule** section, select the SDK version. Finally, click **Add Package**.
 
-![]({% image_buster /assets/img/importsdk_example.png %})
+![Xcode Add Package dialog with the Braze Swift SDK repository URL entered.]({% image_buster /assets/img/importsdk_example.png %})
 
 #### Step 1.2: Select your packages
 
@@ -55,7 +55,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 
 Select the package that best suits your needs and click **Add Package**. Make sure you select `BrazeKit` at a minimum.
 
-![]({% image_buster /assets/img/add_package.png %})
+![Xcode package products list selecting BrazeKit before adding the package.]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}

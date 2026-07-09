@@ -3910,6 +3910,7 @@ validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines#generating-br
 validurls['/docs/user_guide/brazeai/generative_ai/liquid#generating-liquid-code-with-brazeai'] = '/docs/user_guide/brazeai/operator/capabilities#generate-liquid';
 validurls['/docs/user_guide/brazeai/agents/deploying_agents#deploying-custom-agents'] = '/docs/user_guide/brazeai/agents/deploying_agents#deploy-custom-agents';
 validurls['/docs/user_guide/brazeai/agents/creating_agents#creating-custom-agents'] = '/docs/user_guide/brazeai/agents/creating_agents#create-custom-agents';
+validurls['/docs/user_guide/brazeai/agents/use_cases'] = '/docs/user_guide/brazeai/agents/examples';
 validurls['/docs/user_guide/brazeai/predictive_churn/creating_a_churn_prediction#creating-a-churn-prediction'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#create-a-churn-prediction';
 validurls['/docs/user_guide/brazeai/predictive_events/creating_an_event_prediction#creating-an-event-prediction'] = '/docs/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction#create-an-event-prediction';
 validurls['/docs/user_guide/brazeai/decisioning_studio/reporting#viewing-decisioning-studio-reports'] = '/docs/user_guide/brazeai/decisioning_studio/reporting#view';
