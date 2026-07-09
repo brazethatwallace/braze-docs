@@ -114,6 +114,7 @@ jobs:
     outputs:
       count: ${{ steps.changes.outputs.count }}
       languages: ${{ steps.changes.outputs.languages }}
+      matrix_include: ${{ steps.changes.outputs.matrix_include }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -139,6 +140,7 @@ jobs:
             echo "orphan_cleanup_only mode — no English files to translate."
             echo "count=0" >> "$GITHUB_OUTPUT"
             echo "languages=" >> "$GITHUB_OUTPUT"
+            echo "matrix_include=[]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           if [ -n "${{ inputs.languages }}" ]; then
@@ -192,8 +194,28 @@ jobs:
           cat changed_files.txt
 
           count=$(wc -l < changed_files.txt | tr -d ' ')
+          matrix_include=$(LANGS="${LANGS}" python3 -c '
+import json, os
+langs = os.environ.get("LANGS", "")
+catalog = [
+    ("fr", "fr_fr"),
+    ("ja", "ja"),
+    ("ko", "ko"),
+    ("pt-br", "pt_br"),
+    ("es", "es"),
+    ("de", "de"),
+]
+by_lang = {k: v for k, v in catalog}
+if langs:
+    requested = [k for k in langs.split(",") if k]
+    matrix = [{"lang": k, "lang_dir": by_lang[k]} for k in requested]
+else:
+    matrix = [{"lang": k, "lang_dir": v} for k, v in catalog]
+print(json.dumps(matrix))
+')
           echo "count=${count}" >> "$GITHUB_OUTPUT"
           echo "languages=${LANGS}" >> "$GITHUB_OUTPUT"
+          echo "matrix_include=${matrix_include}" >> "$GITHUB_OUTPUT"
 
       - name: Note when there is nothing to translate
         if: steps.changes.outputs.count == '0'
@@ -213,15 +235,7 @@ jobs:
     needs: prepare
     if: >-
       needs.prepare.result == 'success' &&
-      needs.prepare.outputs.count != '0' &&
-      (
-        github.event_name != 'workflow_dispatch' ||
-        needs.prepare.outputs.languages == '' ||
-        contains(
-          format(',{0},', needs.prepare.outputs.languages),
-          format(',{0},', matrix.lang)
-        )
-      )
+      needs.prepare.outputs.count != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 210
     env:
@@ -235,19 +249,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - lang: fr
-            lang_dir: fr_fr
-          - lang: ja
-            lang_dir: ja
-          - lang: ko
-            lang_dir: ko
-          - lang: pt-br
-            lang_dir: pt_br
-          - lang: es
-            lang_dir: es
-          - lang: de
-            lang_dir: de
+        include: ${{ fromJSON(needs.prepare.outputs.matrix_include) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
