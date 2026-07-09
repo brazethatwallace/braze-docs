@@ -58,7 +58,7 @@ For a full reference of the captioned image card, see the [Android](https://braz
 
 ### Classic
 
-Classic cards have a title, description, and an optional image on the left of the text.
+Classic cards have a title, description, and an optional image before the text.
 
 |Property           | Description                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
