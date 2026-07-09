@@ -9,7 +9,7 @@ page_order: 1.3
 
 > Learn about item recommendation analytics and how to view them in Braze.
 
-## Viewing analytics
+## View analytics
 
 You can view analytics for your recommendation to see which items users were recommended and how accurate the recommendation model was.
 
