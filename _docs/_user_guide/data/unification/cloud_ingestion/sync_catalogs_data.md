@@ -87,7 +87,7 @@ The setup for a catalog sync closely follows the process for [user-data CDI inte
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the in the following section IPs corresponding to your Braze dashboard’s region. For a list of IPs, refer to the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the following IPs corresponding to your Braze dashboard’s region. For a list of IPs, refer to the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -264,7 +264,7 @@ The sync views in this section apply to data warehouse integrations only. For S3
 
 Each time the sync runs, Braze pulls in all rows where `UPDATED_AT` is later than the last synced value. Rows at the exact boundary timestamp may be re-synced if new rows share that same timestamp. We recommend creating a view in your data warehouse from your catalog data to set up a source table that will fully refresh each time a sync runs. With views, you won't need to rewrite the query each time.
 
-For example, if you have a table of product data (`product_catalog_1`) with `product_id` and three additional attributes, you could sync the in the following section view:
+For example, if you have a table of product data (`product_catalog_1`) with `product_id` and three additional attributes, you could sync the following view:
 
 {% tabs %}
 {% tab Snowflake %}

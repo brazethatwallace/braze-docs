@@ -256,7 +256,7 @@ See [Understanding Connected Content call volume](#understanding-connected-conte
 
 ### How does rate limiting work with Connected Content?
 
-Connected Content doesn’t have its own rate limit. Instead, the rate limit is based on the message-sending rate. We recommend setting the messaging rate limit in the following section your intended Connected Content rate limit if there are more Connected Content calls than messages sent.  
+Connected Content doesn’t have its own rate limit. Instead, the rate limit is based on the message-sending rate. We recommend setting the messaging rate limit higher than your intended Connected Content rate limit if there are more Connected Content calls than messages sent.  
 
 ### What is caching behavior?
 

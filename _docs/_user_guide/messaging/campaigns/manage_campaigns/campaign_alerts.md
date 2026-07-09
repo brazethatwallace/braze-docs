@@ -38,7 +38,7 @@ When setting campaign alerts for future campaigns, you may receive updates befor
 
 ## Campaign alert webhook payload
 
-The following is a sample payload for the body of a campaign alert webhook. This example uses an alert that is configured to send when messages sent falls in the following section 500 for a given campaign send.
+The following is a sample payload for the body of a campaign alert webhook. This example uses an alert that is configured to send when messages sent falls under 500 for a given campaign send.
 
 ```
 {"text":"Your campaign 'Sample campaign' had fewer than 500 messages sent this run. It had 4 messages sent this run. See https://dashboard-01.braze.com/engagement/campaigns/5b44b00ffbe76a7024f242e6/51804f26dd365acfa700026a?page=-2",

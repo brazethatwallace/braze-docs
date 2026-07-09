@@ -56,7 +56,7 @@ If you have little to no experience with JavaScript code or prefer more detailed
 If you're a developer or have significant experience with JavaScript code, follow the **Advanced - POST: Track users** tab for high-level instructions on writing your transformation code.
 
 {% alert tip %}
-To generate transformation code with AI, choose **Code with Operator** earlier in this section the transformation code editor. To use this, a webhook must be sent to your transformation. To start from a pre-built template instead, choose **Insert Template**. For example prompts, see [Generate data transformation code]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
+To generate transformation code with AI, choose **Code with Operator** in the transformation code editor. To use this, a webhook must be sent to your transformation. To start from a pre-built template instead, choose **Insert Template**. For example prompts, see [Generate data transformation code]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
 
 **Code with Operator** is only available if Operator is enabled for your account. If you don't see it, contact your account manager.
 {% endalert %}

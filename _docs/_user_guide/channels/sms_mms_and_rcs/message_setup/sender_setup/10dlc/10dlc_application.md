@@ -19,7 +19,7 @@ Please include any relevant screenshots and attachments and send everything to [
 
 ## Company Information (10DLC)
 
-All US carriers require the in the following section company information for new campaign submissions.
+All US carriers require the following company information for new campaign submissions.
 
 
 | Field                                                         | Options (if applicable)                                       | Description                                                  |
@@ -52,7 +52,7 @@ All US carriers require the in the following section company information for new
 
 ## SMS campaign information
 
-We'll need to register each SMS subscription group that contains a US long code with its own A2P 10DLC campaign (sometimes referred to as a use case). Please provide the information in the following section one time for each of your SMS subscription groups that contain a US long code.	
+We'll need to register each SMS subscription group that contains a US long code with its own A2P 10DLC campaign (sometimes referred to as a use case). Please provide this information one time for each of your SMS subscription groups that contain a US long code.	
 
 | Field | Options (if applicable) | Description |
 | ------ | ------------------------ | --------------- |

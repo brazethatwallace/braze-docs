@@ -165,7 +165,7 @@ The `create table` permission is required so Braze can create a table with your 
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the in the following section IPs corresponding to your Braze dashboard's region. 
+If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the following IPs corresponding to your Braze dashboard's region. 
 
 You may also need to change your security groups to allow Braze access to your data in Redshift. Make sure to explicitly allow inbound traffic on the IPs in the following section and on the port used to query your Redshift cluster (default is 5439). You should explicitly allow Redshift TCP connectivity on this port even if the inbound rules are set to "allow all". In addition, it is important that the endpoint for the Redshift cluster be publicly accessible in order for Braze to connect to your cluster.
 
@@ -196,7 +196,7 @@ After creating the service account and granting permissions, generate a JSON key
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have network policies in place, you must give Braze network access to your Big Query instance. Allow access from the in the following section IPs corresponding to your Braze dashboard's region.  
+If you have network policies in place, you must give Braze network access to your Big Query instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
@@ -224,7 +224,7 @@ Keep the token in a safe place until you need to enter it on the Braze dashboard
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have network policies in place, you must give Braze network access to your Databricks instance. Allow access from the in the following section IPs corresponding to your Braze dashboard's region.  
+If you have network policies in place, you must give Braze network access to your Databricks instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
