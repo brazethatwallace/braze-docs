@@ -10,7 +10,7 @@ The following minimum SDK version is required to receive Push Stories:
 
 In your app project, go to menu **File > New > Target** and add a new `Notification Content Extension` target and activate it.
 
-![]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
+![Xcode target picker creating a Notification Content Extension for Push Stories.]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
 
 Xcode should generate a new target for you and create files automatically for you including:
 
@@ -42,7 +42,7 @@ After following the [Swift Package Manager integration guide]({{site.baseurl}}/d
 
 ![In Xcode, under frameworks and libraries, select the "+" icon to add a framework.]({% image_buster /assets/img/swift/push_story/spm1.png %})
 
-![]({% image_buster /assets/img/swift/push_story/spm2.png %})
+![Xcode package product selection adding BrazePushStory to the notification content extension target.]({% image_buster /assets/img/swift/push_story/spm2.png %})
 
 {% endtab %}
 {% tab CocoaPods %}
@@ -77,7 +77,7 @@ After updating the Podfile, navigate to the directory of your Xcode app project 
 
 Download the latest `BrazePushStory.zip` from the [GitHub release page](https://github.com/braze-inc/braze-swift-sdk/releases), extract it, and add the `BrazePushStory.xcframework` to your project's `Notification Content Extension`.
 
-![]({% image_buster /assets/img/swift/push_story/manual1.png %})
+![Xcode framework settings showing BrazePushStory.xcframework added with Do Not Embed selected.]({% image_buster /assets/img/swift/push_story/manual1.png %})
 
 {% alert important %}
 Make sure that **Do Not Embed** is selected for **BrazePushStory.xcframework** under the **Embed** column.
@@ -102,7 +102,7 @@ class NotificationViewController: BrazePushStory.NotificationViewController {}
 
 #### Custom handling push story events
 
-If you want to implement your own custom logic to handle push story notification events, inherit `BrazePushStory.NotificationViewController` as above and override the [`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:)) methods as below.
+If you want to implement your own custom logic to handle push story notification events, inherit `BrazePushStory.NotificationViewController` as shown in the previous example and override the [`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:)) methods in the following example.
 
 ```swift
 import BrazePushStory
@@ -145,7 +145,7 @@ Additionally, add the following top-level `Braze` dictionary to the same `Info.p
 
 Your `Info.plist` file should match the following image:
 
-![]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
+![Notification Content Extension Info.plist with Braze push story keys and app group settings.]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
 
 ### Step 6: Updating the Braze integration in your main app {#update-braze}
 
