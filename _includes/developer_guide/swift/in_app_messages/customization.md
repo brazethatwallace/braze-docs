@@ -8,7 +8,7 @@ To customize the presentation of in-app messages and react to various lifecycle 
 
 ### Step 1: Implement the `BrazeInAppMessageUIDelegate` protocol 
 
-First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In our following example, we are implementing this protocol in our application's `AppDelegate` class.
+First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In the following example, this protocol is implemented in the application's `AppDelegate` class.
 
 {% tabs %}
 {% tab swift %}

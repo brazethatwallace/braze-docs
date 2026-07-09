@@ -6,7 +6,7 @@ When integrating Braze alongside third-party network logging libraries, develope
 
 #### Domains
 
-The full list of CDN domains is as listed in the following list:
+The full list of CDN domains is as follows:
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
@@ -15,7 +15,7 @@ The full list of CDN domains is as listed in the following list:
 
 #### Examples
 
-The following libraries are known to conflict with Braze asset caching, along with example code to work around the issue. If your project uses a library that causes an unavailable resource error and is not listed in the following list, consult the documentation of that library for similar usage APIs.
+The following libraries are known to conflict with Braze asset caching, along with example code to work around the issue. If your project uses a library that causes an unavailable resource error and is not listed here, consult the documentation of that library for similar usage APIs.
 
 ##### Netfox
 

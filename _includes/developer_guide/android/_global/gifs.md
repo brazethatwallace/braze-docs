@@ -14,7 +14,7 @@ The Image Loader delegate must implement the following methods:
 * [`renderUrlIntoInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/render-url-into-in-app-message-view.html)
 * [`setOffline()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/set-offline.html)
 
-The integration following example is taken from the [Glide integration sample app](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) included with the Braze Android SDK.
+The following integration example is taken from the [Glide integration sample app](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) included with the Braze Android SDK.
 
 {% tabs %}
 {% tab JAVA %}
