@@ -40,7 +40,7 @@ Here’s a quick summary of the previously announced changes:
 - WhatsApp pricing will shift to a "per message" model instead of a "per conversation" model. **The "per message" rates will be the same as the current "per conversation" rates.** 
 - Utility templates sent in response to user messages (thus within an open [customer service window](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows)) will be free.
 
-*For more details on these changes, see the previous post dated March 12th below.*
+*For more details on these changes, see the previous post dated March 12th later in this article.*
 
 Additional July 1 changes (announced by Meta on May 15th): 
 - Meta is updating utility and authentication rates across several markets as part of continued efforts to ensure pricing is on-par with alternative channels.
@@ -53,7 +53,7 @@ For most customers, these updates will take effect automatically on July 1.
 
 *Last Updated March 12th, 2025 (Originally Posted December 13th, 2024)*
 
-WhatsApp is making two more updates to their pricing starting on July 1, 2025. Braze will update our pricing to reflect these changes on the same day. A summary of the changes and best practices to account for them are below.
+WhatsApp is making two more updates to their pricing starting on July 1, 2025. Braze will update our pricing to reflect these changes on the same day. A summary of the changes and best practices to account for them is in the following section.
 
 ### Update 1: WhatsApp pricing will shift to a "per message" model instead of a "per conversation" model. 
 
@@ -148,7 +148,7 @@ Some conversations that were previously charged as "service" will now be free. T
 
 <br>
 
-Detailed information on the utility conversations decrease below:
+Detailed information on the utility conversations decrease is in the following section:
 
 | Billing region                             | Utility percent decrease |
 |--------------------------------------------|--------------------------|

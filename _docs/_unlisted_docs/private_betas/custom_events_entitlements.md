@@ -68,7 +68,7 @@ To export the list of custom events as a CSV file, select the **Export all** but
 
 ## Logging custom events
 
-Custom events require additional setup. Refer to the list below for documentation about each platform, where you'll find information about the methods used to log custom events and how to add properties and quantities to your custom events.
+Custom events require additional setup. Refer to the platform documentation links to find the methods used to log custom events and add properties and quantities.
 
 {% details Expand for documentation by platform %}
 
