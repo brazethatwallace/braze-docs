@@ -788,39 +788,39 @@ Data is available in real-time, and you can hover over points in the chart to se
 
 No, this feature can be enabled for specific apps and doesn't need to be used on all of your apps, all at once.
 
-#### What happens to users who are still on older versions of my app? {#faq-sdk-backward-compatibility}
+### What happens to users who are still on older versions of my app? {#faq-sdk-backward-compatibility}
 
-When you begin to enforce this feature, requests made by older app versions will be rejected by Braze and retried by the SDK. After users upgrade their app to a supported version, those enqueued requests will begin to be accepted again.
+When you enforce this feature, requests made by older app versions are rejected by Braze and retried by the SDK. After users upgrade their app to a supported version, those enqueued requests are accepted again.
 
-If possible, you should push users to upgrade as you would for any other mandatory upgrade. Alternatively, you can keep the feature [Optional](#enforcement-options) until you see that an acceptable percentage of users have upgraded.
+If possible, you should push users to upgrade as you do for any other mandatory upgrade. Alternatively, you can keep the feature [Optional](#enforcement-options) until you see that an acceptable percentage of users have upgraded.
 
-#### What expiration should I use when generating a JWT? {#faq-expiration}
+### What expiration should I use when generating a JWT? {#faq-expiration}
 
-We recommend using the higher value of average session duration, session cookie/token expiration, or the frequency at which your application would otherwise refresh the current user's profile.
+We recommend using the higher value of average session duration, session cookie/token expiration, or the frequency at which your application otherwise refreshes the current user's profile.
 
-#### What happens if a JWT expires in the middle of a user's session? {#faq-jwt-expiration}
+### What happens if a JWT expires in the middle of a user's session? {#faq-jwt-expiration}
 
-Should a user's token expire mid-session, the SDK has a [callback function](#sdk-callback) it will invoke to let your app know that a new JWT is needed to continue sending data to Braze.
+Should a user's token expire mid-session, the SDK has a [callback function](#sdk-callback) it invokes to let your app know that a new JWT is needed to continue sending data to Braze.
 
-#### What happens if my server-side integration breaks and I can no longer create a JWT? {#faq-server-downtime}
+### What happens if my server-side integration breaks and I can no longer create a JWT? {#faq-server-downtime}
 
 If your server is not able to provide a JWT or you notice some integration issue, you can always disable the feature in the Braze dashboard.
 
-Once disabled, any pending failed SDK requests will eventually be retried by the SDK and accepted by Braze.
+Once disabled, the SDK eventually retries any pending failed requests, and Braze accepts them.
 
-#### Why does this feature use public/private keys instead of shared secrets? {#faq-shared-secrets}
+### Why does this feature use public/private keys instead of shared secrets? {#faq-shared-secrets}
 
-When using shared secrets, anyone with access to that shared secret, such as the Braze dashboard page, would be able to generate tokens and impersonate your end-users.
+When using shared secrets, anyone with access to that shared secret, such as the Braze dashboard page, can generate tokens and impersonate your end users.
 
 Instead, we use public/private keys so that not even Braze Employees (let alone your company users) have access to your private keys.
 
-#### How will rejected requests be retried? {#faq-retry-logic}
+### How are rejected requests retried? {#faq-retry-logic}
 
-When a request is rejected because of an authentication error, the SDK will invoke your callback used to refresh the user's JWT. 
+When a request is rejected because of an authentication error, the SDK invokes your callback used to refresh the user's JWT. 
 
-Requests will retry periodically using an exponential backoff approach. After 50 consecutive failed attempts, retries will be paused until the next session start. Each SDK also has a method to manually request a data flush.
+Requests retry periodically using an exponential backoff approach. After 50 consecutive failed attempts, retries pause until the next session start. Each SDK also has a method to manually request a data flush.
 
-#### Can you use SDK authentication for anonymous users? {#faq-anonymous-users}
+### Can you use SDK authentication for anonymous users? {#faq-anonymous-users}
 
 No. SDK authentication works by your website asserting someone's identity, so it only applies to identified users. As an anonymous user, there is no identity to assert.
 
@@ -832,10 +832,10 @@ This means a typical user journey might look like:
 2. The user signs up or logs in, and your app calls `changeUser` with an `external_id`.
 3. Braze continues collecting activity for that user, and SDK authentication is enforced for requests for that identified profile.
 
-#### Does SDK authentication work with user aliases? {#faq-aliases}
+### Does SDK authentication work with user aliases? {#faq-aliases}
 
 No. SDK authentication requires an `external_id`. You can't set it up when only a `braze_id` or `alias_id` is available, so alias-only profiles can't use SDK authentication.
 
-#### Does enabling SDK authentication block unauthenticated activity collection? {#faq-unauthenticated-collection}
+### Does enabling SDK authentication block unauthenticated activity collection? {#faq-unauthenticated-collection}
 
 No. SDK authentication does not block legitimate anonymous activity collection. It only applies after a profile is identified with `changeUser`.
