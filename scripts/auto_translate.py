@@ -715,9 +715,17 @@ step copy—use **Target Audiences** when English does. **Portuguese** \
 ``concepts``—keep **bucket** for random-bucket terminology (never *baldes*); \
 ``optimizations``—parallel plural titles and *na etapa **Públicos-alvo***. \
 **Korean** ``optimizations``—**WhatsApp Campaigns** when listing channels in \
-plural series. **Japanese** ``create_tests``—**Messaging** > **Campaigns**, \
-**Create Campaign** for US UI paths; ``ab_test_projection``—use **予測を実行** \
-consistently for “run projection”. **German** ``optimizations``—**Gewinnervariante** \
+plural series. **Japanese** ``create_tests`` and campaign composer docs \
+(``creating_campaign.md``, ``target_users.md``, channel create articles)—localize \
+bold wizard labels from ``ja.json`` (**メッセージング** > **キャンペーン**, \
+**キャンペーンを作成**, **ターゲットオーディエンス**, **配信をスケジュール**, \
+**オーディエンスの概要**, **ユーザー検索**, **レビューサマリー**, \
+**これらのユーザーに送信**, **マルチチャネル**, **チャネルを追加**, \
+**バリアントからコピー**, **バリアントを追加**); do not leave US \
+**Target Audiences** / **Schedule Delivery** / **Create Campaign** English in \
+JA prose. **Japanese** ``ab_test_projection``—use **予測を実行** consistently \
+for “run projection”. \
+**German** ``optimizations``—**Gewinnervariante** \
 /**Personalisierte Variante** (no **Winning Variant** / **Winning-Varianten**); \
 ``conversion_correlation``—**Nutzer:innen** / **Nutzerattribute** consistently \
 (no **Benutzer** mix). **French** ``conversion_correlation``—**campagnes** in \
@@ -6438,6 +6446,80 @@ def repair_trailing_whitespace(translated_content: str):
     return translated_content, []
 
 
+_JA_CAMPAIGN_COMPOSER_UI = [
+    ("**Target Audiences**", "**ターゲットオーディエンス**"),
+    ("**Schedule Delivery**", "**配信をスケジュール**"),
+    ("**Action-Based Delivery**", "**アクションベースの配信**"),
+    ("**Action-Based**", "**アクションベース**"),
+    ("**Send an SMS Inbound Message**", "**SMSインバウンドメッセージを送信する**"),
+    ("**Send a WhatsApp inbound message**", "**WhatsAppインバウンドメッセージを送信する**"),
+    ("**Entry Audience**", "**エントリオーディエンス**"),
+    ("**Delivery Controls**", "**配信コントロール**"),
+    ("「Delivery Controls」", "「配信コントロール」"),
+    ("**Send Settings:**", "**送信設定:**"),
+    ("**Send Settings**", "**送信設定**"),
+    ("**Audience Summary**", "**オーディエンスの概要**"),
+    ("**User Lookup**", "**ユーザー検索**"),
+    ("**Review Summary**", "**レビューサマリー**"),
+    ("**Send to these users**", "**これらのユーザーに送信**"),
+    ("**Multichannel キャンペーン**", "**マルチチャネル キャンペーン**"),
+    ("**Multichannel**", "**マルチチャネル**"),
+    ("**Add channel**", "**チャネルを追加**"),
+    ("**Add Variant**", "**バリアントを追加**"),
+    ("**Copy from Variant**", "**バリアントからコピー**"),
+    ("**Create Campaign**", "**キャンペーンを作成**"),
+    ("**Create キャンペーン**", "**キャンペーンを作成**"),
+    ("**Audience** > **Search Users**", "**オーディエンス** > **ユーザーを検索**"),
+    ("**Settings** > **API Keys**", "**設定** > **APIキー**"),
+    ("**Search Users**", "**ユーザーを検索**"),
+    ("**View User Event Properties**", "**ユーザーイベントプロパティを表示**"),
+    ("**View PII**", "**PIIを表示**"),
+    ("**Target Audience**", "**ターゲットオーディエンス**"),
+    ("**Entry Schedule**", "**エントリスケジュール**"),
+    ("**Pending Approval**", "**承認待ち**"),
+    ("**Summary**ステップ", "**レビューサマリー**ステップ"),
+    ("**Summary** step", "**レビューサマリー**ステップ"),
+    ("キャンペーンコンポーザーの**Schedule**", "キャンペーンコンポーザーの**配信をスケジュール**"),
+    ("campaign composer's **Schedule**", "campaign composer's **配信をスケジュール**"),
+    ("**Schedule**部分", "**配信をスケジュール**部分"),
+    (
+        "**Allow users to become re-eligible to receive campaign**",
+        "**ユーザーがキャンペーンを再度受信できるようにする**",
+    ),
+    ("**Approved**", "**承認済み**"),
+    ("[**Target Audiences (ターゲットオーディエンス)**]", "**ターゲットオーディエンス**"),
+    ("「User Lookup」", "「ユーザー検索」"),
+    ("「Lookup User」", "「ユーザーを検索」"),
+    ("「Schedule Delivery」", "「配信をスケジュール」"),
+    ("「Send Settings」", "「送信設定」"),
+    ("Schedule Deliveryステップ", "配信をスケジュールステップ"),
+]
+
+
+def repair_ja_campaign_composer_ui(translated_path, translated_content, lang_key):
+    """Localize leaked English campaign-composer wizard labels in Japanese docs."""
+    if lang_key != "ja":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    repairs = []
+    new = translated_content
+    for old, new_label in _JA_CAMPAIGN_COMPOSER_UI:
+        if old in new:
+            new = new.replace(old, new_label)
+            repairs.append(
+                "ja_campaign_composer_ui — "
+                f"{old.strip('*')} → {new_label.strip('*')}"
+            )
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_messaging_ab_testing_locale_drift(
     translated_path, translated_content, lang_key
 ):
@@ -6539,17 +6621,6 @@ def repair_messaging_ab_testing_locale_drift(
         _apply("WhatsApp Campaign에", "WhatsApp Campaigns에", "ko_ab_optim — WhatsApp Campaigns plural")
 
     if lang_key == "ja":
-        if rel.endswith("_user_guide/messaging/ab_testing/create_tests.md"):
-            _apply(
-                "1. **メッセージング** > **Campaigns**に移動します。",
-                "1. **Messaging** > **Campaigns**に移動します。",
-                "ja_ab_create — Messaging UI path",
-            )
-            _apply(
-                "2. **キャンペーンを作成**を選択し、",
-                "2. **Create Campaign**を選択し、",
-                "ja_ab_create — Create Campaign UI",
-            )
         if rel.endswith("_user_guide/messaging/ab_testing/ab_test_projection.md"):
             _apply("**投影の実行**", "**予測を実行**", "ja_ab_projection — run projection verb parity")
 
@@ -6948,6 +7019,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(ja_product_repairs)
+
+    translated_content, ja_campaign_ui_repairs = repair_ja_campaign_composer_ui(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ja_campaign_ui_repairs)
 
     translated_content, ja_particle_repairs = (
         repair_japanese_latin_token_particle_spacing(

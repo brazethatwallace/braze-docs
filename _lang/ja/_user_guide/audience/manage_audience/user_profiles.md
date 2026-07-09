@@ -15,7 +15,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ## プロファイルへのアクセス {#access-profiles}
 
-ユーザーのプロファイルにアクセスするには、**Search Users**ページに移動し、以下のいずれかでユーザーを検索します。
+ユーザーのプロファイルにアクセスするには、**ユーザーを検索**ページに移動し、以下のいずれかでユーザーを検索します。
 
 - 外部ユーザーID
 - Braze ID
@@ -27,7 +27,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 一致するものが見つかった場合、Braze SDKで記録したそのユーザーの情報を表示できます。検索結果に複数のユーザープロファイルが返された場合は、各プロファイルを個別にマージするか、一括ユーザーマージを実行できます。詳しい手順については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 
 {% alert note %}
-**Search Users**はセグメントやキャンペーンコンポーザーの**User Lookup**とは異なります。**User Lookup**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**Search Users**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[セグメントのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)を参照してください。
+**ユーザーを検索**はセグメントやキャンペーンコンポーザーの**ユーザー検索**とは異なります。**ユーザー検索**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**ユーザーを検索**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[セグメントのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)を参照してください。
 {% endalert %}
 
 {% alert important %}
@@ -100,7 +100,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 ### イベント履歴タブ {#event-history-tab}
 
 {% alert note %}
-**イベント履歴**タブを表示するには、**Search Users**、**View User Event Properties**、および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
+**イベント履歴**タブを表示するには、**ユーザーを検索**、**ユーザーイベントプロパティを表示**、および**PIIを表示**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
 {% endalert %}
 
 **イベント履歴**タブには、ユーザーが記録したカスタムイベントと購入が表示されます。イベントデータが正しく到着しているかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングするために使用します。データのエクスポートや外部ツールは不要です。

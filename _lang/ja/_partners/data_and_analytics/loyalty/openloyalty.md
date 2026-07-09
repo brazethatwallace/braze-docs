@@ -157,7 +157,7 @@ return brazecall;
 
 ### ステップ 2：トリガーを設定する {#step-2-configure-the-trigger}
 
-1.  **Delivery**または**Entry Schedule**タブに移動します。
+1.  **配信**または**エントリスケジュール**タブに移動します。
 2.  以下のフィールドに入力します。
     * **Delivery Method**：アクションベース。
     * **Trigger**：関連するトリガーを定義します（例：ユーザーがBrazeで特定のセグメントに入る）。

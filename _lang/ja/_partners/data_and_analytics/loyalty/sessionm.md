@@ -70,7 +70,7 @@ Brazeで、SessionMのプロモーションやオファーでターゲットと�
 
 ![Webhookの設定。]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-配信をスケジュールし、[以前に作成した](#step-1-create-a-segment-in-braze)セグメントをターゲットとするように**Target Audiences**を設定してから、キャンペーンを開始します。
+配信をスケジュールし、[以前に作成した](#step-1-create-a-segment-in-braze)セグメントをターゲットとするように**ターゲットオーディエンス**を設定してから、キャンペーンを開始します。
 
 {% alert important %}
 このプロセスは、PostmanなどのAPIクライアントを使用して、[SessionMタグエンドポイント](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag)にリクエストを直接送信することでも実行できます。この場合、リクエストには顧客、タグ名、各ユーザーの存続時間（1回の呼び出しにつき1ユーザー）を指定します。
@@ -223,7 +223,7 @@ SessionMによってトリガーされるAPIトリガーのキャンペーンま
 
 ![APIトリガーのプロパティ。]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-**Schedule Delivery**タブで、キャンペーンまたはキャンバス IDをメモします。これはSessionM キャンペーンの**Advanced Settings**に追加されます。
+**配信をスケジュール**タブで、キャンペーンまたはキャンバス IDをメモします。これはSessionM キャンペーンの**Advanced Settings**に追加されます。
 
 ![APIトリガーキャンペーン。]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 
