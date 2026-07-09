@@ -117,7 +117,7 @@ Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/
 | Property | Description |
 |---|---|
 | Auto width | Modifies the width of the image in pixels. |
-| Align | Orients the image to the start, center, or end of the block. |
+| Align | Sets image alignment to left, center, or right within the block. |
 | Image with Liquid | Use [Liquid]({{site.baseurl}}/liquid/) logic to dynamically set different images within the same block of content. |
 | URL | Set an image using the address to where it's hosted. |
 | Alternate text | A short description of the image that gives users the same information shown in the image. Essential for screen-reader accessibility or when the image fails to load. |
