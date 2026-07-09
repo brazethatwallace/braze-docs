@@ -76,7 +76,7 @@ Because a user's decision is final and you can't ask again after they decline, u
 
 ### Android
 
-Before Android 13, permission was not needed to send push notifications. On Android 12 and in the following section, all users are considered `Subscribed` upon their first session when Braze automatically requests a push token. At this point, the user is **push enabled** with a valid push token for that device and a default subscription state of `Subscribed`.
+Before Android 13, permission was not needed to send push notifications. On Android 12 and under, all users are considered `Subscribed` upon their first session when Braze automatically requests a push token. At this point, the user is **push enabled** with a valid push token for that device and a default subscription state of `Subscribed`.
 
 Starting with [Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13), push permission must be asked of and granted by the user. Your app can manually request permission from the user at opportune times, but if not, users will be prompted automatically when your app creates a [notification channel](https://developer.android.com/reference/android/app/NotificationChannel).
 
