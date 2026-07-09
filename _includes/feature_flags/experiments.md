@@ -68,6 +68,8 @@ Next, create variations. For each variant, choose the feature flag you want to t
 
 To test the impact of your feature, use variants to split traffic into two or more groups. Name one group "My control group" and turn its feature flags off.
 
+Feature flag experiments support up to nine total groups: one control group plus up to eight variants.
+
 ### Step 3: Overwrite properties (optional)
 
 You can choose to overwrite the default properties you initially set up for users who receive a specific campaign variant.

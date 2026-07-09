@@ -320,8 +320,6 @@ Une fois le gagnant identifié, nous pourrons arrêter cette campagne et porter 
 
 Utilisez le filtre **Indicateur de fonctionnalité** pour créer un segment ou cibler l'envoi de messages aux utilisateurs selon qu'un indicateur de fonctionnalité est activé ou non. Par exemple, imaginons que nous ayons un indicateur de fonctionnalité qui contrôle le contenu premium dans notre application. Nous pourrions créer un segment filtrant les utilisateurs pour lesquels l'indicateur de fonctionnalité n'est pas activé, puis envoyer à ce segment un message les incitant à mettre leur compte à niveau pour accéder au contenu premium.
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
-
 Pour en savoir plus sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
 {% alert note %}
