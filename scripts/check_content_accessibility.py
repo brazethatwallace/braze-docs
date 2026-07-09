@@ -137,10 +137,37 @@ SPATIAL_LEFT_RIGHT_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Phrases allowed on the same line as an above/below match (comparison or typography)
+# Phrases allowed on the same line as an above/below match.
+# These are contexts where "above"/"below" conveys numeric/semantic relation,
+# not page-layout direction.
 _SPATIAL_ALLOWLIST_RES: tuple = (
+    # Numeric thresholds and bounds.
     re.compile(
         r'(?:above|below)\s+the\s+(?:entered\s+)?(?:number|threshold|value|limit|input(?:\s+field)?)',
+        re.IGNORECASE,
+    ),
+    # Quantitative comparisons in docs prose.
+    re.compile(
+        r'(?:above|below)\s+(?:that|this|the|your|our)?\s*'
+        r'(?:allotment|amount|volume|quota|count|number|total|minimum|maximum|limit|cap)\b',
+        re.IGNORECASE,
+    ),
+    # Attribution/export subgroup hierarchy (semantic containment).
+    re.compile(
+        r'sub-?group(?:ing)?\s+(?:above|below)\s+\w+',
+        re.IGNORECASE,
+    ),
+    # Programming/string operations (not layout instructions).
+    re.compile(
+        r'(?:left|right)\s+side\s+of\s+(?:a|the)?\s*string\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'from\s+the\s+(?:left|right)\s+side\s+of\s+(?:a|the)?\s*string\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'from\s+the\s+left\s+and\s+right\s+side\s+of\s+(?:a|the)?\s*string\b',
         re.IGNORECASE,
     ),
     re.compile(r'left-to-right|right-to-left', re.IGNORECASE),
@@ -162,6 +189,7 @@ def make_violation(
     fix_hint: str,
     violation_type: str,      # image_missing_alt | nondescriptive_link | heading_skip | iframe_missing_title | spatial_directional
     wcag_criterion: str,      # e.g. "1.1.1"
+    auto_fix_eligible: bool = True,  # allow downstream tooling to gate auto-fixes
 ) -> dict:
     return {
         'file': file,
@@ -173,6 +201,7 @@ def make_violation(
         'fix_hint': fix_hint,
         'violation_type': violation_type,
         'wcag_criterion': wcag_criterion,
+        'auto_fix_eligible': auto_fix_eligible,
     }
 
 
@@ -381,6 +410,56 @@ def _spatial_match_allowlisted(line: str, start: int, end: int) -> bool:
     return False
 
 
+def _inside_markdown_image_alt(line: str, start: int, end: int) -> bool:
+    """Return True if the match is inside markdown image alt text."""
+    for m in MARKDOWN_IMAGE_RE.finditer(line):
+        alt_start = m.start(1)
+        alt_end = m.end(1)
+        if start >= alt_start and end <= alt_end:
+            return True
+    return False
+
+
+def _is_css_declaration_line(line: str) -> bool:
+    """Return True for standalone CSS declaration lines in markdown prose."""
+    stripped = line.strip()
+    return bool(re.match(r'^[a-zA-Z-]+\s*:\s*[^;]+;\s*$', stripped))
+
+
+def _is_legal_sensitive_path(path: str) -> bool:
+    """Return True for legal-content files that require manual wording review."""
+    normalized = path.replace('\\', '/').lower()
+    # Explicitly legal path segments.
+    if re.search(r'/(legal|contracts?)/', normalized):
+        return True
+
+    filename = normalized.rsplit('/', 1)[-1]
+    stem = filename.rsplit('.', 1)[0]
+
+    # Known legal-oriented filenames anywhere under checked docs/includes paths.
+    if stem in {
+        'cla',
+        'privacy_policy',
+        'terms_of_service',
+        'legal_notice',
+        'license_agreement',
+        'contribution_license_agreement',
+    }:
+        return True
+
+    # `_docs/_docs_pages` houses site-level legal pages such as CLA.
+    # Match only on token boundaries to avoid substring false positives
+    # like "classification" matching "cla".
+    normalized_no_lead = normalized.lstrip('/')
+    if normalized_no_lead.startswith('_docs/_docs_pages/'):
+        legal_tokens = {'cla', 'privacy', 'terms', 'legal', 'license', 'agreement'}
+        stem_tokens = [t for t in re.split(r'[^a-z0-9]+', stem) if t]
+        if any(token in legal_tokens for token in stem_tokens):
+            return True
+
+    return False
+
+
 def _left_right_spatial_matches(line: str) -> list:
     """Return left/right layout matches.
 
@@ -396,17 +475,24 @@ def _left_right_spatial_matches(line: str) -> list:
 def check_spatial_directionals(lines: list, skip: list, path: str) -> list:
     """Flag layout-referencing above/below/left/right (WCAG 1.3.3)."""
     violations: list = []
+    legal_sensitive_path = _is_legal_sensitive_path(path)
     for i, line in enumerate(lines):
         if skip[i]:
+            continue
+        if _is_css_declaration_line(line):
             continue
 
         flagged_terms: list = []
 
         for m in SPATIAL_ABOVE_BELOW_RE.finditer(line):
+            if _inside_markdown_image_alt(line, m.start(), m.end()):
+                continue
             if not _spatial_match_allowlisted(line, m.start(), m.end()):
                 flagged_terms.append(m.group(0).lower())
 
         for m in _left_right_spatial_matches(line):
+            if _inside_markdown_image_alt(line, m.start(), m.end()):
+                continue
             if not _spatial_match_allowlisted(line, m.start(), m.end()):
                 flagged_terms.append(m.group(0).lower())
 
@@ -432,6 +518,7 @@ def check_spatial_directionals(lines: list, skip: list, path: str) -> list:
             ),
             violation_type='spatial_directional',
             wcag_criterion='1.3.3',
+            auto_fix_eligible=not legal_sensitive_path,
         ))
     return violations
 
