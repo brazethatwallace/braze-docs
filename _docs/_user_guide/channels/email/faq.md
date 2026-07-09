@@ -54,7 +54,7 @@ Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/engagement_tools/
 
 #### Canvas and duplicate email addresses
 
-For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. If you need a product change, submit feedback through your Braze team.
+For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### What happens to the subscription state when a user's email address changes to one shared by another user?
 
