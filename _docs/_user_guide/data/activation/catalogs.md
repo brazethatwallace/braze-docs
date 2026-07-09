@@ -72,8 +72,8 @@ For examples of how you can use Liquid to pull catalog information, see the addi
 
 Data storage for catalogs is limited based on the size of the catalog items, which may be different from the sizes of uploaded CSV files.
 
-For the free version of catalogs, the amount of storage allowed is up to 100&nbsp;MB. You can have unlimited items as long as the storage space does not exceed 100&nbsp;MB.
+For the free version of catalogs, the amount of storage allowed is up to 500&nbsp;MB. You can have unlimited items as long as the storage space does not exceed 500&nbsp;MB.
 
-For Catalogs Pro, the storage size options are: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB, or 50&nbsp;GB. Note that the free version's storage (100&nbsp;MB) is included in each of these plans.
+For Catalogs Pro, the storage size options are: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB, or 50&nbsp;GB. Note that the free version's storage (500&nbsp;MB) is included in each of these plans.
 
 If you need to upgrade your catalog storage, contact your Braze account manager. For plan details and entitlement notes, see [Catalog storage]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).
