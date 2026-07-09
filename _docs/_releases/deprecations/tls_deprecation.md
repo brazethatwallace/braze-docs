@@ -15,7 +15,7 @@ Braze has removed support for Transport Layer Security (TLS) ciphers in both TLS
 
 Braze is deprecating known weak Transport Layer Security (TLS) ciphers in both TLS 1.0 and 1.1, in accordance with recommendations made by the PCI Security Standards Council in two phases concluding in May 2018.
 
-This change is not being made in response to any breach or issue related to Braze's platform, but as a precautionary measure to maintain our best-in-class security and data standards, and to proactively safeguard our clients and their customers.
+This change is not being made in response to any breach or issue related to Braze's platform, but as a precautionary measure to maintain our best-in-class security and data standards, and to proactively safeguard our customers and their consumers.
 
 In recent years, a number of systematic security issues associated with both TLS and its predecessor, Secure Sockets Layer (SSL), including [POODLE](https://www.us-cert.gov/ncas/alerts/TA14-290A), [Heartbleed](https://en.wikipedia.org/wiki/Heartbleed), [LOGJAM](https://en.wikipedia.org/wiki/Logjam_(computer_security)), and others, threatened encrypted web traffic and exposed portions of the internet to security breaches. Along with other technology companies, Braze has previously taken action to disable weak encryption protocols and ciphers as attacks are discovered—for instance, by removing support for SSLv3 in 2014.
 
@@ -49,7 +49,7 @@ Braze will be disabling support for TLS 1.0 and TLS 1.1 across all Braze Service
 As a result of this change, some old or outdated mobile devices—likely ones running early versions of Android—may lose the ability to communicate with Braze, barring them from sending data to Braze or receiving in-app messages from Braze. However, we anticipate that the change will affect only a small number of devices. Any devices that are affected will also lose the ability to communicate with any PCI-compliant website or service a month later on June 30, 2018, the date set by the PCI DSS Council for removal of TLS 1.0 and TLS 1.1 ciphers.
 
 ## Action plan
-If your brand is making use of Braze's REST APIs, speak to your engineering team to ensure that all server-to-server calls to Braze s using TLS 1.2 by the listed date in order to avoid an interruption of service. Be aware that some programming languages—such as Java 7—use older versions of TLS by default, so your engineering team may need to take some code changes to support the upgraded encryption requirements.
+If your brand is making use of Braze's REST APIs, speak to your engineering team to ensure that all server-to-server calls to Braze are using TLS 1.2 by the listed date in order to avoid an interruption of service. Be aware that some programming languages—such as Java 7—use older versions of TLS by default, so your engineering team may need to take some code changes to support the upgraded encryption requirements.
 
 Apple devices will not be affected by Braze's planned deprecation because Apple has required TLS 1.2 since the end of 2016. The same is true of modern web browsers, so we do not anticipate that these changes will have any impact on Web SDK usage. However, Android devices running Android 4.4 (KitKat) or lower may not use TLS 1.2 by default, so take steps to upgrade any of your Android integrations to at least Braze SDK version 2.0.3 (which uses TLS 1.2 by default, if a given device can support it) by May 31, 2018.
 

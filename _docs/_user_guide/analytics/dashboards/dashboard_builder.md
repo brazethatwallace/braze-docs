@@ -78,7 +78,7 @@ Make a copy of your tile by selecting **Duplicate Tile** at the bottom of the ti
 
 ### Adjust tile size and position
 
-Adjust the tile size by dragging the bottom corner of the tile, and adjust the tile position on the dashboard by dragging the handle at the top of the tile.
+Adjust the tile size by dragging the tile's resize corner, and adjust the tile position on the dashboard by dragging the handle at the top of the tile.
 
 ## Running a dashboard
 
