@@ -143,7 +143,9 @@ Las campañas transaccionales incluyen mensajes enviados después de que el usua
 
 Además, al crear campañas de bienvenida, puedes desencadenar mensajes para que se envíen después de que el usuario se registre o configure una cuenta. Escalonar los mensajes para que se envíen en diferentes días después del registro te permitirá crear un proceso de incorporación completo.
 
-## ¿Por qué un usuario no recibió mi campaña desencadenada? {#why-did-a-user-not-receive-my-triggered-campaign}
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Por qué un usuario no recibió mi campaña desencadenada? {#why-did-a-user-not-receive-my-triggered-campaign}
 
 Cualquiera de estas situaciones impedirá que un usuario que haya completado el evento desencadenante reciba la campaña:
 
@@ -162,7 +164,7 @@ Como práctica recomendada, asegúrate de que el atributo en el que se segmenta 
 
 Además, si una campaña está basada en acciones y tiene un retraso, puedes marcar la opción de **Reevaluar la pertenencia al segmento en el momento del envío** para asegurarte de que los usuarios sigan formando parte de la audiencia objetivo cuando se envíe el mensaje.
 
-### Evaluación de criterios de audiencia {#audience-criteria-evaluation}
+#### Evaluación de criterios de audiencia {#audience-criteria-evaluation}
 
 Para campañas que implican un retraso antes del envío (incluyendo límite de velocidad, zona horaria local, Intelligent Timing o una planificación de desencadenamiento), cuando el segmento se reevalúa depende del tipo de campaña y la configuración.
 
@@ -177,7 +179,7 @@ Recomendamos cambiar la audiencia objetivo para incluir a todos los usuarios, o 
 
 ![Captura de pantalla relacionada con la evaluación de criterios de audiencia.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
-### Solución de problemas con eventos personalizados {#troubleshooting-custom-events}
+#### Solución de problemas con eventos personalizados {#troubleshooting-custom-events}
 
 Primero, confirma que el evento personalizado se está enviando a Braze. Ve a **Analytics** > **Informe de eventos personalizados**, y luego selecciona el evento personalizado y el rango de fechas correspondientes. Si el evento no aparece, confirma que está configurado correctamente y que el usuario realizó la acción correcta.
 
@@ -191,3 +193,9 @@ Si el evento personalizado aparece, continúa con la solución de problemas haci
 {% alert note %}
 Los mensajes dentro de la aplicación solo pueden ser desencadenados por eventos enviados a través del SDK, no de la REST API.
 {% endalert %}
+
+### ¿Cuándo evalúan las campañas basadas en acciones la pertenencia a la audiencia? {#when-do-action-based-campaigns-evaluate-audience-membership}
+
+Braze evalúa la pertenencia a la audiencia cuando procesa el evento desencadenante, antes de que se envíe el mensaje. De forma predeterminada, Braze verifica si el usuario coincide con la audiencia objetivo en el momento de la puesta en cola. Si la campaña tiene un retraso, puedes seleccionar **Reevaluar la pertenencia al segmento en el momento del envío** para verificar los criterios de audiencia nuevamente justo antes del envío, por ejemplo, cuando un usuario podría realizar la acción desencadenante y luego salir de la audiencia antes de que se complete el envío.
+
+Para más información, consulta [Evaluación de criterios de audiencia](#audience-criteria-evaluation).

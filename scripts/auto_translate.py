@@ -499,6 +499,16 @@ def _is_retryable_api_error(exc):
     return any(token in msg for token in _RETRYABLE_API_ERROR_TOKENS)
 
 
+def _is_retryable_translation_error(error):
+    """Return True when re-running the full translate pass may succeed."""
+    msg = str(error)
+    if _is_retryable_api_error(msg):
+        return True
+    # Chunked reassembly can drift {% api %}/{% endapi %} counts per locale;
+    # a fresh pass often succeeds (same as manual workflow job re-runs).
+    return "liquid paired-tag imbalance" in msg.lower()
+
+
 def _api_retry_wait_seconds(exc, attempt):
     """Backoff delay before the next Claude API attempt."""
     wait = min(90, 2 ** (attempt + 1))
@@ -1331,7 +1341,7 @@ def _retry_failed_translations(
     retriable = [
         item
         for item in failed_items
-        if _is_retryable_api_error(item.get("error", ""))
+        if _is_retryable_translation_error(item.get("error", ""))
     ]
     if not retriable:
         return [], list(failed_items)

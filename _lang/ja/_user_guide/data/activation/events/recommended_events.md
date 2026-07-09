@@ -15,7 +15,7 @@ description: "このリファレンス記事では、Brazeがeコマースイベ
 
 [eコマース推奨イベント]({{site.baseurl}}/ecommerce_events)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
 
-これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのキャンバステンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用したネストされた製品プロパティフィルタリングによるセグメントの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events)、[解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
+これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのキャンバステンプレート、eコマースレポート、*合計収益*、*合計注文数*、*合計返金額*の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用したネストされた製品プロパティフィルタリングによるセグメントの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events)、[解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
 
 これらのイベントは定義済みスキーマに従うため、サポートされる各機能は、カスタムプロパティマッピングや機能ごとの設定なしに構造化データを読み取ることができます。
 
@@ -27,7 +27,7 @@ eコマースイベントは、事前定義された名前とプロパティス�
 
 eコマースイベントは、他のカスタムイベントが機能するすべての場所で機能します: 実行済みカスタムイベントのトリガーとフィルター、カスタムイベントレポートなど。ただし、スキーマバリデーションにより、以下の追加機能が利用可能になります:
 
-- キャンペーン、キャンバス、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
+- キャンペーン、キャンバス、アクションパス、アプリ内メッセージトリガー、Content Cardsの削除における「注文する」トリガーアクション
 - 計算済みeコマースユーザープロファイルフィールド（**合計収益**、**合計注文数**、**合計返金額**）
 - カート放棄フロー向けのカート状態管理
 - 予測イベント、解約予測、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
@@ -76,7 +76,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 | `currency`     | 文字列           | はい      | 3文字のISO 4217コード（例: `USD`または`EUR`）。                                                                                               |
 | `source`       | 文字列           | はい      | イベントの発生元（例: `web`、`ios`、`android`）。                                                                               |
 | `type`         | 文字列の配列 | いいえ       | Brazeのカタログトリガー機能（在庫復活および値下げアラート）を使用するために必須。許容値: `"price_drop"`、`"back_in_stock"`     |
-| `metadata`     | オブジェクト           | いいえ       | 柔軟なキーと値のペア。認識されるサブプロパティ: `sku`（文字列）                                                                                   |
+| `metadata`     | オブジェクト           | いいえ       | 柔軟なキーと値のペア（例: `category`や`brand`）。                                                                                   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="イベントプロパティ" }
 
 #### REST APIの例 {#rest-api-example}
@@ -99,7 +99,6 @@ eコマースイベントは、他のカスタムイベントが機能するす�
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }

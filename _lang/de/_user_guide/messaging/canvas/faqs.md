@@ -135,6 +135,15 @@ _Eindeutige Empfänger:innen_ kann höher sein als die erwartete Zielgruppe, da 
 
 Wenn ein:e Nutzer:in beispielsweise am Montag und erneut am Freitag einen Canvas-Schritt erhält und nach jedem Send konvertiert, kann Braze zwei Empfänger:innen-Zeilen und zwei relevante Conversions zählen. Bei wiederkehrenden Eintritten oder Wiederzulassung kann dieselbe kleine Gruppe von Profilen über mehrere Tage hinweg mehrere _Eindeutige Empfänger:innen_ erzeugen.
 
+### Warum verzeichnet mein Canvas niedrigere Sendraten? {#why-is-my-canvas-experiencing-lower-send-rates}
+
+Wenn Sie feststellen, dass Ihr täglich geplantes Canvas im Laufe der Zeit an weniger Nutzer:innen sendet, prüfen Sie Folgendes:
+
+- **Prüfen Sie, ob die Wiederzulassung aktiviert ist:** Ohne Wiederzulassung lässt Braze jede:n Nutzer:in nur einmal in das Canvas eintreten. Bei täglich geplanten Canvases sind nur Nutzer:innen berechtigt, die der Zielgruppe entsprechen und das Canvas noch nicht betreten haben. Da immer mehr Nutzer:innen eintreten, hat jeder spätere Eintritt weniger berechtigte Nutzer:innen, sodass das Eintrittsvolumen sinkt.
+- **Prüfen Sie, ob die Zielgruppe eine feste Mitgliedschaft hat:** Zielgruppen, die aus einer festen Nutzerliste erstellt wurden (z. B. ein [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import), der als Segment-Filter verwendet wird), gewinnen nicht automatisch neue Mitglieder. Ohne neue Eintritte kann das Eintrittsvolumen nicht wieder ansteigen, wenn Nutzer:innen das Canvas betreten.
+
+Für [Rate-Limits bei der Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) und andere Faktoren, die Sends für ein einzelnes Vorkommen verringern, siehe [Warum sind die Sends niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
+
 ## Analytics und Conversions {#analytics-and-conversions}
 
 ### Wie werden Nutzer-Conversions in einem Canvas getrackt? {#how-are-user-conversions-tracked-in-a-canvas}

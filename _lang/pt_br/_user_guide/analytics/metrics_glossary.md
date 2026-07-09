@@ -200,7 +200,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-## Intervalo de confiança {#confidence}
+## Confiança {#confidence}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -397,7 +397,7 @@ Entre em contato com o <a href="/docs/braze_support">suporte da Braze</a> para o
 
 {% api %}
 
-## Aberturas diretas {#direct-opens}
+## Aberturas Diretas {#direct-opens}
 
 {% apitags %}
 iOS Push
@@ -501,7 +501,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-## Aberturas por influência {#influenced-opens}
+## Aberturas por Influência {#influenced-opens}
 
 {% apitags %}
 iOS Push, Android Push
@@ -765,7 +765,7 @@ SMS/MMS
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Sends' %} Essa métrica é fornecida pela Braze. Observe que, ao lançar uma campanha agendada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas ou não devido ao limite de taxa.
+{% multi_lang_include analytics/metrics.md metric='Sends' %} Essa métrica é fornecida pela Braze. Observe que, ao lançar uma campanha agendada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas ou não devido ao limite de frequência.
 
 {% alert tip %}
 Para Content Cards, essa métrica é calculada de forma diferente dependendo do que você selecionou para [Criação de cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation):
@@ -786,7 +786,7 @@ Para Content Cards, essa métrica é calculada de forma diferente dependendo do 
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Essa métrica é fornecida pela Braze. Observe que, ao lançar uma campanha agendada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas ou não devido ao limite de taxa.
+{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Essa métrica é fornecida pela Braze. Observe que, ao lançar uma campanha agendada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas ou não devido ao limite de frequência.
 
 {% alert tip %}
 Para Content Cards, essa métrica é calculada de forma diferente dependendo do que você selecionou para [Criação de cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation):
@@ -1091,7 +1091,7 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Ao avaliar um período de tempo específico, <i>Unique Opens</i> pode parecer maior do que <i>Sends</i> para o mesmo período. Isso pode ocorrer porque os usuários ainda podem registrar eventos de abertura para mensagens que foram enviadas fora desse período de tempo. Para a duração total da campanha, <i>Unique Opens</i> é sempre menor do que o total de <i>Sends</i>.
 
 | Canal | Informações adicionais |
 |-------|-----------------------|
@@ -1165,7 +1165,7 @@ Email
 
 {% api %}
 
-## Variação {#variation}
+## Variante {#variation}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp

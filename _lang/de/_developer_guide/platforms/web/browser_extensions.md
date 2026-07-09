@@ -25,7 +25,7 @@ Da es sich bei Erweiterungen um HTML und JavaScript handelt, können Sie Braze i
 
 ## Was nicht unterstützt wird {#whats-not-supported}
 
-* Service Worker werden vom Braze Web SDK nicht unterstützt, die entsprechende Funktion befindet sich jedoch in der Roadmap für zukünftige Überlegungen.
+* Die Verwendung des Braze SDK innerhalb eines Service Workers wird nicht unterstützt. Sie können das Braze SDK jedoch weiterhin auf der Popup- oder Einstellungsseite Ihrer Erweiterung verwenden.
 
 ## Erweiterungstypen {#extension-types}
 

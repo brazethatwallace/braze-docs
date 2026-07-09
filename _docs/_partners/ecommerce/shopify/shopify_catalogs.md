@@ -16,7 +16,7 @@ In addition to supporting [core Shopify product data](#supported-shopify-catalog
 
 ## Set up your Shopify product sync {#set-up}
 
-If you have already installed your Shopify store, you can still sync your products by following the instructions below. 
+If you have already installed your Shopify store, you can still sync your products by following the instructions in this section. 
 
 ### Step 1: Turn on the sync
 

@@ -73,6 +73,10 @@ Pour personnaliser les propriétés d'arrière-plan, les paramètres de bordure 
 
 ![Panneau de styles du compositeur de bannière.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% alert tip %}
+Pour cibler des utilisateurs dans différentes langues au sein d'une même campagne de bannière, consultez [Messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+{% endalert %}
+
 #### Étape 3.2 : Définir le comportement au clic (facultatif) {#step-32-define-on-click-behavior-optional}
 
 Lorsqu'un utilisateur clique sur un lien dans la bannière, vous pouvez choisir de le diriger plus en profondeur dans votre application ou de le rediriger vers une autre page web. De plus, vous pouvez choisir de [journaliser un attribut personnalisé ou un événement]({{site.baseurl}}/developer_guide/analytics), ce qui met à jour le profil de l'utilisateur avec des données personnalisées lorsqu'il clique sur la bannière. Pour un suivi des clics plus granulaire, attribuez un identifiant personnalisé à chaque élément interactif à l'aide du champ **Identifier for Reporting** dans son panneau de propriétés.

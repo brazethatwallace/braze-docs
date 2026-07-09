@@ -26,7 +26,7 @@ Looking for the basic push notification developer integration guide? See [iOS pu
 
 Push notifications while seemingly standard across different platforms, offer immense customization options past what is normally implemented in the default UI. When a push notification is expanded, content notification extensions enable a custom view of the expanded push notification. 
 
-Push notifications can be expanded in three different ways: <br>- A long press on the push banner<br>- Swiping down on the push banner<br>- Swiping the banner to the left and selecting "View" 
+Push notifications can be expanded in three different ways: <br>- A long press on the push banner<br>- Swiping down on the push banner<br>- Swiping the banner and selecting "View" 
 
 These custom views offer smart ways to engage customers allowing you to display many distinct types of content including interactive notifications, notifications populated with user data, and even push messages that can capture information like phone numbers and email. While implementing push in this way may be unfamiliar to some, one of our well-known features at Braze, [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories), are a prime example of what a custom view for a notification content app extension can look like!
 
@@ -85,7 +85,7 @@ Visit the [following section](#logging-analytics) to get a better understanding 
 ### Personalized push notifications
 ![Two iPhones displayed side-by-side. The first iPhone shows the unexpanded view of the push message. The second iPhone shows the expanded version of the push message displaying a "progress" shot of how far they are through a course, the next session, and when the next session id due by.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-Push notifications can display user-specific information inside a content extension. The example to the right shows a push notification after a user has completed a specific task (Braze Learning course) and is now encouraged to expand this notification to check their progress. The information provided here is user-specific and can be fired off as a session is completed or specific user action is taken by leveraging an API trigger. 
+Push notifications can display user-specific information inside a content extension. The accompanying example shows a push notification after a user has completed a specific task (Braze Learning course) and is now encouraged to expand this notification to check their progress. The information provided here is user-specific and can be fired off as a session is completed or specific user action is taken by leveraging an API trigger. 
 
 #### Dashboard configuration
 

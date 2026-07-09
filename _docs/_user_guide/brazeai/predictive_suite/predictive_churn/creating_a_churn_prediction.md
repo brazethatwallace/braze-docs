@@ -32,7 +32,7 @@ In the **Churn Definition** panel, use the provided filters to specify how you d
 
 Remember, you don't need to explain what behaviors might precede churn—only what makes a user a churned user. Think of this in terms of something a user either does once (`do`) or stops doing (`do not`) that constitutes churning. For example, you might consider users who haven't opened your app in 7 days to be churned. You might consider uninstalling, or custom events like unsubscribing, disabling an account, or others to cause a user to become churned. 
 
-#### Churn window
+### Churn window
 
 The churn window is the period when a user’s activity meets the criteria for churning. You can set it for up to 60 days, depending on the available data. This window is used to pull historical data to train your prediction. Once the prediction is built, you’ll see if there was enough data for accurate results.
 
@@ -66,13 +66,13 @@ When the prediction window is 14 days or less, the time window for filters that 
 
 The churn window is evaluated by looking back at the number of days from the day the model last ran, so if the churn window is 15 days and the model last ran on December 1, the model analyzes November 16 to November 30 to understand user activity for audience eligibility and training.
 
-#### Full Filter Mode
+### Full Filter Mode
 
 In order to build a new prediction immediately, only a subset of Braze segmentation filters is supported. Full Filter Mode allows you to use all Braze filters, but will require one churn window to build the prediction. For example, if the churn window is set to 15 days, it will take 15 days to collect the user data and build the prediction when using filters only supported in Full Filter Mode. Additionally, some estimates about audience sizes will not be available in Full Filter Mode.
 
 For a sample list of prediction audience definitions, check out our sample definitions in the following section on [Sample churn definitions](#sample-definitions).
 
-![]({% image_buster /assets/img/churn/churn5.png %})
+![Prediction setup page showing sample churn definition and prediction audience filters.]({% image_buster /assets/img/churn/churn5.png %})
 
 Just like the previous page, the bottom panel will show you the estimated number of historic users that result from your churn definition and prediction audience definition. These estimates must meet the minimum requirements shown in order to create a prediction.
 

@@ -22,6 +22,14 @@ def spatial_violations_for(content: str) -> list:
     return check_spatial_directionals(lines, skip, '<test>')
 
 
+def spatial_violations_for_path(content: str, path: str) -> list:
+    lines = content.splitlines(keepends=True)
+    if lines and not lines[-1].endswith('\n'):
+        lines[-1] += '\n'
+    skip = build_skip_mask(lines)
+    return check_spatial_directionals(lines, skip, path)
+
+
 class TestSpatialDirectionals:
     def test_flags_above_reference(self):
         v = spatial_violations_for('See the operators above for details.\n')
@@ -49,6 +57,46 @@ class TestSpatialDirectionals:
 
     def test_allows_below_threshold(self):
         v = spatial_violations_for('This selection returns items below the threshold.\n')
+        assert v == []
+
+    def test_allows_above_allotment_numeric_comparison(self):
+        v = spatial_violations_for(
+            'Requests above that allotment still send but are not covered by SLA.\n'
+        )
+        assert v == []
+
+    def test_allows_below_campaign_subgrouping(self):
+        v = spatial_violations_for(
+            'Identifier for an optional sub-grouping below campaign and ad group.\n'
+        )
+        assert v == []
+
+    def test_allows_directional_language_inside_image_alt_text(self):
+        v = spatial_violations_for(
+            '![The chart on the left shows baseline and the chart on the right shows treatment.](/img/chart.png)\n'
+        )
+        assert v == []
+
+    def test_allows_standalone_css_declaration_line(self):
+        v = spatial_violations_for('transform-origin: top right;\n')
+        assert v == []
+
+    def test_allows_left_and_right_side_of_string(self):
+        v = spatial_violations_for(
+            'Strips tabs, spaces, and newlines from the left and right side of a string.\n'
+        )
+        assert v == []
+
+    def test_allows_left_side_of_string(self):
+        v = spatial_violations_for(
+            'Strips tabs and spaces from the left side of a string.\n'
+        )
+        assert v == []
+
+    def test_allows_right_side_of_string(self):
+        v = spatial_violations_for(
+            'Strips tabs and spaces from the right side of a string.\n'
+        )
         assert v == []
 
     def test_flags_spatial_above_when_threshold_phrase_is_separate(self):
@@ -81,6 +129,55 @@ class TestSpatialDirectionals:
     def test_uses_section_name_fix_hint(self):
         v = spatial_violations_for('Use the table below.\n')
         assert 'section heading' in v[0]['fix_hint']
+        assert v[0]['auto_fix_eligible'] is True
+
+    def test_marks_cla_spatial_violations_as_manual_review_only(self):
+        v = spatial_violations_for_path(
+            'Select one of the options below and sign as indicated.\n',
+            '_docs/_docs_pages/cla.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is False
+
+    def test_marks_legal_segment_paths_as_manual_review_only(self):
+        v = spatial_violations_for_path(
+            'Read the terms below before continuing.\n',
+            '_docs/legal/terms_of_service.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is False
+
+    def test_marks_docs_pages_legal_filenames_as_manual_review_only(self):
+        v = spatial_violations_for_path(
+            'The details are listed below.\n',
+            '_docs/_docs_pages/privacy_policy.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is False
+
+    def test_marks_docs_pages_tokenized_legal_stem_as_manual_review_only(self):
+        v = spatial_violations_for_path(
+            'The details are listed below.\n',
+            '_docs/_docs_pages/privacy-overview.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is False
+
+    def test_does_not_treat_terms_to_know_as_legal_sensitive(self):
+        v = spatial_violations_for_path(
+            'Review the list below before setup.\n',
+            '_docs/_user_guide/get_started/terms_to_know.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is True
+
+    def test_does_not_treat_docs_pages_classification_as_legal_sensitive(self):
+        v = spatial_violations_for_path(
+            'See details below.\n',
+            '_docs/_docs_pages/classification.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is True
 
     # ------------------------------------------------------------------
     # False-positive guard: "right" / "left" meaning "correct" or other

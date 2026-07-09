@@ -1262,6 +1262,10 @@ This event occurs when Braze syncs the Live Activity push to start token with th
 {% endtab %}
 {% endtabs %}
 
+### Property details
+
+- Braze emits an "update" event with `push_token_state_change_type` set to `"update"` when an anonymous user is identified on the same profile and existing iOS Live Activity push-to-start tokens stay on that profile. In this case, `user_id` does not change, and `external_user_id` is set to the identified user's external ID. This includes identification through the [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) endpoint and SDK `changeUser` when it assigns an external ID to the anonymous profile on the device.
+
 {% endapi %}
 
 {% api %}
@@ -1589,7 +1593,7 @@ This event occurs when a push token is inserted, updated, or removed. Use this t
 
 ##### Add
 
-An "add" event is ingested when a new token is registered. This happens when a user opens the app on a new device for the first time, or when a token is set through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint with `push_tokens` for a user that didn't previously have one.
+An "add" event is ingested when a new token is registered. This happens when a user opens the app on a new device for the first time, or when a token is set through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint with `push_tokens` for a user that didn't previously have one. The `time_ms` field indicates when the add event happened.
 
 {% alert note %}
 For iOS Swift SDK 13.3.0 and later, and Android SDK 40.0.0 and later, push permission status and push token are sent together. For new registrations from these SDKs, `push_token_foreground_push_disabled` is populated on the "add" event (typically `false` when notifications are enabled).<br><br>
@@ -1599,7 +1603,9 @@ Older token registrations can still have this field as `null` until the SDK late
 
 ##### Update
 
-An "update" event is ingested when a property changes on an existing token without the token string itself changing. The token has the same string, same user, and same app, but one or more of the following fields changed: `foreground_push_disabled`, APNs gateway, web push keys, `provisionally_opted_in`, or `device_id`. These updates come from token state sync events (for example, when the SDK reports a new permission state), not from push send outcomes.
+An "update" event is ingested when a property changes on an existing token without the token string itself changing. The token has the same string, same user, and same app, but one or more of the following fields changed: `foreground_push_disabled`, APNs gateway, web push keys, `provisionally_opted_in`, or `device_id`. These updates come from token state sync events (for example, when the SDK reports a new permission state), not from push send outcomes. The `time_ms` field indicates when the update event happened.
+
+Braze also emits an "update" event with `push_token_state_change_type` set to `"update"` when an anonymous user is identified on the same profile and existing push tokens stay on that profile. In this case, `user_id` does not change, and `external_user_id` is set to the identified user's external ID. This includes identification through the [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) endpoint and SDK `changeUser` when it assigns an external ID to the anonymous profile on the device.
 
 {% alert note %}
 In most cases, app reinstall or backup restore results in a new "add" event with a new `push_token` and new `device_id` (because the SDK generates a new `device_id` and the OS provides a new push token string). This creates two separate token and device entries on the user profile, and the older entry is cleaned up later through uninstall tracking or campaign send.<br><br>
@@ -1617,8 +1623,15 @@ A standalone "remove" event is ingested when Braze removes a token. This can hap
 
 When a push bounce triggers token removal, Braze emits `push_token_state_change_type = "remove"` for that token. It does not emit an "update" event that changes `push_token_foreground_push_disabled`.
 
+The `time_ms` field indicates when the remove event happened.
+
+{% alert note %}
+For "remove" events, the following token property fields are not populated: `push_token_created_at`, `push_token_updated_at`, `push_token_foreground_push_disabled`, `push_token_provisionally_opted_in`, `ios_push_token_apns_gateway`, `web_push_token_public_key`, `web_push_token_user_auth`, and `web_push_token_vapid_public_key`.
+{% endalert %}
+
 ##### Add and remove pairs
 
+Paired add and remove events are two linked token state events for the same transition: one "add" event and one "remove" event.
 Add and remove pairs fall into two categories:
 
 **Token string refresh (same user):** The OS rotates the token string on the same device (for example, APNs or FCM token rotation). The "add" event (new token) and "remove" event (old token) have the same `user_id`, same `device_id`, different `push_token`, and identical `time_ms`.
@@ -1630,7 +1643,7 @@ Add and remove pairs fall into two categories:
 - The [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) endpoint or duplicate user cleanup moves the orphaned user's tokens to the surviving user.
 
 {% alert note %}
-If an anonymous profile is identified through the [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) endpoint, the `user_id` does not change and no token state change event is emitted.
+Same-profile identification through REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) or SDK `changeUser` assigning an external ID to the anonymous profile does not change `user_id` and does not emit paired add and remove events. Instead, Braze emits an "update" event for each existing push token and sets `external_user_id` to the identified user's external ID. When `changeUser` moves tokens from one user profile to another, Braze still emits the paired add and remove events described above.
 {% endalert %}
 
 #### Querying for the latest active token state

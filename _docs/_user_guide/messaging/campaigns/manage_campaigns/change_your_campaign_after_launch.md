@@ -4,7 +4,7 @@ article_title: Edit Your Campaign After Launch
 page_order: 1
 tool: Campaigns
 page_type: reference
-description: "This reference article gives an overview of the result of editing certain aspects of a campaign post-launch."
+description: "This reference article gives an overview of the result of editing certain aspects of a campaign post-launch, including how changes propagate for in-app message campaigns."
 
 ---
 
@@ -43,6 +43,27 @@ To restart your campaign, select **Resume**. Your campaign will continue sending
 For campaigns with a larger audience and rate limits, Braze partitions and schedules batches of messages to send at different times. When a campaign is stopped, sends aren't canceled immediately. Instead, they are canceled when they begin to run and detect that the campaign has been stopped.
 
 For example, if you start a rate-limited email campaign, pause it for a few hours, and then resume it, all messages that were scheduled to send during the paused hours are canceled and never send. Any remaining messages scheduled after the campaign resumes continue to send. If re-eligibility is enabled for the campaign, users can become eligible to receive the campaign again in addition to any messages that were already queued before the campaign was stopped. 
+
+## In-app message campaigns
+
+Unlike push or email, in-app messages are delivered to devices at session start and cached locally until the trigger fires. When you edit a live in-app message campaign—such as stopping it, setting an [end date]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger), turning on **Re-evaluate campaign eligibility before displaying**, updating content, changing the message trigger, or updating the target audience—the updated configuration propagates when devices fetch triggers at their next session start.
+
+Expect the following:
+
+- Devices that haven't started a new session since your change may continue using the previous configuration until they sync triggers again.
+- Devices that start a session after your change receive the latest configuration.
+
+### Stop a mistaken launch
+
+If you launched the wrong in-app message campaign, select **Stop Campaign** on the **Campaign Details** page. This is the fastest way to prevent new sessions from downloading the message. Users who already cached the payload before you stopped the campaign can still see it when they meet the trigger conditions until their device syncs updated triggers on a later session.
+
+[Archiving]({{site.baseurl}}/user_guide/messaging/governance/archiving/) and end dates follow the same propagation rules: they stop delivery for future syncs but don't remove messages already cached on devices. If you may need to review, duplicate, or edit the campaign, stop it first and archive it later when you're finished.
+
+### Limit stale deliveries
+
+Select **Re-evaluate campaign eligibility before displaying** in your campaign's delivery settings so Braze confirms audience membership and campaign status right before each display. This helps prevent impressions after a campaign is stopped, archived, or past its end date. You can turn this setting on or off after launch, but it follows the same propagation rules as other changes: devices don't receive the updated configuration until their next trigger sync.
+
+For more information, refer to [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target) and [Why is my archived in-app message campaign still delivering in-app message impressions?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Triggered campaigns
 

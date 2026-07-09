@@ -16,7 +16,7 @@ It's important to note that analytics are not sent to Braze until the mobile app
 
 In Xcode, add the `App Groups` capability. If you haven’t had any workspaces in your app, go to the capability of the main app target, turn on the `App Groups`, and click the **+** Add button. Then, use your app’s bundle ID to create the workspace. For example, if your app’s bundle ID is `com.company.appname`, you can name your workspace `group.com.company.appname.xyz`. Make sure the `App Groups` are turned on for both your main app target and the content extension target.
 
-![]({% image_buster /assets/img/swift/push_story/add_app_groups.png %})
+![Xcode Signing and Capabilities screen with App Groups enabled for main app and extension targets.]({% image_buster /assets/img/swift/push_story/add_app_groups.png %})
 
 ### Step 2: Integrate code snippets
 

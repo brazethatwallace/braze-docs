@@ -3,7 +3,7 @@
 
 | Layout | Behavior |
 | --- | --- |
-| Image and text | Tall or narrow images will scale down and be horizontally centered. Wide images will be clipped on the left and right edges. |
+| Image and text | Tall or narrow images will scale down and be horizontally centered. Wide images will be clipped on the horizontal edges. |
 | Image only | The message will resize to fit images of most aspect ratios. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
@@ -36,7 +36,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | Type | Aspect ratio | Image quality | Notes |
 | --- | --- | --- | --- |
 | Portrait full screen with text | 6:5 | High resolution 1200 x 1000 px <br>Minimum resolution 600 x 500 px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport. |
-| Portrait full screen (image only, with or without buttons) | 3:5 | High resolution 1200 x 2000 px <br> Minimum resolution 600 x 1000 px | Cropping can occur on the left and right edges on taller devices. |
+| Portrait full screen (image only, with or without buttons) | 3:5 | High resolution 1200 x 2000 px <br> Minimum resolution 600 x 1000 px | Cropping can occur on the horizontal edges on taller devices. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
@@ -45,7 +45,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | Type | Aspect ratio | Image quality | Notes |
 | --- | --- | --- | --- |
 | Landscape full screen with text | 10:3 | High resolution 2000 x 600 px <br>Minimum resolution 1000 x 300 px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport. |
-| Landscape full screen (image only, with or without buttons) | 5:3 | High resolution 2000 x 600 px <br> Minimum resolution 1000 x 600 px | Cropping can occur on the left and right edges on taller devices. |
+| Landscape full screen (image only, with or without buttons) | 5:3 | High resolution 2000 x 600 px <br> Minimum resolution 1000 x 600 px | Cropping can occur on the horizontal edges on taller devices. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
@@ -62,7 +62,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | Type | Aspect ratio | Image quality | Notes |
 | --- | --- | --- | --- |
 | Modal (image only) | 1:1 | Maximum recommended resolution: 1200 x 2000 px <br> Minimum resolution: 600 x 600 px | The message will resize to fit images of most aspect ratios. The recommended maximum resolution has a 3:5 aspect ratio, which may not provide optimal results. While larger images are usable, they may lead to longer load times. <br> The ideal aspect ratio for images is 1:1, and not meeting this ratio may trigger a warning during upload. This warning is a suggestion for best results and does not prevent the upload of larger images. |
-| Modal with text | 29:10 | High resolution 1450 x 500 px <br> Minimum resolution 600 x 205 px | Tall images will scale down and be horizontally centered. Wide images will be clipped on the left and right edges. |
+| Modal with text | 29:10 | High resolution 1450 x 500 px <br> Minimum resolution 600 x 205 px | Tall images will scale down and be horizontally centered. Wide images will be clipped on the horizontal edges. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}

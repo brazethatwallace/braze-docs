@@ -58,7 +58,7 @@ By default, Braze will collect the following device-level properties to allow de
 - Device Time Zone
 
 {% alert note %}
-The Braze SDK does not collect IDFA automatically. Apps may optionally pass IDFA to Braze by implementing the methods directly below. Apps must obtain explicit opt-in to tracking by the end user through the App Tracking Transparency framework before passing IDFA to Braze.
+The Braze SDK does not collect IDFA automatically. Apps may optionally pass IDFA to Braze by implementing the methods in the following sections. Apps must obtain explicit opt-in to tracking by the end user through the App Tracking Transparency framework before passing IDFA to Braze.
 
 1. To set the advertising tracking state, use [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/).
 2. To set the identifier for advertiser (IDFA), use [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
