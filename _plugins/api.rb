@@ -16,7 +16,7 @@ module Api
       # syntax-highlighted spans that Kramdown emits for JSON keys.
       h2_match    = content.match(/<h2[^>]*>(.*?)<\/h2>/i)
       tags_match  = content.match(/data-tags=['"]([^'"]*)['"]/i)
-      desc_match  = content.match(/class='api_tags'[^>]*><\/div>\s*<p>(.*?)<\/p>/m)
+      desc_match  = content.match(/class=['"]api_tags['"][^>]*><\/div>\s*<p>(.*?)<\/p>/m)
       # JSON object keys are wrapped in <span class="nl">"field_name"</span>.
       # Extract the names (lowercase snake_case identifiers) and deduplicate.
       field_names = content.scan(/<span class="nl">"([a-z][a-z0-9_]+)"<\/span>/).flatten.uniq.join(' ')
@@ -24,7 +24,7 @@ module Api
       keywords = [
         h2_match   ? h2_match[1].gsub(/<[^>]+>/, '').strip   : '',
         tags_match ? tags_match[1].strip                      : '',
-        desc_match ? desc_match[1].gsub(/<[^>]+>/, '').strip  : '',
+        desc_match ? desc_match[1].gsub(/<span class=['"]sr-only['"][^>]*>.*?<\/span>/m, '').gsub(/<[^>]+>/, '').strip  : '',
         field_names
       ].reject(&:empty?).join(' ').downcase
       keywords_escaped = keywords.gsub('"', '&quot;').gsub("'", '&#39;')
@@ -66,6 +66,7 @@ module Api
         return "<div class='api_tags' data-tags='#{content}' data-tags-lower='#{content.downcase}'></div>"
       end
   end
+
   class ApiReferenceBlock < Liquid::Block
       def initialize(tag_name, param, tokens)
           super

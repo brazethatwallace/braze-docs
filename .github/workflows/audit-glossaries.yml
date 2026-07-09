@@ -88,7 +88,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh label create "glossary-audit" --description "Glossary drift report" --color "FBCA04" --force
-          gh label create "status: done" --description "Work is done and ready to be merged." --color "0E8A16" --force
 
       - name: Create pull request
         if: >-
@@ -103,7 +102,6 @@ jobs:
           body-path: scripts/glossary_audit_reports/latest.md
           labels: |
             glossary-audit
-            status: done
           commit-message: "chore: glossary drift report"
           delete-branch: true
           add-paths: |

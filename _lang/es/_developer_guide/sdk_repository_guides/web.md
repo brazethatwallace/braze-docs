@@ -6,6 +6,8 @@ description: "Referencia del README del SDK web de Braze reflejada desde GitHub.
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guía del repositorio del SDK web {#web-sdk-repository-guide}
+
 ## Acerca del SDK web de Braze {#about-the-braze-web-sdk}
 
 El SDK web de Braze te permite integrar la plataforma de interacción con los clientes de Braze directamente en tus aplicaciones web. Creado con TypeScript y diseñado para el desarrollo web moderno, este SDK proporciona herramientas completas para la gestión de usuarios, mensajería, análisis y conmutadores de características.
@@ -28,14 +30,14 @@ Ya sea que estés creando una aplicación de página única, un sitio de comerci
 Antes de integrar el SDK web de Braze, necesitarás:
 
 - **Cuenta de Braze**: una cuenta de Braze con acceso a la API
-- **Clave de API**: la clave de API de tu aplicación desde el dashboard de Braze
+- **Clave de API**: la clave de API de tu aplicación desde el panel de Braze
 - **Punto final de SDK**: la URL de tu punto final de SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)
 
 ### Obtener tus credenciales {#getting-your-credentials}
 
-1. **Clave de API**: se encuentra en tu dashboard de Braze en **Configuración** > **Claves de API**
+1. **Clave de API**: se encuentra en tu panel de Braze en **Configuración** > **Claves de API**
 2. **Punto final de SDK**: se encuentra en **Configuración** > **Autenticación SDK** > **Puntos finales**
-3. **Prestador de servicios**: necesario para las notificaciones push (consulta la sección de notificaciones push)
+3. **Service worker**: necesario para las notificaciones push (consulta la sección de notificaciones push)
 
 ## Instalación {#installation}
 
@@ -68,7 +70,7 @@ La función `initialize` acepta un objeto de opciones con las siguientes propied
 |--------|------|----------------|-------------|
 | `baseUrl` | `string` | **Obligatorio** | Esta opción es obligatoria para configurar el SDK web de Braze para que utilice el punto de conexión adecuado para tu integración; por ejemplo: `braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'sdk.iad-03.braze.com' })` |
 | `enableLogging` | `boolean` | `false` | Establécelo en true para habilitar el registro de forma predeterminada. Ten en cuenta que esto hará que Braze registre en la consola de JavaScript, que es visible para todos los usuarios. Probablemente deberías eliminar esto o proporcionar un registrador alternativo con setLogger antes de publicar tu página en producción. |
-| `allowUserSuppliedJavascript` | `boolean` | `false` | De forma predeterminada, el SDK web de Braze no permite acciones de clic de JavaScript proporcionadas por el usuario, ni habilita mensajes dentro de la aplicación HTML ni Banners, ya que permiten a los usuarios del dashboard de Braze ejecutar JavaScript en tu sitio. Para indicar que confías en los usuarios del dashboard de Braze para escribir acciones de clic de JavaScript no maliciosas, establece esta propiedad en true. |
+| `allowUserSuppliedJavascript` | `boolean` | `false` | De forma predeterminada, el SDK web de Braze no permite acciones de clic de JavaScript proporcionadas por el usuario, ni habilita mensajes dentro de la aplicación HTML ni Banners, ya que permiten a los usuarios del panel de Braze ejecutar JavaScript en tu sitio. Para indicar que confías en los usuarios del panel de Braze para escribir acciones de clic de JavaScript no maliciosas, establece esta propiedad en true. |
 | `doNotLoadFontAwesome` | `boolean` | `false` | Braze utiliza Font Awesome para los iconos de los mensajes dentro de la aplicación. De forma predeterminada, Braze cargará automáticamente FontAwesome 4.7.0 desde el CDN de FontAwesome. Para deshabilitar este comportamiento (por ejemplo, porque tu sitio utiliza una versión personalizada de FontAwesome), establece esta opción en `true`. Ten en cuenta que si haces esto, eres responsable de asegurar que FontAwesome esté cargado en tu sitio; de lo contrario, los mensajes dentro de la aplicación podrían no renderizarse correctamente. |
 | `inAppMessageZIndex` | `number` | `999999` | De forma predeterminada, el SDK de Braze mostrará In-App Messages con un z-index de 999999. Proporciona un valor para esta opción para anular ese valor predeterminado. |
 | `sessionTimeoutInSeconds` | `number` | `30` | De forma predeterminada, una sesión expira después de 30 segundos de inactividad. Proporciona un valor para esta opción para anular ese valor predeterminado. |
@@ -79,17 +81,17 @@ La función `initialize` acepta un objeto de opciones con las siguientes propied
 | `noCookies` | `boolean` | `false` | De forma predeterminada, el SDK web de Braze utiliza cookies. Para deshabilitar el uso de cookies, establece esta opción en true. Ten en cuenta que deshabilitar las cookies puede afectar la capacidad del SDK para recordar las identidades de los usuarios entre sesiones. |
 | `allowCrawlerActivity` | `boolean` | `false` | De forma predeterminada, el SDK web de Braze ignora la actividad de arañas web o rastreadores conocidos, como Google, basándose en la cadena de agente de usuario. Esto ahorra puntos de datos, hace que los análisis sean más precisos y puede mejorar el posicionamiento en buscadores. Sin embargo, si deseas que Braze registre la actividad de estos rastreadores, puedes establecer esta opción en true. |
 | `disablePushTokenMaintenance` | `boolean` | `false` | De forma predeterminada, los usuarios que ya han concedido permiso de push web (por ejemplo, a través de requestPushPermission o de un proveedor de push anterior) sincronizarán su token de push con el backend de Braze automáticamente en cada nueva sesión para garantizar la capacidad de entrega. Para deshabilitar este comportamiento, establece esta opción en true. |
-| `enableSdkAuthentication` | `boolean` | `false` | Establécelo en true para habilitar la característica de Autenticación SDK. Para más información sobre la Autenticación SDK, consulta nuestra documentación del producto. |
-| `manageServiceWorkerExternally` | `boolean` | `false` | De forma predeterminada, el SDK web de Braze gestiona su propio prestador de servicios para las notificaciones push. Si ya estás gestionando un prestador de servicios en tu aplicación y deseas incorporar la funcionalidad del prestador de servicios de Braze en él, establece esta opción en true e incluye el código del prestador de servicios de Braze en tu archivo de prestador de servicios. |
+| `enableSdkAuthentication` | `boolean` | `false` | Establécelo en true para habilitar la característica de autenticación SDK. Para más información sobre la autenticación SDK, consulta nuestra documentación del producto. |
+| `manageServiceWorkerExternally` | `boolean` | `false` | De forma predeterminada, el SDK web de Braze gestiona su propio service worker para las notificaciones push. Si ya estás gestionando un service worker en tu aplicación y deseas incorporar la funcionalidad del service worker de Braze en él, establece esta opción en true e incluye el código del service worker de Braze en tu archivo de service worker. |
 | `minimumIntervalBetweenTriggerActionsInSeconds` | `number` | `30` | De forma predeterminada, las acciones desencadenantes (por ejemplo, mostrar un mensaje dentro de la aplicación) pueden activarse como máximo una vez cada 30 segundos por usuario. Proporciona un valor para esta opción para anular ese valor predeterminado. |
-| `serviceWorkerLocation` | `string` | `undefined` | De forma predeterminada, el SDK web de Braze buscará su archivo de prestador de servicios en la raíz de tu dominio. Proporciona un valor para esta opción para anular ese valor predeterminado y especificar una ubicación personalizada para el archivo del prestador de servicios. |
+| `serviceWorkerLocation` | `string` | `undefined` | De forma predeterminada, el SDK web de Braze buscará su archivo de service worker en la raíz de tu dominio. Proporciona un valor para esta opción para anular ese valor predeterminado y especificar una ubicación personalizada para el archivo del service worker. |
 | `safariWebsitePushId` | `string` | `undefined` | Obligatorio para las notificaciones push de Safari. Este valor se puede encontrar en tu cuenta de Apple Developer. Para más información sobre la configuración de las notificaciones push de Safari, consulta nuestra documentación del producto. |
 | `localization` | `string` | `undefined` | Si proporcionas un valor para esta opción, el SDK de Braze intentará mostrar los mensajes dentro de la aplicación y las Content Cards en ese idioma. |
 | `openInAppMessagesInNewTab` | `boolean` | `false` | De forma predeterminada, los enlaces en los mensajes dentro de la aplicación se abren en la misma pestaña. Establece esta opción en true para que se abran en una nueva pestaña. |
 | `openCardsInNewTab` | `boolean` | `false` | De forma predeterminada, los enlaces en las Content Cards se abren en la misma pestaña. Establece esta opción en true para que se abran en una nueva pestaña. |
 | `requireExplicitInAppMessageDismissal` | `boolean` | `false` | De forma predeterminada, los mensajes dentro de la aplicación pueden descartarse haciendo clic fuera de ellos o presionando la tecla Escape. Establece esta opción en true para requerir que los usuarios hagan clic explícitamente en un botón de descarte o en un botón de acción para descartar el mensaje. |
 | `devicePropertyAllowlist` | `string[]` | `undefined` | De forma predeterminada, el SDK de Braze detecta y recopila automáticamente todas las propiedades del dispositivo en DeviceProperties. Para anular este comportamiento, proporciona un array de DeviceProperties. Para deshabilitar el envío de todas las propiedades a los servidores de Braze, proporciona un array vacío. Ten en cuenta que sin algunas propiedades, no todas las características funcionarán correctamente. Por ejemplo, sin la zona horaria, la entrega en zona horaria local no funcionará. |
-| `serviceWorkerScope` | `string` | `undefined` | De forma predeterminada, el SDK web de Braze registrará su prestador de servicios con el alcance predeterminado (el directorio del prestador de servicios). Proporciona un valor para esta opción para anular ese valor predeterminado y especificar un alcance personalizado para el prestador de servicios. |
+| `serviceWorkerScope` | `string` | `undefined` | De forma predeterminada, el SDK web de Braze registrará su service worker con el alcance predeterminado (el directorio del service worker). Proporciona un valor para esta opción para anular ese valor predeterminado y especificar un alcance personalizado para el service worker. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Opciones de inicialización" }
 
 ---
@@ -768,7 +770,7 @@ Para la integración con AMP, necesitarás:
 1. **Incluir el script de push web de AMP**: añade la etiqueta de script asíncrono a tu head
 2. **Añadir widgets de suscripción**: añade widgets para permitir que los usuarios se suscriban o cancelen su suscripción
 3. **Añadir archivos auxiliares**: incluye `helper-iframe.html` y `permission-dialog.html`
-4. **Crear un prestador de servicios**: añade el archivo de prestador de servicios de Braze
+4. **Crear un service worker**: añade el archivo de service worker de Braze
 5. **Configurar el elemento de push web de AMP**: añade el elemento `amp-web-push` con tu clave de API y URL base como parámetros de consulta
 
 Para instrucciones detalladas de integración con AMP, consulta la [Guía para desarrolladores de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
@@ -782,17 +784,17 @@ Electron no es compatible oficialmente con las notificaciones push web (consulta
 - **Carga de scripts**: inicializa después de que se cargue la etiqueta de script colocando el código de inicialización después de la etiqueta de script, o utiliza el controlador de eventos `onload` de la etiqueta de script
 - **Acceso global**: el SDK está disponible como `window.braze` cuando se carga a través del CDN
 
-### Prestador de servicios (notificaciones push) {#service-worker-push-notifications}
+### Service worker (notificaciones push) {#service-worker-push-notifications}
 
-- **Obligatorio**: debes incluir el prestador de servicios de Braze para que las notificaciones push funcionen
-- **Registro**: registra el prestador de servicios en el código de tu sitio web usando `navigator.serviceWorker.register()`
+- **Obligatorio**: debes incluir el service worker de Braze para que las notificaciones push funcionen
+- **Registro**: registra el service worker en el código de tu sitio web usando `navigator.serviceWorker.register()`
 - **Permisos de push**: llama a `braze.requestPushPermission()` en respuesta a interacciones del usuario (por ejemplo, clics en botones). Utiliza indicaciones de push suaves (interfaz personalizada) antes de solicitar el permiso del navegador
 
 ### Gestores de etiquetas {#tag-managers}
 
 #### Tealium iQ
 
-Tealium iQ ofrece una integración básica llave en mano con Braze. Para configurar la integración, busca Braze en la interfaz de gestión de etiquetas de Tealium y proporciona la clave de API del SDK web desde tu dashboard. Para más detalles o soporte de configuración avanzada de Tealium, consulta nuestra [documentación de integración](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) o ponte en contacto con tu director de cuentas de Tealium.
+Tealium iQ ofrece una integración básica llave en mano con Braze. Para configurar la integración, busca Braze en la interfaz de gestión de etiquetas de Tealium y proporciona la clave de API del SDK web desde tu panel. Para más detalles o soporte de configuración avanzada de Tealium, consulta nuestra [documentación de integración](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) o ponte en contacto con tu director de cuentas de Tealium.
 
 #### Otros gestores de etiquetas {#other-tag-managers}
 

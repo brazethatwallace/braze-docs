@@ -320,8 +320,6 @@ Assim que determinarmos o vencedor, poderemos interromper essa Campaign e aument
 
 Use o filtro **Feature Flag** para criar um Segment ou direcionar o envio de mensagens aos usuários com base no fato de eles terem ou não uma Feature Flag ativada. Por exemplo, digamos que temos uma Feature Flag que controla o conteúdo premium em nosso app. Poderíamos criar um Segment que filtrasse os usuários que não tivessem a Feature Flag ativada e, em seguida, enviar a esse Segment uma mensagem pedindo que fizessem upgrade da conta para ver o conteúdo premium.
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
-
 Para saber mais sobre filtragem em Segments, consulte [Criação de um Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
 {% alert note %}

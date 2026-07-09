@@ -10,7 +10,7 @@ page_order: 4
 > ランディングページでLiquidパーソナライゼーションを使用すると、ユーザープロファイルデータに基づいてコンテンツを動的にカスタマイズできます。たとえば、複数の静的ランディングページを管理することなく、さまざまなユーザー属性に基づいて見出しをパーソナライズできます。
 
 {% alert important %}
-ランディングページのLiquidパーソナライゼーションは、ランディングページのProティアでのみ利用可能です。現在、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)、[多言語]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)、および[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)は、ランディングページのLiquidパーソナライゼーションではサポートされていません。
+ランディングページのLiquidパーソナライゼーションは、ランディングページのProティアでのみ利用可能です。現在、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)、[多言語]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)、および[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)は、ランディングページのLiquidパーソナライゼーションではサポートされていません。
 {% endalert %}
 
 ## Liquidの挿入 {#inserting-liquid}
@@ -66,6 +66,10 @@ Liquidは、識別済みの訪問者と匿名の訪問者の両方に対して�
 
 - **入力フィールド：** プレースホルダーテキストが表示されます。
 - **チェックボックス、ラジオボタン、および類似のコントロール：** ユーザーが操作するまで未選択のままです。
+
+{% alert warning %}
+ユーザーがランディングページのリンク（メール、SMS、またはその他のメッセージから）を別の人に転送した場合、受信者には元のユーザー向けに事前入力されたデータが表示されます。これは、購読解除リンクやユーザー設定センターのリンクに適用されるのと同じセキュリティ上の考慮事項です。この機能を使用する際は、事前入力するデータの機密性とオーディエンスの共有行動を考慮してください。
+{% endalert %}
 
 ## カスタムコードによる外部データの取得 {#fetching-external-data-with-custom-code}
 

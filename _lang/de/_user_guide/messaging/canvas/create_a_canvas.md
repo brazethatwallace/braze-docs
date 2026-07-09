@@ -155,12 +155,12 @@ Eintrittskontrollen bestimmen, ob Nutzer:innen erneut in ein Canvas eintreten d�
 - **Aktionsbasiert:** Stündlich, täglich oder Lifetime des Canvas
 - **API-getriggert:** Stündlich, täglich oder Lifetime des Canvas
 
-Wenn Sie beispielsweise ein aktionsbasiertes Canvas haben und **Limit entrance volume** auswählen und das Feld **Maximum entries** auf 5.000 Nutzer:innen mit **Daily** als Limit-Kadenz setzen, sendet das Canvas nur an 5.000 Nutzer:innen pro Tag.
+Wenn Sie beispielsweise ein geplantes Canvas haben und **Eintrittsvolumen begrenzen** auswählen und das Feld **Maximale Eintritte** auf 500.000 Nutzer:innen mit **Jedes Mal, wenn das Canvas geplant ist** als Limit-Kadenz setzen, sendet das Canvas nur an 500.000 Nutzer:innen pro geplantem Versand.
 
-![Die Seite „Entry Controls“ mit Kontrollkästchen für „Allow users to re-enter Canvas“ und „Limit entrance volume“. Letzteres ermöglicht es Ihnen, die maximalen Eintritte festzulegen und eine Kadenz zu wählen, die vom Entry-Zeitplan-Typ abhängt (z. B. Lifetime des Canvas oder jedes Mal, wenn das Canvas geplant ist für geplanten Eintritt, und stündlich, täglich oder Lifetime des Canvas für aktionsbasierten und API-getriggerten Eintritt).]({% image_buster /assets/img_archive/entry_controls.png %})
+![Die Seite „Entry Controls“ mit Kontrollkästchen für „Nutzer:innen den Wiedereintritt in das Canvas erlauben“ und „Eintrittsvolumen begrenzen“.]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
-Braze empfiehlt nicht, **Every time the Canvas is scheduled** für IP-Warming auszuwählen, da dies zu erhöhten Sendevolumen führen kann.
+Braze empfiehlt nicht, **Jedes Mal, wenn das Canvas geplant ist** für IP-Warming auszuwählen, da dies zu erhöhten Sendevolumen führen kann.
 {% endalert %}
 
 #### Ausstiegskriterien festlegen {#setting-exit-criteria}
@@ -169,15 +169,15 @@ Das Festlegen der [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/can
 
 #### Zielpopulation berechnen {#calculating-target-population}
 
-Im Abschnitt **Zielpopulation** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segmente und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
+Im Abschnitt **Zielpopulation** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segmente und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Genaue Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
 
 Beachten Sie Folgendes:
 
 - Die Berechnung genauer Statistiken kann einige Minuten dauern. Diese Funktion berechnet die genauen Statistiken nur auf Segment-Ebene, nicht auf Filter- oder Filtergruppen-Ebene.
-- Während die genauen Statistiken geladen werden, kann eine gerundete Schätzung angezeigt werden. Die genaue Zahl erscheint im Abschnitt **Erreichbare Nutzer:innen**, sobald sie geladen ist. Sie können **Show Additional Stats** auswählen, um eine detaillierte Aufschlüsselung zu erhalten.
+- Während die genauen Statistiken geladen werden, kann eine gerundete Schätzung angezeigt werden. Die genaue Zahl erscheint im Abschnitt **Erreichbare Nutzer:innen**, sobald sie geladen ist. Sie können **Zusätzliche Statistiken anzeigen** auswählen, um eine detaillierte Aufschlüsselung zu erhalten.
 - Bei großen Segmenten ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
 
-Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetime-Umsatz für angesprochene Nutzer:innen, wählen Sie **Show Additional Statistics**.
+Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetime-Umsatz für angesprochene Nutzer:innen, wählen Sie **Zusätzliche Statistiken anzeigen**.
 
 ![Aufschlüsselung der Zielpopulation mit der Option, genaue Statistiken zu berechnen.]({% image_buster /assets/img_archive/canvas_exact_stats.png %})
 
@@ -203,7 +203,7 @@ Diese Abo-Einstellungen werden pro Schritt angewendet, was bedeutet, dass sie ke
 Mit dieser Konfiguration sollten Sie im Schritt **Zielgruppe** keine Filter einschließen, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Sendeeinstellungen**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
+Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Ruhezeiten aktivieren** in Ihren **Sendeeinstellungen**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
 
 Wenn **Zur nächsten verfügbaren Zeit senden** ausgewählt ist, unterdrücken die Ruhezeiten die Nachricht und senden sie zur nächsten verfügbaren Zeit außerhalb der Ruhezeiten. Angenommen, die Ruhezeiten sind so eingerichtet, dass Nachrichten zwischen 11:30 Uhr und 14:30 Uhr in der Ortszeit der Nutzer:innen nicht gesendet werden, und ein:e Nutzer:in erreicht einen Nachrichtenschritt um 11:35 Uhr. Da diese Zeit innerhalb der Ruhezeiten liegt, wird die Nachricht noch nicht gesendet, und die Person erhält den Nachrichtenschritt um 14:30 Uhr, also nach den Ruhezeiten.
 
@@ -279,7 +279,7 @@ Möchten Sie einen Schritt in Ihrer User Journey bearbeiten? Hier erfahren Sie, 
 
 Sie können jeden Schritt in Ihrem Canvas-Workflow bearbeiten, indem Sie eine der Komponenten auswählen. Angenommen, Sie möchten Ihren ersten Schritt, eine [Verzögerungskomponente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), in Ihrem Workflow auf einen bestimmten Tag ändern. Wählen Sie den Schritt aus, um seine Einstellungen anzuzeigen, und passen Sie Ihre Verzögerung auf den 1. März an. Das bedeutet, dass Ihre Nutzer:innen am 1. März zum nächsten Schritt in Ihrem Canvas weitergeleitet werden.
 
-![Ein Beispiel für einen Verzögerungsschritt mit der Verzögerung auf „Bis zu einem bestimmten Tag“ eingestellt.]({% image_buster /assets/img_archive/edit_delay_flow.png %})
+![Ein Beispiel für einen „Verzögerungsschritt“ mit der Verzögerung auf „Bis zu einem bestimmten Tag“ eingestellt.]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
 Oder Sie können schnell die **Aktionseinstellungen** Ihres [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritts bearbeiten und anpassen, um Nutzer:innen für ein Zeitfenster zu halten. Dies priorisiert ihren nächsten Pfad basierend auf den Aktionen während dieses Bewertungszeitraums.
 

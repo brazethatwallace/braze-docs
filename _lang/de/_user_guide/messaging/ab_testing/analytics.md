@@ -20,13 +20,13 @@ Ihre Analytics-Ansicht variiert je nachdem, welche [Optimierung]({{site.baseurl}
 
 Wenn Sie bei der Einrichtung Ihrer Campaign **No optimization** ausgewählt haben, bleibt Ihre Analytics-Ansicht unverändert. Die Seite **Campaign Analytics** Ihrer Campaign zeigt die Performance Ihrer Varianten im Vergleich zu Ihrer Kontrollgruppe, sofern Sie eine eingerichtet haben.
 
-![Performance-Bereich der Campaign Analytics für eine E-Mail-Campaign mit mehreren Varianten. Die Tabelle listet verschiedene Performance-Metriken für jede Variante auf, wie Empfänger:innen, Bounces, Klicks und Conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
+![Performance-Bereich der Campaign Analytics für eine E-Mail-Campaign mit mehreren Varianten. Die Tabelle listet verschiedene Performance-Metriken für jede Variante auf, wie Empfänger:innen, Bounces, Klicks und Konversionen.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 Weitere Details finden Sie im Artikel [Kampagnen-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) für Ihren Messaging-Kanal.
 
 ### BrazeAI<sup>TM</sup>-Variantenauswahl (nur Push) {#brazeai-variant-selection-push-only}
 
-Wenn Sie die BrazeAI<sup>TM</sup>-Variantenauswahl verwenden, sehen Sie – je nachdem, ob es sich um einen Einzelversand oder eine wiederkehrende Campaign handelt – nach Ablauf des Experimentfensters (oder der ersten Periode bei wiederkehrenden Campaigns) den Uplift, sofern vorhanden, auf der Startseite der Campaign. Außerdem sehen Sie weitere Details ähnlich wie bei der Gewinnervariante unten, wenn Sie eine Einzelversand-Campaign durchführen.
+Wenn Sie die BrazeAI<sup>TM</sup>-Variantenauswahl verwenden, sehen Sie – je nachdem, ob es sich um einen Einzelversand oder eine wiederkehrende Campaign handelt – nach Ablauf des Experimentfensters (oder der ersten Periode bei wiederkehrenden Campaigns) den Uplift, sofern vorhanden, auf der Startseite der Campaign. Außerdem sehen Sie weitere Details ähnlich wie bei der Gewinnervariante, wenn Sie eine Einzelversand-Campaign durchführen.
 
 Weitere Details dazu, wie wir den Uplift bei der BrazeAI<sup>TM</sup>-Variantenauswahl berichten, finden Sie unter [Variantenauswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
@@ -125,7 +125,7 @@ Die drei Karten auf dieser Seite zeigen Ihren prognostizierten Lift, die Gesamte
 
 Die Tabelle auf dieser Seite zeigt die Metriken für jede Variante aus dem Personalized-Variant-Versand. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Personalized-Variant-Gruppe reserviert haben.
 
-![Ergebnistabelle des Personalized-Variant-Versands mit Performance-Metriken für Variante A, Variante B und alle Varianten, einschließlich Zielgruppenprozentsatz, Versendungen, Zustellungen, Öffnungen, Klicks und Conversions.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Ergebnistabelle des Personalized-Variant-Versands mit Performance-Metriken für Variante A, Variante B und alle Varianten, einschließlich Zielgruppenprozentsatz, Versendungen, Zustellungen, Öffnungen, Klicks und Konversionen.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -168,6 +168,8 @@ Nehmen wir zum Beispiel an, eine Campaign hat beim Start eine Zielgruppe von 200
 Die 100 Nutzer:innen in der Variante erhalten die In-App-Nachrichten-Payload, und 50 von ihnen führen die Trigger-Aktion aus und sehen die In-App-Nachricht. Die 100 Nutzer:innen in der Kontrollgruppe werden nur getrackt, wenn sie die Trigger-Aktion der Campaign ausführen, und 75 von ihnen führen die Trigger-Aktion aus und protokollieren eine Impression, sehen aber die In-App-Nachricht nicht.
 
 Trotz der anfänglichen 50/50-Aufteilung sind die protokollierten eindeutigen Impressionen nicht ausgeglichen. Die Variantengruppe hat 50 Impressionen, während die Kontrollgruppe 75 Impressionen hat.
+
+Außerdem können Varianten-Nachrichten, die eine längere Renderzeit erfordern, wie z. B. solche mit großen Bildern oder Connected-Content-Templates, weniger Impressionen als die Kontrollgruppe protokollieren, wenn Nutzer:innen die Nachricht triggern, aber die Seite verlassen, bevor das Rendering abgeschlossen ist.
 
 ### Verzögerungen bei In-App-Nachrichten {#in-app-message-delays}
 

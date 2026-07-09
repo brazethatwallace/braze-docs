@@ -1,14 +1,12 @@
 ---
 nav_title: Live updates for Android
 article_title: Live Updates for the Android Braze SDK
-page_order: 0.1
-description: "Learn how to set up Live Updates for the Android Braze SDK."
-platform: 
-  - Android
-  - FireOS
-hidden: true
+layout: redirect
+redirect_to: /docs/developer_guide/live_notifications/
+noindex: true
 ---
 
+<!--
 # Live Updates for Android
 
 > Learn how to use Android Live Updates in the Braze SDK, also known as [Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications). These notifications are similar to [Live Activities for the Swift Braze SDK]({{site.baseurl}}/developer_guide/live_notifications/live_activities), allowing you to display interactive lock-screen notifications. Android 16 introduces progress-centric notifications to help users seamlessly track user-initiated, start-to-end journeys.
@@ -154,10 +152,11 @@ While curl commands are helpful for testing, we recommend handling this call in 
 | `USER_ID`                    | The ID of the user you are sending the notification to. |
 | `messages.android_push.title` | The message's title. By default, this is not used for the custom notification factory's live notifications, but it may be used as a fallback. |
 | `messages.android_push.alert` | The message's body. By default, this is not used for the custom notification factory's live notifications, but it may be used as a fallback. |
-| `messages.extra`             | Key-value pairs that the custom notification factory uses for live notifications. You can assign any string to this value&#8212;however, in the example above, `live_updates` is used to determine if it's a default or live push notification. |
+| `messages.extra`             | Key-value pairs that the custom notification factory uses for live notifications. You can assign any string to this value&#8212;however, in the [example curl command](#example-curl-command), `live_updates` is used to determine if it's a default or live push notification. |
 | `ASSIGNED_NOTIFICATION_ID`   | The notification ID you want to assign to the chosen user's live notification. The ID must be unique to this game, and must be used in order to [update their existing notification](#android_step-4-update-data-with-the-braze-rest-api) later. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Request parameters" }
 
 ### Step 5: Update the activity
 
 To update the existing Live Update with new data, modify the relevant key-value pairs assigned to `messages.extra`, then use the same `notification_id` and call the `/messages/send` endpoint again.
+-->

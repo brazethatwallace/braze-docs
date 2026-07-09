@@ -25,7 +25,8 @@ If you selected **No optimization** when setting up your campaign, your analytic
 For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) article for your messaging channel.
 
 ### BrazeAI™ variant selection (push only)
-If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant below if you run a single send campaign.
+
+If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant if you run a single send campaign.
 
 For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
@@ -158,7 +159,7 @@ A test that doesn't have a confidence of 95% can still hold important insights. 
 
 Whether or not your test has a clear winner, it can be helpful to run a [follow-up test](#recommended-follow-ups) to confirm your results or apply your findings to a slightly different scenario.
 
-## Discrepancies between the control group and variant
+## Discrepancies between the control group and variant {#discrepancies-between-the-control-group-and-variant}
 
 For in-app message campaigns with A/B or multivariate splits, the percentages you configure are assignment targets. Reported impressions rarely match those percentages exactly, because only users who perform the trigger action log impressions, and control-group users who trigger log an impression even though they never see a message.
 
@@ -167,6 +168,8 @@ For example, let's say a campaign has a target audience of 200 users at launch, 
 The 100 users in the variant receive the in-app message payload, and 50 of them perform the trigger action and see the in-app message. The 100 users in the control group are only tracked if they perform the campaign's trigger action, and 75 of them perform the trigger action and log an impression but don't see the in-app message.
 
 Despite the initial 50/50 split, the unique impressions logged aren't balanced. The variant group has 50 impressions, while the control group has 75 impressions.
+
+Also, variant messages that require longer render time, such as those with large images or templated Connected Content, may log fewer impressions than the control group when users trigger the message but leave before rendering completes.
 
 ### In-app message delays 
 

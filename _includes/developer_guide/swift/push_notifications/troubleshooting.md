@@ -59,7 +59,7 @@ Common errors you might see here include user-specific notifications, such as ["
 
 In addition, Braze also provides a push changelog on the user profile under the **Engagement** tab. This changelog provides insight into push registration behavior such as token invalidation, push registration errors, tokens being moved to new users, etc.
 
-![]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
+![Braze user profile Engagement tab showing the push registration changelog.]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
 ### Message Activity Log errors
 

@@ -31,7 +31,7 @@ Voici les versions minimales du SDK requises pour créer des emplacements de ban
 
 ### Étape 2 : Actualiser les placements dans votre application {#requestBannersRefresh}
 
-Les placements peuvent être actualisés en appelant les méthodes d'actualisation décrites ci-dessous. Si `subscribeToBannersUpdates` est actif, le SDK republie automatiquement vos ID de placement mis en cache au début de chaque nouvelle session et lorsque vous appelez `changeUser`. Cette actualisation automatique ne consomme pas de jeton de limite de débit.
+Pour actualiser les placements, appelez la méthode d'actualisation de votre SDK. Si `subscribeToBannersUpdates` est actif, le SDK republie automatiquement vos ID de placement mis en cache au début de chaque nouvelle session et lorsque vous appelez `changeUser`. Cette actualisation automatique ne consomme pas de jeton de limitation du débit.
 
 {% alert tip %}
 Actualisez les placements dès que possible afin d'éviter tout retard dans le téléchargement ou l'affichage des bannières.
@@ -115,7 +115,7 @@ This feature is not currently supported on Roku.
 ### Étape 3 : Écouter les mises à jour {#subscribeToBannersUpdates}
 
 {% alert tip %}
-Si vous insérez des bannières à l'aide des méthodes SDK décrites dans ce guide, tous les événements analytiques (tels que les impressions et les clics) seront gérés automatiquement, et les impressions ne seront enregistrées que lorsque la bannière sera visible.
+Si vous insérez des bannières à l'aide des méthodes SDK décrites dans ce guide, tous les événements analytiques (tels que les impressions et les clics) sont gérés automatiquement, et les impressions ne sont enregistrées que lorsque la bannière est visible.
 {% endalert %}
 
 {% tabs %}
@@ -732,13 +732,103 @@ Si votre bannière utilise le bloc éditeur **Code personnalisé**, vous pouvez 
 </button>
 ```
 
-### Enregistrer des analyses personnalisées lors de la fermeture d'une bannière {#log-custom-analytics-on-banner-dismissal}
+#### Fermer une bannière par programmation {#dismiss-a-banner-programmatically}
 
-Pour exécuter une logique supplémentaire, comme l'enregistrement d'analyses personnalisées lors de la fermeture d'une bannière, surchargez le rappel facultatif `onDismiss` sur votre vue de bannière. Par défaut, ce rappel est vide.
+Si vous utilisez le `BrazeBannerView` standard avec le bouton de fermeture créé dans l'éditeur par glisser-déposer, aucun code supplémentaire n'est nécessaire ; la fermeture est gérée automatiquement.
+
+Pour les intégrations d'interface utilisateur personnalisées, vous pouvez appeler la méthode de fermeture directement sur votre instance Braze pour fermer programmatiquement une bannière et enregistrer un événement de fermeture. La méthode de fermeture peut être appelée plusieurs fois en toute sécurité — le SDK ignore les appels en double pour la même bannière.
+
+Voici les versions minimales du SDK requises pour fermer une bannière par programmation :
+
+{% sdk_min_versions swift:15.1.0 android:42.3.0 web:6.9.0 reactnative:22.0.0 flutter:20.0.0 %}
 
 {% tabs %}
 {% tab Web %}
-Le SDK Web ne dispose pas d'un rappel `onDismiss` dédié sur `insertBanner`. Utilisez plutôt `subscribeToBannersUpdates` pour détecter quand une bannière a été fermée en vérifiant si elle n'est plus présente dans la carte des bannières mise à jour.
+Passez l'objet `Banner` à `braze.dismissBanner()`. Vous pouvez obtenir l'objet `Banner` depuis `braze.getAllBanners()` ou depuis un rappel `subscribeToBannersUpdates`.
+
+{% subtabs %}
+{% subtab JavaScript %}
+```javascript
+import * as braze from "@braze/web-sdk";
+
+const banners = braze.getAllBanners();
+const banner = banners["global_banner"];
+
+if (banner) {
+  braze.dismissBanner(banner);
+}
+```
+{% endsubtab %}
+{% subtab React %}
+```typescript
+import * as braze from "@braze/web-sdk";
+
+const banners = braze.getAllBanners();
+const banner = banners["global_banner"];
+
+if (banner) {
+  braze.dismissBanner(banner);
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Android %}
+{% subtabs %}
+{% subtab Java %}
+```java
+Braze.getInstance(context).dismissBanner("your-placement-id");
+```
+{% endsubtab %}
+{% subtab Kotlin %}
+```kotlin
+Braze.getInstance(context).dismissBanner("your-placement-id")
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Swift %}
+
+Utilisez `dismiss()` sur le contexte de la bannière lorsqu'il est disponible. Cette méthode est idempotente et déclenche automatiquement le rappel `onDismiss`. Si le contexte n'est pas disponible, appelez `dismiss(using:)` directement sur la bannière. Les deux méthodes doivent être appelées depuis le thread principal.
+
+```swift
+// Preferred: dismiss via context.
+banner.context?.dismiss()
+
+// Fallback: if context is unavailable.
+banner.dismiss(using: braze)
+```
+
+En Objective-C, ces méthodes sont disponibles sous la forme `[banner.context dismiss]` et `[banner dismissUsing:braze]`.
+
+{% endtab %}
+
+{% tab React Native %}
+```javascript
+Braze.dismissBanner("your-placement-id");
+```
+{% endtab %}
+
+{% tab Flutter %}
+```dart
+braze.dismissBanner("your-placement-id");
+```
+{% endtab %}
+{% endtabs %}
+
+### Enregistrer des analyses personnalisées lors de la fermeture d'une bannière {#log-custom-analytics-on-banner-dismissal}
+
+Pour exécuter une logique personnalisée lorsqu'une bannière est fermée — comme l'enregistrement d'analyses — utilisez le rappel de fermeture de votre SDK. Le rappel reçoit un objet événement contenant le `placementId`, le `stableKey` et le `trackingId` de la bannière.
+
+{% tabs %}
+{% tab Web %}
+Utilisez [`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent) pour exécuter une logique personnalisée lorsqu'une bannière spécifique est fermée. Abonnez-vous à l'événement avant d'afficher la bannière.
+
+{% alert note %}
+`Banner.subscribeToDismissedEvent()` nécessite le SDK Web 6.9.0 ou ultérieur. Sur les versions antérieures, utilisez `braze.subscribeToBannersUpdates()` et détectez la fermeture en vérifiant si la bannière n'est plus présente dans la carte des bannières mise à jour.
+{% endalert %}
 
 {% subtabs %}
 {% subtab JavaScript %}
@@ -746,13 +836,13 @@ Le SDK Web ne dispose pas d'un rappel `onDismiss` dédié sur `insertBanner`. Ut
 import * as braze from "@braze/web-sdk";
 
 braze.subscribeToBannersUpdates((banners) => {
-  const globalBanner = banners["global_banner"];
+  const banner = banners["global_banner"];
 
-  if (!globalBanner) {
-    // The banner was dismissed or the user is no longer eligible.
-    // Run any custom analytics here.
-    console.log("Banner was dismissed");
-    return;
+  if (banner) {
+    banner.subscribeToDismissedEvent(() => {
+      // Run any custom logic here, such as logging custom analytics
+      console.log("Banner was dismissed");
+    });
   }
 });
 
@@ -766,13 +856,13 @@ import * as braze from "@braze/web-sdk";
 
 useEffect(() => {
   const subscriptionId = braze.subscribeToBannersUpdates((banners) => {
-    const globalBanner = banners["global_banner"];
+    const banner = banners["global_banner"];
 
-    if (!globalBanner) {
-      // The banner was dismissed or the user is no longer eligible.
-      // Run any custom analytics here.
-      console.log("Banner was dismissed");
-      return;
+    if (banner) {
+      banner.subscribeToDismissedEvent(() => {
+        // Run any custom logic here, such as logging custom analytics
+        console.log("Banner was dismissed");
+      });
     }
   });
 
@@ -800,8 +890,10 @@ import kotlin.Unit;
 
 // After obtaining your BannerView instance (for example from XML via findViewById, or `new BannerView(context, "global_banner")`)
 
-bannerView.setOnDismissCallback(() -> {
-  Log.d(TAG, "Successfully dismissed banner with placementId: " + bannerView.getPlacementId());
+bannerView.setOnDismissCallback((snapshot) -> {
+  Log.d(TAG, "placementId: " + snapshot.getPlacementId()
+    + ", stableKey: " + snapshot.getStableKey()
+    + ", trackingId: " + snapshot.getTrackingId());
 
   // Run any custom logic here, such as logging custom analytics
   return Unit.INSTANCE;
@@ -817,8 +909,8 @@ import com.braze.ui.banners.BannerView
 
 // After obtaining your BannerView instance (for example via findViewById or `BannerView(context, "global_banner")`)
 
-bannerView.onDismissCallback = {
-  Log.d(TAG, "Successfully dismissed banner with placementId: ${bannerView.placementId}")
+bannerView.onDismissCallback = { snapshot ->
+  Log.d(TAG, "placementId: ${snapshot.placementId}, stableKey: ${snapshot.stableKey}, trackingId: ${snapshot.trackingId}")
 
   // Run any custom logic here, such as logging custom analytics
 }
@@ -832,11 +924,43 @@ bannerView.onDismissCallback = {
 ```swift
 // After initializing your banner view instance using UIKit or SwiftUI
 
-bannerView.onDismiss = { dismissedBanner in
-  print("Successfully dismissed banner with placementId: \(dismissedBanner.placementId)")
+bannerView.onDismiss = { event in
+  print("Banner dismissed — placementId: \(event.placementId ?? "unknown")")
+  print("  stableKey: \(event.stableKey ?? "unknown")")
+  print("  trackingId: \(event.trackingId ?? "unknown")")
 
   // Run any custom logic here, such as logging custom analytics
 }
+```
+{% endtab %}
+
+{% tab React Native %}
+Définissez la propriété `onDismiss` sur `Braze.BrazeBannerView` pour exécuter une logique personnalisée lorsqu'une bannière est fermée.
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+<Braze.BrazeBannerView
+  placementId="global_banner"
+  onDismiss={(event) => {
+    console.log("placementId:", event.placementId, "stableKey:", event.stableKey, "trackingId:", event.trackingId);
+    // Run any custom logic here, such as logging custom analytics
+  }}
+/>
+```
+{% endtab %}
+
+{% tab Flutter %}
+Définissez le paramètre `onDismiss` sur `BrazeBannerView` pour exécuter une logique personnalisée lorsqu'une bannière est fermée.
+
+```dart
+BrazeBannerView(
+  placementId: 'global_banner',
+  onDismiss: (BrazeBannerDismissEvent event) {
+    print('placementId: ${event.placementId}, stableKey: ${event.stableKey}, trackingId: ${event.trackingId}');
+    // Run any custom logic here, such as logging custom analytics
+  },
+)
 ```
 {% endtab %}
 {% endtabs %}

@@ -221,7 +221,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
 | Duplicate Users | View User Merge Records | View a list of user merge records |
-| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
+| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner. Users with this permission can't save or launch campaigns that reference custom attributes marked as PII unless they also have the "View Custom Attributes Marked as PII" permission. |
 | Users | View User Event Properties | View event properties in the **Event History** tab on user profiles |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Delete Users | View User Deletion Records | View a list of user deletion records |
@@ -362,7 +362,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Domain Settings | Edit Domain Settings | Add delegated domains and custom domains under Verified Domains |
 | Field Level Encryption | Edit Identifier Field-Level Encryption | Enable and update Field-Level Encryption settings |
 | Media Library Assets | View Media Library Assets | View media library assets |
-| Media Library Assets | Delete Media Library Assets | Permanently delete media library assets |
+| Media Library Assets | Delete Media Library Assets | Remove media library assets from the UI. Deleted assets remain hosted by Braze to prevent breaking messages that reference them. To permanently delete an asset, contact Braze Support. |
 | Media Library Assets | Edit Media Library Assets | Create and update media library assets |
 | Media Library Assets | Replace Media Library Assets | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 | Messaging Rate Limits | View Messaging Rate Limits | View workspace-level messaging rate limits |

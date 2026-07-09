@@ -38,7 +38,7 @@ The Braze and Amperity integration offers a unified view of your customers acros
 
 Both standard and custom attributes can be sent from Amperity to Braze, allowing you to enrich customer profiles in Braze with data from various sources through Amperity. The specific attributes you can send will depend on the data in your Amperity system and the attributes that you've set up in Braze.
 
-Read below to learn about these attributes.
+Review this section to learn about these attributes.
 
 ### Standard attributes 
 

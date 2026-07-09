@@ -6,6 +6,8 @@ description: "Référence du README du SDK Roku de Braze, miroir depuis GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK Roku {#roku-sdk-repository-guide}
+
 ## À propos du SDK Roku de Braze {#about-the-braze-roku-sdk}
 
 Le SDK Roku de Braze vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.
@@ -129,7 +131,7 @@ m.BrazeTask.BrazeInAppMessage = invalid
 
 Braze devrait maintenant collecter des données depuis votre application. Veuillez consulter notre documentation publique pour savoir comment journaliser des attributs, des événements et des achats via notre SDK. La scène `MainScene.brs` de notre application d'exemple contient également des exemples d'utilisation de l'API.
 
-`BrazeInAppMessage.brs` et `CustomSideBySideInAppMessage.brs` montrent des exemples de gestion des messages in-app. `onInAppMessageTriggered()` dans `MainScene.brs` montre comment prendre en charge plusieurs dispositions.
+`BrazeInAppMessage.brs` et `CustomSideBySideInAppMessage.brs` montrent des exemples de gestion des In-App Messages. `onInAppMessageTriggered()` dans `MainScene.brs` montre comment prendre en charge plusieurs dispositions.
 
 ## Référence supplémentaire {#additional-reference}
 

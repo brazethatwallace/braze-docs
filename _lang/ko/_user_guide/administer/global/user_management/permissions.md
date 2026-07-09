@@ -126,7 +126,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 | 권한 이름 | 설명 |
 |----------|-----------|
-| Manage company settings | 사용자가 권한 설정 및 발송자 확인을 수정할 수 있습니다. |
+| Manage company settings | 사용자가 권한 설정 및 발신자 인증을 수정할 수 있습니다. |
 | Create and delete workspaces | 사용자가 워크스페이스를 생성하고 삭제할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="회사 수준 권한" }
 
@@ -179,7 +179,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
-| Campaigns | View Campaigns | Campaign 보기 |
+| Campaigns | View Campaigns | Campaign(캠페인) 보기 |
 | Campaigns | Launch Campaigns | 기존 Campaign 시작, 중지, 일시 중지 또는 재개 |
 | Campaigns | Archive Campaigns | Campaign을 아카이브로 이동 |
 | Campaigns | Edit Campaigns | Campaign 생성 및 업데이트 |
@@ -208,8 +208,8 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
-| 전역 제어 그룹 | View Global Control Group | 전역 제어 그룹 설정 페이지 보기 |
-| 전역 제어 그룹 | Edit Global Control Group | 전역 제어 그룹 생성 및 변경 사항 저장. "Edit Global Control Group" 권한이 있는 사용자는 "Edit Campaigns" 및 "Edit Canvases" 권한도 부여받아야 합니다. "Edit Global Control Group" 권한이 있는 사용자에게는 "View Global Control Group" 권한도 부여됩니다. |
+| 글로벌 컨트롤 그룹 | View Global Control Group | 글로벌 컨트롤 그룹 설정 페이지 보기 |
+| 글로벌 컨트롤 그룹 | Edit Global Control Group | 글로벌 컨트롤 그룹 생성 및 변경 사항 저장. "Edit Global Control Group" 권한이 있는 사용자는 "Edit Campaigns" 및 "Edit Canvases" 권한도 부여받아야 합니다. "Edit Global Control Group" 권한이 있는 사용자에게는 "View Global Control Group" 권한도 부여됩니다. |
 | 위치 | Archive Locations | 위치를 아카이브로 이동 |
 | 위치 | View Locations | 위치 보기 |
 | 위치 | Edit Locations | 위치 생성 및 편집 |
@@ -222,6 +222,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 데이터 | Export User Data | 대시보드에서 사용자 다운로드 |
 | 중복 사용자 | View User Merge Records | 사용자 병합 기록 목록 보기 |
 | 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기 |
+| 사용자 | View User Event Properties | 고객 프로필의 **이벤트 기록** 탭에서 이벤트 속성정보 보기 |
 | 중복 사용자 | Merge Duplicate Users | 중복 사용자를 하나의 사용자로 결합. 병합 후 중복 항목은 제거됩니다 |
 | 사용자 삭제 | View User Deletion Records | 사용자 삭제 기록 목록 보기 |
 | 사용자 삭제 | Delete Users | 대시보드에서 사용자를 개별 또는 일괄로 영구 삭제 |
@@ -234,9 +235,9 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 배너 템플릿 | View Banner Templates | 배너 템플릿 보기 |
 | 배너 템플릿 | Archive Banner Templates | 배너 템플릿을 아카이브로 이동 |
 | 배너 템플릿 | Edit Banner Templates | 배너 템플릿 생성 및 업데이트 |
-| 캔버스 템플릿 | View Canvas Templates | 캔버스 템플릿 보기 |
-| 캔버스 템플릿 | Archive Canvas Templates | 캔버스 템플릿을 아카이브로 이동 |
-| 캔버스 템플릿 | Create and Edit Canvas Templates | 캔버스 템플릿 생성 및 업데이트 |
+| Canvas 템플릿 | View Canvas Templates | Canvas 템플릿 보기 |
+| Canvas 템플릿 | Archive Canvas Templates | Canvas 템플릿을 아카이브로 이동 |
+| Canvas 템플릿 | Create and Edit Canvas Templates | Canvas 템플릿 생성 및 업데이트 |
 | Content Blocks | View Content Blocks | Content Blocks 보기 |
 | Content Blocks | Launch Content Blocks | 임시 저장된 Content Blocks 게시, 시작된 Content Blocks 편집, 아카이브 및 아카이브 해제 |
 | Content Blocks | Archive Content Blocks | Content Blocks를 아카이브로 이동 |

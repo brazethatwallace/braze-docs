@@ -26,7 +26,7 @@ Dans le cadre d'un appel asynchrone, l'API renvoie le code d'état `201`, indiqu
 
 Dans le cadre d'un appel synchrone, l'API renvoie un code d'état `201`, indiquant que votre requête a été reçue, comprise, acceptée et traitée avec succès. La réponse à l'appel affiche certains champs du profil utilisateur résultant de l'opération.
 
-La limite de débit de cet endpoint est inférieure à celle de l'endpoint `/users/track` (voir [Limite de débit](#rate-limit) ci-dessous). Chaque requête `/users/track/sync` ne peut contenir qu'un seul objet d'événement, un seul objet d'attribut **ou** un seul objet d'achat. Cet endpoint doit être réservé aux mises à jour du profil utilisateur pour lesquelles un appel synchrone est nécessaire. Pour une implémentation saine, nous vous recommandons d'utiliser `/users/track/sync` et `/users/track` ensemble.
+La limite de débit de cet endpoint est inférieure à celle de l'endpoint `/users/track` (voir [Limite de débit](#rate-limit)). Chaque requête `/users/track/sync` ne peut contenir qu'un seul objet d'événement, un seul objet d'attribut **ou** un seul objet d'achat. Cet endpoint doit être réservé aux mises à jour du profil utilisateur pour lesquelles un appel synchrone est nécessaire. Pour un déploiement sain, nous vous recommandons d'utiliser `/users/track/sync` et `/users/track` ensemble.
 
 Par exemple, si vous envoyez des requêtes consécutives pour le même utilisateur sur une courte période, des conditions de concurrence sont possibles avec l'endpoint asynchrone `/users/track`, mais avec l'endpoint `/users/track/sync`, vous pouvez envoyer ces requêtes en séquence, chacune après avoir reçu une réponse `2XX`.
 
@@ -285,10 +285,12 @@ Oui, à condition que les requêtes concernent des utilisateurs différents, ou 
 
 Si vous envoyez plusieurs requêtes pour un utilisateur, pour le même attribut, le même événement ou le même achat, Braze recommande d'attendre une réponse positive entre chaque requête afin d'éviter les conditions de concurrence.
 
+Si vous constatez toujours un état de profil incohérent lorsque vous appelez `/users/track` pour le même utilisateur en succession rapide, basculez ces mises à jour vers `/users/track/sync` et envoyez une requête à la fois, en attendant chaque réponse `2XX` avant la suivante. Cet ordonnancement est la méthode recommandée pour éviter les conditions de concurrence de type lecture-après-écriture dans les boucles serrées ou les workers parallèles.
+
 ### Pourquoi la valeur de la réponse ne correspond-elle pas à celle de ma requête initiale ? {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
 Bien que votre requête soit terminée, il est possible que la valeur de votre attribut personnalisé n'ait pas été mise à jour. Cela peut se produire lorsque la mise à jour de votre attribut personnalisé dépasse le nombre maximum de caractères, dépasse les limites du tableau, ou si l'utilisateur n'existe pas dans Braze et que vous avez défini `_update_existing_only = true`.
 
-Dans ces cas, considérez la réponse comme une indication que, même si votre requête a bien été traitée, la mise à jour souhaitée n'a pas été effectuée. Procédez à la résolution des problèmes en vous référant aux raisons mentionnées ci-dessus.
+Dans ces cas, considérez la réponse comme une indication que, même si votre requête a bien été traitée, la mise à jour souhaitée n'a pas été effectuée. Procédez à la résolution des problèmes en vous référant aux raisons mentionnées dans [Pourquoi la valeur de la réponse ne correspond-elle pas à celle de ma requête initiale ?](#why-doesnt-the-response-value-match-the-one-in-my-original-request).
 
 {% endapi %}

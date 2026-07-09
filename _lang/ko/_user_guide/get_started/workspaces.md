@@ -85,7 +85,7 @@ description: "Braze 플랫폼에서 하는 모든 작업은 워크스페이스 �
 
 #### Currents 커넥터 {#currents-connectors}
 
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 도구는 참여 이벤트의 실시간 데이터 스트림으로, Braze 플랫폼에서 가장 강력하면서도 세분화된 내보내기입니다. Currents 커넥터는 특정 Braze 패키지에 포함되어 있으며, 단일 워크스페이스를 가정할 때 처음에 하나를 받았을 수도 있습니다.
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 도구는 인게이지먼트 이벤트의 실시간 데이터 스트림으로, Braze 플랫폼에서 가장 강력하면서도 세분화된 내보내기입니다. Currents 커넥터는 특정 Braze 패키지에 포함되어 있으며, 단일 워크스페이스를 가정할 때 처음에 하나를 받았을 수도 있습니다.
 
 별도의 워크스페이스를 만들지 아니면 결합된 워크스페이스를 만들지 결정할 때는 Currents 커넥터가 워크스페이스 간에 공유되지 않으므로 보유하고 있는 Currents 커넥터의 수를 고려하는 것이 중요합니다.
 
@@ -93,7 +93,7 @@ description: "Braze 플랫폼에서 하는 모든 작업은 워크스페이스 �
 
 #### 고객 프로필 {#user-profiles}
 
-사용자와 관련된 모든 영구 데이터는 해당 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)에 저장됩니다. 그러나 고객 프로필은 사용자의 참여 기록, Segment 멤버십, 기기 및 운영체제에 대한 정보에 쉽게 액세스할 수 있으므로 문제 해결 및 테스트에 유용한 리소스이기도 합니다.
+사용자와 관련된 모든 영구 데이터는 해당 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)에 저장됩니다. 그러나 고객 프로필은 사용자의 인게이지먼트 기록, Segment 멤버십, 기기 및 운영 체제에 대한 정보에 쉽게 액세스할 수 있으므로 문제 해결 및 테스트에 유용한 리소스이기도 합니다.
 
 #### Segments, Campaigns, Canvases {#segments-campaigns-and-canvases}
 
@@ -221,6 +221,10 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
     </tr>
     </tbody>
 </table>
+
+{% alert note %}
+모든 앱을 볼 때와 단일 앱을 볼 때 MAU가 어떻게 다른지에 대해서는 [월간 활성 사용자]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users)를 참조하세요.
+{% endalert %}
 
 ## 모범 사례 {#best-practices}
 

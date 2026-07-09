@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze JavaScript SDK README
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK リポジトリガイド {#javascript-sdk-repository-guide}
+
 ## Braze JavaScript SDKについて {#about-the-braze-javascript-sdk}
 
 Braze JavaScript SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
@@ -17,7 +19,7 @@ Braze JavaScript SDKは、Brazeのメッセージング、分析、ユーザー�
 
 ### アーキテクチャの概要 {#architecture-overview}
 
-Braze JavaScript SDKは、純粋なJavaScript環境で動作するように設計された**プラットフォーム非依存**のライブラリーです。ブラウザやNode.js固有のAPIを含まないため、さまざまなJavaScriptランタイムでの使用に適しています。
+Braze JavaScript SDKは、純粋なJavaScript環境で動作するように設計された**プラットフォーム非依存**のライブラリです。ブラウザやNode.js固有のAPIを含まないため、さまざまなJavaScriptランタイムでの使用に適しています。
 
 **主要な設計原則：**
 - **依存性注入**: SDKはプラットフォーム固有のAPIを使用する代わりに、ストレージ、ネットワーキング、デバイス情報の実装を必要とします
@@ -502,7 +504,7 @@ async function initializeSafely() {
 }
 ```
 
-#### サブスクリプション管理 {#subscription-management}
+#### 購読管理 {#subscription-management}
 
 ``` typescript
 import {
@@ -657,10 +659,10 @@ subscribeToInAppMessage(async (inAppMessage) => {
 - `openSession()`は新しいセッションの場合`true`を、再開の場合`false`を返します
 - `changeUser()`または`setIdentifierToken()`の後に`openSession()`を呼び出す必要があります
 
-**サブスクリプション管理：**
-- サブスクリプションコールバックは、イベント発生時に同期的に呼び出されます
-- メモリリークを防ぐためにサブスクリプションを削除してください
-- `removeAllSubscriptions()`はすべてのサブスクリプションを一度にクリアします
+**購読管理：**
+- 購読コールバックは、イベント発生時に同期的に呼び出されます
+- メモリリークを防ぐために購読を削除してください
+- `removeAllSubscriptions()`はすべての購読を一度にクリアします
 
 **データフラッシュ：**
 - 10秒ごとに自動フラッシュ（設定可能、最小：3秒）

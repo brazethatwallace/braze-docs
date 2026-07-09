@@ -48,6 +48,12 @@ Your push messages must follow the [Apple App Store Review Guidelines](https://d
 | Google Play — [Unauthorized use or imitation of system functionality](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Apps must not mimic or interfere with system notifications. System-level notifications are only for integral app features (for example, an airline app notifying users of deals, or a game notifying users of in-game promotions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push message regulations" }
 
+## Frequently asked questions
+
+### When does Braze record a successful Send for push?
+
+Braze typically logs a **Send** once the message is dispatched from Braze toward Apple, Google, or your web push service. **Delivered**, opens, bounces, and uninstall signals are tracked separately and may arrive later. Use step- and campaign-level analytics together with [push troubleshooting]({{site.baseurl}}/user_guide/channels/push/troubleshooting/) when **Sends** and downstream metrics look misaligned.
+
 ## Next steps
 
 - [Push setup]({{site.baseurl}}/user_guide/channels/push/push_setup)

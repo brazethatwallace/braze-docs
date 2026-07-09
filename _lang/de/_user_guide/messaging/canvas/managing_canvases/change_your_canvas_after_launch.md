@@ -22,7 +22,7 @@ Sie können Ihre Canvases nach dem Start bearbeiten, indem Sie:
 * Alle Canvas-Schritte stoppen oder fortsetzen
 
 {% alert note %}
-Die Verteilung der Kontrollgruppen-Variante kann nach dem Start nur verringert werden.
+Die Verteilung der Kontrollvariante kann nach dem Start nur verringert werden.
 {% endalert %}
 
 Sie können Folgendes in Ihrer User-Journey löschen:
@@ -79,7 +79,7 @@ Nachdem ein Canvas gestartet wurde:
 
 - Konversions-Events können nicht bearbeitet werden.
 - Die folgenden Schritte können nicht hinzugefügt oder entfernt werden und können nicht umgeordnet werden, um die Rangfolge anzupassen: [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) und [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step).
-  - **Workaround 1:** Erstellen Sie einen neuen Zielgruppenpfad, Aktions-Pfad oder Experiment-Pfad und konfigurieren Sie die Pfade zu diesem neuen Schritt um.
+  - **Workaround 1:** Erstellen Sie einen neuen Zielgruppenpfad, Aktionspfad oder Experimentpfad und konfigurieren Sie die Pfade zu diesem neuen Schritt um.
   - **Workaround 2:** Duplizieren Sie den Canvas, um Ihre Änderungen vorzunehmen.
 
 ### Einzelne Schritte {#individual-steps}
@@ -93,11 +93,22 @@ Für einzelne Canvas-Schritte können Sie die folgenden Details nach dem Start b
 * Ausnahme-Events
 * Verzögerungen (nur für Verzögerungsschritte)
 
-Der Zeitplantyp und die Kontrollgruppen-Prozentsätze des Schritts sind nach dem Start jedoch nicht bearbeitbar. Für Aktionspfade- und Zielgruppenpfade-Schritte sind die Rangfolgen und Auswertungsfenster nach dem Start nicht bearbeitbar.
+Der Zeitplantyp und die Kontrollprozentsätze des Schritts sind nach dem Start jedoch nicht bearbeitbar. Für Aktionspfade- und Zielgruppenpfade-Schritte sind die Rangfolgen und Auswertungsfenster nach dem Start nicht bearbeitbar.
+
+#### Send-to-Destination-Schritt {#send-to-destination-step}
+
+Wenn Sie den [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)-Schritt in einem aktiven Canvas bearbeiten, gelten die folgenden Verhaltensweisen:
+
+- **Ziel-Canvas ändern:** Das Bearbeiten des Send-to-Destination-Schritts, um auf einen anderen Ziel-Canvas zu verweisen, folgt denselben allgemeinen Regeln für Bearbeitungen nach dem Start. Änderungen betreffen nur Nutzer:innen, die den Send-to-Destination-Schritt noch nicht erreicht haben.
+  - Nutzer:innen, die den Schritt bereits durchlaufen haben, verbleiben im ursprünglichen Ziel-Canvas – sie werden nicht umgeleitet.
+  - Nutzer:innen, die derzeit in früheren Schritten in der Warteschlange stehen (z. B. in einem Verzögerungsschritt vor dem Send-to-Destination-Schritt warten), werden anhand der Eingangs- und Zielgruppenkriterien des neuen Ziel-Canvas bewertet, wenn sie den Schritt erreichen. Berechtigte Nutzer:innen werden an den neuen Ziel-Canvas gesendet.
+- **Gestoppter Ziel-Canvas:** Wenn der Ziel-Canvas gestoppt wird, während Ihr Quell-Canvas noch aktiv ist, werden Nutzer:innen, die den Send-to-Destination-Schritt erreichen, nicht an den Ziel-Canvas gesendet. Dies führt zu einem Abbruch der Nutzer:innen bei der Übergabe, nicht zu einer Pause, während das Ziel gestoppt ist.
+  - Nutzer:innen, die den gestoppten Ziel-Canvas nicht betreten können, setzen ihren Weg im Quell-Canvas fort, wenn nach dem Send-to-Destination-Schritt weitere Schritte folgen. Weitere Informationen zum Fortschrittsverhalten finden Sie unter [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination#how-does-advancement-behavior-work-for-send-to-destination-steps).
+  - Sie können keinen Quell-Canvas mit einem Send-to-Destination-Schritt starten, der auf ein gestopptes Ziel verweist. Dieses Verhalten gilt, wenn ein Ziel-Canvas gestoppt wird, nachdem der Quell-Canvas bereits aktiv ist.
 
 ### Canvas-Varianten-Prozentsätze {#canvas-variant-percentages}
 
-Nach dem Start eines Canvas können Sie nur die Kontrollgruppen-Varianten-Prozentsätze verringern. Wenn ein Varianten-Prozentsatz im Canvas geändert wird, können Ihre Nutzer:innen auf andere Varianten umverteilt werden.
+Nach dem Start eines Canvas können Sie nur die Kontrollvarianten-Prozentsätze verringern. Wenn ein Varianten-Prozentsatz im Canvas geändert wird, können Ihre Nutzer:innen auf andere Varianten umverteilt werden.
 
 Anfänglich wird diesen Nutzer:innen zufällig eine bestimmte Variante zugewiesen, bevor sie zum ersten Mal eine Campaign erhalten. Von da an erhalten sie bei jedem weiteren Empfang der Campaign (oder beim erneuten Eintritt in eine Canvas-Variante) dieselbe Variante, es sei denn, die Varianten-Prozentsätze werden geändert.
 
@@ -125,9 +136,9 @@ Wenn Varianten aus einem Canvas gelöscht werden, geschieht Folgendes:
 - Die Schritt-Analytics und die übergeordneten Analytics für den Canvas, wie _Gesamteintritte_, _Gesamtaustritte_ und _Konversionsrate_, werden gelöscht.
 - Nutzer:innen in gelöschten Varianten verlassen die Schritte, und alle nachfolgenden Nachrichten werden nicht gesendet.
 
-### Canvas-Eingangs-Eigenschaften {#canvas-entry-properties}
+### Canvas-Entry-Eigenschaften {#canvas-entry-properties}
 
-Canvas-Eingangs-Eigenschaften werden beim Senden nicht in Schritte eingebunden. Das bedeutet, dass Änderungen an Canvas-Eingangs-Eigenschaften nach dem Start eines Canvas nur für neue Nutzer:innen gelten, die den Canvas betreten. Wenn Ihr Canvas es Nutzer:innen erlaubt, den Canvas erneut zu betreten, werden alle Nutzer:innen, die erneut eintreten, anhand der aktualisierten Canvas-Eingangs-Eigenschaften bestimmt.
+Canvas-Entry-Eigenschaften werden beim Senden nicht in Schritte eingebunden. Das bedeutet, dass Änderungen an Canvas-Entry-Eigenschaften nach dem Start eines Canvas nur für neue Nutzer:innen gelten, die den Canvas betreten. Wenn Ihr Canvas es Nutzer:innen erlaubt, den Canvas erneut zu betreten, werden alle Nutzer:innen, die erneut eintreten, anhand der aktualisierten Canvas-Entry-Eigenschaften bestimmt.
 
 ## Best Practices {#best-practices}
 
@@ -147,7 +158,7 @@ Durch das Erstellen oder Bearbeiten nicht verbundener Schritte können Sie Ände
 
 ### Experimentpfad-Schritt {#experiment-path-step}
 
-Wenn Ihr Canvas ein aktives oder laufendes Gewinnerpfad- oder Personalisierter-Pfad-Experiment hat und Sie den aktiven Canvas aktualisieren (unabhängig davon, ob Sie den Experimentpfad-Schritt selbst aktualisieren), endet das laufende Experiment, und der Experimentpfade-Schritt bestimmt keinen Gewinnerpfad oder personalisierte Pfade. Um das Experiment neu zu starten, können Sie den bestehenden Experiment-Pfad trennen und einen neuen starten oder den Canvas duplizieren und einen neuen Canvas starten. Andernfalls durchlaufen Nutzer:innen den Experiment-Pfad, als ob keine Optimierungsmethode ausgewählt worden wäre.
+Wenn Ihr Canvas ein aktives oder laufendes Gewinnervariante- oder Personalisierte-Variante-Experiment hat und Sie den aktiven Canvas aktualisieren (unabhängig davon, ob Sie den Experimentpfad-Schritt selbst aktualisieren), endet das laufende Experiment, und der Experimentpfade-Schritt bestimmt keine Gewinnervariante oder personalisierte Varianten. Um das Experiment neu zu starten, können Sie den bestehenden Experimentpfad trennen und einen neuen starten oder den Canvas duplizieren und einen neuen Canvas starten. Andernfalls durchlaufen Nutzer:innen den Experimentpfad, als ob keine Optimierungsmethode ausgewählt worden wäre.
 
 ### Zeitverzögerungen {#time-delays}
 

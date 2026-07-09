@@ -14,7 +14,7 @@ Looking for definitions for the terms and metrics listed in your report? Refer t
   {% elsif include.channel == "webhook" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by Webhook.{% endif %}
 {% endalert %}
 
-From the **Campaign Analytics** tab, you can view your reports in a series of panels. You may see more or less than those listed in the sections below, but each has its own useful purpose.
+From the **Campaign Analytics** tab, you can view your reports in a series of panels. You may see more or less than those listed in the following sections, but each has its own useful purpose.
 
 ### Time range
 
@@ -455,10 +455,10 @@ _Deliveries_ can rise during your email service provider (ESP) retry window whil
 
 When reviewing your email analytics, keep these patterns in mind:
 
-- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the ESP retry window after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After retries finish, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula above to approximate in-flight soft bounces.
+- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the ESP retry window after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After retries finish, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula in [Deliveries and bounces](#deliveries-and-bounces) to approximate in-flight soft bounces.
 - **Low _Deliveries_ after retries finish:** If delivery rates stay low once retries have finished, compare this send's volume to your typical patterns. Mailbox providers may defer, throttle, or soft bounce mail when volume spikes relative to your sender reputation. You may see messages such as `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) to pace large sends, and refer to [Throttled IPs]({{site.baseurl}}/user_guide/channels/email/reporting/#throttled-ips) for additional troubleshooting steps.
-- **Soft bounces and deferrals not shown in campaign analytics:** Campaign analytics highlight _Hard Bounces_ but do not include _Soft Bounces_ or _Deferrals_ as separate columns. Monitor these events in the Message Activity Log, with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced), or through Currents deferral events. For how retries work, see [Deferrals](#deferrals) below.
-- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the ESP retry window are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula above to estimate how many sends are still in retry.
+- **Soft bounces and deferrals not shown in campaign analytics:** Campaign analytics highlight _Hard Bounces_ but do not include _Soft Bounces_ or _Deferrals_ as separate columns. Monitor these events in the Message Activity Log, with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced), or through Currents deferral events. For how retries work, see [Deferrals](#deferrals).
+- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the ESP retry window are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula in [Deliveries and bounces](#deliveries-and-bounces) to estimate how many sends are still in retry.
 
 ##### Clicks without an open event
 
@@ -500,7 +500,7 @@ Note that _Deferrals_ are currently only available using Currents or Braze Snowf
 
 ##### Estimated real open rate {#estimated-real-open-rate}
 
-This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders (see above), these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
+This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders, these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
 
 _Estimated Real Open Rate_ is calculated 24 hours after email sending has begun and is recalculated every 72 hours thereafter.
 
@@ -593,9 +593,9 @@ Reporting for _Button 1 Clicks_ and _Button 2 Clicks_ only works when you specif
     </tbody>
 </table>
 
-#### Discrepancies between control groups and variants
+#### Discrepancies between control groups and variants {#discrepancies-between-control-groups-and-variants}
 
-When an in-app message campaign has a 50-50 variant split, sometimes the control group will have a slightly higher percentage than the variant (such as 51% for the control group and 49% for the variant). This discrepancy is caused by a difference in rendering time.
+When an in-app message campaign has a 50-50 variant split, sometimes the control group has a slightly higher percentage than the variant (such as 51% for the control group and 49% for the variant). This discrepancy is caused by a difference in rendering time—for example, when variant messages use large images or templated Connected Content and users leave before rendering completes, while the control group logs impressions without displaying a message.
 
 The distribution between control and variant groups is intended to be roughly even, but assignment to a variant occurs when the in-app message is actually sent to the device. Some users may never trigger the in-app message (for example, they never perform the action that triggers the required custom event), which can cause differences in group sizes.
 
@@ -690,7 +690,7 @@ For a different workaround, we also recommend creating a custom event for push u
 
 ##### Understanding opens
 
-Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification, as stated in the table above. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
+Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
 
 ##### Push action buttons and reporting {#push-action-buttons-and-reporting}
 
@@ -899,7 +899,7 @@ The **Keyword Responses** panel shows you a timeline of the inbound keywords use
 
 Here, you can also view the response distribution of each keyword category to determine next steps for [retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) and to conveniently [create a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
-![The table below the line graph that has columns for Keyword Category, Response Distribution, and Retargeting, where you are given the option to create a segment with the keyword category.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![A table that has columns for Keyword Category, Response Distribution, and Retargeting, where you are given the option to create a segment with the keyword category.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 

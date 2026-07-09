@@ -40,7 +40,7 @@ For more on conversions, check out our [Braze Learning course](https://learning.
 
 ### Conversion tracking rules
 
-Conversion events attribute user actions back to a point of engagement. In general, while a conversion window is open, a user converts at most once per conversion event for that campaign or Canvas. If they perform the same conversion action more than once before the deadline (for example, two purchases), Braze still counts only one conversion for that event. Multichannel campaigns can record a separate conversion opportunity for each messaging channel, which can produce conversion rates above 100% when you compare conversion counts with unique recipients (see below).
+Conversion events attribute user actions back to a point of engagement. In general, while a conversion window is open, a user converts at most once per conversion event for that campaign or Canvas. If they perform the same conversion action more than once before the deadline (for example, two purchases), Braze still counts only one conversion for that event. Multichannel campaigns can record a separate conversion opportunity for each messaging channel, which can produce conversion rates greater than 100% when you compare conversion counts with unique recipients (as described in the following bullets).
 
 Note the following about how Braze handles multiple conversions:
 

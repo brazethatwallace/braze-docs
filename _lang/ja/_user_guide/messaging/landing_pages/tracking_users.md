@@ -31,7 +31,7 @@ Brazeの単一チャネルまたはマルチチャネルメッセージに{% raw
 
 ### ステップ 1: ページURLの確認 {#page-url}
 
-BrazeはランディングページのURLを使用して、ユニークなLiquidタグを生成します。現在のページURLを変更する場合は、**Messaging** > **Landing Pages**に移動し、ランディングページを開きます。**page URL**で新しいページURLを入力できます。
+BrazeはランディングページのURLを使用して、ユニークなLiquidタグを生成します。現在のページURLを変更する場合は、**メッセージング** > **ランディングページ**に移動し、ランディングページを開きます。**page URL**で新しいページURLを入力できます。
 
 {% alert warning %}
 メッセージ送信後にページURLを変更すると、古いURLを使用してランディングページにアクセスしようとしたユーザーは`404`ページに転送されます。
@@ -41,7 +41,7 @@ BrazeはランディングページのURLを使用して、ユニークなLiquid
 
 ### ステップ 2: Liquidタグの生成 {#step-2-generate-the-liquid-tag}
 
-**Messaging** > **キャンペーン**に移動し、キャンペーンを選択します。メッセージエディターで**Personalization**を選択します。
+**メッセージング** > **キャンペーン**に移動し、キャンペーンを選択します。メッセージエディターで**Personalization**を選択します。
 
 ![ドラッグ＆ドロップエディターのパーソナライゼーション追加ボタン。]({% image_buster /assets/img/landing_pages/select-personalization.png %}){: style="max-width:75%;"}
 

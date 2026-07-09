@@ -31,7 +31,7 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
 2. Sélectionnez **Banner**.
 3. Donnez à votre campagne un nom clair et explicite.
-4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire. Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, avec le Générateur de rapports, vous pouvez filtrer par étiquettes pertinentes.
+4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire. Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, avec le générateur de rapports, vous pouvez filtrer par étiquettes pertinentes.
 5. Sélectionnez l'emplacement que vous avez créé précédemment pour l'associer à votre campagne.
 6. Ajoutez des variantes si nécessaire. Vous pouvez choisir un type de message et une disposition différents pour chacune. Pour en savoir plus sur les variantes, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 7. Choisissez une date et une heure de début pour votre campagne de bannière. Par défaut, les bannières durent indéfiniment. Vous pouvez modifier ce comportement en sélectionnant **End Time** et en spécifiant une date et une heure de fin.
@@ -47,8 +47,8 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 2. Après avoir configuré votre Canvas, ajoutez une étape Message dans le générateur de Canvas. Donnez à votre étape un nom clair et explicite.
 3. Sélectionnez **Banner** comme canal de communication.
 4. Sélectionnez un emplacement pour la bannière.
-5. Définissez la priorité de la bannière. La [priorité des bannières]({{site.baseurl}}/user_guide/channels/banners#priority) détermine l'ordre d'affichage des bannières lorsqu'elles partagent le même emplacement.
-6. Définissez une expiration pour la bannière. Celle-ci peut intervenir après une durée déterminée suivant la disponibilité de l'étape, ou à une date et une heure précises.
+5. Définissez la priorité. La [priorité des bannières]({{site.baseurl}}/user_guide/channels/banners#priority) détermine l'ordre d'affichage des bannières lorsqu'elles partagent le même emplacement.
+6. Définissez une expiration pour la bannière. Celle-ci peut intervenir après une durée déterminée suivant la disponibilité de l'étape, ou à une date et une heure précises. La durée d'expiration maximale est de 31 jours après que l'étape devient disponible pour l'utilisateur.
 
 {% endtab %}
 {% endtabs %}
@@ -72,6 +72,10 @@ Vous pouvez glisser-déposer des blocs et des lignes dans la zone de travail pou
 Pour personnaliser les propriétés d'arrière-plan, les paramètres de bordure et autres éléments de votre message, sélectionnez **Styles**. Si vous souhaitez personnaliser le style d'un bloc ou d'une ligne spécifique uniquement, sélectionnez-le pour effectuer les modifications.
 
 ![Panneau de styles du compositeur de bannière.]({% image_buster /assets/img/banners/banner_card_styles.png %})
+
+{% alert tip %}
+Pour cibler des utilisateurs dans différentes langues au sein d'une même campagne de bannière, consultez [Messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+{% endalert %}
 
 #### Étape 3.2 : Définir le comportement au clic (facultatif) {#step-32-define-on-click-behavior-optional}
 
@@ -142,13 +146,13 @@ Si vous avez plusieurs campagnes de bannière utilisant le même ID d'emplacemen
 
 #### Configurer la rééligibilité (facultatif) {#re-eligibility}
 
-Par défaut, les utilisateurs qui ferment une bannière ne sont jamais rééligibles pour cette campagne. Pour permettre aux utilisateurs ayant fermé la bannière de la revoir, accédez à l'étape **Contrôles de l'envoi** et sélectionnez **Allow users to become re-eligible to receive campaign**. Lorsque cette option est activée, définissez une période de temporisation en minutes, heures, jours ou semaines.
+Par défaut, les utilisateurs qui ferment une bannière ne sont jamais rééligibles pour cette campagne. Pour permettre aux utilisateurs ayant fermé la bannière de la revoir, accédez à l'étape **Delivery Controls** et sélectionnez **Allow users to become re-eligible to receive campaign**. Lorsque cette option est activée, définissez une période de temporisation en minutes, heures, jours ou semaines.
 
 Le décompte commence à partir du moment où l'utilisateur ferme la bannière. Une fois la période écoulée, l'utilisateur redevient automatiquement éligible, sans qu'il soit nécessaire de relancer la campagne. La rééligibilité est suivie par utilisateur et par campagne.
 
 #### Choisir votre audience {#choose-your-audience}
 
-1. Dans **Audience cible**, choisissez des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
+1. Dans **Target Audiences**, choisissez des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -163,7 +167,7 @@ Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/us
 
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la finalisation de votre Canvas, la mise en œuvre de [tests multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing) et de la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et bien plus encore, consultez l'étape [Créer votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la finalisation de votre Canvas, la mise en œuvre de [tests multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing) et de la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et bien plus encore, consultez l'étape [Créer votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
 
 Pour contrôler la rééligibilité des étapes de bannière dans un Canvas, utilisez les paramètres de réentrée du Canvas. Pour en savoir plus, consultez [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

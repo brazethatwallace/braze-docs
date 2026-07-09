@@ -39,7 +39,7 @@ Dispare quando um usuário visualizar uma página de detalhes do produto.
 | `currency` | String | Sim | Código ISO 4217 de três letras (por exemplo, `USD` ou `EUR`). |
 | `source` | String | Sim | Origem do evento (por exemplo, `web`, `ios` ou `android`). |
 | `type` | Array de strings | Não | Obrigatória para usar os recursos de gatilho de catálogo da Braze para alertas de volta ao estoque e queda de preço. Valores aceitos: `"price_drop"`, `"back_in_stock"`. |
-| `metadata` | Objeto | Não | Pares chave-valor flexíveis. Subpropriedade reconhecida: `sku` (String). |
+| `metadata` | Objeto | Não | Pares chave-valor flexíveis (por exemplo, `category` ou `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriedades do evento product viewed" }
 
 {% endtab %}
@@ -240,7 +240,7 @@ O SDK Android [42.3.0+](https://github.com/braze-inc/braze-android-sdk/releases/
 
 ### Blocos de construção compartilhados {#shared-building-blocks}
 
-- `EcommerceProduct`: Itens de linha para eventos de carrinho, checkout e pedido.
+- `EcommerceProduct`: itens de linha para eventos de carrinho, checkout e pedido.
   - Obrigatórios: `productId`, `productName`, `variantId`, `price`, `quantity` (`Long` não negativo)
   - Opcionais: `imageUrl`, `productUrl`, `metadata`
 - `BrazeProperties`: `metadata` no nível do evento ou do produto. As chaves devem ser strings não vazias com no máximo 255 caracteres e sem cifrão ($) no início.
@@ -274,7 +274,6 @@ import com.braze.models.outgoing.BrazeProperties
 import com.braze.models.recommended.ecommerce.ProductViewedEvent
 
 val metadata = BrazeProperties()
-  .addProperty("sku", "SS-R-101")
   .addProperty("category", "Apparel")
 
 val productViewedEvent = ProductViewedEvent(
@@ -480,7 +479,6 @@ import com.braze.models.outgoing.BrazeProperties;
 import com.braze.models.recommended.ecommerce.ProductViewedEvent;
 
 BrazeProperties metadata = new BrazeProperties()
-    .addProperty("sku", "SS-R-101")
     .addProperty("category", "Apparel");
 
 ProductViewedEvent productViewedEvent = new ProductViewedEvent(
@@ -692,7 +690,6 @@ if let productViewedEvent = try? Braze.Ecommerce.ProductViewedEvent(
     currency: "GBP",
     source: "https://braze-apparel.com/",
     metadata: [
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -899,7 +896,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 {% endtab %}
 {% endtabs %}
 
-## Web
+## Web {#web}
 
 No SDK Web [6.8.0+](https://github.com/braze-inc/braze-web-sdk), chame `logEcommerceEvent` com um `name` de evento e `properties`. Em versões anteriores do SDK, chame `logCustomEvent` com o nome do evento e um objeto de propriedades. `ecommerce.order_cancelled` e `ecommerce.order_refunded` usam `logCustomEvent`.
 
@@ -925,7 +922,6 @@ braze.logEcommerceEvent({
         "currency": "GBP",
         "source": "https://braze-apparel.com/",
         "metadata": {
-            "sku": "",
             "color": "ORANGE",
             "size": "6",
             "brand": "Braze"
@@ -947,7 +943,6 @@ braze.logCustomEvent("ecommerce.product_viewed", {
     "currency": "GBP",
     "source": "https://braze-apparel.com/",
     "metadata": {
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"

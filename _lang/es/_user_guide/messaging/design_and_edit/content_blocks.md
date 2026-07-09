@@ -3,7 +3,7 @@ nav_title: Bloques de contenido
 article_title: Bloques de contenido
 alias: "/dnd/content_blocks/"
 page_order: 4
-description: "Aprende a crear, usar y administrar bloques de contenido reutilizables en tus campañas y Canvas de Braze."
+description: "Aprende a crear, usar y administrar bloques de contenido reutilizables en tus Campaigns y Canvas de Braze."
 page_type: reference
 tool:
   - Templates
@@ -13,7 +13,7 @@ tool:
 
 # Bloques de contenido {#content-blocks}
 
-> Los Content Blocks te permiten administrar contenido reutilizable de canales cruzados en una única ubicación centralizada. Úsalos para crear una apariencia consistente en tus campañas, distribuir los mismos códigos de oferta a través de diferentes canales o crear activos predefinidos para una mensajería consistente a escala. También puedes crear y administrar tus Content Blocks [usando la API]({{site.baseurl}}/api/endpoints/templates).
+> Los Content Blocks te permiten administrar contenido reutilizable y multicanal en una única ubicación centralizada. Úsalos para crear una apariencia consistente en tus Campaigns, distribuir los mismos códigos de oferta a través de diferentes canales o crear activos predefinidos para una mensajería consistente a escala. También puedes crear y administrar tus Content Blocks [usando la API]({{site.baseurl}}/api/endpoints/templates).
 
 ## Crear un bloque de contenido {#create-a-content-block}
 
@@ -40,7 +40,7 @@ Cada bloque de contenido de arrastrar y soltar está limitado a una fila. Sin em
 
 | Atributo del bloque de contenido | Especificaciones |
 |---|---|
-| Nombre | Campo obligatorio con un máximo de 100 caracteres. No se puede renombrar después de que el bloque de contenido haya sido guardado. Además, no puedes nombrar un nuevo bloque de contenido con el mismo nombre que uno anterior, incluso si el anterior ha sido archivado. |
+| Nombre | Campo obligatorio con un máximo de 100 caracteres. Los nombres de los Content Blocks solo pueden contener letras (A-Z), números (0-9), guiones (`-`) y guiones bajos (`_`). No se permiten espacios ni otros caracteres especiales, y se convierten automáticamente (por ejemplo, los espacios se reemplazan por guiones bajos). Los nombres no se pueden cambiar después de guardar el bloque de contenido, y no puedes reutilizar el nombre de un bloque de contenido anterior, incluso si está archivado. |
 | Descripción | (opcional) Máximo de 250 caracteres. Describe el bloque de contenido para que otros usuarios de Braze sepan para qué sirve y dónde se usa. |
 | Tamaño del contenido | Máximo de 50 KB. |
 | Ubicación | Los Content Blocks no se pueden usar dentro de un pie de página de correo electrónico, pero puedes [crear un bloque de contenido que incluya un pie de página](#email-footers) para usarlo en tus correos electrónicos. |
@@ -85,7 +85,7 @@ Para insertar un bloque de contenido usando Liquid:
 
 En el editor de arrastrar y soltar, también puedes añadir un bloque de contenido a través del panel de **Personalización**:
 
-1. Ve a tu campaña de correo electrónico y selecciona **Editar cuerpo del correo electrónico**.
+1. Ve a tu Campaign de correo electrónico y selecciona **Editar cuerpo del correo electrónico**.
 2. Haz clic en <i class="fas fa-plus"></i> **Personalización**.
 3. Selecciona **Content Blocks** en el desplegable **Tipo de personalización**.
 4. Selecciona el nombre de tu bloque de contenido en el campo **Atributo**.
@@ -98,12 +98,12 @@ Los Content Blocks insertados mediante Liquid **están vinculados** al bloque de
 ### Cosas que debes saber {#things-to-know}
 
 - Usar Content Blocks HTML en correos electrónicos de arrastrar y soltar **o** Content Blocks de arrastrar y soltar en correos electrónicos HTML puede provocar problemas de renderizado inesperados. Esto se debe a que el editor de arrastrar y soltar genera HTML y CSS que renderizan el contenido de forma dinámica, mientras que el editor HTML es más estático.
-- Si insertas un Content Block de arrastrar y soltar usando Liquid, Braze no incluye los estilos del `<head>` HTML del bloque. Los estilos responsivos, como el CSS específico para móviles, pueden no renderizarse como se espera. Si el bloque depende de CSS responsivo, añade ese CSS al mensaje o plantilla que incluye el Content Block.
-- Las propiedades del evento de Canvas solo son compatibles en un Canvas. Si haces referencia a un bloque de contenido con propiedades de entrada de Canvas en una campaña, no se completarán.
+- Si insertas un Content Block de arrastrar y soltar usando Liquid, Braze no incluye los estilos del `<head>` HTML del bloque. Los estilos receptivos, como el CSS específico para móviles, pueden no renderizarse como se espera. Si el bloque depende de CSS receptivo, añade ese CSS al mensaje o plantilla que incluye el Content Block.
+- Las propiedades del evento de Canvas solo son compatibles en un Canvas. Si haces referencia a un bloque de contenido con propiedades de entrada de Canvas en una Campaign, no se completarán.
 
 ## Vista previa de Content Blocks {#preview-content-blocks}
 
-Después de añadir un bloque de contenido en una campaña o Canvas activo, puedes previsualizarlo desde la Biblioteca de bloques de contenido pasando el cursor sobre el bloque de contenido y seleccionando el icono <i class="fa fa-eye preview-icon"></i> **Vista previa**.
+Después de añadir un bloque de contenido en una Campaign o Canvas activo, puedes previsualizarlo desde la biblioteca de Content Blocks pasando el cursor sobre el bloque de contenido y seleccionando el icono <i class="fa fa-eye preview-icon"></i> **Vista previa**.
 
 Esta vista previa incluye información sobre el bloque de contenido, como quién lo creó, etiquetas, fecha de creación, fecha de última edición, descripción, tipo de editor, recuento de inclusiones con detalles (una lista clicable de mensajes o Content Blocks que usan el bloque de contenido) y una vista previa real del bloque de contenido.
 
@@ -129,8 +129,8 @@ Después de realizar ediciones en un bloque de contenido, puedes guardar y lanza
 
 Los Content Blocks no se pueden usar dentro de un pie de página de correo electrónico, pero puedes crear un bloque de contenido que incluya contenido de pie de página para usarlo en tus correos electrónicos. Para hacerlo:
 
-1. Ve a **Configuración** > **Preferencias de correo electrónico** > **Personalizar pie de página** y crea el pie de página.
-2. Añade el pie de página a un bloque de contenido en la **Biblioteca de bloques de contenido**.
+1. Ve a **Configuración** > **Preferencias de correo electrónico** > **Pie de página personalizado** y crea el pie de página.
+2. Añade el pie de página a un bloque de contenido en la **biblioteca de Content Blocks**.
 3. Añade ese bloque de contenido a tus plantillas de correo electrónico o mensajes.
 
 ## Archivar Content Blocks {#archive-content-blocks}

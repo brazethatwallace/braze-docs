@@ -23,7 +23,7 @@ search_rank: 3.9
 {% tabs %}
 {% tab キャンペーン %}
 
-1. **Messaging** > **キャンペーン**に移動し、**キャンペーンを作成**を選択します。
+1. **メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択します。
 2. **Content Cards**を選択するか、複数のチャネルをターゲットとするキャンペーンの場合は**Multichannel**を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。

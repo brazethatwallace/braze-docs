@@ -30,7 +30,7 @@ Features for Banners include:
 
 - **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more.
 - **Flexible placements:** Define multiple locations within your application or website where Banners can appear, enabling precise targeting to specific contexts or user experiences.
-- **Dynamic personalization:** Banners can only be refreshed at the start of a new session or mid-session if you explicitly request the refresh. Banners don't update automatically on a new session. If you don't request the refresh, the Banner won't update.
+- **Dynamic personalization:** Banners recalculate personalization (Liquid logic) and segmentation every time the banner is refreshed. If a user updates their profile or a custom attribute changes, the next Banner refresh will reflect those changes.
 - **Native prioritization:** Set the display priority for when multiple Banners target the same placement, ensuring the right message reaches users at the right time.
 - **Custom Code editor block:** Use the Custom Code editor block to add custom HTML for advanced customization or seamless integration with your existing web styles.
 

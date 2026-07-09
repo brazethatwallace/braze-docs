@@ -230,7 +230,7 @@ When using conditional logic, you'll need to know the custom attribute's data ty
 Strings and arrays require straight apostrophes around them, while booleans and integers will never have apostrophes.
 {% endalert %}
 
-#### Boolean
+### Boolean
 
 [Booleans]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) are binary values, and can be set to either `true` or `false`, such as `registration_complete: true`. Boolean values don't have apostrophes around them.
 
@@ -242,7 +242,7 @@ Strings and arrays require straight apostrophes around them, while booleans and 
 
 {% endraw %}
 
-#### Number
+### Number
 
 [Numbers]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) are numeric values, which can be integers or floats. For example, a user may have `shoe_size: 10` or `levels_completed: 287`. Number values don't have apostrophes around them.
 
@@ -264,7 +264,7 @@ You can also use other [basic operators](https://shopify.dev/docs/themes/liquid/
 
 {% endraw %}
 
-#### String
+### String
 
 A [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) is made up of alphanumeric characters and stores a piece of data about your user. For example, you may have `favorite_color: red` or `phone_number: 3025981329`. String values must have apostrophes around them.
 
@@ -278,7 +278,7 @@ A [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attribu
 
 For strings, you can use both "==" or "contains" in your Liquid.
 
-#### Array
+### Array
 
 An [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) is a list of information about your user. For example, a user may have `last_viewed_shows: stranger things, planet earth, westworld`. Array values must have apostrophes around them.
 
@@ -292,7 +292,7 @@ An [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attribu
 
 For arrays, you must use "contains" and can't use "==". 
 
-#### Time
+### Time
 
 A time stamp of when an event took place. [Time]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) values must have a [math filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) on them to be used in conditional logic.
 

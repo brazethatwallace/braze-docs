@@ -16,6 +16,11 @@ Turn internal TAM solution assets into generalized, product-accurate articles fo
 
 **Output location:** `_docs/_user_guide/example_library/` (English canonical only; do not edit `_lang/`).
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only $(git merge-base HEAD $(git rev-parse --verify origin/develop 2>/dev/null || git rev-parse --verify develop 2>/dev/null || echo HEAD~1))..HEAD 2>/dev/null`
+- Open PR: !`gh pr view --json number,title,body 2>/dev/null || echo "none"`
+
 ---
 
 ## Source material

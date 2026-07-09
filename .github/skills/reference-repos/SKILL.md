@@ -10,6 +10,14 @@ description: >
 
 When verifying documentation (SDK behavior, APIs, product behavior), use the following repos in this workspace as source-of-truth. Prefer searching and citing these over docs alone.
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only HEAD`
+
+---
+
+## Reference repos
+
 | Folder | Use for |
 |--------|--------|
 | `braze-android-sdk` | Android SDK |

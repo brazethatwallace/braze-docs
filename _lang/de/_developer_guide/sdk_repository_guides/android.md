@@ -6,6 +6,8 @@ description: "Braze Android SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Leitfaden zum Android SDK-Repository {#android-sdk-repository-guide}
+
 ## Über das Braze Android SDK {#about-the-braze-android-sdk}
 
 Das Braze Android SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zur Nutzer:innen-Interaktion in Ihre Anwendung zu integrieren.

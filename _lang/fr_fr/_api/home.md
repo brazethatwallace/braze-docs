@@ -34,6 +34,7 @@ guide_featured_list:
 
 # channel to icon/fa or image mapping
 glossary_tags:
+  - name: Apps
   - name: Campaigns
   - name: Canvas
   - name: Catalogs
@@ -57,6 +58,10 @@ glossary_tags:
   - name: Cloud Data Ingestion
 
 glossaries:
+  - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
+    description: Mettre à jour les identifiants push pour une application unique.
+    tags:
+      - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
     description: Ajouter de nouveaux alias utilisateur pour les utilisateurs identifiés existants, ou créer de nouveaux utilisateurs non identifiés.
     tags:
@@ -70,7 +75,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_global_control_group'>/users/export/global_control_group</a>
-    description: Exporter tous les utilisateurs d'un Groupe de contrôle global.
+    description: Exporter tous les utilisateurs d'un groupe de contrôle global.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_identifier'>/users/export/ids</a>

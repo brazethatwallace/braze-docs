@@ -12,7 +12,7 @@ tool: Canvas
 
 > Comments in Canvases can be a great collaborative space for your marketing team to identify, discuss, and review the finer details for your Canvases. As you build out a Canvas, you can make and manage comments to identify these areas that may require additional feedback from your colleagues.
 
-![]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![Canvas builder with the comments sidebar showing open comment threads.]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
 ## Benefits
 
@@ -28,7 +28,7 @@ By default, the sidebar will show open comments. You can toggle to view open com
 
 To leave a comment, click the <i class="fas fa-comment"></i> comment icon at the top of the Canvas. This turns your cursor into a comment icon. Click the step you want to comment on. To revert your cursor, press the **Esc** key or click the comment icon again. 
 
-##### Keyboard shortcuts
+### Keyboard shortcuts
 
 You can also use keyboard shortcuts to add comments:
 
@@ -48,7 +48,7 @@ You won't be able to delete another user's comments or threads. However, anyone 
 
 ## Managing notifications
 
-![]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![Canvas notifications settings panel for comment alerts.]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
 To manage email notifications for a Canvas, open the sidebar and click <i class="fa-solid fa-bell"></i> **Notifications**. Here, you can select your notification preferences.
 

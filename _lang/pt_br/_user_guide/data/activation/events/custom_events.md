@@ -7,7 +7,7 @@ description: "Este artigo descreve eventos e propriedades personalizados, segmen
 search_rank: 2
 ---
 
-# [![curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > Este artigo descreve eventos e propriedades personalizados, histórico de eventos do perfil de usuário, filtros de segmentação relacionados, propriedades de entrada do Canvas, análises de dados relevantes e muito mais. Para saber mais sobre os eventos da Braze em geral, consulte [Eventos]({{site.baseurl}}/user_guide/data/activation/events).
 
@@ -55,7 +55,7 @@ Você pode adicionar tags a um evento personalizado após sua criação se tiver
 
 ### Exportando dados {#exporting-data}
 
-Para exportar a lista de eventos personalizados como um arquivo CSV, selecione **Exportar tudo** no topo da página. O arquivo CSV será gerado e um link para baixar será enviado por e-mail para você.
+Para exportar a lista de eventos personalizados como um arquivo CSV, selecione **Exportar tudo** no topo da página. O arquivo CSV será gerado e um link para download será enviado por e-mail para você.
 
 {% alert note %}
 Não há um limite fixo no dashboard para a quantidade de **eventos personalizados** ou **atributos personalizados** distintos que você pode definir ou armazenar em um perfil; os limites práticos dependem do formato dos dados, do volume de ingestão e do desempenho do espaço de trabalho. Se você planeja rastrear um catálogo muito grande de eventos ou atributos, trabalhe com a equipe de conta da Braze para modelagem e higienização (por exemplo, [bloqueio]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) de dados não utilizados).
@@ -63,13 +63,13 @@ Não há um limite fixo no dashboard para a quantidade de **eventos personalizad
 
 ## Visualizando relatórios de uso {#viewing-usage-reports}
 
-O relatório de uso lista todos os Canvas, Campaigns e segmentos que utilizam um evento personalizado específico. Esta lista não inclui usos de Liquid.
+O relatório de uso lista todos os Canvas, Campaigns e Segments que utilizam um evento personalizado específico. Esta lista não inclui usos de Liquid.
 
 Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos eventos personalizados e então selecionando **Visualizar relatório de uso**.
 
 ## Registrando eventos personalizados {#logging-custom-events}
 
-Eventos personalizados requerem configuração adicional. Consulte a lista abaixo para a documentação de cada plataforma, onde você encontrará informações sobre os métodos usados para registrar eventos personalizados e como adicionar propriedades e quantidades aos seus eventos personalizados.
+Eventos personalizados requerem configuração adicional. Consulte a documentação de cada plataforma a seguir para saber sobre os métodos usados para registrar eventos personalizados e como adicionar propriedades e quantidades aos seus eventos personalizados.
 
 {% details Expandir para documentação por plataforma %}
 
@@ -116,7 +116,7 @@ Casos de uso comuns incluem:
 - Investigar um problema de suporte para um usuário específico sem precisar configurar uma exportação de dados.
 
 {% alert note %}
-Visualizar a guia **Histórico de eventos** requer as permissões de usuário **Pesquisar usuários** e **Visualizar IPI**, pois as propriedades de eventos podem conter dados pessoais. Para saber mais, consulte [Permissões de usuário da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Visualizar a guia **Histórico de eventos** requer as permissões de usuário **Pesquisar usuários**, **Visualizar IPI** e **Visualizar propriedades de eventos do usuário**, pois as propriedades de eventos podem conter dados pessoais. Para saber mais, consulte [Permissões de usuário da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Filtros de segmentação {#segmentation-filters}

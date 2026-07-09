@@ -37,8 +37,10 @@ Cursor and Claude Code also discover skills through symlinks in [`.cursor/skills
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finds image files under `assets/img/` that are not referenced in docs, includes, or site chrome, then removes them | Cleaning up stale screenshots; reducing repo size; processing CI image-pruner draft PRs | `/image-pruner` | `Skill("anthropic-skills:image-pruner")` |
 | [`redirect-management`](.github/skills/redirect-management/SKILL.md) | Adds, updates, and validates URL redirects in `broken_redirect_list.js` when pages are renamed, moved, or deleted | Adding redirects for renamed pages; collapsing stale redirect chains; verifying redirects before a PR | `/redirect-management` | `Skill("anthropic-skills:redirect-management")` |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Looks up product, SDK, and API behavior in sibling source repos as a ground-truth source for docs verification | Confirming product or SDK behavior; documenting API limits; cross-referencing a doc claim with code | `/reference-repos` | `Skill("anthropic-skills:reference-repos")` |
+| [`release-deploy`](.github/skills/release-deploy/SKILL.md) | Generates the deploy-PR list for monthly release notes via `scripts/generate_releases_deploy.py`: merged `deploy` PRs since the last `v.*` tag, with contributor PRs nested underneath | Drafting monthly release notes; generating the deploy text | `/release-deploy` | `Skill("anthropic-skills:release-deploy")` |
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Migrates Salesforce Knowledge Base articles into public Braze docs (Epic BD-6308), handling triage, drafting, and PRs | Working a Salesforce KB migration Jira ticket; processing `_data/sf_*.xml` or `kb_articles.csv` | `/salesforce-migration` | `Skill("anthropic-skills:salesforce-migration")` |
 | [`screenshot-pii-audit`](.github/skills/screenshot-pii-audit/SKILL.md) | OCR-scans changed screenshots for PII (emails, IDs, names, production data) before a PR is opened | Before opening a PR with new or updated screenshots under `assets/img/`; after a CI PII failure | `/screenshot-pii-audit` | `Skill("anthropic-skills:screenshot-pii-audit")` |
+| [`spell-check`](.github/skills/spell-check/SKILL.md) | Runs cspell on changed `_docs/` and `_includes/` markdown; auto-fixes very high-confidence typos; flags ambiguous terms for review | Before opening a PR that changes English docs prose; when CI Spellcheck fails; `/spell-check` | `/spell-check` | `Skill("anthropic-skills:spell-check")` |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Triages Braze support case CSVs to find documentation gaps and drafts targeted `_docs` updates | Analyzing support tickets; processing Looker exports on `support-analyzer-data`; drafting docs from support themes | `/support-analyzer` | `Skill("anthropic-skills:support-analyzer")` |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converts internal TAM solution assets into generalized, PII-free example library articles under `_docs/_user_guide/example_library/` | Publishing an internal TAM solution as a public User Guide example; building the Operator Example library | `/tam-solutions` | `Skill("anthropic-skills:tam-solutions")` |
 
@@ -56,9 +58,11 @@ Cursor and Claude Code also discover skills through symlinks in [`.cursor/skills
 | Opening a draft pull request after finishing a branch | `create-pr` |
 | Verifying a page's claims against platform source code | `docs-discrepancies` |
 | Confirming SDK, API, or product behavior from source | `reference-repos` |
+| Generating the deploy-PR text for monthly release notes | `release-deploy` |
 | Removing redundant referenced images from English docs | `image-curator` |
 | Removing unused images from `assets/img/` | `image-pruner` |
 | Working a Salesforce KB → public docs migration ticket | `salesforce-migration` |
 | Auditing screenshots for PII before opening a PR | `screenshot-pii-audit` |
+| Running spell-check on changed docs before a PR | `spell-check` |
 | Turning support ticket themes into doc improvements | `support-analyzer` |
 | Publishing an internal TAM solution as a public example | `tam-solutions` |

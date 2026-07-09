@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze Web SDK READMEリフ�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Web SDK リポジトリガイド {#web-sdk-repository-guide}
+
 ## Braze Web SDKについて {#about-the-braze-web-sdk}
 
 Braze Web SDKを使用すると、BrazeのカスタマーエンゲージメントプラットフォームをWebアプリケーションに直接統合できます。TypeScriptで構築され、モダンなWeb開発向けに設計されたこのSDKは、ユーザー管理、メッセージング、分析、フィーチャーフラグのための包括的なツールを提供します。
@@ -70,7 +72,7 @@ braze.changeUser('Jane Doe');
 | `enableLogging` | `boolean` | `false` | デフォルトでログを有効にするにはtrueに設定します。これによりBrazeがJavaScriptコンソールにログを出力するようになり、すべてのユーザーに表示されます。本番環境にリリースする前に、このオプションを削除するか、setLoggerで代替ロガーを提供してください。 |
 | `allowUserSuppliedJavascript` | `boolean` | `false` | デフォルトでは、Braze Web SDKはユーザー提供のJavaScriptクリックアクションを許可せず、HTMLアプリ内メッセージやバナーも有効にしません。これらはBrazeダッシュボードのユーザーがサイト上でJavaScriptを実行できるようにするためです。Brazeダッシュボードのユーザーが悪意のないJavaScriptクリックアクションを記述することを信頼する場合は、このプロパティをtrueに設定してください。 |
 | `doNotLoadFontAwesome` | `boolean` | `false` | Brazeはアプリ内メッセージのアイコンにFont Awesomeを使用しています。デフォルトでは、BrazeはFontAwesome CDNからFontAwesome 4.7.0を自動的に読み込みます。この動作を無効にするには（例えば、サイトでカスタマイズされたバージョンのFontAwesomeを使用している場合）、このオプションを`true`に設定してください。この場合、サイトでFontAwesomeが読み込まれていることを確認する責任はお客様にあります。そうしないと、アプリ内メッセージが正しくレンダリングされない場合があります。 |
-| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKはアプリ内メッセージをz-index 999999で表示します。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
+| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKはIn-App Messagesをz-index 999999で表示します。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
 | `sessionTimeoutInSeconds` | `number` | `30` | デフォルトでは、セッションは30秒間操作がないとタイムアウトします。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
 | `deviceId` | `string` | 自動生成 | デフォルトでは、BrazeはデバイスIDとしてランダムなGUIDを割り当てます。この設定オプションに値を指定すると、そのデフォルトを独自の値で上書きできます。 |
 | `appVersion` | `string` | `undefined` | このオプションに値を指定すると、Brazeに送信されるユーザーイベントが指定されたバージョンに関連付けられ、ユーザーセグメンテーションに使用できます。 |
@@ -172,7 +174,7 @@ if (user) {
 }
 ```
 
-#### ユーザーエイリアスとサブスクリプショングループ {#user-aliases-and-subscription-groups}
+#### ユーザーエイリアスと購読グループ {#user-aliases-and-subscription-groups}
 
 ``` typescript
 import { getUser } from "@braze/web-sdk";
@@ -766,7 +768,7 @@ require(['path/to/braze.min.js'], function(braze) {
 AMP統合には、以下が必要です。
 
 1. **AMP Webプッシュスクリプトの追加**: headに非同期スクリプトタグを追加します
-2. **サブスクリプションウィジェットの追加**: ユーザーがサブスクライブ/アンサブスクライブできるウィジェットを追加します
+2. **サブスクリプションウィジェットの追加**: ユーザーが購読/購読解除できるウィジェットを追加します
 3. **ヘルパーファイルの追加**: `helper-iframe.html`と`permission-dialog.html`を含めます
 4. **Service Workerの作成**: BrazeのService Workerファイルを追加します
 5. **AMP Webプッシュ要素の設定**: APIキーとベースURLをクエリパラメーターとして`amp-web-push`要素を追加します

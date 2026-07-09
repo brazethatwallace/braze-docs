@@ -34,6 +34,7 @@ guide_featured_list:
 
 # channel to icon/fa or image mapping
 glossary_tags:
+  - name: Apps
   - name: Campaigns
   - name: Canvas
   - name: Catalogs
@@ -57,6 +58,10 @@ glossary_tags:
   - name: Cloud Data Ingestion
 
 glossaries:
+  - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
+    description: 단일 앱의 푸시 자격 증명을 업데이트합니다.
+    tags:
+      - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
     description: 기존 식별된 사용자에 대한 새 사용자 별칭을 추가하거나, 식별되지 않은 새 사용자를 생성합니다.
     tags:
@@ -70,7 +75,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_global_control_group'>/users/export/global_control_group</a>
-    description: 전역 제어 그룹 내의 모든 사용자를 내보냅니다.
+    description: 글로벌 컨트롤 그룹 내의 모든 사용자를 내보냅니다.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_identifier'>/users/export/ids</a>
@@ -262,11 +267,11 @@ glossaries:
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment'>/segments/list</a>
-    description: 각 Segment의 이름, 세그먼트 API 식별자 및 분석 추적 활성화 여부를 포함하는 Segments 목록을 내보냅니다.
+    description: 각 Segment의 이름, Segment API 식별자 및 분석 추적 활성화 여부를 포함하는 Segments 목록을 내보냅니다.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/post_cancel_export'>/export/segment/cancel</a>
-    description: 제공된 세그먼트 ID에 대한 내보내기를 취소합니다.
+    description: 제공된 Segment ID에 대한 내보내기를 취소합니다.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/sessions/get_sessions_analytics'>/sessions/data_series</a>
