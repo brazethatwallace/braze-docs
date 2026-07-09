@@ -162,6 +162,19 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
         r'(?:at\s+or\s+)?(?:above|below)\s+the\s+(?:[a-z0-9-]+\s+){0,3}(?:threshold|limit|cap)\b',
         re.IGNORECASE,
     ),
+    # Version and platform compatibility comparisons.
+    re.compile(
+        r'\b(?:version|sdk|ios|android)\b.{0,40}\b(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'\b(?:ios|android)\s+\d+(?:\.\d+)*\s+and\s+(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'\bv\d+(?:\.\d+){1,3}\s+and\s+(?:above|below)\b',
+        re.IGNORECASE,
+    ),
     # Comparative adjective compounds (semantic, not layout).
     re.compile(r'\b(?:above|below)-average\b', re.IGNORECASE),
     # Idiomatic emphasis, not directional layout reference.

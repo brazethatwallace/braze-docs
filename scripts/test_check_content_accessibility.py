@@ -211,6 +211,24 @@ class TestSpatialDirectionals:
         )
         assert v == []
 
+    def test_allows_ios_sdk_version_and_above(self):
+        v = spatial_violations_for(
+            'For devices using iOS SDK v5.7.0 and above, this behavior is expected.\n'
+        )
+        assert v == []
+
+    def test_allows_android_version_and_below(self):
+        v = spatial_violations_for(
+            'On Android 12 and below, users are considered subscribed on first session.\n'
+        )
+        assert v == []
+
+    def test_allows_version_phrase_with_below(self):
+        v = spatial_violations_for(
+            'This applies to any version below 2.4.1.\n'
+        )
+        assert v == []
+
     def test_allows_left_center_right_alignment_options(self):
         v = spatial_violations_for(
             'Orients the image to either the left, center, or right of the block.\n'
