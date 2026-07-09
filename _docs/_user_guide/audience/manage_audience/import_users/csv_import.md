@@ -236,7 +236,7 @@ When importing custom events using CSV, you must format your file according to t
 
 ##### Understanding custom event formatting
 
-Correctly format your custom events CSV using dot notation, or with a non-null value in the corresponding cell, so Braze maps each property to the right event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
+Correctly format your custom events CSV using dot notation, or with a non-null value in the corresponding cell, so Braze maps each property to the end event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
 
 ##### Use dot notation for event properties
 

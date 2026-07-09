@@ -192,7 +192,7 @@ Here is an example payload to `/users/track` that updates a user profile by the 
 
 ## Step 5: Merge profiles (optional)
 
-As described above, there's a possibility for multiple user profiles to exist with the same `native_line_id`. If your update methods create duplicate user profiles, you can merge unidentified user profiles to identified user profiles with the `/user/merge` endpoint. 
+As described earlier in this section, there's a possibility for multiple user profiles to exist with the same `native_line_id`. If your update methods create duplicate user profiles, you can merge unidentified user profiles to identified user profiles with the `/user/merge` endpoint. 
 
 Here's an example payload to `/users/merge` that targets an unidentified user profile by user alias `line_id`:
 
@@ -235,7 +235,7 @@ To help manage this, Braze offers tooling and logic that supports a well-integra
 
 ## Use cases
 
-These are use cases of how users can be updated after you follow the setup steps above.
+These are use cases of how users can be updated after you follow the setup setup steps.
 
 ### Existing Braze user profile already follows LINE channel
 

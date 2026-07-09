@@ -154,7 +154,7 @@ Use a deep link inside a custom [in-app message]({{site.baseurl}}/user_guide/cha
 When building this in-app message, consider the following:
 
 - **When to show:** Target users who have "While Using the App" permission when you need "Always Allow", or users who previously denied location access.
-- **Messaging example:** "To get the most out of location-based features, update your location settings to 'Always Allow'. Tap below to go to Settings."
+- **Messaging example:** "To get the most out of location-based features, update your location settings to 'Always Allow'. Tap to go to Settings."
 
 {% alert tip %}
 You can trigger this in-app message at any point in the user journey—after a purchase, when browsing nearby content, or as part of a Canvas flow. Be selective when re-prompting: limit these campaigns to loyal or highly engaged users to avoid opt-in fatigue.

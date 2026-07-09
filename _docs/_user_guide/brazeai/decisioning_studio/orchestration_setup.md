@@ -118,7 +118,7 @@ For Braze integrations, plan which dimensions your agent will optimize. These be
 
 ## Integration setup
 
-Select your CEP below to get started with the integration setup.
+Select your CEP from this list to get started with the integration setup.
 
 {% tabs %}
 {% tab Braze %}

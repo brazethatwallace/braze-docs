@@ -185,7 +185,7 @@ Keep in mind:
 
 - **Links and deep links:** Each on-click action has one URL field by default. Use Liquid in the URL to vary links by device, app type, or user attributes. On the **Message container**, you can also turn on platform-specific on-click behavior to set different links per platform.
 - **Opacity and backgrounds:** Opacity on the message container affects the full message background. Individual blocks can set their own background colors. For finer control, add custom CSS in a Custom Code block.
-- **Message width:** The **Message container** maximum width cannot be set below 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
+- **Message width:** The **Message container** maximum width cannot be set under 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
 - **Platform-specific backgrounds:** A single message uses the same background image and colors on web and mobile. You cannot set different backgrounds per platform in the editor.
 - **Multi-page messages:** Background images and message-level on-click actions apply across all pages in a multi-page message. To use different full images on each page, add buttons that link to the next page.
 - **Message-level styles:** Message-level styles apply to the entire message.
