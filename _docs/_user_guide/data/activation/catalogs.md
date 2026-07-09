@@ -40,7 +40,7 @@ guide_menu_list:
 
 ## Catalog use cases
 
-You can bring in any type of data into a catalog. Typically, the data is metadata about offerings, such as products, discounts, promotions, events, and similar. See the use cases below for a few examples of how you can use this data to target users with highly relevant messaging.
+You can bring in any type of data into a catalog. Typically, the data is metadata about offerings, such as products, discounts, promotions, events, and similar. See the following use cases for a few examples of how you can use this data to target users with highly relevant messaging.
 
 ### Retail and eCommerce
 
