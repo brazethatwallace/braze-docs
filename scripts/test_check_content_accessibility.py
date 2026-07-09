@@ -163,6 +163,14 @@ class TestSpatialDirectionals:
         assert len(v) == 1
         assert v[0]['auto_fix_eligible'] is False
 
+    def test_marks_api_data_retention_as_manual_review_only(self):
+        v = spatial_violations_for_path(
+            'The details are listed below.\n',
+            '_docs/_api/data_retention.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is False
+
     def test_does_not_treat_terms_to_know_as_legal_sensitive(self):
         v = spatial_violations_for_path(
             'Review the list below before setup.\n',
@@ -178,6 +186,18 @@ class TestSpatialDirectionals:
         )
         assert len(v) == 1
         assert v[0]['auto_fix_eligible'] is True
+
+    def test_allows_below_a_certain_threshold_numeric_comparison(self):
+        v = spatial_violations_for(
+            'If the value drops below a certain threshold, throttle requests.\n'
+        )
+        assert v == []
+
+    def test_allows_left_center_right_alignment_options(self):
+        v = spatial_violations_for(
+            'Orients the image to either the left, center, or right of the block.\n'
+        )
+        assert v == []
 
     # ------------------------------------------------------------------
     # False-positive guard: "right" / "left" meaning "correct" or other
@@ -269,6 +289,10 @@ class TestSpatialDirectionals:
 
     def test_flags_left_of(self):
         v = spatial_violations_for('Select the icon to the left of the title.\n')
+        assert len(v) == 1
+
+    def test_flags_right_of_button(self):
+        v = spatial_violations_for('Choose the icon to the right of the button.\n')
         assert len(v) == 1
 
     def test_flags_right_hand_side(self):
