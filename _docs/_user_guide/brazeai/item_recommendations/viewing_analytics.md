@@ -28,10 +28,10 @@ Refer to the following table for more information:
 
 | Metric              | Description |
 | ------------------- | ---------- |
-| **Precision**           | The percentage of time the model correctly guessed the next item a user purchased. Precision is heavily dependent on your specific catalog size and mix, and should be used as a guide to understand how often the model is correct.<br><br>In past testing, we have seen models perform well with precision numbers ranging from 6-20%. This metric updates when the model next retrains.  |
+| **Precision**           | The percentage of time the model correctly guessed the next item a user purchased. Precision is heavily dependent on your specific catalog size and mix, and should be used as a guide to understand how often the model is correct.<br><br>In past testing, models have performed well with precision numbers ranging from 6-20%. This metric updates when the model next retrains.  |
 | **Coverage**            | What percentage of available items in the catalog are recommended to at least one user. You can expect to see higher item coverage with personalized item recommendations over most popular ones. |
 | **Personalization rate** | For **AI Personalized** recommendations, the percentage of users with personalized recommendations stored on their profile, calculated against the total number of users who have performed the configured event in the past 24 months. Users who performed the event but don't have enough data to generate a personalized recommendation receive most popular items as a fallback when messaged. |
-| **Recommendation type** | For **Most Recent**, **Most Popular**, and **Trending** recommendations, the percentage of users who receive that recommendation type versus the fallback of most popular items. |
+| **Recommendation type** | For **Most Recent**, **Most Popular**, and **Trending** recommendations, the percentage of users who receive that recommendation type compared to the most popular items fallback. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Audience" }
 
 ### Items

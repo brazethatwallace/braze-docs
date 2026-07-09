@@ -54,7 +54,7 @@ Give your recommendation a name and optional description.
 Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and uses cases for each, see [Types and Uses Cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
-When using **AI Personalized**, users with insufficient data to create individualized recommendations receive **Most Popular** items as a fallback. You can view the **Personalization rate** on the **Analytics** page to see what percentage of users who performed the configured event in the past 24 months have personalized recommendations stored on their profile. The **Most Popular** fallback only returns items that exist in the linked catalog. 
+When using **AI Personalized**, users with insufficient data to create individualized recommendations receive **Most Popular** items as a fallback. You can view the **Personalization rate** on the **Analytics** page to see what percentage of users who performed the configured event in the past 24 months have personalized recommendations stored on their profile. The **Most Popular** fallback only returns items that exist in the linked catalog.
 {% endalert %}
 
 #### Step 3.1: Exclude prior purchases or interactions (optional)
