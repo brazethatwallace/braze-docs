@@ -810,7 +810,7 @@ Once disabled, the SDK eventually retries any pending failed requests, and Braze
 
 ### Why does this feature use public/private keys instead of shared secrets? {#faq-shared-secrets}
 
-When using shared secrets, anyone with access to that shared secret, such as the Braze dashboard page, can generate tokens and impersonate your end-users.
+When using shared secrets, anyone with access to that shared secret, such as the Braze dashboard page, can generate tokens and impersonate your end users.
 
 Instead, we use public/private keys so that not even Braze Employees (let alone your company users) have access to your private keys.
 
