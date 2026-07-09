@@ -15,7 +15,7 @@ channel:
 
 > Webinars have become common for Braze customers to host over the past few years. When hosting a Zoom webinar, users must enter their information on a Zoom landing page to sign up. 
 
-A recommended user flow is outlined below:
+A recommended user flow is outlined as follows:
 1. Schedule a webinar in Zoom and generate a `webinarId`.
 2. Use Braze to promote Zoom webinars via email, push, and in-app message channels. 
 3. Include a call-to-action button in these communications that automatically adds users to the webinar.
@@ -48,7 +48,7 @@ Users are now registered for the webinar with the details that already exist on 
 
 	A simple example of a landing page for users who sign up via button click from a push. Let the user know what they have signed up for and confirm their registration:<br>
 
-	![]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
+	![Webinar confirmation landing page shown after a user signs up from Braze.]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
 
 
 2. Create a webhook campaign triggered by the in-app message or button click.<br><br>
@@ -85,7 +85,7 @@ Users are now registered for the webinar with the details that already exist on 
 
 	A simple example of a landing page for users who sign up via button click from an in-app message. Let the user know what they have signed up for and confirm their registration:<br>
 
-	![]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
+	![Webinar confirmation landing page shown after a user signs up from Braze.]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
 
 2. Create a webhook campaign triggered by the in-app message or button click.<br><br>
 	Using existing user data on their Braze profile, sign up the user for the webinar.<br>

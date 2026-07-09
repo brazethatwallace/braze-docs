@@ -16,11 +16,11 @@ Integrating the Firebase Unity SDK may cause your `AndroidManifest.xml` to be ov
 
 #### Step 1.2: Set your Firebase credentials
 
-You need to input your Firebase Server Key and Sender ID into the Braze dashboard. To do this, log in to the [Firebase Developers Console](https://console.firebase.google.com/) and select your Firebase project. Next, select **Cloud Messaging** under **Settings** and copy the Server Key and Sender ID:<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+You need to input your Firebase Server Key and Sender ID into the Braze dashboard. To do this, log in to the [Firebase Developers Console](https://console.firebase.google.com/) and select your Firebase project. Next, select **Cloud Messaging** under **Settings** and copy the Server Key and Sender ID:<br>![Firebase console Cloud Messaging settings showing the Server Key and Sender ID.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
 In Braze, select your Android app on the **App Settings** page under **Manage Settings**. Next, enter your Firebase Server Key in the **Firebase Cloud Messaging Server Key** field and Firebase Sender ID in the **Firebase Cloud Messaging Sender** ID field.
 
-![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
+![Braze Android app settings with Firebase Cloud Messaging server key and sender ID fields.]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
@@ -171,7 +171,7 @@ The required ADM Jar file may be placed anywhere in your project according to th
 
 Lastly, you must add the Client Secret and Client ID you obtained in [Step 1](#unity_step-1-enable-adm) to the Braze dashboard's **Manage Settings** page.
 
-![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
+![Braze Fire OS app settings page with ADM client ID and client secret fields.]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -298,7 +298,7 @@ To learn more about ADM push listeners, see [Amazon: Integrate Amazon Device Mes
 
 {% tabs %}
 {% tab Android %}
-#### Deep linking to in-app resources
+### Deep linking to in-app resources
 
 Although Braze can handle standard deep links (such as website URLs, Android URIs, etc.) by default, creating custom deep links requires an additional Manifest setup.
 

@@ -113,21 +113,21 @@ Next, in the Braze Platform, paste the URL in the appropriate field. Appropriate
 
 {% tabs local %}
 {% tab Email %}
-In the Braze platform, paste your creative tag into your email body.![]({% image_buster /assets/img/movable_ink/web2.png %}){: style="max-width:90%"}<br><br>
+In the Braze platform, paste your creative tag into your email body.![Braze email composer with a Movable Ink creative tag inserted in the message body.]({% image_buster /assets/img/movable_ink/web2.png %}){: style="max-width:90%"}<br><br>
 
 {% endtab %}
 {% tab Push notification %}
 
 1. In the Braze Platform:
-	- Android Push: Paste the URL in the **Push Icon Image** and **Expanded Notification Image** fields.<br>![]({% image_buster /assets/img/movable_ink/android.png %}){: style="max-width:60%"}<br><br>
-	- iOS Push: Paste URL in **Media** link field and denote the file format you are using.<br>![]({% image_buster /assets/img/movable_ink/ios.png %}){: style="max-width:60%"}<br><br>
-	- Web Push: Paste the URL in the **Push Icon Image** and **Large Notification Image** fields.<br>![]({% image_buster /assets/img/movable_ink/web.png %}){: style="max-width:60%"}<br><br>
+	- Android Push: Paste the URL in the **Push Icon Image** and **Expanded Notification Image** fields.<br>![Braze Android push settings showing image URL fields for Movable Ink content.]({% image_buster /assets/img/movable_ink/android.png %}){: style="max-width:60%"}<br><br>
+	- iOS Push: Paste URL in **Media** link field and denote the file format you are using.<br>![Braze iOS push composer media field populated with a Movable Ink URL.]({% image_buster /assets/img/movable_ink/ios.png %}){: style="max-width:60%"}<br><br>
+	- Web Push: Paste the URL in the **Push Icon Image** and **Large Notification Image** fields.<br>![Braze web push editor with push icon and large image URL fields.]({% image_buster /assets/img/movable_ink/web.png %}){: style="max-width:60%"}<br><br>
 2. To make sure images are not cached, prepend the URL in the message with empty Liquid tags: <br>{% raw %}```{% if true %}{% endif %}https://movable-ink-image-url-goes-here```{% endraw %}
 
 {% endtab %}
 {% tab In-app message %}
 
-1. In the Braze platform, paste the URL in the **Rich Notification Media** field.![]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
+1. In the Braze platform, paste the URL in the **Rich Notification Media** field.![Braze rich notification media field with a Movable Ink image URL.]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
 2. Provide a unique URL to help prevent caching. To confirm that Movable Ink's real-time images work and will not be affected by caching, use Liquid to append a timestamp to the end of the Movable Ink image URL.
 
 To do this, use the following syntax, replacing the image URL as needed:
@@ -145,7 +145,7 @@ This template will take the current time (in seconds), append it to the end of t
 {% endtab %}
 {% tab Content Card %}
 
-1. In the Braze platform, paste the URL in the **Rich Notification Media** field.![]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
+1. In the Braze platform, paste the URL in the **Rich Notification Media** field.![Braze content card media field with a Movable Ink image URL.]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
 2. For mobile: Content Cards images on iOS and Android are cached upon receipt and do not refresh. 
   - As a workaround, schedule your campaign as a daily, weekly, or monthly recurring message with a corresponding expiration so the Content Card will be re-templated. For example, a Content Card that should refresh once a day should be set as a daily scheduled send with a 1-day expiration.
 3. To ensure that Movable Ink's real-time images work and will not be affected by caching when the Content Card is re-templated, use Liquid to append a timestamp to the end of the Movable Ink image URL.
