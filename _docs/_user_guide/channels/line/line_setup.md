@@ -235,7 +235,7 @@ To help manage this, Braze offers tooling and logic that supports a well-integra
 
 ## Use cases
 
-These are use cases of how users can be updated after you follow the setup setup steps.
+These are use cases of how users can be updated after you follow the setup steps.
 
 ### Existing Braze user profile already follows LINE channel
 
