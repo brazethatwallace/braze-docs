@@ -157,6 +157,15 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
         r'(?:above|below)\s+(?:a|the)?\s*certain\s+threshold\b',
         re.IGNORECASE,
     ),
+    # Quantitative phrasing with modifiers (for example, "at or below the five-variant limit").
+    re.compile(
+        r'(?:at\s+or\s+)?(?:above|below)\s+the\s+(?:[a-z0-9-]+\s+){0,3}(?:threshold|limit|cap)\b',
+        re.IGNORECASE,
+    ),
+    # Comparative adjective compounds (semantic, not layout).
+    re.compile(r'\b(?:above|below)-average\b', re.IGNORECASE),
+    # Idiomatic emphasis, not directional layout reference.
+    re.compile(r'\babove\s+and\s+beyond\b', re.IGNORECASE),
     # Alignment option enums (literal UI values, not layout instructions).
     re.compile(
         r'(?:align(?:ment)?|orients?)'

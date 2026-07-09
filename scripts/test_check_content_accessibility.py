@@ -193,6 +193,24 @@ class TestSpatialDirectionals:
         )
         assert v == []
 
+    def test_allows_at_or_below_variant_limit(self):
+        v = spatial_violations_for(
+            'Re-activate variants as long as this keeps the component at or below the five-variant limit.\n'
+        )
+        assert v == []
+
+    def test_allows_above_average_phrase(self):
+        v = spatial_violations_for(
+            'Users with above-average recency are grouped in this segment.\n'
+        )
+        assert v == []
+
+    def test_allows_above_and_beyond_idiom(self):
+        v = spatial_violations_for(
+            'Our support team goes above and beyond for onboarding.\n'
+        )
+        assert v == []
+
     def test_allows_left_center_right_alignment_options(self):
         v = spatial_violations_for(
             'Orients the image to either the left, center, or right of the block.\n'
