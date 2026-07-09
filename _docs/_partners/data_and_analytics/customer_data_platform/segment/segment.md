@@ -66,7 +66,7 @@ When using Segment's device-mode, you do not need to integrate the Braze SDK dir
 {% endalert %}
 
 {% alert important %}
-For device-mode integrations on mobile, you must add the Braze destination plugin to your app in addition to configuring the destination in the Segment dashboard. The Segment SDK does not include the Braze plugin by default—without it, the Segment SDK cannot forward data or mapped method calls to Braze, and features like push, in-app messages, and Content Cards won't work. See the platform-specific tabs below for installation instructions.
+For device-mode integrations on mobile, you must add the Braze destination plugin to your app in addition to configuring the destination in the Segment dashboard. The Segment SDK does not include the Braze plugin by default—without it, the Segment SDK cannot forward data or mapped method calls to Braze, and features like push, in-app messages, and Content Cards won't work. See the platform-specific tabs in this section for installation instructions.
 {% endalert %}
 
 When using a device-mode connection, similar to integrating the Braze SDK natively, the Braze SDK will assign a `device_id` and a backend identifier, `braze_id`, to every user. This allows Braze to capture anonymous activity from the device by matching those identifiers instead of `userId`. 
@@ -128,7 +128,7 @@ Segment's Braze Web Mode (Actions) framework is recommended for setting up Braze
 
 In Segment, select **Actions** as your destination framework and **Device Mode** as your connection mode.
 
-![]({% image_buster /assets/img/segment/website.png %})
+![Segment destination setup showing Actions framework and Device Mode selected.]({% image_buster /assets/img/segment/website.png %})
 
 {% endtab %}
 {% tab React Native %}
@@ -190,7 +190,7 @@ Define the settings for your destination. Not at all settings will apply to all 
 | In-app message z index | Provide a value for this option to override the Braze default z-indexes. | 
 | Require explicit in-app message dismissal | By default, when an in-app message is showing, pressing the escape button or a click on the grayed-out background of the page will dismiss the message. Set this option to true to prevent this behavior and require an explicit button click to dismiss messages. |
 | Minimum interval between trigger actions in seconds | Defaults to 30.<br>By default, a trigger action will only fire if at least 30 seconds have elapsed since the last trigger action. Provide a value for this configuration option to override that default with a value of your own. We do not recommend making this value any smaller than 10 to avoid spamming the user with notifications.|
-| Service worker location | By default, when registering users for web push notifications, Braze will look for the required service worker file in the root directory of your web server at `/service-worker.js`. If you want to host your service worker at a different path on that server, provide a value for this option that is the absolute path to the file. (for example, `/mycustompath/my-worker.js`). Note that setting a value here limits the scope of push notifications on your site. For instance, in the above example, because the service worker file is located within the `/mycustompath/` directory, `requestPushPermission` may only be called from web pages that start with `http://yoursite.com/mycustompath/`. |
+| Service worker location | By default, when registering users for web push notifications, Braze will look for the required service worker file in the root directory of your web server at `/service-worker.js`. If you want to host your service worker at a different path on that server, provide a value for this option that is the absolute path to the file. (for example, `/mycustompath/my-worker.js`). Note that setting a value here limits the scope of push notifications on your site. For instance, in this example, because the service worker file is located within the `/mycustompath/` directory, `requestPushPermission` may only be called from web pages that start with `http://yoursite.com/mycustompath/`. |
 | Disable push token maintenance | By default, users who have already granted web push permission will sync their push token with the Braze backend automatically on new sessions to ensure deliverability. To disable this behavior, set this option to `FALSE`. |
 | Manage service worker externally | If you have your own service worker that you register and control the lifecycle of, set this option to `TRUE`, and the Braze SDK will not register or unregister a service worker. If you set this option to `TRUE`, for push to function correctly, you must register the service worker yourself before calling `requestPushPermission` and ensure that it contains the Braze service worker code, either with `self.importScripts('https://js.appboycdn.com/web-sdk-develop/4.1/service-worker.js');` or by including the content of that file directly. When this option is `TRUE`, the `serviceWorkerLocation` option is irrelevant and is ignored. |
 | Content security nonce | If you provide a value for this option, the Braze SDK will add the nonce to any `<script>` and `<style>` elements created by the SDK. This permits the Braze SDK to work with your website's content security policy. In addition to setting this nonce, you may also need to allow FontAwesome to load, which you can do by adding `use.fontawesome.com` to your Content Security Policy allowlist or by using the `doNotLoadFontAwesome` option and loading it manually. |
@@ -243,7 +243,7 @@ It is also possible to engineer a workaround and use `braze_id` to send anonymou
 
 Destinations data sent to Braze can be batched within Cloud Mode Actions. Batch sizes are capped at 75 events, and these batches will accumulate over a 30-second period before being flushed. Request batching is done per-action. For example, Identify Calls (attributes) will be batched in a request and Track Calls (custom events) will be batched in a second request. Braze recommends enabling this feature as it will reduce the number of requests being sent from Segment to Braze. In turn, this will reduce the risk of the destination hitting Braze rate limits and retrying requests. 
 
-You can turn on batching for an action by navigating to your Braze Destination > **Mappings**. From there, click the 3-dot icon to the right of the mapping and select **Edit Mapping**. Scroll to the bottom of the **Select mappings** section and make sure that **Batch Data to Braze** is set to **Yes**.
+You can turn on batching for an action by navigating to your Braze Destination > **Mappings**. From there, click the 3-dot icon next to the mapping and select **Edit Mapping**. Scroll to the bottom of the **Select mappings** section and make sure that **Batch Data to Braze** is set to **Yes**.
 
 
 {% tabs local %}
@@ -354,7 +354,7 @@ All other traits will be recorded as [custom attributes]({{site.baseurl}}/user_g
 | Identify with user ID and traits | Segment: Set External ID and Attribute | Combine preceding methods. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
 
-In the [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) and [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile) destinations, the above mappings can be set using the Update User Profile Action.
+In the [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) and [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile) destinations, these mappings can be set using the Update User Profile Action.
 
 {% alert important %}
 When passing user attribute data, check that you only pass values for attributes that have changed since the last update. This will ensure you do not unnecessarily log data points. For client-side sources, use Segment's open-source [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) tool to optimize your integration and limit data point usage by debouncing duplicate `identify()` calls from Segment. 
@@ -369,7 +369,7 @@ When you track an event, we will record that event as a [custom event]({{site.ba
 
 Metadata sent within the properties object of the track call will be logged in Braze as the custom event properties for the associated event. All [custom event property data types]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) are supported.
 
-In the [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-event) and [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-event) destinations, the above mappings can be set using the Track Event Action.
+In the [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-event) and [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-event) destinations, these mappings can be set using the Track Event Action.
 
 | Segment method | Braze method | Example |
 |---|---|---|

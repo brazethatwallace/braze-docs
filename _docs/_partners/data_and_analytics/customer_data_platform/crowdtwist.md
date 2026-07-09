@@ -14,7 +14,7 @@ search_tag: Partner
 
 Oracle Crowdtwist's Data Push feature allows user or event metadata to be passed whenever an update occurs in Crowdtwist's platform.
 
-This guide outlines how to integrate Oracle Crowdtwist’s User Profile, User Activity, and User Redemption Live Push feeds into your Braze environment. Two additional Data Push types are available that are not explicitly covered in this documentation, but their setup follows the same principles outlined below. 
+This guide outlines how to integrate Oracle Crowdtwist’s User Profile, User Activity, and User Redemption Live Push feeds into your Braze environment. Two additional Data Push types are available that are not explicitly covered in this documentation, but their setup follows the same principles outlined in this guide. 
 
 * [Live Push User Profile](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html): Includes creations of new profiles and updates to existing profiles.
 
@@ -49,7 +49,7 @@ As shown in [Oracle Crowdtwist's Data Push documentation](https://docs.oracle.co
 
 ## Step 2: Update and Test Template
 
-Below, you’ll see the annotated templates. The body of these templates is designed to apply to the `/users/track` destination. Annotations are marked by the `//` line-start and green text, and you can delete them without affecting the operation of the transformation code. 
+In this section, you’ll see the annotated templates. The body of these templates is designed to apply to the `/users/track` destination. Annotations are marked by the `//` line-start and green text, and you can delete them without affecting the operation of the transformation code. 
 
 The transformation uses JavaScript, which builds an object called "brazecall". This object is where you create the request body that is sent to a Braze REST API endpoint. For guidance on the required structures of the requests to these destinations, see the links in the "destinations" section.    
 
@@ -75,7 +75,7 @@ let brazecall = {
      "_update_existing_only": false,
      "crowdtwist_loyalty_points": payload.redeemablePoints,
  //In this example, the "tierInfo" object from Crowdtwist is transformed into a Braze Nested Custom Attribute. Use the "_merge_objects" value to avoid duplications in a data point efficient manner.
- //The "tierinfo_current_level" attribute is a flat Braze custom attribute, while "tierInfo" below is a nested object mirroring the Crowdtwist payload; the difference in capitalization is intentional.
+ //The "tierinfo_current_level" attribute is a flat Braze custom attribute, while the following "tierInfo" value is a nested object mirroring the Crowdtwist payload; the difference in capitalization is intentional.
      "tierinfo_current_level": payload.tierInfo.currentLevel,
      "_merge_objects" : true,
      "tierInfo" : {
@@ -245,7 +245,7 @@ After you modify the template to your liking, you must validate that it operates
 
 When you're happy with the object you see in the **Output** field, select **Activate** so that the Data Transformation endpoint is ready to accept data.
 
-You'll find your Data Transformation's webhook URL on the left-hand side panel. Copy this and use it for configuration within Oracle Crowdtwist's Integration Hub.
+You'll find your Data Transformation's webhook URL in the transformation details panel. Copy this and use it for configuration within Oracle Crowdtwist's Integration Hub.
 
 {% alert important %}
 The Braze Data Transformation endpoints have a rate limit of 1000 requests per minute. Consider the speed at which you want this data made available in Braze, and speak to your Braze Account Manager if you require a higher Data Transformation rate limit.

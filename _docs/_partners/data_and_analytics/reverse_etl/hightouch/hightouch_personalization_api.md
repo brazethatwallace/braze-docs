@@ -119,7 +119,7 @@ For example, you could include this snippet in a campaign or Canvas:
 
 You can use Liquid templating to reference the properties returned in the JSON payload and use them in your messaging.
 
-For the example payload below:
+For the following example payload:
 
 ```json
 {

@@ -145,7 +145,7 @@ return brazecall;
 
 Olo sends the event type within the `X-Olo-Event-Type` header of each webhook. To support multiple Olo webhook events within a single transformation, use conditional logic to transform the webhook payload based on the value of this header type.  
 
-In the below transformation example, our JavaScript creates a particular payload for the events of `UserSignedUp` and `OrderPlaced`. Additionally, an `else` condition handles a payload for any Olo events sent to Braze without the X-Olo-Event-Type header of `UserSignedUp` and `OrderPlaced`.
+In the following transformation example, our JavaScript creates a particular payload for the events of `UserSignedUp` and `OrderPlaced`. Additionally, an `else` condition handles a payload for any Olo events sent to Braze without the X-Olo-Event-Type header of `UserSignedUp` and `OrderPlaced`.
 
 ```javascript
 // captures the value within the X-Olo-Event-Type header for use in the conditional logic
