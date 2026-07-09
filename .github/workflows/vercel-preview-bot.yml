@@ -25,7 +25,12 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      STATUS_CONTEXT: "Vercel – braze-docs-en"
+      VERCEL_PROJECT_ID_DE: ${{ secrets.VERCEL_PROJECT_ID_DE }}
+      VERCEL_PROJECT_ID_ES: ${{ secrets.VERCEL_PROJECT_ID_ES }}
+      VERCEL_PROJECT_ID_FR: ${{ secrets.VERCEL_PROJECT_ID_FR }}
+      VERCEL_PROJECT_ID_JA: ${{ secrets.VERCEL_PROJECT_ID_JA }}
+      VERCEL_PROJECT_ID_KO: ${{ secrets.VERCEL_PROJECT_ID_KO }}
+      VERCEL_PROJECT_ID_PT_BR: ${{ secrets.VERCEL_PROJECT_ID_PT_BR }}
     steps:
       - name: Check out pull request head
         uses: actions/checkout@v4
@@ -35,105 +40,171 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Deploy EN preview and publish Vercel status
+      - name: Deploy locale previews and publish Vercel statuses
         id: deploy
         run: |
           set -uo pipefail
 
-          if [[ -z "${VERCEL_TOKEN:-}" || -z "${VERCEL_ORG_ID:-}" || -z "${VERCEL_PROJECT_ID:-}" ]]; then
-            echo "Missing VERCEL_TOKEN, VERCEL_ORG_ID, or VERCEL_PROJECT_ID."
-            gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
-              --method POST \
-              -f state="error" \
-              -f context="${STATUS_CONTEXT}" \
-              -f description="Missing Vercel credentials in repo secrets." >/dev/null || true
+          if [[ -z "${VERCEL_TOKEN:-}" || -z "${VERCEL_ORG_ID:-}" ]]; then
+            echo "Missing VERCEL_TOKEN or VERCEL_ORG_ID."
             echo "deploy_state=error" >> "$GITHUB_OUTPUT"
             exit 1
           fi
+
+          locales=("de" "en" "es" "fr" "ja" "ko" "pt-br")
+          contexts=(
+            "Vercel – braze-docs-de"
+            "Vercel – braze-docs-en"
+            "Vercel – braze-docs-es"
+            "Vercel – braze-docs-fr"
+            "Vercel – braze-docs-ja"
+            "Vercel – braze-docs-ko"
+            "Vercel – braze-docs-pt-br"
+          )
+          project_ids=(
+            "${VERCEL_PROJECT_ID_DE:-}"
+            "${VERCEL_PROJECT_ID:-}"
+            "${VERCEL_PROJECT_ID_ES:-}"
+            "${VERCEL_PROJECT_ID_FR:-}"
+            "${VERCEL_PROJECT_ID_JA:-}"
+            "${VERCEL_PROJECT_ID_KO:-}"
+            "${VERCEL_PROJECT_ID_PT_BR:-}"
+          )
+          secret_names=(
+            "VERCEL_PROJECT_ID_DE"
+            "VERCEL_PROJECT_ID"
+            "VERCEL_PROJECT_ID_ES"
+            "VERCEL_PROJECT_ID_FR"
+            "VERCEL_PROJECT_ID_JA"
+            "VERCEL_PROJECT_ID_KO"
+            "VERCEL_PROJECT_ID_PT_BR"
+          )
+
+          any_failure=0
+          preview_en_url=""
+          first_success_url=""
+          declare -a summary_rows=()
+          declare -a locale_links=()
 
           # Create a GitHub Deployment so the PR keeps the "View deployment" UX.
           # required_contexts must be an explicit empty array, otherwise GitHub
           # rejects creation with "409 Conflict: Commit status checks failed"
           # whenever the commit still has pending/failing checks.
-          printf '{"ref":"%s","environment":"Preview – braze-docs-en (docs bot)","auto_merge":false,"transient_environment":true,"production_environment":false,"required_contexts":[]}' \
+          printf '{"ref":"%s","environment":"Preview – braze-docs (docs bot)","auto_merge":false,"transient_environment":true,"production_environment":false,"required_contexts":[]}' \
             "${HEAD_SHA}" > "${RUNNER_TEMP}/deployment.json"
           deployment_id="$(gh api "repos/${GITHUB_REPOSITORY}/deployments" \
             --input "${RUNNER_TEMP}/deployment.json" --jq '.id' || true)"
 
-          # The runner invokes this step as `bash -e`, so disable errexit
-          # around the deploy call to capture its exit code and output even on
-          # failure. VERCEL_ORG_ID and VERCEL_PROJECT_ID env vars scope the
-          # deploy, so no --scope flag is needed.
-          set +e
-          # --archive=tgz uploads a single tarball; the repo has >15000 files,
-          # which exceeds Vercel's per-deploy file-count limit otherwise.
-          deploy_output="$(vercel deploy \
-            --token "${VERCEL_TOKEN}" \
-            --archive=tgz \
-            --yes \
-            --meta "githubCommitSha=${HEAD_SHA}" \
-            --meta "githubCommitRef=${HEAD_REF}" \
-            --meta "githubPr=${PR_NUMBER}" 2>&1)"
-          deploy_exit_code=$?
-          set -e
+          for i in "${!locales[@]}"; do
+            locale="${locales[$i]}"
+            context="${contexts[$i]}"
+            project_id="${project_ids[$i]}"
+            secret_name="${secret_names[$i]}"
 
-          echo "${deploy_output}"
+            if [[ -z "${project_id}" ]]; then
+              gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
+                --method POST \
+                -f state="error" \
+                -f context="${context}" \
+                -f description="Missing ${secret_name} in repo secrets." >/dev/null || true
+              summary_rows+=("| ${locale} | error | Missing ${secret_name} |")
+              locale_links+=("- ${locale}: missing ${secret_name}")
+              any_failure=1
+              continue
+            fi
 
-          preview_url="$(printf '%s' "${deploy_output}" | python3 -c 'import re,sys; m=re.findall(r"https://[^\s]+\.vercel\.app", sys.stdin.read()); print(m[-1] if m else "")')"
+            # The runner invokes this step with bash -e, so disable errexit
+            # around deploy execution to capture output and continue through all locales.
+            set +e
+            deploy_output="$(
+              VERCEL_PROJECT_ID="${project_id}" vercel deploy \
+                --token "${VERCEL_TOKEN}" \
+                --archive=tgz \
+                --yes \
+                --meta "githubCommitSha=${HEAD_SHA}" \
+                --meta "githubCommitRef=${HEAD_REF}" \
+                --meta "githubPr=${PR_NUMBER}" 2>&1
+            )"
+            deploy_exit_code=$?
+            set -e
 
-          if [[ "${deploy_exit_code}" -eq 0 && -n "${preview_url}" ]]; then
-            gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
-              --method POST \
-              -f state="success" \
-              -f context="${STATUS_CONTEXT}" \
-              -f target_url="${preview_url}" \
-              -f description="Preview deployed successfully." >/dev/null
-            echo "deploy_state=success" >> "$GITHUB_OUTPUT"
-            echo "preview_en_url=${preview_url}" >> "$GITHUB_OUTPUT"
+            echo "${deploy_output}"
 
-            if [[ -n "${deployment_id}" && "${deployment_id}" != "null" ]]; then
+            preview_url="$(printf '%s' "${deploy_output}" | python3 -c 'import re,sys; m=re.findall(r"https://[^\s]+\.vercel\.app", sys.stdin.read()); print(m[-1] if m else "")')"
+            fallback_url="${preview_url:-${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}}"
+
+            if [[ "${deploy_exit_code}" -eq 0 && -n "${preview_url}" ]]; then
+              gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
+                --method POST \
+                -f state="success" \
+                -f context="${context}" \
+                -f target_url="${preview_url}" \
+                -f description="Preview deployed successfully." >/dev/null
+              summary_rows+=("| ${locale} | success | ${preview_url} |")
+              locale_links+=("- ${locale}: ${preview_url}")
+              if [[ -z "${first_success_url}" ]]; then
+                first_success_url="${preview_url}"
+              fi
+              if [[ "${locale}" == "en" ]]; then
+                preview_en_url="${preview_url}"
+              fi
+            else
+              gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
+                --method POST \
+                -f state="failure" \
+                -f context="${context}" \
+                -f target_url="${fallback_url}" \
+                -f description="Preview deployment failed." >/dev/null
+              summary_rows+=("| ${locale} | failure | Deployment failed (see workflow logs) |")
+              locale_links+=("- ${locale}: failed")
+              any_failure=1
+            fi
+          done
+
+          if [[ -n "${deployment_id}" && "${deployment_id}" != "null" ]]; then
+            if [[ "${any_failure}" -eq 0 ]]; then
               gh api "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}/statuses" \
                 --method POST \
                 -f state="success" \
-                -f environment_url="${preview_url}" \
+                -f environment_url="${preview_en_url:-${first_success_url}}" \
                 -f log_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
-                -f description="Vercel EN preview is available." >/dev/null || true
-            fi
-
-            {
-              echo "### Vercel preview status (docs bot)"
-              echo
-              echo "EN preview: ${preview_url}"
-            } >> "$GITHUB_STEP_SUMMARY"
-          else
-            fallback_url="${preview_url:-${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}}"
-            gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
-              --method POST \
-              -f state="failure" \
-              -f context="${STATUS_CONTEXT}" \
-              -f target_url="${fallback_url}" \
-              -f description="Preview deployment failed." >/dev/null
-            echo "deploy_state=failure" >> "$GITHUB_OUTPUT"
-
-            if [[ -n "${deployment_id}" && "${deployment_id}" != "null" ]]; then
+                -f description="All locale previews are available." >/dev/null || true
+            else
               gh api "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}/statuses" \
                 --method POST \
                 -f state="failure" \
+                -f environment_url="${preview_en_url:-${first_success_url}}" \
                 -f log_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
-                -f description="Vercel EN preview failed." >/dev/null || true
+                -f description="One or more locale previews failed." >/dev/null || true
             fi
+          fi
 
-            {
-              echo "### Vercel preview status (docs bot)"
-              echo
-              echo "EN preview deploy failed — see workflow logs."
-            } >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "### Vercel preview status (docs bot)"
+            echo
+            echo "| Locale | State | URL / Notes |"
+            echo "| --- | --- | --- |"
+            printf '%s\n' "${summary_rows[@]}"
+          } >> "$GITHUB_STEP_SUMMARY"
 
+          if [[ "${any_failure}" -eq 0 ]]; then
+            echo "deploy_state=success" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy_state=failure" >> "$GITHUB_OUTPUT"
+          fi
+          echo "preview_en_url=${preview_en_url}" >> "$GITHUB_OUTPUT"
+          {
+            echo "locale_links<<EOF"
+            printf '%s\n' "${locale_links[@]}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+          if [[ "${any_failure}" -ne 0 ]]; then
             exit 1
           fi
 
@@ -146,14 +217,17 @@ jobs:
           run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
           if [[ "${{ steps.deploy.outputs.deploy_state }}" == "success" && -n "${{ steps.deploy.outputs.preview_en_url }}" ]]; then
-            body="$(printf '%s\n\n%s\n\n%s' \
+            body="$(printf '%s\n\n%s\n\n%s\n\n%s' \
               "${marker} ✅ Docs bot Vercel preview deployed successfully." \
               "EN preview: ${{ steps.deploy.outputs.preview_en_url }}" \
-              "Trust this check for preview status. Other locale Vercel checks are handled by the native Vercel integration.")"
+              "Locale previews:" \
+              "${{ steps.deploy.outputs.locale_links }}")"
           else
-            body="$(printf '%s\n\n%s' \
+            body="$(printf '%s\n\n%s\n\n%s\n\n%s' \
               "${marker} ❌ Docs bot Vercel preview deploy failed." \
-              "Open this workflow run for details: ${run_url}")"
+              "Open this workflow run for details: ${run_url}" \
+              "Partial locale results (if any):" \
+              "${{ steps.deploy.outputs.locale_links }}")"
           fi
 
           existing_comment_id="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
