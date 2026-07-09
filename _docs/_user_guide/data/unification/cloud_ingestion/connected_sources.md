@@ -165,9 +165,9 @@ The `create table` permission is required so Braze can create a table with your 
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the below IPs corresponding to your Braze dashboard's region. 
+If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the following IPs corresponding to your Braze dashboard's region. 
 
-You may also need to change your security groups to allow Braze access to your data in Redshift. Make sure to explicitly allow inbound traffic on the IPs below and on the port used to query your Redshift cluster (default is 5439). You should explicitly allow Redshift TCP connectivity on this port even if the inbound rules are set to "allow all". In addition, it is important that the endpoint for the Redshift cluster be publicly accessible in order for Braze to connect to your cluster.
+You may also need to change your security groups to allow Braze access to your data in Redshift. Make sure to explicitly allow inbound traffic on the IPs in the following section and on the port used to query your Redshift cluster (default is 5439). You should explicitly allow Redshift TCP connectivity on this port even if the inbound rules are set to "allow all". In addition, it is important that the endpoint for the Redshift cluster be publicly accessible in order for Braze to connect to your cluster.
 
 If you don't want your Redshift cluster to be publicly accessible, you can set up a VPC and EC2 instance to use an ssh tunnel to access the Redshift data. For more information, refer to [AWS: How do I access a private Amazon Redshift cluster from my local machine?](https://repost.aws/knowledge-center/private-redshift-cluster-local-machine)
 
@@ -178,7 +178,7 @@ If you don't want your Redshift cluster to be publicly accessible, you can set u
 {% tab BigQuery %}
 #### Step 2.1: Create a Service Account and grant permissions 
 
-Create a service account in GCP for Braze to use to connect and read data from your table(s). The service account should have the below permissions: 
+Create a service account in GCP for Braze to use to connect and read data from your table(s). The service account should have the in the following section permissions: 
 
 - **BigQuery Connection User:** Allows Braze to make connections.
 - **BigQuery User:** Provides Braze access to run queries, read dataset metadata, and list tables.
@@ -196,7 +196,7 @@ After creating the service account and granting permissions, generate a JSON key
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have network policies in place, you must give Braze network access to your Big Query instance. Allow access from the below IPs corresponding to your Braze dashboard's region.  
+If you have network policies in place, you must give Braze network access to your Big Query instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
@@ -224,7 +224,7 @@ Keep the token in a safe place until you need to enter it on the Braze dashboard
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have network policies in place, you must give Braze network access to your Databricks instance. Allow access from the below IPs corresponding to your Braze dashboard's region.  
+If you have network policies in place, you must give Braze network access to your Databricks instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 

@@ -193,7 +193,7 @@ The user experience of receiving RCS messages may vary based on carrier coverage
 Write your message using languages and personalization ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), and emojis) as needed. Be sure to adhere to message copy limits to reduce your chances of overage charges.
 
 {% alert important %}
-Before proceeding, read the [RCS message type guidelines](#step-3-compose-your-message) above. RCS messages are [charged per message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), so it's a good idea to understand what can be included in each type.
+Before proceeding, read the [RCS message type guidelines](#step-3-compose-your-message) earlier in this section. RCS messages are [charged per message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), so it's a good idea to understand what can be included in each type.
 {% endalert %}
 
 {% endtab %}

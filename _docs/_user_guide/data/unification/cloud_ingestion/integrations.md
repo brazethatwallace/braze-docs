@@ -68,7 +68,7 @@ There may be two to five minutes of warm-up time when Braze connects to Classic 
 Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) to understand source table requirements compared to `PAYLOAD` formatting requirements.
 
 {% alert note %}
-Your source table or view can include columns that aren't listed for your warehouse in the tabs below (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
+Your source table or view can include columns that aren't listed for your warehouse in the tabs in the following section (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
 {% endalert %}
 
 {% tabs %}

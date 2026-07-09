@@ -123,11 +123,11 @@ Just like our [data warehouse storage schemas]({{site.baseurl}}/user_guide/data/
 
 ## Error handling and retry mechanism
 
-If an error occurs, Braze will queue and retry the request based on the HTTP return code received. If the issue persists for more than 5 days, the integration will be automatically disabled: new incoming events will be dropped and permanently lost, and already queued events will be permanently dropped after retaining 7 days. If data is stuck for more than 24 hours, our on-call engineers will be alerted automatically. For a full breakdown of how each status code is handled, see the table below.
+If an error occurs, Braze will queue and retry the request based on the HTTP return code received. If the issue persists for more than 5 days, the integration will be automatically disabled: new incoming events will be dropped and permanently lost, and already queued events will be permanently dropped after retaining 7 days. If data is stuck for more than 24 hours, our on-call engineers will be alerted automatically. For a full breakdown of how each status code is handled, see the table in the following section.
 
 If your Currents integration is returning authentication errors, Braze will automatically send you a notification email.
 
-Any HTTP error code not listed below will be treated as an HTTP `5XX` error.
+Any HTTP error code not listed in the following section will be treated as an HTTP `5XX` error.
 
 {% alert warning %}
 If the issue persists for more than 5 days, the integration will be disabled. New incoming events will be dropped and permanently lost, and already queued events will be permanently dropped after retaining 7 days.
