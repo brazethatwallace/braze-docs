@@ -19,7 +19,7 @@ Looking for definitions for the terms and metrics in your report? Refer to [Repo
 
 ## Campaign analytics
 
-In the **Campaign Analytics** tab, you can view your reports in a series of panels. You might see more or less than those listed in the sections below, but each has its purpose.
+In the **Campaign Analytics** tab, you can view your reports in a series of panels. You might see more or less than those listed in the sections in the following section, but each has its purpose.
 
 {% alert note %}
 Open and click-related statistics for LINE are only calculated if more than 20 users perform the event on a given day.

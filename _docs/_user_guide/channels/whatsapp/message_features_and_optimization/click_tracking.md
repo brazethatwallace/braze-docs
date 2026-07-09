@@ -70,7 +70,7 @@ Go back to the **Compose** tab and add your message content.
 - **For CTA website buttons:** Enter the destination URL in the **Click tracking URL** field. Braze stores your destination URL and automatically formats the button's website URL with the tracking domain and a variable placeholder {% raw %}(for example, `https://brz.ai/{{1}}`){% endraw %}. This placeholder is what is submitted to Meta. At send time, Braze generates the full tracked URL for each user and populates the variable.
 - **For body text links:** Enter URLs directly in the body. 
 
-You can preview the tracked URL format for each button directly below the **Website URL** field (for example, `https://brz.ai/XXXXXXXX`).
+You can preview the tracked URL format for each button directly in the following section the **Website URL** field (for example, `https://brz.ai/XXXXXXXX`).
 
 ![Call to Action buttons section showing a Visit website button with Website URL pre-filled to the tracked format and a Click tracking URL field for the destination.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
 

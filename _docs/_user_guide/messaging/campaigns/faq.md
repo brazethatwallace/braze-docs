@@ -266,7 +266,7 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Newly imported users:** Profiles that just became eligible may not receive until the next evaluation or send pass, so counts catch up on a later run.
 - **Push reachability:** For push campaigns, confirm the audience is push-enabled for the correct app. If you don't filter for push-enabled users, the estimated audience can include profiles that can't receive push. Check **Reachable users** in the **Target Users** step for a closer operational estimate.
 - **Rate limiting:** A [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) caps how many messages Braze sends per minute during a single send occurrence. Braze spreads delivery across a longer window, so some sends may be deferred, not yet reflected in the count, or not completed if the limit is low relative to the eligible audience.
-- **Re-eligibility windows:** Users who aren't re-eligible yet won't receive again during the cooldown, so sends fall below the estimated audience size for that period.
+- **Re-eligibility windows:** Users who aren't re-eligible yet won't receive again during the cooldown, so sends fall in the following section the estimated audience size for that period.
 - **Reporting window:** The analytics time range may not include every send.
 - **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
 - **Send caps:** A Maximum number of users (or similar cap) in **Target Audiences** stops delivery when the cap is hit.

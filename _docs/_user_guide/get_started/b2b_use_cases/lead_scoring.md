@@ -93,7 +93,7 @@ In each Action Group, select **Select trigger** and choose the event that will a
 
 #### Step 4d: Add User Update steps
 
-Add a User Update step to each Canvas path created below your Action Path. 
+Add a User Update step to each Canvas path created in the following section your Action Path. 
 
 ![Canvas displaying the Action Path with branched User Update paths for each Action Group.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
@@ -121,7 +121,7 @@ Check out [Technology partners]({{site.baseurl}}/partners/home) to learn about o
 
 ### Internal lead scoring data models
 
-You can integrate Braze with your internal data models, including lead scoring models, in various ways. See below for some common examples of how our customers have integrated with Braze.
+You can integrate Braze with your internal data models, including lead scoring models, in various ways. See in the following section for some common examples of how our customers have integrated with Braze.
 
 #### Integrated cloud data warehouse
 
@@ -163,7 +163,7 @@ To update the lead record in Salesforce with the lead status from Braze, we reco
 
 3. Update the **HTTP Method** to **PATCH**.
 
-4. Configure your payload to only update the lead record in Salesforce if that lead’s lead score crosses your predefined threshold. See the example request body below for a lead score of greater than 100.
+4. Configure your payload to only update the lead record in Salesforce if that lead’s lead score crosses your predefined threshold. See the example request body in the following section for a lead score of greater than 100.
 
 {% raw %}
 ```liquid

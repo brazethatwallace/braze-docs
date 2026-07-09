@@ -4,7 +4,7 @@ article_title: Governance
 layout: dev_guide
 page_order: 2
 guide_top_header: "Governance"
-guide_top_text: "Manage the lifecycle and organization of your campaigns, Canvases, and landing pages. Refer to the articles below to set up approval workflows, archive or duplicate items, copy them across workspaces, and use statuses and tags to keep your workspace organized."
+guide_top_text: "Manage the lifecycle and organization of your campaigns, Canvases, and landing pages. Refer to the articles in the following section to set up approval workflows, archive or duplicate items, copy them across workspaces, and use statuses and tags to keep your workspace organized."
 page_type: landing
 tool:
   - Campaigns

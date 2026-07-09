@@ -12,7 +12,7 @@ description: "This reference article briefly covers the integration steps requir
 
 ## Step 1: Download Braze Pilot
 
-To start using Braze Pilot, you’ll first need to download the app from either the Apple App Store or the Google Play Store app. You can search for the app in the app store or scan the QR codes below to visit the app page for your device.
+To start using Braze Pilot, you’ll first need to download the app from either the Apple App Store or the Google Play Store app. You can search for the app in the app store or scan the QR codes in the following section to visit the app page for your device.
 
 ## Step 2: Accept the terms and conditions
 

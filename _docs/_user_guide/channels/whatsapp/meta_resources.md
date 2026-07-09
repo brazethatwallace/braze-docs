@@ -156,7 +156,7 @@ Meta recently updated their [opt-in policy](https://developers.facebook.com/docs
 1. The person has given their phone number.
 2. The person provided opt-in permission for general messaging, not just WhatsApp. 
 
-Businesses still need to comply with all local laws and follow the below requirements when obtaining opt-in:
+Businesses still need to comply with all local laws and follow the in the following section requirements when obtaining opt-in:
 
 - Businesses must clearly state that a person is opting in to receive communication from the business
 - Businesses must clearly state the business name that a person is opting in to receive messages from

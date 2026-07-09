@@ -95,7 +95,7 @@ To find the proper Firebase Server Key and replace it:
 
 1. Go to the Firebase console for your app.
 2. Under **Project Overview**, select **Project Settings**.
-3. In the **Cloud Messaging** tab, check that the Sender ID below the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. In the **Cloud Messaging** tab, check that the Sender ID in the following section the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 Do not change your Sender ID in your Braze dashboard. Doing so will cause existing push registrations to be invalidated. If the Sender ID does not match, you must find your Firebase project with the matching Sender ID.
