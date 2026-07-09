@@ -240,6 +240,21 @@ Do not:
 - Add new sections unless the ticket explicitly requests it
 - Edit any file outside `_docs/` or `_includes/`
 
+**Page visibility**
+
+Never change the visibility of a page unless explicitly instructed to do so
+in the Jira ticket. Specifically:
+
+- Do not change `hidden: true` to `hidden: false` or remove the `hidden`
+  front matter field, which would make a hidden page public.
+- Do not change `hidden: false` to `hidden: true` or add a `hidden` field
+  to a page that is currently public.
+- Do not modify `nav_exclude`, `noindex`, or any other front matter fields
+  that affect page visibility or discoverability.
+
+Even if a hidden page is related to the change being made, treat its
+visibility status as intentional and leave it as-is.
+
 Base your work on `develop`.
 
 **Branch naming — critical, no exceptions**
