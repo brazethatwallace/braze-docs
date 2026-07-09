@@ -21,6 +21,24 @@ class TestRetryableApiErrors:
         assert not at._is_retryable_api_error("YAML front matter parse error")
 
 
+class TestRetryableTranslationErrors:
+    def test_liquid_paired_tag_imbalance_is_retryable(self):
+        err = (
+            "Liquid paired-tag imbalance in "
+            "_lang/fr_fr/_user_guide/data/distribution/braze_currents/"
+            "event_glossary/message_engagement_events.md: api=81 endapi=80"
+        )
+        assert at._is_retryable_translation_error(err)
+
+    def test_api_errors_remain_retryable(self):
+        assert at._is_retryable_translation_error("Internal server error")
+
+    def test_non_transient_translation_error_is_not_retryable(self):
+        assert not at._is_retryable_translation_error(
+            "YAML front matter parse error"
+        )
+
+
 class TestExtractErrorFiles:
     def test_matches_lang_prefixed_path(self):
         output = "Liquid error in _lang/fr_fr/_user_guide/foo/bar.md: unclosed tag"
