@@ -34,4 +34,4 @@ Interaction data for campaigns and Canvases is different from Snowflake data and
     - Received Campaign or Canvas with Tag
 - Braze may also implement a data retention policy for user profile events and purchase data that removes events, purchases, or both older than 1 year that have not been performed again in 1 year. However, this data would still be available in SQL Segment Extensions for 2 years.
 
-If any functionality above is updated, this will be reflected in this article and noted in our [release notes]({{site.baseurl}}/help/release_notes/#most-recent-braze-release-notes).
+If any functionality described in this article is updated, this will be reflected in this article and noted in our [release notes]({{site.baseurl}}/help/release_notes/#most-recent-braze-release-notes).

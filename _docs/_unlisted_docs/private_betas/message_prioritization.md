@@ -61,7 +61,7 @@ After your categories are set up, you can rank them in a set of prioritization r
 {:start="4"}
 4. Continue to add rules by selecting **+ Add rule** under your last rule.
 
-To reorder rules, select and drag the <i class="fa-solid fa-grip-vertical"></i> icon at the top-left of a rule. To delete a rule, select the <i class="fas fa-ellipsis-vertical"></i> menu and then **Delete Rule**. 
+To reorder rules, select and drag the <i class="fa-solid fa-grip-vertical"></i> icon at the start of a rule. To delete a rule, select the <i class="fas fa-ellipsis-vertical"></i> menu and then **Delete Rule**. 
 
 Be sure to select **Save** for your updates to apply.
 

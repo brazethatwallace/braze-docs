@@ -360,7 +360,7 @@ Braze generates the {% raw %}`{% business %}`{% endraw %} tag, which sets an arr
 
 Adjust the auto-generated output to create your message.
 
-In the example below, move the call to the {% raw %}`{% business %}`{% endraw %} tag to the top of the message and personalize with the user's first name. Use the account name to personalize the message. The Liquid output stays the same, but you place it in different parts of the message.
+In the following example, move the call to the {% raw %}`{% business %}`{% endraw %} tag to the top of the message and personalize with the user's first name. Use the account name to personalize the message. The Liquid output stays the same, but you place it in different parts of the message.
 
 {% raw %}
 ```javascript
