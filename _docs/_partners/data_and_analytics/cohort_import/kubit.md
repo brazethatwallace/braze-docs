@@ -27,25 +27,25 @@ Provide the Braze data import key and Braze REST endpoint to your Kubit support 
 ### Step 3: Import Cohorts to Braze
 
 #### Create a cohort in Kubit
-[Create a cohort](https://www.kubit.ai/doc/fundamentals#cohort) in Kubit and define the criteria of your target users.<br><br>![]({% image_buster /assets/img/kubit/create_cohort.png %}){: style="max-width:80%;"}
+[Create a cohort](https://www.kubit.ai/doc/fundamentals#cohort) in Kubit and define the criteria of your target users.<br><br>![Kubit cohort builder with target user criteria configured.]({% image_buster /assets/img/kubit/create_cohort.png %}){: style="max-width:80%;"}
 
 #### Import users to Braze
 Once you have saved your cohort, you can import them to Braze to be used in Braze segments. These segments can then be used to create targeted email or push campaigns and Canvases.
 
 To do this, navigate to your existing cohort and under **Cohort Control** select **Import to Braze**.
 
-![]({% image_buster /assets/img/kubit/import_to_braze.png %}){: style="max-width:80%;"}
+![Kubit Cohort Control menu with Import to Braze selected.]({% image_buster /assets/img/kubit/import_to_braze.png %}){: style="max-width:80%;"}
 
 Next, select the desired import cadence. One-time imports allow you to import once now. Scheduled imports allow you to import daily, weekly, or monthly at a specific time. Note that each cohort can only have one live import schedule. 
 
-![]({% image_buster /assets/img/kubit/import_schedule.png %}){: style="max-width:40%;"}
+![Kubit import schedule settings with cadence options for Braze imports.]({% image_buster /assets/img/kubit/import_schedule.png %}){: style="max-width:40%;"}
 
 {% alert important %}
 Only users who already exist within Braze will be added or removed from a cohort. Cohort Import will not create new users in Braze.
 {% endalert %}
 
 #### Verify import status
-Once an import has been completed, an email notification will be sent to the recipients(s) specified in the import schedule. You can also check a cohort's import status under **Schedule** in Kubit. The schedule history will display every import execution time, outcome, and the total number of users in the cohort who were imported to Braze.<br><br>![]({% image_buster /assets/img/kubit/import_history.png %})<br><br>You can manually trigger an import by clicking on **Import to Braze** icon for that import schedule.
+Once an import has been completed, an email notification will be sent to the recipients(s) specified in the import schedule. You can also check a cohort's import status under **Schedule** in Kubit. The schedule history will display every import execution time, outcome, and the total number of users in the cohort who were imported to Braze.<br><br>![Kubit schedule history showing import run times, outcomes, and imported user counts.]({% image_buster /assets/img/kubit/import_history.png %})<br><br>You can manually trigger an import by clicking on **Import to Braze** icon for that import schedule.
 
 ### Step 4: Create Braze segments with Kubit cohorts
 After importing cohorts to Braze, you can use them as filters to create Braze segments and include them in Braze campaigns or Canvas. Visit our segment documentation to learn more about [how to create Braze segments]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#step-4-add-filters-to-your-segment).

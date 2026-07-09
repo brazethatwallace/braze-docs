@@ -55,8 +55,6 @@ When generating the JWT, the following fields are expected:
 | `typ` | Yes  | The type should equal `JWT`.        |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
-
 **JWT Payload**
 
 | Field | Required | Description                                                                            |
@@ -64,8 +62,6 @@ When generating the JWT, the following fields are expected:
 | `sub` | Yes  | The "subject" should equal the User ID you supply Braze SDK when calling `changeUser`  |
 | `exp` | Yes | The "expiration" of when you want this token to expire, as a Unix timestamp in seconds (for example, `1893456000` for January 1, 2030).                                |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
-
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 {% alert tip %}
 To learn more about JSON Web Tokens, or to browse the many open source libraries that simplify this signing process, check out [https://jwt.io](https://jwt.io).
@@ -729,7 +725,7 @@ In the dashboard **Manage Settings** page, each app has three SDK Authentication
 | **Required** | Braze will verify requests for logged-in users and will reject invalid JWTs.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
-![SDK Authentication enforcement settings in the Braze dashboard showing Disabled, Optional, and Required options.]({% image_buster /assets/img/sdk-auth-settings.png %})
+![Braze SDK Authentication settings showing Disabled, Optional, and Required enforcement options.]({% image_buster /assets/img/sdk-auth-settings.png %})
 
 The **Optional** setting is a useful way to monitor the potential impact this feature will have on your app's SDK traffic.
 
