@@ -135,6 +135,15 @@ _Destinatários únicos_ pode ser maior que o público esperado porque a Braze r
 
 Por exemplo, se um usuário recebe uma etapa do Canvas na segunda-feira e novamente na sexta-feira e converte após cada envio, a Braze pode contar duas linhas de destinatários e duas conversões dentro do escopo. Com entradas recorrentes ou reelegibilidade, o mesmo pequeno conjunto de perfis pode produzir múltiplos _Destinatários únicos_ ao longo de vários dias.
 
+### Por que meu Canvas está com taxas de envio mais baixas? {#why-is-my-canvas-experiencing-lower-send-rates}
+
+Se você perceber que seu Canvas programado diário envia para menos usuários ao longo do tempo, verifique o seguinte:
+
+- **Verifique se a reelegibilidade está ativada:** Sem reelegibilidade, a Braze insere cada usuário no Canvas apenas uma vez. Em Canvas programados diariamente, apenas os usuários que correspondem ao público e ainda não entraram no Canvas são elegíveis para cada entrada. À medida que mais usuários entram, cada entrada posterior tem menos usuários elegíveis, então o volume de entradas diminui.
+- **Verifique se o público tem membros fixos:** Públicos construídos a partir de uma lista fixa de usuários (como uma [importação de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) usada como filtro de segmento) não ganham novos membros automaticamente. Sem novos entrantes, o volume de entradas não pode se recuperar à medida que os usuários entram no Canvas.
+
+Para [limites de taxa de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) e outros fatores que reduzem os envios para uma única ocorrência, consulte [Por que os envios são menores que o tamanho estimado do público?](#why-are-sends-lower-than-the-estimated-audience-size).
+
 ## Análise de dados e conversões {#analytics-and-conversions}
 
 ### Como as conversões de usuários são rastreadas em um Canvas? {#how-are-user-conversions-tracked-in-a-canvas}
@@ -228,11 +237,11 @@ Embora usuários anônimos possam entrar e sair de Canvas, suas ações não sã
 Para assistência adicional com solução de problemas do Canvas, entre em contato com o suporte da Braze dentro de 30 dias da ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.
 {% endalert %}
 
-### Posso excluir usuários que estão atualmente em uma jornada do Canvas de uma Campaign ou Segment? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+### Posso excluir usuários que estão atualmente em uma jornada do Canvas de uma Campaign ou segmento? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
 
 Use [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) como `Entered Canvas Variation`, `In Canvas Control Group` ou `Received Message from Canvas Step` para segmentar usuários com base na entrada no Canvas, atribuição de variante ou engajamento com etapas. Esses filtros avaliam o histórico de entrada e interações — eles não indicam se um usuário ainda está progredindo em uma jornada ativa.
 
-Para incluir ou excluir usuários com base na participação ativa no Canvas, adicione etapas de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) na entrada e saída do Canvas para definir e limpar atributos personalizados, e depois filtre por esses atributos em Campaigns ou Segments.
+Para incluir ou excluir usuários com base na participação ativa no Canvas, adicione etapas de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) na entrada e saída do Canvas para definir e limpar atributos personalizados, e depois filtre por esses atributos em Campaigns ou segmentos.
 
 ## Segmentação {#segmentation}
 
@@ -270,7 +279,7 @@ Anteriormente, cada etapa completa incluía informações como configurações d
 
 #### Avanço do componente de Mensagem {#message-component-advancement}
 
-Os [componentes de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) avançam todos os usuários que entram na etapa. Não há necessidade de especificar o comportamento de avanço da mensagem, tornando a configuração da etapa geral mais simples. Se você quiser implementar a opção **Avançar quando a mensagem for enviada**, adicione uma Jornada do público separada para filtrar os usuários que não receberam a etapa anterior.
+Os [componentes de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) avançam todos os usuários que entram na etapa. Não há necessidade de especificar o comportamento de avanço da mensagem, tornando a configuração da etapa geral mais simples. Se você quiser implementar a opção **Avançar quando a mensagem for enviada**, adicione uma jornada do público separada para filtrar os usuários que não receberam a etapa anterior.
 
 #### Comportamento "em" da Postergação {#delay-in-behavior}
 
@@ -362,9 +371,9 @@ A Braze envia essa notificação quando mensagens do Canvas são atrasadas por l
 
 A Braze registra a saída assim que o evento de exceção ocorre, mas os usuários podem permanecer dentro de uma etapa até que os temporizadores terminem — mais visivelmente em etapas de Postergação. O comportamento também difere entre etapas programadas e etapas disparadas por evento. Para cronogramas, exemplos e nuances de análise de dados, consulte [Critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria).
 
-### Por que minha etapa de Jornadas de ação mostra um erro quando seleciono uma interação de alias de link? {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
+### Por que minha etapa de jornadas de ação mostra um erro quando seleciono uma interação de alias de link? {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
 
-Grupos de ação que usam gatilhos de interatividade de e-mail (por exemplo, **Clicou no alias no e-mail** ou **Clicou no alias em qualquer Campaign ou etapa do Canvas**) precisam de uma etapa de Mensagem que já tenha enviado a mensagem contendo aquele link. Adicione ou reordene as etapas para que o e-mail seja enviado antes de a etapa de Jornadas de ação avaliar o clique, ou escolha uma interação que corresponda a uma mensagem que o usuário já recebeu neste Canvas. Para a lista completa de gatilhos de interação, consulte [Entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
+Grupos de ação que usam gatilhos de interatividade de e-mail (por exemplo, **Clicou no alias no e-mail** ou **Clicou no alias em qualquer Campaign ou etapa do Canvas**) precisam de uma etapa de Mensagem que já tenha enviado a mensagem contendo aquele link. Adicione ou reordene as etapas para que o e-mail seja enviado antes de a etapa de jornadas de ação avaliar o clique, ou escolha uma interação que corresponda a uma mensagem que o usuário já recebeu neste Canvas. Para a lista completa de gatilhos de interação, consulte [Entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
 ### Como os carimbos de data/hora históricos de eventos personalizados afetam Canvas e Campaigns baseados em ação? {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
 

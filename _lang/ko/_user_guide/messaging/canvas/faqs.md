@@ -105,7 +105,7 @@ Canvas를 중지해도 메시지 수신을 대기 중인 사용자가 사용자 
 - 브랜치 또는 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 사용자가 다른 타이밍의 경로를 따르도록 합니다.
 - 사용 사례가 하나의 Canvas 안에 있을 필요가 없는 경우 별도의 Campaigns를 사용합니다.
 
-Campaigns의 다변량 및 A/B 테스트 개념에 대해서는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
+Campaigns의 다변량 및 A/B 개념에 대해서는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
 
 ### 사용자가 Canvas 메시지 단계에서 글로벌 최대 게재빈도 설정에 도달하면 어떻게 되나요? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
 
@@ -134,6 +134,15 @@ Canvas 고유의 요인도 적용됩니다:
 _고유 수신자_는 Braze가 Canvas 및 Campaign 리포팅에서 **일별 고유 수신자**를 추적하기 때문에 예상보다 높을 수 있습니다. 이는 사용자가 여정에서 메시지를 수신할 때마다 정확한 전환 기여도를 지원합니다.
 
 예를 들어, 사용자가 월요일에 캔버스 단계를 수신하고 금요일에 다시 수신한 후 각 전송 후에 전환하면, Braze는 두 개의 수신자 행과 두 건의 범위 내 전환을 집계할 수 있습니다. 반복 진입 또는 재적격을 사용하면 동일한 소수의 프로필이 여러 날에 걸쳐 여러 _고유 수신자_를 생성할 수 있습니다.
+
+### Canvas의 전송 속도가 낮아지는 이유는 무엇인가요? {#why-is-my-canvas-experiencing-lower-send-rates}
+
+일별 스케줄 Canvas의 전송 사용자 수가 시간이 지남에 따라 줄어드는 경우, 다음 사항을 확인하세요:
+
+- **재적격이 켜져 있는지 확인하세요:** 재적격이 없으면 Braze는 각 사용자를 Canvas에 한 번만 진입시킵니다. 일별 스케줄 Canvases에서는 오디언스와 일치하고 아직 Canvas에 진입하지 않은 사용자만 각 진입에 적격합니다. 더 많은 사용자가 진입할수록 이후 진입에 적격한 사용자가 줄어들어 진입 볼륨이 감소합니다.
+- **오디언스의 멤버십이 고정되어 있는지 확인하세요:** 고정된 사용자 목록(예: Segment 필터로 사용된 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import))으로 구축된 오디언스는 자동으로 새 멤버를 추가하지 않습니다. 새로운 진입자가 없으면 사용자가 Canvas에 진입함에 따라 진입 볼륨이 회복될 수 없습니다.
+
+[전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) 및 단일 발생에 대한 전송을 줄이는 기타 요인에 대해서는 [전송 수가 예상 오디언스 크기보다 낮은 이유는 무엇인가요?](#why-are-sends-lower-than-the-estimated-audience-size)를 참조하세요.
 
 ## 분석 및 전환 {#analytics-and-conversions}
 

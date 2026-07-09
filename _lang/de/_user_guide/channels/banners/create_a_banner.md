@@ -73,6 +73,10 @@ Um die Hintergrundeigenschaften, Rahmeneinstellungen und mehr Ihrer Nachricht an
 
 ![Style-Panel des Banner-Composers.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% alert tip %}
+Um Nutzer:innen in verschiedenen Sprachen innerhalb einer einzelnen Banner-Campaign anzusprechen, lesen Sie [Mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+{% endalert %}
+
 #### Schritt 3.2: Klickverhalten definieren (optional) {#step-32-define-on-click-behavior-optional}
 
 Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken. Für ein detaillierteres Klick-Tracking weisen Sie jedem interaktiven Element über das Feld **Identifier for Reporting** in dessen Eigenschaftenpanel einen angepassten Bezeichner zu.

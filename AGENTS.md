@@ -23,6 +23,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finding and removing unreferenced `assets/img/` files (all locales) |
 | [`image-curator`](.github/skills/image-curator/SKILL.md) | Redundant reference removal from English docs (delete-image-only by default); optional manual prose edits via alt merge gate; dereferenced binary cleanup |
 | [`screenshot-pii-audit`](.github/skills/screenshot-pii-audit/SKILL.md) | OCR audit of screenshots for PII before PRs; CI blocking check |
+| [`spell-check`](.github/skills/spell-check/SKILL.md) | Pre-PR cspell gate for changed `_docs/` and `_includes/` markdown |
 | [`snippet-pii`](scripts/check_snippet_pii.py) | Advisory fenced-code-block PII scan for `_docs/` and `_includes/` (see `check-snippet-pii.yml`) |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
 
@@ -30,7 +31,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
 - **Verification:** Invoke **`/reference-repos`** from chat, or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
-- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/create-pr`).
+- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/spell-check`, `/create-pr`).
 
 Inside `SKILL.md` files and agent rules, cross-reference other skills with `braze-docs:skill-name` or relative links — not `@` or `/`. See [CAPABILITIES.md](CAPABILITIES.md#cross-referencing-skills-in-instructions).
 

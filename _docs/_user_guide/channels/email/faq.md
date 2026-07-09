@@ -66,9 +66,9 @@ No. Updates made to the outbound email settings do not retroactively affect exis
 
 ### What is a "good" email delivery rate?
 
-Typically, the "magic number" is around 98% of messages delivered with a bounce rate no higher than 3%. If your delivery dips below that, there is usually cause for concern.
+Typically, the "magic number" is around 98% of messages delivered with a bounce rate no higher than 3%. If fewer than 98% of messages are delivered, there is usually cause for concern.
 
-However, a rate above 98% can still have deliverability issues. For example, if all your bounces come from a single domain, that is a clear signal of a reputation issue with that provider.
+However, a delivery rate of 98% or higher can still have deliverability issues. For example, if all your bounces come from a single domain, that is a clear signal of a reputation issue with that provider.
 
 Additionally, messages may be getting delivered and ending up in Spam, indicating potentially serious reputation issues. It's important to monitor not just the number of messages being delivered, but also open and click rates to determine whether users are actually seeing the messages in their inboxes. Because providers usually don't report every spam instance, a spam rate of even 1% could be cause for concern and further analysis.
 
@@ -242,7 +242,21 @@ Use the following tables to narrow down the cause.
 
 ### How can I optimize images in Outlook?
 
-Outlook often uses Microsoft Word–style rendering, which can add a border around images. You can wrap content so it hides in Office clients using standard conditional comments, for example:
+Outlook often uses Microsoft Word rendering rather than standard browser rendering, which can cause images to render incorrectly or add borders around images.
+
+If images display larger than their expected width in Outlook, add the following CSS to the image:
+
+```css
+max-width: 100%;
+```
+
+For example:
+
+```html
+<img src="your-image.png" style="max-width: 100%;" alt="Description">
+```
+
+You can also wrap content so it hides in Outlook desktop using conditional comments:
 
 ```html
 <!--[if !mso]><!-- -->

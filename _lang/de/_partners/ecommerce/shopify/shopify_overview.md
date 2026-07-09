@@ -54,7 +54,7 @@ Beim Onboarding der Integration müssen Sie auswählen, wann die Braze SDKs init
 
 {% alert note %}
 - Website-Besuche (Sitzungen) werden auf Ihre monatlich aktiven Nutzer:innen (MAU) angerechnet.
-- Die Versionen des Braze Web SDK und des JavaScript SDK werden automatisch auf v5.4.0 gesetzt.
+- Die Versionen des Braze Web SDK und des JavaScript SDK werden automatisch auf v6.8.0 gesetzt. Sie können Ihre SDK-Version jederzeit über die Integrationseinstellungen aktualisieren.
 {% endalert %}
 
 Braze nutzt die Shopify-Integration, um mehrere Bezeichner zu unterstützen, die das Tracking Ihrer Nutzer:innen von ihrem Gasteinkauf bis zu ihrer Identifizierung ermöglichen:

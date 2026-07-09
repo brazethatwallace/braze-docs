@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | "View Media Library Assets" permission | View media library assets |
 | "Edit Media Library Assets" permission | Create and update media library assets |
-| "Delete Media Library Assets" permission | Permanently delete media library assets |
+| "Delete Media Library Assets" permission | Remove media library assets from the UI. Deleted assets remain hosted by Braze to prevent breaking messages that reference them. To permanently delete an asset, contact Braze Support. |
 | "Replace Media Library Assets" permission | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
 

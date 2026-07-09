@@ -29,7 +29,7 @@ No entanto, ao pré-visualizar a landing page a partir da tabela de dados ou da 
 
 Para manter o desempenho ideal com landing pages personalizadas, observe os seguintes limites de tamanho:
 
-- **Salvar uma landing page:** Se o tamanho exceder 500&nbsp;KB, você poderá receber uma mensagem de aviso indicando que a página excedeu nossos limites de tamanho, o que pode impedir sua publicação.
+- **Salvar uma landing page:** Se o tamanho exceder 500&nbsp;KB, você poderá receber uma mensagem de alerta indicando que a página excedeu nossos limites de tamanho, o que pode impedir sua publicação.
 - **Renderização com personalização Liquid:** O tamanho total não deve exceder 1&nbsp;MB. Caso contrário, a página poderá ser automaticamente despublicada pela Braze.
 
 ### Evitar a despublicação de landing pages {#avoid-unpublishing-landing-pages}
@@ -41,7 +41,7 @@ Para evitar que sua página exceda os limites de tamanho ou tenha tempos de carr
 - Não faça loops contínuos nem referencie grandes conjuntos de dados.
 - Não dependa de lógica matemática ou condicional extensa dentro do bloco Liquid.
 
-Além disso, evite incorporar scripts grandes, folhas de estilo e ativos codificados em base64 diretamente no código da sua landing page. Esses ativos inline contam para o limite de tamanho da página e podem tornar a renderização mais lenta. Em vez disso, faça upload de fontes, imagens, folhas de estilo e scripts para a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Os ativos servidos a partir da Biblioteca de mídia são hospedados no CDN da Braze, portanto não são processados para renderização Liquid e não contam para o limite de tamanho da página.
+Além disso, evite incorporar scripts grandes, folhas de estilo e ativos codificados em base64 diretamente no código da sua landing page. Esses ativos inline contam para o limite de tamanho da página e podem tornar a renderização mais lenta. Em vez disso, faça upload de fontes, imagens, folhas de estilo e scripts para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Os ativos servidos a partir da biblioteca de mídia são hospedados na CDN da Braze, portanto não são processados para renderização Liquid e não contam para o limite de tamanho da página.
 
 ### Usar Liquid para usuários identificados e anônimos {#use-liquid-for-identified-and-anonymous-users}
 
@@ -66,6 +66,10 @@ O pré-preenchimento funciona apenas para [usuários identificados](#use-liquid-
 
 - **Campos de entrada:** Exibem o texto de placeholder.
 - **Caixas de seleção, botões de opção e controles semelhantes:** Permanecem desmarcados até que o usuário interaja com eles.
+
+{% alert warning %}
+Se um usuário encaminhar um link de landing page (de um e-mail, SMS ou outra mensagem) para outra pessoa, o destinatário verá os dados pré-preenchidos destinados ao usuário original. Essa é a mesma consideração de segurança que se aplica a links de cancelamento de inscrição e links da Central de Preferências. Considere a sensibilidade dos dados que você está pré-preenchendo e o comportamento de compartilhamento do seu público ao usar esse recurso.
+{% endalert %}
 
 ## Buscar dados externos com código personalizado {#fetching-external-data-with-custom-code}
 
@@ -127,7 +131,7 @@ Ao buscar dados externos em landing pages:
 - **Estados de carregamento:** Os usuários verão um texto de placeholder até que o endpoint responda. Considere adicionar um indicador de carregamento ou uma tela esqueleto.
 - **Tratamento de erros:** Se o endpoint falhar ou demorar para responder, a página pode parecer quebrada. Implemente mensagens de erro e fallbacks apropriados.
 - **Desempenho:** A página carrega imediatamente, mas os dados aparecem após a conclusão da requisição externa. Mantenha as respostas da sua API rápidas para a melhor experiência do usuário.
-- **Segurança:** Certifique-se de que seu endpoint de API valide o identificador e retorne apenas dados que o usuário está autorizado a ver. Implemente limite de taxa para evitar abusos. Para orientações sobre como escolher identificadores seguros, consulte as [práticas recomendadas de nomenclatura de ID do usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+- **Segurança:** Certifique-se de que seu endpoint de API valide o identificador e retorne apenas dados que o usuário está autorizado a ver. Implemente limite de frequência para evitar abusos. Para orientações sobre como escolher identificadores seguros, consulte as [práticas recomendadas de nomenclatura de ID do usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 ## Páginas de fallback {#fallback-pages}
 

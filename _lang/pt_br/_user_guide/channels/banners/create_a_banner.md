@@ -73,6 +73,10 @@ Para personalizar as propriedades de fundo, configurações de borda e mais da s
 
 ![Painel de estilos do criador de Banner.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% alert tip %}
+Para direcionar usuários em diferentes idiomas dentro de uma única campanha de Banner, consulte [Mensagens multilíngues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+{% endalert %}
+
 #### Etapa 3.2: Definir o comportamento ao clicar (opcional) {#step-32-define-on-click-behavior-optional}
 
 Quando um usuário clica em um link no Banner, você pode optar por direcioná-lo para uma área mais profunda do seu app ou redirecioná-lo para outra página da web. Além disso, você pode escolher [registrar um atributo personalizado ou evento]({{site.baseurl}}/developer_guide/analytics), que atualiza o perfil do usuário com dados personalizados quando ele clica no Banner. Para um rastreamento de cliques mais granular, atribua um identificador personalizado a cada elemento interativo usando o campo **Identifier for Reporting** no painel de propriedades.

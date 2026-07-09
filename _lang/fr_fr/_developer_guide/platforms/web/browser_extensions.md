@@ -25,7 +25,7 @@ En général, comme les extensions sont composées de HTML et de JavaScript, vou
 
 ## Ce qui n'est pas pris en charge {#whats-not-supported}
 
-* Les services de traitement ne sont pas pris en charge par le SDK Braze pour le Web, mais cette fonctionnalité est envisagée pour une future version.
+* L'utilisation du SDK Braze depuis un service de traitement n'est pas prise en charge. Vous pouvez toutefois utiliser le SDK Braze dans la fenêtre contextuelle ou la page de paramètres de votre extension.
 
 ## Types d'extensions {#extension-types}
 
@@ -50,7 +50,7 @@ Toutefois, si vous utilisez [Google Tag Manager]({{ site.baseurl }}/developer_gu
 Avant de commencer, assurez-vous d'avoir lu le [guide de configuration initiale du SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) pour le Web afin d'en savoir plus sur notre intégration JavaScript en général.  <br><br>Vous pouvez également mettre en signet la [référence du SDK JavaScript](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) pour obtenir tous les détails sur les différentes méthodes et options de configuration du SDK.
 {% endalert %}
 
-Pour intégrer le SDK Braze pour le Web, vous devez d'abord télécharger une copie de la dernière bibliothèque JavaScript. Cela peut se faire en utilisant NPM ou en le téléchargeant directement depuis le [réseau de diffusion de contenu de Braze](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
+Pour intégrer le SDK Braze pour le Web, vous devez d'abord télécharger une copie de la dernière bibliothèque JavaScript. Cela peut se faire en utilisant NPM ou en le téléchargeant directement depuis le [CDN de Braze](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
 
 Sinon, si vous préférez utiliser [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) ou une copie hébergée à l'extérieur du SDK Braze, gardez à l'esprit que le chargement de ressources externes nécessite d'ajuster le paramètre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) dans votre `manifest.json`.
 

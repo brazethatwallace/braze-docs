@@ -12,24 +12,20 @@ page_order: 2
 
 Puedes administrar los centros de preferencias de arrastrar y soltar existentes desde **Audiencia** > **Centro de preferencias de correo electrónico**:
 
-- Para cambiar el nombre o el contenido de un centro de preferencias, ábrelo desde el dashboard.
-- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el dashboard. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier Campaign de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact).
+- Para cambiar el nombre o el contenido de un centro de preferencias, ábrelo desde el panel.
+- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el panel. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier Campaign de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact).
 - Si un centro de preferencias eliminado se utilizó en mensajes enviados anteriormente, dejará de funcionar en esos correos electrónicos entregados.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## Paso 1: Crear un centro de preferencias de correo electrónico {#step-1-create-an-email-preference-center}
 
-Crea un centro de preferencias navegando a **Audiencia** > **Centro de preferencias de correo electrónico**.
-
-Aquí se mostrará una lista de centros de preferencias personalizados. Selecciona **Crear nuevo** para crear un nuevo centro de preferencias, o selecciona el nombre de uno existente para realizar cambios.
-
+Crea un centro de preferencias navegando a **Audiencia** > **Centro de preferencias de correo electrónico**. Aquí se mostrará una lista de centros de preferencias personalizados. Selecciona **Crear nuevo** para crear un nuevo centro de preferencias, o selecciona el nombre de uno existente para realizar cambios.
 
 ## Paso 2: Nombrar el centro de preferencias de correo electrónico {#step-2-name-the-email-preference-center}
 
 Los nombres de los centros de preferencias solo pueden contener caracteres alfanuméricos, guiones o guiones bajos. El nombre que proporciones determinará la sintaxis de la etiqueta de Liquid generada.
 
 Esta etiqueta de Liquid se puede incluir en cualquier Campaign de correo electrónico saliente o paso en Canvas y dirigirá a los usuarios al centro de preferencias.
-
 
 ## Paso 3: Añadir grupos de suscripción al centro de preferencias {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -40,12 +36,12 @@ Selecciona **Lanzar editor** para comenzar a diseñar tu centro de preferencias 
 Para determinar qué grupos de suscripción deben mostrarse en el centro de preferencias, selecciona el botón **+ Añadir grupos de suscripción** para abrir un modal donde se pueden seleccionar los grupos de suscripción deseados. Después de seleccionarlos, selecciona el botón **Añadir grupos de suscripción** para agregarlos al centro de preferencias.
 
 Puedes configurar aún más los grupos de suscripción seleccionados seleccionando el bloque inteligente y ajustando las propiedades del bloque.
+
 - Ajustar el orden de los grupos de suscripción
 - Añadir o quitar grupos de suscripción adicionales
 - Incluir descripciones
 - Añadir o quitar una casilla de verificación **Suscribirse a todos** que suscribirá al usuario a todos los grupos de suscripción mostrados en este bloque
 - Añadir o quitar una casilla de verificación **Cancelar suscripción de todos** que cancelará la suscripción del usuario de todos los grupos de suscripción mostrados en este bloque
-
 
 El botón **Cancelar suscripción de todos** en la parte inferior de la plantilla no se puede eliminar y [cancelará globalmente la suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) del usuario para que no reciba ningún mensaje de correo electrónico.
 
@@ -94,19 +90,19 @@ Si estás usando el bloque de código personalizado en tu centro de preferencias
 
 ## Paso 5: Personalizar tu página de confirmación {#step-5-customize-your-confirmation-page}
 
-¡No olvides personalizar la página de confirmación! Puedes editar esta página seleccionando **Página de confirmación** en la parte superior de la ventana del editor de arrastrar y soltar. Esta página se mostrará a los usuarios después de actualizar sus preferencias usando el centro de preferencias. Las mismas capacidades de estilo mencionadas anteriormente también se aplican a esta página.
+A continuación, personaliza la página de confirmación seleccionando **Página de confirmación**. Esta página se mostrará a los usuarios después de actualizar sus preferencias usando el centro de preferencias. Las mismas capacidades de estilo de [Establecer estilos comunes](#set-common-styles) y [Componentes del centro de preferencias de arrastrar y soltar](#drag-and-drop-preference-center-components) también se aplican a esta página.
 
 ![Un ejemplo de una página de confirmación para comunicar que las preferencias del usuario han sido actualizadas.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
 ## Paso 6: Previsualizar y lanzar tu centro de preferencias {#step-6-preview-and-launch-your-preference-center}
 
-Puedes previsualizar tu centro de preferencias seleccionando la pestaña **Vista previa** dentro del editor. Sin embargo, la funcionalidad de prueba está deshabilitada. Después de editar tu centro de preferencias, puedes cerrar el editor seleccionando el botón **Listo**.
+Puedes previsualizar tu centro de preferencias seleccionando la pestaña **Vista previa** dentro del editor. Sin embargo, la funcionalidad de prueba está deshabilitada. Además, los envíos de prueba de Campaigns o pasos en Canvas que incluyan la etiqueta de Liquid del centro de preferencias no generarán un enlace válido. Para probar la funcionalidad completa de tu centro de preferencias, envía una Campaign o un Canvas en vivo. Después de editar tu centro de preferencias, puedes cerrar el editor seleccionando **Listo**.
 
-Verás una vista previa tanto del centro de preferencias como de la página de confirmación. Selecciona **Guardar como borrador** para volver a este centro de preferencias más tarde, o si estás satisfecho, selecciona **Lanzar centro de preferencias**.
+La vista previa muestra tanto el centro de preferencias como la página de confirmación. Selecciona **Guardar como borrador** para volver a este centro de preferencias más tarde, o si estás satisfecho, selecciona **Lanzar centro de preferencias**.
 
 Al lanzar el centro de preferencias, se te pedirá que confirmes el nombre, ya que no se puede editar después del lanzamiento. Después de confirmar el nombre, el centro de preferencias se lanzará y estará listo para usar.
 
-## Usar el centro de preferencias {#using-the-preference-center}
+## Usar el centro de preferencias {#use-the-preference-center}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
@@ -116,7 +112,7 @@ Para colocar un enlace al centro de preferencias en tus correos electrónicos, c
 
 Añade la etiqueta de Liquid en el lugar deseado de tu correo electrónico, de manera similar a cómo se insertan las [URL de cancelación de suscripción]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link).
 
-## Manejo de errores {#handling-errors}
+## Manejo de errores {#handle-errors}
 
 Si ocurre un error cuando un usuario selecciona **Guardar** en un centro de preferencias, se le presentará el siguiente mensaje de error predeterminado, que no se puede personalizar ni estilizar en el editor. Sin embargo, la localización de los mensajes de error sigue siendo compatible en estas páginas.
 

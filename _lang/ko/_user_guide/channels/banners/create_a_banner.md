@@ -73,6 +73,10 @@ channel:
 
 ![배너 작성기의 스타일 패널.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% alert tip %}
+단일 배너 캠페인 내에서 다양한 언어의 사용자를 타겟팅하려면 [다국어 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)를 참조하세요.
+{% endalert %}
+
 #### 3.2단계: 클릭 시 동작 정의(선택 사항) {#step-32-define-on-click-behavior-optional}
 
 사용자가 배너의 링크를 클릭하면 앱 내부로 더 깊이 이동하거나 다른 웹페이지로 리디렉션하도록 선택할 수 있습니다. 또한 [커스텀 속성 또는 이벤트를 기록]({{site.baseurl}}/developer_guide/analytics)하도록 선택하여 사용자가 배너를 클릭할 때 커스텀 데이터로 사용자 프로필을 업데이트할 수 있습니다. 보다 세분화된 클릭 추적을 위해 속성 패널의 **보고용 식별자** 필드를 사용하여 각 인터랙티브 요소에 커스텀 식별자를 할당하세요.

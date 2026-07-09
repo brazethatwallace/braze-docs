@@ -1,17 +1,17 @@
 ---
-nav_title: eCommerce 이벤트 기록
-article_title: Braze SDK를 통한 eCommerce 이벤트 기록
+nav_title: 이커머스 이벤트 기록
+article_title: Braze SDK를 통한 이커머스 이벤트 기록
 page_order: 3.25
-description: "타입이 지정된 이벤트 클래스와 logEcommerceEvent를 사용하여 Braze Android, Swift 및 Web SDK를 통해 eCommerce 권장 이벤트를 기록하는 방법을 알아봅니다."
+description: "타입이 지정된 이벤트 클래스와 logEcommerceEvent를 사용하여 Braze Android, Swift 및 Web SDK를 통해 이커머스 권장 이벤트를 기록하는 방법을 알아봅니다."
 platform:
   - Android
   - Swift
   - Web
 ---
 
-# eCommerce 이벤트 기록 {#log-ecommerce-events}
+# 이커머스 이벤트 기록 {#log-ecommerce-events}
 
-> 타입이 지정된 이벤트 클래스와 `logEcommerceEvent`를 사용하여 Braze Android, Swift 및 Web SDK를 통해 [eCommerce 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 기록하는 방법을 알아봅니다. 이벤트 속성정보 스키마, 플랫폼 기능 및 수집 유효성 검사에 대한 자세한 내용은 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) 및 [이벤트 유효성 검사 및 문제 해결]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting)을 참조하세요.
+> 타입이 지정된 이벤트 클래스와 `logEcommerceEvent`를 사용하여 Braze Android, Swift 및 웹 SDK를 통해 [이커머스 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 기록하는 방법을 알아봅니다. 이벤트 속성정보 스키마, 플랫폼 기능 및 수집 유효성 검사에 대한 자세한 내용은 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) 및 [이벤트 유효성 검사 및 문제 해결]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting)을 참조하세요.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우, 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
@@ -19,7 +19,7 @@ platform:
 
 ## 이벤트 스키마 {#event-schemas}
 
-6가지 eCommerce 권장 이벤트는 모든 플랫폼에서 주문 수준 스키마를 공유합니다. 각 이벤트 페이로드를 구축할 때 다음 속성정보 테이블을 사용하세요. 전체 유효성 검사 동작 및 REST API 예제가 포함된 정식 스키마는 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas)를 참조하세요. 세분화, 캔버스 템플릿, 보고서 등 플랫폼 기능에 대한 자세한 내용은 [eCommerce 이벤트 사용 방법]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)을 참조하세요.
+6가지 이커머스 권장 이벤트는 모든 플랫폼에서 주문 수준 스키마를 공유합니다. 각 이벤트 페이로드를 구축할 때 다음 속성정보 테이블을 사용하세요. 전체 유효성 검사 동작 및 REST API 예제가 포함된 정식 스키마는 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas)를 참조하세요. 세분화, Canvas 템플릿, 보고서 등 플랫폼 기능에 대한 자세한 내용은 [이커머스 이벤트 사용 방법]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)을 참조하세요.
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -39,7 +39,7 @@ platform:
 | `currency` | 문자열 | 예 | 3자리 ISO 4217 코드(예: `USD` 또는 `EUR`). |
 | `source` | 문자열 | 예 | 이벤트가 발생한 소스(예: `web`, `ios` 또는 `android`). |
 | `type` | 문자열 배열 | 아니요 | 재입고 및 가격 인하 알림을 위한 Braze 카탈로그 트리거 기능을 사용하려면 필수입니다. 허용 값: `"price_drop"`, `"back_in_stock"`. |
-| `metadata` | 오브젝트 | 아니요 | 유연한 키-값 페어. 인식되는 하위 속성정보: `sku`(문자열). |
+| `metadata` | 오브젝트 | 아니요 | 유연한 키-값 페어(예: `category` 또는 `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 조회 이벤트 속성정보" }
 
 {% endtab %}
@@ -224,15 +224,15 @@ platform:
 
 ## Android
 
-Android SDK [42.3.0+](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0)는 생성 시 클라이언트 측 유효성 검사와 `Braze.logEcommerceEvent` 호출 시 자동 `snake_case` 직렬화를 제공하는 타입이 지정된 eCommerce 이벤트 클래스를 제공합니다.
+Android SDK [42.3.0+](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0)는 생성 시 클라이언트 측 유효성 검사와 `Braze.logEcommerceEvent` 호출 시 자동 `snake_case` 직렬화를 제공하는 타입이 지정된 이커머스 이벤트 클래스를 제공합니다.
 
 | Android 클래스 | 이벤트 이름 | 참고 |
 | ------------- | ---------- | ----- |
-| `ProductViewedEvent` | `ecommerce.product_viewed` | 제품 필드를 `properties`의 최상위 수준으로 평탄화합니다(`products` 배열 없음). 이 클래스는 카탈로그 트리거를 위한 최상위 `type` 등록정보를 지원하지 않습니다. `type`이 필요한 경우 [`logCustomEvent`](#manual-logging-with-logcustomevent) 또는 REST API를 사용하세요. |
-| `CartUpdatedEvent` | `ecommerce.cart_updated` | `action` 등록정보에 `CartUpdatedAction`(`ADD`, `REMOVE`, `REPLACE`)을 사용합니다. |
+| `ProductViewedEvent` | `ecommerce.product_viewed` | 제품 필드를 `properties`의 최상위 수준으로 평탄화합니다(`products` 배열 없음). 이 클래스는 카탈로그 트리거를 위한 최상위 `type` 속성정보를 지원하지 않습니다. `type`이 필요한 경우 [`logCustomEvent`](#manual-logging-with-logcustomevent) 또는 REST API를 사용하세요. |
+| `CartUpdatedEvent` | `ecommerce.cart_updated` | `action` 속성정보에 `CartUpdatedAction`(`ADD`, `REMOVE`, `REPLACE`)을 사용합니다. |
 | `CheckoutStartedEvent` | `ecommerce.checkout_started` | |
 | `OrderPlacedEvent` | `ecommerce.order_placed` | 선택 사항인 `cartId`, `totalDiscounts`, `discounts`를 지원합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android SDK eCommerce 이벤트 클래스" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android SDK 이커머스 이벤트 클래스" }
 
 {% alert important %}
 `ecommerce.order_cancelled` 및 `ecommerce.order_refunded`는 타입이 지정된 Android SDK 클래스로 제공되지 않습니다. [`logCustomEvent`](#manual-logging-with-logcustomevent) 또는 REST API를 사용하여 기록하세요.
@@ -256,9 +256,9 @@ Android SDK [42.3.0+](https://github.com/braze-inc/braze-android-sdk/releases/ta
 | `currency` | 유효한 ISO 4217 코드(SDK에서 공백 제거 후 대문자로 변환) |
 | `products`(장바구니, 결제, 주문 이벤트) | 최소 하나의 `EcommerceProduct` |
 | `quantity`(제품당) | 음수가 아닌 정수 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Android eCommerce 이벤트 클라이언트 측 유효성 검사 규칙" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android 이커머스 이벤트 클라이언트 측 유효성 검사 규칙" }
 
-전송 시 직렬화된 등록정보가 SDK 크기 제한을 초과하면 `logEcommerceEvent`는 오류를 기록하고 이벤트를 전송하지 않습니다.
+전송 시 직렬화된 속성정보가 SDK 크기 제한을 초과하면 `logEcommerceEvent`는 오류를 기록하고 이벤트를 전송하지 않습니다.
 
 ### 코드 예제 {#code-examples}
 
@@ -274,7 +274,6 @@ import com.braze.models.outgoing.BrazeProperties
 import com.braze.models.recommended.ecommerce.ProductViewedEvent
 
 val metadata = BrazeProperties()
-  .addProperty("sku", "SS-R-101")
   .addProperty("category", "Apparel")
 
 val productViewedEvent = ProductViewedEvent(
@@ -480,7 +479,6 @@ import com.braze.models.outgoing.BrazeProperties;
 import com.braze.models.recommended.ecommerce.ProductViewedEvent;
 
 BrazeProperties metadata = new BrazeProperties()
-    .addProperty("sku", "SS-R-101")
     .addProperty("category", "Apparel");
 
 ProductViewedEvent productViewedEvent = new ProductViewedEvent(
@@ -671,7 +669,7 @@ Braze.getInstance(context).logCustomEvent(
 
 ## iOS
 
-Swift SDK는 타입이 지정된 eCommerce 이벤트 클래스(`ProductViewedEvent`, `CartUpdatedEvent`, `CheckoutStartedEvent`, `OrderPlacedEvent`)를 제공하며, 이를 빌드하여 `logEcommerceEvent`에 전달합니다. 장바구니, 결제 및 주문 이벤트의 제품에는 `ProductLineItem`을 사용합니다. 각 이니셜라이저는 throwing이므로 `try?`로 래핑하고 생성이 성공한 경우에만 이벤트를 기록합니다.
+Swift SDK는 타입이 지정된 이커머스 이벤트 클래스(`ProductViewedEvent`, `CartUpdatedEvent`, `CheckoutStartedEvent`, `OrderPlacedEvent`)를 제공하며, 이를 빌드하여 `logEcommerceEvent`에 전달합니다. 장바구니, 결제 및 주문 이벤트의 제품에는 `ProductLineItem`을 사용합니다. 각 이니셜라이저는 throwing이므로 `try?`로 래핑하고 생성이 성공한 경우에만 이벤트를 기록합니다.
 이 기능은 Swift SDK 버전 `15.0.0` 이상에서 사용할 수 있습니다.
 
 `ecommerce.order_cancelled` 및 `ecommerce.order_refunded`는 타입이 지정된 Swift SDK 클래스로 제공되지 않습니다. `logCustomEvent`를 사용하여 기록하세요.
@@ -692,7 +690,6 @@ if let productViewedEvent = try? Braze.Ecommerce.ProductViewedEvent(
     currency: "GBP",
     source: "https://braze-apparel.com/",
     metadata: [
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -899,9 +896,9 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 {% endtab %}
 {% endtabs %}
 
-## Web
+## 웹 {#web}
 
-Web SDK [6.8.0+](https://github.com/braze-inc/braze-web-sdk)에서는 이벤트 `name`과 `properties`를 사용하여 `logEcommerceEvent`를 호출합니다. 이전 SDK 버전에서는 이벤트 이름과 속성정보 오브젝트를 사용하여 `logCustomEvent`를 호출합니다. `ecommerce.order_cancelled` 및 `ecommerce.order_refunded`는 `logCustomEvent`를 사용합니다.
+웹 SDK [6.8.0+](https://github.com/braze-inc/braze-web-sdk)에서는 이벤트 `name`과 `properties`를 사용하여 `logEcommerceEvent`를 호출합니다. 이전 SDK 버전에서는 이벤트 이름과 속성정보 오브젝트를 사용하여 `logCustomEvent`를 호출합니다. `ecommerce.order_cancelled` 및 `ecommerce.order_refunded`는 `logCustomEvent`를 사용합니다.
 
 ### 코드 예제
 
@@ -925,7 +922,6 @@ braze.logEcommerceEvent({
         "currency": "GBP",
         "source": "https://braze-apparel.com/",
         "metadata": {
-            "sku": "",
             "color": "ORANGE",
             "size": "6",
             "brand": "Braze"
@@ -947,7 +943,6 @@ braze.logCustomEvent("ecommerce.product_viewed", {
     "currency": "GBP",
     "source": "https://braze-apparel.com/",
     "metadata": {
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -1273,6 +1268,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 권장 이벤트를 수동으로 기록하려면 정확한 이벤트 이름(예: `ecommerce.product_viewed`)과 수동으로 구성한 `BrazeProperties` 또는 `JSONObject` 페이로드를 사용하여 `logCustomEvent`를 호출합니다. SDK는 수동 호출에 대해 권장 이벤트 스키마를 유효성 검사하지 않습니다. Braze는 수집 중에 이러한 페이로드를 유효성 검사합니다:
 
 - 유효한 페이로드는 전체 후처리가 적용된 권장 이벤트로 처리됩니다.
-- 잘못된 페이로드(필수 필드 누락, 잘못된 유형, 추가 최상위 등록정보)는 수집 후 삭제됩니다. 실패 내역은 워크스페이스 SDK 처리 로그와 [실패 요약 이메일]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures)에 표시됩니다.
+- 잘못된 페이로드(필수 필드 누락, 잘못된 유형, 추가 최상위 속성정보)는 수집 후 삭제됩니다. 실패 내역은 워크스페이스 SDK 처리 로그와 [실패 요약 이메일]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures)에 표시됩니다.
 
 앱에서 잘못된 데이터가 전송되기 전에 포착할 수 있도록 가능하면 `logEcommerceEvent`를 사용하세요. 일반적인 `logCustomEvent` 사용법은 [커스텀 이벤트 기록]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)을 참조하세요.
