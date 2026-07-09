@@ -76,6 +76,7 @@ If the user wants only analysis, stop after step 3.
 | `docs/contributing/style_guide/writing_style_guide.md` | Writing style, voice, tone, grammar, punctuation, formatting |
 | `docs/contributing/style_guide/image_style_guide.md` | Image styling, cropping, alt text, screenshots |
 | `docs/contributing/style_guide/alerts.md` | Important, Note, Tip, Warning alerts — when and how to use |
+| `docs/contributing/style_guide/product_feedback_ctas.md` | In-article product feedback include (`product_feedback_cta.md`) — contexts, placement, reviewer checklist |
 | `docs/contributing/style_guide/api_endpoint_guidelines.md` | API endpoint article structure and formatting |
 
 When the full style guide has specific guidance on a topic, defer to the source file over this summary.
@@ -156,6 +157,27 @@ Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `searc
 - Standard cross-reference phrase: "To learn more, refer to [Topic](...)." or "For more information, see [Topic](...)."
 
 For broken link detection, redirect rules, Liquid syntax, and page anatomy, load [references/site-conventions.md](references/site-conventions.md) (loaded automatically in Links mode).
+
+## Feedback includes
+
+Three parameterized includes cover in-article feedback. Do not mix them:
+
+| Include | Use for |
+|---------|---------|
+| `_includes/product_feedback_cta.md` | Product capability gaps, enhancement asks, GA feature adoption feedback, dashboard UX friction |
+| `_includes/developer_guide/_shared/tutorial_feedback.md` | Developer tutorial format pilots (Google Form) |
+| `_includes/accessibility/feedback.md` | Accessibility of Braze or messages |
+
+**Product feedback CTAs** — new CTAs in `_docs/` and root `_includes/` must use `product_feedback_cta.md`, not ad hoc portal links. Full guidance: `docs/contributing/style_guide/product_feedback_ctas.md`.
+
+Invocation:
+
+```liquid
+{% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
+```
+
+- `context`: `gap`, `new_feature`, or `pain_point` (with `channel: feature` or `ux` when `context` is `pain_point`)
+- **Inline placement:** same line as the limitation sentence, with a space before `{% multi_lang_include ... %}` so the CTA stays in the same Markdown paragraph
 
 ## Custom components and CSS
 

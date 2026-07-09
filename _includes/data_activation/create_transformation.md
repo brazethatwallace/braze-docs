@@ -17,7 +17,7 @@ If you're starting from scratch, choose a destination for your transformation. Y
 {% enddetails %}
 
 {% alert note %}
-Want to request additional templates or destinations? Consider leaving [product feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="additional templates or destinations" %}
 {% endalert %}
 
 After creating your transformation, you'll see the detailed view of the transformation. Here, you can view the most recent webhook received for this transformation under **Webhook details** and a space to write your transformation code under **Transformation code**.

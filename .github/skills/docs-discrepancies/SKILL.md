@@ -43,6 +43,7 @@ For each docs page:
 
 1. Read the target file to understand existing structure
 2. Draft changes following conventions in the codebase based on the style guides in `docs/contributing/style_guide/*`
+3. When documenting a product limitation or enhancement ask, use `_includes/product_feedback_cta.md` per [Product feedback CTAs](docs/contributing/style_guide/product_feedback_ctas.md). Do not add ad hoc `portal.braze.com` or legacy portal links.
 
 
 ## Step 3: Create a Properly Named Branch
