@@ -205,6 +205,12 @@ class TestSpatialDirectionals:
         )
         assert v == []
 
+    def test_allows_below_average_phrase(self):
+        v = spatial_violations_for(
+            'Users in this cohort have below average purchase frequency.\n'
+        )
+        assert v == []
+
     def test_allows_above_and_beyond_idiom(self):
         v = spatial_violations_for(
             'Our support team goes above and beyond for onboarding.\n'

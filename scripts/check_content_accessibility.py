@@ -177,6 +177,7 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
     ),
     # Comparative adjective compounds (semantic, not layout).
     re.compile(r'\b(?:above|below)-average\b', re.IGNORECASE),
+    re.compile(r'\b(?:above|below)\s+average\b', re.IGNORECASE),
     # Idiomatic emphasis, not directional layout reference.
     re.compile(r'\babove\s+and\s+beyond\b', re.IGNORECASE),
     # Alignment option enums (literal UI values, not layout instructions).
