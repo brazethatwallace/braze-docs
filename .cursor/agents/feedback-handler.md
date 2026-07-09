@@ -126,7 +126,28 @@ Note: `_includes/` contains reusable content snippets shared across
 multiple pages — not standalone pages with their own URLs. If an
 issue stems from shared content (e.g. a reused note or parameter
 description), the fix may need to happen in `_includes/` rather
-than in the page file itself.
+than in the page file itself. See the includes special rule under
+**User guide vs. developer guide separation** before editing any
+`_includes/` file.
+
+**Placement evaluation — required before any edit**
+
+Treat the URL in the Jira ticket as a starting hint, not a final
+answer. The suggested page may not be the best location for the
+change. Before editing:
+
+1. Read the full content of the suggested page.
+2. Search across `_docs/` for related pages that might be a more
+   appropriate home for the change (for example, a more specific
+   topic page, a FAQ section, or a dedicated reference page).
+3. Once the correct page is confirmed, evaluate the full page
+   content to determine the most appropriate placement within it —
+   not just the section closest to the anchored link in the ticket
+   URL. Consider surrounding context, heading structure, and
+   content flow before deciding where to insert or update content.
+4. Document the placement decision briefly in the PR description,
+   noting why the chosen location was selected over the ticket's
+   suggested location if they differ.
 
 ### 3. Verify against the source code
 
@@ -151,6 +172,25 @@ Always record the specific files and lines you checked, even if they
 were inconclusive. This goes in the PR description.
 
 ### 4. Make the edit
+
+**User guide vs. developer guide separation — required before any edit**
+
+Before making any edit:
+
+1. Identify whether the change is user-facing (product UI, settings,
+   workflows) or developer/SDK-facing (code samples, API calls, SDK
+   methods, integration steps).
+2. Confirm that the target file's location in `_docs/` matches that
+   audience. User guide content lives under `_docs/_user_guide/`.
+   Developer guide content lives under `_docs/_developer_guide/`.
+   Do not add developer- or SDK-specific content to user guide pages.
+3. **Special rule for includes files:** If the target of a change is
+   a file in `_includes/` that is used in both a user guide and a
+   developer guide topic, and the change is developer-specific, do
+   **not** edit the includes file directly. Instead, add the content
+   inline in the developer guide topic only — either just before or
+   just after the tag that pulls in the includes file. This avoids
+   surfacing developer content in the user guide.
 
 Before your first `git commit`, configure the repository git identity
 to the Braze docs service account (run in the repo root):
@@ -280,7 +320,10 @@ followed by the standard automation footer:
 
 ## What was changed
 <The specific edit made. If anything related to the issue was
-intentionally left unchanged, explain why.>
+intentionally left unchanged, explain why. Briefly document the
+placement decision: which page and section were chosen, and why
+that location was selected over the ticket's suggested location
+if they differ.>
 
 ## Source code verification
 <List each source file and line number checked, and state whether
