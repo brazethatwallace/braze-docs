@@ -260,7 +260,7 @@ If none of these conditions are causing the error, contact [Support]({{site.base
 
 You can configure your Gmail inbox to render AMP emails for testing purposes by doing the following:
 
-1. In Gmail, select **Settings** in the top area corner of your inbox.
+1. In Gmail, select **Settings** from your inbox toolbar.
 2. Select **See all settings**.
 3. In the **General** tab, go to the **Dynamic email** section and confirm the **Enable dynamic email** checkbox is selected.
 4. Next, select **Developer Settings**, and select the **Always allow dynamic emails from this sender:** checkbox.
