@@ -145,9 +145,17 @@ change. Before editing:
    not just the section closest to the anchored link in the ticket
    URL. Consider surrounding context, heading structure, and
    content flow before deciding where to insert or update content.
-4. Document the placement decision briefly in the PR description,
+4. **For changes that affect multiple pages:** If the reported issue
+   applies to multiple related pages that cover the same topic (for
+   example, similar feature documentation across different channels,
+   or API references that share the same behavior), identify all
+   affected pages and note them in the PR description. Follow the
+   edge case instructions below if updating multiple pages would
+   require a structural rewrite or coordination across many files.
+5. Document the placement decision briefly in the PR description,
    noting why the chosen location was selected over the ticket's
-   suggested location if they differ.
+   suggested location if they differ. If multiple pages were
+   updated, list each page and explain why each required the change.
 
 ### 3. Verify against the source code
 
