@@ -1,7 +1,7 @@
 ---
 nav_title: Zendesk
 article_title: Zendesk
-description: "This reference article outlines the partnership between Braze and Zendesk, a popular support suite that allows you to utilize Braze webhooks that can sync support data between the two platforms."
+description: "This reference article outlines the partnership between Braze and Zendesk, a popular support suite that allows you to use Braze webhooks that can sync support data between the two platforms."
 alias: /partners/zendesk/
 page_type: partner
 search_tag: Partner
@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Zendesk Support Suite](https://www.zendesk.com/support-suite/) (ZSS) offers businesses the ability to have natural conversations with their customers through omnichannel support using email, webchat, voice, or social messaging apps. Zendesk offers a streamlined ticketing system that values tracking and prioritizing interactions, allowing businesses to have a unified historical view of their customers.
 
-The Braze and Zendesk server-to-server integration allows you to utilize: 
+The Braze and Zendesk server-to-server integration allows you to use:
 - Braze webhooks to automate the creation of support tickets in Zendesk due to message engagement in user journeys in Braze. For example, after successfully implementing and testing an integration, Braze can create a support ticket from a user answering negatively to an "Enjoying our App?" in-app message, allowing your support team to follow up with the customer.
 - Zendesk webhooks to support bi-directional use cases like updating the user profile in Braze due to activity in Zendesk. For example, after a ticket is solved, log an event to the user profile in Braze.
 
@@ -90,7 +90,7 @@ Lastly, check if the ticket has been created on the Zendesk side.
 
 ## Common identifier
 
-If you have a common identifier between Braze and Zendesk, it is recommended to utilize this as the `requester_id`. This will help unify the two sets of users. Alternatively, if this is not the case, we recommend passing a set of identifying attributes such as name, email address, phone number, or others.
+If you have a common identifier between Braze and Zendesk, it is recommended to use this as the `requester_id`. This will help unify the two sets of users. Alternatively, if this is not the case, we recommend passing a set of identifying attributes such as name, email address, phone number, or others.
 
 ## Zendesk to Braze integration
 

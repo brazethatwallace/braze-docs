@@ -230,7 +230,7 @@ To set up the Braze welcome campaign, follow these steps:
 
 When utilizing a mass offer campaign for gifting, a mass offer campaign will need to be configured within Punchh and a messaging campaign in Braze.
 
-If you want to utilize a Braze segment for your campaign or send communication from Braze before gifting guests in the Punchh platform, then a [custom Punchh segment]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh/#step-3-create-punchh-webhook-in-braze) will be required for the Punchh gifting campaign. 
+If you want to use a Braze segment for your campaign or send communication from Braze before gifting guests in the Punchh platform, then a [custom Punchh segment]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh/#step-3-create-punchh-webhook-in-braze) will be required for the Punchh gifting campaign.
 
 Creating the segment of users to receive this offer in Braze is only recommended when using attributes unavailable within Punchh. Otherwise, Punchh segmentation can be used, and the Braze messaging campaign will be created as an action-based campaign triggered by the users receiving their reward (the reward event triggered by Punchh).
 
@@ -315,7 +315,7 @@ Considerations:
 {% tab Recall %}
 #### Recall campaign
 
-When targeting users based on inactivity, a recall campaign can be used. The customer can create the segment and campaign within Punchh but utilize Braze for messaging.
+When targeting users based on inactivity, a recall campaign can be used. The customer can create the segment and campaign within Punchh but use Braze for messaging.
 
 If you want to use segmentation created in Braze, a [custom Punchh segment]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh/#step-3-create-punchh-webhook-in-braze) based on inactivity can be attached to a recurring mass offer campaign.
 

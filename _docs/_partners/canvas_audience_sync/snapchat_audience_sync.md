@@ -73,7 +73,7 @@ Add a component in your Canvas and select **Audience Sync**.
 
 Click on the **Custom Audience** button to open the component editor.
 
-Select **TikTok** as the desired Audience Sync partner.
+Select **Snapchat** as the desired Audience Sync partner.
 
 ![Audience Sync component editor with Snapchat selected as the sync partner.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
