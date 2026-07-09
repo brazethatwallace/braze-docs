@@ -194,25 +194,7 @@ jobs:
           cat changed_files.txt
 
           count=$(wc -l < changed_files.txt | tr -d ' ')
-          matrix_include=$(LANGS="${LANGS}" python3 -c '
-import json, os
-langs = os.environ.get("LANGS", "")
-catalog = [
-    ("fr", "fr_fr"),
-    ("ja", "ja"),
-    ("ko", "ko"),
-    ("pt-br", "pt_br"),
-    ("es", "es"),
-    ("de", "de"),
-]
-by_lang = {k: v for k, v in catalog}
-if langs:
-    requested = [k for k in langs.split(",") if k]
-    matrix = [{"lang": k, "lang_dir": by_lang[k]} for k in requested]
-else:
-    matrix = [{"lang": k, "lang_dir": v} for k, v in catalog]
-print(json.dumps(matrix))
-')
+          matrix_include=$(LANGS="${LANGS}" python3 -c 'import json,os; langs=os.environ.get("LANGS",""); pairs=[("fr","fr_fr"),("ja","ja"),("ko","ko"),("pt-br","pt_br"),("es","es"),("de","de")]; d=dict(pairs); keys=[x for x in langs.split(",") if x] if langs else [k for k,_ in pairs]; print(json.dumps([{"lang":k,"lang_dir":d[k]} for k in keys]))')
           echo "count=${count}" >> "$GITHUB_OUTPUT"
           echo "languages=${LANGS}" >> "$GITHUB_OUTPUT"
           echo "matrix_include=${matrix_include}" >> "$GITHUB_OUTPUT"
