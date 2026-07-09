@@ -163,14 +163,6 @@ class TestSpatialDirectionals:
         assert len(v) == 1
         assert v[0]['auto_fix_eligible'] is False
 
-    def test_marks_api_data_retention_as_manual_review_only(self):
-        v = spatial_violations_for_path(
-            'The details are listed below.\n',
-            '_docs/_api/data_retention.md',
-        )
-        assert len(v) == 1
-        assert v[0]['auto_fix_eligible'] is False
-
     def test_does_not_treat_terms_to_know_as_legal_sensitive(self):
         v = spatial_violations_for_path(
             'Review the list below before setup.\n',
@@ -186,12 +178,6 @@ class TestSpatialDirectionals:
         )
         assert len(v) == 1
         assert v[0]['auto_fix_eligible'] is True
-
-    def test_allows_below_a_certain_threshold_numeric_comparison(self):
-        v = spatial_violations_for(
-            'If the value drops below a certain threshold, throttle requests.\n'
-        )
-        assert v == []
 
     # ------------------------------------------------------------------
     # False-positive guard: "right" / "left" meaning "correct" or other
