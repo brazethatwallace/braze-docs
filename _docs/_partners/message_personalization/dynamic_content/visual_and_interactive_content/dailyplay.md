@@ -84,7 +84,7 @@ To engage a specific customer segment, follow these steps after you complete the
 
 ### Step 1: Set up your DailyPlay configuration
 
-Follow the integration steps above to set up your Braze connection and DailyPlay stream. Copy the integration code.
+Follow the integration steps in this section to set up your Braze connection and DailyPlay stream. Copy the integration code.
 
 ### Step 2: Create a Braze campaign or Canvas
 

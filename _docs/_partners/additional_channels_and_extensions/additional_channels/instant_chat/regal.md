@@ -109,7 +109,7 @@ The only required identifier is a phone number inside `traits.phones`. Use the `
 }
 ```
 
-The above payload example assumes the listed phone numbers include current voice and SMS consent status. If that's not true, you can omit `voiceOptIn` and `smsOptIn` when creating the contact and set up a separate Canvas or campaign to update consent on the relevant phone number when opt-in is collected.
+This payload example assumes the listed phone numbers include current voice and SMS consent status. If that's not true, you can omit `voiceOptIn` and `smsOptIn` when creating the contact and set up a separate Canvas or campaign to update consent on the relevant phone number when opt-in is collected.
 
 ### Step 2: Update opt-in information
 
@@ -319,7 +319,7 @@ In Braze-to-Regal event payloads, Regal recommends using `traits.phones` to supp
 
 **Trigger an email from Braze based on a call disposition in Regal**
 
-Below is a sample payload for a `call.completed` event in Regal.
+The following sample payload shows a `call.completed` event in Regal.
 
 ```json
 {
@@ -359,7 +359,7 @@ Below is a sample payload for a `call.completed` event in Regal.
 }
 ```
 
-Below is a sample Data Transformation to map this to a custom event in Braze.
+The following sample Data Transformation maps this to a custom event in Braze.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze must first be converted to ISO 8601. This can be done with the following code:
@@ -417,7 +417,7 @@ return brazecall;
 
 **Update profile attributes in Braze based on `contact.attribute.edited` events from Regal**
 
-Below is a sample payload for a `contact.attribute.edited` event in Regal. Regal sends this event when an agent updates an attribute on a contact's profile during a conversation.
+The following sample payload shows a `contact.attribute.edited` event in Regal. Regal sends this event when an agent updates an attribute on a contact's profile during a conversation.
 
 ```json
 {
@@ -445,7 +445,7 @@ Below is a sample payload for a `contact.attribute.edited` event in Regal. Regal
 }
 ```
 
-Below is a sample Data Transformation to map the new custom property values to the relevant attributes on your Braze profiles:
+The following sample Data Transformation maps the new custom property values to the relevant attributes on your Braze profiles:
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -481,7 +481,7 @@ return brazecall;
 
 **Keep your experiments in Braze and Regal in sync using `contact.experiment.assigned` events**
 
-Below is a sample payload for a `contact.experiment.assigned` event in Regal.
+The following sample payload shows a `contact.experiment.assigned` event in Regal.
 
 ```json
 {
@@ -504,7 +504,7 @@ Below is a sample payload for a `contact.experiment.assigned` event in Regal.
 }
 ```
 
-Below is a sample Data Transformation to map this to a custom event in Braze.
+The following sample Data Transformation maps this to a custom event in Braze.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze, it must first be converted to ISO 8601. This can be done with the following code:
@@ -544,7 +544,7 @@ return brazecall;
 
 **Unsubscribe a contact in Braze based on `contact.unsubscribed` events from Regal**
 
-Below is a sample payload for a `contact.unsubscribed` event in Regal.
+The following sample payload shows a `contact.unsubscribed` event in Regal.
 
 ```json
 {
@@ -568,7 +568,7 @@ Below is a sample payload for a `contact.unsubscribed` event in Regal.
 }
 ```
 
-Below is a sample Data Transformation to unsubscribe the contact in Braze.
+The following sample Data Transformation unsubscribes the contact in Braze.
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -607,7 +607,7 @@ For example:
 - When the primary objection is trust, send testimonials, ratings, or compliance reassurance.
 - When `needs_human_agent` is true, notify a sales or support team and suppress further automated messaging.
 
-Below is a sample payload for a `call.analysis.available` event in Regal.
+The following sample payload shows a `call.analysis.available` event in Regal.
 
 ```json
 {
@@ -667,7 +667,7 @@ Use a Data Transformation to map `call_analysis` fields (such as `primary_object
 
 Use the `call.transcript.available` event to send a link to the full call transcript to Braze. Map the transcript URL to a Braze user profile attribute with Data Transformation so your team can access and review conversations from the user profile.
 
-Below is a sample payload for a `call.transcript.available` event in Regal.
+The following sample payload shows a `call.transcript.available` event in Regal.
 
 ```json
 {

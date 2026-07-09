@@ -42,7 +42,7 @@ The Braze and Punchh integration allows you to sync data for gifting and loyalty
 - When utilizing the Braze integration, two campaigns will be required, one in Punchh and the second in Braze. For example, if you send a campaign with an offer attached, the gifting campaign will be configured within Punchh, and the notification can be sent from Braze.
 - Guests should already exist in Punchh and Braze. Punchh will filter out any customer who is not already a loyalty guest.
 
-#### Important things to note
+### Important things to note
 
 - Punchh has added the ability to disable the sending of default user attributes to Braze, so the customer does not incur data point overages. This is configured during the adapter setup.
 - If using custom segments on recurring campaigns, the campaign name must be used instead of the campaign ID, as the IDs change each time the campaign runs.
@@ -150,23 +150,23 @@ To set up the Braze and Punchh integration, do the following:
 
 1. In the Punchh dashboard, navigate to **Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management** and toggle on **Enable Webhook Management**.<br><br>
 2. Next, enable adapters by navigating to **Settings** > **Webhooks Manager** > **Configurations** > **Show Adapters Tab** and toggle on **Show Adapters Tab**.<br><br>
-3. Navigate to **Webhooks Manager** under the **Settings** tab, select the **Adapters** tab, and click **Create Adapter**. <br><br>![Punchh Webhooks Manager Adapters tab with the Create Adapter action.]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
+3. Navigate to **Webhooks Manager** under the **Settings** tab, select the **Adapters** tab, and click **Create Adapter**. <br><br>![Punchh Webhooks Manager Adapters tab with Create Adapter selected.]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
 4. Fill in the adapter name, description, and admin email. Select **Braze** as your adapter and provide your Braze REST API endpoint and Braze API key.<br><br>
-5. Next, select the available events you would like to enable. A list of these events can be found in [Available events to sync](#available-events-to-sync).<br><br>![Punchh adapter configuration showing selectable webhook event types.]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>
+5. Next, select the available events you would like to enable. A list of these events can be found in [Available events to sync](#available-events-to-sync).<br><br>![Punchh adapter settings showing selectable events for Braze sync.]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>
 6. Click **Submit** to enable the webhook.
 
 ## Create Punchh webhook in Braze
 
 Braze can add users to a Punchh segment through webhooks utilizing Punchh Custom Segments.
 
-1. Create a custom segment in Punchh and note the `custom_segment_id` present in the Punchh segment dashboard URL as shown in this section. Both classic or beta segment builders can be used. However, beta is recommended as classic will eventually be deprecated.<br><br>In the Punchh platform, navigate to **Guest** > **Segment** > **Custom List** > **New Custom List**.<br><br>![Punchh custom list creation page with the custom segment ID visible in the URL.]({% image_buster /assets/img/punchh/update1.png %})<br><br>
+1. Create a custom segment in Punchh and note the `custom_segment_id` present in the Punchh segment dashboard URL as shown in the following example. Both classic or beta segment builders can be used. However, beta is recommended as classic will eventually be deprecated.<br><br>In the Punchh platform, navigate to **Guest** > **Segment** > **Custom List** > **New Custom List**.<br><br>![Punchh custom segment dashboard showing the custom segment ID in the URL.]({% image_buster /assets/img/punchh/update1.png %})<br><br>
 
-2. Create a webhook campaign in Braze using the Punchh endpoint for adding a user to a custom segment as the webhook URL. Here, you can provide the `custom_segment_id` pulled from the URL and `user_id` as key-value pairs.<br><br>![Braze webhook campaign setup with Punchh custom segment ID and user ID fields.]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
+2. Create a webhook campaign in Braze using the Punchh endpoint for adding a user to a custom segment as the webhook URL. Here, you can provide the `custom_segment_id` pulled from the URL and `user_id` as key-value pairs.<br><br>![Braze webhook composer with Punchh endpoint and key-value payload fields.]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
 
 3. This webhook can be set up as a singular campaign or as a step within a Canvas. Alternatively, if the webhook adding users to this specific Punchh segment will be used in multiple campaigns or Canvases, it can be set up as a [template]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates/).<br><br>
-The `user_id` key within the webhook maps to the Punchh user ID. This identifier will need to be added to all webhooks created in Braze to add users to a Punchh custom segment. The `punch_user_id` custom attribute can be dynamically populated as the value for the `user_id` key using [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#pre-formatted-variables). You can insert the `punchh_user_id` custom attribute variable using the blue "plus" icon located on the toolbar area of any templated text field.<br><br>![Braze webhook body editor with Liquid variable insertion for the Punchh user ID.]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![Braze personalization variable picker highlighting the punchh_user_id attribute.]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
+The `user_id` key within the webhook maps to the Punchh user ID. This identifier will need to be added to all webhooks created in Braze to add users to a Punchh custom segment. The `punch_user_id` custom attribute can be dynamically populated as the value for the `user_id` key using [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#pre-formatted-variables). You can insert the `punchh_user_id` custom attribute variable using the blue "plus" icon in the templated text field toolbar.<br><br>![Braze webhook payload field with Punchh user ID Liquid variable inserted.]({% image_buster /assets/img/punchh/update3.png %}){: style="max-width:65%;"}<br><br>![Braze personalization picker showing the punchh_user_id custom attribute.]({% image_buster /assets/img/punchh/update4.png %}){: style="max-width:65%;"}<br><br>
 
-4. After the webhook is saved, it can be used to sync users, as shown in this section. For example, 136 guests would be added to the Punch custom segment when this Braze webhook campaign is launched.<br><br>![An example of syncing users using the saved webhook due to Braze and Punchh integration.]({% image_buster /assets/img/punchh/punchh6.png %})
+4. After the webhook is saved, it can be used to sync users. For example, 136 guests would be added to the Punch custom segment when this Braze webhook campaign is launched.<br><br>![An example of syncing users using the saved webhook due to Braze and Punchh integration.]({% image_buster /assets/img/punchh/punchh6.png %})
 
 For more information on how webhooks are used at Braze, check out [Create a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/). 
 
@@ -180,7 +180,7 @@ Use cases for Braze messaging triggered by Punchh events being sent to Braze, su
 
 Adding a trigger will pull up the list of events created in Braze. Choose the event that should trigger your campaign or Canvas to be sent to the user who logged the event.
 
-![Braze campaign trigger configuration using a Punchh event.]({% image_buster /assets/img/punchh/update5.png %})
+![Braze trigger configuration showing a Punchh event selected for an action-based campaign.]({% image_buster /assets/img/punchh/update5.png %})
 
 Property filters can be added to further filter the triggering event. For example, the message should only be triggered when a customer triggers the "checkins_gift" event where the approved event property is `true`. This is an optional feature that may not be applicable to all use cases. 
 

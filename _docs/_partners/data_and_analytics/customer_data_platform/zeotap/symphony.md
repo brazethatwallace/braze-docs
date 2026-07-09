@@ -70,14 +70,14 @@ Perform the following steps to add a new destination:
 
 The destination is created and made available under **Available Destinations**.
 
-#### Add workflow-level inputs
-After creating a destination, next, you have to add workflow-level inputs, as mentioned in this section.
+### Add workflow-level inputs
+After creating a destination, you next have to add workflow-level inputs, as described in this section.
 1. Choose the destination from the list of available destinations using the search feature.
 2. The **Client Name**, **API Key**, and **Instance** fields are automatically populated based on the value you entered while creating the destination.
 3. Enter the **Audience Name** you want to create for this workflow node. This is sent as a **Custom Attribute** to Braze.
 4. Complete the Catalog to Destination mapping under the **Data To Send** tab. You can find details on how to perform the mapping in this section.
 
-#### Data to send tab
+### Data to send tab
 The **Data To Send** tab allows the you to map the Zeotap Catalogue fields to the Braze fields that can be sent to Braze. The mapping can be done in one of the following ways:
 - **Static Mapping** - There are certain fields that Zeotap automatically maps to the relevant Braze fields like email, phone, first name, last name, and so on.<br>
 - **Dropdown Selection** - Map the relevant fields ingested in Zeotap to the Braze fields provided in the dropdown menu.<br>![Various user traits set in Zeotap, such as language, city, birthday, and more.]({% image_buster /assets/img/zeotap/zeotap7.png %}){: style="max-width:70%;"}<br>
@@ -115,7 +115,7 @@ You can find details of all the Braze fields in this section.
 
 After you have mapped the relevant attributes to be sent and published in the workflow, the events start flowing to Braze based on the criteria defined. You can search by email ID or external ID on the Braze console.
 
-![Braze user profile view in the console showing Zeotap-synced profile, custom attributes, events, and purchases.]({% image_buster /assets/img/zeotap/zeotap6.jpg %})
+![Braze user profile view showing incoming Zeotap attributes and events.]({% image_buster /assets/img/zeotap/zeotap6.jpg %})
 
 Various attributes come under different sections of the user dashboard within Braze.
 - The **Profile** tab contains the user attributes.

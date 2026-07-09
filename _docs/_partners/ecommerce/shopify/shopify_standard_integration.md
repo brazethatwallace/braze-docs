@@ -19,7 +19,7 @@ page_order: 1
 3. In the Shopify app store, install the Braze application.<br><br>![The Braze app store page with a button to install the application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-If your Shopify account is associated with more than one store, you can change the store you’re logged into by selecting the store icon at the top-right of the page and selecting **Switch stores**.
+If your Shopify account is associated with more than one store, you can change the store you’re logged into by selecting the store icon in the header and selecting **Switch stores**.
 {% endalert %}
 
 {: start="4"}

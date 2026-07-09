@@ -63,15 +63,15 @@ Your Criteo connection will be applied at the Braze workspace level. If your Cri
 
 ### Step 2: Configure your Canvas entry criteria
 
-When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and in order to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following list includes some options.
+When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and in order to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following options can help.
 
 If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), you will be able to use the Ads Tracking Enabled filter. Select the value as true to only send users into Audience Sync destinations where they have opted in.
 
-![Canvas entry criteria filter set to Ads Tracking Enabled equals true.]({% image_buster /assets/img/criteo/criteo11.png %})
+![Canvas entry filter showing Ads Tracking Enabled set to true.]({% image_buster /assets/img/criteo/criteo11.png %})
 
 If you are collecting `opt-ins`, `opt-outs`, `Do Not Sell Or Share`, or any other relevant custom attributes, you should include these within your Canvas entry criteria as a filter:
 
-![Canvas entry criteria showing custom opt-in and privacy attribute filters.]({% image_buster /assets/img/criteo/criteo12.png %})
+![Canvas entry filter using custom opt-in attributes for audience eligibility.]({% image_buster /assets/img/criteo/criteo12.png %})
 
 To learn more on how to comply with these Data Protection laws within the Braze platform, see [Data Protection Technical Assistance]({{site.baseurl}}/dp-technical-assistance/).
 
@@ -87,7 +87,7 @@ Click on the **Custom Audience** button to open the component editor.
 
 Select **Criteo** as the desired Audience Sync partner. 
 
-![Audience Sync component editor with Criteo selected as the sync partner.]({% image_buster /assets/img/criteo/criteo6.png %})
+![Audience Sync step editor with Criteo selected as the partner.]({% image_buster /assets/img/criteo/criteo6.png %})
 
 Then select your desired Criteo ad account. Under the **Choose a New or Existing Audience** dropdown, type in the name of a new or existing audience.
 

@@ -21,7 +21,7 @@ The Braze and Octolis integration acts as middleware between your raw data sourc
 2. Normalize and score
 3. Real-time synchronization of computed fields and events to Braze
 
-![Octolis integration schema showing data sources flowing through Octolis into Braze.]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
+![Architecture diagram showing Octolis data sources, processing, and sync flow into Braze.]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ These audiences need to be built based on several data sources. A source can be 
 
 Next, to set Braze as a new destination, select **+ Add more** at the top of your current destination within the main screen and select **Braze** from the available business tools.
 
-![Octolis destination setup screen with Braze selected from available business tools.]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
+![Octolis destination picker with Braze selected from available business tools.]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
 
 Once selected, provide the following:
 
@@ -63,22 +63,22 @@ Once selected, provide the following:
 - Request volume: Number of requests you can make within this time frame.
 - Custom attributes: Specify here the new fields you will send to Braze, their format (string, integer, float), and tick the **Required for syncs** if you want one of them to be mandatory for a sync.
 
-![Octolis Braze destination settings with API key, rate limit window, and custom attributes.]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
+![Octolis Braze destination configuration fields for API key, rate limits, and custom attributes.]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
 
 Once configured, Braze will appear as a new destination on the home screen.
 
 ### Step 3: Create a new sync
 
-From the menu, click **Syncs** and select **Add sync** at the page header area. Select the audience you want to select from the audience you have previously created.
+From the menu, click **Syncs** and select **Add sync** in the action bar. Select the audience you want to select from the audience you have previously created.
 Next, select **Braze** as the destination and which entity you will send data to.
 
-![Octolis sync creation screen selecting an audience and Braze as destination.]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
+![Octolis sync creation screen showing audience and Braze destination selections.]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
 
 ### Step 4: Set output settings
 
 By default, Braze creates all the attributes that you would send, but you must document the list of fields to be synchronized.
 
-![Octolis sync output settings showing destination, identifier, cadence, and field mapping options.]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
+![Octolis output settings screen for Braze field mapping and sync scheduling.]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
 
 Here is a specific definition of settings fields.
 
