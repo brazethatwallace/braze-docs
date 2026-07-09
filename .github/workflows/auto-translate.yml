@@ -113,6 +113,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       count: ${{ steps.changes.outputs.count }}
+      languages: ${{ steps.changes.outputs.languages }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -129,6 +130,7 @@ jobs:
       - name: Identify changed English files
         id: changes
         run: |
+          LANGS=""
           if [ "${{ inputs.orphan_cleanup_only }}" = "true" ]; then
             if [ -n "${{ inputs.files }}" ] || [ -n "${{ inputs.since_commit }}" ] || [ -n "${{ inputs.languages }}" ]; then
               echo "::error::orphan_cleanup_only must be used with empty files, since_commit, and languages inputs."
@@ -136,6 +138,7 @@ jobs:
             fi
             echo "orphan_cleanup_only mode — no English files to translate."
             echo "count=0" >> "$GITHUB_OUTPUT"
+            echo "languages=" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           if [ -n "${{ inputs.languages }}" ]; then
@@ -190,6 +193,7 @@ jobs:
 
           count=$(wc -l < changed_files.txt | tr -d ' ')
           echo "count=${count}" >> "$GITHUB_OUTPUT"
+          echo "languages=${LANGS}" >> "$GITHUB_OUTPUT"
 
       - name: Note when there is nothing to translate
         if: steps.changes.outputs.count == '0'
@@ -212,9 +216,9 @@ jobs:
       needs.prepare.outputs.count != '0' &&
       (
         github.event_name != 'workflow_dispatch' ||
-        inputs.languages == '' ||
+        needs.prepare.outputs.languages == '' ||
         contains(
-          format(',{0},', replace(inputs.languages, ' ', '')),
+          format(',{0},', needs.prepare.outputs.languages),
           format(',{0},', matrix.lang)
         )
       )
