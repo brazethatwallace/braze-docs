@@ -131,7 +131,7 @@ Once Movable Ink receives a `user_id` for a single user, all future events for t
 
 Before setting up the connector to Movable Ink’s Customer Data API, make sure to share your event payloads with your Movable Ink Client Experience team. This allows Movable Ink to map your events to their event schema and will prevent any rejected or failed API calls.
 
-You can generate an event payload within Braze using any event properties. Generate a sample payload for a random user or by searching a specific user ID. Refer to [Step 1d](#step-1d) above for details.
+You can generate an event payload within Braze using any event properties. Generate a sample payload for a random user or by searching a specific user ID. Refer to [Step 1d](#step-1d) for details.
 
 Share this sample payload with your Movable Ink Client Experience team. Make sure that there is no sensitive personally identifiable information in the sample payload (such as email address, phone number, or full birth dates). 
 

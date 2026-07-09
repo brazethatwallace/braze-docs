@@ -39,7 +39,7 @@ Send customer lists from your data warehouse to Braze, targeting email and push 
 
 ### Configure Braze connection in GrowthLoop
 
-When you sign into the Segmentation Platform within GrowthLoop, navigate to the **Destinations** tab on the left sidebar and click **New Destination** in the top right corner.
+When you sign into the Segmentation Platform within GrowthLoop, navigate to the **Destinations** tab in the navigation sidebar and click **New Destination** in the action bar.
 
 Scroll until you can find Braze, and click **Add Braze**.
 

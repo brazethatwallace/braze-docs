@@ -50,7 +50,7 @@ Zendesk requires an HTTP header for authorization and an HTTP method. In the **S
   - **Authorization**: Basic {% raw %} `{{ '<email_address>/token:<api_token>' | base64_encode }}` {% endraw %}
   - **Content-Type**: application/json
 
-![]({% image_buster /assets/img_archive/zendesk_step1.gif %}){: style="max-width:70%;"}
+![Braze webhook settings with Zendesk authorization header and POST method configured.]({% image_buster /assets/img_archive/zendesk_step1.gif %}){: style="max-width:70%;"}
 
 #### Request body
 
@@ -98,7 +98,7 @@ If you have a common identifier between Braze and Zendesk, it is recommended to 
 
 1. In the [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click **Apps and integrations** in the sidebar, then select **Webhooks > Webhooks**.<br><br>
 2. Click **Create webhook**.<br><br>
-3. Select **Trigger** or **Automation** and click **Next**.<br>![]({% image_buster /assets/img_archive/zendesk2.png %}){: style="max-width:70%;"}<br><br>
+3. Select **Trigger** or **Automation** and click **Next**.<br>![Zendesk webhook creation screen with Trigger and Automation options.]({% image_buster /assets/img_archive/zendesk2.png %}){: style="max-width:70%;"}<br><br>
 4. Provide the following information in your webhook:
 - Enter a name and description for the webhook.
 - Enter the Braze endpoint URL your webhook will use. {% raw %}Our example will use `https://{{instance_url}}/users/track`.{% endraw %}
@@ -112,14 +112,14 @@ If you have a common identifier between Braze and Zendesk, it is recommended to 
 
 [Follow Zendesk’s instructions](https://support.zendesk.com/hc/en-us/articles/4408839108378#topic_bwm_1tv_dpb) on how to connect your webhook to a trigger or automation.
 
-Our example below will use a trigger to invoke the webhook when a support case status has been changed to "Solved" or "Closed". 
+The following example uses a trigger to invoke the webhook when a support case status has been changed to "Solved" or "Closed".
 
 1. In the **Admin Center**, click **Objects and rules** in the sidebar, then select **Business rules > Triggers**.<br><br>
 2. Select **Add trigger**.<br><br>
 3. Name your trigger and select a category.<br><br>
-4. Select **Add condition** to set up which conditions should trigger the webhook. For example, "Status category changed to closed" or "Status category changed to solved".![]({% image_buster /assets/img_archive/zendesk1.png %}){: style="max-width:70%;"}<br><br>
+4. Select **Add condition** to set up which conditions should trigger the webhook. For example, "Status category changed to closed" or "Status category changed to solved".![Zendesk trigger condition builder showing status category conditions.]({% image_buster /assets/img_archive/zendesk1.png %}){: style="max-width:70%;"}<br><br>
 5. Select **Add action**, choose **Notify active webhook**, and select from the dropdown the webhook created in the previous step.<br><br>
-6. Define the JSON body to conform to your Braze endpoint, using Zendesk variable placeholders to dynamically populate the relevant fields.<br>![]({% image_buster /assets/img_archive/zendesk3.png %}){: style="max-width:70%;"}<br><br>
+6. Define the JSON body to conform to your Braze endpoint, using Zendesk variable placeholders to dynamically populate the relevant fields.<br>![Zendesk webhook action payload editor with JSON body variables.]({% image_buster /assets/img_archive/zendesk3.png %}){: style="max-width:70%;"}<br><br>
 7. Select **Create**.<br><br>
 8. Return to your webhook and click **Finish setup**.
 

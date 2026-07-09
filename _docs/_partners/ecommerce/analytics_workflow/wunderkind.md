@@ -105,10 +105,10 @@ Wunderkind supports six signal types. Each delivers a distinct set of keys and v
 | `DataOnly` | String | Always `"Y"` — indicates Wunderkind is acting as a data layer only; Braze executes the send |
 | `UserType` | String | `"prospect"` or `"customer"` |
 | `WkChannel` | String | Always `"email"` for this integration |
-| `WkPurpose` | String | Signal type identifier (see values per Canvas below) |
+| `WkPurpose` | String | Signal type identifier (see values per Canvas in this section) |
 | `WKCouponCode` | String | Coupon code, if applicable (empty string if not used) |
 | `WKCouponPurpose` | String | Description of coupon offer (empty string if not used) |
-| `Items` | Array | Array of product objects (see product fields below) |
+| `Items` | Array | Array of product objects (see product fields in this section) |
 | `WkOpen` | String | Tracking pixel available for reporting purposes |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Common fields (all Canvas types) #canvas-types-table" }
 
