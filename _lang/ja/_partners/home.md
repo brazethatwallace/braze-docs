@@ -6,7 +6,7 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "テクノロジーパートナー"
-partner_top_text: "Alloys（Brazeのテクノロジーパートナー）の一覧へようこそ。このページを活用して、テクノロジーパートナーをBraze SDKに実装してください。Brazeで<b>パートナー連携</b> > <b>テクノロジーパートナー</b>に移動すると、このページに掲載されているパートナーと接続できます。<br> <br> Brazeでパートナーに対して<b>認証情報が無効です</b>と表示されているが、そのパートナーのダッシュボードでは連携が正しく設定されているように見える場合は、テクノロジーパートナーページで連携を切断してから再接続し、パートナー側でAPIキー、OAuthトークン、権限を確認してください。<br> <br> 一部の外部ダッシュボード（到達性や受信トレイ監視ツールなど）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期や送信にBrazeが依存する接続状態については、Braze内のパートナータイルをご確認ください。<br> <br> Brazeを活用してカスタマーエクスペリエンスやマーケティングを革新している顧客コミュニティ「Firebrands」への参加をご検討の場合は、<a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> をご覧ください。"
+partner_top_text: "Alloys（Brazeのテクノロジーパートナー）の一覧へようこそ。このページを活用して、テクノロジーパートナーをBraze SDKに実装してください。Brazeで<b>パートナー連携</b> > <b>テクノロジーパートナー</b>に移動すると、このページに掲載されているパートナーと接続できます。<br> <br> Brazeでパートナーに対して<b>認証情報が無効です</b>と表示されているが、そのパートナーのダッシュボードでは連携が正しく設定されているように見える場合は、テクノロジーパートナーページで連携を切断してから再接続し、パートナー側でAPIキー、OAuthトークン、権限を確認してください。<br> <br> 一部の外部ダッシュボード（到達性や受信トレイ監視ツールなど）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期や送信にBrazeが依存する接続状態については、Braze内のパートナータイルをご確認ください。<br> <br> Brazeを活用して顧客体験やマーケティングを革新している顧客コミュニティ「Firebrands」への参加をご検討の場合は、<a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> をご覧ください。"
 description: "このランディングページにはすべてのBrazeパートナーが含まれています。テクノロジーパートナーをBraze SDKに実装する際に役立つ技術ドキュメントを探すときにご利用ください。"
 
 valid_partner_list:
@@ -62,6 +62,8 @@ valid_partner_list:
   url: /docs/partners/jebbit/
 - name: Iterate
   url: /docs/partners/iterate/
+- name: Refiner
+  url: /docs/partners/refiner/
 - name: EduMe
   url: /docs/partners/edume/
 - name: Fivetran

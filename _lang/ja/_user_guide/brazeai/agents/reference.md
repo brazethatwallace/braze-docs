@@ -17,7 +17,7 @@ page_order: 3
 Brazeパワードの**Auto**モデルは、カタログ検索やセグメントメンバーシップなどのタスクを実行するのに十分な思考能力を持つモデルに最適化されています。他のモデルを使用する場合は、ご利用のユースケースに適しているかどうかをテストで確認することをお勧めします。速度や能力が異なるモデルに対して、さまざまなレベルの詳細やステップバイステップの思考を与えるために、[インストラクション](#writing-instructions)を調整する必要がある場合があります。
 {% endalert %}
 
-### オプション1: Brazeパワードモデルを使用する {#option-1-use-a-braze-powered-model}
+### オプション1：Brazeパワードモデルを使用する {#option-1-use-a-braze-powered-model}
 
 これは最もシンプルなオプションで、追加のセットアップは不要です。Brazeは大規模言語モデル（LLM）への直接アクセスを提供します。このオプションを使用するには、Geminiモデルを使用する**Auto**を選択します。
 
@@ -25,13 +25,13 @@ Brazeパワードの**Auto**モデルは、カタログ検索やセグメント�
 エージェント作成時に**Model**ドロップダウンに**Braze Auto**が表示されない場合は、カスタマーサクセスマネージャーに連絡して、Braze Autoモデルの使用資格を取得する方法をご確認ください。
 {% endalert %}
 
-### オプション2: 独自のAPIキーを持ち込む {#option-2-bring-your-own-api-key}
+### オプション2：独自のAPIキーを持ち込む {#option-2-bring-your-own-api-key}
 
 このオプションでは、OpenAI、Anthropic、Google GeminiなどのプロバイダーにBrazeアカウントを接続できます。LLMプロバイダーから独自のAPIキーを持ち込む場合、トークンコストはBrazeではなくプロバイダーを通じて直接請求されます。
 
 レガシーモデルは数か月後に廃止または非推奨になる可能性があるため、最新のモデルを定期的にテストすることをお勧めします。エージェントをスケールで実行するために、プロバイダーに十分なクレジットがあることを確認してください。また、[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)でエージェントコンソールの通知に登録すると、Brazeがモデルの利用不可を検出した場合やLLMプロバイダーとの課金の問題が発生した場合にアラートを受け取ることができます。
 
-設定方法:
+設定方法：
 
 1. **パートナー連携** > **テクノロジーパートナー**に移動し、プロバイダーを見つけます。
 2. プロバイダーから取得したAPIキーを入力します。
@@ -55,7 +55,7 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 
 まず**Minimal**から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを**Low**または**Medium**に調整できます。まれに**High**の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、キャンバスやカタログで連携させることを検討してください。
 
-Brazeは、コネクテッドコンテンツと同じIP範囲をアウトバウンドLLMコールに使用します。範囲は[コネクテッドコンテンツIP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)に記載されています。プロバイダーがIP許可リストをサポートしている場合、Brazeのみがキーを使用できるようにこれらの範囲に制限できます。
+Brazeは、Connected Contentと同じIP範囲をアウトバウンドLLMコールに使用します。範囲は[Connected Content IP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)に記載されています。プロバイダーがIP許可リストをサポートしている場合、Brazeのみがキーを使用できるようにこれらの範囲に制限できます。
 
 {% alert important %}
 Braze提供のLLMを使用する場合、そのモデルのプロバイダーは、お客様とBraze間のデータ処理補遺（DPA）の条件に従い、Brazeのサブプロセッサーとして機能します。独自のAPIキーを持ち込むことを選択した場合、LLMサブスクリプションのプロバイダーは、お客様とBraze間の契約に基づくサードパーティプロバイダーと見なされます。
@@ -75,8 +75,8 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 
 以下の呼び出しフロー制御がワークスペースごとに適用されます。
 
-- **Brazeパワードモデル:** 1分あたり5,000回の呼び出し
-- **独自のAPIキーの持ち込み:** 1分あたり5,000回の呼び出し
+- **Brazeパワードモデル：** 1分あたり5,000回の呼び出し
+- **独自のAPIキーの持ち込み：** 1分あたり5,000回の呼び出し
 
 多くのユーザーが同時にエージェントステップに入ると、Brazeはこれらの制限に従って呼び出しをキューに入れるため、大量送信時には処理に時間がかかる場合があります。
 
@@ -101,7 +101,7 @@ LLMプロバイダーが**キャンバスエージェントステップ**でレ�
 3. 明確なコンテキストと制約を設定します（オーディエンス、長さ、トーン、フォーマット）。
 4. 構造を求めます（「Return JSON/bullet list/table...」）。
 5. 説明するのではなく、示しましょう。質の高い例をいくつか含めます。
-6. 複雑なタスクを順序付けられたステップに分割します（「ステップ 1... ステップ 2...」）。
+6. 複雑なタスクを順序付けられたステップに分割します（「ステップ1... ステップ2...」）。
 7. 推論を促します（「内部的にステップを考え、簡潔な最終回答を提供してください」または「判断を簡潔に説明してください」）。
 8. パイロット、検査、反復を行います。小さな調整が大きな品質向上につながります。
 9. エッジケースを処理し、ガードレールを追加し、拒否のインストラクションを追加します。
@@ -109,7 +109,23 @@ LLMプロバイダーが**キャンバスエージェントステップ**でレ�
 
 ### 例 {#examples}
 
-エージェントコンソールの開始設定については、[Operatorで構築されたエージェントテンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を参照してください。コピーまたはアレンジできる完全なインストラクション例については、[Brazeエージェントのユースケースライブラリ]({{site.baseurl}}/user_guide/brazeai/agents/use_cases)を参照してください。
+エージェントコンソールの開始設定については、[Operatorで構築されたエージェントテンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を参照してください。
+
+コピーまたはアレンジできる完全なインストラクション例については、[Brazeエージェントのユースケースライブラリ]({{site.baseurl}}/user_guide/brazeai/agents/examples)を参照してください。
+
+| 例 | カテゴリ | エージェントタイプ | 内容 |
+| --- | --- | --- | --- |
+| [ユーザーのコンテキストに基づいてパーソナライズされたメッセージを作成する]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | コンテンツ生成 | キャンバスステップエージェント | 検索したが予約しなかったユーザー向けに、メールの件名/プリヘッダーとプッシュのタイトル/本文を連携して生成します。 |
+| [ユーザーフィードバックを分析して次のステップを決定する]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | データ標準化 | キャンバスステップエージェント | 旅行後のアンケートのセンチメントとトピックを分類し、CRMの次のステップを推奨します。 |
+| [既存の属性からユーザーを興味バケットに分類する]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | アフィニティエージェント | キャンバスステップエージェント | 属性と高インテントシグナルからユーザーを興味バケットに分類し、最適な次のエクスペリエンスまたはアイテムを推奨します。 |
+| [最近の行動から最も関連性の高いキャンバスパスにユーザーをルーティングする]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | アフィニティエージェント | キャンバスステップエージェント | 最近の行動からモチベーションを推測し、ユーザーの次のキャンバスステップに最適なルートキーを返します。 |
+| [リアルタイムの高インテントアクションからユーザーを興味カテゴリに割り当てる]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | アフィニティエージェント | キャンバスステップエージェント | 高インテントアクションから興味カテゴリを割り当て、最適な次のエクスペリエンスまたはアイテムを推奨します。 |
+| [インバウンドメッセージをオプトアウトインテントで分類する]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | 分類とルーティング | キャンバスステップエージェント | メッセージがオプトアウトリクエストかどうかを示す厳密なブール値を返します。 |
+| [インバウンドメッセージをオートメーション用の構造化データに標準化する]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | データ標準化 | キャンバスステップエージェント | インバウンドSMSまたはチャットを、ダウンストリームオートメーション用の構造化されたインテント、エンティティ、コンプライアンスフラグに正規化します。 |
+| [ブランドガイドラインに沿った高コンバージョンの説明文を作成する]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | コンテンツ生成 | カタログエージェント | 各カタログ行に対して、短くブランドに沿った説明文を生成します。 |
+| [地域で使用される言語に基づいて翻訳を提供する]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | カタログエンリッチメント | カタログエージェント | ロケールと文字数制限に応じてUIおよびマーケティング文字列をローカライズします。 |
+| [カタログアイテムを説明文、カテゴリ、タグでエンリッチする]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | カタログエンリッチメント | カタログエージェント | 既存のカタログアイテムデータから、強化された説明文、カテゴリ、タグを生成します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="例の概要" }
 
 ### Liquidの使用 {#using-liquid}
 
@@ -153,8 +169,8 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 高度なスキーマオプションには、フィールドの手動構造化またはJSONの使用が含まれます。
 
-- **Fields:** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
-- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。キャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+- **Fields：** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
+- **JSON：** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。キャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
 
 エージェントに単一値の出力ではなく、構造化された方法で定義された複数の値を持つデータ構造を返させたい場合は、高度なスキーマの使用をお勧めします。これにより、出力が一貫したコンテキスト変数としてより適切にフォーマットされます。
 
@@ -226,9 +242,9 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ![エージェントメンバーシップアクセス用に選択された「Loyalty Users」セグメント。]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
-## ブランドガイドライン {#brand-guidelines}
+## ブランド・ガイドライン {#brand-guidelines}
 
-エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促すSMSコピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
+エージェントがレスポンスで遵守する[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促すSMSコピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
 
 ## ユーザー固有のインタラクション履歴 {#user-history}
 
@@ -236,14 +252,14 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ## エージェントの複製 {#duplicate-agents}
 
-エージェントの改善や反復をテストするには、エージェントを複製してから変更を適用し、オリジナルと比較できます。また、エージェントの複製をバージョン管理として扱い、エージェントの詳細の変化やメッセージングへの影響を追跡することもできます。エージェントを複製するには:
+エージェントの改善や反復をテストするには、エージェントを複製してから変更を適用し、オリジナルと比較できます。また、エージェントの複製をバージョン管理として扱い、エージェントの詳細の変化やメッセージングへの影響を追跡することもできます。エージェントを複製するには：
 
-1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
+1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i>メニューを選択します。
 2. **複製**を選択します。
 
 ## エージェントのアーカイブ {#archive-agents}
 
-カスタムエージェントをさらに作成すると、アクティブに使用されていないエージェントをアーカイブすることで**エージェントマネージャー**ページを整理できます。エージェントをアーカイブするには:
+カスタムエージェントをさらに作成すると、アクティブに使用されていないエージェントをアーカイブすることで**エージェント管理**ページを整理できます。エージェントをアーカイブするには：
 
-1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
+1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i>メニューを選択します。
 2. **アーカイブ**を選択します。

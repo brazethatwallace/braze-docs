@@ -13,7 +13,7 @@ iOS 뷰 컨트롤러 옵션에 대한 자세한 내용은 [Apple 개발자 설�
 Swift SDK의 `BrazeUI` 라이브러리는 [내비게이션](#swift_navigation) 또는 [모달](#swift_modal)이라는 두 가지 기본 뷰 컨트롤러 컨텍스트를 제공합니다. 즉, 앱 또는 사이트에 몇 줄의 코드를 추가하여 이러한 컨텍스트에서 콘텐츠 카드를 통합할 수 있습니다. 두 가지 뷰 모두 [커스터마이징 가이드]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_styles/?tab=ios)에 설명된 대로 커스터마이징 및 스타일링 옵션을 제공합니다. 또한 표준 Braze 뷰 컨트롤러 대신 커스텀 콘텐츠 카드 뷰 컨트롤러를 만들어 더 많은 커스터마이징 옵션을 사용할 수 있습니다&#8212;예시는 [콘텐츠 카드 UI 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c2-contentcardsui/)을 참조하세요.
 
 {% alert important %}
-커스텀 UI에서 제어 배리언트 Content Cards를 처리하려면 [`Braze.ContentCard.Control`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/control(_:)) 오브젝트를 전달한 다음, 다른 콘텐츠 카드 유형에서와 마찬가지로 `logImpression` 메서드를 호출합니다. 이 오브젝트는 사용자가 제어 카드를 보았을 때를 분석에 알리기 위해 제어 노출 횟수를 암시적으로 기록합니다.
+커스텀 UI에서 제어 배리언트 Content Cards를 처리하려면 [`Braze.ContentCard.Control`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/control(_:)) 오브젝트를 전달한 다음, 다른 콘텐츠 카드 유형에서와 마찬가지로 `logImpression` 메서드를 호출합니다. 이 오브젝트는 사용자가 제어 카드를 보았을 시점을 분석에 알리기 위해 제어 노출 횟수를 암시적으로 기록합니다.
 {% endalert %}
 
 ### 내비게이션 {#swift_navigation}
@@ -84,7 +84,7 @@ func presentModalViewController() {
 
 ## 기본 카드 모델 {#base-card-model}
 
-콘텐츠 카드 데이터 모델은 Braze Swift SDK의 `BrazeKit` 모듈에서 사용할 수 있습니다. 이 모듈에는 `Braze.ContentCard` 유형을 구현한 다음 콘텐츠 카드 유형이 포함되어 있습니다. 콘텐츠 카드 등록정보 및 사용법에 대한 전체 목록은 [`ContentCard` 클래스](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard)를 참조하세요.
+콘텐츠 카드 데이터 모델은 Braze Swift SDK의 `BrazeKit` 모듈에서 사용할 수 있습니다. 이 모듈에는 `Braze.ContentCard` 유형을 구현한 다음 콘텐츠 카드 유형이 포함되어 있습니다. 콘텐츠 카드 속성정보 및 사용법에 대한 전체 목록은 [`ContentCard` 클래스](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard)를 참조하세요.
 
 - 이미지만
 - 캡션 이미지
@@ -92,7 +92,11 @@ func presentModalViewController() {
 - 클래식 이미지
 - 제어
 
-콘텐츠 카드 데이터 모델에 액세스하려면 `braze` 인스턴스에서 `contentCards.cards`를 호출합니다. 카드 데이터 구독에 대한 자세한 내용은 [분석 로깅]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)을 참조하세요.
+콘텐츠 카드 데이터 모델에 액세스하려면 `braze` 인스턴스에서 `contentCards.cards`를 호출합니다. 카드 데이터 구독에 대한 자세한 내용은 [분석 로깅]({{site.baseurl}}/developer_guide/content_cards/logging_analytics)을 참조하세요.
+
+{% alert note %}
+`contentCards.cards`, `contentCards.unviewedCards` 또는 `contentCards.lastUpdate`를 읽으면 SDK가 초기화 후 작업을 완료할 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 비차단 대안인 [`getCachedContentCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getcachedcontentcards(_:)), [`getUnviewedCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getunviewedcards(_:)) 또는 [`getLastUpdate(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getlastupdate(_:))를 대신 사용하세요.
+{% endalert %}
 
 {% alert note %}
 `BrazeKit`은 Objective-C 호환성을 위한 대체 [`ContentCardRaw`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw) 클래스를 제공합니다.
@@ -100,16 +104,16 @@ func presentModalViewController() {
 
 ## 카드 메서드 {#card-methods}
 
-각 카드는 카드 상태를 관리하기 위한 다양한 메서드를 포함하는 `Context` 오브젝트로 초기화됩니다. 특정 카드 오브젝트의 해당 상태 등록정보를 수정하려는 경우 이러한 메서드를 호출합니다.
+각 카드는 카드 상태를 관리하기 위한 다양한 메서드를 포함하는 `Context` 오브젝트로 초기화됩니다. 특정 카드 오브젝트의 해당 상태 속성정보를 수정하려는 경우 이러한 메서드를 호출합니다.
 
-| 메서드                               | 설명                                                                                                                              |
+| 메서드 | 설명 |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `card.context?.logImpression()`      | 콘텐츠 카드 노출 횟수 이벤트를 기록합니다.                                                                                                   |
-| `card.context?.logClick()`           | 콘텐츠 카드 클릭 이벤트를 기록합니다.                                                                                                        |
+| `card.context?.logImpression()` | 콘텐츠 카드 노출 횟수 이벤트를 기록합니다. |
+| `card.context?.logClick()` | 콘텐츠 카드 클릭 이벤트를 기록합니다. |
 | `card.context?.processClickAction()` | 주어진 [`ClickAction`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/clickaction) 입력을 처리합니다. |
-| `card.context?.logDismissed()`       | 콘텐츠 카드 해제 이벤트를 기록합니다.                                                                                                    |
-| `card.context?.logError()`           | 콘텐츠 카드와 관련된 오류를 기록합니다.                                                                                                |
-| `card.context?.loadImage()`          | 주어진 콘텐츠 카드 이미지를 URL에서 로드합니다. 이 메서드는 콘텐츠 카드에 이미지가 없을 때 nil일 수 있습니다.                         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+| `card.context?.logDismissed()` | 콘텐츠 카드 해제 이벤트를 기록합니다. |
+| `card.context?.logError()` | 콘텐츠 카드와 관련된 오류를 기록합니다. |
+| `card.context?.loadImage()` | 주어진 콘텐츠 카드 이미지를 URL에서 로드합니다. 이 메서드는 콘텐츠 카드에 이미지가 없을 때 nil일 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="카드 메서드" }
 
 자세한 내용은 [`Context` 클래스 설명서](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw/context-swift.class)를 참조하세요.

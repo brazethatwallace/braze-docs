@@ -3,7 +3,7 @@
 > 기능 플래그를 사용하면 특정 사용자나 무작위로 선택한 사용자에 대해 원격으로 기능을 활성화 또는 비활성화할 수 있습니다. 중요한 점은 추가 코드 배포나 앱 스토어 업데이트 없이 프로덕션 환경에서 기능을 켜고 끌 수 있다는 것입니다. 이를 통해 새로운 기능을 안심하고 안전하게 출시할 수 있습니다.
 
 {% alert tip %}
-나만의 기능 플래그를 만들 준비가 되었다면 [기능 플래그 생성]({{site.baseurl}}/developer_guide/feature_flags/create/)을 참조하세요.
+나만의 기능 플래그를 만들 준비가 되었다면 [기능 플래그 생성]({{site.baseurl}}/developer_guide/feature_flags/create)을 참조하세요.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
@@ -12,7 +12,7 @@
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 ### 점진적 롤아웃 {#gradual-rollouts}
 
@@ -33,7 +33,7 @@ Braze 기능 플래그를 사용하면 기능을 점진적으로 롤아웃하여
 * 적절한 인력 배치 여부를 판단할 수 있도록 이 새로운 기능을 10%의 사용자에게만 활성화합니다.
 * 버그가 발견되면 서둘러 새 버전을 출시하는 대신 해당 기능을 신속하게 비활성화할 수 있습니다.
 
-이 기능을 점진적으로 출시하려면 "실시간 채팅 위젯"이라는 [기능 플래그를 생성]({{site.baseurl}}/developer_guide/feature_flags/create/)하면 됩니다.
+이 기능을 점진적으로 출시하려면 "실시간 채팅 위젯"이라는 [기능 플래그를 생성]({{site.baseurl}}/developer_guide/feature_flags/create)하면 됩니다.
 
 ![실시간 채팅 위젯이라는 예제의 기능 플래그 세부 정보. ID는 enable_live_chat입니다. 이 기능 플래그 설명은 라이브 채팅 위젯이 지원 페이지에 표시된다는 내용입니다.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
@@ -112,6 +112,26 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+`braze.featureFlags.featureFlags` 또는 `braze.featureFlags.featureFlag(id:)`를 읽으면 SDK가 초기화 후 작업을 완료할 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 대신 [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:))를 사용하세요.
+
+```swift
+// Non-blocking — completion handler always delivers on the main thread.
+braze.featureFlags.getAllFeatureFlags { flags in
+  let liveChatEnabled = flags.first(where: { $0.id == "enable_live_chat" })?.enabled ?? false
+  liveChatView.isHidden = !liveChatEnabled
+}
+```
+
+Objective-C에서:
+
+```objc
+[braze.featureFlags getAllFeatureFlagsWithCompletion:^(NSArray<BRZFeatureFlag *> *flags) {
+  // Use `flags` here.
+}];
+```
+{% endalert %}
+
 ```swift
 // Get the initial value from the Braze SDK
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")
@@ -138,11 +158,11 @@ liveChatView.isHidden = !liveChatEnabled
 
 기능 플래그를 사용하면 Braze가 앱 내비게이션 링크의 콘텐츠를 제어하도록 하여 마케팅 매니저가 며칠이 아닌 몇 분 만에 변경할 수 있습니다.
 
-이 기능을 원격으로 구성하려면 `navigation_promo_link`라는 새 기능 플래그를 생성하고 다음과 같은 초기 등록정보를 정의합니다:
+이 기능을 원격으로 구성하려면 `navigation_promo_link`라는 새 기능 플래그를 생성하고 다음과 같은 초기 속성정보를 정의합니다:
 
-![일반 판매 페이지로 연결되는 링크 및 텍스트 등록정보가 있는 기능 플래그.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-navigation-link-1.png %})
+![일반 판매 페이지로 연결되는 링크 및 텍스트 속성정보가 있는 기능 플래그.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-navigation-link-1.png %})
 
-앱에서는 Braze의 getter 메서드를 사용하여 이 기능 플래그의 등록정보를 검색하고 해당 값을 기반으로 내비게이션 링크를 구성합니다:
+앱에서는 Braze의 getter 메서드를 사용하여 이 기능 플래그의 속성정보를 검색하고 해당 값을 기반으로 내비게이션 링크를 구성합니다:
 
 {% tabs %}
 {% tab JavaScript %}
@@ -217,9 +237,9 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 {% endtab %}
 {% endtabs %}
 
-이제 추수감사절 전날에는 Braze 대시보드에서 해당 등록정보 값만 변경하면 됩니다.
+이제 추수감사절 전날에는 Braze 대시보드에서 해당 속성정보 값만 변경하면 됩니다.
 
-![추수감사절 판매 페이지로 연결되는 링크 및 텍스트 등록정보가 있는 기능 플래그.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-navigation-link-2.png %})
+![추수감사절 판매 페이지로 연결되는 링크 및 텍스트 속성정보가 있는 기능 플래그.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-navigation-link-2.png %})
 
 따라서 다음에 누군가 앱을 로드하면 새로운 추수감사절 프로모션을 볼 수 있습니다.
 
@@ -233,7 +253,7 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 
 ![Loyalty Rewards Program이라는 이름의 기능 플래그. ID는 show_loyalty_program이며, 홈 화면과 프로필 페이지에 새로운 로열티 리워드 프로그램이 표시된다는 설명입니다.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
 
-그런 다음 Canvas에서 [피처 플래그 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/)를 생성하여 "고가치 고객" Segment에 대해 `show_loyalty_program` 기능 플래그를 활성화합니다:
+그런 다음 Canvas에서 [피처 플래그 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags)를 생성하여 "고가치 고객" Segment에 대해 `show_loyalty_program` 기능 플래그를 활성화합니다:
 
 ![고가치 고객 Segment가 show_loyalty_program 기능 플래그를 켜는 오디언스 분할 단계가 있는 Canvas의 예.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
 
@@ -243,7 +263,9 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 
 기능 플래그를 사용하여 새로운 기능에 대한 가설을 실험하고 검증할 수 있습니다. 트래픽을 두 개 이상의 그룹으로 분할하여 그룹 간에 기능 플래그의 영향을 비교하고 그 결과에 따라 최선의 조치를 결정할 수 있습니다.
 
-[A/B 테스트]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/)는 여러 버전의 변수에 대한 사용자 응답을 비교할 수 있는 강력한 도구입니다.
+기능 플래그 실험에서는 대조군 1개와 최대 8개의 배리언트를 포함하여 총 최대 9개의 그룹을 사용할 수 있습니다.
+
+[A/B 테스트]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing)는 여러 버전의 변수에 대한 사용자 응답을 비교할 수 있는 강력한 도구입니다.
 
 이 예제에서는 이커머스 앱의 새로운 결제 플로우를 구축했습니다. 사용자 경험을 개선한다는 확신은 있지만, 앱 매출에 미치는 영향을 측정하기 위해 A/B 테스트를 실행하려고 합니다.
 
@@ -308,7 +330,7 @@ if let featureFlag, featureFlag.enabled {
 {% endtab %}
 {% endtabs %}
 
-[기능 플래그 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments/)에서 A/B 테스트를 설정하겠습니다.
+[기능 플래그 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments)에서 A/B 테스트를 설정하겠습니다.
 
 이제 50%의 사용자에게는 이전 경험이 표시되고 나머지 50%에게는 새로운 경험이 표시됩니다. 그런 다음 두 가지 배리언트를 분석하여 어떤 결제 플로우가 더 높은 전환율을 가져왔는지 확인할 수 있습니다. {% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}
 
@@ -320,7 +342,13 @@ if let featureFlag, featureFlag.enabled {
 
 **기능 플래그** 필터를 사용하여 기능 플래그 활성화 여부에 따라 Segment를 만들거나 사용자에게 메시지를 타겟팅할 수 있습니다. 예를 들어 앱에서 프리미엄 콘텐츠를 제어하는 기능 플래그가 있다고 가정합니다. 기능 플래그가 활성화되지 않은 사용자를 필터링하는 Segment를 만든 다음, 프리미엄 콘텐츠를 보려면 계정을 업그레이드하라는 메시지를 해당 Segment에 보낼 수 있습니다.
 
-Segment 필터링에 대한 자세한 내용은 [Segment 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)을 참조하세요.
+1. Segment 또는 메시지 오디언스를 엽니다.
+2. **기능 플래그** 필터를 추가합니다.
+3. 기능 플래그를 선택합니다.
+4. 기능 플래그가 활성화된 사용자를 포함하려면 비교 연산자를 **is**로 설정하고, 활성화되지 않은 사용자를 포함하려면 **is not**으로 설정합니다.
+![기능 플래그 활성화 값 필터를 사용하는 Braze Segment 빌더.]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
+
+Segment 필터링에 대한 자세한 내용은 [Segment 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)을 참조하세요.
 
 {% alert note %}
 재귀 Segment를 방지하기 위해 다른 기능 플래그를 참조하는 Segment는 생성할 수 없습니다.
@@ -333,9 +361,9 @@ Segment 필터링에 대한 자세한 내용은 [Segment 생성]({{site.baseurl}
 | 기능 | 무료 버전 | 유료 버전 |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | [활성 기능 플래그](#active-feature-flags) | 워크스페이스당 10개 | 워크스페이스당 110개 |
-| [활성 Campaign 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments/) | 워크스페이스당 1개 | 워크스페이스당 100개 |
-| [피처 플래그 캔버스 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | 무제한 | 무제한 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
+| [활성 Campaign 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments) | 워크스페이스당 1개 | 워크스페이스당 100개 |
+| [피처 플래그 캔버스 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) | 무제한 | 무제한 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요금제 제한 사항" }
 
 다음 중 하나라도 해당하면 기능 플래그가 활성 상태로 간주되며 한도에 포함됩니다:
 

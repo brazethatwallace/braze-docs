@@ -55,8 +55,6 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | `typ` | 예  | 유형은 `JWT`와 같아야 합니다.        |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성 #create-jwt" }
-
 **JWT 페이로드**
 
 | 필드 | 필수 | 설명                                                                            |
@@ -64,8 +62,6 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | `sub` | 예  | "subject"는 `changeUser`를 호출할 때 Braze SDK에 제공하는 사용자 ID와 같아야 합니다  |
 | `exp` | 예 | "expiration"은 이 토큰이 만료되는 시점으로, Unix 타임스탬프(초 단위)입니다(예: 2030년 1월 1일의 경우 `1893456000`).                                |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성" }
-
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성 #create-jwt" }
 
 {% alert tip %}
 JSON 웹 토큰에 대해 더 알아보거나 이 서명 프로세스를 단순화하는 많은 오픈 소스 라이브러리를 둘러보려면 [https://jwt.io](https://jwt.io)를 확인하세요.
@@ -90,7 +86,7 @@ iOS 통합의 경우, 이 페이지에서는 Braze Swift SDK에 대한 단계를
 {% endalert %}
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 `initialize` 호출 시 선택적 `enableSdkAuthentication` 속성을 `true`로 설정합니다.
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -294,7 +290,7 @@ Braze Expo 플러그인을 사용할 때는 앱 구성에서 `enableSdkAuthentic
 {% endalert %}
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 [`changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) 호출 시 JWT를 제공하세요:
 
 ```javascript
@@ -376,6 +372,11 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
 ```swift
 AppDelegate.braze?.changeUser(userId: "userId", sdkAuthSignature: "JWT-FROM-SERVER")
 ```
+
+{% alert note %}
+`changeUser`는 호출 스레드에서 즉시 반환됩니다. 여기에 제공된 SDK 인증 서명은 사용자 전환 작업이 완료된 후에 첨부됩니다.
+{% endalert %}
+
 또는 세션 중간에 사용자의 토큰을 새로고침한 경우:
 
 ```swift
@@ -510,7 +511,7 @@ Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endalert %}
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 
@@ -724,7 +725,7 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 | **필수** | Braze는 로그인한 사용자의 요청을 확인하고 유효하지 않은 JWT를 거부합니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="적용 옵션" }
 
-![]({% image_buster /assets/img/sdk-auth-settings.png %})
+![비활성화됨, 선택 사항, 필수 적용 옵션을 보여주는 Braze SDK 인증 설정.]({% image_buster /assets/img/sdk-auth-settings.png %})
 
 **선택 사항** 설정은 이 기능이 앱의 SDK 트래픽에 미칠 잠재적 영향을 모니터링하는 유용한 방법입니다.
 
@@ -738,8 +739,8 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 
 1. Braze 대시보드로 이동하여 **설정** > **앱 설정**을 선택합니다.
 2. 사용 가능한 앱 목록에서 앱을 선택합니다.
-3. **SDK Authentication**에서 **Add Public Key**를 선택합니다.
-4. 선택적 설명을 입력하고, 공개 키를 붙여넣은 다음, **Add Public Key**를 선택합니다.
+3. **SDK Authentication**에서 **공개 키 추가**를 선택합니다.
+4. 선택적 설명을 입력하고, 공개 키를 붙여넣은 다음, **공개 키 추가**를 선택합니다.
 
 ### 새 기본 키 할당 {#assign-a-new-primary-key}
 
@@ -747,7 +748,7 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 
 1. Braze 대시보드로 이동하여 **설정** > **앱 설정**을 선택합니다.
 2. 사용 가능한 앱 목록에서 앱을 선택합니다.
-3. **SDK Authentication**에서 키를 선택하고 **Manage** > **Make Primary Key**를 선택합니다.
+3. **SDK Authentication**에서 키를 선택하고 **관리** > **기본 키로 설정**을 선택합니다.
 
 ### 키 삭제 {#deleting-a-key}
 
@@ -755,7 +756,7 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 
 1. Braze 대시보드로 이동하여 **설정** > **앱 설정**을 선택합니다.
 2. 사용 가능한 앱 목록에서 앱을 선택합니다.
-3. **SDK Authentication**에서 기본 키가 아닌 키를 선택하고 **Manage** > **Delete Public Key**를 선택합니다.
+3. **SDK Authentication**에서 기본 키가 아닌 키를 선택하고 **관리** > **공개 키 삭제**를 선택합니다.
 
 ## 분석 {#analytics}
 
@@ -783,43 +784,43 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 
 ## 자주 묻는 질문(FAQ) {#faq}
 
-#### 이 기능을 모든 앱에서 동시에 활성화해야 하나요? {#faq-app-by-app}
+### 이 기능을 모든 앱에서 동시에 활성화해야 하나요? {#faq-app-by-app}
 
 아니요. 이 기능은 특정 앱에 대해 활성화할 수 있으며 모든 앱에서 한 번에 사용할 필요는 없습니다.
 
-#### 내 앱의 이전 버전을 사용하는 사용자에게는 어떤 일이 발생하나요? {#faq-sdk-backward-compatibility}
+### 내 앱의 이전 버전을 사용하는 사용자에게는 어떤 일이 발생하나요? {#faq-sdk-backward-compatibility}
 
 이 기능을 적용하기 시작하면, 이전 앱 버전에서 보낸 요청은 Braze에 의해 거부되고 SDK에 의해 재시도됩니다. 사용자가 앱을 지원되는 버전으로 업그레이드하면 대기줄에 추가된 요청이 다시 수락되기 시작합니다.
 
 가능하다면 다른 필수 업그레이드와 마찬가지로 사용자가 업그레이드하도록 푸시해야 합니다. 또는 허용 가능한 비율의 사용자가 업그레이드할 때까지 기능을 [선택 사항](#enforcement-options)으로 유지할 수 있습니다.
 
-#### JWT를 생성할 때 어떤 만료 기간을 사용해야 하나요? {#faq-expiration}
+### JWT를 생성할 때 어떤 만료 기간을 사용해야 하나요? {#faq-expiration}
 
 평균 세션 지속 시간, 세션 쿠키/토큰 만료 또는 애플리케이션이 현재 고객 프로필을 새로고침하는 빈도 중 더 높은 값을 사용하는 것이 좋습니다.
 
-#### JWT가 사용자의 세션 중간에 만료되면 어떻게 되나요? {#faq-jwt-expiration}
+### JWT가 사용자의 세션 중간에 만료되면 어떻게 되나요? {#faq-jwt-expiration}
 
 사용자의 토큰이 세션 도중에 만료되는 경우, SDK에는 [콜백 함수](#sdk-callback)가 있어 앱에 Braze로 데이터를 계속 전송하려면 새 JWT가 필요하다는 것을 알려줍니다.
 
-#### 서버 측 통합이 중단되어 더 이상 JWT를 생성할 수 없으면 어떻게 되나요? {#faq-server-downtime}
+### 서버 측 통합이 중단되어 더 이상 JWT를 생성할 수 없으면 어떻게 되나요? {#faq-server-downtime}
 
 서버에서 JWT를 제공할 수 없거나 통합 문제가 발견되는 경우 언제든지 Braze 대시보드에서 해당 기능을 비활성화할 수 있습니다.
 
 비활성화되면 보류 중인 실패한 모든 SDK 요청이 결국 SDK에 의해 재시도되고 Braze에 의해 수락됩니다.
 
-#### 왜 이 기능은 공유 비밀 대신 공개/비공개 키를 사용하나요? {#faq-shared-secrets}
+### 왜 이 기능은 공유 비밀 대신 공개/비공개 키를 사용하나요? {#faq-shared-secrets}
 
-공유 비밀을 사용할 때 Braze 대시보드 페이지와 같은 해당 공유 비밀에 접근할 수 있는 사람은 누구나 토큰을 생성하고 최종 사용자를 사칭할 수 있습니다.
+공유 비밀을 사용할 때 Braze 대시보드 페이지와 같은 해당 공유 비밀에 접근할 수 있는 사람은 누구나 토큰을 생성하고 최종사용자를 사칭할 수 있습니다.
 
 대신 공개/비공개 키를 사용하므로, Braze 직원은 물론이고 귀사의 사용자도 비공개 키에 접근할 수 없습니다.
 
-#### 거부된 요청은 어떻게 재시도되나요? {#faq-retry-logic}
+### 거부된 요청은 어떻게 재시도되나요? {#faq-retry-logic}
 
 인증 오류로 인해 요청이 거부되면 SDK는 사용자의 JWT를 새로고침하는 데 사용되는 콜백을 호출합니다.
 
 요청은 지수 백오프 접근 방식을 사용하여 주기적으로 재시도됩니다. 50번 연속으로 시도에 실패하면 다음 세션이 시작될 때까지 재시도가 일시 중지됩니다. 각 SDK에는 데이터 플러시를 수동으로 요청하는 메서드도 있습니다.
 
-#### 익명 사용자에게 SDK 인증을 사용할 수 있나요? {#faq-anonymous-users}
+### 익명 사용자에게 SDK 인증을 사용할 수 있나요? {#faq-anonymous-users}
 
 아니요. SDK 인증은 웹사이트가 누군가의 신원을 확인하는 방식으로 작동하므로, 식별된 사용자에게만 적용됩니다. 익명 사용자의 경우 확인할 신원이 없습니다.
 
@@ -831,10 +832,10 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 2. 사용자가 가입하거나 로그인하면, 앱이 `external_id`와 함께 `changeUser`를 호출합니다.
 3. Braze는 해당 사용자의 활동을 계속 수집하며, 해당 식별된 프로필에 대한 요청에 SDK 인증이 적용됩니다.
 
-#### SDK 인증은 사용자 별칭과 함께 작동하나요? {#faq-aliases}
+### SDK 인증은 사용자 별칭과 함께 작동하나요? {#faq-aliases}
 
 아니요. SDK 인증에는 `external_id`가 필요합니다. `braze_id` 또는 `alias_id`만 사용 가능한 경우에는 설정할 수 없으므로, 별칭 전용 프로필은 SDK 인증을 사용할 수 없습니다.
 
-#### SDK 인증을 활성화하면 인증되지 않은 활동 수집이 차단되나요? {#faq-unauthenticated-collection}
+### SDK 인증을 활성화하면 인증되지 않은 활동 수집이 차단되나요? {#faq-unauthenticated-collection}
 
 아니요. SDK 인증은 정당한 익명 활동 수집을 차단하지 않습니다. `changeUser`로 프로필이 식별된 후에만 적용됩니다.

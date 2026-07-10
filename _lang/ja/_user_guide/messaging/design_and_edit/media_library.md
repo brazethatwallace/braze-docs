@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | 「View Media Library Assets」権限 | メディアライブラリアセットの表示 |
 | 「Edit Media Library Assets」権限 | メディアライブラリアセットの作成と更新 |
-| 「Delete Media Library Assets」権限 | メディアライブラリアセットの完全な削除 |
+| 「Delete Media Library Assets」権限 | UIからメディアライブラリアセットを削除します。削除されたアセットは、参照しているメッセージが壊れないよう、Brazeによって引き続きホスティングされます。アセットを完全に削除するには、Brazeサポートにお問い合わせください。 |
 | 「Replace Media Library Assets」権限 | 既存のメディアライブラリアセットのURLとアセットIDを維持したままファイルを置換 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メディアライブラリの権限" }
 

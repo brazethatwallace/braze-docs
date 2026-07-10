@@ -22,14 +22,14 @@ El modelo **Auto** con tecnología de Braze está optimizado para modelos cuyas 
 Esta es la opción más sencilla, sin necesidad de configuración adicional. Braze proporciona acceso directo a modelos de lenguaje grandes (LLM). Para utilizar esta opción, selecciona **Auto**, que utiliza modelos Gemini.
 
 {% alert important %}
-Si no ves **Braze Auto** como opción en el menú desplegable **Model** al crear un agente, ponte en contacto con tu administrador del éxito del cliente para saber cómo puedes ser elegible para utilizar el modelo Braze Auto.
+Si no ves **Braze Auto** como opción en el menú desplegable **Model** al crear un agente, ponte en contacto con tu administrador de éxito de cliente para saber cómo puedes ser elegible para utilizar el modelo Braze Auto.
 {% endalert %}
 
 ### Opción 2: Trae tu propia clave de API {#option-2-bring-your-own-api-key}
 
 Con esta opción, puedes conectar tu cuenta de Braze con proveedores como OpenAI, Anthropic o Google Gemini. Si traes tu propia clave de API de un proveedor de LLM, los costes de los tokens se facturan directamente a través de tu proveedor, no a través de Braze.
 
-Recomendamos probar periódicamente los modelos más recientes, ya que los modelos antiguos pueden descontinuarse o quedar obsoletos en unos meses. Asegúrate de tener créditos suficientes con tu proveedor para ejecutar tus agentes a escala. También puedes registrarte para recibir notificaciones de la Consola de Agente en [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para que te avisen cuando Braze detecte que un modelo ya no está disponible o encuentre problemas de facturación con tu proveedor de LLM.
+Recomendamos probar periódicamente los modelos más recientes, ya que los modelos antiguos pueden descontinuarse o quedar obsoletos en unos meses. Asegúrate de tener créditos suficientes con tu proveedor para ejecutar tus agentes a escala. También puedes suscribirte a las notificaciones de la Consola de Agente en [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para que te avisen cuando Braze detecte que un modelo ya no está disponible o encuentre problemas de facturación con tu proveedor de LLM.
 
 Para configurarlo:
 
@@ -55,7 +55,7 @@ Algunos proveedores de LLM pueden permitirte ajustar el nivel de razonamiento de
 
 Recomendamos empezar con **Mínimo** y probar las respuestas de tu agente. Luego, puedes ajustar el nivel de razonamiento a **Bajo** o **Medio** si encuentras que el agente tiene dificultades para proporcionar respuestas precisas. En casos excepcionales, puede ser necesario un nivel de razonamiento **Alto**, aunque usar este nivel puede resultar en altos costes de tokens y tiempos de respuesta más largos o mayor riesgo de errores de tiempo de espera. Si tu agente tiene dificultades para equilibrar el razonamiento de varios pasos con tiempos de respuesta razonables, considera dividir tu caso de uso en más de un agente que puedan trabajar juntos en un Canvas o catálogo.
 
-Braze utiliza los mismos rangos de IP para las llamadas LLM salientes que para el Contenido conectado. Los rangos se enumeran en la [lista de IP permitidas de Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Si tu proveedor admite la lista de IP permitidas, puedes restringir la clave a esos rangos para que solo Braze pueda utilizarla.
+Braze utiliza los mismos rangos de IP para las llamadas LLM salientes que para el contenido conectado. Los rangos se enumeran en la [lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Si tu proveedor admite la lista de IP permitidas, puedes restringir la clave a esos rangos para que solo Braze pueda utilizarla.
 
 {% alert important %}
 Cuando utilices un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subencargados del tratamiento de Braze, con sujeción a los términos del Anexo de tratamiento de datos (DPA) entre tú y Braze. Si decides traer tu propia clave de API, el proveedor de tu suscripción a LLM se considerará un proveedor externo en virtud del contrato entre tú y Braze.
@@ -109,7 +109,23 @@ A continuación se incluyen algunas prácticas recomendadas generales para empez
 
 ### Ejemplos {#examples}
 
-Para configuraciones iniciales en la Consola de Agente, consulta [Plantillas de agentes creadas con Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). Para ejemplos completos de instrucciones que puedes copiar o adaptar, consulta la [biblioteca de casos de uso para agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+Para configuraciones iniciales en la Consola de Agente, consulta [Plantillas de agentes creadas con Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+
+Para ejemplos completos de instrucciones que puedes copiar o adaptar, consulta la [biblioteca de casos de uso para agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/examples).
+
+| Ejemplo | Categoría | Tipo de agente | Qué hace |
+| --- | --- | --- | --- |
+| [Redactar mensajes personalizados basados en el contexto de un usuario]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Generación de contenido | Agente de paso en Canvas | Genera asunto/preencabezado de correo electrónico y título/cuerpo de push coordinados para usuarios que buscaron pero no reservaron. |
+| [Analizar comentarios de usuarios para determinar los próximos pasos]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Estandarización de datos | Agente de paso en Canvas | Clasifica la opinión y el tema de un cuestionario posterior al viaje, y luego recomienda un siguiente paso de CRM. |
+| [Categorizar usuarios en contenedores de interés a partir de atributos existentes]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Agente de afinidad | Agente de paso en Canvas | Clasifica a los usuarios en contenedores de interés a partir de atributos y señales de alta intención, y luego recomienda la mejor experiencia o artículo siguiente. |
+| [Dirigir usuarios a la ruta de Canvas más relevante a partir de su comportamiento reciente]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Agente de afinidad | Agente de paso en Canvas | Infiere la motivación a partir del comportamiento reciente y devuelve la mejor clave de ruta para el siguiente paso en Canvas del usuario. |
+| [Asignar usuarios a categorías de interés a partir de acciones de alta intención en tiempo real]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Agente de afinidad | Agente de paso en Canvas | Asigna categorías de interés a partir de acciones de alta intención y recomienda la mejor experiencia o artículo siguiente. |
+| [Clasificar mensajes entrantes por intención de exclusión]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Clasificación y enrutamiento | Agente de paso en Canvas | Devuelve un booleano estricto que indica si un mensaje es una solicitud de exclusión. |
+| [Estandarizar mensajes entrantes en datos estructurados para automatización]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Estandarización de datos | Agente de paso en Canvas | Normaliza SMS o chat entrantes en intención estructurada, entidades e indicadores de cumplimiento para automatización posterior. |
+| [Redactar descripciones de alta conversión alineadas con las directrices de marca]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Generación de contenido | Agente de catálogo | Genera descripciones breves y alineadas con la marca para cada fila del catálogo. |
+| [Proporcionar traducciones basadas en el idioma utilizado por región]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Enriquecimiento de catálogo | Agente de catálogo | Localiza cadenas de interfaz de usuario y marketing por configuración regional y límite de caracteres. |
+| [Enriquecer elementos del catálogo con descripciones, categorías y etiquetas]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Enriquecimiento de catálogo | Agente de catálogo | Genera descripciones mejoradas, categorías y etiquetas a partir de los datos existentes de los elementos del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Resumen de ejemplos" }
 
 ### Utilizar Liquid {#using-liquid}
 
@@ -228,7 +244,7 @@ Puedes seleccionar hasta cinco Segments para que el agente compare la pertenenci
 
 ## Directrices de marca {#brand-guidelines}
 
-Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) que tu agente debe seguir en sus respuestas. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a inscribirse en una membresía de gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
+Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) que tu agente debe seguir en sus respuestas. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a suscribirse a una membresía de gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
 
 ## Historial de interacción específico del usuario {#user-history}
 

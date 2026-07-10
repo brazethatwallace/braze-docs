@@ -31,7 +31,21 @@ Estas son las versiones mínimas del SDK necesarias para crear ubicaciones de ba
 
 ### Paso 2: Actualiza las ubicaciones en tu aplicación {#requestBannersRefresh}
 
-Para actualizar las ubicaciones, llama al método de actualización de tu SDK. Si `subscribeToBannersUpdates` está activo, el SDK vuelve a publicar automáticamente los ID de ubicación almacenados en caché al inicio de cada nueva sesión y cuando llamas a `changeUser`. Esta actualización automática no consume un token de límite de velocidad.
+Para actualizar las ubicaciones, llama al método de actualización de tu SDK (`requestBannersRefresh()` en Web y Android, o `requestRefresh()` en Swift).
+
+El comportamiento de actualización de banners tiene dos rutas:
+
+1. **Actualización explícita:** puedes llamar al método de actualización en cualquier momento durante una sesión activa.
+2. **Actualización automática en una nueva sesión:** después de realizar al menos una solicitud de actualización explícita, el SDK puede volver a solicitar los ID de ubicación solicitados más recientemente cuando se inicia una nueva sesión de Braze (por ejemplo, después de `changeUser()` o tras un tiempo de espera de sesión).
+
+El rol de `subscribeToBannersUpdates()` varía según la plataforma:
+
+- **iOS y Android:** `subscribeToBannersUpdates()` (o `subscribeToUpdates()` en Swift) registra una devolución de llamada de actualización. La actualización automática al inicio de sesión no depende de que la suscripción esté activa.
+- **Web:** la actualización automática al inicio de sesión está vinculada a que `subscribeToBannersUpdates()` esté registrado. Sin una suscripción activa, el SDK no repite automáticamente la actualización en una nueva sesión.
+
+En todos los casos, debes realizar al menos una solicitud de actualización explícita por ciclo de vida de la aplicación para que el SDK sepa qué ID de ubicación mantener actualizados. Los banners no se obtienen automáticamente en el primer lanzamiento sin esa llamada inicial, y los ID de ubicación rastreados se restablecen tras reiniciar la aplicación.
+
+Las actualizaciones automáticas al inicio de sesión no consumen un token de límite de velocidad.
 
 {% alert tip %}
 Actualiza las ubicaciones lo antes posible para evitar retrasos en la descarga o visualización de los banners.

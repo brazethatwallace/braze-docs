@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Cambiar el estado de la suscripción por correo electrónico del usuario de Braze."
+description: "En este artículo se describen los detalles del endpoint de Braze Cambiar el estado de la suscripción por correo electrónico del usuario."
 
 ---
 {% api %}
@@ -14,9 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /email/status
 {% endapimethod %}
 
-> Utiliza este punto de conexión para establecer el estado de suscripción de correo electrónico para tus usuarios.
+> Utiliza este endpoint para establecer el estado global de suscripción de correo electrónico para tus usuarios.
 
 Los usuarios pueden ser `opted_in`, `unsubscribed` o `subscribed` (sin opción específica de inclusión o exclusión).
+
+{% alert note %}
+Este endpoint actualiza el estado global de suscripción de correo electrónico del usuario, que es diferente del estado del grupo de suscripción. El estado global de suscripción se aplica a todos los correos electrónicos, mientras que los [grupos de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) permiten un control más granular sobre tipos específicos de correos electrónicos. Cuando un usuario cancela su suscripción de forma global, no recibirá correos electrónicos independientemente del estado de su grupo de suscripción. Para consultar el estado del grupo de suscripción, utiliza el [endpoint Listar el estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
+{% endalert %}
 
 Puedes establecer el estado de suscripción por correo electrónico para una dirección de correo electrónico que aún no esté asociada a ninguno de tus usuarios dentro de Braze. Cuando esa dirección de correo electrónico se asocie posteriormente a un usuario, se establecerá automáticamente el estado de suscripción de correo electrónico que cargaste.
 
@@ -24,7 +28,7 @@ Puedes establecer el estado de suscripción por correo electrónico para una dir
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.status`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.status`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -48,13 +52,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `email` | Obligatorio | Cadena o matriz | Cadena de direcciones de correo electrónico a modificar, o una matriz de hasta 50 direcciones de correo electrónico a modificar. |
+| `email` | Obligatorio | Cadena o matriz | Cadena de dirección de correo electrónico a modificar, o una matriz de hasta 50 direcciones de correo electrónico a modificar. |
 | `subscription_state` | Obligatorio | Cadena | "subscribed", "unsubscribed" u "opted_in". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Solución de problemas de bloqueos de correo electrónico de SendGrid {#troubleshooting-sendgrid-email-blocks}
 
-Cuando SendGrid bloquea a un destinatario, actualiza el estado de suscripción con este punto de conexión y revisa la interacción con filtros de segmento. Utiliza los eventos de rebote suave de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para monitorear la capacidad de entrega, y confirma el estado de suscripción antes de reintentar los envíos.
+Cuando SendGrid bloquea a un destinatario, actualiza el estado de suscripción con este endpoint y revisa la participación con filtros de segmento. Utiliza los eventos de rebote suave de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para monitorear la capacidad de entrega, y confirma el estado de suscripción antes de reintentar los envíos.
 
 ## Ejemplo de solicitud {#example-request}
 ```
