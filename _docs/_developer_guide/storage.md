@@ -124,7 +124,7 @@ To learn more about automatically-collected device properties, see [SDK Data Col
 
 After you [initialize the Web Braze SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), the SDK creates and stores first-party cookies (set on your own domain) with a 400-day expiration that automatically renews on new sessions.
 
-Cookies only store user, session, and device identifiers. Other data—such as in-app messages waiting to trigger, content cards, and queued events or attributes not yet synced to Braze—is stored in `localStorage`. No user profile information is persisted in the browser.
+Cookies only store user, session, and device identifiers. Other data—such as in-app messages waiting to trigger, content cards, and queued events or attributes not yet synced to Braze—is stored in `localStorage`.
 
 The following cookies are stored:
 
@@ -151,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### Disable cookies {#disable-cookies}
 
-To disable all cookies, use the [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) option when initializing the Web SDK. When cookies are disabled, the SDK falls back to `localStorage` for all browser-side storage. This prevents you from associating anonymous users who navigate across sub-domains and results in a new user on each subdomain.
+To disable all cookies, use the [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) option when initializing the Web SDK. When cookies are disabled, the SDK uses `localStorage` instead to identify users and sessions. This prevents you from associating anonymous users who navigate across sub-domains and results in a new user on each subdomain.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
