@@ -247,6 +247,8 @@ Note: the __Request Push Permission__, __Log Custom Event__, and __Log Custom At
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
+To combine multiple actions or perform additional SDK actions not available in the dashboard (such as adding to a subscription group or setting an email subscription type), you can use [Braze Actions deeplinks]({{site.baseurl}}/developer_guide/braze_actions).
+
 ### iOS device options
 
 If desired, you can restrict your in-app message to only send to iOS devices. To do so, click **Change** and select **Only send to iOS devices**.

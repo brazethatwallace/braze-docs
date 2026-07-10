@@ -90,7 +90,7 @@ Select **Add a Language** and select your target language or search for a langua
 Non-English languages do not come with preset keywords and responses, so senders will need to work with their marketing and legal teams to add any required keywords to this set. Otherwise, Braze will not handle localized incoming messages for those languages. 
 {% endalert %}
 
-If you need to delete a language, select the **Delete Language** button at the bottom right.
+If you need to delete a language, select the **Delete Language** button at the bottom of the page.
 
 ![Global Keywords page with the "Italian" tab selected. Additional tabs exist for each added language.]({% image_buster /assets/img/sms/multi-language2.png %})
 

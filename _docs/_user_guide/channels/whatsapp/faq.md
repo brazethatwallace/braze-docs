@@ -17,10 +17,10 @@ channel:
 - [WhatsApp business accounts](#whatsapp-business-accounts)
 - [WhatsApp business account phone number](#whatsapp-business-account-phone-numbers)
 - [Opt-in and subscription management](#opt-in-and-subscription-management) 
-- [Messaging limits](#messaging-limits) 
-- [WhatsApp templates](#whatsapp-templates)
-- [Deliverability](#deliverability) 
-- [Miscellaneous](#miscellaneous)
+- [Messaging limits and quality rating](#messaging-limits-and-quality-rating) 
+- [WhatsApp templates and composer](#whatsapp-templates-and-composer)
+- [Deliverability and billing](#deliverability-and-billing) 
+- [Integrations, data, and reporting](#integrations-data-and-reporting)
 
 ### WhatsApp business accounts 
 
@@ -41,8 +41,13 @@ Yes, you can add up to 10 WhatsApp Business accounts per workspace, and each bus
 #### Can I change my WhatsApp Business Account currency?
 No. Meta controls the currency for your WhatsApp Business Account, and Braze can't change or convert it. To use a different currency, [create a separate WhatsApp Business Account]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) with that currency, or contact Meta support to ask whether they can update the currency on your existing account.
 
-### WhatsApp business account phone numbers 
+#### What is business verification? 
+Business verification is a WhatsApp concept used to ensure that the brand is a legitimate business. It can be completed in the WhatsApp Manager. Business verification is also required to scale messaging. Without business verification, customers can only send up to 250 unique end-users in a rolling 24-hour period. 
 
+#### What is an official business account? 
+OBA gives you the green check mark next to your display name and is optional. You can apply for an official business account after completing business verification. Note that business verification and an official business account are different WhatsApp concepts. 
+
+### WhatsApp business account phone numbers 
 #### Do I need a phone number for my WhatsApp business account? 
 Yes, you need a number that you have access to. You will be asked to verify your phone number with 2-factor authentication when you go through the embedded sign-up flow. The phone number cannot be used for other WhatsApp accounts (business or personal).
 
@@ -55,8 +60,11 @@ No. A phone number cannot be shared across multiple WABAs.
 #### Do I need a specific type of phone number to send messages to specific countries? 
 No. WhatsApp allows you to send messages to end-users from any supported phone number in any country. Refer to Meta's requirements for [phone numbers](https://developers.facebook.com/docs/whatsapp/phone-numbers) for more information. 
 
-#### Do I need to use a country-specific phone number to send to certain countries?
-No. With WhatsApp, any supported phone number can send to end-users in any supported country.
+#### How do user phone numbers need to be stored in Braze? 
+User phone numbers need to be stored in [E.164 format]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers#formatting).
+
+#### Can I import user phone numbers? 
+Yes. You can [import user phone numbers]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers). 
 
 ### Opt-in and subscription management 
 
@@ -88,7 +96,7 @@ Your users can opt out in two ways:
 1. Set up an inbound WhatsApp message with a specific opt-out word and use a webhook to update the user subscription status.
 2. Add an opt-out quick reply within the WhatsApp template, with a corresponding webhook to update. 
 
-### Messaging limits 
+### Messaging limits and quality rating
 
 #### What are messaging limits? 
 Messaging limits are a WhatsApp integrity building concept. They determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. There are four messaging limit levels: 1k, 10k, 100k, and unlimited.
@@ -113,10 +121,15 @@ If you try to send a campaign or Canvas to more unique users than your current l
 #### Can my messaging limit decrease?
 Yes, if your phone number quality rating drops too low, you are at risk of WhatsApp decreasing your messaging limit. Braze recommends you subscribe and be notified of quality-related updates from WhatsApp, including updates to your phone number status and messaging limit level. You can subscribe to notifications directly in the WhatsApp Manager dashboard. 
 
+#### What factors affect phone number quality rating, and what happens when my quality rating drops too low? 
+Factors that affect phone number quality rating include an end-user blocking a business (and the reasons they provide when they block a business) and an end-user reporting a business. 
+
+When a quality rating is low, the phone number status changes from **Connected** to **Flagged**. If the quality doesn't improve over seven days, the status returns to **Connected**. However, the messaging limit will decrease to the next level. For example, a phone number that used to have a 100,000 messaging limit now has a 10,000 messaging limit.
+
 #### What is the Meta throughput limit?
 Meta has their own throughput limit separate from the WABA messaging limit. The default limit the cloud API supports is 80 messages per second. If you think your campaigns will exceed this limit, you can [request](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) for your limit to be increased. Meta recommends that you submit this request at least three days in advance of campaign sends.
 
-### WhatsApp templates 
+### WhatsApp templates and composer
 
 #### What is a WhatsApp Template? 
 WhatsApp requires that all business-initiated messages start using an approved template. The template includes the copy of the message, along with optional rich media like images, calls-to-action, and quick reply buttons. After WhatsApp approves templates, they can be used to compose a WhatsApp message in Braze. 
@@ -139,7 +152,24 @@ The Braze team does not have visibility into template rejections. You should wor
 #### Can the rich media be targeted or personalized in Braze? 
 Images can be uploaded from the media library but cannot be dynamically targeted. For URLs, the last part of the link can be [dynamically populated using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls). 
 
-### Deliverability 
+#### What kind of rich media is supported in WhatsApp templates?
+You can add images, calls to action (URL or phone number), and quick reply buttons to WhatsApp templates. You can add these elements when you build templates directly in WhatsApp. 
+
+#### What if my template was falsely flagged for violating WhatsApp's Commerce Policy?
+If you believe Meta falsely flagged your template, use the review link in the email from WhatsApp to request a re-review. The WhatsApp Business team reviews the decision and reverses it if appropriate.
+
+#### Why does my imported WhatsApp template show "Message Incomplete" in the composer?
+The "Message Incomplete" warning appears when required template variable slots aren't filled with valid values in the composer.
+
+When you create templates using the [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), Braze renumbers variables into sequential placeholders ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %}, and so on). Templates created externally in Meta's WhatsApp Manager may still include patterns that make variable mapping error-prone, such as:
+
+- Non-sequential numbering (for example, {% raw %}`{{1}}`, `{{3}}`, `{{5}}`{% endraw %})
+- Missing variables in the sequence (for example, skipping {% raw %}`{{2}}`{% endraw %})
+- Variables that start at a number other than 1
+
+To resolve this, edit your template in Meta's WhatsApp Manager to use sequential placeholder formatting, then re-import it into Braze. In Braze, confirm each required variable field is populated with a valid Liquid value.
+
+### Deliverability and billing
 
 #### Why would a message not be delivered? 
 There are various reasons a message would fail to be delivered, including network issues and the device being turned off. 
@@ -156,7 +186,7 @@ If an end-user reports a message, you can still send subsequent messages to this
 #### If an end-user blocks or reports my business, will their subscription status be updated in Braze? 
 No. Their Braze subscription status will not be updated. 
 
-### Miscellaneous
+### Integrations, data, and reporting
 
 #### Does Braze support customer support use cases like chatbots and human-assisted chat for WhatsApp? 
 We do not support chatbots or human-assisted chat within Braze or through direct integrations. 
@@ -171,21 +201,6 @@ To send information into Braze, for example, to indicate that a user is in an ac
 #### Does Braze store user responses? 
 Messages are only stored long enough to process them. To access user messages, use Currents. 
 
-#### How do user phone numbers need to be stored in Braze? 
-User phone numbers need to be stored in [E.164 format]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers#formatting).
-
-#### What kind of rich media is supported in WhatsApp templates? 
-You can add images, calls to action (URL or phone number), and quick reply buttons to WhatsApp templates. You can add these elements when you build templates directly in WhatsApp. 
-
-#### Can I import user phone numbers? 
-Yes. You can [import user phone numbers]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers). 
-
-#### What is business verification? 
-Business verification is a WhatsApp concept used to ensure that the brand is a legitimate business. It can be completed in the WhatsApp Manager. Business verification is also required to scale messaging. Without business verification, customers can only send up to 250 unique end-users in a rolling 24-hour period. 
-
-#### What is an official business account? 
-OBA gives you the green check mark next to your display name and is optional. You can apply for an official business account after completing business verification. Note that business verification and an official business account are different WhatsApp concepts. 
-
 #### What metrics are available in the Braze dashboard? 
 You can see unique recipients, sends, deliveries, reads, and failures in the Braze dashboard. Note that the end-users read receipts must be "On" for Braze to track reads. You can also set up conversion events to monitor campaign performance, similar to other channels. 
 
@@ -194,12 +209,3 @@ WhatsApp is a channel focused on 2-way messaging and thus anchors on conversatio
 
 - **Business-initiated conversation**: A conversation where the business starts by sending an approved template message to the end user. As soon as the business sends a message, it begins the 24-hour window.
 - **User-initiated conversation**: A conversation where the end-user sends a message to the business. When the business sends a message in response, this begins the 24-hour window.
-
-#### What factors affect phone number quality rating, and what happens when my quality rating drops too low? 
-Factors that affect phone number quality rating include an end-user blocking a business (and the reasons they provide when they block a business) and an end-user reporting a business. 
-
-When a quality rating is low, the phone number status changes from **Connected** to **Flagged**. If the quality doesn't improve over seven days, the status returns to **Connected**. However, the messaging limit will decrease to the next level. For example, a phone number that used to have a 100,000 messaging limit now has a 10,000 messaging limit.
-
-#### What if my template was falsely flagged for violating WhatsApp's Commerce Policy?
-
-If you believe Meta falsely flagged your template, use the review link in the email from WhatsApp to request a re-review. The WhatsApp Business team reviews the decision and reverses it if appropriate.

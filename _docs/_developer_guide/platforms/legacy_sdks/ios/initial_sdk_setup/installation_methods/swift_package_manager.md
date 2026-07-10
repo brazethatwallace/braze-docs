@@ -22,7 +22,7 @@ tvOS is not currently available via Swift Package Manager.
 
 ### Import SDK version
 
-Open your project and navigate to your project's settings. Select the **Swift Packages** tab and click on the <i class="fas fa-plus"></i> add button below the packages list.
+Open your project and navigate to your project's settings. Select the **Swift Packages** tab and click on the <i class="fas fa-plus"></i> add button under the packages list.
 
 ![Xcode project settings with the Swift Packages tab selected.]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
 

@@ -181,7 +181,7 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
 
 #### ステップ5.3:最初の配信をスケジュールする {#step-53-schedule-the-first-delivery}
 
-**Schedule Delivery**で、**Action-Based Delivery**を選択し、トリガータイプとして**Send an SMS Inbound Message**を選択します。また、[以前に設定した](#step-51-create-an-sms-keyword-category)SMSサブスクリプショングループとキーワードカテゴリを追加します。
+**配信をスケジュール**で、**アクションベースの配信**を選択し、トリガータイプとして**SMSインバウンドメッセージを送信する**を選択します。また、[以前に設定した](#step-51-create-an-sms-keyword-category)SMSサブスクリプショングループとキーワードカテゴリを追加します。
 
 ![最初のWebhook キャンペーンの「配信スケジュール」ページ。]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 
@@ -195,7 +195,7 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
 
 #### ステップ5.5:2回目の配信をスケジュールする {#step-55-schedule-the-second-delivery}
 
-**Schedule Delivery**で、**アクションベースのトリガー**と**SMSサブスクリプショングループ**を[最初の配信](#step-53-schedule-the-first-delivery)と同じに設定します。ただし、**キーワードカテゴリ**には**Other**を選択してください。
+**配信をスケジュール**で、**アクションベースのトリガー**と**SMSサブスクリプショングループ**を[最初の配信](#step-53-schedule-the-first-delivery)と同じに設定します。ただし、**キーワードカテゴリ**には**Other**を選択してください。
 
 ![2つ目のWebhook キャンペーンの「配信スケジュール」ページ。キーワードカテゴリとして「Other」が選択されている。]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
 

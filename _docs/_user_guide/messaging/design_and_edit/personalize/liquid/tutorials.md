@@ -306,7 +306,7 @@ Let’s promote a user’s favorite product if their last purchase date was over
 {% endraw %}
 
 {: start="3"}
-3. We'll use `else` to specify what should happen if the condition above isn't met (because we _do_ have the user’s favorite product and last purchase date).
+3. We'll use `else` to specify what should happen if the condition earlier in this section isn't met (because we _do_ have the user’s favorite product and last purchase date).
 
 {% raw %}
 ```liquid

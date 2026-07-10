@@ -79,7 +79,7 @@ Before rolling out a feature flag, you need to choose a [segment]({{site.baseurl
 By default, feature flags are always inactive, which allows you to separate your feature release's date from your total user activation. To begin your rollout, use the **Rollout Traffic** section to enter a percentage in the text box. This will choose the percentage of random users in your selected segment to receive this new feature.
 
 {% alert important %}
-Do not set your rollout traffic above 0% until you are ready for your new feature to go live. When you initially define your feature flag in the dashboard, leave this setting at 0%.
+Do not set your rollout traffic greater than 0% until you are ready for your new feature to go live. When you initially define your feature flag in the dashboard, leave this setting at 0%.
 {% endalert %}
 
 {% alert important %}

@@ -33,7 +33,7 @@ Next, it's time to test your Canvas! To keep your original Canvas and test Canva
 
 There are two ways you can test your Canvas. 
 
-- **Method 1:** In the duplicated Canvas, edit the **Entry Audience** portion of the Canvas builder so that only test users are eligible for the Canvas. You can also enter your own email address as a test user by adding the **Email Address** testing filter. In the example below, we've limited the Canvas to two test users that have first used the app less than three days ago.
+- **Method 1:** In the duplicated Canvas, edit the **Entry Audience** portion of the Canvas builder so that only test users are eligible for the Canvas. You can also enter your own email address as a test user by adding the **Email Address** testing filter. In the example in the following section, we've limited the Canvas to two test users that have first used the app less than three days ago.
 
 ![A Canvas with an entry audience of "First used these apps less than 3 days ago" and the email addresses of two test users.]({% image_buster /assets/img_archive/canvas_test2.png %}){: style="max-width:90%;"}
 

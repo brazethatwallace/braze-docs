@@ -93,7 +93,7 @@ You can also [use templates in a catalog name](#template-catalog-names), letting
 Select **Process Catalog** to create the catalog.
 
 {% alert important %}
-Your CSV file can be rejected if you go above your [tier](#tiers). 
+Your CSV file can be rejected if you go earlier in this section your [tier](#tiers). 
 {% endalert %}
 
 ### Tutorial: Creating a catalog from a CSV file

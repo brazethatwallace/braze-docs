@@ -1,0 +1,15 @@
+supported:
+  - en
+  - fr
+  - ja
+  - ko
+  - pt-br
+  - es
+  - de
+
+include_dir_overrides:
+  fr: fr_fr
+  pt-br: pt_br
+
+task_aliases:
+  pt-br: pt_br

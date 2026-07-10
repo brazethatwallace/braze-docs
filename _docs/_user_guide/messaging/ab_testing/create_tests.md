@@ -56,7 +56,7 @@ When viewing your results, you can compare the conversion rates of your variants
 Using a control group when determining a winner by _Opens_ or _Clicks_ is not recommended. Because the control group won't receive the message, those users cannot perform any opens or clicks. Therefore, that group's conversion rate is 0% by definition and does not constitute a meaningful comparison to the variants.
 {% endalert %}
 
-#### Control groups with A/B testing
+#### Control groups and A/B testing
 
 When using rate limiting with an A/B test, the rate limit isn't applied to the control group in the same way as the test group, which is a potential source of time bias. Use appropriate conversion windows to avoid this bias.
 

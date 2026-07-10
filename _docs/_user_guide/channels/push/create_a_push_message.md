@@ -99,13 +99,13 @@ If you're adding copy in a language that is written right-to-left, note that the
 
 {% tabs local %}
 {% tab ios %}
-Start typing in the message box and watch a preview appear in the preview box to the left. Push messages must be formatted in plain text. 
+Start typing in the message box and watch a preview appear in the preview box beside it. Push messages must be formatted in plain text. 
 
 Add a headline using the **Title** field. To make your push personalized and targeted, you can include [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 {% endtab %}
 
 {% tab android %}
-Start typing in the message box and watch a preview appear in the preview box to the left. Push messages must be formatted in plain text. 
+Start typing in the message box and watch a preview appear in the preview box beside it. Push messages must be formatted in plain text. 
 
 To make your push personalized and targeted, you can include [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 

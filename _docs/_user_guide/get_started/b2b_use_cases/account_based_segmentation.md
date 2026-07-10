@@ -112,5 +112,5 @@ For the basics on how to use connected sources in segmentation, refer to [CDI Se
 
 ## Using your account-based extension in a segment
 
-After you’ve created your account-level segmentation in the above steps, you can directly pull those Segment Extensions into your targeting criteria. It’s also easy to layer on incremental user demographic criteria such as role, engagement with previous campaigns, and more. For more information, refer to [Using your extension in a segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).
+After you’ve created your account-level segmentation in the earlier in this section steps, you can directly pull those Segment Extensions into your targeting criteria. It’s also easy to layer on incremental user demographic criteria such as role, engagement with previous campaigns, and more. For more information, refer to [Using your extension in a segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).
 
