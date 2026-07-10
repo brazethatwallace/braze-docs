@@ -10,7 +10,7 @@ description: "This reference article covers troubleshooting for segment errors, 
 
 # Troubleshoot segments
 
-> Match your symptom below to find the right section. This page covers launch errors, user eligibility, filter issues, and analytics mismatches. For filter definitions, see [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). For segment size estimates, exact counts, and historical membership charts, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+> Match your symptom in the following list to find the right section. This page covers launch errors, user eligibility, filter issues, and analytics mismatches. For filter definitions, see [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). For segment size estimates, exact counts, and historical membership charts, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Start here: Match your symptom
 

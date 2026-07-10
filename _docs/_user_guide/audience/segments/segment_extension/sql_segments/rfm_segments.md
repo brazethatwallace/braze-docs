@@ -68,7 +68,7 @@ RFM segments are evaluated in a specific order. Users are assigned to the first 
 | Potential Loyalists| Users who purchased recently with moderate frequency and moderate monetary value.   | 3                | 1-3                | 1-3               |
 | Promising          | Users who made a recent, high-value initial purchase but have not yet established a high purchase frequency. | 3                | 0-3                | 1-3               |
 | New Customer       | Users who made their first purchase very recently.                             | 3                | 0-3                | 0-3               |
-| Needing Attention  | Users with above-average recency, but their purchase frequency or monetary value are below average. | 2-3              | 0-3                | 0-3               |
+| Needing Attention  | Users with higher-than-average recency, but their purchase frequency or monetary value are lower than average. | 2-3              | 0-3                | 0-3               |
 | Cannot lose them   | Users who were previously high-value with good frequency and monetary scores, but have not purchased in a long time. | 0-1              | 2-3                | 2-3               |
 | At Risk            | Users who have historically had moderate frequency and monetary scores, but have not purchased in a long time. | 0-1              | 1-3                | 1-3               |
 | About to Sleep     | Users who have low scores across all metrics.                                       | 1                | 0-3                | 0-3               |

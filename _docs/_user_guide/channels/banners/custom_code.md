@@ -22,7 +22,7 @@ For example, to log a click when a user taps a button in your custom HTML:
 </button>
 ```
 
-For the full JavaScript bridge reference, including all available methods and click tracking options, see the section below.
+For the full JavaScript bridge reference, including all available methods and click tracking options, see the following section.
 
 ## JavaScript bridge {#javascript-bridge}
 

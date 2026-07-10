@@ -100,7 +100,7 @@ After your Canvas is launched, you can now [update a Content Optimizer step]({{s
 
 - Add new variants to any existing component, either manually or using AI-generated suggestions, up to the five-variant limit per component.
 - Deactivate variants to stop sending them to users.
-- Re-activate previously deactivated variants, as long as doing so keeps the component at or below the five-variant limit.
+- Re-activate previously deactivated variants, as long as doing so keeps the component at or under the five-variant limit.
 
 ### Channels & Touchpoints
 
@@ -168,7 +168,7 @@ After sending a test WhatsApp message, you can view a [detailed delivery report]
 
 #### SDK breaking updates
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [Swift SDK 14.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
 - [Android SDK 42.3.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0)
@@ -288,7 +288,7 @@ For more information, see [DailyPlay]({{site.baseurl}}/partners/dailyplay/).
 
 #### SDK breaking updates
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [Flutter SDK 19.0.0](https://pub.dev/packages/braze_plugin/changelog#1900)
     - The minimum supported Dart version is `2.17.0`.
@@ -433,7 +433,7 @@ The following SDK updates have been released. For more details, see [SDK changel
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
     - Delayed initialization support.
@@ -541,7 +541,7 @@ Use AI coding assistants to accelerate your Braze integration workflow by connec
 
 #### SDK breaking updates
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [Cordova 15.0.0](https://github.com/braze-inc/braze-cordova-sdk/releases/tag/15.0.0)
     - Updated the native Android bridge [from Braze Android SDK 39.0.0 to 41.1.1](https://github.com/braze-inc/braze-android-sdk/compare/v39.0.0...v41.1.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
@@ -723,7 +723,7 @@ After adding locales to your workspace, you can [target users in different langu
 
 #### SDK breaking updates
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [Android SDK 41.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md)
 - [Flutter SDK 17.1.0](https://pub.dev/packages/braze_plugin/changelog)
@@ -867,7 +867,7 @@ The following SDK updates have been released. Swift SDK v14.0.1 fixes an issue w
 
 #### SDK breaking updates
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [Android SDK 41.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v41.0.0)
     - Renamed `BrazeConfig.Builder.setIsLocationCollectionEnabled()` to `setIsAutomaticLocationCollectionEnabled()`.
@@ -945,7 +945,7 @@ As an alternative to a rate limit that gets shared across an entire multi-channe
 
 ### SDK breaking updates
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [Android 40.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4011)
 - [Android SDK 40.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4010)
@@ -1000,7 +1000,7 @@ To retarget users, we recommend building a segment of users who didn’t receive
 
 #### SDK breaking updates
 
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+The latest SDK updates have been released. Breaking updates are listed in the SDK updates section; all other updates can be found in the corresponding SDK changelogs.
 
 - [Web SDK 6.3.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
 

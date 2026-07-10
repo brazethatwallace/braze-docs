@@ -99,7 +99,7 @@ The system monitors your health based on the following industry benchmarks:
 - Bounces greater than 5%
 - Spam complaint rates greater than 0.04%
 
-If stats are below our benchmarks, the system holds volume the next day rather than increasing the volume to mitigate risk to your sender reputation.
+If stats are under our benchmarks, the system holds volume the next day rather than increasing the volume to mitigate risk to your sender reputation.
 
 ## Stop an IP warmup plan
 
