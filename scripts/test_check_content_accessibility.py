@@ -235,6 +235,25 @@ class TestSpatialDirectionals:
         )
         assert v == []
 
+    def test_allows_version_or_above_with_decimal(self):
+        v = spatial_violations_for(
+            'This feature requires SDK version 5.0 and above.\n'
+        )
+        assert v == []
+
+    def test_flags_layout_below_after_sdk_sentence(self):
+        """The version allowlist must not span across a sentence boundary."""
+        v = spatial_violations_for('Update the SDK. See the steps below.\n')
+        assert len(v) == 1
+        assert 'below' in v[0]['message']
+
+    def test_flags_layout_below_after_platform_sentence(self):
+        v = spatial_violations_for(
+            'Install the Android SDK. The instructions below explain how.\n'
+        )
+        assert len(v) == 1
+        assert 'below' in v[0]['message']
+
     def test_allows_left_center_right_alignment_options(self):
         v = spatial_violations_for(
             'Orients the image to either the left, center, or right of the block.\n'

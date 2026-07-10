@@ -162,9 +162,13 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
         r'(?:at\s+or\s+)?(?:above|below)\s+the\s+(?:[a-z0-9-]+\s+){0,3}(?:threshold|limit|cap)\b',
         re.IGNORECASE,
     ),
-    # Version and platform compatibility comparisons.
+    # Version and platform compatibility comparisons. The gap between the
+    # platform keyword and "above"/"below" must stay within one sentence, so
+    # forbid sentence terminators followed by whitespace (for example,
+    # "SDK. See the steps below" must not be swallowed). Decimal points such
+    # as "5.0" are preserved because they are not followed by whitespace.
     re.compile(
-        r'\b(?:version|sdk|ios|android)\b.{0,40}\b(?:above|below)\b',
+        r'\b(?:version|sdk|ios|android)\b(?:(?![.!?]\s).){0,40}?\b(?:above|below)\b',
         re.IGNORECASE,
     ),
     re.compile(
