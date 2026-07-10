@@ -2,10 +2,10 @@
 
 Editor-Blöcke befinden sich im Abschnitt **Inhalt** für E-Mail-Nachrichten. Ziehen Sie einen Block im **Drag-and-Drop-Editor** in eine Spalte; er passt sich automatisch an die Spaltenbreite an.
 
-Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** finden Sie unter [E-Mail per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) und <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Weitere Anpassungen</a> in diesem Artikel.
+Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** finden Sie unter [E-Mail per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) und <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Weitere Anpassungen</a> in diesem Artikel.
 
 {% alert tip %}
-Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
+Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
 {% endalert %}
 
 ### Titel {#title}
@@ -23,8 +23,8 @@ Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 | Ausrichtung | Verschiebt den Titel nach links, in die Mitte oder nach rechts. |
 | Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
 | Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
-| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
+| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Titel" }
 
 ### Absatz {#paragraph}
 
@@ -41,8 +41,8 @@ Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Tex
 | Absatzabstand | Ändert den Abstand zwischen den Absätzen. |
 | Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
 | Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
-| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
+| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Absatz" }
 
 ### Liste {#list}
 
@@ -63,8 +63,8 @@ Fügt eine Aufzählungsliste hinzu.
 | Einrückung der Listenelemente | Ändert die Einrückung der Listenelemente. |
 | Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen. |
 | Zeichenabstand | Ändert den Abstand zwischen den einzelnen Zeichen. |
-| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages/) geändert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
+| Textrichtung | Standardmäßig von links nach rechts, kann jedoch auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liste" }
 
 ### Button
 
@@ -85,7 +85,7 @@ Fügt einen Standard-Button hinzu. Die Eigenschaften ermöglichen das Bearbeiten
 | Empfänger:in, Betreff und Text | Für den Link-Typ **Send email** werden hier die E-Mail-Adresse der Empfänger:in, der Betreff und der Inhalt festgelegt, die in einem E-Mail-Entwurf angezeigt werden, wenn Nutzer:innen den Button auswählen. |
 | Tel. | Für die Link-Typen **Make call** und **Send SMS** wird hier die Telefonnummer festgelegt, die Nutzer:innen anrufen oder per SMS kontaktieren, wenn sie den Button auswählen. |
 | Nachricht | Für den Link-Typ **Send SMS** legt dies den Inhalt fest, der in einem SMS-Entwurf angezeigt wird, wenn Nutzer:innen den Button auswählen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klick-Verhalten" }
 
 ### Trennlinie {#divider}
 
@@ -97,7 +97,7 @@ Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um die Abstän
 | Linie | Die verschiedenen Linienformate, ob gepunktet, gestrichelt oder durchgezogen. Darüber hinaus können Sie die Dicke und Farbe der Trennlinie ändern. |
 | Breite | Passt die Ausdehnung der Trennlinie in 5er-Schritten an. |
 | Ausrichtung | Verschiebt die Linie nach links, in die Mitte oder nach rechts. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Trennlinie" }
 
 ### Spacer
 
@@ -110,7 +110,7 @@ Fügt Leerraum oder Padding zwischen anderen Blöcken hinzu.
 
 ### Bild {#image}
 
-Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ein. Für dynamische Bilder (Bilder mit Liquid oder Connected-Content) müssen Sie ein Fallback-Bild festlegen, um die Einstellungen für die automatische Breitenanpassung zu verwenden. Informationen zu Bildspezifikationen finden Sie unter [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email).
+Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ein. Für dynamische Bilder (Bilder mit Liquid oder Connected-Content) müssen Sie ein Fallback-Bild festlegen, um die Einstellungen für die automatische Breitenanpassung zu verwenden. Informationen zu Bildspezifikationen finden Sie unter [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -118,13 +118,13 @@ Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/
 |---|---|
 | Automatische Breite | Ändert die Breite des Bildes in Pixel. |
 | Ausrichtung | Richtet das Bild entweder links, in der Mitte oder rechts des Blocks aus. |
-| Bild mit Liquid | Verwenden Sie [Liquid]({{site.baseurl}}/liquid/)-Logik, um dynamisch verschiedene Bilder innerhalb desselben Inhaltsblocks festzulegen. |
+| Bild mit Liquid | Verwenden Sie [Liquid]({{site.baseurl}}/liquid)-Logik, um dynamisch verschiedene Bilder innerhalb desselben Inhaltsblocks festzulegen. |
 | URL | Legen Sie ein Bild über die Adresse fest, unter der es gehostet wird. |
 | Alternativer Text | Eine kurze Beschreibung des Bildes, die den Nutzer:innen die gleichen Informationen liefert, die auch auf dem Bild zu sehen sind. Dies ist für die Barrierefreiheit von Screenreadern oder für den Fall, dass das Bild nicht geladen werden kann, unerlässlich. |
 | Bild mit abgerundeten Ecken | Rendert das Bild mit abgerundeten Ecken. Standardmäßig werden Bilder mit eckigen Ecken gerendert. |
 | Aktion | Löst eine Aktion aus, wenn Nutzer:innen auf das Bild klicken. |
 | Blockoptionen | Legt das Padding um den Bildblock fest. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bild" }
 
 {% alert tip %}
 Für **Automatische Breite** wählt die automatische Bildgrößenanpassung die beste Größe für das Bild auf der Grundlage einer Kombination aus Bildbreite und verfügbarem Platz im Layout:
@@ -181,11 +181,11 @@ Fügt ein Symbol ein. Sie können angepasste Bilder hochladen. Braze verwendet e
 
 ### HTML
 
-Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid/), wie z. B. Connected-Content oder bedingte Anweisungen.
+Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid), wie z. B. Connected-Content oder bedingte Anweisungen.
 
 | Eigenschaft | Beschreibung |
 |---|---|
-| HTML | Fügen Sie rohes HTML hinzu oder bearbeiten Sie es, einschließlich [Liquid]({{site.baseurl}}/liquid/) für Personalisierung oder bedingte Logik. |
+| HTML | Fügen Sie rohes HTML hinzu oder bearbeiten Sie es, einschließlich [Liquid]({{site.baseurl}}/liquid) für Personalisierung oder bedingte Logik. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menü {#menu}
@@ -206,11 +206,11 @@ Erstellt ein flexibles Menü für die Nachricht, die Sie entwerfen.
 | Mobiles Menü | Enthält Optionen zum Ändern der Symbolgröße, Farbe und des Symboltyps bei der Anzeige auf einem Mobilgerät. |
 | Element-Padding | Ändert das Padding entweder mit der Taste **+** oder **-** oder durch Eingabe einer bestimmten Zahl. |
 | Alle Seiten | Legt ein einheitliches Padding fest, wenn das Element-Padding deaktiviert ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menü" }
 
 ### Produkt {#product}
 
-Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), entweder als statische Artikel aus einer Katalog-Auswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) gesteuert werden (bis zu 24).
+Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), entweder als statische Artikel aus einer Katalog-Auswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) gesteuert werden (bis zu 24).
 
 | Eigenschaft | Beschreibung |
 | --- | --- |
@@ -228,11 +228,11 @@ Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/mes
 | Max. Produkte pro Zeile | Legt fest, wie viele Produkte pro Zeile angezeigt werden: **1**, **2** oder **3** (**3** ist nur verfügbar, wenn die Ausrichtung **Bild zentriert** ist). |
 | Produktabstand | Legt den Abstand zwischen Produkten fest: **Automatisch** oder **Angepasst**. |
 | Angepasster Abstand | *(Wenn **Angepasst** ausgewählt ist)* Legt den Abstand in Pixel zwischen Produkten fest. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Produkt" }
 
 ## Personalisierung {#personalization}
 
 Sie können Ihre E-Mail mithilfe von Liquid oder Connected-Content personalisieren.
 
 - **Liquid:** Wählen Sie unter **Inhalt** > **Personalisierung** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen Titel-, Absatz- oder Listenblock (einfaches Liquid) oder HTML-Block (erweitertes Liquid) ein. Generell können Sie zwar einfaches Liquid in Titel-, Absatz- und Listenblöcken verwenden, wir empfehlen jedoch HTML-Blöcke für komplexere Logik, um Layout-Probleme zu vermeiden. Beachten Sie, dass Liquid in Bildblöcken oder in Button-URL-Feldern nicht unterstützt wird.
-- **[Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/):** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.
+- **[Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.

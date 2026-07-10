@@ -318,16 +318,38 @@ Wenn Daten nach der Schema-Neugenerierung nicht wie erwartet angezeigt werden, w
 
 Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
 
-In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Change Custom Attribute Value**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
+In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Trigger-Aktion für **Wert des angepassten Attributs ändern** hinzufügen, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
 
 So konfigurieren Sie diesen Trigger in einer aktionsbasierten Campaign:
 
 1. Erstellen oder bearbeiten Sie eine Campaign und setzen Sie den Zustellungstyp auf **Aktionsbasierte Zustellung**.
-2. Wählen Sie in den Trigger-Einstellungen **Change Custom Attribute Value** aus.
+2. Wählen Sie in den Trigger-Einstellungen **Wert des angepassten Attributs ändern** aus.
 3. Wählen Sie den Pfad des verschachtelten angepassten Attributs aus, den Sie überwachen möchten.
    Wählen Sie beispielsweise `preferences.neighborhood_office` aus.
-4. Wählen Sie die gewünschte Trigger-Bedingung aus, z. B. **any new value**.
+4. Wählen Sie die gewünschte Trigger-Bedingung aus, z. B. **Beliebiger neuer Wert**.
 5. Konfigurieren Sie Ihre Campaign-Nachricht und Zielgruppe fertig und starten Sie dann die Campaign.
+
+## Fehlerbehebung {#troubleshooting}
+
+### Verschachtelte angepasste Attributwerte werden nicht konsistent angewendet {#nested-custom-attribute-values-not-applied-consistently}
+
+Wenn Sie feststellen, dass verschachtelte angepasste Attributwerte nicht konsistent zu Nutzerprofilen hinzugefügt werden, liegt das Problem häufig an Datentyp-Konflikten.
+
+So diagnostizieren und beheben Sie dieses Problem:
+
+1. **Nutzerbeispiele vergleichen:** Nehmen Sie ein erfolgreiches und ein nicht erfolgreiches Nutzerbeispiel, bei dem das verschachtelte angepasste Attribut gesetzt worden sein sollte.
+2. **Datenstruktur überprüfen:** Sehen Sie sich die angepassten Attributwerte in beiden Profilen an und vergleichen Sie sie:
+   - Sind die Eigenschaften unter einem Objekt gespeichert?
+   - Sind die Eigenschaften als Array von Eigenschaften gespeichert?
+3. **Segmentierungsfilter prüfen:** Vergleichen Sie die gespeicherte Datenstruktur damit, wie das verschachtelte angepasste Attribut in Ihren Segmentierungsfiltern referenziert wird.
+4. **Datentyp überprüfen:** So identifizieren Sie den Datentyp eines angepassten Attributs:
+   - Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
+   - Suchen Sie nach dem übergeordneten angepassten Attribut, das das verschachtelte Attribut enthält, das Sie überprüfen möchten.
+   - Wenn in der Zeile **Schema generieren** angezeigt wird, wählen Sie diese Option aus, um das Schema zuerst zu generieren.
+   - Nachdem das Schema generiert wurde, wählen Sie das Plus-Symbol in der Spalte **Attributname** für dieses Attribut aus.
+   - Überprüfen Sie im Modal **Schema bearbeiten** die verschachtelten Attribute und ihre entsprechenden Werte in der Spalte **Datentyp**.
+
+Wenn Sie feststellen, dass der Datentyp nicht dem beabsichtigten Format über die Nutzerprofile hinweg entspricht, entfernen Sie den falsch formatierten Wert aus den betroffenen Nutzerprofilen und senden Sie das Attribut im korrekten Format mit der entsprechenden API-Anfrage oder SDK-Methode erneut.
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 

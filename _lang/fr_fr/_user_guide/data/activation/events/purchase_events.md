@@ -17,7 +17,7 @@ Les événements d'achat sont des actions d'achat effectuées par vos utilisateu
 
 ## Enregistrer les événements d'achat {#log-purchase-events}
 
-Vous pouvez enregistrer vos achats en transmettant un [objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object) via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ou en utilisant l'une de nos bibliothèques SDK répertoriées ci-dessous.
+Vous pouvez enregistrer vos achats en transmettant un [objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object) via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ou en utilisant l'une de nos bibliothèques SDK répertoriées dans la section suivante.
 
 {% alert note %}
 Les propriétés d'événement d'achat utilisent les mêmes types de données que les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format).
@@ -95,9 +95,9 @@ Dans cet exemple, le message est personnalisé en fonction de la propriété `la
 
 ### Déclencher des messages {#trigger-messages}
 
-Un cas d'utilisation courant consiste à envoyer automatiquement un message, comme un e-mail, lorsqu'un utilisateur effectue un achat. Par exemple, vous pouvez envoyer un message de remerciement ou un code de réduction pour un prochain achat.
+Un cas d'usage courant consiste à envoyer automatiquement un message, comme un e-mail, lorsqu'un utilisateur effectue un achat. Par exemple, vous pouvez envoyer un message de remerciement ou un code de réduction pour un prochain achat.
 
-Pour ce faire, créez une campagne ou un Canvas basé sur une action, puis définissez l'action de déclenchement sur **Effectuer un achat**. Vous pouvez également spécifier des conditions supplémentaires pour le déclencheur, comme le produit acheté ou le montant de l'achat.
+Pour ce faire, créez une Campaign ou un Canvas basé sur une action, puis définissez l'action de déclenchement sur **Effectuer un achat**. Vous pouvez également spécifier des conditions supplémentaires pour le déclencheur, comme le produit acheté ou le montant de l'achat.
 
 Vous pouvez aussi personnaliser votre message déclenché avec Liquid. Dans l'exemple suivant, `${purchase_product_name}` est un attribut personnalisé que vous remplaceriez par le nom réel de l'attribut qui stocke le nom du produit acheté dans votre configuration Braze.
 
@@ -180,7 +180,7 @@ Cependant, gardez à l'esprit que le remboursement comptera comme un événement
 - 1 achat avec un prix de -5 $
 - Un chiffre d'affaires sur la durée de vie de 7 $
 
-Bien que Sam ait deux événements d'achat sur son profil, en réalité, il n'a effectué qu'un seul achat. C'est un point important à considérer si vous avez des segments ou des cas d'utilisation basés sur le nombre d'achats effectués par un utilisateur. Les remboursements fréquents gonflent le nombre d'achats sur le profil de l'utilisateur.
+Bien que Sam ait deux événements d'achat sur son profil, en réalité, il n'a effectué qu'un seul achat. C'est un point important à considérer si vous avez des segments ou des cas d'usage basés sur le nombre d'achats effectués par un utilisateur. Les remboursements fréquents gonflent le nombre d'achats sur le profil de l'utilisateur.
 
 ## Propriétés d'événement d'achat {#purchase-properties}
 
@@ -209,9 +209,9 @@ Ces filtres de segmentation incluent :
 - A effectué des achats avec la propriété Y ayant la valeur V, X fois au cours des Y derniers jours
 - Ajoute une segmentation de 1 à 30 jours sur tous les achats, événements et propriétés au sein des achats et événements
 
-Contrairement aux [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), les segments utilisés sont mis à jour en temps réel, prennent en charge un nombre illimité de segments, offrent un historique de consultation de 30 jours maximum et consomment des points de donnée. En raison du coût supplémentaire en points de donnée, vous devez contacter votre gestionnaire de la satisfaction client Braze pour activer les propriétés d'événement sur vos événements personnalisés.
+Contrairement aux [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), les segments utilisés sont mis à jour en temps réel, prennent en charge un nombre illimité de segments, offrent un historique de consultation de 30 jours maximum et consomment des points de donnée. En raison du coût supplémentaire en points de donnée, vous devez contacter votre gestionnaire du succès des clients Braze pour activer les propriétés d'événement sur vos événements personnalisés.
 
-Une fois approuvées, des propriétés supplémentaires peuvent être ajoutées dans le tableau de bord sous **Paramètres des données** > **Événements personnalisés** en sélectionnant **Gérer les propriétés**. Vous pouvez ensuite utiliser ces propriétés d'événement dans l'étape de ciblage du générateur de campagne ou de Canvas.
+Une fois approuvées, des propriétés supplémentaires peuvent être ajoutées dans le tableau de bord sous **Paramètres des données** > **Événements personnalisés** en sélectionnant **Gérer les propriétés**. Vous pouvez ensuite utiliser ces propriétés d'événement dans l'étape de ciblage du générateur de Campaign ou de Canvas.
 
 {% include data_activation/segmentable_purchase_properties_keys_note.md %}
 

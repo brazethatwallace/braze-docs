@@ -11,7 +11,7 @@ description: "Cet article de référence explique comment connecter et configure
 > Connectez plusieurs domaines de boutiques Shopify à un espace de travail unique pour avoir une vue globale de vos clients sur tous les marchés. Créez et lancez des programmes d'automatisation et des parcours dans un espace de travail unique sans dupliquer les efforts dans les boutiques régionales.
 
 {% alert important %}
-Cette fonctionnalité ne prend pas en charge Shopify Markets ou Markets Pro. Si vous souhaitez demander la prise en charge de ces produits, soumettez une [demande de produit]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Cette fonctionnalité ne prend pas en charge Shopify Markets ou Markets Pro. {% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## Conditions requises {#requirements}
@@ -120,7 +120,7 @@ Lorsque vous connectez plus d'une boutique, les attributs suivants sont synchron
 
 #### Événements recommandés pour le commerce électronique {#ecommerce-recommended-events}
 
-Lorsque vous connectez plusieurs boutiques, les événements recommandés eCommerce entrants incluent une propriété d'événement source. Cette propriété identifie l'URL de la vitrine d'où provient l'événement, ce qui vous permet d'utiliser cette information pour la segmentation ou le déclenchement de cas d'utilisation spécifiques.
+Lorsque vous connectez plusieurs boutiques, les événements recommandés eCommerce entrants incluent une propriété d'événement source. Cette propriété identifie l'URL de la vitrine d'où provient l'événement, ce qui vous permet d'utiliser cette information pour la segmentation ou le déclenchement de cas d'usage spécifiques.
 
 ![Un Canvas basé sur une action avec un déclencheur pour faire entrer les utilisateurs qui effectuent l'événement personnalisé `ecommerce.order_placed`.]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
@@ -135,7 +135,7 @@ Les événements recommandés eCommerce pris en charge dans le cadre de l'intég
 
 #### Événements personnalisés Shopify {#shopify-custom-events}
 
-Les événements personnalisés Shopify entrants comprennent une propriété d'événement appelée `shopify_storefront`. Cette propriété indique l'URL de la vitrine d'où provient l'événement, ce qui vous permet de l'exploiter pour la segmentation ou le déclenchement de cas d'utilisation.
+Les événements personnalisés Shopify entrants comprennent une propriété d'événement appelée `shopify_storefront`. Cette propriété indique l'URL de la vitrine d'où provient l'événement, ce qui vous permet de l'exploiter pour la segmentation ou le déclenchement de cas d'usage.
 
 ![Un Canvas basé sur une action avec un déclencheur pour faire entrer les utilisateurs qui effectuent l'événement personnalisé `shopify_paid_order`.]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 

@@ -25,35 +25,35 @@ BrazeとDenadaのインテグレーションにより、Denadaで作成したメ
 | ----------- | ----------- |
 | Denadaアカウント | このインテグレーションを使用するには、[Denadaアカウント](https://app.heydenada.com)が必要です。 |
 | Braze REST APIキー | **テンプレート**のフル権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLによって異なります。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLによって異なります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
 Denadaは、デザインやコーディングのスキルがなくてもブランドに沿ったメールコンテンツを作成したいマーケターや専門知識を持つ担当者向けに構築されています。以下のような方に最適です。
 - 会話型AIを使ってメールテンプレートを素早く生成し、Brazeに直接プッシュしたい方
-- Denadaから再エクスポートする際に、競合検出と上書きサポートを活用して既存のBrazeメールテンプレートをIterateしたい方
+- Denadaから再エクスポートする際に、競合検出と上書きサポートを活用して既存のBrazeメールテンプレートを反復改善したい方
 - エクスポート時にBrazeメディアライブラリへの画像の自動アップロードと管理を行いたい方
 
 ## インテグレーション {#integration}
 
-### ステップ 1: インテグレーションを設定する {#step-1-configure-your-integration}
+### ステップ1：インテグレーションを設定する {#step-1-configure-your-integration}
 
-Denadaで、左下隅にある会社名を選択し、**Team settings** > **Add integration**を選択します。
+Denadaで、プロフィールメニューから会社名を選択し、**Team settings** > **Add integration**を選択します。
 
-インテグレーションとして**Braze**を選択し、Brazeの**APIキー**を入力して、利用可能なリージョンのリストから**REST APIエンドポイント**を選択します。
+インテグレーションとして**Braze**を選択し、Brazeの**APIキー**を入力して、利用可能なリージョンのリストから**RESTエンドポイント**を選択します。
 
 {% alert note %}
 これは一度だけの設定です。認証情報が検証されると、設定は今後のすべてのエクスポートに対して保存されます。
 {% endalert %}
 
-### ステップ 2: テンプレートをBrazeにエクスポートする {#step-2-export-a-template-to-braze}
+### ステップ2：テンプレートをBrazeにエクスポートする {#step-2-export-a-template-to-braze}
 
 Denadaで、エディターでメールテンプレートを開き、**Export** > **Braze**を選択します。
 
 テンプレート名とメールの件名を入力します。画像の処理方法を選択します。
-- **Upload new:** すべての画像をBrazeメディアライブラリにアップロードします。
-- **Use existing:** 利用可能な場合、以前にアップロードした画像を再利用します。
+- **Upload new：**すべての画像をBrazeメディアライブラリにアップロードします。
+- **Use existing：**利用可能な場合、以前にアップロードした画像を再利用します。
 
 同じ名前のテンプレートがBrazeにすでに存在する場合、Denadaは競合を検出し、既存のテンプレートを上書きするか新しいテンプレートを作成するかを確認するプロンプトを表示します。
 

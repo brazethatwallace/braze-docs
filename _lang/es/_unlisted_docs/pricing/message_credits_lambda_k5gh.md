@@ -8,15 +8,15 @@ hide_toc: true
 
 # Message Credits - Lambda (confidencial) {#message-credits-lambda-confidential}
 
-> Message Credits es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Consola de Agente, SMS, MMS, RCS, WhatsApp y LINE. Message Credits proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
+> Message Credits es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp y LINE. Message Credits proporciona una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
 
 {% alert note %}
 Los diferentes productos tendrán distintas unidades de medida en los informes.<br><br>
-<b>Consola de Agente:</b> Invocaciones<br>
-<b>SMS:</b> Segmentos<br>
+<b>Agent Console:</b> Invocaciones<br>
+<b>SMS:</b> Segments<br>
 <b>MMS:</b> Envíos<br>
 <b>WhatsApp:</b> Mensajes entregados<br>
-<b>RCS:</b> Segmentos entregados, Envíos entregados<br>
+<b>RCS:</b> Segments entregados, envíos entregados<br>
 <b>LINE:</b> Envíos<br>
 <b>KakaoTalk:</b> Envíos<br>
 
@@ -29,14 +29,14 @@ Las definiciones de las columnas son las siguientes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Región final específica, país o tipo de acción que se envía a través de la plataforma Braze |
-| **Créditos por 1 envío** | Número exacto de créditos de mensaje para realizar un envío<br> (créditos por envío = ratio de créditos x multiplicador de destino) |
+| **Créditos por 1 envío** | Número exacto de Message Credits para realizar un envío<br> (créditos por envío = ratio de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabla de ratios de créditos para créditos de mensaje - Lambda {#credit-ratio-table-for-message-credits-lambda}
+## Tabla de ratios de créditos para Message Credits - Lambda {#credit-ratio-table-for-message-credits-lambda}
 
 {% details Haz clic para expandir %}
-<table class="credits-table" aria-label="Tabla de ratios de créditos para créditos de mensaje - Lambda">
+<table class="credits-table" aria-label="Tabla de ratios de créditos para Message Credits - Lambda">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -48,14 +48,14 @@ Las definiciones de las columnas son las siguientes:
         <th class="credits-column"><b>Créditos por 1 envío</b></th>
     </tr>
     <tr>
-        <td>Consola de Agente</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     </thead>
     <tbody>
 <tr>
-        <td>Consola de Agente</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -1920,118 +1920,118 @@ Las definiciones de las columnas son las siguientes:
         <td>0.08</td>
     </tr>
     <tr>
-        <td>Conector SMS BYO</td>
+        <td>BYO SMS Connector</td>
         <td>Infobip - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>Conector SMS BYO</td>
+        <td>BYO SMS Connector</td>
         <td>Twilio - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brasil - Básico</td>
+        <td>Brasil - Basic</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brasil - Único</td>
+        <td>Brasil - Single</td>
         <td>3.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Básico</td>
+        <td>Colombia - Basic</td>
         <td>1.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Único</td>
+        <td>Colombia - Single</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Francia - Básico</td>
+        <td>Francia - Basic</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Francia - Único</td>
+        <td>Francia - Single</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Alemania - Básico</td>
+        <td>Alemania - Basic</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Alemania - Único</td>
+        <td>Alemania - Single</td>
         <td>12.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italia - Básico</td>
+        <td>Italia - Basic</td>
         <td>4.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italia - Único</td>
+        <td>Italia - Single</td>
         <td>6.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>México - Básico</td>
+        <td>México - Basic</td>
         <td>6.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>México - Único</td>
+        <td>México - Single</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapur - Básico</td>
+        <td>Singapur - Basic</td>
         <td>4.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapur - Único</td>
+        <td>Singapur - Single</td>
         <td>8.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>España - Básico</td>
+        <td>España - Basic</td>
         <td>6.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>España - Único</td>
+        <td>España - Single</td>
         <td>13.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Suecia - Básico</td>
+        <td>Suecia - Basic</td>
         <td>7.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Suecia - Único</td>
+        <td>Suecia - Single</td>
         <td>10.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Reino Unido - Básico</td>
+        <td>Reino Unido - Basic</td>
         <td>7.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Reino Unido - Único</td>
+        <td>Reino Unido - Single</td>
         <td>14.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Estados Unidos - Básico - Obsoleto</td>
+        <td>Estados Unidos - Basic - Obsoleto</td>
         <td>1.00</td>
     </tr>
     <tr>
@@ -2051,14 +2051,14 @@ Las definiciones de las columnas son las siguientes:
 
 ------
 
-## Detalles de la Consola de Agente {#agent-console-details}
-Braze cobrará créditos de mensaje por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
+## Detalles de Agent Console {#agent-console-details}
+Braze cobrará Message Credits por las invocaciones de Agent Console enviadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
 ## Detalles del canal SMS/MMS {#smsmms-channel-details}
 
 ### Segmentos de SMS {#sms-segments}
 
-Los segmentos de mensaje SMS son la forma en que la industria de SMS contabiliza los mensajes. Un segmento de mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un solo despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos de mensaje. Enviar múltiples segmentos de mensaje generará cargos adicionales.
+Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se envía en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
 
 ### Segmentos de MMS {#mms-segments}
 
@@ -2066,13 +2066,13 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 
 ### Tipos de RCS {#rcs-types}
 
-RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta interacción como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
+RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
-- La facturación de RCS se basa en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
-    - **RCS básico:** Solo texto, hasta 160 caracteres
-    - **RCS único:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
-    - **RCS Rich (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **RCS Rich Media (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contabilizado como un solo mensaje
+- La facturación de RCS se centra en dos tipos de mensajes diferentes (con distinciones para EE. UU.):
+    - **Basic RCS:** Solo texto, hasta 160 caracteres
+    - **Single RCS:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
+    - **Rich RCS (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
+    - **Rich Media RCS (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
 
 ## Detalles del canal WhatsApp {#whatsapp-channel-details}
 
@@ -2082,15 +2082,15 @@ RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal d
 
 ### Webhooks
 
-Los webhooks pasaron a formar parte de los créditos de mensaje el 9 de diciembre de 2024. Braze cobrará créditos de mensaje por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
+Los webhooks pasaron a formar parte de Message Credits el 9 de diciembre de 2024. Braze cobrará Message Credits por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
 
 ### Conectores SMS propios (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará créditos de mensaje por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
+Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará Message Credits por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
 
 ### LINE
 
-Braze cobrará créditos de mensaje por cualquier mensaje de LINE enviado desde la plataforma Braze.
+Braze cobrará Message Credits por cualquier mensaje de LINE enviado desde la plataforma Braze.
 
 ## Desglose por región de facturación {#billing-region-breakdown}
 
@@ -2100,26 +2100,23 @@ Estados Unidos, Canadá
 
 ### Resto de África {#rest-of-africa}
 
-Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia,
-Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
+Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
 ### Resto de Asia Pacífico {#rest-of-asia-pacific}
 
-Afganistán, Australia, Bangladés, Camboya, China, Hong Kong, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Singapur, Sri Lanka, Taiwán, Tayikistán, Tailandia,
-Turkmenistán, Uzbekistán, Vietnam
+Afganistán, Australia, Bangladés, Camboya, China, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Sri Lanka, Taiwán, Tayikistán, Tailandia, Turkmenistán, Uzbekistán, Vietnam
 
 ### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
-Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Hungría, Letonia, Lituania, Macedonia, Moldavia, Polonia, Rumanía, Serbia, Eslovaquia, Eslovenia, Ucrania
+Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Letonia, Lituania, Macedonia, Moldavia, Serbia, Eslovaquia, Eslovenia, Ucrania
 
 ### Resto de Latinoamérica {#rest-of-latin-america}
 
-Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador,
-Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
+Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador, Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
 ### Resto de Oriente Medio {#rest-of-middle-east}
 
-Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Catar, Yemen
+Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Yemen
 
 ### Resto de Europa Occidental {#rest-of-western-europe}
 

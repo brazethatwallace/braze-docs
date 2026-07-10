@@ -10,7 +10,7 @@ toc_headers: h2
 
 # Plantillas de carrusel de WhatsApp {#whatsapp-carousel-templates}
 
-> Las plantillas de carrusel de WhatsApp te permiten crear mensajes interactivos con múltiples tarjetas por las que los usuarios pueden deslizarse. Cada carrusel puede contener hasta 10 tarjetas con imágenes o videos, junto con botones personalizables para la interacción. Esta característica es ideal para mostrar tus productos y servicios, o contenido de varios pasos en un formato visualmente atractivo.
+> Las plantillas de carrusel de WhatsApp te permiten crear mensajes interactivos con múltiples tarjetas por las que los usuarios pueden deslizarse. Cada carrusel puede contener hasta 10 tarjetas con imágenes o videos, junto con botones personalizables para la participación. Esta característica es ideal para mostrar tus productos y servicios, o contenido de varios pasos en un formato visualmente atractivo.
 
 ## Requisitos previos {#prerequisites}
 
@@ -32,13 +32,13 @@ Después de enviar la plantilla, aparece en la lista de plantillas de la WABA y 
 
 ### Paso 1: Acceder al constructor de plantillas {#step-1-access-the-template-builder}
 
-1. En Braze, ve a **Templates**.
-2. Selecciona **WhatsApp Templates** de las opciones disponibles.
+1. En Braze, ve a **Plantillas**.
+2. Selecciona **Plantillas de WhatsApp** de las opciones disponibles.
 
 ![Plantillas de WhatsApp en el menú de navegación de plantillas.]({% image_buster /assets/img/whatsapp/templates/whatsapp_templates.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. Selecciona **Create Carousel Template**.
+3. Selecciona **Crear plantilla de carrusel**.
 
 ![Botón para crear una plantilla de carrusel.]({% image_buster /assets/img/whatsapp/templates/create_carousel_template.png %})
 
@@ -58,7 +58,7 @@ Completa los campos obligatorios.
 
 ### Paso 3: Añadir contenido del cuerpo {#step-3-add-body-content}
 
-Cada mensaje de carrusel debe comenzar con contenido del cuerpo, que es el texto que aparece encima de las tarjetas del carrusel.
+Cada mensaje de carrusel debe comenzar con contenido del cuerpo, que es el texto que aparece antes de las tarjetas del carrusel.
 
 Puedes incluir variables de Liquid para personalización, como {% raw %}`{{first_name}}`{% endraw %}, que crea un espacio de variable vacío que puede llenarse con contenido dinámico o modificarse más adelante al usar la plantilla en campañas. Las variables no pueden colocarse al principio ni al final del contenido del cuerpo.
 
@@ -68,13 +68,13 @@ Antes de crear tarjetas individuales, define la estructura general del carrusel 
 
 #### Tipo de medio {#media-type}
 
-Elige el tipo de medio: **Image** o **Video**. Se usa para todas las tarjetas.
+Elige el tipo de medio: **Imagen** o **Video**. Se usa para todas las tarjetas.
 
-![Compositor con opciones para seleccionar un tipo de medio de imagen o video.]({% image_buster /assets/img/whatsapp/templates/media_types.png %})
+![Creador con opciones para seleccionar un tipo de medio de imagen o video.]({% image_buster /assets/img/whatsapp/templates/media_types.png %})
 
 #### Configuración de botones {#button-configuration}
 
-Elige el tipo de botón: **Quick Reply**, **Phone Number** o **Visit Website**. Esta configuración se usa para todas las tarjetas. Luego, selecciona hasta dos botones por tarjeta.
+Elige el tipo de botón: **Respuesta rápida**, **Número de teléfono** o **Visitar sitio web**. Esta configuración se usa para todas las tarjetas. Luego, selecciona hasta dos botones por tarjeta.
 
 ### Paso 5: Crear tarjetas del carrusel {#step-5-create-carousel-cards}
 
@@ -93,14 +93,14 @@ No puedes cambiar el número de tarjetas después de enviar la plantilla a Meta 
 Usa variables de Liquid estratégicamente para personalizar contenido como porcentajes de descuento, nombres de productos u ofertas específicas para el usuario. Las variables pueden añadirse al texto de la tarjeta, texto de los botones y URLs.
 {% endalert %}
 
-![Compositor con tarjetas de carrusel de ejemplo promocionando alimentos nutritivos.]({% image_buster /assets/img/whatsapp/templates/example_carousel_cards.png %})
+![Creador con tarjetas de carrusel de ejemplo promocionando alimentos nutritivos.]({% image_buster /assets/img/whatsapp/templates/example_carousel_cards.png %})
 
 ### Paso 6: Previsualizar y enviar {#step-6-preview-and-submit}
 
-1. Usa la sección **Preview** para ver cómo aparecerá tu carrusel a los usuarios.
-2. Selecciona **Submit to Meta for review** para que Braze envíe la plantilla a Meta para su aprobación.
+1. Usa la sección **Vista previa** para ver cómo aparecerá tu carrusel a los usuarios.
+2. Selecciona **Enviar a Meta para revisión** para que Braze envíe la plantilla a Meta para su aprobación.
 3. La aprobación suele tardar unos minutos, pero puede tomar hasta 24 horas.
-4. Comprueba el estado de la plantilla en tu lista de **Templates** en la página de plantillas de WhatsApp o en el selector de Canvas y Campaign.
+4. Comprueba el estado de la plantilla en tu lista de **Plantillas** en la página de plantillas de WhatsApp o en el selector de Canvas y Campaign.
 
 {% alert note %}
 El envío de prueba no está disponible hasta que Meta apruebe la plantilla. El estado de la plantilla se muestra como **Draft** durante la creación y cambia a **Approved** después de que Meta complete la revisión.
@@ -108,7 +108,7 @@ El envío de prueba no está disponible hasta que Meta apruebe la plantilla. El 
 
 ## Usar plantillas de carrusel {#use-carousel-templates}
 
-Después de que Meta apruebe tu plantilla de carrusel, puedes usarla en campañas y Canvas. El proceso es similar para ambos tipos de mensaje.
+Después de que Meta apruebe tu plantilla de carrusel, puedes usarla en Campaigns y Canvas. El proceso es similar para ambos tipos de mensaje.
 
 ### Paso 1: Crear un mensaje de WhatsApp {#step-1-create-a-whatsapp-message}
 
@@ -146,7 +146,7 @@ Cuando tu plantilla se carga, contiene contenido bloqueado y editable.
 - Si enviaste la plantilla con Liquid (por ejemplo, `{{first_name}}`), Braze lo preserva y muestra automáticamente.
 - Puedes cambiar el Liquid a diferentes variables (por ejemplo, cambiar de `{{first_name}}` a `{{last_name}}`).
 - Las imágenes con variables pueden hacerse dinámicas usando URLs con Liquid.
-- Puedes subir nuevas imágenes desde la Biblioteca de medios de Braze en lugar de usar los medios enviados.
+- Puedes subir nuevas imágenes desde la biblioteca de medios de Braze en lugar de usar los medios enviados.
 {% endraw %}
 
 #### Ejemplo {#example}
@@ -156,9 +156,9 @@ Cuando tu plantilla se carga, contiene contenido bloqueado y editable.
 {% endtab %}
 {% endtabs %}
 
-### Paso 4: Lanzar tu campaña o Canvas {#step-4-launch-your-campaign-or-canvas}
+### Paso 4: Lanzar tu Campaign o Canvas {#step-4-launch-your-campaign-or-canvas}
 
-Después de la composición, continúa con el flujo de trabajo de lanzamiento de tu campaña o Canvas, incluyendo las pruebas. La plantilla de carrusel funciona como cualquier otra plantilla de mensaje de WhatsApp.
+Después de la composición, continúa con el flujo de trabajo de lanzamiento de tu Campaign o Canvas, incluyendo las pruebas. La plantilla de carrusel funciona como cualquier otra plantilla de mensaje de WhatsApp.
 
 ## Mejores prácticas {#best-practices}
 
@@ -166,13 +166,13 @@ Después de la composición, continúa con el flujo de trabajo de lanzamiento de
 
 - **Ubicación del contenido del cuerpo:** las variables no pueden colocarse al final del contenido del cuerpo. Añade al menos una palabra o signo de puntuación después de cada variable.
 - **Estructura de tarjetas consistente:** todas las tarjetas deben tener la misma forma, tipo de medio y configuración de botones. Planifica tu contenido en consecuencia.
-- **Cantidad óptima de tarjetas:** aunque puedes crear hasta 10 tarjetas, considera la experiencia del usuario. Demasiadas tarjetas pueden resultar abrumadoras; de 3 a 5 tarjetas funcionan bien para la mayoría de los casos de uso.
+- **Cantidad óptima de tarjetas:** aunque puedes crear hasta 10 tarjetas, considera la experiencia del usuario. Demasiadas tarjetas pueden resultar abrumadoras; de 3 a 5 tarjetas funcionan bien para la mayoría de los ejemplos.
 - **Valores predeterminados:** al usar variables de Liquid, proporciona siempre valores predeterminados para una vista previa precisa. Esto ayuda a confirmar que el mensaje se muestra correctamente si faltan ciertos datos del perfil de usuario.
 
 ### Cuentas de WhatsApp Business y grupos de suscripción {#whatsapp-business-accounts-and-subscription-groups}
 
 - **Entiende cómo se comparten las plantillas:** las plantillas se comparten entre todos los grupos de suscripción dentro de la misma cuenta de WhatsApp Business (WABA), pero no entre diferentes WABAs. Planifica en consecuencia si administras múltiples WABAs.
-- **Organiza por WABA:** si tienes múltiples WABAs, considera organizar tus plantillas por cuenta de negocio para evitar confusiones al seleccionar plantillas en campañas.
+- **Organiza por WABA:** si tienes múltiples WABAs, considera organizar tus plantillas por cuenta de negocio para evitar confusiones al seleccionar plantillas en Campaigns.
 
 ### Pruebas y aprobación {#testing-and-approval}
 
@@ -184,7 +184,7 @@ Después de la composición, continúa con el flujo de trabajo de lanzamiento de
 
 | Problema | Solución |
 | --- | --- |
-| La plantilla no aparece en la campaña | Verifica que el grupo de suscripción seleccionado pertenezca a la misma WABA que la plantilla. Además, comprueba que el estado de la plantilla sea **Approved** y no esté aún en estado **Draft** o **Pending**. |
+| La plantilla no aparece en la Campaign | Verifica que el grupo de suscripción seleccionado pertenezca a la misma WABA que la plantilla. Además, comprueba que el estado de la plantilla sea **Approved** y no esté aún en estado **Draft** o **Pending**. |
 | No se puede colocar una variable al final del cuerpo | Mueve la variable antes en el texto y añade al menos un carácter o signo de puntuación después. Este es un requisito de Meta para las plantillas de WhatsApp. |
 | Las variables no se completan en la prueba | Asegúrate de que la sintaxis de Liquid sea correcta y de que los atributos existan en los perfiles de usuario. Comprueba si hay errores tipográficos en los nombres de las variables y verifica que los valores predeterminados estén configurados donde corresponda. |
 | El nombre de la plantilla tiene espacios | Los nombres de plantilla no pueden contener espacios. Usa guiones bajos en su lugar (`template_name`) o elimina los espacios por completo (`templatename`). |

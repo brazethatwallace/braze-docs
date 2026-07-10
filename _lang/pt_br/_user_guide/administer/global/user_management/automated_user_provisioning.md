@@ -14,13 +14,17 @@ alias: /scim/automated_user_provisioning/
 
 ## Acessando as configurações de provisionamento SCIM {#accessing-scim-provisioning-settings}
 
-1. No dashboard da Braze, acesse **Configurações** > **Configurações de administrador** > **Provisionamento de SCIM** e selecione **Configure SCIM integration**.
-2. Na etapa **Braze configuration**, selecione um método de provisionamento e forneça as configurações de acesso.
+{% alert important %}
+A disponibilidade do provisionamento SCIM depende da sua edição da plataforma. Se esse recurso não estiver no seu espaço de trabalho, entre em contato com seu gerente de sucesso do cliente para obter informações.
+{% endalert %}
+
+1. No dashboard da Braze, acesse **Configurações** > **Configurações de administrador** > **Provisionamento de SCIM** e selecione **Configurar integração SCIM**.
+2. Na etapa **Configuração da Braze**, selecione um método de provisionamento e forneça as configurações de acesso.
 
 ![Uma página para configurar a integração SCIM com seções para selecionar um método de provisionamento e fornecer configurações de acesso.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. Na etapa **IdP configuration**, siga os passos dentro da plataforma para o método de provisionamento selecionado.
+3. Na etapa **Configuração do IdP**, siga os passos dentro da plataforma para o método de provisionamento selecionado.
 
 {% tabs %}
 {% tab Okta - Braze app %}
@@ -34,7 +38,7 @@ Use a opção **Okta - Braze app** se você configurou o app da Braze para SAML 
 ### Etapa 1.1: Ativar o SCIM {#step-11-enable-scim}
 
 1. No Okta, acesse **Applications** > **Applications** e selecione **Create App Integration**. Selecione **SAML 2.0** como método de login.
-2. Preencha os seguintes dados (que estão localizados na [etapa **IdP configuration**](#accessing-scim-provisioning-settings)) para criar um app personalizado:
+2. Preencha os seguintes dados (que estão localizados na [etapa **Configuração do IdP**](#accessing-scim-provisioning-settings)) para criar um app personalizado:
 - Logotipo do app
 - URL de login único
 - URL do público (SP entity ID)

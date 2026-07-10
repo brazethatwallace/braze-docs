@@ -16,6 +16,7 @@ Si tu [correo electrónico de prueba]({{site.baseurl}}/developer_guide/platform_
 * [Conflictos de extensiones](#check-conflicts)
 * [Renderizado de correo electrónico](#check-rendering)
 * [Inlining de CSS](#switch-css-inlining)
+* [Espacio en blanco debajo de las imágenes](#white-space-under-images)
 
 ### Conflictos de extensiones {#extension-conflicts}
 
@@ -35,5 +36,25 @@ Los correos electrónicos se renderizan de forma diferente según los navegadore
 ### Inlining de CSS {#css-inlining}
 
 Hay ocasiones en las que las vistas previas en Inbox Vision aún no coinciden con lo que se envía con Braze. Esto puede deberse a la diferencia en el inlining de CSS realizado por Braze y por otras herramientas. Si sospechas que este es el caso, desactiva el inlining de CSS.
+
+### Espacio en blanco debajo de las imágenes {#white-space-under-images}
+
+Si notas un espacio en blanco o líneas que aparecen debajo de las imágenes en tus correos electrónicos de prueba, esto suele deberse a cómo los clientes de correo electrónico renderizan los elementos de nivel inline. Las imágenes son de nivel inline de forma predeterminada y se alinean con la línea base, lo que permite a los navegadores acomodar los descendentes (la parte de letras como "g" o "y" que se extiende por debajo de la línea base). Esto crea un pequeño espacio que aparece como espacio en blanco.
+
+Para solucionarlo, añade `display: block;` al CSS de tu imagen:
+
+```html
+<style>
+  img {
+    display: block;
+  }
+</style>
+```
+
+Alternativamente, aplica el estilo directamente a imágenes específicas:
+
+```html
+<img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
 
 ¿Aún necesitas ayuda? Abre un [ticket de soporte]({{site.baseurl}}/braze_support).

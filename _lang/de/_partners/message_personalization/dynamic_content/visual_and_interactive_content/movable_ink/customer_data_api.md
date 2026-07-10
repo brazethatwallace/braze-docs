@@ -30,7 +30,7 @@ Weitere Informationen über Stories, die Movable Ink Customer Data API und darü
 
 ## Integration
 
-### 1. Schritt: Erstellen Sie eine Webhook-Campaign in Braze {#step-1-create-a-webhook-campaign-in-braze}
+### Schritt 1: Erstellen Sie eine Webhook-Campaign in Braze {#step-1-create-a-webhook-campaign-in-braze}
 
 #### Schritt 1a: Erstellen Sie eine neue Campaign {#step-1a-create-a-new-campaign}
 
@@ -79,7 +79,7 @@ Um Ihren Webhook zu testen, gehen Sie wie folgt vor:
 
 ![Webhook-Antwortnachricht in Braze mit einer 200-OK-Antwort.]({% image_buster /assets/img/movable_ink/cd_api_webhook_response.png %}){: style="max-width:75%" }
 
-### 2. Schritt: Schließen Sie die Einrichtung Ihrer Campaign ab {#step-2-finalize-your-campaign-setup}
+### Schritt 2: Schließen Sie die Einrichtung Ihrer Campaign ab {#step-2-finalize-your-campaign-setup}
 
 #### Schritt 2a: Planen Sie Ihre Campaign {#step-2a-schedule-your-campaign}
 
@@ -111,7 +111,7 @@ Falls gewünscht, können Sie dieser Campaign innerhalb von Braze Konversions-Ev
 
 Da der Webhook jedoch nur zum Streamen von Daten gedacht ist, ist die Attribution auf dieser Ebene wahrscheinlich weniger nützlich als die Betrachtung der Attribution auf Campaign-Ebene, nachdem die Verhaltensdaten von Braze zur Personalisierung von Inhalten verwendet wurden.
 
-### 3. Schritt: Campaign starten {#step-3-launch-the-campaign}
+### Schritt 3: Campaign starten {#step-3-launch-the-campaign}
 
 Überprüfen Sie Ihre Webhook-Einrichtung und starten Sie Ihre Campaign.
 
@@ -131,7 +131,7 @@ Sobald Movable Ink eine `user_id` für eine einzelne Nutzer:in erhält, müssen 
 
 Bevor Sie den Konnektor zur Customer Data API von Movable Ink einrichten, stellen Sie sicher, dass Sie Ihre Event-Payloads mit Ihrem Movable Ink Client Experience Team teilen. Dies ermöglicht Movable Ink die Abbildung Ihrer Events auf das Event-Schema und verhindert, dass API-Aufrufe abgelehnt werden oder fehlschlagen.
 
-Sie können in Braze einen Event-Payload mit beliebigen Event-Eigenschaften erzeugen. Generieren Sie einen Beispiel-Payload für eine:n zufällige:n Nutzer:in oder durch die Suche nach einer bestimmten Nutzer-ID. Siehe [Schritt 1d](#step-1d) oben für Details.
+Sie können in Braze einen Event-Payload mit beliebigen Event-Eigenschaften erzeugen. Generieren Sie einen Beispiel-Payload für eine:n zufällige:n Nutzer:in oder durch die Suche nach einer bestimmten Nutzer-ID. Siehe [Schritt 1d](#step-1d) für Details.
 
 Teilen Sie diesen Beispiel-Payload mit Ihrem Movable Ink Client Experience Team. Vergewissern Sie sich, dass keine sensiblen personenbezogenen Daten im Beispiel-Payload enthalten sind (wie z. B. E-Mail-Adresse, Telefonnummer oder vollständige Geburtsdaten).
 

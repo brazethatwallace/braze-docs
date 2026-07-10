@@ -302,7 +302,7 @@ Cet exemple décrit comment un agent Canvas peut déduire la motivation actuelle
 Ces instructions supposent que les informations suivantes sont disponibles :
 
 - Attributs utilisateur tels que le prénom, le pays, le métier, le rôle, la spécialité et les produits récemment consultés
-- Historique d'engagement, y compris les ouvertures, clics et conversions récents de campagnes ainsi que les messages qui les ont provoqués (pas la fréquence d'engagement ni les horodatages de récence)
+- Historique d'engagement, y compris les ouvertures, clics et conversions récents de Campaign ainsi que les messages qui les ont provoqués (pas la fréquence d'engagement ni les horodatages de récence)
 - Variables de contexte pour les clés de routage éligibles, les favoris récents, les termes de recherche récents et les propriétés d'événement spécifiques au déclencheur
 - **Contexte d'agent** depuis les [instructions de la console Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) :
     - **Tout le contexte Canvas :** Transmet toute variable de contexte supplémentaire à l'agent que vous n'avez pas déjà définie dans vos instructions d'agent, au cas où elles seraient utiles ou pertinentes
@@ -375,7 +375,7 @@ Ces instructions supposent que les informations suivantes sont disponibles :
 
 - Attributs utilisateur tels que le pays, la langue, l'étape du cycle de vie, le niveau de fidélité, les catégories favorites, les articles récemment consultés, les termes de recherche récents, les articles dans le panier et la catégorie du dernier achat
 - Contexte à forte intention, y compris les actions et articles à forte intention, la dernière catégorie consultée, les signaux de session en cours et les listes éligibles pour les catégories, les expériences et les identifiants d'articles
-- Historique d'engagement à partir des données d'interaction récentes de campagnes et de Canvas, y compris les messages qui ont provoqué les ouvertures, clics et conversions (pas la fréquence d'engagement ni les horodatages de récence)
+- Historique d'engagement à partir des données d'interaction récentes de Campaign et de Canvas, y compris les messages qui ont provoqué les ouvertures, clics et conversions (pas la fréquence d'engagement ni les horodatages de récence)
 - **Contexte d'agent** depuis les [instructions de la console Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) :
     - **Tout le contexte Canvas :** Transmet toute variable de contexte supplémentaire à l'agent que vous n'avez pas déjà définie dans vos instructions d'agent, au cas où elles seraient utiles ou pertinentes
 

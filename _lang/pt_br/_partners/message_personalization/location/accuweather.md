@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AccuWeather
 
-> A [AccuWeather](https://www.accuweather.com/) é uma empresa de mídia que fornece serviços de previsão do tempo em todo o mundo. Com a AccuWeather, você pode enriquecer e personalizar suas campanhas de marketing, bem como automatizar traduções por meio do uso do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) da Braze.
+> A [AccuWeather](https://www.accuweather.com/) é uma empresa de mídia que fornece serviços de previsão do tempo em todo o mundo. Com a AccuWeather, você pode enriquecer e personalizar suas campanhas de marketing, bem como automatizar traduções por meio do uso do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) da Braze.
 
 _Essa integração é mantida pela AccuWeather._
 
@@ -64,10 +64,10 @@ Um detalhamento das duas chamadas de Conteúdo conectado está disponível nos e
 
 {% tabs %}
 {% tab Locations %}
-#### Exemplo de API de locais {#locations-api-example}
+### Exemplo de API de locais {#locations-api-example}
 
 {% raw %}
-Na primeira tag `connected_content`, é feita uma solicitação GET para a [API de locais](https://apidev.accuweather.com/developers/locationsAPIguide). Para este exemplo, você também pode aproveitar o `{{${city}}}` do usuário se não tiver um atributo personalizado de código postal.
+Na primeira tag `connected_content`, é feita uma solicitação GET para a [API de locais](https://apidev.accuweather.com/developers/locationsAPIguide). Para este exemplo, você também pode alavancar o `{{${city}}}` do usuário se não tiver um atributo personalizado de código postal.
 
 ```
 {% connected_content http://dataservice.accuweather.com/locations/v1/postalcodes/{{${country}}}/search?q={{custom_attribute.${Zip Code}}}&apikey={your API key} :save location_info %}
@@ -157,7 +157,7 @@ Esse objeto JSON pode ser armazenado em uma variável local `location_info` espe
 {% endtab %}
 {% tab Condições atuais %}
 
-#### Exemplo de API de condições atuais {#current-conditions-api-example}
+### Exemplo de API de condições atuais {#current-conditions-api-example}
 
 Para a segunda tag `connected_content`, é feita uma solicitação GET à [API de condições atuais](https://apidev.accuweather.com/developers/currentConditionsAPIGuide). A **chave do local** precisará ser adicionada ao URL da solicitação. Aqui está o exemplo da tag `connected_content`:
 

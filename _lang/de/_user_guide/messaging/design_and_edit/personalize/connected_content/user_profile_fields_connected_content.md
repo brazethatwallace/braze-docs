@@ -42,13 +42,13 @@ Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${lan
 Beachten Sie, dass die `:rerender`-Flag-Option nur eine Ebene tief wirkt. Wenn die Connected-Content-Antwort selbst weitere Connected-Content-Tags oder Katalog-Tags enthält, wird Braze diese zusätzlichen Tags nicht erneut rendern.
 {% endalert %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
-### `json_escape` mit Liquid-Tags verwenden, die das JSON-Format beschädigen könnten {#use-jsonescape-with-liquid-tags-that-could-break-the-json-format}
+### `json_escape` mit Liquid-Tags verwenden, die das JSON-Format beschädigen könnten {#use-json_escape-with-liquid-tags-that-could-break-the-json-format}
 
 Wenn Sie `:rerender` verwenden, fügen Sie den `json_escape`-Filter zu jedem Liquid-Tag hinzu, das potenziell das JSON-Format beschädigen könnte. Wenn Ihre Liquid-Tags Zeichen enthalten, die das JSON-Format beschädigen, wird die gesamte Connected-Content-Antwort als Text interpretiert und in die Nachricht eingefügt, und keine der Variablen wird gespeichert.
 
-Wenn beispielsweise die `message`-Ereigniseigenschaft im folgenden Beispiel Zeichen enthält, die das JSON-Format beschädigen könnten, fügen Sie den `json_escape`-Filter wie in diesem Beispiel hinzu:
+Wenn beispielsweise die Ereigniseigenschaft `message` im folgenden Beispiel Zeichen enthält, die das JSON-Format beschädigen könnten, fügen Sie den `json_escape`-Filter wie in diesem Beispiel hinzu:
 
 {% raw %}
 ```liquid

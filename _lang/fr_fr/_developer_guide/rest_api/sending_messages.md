@@ -18,7 +18,7 @@ Cette approche est compatible avec tous les canaux de communication pris en char
 | --- | --- | --- |
 | **ID de Campaign** | Facultatif. Omettez-le pour envoyer sans suivi de Campaign dans le tableau de bord, ou fournissez un ID de Campaign API ainsi que `message_variation_id` dans chaque message pour effectuer le suivi dans le tableau de bord. | Requis. |
 | **Contenu du message** | Vous devez inclure un objet `messages` dans la requête (par exemple, `messages.whats_app`, `messages.email`). | Non accepté. Le contenu du message est défini dans la Campaign sur le tableau de bord de Braze. |
-| **Cas d'utilisation** | Envoyer un message dont le contenu est entièrement spécifié dans la requête API. | Déclencher une Campaign préconfigurée (contenu dans le tableau de bord) vers des destinataires spécifiques via l'API. |
+| **Cas d'usage** | Envoyer un message dont le contenu est entièrement spécifié dans la requête API. | Déclencher une Campaign préconfigurée (contenu dans le tableau de bord) vers des destinataires spécifiques via l'API. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Deux méthodes d'envoi" }
 
 Pour obtenir tous les détails relatifs aux requêtes et aux réponses, consultez les références des endpoints [Envoyer des messages immédiatement (API uniquement)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) et [Envoyer des Campaigns à l'aide d'une distribution déclenchée par l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).

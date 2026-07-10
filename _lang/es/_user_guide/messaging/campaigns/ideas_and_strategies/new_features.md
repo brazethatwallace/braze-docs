@@ -42,7 +42,7 @@ Este nuevo filtro puede reemplazar el filtro heredado "Nombre de versión de la 
 **Importante**
 
 * Las aplicaciones Android tienen tanto un [`versionName`](https://developer.android.com/reference/android/content/pm/PackageInfo#versionName) legible para humanos como un [`versionCode`](https://developer.android.com/reference/android/content/pm/PackageInfo.html#getLongVersionCode()) interno. El filtro Número de versión de la aplicación usa `versionCode` porque se garantiza que se incrementa con cada lanzamiento en la tienda de aplicaciones.
-* Esto puede causar confusión cuando el `versionName` y el `versionCode` de tu aplicación se desincronizan, especialmente porque ambos campos se pueden ver desde el dashboard de Braze. Como buena práctica, verifica que el `versionName` y el `versionCode` de tu aplicación se incrementen juntos.
+* Esto puede causar confusión cuando el `versionName` y el `versionCode` de tu aplicación se desincronizan, especialmente porque ambos campos se pueden ver desde el panel de Braze. Como buena práctica, verifica que el `versionName` y el `versionCode` de tu aplicación se incrementen juntos.
 * Si necesitas filtrar por el campo legible `versionName` en su lugar (poco común), usa el filtro Nombre de versión de la aplicación.
 
 #### Requisitos del SDK {#sdk-requirements}

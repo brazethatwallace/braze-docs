@@ -15,7 +15,7 @@ Os pontos de dados são baseados em informações registradas em perfis de usuá
 
 ## Definição {#definition}
 
-"Pontos de dados" referem-se a uma unidade faturável de uso dos Serviços da Braze, medida por um início de sessão, fim de sessão, evento personalizado ou compra registrada, bem como qualquer atributo definido em um perfil de usuário final. Para fins de clareza, cada um dos dados mencionados acima (como início da sessão, fim da sessão, evento personalizado ou compra registrada, bem como qualquer atributo) definidos para o perfil de um usuário final em um determinado momento deve contar como um único ponto de dados.
+"Pontos de dados" referem-se a uma unidade faturável de uso dos Serviços da Braze, medida por um início de sessão, fim de sessão, evento personalizado ou compra registrada, bem como qualquer atributo definido em um perfil de usuário final. Para fins de clareza, cada um dos dados mencionados acima nesta seção (como início da sessão, fim da sessão, evento personalizado ou compra registrada, bem como qualquer atributo) definidos para o perfil de um usuário final em um determinado momento deve contar como um único ponto de dados.
 
 Os dados e eventos coletados por padrão pelos Serviços da Braze, incluindo, por exemplo, tokens por push, informações do dispositivo e todos os eventos de rastreamento de engajamento de Campaign, como aberturas de e-mail e cliques em notificações por push, *não* são contados como pontos de dados.
 
@@ -42,7 +42,7 @@ Em suma, os pontos de dados são acumulados quando os dados de perfil de um usu�
 
 Você pode encontrar um detalhamento de como a Braze acumula pontos de dados nas seções a seguir. Se você tiver alguma dúvida sobre as nuances dos pontos de dados da Braze, seu gerente de conta da Braze poderá respondê-la.
 
-Para ingestão via API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela solicitação (consulte as tabelas de faturamento abaixo e [Circunstâncias especiais](#special-circumstances)).
+Para ingestão via API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela solicitação (consulte as tabelas de faturamento na seção a seguir e [Circunstâncias especiais](#special-circumstances)).
 
 As seguintes ações não registram pontos de dados:
 - Exclusão de usuários da Braze
@@ -160,7 +160,7 @@ table td {
 | Dados de uso do app | Fim da sessão | |
 | Atributos personalizados | Todos os atributos personalizados | |
 | Eventos personalizados | Todos os eventos personalizados | |
-| Propriedades de eventos personalizados | Todas as propriedades de eventos personalizados | As propriedades de eventos personalizados ativadas para segmentação com os filtros `X Custom Event Property in Y Days` ou `X Purchase Property in Y Days` são todas contadas como pontos de dados separados, além do ponto de dados contado pelo próprio evento personalizado.
+| Propriedades de eventos personalizados | Todas as propriedades de eventos personalizados | As propriedades de eventos personalizados ativadas para segmentação com os filtros `X Custom Event Property in Y Days` ou `X Purchase Property in Y Days` são todas contadas como pontos de dados separados, além do ponto de dados contado pelo próprio evento personalizado. |
 | Compras | Todas as compras | |
 | Propriedades de compra | Todas as propriedades de compra | |
 | Atribuição de coorte do Amplitude | Todas as atribuições | |

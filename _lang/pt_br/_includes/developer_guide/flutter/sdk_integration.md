@@ -10,8 +10,8 @@ Antes de integrar o SDK Braze Flutter, você precisará concluir o seguinte:
 
 | Pré-requisito | Descrição |
 | --- | --- |
-| Identificador do app na API da Braze | Para localizar o identificador do seu app, acesse **Configurações** > **APIs e identificadores** > **Identificadores de apps**. Para saber mais, consulte [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types/#app-identifier).|
-| Endpoint de SDK da Braze | Sua URL de endpoint de SDK (por exemplo, `sdk.<cluster>.braze.com`). Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
+| Identificador do app na API da Braze | Para localizar o identificador do seu app, acesse **Configurações** > **APIs e identificadores** > **Identificadores de apps**. Para saber mais, consulte [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types#app-identifier).|
+| Endpoint de SDK da Braze | Sua URL de endpoint de SDK (por exemplo, `sdk.<cluster>.braze.com`). Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints).|
 | SDK do Flutter | Instale o [SDK oficial do Flutter](https://docs.flutter.dev/get-started/install) e certifique-se de que ele atenda à [versão mínima suportada](https://github.com/braze-inc/braze-flutter-sdk#requirements) pelo SDK Braze Flutter. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -235,7 +235,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### Etapa 3: Configure o plug-in {#step-3-set-up-the-plugin}
+### Etapa 3: Configurar o plug-in {#step-3-set-up-the-plugin}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -248,7 +248,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 final BrazePlugin braze = BrazePlugin();
 ```
 
-Em seguida, chame `initialize()` com a chave de API do identificador do seu app e o endpoint de SDK para criar a instância da Braze. Veja as opções abaixo para saber onde chamar esse método no seu app.
+Em seguida, chame `initialize()` com a chave de API do identificador do seu app e o endpoint de SDK para criar a instância da Braze. Veja as opções abaixo para saber onde chamar esse método no fluxo do seu app.
 
 #### Inicialização padrão {#standard-initialization}
 
@@ -318,6 +318,7 @@ Para evitar comportamentos indefinidos, aloque e utilize apenas uma única inst�
 {% endtabs %}
 
 ## Testando a integração {#testing-the-integration}
+
 Você pode verificar se o SDK está integrado conferindo as estatísticas de sessão no dashboard. Se você executar seu aplicativo em qualquer uma das plataformas, deverá ver uma nova sessão no dashboard (na seção **Visão geral**).
 
 Abra uma sessão para um usuário específico chamando o seguinte código no seu app.

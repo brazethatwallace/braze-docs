@@ -13,7 +13,7 @@ toc_headers: h2
 
 # 이메일 환경설정 {#email-preferences}
 
-> 이메일 환경설정은 사용자 지정 바닥글, 사용자 지정 옵트인 및 옵트아웃 페이지 등 특정 발신 이메일 설정을 구성하는 곳입니다. 이러한 옵션을 발신 이메일에 포함하면 사용자에게 매끄럽고 일관된 경험을 제공할 수 있습니다.
+> 이메일 환경설정은 커스텀 바닥글, 커스텀 옵트인 및 옵트아웃 페이지 등 특정 발신 이메일 설정을 구성하는 곳입니다. 이러한 옵션을 발신 이메일에 포함하면 사용자에게 매끄럽고 일관된 경험을 제공할 수 있습니다.
 
 **이메일 환경설정**은 대시보드의 **설정**에서 찾을 수 있습니다.
 
@@ -36,7 +36,7 @@ toc_headers: h2
 
 **From Display Name**, **Local Part**, **Domain** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 사용하여 커스텀 속성을 기반으로 발신자 이름과 이메일 주소를 동적으로 템플릿화할 수 있습니다. **Domain** 필드에서 Liquid를 사용하려면 이메일 Campaign의 **Sending Info** 옵션으로 이동하여 **Customize from display name + address** 체크박스를 선택해야 합니다.
 
-![보낸 사람 표시 이름, 주소, 도메인을 사용자 지정하는 필드가 있는 발송 설정.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
+![보낸 사람 표시 이름, 주소, 도메인을 커스터마이즈하는 필드가 있는 발송 설정.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
 예를 들어, 조건 로직을 사용하여 다른 브랜드나 지역에서 발송할 수 있습니다:
 
@@ -284,33 +284,33 @@ CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 �
 ## 가입 페이지 및 바닥글 {#subscription-pages-and-footers}
 
 {% tabs local %}
-{% tab 사용자 지정 바닥글 %}
+{% tab 커스텀 바닥글 %}
 
-상업 이메일의 경우, [CAN-SPAM 법](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003)은 모든 상업 이메일에 탈퇴 옵션을 포함하도록 요구합니다. 사용자 지정 바닥글 설정을 사용하면 CAN-SPAM을 준수하면서 이메일 옵트아웃 바닥글을 사용자 지정할 수 있습니다. 규정을 준수하려면 이 워크스페이스의 Campaign으로 발송되는 모든 이메일에 사용자 지정 바닥글을 추가해야 합니다.
+상업 이메일의 경우, [CAN-SPAM 법](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003)은 모든 상업 이메일에 탈퇴 옵션을 포함하도록 요구합니다. 커스텀 바닥글 설정을 사용하면 CAN-SPAM을 준수하면서 이메일 옵트아웃 바닥글을 커스터마이즈할 수 있습니다. 규정을 준수하려면 이 워크스페이스의 Campaign으로 발송되는 모든 이메일에 커스텀 바닥글을 추가해야 합니다.
 
-이메일 메시징을 위한 사용자 지정 바닥글을 만들 때 다음 요구 사항에 유의하세요:
+이메일 메시징을 위한 커스텀 바닥글을 만들 때 다음 요구 사항에 유의하세요:
 - 탈퇴 URL과 실제 우편 주소를 포함해야 합니다.
 - 100 KB 미만이어야 합니다.
 
-![CAN-SPAM 준수를 위한 탈퇴 링크 및 우편 주소 필드가 있는 사용자 지정 이메일 바닥글 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![CAN-SPAM 준수를 위한 탈퇴 링크 및 우편 주소 필드가 있는 커스텀 이메일 바닥글 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-사용자 지정 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)을 참조하세요.
+커스텀 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [커스텀 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)을 참조하세요.
 
 {% endtab %}
-{% tab 사용자 지정 구독취소 페이지 %}
+{% tab 커스텀 구독취소 페이지 %}
 
-Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후 표시됩니다. 이 페이지는 750 KB 미만이어야 합니다.
+Braze에서는 자체 HTML로 **커스텀 구독취소 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후 표시됩니다. 이 페이지는 750 KB 미만이어야 합니다.
 
-![사용자가 이메일에서 탈퇴한 후 표시되는 페이지의 사용자 지정 구독취소 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![사용자가 이메일에서 탈퇴한 후 표시되는 페이지의 커스텀 구독취소 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
 {% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
-{% tab 사용자 지정 옵트인 페이지 %}
+{% tab 커스텀 옵트인 페이지 %}
 
-자체 HTML을 사용하여 사용자 지정 옵트인 페이지를 만들 수 있습니다. 이를 이메일에 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지를 일관되게 유지하려는 경우 특히 유용합니다. 이 페이지는 750 KB 미만이어야 합니다.
+자체 HTML을 사용하여 커스텀 옵트인 페이지를 만들 수 있습니다. 이를 이메일에 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지를 일관되게 유지하려는 경우 특히 유용합니다. 이 페이지는 750 KB 미만이어야 합니다.
 
-![브랜드 이메일 구독 확인을 위한 사용자 지정 옵트인 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![브랜드 이메일 구독 확인을 위한 커스텀 옵트인 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
 {% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
@@ -368,7 +368,7 @@ A/B 테스트가 있는 Campaign의 경우, Braze는 사용자에게 배리언�
 {% enddetails %}
 
 {% details 원클릭 탈퇴 설정은 이메일 템플릿에서 사용할 수 있나요? %}
-아니요, 현재 이메일 템플릿에 이 기능을 추가할 계획은 없습니다. 이러한 템플릿은 발송 도메인에 할당되지 않기 때문입니다. 이메일 템플릿에 이 기능이 필요한 경우 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 제출하세요.
+아니요, 현재 이메일 템플릿에 이 기능을 추가할 계획은 없습니다. 이러한 템플릿은 발송 도메인에 할당되지 않기 때문입니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details 이 기능은 커스텀 옵션에 추가된 원클릭 탈퇴 URL이 유효한지 확인하나요? %}

@@ -25,7 +25,7 @@ Braze와 Dynamic Yield의 파트너십을 통해 Dynamic Yield의 추천 및 세
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Dynamic Yield 계정 | 이 파트너십을 활용하려면 [Dynamic Yield](https://adm.dynamicyield.com/users/sign_in#/r/dashboard) 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -33,11 +33,11 @@ Braze와 Dynamic Yield의 파트너십을 통해 Dynamic Yield의 추천 및 세
 
 Dynamic Yield에서 경험 블록을 만들려면 **Email > Experience Emails > Create New**로 이동합니다.
 
-다음으로, **Create Experience Block**을 선택하여 Braze 이메일 템플릿에 삽입할 동적 콘텐츠 또는 추천 블록을 디자인합니다.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield7.png %})
+다음으로, **Create Experience Block**을 선택하여 Braze 이메일 템플릿에 삽입할 동적 콘텐츠 또는 추천 블록을 디자인합니다.<br>![Create Experience Block이 선택된 Dynamic Yield Experience Emails 페이지.]({% image_buster /assets/img/dynamic_yield/dynamic_yield7.png %})
 
 ### 2단계: 메시지 작성하기 {#step-2-draft-your-messaging}
 
-다음 이미지는 빌더에서 처음부터 작성하는 이메일을 보여줍니다.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield5.png %})
+다음 이미지는 빌더에서 처음부터 작성하는 이메일을 보여줍니다.<br>![초안 경험 이메일 레이아웃이 표시된 Dynamic Yield 이메일 빌더.]({% image_buster /assets/img/dynamic_yield/dynamic_yield5.png %})
 
 1. 헤딩 영역에 캠페인 이름, 메모, 레이블을 입력합니다.<br><br>
 2. 경험 블록을 삽입합니다. 이 블록에는 다음이 포함됩니다:
@@ -64,8 +64,8 @@ Dynamic Yield에서 경험 블록을 만들려면 **Email > Experience Emails > 
 동적 콘텐츠를 사용하여 다양한 사용자에게 서로 다른 프로모션과 메시지를 타겟팅합니다. 타겟팅은 친밀도 또는 오디언스를 기반으로 할 수 있습니다. Dynamic Yield는 이메일이 열릴 때 어떤 개인화된 경험을 제공할지 결정합니다.
 
 1. 편집 창에서 동적 콘텐츠 블록을 이메일 본문으로 드래그합니다.<br><br>
-2. 첫 번째 변형에 대한 템플릿을 선택합니다. 이제 디자인 및 콘텐츠 변수를 정의할 수 있습니다. 완료되면 변형을 저장합니다. <br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield3.png %})<br><br>
-3. 동적 콘텐츠 창에서 오디언스를 설정합니다.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield4.png %})<br><br>
+2. 첫 번째 변형에 대한 템플릿을 선택합니다. 이제 디자인 및 콘텐츠 변수를 정의할 수 있습니다. 완료되면 변형을 저장합니다. <br>![Dynamic Yield 동적 콘텐츠 변형 템플릿 편집기.]({% image_buster /assets/img/dynamic_yield/dynamic_yield3.png %})<br><br>
+3. 동적 콘텐츠 창에서 오디언스를 설정합니다.<br>![동적 콘텐츠 변형에 대한 Dynamic Yield 오디언스 타겟팅 설정.]({% image_buster /assets/img/dynamic_yield/dynamic_yield4.png %})<br><br>
 4. 다른 특정 오디언스 또는 모든 사용자를 타겟팅하기 위해 다른 변형을 추가합니다. 필요에 따라 반복합니다.<br><br>
 5. 위아래 화살표를 사용하여 변형의 우선순위를 설정합니다. <br><br>
 6. 우선순위는 사용자가 둘 이상의 경험에 적합한 경우 어떤 변형이 제공되는지를 결정합니다.
@@ -75,9 +75,9 @@ Dynamic Yield에서 경험 블록을 만들려면 **Email > Experience Emails > 
 이 통합을 통해 Dynamic Yield가 제공하는 개인화된 추천 위젯과 동적 콘텐츠를 Braze 이메일 캠페인에 추가할 수 있습니다. 이러한 캠페인을 Braze 캠페인에 삽입하는 것은 Braze 이메일 에디터에 붙여넣는 간단한 임베드 코드로 수행됩니다.
 
 1. Experience Email 목록 페이지에서 ESP 통합 아이콘을 클릭합니다.<br><br>
-2. 사용자의 CUID와 이메일 ID를 삽입하는 Braze의 관련 토큰을 입력합니다.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})
+2. 사용자의 CUID와 이메일 ID를 삽입하는 Braze의 관련 토큰을 입력합니다.<br>![Braze 사용자 토큰 필드가 표시된 Dynamic Yield ESP 통합 모달.]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})
 
 이메일에 만족하면 다음 단계는 Braze에 삽입할 코드를 생성하는 것입니다.
 1. **Experience Emails**에서 **Generate Code**를 클릭합니다.<br><br>
-2. 다음으로, **Copy to Clipboard**를 클릭합니다.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield.png %})<br><br>
+2. 다음으로, **Copy to Clipboard**를 클릭합니다.<br>![클립보드에 복사 작업이 표시된 Dynamic Yield 생성 임베드 코드 패널.]({% image_buster /assets/img/dynamic_yield/dynamic_yield.png %})<br><br>
 3. 코드를 Braze 이메일 캠페인에 붙여넣은 다음, 이메일 캠페인을 계속 디자인하고, 테스트하고, 게시합니다.

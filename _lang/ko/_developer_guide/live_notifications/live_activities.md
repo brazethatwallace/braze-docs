@@ -9,7 +9,7 @@ platform:
 
 # Swift의 라이브 활동 {#live-activities-for-swift}
 
-> Swift Braze SDK의 라이브 활동을 구현하는 방법을 알아보세요. 라이브 활동은 잠금 화면에 바로 표시되는 지속적인 대화형 알림으로, 사용자는 기기를 잠금 해제하지 않고도 동적인 실시간 업데이트를 받을 수 있습니다.
+> Swift Braze SDK의 라이브 활동을 구현하는 방법을 알아보세요. 라이브 활동은 잠금 화면에 바로 표시되는 지속적인 인터랙티브 알림으로, 사용자는 기기를 잠금 해제하지 않고도 동적인 실시간 업데이트를 받을 수 있습니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -173,7 +173,7 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 다음으로, 라이브 활동 유형을 등록하여 Braze가 이 유형과 관련된 모든 푸시 투 스타트 토큰과 라이브 활동 인스턴스를 추적할 수 있도록 합니다.
 
 {% alert warning %}
-iOS 운영체제는 기기를 재시작한 후 처음 앱을 설치할 때만 푸시 투 스타트 토큰을 생성합니다. 토큰이 안정적으로 등록되도록 하려면 `didFinishLaunchingWithOptions` 메서드에서 `registerPushToStart`를 호출하세요.
+iOS 운영 체제는 기기를 재시작한 후 처음 앱을 설치할 때만 푸시 투 스타트 토큰을 생성합니다. 토큰이 안정적으로 등록되도록 하려면 `didFinishLaunchingWithOptions` 메서드에서 `registerPushToStart`를 호출하세요.
 {% endalert %}
 
 ##### 예시
@@ -364,7 +364,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### API 사용량 대시보드 {#api-usage-dashboard}
 
-**설정** > **API 키** > **대시보드**로 이동하여 **필터**를 선택하고 **엔드포인트**별로 필터링하여 API 응답을 확인합니다. 예를 들어 `/messages/live_activity/update`(또는 `/messages/live_activity/start`)를 선택하고 지난 30일간의 요청 볼륨을 확인합니다. API 응답은 API가 호출되고 있으며 이 워크스페이스에서 iOS 라이브 활동 알림이 사용되고 있음을 나타냅니다. 자세한 내용은 [API 사용량 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage)를 참조하세요.
+**설정** > **API 및 식별자** > **대시보드**로 이동하여 **필터**를 선택하고 **엔드포인트**별로 필터링하여 API 응답을 확인합니다. 예를 들어 `/messages/live_activity/update`(또는 `/messages/live_activity/start`)를 선택하고 지난 30일간의 요청 볼륨을 확인합니다. API 응답은 API가 호출되고 있으며 이 워크스페이스에서 iOS 라이브 활동 알림이 사용되고 있음을 나타냅니다. 자세한 내용은 [API 사용량 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage)를 참조하세요.
 
 ## 라이브 활동 이벤트 관찰(선택 사항) {#observe-live-activity-events}
 
@@ -379,7 +379,7 @@ Apple의 다음 ActivityKit 스트림을 직접 구독하지 마세요. Braze의
 4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
 5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
 
-대신 아래에 설명된 구독을 사용하세요.
+대신 이 섹션에서 설명하는 구독을 사용하세요.
 {% endalert %}
 
 Braze SDK는 `braze.liveActivities`에서 전체 라이브 활동 생애주기를 관찰할 수 있는 두 가지 구독 메서드를 제공합니다. 전체 단계별 안내는 [라이브 활동 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities)을 참조하세요.
@@ -683,7 +683,7 @@ Apple에서 제공하는 라이브 활동 기능은 JavaScript로 변환할 수 
 
 #### 푸시 투 스타트 알림을 보낸 후에도 라이브 활동을 받지 못한 이유는 무엇인가요? {#after-sending-a-push-to-start-notification-why-havent-i-received-my-live-activity}
 
-먼저 페이로드에 [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) 엔드포인트에 설명된 모든 필수 필드가 포함되어 있는지 확인합니다. `activity_attributes` 및 `content_state` 필드는 프로젝트 코드에 정의된 등록정보와 일치해야 합니다. 페이로드가 정확하다고 확신하는 경우, APNs에 의해 사용량 제한이 적용되었을 수 있습니다. 이 제한은 Braze가 아닌 Apple에서 부과합니다.
+먼저 페이로드에 [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) 엔드포인트에 설명된 모든 필수 필드가 포함되어 있는지 확인합니다. `activity_attributes` 및 `content_state` 필드는 프로젝트 코드에 정의된 속성과 일치해야 합니다. 페이로드가 정확하다고 확신하는 경우, APNs에 의해 사용량 제한이 적용되었을 수 있습니다. 이 제한은 Braze가 아닌 Apple에서 부과합니다.
 
 푸시 투 스타트 알림이 기기에 성공적으로 도착했지만 사용량 제한으로 인해 표시되지 않았는지 확인하려면 Mac의 콘솔 앱을 사용하여 프로젝트를 디버그할 수 있습니다. 원하는 기기의 기록 프로세스를 연결한 다음 검색창에서 `process:liveactivitiesd`로 로그를 필터링합니다.
 

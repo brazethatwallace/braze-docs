@@ -9,7 +9,7 @@
 다음 방법을 사용하여 웹 Braze SDK를 통합할 수 있습니다. 추가 옵션은 [기타 통합 방법](#web_other-integration-methods)을 참조하세요.
 
 - **코드 기반 통합:** 선호하는 패키지 관리자 또는 Braze CDN을 사용하여 코드베이스에 웹 Braze SDK를 직접 통합합니다. 이렇게 하면 SDK가 로드되고 구성되는 방식을 완전히 제어할 수 있습니다.
-- **Google Tag Manager:** 사이트의 코드를 수정하지 않고 웹 Braze SDK를 통합할 수 있는 노코드 솔루션입니다. 자세한 내용은 [Google Tag Manager와 Braze SDK 사용하기]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager/)를 참조하세요.
+- **Google Tag Manager:** 사이트의 코드를 수정하지 않고 웹 Braze SDK를 통합할 수 있는 노코드 솔루션입니다. 자세한 내용은 [Google Tag Manager와 Braze SDK 사용하기]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager)를 참조하세요.
 
 {% alert important %}
 [NPM 통합 방법]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)을 사용하는 것을 권장합니다. 이점으로는 SDK 라이브러리를 웹사이트에 로컬로 저장하고, 광고 차단기 확장 프로그램으로부터 면역을 제공하며, 번들러 지원의 일환으로 로드 시간을 단축하는 데 기여하는 것이 포함됩니다.
@@ -19,7 +19,7 @@
 {% tab 코드 기반 통합 %}
 ### 1단계: Braze 라이브러리 설치 {#step-1-install-the-braze-library}
 
-다음 방법 중 하나를 사용하여 Braze 라이브러리를 설치할 수 있습니다. 그러나 웹사이트가 `Content-Security-Policy`를 사용하는 경우 계속하기 전에 [콘텐츠 보안 정책]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy/)을 검토하세요.
+다음 방법 중 하나를 사용하여 Braze 라이브러리를 설치할 수 있습니다. 그러나 웹사이트가 `Content-Security-Policy`를 사용하는 경우 계속하기 전에 [콘텐츠 보안 정책]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy)을 검토하세요.
 
 {% alert important %}
 대부분의 광고 차단기가 Braze 웹 SDK를 차단하지 않지만, 일부 더 제한적인 광고 차단기는 문제를 일으키는 것으로 알려져 있습니다.
@@ -37,7 +37,7 @@ npm install --save @braze/web-sdk
 # yarn add @braze/web-sdk
 ```
 
-설치가 완료되면 일반적인 방법으로 라이브러리를 `import` 또는 `require`할 수 있습니다.
+설치가 완료되면 일반적인 방법으로 라이브러리를 `import` 또는 `require`할 수 있습니다:
 
 ```typescript
 import * as braze from "@braze/web-sdk";
@@ -60,7 +60,7 @@ Safari의 기본 **교차 사이트 추적 방지** 설정은 CDN 통합 방법�
 
 ### 2단계: SDK 초기화 {#step-2-initialize-the-sdk}
 
-Braze 웹 SDK가 웹사이트에 추가된 후, Braze 대시보드 내의 **설정** > **앱 설정**에서 찾은 API 키 및 [SDK 엔드포인트 URL]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)로 라이브러리를 초기화하세요. `braze.initialize()`에 대한 옵션의 전체 목록과 다른 JavaScript 메서드는 [Braze JavaScript 설명서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)를 참조하세요.
+Braze 웹 SDK가 웹사이트에 추가된 후, Braze 대시보드 내의 **설정** > **앱 설정**에서 찾은 API 키 및 [SDK 엔드포인트 URL]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints)로 라이브러리를 초기화하세요. `braze.initialize()`에 대한 옵션의 전체 목록과 다른 JavaScript 메서드는 [Braze JavaScript 설명서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)를 참조하세요.
 
 {% alert note %}
 **웹 SDK 요청을 위한 커스텀 도메인은 지원되지 않습니다**: 웹 SDK `baseUrl`은 Braze SDK 엔드포인트여야 합니다(예: `sdk.iad-05.braze.com`). Braze는 고객 소유 도메인을 통해 CNAME 레코드를 사용하여 웹 SDK 트래픽을 라우팅하는 것을 지원하지 않습니다. 웹 SDK 요청이 귀하의 도메인에서 시작되도록 하려면 Braze 고객지원에 문의하세요.
@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**인앱 메시지 표시**: 트리거될 때 인앱 메시지를 자동으로 표시하려면 `braze.automaticallyShowInAppMessages()`를 호출해야 합니다. 이 호출이 없으면 인앱 메시지가 자동으로 표시되지 않습니다. 메시지 표시를 수동으로 관리하려면 이 호출을 제거하고 대신 `braze.subscribeToInAppMessage()`를 사용하세요. 자세한 내용은 [인앱 메시지 전달]({{site.baseurl}}/developer_guide/in_app_messages/delivery/)을 참조하세요.
+**인앱 메시지 표시**: 트리거될 때 인앱 메시지를 자동으로 표시하려면 `braze.automaticallyShowInAppMessages()`를 호출해야 합니다. 이 호출이 없으면 인앱 메시지가 자동으로 표시되지 않습니다. 메시지 표시를 수동으로 관리하려면 이 호출을 제거하고 대신 `braze.subscribeToInAppMessage()`를 사용하세요. 자세한 내용은 [인앱 메시지 전달]({{site.baseurl}}/developer_guide/in_app_messages/delivery)을 참조하세요.
 {% endalert %}
 
 #### 익명 사용자의 세션 누락 문제 해결 {#troubleshooting-missing-sessions-for-anonymous-users}
@@ -102,13 +102,13 @@ braze.openSession();
 "세션 누락" 동작이 보이거나 웹에서 익명으로 남아 있는 사용자의 세션을 추적할 수 없는 경우, 초기화 중에 `braze.openSession()`을 호출하는지 확인하세요.
 
 - **시나리오:** 익명 사용자는 Braze ID를 반환할 수 있지만 세션 데이터는 비어 있거나 누락됩니다.
-- **원인:** 구현이 `braze.openSession()`을 호출하지 않습니다.
+- **원인:** 구현에서 `braze.openSession()`을 호출하지 않습니다.
 - **해결:** 항상 초기화 후 `braze.openSession()`을 호출하세요(외부 ID를 설정한 경우 `braze.changeUser()` 후에 호출).
 
 자세한 내용은 [2단계: SDK 초기화]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web&tab=code-based%20integration#step-2-initialize-the-sdk)를 참조하세요.
 
 {% alert important %}
-모바일 또는 웹 기기의 익명 사용자도 [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users)에 포함될 수 있습니다. 따라서 조건부로 SDK를 로드하거나 초기화하여 이러한 사용자를 MAU 수에서 제외할 수 있습니다.
+모바일 또는 웹 기기의 익명 사용자도 [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users)에 포함될 수 있습니다. 따라서 조건부로 SDK를 로드하거나 초기화하여 이러한 사용자를 MAU 수에서 제외할 수 있습니다.
 {% endalert %}
 {% endtab %}
 
@@ -177,7 +177,7 @@ if (!isLikelyBot()) {
 
 ### 로깅 {#logging}
 
-로깅을 빠르게 활성화하려면 웹사이트 URL에 `?brazeLogging=true`를 매개변수로 추가하면 됩니다. 또는 [기본](#web_basic-logging) 또는 [커스텀](#web_custom-logging) 로깅을 활성화할 수 있습니다. 모든 플랫폼에 대한 중앙 집중식 개요는 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)을 참조하세요.
+로깅을 빠르게 활성화하려면 웹사이트 URL에 `?brazeLogging=true`를 매개변수로 추가하면 됩니다. 또는 [기본](#web_basic-logging) 또는 [커스텀](#web_custom-logging) 로깅을 활성화할 수 있습니다. 모든 플랫폼에 대한 중앙 집중식 개요는 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)을 참조하세요.
 
 #### 기본 로깅 {#basic-logging}
 
@@ -536,7 +536,7 @@ Vite와 함께 Remix를 사용하고 패키지 루트 가져오기가 런타임�
 
 Tealium iQ는 기본적인 턴키 방식의 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 웹 SDK API 키를 제공합니다.
 
-자세한 내용이나 심층적인 Tealium 구성 지원이 필요하면 [통합 설명서]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
+자세한 내용이나 심층적인 Tealium 구성 지원이 필요하면 [통합 설명서]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
 
 ### Vite {#vite}
 

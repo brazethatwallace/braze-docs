@@ -10,7 +10,7 @@ page_order: 1
 
 > [Zeotap](https://zeotap.com/)은 ID 확인, 인사이트, 데이터 보강을 제공하여 모바일 오디언스를 발견하고 이해할 수 있도록 돕는 차세대 고객 데이터 플랫폼입니다.
 
-Zeotap과 Braze 통합을 사용하면 Zeotap 고객 세그먼트를 동기화하여 사용자 데이터를 Braze 사용자 계정에 매핑함으로써 캠페인의 규모와 도달 범위를 확장할 수 있습니다. 이 데이터를 기반으로 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다.
+Zeotap과 Braze 통합을 사용하면 Zeotap 고객 세그먼트를 동기화하여 사용자 데이터를 Braze 사용자 계정에 매핑함으로써 Campaign의 규모와 도달 범위를 확장할 수 있습니다. 이 데이터를 기반으로 사용자에게 개인화된 타겟 경험을 제공할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -19,7 +19,7 @@ Zeotap과 Braze 통합을 사용하면 Zeotap 고객 세그먼트를 동기화�
 | Zeotap 계정 | 이 파트너십을 활용하려면 [Zeotap 계정](https://zeotap.com/)이 필요합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스에 대한 Braze URL]({% image_buster /assets/img/zeotap/zeotap1.png %})에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -28,7 +28,7 @@ Zeotap과 Braze 통합을 사용하면 Zeotap 고객 세그먼트를 동기화�
 1. Zeotap Unity 플랫폼에서 **DESTINATIONS** 애플리케이션으로 이동합니다.
 2. **All Channels** 아래에서 **Braze**를 선택합니다.
 3. 표시되는 프롬프트에서 대상 이름을 지정하고, Braze 계정과 연결된 클라이언트 이름과 Braze REST API 키를 입력합니다.
-4. 마지막으로 드롭다운에서 Braze REST 엔드포인트 인스턴스를 선택하고 대상을 저장합니다. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
+4. 마지막으로 드롭다운에서 Braze REST 엔드포인트 인스턴스를 선택하고 대상을 저장합니다. <br><br>![엔드포인트 인스턴스 드롭다운이 포함된 Zeotap Braze 대상 구성]({% image_buster /assets/img/zeotap/zeotap1.png %})
 
 ### 2단계: Zeotap 세그먼트를 생성하고 대상에 연결 {#step-2-create-and-link-a-zeotap-segment-to-your-destination}
 
@@ -37,7 +37,7 @@ Zeotap과 Braze 통합을 사용하면 Zeotap 고객 세그먼트를 동기화�
 3. 지원되는 출력 식별자를 선택합니다: MAID, SHA256으로 해시된 이메일 주소, 또는 Braze에서 인식하는 1P 고객 식별자(Braze 계정에 커스텀 식별자를 사용하려면 Zeotap에 문의하여 계정에서 활성화할 수 있도록 하세요). Braze 통합에는 하나의 출력 식별자만 사용할 수 있습니다. 이러한 식별자는 Braze SDK 데이터를 수집할 때 설정한 외부 ID와 동일해야 합니다.
 4. 세그먼트를 저장합니다.
 
-![]({% image_buster /assets/img/zeotap/zeotap2.png %})
+![Braze 대상에 연결된 Zeotap CONNECT 세그먼트 설정]({% image_buster /assets/img/zeotap/zeotap2.png %})
 
 {% alert note %}
 표시되는 식별자는 세그먼트에서 사용 가능하며 Braze에서 지원하는 식별자입니다.

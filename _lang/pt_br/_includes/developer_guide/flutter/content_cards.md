@@ -1,4 +1,4 @@
-## Sobre os Cartões de Conteúdo do Flutter {#about-flutter-content-cards}
+## Sobre os Content Cards do Flutter {#about-flutter-content-cards}
 
 O SDK da Braze inclui um feed de cartão padrão para você começar com os Content Cards. Para mostrar o feed do cartão, você pode usar o método `braze.launchContentCards()`. O feed de cartão padrão incluído com o SDK da Braze lidará com toda a análise de dados, rastreamento, dispensas e renderização dos Content Cards de um usuário.
 
@@ -14,7 +14,7 @@ Você pode usar esses métodos adicionais para criar um feed de Content Cards pe
 | `braze.logContentCardClicked(contentCard)`    | Registra um clique para o objeto do cartão de conteúdo fornecido.                                                            |
 | `braze.logContentCardImpression(contentCard)` | Registra uma impressão para o objeto do cartão de conteúdo fornecido.                                                      |
 | `braze.logContentCardDismissed(contentCard)`  | Registra uma dispensa para o objeto do cartão de conteúdo fornecido.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos do cartão" }
 
 ## Recebimento de dados do cartão de conteúdo {#receiving-content-card-data}
 
@@ -48,7 +48,7 @@ Para ver um exemplo, consulte [main.dart](https://github.com/braze-inc/braze-flu
 Os dados do cartão de conteúdo são encaminhados automaticamente das camadas nativas do Android e do iOS. Nenhuma configuração adicional é necessária.
 
 {% endtab %}
-{% tab Flutter SDK 17.1.0 and earlier %}
+{% tab Flutter SDK 17.1.0 e anterior %}
 
 Se você estiver usando o Flutter SDK 17.1.0 ou anterior, o encaminhamento de dados do cartão de conteúdo da camada nativa do iOS requer configuração manual. Seu aplicativo provavelmente contém um retorno de chamada `contentCards.subscribeToUpdates` que chama `BrazePlugin.processContentCards(contentCards)`. Para migrar para o Flutter SDK 18.0.0, remova a chamada `BrazePlugin.processContentCards(_:)` — o encaminhamento de dados agora é feito automaticamente.
 

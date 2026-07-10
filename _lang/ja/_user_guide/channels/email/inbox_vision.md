@@ -35,10 +35,10 @@ channel:
 受信トレイビジョンでメールメッセージをテストするには：
 
 1. ドラッグ＆ドロップエディターまたはHTMLメールエディターに移動します。
-2. エディターで**Preview & Test**を選択します。
+2. エディターで**プレビューとテスト**を選択します。
 3. **Inbox Vision**を選択します。
 4. **Run Inbox Vision**を選択します。これには最大10分かかります。
-5. 次に、タイルを選択してプレビューの詳細を表示します。これらのプレビューは、**Web Clients**、**Application Clients**、**Mobile Clients**のセクションにグループ化されています。
+5. 次に、タイルを選択してプレビューの詳細を表示します。これらのプレビューは、**Webクライアント**、**アプリケーションクライアント**、**モバイルクライアント**のセクションにグループ化されています。
 
 ![プレビューするメールクライアントを選択するオプション。]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
@@ -59,7 +59,7 @@ channel:
 
 ### コード分析情報の表示 {#viewing-code-analysis-information}
 
-この情報は、**Inbox Vision**タブで<i class="fas fa-list"></i> **List view**を選択すると確認できます。リストビューはHTMLメールテンプレートでのみ使用できます。ドラッグ＆ドロップテンプレートの場合は、代わりにプレビューを使用して問題を解決してください。
+この情報は、**Inbox Vision**タブで<i class="fas fa-list"></i> **リストビュー**を選択すると確認できます。リストビューはHTMLメールテンプレートでのみ使用できます。ドラッグ＆ドロップテンプレートの場合は、代わりにプレビューを使用して問題を解決してください。
 
 ![受信トレイビジョンプレビューでのコード分析の例。]({% image_buster /assets/img_archive/inboxvision2.png %})
 
@@ -128,7 +128,7 @@ Brazeはスクリーンショットを撮る前にメールの到着を待つた
 {: .reset-td-br-1 .reset-td-br-2 aria-label="重大度レベル" }
 
 {% alert important %}
-ドラッグ＆ドロップエディターはドキュメントの`<title>`要素の設定をサポートしていないため、アクセシビリティスキャナーはこのチェックで常に不合格になります。<br><br>この制限は将来の改善として追跡されています。これがワークフローやユーザーに影響する場合は、影響の大きい修正を優先できるよう[フィードバックを共有]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback)してください。
+ドラッグ＆ドロップエディターはドキュメントの`<title>`要素の設定をサポートしていないため、アクセシビリティスキャナーはこのチェックで常に不合格になります。<br><br>この制限は将来の改善として追跡されています。{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### 自動アクセシビリティテストについて {#understanding-automated-accessibility-testing}

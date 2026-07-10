@@ -44,7 +44,7 @@ N'importe quel type de données peut être intégré à un catalogue. Il s'agit 
 
 ### Retail et e-commerce {#retail-and-ecommerce}
 
-- **Promotions saisonnières :** Importez des collections de produits saisonniers et personnalisez vos messages pour refléter les tendances du moment.
+- **Offres promotionnelles saisonnières :** Importez des collections de produits saisonniers et personnalisez vos messages pour refléter les tendances du moment.
 - **Messages localisés :** Importez les adresses, horaires et services de vos points de vente, puis personnalisez les notifications en fonction de la localisation des utilisateurs.
 - **Notifications de retour en stock :** Importez des informations produit incluant les quantités en stock, puis utilisez les [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) et les événements personnalisés Braze pour déclencher une Campaign ou un Canvas qui informe les utilisateurs qu'un produit est de nouveau disponible.
 - **Notifications de baisse de prix :** Importez des informations produit incluant les prix, puis utilisez les [notifications de baisse de prix]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) et les événements personnalisés Braze pour déclencher un Canvas qui informe les utilisateurs qu'un produit a baissé de prix.

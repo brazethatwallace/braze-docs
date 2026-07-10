@@ -6,13 +6,13 @@ description: "Cet article de référence explique comment définir des valeurs d
 
 ---
 
-# Définir des valeurs par défaut
-
-{% raw %}
+# Définir des valeurs par défaut {#set-default-values}
 
 > Des valeurs de repli par défaut peuvent être définies pour tout attribut de personnalisation que vous utilisez dans vos messages. Cet article explique comment fonctionnent les valeurs par défaut, comment les configurer et comment les utiliser dans vos messages.
 
-## Fonctionnement
+{% raw %}
+
+## Fonctionnement {#how-they-work}
 
 Les valeurs par défaut peuvent être ajoutées en spécifiant un [filtre Liquid](http://docs.shopify.com/themes/liquid-documentation/filters) (utilisez `|` pour distinguer le filtre en ligne, comme illustré) avec le nom « default ».
 
@@ -45,11 +45,11 @@ Hi Valued User, thanks for using the App!
 La valeur par défaut s'affichera pour les valeurs vides (empty), mais pas pour les valeurs blanches (blank). Une valeur vide ne contient rien, tandis qu'une valeur blanche contient des caractères d'espacement (tels que des espaces) et aucun autre caractère. Par exemple, une chaîne de caractères vide pourrait ressembler à `""` et une chaîne de caractères blanche pourrait ressembler à `" "`.
 {% endalert %}
 
-## Définir des valeurs par défaut pour différents types de données
+## Définir des valeurs par défaut pour différents types de données {#setting-default-values-for-different-data-types}
 
-L'exemple ci-dessus montre comment définir une valeur par défaut pour une chaîne de caractères. Vous pouvez définir des valeurs par défaut pour tout type de données Liquid dont la valeur est `empty`, `nil` (non défini) ou `false`, ce qui inclut les chaînes de caractères, les valeurs booléennes, les tableaux, les objets et les nombres.
+L'exemple précédent montre comment définir une valeur par défaut pour une chaîne de caractères. Vous pouvez définir des valeurs par défaut pour tout type de données Liquid dont la valeur est `empty`, `nil` (non défini) ou `false`, ce qui inclut les chaînes de caractères, les valeurs booléennes, les tableaux, les objets et les nombres.
 
-### Cas d'utilisation : valeurs booléennes
+### Cas d'usage : valeurs booléennes {#use-case-booleans}
 
 Supposons que vous ayez un attribut personnalisé de type booléen appelé `premium_user` et que vous souhaitiez envoyer un message personnalisé en fonction du statut premium de l'utilisateur. Certains utilisateurs n'ont pas de statut premium défini, vous devrez donc configurer une valeur par défaut pour prendre en compte ces utilisateurs.
 
@@ -91,7 +91,7 @@ Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for
 {% endraw %}
 {% enddetails %}
 
-### Cas d'utilisation : nombres
+### Cas d'usage : nombres {#use-case-numbers}
 
 Supposons que vous ayez un attribut personnalisé numérique appelé `reward_points` et que vous souhaitiez envoyer un message contenant les points de récompense de l'utilisateur. Certains utilisateurs n'ont pas de points de récompense définis, vous devrez donc configurer une valeur par défaut pour prendre en compte ces utilisateurs.
 
@@ -112,7 +112,7 @@ Hi {{${first_name} | default: 'valued user'}}, you have {{custom_attribute.${rew
 ```
 {% endraw %}
 
-### Cas d'utilisation : objets
+### Cas d'usage : objets {#use-case-objects}
 
 Supposons que vous ayez un objet d'attribut personnalisé imbriqué appelé `location` contenant les propriétés `city` et `state`. Si l'une de ces propriétés n'est pas définie, vous souhaitez encourager l'utilisateur à les fournir.
 
@@ -158,7 +158,7 @@ State: {{custom_attribute.${address.state} | default: 'Unknown'}}
 {% endraw %}
 {% enddetails %}
 
-### Cas d'utilisation : tableaux
+### Cas d'usage : tableaux {#use-case-arrays}
 
 Supposons que vous ayez un attribut personnalisé de type tableau appelé `upcoming_trips` contenant des voyages avec les propriétés `destination` et `departure_date`. Vous souhaitez envoyer aux utilisateurs des messages personnalisés selon qu'ils ont ou non des voyages planifiés.
 

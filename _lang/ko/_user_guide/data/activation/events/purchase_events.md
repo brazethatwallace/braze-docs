@@ -17,7 +17,7 @@ search_rank: 3
 
 ## 구매 이벤트 기록 {#log-purchase-events}
 
-구매를 기록하려면 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)로 전달하거나, 아래에 나열된 SDK 라이브러리 중 하나를 사용하세요.
+구매를 기록하려면 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)로 전달하거나, 다음 섹션에 나열된 SDK 라이브러리 중 하나를 사용하세요.
 
 {% alert note %}
 구매 이벤트 속성정보는 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format)와 동일한 데이터 유형을 사용합니다.
@@ -157,7 +157,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 #### 통화 변환 {#currency-conversion}
 
-구매 이벤트가 USD가 아닌 통화로 기록되면, Braze는 [Open Exchange Rates](http://openexchangerates.org)의 환율을 사용하여 금액을 USD로 변환합니다. 이 환율은 24시간마다 한 번 새로고침됩니다. 환율이 캐시되기 때문에, 특히 급격한 변동을 겪는 통화의 경우 실시간 시장 환율과 약간의 차이가 있을 수 있습니다.
+구매 이벤트가 USD가 아닌 통화로 기록되면, Braze는 [Open Exchange Rates](http://openexchangerates.org)의 환율을 사용하여 금액을 USD로 변환합니다. 이 환율은 24시간마다 한 번 갱신됩니다. 환율이 캐시되기 때문에, 특히 급격한 변동을 겪는 통화의 경우 실시간 시장 환율과 약간의 차이가 있을 수 있습니다.
 
 #### 생애 매출 계산 {#lifetime-revenue-calculation}
 
@@ -211,7 +211,7 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 
 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)과 달리, 사용되는 Segment는 실시간으로 업데이트되고, 무제한의 Segment를 지원하며, 최대 30일의 조회 기록을 제공하고, 데이터 포인트가 발생합니다. 추가 데이터 포인트 비용이 발생하므로, 커스텀 이벤트에 대한 이벤트 속성정보를 활성화하려면 Braze 고객 성공 매니저에게 문의해야 합니다.
 
-승인되면 **데이터 설정** > **커스텀 이벤트**에서 **등록정보 관리**를 선택하여 대시보드에서 추가 속성정보를 추가할 수 있습니다. 그런 다음 Campaign 또는 Canvas 빌더의 타겟 단계에서 이러한 이벤트 속성정보를 사용할 수 있습니다.
+승인되면 **데이터 설정** > **커스텀 이벤트**에서 **속성정보 관리**를 선택하여 대시보드에서 추가 속성정보를 추가할 수 있습니다. 그런 다음 Campaign 또는 Canvas 빌더의 타겟 단계에서 이러한 이벤트 속성정보를 사용할 수 있습니다.
 
 {% include data_activation/segmentable_purchase_properties_keys_note.md %}
 

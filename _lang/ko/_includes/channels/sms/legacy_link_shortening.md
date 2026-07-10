@@ -1,4 +1,4 @@
-링크 단축 및 클릭 추적을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집할 수 있어, 사용자가 Campaign에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 참여 측정기준을 제공합니다.
+링크 단축 및 클릭 추적을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집할 수 있어, 사용자가 Campaign에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 인게이지먼트 측정기준을 제공합니다.
 
 링크 단축 및 클릭 추적은 Campaigns와 Canvases 모두에서 [메시지 배리언트 수준]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)에서 활성화할 수 있습니다.
 
@@ -61,7 +61,7 @@ https://example.com/{{url_var}}
 
 **지원 채널:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
-Liquid로 렌더링된 URL은 API 트리거 등록정보에 포함된 URL도 포함하여 단축됩니다. 예를 들어, {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}가 유효한 URL을 나타내는 경우, 메시지를 보내기 전에 해당 URL을 단축하고 추적합니다.
+Liquid로 렌더링된 URL은 API 트리거 속성에 포함된 URL도 포함하여 단축됩니다. 예를 들어, {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}가 유효한 URL을 나타내는 경우, 메시지를 보내기 전에 해당 URL을 단축하고 추적합니다.
 
 ### `/messages/send` 엔드포인트에서 URL 단축 {#shorten-urls-in-messagessend-endpoint}
 
@@ -69,7 +69,7 @@ Liquid로 렌더링된 URL은 API 트리거 등록정보에 포함된 URL도 포
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `link_shortening_enabled` | 선택 사항 | 부울 | `link_shortening_enabled`를 `true`로 설정하면 링크 단축 및 Campaign 수준의 클릭 추적이 활성화됩니다. 추적을 사용하려면 `campaign_id`와 `message_variation_id`가 있어야 합니다.|
+| `link_shortening_enabled` | 선택 사항 | 부울 | `link_shortening_enabled`를 `true`로 설정하면 링크 단축 및 Campaign 수준의 클릭 추적이 활성화됩니다. 추적을 사용하려면 `campaign_id`와 `message_variation_id`가 있어야 합니다. |
 | `user_click_tracking_enabled` | 선택 사항 | 부울 | `user_click_tracking_enabled`를 `true`로 설정하면 링크 단축, Campaign 수준 및 사용자 수준의 클릭 추적이 활성화됩니다. 추적된 데이터를 사용하여 URL을 클릭한 사용자의 Segment를 생성할 수 있습니다.<br><br> 이 매개변수를 사용하려면 `link_shortening_enabled`가 `true`여야 하며, `campaign_id`와 `message_variation_id`가 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="/messages/send 엔드포인트에서 URL 단축" }
 

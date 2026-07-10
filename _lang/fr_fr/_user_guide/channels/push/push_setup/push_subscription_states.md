@@ -31,7 +31,7 @@ Sur iOS et Android, lorsqu'un appareil passe de l'autorisation push au premier p
 
 Après avoir attendu de nouvelles données SDK (par exemple, juste après une session de test), sélectionnez **Refresh** sur le profil utilisateur si les valeurs semblent obsolètes. Il peut y avoir un court délai entre le moment où le SDK envoie les données et celui où le profil reflète le dernier enregistrement push.
 
-Pour les utilisateurs que vous ajoutez à un [groupe interne]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), sélectionnez **Record User Events for group members** dans les **Internal Group Settings** de ce groupe afin que les requêtes SDK apparaissent dans le journal. Ouvrez ensuite le [Journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans **Paramètres** > **Event User Log**, trouvez les requêtes SDK de l'utilisateur et développez le payload brut. Vous pouvez inspecter des champs tels que `remote_notification_enabled` pour vérifier si l'appareil signale les notifications distantes comme activées ou désactivées.
+Pour les utilisateurs que vous ajoutez à un [groupe interne]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), sélectionnez **Record User Events for group members** dans les **Internal Group Settings** de ce groupe afin que les requêtes SDK apparaissent dans le journal. Ouvrez ensuite le [Journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans **Paramètres** > **Event User Log**, trouvez les requêtes SDK de l'utilisateur et développez le payload brut. Vous pouvez inspecter des champs tels que `remote_notification_enabled` pour vérifier si l'appareil signale les notifications distantes comme activées ou désactivées.
 
 ### Segmentation et filtres push {#segmentation-and-push-filters}
 
@@ -61,7 +61,7 @@ Le tableau suivant montre comment différentes actions utilisateur affectent l'a
 
 ## Autorisation push {#push-permission}
 
-Toutes les plateformes compatibles push — iOS, Web et Android — nécessitent un abonnement explicite via une invite système au niveau de l'OS, avec quelques légères différences décrites ci-dessous.
+Toutes les plateformes compatibles push — iOS, Web et Android — nécessitent un abonnement explicite via une invite système au niveau de l'OS, avec quelques légères différences décrites dans la section suivante.
 
 Étant donné que la décision d'un utilisateur est définitive et que vous ne pouvez pas redemander après un refus, utiliser des messages in-app de type [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) est une stratégie importante pour augmenter vos taux d'abonnement.
 
@@ -167,7 +167,7 @@ Si l'utilisateur est ajouté en tant qu'utilisateur test, dans **Console de dév
 - **Arrière-plan iOS activé :** L'utilisateur a reçu l'invite push et a refusé, ou a accepté puis a désactivé les notifications push dans les paramètres de son appareil (reflété après que l'utilisateur a enregistré une session).
 - **Premier plan iOS activé :** L'utilisateur a reçu l'invite push et est éligible pour recevoir des notifications push au premier plan.
 
-L'analyse de Campaign reflétera les statistiques push conformément aux détails ci-dessus. Vous pouvez également télécharger les profils utilisateurs qui sont entrés dans la Campaign ou le Canvas pour croiser les profils utilisateurs.
+L'analyse de Campaign reflétera les statistiques push conformément aux détails présentés plus haut dans cette section. Vous pouvez également télécharger les profils utilisateurs qui sont entrés dans la Campaign ou le Canvas pour croiser les profils utilisateurs.
 
 ## Autres scénarios spécifiques aux plateformes {#other-platform-specific-scenarios}
 

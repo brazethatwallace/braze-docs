@@ -8,9 +8,9 @@ description: "Découvrez comment utiliser les événements recommandés pour le 
 
 # Comment utiliser les événements eCommerce {#how-to-use-ecommerce-events}
 
-> Les [événements recommandés]({{site.baseurl}}/recommended_events) pour le commerce électronique utilisent un schéma partagé au niveau de la commande, ce qui permet à Braze de construire des fonctionnalités fiables à partir de vos données eCommerce, notamment les profils utilisateur, la segmentation, l'envoi de messages, le reporting et les recommandations basées sur l'intelligence artificielle. Les sections de cet article expliquent comment utiliser chaque fonctionnalité dans Braze.<br><br> Consultez les [schémas d'événements]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas) pour les exigences de propriétés et les types de données, et [Validation et résolution des problèmes des événements]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting) pour savoir ce qui se passe lorsqu'un événement échoue à la validation.
+> Les [événements recommandés]({{site.baseurl}}/recommended_events) pour le commerce électronique utilisent un schéma partagé au niveau de la commande, ce qui permet à Braze de construire des fonctionnalités fiables à partir de vos données eCommerce, notamment les profils utilisateur, la segmentation, l'envoi de messages, le reporting et les recommandations basées sur l'IA. Les sections de cet article expliquent comment utiliser chaque fonctionnalité dans Braze.<br><br> Consultez les [schémas d'événements]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas) pour les exigences de propriétés et les types de données, et [Validation et résolution des problèmes des événements]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting) pour savoir ce qui se passe lorsqu'un événement échoue à la validation.
 
-Comme les événements eCommerce suivent un schéma prévisible, Braze peut construire des fonctionnalités fiables par-dessus, du suivi du chiffre d'affaires et des modèles de Canvas prêts à l'emploi aux recommandations basées sur l'intelligence artificielle. Les sections suivantes vous offrent un aperçu rapide de chaque fonctionnalité avec des liens vers la documentation complète.
+Comme les événements eCommerce suivent un schéma prévisible, Braze peut construire des fonctionnalités fiables par-dessus, du suivi du chiffre d'affaires et des modèles de Canvas prêts à l'emploi aux recommandations basées sur l'IA. Les sections suivantes vous offrent un aperçu rapide de chaque fonctionnalité avec des liens vers la documentation complète.
 
 {% alert note %}
 Les événements eCommerce de Braze et leurs propriétés d'événement segmentables ne sont pas comptabilisés dans les [points de donnée]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
@@ -56,10 +56,10 @@ Braze propose trois façons de segmenter les utilisateurs en fonction des donné
 
 - **Filtres eCommerce :** utilisez la catégorie **eCommerce** dans le segmenteur, qui contient des filtres alimentés par les événements recommandés pour le commerce électronique (tels que **Last Order Placed**, **Total Revenue** et **Average Order Value**). Pour une liste complète des filtres disponibles, consultez [Filtres de segment]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 - **Filtres d'événements personnalisés :** comme les événements eCommerce se comportent comme des événements personnalisés, tous les filtres d'événements personnalisés existants fonctionnent immédiatement. Par exemple, vous pouvez filtrer par « A effectué l'événement personnalisé `ecommerce.order_placed` plus de X fois » ou « A effectué pour la première fois l'événement personnalisé `ecommerce.order_placed` ».
-- **Extensions de segments :** pour segmenter sur des propriétés d'événement imbriquées, y compris le tableau de produits imbriqué ou les propriétés des objets de métadonnées, utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) avec le filtrage par propriétés d'événement imbriquées. Cela vous permet de créer des audiences comme « les utilisateurs ayant acheté le produit SKU-123 au cours des 90 derniers jours » ou de combiner des critères sur différentes propriétés de la même commande.
+- **Extensions de segments :** pour segmenter sur des propriétés d'événement imbriquées, y compris le tableau de produits imbriqué ou les propriétés des objets de métadonnées, utilisez les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) avec le filtrage par propriétés d'événement imbriquées. Cela vous permet de créer des audiences comme « les utilisateurs ayant acheté le produit SKU-123 au cours des 90 derniers jours » ou de combiner des critères sur différentes propriétés de la même commande.
 
 {% alert important %}
-Les Extensions de segments pour les événements recommandés eCommerce sont une fonctionnalité payante en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
+Les extensions de segments pour les événements recommandés eCommerce sont une fonctionnalité payante en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
 {% endalert %}
 
 ### Déclenchement {#triggering}
@@ -72,13 +72,13 @@ De plus, Braze propose un déclencheur dédié **Places Order**, qui vous permet
 
 ### Personnalisation Liquid {#liquid-personalization}
 
-Les événements eCommerce prennent en charge la [personnalisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) de la même manière que les événements personnalisés ; vous pouvez référencer les propriétés d'événement directement dans vos messages. Pour intégrer des images de produits, des prix ou d'autres données de catalogue dans vos messages, associez votre catalogue à l'événement en utilisant `product_id` ou `variant_id` comme identifiant de liaison. L'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %} vous permet de parcourir le contenu actuel du panier d'un utilisateur pour les rappels de panier abandonné, les incitations au paiement ou les confirmations de commande. Pour des exemples de code prêts à l'emploi, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/ecommerce_use_cases).
+Les événements eCommerce prennent en charge la [personnalisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) de la même manière que les événements personnalisés ; vous pouvez référencer les propriétés d'événement directement dans vos messages. Pour intégrer des images de produits, des prix ou d'autres données de catalogue dans vos messages, associez votre catalogue à l'événement en utilisant `product_id` ou `variant_id` comme identifiant de liaison. L'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %} vous permet de parcourir le contenu actuel du panier d'un utilisateur pour les rappels de panier abandonné, les incitations au paiement ou les confirmations de commande. Pour des exemples de code prêts à l'emploi, consultez les [cas d'usage eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 Pour une alternative sans code, les [blocs produit en glisser-déposer]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks) sont disponibles dans le programme d'accès anticipé.
 
 ### Modèles de Canvas eCommerce {#ecommerce-canvas-templates}
 
-Braze propose des modèles de Canvas prêts à l'emploi préconfigurés avec les événements recommandés pour le commerce électronique comme critères d'entrée, de sortie et de conversion, afin que vous puissiez lancer des flux de cycle de vie sans configuration personnalisée. Chaque modèle est livré avec des designs d'e-mail en glisser-déposer et prend en charge les blocs produit en glisser-déposer (actuellement en accès anticipé). Pour des cas d'utilisation détaillés et des exemples Liquid, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/ecommerce_use_cases).
+Braze propose des modèles de Canvas prêts à l'emploi préconfigurés avec les événements recommandés pour le commerce électronique comme critères d'entrée, de sortie et de conversion, afin que vous puissiez lancer des flux de cycle de vie sans configuration personnalisée. Chaque modèle est livré avec des designs d'e-mail en glisser-déposer et prend en charge les blocs produit en glisser-déposer (actuellement en accès anticipé). Pour des cas d'usage détaillés et des exemples Liquid, consultez les [cas d'usage eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 Ces modèles couvrent les flux de cycle de vie eCommerce les plus courants. Utilisez-les comme point de départ, puis personnalisez le timing, les canaux et le contenu créatif pour votre audience.
 
@@ -148,12 +148,12 @@ Utilisez ce modèle lorsque vous souhaitez rationaliser la communication post-ac
 
 Ces modèles sont conçus comme point de départ. Les personnalisations courantes incluent :
   - **Personnaliser l'e-mail :** chaque modèle inclut un e-mail préconfiguré créé avec l'éditeur glisser-déposer, entièrement modifiable pour correspondre à votre marque et votre contenu.
-  - **Ajouter des canaux :** associez l'e-mail avec le push, le SMS ou les messages in-app pour un renforcement cross-canal.
+  - **Ajouter des canaux :** associez l'e-mail avec les notifications push, le SMS ou les messages in-app pour un renforcement cross-canal.
   - **Ajouter des délais et des arbres décisionnels :** segmentez les utilisateurs par comportement (par exemple, panier de forte valeur par rapport à un panier de faible valeur) ou définissez des périodes d'attente entre les messages.
   - **Changer le contenu créatif :** remplacez le modèle d'e-mail inclus par le style visuel de votre marque.
   - **Utiliser les blocs produit :** utilisez les blocs produit en glisser-déposer (dans le programme d'accès anticipé) pour afficher dynamiquement le contenu du panier abandonné ou les produits consultés sans écrire de Liquid personnalisé.
 
-Pour des stratégies de cycle de vie plus avancées, y compris des exemples de personnalisation Liquid, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/ecommerce_use_cases).
+Pour des stratégies de cycle de vie plus avancées, y compris des exemples de personnalisation Liquid, consultez les [cas d'usage eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Reporting eCommerce {#ecommerce-reporting}
 
@@ -162,19 +162,19 @@ Les événements recommandés pour le commerce électronique alimentent les mêm
 | Rapport | Ce qu'il affiche |
 |---------------------------------------------|-------------------------------------------|
 | Rapport sur les revenus | Chiffre d'affaires total, chiffre d'affaires quotidien moyen, achats quotidiens et chiffre d'affaires par utilisateur au fil du temps, toutes sources confondues, pour la plage de dates et les applications sélectionnées. |
-| Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de push, les clics sur les cartes de contenu, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
-| Analyses des campagnes et des Canvas | Chiffre d'affaires total attribué à une campagne ou un Canvas spécifique dans la fenêtre de conversion principale. |
-| Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les campagnes et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la campagne ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
-| Statistiques des segments | Comparaisons de chiffre d'affaires entre les segments dans le tableau de bord Statistiques des segments. |
-| Générateur de rapports | Indicateurs de chiffre d'affaires dans les rapports personnalisés créés dans le Générateur de rapports. |
-| Générateur de tableaux de bord | Indicateurs de chiffre d'affaires dans les tableaux de bord personnalisés créés dans le Générateur de tableaux de bord. |
+| Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière Campaign ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de notifications push, les clics sur les Content Cards, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
+| Analyses des Campaigns et des Canvas | Chiffre d'affaires total attribué à une Campaign ou un Canvas spécifique dans la fenêtre de conversion principale. |
+| Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les Campaigns et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la Campaign ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
+| Statistiques des segments | Comparaisons de chiffre d'affaires entre les segments dans le tableau de bord des statistiques des segments. |
+| Générateur de rapports | Indicateurs de chiffre d'affaires dans les rapports personnalisés créés dans le générateur de rapports. |
+| Générateur de tableaux de bord | Indicateurs de chiffre d'affaires dans les tableaux de bord personnalisés créés dans le générateur de tableaux de bord. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reporting eCommerce" }
 
-Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une campagne ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
+Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une Campaign ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
 
 {% alert note %}
-Pour éviter le double comptage du chiffre d'affaires, n'envoyez pas à la fois des achats hérités et des événements recommandés pour le commerce électronique pour les mêmes commandes. Si vous prévoyez de passer des achats hérités aux événements recommandés, coordonnez le changement avec votre équipe de compte Braze avant d'effectuer toute modification d'intégration.<br><br>
-Les calculs de chiffre d'affaires plafonnent les quantités individuelles de produits à `1 000` unités par commande. Si un champ `quantity` est manquant pour un produit, la valeur par défaut est `1`. L'événement `order_placed` d'origine conserve la quantité complète que vous avez envoyée — seul le calcul du chiffre d'affaires applique le plafond.
+Les calculs de chiffre d'affaires plafonnent les quantités individuelles de produits à 1 000 unités par commande. Si un champ de quantité est manquant pour un produit, la valeur par défaut est d'une unité. L'événement `ecommerce.order_placed` d'origine conserve la quantité complète que vous avez envoyée — seul le calcul du chiffre d'affaires applique le plafond.<br><br>
+Si vous migrez des événements d'achat hérités vers `ecommerce.order_placed`, coordonnez le changement avec votre équipe de compte Braze avant d'effectuer toute modification d'intégration. Pendant la période de transition, envoyez à la fois les événements d'achat hérités et les événements `ecommerce.order_placed` pour confirmer qu'ils se déclenchent correctement et pour préparer vos Campaigns, Canvas et segments actifs à migrer vers le nouvel événement. Votre équipe de compte peut ensuite vous aider à planifier le basculement pour passer le reporting du chiffre d'affaires des événements d'achat hérités à `ecommerce.order_placed`.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>
@@ -195,4 +195,4 @@ Braze propose plusieurs moyens d'exporter les données d'événements eCommerce 
 
 ### Comment segmenter les utilisateurs par produit spécifique ? {#how-do-i-segment-users-by-a-specific-product}
 
-Le segmenteur vous permet de filtrer par le nombre de fois qu'un utilisateur a effectué un événement eCommerce. Pour filtrer par propriétés de produit spécifiques (comme `product_id` ou `product_name`), utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), qui prennent en charge le filtrage par propriétés d'événement imbriquées. Par exemple, vous pouvez trouver tous les utilisateurs ayant acheté le produit « SKU-123 » au cours des 90 derniers jours.
+Le segmenteur vous permet de filtrer par le nombre de fois qu'un utilisateur a effectué un événement eCommerce. Pour filtrer par propriétés de produit spécifiques (comme `product_id` ou `product_name`), utilisez les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), qui prennent en charge le filtrage par propriétés d'événement imbriquées. Par exemple, vous pouvez trouver tous les utilisateurs ayant acheté le produit « SKU-123 » au cours des 90 derniers jours.

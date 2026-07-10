@@ -22,7 +22,7 @@ Sie können die Analytics für Ihre Empfehlung einsehen, um zu sehen, welche Art
 
 Dies sind Metriken, die sich auf Ihre Empfehlungs-Zielgruppe beziehen. Dazu gehören Präzision, Abdeckung und Empfehlungstyp.
 
-![Empfehlungs-Zielgruppen-Metriken, die Präzision (25,3 %), Abdeckung (54,3 %) und Empfehlungstypen, unterteilt in personalisierte und beliebteste Artikel, anzeigen.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Empfehlungs-Zielgruppen-Metriken, die Präzision, Abdeckung und Empfehlungstypen, unterteilt in personalisierte und beliebteste Artikel, anzeigen.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Weitere Informationen finden Sie in der folgenden Tabelle:
 
@@ -51,4 +51,4 @@ Weitere Informationen finden Sie in der folgenden Tabelle:
 
 Dies ist eine Übersicht über die von Ihnen gewählte Empfehlungskonfiguration, einschließlich des Zeitpunkts, zu dem die Empfehlung zuletzt aktualisiert wurde.
 
-![Übersichtstabelle für Empfehlungen mit Typ, Katalog, Event-Typ, Name des angepassten Events, Name der Eigenschaft und Datum des letzten Updates.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }
+![Übersichtstabelle für Empfehlungen mit Typ, Katalog, Event-Typ, Name des angepassten Events, Name der Eigenschaft und Datum der letzten Aktualisierung.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }

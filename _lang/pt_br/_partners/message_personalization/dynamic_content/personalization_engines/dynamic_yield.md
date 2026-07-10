@@ -25,7 +25,7 @@ A parceria entre a Braze e a Dynamic Yield permite que você use o mecanismo de 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Dynamic Yield | É necessário ter uma conta [Dynamic Yield](https://adm.dynamicyield.com/users/sign_in#/r/dashboard) para aproveitar essa parceria. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -33,20 +33,20 @@ A parceria entre a Braze e a Dynamic Yield permite que você use o mecanismo de 
 
 Para criar um bloco de experiência na Dynamic Yield, navegue até **Email > Experience Emails > Create New**.
 
-Em seguida, selecione **Create Experience Block** para criar um bloco de conteúdo dinâmico ou de recomendações a ser incorporado em um modelo de e-mail da Braze.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield7.png %})
+Em seguida, selecione **Create Experience Block** para criar um bloco de conteúdo dinâmico ou de recomendações a ser incorporado em um modelo de e-mail da Braze.<br>![Página Experience Emails da Dynamic Yield com a opção Create Experience Block selecionada.]({% image_buster /assets/img/dynamic_yield/dynamic_yield7.png %})
 
 ### Etapa 2: Elabore seu envio de mensagens {#step-2-draft-your-messaging}
 
-A imagem a seguir mostra um e-mail do zero no construtor.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield5.png %})
+A imagem a seguir mostra um e-mail do zero no construtor.<br>![Construtor de e-mail da Dynamic Yield com um layout de rascunho de e-mail de experiência.]({% image_buster /assets/img/dynamic_yield/dynamic_yield5.png %})
 
 1. Digite um nome de campanha, nota e rótulos para a campanha na área de título.<br><br>
-2. Inserir um bloco de experiência. Esses blocos incluem:
+2. Insira um bloco de experiência. Esses blocos incluem:
   - [Recomendações](#configure-a-recommendations-block): Um widget que oferece aos usuários recomendações totalmente personalizadas.
   - [Conteúdo dinâmico](#configure-a-dynamic-content-block): direcionamento de promoções e mensagens diferentes para diversos públicos.<br><br>
-3. Atualizar configurações:
+3. Atualize as configurações:
   - Use os parâmetros de URL para rastrear os cliques em seu software de análise de dados (opcional). Adicione parâmetros às exibições padrão conforme necessário.
   - Selecione um período de atributo, que pode ser de sete dias (padrão) ou um dia.<br><br>
-4. Salvar e sair. Você pode voltar a editar todos os elementos do seu e-mail a qualquer momento antes de o código ser gerado. Após a geração do código, você poderá editar qualquer elemento que [não afete o código](https://support.dynamicyield.com/hc/en-us/articles/4404013832465-Experience-Email#h_01FAZPXB6MH094J1MWS5N86FXH).
+4. Salve e saia. Você pode voltar a editar todos os elementos do seu e-mail a qualquer momento antes de o código ser gerado. Após a geração do código, você poderá editar qualquer elemento que [não afete o código](https://support.dynamicyield.com/hc/en-us/articles/4404013832465-Experience-Email#h_01FAZPXB6MH094J1MWS5N86FXH).
 
 ### Configurar um bloco de recomendações {#configure-a-recommendations-block}
 
@@ -64,20 +64,20 @@ O bloco de recomendações permite definir algoritmos e filtragem para obter o c
 Use o conteúdo dinâmico para direcionar promoções e mensagens diferentes para usuários diferentes. O direcionamento pode se basear em afinidade ou público. A Dynamic Yield determina qual experiência personalizada será oferecida quando o e-mail for aberto.
 
 1. Arraste um bloco de conteúdo dinâmico do painel de edição para o corpo do e-mail.<br><br>
-2. Selecione um modelo para a primeira variação. Agora você pode definir variáveis de design e conteúdo. Salve a variação quando terminar. <br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield3.png %})<br><br>
-3. Defina o público no painel de conteúdo dinâmico.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield4.png %})<br><br>
+2. Selecione um modelo para a primeira variação. Agora você pode definir variáveis de design e conteúdo. Salve a variação quando terminar. <br>![Editor de modelo de variação de conteúdo dinâmico da Dynamic Yield.]({% image_buster /assets/img/dynamic_yield/dynamic_yield3.png %})<br><br>
+3. Defina o público no painel de conteúdo dinâmico.<br>![Configurações de direcionamento de público da Dynamic Yield para uma variação de conteúdo dinâmico.]({% image_buster /assets/img/dynamic_yield/dynamic_yield4.png %})<br><br>
 4. Adicione outra variação para direcionamento a outro público específico ou a todos os usuários. Repita conforme necessário.<br><br>
 5. Defina as prioridades de suas variações usando as setas para cima e para baixo. <br><br>
-6. As prioridades determinam qual variação é atendida quando um usuário é elegível para mais de uma experiência.
+6. As prioridades determinam qual variação é exibida quando um usuário é elegível para mais de uma experiência.
 
 ### Etapa 3: Integre seu e-mail com a Braze {#step-3-integrate-your-email-with-braze}
 
 Essa integração permite adicionar widgets de recomendação personalizados e conteúdo dinâmico com a tecnologia Dynamic Yield às suas campanhas de e-mail da Braze. A incorporação dessas campanhas nas campanhas da Braze é feita com um código de incorporação simples que você cola no editor de e-mail da Braze.
 
 1. Clique no ícone de integração do ESP na página da lista Experience Email.<br><br>
-2. Digite o token relevante da Braze que insere o CUID e o ID de e-mail do usuário.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})
+2. Digite o token relevante da Braze que insere o CUID e o ID de e-mail do usuário.<br>![Modal de integração ESP da Dynamic Yield com campos de token de usuário da Braze.]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})
 
 Quando o e-mail ficar pronto, a próxima etapa será a geração do código para incorporar na Braze.
 1. Em **Experience Emails**, clique em **Generate Code**.<br><br>
-2. Em seguida, clique em **Copy to Clipboard**.<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield.png %})<br><br>
+2. Em seguida, clique em **Copy to Clipboard**.<br>![Painel de código de incorporação gerado pela Dynamic Yield com a ação Copy to Clipboard.]({% image_buster /assets/img/dynamic_yield/dynamic_yield.png %})<br><br>
 3. Cole o código em sua campanha de e-mail da Braze e, em seguida, continue a projetar, testar e publicar sua campanha de e-mail.

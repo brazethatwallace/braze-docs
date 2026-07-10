@@ -15,7 +15,7 @@ Warning! Don't make any changes to this document without approval from the legal
 
 _(gültig ab dem 5\. Februar 2025; Änderungen vorbehalten)_
 
-Die Braze-Dienste enthalten Code von Drittanbietern, der an Braze zur Nutzung und Weiterverbreitung unter Open-Source-Lizenzen lizenziert ist. Nachfolgend finden Sie eine Liste von Angaben und Haftungsausschlüssen in Verbindung mit solcher lizenzierter Open-Source-Software, die in die Braze-Dienste integriert wurde. Ungeachtet der Bedingungen Ihres Abos oder Ihrer Lizenzvereinbarung mit Braze können die Bedingungen bestimmter Open-Source-Lizenzen auf Ihre Nutzung der Braze-Dienste anwendbar sein, wie im Folgenden dargelegt.
+Die Braze-Dienste enthalten Code von Drittanbietern, der an Braze zur Nutzung und Weiterverbreitung unter Open-Source-Lizenzen lizenziert ist. Nachfolgend finden Sie eine Liste von Angaben und Haftungsausschlüssen in Verbindung mit solcher lizenzierter Open-Source-Software, die in die Braze-Dienste integriert wurde. Ungeachtet der Bedingungen Ihres Abos oder Ihrer Lizenzvereinbarung mit Braze können die Bedingungen bestimmter Open-Source-Lizenzen auf Ihre Nutzung der Braze-Dienste anwendbar sein, wie in den referenzierten Lizenzen dargelegt.
 
 Diese Liste des Open-Source-Codes (die „Liste“) wurde von Braze mit Hilfe einer von Braze lizenzierten Drittanbietersoftware erstellt, die den Open-Source-Code innerhalb der Dienste zu einem bestimmten Zeitpunkt identifiziert, und ist nur als Offenlegung zu einem bestimmten Zeitpunkt gedacht. Wir weisen Sie daher darauf hin, dass die Liste von Zeit zu Zeit aktualisiert werden kann und möglicherweise nicht vollständig ist. Unter der Voraussetzung, dass Sie den in den Braze-Diensten verwendeten Open-Source-Code nicht verändern, sind Sie durch die Nutzung der Braze-Dienste nicht verpflichtet, Ihre geistigen Eigentumsrechte gemäß einer Open-Source-Lizenz an Dritte weiterzugeben oder Ihren Quellcode gemäß einer Open-Source-Softwarelizenz Dritten zur Verfügung zu stellen. BRAZE GIBT KEINE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN ZUSICHERUNGEN ODER GARANTIEN IN BEZUG AUF DIE LISTE, IHRE RICHTIGKEIT ODER VOLLSTÄNDIGKEIT ODER IN BEZUG AUF VERPFLICHTUNGEN, DIE SICH AUS IHREN ÄNDERUNGEN AN DIESEM OPEN-SOURCE-CODE ODER AN DEN DIENSTEN ERGEBEN. DURCH DIE NUTZUNG DER BRAZE-DIENSTE ERKLÄREN SIE SICH DAMIT EINVERSTANDEN, DASS BRAZE IN KEINEM FALL FÜR SCHÄDEN JEGLICHER ART HAFTET, DIE SICH AUS SOLCHEN VON IHNEN VORGENOMMENEN ÄNDERUNGEN ODER DARAUS ENTSTEHENDEN VERPFLICHTUNGEN ERGEBEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF BESONDERE SCHÄDEN, FOLGESCHÄDEN, ZUFÄLLIGE SCHÄDEN ODER ANDERE DIREKTE ODER INDIREKTE SCHÄDEN.
 
@@ -31,7 +31,7 @@ Diese Liste des Open-Source-Codes (die „Liste“) wurde von Braze mit Hilfe ei
 
 ## Lizenzbeschreibungen {#license-descriptions}
 
-_Hier finden Sie eine Reihe von Links zu Open-Source-Lizenzen, wie sie in den obigen PDFs beschrieben sind._
+_Hier finden Sie eine Reihe von Links zu Open-Source-Lizenzen, wie sie in den verlinkten PDFs beschrieben sind._
 
 * [MIT License](https://opensource.org/licenses/MIT)
 * [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)

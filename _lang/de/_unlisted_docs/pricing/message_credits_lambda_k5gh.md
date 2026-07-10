@@ -1,22 +1,22 @@
 ---
-nav_title: Message Credits - Lambda
+nav_title: Message Credits – Lambda
 permalink: "/message_credits_lambda_k5gh/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Message Credits - Lambda (vertraulich) {#message-credits-lambda-confidential}
+# Message Credits – Lambda (vertraulich) {#message-credits-lambda-confidential}
 
-> Message Credits ist die produktübergreifende Paketstruktur von Braze für unsere nativen Angebote Agentenkonsole, SMS, MMS, RCS, WhatsApp und LINE. Message Credits bieten ein flexibles und transparentes Erlebnis bei der Nutzung der Braze-Messaging-Kanäle und bestimmter KI-Features. Credits gewähren Ihnen Zugang zu allen Kanälen, die in der Tabelle auf dieser Seite aufgeführt sind.
+> Message Credits ist die produktübergreifende Paketstruktur von Braze für unsere nativen Angebote Agent Console, SMS, MMS, RCS, WhatsApp und LINE. Message Credits bieten ein flexibles und transparentes Erlebnis bei der Nutzung der Braze-Messaging-Kanäle und bestimmter KI-Features. Credits gewähren Ihnen Zugang zu allen Kanälen, die in der Tabelle auf dieser Seite aufgeführt sind.
 
 {% alert note %}
 Verschiedene Produkte verwenden unterschiedliche Maßeinheiten im Reporting.<br><br>
-<b>Agentenkonsole:</b> Invocations<br>
-<b>SMS:</b> Segmente<br>
+<b>Agent Console:</b> Invocations<br>
+<b>SMS:</b> Segments<br>
 <b>MMS:</b> Sends<br>
 <b>WhatsApp:</b> Zugestellte Nachrichten<br>
-<b>RCS:</b> Zugestellte Segmente, zugestellte Sends<br>
+<b>RCS:</b> Zugestellte Segments, zugestellte Sends<br>
 <b>LINE:</b> Sends<br>
 <b>KakaoTalk:</b> Sends<br>
 
@@ -29,7 +29,7 @@ Die Spaltendefinitionen lauten wie folgt:
 
 |---------|-------------------------------------------------|
 | **Ziel** | Spezifische Endregion, Land oder Art der Aktion, die über die Braze-Plattform gesendet wird |
-| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis × Ziel-Multiplikator) |
+| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
@@ -48,1175 +48,1175 @@ Die Spaltendefinitionen lauten wie folgt:
         <th class="credits-column"><b>Credits pro 1 Versand</b></th>
     </tr>
     <tr>
-        <td>Agentenkonsole</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     </thead>
     <tbody>
 <tr>
-        <td>Agentenkonsole</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
     <tr>
-        <td>SMS - US / CA</td>
-        <td>Canada</td>
+        <td>SMS – US / CA</td>
+        <td>Kanada</td>
         <td>1.00</td>
     </tr>
     <tr>
-        <td>SMS - US / CA</td>
-        <td>Canada Toll Free</td>
+        <td>SMS – US / CA</td>
+        <td>Kanada Toll Free</td>
         <td>1.30</td>
     </tr>
     <tr>
-        <td>SMS - US / CA</td>
-        <td>United States</td>
+        <td>SMS – US / CA</td>
+        <td>Vereinigte Staaten</td>
         <td>1.00</td>
     </tr>
     <tr>
-        <td>SMS - US / CA</td>
-        <td>United States Toll Free</td>
+        <td>SMS – US / CA</td>
+        <td>Vereinigte Staaten Toll Free</td>
         <td>1.50</td>
     </tr>
     <tr>
-        <td>MMS - US / CA</td>
-        <td>Canada Long Code</td>
+        <td>MMS – US / CA</td>
+        <td>Kanada Langcode</td>
         <td>4.50</td>
     </tr>
     <tr>
-        <td>MMS - US / CA</td>
-        <td>Canada Short Code</td>
+        <td>MMS – US / CA</td>
+        <td>Kanada Shortcode</td>
         <td>12.00</td>
     </tr>
     <tr>
-        <td>MMS - US / CA</td>
-        <td>Canada Toll Free</td>
+        <td>MMS – US / CA</td>
+        <td>Kanada Toll Free</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>MMS - US / CA</td>
-        <td>United States</td>
+        <td>MMS – US / CA</td>
+        <td>Vereinigte Staaten</td>
         <td>3.00</td>
     </tr>
     <tr>
-        <td>MMS - US / CA</td>
-        <td>United States Toll Free</td>
+        <td>MMS – US / CA</td>
+        <td>Vereinigte Staaten Toll Free</td>
         <td>6.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Abkhazia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Abchasien</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Afghanistan</td>
         <td>24.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Albania</td>
+        <td>SMS / MMS – Global</td>
+        <td>Albanien</td>
         <td>10.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Algeria</td>
+        <td>SMS / MMS – Global</td>
+        <td>Algerien</td>
         <td>32.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>American Samoa</td>
+        <td>SMS / MMS – Global</td>
+        <td>Amerikanisch-Samoa</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Andorra</td>
         <td>11.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Angola</td>
         <td>8.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Anguilla</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Antigua and Barbuda</td>
+        <td>SMS / MMS – Global</td>
+        <td>Antigua und Barbuda</td>
         <td>9.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Argentina</td>
+        <td>SMS / MMS – Global</td>
+        <td>Argentinien</td>
         <td>14.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Armenia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Armenien</td>
         <td>18.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Aruba</td>
         <td>9.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Australia SMS</td>
+        <td>SMS / MMS – Global</td>
+        <td>Australien SMS</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Austria</td>
+        <td>SMS / MMS – Global</td>
+        <td>Österreich</td>
         <td>5.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Azerbaijan</td>
+        <td>SMS / MMS – Global</td>
+        <td>Aserbaidschan</td>
         <td>33.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Bahamas</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Bahrain</td>
         <td>5.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Bangladesh</td>
+        <td>SMS / MMS – Global</td>
+        <td>Bangladesch</td>
         <td>27.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Barbados</td>
         <td>10.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Belarus</td>
         <td>32.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Belgium</td>
+        <td>SMS / MMS – Global</td>
+        <td>Belgien</td>
         <td>14.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Belize</td>
         <td>16.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Benin</td>
         <td>9.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Bermuda</td>
         <td>10.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Bhutan</td>
         <td>25.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Bolivia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Bolivien</td>
         <td>14.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Bosnia and Herzegovina</td>
+        <td>SMS / MMS – Global</td>
+        <td>Bosnien und Herzegowina</td>
         <td>10.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Botswana</td>
         <td>12.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Brazil</td>
+        <td>SMS / MMS – Global</td>
+        <td>Brasilien</td>
         <td>2.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Brunei</td>
         <td>2.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Bulgaria</td>
+        <td>SMS / MMS – Global</td>
+        <td>Bulgarien</td>
         <td>19.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Burkina Faso</td>
         <td>14.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Burundi</td>
         <td>18.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Cambodia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kambodscha</td>
         <td>24.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Cameroon</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kamerun</td>
         <td>11.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Cape Verde</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kap Verde</td>
         <td>14.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Caribbean Netherlands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Karibische Niederlande</td>
         <td>21.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Cayman Islands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kaimaninseln</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Central African Republic</td>
+        <td>SMS / MMS – Global</td>
+        <td>Zentralafrikanische Republik</td>
         <td>3.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Chad</td>
+        <td>SMS / MMS – Global</td>
+        <td>Tschad</td>
         <td>23.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Chile</td>
         <td>7.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>China</td>
         <td>1.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Colombia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kolumbien</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Comoros</td>
+        <td>SMS / MMS – Global</td>
+        <td>Komoren</td>
         <td>6.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Congo</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kongo</td>
         <td>6.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Cook Islands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Cookinseln</td>
         <td>6.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Costa Rica</td>
         <td>6.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Croatia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kroatien</td>
         <td>8.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Cuba</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kuba</td>
         <td>18.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Curacao</td>
+        <td>SMS / MMS – Global</td>
+        <td>Curaçao</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Cyprus</td>
+        <td>SMS / MMS – Global</td>
+        <td>Zypern</td>
         <td>2.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Czech Republic</td>
+        <td>SMS / MMS – Global</td>
+        <td>Tschechische Republik</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Denmark</td>
+        <td>SMS / MMS – Global</td>
+        <td>Dänemark</td>
         <td>8.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Djibouti</td>
+        <td>SMS / MMS – Global</td>
+        <td>Dschibuti</td>
         <td>10.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Dominica</td>
         <td>9.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Dominican Republic</td>
+        <td>SMS / MMS – Global</td>
+        <td>Dominikanische Republik</td>
         <td>10.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>DR Congo</td>
+        <td>SMS / MMS – Global</td>
+        <td>DR Kongo</td>
         <td>14.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Ecuador</td>
         <td>22.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Egypt</td>
+        <td>SMS / MMS – Global</td>
+        <td>Ägypten</td>
         <td>21.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>El Salvador</td>
         <td>8.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Equatorial Guinea</td>
+        <td>SMS / MMS – Global</td>
+        <td>Äquatorialguinea</td>
         <td>5.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Eritrea</td>
         <td>14.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Estonia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Estland</td>
         <td>9.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Eswatini</td>
         <td>5.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Ethiopia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Äthiopien</td>
         <td>26.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Falkland Islands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Falklandinseln</td>
         <td>2.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Faroe Islands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Färöer</td>
         <td>2.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Fiji</td>
+        <td>SMS / MMS – Global</td>
+        <td>Fidschi</td>
         <td>14.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Finland</td>
+        <td>SMS / MMS – Global</td>
+        <td>Finnland</td>
         <td>11.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>France</td>
+        <td>SMS / MMS – Global</td>
+        <td>Frankreich</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>French Guiana</td>
+        <td>SMS / MMS – Global</td>
+        <td>Französisch-Guayana</td>
         <td>20.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>French Polynesia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Französisch-Polynesien</td>
         <td>15.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Gabon</td>
+        <td>SMS / MMS – Global</td>
+        <td>Gabun</td>
         <td>21.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Gambia</td>
         <td>12.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Georgia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Georgien</td>
         <td>21.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Germany</td>
+        <td>SMS / MMS – Global</td>
+        <td>Deutschland</td>
         <td>17.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Ghana</td>
         <td>17.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Gibraltar</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Greece</td>
+        <td>SMS / MMS – Global</td>
+        <td>Griechenland</td>
         <td>10.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Greenland</td>
+        <td>SMS / MMS – Global</td>
+        <td>Grönland</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Grenada</td>
         <td>10.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Guadeloupe</td>
         <td>20.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Guam</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Guatemala</td>
         <td>18.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Guernsey</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Guinea</td>
         <td>18.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Guinea-Bissau</td>
         <td>14.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Guyana</td>
         <td>10.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Haiti</td>
         <td>11.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Honduras</td>
         <td>7.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Hong Kong</td>
+        <td>SMS / MMS – Global</td>
+        <td>Hongkong</td>
         <td>9.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Hungary</td>
+        <td>SMS / MMS – Global</td>
+        <td>Ungarn</td>
         <td>11.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Iceland</td>
+        <td>SMS / MMS – Global</td>
+        <td>Island</td>
         <td>11.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>India</td>
+        <td>SMS / MMS – Global</td>
+        <td>Indien</td>
         <td>8.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Indonesia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Indonesien</td>
         <td>36.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Iran</td>
         <td>15.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Iraq</td>
+        <td>SMS / MMS – Global</td>
+        <td>Irak</td>
         <td>23.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Ireland</td>
+        <td>SMS / MMS – Global</td>
+        <td>Irland</td>
         <td>10.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Isle of Man</td>
         <td>8.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Israel</td>
         <td>15.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Italy</td>
+        <td>SMS / MMS – Global</td>
+        <td>Italien</td>
         <td>8.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Ivory Coast</td>
+        <td>SMS / MMS – Global</td>
+        <td>Elfenbeinküste</td>
         <td>15.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Jamaica</td>
+        <td>SMS / MMS – Global</td>
+        <td>Jamaika</td>
         <td>11.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Japan</td>
         <td>9.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Jersey</td>
         <td>7.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Jordan</td>
+        <td>SMS / MMS – Global</td>
+        <td>Jordanien</td>
         <td>25.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Kazakhstan</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kasachstan</td>
         <td>25.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Kenya</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kenia</td>
         <td>22.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Kiribati</td>
         <td>3.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Korea Republic of</td>
+        <td>SMS / MMS – Global</td>
+        <td>Republik Korea</td>
         <td>3.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Kosovo</td>
         <td>9.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Kuwait</td>
         <td>24.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Kyrgyzstan</td>
+        <td>SMS / MMS – Global</td>
+        <td>Kirgisistan</td>
         <td>26.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Laos PDR</td>
+        <td>SMS / MMS – Global</td>
+        <td>Laos (VDR)</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Latvia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Lettland</td>
         <td>7.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Lebanon</td>
+        <td>SMS / MMS – Global</td>
+        <td>Libanon</td>
         <td>19.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Lesotho</td>
         <td>6.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Liberia</td>
         <td>7.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Libya</td>
+        <td>SMS / MMS – Global</td>
+        <td>Libyen</td>
         <td>26.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Liechtenstein</td>
         <td>3.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Lithuania</td>
+        <td>SMS / MMS – Global</td>
+        <td>Litauen</td>
         <td>5.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Luxembourg</td>
+        <td>SMS / MMS – Global</td>
+        <td>Luxemburg</td>
         <td>10.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Macao</td>
         <td>3.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Madagascar</td>
+        <td>SMS / MMS – Global</td>
+        <td>Madagaskar</td>
         <td>22.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Malawi</td>
         <td>22.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Malaysia</td>
         <td>7.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Maldives</td>
+        <td>SMS / MMS – Global</td>
+        <td>Malediven</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Mali</td>
         <td>21.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Malta</td>
         <td>10.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Martinique</td>
         <td>18.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Mauritania</td>
+        <td>SMS / MMS – Global</td>
+        <td>Mauretanien</td>
         <td>19.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Mauritius</td>
         <td>18.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Mayotte</td>
         <td>23.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Mexico</td>
+        <td>SMS / MMS – Global</td>
+        <td>Mexiko</td>
         <td>2.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Micronesia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Mikronesien</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Moldova</td>
+        <td>SMS / MMS – Global</td>
+        <td>Moldau</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Monaco</td>
         <td>16.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Mongolia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Mongolei</td>
         <td>19.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Montenegro</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Montserrat</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Morocco</td>
+        <td>SMS / MMS – Global</td>
+        <td>Marokko</td>
         <td>15.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Mozambique</td>
+        <td>SMS / MMS – Global</td>
+        <td>Mosambik</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Myanmar</td>
         <td>24.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Namibia</td>
         <td>5.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Nauru</td>
         <td>11.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Nepal</td>
         <td>18.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Netherlands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Niederlande</td>
         <td>18.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>New Caledonia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Neukaledonien</td>
         <td>14.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>New Zealand</td>
+        <td>SMS / MMS – Global</td>
+        <td>Neuseeland</td>
         <td>14.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Nicaragua</td>
         <td>12.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Niger</td>
         <td>16.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Nigeria</td>
         <td>21.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>North Macedonia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Nordmazedonien</td>
         <td>3.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Northern Cyprus</td>
+        <td>SMS / MMS – Global</td>
+        <td>Nordzypern</td>
         <td>2.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Norway</td>
+        <td>SMS / MMS – Global</td>
+        <td>Norwegen</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Oman</td>
         <td>16.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Pakistan</td>
         <td>22.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Palau</td>
         <td>3.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Panama</td>
         <td>9.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Papua New Guinea</td>
+        <td>SMS / MMS – Global</td>
+        <td>Papua-Neuguinea</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Paraguay</td>
         <td>2.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Peru</td>
         <td>11.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Philippines</td>
+        <td>SMS / MMS – Global</td>
+        <td>Philippinen</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Poland</td>
+        <td>SMS / MMS – Global</td>
+        <td>Polen</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Portugal</td>
         <td>3.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Puerto Rico</td>
         <td>1.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Qatar</td>
+        <td>SMS / MMS – Global</td>
+        <td>Katar</td>
         <td>3.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Reunion/Mayotte</td>
+        <td>SMS / MMS – Global</td>
+        <td>Réunion/Mayotte</td>
         <td>11.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Romania</td>
+        <td>SMS / MMS – Global</td>
+        <td>Rumänien</td>
         <td>7.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Russia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Russland</td>
         <td>18.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Rwanda</td>
+        <td>SMS / MMS – Global</td>
+        <td>Ruanda</td>
         <td>12.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Saint Kitts and Nevis</td>
+        <td>SMS / MMS – Global</td>
+        <td>St. Kitts und Nevis</td>
         <td>9.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Saint Lucia</td>
+        <td>SMS / MMS – Global</td>
+        <td>St. Lucia</td>
         <td>10.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Saint Pierre and Miquelon</td>
+        <td>SMS / MMS – Global</td>
+        <td>Saint-Pierre und Miquelon</td>
         <td>23.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Saint Vincent and The Grenadines</td>
+        <td>SMS / MMS – Global</td>
+        <td>St. Vincent und die Grenadinen</td>
         <td>10.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Samoa</td>
         <td>7.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Sao Tome and Principe</td>
+        <td>SMS / MMS – Global</td>
+        <td>São Tomé und Príncipe</td>
         <td>6.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Saudi Arabia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Saudi-Arabien</td>
         <td>10.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Senegal</td>
         <td>20.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Serbia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Serbien</td>
         <td>8.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Seychelles</td>
+        <td>SMS / MMS – Global</td>
+        <td>Seychellen</td>
         <td>9.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Sierra Leone</td>
         <td>13.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Singapore</td>
+        <td>SMS / MMS – Global</td>
+        <td>Singapur</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Sint Maarten</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Slovakia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Slowakei</td>
         <td>8.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Slovenia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Slowenien</td>
         <td>2.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Solomon Islands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Salomonen</td>
         <td>7.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Somalia</td>
         <td>17.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>South Africa</td>
+        <td>SMS / MMS – Global</td>
+        <td>Südafrika</td>
         <td>2.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>South Ossetia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Südossetien</td>
         <td>20.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>South Sudan</td>
+        <td>SMS / MMS – Global</td>
+        <td>Südsudan</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Spain</td>
+        <td>SMS / MMS – Global</td>
+        <td>Spanien</td>
         <td>7.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Sri Lanka</td>
         <td>25.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Sudan</td>
         <td>22.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Suriname</td>
         <td>7.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Sweden</td>
+        <td>SMS / MMS – Global</td>
+        <td>Schweden</td>
         <td>8.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Switzerland</td>
+        <td>SMS / MMS – Global</td>
+        <td>Schweiz</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Taiwan</td>
         <td>16.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Tajikistan</td>
+        <td>SMS / MMS – Global</td>
+        <td>Tadschikistan</td>
         <td>34.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Tanzania</td>
+        <td>SMS / MMS – Global</td>
+        <td>Tansania</td>
         <td>16.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Thailand</td>
         <td>1.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Timor-Leste</td>
         <td>8.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Togo</td>
         <td>6.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Tonga</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Trinidad and Tobago</td>
+        <td>SMS / MMS – Global</td>
+        <td>Trinidad und Tobago</td>
         <td>10.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Tunisia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Tunesien</td>
         <td>22.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Turkey</td>
+        <td>SMS / MMS – Global</td>
+        <td>Türkei</td>
         <td>0.50</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Turkmenistan</td>
         <td>19.70</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Turks and Caicos Islands</td>
+        <td>SMS / MMS – Global</td>
+        <td>Turks- und Caicosinseln</td>
         <td>9.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Uganda</td>
         <td>19.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Ukraine</td>
         <td>22.80</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>United Arab Emirates</td>
+        <td>SMS / MMS – Global</td>
+        <td>Vereinigte Arabische Emirate</td>
         <td>4.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>United Kingdom</td>
+        <td>SMS / MMS – Global</td>
+        <td>Vereinigtes Königreich</td>
         <td>6.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Uruguay</td>
         <td>7.10</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Uzbekistan</td>
+        <td>SMS / MMS – Global</td>
+        <td>Usbekistan</td>
         <td>35.20</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Vanuatu</td>
         <td>14.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Venezuela</td>
         <td>8.40</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
+        <td>SMS / MMS – Global</td>
         <td>Vietnam</td>
         <td>14.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Virgin Islands, British</td>
+        <td>SMS / MMS – Global</td>
+        <td>Britische Jungferninseln</td>
         <td>10.00</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Wallis and Futuna</td>
+        <td>SMS / MMS – Global</td>
+        <td>Wallis und Futuna</td>
         <td>14.60</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Yemen</td>
+        <td>SMS / MMS – Global</td>
+        <td>Jemen</td>
         <td>16.30</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Zambia</td>
+        <td>SMS / MMS – Global</td>
+        <td>Sambia</td>
         <td>19.90</td>
     </tr>
     <tr>
-        <td>SMS / MMS - Global</td>
-        <td>Zimbabwe</td>
+        <td>SMS / MMS – Global</td>
+        <td>Simbabwe</td>
         <td>16.40</td>
     </tr>
     <tr>
@@ -1906,12 +1906,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>Line</td>
-        <td>All Regions</td>
+        <td>Alle Regionen</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>All Regions</td>
+        <td>Alle Regionen</td>
         <td>0.20</td>
     </tr>
     <tr>
@@ -1921,12 +1921,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Infobip - All Regions</td>
+        <td>Infobip – Alle Regionen</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Twilio - All Regions</td>
+        <td>Twilio – Alle Regionen</td>
         <td>0.30</td>
     </tr>
     <tr>
@@ -2051,27 +2051,27 @@ Die Spaltendefinitionen lauten wie folgt:
 
 ------
 
-## Details zur Agentenkonsole {#agent-console-details}
-Braze berechnet Message Credits für Agentenkonsolen-Aufrufe, die über die Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig enthält Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abo-Laufzeit.
+## Details zur Agent Console {#agent-console-details}
+Braze berechnet Message Credits für Agent-Console-Invocations, die über die Braze-Plattform gesendet werden. Eine Invocation wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig umfasst Ihr Vertrag zehntausend Invocations pro Laufzeitperiode Ihres Abonnements.
 
-## Details zum SMS/MMS-Kanal {#smsmms-channel-details}
+## Details zum SMS-/MMS-Kanal {#smsmms-channel-details}
 
-### SMS-Segmente {#sms-segments}
+### SMS-Nachrichtensegmente {#sms-segments}
 
-SMS-Nachrichten-Segmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichten-Segment ist eine Gruppierung von bis zu einer definierten Zeichenanzahl (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichten-Segmente gesendet wurden. Das Senden mehrerer Nachrichten-Segmente führt zu zusätzlichen Kosten.
+SMS-Nachrichtensegmente sind die Einheit, mit der die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Zeichenanzahl (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden zwei (2) Nachrichtensegmente gesendet. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
 
-### MMS-Segmente {#mms-segments}
+### MMS-Nachrichtensegmente {#mms-segments}
 
-Für MMS beträgt das Nachrichtenlimit 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
+Für MMS liegt das Nachrichtenlimit bei 5 MB (einschließlich des Multimedia-Assets und der Nachrichtenkörpergröße). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
 
 ### RCS-Typen {#rcs-types}
 
-RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
+RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten, stark engagierenden Kanals wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
 
 - Die RCS-Abrechnung basiert auf zwei verschiedenen Nachrichtentypen (mit Unterscheidungen für die USA):
     - **Basic RCS:** Nur Text, bis zu 160 Zeichen
     - **Single RCS:** Nachrichten mit Rich Content oder reine Textnachrichten mit mehr als 160 Zeichen
-    - **Rich RCS (nur USA):** Nur Text, kann eingeschränkte Vorschläge/Buttons enthalten (quickReply, dialPhone, openURL ohne Webview), segmentiert pro 160 UTF-8-Bytes
+    - **Rich RCS (nur USA):** Nur Text, kann begrenzte Vorschläge/Buttons enthalten (quickReply, dialPhone, openURL ohne Webview), segmentiert pro 160 UTF-8-Bytes
     - **Rich Media RCS (nur USA):** Beliebige Medien ODER Text mit umfangreicheren Vorschlägen/Buttons (Webview, Standort, Kalender usw.), wird als eine Nachricht gezählt
 
 ## Details zum WhatsApp-Kanal {#whatsapp-channel-details}
@@ -2082,11 +2082,11 @@ RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines di
 
 ### Webhooks
 
-Webhooks wurden am 9. Dezember 2024 in die Message Credits aufgenommen. Braze berechnet Message Credits für alle Webhooks, die über die Braze-Plattform gesendet werden. Standardmäßig enthält Ihr Vertrag hunderttausend Webhooks pro Zeitraum Ihrer Abo-Laufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
+Webhooks wurden am 9. Dezember 2024 in die Message Credits aufgenommen. Braze berechnet Message Credits für alle Webhooks, die über die Braze-Plattform gesendet werden. Standardmäßig umfasst Ihr Vertrag hunderttausend Webhooks pro Laufzeitperiode Ihres Abonnements. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
 
-### Bring your own (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
+### Bring-your-own (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
 
-Braze ermöglicht es Kund:innen, sich über das „BYO SMS Connector“-Modell mit Drittanbietern zu integrieren, um SMS-Nachrichten zu versenden. Braze berechnet Message Credits für jede Nachricht, die über BYO SMS-Konnektoren von der Braze-Plattform gesendet wird.
+Braze ermöglicht es Kund:innen, Drittanbieter zu integrieren, um SMS-Nachrichten über das „BYO SMS Connector“-Modell zu versenden. Braze berechnet Message Credits für jede Nachricht, die über BYO-SMS-Konnektoren von der Braze-Plattform gesendet wird.
 
 ### LINE
 
@@ -2100,26 +2100,23 @@ Vereinigte Staaten, Kanada
 
 ### Übriges Afrika {#rest-of-africa}
 
-Algerien, Angola, Benin, Botswana, Burkina Faso, Burundi, Kamerun, Tschad, Kongo, Eritrea, Äthiopien, Gabun, Gambia, Ghana, Guinea-Bissau, Elfenbeinküste, Kenia, Lesotho, Liberia, Libyen,
-Madagaskar, Malawi, Mali, Mauretanien, Marokko, Mosambik, Namibia, Niger, Ruanda, Senegal, Sierra Leone, Somalia, Südsudan, Sudan, Swasiland, Tansania, Togo, Tunesien, Uganda, Sambia
+Algerien, Angola, Benin, Botswana, Burkina Faso, Burundi, Kamerun, Tschad, Kongo, Eritrea, Äthiopien, Gabun, Gambia, Ghana, Guinea-Bissau, Elfenbeinküste, Kenia, Lesotho, Liberia, Libyen, Madagaskar, Malawi, Mali, Mauretanien, Marokko, Mosambik, Namibia, Niger, Ruanda, Senegal, Sierra Leone, Somalia, Südsudan, Sudan, Swasiland, Tansania, Togo, Tunesien, Uganda, Sambia
 
-### Übriger asiatisch-pazifischer Raum {#rest-of-asia-pacific}
+### Übriger Asien-Pazifik-Raum {#rest-of-asia-pacific}
 
-Afghanistan, Australien, Bangladesch, Kambodscha, China, Hongkong, Japan, Laos, Mongolei, Nepal, Neuseeland, Papua-Neuguinea, Philippinen, Singapur, Sri Lanka, Taiwan, Tadschikistan, Thailand,
-Turkmenistan, Usbekistan, Vietnam
+Afghanistan, Australien, Bangladesch, Kambodscha, China, Japan, Laos, Mongolei, Nepal, Neuseeland, Papua-Neuguinea, Philippinen, Sri Lanka, Taiwan, Tadschikistan, Thailand, Turkmenistan, Usbekistan, Vietnam
 
 ### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
 
-Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Ungarn, Lettland, Litauen, Mazedonien, Moldawien, Polen, Rumänien, Serbien, Slowakei, Slowenien, Ukraine
+Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Lettland, Litauen, Mazedonien, Moldau, Serbien, Slowakei, Slowenien, Ukraine
 
 ### Übriges Lateinamerika {#rest-of-latin-america}
 
-Bolivien, Costa Rica, Dominikanische Republik, Ecuador, El Salvador,
-Guatemala, Haiti, Honduras, Jamaika, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
+Bolivien, Costa Rica, Dominikanische Republik, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaika, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
 ### Übriger Naher Osten {#rest-of-middle-east}
 
-Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Katar, Jemen
+Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Jemen
 
 ### Übriges Westeuropa {#rest-of-western-europe}
 

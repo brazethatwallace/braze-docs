@@ -4,13 +4,13 @@ article_title: SAML SSO 설정
 page_order: 0
 page_type: tutorial
 toc_headers: h2
-description: "이 문서에서는 Braze 계정에 SAML 싱글 사인온을 활성화하는 방법을 안내합니다."
+description: "이 문서에서는 Braze 계정에 SAML SSO를 활성화하는 방법을 안내합니다."
 
 ---
 
 # 서비스 공급자(SP) 시작 로그인 {#service-provider-sp-initiated-login}
 
-> 이 문서에서는 Braze 계정에 SAML 싱글 사인온을 활성화하는 방법과 SAML 트레이스를 얻는 방법을 안내합니다.
+> 이 문서에서는 Braze 계정에 SAML SSO를 활성화하는 방법과 SAML 트레이스를 얻는 방법을 안내합니다.
 
 ## 요구 사항 {#requirements}
 
@@ -75,7 +75,7 @@ ID 공급자에서 Braze 설정을 완료하면 ID 공급자가 Braze 계정에 
 
 ## RelayState 설정하기 {#setting-up-your-relaystate}
 
-1. Braze에서 **설정** > **API 키**로 이동합니다.
+1. Braze에서 **설정** > **API 및 식별자**로 이동합니다.
 2. **API 키** 탭에서 **API 키 생성** 버튼을 선택합니다.
 3. **API 키 이름** 필드에 키 이름을 입력합니다.
 4. **권한** 아래의 **SSO** 드롭다운을 확장하고 **sso.saml.login**을 체크합니다.
@@ -94,6 +94,10 @@ SSO를 사용하기로 선택한 멤버는 더 이상 이전처럼 비밀번호�
 ![최소 비밀번호 길이 8자, 비밀번호 재사용 3회로 설정된 "인증 규칙" 섹션의 예시. 비밀번호는 180일 후 만료되며, 사용자는 1,440분 비활성 후 로그아웃됩니다.]({% image_buster /assets/img/sso3.png %})
 
 제한을 활성화하면 회사의 Braze 사용자는 이전에 비밀번호로 로그인한 적이 있더라도 더 이상 비밀번호를 사용하여 로그인할 수 없습니다.
+
+{% alert important %}
+SSO가 적용된 후에는 SSO 인증이 실패할 경우 대체 로그인 옵션이 없습니다. SSO 적용을 활성화하기 전에 SSO 구성이 올바른지, 모든 인증서가 최신 상태이고 갱신되었는지, 보안 설정이 적절히 관리되고 있는지 확인하여 로그인 문제를 방지하세요.
+{% endalert %}
 
 ## SAML 트레이스 얻기 {#obtaining-a-saml-trace}
 

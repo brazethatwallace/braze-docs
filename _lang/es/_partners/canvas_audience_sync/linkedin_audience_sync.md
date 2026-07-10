@@ -15,7 +15,7 @@ Mediante la Sincronización de audiencia de Braze con LinkedIn, las marcas puede
 
 **Entre los casos de uso habituales de la sincronización de audiencias se incluyen**:
 
-- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la interacción
+- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la participación
 - Reorientar a los usuarios menos receptivos a otros canales de marketing
 - Crear audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores fieles de tu marca
 
@@ -41,7 +41,7 @@ Debes asegurarte de que tienes los siguientes elementos creados, completados o a
 Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar LinkedIn a tu cuenta de Braze.
 {% endalert %}
 
-En el dashboard de Braze, ve a **Socios tecnológicos** y selecciona **LinkedIn**. En la sección **LinkedIn Audience Sync**, selecciona **Connect LinkedIn**.
+En el panel de Braze, ve a **Socios tecnológicos** y selecciona **LinkedIn**. En la sección **LinkedIn Audience Sync**, selecciona **Connect LinkedIn**.
 
 ![La página de tecnología de LinkedIn en Braze incluye una sección de resumen y otra de sincronización de audiencia de LinkedIn con el botón Conectar LinkedIn.]({% image_buster /assets/img/linkedin/linkedin3.png %}){: style="max-width:75%;"}
 
@@ -49,7 +49,7 @@ A continuación, se te redirigirá a la página de OAuth de LinkedIn para que au
 
 ![Se selecciona "Braze Self Service" como cuenta publicitaria a conectar.]({% image_buster /assets/img/linkedin/linkedin7.png %}){: style="max-width:75%;"}
 
-Una vez que te hayas conectado correctamente, volverás a la página del socio, donde podrás ver qué cuentas están conectadas y desconectar las cuentas existentes.
+Una vez que te hayas conectado correctamente, volverás a la página del partner, donde podrás ver qué cuentas están conectadas y desconectar las cuentas existentes.
 
 ![Una cuenta de LinkedIn conectada correctamente.]({% image_buster /assets/img/linkedin/linkedin6.png %}){: style="max-width:75%;"}
 
@@ -77,9 +77,9 @@ Añade un componente en tu Canvas y selecciona **Audience Sync**. Haz clic en el
 
 ### Paso 4: Configuración de la sincronización {#step-4-sync-setup}
 
-Selecciona **LinkedIn** como socio de Audience Sync deseado.
+Selecciona **LinkedIn** como partner de Audience Sync deseado.
 
-![Los detalles de "Configurar sincronización de audiencia" con los múltiples socios a elegir.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
+![Los detalles de "Configurar sincronización de audiencia" con los múltiples partners a elegir.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
 
 A continuación, selecciona la cuenta publicitaria de LinkedIn que desees. En el desplegable **Choose a New or Existing Audience**, escribe el nombre de una audiencia nueva o existente.
 
@@ -151,7 +151,7 @@ Recuerda que se producirá un retraso en los informes de las métricas de usuari
 {% alert important %}
 LinkedIn proporciona métricas adicionales sobre las tasas de coincidencia dentro de su plataforma. Para revisar la coincidencia de tu Audience Sync específica, selecciona las métricas del paso de Audience Sync para ir a la página **Canvas Step Details**.
 <br><br>
-Selecciona el socio como **LinkedIn**, tu cuenta publicitaria y la audiencia para ver el tamaño de la audiencia y la tasa de coincidencia de LinkedIn.
+Selecciona el partner como **LinkedIn**, tu cuenta publicitaria y la audiencia para ver el tamaño de la audiencia y la tasa de coincidencia de LinkedIn.
 
 ![Un ejemplo de métricas del paso de Audience Sync con 10.000 usuarios ingresados.]({% image_buster /assets/img/linkedin/linkedin11.png %})
 {% endalert %}
@@ -168,15 +168,15 @@ La audiencia debe incluir al menos 300 miembros para poblar el tamaño de la aud
 
 ### ¿Qué debo hacer si recibo un error de token no válido? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Puedes desconectar y volver a conectar tu cuenta de LinkedIn en la página del socio de LinkedIn. Confirma con tu administrador de LinkedIn que tienes los permisos adecuados para la cuenta publicitaria con la que deseas sincronizar.
+Puedes desconectar y volver a conectar tu cuenta de LinkedIn en la página del partner de LinkedIn. Confirma con tu administrador de LinkedIn que tienes los permisos adecuados para la cuenta publicitaria con la que deseas sincronizar.
 
 ### ¿Por qué no se puede lanzar mi Canvas? {#why-is-my-canvas-not-allowed-to-launch}
 
-Confirma que tu cuenta publicitaria de LinkedIn se ha conectado correctamente a Braze en la página del socio de LinkedIn. A continuación, asegúrate de haber seleccionado una cuenta publicitaria, introducido un nombre para la nueva audiencia y seleccionado los campos que coincidan.
+Confirma que tu cuenta publicitaria de LinkedIn se ha conectado correctamente a Braze en la página del partner de LinkedIn. A continuación, asegúrate de haber seleccionado una cuenta publicitaria, introducido un nombre para la nueva audiencia y seleccionado los campos que coincidan.
 
 ### ¿Cómo sé si los usuarios se han emparejado después de pasar los usuarios a LinkedIn? {#how-do-i-know-if-users-have-matched-after-passing-users-to-linkedin}
 
-LinkedIn proporciona información sobre las tasas de coincidencia en su dashboard. Puedes consultarlo en LinkedIn, en la sección **Audiences**. Puedes revisar la tasa de coincidencia de tu audiencia de LinkedIn en los detalles del paso en Canvas de tu paso de Audience Sync.
+LinkedIn proporciona información sobre las tasas de coincidencia en su panel. Puedes consultarlo en LinkedIn, en la sección **Audiences**. Puedes revisar la tasa de coincidencia de tu audiencia de LinkedIn en los detalles del paso en Canvas de tu paso de Audience Sync.
 
 ### ¿A cuántas audiencias puede dar soporte LinkedIn? {#how-many-audiences-can-linkedin-support}
 

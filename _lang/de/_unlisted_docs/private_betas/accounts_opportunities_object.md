@@ -45,7 +45,7 @@ Bevor Sie dieses Feature nutzen können, müssen bereits Nutzer:innen in Braze v
 
 Um Konto-Objekte in Ihren Nachrichten zu verwenden, sollten Ihre Nutzerdaten bereits in Braze vorhanden sein. Führen Sie von dort aus zwei Importe durch: Importieren Sie zunächst Nutzer-Konto-Beziehungsdaten, um Kontozuordnungen und Rollen festzulegen (derzeit nur per CSV). Importieren Sie dann Kontodaten mit den Unternehmensdetails, die für Segmentierung und Personalisierung verwendet werden (per CSV oder über die Braze REST API).
 
-### 1. Schritt: Nutzer-Konto-Beziehungsdaten importieren {#step-1-import-user-account-relationship-data}
+### Schritt 1: Nutzer-Konto-Beziehungsdaten importieren {#step-1-import-user-account-relationship-data}
 
 Importieren Sie zunächst Ihre Nutzer-Konto-Beziehungsdaten als CSV-Datei mit den folgenden Feldern in Braze. Dies hilft Braze, bestehende Nutzer:innen den richtigen Konten und Rollen zuzuordnen.
 
@@ -77,7 +77,7 @@ Laden Sie Ihre CSV-Datei mit Nutzer-Konto-Beziehungen in Braze hoch:
 
 ![Das Dropdown-Menü „Daten hochladen“ auf der Seite „Konten“ in Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
-### 2. Schritt: Kontodaten importieren {#step-2-import-account-data}
+### Schritt 2: Kontodaten importieren {#step-2-import-account-data}
 
 Konten sind Unternehmen, denen Ihre Nutzer:innen angehören. Importieren Sie Ihre Kontodaten als CSV-Datei mit den folgenden Feldern in Braze. Beachten Sie, dass jedem Konto eine ID und ein Name zugewiesen werden muss.
 
@@ -315,7 +315,7 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts/ACC001 \
 
 Nachdem Sie [Ihre Daten in Braze importiert](#importing-data-to-braze) haben, können Sie Konto-Objekte verwenden, um ein Segment zu erstellen und personalisierte Nachrichten mit Liquid an Nutzer:innen zu senden.
 
-### 1. Schritt: Segment erstellen {#step-1-build-a-segment}
+### Schritt 1: Segment erstellen {#step-1-build-a-segment}
 
 Erstellen Sie als Nächstes ein Segment, das Nutzerdaten und Kontodaten kombiniert. In diesem Beispiel sprechen Sie Direktor:innen bei Unternehmen im Gesundheitswesen an, um die Registrierung für ein neues Webinar Ihres Gesundheitsförderungsunternehmens zu steigern.
 
@@ -339,7 +339,7 @@ Derzeit müssen Sie zum Verwenden mehrerer Kontofilter **Kriterien hinzufügen**
 Die Segmentierung funktioniert nur für die ersten 1.000 Kontodatensätze, die den Kriterien entsprechen. Sie können bis zu einen Unternehmensfilter pro Segment verwenden, und alle Kriterien müssen in einem Filter enthalten sein.
 {% endalert %}
 
-### 2. Schritt: Liquid zur Personalisierung verwenden {#step-2-use-liquid-to-personalize}
+### Schritt 2: Liquid zur Personalisierung verwenden {#step-2-use-liquid-to-personalize}
 
 Jetzt können Sie Ihre Nachricht personalisieren, um Nutzer:innen Informationen über Opportunities zu senden. In diesem Beispiel verfassen Sie eine Nachricht an Ihre Direktor:innen und verlinken sie zum Webinar. Sie können auch einen Braze-Katalog verwenden, um branchenspezifische Bilder für die Personalisierung abzurufen.
 

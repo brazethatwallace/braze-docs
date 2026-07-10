@@ -29,7 +29,7 @@ Añade un [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canv
 
 Especifica el evento de conversión que debe determinar el ganador. Si no hay eventos de conversión disponibles, vuelve al primer paso de la configuración de Canvas y [asigna eventos de conversión]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events).
 
-Si eliges aperturas o clics como tu evento de conversión, asegúrate de que el primer paso en el recorrido sea un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). Braze solo cuenta la interacción del primer paso de mensaje en cada recorrido respectivo. Si el recorrido comienza con un paso diferente (como un paso de retraso o de ruta de audiencia) y el mensaje viene después, ese mensaje no se incluirá al evaluar el rendimiento.
+Si eliges aperturas o clics como tu evento de conversión, asegúrate de que el primer paso en el recorrido sea un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). Braze solo cuenta la participación del primer paso de mensaje en cada recorrido respectivo. Si el recorrido comienza con un paso diferente (como un paso de retraso o de ruta de audiencia) y el mensaje viene después, ese mensaje no se incluirá al evaluar el rendimiento.
 
 Luego configura la **Ventana del experimento**. La **Ventana del experimento** determina durante cuánto tiempo los usuarios serán enviados por todos los recorridos antes de elegir el mejor recorrido para cada usuario en el grupo de retraso. La ventana comienza cuando el primer usuario entra en el paso.
 
@@ -78,7 +78,9 @@ Cuando la ventana del experimento pase y el experimento esté completo, todos lo
 
 ## Análisis {#analytics}
 
-Si los recorridos personalizados estaban activados, tu vista de análisis se separa en dos pestañas: **Experimento inicial** y **Recorridos personalizados**.
+Cuando los recorridos personalizados están activados y producen resultados suficientes, tu vista de análisis se separa en dos pestañas: **Experimento inicial** y **Recorridos personalizados**.
+
+Si el experimento se completa con resultados insuficientes, solo se muestra la pestaña **Experimento inicial**, ya que el modelo determina que la personalización no superaría el envío de todos los usuarios por un solo recorrido con mejor rendimiento. En este caso, se aplica el comportamiento alternativo que configuraste y no hay análisis de recorridos personalizados disponibles.
 
 {% tabs local %}
 {% tab Experimento inicial %}
@@ -136,7 +138,7 @@ Las tres tarjetas en esta página muestran tu mejora proyectada, los resultados 
 - **Resultados generales:** Los resultados del segundo envío basados en tu evento de conversión.
 - **Resultados proyectados:** Los resultados proyectados del segundo envío basados en tu métrica de optimización elegida si hubieras enviado solo la variante ganadora.
 
-![Pestaña de recorridos personalizados para un Canvas. Las tarjetas muestran la mejora proyectada, las conversiones generales (con recorridos personalizados) y las aperturas únicas proyectadas (con el recorrido ganador).]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab2.png %})
+![Pestaña de recorridos personalizados para un Canvas. Las tarjetas muestran la mejora proyectada, las conversiones generales (con recorridos personalizados) y las Unique Opens proyectadas (con el recorrido ganador).]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab2.png %})
 
 {% endtab %}
 {% endtabs %}

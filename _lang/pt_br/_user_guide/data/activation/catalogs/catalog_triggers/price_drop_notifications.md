@@ -31,7 +31,7 @@ As propriedades do evento são enviadas junto com o usuário, para que você pos
 
 Siga estas etapas para configurar notificações de queda de preço em um catálogo específico.
 
-1. Acesse seu catálogo e selecione a guia **Configurações**.
+1. Acesse seu catálogo e selecione a guia **Settings**.
 2. Selecione a alternância de **Price Drop**.
 3. Se as configurações globais do catálogo não tiverem sido definidas, você será solicitado a configurar os eventos personalizados e propriedades que serão usados para disparar notificações. <br><br> ![Gaveta de configurações do catálogo.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
 
@@ -40,7 +40,7 @@ Siga estas etapas para configurar notificações de queda de preço em um catál
 | **Catálogo de fallback** | O catálogo usado para a inscrição se não houver uma propriedade `catalog_name` no evento personalizado. |
 | **Evento personalizado para inscrição** | O evento personalizado usado para inscrever um usuário nas notificações de catálogo. Quando esse evento ocorrer, o usuário que o realizou será inscrito. |
 | **Evento personalizado para cancelamento de inscrição** | O evento personalizado usado para cancelar a inscrição de um usuário nas notificações. Esse evento é opcional. Se o usuário não realizar esse evento, ele será desinscrito após 90 dias ou quando o evento de queda de preço for acionado, o que ocorrer primeiro. |
-| **Propriedade de evento do ID do item** | A propriedade no evento personalizado acima usada para determinar o item para uma inscrição ou cancelamento de inscrição. Essa propriedade no evento personalizado deve conter um ID de item que existe em um catálogo. O evento personalizado deve conter uma propriedade `catalog_name` para especificar em qual catálogo esse item está. |
+| **Propriedade de evento do ID do item** | A propriedade no evento personalizado mencionado anteriormente nesta seção, usada para determinar o item para uma inscrição ou cancelamento de inscrição. Essa propriedade no evento personalizado deve conter um ID de item que existe em um catálogo. O evento personalizado deve conter uma propriedade `catalog_name` para especificar em qual catálogo esse item está. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurando notificações de queda de preço" }
 
 Aqui está um exemplo de evento personalizado:
@@ -67,15 +67,15 @@ Aqui está um exemplo de evento personalizado:
 
 ### Configurando regras de notificação {#setting-up-notification-rules}
 
-1. Acesse a página de **Configurações** do seu catálogo.
-2. Em **Regras de notificação**, selecione entre as seguintes opções:<br>
+1. Acesse a página de **Settings** do seu catálogo.
+2. Em **Notification rules**, selecione entre as seguintes opções:<br>
 
-    - **Notificar todos os usuários inscritos:** Notifica todos os clientes que estão aguardando quando o preço do item cair.
-    - **Definir limites de notificação:** Notifica um número especificado de clientes de acordo com o período de notificação configurado. A Braze notificará o número especificado de clientes em incrementos até que não haja mais clientes para notificar ou até que o preço do item volte a subir. Sua taxa de notificação não pode exceder 10.000 usuários por minuto.<br>
+    - **Notify all subscribed users:** Notifica todos os clientes que estão aguardando quando o preço do item cair.
+    - **Set notification limits:** Notifica um número especificado de clientes de acordo com o período de notificação configurado. A Braze notificará o número especificado de clientes em incrementos até que não haja mais clientes para notificar ou até que o preço do item volte a subir. Sua taxa de notificação não pode exceder 10.000 usuários por minuto.<br>
 
-2. Defina o **Campo de preço no catálogo**. Este é o campo do catálogo que será usado para determinar o preço do item. Deve ser um tipo numérico.
-3. Defina a **Regra de queda de preço**. Esta é a lógica usada para determinar se uma notificação deve ser enviada. Uma queda de preço pode ser configurada como uma mudança percentual de preço ou pela mudança no valor do campo de preço.
-4. Selecione **Salvar configurações**.
+2. Defina o **Price field in catalog**. Este é o campo do catálogo que será usado para determinar o preço do item. Deve ser um tipo numérico.
+3. Defina a **Price drop rule**. Esta é a lógica usada para determinar se uma notificação deve ser enviada. Uma queda de preço pode ser configurada como uma mudança percentual de preço ou pela mudança no valor do campo de preço.
+4. Selecione **Save settings**.
 
 ![Configurações do catálogo que mostram o recurso de queda de preço ativado. A regra de queda de preço é uma mudança de três por cento em relação ao preço original.]({% image_buster /assets/img/price_drop_notifications.png %})
 
@@ -109,5 +109,5 @@ Use a Liquid tag {%raw%}``{% catalog_items <name_of_your_catalog> {{context.${ca
 ## Considerações {#considerations}
 
 - Os usuários ficam inscritos por 90 dias. Se um item não tiver queda de preço em 90 dias, o usuário é removido da inscrição.
-- Ao usar a regra de notificação **Notificar todos os usuários inscritos**, a Braze notificará 100.000 usuários em 10 minutos.
+- Ao usar a regra de notificação **Notify all subscribed users**, a Braze notificará 100.000 usuários em 10 minutos.
 - A Braze suporta até 50.000 itens atualizados diariamente que são elegíveis para disparar notificações de queda de preço. Você pode ter até 100 milhões de inscrições ativas em um determinado momento, onde cada inscrição representa um perfil de usuário inscrito para acompanhar um item do catálogo.

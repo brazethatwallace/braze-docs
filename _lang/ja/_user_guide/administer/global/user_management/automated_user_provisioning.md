@@ -14,6 +14,10 @@ alias: /scim/automated_user_provisioning/
 
 ## SCIMプロビジョニング設定へのアクセス {#accessing-scim-provisioning-settings}
 
+{% alert important %}
+SCIMプロビジョニングの利用可否はプラットフォームのエディションによって異なります。この機能がワークスペースにない場合は、カスタマーサクセスマネージャーにお問い合わせください。
+{% endalert %}
+
 1. Brazeダッシュボードで、**設定** > **管理者設定** > **SCIMプロビジョニング**に移動し、**SCIM連携の設定**を選択します。
 2. **Brazeの設定**ステップで、プロビジョニング方法を選択し、アクセス設定を入力します。
 

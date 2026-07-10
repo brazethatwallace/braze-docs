@@ -18,14 +18,14 @@ _Essa integração é mantida pela Stylitics._
 
 Sua integração entre a Braze e a Stylitics permite melhorar suas campanhas de e-mail existentes com conteúdo agrupado envolvente e relevante, criando uma experiência personalizada para o cliente.
 
-![]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
+![Exemplo de conteúdo agrupado da Stylitics incorporado em uma experiência de e-mail da Braze.]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Stylitics | Uma conta [Stylitics](https://stylitics.com/) é necessária para aproveitar esta parceria. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -37,11 +37,11 @@ A seguir estão alguns exemplos comuns de programas de e-mail acionados:
 
 ## Integração {#integration}
 
-A Stylitics fornece dados de pacote para esta integração. Seu prestador de serviço de e-mail pode criar ou atualizar o modelo de e-mail para incluir pacotes Stylitics. A Stylitics não pode alterar o layout ou o design dos e-mails.
+A Stylitics fornece dados de pacote para esta integração. Seu provedor de serviços de e-mail pode criar ou atualizar o modelo de e-mail para incluir pacotes Stylitics. A Stylitics não pode alterar o layout ou o design dos e-mails.
 
 1. Integre o pacote ao e-mail. O ESP determina a posição e a personalização.
 2. O ESP atualiza o código de disparo de e-mails para incluir o conteúdo da Stylitics.
-3. O ESP testará, fará a pré-visualização e lançará a série de atualizações acionadas.
+3. O ESP testará, fará a prévia e lançará a série de atualizações acionadas.
 
 A Stylitics fornecerá apenas os dados do pacote para os itens. Entre você e seu ESP, você terá dados de usuários e poderá conectar dados do pacote Stylitics para enviar aos usuários.
 
@@ -60,14 +60,16 @@ Por exemplo, {% raw %}`&styliticsoverride=001?styliticsCID=email[clientname]`{% 
 {% endalert %}
 
 ### 2. Abordagem de arquivo plano {#2-flat-file-approach}
+
 Você ou seu ESP podem referenciar os dados do pacote de um item em um arquivo plano para preencher os dados do pacote em seu e-mail. A Stylitics pode achatar dados de pacotes em formato CSV, TXT ou XML e enviá-los para você diariamente. Eles também podem ajudar a ajustar o formato do arquivo conforme as necessidades do seu ESP. Note que a criação desse arquivo leva de duas a três semanas.
 
 #### Requisitos: {#requirements}
 - **Local**: a Stylitics pode disponibilizar o arquivo no SFTP da Stylitics para você baixá-lo diariamente, ou você pode enviar suas credenciais de SFTP para eles fazerem upload do arquivo.
-- **Tempo**: a Stylitics disponibiliza o arquivo de manhã diariamente. Avise-os caso precise do arquivo em um horário específico do dia.
+- **Horário**: a Stylitics disponibiliza o arquivo de manhã diariamente. Avise-os caso precise do arquivo em um horário específico do dia.
 - **Chave do arquivo**: você e a Stylitics precisam concordar sobre qual string de dados do item usar como chave do arquivo para que seu ESP possa referenciar os dados. SKU, `item_group_id` ou `item_number` são comumente usados.
 
 ### 3. Abordagem de extração de dados do site {#3-website-data-extraction-approach}
+
 Os fornecedores podem raspar a interface do seu site para conteúdo da Stylitics e inserir dados de pacotes em e-mails. Nenhum trabalho adicional da Stylitics é necessário.
 
 ## Melhores práticas de modelo de e-mail {#email-template-best-practices}
@@ -86,7 +88,7 @@ O JavaScript do widget da Stylitics não pode ser inserido em e-mails, pois os e
 
 ## Análise de dados {#analytics}
 
-A Stylitics fornece os dados do pacote para este tipo de programa de e-mail. Portanto, pedimos um compartilhamento de dados aberto entre você, seu ESP e a Stylitics. Se possível, esperamos receber as seguintes métricas de você para entender o impacto e melhorar o programa:
+A Stylitics fornece os dados do pacote para este tipo de programa de e-mail. Portanto, pedimos um compartilhamento de dados aberto entre você, seu ESP e a Stylitics. Se possível, esperamos receber as seguintes métricas de você para entender o aumento e melhorar o programa:
 - E-mails enviados
 - E-mails abertos
 - Visualizações e engajamentos

@@ -13,7 +13,7 @@ tool: Currents
 
 > O [Mixpanel](https://mixpanel.com/) é uma plataforma de análise de dados que permite exportar eventos do Mixpanel para outras plataformas para realizar análises mais profundas. Os dados coletados podem então ser usados para criar relatórios personalizados e medir o engajamento e a retenção de usuários.
 
-A integração entre a Braze e o Mixpanel permite a [importação de coortes do Mixpanel para a Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) para criar segmentos da Braze que podem direcionar usuários em futuras Campaigns ou Canvas da Braze. A sincronização de coortes atualiza a associação de coortes na Braze e não importa eventos ou propriedades de usuários do Mixpanel. Para mais detalhes, consulte [Importação de coorte do Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration).
+A integração entre a Braze e o Mixpanel permite a [importação de coortes do Mixpanel para a Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import) para criar segmentos da Braze que podem direcionar usuários em futuras Campaigns ou Canvas da Braze. A sincronização de coortes atualiza a associação de coortes na Braze e não importa eventos ou propriedades de usuários do Mixpanel. Para mais detalhes, consulte [Importação de coorte do Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import#data-import-integration).
 
 Você também pode usar o Braze Currents para [exportar seus eventos da Braze para o Mixpanel](#data-export-integration) e gerar análises mais detalhadas sobre conversões, retenção e uso do produto.
 
@@ -22,16 +22,16 @@ Você também pode usar o Braze Currents para [exportar seus eventos da Braze pa
 | Requisito | Descrição |
 |---|---|
 | Conta Mixpanel | É necessário ter uma [conta Mixpanel](https://mixpanel.com/) para aproveitar essa parceria. |
-| Currents | Para exportar dados de volta para o Mixpanel, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado na sua conta. |
+| Currents | Para exportar dados de volta para o Mixpanel, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) configurado na sua conta. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração de exportação de dados {#data-export-integration}
 
-Encontre abaixo uma lista completa dos eventos que podem ser exportados da Braze para o Mixpanel. Todos os eventos enviados ao Mixpanel incluem o `external_user_id` do usuário como Mixpanel Distinct ID. No momento, a Braze não envia dados de eventos de usuários que não possuem `external_user_id` definido.
+Uma lista completa dos eventos que podem ser exportados da Braze para o Mixpanel pode ser encontrada nesta seção. Todos os eventos enviados ao Mixpanel incluem o `external_user_id` do usuário como Mixpanel Distinct ID. No momento, a Braze não envia dados de eventos de usuários que não possuem `external_user_id` definido.
 
 Você pode exportar dois tipos de eventos para o Mixpanel: [Eventos de engajamento com mensagem](#supported-currents-events), que consistem nos eventos da Braze diretamente relacionados ao envio de mensagens, e [Eventos de comportamento do cliente](#supported-currents-events), incluindo outras atividades do app ou do site, como sessões, eventos personalizados e compras rastreadas pela plataforma. Todos os eventos personalizados são prefixados com `[Braze Custom Event]`. As propriedades de eventos personalizados e as propriedades de eventos de compra são prefixadas com `[Custom event property]` e `[Purchase property]`, respectivamente.
 
-Entre em contato com o gerente da sua conta ou abra um [ticket de suporte]({{site.baseurl}}/braze_support/) se precisar de acesso a direitos de eventos adicionais.
+Entre em contato com o gerente da sua conta ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais.
 
 ### Etapa 1: Obter credenciais do Mixpanel {#step-1-get-mixpanel-credentials}
 
@@ -54,10 +54,10 @@ Consulte a [documentação de integração](https://help.mixpanel.com/hc/en-us/a
 
 A Braze oferece suporte à exportação dos seguintes eventos para o Mixpanel:
 
-- [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Para a estrutura da carga útil de cada evento, selecione a guia **Mixpanel** no [glossário de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) e no [glossário de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Para a estrutura da carga útil de cada evento, selecione a guia **Mixpanel** no [glossário de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e no [glossário de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 
 ## Solução de problemas {#troubleshooting}
 

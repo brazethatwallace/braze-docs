@@ -16,11 +16,11 @@ Integrar o Firebase Unity SDK pode fazer com que seu `AndroidManifest.xml` seja 
 
 #### Etapa 1.2: Defina suas credenciais do Firebase {#step-12-set-your-firebase-credentials}
 
-Você precisa inserir sua chave de servidor do Firebase e o ID do remetente no dashboard da Braze. Para fazer isso, registre-se no [console de desenvolvedores do Firebase](https://console.firebase.google.com/) e selecione seu projeto Firebase. Em seguida, selecione **Cloud Messaging** em **Settings** e copie a Server Key e o Sender ID:<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+Você precisa inserir sua chave de servidor do Firebase e o ID do remetente no dashboard da Braze. Para fazer isso, registre-se no [console de desenvolvedores do Firebase](https://console.firebase.google.com/) e selecione seu projeto Firebase. Em seguida, selecione **Cloud Messaging** em **Settings** e copie a Server Key e o Sender ID:<br>![Configurações de Cloud Messaging no console do Firebase mostrando a Server Key e o Sender ID.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
 Na Braze, selecione seu app Android na página de **App Settings** em **Manage Settings**. Em seguida, insira sua chave de servidor do Firebase no campo **Firebase Cloud Messaging Server Key** e o ID do remetente do Firebase no campo **Firebase Cloud Messaging Sender** ID.
 
-![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
+![Configurações do app Android na Braze com os campos de chave de servidor e ID do remetente do Firebase Cloud Messaging.]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
@@ -171,7 +171,7 @@ O arquivo JAR do ADM necessário pode ser colocado em qualquer lugar do seu proj
 
 Por fim, você deve adicionar o Client Secret e o Client ID obtidos na [Etapa 1](#unity_step-1-enable-adm) à página de **Manage Settings** do dashboard da Braze.
 
-![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
+![Página de configurações do app Fire OS na Braze com os campos de Client ID e Client Secret do ADM.]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -298,7 +298,7 @@ Para saber mais sobre os ouvintes de push do ADM, consulte [Amazon: Integrar o A
 
 {% tabs %}
 {% tab Android %}
-#### Deep linking para recursos in-app {#deep-linking-to-in-app-resources}
+### Deep linking para recursos in-app {#deep-linking-to-in-app-resources}
 
 Embora a Braze possa lidar com deep links padrão (como URLs de sites, URIs do Android, etc.) por padrão, a criação de deep links personalizados requer uma configuração adicional do Manifesto.
 

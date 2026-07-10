@@ -8,7 +8,7 @@ description: "Apprenez à utiliser les outils de données de Braze pour créer d
 
 # Créer un modèle de données B2B
 
-> Ce cas d'utilisation montre comment vous pouvez utiliser les outils de données de Braze pour créer un modèle de données B2B efficace et performant qui vous aide à cibler, déclencher, personnaliser et envoyer des messages à vos utilisateurs professionnels.
+> Ce cas d'usage montre comment vous pouvez utiliser les outils de données de Braze pour créer un modèle de données B2B efficace et performant qui vous aide à cibler, déclencher, personnaliser et envoyer des messages à vos utilisateurs professionnels.
 
 {% alert note %}
 Ces recommandations sont susceptibles d'évoluer au fil du temps, à mesure que Braze développe ses capacités B2B.
@@ -30,7 +30,7 @@ Dans Braze, ces quatre objets sont combinés et réduits en deux objets : les pr
 
 | Objet B2B Braze | Description | Objets B2B d'origine  |
 | --- | --- | --- |
-| Profils utilisateurs | Ceux-ci correspondent directement aux prospects et aux contacts dans votre système CRM de vente. Parce que les prospects sont capturés par Braze, ils sont automatiquement créés en tant que prospects dans votre système CRM de vente. Au fur et à mesure qu'ils sont convertis en contacts, les ID et les détails des contacts sont synchronisés avec Braze. | Prospects<br> Contacts |
+| Profils utilisateurs | Ceux-ci correspondent directement aux prospects et aux contacts dans votre système de gestion de la relation client. Parce que les prospects sont capturés par Braze, ils sont automatiquement créés en tant que prospects dans votre système CRM de vente. Au fur et à mesure qu'ils sont convertis en contacts, les ID et les détails des contacts sont synchronisés avec Braze. | Prospects<br> Contacts |
 | Objets métiers | Ceux-ci correspondent à tous les objets non-utilisateurs de votre système CRM de vente. Cela inclut vos objets spécifiques aux ventes, tels que les objets de compte et les objets d'opportunité. | Comptes<br> Opportunités |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Créer un modèle de données B2B" }
 
@@ -47,22 +47,22 @@ Il existe deux méthodes pour créer et gérer vos objets métiers dans Braze : 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Créez vos objets métiers dans Braze" }
 
 {% tabs %}
-{% tab Catalogs %}
+{% tab Catalogues %}
 
 ### Option 1 : Utiliser des catalogues pour les comptes et les opportunités
 
 Les catalogues sont des tables de données hébergées et gérées dans Braze. Alors que les données relatives aux comptes et aux opportunités proviennent du système CRM de vente de votre choix, vous les dupliqueriez dans Braze pour les utiliser à des fins marketing : segmentation basée sur les comptes, marketing basé sur les comptes, gestion des prospects, etc.
 
-Pour cette option, nous vous recommandons de créer un catalogue pour vos comptes et un autre pour vos opportunités, et de les mettre à jour fréquemment en envoyant des mises à jour à Braze par le biais de notre [API catalogues]({{site.baseurl}}/api/endpoints/catalogs) ou de l'[Ingestion de données cloud (CDI) pour les catalogues]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data). Lorsque vous créez ces catalogues, assurez-vous que l'`id` (première colonne) de votre catalogue correspond à l'`id` de votre système CRM de vente.
+Pour cette option, nous vous recommandons de créer un catalogue pour vos comptes et un autre pour vos opportunités, et de les mettre à jour fréquemment en envoyant des mises à jour à Braze par le biais de notre [API catalogues]({{site.baseurl}}/api/endpoints/catalogs) ou de l'[ingestion de données cloud (CDI) pour les catalogues]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data). Lorsque vous créez ces catalogues, assurez-vous que l'`id` (première colonne) de votre catalogue correspond à l'`id` de votre système CRM de vente.
 
 #### Mappage des champs de votre CRM
 
-Les tableaux ci-dessous présentent quelques exemples de champs que vous pouvez mapper à partir des objets « compte » et « opportunité » de votre CRM.
+Les tableaux de la section suivante présentent quelques exemples de champs que vous pouvez mapper à partir des objets « compte » et « opportunité » de votre CRM.
 
 {% subtabs %}
 {% subtab Account catalog %}
 
-Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez mapper n'importe quel champ inclus dans les objets de votre CRM.
+Dans ce cas d'usage, Salesforce est l'exemple de système CRM. Vous pouvez mapper n'importe quel champ inclus dans les objets de votre CRM.
 
 <table aria-label="Mappage des champs de votre CRM" border="1">
   <caption>Mappage des champs de votre CRM</caption>
@@ -106,7 +106,7 @@ Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez
 {% endsubtab %}
 {% subtab Opportunity catalog %}
 
-Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez mapper n'importe quel champ inclus dans les objets de votre CRM.
+Dans ce cas d'usage, Salesforce est l'exemple de système CRM. Vous pouvez mapper n'importe quel champ inclus dans les objets de votre CRM.
 
 <table aria-label="Exemple de tableau des champs de compte mappés" border="1">
   <caption>Exemple de tableau des champs de compte mappés</caption>
@@ -149,11 +149,11 @@ Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Connected sources %}
+{% tab Sources connectées %}
 
 ### Option 2 : Utiliser des sources connectées pour les comptes et les opportunités
 
-Les sources connectées sont des tables de données hébergées par vos soins dans votre propre entrepôt de données et interrogées par les [Extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) de Braze. Contrairement aux catalogues, au lieu de dupliquer vos objets métiers (comptes et opportunités) dans Braze, vous les conserverez dans votre entrepôt de données et utiliserez ce dernier comme source de vérité.
+Les sources connectées sont des tables de données hébergées par vos soins dans votre propre entrepôt de données et interrogées par les [extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) de Braze. Contrairement aux catalogues, au lieu de dupliquer vos objets métiers (comptes et opportunités) dans Braze, vous les conserverez dans votre entrepôt de données et utiliserez ce dernier comme source de vérité.
 
 Pour configurer les sources connectées, reportez-vous à la section [Intégration des sources connectées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources#integrating-connected-sources).
 
@@ -166,7 +166,7 @@ Les profils utilisateurs sont l'objet principal de Braze, qui alimente la majori
 
 ### Étape 2.1 : Mappez les ID du CRM de vente vers Braze
 
-Tout d'abord, assurez-vous que Braze et le CRM de votre choix disposent d'un identifiant commun pour partager les données. Nous vous suggérons d'utiliser le tableau suivant pour mapper les champs d'ID de votre CRM de vente vers l'objet utilisateur de Braze. Dans le tableau ci-dessous, Salesforce est le système CRM, mais cette opération peut être réalisée avec n'importe quel CRM.
+Tout d'abord, assurez-vous que Braze et le CRM de votre choix disposent d'un identifiant commun pour partager les données. Nous vous suggérons d'utiliser le tableau suivant pour mapper les champs d'ID de votre CRM de vente vers l'objet utilisateur de Braze. Le tableau de la section suivante utilise Salesforce comme système CRM, mais cette opération peut être réalisée avec n'importe quel CRM.
 
 #### Objet Braze : Utilisateur
 
@@ -187,7 +187,7 @@ Après avoir synchronisé vos ID, vous devez relier vos profils utilisateurs Bra
 ### Étape 2.2 : Créer une relation entre les profils utilisateurs et vos objets métiers
 
 {% tabs %}
-{% tab Catalogs %}
+{% tab Catalogues %}
 
 #### Option 1 : Lors de l'utilisation de catalogues
 
@@ -222,11 +222,11 @@ Maintenant que les détails de vos opportunités et de vos comptes sont pris en 
 ```
 
 {% endtab %}
-{% tab Connected sources %}
+{% tab Sources connectées %}
 
 #### Option 2 : Lors de l'utilisation de sources connectées
 
-L'une des tables de votre source connectée doit inclure un `user_id` qui correspond à l'`external_user_id` défini dans Braze pour vos utilisateurs. La configuration du profil utilisateur ci-dessus utilise vos identifiants de prospect et `contact_ids` comme `external_id`, vous devez donc vous assurer que vos tables de prospects/contacts incluent ces ID.
+L'une des tables de votre source connectée doit inclure un `user_id` qui correspond à l'`external_user_id` défini dans Braze pour vos utilisateurs. La configuration du profil utilisateur décrite plus haut dans cette section utilise vos identifiants de prospect et `contact_ids` comme `external_id`, vous devez donc vous assurer que vos tables de prospects/contacts incluent ces ID.
 
 En plus de vous assurer que les ID correspondent, nous vous recommandons d'écrire des données de base au niveau du compte, telles que `account_id`, `opportunity_id`, et même des attributs firmographiques courants tels que `industry`, dans les profils utilisateurs pour une segmentation et une personnalisation efficaces.
 

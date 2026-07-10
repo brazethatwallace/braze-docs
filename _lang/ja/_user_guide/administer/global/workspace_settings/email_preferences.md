@@ -368,7 +368,7 @@ ABテストを含むキャンペーンの場合、Brazeはユーザーにバリ�
 {% enddetails %}
 
 {% details ワンクリック購読解除設定はメールテンプレートで利用できますか？ %}
-いいえ、現在メールテンプレートにこの機能を追加する予定はありません。これらのテンプレートは送信ドメインに割り当てられていないためです。メールテンプレートでのこの機能に興味がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal)を送信してください。
+いいえ、現在メールテンプレートにこの機能を追加する予定はありません。これらのテンプレートは送信ドメインに割り当てられていないためです。{% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details この機能は、カスタムオプションに追加されたワンクリック購読解除URLが有効かどうかをチェックしますか？ %}

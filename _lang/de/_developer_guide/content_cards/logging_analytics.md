@@ -26,4 +26,4 @@ Wenn Content Cards in Ihrer App korrekt angezeigt werden, Sie aber durchgehend k
 
 ## Content-Card-ID {#content-card-id}
 
-Jeder Campaign-Versand an eine:n Empfänger:in erzeugt eine neue Content-Card-ID. Wenn dieselbe Nutzer:in die Campaign bei einem späteren Versand erneut erhält, weist Braze eine neue ID zu. Referenzieren Sie die Karten-`id`, wenn Sie Impressionen, Klicks und Ausblendungen in angepassten Implementierungen protokollieren.
+Jeder Campaign-Versand an eine:n Empfänger:in erzeugt eine neue Content-Card-ID. Wenn dieselben Nutzer:innen die Campaign bei einem späteren Versand erneut erhalten, weist Braze eine neue ID zu. Referenzieren Sie die Karten-`id`, wenn Sie Impressionen, Klicks und Ausblendungen in angepassten Implementierungen protokollieren.

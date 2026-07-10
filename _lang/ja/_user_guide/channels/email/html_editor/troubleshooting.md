@@ -16,6 +16,7 @@ channel: email
 * [拡張機能の競合](#check-conflicts)
 * [メールのレンダリング](#check-rendering)
 * [CSSインライン化](#switch-css-inlining)
+* [画像下の余白](#white-space-under-images)
 
 ### 拡張機能の競合 {#check-conflicts}
 
@@ -35,5 +36,25 @@ channel: email
 ### CSSインライン化 {#switch-css-inlining}
 
 Inbox Visionのプレビューが、Brazeで送信されたものと一致しない場合があります。これは、Brazeと他のツールで実行されるCSSインライン化の違いが原因である可能性があります。これが原因と思われる場合は、CSSインライン化をオフにしてください。
+
+### 画像下の余白 {#white-space-under-images}
+
+テストメールで画像の下に余白や線が表示される場合、これは通常、メールクライアントがインラインレベル要素をレンダリングする方法が原因です。画像はデフォルトでインラインレベルであり、ベースラインに揃えられます。これにより、ブラウザがディセンダー（「g」や「y」のようにベースラインより下に伸びる文字の部分）に対応できるようになりますが、余白として表示される小さな隙間が生じます。
+
+これを修正するには、画像のCSSに`display: block;`を追加します。
+
+```html
+<style>
+  img {
+    display: block;
+  }
+</style>
+```
+
+または、特定の画像にスタイルを直接適用することもできます。
+
+```html
+<img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
 
 まだサポートが必要ですか？[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。

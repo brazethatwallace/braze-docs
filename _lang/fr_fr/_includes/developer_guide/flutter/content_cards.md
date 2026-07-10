@@ -14,7 +14,7 @@ Vous pouvez utiliser ces méthodes supplémentaires pour créer un flux de Conte
 | `braze.logContentCardClicked(contentCard)`    | Enregistre un clic pour l'objet Content Card donné.                                                            |
 | `braze.logContentCardImpression(contentCard)` | Enregistre une impression pour l'objet Content Card donné.                                                      |
 | `braze.logContentCardDismissed(contentCard)`  | Enregistre un masquage pour l'objet Content Card donné.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Méthodes de carte" }
 
 ## Réception des données de Content Cards {#receiving-content-card-data}
 
@@ -48,7 +48,7 @@ Pour un exemple, consultez [main.dart](https://github.com/braze-inc/braze-flutte
 Les données de Content Cards sont automatiquement transférées depuis les couches natives Android et iOS. Aucune configuration supplémentaire n'est requise.
 
 {% endtab %}
-{% tab Flutter SDK 17.1.0 and earlier %}
+{% tab Flutter SDK 17.1.0 et antérieur %}
 
 Si vous utilisez le SDK Flutter 17.1.0 ou une version antérieure, le transfert des données de Content Cards depuis la couche native iOS nécessite une configuration manuelle. Votre application contient probablement un rappel `contentCards.subscribeToUpdates` qui appelle `BrazePlugin.processContentCards(contentCards)`. Pour migrer vers le SDK Flutter 18.0.0, supprimez l'appel à `BrazePlugin.processContentCards(_:)` — le transfert des données est désormais géré automatiquement.
 

@@ -31,7 +31,7 @@ Verwenden Sie Braze-Daten, um zu bestimmen, was Ihre KI-Agenten sagen, wie sie r
 
 Verwenden Sie Braze-Canvas- oder Campaign-Webhooks, um Kundenprofil- und Event-Daten von Braze an Regal zu senden.
 
-### 1. Schritt: Neue Kontakte in Regal erstellen {#step-1-create-new-contacts-in-regal}
+### Schritt 1: Neue Kontakte in Regal erstellen {#step-1-create-new-contacts-in-regal}
 
 Erstellen Sie ein Canvas oder eine Campaign, die jedes Mal einen Webhook an Regal sendet, wenn ein neues Braze-Profil erstellt wird, das für Anrufe und SMS in Regal verfügbar sein soll.
 
@@ -111,7 +111,7 @@ Der einzige erforderliche Bezeichner ist eine Telefonnummer innerhalb von `trait
 
 Das obige Payload-Beispiel geht davon aus, dass die aufgeführten Telefonnummern den aktuellen Opt-in-Status für Sprache und SMS enthalten. Wenn das nicht der Fall ist, können Sie `voiceOptIn` und `smsOptIn` beim Erstellen des Kontakts weglassen und ein separates Canvas oder eine Campaign einrichten, um die Einwilligung für die jeweilige Telefonnummer zu aktualisieren, sobald das Opt-in erfasst wird.
 
-### 2. Schritt: Opt-in-Informationen aktualisieren {#step-2-update-opt-in-information}
+### Schritt 2: Opt-in-Informationen aktualisieren {#step-2-update-opt-in-information}
 
 Wenn Opt-in und Opt-out an verschiedenen Stellen Ihrer App stattfinden können, aktualisieren Sie Regal, wenn Nutzer:innen ihren Abostatus ändern.
 
@@ -171,7 +171,7 @@ Regal erfordert außerdem einen HTTP-Header für die Autorisierung und eine HTTP
 
 Sie können auch zusätzliche Nutzerprofil-Attribute in diesen Payload aufnehmen, um weitere Attribute gleichzeitig auf dem neuesten Stand zu halten.
 
-### 3. Schritt: Angepasste Events senden {#step-3-send-custom-events}
+### Schritt 3: Angepasste Events senden {#step-3-send-custom-events}
 
 Richten Sie ein Canvas oder eine Campaign für jedes wichtige Event ein, das Sie an Regal senden möchten.
 
@@ -264,7 +264,7 @@ Wenn Sie Fragen dazu haben, welche Events Sie an Regal senden sollten oder wie S
 
 Verwenden Sie Regal Reporting Webhooks und Braze-Datentransformation, um Regal-Reporting-Events (wie `SMS.sent` und `call.completed`) an Braze zu senden. Nachdem Sie diese Events zugeordnet haben, erscheinen sie in Nutzerprofilen und stehen für Segmentierung, Canvas und Campaigns zur Verfügung.
 
-### 1. Schritt: Eine Datentransformation in Braze erstellen {#step-1-create-a-data-transformation-in-braze}
+### Schritt 1: Eine Datentransformation in Braze erstellen {#step-1-create-a-data-transformation-in-braze}
 
 Erstellen Sie eine Datentransformation für jeden Regal-Webhook, den Sie an Braze senden möchten.
 
@@ -273,7 +273,7 @@ So erstellen Sie eine Datentransformation:
 2. Geben Sie Ihrer Transformation einen Namen und klicken Sie auf **Transformation erstellen**.
 3. Wählen Sie in der Liste der Transformationen <i class="fa-solid fa-ellipsis-vertical" title="Aktionen anzeigen"></i> **Aktionen anzeigen** und dann **Webhook-URL kopieren**.
 
-### 2. Schritt: Reporting-Webhooks in Regal aktivieren {#step-2-enable-reporting-webhooks-in-regal}
+### Schritt 2: Reporting-Webhooks in Regal aktivieren {#step-2-enable-reporting-webhooks-in-regal}
 
 So richten Sie Reporting-Webhooks ein:
 1. Öffnen Sie die Regal-App und navigieren Sie zur Seite **Einstellungen**.
@@ -293,7 +293,7 @@ Derzeit führt Regal keine Wiederholungsversuche für diese Events durch. Wenn B
 #### Events
 Die vollständige Liste der Reporting-Events, Eigenschaftsdefinitionen und Beispiel-Payloads finden Sie im [Reporting-Webhooks-Leitfaden](https://developer.regal.io/docs/reporting-webhooks#events) von Regal.
 
-### 3. Schritt: Regal-Events in Braze-Events transformieren {#step-3-transform-regal-events-into-braze-events}
+### Schritt 3: Regal-Events in Braze-Events transformieren {#step-3-transform-regal-events-into-braze-events}
 
 Mit dem Feature [Datentransformation]({{site.baseurl}}/data_transformation) von Braze können Sie eingehende Regal-Events in das Format abbilden, das erforderlich ist, um sie als Attribute, Events oder Käufe in Braze hinzuzufügen.
 

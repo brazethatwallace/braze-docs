@@ -16,7 +16,7 @@ channel:
 
 ## Cómo funciona {#how-it-works}
 
-Braze cuenta con un sistema de detección propietario que utiliza múltiples entradas para identificar clics sospechosos de bots, también conocidos como interacciones no humanas (NHI). Los clics de bots pueden inflar las tasas de clics, distorsionando las métricas de interacción. Al filtrarlos, Braze facilita la captura de datos fiables para la toma de decisiones.
+Braze cuenta con un sistema de detección propietario que utiliza múltiples entradas para identificar clics sospechosos de bots, también conocidos como interacciones no humanas (NHI). Los clics de bots pueden inflar las tasas de clics, distorsionando las métricas de participación. Al filtrarlos, Braze facilita la captura de datos fiables para la toma de decisiones.
 
 Nuestro sistema analiza los agentes de usuario asociados con rastreadores web, vistas previas de enlaces de Android e iOS, o software de seguridad CPaaS. Algunos ejemplos de agentes de usuario filtrados incluyen `GoogleBot`, `GoogleMessages/20`, `python-requests/2.32.3` y `Barracuda Sentinel (EE)`.
 
@@ -26,14 +26,14 @@ Las siguientes métricas y flujos de trabajo de Braze se ven afectados por los c
 
 - **_Clics totales_:** Los análisis de Campaigns y los análisis de Canvas excluirán los clics de bots, reflejando solo las interacciones humanas.
 - **Filtros de segmentación:** Los filtros de Segment que hacen referencia a interacciones de enlaces SMS excluirán los clics de bots para una reorientación más precisa en Campaigns y Canvas.
-- **Orquestación:** Los clics de bots se filtran de los desencadenadores basados en acciones y las rutas de acción de Canvas que hacen referencia a interacciones de enlaces SMS, lo que permite que los desencadenadores reflejen el comportamiento humano.
+- **Orquestación:** Los clics de bots se filtran de los desencadenadores basados en acciones y las Rutas de Acción de Canvas que hacen referencia a interacciones de enlaces SMS, lo que permite que los desencadenadores reflejen el comportamiento humano.
 - **Braze Intelligence:**
-    - **Intelligent Selection:** Excluye los clics de bots al optimizar la selección de variantes.
+    - **Selección inteligente:** Excluye los clics de bots al optimizar la selección de variantes.
     - **Canal inteligente:** Excluye los clics de bots cuando se selecciona SMS o RCS para una selección de canal precisa.
     - **Pasos de experimento:** Excluye los clics de bots para obtener resultados de experimentos fiables.
     - **Exportaciones de datos de Currents:** Incluye los campos `is_suspected_bot_click` y `suspected_bot_click_reason` para ayudar a analizar los clics humanos frente a los de bots. Estos campos están disponibles en [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) y [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 
-Las cancelaciones de suscripción derivadas de clics sospechosos de bots no se ven afectadas. Braze procesa todas las solicitudes de cancelación de suscripción de la forma habitual. Para bloquear estas cancelaciones de suscripción, [envía comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Las cancelaciones de suscripción derivadas de clics sospechosos de bots no se ven afectadas. Braze procesa todas las solicitudes de cancelación de suscripción de la forma habitual. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Campos de Currents en eventos de clics de SMS {#currents-fields-in-sms-click-events}
 

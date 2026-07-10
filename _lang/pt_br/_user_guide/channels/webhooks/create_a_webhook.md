@@ -20,7 +20,7 @@ Para saber mais sobre o que são webhooks e como você pode usá-los na Braze, c
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de envio de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -105,7 +105,7 @@ O corpo da solicitação é a informação que será enviada para a URL que voc�
 
 #### Pares de chave-valor JSON {#json-key-value-pairs}
 
-Pares de chave-valor JSON permitem que você escreva facilmente uma solicitação para um endpoint que espera um formato JSON. Você só pode usar isso com um endpoint que espera uma solicitação JSON. Por exemplo, se sua chave for `message_body`, o valor correspondente pode ser `Your order just arrived!`. Depois de inserir seu par de chave-valor, o criador configurará sua solicitação na sintaxe JSON, e uma pré-visualização da sua solicitação JSON será preenchida automaticamente.
+Pares de chave-valor JSON permitem que você escreva facilmente uma solicitação para um endpoint que espera um formato JSON. Você só pode usar isso com um endpoint que espera uma solicitação JSON. Por exemplo, se sua chave for `message_body`, o valor correspondente pode ser `Your order just arrived!`. Depois de inserir seu par de chave-valor, o criador configurará sua solicitação na sintaxe JSON, e uma prévia da sua solicitação JSON será preenchida automaticamente.
 
 ![Corpo da solicitação definido como pares de chave-valor JSON.]({% image_buster /assets/img/webhook_json_1.png %})
 
@@ -182,7 +182,7 @@ Nesta etapa, você também pode especificar controles de entrega, como permitir 
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
-Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para restringir seu público. Nesta etapa, você seleciona o público maior dos seus segmentos e restringe ainda mais esse segmento com nossos filtros, se desejar. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
+Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para restringir seu público. Nesta etapa, você seleciona o público maior dos seus segmentos e restringe ainda mais esse segmento com nossos filtros, se desejar. Você recebe automaticamente uma prévia de como é a população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -194,7 +194,7 @@ A Braze permite que você acompanhe com que frequência os usuários realizam a�
 
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes da sua etapa do Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes da sua etapa do Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -212,7 +212,7 @@ Webhooks dependem dos servidores da Braze fazendo solicitações a um endpoint e
 - Teste seu webhook para erros de sintaxe
 - Certifique-se de que variáveis personalizadas tenham valores padrão
 
-Se o seu webhook falhar ao enviar, uma mensagem de erro será registrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) e incluirá detalhes como o timestamp do erro, nome do app e detalhes sobre o erro.
+Se o seu webhook falhar ao enviar, uma mensagem de erro será registrada no [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) e incluirá detalhes como o timestamp do erro, nome do app e detalhes sobre o erro.
 
 ![Erro de webhook com a mensagem "An active access token must be used to query information about the current user".]({% image_buster /assets/img_archive/webhook-error.png %})
 
@@ -233,14 +233,14 @@ Quando a solicitação do webhook é enviada, o servidor receptor retornará um 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos de resposta e lógica de nova tentativa" }
 
 {% alert note %}
-A Braze tenta novamente os códigos de status acima até cinco vezes em 30 minutos usando backoff exponencial. Se não conseguirmos alcançar seu endpoint, as novas tentativas podem se estender por um período de 24 horas.<br><br>Cada webhook tem um limite de 90 segundos antes de expirar.
+A Braze tenta novamente os códigos de status mencionados anteriormente nesta seção até cinco vezes em 30 minutos usando backoff exponencial. Se não conseguirmos alcançar seu endpoint, as novas tentativas podem se estender por um período de 24 horas.<br><br>Cada webhook tem um limite de 90 segundos antes de expirar.
 {% endalert %}
 
 Os cabeçalhos de resposta `Retry-After` e de limite de taxa podem afetar quanto tempo a Braze espera antes de uma tentativa **que pode ser repetida** (por exemplo, após `408`, `429` ou `5XX`). Eles não tornam respostas que não podem ser repetidas, como `401`, elegíveis para nova tentativa.
 
-#### Autenticação e credenciais de Conteúdo conectado {#authentication-and-connected-content-credentials}
+#### Autenticação e credenciais de Conteúdo Conectado {#authentication-and-connected-content-credentials}
 
-A solicitação HTTP de webhook de saída não suporta a anexação de [credenciais de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) para autenticação no seu endpoint. Em vez disso, defina a autenticação usando **Request headers** no webhook. Para buscar um token ou segredo no momento do envio, você pode colocar uma tag {% raw %}`{% connected_content %}`{% endraw %} em um campo de cabeçalho ou corpo para que o Liquid a resolva antes do envio do webhook.
+A solicitação HTTP de webhook de saída não suporta a anexação de [credenciais de Conteúdo Conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) para autenticação no seu endpoint. Em vez disso, defina a autenticação usando **Request headers** no webhook. Para buscar um token ou segredo no momento do envio, você pode colocar uma tag {% raw %}`{% connected_content %}`{% endraw %} em um campo de cabeçalho ou corpo para que o Liquid a resolva antes do envio do webhook.
 
 #### Modelos de webhook salvos e uso em campanhas {#saved-webhook-templates-and-campaign-usage}
 
@@ -248,7 +248,7 @@ A Braze não fornece um relatório integrado que liste todas as campanhas ou eta
 
 #### Solução de problemas e detalhes adicionais de erros {#troubleshooting-and-additional-error-details}
 
-Para explicações detalhadas, etapas de solução de problemas e orientações sobre como resolver erros específicos de webhook, consulte [Solução de problemas de solicitações de webhook e Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content). Você também encontrará mais explicações sobre como nosso sistema de detecção de hosts não saudáveis funciona e como a Braze fornece notificações de erro por meio de e-mails automatizados e registro adicional no Braze Currents.
+Para explicações detalhadas, etapas de solução de problemas e orientações sobre como resolver erros específicos de webhook, consulte [Solução de problemas de solicitações de webhook e Conteúdo Conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content). Você também encontrará mais explicações sobre como nosso sistema de detecção de hosts não saudáveis funciona e como a Braze fornece notificações de erro por meio de e-mails automatizados e registro adicional no Braze Currents.
 
 ### Lista de permissões de IP {#ip-allowlisting}
 

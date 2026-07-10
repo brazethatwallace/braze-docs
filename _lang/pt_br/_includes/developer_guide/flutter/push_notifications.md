@@ -10,11 +10,11 @@
 
 Registre-se para push usando a API Firebase Cloud Messaging (FCM) do Google. Para obter um passo a passo completo, consulte as etapas a seguir do [guia de integração de push do Android nativo]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
 
-1. [Adicione o Firebase ao seu projeto]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-1-add-firebase-to-your-project).
-2. [Adicione o Cloud Messaging às suas dependências]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-2-add-cloud-messaging-to-your-dependencies).
-3. [Crie uma conta de serviço]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-3-create-a-service-account).
-4. [Gere credenciais JSON]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-4-generate-json-credentials).
-5. [Faça upload das suas credenciais JSON para a Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-5-upload-your-json-credentials-to-braze).
+1. [Adicione o Firebase ao seu projeto]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-1-add-firebase-to-your-project).
+2. [Adicione o Cloud Messaging às suas dependências]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-2-add-cloud-messaging-to-your-dependencies).
+3. [Crie uma conta de serviço]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-3-create-a-service-account).
+4. [Gere credenciais JSON]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-4-generate-json-credentials).
+5. [Faça upload das suas credenciais JSON para a Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-5-upload-your-json-credentials-to-braze).
 
 #### Etapa 1.2: Obtenha seu Sender ID do Google {#step-12-get-your-google-sender-id}
 
@@ -40,7 +40,7 @@ Adicione o seguinte ao seu arquivo `braze.xml`. Substitua `FIREBASE_SENDER_ID` p
 {% tab iOS %}
 #### Etapa 1.1: Fazer upload de certificados APNs {#step-11-upload-apns-certificates}
 
-Gere um certificado do serviço de Notificações por Push da Apple (APNs) e faça upload dele no dashboard da Braze. Para obter um passo a passo completo, consulte [Como fazer upload do seu certificado de APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-upload-your-apns-certificate).
+Gere um certificado do serviço de Notificações por Push da Apple (APNs) e faça upload dele no dashboard da Braze. Para obter um passo a passo completo, consulte [Como fazer upload do seu certificado de APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-upload-your-apns-certificate).
 
 #### Etapa 1.2: Adicione suporte a notificações por push ao app {#step-12-add-push-notification-support-to-your-app}
 
@@ -70,7 +70,7 @@ pushEventsStreamSubscription = braze.subscribeToPushNotificationEvents((BrazePus
 pushEventsStreamSubscription.cancel();
 ```
 
-##### Campos de eventos de notificação por push {#push-notification-event-fields}
+#### Campos de eventos de notificação por push {#push-notification-event-fields}
 
 {% alert note %}
 Devido às limitações da plataforma no iOS, o SDK da Braze só pode processar cargas úteis push enquanto o app estiver em primeiro plano. Os ouvintes só serão disparados para o tipo de evento `push_opened` no iOS depois que um usuário interagir com um push.
@@ -89,12 +89,12 @@ Para obter uma lista completa dos campos de notificação por push, consulte a t
 | `badgeCount`      | Número   | Representa a contagem de emblemas da notificação. |
 | `timestamp`        | Número | Representa a hora em que a carga útil foi recebida pelo aplicativo. |
 | `isSilent`        | Booleano   | Se `true`, a carga útil é recebida silenciosamente. Para obter detalhes sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para obter detalhes sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `isBrazeInternal`| Booleano   | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de Feature Flag ou rastreamento de desinstalação. A carga útil é recebida silenciosamente para o usuário. |
+| `isBrazeInternal`| Booleano   | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de Feature Flag ou Uninstall Tracking. A carga útil é recebida silenciosamente para o usuário. |
 | `imageUrl`        | String    | Especifica a URL associada à imagem da notificação. |
 | `brazeProperties` | Objeto    | Representa as propriedades da Braze associadas à campanha (pares chave-valor). |
 | `ios`              | Objeto    | Representa campos específicos do iOS. |
 | `android`          | Objeto    | Representa campos específicos do Android. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de eventos de notificação por push" }
 
 ### Etapa 3: Teste a exibição de notificações por push {#step-3-test-displaying-push-notifications}
 

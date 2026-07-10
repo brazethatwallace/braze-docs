@@ -16,7 +16,7 @@ search_tag: Partner
 Die Integration von Braze und Tealium nutzt die AudienceStream-Besucherprofile. Gemeinsame Verhaltensweisen segmentieren diese Profile, um Gruppen von Besuchern mit gemeinsamen Merkmalen zu erstellen, die als Zielgruppen bezeichnet werden. Diese Zielgruppen können Ihren Marketingtechnologie-Stack in Realtime über Konnektoren unterstützen.
 
 {% alert important %}
-Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch-Konnektor-Aktionen. Der Non-Batch-Konnektor sollte verwendet werden, wenn Realtime-Anfragen für den Anwendungsfall wichtig sind und keine Bedenken bestehen, die Spezifikationen für die Rate-Limits der Braze API zu überschreiten. Kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support/) oder Ihren Customer-Success-Manager, wenn Sie Fragen haben.
+Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch-Konnektor-Aktionen. Der Non-Batch-Konnektor sollte verwendet werden, wenn Realtime-Anfragen für den Anwendungsfall wichtig sind und keine Bedenken bestehen, die Spezifikationen für die Rate-Limits der Braze API zu überschreiten. Kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support) oder Ihren Customer-Success-Manager, wenn Sie Fragen haben.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -25,8 +25,8 @@ Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch
 | ---- | ----------- |
 | Tealium-Konto | Ein [Tealium-Konto](https://my.tealiumiq.com/) mit serverseitigem Zugriff ist erforderlich. Wir empfehlen, auch die clientseitigen Integrationen zu nutzen, um von dieser Partnerschaft zu profitieren. |
 | REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.delete` und `subscription.status.set`.<br><br>Dieser kann erstellt werden unter **Braze-Dashboard > Entwicklungskonsole > REST-API-Schlüssel > Neuen API-Schlüssel erstellen**. |
-| [Braze-REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Braze-REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -121,13 +121,13 @@ Ein Konnektor ist eine Integration zwischen Tealium und einem anderen Anbieter, 
 
 Wählen Sie im daraufhin angezeigten **Source**-Dialog die Zielgruppe aus, die Sie im vorherigen Schritt erstellt haben, und einen Auslöser, den Sie für Ihre Situation für geeignet halten. Sie können auch die Frequenzbegrenzung aktivieren, um zu kontrollieren, wie oft diese Aktion ausgelöst wird.
 
-![]({% image_buster /assets/img/tealium/create_source.png %}){: style="max-width:90%;"}
+![Konfiguration der AudienceStream-Konnektor-Quelle in Tealium mit Zielgruppen- und Auslöser-Auswahl.]({% image_buster /assets/img/tealium/create_source.png %}){: style="max-width:90%;"}
 
 #### Konfiguration {#configuration}
 
 Als Nächstes wird ein **Configuration**-Dialog angezeigt. Wählen Sie unten auf der Seite **Add Connector** aus. Benennen Sie Ihren Konnektor und geben Sie hier Ihren Braze-API-Endpunkt und den Braze-REST-API-Schlüssel an.
 
-![]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
+![Tealium-Konnektor-Konfigurationsdialog mit Feldern für Braze-Endpunkt und REST-API-Schlüssel.]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
 
 Wenn Sie bereits einen Konnektor erstellt haben, können Sie optional einen vorhandenen Konnektor aus der Liste der verfügbaren Konnektoren verwenden und ihn mit dem Bleistiftsymbol an Ihre Bedürfnisse anpassen oder mit dem Papierkorbsymbol löschen.
 
@@ -140,7 +140,7 @@ Benennen Sie als Nächstes Ihre Konnektor-Aktion und wählen Sie einen Aktionsty
 {% alert important %}
 Nicht alle angebotenen Felder sind erforderlich.
 
-![]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
+![Tealium-Aktions-Abbildungspanel mit optionalen Feldern, die minimiert werden können.]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
 {% endalert %}
 
 {% tabs local %}
@@ -150,18 +150,18 @@ Mit dieser Aktion können Sie Nutzer:innen-, Event- und Kauf-Attribute in einer 
 
 | Parameter | Beschreibung |
 | ---------- | ----------- |
-| Nutzer-ID | Verwenden Sie dieses Feld, um das Tealium-Nutzer-ID-Feld auf das entsprechende Braze-Feld abzubilden. Bilden Sie ein oder mehrere Nutzer-ID-Attribute ab. Wenn mehrere IDs angegeben werden, wird der erste nicht-leere Wert in der folgenden Prioritätsreihenfolge ausgewählt: Externe ID, Braze ID, Alias-Name und Alias-Label.<br><br>- Externe ID und Braze ID sollten beim Import von Push-Tokens nicht angegeben werden.<br>- Wenn Sie einen Nutzer-Alias angeben, sollten Alias-Name und Alias-Label festgelegt werden. <br><br>Weitere Informationen finden Sie unter dem Braze-[Endpunkt `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). |
-| Nutzerattribute | Verwenden Sie die vorhandenen Feldnamen der Braze-Nutzerprofile, um die Werte der Nutzerprofile im Braze-Dashboard zu aktualisieren, oder fügen Sie den Nutzerprofilen Ihre eigenen angepassten [Nutzerattribut]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)-Daten hinzu.<br><br>- Standardmäßig werden neue Nutzer:innen angelegt, wenn noch keine vorhanden sind.<br>- Wenn Sie **Update Existing Only** auf `true` setzen, werden nur vorhandene Nutzer:innen aktualisiert und keine neuen Nutzer:innen angelegt.<br>- Wenn ein Tealium-Attribut leer ist, wird es in Null umgewandelt und aus dem Braze-Nutzerprofil entfernt. Anreicherungen sollten verwendet werden, wenn keine Nullwerte an Braze gesendet werden sollen, um ein Nutzerattribut zu entfernen. |
+| Nutzer-ID | Verwenden Sie dieses Feld, um das Tealium-Nutzer-ID-Feld auf das entsprechende Braze-Feld abzubilden. Bilden Sie ein oder mehrere Nutzer-ID-Attribute ab. Wenn mehrere IDs angegeben werden, wird der erste nicht-leere Wert in der folgenden Prioritätsreihenfolge ausgewählt: Externe ID, Braze ID, Alias-Name und Alias-Label.<br><br>- Externe ID und Braze ID sollten beim Import von Push-Tokens nicht angegeben werden.<br>- Wenn Sie einen Nutzer-Alias angeben, sollten Alias-Name und Alias-Label festgelegt werden. <br><br>Weitere Informationen finden Sie unter dem Braze-[Endpunkt `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). |
+| Nutzerattribute | Verwenden Sie die vorhandenen Feldnamen der Braze-Nutzerprofile, um die Werte der Nutzerprofile im Braze-Dashboard zu aktualisieren, oder fügen Sie den Nutzerprofilen Ihre eigenen angepassten [Nutzerattribut]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)-Daten hinzu.<br><br>- Standardmäßig werden neue Nutzer:innen angelegt, wenn noch keine vorhanden sind.<br>- Wenn Sie **Update Existing Only** auf `true` setzen, werden nur vorhandene Nutzer:innen aktualisiert und keine neuen Nutzer:innen angelegt.<br>- Wenn ein Tealium-Attribut leer ist, wird es in Null umgewandelt und aus dem Braze-Nutzerprofil entfernt. Anreicherungen sollten verwendet werden, wenn keine Nullwerte an Braze gesendet werden sollen, um ein Nutzerattribut zu entfernen. |
 | Nutzerattribute ändern | Verwenden Sie dieses Feld, um bestimmte Nutzerattribute zu erhöhen oder zu verringern.<br><br>- Integer-Attribute können um positive oder negative ganze Zahlen inkrementiert werden.<br>- Array-Attribute können durch Hinzufügen oder Entfernen von Werten in bestehenden Arrays geändert werden. |
-| Event | Ein Event stellt ein einzelnes Vorkommen eines angepassten Events durch bestimmte Nutzer:innen zu einem bestimmten Zeitstempel dar. Verwenden Sie dieses Feld zum Tracking und zur Abbildung von Event-Attributen, wie sie im Braze-[Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) enthalten sind. <br><br>- Das Event-Attribut `Name` ist für jedes zugeordnete Event erforderlich.<br>- Das Event-Attribut `Time` wird automatisch auf „jetzt“ gesetzt, wenn es nicht explizit abgebildet wird. <br>- Standardmäßig werden neue Events erstellt, wenn noch keines vorhanden ist. Wenn Sie `Update Existing Only` auf `true` setzen, werden nur bestehende Events aktualisiert und es wird kein neues Event erstellt.<br>- Bilden Sie Array-Typ-Attribute ab, um mehrere Events hinzuzufügen. Array-Typ-Attribute müssen gleich lang sein.<br>- Einzelwert-Attribute können verwendet und auf jedes Event angewendet werden. |
+| Event | Ein Event stellt ein einzelnes Vorkommen eines angepassten Events durch bestimmte Nutzer:innen zu einem bestimmten Zeitstempel dar. Verwenden Sie dieses Feld zum Tracking und zur Abbildung von Event-Attributen, wie sie im Braze-[Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object) enthalten sind. <br><br>- Das Event-Attribut `Name` ist für jedes zugeordnete Event erforderlich.<br>- Das Event-Attribut `Time` wird automatisch auf „jetzt“ gesetzt, wenn es nicht explizit abgebildet wird. <br>- Standardmäßig werden neue Events erstellt, wenn noch keines vorhanden ist. Wenn Sie `Update Existing Only` auf `true` setzen, werden nur bestehende Events aktualisiert und es wird kein neues Event erstellt.<br>- Bilden Sie Array-Typ-Attribute ab, um mehrere Events hinzuzufügen. Array-Typ-Attribute müssen gleich lang sein.<br>- Einzelwert-Attribute können verwendet und auf jedes Event angewendet werden. |
 | Event-Template | Stellen Sie Event-Templates zur Verfügung, auf die in den Body-Daten referenziert werden kann. Templates können verwendet werden, um Daten zu transformieren, bevor sie an Braze gesendet werden. Weitere Informationen finden Sie in der [Template-Anleitung](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) von Tealium. |
 | Event-Template-Variable | Stellen Sie Event-Template-Variablen als Dateneingabe bereit. Weitere Informationen finden Sie im [Leitfaden für Template-Variablen](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) von Tealium. |
-| Kauf | Verwenden Sie dieses Feld, um Nutzer-Kaufattribute zu tracken und abzubilden, wie sie im Braze-[Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) enthalten sind.<br><br>- Die Kaufattribute `Product ID`, `Currency` und `Price` sind für jeden zugeordneten Kauf erforderlich.<br>- Das Kaufattribut `Time` wird automatisch auf „jetzt“ gesetzt, wenn es nicht explizit abgebildet wird.<br>- Standardmäßig werden neue Käufe angelegt, wenn noch keine vorhanden sind. Wenn Sie `Update Existing Only` auf `true` setzen, werden nur bestehende Käufe aktualisiert und es wird kein neuer Kauf angelegt.<br>- Bilden Sie Array-Typ-Attribute ab, um mehrere Kaufartikel hinzuzufügen. Array-Typ-Attribute müssen gleich lang sein.<br>- Einzelwert-Attribute können verwendet werden und gelten dann für jeden Artikel. |
+| Kauf | Verwenden Sie dieses Feld, um Nutzer-Kaufattribute zu tracken und abzubilden, wie sie im Braze-[Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object) enthalten sind.<br><br>- Die Kaufattribute `Product ID`, `Currency` und `Price` sind für jeden zugeordneten Kauf erforderlich.<br>- Das Kaufattribut `Time` wird automatisch auf „jetzt“ gesetzt, wenn es nicht explizit abgebildet wird.<br>- Standardmäßig werden neue Käufe angelegt, wenn noch keine vorhanden sind. Wenn Sie `Update Existing Only` auf `true` setzen, werden nur bestehende Käufe aktualisiert und es wird kein neuer Kauf angelegt.<br>- Bilden Sie Array-Typ-Attribute ab, um mehrere Kaufartikel hinzuzufügen. Array-Typ-Attribute müssen gleich lang sein.<br>- Einzelwert-Attribute können verwendet werden und gelten dann für jeden Artikel. |
 | Kauf-Template | Templates können verwendet werden, um Daten zu transformieren, bevor sie an Braze gesendet werden.<br>- Definieren Sie ein Kauf-Template, wenn Sie Unterstützung für verschachtelte Objekte benötigen.<br>- Wenn ein Kauf-Template definiert wird, wird die Konfiguration, die im Kaufbereich Ihrer Aktion eingerichtet wurde, ignoriert.<br>- Weitere Informationen finden Sie in der [Template-Anleitung](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) von Tealium. |
 | Kauf-Template-Variable | Stellen Sie Produkt-Template-Variablen als Dateneingabe bereit. Weitere Informationen finden Sie im [Leitfaden für Template-Variablen](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) von Tealium. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aktion" }
 
-![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
+![Beispiel einer Tealium-Track-User-Aktion mit zugeordneten Nutzerattributen und Event-Feldern.]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% tab Delete User – Non-Batch %}
@@ -170,10 +170,10 @@ Diese Aktion erlaubt es Ihnen, Nutzer:innen aus dem Braze-Dashboard zu löschen.
 
 | Parameter | Beschreibung |
 | ---------- | ----------- |
-| Nutzer-ID | Verwenden Sie dieses Feld, um das Tealium-Nutzer-ID-Feld auf das entsprechende Braze-Feld abzubilden.<br><br>- Bilden Sie ein oder mehrere Nutzer-ID-Attribute ab. Wenn mehrere IDs angegeben werden, wird der erste nicht-leere Wert in der folgenden Prioritätsreihenfolge ausgewählt: Externe ID, Braze ID, Alias-Name und Alias-Label.<br>- Wenn Sie einen Nutzer-Alias angeben, sollten sowohl Alias-Name als auch Alias-Label festgelegt werden.<br><br>Weitere Informationen finden Sie unter dem Braze-[Endpunkt `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Nutzer-ID | Verwenden Sie dieses Feld, um das Tealium-Nutzer-ID-Feld auf das entsprechende Braze-Feld abzubilden.<br><br>- Bilden Sie ein oder mehrere Nutzer-ID-Attribute ab. Wenn mehrere IDs angegeben werden, wird der erste nicht-leere Wert in der folgenden Prioritätsreihenfolge ausgewählt: Externe ID, Braze ID, Alias-Name und Alias-Label.<br>- Wenn Sie einen Nutzer-Alias angeben, sollten sowohl Alias-Name als auch Alias-Label festgelegt werden.<br><br>Weitere Informationen finden Sie unter dem Braze-[Endpunkt `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aktion" }
 
-![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
+![Tealium-Delete-User-Aktion mit konfigurierten Braze-Nutzer-ID-Abbildungen.]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% tab Update User Subscription Group Status – Non-Batch %}
@@ -184,9 +184,9 @@ Mit dieser Aktion können Sie Nutzer:innen zu Braze-SMS- oder E-Mail-Abo-Gruppen
 | Gruppentyp | Verwenden Sie dieses Feld, um anzugeben, ob es sich um eine SMS- oder E-Mail-Abo-Gruppe handelt. |
 | Update-Typ | Bilden Sie diese Aktion auf ein Abmelde- oder Abo-Ereignis ab. |
 | Attribute | - Abo-Gruppen-ID (erforderlich): Die ID der Abo-Gruppe, die sich auf den im vorhergehenden Feld abgebildeten Gruppentyp bezieht.<br>- Externe ID: Die externe ID der Nutzer:innen.<br><br>E-Mail-gruppenspezifisch:<br>- E-Mail: Die E-Mail-Adresse der Nutzer:innen.<br>**Wenn die externe ID nicht definiert ist, wird die E-Mail benötigt.**<br><br>SMS-gruppenspezifisch:<br>- Telefon: Die Telefonnummer im Format E.164. Zum Beispiel: +14155552671.<br>**Wenn die externe ID nicht definiert ist, wird die Telefonnummer benötigt.** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aktion" }
 
-![]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
+![Tealium-Aktion zum Aktualisieren des Abo-Gruppenstatus mit Abbildungen für Gruppentyp und Update-Typ.]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% endtabs %}
@@ -223,7 +223,7 @@ Ausführlichere Anweisungen zur Implementierung des Trace-Tools von Tealium find
 
 Es gibt drei Hauptwege, wie Sie bei der Integration von Braze über Tealium versehentlich auf Mehrkosten bei den Datenpunkten stoßen können:
 
-#### Doppelte Daten senden – nur Braze-Deltas von Attributen senden {#sending-duplicate-data-only-send-braze-deltas-of-attributes}
+### Doppelte Daten senden – nur Braze-Deltas von Attributen senden {#sending-duplicate-data-only-send-braze-deltas-of-attributes}
 Tealium sendet keine Braze-Deltas von Nutzerattributen. Wenn Sie zum Beispiel eine EventStream-Aktion haben, die den Vornamen, die E-Mail und die Handynummer von Nutzer:innen trackt, sendet Tealium alle drei Attribute an Braze, sobald die Aktion getriggert wird. Tealium sucht nicht danach, was sich geändert hat oder aktualisiert wurde, und sendet nur diese Informationen.<br><br>
 **Lösung**: <br>Sie können in Ihrem Backend überprüfen, ob sich ein Attribut geändert hat oder nicht, und wenn ja, die entsprechenden Methoden von Tealium aufrufen, um das Nutzerprofil zu aktualisieren. **Das tun Nutzer:innen, die Braze direkt integrieren, normalerweise auch.** <br>**ODER**<br> Wenn Sie keine eigene Version eines Nutzerprofils in Ihrem Backend speichern und nicht feststellen können, ob sich Attribute ändern oder nicht, können Sie AudienceStream verwenden und [Anreicherungen erstellen](https://docs.tealium.com/server-side/attributes/manage-enrichments/add-enrichment/), um Nutzerattribute nur dann zu senden, wenn sich die Werte geändert haben.
 

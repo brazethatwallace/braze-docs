@@ -37,7 +37,7 @@ Depois que um relatório do Criador de relatórios é adicionado a um bloco do C
 
 {: start="5"}
 5. Selecione o ícone de lápis para alterar como o título e o tipo de gráfico são exibidos no bloco.
-    - Você pode alternar entre diferentes tipos de gráfico abaixo da visualização padrão. As opções atuais incluem gráficos de barras (horizontais ou verticais) e gráficos de linhas (disponíveis apenas se você selecionou **Date** como opção de detalhamento na configuração do Criador de relatórios).<br><br>![Alternadores para diferentes tipos de gráfico.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
+    - Você pode alternar entre diferentes tipos de gráfico nos controles de tipo de gráfico. As opções atuais incluem gráficos de barras (horizontais ou verticais) e gráficos de linhas (disponíveis apenas se você selecionou **Date** como opção de detalhamento na configuração do Criador de relatórios).<br><br>![Alternadores para diferentes tipos de gráfico.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
     - Use o menu suspenso de métricas para selecionar quais métricas incluir na sua visualização. Por padrão, a primeira coluna do relatório será a métrica exibida.
 6. Selecione **Save** depois de ajustar a visualização conforme desejado.
 7. Adicione um nome, uma descrição e uma tag para facilitar a localização do seu dashboard posteriormente.
@@ -46,7 +46,7 @@ Depois que um relatório do Criador de relatórios é adicionado a um bloco do C
 {: start="4"}
 4. Selecione **+ Add Tile** e escolha uma consulta que você executou no Criador de consultas.
 5. Para editar como os resultados da consulta são exibidos no bloco, selecione o ícone de lápis para alterar o título e o tipo de gráfico.
-    - Você pode alternar entre diferentes tipos de gráfico abaixo da visualização padrão. As opções atuais incluem tabelas, gráficos de barras (horizontais ou verticais) e gráficos de linhas.<br><br>![Alternadores para diferentes tipos de gráfico.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
+    - Você pode alternar entre diferentes tipos de gráfico nos controles de tipo de gráfico. As opções atuais incluem tabelas, gráficos de barras (horizontais ou verticais) e gráficos de linhas.<br><br>![Alternadores para diferentes tipos de gráfico.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
         - Se você escolher uma das opções de gráfico, use o menu suspenso **X-axis** para selecionar uma única coluna dos resultados da consulta para usar como eixo X.
         - Use o menu suspenso **Y-axis** para selecionar quais métricas incluir na sua visualização. Por padrão, todas as colunas dos resultados da consulta serão exibidas, então desmarque as colunas que você não deseja visualizar.<br><br>![Alternadores para diferentes tipos de gráfico.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Opcional) Você pode usar o menu suspenso **Grouping** para agrupar os resultados da consulta. Por exemplo, se você tem o ID da campanha como resultado de coluna e deseja somar todas as linhas com esse valor, use o menu suspenso **Grouping**.
@@ -78,7 +78,7 @@ Faça uma cópia do seu bloco selecionando **Duplicate Tile** na parte inferior 
 
 ### Ajustar tamanho e posição dos blocos {#adjust-tile-size-and-position}
 
-Ajuste o tamanho do bloco arrastando o canto inferior direito do bloco e ajuste a posição do bloco no dashboard arrastando a alça no canto superior direito do bloco.
+Ajuste o tamanho do bloco arrastando a alça de redimensionamento e ajuste a posição do bloco no dashboard arrastando a alça do bloco.
 
 ## Executando um dashboard {#running-a-dashboard}
 
@@ -92,13 +92,13 @@ A Braze fornece dashboards pré-criados para casos de uso frequentes, como anál
 
 #### Receita - Atribuição de último ponto de contato {#revenue-last-touch-attribution}
 
-O dashboard **Revenue - Last Touch Attribution** fornece uma revisão da receita em Campaigns, Canvas e canais. Todos os dados de receita são atribuídos à última mensagem tocada durante o período de atribuição.
+O dashboard **Revenue - Last Touch Attribution** fornece uma revisão da receita em Campaigns, Canvas e canais. Todos os dados de receita são atribuídos à última mensagem tocada durante a janela de atribuição.
 
-Os pontos de contato incluem _Clique em e-mail_ (clique em link), _Clique em cartão de conteúdo_, _Clique em mensagem no app_ (excluindo botões de fechar), _Aberturas de push_, _Clique em link curto de SMS_, _Leitura de WhatsApp_ e _Envio de Webhook_.
+Os pontos de contato incluem _Clique em e-mail_ (clique em link), _Clique em cartão de conteúdo_, _Clique em mensagem no app_ (excluindo botões de fechar), _Aberturas de push_, _Clique em link curto de SMS_, _Leitura de WhatsApp_ e _Envio de webhook_.
 
 | Métrica | Definição |
 | --- | --- |
-| Receita total de último ponto de contato | Soma de todos os eventos de receita de Campaigns e Canvas com um evento de último ponto de contato dentro do intervalo de datas e período de atribuição selecionados. |
+| Receita total de último ponto de contato | Soma de todos os eventos de receita de Campaigns e Canvas com um evento de último ponto de contato dentro do intervalo de datas e janela de atribuição selecionados. |
 | Total de conversões de compra | Contagem de todos os eventos de receita de Campaigns e Canvas com um evento de último ponto de contato qualificado. |
 | Média de dias para conversão | Tempo médio entre todos os eventos de compra de Campaigns e Canvas com um evento de último ponto de contato qualificado. |
 | Receita por destinatário | Soma da receita de eventos de receita qualificados dividida pelo número de usuários únicos que receberam uma mensagem dentro do intervalo de datas. |
@@ -156,4 +156,4 @@ Os pontos de contato incluem _Clique em e-mail_ (clique em link), _Clique em car
 
 ## Compartilhe seu feedback conosco {#share-your-feedback-with-us}
 
-Selecione o botão **Enviar feedback** ou fale com seu gerente de sucesso do cliente para compartilhar seu feedback conosco.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="Dashboard Builder" %}

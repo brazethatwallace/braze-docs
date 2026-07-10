@@ -29,15 +29,15 @@ Canvas에 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_co
 
 우승자를 결정할 전환 이벤트를 지정합니다. 사용 가능한 전환 이벤트가 없는 경우, Canvas 설정의 첫 번째 단계로 돌아가서 [전환 이벤트를 할당]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events)하세요.
 
-전환 이벤트로 열람 또는 클릭을 선택하는 경우, 경로의 첫 번째 단계가 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)인지 확인하세요. Braze는 각 경로의 첫 번째 메시지 단계에서의 참여만 집계합니다. 경로가 다른 단계(예: 지연 또는 오디언스 경로 단계)로 시작하고 메시지가 나중에 오는 경우, 해당 메시지는 성과 평가 시 포함되지 않습니다.
+전환 이벤트로 열람 또는 클릭을 선택하는 경우, 경로의 첫 번째 단계가 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)인지 확인하세요. Braze는 각 경로의 첫 번째 메시지 단계에서의 인게이지먼트만 집계합니다. 경로가 다른 단계(예: 지연 또는 오디언스 경로 단계)로 시작하고 메시지가 나중에 오는 경우, 해당 메시지는 성능 평가 시 포함되지 않습니다.
 
 그런 다음 **실험 기간**을 설정합니다. **실험 기간**은 지연 그룹의 각 사용자에게 최적의 경로를 선택하기 전에 모든 경로로 사용자를 보내는 기간을 결정합니다. 기간은 첫 번째 사용자가 단계에 진입할 때 시작됩니다.
 
-![2단계 관련 스크린샷: 개인화된 경로 설정 구성.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
+![개인화된 경로 설정 구성과 관련된 스크린샷.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
 ### 3단계: 대체 방법 결정 {#step-3-determine-fallback}
 
-기본적으로, 테스트 결과가 통계적으로 유의미한 우승자를 결정하기에 충분하지 않은 경우, 이후 모든 사용자는 단일 최고 성과 경로로 보내집니다.
+기본적으로, 테스트 결과가 통계적으로 유의미한 우승자를 결정하기에 충분하지 않은 경우, 이후 모든 사용자는 단일 최고 성능 경로로 보내집니다.
 
 또는 **이후 모든 사용자에게 경로 조합을 계속 발송**을 선택할 수 있습니다.
 
@@ -45,7 +45,7 @@ Canvas에 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_co
 
 이 옵션은 실험 경로 배분에 지정된 비율에 따라 이후 사용자를 경로 조합으로 보냅니다.
 
-![3단계 관련 스크린샷: 대체 방법 결정.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
+![대체 방법 결정과 관련된 스크린샷.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
 ### 4단계: 경로 추가 및 Canvas 시작 {#step-4-add-your-paths-and-launch-the-canvas}
 
@@ -54,44 +54,46 @@ Canvas에 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_co
 
 단일 실험 경로 구성요소에는 최대 4개의 경로를 포함할 수 있습니다. 그러나 단일 발송 Canvas의 경우, 개인화된 경로가 켜져 있으면 최대 3개의 경로를 추가할 수 있습니다. 네 번째 경로는 Braze가 실험에 자동으로 추가하는 지연 그룹을 위해 예약되어야 합니다.
 
-필요에 따라 Canvas 설정을 완료한 다음 시작합니다. 첫 번째 사용자가 실험에 진입하면, Canvas를 확인하여 분석 데이터가 들어오는 것을 보고 [실험 성과를 추적]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance)할 수 있습니다.
+필요에 따라 Canvas 설정을 완료한 다음 시작합니다. 첫 번째 사용자가 실험에 진입하면, Canvas를 확인하여 분석 데이터가 들어오는 것을 보고 [실험 성능을 추적]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance)할 수 있습니다.
 
-![4단계 관련 스크린샷: 경로를 추가하고 Canvas를 시작합니다.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
+![경로를 추가하고 Canvas를 시작하는 것과 관련된 스크린샷.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
 
 실험 기간이 지나고 실험이 완료되면, Braze는 예측 모델의 추천을 기반으로 지연 그룹의 사용자를 개인화된 전환 가능성이 가장 높은 각각의 경로로 보냅니다.
 
-![4단계 관련 스크린샷: 경로를 추가하고 Canvas를 시작합니다.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
+![경로를 추가하고 Canvas를 시작하는 것과 관련된 스크린샷.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% tab 반복 또는 액션 트리거 또는 API 트리거 Canvas %}
 
 단일 실험 경로에서 최대 4개의 경로를 테스트할 수 있습니다. 경로를 추가하고 필요에 따라 Canvas 설정을 완료한 다음 시작합니다.
 
-첫 번째 사용자가 실험에 진입하면, Canvas를 확인하여 분석 데이터가 들어오는 것을 보고 [실험 성과를 추적]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance)할 수 있습니다.
+첫 번째 사용자가 실험에 진입하면, Canvas를 확인하여 분석 데이터가 들어오는 것을 보고 [실험 성능을 추적]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance)할 수 있습니다.
 
 실험 기간이 지나고 실험이 완료되면, 이후 Canvas에 진입하는 모든 사용자는 자신에게 전환 가능성이 가장 높은 경로로 보내집니다.
 
-![4단계 관련 스크린샷: 경로를 추가하고 Canvas를 시작합니다.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
+![경로를 추가하고 Canvas를 시작하는 것과 관련된 스크린샷.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% endtabs %}
 
 ## 분석 {#analytics}
 
-개인화된 경로가 켜져 있으면, 분석 보기가 **초기 실험**과 **개인화된 경로** 두 개의 탭으로 구분됩니다.
+개인화된 경로가 켜져 있고 충분한 결과가 나오면, 분석 보기가 **초기 실험**과 **개인화된 경로** 두 개의 탭으로 구분됩니다.
+
+실험이 불충분한 결과로 완료되면, 모델이 개인화가 모든 사용자를 단일 최고 성능 경로로 보내는 것보다 나은 결과를 내지 못한다고 판단하기 때문에 **초기 실험** 탭만 표시됩니다. 이 경우 구성된 대체 동작이 적용되며, 개인화된 경로 분석은 제공되지 않습니다.
 
 {% tabs local %}
 {% tab 초기 실험 %}
 
 **초기 실험** 탭은 실험 기간 동안 각 경로의 측정기준을 보여줍니다. 지정된 전환 이벤트에 대해 모든 경로가 어떻게 수행되었는지 요약을 확인할 수 있습니다.
 
-![각 사용자에게 최적의 경로를 결정하기 위해 발송된 초기 실험의 결과. 테이블은 타겟 채널에 대한 다양한 측정기준을 기반으로 각 경로의 성과를 보여줍니다.]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab1.png %})
+![각 사용자에게 최적의 경로를 결정하기 위해 발송된 초기 실험의 결과. 테이블은 타겟 채널에 대한 다양한 측정기준을 기반으로 각 경로의 성능을 보여줍니다.]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab1.png %})
 
 기본적으로, 테스트는 사용자의 커스텀 이벤트와 경로 선호도, 즉 사용자가 가장 잘 반응하는 메시지 배리언트 간의 연관성을 찾습니다. 이 분석은 커스텀 이벤트가 특정 경로에 대한 반응 가능성을 높이는지 낮추는지를 감지합니다. 이러한 관계는 실험 기간이 지난 후 어떤 사용자에게 어떤 경로를 할당할지 결정하는 데 사용됩니다.
 
 커스텀 이벤트와 경로 선호도 간의 관계는 **초기 실험** 탭의 테이블에 표시됩니다.
 
-![분석 관련 스크린샷.]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
+![분석과 관련된 스크린샷.]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
 
 테스트가 커스텀 이벤트와 경로 선호도 간에 의미 있는 관계를 찾지 못하면, 세션 기반 분석 방법으로 대체되며 커스텀 이벤트 데이터 테이블은 표시되지 않습니다.
 
@@ -132,7 +134,7 @@ Canvas에 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_co
 
 이 페이지의 세 개 카드는 예상 향상도, 전체 결과, 그리고 우승 경로만 발송했을 경우의 예상 결과를 보여줍니다. 향상이 없는 경우(가끔 발생할 수 있음)에도 결과는 우승 경로만 발송하는 것(전통적인 A/B 테스트)과 동일합니다.
 
-- **예상 향상도:** 모든 사용자를 전체 최고 성과 경로로 보내는 대신 개인화된 경로를 사용함으로써 선택한 전환 이벤트에서의 개선도입니다.
+- **예상 향상도:** 모든 사용자를 전체 최고 성능 경로로 보내는 대신 개인화된 경로를 사용함으로써 선택한 전환 이벤트에서의 개선도입니다.
 - **전체 결과:** 전환 이벤트를 기반으로 한 두 번째 발송의 결과입니다.
 - **예상 결과:** 우승 배리언트만 발송했을 경우 선택한 최적화 측정기준을 기반으로 한 두 번째 발송의 예상 결과입니다.
 

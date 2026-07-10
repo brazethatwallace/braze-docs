@@ -10,7 +10,7 @@ channel:
 
 # Générateur de modèles WhatsApp {#whatsapp-template-builder}
 
-> Le générateur de modèles WhatsApp vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business Manager. Une fois votre modèle approuvé par Meta, utilisez-le dans autant de campagnes et de Canvas que vous le souhaitez.
+> Le générateur de modèles WhatsApp vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business Manager. Une fois votre modèle approuvé par Meta, utilisez-le dans autant de Campaigns et de Canvas que vous le souhaitez.
 
 ## Conditions préalables {#prerequisites}
 
@@ -57,7 +57,7 @@ Ajoutez un en-tête qui apparaîtra au-dessus du corps du message. Vous pouvez c
 Saisissez le contenu principal de votre message et personnalisez le corps selon vos besoins en utilisant Liquid ou des variables génériques :
 
 {% raw %}
-- Utilisez des étiquettes Liquid (par exemple, `{{${first_name}}}`). Braze enregistre votre Liquid et le restitue lorsque vous utilisez le modèle dans un compositeur de campagne ou de Canvas.
+- Utilisez des étiquettes Liquid (par exemple, `{{${first_name}}}`). Braze enregistre votre Liquid et le restitue lorsque vous utilisez le modèle dans un compositeur de Campaign ou de Canvas.
 - Utilisez des variables génériques, comme des marques substitutives numérotées (par exemple, `{{1}}`), si vous préférez ajouter la personnalisation plus tard lors de la construction de votre message.
 {% endraw %}
 
@@ -90,7 +90,7 @@ Avant de soumettre, prévisualisez l'apparence de votre message pour les destina
 
 ### Étape 6 : Soumettre pour vérification {#step-6-submit-for-review}
 
-Sélectionnez **Envoyer** pour soumettre votre modèle à Meta pour vérification. Cette opération prend généralement quelques minutes, mais peut aller jusqu'à 24 heures. Le modèle apparaît sur votre page **Modèles WhatsApp** une fois soumis, et l'état se met à jour lorsque vous actualisez la page **Modèles WhatsApp**.
+Sélectionnez **Soumettre** pour envoyer votre modèle à Meta pour vérification. Cette opération prend généralement quelques minutes, mais peut aller jusqu'à 24 heures. Le modèle apparaît sur votre page **Modèles WhatsApp** une fois soumis, et le statut se met à jour lorsque vous actualisez la page **Modèles WhatsApp**.
 
 ## Catégories de modèles prises en charge {#supported-template-categories}
 
@@ -98,15 +98,15 @@ Seuls les modèles Marketing sont actuellement pris en charge dans le générate
 
 ## Utiliser un modèle approuvé dans une campagne {#use-an-approved-template-in-a-campaign}
 
-Une fois votre modèle approuvé par Meta, vous pouvez l'utiliser dans une campagne ou un Canvas WhatsApp.
+Une fois votre modèle approuvé par Meta, vous pouvez l'utiliser dans une Campaign ou un Canvas WhatsApp.
 
-1. Accédez à **Campaigns** et sélectionnez **Créer une campagne** > **WhatsApp**.
+1. Accédez à **Messagerie** > **Campaigns** et sélectionnez **Créer une campagne** > **WhatsApp**.
 2. Dans le compositeur de messages, sélectionnez votre modèle approuvé.
 3. Braze renseigne automatiquement le contenu du modèle, y compris les médias et le Liquid que vous avez saisis lors de la création du modèle, afin que vous n'ayez pas à les saisir à nouveau.
 4. Mettez à jour le contenu variable ou la personnalisation selon vos besoins. Les champs verrouillés par Meta (affichés en gris) ne peuvent pas être modifiés. Pour modifier le contenu verrouillé, vous devez éditer et resoumettre le modèle pour approbation.
 5. Utilisez l'onglet **Test** pour prévisualiser le message, mettre à jour les variables du corps et confirmer que le message s'affiche comme prévu avant le lancement.
 
-Pour en savoir plus sur la création de campagnes WhatsApp, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
+Pour en savoir plus sur la création de Campaigns WhatsApp, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Questions fréquentes {#frequently-asked-questions}
 
@@ -116,7 +116,7 @@ Les vérifications sont généralement terminées en cinq minutes, mais peuvent 
 
 ### Puis-je modifier un modèle après son approbation ? {#can-i-edit-a-template-after-its-been-approved}
 
-Toute modification du contenu verrouillé (texte du corps ou autres champs contrôlés par Meta) nécessite de resoumettre le modèle pour approbation, ce qui doit être fait depuis le WhatsApp Business Manager. Vous pouvez mettre à jour le contenu et la personnalisation lors de la construction de votre campagne ou de votre Canvas.
+Toute modification du contenu verrouillé (texte du corps ou autres champs contrôlés par Meta) nécessite de resoumettre le modèle pour approbation, ce qui doit être fait depuis le WhatsApp Business Manager. Vous pouvez mettre à jour le contenu et la personnalisation lors de la construction de votre Campaign ou de votre Canvas.
 
 ### Qu'advient-il des modèles soumis avant la disponibilité du générateur de modèles ? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 

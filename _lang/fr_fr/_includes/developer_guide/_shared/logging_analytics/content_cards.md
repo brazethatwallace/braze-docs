@@ -286,7 +286,7 @@ braze.logContentCardClick(card);
 {% endtab %}
 {% tab android %}
 
-Le [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) peut faire référence aux dépendances du SDK Braze, telles que la liste d'objets Content Cards, afin d'obtenir l'objet [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) permettant d'appeler les méthodes de journalisation Braze. Utilisez la classe de base `ContentCardable` pour référencer et fournir facilement des données au `BrazeManager`.
+Le [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) peut faire référence aux dépendances du SDK Braze, telles que la liste d'objets Content Cards, afin d'obtenir l'objet [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) permettant d'appeler les méthodes de journalisation de Braze. Utilisez la classe de base `ContentCardable` pour référencer et fournir facilement des données au `BrazeManager`.
 
 Pour enregistrer une impression ou un clic sur une carte, appelez respectivement [`Card.logClick()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html) ou [`Card.logImpression()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html).
 

@@ -16,17 +16,17 @@ _Diese Integration wird von SalesWings gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-SalesWings erlaubt es Marketingteams und Marketing-Operations-Manager:innen, Leads und Accounts für ihre Vertriebsteams zu qualifizieren, was für die Ausrichtung von Vertrieb und Marketing und die operative Effizienz unerlässlich ist. Darüber hinaus kann SalesWings zusammen mit Braze den Vertriebsmitarbeitern die vollständige Customer Journey eines Leads und eines Kontos sowie Daten über das Engagement der Braze-Campaigns anzeigen, was es Ihnen erlaubt, die Qualifikationsraten von Leads durch fundiertere Gespräche zu erhöhen. SalesWings identifiziert Bedürfnisse und Interessen zusammen mit anderen Signalen und erlaubt so die automatisierte Übergabe qualifizierter Käufer an Vertriebsteams innerhalb Ihres CRM. Sie können die ermittelten Bedürfnisse, Interessen und die Verkaufsbereitschaft als Braze-Nutzerattribute zur Personalisierung und Segmentierung verwenden.
+SalesWings erlaubt es Marketingteams und Marketing-Operations-Manager:innen, Leads und Accounts für ihre Vertriebsteams zu qualifizieren, was für die Ausrichtung von Vertrieb und Marketing und die operative Effizienz unerlässlich ist. Darüber hinaus kann SalesWings zusammen mit Braze den Vertriebsmitarbeitern die vollständige Customer Journey eines Leads und eines Kontos sowie Daten über das Engagement der Braze-Campaigns anzeigen, was es Ihnen erlaubt, die Qualifikationsraten von Leads durch fundiertere Gespräche zu erhöhen. SalesWings identifiziert Bedürfnisse und Interessen zusammen mit anderen Signalen und erlaubt so die automatisierte Übergabe qualifizierter Käufer:innen an Vertriebsteams innerhalb Ihres CRM. Sie können die ermittelten Bedürfnisse, Interessen und die Verkaufsbereitschaft als Braze-Nutzerattribute zur Personalisierung und Segmentierung verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | SalesWings-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [SalesWings-Konto](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs). |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.export.ids`-Berechtigungen (und `users.track`, wenn Sie das SalesWings-Insights-Push-Feature verwenden). <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.export.ids`-Berechtigungen (und `users.track`, wenn Sie das SalesWings-Insights-Push-Feature verwenden). <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Segment.com-Konto (optional) | Wenn Sie Segment.com nutzen, können Sie alle Daten zum Lead-Engagement und -Profil sowie Identifizierungs-Events über Segment.com für das Lead-Profiling senden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -78,11 +78,11 @@ _Beispiel-Dashboard, das mit dem Braze-E-Mail- und Marketing-Engagement in Sales
 
 ## Integration
 
-### 1. Schritt: SalesWings-Konto und Konfiguration {#step-1-saleswings-account-and-configuration}
+### Schritt 1: SalesWings-Konto und Konfiguration {#step-1-saleswings-account-and-configuration}
 
 [Vereinbaren Sie eine Demo](https://www.saleswingsapp.com/schedule-a-demo?utm_source=braze&utm_campaign=technicaldocs) mit dem freundlichen SalesWings-Team, um mehr über SalesWings zu erfahren.
 
-### 2. Schritt: Behavioral Tracking auf Ihrer Website oder App installieren {#step-2-installing-behavioral-tracking-on-your-website-or-app}
+### Schritt 2: Behavioral Tracking auf Ihrer Website oder App installieren {#step-2-installing-behavioral-tracking-on-your-website-or-app}
 
 Es gibt mehrere Möglichkeiten, in SalesWings Verhaltensdaten für das Lead- und Account-Scoring, die Identifizierung der Käuferabsicht und für Insights zu sammeln:
 * [Setzen Sie das SalesWings-Tracking-JavaScript ein](https://support.saleswingsapp.com/en/collections/3285135-1-implementing-saleswings-tracking-script) auf den Websites und Apps, auf denen Sie Leads verfolgen und identifizieren möchten
@@ -90,7 +90,7 @@ Es gibt mehrere Möglichkeiten, in SalesWings Verhaltensdaten für das Lead- und
 * Senden Sie verhaltensbezogene Lead-Aktivitätsdaten (und Lead-Profildaten) über die [SalesWings-Integration mit Segment](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration)
 * Senden Sie Daten direkt von einer Drittanbieter-Lösung an die SalesWings-[API](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings)
 
-### 3. Schritt: SalesWings mit Braze verbinden {#step-3-connecting-saleswings-to-braze}
+### Schritt 3: SalesWings mit Braze verbinden {#step-3-connecting-saleswings-to-braze}
 
 Gehen Sie auf die [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) und erweitern Sie den Abschnitt **Braze Integration**.
 
@@ -98,27 +98,27 @@ Gehen Sie auf die [Seite **SalesWings Integrations**](https://helium.saleswings.
 
 Kopieren Sie den Wert der Spalte **Identifier** für den neu erstellten Schlüssel und fügen Sie ihn in das Feld **Braze API key** im Abschnitt SalesWings **Braze Integration** ein.
 
-Fügen Sie Ihren Braze-API-Endpunkt hinzu, wie im Artikel [API- und SDK-Endpunkte]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) beschrieben, und geben Sie ihn in das Feld **Braze API endpoint** ein. Kopieren Sie den Wert der Spalte **REST Endpoint** und geben Sie ihn in das Feld **Braze API endpoint** im Abschnitt SalesWings **Braze Integration** ein.
+Fügen Sie Ihren Braze-API-Endpunkt hinzu, wie im Artikel [API- und SDK-Endpunkte]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) beschrieben, und geben Sie ihn in das Feld **Braze API endpoint** ein. Kopieren Sie den Wert der Spalte **REST Endpoint** und geben Sie ihn in das Feld **Braze API endpoint** im Abschnitt SalesWings **Braze Integration** ein.
 
 Wählen Sie dann **Save**.
 
-### 4. Schritt: SalesWings-Insights-Push zu Braze aktivieren (optional) {#step-4-enable-saleswings-insights-push-to-braze-optional}
+### Schritt 4: SalesWings-Insights-Push zu Braze aktivieren (optional) {#step-4-enable-saleswings-insights-push-to-braze-optional}
 
 Wenn Sie die SalesWings-Insights in Ihren Braze-Nutzerprofilen für die Segmentierung, Personalisierung oder die Orchestrierung der Canvas Journey verfügbar machen möchten, besuchen Sie die [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) und erweitern Sie den Abschnitt **Braze Integration**.
 
 Klicken Sie auf **Start data push** unter **SalesWings-to-Braze insights data push**.
 
-### 5. Schritt: Einen angepassten Currents-Export zu SalesWings einrichten (optional) {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
+### Schritt 5: Einen angepassten Currents-Export zu SalesWings einrichten (optional) {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
 
-Wenn Sie [Nutzerverhalten-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und [Nachrichten-Engagement-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)Events für Behavioral Intelligence, Lead- und Account-Scoring, Insights oder Berichte in Ihrem CRM nutzen möchten, gehen Sie auf die [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) und erweitern Sie den Abschnitt **Braze Integration**.
+Wenn Sie [Nutzerverhalten-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) und [Nachrichten-Engagement-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)Events für Behavioral Intelligence, Lead- und Account-Scoring, Insights oder Berichte in Ihrem CRM nutzen möchten, gehen Sie auf die [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) und erweitern Sie den Abschnitt **Braze Integration**.
 
 Wählen Sie **Generate** unter **Generate an API token to setup a Custom Currents Export**.
 
-[Erstellen Sie dann einen neuen Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) und wählen Sie als Current-Typ **Custom Currents Export** aus.
+[Erstellen Sie dann einen neuen Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) und wählen Sie als Current-Typ **Custom Currents Export** aus.
 
 Geben Sie im Abschnitt **Credentials** des Formulars zur Erstellung von Currents das API-Token ein, das Sie auf der [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) für **Bearer Token** generiert haben, und `https://helium.saleswings.pro/api/braze/currents/events` für **Endpoint**.
 
-### 6. Schritt: SalesWings-Lead- und Account-Scoring für Braze, CRM-Integration und mehr konfigurieren {#step-6-configuring-saleswings-lead-and-account-scoring-for-braze-crm-integration-and-more}
+### Schritt 6: SalesWings-Lead- und Account-Scoring für Braze, CRM-Integration und mehr konfigurieren {#step-6-configuring-saleswings-lead-and-account-scoring-for-braze-crm-integration-and-more}
 
 Wenden Sie sich an das SalesWings-Serviceteam, das Sie beim Onboarding über die [Website](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) unterstützt.
 
@@ -146,7 +146,7 @@ Die Variable `braze_id` wird auf einen von Braze erzeugten Bezeichner der Nutzer
 
 ### SalesWings-Insights nach Braze pushen {#pushing-saleswings-insights-to-braze}
 
-Wenn Sie den SalesWings-Insights-Push für Braze aktivieren, aktualisiert SalesWings Ihre Braze-Nutzerprofile mit den folgenden [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/):
+Wenn Sie den SalesWings-Insights-Push für Braze aktivieren, aktualisiert SalesWings Ihre Braze-Nutzerprofile mit den folgenden [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types):
 
 | Angepasstes Attribut | Typ | Beschreibung |
 | ----------- | ----------- | ----------- |
@@ -161,8 +161,8 @@ Wenn Sie den SalesWings-Insights-Push für Braze aktivieren, aktualisiert SalesW
 | `sw_salesforce_record_url` | String | Die URL des Lead- oder Kontaktdatensatzes in Salesforce CRM |
 | `sw_session_count` | Ganzzahl | Die Anzahl der getrackten Sitzungen auf Ihrer Website für diesen Lead |
 | `sw_tags` | String-Array | Die von SalesWings identifizierten Bedürfnisse und Interessen, dargestellt als „Tags“. Die Namen der SalesWings-Tags, die in der SalesWings [Rule Engine](https://helium.saleswings.pro/falcon) konfiguriert sind und für diesen Lead gelten |
-| Zusätzliche Lead-Score-Attribute | Gleitkommazahl | Ein angepasstes Attribut für jeden zusätzlichen Lead Score, der in der SalesWings [Rule Engine](https://helium.saleswings.pro/falcon) konfiguriert wurde. Der Name des Attributs wird vom Namen des SalesWings-Scores abgeleitet. Ein Score mit dem Namen `Likeliness to meet` wird beispielsweise als angepasstes Attribut `sw_likeliness_to_meet` gesendet. Wenn Sie einen Score umbenennen, nachdem das System ihn erstellt hat, setzt SalesWings die Synchronisierung mit dem ursprünglichen Namen des angepassten Attributs fort. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pushing SalesWings insights to Braze" }
+| Zusätzliche Lead-Score-Attribute | Gleitkommazahl | Ein angepasstes Attribut für jeden zusätzlichen Lead-Score, der in der SalesWings [Rule Engine](https://helium.saleswings.pro/falcon) konfiguriert wurde. Der Name des Attributs wird vom Namen des SalesWings-Scores abgeleitet. Ein Score mit dem Namen `Likeliness to meet` wird beispielsweise als angepasstes Attribut `sw_likeliness_to_meet` gesendet. Wenn Sie einen Score umbenennen, nachdem das System ihn erstellt hat, setzt SalesWings die Synchronisierung mit dem ursprünglichen Namen des angepassten Attributs fort. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SalesWings-Insights nach Braze pushen" }
 
 Wenn der Push aktiviert ist, beginnt SalesWings sofort damit, angepasste Attribute an Braze zu senden, sobald sich die zugrundeliegenden Datenpunkte in den SalesWings-Lead-Profilen ändern, und synchronisiert nach und nach alle bestehenden Leads, auch wenn sie keine neuen Updates haben.
 
@@ -195,7 +195,7 @@ Die folgende Tabelle zeigt die von SalesWings unterstützten Braze-Event-Typen u
 | Nachrichten-Events | WhatsApp gelesen | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | Abos | Globale Abostatus-Änderung | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
 | Abos | Statusänderung der Abo-Gruppe | `[Subscription status change] $subscription_status to/from $campaign_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Using Braze Currents events in your CRM" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verwendung von Braze-Currents-Events in Ihrem CRM" }
 
 Sie können dann die Bedingungen für **Custom Event** > **Event Name** und **Custom Event** > **Event Property** für SalesWings-Tags und -Scores anhand der SalesWings-Event-Namen aus der obigen Tabelle konfigurieren. Die Liste der Event-Eigenschaften, die für Bedingungen zur Verfügung stehen, ist mit einigen häufig verwendeten Einträgen vorausgefüllt. Sie können jederzeit neue Eigenschaften im Abschnitt **Event Property** auf der [Konfigurationsseite der Rule Engine](https://helium.saleswings.pro/falcon) hinzufügen.
 

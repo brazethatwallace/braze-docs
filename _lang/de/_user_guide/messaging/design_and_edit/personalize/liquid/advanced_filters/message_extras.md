@@ -8,7 +8,7 @@ alias: "/message_extras_tag/"
 
 # Message-Extras-Liquid-Tag {#message-extras-liquid-tag}
 
-> Verwenden Sie den `message_extras`-Liquid-Tag, um Ihre Sendeereignisse mit dynamischen Daten aus Connected-Content, Katalogen, angepassten Attributen (wie Sprache, Land), Canvas-Eingangs-Eigenschaften oder anderen Datenquellen zu annotieren.
+> Verwenden Sie den `message_extras`-Liquid-Tag, um Ihre Sendeereignisse mit dynamischen Daten aus Connected-Content, Katalogen, angepassten Attributen (wie Sprache, Land), Canvas-Entry-Eigenschaften oder anderen Datenquellen zu annotieren.
 
 Der `message_extras`-Liquid-Tag fügt dem entsprechenden Sendeereignis in Currents und der Snowflake-Datenfreigabe Schlüssel-Wert-Paare hinzu.
 
@@ -46,7 +46,7 @@ Der `message_extras`-Tag wird für alle Nachrichtentypen mit einem Sendeereignis
 
 {: start="3"}
 
-3. Nachdem Ihre Kampagne oder Ihr Canvas gesendet wurde, hängt Braze die dynamischen Daten zum Sendezeitpunkt über die Currents- oder Snowflake-Datenfreigabe-Sendeereignisse an das `message_extras`-Feld an.
+3. Nachdem Ihre Campaign oder Ihr Canvas gesendet wurde, hängt Braze die dynamischen Daten zum Sendezeitpunkt über die Currents- oder Snowflake-Datenfreigabe-Sendeereignisse an das `message_extras`-Feld an.
 
 ## Syntax überprüfen {#checking-syntax}
 

@@ -43,9 +43,9 @@ Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼
 
 ![Segment 목록]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **User Lookup**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 참조하세요.
+Segment를 생성할 때 **사용자 검색**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **사용자 검색**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 참조하세요.
 
-![검색 필드가 있는 User Lookup 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
+![검색 필드가 있는 사용자 검색 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
 ### 푸시 알림 한도 {#push-notification-caps}
 

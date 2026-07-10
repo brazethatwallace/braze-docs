@@ -1,10 +1,10 @@
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Antes de comenzar este tutorial, comprueba que tu SDK de Braze cumple los requisitos mínimos de versión:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Mostrar banners para el SDK de SWIFT
+## Mostrar banners para el SDK de Swift {#displaying-banners-for-the-swift-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Swift" %}
 
@@ -117,40 +117,40 @@ final class BannerViewController: UIViewController {
 }
 ```
 
-!!paso
-líneas-=14AppDelegate.swift
+!!step
+lines-AppDelegate.swift=14
 
-#### 1\. Habilitar depuración (opcional)
+### 1. Habilitar depuración (opcional) {#1-enable-debugging-optional}
 
-Para facilitar la solución de problemas durante el desarrollo, considera la posibilidad de habilitar la depuración.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración.
 
-!!paso
-líneas-=20AppDelegate.swift
+!!step
+lines-AppDelegate.swift=20
 
-#### 2\. Actualiza tus ubicaciones
+### 2. Actualiza tus ubicaciones {#2-refresh-your-placements}
 
-Después de inicializar el SDK de Braze,`call requestBannersRefresh(placementIds: ["PLACEMENT_ID"])`  para actualizar el contenido del banner al inicio de cada sesión.
+Después de inicializar el SDK de Braze, llama a `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` para actualizar el contenido del banner al inicio de cada sesión.
 
-!!paso
-líneas-=19-37BannerViewController.swift
+!!step
+lines-BannerViewController.swift=19-37
 
-#### 3\. Inicializa el banner y proporciona una devolución de llamada.
+### 3. Inicializa el banner y proporciona una devolución de llamada {#3-initialize-the-banner-and-provide-a-callback}
 
-Crea una`BrazeBannerUI.BannerUIView`instancia con tu objeto Braze y el ID de ubicación, y proporciona una`processContentUpdates`devolución de llamada para mostrar el banner y actualizar su restricción de altura en función de la altura del contenido proporcionado.
+Crea una instancia de `BrazeBannerUI.BannerUIView` con tu objeto Braze y el ID de ubicación, y proporciona una devolución de llamada `processContentUpdates` para mostrar el banner y actualizar su restricción de altura en función de la altura del contenido proporcionado.
 
-!!paso
-líneas-=38-40BannerViewController.swift
+!!step
+lines-BannerViewController.swift=38-40
 
-#### 4\. Habilitar restricciones de diseño automático
+### 4. Habilitar restricciones de Auto Layout {#4-enable-auto-layout-constraints}
 
-Oculta la vista del banner de forma predeterminada y, a continuación, desactiva la traducción de la máscara de redimensionamiento automático para habilitar las restricciones de diseño automático.
+Oculta la vista del banner de forma predeterminada y, a continuación, desactiva la traducción de la máscara de redimensionamiento automático para habilitar las restricciones de Auto Layout.
 
-!!paso
-líneas-=43-58BannerViewController.swift
+!!step
+lines-BannerViewController.swift=43-58
 
-#### 5\. Anclar contenido y establecer restricciones de altura
+### 5. Anclar contenido y establecer restricciones de altura {#5-anchor-content-and-set-height-constraints}
 
-Fija tu contenido principal en la parte superior utilizando el diseño automático y coloca la vista Banner directamente debajo. Fija los bordes superior, inferior y lateral del banner al área segura y establece una restricción de altura inicial`0` que se actualizará cuando se cargue el contenido.
+Fija tu contenido principal en la parte superior utilizando Auto Layout y coloca la vista del banner después de él. Fija los bordes inicial, final e inferior del banner al área segura y establece una restricción de altura inicial de `0` que se actualizará cuando se cargue el contenido.
 
 {% endscrolly %}
 {% endtab %}
@@ -248,54 +248,54 @@ struct BannerSwiftUIView: View {
 
 ```
 
-!!paso
-líneas-=13AppDelegate.swift
+!!step
+lines-AppDelegate.swift=13
 
-#### 1\. Habilitar depuración (opcional)
+### 1. Habilitar depuración (opcional)
 
-Para facilitar la solución de problemas durante el desarrollo, considera la posibilidad de habilitar la depuración.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración.
 
-!!paso
-líneas-=19AppDelegate.swift
+!!step
+lines-AppDelegate.swift=19
 
-#### 2\. Actualiza tus ubicaciones
+### 2. Actualiza tus ubicaciones
 
-Después de inicializar el SDK de Braze, llama a`requestBannersRefresh(placementIds: ["PLACEMENT_ID"])`  para actualizar el contenido del banner al inicio de cada sesión.
+Después de inicializar el SDK de Braze, llama a `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` para actualizar el contenido del banner al inicio de cada sesión.
 
-!!paso
-líneas-=1-46BannerSwiftUIView.swift
+!!step
+lines-BannerSwiftUIView.swift=1-46
 
-#### 3\. Crear un componente de vista
+### 3. Crear un componente de vista {#3-create-a-view-component}
 
 Crea un componente de vista SwiftUI reutilizable que muestre los banners disponibles y contenga el contenido principal de tu aplicación si es necesario.
 
-!!paso
-líneas-=36-43BannerSwiftUIView.swift
+!!step
+lines-BannerSwiftUIView.swift=36-43
 
-#### 4\. Mostrar solo los banners disponibles
+### 4. Mostrar solo los banners disponibles {#4-only-display-available-banners}
 
-Solo intenta mostrar`BrazeBannerUI.BannerView`  si el SDK está inicializado y existe contenido de banner para ese usuario. En `.onAppear`, llama a`getBanner(for:placementID)`  para establecer la configuración del estado`hasBannerForPlacement`.
+Solo intenta mostrar `BrazeBannerUI.BannerView` si el SDK está inicializado y existe contenido de banner para ese usuario. En `.onAppear`, llama a `getBanner(for:placementID)` para establecer el estado de `hasBannerForPlacement`.
 
-!!paso
-líneas-=17-32BannerSwiftUIView.swift
+!!step
+lines-BannerSwiftUIView.swift=17-32
 
-#### 5\. Mostrar solo  `BannerView`después de que se cargue
+### 5. Mostrar solo `BannerView` después de que se cargue {#5-only-show-bannerview-after-it-loads}
 
-Para evitar espacios en blanco en la interfaz de usuario, solo muestra`BrazeBannerUI.BannerView`  si hay un banner presente y el SDK está inicializado.
+Para evitar espacios en blanco en la interfaz de usuario, solo muestra `BrazeBannerUI.BannerView` si hay un banner presente y el SDK está inicializado.
 
-!!paso
-líneas-=23-32BannerSwiftUIView.swift
+!!step
+lines-BannerSwiftUIView.swift=23-32
 
-#### 6\. Actualizar de forma dinámica la altura del banner
+### 6. Actualizar de forma dinámica la altura del banner {#6-dynamically-update-banner-height}
 
-Utiliza la`processContentUpdates`devolución de llamada para obtener la altura del contenido del banner tan pronto como se cargue. Actualiza tu estado SwiftUI (`contentHeight`) y aplica una`.frame(height:)`restricción utilizando la altura proporcionada.
+Utiliza la devolución de llamada `processContentUpdates` para obtener la altura del contenido del banner tan pronto como se cargue. Actualiza tu estado SwiftUI (`contentHeight`) y aplica una restricción `.frame(height:)` utilizando la altura proporcionada.
 
-!!paso
-líneas-=34BannerSwiftUIView.swift
+!!step
+lines-BannerSwiftUIView.swift=34
 
-#### 7\. Limitar la altura del banner
+### 7. Limitar la altura del banner {#7-limit-the-banner-height}
 
-Para asegurarte de que tu banner nunca supere la altura máxima, aplica un`.frame(height: min(contentHeight, 80))`modificador. Esto mantendrá tu interfaz de usuario visualmente equilibrada independientemente del contenido del banner.
+Para asegurarte de que tu banner nunca supere la altura máxima, aplica un modificador `.frame(height: min(contentHeight, 80))`. Esto mantendrá tu interfaz de usuario visualmente equilibrada independientemente del contenido del banner.
 
 {% endscrolly %}
 {% endtab %}

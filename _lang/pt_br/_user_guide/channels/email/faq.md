@@ -17,7 +17,7 @@ Se vários usuários com endereços de e-mail correspondentes estiverem em um se
 
 **Endereços de e-mail únicos:** A Braze não exige endereços de e-mail únicos entre perfis. Se você depende de uma relação um-para-um entre um endereço de e-mail e um perfil, monitore duplicatas internamente ao criar usuários.
 
-**Deduplicação antes do Liquid:** Para envios em que a Braze deduplica por endereço de e-mail dentro de um único despacho (por exemplo, Campaigns agendadas em que vários membros do segmento com o mesmo endereço são processados juntos), essa deduplicação acontece antes de o Liquid ser executado para o perfil escolhido para representar aquele endereço. Se o Liquid abortar para esse perfil (por exemplo, com [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esse endereço não recebe a mensagem naquele despacho — incluindo perfis já ignorados pela deduplicação. Envios disparados não aplicam essa mesma deduplicação de endereço dentro do despacho; vários perfis que compartilham um endereço podem permanecer elegíveis em um mesmo lote, então esse comportamento de abort não se aplica da mesma forma (veja o próximo parágrafo).
+**Deduplicação antes do Liquid:** Para envios em que a Braze deduplica por endereço de e-mail dentro de um único despacho (por exemplo, Campaigns agendadas em que vários membros do segmento com o mesmo endereço são processados juntos), essa deduplicação acontece antes de o Liquid ser executado para o perfil escolhido para representar aquele endereço. Se o Liquid abortar para esse perfil (por exemplo, com [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esse endereço não recebe a mensagem naquele despacho — incluindo perfis já ignorados pela deduplicação. Envios disparados não aplicam essa mesma deduplicação de endereço dentro do despacho; vários perfis que compartilham um endereço podem permanecer elegíveis em um mesmo lote, então esse comportamento de interrupção não se aplica da mesma forma (veja o próximo parágrafo).
 
 Se vários perfis compartilham um endereço de e-mail e um perfil cancela a inscrição, a Braze atualiza outros perfis (até 100) com esse endereço para o mesmo estado de inscrição. Isso se aplica a cancelamentos de inscrição e outras alterações, como estado de inscrição global e status de grupos de inscrições individuais.
 
@@ -54,7 +54,7 @@ Evite [testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools
 
 #### Canvas e endereços de e-mail duplicados {#canvas-and-duplicate-email-addresses}
 
-Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do timing das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para a sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. Se você precisar de uma alteração no produto, envie feedback por meio da sua equipe da Braze.
+Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do timing das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para a sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### O que acontece com o estado de inscrição quando o endereço de e-mail de um usuário é alterado para um compartilhado por outro usuário? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -66,17 +66,17 @@ Não. As atualizações feitas nas configurações de e-mail de saída não afet
 
 ### O que é uma "boa" taxa de entrega de e-mail? {#what-is-a-good-email-delivery-rate}
 
-Normalmente, o "número mágico" é em torno de 98% das mensagens entregues com uma taxa de bounce não superior a 3%. Se sua entrega cair abaixo disso, geralmente há motivo para preocupação.
+Normalmente, o "número mágico" é em torno de 98% das mensagens entregues com uma taxa de bounce não superior a 3%. Se menos de 98% das mensagens forem entregues, geralmente há motivo para preocupação.
 
-No entanto, uma taxa acima de 98% ainda pode ter problemas de entregabilidade. Por exemplo, se todos os seus bounces vêm de um único domínio, isso é um sinal claro de um problema de reputação com esse provedor.
+No entanto, uma taxa de entrega de 98% ou mais ainda pode ter problemas de entregabilidade. Por exemplo, se todos os seus bounces vêm de um único domínio, isso é um sinal claro de um problema de reputação com esse provedor.
 
-Além disso, as mensagens podem estar sendo entregues e acabando na pasta de spam, indicando problemas de reputação potencialmente sérios. É importante monitorar não apenas o número de mensagens sendo entregues, mas também as taxas de abertura e clique para determinar se os usuários estão realmente vendo as mensagens em suas caixas de entrada. Como os provedores geralmente não reportam todas as instâncias de spam, uma taxa de spam de apenas 1% pode ser motivo de preocupação e análise adicional.
+Além disso, as mensagens podem estar sendo entregues e acabando na pasta de SPAM, indicando problemas de reputação potencialmente sérios. É importante monitorar não apenas o número de mensagens sendo entregues, mas também as taxas de abertura e clique para determinar se os usuários estão realmente vendo as mensagens em suas caixas de entrada. Como os provedores geralmente não reportam todas as instâncias de SPAM, uma taxa de SPAM de apenas 1% pode ser motivo de preocupação e análise adicional.
 
 Por fim, seu negócio e os tipos de e-mails que você envia também podem afetar a entrega. Por exemplo, alguém que envia principalmente [e-mails de transação]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) deve esperar ver uma taxa melhor do que alguém que envia muitas mensagens de marketing.
 
 ### Por que minhas métricas de entrega de e-mail não somam 100%? {#why-are-my-email-delivery-metrics-not-adding-up-to-100}
 
-As métricas de entrega de e-mail (entregas, bounces e taxa de spam) podem não somar 100% por causa de e-mails que sofreram soft bounce e não foram entregues após o período de nova tentativa de até 72 horas.
+As métricas de entrega de e-mail (entregas, bounces e taxa de SPAM) podem não somar 100% por causa de e-mails que sofreram soft bounce e não foram entregues após o período de nova tentativa de até 72 horas.
 
 Soft bounces são e-mails que retornam devido a um problema temporário ou transitório, como "caixa de correio cheia", "servidor temporariamente indisponível" e outros. Se um e-mail com soft bounce ainda não for entregue após 72 horas, esse e-mail não será contabilizado nas métricas de entrega da Campaign.
 
@@ -108,7 +108,7 @@ Embora a Braze não envie mais solicitações depois que a Campaign ou o Canvas 
 
 Você pode não ver aberturas ou cliques de e-mail se houver uma configuração incorreta no seu domínio de rastreamento. Isso pode ser devido a qualquer um dos seguintes motivos:
 - Há um problema de SSL onde as URLs de rastreamento são `http` em vez de `https`.
-- Há um problema com seu CDN onde a string de user agent nos eventos de abertura, eventos de clique ou ambos não está sendo preenchida.
+- Há um problema com sua rede de distribuição de conteúdo (CDN) onde a string de user agent nos eventos de abertura, eventos de clique ou ambos não está sendo preenchida.
 
 ### Quais são os riscos potenciais de disparar cliques de servidor? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -210,10 +210,10 @@ Existem vários motivos pelos quais um usuário não recebe um e-mail que você 
 - Ele não era elegível para receber o e-mail.
 - O endereço de e-mail dele é inválido ou não existe.
 - Ele pode ter perdido ou excluído a mensagem.
-- A mensagem pode estar na pasta de spam dele.
+- A mensagem pode estar na pasta de SPAM dele.
 
 {% alert tip %}
-Um evento de entrega na Braze significa que o e-mail foi aceito pelo servidor do provedor de caixa de e-mail. No entanto, isso não garante que a mensagem apareça na caixa de entrada do usuário. O provedor de caixa de e-mail pode rotear a mensagem para spam ou, em casos raros, impedir silenciosamente a exibição da mensagem.
+Um evento de entrega na Braze significa que o e-mail foi aceito pelo servidor do provedor de caixa de e-mail. No entanto, isso não garante que a mensagem apareça na caixa de entrada do usuário. O provedor de caixa de e-mail pode rotear a mensagem para SPAM ou, em casos raros, impedir silenciosamente a exibição da mensagem.
 {% endalert %}
 
 Use as tabelas a seguir para identificar a causa.
@@ -223,9 +223,9 @@ Use as tabelas a seguir para identificar a causa.
 | Causa possível | O que verificar |
 |---|---|
 | O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Público-alvo** (para Campaigns) ou **Público-alvo** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) para confirmar que o usuário atendeu a todos os filtros de público, critérios de segmento e regras de entrega no momento do envio. |
-| A mensagem foi abortada | Verifique o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) para motivos de abort, como erros de Liquid ou campos obrigatórios ausentes. |
+| A mensagem foi abortada | Verifique o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) para motivos de interrupção, como erros de Liquid ou campos obrigatórios ausentes. |
 | O endereço de e-mail do usuário era inválido ou estava ausente | Em **Pesquisa de usuários**, verifique o perfil do usuário para confirmar que um endereço de e-mail válido estava registrado no momento do envio. |
-| O endereço de e-mail do usuário sofreu hard bounce anteriormente | Um hard bounce marca o endereço de e-mail como inválido e impede envios futuros para esse endereço. Da mesma forma, se um destinatário marcar seu e-mail como spam, a Braze envia apenas e-mails de transação para esse usuário, não Campaigns padrão. Verifique a guia **Engajamento** no perfil do usuário. Para saber mais, consulte [Endereços de e-mail cancelados]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) e [Bounces e e-mails inválidos]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
+| O endereço de e-mail do usuário sofreu hard bounce anteriormente | Um hard bounce marca o endereço de e-mail como inválido e impede envios futuros para esse endereço. Da mesma forma, se um destinatário marcar seu e-mail como SPAM, a Braze envia apenas e-mails de transação para esse usuário, não Campaigns padrão. Verifique a guia **Engajamento** no perfil do usuário. Para saber mais, consulte [Endereços de e-mail cancelados]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) e [Bounces e e-mails inválidos]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
 | O usuário cancelou a inscrição de e-mail | Verifique o status de inscrição do usuário em **Configurações de contato** na guia **Engajamento**. A Braze não envia e-mails para usuários que cancelaram a inscrição. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Causa para e-mail não enviado" }
 
@@ -236,13 +236,27 @@ Use as tabelas a seguir para identificar a causa.
 | O provedor de caixa de e-mail (MBP) estava inacessível | Um problema temporário impediu que o e-mail chegasse ao MBP do destinatário. Isso normalmente se resolve com novas tentativas. Os provedores de serviço de e-mail tentam novamente soft bounces por até 72 horas. |
 | O MBP rejeitou o e-mail | O servidor de e-mail do destinatário rejeitou o e-mail. Revise o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) para detalhes do bounce. |
 | O MBP descartou silenciosamente o e-mail | O MBP aceitou o e-mail, mas não o exibiu para o usuário e não retornou um bounce. Isso está fora do controle da Braze e não pode ser detectado nos registros da Braze. |
-| O e-mail foi para a pasta de spam | O MBP identificou a mensagem como spam e a roteou para a pasta de spam ou lixo eletrônico do usuário. Peça ao usuário para verificar a pasta de spam. |
+| O e-mail foi para a pasta de SPAM | O MBP identificou a mensagem como SPAM e a roteou para a pasta de SPAM ou lixo eletrônico do usuário. Peça ao usuário para verificar a pasta de SPAM. |
 | O destinatário tem filtragem de e-mail personalizada | O usuário ou o administrador de TI dele pode ter configurado regras de caixa de correio que filtram, redirecionam ou excluem mensagens recebidas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Causa para e-mail não na caixa de entrada" }
 
 ### Como posso otimizar imagens no Outlook? {#how-can-i-optimize-images-in-outlook}
 
-O Outlook frequentemente usa renderização no estilo Microsoft Word, que pode adicionar uma borda ao redor das imagens. Você pode envolver o conteúdo para que fique oculto em clientes Office usando comentários condicionais padrão, por exemplo:
+O Outlook frequentemente usa a renderização do Microsoft Word em vez da renderização padrão do navegador, o que pode fazer com que as imagens sejam renderizadas incorretamente ou adicionar bordas ao redor das imagens.
+
+Se as imagens estiverem sendo exibidas maiores do que a largura esperada no Outlook, adicione o seguinte CSS à imagem:
+
+```css
+max-width: 100%;
+```
+
+Por exemplo:
+
+```html
+<img src="your-image.png" style="max-width: 100%;" alt="Description">
+```
+
+Você também pode envolver o conteúdo para que fique oculto no Outlook desktop usando comentários condicionais:
 
 ```html
 <!--[if !mso]><!-- -->
@@ -286,9 +300,9 @@ As causas típicas incluem:
 
 Outros destinatários geralmente não são afetados. Para saber como soft bounces aparecem nos relatórios, consulte [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
 
-### Por que recebo um alerta de spam ao enviar um e-mail da Braze para mim mesmo? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
+### Por que recebo um alerta de SPAM ao enviar um e-mail da Braze para mim mesmo? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
 
-Se você envia um e-mail de teste da Braze para o seu próprio endereço de e-mail e vê um aviso de spam ou alerta de phishing — como "o domínio de envio é semelhante ao domínio da sua empresa, mas não o reconhecemos" — isso é um recurso comum de segurança anti-phishing, não um erro na configuração da Braze.
+Se você envia um e-mail de teste da Braze para o seu próprio endereço de e-mail e vê um aviso de SPAM ou alerta de phishing — como "o domínio de envio é semelhante ao domínio da sua empresa, mas não o reconhecemos" — isso é um recurso comum de segurança anti-phishing, não um erro na configuração da Braze.
 
 Esse alerta normalmente aparece quando o domínio de envio do e-mail corresponde ao domínio do destinatário (por exemplo, ambos são `@suaempresa.com`). Os sistemas de segurança de e-mail sinalizam isso porque golpistas frequentemente falsificam domínios que se parecem com o domínio da empresa do destinatário.
 

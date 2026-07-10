@@ -2,11 +2,11 @@
 
 ### Résolution des problèmes de chargement des ressources (`NSURLError` code `-1008`) {#asset-loading}
 
-Lors de l'intégration de Braze avec des bibliothèques tierces de journalisation réseau, les développeurs peuvent fréquemment rencontrer une `NSURLError` avec le code de domaine `-1008`. Cette erreur indique que des ressources telles que des images et des polices n'ont pas pu être récupérées ou que leur mise en cache a échoué. Pour contourner ces cas, vous devez enregistrer les URL du réseau de diffusion de contenu de Braze dans la liste des domaines à ignorer par ces bibliothèques.
+Lors de l'intégration de Braze avec des bibliothèques tierces de journalisation réseau, les développeurs peuvent fréquemment rencontrer une `NSURLError` avec le code de domaine `-1008`. Cette erreur indique que des ressources telles que des images et des polices n'ont pas pu être récupérées ou que leur mise en cache a échoué. Pour contourner ces cas, vous devez enregistrer les URL du CDN de Braze dans la liste des domaines à ignorer par ces bibliothèques.
 
 #### Domaines {#domains}
 
-La liste complète des domaines du réseau de diffusion de contenu est indiquée ci-dessous :
+La liste complète des domaines du CDN est la suivante :
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
@@ -15,7 +15,7 @@ La liste complète des domaines du réseau de diffusion de contenu est indiquée
 
 #### Exemples {#examples}
 
-Vous trouverez ci-dessous les bibliothèques connues pour entrer en conflit avec la mise en cache des ressources de Braze, ainsi qu'un exemple de code permettant de contourner le problème. Si votre projet utilise une bibliothèque qui provoque une erreur de ressource indisponible et qui n'est pas répertoriée ci-dessous, consultez la documentation de cette bibliothèque pour des API d'utilisation similaires.
+Vous trouverez ci-dessous les bibliothèques connues pour entrer en conflit avec la mise en cache des ressources de Braze, ainsi qu'un exemple de code permettant de contourner le problème. Si votre projet utilise une bibliothèque qui provoque une erreur de ressource indisponible et qui n'est pas répertoriée ici, consultez la documentation de cette bibliothèque pour des API d'utilisation similaires.
 
 ##### Netfox
 

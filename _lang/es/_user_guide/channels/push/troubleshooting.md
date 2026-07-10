@@ -95,7 +95,7 @@ Para encontrar la clave de servidor de Firebase correcta y reemplazarla:
 
 1. Ve a la consola de Firebase para tu aplicación.
 2. En **Project Overview**, selecciona **Project Settings**.
-3. En la pestaña **Cloud Messaging**, comprueba que el Sender ID debajo de las claves de API coincida con el de Braze (en **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. En la pestaña **Cloud Messaging**, comprueba que el Sender ID en las claves de API coincida con el de Braze (en **Settings** > **App Settings** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 No cambies tu Sender ID en tu panel de Braze. Hacerlo provocará que los registros push existentes se invaliden. Si el Sender ID no coincide, debes encontrar tu proyecto de Firebase con el Sender ID correspondiente.

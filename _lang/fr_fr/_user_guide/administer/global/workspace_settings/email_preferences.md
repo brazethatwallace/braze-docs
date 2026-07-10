@@ -126,7 +126,7 @@ Pour modifier l'emplacement :
 
 1. Dans Braze, accédez à **Paramètres** > **Préférences des e-mails**.
 2. Sélectionnez l'une des options suivantes : **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**.
-3. Sélectionnez **Save**.
+3. Sélectionnez **Enregistrer**.
 
 Après l'enregistrement, Braze envoie des instructions spéciales à l'ESP pour placer le pixel de suivi d'ouverture en haut de tous les e-mails HTML.
 
@@ -364,11 +364,11 @@ Non. Si le paramètre de l'espace de travail est désactivé et que le paramètr
 {% enddetails %}
 
 {% details Que se passe-t-il si un groupe d'abonnement est archivé ? Cela casse-t-il le désabonnement en un clic sur les e-mails envoyés ? %}
-Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de segment, profil utilisateur et zones similaires).
+Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de Segment, profil utilisateur et zones similaires).
 {% enddetails %}
 
 {% details Le paramètre de désabonnement en un clic est-il disponible pour les modèles d'e-mail ? %}
-Non, nous n'avons actuellement pas prévu d'ajouter cette fonctionnalité pour les modèles d'e-mail, car ces modèles ne sont pas associés à un domaine d'envoi. Si cette fonctionnalité vous intéresse pour les modèles d'e-mail, soumettez un [retour produit]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Non, nous n'avons actuellement pas prévu d'ajouter cette fonctionnalité pour les modèles d'e-mail, car ces modèles ne sont pas associés à un domaine d'envoi. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details Cette fonctionnalité vérifie-t-elle que l'URL de désabonnement en un clic ajoutée à l'option personnalisée est valide ? %}

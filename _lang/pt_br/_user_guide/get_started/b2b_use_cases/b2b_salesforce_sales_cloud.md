@@ -1,5 +1,5 @@
 ---
-nav_title: Nuvem de vendas do Salesforce
+nav_title: Salesforce Sales Cloud
 article_title: Gerencie leads com o Salesforce Sales Cloud
 page_order: 3
 page_type: reference
@@ -8,7 +8,7 @@ description: "Saiba como usar os webhooks da Braze para criar e atualizar leads 
 
 # Gerencie leads com o Salesforce Sales Cloud {#manage-leads-with-salesforce-sales-cloud}
 
-> A [Salesforce](https://www.salesforce.com/) é uma das principais plataformas de gestão de relacionamento com o cliente (CRM) baseada em nuvem do mundo, projetada para ajudar as empresas a gerenciar todo o processo de vendas, incluindo geração de leads, rastreamento de oportunidades e gerenciamento de contas.<br><br>Esta página demonstra como usar os webhooks da Braze para criar e atualizar leads no Salesforce Sales Cloud por meio de uma integração enviada pela comunidade.
+> A [Salesforce](https://www.salesforce.com/) é uma das principais plataformas de gestão de relacionamento com o cliente (CRM) baseadas em nuvem do mundo, projetada para ajudar as empresas a gerenciar todo o processo de vendas, incluindo geração de leads, rastreamento de oportunidades e gerenciamento de contas.<br><br>Esta página demonstra como usar os webhooks da Braze para criar e atualizar leads no Salesforce Sales Cloud por meio de uma integração enviada pela comunidade.
 
 {% alert important %}
 Essa é uma integração enviada pela comunidade e não é diretamente suportada pela Braze. Somente os modelos oficiais de webhook fornecidos pela Braze são compatíveis com a Braze.
@@ -94,7 +94,7 @@ Selecione **+ Add New Header** para cada um dos seguintes cabeçalhos de solicit
 
 ## Atualização de um lead no Salesforce Sales Cloud {#updating-lead}
 
-Para configurar um webhook da Braze para o Salesforce Sales Cloud que atualiza leads no Salesforce, você precisa de um identificador comum entre o Salesforce Sales Cloud e a Braze. O exemplo abaixo usa o `lead_id` do Salesforce como o `external_id` da Braze, mas você também pode fazer isso usando um `user_alias`. Para mais detalhes, consulte [Dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
+Para configurar um webhook da Braze para o Salesforce Sales Cloud que atualiza leads no Salesforce, você precisa de um identificador comum entre o Salesforce Sales Cloud e a Braze. O exemplo na seção a seguir usa o `lead_id` do Salesforce como o `external_id` da Braze, mas você também pode fazer isso usando um `user_alias`. Para mais detalhes, consulte [Dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
 
 Este exemplo demonstra especificamente como atualizar o estágio de um lead para "MQL" (Marketing Qualified Lead) depois que ele ultrapassa um determinado limite de pontuação. Essa é uma parte essencial do nosso caso de uso de [fluxo de trabalho de pontuação de leads B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
 
@@ -154,7 +154,7 @@ Você pode adicionar rapidamente seus modelos aos seus fluxos de trabalho operac
 
 ### Campanha de novo lead {#new-lead}
 
-Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, é possível criar uma campanha que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
+Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, você pode criar uma campanha que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
 
 ![Etapa 2 da criação de uma campanha baseada em ação com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 

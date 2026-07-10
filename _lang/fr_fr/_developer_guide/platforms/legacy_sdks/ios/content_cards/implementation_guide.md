@@ -556,7 +556,7 @@ Ce comportement peut être modifié comme indiqué dans notre [guide des styles 
 
 Après avoir étendu vos objets personnalisés pour qu'ils fonctionnent comme des Content Cards, l'enregistrement d'indicateurs précieux tels que les impressions, les clics et les rejets est rapide. Pour ce faire, vous pouvez utiliser un protocole `ContentCardable` qui référence et fournit des données à un fichier auxiliaire qui sera enregistré par le SDK Braze.
 
-### Composants d'implémentation<br><br> {#implementation-components}
+### Composants d'implémentation {#implementation-components}<br><br> {#implementation-components}
 
 {% tabs %}
 {% tab Swift %}

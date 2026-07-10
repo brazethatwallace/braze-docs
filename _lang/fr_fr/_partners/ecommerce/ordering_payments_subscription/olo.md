@@ -24,7 +24,7 @@ En intégrant Olo et Braze, vous pouvez :
 | Transformation des données Braze | Une [URL de Transformation des données]({{site.baseurl}}/data_transformation) est nécessaire pour recevoir des données d'Olo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-Un webhook est un moyen pour Olo d'envoyer des informations événementielles à Braze sur les utilisateurs et leurs actions, y compris des événements tels que la commande passée, l'inscription d'un invité, la commande récupérée et bien d'autres. Le webhook Olo transmet l'événement à Braze généralement dans les secondes qui suivent l'exécution de l'action.
+Un webhook est un moyen pour Olo d'envoyer des informations événementielles à Braze sur les utilisateurs et leurs actions, y compris des événements tels que Order Placed, Guest Opt In, Order Picked Up et bien d'autres. Le webhook Olo transmet l'événement à Braze généralement dans les secondes qui suivent l'exécution de l'action.
 
 ## Clause de non-responsabilité {#disclaimer}
 
@@ -248,10 +248,10 @@ Après avoir activé votre Transformation des données dans Braze, utilisez l'[o
 
 ### Nouvelles tentatives {#retries}
 
-Olo retentera les appels de webhook aboutissant à un code d'état de réponse HTTP `429 - Too Many Requests` ou dans la plage `5xx` (par exemple, en raison d'un délai d'attente de la passerelle ou d'une erreur du serveur), jusqu'à 50 fois sur une période de 24 heures avant d'abandonner la requête.
+Olo retentera les appels de webhook aboutissant à un code de statut de réponse HTTP `429 - Too Many Requests` ou dans la plage `5xx` (par exemple, en raison d'un délai d'attente de la passerelle ou d'une erreur serveur), jusqu'à 50 fois sur une période de 24 heures avant d'abandonner la requête.
 
 ### Réception au moins une fois {#at-least-once-delivery}
 
-Si un appel webhook aboutit à un code d'état de réponse HTTP `429 - Too Many Requests` ou dans la plage `5xx` (par exemple, en raison d'un dépassement de délai de la passerelle ou d'une erreur du serveur), Olo réessayera le message jusqu'à 50 fois sur une période de 24 heures avant d'abandonner.
+Si un appel webhook aboutit à un code de statut de réponse HTTP `429 - Too Many Requests` ou dans la plage `5xx` (par exemple, en raison d'un dépassement de délai de la passerelle ou d'une erreur serveur), Olo réessayera le message jusqu'à 50 fois sur une période de 24 heures avant d'abandonner.
 
 Les webhooks peuvent donc être reçus plusieurs fois par un même destinataire. Il appartient au destinataire d'ignorer les doublons en vérifiant l'en-tête `X-Olo-Message-Id`.

@@ -74,7 +74,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 
 ## Casos de uso {#use-cases}
 
-Fornecemos três casos de uso abaixo. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as mensagens no app podem parecer e ser usadas no dashboard da Braze:
+Fornecemos três casos de uso na seção a seguir. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as mensagens no app podem parecer e ser usadas no dashboard da Braze:
 - [Mensagem no app deslizante personalizada](#custom-slide-up-in-app-message)
 - [Mensagem modal personalizada no app](#custom-modal-in-app-message)
 - [Mensagem no app completa personalizada](#custom-full-in-app-message)
@@ -83,7 +83,7 @@ Fornecemos três casos de uso abaixo. Cada caso de uso oferece uma explicação 
 
 ![Dois iPhones lado a lado. O primeiro iPhone tem a mensagem deslizante tocando a parte inferior da tela do telefone. O segundo iPhone tem a mensagem deslizante posicionada mais acima na tela, permitindo ver o botão de navegação do app exibido.]({% image_buster /assets/img/iam_implementation/slideup.png %}){: style="float:right;max-width:45%;margin-left:15px;border:0;"}
 
-Ao criar sua mensagem no app deslizante, você pode perceber que não é possível modificar o posicionamento da mensagem usando os métodos padrão. Modificações como essa são possíveis ao criar uma subclasse de `ABKInAppMessageSlideupViewController` e substituir a variável `offset` por sua própria variável personalizada. A imagem à direita mostra um exemplo de como isso pode ser usado para ajustar suas mensagens deslizantes no app.
+Ao criar sua mensagem no app deslizante, você pode perceber que não é possível modificar o posicionamento da mensagem usando os métodos padrão. Modificações como essa são possíveis ao criar uma subclasse de `ABKInAppMessageSlideupViewController` e substituir a variável `offset` por sua própria variável personalizada. A imagem à direita mostra como isso pode ser usado para ajustar suas mensagens deslizantes no app.
 
 Visite o [`SlideFromBottomViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/SlideFromBottomViewController.swift) para começar.
 
@@ -214,7 +214,7 @@ Ajuste o respectivo valor em `viewWillTransition()` porque a subclasse assume a 
 
 ![Um iPhone mostrando uma mensagem modal no app que permite percorrer uma lista de times esportivos e selecionar o seu favorito. Na parte inferior dessa mensagem no app, há um grande botão azul de envio.]({% image_buster /assets/img/iam_implementation/modal.png %}){: style="float:right;max-width:23%;margin-left:15px;border:0;"}
 
-Um `ABKInAppMessageModalViewController` pode ser subclassificado para aproveitar um `UIPickerView` que oferece maneiras envolventes de coletar atributos valiosos do usuário. A mensagem modal personalizada no app permite que você use Conteúdo conectado ou qualquer lista disponível para exibir e capturar atributos de uma lista dinâmica de itens.
+Um `ABKInAppMessageModalViewController` pode ser subclassificado para aproveitar um `UIPickerView` que oferece maneiras envolventes de coletar atributos valiosos do usuário. A mensagem modal personalizada no app permite que você use Connected Content ou qualquer lista disponível para exibir e capturar atributos de uma lista dinâmica de itens.
 
 Você pode interpor suas próprias exibições em mensagens no app subclassificadas. Este exemplo mostra como um `UIPickerView` pode ser utilizado para ampliar a funcionalidade de um `ABKModalInAppMessageViewController`.
 
@@ -222,7 +222,7 @@ Visite o [ModalPickerViewController](https://github.com/braze-inc/braze-growth-s
 
 #### Configuração do dashboard {#dashboard-configuration}
 
-Para configurar uma mensagem modal no app no dashboard, você deve fornecer uma lista de itens formatada como uma string separada por vírgulas. Em nosso exemplo, usamos Conteúdo conectado para extrair uma lista JSON de nomes de equipes e formatá-los adequadamente.
+Para configurar uma mensagem modal no app no dashboard, você deve fornecer uma lista de itens formatada como uma string separada por vírgulas. Em nosso exemplo, usamos Connected Content para extrair uma lista JSON de nomes de equipes e formatá-los adequadamente.
 
 ![O criador de mensagens no app mostra uma prévia de como será a mensagem no app, mas, em vez disso, exibe a lista de itens que você forneceu à Braze. Como a interface da Braze não exibe sua mensagem personalizada no app, a menos que seja enviada para um telefone, a prévia não é indicativa da aparência de sua mensagem, portanto, recomendamos que você teste antes de enviar.]({% image_buster /assets/img/iam_implementation/dashboard1.png %})
 

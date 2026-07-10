@@ -14,22 +14,22 @@ search_tag: Partner
 
 > [Amplitude](https://amplitude.com/) est une plateforme d'analyse de produits et d'aide à la décision.
 
-L'intégration bidirectionnelle entre Braze et Amplitude vous permet d'[importer vos cohortes Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/), traits d'utilisateurs et événements dans Braze, ainsi que de créer des segments pouvant cibler les utilisateurs dans de futures Campaigns ou Canvas. Vous pouvez également tirer parti de Braze Currents pour [exporter vos événements Braze vers Amplitude]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration) afin d'analyser plus en profondeur vos données produits et marketing.
+L'intégration bidirectionnelle entre Braze et Amplitude vous permet d'[importer vos cohortes Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import), traits d'utilisateurs et événements dans Braze, ainsi que de créer des segments pouvant cibler les utilisateurs dans de futures Campaigns ou Canvas. Vous pouvez également tirer parti de Braze Currents pour [exporter vos événements Braze vers Amplitude]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents#data-export-integration) afin d'analyser plus en profondeur vos données produits et marketing.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 |---|---|
 | Compte Amplitude | Un [compte Amplitude](https://amplitude.com/) est nécessaire pour bénéficier de ce partenariat. |
-| Currents | Pour pouvoir exporter des données dans Amplitude, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Currents | Pour pouvoir exporter des données dans Amplitude, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) pour votre compte. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Choisir une intégration {#choose-an-integration}
 
 Amplitude et Braze proposent deux méthodes d'intégration différentes. Consultez la documentation suivante pour déterminer quelles méthodes répondent à vos besoins :
 
 - Braze Event Streaming : une intégration qui vous permet de transmettre les données brutes des événements d'Amplitude directement à Braze.
-- [Importation de cohorte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/) : une intégration qui vous permet de transmettre les cohortes d'Amplitude à Braze.
+- [Importation de cohorte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import) : une intégration qui vous permet de transmettre les cohortes d'Amplitude à Braze.
 
 ## Braze Event Streaming
 
@@ -40,7 +40,7 @@ Amplitude et Braze proposent deux méthodes d'intégration différentes. Consult
 | Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
 | Endpoint REST Braze | [L'URL de votre endpoint REST][1]. Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Identifiant de l'application Braze | L'identifiant de l'application qui recevra les événements Amplitude. Vous trouverez cette information dans le **tableau de bord de Braze > Console de développement > Paramètres**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ### Configuration d'Amplitude {#amplitude-setup}
 
@@ -66,11 +66,11 @@ Les synchronisations des traits d'utilisateur et des calculs créeront de nouvea
 
 Reportez-vous à la documentation d'Amplitude pour en savoir plus sur la [synchronisation des propriétés, des recommandations et des cohortes vers des destinations tierces](https://help.amplitude.com/hc/en-us/articles/360060055531).
 
-#### Comment synchroniser les propriétés et les calculs des utilisateurs {#how-to-sync-user-properties-and-computations}
+### Comment synchroniser les propriétés et les calculs des utilisateurs {#how-to-sync-user-properties-and-computations}
 
 Dans Amplitude Audiences, sélectionnez **Syncs > Create Sync**.
 
-![]({% image_buster /assets/img/amplitude11.png %})
+![Page Syncs d'Amplitude Audiences avec l'option Create Sync sélectionnée.]({% image_buster /assets/img/amplitude11.png %})
 
 Ensuite, choisissez de synchroniser une propriété d'utilisateur, un calcul, une cohorte ou une recommandation.
 
@@ -79,11 +79,11 @@ Ensuite, choisissez de synchroniser une propriété d'utilisateur, un calcul, un
 
 Sélectionnez **User Property**, puis la propriété d'utilisateur souhaitée à synchroniser.
 
-![]({% image_buster /assets/img/amplitude7.png %})
+![Étape de configuration de la synchronisation Amplitude pour sélectionner une propriété d'utilisateur à synchroniser.]({% image_buster /assets/img/amplitude7.png %})
 
 Ensuite, sélectionnez une destination vers laquelle synchroniser votre propriété d'utilisateur.
 
-![]({% image_buster /assets/img/amplitude8.png %})
+![Sélecteur de destination Amplitude pour synchroniser les propriétés vers Braze.]({% image_buster /assets/img/amplitude8.png %})
 
 Enfin, définissez la fréquence de votre synchronisation.
 
@@ -94,11 +94,11 @@ Enfin, définissez la fréquence de votre synchronisation.
 
 Sélectionnez **Computation**, puis le calcul souhaité à synchroniser.
 
-![]({% image_buster /assets/img/amplitude10.png %})
+![Étape de configuration de la synchronisation Amplitude pour sélectionner un calcul à synchroniser.]({% image_buster /assets/img/amplitude10.png %})
 
 Ensuite, sélectionnez une destination vers laquelle synchroniser votre calcul.
 
-![]({% image_buster /assets/img/amplitude8.png %})
+![Sélecteur de destination Amplitude pour synchroniser les calculs vers Braze.]({% image_buster /assets/img/amplitude8.png %})
 
 Enfin, définissez la fréquence de votre synchronisation.
 
@@ -111,7 +111,7 @@ Enfin, définissez la fréquence de votre synchronisation.
 
 ### « We do not have enough data yet for this filter » lors de la synchronisation d'une cohorte {#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort}
 
-Si vous obtenez cette erreur lors de l'[importation d'une cohorte Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/) dans Braze, essayez les étapes suivantes :
+Si vous obtenez cette erreur lors de l'[importation d'une cohorte Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import) dans Braze, essayez les étapes suivantes :
 
 1. **Vérifiez l'alignement des ID utilisateur.** L'ID utilisateur dans Amplitude (et non l'ID Amplitude) doit correspondre exactement à l'ID utilisateur externe dans Braze (et non l'ID Braze ou BSON). Par exemple, l'ID utilisateur `12345` dans Amplitude doit correspondre à l'ID utilisateur externe `12345` dans Braze.
 2. **Régénérez votre clé API Braze.** Dans le tableau de bord de Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** > **Amplitude** et sélectionnez **Generate New Key**. Réessayez ensuite la synchronisation de la cohorte Amplitude avec la nouvelle clé API.
@@ -119,4 +119,4 @@ Si vous obtenez cette erreur lors de l'[importation d'une cohorte Amplitude]({{s
 
 ## Endpoints de l'API du profil utilisateur Amplitude {#amplitude-user-profile-api-endpoints}
 
-Pour découvrir certains des endpoints courants de l'API Amplitude pouvant être utilisés avec le contenu connecté, consultez notre documentation dédiée à l'[API Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api/).
+Pour découvrir certains des endpoints courants de l'API Amplitude pouvant être utilisés avec le contenu connecté, consultez notre documentation dédiée à l'[API Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api).

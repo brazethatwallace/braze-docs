@@ -70,7 +70,7 @@ WhatsApp Business Manager에서 직접 템플릿을 생성하는 경우, [WhatsA
 - **CTA 웹사이트 버튼의 경우:** **클릭 추적 URL** 필드에 대상 URL을 입력합니다. Braze는 대상 URL을 저장하고 추적 도메인과 변수 입력 안내{% raw %}(예: `https://brz.ai/{{1}}`){% endraw %}를 사용하여 버튼의 웹사이트 URL을 자동으로 형식화합니다. 이 입력 안내가 Meta에 제출되는 내용입니다. 발송 시 Braze는 각 사용자에 대해 전체 추적 URL을 생성하고 변수를 채웁니다.
 - **본문 텍스트 링크의 경우:** 본문에 직접 URL을 입력합니다.
 
-각 버튼의 추적 URL 형식은 **웹사이트 URL** 필드 바로 아래에서 미리볼 수 있습니다(예: `https://brz.ai/XXXXXXXX`).
+각 버튼의 추적 URL 형식은 **웹사이트 URL** 필드에서 직접 미리볼 수 있습니다(예: `https://brz.ai/XXXXXXXX`).
 
 ![웹사이트 URL이 추적 형식으로 미리 채워진 웹사이트 방문 버튼과 대상을 위한 클릭 추적 URL 필드를 보여주는 행동 유도 버튼 섹션.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
 

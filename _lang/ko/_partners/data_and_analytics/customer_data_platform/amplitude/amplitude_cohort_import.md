@@ -8,7 +8,7 @@ search_tag: Partner
 
 # Amplitude 코호트 가져오기 {#amplitude-cohort-import}
 
-> 이 문서에서는 [Amplitude](https://amplitude.com/)에서 Braze로 사용자 코호트를 가져오는 방법을 다룹니다. Amplitude 통합 및 기타 기능에 대한 자세한 내용은 [Amplitude 기본 문서]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/)를 참조하세요.
+> 이 문서에서는 [Amplitude](https://amplitude.com/)에서 Braze로 사용자 코호트를 가져오는 방법을 다룹니다. Amplitude 통합 및 기타 기능에 대한 자세한 내용은 [Amplitude 기본 문서]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences)를 참조하세요.
 
 ## 데이터 가져오기 통합 {#data-import-integration}
 
@@ -18,13 +18,13 @@ search_tag: Partner
 
 Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **Amplitude**를 선택합니다. 여기에서 REST 엔드포인트를 확인하고 Braze 데이터 가져오기 키를 생성할 수 있습니다.
 
-생성된 후에는 새 키를 만들거나 기존 키를 무효화할 수 있습니다. 데이터 가져오기 키와 REST 엔드포인트는 다음 단계에서 Amplitude 대시보드에서 포스트백을 설정할 때 사용됩니다.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+생성된 후에는 새 키를 만들거나 기존 키를 무효화할 수 있습니다. 데이터 가져오기 키와 REST 엔드포인트는 다음 단계에서 Amplitude 대시보드에서 포스트백을 설정할 때 사용됩니다.<br><br>![Braze Amplitude 기술 파트너 페이지에서 데이터 가져오기 키와 엔드포인트를 보여줍니다.]({% image_buster /assets/img/amplitude3.png %})
 
 ### 2단계: Amplitude에서 Braze 통합 설정하기 {#step-2-set-up-the-braze-integration-in-amplitude}
 
 Amplitude에서 **Sources & Destinations** > **[프로젝트 이름]** > **Destinations** > **Braze**로 이동합니다. 표시되는 프롬프트에서 Braze 데이터 가져오기 키와 REST 엔드포인트를 입력하고 **Save**를 클릭합니다.
 
-![]({% image_buster /assets/img/amplitude.png %})
+![자격 증명이 입력된 Braze 코호트 동기화를 위한 Amplitude 대상 설정.]({% image_buster /assets/img/amplitude.png %})
 
 ### 3단계: Amplitude 코호트를 Braze로 내보내기 {#step-3-export-an-amplitude-cohort-to-braze}
 
@@ -46,13 +46,13 @@ Braze에 이미 존재하는 사용자만 코호트에 추가되거나 제거됩
 
 설정하는 모든 통합은 데이터 포인트를 기록합니다. Braze 데이터 포인트의 세부 사항에 대해 궁금한 점이 있으면 Braze 계정 매니저에게 문의하세요.
 
-### 4단계: Braze에서 사용자 Segment 만들기 {#step-4-segment-users-in-braze}
+### 4단계: Braze에서 사용자 세그먼트 만들기 {#step-4-segment-users-in-braze}
 
-Braze에서 해당 사용자의 Segment를 생성하려면 **참여** 아래의 **Segments**로 이동하여 Segment 이름을 지정하고 필터로 **Amplitude Cohorts**를 선택합니다. 그런 다음 "포함" 옵션을 사용하여 Amplitude에서 생성한 코호트를 선택합니다.
+Braze에서 해당 사용자의 세그먼트를 생성하려면 **인게이지먼트** 아래의 **Segments**로 이동하여 세그먼트 이름을 지정하고 필터로 **Amplitude Cohorts**를 선택합니다. 그런 다음 "포함" 옵션을 사용하여 Amplitude에서 생성한 코호트를 선택합니다.
 
-![Braze Segment 빌더에서 "amplitude_cohorts" 필터가 "includes_value" 및 "Amplitude cohort test"로 설정되어 있습니다.]({% image_buster /assets/img/amplitude2.png %})
+![Braze 세그먼트 빌더에서 "amplitude_cohorts" 필터가 "includes_value" 및 "Amplitude cohort test"로 설정되어 있습니다.]({% image_buster /assets/img/amplitude2.png %})
 
-저장한 후 Canvas 또는 Campaign 생성 시 사용자 타겟팅 단계에서 이 Segment를 참조할 수 있습니다.
+저장한 후 Canvas 또는 Campaign 생성 시 사용자 타겟팅 단계에서 이 세그먼트를 참조할 수 있습니다.
 
 ## 사용자 매칭 {#user-matching}
 

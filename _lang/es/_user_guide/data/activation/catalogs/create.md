@@ -48,7 +48,7 @@ Para crear un catálogo, ve a **Configuración de datos** > **Catálogos**, sele
 
 Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisitos:
 
-| Requisitos CSV | Detalles |
+| Requisito CSV | Detalles |
 |-----------------|---------|
 | Encabezados | La primera columna del archivo CSV debe llamarse `id`, y cada fila debe tener un valor `id` único. |
 | Columnas | Un archivo CSV puede tener un máximo de 1000 campos (columnas) y cada nombre de columna puede tener hasta 250 caracteres. |
@@ -76,7 +76,7 @@ Selecciona un tipo de datos para cada columna.
 Este tipo de datos no se puede editar una vez configurado el catálogo. Además, un valor `NULL` no es compatible con la carga de CSV y se tratará como una cadena.
 {% endalert %}
 
-![Este tipo de datos no se puede editar una vez configurado el catálogo. Además, un valor NULL no es compatible con la carga de CSV y se tratará como una cadena.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Selección de tipo de datos para cada columna del catálogo. Un valor NULL no es compatible con la carga de CSV y se tratará como una cadena.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Introduce un nombre y una descripción opcional para tu catálogo. Ten en cuenta los siguientes requisitos al nombrar tu catálogo:
 
@@ -182,7 +182,7 @@ Selecciona **Update Catalog** > **Add items** para añadir un elemento a tu cat�
 ![Añadir un elemento al catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
-Braze procesa los valores de tiempo basándose en la marca de tiempo del dashboard. Por ejemplo, si una columna tiene el valor "03/13/2024" y tu zona horaria es la zona horaria del Pacífico, esta hora se importaría a Braze como "Mar 12, 2024, 5:00 PM".
+Braze procesa los valores de tiempo basándose en la marca de tiempo del panel. Por ejemplo, si una columna tiene el valor "03/13/2024" y tu zona horaria es la zona horaria del Pacífico, esta hora se importaría a Braze como "Mar 12, 2024, 5:00 PM".
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -197,9 +197,9 @@ Los catálogos admiten varios tipos de datos para ayudarte a organizar y estruct
 | Hora | ISO 8601 o marca de tiempo Unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de fecha y hora con formato ISO 8601 o marca de tiempo Unix en segundos. Equivalente al tipo `time` en la API y al tipo `datetime` en las importaciones CSV. |
 | Booleano | `true` o `false` | `true` | Valores lógicos que representan estados verdadero o falso. Equivalente al tipo `boolean` en las importaciones CSV y API. |
 | Número | Entero o decimal | `42` o `19.99` | Valores numéricos que incluyen enteros y números de punto flotante para precios, cantidades, calificaciones y más. Equivalente a los tipos `integer` y `float` en las importaciones CSV y al tipo `number` en la API. |
-| Geolocalización | Matriz `[longitude, latitude]` | `[-73.988103, 40.779109]` | Un par de coordenadas que representa una ubicación geográfica. La longitud debe estar entre -180 y 180; la latitud debe estar entre -90 y 90. El valor de `type` en la API es `geo`. Se puede añadir a través del panel **Add Fields** en la interfaz de Catálogos, la carga CSV o la REST API. |
-| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estructuras de datos anidadas complejas. El valor de `type` en la API es `object`. Se muestra como objeto JSON en el dashboard. Solo disponible a través de la API o la Ingesta de datos de Cloud (CDI). |
-| Matriz | Matriz de cadenas | `["red", "blue", "green"]` | Listas de valores de cadena. El valor de `type` en la API es `array`. Se muestra como matriz de cadenas en el dashboard. Solo disponible a través de la API o CDI. |
+| Geolocalización | Matriz `[longitude, latitude]` | `[-73.988103, 40.779109]` | Un par de coordenadas que representa una ubicación geográfica. La longitud debe estar entre -180 y 180; la latitud debe estar entre -90 y 90. El valor de `type` en la API es `geo`. Se puede añadir a través del panel **Add Fields** en la interfaz de catálogos, la carga CSV o la REST API. |
+| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estructuras de datos anidadas complejas. El valor de `type` en la API es `object`. Se muestra como objeto JSON en el panel. Solo disponible a través de la API o la ingesta de datos en la nube (CDI). |
+| Matriz | Matriz de cadenas | `["red", "blue", "green"]` | Listas de valores de cadena. El valor de `type` en la API es `array`. Se muestra como matriz de cadenas en el panel. Solo disponible a través de la API o CDI. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Uso de plantillas en los nombres de los catálogos {#template-catalog-names}
@@ -217,25 +217,25 @@ Al nombrar tu catálogo, también puedes utilizar plantillas en el nombre del ca
 
 ## Administración de catálogos {#managing-catalogs}
 
-### En el dashboard {#in-the-dashboard}
+### En el panel {#in-the-dashboard}
 
 Para actualizar tu catálogo después de cargar un archivo CSV o crear un catálogo en el navegador, selecciona **Update Catalog** > **Upload CSV** y, a continuación, selecciona si deseas actualizar, añadir o eliminar elementos de tu catálogo.
 
 ### Uso de la REST API {#using-the-rest-api}
 
-A medida que crees más catálogos, también puedes utilizar el [punto de conexión Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para obtener una lista de los catálogos de un espacio de trabajo.
+A medida que crees más catálogos, también puedes utilizar el [endpoint Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para obtener una lista de los catálogos de un espacio de trabajo.
 
 La REST API admite todos los [tipos de datos de catálogo](#supported-data-types), incluidos los objetos JSON y las matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la REST API.
 
-### Uso de la Ingesta de datos de Cloud {#using-cloud-data-ingestion}
+### Uso de la ingesta de datos en la nube {#using-cloud-data-ingestion}
 
-Puedes mantener catálogos a través de la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
+Puedes mantener catálogos a través de la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
 
 ## Gestión de los elementos del catálogo {#managing-catalog-items}
 
-Además de gestionar tus catálogos, también puedes utilizar puntos finales asíncronos y síncronos para gestionar los elementos del catálogo. Esto incluye la posibilidad de editar y eliminar elementos del catálogo, y de listar los detalles de los elementos del catálogo.
+Además de gestionar tus catálogos, también puedes utilizar endpoints asíncronos y síncronos para gestionar los elementos del catálogo. Esto incluye la posibilidad de editar y eliminar elementos del catálogo, y de listar los detalles de los elementos del catálogo.
 
-Por ejemplo, si quieres editar un elemento individual del catálogo, puedes utilizar el [punto de conexión `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
+Por ejemplo, si quieres editar un elemento individual del catálogo, puedes utilizar el [endpoint `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Almacenamiento de catálogos {#tiers}
 

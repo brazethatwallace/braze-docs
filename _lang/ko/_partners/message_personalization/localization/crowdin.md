@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Crowdin
 
-> [Crowdin](https://crowdin.com/)은 AI 기반 현지화 관리 플랫폼으로, 팀이 소프트웨어, 앱, 마케팅 콘텐츠의 번역을 자동화할 수 있도록 도와줍니다.
+> [Crowdin](https://crowdin.com/)은 인공지능 기반 현지화 관리 플랫폼으로, 팀이 소프트웨어, 앱, 마케팅 콘텐츠의 번역을 자동화할 수 있도록 도와줍니다.
 
 Crowdin을 Braze에 연결하여 Campaigns과 Canvas 경험의 번역을 관리할 수 있습니다. 자동 동기화는 기계 번역, 번역 메모리, 용어집과 함께 작동하여 수동 및 자동화 워크플로의 일관성을 유지합니다.
 
@@ -28,7 +28,7 @@ Crowdin은 Braze용 앱을 두 가지 제공합니다: [Braze Campaigns & Canvas
 | **캔버스 단계** | ✅ 지원됨 | ❌ 지원되지 않음 |
 | **이메일 템플릿** | ❌ 지원되지 않음 | ✅ 지원됨 |
 | **Content Blocks** | ❌ 지원되지 않음 | ✅ 지원됨 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Choose the right Crowdin app" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="적합한 Crowdin 앱 선택하기" }
 
 ## 필수 조건 {#prerequisites}
 
@@ -39,7 +39,7 @@ Crowdin은 Braze용 앱을 두 가지 제공합니다: [Braze Campaigns & Canvas
 | **Braze REST API 키** | Campaigns, Canvas, Content Blocks, 커스텀 속성, 이메일, 템플릿에 대한 권한이 있는 Braze REST API 키. |
 | **Braze REST 엔드포인트** | 사용 중인 Braze REST 엔드포인트 URL(예: `https://rest.iad-03.braze.com`). |
 | **Braze 다국어 설정** | Braze 대시보드의 **설정** > **현지화 설정**에서 로케일을 구성해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## Braze Campaigns & Canvas 통합 {#braze-campaigns-canvas-integration}
 
@@ -61,7 +61,7 @@ Crowdin을 연결하기 전에 Braze에서 대상 언어를 추가하세요.
 
 ### 2단계: Crowdin에서 Braze 프로젝트 설정 {#step-2-set-up-the-braze-project-in-crowdin}
 
-1. Crowdin Enterprise 또는 Crowdin.com 계정에서 왼쪽 메뉴의 **Store**로 이동합니다.
+1. Crowdin Enterprise 또는 Crowdin.com 계정에서 탐색 메뉴의 **Store**로 이동합니다.
 2. **Braze Campaigns & Canvas**를 검색한 후 **Install**을 선택합니다.
 
 ![Crowdin Store에서 Braze Campaigns & Canvas가 선택되고 Install이 강조 표시된 화면.]({% image_buster /assets/img/crowdin/crowdin_store_campaigns_canvas.png %})
@@ -76,8 +76,8 @@ Braze API 자격 증명으로 연결을 인증합니다:
 
 ![Crowdin Braze Campaigns & Canvas 연결 양식에 REST API 키, REST 엔드포인트, Log in with Braze Campaigns & Canvas가 표시됩니다.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
 
-- **Braze REST API 키:** Braze의 **설정** > **API 키** > **API 키**에서 생성합니다. 이 통합에 필요한 권한(Campaigns, Canvas, Content Blocks, 커스텀 속성)을 부여하세요.
-- **Braze REST 엔드포인트:** Braze 인스턴스의 URL을 입력합니다(예: `https://rest.iad-03.braze.com`). 자세한 내용은 [REST API 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 참조하세요.
+- **Braze REST API 키:** Braze의 **설정** > **API 및 식별자** > **API 키**에서 생성합니다. 이 통합에 필요한 권한(Campaigns, Canvas, Content Blocks, 커스텀 속성)을 부여하세요.
+- **Braze REST 엔드포인트:** Braze 인스턴스의 URL을 입력합니다(예: `https://rest.iad-03.braze.com`). 자세한 내용은 [REST API 엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 참조하세요.
 
 ![Braze REST API 키 페이지에 API 키 생성 및 REST 엔드포인트 복사 컨트롤이 표시됩니다.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
@@ -87,7 +87,7 @@ Braze API 자격 증명으로 연결을 인증합니다:
 
 계정을 연결한 후 각 Crowdin 프로젝트 언어를 해당하는 Braze 로케일에 매핑합니다.
 
-1. **Braze Campaigns & Canvas** 통합 대시보드에서 오른쪽 상단의 **Settings** 기어 아이콘을 선택합니다.
+1. **Braze Campaigns & Canvas** 통합 대시보드에서 상단 작업 바의 **Settings** 기어 아이콘을 선택합니다.
 
 ![Braze Campaigns & Canvas 통합 화면에서 상단 작업 바에 Settings가 표시됩니다.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_settings.png %})
 
@@ -110,7 +110,7 @@ Crowdin은 Braze가 다국어 메시지에 사용하는 것과 동일한 Liquid 
 
 {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
-HTML, 링크 내 Liquid 및 기타 패턴의 경우 [로케일 번역]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)과 동일한 규칙을 따르세요(예: 가능한 한 작은 세그먼트 주위에 태그를 배치하고, 링크를 현지화할 때 언어별 부분만 감싸기).
+HTML, 링크 내 Liquid 및 기타 패턴의 경우 [로케일 번역]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales)과 동일한 규칙을 따르세요(예: 가능한 한 작은 세그먼트 주위에 태그를 배치하고, 링크를 현지화할 때 언어별 부분만 감싸기).
 
 Crowdin이 콘텐츠를 감지하고 가져올 수 있도록 Braze 메시지를 **초안**으로 저장하세요.
 
@@ -118,21 +118,21 @@ Crowdin이 콘텐츠를 감지하고 가져올 수 있도록 Braze 메시지를 
 
 통합 화면은 두 부분으로 구성됩니다:
 
-- **오른쪽(Braze):** Campaigns과 Canvases.
-- **왼쪽(Crowdin):** 번역을 위해 이미 동기화된 콘텐츠.
+- **Braze 패널:** Campaigns과 Canvases.
+- **Crowdin 패널:** 번역을 위해 이미 동기화된 콘텐츠.
 
 ![Crowdin과 Braze Campaigns & Canvas 패널에 Campaigns 및 로케일 폴더, Sync to Braze, Sync to Crowdin이 표시됩니다.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_sync_panels.png %})
 
 #### 콘텐츠 동기화 {#syncing-content}
 
-1. **Braze(오른쪽)** 측에서 번역할 Campaign 또는 Canvas의 체크박스를 선택합니다.
+1. **Braze** 패널에서 번역할 Campaign 또는 Canvas의 체크박스를 선택합니다.
 2. **Sync to Crowdin**을 선택합니다.
-3. 동기화가 완료되면 **Crowdin(왼쪽)** 측에 파일이 나타납니다. 번역자는 Crowdin 편집기에서 문자열을 열 수 있습니다.
+3. 동기화가 완료되면 **Crowdin** 패널에 파일이 나타납니다. 번역자는 Crowdin 편집기에서 문자열을 열 수 있습니다.
 
 #### Braze로 번역 반환 {#returning-translations-to-braze}
 
 1. Crowdin에서 번역이 100% 완료되면 **Integrations** 탭으로 돌아갑니다.
-2. **Crowdin(왼쪽)** 측에서 완료된 콘텐츠를 선택합니다.
+2. **Crowdin** 패널에서 완료된 콘텐츠를 선택합니다.
 3. **Sync to Braze**를 선택합니다. 번역된 문자열이 Braze Campaign의 해당 언어 배리언트에 푸시됩니다.
 
 ### 6단계: Braze에서 다국어 사용자로 메시지 미리보기 {#step-6-preview-the-message-as-a-multi-language-user-in-braze}
@@ -168,7 +168,7 @@ Braze API 자격 증명으로 연결을 인증합니다:
 
 ![Crowdin Braze Email Templates 연결 양식에 REST API 키, REST 엔드포인트, Log in with Braze Email Templates가 표시됩니다.]({% image_buster /assets/img/crowdin/crowdin_email_templates_login.png %}){: style="max-width:85%;"}
 
-1. **Braze REST API 키:** `templates.email` 및 `content_blocks`(읽기 및 쓰기) 권한을 부여합니다. Braze의 **설정** > **API 키** > **API 키**에서 키를 생성합니다.
+1. **Braze REST API 키:** `templates.email` 및 `content_blocks`(읽기 및 쓰기) 권한을 부여합니다. Braze의 **설정** > **API 및 식별자** > **API 키**에서 키를 생성합니다.
 
 ![Braze REST API 키 페이지에 API 키 생성 및 REST 엔드포인트 복사 컨트롤이 표시됩니다.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
@@ -180,10 +180,10 @@ Braze API 자격 증명으로 연결을 인증합니다:
 
 통합 화면에 Braze 라이브러리가 표시됩니다:
 
-- **오른쪽(Braze):** 동기화할 수 있는 **이메일 템플릿**과 **Content Blocks**.
-- **왼쪽(Crowdin):** 번역 중인 콘텐츠.
+- **Braze 패널:** 동기화할 수 있는 **이메일 템플릿**과 **Content Blocks**.
+- **Crowdin 패널:** 번역 중인 콘텐츠.
 
-1. **Braze(오른쪽)** 측에서 현지화할 템플릿 또는 블록 옆의 체크박스를 선택합니다.
+1. **Braze** 패널에서 현지화할 템플릿 또는 블록 옆의 체크박스를 선택합니다.
 2. **Sync to Crowdin**을 선택합니다.
 3. Crowdin이 HTML 소스를 가져옵니다. 번역자는 레이아웃이 유지되도록 라이브 **WYSIWYG 미리보기**가 포함된 Crowdin 편집기에서 작업합니다.
 
@@ -193,7 +193,7 @@ Braze API 자격 증명으로 연결을 인증합니다:
 
 번역이 100% 완료되면:
 
-1. **Crowdin(왼쪽)** 측에서 완료된 파일을 선택합니다.
+1. **Crowdin** 패널에서 완료된 파일을 선택합니다.
 2. **Sync to Braze**를 선택합니다.
 3. Crowdin이 Braze 미디어 라이브러리에 이러한 자산의 현지화된 버전을 자동으로 생성합니다(예: `Template_Name_fr`).
 

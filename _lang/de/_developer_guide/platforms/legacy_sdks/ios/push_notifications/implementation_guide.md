@@ -85,7 +85,7 @@ Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Da
 ### Personalisierte Push-Benachrichtigungen {#personalized-push-notifications}
 ![Zwei iPhones werden nebeneinander angezeigt. Das erste iPhone zeigt die nicht erweiterte Ansicht der Push-Nachricht. Das zweite iPhone zeigt die erweiterte Version der Push-Nachricht mit einer Fortschrittsanzeige, die angibt, wie weit sie in einem Kurs fortgeschritten sind, wann die nächste Sitzung stattfindet und wann die nächste Sitzung fällig ist.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. Das Beispiel auf der rechten Seite zeigt eine Push-Benachrichtigung, nachdem Nutzer:innen eine bestimmte Aufgabe (Braze-Lernkurs) abgeschlossen haben und nun aufgefordert werden, diese Benachrichtigung zu erweitern, um ihren Fortschritt zu überprüfen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
+Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. Das Beispiel zeigt eine Push-Benachrichtigung, nachdem Nutzer:innen eine bestimmte Aufgabe (Braze-Lernkurs) abgeschlossen haben und nun aufgefordert werden, diese Benachrichtigung zu erweitern, um ihren Fortschritt zu überprüfen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
 
 #### Dashboard-Konfiguration
 
@@ -217,12 +217,12 @@ Ein weiterer wichtiger Punkt ist, dass Analytics erst dann an Braze gesendet wer
 
 ![Grafik, die die Verarbeitung von Analytics in Braze beschreibt. 1. Analytics-Daten werden erstellt. 2. Analytics-Daten werden gespeichert. 3. Die Push-Benachrichtigung wird ausgeblendet. 4. Unbestimmte Zeitspanne zwischen dem Ausblenden der Push-Benachrichtigung und dem Start der mobilen App. 5. Die mobile App wird gestartet. 6. Analytics-Daten werden empfangen. 7. Analytics-Daten werden an Braze übermittelt.]({% image_buster /assets/img/push_implementation_guide/push13.png %})
 
-#### 1. Schritt: App-Gruppen in Xcode konfigurieren {#step-1-configure-app-groups-within-xcode}
+#### Schritt 1: App-Gruppen in Xcode konfigurieren {#step-1-configure-app-groups-within-xcode}
 Fügen Sie die Fähigkeit `App Groups` hinzu. Wenn Sie noch keine App-Gruppe in Ihrer App hatten, navigieren Sie zur Fähigkeit des Hauptziels Ihrer App, aktivieren Sie `App Groups` und klicken Sie auf das Pluszeichen (+). Verwenden Sie die Bundle-ID Ihrer App, um die App-Gruppe zu erstellen. Wenn die Bundle-ID Ihrer App beispielsweise `com.company.appname` lautet, können Sie die App-Gruppe `group.com.company.appname.xyz` nennen. Vergewissern Sie sich, dass `App Groups` sowohl für das Hauptziel Ihrer App als auch für das Ziel der Inhaltserweiterung aktiviert ist.
 
 ![Der Dialog „Neuen Container hinzufügen“ in Xcode zur Konfiguration einer App-Gruppe mit einem Textfeld, das mit „group.“ vorausgefüllt ist.]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
 
-#### 2. Schritt: Code-Snippets integrieren {#step-2-integrate-code-snippets}
+#### Schritt 2: Code-Snippets integrieren {#step-2-integrate-code-snippets}
 Die folgenden Code-Snippets sind eine hilfreiche Referenz, wie Sie angepasste Events, angepasste Attribute und Nutzerattribute speichern und senden können. In dieser Anleitung wird von UserDefaults gesprochen. Die Code-Darstellung erfolgt jedoch in Form der Hilfsdatei `RemoteStorage`. Darüber hinaus gibt es die Hilfsdateien `UserAttributes` und `EventName Dictionary`, die beim Senden und Speichern von Nutzerattributen verwendet werden. Alle Hilfsdateien sind am Ende dieser Anleitung aufgeführt.
 
 {% tabs local %}

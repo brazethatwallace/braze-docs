@@ -6,7 +6,7 @@ description: "この記事では、BrazeでSMS、MMS、またはRCSメッセー�
 page_type: reference
 alias: /create_sms_mms_rcs_message/
 tool:
-  - キャンペーン
+  - Campaigns
 channel:
   - SMS
   - MMS
@@ -16,7 +16,7 @@ search_rank: 1
 
 # SMS、MMS、またはRCSメッセージを作成する {#create-an-sms-mms-or-rcs-message}
 
-> SMS、MMS、およびRCSのキャンペーンは、顧客に直接リーチし、プログラムで会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> SMS、MMS、およびRCSキャンペーンは、顧客に直接リーチし、プログラムで会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
 
 ## ステップ1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
@@ -51,24 +51,24 @@ search_rank: 1
 {% endtab %}
 {% endtabs %}
 
-## ステップ2:サブスクリプショングループを選択する {#step-2-select-a-subscription-group}
+## ステップ2:購読グループを選択する {#step-2-select-a-subscription-group}
 
-適切なユーザーにメッセージを送信するために、[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)を選択します。サブスクリプショングループを選択すると、Brazeは自動的にセグメンテーションフィルターを追加し、購読中のユーザーのみがキャンペーンを受信するようにします。
+適切なユーザーにメッセージを送信するために、[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)を選択します。購読グループを選択すると、Brazeは自動的にセグメンテーションフィルターを追加し、購読中のユーザーのみがキャンペーンを受信するようにします。
 
-選択したサブスクリプショングループによって、コンポーザーで利用可能なメッセージタイプが決まります。
+選択した購読グループによって、コンポーザーで利用可能なメッセージタイプが決まります。
 
-| サブスクリプショングループタイプ | 利用可能なメッセージタイプ |
+| 購読グループタイプ | 利用可能なメッセージタイプ |
 | --- | --- |
 | SMSのみ | SMS |
 | MMS対応番号を含むSMS | SMSおよびMMS |
 | RCS対応（RCS認証済み送信者あり） | SMS、MMS（有効な場合）、およびRCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:サブスクリプショングループを選択する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:購読グループを選択する" }
 
 {% alert tip %}
-Brazeは、RCS送信者を含むすべてのサブスクリプショングループに、フォールバック用のSMSコードを少なくとも1つ含めることを強く推奨します。これにより、RCSメッセージの配信に失敗した場合（たとえば、デバイスの非互換性やキャリアカバレッジの不完全さなど）でも、SMSを通じてメッセージがユーザーに届くようになります。
+Brazeは、RCS送信者を含むすべての購読グループに、フォールバック用のSMSコードを少なくとも1つ含めることを強く推奨します。これにより、RCSメッセージの配信に失敗した場合（たとえば、デバイスの非互換性やキャリアカバレッジの不完全さなど）でも、SMSを通じてメッセージがユーザーに届くようになります。
 {% endalert %}
 
-サブスクリプショングループを選択したら、作成するメッセージタイプを選択します。サブスクリプショングループが複数のタイプをサポートしている場合、それらを選択するオプションが表示されます。
+購読グループを選択したら、作成するメッセージタイプを選択します。購読グループが複数のタイプをサポートしている場合、それらを選択するオプションが表示されます。
 
 ![RCSまたはSMS/MMSメッセージタイプから選択するオプション。]({% image_buster /assets/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
 
@@ -79,7 +79,7 @@ Brazeは、RCS送信者を含むすべてのサブスクリプショングルー
 {% tabs local %}
 {% tab SMS %}
 
-言語やパーソナライゼーション（Liquid、コネクテッドコンテンツ、絵文字）を必要に応じて使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージコピーの制限を遵守してください。
+言語やパーソナライゼーション（Liquid、Connected Content、絵文字）を必要に応じて使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージコピーの制限を遵守してください。
 
 {% alert important %}
 先に進む前に、[SMSメッセージセグメントとコピー制限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)のガイドラインをお読みください。SMSメッセージセグメントは、電話キャリアがテキストメッセージを測定するために使用する文字バッチです。メッセージはメッセージセグメントごとに課金されるため、メッセージがどのように分割されるかのニュアンスを理解しておくことをお勧めします。
@@ -94,7 +94,7 @@ SMSメッセージに連絡先カードを追加して、顧客がビジネス�
 {% endtab %}
 {% tab MMS %}
 
-MMSメッセージを送信するには、サブスクリプショングループにMMS対応の電話番号が少なくとも1つ必要です。これは、コンポーザーでサブスクリプショングループの横に**MMS**タグが表示されることで確認できます。
+MMSメッセージを送信するには、購読グループにMMS対応の電話番号が少なくとも1つ必要です。これは、コンポーザーで購読グループの横に**MMS**タグが表示されることで確認できます。
 
 メッセージ本文を入力し、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)からPNG、JPEG、またはGIF画像をアップロードするか、画像URLを指定します。メッセージごとにサポートされる画像は1つのみです。
 
@@ -190,7 +190,7 @@ RCSメッセージの受信体験は、キャリアカバレッジ、モバイ�
 {% endsubtab %}
 {% endsubtabs %}
 
-言語やパーソナライゼーション（[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)、絵文字）を必要に応じて使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージコピーの制限を遵守してください。
+言語やパーソナライゼーション（[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)、絵文字）を必要に応じて使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージコピーの制限を遵守してください。
 
 {% alert important %}
 先に進む前に、上記の[RCSメッセージタイプのガイドライン](#step-3-compose-your-message)をお読みください。RCSメッセージは[メッセージごとに課金]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)されるため、各タイプに含められる内容を理解しておくことをお勧めします。
@@ -228,7 +228,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 {: start="2"}
 2. そのメッセージを、各候補返信に対応するアクショングループを持つアクションパスに接続します。
 3. 各アクショングループについて:
-   - トリガーとして**SMS受信メッセージを送信**を選択します。
+   - トリガーとして**SMSインバウンドメッセージを送信する**を選択します。
    - メッセージ本文を、対応する候補返信と同じに設定します。
 
 ![3つのアクショングループ（各候補返信に1つずつ）で構成されたアクションパスステップ。]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -277,7 +277,7 @@ RCSのレンダリングはユーザーのオペレーティングシステム�
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)します。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。
+次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)します。購読グループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。
 
 {% multi_lang_include audience/target_audiences.md %}
 

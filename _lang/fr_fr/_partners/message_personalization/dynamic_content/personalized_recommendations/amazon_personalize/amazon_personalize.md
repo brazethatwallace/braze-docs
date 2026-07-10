@@ -2,7 +2,7 @@
 nav_title: Amazon Personalize
 article_title: Amazon Personalize
 alias: "/partners/amazon_personalize_overview/"
-description: "Cet article de référence décrit une architecture de référence et une intégration entre Braze et Amazon Personalize. Cet article de référence vous aidera à comprendre les cas d'utilisation proposés par Amazon Personalize, les données avec lesquelles il fonctionne, comment configurer le service et comment l'intégrer à Braze."
+description: "Cet article de référence décrit une architecture de référence et une intégration entre Braze et Amazon Personalize. Cet article de référence vous aidera à comprendre les cas d'usage proposés par Amazon Personalize, les données avec lesquelles il fonctionne, comment configurer le service et comment l'intégrer à Braze."
 page_type: partner
 search_tag: Partner
 ---
@@ -19,23 +19,23 @@ _Cette intégration est gérée par Amazon Personalize._
 
 À l'aide du machine learning et d'un algorithme que vous aidez à définir, Amazon Personalize peut vous aider à entraîner un modèle qui génère des recommandations de haute qualité pour vos sites web et applications. Ces modèles vous permettent de créer des listes de recommandations en fonction des comportements antérieurs des utilisateurs, de trier les éléments par pertinence et de recommander d'autres éléments en fonction de leur similitude. Les listes obtenues à partir de l'API Amazon Personalize peuvent ensuite être utilisées dans le contenu connecté de Braze pour lancer des campagnes de recommandation Braze personnalisées. Grâce à l'intégration avec Amazon Personalize, les clients ont la liberté de contrôler les paramètres utilisés pour entraîner les modèles et de définir des objectifs commerciaux facultatifs qui optimisent les résultats de l'algorithme.
 
-Cet article de référence vous aidera à comprendre les cas d'utilisation proposés par Amazon Personalize, les données avec lesquelles il fonctionne, comment configurer le service et comment l'intégrer à Braze.
+Cet article de référence vous aidera à comprendre les cas d'usage proposés par Amazon Personalize, les données avec lesquelles il fonctionne, comment configurer le service et comment l'intégrer à Braze.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | --- | --- |
 | Compte Amazon Web Service | Un compte AWS est nécessaire pour bénéficier de ce partenariat. Une fois que vous avez un compte AWS, vous pouvez accéder à Amazon Personalize via la console Amazon Personalize, l'interface de ligne de commande AWS (AWS CLI) ou les SDK AWS. |
-| Cas d'utilisation définis | Avant de créer un modèle, vous devez déterminer votre cas d'utilisation pour cette intégration. Consultez la liste suivante pour les cas d'utilisation courants. |
+| Cas d'usage définis | Avant de créer un modèle, vous devez déterminer votre cas d'usage pour cette intégration. Consultez la liste suivante pour les cas d'usage courants. |
 | Ensembles de données | Les modèles de recommandation Amazon Personalize nécessitent trois types différents d'ensembles de données : interactions, utilisateurs et éléments. Consultez les informations suivantes pour connaître les exigences de chaque ensemble de données. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% tabs %}
 {% tab Use Cases %}
 
-**Cas d'utilisation**
+**Cas d'usage**
 
-Avant de créer un modèle, vous devez déterminer votre cas d'utilisation pour cette intégration. Parmi les cas d'utilisation courants, citons :
+Avant de créer un modèle, vous devez déterminer votre cas d'usage pour cette intégration. Parmi les cas d'usage courants, citons :
 - Recommander des articles aux utilisateurs en fonction de leurs interactions précédentes, afin de créer une expérience véritablement personnalisée pour vos utilisateurs.
 - Fournir une liste d'articles ou de résultats de recherche adaptés à chaque utilisateur, en augmentant l'engagement en présentant les éléments en fonction de leur pertinence pour l'utilisateur.
 - Trouver des recommandations pour des articles similaires, afin d'aider les utilisateurs à découvrir de nouvelles choses.
@@ -102,11 +102,11 @@ Les filtres vous permettent d'ajuster la sortie des recommandations en excluant 
 ## Intégrer les résultats avec Braze {#integrating-results-with-braze}
 
 Avec le modèle créé et la campagne de recommandations, vous êtes prêt à lancer une campagne Braze pour vos utilisateurs à l'aide de Content Cards et du contenu connecté.
-Avant de lancer une campagne Braze, vous devez créer un service capable de diffuser ces recommandations via une API. Vous pouvez suivre l'[étape 3 de l'article de l'atelier]({{site.baseurl}}/partners/amazon_personalize_workshop/#step-3-send-personalized-emails-from-braze) pour déployer le service à l'aide des services AWS. Vous pouvez également déployer votre propre service backend indépendant qui fournit les recommandations.
+Avant de lancer une campagne Braze, vous devez créer un service capable de diffuser ces recommandations via une API. Vous pouvez suivre l'[étape 3 de l'article de l'atelier]({{site.baseurl}}/partners/amazon_personalize_workshop#step-3-send-personalized-emails-from-braze) pour déployer le service à l'aide des services AWS. Vous pouvez également déployer votre propre service backend indépendant qui fournit les recommandations.
 
-### Cas d'utilisation de la campagne de Content Cards {#content-card-campaign-use-case}
+### Cas d'usage d'une campagne Content Cards {#content-card-campaign-use-case}
 
-Lançons une campagne de Content Cards avec le premier élément recommandé de la liste.<br><br>
+Lançons une campagne Content Cards avec le premier élément recommandé de la liste.<br><br>
 Dans les exemples suivants, nous allons interroger
 l'endpoint `GET http://<service-endpoint.com>/recommendations?user_id=user123` avec un paramètre `user_id` qui renverra une liste d'articles recommandés :
 
@@ -130,7 +130,7 @@ l'endpoint `GET http://<service-endpoint.com>/recommendations?user_id=user123` a
 ]
 ```
 
-Dans le tableau de bord de Braze, créez une nouvelle [campagne de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). Dans le champ de texte du message, créez un bloc Liquid de contenu connecté pour interroger l'API et enregistrer la réponse dans la variable `recommendations` :
+Dans le tableau de bord de Braze, créez une nouvelle [campagne Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). Dans le champ de texte du message, créez un bloc Liquid de contenu connecté pour interroger l'API et enregistrer la réponse dans la variable `recommendations` :
 
 {% raw %}
 

@@ -22,11 +22,11 @@ La integración de Braze y Treasure Data te permite escribir los resultados de l
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta de Treasure Data | Se necesita una [cuenta de Treasure Data](https://www.treasuredata.com/custom-demo/) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`, `users.delete`, `users.alias.new`, `users.identify`.<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze  | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`, `users.delete`, `users.alias.new`, `users.identify`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Puedes sincronizar tus perfiles de cliente consolidados de Treasure Data en Braze para crear segmentos objetivo. Treasure Data admite datos de cookies propios, ID de móviles, sistemas de terceros como tu CRM, y muchos más.
 
@@ -36,9 +36,9 @@ Puedes sincronizar tus perfiles de cliente consolidados de Treasure Data en Braz
 
 En Treasure Data, ve al **Catalog** en el **Integrations Hub** y busca y selecciona **Braze**.
 
-En el mensaje **New Authentication** que aparece, asigna un nombre a la conexión e indica tu clave de API REST de Braze y el punto de conexión REST. Selecciona **Done** cuando hayas terminado.
+En el mensaje **New Authentication** que aparece, asigna un nombre a la conexión e indica tu clave de API REST de Braze y el endpoint REST. Selecciona **Done** cuando hayas terminado.
 
-![]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
+![Formulario de autenticación de Braze en Treasure Data con campos de clave de API REST y endpoint.]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
 ### Paso 2: Definir tu consulta {#step-2-define-your-query}
 
@@ -50,7 +50,7 @@ Para los usuarios que utilicen HIVE para crear consultas, HIVE requiere que cual
 
 A continuación, selecciona **Export Results** y selecciona una autenticación de integración existente.
 
-![]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
+![Página de resultados de consulta de Treasure Data con Export Results y la integración de Braze seleccionada.]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
 
 Define parámetros adicionales de exportación de resultados como se indica en la siguiente [sección de personalización](#customization). En el contenido de tu integración de exportación, revisa los parámetros de integración.
 
@@ -62,11 +62,11 @@ Por último, selecciona **Done**, ejecuta tu consulta y comprueba que los datos 
 
 Los parámetros de los resultados de exportación se incluyen en la siguiente tabla:
 
-| Parámetro                 | Valores | Descripción |
+| Parámetro | Valores | Descripción |
 |---------------------------|---|---|
-| `mode`                    | User - New Alias<br>User - Identifying<br>User - Track<br>User - Delete | Modo del conector |
-| `pre_formatted_fields`    | Cadena | Usar para columnas de tipo array o JSON para mantener el formato. |
-| `track_record_type`       | Custom Events<br>Purchases<br>User Profile Attributes | Tipo de registro para el modo **User - Track** |
+| `mode` | User - New Alias<br>User - Identifying<br>User - Track<br>User - Delete | Modo del conector |
+| `pre_formatted_fields` | Cadena | Usar para columnas de tipo array o JSON para mantener el formato. |
+| `track_record_type` | Custom Events<br>Purchases<br>User Profile Attributes | Tipo de registro para el modo **User - Track** |
 | `skip_on_invalid_records` | Booleano | Si está habilitado, continúa e ignora cualquier registro no válido para la columna JSON. <br> De lo contrario, el trabajo se detiene. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Personalización" }
 
@@ -76,4 +76,4 @@ Visita [Treasure Data](https://docs.treasuredata.com/display/public/INT/Braze+Ex
 
 ## Webhooks
 
-Los usuarios de Treasure Data pueden ingerir datos a través de la API REST pública. Puedes utilizar Treasure Data para crear webhooks personalizados en tus datos. Para más información, visita [Treasure Data](https://docs.treasuredata.com/display/public/PD/Postback+API)
+Los usuarios de Treasure Data pueden ingerir datos a través de la REST API pública. Puedes utilizar Treasure Data para crear webhooks personalizados en tus datos. Para más información, visita [Treasure Data](https://docs.treasuredata.com/display/public/PD/Postback+API)

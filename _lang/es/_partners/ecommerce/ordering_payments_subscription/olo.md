@@ -20,8 +20,8 @@ Al integrar Olo y Braze, puedes:
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta Olo | Se requiere una cuenta de Olo con acceso a webhooks para aprovechar esta asociación. Configura suscripciones a webhooks a través de la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) dentro del dashboard de Olo. |
-| Transformación de datos de Braze | Se necesita una [URL de Transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Olo. |
+| Cuenta Olo | Se requiere una cuenta de Olo con acceso a webhooks para aprovechar esta asociación. Configura suscripciones a webhooks a través de la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) dentro del panel de Olo. |
+| Transformación de datos de Braze | Se necesita una [URL de transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Olo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 Un webhook es una forma en que Olo envía información basada en eventos a Braze sobre los usuarios y sus acciones, incluidos eventos como Order Placed, Guest Opt In, Order Picked Up y más. El webhook de Olo entrega el evento a Braze generalmente a los pocos segundos de realizarse la acción.
@@ -34,23 +34,23 @@ Para manejar múltiples eventos de Olo dentro de esta única transformación, bu
 
 ## Integración {#integration}
 
-### Paso 1: Configurar la Transformación de datos de Braze para aceptar el evento de prueba de Olo {#step-1}
+### Paso 1: Configurar la transformación de datos de Braze para aceptar el evento de prueba de Olo {#step-1}
 
 {% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### Paso 2: Configurar los webhooks de Olo {#step-2-set-up-olo-webhooks}
 
-Utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) del dashboard de Olo para configurar webhooks y enviarlos a tu Transformación de datos.
+Utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) del panel de Olo para configurar webhooks y enviarlos a tu transformación de datos.
 
 1. Elige qué eventos deben enviarse a Braze
-2. Configura la **URL de destino**. Esta será la URL de Transformación de datos creada en el [paso 1](#step-1).
+2. Configura la **URL de destino**. Esta será la URL de transformación de datos creada en el [paso 1](#step-1).
 
 {% alert note %}
 `OAuth` y el secreto compartido del encabezado `X-Olo-Signature` no son necesarios para la transformación.
 {% endalert %}
 
 {:start="3"}
-3. Verifica que el webhook está configurado correctamente enviando un [evento de prueba](https://developer.olo.com/docs/load/webhooks#operation/test) a tu Transformación de datos. Solo los usuarios del dashboard de Olo con el [permiso de herramientas para desarrolladores](https://olosupport.zendesk.com/hc/en-us/articles/115001427843-Dashboard-Permissions) pueden enviar eventos de prueba.
+3. Verifica que el webhook está configurado correctamente enviando un [evento de prueba](https://developer.olo.com/docs/load/webhooks#operation/test) a tu transformación de datos. Solo los usuarios del panel de Olo con el [permiso de herramientas para desarrolladores](https://olosupport.zendesk.com/hc/en-us/articles/115001427843-Dashboard-Permissions) pueden enviar eventos de prueba.
 
 Olo requiere una respuesta exitosa del webhook de evento de prueba antes de que puedas completar el proceso de configuración del webhook de Olo.
 
@@ -58,11 +58,11 @@ Olo requiere una respuesta exitosa del webhook de evento de prueba antes de que 
 
 En este paso, transformarás la carga útil del webhook que se enviará desde la plataforma de origen en un valor de retorno de objeto JavaScript.
 
-1. Envía una solicitud a tu URL de Transformación de datos con una carga útil de ejemplo de un evento de Olo que pretendas admitir. Consulta el [formato del cuerpo de la solicitud](#request-body-format) para obtener ayuda sobre el formato de tu solicitud.
-2. Actualiza tu Transformación de datos y asegúrate de que puedes ver la carga útil del evento de ejemplo en los **Detalles del webhook**.
-3. Actualiza tu código de Transformación de datos para que sea compatible con los eventos de Olo elegidos.
+1. Envía una solicitud a tu URL de transformación de datos con una carga útil de ejemplo de un evento de Olo que pretendas admitir. Consulta el [formato del cuerpo de la solicitud](#request-body-format) para obtener ayuda sobre el formato de tu solicitud.
+2. Actualiza tu transformación de datos y asegúrate de que puedes ver la carga útil del evento de ejemplo en los **Detalles del webhook**.
+3. Actualiza tu código de transformación de datos para que sea compatible con los eventos de Olo elegidos.
 4. Haz clic en **Validar** para obtener una vista previa de la salida de tu código y comprobar si se trata de una solicitud `/users/track` aceptable.
-5. Guarda y activa tu Transformación de datos.
+5. Guarda y activa tu transformación de datos.
 
 #### Formato del cuerpo de la solicitud {#request-body-format}
 
@@ -70,13 +70,13 @@ Este valor de retorno debe ajustarse al formato del cuerpo de la solicitud `/use
 
 - El código de transformación se acepta en el lenguaje de programación JavaScript. Se admite cualquier flujo de control estándar de JavaScript, como la lógica if/else.
 - El código de transformación accede al cuerpo de la solicitud del webhook a través de la variable payload. Esta variable es un objeto poblado por el análisis del cuerpo de la solicitud JSON.
-- Se admite cualquier característica de nuestro punto de conexión `/users/track`, incluidos:
+- Se admite cualquier característica de nuestro endpoint `/users/track`, incluidos:
     - Objetos de atributos de usuario, objetos de evento y objetos de compra
     - Atributos anidados y propiedades anidadas de eventos personalizados
     - Actualizaciones de grupos de suscripción
     - Dirección de correo electrónico como identificador
 
-## Ejemplo de Transformaciones de datos para webhooks de Olo {#example-data-transformations-for-olo-webhooks}
+## Ejemplo de transformaciones de datos para webhooks de Olo {#example-data-transformations-for-olo-webhooks}
 
 Esta sección contiene plantillas de ejemplo que pueden utilizarse como punto de partida. Siéntete libre de empezar desde cero o de eliminar componentes específicos como mejor te parezca.
 
@@ -242,7 +242,7 @@ return brazecall;
 
 ### Paso 4: Publica tu webhook de Olo {#step-4-publish-your-olo-webhook}
 
-Después de haber activado tu Transformación de datos en Braze, utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) en el dashboard de Olo para publicar tu webhook. Cuando el webhook se publique, la Transformación de datos comenzará a recibir mensajes de eventos de webhook de Olo.
+Después de haber activado tu transformación de datos en Braze, utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) en el panel de Olo para publicar tu webhook. Cuando el webhook se publique, la transformación de datos comenzará a recibir mensajes de eventos de webhook de Olo.
 
 ## Lo que debes saber {#things-to-know}
 

@@ -24,8 +24,8 @@ A integração entre a Braze e a GrowthLoop permite segmentar dados de cliente d
 | ----------- | ----------- |
 | Conta GrowthLoop growth ou enterprise | Uma conta GrowthLoop é necessária para aproveitar esta parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -33,13 +33,13 @@ Envie listas de clientes do seu data warehouse para a Braze, direcionando campan
 
 - E-mails baseados na ativação de inscrição — envie e-mails para ajudar os usuários que abandonam seu fluxo de inscrição e converta-os em usuários ativos.
 - E-mails baseados em qualquer comportamento do usuário — envie e-mails com base no comportamento do usuário, como "Adicionar ao Carrinho".
-- E-mails para clientes perdidos — reengaje clientes perdidos via e-mail com uma oferta.
+- E-mails para clientes com churn — reengaje clientes com churn via e-mail com uma oferta.
 
 ## Integração {#integration}
 
 ### Configurar conexão da Braze no GrowthLoop {#configure-braze-connection-in-growthloop}
 
-Após fazer login na plataforma de segmentação do GrowthLoop, navegue até a guia **Destinations** na barra lateral esquerda e clique em **New Destination** no canto superior direito.
+Após fazer login na plataforma de segmentação do GrowthLoop, navegue até a guia **Destinations** na barra lateral de navegação e clique em **New Destination** na barra de ações.
 
 Role até encontrar a Braze e clique em **Add Braze**.
 

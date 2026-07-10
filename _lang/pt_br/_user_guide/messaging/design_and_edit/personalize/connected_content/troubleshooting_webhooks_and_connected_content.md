@@ -108,7 +108,7 @@ table td {
       <td>Muitas solicitações foram enviadas em um determinado período de tempo.</td>
       <td>
         <ul>
-          <li>Reduza o limite de taxa na sua Campaign ou etapa do Canvas.</li>
+          <li>Reduza o limite de frequência na sua Campaign ou etapa do Canvas.</li>
         </ul>
       </td>
     </tr>
@@ -135,15 +135,15 @@ Erros `5XX` indicam que há um problema com o endpoint. Esses erros geralmente s
 Aqui estão dicas para solucionar erros `5XX` comuns:
 
 - Revise a mensagem de erro para obter detalhes específicos disponíveis no **Registro de atividades de envio de mensagem**. Para webhooks, acesse a seção **Performance Over Time** na página inicial da Braze e selecione as estatísticas de webhooks. A partir daí, você pode encontrar o timestamp que indica quando os erros ocorreram.
-- Certifique-se de que você não está enviando muitas solicitações que sobrecarregam o endpoint. Você pode enviar em lotes ou ajustar o limite de taxa para verificar se isso reduz os erros.
+- Certifique-se de que você não está enviando muitas solicitações que sobrecarregam o endpoint. Você pode enviar em lotes ou ajustar o limite de frequência para verificar se isso reduz os erros.
 
 ## Detecção de host não íntegro {#unhealthy-host-detection}
 
 Os webhooks e o Conteúdo conectado da Braze utilizam um mecanismo de detecção de host não íntegro para detectar quando o host de destino apresenta uma alta taxa de lentidão significativa ou sobrecarga, resultando em tempos limite, muitas solicitações ou outros resultados que impedem a Braze de se comunicar com sucesso com o endpoint de destino. Ele atua como uma proteção para reduzir a carga desnecessária que pode estar causando dificuldades ao host de destino. Também serve para estabilizar a infraestrutura da Braze e manter velocidades rápidas de envio de mensagens.
 
 Os limites de detecção diferem entre webhooks e Conteúdo conectado:
-- **Para webhooks**: Se o número de **falhas exceder 3.000 em qualquer janela de tempo móvel de um minuto** (por combinação única de nome de host e grupo de app&#8212;**não** por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
-- **Para Conteúdo conectado**: Se o número de **falhas exceder 3.000 E a taxa de erro exceder 90% em qualquer janela de tempo móvel de um minuto** (por combinação única de nome de host e grupo de app&#8212;**não** por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
+- **Para webhooks**: Se o número de **falhas exceder 3.000 em qualquer janela de tempo móvel de um minuto** (por combinação única de nome de host e grupo de apps&#8212;**não** por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
+- **Para Conteúdo conectado**: Se o número de **falhas exceder 3.000 E a taxa de erro exceder 90% em qualquer janela de tempo móvel de um minuto** (por combinação única de nome de host e grupo de apps&#8212;**não** por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
 
 Quando as solicitações são interrompidas, a Braze simula respostas com um código de erro `598` para indicar a integridade comprometida. Após um minuto, a Braze retoma as solicitações em velocidade total se o host for considerado íntegro. Se o host ainda estiver não íntegro, a Braze aguarda mais um minuto antes de tentar novamente.
 
@@ -160,7 +160,7 @@ Se você acredita que a detecção de host não íntegro pode estar causando pro
 Se uma chamada de Conteúdo conectado aparece em branco na pré-visualização ou no envio da mensagem, verifique:
 
 - **Espaços não separáveis na URL:** A Braze remove espaços não separáveis (`&nbsp;` ou Unicode `U+00A0`) das URLs de Conteúdo conectado antes de fazer a solicitação. Se a URL foi copiada de um documento ou campo do dashboard que inseriu espaços não separáveis entre os caracteres, a solicitação pode falhar ou não retornar um corpo utilizável. Redigite a URL em texto simples ou remova os espaços ocultos e pré-visualize novamente.
-- **Erros HTTP e corpos vazios:** Para códigos de status acima de 300 ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) e revise as falhas no **Registro de atividades de envio de mensagem**.
+- **Erros HTTP e corpos vazios:** Para códigos de status anteriores nesta seção a partir de 300 ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) e revise as falhas no **Registro de atividades de envio de mensagem**.
 
 ## E-mails automatizados e entradas no Registro de atividades de envio de mensagem {#automated-emails-and-message-activity-log-entries}
 

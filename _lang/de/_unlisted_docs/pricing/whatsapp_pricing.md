@@ -40,7 +40,7 @@ Hier eine kurze Zusammenfassung der zuvor angekündigten Änderungen:
 - Die WhatsApp-Preisgestaltung wechselt von einem „Pro-Konversation“-Modell zu einem „Pro-Nachricht“-Modell. **Die „Pro-Nachricht“-Tarife entsprechen den aktuellen „Pro-Konversation“-Tarifen.**
 - Utility-Templates, die als Antwort auf Nutzernachrichten gesendet werden (also innerhalb eines offenen [Kundenservice-Fensters](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows)), sind kostenlos.
 
-*Weitere Details zu diesen Änderungen finden Sie im vorherigen Beitrag vom 12. März unten.*
+*Weitere Details zu diesen Änderungen finden Sie im vorherigen Beitrag vom 12. März weiter unten in diesem Artikel.*
 
 Zusätzliche Änderungen zum 1. Juli (von Meta am 15. Mai angekündigt):
 - Meta aktualisiert die Utility- und Authentifizierungstarife in mehreren Märkten im Rahmen fortlaufender Bemühungen, die Preisgestaltung mit alternativen Kanälen vergleichbar zu halten.
@@ -87,7 +87,7 @@ Dieses Update gilt für Marketing-, Utility- und Authentifizierungs-Templates. S
 
 Ein [24-Stunden-Kundenservice-Fenster](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows) wird erstellt, wenn eine Endnutzer:in einer Marke eine Nachricht sendet. Wenn Ihre Marke mit einem Utility-Template antwortet, ist dies kostenlos.
 
-Utility-Templates, die außerhalb eines 24-Stunden-Kundenservice-Fensters gesendet werden (z. B. Utility-Templates, die proaktiv von einer Marke für Kontoerinnerungen und Auftragsstatusaktualisierungen gesendet werden), werden weiterhin berechnet.
+Utility-Templates, die außerhalb eines 24-Stunden-Kundenservice-Fensters gesendet werden (z. B. Utility-Templates, die proaktiv von einer Marke für Kontoerinnerungen und Auftragsstatus-Aktualisierungen gesendet werden), werden weiterhin berechnet.
 
 Wir empfehlen die folgenden Best Practices, um sich auf diese Änderungen einzustellen und Ihr WhatsApp-Marketing-Budget optimal zu nutzen:
 
@@ -103,7 +103,7 @@ Wir empfehlen die folgenden Best Practices, um sich auf diese Änderungen einzus
 Wir empfehlen die folgenden Best Practices, um sich auf diese Änderungen einzustellen und Ihr WhatsApp-Marketing-Budget optimal zu nutzen:
 
 - Begrenzen Sie das Senden mehrerer Nachrichten-Templates desselben Typs (ohne Nutzerantwort) im 24-Stunden-Zeitraum. So vermeiden Sie, dass Ihnen mehr berechnet wird als zuvor unter dem „Pro-Konversation“-Modell. Dies ist auch eine Best Practice, um Ihren Kund:innen qualitativ hochwertige Erlebnisse zu bieten und Nachrichtenmüdigkeit zu vermeiden.
-- Verwenden Sie [Antwortnachrichten]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages), wenn Sie auf Nachrichten von Endnutzer:innen antworten. Antwortnachrichten sind kostenlos.
+- Verwenden Sie [Antwortnachrichten]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages), wenn Sie auf Nachrichten von Endnutzer:innen antworten. Antwortnachrichten sind kostenlos.
 
 *Hinweis: Dieses Update war ursprünglich für den 1. April geplant und wurde nun auf den **1. Juli** verschoben.*
 
@@ -137,14 +137,14 @@ Ab dem 1. November 2024 sind alle Service-Konversationen kostenlos. Service-Konv
 
 #### Was sind Service-Konversationen? {#what-are-service-conversations}
 
-Service-Konversationen ermöglichen es Ihnen, auf Kundenanfragen zu reagieren. Dazu gehören Konversationen, die von einer Endnutzer:in gestartet werden und bei denen die Marke mit einer [Antwortnachricht]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) statt mit einem Template antwortet.
+Service-Konversationen ermöglichen es Ihnen, auf Kundenanfragen zu reagieren. Dazu gehören Konversationen, die von einer Endnutzer:in gestartet werden und bei denen die Marke mit einer [Antwortnachricht]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) statt mit einem Template antwortet.
 
 #### Wie können Sie von diesem Update profitieren?
 
 Einige Konversationen, die zuvor als „Service“ berechnet wurden, sind jetzt kostenlos. Dazu gehören:
 
-- [Kampagnen für nicht erkannte Antworten]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages), bei denen eine Endnutzer:in eine nicht erkannte Nachricht sendet und die Marke mit einer generischen Nachricht über [Antwortnachrichten]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) antwortet. Beispiel: Eine Endnutzer:in sendet eine Nachricht ohne Schlüsselwort und die Marke antwortet mit „Wir können Ihre Nachricht nicht zuordnen. Bitte wenden Sie sich an den Kundensupport.“
-- Konversationen, die beginnen, wenn eine Endnutzer:in der Marke ein beworbenes Schlüsselwort sendet und die Marke mit einer [Antwortnachricht]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) antwortet. Häufige Beispiele sind das Opt-in für WhatsApp-Nachrichten oder die Teilnahme an einer bestimmten Aktion.
+- [Kampagnen für nicht erkannte Antworten]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages), bei denen eine Endnutzer:in eine nicht erkannte Nachricht sendet und die Marke mit einer generischen Nachricht über [Antwortnachrichten]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) antwortet. Beispiel: Eine Endnutzer:in sendet eine Nachricht ohne Schlüsselwort und die Marke antwortet mit „Wir können Ihre Nachricht nicht zuordnen. Bitte wenden Sie sich an den Kundensupport.“
+- Konversationen, die beginnen, wenn eine Endnutzer:in der Marke ein beworbenes Schlüsselwort sendet und die Marke mit einer [Antwortnachricht]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) antwortet. Häufige Beispiele sind das Opt-in für WhatsApp-Nachrichten oder die Teilnahme an einer bestimmten Aktion.
 
 <br>
 

@@ -4,14 +4,14 @@ article_title: Zoom登録の自動化
 page_order: 1
 page_type: tutorial
 description: "この記事では、メール、プッシュ、アプリ内メッセージキャンペーンでZoomの参加者登録を自動化する方法について説明します。"
-channel: 
+channel:
   - email
   - push
   - in-app messages
 
 ---
 
-# Zoom登録の自動化
+# Zoom登録の自動化 {#automate-zoom-registration}
 
 > ウェビナーは、ここ数年でBrazeの顧客がホストする一般的な手段となっています。Zoomウェビナーをホストする場合、ユーザーはZoomのランディングページで情報を入力してサインアップする必要があります。
 
@@ -27,7 +27,7 @@ POST: `/meetings/{webinarId}/registrants`
 詳細については、Zoomの[ウェビナー登録者追加エンドポイント](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/webinarRegistrantCreate)を参照してください。<br><br>
 
 {% tabs %}
-{% tab Email %}
+{% tab メール %}
 
 メッセージ本文にコールトゥアクションボタンを含むメールキャンペーンを作成します。ユーザーがボタンをクリックすると、ウェビナーのランディングページにリダイレクトされます（リダイレクトリンクに適切なパラメーターを含めます）。
 
@@ -38,7 +38,7 @@ URL内のパラメーターを使用してユーザーデータを渡し、ペ�
 ユーザーは、Brazeプロファイルに既に存在する詳細情報でウェビナーに登録されます。
 
 {% endtab %}
-{% tab Push %}
+{% tab プッシュ %}
 
 1. プッシュキャンペーンを作成します<br><br>
 
@@ -48,7 +48,7 @@ URL内のパラメーターを使用してユーザーデータを渡し、ペ�
 
 	プッシュのボタンクリックでサインアップしたユーザー向けのランディングページのシンプルな例です。ユーザーにサインアップ内容を知らせ、登録を確認します。<br>
 
-	![]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
+	![Brazeからサインアップした後に表示されるウェビナー確認ランディングページ。]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
 
 
 2. アプリ内メッセージまたはボタンクリックによってトリガーされるWebhookキャンペーンを作成します。<br><br>
@@ -75,7 +75,7 @@ URL内のパラメーターを使用してユーザーデータを渡し、ペ�
 3. ユーザーは、Brazeプロファイルに既に存在する詳細情報でウェビナーに登録されます。
 
 {% endtab %}
-{% tab In-app message %}
+{% tab アプリ内メッセージ %}
 
 1. アプリ内メッセージキャンペーンを作成します<br><br>
 
@@ -85,7 +85,7 @@ URL内のパラメーターを使用してユーザーデータを渡し、ペ�
 
 	アプリ内メッセージのボタンクリックでサインアップしたユーザー向けのランディングページのシンプルな例です。ユーザーにサインアップ内容を知らせ、登録を確認します。<br>
 
-	![]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
+	![Brazeからサインアップした後に表示されるウェビナー確認ランディングページ。]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
 
 2. アプリ内メッセージまたはボタンクリックによってトリガーされるWebhookキャンペーンを作成します。<br><br>
 	Brazeプロファイルの既存のユーザーデータを使用して、ユーザーをウェビナーに登録します。<br>

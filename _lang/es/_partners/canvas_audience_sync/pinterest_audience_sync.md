@@ -16,7 +16,7 @@ Mediante Braze Audience Sync con Pinterest, las marcas pueden optar por añadir 
 
 **Entre los casos de uso habituales de la sincronización de audiencias se incluyen:**
 
-- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la interacción
+- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la participación
 - Reorientar a los usuarios menos receptivos a otros canales de marketing
 - Crear audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores fieles de tu marca
 - Crear audiencias Actalike para captar nuevos usuarios de forma más eficaz
@@ -43,7 +43,7 @@ Debes asegurarte de que los siguientes elementos están creados, completados o a
 ### Paso 1: Conéctate a Pinterest {#step-1-connect-to-pinterest}
 
 {% alert important %}
-Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar Pinterest a tu cuenta de Braze.
+Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar Pinterest a tu cuenta de Braze.
 {% endalert %}
 
 En el panel de Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Pinterest**. En Pinterest Audience Sync, selecciona **Connect Pinterest**.
@@ -56,7 +56,7 @@ Tras seleccionar **Confirm**, se te redirigirá de nuevo a Braze para que selecc
 
 ![Una lista de las cuentas de anuncios disponibles que puedes conectar a Pinterest.]({% image_buster /assets/img/pinterest/pinterest2.png %}){: style="max-width:80%;"}
 
-Cuando te hayas conectado correctamente, volverás a la página del socio, donde podrás ver qué cuentas están conectadas y desconectar las cuentas existentes.
+Cuando te hayas conectado correctamente, volverás a la página del partner, donde podrás ver qué cuentas están conectadas y desconectar las cuentas existentes.
 
 ![Una versión actualizada de la página de socios tecnológicos de Pinterest que muestra las cuentas de anuncios conectadas correctamente.]({% image_buster /assets/img/pinterest/pinterest3.png %}){: style="max-width:80%;"}
 
@@ -66,15 +66,15 @@ Tu conexión a Pinterest se aplicará a nivel del espacio de trabajo de Braze. S
 
 Añade un componente a tu Canvas y selecciona **Audience Sync**.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Selector de pasos en Canvas con la opción del componente Audience Sync.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Tarjeta del componente Audience Sync añadida a una ruta de Canvas.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### Paso 3: Configuración de la sincronización {#step-3-sync-setup}
 
 Haz clic en el botón **Custom Audience** para abrir el editor de componentes.
 
-Selecciona **Pinterest** como socio de sincronización de audiencias deseado.
+Selecciona **Pinterest** como partner de sincronización de audiencias deseado.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Editor del componente Audience Sync con Pinterest seleccionado como partner de sincronización.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 A continuación, selecciona la cuenta de anuncios de Pinterest que desees. En el desplegable **Choose a New or Existing Audience**, escribe el nombre de una audiencia nueva o existente.
 
@@ -113,7 +113,7 @@ Puedes ver la audiencia en Pinterest entrando en tu cuenta del administrador de 
 
 A medida que los usuarios llegan al paso de sincronización de audiencia, Braze los sincroniza casi en tiempo real respetando los límites de velocidad de la API de marketing de Pinterest. Braze agrupa y procesa tantos usuarios como sea posible cada 5 segundos antes de enviarlos a Pinterest.
 
-El límite de velocidad de la API de segmentos de Pinterest no permite más de siete consultas por segundo por usuario y 1.900 usuarios por solicitud. Si un cliente alcanza este límite, Braze reintenta la sincronización durante un máximo de ~13 horas. Si la sincronización sigue sin ser posible, Braze lista a estos usuarios en la métrica Usuarios con errores.
+El límite de velocidad de la API de Segment de Pinterest no permite más de siete consultas por segundo por usuario y 1.900 usuarios por solicitud. Si un cliente alcanza este límite, Braze reintenta la sincronización durante un máximo de ~13 horas. Si la sincronización sigue sin ser posible, Braze lista a estos usuarios en la métrica Usuarios con errores.
 
 ## Comprender los análisis {#understanding-analytics}
 
@@ -146,11 +146,11 @@ Pinterest no proporciona esta información por sus propias políticas de privaci
 
 ### ¿Qué debo hacer si recibo un error de token no válido? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Confirma con el administrador de tu Pinterest Business Hub que tienes los permisos adecuados para la cuenta de anuncios que deseas sincronizar. También puedes desconectar y volver a conectar tu cuenta de Pinterest en la página del socio de Pinterest.
+Confirma con el administrador de tu Pinterest Business Hub que tienes los permisos adecuados para la cuenta de anuncios que deseas sincronizar. También puedes desconectar y volver a conectar tu cuenta de Pinterest en la página del partner de Pinterest.
 
 ### ¿Por qué no se puede lanzar mi Canvas? {#why-is-my-canvas-not-allowed-to-launch}
 
-Asegúrate de que tu cuenta de Pinterest se conecta correctamente a Braze en la página del socio de Pinterest. Asegúrate de haber seleccionado una cuenta de anuncios, introducido un nombre para la nueva audiencia y seleccionado los campos que coincidan.
+Asegúrate de que tu cuenta de Pinterest se conecta correctamente a Braze en la página del partner de Pinterest. Asegúrate de haber seleccionado una cuenta de anuncios, introducido un nombre para la nueva audiencia y seleccionado los campos que coincidan.
 
 ### ¿Por qué no puedo seleccionar mi cuenta de anuncios para mi paso de sincronización de audiencia? {#why-cant-i-select-my-ad-account-for-my-audience-sync-step}
 

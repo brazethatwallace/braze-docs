@@ -16,7 +16,7 @@ _Esta integración está mantenida por IAM Studio._
 
 ## Sobre la integración {#about-the-integration}
 
-Con la integración de Braze e IAM Studio, puedes insertar fácilmente plantillas de mensajes dentro de la aplicación personalizables en tus mensajes Braze dentro de la aplicación, que ofrecen sustitución de imágenes, modificación de texto, configuración de vínculos profundos, atributos personalizados y configuración de eventos. Con IAM Studio, puedes reducir el tiempo de producción de mensajes y dedicar más tiempo a la planificación de contenidos.
+Con la integración de Braze e IAM Studio, puedes insertar fácilmente plantillas de mensajes dentro de la aplicación personalizables en tus mensajes dentro de la aplicación de Braze, que ofrecen sustitución de imágenes, modificación de texto, configuración de vínculos profundos, atributos personalizados y configuración de eventos. Con IAM Studio, puedes reducir el tiempo de producción de mensajes y dedicar más tiempo a la planificación de contenidos.
 
 ## Requisitos previos {#prerequisites}
 
@@ -25,7 +25,7 @@ Con la integración de Braze e IAM Studio, puedes insertar fácilmente plantilla
 | Cuenta de IAM Studio | Se necesita una [cuenta de IAM Studio](https://www.inappmessage.com/register) para beneficiarse de esta asociación. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 - Fomentar la compra de productos
 - Recopilación de información de los usuarios
@@ -63,7 +63,7 @@ A continuación, crea tu mensaje personalizado dentro de la aplicación añadien
 ![La interfaz de usuario de IAM Studio muestra las opciones para añadir Liquid. Estas opciones incluyen crear una frase personalizada.]({% image_buster /assets/img/iam_studio/iam_custom_font.png %})
 {% endtab %}
 {% tab Liquid %}
-![La interfaz de usuario de IAM Studio muestra las opciones para personalizar el registro de eventos/atributos. Estas opciones incluyen el registro del comportamiento del usuario.]({% image_buster /assets/img/iam_studio/iam_liquid.png %})
+![La interfaz de usuario de IAM Studio muestra las opciones para personalizar el registro de eventos y atributos. Estas opciones incluyen el registro del comportamiento del usuario.]({% image_buster /assets/img/iam_studio/iam_liquid.png %})
 {% endtab %}
 {% tab Logging and Tracking %}
 ![La interfaz de usuario de IAM Studio muestra las opciones para personalizar la fuente. Estas opciones incluyen que el usuario pueda personalizar el estilo de la fuente.]({% image_buster /assets/img/iam_studio/iam_tracking_logging.png  %})
@@ -74,10 +74,10 @@ A continuación, crea tu mensaje personalizado dentro de la aplicación añadien
 
 Una vez finalizada la edición, exporta la plantilla haciendo clic en **Export**. Tras la exportación, se generará el código HTML del mensaje dentro de la aplicación. Copia este código haciendo clic en el botón **Copy code**.
 
-![]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
+![Diálogo de exportación de IAM Studio con el código HTML del mensaje dentro de la aplicación generado y la acción de copiar código.]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
 
 ### Paso 4: Utilizar el código en Braze {#step-4-use-code-in-braze}
 
 Ve a Braze y, en tu mensaje dentro de la aplicación, pega el código personalizado en el cuadro de **HTML Input**. Asegúrate de probar tu mensaje para comprobar que se muestra correctamente.
 
-![]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}
+![Editor de Campaign de mensajes dentro de la aplicación de Braze con el HTML de IAM Studio pegado en el cuadro HTML Input.]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}

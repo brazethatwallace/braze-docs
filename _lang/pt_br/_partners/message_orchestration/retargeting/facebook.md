@@ -20,11 +20,11 @@ Os casos de uso comuns para exportar públicos personalizados do Facebook inclue
 
 {% alert note %}
 A exportação do público do Facebook usa o **token de acesso do usuário** para autorizar solicitações.<br><br>
-Se você estiver usando esse recurso juntamente com o recurso de [sincronização do público do Facebook]({{site.baseurl}}/audience_sync_facebook/), a Braze usará, por padrão, o **token de usuário do sistema** mais confiável que você já gerou para autorizar solicitações.
+Se você estiver usando esse recurso juntamente com o recurso de [sincronização do público do Facebook]({{site.baseurl}}/audience_sync_facebook), a Braze usará, por padrão, o **token de usuário do sistema** mais confiável que você já gerou para autorizar solicitações.
 {% endalert %}
 
 {% alert note %}
-Se estiver participando do teste das contas de trabalho do Meta na versão beta, desconecte e reconecte sua conta à [página de parceiro do Facebook]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync/#step-1-connect-to-facebook).
+Se estiver participando do teste das contas de trabalho do Meta na versão beta, desconecte e reconecte sua conta à [página de parceiro do Facebook]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync#step-1-connect-to-facebook).
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -33,7 +33,7 @@ Se estiver participando do teste das contas de trabalho do Meta na versão beta,
 | ----------- | ----------- |
 | [Gerente de negócios do Facebook](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Uma ferramenta centralizada para gerenciar os ativos do Facebook da sua marca (por exemplo, contas de anúncios, páginas, apps). |
 | [Conta de anúncios do Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Uma conta de anúncios ativa do Facebook vinculada ao gerente de negócios da sua marca que você deseja usar com os públicos personalizados da Braze.<br><br>Certifique-se de que o administrador do seu gerente de negócios do Facebook lhe concedeu permissões de administrador para as contas de anúncios do Facebook que você planeja usar com a Braze e que você aceitou os termos e condições da sua conta de anúncios. Caso contrário, não será possível acessar nenhuma conta de anúncios do Facebook na Braze. |
-| [Termos de públicos personalizados do Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Você deve aceitar os Termos de Públicos Personalizados do Facebook para suas contas de anúncios do Facebook que planeja usar com a Braze.|
+| [Termos de públicos personalizados do Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Você deve aceitar os Termos de Públicos Personalizados do Facebook para suas contas de anúncios do Facebook que planeja usar com a Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -55,7 +55,7 @@ Se estiver participando do teste das contas de trabalho do Meta na versão beta,
 {% alert important %}
 Para os clientes que já passaram pelo processo de revisão do app do Facebook para o [Gerenciamento de anúncios](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) e [o Acesso padrão ao Gerenciamento de anúncios](https://developers.facebook.com/docs/marketing-api/access#standard), o token de usuário do sistema ainda será válido para a etapa do público do Facebook. Não será possível editar ou revogar o token de usuário do sistema do Facebook por meio da página de parceiro do Facebook. Em vez disso, é possível conectar sua conta do Facebook para substituir o token de usuário do sistema do Facebook no espaço de trabalho da Braze.
 
-<br><br>A nova configuração do Facebook oAuth também se aplica às [exportações do Facebook por meio de segmentos]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites).
+<br><br>A nova configuração do Facebook oAuth também se aplica às [exportações do Facebook por meio de segmentos]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites).
 {% endalert %}
 
 ### Etapa 2: exporte seus usuários para o Facebook {#step-2-export-your-users-into-facebook}
@@ -63,7 +63,7 @@ Para os clientes que já passaram pelo processo de revisão do app do Facebook p
 Na Braze, a exportação do público do Facebook pode ser acessada por meio da página **Segments**.
 
 1. Na página **Segments**, selecione o segmento que você deseja exportar.
-2. Selecione **User Data** e, em seguida, selecione **Exportar como público do Facebook**. <br><br>![A seção "Segment Details" de um segmento com "User Data" selecionado para exibir um menu suspenso de opções que inclui "Export as Facebook Audience".]({% image_buster /assets/img/fb/afb_6.png %})
+2. Selecione **User Data** e, em seguida, selecione **Export as Facebook Audience**. <br><br>![A seção "Segment Details" de um segmento com "User Data" selecionado para exibir um menu suspenso de opções que inclui "Export as Facebook Audience".]({% image_buster /assets/img/fb/afb_6.png %})
 
 {: start="3"}
 3. Se ainda não tiver ativado o Facebook na Braze, você verá uma indicação para acessar a página de parceiros de tecnologia do Facebook no dashboard. Se já tiver ativado o Facebook por meio de **Technology Partners** > **Facebook**, poderá selecionar sua conta de anúncios do Facebook e os campos de usuário a serem exportados. <br><br> Você pode exportar os seguintes campos:
@@ -82,17 +82,17 @@ Só é possível selecionar um campo de usuário em uma única exportação. Se 
 {% alert important %}
 Devido a razões de privacidade do usuário, o Facebook não permite que você veja:
 
-- Os usuários exatos que foram adicionados com sucesso a um público personalizado. [Saiba mais.](https://www.facebook.com/business/help/112061095610075)
-- O tamanho do público personalizado. [Saiba mais.](https://marketingland.com/exclusive-facebook-will-no-longer-show-audience-reach-estimates-for-custom-audiences-after-vulnerability-detected-236923)
+- Os usuários exatos que foram adicionados com sucesso a um público personalizado. [Veja os detalhes do Facebook sobre por que membros individuais do público ficam ocultos](https://www.facebook.com/business/help/112061095610075).
+- O tamanho do público personalizado. [Veja os detalhes sobre as mudanças na estimativa de tamanho de público do Facebook](https://marketingland.com/exclusive-facebook-will-no-longer-show-audience-reach-estimates-for-custom-audiences-after-vulnerability-detected-236923).
 {% endalert %}
 
-#### Configuração de sua exportação de público {#configuring-your-audience-export}
+#### Configuração da sua exportação de público {#configuring-your-audience-export}
 
 Ao criar públicos do Facebook, talvez seja necessário incluir ou excluir determinados usuários com base em suas preferências e para cumprir as leis de privacidade, como o direito de "Não vender ou compartilhar" de acordo com a [CCPA](https://oag.ca.gov/privacy/ccpa). Os profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários em seus critérios de entrada no Canvas. Abaixo, listamos algumas opções.
 
-- Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar os usuários apenas para destinos do Audience Sync que eles aceitaram.
+- Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar os usuários apenas para destinos do Audience Sync que eles aceitaram.
 
-![]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
+![Filtro de entrada do Canvas mostrando Ads Tracking Enabled definido como true.]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
 
 - Se estiver coletando aceitações, recusas, `Do Not Sell Or Share` ou outros atributos personalizados relevantes, inclua-os nos critérios de entrada do Canvas como um filtro:
 
@@ -131,8 +131,8 @@ Se você receber um erro ao exportar um segmento como um público do Facebook, a
 
 Use as verificações a seguir para validar sua configuração:
 
-- **Verifique se você é administrador do app:** acesse [developers.facebook.com](https://developers.facebook.com/), abra **My Apps** e selecione o app da sua empresa. Se você não vir o app, sua equipe de desenvolvimento pode precisar adicioná-lo. No dashboard do app, acesse **Roles** no menu à esquerda para confirmar sua função (Admin, Developer, Tester ou Analytics User).
+- **Verifique se você é administrador do app:** acesse [developers.facebook.com](https://developers.facebook.com/), abra **My Apps** e selecione o app da sua empresa. Se você não vir o app, sua equipe de desenvolvimento pode precisar adicioná-lo. No dashboard do app, acesse **Roles** para confirmar sua função (Admin, Developer, Tester ou Analytics User).
 - **Verifique se sua conta de anúncios está associada ao seu app:** no dashboard do app do Facebook, acesse **Settings** > **Advanced**, role até **Advertising Accounts** e adicione o ID da conta de anúncios do Facebook que você deseja usar para exportações de público da Braze, caso ainda não esteja listado.
-- **Verifique se você é administrador da conta de anúncios:** acesse [business.facebook.com](https://business.facebook.com/) e selecione **Business Settings** no menu suspenso no canto superior esquerdo. Em seguida, acesse **Accounts** > **Ad accounts** e selecione a conta de anúncios. Confirme seu acesso e que você tem as permissões necessárias para criar públicos personalizados.
+- **Verifique se você é administrador da conta de anúncios:** acesse [business.facebook.com](https://business.facebook.com/), abra **Business Settings** no menu principal e acesse **Accounts** > **Ad accounts**. Selecione a conta de anúncios. Confirme seu acesso e que você tem as permissões necessárias para criar públicos personalizados.
 
 Para mais detalhes, consulte a [documentação da API de públicos personalizados do Facebook](https://developers.facebook.com/docs/) e o [guia da Central de Ajuda para Empresas do Facebook sobre públicos personalizados](https://www.facebook.com/business/help).

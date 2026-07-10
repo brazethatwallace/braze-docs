@@ -48,7 +48,7 @@ Brazeには、疑わしいボットクリック（非人間インタラクショ
     - パーソナライズドバリアント
 - 推定実質開封率
 
-疑わしいボットクリックからの配信停止は影響を受けません。Brazeは引き続き、すべての配信停止リクエストを通常どおり処理します。Brazeでこれらの配信停止をブロックする場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal)を送信してください。
+疑わしいボットクリックからの購読解除は影響を受けません。Brazeは引き続き、すべての購読解除リクエストを通常どおり処理します。{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## ボットフィルタリングの影響を受けるセグメンテーションフィルター {#segmentation-filters-affected-by-bot-filtering}
 
@@ -89,9 +89,9 @@ Brazeは、メールクリックイベントに対してCurrentsおよびSnowfla
 
 すでに送信済みの以前のキャンペーンの指標には影響しません。ワークスペースでボットフィルタリングがオンになると、Brazeはすべてのクリックから疑わしいボットクリックのフィルタリングを開始します。クリック率の低下に気づく場合がありますが、そのクリック率はユーザーのメールメッセージへのエンゲージメントをより正確に表しています。
 
-### ボットフィルタリングは、Brazeの配信停止リンクをクリックしたボットによる配信停止を防止しますか？ {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
+### ボットフィルタリングは、Brazeの購読解除リンクをクリックしたボットによる購読解除を防止しますか？ {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
 
-いいえ。すべての配信停止リクエストは引き続き処理されます。
+いいえ。すべての購読解除リクエストは引き続き処理されます。
 
 ### マシンオープンはボットクリックフィルタリングで考慮されますか？ {#are-machine-opens-considered-in-the-bot-click-filtering}
 

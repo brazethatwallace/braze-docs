@@ -236,7 +236,7 @@ En tu editor de correo electrónico, ve a **Sending Settings** > **Sending Info*
     - Al seleccionar un grupo de suscripción, agrega el filtro **Subscription Group** en **Target Audiences** para dirigirte solo a los usuarios que están suscritos a este grupo específico. El grupo de suscripción seleccionado para la cancelación de suscripción con un clic debe coincidir con el grupo de suscripción al que te estás dirigiendo. Si hay una discrepancia en el grupo de suscripción, puedes correr el riesgo de enviar a un usuario que está intentando cancelar la suscripción de un grupo de suscripción del que ya está cancelado.
 
 {% alert important %}
-La configuración **Unsubscribe from specific subscription group** solo se aplica al encabezado list-unsubscribe con un clic. El encabezado mailto list-unsubscribe no se ve afectado al seleccionar esta opción. Esto significa que un destinatario que cancela la suscripción usando este método registra una cancelación de suscripción global, no una cancelación del grupo de suscripción específico. Para excluir el encabezado mailto list-unsubscribe de cancelar globalmente la suscripción de los usuarios, al seleccionar esta configuración, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
+La configuración **Unsubscribe from specific subscription group** solo se aplica al encabezado list-unsubscribe con un clic. El encabezado mailto list-unsubscribe no se ve afectado al seleccionar esta opción. Esto significa que un destinatario que cancela la suscripción usando este método registra una cancelación de suscripción global, no una cancelación del grupo de suscripción específico. Para excluir el encabezado mailto list-unsubscribe de cancelar globalmente la suscripción de los usuarios, al seleccionar esta configuración, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 - **Custom**: Agrega tu URL personalizada de cancelación de suscripción con un clic para que proceses las cancelaciones de suscripción directamente.
@@ -368,7 +368,7 @@ Si un grupo de suscripción referenciado en **Sending Info** para cancelación c
 {% enddetails %}
 
 {% details ¿La configuración de cancelación de suscripción con un clic está disponible para plantillas de correo electrónico? %}
-No, actualmente no tenemos planes de agregar esto para plantillas de correo electrónico, ya que estas plantillas no están asignadas a un dominio de envío. Si estás interesado en esta característica para plantillas de correo electrónico, envía [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+No, actualmente no tenemos planes de agregar esto para plantillas de correo electrónico, ya que estas plantillas no están asignadas a un dominio de envío. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details ¿Esta característica verifica que la URL de cancelación de suscripción con un clic agregada a la opción personalizada sea válida? %}

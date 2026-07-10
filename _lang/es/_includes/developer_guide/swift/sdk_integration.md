@@ -16,7 +16,7 @@ Recomendamos utilizar [Swift Package Manager (SwiftPM)](https://swift.org/packag
 
 Abre tu proyecto y ve a la configuración del mismo. Selecciona la pestaña **Swift Packages** y haz clic en el botón <i class="fas fa-plus"></i> añadir debajo de la lista de paquetes.
 
-![]({% image_buster /assets/img/swiftpackages.png %})
+![Configuración del proyecto Xcode con la pestaña Swift Packages y el botón de añadir paquete.]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
 A partir de la versión 7.4.0, el SDK Swift de Braze tiene canales de distribución adicionales como [XCFrameworks estáticos](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) y [XCFrameworks dinámicos](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). Si quieres utilizar cualquiera de estos formatos en su lugar, sigue las instrucciones de instalación de su repositorio respectivo.
@@ -24,7 +24,7 @@ A partir de la versión 7.4.0, el SDK Swift de Braze tiene canales de distribuci
 
 Introduce la URL de nuestro repositorio del SDK Swift para iOS `https://github.com/braze-inc/braze-swift-sdk` en el campo de texto. En la sección **Dependency Rule**, selecciona la versión del SDK. Por último, haz clic en **Add Package**.
 
-![]({% image_buster /assets/img/importsdk_example.png %})
+![Diálogo de añadir paquete en Xcode con la URL del repositorio del SDK de Braze Swift introducida.]({% image_buster /assets/img/importsdk_example.png %})
 
 #### Paso 1.2: Selecciona tus paquetes {#step-12-select-your-packages}
 
@@ -55,7 +55,7 @@ El SDK de Swift de Braze separa las características en bibliotecas independient
 
 Selecciona el paquete que mejor se adapte a tus necesidades y haz clic en **Add Package**. Asegúrate de seleccionar `BrazeKit` como mínimo.
 
-![]({% image_buster /assets/img/add_package.png %})
+![Lista de productos de paquetes en Xcode seleccionando BrazeKit antes de añadir el paquete.]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}
@@ -122,7 +122,7 @@ pod install
 
 En este punto, deberías poder abrir el nuevo espacio de trabajo del proyecto Xcode creado por CocoaPods. Asegúrate de utilizar este espacio de trabajo de Xcode en lugar de tu proyecto de Xcode.
 
-![A Braze Example folder expanded to show the new `BrazeExample.workspace`.]({% image_buster /assets/img/braze_example_workspace.png %})
+![Una carpeta de ejemplo de Braze expandida para mostrar el nuevo `BrazeExample.workspace`.]({% image_buster /assets/img/braze_example_workspace.png %})
 
 #### Actualización del SDK mediante CocoaPods {#updating-the-sdk-using-cocoapods}
 
@@ -138,7 +138,7 @@ pod update
 
 Ve a la [página de lanzamiento del SDK de Braze en GitHub](https://github.com/braze-inc/braze-swift-sdk/releases) y descarga `braze-swift-sdk-prebuilt.zip`.
 
-!["The Braze SDK release page on GitHub."]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
+!["La página de lanzamiento del SDK de Braze en GitHub."]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
 
 #### Paso 1.2: Elige tus frameworks {#step-12-choose-your-frameworks}
 
@@ -183,7 +183,7 @@ A continuación, integra los XCFrameworks **dinámicos** o **estáticos** que [p
 
 En tu proyecto Xcode, selecciona tu objetivo de compilación y, a continuación, **General**. En **Frameworks, Libraries, and Embedded Content**, arrastra y suelta los [archivos que preparaste anteriormente](#swift_step-3-prepare-your-files).
 
-!["An example Xcode project with each Braze library set to 'Embed & Sign.'"]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
+!["Un ejemplo de proyecto Xcode con cada biblioteca de Braze configurada como 'Embed & Sign'."]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
 
 {% alert note %}
 A partir del SDK Swift 12.0.0, siempre debes seleccionar **Embed & Sign** para los XCFrameworks de Braze tanto para las variantes estáticas como dinámicas. Esto garantiza que los recursos del framework estén correctamente integrados en el paquete de tu aplicación.
@@ -466,16 +466,20 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
 ```
 
-Actualiza `YOUR-APP-IDENTIFIER-API-KEY` y `YOUR-BRAZE-ENDPOINT` con el valor correcto desde tu página **Administrar configuración**. Consulta nuestra [documentación sobre la API]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) para obtener más información sobre dónde encontrar la clave de API del identificador de tu aplicación.
+Actualiza `YOUR-APP-IDENTIFIER-API-KEY` y `YOUR-BRAZE-ENDPOINT` con el valor correcto desde tu página **Administrar configuración**. Consulta nuestra [documentación sobre la API]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) para obtener más información sobre dónde encontrar la clave de API del identificador de tu aplicación.
 
 {% endsubtab %}
 {% endsubtabs local %}
+
+{% alert note %}
+`Braze.init` retorna inmediatamente en el hilo que lo invoca. El SDK procesa el trabajo de inicio en una cola interna. Leer propiedades síncronas como `braze.deviceId` directamente después de `init` en el hilo principal bloqueará el hilo que lo invoca hasta que el SDK haya completado sus operaciones posteriores a la inicialización. Para contextos del hilo principal o sensibles a la latencia, usa `braze.getDeviceId(_:)` (Swift) o `[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]` (Objective-C) para leer el valor sin bloquear.
+{% endalert %}
 
 ## Configuraciones opcionales {#optional-configurations}
 
 ### Registro {#logging}
 
-Para obtener un resumen centralizado de todas las plataformas, consulta [Registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Para aprender a interpretar la salida del registro, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/).
+Para obtener un resumen centralizado de todas las plataformas, consulta [Registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Para aprender a interpretar la salida del registro, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 #### Niveles de registro {#log-levels}
 
