@@ -10,9 +10,9 @@ channel:
 
 # Custom code and JavaScript bridge for Banners
 
-> When you use the **Custom Code** editor block in the Banner composer, you must call `brazeBridge.logClick()` from within your custom HTML to log clicks. Banners use the same JavaScript bridge as HTML in-app messages, so the same methods and patterns apply.
+> When you use the **Custom Code** editor block in the Banner builder, or when you build a Banner with the **HTML editor**, you must call `brazeBridge.logClick()` from within your custom HTML to log clicks. Banners use the same JavaScript bridge as HTML in-app messages, so the same methods and patterns apply.
 
-If you use custom HTML in your Banner design, the Braze SDK cannot automatically attach click listeners to elements inside your custom code. You must explicitly call `brazeBridge.logClick()` for any clickable elements (links, buttons, and similar) that you want to track in campaign analytics.
+If you use custom HTML in your Banner design—whether through a Custom Code block in the builder or the full HTML editor—the Braze SDK cannot automatically attach click listeners to elements inside your custom code. You must explicitly call `brazeBridge.logClick()` for any clickable elements (links, buttons, and similar) that you want to track in campaign analytics.
 
 For example, to log a click when a user taps a button in your custom HTML:
 
@@ -22,7 +22,7 @@ For example, to log a click when a user taps a button in your custom HTML:
 </button>
 ```
 
-For the full JavaScript bridge reference, including all available methods and click tracking options, see the following section.
+For the full JavaScript bridge reference, including all available methods and click tracking options, see [JavaScript bridge](#javascript-bridge).
 
 ## JavaScript bridge {#javascript-bridge}
 

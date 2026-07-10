@@ -14,7 +14,7 @@ Before you start, make sure you have [Banner placements]({{site.baseurl}}/develo
 
 Banners allow marketing and product teams to personalize app or website content dynamically, reflecting real-time user eligibility and behavior. They persistently display messages inline, providing non-intrusive, contextually relevant experiences that can be refreshed at the start of a session or mid-session when your app or website explicitly requests it.
 
-After Banners are integrated into an app or website, marketers can design and launch Banners using a simple drag-and-drop editor, eliminating the need for ongoing developer assistance, reducing complexity, and improving efficiency.
+After Banners are integrated into an app or website, marketers can design and launch Banners using a drag-and-drop editor or a full HTML editor, eliminating the need for ongoing developer assistance, reducing complexity, and improving efficiency.
 
 | Use case | Explanation |
 | --- | --- |
@@ -28,7 +28,7 @@ After Banners are integrated into an app or website, marketers can design and la
 
 Features for Banners include:
 
-- **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more.
+- **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more. Teams that prefer to manage their own markup can use the HTML editor instead for full control over the Banner's HTML and styles, or ask [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-messages) to generate HTML from a description.
 - **Flexible placements:** Define multiple locations within your application or website where Banners can appear, enabling precise targeting to specific contexts or user experiences.
 - **Dynamic personalization:** Banners recalculate personalization (Liquid logic) and segmentation every time the banner is refreshed. If a user updates their profile or a custom attribute changes, the next Banner refresh will reflect those changes.
 - **Native prioritization:** Set the display priority for when multiple Banners target the same placement, ensuring the right message reaches users at the right time.
