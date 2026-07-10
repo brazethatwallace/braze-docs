@@ -111,6 +111,37 @@ class TestLiquidSafeChunkSplits:
             assert "endapi=0" in str(exc)
 
 
+class TestRepairLiquidPairedTagsFromEnglish:
+    def test_removes_extra_api_open_to_match_english(self):
+        english = "\n\n{% api %}\n## WhatsApp Send {#whatsapp-send}\n\nBody\n\n{% endapi %}\n"
+        translated = (
+            "\n\n{% api %}\n{% api %}\n## Envoi WhatsApp {#whatsapp-send}\n\n"
+            "Corps\n\n{% endapi %}\n"
+        )
+        repaired = at.repair_liquid_paired_tags_from_english(
+            english, translated, label="chunk 26/26"
+        )
+        assert at._count_liquid_tag(repaired, "api") == 1
+        assert at._count_liquid_tag(repaired, "endapi") == 1
+        at.validate_liquid_paired_tags(repaired, label="chunk 26/26")
+
+    def test_appends_missing_endapi_to_match_english(self):
+        english = "{% api %}\n## Foo\n{% endapi %}\n"
+        translated = "{% api %}\n## Foo traduit\n"
+        repaired = at.repair_liquid_paired_tags_from_english(
+            english, translated, label="chunk"
+        )
+        assert repaired.rstrip().endswith("{% endapi %}")
+
+    def test_validate_or_repair_chunk_liquid_repairs_without_retry(self):
+        english = "{% api %}\n## Foo {#foo}\n{% endapi %}\n"
+        translated = "{% api %}\n{% api %}\n## Foo FR {#foo}\n{% endapi %}\n"
+        repaired = at._validate_or_repair_chunk_liquid(
+            english, translated, "chunk 1/1"
+        )
+        assert at._count_liquid_tag(repaired, "api") == 1
+
+
 class TestJaCampaignComposerUiRepairs:
     def test_localizes_leaked_wizard_labels(self):
         content = (

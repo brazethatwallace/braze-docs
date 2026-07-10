@@ -340,6 +340,85 @@ def validate_liquid_paired_tags(content, label="translation"):
         )
 
 
+def _liquid_tag_line_pattern(tag_name):
+    return re.compile(
+        rf"(?m)^[ \t]*\{{%[-\s]*{re.escape(tag_name)}\b[^%]*%\}}[ \t]*(?:\n|\Z)"
+    )
+
+
+def _remove_one_liquid_tag_line(content, tag_name, *, prefer_last=False, skip_first=False):
+    """Remove one standalone ``{% tag %}`` line from *content*."""
+    matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
+    if not matches:
+        raise ValueError(f"No standalone {{% {tag_name} %}} line found")
+    pool = matches[1:] if skip_first and len(matches) > 1 else matches
+    if not pool:
+        raise ValueError(f"Only one {{% {tag_name} %}} line; cannot skip first")
+    match = pool[-1] if prefer_last else pool[0]
+    return content[:match.start()] + content[match.end():]
+
+
+def repair_liquid_paired_tags_from_english(
+    english_content, translated_content, label="translation"
+):
+    """Align paired Liquid tag counts with balanced English when a chunk drifts."""
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        en_open = _count_liquid_tag(english_content, open_tag)
+        en_close = _count_liquid_tag(english_content, close_tag)
+        if en_open != en_close:
+            raise ValueError(
+                f"English reference unbalanced ({open_tag}/{close_tag}) in {label}"
+            )
+
+        tr_open = _count_liquid_tag(translated_content, open_tag)
+        tr_close = _count_liquid_tag(translated_content, close_tag)
+
+        while tr_open > en_open:
+            translated_content = _remove_one_liquid_tag_line(
+                translated_content,
+                open_tag,
+                prefer_last=True,
+                skip_first=en_open > 0,
+            )
+            tr_open -= 1
+
+        while tr_open > tr_close:
+            translated_content = translated_content.rstrip() + f"\n\n{{% {close_tag} %}}\n"
+            tr_close += 1
+
+        while tr_close > en_close:
+            translated_content = _remove_one_liquid_tag_line(
+                translated_content,
+                close_tag,
+                prefer_last=True,
+            )
+            tr_close -= 1
+
+    validate_liquid_paired_tags(translated_content, label=label)
+    open_blocks = _liquid_block_stack_at(translated_content, len(translated_content))
+    if open_blocks:
+        raise ValueError(
+            f"Liquid block still open at end of {label}: {open_blocks}"
+        )
+    return translated_content
+
+
+def _validate_or_repair_chunk_liquid(en_chunk, translated, chunk_label):
+    """Validate chunk Liquid; repair from English when counts drift."""
+    try:
+        validate_liquid_paired_tags(translated, label=chunk_label)
+    except ValueError:
+        translated = repair_liquid_paired_tags_from_english(
+            en_chunk, translated, label=chunk_label
+        )
+    open_blocks = _liquid_block_stack_at(translated, len(translated))
+    if open_blocks:
+        raise ValueError(
+            f"Liquid block still open at end of {chunk_label}: {open_blocks}"
+        )
+    return translated
+
+
 def split_into_chunks(content, max_chunk_kb=None):
     """Split a large Markdown file into translatable chunks.
 
@@ -1437,15 +1516,48 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 
     print(f"    [{lang_key}] chunked: {len(en_chunks)} chunks")
 
+    # Per-chunk Liquid checks: discovering a missing {% endapi %} only after
+    # all ~26 chunks finish wastes ~90 minutes on Currents glossaries.
+    chunk_liquid_attempts = max(3, (api_retries or API_RETRIES) // 2)
+
     translated_chunks = []
     try:
         for i, (en_chunk, tr_chunk) in enumerate(zip(en_chunks, tr_chunks)):
             print(f"    [{lang_key}] translating chunk {i + 1}/{len(en_chunks)} "
                   f"({len(en_chunk) // 1024}KB)...")
-            translated = translate_file(
-                client, prompt, en_chunk, tr_chunk or None,
-                lang_info["name"], extra_context, api_retries=api_retries,
+            chunk_label = (
+                f"{target.relative_to(REPO_ROOT)} chunk {i + 1}/{len(en_chunks)}"
             )
+            last_exc = None
+            translated = None
+            for attempt in range(1, chunk_liquid_attempts + 1):
+                try:
+                    candidate = translate_file(
+                        client,
+                        prompt,
+                        en_chunk,
+                        tr_chunk or None,
+                        lang_info["name"],
+                        extra_context,
+                        api_retries=api_retries,
+                    )
+                    translated = _validate_or_repair_chunk_liquid(
+                        en_chunk, candidate, chunk_label
+                    )
+                    break
+                except ValueError as exc:
+                    last_exc = exc
+                    if attempt < chunk_liquid_attempts:
+                        print(
+                            f"    [{lang_key}] chunk {i + 1} Liquid check failed "
+                            f"(attempt {attempt}/{chunk_liquid_attempts}): {exc}; "
+                            f"retrying chunk..."
+                        )
+                        time.sleep(min(30, 5 * attempt))
+                    else:
+                        raise
+            if translated is None:
+                raise last_exc or ValueError(f"No translation for {chunk_label}")
             translated_chunks.append(translated)
 
         full_translation = "\n\n".join(c.strip() for c in translated_chunks)
@@ -1621,8 +1733,6 @@ def cmd_translate(args):
         )
         results["translated"].extend(recovered)
         results["failed"] = still_failed
-        if not recovered:
-            break
 
     save_results(results)
     ok = len(results["translated"])
