@@ -23,7 +23,7 @@ search_tag: Partner
 
 ## Integration
 
-Follow the respective steps below to send dynamic SMS links for iOS and Android operating systems.
+Follow the respective steps in this section to send dynamic SMS links for iOS and Android operating systems.
 
 ### iOS
 

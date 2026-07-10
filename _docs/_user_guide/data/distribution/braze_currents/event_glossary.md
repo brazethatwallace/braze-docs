@@ -4,7 +4,7 @@ nav_title: Currents event glossary
 article_title: Currents event glossary
 layout: dev_guide
 guide_top_header: "Currents event glossary"
-guide_top_text: "Look up the schema, fields, and sample payloads for any Currents event. Choose a category below to find the event you need."
+guide_top_text: "Look up the schema, fields, and sample payloads for any Currents event. Choose a category in the following section to find the event you need."
 
 page_type: landing
 description: "A reference for all Braze Currents events, including message engagement events, customer behavior events, and user profile events."

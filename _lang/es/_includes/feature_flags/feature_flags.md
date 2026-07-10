@@ -320,8 +320,6 @@ Una vez determinado el ganador, podemos detener esta campaña y aumentar el porc
 
 Utiliza el filtro **Conmutador de características** para crear un segmento o dirigir la mensajería a los usuarios en función de si tienen habilitado un conmutador de características. Por ejemplo, supongamos que tenemos un conmutador de características que controla el contenido premium en nuestra aplicación. Podríamos crear un segmento que filtre a los usuarios que no tienen habilitado el conmutador de características, y luego enviar a ese segmento un mensaje instándoles a actualizar su cuenta para ver contenido premium.
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
-
 Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
 {% alert note %}

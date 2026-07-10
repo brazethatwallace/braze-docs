@@ -17,7 +17,7 @@ toc_headers: h2
 These examples are starting points, not finished agents. To adapt an example to your scenario:
 
 1. Create the agent for the relevant surface—a [Canvas Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) or a catalog agent—and open its instructions.
-2. Copy the **Instructions** block from the example below into your agent.
+2. Copy the **Instructions** block from the matching example in this library into your agent.
 3. Replace the placeholder inputs (first name, loyalty status, context variables, catalog fields) with the [context variables]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) and fields that exist in your workspace.
 4. Add any required **Agent context**, such as your [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), so the agent can apply your voice, tone, and formatting rules.
 5. Configure the agent's **Output** to match the keys or **Fields** named in the instructions, then test before launching.

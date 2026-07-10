@@ -52,7 +52,7 @@ It's important that your marketing and developer teams coordinate on which key-v
 
 You can seamlessly blend Content Cards into an existing feed, allowing data from multiple feeds to load simultaneously. This creates a cohesive, harmonious experience with Braze Content Cards and existing feed content.
 
-The example to the right shows a feed with a hybrid list of items that are populated via local data and Content Cards powered by Braze. With this, Content Cards can be indistinguishable alongside existing content.
+The accompanying example shows a feed with a hybrid list of items that are populated via local data and Content Cards powered by Braze. With this, Content Cards can be indistinguishable alongside existing content.
 
 ### API-triggered key-value pairs
 
@@ -63,7 +63,7 @@ The example to the right shows a feed with a hybrid list of items that are popul
 ## Content Cards as interactive content
 ![An interactive Content Card showing a 50 percent promotion appear in the bottom left corner of the screen. After it's clicked, a promotion will be applied to the cart.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"} 
 
-Content Cards can be leveraged to create dynamic and interactive experiences for your users. In the example to the right, we have a Content Card pop-up appear at checkout providing users last-minute promotions. Well-placed cards like this are a great way to give users a "nudge" toward specific user actions. 
+Content Cards can be leveraged to create dynamic and interactive experiences for your users. In the accompanying example, a Content Card pop-up appears at checkout to provide users with last-minute promotions. Well-placed cards like this are a great way to give users a "nudge" toward specific user actions. 
 
 The key-value pairs for this use case include a `discount_percentage` set as the desired discount amount and `class_type` set as `coupon_code`. These key-value pairs allow you to filter and display type-specific Content Cards on the checkout screen. For more information on using key-value pairs to manage multiple feeds, see [Customizing the default Content Card feed]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds). 
 <br>

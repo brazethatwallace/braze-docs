@@ -221,7 +221,7 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Données utilisateur | Edit User Data | Créer et mettre à jour les données utilisateur |
 | Données utilisateur | Export User Data | Télécharger des utilisateurs depuis le tableau de bord |
 | Utilisateurs en double | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
-| Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles |
+| Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles. Les utilisateurs disposant de cette autorisation ne peuvent pas enregistrer ni lancer de Campaigns faisant référence à des attributs personnalisés marqués comme données personnelles, sauf s'ils disposent également de l'autorisation « View Custom Attributes Marked as PII ». |
 | Utilisateurs | View User Event Properties | Consulter les propriétés d'événement dans l'onglet **Historique des événements** des profils utilisateur |
 | Utilisateurs en double | Merge Duplicate Users | Combiner des utilisateurs en double en un seul utilisateur. Les doublons sont supprimés après la fusion |
 | Suppression d'utilisateurs | View User Deletion Records | Consulter une liste des enregistrements de suppression d'utilisateurs |
@@ -362,7 +362,7 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Paramètres de domaine | Edit Domain Settings | Ajouter des domaines délégués et des domaines personnalisés sous les domaines vérifiés |
 | Chiffrement au niveau des champs | Edit Identifier Field-Level Encryption | Activer et mettre à jour les paramètres de chiffrement au niveau des champs |
 | Ressources de la bibliothèque multimédia | View Media Library Assets | Consulter les ressources de la bibliothèque multimédia |
-| Ressources de la bibliothèque multimédia | Delete Media Library Assets | Supprimer définitivement des ressources de la bibliothèque multimédia |
+| Ressources de la bibliothèque multimédia | Delete Media Library Assets | Supprimer des ressources de la bibliothèque multimédia depuis l'interface. Les ressources supprimées restent hébergées par Braze pour éviter de casser les messages qui y font référence. Pour supprimer définitivement une ressource, contactez l'assistance Braze. |
 | Ressources de la bibliothèque multimédia | Edit Media Library Assets | Créer et mettre à jour des ressources de la bibliothèque multimédia |
 | Ressources de la bibliothèque multimédia | Replace Media Library Assets | Remplacer le fichier d'une ressource existante de la bibliothèque multimédia tout en conservant son URL et son ID de ressource |
 | Limites de débit des messages | View Messaging Rate Limits | Consulter les limites de débit des messages au niveau de l'espace de travail |

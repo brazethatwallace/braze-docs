@@ -427,7 +427,7 @@ The `class_type` is used to determine which of your custom objects will be initi
 
 ## Use cases
 
-We've provided three use cases below. Each use case offers a detailed explanation, relevant code snippets, and a look into how Content Card variables may look and be used in the Braze dashboard:
+We've provided three use cases in the following section. Each use case offers a detailed explanation, relevant code snippets, and a look into how Content Card variables may look and be used in the Braze dashboard:
 - [Content Cards as supplemental content](#content-cards-as-supplemental-content)
 - [Content Cards in a message center](#content-cards-in-a-message-center)
 - [Interactive Content Cards](#interactive-content-cards)
@@ -438,7 +438,7 @@ We've provided three use cases below. Each use case offers a detailed explanatio
 
 You can seamlessly blend Content Cards into an existing feed, allowing data from multiple feeds to load simultaneously. This creates a cohesive, harmonious experience with Braze Content Cards and existing feed content.
 
-The example to the right shows a `UICollectionView` with a hybrid list of items that are populated via local data and Content Cards powered by Braze. With this, Content Cards can be indistinguishable alongside existing content.
+The accompanying example shows a `UICollectionView` with a hybrid list of items that are populated via local data and Content Cards powered by Braze. With this, Content Cards can be indistinguishable alongside existing content.
 
 #### Dashboard configuration
 
@@ -533,7 +533,7 @@ Visit the [following section](#logging-impressions-clicks-and-dismissals) to get
 
 ### Interactive Content Cards
 <br>
-Content Cards can be used to create dynamic and interactive experiences for your users. In the example to the right, we have a Content Card pop-up appear at checkout providing users last-minute promotions. 
+Content Cards can be used to create dynamic and interactive experiences for your users. In the accompanying example, a Content Card pop-up appears at checkout to provide users with last-minute promotions. 
 
 Well-placed cards like this are a great way to give users a "nudge" toward specific user actions. 
 <br><br><br>

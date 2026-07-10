@@ -5,18 +5,18 @@ page_order: 3
 description: "Découvrez comment créer des tickets d'assistance directement depuis BrazeAI Operator sans quitter le tableau de bord de Braze."
 ---
 
-# Créer des tickets d'assistance avec BrazeAI Operator
+# Créer des tickets d'assistance avec BrazeAI Operator {#file-support-tickets-with-brazeai-operator}
 
 > Découvrez comment créer des tickets d'assistance directement depuis BrazeAI Operator<sup>TM</sup> sans quitter le tableau de bord de Braze.
 
-## Comment créer un ticket
+## Comment créer un ticket {#how-to-file-a-ticket}
 
-1. Posez une question à Operator, puis sélectionnez <i class="fa-regular fa-circle-question"></i> **File a support ticket** (ou demandez à Operator d'en créer un).
+1. Posez une question à Operator, puis sélectionnez <i class="fa-regular fa-circle-question"></i> **Contact Support** (ou demandez à Operator d'en créer un).
 2. Renseignez le titre et la description du problème.
 3. Vérifiez les pièces jointes et le contexte suggérés à inclure.
-4. Vérifiez le tout et sélectionnez **Envoyer**.
+4. Vérifiez le tout et sélectionnez **Submit**.
 
-## Contexte inclus automatiquement
+## Contexte inclus automatiquement {#auto-included-context}
 
 Lorsque vous créez un ticket depuis Operator, le contexte suivant est automatiquement inclus :
 
@@ -27,7 +27,7 @@ Lorsque vous créez un ticket depuis Operator, le contexte suivant est automatiq
 
 Vous pouvez ajouter du contexte supplémentaire manuellement à l'aide du champ de texte ou en joignant des fichiers.
 
-## Conseils pour une résolution plus rapide
+## Conseils pour une résolution plus rapide {#tips-for-faster-resolution}
 
 - Ajoutez une description détaillée des étapes permettant de reproduire le problème.
 - Incluez les messages d'erreur pertinents ou tout comportement inattendu.

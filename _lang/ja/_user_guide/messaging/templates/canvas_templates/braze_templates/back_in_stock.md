@@ -87,7 +87,7 @@ Classic Straight Legジーンズを購入する可能性が高いと思われる
 
 デフォルトのサブスクリプション設定をそのまま使用し、メッセージや通知の受信を購読またはオプトインしたユーザーにのみ送信します。その他の設定（フリークエンシーキャップ、静寂時間、シードグループ）はスキップします。
 
-![購読中またはオプトインしたユーザーをターゲットにする「Send Settings」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_8.png %})
+![購読中またはオプトインしたユーザーをターゲットにする「送信設定」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_8.png %})
 
 ### ステップ 6: キャンバスをカスタマイズする {#step-6-customize-your-canvas}
 

@@ -90,11 +90,11 @@ For example, let's create a simple translation key, `description`:
 3. Add "Web" in the **Platforms** dropdown. 
 4. When you are ready, click **Save**.
 
-![]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
+![Lokalise Add Key modal creating the `description` translation key.]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
 
 Your translation key should appear in the project editor:
 
-![]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
+![Lokalise project editor showing the newly added translation key.]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
 
 ##### Known issues
 
@@ -118,7 +118,7 @@ The translation file URL is the URL that you will need when configuring a Braze 
 
 To test this URL, copy it and replace {% raw %}`{{${language}}}`{% endraw %} with a language code (for example, `en`) and open this URL in your browser. You will see a JSON file with your keys and translations:
 
-![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
+![Browser view of the Lokalise exported translation JSON file.]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
 #### Step 4: Use translations in Braze campaign
 
@@ -147,7 +147,7 @@ Now use the translations variable to display the desired translations by their k
 For example, to display the `description` key, use`{{ translations.description }}`.
 
 {% endraw %}
-![]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
+![Braze email editor example showing Connected Content translations from Lokalise.]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
 
 Lastly, save the email template and preview it. You should see your translation being displayed.
 

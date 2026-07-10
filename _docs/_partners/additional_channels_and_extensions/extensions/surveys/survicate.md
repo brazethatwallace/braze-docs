@@ -130,7 +130,7 @@ You can find a sample snippet and React implementation [on Survicate's developer
 {% endalert %}
 
 {: start="3"}
-3. In your Braze campaign, set up the Target and Assign steps. When complete, your campaign is ready to launch. In the Review step, you can see how the campaign looks. The survey appears on your website in the place specified in the Survicate panel, as described above.
+3. In your Braze campaign, set up the Target and Assign steps. When complete, your campaign is ready to launch. In the Review step, you can see how the campaign looks. The survey appears on your website in the place specified in the Survicate panel, as described in Step 1.
 
 ### Enabling the Braze integration
 

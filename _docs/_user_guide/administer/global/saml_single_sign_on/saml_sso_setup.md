@@ -95,6 +95,10 @@ You can restrict the members of your organization to only sign in with either Go
 
 By turning on restrictions, your company's Braze users will no longer be able to log in using a password, even if they have logged in with a password before.
 
+{% alert important %}
+After SSO is enforced, there is no fallback option for logging in if SSO authentication fails. Before enabling SSO enforcement, make sure your SSO configuration is correct, all certificates are current and renewed, and your security settings are properly managed to prevent login issues.
+{% endalert %}
+
 ## Obtaining a SAML trace
 
 If you experience login issues related to SSO, obtaining a SAML trace can help you troubleshoot your SSO connection by identifying what's sent in the SAML requests.

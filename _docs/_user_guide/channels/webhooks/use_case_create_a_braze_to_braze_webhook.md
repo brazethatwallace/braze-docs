@@ -14,6 +14,16 @@ description: "This reference article covers when to use User Update versus Braze
 
 To get the most out of this article, you should be familiar with [how webhooks work]({{site.baseurl}}/user_guide/channels/webhooks) and how to [create a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) in Braze.
 
+## Use Send to Destination for triggering another Canvas
+
+To trigger a second Canvas from within a Canvas, use [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) instead of a Braze-to-Braze webhook. This Canvas component is designed specifically for connecting Canvas journeys and provides a simpler, more efficient way to send users from one Canvas to another.
+
+Send to Destination evaluates users against the destination Canvas entry and audience criteria when they reach the step, without requiring webhook configuration or API keys. Users who meet the criteria enter the destination Canvas and can continue their journey in the source Canvas if additional steps follow.
+
+{% alert tip %}
+Add [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) to your Canvas to send users to another Canvas journey without configuring webhooks or API calls.
+{% endalert %}
+
 ## Use User Update for user data changes
 
 To update user profiles from within a Canvas, including modifying [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), recording [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), or recording [Purchases]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), use [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) instead of a Braze-to-Braze webhook. 
@@ -28,12 +38,14 @@ Add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components
 
 User Update can handle nearly all the same tasks as a Braze-to-Braze webhook for updating user profiles. For complex updates beyond simple custom attributes, you can use the [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer).
 
-You can use a Braze-to-Braze webhook when you need to call Braze's [REST API]({{site.baseurl}}/api/basics) from within Braze for scenarios other than direct user updates from Canvas steps. Common examples include:
+Send to Destination provides a simpler way to trigger a second Canvas from within Canvas without needing webhook configuration.
 
-- Triggering an [API-triggered Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) from another Canvas
+You can use a Braze-to-Braze webhook when you need to call Braze's [REST API]({{site.baseurl}}/api/basics) from within Braze for scenarios that don't have a dedicated Canvas component. Common examples include:
+
+- Triggering an [API-triggered Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) from a Canvas
 - Calling other [Messaging endpoints]({{site.baseurl}}/api/endpoints/messaging) for orchestration patterns where one workflow in Braze needs to invoke an API that doesn't have a dedicated Canvas component
 
-For user updates inside Canvas, the recommended method is to use [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update).
+For user updates inside Canvas, use [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). For triggering another Canvas, use [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination).
 
 ## Prerequisites
 

@@ -55,7 +55,7 @@ Brazeと外部AIまたはコミュニケーションシステム間の統合は�
 {% endraw %}
 
 {: start="5"}
-5. キャンペーン作成画面の**Schedule Delivery**ステップで、配信タイプに**Action-Based**を選択し、キャンペーントリガーに**Send a WhatsApp inbound message**を選択します。
+5. キャンペーン作成画面の**配信をスケジュール**ステップで、配信タイプに**アクションベース**を選択し、キャンペーントリガーに**WhatsAppインバウンドメッセージを送信する**を選択します。
 
 ![WhatsAppインバウンドメッセージの送信をトリガーとするアクションベースの配信。]({% image_buster /assets/img/whatsapp/inbound_message_trigger.png %})
 
@@ -77,7 +77,7 @@ Brazeと外部AIまたはコミュニケーションシステム間の統合は�
 ![トリガープロパティを含むメッセージ本文があるメッセージ作成画面。]({% image_buster /assets/img/whatsapp/api_trigger_properties.png %})
 
 {: start="4"}
-4. キャンペーン作成画面の**Schedule Delivery**ステップで、配信タイプに**Action-Based**を選択します。
+4. キャンペーン作成画面の**配信をスケジュール**ステップで、配信タイプに**アクションベース**を選択します。
 5. キャンペーンを保存し、Brazeがこのキャンペーンに対して生成する一意の`campaign_id`をメモしておきます。次のステップでこのIDが必要になります。
 
 ### ステップ 3: 外部システムをAPIトリガーキャンペーンに接続する {#step-3-connect-the-external-system-to-the-api-triggered-campaign}

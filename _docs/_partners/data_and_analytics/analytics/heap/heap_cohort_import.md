@@ -39,7 +39,7 @@ In Braze, navigate to **Partner Integrations** > **Technology Partners** and the
 
 On this page, you can find your data import key and a REST endpoint. Take note of both of these values and provide them to your Heap account manager to finish setting up the integration.
 
-![]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
+![Braze Heap technology partner page showing the data import key and endpoint.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 
 ### Step 2: Segment imported users in Braze
 

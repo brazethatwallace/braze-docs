@@ -320,8 +320,6 @@ if let featureFlag, featureFlag.enabled {
 
 **기능 플래그** 필터를 사용하여 기능 플래그 활성화 여부에 따라 Segment를 만들거나 사용자에게 메시지를 타겟팅할 수 있습니다. 예를 들어 앱에서 프리미엄 콘텐츠를 제어하는 기능 플래그가 있다고 가정합니다. 기능 플래그가 활성화되지 않은 사용자를 필터링하는 Segment를 만든 다음, 프리미엄 콘텐츠를 보려면 계정을 업그레이드하라는 메시지를 해당 Segment에 보낼 수 있습니다.
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
-
 Segment 필터링에 대한 자세한 내용은 [Segment 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)을 참조하세요.
 
 {% alert note %}

@@ -57,13 +57,13 @@ Oui. Le Canvas de destination peut avoir un statut de brouillon ou inactif.
 
 ### Les variables de contexte sont-elles conservées ? {#are-context-variables-preserved}
 
-Oui. Le [contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) du Canvas source est toujours transmis au Canvas de destination.
+Oui. Le [contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) du Canvas source est transmis au Canvas de destination. Cependant, les variables de contexte doivent être invoquées dans le Canvas source pour être transmises au Canvas de destination.
 
-### Puis-je utiliser l'étape Envoyer vers une destination pour connecter des Canvas au lieu d'utiliser des solutions de contournement via l'API ou la Mise à jour utilisateur ? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
+### Puis-je utiliser l'étape Envoyer vers une destination pour connecter des Canvas au lieu d'utiliser des solutions de contournement via l'API ou la mise à jour utilisateur ? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 
 Oui. Vous pouvez connecter des Canvas avec l'étape Envoyer vers une destination lorsque les utilisateurs doivent passer directement à un autre parcours Canvas.
 
-Vous n'avez pas besoin d'étapes de Mise à jour utilisateur séparées, de déclencheurs API ou de webhooks uniquement pour déplacer des utilisateurs entre des Canvas, tant qu'ils remplissent les critères du Canvas de destination au moment de l'envoi.
+Vous n'avez pas besoin d'étapes de mise à jour utilisateur séparées, de déclencheurs API ou de webhooks uniquement pour déplacer des utilisateurs entre des Canvas, tant qu'ils remplissent les critères du Canvas de destination au moment de l'envoi.
 
 ### Les utilisateurs entrent-ils au début du Canvas de destination ? {#do-users-enter-at-the-start-of-the-destination-canvas}
 

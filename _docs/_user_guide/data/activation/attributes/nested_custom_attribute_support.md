@@ -329,6 +329,28 @@ To configure this trigger in an action-based campaign:
 4. Select the trigger condition you want, such as **any new value**.
 5. Finish configuring your campaign message and audience, then launch the campaign.
 
+## Troubleshooting
+
+### Nested custom attribute values not applied consistently
+
+If you notice that nested custom attribute values are not being added to user profiles consistently, the issue is often related to data type mismatches.
+
+To diagnose and resolve this issue:
+
+1. **Compare user examples:** Get one successful and one unsuccessful user example where the nested custom attribute should have been set.
+2. **Review the data structure:** View and compare the custom attribute values on both profiles:
+   - Are the properties stored under an object?
+   - Are the properties stored as an array of properties?
+3. **Check the segmentation filter:** Compare the stored data structure against how the nested custom attribute is referenced in your segmentation filters.
+4. **Verify the data type:** To identify the data type of a custom attribute:
+   - Go to **Data Settings** > **Custom Attributes**.
+   - Search for the top-level custom attribute that contains the nested attribute you want to verify.
+   - If the row shows **Generate Schema**, select it to generate the schema first.
+   - After the schema is generated, select the plus icon in the **Attribute Name** column for that attribute.
+   - In the **Edit schema** modal, review the nested attributes and their corresponding values in the **Data type** column.
+
+If you find that the data type does not match the intended format across user profiles, remove the incorrectly formatted value from the affected user profiles and resend the attribute in the correct format using the appropriate API request or SDK method.
+
 ## Segmentation behavior with arrays of objects
 
 When you use multiple `Nested Custom Attribute` filters with AND logic to segment on an array of objects, each filter is evaluated independently across all items in the array. A user qualifies for the segment if _any_ item in the array satisfies each individual filter—the filters don't have to match the _same_ item.

@@ -55,5 +55,5 @@ Revenue and purchase metrics are not available.
 7. Follow steps 7-9 on the [Report Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) page.
 
 {% alert note %}
-Send feedback to your customer success manager or provide it after selecting the **Send Feedback** button.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}
 {% endalert %}

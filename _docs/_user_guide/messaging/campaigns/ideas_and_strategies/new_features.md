@@ -30,7 +30,7 @@ It may take time for the current app versions to populate. The app version on th
 
 Use the **App Version Number** filter to segment users by the app's version and build number. 
 
-This filter supports numerical comparisons to target a range of app versions. For example, you can target users whose app is "below", "above", and "equal to" app version "1.2.3", which might be beneficial to promote a new feature which requires an app upgrade.
+This filter supports numerical comparisons to target a range of app versions. For example, you can target users whose app is "less than", "greater than", and "equal to" app version "1.2.3", which might be beneficial to promote a new feature which requires an app upgrade.
 
 This new filter can replace the legacy "App Version Name" filter which would require explicitly listing each older version or using a regular expression.
 

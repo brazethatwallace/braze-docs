@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-We also support the shortening of custom-defined Liquid variables. Several examples are shown below:
+We also support the shortening of custom-defined Liquid variables. Several examples are shown in the following section:
 
 ### Create a URL using Liquid variables
 

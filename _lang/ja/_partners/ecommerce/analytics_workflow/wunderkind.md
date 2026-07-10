@@ -76,7 +76,7 @@ Wunderkind Signalsの場合、Braze [REST API]({{site.baseurl}}/api/basics/)リ�
 
 ### ステップ 5: キャンバスの適格性を確認する {#step-5-review-canvas-eligibility}
 
-各Signals キャンバスについて、**Target Audience** 設定に移動し、Wunderkindのデフォルトのエントリオーディエンスと終了条件を確認します。
+各Signals キャンバスについて、**ターゲットオーディエンス** 設定に移動し、Wunderkindのデフォルトのエントリオーディエンスと終了条件を確認します。
 
 - ユーザーへのメッセージ送信頻度が高くなりすぎないようにするには、[ユーザー中心のレート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)を参照してください。
 - ユーザーが購入後もキャンバスメッセージを受信し続けることを防ぐために設定を調整します。例えば、例外として**Make Purchase**を追加します。

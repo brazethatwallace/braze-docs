@@ -73,7 +73,7 @@ First, you'll create a new data transformation in Braze. The following steps are
     ```
     {% endraw %}
 
-    Your transformation should mirror the JavaScript example above, adjusting property names and paths to match your Front webhook payload.
+    Your transformation should mirror the JavaScript example in this section, adjusting property names and paths to match your Front webhook payload.
 
 {% alert tip %}
 You can modify this template to meet your specific needs. For example, you can customize the pre-set custom event name. For more information, see [Data transformation overview]({{site.baseurl}}/user_guide/data/unification/data_transformation/). 

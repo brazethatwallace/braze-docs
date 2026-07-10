@@ -126,7 +126,36 @@ Note: `_includes/` contains reusable content snippets shared across
 multiple pages — not standalone pages with their own URLs. If an
 issue stems from shared content (e.g. a reused note or parameter
 description), the fix may need to happen in `_includes/` rather
-than in the page file itself.
+than in the page file itself. See the includes special rule under
+**User guide vs. developer guide separation** before editing any
+`_includes/` file.
+
+**Placement evaluation — required before any edit**
+
+Treat the URL in the Jira ticket as a starting hint, not a final
+answer. The suggested page may not be the best location for the
+change. Before editing:
+
+1. Read the full content of the suggested page.
+2. Search across `_docs/` for related pages that might be a more
+   appropriate home for the change (for example, a more specific
+   topic page, a FAQ section, or a dedicated reference page).
+3. Once the correct page is confirmed, evaluate the full page
+   content to determine the most appropriate placement within it —
+   not just the section closest to the anchored link in the ticket
+   URL. Consider surrounding context, heading structure, and
+   content flow before deciding where to insert or update content.
+4. **For changes that affect multiple pages:** If the reported issue
+   applies to multiple related pages that cover the same topic (for
+   example, similar feature documentation across different channels,
+   or API references that share the same behavior), identify all
+   affected pages and note them in the PR description. Follow the
+   edge case instructions below if updating multiple pages would
+   require a structural rewrite or coordination across many files.
+5. Document the placement decision briefly in the PR description,
+   noting why the chosen location was selected over the ticket's
+   suggested location if they differ. If multiple pages were
+   updated, list each page and explain why each required the change.
 
 ### 3. Verify against the source code
 
@@ -151,6 +180,25 @@ Always record the specific files and lines you checked, even if they
 were inconclusive. This goes in the PR description.
 
 ### 4. Make the edit
+
+**User guide vs. developer guide separation — required before any edit**
+
+Before making any edit:
+
+1. Identify whether the change is user-facing (product UI, settings,
+   workflows) or developer/SDK-facing (code samples, API calls, SDK
+   methods, integration steps).
+2. Confirm that the target file's location in `_docs/` matches that
+   audience. User guide content lives under `_docs/_user_guide/`.
+   Developer guide content lives under `_docs/_developer_guide/`.
+   Do not add developer- or SDK-specific content to user guide pages.
+3. **Special rule for includes files:** If the target of a change is
+   a file in `_includes/` that is used in both a user guide and a
+   developer guide topic, and the change is developer-specific, do
+   **not** edit the includes file directly. Instead, add the content
+   inline in the developer guide topic only — either just before or
+   just after the tag that pulls in the includes file. This avoids
+   surfacing developer content in the user guide.
 
 Before your first `git commit`, configure the repository git identity
 to the Braze docs service account (run in the repo root):
@@ -199,6 +247,21 @@ Do not:
 - Change formatting or style outside the affected content
 - Add new sections unless the ticket explicitly requests it
 - Edit any file outside `_docs/` or `_includes/`
+
+**Page visibility**
+
+Never change the visibility of a page unless explicitly instructed to do so
+in the Jira ticket. Specifically:
+
+- Do not change `hidden: true` to `hidden: false` or remove the `hidden`
+  front matter field, which would make a hidden page public.
+- Do not change `hidden: false` to `hidden: true` or add a `hidden` field
+  to a page that is currently public.
+- Do not modify `nav_exclude`, `noindex`, or any other front matter fields
+  that affect page visibility or discoverability.
+
+Even if a hidden page is related to the change being made, treat its
+visibility status as intentional and leave it as-is.
 
 Base your work on `develop`.
 
@@ -280,7 +343,10 @@ followed by the standard automation footer:
 
 ## What was changed
 <The specific edit made. If anything related to the issue was
-intentionally left unchanged, explain why.>
+intentionally left unchanged, explain why. Briefly document the
+placement decision: which page and section were chosen, and why
+that location was selected over the ticket's suggested location
+if they differ.>
 
 ## Source code verification
 <List each source file and line number checked, and state whether

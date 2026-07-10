@@ -13,7 +13,7 @@ Notification content app extensions provide you a great option for push notifica
 Push notifications can be expanded in three different ways:
 - A long press on the push banner
 - Swiping down on the push banner
-- Swiping the banner to the left and selecting "View"
+- Swiping the banner horizontally and selecting "View"
 
 These custom views offer smart ways to engage customers by displaying distinct types of content, including interactive notifications, notifications populated with user data, and even push messages that can capture information like phone numbers and email. One of our well-known features at Braze, [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/), are a prime example of what a push notification content app extension can look like!
 

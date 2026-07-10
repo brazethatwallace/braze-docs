@@ -8,7 +8,7 @@ To customize the presentation of in-app messages and react to various lifecycle 
 
 ### Step 1: Implement the `BrazeInAppMessageUIDelegate` protocol 
 
-First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In our example below, we are implementing this protocol in our application's `AppDelegate` class.
+First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In the following example, this protocol is implemented in the application's `AppDelegate` class.
 
 {% tabs %}
 {% tab swift %}
@@ -211,7 +211,7 @@ By default, slideup in-app messages can be dismissed with a swipe gesture. The d
 This swipe behavior is built into the default `BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) and applies only to slideup in-app messages. Modal and full in-app messages don't support swipe-to-dismiss. To further customize the slideup view, including swipe behavior, you can modify the [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) or provide a custom view via subclassing.
 
 {% alert note %}
-Tapping outside of a slideup message does not dismiss it. For modal or full in-app messages, you can enable outside tap dismissals using the `dismissOnBackgroundTap` attribute described below.
+Tapping outside of a slideup message does not dismiss it. For modal or full in-app messages, you can enable outside tap dismissals using the `dismissOnBackgroundTap` attribute described in the following section.
 {% endalert %}
 
 ## Customizing modal dismissals

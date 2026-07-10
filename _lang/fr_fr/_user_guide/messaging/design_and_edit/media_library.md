@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | Autorisation « View Media Library Assets » | Consulter les ressources de la bibliothèque multimédia |
 | Autorisation « Edit Media Library Assets » | Créer et mettre à jour les ressources de la bibliothèque multimédia |
-| Autorisation « Delete Media Library Assets » | Supprimer définitivement les ressources de la bibliothèque multimédia |
+| Autorisation « Delete Media Library Assets » | Supprimer les ressources de la bibliothèque multimédia depuis l'interface. Les ressources supprimées restent hébergées par Braze afin de ne pas interrompre les messages qui y font référence. Pour supprimer définitivement une ressource, contactez le support Braze. |
 | Autorisation « Replace Media Library Assets » | Remplacer le fichier d'une ressource existante de la bibliothèque multimédia tout en conservant son URL et son ID de ressource |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Autorisations de la bibliothèque multimédia" }
 
@@ -39,8 +39,8 @@ Dans la bibliothèque multimédia, vous pouvez voir le type de ressource, sa tai
 * [Générer une image grâce à l'intelligence artificielle](#generate-ai) et la stocker dans la bibliothèque multimédia
 * Recadrer une image existante pour obtenir le bon ratio pour vos messages
 * Remplacer le fichier d'une ressource existante tout en conservant son URL
-* Ajouter des étiquettes ou des équipes pour mieux organiser vos images
-* Rechercher par étiquettes ou par équipes dans la grille de la bibliothèque multimédia
+* Ajouter des tags ou des équipes pour mieux organiser vos images
+* Rechercher par tags ou par équipes dans la grille de la bibliothèque multimédia
 * Glisser-déposer des images ou des dossiers à charger
 * Supprimer des images
 

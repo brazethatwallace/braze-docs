@@ -54,7 +54,7 @@ Si vous envoyez une campagne API via un appel API (à l'exception des campagnes 
 
 #### Canvas et adresses e-mail en double {#canvas-and-duplicate-email-addresses}
 
-Pour les parcours Canvas, le fait que des adresses e-mail en double reçoivent un seul envoi ou plusieurs peut dépendre du regroupement à l'entrée, du timing des étapes et d'autres facteurs. Considérez ce comportement comme indéfini tant que vous ne l'avez pas validé pour votre parcours. Dans la mesure du possible, fusionnez ou consolidez les profils en double. Si vous avez besoin d'une modification du produit, soumettez vos commentaires via votre équipe Braze.
+Pour les parcours Canvas, le fait que des adresses e-mail en double reçoivent un seul envoi ou plusieurs peut dépendre du regroupement à l'entrée, du timing des étapes et d'autres facteurs. Considérez ce comportement comme indéfini tant que vous ne l'avez pas validé pour votre parcours. Dans la mesure du possible, fusionnez ou consolidez les profils en double. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### Que se passe-t-il pour l'état d'abonnement lorsque l'adresse e-mail d'un utilisateur est modifiée vers une adresse partagée par un autre utilisateur ? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -108,7 +108,7 @@ Bien que Braze n'envoie plus de demandes une fois la campagne ou le Canvas arrê
 
 Vous pouvez ne voir aucune ouverture ou clic d'e-mail s'il y a une mauvaise configuration de votre domaine de suivi. Cela peut être dû à l'une des raisons suivantes :
 - Il y a un problème SSL où les URL de suivi sont en `http` au lieu de `https`.
-- Il y a un problème avec votre réseau de diffusion de contenu où la chaîne user agent sur les événements d'ouverture, les événements de clic, ou les deux, ne se renseigne pas.
+- Il y a un problème avec votre CDN où la chaîne user agent sur les événements d'ouverture, les événements de clic, ou les deux, ne se renseigne pas.
 
 ### Quels sont les risques potentiels de déclenchement de clics par les serveurs ? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -164,19 +164,19 @@ Les [ouvertures automatiques]({{site.baseurl}}/user_guide/analytics/metrics_glos
 
 Les pourcentages d'ouvertures automatiques ne sont pas une mesure fiable de l'engagement réel. Pour une vision plus précise des performances des e-mails, concentrez-vous sur les *Autres ouvertures* (ouvertures non automatiques) et les *Clics uniques*. Vous pouvez également comparer ces indicateurs dans le temps en utilisant le [tableau de bord des performances des e-mails]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance).
 
-### Pourquoi mes liens profonds ne fonctionnent-ils pas dans Gmail ? {#why-are-my-deep-links-not-working-in-gmail}
+### Pourquoi mes deep links ne fonctionnent-ils pas dans Gmail ? {#why-are-my-deep-links-not-working-in-gmail}
 
-Gmail supprime tous les liens non HTTP/HTTPS des messages e-mail. Si votre lien profond utilise un schéma personnalisé (tel que `myapp://path/to/content`), Gmail le supprimera et le lien ne fonctionnera pas pour les destinataires lisant l'e-mail dans Gmail. Il s'agit d'une limitation de Gmail, pas de Braze.
+Gmail supprime tous les liens non HTTP/HTTPS des messages e-mail. Si votre deep link utilise un schéma personnalisé (tel que `myapp://path/to/content`), Gmail le supprimera et le lien ne fonctionnera pas pour les destinataires lisant l'e-mail dans Gmail. Il s'agit d'une limitation de Gmail, pas de Braze.
 
 Pour contourner ce problème :
 
 - **Utilisez les Universal Links (iOS) ou les App Links (Android).** Ceux-ci utilisent des URL `https://` standard qui ouvrent votre application lorsqu'elle est installée et renvoient vers une page web dans le cas contraire. Consultez [Universal Links et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) pour les instructions de configuration.
-- **Utilisez un fournisseur de liens profonds.** Des services comme [Branch](https://www.branch.io/) génèrent des liens profonds au format HTTP compatibles avec les clients de messagerie, y compris Gmail.
+- **Utilisez un fournisseur de deep links.** Des services comme [Branch](https://www.branch.io/) génèrent des deep links au format HTTP compatibles avec les clients de messagerie, y compris Gmail.
 - **Configurez un endpoint de redirection.** Hébergez un endpoint `https://` sur votre serveur qui redirige vers l'URL au schéma personnalisé de votre application. Les clients de messagerie conserveront le lien `https://`, et la redirection se chargera d'ouvrir l'application.
 
 ### L'indicateur *Ouvertures uniques* inclut-il les *Ouvertures automatiques* ? {#does-the-unique-opens-metric-include-machine-opens}
 
-Oui. Les *Ouvertures uniques* incluent les *Ouvertures automatiques*. Vous pouvez consulter les deux indicateurs dans la vue **Campaign Analytics** et le **Générateur de rapports**.
+Oui. Les *Ouvertures uniques* incluent les *Ouvertures automatiques*. Vous pouvez consulter les deux indicateurs dans la vue **Campaign Analytics** et le **générateur de rapports**.
 
 ### Pourquoi mon volume de distribution d'e-mails ne correspond-il pas à mon volume d'envoi ? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -242,7 +242,21 @@ Utilisez les tableaux suivants pour identifier la cause.
 
 ### Comment puis-je optimiser les images dans Outlook ? {#how-can-i-optimize-images-in-outlook}
 
-Outlook utilise souvent un rendu de type Microsoft Word, ce qui peut ajouter une bordure autour des images. Vous pouvez encapsuler le contenu pour le masquer dans les clients Office en utilisant des commentaires conditionnels standard, par exemple :
+Outlook utilise souvent le rendu Microsoft Word plutôt que le rendu standard du navigateur, ce qui peut entraîner un affichage incorrect des images ou l'ajout de bordures autour des images.
+
+Si les images s'affichent plus grandes que leur largeur attendue dans Outlook, ajoutez le CSS suivant à l'image :
+
+```css
+max-width: 100%;
+```
+
+Par exemple :
+
+```html
+<img src="your-image.png" style="max-width: 100%;" alt="Description">
+```
+
+Vous pouvez également encapsuler le contenu pour le masquer dans Outlook desktop en utilisant des commentaires conditionnels :
 
 ```html
 <!--[if !mso]><!-- -->

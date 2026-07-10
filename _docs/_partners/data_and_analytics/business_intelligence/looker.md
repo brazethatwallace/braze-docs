@@ -23,7 +23,7 @@ The Braze and Looker integration allows company users to leverage first-party [L
 | Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
-#### Considerations
+### Considerations
 
 - This process only works with data that has not been pivoted.
 - The API processes a maximum of 100,000 rows at a time.
@@ -50,7 +50,7 @@ Braze has built our Looker Blocks using [Snowflake](https://www.snowflake.com/) 
 Be aware of different naming conventions! Custom names can cause incongruities in data unless you change all corresponding names. If you've customized any View/table or model names, rename each in the LookML to the name you've selected.
 {% endalert %}
 
-#### Available Blocks
+### Available Blocks
 
 | Block | Description |
 |---|---|
@@ -102,11 +102,11 @@ Note the following limitations:
 
 #### Step 4: Send the Looker action
 
-1. Within a Look with a `braze_id` dimension selected, click the settings gear ( <i class="fas fa-cog"></i> ) on the upper right, and select **Send...**.
+1. Within a Look with a `braze_id` dimension selected, click the settings gear ( <i class="fas fa-cog"></i> ) in the toolbar, and select **Send...**.
 2. Select the custom Braze Action.
 3. Under **Unique Key**, provide the primary user mapping key for the Braze account (`external_id` or `braze_id`).
 4. Give the export a name. If none is provided, `LOOKER_EXPORT` will be used.
-5. Under **Advanced Options**, select **Results in Table** or **All Results** and then **Send**.<br><br>![]({% image_buster /assets/img/send-looker-action.png %})<br><br>If the export was correctly sent, then `LOOKER_EXPORT` should appear in the user's profile as a custom attribute with the value you entered in the action.<br><br>![]({% image_buster /assets/img/custom-attributes-looker.png %})
+5. Under **Advanced Options**, select **Results in Table** or **All Results** and then **Send**.<br><br>![Looker send dialog with the Braze action and advanced options selected.]({% image_buster /assets/img/send-looker-action.png %})<br><br>If the export was correctly sent, then `LOOKER_EXPORT` should appear in the user's profile as a custom attribute with the value you entered in the action.<br><br>![Braze user profile showing the LOOKER_EXPORT custom attribute value.]({% image_buster /assets/img/custom-attributes-looker.png %})
 
 ##### Example outgoing API
 
