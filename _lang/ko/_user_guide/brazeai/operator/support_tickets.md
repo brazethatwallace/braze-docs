@@ -5,18 +5,18 @@ page_order: 3
 description: "Braze 대시보드를 벗어나지 않고 BrazeAI Operator에서 직접 고객지원 티켓을 제출하는 방법을 알아보세요."
 ---
 
-# BrazeAI Operator로 고객지원 티켓 제출하기
+# BrazeAI Operator로 고객지원 티켓 제출하기 {#file-support-tickets-with-brazeai-operator}
 
 > Braze 대시보드를 벗어나지 않고 BrazeAI Operator<sup>TM</sup>에서 직접 고객지원 티켓을 제출하는 방법을 알아보세요.
 
-## 티켓 제출 방법
+## 티켓 제출 방법 {#how-to-file-a-ticket}
 
 1. Operator에 질문한 다음 <i class="fa-regular fa-circle-question"></i> **고객지원 티켓 제출**을 선택합니다(또는 Operator에게 티켓 제출을 요청합니다).
 2. 이슈의 제목과 설명을 입력합니다.
 3. 포함할 첨부 파일과 컨텍스트 제안 사항을 검토합니다.
 4. 검토 후 **제출**을 선택합니다.
 
-## 자동 포함 컨텍스트
+## 자동 포함 컨텍스트 {#auto-included-context}
 
 Operator에서 티켓을 제출하면 다음 컨텍스트가 자동으로 포함됩니다:
 
@@ -27,7 +27,7 @@ Operator에서 티켓을 제출하면 다음 컨텍스트가 자동으로 포함
 
 텍스트 필드를 사용하거나 파일을 첨부하여 수동으로 추가 컨텍스트를 포함할 수 있습니다.
 
-## 빠른 해결을 위한 팁
+## 빠른 해결을 위한 팁 {#tips-for-faster-resolution}
 
 - 이슈를 재현하는 단계에 대한 자세한 설명을 추가하세요.
 - 관련 오류 메시지나 예상치 못한 동작을 포함하세요.
