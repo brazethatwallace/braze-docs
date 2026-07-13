@@ -22,6 +22,8 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
       HEAD_SHA: ${{ github.event.pull_request.head.sha }}
       HEAD_REF: ${{ github.event.pull_request.head.ref }}
+      # Comma-separated GitHub logins for docs contributors (same var as jira-non-docs-reviewer).
+      DOCS_USERNAMES: ${{ vars.DOCS_USERNAMES }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -36,6 +38,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -50,11 +53,44 @@ jobs:
         run: |
           set -uo pipefail
 
+          author_login="${{ github.event.pull_request.user.login }}"
+          base_ref="${{ github.event.pull_request.base.ref }}"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+          # Skip bot path for docs contributors listed in DOCS_USERNAMES to avoid
+          # duplicate deployments. Prefer this allowlist over the docs-team GitHub
+          # group API — github.token cannot reliably read org team memberships.
+          author_login_lc="$(printf '%s' "${author_login}" | tr '[:upper:]' '[:lower:]')"
+          docs_usernames_normalized=",$(printf '%s' "${DOCS_USERNAMES:-}" | tr '[:upper:]' '[:lower:]' | tr -d ' '),"
+          if [[ -z "${DOCS_USERNAMES:-}" ]]; then
+            echo "DOCS_USERNAMES is not configured; bot deployment will run for all authors."
+          elif [[ "${docs_usernames_normalized}" == *",${author_login_lc},"* ]]; then
+            echo "Author ${author_login} is in DOCS_USERNAMES; skipping bot deployment."
+            {
+              echo "### Vercel preview status (docs bot)"
+              echo
+              echo "Skipped for docs contributor \`${author_login}\`."
+              echo "Native Vercel integration remains the source of truth on this PR."
+            } >> "$GITHUB_STEP_SUMMARY"
+
+            echo "deploy_state=skipped_docs_author" >> "$GITHUB_OUTPUT"
+            echo "preview_en_url=" >> "$GITHUB_OUTPUT"
+            {
+              echo "locale_links<<EOF"
+              echo "- skipped: PR author is in DOCS_USERNAMES; native Vercel checks are expected."
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
           if [[ -z "${VERCEL_TOKEN:-}" || -z "${VERCEL_ORG_ID:-}" ]]; then
             echo "Missing VERCEL_TOKEN or VERCEL_ORG_ID."
             echo "deploy_state=error" >> "$GITHUB_OUTPUT"
             exit 1
           fi
+
+          git fetch origin "${base_ref}" --depth=1
+          changed_files="$(git diff --name-only "origin/${base_ref}...HEAD" || true)"
 
           locales=("de" "en" "es" "fr" "ja" "ko" "pt-br")
           contexts=(
@@ -84,6 +120,15 @@ jobs:
             "VERCEL_PROJECT_ID_KO"
             "VERCEL_PROJECT_ID_PT_BR"
           )
+          locale_paths=(
+            "_lang/de/"
+            "_docs/"
+            "_lang/es/"
+            "_lang/fr_fr/"
+            "_lang/ja/"
+            "_lang/ko/"
+            "_lang/pt_br/"
+          )
 
           any_failure=0
           preview_en_url=""
@@ -105,6 +150,15 @@ jobs:
             context="${contexts[$i]}"
             project_id="${project_ids[$i]}"
             secret_name="${secret_names[$i]}"
+            locale_path="${locale_paths[$i]}"
+            should_deploy_locale=0
+
+            # Always deploy EN. For localized projects, deploy only when that locale changed.
+            if [[ "${locale}" == "en" ]]; then
+              should_deploy_locale=1
+            elif printf '%s\n' "${changed_files}" | grep -q "^${locale_path}"; then
+              should_deploy_locale=1
+            fi
 
             if [[ -z "${project_id}" ]]; then
               gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
@@ -115,6 +169,18 @@ jobs:
               summary_rows+=("| ${locale} | error | Missing ${secret_name} |")
               locale_links+=("- ${locale}: missing ${secret_name}")
               any_failure=1
+              continue
+            fi
+
+            if [[ "${should_deploy_locale}" -eq 0 ]]; then
+              gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
+                --method POST \
+                -f state="success" \
+                -f context="${context}" \
+                -f target_url="${run_url}" \
+                -f description="Skipped: no locale changes in this PR." >/dev/null
+              summary_rows+=("| ${locale} | success | Skipped (no locale changes) |")
+              locale_links+=("- ${locale}: skipped (no locale changes)")
               continue
             fi
 
@@ -136,7 +202,7 @@ jobs:
             echo "${deploy_output}"
 
             preview_url="$(printf '%s' "${deploy_output}" | python3 -c 'import re,sys; m=re.findall(r"https://[^\s]+\.vercel\.app", sys.stdin.read()); print(m[-1] if m else "")')"
-            fallback_url="${preview_url:-${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}}"
+            fallback_url="${preview_url:-${run_url}}"
 
             if [[ "${deploy_exit_code}" -eq 0 && -n "${preview_url}" ]]; then
               gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
@@ -216,7 +282,12 @@ jobs:
           marker="<!-- vercel-preview-docs-bot -->"
           run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
-          if [[ "${{ steps.deploy.outputs.deploy_state }}" == "success" && -n "${{ steps.deploy.outputs.preview_en_url }}" ]]; then
+          if [[ "${{ steps.deploy.outputs.deploy_state }}" == "skipped_docs_author" ]]; then
+            body="$(printf '%s\n\n%s\n\n%s' \
+              "${marker} ℹ️ Docs bot Vercel preview was skipped." \
+              "Reason: PR author is listed in DOCS_USERNAMES, so native Vercel integration remains the source of truth for this PR." \
+              "No bot deployment was created in order to avoid duplicate previews.")"
+          elif [[ "${{ steps.deploy.outputs.deploy_state }}" == "success" && -n "${{ steps.deploy.outputs.preview_en_url }}" ]]; then
             body="$(printf '%s\n\n%s\n\n%s\n\n%s' \
               "${marker} ✅ Docs bot Vercel preview deployed successfully." \
               "EN preview: ${{ steps.deploy.outputs.preview_en_url }}" \
