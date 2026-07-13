@@ -250,9 +250,25 @@ You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/
 
 A user's interaction data includes their recent campaign and Canvas opens, clicks, and conversion data. For example, you can include this context for an agent to reference when it's evaluated in Canvas. User-specific interaction history can also help influence an agent when its job is to write personalized message copy.
 
+## Version history {#version-history}
+
+Agent Console records a new version each time you save agent changes. The **Version history** tab lists every saved version and the edits between saves.
+
+1. Open the agent in Agent Console.
+2. Select the **Version history** tab.
+3. Select a version to review its configuration.
+
+To inspect what changed in a version, select **View**. Braze displays a code-style inline diff that highlights additions and deletions. Deleted content appears with red strikethrough styling.
+
+If you need to restore instructions from a previous version, open **View** for that version, copy the instruction text, and paste it into your current **Instructions** field.
+
+{% alert tip %}
+In the inline diff view, press <kbd>⌘</kbd> + <kbd>A</kbd> (macOS) or <kbd>Ctrl</kbd> + <kbd>A</kbd> (Windows) to select all instructions without the red deletion markup, so you can copy and restore the clean text.
+{% endalert %}
+
 ## Duplicate agents
 
-To test improvements or iterations of an agent, you could duplicate an agent then apply changes to compare to the original. You can also treat duplicating agents as version control to track variations in the agent's details and any impacts on your messaging. To duplicate an agent:
+Duplicate an agent to test improvements or iterations side by side against the original. Use [version history](#version-history) to review or restore earlier configurations. To duplicate an agent:
 
 1. Hover over the agent's row and select the <i class="fas fa-ellipsis-vertical"></i> menu.
 2. Select **Duplicate**.

@@ -39,7 +39,7 @@ Features for Braze Agents include:
 
 - **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, Google Gemini, or Databricks Mosaic).
 - **Seamless integration:** Deploy agents directly in Canvas steps or catalog fields.
-- **Testing and logging tools:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run.
+- **Testing, logging, and version history:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run. Use the **Version history** tab to review past versions and inline diffs of instruction changes.
 - **Usage controls:** Daily limits help manage performance and costs.
 
 ## About Braze Agents

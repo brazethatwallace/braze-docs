@@ -23,7 +23,7 @@ Before you start, you'll need the following:
 
 ## How it works
 
-When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. As you build your agent, you can save it as a draft, and you can pause or update an agent anytime from the dashboard.
+When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. As you build your agent, you can save it as a draft, and you can pause or update an agent anytime from the dashboard. Each save creates a new version you can review in the [Version history]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history) tab.
 
 The following use cases showcase a few ways to leverage custom agents.
 
