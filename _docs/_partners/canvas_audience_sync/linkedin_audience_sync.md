@@ -59,7 +59,7 @@ Your LinkedIn connection will be applied at the Braze workspace level. If your L
 
 When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following options can help.
 
-If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations/#optional-idfa-collection), you will be able to use the **Ads Tracking Enabled** filter. Select the value as `true` to only send users into Audience Sync destinations where they have opted in. 
+If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), you will be able to use the **Ads Tracking Enabled** filter. Select the value as `true` to only send users into Audience Sync destinations where they have opted in. 
 
 ![An entry audience with the filter "Ad Tracking Enabled is true".]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -117,7 +117,7 @@ Braze also offers the ability to add users to existing LinkedIn audiences to con
 
 ### Step 5: Launch Canvas
 
-Once you have configured your Audience Sync to LinkedIn, simply launch the Canvas! The new audience will be created, and users who flow through the Audience Sync step will be passed into this audience on LinkedIn. If your Canvas contains subsequent components, your users will advance to the next step in their user journey.
+Once you have configured your Audience Sync to LinkedIn, launch the Canvas! The new audience will be created, and users who flow through the Audience Sync step will be passed into this audience on LinkedIn. If your Canvas contains subsequent components, your users will advance to the next step in their user journey.
 
 You can view the audience on LinkedIn by going into your ad account and selecting **Audiences** under the **Assets** section of the navigation. From the **Audiences** page, you can see each audience's size after reaching more than 300 members.
 

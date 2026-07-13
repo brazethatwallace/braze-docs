@@ -935,7 +935,7 @@ In addition to Braze analytics, template-level analytics can be accessed in the 
 
 ### SMS Currents events
 
-Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
+Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
 
 {% alert note %}
 Inbound messages are truncated past 1,600 characters.
