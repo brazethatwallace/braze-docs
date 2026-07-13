@@ -110,6 +110,35 @@ You may see no email opens or clicks if there's a misconfiguration in your track
 - There is an SSL issue where tracking URLs are `http` instead of `https`.
 - There is an issue with your CDN where the user agent string on the open events, click events, or both aren't populating.
 
+### Why am I seeing unusual email open or click behavior?
+
+If you notice unexpected patterns in your email open or click metrics—such as a single user appearing to click every link immediately, or opens not registering as expected—review the following common causes:
+
+#### Email clipping removes the tracking pixel
+
+When an email is clipped by the recipient's email provider (such as Gmail clipping messages over approximately 102 KB), content at the bottom of the email may be truncated. Because the open tracking pixel is typically inserted at the bottom of the email, clipping can prevent open tracking from working.
+
+**How to identify:** Check whether the email displays a "View entire message" or similar link at the bottom. You can use [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to preview the full scrollable email and verify whether the message is being clipped.
+
+**How to resolve:** You can configure Braze to place the tracking pixel at the top of the email instead of the bottom. Moving the tracking pixel may affect how some email clients render your HTML, so test your emails in Inbox Vision after making this change. Note that if the recipient has images disabled, opens cannot be tracked regardless of pixel placement.
+
+#### Delayed stats or clicks without opens
+
+Open tracking relies on the recipient loading the email with images enabled. In some cases, stats may appear delayed or clicks may be logged without corresponding opens due to:
+
+- The recipient viewing the email in a preview pane without fully opening it, then clicking links directly from the preview.
+- The email client not loading images (and therefore the tracking pixel) until after the recipient has interacted with links.
+
+#### Security software simulates link clicks
+
+Some corporate email security tools (such as Barracuda, Proofpoint, and similar services) scan incoming emails by automatically clicking all links in the message to verify they are safe. This can result in click events appearing within seconds of send, often with every link in the email clicked in rapid succession.
+
+This behavior is more common with institutional email domains (such as high schools, universities, and corporate environments) and is more likely when your sending domain differs significantly from your tracking domain. Setting up a [custom branded tracking domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) can reduce the frequency of these automated clicks.
+
+**How to identify:** Look up the IP address of the click event (available in Currents data) in a search engine. If the IP is associated with a known security provider (such as Barracuda Networks), the clicks are likely automated. You may also see a consistent User-Agent header across multiple automated clicks.
+
+For additional context on how security scanning affects email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+
 ### What are the potential risks of triggering server clicks?
 
 Certain elements of an email message, such as overly long messages or too many exclamation marks, can trigger email security responses. These responses can affect reporting and IP reputation and lead users to unsubscribe.
