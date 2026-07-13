@@ -5522,6 +5522,7 @@ validurls['/docs/message_credits_theta_d9kw'] = '/docs/message_credits_theta_d9k
 validurls['/docs/track_users_bulk'] = '/docs/track_users_bulk';
 validurls['/docs/rate_limiting'] = '/docs/rate_limiting';
 validurls['/docs/whatsapp_pricing_updates'] = '/docs/whatsapp_pricing_updates';
+validurls['/docs/message_prioritization/'] = '/docs/message_prioritization/';
 
 validurls['/docs/user_guide/brazeai/operator/prompt_examples'] = '/docs/user_guide/brazeai/operator/prompt_library';
 
