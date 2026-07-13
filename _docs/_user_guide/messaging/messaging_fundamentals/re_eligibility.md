@@ -78,6 +78,10 @@ This means users who received the campaign on February 15 are not eligible for t
 
 When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive another card while an earlier card from the same campaign is still in their feed, which can look like duplicate cards. To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
 
+Unlike other channels (such as push and email) where re-eligibility is calculated from the message delivery timestamp, Content Card re-eligibility is calculated based on the impression timestamp, which is when the user actually views the card. This means if there's a time lag between when a card is delivered and when the user opens their session to view it, they may not become re-eligible as expected. 
+
+For example, if a daily Content Card campaign has a 24-hour re-eligibility window and a user views a card several hours after it's delivered, they may not receive the next day's card because 24 hours haven't passed since the impression. To account for this, consider shortening your re-eligibility window slightly for recurring Content Card campaigns.
+
 ## Re-eligibility for Banners
 
 When re-eligibility is enabled for Banner campaigns, users who dismiss a Banner can become eligible again after a configurable cooldown window that starts at dismissal. If re-eligibility isn't turned on, dismissed users remain ineligible. To configure re-eligibility, see [Configure re-eligibility]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#re-eligibility). Note that Canvas Banner steps use Canvas re-entry settings instead.
