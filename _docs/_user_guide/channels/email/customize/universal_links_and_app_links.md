@@ -452,3 +452,15 @@ In some cases, your click-tracking domain may not be able to host the required `
 
 - **Selectively disable click-tracking on deep-link URLs:** You can disable click-tracking for specific universal links so they go directly to your main domain (where you can host the AASA or Digital Asset Links file). Note that this method can cause loss of click analytics for those specific links. Refer to [Turning off click-tracking on a link-to-link basis](#turning-off-click-tracking-on-a-link-to-link-basis) for instructions.
 - **Front the tracking subdomain with a CDN:** If you need full click-tracking coverage and deep linking, you can place a CDN (such as Cloudflare or CloudFront) in front of your tracking subdomain. Configure the CDN to serve the `.well-known` files locally and proxy all other traffic to your ESP. This approach is more involved but gives you full control over both click-tracking and universal links.
+
+#### Links working in one workspace but not another
+
+If universal links or App Links work correctly in your Production workspace but fail in your Development or Test workspace, verify that the sending email address domain matches the tracking domain configured in each workspace's email settings. Inconsistent configuration between workspaces can cause links to behave differently even when using the same email templates and AASA or Digital Asset Links files.
+
+To check your email configuration:
+
+1. Go to **Settings** > **Email Preferences** in the Braze dashboard.
+2. Review the **Outbound Email Settings** under **Sending Configuration**.
+3. Confirm that your sending domain and tracking domain are properly aligned for the workspace where links aren't working.
+
+If your sending domain differs between workspaces, make sure each workspace has the appropriate DNS records configured and that your AASA (iOS) or Digital Asset Links (Android) files are accessible from each tracking domain.
