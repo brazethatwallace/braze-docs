@@ -321,7 +321,7 @@ Your browser does not support HTML5 video.
 
 The rendered video appears and plays in the preview when `stayfilm_video_url` is set on the profile.
 
-## Extending the integration
+## Extend the integration
 
 This walkthrough covers a subset of the Stayfilm API. To adapt job templates, media inputs, or downstream messaging, see the [Stayfilm API documentation](https://apidoc.stayfilm.com) and update your webhook payload, Data Transformation mapping, and campaign logic accordingly.
 
