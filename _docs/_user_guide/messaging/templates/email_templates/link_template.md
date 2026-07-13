@@ -103,11 +103,11 @@ Archiving templates is not currently available for link templates.
 
 ### Missing UTM parameters
 
-Link templates aren't applied to links in HTML comments, including conditional comments (for example, Outlook conditional comments).
+Link templates aren't applied to links in standard HTML comments (`<!-- ... -->`). For Outlook conditional comments (for example, `<!--[if mso]>`), link templates are applied when link aliasing is enabled for your workspace. Workspaces without link aliasing enabled still skip conditional comments.
 
 ### UTM parameters aren't displaying in each link, but do appear when you view the email in a browser
 
-This can happens when the URL path in your email doesn't match the full path you intend (for example, a shortened or different path than the website's full URL).
+This can happen when the URL path in your email doesn't match the full path you intend (for example, a shortened or different path than the website's full URL).
 
 - **What to check:** The `href` in the email includes the complete path to the page (not only a partial path that relies on redirects).
 - **What to expect:** If the path in the email is incomplete or different, UTM parameters from your link template may not be applied to that link when it's clicked, even though the website might still redirect the visitor to the right page.
@@ -116,8 +116,7 @@ For example, if the full link is `https://www.somewebsite.com/women/designer/joh
 
 ### UTM parameters aren't appending for a link rendered from a Liquid tag
 
-When applying link templates, Braze parses each URL to determine where to append parameters. If a Liquid tag renders a URL that cannot be parsed as a valid URI, the link template is silently skipped. Check that your Liquid output produces a well-formed URL. Test by previewing the message for a specific user and verifying the rendered URL is valid. If the URL includes Liquid variables in the path or query string, confirm the output
-doesn't contain invalid characters or broken encoding.
+When applying link templates, Braze parses each URL to determine where to append parameters. If a Liquid tag renders a URL that cannot be parsed as a valid URI, the link template is silently skipped. Check that your Liquid output produces a well-formed URL. Test by previewing the message for a specific user and verifying the rendered URL is valid. If the URL includes Liquid variables in the path or query string, confirm the output doesn't contain invalid characters or broken encoding.
 
 ### UTM values don't populate compared to the preview in a test send
 
