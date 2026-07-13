@@ -209,11 +209,11 @@ Add the following request headers:
 | `Authorization` | OAuth bearer token retrieved through Connected Content (see the following example) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
-In the following Connected Content block, replace *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`*, and *`{SCOPE_URL_ENCODED}`* with the URL-encoded values Stayfilm provides. For OAuth requirements, see the [Stayfilm API documentation](https://apidoc.stayfilm.com).
+In the following Connected Content block, replace *`{TENANT_ID}`*, *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`*, and *`{SCOPE_URL_ENCODED}`* with the values Stayfilm provides. URL-encode *`{CLIENT_SECRET_URL_ENCODED}`* and *`{SCOPE_URL_ENCODED}`* before you paste them into the block. For OAuth requirements, see the [Stayfilm API documentation](https://apidoc.stayfilm.com).
 
 {% raw %}
 ```
-{% connected_content https://login.microsoftonline.com/5e48f892-53a9-4b3e-b1ee-c09feda231e0/oauth2/v2.0/token
+{% connected_content https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token
   :method post
   :body grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET_URL_ENCODED}&scope={SCOPE_URL_ENCODED}
   :content_type application/x-www-form-urlencoded
