@@ -66,7 +66,7 @@ The following steps walk through a proof of concept. After you validate the flow
 
 Create a test user profile to use while you build and validate the integration. For more information, see [Import users]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).
 
-1. Go to the **Import Users** page under **Audience**.
+1. Go to **Audience** > **Import Users**.
 2. Select **Quick User Add**.
 3. Enter an `external_id` and any other required fields, then select **Create new user**.
 
@@ -74,7 +74,7 @@ Create a test user profile to use while you build and validate the integration. 
 Do not use personal data—such as email, phone number, full name, government ID, address, or order details—as an `external_id`. Treat `external_id` as case-sensitive throughout this integration.
 {% endalert %}
 
-This walkthrough uses `stayfilm-poc-001` as the example `external_id`. Save the value you choose because you use it in later steps.
+This walkthrough uses `stayfilm-poc-001` as the example `external_id`. Note the value you choose because you use it in later steps.
 
 ### Step 2: Create a Data Transformation
 
