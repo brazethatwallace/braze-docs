@@ -9,7 +9,7 @@ channel:
   - WhatsApp
 ---
 
-# Ads That Click to WhatsApp
+# Ads That Click to WhatsApp {#ads-that-click-to-whatsapp}
 
 > Diese Seite bietet eine Schritt-für-Schritt-Anleitung zum Einrichten und Verwenden von Ads That Click to WhatsApp, damit Sie und Ihr Team Ihr WhatsApp-Programm auf das nächste Level heben können.
 
@@ -23,7 +23,7 @@ Ads That Click to WhatsApp sind eine effiziente Möglichkeit, sowohl neue als au
 
 ![Ads Manager mit einem Editor zum Erstellen einer Engagement-Anzeige.]({% image_buster /assets/img/whatsapp/meta_ads_composer.png %})
 
-Wenn Sie die vorausgefüllte Nachricht einrichten, die von dem/der Nutzer:in an Ihr WhatsApp Business-Konto gesendet wird, fügen Sie ein bestimmtes Wort oder eine bestimmte Phrase ein, die Sie verwenden werden, um eine Antwort speziell für diese Anzeige auszulösen. In diesem Beispiel verwendet eine Essenslieferungs-App „free delivery“, weil dies in der Anzeige beworben wird.
+Wenn Sie die vorausgefüllte Nachricht einrichten, die von dem/der Nutzer:in an Ihr WhatsApp-Business-Konto gesendet wird, fügen Sie ein bestimmtes Wort oder eine bestimmte Phrase ein, die Sie verwenden werden, um eine Antwort speziell für diese Anzeige auszulösen. In diesem Beispiel verwendet eine Essenslieferungs-App „free delivery“, weil dies in der Anzeige beworben wird.
 
 ![Ads Manager Template-Editor mit einer vorausgefüllten Nachricht „I want free delivery“.]({% image_buster /assets/img/whatsapp/pre_filled_message.png %})
 
@@ -37,7 +37,7 @@ Machen Sie in der Anzeigenbeschreibung deutlich, dass ein Klick auf die Anzeige 
 ![Entry-Zeitplan für ein aktionsbasiertes Braze-Canvas mit dem Trigger-Ereignis „Eingehende WhatsApp-Nachricht senden“ und einem Nachrichtentext, der dem Regex „free delivery“ entspricht.]({% image_buster /assets/img/whatsapp/action_based_free_delivery.png %})
 
 {: start="3"}
-3. Richten Sie im Canvas eine Antwortnachricht ein, die sofort gesendet wird, nachdem die Kund:in das Canvas betritt (z. B. ohne Verzögerung). Obwohl das Klicken auf die Anzeige technisch gesehen ein Opt-in darstellt, empfehlen wir, Ihre Antwortnachricht so einzurichten, dass die Nutzer:in gefragt wird, ob sie zukünftige Marketing-Nachrichten von Ihnen auf WhatsApp erhalten möchte.
+3. Richten Sie im Canvas eine Antwortnachricht ein, die sofort gesendet wird, nachdem die Kund:in das Canvas betritt (z. B. ohne Verzögerung). Obwohl das Klicken auf die Anzeige technisch gesehen ein Opt-in darstellt, empfehlen wir, Ihre Antwortnachricht so einzurichten, dass Nutzer:innen gefragt werden, ob sie zukünftige Marketing-Nachrichten von Ihnen auf WhatsApp erhalten möchten.
 
 {% alert tip %}
 Richten Sie Ihre Antwortnachricht mit Schnellantworten ein (z. B. „Ja“ oder „Nein danke“), damit Nutzer:innen schnell angeben können, ob sie sich anmelden möchten.
@@ -52,7 +52,7 @@ Vergessen Sie nicht, auch jeden Rabattcode, jedes Angebot oder andere in der Anz
 {: start="4"}
 4. Melden Sie Nutzer:innen an, indem Sie den Abo-Status von Nutzerprofilen mit einer der folgenden Update-Methoden aktualisieren:
     - Erstellen Sie einen Braze-zu-Braze-Webhook, der den Abo-Status über die REST API aktualisiert.
-    - Verwenden Sie den erweiterten JSON-Editor, um das Nutzerprofil mit dem Template zu aktualisieren, das den [Abo-Status einer Nutzer:in für ein WhatsApp-Canvas aktualisiert]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#whatsapp-opt-in-and-opt-out-process).
+    - Verwenden Sie den erweiterten JSON-Editor, um das Nutzerprofil mit dem Template zu aktualisieren, das den [Abo-Status einer Nutzer:in für ein WhatsApp-Canvas aktualisiert]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 ![Nutzeraktualisierungs-Canvas-Schritt, der den erweiterten JSON-Editor verwendet, um das Nutzerprofil zu aktualisieren.]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})
 

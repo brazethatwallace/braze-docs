@@ -58,7 +58,7 @@ Da es sich hierbei um eine fortgeschrittene Anpassungsoption handelt, beachten S
 {% subtab Android %}
 Implementieren Sie `IInAppMessageManagerListener` wie in unserem Android-Artikel über [angepasste Manager-Listener]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners) beschrieben. In Ihrer `beforeInAppMessageDisplayed`-Implementierung können Sie auf die Daten von `inAppMessage` zugreifen, sie an den JavaScript-Layer senden und anhand des Rückgabewerts entscheiden, ob Sie die native Nachricht anzeigen oder nicht.
 
-Mehr über diese Werte erfahren Sie in unserer [Android-Dokumentation]({{site.baseurl}}/developer_guide/in_app_messages/).
+Mehr über diese Werte erfahren Sie in unserer [Android-Dokumentation]({{site.baseurl}}/developer_guide/in_app_messages).
 
 ```java
 // In-app messaging

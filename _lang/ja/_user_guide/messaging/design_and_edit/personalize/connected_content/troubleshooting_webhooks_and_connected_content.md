@@ -11,7 +11,7 @@ description: "この記事では、Webhookとコネクテッドコンテンツ�
 
 ## 4XXエラー {#4xx-errors}
 
-`4XX` エラーは、エンドポイントに送信されたリクエストに問題があることを示します。これらのエラーは通常、不正なパラメーター、認証ヘッダーの欠落、不正なURLなど、誤ったリクエストが原因で発生します。これらのエラーは[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)にも適用されることに注意してください。
+`4XX` エラーは、エンドポイントに送信されたリクエストに問題があることを示します。これらのエラーは通常、不正なパラメーター、認証ヘッダーの欠落、不正なURLなど、誤ったリクエストが原因で発生します。これらのエラーは[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)にも適用されることに注意してください。
 
 エラーコードの詳細と解決手順については、以下の表を参照してください。
 
@@ -108,7 +108,7 @@ table td {
       <td>一定時間内に送信されたリクエストが多すぎます。</td>
       <td>
         <ul>
-          <li>Campaignまたはキャンバスステップのレート制限を下げてください。</li>
+          <li>キャンペーンまたはキャンバスステップのレート制限を下げてください。</li>
         </ul>
       </td>
     </tr>
@@ -134,7 +134,7 @@ table td {
 
 一般的な `5XX` エラーのトラブルシューティングのヒントを以下に示します。
 
-- **メッセージアクティビティログ**で利用可能な具体的な詳細についてエラーメッセージを確認してください。Webhookの場合は、Brazeホームページの**Performance Over Time**セクションに移動し、webhookの統計を選択してください。ここから、エラーが発生したタイムスタンプを確認できます。
+- **メッセージアクティビティログ**で利用可能な具体的な詳細についてエラーメッセージを確認してください。Webhookの場合は、Brazeホームページの**Performance Over Time**セクションに移動し、Webhookの統計を選択してください。ここから、エラーが発生したタイムスタンプを確認できます。
 - エンドポイントを過負荷にするほど多くのリクエストを送信していないことを確認してください。バッチで送信するか、レート制限を調整して、エラーが減少するかどうかを確認できます。
 
 ## 異常ホスト検出 {#unhealthy-host-detection}
@@ -149,18 +149,18 @@ BrazeのWebhookとコネクテッドコンテンツは、ターゲットホス�
 
 以下のエラーコードが異常ホスト検出の失敗カウントに寄与します: `408`、`429`、`502`、`503`、`504`、`529`。
 
-Webhookの場合、Brazeは異常ホスト検出によって停止されたHTTPリクエストを自動的にリトライします。この自動リトライはエクスポネンシャルバックオフを使用し、失敗するまで数回のみリトライします。Webhookエラーの詳細については、[エラー、リトライロジック、タイムアウト]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts)を参照してください。
+Webhookの場合、Brazeは異常ホスト検出によって停止されたHTTPリクエストを自動的にリトライします。この自動リトライはエクスポネンシャルバックオフを使用し、失敗するまで数回のみリトライします。Webhookエラーの詳細については、[エラー、リトライロジック、タイムアウト]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#errors-retry-logic-and-timeouts)を参照してください。
 
-コネクテッドコンテンツの場合、ターゲットホストへのリクエストが異常ホスト検出によって停止されると、Brazeはエラー応答コードを受信したかのようにメッセージのレンダリングを続行し、Liquidロジックに従います。これらのコネクテッドコンテンツリクエストが異常ホスト検出によって停止された際にリトライされるようにするには、`:retry` オプションを使用してください。`:retry` オプションの詳細については、[コネクテッドコンテンツのリトライ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)を参照してください。
+コネクテッドコンテンツの場合、ターゲットホストへのリクエストが異常ホスト検出によって停止されると、Brazeはエラー応答コードを受信したかのようにメッセージのレンダリングを続行し、Liquidロジックに従います。これらのコネクテッドコンテンツリクエストが異常ホスト検出によって停止された際にリトライされるようにするには、`:retry` オプションを使用してください。`:retry` オプションの詳細については、[コネクテッドコンテンツのリトライ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)を参照してください。
 
-異常ホスト検出が問題を引き起こしていると思われる場合は、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+異常ホスト検出が問題を引き起こしていると思われる場合は、[Brazeサポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 
 ### コネクテッドコンテンツがレスポンスボディを返さない場合 {#connected-content-returns-no-response-body}
 
 コネクテッドコンテンツの呼び出しがメッセージプレビューや送信で空白として表示される場合は、以下を確認してください。
 
 - **URL内のノーブレークスペース:** Brazeはリクエストを行う前に、コネクテッドコンテンツURLからノーブレークスペース（`&nbsp;` またはUnicode `U+00A0`）を除去します。URLがドキュメントやダッシュボードのフィールドからコピーされ、文字間にノーブレークスペースが挿入されていた場合、リクエストが失敗するか、使用可能なボディが返されない可能性があります。URLをプレーンテキストで再入力するか、隠れたスペースを削除してから、再度プレビューしてください。
-- **HTTPエラーと空のボディ:** ステータスコードが300以上の場合やホストがブロックされている場合、コネクテッドコンテンツは空の文字列をレンダリングすることがあります。[API呼び出しの実行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を参照し、**メッセージアクティビティログ**で失敗を確認してください。
+- **HTTPエラーと空のボディ:** このセクションで前述したステータスコード300以上やホストがブロックされている場合、コネクテッドコンテンツは空の文字列をレンダリングすることがあります。[API呼び出しの実行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を参照し、**メッセージアクティビティログ**で失敗を確認してください。
 
 ## 自動メールとメッセージアクティビティログのエントリ {#automated-emails-and-message-activity-log-entries}
 
@@ -169,14 +169,14 @@ Webhookの場合、Brazeは異常ホスト検出によって停止されたHTTP�
 ワークスペースで24時間以内にWebhookまたはコネクテッドコンテンツのエンドポイントエラー（リトライを含む）が100,000件を超えた場合、Brazeはエラーの解決方法に関する以下の情報を含むメールを送信します。
 
 - ワークスペース名
-- CanvasまたはCampaignへのリンク
+- キャンバスまたはキャンペーンへのリンク
 - エンドポイントURL
 - エラーコード
 - エラーが最後に観測された時刻
 - メッセージアクティビティログおよび関連ドキュメントへのリンク
 
 {% alert note %}
-エラーしきい値はワークスペースごとに設定できます。このしきい値を調整するには、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+エラーしきい値はワークスペースごとに設定できます。このしきい値を調整するには、[Brazeサポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 {% endalert %}
 
 エンドポイントエラーは以下のとおりです。
@@ -189,11 +189,11 @@ Webhookの場合、Brazeは異常ホスト検出によって停止されたHTTP�
 これらのメールを受信するには、以下の手順を実行してください。
 
 1. **設定** > **管理者設定** > **通知設定**に移動します。
-2. **Canvas & Campaigns**セクションで**Connected Content Errors**と**Webhook Errors**を選択します。
+2. **キャンバスとキャンペーン**セクションで**Connected Content Errors**と**Webhook Errors**を選択します。
 
 ### メッセージアクティビティログのエントリ {#message-activity-log-entries}
 
-失敗が発生した場合、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)に関連するエントリが少なくとも1つあります。リクエストがリトライされて最終的に成功した場合、その詳細はCurrentsとSnowflakeデータ共有で確認できます。リトライ後にリクエストが最終的に成功した場合でも、エラーは自動メールをトリガーする可能性があることに注意してください。
+失敗が発生した場合、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に関連するエントリが少なくとも1つあります。リクエストがリトライされて最終的に成功した場合、その詳細はCurrentsとSnowflakeデータ共有で確認できます。リトライ後にリクエストが最終的に成功した場合でも、エラーは自動メールをトリガーする可能性があることに注意してください。
 
 ### Braze Currentsでの追加の失敗インサイト {#additional-failure-insights-in-braze-currents}
 
@@ -203,4 +203,4 @@ Webhook関連の問題に対する透明性を高めるため、BrazeはWebhook�
 コネクテッドコンテンツリクエストは、これらのWebhook失敗イベントには含まれません。
 {% endalert %}
 
-詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。
+詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)を参照してください。

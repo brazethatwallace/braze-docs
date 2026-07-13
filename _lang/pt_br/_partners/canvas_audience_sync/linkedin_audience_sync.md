@@ -21,7 +21,7 @@ Usando o Braze Audience Sync com o LinkedIn, as marcas podem adicionar dados de 
 
 Esse recurso permite que as marcas controlem quais dados primários específicos são compartilhados com o LinkedIn. Na Braze, as integrações com as quais você pode e não pode compartilhar seus dados primários recebem a máxima consideração. Para saber mais, consulte nossa [política de privacidade](https://www.braze.com/privacy).
 
-{% multi_lang_include early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
 
 ## Pré-requisitos {#prerequisites}
 
@@ -38,7 +38,7 @@ Certifique-se de que os seguintes itens tenham sido criados, concluídos ou acei
 ### Etapa 1: Conecte-se ao LinkedIn {#step-1-connect-to-linkedin}
 
 {% alert important %}
-Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar o LinkedIn à sua conta da Braze.
+Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar o LinkedIn à sua conta da Braze.
 {% endalert %}
 
 No dashboard da Braze, acesse **Parceiros de tecnologia** e selecione **LinkedIn**. Na seção **LinkedIn Audience Sync**, selecione **Connect LinkedIn**.
@@ -59,7 +59,7 @@ Sua conexão com o LinkedIn será aplicada no nível do espaço de trabalho da B
 
 Ao criar públicos para rastreamento de anúncios, talvez seja necessário incluir ou excluir determinados usuários com base em suas preferências e para cumprir as leis de privacidade, como o direito de "Não vender ou compartilhar" de acordo com a [CCPA](https://oag.ca.gov/privacy/ccpa). Os profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários em seus critérios de entrada no Canvas. Abaixo, listamos algumas opções.
 
-Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations/#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar os usuários apenas para destinos do Audience Sync nos quais eles aceitaram participar.
+Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar os usuários apenas para destinos do Audience Sync nos quais eles aceitaram participar.
 
 ![Um público de entrada com o filtro "Ad Tracking Enabled is true".]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -67,7 +67,7 @@ Se você estiver coletando `opt-ins`, `opt-outs`, `Do Not Sell Or Share` ou quai
 
 ![Um Canvas com um público de entrada de "opted_in_marketing" igual a "true".]({% image_buster /assets/img/linkedin/linkedin4.png %}){: style="max-width:75%;"}
 
-Para saber mais sobre como cumprir essas leis de proteção de dados na plataforma Braze, consulte a [Assistência técnica de proteção de dados]({{site.baseurl}}/dp-technical-assistance/).
+Para saber mais sobre como cumprir essas leis de proteção de dados na plataforma Braze, consulte a [Assistência técnica de proteção de dados]({{site.baseurl}}/dp-technical-assistance).
 
 ### Etapa 3: Adicione uma etapa de Audience Sync com o LinkedIn {#step-3-add-an-audience-sync-step-with-linkedin}
 
@@ -123,11 +123,11 @@ Depois de configurar o Audience Sync com o LinkedIn, basta lançar o Canvas! O n
 
 ![Página do LinkedIn listando as métricas a seguir para o público em questão.]({% image_buster /assets/img/linkedin/linkedin8.png %})
 
-## Considerações sobre sincronização de usuários e limite de taxa {#user-syncing-and-rate-limit-considerations}
+## Considerações sobre sincronização de usuários e limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-Quando os usuários atingem a etapa de Audience Sync, a Braze os sincroniza quase em tempo real, respeitando os limites de taxa da API do LinkedIn. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao LinkedIn.
+Quando os usuários atingem a etapa de Audience Sync, a Braze os sincroniza quase em tempo real, respeitando os limites de frequência da API do LinkedIn. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao LinkedIn.
 
-O limite de taxa da API do LinkedIn não permite mais do que dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até 13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Usuários com erro.
+O limite de frequência da API do LinkedIn não permite mais do que dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até 13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Usuários com erro.
 
 ## Entendendo a análise de dados {#understanding-analytics}
 

@@ -203,8 +203,6 @@ AWS에서 설정을 완료하려면 IAM 역할을 만들고 5단계의 IAM 정�
 {: start="4"}
 4. 다음으로 새 동기화를 생성합니다. **데이터 설정** > **클라우드 데이터 수집** > **동기화**로 이동하여 **데이터 동기화 생성**을 선택합니다.
 
-![동기화 이름 및 데이터 소스 구성이 표시된 "새 동기화 생성" 페이지.]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
-
 {: start="5"}
 5. 동기화의 이름을 지정합니다. 그런 다음 활성 S3 소스를 선택하고 동기화를 위한 소스 테이블을 입력합니다. 데이터 유형을 선택하고 **연결 테스트**를 선택합니다.
 
@@ -226,7 +224,7 @@ AWS에서 설정을 완료하려면 IAM 역할을 만들고 5단계의 IAM 정�
 - 사용자 데이터(속성, 커스텀 이벤트, 구매 이벤트)는 사용자 식별자와 페이로드를 사용합니다
 - 카탈로그 데이터는 카탈로그 식별자를 사용합니다
 
-카탈로그 데이터에 S3를 사용하는 경우, 카탈로그별 요구 사항 및 동작에 대해서는 이 페이지와 함께 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)를 참조하세요.
+카탈로그 데이터에 S3를 사용하는 경우, 카탈로그별 요구 사항 및 동작에 대해서는 이 페이지와 함께 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)를 참조하세요.
 
 Braze는 AWS에서 적용하는 것 외에 추가적인 파일 이름 요구 사항을 적용하지 않습니다. 파일 이름은 고유해야 합니다. 고유성을 보장하려면 타임스탬프를 추가하는 것이 좋습니다.
 
@@ -312,7 +310,7 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-선택적 `DELETED` 열을 포함합니다. `DELETED`가 `true`일 때 해당 카탈로그 항목은 Braze의 카탈로그에서 제거됩니다. 필수 열의 전체 목록은 [카탈로그 식별자](#catalog-identifiers)를 참조하세요. 삭제 동작에 대해서는 [카탈로그 항목 삭제](#deleting-catalog-items)를 참조하세요. 대상 카탈로그 생성 및 동기화 동작을 포함한 전체 카탈로그 설정 흐름에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)를 참조하세요.
+선택적 `DELETED` 열을 포함합니다. `DELETED`가 `true`일 때 해당 카탈로그 항목은 Braze의 카탈로그에서 제거됩니다. 필수 열의 전체 목록은 [카탈로그 식별자](#catalog-identifiers)를 참조하세요. 삭제 동작에 대해서는 [카탈로그 항목 삭제](#deleting-catalog-items)를 참조하세요. 대상 카탈로그 생성 및 동기화 동작을 포함한 전체 카탈로그 설정 흐름에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)를 참조하세요.
 {% endtab %}
 
 {% endtabs %}
@@ -326,7 +324,7 @@ S3용 클라우드 데이터 수집은 파일 업로드를 통해 사용자 및 
 
 ### 사용자 삭제 {#deleting-users}
 
-S3의 파일을 사용하여 Braze에서 고객 프로필을 삭제하려면:
+S3의 파일을 사용하여 Braze에서 사용자 프로필을 삭제하려면:
 
 1. 새 클라우드 데이터 수집 동기화를 생성합니다(다른 동기화와 동일한 [AWS 및 Braze 설정](#setting-up-cloud-data-ingestion-in-aws)).
 2. Braze에서 동기화를 구성할 때 **데이터 유형**을 **사용자 삭제**로 설정합니다.
@@ -342,7 +340,7 @@ S3의 파일을 사용하여 Braze에서 고객 프로필을 삭제하려면:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 삭제" }
 
 {% alert important %}
-사용자 삭제는 영구적이며 되돌릴 수 없습니다. 제거하려는 사용자만 포함하세요. 자세한 내용은 [클라우드 데이터 수집으로 사용자 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)를 참조하세요.
+사용자 삭제는 영구적이며 되돌릴 수 없습니다. 제거하려는 사용자만 포함하세요. 자세한 내용은 [클라우드 데이터 수집으로 사용자 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users)를 참조하세요.
 {% endalert %}
 
 **예 – JSON(사용자 삭제):**
@@ -359,13 +357,13 @@ user-to-delete-001
 user-to-delete-002
 ```
 
-동기화가 실행되면 Braze는 버킷의 새 파일을 처리하고 해당 고객 프로필을 삭제합니다.
+동기화가 실행되면 Braze는 버킷의 새 파일을 처리하고 해당 사용자 프로필을 삭제합니다.
 
 ### 카탈로그 항목 삭제 {#deleting-catalog-items}
 
 파일 스토리지를 사용하여 카탈로그에서 항목을 제거하려면:
 
-1. [카탈로그 데이터 동기화]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)에 사용하는 동일한 S3 동기화를 사용합니다(데이터 유형 **카탈로그**).
+1. [카탈로그 데이터 동기화]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)에 사용하는 동일한 S3 동기화를 사용합니다(데이터 유형 **카탈로그**).
 2. CSV 또는 JSON 파일에 선택적 **`deleted`**(또는 **`DELETED`**) 열을 추가합니다.
 3. Braze의 카탈로그에서 제거할 카탈로그 항목에 대해 `deleted`를 `true`로 설정합니다.
 
@@ -384,7 +382,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-동기화가 실행될 때, `deleted: true`가 있는 행은 Braze에서 일치하는 카탈로그 항목이 삭제됩니다. 전체 카탈로그 동기화 및 삭제 동작에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)를 참조하세요.
+동기화가 실행될 때, `deleted: true`가 있는 행은 Braze에서 일치하는 카탈로그 항목이 삭제됩니다. 전체 카탈로그 동기화 및 삭제 동작에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)를 참조하세요.
 
 ## 알아두어야 할 사항 {#things-to-know}
 

@@ -1,8 +1,8 @@
 ---
 page_order: 98.1
 nav_title: 変更ログ
-description: "このリファレンスページには、各 Braze SDK の変更履歴と、公開 GitHub リポジトリの変更履歴へのリンクが含まれています。"
-platform: 
+description: "このリファレンスページには、各 Braze SDKの変更ログと、公開 GitHub リポジトリの変更ログへのリンクが含まれています。"
+platform:
   - Android
   - Swift
   - Web
@@ -15,14 +15,14 @@ platform:
   - .NET MAUI
 ---
 
-# Braze SDKの変更履歴
+# Braze SDKの変更ログ {#braze-sdk-changelogs}
 
-> このリファレンスページには、各 Braze SDK の変更履歴と、公開 GitHub リポジトリの変更履歴へのリンクが含まれています。リソースの全リストは、[リファレンス、リポジトリ、サンプルアプリを]({{site.baseurl}}/developer_guide/references/)参照のこと。
+> このリファレンスページには、各 Braze SDKの変更ログと、公開 GitHub リポジトリの変更ログへのリンクが含まれています。リソースの全リストについては、[リファレンス、リポジトリ、サンプルアプリ]({{site.baseurl}}/developer_guide/references)を参照してください。
 
 {% sdktabs %}
 {% sdktab web %}
 {% alert tip %}
-[GitHub で Web Braze SDK の変更ログ](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[Web Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-web-sdk/master/CHANGELOG.md %}
@@ -30,7 +30,7 @@ platform:
 
 {% sdktab android %}
 {% alert tip %}
-[GitHub で Android の Braze SDK 変更ログ](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[Android Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-android-sdk/master/CHANGELOG.md %}
@@ -38,7 +38,7 @@ platform:
 
 {% sdktab swift %}
 {% alert tip %}
-[GitHub で Swift Braze SDK 変更ログ](https://github.com/braze-inc/braze-swift-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[Swift Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-swift-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-swift-sdk/main/CHANGELOG.md %}
@@ -46,7 +46,7 @@ platform:
 
 {% sdktab cordova %}
 {% alert tip %}
-[GitHub で Cordova Braze SDK 変更ログ](https://github.com/braze-inc/braze-cordova-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[Cordova Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-cordova-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-cordova-sdk/master/CHANGELOG.md %}
@@ -54,7 +54,7 @@ platform:
 
 {% sdktab flutter %}
 {% alert tip %}
-[GitHub で Flutter の Braze SDK 変更ログ](https://github.com/braze-inc/braze-flutter-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[Flutter Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-flutter-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-flutter-sdk/master/CHANGELOG.md %}
@@ -62,7 +62,7 @@ platform:
 
 {% sdktab react native %}
 {% alert tip %}
-[GitHub で React Native Braze SDK 変更ログ](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[React Native Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-react-native-sdk/master/CHANGELOG.md %}
@@ -70,7 +70,7 @@ platform:
 
 {% sdktab roku %}
 {% alert tip %}
-[GitHub で Roku Braze SDK の変更ログ](https://github.com/braze-inc/braze-roku-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[Roku Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-roku-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-roku-sdk/master/CHANGELOG.md %}
@@ -78,7 +78,7 @@ platform:
 
 {% sdktab unity %}
 {% alert tip %}
-[GitHub で Unity Braze SDK の変更ログ](https://github.com/braze-inc/braze-unity-sdk/blob/master/CHANGELOG.md)のコピーを見つけることもできます。
+[Unity Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-unity-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/Appboy/appboy-unity-sdk/master/CHANGELOG.md %}
@@ -86,7 +86,7 @@ platform:
 
 {% sdktab .NET MAUI (Xamarin) %}
 {% alert tip %}
-[.NET MAUI Braze SDK](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md)の[変更履歴はGitHubでも](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md)確認できる。
+[.NET MAUI Braze SDKの変更ログのコピーはGitHub](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md)でも確認できます。
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-xamarin-sdk/master/CHANGELOG.md %}

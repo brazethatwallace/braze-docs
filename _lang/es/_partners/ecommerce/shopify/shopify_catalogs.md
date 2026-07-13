@@ -8,19 +8,19 @@ description: "Este artículo de referencia explica cómo importar tus productos 
 
 # Sincronización de productos de Shopify {#shopify-product-sync}
 
-> Puedes sincronizar todos los productos de tu tienda Shopify con un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) de Braze para una personalización más profunda de la mensajería.
+> Puedes sincronizar todos los productos de tu tienda Shopify con un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) de Braze para una personalización más profunda de la mensajería.
 
 Los catálogos de Shopify se actualizarán casi en tiempo real a medida que realices ediciones y cambios en los productos de tu tienda Shopify. Puedes enriquecer tu carrito abandonado, la confirmación del pedido y mucho más con los detalles y la información más actualizados sobre los productos.
 
-Además de admitir los [datos principales de productos de Shopify](#supported-shopify-catalog-data), puedes sincronizar colecciones de Shopify, etiquetas de productos y metacampos de productos con tu catálogo de Braze. Estos campos adicionales desbloquean una personalización más rica, selecciones de catálogo más precisas y una segmentación más potente a través de las [Extensiones de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/).
+Además de admitir los [datos principales de productos de Shopify](#supported-shopify-catalog-data), puedes sincronizar colecciones de Shopify, etiquetas de productos y metacampos de productos con tu catálogo de Braze. Estos campos adicionales desbloquean una personalización más rica, selecciones de catálogo más precisas y una segmentación más potente a través de las [extensiones de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension).
 
 ## Configura tu sincronización de productos de Shopify {#set-up}
 
-Si ya has instalado tu tienda Shopify, puedes sincronizar tus productos siguiendo las instrucciones que se indican a continuación.
+Si ya has instalado tu tienda Shopify, puedes sincronizar tus productos siguiendo las instrucciones de esta sección.
 
 ### Paso 1: Activa la sincronización {#step-1-turn-on-the-sync}
 
-Puedes sincronizar tus productos con un catálogo de Braze a través del flujo de instalación de Shopify o en la página del socio de Shopify.
+Puedes sincronizar tus productos con un catálogo de Braze a través del flujo de instalación de Shopify o en la página del partner de Shopify.
 
 ![Paso 3 del proceso de configuración con "Shopify Variant ID" como "Catalog product identifier".]({% image_buster /assets/img/shopify/sync_products_step1.png %})
 
@@ -42,7 +42,7 @@ Si seleccionas SKU como ID del catálogo, asegúrate de que todos los productos 
 
 ### Paso 3: Configura datos de producto adicionales (opcional) {#step-3}
 
-Opcionalmente, puedes habilitar la sincronización de etiquetas de productos, colecciones de Shopify y metacampos. Habilita o modifica estos ajustes después de la sincronización inicial desde la página del socio de Shopify.
+Opcionalmente, puedes habilitar la sincronización de etiquetas de productos, colecciones de Shopify y metacampos. Habilita o modifica estos ajustes después de la sincronización inicial desde la página del partner de Shopify.
 
 {% alert note %}
 Primero añade las etiquetas de productos, las colecciones de Shopify y los metacampos en Shopify. Si no existen en Shopify, no aparecerán en Braze.
@@ -94,7 +94,7 @@ Braze admite los siguientes objetos de metacampos y algunos de sus tipos respect
 | `single_line_text_field`, `list.single_line_text_field` | Cadena, Matriz de cadenas                       |
 | `url`, `list.url`                                | Cadena (URL), Matriz de cadenas (URLs)                 |
 | `metaobject_reference`, `list.metaobject_reference` | Cadena, Matriz de cadenas                          |
-| `mixed_reference`, `list.mixed_reference`        | Cadena, Matriz de cadenas                               |
+| `mixed_reference`, `list.mixed_reference`        | Cadena, Matriz de cadenas                              |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura datos de producto adicionales (opcional)" }
 
 {% endsubtab %}
@@ -138,9 +138,9 @@ Para ver ejemplos de cómo usar cada tipo de datos de producto, consulta [Casos 
 
 ### Paso 4: Sigue el progreso de tu sincronización {#step-4-track-your-sync-progress}
 
-Después de guardar tu configuración, Braze comenzará a sincronizar tus productos y actualizará el estado a **In Progress** en tu página del socio de Shopify. El tiempo de sincronización depende del número de productos y variantes en tu tienda.
+Después de guardar tu configuración, Braze comenzará a sincronizar tus productos y actualizará el estado a **In Progress** en tu página del partner de Shopify. El tiempo de sincronización depende del número de productos y variantes en tu tienda.
 
-Puedes salir de la página una vez que la sincronización esté en curso; Braze te enviará una notificación en el dashboard cuando la sincronización se complete. Después de completarse, el estado se actualizará a **Active** y podrás ver tus productos seleccionando el nombre del catálogo en tu página del socio de Shopify.
+Puedes salir de la página una vez que la sincronización esté en curso; Braze te enviará una notificación en el panel cuando la sincronización se complete. Después de completarse, el estado se actualizará a **Active** y podrás ver tus productos seleccionando el nombre del catálogo en tu página del partner de Shopify.
 
 ![Página de configuración de la integración con un estado de sincronización de productos.]({% image_buster /assets/img/shopify/track_sync_progress.png %})
 
@@ -149,14 +149,14 @@ También puedes ver las etiquetas de productos, metacampos y colecciones sincron
 ![Catálogo de Shopify con datos sincronizados.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Si tu sincronización supera el límite de almacenamiento de tu catálogo, Braze dejará de sincronizar y las nuevas actualizaciones de productos ya no se reflejarán. Ponte en contacto con tu administrador del éxito del cliente para subir de nivel si es necesario.
+Si tu sincronización supera el límite de almacenamiento de tu catálogo, Braze dejará de sincronizar y las nuevas actualizaciones de productos ya no se reflejarán. Ponte en contacto con tu administrador de éxito de cliente para subir de nivel si es necesario.
 {% endalert %}
 
 ### Paso 5: Administra tu configuración {#step-5-manage-your-configuration}
 
-Cada tipo de sincronización tiene una tarjeta de resumen en la página del socio de Shopify que muestra el recuento total sincronizado, el estado actual y un enlace a tu catálogo. Selecciona el icono de vista para ver tu configuración activa y editarla.
+Cada tipo de sincronización tiene una tarjeta de resumen en la página del partner de Shopify que muestra el recuento total sincronizado, el estado actual y un enlace a tu catálogo. Selecciona el icono de vista para ver tu configuración activa y editarla.
 
-Puedes modificar tu sincronización de productos de Shopify, incluida la administración de tus etiquetas de productos, colecciones y metacampos de productos en cualquier momento desde la página del socio de Shopify.
+Puedes modificar tu sincronización de productos de Shopify, incluida la administración de tus etiquetas de productos, colecciones y metacampos de productos en cualquier momento desde la página del partner de Shopify.
 
 ![Página de configuración de la integración con una sincronización de catálogo de productos activa.]({% image_buster /assets/img/shopify/active_catalog_sync.png %})
 
@@ -194,7 +194,7 @@ Cambiar tus selecciones sincronizadas puede afectar a Campaigns, Canvas o selecc
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datos de catálogo de Shopify compatibles" }
 
 {% alert warning %}
-Tu catálogo de Shopify es administrado por Shopify. Para actualizar tu catálogo, realiza los cambios directamente en tu tienda Shopify y se sincronizarán automáticamente con Braze. Para eliminar tu catálogo de Shopify, ve a la página del socio de Shopify en Braze y [desactiva la sincronización](#deactivate).
+Tu catálogo de Shopify es administrado por Shopify. Para actualizar tu catálogo, realiza los cambios directamente en tu tienda Shopify y se sincronizarán automáticamente con Braze. Para eliminar tu catálogo de Shopify, ve a la página del partner de Shopify en Braze y [desactiva la sincronización](#deactivate).
 {% endalert %}
 
 ## Casos de uso de catálogos de Shopify {#shopify-catalog-use-cases}
@@ -202,13 +202,13 @@ Tu catálogo de Shopify es administrado por Shopify. Para actualizar tu catálog
 Estos casos de uso muestran cómo puedes utilizar los datos de tu catálogo de Shopify sincronizado para personalizar mensajes.
 
 {% alert warning %}
-Braze sincroniza hasta 250 variantes de cada producto de Shopify en tu catálogo. Las variantes que superen ese límite no se sincronizan. Si necesitas más de 250 variantes por producto, ponte en contacto con tu administrador del éxito del cliente de Braze.
+Braze sincroniza hasta 250 variantes de cada producto de Shopify en tu catálogo. Las variantes que superen ese límite no se sincronizan. Si necesitas más de 250 variantes por producto, ponte en contacto con tu administrador de éxito de cliente de Braze.
 {% endalert %}
 
 {% tabs %}
 {% tab Etiquetas de productos %}
 
-Usa las etiquetas de productos para personalizar mensajes según cómo están categorizados tus productos en Shopify. Por ejemplo, puedes enviar una promoción con todos los productos etiquetados como "Summer Sale" a través de una [selección de catálogo]({{site.baseurl}}/catalog_selections/), o crear un segmento de usuarios que compraron productos etiquetados como "Premium".
+Usa las etiquetas de productos para personalizar mensajes según cómo están categorizados tus productos en Shopify. Por ejemplo, puedes enviar una promoción con todos los productos etiquetados como "Summer Sale" a través de una [selección de catálogo]({{site.baseurl}}/catalog_selections), o crear un segmento de usuarios que compraron productos etiquetados como "Premium".
 
 Las etiquetas de productos se almacenan como un campo de matriz en cada artículo del catálogo. Para configurar la sincronización de etiquetas de productos, consulta [Etiquetas de productos de Shopify](#shopify-product-tags).
 
@@ -224,6 +224,10 @@ Las etiquetas de productos se almacenan como un campo de matriz en cada artícul
 ![Modal para seleccionar etiquetas de productos de Shopify, con 15 etiquetas relacionadas con ropa seleccionadas, incluida "Women's".]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personalización {#personalization}
+
+{% alert note %}
+Al hacer referencia a etiquetas de productos o colecciones en selecciones de catálogo, usa solo el valor en sí sin los corchetes de matriz `[]` ni las comillas `""` que aparecen en los datos del catálogo. Por ejemplo, si una etiqueta de producto se muestra como `["Women's"]` en tu catálogo, escribe `Women's` en tu filtro de selección.
+{% endalert %}
 
 1. Crea una selección de catálogo que filtre los productos que tengan la etiqueta de producto correspondiente, como "Women's". Solo puedes usar un campo de matriz único dentro de una sola selección de catálogo, y hasta 50 productos en tu selección de catálogo.
 
@@ -293,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### Segmentación de catálogo (SQL) {#catalog-segmentation-sql}
 
-Usa las [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para crear segmentos basados en usuarios que interactuaron con una etiqueta de producto. Por ejemplo, para encontrar usuarios que han interactuado con artículos del catálogo que contienen una etiqueta de producto específica, usa esta consulta:
+Usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para crear segmentos basados en usuarios que interactuaron con una etiqueta de producto. Por ejemplo, para encontrar usuarios que han interactuado con artículos del catálogo que contienen una etiqueta de producto específica, usa esta consulta:
 
 {% raw %}
 ```liquid
@@ -343,7 +347,7 @@ Cada metacampo sincronizado se convierte en una columna separada en tu catálogo
 
 ### Personalización
 
-1. Crea una [selección de catálogo]({{site.baseurl}}/catalog_selections/) que filtre por metacampos que incluyan el valor correspondiente.
+1. Crea una [selección de catálogo]({{site.baseurl}}/catalog_selections) que filtre por metacampos que incluyan el valor correspondiente.
 
 ![Una selección de catálogo que filtra por metacampos que tienen el atributo summer.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
@@ -411,7 +415,7 @@ Check out the latest summer products:
 
 ### Segmentación de catálogo (SQL)
 
-Usa las [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para crear segmentos basados en usuarios que interactuaron con un metacampo de producto. Por ejemplo, para encontrar usuarios que desencadenaron un evento de comercio electrónico con un producto cuya matriz de metacampos contiene un valor específico, usa esta consulta:
+Usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para crear segmentos basados en usuarios que interactuaron con un metacampo de producto. Por ejemplo, para encontrar usuarios que desencadenaron un evento de comercio electrónico con un producto cuya matriz de metacampos contiene un valor específico, usa esta consulta:
 
 {% raw %}
 ```sql
@@ -600,6 +604,10 @@ Para las colecciones de Shopify, debes usar el **Collection ID**, que se encuent
 
 ### Personalización
 
+{% alert note %}
+Al hacer referencia a IDs de colección en selecciones de catálogo, usa solo el valor numérico del ID sin los corchetes de matriz `[]` que aparecen en los datos del catálogo. Por ejemplo, si los IDs de colección se muestran como `[123456789012, 987654321098]` en tu catálogo, escribe solo el ID numérico (como `470645342446`) en tu filtro de selección.
+{% endalert %}
+
 1. Crea una selección de catálogo llamada "New Women's Products - In Stock" que esté filtrada con productos que tengan el ID de esa colección. Solo puedes usar un campo de matriz único dentro de una sola selección de catálogo, y hasta 50 productos en tu colección.
  - También puedes crear tus propias selecciones personalizadas filtrando con el campo **Collections**.
 
@@ -669,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### Segmentación de catálogo (SQL)
 
-Crea un segmento de usuarios que interactuaron con una colección. Usa las [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para crear segmentos basados en la pertenencia a una colección. Por ejemplo, para encontrar usuarios que compraron productos de una colección específica en el último año, usa esta consulta:
+Crea un segmento de usuarios que interactuaron con una colección. Usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para crear segmentos basados en la pertenencia a una colección. Por ejemplo, para encontrar usuarios que compraron productos de una colección específica en el último año, usa esta consulta:
 
 {% raw %}
 ```json
@@ -703,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-También puedes configurar [notificaciones de bajada de precios]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) y [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/).<br><br> Ten en cuenta que para cada caso de uso, debes crear un evento personalizado que capture el estado de suscripción de un usuario en tu catálogo. El evento personalizado requiere una propiedad del evento que se corresponda con el [SKU o el ID de variante de Shopify]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier) que hayas seleccionado como parte de la sincronización de tu producto de Shopify.
+También puedes configurar [notificaciones de bajada de precios]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) y [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications).<br><br> Ten en cuenta que para cada caso de uso, debes crear un evento personalizado que capture el estado de suscripción de un usuario en tu catálogo. El evento personalizado requiere una propiedad del evento que se corresponda con el [SKU o el ID de variante de Shopify]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) que hayas seleccionado como parte de la sincronización de tu producto de Shopify.
 {% endalert %}
 
 ## Desactivar la sincronización de productos {#deactivate}

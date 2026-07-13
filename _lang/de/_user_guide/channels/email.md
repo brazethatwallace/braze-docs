@@ -15,16 +15,16 @@ search_rank: 2
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie E-Mails mit Braze senden können, müssen Sie Ihre dedizierten IPs, Domains, E-Mail-Authentifizierung und IP-Warming konfigurieren. Eine vollständige Anleitung finden Sie unter [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup/).
+Bevor Sie E-Mails mit Braze senden können, müssen Sie Ihre dedizierten IPs, Domains, E-Mail-Authentifizierung und IP-Warming konfigurieren. Eine vollständige Anleitung finden Sie unter [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Passen Sie Ihre E-Mails an {#customize-your-emails}
 
 Sie können Ihr E-Mail-Messaging auf vielfältige Weise anpassen, zum Beispiel:
 
-- [Braze-E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [Angepasste HTML-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)
-- [Nutzer:innen-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Braze-E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [Angepasste HTML-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [Nutzer:innen-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
 ## Anwendungsfälle {#use-cases}
 
@@ -35,7 +35,7 @@ Sie können Ihr E-Mail-Messaging auf vielfältige Weise anpassen, zum Beispiel:
 | Rich-Nachrichten | Ermöglichen Sie umfangreiche und dynamische HTML-Nachrichten. |
 | Multimediale Inhalte | Einfache Platzierung von Multimedia-Inhalten, die Nutzer:innen ansprechen, wie z. B. Videos und Bilder. |
 | Newsletter | Versenden Sie bequem monatliche oder wöchentliche Newsletter, um das Engagement der Nutzer:innen aufrechtzuerhalten. |
-| Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzliche Käufe und liefern Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
+| Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzliche Käufe und liefern Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## E-Mail-Dienste {#email-services}
@@ -60,6 +60,6 @@ Diese Dienste können Folgendes umfassen:
 
 ## Nächste Schritte {#next-steps}
 
-- [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [E-Mail mit dem Drag-and-Drop-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [E-Mail mit dem HTML-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [E-Mail mit dem Drag-and-Drop-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [E-Mail mit dem HTML-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/html_editor)

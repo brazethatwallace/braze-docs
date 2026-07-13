@@ -217,7 +217,9 @@ DELIVERYFAILURE
 Demandbase
 Denada
 Deprioritization
+deprioritize
 deprioritized
+deprioritizes
 detangle
 Deutsch
 developerid
@@ -333,6 +335,7 @@ Grouparoo's
 growthloop
 Hailo
 handleize
+Harborlight
 Hashanah
 hashpart
 Heartbleed
@@ -662,6 +665,7 @@ ridesharing
 Rish
 Rishing
 Rica
+Rican
 Rokt
 Rokt Calendar
 roleplay
@@ -771,6 +775,7 @@ Squarespace
 SSSZ
 stackadapt
 STATECHANGE
+Stayfilm
 Stensul
 Steppington
 Stpo
@@ -837,6 +842,7 @@ Toolkits
 Toovio
 Toovio's
 torchie
+TOTP
 Touchpoint
 Touchpoints
 trackpad

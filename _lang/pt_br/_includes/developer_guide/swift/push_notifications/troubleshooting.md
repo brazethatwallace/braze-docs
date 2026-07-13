@@ -19,7 +19,7 @@ Não altere o ambiente do certificado de push (desenvolvimento versus produção
 
 ### Etapa 2: Os dispositivos se registram no APNs e fornecem à Braze os tokens de push {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-Quando os usuários abrirem seu app, eles serão solicitados a aceitar notificações por push. Se aceitarem esse prompt, o APNs gerará um token por push para aquele dispositivo específico. O Swift SDK enviará imediatamente e de forma assíncrona o token por push para os apps que usam a [política de descarga automática]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing) padrão. Depois que tivermos um token por push associado a um usuário, ele aparecerá como "Push Registered" no dashboard em seu perfil de usuário na guia **Engajamento** e será elegível para receber notificações por push de Campaigns da Braze.
+Quando os usuários abrirem seu app, eles serão solicitados a aceitar notificações por push. Se aceitarem esse prompt, o APNs gerará um token por push para aquele dispositivo específico. O Swift SDK enviará imediatamente e de forma assíncrona o token por push para os apps que usam a [política de descarga automática]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) padrão. Depois que tivermos um token por push associado a um usuário, ele aparecerá como "Push Registered" no dashboard em seu perfil de usuário na guia **Engajamento** e será elegível para receber notificações por push de Campaigns da Braze.
 
 {% alert note %}
 A partir do macOS 13, em determinados dispositivos, você pode testar as notificações por push em um simulador iOS 16 executado no Xcode 14. Para saber mais, consulte as [Notas de versão do Xcode 14](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes).
@@ -51,7 +51,7 @@ Se o [APNs](https://developer.apple.com/library/content/documentation/Networking
 
 ## Usando os registros de erros do push {#using-the-push-error-logs}
 
-O [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/) oferece a oportunidade de ver todas as mensagens (especialmente mensagens de erro) associadas às suas Campaigns e envios, incluindo erros de notificação por push. Esse registro de erros fornece uma variedade de avisos que podem ser muito úteis para identificar por que suas Campaigns não estão funcionando como esperado. Clicar em uma mensagem de erro irá redirecioná-lo para a documentação relevante para ajudá-lo a solucionar um incidente específico.
+O [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab) oferece a oportunidade de ver todas as mensagens (especialmente mensagens de erro) associadas às suas Campaigns e envios, incluindo erros de notificação por push. Esse registro de erros fornece uma variedade de avisos que podem ser muito úteis para identificar por que suas Campaigns não estão funcionando como esperado. Clicar em uma mensagem de erro irá redirecioná-lo para a documentação relevante para ajudá-lo a solucionar um incidente específico.
 
 ![Logs de erro de push exibindo a hora em que o erro ocorreu, o nome do app, o canal, o tipo de erro e a mensagem de erro.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
@@ -59,13 +59,13 @@ Os erros comuns que podem ser vistos aqui incluem notificações específicas do
 
 Além disso, a Braze também apresenta um changelog de push no perfil do usuário na guia **Engajamento**. Esse changelog contém insights sobre o comportamento de registro de push, como invalidação de token, erros de registro de push, tokens transferidos para novos usuários, etc.
 
-![]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
+![Guia Engajamento do perfil de usuário da Braze exibindo o changelog de registro de push.]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
 ### Erros no Registro de atividades de envio de mensagem {#message-activity-log-errors}
 
 #### Recebido envio não registrado para token por push {#received-unregistered-sending}
 
-- Certifique-se de que o token por push enviado para a Braze a partir do método `AppDelegate.braze?.notifications.register(deviceToken:)` seja válido. Consulte o **Registro de atividades de envio de mensagem** para ver o token por push. Deve parecer algo como `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, uma longa string contendo uma mistura de letras e números. Se seu token por push parecer diferente, verifique seu [código]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze) para enviar os tokens por push à Braze.
+- Certifique-se de que o token por push enviado para a Braze a partir do método `AppDelegate.braze?.notifications.register(deviceToken:)` seja válido. Consulte o **Registro de atividades de envio de mensagem** para ver o token por push. Deve parecer algo como `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, uma longa string contendo uma mistura de letras e números. Se seu token por push parecer diferente, verifique seu [código]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze) para enviar os tokens por push à Braze.
 - Verifique se o seu perfil de provisionamento de push corresponde ao ambiente que está testando. Os certificados universais podem ser configurados no dashboard da Braze para enviar para o ambiente APNs de desenvolvimento ou produção. Usar um certificado de desenvolvimento para um app de produção ou um certificado de produção para um app de desenvolvimento não funcionará.
  - Verifique se o token por push que você enviou para a Braze corresponde ao perfil de provisionamento que você usou para desenvolver o app de onde você enviou o token por push.
 
@@ -81,7 +81,7 @@ Para resolver a incompatibilidade:
 4. Para chaves `.p8`, verifique se o **Team ID** e o **Key ID** na Braze correspondem à sua conta de desenvolvedor Apple.
 5. Faça upload novamente de uma chave `.p8` válida ou de um certificado `.p12` se as credenciais foram rotacionadas ou revogadas.
 
-Prefira chaves de autenticação `.p8` quando possível. Para tipos de credenciais e indicadores de status no dashboard, consulte [Migrar para uma chave de autenticação .p8]({{site.baseurl}}/user_guide/channels/push/troubleshooting/#migrate-to-a-p8-authentication-key).
+Prefira chaves de autenticação `.p8` quando possível. Para tipos de credenciais e indicadores de status no dashboard, consulte [Migrar para uma chave de autenticação .p8]({{site.baseurl}}/user_guide/channels/push/troubleshooting#migrate-to-a-p8-authentication-key).
 
 #### Envio de BadDeviceToken para token por push {#baddevicetoken-sending-to-push-token}
 
@@ -110,7 +110,7 @@ Certifique-se de que seu app esteja configurado corretamente para permitir notif
     1. No Xcode, acesse **Preferences > Accounts** (ou use o atalho de teclado <kbd>Command</kbd>+<kbd>,</kbd>).
     2. Selecione o Apple ID que você usa para sua conta de desenvolvedor e clique em **View Details**.
     3. Na próxima página, clique em **<i class="fas fa-redo-alt"></i> Refresh** e confirme que você está baixando todos os perfis de provisionamento disponíveis.
-- Verifique se você [ativou corretamente a capacidade de push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-2-enable-push-capabilities) em seu app.
+- Verifique se você [ativou corretamente a capacidade de push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-2-enable-push-capabilities) em seu app.
 - Verifique se o seu perfil de provisionamento de push corresponde ao ambiente em que você está testando. Os certificados universais podem ser configurados no dashboard da Braze para enviar para o ambiente APNs de desenvolvimento ou produção. Usar um certificado de desenvolvimento para um app de produção ou um certificado de produção para um app de desenvolvimento não funcionará.
 - Verifique se você está chamando nosso método `registerPushToken` definindo um ponto de interrupção no código.
 - Certifique-se de que esteja testando usando um dispositivo (o push não funcionará em um simulador) e que tenha boa conectividade de rede.
@@ -141,7 +141,7 @@ Nas versões do iOS que não integram push via o framework `UserNotifications`, 
 
 #### Notificação de teste agendada incorretamente {#test-notification-scheduled-incorrectly}
 
-Verifique a programação que você definiu para sua mensagem de teste. Se estiver definida para entrega no fuso horário local ou [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_timing/), você pode simplesmente não ter recebido a mensagem ainda (ou ter o app em primeiro plano quando foi recebida).
+Verifique a programação que você definiu para sua mensagem de teste. Se estiver definida para entrega no fuso horário local ou [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_timing), você pode simplesmente não ter recebido a mensagem ainda (ou ter o app em primeiro plano quando foi recebida).
 
 ### Usuário não "push registered" para o app que está sendo testado {#user-not-push-registered-for-the-app-being-tested}
 
@@ -153,16 +153,16 @@ O seguinte indicaria um problema com o registro de push ou que o token do usuár
 
 ## Cliques de push não registrados {#push-clicks-not-logged}
 
-- Certifique-se de ter seguido as [etapas de integração de push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-5-enable-push-handling).
-- A Braze não gerencia notificações por push recebidas silenciosamente em primeiro plano (comportamento padrão de push em primeiro plano antes do framework `UserNotifications`). Isso significa que os links não serão abertos e os cliques no push não serão registrados. Se seu app ainda não estiver integrado com o framework `UserNotifications`, a Braze não gerenciará as notificações por push quando o estado do app for `UIApplicationStateActive`. Certifique-se de que seu app não atrase as chamadas para os [métodos de tratamento de push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-5-enable-push-handling); caso contrário, o Swift SDK poderá tratar as notificações por push como eventos push silenciosos em primeiro plano e não processá-las.
+- Certifique-se de ter seguido as [etapas de integração de push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling).
+- A Braze não gerencia notificações por push recebidas silenciosamente em primeiro plano (comportamento padrão de push em primeiro plano antes do framework `UserNotifications`). Isso significa que os links não serão abertos e os cliques no push não serão registrados. Se seu app ainda não estiver integrado com o framework `UserNotifications`, a Braze não gerenciará as notificações por push quando o estado do app for `UIApplicationStateActive`. Certifique-se de que seu app não atrase as chamadas para os [métodos de tratamento de push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling); caso contrário, o Swift SDK poderá tratar as notificações por push como eventos push silenciosos em primeiro plano e não processá-las.
 
 ## Deep links não estão funcionando {#deep-links-not-working}
 
-Para solução de problemas abrangente em todos os canais — incluindo links universais, esquemas personalizados, e-mail e provedores de terceiros como Branch — veja [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+Para solução de problemas abrangente em todos os canais — incluindo links universais, esquemas personalizados, e-mail e provedores de terceiros como Branch — veja [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 
 ### Links da web não abrem com cliques em push {#web-links-from-push-clicks-not-opening}
 
-Os links nas notificações por push precisam ser compatíveis com ATS para serem abertos em visualizações na web. Certifique-se de que seus links da web usem HTTPS. Para saber mais, consulte [conformidade com ATS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking/#app-transport-security-ats).
+Os links nas notificações por push precisam ser compatíveis com ATS para serem abertos em visualizações na web. Certifique-se de que seus links da web usem HTTPS. Para saber mais, consulte [conformidade com ATS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking#app-transport-security-ats).
 
 ### Deep links de cliques em push não abrem {#deep-links-from-push-clicks-not-opening}
 

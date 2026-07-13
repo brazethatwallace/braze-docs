@@ -11,7 +11,7 @@ channel:
   - RCS
 ---
 
-{% multi_lang_include short_and_long_codes.md %}
+{% multi_lang_include channels/sms/short_and_long_codes.md %}
 
 ## MMS固有の要件 {#mms-specific-requirements}
 
@@ -57,7 +57,7 @@ MMSのスループットは、ロングコードを通じて1秒あたり1セグ
 | 300&nbsp;KB | すべてのキャリアがこのサイズのMMSメッセージを確実に処理できます。 |
 | 600&nbsp;KB | これはほとんどのキャリアにおけるMMSの標準最大ファイルサイズとされています。 |
 | 1&nbsp;MB | ほとんどの米国およびカナダのキャリアがこのサイズのMMSメッセージを処理できますが、キャリアによって異なる場合があります。一部のキャリアではこれより大きなファイルサイズを許可する場合があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Carrier file size limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャリアのファイルサイズ制限" }
 
 #### 対応ファイルタイプ {#accepted-file-types}
 

@@ -14,7 +14,7 @@ channel:
 
 | Exemplo Android (expandido) | Exemplo iOS (expandido) |
 | :-----: | :----------: |
-| ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
+| ![Pré-visualização de Push Stories no Android.]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Pré-visualização de Push Stories no iOS]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
@@ -30,11 +30,11 @@ As seguintes versões do SDK são necessárias para receber Push Stories:
 
 ## Como usar Push Stories {#how-to-use-push-stories}
 
-![]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Menu suspenso do criador de Push Stories]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
 Para usar Push Stories, faça o seguinte:
 
-1. Crie uma [Campaign de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+1. Crie uma [Campaign de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. Em **Notification Type**, selecione **Push Stories**.
 3. Selecione **iOS** ou **Android**. Observe que, se você selecionar ambos para uma mensagem push, a opção de criar uma Push Story não aparecerá.
 
@@ -42,22 +42,21 @@ Para usar Push Stories, faça o seguinte:
 
 Para criar uma página, siga as etapas a seguir:
 
-1. Clique em **Manage Pages** no criador principal.
-    <br><br>![]({% image_buster /assets/img_archive/pushstories_add_pages.png %}){: style="max-width:70%"}<br><br>
+1. Selecione **Add new page** no criador principal.
 2. Insira uma imagem para cada página, junto com o comportamento de clique para essa imagem.
 3. Se desejar, adicione um **Title** e uma **Description** para cada página. Se você usar um título e uma descrição para uma página, eles devem ser inseridos para todas as páginas.
 
 As pré-visualizações serão refletidas e são interativas.
 
-![]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
+![Criador de Push Stories]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Se você estiver carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content), certifique-se de que a URL da sua imagem comece com `https://`. Usar `http://` causará uma falha no seu app.
+Se você estiver carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), certifique-se de que a URL da sua imagem comece com `https://`. Usar `http://` causará uma falha no seu app.
 {% endalert %}
 
 ### Especificações de imagem e texto {#image-and-text-specifications}
 
-As seguintes especificações de imagem e texto se aplicam à parte do carrossel de fotos das Push Stories. Para informações sobre o push básico com o qual os usuários interagem para ativar a Push Story, consulte [Formatos de mensagem e imagem de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+As seguintes especificações de imagem e texto se aplicam à parte do carrossel de fotos das Push Stories. Para informações sobre o push básico com o qual os usuários interagem para ativar a Push Story, consulte [Formatos de mensagem e imagem de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
 {% tabs %}
 {% tab Imagens %}

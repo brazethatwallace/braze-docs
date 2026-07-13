@@ -70,10 +70,10 @@ Consultez les cas d'utilisation ci-dessous pour un aperçu de la façon dont les
 
 #### Cas d'utilisation des extensions de segments {#segment-extension-use-cases}
 
-Vous pouvez affiner davantage vos segments en utilisant les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour cibler les utilisateurs en fonction d'événements personnalisés ou de comportements d'achat stockés pendant toute la durée de vie de leur profil utilisateur.
+Vous pouvez affiner davantage vos segments en utilisant les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) pour cibler les utilisateurs en fonction d'événements personnalisés ou de comportements d'achat stockés pendant toute la durée de vie de leur profil utilisateur.
 
 - **Achats historiques :** Segmentez les utilisateurs selon qu'ils ont acheté une couleur spécifique d'un produit spécifique au moins deux fois au cours des deux dernières années.
 - **Événements et interactions avec les messages :** Segmentez les utilisateurs selon qu'ils ont effectué un achat au cours des trente derniers jours et ont également interagi avec un message in-app spécifique.
 - **Interrogation des données :**
-  - **Interroger Snowflake :** Segmentez les utilisateurs avec des données combinées provenant de Braze et de sources externes, telles qu'un CRM ou un entrepôt de données, en utilisant les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) pour interroger Snowflake.
-  - **Synchroniser depuis un entrepôt de données :** Segmentez les utilisateurs avec des données directement synchronisées depuis votre entrepôt de données ou votre système de stockage de fichiers vers Braze en utilisant les [extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+  - **Interroger Snowflake :** Segmentez les utilisateurs avec des données combinées provenant de Braze et de sources externes, telles qu'un CRM ou un entrepôt de données, en utilisant les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) pour interroger Snowflake.
+  - **Synchroniser depuis un entrepôt de données :** Segmentez les utilisateurs avec des données directement synchronisées depuis votre entrepôt de données ou votre système de stockage de fichiers vers Braze en utilisant les [extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).

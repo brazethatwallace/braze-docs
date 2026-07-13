@@ -14,12 +14,12 @@ noindex: true
 
 <br>
 {% alert important %}
-기본 Content Cards 개발자 통합 가이드를 찾고 계신가요? [여기]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/)에서 확인하세요.
+기본 Content Cards 개발자 통합 가이드를 찾고 계신가요? [기본 Content Cards 개발자 통합 가이드]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration)에서 확인하세요.
 {% endalert %}
 
 # Content Cards 구현 가이드 {#content-card-implementation-guide}
 
-> 이 고급 구현 가이드(선택 사항)에서는 Content Cards 코드 고려사항, 저희 팀이 구축한 세 가지 커스텀 사용 사례, 함께 제공되는 코드 스니펫, 노출 횟수, 클릭 및 해제 로깅에 대한 지침을 다룹니다. [여기에서](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) Braze 데모 리포지토리를 방문하세요! 이 구현 가이드는 Swift 구현을 중심으로 하지만 관심 있는 분을 위해 Objective-C 스니펫도 제공됩니다.
+> 이 고급 구현 가이드(선택 사항)에서는 Content Cards 코드 고려사항, 저희 팀이 구축한 세 가지 커스텀 사용 사례, 함께 제공되는 코드 스니펫, 노출 횟수, 클릭 및 해제 로깅에 대한 지침을 다룹니다. [GitHub의 Braze 데모 리포지토리](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)를 방문하세요! 이 구현 가이드는 Swift 구현을 중심으로 하지만 관심 있는 분을 위해 Objective-C 스니펫도 제공됩니다.
 
 ## 코드 고려사항 {#code-considerations}
 
@@ -122,7 +122,7 @@ extension ContentCardData: Equatable {
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Custom Objects %}
+{% tab 커스텀 오브젝트 %}
 {% subtabs global %}
 {% subtab Swift %}
 **커스텀 오브젝트 초기화 기능**<br>
@@ -224,7 +224,7 @@ typedef NS_ENUM(NSInteger, ContentCardClassType) {
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Handling Content Cards %}
+{% tab Content Cards 처리 %}
 {% subtabs global %}
 {% subtab Swift %}
 **Content Cards 요청**<br>
@@ -297,7 +297,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Working with Payload Data %}
+{% tab 페이로드 데이터 작업 %}
 {% subtabs global %}
 {% subtab Swift %}
 **페이로드 데이터 작업**<br>
@@ -434,7 +434,7 @@ Content Cards 배열을 반복하고 `class_type`이 일치하는 카드만 구�
 
 ### 보조 콘텐츠로서의 Content Cards {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![로컬 데이터와 Braze Content Cards가 혼합된 하이브리드 목록이 포함된 피드입니다.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데이터를 동시에 로드할 수 있습니다. 이를 통해 Braze Content Cards와 기존 피드 콘텐츠가 일관되고 조화로운 경험을 만들어냅니다.
 
@@ -453,24 +453,24 @@ Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데
 <br>
 Content Cards는 각 메시지가 자체 카드인 메시지 센터 형식으로 사용할 수 있습니다. 메시지 센터의 각 메시지는 Content Cards 페이로드를 통해 채워지며, 각 카드는 클릭 시 UI/UX를 활성화하는 추가 키-값 페어를 포함합니다. 다음 예제에서 하나의 메시지는 임의의 커스텀 보기로 안내하고, 다른 하나는 커스텀 HTML을 표시하는 웹뷰로 열립니다.
 
-![]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
+![개별 메시지 카드가 포함된 Content Cards 메시지 센터입니다.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
-#### 대시보드 구성 {#dashboard-configuration}
+#### 대시보드 구성
 
 다음 메시지 유형의 경우 키-값 페어 `class_type`을 대시보드 구성에 추가해야 합니다. 여기에 할당된 값은 임의적이지만 클래스 유형 간에 구별할 수 있어야 합니다. 이러한 키-값 페어는 사용자가 요약된 받은편지함 메시지를 클릭할 때 이동 위치를 결정할 때 애플리케이션이 확인하는 핵심 식별자입니다.
 
 {% tabs local %}
-{% tab Arbitrary custom view message - full page %}
+{% tab 임의 커스텀 보기 메시지 - 전체 페이지 %}
 
 이 사용 사례에 대한 키-값 페어는 다음과 같습니다:
 
 - `message_header`를 `Full Page`로 설정
 - `class_type`을 `message_full_page`로 설정
 
-![]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
+![전체 페이지 Content Cards 메시지 예제입니다.]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
-{% tab Webview message - HTML %}
+{% tab 웹뷰 메시지 - HTML %}
 
 이 사용 사례에 대한 키-값 페어는 다음과 같습니다:
 
@@ -480,7 +480,7 @@ Content Cards는 각 메시지가 자체 카드인 메시지 센터 형식으로
 
 이 메시지는 HTML 키-값 페어도 찾지만, 웹 도메인으로 작업하는 경우 URL 키-값 페어도 유효합니다.
 
-![]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
+![키-값 페어에서 HTML 웹뷰를 여는 Content Cards입니다.]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -526,7 +526,7 @@ func addContentCardToView(with message: Message) {
 {% endtab %}
 {% endtabs %}
 
-##### 분석을 기록할 준비가 되셨나요? {#ready-to-log-analytics}
+##### 분석을 기록할 준비가 되셨나요?
 데이터 흐름이 어떻게 진행되는지 더 잘 이해하려면 [다음 섹션](#logging-impressions-clicks-and-dismissals)을 참조하세요.
 
 ![화면 왼쪽 하단에 50% 프로모션을 표시하는 인터랙티브 Content Cards가 나타납니다. 클릭하면 프로모션이 장바구니에 적용됩니다.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
@@ -537,26 +537,26 @@ Content Cards를 활용하여 사용자를 위한 역동적이고 인터랙티�
 
 이와 같이 잘 배치된 카드는 특정 사용자 동작을 유도하는 좋은 방법입니다.
 <br><br><br>
-#### 대시보드 구성 {#dashboard-configuration}
+#### 대시보드 구성
 
 인터랙티브 Content Cards의 대시보드 구성은 간단합니다. 이 사용 사례의 키-값 페어에는 원하는 할인 금액으로 설정된 `discount_percentage`와 `coupon_code`로 설정된 `class_type`이 포함됩니다. 이러한 키-값 페어에 따라 유형별 Content Cards가 필터링되고 결제 화면에 표시되는 방식이 결정됩니다.
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
+![결제 프로모션을 표시하는 인터랙티브 Content Cards입니다.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
 
-##### 분석을 기록할 준비가 되셨나요? {#ready-to-log-analytics}
+##### 분석을 기록할 준비가 되셨나요?
 데이터 흐름이 어떻게 진행되는지 더 잘 이해하려면 [다음 섹션](#logging-impressions-clicks-and-dismissals)을 참조하세요.
 
 ## 다크 모드 커스터마이징 {#dark-mode-customization}
 
 기본적으로 Content Cards 보기는 테마 색상 세트를 통해 기기의 다크 모드 변경에 자동으로 대응합니다.
 
-이 동작은 [커스텀 스타일 가이드]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling/#disabling-dark-mode)에 자세히 설명된 대로 재정의할 수 있습니다.
+이 동작은 [커스텀 스타일 가이드]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling#disabling-dark-mode)에 자세히 설명된 대로 재정의할 수 있습니다.
 
 ## 노출 횟수, 클릭, 해제 기록 {#logging-impressions-clicks-and-dismissals}
 
 커스텀 오브젝트를 Content Cards로 작동하도록 확장한 후에는 노출 횟수, 클릭, 해제와 같은 중요한 측정기준을 빠르게 기록할 수 있습니다. 이는 Braze SDK에 의해 기록될 헬퍼 파일에 데이터를 참조하고 제공하는 `ContentCardable` 프로토콜을 사용하여 수행할 수 있습니다.
 
-#### 구현 구성요소<br><br> {#implementation-components}
+### 구현 구성요소<br><br> {#implementation-components}
 
 {% tabs %}
 {% tab Swift %}

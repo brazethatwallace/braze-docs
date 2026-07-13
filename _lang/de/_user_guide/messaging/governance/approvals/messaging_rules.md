@@ -43,22 +43,22 @@ Um Verwirrung zu vermeiden, können Sie keine identischen Regeln mit einer über
 Sie können bis zu fünf Messaging-Regeln erstellen.
 {% endalert %}
 
-1. Gehen Sie zu **Settings** > **Approval Workflow** > **Messaging Rules**.
-2. Wählen Sie **Create rule** aus.
+1. Gehen Sie zu **Einstellungen** > **Genehmigungs-Workflow** > **Messaging-Regeln**.
+2. Wählen Sie **Regel erstellen** aus.
 3. Geben Sie dieser Regel einen Namen (z. B. „Alle Nutzer:innen-Abos“).
-4. Wählen Sie unter **Message type** die Option **Campaign**, **Canvas** oder **Both Canvas and Campaigns** aus, um die Genehmigungsregel anzuwenden.
-5. Geben Sie eine Zahl für **Maximum reachable users** ein. Weitere Informationen finden Sie unter [Zielgruppenstatistiken]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#audience-statistics).
-6. Wählen Sie **Save** aus.
+4. Wählen Sie unter **Nachrichtentyp** die Option **Campaign**, **Canvas** oder **Sowohl Canvas als auch Campaigns** aus, um die Genehmigungsregel anzuwenden.
+5. Geben Sie eine Zahl für **Maximale erreichbare Nutzer:innen** ein. Weitere Informationen finden Sie unter [Zielgruppenstatistiken]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics).
+6. Wählen Sie **Speichern** aus.
 
 ![Eine beispielhafte Messaging-Regel „Regel 1“ für Campaigns mit 100.000 Nutzer:innen als Maximum. Es gibt eine:n Nutzer:in, die bzw. der den Canvas und die Campaign zum Starten genehmigen kann.]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
 
 ### 2. Schritt: Starten mit Genehmigung festlegen (optional) {#step-2-determine-launching-with-approval-optional}
 
-Wählen Sie **Allow launching with approval** aus. Wählen Sie anschließend unter **With Approval From** die Genehmigenden aus, die die Berechtigung haben, den Canvas oder die Campaign zu genehmigen, wenn das Maximum erreicht ist.
+Wählen Sie **Starten mit Genehmigung erlauben** aus. Wählen Sie anschließend unter **Mit Genehmigung von** die Genehmigenden aus, die die Berechtigung haben, den Canvas oder die Campaign zu genehmigen, wenn das Maximum erreicht ist.
 
 Beachten Sie die folgenden Details zum Starten von Nachrichten mit Genehmigung:
 
-- Wenn das Maximum erreicht ist und ein:e Genehmigende:r ausgewählt wurde, kann die bzw. der Braze-Nutzer:in mit der Genehmigungsberechtigung im Genehmigungs-Dropdown unter **Target Audience** die Option **Approved** auswählen.
+- Wenn das Maximum erreicht ist und ein:e Genehmigende:r ausgewählt wurde, kann die bzw. der Braze-Nutzer:in mit der Genehmigungsberechtigung im Genehmigungs-Dropdown unter **Zielgruppe** die Option **Genehmigt** auswählen.
 - Wenn das Maximum erreicht ist und kein:e Genehmigende:r ausgewählt wurde, wird der Start des Canvas oder der Campaign verhindert.
 
 ![Der Schritt „Zusammenfassung“ des Canvas-Workflows, der zeigt, dass Sie eine Genehmigung zum Starten benötigen.]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}

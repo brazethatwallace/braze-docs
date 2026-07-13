@@ -92,28 +92,28 @@ class MainActivity : ComponentActivity() {
 !!step
 lines-MainApplication.kt=12
 
-#### 1. Enable debugging (optional)
+### 1. Enable debugging (optional)
 
 To make troubleshooting easier while developing, consider enabling debugging.
 
 !!step
 lines-MainApplication.kt=21-28
 
-#### 2. Subscribe to Banner updates
+### 2. Subscribe to Banner updates
 
 Use `subscribeToBannersUpdates()` to register a handler that runs whenever a Banner is updated.
 
 !!step
 lines-MainActivity.kt=10-14
 
-#### 3. Refresh your placements
+### 3. Refresh your placements
 
 After initializing the Braze SDK, call `requestBannersRefresh(["PLACEMENT_ID"])`  to fetch the latest Banner content for that placement.
 
 !!step
 lines-banners.xml=15-19
 
-#### 4. Define `BannerView` in your `banners.xml`
+### 4. Define `BannerView` in your `banners.xml`
 
 In `banners.xml`, declare a `<com.braze.ui.banners.BannerView>` element with `app:placementId="PLACEMENT_ID"`. Braze will use this element to insert your Banner into your UI.
 

@@ -9,7 +9,7 @@ channel:
 search_rank: 3
 ---
 
-# Push {#push}
+# Push
 
 > Las notificaciones push son una forma probada y eficaz de enviar llamadas a la acción urgentes a través de móvil o web, así como de volver a captar a usuarios que no han entrado en la aplicación desde hace tiempo. Dirigen al usuario directamente al contenido y demuestran el valor de tu aplicación.
 
@@ -19,8 +19,8 @@ search_rank: 3
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
-- **Push integrado en tu aplicación o sitio web.** Trabaja con tus desarrolladores para configurarlo. Para conocer los pasos detallados, consulta las guías de integración para [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android) y [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **Una estrategia de adhesión voluntaria a push.** Los usuarios deben conceder permiso de push en su dispositivo. Considera usar [mensajes de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para explicar el valor antes de solicitarlo.
+- **Push integrado en tu aplicación o sitio web.** Trabaja con tus desarrolladores para configurarlo. Para conocer los pasos detallados, consulta las guías de integración para [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) y [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Una estrategia de adhesión voluntaria a push.** Los usuarios deben conceder permiso de push en su dispositivo. Considera usar [mensajes de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para explicar el valor antes de solicitarlo.
 
 ## Casos de uso {#use-cases}
 
@@ -48,7 +48,13 @@ Tus mensajes push deben cumplir con las [Directrices de revisión del App Store 
 | Google Play — [Uso no autorizado o imitación de funcionalidades del sistema](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Las aplicaciones no deben imitar ni interferir con las notificaciones del sistema. Las notificaciones a nivel de sistema son solo para características integrales de la aplicación (por ejemplo, una aplicación de aerolínea que notifica a los usuarios sobre ofertas, o un juego que notifica a los usuarios sobre promociones dentro del juego). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Regulaciones de mensajes push" }
 
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Cuándo registra Braze un envío exitoso de push? {#when-does-braze-record-a-successful-send-for-push}
+
+Braze normalmente registra un **envío** una vez que el mensaje se despacha desde Braze hacia Apple, Google o tu servicio de push web. Las **entregas**, aperturas, rebotes y señales de desinstalación se rastrean por separado y pueden llegar más tarde. Usa los análisis a nivel de paso y de Campaign junto con la [solución de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) cuando los **envíos** y las métricas posteriores no coincidan.
+
 ## Próximos pasos {#next-steps}
 
-- [Configuración push]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Crear un mensaje push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Configuración push]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Crear un mensaje push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

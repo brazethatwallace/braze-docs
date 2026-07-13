@@ -16,27 +16,20 @@ Braze 계정에 사용자를 추가하려면 관리자 권한이 있어야 합�
 
 새 사용자를 추가하려면:
 
-1. **설정** > **회사 사용자**로 이동합니다.
+1. **설정** > **사용자 관리** > **회사 사용자**로 이동합니다.
 2. **+ 새 사용자 추가**를 선택합니다.
-3. 이메일, 부서, [사용자 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role) 등 요청된 정보를 입력합니다.
-
-{% alert tip %}
-사용자 프로필에 나열된 부서에 따라 Braze에서 수신하는 커뮤니케이션 유형이 결정됩니다. 이를 통해 모든 사용자가 Braze 사용 방식과 관련된 커뮤니케이션 및 알림만 수신할 수 있습니다.
-{% endalert %}
-
-{:start="4"}
-
-4. 관리자가 아닌 사용자의 경우, 해당 사용자에게 부여할 회사 수준 및 워크스페이스 수준 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions)을 선택합니다.
+3. 이메일, 부서, [사용자 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role) 등 요청된 정보를 입력합니다.
+4. 관리자가 아닌 사용자의 경우, 해당 사용자에게 부여할 회사 수준 및 워크스페이스 수준 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions)을 선택합니다.
 
 ![커스텀 권한 필드 섹션이 있는 워크스페이스 수준 권한.]({% image_buster /assets/img/add_new_user_3.png %})
 
 ### 이메일 주소 요구 사항 {#email-address-requirements}
 
-[인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)에서 사용되는 모든 이메일 주소는 고유해야 합니다. 즉, 해당 인스턴스의 회사 워크스페이스에 대한 액세스 권한이 있었거나 현재 있는 사용자와 이미 연결된 이메일 주소를 추가하려고 하면 오류 메시지가 표시됩니다.
+[인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)에서 사용되는 모든 이메일 주소는 고유해야 합니다. 즉, 해당 인스턴스의 회사 워크스페이스에 대한 액세스 권한이 있었거나 현재 있는 사용자와 이미 연결된 이메일 주소를 추가하려고 하면 오류 메시지가 표시됩니다.
 
 팀에서 Gmail을 사용하고 이메일 주소 추가에 문제가 있는 경우, 이메일 주소에 더하기 기호(+)를 추가하여 별칭을 만들 수 있습니다(예: "+1" 또는 "+test"). 예를 들어, `contractor@braze.com`의 별칭을 `contractor+1@braze.com`으로 만들 수 있습니다. `contractor+1@braze.com`으로 보낸 이메일은 여전히 `contractor@braze.com`으로 전달되지만, 별칭은 고유한 이메일 주소로 인식됩니다.
 
-별칭 없이 여러 회사에서 하나의 계정을 사용하려면 [다중 회사 개발자 사용]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers)을 참조하세요. SSO를 사용하는 경우, 여러 이메일 주소로 등록하기 전에 [싱글 사인온(SSO) 고려 사항]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso)을 검토하세요.
+별칭 없이 여러 회사에서 하나의 계정을 사용하려면 [다중 회사 개발자 사용]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers)을 참조하세요. SSO를 사용하는 경우, 여러 이메일 주소로 등록하기 전에 [싱글 사인온(SSO) 고려 사항]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso)을 검토하세요.
 
 ### Braze 계정의 이메일 주소를 변경할 수 있나요? {#can-i-change-my-braze-accounts-email-address}
 
@@ -44,13 +37,13 @@ Braze 계정에 사용자를 추가하려면 관리자 권한이 있어야 합�
 
 ## 사용자 액세스 및 책임 할당 {#assigning-user-access-and-responsibilities}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## 회사 사용자 일시 중지 {#suspending-company-users}
 
 사용자를 일시 중지하면 계정이 비활성 상태가 되어 더 이상 로그인할 수 없지만, 계정과 관련된 데이터는 보존됩니다. 관리자만 회사 사용자를 일시 중지하거나 일시 중지를 해제할 수 있습니다. 일시 중지된 사용자도 Braze에서 알림을 계속 수신할 수 있습니다.
 
-사용자를 일시 중지하려면 **설정** > **회사 사용자**로 이동하여 사용자 이름을 찾고 <i class="fa-solid fa-user-lock"></i> **일시 중지**를 선택합니다.
+사용자를 일시 중지하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동하여 사용자 이름을 찾고 <i class="fa-solid fa-user-lock"></i> **일시 중지**를 선택합니다.
 
 ![사용자를 일시 중지하는 옵션.]({% image_buster /assets/img_archive/suspend_user.png %})
 
@@ -60,7 +53,7 @@ Braze 계정에 사용자를 추가하려면 관리자 권한이 있어야 합�
 
 ## 회사 사용자 삭제 {#deleting-company-users}
 
-사용자를 삭제하려면 **설정** > **회사 사용자**로 이동하여 사용자 이름을 찾고 <i class="fa fa-trash-can"></i> **사용자 삭제**를 선택합니다.
+사용자를 삭제하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동하여 사용자 이름을 찾고 <i class="fa fa-trash-can"></i> **사용자 삭제**를 선택합니다.
 
 관리자만 회사 사용자를 삭제할 수 있으며, 회사 사용자는 자신의 계정을 삭제할 수 없습니다. 관리자는 자신의 대시보드 계정을 삭제할 수 없으며, 다른 관리자가 대신 삭제해야 합니다.
 
@@ -96,7 +89,7 @@ Braze는 다음 계정 데이터를 보관합니다:
 
 - 이메일 주소에서 앞뒤 공백 및 숨겨진 문자를 제거합니다.
 - 해당 주소가 조직에서 유효한 이메일 형식인지 확인합니다. 일부 특수 문자는 거부됩니다.
-- 동일한 [클러스터]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/)에서 두 명의 대시보드 사용자에게 동일한 이메일을 사용할 수 없습니다. 해당 주소가 이미 해당 클러스터의 다른 워크스페이스에 등록되어 있는 경우, 다른 주소 또는 `user+1@company.com`과 같은 별칭을 사용하세요.
+- 동일한 [클러스터]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account)에서 두 명의 대시보드 사용자에게 동일한 이메일을 사용할 수 없습니다. 해당 주소가 이미 해당 클러스터의 다른 워크스페이스에 등록되어 있는 경우, 다른 주소 또는 `user+1@company.com`과 같은 별칭을 사용하세요.
 
 ### 사용자를 추가하려고 할 때 "이메일이 이미 사용 중입니다" 오류 {#email-is-already-taken-when-trying-to-add-a-user}
 
@@ -113,5 +106,5 @@ Braze는 다음 계정 데이터를 보관합니다:
 
 사용자를 추가한 후 액세스를 관리하세요:
 
-- [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 통해 각 사용자가 대시보드에서 수행할 수 있는 작업을 구성합니다.
-- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)를 통해 특정 대시보드 오브젝트에 대한 공유 액세스 권한을 가진 그룹으로 사용자를 구성합니다.
+- [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 통해 각 사용자가 대시보드에서 수행할 수 있는 작업을 구성합니다.
+- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)를 통해 특정 대시보드 오브젝트에 대한 공유 액세스 권한을 가진 그룹으로 사용자를 구성합니다.

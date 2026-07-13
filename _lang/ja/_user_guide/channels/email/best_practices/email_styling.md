@@ -16,7 +16,7 @@ channel: email
 
 件名は、受信者がメッセージを受け取った際に最初に目にするものの一つです。6～10語に収めると、最も高い開封率が得られます。
 
-良い件名を作成するにはさまざまなアプローチがあります。読者の興味を引く質問を投げかける方法、より直接的に伝える方法、パーソナライズして顧客のエンゲージメントを高める方法などがあります。1つの件名に固執せず、[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/)を活用して新しい件名を試し、その効果を測定しましょう。件名はモバイルで適切に表示されるよう、35文字以内にする必要があります。
+良い件名を作成するにはさまざまなアプローチがあります。読者の興味を引く質問を投げかける方法、より直接的に伝える方法、パーソナライズして顧客のエンゲージメントを高める方法などがあります。1つの件名に固執せず、[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing)を活用して新しい件名を試し、その効果を測定しましょう。件名はモバイルで適切に表示されるよう、35文字以内にする必要があります。
 
 「差出人」フィールドには、送信者が誰であるかを明確に示す必要があります。個人名やなじみのない略語は使用しないようにしてください。代わりに、ブランド名のような認識しやすい名前を使用してください。ブランドのメールパーソナライズ手法として個人名の使用が適している場合は、受信者との関係を構築するために一貫性を保ちましょう。「差出人」名はモバイルで適切に表示されるよう、25文字以内にする必要があります。
 
@@ -63,7 +63,7 @@ channel: email
   | Android Gmail          | 24      |
   | iOS ネイティブ             | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="プレヘッダーの文字数制限" }
 
   |  デスクトップメールクライアント  |  制限  |
   |:----------------------:|:-------:|
@@ -71,7 +71,7 @@ channel: email
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="プレヘッダーの文字数制限" }
 
 
   |  Webメールクライアント  |  制限  |
@@ -81,19 +81,19 @@ channel: email
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="プレヘッダーの文字数制限" }
 
 ## メールサイズ {#email-size}
 
 メールサイズとは、BrazeにおけるメッセージHTMLのサイズ（作成した本文と、メッセージ送信時にBrazeが追加する内容）を指します。
 
 - メールサイズは制限内に収めるようにしてください。102&nbsp;KBを超えるメール本文は、Brazeサーバーに非常に大きな負荷をかけるだけでなく、Gmailやその他のメールクライアントによってクリッピングされます。
-- URLで参照するホスト画像は、巨大なインラインアセットを貼り付けるのと同じ方法でHTMLに埋め込まれるわけではありません。[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)を使用し、`href`でリンクすることで、メッセージサイズを小さく保つことをお勧めします。
+- URLで参照するホスト画像は、巨大なインラインアセットを貼り付けるのと同じ方法でHTMLに埋め込まれるわけではありません。[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)を使用し、`href`でリンクすることで、メッセージサイズを小さく保つことをお勧めします。
 
 |   テキストのみ   | テキスト＋画像 |     メール幅    |
 |:-------------:|:----------------:|:------------------:|
 | 最大 25&nbsp;KB |   最大 60&nbsp;KB   | 最大 600 ピクセル |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email size" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="メールサイズ" }
 
 クリッピングのリスクを軽減するには：
 
@@ -126,7 +126,7 @@ channel: email
 | 件名の長さ | 最大35文字（モバイルでの最適な表示のため）（6～10語） |
 | 差出人名の長さ | 最大25文字（モバイルでの最適な表示のため） |
 | プレヘッダーの長さ | 最大85文字 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Text length" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="テキストの長さ" }
 
 ## 画像サイズ {#image-size}
 
@@ -135,7 +135,7 @@ channel: email
 |     サイズ    | ヘッダー画像の幅 |  本文画像の幅  |   ファイル形式  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 最大 5&nbsp;MB | 最大 600 ピクセル | 最大 480 ピクセル | PNG、JPEG、GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="画像サイズ" }
 
 {% alert note %}
 Gmail WebおよびGmailモバイルアプリは、SVGを正しくレンダリングしないことが多いです（WEBPのサポートも一貫していません）。Gmailで確実に表示する必要がある画像には、PNGまたはJPEGを使用してください。
@@ -143,13 +143,13 @@ Gmail WebおよびGmailモバイルアプリは、SVGを正しくレンダリン
 
 ## ディープリンク {#deep-linking}
 
-プッシュ通知やIn-App Messagesでは、[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)によりユーザーをアプリ内の指定された場所に直接誘導できます。ただし、ディープリンクにはアプリがインストールされている必要があり、メールでは受信者がアプリを持っているかどうかを知る方法がありません。そのため、メール内のディープリンクは、アプリがインストールされていない受信者にとってエラーの原因となる可能性があります。
+プッシュ通知やIn-App Messagesでは、[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls)によりユーザーをアプリ内の指定された場所に直接誘導できます。ただし、ディープリンクにはアプリがインストールされている必要があり、メールでは受信者がアプリを持っているかどうかを知る方法がありません。そのため、メール内のディープリンクは、アプリがインストールされていない受信者にとってエラーの原因となる可能性があります。
 
-代わりに、標準的なURLとして機能する[ユニバーサルリンクとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)を使用してください。アプリを開いたり、ユーザーを特定のページに誘導したりするように設定できます。また、アプリがインストールされていない場合は、アプリストアにリダイレクトしたり、Webページにフォールバックしたりすることもできます。
+代わりに、標準的なURLとして機能する[ユニバーサルリンクとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)を使用してください。アプリを開いたり、ユーザーを特定のページに誘導したりするように設定できます。また、アプリがインストールされていない場合は、アプリストアにリダイレクトしたり、Webページにフォールバックしたりすることもできます。
 
 ## 透過画像を含むContent Blocks {#content-blocks-with-transparent-images}
 
-Content Blocksに透過背景の画像（ロゴなど）が含まれており、Liquidタグで挿入された場合、画像の背後に背景色が表示されることがあります。この色は、ドラッグ＆ドロップエディターの[メールグローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)、具体的には**メール背景色**から来ています。グローバルスタイル設定で白以外の色を使用している場合、その色が表示されます。
+Content Blocksに透過背景の画像（ロゴなど）が含まれており、Liquidタグで挿入された場合、画像の背後に背景色が表示されることがあります。この色は、ドラッグ＆ドロップエディターの[メールグローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)、具体的には**メール背景色**から来ています。グローバルスタイル設定で白以外の色を使用している場合、その色が表示されます。
 
 Content Blocksを意図どおりに表示するには：
 

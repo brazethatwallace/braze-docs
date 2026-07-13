@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para criar
 ---
 {% api %}
 # Criar envios de mensagens programadas {#create-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/create
 {% endapimethod %}
 
@@ -19,14 +19,14 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para criar
 Se você estiver direcionando um segmento, um registro da sua solicitação será armazenado no [Console de desenvolvedor](https://dashboard.braze.com/app_settings/developer_console/activitylog/) após o envio de todas as mensagens programadas.
 
 {% alert tip %}
-Se você deseja enviar mensagens imediatamente para usuários designados, use o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
+Se você deseja enviar mensagens imediatamente para usuários designados, use o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) em vez disso.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#25272fb8-bc39-41df-9a41-07ecfd76cb1d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `messages.schedule.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `messages.schedule.create`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -75,18 +75,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um segmento inteiro segmentado por uma Campaign ou Canvas. O padrão desse parâmetro é `false`. <br><br> Se `broadcast` estiver definido como `true`, não será possível incluir uma lista de destinatários. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag inadvertidamente pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
-| `external_user_ids` | Opcional | Matriz de strings | Consulte [identificador de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). |
-| `user_aliases` | Opcional | Vetor de objetos de alias de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-| `segment_id` | Opcional | String | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types/). |
-| `campaign_id` | Opcional | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Opcional | String | Consulte [identificador de envio]({{site.baseurl}}/api/identifier_types/). |
-| `override_messaging_limits` | Opcional | Booleano | Ignorar o limite de frequência para campanhas; o padrão é false |
+| `broadcast` | Opcional | booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um segmento inteiro segmentado por uma Campaign ou Canvas. O padrão desse parâmetro é `false`. <br><br> Se `broadcast` estiver definido como `true`, não será possível incluir uma lista de destinatários. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag inadvertidamente pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
+| `external_user_ids` | Opcional | Matriz de strings | Consulte [identificador de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). |
+| `user_aliases` | Opcional | Vetor de objetos de alias de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object). |
+| `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |
+| `segment_id` | Opcional | String | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types). |
+| `campaign_id` | Opcional | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Opcional | String | Consulte [identificador de envio]({{site.baseurl}}/api/identifier_types). |
+| `override_messaging_limits` | Opcional | booleano | Ignorar o limite de frequência para campanhas; o padrão é false |
 | `recipient_subscription_state` | Opcional | String | Use essa opção para enviar mensagens apenas para usuários que tenham aceitado receber mensagens (`opted_in`), apenas para usuários que tenham feito a inscrição ou aceitado receber mensagens (`subscribed`) ou para todos os usuários, inclusive os que cancelaram a inscrição (`all`). <br><br>O uso de `all` é útil para envio de e-mail de transação. O padrão é `subscribed`. |
-| `schedule` | Obrigatória | Objeto de programação | Consulte [objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object/) |
-| `messages` | Opcional | Objeto de envio de mensagens | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `schedule` | Obrigatória | Objeto de programação | Consulte [objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object) |
+| `messages` | Opcional | Objeto de envio de mensagens | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters#messaging-objects). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

@@ -42,7 +42,7 @@ Rufen Sie Ihr E-Mail-Performance-Dashboard auf, indem Sie zu **Analytics** > **E
 | Sonstige Öffnungsrate | Rate | (Gesamtzahl der sonstigen Öffnungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen für den Datumsbereich)<br><br>Sonstige Öffnungen umfassen E-Mails, die nicht als maschinelle Öffnungen identifiziert wurden, z. B. wenn eine Nutzer:in eine E-Mail öffnet. Diese Metrik ist nicht eindeutig und ist eine Untermetrik der Gesamtöffnungen.  |
 | Eindeutige Klickrate | Rate | (Gesamtzahl der eindeutigen Klicks über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen für einen Datumsbereich) |
 | Eindeutige Klick-zu-Öffnungs-Rate | Rate | (Gesamtzahl der eindeutigen Klicks über jeden Tag im Datumsbereich) / (Gesamtzahl der eindeutigen Öffnungen über jeden Tag im Datumsbereich) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wie Metriken berechnet werden" }
 
 {% endtab %}
 {% tab E-Mail-Insights %}
@@ -63,8 +63,8 @@ Die Kategorie „Other“ umfasst jeden User-String, der nicht als Desktop, Mobi
 
 Um besser zu verstehen, was in dieser Kategorie „Other“ enthalten ist, können Sie die User-Agents mit einer der folgenden Optionen extrahieren:
 
-1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) sendet Ihnen den genauen User-Agent-String, der von den Geräten Ihrer Nutzer:innen abgerufen wurde.
-2. Nutzen Sie unseren [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), um SQL oder unseren [KI-Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#generating-sql-with-the-ai-query-builder) zu verwenden, um die User-Agents anzuzeigen.
+1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) sendet Ihnen den genauen User-Agent-String, der von den Geräten Ihrer Nutzer:innen abgerufen wurde.
+2. Nutzen Sie unseren [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), um SQL oder unseren [KI-Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) zu verwenden, um die User-Agents anzuzeigen.
 
 ![Bericht „Engagement by Device“, der die Anzahl der Klicks für Mobilgeräte, Desktop, Tablet und andere Geräte zeigt. Die meisten Klicks erfolgen auf Mobilgeräten.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
@@ -90,7 +90,7 @@ Der Engagement-Bericht **Time of the day** schlüsselt Öffnungen oder Klicks na
 
 ![Ein Beispiel für den Engagement-Bericht „Time of the day“ mit Öffnungen oder Klicks von 0 Uhr bis 23 Uhr.]({% image_buster /assets/img_archive/time_engagement_day.png %})
 
-Weitere Informationen zu Analytics für Ihre E-Mails finden Sie unter [E-Mail-Reporting]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Weitere Informationen zu Analytics für Ihre E-Mails finden Sie unter [E-Mail-Reporting]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 {% endtab %}
 {% tab SMS-Performance %}
@@ -114,7 +114,7 @@ Um Ihr SMS-Performance-Dashboard zu verwenden, navigieren Sie zu **Analytics** >
 | Klickrate | Rate | (Gesamtzahl der Klicks über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich) |
 | Gesamte Opt-ins | Rate | Gesamtzahl der eingehenden Nachrichten-Opt-ins über jeden Tag im Datumsbereich |
 | Gesamte Opt-outs | Rate | Gesamtzahl der eingehenden Nachrichten-Opt-outs über jeden Tag im Datumsbereich |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wie Metriken berechnet werden" }
 
 {% endtab %}
 {% tab Push-Performance %}
@@ -139,7 +139,7 @@ Um das Dashboard zu öffnen, navigieren Sie zu **Analytics** > **Dashboard Build
 | Direkte Öffnungsrate | Rate | (Gesamtzahl der direkten Öffnungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich) |
 | Beeinflusste Öffnungsrate | Rate | (Gesamtzahl der beeinflussten Öffnungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich) |
 | Gesamte Öffnungsrate | Rate | (Gesamtzahl der Gesamtöffnungen über jeden Tag im Datumsbereich) / (Gesamtzahl der Zustellungen über jeden Tag im Datumsbereich)<br><br>Gesamtöffnungen umfassen sowohl direkte Öffnungen als auch beeinflusste Öffnungen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wie Metriken berechnet werden" }
 
 {% endtab %}
 {% endtabs %}
@@ -185,18 +185,18 @@ Für die Metrik *Eindeutige Öffnungen* dedupliziert Braze alle wiederholten Öf
 
 <!---Temporarily hidden until functionality is added
 
-## Empty values in your data
+## Empty values in your data {#empty-values-in-your-data}
 
-#### If a metric displays "0%" or "0"
+### If a metric displays "0%" or "0" {#if-a-metric-displays-0-or-0}
 
 This means Braze recorded zero for that particular metric during the time frame you've selected.
 
-#### If a metric displays "N/A"
+#### If a metric displays "N/A" {#if-a-metric-displays-na}
 
 This means that while Braze recorded positive counts for a particular metric for the time frame you've selected, the denominator for the rate calculation (either sends or deliveries in most cases) was zero. This can occur when emails are sent out on one day and opens and clicks are recorded the following days if your selected time frame does not include the date the messages were sent.
 
-#### If a metric displays "--"
+#### If a metric displays "--" {#if-a-metric-displays}
 
-This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email/) section.
+This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section.
 
 --->

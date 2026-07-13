@@ -22,7 +22,7 @@ La clé primaire ne peut pas être supprimée. Si vous tentez de supprimer la cl
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `sdk_authentication.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sdk_authentication.delete`.
 
 ## Limite de débit {#rate-limit}
 

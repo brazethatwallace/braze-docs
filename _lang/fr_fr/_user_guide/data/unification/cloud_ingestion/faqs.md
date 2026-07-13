@@ -17,7 +17,7 @@ Ce type d'e-mail signifie généralement qu'il y a un problème avec votre confi
 
 ### CDI ne peut pas accéder à l'entrepôt de données ou à la table avec vos identifiants {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
 
-Cela peut signifier que les identifiants dans CDI sont incorrects ou mal configurés dans l'entrepôt de données. Pour plus d'informations, reportez-vous à la section [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Cela peut signifier que les identifiants dans CDI sont incorrects ou mal configurés dans l'entrepôt de données. Pour plus d'informations, reportez-vous à la section [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ### La table est introuvable {#the-table-cannot-be-found}
 
@@ -41,9 +41,9 @@ Le test de connexion s'exécute sur votre entrepôt de données : augmenter la c
 
 ### Erreur de connexion à l'instance Snowflake : la requête entrante avec cette IP n'est pas autorisée à accéder à Snowflake {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-Essayez d'ajouter les adresses IP officielles de Braze à votre liste d'autorisation. Pour plus d'informations, reportez-vous à la section [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), ou autorisez les adresses IP correspondantes :
+Essayez d'ajouter les adresses IP officielles de Braze à votre liste d'autorisation. Pour plus d'informations, reportez-vous à la section [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), ou autorisez les adresses IP correspondantes :
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Erreur lors de l'exécution SQL due à la configuration client : 002003 (42S02) : erreur de compilation SQL : n'existe pas ou non autorisé {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 
@@ -71,7 +71,7 @@ Si vous recevez cette erreur, assurez-vous que l'utilisateur utilise la clé pub
 
 Le test de connexion s'exécute sur votre entrepôt de données : augmenter la capacité de l'entrepôt peut donc améliorer sa rapidité. L'utilisation d'une instance SQL serverless permet de réduire le temps de préchauffage et d'améliorer le débit des requêtes, mais peut entraîner des coûts d'intégration légèrement plus élevés.
 
-### Accès refusé pour la relation {table_name} {#permission-denied-for-relation-tablename}
+### Accès refusé pour la relation {table_name} {#permission-denied-for-relation-table_name}
 
 Si vous recevez cette erreur :
 
@@ -130,9 +130,9 @@ Si vous recevez cette erreur, consultez [Databricks : Erreur Forbidden lors de l
 
 ## Comment mettre à jour mes préférences d'alerte par e-mail pour les intégrations CDI ? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
 
-Chaque intégration dispose de ses propres préférences de notification. Accédez à la page CDI et sélectionnez le nom de l'intégration que vous souhaitez mettre à jour. Dans la section **Notification preferences**, vous pouvez modifier la façon dont vous recevez les alertes pour l'intégration sélectionnée.
+Chaque intégration dispose de ses propres préférences de notification. Accédez à la page CDI et sélectionnez le nom de l'intégration que vous souhaitez mettre à jour. Dans la section **Préférences de notification**, vous pouvez modifier la façon dont vous recevez les alertes pour l'intégration sélectionnée.
 
-## Que se passe-t-il si un `UPDATED_AT` futur est synchronisé avec une intégration ? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
+## Que se passe-t-il si un `UPDATED_AT` futur est synchronisé avec une intégration ? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
 CDI utilise `UPDATED_AT` pour déterminer quelles données sont nouvelles. Une fois qu'un `UPDATED_AT` situé dans le futur a été synchronisé, toutes les données antérieures à cette date et heure ne seront pas traitées. Pour corriger cela :
 
@@ -142,7 +142,7 @@ CDI utilise `UPDATED_AT` pour déterminer quelles données sont nouvelles. Une f
 
 ## Pourquoi le nombre de « Rows Synced » ne correspond-il pas à celui de mon entrepôt ? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI utilise `UPDATED_AT` pour décider quels enregistrements récupérer lors d'une synchronisation. Consultez [cette illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/#what-gets-synced) pour comprendre le fonctionnement. Au début d'une synchronisation, CDI interroge votre entrepôt de données pour obtenir tous les enregistrements dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` traitée. Les enregistrements situés exactement à l'horodatage limite peuvent également être re-synchronisés si de nouvelles lignes partagent cet horodatage. Tout enregistrement récupéré au moment de l'exécution de la requête est synchronisé dans Braze. Voici les cas courants où un enregistrement pourrait ne pas être synchronisé :
+CDI utilise `UPDATED_AT` pour décider quels enregistrements récupérer lors d'une synchronisation. Consultez [cette illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) pour comprendre le fonctionnement. Au début d'une synchronisation, CDI interroge votre entrepôt de données pour obtenir tous les enregistrements dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` traitée. Les enregistrements situés exactement à l'horodatage limite peuvent également être re-synchronisés si de nouvelles lignes partagent cet horodatage. Tout enregistrement récupéré au moment de l'exécution de la requête est synchronisé dans Braze. Voici les cas courants où un enregistrement pourrait ne pas être synchronisé :
 
 - Vous ajoutez des enregistrements à la table avec une valeur `UPDATED_AT` qui a déjà été traitée.
 - Vous mettez à jour les valeurs des enregistrements après leur traitement par une synchronisation, mais vous laissez `UPDATED_AT` inchangé.
@@ -152,11 +152,11 @@ CDI utilise `UPDATED_AT` pour décider quels enregistrements récupérer lors d'
 Pour éviter ces comportements à l'avenir, nous recommandons d'utiliser des valeurs `UPDATED_AT` croissantes de manière monotone et de ne pas mettre à jour la table pendant l'exécution de votre synchronisation planifiée.
 {% endalert %}
 
-## Ai-je besoin de valeurs `UPDATED_AT` principalement distinctes pour les importations CDI volumineuses ? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+## Ai-je besoin de valeurs `UPDATED_AT` principalement distinctes pour les importations CDI volumineuses ? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
 
 Oui. Pour les exécutions à fort volume (par exemple, plus d'environ 10 millions de lignes), assurez-vous que vos données sources possèdent des valeurs `UPDATED_AT` principalement distinctes. Si trop de lignes partagent le même horodatage, CDI est plus susceptible de re-sélectionner des lignes aux horodatages limites lors des exécutions suivantes. Cela peut augmenter les synchronisations en double et la consommation de points de donnée.
 
-Pour plus d'informations sur le comportement de CDI aux limites, consultez [Éviter la re-synchronisation de lignes avec des horodatages en double]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+Pour plus d'informations sur le comportement de CDI aux limites, consultez [Éviter la re-synchronisation de lignes avec des horodatages en double]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Où exécuter ces vérifications SQL ? {#where-do-i-run-these-sql-checks}
 
@@ -206,7 +206,7 @@ Si votre entrepôt de données ne prend pas en charge `LIMIT` (par exemple, Fabr
 
 ## Pourquoi une synchronisation CDI avec un petit nombre de lignes peut-elle tout de même prendre plusieurs minutes ? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
-Une synchronisation CDI comprend une période de démarrage fixe avant que le traitement des lignes ne commence. Comme ce temps de démarrage est similaire quelle que soit la taille de la synchronisation, une petite synchronisation peut tout de même prendre plusieurs minutes et sembler plus lente en termes de lignes par minute. Le temps total de synchronisation dépend toujours de la complexité de votre requête source, de la forme des données et de la capacité disponible dans votre entrepôt de données. Pour plus d'informations, consultez [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Une synchronisation CDI comprend une période de démarrage fixe avant que le traitement des lignes ne commence. Comme ce temps de démarrage est similaire quelle que soit la taille de la synchronisation, une petite synchronisation peut tout de même prendre plusieurs minutes et sembler plus lente en termes de lignes par minute. Le temps total de synchronisation dépend toujours de la complexité de votre requête source, de la forme des données et de la capacité disponible dans votre entrepôt de données. Pour plus d'informations, consultez [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## Lors d'une synchronisation, l'ordre est-il préservé si plusieurs enregistrements partagent le même ID ? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
@@ -234,4 +234,4 @@ Braze dispose des mesures suivantes pour CDI :
 Nous vous recommandons, à vous et à votre équipe, de mettre en place les mesures de sécurité suivantes de votre côté :
 
 - Restreindre l'accès des identifiants au minimum requis pour le fonctionnement de CDI. En effet, nous devons être en mesure d'exécuter des requêtes select (et count) sur les tables et vues spécifiques.
-- Restreindre les adresses IP pouvant accéder aux tables aux [IP Braze publiées officiellement]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+- Restreindre les adresses IP pouvant accéder aux tables aux [IP Braze publiées officiellement]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).

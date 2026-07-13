@@ -15,9 +15,9 @@ Braze Audience Sync to Criteo를 사용하면 브랜드는 자체 Braze 통합�
 
 **오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다:**
 
-- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 참여 유도
+- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 인게이지먼트 유도
 - 다른 마케팅 채널에 반응이 적은 사용자를 리타겟팅
-- 이미 브랜드의 충성 고객인 사용자가 광고를 받지 않도록 억제 오디언스 생성
+- 이미 브랜드의 충성 소비자인 사용자가 광고를 받지 않도록 억제 오디언스 생성
 - 유사 오디언스를 생성하여 신규 사용자를 더 효율적으로 확보
 
 이 기능을 통해 브랜드는 Criteo와 공유하는 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [개인정보 보호정책](https://www.braze.com/privacy)을 참조하세요.
@@ -35,14 +35,14 @@ Criteo에 오디언스 동기화를 설정하기 전에 다음 항목을 생성 
 | --- | --- | --- |
 | Criteo 광고 계정 | [Criteo](https://marketing.criteo.com/) | 브랜드에 연결된 활성 Criteo 광고 계정.<br><br>Criteo 관리자가 오디언스에 접근할 수 있는 적절한 권한을 부여했는지 확인하세요. |
 | [Criteo 광고 가이드라인](https://www.criteo.com/advertising-guidelines/)<br>및<br>[Criteo 브랜드 안전 가이드라인](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | 활성 Criteo 고객으로서 Criteo Campaign을 시작하기 전에 Criteo의 광고 및 브랜드 안전 가이드라인을 준수할 수 있는지 확인해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
 ### 1단계: Criteo에 연결 {#step-1-connect-to-criteo}
 
 {% alert important %}
-Braze 계정에 Criteo를 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 있어야 합니다.
+Braze 계정에 Criteo를 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)이 있어야 합니다.
 {% endalert %}
 
 Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **Criteo**를 선택합니다. Criteo Audience Export 아래에서 **Connect Criteo**를 선택합니다.
@@ -65,15 +65,15 @@ Criteo 연결은 Braze 워크스페이스 수준에서 적용됩니다. Criteo �
 
 광고 추적을 위한 오디언스를 구축할 때 사용자의 선호도에 따라 특정 사용자를 포함하거나 제외하고, [CCPA](https://oag.ca.gov/privacy/ccpa)에 따른 "판매 또는 공유 금지" 권리와 같은 개인정보 보호법을 준수하기 위해 관련 필터를 구현해야 할 수 있습니다. 마케터는 Canvas 진입 기준 내에서 사용자 자격에 대한 관련 필터를 구현해야 합니다. 아래에 몇 가지 옵션을 나열합니다.
 
-[Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)를 수집한 경우 광고 추적 활성화 필터를 사용할 수 있습니다. 값을 true로 선택하면 옵트인한 사용자만 오디언스 동기화 대상으로 전송됩니다.
+[Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)를 수집한 경우 광고 추적 활성화 필터를 사용할 수 있습니다. 값을 true로 선택하면 옵트인한 사용자만 오디언스 동기화 대상으로 전송됩니다.
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![광고 추적 활성화가 true로 설정된 Canvas 진입 필터.]({% image_buster /assets/img/criteo/criteo11.png %})
 
 `opt-ins`, `opt-outs`, `Do Not Sell Or Share` 또는 기타 관련 커스텀 속성을 수집하는 경우 Canvas 진입 기준에 필터로 포함해야 합니다:
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![오디언스 자격을 위한 커스텀 옵트인 속성을 사용하는 Canvas 진입 필터.]({% image_buster /assets/img/criteo/criteo12.png %})
 
-Braze 플랫폼 내에서 이러한 데이터 보호법을 준수하는 방법에 대해 자세히 알아보려면 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance/)을 참조하세요.
+Braze 플랫폼 내에서 이러한 데이터 보호법을 준수하는 방법에 대해 자세히 알아보려면 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance)을 참조하세요.
 
 ### 3단계: Criteo로 오디언스 동기화 단계 추가 {#step-3-add-an-audience-sync-step-with-criteo}
 
@@ -87,7 +87,7 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
 원하는 오디언스 동기화 파트너로 **Criteo**를 선택합니다.
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Criteo가 파트너로 선택된 오디언스 동기화 단계 편집기.]({% image_buster /assets/img/criteo/criteo6.png %})
 
 그런 다음 원하는 Criteo 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 
@@ -140,7 +140,7 @@ Criteo의 API 사용량 제한은 분당 250건 이하의 요청만 허용합니
 | 대기 중인 사용자 | 현재 Braze에서 Criteo로 동기화하기 위해 처리 중인 사용자 수. |
 | 오류가 발생한 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Criteo에 동기화되지 않은 사용자 수. 오류의 잠재적 원인에는 유효하지 않은 Criteo 토큰 또는 Criteo에서 오디언스가 삭제된 경우가 포함될 수 있습니다. |
 | Canvas 종료함 | Canvas를 종료한 사용자 수. Canvas의 마지막 단계가 오디언스 동기화 구성요소인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해" }
 
 {% alert important %}
 대량 플러셔와 13시간 재시도로 인해 동기화된 사용자 및 오류가 발생한 사용자 측정기준의 보고에 지연이 있을 수 있습니다.
@@ -149,6 +149,7 @@ Criteo의 API 사용량 제한은 분당 250건 이하의 요청만 허용합니
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
 ### 유효하지 않은 토큰 오류를 받으면 어떻게 해야 하나요? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
+
 Criteo 파트너 페이지에서 Criteo 계정의 연결을 해제한 후 다시 연결하면 됩니다. Criteo 관리자에게 동기화하려는 광고 계정에 대한 적절한 권한이 있는지 확인하세요.
 
 ### Canvas를 시작할 수 없는 이유는 무엇인가요? {#why-is-my-canvas-not-allowed-to-launch}

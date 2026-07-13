@@ -26,7 +26,7 @@ Ao criar uma mensagem no app de arrastar e soltar, selecione **Email sign-up wit
 
 ### Etapa 3: Personalize o componente de inscrição de e-mail {#step-3-customize-your-email-sign-up-component}
 
-Para começar a criar seu formulário de inscrição de e-mail, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Subscribed**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Para começar a criar seu formulário de inscrição de e-mail, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Subscribed**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Você pode personalizar o texto de espaço reservado e o texto do rótulo do elemento de captura de e-mail.
 
@@ -42,7 +42,7 @@ Você pode personalizar o texto de espaço reservado e o texto do rótulo do ele
 
 ### Etapa 5: Estilize sua mensagem {#step-5-style-your-message}
 
-Personalize a aparência do seu formulário de inscrição usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastar e soltar. Adicione sua própria imagem de fundo substituindo a URL da imagem de fundo padrão no menu **Message container** ou remova a URL e selecione sua imagem na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+Personalize a aparência do seu formulário de inscrição usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastar e soltar. Adicione sua própria imagem de fundo substituindo a URL da imagem de fundo padrão no menu **Message container** ou remova a URL e selecione sua imagem na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
 ## Analisando os resultados {#analyzing-the-results}
 

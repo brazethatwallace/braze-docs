@@ -29,9 +29,9 @@ Wenn Nutzer:innen ein SharePlay-Video in einem FaceTime-Anruf initiieren, ersche
 Bei der synchronisierten Medienwiedergabe wird das SharePlay-Video, wenn es von einer Person angehalten wird, auf allen Geräten angehalten. <br><br>
 ![SharePlay]({% image_buster /assets/img/shareplay/shareplay7.png %}){: style="border:0"}
 
-## Integration
+## Integration {#integration}
 
-Die In-App-Nachricht, die in dieser Integration verwendet wird, ist ein unterklassifizierter View-Controller für modale In-App-Nachrichten. Eine Anleitung für die Einrichtung finden Sie im [Implementierungsleitfaden]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/) für erweiterte Anwendungsfälle bei In-App-Nachrichten unter iOS. Stellen Sie vor der Integration sicher, dass Sie die Berechtigung `GroupActivities` zu Ihrem Xcode-Projekt hinzufügen.
+Die In-App-Nachricht, die in dieser Integration verwendet wird, ist ein unterklassifizierter View-Controller für modale In-App-Nachrichten. Eine Anleitung für die Einrichtung finden Sie im [Implementierungsleitfaden]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide) für erweiterte Anwendungsfälle bei In-App-Nachrichten unter iOS. Stellen Sie vor der Integration sicher, dass Sie die Berechtigung `GroupActivities` zu Ihrem Xcode-Projekt hinzufügen.
 
 {% alert important %}
 Wir empfehlen, die [Apple SharePlay-Dokumentation](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback) parallel zu dieser Anleitung zu öffnen, um die Integration abzuschließen.

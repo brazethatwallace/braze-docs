@@ -147,9 +147,9 @@ Zu den Features zählen:
 - In-App-Nachrichten
   - Um HTML-Nachrichten auf Nicht-Touch-Geräten wie TV-Geräten anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - Banner
-  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre Fire TV-App einzubetten.
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre Fire TV-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 ### Kindle Fire {#kindle-fire}
 
@@ -163,9 +163,9 @@ Zu den Features zählen:
 - Feature-Flags
 - In-App-Nachrichten
 - Banner
-  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihr Kindle Fire einzubetten.
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihr Kindle Fire einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 ### Android TV {#android-tv}
 
@@ -179,11 +179,11 @@ Zu den Features zählen:
 - In-App-Nachrichten
   - Um HTML-Nachrichten auf Nicht-Touch-Geräten wie TV-Geräten anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - &#42; Push-Benachrichtigungen (manuelle Integration erforderlich)
-  - Push-Benachrichtigungen werden auf Android TV nicht nativ unterstützt. Warum, erfahren Sie in den [Design-Richtlinien](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) von Google. Sie können jedoch **eine manuelle Integration der Push-Benachrichtigungs-UI vornehmen, um dies zu erreichen**. Lesen Sie in unserer [Dokumentation]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv) nach, wie Sie dies einrichten können.
+  - Push-Benachrichtigungen werden auf Android TV nicht nativ unterstützt. Warum, erfahren Sie in den [Design-Richtlinien](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) von Google. Sie können jedoch **eine manuelle Integration der Push-Benachrichtigungs-UI vornehmen, um dies zu erreichen**. Lesen Sie in unserer [Dokumentation]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android%20tv) nach, wie Sie dies einrichten können.
 - Banner
-  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre Android TV-App einzubetten.
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre Android TV-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Android SDK-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Weitere Informationen finden Sie in der [Anleitung zur Android SDK-Integration]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 {% alert note %}
 Stellen Sie sicher, dass Sie im Dashboard eine neue Android-App für Ihre Android-OTT-Integration erstellen.
@@ -200,9 +200,9 @@ Zu den Features zählen:
 - Feature-Flags
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
 - Banner
-  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre webOS-App einzubetten.
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre webOS-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
+Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
 
 ### Samsung Tizen {#tizen}
 
@@ -215,9 +215,9 @@ Zu den Features zählen:
 - Feature-Flags
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
 - Banner
-  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre Tizen-App einzubetten.
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre Tizen-App einzubetten.
 
-Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
+Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
 
 ### Roku {#roku}
 
@@ -230,7 +230,7 @@ Zu den Features zählen:
   - Webviews werden von der Roku-Plattform nicht unterstützt, daher werden In-App-Nachrichten im HTML-Format nicht unterstützt.
 - Feature-Flags
 
-Weitere Informationen finden Sie in der [Anleitung zur Roku-Integration]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=roku).
+Weitere Informationen finden Sie in der [Anleitung zur Roku-Integration]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=roku).
 
 ### Apple TV OS {#tvos}
 
@@ -244,9 +244,9 @@ Zu den Features zählen:
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
   - Webviews werden von der tvOS-Plattform nicht unterstützt, daher werden In-App-Nachrichten im HTML-Format nicht unterstützt.
   - Sehen Sie sich unsere [Beispiel-App](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) an, um mehr darüber zu erfahren, wie Sie eine Headless UI für angepasstes Messaging unter tvOS verwenden können.
-- Stille Push-Benachrichtigungen und Update-Badges
+- Stille Push-Benachrichtigungen und Badge-Aktualisierungen
 - Banner
-  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre tvOS-App einzubetten.
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre tvOS-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur iOS Swift SDK-Integration](https://github.com/braze-inc/braze-swift-sdk).
 
@@ -265,12 +265,12 @@ Verwenden Sie das Braze Swift SDK für die Integration mit visionOS. Die meisten
 - Feature-Flags
 - Standort-Analytics
 - Banner
-  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre visionOS-App einzubetten.
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), um Nachrichten direkt in Ihre visionOS-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur iOS Swift SDK-Integration](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Einige iOS-Features werden nur teilweise oder gar nicht unterstützt. Die vollständige Liste finden Sie unter [visionOS-Unterstützung](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos).
+Einige iOS-Features werden nur teilweise oder gar nicht unterstützt. Die vollständige Liste finden Sie unter [visionOS-Unterstützung]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos).
 {% endalert %}
 
 ## App-Targeting {#app-targeting}
@@ -288,8 +288,8 @@ Plattformen, die In-App-Nachrichten oder Content Cards über eine Headless UI un
 Mit Headless UI stellt Braze ein Datenmodell bereit, z. B. JSON, das Ihre App lesen und innerhalb einer UI verwenden kann, die Ihre App steuert. Diese Daten enthalten die im Dashboard konfigurierten Felder (Titel, Textkörper, Button-Text, Farben usw.), die Ihre App lesen und entsprechend anzeigen kann. Weitere Informationen zum angepassten Handling von Nachrichten finden Sie unter:
 
 **Android SDK**
-- [In-App-Nachrichten anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)
-- [Content-Cards-Anpassung]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)
+- [In-App-Nachrichten anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android#android_setting-custom-manager-listeners)
+- [Content-Cards-Anpassung]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)
 
 **Swift SDK**
 - [In-App-Nachrichten anpassen](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter/)
@@ -297,5 +297,5 @@ Mit Headless UI stellt Braze ein Datenmodell bereit, z. B. JSON, das Ihre App le
 - [Content-Cards-Anpassung](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/)
 
 **Web SDK**
-- [In-App-Nachrichten anpassen]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web)
-- [Content-Cards-Anpassung]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)
+- [In-App-Nachrichten anpassen]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web)
+- [Content-Cards-Anpassung]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)

@@ -44,7 +44,7 @@ Use this field to define how long Braze will keep your session active. After Bra
 
 You can restrict your users from logging in using a password or SSO.
 
-For [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), customers need to set up their SAML settings before enforcing. If customers use Google SSO, they only need to enforce the security settings page with no additional lift.
+For [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), customers need to set up their SAML settings before enforcing. If customers use Google SSO, they only need to enforce the security settings page with no additional lift.
 
 ## Dashboard IP allowlisting
 
@@ -115,8 +115,6 @@ Elevated Access adds an extra layer of security for sensitive actions in your Br
 
 If a user can’t re-verify, they’ll be redirected to where they left off and won’t be able to continue with the sensitive action. After they successfully re-verify, they won’t need to do so again for the next hour—unless they log out first.
 
-![Elevated Access toggle.]({% image_buster /assets/img/elevated_access.png %})
-
 ## Downloading a security event report {#security-event-report}
 
 The Security Event report is a CSV report of security events such as account invitations, account removals, failed and successful login attempts, and other activities. You can use it to perform internal audits.
@@ -127,9 +125,25 @@ To download this report, do the following:
 2. Select the **Security Settings** tab and go to the **Security Event Download** section.
 3. Select **Download report**. 
 
-This manual report download contains only the most recent 10,000 security events for your account.
+This manual report download contains only the most recent 10,000 security events for your account. If your exported CSV contains exactly 10,001 rows (including the header row), you reached the 10,000-event report cap and older events may not be included.
 
-To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### CSV column definitions
+
+The Security Event report CSV contains the following columns:
+
+| Column | Description |
+|--------|-------------|
+| CreatedAt | Timestamp when the event was recorded, in UTC. |
+| EmailAtTimeOfEvent | Email address of the dashboard user who triggered the event, as recorded when the event occurred. |
+| CurrentEmail | Current email address of the dashboard user who triggered the event. If the user no longer exists, their developer ID is used instead. |
+| EventName | Type of security event. See the **Reported security events** dropdown after this table. |
+| OtherAccount | Email address of another dashboard user affected by the event, when applicable (for example, when an account is added or removed). |
+| JsonProperties | Event-specific properties in JSON format. The fields included vary by event type. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV column definitions" }
+
+[S3 exports]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) include these columns plus `Version`, the schema version for the export format (currently `1`).
 
 {% details Reported security events %}
 ### Login and account
@@ -161,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -249,15 +263,15 @@ Removed Push Credential
 The **View PII** permission is only accessible to a few select company users. By default, all admins have their **View PII** permission turned on in user permissions. This means they can see all standard and custom attributes that your company has defined as PII throughout the dashboard. When this permission is turned off for users, those users won't be able to see any of those attributes.
 
 {% alert note %}
-You need the **View PII** permission to use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), because it allows direct access to some customer data.
+You need the **View PII** permission to use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), because it allows direct access to some customer data.
 {% endalert %}
 
-For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Defining PII
 
 {% alert important %}
-Selecting and defining certain fields as PII fields only affects what users can view on the Braze dashboard and does not impact how the End User data in such PII fields is handled.<br><br>Consult your legal team to align your dashboard's settings with any privacy regulations and policies applicable to your company, including those related to [data retention]({{site.baseurl}}/data_retention/).
+Selecting and defining certain fields as PII fields only affects what users can view on the Braze dashboard and does not impact how the End User data in such PII fields is handled.<br><br>Consult your legal team to align your dashboard's settings with any privacy regulations and policies applicable to your company, including those related to [data retention]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 You can select the fields your company designates as PII in the dashboard. To do this, go to **Company Settings** > **Admin Settings** > **Security Settings**.
@@ -268,7 +282,7 @@ The following attributes can be designated as PII and hidden from company users 
 
 | Standard attributes | Custom attributes |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
+| {::nomarkdown}<ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> LINE ID </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
 
 ### Limited areas
@@ -328,7 +342,7 @@ If you find yourself caught in a loop after successfully entering your phone num
 3. Restart your PC or laptop.
 4. Attempt to set up 2FA again.
 
-If the problem persists after these steps, contact [Support]({{site.baseurl}}/braze_support/) for assistance.
+If the problem persists after these steps, contact [Support]({{site.baseurl}}/braze_support) for assistance.
 
 ### Can't enable two-factor authentication (2FA)
 
@@ -352,5 +366,5 @@ If issues persist, delete the old profile in the Authy app and scan the QR code 
 
 For more information about authentication and access, see:
 
-- [SAML & single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) to set up SSO with your identity provider.
-- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to control what actions users can perform in the dashboard.
+- [SAML & single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) to set up SSO with your identity provider.
+- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to control what actions users can perform in the dashboard.

@@ -20,14 +20,14 @@ Para aproveitar esse recurso, você deve fazer upgrade para as seguintes versõe
 
 {% sdk_min_versions swift:5.2.0 android:23.0.0 web:4.2.0 %}
 
-Após fazer upgrade do SDK, os usuários de dispositivos móveis precisam atualizar o app. Você pode filtrar o público da sua Campaign ou Canvas para [direcionar apenas usuários nessas versões mínimas do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Após fazer upgrade do SDK, os usuários de dispositivos móveis precisam atualizar o app. Você pode filtrar o público da sua Campaign ou Canvas para [direcionar apenas usuários nessas versões mínimas do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 ## Visão geral {#overview}
 
 {% tabs %}
 {% tab Campaign %}
 
-Você pode escolher quando a Braze cria um cartão na etapa **Delivery** ao criar uma nova [Campaign de Content Card]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) com entrega agendada.
+Você pode escolher quando a Braze cria um cartão na etapa **Delivery** ao criar uma nova [Campaign de Content Card]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) com entrega agendada.
 
 ![Seção de controles do cartão de conteúdo ao editar a entrega de um cartão de conteúdo agendado.]({% image_buster /assets/img_archive/card_creation.png %})
 
@@ -41,7 +41,7 @@ Independentemente da opção selecionada, a contagem regressiva da data de expir
 {% endtab %}
 {% tab Canvas %}
 
-Você pode escolher quando a Braze cria um cartão na guia **Messaging Channels** de uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) do Content Card.
+Você pode escolher quando a Braze cria um cartão na guia **Messaging Channels** de uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) do Content Card.
 
 ![Seção de controles do cartão de conteúdo ao editar a entrega de um cartão de conteúdo agendado.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
@@ -69,7 +69,7 @@ Nas configurações de **Expiration (Time in Feed)**, você pode selecionar **Pe
 ![Configurações de expiração mostrando Personalize duration configurada com uma variável de contexto para expiração do Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
 {% alert important %}
-Content Cards têm uma expiração máxima de 30 dias, mesmo ao usar duração personalizada com variáveis de contexto. Qualquer valor definido além de 30 dias é limitado a 30 dias. Para mais detalhes, consulte [Expiração do cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+Content Cards têm uma expiração máxima de 30 dias, mesmo ao usar duração personalizada com variáveis de contexto. Qualquer valor definido além de 30 dias é limitado a 30 dias. Para mais detalhes, consulte [Expiração do cartão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#card-expiration).
 {% endalert %}
 
 {% endtab %}
@@ -135,11 +135,11 @@ Esta seção descreve as principais diferenças entre a criação de cartões no
 
 Campaigns multicanal não suportam cartões na primeira impressão, então todos os Content Cards são enviados no lançamento da Campaign.
 
-### Usando propriedades de contexto do Canvas {#using-canvas-context-properties}
+### Usar propriedades de contexto do Canvas {#using-canvas-context-properties}
 
-Ao personalizar Content Cards com [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), use a sintaxe `${...}` (por exemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). A notação de ponto sem essa sintaxe (por exemplo, {%raw%}`{{context.property_name}}`{%endraw%}) pode não ser resolvida corretamente em Content Cards, mesmo que funcione em outros canais como push e e-mail.
+Ao personalizar Content Cards com [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), use a sintaxe `${...}` (por exemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). A notação de ponto sem essa sintaxe (por exemplo, {%raw%}`{{context.property_name}}`{%endraw%}) pode não ser resolvida corretamente em Content Cards, mesmo que funcione em outros canais como push e e-mail.
 
-### Alterando a criação de cartão após o lançamento {#changing-card-creation-after-launch}
+### Alterar a criação de cartão após o lançamento {#changing-card-creation-after-launch}
 
 A Braze recomenda não alterar como os cartões são criados após o lançamento de uma Campaign. Devido às diferenças na forma como *Mensagens enviadas* é calculado entre os dois tipos de criação de cartão, alterar como os cartões são criados após o lançamento da Campaign pode afetar a precisão do seu volume de envio.
 

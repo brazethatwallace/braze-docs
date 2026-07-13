@@ -42,22 +42,22 @@ Para lanzar un Canvas, debes aprobar estos componentes clave:
 
 ## Activar el flujo de trabajo de aprobación {#turning-on-the-approval-workflow}
 
-De forma predeterminada, la configuración del flujo de trabajo de aprobación está desactivada para Campaigns y Canvas. Para activar esta característica, ve a **Settings** > **Approval Workflow** y selecciona la opción correspondiente:
+De forma predeterminada, la configuración del flujo de trabajo de aprobación está desactivada para Campaigns y Canvas. Para activar esta característica, ve a **Configuración** > **Flujo de trabajo de aprobación** y selecciona la opción correspondiente:
 
-- **Use approval workflow for all Campaigns in [tu espacio de trabajo]**
-- **Use approval workflow for all Canvases in [tu espacio de trabajo]**
+- **Usar el flujo de trabajo de aprobación para todas las Campaigns en [tu espacio de trabajo]**
+- **Usar el flujo de trabajo de aprobación para todos los Canvas en [tu espacio de trabajo]**
 
 {% alert important %}
-La aprobación de Campaigns no es compatible con las [campañas de API]({{site.baseurl}}/api/api_campaigns/) ni con las [campañas de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
+La aprobación de Campaigns no es compatible con las [campañas de API]({{site.baseurl}}/api/api_campaigns) ni con las [campañas de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {% endalert %}
 
 ## Configurar permisos de usuario {#setting-user-permissions}
 
-Después de activar el flujo de trabajo de aprobación, debes configurar los permisos de usuario para que los usuarios de tu empresa puedan aprobar o rechazar Campaigns y Canvas. Ambos permisos también se pueden aplicar a espacios de trabajo o [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/), o añadirse a un [conjunto de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#permission-sets).
+Después de activar el flujo de trabajo de aprobación, debes configurar los permisos de usuario para que los usuarios de tu empresa puedan aprobar o rechazar Campaigns y Canvas. Ambos permisos también se pueden aplicar a espacios de trabajo o [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams), o añadirse a un [conjunto de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#permission-sets).
 
 {% tabs %}
 {% tab campaign %}
-Debes tener el [permiso "Approve and Deny Campaigns"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions). Este permiso controla quién puede actualizar el estado de aprobación de una Campaign. Con este permiso, puedes hacer lo siguiente:
+Debes tener el [permiso "Approve and Deny Campaigns"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Este permiso controla quién puede actualizar el estado de aprobación de una Campaign. Con este permiso, puedes hacer lo siguiente:
 
 - Autoaprobar la Campaign
 - Aprobar y lanzar la Campaign
@@ -69,7 +69,7 @@ Después de que los estados de aprobación se establezcan en el paso **Summary**
 {% endtab %}
 
 {% tab canvas %}
-Debes tener el [permiso "Approve and Deny Canvases"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions). Este permiso controla quién puede actualizar el estado de aprobación de un Canvas. Con este permiso, puedes hacer lo siguiente:
+Debes tener el [permiso "Approve and Deny Canvases"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Este permiso controla quién puede actualizar el estado de aprobación de un Canvas. Con este permiso, puedes hacer lo siguiente:
 
 - Autoaprobar el Canvas
 - Aprobar y lanzar el Canvas
@@ -81,7 +81,7 @@ Después de que los estados de aprobación se establezcan en el paso **Summary**
 {% alert note %}
 **Estado de aprobación y guardado**
 
-- Cuando haces clic en **Approve** para una sección en el paso **Summary**, esa aprobación se guarda inmediatamente.
+- Cuando haces clic en **Approve** en una sección del paso **Summary**, esa aprobación se guarda inmediatamente.
 - El botón **Save** guarda los cambios en el contenido y la configuración del Canvas, no el estado de aprobación.
 
 Para evitar perder aprobaciones:

@@ -32,7 +32,7 @@ WhatsApp製品メッセージをユーザーに送信すると、ユーザーは
 | WhatsApp Businessアカウント | WhatsApp製品メッセージを使用するには、Brazeに接続されたWhatsApp Businessアカウントが必要です。 |
 | Metaカタログ | Commerce ManagerでMetaカタログを設定する必要があります。 |
 | 規約の遵守 | [Meta Commerce利用規約とポリシー](https://www.facebook.com/policies_center/commerce)に準拠する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="要件" }
 
 ## 製品メッセージタイプ {#product-message-types}
 
@@ -90,7 +90,7 @@ Metaのマルチ製品メッセージテンプレートには、既知のヘッ�
 ![「Catalog_products」カタログのWhatsApp Manager設定ページ。]({% image_buster /assets/img/whatsapp/meta_catalog_settings.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. Brazeで、[埋め込みサインアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)プロセスを実行して権限を付与します。権限を付与するカタログを**すべて**選択してください。これにより、Braze統合製品セレクターが有効になります。
+4. Brazeで、[埋め込みサインアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)プロセスを実行して権限を付与します。権限を付与するカタログを**すべて**選択してください。これにより、Braze統合製品セレクターが有効になります。
 
 ![権限を付与するために5つのカタログが選択されたウィンドウ。]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
@@ -159,13 +159,13 @@ Meta Business Managerで、**Commerce Manager**に移動し、組織を選択し
 
 ## インバウンド製品質問の受信 {#receiving-inbound-product-questions}
 
-ユーザーは、製品またはカタログメッセージに対して製品に関する質問で応答できます。これらはインバウンドメッセージとして届き、[アクションパス]({{site.baseurl}}/action_paths/)で分類できます。
+ユーザーは、製品またはカタログメッセージに対して製品に関する質問で応答できます。これらはインバウンドメッセージとして届き、[アクションパス]({{site.baseurl}}/action_paths)で分類できます。
 
 さらに、Brazeはこれらの質問から製品IDとカタログIDを抽出するため、応答を自動化したり、質問を別のチーム（カスタマーサポートなど）に送信したりする場合に、それらの詳細を含めることができます。たとえば、WhatsAppプロパティの`inbound_product_id`や`inbound_catalog_id`を使用して応答をパーソナライズできます。
 
 ![パーソナライゼーションタイプが「WhatsApp Properties」で、属性「inbound_product_id」がハイライトされた「Add Personalization」ウィンドウ。]({% image_buster /assets/img/whatsapp/inbound_product_questions.png %}){: style="max-width:60%;"}
 
-## チェックアウト：カート処理とwebhook {#checkout-cart-processing-and-webhooks}
+## チェックアウト：カート処理とWebhook {#checkout-cart-processing-and-webhooks}
 
 ユーザーがWhatsApp製品メッセージを操作すると、製品を閲覧してカートにアイテムを追加できます。ただし、現在、配送情報や決済処理のための組み込みチェックアウト機能はありません。代わりに、独自のアプリまたはWebサイト内にカートを作成し、カスタムリンクを使用してユーザーをそのカートに誘導することをお勧めします。
 
@@ -196,7 +196,7 @@ Meta Business Managerで、**Commerce Manager**に移動し、組織を選択し
 - **ソース：** 「whats_app」としてマーク
 - **メタデータ：** カタログIDやメッセージテキストなどの追加データ
 
-Brazeカートイベントの追加情報については、[eコマース推奨イベントのタイプ]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events)を参照してください。
+Brazeカートイベントの追加情報については、[eコマース推奨イベントのタイプ]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events)を参照してください。
 
 ### トリガー応答の設定 {#setting-up-a-triggered-response}
 
@@ -249,14 +249,14 @@ eコマースシステムにAPI呼び出しを行い、パーソナライズさ�
 #### 設定
 
 1. [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated) eコマースイベントによってトリガーされるWebhook キャンペーンまたはキャンバスステップを作成し、カートデータをeコマースシステムに送信します。
-2. 同じeコマースイベントによってトリガーされるWhatsApp キャンペーンまたはキャンバスメッセージステップを作成し、カートURL付きのWhatsApp応答メッセージをユーザーに送信します。後続の応答メッセージの指示に従い、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用してください。
+2. 同じeコマースイベントによってトリガーされるWhatsApp キャンペーンまたはキャンバスメッセージステップを作成し、カートURL付きのWhatsApp応答メッセージをユーザーに送信します。後続の応答メッセージの指示に従い、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用してください。
 
 ![コネクテッドコンテンツ呼び出しのチェックアウト体験ワークフローを示す図：Metaが注文受信メッセージをBrazeに送信し、Brazeがeコマースプラットフォームと双方向の呼び出しを行い、WhatsAppメッセージを送信します。]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 
 {% endtab %}
 {% tab Webhookとカスタムイベント %}
 
-webhookを使用してカートデータをシステムに送信し、カスタムイベントを通じてフォローアップメッセージをトリガーします。広範なカート処理やマルチステップワークフローを必要とする複雑な統合に最適です。
+Webhookを使用してカートデータをシステムに送信し、カスタムイベントを通じてフォローアップメッセージをトリガーします。広範なカート処理やマルチステップワークフローを必要とする複雑な統合に最適です。
 
 #### 設定
 
@@ -266,7 +266,7 @@ webhookを使用してカートデータをシステムに送信し、カスタ�
 3. チェックアウトURLを生成する
 4. Brazeに`checkout_started`イベントを送信し、チェックアウトリンク付きのWhatsAppメッセージの送信をトリガーする
 
-![webhookとカスタムイベントのチェックアウト体験ワークフローを示す図：Metaが注文受信メッセージをBrazeに送信し、Brazeがeコマースプラットフォームと双方向の呼び出しを行い、カートURL付きのWhatsAppメッセージを送信します。]({% image_buster /assets/img/whatsapp/webhooks_custom_events_checkout.png %})
+![Webhookとカスタムイベントのチェックアウト体験ワークフローを示す図：Metaが注文受信メッセージをBrazeに送信し、Brazeがeコマースプラットフォームと双方向の呼び出しを行い、カートURL付きのWhatsAppメッセージを送信します。]({% image_buster /assets/img/whatsapp/webhooks_custom_events_checkout.png %})
 
 {% endtab %}
 {% endtabs %}

@@ -12,7 +12,7 @@ page_order: 1.3
 
 ## 예측 이벤트 분석 정보 {#about-predictive-event-analytics}
 
-예측 학습이 완료되고 이 페이지가 채워지면 세그먼트 또는 캠페인에서 [필터]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters)를 사용하여 모델의 결과물을 사용하기 시작할 수 있습니다. 타겟팅 대상을 결정하는 데 도움이 필요하고 그 이유를 알고 싶다면, 이 페이지는 모델의 과거 정확성과 비즈니스 목표에 따라 도움을 줄 수 있습니다.
+예측 학습이 완료되고 이 페이지가 채워지면 Segments 또는 Campaigns에서 [필터]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters)를 사용하여 모델의 결과물을 활용할 수 있습니다. 타겟팅 대상을 결정하는 데 도움이 필요하고 그 이유를 알고 싶다면, 이 페이지는 모델의 과거 정확도와 비즈니스 목표에 따라 도움을 줄 수 있습니다.
 
 예측 이벤트 분석을 구성하는 요소는 다음과 같습니다:
 
@@ -25,7 +25,7 @@ page_order: 1.3
 
 슬라이더 핸들을 다른 위치로 이동하면 패널의 왼쪽 절반에 있는 막대가 선택한 인구 부분을 사용하여 전체 예측 오디언스 중 몇 명의 사용자가 타겟팅될 것인지 알려줍니다.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![슬라이더 핸들을 다른 위치로 이동하면 패널의 왼쪽 절반에 있는 막대가 선택한 인구 부분을 사용하여 전체 예측 오디언스 중 몇 명의 사용자가 타겟팅될 것인지 알려줍니다.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## 가능성 점수 {#purchase_score}
 
@@ -41,10 +41,10 @@ page_order: 1.3
 
 ### 사용자 수준의 가능성 점수 접근 {#accessing-user-level-likelihood-scores}
 
-단일 사용자의 가능성 점수를 보려면 대시보드에서 해당 사용자를 찾아 **Engagement** > **Predictions**로 이동하여 점수를 확인하세요. 여러 사용자의 점수와 카테고리에 동시에 접근하려면 [이벤트 가능성 점수]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-category) 또는 [이벤트 가능성 카테고리]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) 필터를 사용하여 [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)를 생성한 다음 해당 Segment에서 사용자를 내보내세요. 내보낼 때 가능성 점수를 내보내기 데이터에 포함할 수 있습니다.
+단일 사용자의 가능성 점수를 보려면 대시보드에서 해당 사용자를 찾아 **Engagement** > **Predictions**로 이동하여 점수를 확인하세요. 여러 사용자의 점수와 카테고리에 동시에 접근하려면 [이벤트 가능성 점수]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) 또는 [이벤트 가능성 카테고리]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) 필터를 사용하여 [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 생성한 다음 해당 Segment에서 사용자를 내보내세요. 내보낼 때 가능성 점수를 내보내기 데이터에 포함할 수 있습니다.
 
 {% alert note %}
-Predictive Events와 [고객이탈 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) 모두 사용자에게 점수를 부여하지만 중요한 차이점이 있습니다:<br><br>
+Predictive Events와 [고객이탈 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) 모두 사용자에게 점수를 부여하지만 중요한 차이점이 있습니다:<br><br>
 
 - **Predictive Events**(구매 예측): 대상 이벤트를 이전에 수행했는지 여부에 관계없이 예측 오디언스의 모든 사용자를 고려합니다. 예를 들어, 구매 예측은 첫 구매를 할 가능성이 있는 사용자를 식별할 수 있습니다.
 - **Predictive Churn**: 이미 커스텀 이벤트를 수행한 사용자만 고려합니다. 고객이탈 예측은 이전에 무언가를 수행한 사용자 중에서 그것을 중단할 가능성이 있는 사용자를 식별합니다. 로그인한 적이 없는 사용자는 로그인하지 않더라도 "이탈"로 간주될 수 없습니다.

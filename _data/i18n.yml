@@ -6,6 +6,7 @@ en:
   braze_status: BRAZE SYSTEM STATUS
   braze_status_check: Checking Braze Status
   page_nav_title: On this page
+  back_to_top: Back to top
   helpful: "HOW HELPFUL WAS THIS PAGE?"
   collapse_navigation: Collapse navigation
   expand_navigation: Expand navigation
@@ -15,7 +16,10 @@ en:
   expand_menu: Expand menu
   filter_navigation_topics: Filter navigation topics
   clear_filter: Clear filter
-  documentation_nav: Documentation
+  documentation_nav: Documentation menu
+  breadcrumb_nav: Breadcrumb trail
+  language_select_nav: Language selection
+  language_select_mobile_nav: Language selection (mobile menu)
   sidebar_home: Home
   nav_flyout_esc_hint_before: "Press "
   nav_flyout_esc_hint_after: " to close the menu"
@@ -39,6 +43,7 @@ en:
     "android push": Android Push
     "in-app message": In-App Message
     "content cards": Content Cards
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -67,13 +72,30 @@ en:
   sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
   liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
   glossary_agents_use_cases_search_placeholder: Search
-  glossary_agents_use_cases_search_aria: Search use cases
+  glossary_agents_use_cases_search_aria: Search examples
   glossary_agents_use_cases_search_hint: Results update automatically as you type.
-  glossary_agents_use_cases_no_results: No use cases matching these filters
-  agents_use_case_glossary_intro: "Take a look through our collection of agent instructions and use cases.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  glossary_agents_use_cases_no_results: No examples matching these filters
+  glossary_agents_use_cases_showing: Showing __COUNT__ of __TOTAL__ examples
+  agents_use_case_glossary_intro: "Browse our library of ready-to-adapt agent instructions. Each example includes the scenario it solves, the data it expects, and a complete instruction block you can copy into the Agent Console and tailor to your brand.<br><br>Use the search bar or the filters on the right to find the instructions that fit your need."
   agents_use_case_tag_labels:
-    "canvas agent": Canvas agent
-    "catalog agent": Catalog agent
+    "content generation": Content generation
+    "affinity agent": Affinity agent
+    "data standardization": Data standardization
+    "classification and routing": Classification and routing
+    "catalog enrichment": Catalog enrichment
+    "canvas step agent": Canvas Step Agent
+    "catalog agent": Catalog Agent
+  agents_use_case_tag_groups:
+    "content generation": use_case_category
+    "affinity agent": use_case_category
+    "data standardization": use_case_category
+    "classification and routing": use_case_category
+    "catalog enrichment": use_case_category
+    "canvas step agent": agent_type
+    "catalog agent": agent_type
+  agents_use_case_tag_group_labels:
+    use_case_category: Category
+    agent_type: Agent type
   message_engagement_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas consist of the Braze Events that are directly related to message sending."
   customer_behavior_events_glossary_title: Customer behavior and user events
   customer_behavior_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas include other app or website activity such as sessions, custom events, and purchases tracked through the platform."
@@ -210,6 +232,10 @@ en:
     sms: SMS
     "time zones": Time zones
     "week/day/month": Week/Day/Month
+  works_best_in: "Works best in:"
+  clipboard_copied: "Copied"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copy to clipboard"
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -218,6 +244,7 @@ fr:
   braze_status: ÉTAT DU SYSTÈME BRAZE
   braze_status_check: Vérification du statut Braze
   page_nav_title: Sur cette page
+  back_to_top: Retour en haut
   helpful: "CETTE PAGE A-T-ELLE ÉTÉ UTILE?"
   translation_banner: "Cette page a été traduite automatiquement et peut contenir des inexactitudes. Pour signaler une erreur de traduction, utilisez le module de commentaires en bas de la table des matières, à droite de la page."
   collapse_navigation: Réduire la navigation
@@ -229,6 +256,9 @@ fr:
   filter_navigation_topics: Filtrer les sujets de navigation
   clear_filter: Effacer le filtre
   documentation_nav: Documentation
+  breadcrumb_nav: Fil d'Ariane
+  language_select_nav: Sélection de la langue
+  language_select_mobile_nav: Sélection de la langue (menu mobile)
   sidebar_home: Accueil
   nav_flyout_esc_hint_before: "Appuyez sur "
   nav_flyout_esc_hint_after: " pour fermer le menu"
@@ -252,6 +282,7 @@ fr:
     "android push": Push Android
     "in-app message": Message in-app
     "content cards": Content Cards
+    banners: Bannières
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -281,8 +312,17 @@ fr:
   glossary_agents_use_cases_no_results: Aucun cas d'usage ne correspond à ces filtres
   agents_use_case_glossary_intro: "Parcourez notre collection d'instructions d'agents et de cas d'utilisation.<br><br>Utilisez la barre de recherche ou les cases à cocher ci-dessous pour trouver les cas d'usage qui correspondent à vos besoins."
   agents_use_case_tag_labels:
-    "canvas agent": Agent Canvas
+    "content generation": Génération de contenu
+    "affinity agent": Agent d'affinité
+    "data standardization": Standardisation des données
+    "classification and routing": Classification et routage
+    "catalog enrichment": Enrichissement du catalogue
+    "canvas step agent": Agent d'étape Canvas
     "catalog agent": Agent de catalogue
+  works_best_in: "Idéal pour :"
+  clipboard_copied: "Copié"
+  clipboard_error: "Erreur"
+  copy_to_clipboard: "Copier dans le presse-papiers"
 ja:
   next: 次へ
   previous: 前へ
@@ -291,6 +331,7 @@ ja:
   braze_status: BRAZE システム ステータス
   braze_status_check: Braze ステータスの確認
   page_nav_title: このページについて
+  back_to_top: ページの先頭へ戻る
   helpful: 「このページはどの程度役に立ちましたか?」
   translation_banner: "このページはAIにより自動翻訳されており、不正確な内容が含まれている可能性があります。翻訳の誤りを報告するには、ページ右側の目次の下にあるフィードバックをご利用ください。"
   collapse_navigation: ナビゲーションを折りたたむ
@@ -302,6 +343,9 @@ ja:
   filter_navigation_topics: ナビゲーションのトピックをフィルター
   clear_filter: フィルターをクリア
   documentation_nav: ドキュメント
+  breadcrumb_nav: パンくずリスト
+  language_select_nav: 言語選択
+  language_select_mobile_nav: 言語選択（モバイルメニュー）
   sidebar_home: ホーム
   nav_flyout_esc_hint_before: "メニューを閉じるには "
   nav_flyout_esc_hint_after: " を押してください"
@@ -325,6 +369,7 @@ ja:
     "android push": Androidプッシュ
     "in-app message": アプリ内メッセージ
     "content cards": コンテンツカード
+    banners: バナー
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -358,7 +403,12 @@ ja:
   glossary_agents_use_cases_no_results: この条件に一致するユースケースはありません
   agents_use_case_glossary_intro: "エージェントのインストラクションとユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
   agents_use_case_tag_labels:
-    "canvas agent": キャンバスエージェント
+    "content generation": コンテンツ生成
+    "affinity agent": アフィニティエージェント
+    "data standardization": データ標準化
+    "classification and routing": 分類とルーティング
+    "catalog enrichment": カタログのエンリッチメント
+    "canvas step agent": Canvasステップエージェント
     "catalog agent": カタログエージェント
   message_engagement_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマは、メッセージ送信に直接関連するBrazeイベントで構成されています。"
   customer_behavior_events_glossary_title: 顧客行動とユーザーイベント
@@ -482,6 +532,10 @@ ja:
     sms: SMS
     "time zones": タイムゾーン
     "week/day/month": 週/日/月
+  works_best_in: "最適なページ："
+  clipboard_copied: "コピーしました"
+  clipboard_error: "エラー"
+  copy_to_clipboard: "クリップボードにコピー"
 ko:
   next: 다음
   previous: 이전
@@ -490,6 +544,7 @@ ko:
   braze_status: 브레이즈 시스템 상태
   braze_status_check: 브레이즈 상태 확인
   page_nav_title: 이 페이지에
+  back_to_top: 맨 위로 이동
   helpful: "이 페이지가 얼마나 도움이 되었나요?"
   translation_banner: "이 페이지는 AI로 자동 번역되었으며 부정확한 내용이 포함될 수 있습니다. 번역 오류를 신고하려면 페이지 오른쪽 목차 아래에 있는 피드백 기능을 사용하세요."
   collapse_navigation: 탐색 접기
@@ -501,6 +556,9 @@ ko:
   filter_navigation_topics: 탐색 주제 필터
   clear_filter: 필터 지우기
   documentation_nav: 문서
+  breadcrumb_nav: 이동 경로
+  language_select_nav: 언어 선택
+  language_select_mobile_nav: 언어 선택 (모바일 메뉴)
   sidebar_home: 홈
   nav_flyout_esc_hint_before: "메뉴를 닫으려면 "
   nav_flyout_esc_hint_after: " 키를 누르세요"
@@ -524,6 +582,7 @@ ko:
     "android push": Android 푸시
     "in-app message": 인앱 메시지
     "content cards": 콘텐츠 카드
+    banners: 배너
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -555,7 +614,12 @@ ko:
   glossary_agents_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
   agents_use_case_glossary_intro: "에이전트 지침 및 사용 사례 모음을 살펴보세요.<br><br>검색창 또는 아래 확인란을 사용하여 필요에 맞는 사용 사례를 찾으세요."
   agents_use_case_tag_labels:
-    "canvas agent": Canvas 에이전트
+    "content generation": 콘텐츠 생성
+    "affinity agent": 친밀도 에이전트
+    "data standardization": 데이터 표준화
+    "classification and routing": 분류 및 라우팅
+    "catalog enrichment": 카탈로그 보강
+    "canvas step agent": Canvas 단계 에이전트
     "catalog agent": 카탈로그 에이전트
   currents_customer_behavior_tag_labels:
     attribution: 어트리뷰션
@@ -676,6 +740,10 @@ ko:
     sms: SMS
     "time zones": 시간대
     "week/day/month": 주/일/월
+  works_best_in: "최적 페이지:"
+  clipboard_copied: "복사됨"
+  clipboard_error: "오류"
+  copy_to_clipboard: "클립보드에 복사"
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -684,6 +752,7 @@ pt-br:
   braze_status: STATUS DO SISTEMA BRAZE
   braze_status_check: Verificando o status do Braze
   page_nav_title: Nesta página
+  back_to_top: Voltar ao topo
   helpful: "QUÃO ÚTIL FOI ESTA PÁGINA?"
   translation_banner: "Esta página foi traduzida automaticamente e pode conter imprecisões. Para relatar um erro de tradução, use o componente de feedback na parte inferior do sumário, à direita da página."
   collapse_navigation: Recolher navegação
@@ -695,6 +764,9 @@ pt-br:
   filter_navigation_topics: Filtrar tópicos da navegação
   clear_filter: Limpar filtro
   documentation_nav: Documentação
+  breadcrumb_nav: Trilha de navegação
+  language_select_nav: Seleção de idioma
+  language_select_mobile_nav: Seleção de idioma (menu móvel)
   sidebar_home: Início
   nav_flyout_esc_hint_before: "Pressione "
   nav_flyout_esc_hint_after: " para fechar o menu"
@@ -718,6 +790,7 @@ pt-br:
     "android push": Push Android
     "in-app message": Mensagem no app
     "content cards": Content Cards
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -747,8 +820,17 @@ pt-br:
   glossary_agents_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
   agents_use_case_glossary_intro: "Confira nossa coleção de instruções e casos de uso para agentes.<br><br>Use a barra de pesquisa ou as caixas de seleção abaixo para encontrar os casos de uso que atendem às suas necessidades."
   agents_use_case_tag_labels:
-    "canvas agent": Agente de Canvas
+    "content generation": Geração de conteúdo
+    "affinity agent": Agente de afinidade
+    "data standardization": Padronização de dados
+    "classification and routing": Classificação e roteamento
+    "catalog enrichment": Enriquecimento de catálogo
+    "canvas step agent": Agente de etapa do Canvas
     "catalog agent": Agente de catálogo
+  works_best_in: "Funciona melhor em:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Erro"
+  copy_to_clipboard: "Copiar para a área de transferência"
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -757,6 +839,7 @@ es:
   braze_status: ESTADO DEL SISTEMA BRAZE
   braze_status_check: Verificación del estado de Braze
   page_nav_title: En esta página
+  back_to_top: Volver arriba
   helpful: "¿QUÉ TAN ÚTIL FUE ESTA PÁGINA?"
   translation_banner: "Esta página fue traducida automáticamente y puede contener errores. Para informar de un error de traducción, usa el componente de comentarios situado bajo el sumario, a la derecha de la página."
   collapse_navigation: Contraer navegación
@@ -768,6 +851,9 @@ es:
   filter_navigation_topics: Filtrar temas de navegación
   clear_filter: Borrar filtro
   documentation_nav: Documentación
+  breadcrumb_nav: Ruta de navegación
+  language_select_nav: Selección de idioma
+  language_select_mobile_nav: Selección de idioma (menú móvil)
   sidebar_home: Inicio
   nav_flyout_esc_hint_before: "Pulse "
   nav_flyout_esc_hint_after: " para cerrar el menú"
@@ -791,6 +877,7 @@ es:
     "android push": Push Android
     "in-app message": Mensaje in-app
     "content cards": Tarjetas de contenido
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -820,8 +907,17 @@ es:
   glossary_agents_use_cases_no_results: Ningún caso de uso coincide con estos filtros
   agents_use_case_glossary_intro: "Consulta nuestra colección de instrucciones y casos de uso para agentes.<br><br>Usa la barra de búsqueda o las casillas de abajo para encontrar los casos de uso que necesitas."
   agents_use_case_tag_labels:
-    "canvas agent": Agente de Canvas
+    "content generation": Generación de contenido
+    "affinity agent": Agente de afinidad
+    "data standardization": Estandarización de datos
+    "classification and routing": Clasificación y enrutamiento
+    "catalog enrichment": Enriquecimiento del catálogo
+    "canvas step agent": Agente de paso en Canvas
     "catalog agent": Agente de catálogo
+  works_best_in: "Funciona mejor en:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copiar al portapapeles"
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -830,6 +926,7 @@ de:
   braze_status: BRAZE-SYSTEMSTATUS
   braze_status_check: Braze-Status wird geprüft
   page_nav_title: Auf dieser Seite
+  back_to_top: Nach oben
   useful: "WIE HILFREICH WAR DIESE SEITE?"
   translation_banner: "Diese Seite wurde automatisch übersetzt und kann Ungenauigkeiten enthalten. Um einen Übersetzungsfehler zu melden, nutzen Sie das Feedback unten im Inhaltsverzeichnis rechts auf der Seite."
   collapse_navigation: Navigation einklappen
@@ -841,6 +938,9 @@ de:
   filter_navigation_topics: Navigationsthemen filtern
   clear_filter: Filter löschen
   documentation_nav: Dokumentation
+  breadcrumb_nav: Brotkrumen-Navigation
+  language_select_nav: Sprache auswählen
+  language_select_mobile_nav: Sprache auswählen (Mobilmenü)
   sidebar_home: Startseite
   nav_flyout_esc_hint_before: "Drücken Sie "
   nav_flyout_esc_hint_after: ", um das Menü zu schließen"
@@ -864,6 +964,7 @@ de:
     "android push": Android-Push
     "in-app message": In-App-Nachricht
     "content cards": Content Cards
+    banners: Banner
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -893,5 +994,14 @@ de:
   glossary_agents_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
   agents_use_case_glossary_intro: "Durchsuchen Sie unsere Sammlung von Agentenanweisungen und Anwendungsfällen.<br><br>Verwenden Sie die Suchleiste oder die Kontrollkästchen unten, um die passenden Anwendungsfälle zu finden."
   agents_use_case_tag_labels:
-    "canvas agent": Canvas-Agent
+    "content generation": Inhaltserstellung
+    "affinity agent": Affinitätsagent
+    "data standardization": Datenstandardisierung
+    "classification and routing": Klassifizierung und Weiterleitung
+    "catalog enrichment": Kataloganreicherung
+    "canvas step agent": Canvas-Schritt-Agent
     "catalog agent": Katalog-Agent
+  works_best_in: "Am besten geeignet für:"
+  clipboard_copied: "Kopiert"
+  clipboard_error: "Fehler"
+  copy_to_clipboard: "In die Zwischenablage kopieren"

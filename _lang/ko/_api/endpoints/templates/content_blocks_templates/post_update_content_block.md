@@ -14,16 +14,16 @@ description: "이 문서에서는 콘텐츠 블록 업데이트 Braze 엔드포�
 /content_blocks/update
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)을 업데이트합니다.
+> 이 엔드포인트를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)을 업데이트합니다.
 
 {% alert tip %}
-[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server/)를 통해 [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 AI 도구가 자연어 프롬프트를 사용하여 콘텐츠 블록을 업데이트할 수 있습니다.
+[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server)를 통해 [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 AI 도구가 자연어 프롬프트를 사용하여 콘텐츠 블록을 업데이트할 수 있습니다.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
-이 엔드포인트를 사용하려면 `content_blocks.update` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `content_blocks.update` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -56,8 +56,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | 선택 사항 | 문자열 | 콘텐츠 블록에 대한 설명입니다. 250자 미만이어야 합니다. |
 | `content` | 선택 사항 | 문자열 | Content Blocks 내의 HTML 또는 텍스트 콘텐츠입니다. |
 | `state` | 선택 사항 | 문자열 | `active` 또는 `draft`를 선택합니다. 지정하지 않으면 기본값은 `active`입니다. |
-| `tags` | 선택 사항 | 문자열 배열 | [태그]({{site.baseurl}}/user_guide/messaging/governance/tags/)가 이미 존재해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `tags` | 선택 사항 | 문자열 배열 | [태그]({{site.baseurl}}/user_guide/messaging/governance/tags)가 이미 존재해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```bash
@@ -109,7 +109,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/upd
 | `Tags must be an array` | 태그는 문자열 배열 형식이어야 합니다(예: `["marketing", "promotional", "transactional"]`). |
 | `All tags must be strings` | 태그가 따옴표(`""`)로 묶여 있는지 확인하세요. |
 | `Some tags could not be found` | 콘텐츠 블록을 생성할 때 태그를 추가하려면 해당 태그가 Braze에 이미 존재해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 
 {% endapi %}

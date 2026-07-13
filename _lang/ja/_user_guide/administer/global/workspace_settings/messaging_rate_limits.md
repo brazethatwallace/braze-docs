@@ -19,7 +19,7 @@ page_order: 10
 
 ワークスペースメッセージングレート制限は、ワークスペースで送信されるメッセージの合計に適用されます。ワークスペースレベルでレート制限を設定して最適化することで、Brazeメッセージの送信トラフィックをより適切に制御し、サーバーパフォーマンスに影響を与える可能性のある需要の急増を防ぐことができます。
 {% alert note %}
-`/messages/send` や `/messages/schedule/create` などのAPIメッセージングエンドポイントを使用して送信されたメッセージも、ワークスペースメッセージングレート制限のカウント対象となり、影響を受けることに注意してください。
+`/messages/send`や`/messages/schedule/create`などのAPIメッセージングエンドポイントを使用して送信されたメッセージも、ワークスペースメッセージングレート制限のカウント対象となり、影響を受けることに注意してください。
 {% endalert %}
 1分あたりに送信されるメッセージの合計数は、設定されたワークスペースレート制限を超えません。最初の数分間にどのキャンペーンがディスパッチされるか、後の数分間にどのキャンペーンがディスパッチされるかについて、特定の順序はありません。
 
@@ -30,7 +30,7 @@ page_order: 10
 | キャンペーン 1 | 100,000            | 午後12時     |
 | キャンペーン 2 | 100,000            | 午後12時     |
 | キャンペーン 3 | 100,000            | 午後12時     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="仕組み" }
 
 メッセージは3分間にわたってディスパッチされます。
 
@@ -44,7 +44,7 @@ page_order: 10
 |------------|--------------------|-----------|
 | キャンペーン 1 | 1,000,000          | 午前9時      |
 | キャンペーン 2 | 1,000,000          | 午前9時05分   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="仕組み" }
 
 以下は、予想されるディスパッチスケジュールと1分あたりの送信メッセージ数です。
 
@@ -59,10 +59,10 @@ page_order: 10
 
 ## ワークスペースメッセージングレート制限の設定 {#setting-your-workspace-messaging-rate-limit}
 
-1. Brazeダッシュボードで、**Settings** > **Workspace Settings** > **Messaging Rate Limits**に移動します。
-2. **+ Add rate limit**を選択し、メッセージングチャネルを選択します。
-3. **Messages per minute**にレート制限を入力します。
-4. **Save**を選択します。
+1. Brazeダッシュボードで、**設定** > **ワークスペース設定** > **メッセージングレート制限**に移動します。
+2. **+ レート制限を追加**を選択し、メッセージングチャネルを選択します。
+3. **1分あたりのメッセージ数**にレート制限を入力します。
+4. **保存**を選択します。
 
 ## 知っておくべきこと {#things-to-know}
 
@@ -76,7 +76,7 @@ Brazeはメッセージのディスパッチを1分間にわたって均等に�
 
 ### ワークスペースメッセージングレート制限に含まれないメッセージ {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
-- [トランザクションメールキャンペーン]({{site.baseurl}}/user_guide/channels/transactional_email/)を使用して送信されたメッセージは、ワークスペースメッセージングレート制限に含まれません。これは、それらのメッセージにはレート制限が適用されますが、設定されたワークスペースメッセージングレート制限のカウント対象にはならないことを意味します。
-- [シードグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups)および[テスト送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)へのメッセージは、ワークスペースメッセージングレート制限に含まれません。これは、それらのメッセージにはレート制限が適用されず、設定されたワークスペースメッセージングレート制限のカウント対象にもならないことを意味します。
+- [トランザクションメールキャンペーン]({{site.baseurl}}/user_guide/channels/transactional_email)を使用して送信されたメッセージは、ワークスペースメッセージングレート制限に含まれません。これは、それらのメッセージにはレート制限が適用されますが、設定されたワークスペースメッセージングレート制限のカウント対象にはならないことを意味します。
+- [シードグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)および[テスト送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)へのメッセージは、ワークスペースメッセージングレート制限に含まれません。これは、それらのメッセージにはレート制限が適用されず、設定されたワークスペースメッセージングレート制限のカウント対象にもならないことを意味します。
 - SMS自動応答は、ワークスペースメッセージングレート制限に含まれません。これは、それらのメッセージにはレート制限が適用されず、設定されたワークスペースメッセージングレート制限のカウント対象にもならないことを意味します。
 - ワークスペースメッセージングレート制限は、アプリ内メッセージ、フィーチャーフラグ、およびバナーではサポートされていません。

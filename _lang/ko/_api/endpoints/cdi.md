@@ -15,13 +15,13 @@ guide_top_text: "Braze 클라우드 데이터 수집 엔드포인트를 사용�
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: 통합 목록 조회"
-    link: /docs/api/cdi/get_integration_list/
+    link: /docs/api/cdi/get_integration_list
     image: /assets/img/braze_icons/list.svg
   - name: "GET: 작업 동기화 상태 조회"
     link: /docs/api/cdi/get_job_sync
     image: /assets/img/braze_icons/list.svg
   - name: "POST: 동기화 트리거"
-    link: /docs/api/cdi/post_trigger_sync/
+    link: /docs/api/cdi/post_trigger_sync
     image: /assets/img/braze_icons/play.svg
 
 ---

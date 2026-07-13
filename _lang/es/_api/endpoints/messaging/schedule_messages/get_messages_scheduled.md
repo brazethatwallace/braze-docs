@@ -22,7 +22,7 @@ Los mensajes diarios y recurrentes solo aparecerán una vez con su siguiente ocu
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `messages.schedule_broadcasts`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `messages.schedule_broadcasts`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -33,7 +33,7 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
 | `end_time` | Obligatorio | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Fecha de fin del intervalo para recuperar las próximas Campaigns y Canvas programados. La API lo considera medianoche en hora UTC. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```

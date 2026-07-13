@@ -18,7 +18,7 @@ Die drei erforderlichen Ereignis-Ressourcen (Aktivierungen, Engagements und Conv
 - **Engagements** teilen dem Modell mit, wie Kund:innen auf die Nachricht reagiert haben
 - **Conversions** teilen dem Modell mit, ob das angestrebte Geschäftsergebnis erreicht wurde
 
-Jede dieser Ressourcen muss als inkrementeller Ereignis-Stream (nicht als Snapshot) strukturiert sein. Weitere Informationen finden Sie unter [Snapshots versus Ereignis-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/).
+Jede dieser Ressourcen muss als inkrementeller Ereignis-Stream (nicht als Snapshot) strukturiert sein. Weitere Informationen finden Sie unter [Snapshots versus Ereignis-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 
 {% alert note %}
 Wenn Decisioning Studio nativ in Ihre Customer-Engagement-Plattform integriert ist (z. B. Braze oder Salesforce Marketing Cloud), können Aktivierungs- und Engagement-Daten automatisch ohne zusätzliche Konfiguration erfasst werden. Prüfen Sie Ihre Setup-Dokumentation, um dies zu bestätigen.
@@ -57,7 +57,7 @@ Conversion-Daten beschreiben, was mit den Kund:innen passiert ist, nachdem eine 
 | Jeder Datensatz hat einen Zeitstempel für den Zeitpunkt des Konversions-Events | Genaues Timing ist für die Attribution unerlässlich. Das Modell muss wissen, welcher Empfehlung eine Conversion zugeordnet werden kann. |
 | Bei Verwendung einer nicht-binären Erfolgsmetrik (z. B. Umsatz statt „konvertiert“ oder „nicht konvertiert“) muss der Metrikwert in jedem Conversion-Datensatz enthalten sein | Decisioning Studio verwendet den Metrikwert, um Trainingserfahrungen zu generieren. Ohne den Wert kann das Modell nur lernen, dass eine Conversion stattgefunden hat, nicht wie wertvoll sie war. |
 | Wenn Conversions direkt einer bestimmten Kommunikation zugeordnet werden können (z. B. Coupon-Einlösung), fügen Sie die Felder hinzu, die zum Abgleich der Conversion mit dem Aktivierungsdatensatz erforderlich sind | Direkte Attribution gibt dem Modell das klarste Lernsignal. Wenn eine direkte Attribution nicht möglich ist, verwendet Decisioning Studio eine näherungsbasierte Attribution als Fallback. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion-Daten" }
 
 ## Optionale Ressourcen {#optional-assets}
 

@@ -16,7 +16,7 @@ channel:
 
 ## CSS 인라이닝 사용 {#using-css-inlining}
 
-이메일 메시지에 대해 CSS 인라이닝을 켜거나 끌 수 있습니다. HTML 편집기의 **발송 정보** 탭에 있는 **인라인 CSS 활성화** 토글을 사용하세요.
+HTML 편집기의 **발송 정보** 탭에 있는 **인라인 CSS 활성화** 토글을 사용하여 이메일 메시지에 대해 CSS 인라이닝을 켜거나 끌 수 있습니다.
 
 ![HTML 작성기에서 CSS 인라이닝을 관리하는 체크박스.]({% image_buster /assets/img_archive/css-inline2.png %}){: style="max-width:40%;"}
 
@@ -28,8 +28,24 @@ channel:
 
 ## 연결된 콘텐츠와 CSS 인라이닝 {#connected-content-and-css-inlining}
 
-CSS 인라이닝은 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)가 평가되기 **전에** 실행됩니다. 연결된 콘텐츠에서 반환된 HTML은 동일한 인라이닝 단계를 **거치지 않습니다**. 연결된 콘텐츠에서 필요한 스타일은 응답에 직접 포함하거나(인라인 `style` 속성 또는 임베디드 규칙), 템플릿에 더 적합한 경우 해당 메시지의 인라이닝을 비활성화하세요.
+CSS 인라이닝은 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)가 평가되기 **전에** 실행됩니다. 연결된 콘텐츠에서 반환된 HTML은 동일한 인라이닝 단계를 **거치지 않습니다**. 연결된 콘텐츠에서 필요한 스타일은 응답에 직접 포함하거나(인라인 `style` 속성 또는 임베디드 규칙), 템플릿에 더 적합한 경우 해당 메시지의 인라이닝을 비활성화하세요.
 
 ## 커스텀 HTML 템플릿의 Content Blocks {#content-blocks-in-custom-html-templates}
 
-**커스텀 HTML** 이메일 템플릿이나 Campaign에서 Liquid를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)을 가져올 때, 상위 템플릿의 CSS 규칙이 콘텐츠 블록 내부에 정의된 스타일을 재정의할 수 있습니다. 템플릿 래퍼에서 충돌하는 선택자나 전역 규칙이 있는지 확인하세요.
+**커스텀 HTML** 이메일 템플릿이나 Campaign에서 Liquid를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)을 가져올 때, 상위 템플릿의 CSS 규칙이 콘텐츠 블록 내부에 정의된 스타일을 재정의할 수 있습니다. 템플릿 래퍼에서 충돌하는 선택자나 전역 규칙이 있는지 확인하세요.
+
+## Gmail CSS 제한 사항 {#gmail-css-limitations}
+
+Gmail에는 Gmail 앱에서 이메일이 모바일 보기 대신 데스크탑 보기로 표시될 수 있는 특정 CSS 제한 사항이 있습니다. 이는 다음과 같은 이유로 발생할 수 있습니다.
+
+- **과도한 CSS:** 이메일에 과도한 CSS가 포함되어 있으면 Gmail이 전체 스타일 블록을 제거할 수 있습니다.
+- **호환되지 않는 CSS:** Gmail과 호환되지 않는 CSS(Gmail이 지원하지 않는 유효한 CSS 포함)는 스타일 블록이 제거되는 원인이 될 수 있습니다.
+- **Gmail 앱의 비Gmail 계정:** `<head>`의 CSS는 지원되지 않습니다.
+
+### Gmail의 미디어 쿼리 {#media-queries-in-gmail}
+
+CSS 미디어 쿼리는 일반적으로 Gmail 앱에서 작동하지만 제한 사항이 있습니다. Gmail에서 미디어 쿼리가 올바르게 작동하지 않는 문제가 발생하는 경우:
+
+- [Gmail 지원 CSS 참조](https://developers.google.com/gmail/design/reference/supported_css)를 검토하여 CSS가 호환되는지 확인하세요.
+- [Gmail CSS 디자인 가이드라인](https://developers.google.com/gmail/design/css)에서 모범 사례를 확인하세요.
+- 모바일 렌더링을 위해 미디어 쿼리에만 의존하지 않는 모바일 퍼스트 반응형 디자인 패턴을 고려하세요.

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、セグメントによるエクスポートのキャンセル Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、セグメントによるエクスポートのキャンセルBrazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
@@ -14,11 +14,11 @@ description: "この記事では、セグメントによるエクスポートの
 /export/segment/cancel
 {% endapimethod %}
 
-> このエンドポイントを使用して、指定されたセグメント IDで進行中のすべてのエクスポートをキャンセルします。
+> このエンドポイントを使用して、指定されたセグメントIDで進行中のすべてのエクスポートをキャンセルします。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`segments.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`segments.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 

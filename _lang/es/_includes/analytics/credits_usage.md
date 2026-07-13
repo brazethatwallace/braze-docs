@@ -6,7 +6,7 @@ El dashboard de **uso de créditos** se divide en dos secciones:
 - [Resumen de uso de créditos](#credits-usage-overview)
 - [Pestañas de canales](#credits-features)
 
-Accede al dashboard en **Settings** > **Billing** > **Credits Usage**.
+Accede al dashboard en **Configuración** > **Facturación** > **Uso de créditos**.
 
 ## Resumen de uso de créditos {#credits-usage-overview}
 
@@ -20,11 +20,10 @@ Si compraste WhatsApp pero no tienes un contrato de créditos, seguirás viendo 
 
 Los datos generales de uso de créditos están limitados al período del contrato, que se muestra en **Credits contract overview**. No puedes filtrar por un rango de fechas fuera del **Credits period**.
 
-![Pestaña de resumen de uso de créditos con paneles para el uso de créditos y un resumen del contrato de créditos.]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### Uso de créditos durante el contrato {#credits-usage-over-contract}
 
-El gráfico **Message credits usage over contract** muestra tu uso durante el período de tiempo seleccionado. La granularidad de este gráfico depende del marco temporal seleccionado. Consulta las opciones de exportación seleccionando el menú en la esquina superior derecha del gráfico.
+El gráfico **Message credits usage over contract** muestra tu uso durante el período de tiempo seleccionado. La granularidad de este gráfico depende del marco temporal seleccionado. Consulta las opciones de exportación seleccionando el menú en el menú del gráfico.
 
 ![Gráfico de uso de créditos durante el contrato.]({% image_buster /assets/img/app_settings/credit_usage_over_contract1.png %})
 
@@ -72,7 +71,7 @@ Usa **Export** para descargar los datos de la tabla.
 ![Uso de créditos de Content Cards con mosaicos para créditos e impresiones únicas y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_content_cards.png %})
 
 {% endtab %}
-{% tab Email %}
+{% tab Correo electrónico %}
 
 ### Correo electrónico {#email}
 
@@ -184,7 +183,7 @@ Puedes filtrar tus datos por:
 ![Uso de créditos de WhatsApp con un mosaico para el total de créditos consumidos y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/whatsapp_credit_consumption4.png %})
 
 {% endtab %}
-{% tab Credit Ratios %}
+{% tab Ratios de créditos %}
 
 ### Ratios de créditos {#credit-ratios}
 
@@ -201,11 +200,11 @@ Usa **Export** para descargar los datos de la tabla.
 ![Página de ratios de créditos con una tabla de ratios de créditos y filtros de canal y destino.]({% image_buster /assets/img/app_settings/credits_usage_credit_ratios.png %})
 
 {% endtab %}
-{% tab Agent Console %}
+{% tab Consola de agente %}
 
-### Consola de Agente {#agent-console}
+### Consola de agente {#agent-console}
 
-**Agent Console Credits Usage** muestra el uso de créditos de la Consola de Agente en todas las cuentas. Los mosaicos muestran el total de créditos consumidos y el total de invocaciones. La tabla **Usage by account** incluye **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio** y **Credits**. Cuando hay datos disponibles, **Last updated** muestra cuándo se actualizó la tabla.
+**Agent Console Credits Usage** muestra el uso de créditos de la consola de agente en todas las cuentas. Los mosaicos muestran el total de créditos consumidos y el total de invocaciones. La tabla **Usage by account** incluye **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio** y **Credits**. Cuando hay datos disponibles, **Last updated** muestra cuándo se actualizó la tabla.
 
 #### Filtros
 
@@ -217,7 +216,7 @@ Puedes filtrar tus datos por:
 
 Usa **Export** para descargar los datos de la tabla.
 
-![Uso de créditos de la Consola de Agente con mosaicos para créditos e invocaciones y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_agent_console.png %})
+![Uso de créditos de la consola de agente con mosaicos para créditos e invocaciones y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_agent_console.png %})
 
 {% endtab %}
 {% tab Audience Sync %}
@@ -238,11 +237,11 @@ Usa **Export** para descargar los datos de la tabla.
 ![Uso de créditos de Audience Sync con mosaicos para créditos y sincronizaciones de audiencia y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_audience_sync.png %})
 
 {% endtab %}
-{% tab Message Archiving %}
+{% tab Archivado de mensajes %}
 
 ### Archivado de mensajes {#message-archiving}
 
-**Message Archiving Credits Usage** muestra el uso de créditos de Archivado de mensajes en todas las cuentas. Los mosaicos muestran el total de créditos consumidos y el total de mensajes archivados. La tabla **Usage by account** incluye **Braze workspace**, **Channel**, **Messages archived**, **Credit ratio** y **Credits**. Cuando hay datos disponibles, **Last updated** muestra cuándo se actualizó la tabla.
+**Message Archiving Credits Usage** muestra el uso de créditos de archivado de mensajes en todas las cuentas. Los mosaicos muestran el total de créditos consumidos y el total de mensajes archivados. La tabla **Usage by account** incluye **Braze workspace**, **Channel**, **Messages archived**, **Credit ratio** y **Credits**. Cuando hay datos disponibles, **Last updated** muestra cuándo se actualizó la tabla.
 
 #### Filtros
 
@@ -253,7 +252,7 @@ Puedes filtrar tus datos por:
 
 Usa **Export** para descargar los datos de la tabla.
 
-![Uso de créditos de Archivado de mensajes con mosaicos para créditos y mensajes archivados y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_message_archiving.png %})
+![Uso de créditos de archivado de mensajes con mosaicos para créditos y mensajes archivados y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_message_archiving.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -261,7 +260,7 @@ Usa **Export** para descargar los datos de la tabla.
 ## Cosas que debes saber {#things-to-know}
 
 {% alert important %}
-Los datos que se muestran en el dashboard de **uso de créditos** están a nivel de contrato y no están limitados a una empresa o espacio de trabajo individual del dashboard. Estos datos reflejan el uso de todos los espacios de trabajo dentro de tu dashboard, y potencialmente de todos los dashboards (si tienes varios).
+Los datos que se muestran en el dashboard de **uso de créditos** están a nivel de contrato y no están limitados a una empresa o espacio de trabajo individual del panel. Estos datos reflejan el uso de todos los espacios de trabajo dentro de tu panel, y potencialmente de todos los paneles (si tienes varios).
 {% endalert %}
 
 - Los datos subyacentes se proporcionan con una cadencia diaria, y las tablas de datos se actualizan a las 3 am, 9 am, 12 pm y 6 pm EST. El dashboard de **uso de créditos** puede tardar más de 24 horas en actualizarse.
@@ -275,7 +274,7 @@ El dashboard de **uso de créditos** excluye la fecha final del rango selecciona
 
 Al comparar los datos de uso de créditos de Braze con proveedores externos (como Infobip), ten en cuenta lo siguiente:
 
-- **Segmentos del mensaje frente a mensajes**: Braze cuenta los mensajes SMS por segmentos. Un solo mensaje SMS que se divide en múltiples segmentos (por ejemplo, debido a su longitud) se cuenta como múltiples segmentos en Braze. Para más información, consulta [Calculadoras de facturación de SMS y RCS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/).
+- **Segmentos del mensaje frente a mensajes**: Braze cuenta los mensajes SMS por segmentos. Un solo mensaje SMS que se divide en múltiples segmentos (por ejemplo, debido a su longitud) se cuenta como múltiples segmentos en Braze. Para más información, consulta [Calculadoras de facturación de SMS y RCS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments).
 - **Mensajes basados en créditos frente a no basados en créditos**: El dashboard incluye tanto mensajes basados en créditos como no basados en créditos. Los proveedores externos pueden contar solo los mensajes basados en créditos, lo que puede causar discrepancias en los totales.
-- **De entrada frente a de salida**: Asegúrate de que estás comparando los mismos tipos de mensajes. Algunos dashboards de proveedores externos incluyen tanto mensajes de entrada como de salida en sus totales, mientras que Braze te permite filtrar por dirección.
+- **De entrada frente a de salida**: Asegúrate de que estás comparando los mismos tipos de mensajes. Algunos paneles de proveedores externos incluyen tanto mensajes de entrada como de salida en sus totales, mientras que Braze te permite filtrar por dirección.
 - **Alineación del rango de fechas**: Dado que el dashboard excluye la fecha final, las comparaciones día a día pueden alinearse más estrechamente que los rangos de fechas más largos. Si estás comparando datos de un período específico, extiende tu rango de fechas de Braze un día más para incluir el último día de tu período de comparación.

@@ -19,13 +19,13 @@ scim/v2/Users?filter=userName%20eq%20"user%40test.com"
 
 Observe que, quando o parâmetro de consulta estiver codificado em URL, ele terá a seguinte leitura:
 
-`/scim/v2/Users?filter=userName%20eq%20%22user@test.com%22`
+`/scim/v2/Users?filter=userName%20eq%20%22user@example.com%22`
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5037d810-b822-4c54-bb51-f30470a42a95 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem do seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem do seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Limite de taxa {#rate-limit}
 
@@ -33,9 +33,9 @@ Para usar esse endpoint, você precisará de um token SCIM. Você usará a orige
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `userName@example.com` | Obrigatória | String | O e-mail do usuário. |
+| `userName@example.com` | Obrigatório | String | O e-mail do usuário. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Parâmetros de solicitação {#request-parameters}
@@ -48,7 +48,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Exemplo de solicitação {#example-request}
 ```bash
-curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?filter=userName%20eq%20%22user@test.com%22' \
+curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?filter=userName%20eq%20%22user@example.com%22' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -61,7 +61,7 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
     "totalResults": 1,
     "Resources": [
         {
-            "userName": "user@test.com",
+            "userName": "user@example.com",
             "id": "dfa245b7-24195aec-887bb3ad-602b3340",
             "name": {
                 "givenName": "Test",

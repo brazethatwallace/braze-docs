@@ -10,7 +10,7 @@ toc_headers: h2
 
 > 각 Braze SDK에 속한 참조 문서, GitHub 리포지토리 및 샘플 앱의 목록입니다. SDK의 참조 문서에는 사용 가능한 클래스, 유형, 함수 및 변수가 자세히 설명되어 있습니다. GitHub 리포지토리는 해당 SDK의 기능 및 속성 선언, 코드 변경 및 버전 관리에 대한 인사이트를 제공합니다. 각 리포지토리에는 Braze 기능을 테스트하거나 자체 애플리케이션과 함께 구현하는 데 사용할 수 있는 완전히 빌드 가능한 샘플 애플리케이션도 포함되어 있습니다.
 
-문서 내 미러링된 리포지토리 README 콘텐츠는 [리포지토리 가이드]({{site.baseurl}}/developer_guide/sdk_repository_guides/)를 참조하세요.
+문서 내 미러링된 리포지토리 README 콘텐츠는 [리포지토리 가이드]({{site.baseurl}}/developer_guide/sdk_repository_guides)를 참조하세요.
 
 ## 리소스 목록 {#list-of-resources}
 
@@ -26,7 +26,8 @@ toc_headers: h2
 | Javascript SDK | [참조 문서](https://braze-inc.github.io/braze-javascript-sdk/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-javascript-sdk/tree/main) | N/A |
 | Cordova SDK | [선언 파일](https://github.com/braze-inc/braze-cordova-sdk/blob/master/www/BrazePlugin.js) | [GitHub 리포지토리](https://github.com/braze-inc/braze-cordova-sdk) | [샘플 앱](https://github.com/braze-inc/braze-cordova-sdk/tree/master/sample-project) |
 | Flutter SDK | [참조 문서](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-flutter-sdk) | [샘플 앱](https://github.com/braze-inc/braze-flutter-sdk/tree/master/example) |
-| React Native SDK | [선언 파일](https://github.com/braze-inc/braze-react-native-sdk/blob/master/src/index.d.ts) | [GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk) | [샘플 앱](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| React Native SDK | [참조 문서](https://braze-inc.github.io/braze-react-native-sdk/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk) | [샘플 앱](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| Vega SDK | [참조 문서](https://braze-inc.github.io/braze-vega-sdk/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-vega-sdk) | N/A |
 | Roku SDK | N/A | [GitHub 리포지토리](https://github.com/braze-inc/braze-roku-sdk) | [샘플 앱](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv) |
 | Unity SDK | [선언 파일](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs) | [GitHub 리포지토리](https://github.com/braze-inc/braze-unity-sdk) | [샘플 앱](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) |
 | .NET MAUI SDK (이전 Xamarin) | N/A | [GitHub 리포지토리](https://github.com/braze-inc/braze-xamarin-sdk) | [샘플 앱](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples) |
@@ -40,7 +41,7 @@ toc_headers: h2
 
 [Android SDK GitHub 리포지토리](https://github.com/braze-inc/braze-android-sdk) 내의 테스트 애플리케이션은 Droidboy입니다. 다음 지침에 따라 프로젝트와 함께 모든 기능을 갖춘 사본을 빌드하세요.
 
-1. 새 [워크스페이스]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#app-group-configuration)를 생성하고 Braze API 식별자 키를 기록합니다.<br><br>
+1. 새 [워크스페이스]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#app-group-configuration)를 생성하고 Braze API 식별자 키를 기록합니다.<br><br>
 2. `/droidboy/res/values/braze.xml` 내의 적절한 위치(각각 `com_braze_push_fcm_sender_id` 및 `com_braze_api_key`라는 문자열의 태그 사이)에 FCM 발신자 ID와 Braze API 식별자 키를 복사합니다.<br><br>
 3. **설정 관리** 아래 워크스페이스 설정에 FCM 서버 키와 서버 ID를 복사합니다.<br><br>
 4. Droidboy APK를 어셈블하려면 SDK 디렉토리 내에서 `./gradlew assemble`을 실행합니다. Windows에서는 `gradlew.bat`을 사용합니다.<br><br>
@@ -51,7 +52,7 @@ toc_headers: h2
 Hello Braze 테스트 애플리케이션은 Braze SDK의 최소 사용 사례를 보여주며, Braze SDK를 Gradle 프로젝트에 쉽게 통합하는 방법도 함께 보여줍니다.
 
 1. **설정 관리** 페이지에서 API 식별자 키를 `res/values` 폴더의 `braze.xml` 파일에 복사합니다.
-![]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
+!["Hello Braze" 빌드 관련 스크린샷]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
 2. 기기 또는 에뮬레이터에 샘플 앱을 설치하려면 SDK 디렉토리 내에서 다음 명령을 실행합니다.
 ```
 ./gradlew installDebug
@@ -66,12 +67,12 @@ Android SDK 빌드 시스템에 대한 자세한 내용은 [GitHub 리포지토�
 
 다음 지침에 따라 테스트 애플리케이션을 빌드하고 실행하세요.
 
-1. 새 [워크스페이스]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#creating-your-app-group-in-my-apps)를 생성하고 앱 식별자 API 키와 엔드포인트를 기록합니다.
+1. 새 [워크스페이스]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#creating-your-app-group-in-my-apps)를 생성하고 앱 식별자 API 키와 엔드포인트를 기록합니다.
 2. 통합 방법(스위프트 패키지 매니저, CocoaPods, 수동)에 따라 적절한 `xcodeproj` 파일을 선택하여 엽니다.
 3. `Credentials` 파일의 해당 필드에 API 키와 엔드포인트를 입력합니다.
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-SDK 통합에 대한 QA를 수행할 때 [SDK 디버거]({{site.baseurl}}/developer_guide/sdk_integration/debugging/)를 사용하면 앱의 상세 로깅을 켜지 않고도 문제를 해결할 수 있습니다.
+SDK 통합에 대한 QA를 수행할 때 [SDK 디버거]({{site.baseurl}}/developer_guide/sdk_integration/debugging)를 사용하면 앱의 상세 로깅을 켜지 않고도 문제를 해결할 수 있습니다.
 {% endalert %}

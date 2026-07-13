@@ -28,7 +28,7 @@ Com a integração da Zeotap e da Braze, você pode ampliar a escala e o alcance
 1. Na plataforma Zeotap Unity, navegue até o aplicativo **DESTINATIONS**.
 2. Em **All Channels**, selecione **Braze**.
 3. No prompt exibido, dê um nome ao seu destino e forneça o nome do cliente e a chave da API REST da Braze associados à sua conta da Braze.
-4. Por fim, selecione sua instância de endpoint REST da Braze no menu suspenso e salve o destino. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
+4. Por fim, selecione sua instância de endpoint REST da Braze no menu suspenso e salve o destino. <br><br>![Configuração do destino Zeotap para Braze com menu suspenso de instância de endpoint.]({% image_buster /assets/img/zeotap/zeotap1.png %})
 
 ### Etapa 2: Crie e vincule um segmento Zeotap ao seu destino {#step-2-create-and-link-a-zeotap-segment-to-your-destination}
 
@@ -37,7 +37,7 @@ Com a integração da Zeotap e da Braze, você pode ampliar a escala e o alcance
 3. Selecione um identificador de saída compatível: MAIDs, endereço de e-mail com hash SHA256 ou qualquer identificador de cliente 1P reconhecido pela Braze (se quiser usar um identificador personalizado para sua conta da Braze, entre em contato com a Zeotap para que ele possa ser ativado para sua conta). Somente um identificador de saída pode ser usado para a integração com a Braze. Esses identificadores devem ser os mesmos que o ID externo definido ao coletar dados do Braze SDK.
 4. Salve o segmento.
 
-![]({% image_buster /assets/img/zeotap/zeotap2.png %})
+![Configuração de segmento Zeotap CONNECT vinculado ao destino Braze.]({% image_buster /assets/img/zeotap/zeotap2.png %})
 
 {% alert note %}
 Os identificadores que aparecem estão disponíveis no segmento e são compatíveis com a Braze.

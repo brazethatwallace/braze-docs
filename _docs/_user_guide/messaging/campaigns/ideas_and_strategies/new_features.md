@@ -30,7 +30,7 @@ It may take time for the current app versions to populate. The app version on th
 
 Use the **App Version Number** filter to segment users by the app's version and build number. 
 
-This filter supports numerical comparisons to target a range of app versions. For example, you can target users whose app is "below", "above", and "equal to" app version "1.2.3", which might be beneficial to promote a new feature which requires an app upgrade.
+This filter supports numerical comparisons to target a range of app versions. For example, you can target users whose app is "less than", "greater than", and "equal to" app version "1.2.3", which might be beneficial to promote a new feature which requires an app upgrade.
 
 This new filter can replace the legacy "App Version Name" filter which would require explicitly listing each older version or using a regular expression.
 
@@ -84,7 +84,7 @@ For Android, this version name is based on the [Package Version Name](https://de
 When you release a new app version and introduce new features, users may not notice new content. Running a feature awareness campaign is a great way to teach users about new features or features they have never used. To do so, you must create a [custom attribute]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) that is assigned to users who have never completed a certain action within your app or use a [custom event]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) to track a particular action. You can use this attribute (or event) to segment the users you want to send the campaign to.
 
 {% alert tip %}
-Looking to retarget a specific portion of your audience? Check out [Retargeting Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/) to learn how to retarget campaigns by leveraging your user's previous actions.
+Looking to retarget a specific portion of your audience? Check out [Retargeting Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) to learn how to retarget campaigns by leveraging your user's previous actions.
 {% endalert %}
 
 

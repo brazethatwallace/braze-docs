@@ -19,8 +19,8 @@ search_rank: 5
 Before you can send in-app messages, you need to integrate the [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) into your app or website. No additional setup is required.
 
 For minimum SDK versions and feature-specific requirements, refer to:
-- [Drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Message types]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/)
+- [Drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Message types]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 
 ## Use cases
 
@@ -28,10 +28,10 @@ With the rich level of content offered by in-app messages, you can leverage this
 
 | Use case | Explanation |
 | --- | --- |
-| Push priming | Run a [push priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) campaign using a rich in-app message to show your customers the benefit of opting into push for your app or site, and present them with a prompt to grant push permission.
+| Push priming | Run a [push priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) campaign using a rich in-app message to show your customers the benefit of opting into push for your app or site, and present them with a prompt to grant push permission.
 | Sales and promotions | Use modal in-app messages to greet customers with visually appealing media containing static promotion codes or offers. Incentivize them to make purchases or conversions when they otherwise wouldn't have. |
 | Encouraging feature adoption | Encourage customers to use other parts of your app or take advantage of a service. |
-| Highly personalized campaigns | Place in-app messages as the first thing your customers see when they enter your app or site. Add in some Braze personalization features, such as [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), to compel users to take action and therefore make your outreach more effective.
+| Highly personalized campaigns | Place in-app messages as the first thing your customers see when they enter your app or site. Add in some Braze personalization features, such as [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), to compel users to take action and therefore make your outreach more effective.
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 Other use cases to consider include the following:
@@ -70,13 +70,13 @@ Fullscreen messages are exactly what you'd expect—they take up the whole scree
 {% endtab %}
 {% endtabs %}
 
-In addition to these default message templates, you can also further customize your messaging using custom HTML in-app messages, web modals with CSS, or web email capture forms. For more information, refer to [Customization]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+In addition to these default message templates, you can also further customize your messaging using custom HTML in-app messages, web modals with CSS, or web email capture forms. For more information, refer to [Customization]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
-For how templated delivery at display time affects **abort** logging, see [In-App Message FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
+For how templated delivery at display time affects **abort** logging, see [In-App Message FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 
 ## Next steps
 
-- [Create an in-app message with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Create an in-app message with the traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)
+- [Create an in-app message with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Create an in-app message with the traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

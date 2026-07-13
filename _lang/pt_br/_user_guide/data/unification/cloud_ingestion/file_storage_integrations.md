@@ -39,7 +39,7 @@ Primeiro, vamos definir os termos usados durante esta tarefa.
 | Nome do Recurso da Amazon (ARN) | O ARN é um identificador exclusivo dos recursos da AWS. |
 | Gerenciamento de Identidade e Acesso (IAM) | IAM é um serviço da web que permite controlar com segurança o acesso aos recursos da AWS. Neste tutorial, você criará uma política de IAM e a atribuirá a uma função de IAM para integrar seu bucket S3 à Ingestão de Dados na Nuvem da Braze. |
 | Serviço de Fila Simples da Amazon (SQS) | O SQS é uma fila hospedada que permite integrar sistemas e componentes de software distribuídos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definições da AWS" }
 
 ## Configuração da Ingestão de Dados na Nuvem na AWS {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -163,7 +163,7 @@ Para concluir a configuração na AWS, crie uma função de IAM e anexe a ela a 
 
 {: start="2"}
 2. Na AWS, selecione **Another AWS Account** como o tipo de seletor de entidade confiável. Forneça seu ID de conta da Braze. Marque a caixa de seleção **Require external ID**.
-3. Na Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e selecione **Amazon S3** na seção de fontes de arquivo.
+3. Na Braze, acesse **Configurações de dados** > **Ingestão de Dados na Nuvem** > **Sources**, selecione **Add data source** e selecione **Amazon S3** na seção de fontes de arquivo.
 4. Copie o **Braze Account ID** gerado automaticamente.
 
 ![A página "Add New Source" mostrando as seções Source Name e S3 Connection Details.]({% image_buster /assets/img/braze_account_id.png %})
@@ -187,7 +187,7 @@ Dê um nome e uma descrição à função e selecione **Create Role**.
 
 ## Configuração da Ingestão de Dados na Nuvem na Braze {#setting-up-cloud-data-ingestion-in-braze}
 
-1. Primeiro, crie uma nova origem no dashboard da Braze. Acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Amazon S3**.
+1. Primeiro, crie uma nova origem no dashboard da Braze. Acesse **Configurações de dados** > **Ingestão de Dados na Nuvem** > **Sources**, selecione **Add data source** e, em seguida, selecione **Amazon S3**.
 2. Escolha um nome para sua origem e insira as informações do processo de configuração da AWS para criar uma nova origem. Especifique o seguinte:
 
   - ARN da função
@@ -201,9 +201,7 @@ Dê um nome e uma descrição à função e selecione **Create Role**.
 3. Selecione **Test connection** para confirmar que a Braze pode acessar seu bucket. Após um teste bem-sucedido, selecione **Connect to Source**. Se a conexão falhar, uma mensagem de erro será exibida para ajudar a solucionar o problema.
 
 {: start="4"}
-4. Em seguida, crie uma nova sincronização. Acesse **Data Settings** > **Cloud Data Ingestion** > **Syncs** e selecione **Create data sync**.
-
-![A página "Create New Sync" mostrando o nome da sincronização e a configuração da fonte de dados.]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
+4. Em seguida, crie uma nova sincronização. Acesse **Configurações de dados** > **Ingestão de Dados na Nuvem** > **Syncs** e selecione **Create data sync**.
 
 {: start="5"}
 5. Escolha um nome para sua sincronização. Em seguida, selecione qualquer origem S3 ativa e insira sua tabela de origem para a sincronização. Selecione um tipo de dado e selecione **Test Connection**.
@@ -226,7 +224,7 @@ A Ingestão de Dados na Nuvem aceita arquivos JSON, CSV e Parquet. As colunas ob
 - Dados de usuários (atributos, eventos personalizados, eventos de compra) usam identificadores de usuário e uma carga útil
 - Dados de catálogo usam identificadores de catálogo
 
-Se você estiver usando o S3 para dados de catálogo, use esta página junto com [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) para requisitos e comportamentos específicos de catálogo.
+Se você estiver usando o S3 para dados de catálogo, use esta página junto com [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) para requisitos e comportamentos específicos de catálogo.
 
 A Braze não impõe requisitos adicionais de nome de arquivo além do que é imposto pela AWS. Os nomes dos arquivos devem ser únicos. Adicionar um timestamp ajuda a garantir a exclusividade.
 
@@ -243,7 +241,7 @@ Para sincronizações de dados de usuários (atributos, eventos personalizados, 
 | `BRAZE_ID` | O identificador de usuário da Braze. Isso é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID externo ou um alias de usuário. |
 | `EMAIL` | O endereço de e-mail do usuário. Se houver vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade nas atualizações. Se você incluir e-mail e telefone, a Braze usará o e-mail como identificador principal. |
 | `PHONE` | O número de telefone do usuário. Se houver vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade nas atualizações. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuário" }
 
 Além de um identificador, cada linha deve incluir uma coluna `PAYLOAD` contendo uma string JSON dos campos que você deseja sincronizar com o usuário na Braze.
 
@@ -260,7 +258,7 @@ Para sincronizações de catálogo, seu arquivo de origem deve conter as seguint
 | `ID` | Sim | O identificador único do item do catálogo. Usado para criar, atualizar ou excluir o item na Braze. |
 | `PAYLOAD` | Sim | Uma string JSON dos campos e valores do catálogo a serem sincronizados. Deve corresponder ao esquema do seu catálogo na Braze. |
 | `DELETED` | Não | Quando `true`, o item do catálogo com o `ID` correspondente é removido do catálogo na Braze. Omita esta coluna ou defina como `false` para operações de criação ou atualização. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identificadores de catálogo" }
 
 ### Exemplos {#examples}
 
@@ -312,7 +310,7 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-Inclua uma coluna opcional `DELETED`. Quando `DELETED` é `true`, esse item de catálogo é removido do catálogo na Braze. Para a lista completa de colunas obrigatórias, consulte [Identificadores de catálogo](#catalog-identifiers). Para o comportamento de exclusão, consulte [Excluindo itens do catálogo](#deleting-catalog-items). Para um fluxo de configuração de catálogo de ponta a ponta (incluindo a criação do catálogo de destino e o comportamento de sincronização), consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Inclua uma coluna opcional `DELETED`. Quando `DELETED` é `true`, esse item de catálogo é removido do catálogo na Braze. Para a lista completa de colunas obrigatórias, consulte [Identificadores de catálogo](#catalog-identifiers). Para o comportamento de exclusão, consulte [Excluindo itens do catálogo](#deleting-catalog-items). Para um fluxo de configuração de catálogo de ponta a ponta (incluindo a criação do catálogo de destino e o comportamento de sincronização), consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 {% endtab %}
 
 {% endtabs %}
@@ -339,10 +337,10 @@ Cada linha no arquivo deve identificar exatamente um usuário usando um dos segu
 | `EXTERNAL_ID` | Corresponde ao `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Ambas as colunas juntas identificam o usuário por alias. |
 | `BRAZE_ID` | ID de usuário gerado pela Braze (apenas usuários existentes). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Excluindo usuários" }
 
 {% alert important %}
-A exclusão de usuários é permanente e não pode ser desfeita. Inclua apenas usuários que você realmente pretende remover. Para mais detalhes, consulte [Excluir usuários com Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).
+A exclusão de usuários é permanente e não pode ser desfeita. Inclua apenas usuários que você realmente pretende remover. Para mais detalhes, consulte [Excluir usuários com Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
 {% endalert %}
 
 **Exemplo – JSON (exclusão de usuários):**
@@ -365,7 +363,7 @@ Quando a sincronização é executada, a Braze processa novos arquivos no bucket
 
 Para remover itens de um catálogo usando armazenamento de arquivos:
 
-1. Use a mesma sincronização S3 que você usa para [sincronizar dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) (tipo de dado **Catalogs**).
+1. Use a mesma sincronização S3 que você usa para [sincronizar dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (tipo de dado **Catalogs**).
 2. Nos seus arquivos CSV ou JSON, adicione uma coluna opcional **`deleted`** (ou **`DELETED`**).
 3. Defina `deleted` como `true` para qualquer item do catálogo que você deseja remover do catálogo na Braze.
 
@@ -384,7 +382,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-Quando a sincronização é executada, linhas com `deleted: true` fazem com que o item do catálogo correspondente seja excluído na Braze. Para o comportamento completo de sincronização e exclusão do catálogo, consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Quando a sincronização é executada, linhas com `deleted: true` fazem com que o item do catálogo correspondente seja excluído na Braze. Para o comportamento completo de sincronização e exclusão do catálogo, consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 
 ## Informações importantes {#things-to-know}
 

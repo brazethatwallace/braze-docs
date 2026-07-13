@@ -22,15 +22,15 @@ Es tu responsabilidad asegurarte de que tu pie de página personalizado cumpla c
 
 Para crear o editar tu pie de página personalizado, haz lo siguiente:
 
-1. Ve a **Settings** > **Email Preferences** > **Subscription Pages and Footers**.
-2. Ve a la sección **Custom footer** y activa los pies de página personalizados.
-3. Selecciona **Edit** y luego edita tu pie de página en la sección **Compose**.
-4. Selecciona **Preview** para previsualizar cómo aparecerá tu pie de página de correo electrónico en el buzón de entrada de un cliente. Opcionalmente, puedes seleccionar **Copy preview link** para generar y copiar un enlace de vista previa que se puede compartir y que muestra cómo se verá el correo electrónico para un usuario aleatorio. El enlace durará siete días antes de que sea necesario regenerarlo.
+1. Ve a **Configuración** > **Preferencias de correo electrónico** > **Páginas de suscripción y pies de página**.
+2. Ve a la sección **Personalizar pie de página** y activa los pies de página personalizados.
+3. Selecciona **Editar** y luego edita tu pie de página en la sección **Redactar**.
+4. Selecciona **Vista previa** para previsualizar cómo aparecerá tu pie de página de correo electrónico en el buzón de entrada de un cliente. Opcionalmente, puedes seleccionar **Copiar enlace de vista previa** para generar y copiar un enlace de vista previa que se puede compartir y que muestra cómo se verá el correo electrónico para un usuario aleatorio. El enlace durará siete días antes de que sea necesario regenerarlo.
 5. Envía un mensaje de prueba.
 
 ![Un ejemplo de un pie de página personalizado.]({% image_buster /assets/img_archive/custom_footer.png %})
 
-El pie de página predeterminado usa el atributo {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} y nuestra dirección postal física. Si estás usando este pie de página predeterminado, asegúrate de seleccionar **&#60;other&#62;** para el **Protocol**.
+El pie de página predeterminado usa el atributo {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} y nuestra dirección postal física. Si estás usando este pie de página predeterminado, asegúrate de seleccionar **&#60;other&#62;** para el **Protocolo**.
 
 {% alert important %}
 Para cumplir con las regulaciones CAN-SPAM, tu pie de página personalizado debe incluir un enlace para cancelar suscripción. Puedes usar este atributo Liquid {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} o tu propia URL personalizada para cancelar suscripción. No podrás guardar un pie de página personalizado sin un enlace para cancelar suscripción.
@@ -57,7 +57,7 @@ Para agregar un enlace personalizado para cancelar suscripción, puedes cambiar 
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-A continuación, llama al [punto de conexión `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) para actualizar el estado de suscripción del usuario. Para más detalles, consulta nuestra documentación sobre [cambiar las suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+A continuación, llama al [punto de conexión `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) para actualizar el estado de suscripción del usuario. Para más detalles, consulta nuestra documentación sobre [cambiar las suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Luego, guarda este nuevo enlace. La etiqueta predeterminada de cancelación de suscripción de Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} debe estar en el pie de página. Esto significa que necesitas incluir el enlace predeterminado "ocultándolo", ya sea colocando la etiqueta en un comentario o en una etiqueta `<div>` oculta.
 
@@ -67,7 +67,7 @@ Sugerimos las siguientes mejores prácticas al crear y usar pies de página pers
 
 ### Personalizar con atributos {#personalizing-with-attributes}
 
-Al crear un pie de página personalizado, Braze sugiere usar [atributos para la personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/). El conjunto completo de atributos predeterminados y personalizados está disponible, pero aquí hay algunos que pueden resultarte útiles:
+Al crear un pie de página personalizado, Braze sugiere usar [atributos para la personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). El conjunto completo de atributos predeterminados y personalizados está disponible, pero aquí hay algunos que pueden resultarte útiles:
 
 | Atributo | Etiqueta |
 | --------- | --- |
@@ -86,12 +86,12 @@ Como mejor práctica, Braze recomienda incluir tanto un enlace para cancelar sus
 
 ### Configurar pies de página personalizados para correos electrónicos de texto sin formato {#setting-custom-footers-for-plaintext-emails}
 
-También puedes optar por configurar un pie de página personalizado para correos electrónicos de texto sin formato desde la pestaña **Subscription Pages and Footers** en la página **Email Preferences**, que sigue las mismas reglas que el pie de página personalizado para correos electrónicos HTML.
+También puedes optar por configurar un pie de página personalizado para correos electrónicos de texto sin formato desde la pestaña **Páginas de suscripción y pies de página** en la página **Preferencias de correo electrónico**, que sigue las mismas reglas que el pie de página personalizado para correos electrónicos HTML.
 
-Si no incluyes un pie de página de texto sin formato, Braze creará uno automáticamente a partir del pie de página HTML. Cuando tus pies de página personalizados estén a tu gusto, selecciona **Save**.
+Si no incluyes un pie de página de texto sin formato, Braze creará uno automáticamente a partir del pie de página HTML. Cuando tus pies de página personalizados estén a tu gusto, selecciona **Guardar**.
 
 ![Correo electrónico con la opción Establecer pie de página personalizado de texto sin formato seleccionada.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 
 ## Consideraciones {#considerations}
 
-Si estás usando [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/), ten en cuenta que {% raw %}`{{${email_footer}}}`{% endraw %} no es una etiqueta de Liquid estándar. Se procesa previamente antes de que Liquid se ejecute, por lo que usar {% raw %}`{{${email_footer}}}`{% endraw %} como valor de variable de contexto y llamar a la marca `:rerender` falla silenciosamente. En su lugar, usa un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) para un pie de página de correo electrónico.
+Si estás usando [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), ten en cuenta que {% raw %}`{{${email_footer}}}`{% endraw %} no es una etiqueta de Liquid estándar. Se procesa previamente antes de que Liquid se ejecute, por lo que usar {% raw %}`{{${email_footer}}}`{% endraw %} como valor de variable de contexto y llamar a la marca `:rerender` falla silenciosamente. En su lugar, usa un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) para un pie de página de correo electrónico.

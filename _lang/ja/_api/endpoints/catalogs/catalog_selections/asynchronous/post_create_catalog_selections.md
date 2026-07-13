@@ -19,7 +19,7 @@ description: "この記事では、「カタログセレクションの作成」
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create_selection` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.create_selection` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -36,7 +36,7 @@ description: "この記事では、「カタログセレクションの作成」
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | 必須 | オブジェクト | セレクション条件を含むオブジェクト。オブジェクトとそのフィールドの詳細については、[カタログセレクションオブジェクト]({{site.baseurl}}/api/objects_filters/catalog_selection_object/)を参照してください。 |
+| `selection` | 必須 | オブジェクト | セレクション条件を含むオブジェクト。オブジェクトとそのフィールドの詳細については、[カタログセレクションオブジェクト]({{site.baseurl}}/api/objects_filters/catalog_selection_object)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### セレクションオブジェクトのパラメーター {#selection-object-parameters}

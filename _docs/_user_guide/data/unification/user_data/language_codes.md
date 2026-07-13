@@ -11,4 +11,4 @@ description: "These are the user language codes that are currently supported by 
 
 > These are the language codes currently supported by Braze.
 
-{% multi_lang_include supported_language_codes.md %}
+{% multi_lang_include messaging/localization/supported_language_codes.md %}

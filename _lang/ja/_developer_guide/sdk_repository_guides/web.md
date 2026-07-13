@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze Web SDK READMEリフ�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Web SDK リポジトリガイド {#web-sdk-repository-guide}
+
 ## Braze Web SDKについて {#about-the-braze-web-sdk}
 
 Braze Web SDKを使用すると、BrazeのカスタマーエンゲージメントプラットフォームをWebアプリケーションに直接統合できます。TypeScriptで構築され、モダンなWeb開発向けに設計されたこのSDKは、ユーザー管理、メッセージング、分析、フィーチャーフラグのための包括的なツールを提供します。
@@ -33,8 +35,8 @@ Braze Web SDKを統合する前に、以下が必要です。
 
 ### 認証情報の取得 {#getting-your-credentials}
 
-1. **APIキー**: Brazeダッシュボードの**Settings** > **API Keys**にあります
-2. **SDKエンドポイント**: **Settings** > **SDK Authentication** > **Endpoints**にあります
+1. **APIキー**: Brazeダッシュボードの**設定** > **APIキー**にあります
+2. **SDKエンドポイント**: **設定** > **SDK認証** > **エンドポイント**にあります
 3. **Service Worker**: プッシュ通知に必要です（プッシュ通知セクションを参照）
 
 ## インストール {#installation}
@@ -90,7 +92,7 @@ braze.changeUser('Jane Doe');
 | `requireExplicitInAppMessageDismissal` | `boolean` | `false` | デフォルトでは、アプリ内メッセージはメッセージの外側をクリックするかEscapeキーを押すことで閉じることができます。ユーザーが明示的に閉じるボタンまたはアクションボタンをクリックしてメッセージを閉じることを要求するには、このオプションをtrueに設定してください。 |
 | `devicePropertyAllowlist` | `string[]` | `undefined` | デフォルトでは、Braze SDKはDevicePropertiesのすべてのデバイスプロパティを自動的に検出して収集します。この動作を上書きするには、DevicePropertiesの配列を指定してください。すべてのプロパティのBrazeサーバーへの送信を無効にするには、空の配列を指定してください。一部のプロパティがないと、すべての機能が正しく動作しない場合があります。例えば、タイムゾーンがないと、ローカルタイムゾーン配信が機能しません。 |
 | `serviceWorkerScope` | `string` | `undefined` | デフォルトでは、Braze Web SDKはデフォルトのスコープ（Service Workerのディレクトリ）でService Workerを登録します。このオプションに値を指定すると、そのデフォルトを上書きし、Service Workerのカスタムスコープを指定できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Initialization Options" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="初期化オプション" }
 
 ---
 
@@ -172,7 +174,7 @@ if (user) {
 }
 ```
 
-#### ユーザーエイリアスとサブスクリプショングループ {#user-aliases-and-subscription-groups}
+#### ユーザーエイリアスと購読グループ {#user-aliases-and-subscription-groups}
 
 ``` typescript
 import { getUser } from "@braze/web-sdk";
@@ -766,12 +768,12 @@ require(['path/to/braze.min.js'], function(braze) {
 AMP統合には、以下が必要です。
 
 1. **AMP Webプッシュスクリプトの追加**: headに非同期スクリプトタグを追加します
-2. **サブスクリプションウィジェットの追加**: ユーザーがサブスクライブ/アンサブスクライブできるウィジェットを追加します
+2. **サブスクリプションウィジェットの追加**: ユーザーが購読/購読解除できるウィジェットを追加します
 3. **ヘルパーファイルの追加**: `helper-iframe.html`と`permission-dialog.html`を含めます
 4. **Service Workerの作成**: BrazeのService Workerファイルを追加します
 5. **AMP Webプッシュ要素の設定**: APIキーとベースURLをクエリパラメーターとして`amp-web-push`要素を追加します
 
-AMPの統合手順の詳細については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
+AMP統合の詳細な手順については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
 
 ### Electron
 
@@ -807,7 +809,7 @@ Brazeは、カスタムHTMLタグ内の統合手順に従うことで、他の�
 | Full | UIを含む完全なSDKです。npmバージョンを使用する場合、JavaScriptバンドラーはUIを含む未使用のコードを削除します。 | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
 | Core | UIなしのSDKです。このバージョンのSDKを使用する場合、In-App MessagesとContent Cards用に独自のUIを実装する必要があります。UI要素はCSSで完全にカスタマイズ可能なため、一般的にはフルライブラリの統合をお勧めします。 | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
 | No-AMD | AMDサポートなしの完全なSDKです。サイトでRequireJSまたは別のAMDモジュールローダーを使用しているが、CDNを通じてSDKを読み込みたい場合に便利です。 | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ライブラリ" }
 
 ## サポートされているブラウザ {#supported-browsers}
 

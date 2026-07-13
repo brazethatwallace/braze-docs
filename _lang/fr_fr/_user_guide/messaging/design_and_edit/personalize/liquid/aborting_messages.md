@@ -18,7 +18,7 @@ Si une étape de message est annulée dans un Canvas, l'utilisateur **ne quitter
 
 `abort_message()` interrompt l'envoi pour les utilisateurs qui ne remplissent pas votre condition. Le message n'apparaîtra pas sur leur profil et ne sera pas comptabilisé dans les réceptions ni dans la limite de fréquence.
 
-Si les envois de test n'arrivent jamais, prévisualisez en tant qu'utilisateur qui satisfait la condition d'annulation, puis dans **Test Send**, activez **Override recipients' attributes with current preview user's attributes** (ou ajoutez un membre d'un groupe de test de contenu qui remplit les conditions).
+Si les envois de test n'arrivent jamais, prévisualisez en tant qu'utilisateur qui satisfait la condition d'annulation, puis dans **Envoi de test**, activez **Remplacer les attributs des destinataires par ceux de l'utilisateur de prévisualisation actuel** (ou ajoutez un membre d'un groupe de test de contenu qui remplit les conditions).
 
 ## Annuler le message si « Number Games Attended » = 0 {#abort-message-if-number-games-attended-0}
 
@@ -65,11 +65,11 @@ Vous pouvez également faire en sorte que le message d'annulation enregistre un 
 ```
 {% endraw %}
 
-![Journal d'erreur de message dans la Console de développement avec un message d'annulation « language was nil ».]({% image_buster /assets/img_archive/developer_console.png %})
+![Journal d'erreur de message dans la console de développement avec un message d'annulation « language was nil ».]({% image_buster /assets/img_archive/developer_console.png %})
 
 ## Rechercher des messages d'annulation {#query-for-abort-messages}
 
-Vous pouvez utiliser le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) ou votre propre entrepôt de données, s'il est connecté à Braze, pour rechercher des messages d'annulation spécifiques déclenchés lorsque la logique Liquid provoque l'annulation d'un message.
+Vous pouvez utiliser le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) ou votre propre entrepôt de données, s'il est connecté à Braze, pour rechercher des messages d'annulation spécifiques déclenchés lorsque la logique Liquid provoque l'annulation d'un message.
 
 ## Moment d'évaluation de la logique d'annulation {#when-abort-logic-is-evaluated}
 
@@ -81,7 +81,7 @@ La logique d'annulation est évaluée au moment de l'envoi, lorsque Braze traite
 
 ### Messages in-app {#in-app-messages}
 
-La logique d'annulation est évaluée pour les [messages in-app modélisés]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#templated_iam-templated) uniquement au moment où le message in-app est déclenché (par exemple, lorsque l'utilisateur effectue l'événement déclencheur ou démarre une session), et non lorsque le message est initialement envoyé à l'appareil. Les messages in-app sont transmis au SDK au démarrage de la session et mis en cache localement ; le Liquid — y compris les appels `abort_message()` — est exécuté lorsque la condition de déclenchement est remplie.
+La logique d'annulation est évaluée pour les [messages in-app modélisés]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) uniquement au moment où le message in-app est déclenché (par exemple, lorsque l'utilisateur effectue l'événement déclencheur ou démarre une session), et non lorsque le message est initialement envoyé à l'appareil. Les messages in-app sont transmis au SDK au démarrage de la session et mis en cache localement ; le Liquid — y compris les appels `abort_message()` — est exécuté lorsque la condition de déclenchement est remplie.
 
 ## Remarques {#considerations}
 

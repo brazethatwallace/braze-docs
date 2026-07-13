@@ -24,7 +24,7 @@ Pro Anfrage können bis zu 50 Nutzer-Aliase angegeben werden.
 
 ## Wenn `alias_label` und `alias_name` bereits existieren {#when-alias_label-and-alias_name-already-exist}
 
-Die Kombination aus `alias_label` und `alias_name` muss in Ihrer Nutzerbasis eindeutig sein. Weitere Informationen finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
+Die Kombination aus `alias_label` und `alias_name` muss in Ihrer Nutzerbasis eindeutig sein. Weitere Informationen finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
 
 Wenn Sie eine Anfrage senden, bei der das Paar aus `alias_label` und `alias_name` bereits für Nutzer:innen existiert (ob bei denselben oder anderen Nutzer:innen), gibt der Endpunkt trotzdem eine erfolgreiche Antwort zurück (z. B. `"aliases_processed": 1`, `"message": "success"`). In diesem Fall wird den Nutzer:innen in der Anfrage kein neuer Alias hinzugefügt. Da das Paar aus `alias_label` und `alias_name` bereits verwendet wird, nimmt die Anfrage keine Änderungen vor, und es kann so aussehen, als ob der Alias den betreffenden Nutzer:innen nie hinzugefügt wurde.
 
@@ -32,7 +32,7 @@ Wenn Sie eine Anfrage senden, bei der das Paar aus `alias_label` und `alias_name
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.alias.new`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.alias.new`.
 
 ## Rate-Limit
 
@@ -55,8 +55,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Erforderlich | Array mit neuen Nutzer-Alias-Objekten | Siehe [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/).<br><br> Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `user_aliases` | Erforderlich | Array mit neuen Nutzer-Alias-Objekten | Siehe [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ### Anfragetext des Endpunkts mit Spezifikation des neuen Nutzer-Alias-Objekts {#endpoint-request-body-with-new-user-alias-object-specification}
 

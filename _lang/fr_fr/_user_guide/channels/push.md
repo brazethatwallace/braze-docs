@@ -9,7 +9,7 @@ channel:
 search_rank: 3
 ---
 
-# Push {#push}
+# Push
 
 > Les notifications push sont un moyen éprouvé d'envoyer des appels à l'action urgents via mobile ou web, ainsi que de réengager les utilisateurs qui ne se sont pas connectés à l'application depuis un certain temps. Elles dirigent l'utilisateur directement vers le contenu et démontrent la valeur de votre application.
 
@@ -19,8 +19,8 @@ search_rank: 3
 
 Avant de commencer, assurez-vous de disposer des éléments suivants :
 
-- **Push intégré à votre application ou site web.** Collaborez avec vos développeurs pour mettre cela en place. Pour les étapes détaillées, consultez les guides d'intégration pour [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android) et [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **Une stratégie d'abonnement push.** Les utilisateurs doivent accorder l'autorisation push sur leur appareil. Envisagez d'utiliser des [messages in-app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) pour expliquer la valeur avant de demander l'autorisation.
+- **Push intégré à votre application ou site web.** Collaborez avec vos développeurs pour mettre cela en place. Pour les étapes détaillées, consultez les guides d'intégration pour [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) et [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Une stratégie d'abonnement push.** Les utilisateurs doivent accorder l'autorisation push sur leur appareil. Envisagez d'utiliser des [messages in-app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) pour expliquer la valeur avant de demander l'autorisation.
 
 ## Cas d'utilisation {#use-cases}
 
@@ -48,7 +48,13 @@ Vos messages push doivent respecter les [directives de l'App Store d'Apple](http
 | Google Play — [Utilisation non autorisée ou imitation de fonctionnalités système](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Les applications ne doivent pas imiter ni interférer avec les notifications système. Les notifications au niveau du système sont réservées aux fonctionnalités essentielles de l'application (par exemple, une application de compagnie aérienne informant les utilisateurs d'offres, ou un jeu informant les utilisateurs de promotions in-game). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Réglementations relatives aux messages push" }
 
+## Questions fréquentes {#frequently-asked-questions}
+
+### Quand Braze enregistre-t-il un envoi réussi pour le push ? {#when-does-braze-record-a-successful-send-for-push}
+
+Braze enregistre généralement un **envoi** une fois que le message est transmis depuis Braze vers Apple, Google ou votre service de notification push web. Les indicateurs **Livré**, ouvertures, rebonds et signaux de désinstallation sont suivis séparément et peuvent arriver plus tard. Utilisez les analyses au niveau des étapes et des Campaigns conjointement avec la [résolution des problèmes push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) lorsque les **envois** et les indicateurs en aval semblent désalignés.
+
 ## Étapes suivantes {#next-steps}
 
-- [Configuration des notifications push]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Créer un message push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Configuration des notifications push]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Créer un message push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

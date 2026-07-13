@@ -86,7 +86,7 @@ Beim Targeting von Nutzer:innen während der Campaign-Erstellung können Sie zu 
 Beachten Sie, dass Campaigns ohne Rate-Limit diese Zustellungslimits überschreiten können. Seien Sie sich jedoch bewusst, dass Nachrichten abgebrochen werden, wenn sie aufgrund eines niedrigen Rate-Limits 72 Stunden oder länger verzögert werden. Wenn das Rate-Limit zu niedrig ist, erhält die erstellende Person der Campaign Warnungen im Dashboard und per E-Mail.
 
 {% alert tip %}
-Legen Sie ein [Workspace-Messaging-Rate-Limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) fest, um ein Rate-Limit für einen gesamten Workspace durchzusetzen.
+Legen Sie ein [Workspace-Messaging-Rate-Limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) fest, um ein Rate-Limit für einen gesamten Workspace durchzusetzen.
 {% endalert %}
 
 #### Beispiel {#example}
@@ -139,17 +139,17 @@ Einige Hinweise, die Sie bei der Konfiguration von Rate-Limits beachten sollten,
 - Die folgenden Nachrichten werden nicht durch das Rate-Limit gedrosselt oder darauf angerechnet:
     - Testsendungen
     - Seed-Gruppen
-    - Content Cards, die so konfiguriert sind, dass sie „bei erster Impression“ erstellt werden (Dies wird durch die Rate der App-Impressionen gesteuert. Weitere Informationen zu den Unterschieden zwischen den Optionen zur Card-Erstellung finden Sie unter [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences).)
+    - Content Cards, die so konfiguriert sind, dass sie „bei erster Impression“ erstellt werden (Dies wird durch die Rate der App-Impressionen gesteuert. Weitere Informationen zu den Unterschieden zwischen den Optionen zur Card-Erstellung finden Sie unter [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences).)
 - Zustellgeschwindigkeits-Rate-Limits werden für Folgendes nicht unterstützt:
     - SMS-Autoantworten
-    - SLA-gestützte Nachrichten (wie [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
+    - SLA-gestützte Nachrichten (wie [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
     - In-App-Nachrichten
     - Feature-Flags
     - Banner
 
 #### Rate-Limiting und Connected-Content-Wiederholungen {#rate-limiting-and-connected-content-retries}
 
-Wenn die [Connected-Content-Wiederholung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/) aktiviert ist, wiederholt Braze fehlgeschlagene Aufrufe unter Einhaltung des von Ihnen festgelegten Rate-Limits für jede erneute Sendung. Betrachten wir das Szenario des Sendens von 75.000 Nachrichten mit einem Rate-Limit von 10.000 pro Minute. Stellen Sie sich vor, dass in der ersten Minute der Aufruf fehlschlägt oder langsam ist und nur 4.000 Nachrichten sendet.
+Wenn die [Connected-Content-Wiederholung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries) aktiviert ist, wiederholt Braze fehlgeschlagene Aufrufe unter Einhaltung des von Ihnen festgelegten Rate-Limits für jede erneute Sendung. Betrachten wir das Szenario des Sendens von 75.000 Nachrichten mit einem Rate-Limit von 10.000 pro Minute. Stellen Sie sich vor, dass in der ersten Minute der Aufruf fehlschlägt oder langsam ist und nur 4.000 Nachrichten sendet.
 
 Anstatt zu versuchen, die Verzögerung auszugleichen und die verbleibenden 6.000 Nachrichten in der zweiten Minute zu senden oder sie zu den 10.000 hinzuzufügen, die bereits zum Senden vorgesehen sind, verschiebt Braze diese 6.000 Nachrichten ans „Ende der Warteschlange“ und fügt bei Bedarf eine Minute zur Gesamtzeit hinzu, die für den Versand Ihrer Nachricht benötigt wird.
 
@@ -177,6 +177,30 @@ In der Praxis kann die nachhaltige Senderate (abgeschlossene Nachrichten pro Min
 
 Wenn Ihre Nutzerbasis weiter wächst und Ihr Messaging auf Lifecycle-, getriggerte, transaktionale und Conversion-Campaigns skaliert, ist es wichtig zu verhindern, dass Ihre Benachrichtigungen als „Spam“ oder störend empfunden werden. Durch größere Kontrolle über die Erfahrung Ihrer Nutzer:innen ermöglicht Ihnen Frequency-Capping, die gewünschten Campaigns zu erstellen, ohne Ihre Zielgruppe zu überfordern.
 
+### Rate-Limiting und Frequency-Capping gemeinsam verwenden {#use-rate-limiting-and-frequency-capping-together}
+
+Wenn Sie sowohl Rate-Limiting als auch Frequency-Capping für eine Campaign aktivieren, wendet Braze diese in der folgenden Reihenfolge an:
+
+1. **Rate-Limit** wird zuerst angewendet, um den anfänglichen Pool von Nutzer:innen auszuwählen, die Nachrichten erhalten können.
+2. **Frequency-Cap** wird als Zweites angewendet, um Nutzer:innen aus diesem Pool zu filtern.
+3. **Nachrichten werden** an die verbleibenden Nutzer:innen gesendet.
+
+{% alert important %}
+Wenn viele Nutzer:innen in Ihrem Rate-limitierten Pool Frequency-gekappt sind, senden Sie möglicherweise weniger Nachrichten als Ihr Rate-Limit-Wert. Braze füllt keine zusätzlichen Nutzer:innen aus dem Rate-Limit nach, sobald Frequency-Capping Nutzer:innen aus dem Sendepool entfernt hat.
+{% endalert %}
+
+#### Beispiel
+
+Mit einem Rate-Limit von 500 Nutzer:innen und aktiviertem Frequency-Capping: Wenn 200 dieser 500 Rate-limitierten Nutzer:innen Frequency-gekappt sind, werden nur 300 Nachrichten gesendet – nicht 500.
+
+#### Empfehlungen {#recommendations}
+
+Wenn Sie bei gleichzeitiger Verwendung beider Features eine bestimmte Anzahl von Nutzer:innen erreichen müssen, ziehen Sie die folgenden Ansätze in Betracht:
+
+- **Erhöhen Sie Ihr Rate-Limit:** Um Nutzer:innen zu berücksichtigen, die Frequency-gekappt sind. Wenn Sie beispielsweise 500 Nutzer:innen erreichen möchten, aber erwarten, dass einige Frequency-gekappt werden, setzen Sie Ihr Rate-Limit höher (z. B. 1.000 Nutzer:innen).
+- **Verwenden Sie Rate-Limiting allein:** Wenn Ihr Ziel darin besteht, das Volumen der pro Campaign gesendeten Nachrichten zu steuern.
+- **Wenden Sie sich an Ihren Customer-Success-Manager:** Für Hilfe bei der Gestaltung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Überlegungen berücksichtigt.
+
 ### Feature-Übersicht {#freq-cap-feat-over}
 
 Frequency-Capping wird auf der Sende-Ebene der Campaign oder Canvas-Komponente angewendet und kann für jeden Workspace unter **Einstellungen** > **Frequency-Capping-Regeln** eingerichtet werden.
@@ -193,9 +217,9 @@ Jede Zeile der Frequency-Caps ist mit dem `AND`-Operator verbunden, und Sie kön
 
 ![Frequency-Capping-Bereich mit Listen von Campaigns und Canvases, auf die Regeln angewendet werden und nicht angewendet werden.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"}
 
-#### Verhalten, wenn Nutzer:innen bei einem Canvas-Schritt Frequency-gekappt werden {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
+#### Verhalten, wenn Nutzer:innen bei einem Canvas-Schritt Frequency-gekappt werden oder eine Nachricht abgebrochen wird {#behavior-when-users-are-frequency-capped-or-a-message-is-aborted-on-a-canvas-step}
 
-Globales Frequency-Capping allein führt nicht dazu, dass Nutzer:innen ein Canvas verlassen. Bei [Nachrichtenschritten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) rücken Nutzer:innen weiterhin vor, wenn eine Nachricht aufgrund von globalem Frequency-Capping nicht gesendet wird, entsprechend der Art und Weise, [wie Nutzer:innen durch den Schritt vorrücken]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance).
+Globales Frequency-Capping allein führt nicht dazu, dass Nutzer:innen ein Canvas verlassen. Bei [Nachrichtenschritten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) rücken Nutzer:innen weiterhin vor, wenn eine Nachricht aufgrund von globalem Frequency-Capping nicht gesendet wird, entsprechend der Art und Weise, [wie Nutzer:innen durch den Schritt vorrücken]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance). Dasselbe gilt, wenn eine Nachricht abgebrochen wird (z. B. durch eine Liquid-Abbruchbedingung): Die Nutzer:innen durchlaufen das Canvas weiter, als ob die Nachricht gesendet worden wäre.
 
 Dies ist getrennt von den **Zustellungsvalidierungen** bei einem Nachrichtenschritt. Wenn Nutzer:innen Ihre Zustellungsvalidierungskriterien zum Sendezeitpunkt nicht erfüllen, können sie das Canvas bei diesem Schritt verlassen.
 
@@ -207,7 +231,7 @@ Wenn Sie möchten, dass eine bestimmte Campaign die Frequency-Capping-Regeln üb
 
 Danach werden Sie gefragt, ob diese Campaign trotzdem auf Ihr Frequency-Cap angerechnet werden soll. Nachrichten, die auf das Frequency-Capping angerechnet werden, sind in den Berechnungen für den Filter „Intelligenter Kanal“ enthalten.
 
-Beim Senden von [API-Kampagnen]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging), die oft transaktional sind, haben Sie die Möglichkeit anzugeben, dass eine Campaign die Frequency-Capping-Regeln ignorieren soll, indem Sie `override_frequency_capping` in der API-Anfrage auf `true` setzen.
+Beim Senden von [API-Kampagnen]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), die oft transaktional sind, haben Sie die Möglichkeit anzugeben, dass eine Campaign die Frequency-Capping-Regeln ignorieren soll, indem Sie `override_frequency_capping` in der API-Anfrage auf `true` setzen.
 
 Standardmäßig werden neue Campaigns und Canvases, die Frequency-Caps nicht einhalten, auch nicht darauf angerechnet. Dies ist für jede Campaign und jedes Canvas konfigurierbar.
 
@@ -343,13 +367,13 @@ Nein. Wenn Nutzer:innen in einem Canvas aufgrund globaler Frequency-Capping-Eins
 
 ### Wie kann ich Nutzer:innen identifizieren, die in einem Canvas Frequency-gekappt wurden? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-Nutzer:innen, die Frequency-gekappt werden, erzeugen kein Sende-Ereignis für diesen Schritt. Um diese Nutzer:innen zu identifizieren, können Sie [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) verwenden, um Frequency-Capping-Ereignisse für Nachrichten zu verfolgen. Alternativ können Sie eine [Segmenterweiterung]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) erstellen, um Nutzer:innen zu analysieren, die das Canvas betreten haben, aber die erwartete Nachricht nicht erhalten haben.
+Nutzer:innen, die Frequency-gekappt werden, erzeugen kein Sende-Ereignis für diesen Schritt. Um diese Nutzer:innen zu identifizieren, können Sie [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) verwenden, um Frequency-Capping-Ereignisse für Nachrichten zu verfolgen. Alternativ können Sie eine [Segmenterweiterung]({{site.baseurl}}/user_guide/audience/segments/segment_extension) erstellen, um Nutzer:innen zu analysieren, die das Canvas betreten haben, aber die erwartete Nachricht nicht erhalten haben.
 
 ### Warum zeigt das Dashboard einen Rate-Limit-Fehler für meine Campaign an? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-Dies bedeutet in der Regel, dass das [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting) der Campaign höher eingestellt ist, als Ihr Workspace, Anbieter oder Mailbox-Host verarbeiten kann, sodass sich Sendungen aufstauen und Braze eine Warnung anzeigt. Senken Sie das Zustellgeschwindigkeits-Rate-Limit der Campaign, damit der Durchsatz pro Minute innerhalb der Kapazität dieser Systeme bleibt. Sie können auch ein [Workspace-Messaging-Rate-Limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) festlegen, um eine Obergrenze über alle Campaigns hinweg durchzusetzen.
+Dies bedeutet in der Regel, dass das [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting) der Campaign für die Zielgruppengröße zu niedrig eingestellt ist, sodass der Abschluss der Sendung länger dauern würde als das zulässige Fenster und Braze eine Warnung anzeigt. Erhöhen Sie das Zustellgeschwindigkeits-Rate-Limit, reduzieren Sie die Zielgruppe oder verwenden Sie **Limit send volume**, damit jeder geplante Versand innerhalb des zulässigen Sendefensters abgeschlossen wird. Sie können auch ein [Workspace-Messaging-Rate-Limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) festlegen, um eine Obergrenze über alle Campaigns hinweg durchzusetzen.
 
-**Limit the number of people who will receive this campaign** steuert, wie viele Nutzer:innen für eine Sendung berechtigt sind, nicht wie viele Nachrichten Braze pro Minute sendet. Nur ein Zustellgeschwindigkeits-Rate-Limit legt den Durchsatz pro Minute fest.
+**Limit send volume** steuert, wie viele Nutzer:innen für eine Sendung berechtigt sind, nicht wie viele Nachrichten Braze pro Minute sendet. Nur ein Zustellgeschwindigkeits-Rate-Limit legt den Durchsatz pro Minute fest.
 
 ### Was bedeutet „Gesendet“ für Frequency-Capping? {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +383,6 @@ In Analytics und Frequency-Capping bezieht sich _Gesendet_ darauf, wann Braze di
 
 E-Mail-Bounce- und Zurückstellungsnachrichten verwenden viele verschiedene Codes und anbieterspezifische Texte. Behandeln Sie einen bestimmten Code nicht als Zeichen eines Rate-Limiting-Problems, da die Ursache von Ihrem Sendekontext und dem Feedback des Mailbox-Anbieters abhängt.
 
-Wenn Nachrichten vorübergehend zurückgestellt werden, kann weniger Senden kurzfristig helfen. Verwenden Sie ein [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign** oder beides.
+Wenn Nachrichten vorübergehend zurückgestellt werden, kann weniger Senden kurzfristig helfen. Verwenden Sie ein [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting), **Limit send volume** oder beides.
 
 Für eine langfristige Lösung arbeiten Sie mit einem Zustellbarkeitsexperten zusammen, um Ihre Bounce- und Zurückstellungsdaten zu überprüfen.

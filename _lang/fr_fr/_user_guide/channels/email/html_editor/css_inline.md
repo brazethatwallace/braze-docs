@@ -28,8 +28,24 @@ Vous pouvez définir un état par défaut (activé ou désactivé) de manière g
 
 ## Contenu connecté et insertion CSS {#connected-content-and-css-inlining}
 
-L'insertion CSS s'exécute **avant** l'évaluation du [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). Le HTML renvoyé par le contenu connecté n'est **pas** soumis à la même étape d'insertion. Placez les styles dont vous avez besoin depuis le contenu connecté directement dans la réponse (attributs `style` en ligne ou règles intégrées), ou désactivez l'insertion pour le message si cela correspond mieux à votre modèle.
+L'insertion CSS s'exécute **avant** l'évaluation du [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Le HTML renvoyé par le contenu connecté n'est **pas** soumis à la même étape d'insertion. Placez les styles dont vous avez besoin depuis le contenu connecté directement dans la réponse (attributs `style` en ligne ou règles intégrées), ou désactivez l'insertion pour le message si cela correspond mieux à votre modèle.
 
 ## Content Blocks dans les modèles HTML personnalisés {#content-blocks-in-custom-html-templates}
 
-Lorsque vous intégrez un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) avec Liquid dans un modèle d'e-mail ou une Campaign en **HTML personnalisé**, les règles CSS du modèle parent peuvent remplacer les styles définis dans le bloc de contenu. Vérifiez les sélecteurs en conflit ou les règles globales dans le wrapper du modèle.
+Lorsque vous intégrez un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) avec Liquid dans un modèle d'e-mail ou une Campaign en **HTML personnalisé**, les règles CSS du modèle parent peuvent remplacer les styles définis dans le bloc de contenu. Vérifiez les sélecteurs en conflit ou les règles globales dans le wrapper du modèle.
+
+## Limitations CSS de Gmail {#gmail-css-limitations}
+
+Gmail présente des limitations CSS spécifiques qui peuvent entraîner l'affichage des e-mails en vue bureau au lieu de la vue mobile dans l'application Gmail. Cela peut se produire pour les raisons suivantes :
+
+- **Trop de CSS :** si votre e-mail contient un excès de CSS, Gmail peut supprimer l'intégralité du bloc de style.
+- **CSS incompatible :** tout CSS incompatible avec Gmail (y compris du CSS valide que Gmail ne prend pas en charge) peut entraîner la suppression du bloc de style.
+- **Comptes non-Gmail dans l'application Gmail :** le CSS dans le `<head>` n'est pas pris en charge.
+
+### Requêtes média dans Gmail {#media-queries-in-gmail}
+
+Les requêtes média CSS fonctionnent généralement dans les applications Gmail, mais il existe des limitations. Si vous rencontrez des problèmes avec des requêtes média qui ne fonctionnent pas correctement dans Gmail :
+
+- Consultez la [référence CSS prise en charge par Gmail](https://developers.google.com/gmail/design/reference/supported_css) pour vous assurer que votre CSS est compatible.
+- Vérifiez les [directives de conception CSS de Gmail](https://developers.google.com/gmail/design/css) pour connaître les bonnes pratiques.
+- Envisagez des modèles de conception responsive conçus pour le mobile qui ne reposent pas uniquement sur les requêtes média pour le rendu mobile.

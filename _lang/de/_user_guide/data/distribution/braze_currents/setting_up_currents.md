@@ -8,7 +8,7 @@ tool: Currents
 search_rank: 8
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"} Currents einrichten {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents einrichten {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
 
 > Auf dieser Seite wird der allgemeine Prozess zur Integration und Konfiguration von Braze-Currents beschrieben.
 
@@ -29,7 +29,7 @@ Die Verwendung von Currents mit einem unserer Partner erfordert dieselben grundl
 
 Jeder Partner benötigt die Erlaubnis von Braze, Daten zu schreiben und an ihn zu senden, und Braze fragt nach dem Standort, an den diese Dateien geschrieben werden sollen, insbesondere Bucket-Namen oder Schlüssel.
 
-Die folgenden Anforderungen sind die grundlegenden Mindestanforderungen für die Integration mit den meisten unserer Partner. Einige Partner verlangen zusätzliche Parameter, die in der jeweiligen [Partnerdokumentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) aufgeführt sind, zusammen mit allen Besonderheiten, die mit diesen Grundanforderungen verbunden sind.
+Die folgenden Anforderungen sind die grundlegenden Mindestanforderungen für die Integration mit den meisten unserer Partner. Einige Partner verlangen zusätzliche Parameter, die in der jeweiligen [Partnerdokumentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) aufgeführt sind, zusammen mit allen Besonderheiten, die mit diesen Grundanforderungen verbunden sind.
 
 | Anforderung | Herkunft | Zugang | Beschreibung
 |---|---|---|---|
@@ -49,7 +49,7 @@ Es ist wichtig, dass Sie Ihre Partner-Schlüssel, Partner-Tokens und Authentifiz
 
 Braze-Currents ermöglicht Ihnen die Integration durch Datenspeicherung unter Verwendung von Flat Files oder zu unseren Partnern für Verhaltensanalysen und Kundendaten unter Verwendung von gebündelten JSON-Payloads an einen bestimmten Endpunkt.
 
-Bevor Sie mit der Integration beginnen, sollten Sie entscheiden, welche Integration für Ihre Zwecke am besten geeignet ist. Wenn Sie beispielsweise bereits mParticle und Segment verwenden und Braze-Daten dorthin streamen möchten, wäre es am besten, einen gebündelten JSON-Payload zu verwenden. Wenn Sie die Daten lieber selbst bearbeiten möchten oder ein komplexeres System zur Datenanalyse haben, ist es vielleicht am besten, die Datenspeicherung zu verwenden ([Braze verwendet diese Methode]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)!)
+Bevor Sie mit der Integration beginnen, sollten Sie entscheiden, welche Integration für Ihre Zwecke am besten geeignet ist. Wenn Sie beispielsweise bereits mParticle und Segment verwenden und Braze-Daten dorthin streamen möchten, wäre es am besten, einen gebündelten JSON-Payload zu verwenden. Wenn Sie die Daten lieber selbst bearbeiten möchten oder ein komplexeres System zur Datenanalyse haben, ist es vielleicht am besten, die Datenspeicherung zu verwenden ([Braze verwendet diese Methode]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!)
 
 ### 2. Schritt: Currents öffnen {#step-2-open-currents}
 
@@ -61,15 +61,15 @@ Um zu beginnen, gehen Sie zu **Partnerintegrationen** > **Currents**. Sie gelang
 
 Fügen Sie einen Partner hinzu, der manchmal auch als „Currents-Konnektor“ bezeichnet wird, indem Sie das Dropdown-Menü oben auf dem Bildschirm auswählen.
 
-Für jeden Partner sind andere Konfigurationsschritte erforderlich. Um die einzelnen Integrationen zu aktivieren, sehen Sie sich unsere Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) an und folgen Sie den Anweisungen auf den jeweiligen Seiten.
+Für jeden Partner sind andere Konfigurationsschritte erforderlich. Um die einzelnen Integrationen zu aktivieren, sehen Sie sich unsere Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) an und folgen Sie den Anweisungen auf den jeweiligen Seiten.
 
 ### 4. Schritt: Events konfigurieren {#step-4-configure-your-events}
 
-Wählen Sie die Events, die Sie an diesen Partner weitergeben möchten, indem Sie die gewünschten Optionen ankreuzen. Eine Auflistung dieser Events finden Sie in unseren Bibliotheken [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und [Messaging-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Wählen Sie die Events, die Sie an diesen Partner weitergeben möchten, indem Sie die gewünschten Optionen ankreuzen. Eine Auflistung dieser Events finden Sie in unseren Bibliotheken [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) und [Messaging-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
-![]({% image_buster /assets/img/current4.png %})
+![Currents-Konfigurationsseite mit ausgewählten Partner-Events für den Export.]({% image_buster /assets/img/current4.png %})
 
-Bei Bedarf erfahren Sie mehr über unsere Events in unserem Artikel zur [Semantik der Zustellung von Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/).
+Bei Bedarf erfahren Sie mehr über unsere Events in unserem Artikel zur [Semantik der Zustellung von Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics).
 
 ### 5. Schritt: Feldtransformationen einrichten {#step-5-set-up-field-transformations}
 
@@ -88,11 +88,11 @@ Wenn Sie ein Feld für eine dieser Transformationen auswählen, wird diese Trans
 Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
 {% endalert %}
 
-Bevor Sie testen, sollten Sie sich unsere [Currents-Beispieldaten auf GitHub](https://github.com/Appboy/currents-examples) ansehen. Wenn Sie zum Testen bereit sind, wählen Sie unten eine Option aus:
+Bevor Sie testen, sollten Sie sich unsere [Currents-Beispieldaten auf GitHub](https://github.com/Appboy/currents-examples) ansehen. Wenn Sie zum Testen bereit sind, wählen Sie eine Option im folgenden Abschnitt aus:
 
 #### Test-Events versenden {#sending-test-events}
 
-Um Ihre Integration zu testen, können Sie **Test-Events senden** auswählen, um je ein Event aus jedem der von Ihnen ausgewählten Event-Typen an diesen Current zu senden. Ausführliche Informationen zu den einzelnen Event-Typen finden Sie in unseren Bibliotheken [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und [Messaging-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Um Ihre Integration zu testen, können Sie **Test-Events senden** auswählen, um je ein Event aus jedem der von Ihnen ausgewählten Event-Typen an diesen Current zu senden. Ausführliche Informationen zu den einzelnen Event-Typen finden Sie in unseren Bibliotheken [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) und [Messaging-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ![Die Seite „Currents Test“ im Braze-Dashboard.]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 
@@ -109,10 +109,10 @@ Um Ihren Test-Currents-Konnektor zu upgraden, bearbeiten Sie die Integration im 
 
 ## Currents aktualisieren {#updating-currents}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## IP-Allowlisting {#ip-allowlisting}
 
 Braze sendet Currents-Daten von den aufgeführten IPs:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}

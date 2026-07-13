@@ -15,17 +15,17 @@ description: "この記事では、既存のダッシュボードユーザーア
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> このエンドポイントを使用して、SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) メソッドによって返されるリソース `id` を指定し、既存のダッシュボードユーザーアカウントを更新します。
+> このエンドポイントを使用して、SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) メソッドによって返されるリソース`id`を指定し、既存のダッシュボードユーザーアカウントを更新します。
 
 姓名、権限（会社、ワークスペース、チームレベルでの権限設定）、および部門を更新できます。
 
-セキュリティ上の理由から、`userName`（メールアドレス）はこのエンドポイントでは更新できません。ユーザーの `userName`（メールアドレス）を変更する場合は、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+セキュリティ上の理由から、`userName`（メールアドレス）はこのエンドポイントでは更新できません。ユーザーの`userName`（メールアドレス）を変更する場合は、[サポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin` ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning/)を参照してください。
+このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin`ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)を参照してください。
 
 ## レート制限 {#rate-limit}
 
@@ -35,8 +35,8 @@ description: "この記事では、既存のダッシュボードユーザーア
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `id` | 必須 | 文字列 | ユーザーのリソースID。このパラメーターは、`POST` `/scim/v2/Users/` または `GET` `/scim/v2/Users?filter=userName eq "user@test.com"` メソッドによって返されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | 必須 | 文字列 | ユーザーのリソースID。このパラメーターは、`POST` `/scim/v2/Users/`または`GET` `/scim/v2/Users?filter=userName eq "user@example.com"`メソッドによって返されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエスト本文 {#request-body}
 ```
@@ -92,13 +92,13 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | 必須 | 文字列の配列 | ユーザーオブジェクトに期待されるSCIM 2.0スキーマ名。 |
 | `name` | 必須 | JSONオブジェクト | このオブジェクトには、ユーザーの名と姓が含まれます。 |
-| `department` | 必須 | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/scim_api_appendix/#department-strings)にある有効な部門文字列。 |
-| `permissions` | 必須 | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/scim_api_appendix/#permissions-object)で説明されている権限オブジェクト。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `department` | 必須 | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/scim_api_appendix#department-strings)にある有効な部門文字列。 |
+| `permissions` | 必須 | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/scim_api_appendix#permissions-object)で説明されている権限オブジェクト。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 
 ## リクエスト例 {#example-request}
-`````````bash
+```bash
 curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
@@ -141,7 +141,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -208,7 +208,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 ### エラー状態 {#error-states}
 このIDを持つユーザーがBrazeに存在しない場合、エンドポイントは次のように応答します。
 
-`````````http
+```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8
 

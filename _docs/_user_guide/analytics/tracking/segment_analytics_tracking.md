@@ -24,12 +24,12 @@ In a segment's page **Segment Details** section, turn on **Analytics Tracking**.
 An app can have tracking turned on for up to 25 segments. Braze recommends tracking segments that are important for you to analyze when understanding your campaigns' effects on sessions, revenue, and purchases.
 
 {% alert note %}
-After enabling analytics tracking, there may be a delay until the segment data populates. If the data does not populate within 24 hours, [contact Support]({{site.baseurl}}/braze_support/).
+After enabling analytics tracking, there may be a delay until the segment data populates. If the data does not populate within 24 hours, [contact Support]({{site.baseurl}}/braze_support).
 {% endalert %}
 
 ## Viewing revenue and purchases over time
 
-Go to **Analytics** > **Revenue Report** to view data on [revenue and purchases over time for this segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).
+Go to **Analytics** > **Revenue Report** to view data on [revenue and purchases over time for this segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
 
 Revenue and purchase charts reflect activity recorded after analytics tracking is turned on for that segment. Turning tracking on does not backfill earlier purchases into those reports. When you compare segments, use only time ranges where tracking was enabled for each segment you select.
 
@@ -37,7 +37,7 @@ Revenue and purchase charts reflect activity recorded after analytics tracking i
 
 To visually compare segment data for any custom time range, add or remove segments from the graph. Select **By Segment** in the **Breakdown** dropdown, and then select your segments in **Breakdown values**.
 
-Select any segment name above the graph to turn on or off visibility for that segment's metrics.
+Select any segment name in the graph legend to turn on or off visibility for that segment's metrics.
 
 ![Revenue for multiple segments]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
@@ -59,5 +59,5 @@ When analytics tracking is turned on, you can use Query Builder report templates
 
 ### What should I check if analytics tracking looks wrong or empty?
 
-Confirm **Analytics Tracking** is still enabled in **Segment Details**, you have not exceeded the per-app limit (25 segments with tracking), and allow up to 24 hours for data to populate after you first enable tracking. If issues continue, verify the segment definition and report date range, then [contact Support]({{site.baseurl}}/braze_support/).
+Confirm **Analytics Tracking** is still enabled in **Segment Details**, you have not exceeded the per-app limit (25 segments with tracking), and allow up to 24 hours for data to populate after you first enable tracking. If issues continue, verify the segment definition and report date range, then [contact Support]({{site.baseurl}}/braze_support).
 

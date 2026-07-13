@@ -4,13 +4,29 @@ article_title: Edit Your Campaign After Launch
 page_order: 1
 tool: Campaigns
 page_type: reference
-description: "This reference article gives an overview of the result of editing certain aspects of a campaign post-launch."
+description: "This reference article gives an overview of the result of editing certain aspects of a campaign post-launch, including how changes propagate for in-app message campaigns."
 
 ---
 
 # Edit your campaign after launch
 
 > This article gives an overview of the result of editing certain aspects of a campaign post-launch.
+
+## Why you should stop a campaign before editing {#risks-of-editing-live}
+
+{% alert important %}
+Braze recommends stopping a campaign before making changes, rather than editing it while it's live. Editing a live campaign without stopping it first can lead to unexpected behavior, including users receiving the message twice.
+{% endalert %}
+
+When a campaign is launched, all eligible users are enqueued to receive the message. However, a user isn't marked as having received the campaign until the message is actually delivered, not when they're enqueued. If you edit a live campaign without stopping it first, Braze re-enqueues eligible users for the updated version while the original queue is still being processed. Users who haven't yet received the original message will be in both queues, which can result in:
+
+- Users receiving the campaign twice (the original and the updated version), even if re-eligibility is turned off.
+- The original version of the campaign still being delivered to users in the first queue.
+- Unexpected audience counts in campaign analytics.
+
+This is most likely to occur with campaigns that target a large audience and are scheduled to send immediately, since there's a large queue of users being processed at once. For action-based campaigns with gradual triggers (such as sign-up events), the risk is lower because only a small number of users are typically queued at any given time.
+
+To safely make changes, stop the campaign first, then either edit the stopped campaign or [duplicate it](#making-immediate-changes) with your changes.
 
 ## Stopping your campaign
 
@@ -27,6 +43,27 @@ To restart your campaign, select **Resume**. Your campaign will continue sending
 For campaigns with a larger audience and rate limits, Braze partitions and schedules batches of messages to send at different times. When a campaign is stopped, sends aren't canceled immediately. Instead, they are canceled when they begin to run and detect that the campaign has been stopped.
 
 For example, if you start a rate-limited email campaign, pause it for a few hours, and then resume it, all messages that were scheduled to send during the paused hours are canceled and never send. Any remaining messages scheduled after the campaign resumes continue to send. If re-eligibility is enabled for the campaign, users can become eligible to receive the campaign again in addition to any messages that were already queued before the campaign was stopped. 
+
+## In-app message campaigns
+
+Unlike push or email, in-app messages are delivered to devices at session start and cached locally until the trigger fires. When you edit a live in-app message campaign—such as stopping it, setting an [end date]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger), turning on **Re-evaluate campaign eligibility before displaying**, updating content, changing the message trigger, or updating the target audience—the updated configuration propagates when devices fetch triggers at their next session start.
+
+Expect the following:
+
+- Devices that haven't started a new session since your change may continue using the previous configuration until they sync triggers again.
+- Devices that start a session after your change receive the latest configuration.
+
+### Stop a mistaken launch
+
+If you launched the wrong in-app message campaign, select **Stop Campaign** on the **Campaign Details** page. This is the fastest way to prevent new sessions from downloading the message. Users who already cached the payload before you stopped the campaign can still see it when they meet the trigger conditions until their device syncs updated triggers on a later session.
+
+[Archiving]({{site.baseurl}}/user_guide/messaging/governance/archiving/) and end dates follow the same propagation rules: they stop delivery for future syncs but don't remove messages already cached on devices. If you may need to review, duplicate, or edit the campaign, stop it first and archive it later when you're finished.
+
+### Limit stale deliveries
+
+Select **Re-evaluate campaign eligibility before displaying** in your campaign's delivery settings so Braze confirms audience membership and campaign status right before each display. This helps prevent impressions after a campaign is stopped, archived, or past its end date. You can turn this setting on or off after launch, but it follows the same propagation rules as other changes: devices don't receive the updated configuration until their next trigger sync.
+
+For more information, refer to [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target) and [Why is my archived in-app message campaign still delivering in-app message impressions?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Triggered campaigns
 
@@ -50,7 +87,7 @@ If you edit your campaign's scheduled send time or its audience, those changes a
 
 If your campaign uses Intelligent Timing or local time zone delivery, edits to the scheduled send time will not be reflected if the edit is made within 24 hours of the original send time. This is because:
 
-- **Intelligent Timing:** Braze begins calculating the optimal send time at midnight Samoa time. If this time has already passed, the message will have begun processing. For more information, refer to [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/).
+- **Intelligent Timing:** Braze begins calculating the optimal send time at midnight Samoa time. If this time has already passed, the message will have begun processing. For more information, refer to [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
 - **Local time zone delivery:** Editing a local time zone campaign that is scheduled less than 24 hours in advance will not alter the message's schedule. For more information, refer to the [How do I schedule a local time zone campaign?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign).
 
 ### Send rate
@@ -59,18 +96,9 @@ When using a send rate limit, Braze "schedules" your messages in minute-granular
 
 #### Pausing campaigns with delivery speed rate limiting
 
-When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused.
+When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused, and not all messages are necessarily sent when the campaign is resumed.
 
-Rate-limited messages are canceled only if the campaign is still paused when their scheduled send time arrives. Whether a message sends after you resume depends on when you paused the campaign and how long it stayed paused.
-
-For example:
-
-1. You pause the campaign at 1 PM.
-2. A rate-limited message is scheduled to send at 1:05 PM.
-   - If you resume before 1:05 PM, the message sends.
-   - If you resume after 1:05 PM, the message is canceled during the pause and doesn't send.
-
-If some users didn't receive messages because the campaign was paused through their scheduled slot, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
+If some users didn't receive messages because the campaign was paused, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
 
 ## Making immediate changes
 

@@ -76,7 +76,7 @@ Salve a configuração e reinicie o VS Code.
 {% endtabs %}
 
 {% alert note %}
-O Context7 é diferente do [servidor MCP da Braze]({{site.baseurl}}/developer_guide/mcp_server/). O Context7 fornece ao seu assistente de IA acesso à **documentação da Braze**, enquanto o servidor MCP da Braze fornece acesso somente leitura aos **dados do seu espaço de trabalho na Braze** (como Campaigns, Segments e análise de dados). Você pode usar ambos juntos para uma experiência de desenvolvimento assistida por IA mais completa.
+O Context7 é diferente do [servidor MCP da Braze]({{site.baseurl}}/developer_guide/mcp_server). O Context7 fornece ao seu assistente de IA acesso à **documentação da Braze**, enquanto o servidor MCP da Braze fornece acesso somente leitura aos **dados do seu espaço de trabalho na Braze** (como Campaigns, Segments e análise de dados). Você pode usar ambos juntos para uma experiência de desenvolvimento assistida por IA mais completa.
 {% endalert %}
 
 ## Escrevendo prompts para o desenvolvimento com o SDK da Braze {#writing-prompts-for-braze-sdk-development}
@@ -85,7 +85,7 @@ Depois de configurar o Context7, inclua `use context7` nos seus prompts para sin
 
 ### SDK do React Native {#react-native-sdk}
 
-Esses prompts demonstram tarefas comuns de integração para o [SDK React Native da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native).
+Esses prompts demonstram tarefas comuns de integração para o [SDK React Native da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
 
 #### Inicializando o SDK {#initializing-the-sdk}
 
@@ -122,7 +122,7 @@ programmatically. Use context7.
 
 ### SDK da Web {#web-sdk}
 
-Esses prompts demonstram tarefas comuns de integração para o [SDK Web da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
+Esses prompts demonstram tarefas comuns de integração para o [SDK Web da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
 
 #### Inicializando o SDK
 
@@ -166,8 +166,8 @@ Você pode acessar a documentação do Guia do Desenvolvedor da Braze como arqui
 
 | Arquivo | Descrição |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Um índice das páginas de documentação do desenvolvedor da Braze com títulos e descrições. Use como ponto de partida para descobrir a documentação disponível. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | A documentação completa do desenvolvedor da Braze em um único arquivo de texto simples, formatado para consumo por LLMs. |
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | Um índice das páginas de documentação do desenvolvedor da Braze com títulos e descrições. Use como ponto de partida para descobrir a documentação disponível. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | A documentação completa do desenvolvedor da Braze em um único arquivo de texto simples, formatado para consumo por LLMs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Documentação em texto simples" }
 
 Esses arquivos seguem o [padrão llms.txt](https://llmstxt.org/), uma convenção emergente para tornar a documentação acessível a ferramentas de IA. Você pode referenciar esses arquivos diretamente nos seus prompts ou colar o conteúdo deles em um LLM para contexto.

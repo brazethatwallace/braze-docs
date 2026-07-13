@@ -12,12 +12,12 @@ description: "このリファレンス記事では、SDKインテグレーショ
 > 内部グループは、社内またはサードパーティのテストグループを構築・整理するための優れた方法です。SDKまたはAPIログのインサイトを提供し、SDKインテグレーションのテスト時に役立ちます。カスタム内部グループは無制限に作成でき、各グループには最大1,000人のユーザーを含めることができます。
 
 {% alert tip %}
-[テストとトラブルシューティング](https://learning.braze.com/path/developer/testing-and-troubleshooting)のBrazeラーニングコースもご確認ください。内部グループを使用して独自のトラブルシューティングやデバッグを行う方法について説明しています。
+[テストとトラブルシューティング](https://learning.braze.com/path/developer/testing-and-troubleshooting)Brazeラーニングコースもご確認ください。内部グループを使用して独自のトラブルシューティングやデバッグを行う方法について説明しています。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
 
-内部グループを作成・管理するには、以下の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
+内部グループを作成・管理するには、以下の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
 
 - APIキーの表示
 - APIキーの編集
@@ -47,7 +47,7 @@ description: "このリファレンス記事では、SDKインテグレーショ
 | **ユーザーイベントグループ** | テストデバイスからのイベントやログを検証するために使用します。 |
 | **コンテンツテストグループ** | プッシュ、メール、アプリ内メッセージ全体で、レンダリングされたメッセージのコピーを送信するために使用します。 |
 | **シードグループ** | 送信時にシードグループの全メンバーにメールのコピーを自動的に送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating an internal group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="内部グループの作成" }
 
 {:start="5"}
 
@@ -63,18 +63,16 @@ description: "このリファレンス記事では、SDKインテグレーショ
 | 方法 | 説明 |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **識別済みユーザーを追加** | external ID、メールアドレス、電話番号、またはプッシュトークンでユーザーを検索します。 |
-| **匿名ユーザーを追加** | IPアドレスで検索します。追加する各テストユーザーに名前を付けます。この名前は、[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)ページですべてのイベントログに関連付けられます。 |
-| **ユーザーを一括追加** | メールアドレスまたはexternal IDのリストをコピーして貼り付けます。ダッシュボードで既知のユーザーのみ追加できます。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Adding test users" }
-
-![新しい内部グループを作成する際の内部グループ設定]({% image_buster /assets/img_archive/internal_group_add_user.png %})
+| **匿名ユーザーを追加** | IPアドレスで検索します。追加する各テストユーザーに名前を付けます。この名前は、[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)ページですべてのイベントログに関連付けられます。 |
+| **ユーザーを一括追加** | メールアドレスまたはexternal IDのリストをコピーして貼り付けます。ダッシュボードで既知のユーザーのみ追加できます。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="テストユーザーの追加" }
 
 ### コンテンツテストグループ {#content-test-groups}
 
 メッセージのプレビューテスト送信と同様に、コンテンツテストグループを使用すると時間を節約でき、事前に定義されたBrazeユーザーのリストに同時にテストを送信できます。これはBrazeのプッシュ、アプリ内メッセージ、SMS、メール、Content Cardsで利用できます。コンテンツテストグループとしてタグ付けされたグループのみが、メッセージのプレビューセクションで利用可能です。
 
 {% alert note %}
-[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)テストメッセージは、データベース内の有効な電話番号にのみ送信できます。
+[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)テストメッセージは、データベース内の有効な電話番号にのみ送信できます。
 {% endalert %}
 
 個々のBrazeユーザーまたは任意の数の内部グループを選択してメッセージを送信します。メッセージにLiquidやその他のダイナミックなパーソナライゼーションが含まれている場合、Brazeは各ユーザーの利用可能な属性を使用してメッセージコンテンツをパーソナライズします。属性を持たないユーザーには、設定されたデフォルト値が使用されます。
@@ -108,7 +106,7 @@ IPプールを使用してメールを送信する場合、利用可能なドロ
 {% alert tip %}
 シードグループのメンバーにメッセージが届かない場合は、内部グループに含まれていることを確認し、Gmailがメッセージをスレッドにまとめないように異なる件名を使用し、スパムフォルダーを確認するよう依頼してください。
 
-メールが[`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を使用している場合、シードグループのメンバーも送信を受信するために中止条件を満たす必要があります。
+メールが[`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を使用している場合、シードグループのメンバーも送信を受信するために中止条件を満たす必要があります。
 {% endalert %}
 
 #### キャンペーンの場合 {#for-campaigns}

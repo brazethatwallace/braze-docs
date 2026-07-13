@@ -13,20 +13,20 @@ page_order: 5
 > Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais direcionadas.
 
 {% alert important %}
-As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências depreciadas a termos como propriedades de entrada do Canvas que permanecem para referência histórica. Para o editor atual do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).<br><br>Para usar propriedades de entrada persistentes no editor atual do Canvas, você deve criar um novo Canvas ou [clonar]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) um existente para o editor atual.
+As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências depreciadas a termos como propriedades de entrada do Canvas que permanecem para referência histórica. Para o editor atual do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).<br><br>Para usar propriedades de entrada persistentes no editor atual do Canvas, você deve criar um novo Canvas ou [clonar]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) um existente para o editor atual.
 {% endalert %}
 
 ## Uso de propriedades de entrada {#using-entry-properties}
 
 As propriedades de entrada podem ser usadas em Canvas baseados em ação e disparados por API. Essas propriedades de entrada são definidas quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API. Consulte os artigos a seguir para saber mais:
 
-- [Objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
-- [Objeto de propriedades de evento]({{site.baseurl}}/api/objects_filters/event_object/)
-- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
+- [Objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Objeto de propriedades de evento]({{site.baseurl}}/api/objects_filters/event_object)
+- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
 
 As propriedades passadas a partir desses objetos podem ser referenciadas usando a Liquid tag `canvas_entry_properties`. Por exemplo, uma requisição com `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` poderia adicionar a palavra "shoes" a uma mensagem usando o Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
-Quando um Canvas inclui uma mensagem com a Liquid tag `canvas_entry_properties`, os valores associados a essas propriedades serão salvos durante toda a jornada do usuário no Canvas e excluídos quando o usuário sair do Canvas. As propriedades de entrada do Canvas estão disponíveis apenas para referência em Liquid. Para filtrar pelas propriedades dentro do Canvas, use a [segmentação por propriedades de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+Quando um Canvas inclui uma mensagem com a Liquid tag `canvas_entry_properties`, os valores associados a essas propriedades serão salvos durante toda a jornada do usuário no Canvas e excluídos quando o usuário sair do Canvas. As propriedades de entrada do Canvas estão disponíveis apenas para referência em Liquid. Para filtrar pelas propriedades dentro do Canvas, use a [segmentação por propriedades de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) em vez disso.
 
 {% alert note %}
 O objeto de propriedades de entrada do Canvas tem um limite máximo de tamanho de 50 KB.
@@ -47,7 +47,7 @@ No caso de uma propriedade de entrada do Canvas ser nula ou estar em branco, voc
 ```
 {%endraw%}
 
-Para saber mais sobre como cancelar mensagens com Liquid, confira nossa [documentação de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages).
+Para saber mais sobre como cancelar mensagens com Liquid, confira nossa [documentação de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
 
 ## Propriedades de entrada globais do Canvas {#global-canvas-entry-properties}
 
@@ -85,8 +85,8 @@ Nesta requisição, o valor global para "food allergies" é "none". Para Custome
 
 Se você tem um Canvas que é disparado quando um usuário navega por um item no seu site de eCommerce, mas não o adiciona ao carrinho, a primeira etapa do Canvas pode ser uma notificação por push perguntando se ele tem interesse em comprar o item. Você pode referenciar o nome do produto usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}
 
-![]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
+![Se você tem um Canvas que é disparado quando um usuário navega por um item no seu site de eCommerce, mas não o adiciona ao carrinho, a primeira etapa do Canvas pode ser uma notificação por push perguntando se ele tem interesse em comprar o item. Você pode referenciar o nome do produto usando {% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %}.]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
 
 A segunda etapa pode enviar outra notificação por push incentivando o usuário a finalizar a compra caso ele tenha adicionado o item ao carrinho, mas ainda não tenha concluído a compra. Você pode continuar referenciando a propriedade de entrada `product_name` usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
-![]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
+![Captura de tela relacionada ao caso de uso.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}

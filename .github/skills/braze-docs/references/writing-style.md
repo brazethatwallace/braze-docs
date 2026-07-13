@@ -61,6 +61,21 @@ not use noun+verb contractions (Braze'll) or double contractions (mightn't've).
 Never use "simple", "simply", "just", "easy", or "it's easy" when describing
 steps or instructions.
 
+### Avoid antithesis constructions
+
+Do not use "not X, but Y" or "it isn't this, it's that" at the sentence level.
+State the positive directly. This ban is separate from contrast.
+
+Contrast is fine when it lives in the framing, not in a clever clause. Anchor
+the current state against what it replaced (hidden → tracked, manual → systemic,
+ad hoc → shared standard). Let the before/after carry the value in how you frame
+the point, not in an antithesis sentence.
+
+- Don't: "This isn't a deprecation; it's a migration."
+- Do: "These capabilities now live in Operator. The entry point changed; the functionality did not."
+- Don't: "Operator doesn't just generate copy — it understands your workspace."
+- Do: "Operator generates copy using your workspace context — brand guidelines, attributes, and the page you're working on."
+
 ### Oxford comma
 
 Always use the Oxford (serial) comma before the last conjunction in a series.
@@ -127,6 +142,18 @@ Use these specific verbs when describing interactions with the Braze dashboard:
 | Error messages | "Quotation marks". | "Push Bounced: MismatchSenderId" |
 | Metrics (in text) | *Italics* with initial caps. | The *Machine Opens* metric shows... |
 | Permissions | "Quotation marks". | Grant the "Manage Segments" permission. |
+
+### Bold text — UI labels only
+
+**Bold** dashboard UI labels the reader interacts with (buttons, pages, tabs, checkboxes, toggles, menu items). Do **not** bold words for emphasis, importance, or scanning.
+
+| Do | Don't |
+|---|---|
+| Click **Save**. | Click **Save** to **finalize** your changes. |
+| Go to the **Campaigns** page. | Create a **campaign** that targets… |
+| Turn on **Intelligent Timing**. | This is **important** for delivery. |
+
+If a sentence has no UI label, leave it in plain text. Prefer rewriting for clarity over adding bold.
 
 ### Code samples
 

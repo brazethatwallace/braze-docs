@@ -18,7 +18,7 @@ As Equipes não estão disponíveis em todos os contratos da Braze. Para acessar
 
 ## Como as Equipes diferem de conjuntos de permissões e funções? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Criar Equipes {#creating-teams}
 
@@ -36,9 +36,9 @@ Administradores da Braze e usuários limitados com a permissão de nível de emp
 
 ### Limitar permissões de um usuário da empresa sem excluí-lo {#limit-company-user-permissions-without-deleting-a-user}
 
-Para impedir que um usuário da empresa faça login sem excluir a conta dele, [suspenda o usuário]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). A suspensão coloca a conta em um estado inativo, impedindo o login.
+Para impedir que um usuário da empresa faça login sem excluir a conta dele, [suspenda o usuário]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). A suspensão coloca a conta em um estado inativo, impedindo o login.
 
-Se o usuário precisar continuar com acesso limitado, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+Se o usuário precisar continuar com acesso limitado, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 As permissões de Equipe funcionam em cima das permissões de espaço de trabalho. Se você atribuir o usuário a uma Equipe, conceda apenas as permissões mínimas de nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. Ele permanecerá no espaço de trabalho e poderá fazer login, mas não poderá executar a maioria das ações de envio de mensagens ou de público.
 
@@ -102,11 +102,13 @@ A seguir estão todas as permissões disponíveis que você pode atribuir no ní
 - Edit Dashboard Reports
 - Delete Dashboard Reports
 
-Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Atribuir tags de Equipe {#tags-and-filters}
 
-Você pode atribuir uma Equipe a Canvas, Campaigns, Content Cards, Segments, modelos de e-mail, modelos de webhook, Content Blocks e ativos da Biblioteca de mídia com o filtro **Adicionar equipe**.
+Você pode atribuir uma Equipe a Canvas, Campaigns, Content Cards, Segments, modelos de e-mail, modelos de webhook, Content Blocks e ativos da biblioteca de mídia com o filtro **Adicionar equipe**.
+
+Para Canvas, os filtros de equipe validam os usuários apenas na entrada do Canvas. Depois que um usuário entra em um Canvas, ele continua recebendo mensagens de todas as etapas do Canvas, mesmo que seus atributos mudem e ele não corresponda mais aos critérios do filtro de equipe. Os filtros de equipe não se comportam como validações de entrega que reavaliam os usuários em cada etapa de mensagem.
 
 ![Adicionando uma tag de Equipe a uma campanha.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
@@ -135,9 +137,9 @@ Neste cenário, Michelle ainda é membro da Equipe Development, mas também tem 
 
 ![Permissões personalizadas com uma permissão de nível de espaço de trabalho e 15 permissões baseadas em equipe.]({% image_buster /assets/img_archive/scenario2.png %})
 
-Como Michelle tem a permissão de nível de espaço de trabalho "Acessar Campaigns, Canvas, cartões, Content Blocks, Feature Flags, Segments, Biblioteca de mídia e Central de Preferências", ela pode visualizar e atribuir outros filtros de Equipe à campanha que criar.
+Como Michelle tem a permissão de nível de espaço de trabalho "Acessar Campaigns, Canvas, cartões, Content Blocks, Feature Flags, Segments, biblioteca de mídia e Central de Preferências", ela pode visualizar e atribuir outros filtros de Equipe à campanha que criar.
 
-![Menu suspenso de tag de Equipe da campanha com múltiplas tags de Equipe]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
+![Menu suspenso de tag de Equipe da campanha com múltiplas tags de Equipe.]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
 Assim como no primeiro cenário, Michelle deve adicionar a tag de Equipe Development à campanha antes de poder lançá-la.
 
@@ -168,6 +170,6 @@ Você pode arquivar Equipes na página **Equipes internas**.
 
 Selecione uma ou mais Equipes para arquivar. Se a Equipe não estiver associada a nenhum objeto na Braze, ela será arquivada imediatamente. Se a Equipe estiver associada a um objeto, será apresentada uma opção para remover a Equipe após o processo de arquivamento ou substituir a Equipe.
 
-![Arquivando uma Equipe que está associada a um objeto na Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
+![Arquivando uma Equipe que está associada a um objeto na Braze.]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 
 Administradores da Braze podem desarquivar uma Equipe selecionando a Equipe arquivada e selecionando **Desarquivar**.

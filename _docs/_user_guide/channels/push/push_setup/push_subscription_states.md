@@ -25,13 +25,13 @@ You can review push subscription state, registration, and enablement in three ma
 
 ### User profiles and push changelog {#user-profiles-and-push-changelog}
 
-On a user's profile ([**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > select the user > **Engagement** tab), **Contact Settings** lists push subscription state, **Push Registered For** (which apps and platforms Braze can use to send foreground push to that profile), and the **Push Changelog** for token moves, errors, and registration updates. For how to read **Push Registered For** and foreground versus background authorization, see [Checking push registration status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
+On a user's profile ([**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > select the user > **Engagement** tab), **Contact Settings** lists push subscription state, **Push Registered For** (which apps and platforms Braze can use to send foreground push to that profile), and the **Push Changelog** for token moves, errors, and registration updates. For how to read **Push Registered For** and foreground versus background authorization, see [Checking push registration status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status).
 
 On iOS and Android, when a device moves from foreground push authorization to background-only (for example, after the user turns off notifications in system settings and the SDK reports the change), the push changelog can include an entry such as "Push token was updated from foreground push enabled to foreground push disabled".
 
 After you expect new SDK data (for example, right after a test session), select **Refresh** on the user profile if values look out of date. There can be a short delay between the SDK flushing data and the profile reflecting the latest push registration.
 
-For users you add to an [internal group]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), select **Record User Events for group members** in the **Internal Group Settings** for that group so SDK requests appear in the log. Then open the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) at **Settings** > **Event User Log**, find the user's SDK requests, and expand the raw payload. You can inspect fields such as `remote_notification_enabled` while validating whether the device reports remote notifications as enabled or disabled.
+For users you add to an [internal group]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), select **Record User Events for group members** in the **Internal Group Settings** for that group so SDK requests appear in the log. Then open the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) at **Settings** > **Event User Log**, find the user's SDK requests, and expand the raw payload. You can inspect fields such as `remote_notification_enabled` while validating whether the device reports remote notifications as enabled or disabled.
 
 ### Segmentation and push filters {#segmentation-and-push-filters}
 
@@ -39,7 +39,7 @@ In the segment builder, use filters such as **`Foreground Push Enabled`**, **`Fo
 
 ### Campaign and Canvas analytics {#campaign-and-canvas-analytics}
 
-On a push **Campaign** or **Canvas** analytics page, metrics such as *Sent*, *Bounces*, and *Opens* reflect delivery and engagement for that send. To line those numbers up with individual profiles, export recipients from **Campaign Details** or **Canvas Details** using **User Data** (CSV). For steps and permissions, see [Export campaign data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/) and [Export Canvas data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/). If counts between analytics and an export do not match, see [Campaign and Canvas analytics]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics) in export troubleshooting.
+On a push **Campaign** or **Canvas** analytics page, metrics such as *Sent*, *Bounces*, and *Opens* reflect delivery and engagement for that send. To line those numbers up with individual profiles, export recipients from **Campaign Details** or **Canvas Details** using **User Data** (CSV). For steps and permissions, see [Export campaign data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data) and [Export Canvas data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data). If counts between analytics and an export do not match, see [Campaign and Canvas analytics]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics) in export troubleshooting.
 
 ## iOS user actions and push status {#ios-user-actions-push-status}
 
@@ -61,9 +61,9 @@ The following table shows how different user actions affect iOS push enablement,
 
 ## Push permission
 
-All push-enabled platforms - iOS, Web, and Android - require explicit opt-in via an OS-level system prompt, with some slight differences described below.
+All push-enabled platforms - iOS, Web, and Android - require explicit opt-in through an OS-level system prompt, with some slight differences described in the following section.
 
-Because a user's decision is final and you can't ask again after they decline, using [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) in-app messages is an important strategy for increasing your opt-in rates.
+Because a user's decision is final and you can't ask again after they decline, using [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) in-app messages is an important strategy for increasing your opt-in rates.
 
 **Native OS push permission prompts**
 
@@ -76,9 +76,9 @@ Because a user's decision is final and you can't ask again after they decline, u
 
 ### Android
 
-Before Android 13, permission was not needed to send push notifications. On Android 12 and below, all users are considered `Subscribed` upon their first session when Braze automatically requests a push token. At this point, the user is **push enabled** with a valid push token for that device and a default subscription state of `Subscribed`.
+Before Android 13, permission was not needed to send push notifications. On Android 12 and under, all users are considered `Subscribed` upon their first session when Braze automatically requests a push token. At this point, the user is **push enabled** with a valid push token for that device and a default subscription state of `Subscribed`.
 
-Starting with [Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13/), push permission must be asked of and granted by the user. Your app can manually request permission from the user at opportune times, but if not, users will be prompted automatically when your app creates a [notification channel](https://developer.android.com/reference/android/app/NotificationChannel).
+Starting with [Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13), push permission must be asked of and granted by the user. Your app can manually request permission from the user at opportune times, but if not, users will be prompted automatically when your app creates a [notification channel](https://developer.android.com/reference/android/app/NotificationChannel).
 
 ### iOS
 
@@ -92,11 +92,11 @@ Authorized push requires explicit permission from a user before sending any noti
 
 Before iOS 12 (released in 2018), all users must explicitly opt-in to receive push notifications.
 
-In iOS 12, Apple introduced [provisional authorization](https://www.braze.com/resources/articles/mastering-provisional-push), allowing brands to send quiet push notifications to their users' notification center before they explicitly opt-in, giving you a chance to demonstrate the value of your messages early. Refer to [provisional authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) to learn more.
+In iOS 12, Apple introduced [provisional authorization](https://www.braze.com/resources/articles/mastering-provisional-push), allowing brands to send quiet push notifications to their users' notification center before they explicitly opt-in, giving you a chance to demonstrate the value of your messages early. Refer to [provisional authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) to learn more.
 
 ### Web
 
-For Web, you must request explicit user opt-in via the native browser permission dialog.
+For Web, you must request explicit user opt-in through the native browser permission dialog.
 
 Unlike iOS and Android, which let your app show the permission prompt at any time, some modern browsers will only show the prompt if triggered by a "user gesture" (mouse click or keystroke). If your site tries to request push notification permission on page load, it will likely be ignored or silenced by the browser.
 
@@ -104,17 +104,17 @@ As a result, you should ask for permission only when a user clicks somewhere on 
 
 ## Push tokens
 
-[Push tokens]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/) are a unique anonymous identifier generated by a user's device and sent to Braze to identify where to send each recipient's notification.
+[Push tokens]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle) are a unique anonymous identifier generated by a user's device and sent to Braze to identify where to send each recipient's notification.
 
-There are two ways a [push token]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/) can be classified that are essential to understanding how a push notification can be sent to your users.
+There are two ways a [push token]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle) can be classified that are essential to understanding how a push notification can be sent to your users.
 
 1. **Foreground push** provides the ability to send regular visible push notifications to the foreground of a user's device.
-2. **Background push** is available regardless of whether a particular device has opted-in to receive push notifications from that brand. Background push allows brands to send silent push notifications - notifications that intentionally aren't displayed - to devices to support key functionalities like [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
+2. **Background push** is available regardless of whether a particular device has opted-in to receive push notifications from that brand. Background push allows brands to send silent push notifications - notifications that intentionally aren't displayed - to devices to support key functionalities like [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
 When a user profile has a valid foreground push token associated with an app, Braze considers the user "push registered" for the given app. Braze, then, provides a specific segmentation filter, `Foreground Push Enabled for App,` to help identify these users.
 
 {% alert note %}
-The `Foreground Push Enabled for App` filter only considers the presence of a valid foreground and background push token for the given app. However, the more generic [`Foreground Push Enabled`](#foreground-push-enabled) filter segments users who have explicitly activated push notifications for any apps in your workspace. This count includes only foreground push and doesn't include users who have unsubscribed. You can learn more about these and other filters in [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+The `Foreground Push Enabled for App` filter only considers the presence of a valid foreground and background push token for the given app. However, the more generic [`Foreground Push Enabled`](#foreground-push-enabled) filter segments users who have explicitly activated push notifications for any apps in your workspace. This count includes only foreground push and doesn't include users who have unsubscribed. You can learn more about these and other filters in [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 {% endalert %}
 
 ### Multiple users on one device
@@ -146,7 +146,7 @@ The `Foreground Push Enabled` filter takes into account the following:
 A user is considered "push enabled" or "push registered" if they have an active foreground push token for an app within your workspace, meaning push enablement status is app-specific. 
 
 {% alert note %}
-For information on how to check push registration state, visit [push registration status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status)
+For information on how to check push registration state, visit [push registration status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)
 {% endalert %}
 
 ## Finding push registration and changelog information
@@ -167,7 +167,7 @@ If the user is added as a test user, in **Developer Console** > **User Event Log
 - **iOS background enabled:** The user has been served the push prompt and said no, or said yes and later turned off push notifications in their device settings (reflected after the user has a session).
 - **iOS foreground enabled:** The user has been served the push prompt and is eligible to receive foreground push.
 
-Campaign analytics will reflect the push statistics inline with the above details. You can also download the user profiles who entered the campaign or Canvas to cross-reference user profiles.
+Campaign analytics will reflect the push statistics inline with the earlier in this section details. You can also download the user profiles who entered the campaign or Canvas to cross-reference user profiles.
 
 ## Other platform-specific scenarios
 

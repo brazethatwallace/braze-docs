@@ -12,7 +12,7 @@ Environment:
     GITHUB_REPOSITORY  owner/repo
     GITHUB_BASE_REF    Base branch name (e.g. develop)
     ANTHROPIC_API_KEY  Required
-    REVIEW_MODEL       Optional (default claude-sonnet-4-20250514)
+    REVIEW_MODEL       Optional (default claude-sonnet-4-6)
     MAX_INLINE_COMMENTS Optional (default 25)
 """
 
@@ -31,7 +31,7 @@ PR_NUMBER = os.environ.get("PR_NUMBER", "")
 HEAD_SHA = os.environ.get("HEAD_SHA", "")
 HEAD_REF = os.environ.get("GITHUB_HEAD_REF", "")
 BASE_REF = os.environ.get("GITHUB_BASE_REF", "develop")
-REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-20250514")
+REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-6")
 MAX_INLINE = int(os.environ.get("MAX_INLINE_COMMENTS", "25"))
 MAX_FILES = int(os.environ.get("MAX_STYLE_REVIEW_FILES", "25"))
 MAX_DIFF_CHARS = int(os.environ.get("MAX_STYLE_DIFF_CHARS", "12000"))
@@ -71,7 +71,10 @@ Apply the Braze Docs Style Guide provided in the user message.
 
 - Editorial quality: voice, tone, clarity, active voice, second person, present tense.
 - Style guide compliance: headings, UI formatting, links, lists, numbers, alerts, inclusive language.
-- Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist, etc.
+- Bold text: bold UI labels only. Flag and remove bold used for emphasis or scanning
+  (for example **important**, **finalize**, or mid-sentence **campaign**).
+- Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist,
+  lowercase campaign/segment/catalog in running text unless matching a capitalized UI label, etc.
 - Internal consistency within a file beats isolated style preferences (match dominant usage in the
   same article before suggesting a one-off change).
 - Present tense: target future "will"/"would" for user-action outcomes—not a blanket ban on past

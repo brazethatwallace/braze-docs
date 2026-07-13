@@ -22,14 +22,14 @@ Comprendre comment l'inactivité est définie et mesurée est essentiel pour gé
 
 ### Comment l'inactivité est mesurée {#how-inactivity-is-measured}
 
-Le SDK Web surveille l'inactivité en fonction des [événements suivis par le SDK]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events). Le SDK gère un minuteur interne qui se réinitialise à chaque envoi d'un événement suivi. Si aucun événement suivi par le SDK ne se produit pendant la période d'expiration configurée, la session est considérée comme inactive et prend fin.
+Le SDK Web surveille l'inactivité en fonction des [événements suivis par le SDK]({{site.baseurl}}/user_guide/data/activation/custom_data/events#events). Le SDK gère un minuteur interne qui se réinitialise à chaque envoi d'un événement suivi. Si aucun événement suivi par le SDK ne se produit pendant la période d'expiration configurée, la session est considérée comme inactive et prend fin.
 
 Pour en savoir plus sur l'implémentation du cycle de vie des sessions dans le SDK Web, consultez le code source de gestion des sessions dans le [dépôt GitHub du SDK Web de Braze](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts).
 
 **Ce qui est considéré comme une activité par défaut :**
 - Ouverture ou actualisation de l'application web
-- Interaction avec les éléments d'interface générés par Braze (tels que les [messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/) ou les [Content Cards]({{site.baseurl}}/developer_guide/content_cards/))
-- Appel de méthodes du SDK qui envoient des événements suivis (tels que des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/) ou des [mises à jour d'attributs utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/))
+- Interaction avec les éléments d'interface générés par Braze (tels que les [messages in-app]({{site.baseurl}}/developer_guide/in_app_messages) ou les [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
+- Appel de méthodes du SDK qui envoient des événements suivis (tels que des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events) ou des [mises à jour d'attributs utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
 
 **Ce qui n'est pas considéré comme une activité par défaut :**
 - Passer à un autre onglet du navigateur
@@ -38,7 +38,7 @@ Pour en savoir plus sur l'implémentation du cycle de vie des sessions dans le S
 - Défilement ou mouvements de la souris sur la page
 
 {% alert note %}
-Le SDK Web ne suit pas automatiquement les changements de visibilité du navigateur, les changements d'onglet ou le focus de l'utilisateur. Cependant, vous pouvez suivre ces interactions au niveau du navigateur en implémentant des écouteurs d'événements personnalisés à l'aide de l'[API Page Visibility](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) du navigateur et en envoyant des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web) à Braze. Pour un exemple d'implémentation, consultez la section [Suivi de l'inactivité personnalisée](#tracking-custom-inactivity).
+Le SDK Web ne suit pas automatiquement les changements de visibilité du navigateur, les changements d'onglet ou le focus de l'utilisateur. Cependant, vous pouvez suivre ces interactions au niveau du navigateur en implémentant des écouteurs d'événements personnalisés à l'aide de l'[API Page Visibility](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) du navigateur et en envoyant des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web) à Braze. Pour un exemple d'implémentation, consultez la section [Suivi de l'inactivité personnalisée](#tracking-custom-inactivity).
 {% endalert %}
 
 ### Configuration du délai d'expiration de la session {#session-timeout-configuration}
@@ -57,7 +57,7 @@ Prenons le scénario suivant :
 
 ### Suivi de l'inactivité personnalisée {#tracking-custom-inactivity}
 
-Si vous avez besoin de suivre l'inactivité en fonction de la visibilité du navigateur ou du changement d'onglet, implémentez des écouteurs d'événements personnalisés dans votre code JavaScript. Utilisez les événements du navigateur tels que `visibilitychange` pour détecter le moment où les utilisateurs quittent votre page, et envoyez manuellement des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/) à Braze ou appelez [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) lorsque c'est approprié.
+Si vous avez besoin de suivre l'inactivité en fonction de la visibilité du navigateur ou du changement d'onglet, implémentez des écouteurs d'événements personnalisés dans votre code JavaScript. Utilisez les événements du navigateur tels que `visibilitychange` pour détecter le moment où les utilisateurs quittent votre page, et envoyez manuellement des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events) à Braze ou appelez [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) lorsque c'est approprié.
 
 ```javascript
 // Example: Track when user switches away from tab
@@ -73,7 +73,7 @@ document.addEventListener('visibilitychange', function() {
 });
 ```
 
-Pour en savoir plus sur la journalisation des événements personnalisés, consultez la section [Journaliser des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/). Pour plus d'informations sur le cycle de vie des sessions et la configuration des délais d'expiration, consultez la section [Modifier le délai de session par défaut](#change-session-timeout).
+Pour en savoir plus sur la journalisation des événements personnalisés, consultez la section [Journaliser des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events). Pour plus d'informations sur le cycle de vie des sessions et la configuration des délais d'expiration, consultez la section [Modifier le délai de session par défaut](#change-session-timeout).
 
 ## S'abonner aux mises à jour de session {#subscribing-to-session-updates}
 
@@ -259,12 +259,12 @@ Si vous définissez un délai de session, toute la sémantique de session s'éte
 
 Un profil utilisateur peut afficher 0 session si l'utilisateur a été créé en dehors du SDK :
 
-- **Créé via la REST API :** Si un utilisateur est créé via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) avec un `app_id` dans la requête, le profil apparaît associé à cette application mais ne contient aucune donnée de session, car le SDK n'a jamais été initialisé pour cet utilisateur.
-- **Créé par import CSV :** Si un utilisateur est importé via [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) sans valeurs pour les champs de première ou dernière session, le profil existe avec 0 session.
+- **Créé via la REST API :** Si un utilisateur est créé via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) avec un `app_id` dans la requête, le profil apparaît associé à cette application mais ne contient aucune donnée de session, car le SDK n'a jamais été initialisé pour cet utilisateur.
+- **Créé par import CSV :** Si un utilisateur est importé via [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) sans valeurs pour les champs de première ou dernière session, le profil existe avec 0 session.
 
 ### Certains utilisateurs n'enregistrent pas de sessions {#some-users-are-not-logging-sessions}
 
-Étant donné que les sessions ne sont suivies qu'après l'initialisation du SDK, les utilisateurs qui ne déclenchent pas l'initialisation du SDK n'enregistrent aucune session. Cela se produit généralement lorsque votre application utilise une logique conditionnelle avant d'initialiser le SDK, comme le report de l'initialisation derrière un flux de connexion, une invite de consentement ou un indicateur de fonctionnalité. Pour des conseils d'implémentation, consultez [Initialisation différée]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift). Dans ces cas, tout utilisateur qui ne remplit pas la condition ne démarre jamais de session.
+Étant donné que les sessions ne sont suivies qu'après l'initialisation du SDK, les utilisateurs qui ne déclenchent pas l'initialisation du SDK n'enregistrent aucune session. Cela se produit généralement lorsque votre application utilise une logique conditionnelle avant d'initialiser le SDK, comme le report de l'initialisation derrière un flux de connexion, une invite de consentement ou un indicateur de fonctionnalité. Pour des conseils d'implémentation, consultez [Initialisation différée]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). Dans ces cas, tout utilisateur qui ne remplit pas la condition ne démarre jamais de session.
 
 Si certains utilisateurs enregistrent des sessions et d'autres non, vérifiez les points suivants :
 
@@ -276,6 +276,6 @@ Si le problème persiste après vérification de votre implémentation, reprodui
 
 - Les étapes pour reproduire le problème
 - La version de l'application concernée
-- Les [journaux SDK détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), capturés pendant que le problème se produit (ou par plateforme : [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging))
+- Les [journaux SDK détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), capturés pendant que le problème se produit (ou par plateforme : [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
 - L'extrait de code pour l'initialisation du SDK
 - Un résumé de toute logique conditionnelle appliquée avant l'initialisation

@@ -18,15 +18,15 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 ## Teams는 권한 세트 및 역할과 어떻게 다른가요? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Teams 생성 {#creating-teams}
 
-**설정** > **내부 팀**으로 이동하여 <i class="fas fa-plus"></i> **Teams 추가**를 선택합니다.
+**설정** > **내부 팀**으로 이동하여 <i class="fas fa-plus"></i> **팀 추가**를 선택합니다.
 
-![새 Teams를 추가하는 창.]({% image_buster /assets/img_archive/adding_a_team.png %})
+![새 팀을 추가하는 창.]({% image_buster /assets/img_archive/adding_a_team.png %})
 
-**Teams 이름**을 입력합니다. 원하는 경우 **Teams 정의(선택 사항)** 필드를 사용하여 커스텀 속성, 위치 또는 언어를 선택하여 Teams가 접근할 수 있는 사용자 데이터를 추가로 정의할 수 있습니다. 예를 들어, 가능한 사용 사례는 커스텀 속성으로 식별되는 테스트 사용자에게만 접근할 수 있는 개발 Teams를 생성하여 [Teams로 테스트](#test-with-teams)를 수행하는 것입니다. 또 다른 사용 사례는 제품에 따라 사용자와의 커뮤니케이션을 제한하는 것입니다.
+**팀 이름**을 입력합니다. 원하는 경우 **팀 정의(선택 사항)** 필드를 사용하여 커스텀 속성, 위치 또는 언어를 선택하여 Teams가 접근할 수 있는 사용자 데이터를 추가로 정의할 수 있습니다. 예를 들어, 가능한 사용 사례는 커스텀 속성으로 식별되는 테스트 사용자에게만 접근할 수 있는 개발 Teams를 생성하여 [Teams로 테스트](#test-with-teams)를 수행하는 것입니다. 또 다른 사용 사례는 제품에 따라 사용자와의 커뮤니케이션을 제한하는 것입니다.
 
 Teams가 커스텀 속성, 언어 또는 국가로 정의된 경우, 해당 Teams를 사용하여 Campaigns, Canvases, Content Cards, Segments 등의 기능에 대해 최종 사용자를 필터링할 수 있습니다. 자세한 내용은 [Teams 태그 할당](#tags-and-filters)을 참조하세요.
 
@@ -36,9 +36,9 @@ Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한�
 
 ### 사용자를 삭제하지 않고 회사 사용자 권한 제한하기 {#limit-company-user-permissions-without-deleting-a-user}
 
-회사 사용자의 계정을 유지하면서 로그인을 중지하려면 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
+회사 사용자의 계정을 유지하면서 로그인을 중지하려면 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
 
-사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집합니다. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 접근 권한만 남겨두세요. 예를 들어 "미디어 라이브러리 자산 보기"만 남길 수 있습니다. 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions)을 참조하세요.
+사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집합니다. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 접근 권한만 남겨두세요. 예를 들어 "미디어 라이브러리 자산 보기"만 남길 수 있습니다. 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)을 참조하세요.
 
 Teams 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 Teams에 할당하는 경우, 필요한 최소한의 Teams 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 로그인할 수 있지만, 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
 
@@ -95,25 +95,27 @@ Teams 권한은 워크스페이스 권한 위에서 작동합니다. 사용자�
 - 고객 프로필 보기(PII 수정됨)
 - PII 보기
 - 대시보드 사용자 편집
-- 캔버스 템플릿 편집
-- 캔버스 템플릿 보기
-- 캔버스 템플릿 아카이브
+- Canvas 템플릿 편집
+- Canvas 템플릿 보기
+- Canvas 템플릿 아카이브
 - 대시보드 보고서 보기
 - 대시보드 보고서 편집
 - 대시보드 보고서 삭제
 
-각 사용자 권한에 포함된 내용과 사용 방법에 대한 설명은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) 섹션을 확인하세요.
+각 사용자 권한에 포함된 내용과 사용 방법에 대한 설명은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) 섹션을 확인하세요.
 
 ## Teams 태그 할당 {#tags-and-filters}
 
-**Teams 추가** 필터를 사용하여 Canvases, Campaigns, Content Cards, Segments, 이메일 템플릿, 웹훅 템플릿, Content Blocks 및 미디어 라이브러리 자산에 Teams를 할당할 수 있습니다.
+**팀 추가** 필터를 사용하여 Canvases, Campaigns, Content Cards, Segments, 이메일 템플릿, 웹훅 템플릿, Content Blocks 및 미디어 라이브러리 자산에 Teams를 할당할 수 있습니다.
+
+Canvases의 경우, Teams 필터는 Canvas 진입 시에만 사용자를 검증합니다. 사용자가 Canvas에 진입한 후에는 속성이 변경되어 더 이상 Teams 필터 기준과 일치하지 않더라도 모든 캔버스 단계에서 메시지를 계속 수신합니다. Teams 필터는 각 메시지 단계에서 사용자를 재평가하는 전달 유효성 검사와는 다르게 동작합니다.
 
 ![Campaign에 Teams 태그를 추가하는 모습.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
 - Teams 생성 시 적용된 *정의*에 따라, Teams 필터가 할당되면 해당 참여 툴의 오디언스는 정의와 일치하는 고객 프로필로 제한됩니다.
 - 할당된 *권한*에 따라, Teams 멤버는 자신의 Teams 필터가 설정된 대시보드 참여 툴에만 접근할 수 있습니다. 워크스페이스 권한이 제한적이거나 없는 경우, 특정 오브젝트를 저장하거나 시작하기 전에 Teams 필터를 추가해야 합니다. Teams 멤버는 또한 Teams별로 Canvases, Campaigns, Content Cards 및 Segments를 필터링하여 관련 콘텐츠를 식별할 수 있습니다.
 
-### 활용 사례 {#use-cases}
+### 사용 사례 {#use-cases}
 
 Braze의 마케터인 Michelle에 대한 다음 두 가지 시나리오를 살펴보세요. Michelle은 "Development"라는 Teams의 멤버입니다. Development Teams에 대한 모든 Teams 수준 권한을 가지고 있습니다.
 

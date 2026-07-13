@@ -43,7 +43,7 @@ MESSAGE HERE
 
 ### Campaigns
 
-For in-app message campaigns, you can allow users to become eligible to receive the campaign again by turning on re-eligibility in **Delivery Controls** (**Allow users to become re-eligible to receive campaign**). How soon they can receive it again depends on the re-eligibility window you set and how Braze recorded the prior send. See [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) for campaign behavior, including how re-eligibility relates to message receipt.
+For in-app message campaigns, you can allow users to become eligible to receive the campaign again by turning on re-eligibility in **Delivery Controls** (**Allow users to become re-eligible to receive campaign**). How soon they can receive it again depends on the re-eligibility window you set and how Braze recorded the prior send. See [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) for campaign behavior, including how re-eligibility relates to message receipt.
 
 If re-eligibility is off, users generally won't receive that same campaign again based on qualifying criteria alone after they've received it.
 
@@ -65,11 +65,11 @@ To prevent this, during your campaign setup, select **Re-evaluate campaign eligi
 
 ## Can multiple in-app messages display in the same session?
 
-Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
+Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
 
 When multiple messages share the same priority level, the most recently created message displays first. For session start triggers, the next most recent message displays in a subsequent session; for other trigger types, the next most recent message displays the next time that trigger event occurs, which may be within the same session or a later session.
 
-To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
 
 ## How does Braze calculate an in-app message expiration set to "after 1 day(s)"?
 
@@ -139,6 +139,36 @@ This table compares the in-app message flows that Sam experienced:
 | Templated | An abort event was logged because Sam performed the trigger action to trigger the templated in-app message, but received an abort in the Liquid templating. <br><br>Templated in-app messages log aborts because the Liquid evaluation occurs after the trigger action has been performed. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing in-app message abort behavior" }
 
+### When does Connected Content run for in-app messages?
+
+For [templated in-app messages](#what-are-templated-in-app-messages), Connected Content and other Liquid tags resolve when the trigger event occurs and the device requests the message payload—not when the user clicks a button inside the message. Each templated fetch can include Connected Content calls for that display.
+
+If your HTML references REST data returned by Connected Content, that data is available for the session in which the message was templated. Multiple buttons can reference the same Connected Content response without triggering additional calls on click.
+
+### Why is there a delay before my in-app message displays?
+
+Standard in-app messages display as soon as the cached payload is ready after the trigger event. On Android and iOS, large images or other CDN-hosted assets referenced in the message can add a short delay while those resources finish downloading before the in-app message appears.
+
+[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
+
+### Why does my in-app message look different from the dashboard preview?
+
+Delivered in-app messages can differ from the dashboard preview when:
+
+- Your integration applies custom styling or overrides default in-app message UI on certain platforms
+- Preview uses a test user profile with different attributes than the recipient
+- Templated content resolves differently at send time than in preview mode
+
+Use [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) with a test user whose profile matches your target audience when validating appearance.
+
+### Why does a multi-page in-app message use the same background on every page?
+
+When **Background Image** is enabled on one page of a multi-page in-app message, that background applies to all pages in the message. To use different backgrounds per page, use a custom HTML block with JavaScript to swap images between pages.
+
+### How do I test web in-app messages?
+
+Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. The same push-based test path applies on any platform where push is not configured with Braze, though missing push is most often encountered on web because many mobile integrations already have push enabled. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+
 ## Why is the close button hidden on full-screen HTML in-app messages on Android?
 
 On devices with edge-to-edge displays (including Android 15+), full-screen HTML in-app messages can draw behind the system status bar and hide a close control at the top of the layout.
@@ -149,19 +179,19 @@ On older SDK versions, developers could enable `BrazeConfig.setIsHtmlInAppMessag
 
 ## What should I know when customizing drag-and-drop in-app messages?
 
-The [drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) supports modal and full-screen display types. You build content inside those containers with editor blocks.
+The [drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) supports modal and full-screen display types. You build content inside those containers with editor blocks.
 
 Keep in mind:
 
 - **Links and deep links:** Each on-click action has one URL field by default. Use Liquid in the URL to vary links by device, app type, or user attributes. On the **Message container**, you can also turn on platform-specific on-click behavior to set different links per platform.
 - **Opacity and backgrounds:** Opacity on the message container affects the full message background. Individual blocks can set their own background colors. For finer control, add custom CSS in a Custom Code block.
-- **Message width:** The **Message container** maximum width cannot be set below 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
+- **Message width:** The **Message container** maximum width cannot be set under 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
 - **Platform-specific backgrounds:** A single message uses the same background image and colors on web and mobile. You cannot set different backgrounds per platform in the editor.
 - **Multi-page messages:** Background images and message-level on-click actions apply across all pages in a multi-page message. To use different full images on each page, add buttons that link to the next page.
 - **Message-level styles:** Message-level styles apply to the entire message.
 - **Background images:** Background images stretch to fit the modal.
 
-For more editor considerations, see [In-app message prep guide]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide/#drag-and-drop-editor-considerations).
+For more editor considerations, see [In-app message prep guide]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations).
 
 ## What does "Event was published, but no subscribers were found" mean in Android SDK logs?
 

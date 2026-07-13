@@ -34,7 +34,7 @@ Marketing templates are the most common type used in Braze. They consist of up t
 |---|---|---|
 | Header | No | Supports text, image, video, document, or location. See [Media Specifications](#media-specifications) for file type, size, and dimension requirements. |
 | Body | Yes | The main message content |
-| Footer | No | Supplementary text displayed below the body |
+| Footer | No | Supplementary text displayed under the body |
 | Buttons | No | Include up to 10 buttons (all button types are supported) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing templates" }
 
@@ -142,11 +142,11 @@ The following specifications apply to all media in WhatsApp template headers, re
 
 ### Images
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### Video
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Android compatibility
 

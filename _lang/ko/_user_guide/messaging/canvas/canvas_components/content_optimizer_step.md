@@ -10,7 +10,7 @@ page_type: reference
 
 # 콘텐츠 최적화 프로그램 에이전트 단계 {#content-optimizer-agent-step}
 
-> 콘텐츠 최적화 프로그램 에이전트 단계를 사용하면 단일 단계 내에서 콘텐츠 구성요소의 여러 버전을 구성하고 테스트할 수 있습니다. 콘텐츠 변형을 실험하고 시간이 지남에 따라 가장 성과가 좋은 조합으로 자동 최적화할 수 있습니다. 소개는 [콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer/)을 참조하세요.
+> 콘텐츠 최적화 프로그램 에이전트 단계를 사용하면 단일 단계 내에서 콘텐츠 구성요소의 여러 버전을 구성하고 테스트할 수 있습니다. 콘텐츠 변형을 실험하고 시간이 지남에 따라 가장 성과가 좋은 조합으로 자동 최적화할 수 있습니다. 소개는 [콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)을 참조하세요.
 
 {% alert important %}
 콘텐츠 최적화 프로그램은 현재 베타 버전입니다. 시작하는 데 도움이 필요하면 고객 성공 매니저에게 문의하세요.
@@ -35,7 +35,7 @@ page_type: reference
 {% tabs local %}
 {% tab 이메일 %}
 
-**Messaging Channels** 탭에서 **Email**을 선택하고 기본 이메일 메시지를 생성합니다. 도움이 필요하면 전용 [이메일]({{site.baseurl}}/user_guide/channels/email/) 섹션을 참조하세요.
+**Messaging Channels** 탭에서 **Email**을 선택하고 기본 이메일 메시지를 생성합니다. 도움이 필요하면 전용 [이메일]({{site.baseurl}}/user_guide/channels/email) 섹션을 참조하세요.
 
 콘텐츠 최적화 프로그램 에이전트는 이 배리언트에 지정된 발송 설정(이메일 도메인 및 회신 주소 등)을 사용하여 모든 메시지를 발송합니다. 새 디자인으로 시작하거나 이 메시지에 대한 기존 템플릿을 선택할 수 있습니다. 이 단계에서 메시지의 어떤 구성요소를 최적화할지 고려하세요. 이는 [4단계](#step-4)에서 정의합니다.
 
@@ -49,7 +49,7 @@ page_type: reference
 {% endtab %}
 {% tab 푸시 알림 %}
 
-**Messaging Channels** 탭에서 **Push notifications**를 선택하고 기본 푸시 알림을 생성합니다. 도움이 필요하면 전용 [푸시]({{site.baseurl}}/user_guide/channels/push/) 섹션을 참조하세요.
+**Messaging Channels** 탭에서 **Push notifications**를 선택하고 기본 푸시 알림을 생성합니다. 도움이 필요하면 전용 [푸시]({{site.baseurl}}/user_guide/channels/push) 섹션을 참조하세요.
 
 콘텐츠 최적화 프로그램 에이전트는 이 배리언트에 지정된 선택된 푸시 플랫폼을 사용하여 모든 메시지를 발송합니다. 새 디자인으로 시작하거나 이 메시지에 대한 기존 템플릿을 선택할 수 있습니다. 이 단계에서 메시지의 어떤 구성요소를 최적화할지 고려하세요. 이는 [4단계](#step-4)에서 정의합니다.
 
@@ -61,7 +61,7 @@ page_type: reference
 {% endtab %}
 {% tab SMS/MMS/RCS %}
 
-**Messaging Channels** 탭에서 **SMS/MMS/RCS**를 선택하고 기본 메시지를 생성합니다. 도움이 필요하면 전용 [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/) 섹션을 참조하세요.
+**Messaging Channels** 탭에서 **SMS/MMS/RCS**를 선택하고 기본 메시지를 생성합니다. 도움이 필요하면 전용 [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) 섹션을 참조하세요.
 
 콘텐츠 최적화 프로그램 에이전트는 이 배리언트에 지정된 **Content** 및 **Message** 세부 정보를 사용하여 모든 메시지를 발송합니다. 새 디자인으로 시작하거나 이 메시지에 대한 기존 템플릿을 선택할 수 있습니다. 이 단계에서 메시지의 어떤 구성요소를 최적화할지 고려하세요. 이는 [4단계](#step-4)에서 정의합니다.
 
@@ -76,7 +76,7 @@ page_type: reference
 
 ### 3단계: 전달 설정 지정 {#step-3-specify-delivery-settings}
 
-**Delivery Settings** 탭에서 단계에 Intelligent Timing 또는 전달 유효성 검사를 사용할지 지정할 수 있습니다. 자세한 내용은 메시지 단계의 [전달 설정 편집]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings)을 참조하세요.
+**Delivery Settings** 탭에서 단계에 Intelligent Timing 또는 전달 유효성 검사를 사용할지 지정할 수 있습니다. 자세한 내용은 메시지 단계의 [전달 설정 편집]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings)을 참조하세요.
 
 ### 4단계: 콘텐츠 구성요소 및 배리언트 추가 {#step-4}
 
@@ -229,7 +229,7 @@ SMS/MMS/RCS 단계의 경우 구독 그룹과 메시지 유형도 시작 후 변
 - 최상의 결과를 위해 총 10개 이상의 조합을 테스트하세요.
 - 클릭에 대해 최적화하는 경우 테스트에 제목란을 포함하세요. 더 강력한 제목란은 열기 증가에 기여하고 클릭 기회를 더 많이 만들 수 있습니다.
 - 열기에 대해 최적화하는 경우 제목란에 집중하여 테스트하세요.
-- 콘텐츠 최적화 프로그램을 처음 사용하는 경우 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) 단계를 사용하여 오디언스의 일부만 콘텐츠 최적화 프로그램 단계가 포함된 분기에 진입하도록 하는 것을 고려하세요. 예를 들어, 사용자의 절반은 콘텐츠 최적화 프로그램 단계가 있는 경로로 보내고 나머지 절반은 현재 일반 콘텐츠가 포함된 메시지 단계를 발송하는 대조 경로로 보낼 수 있습니다. 그런 다음 2~3주 동안 데이터를 수집하고 핵심 성과 지표(KPI) 또는 반대 측정기준을 비교한 후 콘텐츠 최적화 프로그램 단계가 있는 경로로의 트래픽을 늘리세요.
+- 콘텐츠 최적화 프로그램을 처음 사용하는 경우 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 오디언스의 일부만 콘텐츠 최적화 프로그램 단계가 포함된 분기에 진입하도록 하는 것을 고려하세요. 예를 들어, 사용자의 절반은 콘텐츠 최적화 프로그램 단계가 있는 경로로 보내고 나머지 절반은 현재 일반 콘텐츠가 포함된 메시지 단계를 발송하는 대조 경로로 보낼 수 있습니다. 그런 다음 2~3주 동안 데이터를 수집하고 핵심 성과 지표(KPI) 또는 반대 측정기준을 비교한 후 콘텐츠 최적화 프로그램 단계가 있는 경로로의 트래픽을 늘리세요.
   - 효과적인 일대일 비교를 위해 콘텐츠 최적화 프로그램 단계에 각 구성요소의 배리언트 중 하나로 현재 일반 콘텐츠를 포함하는 것을 권장합니다.
 - 실행 중인 단계를 업데이트하기 전에 모든 구성요소 배리언트의 성과 순위가 안정될 때까지 기다리세요. 즉, 동일한 배리언트가 3~4일 연속으로 일관되게 승리하고 패배하는 상태를 의미합니다. 이는 일반적으로 약 7일이 소요되며, 최적화 이벤트 수가 많을수록 더 강력하고 정확한 신호를 생성합니다.
 - 너무 일찍 업데이트하지 마세요. 변경 사항을 게시할 때마다 최적화 프로그램이 초기화됩니다. 단계가 무엇이 효과적인지 파악하기 전에 업데이트하면 발견한 결과를 활용하지 못하게 되며, 단계가 최고 성과 조합으로 의미 있는 트래픽을 전환할 기회를 얻지 못합니다.
@@ -243,7 +243,7 @@ SMS/MMS/RCS 단계의 경우 구독 그룹과 메시지 유형도 시작 후 변
 
 ## 분석 {#analytics}
 
-성과를 검토하려면 단계 수준 분석 패널을 열어 콘텐츠 배리언트별 측정기준과 전체 조합 성과를 확인하세요. 콘텐츠 최적화 프로그램 단계는 [메시지 단계와 동일한 분석]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics)을 사용합니다.
+성과를 검토하려면 단계 수준 분석 패널을 열어 콘텐츠 배리언트별 측정기준과 전체 조합 성과를 확인하세요. 콘텐츠 최적화 프로그램 단계는 [메시지 단계와 동일한 분석]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#analytics)을 사용합니다.
 
 시작 후 단계를 업데이트한 경우 발송 할당 차트에 각 콘텐츠 편집이 발생한 시점이 표시됩니다. 비활성화된 배리언트의 데이터는 유지되며 분석 패널에서 계속 확인할 수 있으므로 단계의 전체 수명 동안의 성과를 비교할 수 있습니다.
 
@@ -257,13 +257,13 @@ SMS/MMS/RCS 단계의 경우 구독 그룹과 메시지 유형도 시작 후 변
 
 | 측정기준 | 설명 |
 | --- | --- |
-| 발송 수 | 이 단계에서 해당 구성요소의 이 배리언트에 귀속된 발송 수로, [조합별 성과](#performance-by-combination) 테이블의 [*발송 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends)와 동일한 단계 수준 발송 집계를 사용합니다. |
-| 열기 | 이 열이 채널에 표시되는 경우, 발송 후 7일 이내에 이 배리언트의 **고유** 열기 수입니다. [*고유 열기*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens)를 참조하세요. |
+| 발송 수 | 이 단계에서 해당 구성요소의 이 배리언트에 귀속된 발송 수로, [조합별 성과](#performance-by-combination) 테이블의 [*발송 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends)와 동일한 단계 수준 발송 집계를 사용합니다. |
+| 열기 | 이 열이 채널에 표시되는 경우, 발송 후 7일 이내에 이 배리언트의 **고유** 열기 수입니다. [*고유 열기*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens)를 참조하세요. |
 | 열람률 | 이 열이 표시되는 경우, 7일 이내에 최소 한 번의 적격 고유 열기를 기록한 이 배리언트 발송의 비율입니다. |
-| 클릭 수 | 발송 후 7일 이내에 이 배리언트의 **고유** 클릭 수입니다. [*총 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks), [*고유 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks), [5단계: 최적화 이벤트 선택](#step-5-select-optimization-event)을 참조하세요. |
+| 클릭 수 | 발송 후 7일 이내에 이 배리언트의 **고유** 클릭 수입니다. [*총 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks), [*고유 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks), [5단계: 최적화 이벤트 선택](#step-5-select-optimization-event)을 참조하세요. |
 | 클릭률 | 7일 이내에 최소 한 번의 적격 고유 클릭을 기록한 이 배리언트 발송의 비율로, [조합별 성과](#performance-by-combination) 테이블과 동일한 단계 기간을 사용합니다. 자세한 내용은 [단계 분석이 일반 분석과 다른 이유](#why-step-analytics-differ-from-general-analytics)를 참조하세요. |
-| 읽기 | 이 열이 표시되는 경우(예: 읽기에 대해 최적화하는 RCS의 경우), 읽음 확인이 활성화된 상태에서 소비자가 메시지를 읽은 횟수입니다. [*읽기*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads)를 참조하세요. |
-| 읽기율 | 읽음 확인이 활성화된 사용자 중 이 배리언트 발송에서 읽기가 발생한 비율입니다. [*읽기율*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate)을 참조하세요. |
+| 읽기 | 이 열이 표시되는 경우(예: 읽기에 대해 최적화하는 RCS의 경우), 읽음 확인이 활성화된 상태에서 소비자가 메시지를 읽은 횟수입니다. [*읽기*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads)를 참조하세요. |
+| 읽기율 | 읽음 확인이 활성화된 사용자 중 이 배리언트 발송에서 읽기가 발생한 비율입니다. [*읽기율*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate)을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="구성요소별 성과 측정기준" }
 
 ![구성요소별 콘텐츠 최적화 프로그램 성과 분석으로, 구성요소별 개별 테이블에 각 배리언트의 발송 수, 클릭 수, 클릭률이 나열되어 있습니다.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_component.png %})
@@ -276,13 +276,13 @@ SMS/MMS/RCS 단계의 경우 구독 그룹과 메시지 유형도 시작 후 변
 
 | 측정기준 | 설명 |
 | --- | --- |
-| 발송 수 | 이 조합을 사용하여 이 단계에서 발송된 총 메시지 수입니다. 집계는 각 조합에 범위가 지정된 [*발송 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends)와 동일한 일반적인 의미를 따릅니다. |
-| 열기 | 발송 후 7일 이내에 이 조합의 고유 열기 수입니다. 이메일의 고유 열기 정의 방법은 [*고유 열기*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens)를 참조하세요. |
+| 발송 수 | 이 조합을 사용하여 이 단계에서 발송된 총 메시지 수입니다. 집계는 각 조합에 범위가 지정된 [*발송 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends)와 동일한 일반적인 의미를 따릅니다. |
+| 열기 | 발송 후 7일 이내에 이 조합의 고유 열기 수입니다. 이메일의 고유 열기 정의 방법은 [*고유 열기*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens)를 참조하세요. |
 | 열람률 | 7일 이내에 최소 한 번의 적격 고유 열기를 기록한 이 조합 발송의 비율입니다. |
-| 클릭 수 | 발송 후 7일 이내에 이 조합의 고유 클릭 수입니다. Braze가 채널별로 클릭을 정의하는 방법은 [*총 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks) 및 [*고유 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks)를 참조하세요. |
+| 클릭 수 | 발송 후 7일 이내에 이 조합의 고유 클릭 수입니다. Braze가 채널별로 클릭을 정의하는 방법은 [*총 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks) 및 [*고유 클릭 수*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks)를 참조하세요. |
 | 클릭률 | 7일 이내에 최소 한 번의 적격 고유 클릭을 기록한 이 조합 발송의 비율입니다. 콘텐츠 최적화 프로그램은 단계의 7일 중복 제거 집계를 사용하므로 이 비율은 일반 Campaign 분석의 클릭률과 일치하지 않을 수 있습니다. 자세한 내용은 [단계 분석이 일반 분석과 다른 이유](#why-step-analytics-differ-from-general-analytics)를 참조하세요. |
-| [읽기]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads) | 이 열이 표시되는 경우(예: 읽기에 대해 최적화하는 RCS의 경우), 읽음 확인이 활성화된 상태에서 소비자가 메시지를 읽은 횟수입니다. |
-| [읽기율]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate) | 이 열이 표시되는 경우, 읽음 확인이 활성화된 사용자 중 이 조합 발송에서 읽기가 발생한 비율입니다. |
+| [읽기]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads) | 이 열이 표시되는 경우(예: 읽기에 대해 최적화하는 RCS의 경우), 읽음 확인이 활성화된 상태에서 소비자가 메시지를 읽은 횟수입니다. |
+| [읽기율]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate) | 이 열이 표시되는 경우, 읽음 확인이 활성화된 사용자 중 이 조합 발송에서 읽기가 발생한 비율입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="조합별 성과 측정기준" }
 
 ![각 콘텐츠 조합의 발송 수, 클릭 수, 클릭률이 포함된 콘텐츠 최적화 프로그램 조합별 성과 분석 테이블.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_combination.png %})

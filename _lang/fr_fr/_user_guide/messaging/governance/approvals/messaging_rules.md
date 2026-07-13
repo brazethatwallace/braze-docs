@@ -43,25 +43,25 @@ Pour éviter toute confusion, vous ne pouvez pas définir des règles identiques
 Vous pouvez créer jusqu'à cinq règles d'envoi de messages.
 {% endalert %}
 
-1. Accédez à **Settings** > **Approval Workflow** > **Messaging Rules**.
-2. Sélectionnez **Create rule**.
+1. Accédez à **Paramètres** > **Flux de travail d'approbation** > **Règles d'envoi de messages**.
+2. Sélectionnez **Créer une règle**.
 3. Donnez un nom à cette règle (par exemple, « Tous les abonnements utilisateurs »).
-4. Pour **Message type**, sélectionnez **Campaign**, **Canvas** ou **Both Canvas and Campaigns** pour appliquer la règle d'approbation.
-5. Saisissez un nombre pour **Maximum reachable users**. Pour plus d'informations, consultez [Statistiques d'audience]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#audience-statistics).
-6. Sélectionnez **Save**.
+4. Pour **Type de message**, sélectionnez **Campaign**, **Canvas** ou **Les deux : Canvas et Campaigns** pour appliquer la règle d'approbation.
+5. Saisissez un nombre pour **Nombre maximum d'utilisateurs pouvant être atteints**. Pour plus d'informations, consultez [Statistiques d'audience]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics).
+6. Sélectionnez **Enregistrer**.
 
 ![Un exemple de règle d'envoi de messages « Règle 1 » pour les Campaigns avec 100 000 utilisateurs comme maximum. Un utilisateur peut approuver le Canvas et la Campaign pour le lancement.]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
 
 ### Étape 2 : Déterminer le lancement avec approbation (facultatif) {#step-2-determine-launching-with-approval-optional}
 
-Sélectionnez **Allow launching with approval**. Ensuite, pour **With Approval From**, sélectionnez les approbateurs qui ont l'autorisation d'approuver le Canvas ou la Campaign si le maximum est atteint.
+Sélectionnez **Autoriser le lancement avec approbation**. Ensuite, pour **Avec l'approbation de**, sélectionnez les approbateurs qui ont l'autorisation d'approuver le Canvas ou la Campaign si le maximum est atteint.
 
 Notez les détails suivants concernant le lancement de messages avec approbation :
 
-- Si le maximum est atteint et qu'un approbateur est sélectionné, l'utilisateur Braze disposant de l'autorisation d'approbation peut sélectionner **Approved** dans le menu déroulant d'approbation **Target Audience**.
+- Si le maximum est atteint et qu'un approbateur est sélectionné, l'utilisateur Braze disposant de l'autorisation d'approbation peut sélectionner **Approuvé** dans le menu déroulant d'approbation **Audience cible**.
 - Si le maximum est atteint et qu'aucun approbateur n'est sélectionné, le Canvas ou la Campaign ne peut pas être lancé(e).
 
-![L'étape « Summary » du flux de travail Canvas qui montre qu'une approbation est nécessaire pour le lancement.]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}
+![L'étape « Résumé » du flux de travail Canvas qui montre qu'une approbation est nécessaire pour le lancement.]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 

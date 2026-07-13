@@ -7,7 +7,7 @@ page_order: 3
 
 # Reference for agents
 
-> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For step-by-step setup, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) and [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For step-by-step setup, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) and [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq).
 
 ## Models
 
@@ -29,7 +29,7 @@ If you don't see **Braze Auto** as an option in the **Model** dropdown when crea
 
 With this option, you can connect your Braze account with providers like OpenAI, Anthropic, or Google Gemini. If you bring your own API key from an LLM provider, token costs are billed directly through your provider, not through Braze.
 
-We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. Make sure you have sufficient credits with your provider to run your agents at scale. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available or encounters billing issues with your LLM provider.
+We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. Make sure you have sufficient credits with your provider to run your agents at scale. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) to be alerted when Braze detects a model is no longer available or encounters billing issues with your LLM provider.
 
 To set this up:
 
@@ -75,16 +75,16 @@ Each LLM provider has a slightly different mix of model capabilities, costs, and
 
 The following invocation flow controls apply per workspace:
 
-- **Braze-powered model:** 1,000 invocations per minute 
-- **Bringing your own API key:** 2,500 invocations per minute
+- **Braze-powered model:** 5,000 invocations per minute 
+- **Bringing your own API key:** 5,000 invocations per minute
 
 When many users enter an Agent step at once, Braze queues invocations according to these limits, so processing may take longer during high-volume sends.
 
 ### Rate limit errors
 
-If the LLM provider returns a rate limit error, Braze retries the request using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents do not retry failed invocations, including rate limit errors from the LLM provider.
+If the LLM provider returns a rate limit error during a **Canvas Agent step**, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed. **Catalog agents** do not retry rate-limited invocations.
 
-If all retries fail, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Every retry is visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
+When Canvas retries are exhausted, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Retries are visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
 
 ![Agent Console log details showing a rate limit exceeded error in the Output field.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -92,7 +92,7 @@ If all retries fail, the **Logs** details panel shows **Error** and the provider
 
 Instructions are the rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. System instructions can be up to 25 KB.
 
-If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), review the pre-filled instructions and edit as needed.
+If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), review the pre-filled instructions and edit as needed.
 
 Here are some general best practices to get you started with prompting:
 
@@ -109,11 +109,27 @@ Here are some general best practices to get you started with prompting:
 
 ### Examples {#examples}
 
-For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+
+For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/examples).
+
+| Example | Category | Agent type | What it does |
+| --- | --- | --- | --- |
+| [Write personalized messaging based on a user's context]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Content generation | Canvas Step Agent | Generates coordinated email subject/preheader and push title/body for users who searched but didn't book. |
+| [Analyze user feedback to determine next steps]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Data standardization | Canvas Step Agent | Classifies post-trip survey sentiment and topic, then recommends a CRM next step. |
+| [Categorize users into interest buckets from existing attributes]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Affinity agent | Canvas Step Agent | Classifies users into interest buckets from attributes and high-intent signals, then recommends the best next experience or item. |
+| [Route users to the most relevant Canvas path from recent behavior]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Affinity agent | Canvas Step Agent | Infers motivation from recent behavior and returns the best route key for the user's next Canvas step. |
+| [Assign users to interest categories from real-time high-intent actions]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Affinity agent | Canvas Step Agent | Assigns interest categories from high-intent actions and recommends the best next experience or item. |
+| [Classify inbound messages for opt-out intent]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Classification and routing | Canvas Step Agent | Returns a strict boolean indicating whether a message is an opt-out request. |
+| [Standardize inbound messages into structured data for automation]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Data standardization | Canvas Step Agent | Normalizes inbound SMS or chat into structured intent, entities, and compliance flags for downstream automation. |
+| [Write high-converting descriptions that align with brand guidelines]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Content generation | Catalog Agent | Generates short, on-brand descriptions for each catalog row. |
+| [Provide translations based on language used by region]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Catalog enrichment | Catalog Agent | Localizes UI and marketing strings per locale and character limit. |
+| [Enrich catalog items with descriptions, categories, and tags]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Catalog enrichment | Catalog Agent | Generates enhanced descriptions, categories, and tags from existing catalog item data. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Summary of examples" }
 
 ### Using Liquid
 
-Including [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in your agent's instructions can add an extra layer of personalization in its response. You can specify the exact Liquid variable the agent gets and can include it in the context of your prompt. For example, instead of explicitly writing "first name", you can use the Liquid snippet {% raw %}`{{${first_name}}}`{% endraw %}:
+Including [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in your agent's instructions can add an extra layer of personalization in its response. You can specify the exact Liquid variable the agent gets and can include it in the context of your prompt. For example, instead of explicitly writing "first name", you can use the Liquid snippet {% raw %}`{{${first_name}}}`{% endraw %}:
 
 {% raw %}
 ```
@@ -135,7 +151,7 @@ For more details on prompting best practices, refer to guides from the following
 
 ## Outputs
 
-If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), review the pre-filled output schema and edit as needed.
+If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), review the pre-filled output schema and edit as needed.
 
 ### Basic schemas
 
@@ -157,6 +173,14 @@ Advanced schema options include manually structuring fields or using JSON.
 - **JSON:** A code approach to creating a precise output format, where you can nest variables and objects within the JSON schema. Only available for Canvas agents, not catalog agents.
 
 We recommend using advanced schemas when you want the agent to return a data structure with multiple values defined in a structured manner, rather than a single-value output. This allows the output to be better formatted as a consistent context variable.
+
+### Fallback output
+
+Fallback values are available for **Canvas step agents** only. In the **Output** section of Agent Console for a Canvas agent, you can define values that Braze uses when an invocation fails.
+
+For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value. Canvas agents support Liquid in fallback values.
+
+For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). For runtime behavior in Canvas, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
 For example, you may use an output format within an agent that is intended to create a sample travel itinerary for a user based on a form they submitted. The output format allows you to define that every agent response should come back with values for `tripStartDate`, `tripEndDate`, and `destination` values. Each of these values can be extracted from context variables and placed in a Message step for personalization using Liquid.
 
@@ -202,9 +226,15 @@ If you want to collect user feedback for their most recent dining experience at 
 
 ## Catalogs and fields
 
-Choose specific catalogs for an agent to reference and to give your agent the context it needs to understand your products and other non-user data when relevant. Agents use tools to find the relevant items only and send those to the LLM to minimize token use.
+Choose specific catalogs for an agent to reference and to give your agent the context it needs to understand your products and other non-user data when relevant. Agents use tools to find the relevant items only and send those to the LLM to minimize token use. For better catalog retrieval, create a [knowledge source]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) and add it as agent context instead of attaching the catalog directly.
 
 ![The "restaurants" catalog and "Loyalty_Program" column selected for the agent to search.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
+
+When you deploy a catalog agent to a catalog field, enable the required-input control and choose which selected columns are **required to run** before the agent invokes. The agent skips a row only when one of those required columns is blank or missing—for example, a `gender` field that has not been filled in yet. Selected columns start as required by default, but you can remove columns that may be empty without blocking the run. This prevents wasted tokens on incomplete data.
+
+Catalog agents also respect column order when input fields depend on each other. If column D should be generated from columns B and C, the agent does not run on column D until B and C contain values for that row.
+
+For deployment scenarios and examples, see [Use catalog agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) and [Catalog agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ## Segment membership context
 
@@ -214,15 +244,31 @@ You can select up to five segments for the agent to cross-reference each user's 
 
 ## Brand guidelines
 
-You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
+You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 
 ## User-specific interaction history {#user-history}
 
 A user's interaction data includes their recent campaign and Canvas opens, clicks, and conversion data. For example, you can include this context for an agent to reference when it's evaluated in Canvas. User-specific interaction history can also help influence an agent when its job is to write personalized message copy.
 
+## Version history {#version-history}
+
+Agent Console records a new version each time you save agent changes. The **Version history** tab lists every saved version and the edits between saves.
+
+1. Open the agent in Agent Console.
+2. Select the **Version history** tab.
+3. Select a version to review its configuration.
+
+To inspect what changed in a version, select **View**. Braze displays a code-style inline diff that highlights additions and deletions. Deleted content appears with red strikethrough styling.
+
+If you need to restore instructions from a previous version, open **View** for that version, copy the instruction text, and paste it into your current **Instructions** field.
+
+{% alert tip %}
+In the inline diff view, press <kbd>⌘</kbd> + <kbd>A</kbd> (macOS) or <kbd>Ctrl</kbd> + <kbd>A</kbd> (Windows) to select all instructions without the red deletion markup, so you can copy and restore the clean text.
+{% endalert %}
+
 ## Duplicate agents
 
-To test improvements or iterations of an agent, you could duplicate an agent then apply changes to compare to the original. You can also treat duplicating agents as version control to track variations in the agent's details and any impacts on your messaging. To duplicate an agent:
+Duplicate an agent to test improvements or iterations side by side against the original. Use [version history](#version-history) to review or restore earlier configurations. To duplicate an agent:
 
 1. Hover over the agent's row and select the <i class="fas fa-ellipsis-vertical"></i> menu.
 2. Select **Duplicate**.
@@ -234,4 +280,3 @@ As you create more custom agents, you can organize the **Agent Management** page
 1. Hover over the agent's row and select the <i class="fas fa-ellipsis-vertical"></i> menu.
 2. Select **Archive**.
 
-![Agent Management page with archived agents.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

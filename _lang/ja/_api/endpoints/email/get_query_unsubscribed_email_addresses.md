@@ -14,7 +14,7 @@ description: "この記事では、配信停止メールのリストの取得ま
 /email/unsubscribes
 {% endapimethod %}
 
-> このエンドポイントを使用して、`start_date`から`end_date`までの期間に配信停止された最新のメールを返します。完全なサブスクリプション状態の履歴については、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用してこのデータを追跡してください。
+> このエンドポイントを使用して、`start_date`から`end_date`までの期間に配信停止された最新のメールを返します。完全なサブスクリプション状態の履歴については、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用してこのデータを追跡してください。
 
 このエンドポイントを使用して、Brazeと他のメールシステムまたは独自のデータベースとの間で双方向同期を設定できます。
 
@@ -22,7 +22,7 @@ description: "この記事では、配信停止メールのリストの取得ま
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.unsubscribe`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`email.unsubscribe`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -48,7 +48,7 @@ description: "この記事では、配信停止メールのリストの取得ま
 
 ## リクエスト例 {#example-request}
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 

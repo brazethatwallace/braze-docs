@@ -16,7 +16,7 @@ _이 통합은 Survicate에서 유지 관리합니다._
 
 ## 통합 정보 {#about-the-integration}
 
-Survicate와 Braze 네이티브 통합을 사용하여 이메일, 인앱, 모바일 또는 웹 설문조사 응답을 Braze 고객 프로필과 동기화할 수 있습니다. 설문조사 응답은 커스텀 속성 또는 이벤트로 Braze 고객 프로필에 자동으로 동기화됩니다. 실시간 피드백 인사이트를 통해 고객 데이터와 함께 피드백을 쉽게 추적 및 분석하고 타겟 후속 조치와 고도로 개인화된 세그먼트를 생성할 수 있습니다.
+Survicate와 Braze 네이티브 통합을 사용하여 이메일, 인앱, 모바일 또는 웹 설문조사 응답을 Braze 고객 프로필과 동기화할 수 있습니다. 설문조사 응답은 커스텀 속성 또는 이벤트로 Braze 고객 프로필에 자동으로 동기화됩니다. 실시간 피드백 인사이트를 통해 고객 데이터와 함께 피드백을 쉽게 추적 및 분석하고 타겟 후속 조치와 고도로 개인화된 Segments를 생성할 수 있습니다.
 
 ## 사용 사례 {#use-cases}
 
@@ -24,8 +24,8 @@ Braze와 Survicate는 함께 다양한 피드백 사용 사례를 지원하여 �
 
 - 이메일 받은편지함에서 바로 응답할 수 있는 임베디드 설문조사로 설문조사 응답률을 향상하세요.
 - Braze 인앱 메시지를 통해 고객 여정의 중요한 단계에서 인사이트를 수집하세요.
-- Survicate에 저장된 피드백을 사용하여 Braze에서 더 스마트한 세그먼트를 만들 수 있습니다.
-- 고객 피드백을 기반으로 후속 캠페인을 자동화하세요.
+- Survicate에 저장된 피드백을 사용하여 Braze에서 더 스마트한 Segments를 만들 수 있습니다.
+- 고객 피드백을 기반으로 후속 Campaign을 자동화하세요.
 - 고객 인사이트를 활용하여 개인화된 워크플로를 트리거하세요.
 - 자동 번역된 설문조사로 더 많은 오디언스에게 다가갈 수 있습니다.
 - 누군가가 설문조사에 응답하면 Braze 연락처 프로필로 이벤트를 보낼 수 있습니다.
@@ -35,17 +35,17 @@ Braze와 Survicate는 함께 다양한 피드백 사용 사례를 지원하여 �
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Survicate 계정 | 이 통합을 활성화하려면 Survicate 계정이 필요합니다. |
-| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 및 식별자**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합의 주요 기능 {#key-features-of-the-integration}
 
 Survicate와 Braze 통합은 실시간 데이터 동기화를 제공하므로 Survicate 설문조사의 최신 정보를 Braze에서 즉시 사용할 수 있습니다. 설문조사 응답을 기반으로 이 데이터를 사용하여 시의적절하고 개인화된 조치를 취할 수 있습니다.
 
 - **설문조사 응답을 커스텀 사용자 속성으로 Braze에 전송**: 설문조사 응답 데이터로 Braze 고객 프로필을 풍부하게 만들 수 있습니다.
-- **Braze에서 커스텀 이벤트 트리거**: 설문조사 답변을 기반으로 한 이벤트를 사용하여 특정 그룹을 타겟팅하거나 후속 캠페인을 시작할 수 있습니다.
-- **상세한 세그먼트 구축**: Survicate 설문조사 데이터를 사용하여 Braze 세그먼트를 생성하고 아웃리치를 더욱 개인화할 수 있습니다.
+- **Braze에서 커스텀 이벤트 트리거**: 설문조사 답변을 기반으로 한 이벤트를 사용하여 특정 그룹을 타겟팅하거나 후속 Campaign을 시작할 수 있습니다.
+- **상세한 Segments 구축**: Survicate 설문조사 데이터를 사용하여 Braze Segments를 생성하고 아웃리치를 더욱 개인화할 수 있습니다.
 
 ## 통합 {#integration}
 
@@ -106,10 +106,10 @@ Survicate와 Braze 통합은 실시간 데이터 동기화를 제공하므로 Su
 ![+ Create new survey를 클릭하고 생성 방법을 선택합니다.]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
 {: start="2"}
-2. Braze 계정으로 이동한 다음 **Messaging** > **Campaigns** > **Create campaign** > **In-app message**로 이동하여 Braze 인앱 메시지 설문조사를 시작하세요:
+2. Braze 계정으로 이동한 다음 **메시징** > **Campaigns** > **캠페인 만들기** > **인앱 메시지**로 이동하여 Braze 인앱 메시지 설문조사를 시작하세요:
 ![Braze 인앱 메시지 설문조사 시작하기]({% image_buster /assets/img/survicate/survicate_9.gif %})
 
-### 기존 편집기를 통해 Braze 인앱 메신저 설문조사 시작하기 {#launch-your-braze-in-app-messenger-survey-via-the-traditional-editor}
+### 기존 편집기를 통해 Braze 인앱 메시지 설문조사 시작하기 {#launch-your-braze-in-app-messenger-survey-via-the-traditional-editor}
 
 1. 기존 편집기를 사용하는 경우 메시지 유형에서 **Custom code**를 선택합니다:
 
@@ -130,7 +130,7 @@ Braze는 앱의 배경이 차단된 상태에서 인앱 메시지를 기본적�
 {% endalert %}
 
 {: start="3"}
-3. Braze Campaign에서 타겟 및 할당 단계를 설정합니다. 완료되면 Campaign을 시작할 준비가 된 것입니다. 검토 단계에서는 Campaign이 어떻게 보이는지 확인할 수 있습니다. 설문조사는 위에서 설명한 대로 Survicate 패널에 지정된 위치에 웹사이트에 표시됩니다.
+3. Braze Campaign에서 타겟 및 할당 단계를 설정합니다. 완료되면 Campaign을 시작할 준비가 된 것입니다. 검토 단계에서는 Campaign이 어떻게 보이는지 확인할 수 있습니다. 설문조사는 1단계에서 설명한 대로 Survicate 패널에 지정된 위치에 웹사이트에 표시됩니다.
 
 ### Braze 통합 활성화하기 {#enabling-the-braze-integration}
 
@@ -184,7 +184,7 @@ Survicate를 Braze에 연결하려면 Braze API 키에 `users.track` 권한이 �
 ![Edit mapping을 클릭하여 값을 수정합니다.]({% image_buster /assets/img/survicate/survicate_19.png %})
 
 {% alert note %}
-NPS의 경우 Survicate는 NPS® 질문에 대한 응답 그룹을 기반으로 매핑된 값을 전송합니다. 그러나 숫자 값을 받으려면 Send Answers as 0-10 values를 켜면 됩니다.
+순고객추천지수의 경우 Survicate는 NPS® 질문에 대한 응답 그룹을 기반으로 매핑된 값을 전송합니다. 그러나 숫자 값을 받으려면 Send Answers as 0-10 values를 켜면 됩니다.
 {% endalert %}
 
 ![Survicate는 응답 그룹에 따라 매핑된 값을 전송합니다.]({% image_buster /assets/img/survicate/survicate_20.png %})
@@ -203,9 +203,9 @@ Survicate 패널의 커스텀 속성으로 응답 보내기에서 모든 질문,
 
 이벤트를 보내도록 선택하면 사용자의 프로필에서 Survicate 설문조사에 응답한 횟수와 마지막으로 응답한 시간을 확인할 수 있습니다:
 
-![응답]({% image_buster /assets/img/survicate/survicate_23.png %})
+![응답 현황]({% image_buster /assets/img/survicate/survicate_23.png %})
 
-이벤트에는 질문에 대한 답변과 설문조사, 질문 및 응답자에 대한 정보가 포함된 이벤트 속성정보가 포함되어 있습니다. 이 이벤트를 사용하여 세그먼트를 만들 수 있습니다. 예를 들어 특정 날짜 이후 또는 특정 횟수만큼 설문조사에 응답한 사용자 세그먼트를 만들 수 있습니다:
+이벤트에는 질문에 대한 답변과 설문조사, 질문 및 응답자에 대한 정보가 포함된 이벤트 속성정보가 포함되어 있습니다. 이 이벤트를 사용하여 Segments를 만들 수 있습니다. 예를 들어 특정 날짜 이후 또는 특정 횟수만큼 설문조사에 응답한 사용자 Segment를 만들 수 있습니다:
 
 ![이벤트에는 답변이 포함된 이벤트 속성정보가 포함되어 있습니다.]({% image_buster /assets/img/survicate/survicate_24.png %})
 

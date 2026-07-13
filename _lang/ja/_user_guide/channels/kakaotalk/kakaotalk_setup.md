@@ -10,7 +10,7 @@ channel:
 
 # KakaoTalkのセットアップ {#set-up-kakaotalk}
 
-> この記事では、ユーザーのセットアップ、ユーザーIDの照合、KakaoTalkテストユーザーの作成など、Brazeで[KakaoTalkメッセージングチャネル]({{site.baseurl}}/kakaotalk/)をセットアップする方法について説明します。
+> この記事では、ユーザーのセットアップ、ユーザーIDの照合、KakaoTalkテストユーザーの作成など、Brazeで[KakaoTalkメッセージングチャネル]({{site.baseurl}}/kakaotalk)をセットアップする方法について説明します。
 
 ## 前提条件 {#prerequisites}
 
@@ -29,7 +29,7 @@ Comm.Oneダッシュボードで、お使いのクラスターのBraze IPアド�
 
 1. Comm.Oneダッシュボードで、**Account Management（계정 관리）**に移動し、メニューアイコンを選択してから**View Details（자세히보기）**を選択します。
 2. **Center & Upload IP Allowlist（센터&업로드 IP 화이트리스트）**を選択します。
-3. お使いのBrazeクラスターのIPアドレスを追加します。クラスター別のIPの完全なリストについては、[IP許可リスト]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting)を参照してください。
+3. お使いのBrazeクラスターのIPアドレスを追加します。クラスター別のIPの完全なリストについては、[IP許可リスト]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting)を参照してください。
 
 ![IPアドレスを追加できる場所を示すComm.Oneダッシュボード。]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
@@ -94,7 +94,7 @@ KakaoTalkチャネルの情報（チャネル名、プロフィール画像な�
 ![発信キーがマスクされたComm.Oneダッシュボード。]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-KakaoTalk発信キーは、一度に1つのワークスペースにのみ統合できます。同じ発信キーを別のワークスペースで使用するには、まず元のワークスペースでKakaoTalkサブスクリプショングループをアーカイブし、[Brazeサポート]({{site.baseurl}}/braze_support/)に連絡して統合を削除してもらう必要があります。Brazeが統合を削除した後、新しいワークスペースで統合をセットアップできます。
+KakaoTalk発信キーは、一度に1つのワークスペースにのみ統合できます。同じ発信キーを別のワークスペースで使用するには、まず元のワークスペースでKakaoTalkサブスクリプショングループをアーカイブし、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡して統合を削除してもらう必要があります。Brazeが統合を削除した後、新しいワークスペースで統合をセットアップできます。
 {% endalert %}
 
 ![Braze KakaoTalkチャネルの認証情報。]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -135,8 +135,6 @@ Infobipダッシュボードにアクセスし、以下の情報を収集しま�
 
 KakaoTalkでメッセージを送信するには、ユーザープロファイルにE.164形式の電話番号が必要です。電話番号はユーザープロファイルに表示されます。KakaoTalkでは電話番号がE.164形式（例：`+821025749774`）である必要があります。これは、複数の形式の電話番号を受け付ける他のメッセージングチャネルとは異なります。
 
-![E.164形式の電話番号を持つテストユーザーのユーザープロファイル。]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
-
 ### 電話番号のインポート {#import-phone-numbers}
 
-[CSVのアップロードまたはAPIの使用]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/)により電話番号をインポートしてユーザーを作成します。インポートする前に、電話番号がE.164形式であることを確認してください。
+[CSVのアップロードまたはAPIの使用]({{site.baseurl}}/user_guide/data/unification/user_data/import_users)により電話番号をインポートしてユーザーを作成します。インポートする前に、電話番号がE.164形式であることを確認してください。

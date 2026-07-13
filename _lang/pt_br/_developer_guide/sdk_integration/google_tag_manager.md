@@ -30,6 +30,6 @@ description: "Aprenda como inicializar o SDK da Braze usando métodos como inici
 
 ## Solução de problemas {#troubleshooting}
 
-Se a Braze não inicializar ou os eventos não aparecerem como esperado, confirme se o contêiner do GTM está publicado, se os disparadores e a ordem de acionamento das tags estão alinhados com o [ciclo de vida e a estratégia de inicialização]({{site.baseurl}}/developer_guide/sdk_integration/) do seu SDK, e se os dispositivos de teste não estão bloqueando os endpoints da Braze.
+Se a Braze não inicializar ou os eventos não aparecerem como esperado, confirme se o contêiner do GTM está publicado, se os disparadores e a ordem de acionamento das tags estão alinhados com o [ciclo de vida e a estratégia de inicialização]({{site.baseurl}}/developer_guide/sdk_integration) do seu SDK, e se os dispositivos de teste não estão bloqueando os endpoints da Braze.
 
 Para falhas de inicialização, verifique se a tag da Braze ou o provedor de tag personalizado está recebendo o `actionType` e os parâmetros esperados (consulte as guias Android, Swift e Web nesta página). Para obter um registro detalhado ao validar eventos disparados pelo GTM, ative o registro de depuração do SDK da sua plataforma conforme descrito nos guias de integração vinculados nessas guias.

@@ -17,7 +17,7 @@ Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los an
 
 ## ¿Por qué usar Operator Analyze? {#why-use-operator-analyze}
 
-La mayoría de las preguntas sobre rendimiento aún requieren cambiar de herramienta, crear vistas o esperar a que alguien más lo haga. Algunos ejemplos incluyen "¿Cómo fue la semana pasada?", "¿Estamos alineados con el punto de referencia?" y "¿Qué Campaign está generando los mejores resultados?"
+La mayoría de las preguntas sobre rendimiento aún requieren cambiar de herramienta, crear vistas o esperar a que alguien más lo haga. Algunos ejemplos incluyen "¿Cómo fue la semana pasada?", "¿Estamos alineados con el punto de referencia?" y "¿Qué campaña está generando los mejores resultados?"
 
 Operator Analyze cubre métricas de interacción, *ingresos atribuidos* y puntos de referencia del sector. Son los mismos datos que de otro modo tendrías que extraer en un informe o dashboard. Pregunta con tus propias palabras desde el panel de Operator. Obtienes un gráfico, una comparación clasificada o una tabla, además de una a cinco piezas de información accionable.
 
@@ -29,7 +29,7 @@ Operator Analyze se ejecuta en el panel de conversación de Operator.
 2. Pregunta sobre la interacción de canales o comparaciones con puntos de referencia (consulta [Preguntas de ejemplo](#example-questions)).
 3. Operator devuelve la respuesta y, cuando es útil, un gráfico o tabla y una breve lista de información.
 
-Para más información sobre el panel de chat de Operator, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Para más información sobre el panel de chat de Operator, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Preguntas de ejemplo {#example-questions}
 
@@ -102,7 +102,7 @@ Los *ingresos atribuidos* y las *conversiones* usan la misma agregación por Cam
 | Content Cards | *Envíos*, *Impresiones*, *Clics* | Sí |
 | WhatsApp | *Envíos*, *Entregas*, *Lecturas*, *Clics* | Aún no |
 | RCS | *Envíos*, *Entregas*, *Lecturas*, *Clics* (incluidos los subtipos de URL de texto, botón, acción, acción de respuesta y botón de respuesta) | Aún no |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported channels, metrics, and benchmark availability" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canales compatibles, métricas y disponibilidad de puntos de referencia" }
 
 {% alert tip %}
 Operator usa conteos únicos para las tasas (por ejemplo, *aperturas únicas* divididas entre *entregas* para la *tasa de apertura de correo electrónico*). Si una cifra difiere de un dashboard, compara la ventana de atribución, el rango de tiempo y la definición. Operator enumera los tres en cada respuesta.
@@ -120,7 +120,7 @@ Operator Analyze usa de forma predeterminada el **año fiscal de Braze**, que va
 | FQ2 | May – Jul |
 | FQ3 | Ago – Oct |
 | FQ4 | Nov – Ene |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze fiscal quarters and calendar months" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Trimestres fiscales de Braze y meses del calendario" }
 
 Para preguntas sobre el año calendario, incluye "CY", "año calendario" o "año estándar". Las indicaciones ambiguas como "el año pasado" hacen que Operator confirme a qué calendario te refieres.
 
@@ -159,9 +159,9 @@ Las preguntas fuera del alcance reciben una respuesta directa, una alternativa s
 
 ## Privacidad y seguridad de datos {#data-privacy-and-security}
 
-Operator Analyze sigue el mismo modelo de privacidad y seguridad que BrazeAI Operator<sup>TM</sup>. Para más información, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/#data-privacy-and-security).
+Operator Analyze sigue el mismo modelo de privacidad y seguridad que BrazeAI Operator<sup>TM</sup>. Para más información, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Próximos pasos {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

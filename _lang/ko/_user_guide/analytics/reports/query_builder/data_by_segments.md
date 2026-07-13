@@ -12,9 +12,9 @@ tool:
 
 # Segment별 측정기준 {#metrics-by-segments}
 
-> [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) 보고서 템플릿을 사용하여 Campaigns, Canvas, 배리언트 및 단계의 성과 측정기준을 Segments별로 분류합니다.
+> [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder) 보고서 템플릿을 사용하여 Campaigns, Canvas, 배리언트 및 단계의 성과 측정기준을 Segments별로 분류합니다.
 
-측정기준에 접근하려는 Segments에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 활성화되어 있어야 합니다.
+측정기준에 접근하려는 Segments에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)이 활성화되어 있어야 합니다.
 
 이 보고서를 실행하려면 다음을 수행합니다:
 1. **쿼리 빌더**에서 템플릿을 사용하여 새 SQL 보고서를 생성합니다.

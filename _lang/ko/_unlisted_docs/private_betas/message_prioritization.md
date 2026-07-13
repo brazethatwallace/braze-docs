@@ -27,7 +27,7 @@ description: "이 참조 문서에서는 최상위 메시지 우선순위 지정
 
 ## 카테고리 {#categories}
 
-우선순위 지정 규칙은 카테고리의 순위를 기반으로 하며, 카테고리는 주어진 Campaign에 할당할 수 있는 레이블입니다([태그](https://www.braze.com/docs/user_guide/administrative/app_settings/tags)와 유사). 한 번에 최대 20개의 카테고리를 생성할 수 있습니다.
+우선순위 지정 규칙은 카테고리의 순위를 기반으로 하며, 카테고리는 주어진 Campaign에 할당할 수 있는 레이블입니다([태그]({{site.baseurl}}/user_guide/administrative/app_settings/tags)와 유사). 한 번에 최대 20개의 카테고리를 생성할 수 있습니다.
 
 새 카테고리를 추가하려면:
 
@@ -61,7 +61,7 @@ description: "이 참조 문서에서는 최상위 메시지 우선순위 지정
 {:start="4"}
 4. 마지막 규칙 아래에서 **+ 규칙 추가**를 선택하여 규칙을 계속 추가합니다.
 
-규칙의 순서를 변경하려면 규칙 왼쪽 상단의 <i class="fa-solid fa-grip-vertical"></i> 아이콘을 선택하고 드래그합니다. 규칙을 삭제하려면 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택한 다음 **규칙 삭제**를 선택합니다.
+규칙의 순서를 변경하려면 규칙 시작 부분의 <i class="fa-solid fa-grip-vertical"></i> 아이콘을 선택하고 드래그합니다. 규칙을 삭제하려면 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택한 다음 **규칙 삭제**를 선택합니다.
 
 업데이트를 적용하려면 반드시 **저장**을 선택하세요.
 
@@ -128,7 +128,7 @@ Campaign을 우선순위 지정에 옵트인하려면 Campaign의 **전달 스�
 
 ### 메시지가 항상 발송되도록 하려면 어떻게 해야 하나요? {#how-can-i-make-sure-a-message-is-always-sent}
 
-트랜잭션 또는 법적 알림과 같이 메시지가 항상 발송되어야 하는 시나리오가 있을 수 있습니다. 이 경우 메시지를 최대 게재빈도 설정에서 옵트아웃해야 합니다(이렇게 하면 메시지 우선순위 지정에도 부적격하게 됩니다). 이렇게 하면 다른 메시지 발송 여부에 관계없이 스케줄되거나 트리거될 때마다 메시지가 발송됩니다.
+트랜잭션 또는 법무 알림과 같이 메시지가 항상 발송되어야 하는 시나리오가 있을 수 있습니다. 이 경우 메시지를 최대 게재빈도 설정에서 옵트아웃해야 합니다(이렇게 하면 메시지 우선순위 지정에도 부적격하게 됩니다). 이렇게 하면 다른 메시지 발송 여부에 관계없이 스케줄되거나 트리거될 때마다 메시지가 발송됩니다.
 
 ### 메시지는 실제로 언제 우선순위가 지정되나요? 스케줄이 있나요? {#when-are-messages-actually-prioritized-is-there-a-schedule}
 
@@ -140,7 +140,7 @@ Campaign을 우선순위 지정에 옵트인하려면 Campaign의 **전달 스�
 
 ### 메시지가 우선순위가 지정되었지만 마지막 순간에 중단되었습니다. 이것이 우선순위 지정에 어떤 의미가 있나요? {#my-message-was-prioritized-but-aborted-last-minute-what-does-that-mean-for-prioritization}
 
-메시지가 우선순위가 지정되면 Braze는 원래 스케줄된 시간에 발송된 것으로 가정합니다. 일반적으로 메시지 우선순위 지정에서는 Liquid 중단을 사용하지 않는 것을 권장합니다. [`abort_message` Liquid 로직](https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages)으로 인해 메시지가 중단된 경우, 해당 사용자에게 발송된 것으로 가정하고 이후 Campaign의 우선순위를 그에 따라 지정합니다.
+메시지가 우선순위가 지정되면 Braze는 원래 스케줄된 시간에 발송된 것으로 가정합니다. 일반적으로 메시지 우선순위 지정에서는 Liquid 중단을 사용하지 않는 것을 권장합니다. [`abort_message` Liquid 로직]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages)으로 인해 메시지가 중단된 경우, 해당 사용자에게 발송된 것으로 가정하고 이후 Campaign의 우선순위를 그에 따라 지정합니다.
 
 두 개의 메시지가 있다고 가정해 보겠습니다: 메시지 1과 메시지 2. 메시지 1이 이후의 더 높은 우선순위 메시지 2를 위해 중단된 경우, 이것이 메시지 2가 실제로 발송된다는 것을 보장하지는 않습니다. 메시지 2도 다음과 같은 이유로 중단될 수 있습니다:
 
@@ -167,4 +167,4 @@ Campaign을 우선순위 지정에 옵트인하려면 Campaign의 **전달 스�
 
 ### 메시지 우선순위 지정에 특화된 보고서 또는 분석 기능이 있나요? {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-현재 이 기능에 특화된 보고서 또는 분석 기능은 없습니다. 우선순위가 지정된 Campaign의 상태와 성과를 모니터링하려면 기존 [Braze 보고 기능](https://www.braze.com/docs/user_guide/analytics/reporting)을 사용하는 것을 권장합니다.
+현재 이 기능에 특화된 보고서 또는 분석 기능은 없습니다. 우선순위가 지정된 Campaign의 상태와 성능을 모니터링하려면 기존 [Braze 보고 기능]({{site.baseurl}}/user_guide/analytics/reporting)을 사용하는 것을 권장합니다.

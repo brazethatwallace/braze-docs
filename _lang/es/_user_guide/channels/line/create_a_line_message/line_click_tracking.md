@@ -32,7 +32,7 @@ Para configurar el seguimiento de clics en un mensaje de texto:
 
 1. Arrastra un mensaje de **Text** al creador de mensajes y añade una URL al campo de texto.
 
-![Creador de mensajes de LINE con un mensaje de texto que contiene una URL larga: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![Creador de mensajes de LINE con un mensaje de texto que contiene una URL larga.]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. Ve a la pestaña **Settings** y confirma que **Click Tracking** está activado. El seguimiento de clics está activado de forma predeterminada para todos los mensajes nuevos.
@@ -41,7 +41,7 @@ Para configurar el seguimiento de clics en un mensaje de texto:
 Puedes ver vistas previas del enlace acortado en la pestaña **Settings** o **Preview & Test**. El enlace completo se mostrará en el creador de mensajes mientras construyes tu mensaje.
 {% endalert %}
 
-![Pestaña "Settings" del creador de mensajes de LINE con "Click Tracking" activado y un mensaje de texto de vista previa que contiene una URL acortada: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![Pestaña "Settings" del creador de mensajes de LINE con "Click Tracking" activado y un mensaje de texto de vista previa que contiene una URL acortada.]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### Mensajes enriquecidos {#rich-messages}
 
@@ -102,7 +102,7 @@ Braze acorta las URL que son generadas por Liquid, incluso aquellas incluidas en
 
 ## Pruebas {#testing}
 
-Antes de lanzar tu Campaign o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un mensaje de LINE a grupos de prueba de contenido o a un usuario individual.
+Antes de lanzar tu campaña o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un mensaje de LINE a grupos de prueba de contenido o a un usuario individual.
 
 Esta vista previa se actualizará con la personalización relevante y la URL acortada.
 
@@ -141,7 +141,7 @@ Puedes reorientar a los usuarios que han hecho clic en una URL en un mensaje de 
 
 ### ¿Los enlaces que recibo al enviar una prueba son URL reales? {#are-the-links-i-receive-when-test-sending-real-urls}
 
-Sí, se generarán URL reales al enviar una prueba. Sin embargo, la URL exacta enviada en una Campaign lanzada puede diferir de la enviada en un envío de prueba.
+Sí, se generarán URL reales al enviar una prueba. Sin embargo, la URL exacta enviada en una campaña lanzada puede diferir de la enviada en un envío de prueba.
 
 ### ¿Puedo añadir parámetros UTM a una URL antes de que se acorte? {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 

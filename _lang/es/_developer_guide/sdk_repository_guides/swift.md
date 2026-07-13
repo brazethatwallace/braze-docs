@@ -6,9 +6,11 @@ description: "Referencia del README del SDK Swift de Braze reflejada desde GitHu
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guía del repositorio del Swift SDK {#swift-sdk-repository-guide}
+
 ## Acerca del SDK Swift de Braze {#about-the-braze-swift-sdk}
 
-El SDK Swift de Braze te ayuda a integrar las capacidades de mensajería, análisis e interacción con los usuarios de Braze en tu aplicación.
+El SDK Swift de Braze te ayuda a integrar las capacidades de mensajería, análisis y participación de los usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
@@ -16,6 +18,8 @@ Para empezar, consulta los siguientes recursos:
 - [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Inicio rápido {#quickstart}
+
+Los siguientes fragmentos de código muestran la configuración mínima necesaria para añadir el SDK Swift de Braze a tu aplicación.
 
 ``` swift
 // AppDelegate.swift
@@ -47,9 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Consulta [la guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift) para conocer las opciones de integración avanzadas.
+Para obtener más información sobre las opciones de integración avanzadas, consulta la [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift).
 
 ## Compatibilidad de versiones {#version-support}
+
+La siguiente tabla enumera las versiones mínimas compatibles de las herramientas utilizadas por el SDK Swift de Braze.
 
 Herramienta | Versión mínima compatible
 :----|:----
@@ -64,6 +70,8 @@ Xcode|26.0+ (17A324)
 - CocoaPods
 
 ## Bibliotecas {#libraries}
+
+La siguiente tabla describe cada biblioteca del SDK Swift de Braze.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
@@ -103,7 +111,7 @@ Explora nuestro [proyecto de ejemplos](https://github.com/braze-inc/braze-swift-
 
 ## Contacto {#contact}
 
-Si tienes preguntas, ponte en contacto con [support@braze.com](mailto:support@braze.com).
+Si tienes preguntas, ponte en contacto con el soporte técnico de Braze para obtener ayuda.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

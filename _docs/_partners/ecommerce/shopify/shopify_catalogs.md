@@ -16,7 +16,7 @@ In addition to supporting [core Shopify product data](#supported-shopify-catalog
 
 ## Set up your Shopify product sync {#set-up}
 
-If you have already installed your Shopify store, you can still sync your products by following the instructions below. 
+If you have already installed your Shopify store, you can still sync your products by following the instructions in this section. 
 
 ### Step 1: Turn on the sync
 
@@ -224,6 +224,10 @@ Product tags are stored as an array field on each catalog item. To configure pro
 ![Modal to select Shopify product tags, with 15 clothing-related tags selected, including "Women's".]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personalization
+
+{% alert note %}
+When referencing product tags or collections in catalog selections, use only the value itself without the array brackets `[]` or quotes `""` that appear in the catalog data. For example, if a product tag displays as `["Women's"]` in your catalog, write `Women's` in your selection filter.
+{% endalert %}
 
 1. Create a catalog selection that filters for products that have the respective product tag, such as "Women's". You can only use one unique array field within a single catalog selection, and up to 50 products in your catalog selection.
 
@@ -599,6 +603,10 @@ For Shopify collections, you must use the **Collection ID**, which is found in t
 {% endalert %}
 
 ### Personalization
+
+{% alert note %}
+When referencing collection IDs in catalog selections, use only the numeric ID value without the array brackets `[]` that appear in the catalog data. For example, if collection IDs display as `[123456789012, 987654321098]` in your catalog, write just the numeric ID (such as `470645342446`) in your selection filter.
+{% endalert %}
 
 1. Create a catalog selection named "New Women’s Products - In Stock" that is filtered with products that have that collection's ID. You can only use one unique array field within a single catalog selection, and up to 50 products in your collection.
  - You can also create your own custom selections by filtering with the **Collections** field.

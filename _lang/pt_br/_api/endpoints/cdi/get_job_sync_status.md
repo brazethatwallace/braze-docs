@@ -30,7 +30,7 @@ Para usar esse endpoint, você precisará gerar uma chave de API com a permissã
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `integration_id` | Obrigatória | String | ID de integração. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
 ## Parâmetros de consulta {#query-parameters}
 
@@ -39,7 +39,7 @@ Cada chamada a esse endpoint retornará 10 itens. Para uma integração com mais
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `cursor` | Opcional | String | Determina a paginação do status de sincronização. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -96,7 +96,7 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
 | `partial` | Algumas linhas não puderam ser sincronizadas devido a erros. |
 | `error` | Nenhuma linha foi sincronizada. |
 | `config_error` | Houve um erro na configuração da integração. Verifique sua configuração de integração. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example success response" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo de resposta bem-sucedida" }
 
 ## Solução de problemas {#troubleshooting}
 
@@ -106,8 +106,8 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | --- | --- |
 | `400 Invalid cursor` | Verifique se o `cursor` é válido. |
 | `400 Invalid integration ID` | Verifique se o `integration_id` é válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
-Para códigos de status adicionais e mensagens de erro associadas, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para códigos de status adicionais e mensagens de erro associadas, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

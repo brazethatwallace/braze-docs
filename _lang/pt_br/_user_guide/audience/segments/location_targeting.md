@@ -51,6 +51,6 @@ Para regiões poligonais, você pode designar com mais precisão quais áreas de
 
 Combinar o suporte existente a beacons ou geofences com nossos recursos de direcionamento e envio de mensagens fornece mais informações sobre as ações físicas dos seus usuários, para que você possa enviar mensagens de acordo. Você pode aproveitar o monitoramento de localização com alguns dos nossos parceiros:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

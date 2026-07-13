@@ -29,7 +29,7 @@ Use os nomes de campo do perfil de usuário da Braze (listados a seguir ou qualq
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean),
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -48,15 +48,15 @@ Use os nomes de campo do perfil de usuário da Braze (listados a seguir ou qualq
 }
 ```
 
-- [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Alias do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+- [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Alias do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 
 {% alert note %}
 Para atributos personalizados de array regulares, use `add` e `remove` (sem `$`).
 
 Para array de objetos (atributos personalizados aninhados), use `$add`, `$remove` e `$update` nas cargas úteis de solicitações `/users/track`. Esses operadores aplicam alterações no nível do objeto por meio da correspondência de identificadores (`$identifier_key` e `$identifier_value`) e suportam atualizações in-place com `$new_object`.
 
-Use esse formato quando precisar adicionar, remover ou atualizar objetos dentro de um array existente, preservando o restante do estado do array. Para exemplos completos de solicitações, consulte [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) e [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Use esse formato quando precisar adicionar, remover ou atualizar objetos dentro de um array existente, preservando o restante do estado do array. Para exemplos completos de solicitações, consulte [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example) e [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example).
 {% endalert %}
 
 Para remover uma atribuição de perfil, defina-a como `null`. Alguns campos, como `external_id` e `user_alias`, não podem ser removidos depois de serem adicionados a um perfil de usuário.
@@ -67,7 +67,7 @@ A menos que você esteja realizando uma [importação de token por push anônimo
 
 Tenha em mente o seguinte ao usar identificadores:
 
-- **`external_id` e `user_alias` são mutuamente exclusivos.** Incluir ambos no mesmo objeto de atributos de usuário retorna um erro. Para adicionar um alias a um usuário que já possui um `external_id`, use o [endpoint `/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias/).
+- **`external_id` e `user_alias` são mutuamente exclusivos.** Incluir ambos no mesmo objeto de atributos de usuário retorna um erro. Para adicionar um alias a um usuário que já possui um `external_id`, use o [endpoint `/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias).
 - **`email` tem precedência sobre `phone`.** Se ambos `email` e `phone` forem incluídos no mesmo objeto, a Braze usa `email` como o identificador. Isso significa que os atributos são aplicados ao perfil de usuário associado a esse endereço de e-mail, mesmo que o número de telefone pertença a um perfil diferente.
 
 {% alert important %}
@@ -110,18 +110,18 @@ Os seguintes tipos de dados podem ser armazenados como um atributo personalizado
 
 | Tipo de dados | Notas |
 | --- | --- |
-| Matrizes | Há suporte para matrizes de atributos personalizados. Quando você adiciona um elemento, ele é anexado ao final do array. Se o elemento já existir, ele é movido de sua posição atual para o final.<br><br>Apenas valores únicos são armazenados. Por exemplo, importar `['hotdog','hotdog','hotdog','pizza']` resulta em `['hotdog', 'pizza']`.<br><br>Você pode definir um array diretamente (por exemplo, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), adicionar a um array existente com `"my_array_custom_attribute" : { "add" : ["Value3"] }` ou remover valores com `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>O número máximo de elementos padrão em um array é 500. Você pode atualizar o número máximo de arrays no dashboard da Braze, em **Configurações de dados** > **Atributos personalizados**. Para saber mais, consulte [Matrizes]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Vetor de objetos | Use um array de objetos para definir uma lista de objetos onde cada objeto contém um conjunto de atributos. Use este tipo para armazenar múltiplos conjuntos de dados relacionados a um usuário, como estadias em hotéis, histórico de compras ou preferências. <br><br>Por exemplo, defina um atributo personalizado chamado `hotel_stays` em um perfil de usuário como um array onde cada objeto representa uma estadia separada, com atributos como `hotel_name`, `check_in_date` e `nights_stayed`.<br><br>Arrays de objetos não possuem limite no número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o array exceda esse limite, a Braze descarta a atualização e o atributo permanece inalterado.<br><br>Para cargas úteis de `/users/track` e SDK, use `$add`, `$remove` e `$update` para operações de array de objetos. Use `add` e `remove` (sem `$`) para atributos personalizados de array regulares que contêm valores escalares. Para mais detalhes, consulte [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) e [Exemplo de array de objetos](#array-of-objects-example). |
+| Matrizes | Há suporte para matrizes de atributos personalizados. Quando você adiciona um elemento, ele é anexado ao final do array. Se o elemento já existir, ele é movido de sua posição atual para o final.<br><br>Apenas valores únicos são armazenados. Por exemplo, importar `['hotdog','hotdog','hotdog','pizza']` resulta em `['hotdog', 'pizza']`.<br><br>Você pode definir um array diretamente (por exemplo, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), adicionar a um array existente com `"my_array_custom_attribute" : { "add" : ["Value3"] }` ou remover valores com `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>O número máximo de elementos padrão em um array é 500. Você pode atualizar o número máximo de arrays no dashboard da Braze, em **Configurações de dados** > **Atributos personalizados**. Para saber mais, consulte [Matrizes]({{site.baseurl}}/developer_guide/analytics#arrays). |
+| Vetor de objetos | Use um array de objetos para definir uma lista de objetos onde cada objeto contém um conjunto de atributos. Use este tipo para armazenar múltiplos conjuntos de dados relacionados a um usuário, como estadias em hotéis, histórico de compras ou preferências. <br><br>Por exemplo, defina um atributo personalizado chamado `hotel_stays` em um perfil de usuário como um array onde cada objeto representa uma estadia separada, com atributos como `hotel_name`, `check_in_date` e `nights_stayed`.<br><br>Arrays de objetos não possuem limite no número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o array exceda esse limite, a Braze descarta a atualização e o atributo permanece inalterado.<br><br>Para cargas úteis de `/users/track` e SDK, use `$add`, `$remove` e `$update` para operações de array de objetos. Use `add` e `remove` (sem `$`) para atributos personalizados de array regulares que contêm valores escalares. Para mais detalhes, consulte [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example), [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example) e [Exemplo de array de objetos](#array-of-objects-example). |
 | Booleanos | `true` ou `false` |
 | Datas | Armazene datas no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (recomendado) ou em qualquer um dos seguintes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Note que "T" é um designador de tempo, não um espaço reservado, e não deve ser alterado ou removido. <br><br>Valores de data que não correspondem a nenhum dos formatos listados são armazenados como strings no perfil do usuário em vez do tipo de dados Time. Isso significa que filtros de segmentação baseados em tempo (como "antes", "depois" ou "nos últimos X dias") não funcionam para esses atributos. Por exemplo, `Mar 26 2026 06:12 PM +00:00` é armazenado como string porque não corresponde a um formato suportado. Para evitar isso, use o formato ISO 8601 (como `2026-03-26T18:12:00Z`). <br><br>Atributos de tempo sem fuso horário são definidos como meia-noite UTC por padrão (e são formatados no dashboard como o equivalente à meia-noite UTC no fuso horário da empresa). Para especificar um fuso horário, adicione um deslocamento UTC ao timestamp (por exemplo, `2024-11-10T18:00:00-05:00` para EST). Se o deslocamento de fuso horário estiver ausente ou formatado incorretamente, o valor será definido como UTC por padrão. <br><br>Os horários são exibidos no dashboard no fuso horário da sua empresa. Por exemplo, `2024-11-10T18:00:00-05:00` (18:00 EST) apareceria como o horário equivalente no fuso horário configurado da sua empresa. <br><br>Eventos com timestamps no futuro são definidos como o horário atual por padrão. <br><br>Para atributos personalizados regulares, se o ano for menor que 0 ou maior que 3000, a Braze armazena o valor como uma string no perfil do usuário. |
 | Floats | Os atributos personalizados float são números positivos ou negativos com um ponto decimal. Por exemplo, você pode usar floats para armazenar saldos de contas ou classificações de usuários para produtos ou serviços. |
 | Inteiros | Você pode incrementar atributos personalizados inteiros atribuindo um objeto com o campo "inc" e a quantidade a ser adicionada. <br><br>Exemplo: `"my_custom_attribute_2" : {"inc" : int_value},`|
-| Atributos personalizados aninhados | Os atributos personalizados aninhados definem um conjunto de atributos como uma propriedade de outro atributo. Quando você define um objeto de atributo personalizado, você adiciona um conjunto de atributos a esse objeto. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
+| Atributos personalizados aninhados | Os atributos personalizados aninhados definem um conjunto de atributos como uma propriedade de outro atributo. Quando você define um objeto de atributo personalizado, você adiciona um conjunto de atributos a esse objeto. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). |
 | Strings | Os atributos personalizados de string são sequências de caracteres usadas para armazenar dados de texto. Por exemplo, é possível usar strings para armazenar nomes e sobrenomes, endereços de e-mail ou preferências. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de dados de atributos personalizados" }
 
 {% alert tip %}
-Para orientações sobre quando usar um evento personalizado versus um atributo personalizado, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) e [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Para orientações sobre quando usar um evento personalizado versus um atributo personalizado, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) e [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 {% endalert %}
 
 ##### Exemplo de array de objetos {#array-of-objects-example}
@@ -135,7 +135,7 @@ Esse array de objetos permite que você crie segmentos com base em critérios es
 ]}
 ```
 
-Para exemplos de array de objetos que usam `$add`, `$remove` e `$update`, consulte [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) e [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Para exemplos de array de objetos que usam `$add`, `$remove` e `$update`, consulte [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example) e [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example).
 
 #### Campos de perfil de usuário da Braze {#braze-user-profile-fields}
 
@@ -144,7 +144,7 @@ Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas
 {% endalert %}
 
 {% alert tip %}
-Para uma referência de atributos padrão voltada ao cliente, organizada por categoria e com orientações para SDK, API, CSV e Ingestão de dados na nuvem, consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
+Para uma referência de atributos padrão voltada ao cliente, organizada por categoria e com orientações para SDK, API, CSV e Ingestão de dados na nuvem, consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes).
 {% endalert %}
 
 | Campo de perfil do usuário | Especificação do tipo de dados |
@@ -166,10 +166,10 @@ Para uma referência de atributos padrão voltada ao cliente, organizada por cat
 | first_name | (string) |
 | gender | (string) "M", "F", "O" (outro), "N" (não aplicável), "P" (prefere não dizer) ou nil (desconhecido). |
 | home_city | (string) |
-| language | (string) Exigimos que o idioma seja passado para a Braze no [padrão ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Para saber os idiomas compatíveis, consulte nossa [lista de idiomas aceitos]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/).<br><br>Definir `language` em um usuário por importação CSV ou API impede que a Braze capture automaticamente essas informações através do SDK. |
+| language | (string) Exigimos que o idioma seja passado para a Braze no [padrão ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Para saber os idiomas compatíveis, consulte nossa [lista de idiomas aceitos]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes).<br><br>Definir `language` em um usuário por importação CSV ou API impede que a Braze capture automaticamente essas informações através do SDK. |
 | last_name | (string) |
 | marked_email_as_spam_at | (string) Data em que o e-mail do usuário foi marcado como spam. Aparece no formato ISO 8601 ou em qualquer um dos seguintes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
-| phone | (string) Recomendamos fornecer números de telefone no formato [E.164](https://en.wikipedia.org/wiki/E.164). Para obter detalhes, consulte [Números de telefone do usuário]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format).|
+| phone | (string) Recomendamos fornecer números de telefone no formato [E.164](https://en.wikipedia.org/wiki/E.164). Para obter detalhes, consulte [Números de telefone do usuário]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format).|
 | push_subscribe | (string) Os valores disponíveis são "opted_in" (registrado explicitamente para receber mensagens push), "unsubscribed" (optou explicitamente por não receber mensagens push) e "subscribed" (nem optou por receber nem por não receber).  |
 | push_tokens | Vetor de objetos com `app_id` e `token` string. Como opção, você pode fornecer um `device_id` para o dispositivo ao qual esse token está associado, por exemplo, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Se um `device_id` não for fornecido, um é gerado aleatoriamente. |
 | subscription_groups | Vetor de objetos com as strings `subscription_group_id` e `subscription_state`, por exemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Os valores disponíveis para `subscription_state` são "subscribed" e "unsubscribed".|
@@ -191,21 +191,21 @@ Authorization: Bearer YOUR-REST-API-KEY
   "attributes" : [
     {
       "external_id" : "user1",
-      "first_name" : "Jon",
+      "first_name" : "Alex",
       "has_profile_picture" : true,
       "dob": "1988-02-14",
       "music_videos_favorited" : { "add" : [ "calvinharris-summer" ], "remove" : ["nickiminaj-anaconda"] }
     },
     {
       "external_id" : "user2",
-      "first_name" : "Jill",
+      "first_name" : "Lee",
       "has_profile_picture" : false,
       "push_tokens": [{"app_id": "Your App Identifier", "token": "abcd", "device_id": "optional_field_value"}]
 
     },
     {
       "user_alias" : { "alias_name" : "device123", "alias_label" : "my_device_identifier"},
-      "first_name" : "Alice",
+      "first_name" : "Yuri",
       "has_profile_picture" : false
     },
     {
@@ -222,7 +222,7 @@ Se você estava enviando notificações por push antes de integrar a Braze, seja
 
 ### Migração automática através do SDK {#automatic-migration-through-sdk}
 
-Depois que você [integrar o SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/), os tokens por push dos seus usuários que optaram por receber são migrados automaticamente na próxima vez que eles abrirem seu app. Até lá, você não pode enviar notificações por push para esses usuários através da Braze.
+Depois que você [integrar o SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration), os tokens por push dos seus usuários que optaram por receber são migrados automaticamente na próxima vez que eles abrirem seu app. Até lá, você não pode enviar notificações por push para esses usuários através da Braze.
 
 Alternativamente, você pode [migrar seus tokens por push manualmente](#manual-migration-through-api), permitindo que você reengaje seus usuários mais rapidamente.
 
@@ -233,16 +233,16 @@ Devido à natureza dos tokens por push da web, certifique-se de considerar o seg
 | Consideração | Informações |
 |----------------------|------------|
 | **Service workers**  | Por padrão, o SDK da Web procura um service worker em `./service-worker` a menos que outra opção seja especificada, como `manageServiceWorkerExternally` ou `serviceWorkerLocation`. Se o seu service worker não estiver configurado corretamente, isso pode levar a tokens por push expirados para seus usuários. |
-| **Tokens expirados**   | Se um usuário não iniciou uma sessão na web dentro de 60 dias, seu token por push expira. Como a Braze não pode migrar tokens por push expirados, você deve enviar um [primer de push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para reengajá-los. |
+| **Tokens expirados**   | Se um usuário não iniciou uma sessão na web dentro de 60 dias, seu token por push expira. Como a Braze não pode migrar tokens por push expirados, você deve enviar um [primer de push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para reengajá-los. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações sobre tokens da web" }
 
 ### Migração manual através da API {#manual-migration-through-api}
 
 A migração manual de token por push é o processo de importação dessas chaves criadas anteriormente para sua plataforma Braze por meio da API.
 
-Migre programaticamente os tokens do iOS (APNs) e do Android (FCM) para sua plataforma usando o [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). É possível migrar tanto usuários identificados (usuários com um ID externo associado) quanto usuários anônimos (usuários sem um ID externo).
+Migre programaticamente os tokens do iOS (APNs) e do Android (FCM) para sua plataforma usando o [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). É possível migrar tanto usuários identificados (usuários com um ID externo associado) quanto usuários anônimos (usuários sem um ID externo).
 
-Especifique o `app_id` do seu app durante a migração do token por push para associar o token por push apropriado ao app apropriado. Cada app (iOS, Android, etc.) tem seu próprio `app_id`, que pode ser encontrado na seção **Identificação** da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Confira se está usando o `app_id` da plataforma correta.
+Especifique o `app_id` do seu app durante a migração do token por push para associar o token por push apropriado ao app apropriado. Cada app (iOS, Android, etc.) tem seu próprio `app_id`, que pode ser encontrado na seção **Identificação** da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Confira se está usando o `app_id` da plataforma correta.
 
 {% alert important %}
 Não é possível migrar tokens por push da web por meio da API. Isso ocorre porque os tokens por push da web não estão em conformidade com o mesmo esquema de outras plataformas.
@@ -293,7 +293,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
     {
       "push_token_import" : true,
-      "email": "braze.test1@testbraze.com",
+      "email": "braze.test1@example.com",
       "country": "US",
       "language": "en",
       "YOUR_CUSTOM_ATTRIBUTE": "YOUR_VALUE",
@@ -304,7 +304,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
     {
       "push_token_import" : true,
-      "email": "braze.test2@testbraze.com",
+      "email": "braze.test2@example.com",
       "country": "US",
       "language": "en",
       "YOUR_CUSTOM_ATTRIBUTE_1": "YOUR_VALUE",
@@ -352,3 +352,9 @@ Você deve ter um receptor para manipular e exibir cargas úteis push. Para noti
 {% alert note %}
 Para alguns provedores de notificações por push, a Braze precisa achatar os pares chave-valor para que possam ser interpretados corretamente. Para achatar pares chave-valor para um app Android específico, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Como encontrar usuários tratados como spam ou bloqueados para envio de mensagens? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+A Braze não fornece uma lista de spam dedicada no dashboard. A Braze bloqueia usuários individuais com mais de cinco milhões de sessões ("usuários fictícios") e não ingere mais seus eventos de SDK. Se um identificador estiver bloqueado, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pode retornar o erro `"provided external_id is blacklisted and disallowed"`. Essa mensagem é reproduzida literalmente da resposta da API. Para encontrar perfis afetados, crie um [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) com o filtro **Contagem de sessões** definido como **mais de 5.000.000**, exporte o Segment como CSV e verifique os campos do perfil em **Engajamento** > **Pesquisar usuários** ou com o endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier).

@@ -24,7 +24,7 @@ With engagement reports, you can manually select campaigns and Canvases to inclu
 
 Regardless of the number of campaigns or Canvases you select, up to two CSV files are generated—one for all campaign data and one for all Canvas data. You can access these CSV files from the link embedded inside your report email. Engagement reports are not saved in the Braze dashboard.
 
-Certain data is aggregated at the campaign or Canvas level versus at the individual campaign variant or Canvas step level. If you [delete a Canvas step after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details), this will also remove the data from engagement reports.
+Certain data is aggregated at the campaign or Canvas level versus at the individual campaign variant or Canvas step level. If you [delete a Canvas step after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details), this will also remove the data from engagement reports.
 
 {% alert tip %}
 You can re-run the report to generate updated statistics.
@@ -51,7 +51,7 @@ This option gives you the freedom to choose whichever campaigns or Canvases you 
 
 #### Automatically select campaigns or Canvases
 
-This option lets you automatically include all messages that include a specific [tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/). You can target messages that have any one or all of the tags listed. This option is useful if you are setting up recurring reports and you regularly tag your engagement messages.
+This option lets you automatically include all messages that include a specific [tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). You can target messages that have any one or all of the tags listed. This option is useful if you are setting up recurring reports and you regularly tag your engagement messages.
 
 {% alert important %}
 The tags must match at least one campaign or Canvas for a report to generate. If you use **Automatically select campaigns and Canvases based on specific rules** and see an error, confirm that at least one campaign or Canvas matches your tags and other filters (for example, when you require all listed tags, every matching message must have every tag).
@@ -63,7 +63,7 @@ The **Add Stats** step shows you statistics for the types of campaigns or Canvas
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
-Engagement reports aggregate data per campaign or Canvas, not at the workspace level. To monitor total send or impression volume across all active campaigns and Canvases, such as per-channel sends and impressions across an entire workspace, use [Report Builder]({{site.baseurl}}/report_builder/).
+Engagement reports aggregate data per campaign or Canvas, not at the workspace level. To monitor total send or impression volume across all active campaigns and Canvases, such as per-channel sends and impressions across an entire workspace, use [Report Builder]({{site.baseurl}}/report_builder).
 
 {% alert note %}
 *Sends to Carrier* is deprecated, but will continue to be supported for users who already have it.
@@ -131,6 +131,21 @@ The report contains all statistics selected in the [Add Stats](#add-statistics-t
 
 ## Troubleshooting
 
+### Engagement report metrics differ from the Email Performance Dashboard
+
+Engagement reports and the [Email Performance Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/) use the same email metric definitions. Both attribute opens and clicks to the day each event **occurred**, and both calculate *Unique Opens* and *Unique Clicks* as seven-day unique counts per day that are summed across your selected date range. For definitions, see [Email metrics]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics) and [How metrics are calculated]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#how-metrics-are-calculated) on the channel performance dashboards page.
+
+If totals still differ for the same campaigns and period, check the following:
+
+| Check | Why it matters |
+| --- | --- |
+| Date range and time zone | Both surfaces must cover the same calendar days in the same time zone. |
+| Campaign or Canvas selection | The Email Performance Dashboard aggregates email activity across the workspace. An engagement report includes only the campaigns or Canvases you selected. |
+| Daily rows versus report totals | If **Data Display** splits the export into daily rows, sum those rows to compare against dashboard totals for the same range. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Checks when engagement report email metrics differ from the Email Performance Dashboard" }
+
+Differences are more common when engagement report figures are compared to **Campaign** or **Canvas** analytics instead of the Email Performance Dashboard. Campaign and Canvas pages can surface send-date metrics (for example, sends or conversions attributed to the send date) alongside event-date opens and clicks. See [Engagement report doesn't match metrics from the Canvas or campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
+
 ### Engagement report doesn't match metrics from the Canvas or campaign
 
 #### Mismatched time range
@@ -145,7 +160,7 @@ If you want rows aggregated by entire campaign or Canvas instead of daily, weekl
 
 #### Duplicate button clicks in HTML in-app messages
 
-If you use HTML in-app messages and **Body clicks** look high in the engagement report, you may be firing click logging twice—for example by calling `brazeBridge.logClick()` for a generic body click and also `brazeBridge.logClick('body click')` (or another ID) on the same interaction. Search your markup for `brazeBridge.logClick(` and align with one pattern per control. For recommended usage, see [Button tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+If you use HTML in-app messages and **Body clicks** look high in the engagement report, you may be firing click logging twice—for example by calling `brazeBridge.logClick()` for a generic body click and also `brazeBridge.logClick('body click')` (or another ID) on the same interaction. Search your markup for `brazeBridge.logClick(` and align with one pattern per control. For recommended usage, see [Button tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
 
 #### Broken links in emailed engagement reports
 

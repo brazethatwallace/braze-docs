@@ -44,7 +44,7 @@ description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 에�
 
 #### 유효하지 않은 전화번호 {#invalid-phone-numbers}
 
-사용자가 허용되지 않는 특수 문자가 포함된 전화번호를 입력하면 커스터마이즈할 수 없는 일반 오류 표시가 나타나며 양식을 제출할 수 없습니다. **Preview & Test** 탭과 테스트 기기에서 오류 동작을 확인할 수 있습니다. [Braze가 전화번호를 포맷하는 방법]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#importing-phone-numbers)에 대해 알아보려면 이 문서를 참조하세요.
+사용자가 허용되지 않는 특수 문자가 포함된 전화번호를 입력하면 커스터마이즈할 수 없는 일반 오류 표시가 나타나며 양식을 제출할 수 없습니다. **Preview & Test** 탭과 테스트 기기에서 오류 동작을 확인할 수 있습니다. [Braze가 전화번호를 포맷하는 방법]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers)에 대해 알아보려면 이 문서를 참조하세요.
 
 ### 4단계: 면책 조항 문구 추가(SMS 및 RCS 가입 양식용) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
@@ -62,11 +62,11 @@ SMS 및 RCS 가입 양식의 경우, 발송할 SMS 또는 RCS의 유형을 명�
 이 설명서는 법적 조언을 제공하기 위한 것이 아니며, 법적 조언으로 전적으로 의존해서는 안 됩니다.
 {% endalert %}
 
-SMS 및 RCS 컴플라이언스에 대한 자세한 내용은 [SMS, MMS, RCS에 대한 법률 및 규정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)을 참조하세요.
+SMS 및 RCS 컴플라이언스에 대한 자세한 내용은 [SMS, MMS, RCS에 대한 법률 및 규정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)을 참조하세요.
 
 ### 5단계: 메시지 스타일 지정 {#step-5-style-your-message}
 
-드래그 앤 드롭 [인앱 메시지 구성요소]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)를 사용하여 메시지의 모양과 느낌을 커스터마이즈하세요.
+드래그 앤 드롭 [인앱 메시지 구성요소]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)를 사용하여 메시지의 모양과 느낌을 커스터마이즈하세요.
 
 ## 결과 분석 {#analyzing-the-results}
 

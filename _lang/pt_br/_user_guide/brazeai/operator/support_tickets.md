@@ -5,29 +5,29 @@ page_order: 3
 description: "Saiba como abrir tickets de suporte diretamente pelo BrazeAI Operator sem sair do dashboard da Braze."
 ---
 
-# Abrir tickets de suporte com o BrazeAI Operator
+# Abrir tickets de suporte com o BrazeAI Operator {#file-support-tickets-with-brazeai-operator}
 
 > Saiba como abrir tickets de suporte diretamente pelo BrazeAI Operator<sup>TM</sup> sem sair do dashboard da Braze.
 
-## Como abrir um ticket
+## Como abrir um ticket {#how-to-file-a-ticket}
 
-1. Faça uma pergunta ao Operator e selecione <i class="fa-regular fa-circle-question"></i> **File a support ticket** (ou peça ao Operator para abrir um).
+1. Faça uma pergunta ao Operator e selecione <i class="fa-regular fa-circle-question"></i> **Contact Support** (ou peça ao Operator para abrir um).
 2. Preencha o título e a descrição do problema.
 3. Revise os anexos e o contexto sugeridos para inclusão.
 4. Revise e selecione **Submit**.
 
-## Contexto incluído automaticamente
+## Contexto incluído automaticamente {#auto-included-context}
 
 Ao abrir um ticket pelo Operator, o seguinte contexto é incluído automaticamente:
 
 - Mensagens recentes da sessão de chat com o Operator
 - Contexto da página ativa quando o Operator foi aberto
 - Nome do espaço de trabalho
-- Registros e informações da sessão relevantes
+- Registros e detalhes da sessão relevantes
 
 Você pode adicionar contexto adicional manualmente usando o campo de texto ou anexando arquivos.
 
-## Dicas para uma resolução mais rápida
+## Dicas para uma resolução mais rápida {#tips-for-faster-resolution}
 
 - Adicione uma descrição detalhada das etapas para reproduzir o problema.
 - Inclua mensagens de erro relevantes ou comportamentos inesperados.

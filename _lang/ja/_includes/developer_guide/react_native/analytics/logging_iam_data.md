@@ -1,10 +1,10 @@
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
-## ロギングの方法 {#methods-for-logging}
+## ロギングのメソッド {#methods-for-logging}
 
 これらのメソッドを使用するには、`BrazeInAppMessage` インスタンスを渡して分析をログに記録し、アクションを実行します。
 
-| 方法                                                    | 説明                                                                           |
+| メソッド                                                    | 説明                                                                           |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `logInAppMessageClicked(inAppMessage)`                    | 提供されたアプリ内メッセージデータのクリックを記録します。                                    |
 | `logInAppMessageImpression(inAppMessage)`                 | 提供されたアプリ内メッセージデータのインプレッションを記録します。                              |
@@ -12,7 +12,7 @@
 | `hideCurrentInAppMessage()`                               | 現在表示されているアプリ内メッセージを閉じます。                                     |
 | `performInAppMessageAction(inAppMessage)`                 | アプリ内メッセージのアクションを実行します。                                            |
 | `performInAppMessageButtonAction(inAppMessage, buttonId)` | アプリ内メッセージボタンのアクションを実行します。                                     |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Methods for logging" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ロギングのメソッド" }
 
 ## メッセージデータの処理 {#handling-message-data}
 
@@ -58,9 +58,9 @@ Braze.subscribeToInAppMessage(false, (event) => {
 {% subtab Android %}
 [カスタムマネージャーリスナー]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)に関するAndroidの記事で説明されているように、`IInAppMessageManagerListener` を実装します。`beforeInAppMessageDisplayed` 実装では、`inAppMessage` データにアクセスしてJavaScriptレイヤーに送信し、戻り値に基づいてネイティブメッセージを表示するかどうかを決定できます。
 
-これらの値の詳細については、[Androidのドキュメント]({{site.baseurl}}/developer_guide/in_app_messages/)を参照してください。
+これらの値の詳細については、[Androidのドキュメント]({{site.baseurl}}/developer_guide/in_app_messages)を参照してください。
 
-`````````java
+```java
 // In-app messaging
 @Override
 public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMessage) {
@@ -88,7 +88,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 
 これらの値の詳細については、[iOSのドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/)を参照してください。
 
-`````````objc
+```objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui
                             displayChoiceForMessage:(BRZInAppMessageRaw *)message {
   // Convert the message to a JavaScript representation.
@@ -113,7 +113,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 `BrazeUI` はObjective-CまたはSwiftでのみインポートできます。Objective-C++を使用している場合は、これを別のファイルで処理する必要があります。
 {% endalert %}
 
-`````````objc
+```objc
 @import BrazeUI;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -128,7 +128,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 
 ネイティブiOSレイヤーでアプリ内メッセージの表示を完全にカスタマイズしたい場合は、[`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルに準拠し、以下のサンプルに従ってカスタムプレゼンターを割り当てます。
 
-`````````objc
+```objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:apiKey endpoint:endpoint];
 Braze *braze = [BrazeReactBridge initBraze:configuration];
 braze.inAppMessagePresenter = [[MyCustomPresenter alloc] init];

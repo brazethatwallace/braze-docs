@@ -4,7 +4,7 @@
 
 There are many advanced settings available for FireOS push notifications sent through the Braze dashboard. This article will describe these features and how to use them successfully.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze FireOS push composer advanced settings panel.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### Time to live (TTL) {#ttl}
 

@@ -11,29 +11,29 @@ channel: push
 
 > Es gibt viele Arten von Push-Benachrichtigungen, die Sie nutzen können, um mit Ihren Kund:innen zu interagieren. Die meisten dieser Einstellungen können Sie in Ihren Push-Campaigns konfigurieren, einige erfordern jedoch Backend-Konfigurationen, wie in den Beschreibungen angegeben.
 
-## Standard-Push
+## Standard-Push {#standard-push}
 
 Die universelle Push-Nachricht. Diese erscheinen auf dem Gerät Ihrer Nutzer:innen mit einem Benachrichtigungston und einer Nachricht, die eingeblendet wird oder in einer Benachrichtigungsleiste bzw. einem Stack erscheint.
 
 **Unterstützt auf:** Web, Android, iOS
 
-Weitere Informationen finden Sie unter [Push-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+Weitere Informationen finden Sie unter [Push-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
-## Web-Push
+## Web-Push {#web-push}
 
 Diese Push-Nachrichten erscheinen in Web-Apps oder Browsern. Sie erfordern eine Berechtigung, um die Kund:innen zu erreichen. Web-Push funktioniert nicht, wenn Nutzer:innen einen versteckten Browser verwenden.
 
 **Unterstützt auf:** Web
 
-Weitere Informationen finden Sie unter [Web-Push-Benachrichtigungen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/).
+Weitere Informationen finden Sie unter [Web-Push-Benachrichtigungen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web).
 
-## Push-Primer-Campaigns
+## Push-Primer-Campaigns {#push-primer-campaigns}
 
 In-App-Nachricht-Campaigns, die dazu dienen, ein explizites Push-Opt-in- oder Opt-out-Signal von Nutzer:innen zu erhalten. Durch den Primer können Sie vermeiden, Benachrichtigungen an Nutzer:innen zu senden, die Push wahrscheinlich über die Geräteeinstellungen deaktivieren würden. Für iOS sind Push-Campaigns relevant, da Vordergrund-Push-Benachrichtigungen (z. B. Benachrichtigungen, die das Gerät aufwecken) erst aktiviert werden, wenn Nutzer:innen explizit dem nativen iOS-Push-Prompt zustimmen.
 
 **Unterstützt auf:** Web, Android, iOS
 
-Weitere Informationen finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Weitere Informationen finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Push Stories
 
@@ -41,7 +41,7 @@ Push Stories sind immersive Nachrichten, die Ihre Nutzer:innen in Form eines Kar
 
 **Unterstützt auf:** iOS, Android
 
-Weitere Informationen finden Sie unter [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/).
+Weitere Informationen finden Sie unter [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories).
 
 ## Push mit Aktions-Buttons {#push-with-action-buttons}
 
@@ -49,7 +49,7 @@ Push mit Aktions-Buttons sind Nachrichten, mit denen Sie Ihren Nutzer:innen Opti
 
 **Unterstützt auf:** Web, Android, iOS
 
-Weitere Informationen finden Sie unter [Push-Aktions-Buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/).
+Weitere Informationen finden Sie unter [Push-Aktions-Buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons).
 
 ## Rich-Push-Benachrichtigungen {#rich-push-notifications}
 
@@ -57,7 +57,7 @@ Rich-Push-Benachrichtigungen sind Benachrichtigungen mit immersiven Bildern und 
 
 **Unterstützt auf:** iOS, Android
 
-Weitere Informationen finden Sie unter [Rich-Benachrichtigungen für iOS erstellen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/) oder [Rich-Benachrichtigungen für Android erstellen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/).
+Weitere Informationen finden Sie unter [Rich-Benachrichtigungen für iOS erstellen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications) oder [Rich-Benachrichtigungen für Android erstellen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications).
 
 ## Vorläufige Push-Benachrichtigungen für iOS {#provisional-push-notifications-for-ios}
 
@@ -65,7 +65,7 @@ Von Apple in iOS 12 eingeführt, erfolgt die vorläufige Autorisierung automatis
 
 **Unterstützt auf:** iOS
 
-Weitere Informationen finden Sie unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push).
+Weitere Informationen finden Sie unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push).
 
 ## HTML-Push-Benachrichtigungen {#html-push-notifications}
 
@@ -79,7 +79,7 @@ Benachrichtigungs-IDs und Kanal-IDs ermöglichen es Ihnen, Push-Benachrichtigung
 
 **Unterstützt auf:** iOS, Android
 
-Weitere Informationen finden Sie unter [Benachrichtigungskanäle]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/) und [Erweiterte Push-Campaign-Einstellungen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/).
+Weitere Informationen finden Sie unter [Benachrichtigungskanäle]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) und [Erweiterte Push-Campaign-Einstellungen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings).
 
 ## Hintergrund- oder stille Push-Benachrichtigungen {#background-push-notifications}
 
@@ -87,7 +87,7 @@ Push-Benachrichtigungen, die nicht auf dem Gerät angezeigt werden. Sie werden i
 
 **Unterstützt auf:** Web, Android, iOS
 
-Weitere Informationen finden Sie unter [Stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent/).
+Weitere Informationen finden Sie unter [Stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent).
 
 ## Wearable-Push-Benachrichtigungen {#wearable-push-notifications}
 

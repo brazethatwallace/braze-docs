@@ -10,7 +10,7 @@ description: "이 문서에서는 예약된 메시지 업데이트 Braze 엔드�
 ---
 {% api %}
 # 예약된 메시지 업데이트 {#update-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/update
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ description: "이 문서에서는 예약된 메시지 업데이트 Braze 엔드�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `messages.schedule.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `messages.schedule.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -51,8 +51,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | 필수 | 문자열 | 업데이트할 `schedule_id`(스케줄 생성 응답에서 얻은 값)입니다. |
-| `schedule` | 선택 사항 | 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object/)를 참조하세요. |
-| `messages` | 선택 사항 | 오브젝트 | [사용 가능한 메시징 오브젝트]({{site.baseurl}}/api/objects_filters/#messaging-objects)를 참조하세요. |
+| `schedule` | 선택 사항 | 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object)를 참조하세요. |
+| `messages` | 선택 사항 | 오브젝트 | [사용 가능한 메시징 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}

@@ -12,7 +12,7 @@ description: "이 문서에서는 대량 사용자 추적 엔드포인트에 대
 ---
 {% api %}
 # 사용자 생성 및 업데이트 (대량) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -24,7 +24,7 @@ description: "이 문서에서는 대량 사용자 추적 엔드포인트에 대
 
 ## 이 엔드포인트를 사용해야 하는 경우 {#when-to-use-this-endpoint}
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)와 마찬가지로, 이 엔드포인트를 사용하여 사용자 프로필을 업데이트할 수 있습니다. 이 엔드포인트는 대량 업데이트에 더 적합합니다:
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)와 마찬가지로, 이 엔드포인트를 사용하여 사용자 프로필을 업데이트할 수 있습니다. 이 엔드포인트는 대량 업데이트에 더 적합합니다:
 
 - **더 큰 요청:** 요청당 최대 1,000명의 사용자를 전송할 수 있으므로, 대규모 백필 및 동기화 시 더 적은 요청으로 처리할 수 있습니다.
 - **우선순위 지정:** 트래픽이 많은 상황에서 `/users/track` 요청이 `/users/track/bulk` 요청보다 우선적으로 처리됩니다.
@@ -37,9 +37,9 @@ description: "이 문서에서는 대량 사용자 추적 엔드포인트에 대
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.track.bulk` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.track.bulk` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
-방화벽 뒤에서 서버 간 호출을 수행하는 경우, Braze REST 엔드포인트(예: `rest.iad-01.braze.com`)를 허용 목록에 추가해야 할 수 있습니다. 자세한 내용은 [API 엔드포인트]({{site.baseurl}}/api/basics/#api-definitions)를 참조하세요.
+방화벽 뒤에서 서버 간 호출을 수행하는 경우, Braze REST 엔드포인트(예: `rest.iad-01.braze.com`)를 허용 목록에 추가해야 할 수 있습니다. 자세한 내용은 [API 엔드포인트]({{site.baseurl}}/api/basics#api-definitions)를 참조하세요.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -76,9 +76,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --- | --- | --- | --- |
-| `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/)를 참조하세요 |
-| `events` | 선택 사항 | 이벤트 오브젝트 배열 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/)를 참조하세요 |
-| `purchases` | 선택 사항 | 구매 오브젝트 배열 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 참조하세요 |
+| `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 참조하세요 |
+| `events` | 선택 사항 | 이벤트 오브젝트 배열 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object)를 참조하세요 |
+| `purchases` | 선택 사항 | 구매 오브젝트 배열 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 참조하세요 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-requests}
@@ -210,9 +210,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 ### 심각한 오류 응답 코드 {#fatal-error-response-codes}
 
-요청에 심각한 오류가 있을 때 Braze가 반환하는 상태 코드 및 관련 오류 메시지에 대해서는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
+요청에 심각한 오류가 있을 때 Braze가 반환하는 상태 코드 및 관련 오류 메시지에 대해서는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors#fatal-errors)을 참조하세요.
 
-"provided external_id is blacklisted and disallowed" 오류가 발생하면, 요청에 "더미 사용자"가 포함되어 있을 수 있습니다. 자세한 내용은 [스팸 차단]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)을 참조하세요.
+"provided external_id is blacklisted and disallowed" 오류가 발생하면, 요청에 "더미 사용자"가 포함되어 있을 수 있습니다. 자세한 내용은 [스팸 차단]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking)을 참조하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

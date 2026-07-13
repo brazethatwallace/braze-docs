@@ -11,17 +11,17 @@ channel: email
 
 > This article provides answers to some frequently asked questions about emails.
 
-### What happens when an email is sent out, and multiple profiles have the same email address?
+## What happens when an email is sent out, and multiple profiles have the same email address?
 
 If multiple users with matching email addresses are in a segment to receive a campaign, a single user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
 
 **Unique email addresses:** Braze doesn't enforce unique email addresses across profiles. If you rely on a one-to-one relationship between an email address and a profile, monitor for duplicates internally when creating users.
 
-**Deduplication before Liquid:** For sends where Braze deduplicates by email address within one dispatch (for example, scheduled campaigns where multiple segment members with the same address are processed together), that deduplication happens before Liquid runs for the profile chosen to represent that address. If Liquid aborts for that profile (for example with [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)), that address does not receive the message on that dispatch—including profiles already skipped by deduplication. Triggered sends do not apply that same in-dispatch address deduplication; multiple profiles who share an address can all remain eligible in one batch, so this abort behavior does not apply the same way (see the next paragraph).
+**Deduplication before Liquid:** For sends where Braze deduplicates by email address within one dispatch (for example, scheduled campaigns where multiple segment members with the same address are processed together), that deduplication happens before Liquid runs for the profile chosen to represent that address. If Liquid aborts for that profile (for example with [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), that address does not receive the message on that dispatch—including profiles already skipped by deduplication. Triggered sends do not apply that same in-dispatch address deduplication; multiple profiles who share an address can all remain eligible in one batch, so this abort behavior does not apply the same way (see the next paragraph).
 
 If multiple profiles share an email address and one profile unsubscribes, Braze updates other profiles (up to 100) with that address to the same subscription state. This applies to unsubscribes and other changes such as global subscription state and individual subscription group statuses.
 
-**Seed Groups:** For campaigns with [Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups), Braze selects one profile for primary delivery when several profiles share an address. That primary recipient might not be in your Seed Group, even when another profile with the same address is.
+**Seed Groups:** For campaigns with [Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), Braze selects one profile for primary delivery when several profiles share an address. That primary recipient might not be in your Seed Group, even when another profile with the same address is.
 
 The following scenarios can make it seem like a user received an email twice:
 
@@ -36,7 +36,7 @@ Email campaign and Canvas step re-eligibility uses each user's profile—not the
 
 Users are not deduped by email on Canvas entry, so they may not be deduped beyond the first step of a Canvas if they progress at slightly different times due to rate-limited entry. When a user associated with a given email address opens or clicks an email, all user profiles that share that email address are marked as having opened or clicked the campaign.
 
-#### Exception: API-triggered campaigns
+### Exception: API-triggered campaigns
 
 API-triggered campaigns will deduplicate or send deduplicates depending on where the audience is defined. Duplicate emails must be targeted separately in the API call using distinct `user_ids` to receive multiple deliveries. Here are three possible scenarios for API-triggered campaigns:
 
@@ -50,11 +50,11 @@ If you send an API campaign through an API call (excluding API-triggered campaig
 
 #### A/B testing with duplicate email addresses
 
-Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) on email when multiple profiles can share the same email address. Variants are assigned per profile, which can produce more than one message to the same inbox. If you must test in that situation, do not combine a **winning variant** step with [local time zone delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns) in a way that delays selecting the winner—those options together can increase the chance of duplicate sends.
+Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) on email when multiple profiles can share the same email address. Variants are assigned per profile, which can produce more than one message to the same inbox. If you must test in that situation, do not combine a **winning variant** step with [local time zone delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) in a way that delays selecting the winner—those options together can increase the chance of duplicate sends.
 
 #### Canvas and duplicate email addresses
 
-For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. If you need a product change, submit feedback through your Braze team.
+For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### What happens to the subscription state when a user's email address changes to one shared by another user?
 
@@ -66,9 +66,9 @@ No. Updates made to the outbound email settings do not retroactively affect exis
 
 ### What is a "good" email delivery rate?
 
-Typically, the "magic number" is around 98% of messages delivered with a bounce rate no higher than 3%. If your delivery dips below that, there is usually cause for concern.
+Typically, the "magic number" is around 98% of messages delivered with a bounce rate no higher than 3%. If fewer than 98% of messages are delivered, there is usually cause for concern.
 
-However, a rate above 98% can still have deliverability issues. For example, if all your bounces come from a single domain, that is a clear signal of a reputation issue with that provider.
+However, a delivery rate of 98% or higher can still have deliverability issues. For example, if all your bounces come from a single domain, that is a clear signal of a reputation issue with that provider.
 
 Additionally, messages may be getting delivered and ending up in Spam, indicating potentially serious reputation issues. It's important to monitor not just the number of messages being delivered, but also open and click rates to determine whether users are actually seeing the messages in their inboxes. Because providers usually don't report every spam instance, a spam rate of even 1% could be cause for concern and further analysis.
 
@@ -114,7 +114,7 @@ You may see no email opens or clicks if there's a misconfiguration in your track
 
 Certain elements of an email message, such as overly long messages or too many exclamation marks, can trigger email security responses. These responses can affect reporting and IP reputation and lead users to unsubscribe.
 
-For best practices on how to handle these responses, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting/).
+For best practices on how to handle these responses, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Can Braze track unsubscribe links counted toward the "Unsubscribe" metric?
 
@@ -122,7 +122,7 @@ Braze tracks unsubscribe links if the following Liquid is used within emails: {%
 
 ### Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?
 
-If there are more _Unsubscribes_ than users who clicked the unsubscribe link in the email body, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) often explains the gap. List-unsubscribe is an additional unsubscribe path in the email header (not the link in your message body). When a user unsubscribes that way, it counts toward _Unsubscribes_ but does not count as a click on the tracked unsubscribe URL in the body.
+If there are more _Unsubscribes_ than users who clicked the unsubscribe link in the email body, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) often explains the gap. List-unsubscribe is an additional unsubscribe path in the email header (not the link in your message body). When a user unsubscribes that way, it counts toward _Unsubscribes_ but does not count as a click on the tracked unsubscribe URL in the body.
 
 If the total number of clicks on the body unsubscribe link is greater than the number of _Unsubscribes_, users may have clicked the link more than once—for example, if they unsubscribe, resubscribe, and unsubscribe again, email analytics can record multiple clicks in the click breakdown.
 
@@ -149,10 +149,10 @@ Some corporate email security tools (such as Barracuda, Proofpoint, and similar 
 To mitigate this:
 
 - **Recommend recipients allowlist your sending domain:** Work with the affected recipients' IT teams to add your sending domain and Braze tracking domains to their email security allow list.
-- **Use a preference center:** Instead of a direct unsubscribe link, use a [preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions/) that requires user interaction to confirm the unsubscribe action. Security scanners typically won't complete multi-step forms.
+- **Use a preference center:** Instead of a direct unsubscribe link, use a [preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions) that requires user interaction to confirm the unsubscribe action. Security scanners typically won't complete multi-step forms.
 - **Review unsubscribe logs:** Check the `User-Agent` header and IP address in your Currents unsubscribe event data to identify patterns consistent with automated scanning (such as consistent `User-Agent` headers across multiple unsubscribes).
 
-For more details on how server-side scanning can affect email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting/#handling-increases-in-click-rates).
+For more details on how server-side scanning can affect email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
 
 ### Why has my machine open rate changed unexpectedly?
 
@@ -162,7 +162,7 @@ For more details on how server-side scanning can affect email metrics, refer to 
 - Updates to email provider privacy features or bot detection behaviors.
 - Changes in your audience segmentation or targeting.
 
-Machine open percentages are not a reliable measure of actual engagement. For a more accurate view of email performance, focus on *Other Opens* (non-machine opens) and *Unique Clicks*. You can also compare these metrics over time using the [Email Performance Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/).
+Machine open percentages are not a reliable measure of actual engagement. For a more accurate view of email performance, focus on *Other Opens* (non-machine opens) and *Unique Clicks*. You can also compare these metrics over time using the [Email Performance Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance).
 
 ### Why are my deep links not working in Gmail?
 
@@ -170,7 +170,7 @@ Gmail strips all non-HTTP/HTTPS links from email messages. If your deep link use
 
 To work around this:
 
-- **Use Universal Links (iOS) or App Links (Android).** These use standard `https://` URLs that open your app when installed and fall back to a web page otherwise. Refer to [Universal Links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/) for setup instructions.
+- **Use Universal Links (iOS) or App Links (Android).** These use standard `https://` URLs that open your app when installed and fall back to a web page otherwise. Refer to [Universal Links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) for setup instructions.
 - **Use a deep linking provider.** Services like [Branch](https://www.branch.io/) generate HTTP-formatted deep links that are compatible with email clients, including Gmail.
 - **Set up a redirect endpoint.** Host an `https://` endpoint on your server that redirects to your app's custom-scheme URL. Email clients will preserve the `https://` link, and the redirect handles opening the app.
 
@@ -201,7 +201,7 @@ Delivery can look wrong even when Braze behaved as configured. Work through the 
 - **Subscription groups:** the user remained opted in to a group your message targeted even if their global subscription state suggested otherwise.
 - **API or file imports** that updated the user after segmentation but before you expected the change to apply.
 
-Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), campaign or Canvas changelogs, and segment definition. If you still cannot reconcile the send, contact Braze Support with user identifiers, `dispatch_id` (if available), and timestamps.
+Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), campaign or Canvas changelogs, and segment definition. If you still cannot reconcile the send, contact Braze Support with user identifiers, `dispatch_id` (if available), and timestamps.
 
 ### Why hasn't a user received my email message?
 
@@ -222,10 +222,10 @@ Use the following tables to narrow down the cause.
 
 | Possible cause | What to check |
 |---|---|
-| The user wasn't eligible for the campaign or Canvas | Check the **Target Audiences** (for campaigns) or **Target Audience** (for Canvas) [settings]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) to confirm the user met all audience filters, segment criteria, and delivery rules at the time of send. |
-| The message was aborted | Check the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) for abort reasons, such as Liquid errors or missing required fields. |
+| The user wasn't eligible for the campaign or Canvas | Check the **Target Audiences** (for campaigns) or **Target Audience** (for Canvas) [settings]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) to confirm the user met all audience filters, segment criteria, and delivery rules at the time of send. |
+| The message was aborted | Check the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for abort reasons, such as Liquid errors or missing required fields. |
 | The user's email address was invalid or missing | In **User Search**, check the user's profile to verify that a valid email address was on file at the time of send. |
-| The user's email address previously hard bounced | A hard bounce marks the email address as invalid and prevents future sends to that address. Similarly, if a recipient marks your email as spam, Braze sends only transactional emails to that user, not standard campaigns. Check the user's **Engagement** tab in their profile. For more information, see [Unsubscribed email addresses]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) and [Bounces and invalid emails]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
+| The user's email address previously hard bounced | A hard bounce marks the email address as invalid and prevents future sends to that address. Similarly, if a recipient marks your email as spam, Braze sends only transactional emails to that user, not standard campaigns. Check the user's **Engagement** tab in their profile. For more information, see [Unsubscribed email addresses]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) and [Bounces and invalid emails]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
 | The user is unsubscribed from email | Check the user's subscription status under **Contact Settings** on the **Engagement** tab. Braze does not send emails to users who are unsubscribed. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not sent" }
 
@@ -234,7 +234,7 @@ Use the following tables to narrow down the cause.
 | Possible cause | What to check |
 |---|---|
 | The mailbox provider (MBP) was unreachable | A temporary issue prevented the email from reaching the recipient's MBP. This typically resolves itself with retries. Email service providers retry soft bounces for up to 72 hours. |
-| The MBP bounced the email | The recipient's mail server rejected the email. Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) for bounce details. |
+| The MBP bounced the email | The recipient's mail server rejected the email. Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for bounce details. |
 | The MBP silently dropped the email | The MBP accepted the email but didn't display it to the user and didn't return a bounce. This is outside of Braze's control and cannot be detected in Braze logs. |
 | The email went to the spam folder | The MBP identified the message as spam and routed it to the user's spam or junk folder. Ask the user to check their spam folder. |
 | The recipient has custom mail filtering | The user or their IT administrator may have configured mailbox rules that filter, redirect, or delete incoming messages. |
@@ -242,7 +242,21 @@ Use the following tables to narrow down the cause.
 
 ### How can I optimize images in Outlook?
 
-Outlook often uses Microsoft Word–style rendering, which can add a border around images. You can wrap content so it hides in Office clients using standard conditional comments, for example:
+Outlook often uses Microsoft Word rendering rather than standard browser rendering, which can cause images to render incorrectly or add borders around images.
+
+If images display larger than their expected width in Outlook, add the following CSS to the image:
+
+```css
+max-width: 100%;
+```
+
+For example:
+
+```html
+<img src="your-image.png" style="max-width: 100%;" alt="Description">
+```
+
+You can also wrap content so it hides in Outlook desktop using conditional comments:
 
 ```html
 <!--[if !mso]><!-- -->
@@ -250,9 +264,11 @@ Outlook often uses Microsoft Word–style rendering, which can add a border arou
 <!--<![endif]-->
 ```
 
-### Can I use SVG or WEBP images in my email messages?
+### Can I use SVG or WebP images in my email messages?
 
-SVG images won't render in Gmail web or Gmail iOS. WEBP is not consistently supported across clients. Instead, use widely supported formats such as PNG or JPEG so images render reliably.
+SVG images are not recommended for email due to limited support across email clients. Gmail and several other major email providers do not render SVG images, which can result in broken or missing images for recipients. WebP is not consistently supported across clients.
+
+Instead, use widely supported formats such as PNG or JPEG so images render reliably.
 
 ### Can Liquid variables assigned in one part of the message composer be used in another?
 
@@ -260,15 +276,15 @@ No. Each part of the email (subject, body, headers, buttons, and so on) is gener
 
 ### My email template is missing. Where is it?
 
-First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to view templates. To view saved email templates, go to **Content** > **Email**. You can filter templates by status and type (HTML or drag-and-drop).
+First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to view templates. To view saved email templates, go to **Content** > **Email**. You can filter templates by status and type (HTML or drag-and-drop).
 
 ### Do I need to register domains for relay or masked emails?
 
-[Apple’s Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/) requires you to register your sending domains in the Apple Developer Portal to prevent bounces. Google Shielded Email does not require a manual domain registration or allowlisting process.
+[Apple’s Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) requires you to register your sending domains in the Apple Developer Portal to prevent bounces. Google Shielded Email does not require a manual domain registration or allowlisting process.
 
 ### What does the bounce reason `unable to get mx info` or `failed to get IPs from PTR record` mean?
 
-In the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), a bounce reason similar to the following indicates a problem resolving the receiving domain's mail setup (the domain after the `@` in the address), not to Braze message composition:
+In the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), a bounce reason similar to the following indicates a problem resolving the receiving domain's mail setup (the domain after the `@` in the address), not to Braze message composition:
 
 Typical causes include:
 
@@ -282,4 +298,21 @@ Typical causes include:
 - If the address is correct, contact the mailbox owner or IT team for that domain.
 - Ask them to audit MX and related DNS records, including PTR records for their mail servers, with their DNS provider.
 
-Other recipients are usually unaffected. For how soft bounces appear in reporting, see [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce).
+Other recipients are usually unaffected. For how soft bounces appear in reporting, see [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
+
+### Why do I get a spam alert when sending an email from Braze to myself?
+
+If you send a test email from Braze to your own email address and see a spam warning or phishing alert—such as "the sending domain is similar to your company's domain, but we do not recognize it"—this is a common anti-phishing security feature, not an error with your Braze setup.
+
+This alert typically appears when the sending domain of the email matches the recipient domain (for example, both are `@yourcompany.com`). Email security systems flag this because scammers often spoof domains that look similar to a recipient's company domain.
+
+To verify your email is configured correctly:
+
+1. View the original message (raw email headers) in your email client.
+2. Check that SPF, DKIM, and DMARC authentication all pass.
+3. If all three pass, your Braze email sending is configured properly.
+
+To prevent this alert from appearing:
+
+Ask your IT team to allowlist your Braze sending domain and IP addresses in your company's email security services or mail gateway. This tells your security system to trust emails from your Braze sending infrastructure.
+

@@ -23,7 +23,7 @@ tool: Canvas
 
 ### 분할 정의 {#define-your-split}
 
-사용자를 어떻게 분할하시겠습니까? [Segments]({{site.baseurl}}/user_guide/audience/segments/)와 필터를 사용하여 기준을 설정할 수 있습니다. 기본적으로 사용자를 평가한 후 한 단계 또는 다른 단계로 보내는 `true` 또는 `false` 쿼리를 만드는 것입니다. 최소 하나의 Segment 또는 하나의 필터를 사용해야 합니다. Segment와 필터를 모두 사용할 필요는 없습니다.
+사용자를 어떻게 분할하시겠습니까? [Segments]({{site.baseurl}}/user_guide/audience/segments)와 필터를 사용하여 기준을 설정할 수 있습니다. 기본적으로 사용자를 평가한 후 한 단계 또는 다른 단계로 보내는 `true` 또는 `false` 쿼리를 만드는 것입니다. 최소 하나의 Segment 또는 하나의 필터를 사용해야 합니다. Segment와 필터를 모두 사용할 필요는 없습니다.
 
 !["포그라운드 푸시 활성화됨이 true" 필터가 선택된 결정 분할 단계.]({% image_buster /assets/img/define-split-2.png %})
 
@@ -50,4 +50,4 @@ tool: Canvas
 | _진입_ | 해당 단계에 진입한 총 횟수입니다. Canvas에 재자격이 있고 사용자가 결정 분할 단계에 두 번 진입하면 두 번의 진입이 기록됩니다. |
 | _예_ | 지정된 기준을 충족하고 "예" 경로로 진행한 진입 수입니다. |
 | _아니요_ | 지정된 기준을 충족하지 않고 "아니요" 경로로 진행한 진입 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석" }

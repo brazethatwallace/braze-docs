@@ -3,17 +3,17 @@ nav_title: "オブジェクトを識別するためのエイリアス"
 article_title: オブジェクトを識別するためのAPIエイリアス
 page_order: 11
 page_type: reference
-description: "この記事では、オブジェクトの仕様を識別するためのエイリアスについて説明する。"
+description: "この記事では、オブジェクトを識別するためのエイリアスの仕様について説明します。"
 
 ---
 
-# オブジェクトを識別するためのエイリアス
+# オブジェクトを識別するためのエイリアス {#aliases-to-identify-object}
 
-属性 s オブジェクトにフィールドs が含まれるAPI リクエストは、指定されたユーザープロファイルに指定された値で、その名前の属性を作成または更新します。
+属性オブジェクトにフィールドを含むAPIリクエストは、指定されたユーザープロファイルに対して、その名前の属性を指定された値で作成または更新します。
 
-Brazeユーザープロファイルフィールド名（以下にリストされているもの、または[Brazeユーザープロファイルフィールド]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)のセクションにリストされているもの）を使用して、ダッシュボードのユーザープロファイル上のそれらの特別な値を更新するか、独自のカスタム属性データをユーザーに追加します。
+Brazeユーザープロファイルのフィールド名（以下にリストされているもの、または[Brazeユーザープロファイルフィールド]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)のセクションにリストされているもの）を使用して、ダッシュボードのユーザープロファイル上の特別な値を更新するか、独自のカスタム属性データをユーザーに追加します。
 
-## オブジェクト本体
+## オブジェクト本体 {#object-body}
 
 ```json
 {
@@ -32,5 +32,5 @@ Brazeユーザープロファイルフィールド名（以下にリストされ
 }
 ```
 
-- [外部ユーザ ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [ユーザーのエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+- [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)

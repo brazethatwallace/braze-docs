@@ -18,7 +18,7 @@ guide_featured_list:
   - name: Opt-ins und Opt-outs
     link: /docs/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs
     image: /assets/img/braze_icons/toggle-01-left.svg
-  - name: Nutzer:innen benachrichtigen
+  - name: Nutzernachrichten
     link: /docs/user_guide/channels/whatsapp/message_processing/messaging_users
     image: /assets/img/braze_icons/send-01.svg
   - name: Unbekannte Telefonnummern verarbeiten

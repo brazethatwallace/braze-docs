@@ -9,11 +9,11 @@ description: "Aprenda a ler e interpretar a saída de logs verbosos do SDK da Br
 
 > Esta página explica como interpretar a saída de logs verbosos do SDK da Braze. Para cada canal de envio de mensagens, você encontrará as entradas de log principais, o que elas significam e problemas comuns a serem observados.
 
-Antes de começar, certifique-se de que você [ativou o registro verboso]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) e sabe como coletar logs na sua plataforma.
+Antes de começar, certifique-se de que você [ativou o registro verboso]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) e sabe como coletar logs na sua plataforma.
 
 ## Sessões {#sessions}
 
-As sessões são a base da análise de dados e da entrega de mensagens da Braze. Muitos recursos de envio de mensagens — incluindo mensagens no app e Content Cards — dependem de uma sessão válida ser iniciada antes que possam funcionar. Se as sessões não estiverem sendo registradas corretamente, investigue isso primeiro. Para saber mais sobre como ativar o rastreamento de sessões, veja [Etapa 5: Ativar o rastreamento de sessões do usuário]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_step-5-enable-user-session-tracking).
+As sessões são a base da análise de dados e da entrega de mensagens da Braze. Muitos recursos de envio de mensagens — incluindo mensagens no app e Content Cards — dependem de uma sessão válida ser iniciada antes que possam funcionar. Se as sessões não estiverem sendo registradas corretamente, investigue isso primeiro. Para saber mais sobre como ativar o rastreamento de sessões, veja [Etapa 5: Ativar o rastreamento de sessões do usuário]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_step-5-enable-user-session-tracking).
 
 ### Entradas de log principais {#key-log-entries}
 
@@ -525,4 +525,18 @@ Nas cargas úteis de logs verbosos, a Braze usa nomes de eventos abreviados. Aqu
 | `ccc` | Clique em Content Card |
 | `ccd` | Content Card dispensado |
 | `lr` | Local registrado |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abreviações comuns de eventos" }
+
+## Solução de problemas {#troubleshooting}
+
+### Quando um usuário pode ter 0 sessões registradas no perfil? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+Um perfil de usuário pode mostrar 0 sessões quando você importa o usuário pela REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) ou importação por CSV sem os campos **First session** ou **Last session**. As sessões são registradas quando os usuários interagem com o seu app por meio do SDK. Para saber mais, veja [Perfil de usuário com 0 sessões]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
+
+### Discrepâncias de dados ao usar o SDK e a REST API juntos {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+Quando você usa o SDK e a REST API ao mesmo tempo, condições de corrida podem causar discrepâncias nos dados. Depois de chamar `changeUser()`, permita que o SDK envie os dados pendentes antes de fazer chamadas críticas à REST API, evite agrupar atualizações sensíveis ao tempo e considere adicionar um pequeno atraso entre as solicitações do SDK e da API. Para o comportamento de `changeUser()`, veja [Como o changeUser() funciona]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works).
+
+### Dados não chegam à Braze {#data-not-reaching-braze}
+
+Se os dados não estão chegando à Braze, confirme se o seu firewall permite tráfego de saída para os endpoints de API da Braze e provedores de CDN. Execute um teste MTR e use o [Fastly Debug](https://www.fastly-debug.com/) enquanto o problema ocorre. Para saber mais sobre allowlisting e solução de problemas de conectividade, veja [Problemas de conectividade de rede da API]({{site.baseurl}}/api/network_connectivity_issues).

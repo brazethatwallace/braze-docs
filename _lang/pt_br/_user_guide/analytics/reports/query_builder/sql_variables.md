@@ -37,7 +37,7 @@ Substitua o seguinte:
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type` | O tipo de variável predefinido que você deseja usar, como `campaign` ou `catalog_fields`. Para a lista completa, consulte [Tipos de variáveis suportados](#variable-types). |
 | `custom_label` | O rótulo usado para identificar a variável na guia **Variables** do seu Criador de consultas. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add a variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Adicionar uma variável" }
 
 No exemplo a seguir, o número total de usuários entre o primeiro e o último dia de um mês é consultado para uma Campaign. Cada variável receberá um valor na próxima etapa.
 
@@ -183,7 +183,7 @@ Você pode definir o intervalo de datas para qualquer uma das seguintes opções
 | Data de início | Especifica uma data de início | Requer `start_date` |
 | Data de término | Especifica uma data de término | Requer `end_date` |
 | Intervalo de datas | Especifica tanto uma data de início quanto de término | Requer tanto `start_date` quanto `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Date range" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Intervalo de datas" }
 
 Seu Liquid será usado para exibir um calendário dentro do intervalo de datas fornecido:
 
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) ativado. Defina como o ID de análise de dados do Segment, que corresponde aos IDs armazenados na coluna `user_segment_membership_ids` nas tabelas onde essa coluna está disponível.
+Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado. Defina como o ID de análise de dados do Segment, que corresponde aos IDs armazenados na coluna `user_segment_membership_ids` nas tabelas onde essa coluna está disponível.
 
 {% tabs %}
 {% tab uso %}

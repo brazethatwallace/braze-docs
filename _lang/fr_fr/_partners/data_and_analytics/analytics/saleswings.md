@@ -23,12 +23,12 @@ SalesWings permet aux équipes marketing et aux gestionnaires des opérations ma
 | Condition | Description |
 | ----------- | ----------- |
 | Compte SalesWings | Un compte [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) est nécessaire pour profiter de ce partenariat. |
-| Clé API REST Braze | Une clé API REST de Braze avec les autorisations `users.export.ids` (et `users.track` si vous utilisez la fonctionnalité de push des informations de SalesWings). <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Endpoint REST de Braze | [L'URL de votre endpoint REST.]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+| Clé API REST Braze | Une clé API REST de Braze avec les autorisations `users.export.ids` (et `users.track` si vous utilisez la fonctionnalité de push des informations de SalesWings). <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Endpoint REST de Braze | [L'URL de votre endpoint REST.]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Compte Segment.com (facultatif) | Si vous êtes un utilisateur de Segment.com, vous pouvez envoyer toutes les données d'engagement et de profil des prospects et identifier les événements via Segment.com pour le profilage des prospects. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 {% tabs %}
 {% tab Lead and Account Scoring %}
@@ -98,7 +98,7 @@ Rendez-vous sur la [page **SalesWings Integrations**](https://helium.saleswings.
 
 Copiez la valeur de la colonne **Identifier** de la clé nouvellement créée et collez-la dans le champ **Braze API key** de la section **Braze Integration** de SalesWings.
 
-Ajoutez votre endpoint API Braze comme décrit dans l'[article sur les endpoints API et SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), et saisissez-le dans le champ **Braze API endpoint**. Copiez la valeur de la colonne **REST Endpoint** et saisissez-la dans le champ **Braze API endpoint** dans la section **Braze Integration** de SalesWings.
+Ajoutez votre endpoint API Braze comme décrit dans l'[article sur les endpoints API et SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), et saisissez-le dans le champ **Braze API endpoint**. Copiez la valeur de la colonne **REST Endpoint** et saisissez-la dans le champ **Braze API endpoint** dans la section **Braze Integration** de SalesWings.
 
 Sélectionnez ensuite **Save**.
 
@@ -110,11 +110,11 @@ Cliquez sur **Start data push** sous **SalesWings-to-Braze insights data push**.
 
 ### Étape 5 : Configurer une exportation personnalisée de Currents vers SalesWings (facultatif) {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
 
-Si vous souhaitez utiliser les événements de [comportement utilisateur]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) et d'[engagement des messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) pour l'intelligence comportementale, le scoring des prospects et des comptes, produire des informations sur les ventes ou générer des rapports dans votre CRM, rendez-vous sur la page [**SalesWings Integrations**](https://helium.saleswings.pro/integrations) et développez la section **Braze Integration**.
+Si vous souhaitez utiliser les événements de [comportement utilisateur]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) et d'[engagement des messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) pour l'intelligence comportementale, le scoring des prospects et des comptes, produire des informations sur les ventes ou générer des rapports dans votre CRM, rendez-vous sur la page [**SalesWings Integrations**](https://helium.saleswings.pro/integrations) et développez la section **Braze Integration**.
 
 Sélectionnez **Generate** sous **Generate an API token to setup a Custom Currents Export**.
 
-Ensuite, [créez un nouveau Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) et sélectionnez **Custom Currents Export** comme type de Current.
+Ensuite, [créez un nouveau Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) et sélectionnez **Custom Currents Export** comme type de Current.
 
 Dans la section **Credentials** du formulaire de création du Current, saisissez le jeton API que vous avez généré sur la [page **SalesWings Integrations**](https://helium.saleswings.pro/integrations) pour **Bearer Token**, et `https://helium.saleswings.pro/api/braze/currents/events` pour **Endpoint**.
 
@@ -146,7 +146,7 @@ La variable `braze_id` est définie sur un identifiant de l'utilisateur génér�
 
 ### Pousser les informations de SalesWings vers Braze {#pushing-saleswings-insights-to-braze}
 
-Si vous activez le push des informations de SalesWings vers Braze, SalesWings met à jour vos profils utilisateurs Braze avec les [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) suivants :
+Si vous activez le push des informations de SalesWings vers Braze, SalesWings met à jour vos profils utilisateurs Braze avec les [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) suivants :
 
 | Attribut personnalisé | Type | Description |
 | ----------- | ----------- | ----------- |
@@ -162,7 +162,7 @@ Si vous activez le push des informations de SalesWings vers Braze, SalesWings me
 | `sw_session_count` | entier | Le nombre de sessions suivies sur votre site web pour ce lead |
 | `sw_tags` | tableau de chaînes de caractères | Les besoins et les intérêts que SalesWings a identifiés, représentés par des « tags ». Les noms des étiquettes SalesWings configurées dans le [moteur de règles](https://helium.saleswings.pro/falcon) de SalesWings qui s'appliquent à ce lead |
 | Attributs supplémentaires du score des prospects | float | Un attribut personnalisé pour chaque score de prospects supplémentaire configuré dans le [moteur de règles](https://helium.saleswings.pro/falcon) de SalesWings. Le nom de l'attribut est dérivé du nom du score SalesWings, par exemple, un score nommé `Likeliness to meet` est envoyé en tant qu'attribut personnalisé `sw_likeliness_to_meet`. Si vous renommez un score après que le système l'a créé, SalesWings continue la synchronisation avec le nom initial de l'attribut personnalisé. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pushing SalesWings insights to Braze" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pousser les informations de SalesWings vers Braze" }
 
 Lorsque le push est activé, SalesWings commence immédiatement à envoyer des attributs personnalisés à Braze dès que les points de données sous-jacents changent dans les profils des leads de SalesWings, et synchronise progressivement tous les leads existants, même s'ils n'ont pas de nouvelles mises à jour.
 
@@ -181,7 +181,7 @@ Le tableau suivant présente les types d'événements de Braze pris en charge pa
 | Événements de comportement client | Première session | `[User Action] Today marks the user's first session` |
 | Événements de comportement client | Attribution d'installation | `[User Action] User installed app from $source` |
 | Événements de comportement client | Événements d'achat | `[Purchase] Customer purchased $product_id for $price $currency` |
-| Événements liés aux messages | Clic sur carte de contenu | `[Content Card engagement] Clicked on $campaign_name content card` |
+| Événements liés aux messages | Clic sur Content Card | `[Content Card engagement] Clicked on $campaign_name content card` |
 | Événements liés aux messages | Rebond d'e-mail | `[Alerting or negative] Email hard-bounced. This person's email appears to be no longer valid` |
 | Événements liés aux messages | Clic sur e-mail | `[Email campaign engagement] Clicked in email $campaign_name on $url` |
 | Événements liés aux messages | Réception d'e-mail | `[Nurturing] Received email $campaign_name` |
@@ -195,7 +195,7 @@ Le tableau suivant présente les types d'événements de Braze pris en charge pa
 | Événements liés aux messages | Lecture WhatsApp | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | Abonnements | Changement de statut global d'abonnement | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
 | Abonnements | Changement de statut du groupe d'abonnement | `[Subscription status change] $subscription_status to/from $campaign_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Using Braze Currents events in your CRM" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Utiliser les événements de Braze Currents dans votre CRM" }
 
 Vous pouvez ensuite configurer les conditions **Custom Event** > **Event Name** et **Custom Event** > **Event Property** pour les étiquettes et les scores SalesWings par rapport aux noms d'événements SalesWings figurant dans le tableau ci-dessus. La liste des propriétés d'événement disponibles pour les conditions est pré-remplie avec certaines des entrées les plus couramment utilisées, et vous pouvez toujours en ajouter de nouvelles dans la section **Event Property** de la [page de configuration du moteur de règles](https://helium.saleswings.pro/falcon).
 

@@ -10,7 +10,7 @@ description: "Découvrez comment utiliser l'outil de débogage du SDK de Braze p
 > Découvrez comment utiliser le débogueur intégré au SDK de Braze pour résoudre les problèmes liés à vos canaux alimentés par le SDK, sans avoir à activer la journalisation détaillée dans votre application.
 
 {% alert tip %}
-Pour une analyse plus approfondie, vous pouvez également [activer la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) afin de capturer les sorties détaillées du SDK et [apprendre à lire les journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) pour des canaux spécifiques.
+Pour une analyse plus approfondie, vous pouvez également [activer la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) afin de capturer les sorties détaillées du SDK et [apprendre à lire les journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) pour des canaux spécifiques.
 {% endalert %}
 
 ## Conditions préalables {#prerequisites}
@@ -19,10 +19,12 @@ Pour utiliser l'outil de débogage du SDK de Braze, vous devez disposer des auto
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
+Pour collecter les journaux du débogueur lorsque `Braze.configuration.logger.level` est défini sur `.disabled`, utilisez le SDK Swift 11.9.0 ou une version ultérieure. Pour plus d'informations, consultez les [journaux des modifications Swift]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12).
+
 ## Débogage du SDK de Braze
 
 {% alert tip %}
-Pour activer le débogage du SDK Web de Braze, vous pouvez [utiliser un paramètre d'URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#logging).
+Pour activer le débogage du SDK Web de Braze, vous pouvez [utiliser un paramètre d'URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging).
 {% endalert %}
 
 ### Étape 1 : Fermez votre application {#step-1-close-your-app}
@@ -31,13 +33,13 @@ Avant de commencer votre session de débogage, fermez l'application qui pose pro
 
 ### Étape 2 : Créez une session de débogage {#step-2-create-a-debugging-session}
 
-Dans Braze, accédez à **Settings**, puis sous **Setup and Testing**, sélectionnez **SDK Debugger**.
+Dans Braze, accédez à **Paramètres**, puis sous **Configuration et test**, sélectionnez **Outil de débogage du SDK**.
 
-![La section « Setup and Testing » avec « SDK Debugger » mis en évidence.]({% image_buster /assets/img/sdk_debugger/select_sdk_debugger.png %})
+![La section « Configuration et test » avec « Outil de débogage du SDK » mis en évidence.]({% image_buster /assets/img/sdk_debugger/select_sdk_debugger.png %})
 
 Sélectionnez **Create debugging session**.
 
-![La page « SDK Debugger ».]({% image_buster /assets/img/sdk_debugger/select_create_debugging_session.png %})
+![La page « Outil de débogage du SDK ».]({% image_buster /assets/img/sdk_debugger/select_create_debugging_session.png %})
 
 ### Étape 3 : Sélectionnez un utilisateur {#step-3-select-a-user}
 
@@ -47,7 +49,7 @@ Recherchez un utilisateur à l'aide de son adresse e-mail, de son `external_id`,
 
 ### Étape 4 : Relancez l'application {#step-4-relaunch-the-app}
 
-Commencez par lancer l'application et vérifiez que votre appareil est bien apparié. Si l'appariement a réussi, relancez votre application — cela garantit que les journaux d'initialisation de l'application sont entièrement capturés.
+Commencez par lancer l'application et vérifiez que votre appareil est bien apparié. Si l'appariement a réussi, relancez votre application&#8212;cela garantit que les journaux d'initialisation de l'application sont entièrement capturés.
 
 ### Étape 5 : Reproduisez les étapes {#step-5-complete-the-reproduction-steps}
 

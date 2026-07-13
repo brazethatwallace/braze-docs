@@ -93,10 +93,10 @@ Facebook Messenger Webhookテンプレートを作成するには:
 
 ## この統合を使用する {#using-this-integration}
 
-セットアップが完了したら、この統合を使用してFacebook Messengerユーザーをターゲットにします。ユーザーの電話番号を使用してメッセージを送信しておらず、Messengerメッセージを繰り返し送信する予定がある場合は、Messenger IDがカスタム属性として存在するすべてのユーザーに対して[Segmentを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment)し、[分析トラッキング]({{site.baseurl}}/user_guide/audience/segments/segment_data/)をオンにして、Messengerのサブスクリプション率を経時的に追跡する必要があります。
+セットアップが完了したら、この統合を使用してFacebook Messengerユーザーをターゲットにします。ユーザーの電話番号を使用してメッセージを送信しておらず、Messengerメッセージを繰り返し送信する予定がある場合は、Messenger IDがカスタム属性として存在するすべてのユーザーに対して[セグメントを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment)し、[分析トラッキング]({{site.baseurl}}/user_guide/audience/segments/segment_data/)をオンにして、Messengerのサブスクリプション率を経時的に追跡する必要があります。
 
 ![セグメンテーションフィルター「messenger_id」が「is not blank」に設定されています。]({% image_buster /assets/img_archive/fbm-segmentation.png %})
 
-Messengerサブスクライバー向けの特定のSegmentを作成しない場合は、エラーを避けるために、既存のMessenger IDのフィルターを必ず含めてください。
+Messengerサブスクライバー向けの特定のセグメントを作成しない場合は、エラーを避けるために、既存のMessenger IDのフィルターを必ず含めてください。
 
-他のセグメンテーションを使用してMessenger Campaignsをターゲットにし、他のCampaignと同様にそれ以降のCampaign作成プロセスを実行することもできます。
+他のセグメンテーションを使用してMessenger キャンペーンをターゲットにし、他のキャンペーンと同様にそれ以降のキャンペーン作成プロセスを実行することもできます。

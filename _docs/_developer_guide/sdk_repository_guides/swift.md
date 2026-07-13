@@ -6,6 +6,8 @@ description: "Braze Swift SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Swift SDK repository guide
+
 ## About the Braze Swift SDK
 
 The Braze Swift SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
@@ -109,7 +111,7 @@ Explore our [examples project](https://github.com/braze-inc/braze-swift-sdk/blob
 
 ## Contact
 
-For questions, contact [support@braze.com](mailto:support@braze.com).
+For questions, contact Braze Technical Support for assistance.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

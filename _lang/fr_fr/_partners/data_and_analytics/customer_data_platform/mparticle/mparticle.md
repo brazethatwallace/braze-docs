@@ -17,14 +17,14 @@ search_tag: Partner
 L'intégration de Braze et mParticle vous permet de contrôler de façon fluide le flux d'informations entre les deux systèmes :
 - Synchronisez les audiences mParticle avec Braze pour la segmentation des Campaign et Canvas Braze.
 - Partagez les données entre les deux plateformes. Cela peut se faire grâce à l'intégration du kit mParticle et à l'intégration de serveur à serveur.
-- [Envoyez les interactions des utilisateurs de Braze à mParticle par l'intermédiaire de Currents]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/), afin de les rendre exploitables dans l'ensemble des outils de croissance.
+- [Envoyez les interactions des utilisateurs de Braze à mParticle par l'intermédiaire de Currents]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents), afin de les rendre exploitables dans l'ensemble des outils de croissance.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte mParticle | Un [compte mParticle](https://app.mparticle.com/login) est nécessaire pour profiter de ce partenariat. |
-| Instance de Braze | Votre instance Braze se trouve sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics/#endpoints) (par exemple, `US-01` ou `US-02`). |
+| Instance de Braze | Votre instance Braze se trouve sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics#endpoints) (par exemple, `US-01` ou `US-02`). |
 | Clé d'identification de l'application Braze | Votre clé d'identification de l'application. <br><br>Elle se trouve dans le tableau de bord de Braze sous **Gérer les paramètres** > **Clé API**. |
 | Clé API REST de l'espace de travail | (Serveur à serveur) Une clé API REST de Braze<br><br>Elle peut être créée dans le tableau de bord de Braze sous **Console de développement** > **Paramètres API** > **Clé API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
@@ -149,10 +149,10 @@ Dans mParticle, accédez à **Setup > Outputs > Add Outputs** et sélectionnez *
 | Type d'identité externe | Le type d'identité utilisateur mParticle à transférer en tant qu'ID externe vers Braze. Nous recommandons de laisser la valeur par défaut, Customer ID. |
 | Type d'identité e-mail | Le type d'identité utilisateur mParticle à transférer en tant qu'e-mail vers Braze. Nous recommandons de laisser la valeur par défaut, Email. |
 | Instance de Braze | Le cluster vers lequel vos données Braze seront transférées ; il doit être le même que celui de votre tableau de bord. |
-| Activer le transfert du flux d'événements | (Serveur à serveur) Lorsque cette option est activée, tous les événements seront transférés en temps réel. Sinon, tous les événements seront transférés en masse. Lorsque vous choisissez d'activer le transfert du flux d'événements, assurez-vous que les données que vous transmettez à Braze respectent les [limites de débit]({{site.baseurl}}/api/api_limits/). |
+| Activer le transfert du flux d'événements | (Serveur à serveur) Lorsque cette option est activée, tous les événements seront transférés en temps réel. Sinon, tous les événements seront transférés en masse. Lorsque vous choisissez d'activer le transfert du flux d'événements, assurez-vous que les données que vous transmettez à Braze respectent les [limites de débit]({{site.baseurl}}/api/api_limits). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer vos paramètres de sortie Braze" }
 
-![]({% image_buster /assets/img_archive/configure_settings.png %})
+![Paramètres de sortie Braze dans mParticle avec les champs d'identification de l'application, de mappage d'identité et d'instance.]({% image_buster /assets/img_archive/configure_settings.png %})
 
 ### Intégration du kit intégré {#embedded-kit-integration}
 
@@ -178,13 +178,13 @@ Intégrez les SDK mParticle appropriés dans votre application en fonction des b
 
 Bien que le SDK Braze n'ait pas besoin d'être directement inclus dans votre site web ou votre application pour cette intégration mParticle, le kit Appboy mParticle suivant doit être installé pour transférer les données de votre application vers Braze.
 
-Le [guide d'intégration du kit d'événements Braze](https://docs.mparticle.com/integrations/braze/event/#kit-integration) de mParticle vous guidera à travers les instructions d'alignement personnalisé entre mParticle et Braze en fonction de vos besoins de messagerie (notifications push, suivi de localisation, etc.).
+Le [guide d'intégration du kit d'événements Braze](https://docs.mparticle.com/integrations/braze/event/#kit-integration) de mParticle vous guidera à travers les instructions d'alignement personnalisé entre mParticle et Braze en fonction de vos besoins de communication (notifications push, suivi de localisation, etc.).
 
 #### Étape 3 : Paramètres de connexion pour votre sortie Braze {#step-3-connections-settings-for-your-braze-output}
 
 Dans mParticle, accédez à **Connections** > **Connect** > **[Votre plateforme souhaitée]** > **Connect Output** pour ajouter Braze en tant que sortie. Ensuite, sélectionnez **Save**.
 
-![]({% image_buster /assets/img_archive/mParticle_event_config.png %})
+![Configuration de la connexion du kit d'événements mParticle pour la sortie Braze.]({% image_buster /assets/img_archive/mParticle_event_config.png %})
 
 Tous les paramètres de connexion ne s'appliquent pas à toutes les plateformes et types d'intégration. Pour un détail des paramètres de connexion et des plateformes auxquelles ils s'appliquent, consultez la [documentation de mParticle](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -204,7 +204,7 @@ Pour que les données côté serveur soient transférées vers Braze, elles doiv
 
 Dans mParticle, accédez à **Connections > Connect > [Votre plateforme souhaitée] > Connect Output** pour ajouter Braze en tant que sortie. **Enregistrez** une fois terminé.
 
-![]({% image_buster /assets/img_archive/mParticle_connections.png %})
+![Écran de connexions mParticle pour ajouter Braze en tant que sortie sur une plateforme.]({% image_buster /assets/img_archive/mParticle_connections.png %})
 
 Tous les paramètres de connexion ne s'appliquent pas à toutes les plateformes et types d'intégration. Pour un détail des paramètres de connexion et des plateformes auxquelles ils s'appliquent, consultez la [documentation de mParticle](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -214,8 +214,8 @@ Avant d'activer « Enriched User Attributes » ou « Enriched User Identities »
 
 #### Types de données {#data-types}
 Tous les types de données ne sont pas pris en charge entre les deux plateformes.
-- Les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) prennent en charge les objets de type chaîne, numérique, booléen ou date. Elles ne prennent pas en charge les tableaux ni les objets imbriqués.
-- Les [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) prennent en charge les objets de type chaîne, numérique, booléen, date et les tableaux, mais ne prennent pas en charge les objets ni les objets imbriqués.
+- Les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) prennent en charge les objets de type chaîne, numérique, booléen ou date. Elles ne prennent pas en charge les tableaux ni les objets imbriqués.
+- Les [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) prennent en charge les objets de type chaîne, numérique, booléen, date et les tableaux, mais ne prennent pas en charge les objets ni les objets imbriqués.
 
 {% alert note %}
 Braze ne prend pas en charge les horodatages antérieurs à l'an 0 ou postérieurs à l'an 3000 dans les attributs personnalisés de type `Time`. Braze ingérera ces valeurs lorsqu'elles sont envoyées par mParticle, mais la valeur sera stockée sous forme de chaîne de caractères.

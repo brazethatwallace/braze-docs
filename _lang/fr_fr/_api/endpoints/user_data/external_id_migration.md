@@ -14,9 +14,9 @@ guide_top_text: "L'API de migration de l'ID externe vous permet de renommer des 
 guide_featured_title: "Endpoints de migration de l'ID externe"
 guide_featured_list:
   - name: "POST : Renommer des ID externes"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
-  - name: "POST : Supprimer des ID externes"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+  - name: "POST : Supprimer des ID externes obsolètes"
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

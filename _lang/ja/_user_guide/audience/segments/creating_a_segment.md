@@ -8,7 +8,7 @@ tool: Segments
 search_rank: 3
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントを作成 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントを作成 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
 
 > セグメンテーションを使用すると、ユーザーの人口統計的、行動的、または技術的な特性やアクションに基づいてターゲティングできます。セグメンテーションとメッセージングオートメーションを創造的かつインテリジェントに活用することで、ユーザーを最初の接触から長期的な顧客へとシームレスに導くことができます。セグメントはデータの変更に応じてリアルタイムで更新され、ターゲティングやメッセージングの目的に必要な数だけセグメントを作成できます。
 
@@ -22,8 +22,8 @@ search_rank: 3
 
 オプションとして、以下の操作も可能です:
 - セグメントに説明を追加して、このオーディエンスの意図に関する詳細を提供し、他のチームメンバーが参照できるメモを残します。
-- セグメントに[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)を追加します。
-- セグメントに[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加して、さらに整理します。
+- セグメントに[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)を追加します。
+- セグメントに[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加して、さらに整理します。
 
 ![「Lapsed Users」という名前のセグメントを作成するモーダル。セグメント説明は「This is our main Lapsed User segment to target non-actives within the past fourteen days.」で、「キャンセル」と「セグメントを作成」の2つのボタンがあります。]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
@@ -33,7 +33,7 @@ search_rank: 3
 
 たとえば、iOSデバイスのみにアプリ内メッセージを送信したい場合は、iOSアプリを選択します。これにより、iOSとAndroidの両方のデバイスを使用しているユーザーでも、iOSデバイスでのみメッセージを受信するようになります。特定のアプリのリストでは、**アプリなしのユーザー**オプションにより、セッションやアプリデータのないユーザー（通常、ユーザーインポートまたはREST APIを通じて作成されたユーザー）を含めることができます。
 
-![「Apps Used」セクションで「すべてのアプリのユーザー」オプションが選択されたセグメント詳細パネル。]({% image_buster /assets/img_archive/セグメント2.png %}){: style="max-width:80%;"}
+![「Apps Used」セクションで「すべてのアプリのユーザー」オプションが選択されたセグメント詳細パネル。]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 
 ## ステップ 4:セグメントにフィルターを追加する {#step-4-add-filters-to-your-segment}
 
@@ -41,7 +41,7 @@ search_rank: 3
 
 {% multi_lang_include alerts/note_alerts.md alert='セグメント profiles first app use' %}
 
-#### フィルターグループ {#filter-groups}
+### フィルターグループ {#filter-groups}
 
 フィルターはフィルターグループに整理されます。すべてのフィルターは、最低1つのフィルターを持つフィルターグループの一部である必要があります。セグメントには複数のフィルターグループを含めることができます。追加するには、**フィルターグループを追加**を選択します。フィルターグループ名の横にカーソルを合わせると表示されるアイコンを選択して、名前を編集します。
 
@@ -49,7 +49,7 @@ search_rank: 3
 
 各フィルターの横にあるアイコンを選択して、フィルターエディターを折りたたんだり、個々のフィルターを複製したりできます。フィルターを複製した後、各ドロップダウン内で値を調整できます。
 
-#### ANDとORを使用したセグメンテーションロジック {#segmentation-logic-using-and-and-or}
+### ANDとORを使用したセグメンテーションロジック {#segmentation-logic-using-and-and-or}
 
 フィルターグループ内では、フィルターを「AND」または「OR」で結合できます。フィルターグループ間では、グループを「AND」または「OR」で結合できます。フィルターグループを使用すると、次のようなセグメンテーションロジックを作成できます:
 - (A AND B AND C) OR (C AND E AND F)
@@ -80,9 +80,9 @@ search_rank: 3
 
 {% enddetails %}
 
-#### フィルター演算子 {#filter-operators}
+### フィルター演算子 {#filter-operators}
 
-選択する特定のフィルターに応じて、フィルター値を識別するための異なる演算子が使用できます。さまざまなタイプのカスタム属性で使用可能な演算子の詳細については、[カスタム属性ストレージ]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes)を参照してください。「is any of」演算子を使用する場合、そのフィールドに含めることができるアイテムの最大数は256であることに注意してください。
+選択する特定のフィルターに応じて、フィルター値を識別するための異なる演算子が使用できます。さまざまなタイプのカスタム属性で使用可能な演算子の詳細については、[カスタム属性ストレージ]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes)を参照してください。「is any of」演算子を使用する場合、そのフィールドに含めることができるアイテムの最大数は256であることに注意してください。
 
 {% alert note %}
 Brazeは、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、まだアプリを開いていないユーザーをターゲットにすることはできません。
@@ -91,12 +91,12 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 ![AND演算子を使用したセグメンターフィルターグループ。]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
 {% alert important %}
-**セグメント Membership**フィルターを既に使用しているセグメントは、他のセグメントにさらに含めたりネストしたりすることはできません。これは、セグメント Aがセグメント Bを含み、セグメント Bが再びセグメント Aを含もうとするサイクルを防ぐためです。そのような状況が発生すると、セグメントは自身を参照し続け、実際に誰が属しているかを計算することが不可能になります。
+**セグメント Membership**フィルターを既に使用しているセグメントは、他のセグメントにさらに含めたりネストしたりすることはできません。これは、セグメントAがセグメントBを含み、セグメントBが再びセグメントAを含もうとするサイクルを防ぐためです。そのような状況が発生すると、セグメントは自身を参照し続け、実際に誰が属しているかを計算することが不可能になります。
 
 また、このようなセグメントのネストは複雑さを増し、処理を遅くする可能性があります。代わりに、同じフィルターを使用して含めたいセグメントを再作成してください。
 {% endalert %}
 
-#### 除外グループ（オプション） {#exclusion}
+### 除外グループ（オプション） {#exclusion}
 
 セグメントを構築する際に、1つまたは複数の除外グループを適用できます。除外グループには、セグメントから除外するユーザーを識別する条件が含まれ、常に「AND NOT」演算子でフィルターグループに接続されます。
 
@@ -108,7 +108,7 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 
 ![2つのフィルターを持つ除外グループ。]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-#### ファネル統計の表示 {#viewing-funnel-statistics}
+### ファネル統計の表示 {#viewing-funnel-statistics}
 
 **ファネル統計を表示**を選択すると、そのフィルターグループの統計が表示され、追加された各フィルターがセグメント統計にどのように影響するかを確認できます。その時点までのすべてのフィルターによってターゲットされているユーザーの推定数とパーセンテージが表示されます。フィルターグループの統計が表示されると、フィルターを変更するたびに自動的に更新されます。これらの統計は推定値であり、生成に少し時間がかかる場合があります。
 
@@ -118,9 +118,13 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 
 ユーザーフローを記録するフィルターを追加することで、ユーザーが離脱するポイントを確認できます。たとえば、ソーシャルネットワーキングアプリで、オンボーディングプロセス中にユーザーを失っている箇所を確認したい場合、サインアップ、友達の追加、最初のメッセージ送信のカスタムデータフィルターを追加できます。85%のユーザーがサインアップして友達を追加しているが、最初のメッセージを送信したのは45%だけであることがわかった場合、オンボーディングおよびマーケティングキャンペーン中にメッセージ送信をさらに促進することに注力すべきだとわかります。
 
-#### セグメントのテスト {#testing-segments}
+### セグメントのテスト {#testing-segments}
 
-セグメントにアプリとフィルターを追加した後、ユーザーを検索してセグメントの条件に一致するかどうかを確認することで、セグメントが期待通りに設定されているかテストできます。これを行うには、**ユーザー検索**セクションでユーザーの`external_id`または`braze_id`を検索します。**ユーザー検索**ではメールアドレスで検索できないことに注意してください。
+セグメントにアプリとフィルターを追加した後、ユーザーを検索してセグメントの条件に一致するかどうかを確認することで、セグメントが期待通りに設定されているかテストできます。これを行うには、**ユーザー検索**セクションでユーザーの`external_id`または`braze_id`を検索します。
+
+{% alert note %}
+**ユーザー検索**は`external_id`と`braze_id`のみを受け付けます。メールアドレス、電話番号、その他の識別子は受け付けません。メール、電話番号、その他のフィールドでプロファイルを検索するには、代わりに[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)を使用してください。
+{% endalert %}
 
 ![検索フィールドのあるユーザー検索セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
@@ -137,7 +141,7 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 
 ![「test1 does not match the following targeting criteria:」と表示され、不足している条件が表示されるアラートのあるユーザー検索。]({% image_buster /assets/img_archive/user_lookup_nomatch.png %})
 
-#### 単一ユーザーセグメント {#single-user-segments}
+### 単一ユーザーセグメント {#single-user-segments}
 
 ユーザー名やユーザーIDなど、ユーザーを識別するユニークな属性を使用して、単一ユーザーセグメント（または少数のユーザーのセグメント）を作成できます。
 
@@ -151,7 +155,7 @@ Brazeには、ユーザーIDまたはメールアドレスで特定のユーザ�
 
 ## セグメントサイズの測定 {#measuring-segment-size}
 
-セグメントのメンバーシップとサイズの監視については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
+セグメントのメンバーシップとサイズの監視については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を参照してください。
 
 ## セグメントのアーカイブ {#archiving-segments}
 
@@ -167,13 +171,13 @@ Brazeには、ユーザーIDまたはメールアドレスで特定のユーザ�
 
 ## ユーザーが複数のデバイスを持つ場合のターゲティング動作 {#targeting-behavior-when-users-have-multiple-devices}
 
-ユーザーが複数のデバイスで同じアカウントにログインすると、複数のデバイスを持つことになります。[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)の**最近のデバイス**セクションで複数のデバイスを確認できます。
+ユーザーが複数のデバイスで同じアカウントにログインすると、複数のデバイスを持つことになります。[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)の**最近のデバイス**セクションで複数のデバイスを確認できます。
 
 デバイス依存のフィルター（デバイスモデル、デバイスOS、アプリバージョン）でセグメント化する場合、セグメントにはフィルター条件に一致するすべてのユーザーが含まれます。これらのユーザーには、フィルター条件を満たさないデバイスを含むすべてのデバイスにメッセージが送信されます。たとえば、ユーザーAが2つのデバイスを持っているとします。デバイス1はOS 13.0、デバイス2はOS 10.0です。セグメントがOS 10.0のユーザーをターゲットにしている場合、このユーザーはそのセグメントの一部となり、両方のデバイスでメッセージを受信します。
 
 ### プッシュ通知 {#push-notifications}
 
-各ユーザーに1つのプッシュ通知のみが送信されるように指定できます。[メッセージを作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#step-4-compose-your-push-message)する際に、**追加設定**の下にある**ユーザーの最後に使用したデバイスにのみ送信**を選択します。
+各ユーザーに1つのプッシュ通知のみが送信されるように指定できます。[メッセージを作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#step-4-compose-your-push-message)する際に、**追加設定**の下にある**ユーザーの最後に使用したデバイスにのみ送信**を選択します。
 
 ![「追加設定」にユーザーの最後に使用したデバイスにのみ送信するチェックボックスが表示されている状態。]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
 

@@ -13,10 +13,10 @@ description: "This page provides an overview of how to sync catalog data."
  
 ## Step 1: Create a new catalog
 
-Before creating a new Cloud Data Ingestion (CDI) integration for [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/), you need to create a new catalog or identify an existing catalog you want to use for the integration. There are a few ways to create a new catalog and any of these will work for the CDI integration:
+Before creating a new Cloud Data Ingestion (CDI) integration for [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs), you need to create a new catalog or identify an existing catalog you want to use for the integration. There are a few ways to create a new catalog and any of these will work for the CDI integration:
 - Upload a [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)
 - Create a catalog in the [Braze dashboard]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) or during CDI setup.
-- Create a catalog using the [Create catalog endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog/)
+- Create a catalog using the [Create catalog endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
 
 Any changes to the catalog schema (for example, adding new fields or changing field type) must be made through the catalog dashboard before updated data is synced through CDI. We recommend making these updates when the sync is paused or not scheduled to run to avoid conflicts between your data warehouse data and the schema in Braze.
 
@@ -87,7 +87,7 @@ The setup for a catalog sync closely follows the process for [user-data CDI inte
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the below IPs corresponding to your Braze dashboard’s region. For a list of IPs, refer to the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the following IPs corresponding to your Braze dashboard’s region. For a list of IPs, refer to the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -121,7 +121,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 {:start="2"}
 
 2. Set up a user and grant proper permissions. If you already have credentials from an existing sync, you can reuse those&#8212;but make sure to extend access to the catalog source table. 
-The service account should have the below permissions:
+The service account should have the in the following section permissions:
 - BigQuery Connection User: This will allow Braze to make connections.
 - BigQuery User: This will provide Braze access to run queries, read dataset metadata, and list tables.
 - BigQuery Data Viewer: This will provide Braze access to view datasets and their contents.
@@ -212,11 +212,11 @@ Filenames must follow AWS rules and be unique. Append timestamps to help ensure 
 
 The complete S3 setup requires an S3 bucket, an Amazon SQS queue, and an AWS IAM role and policy. Braze only processes files uploaded after the sync is created, so re-upload existing files you want to ingest.
 
-For the full S3 setup flow, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/), especially:
+For the full S3 setup flow, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations), especially:
 
-- [Setting up Cloud Data Ingestion in AWS]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#setting-up-cloud-data-ingestion-in-aws)
-- [Setting up Cloud Data Ingestion in Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#setting-up-cloud-data-ingestion-in-braze)
-- [Troubleshooting]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#troubleshooting)
+- [Setting up Cloud Data Ingestion in AWS]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
+- [Setting up Cloud Data Ingestion in Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
+- [Troubleshooting]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#troubleshooting)
 
 For common AWS-side notification and permission issues, refer to [Granting permissions to publish event notification messages to a destination](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html).
 
@@ -251,7 +251,7 @@ ID,PAYLOAD
 {% endsubtab %}
 {% endsubtabs %}
 
-For additional file examples, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
+For additional file examples, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 
 {% endtab %}
 {% endtabs %}
@@ -259,12 +259,12 @@ For additional file examples, see [File storage integrations]({{site.baseurl}}/u
 ## How the integration works
 
 {% alert note %}
-The sync views in this section apply to data warehouse integrations only. For S3 file storage, Braze processes new files as they're uploaded to your bucket. See [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/) for details.
+The sync views in this section apply to data warehouse integrations only. For S3 file storage, Braze processes new files as they're uploaded to your bucket. See [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations) for details.
 {% endalert %}
 
 Each time the sync runs, Braze pulls in all rows where `UPDATED_AT` is later than the last synced value. Rows at the exact boundary timestamp may be re-synced if new rows share that same timestamp. We recommend creating a view in your data warehouse from your catalog data to set up a source table that will fully refresh each time a sync runs. With views, you won't need to rewrite the query each time.
 
-For example, if you have a table of product data (`product_catalog_1`) with `product_id` and three additional attributes, you could sync the below view:
+For example, if you have a table of product data (`product_catalog_1`) with `product_id` and three additional attributes, you could sync the following view:
 
 {% tabs %}
 {% tab Snowflake %}

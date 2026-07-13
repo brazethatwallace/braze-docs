@@ -1,6 +1,6 @@
 ---
 nav_title: Stil
-article_title: Passen Sie den Stil der Content Cards an
+article_title: Den Stil der Content Cards anpassen
 page_order: 1
 description: "Dieser Artikel behandelt die Gestaltungsmöglichkeiten für Ihre Content Cards."
 channel:
@@ -12,9 +12,9 @@ platform:
   - Web
 ---
 
-# Passen Sie den Stil der Content Cards an {#customize-the-style-of-content-cards}
+# Den Stil der Content Cards anpassen {#customize-the-style-of-content-cards}
 
-> Braze Content Cards werden mit einem Standard-Look-and-Feel geliefert. Dieser Artikel befasst sich mit den Styling-Optionen für Ihre Content Cards, damit Sie sie an Ihre Markenidentität anpassen können. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Braze Content Cards werden mit einem Standard-Look-and-Feel geliefert. Dieser Artikel befasst sich mit den Styling-Optionen für Ihre Content Cards, damit Sie sie an Ihre Markenidentität anpassen können. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Einen angepassten Stil erstellen {#creating-a-custom-style}
 
@@ -23,7 +23,7 @@ Die Standard-UI für Content Cards wird aus der UI-Schicht des Braze SDK importi
 ![Zwei Content Cards, eine mit der Standard-Schriftart und eckigen Ecken und eine mit abgerundeten Ecken und einer geschwungenen Schriftart]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Eigenschaften von Content Cards wie `title`, `cardDescription`, `imageUrl` usw. können direkt über das [Dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/) bearbeitet werden – das ist die bevorzugte Methode, um diese Details zu ändern.
+Eigenschaften von Content Cards wie `title`, `cardDescription`, `imageUrl` usw. können direkt über das [Dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details) bearbeitet werden – das ist die bevorzugte Methode, um diese Details zu ändern.
 {% endalert %}
 
 
@@ -249,7 +249,7 @@ Hier ist ein gekürztes Beispiel mit einer angepassten Schriftfamilie `my_custom
   </style>
 ```
 
-Weitere Informationen zur Anpassung von Schriftarten im Android SDK finden Sie in der [Anleitung zur Schriftfamilie]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization/#font-customization).
+Weitere Informationen zur Anpassung von Schriftarten im Android SDK finden Sie in der [Anleitung zur Schriftfamilie]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization#font-customization).
 {% endtab %}
 {% tab Jetpack Compose %}
 Um die Standardschriftart programmatisch zu ändern, können Sie [`titleTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#715371549%2FProperties%2F-1725759721) von `ContentCardStyling` setzen.
@@ -492,9 +492,9 @@ Die Anpassung ausschließlich der Nicht-angesehen-Anzeige über `Attributes` wir
 {% endtab %}
 {% endtabs %}
 
-### Dark Mode
+### Dark Mode {#dark-mode}
 
-Um je nach Dark Mode oder Light Mode des Geräts unterschiedliche Bilder oder Stile anzuzeigen, verwenden Sie [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs) in Ihrer Content-Card-Nachricht. Fügen Sie beispielsweise ein Schlüssel-Wert-Paar wie `dark_mode_image` mit der URL Ihres Dark-Mode-Bild-Assets hinzu. Fügen Sie dann in Ihrer App eine angepasste Logik hinzu, um den aktuellen Darstellungsmodus des Geräts zu prüfen und das entsprechende Bild anzuzeigen.
+Um je nach Dark Mode oder Light Mode des Geräts unterschiedliche Bilder oder Stile anzuzeigen, verwenden Sie [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs) in Ihrer Content-Card-Nachricht. Fügen Sie beispielsweise ein Schlüssel-Wert-Paar wie `dark_mode_image` mit der URL Ihres Dark-Mode-Bild-Assets hinzu. Fügen Sie dann in Ihrer App eine angepasste Logik hinzu, um den aktuellen Darstellungsmodus des Geräts zu prüfen und das entsprechende Bild anzuzeigen.
 
 {% tabs %}
 {% tab swift %}
@@ -531,7 +531,7 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-Dieses Muster funktioniert für alle darstellungsabhängigen Inhalte, einschließlich Text, Farben oder Layouts. Laden Sie Ihre Dark-Mode-Bild-Assets in die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/) hoch und referenzieren Sie sie dann in einem Schlüssel-Wert-Paar.
+Dieses Muster funktioniert für alle darstellungsabhängigen Inhalte, einschließlich Text, Farben oder Layouts. Laden Sie Ihre Dark-Mode-Bild-Assets in die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) hoch und referenzieren Sie sie dann in einem Schlüssel-Wert-Paar.
 
 ### Ungelesen-Anzeige deaktivieren {#disabling-unread-indicator}
 

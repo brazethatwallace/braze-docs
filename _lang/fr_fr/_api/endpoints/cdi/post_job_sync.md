@@ -63,6 +63,6 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | `429 Another job is in progress` | Une synchronisation est actuellement en cours pour cette intégration. Réessayez une fois la synchronisation terminée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
-Pour obtenir des codes de statut supplémentaires et les messages d'erreur associés, consultez la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
+Pour obtenir des codes de statut supplémentaires et les messages d'erreur associés, consultez la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

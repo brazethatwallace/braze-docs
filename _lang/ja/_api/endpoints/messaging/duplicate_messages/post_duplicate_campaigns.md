@@ -10,7 +10,7 @@ description: "この記事では、キャンペーンの複製エンドポイン
 ---
 {% api %}
 # APIを使用してキャンペーンを複製する {#duplicate-campaigns-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
@@ -44,11 +44,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [Campaign識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `name` | 必須 | 文字列 | 作成されるキャンペーンの名前。 |
 | `description` | オプション | 文字列 | 作成されるキャンペーンの説明フィールド。 |
 | `tag_names` | オプション | 文字列 | 作成されるキャンペーンのタグ。既存のタグである必要があります。リクエストに新しいタグを追加すると、元のキャンペーンにあったタグが上書きされます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 
 ## 応答 {#response}

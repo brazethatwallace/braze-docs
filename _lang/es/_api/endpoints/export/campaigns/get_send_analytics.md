@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /sends/data_series
 {% endapimethod %}
 
-> Utiliza este punto de conexión para recuperar una serie diaria de diversas estadísticas de un `send_id` con seguimiento para campañas de API.
+> Utiliza este punto de conexión para recuperar una serie diaria de diversas estadísticas de un `send_id` con seguimiento para Campañas de API.
 
 Braze almacena los análisis de envíos durante 14 días después del envío. Las conversiones de la campaña se atribuirán al `send_id` más reciente que un usuario determinado haya recibido de la campaña.
 
@@ -24,7 +24,7 @@ Braze almacena los análisis de envíos durante 14 días después del envío. La
 
 ## Requisitos previos {#prerequisites}
 
-Este punto de conexión es solo para campañas de API. Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `sends.data_series`.
+Este punto de conexión es solo para Campañas de API. Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sends.data_series`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -34,11 +34,11 @@ Este punto de conexión es solo para campañas de API. Para utilizar este punto 
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Obligatorio | Cadena | Ver [identificador de API de envío]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Obligatorio | Cadena | Ver [identificador de API de envío]({{site.baseurl}}/api/identifier_types). |
 | `length` | Obligatorio | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
 | `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, la hora de la solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -99,7 +99,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

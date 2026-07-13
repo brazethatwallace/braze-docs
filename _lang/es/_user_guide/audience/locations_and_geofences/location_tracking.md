@@ -16,9 +16,9 @@ search_rank: 2
 
 Para habilitar la recopilación de ubicación en tu aplicación, consulta la guía del desarrollador para la plataforma que estés utilizando:
 
-- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=android)
-- [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=android)
+- [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=web)
 
 En general, las aplicaciones móviles utilizan el chip GPS del dispositivo y otros sistemas (como el escaneo de Wi-Fi) para rastrear la ubicación de un usuario. Las aplicaciones web utilizan WPS (sistema de posicionamiento Wi-Fi) para rastrear la ubicación de un usuario. Todas estas plataformas requieren que los usuarios opten por el seguimiento de ubicación. La precisión de tus datos de seguimiento de ubicación puede verse afectada por si tus usuarios tienen o no el Wi-Fi habilitado en sus dispositivos. Los usuarios de Android también pueden elegir diferentes modos de ubicación: los usuarios que están en modo "Ahorro de batería" o "Solo dispositivo" pueden tener datos imprecisos.
 
@@ -34,17 +34,17 @@ Ahora, Braze utiliza la dirección IP para establecer el valor del país en los 
 
 Cuando está habilitada, la recopilación automática de ubicación en el SDK es independiente del comportamiento de país basado en IP. Se relaciona con las señales de ubicación del dispositivo, como el GPS cuando el usuario ha concedido permiso, lo que alimenta filtros como `Most Recent Location`. No rellena automáticamente campos detallados como la ciudad solo a partir de la IP.
 
-Para la segmentación por ciudad o código postal, utiliza [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location/) (consulta el artículo del SDK para tu plataforma), tu propio servicio de geolocalización por IP que escriba atributos personalizados, o la [segmentación por ubicación]({{site.baseurl}}/user_guide/audience/segments/location_targeting/) con los datos que recopiles.
+Para la segmentación por ciudad o código postal, utiliza [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location) (consulta el artículo del SDK para tu plataforma), tu propio servicio de geolocalización por IP que escriba atributos personalizados, o la [segmentación por ubicación]({{site.baseurl}}/user_guide/audience/segments/location_targeting) con los datos que recopiles.
 
 ## Segmentación por ubicación {#location-targeting}
 
 Utilizando los datos de seguimiento de ubicación y los segmentos, puedes configurar campañas y estrategias basadas en la ubicación. Por ejemplo, es posible que quieras ejecutar una campaña promocional para los usuarios que viven en una región particular o excluir a los usuarios de una región que tiene regulaciones más estrictas.
 
-Consulta [Segmentación por ubicación]({{site.baseurl}}/user_guide/audience/segments/location_targeting/) para obtener más información sobre cómo crear un segmento de ubicación.
+Consulta [Segmentación por ubicación]({{site.baseurl}}/user_guide/audience/segments/location_targeting) para obtener más información sobre cómo crear un segmento de ubicación.
 
 ## Establecer manualmente el atributo de ubicación predeterminado {#hard-setting-the-default-location-attribute}
 
-También puedes utilizar el [punto de conexión `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) en nuestra API para actualizar el atributo estándar [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens). Un ejemplo es:
+También puedes utilizar el [punto de conexión `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) en nuestra API para actualizar el atributo estándar [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens). Un ejemplo es:
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -64,9 +64,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 Combinar el soporte existente de balizas o geovallas con nuestras funciones de segmentación y mensajería te proporciona más información sobre las acciones físicas de tus usuarios para que puedas enviarles mensajes en consecuencia. Puedes aprovechar el seguimiento de ubicación con algunos de nuestros socios:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)
 
 ## Diferencias entre geovallas y seguimiento de ubicación {#differences-between-geofences-and-location-tracking}
 

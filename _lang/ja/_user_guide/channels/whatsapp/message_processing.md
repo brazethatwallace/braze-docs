@@ -18,7 +18,7 @@ guide_featured_list:
   - name: オプトインとオプトアウト
     link: /docs/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs
     image: /assets/img/braze_icons/toggle-01-left.svg
-  - name: ユーザーへのメッセージ送信
+  - name: ユーザーメッセージ
     link: /docs/user_guide/channels/whatsapp/message_processing/messaging_users
     image: /assets/img/braze_icons/send-01.svg
   - name: 不明な電話番号の処理

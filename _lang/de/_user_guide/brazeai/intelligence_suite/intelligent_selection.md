@@ -20,7 +20,7 @@ Bevor Sie die Intelligente Auswahl zu Ihrer Campaign hinzufügen, stellen Sie si
 - Ihre Campaign sendet nach einem wiederkehrenden Zeitplan. Einmalig versendete Campaigns werden nicht unterstützt.
 - Sie haben mindestens zwei Nachrichtenvarianten hinzugefügt.
 - Sie haben ein Konversions-Event definiert, um die Performance über die Varianten hinweg zu messen.
-- Das Zeitfenster für die erneute Anspruchsberechtigung ist auf 24 Stunden oder länger festgelegt. Kürzere Fenster werden nicht unterstützt, da sie die Integrität der Kontrollvariante beeinträchtigen würden. Weitere Informationen finden Sie in [diesen FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+- Das Zeitfenster für die erneute Anspruchsberechtigung ist auf 24 Stunden oder länger festgelegt. Kürzere Fenster werden nicht unterstützt, da sie die Integrität der Kontrollvariante beeinträchtigen würden. Weitere Informationen finden Sie in [diesen FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endtab %}
 
 {% tab Canvas %}
@@ -39,10 +39,10 @@ Eine Variante, die anscheinend besser abschneidet als andere, wird an mehr Nutze
 Intelligente Auswahl wird:
 - Wiederholt Performance-Daten analysieren und den Campaign-Traffic schrittweise auf die Gewinnervarianten verlagern.
 - Sicherstellen, dass mehr Nutzer:innen Ihre leistungsstärkste Variante erhalten, ohne die statistische Sicherheit zu beeinträchtigen.
-- Varianten mit schwacher Performance ausschließen und Varianten mit hoher Performance schneller identifizieren als ein [herkömmlicher A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+- Varianten mit schwacher Performance ausschließen und Varianten mit hoher Performance schneller identifizieren als ein [herkömmlicher A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing).
 - Häufiger und mit größerer Zuversicht testen, dass Ihre Nutzer:innen Ihre beste Nachricht sehen.
 
-Intelligente Auswahl funktioniert am besten bei Campaigns, die mehr als einmal gesendet werden. Die Funktion benötigt frühe Performance-Daten, um mit der Optimierung zu beginnen, sodass einmalig versendete Campaigns nicht davon profitieren. Für diese Campaigns empfehlen wir stattdessen einen herkömmlichen [A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Intelligente Auswahl funktioniert am besten bei Campaigns, die mehr als einmal gesendet werden. Die Funktion benötigt frühe Performance-Daten, um mit der Optimierung zu beginnen, sodass einmalig versendete Campaigns nicht davon profitieren. Für diese Campaigns empfehlen wir stattdessen einen herkömmlichen [A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 
 Sie können Ihren Campaigns und Canvases eine Intelligente Auswahl hinzufügen.
@@ -52,7 +52,7 @@ Sie können Ihren Campaigns und Canvases eine Intelligente Auswahl hinzufügen.
 Die Intelligente Auswahl kann zu jeder Multi-Send-Campaign im Schritt **Zielgruppe** des Braze-Campaign-Composers hinzugefügt werden. Campaigns, die nur einmal senden, können dieses Feature nicht nutzen.
 
 {% alert note %}
-Die Intelligente Auswahl kann nicht in Campaigns mit einer Wiederzulassungsfrist von weniger als 24 Stunden verwendet werden, da sie die Integrität der Kontrollvariante beeinträchtigen würde. Weitere Informationen finden Sie in den [Intelligence-FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+Die Intelligente Auswahl kann nicht in Campaigns mit einer Wiederzulassungsfrist von weniger als 24 Stunden verwendet werden, da sie die Integrität der Kontrollvariante beeinträchtigen würde. Weitere Informationen finden Sie in den [Intelligence-FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endalert %}
 {% endtab %}
 

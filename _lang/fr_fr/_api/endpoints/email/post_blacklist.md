@@ -11,12 +11,12 @@ description: "Cet article présente en détail l'endpoint Braze Ajouter des e-ma
 ---
 {% api %}
 # Ajouter des e-mails à la liste noire {#blacklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
 {% alert important %}
-Braze a publié l'[endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist/) avec la même fonctionnalité que l'endpoint `/email/blacklist`. Nous vous recommandons d'utiliser l'endpoint `/email/blocklist` à la place.
+Braze a publié l'[endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist) avec la même fonctionnalité que l'endpoint `/email/blacklist`. Nous vous recommandons d'utiliser l'endpoint `/email/blocklist` à la place.
 {% endalert %}
 
 > Utilisez cet endpoint pour désinscrire un utilisateur des e-mails et le marquer comme ayant subi un échec d'envoi définitif.
@@ -25,7 +25,7 @@ Braze a publié l'[endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/e
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `email.blacklist`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.blacklist`.
 
 ## Limite de débit {#rate-limit}
 
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 | -----------|----------| --------|------- |
 | `email` | Requis | Chaîne de caractères ou tableau | Adresse e-mail sous forme de chaîne de caractères à ajouter à la liste noire, ou un tableau de 50 adresses e-mail maximum à ajouter à la liste noire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ## Exemple de demande {#example-request}
 ```

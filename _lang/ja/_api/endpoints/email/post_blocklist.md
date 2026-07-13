@@ -10,7 +10,7 @@ description: "この記事では、メールのブロックリスト登録Braze�
 ---
 {% api %}
 # メールのブロックリスト登録 {#blocklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 
@@ -20,7 +20,7 @@ description: "この記事では、メールのブロックリスト登録Braze�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.blacklist` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`email.blacklist` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 

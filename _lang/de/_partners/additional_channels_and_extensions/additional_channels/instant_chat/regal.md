@@ -24,14 +24,14 @@ Verwenden Sie Braze-Daten, um zu bestimmen, was Ihre KI-Agenten sagen, wie sie r
 | ----------- | ----------- |
 | Regal-Konto | Ein Regal-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 | Regal-API-Schlüssel | Ein Regal-API-Schlüssel ermöglicht das Senden von Events von Braze an Regal.<br><br>Senden Sie eine E-Mail an [support@regal.io](mailto:support@regal.io), um diesen Schlüssel zu erhalten. |
-| Braze-Datentransformation | Eine [Datentransformation]({{site.baseurl}}/data_transformation/) ist erforderlich, um Daten von Regal zu empfangen. |
+| Braze-Datentransformation | Eine [Datentransformation]({{site.baseurl}}/data_transformation) ist erforderlich, um Daten von Regal zu empfangen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration: Daten von Braze an Regal senden {#integration-sending-data-from-braze-to-regal}
 
 Verwenden Sie Braze-Canvas- oder Campaign-Webhooks, um Kundenprofil- und Event-Daten von Braze an Regal zu senden.
 
-### 1. Schritt: Neue Kontakte in Regal erstellen {#step-1-create-new-contacts-in-regal}
+### Schritt 1: Neue Kontakte in Regal erstellen {#step-1-create-new-contacts-in-regal}
 
 Erstellen Sie ein Canvas oder eine Campaign, die jedes Mal einen Webhook an Regal sendet, wenn ein neues Braze-Profil erstellt wird, das für Anrufe und SMS in Regal verfügbar sein soll.
 
@@ -111,7 +111,7 @@ Der einzige erforderliche Bezeichner ist eine Telefonnummer innerhalb von `trait
 
 Das obige Payload-Beispiel geht davon aus, dass die aufgeführten Telefonnummern den aktuellen Opt-in-Status für Sprache und SMS enthalten. Wenn das nicht der Fall ist, können Sie `voiceOptIn` und `smsOptIn` beim Erstellen des Kontakts weglassen und ein separates Canvas oder eine Campaign einrichten, um die Einwilligung für die jeweilige Telefonnummer zu aktualisieren, sobald das Opt-in erfasst wird.
 
-### 2. Schritt: Opt-in-Informationen aktualisieren {#step-2-update-opt-in-information}
+### Schritt 2: Opt-in-Informationen aktualisieren {#step-2-update-opt-in-information}
 
 Wenn Opt-in und Opt-out an verschiedenen Stellen Ihrer App stattfinden können, aktualisieren Sie Regal, wenn Nutzer:innen ihren Abostatus ändern.
 
@@ -171,7 +171,7 @@ Regal erfordert außerdem einen HTTP-Header für die Autorisierung und eine HTTP
 
 Sie können auch zusätzliche Nutzerprofil-Attribute in diesen Payload aufnehmen, um weitere Attribute gleichzeitig auf dem neuesten Stand zu halten.
 
-### 3. Schritt: Angepasste Events senden {#step-3-send-custom-events}
+### Schritt 3: Angepasste Events senden {#step-3-send-custom-events}
 
 Richten Sie ein Canvas oder eine Campaign für jedes wichtige Event ein, das Sie an Regal senden möchten.
 
@@ -264,18 +264,16 @@ Wenn Sie Fragen dazu haben, welche Events Sie an Regal senden sollten oder wie S
 
 Verwenden Sie Regal Reporting Webhooks und Braze-Datentransformation, um Regal-Reporting-Events (wie `SMS.sent` und `call.completed`) an Braze zu senden. Nachdem Sie diese Events zugeordnet haben, erscheinen sie in Nutzerprofilen und stehen für Segmentierung, Canvas und Campaigns zur Verfügung.
 
-### 1. Schritt: Eine Datentransformation in Braze erstellen {#step-1-create-a-data-transformation-in-braze}
+### Schritt 1: Eine Datentransformation in Braze erstellen {#step-1-create-a-data-transformation-in-braze}
 
 Erstellen Sie eine Datentransformation für jeden Regal-Webhook, den Sie an Braze senden möchten.
 
 So erstellen Sie eine Datentransformation:
 1. Navigieren Sie zur Seite **Transformationen** in Ihrem Braze-Dashboard.
 2. Geben Sie Ihrer Transformation einen Namen und klicken Sie auf **Transformation erstellen**.
-3. Wählen Sie in der Liste der Transformationen <i class="fa-solid fa-ellipsis-vertical" title="Aktionen anzeigen"></i> **Aktionen anzeigen** und wählen Sie **Webhook-URL kopieren**.
+3. Wählen Sie in der Liste der Transformationen <i class="fa-solid fa-ellipsis-vertical" title="Aktionen anzeigen"></i> **Aktionen anzeigen** und dann **Webhook-URL kopieren**.
 
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
-
-### 2. Schritt: Reporting-Webhooks in Regal aktivieren {#step-2-enable-reporting-webhooks-in-regal}
+### Schritt 2: Reporting-Webhooks in Regal aktivieren {#step-2-enable-reporting-webhooks-in-regal}
 
 So richten Sie Reporting-Webhooks ein:
 1. Öffnen Sie die Regal-App und navigieren Sie zur Seite **Einstellungen**.
@@ -283,8 +281,6 @@ So richten Sie Reporting-Webhooks ein:
 2. Klicken Sie im Bereich **Reporting Webhooks** auf **Webhooks erstellen**.
 
 3. Fügen Sie in der Eingabe für den Webhook-Endpunkt die Webhook-URL der Braze-Datentransformation für die zugehörige Datentransformation hinzu.
-
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
 
 #### Aktualisierung eines Endpunkts {#updating-an-endpoint}
 
@@ -297,9 +293,9 @@ Derzeit führt Regal keine Wiederholungsversuche für diese Events durch. Wenn B
 #### Events
 Die vollständige Liste der Reporting-Events, Eigenschaftsdefinitionen und Beispiel-Payloads finden Sie im [Reporting-Webhooks-Leitfaden](https://developer.regal.io/docs/reporting-webhooks#events) von Regal.
 
-### 3. Schritt: Regal-Events in Braze-Events transformieren {#step-3-transform-regal-events-into-braze-events}
+### Schritt 3: Regal-Events in Braze-Events transformieren {#step-3-transform-regal-events-into-braze-events}
 
-Mit dem Feature [Datentransformation]({{site.baseurl}}/data_transformation/) von Braze können Sie eingehende Regal-Events in das Format abbilden, das erforderlich ist, um sie als Attribute, Events oder Käufe in Braze hinzuzufügen.
+Mit dem Feature [Datentransformation]({{site.baseurl}}/data_transformation) von Braze können Sie eingehende Regal-Events in das Format abbilden, das erforderlich ist, um sie als Attribute, Events oder Käufe in Braze hinzuzufügen.
 
 1. Benennen Sie Ihre Datentransformation. Es wird empfohlen, eine Datentransformation pro Event-Webhook einzurichten.
 
@@ -313,7 +309,7 @@ Mit dem Feature [Datentransformation]({{site.baseurl}}/data_transformation/) von
 In Braze-zu-Regal-Event-Payloads empfiehlt Regal die Verwendung von `traits.phones`, um mehrere Telefonnummern und Einwilligungen auf Telefonnummernebene zu unterstützen. In Regal-Reporting-Events, die an Braze zurückgesendet werden, kann `traits.phone` weiterhin als Bezeichner in Event-Payloads erscheinen.
 
 #### Von Braze unterstützte Bezeichner {#braze-supported-identifiers}
-- Braze unterstützt keine Telefonnummern als Bezeichner. Um diese als Bezeichner zu verwenden, kann die Telefonnummer in Braze als [Nutzer-Alias]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) festgelegt werden.
+- Braze unterstützt keine Telefonnummern als Bezeichner. Um diese als Bezeichner zu verwenden, kann die Telefonnummer in Braze als [Nutzer-Alias]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) festgelegt werden.
 - Bei der Verwendung von Braze-Datentransformation kann die E-Mail-Adresse als Bezeichner verwendet werden. Wenn die E-Mail-Adresse als Profil in Braze existiert, wird das bestehende Profil aktualisiert. Wenn die E-Mail-Adresse in Braze noch nicht existiert, wird ein reines E-Mail-Profil erstellt.
 
 ## Anwendungsfälle {#use-cases}
@@ -329,18 +325,18 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `call.completed`-Event in 
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -427,13 +423,13 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `contact.attribute.edited`
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -491,8 +487,8 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `contact.experiment.assign
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -554,8 +550,8 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `contact.unsubscribed`-Eve
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -617,11 +613,11 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `call.analysis.available`-
 {
   "traits": {
     "phone": "+1XXXXXXXXXX",
-    "email": "xxx@gmail.com"
+    "email": "xxx@example.com"
   },
   "name": "call.analysis.available",
   "brand": "circle-bank",
-  "contact_email": "xxx@gmail.com",
+  "contact_email": "xxx@example.com",
   "contact_phone": "+1XXXXXXXXXX",
   "created_at": "1754079836",
   "entity_type": "event",
@@ -631,7 +627,7 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `call.analysis.available`-
   "original_timestamp": "1754079835",
   "profile_id": "62653af1111111173af128291e92",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "call_analysis": {
       "purchase_intent": "medium",
       "primary_objection": "price",
@@ -652,7 +648,7 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `call.analysis.available`-
     "is_ai_agent": true,
     "outgoing_sip_headers": {
       "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
-      "To": "<sip:agent@yourbrand.com>",
+      "To": "<sip:agent@example.com>",
       "User-Agent": "RegalVoiceAI/1.0"
     },
     "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
@@ -677,16 +673,16 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `call.transcript.available
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625551796",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.transcript.available",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
-    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
-    "contact_name": "Joe Smith",
-    "contact_phone": "+13523182825",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
     "is_voicemail": false,
     "moments_count": 18,
     "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
@@ -697,8 +693,8 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `call.transcript.available
     "sentiments": {
       "contact_sentiment": 70,
       "agent_sentiment": 75,
-      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
-      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
     },
     "trackers": [
       {
@@ -710,7 +706,7 @@ Nachfolgend sehen Sie einen Beispiel-Payload für ein `call.transcript.available
         "tracker_name": "High Intent"
       }
     ],
-    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
     "transcript_is_truncated": false,
     "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
   },

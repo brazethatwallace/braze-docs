@@ -12,9 +12,9 @@ tool:
 
 # Métricas por segmentos {#metrics-by-segments}
 
-> Use modelos de relatório do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para detalhar métricas de performance de Campaigns, Canvas, variantes e etapas por segmentos.
+> Use modelos de relatório do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para detalhar métricas de performance de Campaigns, Canvas, variantes e etapas por segmentos.
 
-O [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) deve estar ativado para os segmentos cujas métricas você deseja acessar.
+O [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) deve estar ativado para os segmentos cujas métricas você deseja acessar.
 
 Para executar esses relatórios, faça o seguinte:
 1. No **Criador de consultas**, escolha criar um novo relatório SQL com um modelo.

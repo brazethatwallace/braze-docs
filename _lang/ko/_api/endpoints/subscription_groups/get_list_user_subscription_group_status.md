@@ -32,7 +32,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 나열 Braze
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `subscription.status.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `subscription.status.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -42,11 +42,11 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 나열 Braze
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | 필수 | 문자열 | 구독 그룹의 `id`. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | 필수 | 문자열 | 구독 그룹의 `id`. |
 | `external_id` | 필수* | 문자열 | 사용자의 `external_id`(최소 1개, 최대 50개의 `external_ids`를 포함해야 합니다). <br><br>`external_id`와 `email`/`phone`을 모두 제출한 경우, 제공된 `external_id`만 결과 쿼리에 적용됩니다. |
 | `email` | 필수* | 문자열 | 사용자의 이메일 주소입니다. 최대 50개의 문자열 배열로 전달할 수 있습니다.<br><br> 이메일 주소와 전화번호를 모두 제출하면(`external_id` 없이) 오류가 발생합니다. |
 | `phone` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호입니다. 이메일이 포함되지 않은 경우 전화번호를 하나 이상 포함해야 합니다(최대 50개).<br><br> 이메일 주소와 전화번호를 모두 제출하면(`external_id` 없이) 오류가 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 *각 사용자에 대해 `external_id` 또는 `email` 또는 `phone` 중 하나가 필요합니다.
 
@@ -74,7 +74,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}

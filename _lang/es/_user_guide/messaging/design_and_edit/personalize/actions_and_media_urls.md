@@ -12,7 +12,7 @@ description: "Este artículo de referencia describe cómo personalizar URL de ac
 ## Vinculación en profundidad a contenido dentro de la aplicación {#deep-link-to-in-app-content}
 
 {% alert tip %}
-**Para desarrolladores:** Para una guía sobre cómo elegir entre esquemas personalizados, enlaces universales y otras opciones —incluyendo cuándo necesitas un archivo AASA, qué métodos de delegado de la aplicación implementar y cómo depurar problemas— consulta la [Guía de vinculación en profundidad en iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/) y [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+**Para desarrolladores:** Para una guía sobre cómo elegir entre esquemas personalizados, enlaces universales y otras opciones —incluyendo cuándo necesitas un archivo AASA, qué métodos de delegado de la aplicación implementar y cómo depurar problemas— consulta la [Guía de vinculación en profundidad en iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) y [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ### ¿Qué es la vinculación en profundidad? {#what-is-deep-linking}
@@ -30,7 +30,7 @@ Los vínculos profundos son URI personalizados que enlazan a una parte específi
 Todo lo que viene después de los dos puntos dentro de un vínculo profundo es texto de formato libre. Depende de ti definir su estructura e interpretación; sin embargo, una convención común es modelarlo como las URL `http:`, incluyendo un `//` inicial y parámetros de consulta (por ejemplo, `?foo=1&bar=2`). Para el ejemplo anterior, `twitter://user?screen_name=[id]` se usaría para lanzar un perfil específico en la aplicación.
 
 {% alert important %}
-Para aplicaciones construidas con frameworks de envoltorio (por ejemplo, Flutter o Cordova), Braze no proporciona soporte de vinculación en profundidad específico para el envoltorio. Debes configurar los vínculos profundos en las capas nativas de iOS y Android. Para Cordova, consulta [Vinculación en profundidad en notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova).
+Para aplicaciones construidas con frameworks de envoltorio (por ejemplo, Flutter o Cordova), Braze no proporciona soporte de vinculación en profundidad específico para el envoltorio. Debes configurar los vínculos profundos en las capas nativas de iOS y Android. Para Cordova, consulta [Vinculación en profundidad en notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
 
 ### Etiquetas UTM y atribución de campañas {#utm-tags-and-campaign-attribution}
@@ -49,7 +49,7 @@ Las etiquetas UTM pueden incorporarse tanto en enlaces HTTP regulares (web) como
 
 ##### Cálculos de etiquetas UTM {#utm-tag-calculations}
 
-Braze reporta _Clics totales_ para todos los enlaces en una Campaign o paso en Canvas, lo que puede incluir enlaces que no tienen etiquetas UTM. Esto significa que puedes ver un resultado diferente (a menudo menor) en los enlaces de seguimiento de campañas de Google Analytics en comparación con los _Clics totales_ mostrados en el rendimiento de tu campaña o en el Generador de informes.
+Braze reporta _Clics totales_ para todos los enlaces en una Campaign o paso en Canvas, lo que puede incluir enlaces que no tienen etiquetas UTM. Esto significa que puedes ver un resultado diferente (a menudo menor) en los enlaces de seguimiento de campañas de Google Analytics en comparación con los _Clics totales_ mostrados en el rendimiento de tu campaña o en el generador de informes.
 
 #### Uso de etiquetas UTM con Braze {#using-utm-tags-with-braze}
 
@@ -70,7 +70,7 @@ Para incluir etiquetas UTM en tus vínculos profundos para notificaciones push, 
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
 ```
 
-![]({% image_buster /assets/img_archive/push_utm_tags.png %})
+![Captura de pantalla relacionada con la atribución de aperturas push y clics en mensajes dentro de la aplicación con etiquetas UTM.]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
 {% endtab %}
 {% tab Clics en mensajes dentro de la aplicación %}
@@ -81,18 +81,18 @@ Para incluir etiquetas UTM en los vínculos profundos de tus mensajes dentro de 
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
 ```
 
-![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
+![Captura de pantalla relacionada con la atribución de aperturas push y clics en mensajes dentro de la aplicación con etiquetas UTM.]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
 {% endtab %}
 {% endtabs %}
 
 ## Usar personalización Liquid en URL {#use-liquid-personalization-in-urls}
 
-Puedes construir dinámicamente tu URL directamente dentro del compositor de Braze, lo que te permite añadir parámetros UTM dinámicos a tus URL o enviar a los usuarios enlaces únicos (como dirigir a los usuarios a su carrito abandonado o a un producto específico que volvió a estar en stock).
+Puedes construir dinámicamente tu URL directamente dentro del creador de Braze, lo que te permite añadir parámetros UTM dinámicos a tus URL o enviar a los usuarios enlaces únicos (como dirigir a los usuarios a su carrito abandonado o a un producto específico que volvió a estar en stock).
 
 ### Crear una URL con etiquetas de personalización Liquid compatibles {#create-a-url-with-supported-liquid-personalization-tags}
 
-Las URL pueden generarse dinámicamente mediante el uso de cualquier [etiqueta de personalización Liquid compatible]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Las URL pueden generarse dinámicamente mediante el uso de cualquier [etiqueta de personalización Liquid compatible]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 {% raw %}
 ```liquid
@@ -117,11 +117,11 @@ https://example.com/{{url_var}}
 
 Acortamos las URL que son generadas por Liquid, incluso aquellas incluidas en propiedades de desencadenamiento por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y rastreamos esa URL antes de enviar el mensaje.
 
-### Acortar URL en el punto de conexión `/messages/send` {#shorten-urls-in-messagessend-endpoint}
+### Acortar URL en el endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-El acortamiento de enlaces también está habilitado para mensajes exclusivos de API a través del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Para una lista completa de parámetros de solicitud, consulta [parámetros de solicitud]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
+El acortamiento de enlaces también está habilitado para mensajes exclusivos de API a través del [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para una lista completa de parámetros de solicitud, consulta [parámetros de solicitud]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Sí | Booleano | Establece `link_shortening_enabled` en `true` para activar el acortamiento de enlaces. Para usar el seguimiento, deben estar presentes un `campaign_id` y un `message_variation_id`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Acortar URL en el endpoint /messages/send" }

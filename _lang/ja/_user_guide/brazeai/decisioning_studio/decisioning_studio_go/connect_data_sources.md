@@ -25,7 +25,7 @@ Decisioning Studio Goは、データアクセスにおいて以下のCEPをサ�
 |-----|-----------------|-----------------|
 | **Braze** | セグメント | Braze Currentsエクスポート |
 | **Salesforce Marketing Cloud** | データエクステンション | SQLクエリオートメーション |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされている統合パターン" }
 
 ## CEP別のデータ要件 {#data-requirements-by-cep}
 
@@ -56,7 +56,7 @@ Salesforce Marketing Cloudとの統合において、Decisioning Studio Goには
 1. **データエクステンション：** オーディエンスは、Decisioning Studio Goがアクセス可能なデータエクステンションで定義されている必要があります。SubscriberKeyをプライマリユーザー識別子として使用してください。
 2. **トラッキングイベントへのアクセス：** インストール済みアプリパッケージがエンドツーエンドの自動セットアップをサポートしている限り、追加の設定は不要です。
 
-データエクステンションとSQLクエリは、[オーケストレーション設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)の一部として構成されます。
+データエクステンションとSQLクエリは、[オーケストレーション設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)の一部として構成されます。
 
 {% endtab %}
 {% endtabs %}
@@ -70,4 +70,4 @@ Salesforce Marketing Cloudとの統合において、Decisioning Studio Goには
 
 Goがデータに接続する仕組みを理解したところで、CEP統合の設定に進みましょう：
 
-- [オーケストレーションを設定する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
+- [オーケストレーションを設定する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)

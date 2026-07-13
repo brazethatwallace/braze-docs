@@ -73,14 +73,12 @@ IDプロバイダーでBrazeの設定が完了すると、IDプロバイダー�
 
 セキュリティ設定を保存してログアウトします。その後、IDプロバイダーを使用して再度サインインします。
 
-![SSOが有効になったダッシュボードのログイン画面]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## RelayStateのセットアップ {#setting-up-your-relaystate}
 
-1. Brazeで、**設定** > **APIキー**に移動します。
+1. Brazeで、**設定** > **APIと識別子**に移動します。
 2. **APIキー**タブで、**APIキーを作成**ボタンを選択します。
 3. **APIキー名**フィールドにキーの名前を入力します。
-4. **権限**の下にある**SSO**ドロップダウンを展開し、**sso.saml.login**にチェックを入れます。<br><br>![sso.saml.loginにチェックが入った「権限」セクション。]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. **権限**の下にある**SSO**ドロップダウンを展開し、**sso.saml.login**にチェックを入れます。
 5. **APIキーを作成**を選択します。
 6. **APIキー**タブで、作成したAPIキーの横にある識別子をコピーします。
 7. RelayState APIキーをIdPのRelayStateに貼り付けます（IdPによっては「Relay State」または「Default Relay State」と表示される場合があります）。
@@ -96,6 +94,10 @@ SSOの使用を選択したメンバーは、以前のようにパスワード�
 ![「認証ルール」セクションのセットアップ例。最小パスワード長は8文字、パスワードの再利用可能回数は3回です。パスワードは180日後に期限切れとなり、ユーザーは1,440分の非アクティブ後にログアウトされます。]({% image_buster /assets/img/sso3.png %})
 
 制限を有効にすると、以前パスワードでログインしていた場合でも、会社のBrazeユーザーはパスワードを使用してログインできなくなります。
+
+{% alert important %}
+SSOが強制された後、SSO認証が失敗した場合のフォールバックオプションはありません。SSOの強制を有効にする前に、SSO設定が正しいこと、すべての証明書が最新で更新されていること、セキュリティ設定が適切に管理されていることを確認して、ログインの問題を防いでください。
+{% endalert %}
 
 ## SAMLトレースの取得 {#obtaining-a-saml-trace}
 
@@ -171,11 +173,11 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 
 これはRelayStateが正しく設定されていない場合に発生することがあります。APIキー（**設定** > **APIキー**）をIdPサインイン用に作成し、そのAPIキーをIdPの `RelayState` パラメーターとして設定したことを確認してください。RelayStateは、サインインする会社アカウントを識別します。手順については、[RelayStateのセットアップ](#setting-up-your-relaystate)を参照してください。
 
-それでもサインインできない場合は、可能であればSAMLトレースを添えて[Brazeサポートに連絡]({{site.baseurl}}/braze_support/)してください。トレースのキャプチャ方法については、[SAMLトレースの取得](#obtaining-a-saml-trace)を参照してください。
+それでもサインインできない場合は、可能であればSAMLトレースを添えて[Brazeサポートに連絡]({{site.baseurl}}/braze_support)してください。トレースのキャプチャ方法については、[SAMLトレースの取得](#obtaining-a-saml-trace)を参照してください。
 
 ### ユーザーがOktaとBrazeの間でサインインループに陥っていませんか？ {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-Okta SSOとBrazeダッシュボードの間を循環してサインインできないユーザーがいる場合、Oktaに移動してSSO URLの送信先を[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)（例: `https://dashboard-07.braze.com`）に設定する必要があります。
+Okta SSOとBrazeダッシュボードの間を循環してサインインできないユーザーがいる場合、Oktaに移動してSSO URLの送信先を[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)（例: `https://dashboard-07.braze.com`）に設定する必要があります。
 
 別のIdPを使用している場合は、会社が正しいSAMLまたはx.509証明書をBrazeにアップロードしたかどうかを確認してください。
 
@@ -201,5 +203,5 @@ Google SSOの強制が有効になると、ユーザーはGoogle認証でサイ�
 
 SAML SSOを設定した後、以下のことができます:
 
-- セキュリティ設定で[SSOのみのログインを強制]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction)し、ユーザーがパスワードでログインすることを制限します。
-- [SAMLジャストインタイムプロビジョニングを設定]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/)して、新しいユーザーが初回のSSOサインイン時に自動的にBrazeアカウントを作成できるようにします。
+- セキュリティ設定で[SSOのみのログインを強制]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction)し、ユーザーがパスワードでログインすることを制限します。
+- [SAMLジャストインタイムプロビジョニングを設定]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)して、新しいユーザーが初回のSSOサインイン時に自動的にBrazeアカウントを作成できるようにします。

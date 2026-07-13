@@ -15,27 +15,27 @@ tool:
 
 ## Duplicar {#duplicating}
 
-Después de duplicar una campaña o un Canvas, el nuevo mensaje se titulará automáticamente `"Copy of [Original Name]"` y se te dirigirá a su página de edición. Estos duplicados permanecerán como borradores hasta que los edites y los lances.
+Después de duplicar una Campaign o un Canvas, el nuevo mensaje se titulará automáticamente `"Copy of [Original Name]"` y se te dirigirá a su página de edición. Estos duplicados permanecerán como borradores hasta que los edites y los lances.
 
 {% alert tip %}
-También puedes [copiar tu campaña]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/) entre espacios de trabajo. La copia permanecerá como borrador hasta que la edites y la lances.
+También puedes [copiar Campaigns, Canvas y páginas de inicio]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces) entre espacios de trabajo. La copia permanecerá como borrador hasta que la edites y lances la Campaign o el Canvas, o publiques la página de inicio.
 {% endalert %}
 
 {% tabs %}
 {% tab campaign %}
-Para duplicar una campaña:
+Para duplicar una Campaign:
 
-1. Ve a **Messaging** > **Campaigns**.
-2. Pasa el cursor sobre la campaña y selecciona <i class="fas fa-gear"></i> **More actions**.
-3. Selecciona **Duplicate**.
+1. Ve a **Mensajería** > **Campaigns**.
+2. Pasa el cursor sobre la Campaign y selecciona <i class="fas fa-gear"></i> **Más acciones**.
+3. Selecciona **Duplicar**.
 {% endtab %}
 
 {% tab canvas %}
 Para duplicar un Canvas:
 
-1. Ve a **Messaging** > **Canvas**.
-2. Pasa el cursor sobre la fila del Canvas y selecciona <i class="fas fa-ellipsis-vertical"></i> **More actions**.
-3. Selecciona **Duplicate**.
+1. Ve a **Mensajería** > **Canvas**.
+2. Pasa el cursor sobre la fila del Canvas y selecciona <i class="fas fa-ellipsis-vertical"></i> **Más acciones**.
+3. Selecciona **Duplicar**.
 
 {% endtab %}
 {% endtabs %}

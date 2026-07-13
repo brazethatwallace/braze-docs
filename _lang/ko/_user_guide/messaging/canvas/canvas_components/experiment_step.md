@@ -24,54 +24,54 @@ tool: Canvas
 
 실험 경로는 전달, 케이던스, 메시지 문구, 채널 조합을 테스트하는 데 가장 적합합니다.
 
-- **전달:** 서로 다른 시간 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)으로 발송된 메시지, 사용자 행동 기반([행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)), [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#canvas) 사용 간의 결과를 비교합니다.<br><br>
+- **전달:** 서로 다른 시간 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)으로 발송된 메시지, 사용자 행동 기반([행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas) 사용 간의 결과를 비교합니다.<br><br>
 - **케이던스:** 특정 기간 동안 여러 메시징 흐름을 테스트합니다. 예를 들어, 두 가지 다른 온보딩 케이던스를 테스트할 수 있습니다:
     - 케이던스 1: 사용자의 첫 2주 동안 2개의 메시지 발송
     - 케이던스 2: 사용자의 첫 2주 동안 3개의 메시지 발송
 
     이탈 위험 사용자를 타겟팅할 때, 일주일에 2개의 윈백 메시지를 보내는 것과 1개만 보내는 것의 효과를 테스트할 수 있습니다.
-- **메시지 문구:** 표준 [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)와 유사하게, 서로 다른 메시지 문구를 테스트하여 어떤 표현이 더 높은 전환율을 가져오는지 확인할 수 있습니다.<br><br>
+- **메시지 문구:** 표준 [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)와 유사하게, 서로 다른 메시지 문구를 테스트하여 어떤 표현이 더 높은 전환율을 가져오는지 확인할 수 있습니다.<br><br>
 - **채널 조합:** 서로 다른 메시지 채널 조합의 효과를 테스트합니다. 예를 들어, 이메일만 사용하는 것과 이메일과 푸시를 결합하는 것의 영향을 비교할 수 있습니다.
 
 ## 실험 경로 생성 {#creating-an-experiment-path}
 
-실험 경로 구성요소를 생성하려면 먼저 캔버스에 단계를 추가합니다. 사이드바에서 구성요소를 드래그 앤 드롭하거나, 단계 하단의 <i class="fas fa-plus-circle"></i> 플러스 버튼을 클릭하고 **Experiment Paths**를 선택합니다.
+실험 경로 구성요소를 생성하려면 먼저 캔버스에 단계를 추가합니다. 사이드바에서 구성요소를 드래그 앤 드롭하거나, 단계 하단의 <i class="fas fa-plus-circle"></i> 플러스 버튼을 클릭하고 **실험 경로**를 선택합니다.
 
-이 구성요소의 기본 구성에는 **Path 1**과 **Path 2**라는 두 개의 기본 경로가 있으며, 오디언스의 50%가 각 경로로 발송됩니다. 구성요소를 클릭하여 **Experiment Settings** 패널을 확장하면 구성요소의 구성 옵션을 확인할 수 있습니다.
+이 구성요소의 기본 구성에는 **Path 1**과 **Path 2**라는 두 개의 기본 경로가 있으며, 오디언스의 50%가 각 경로로 발송됩니다. 구성요소를 클릭하여 **실험 설정** 패널을 확장하면 구성요소의 구성 옵션을 확인할 수 있습니다.
 
 ### 1단계: 경로 수 및 오디언스 분배 선택 {#step-1-choose-the-number-of-paths-and-audience-distribution}
 
-**Add Path**를 클릭하여 최대 4개의 경로를 추가할 수 있으며, **Add a Control Group**을 체크하여 선택적 대조군을 추가할 수 있습니다. 각 경로의 비율 상자를 사용하여 각 경로와 대조군에 할당할 오디언스의 비율을 지정할 수 있습니다. 제공된 비율의 합계가 100%가 되어야 진행할 수 있습니다. 사용 가능한 모든 경로(및 대조군)를 동일한 비율로 빠르게 설정하려면 **Distribute Paths Evenly**를 클릭합니다.
+**경로 추가**를 클릭하여 최대 4개의 경로를 추가할 수 있으며, **대조군 추가**를 체크하여 선택적 대조군을 추가할 수 있습니다. 각 경로의 비율 상자를 사용하여 각 경로와 대조군에 할당할 오디언스의 비율을 지정할 수 있습니다. 제공된 비율의 합계가 100%가 되어야 진행할 수 있습니다. 사용 가능한 모든 경로(및 대조군)를 동일한 비율로 빠르게 설정하려면 **경로 균등 분배**를 클릭합니다.
 
-**Control Group Behavior**에서 대조군의 사용자가 캔버스를 계속 진행할지 또는 전환 추적 기간 후에 종료할지를 선택할 수도 있습니다. 선택적으로, 이 실험 경로가 테스트하려는 내용을 다른 사람에게 설명하거나 참고할 만한 추가 정보를 포함하는 설명을 추가할 수 있습니다.
+**대조군 동작**에서 대조군의 사용자가 캔버스를 계속 진행할지 또는 전환 추적 기간 후에 종료할지를 선택할 수도 있습니다. 선택적으로, 이 실험 경로가 테스트하려는 내용을 다른 사람에게 설명하거나 참고할 만한 추가 정보를 포함하는 설명을 추가할 수 있습니다.
 
 ![경로를 추가하고 각 경로의 사용자 비율을 분배할 수 있는 실험 설정.]({% image_buster /assets/img/experiment_step/exp_settings.png %})
 
 {% alert note %}
-캔버스 재진입 자격이 활성화된 경우, 캔버스에 진입하여 무작위로 선택된 경로를 따라간 사용자는 재진입 자격이 되어 캔버스에 다시 진입하면 동일한 경로를 다시 따라갑니다. 이는 실험 및 관련 분석의 유효성을 유지합니다. 단계가 항상 경로 할당을 무작위화하도록 하려면 **Randomized Paths in Experiment Paths**를 선택합니다. 이 옵션은 위닝 경로 또는 개인화된 경로를 사용할 때는 사용할 수 없습니다.
+캔버스 재진입 자격이 활성화된 경우, 캔버스에 진입하여 무작위로 선택된 경로를 따라간 사용자는 재진입 자격이 되어 캔버스에 다시 진입하면 동일한 경로를 다시 따라갑니다. 이는 실험 및 관련 분석의 유효성을 유지합니다. 단계가 항상 경로 할당을 무작위화하도록 하려면 **실험 경로에서 경로 무작위화**를 선택합니다. 이 옵션은 위닝 경로 또는 개인화된 경로를 사용할 때는 사용할 수 없습니다.
 {% endalert %}
 
 ### 2단계: 위닝 경로 또는 개인화된 경로 활성화(선택 사항) {#step-2}
 
-[위닝 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path/) 또는 [개인화된 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths/)를 활성화하여 실험을 최적화할 수 있습니다. 두 옵션 모두 오디언스의 일부로 경로를 먼저 테스트합니다. 실험이 종료된 후, 나머지 및 이후 사용자는 전체적으로 가장 성과가 좋은 경로(위닝 경로) 또는 각 사용자에게 가장 성과가 좋은 경로(개인화된 경로)로 발송됩니다.
+[위닝 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path) 또는 [개인화된 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths)를 활성화하여 실험을 최적화할 수 있습니다. 두 옵션 모두 오디언스의 일부로 경로를 먼저 테스트합니다. 실험이 종료된 후, 나머지 및 이후 사용자는 전체적으로 가장 성과가 좋은 경로(위닝 경로) 또는 각 사용자에게 가장 성과가 좋은 경로(개인화된 경로)로 발송됩니다.
 
 ### 3단계: 경로 생성 {#step-3-create-paths}
 
-마지막으로, 다운스트림 경로를 구축해야 합니다. **Done**을 선택하고 캔버스 빌더로 돌아갑니다. 각 경로 아래의 <i class="fas fa-plus-circle"></i> 플러스 버튼을 클릭하여 일반적인 캔버스 도구를 사용해 여정을 만들고, 준비가 되면 캔버스를 시작합니다.
+마지막으로, 다운스트림 경로를 구축해야 합니다. **완료**를 선택하고 캔버스 빌더로 돌아갑니다. 각 경로 아래의 <i class="fas fa-plus-circle"></i> 플러스 버튼을 클릭하여 일반적인 캔버스 도구를 사용해 여정을 만들고, 준비가 되면 캔버스를 시작합니다.
 
 ![실험 경로 구성요소에서 분할되는 각 경로에 단계를 추가하기.]({% image_buster /assets/img/experiment_step/experiment_downstream_paths.gif %}){: style="max-width:75%"}
 
 경로와 해당 다운스트림 단계는 생성된 후에는 캔버스에서 제거할 수 없다는 점을 유의하세요. 그러나 시작된 후에는 필요에 따라 경로 간 오디언스 분배를 수정할 수 있습니다. 예를 들어, 캔버스 시작 하루 후에 분석을 기반으로 하나의 경로가 나머지보다 우수하다고 결론을 내리면, 해당 경로를 100%로 설정하고 나머지를 0%로 설정할 수 있습니다. 또는 필요에 따라 여러 경로로 사용자를 계속 발송할 수도 있습니다.
 
 {% alert important %}
-실험 오염을 방지하기 위해, 캔버스에 활성 또는 진행 중인 위닝 경로 또는 개인화된 경로 실험이 있고 활성 캔버스를 업데이트하면, 실험 경로 단계 자체를 업데이트하지 않더라도 진행 중인 실험이 종료되며 실험 단계가 위닝 경로 또는 개인화된 경로를 결정하지 않습니다. 실험을 다시 시작하려면 기존 실험 경로의 연결을 해제하고 새로운 것을 시작하거나, 캔버스를 복제하여 새 캔버스를 시작할 수 있습니다. 그렇지 않으면 사용자는 최적화 방법이 선택되지 않은 것처럼 실험 경로를 통과합니다. 이미 활성화된 캔버스의 실험 경로 단계에 대해 개인화된 경로 또는 위닝 경로를 활성화할 수도 없습니다.<br><br>자세한 내용은 [시작 후 캔버스 편집]({{site.baseurl}}/post-launch_edits/)을 참조하세요.
+실험 오염을 방지하기 위해, 캔버스에 활성 또는 진행 중인 위닝 경로 또는 개인화된 경로 실험이 있고 활성 캔버스를 업데이트하면, 실험 경로 단계 자체를 업데이트하지 않더라도 진행 중인 실험이 종료되며 실험 단계가 위닝 경로 또는 개인화된 경로를 결정하지 않습니다. 실험을 다시 시작하려면 기존 실험 경로의 연결을 해제하고 새로운 것을 시작하거나, 캔버스를 복제하여 새 캔버스를 시작할 수 있습니다. 그렇지 않으면 사용자는 최적화 방법이 선택되지 않은 것처럼 실험 경로를 통과합니다. 이미 활성화된 캔버스의 실험 경로 단계에 대해 개인화된 경로 또는 위닝 경로를 활성화할 수도 없습니다.<br><br>자세한 내용은 [시작 후 캔버스 편집]({{site.baseurl}}/post-launch_edits)을 참조하세요.
 {% endalert %}
 
 ## 성과 추적 {#tracking-performance}
 
-**Canvas Analytics** 페이지에서 실험 경로를 선택하면 경로 간 상세 성과 및 전환 통계를 비교할 수 있는 **Analyze Variants** 탭과 동일한 [상세 테이블]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#performance-breakdown-by-variant)이 열립니다. CSV로 테이블을 내보내고 선택한 경로 또는 대조군 대비 관심 측정기준의 변화율을 비교할 수도 있습니다.
+**Canvas 분석** 페이지에서 실험 경로를 선택하면 경로 간 상세 성과 및 전환 통계를 비교할 수 있는 **배리언트 분석** 탭과 동일한 [상세 테이블]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant)이 열립니다. CSV로 테이블을 내보내고 선택한 경로 또는 대조군 대비 관심 측정기준의 변화율을 비교할 수도 있습니다.
 
-각 경로의 각 단계는 일반 캔버스 단계와 마찬가지로 [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) 뷰에 통계를 표시합니다. 그러나 개별 단계 분석과 실험 경로 분석은 전환을 다르게 측정한다는 점을 유의하세요:
+각 경로의 각 단계는 일반 캔버스 단계와 마찬가지로 [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) 뷰에 통계를 표시합니다. 그러나 개별 단계 분석과 실험 경로 분석은 전환을 다르게 측정한다는 점을 유의하세요:
 
 - **실험 경로 분석**은 사용자가 실험 경로 단계에 진입한 시점부터 전환을 추적합니다. 모든 경로가 동일한 시작점을 공유하므로 경로 간 성과를 비교하는 데 권장되는 뷰입니다.
 - **개별 단계 분석**(예: 메시지 단계 분석)은 사용자가 해당 특정 단계를 수신한 시점(예: 메시지가 발송된 시점)부터 전환을 추적합니다.
@@ -82,20 +82,20 @@ tool: Canvas
 
 위닝 경로를 활용하여 일정 기간 동안 성과를 추적한 후 가장 성과가 좋은 경로로 이후 사용자를 자동으로 발송할 수 있습니다. 실험에 **위닝 경로** 또는 **개인화된 경로**가 활성화된 경우의 분석에 대한 자세한 내용은 다음을 참조하세요:
 
-- [위닝 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path/#analytics)
-- [개인화된 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths/#analytics)
+- [위닝 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics)
+- [개인화된 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths#analytics)
 
 위닝 측정기준과 실험 경로에 표시되는 분석은 다를 수 있습니다:
 
 - **위닝 경로** 또는 **개인화된 경로**에 대해 구성한 전환 이벤트는 실험 기간 동안 Braze가 경로를 비교하고 승자를 선택하는 방법을 결정합니다.
-- 실험 경로 분석은 나머지 Canvas와 동일한 Canvas [전환 이벤트]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/) 프레임워크를 따르며, [주요 전환 이벤트]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/#primary-conversion-event)를 포함합니다. 따라서 대시보드에서 강조되는 측정기준이 위닝 측정기준과 일치하지 않을 수 있습니다.
-- 푸시의 경우, *직접 열람 수*와 *총 열람 수*는 다릅니다. 자세한 내용은 [영향받은 열람]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)을 참조하세요.
+- 실험 경로 분석은 나머지 Canvas와 동일한 Canvas [전환 이벤트]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events) 프레임워크를 따르며, [주요 전환 이벤트]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event)를 포함합니다. 따라서 대시보드에서 강조되는 측정기준이 위닝 측정기준과 일치하지 않을 수 있습니다.
+- 푸시의 경우, *직접 열람 수*와 *총 열람 수*는 다릅니다. 자세한 내용은 [영향받은 열람]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)을 참조하세요.
 
 ### 추가 설정 {#additional-settings}
 
-실험 경로는 각 단계에 진입하고 할당된 경로에서 전환한 사용자를 기록합니다. 이는 캔버스 설정에서 지정된 모든 전환 이벤트를 추적합니다. **Additional Settings** 탭에서 이 실험이 전환을 추적할 일수(1일에서 30일 사이)를 입력합니다. 여기서 지정하는 기간은 전환 이벤트(캔버스 설정에서 선택한)가 실험에 대해 추적되는 기간을 결정합니다. 캔버스 설정에서 지정된 이벤트별 전환 기간은 이 단계의 추적에 적용되지 않으며 이 전환 기간으로 대체됩니다.
+실험 경로는 각 단계에 진입하고 할당된 경로에서 전환한 사용자를 기록합니다. 이는 캔버스 설정에서 지정된 모든 전환 이벤트를 추적합니다. **추가 설정** 탭에서 이 실험이 전환을 추적할 일수(1일에서 30일 사이)를 입력합니다. 여기서 지정하는 기간은 전환 이벤트(캔버스 설정에서 선택한)가 실험에 대해 추적되는 기간을 결정합니다. 캔버스 설정에서 지정된 이벤트별 전환 기간은 이 단계의 추적에 적용되지 않으며 이 전환 기간으로 대체됩니다.
 
-전환 기간은 다운스트림 메시지가 발송되는 시점이 아니라 사용자가 실험 경로 단계에 진입하는 시점부터 시작됩니다. 경로에 지연 단계나 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)과 같은 지연이 포함된 경우, 해당 지연이 전환 기간의 일부를 소비합니다.
+전환 기간은 다운스트림 메시지가 발송되는 시점이 아니라 사용자가 실험 경로 단계에 진입하는 시점부터 시작됩니다. 경로에 지연 단계나 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)과 같은 지연이 포함된 경우, 해당 지연이 전환 기간의 일부를 소비합니다.
 
 {% alert important %}
 실험 경로 내의 메시지 단계에서 Intelligent Timing을 사용하는 경우, 실험 진입과 실제 메시지 발송 사이의 시간이 해당 경로의 유효 전환 기간을 줄입니다. 예를 들어, 실험의 전환 기간이 5일이고 Intelligent Timing이 메시지를 2일 지연시키면, 해당 경로의 사용자는 실험 기간 내에 전환하기 위해 메시지 수신 후 3일만 남게 됩니다—메시지 단계 자체의 분석은 메시지 발송 시점부터 전환을 추적하더라도 말입니다.<br><br>보다 깔끔한 실험 분석을 위해, 지연(예: 지연 단계)은 실험 경로 내부가 아닌 실험 경로 단계 **이전에** 배치하세요. 이렇게 하면 모든 경로가 동일한 지점에서 시작되고 지연이 전환 기간을 소비하지 않습니다.
@@ -109,4 +109,4 @@ tool: Canvas
 
 ### 실험 전환 기간은 얼마나 지속되나요? {#how-long-does-the-experiment-conversion-window-last}
 
-**Additional Settings** 전환 기간(1~30일)은 사용자가 실험 경로 단계에 진입하는 시점부터 시작됩니다. 다운스트림 지연 단계에서 소요되는 시간이나 Intelligent Timing 대기 시간은 해당 기간에 포함됩니다. 자세한 내용은 [성과 추적](#tracking-performance)을 참조하세요.
+**추가 설정** 전환 기간(1~30일)은 사용자가 실험 경로 단계에 진입하는 시점부터 시작됩니다. 다운스트림 지연 단계에서 소요되는 시간이나 Intelligent Timing 대기 시간은 해당 기간에 포함됩니다. 자세한 내용은 [성과 추적](#tracking-performance)을 참조하세요.

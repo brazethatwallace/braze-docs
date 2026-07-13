@@ -88,7 +88,7 @@ Post,Email,Create,Template,REST,API
 | `modified_before`  |  いいえ | ISO 8601形式の文字列 | 指定された時刻以前に更新されたテンプレートのみを取得します。 |
 | `limit` | いいえ | 正の数値 | 取得するテンプレートの最大数。指定がない場合はデフォルトで100、許容される最大値は1000です。 |
 | `offset`  |  いいえ | 正の数値 | 検索条件に一致する残りのテンプレートを返す前にスキップするテンプレートの数。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="パラメーターの詳細" }
 
 
 {% endapi %}
@@ -140,7 +140,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `email_template_id`  | はい | 文字列 | メールテンプレートのAPI識別子。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="パラメーターの詳細" }
 
 {% endapi %}
 
@@ -148,7 +148,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 {% api %}
 ## 3 キャンペーントリガー送信 {#3-campaigns-trigger-send}
 {% apimethod post %}campaigns/trigger/send{% endapimethod %}
-{% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
+{% apitags %}Post, キャンペーン, Trigger,Send{% endapitags %}
 
 APIトリガー配信を使用すると、メッセージのコンテンツをBrazeダッシュボード内に保存しながら、メッセージの送信タイミングと送信先をAPI経由で指定できます。
 
@@ -208,7 +208,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `email_template_id`  | はい | 文字列 | メールテンプレートのAPI識別子。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="パラメーターの詳細" }
 
 {% endapi %}
 
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% api %}
 ## 4 キャンペーントリガー送信 {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
-{% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
+{% apitags %}PUT, キャンペーン, Trigger, Send{% endapitags %}
 
 このエンドポイントは、カスタムイベント、ユーザー属性、およびユーザーの購入を記録するために使用できます。リクエストごとに最大75の属性、イベント、購入オブジェクトを含めることができます。つまり、一度に最大75人のユーザーの属性を投稿できますが、同じAPI呼び出しで最大75件のイベントと最大75件の購入も提供できます。
 
@@ -248,7 +248,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean).
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -286,7 +286,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | push_tokens | `app_id`と`token`文字列を持つオブジェクトの配列です。このトークンが関連付けられているデバイスの`device_id`をオプションで提供できます。例: `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`。`device_id`が提供されない場合、ランダムに生成されます。 |
 | time_zone | (文字列) [IANAタイムゾーンデータベース][26]のタイムゾーン名(例: "America/New_York" または "Eastern Time (US & Canada)")。有効なタイムゾーン値のみが設定されます。 |
 | twitter | `id`(整数)、`screen_name`(文字列、X(旧Twitter)ハンドル)、`followers_count`(整数)、`friends_count`(整数)、`statuses_count`(整数)のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パラメーターの詳細" }
 
 {% endapi %}
 

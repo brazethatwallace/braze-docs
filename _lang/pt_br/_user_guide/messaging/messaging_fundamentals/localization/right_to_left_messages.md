@@ -47,6 +47,10 @@ As funções de pré-visualização e teste são feitas para mensagens da esquer
 
 Para notificações por push, o alinhamento do título geralmente segue as configurações de idioma do dispositivo, enquanto o alinhamento do corpo pode seguir o primeiro caractere direcional forte em cada linha (trate cada linha após uma quebra de linha separadamente). Isso significa que uma única notificação por push pode misturar alinhamentos entre linhas — por exemplo, uma linha de corpo da direita para a esquerda seguida por uma linha da esquerda para a direita. Quando você precisar de um layout previsível, mantenha a consistência direcional e use quebras de linha entre segmentos de idiomas mistos.
 
+{% alert note %}
+A renderização ainda depende do sistema operacional do dispositivo e do cliente de push. Envie [mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) para seus próprios dispositivos para confirmar o alinhamento antes de publicar.
+{% endalert %}
+
 ### Texto bidirecional {#bi-directional-text}
 
 Muitos usuários que escrevem em idiomas da direita para a esquerda na verdade usam texto bidirecional: uma combinação de idiomas da esquerda para a direita e da direita para a esquerda. Por exemplo, um profissional de marketing pode enviar uma mensagem em hebraico com o nome de uma empresa em inglês. A Braze não consegue lidar com a formatação de texto bidirecional. Duas formas de evitar problemas de formatação são: evitar completamente o texto bidirecional ou separar o texto da esquerda para a direita do texto da direita para a esquerda usando quebras de linha.

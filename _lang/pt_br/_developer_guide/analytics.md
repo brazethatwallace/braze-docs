@@ -26,9 +26,9 @@ Durante a sua implementação da Braze, certifique-se de discutir as metas de ma
 
 ## Dados coletados automaticamente {#automatically-collected-data}
 
-Certos dados de usuários são coletados automaticamente pelo nosso SDK — por exemplo, Primeiro Uso do App, Último Uso do App, Contagem Total de Sessões, Sistema Operacional do Dispositivo, etc. Se você seguir nossos guias de integração para implementar nossos SDKs, poderá aproveitar esta [coleta de dados padrão]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/). Verificar esta lista pode ajudar você a evitar armazenar as mesmas informações sobre os usuários mais de uma vez. Com exceção do início e fim da sessão, todos os outros dados rastreados automaticamente não contam para o uso de pontos de dados.
+Certos dados de usuários são coletados automaticamente pelo nosso SDK — por exemplo, primeiro uso do app, último uso do app, contagem total de sessões, sistema operacional do dispositivo, etc. Se você seguir nossos guias de integração para implementar nossos SDKs, poderá aproveitar esta [coleta de dados padrão]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Verificar esta lista pode ajudar você a evitar armazenar as mesmas informações sobre os usuários mais de uma vez. Com exceção do início e fim da sessão, todos os outros dados rastreados automaticamente não contam para o uso de pontos de dados.
 
-Consulte nosso artigo [SDK primer]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/) para processos de lista de permissão que bloqueiam a coleta padrão de certos itens de dados.
+Consulte nosso artigo [SDK primer]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) para processos de lista de permissão que bloqueiam a coleta padrão de certos itens de dados.
 
 ## Eventos personalizados {#custom-events}
 
@@ -41,8 +41,8 @@ Eventos personalizados são ações realizadas pelos seus usuários; eles são m
 | Verificar se o evento personalizado ocorreu **exatamente X vezes** | **EXATAMENTE** | **NÚMERO** |
 | Verificar se o evento personalizado ocorreu pela última vez **após a data X** | **DEPOIS** | **TIME** |
 | Verificar se o evento personalizado ocorreu pela última vez **antes da data X** | **ANTES** | **TIME** |
-| Verificar se o evento personalizado ocorreu pela última vez **há mais de X dias** | **MAIS DO QUE** | **QUANTIDADE DE DIAS ATRÁS** (Número Positivo) |
-| Verificar se o evento personalizado ocorreu pela última vez **há menos de X dias** | **MENOS DO QUE** | **QUANTIDADE DE DIAS ATRÁS** (Número Positivo) |
+| Verificar se o evento personalizado ocorreu pela última vez **há mais de X dias** | **MAIS DO QUE** | **QUANTIDADE DE DIAS ATRÁS** (Número positivo) |
+| Verificar se o evento personalizado ocorreu pela última vez **há menos de X dias** | **MENOS DO QUE** | **QUANTIDADE DE DIAS ATRÁS** (Número positivo) |
 | Verificar se o evento personalizado ocorreu **mais de X (Máx = 50) vezes** | **MAIS DO QUE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 | Verificar se o evento personalizado ocorreu **menos de X (Máx = 50) vezes** | **MENOS QUE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 | Verificar se o evento personalizado ocorreu **exatamente X (Máx = 50) vezes** | **EXATAMENTE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
@@ -53,7 +53,7 @@ A Braze registra o número de vezes que esses eventos ocorreram, bem como a últ
 ![Um gráfico de análise de dados de evento personalizado mostrando estatísticas sobre usuários que adicionaram um cartão de crédito e fizeram uma busca ao longo de um período de trinta dias.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
 {% alert note %}
-O [incremento de atributos personalizados]({{site.baseurl}}/api/endpoints/messaging/) pode ser usado para manter um contador em uma ação do usuário semelhante a um evento personalizado. No entanto, você não poderá visualizar os dados do atributo personalizado em uma série temporal. Ações do usuário que não precisam ser analisadas em séries temporais devem ser registradas por meio deste método.
+O [incremento de atributos personalizados]({{site.baseurl}}/api/endpoints/messaging) pode ser usado para manter um contador em uma ação do usuário semelhante a um evento personalizado. No entanto, você não poderá visualizar os dados do atributo personalizado em uma série temporal. Ações do usuário que não precisam ser analisadas em séries temporais devem ser registradas por meio deste método.
 {% endalert %}
 
 ### Armazenamento de eventos personalizados {#custom-event-storage}
@@ -68,7 +68,7 @@ Por exemplo, se um aplicativo de eCommerce quisesse enviar uma mensagem a um usu
 
 ![Um exemplo de evento personalizado que enviará uma campanha para um usuário que abandonou seu carrinho e deixou o valor do carrinho em mais de 100 e menos de 200.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-As propriedades do evento personalizado também podem ser usadas para personalização dentro do modelo de envio de mensagens. Qualquer campanha que use a [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) com um evento de gatilho pode usar propriedades de evento personalizado desse evento para personalização do envio de mensagens. Se um aplicativo de jogos quisesse enviar uma mensagem aos usuários que completaram um nível, ele poderia personalizar ainda mais a mensagem com uma propriedade para o tempo que os usuários levaram para completar esse nível. Neste exemplo, a mensagem é personalizada para três segmentos diferentes usando [lógica condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/). A propriedade do evento personalizado chamada ``time_spent`` pode ser incluída na mensagem chamando ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+As propriedades do evento personalizado também podem ser usadas para personalização dentro do modelo de envio de mensagens. Qualquer campanha que use a [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) com um evento de gatilho pode usar propriedades de evento personalizado desse evento para personalização do envio de mensagens. Se um aplicativo de jogos quisesse enviar uma mensagem aos usuários que completaram um nível, ele poderia personalizar ainda mais a mensagem com uma propriedade para o tempo que os usuários levaram para completar esse nível. Neste exemplo, a mensagem é personalizada para três segmentos diferentes usando [lógica condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). A propriedade do evento personalizado chamada ``time_spent`` pode ser incluída na mensagem chamando ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -104,10 +104,10 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 
 | Opções de segmentação | Filtro suspenso | Opções de entrada |
 | ---------------------| --------------- | ------------- |
-| Verificar se o atributo de string **corresponde exatamente** a uma string inserida| **IGUAL** | **STRING** |
+| Verificar se o atributo de string **corresponde exatamente** a uma string inserida | **IGUAL** | **STRING** |
 | Verificar se o atributo de string **corresponde parcialmente** a uma string inserida **OU** expressão regular | **CORRESPONDE A UMA EXPRESSÃO REGULAR** | **STRING** **OU** **EXPRESSÃO REGULAR** |
 | Verificar se o atributo de string **não corresponde parcialmente** a uma string inserida **OU** expressão regular | **NÃO CORRESPONDE AO REGEX** | **STRING** **OU** **EXPRESSÃO REGULAR** |
-| Verificar se o atributo de string **não corresponde** a uma string inserida| **NÃO É IGUAL** | **STRING** |
+| Verificar se o atributo de string **não corresponde** a uma string inserida | **NÃO É IGUAL** | **STRING** |
 | Verificar se o atributo de string **existe** no perfil de um usuário | **ESTÁ EM BRANCO** | **N/D** |
 | Verificar se o atributo de string **não existe** no perfil de um usuário | **NÃO ESTÁ EM BRANCO** | **N/D** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (caracteres alfanuméricos)" }
@@ -120,7 +120,7 @@ Ao segmentar usando o filtro **NÃO CORRESPONDE AO REGEX**, é necessário que j
 Para mais informações sobre como usar nosso filtro de expressões regulares, confira esta documentação sobre [expressões regulares compatíveis com Perl (PCRE)](http://www.regextester.com/pregsyntax.html).
 <br>
 Mais recursos sobre regex:
-- [Regex com Braze]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Regex com Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Depurador e testador de regex](https://regex101.com/)
 - [Tutorial de regex](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -148,8 +148,8 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 
 | Opções de segmentação | Filtro suspenso | Opções de entrada |
 | ---------------------| --------------- | ------------- |
-| Verificar se o atributo do array **inclui um valor que corresponda exatamente** a um valor inserido| **INCLUI VALOR** | **STRING** |
-| Verificar se o atributo do array **não inclui um valor que corresponda exatamente** a um valor inserido| **NÃO INCLUI VALOR** | **STRING** |
+| Verificar se o atributo do array **inclui um valor que corresponda exatamente** a um valor inserido | **INCLUI VALOR** | **STRING** |
+| Verificar se o atributo do array **não inclui um valor que corresponda exatamente** a um valor inserido | **NÃO INCLUI VALOR** | **STRING** |
 | Verificar se o atributo do array **contém um valor que corresponde parcialmente** a um valor inserido **OU** expressão regular | **CORRESPONDE A UMA EXPRESSÃO REGULAR** | **STRING** **OU** **EXPRESSÃO REGULAR** |
 | Verificar se o atributo do array **tem algum valor** | **TEM UM VALOR** | **N/D** |
 | Verificar se o atributo do array **está vazio** | **ESTÁ VAZIO** | **N/D** |
@@ -173,10 +173,10 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 
 | Opções de segmentação | Filtro suspenso | Opções de entrada |
 | ---------------------| --------------- | ------------- |
-| Verificar se o atributo de tempo **é anterior** a uma **data selecionada**| **ANTES** | **SELETOR DE DATA DO CALENDÁRIO** |
-| Verificar se o atributo de tempo **é posterior** a uma **data selecionada**| **DEPOIS** | **SELETOR DE DATA DO CALENDÁRIO** |
+| Verificar se o atributo de tempo **é anterior** a uma **data selecionada** | **ANTES** | **SELETOR DE DATA DO CALENDÁRIO** |
+| Verificar se o atributo de tempo **é posterior** a uma **data selecionada** | **DEPOIS** | **SELETOR DE DATA DO CALENDÁRIO** |
 | Verificar se o atributo de tempo é **maior do que X** **dias atrás** | **MAIS DO QUE** | **NÚMERO DE DIAS ATRÁS** |
-| Verificar se o atributo de tempo é **menor do que X** **dias atrás**| **MENOS QUE** | **NÚMERO DE DIAS ATRÁS** |
+| Verificar se o atributo de tempo é **menor do que X** **dias atrás** | **MENOS QUE** | **NÚMERO DE DIAS ATRÁS** |
 | Verificar se o atributo de tempo está **em mais de X** **dias no futuro** | **EM MAIS DE** | **NÚMERO DE DIAS NO FUTURO** |
 | Verificar se o atributo de tempo está **em menos de X** **dias no futuro** | **EM MENOS DE** | **NÚMERO DE DIAS NO FUTURO**  |
 | Verificar se o atributo de tempo **existe** no perfil de um usuário | **EM BRANCO** | **N/D** |
@@ -188,17 +188,17 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 Atributos numéricos têm uma ampla variedade de casos de uso. Atributos personalizados de número incremental são úteis para armazenar o número de vezes que uma determinada ação ou evento ocorreu. Números padrão têm todos os tipos de usos, como registrar o tamanho do sapato, o tamanho da cintura ou o número de vezes que um usuário visualizou um determinado recurso ou categoria de produto.
 
 {% alert note %}
-O dinheiro gasto não deve ser registrado por este método. Em vez disso, deve ser registrado por meio dos nossos [métodos de compra]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#purchase-events--revenue-tracking).
+O dinheiro gasto não deve ser registrado por este método. Em vez disso, deve ser registrado por meio dos nossos [métodos de compra]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking).
 {% endalert %}
 
 A tabela a seguir descreve as opções de segmentação disponíveis para atributos numéricos.
 
 | Opções de segmentação | Filtro suspenso | Opções de entrada |
 | ---------------------| --------------- | ------------- |
-| Verificar se o atributo numérico **é mais do que** um **número**| **MAIS DO QUE** | **NÚMERO** |
-| Verificar se o atributo numérico **é menor que** um **número**| **MENOS QUE** | **NÚMERO** |
-| Verificar se o atributo numérico **é exatamente** um **número**| **EXATAMENTE** | **NÚMERO** |
-| Verificar se o atributo numérico **não é igual a** um **número**| **NÃO É IGUAL** | **NÚMERO** |
+| Verificar se o atributo numérico **é mais do que** um **número** | **MAIS DO QUE** | **NÚMERO** |
+| Verificar se o atributo numérico **é menor que** um **número** | **MENOS QUE** | **NÚMERO** |
+| Verificar se o atributo numérico **é exatamente** um **número** | **EXATAMENTE** | **NÚMERO** |
+| Verificar se o atributo numérico **não é igual a** um **número** | **NÃO É IGUAL** | **NÚMERO** |
 | Verificar se o atributo numérico **existe** no perfil de um usuário | **EXISTE** | **N/D** |
 | Verificar se o atributo numérico **não existe** no perfil de um usuário | **NÃO EXISTE** | **N/D** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Números" }
@@ -224,9 +224,9 @@ A tabela a seguir descreve as opções de segmentação disponíveis para evento
 
 | Opções de segmentação | Filtro suspenso | Opções de entrada |
 | ---------------------| --------------- | ------------- |
-| Verificar se o número total de dólares gastos **é maior que** um **número**| **MAIOR QUE** | **NÚMERO** |
-| Verificar se o número total de dólares gastos **é menor que** um **número**| **MENOS QUE** | **NÚMERO** |
-| Verificar se o número total de dólares gastos **é exatamente** um **número**| **EXATAMENTE** | **NÚMERO** |
+| Verificar se o número total de dólares gastos **é maior que** um **número** | **MAIOR QUE** | **NÚMERO** |
+| Verificar se o número total de dólares gastos **é menor que** um **número** | **MENOS QUE** | **NÚMERO** |
+| Verificar se o número total de dólares gastos **é exatamente** um **número** | **EXATAMENTE** | **NÚMERO** |
 | Verificar se a compra ocorreu pela última vez **após a data X** | **DEPOIS** | **TIME** |
 | Verificar se a compra ocorreu pela última vez **antes da data X** | **ANTES** | **TIME** |
 | Verificar se a compra ocorreu pela última vez **há mais de X dias** | **MAIS DO QUE** | **TIME** |
@@ -287,7 +287,7 @@ Adicionar esses atributos daria a você a capacidade de enviar campanhas para os
 
 1. Lembrar os usuários que não fizeram login em sete dias, mas que têm um crédito promocional, que seu crédito existe e que eles devem voltar ao app para usá-lo!
 2. Enviar mensagens aos usuários que dão baixas avaliações aos motoristas para obter feedback direto dos clientes e entender por que eles não gostaram de suas viagens.
-3. Usar nossos [recursos de modelo de mensagem e personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) para incluir o atributo de código promocional exclusivo no envio de mensagens direcionadas aos usuários.
+3. Usar nossos [recursos de modelo de mensagem e personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) para incluir o atributo de código promocional exclusivo no envio de mensagens direcionadas aos usuários.
 
 ## Melhores práticas {#best-practices}
 
@@ -306,8 +306,8 @@ Adicionar esses atributos daria a você a capacidade de enviar campanhas para os
 Os IDs de usuário devem ser definidos para cada um de seus usuários. Esses devem ser imutáveis e acessíveis quando um usuário abre o app. Recomendamos **fortemente** fornecer este identificador, pois isso permitirá que você:
 
 - Acompanhe seus usuários em dispositivos e plataformas, melhorando a qualidade de seus dados comportamentais e demográficos.
-- Importe dados sobre seus usuários usando nossa [API de dados de usuários]({{site.baseurl}}/api/endpoints/user_data/).
-- Direcione usuários específicos com nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/) para mensagens gerais e transacionais.
+- Importe dados sobre seus usuários usando nossa [API de dados de usuários]({{site.baseurl}}/api/endpoints/user_data).
+- Direcione usuários específicos com nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) para mensagens gerais e transacionais.
 
 Os IDs de usuário devem ter menos de 512 caracteres e devem ser privados e não facilmente obtidos (por exemplo, não um endereço de e-mail simples ou nome de usuário). Se tal identificador não estiver disponível, a Braze atribuirá um identificador único aos seus usuários, mas você não terá as capacidades listadas para IDs de usuário. Você deve evitar definir IDs de usuário para usuários para os quais você não possui um identificador exclusivo que esteja vinculado a eles como indivíduos. Passar um identificador de dispositivo não oferece nenhum benefício em comparação com o rastreamento anônimo automático de usuários que a Braze oferece por padrão. A seguir estão alguns exemplos de IDs de usuário adequados e inadequados.
 
@@ -351,7 +351,6 @@ Esteja atento às seguintes limitações e restrições ao implementar eventos p
 A Braze impõe um limite de comprimento em bytes (479 bytes) para nomes de eventos personalizados, nomes de atributos personalizados (chaves) e valores de string de eventos personalizados. Valores que excedem esse limite são truncados. Quando expressos em caracteres, isso é aproximadamente 479 caracteres de byte único (por exemplo, ASCII), ou aproximadamente 160 caracteres para scripts de múltiplos bytes, como o japonês (assumindo cerca de 3 bytes por caractere em UTF-8). Idealmente, mantenha nomes e valores o mais curtos possível para melhorar o desempenho da rede e da bateria do seu app — se possível, limite-os a 50 caracteres.
 
 #### Restrições de conteúdo {#content-constraints}
-
 O seguinte conteúdo será removido programaticamente de seus atributos e eventos. Tenha cuidado para não usar o seguinte:
 
 - Espaço em branco no início e no final

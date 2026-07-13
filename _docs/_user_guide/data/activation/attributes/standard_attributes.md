@@ -10,22 +10,22 @@ description: "This reference article lists Braze's standard user attributes (res
 
 > Standard attributes are predefined fields that Braze recognizes on every user profile. Use this page as a quick reference for the field name, data type, and expected format of each standard attribute.
 
-Standard attributes (sometimes called *default attributes* or *reserved keys*) are different from [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), which are unique to your business. When you send data to Braze with one of the field names listed on this page, Braze stores it on the predefined profile field instead of creating a new custom attribute.
+Standard attributes (sometimes called *default attributes* or *reserved keys*) are different from [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), which are unique to your business. When you send data to Braze with one of the field names listed on this page, Braze stores it on the predefined profile field instead of creating a new custom attribute.
 
 You can set standard attributes through any of these methods:
 
-- The [Braze SDK]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
-- The [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) on the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
-- [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)
-- [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)
+- The [Braze SDK]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
+- The [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object) on the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
+- [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
+- [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
 
 {% alert important %}
-Standard attribute names are case sensitive. Always use lowercase (for example, `first_name`, not `First_Name`). If the spelling or capitalization doesn't match exactly, Braze stores the value as a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) instead.
+Standard attribute names are case sensitive. Always use lowercase (for example, `first_name`, not `First_Name`). If the spelling or capitalization doesn't match exactly, Braze stores the value as a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) instead.
 {% endalert %}
 
 ## Identifiers
 
-Identifiers tell Braze which user profile to update or create. Every API request and CSV row must include at least one identifier. For details on choosing the right one, see [Identifier resolution]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Identifiers tell Braze which user profile to update or create. Every API request and CSV row must include at least one identifier. For details on choosing the right one, see [Identifier resolution]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 
 | Field | Data type | Format and notes |
 |---|---|---|
@@ -33,7 +33,7 @@ Identifiers tell Braze which user profile to update or create. Every API request
 | `braze_id` | String | A Braze-assigned identifier created when the SDK first sees a device. Read-only. Cannot be edited. |
 | `user_alias` | Object | An object with `alias_name` (string) and `alias_label` (string), used to identify users without an `external_id`. Mutually exclusive with `external_id` in the same request. |
 | `email` | String | Can be used as an identifier when `external_id` and `user_alias` are absent. Takes precedence over `phone` if both are sent. |
-| `phone` | String | Can be used as an identifier when `external_id`, `user_alias`, and `email` are absent. Use [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format) format (for example, `+14155552671`). |
+| `phone` | String | Can be used as an identifier when `external_id`, `user_alias`, and `email` are absent. Use [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) format (for example, `+14155552671`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Profile fields
@@ -45,12 +45,12 @@ These fields capture demographic, contact, and locale data about your users.
 | `first_name` | String | The user's first name (for example, `Jane`). |
 | `last_name` | String | The user's last name (for example, `Doe`). |
 | `email` | String | The user's email address (for example, `jane.doe@braze.com`). |
-| `phone` | String | The user's phone number. Use [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format) format (for example, `+14155552671`). |
+| `phone` | String | The user's phone number. Use [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) format (for example, `+14155552671`). |
 | `dob` | String | Date of birth in `YYYY-MM-DD` format (for example, `1988-02-14`). Enables targeting on birthdays. |
 | `gender` | String | One of `M`, `F`, `O` (other), `N` (not applicable), `P` (prefer not to say), or `null` (unknown). |
 | `country` | String | A country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) format (for example, `US`, `GB`). Setting `country` through CSV import or API prevents the SDK from automatically capturing it. |
 | `home_city` | String | The user's home city (for example, `London`). |
-| `language` | String | A language code in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format (for example, `en`). Refer to the [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/). Setting `language` through CSV import or API prevents the SDK from automatically capturing it. |
+| `language` | String | A language code in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format (for example, `en`). Refer to the [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Setting `language` through CSV import or API prevents the SDK from automatically capturing it. |
 | `time_zone` | String | A time zone name from the [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (for example, `America/New_York` or `Eastern Time (US & Canada)`). |
 | `current_location` | Object | An object containing `longitude` and `latitude` (for example, `{"longitude": -73.991443, "latitude": 40.753824}`). |
 | `image_url` | String | A URL to the user's profile image. Up to 1,024 characters. |
@@ -70,7 +70,7 @@ These fields manage how a user receives messages across channels. Updating them 
 | `marked_email_as_spam_at` | String | Timestamp at which the user's email was marked as spam. Use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-For details on subscription group setup, see [Subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups).
+For details on subscription group setup, see [Subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
 
 ## Sessions and engagement
 
@@ -84,7 +84,7 @@ These fields capture when the user first or last engaged with your app. The SDK 
 
 ## Push tokens
 
-Use these fields when migrating push tokens from another platform. After you integrate the Braze SDK, push tokens are captured automatically. For migration guidance, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Use these fields when migrating push tokens from another platform. After you integrate the Braze SDK, push tokens are captured automatically. For migration guidance, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 
 | Field | Data type | Format and notes |
 |---|---|---|
@@ -104,7 +104,7 @@ These fields store data from social network integrations.
 
 ## API example
 
-The following request sets standard attributes on two users through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+The following request sets standard attributes on two users through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ```http
 POST https://YOUR_REST_API_URL/users/track
@@ -114,7 +114,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "attributes": [
     {
       "external_id": "user1",
-      "first_name": "Jane",
+      "first_name": "Alex",
       "last_name": "Doe",
       "email": "jane.doe@example.com",
       "country": "US",
@@ -142,7 +142,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-For the full API contract, see the [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/).
+For the full API contract, see the [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## CSV example
 
@@ -154,7 +154,7 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-You can't set some standard attributes through CSV import. You must send arrays, push tokens, and nested objects through the API or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) instead. For the complete list of CSV-supported fields and import steps, see [Default attributes]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/#default-attributes).
+You can't set some standard attributes through CSV import. You must send arrays, push tokens, and nested objects through the API or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) instead. For the complete list of CSV-supported fields and import steps, see [Default attributes]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
 
 ## Considerations
 
@@ -168,9 +168,9 @@ Consider these points when working with standard attributes:
 
 ## Related pages
 
-- [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) — Full API contract for the attributes object.
-- [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) — REST endpoint for creating and updating user profiles.
-- [Set user attributes]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/) — SDK methods for setting standard and custom attributes.
-- [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) — Upload standard attributes through a CSV file.
-- [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) — Define attributes unique to your business.
-- [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) — Reference for supported data types.
+- [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object) — Full API contract for the attributes object.
+- [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) — REST endpoint for creating and updating user profiles.
+- [Set user attributes]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) — SDK methods for setting standard and custom attributes.
+- [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) — Upload standard attributes through a CSV file.
+- [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) — Define attributes unique to your business.
+- [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) — Reference for supported data types.

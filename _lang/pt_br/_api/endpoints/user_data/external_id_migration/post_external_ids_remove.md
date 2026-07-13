@@ -19,14 +19,14 @@ description: "Este artigo descreve detalhes sobre o endpoint Remover IDs externo
 Você pode enviar até 50 IDs externos por solicitação.
 
 {% alert warning %}
-Este endpoint remove completamente o ID obsoleto e não pode ser desfeito. Usar este endpoint para remover `external_ids` obsoletos que ainda estão associados a usuários em seu sistema pode impedir permanentemente que você encontre os dados desses usuários.
+Este endpoint remove completamente o ID obsoleto e a ação não pode ser desfeita. Usar este endpoint para remover `external_ids` obsoletos que ainda estão associados a usuários em seu sistema pode impedir permanentemente que você encontre os dados desses usuários.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e16b5340-5f44-42b6-9033-2398faf8908e {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.external_ids.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.external_ids.remove`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -50,7 +50,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `external_ids` | Obrigatória | Array de strings | Identificadores externos dos usuários a serem removidos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#request-example}
 
@@ -72,7 +72,7 @@ Somente IDs obsoletos podem ser removidos; tentar remover um ID externo primári
 
 ## Resposta {#response}
 
-A resposta confirmará todas as remoções bem-sucedidas, bem como as remoções malsucedidas com os erros associados. Mensagens de erro no campo `removal_errors` farão referência ao índice no array da solicitação original.
+A resposta confirmará todas as remoções bem-sucedidas, bem como as remoções malsucedidas com os erros associados. As mensagens de erro no campo `removal_errors` farão referência ao índice no array da solicitação original.
 
 ```
 {

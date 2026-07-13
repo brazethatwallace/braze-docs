@@ -3,6 +3,7 @@ page_order: 2
 nav_title: カタログトリガー
 article_title: カタログトリガー
 layout: dev_guide
+noindex: true
 guide_top_header: "カタログトリガー"
 guide_top_text: "カタログトリガーは、カタログデータの変更に基づいて自動的に送信される通知です。手動でキャンペーンを設定することなく、顧客が関心を持つアイテムが再入荷したり、価格が下がったりしたときに通知を送ることができます。"
 

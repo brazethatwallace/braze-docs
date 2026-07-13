@@ -21,7 +21,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Katal
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.delete_item`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.delete_item`.
 
 ## Rate-Limit
 
@@ -89,7 +89,7 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 
 | Fehler | Fehlerbehebung |
 | --- | --- |
-| `arbitrary-error` | Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
 | `item-not-found` | Überprüfen Sie, ob der zu löschende Artikel in Ihrem Katalog vorhanden ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }

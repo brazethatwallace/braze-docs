@@ -8,43 +8,43 @@ channel: email
 
 ---
 
-# メール到達性を改善する
+# メール到達性を改善する {#improve-email-deliverability}
 
 > メールボックスプロバイダー（MBP）は、メッセージを受け入れるかバウンスするかを判断する際に、送信ドメインのレピュテーションを考慮します。メッセージが受け入れられても、受信トレイに配置されないことがあります。代わりにスパムフォルダーに振り分けられ、受信者の目に触れにくくなる場合があります。
 
 以下では、スパムフォルダーへの配置やエンゲージメント低下のリスクを減らすための一般的なガイダンスを紹介します。
 
-## 送信パターン
+## 送信パターン {#sending-patterns}
 
-送信パターンはドメインのレピュテーションに影響します。以下のベストプラクティスに沿っていない場合、MBP がメールをバウンスまたはフィルタリングする可能性が高くなります。
+送信パターンはドメインのレピュテーションに影響します。以下のベストプラクティスに沿っていない場合、MBPがメールをバウンスまたはフィルタリングする可能性が高くなります。
 
 - **質の高いサブスクライバーデータを収集する。** 有効なアドレスを収集し、明確な文言による自発的なオプトインを使用し、サブスクライバーが何にサインアップしているかを理解できるよう、確認付きオプトインやバリデーションサービスの導入を検討してください。サインアップフローは明確で、不正なサインアップに対して耐性のある設計にしてください。
 - **コンテンツと頻度に関する期待を設定し、それを守る。** サブスクライバーが同意していない製品やケイデンスのメールを送信しないでください。
 - **サブスクライバーが開封し、やり取りしたくなるメールを送信する。** スケジュールする前に、各送信がどのような価値を提供するかを検討してください。
-- **最近オプトインまたはエンゲージメントがあった受信者を優先する**（開封、クリック、Web サイトアクティビティが記録されているユーザーなど）。非アクティブなアドレスへの繰り返しの送信は避けてください。
-- **トランザクションメールとマーケティングメールを分離する。** 多くの ISP はトランザクションメールとマーケティングメールを異なる方法で扱います。適切な場合はこの2つを分離してください。たとえば、送信者メールアドレスを別にするだけで十分な分離になるケースもあります。
+- **最近オプトインまたはエンゲージメントがあった受信者を優先する**（開封、クリック、Webサイトアクティビティが記録されているユーザーなど）。非アクティブなアドレスへの繰り返しの送信は避けてください。
+- **トランザクションメールとマーケティングメールを分離する。** 多くのISPはトランザクションメールとマーケティングメールを異なる方法で扱います。適切な場合はこの2つを分離してください。たとえば、送信者メールアドレスを別にするだけで十分な分離になるケースもあります。
 
 {% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
 
-## メッセージコンテンツ
+## メッセージコンテンツ {#message-content}
 
-コンテンツフィルターは、MBP がフィッシング、マルウェア、不要なメールからユーザーを保護するのに役立ちます。クリエイティブは無害に見えても、フィルターが監視しているパターンに類似している場合があります。
+コンテンツフィルターは、MBPがフィッシング、マルウェア、不要なメールからユーザーを保護するのに役立ちます。クリエイティブは無害に見えても、フィルターが監視しているパターンに類似している場合があります。
 
-- **メッセージへの最近の変更を確認する。** たとえば、HTML、画像比率、画像ホスト、新しいテンプレートの追加などの変更は、MBP のコンテンツフィルターをトリガーする可能性があります。
+- **メッセージへの最近の変更を確認する。** たとえば、HTML、画像比率、画像ホスト、新しいテンプレートの追加などの変更は、MBPのコンテンツフィルターをトリガーする可能性があります。
 - **エンゲージメントが低下したら、テンプレートとコピーを刷新する。** 古くて繰り返しの多い送信は、サブスクライバーが開封する理由をほとんど与えません。
 
-## 受信者のレポートと動作
+## 受信者のレポートと動作 {#recipient-reports-and-behavior}
 
-サブスクライバーのアクションは、レピュテーションシステムと将来の受信トレイ判定の両方に影響します。苦情の量が多いと、後続のメッセージがスパムに振り分けられる可能性があります。これは、MBP またはサブスクライバーがメールの品質に確信を持てない場合の隔離のような役割を果たします。
+サブスクライバーのアクションは、レピュテーションシステムと将来の受信トレイ判定の両方に影響します。苦情の量が多いと、後続のメッセージがスパムに振り分けられる可能性があります。これは、MBPまたはサブスクライバーがメールの品質に確信を持てない場合の隔離のような役割を果たします。
 
 - **関連性のある件名と、明確な行動喚起を含む本文コンテンツを作成する。** 開封せずに削除される、エンゲージメントが低い、件名が弱いといった状況は、本文が読まれる前に無関心のシグナルとなります。
 - **オプトイン時に、サブスクライバーに送信者アドレスをメール連絡先リストに追加するよう依頼する。** これにより、送信者のレピュテーションが向上し、メールが受信トレイに届く可能性が高まります。
 
-## 関連リソース
+## 関連リソース {#related-resources}
 
-- [サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)
-- [IP ウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)
-- [到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)
-- [送信前に知っておくべきこと]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/#general)
-- [同意とアドレス収集]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#subscriber-states)
-- [メール FAQ]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)
+- [サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)
+- [IP ウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
+- [到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)
+- [送信前に知っておくべきこと]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send#general)
+- [同意とアドレス収集]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#subscriber-states)
+- [メール FAQ]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)

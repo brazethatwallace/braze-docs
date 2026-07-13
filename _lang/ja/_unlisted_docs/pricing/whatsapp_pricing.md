@@ -45,7 +45,7 @@ hide_toc: true
 7月1日の追加変更（Metaが5月15日に発表）：
 - Metaは、代替チャネルと同等の価格設定を確保するための継続的な取り組みの一環として、複数の市場でユーティリティおよび認証の料金を更新します。
     - インドネシアを除くすべての市場で、ユーティリティおよび認証メッセージの料金が引き下げられます。インドネシアでは、ユーティリティの料金が引き上げられ、認証の料金が引き下げられます。
-- Metaは、ユーザーエンゲージメントとセンチメントに基づいてユーティリティの定義を改良し、特定のユースケースをユーティリティカテゴリに移動または除外します。ユーティリティテンプレートの新しい定義については[こちら](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines)をご覧ください。
+- Metaは、ユーザーエンゲージメントとセンチメントに基づいてユーティリティの定義を改良し、特定のユースケースをユーティリティカテゴリに移動または除外します。Metaの新しい[ユーティリティテンプレートの定義](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines)をご覧ください。
 
 ほとんどのお客様にとって、これらの更新は7月1日に自動的に適用されます。
 
@@ -55,7 +55,7 @@ hide_toc: true
 
 WhatsAppは、2025年7月1日から料金にさらに2つの更新を行います。Brazeは同日にこれらの変更を反映して料金を更新します。変更の概要と対応するためのベストプラクティスを以下に示します。
 
-### 更新1：WhatsAppの料金が「会話単位」モデルから「メッセージ単位」モデルに移行します。 {#update-1-whatsapp-pricing-will-shift-to-a-per-message-model-instead-of-a-per-conversation-model}
+### 更新1：WhatsAppの料金が「会話単位」モデルから「メッセージ単位」モデルに移行します {#update-1-whatsapp-pricing-will-shift-to-a-per-message-model-instead-of-a-per-conversation-model}
 
 **「メッセージ単位」の料金は、現在の「会話単位」の料金と同じです。**
 
@@ -81,18 +81,18 @@ Metaは、ブランドが投資対効果（ROI）の計算を簡素化できる�
 
 *注：この更新は当初4月1日、5月1日に予定されていましたが、現在は**7月1日**に変更されています。*
 
-### 更新2：24時間カスタマーサービスウィンドウ中に送信されるユーティリティテンプレートは無料になります。 {#update-2-utility-templates-sent-during-a-24-hour-customer-service-window-will-be-free-of-charge}
+### 更新2：24時間カスタマーサービスウィンドウ中に送信されるユーティリティテンプレートは無料になります {#update-2-utility-templates-sent-during-a-24-hour-customer-service-window-will-be-free-of-charge}
 
 #### これはどのように機能しますか？ {#how-does-this-work}
 
 [24時間カスタマーサービスウィンドウ](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows)は、エンドユーザーがブランドにメッセージを送信したときに作成されます。ブランドがユーティリティテンプレートで返信した場合、無料になります。
 
-24時間カスタマーサービスウィンドウ外で送信されるユーティリティテンプレート（たとえば、アカウントリマインダーや注文ステータス更新などのためにブランドが積極的に送信するユーティリティテンプレート）は引き続き課金されます。
+24時間カスタマーサービスウィンドウ外で送信されるユーティリティテンプレート（たとえば、アカウントリマインダーや注文ステータスの更新などのためにブランドが積極的に送信するユーティリティテンプレート）は引き続き課金されます。
 
 これらの変更に対応し、WhatsAppマーケティング予算を最大化するために、以下のベストプラクティスを推奨します：
 
 - 24時間以内に同じタイプの複数のメッセージテンプレートの送信（ユーザーの応答なし）を制限してください。「会話単位」モデルの場合よりも多く課金されることはありません。これは、顧客に質の高い体験を提供し、メッセージ疲れを抑えるためのベストプラクティスでもあります。
-- エンドユーザーのメッセージに返信する際は、[レスポンスメッセージング](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/)を使用してください。レスポンスメッセージングは無料です。
+- エンドユーザーのメッセージに返信する際は、[レスポンスメッセージング]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/)を使用してください。レスポンスメッセージングは無料です。
 
 | シナリオ例 | 2025年4月以前の料金 | 2025年4月以降の料金 |
 | --- | --- | --- |
@@ -103,7 +103,7 @@ Metaは、ブランドが投資対効果（ROI）の計算を簡素化できる�
 これらの変更に対応し、WhatsAppマーケティング予算を最大化するために、以下のベストプラクティスを推奨します：
 
 - 24時間以内に同じタイプの複数のメッセージテンプレートの送信（ユーザーの応答なし）を制限してください。これにより、「会話単位」モデルの場合よりも多く課金されることを防ぎます。これは、顧客に質の高い体験を提供し、メッセージ疲れを抑えるためのベストプラクティスでもあります。
-- エンドユーザーのメッセージに返信する際は、[レスポンスメッセージング](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)を使用してください。レスポンスメッセージングは無料です。
+- エンドユーザーのメッセージに返信する際は、[レスポンスメッセージング]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)を使用してください。レスポンスメッセージングは無料です。
 
 *注：この更新は当初4月1日に予定されていましたが、**現在は7月1日**に変更されています。*
 
@@ -137,14 +137,14 @@ WhatsAppをトランザクションメッセージングに活用することを
 
 #### サービス会話とは？ {#what-are-service-conversations}
 
-サービス会話は、顧客からの問い合わせに対応することを可能にします。これには、エンドユーザーが開始した会話で、ブランドがテンプレートメッセージではなく[レスポンスメッセージ](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)で返信する場合が含まれます。
+サービス会話は、顧客からの問い合わせに対応することを可能にします。これには、エンドユーザーが開始した会話で、ブランドがテンプレートメッセージではなく[レスポンスメッセージ]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)で返信する場合が含まれます。
 
 #### この更新をどのように活用できますか？
 
 以前「サービス」として課金されていた一部の会話が無料になります。これには以下が含まれます：
 
-- [未認識レスポンスキャンペーン](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)：エンドユーザーが認識されないメッセージを送信し、ブランドが[レスポンスメッセージング](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)を使用して汎用メッセージで返信する場合。たとえば、エンドユーザーがキーワードなしでメッセージを送信し、ブランドが「メッセージを認識できません。カスタマーサポートにお問い合わせください。」と返信する場合です。
-- エンドユーザーがブランドにプロモーションキーワードをメッセージし、ブランドが[レスポンスメッセージ](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)を使用して返信する場合に開始される会話。一般的な例としては、WhatsAppメッセージングへのオプトインや特定のプロモーションへの参加があります。
+- [未認識レスポンスキャンペーン]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)：エンドユーザーが認識されないメッセージを送信し、ブランドが[レスポンスメッセージング]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)を使用して汎用メッセージで返信する場合。たとえば、エンドユーザーがキーワードなしでメッセージを送信し、ブランドが「メッセージを認識できません。カスタマーサポートにお問い合わせください。」と返信する場合です。
+- エンドユーザーがブランドにプロモーションキーワードをメッセージし、ブランドが[レスポンスメッセージ]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)を使用して返信する場合に開始される会話。一般的な例としては、WhatsAppメッセージングへのオプトインや特定のプロモーションへの参加があります。
 
 <br>
 

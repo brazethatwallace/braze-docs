@@ -6,13 +6,13 @@ description: "Este artigo de referência aborda como definir valores de fallback
 
 ---
 
-# Definir valores padrão
-
-{% raw %}
+# Definir valores padrão {#set-default-values}
 
 > Valores de fallback padrão podem ser definidos para qualquer atributo de personalização que você usa nas suas mensagens. Este artigo aborda como os valores padrão funcionam, como configurá-los e como usá-los nas suas mensagens.
 
-## Como funcionam
+{% raw %}
+
+## Como funcionam {#how-they-work}
 
 Valores padrão podem ser adicionados especificando um [filtro Liquid](http://docs.shopify.com/themes/liquid-documentation/filters) (use `|` para distinguir o filtro inline, conforme mostrado) com o nome "default."
 
@@ -45,11 +45,11 @@ Hi Valued User, thanks for using the App!
 O valor padrão será exibido para valores vazios (empty), mas não para valores em branco (blank). Um valor vazio não contém nada, enquanto um valor em branco contém caracteres de espaço em branco (como espaços) e nenhum outro caractere. Por exemplo, uma string vazia pode ser `""` e uma string em branco pode ser `" "`.
 {% endalert %}
 
-## Definindo valores padrão para diferentes tipos de dados
+## Definindo valores padrão para diferentes tipos de dados {#setting-default-values-for-different-data-types}
 
-O exemplo acima mostra como definir um valor padrão para uma string. Você pode definir valores padrão para qualquer tipo de dado Liquid que tenha o valor `empty`, `nil` (indefinido) ou `false`, incluindo strings, booleanos, arrays, objetos e números.
+O exemplo anterior nesta seção mostra como definir um valor padrão para uma string. Você pode definir valores padrão para qualquer tipo de dado Liquid que tenha o valor `empty`, `nil` (indefinido) ou `false`, incluindo strings, booleanos, arrays, objetos e números.
 
-### Caso de uso: booleanos
+### Caso de uso: booleanos {#use-case-booleans}
 
 Digamos que você tenha um atributo personalizado booleano chamado `premium_user` e queira enviar uma mensagem personalizada com base no status premium do usuário. Alguns usuários não têm um status premium definido, então você precisará configurar um valor padrão para capturar esses usuários.
 
@@ -91,7 +91,7 @@ Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for
 {% endraw %}
 {% enddetails %}
 
-### Caso de uso: números
+### Caso de uso: números {#use-case-numbers}
 
 Digamos que você tenha um atributo personalizado numérico chamado `reward_points` e queira enviar uma mensagem com os pontos de recompensa do usuário. Alguns usuários não têm pontos de recompensa definidos, então você precisará configurar um valor padrão para contemplar esses usuários.
 
@@ -112,7 +112,7 @@ Hi {{${first_name} | default: 'valued user'}}, you have {{custom_attribute.${rew
 ```
 {% endraw %}
 
-### Caso de uso: objetos
+### Caso de uso: objetos {#use-case-objects}
 
 Digamos que você tenha um objeto de atributo personalizado aninhado chamado `location` que contém as propriedades `city` e `state`. Se alguma dessas propriedades não estiver definida, você quer incentivar o usuário a fornecê-las.
 
@@ -158,7 +158,7 @@ State: {{custom_attribute.${address.state} | default: 'Unknown'}}
 {% endraw %}
 {% enddetails %}
 
-### Caso de uso: arrays
+### Caso de uso: arrays {#use-case-arrays}
 
 Digamos que você tenha um atributo personalizado de array chamado `upcoming_trips` que contém viagens com as propriedades `destination` e `departure_date`. Você quer enviar mensagens personalizadas aos usuários com base em se eles têm viagens agendadas.
 

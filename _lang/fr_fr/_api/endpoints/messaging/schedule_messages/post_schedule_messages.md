@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Créer des messa
 ---
 {% api %}
 # Créer des messages planifiés {#create-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/create
 {% endapimethod %}
 
@@ -19,14 +19,14 @@ description: "Cet article présente en détail l'endpoint Braze Créer des messa
 Si vous ciblez un segment, un enregistrement de votre demande sera stocké dans la [console de développement](https://dashboard.braze.com/app_settings/developer_console/activitylog/) après l'envoi de tous les messages planifiés.
 
 {% alert tip %}
-Si vous souhaitez envoyer des messages immédiatement à des utilisateurs désignés, utilisez plutôt l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
+Si vous souhaitez envoyer des messages immédiatement à des utilisateurs désignés, utilisez plutôt l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#25272fb8-bc39-41df-9a41-07ecfd76cb1d {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `messages.schedule.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `messages.schedule.create`.
 
 ## Limite de débit {#rate-limit}
 
@@ -76,17 +76,17 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur true lorsque vous envoyez un message à un segment entier ciblé par une campagne ou un Canvas. La valeur par défaut de ce paramètre est `false`. <br><br> Si `broadcast` est défini sur `true`, il n'est pas possible d'inclure une liste de destinataires. Toutefois, soyez prudent lorsque vous définissez `broadcast: true`, car en activant involontairement cet indicateur, vous risquez d'envoyer votre message à une audience plus large que prévu. |
-| `external_user_ids` | Facultatif | Tableau de chaînes de caractères | Voir [identifiant d'utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). |
-| `user_aliases` | Facultatif | Tableau d'objets alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-| `segment_id` | Facultatif | Chaîne de caractères | Voir [identifiant de segment]({{site.baseurl}}/api/identifier_types/). |
-| `campaign_id` | Facultatif | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Facultatif | Chaîne de caractères | Voir [identifiant d'envoi]({{site.baseurl}}/api/identifier_types/). |
+| `external_user_ids` | Facultatif | Tableau de chaînes de caractères | Voir [identifiant d'utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). |
+| `user_aliases` | Facultatif | Tableau d'objets alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object). |
+| `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience). |
+| `segment_id` | Facultatif | Chaîne de caractères | Voir [identifiant de segment]({{site.baseurl}}/api/identifier_types). |
+| `campaign_id` | Facultatif | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Facultatif | Chaîne de caractères | Voir [identifiant d'envoi]({{site.baseurl}}/api/identifier_types). |
 | `override_messaging_limits` | Facultatif | Valeur booléenne | Ignorer les règles de limite de fréquence pour les campagnes, la valeur par défaut est false. |
 | `recipient_subscription_state` | Facultatif | Chaîne de caractères | Utilisez cette option pour envoyer des messages uniquement aux utilisateurs qui ont confirmé l'abonnement (`opted_in`), aux utilisateurs qui sont abonnés ou ont confirmé l'abonnement (`subscribed`) ou à tous les utilisateurs, y compris les utilisateurs désabonnés (`all`). <br><br>L'option `all` est utile pour les e-mails transactionnels. Par défaut, `subscribed`. |
-| `schedule` | Requis | Objet planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-| `messages` | Facultatif | Objet d'envoi de messages | Voir [les objets d'envoi de messages disponibles]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `schedule` | Requis | Objet planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object). |
+| `messages` | Facultatif | Objet d'envoi de messages | Voir [les objets d'envoi de messages disponibles]({{site.baseurl}}/api/objects_filters#messaging-objects). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ## Exemple de demande {#example-request}
 ```

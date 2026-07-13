@@ -19,7 +19,7 @@ Braze calculates the optimal send time based on a statistical analysis of your u
 - Push Influenced Opens
 - Email Clicks
 - Email Opens (excluding [Machine Opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
-- SMS Clicks (only if [link shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) and advanced tracking are enabled)
+- SMS Clicks (only if [link shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) and advanced tracking are enabled)
 
 For example, Sam might open your emails in the morning regularly, but she opens your app and interacts with notifications in the evening. That means Sam would receive an email campaign with Intelligent Timing in the morning, while she would receive campaigns with push notifications in the evening, when she's more likely to engage.
 
@@ -65,7 +65,7 @@ When quiet hours are turned on, Braze won't send messages during the quiet perio
 
 For example, if quiet hours are set from 10:00 PM to 6:00 AM, and a user's optimal time is 5:30 AM, Braze will hold the message and deliver it at 6:00 AM—the closest time outside the quiet window.
 
-For more information, see [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+For more information, see [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 #### Preview delivery times
 
@@ -101,7 +101,7 @@ For more information, refer to [FAQ: Intelligent Timing](#when-does-braze-check-
 
 #### Schedule winning variants 2 days after A/B test
 
-If you are leveraging [A/B testing with an optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/), such as automatically sending the **Winning Variant** or using a **Personalized Variant**, Intelligent Timing may affect the duration and timing of your campaign.
+If you are leveraging [A/B testing with an optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), such as automatically sending the **Winning Variant** or using a **Personalized Variant**, Intelligent Timing may affect the duration and timing of your campaign.
 
 When using Intelligent Timing, we recommend scheduling the Winning Variant send time at least **2 days after** the A/B test begins. For example, if your A/B test starts on April 16 at 4:00 PM, schedule the Winning Variant to send no sooner than April 18 at 4:00 PM. This gives Braze enough time to evaluate user behavior and send messages at the optimal time.
 
@@ -147,7 +147,7 @@ The chart shows users who had relevant events to calculate an optimal time in bl
 
 ### Step 1: Add Intelligent Timing
 
-In your Canvas, add a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), then go to **Delivery Settings** and select **Using Intelligent Timing**.
+In your Canvas, add a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), then go to **Delivery Settings** and select **Using Intelligent Timing**.
 
 Messages will be sent to users who entered the step that day at their optimal local time. However, if their optimal time has already passed that day, it'll be delivered at the optimal time during the following day instead. Message steps that target multiple channels may send or attempt to send messages at different times for different channels. When the first message in a Message step attempts to send, all users are auto-advanced.
 
@@ -159,7 +159,7 @@ Choose a fallback time for the message to send to users in your audience who don
 
 Unlike with campaigns, you don't need to launch your Canvas 48 hours before the send date because Intelligent Timing is set on the step level, not the Canvas level.
 
-Instead, add a [Delay step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) of at least two calendar days between the user entering the Canvas and when they receive the Intelligent Timing step.
+Instead, add a [Delay step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) of at least two calendar days between the user entering the Canvas and when they receive the Intelligent Timing step.
 
 #### Calendar vs. 24-hour days
 
@@ -203,7 +203,7 @@ If users don't receive messages as expected, check that the time zone field in t
 
 ### Sending past the scheduled date
 
-Your Intelligent Timing campaign might be sending past the scheduled date if you are leveraging [A/B testing with an optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Campaigns using A/B testing optimizations can automatically send the Winning Variant after the initial test is over, increasing the duration of the campaign. By default, campaigns with an optimization will send the Winning Variant to the remaining users the day after the initial test, but you can change this send date.
+Your Intelligent Timing campaign might be sending past the scheduled date if you are leveraging [A/B testing with an optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Campaigns using A/B testing optimizations can automatically send the Winning Variant after the initial test is over, increasing the duration of the campaign. By default, campaigns with an optimization will send the Winning Variant to the remaining users the day after the initial test, but you can change this send date.
 
 If you use Intelligent Timing, we recommend leaving more time for the A/B test to finish and scheduling the Winning Variant to send for 2 days after the initial test instead of 1 day.
 
@@ -303,3 +303,7 @@ Yes, machine opens are filtered out by Intelligent Timing, so they do not influe
 #### How can I make sure Intelligent Timing works as well as possible?
 
 Intelligent Timing uses each user’s individual history of message engagement at whatever times they received messages. Before using Intelligent Timing, make sure that you have sent users messages at different times of the day. That way, you can “sample” when might be the best time for each user. Inadequately sampling different times of day may result in Intelligent Timing picking a suboptimal time of send for a user.
+
+#### How do I enable Intelligent Timing on a Canvas step?
+
+In Canvas, add or open a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), go to **Delivery Settings**, and select **Using Intelligent Timing**. Per Canvas setup guidance in this article, include a [Delay step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) of at least two calendar days between Canvas entry and that message so Intelligent Timing has suitable engagement history to evaluate.

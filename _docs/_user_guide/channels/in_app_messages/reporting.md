@@ -18,7 +18,7 @@ tool:
 
 ## In-app message metrics
 
-Here are the key in-app message metrics you may see in your analytics. For definitions of all metrics used in Braze, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Here are the key in-app message metrics you may see in your analytics. For definitions of all metrics used in Braze, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 For in-app messages, this page defines unique impressions using a calendar-day boundary in your workspace's time zone.
@@ -32,6 +32,12 @@ For in-app messages, this page defines unique impressions using a calendar-day b
 | Total conversions | When a user views an in-app message campaign only once, only one conversion is counted, even if they perform the conversion event multiple times later on. However, if re-eligibility is turned on and the user sees the in-app message campaign multiple times, *Total Conversions* can increase once for each time the user logs an impression for a new instance of the in-app message campaign. <br><br> For example, if a user triggers an in-app message twice and converts after each impression (resulting in two conversions), *Total Conversions* increases by two. However, if there was only one impression followed by two conversion events, only one conversion is logged and *Total Conversions* increases by one. |
 | Conversion rate | The metric of total daily unique impressions (*Unique Impressions*) is used to calculate the conversion rate. <br><br> Conversion Rate = (Primary Conversions) / (Unique Impressions) <br><br> For in-app messages, *Unique Impressions* can be counted only once per calendar day in your workspace's time zone. The number of times a user completes a desired action (a "conversion") can increase within that same calendar day. Therefore, if a user completes a conversion multiple times within a day, the *Conversion Rate* can increase accordingly, but *Unique Impressions* are counted only once for that calendar day. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="In-app message metrics" }
+
+{% alert tip %}
+*Total Impressions* can exceed *Unique Impressions* when a user views the message more than once on the same calendar day (see the metric definitions in the preceding table). To investigate users with inflated impression counts, create a segment with the **Device Count** filter set to **more than** `1`, and the **Received Message from Campaign** filter for the specific campaign.
+{% endalert %}
+
+For control group versus variant impression imbalances in A/B tests, see [Discrepancies between the control group and variant]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## How do conversions increment with re-eligibility?
 

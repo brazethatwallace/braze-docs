@@ -12,7 +12,7 @@ channel:
 
 > 표준 인앱 메시지를 다양한 방식으로 커스터마이징할 수 있지만, HTML, CSS, JavaScript를 사용하여 디자인하고 구축한 메시지를 활용하면 Campaign의 외관과 느낌을 더욱 세밀하게 제어할 수 있습니다. 간단한 구성만으로 커스텀 기능과 브랜딩을 구현하여 모든 요구 사항에 맞출 수 있습니다.
 
-이 메시지 유형은 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에서 사용할 수 있습니다.
+이 메시지 유형은 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)에서 사용할 수 있습니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -42,7 +42,7 @@ HTML 인앱 메시지를 사용하면 다음을 포함하여 메시지의 외관
 ### 버튼 클릭 추적(지원 중단) {#button-click-tracking-deprecated}
 
 {% alert warning %}
-`abButtonID` 사용은 [미리보기가 포함된 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/) 메시지 유형에서 지원되지 않습니다. 자세한 내용은 [업그레이드 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview)를 참조하세요.
+`abButtonID` 사용은 [미리보기가 포함된 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) 메시지 유형에서 지원되지 않습니다. 자세한 내용은 [업그레이드 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview)를 참조하세요.
 {% endalert %}
 
 인앱 메시지 분석을 위해 버튼 클릭을 기록하려면 딥링크, 리디렉션 URL 또는 앵커 요소 `<a>`에 쿼리 매개변수로 `abButtonId`를 추가할 수 있습니다. "Button 1" 클릭을 기록하려면 `?abButtonId=0`을, "Button 2" 클릭을 기록하려면 `?abButtonId=1`을 사용하세요.
@@ -98,26 +98,26 @@ HTML에서 사용하는 `brazeBridge` JavaScript 메서드는 대시보드에서
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
 {% alert warning %}
-이 메시지 유형은 특정 최신 SDK 버전에서만 수신할 수 있으므로, 지원되지 않는 SDK 버전을 사용하는 사용자는 메시지를 수신하지 못합니다. 사용자 기반의 상당 부분이 도달 가능한 상태가 된 후에 이 메시지 유형을 채택하거나, 앱 버전이 요구 사항보다 최신인 사용자만 타겟팅하는 것을 고려하세요. [최신 앱 버전별 필터링]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)에 대해 자세히 알아보세요.
+이 메시지 유형은 특정 최신 SDK 버전에서만 수신할 수 있으므로, 지원되지 않는 SDK 버전을 사용하는 사용자는 메시지를 수신하지 못합니다. 사용자 기반의 상당 부분이 도달 가능한 상태가 된 후에 이 메시지 유형을 채택하거나, 앱 버전이 요구 사항보다 최신인 사용자만 타겟팅하는 것을 고려하세요. [최신 앱 버전별 필터링]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions)에 대해 자세히 알아보세요.
 {% endalert %}
 
 ### Campaign 생성 {#instructions}
 
-모바일 앱 사용자가 **사용자 지정 코드** 인앱 메시지를 수신하려면 지원되는 SDK 버전으로 업그레이드해야 합니다. 최신 Braze SDK 버전에 의존하는 Campaign을 시작하기 전에 사용자에게 [모바일 앱 업그레이드를 유도]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/)하는 것을 권장합니다.
+모바일 앱 사용자가 **사용자 지정 코드** 인앱 메시지를 수신하려면 지원되는 SDK 버전으로 업그레이드해야 합니다. 최신 Braze SDK 버전에 의존하는 Campaign을 시작하기 전에 사용자에게 [모바일 앱 업그레이드를 유도]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features)하는 것을 권장합니다.
 
 #### 자산 파일 {#asset-files}
 
-HTML 업로드로 사용자 지정 코드 인앱 메시지를 생성할 때, Campaign 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 업로드하여 메시지에서 참조할 수 있습니다.
+HTML 업로드로 사용자 지정 코드 인앱 메시지를 생성할 때, Campaign 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에 업로드하여 메시지에서 참조할 수 있습니다.
 
 업로드에 지원되는 파일 유형은 다음과 같습니다:
 
-| 파일 유형        | 파일 확장자                    |
+| 파일 유형 | 파일 확장자 |
 | :--------------- | :-------------------------------- |
-| 글꼴 파일       | `.ttf`, `.woff`, `.otf`, `.woff2` |
-| SVG 이미지       | `.svg`                            |
-| JavaScript 파일 | `.js`                             |
-| CSS 파일        | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
+| 글꼴 파일 | `.ttf`, `.woff`, `.otf`, `.woff2` |
+| SVG 이미지 | `.svg` |
+| JavaScript 파일 | `.js` |
+| CSS 파일 | `.css` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="자산 파일" }
 
 Braze는 두 가지 이유로 자산을 미디어 라이브러리에 업로드하는 것을 권장합니다:
 
@@ -128,37 +128,49 @@ Braze는 두 가지 이유로 자산을 미디어 라이브러리에 업로드�
 
 Campaign에 새 자산 또는 기존 자산을 추가할 수 있습니다.
 
-Campaign에 새 자산을 추가하려면 드래그 앤 드롭 섹션을 사용하여 파일을 업로드하세요. 이 섹션에서 추가된 자산은 미디어 라이브러리에도 자동으로 추가됩니다. 이미 미디어 라이브러리에 업로드한 자산을 추가하려면 **Add from Media Library**를 선택하세요.
+Campaign에 새 자산을 추가하려면 드래그 앤 드롭 섹션을 사용하여 파일을 업로드하세요. 이 섹션에서 추가된 자산은 미디어 라이브러리에도 자동으로 추가됩니다. 이미 미디어 라이브러리에 업로드한 자산을 추가하려면 **미디어 라이브러리에서 추가**를 선택하세요.
 
-자산이 추가되면 **Assets for this campaign** 섹션에 표시됩니다.
+자산이 추가되면 **이 Campaign의 자산** 섹션에 표시됩니다.
 
 자산의 파일 이름이 로컬 HTML 자산의 파일 이름과 일치하면 자동으로 교체됩니다(예: `cat.png`이 업로드되고 `<img src="cat.png" />`이 존재하는 경우).
 
-그렇지 않으면 목록에서 자산 위에 마우스를 올리고 <i class="fas fa-copy"></i> **Copy**를 선택하여 파일의 URL을 클립보드에 복사하세요. 그런 다음 원격 자산을 참조할 때와 마찬가지로 복사한 자산 URL을 HTML에 붙여넣으세요.
+그렇지 않으면 목록에서 자산 위에 마우스를 올리고 <i class="fas fa-copy"></i> **복사**를 선택하여 파일의 URL을 클립보드에 복사하세요. 그런 다음 원격 자산을 참조할 때와 마찬가지로 복사한 자산 URL을 HTML에 붙여넣으세요.
 
 ### HTML 편집기 {#html-editor}
 
 HTML에서 변경한 내용은 입력하는 대로 미리보기 패널에 자동으로 렌더링됩니다. HTML에서 사용하는 [`brazeBridge` JavaScript](#bridge) 메서드는 대시보드에서 미리보기하는 동안 고객 프로필을 업데이트하지 않습니다.
 
 {% alert tip %}
-HTML 편집기 내에서 <i class="fa-solid fa-magnifying-glass"></i> **Search**를 선택하여 코드 내에서 검색할 수 있습니다!
+HTML 편집기 내에서 <i class="fa-solid fa-magnifying-glass"></i> **검색**을 선택하여 코드 내에서 검색할 수 있습니다!
 {% endalert %}
 
 ### 버튼 추적 {#button-tracking-improvements}
 
-[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/) JavaScript 메서드를 사용하여 사용자 지정 코드 인앱 메시지 내에서 성과를 추적할 수 있습니다. 이를 통해 `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` 또는 `brazeBridge.logClick()`을 사용하여 각각 "Button 1", "Button 2", "본문 클릭"을 프로그래밍 방식으로 추적할 수 있습니다.
+[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScript 메서드를 사용하여 사용자 지정 코드 인앱 메시지 내에서 성과를 추적할 수 있습니다. 이를 통해 `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` 또는 `brazeBridge.logClick()`을 사용하여 각각 "Button 1", "Button 2", "본문 클릭"을 프로그래밍 방식으로 추적할 수 있습니다.
 
-| 클릭     | 메서드                       |
+| 클릭 | 메서드 |
 | ---------- | ---------------------------- |
 | Button 1   | `brazeBridge.logClick('0')` |
 | Button 2   | `brazeBridge.logClick('1')` |
 | 본문 클릭 | `brazeBridge.logClick()`    |
 | 커스텀 버튼 추적 | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="버튼 추적" }
 
 {% alert note %}
 이 버튼 추적 방법은 이전의 자동 클릭 추적 방법(예: `?abButtonId=0`)을 대체하며, 해당 방법은 제거되었습니다.
 {% endalert %}
+
+미리보기가 포함된 HTML 메시지에서 두 개 이상의 추적 버튼이 필요한 경우 [`brazeBridge.logClick(button_id)`](#button-tracking-improvements)를 사용하세요. Button 1과 Button 2는 `'0'`과 `'1'`에 매핑되며, 추가 버튼은 커스텀 ID를 사용합니다(Campaign당 최대 100개의 고유 ID). 버튼 ID의 문자 제한에 대해서는 [버튼 추적](#button-tracking-improvements)을 참조하세요.
+
+### 커스텀 HTML 링크 및 닫기 동작 문제 해결 {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### 버튼 클릭 시 링크가 열리지 않음 {#button-clicks-do-not-open-the-link}
+
+커스텀 HTML 인앱 메시지의 버튼이 클릭 시 로드되지 않는 경우, 링크가 유효한 URL 또는 지원되는 딥링크 스킴을 사용하는지 확인하세요. 잘못된 형식의 URL이나 지원되지 않는 커스텀 스킴은 클릭 동작이 완료되지 않을 수 있습니다.
+
+#### 메시지 닫기 시 본문 클릭 {#body-clicks-when-closing-the-message}
+
+`brazeBridge.closeMessage()`를 호출하면 메시지가 닫히지만 자체적으로 분석을 기록하지는 않습니다. 사용자가 메시지를 닫을 때 본문 클릭을 기록하려면 `brazeBridge.closeMessage()` 전에 `brazeBridge.logClick()`을 호출하여 플랫폼 간 클릭 로깅이 일관되게 유지되도록 하세요.
 
 ### 하위 호환되지 않는 변경 사항 {#backward-incompatible-changes}
 
@@ -172,4 +184,4 @@ HTML 편집기 내에서 <i class="fa-solid fa-magnifying-glass"></i> **Search**
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="하위 호환되지 않는 변경 사항" }

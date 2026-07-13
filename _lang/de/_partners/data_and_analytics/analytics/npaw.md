@@ -48,7 +48,7 @@ Sobald alle Felder ausgefüllt sind, klicken Sie einfach auf den Button **Connec
 
 Wenn Sie die Integration mit Braze fertig konfiguriert haben, navigieren Sie zum Produkt **Users** und wählen Sie den **Sample Manager** innerhalb des **Sections Manager** aus.
 
-Nachdem Sie ein Sample im **Sample Manager** erstellt haben, können Sie auf das Dreipunkt-Symbol auf der rechten Seite klicken, um alle Nutzer:innen Ihres Samples an Braze zu senden.
+Nachdem Sie ein Sample im **Sample Manager** erstellt haben, können Sie auf das Dreipunkt-Symbol im Zeilenaktionsmenü klicken, um alle Nutzer:innen Ihres Samples an Braze zu senden.
 
 ![NPAW Sample Manager]({% image_buster /assets/img/npaw_sample_manager.png %})
 

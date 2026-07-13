@@ -75,51 +75,92 @@ These views provide periodic snapshots of user profile attributes. The data is d
 * Faster query execution, particularly when filtering on attributes other than `USER_ID`.
 * **Limitation:** Data is not up to date in real time.
 
-{% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` schema
 
-| Column name     | Data type     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `FIRST_NAME` | VARCHAR |
-| `LAST_NAME` | VARCHAR |
-| `EMAIL_ADDRESS` | VARCHAR |
-| `GENDER` | VARCHAR |
-| `PHONE_NUMBER` | VARCHAR |
-| `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
-| `HOME_CITY` | VARCHAR |
-| `COUNTRY` | VARCHAR |
-| `LANGUAGE` | VARCHAR |
-| `ARCHIVED` | BOOLEAN |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
+| Column name     | Data type     | Description |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Your Braze workspace identifier |
+| `APP_ID` | VARCHAR | The specific app within your workspace |
+| `USER_ID` | VARCHAR | The unique Braze user identifier |
+| `TIME` | NUMBER | Unix timestamp (seconds) of the profile update |
+| `TIME_MS` | NUMBER | Unix timestamp (milliseconds) of the profile update |
+| `UPDATE_SOURCE` | VARCHAR | The source of the attribute update (API, SDK, dashboard, etc.) |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | When the data was last updated in Snowflake |
+| `EXTERNAL_USER_ID` | VARCHAR | Your own user identifier (if set) |
+| `FIRST_NAME` | VARCHAR | User's first name |
+| `LAST_NAME` | VARCHAR | User's last name |
+| `EMAIL_ADDRESS` | VARCHAR | User's email address |
+| `GENDER` | VARCHAR | User's gender |
+| `PHONE_NUMBER` | VARCHAR | User's phone number |
+| `DOB` | VARCHAR | User's date of birth |
+| `TIME_ZONE` | VARCHAR | User's timezone |
+| `HOME_CITY` | VARCHAR | User's home city |
+| `COUNTRY` | VARCHAR | User's country |
+| `LANGUAGE` | VARCHAR | User's language preference |
+| `ARCHIVED` | BOOLEAN | Whether the user profile is archived |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
 ### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` schema
 
-| Column name     | Data type     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `CUSTOM_ATTRIBUTES` | VARIANT |
-| `ARCHIVED` | BOOLEAN |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
+| Column name     | Data type     | Description |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Your Braze workspace identifier |
+| `APP_ID` | VARCHAR | The specific app within your workspace |
+| `USER_ID` | VARCHAR | The unique Braze user identifier |
+| `EXTERNAL_USER_ID` | VARCHAR | Your own user identifier (if set) |
+| `TIME` | NUMBER | Unix timestamp (seconds) of the profile update |
+| `TIME_MS` | NUMBER | Unix timestamp (milliseconds) of the profile update |
+| `UPDATE_SOURCE` | VARCHAR | The source of the attribute update (API, SDK, dashboard, etc.) |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | When the data was last updated in Snowflake |
+| `CUSTOM_ATTRIBUTES` | VARIANT | JSON object containing all custom attributes (key-value pairs) |
+| `ARCHIVED` | BOOLEAN | Whether the user profile is archived |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
+
+#### Working with CUSTOM_ATTRIBUTES
+
+The `CUSTOM_ATTRIBUTES` column stores all your custom attributes as a JSON object. You can access individual attributes using Snowflake's JSON functions.
+
+**Example: Querying specific custom attributes**
+
+```sql
+-- Get users with a specific loyalty tier
+SELECT 
+  USER_ID,
+  EXTERNAL_USER_ID,
+  CUSTOM_ATTRIBUTES:loyalty_tier::STRING as loyalty_tier,
+  CUSTOM_ATTRIBUTES:points::NUMBER as points
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+WHERE CUSTOM_ATTRIBUTES:loyalty_tier::STRING = 'gold';
+
+-- Get users who made a purchase above a certain amount
+SELECT 
+  USER_ID,
+  CUSTOM_ATTRIBUTES:last_purchase_amount::NUMBER as last_purchase_amount
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+WHERE CUSTOM_ATTRIBUTES:last_purchase_amount::NUMBER > 100;
+```
+
+**Example: Analyzing custom attribute data**
+
+```sql
+-- Count users by subscription status
+SELECT 
+  CUSTOM_ATTRIBUTES:subscription_status::STRING as subscription_status,
+  COUNT(*) as user_count
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+GROUP BY CUSTOM_ATTRIBUTES:subscription_status::STRING;
+
+-- Find average order value by customer segment
+SELECT 
+  CUSTOM_ATTRIBUTES:customer_segment::STRING as segment,
+  AVG(CUSTOM_ATTRIBUTES:lifetime_value::NUMBER) as avg_lifetime_value
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+WHERE CUSTOM_ATTRIBUTES:customer_segment IS NOT NULL
+GROUP BY CUSTOM_ATTRIBUTES:customer_segment::STRING;
+```
 
 ## Real time user profile views
 
@@ -137,50 +178,52 @@ These views provide near real-time updates on user profile attributes, with data
     * Queries without USER_ID filters require aggregation across all users, leading to significantly longer execution times.
     * Queries on a large dataset (such as over 100 million users) may take many minutes.
 
-{% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` schema
 
-| Column name     | Data type     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `ARCHIVED` | BOOLEAN |
-| `SF_UPDATED_AT` | TIMESTAMP_LTZ |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `FIRST_NAME` | VARCHAR |
-| `LAST_NAME` | VARCHAR |
-| `EMAIL_ADDRESS` | VARCHAR |
-| `GENDER` | VARCHAR |
-| `PHONE_NUMBER` | VARCHAR |
-| `DOB` | VARCHAR |
-| `HOME_CITY` | VARCHAR |
-| `COUNTRY` | VARCHAR |
-| `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
+| Column name     | Data type     | Description |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Your Braze workspace identifier |
+| `APP_ID` | VARCHAR | The specific app within your workspace |
+| `USER_ID` | VARCHAR | The unique Braze user identifier |
+| `TIME` | NUMBER | Unix timestamp (seconds) of the profile update |
+| `TIME_MS` | NUMBER | Unix timestamp (milliseconds) of the profile update |
+| `UPDATE_SOURCE` | VARCHAR | The source of the attribute update (API, SDK, dashboard, etc.) |
+| `ARCHIVED` | BOOLEAN | Whether the user profile is archived |
+| `SF_UPDATED_AT` | TIMESTAMP_LTZ | When the data was last updated in Snowflake |
+| `EXTERNAL_USER_ID` | VARCHAR | Your own user identifier (if set) |
+| `FIRST_NAME` | VARCHAR | User's first name |
+| `LAST_NAME` | VARCHAR | User's last name |
+| `EMAIL_ADDRESS` | VARCHAR | User's email address |
+| `GENDER` | VARCHAR | User's gender |
+| `PHONE_NUMBER` | VARCHAR | User's phone number |
+| `DOB` | VARCHAR | User's date of birth |
+| `HOME_CITY` | VARCHAR | User's home city |
+| `COUNTRY` | VARCHAR | User's country |
+| `LANGUAGE` | VARCHAR | User's language preference |
+| `TIME_ZONE` | VARCHAR | User's timezone |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` schema
 
-| Column name     | Data type     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `ARCHIVED` | BOOLEAN |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `APP_ID` | VARCHAR |
-| `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
+| Column name     | Data type     | Description |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Your Braze workspace identifier |
+| `USER_ID` | VARCHAR | The unique Braze user identifier |
+| `EXTERNAL_USER_ID` | VARCHAR | Your own user identifier (if set) |
+| `TIME` | NUMBER | Unix timestamp (seconds) of the profile update |
+| `TIME_MS` | NUMBER | Unix timestamp (milliseconds) of the profile update |
+| `UPDATE_SOURCE` | VARCHAR | The source of the attribute update (API, SDK, dashboard, etc.) |
+| `ARCHIVED` | BOOLEAN | Whether the user profile is archived |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | When the data was last updated in Snowflake |
+| `APP_ID` | VARCHAR | The specific app within your workspace |
+| `CUSTOM_ATTRIBUTES` | OBJECT | JSON object containing all custom attributes (key-value pairs) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
+
+{% alert note %}
+This view uses `OBJECT` type for `CUSTOM_ATTRIBUTES` instead of `VARIANT`. Use the same JSON accessor syntax (`:attribute_name::TYPE`) to query individual attributes.
+{% endalert %}
 
 ## Historical change logs
 
@@ -195,53 +238,122 @@ These views store historical change logs of user attributes, capturing changes w
 * Data is snapshotted every 12 hours, meaning multiple updates in this window are combined into a single record. Individual changes within this period are not separately retained.
 * `EFF_DT` and `END_DT` mark the start and end of a user’s attribute state.
 
-{% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` schema
 
-| Column name     | Data type     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `FIRST_NAME` | VARCHAR |
-| `LAST_NAME` | VARCHAR |
-| `EMAIL_ADDRESS` | VARCHAR |
-| `GENDER` | VARCHAR |
-| `PHONE_NUMBER` | VARCHAR |
-| `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
-| `HOME_CITY` | VARCHAR |
-| `COUNTRY` | VARCHAR |
-| `LANGUAGE` | VARCHAR |
-| `EFF_DT` | TIMESTAMP_NTZ |
-| `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
+| Column name     | Data type     | Description |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Your Braze workspace identifier |
+| `USER_ID` | VARCHAR | The unique Braze user identifier |
+| `APP_ID` | VARCHAR | The specific app within your workspace |
+| `TIME` | NUMBER | Unix timestamp (seconds) of the profile update |
+| `TIME_MS` | NUMBER | Unix timestamp (milliseconds) of the profile update |
+| `UPDATE_SOURCE` | VARCHAR | The source of the attribute update (API, SDK, dashboard, etc.) |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | When the data was last updated in Snowflake |
+| `EXTERNAL_USER_ID` | VARCHAR | Your own user identifier (if set) |
+| `FIRST_NAME` | VARCHAR | User's first name |
+| `LAST_NAME` | VARCHAR | User's last name |
+| `EMAIL_ADDRESS` | VARCHAR | User's email address |
+| `GENDER` | VARCHAR | User's gender |
+| `PHONE_NUMBER` | VARCHAR | User's phone number |
+| `DOB` | VARCHAR | User's date of birth |
+| `TIME_ZONE` | VARCHAR | User's timezone |
+| `HOME_CITY` | VARCHAR | User's home city |
+| `COUNTRY` | VARCHAR | User's country |
+| `LANGUAGE` | VARCHAR | User's language preference |
+| `EFF_DT` | TIMESTAMP_NTZ | Effective date: when this attribute state began |
+| `END_DT` | TIMESTAMP_NTZ | End date: when this attribute state ended (NULL for current state) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
 
 ### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` schema
 
-| Column name     | Data type     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `CUSTOM_ATTRIBUTES` | VARIANT |
-| `ARCHIVED` | BOOLEAN |
-| `EFF_DT` | TIMESTAMP_NTZ |
-| `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
+| Column name     | Data type     | Description |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Your Braze workspace identifier |
+| `USER_ID` | VARCHAR | The unique Braze user identifier |
+| `APP_ID` | VARCHAR | The specific app within your workspace |
+| `EXTERNAL_USER_ID` | VARCHAR | Your own user identifier (if set) |
+| `TIME` | NUMBER | Unix timestamp (seconds) of the profile update |
+| `TIME_MS` | NUMBER | Unix timestamp (milliseconds) of the profile update |
+| `UPDATE_SOURCE` | VARCHAR | The source of the attribute update (API, SDK, dashboard, etc.) |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | When the data was last updated in Snowflake |
+| `CUSTOM_ATTRIBUTES` | VARIANT | JSON object containing all custom attributes (key-value pairs) |
+| `ARCHIVED` | BOOLEAN | Whether the user profile is archived |
+| `EFF_DT` | TIMESTAMP_NTZ | Effective date: when this attribute state began |
+| `END_DT` | TIMESTAMP_NTZ | End date: when this attribute state ended (NULL for current state) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
+
+## Common use cases
+
+### Building user segments
+
+```sql
+-- Find active users in a specific city who haven't received an email recently
+SELECT 
+  d.EXTERNAL_USER_ID,
+  d.EMAIL_ADDRESS,
+  d.HOME_CITY,
+  c.CUSTOM_ATTRIBUTES:last_email_sent::TIMESTAMP as last_email_sent
+FROM USER_DEFAULT_ATTRIBUTES_VIEW_SHARED d
+JOIN USER_CUSTOM_ATTRIBUTES_VIEW_SHARED c 
+  ON d.USER_ID = c.USER_ID
+WHERE d.HOME_CITY = 'New York'
+  AND d.EMAIL_ADDRESS IS NOT NULL
+  AND (c.CUSTOM_ATTRIBUTES:last_email_sent::TIMESTAMP < DATEADD(day, -30, CURRENT_TIMESTAMP())
+       OR c.CUSTOM_ATTRIBUTES:last_email_sent IS NULL);
+```
+
+### Analyzing user behavior over time
+
+```sql
+-- Track how a user's loyalty tier changed over the past 6 months
+SELECT 
+  USER_ID,
+  CUSTOM_ATTRIBUTES:loyalty_tier::STRING as loyalty_tier,
+  EFF_DT,
+  END_DT
+FROM USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED
+WHERE USER_ID = 'user_123'
+  AND EFF_DT >= DATEADD(month, -6, CURRENT_TIMESTAMP())
+ORDER BY EFF_DT DESC;
+```
+
+### Combining default and custom attributes
+
+```sql
+-- Get a complete user profile with both default and custom attributes
+SELECT 
+  d.EXTERNAL_USER_ID,
+  d.FIRST_NAME,
+  d.LAST_NAME,
+  d.EMAIL_ADDRESS,
+  d.COUNTRY,
+  c.CUSTOM_ATTRIBUTES:subscription_status::STRING as subscription_status,
+  c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER as lifetime_value,
+  c.CUSTOM_ATTRIBUTES:last_purchase_date::DATE as last_purchase_date
+FROM USER_DEFAULT_ATTRIBUTES_VIEW_SHARED d
+LEFT JOIN USER_CUSTOM_ATTRIBUTES_VIEW_SHARED c 
+  ON d.USER_ID = c.USER_ID
+WHERE d.EXTERNAL_USER_ID = 'customer_456';
+```
+
+### Finding high-value customers
+
+```sql
+-- Identify users with high lifetime value who are at risk of churning
+SELECT 
+  d.EXTERNAL_USER_ID,
+  d.EMAIL_ADDRESS,
+  c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER as lifetime_value,
+  c.CUSTOM_ATTRIBUTES:days_since_last_purchase::NUMBER as days_since_last_purchase
+FROM USER_DEFAULT_ATTRIBUTES_VIEW_SHARED d
+JOIN USER_CUSTOM_ATTRIBUTES_VIEW_SHARED c 
+  ON d.USER_ID = c.USER_ID
+WHERE c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER > 1000
+  AND c.CUSTOM_ATTRIBUTES:days_since_last_purchase::NUMBER > 90
+ORDER BY c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER DESC;
+```
 
 ## Best practices
 

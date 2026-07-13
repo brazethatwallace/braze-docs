@@ -13,12 +13,12 @@ noindex: true
 
 <br>
 {% alert important %}
-Looking for the basic in-app message developer integration guide? Find it [here]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview/).
+Looking for the basic in-app message developer integration guide? Find it [basic in-app message developer integration guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview).
 {% endalert %}
 
 # In-app messaging implementation guide
 
-> This optional and advanced implementation guide covers in-app message code considerations, three custom use cases built by our team, and accompanying code snippets. Visit our Braze Demo repository [here](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! This implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested. Looking for HTML implementations? Take a look at our [HTML template repository](https://github.com/braze-inc/in-app-message-templates)!
+> This optional and advanced implementation guide covers in-app message code considerations, three custom use cases built by our team, and accompanying code snippets. Visit our Braze Demo repository [Braze Demo repository on GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! This implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested. Looking for HTML implementations? Take a look at our [HTML template repository](https://github.com/braze-inc/in-app-message-templates)!
 
 ## Code considerations
 
@@ -74,7 +74,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 
 ## Use cases
 
-We've provided three use cases below. Each use case offers a detailed explanation, relevant code snippets, and a look into how in-app messages may look and be used in the Braze dashboard:
+We've provided three use cases in the following section. Each use case offers a detailed explanation, relevant code snippets, and a look into how in-app messages may look and be used in the Braze dashboard:
 - [Custom slide-up in-app message](#custom-slide-up-in-app-message)
 - [Custom modal in-app message](#custom-modal-in-app-message)
 - [Custom full in-app message](#custom-full-in-app-message)
@@ -83,7 +83,7 @@ We've provided three use cases below. Each use case offers a detailed explanatio
 
 ![Two iPhone side-by-side. The first iPhone has the slide-up message touching the bottom of the phone screen. The second iPhone has the slide-up message sitting higher on the screen allowing you to see the displayed app navigation button.]({% image_buster /assets/img/iam_implementation/slideup.png %}){: style="float:right;max-width:45%;margin-left:15px;border:0;"}
 
-While building out your slide-up in-app message, you may notice you aren't able to modify the placement of the message using default methods. Modification like this is made possible by subclassing the `ABKInAppMessageSlideupViewController` and overriding the `offset` variable with your own custom variable. The image to the right shows an example of how this can be used to adjust your slide-up in-app messages. 
+While building out your slide-up in-app message, you may notice you aren't able to modify the placement of the message using default methods. Modification like this is made possible by subclassing the `ABKInAppMessageSlideupViewController` and overriding the `offset` variable with your own custom variable. The accompanying image shows how this can be used to adjust your slide-up in-app messages. 
 
 Visit the [`SlideFromBottomViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/SlideFromBottomViewController.swift) to get started.
 
@@ -350,14 +350,14 @@ Using the subclass, after a user presses submit, pass the attribute with its cor
 {% endtabs %}
 
 {% alert tip %}
-Interesting in leveraging our custom modal in-app messages to share videos across FaceTime? Check out our SharePlay in-app message [implementation guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/shareplay/).
+Interesting in leveraging our custom modal in-app messages to share videos across FaceTime? Check out our SharePlay in-app message [implementation guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/shareplay).
 {% endalert%}
 
 ### Custom full in-app message
 
 ![An in-app message that displays a list of configuration options with toggles beside each option. At the bottom of the message, there is a large blue submit button.]({% image_buster /assets/img/iam_implementation/fullscreen.png %}){: style="float:right;max-width:23%;margin-left:15px;border:0;"}
 
-Use custom full in-app messages to create interactive, user-friendly prompts to collect valuable customer data. The example to the right shows an implementation of the custom full in-app message reimagined as an interactive push primer with notification preferences. 
+Use custom full in-app messages to create interactive, user-friendly prompts to collect valuable customer data. The accompanying example shows an implementation of the custom full in-app message reimagined as an interactive push primer with notification preferences. 
 
 Visit the [`FullListViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/FullListViewController/FullListViewController.swift) to get started.
 

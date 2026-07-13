@@ -1,26 +1,26 @@
 ---
-nav_title: Message Credits - Lambda
+nav_title: Créditos de mensagem - Lambda
 permalink: "/message_credits_lambda_k5gh/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Message Credits - Lambda (Confidencial) {#message-credits-lambda-confidential}
+# Créditos de mensagem - Lambda (Confidencial) {#message-credits-lambda-confidential}
 
-> Message Credits é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Console do agente, SMS, MMS, RCS, WhatsApp e LINE. Os Message Credits proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
+> Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
 
 {% alert note %}
 Produtos diferentes terão unidades de medida diferentes nos relatórios.<br><br>
-<b>Console do agente:</b> Invocações<br>
+<b>Agent Console:</b> Invocações<br>
 <b>SMS:</b> Segmentos<br>
 <b>MMS:</b> Envios<br>
-<b>WhatsApp:</b> Mensagens<br>
-<b>RCS:</b> Segmentos, Envios<br>
+<b>WhatsApp:</b> Mensagens entregues<br>
+<b>RCS:</b> Segmentos entregues, Envios entregues<br>
 <b>LINE:</b> Envios<br>
 <b>KakaoTalk:</b> Envios<br>
 
-Por fim, as taxas de operadora relacionadas a SMS, MMS e RCS são cobradas separadamente (após o uso) e não são consideradas parte deste SKU de Message Credits.
+Por fim, as taxas de operadora relacionadas a SMS, MMS e RCS são cobradas separadamente (após o uso) e não são consideradas parte deste SKU de créditos de mensagem.
 {% endalert %}
 
 ## Definições {#definitions}
@@ -29,14 +29,14 @@ As definições das colunas são as seguintes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Região final específica, país ou tipo de ação enviada pela plataforma Braze |
-| **Créditos por 1 envio** | Número exato de Message Credits para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
+| **Créditos por 1 envio** | Número exato de créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabela de proporção de créditos para Message Credits - Lambda {#credit-ratio-table-for-message-credits-lambda}
+## Tabela de proporção de créditos para créditos de mensagem - Lambda {#credit-ratio-table-for-message-credits-lambda}
 
 {% details Clique para expandir %}
-<table class="credits-table" aria-label="Tabela de proporção de créditos para Message Credits - Lambda">
+<table class="credits-table" aria-label="Tabela de proporção de créditos para créditos de mensagem - Lambda">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -48,14 +48,14 @@ As definições das colunas são as seguintes:
         <th class="credits-column"><b>Créditos por 1 envio</b></th>
     </tr>
     <tr>
-        <td>Console do agente</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     </thead>
     <tbody>
 <tr>
-        <td>Console do agente</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -286,7 +286,7 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Países Baixos Caribenhos</td>
+        <td>Caribe Neerlandês</td>
         <td>21.70</td>
     </tr>
     <tr>
@@ -671,7 +671,7 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Laos (RDP)</td>
+        <td>Laos RDP</td>
         <td>8.00</td>
     </tr>
     <tr>
@@ -2051,9 +2051,8 @@ As definições das colunas são as seguintes:
 
 ------
 
-## Detalhes do Console do agente {#agent-console-details}
-
-A Braze cobrará Message Credits pelas invocações do Console do agente enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de inscrição.
+## Detalhes do Agent Console {#agent-console-details}
+A Braze cobrará créditos de mensagem pelas invocações do Agent Console enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de inscrição.
 
 ## Detalhes do canal SMS/MMS {#smsmms-channel-details}
 
@@ -2063,7 +2062,7 @@ Os segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as men
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia e também incluir um corpo de mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
@@ -2071,7 +2070,7 @@ O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um can
 
 - A cobrança do RCS é baseada em dois tipos diferentes de mensagem (com distinções para os EUA):
     - **RCS Basic:** Somente texto, até 160 caracteres
-    - **RCS Single:** Mensagens com conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
+    - **RCS Single:** Mensagens contendo conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
     - **RCS Rich (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
     - **RCS Rich Media (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais ricos (webview, localização, calendário, etc.), contado como uma mensagem
 
@@ -2079,19 +2078,19 @@ O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um can
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalhes de canais adicionais {#additional-channel-details}
+## Detalhes adicionais dos canais {#additional-channel-details}
 
 ### Webhooks
 
-Os webhooks passaram a fazer parte dos Message Credits em 9 de dezembro de 2024. A Braze cobrará Message Credits por quaisquer webhooks enviados pela plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks por cada período do seu prazo de inscrição. Webhooks adicionais serão cobrados conforme o seu formulário de pedido.
+Os webhooks passaram a fazer parte dos créditos de mensagem em 9 de dezembro de 2024. A Braze cobrará créditos de mensagem por quaisquer webhooks enviados pela plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks por cada período do seu prazo de inscrição. Webhooks adicionais serão cobrados conforme seu formulário de pedido.
 
 ### Conectores SMS próprios (BYO) {#bring-your-own-byo-sms-connectors}
 
-A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "BYO SMS connector". A Braze cobrará Message Credits por cada mensagem enviada pela plataforma Braze por meio dos conectores BYO SMS.
+A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "BYO SMS connector". A Braze cobrará créditos de mensagem por cada mensagem enviada pela plataforma Braze por meio dos conectores BYO SMS.
 
 ### LINE
 
-A Braze cobrará Message Credits por quaisquer mensagens LINE enviadas pela plataforma Braze.
+A Braze cobrará créditos de mensagem por quaisquer mensagens LINE enviadas pela plataforma Braze.
 
 ## Detalhamento por região de cobrança {#billing-region-breakdown}
 
@@ -2101,26 +2100,23 @@ Estados Unidos, Canadá
 
 ### Restante da África {#rest-of-africa}
 
-Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia,
-Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
+Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia, Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
 ### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 
-Afeganistão, Austrália, Bangladesh, Camboja, China, Hong Kong, Japão, Laos, Mongólia, Nepal, Nova Zelândia, Papua-Nova Guiné, Filipinas, Singapura, Sri Lanka, Taiwan, Tajiquistão, Tailândia,
-Turcomenistão, Uzbequistão, Vietnã
+Afeganistão, Austrália, Bangladesh, Camboja, China, Japão, Laos, Mongólia, Nepal, Nova Zelândia, Papua-Nova Guiné, Filipinas, Sri Lanka, Taiwan, Tajiquistão, Tailândia, Turcomenistão, Uzbequistão, Vietnã
 
 ### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
 
-Albânia, Armênia, Azerbaijão, Belarus, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Hungria, Letônia, Lituânia, Macedônia, Moldávia, Polônia, Romênia, Sérvia, Eslováquia, Eslovênia, Ucrânia
+Albânia, Armênia, Azerbaijão, Belarus, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
 
 ### Restante da América Latina {#rest-of-latin-america}
 
-Bolívia, Costa Rica, República Dominicana, Equador, El Salvador,
-Guatemala, Haiti, Honduras, Jamaica, Nicarágua, Panamá, Paraguai, Porto Rico, Uruguai, Venezuela
+Bolívia, Costa Rica, República Dominicana, Equador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicarágua, Panamá, Paraguai, Porto Rico, Uruguai, Venezuela
 
 ### Restante do Oriente Médio {#rest-of-middle-east}
 
-Bahrein, Iraque, Jordânia, Kuwait, Líbano, Omã, Catar, Iêmen
+Bahrein, Iraque, Jordânia, Kuwait, Líbano, Omã, Iêmen
 
 ### Restante da Europa Ocidental {#rest-of-western-europe}
 

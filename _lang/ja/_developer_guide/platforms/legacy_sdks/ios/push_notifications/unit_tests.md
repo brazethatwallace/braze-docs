@@ -14,21 +14,21 @@ noindex: true
 
 # 単体テスト {#unit-tests}
 
-このオプションのガイドでは、アプリのデリゲートが[プッシュ統合手順]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/)に記載されている手順に正しく従っているかどうかを検証するいくつかの単体テストを実装する方法について説明します。 
+このオプションガイドでは、アプリデリゲートが[プッシュ統合手順]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration)に記載されているステップに正しく従っているかどうかを検証するいくつかの単体テストを実装する方法について説明します。
 
-すべてのテストに合格した場合、通常、プッシュ設定のコードベースの部分が機能していることを意味します。テストが失敗した場合は、手順を誤って実行したか、有効なカスタマイズがデフォルトの手順と正確に一致していないことが原因である可能性があります。
+すべてのテストに合格した場合、通常はプッシュ設定のコードベース部分が正しく機能していることを意味します。テストが失敗した場合は、ステップを誤って実行したか、有効なカスタマイズがデフォルトの手順と正確に一致していないことが原因である可能性があります。
 
-いずれにせよ、これは統合手順に従っていることを確認し、リグレッションを監視するのに役立つアプローチです。
+いずれにせよ、これは統合ステップに従っていることを確認し、リグレッションを監視するのに役立つアプローチです。
 
-## ステップ1:単体テストターゲットの作成
+## ステップ 1: 単体テストターゲットの作成 {#step-1-creating-a-unit-tests-target}
 
-Xcode のアプリプロジェクトにすでに単体テストバンドルが含まれている場合は、このステップをスキップしてください。
+Xcodeのアプリプロジェクトにすでに単体テストバンドルが含まれている場合は、このステップをスキップしてください。
 
-アプリプロジェクトで、メニューの **[ファイル] > [新規] > [ターゲット]** に移動し、新しい「単体テストバンドル」を追加します。このバンドルでは、Objective-C または Swift を使用でき、任意の名前を付けることができます。[テスト対象] をメインのアプリターゲットに設定します。
+アプリプロジェクトで、メニューの **File > New > Target** に移動し、新しい「Unit Testing Bundle」を追加します。このバンドルではObjective-CまたはSwiftを使用でき、任意の名前を付けることができます。「Target to be Tested」をメインのアプリターゲットに設定します。
 
-## ステップ2:Braze SDK を単体テストに追加する
+## ステップ 2: Braze SDKを単体テストに追加する {#step-2-add-the-braze-sdk-to-your-unit-tests}
 
-最初に [Braze SDK をインストールする]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/)ために使用したのと同じ方法を使用して、同じ SDK インストールが単体テストのターゲットでも使用できることを確認します。たとえば、CocoaPods を使用すると、次のようになります。
+最初に[Braze SDKをインストール]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview)するために使用したのと同じ方法を使用して、同じSDKインストールが単体テストのターゲットでも使用できることを確認します。たとえば、CocoaPodsを使用する場合は次のようになります。
 
 ```
 target 'YourAppTarget' do
@@ -40,9 +40,9 @@ target 'YourAppTarget' do
 end
 ```
 
-## ステップ 3:OCMock を単体テストに追加する
+## ステップ 3: OCMockを単体テストに追加する {#step-3-add-ocmock-to-your-unit-tests}
 
-CocoaPods、Carthage、またはその静的ライブラリを介して [OCMock](https://ocmock.org/) をテストターゲットに追加します。たとえば、CocoaPods を使用すると、次のようになります。
+CocoaPods、Carthage、またはその静的ライブラリーを介して[OCMock](https://ocmock.org/)をテストターゲットに追加します。たとえば、CocoaPodsを使用する場合は次のようになります。
 
 ```
 target 'YourAppTarget' do
@@ -55,25 +55,24 @@ target 'YourAppTarget' do
 end
 ```
 
-## ステップ 4:追加したライブラリのインストールを完了する
+## ステップ 4: 追加したライブラリーのインストールを完了する {#step-4-finish-installing-the-added-libraries}
 
-Braze SDK と OCMock のインストールを完了します。たとえば、CocoaPods を使用して、ターミナル内の Xcode アプリプロジェクトのディレクトリに移動し、次のコマンドを実行します。
+Braze SDKとOCMockのインストールを完了します。たとえば、CocoaPodsを使用して、ターミナルでXcodeアプリプロジェクトのディレクトリに移動し、次のコマンドを実行します。
 
 ```
 pod install
 ```
 
-この時点で、CocoaPods によって作成された Xcode プロジェクトワークスペースを開くことができるはずです。
+この時点で、CocoaPodsによって作成されたXcodeプロジェクトワークスペースを開くことができるはずです。
 
-## ステップ5: プッシュテストの追加
+## ステップ 5: プッシュテストの追加 {#step-5-adding-push-tests}
 
-単体テストのターゲットに新しい Objective-C ファイルを作成します。 
+単体テストのターゲットに新しいObjective-Cファイルを作成します。
 
-単体テストのターゲットが Swift にある場合、Xcode は「Objective-C ブリッジングヘッダーを構成しますか?」と尋ねる場合があります。ブリッジングヘッダーはオプションであるため、[**作成しない**] をクリックしてもこれらの単体テストを正常に実行できます。
+単体テストのターゲットがSwiftの場合、Xcodeは「Would you like to configure an Objective-C bridging header?」と尋ねることがあります。ブリッジングヘッダーはオプションであるため、**Don't Create** をクリックしてもこれらの単体テストを正常に実行できます。
 
-HelloSwift サンプルアプリの [`AppboyPushUnitTests.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/HelloSwift/HelloSwiftTests/AppboyPushUnitTests.m) のコンテンツを新しいファイルに追加します。
+HelloSwiftサンプルアプリの[`AppboyPushUnitTests.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/HelloSwift/HelloSwiftTests/AppboyPushUnitTests.m)のコンテンツを新しいファイルに追加します。
 
-## ステップ6: テストスイートを実行する
+## ステップ 6: テストスイートを実行する {#step-6-run-test-suite}
 
-アプリの単体テストを実行します。これは1回限りの検証ステップにすることも、リグレッションを検出するためにこれをテストスイートに無期限に含めることもできます。
-
+アプリの単体テストを実行します。これは1回限りの検証ステップにすることも、リグレッションを検出するためにテストスイートに無期限に含めることもできます。

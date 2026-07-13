@@ -12,7 +12,7 @@ description: "この記事では、一括ユーザートラッキングエンド
 ---
 {% api %}
 # ユーザーの作成と更新（一括） {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -24,7 +24,7 @@ description: "この記事では、一括ユーザートラッキングエンド
 
 ## このエンドポイントを使用するタイミング {#when-to-use-this-endpoint}
 
-[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)と同様に、このエンドポイントを使用してユーザープロファイルを更新できます。このエンドポイントは一括更新に適しています。
+[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)と同様に、このエンドポイントを使用してユーザープロファイルを更新できます。このエンドポイントは一括更新に適しています。
 
 - **より大きなリクエスト:** 1リクエストあたり最大1,000ユーザーを送信できるため、大規模なバックフィルや同期に必要なリクエスト数を減らせます。
 - **優先順位付け:** ピークトラフィック時には、`/users/track`へのリクエストが`/users/track/bulk`へのリクエストよりも優先されます。
@@ -37,9 +37,9 @@ description: "この記事では、一括ユーザートラッキングエンド
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track.bulk`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.track.bulk`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
-ファイアウォールの背後でサーバー間呼び出しを行う場合は、Braze RESTエンドポイント（例: `rest.iad-01.braze.com`）を許可リストに追加する必要がある場合があります。詳細については、[APIエンドポイント]({{site.baseurl}}/api/basics/#api-definitions)を参照してください。
+ファイアウォールの背後でサーバー間呼び出しを行う場合は、Braze RESTエンドポイント（例: `rest.iad-01.braze.com`）を許可リストに追加する必要がある場合があります。詳細については、[APIエンドポイント]({{site.baseurl}}/api/basics#api-definitions)を参照してください。
 
 ## レート制限 {#rate-limit}
 
@@ -76,9 +76,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)を参照 |
-| `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照 |
-| `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照 |
+| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照 |
+| `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)を参照 |
+| `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-requests}
@@ -210,9 +210,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 ### 致命的エラーの応答コード {#fatal-error-response-codes}
 
-リクエストに致命的エラーがある場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+リクエストに致命的エラーがある場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
-「provided external_id is blacklisted and disallowed」というエラーを受け取った場合、リクエストに「ダミーユーザー」が含まれている可能性があります。詳細については、[スパムブロック]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)を参照してください。
+「provided external_id is blacklisted and disallowed」というエラーを受け取った場合、リクエストに「ダミーユーザー」が含まれている可能性があります。詳細については、[スパムブロック]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 

@@ -18,7 +18,7 @@ channel:
 
 ### サブスクリプショングループの選択 {#select-your-subscription-group}
 
-SMSメッセージは[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/)から送信する必要があります。サブスクリプショングループとは、特定のメッセージング目的に使用される送信用電話番号（ショートコード、ロングコード、英数字の送信者IDなど）の集合です。購読中のユーザーのみがターゲットとなるように、サブスクリプショングループを指定する必要があります。トランザクションSMSメッセージングやプロモーションSMSメッセージングなど、異なるユースケースに対して複数のサブスクリプショングループを持つクライアントもいます。<br><br>
+SMSメッセージは[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)から送信する必要があります。サブスクリプショングループとは、特定のメッセージング目的に使用される送信用電話番号（ショートコード、ロングコード、英数字の送信者IDなど）の集合です。購読中のユーザーのみがターゲットとなるように、サブスクリプショングループを指定する必要があります。トランザクションSMSメッセージングやプロモーションSMSメッセージングなど、異なるユースケースに対して複数のサブスクリプショングループを持つクライアントもいます。<br><br>
 
 ### メッセージ本文の入力 {#input-message-body}
 
@@ -30,10 +30,10 @@ SMSメッセージセグメントは、SMS業界でメッセージをカウン�
 
 ### キーワードのカスタマイズ（オプション） {#keyword-customization-optional}
 
-規制により、すべてのオプトイン、オプトアウト、ヘルプ/情報のSMSキーワード応答に対する返信が必要です。Brazeでは、オプトイン、オプトアウト、ヘルプの応答をトリガーする独自のキーワードを定義し、ユーザーに送信される応答を管理し、異なる言語のキーワードセットを定義できます。詳細については、[キーワード処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)のコレクションを参照してください。
+規制により、すべてのオプトイン、オプトアウト、ヘルプ/情報のSMSキーワード応答に対する返信が必要です。Brazeでは、オプトイン、オプトアウト、ヘルプの応答をトリガーする独自のキーワードを定義し、ユーザーに送信される応答を管理し、異なる言語のキーワードセットを定義できます。詳細については、[キーワード処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing)のコレクションを参照してください。
 
 {% alert tip %}
-SMS キャンペーンの作成方法を学びたいですか？[SMS、MMS、またはRCSメッセージの作成]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)のステップバイステップガイドをご覧ください。
+SMSキャンペーンの作成方法を学びたいですか？[SMS、MMS、またはRCSメッセージの作成]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)のステップバイステップガイドをご覧ください。
 {% endalert %}
 
-マルチカントリーおよび大量送信のガイダンスを含む送信のベストプラクティスについては、[SMS、MMS、RCSのベストプラクティス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices/)を参照してください。
+マルチカントリーおよび大量送信のガイダンスを含む送信のベストプラクティスについては、[SMS、MMS、RCSのベストプラクティス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices)を参照してください。

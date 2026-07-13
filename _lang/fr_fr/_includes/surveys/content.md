@@ -4,7 +4,7 @@
   - channel (requis) : "in_app_message" ou "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Conditions préalables {#prerequisites}
 
@@ -12,13 +12,13 @@ Avant de créer une enquête, vous devez :
 
 {% if include.channel == 'in_app_message' %}
 - Avoir accès aux messages in-app dans votre espace de travail Braze
-- Être familiarisé avec la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Être familiarisé avec la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% elsif include.channel == 'landing_page' %}
 - Avoir accès aux pages d'accueil dans votre espace de travail Braze
-- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)
+- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - Avoir accès aux pages d'accueil, aux messages in-app, ou aux deux dans votre espace de travail Braze
-- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) et la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) et la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% endif %}
 
 ## Créer une enquête {#create-a-survey}
@@ -26,14 +26,14 @@ Avant de créer une enquête, vous devez :
 Pendant l'accès anticipé, les enquêtes sont créées dans votre flux de composition de messages existant.
 
 {% if include.channel == 'in_app_message' %}
-1. Créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une Campaign ou un Canvas.
+1. Créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) dans une campagne ou un Canvas.
 2. Sélectionnez **Survey** comme type de message.
 {% elsif include.channel == 'landing_page' %}
 1. Accédez à **Messaging** > **Landing Pages**.
 2. Créez une nouvelle page d'accueil.
 3. Sélectionnez **Survey** comme type de message.
 {% else %}
-1. Accédez à **Messaging** > **Landing Pages**, ou créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une Campaign ou un Canvas.
+1. Accédez à **Messaging** > **Landing Pages**, ou créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) dans une campagne ou un Canvas.
 2. Créez un nouveau message.
 3. Sélectionnez **Survey** comme type de message.
 {% endif %}
@@ -60,10 +60,10 @@ Pour les contrôles de style et de composition partagés, consultez :
 {% if include.channel == 'in_app_message' %}
 - [Blocs de l'éditeur par glisser-déposer pour les messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [Blocs de l'éditeur par glisser-déposer pour les messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 Vous pouvez ajouter les blocs de formulaire suivants aux enquêtes :
@@ -76,6 +76,12 @@ Vous pouvez ajouter les blocs de formulaire suivants aux enquêtes :
 - Menu déroulant
 - Case à cocher unique
 - Groupe de cases à cocher
+
+### Randomiser les choix de réponse {#randomize-answer-choices}
+
+Les blocs de groupe de boutons radio, de groupe de cases à cocher et de menu déroulant prennent en charge la randomisation des choix de réponse. Activez **Randomize choice order** pour mélanger les choix à chaque chargement de l'enquête. Utilisez ce paramètre pour réduire le biais d'ordre lorsque la même première option pourrait fausser les réponses.
+
+La randomisation ne modifie que l'ordre d'affichage pour chaque répondant. Les libellés et valeurs de reporting restent associés aux choix que vous avez configurés, de sorte que les analyses, les exports CSV et la segmentation utilisent les mêmes données de réponse.
 
 ### Capture de texte long {#long-text-capture}
 
@@ -116,8 +122,6 @@ Après le lancement, consultez les résultats dans :
 - L'onglet **Responses** pour les enquêtes par message in-app
 - La vue analytique de la page d'accueil pour les enquêtes sur les pages d'accueil
 {% endif %}
-
-![Onglet d'analyse de la page d'accueil.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 Les analyses de haut niveau incluent :
 
@@ -160,25 +164,25 @@ Pendant l'accès anticipé, vous pouvez :
 
 ![Configuration du déclencheur et filtres de segmentation pour le suivi d'enquête.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Déclencher des Campaigns et des Canvas lorsqu'un utilisateur complète une enquête dans une Campaign de message in-app.
+- Déclencher des campagnes et des Canvas lorsqu'un utilisateur complète une enquête dans une campagne de message in-app.
 
-![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête par message in-app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête par campagne de message in-app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% elsif include.channel == 'landing_page' %}
 
 ![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête sur page d'accueil.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-- Déclencher des Campaigns et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil.
+- Déclencher des campagnes et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil.
 
 {% else %}
 
 ![Configuration du déclencheur et filtres de segmentation pour le suivi d'enquête.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Déclencher des Campaigns et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil ou dans une Campaign de message in-app.
+- Déclencher des campagnes et des Canvas lorsqu'un utilisateur complète une enquête sur une page d'accueil ou dans une campagne de message in-app.
 
 ![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête sur page d'accueil.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête par message in-app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![Configuration du déclencheur et filtre de segmentation pour le suivi d'enquête par campagne de message in-app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% endif %}
 

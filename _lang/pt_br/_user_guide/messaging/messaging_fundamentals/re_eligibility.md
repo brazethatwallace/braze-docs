@@ -24,7 +24,7 @@ Por padrão, a Braze envia uma mensagem a um usuário apenas uma vez, mesmo que 
 {% tab campaign %}
 Para ativar a reelegibilidade de uma Campaign, marque a caixa de seleção **Allow users to become re-eligible to receive campaign** na seção **Controles de entrega**. O tempo máximo de reelegibilidade para uma Campaign é de 720 dias.
 
-Para Campaigns disparadas com reelegibilidade ativada, os usuários que [não receberam de fato a mensagem da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) (apesar de terem concluído o evento de gatilho) se qualificarão automaticamente para a mensagem na próxima vez que concluírem o evento de gatilho. Isso ocorre porque a reelegibilidade é baseada no recebimento da mensagem, e não na entrada na Campaign. Ao tornar os usuários reelegíveis para uma Campaign disparada, você permite que eles realmente recebam (e não apenas disparem) a mensagem mais de uma vez.
+Para Campaigns disparadas com reelegibilidade ativada, os usuários que [não receberam de fato a mensagem da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#why-did-a-user-not-receive-my-triggered-campaign) (apesar de terem concluído o evento de gatilho) se qualificarão automaticamente para a mensagem na próxima vez que concluírem o evento de gatilho. Isso ocorre porque a reelegibilidade é baseada no recebimento da mensagem, e não na entrada na Campaign. Ao tornar os usuários reelegíveis para uma Campaign disparada, você permite que eles realmente recebam (e não apenas disparem) a mensagem mais de uma vez.
 
 {% alert note %}
 "Recebimento" inclui atribuição por meio de identificadores de canal compartilhados: quando uma mensagem é entregue, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo e-mail ou número de telefone. Portanto, um usuário que nunca recebeu a mensagem diretamente pode ser marcado como tendo recebido e pode não se tornar reelegível.
@@ -36,7 +36,7 @@ Além disso, se você estiver tentando enviar uma mensagem imediatamente com uma
 
 O número de vezes que um usuário recebe uma Campaign disparada por API pode ser limitado usando as configurações de reelegibilidade. Isso significa que o usuário receberá a Campaign apenas uma vez ou uma vez em um determinado período, independentemente de quantas vezes o gatilho da API for acionado.
 
-Por exemplo, digamos que você esteja usando uma Campaign disparada por API para enviar ao usuário uma Campaign sobre um item que ele visualizou recentemente. Nesse caso, você pode limitar a Campaign para enviar no máximo uma mensagem por dia, independentemente de quantos itens ele visualizou, enquanto aciona o gatilho da API para cada item. Por outro lado, se sua Campaign disparada por API for transacional, você vai querer garantir que o usuário receba a Campaign toda vez que realizar a transação, definindo a postergação como zero minutos.
+Por exemplo, digamos que você esteja usando uma Campaign disparada por API para enviar ao usuário uma Campaign sobre um item que ele visualizou recentemente. Nesse caso, você pode limitar a Campaign para enviar no máximo uma mensagem por dia, independentemente de quantos itens ele visualizou, enquanto aciona o gatilho da API para cada item. Por outro lado, se sua Campaign disparada por API for transacional, você vai querer garantir que o usuário receba a Campaign toda vez que realizar a transação, definindo um delay de zero minutos.
 {% endtab %}
 
 {% tab canvas %}
@@ -49,7 +49,7 @@ Observe que um usuário não precisa sair de um Canvas antes de reentrar se a re
 
 Você pode adicionar filtros adicionais para evitar que os usuários recebam a mesma etapa ou mensagem várias vezes. No entanto, quando um usuário reentra em um Canvas pela segunda vez, as etapas recebidas anteriormente durante a primeira vez no Canvas não ficam visíveis para o usuário. Isso significa que o usuário ainda pode receber a mesma mensagem novamente. Para evitar isso, você pode configurar o Canvas para impedir a reentrada ou definir a reelegibilidade para a duração máxima do Canvas.
 
-Você também pode usar uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) para que o usuário que recebe a etapa registre isso como um atributo personalizado, que pode ser usado para filtrar os usuários que já receberam a etapa durante sua jornada no Canvas.
+Você também pode usar uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) para que o usuário que recebe a etapa registre isso como um atributo personalizado, que pode ser usado para filtrar os usuários que já receberam a etapa durante sua jornada no Canvas.
 
 ### Exemplo {#example}
 
@@ -76,7 +76,11 @@ Isso significa que os usuários que receberam a Campaign em 15 de fevereiro não
 
 ## Reelegibilidade para Content Cards {#re-eligibility-for-content-cards}
 
-Quando a reelegibilidade está ativada para Campaigns ou etapas do Canvas de Content Cards, um usuário pode receber outro cartão enquanto um cartão anterior da mesma Campaign ainda está no feed, o que pode parecer cartões duplicados. Para reduzir duplicatas, desative a reelegibilidade ou aumente o período de reelegibilidade para que o primeiro cartão [expire do feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) antes que o usuário se qualifique para outro envio.
+Quando a reelegibilidade está ativada para Campaigns ou etapas do Canvas de Content Cards, um usuário pode receber outro cartão enquanto um cartão anterior da mesma Campaign ainda está no feed, o que pode parecer cartões duplicados. Para reduzir duplicatas, desative a reelegibilidade ou aumente o período de reelegibilidade para que o primeiro cartão [expire do feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#the-30-day-expiration-and-re-eligibility) antes que o usuário se qualifique para outro envio.
+
+## Reelegibilidade para Banners {#re-eligibility-for-banners}
+
+Quando a reelegibilidade está ativada para Campaigns de Banner, os usuários que dispensam um Banner podem se tornar elegíveis novamente após um período de espera configurável que começa na dispensa. Se a reelegibilidade não estiver ativada, os usuários que dispensaram permanecem inelegíveis. Para configurar a reelegibilidade, consulte [Configurar reelegibilidade]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#re-eligibility). Observe que as etapas de Banner do Canvas usam as configurações de reentrada do Canvas.
 
 ## Testes multivariantes {#multivariate-testing}
 

@@ -27,7 +27,7 @@ Configura tus palabras desencadenantes al programar una Campaign con entrega bas
 
 ### Canvas
 
-Configura tus palabras desencadenantes dentro de las [rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) en tu Canvas.
+Configura tus palabras desencadenantes dentro de las [rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) en tu Canvas.
 
 ![Ruta de acción con un desencadenante que dice "Enviar esta campaña a los usuarios que enviaron un LINE de entrada al grupo de suscripción donde el cuerpo del mensaje es" y un campo en blanco.]({% image_buster /assets/img/line/trigger_word_canvas.png %})
 
@@ -43,6 +43,6 @@ Deberías incluir una opción de desencadenante para respuestas no reconocidas e
 
 ### Crear un desencadenante para respuestas no reconocidas {#creating-a-trigger-for-unrecognized-responses}
 
-Después de crear grupos de acciones para las frases de filtro personalizadas, añade otro grupo de acciones a la ruta de acción para **Send LINE message** y no marques **Where the message body**. Esto capturará todas las respuestas no reconocidas de los usuarios, de forma similar a una cláusula "else".
+Después de crear grupos de acciones para las frases de filtro personalizadas, añade otro grupo de acciones a la ruta de acción para **Enviar mensaje de LINE** y no marques **Donde el cuerpo del mensaje**. Esto capturará todas las respuestas no reconocidas de los usuarios, de forma similar a una cláusula "else".
 
 Para este mensaje, deberías enviar un mensaje de LINE informando al usuario de que este canal no está monitoreado por una persona y, si es necesario, guiarlo hacia un canal de soporte.

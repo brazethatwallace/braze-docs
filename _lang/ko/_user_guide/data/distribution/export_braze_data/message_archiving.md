@@ -1,6 +1,6 @@
 ---
 nav_title: 메시지 보관
-article_title: 메시지 아카이브
+article_title: 메시지 보관
 alias: "/message_archiving/"
 page_order: 1
 page_type: reference
@@ -8,15 +8,15 @@ description: "이 참조 문서는 사용자에게 전송된 메시지의 사본
 
 ---
 
-# 메시지 보관
+# 메시지 보관 {#message-archiving}
 
-> 메시지 보관 기능을 사용하면 보관 또는 규정 준수 목적으로 사용자에게 전송된 메시지의 사본을 AWS S3 버킷, Azure Blob Storage 컨테이너 또는 Google Cloud Storage 버킷에 저장할 수 있습니다. <br><br> 본 문서에서는 메시지 보관 설정 방법, JSON 페이로드 참조 및 자주 묻는 질문을 다룹니다.
+> 메시지 보관 기능을 사용하면 보관 또는 규정 준수 목적으로 사용자에게 전송된 메시지의 사본을 AWS S3 버킷, Azure Blob Storage 컨테이너 또는 Google Cloud Storage 버킷에 저장할 수 있습니다. <br><br> 이 문서에서는 메시지 보관 설정 방법, JSON 페이로드 참조 및 자주 묻는 질문을 다룹니다.
 
 메시지 보관은 추가 기능으로 제공됩니다. 메시지 보관을 시작하려면 Braze 고객 성공 매니저에게 문의하세요.
 
 ## 작동 방식 {#how-it-works}
 
-이 기능이 활성화되면, Braze는 선택한 채널(이메일, SMS/MMS 또는 푸시)을 통해 사용자에게 전송되는 각 메시지에 대해 gzip 압축된 JSON 파일을 작성합니다. Braze는 이 파일을 기본 데이터 내보내기 대상에 기록합니다. 여기에는 [트랜잭션 이메일 API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)를 통해 전송된 트랜잭션 이메일 Campaigns 등 각 채널의 모든 Campaign 유형이 포함됩니다.
+이 기능이 활성화되면, Braze는 선택한 채널(이메일, SMS/MMS 또는 푸시)을 통해 사용자에게 전송되는 각 메시지에 대해 gzip 압축된 JSON 파일을 작성합니다. Braze는 이 파일을 기본 데이터 내보내기 대상에 기록합니다. 여기에는 [트랜잭션 이메일 API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)를 통해 전송된 트랜잭션 이메일 Campaign 등 각 채널의 모든 Campaign 유형이 포함됩니다.
 
 이 파일은 [파일 참조](#file-references)에 정의된 필드를 포함하며, 사용자에게 전송된 최종 템플릿 메시지를 반영합니다. Campaign에 정의된 모든 템플릿 값(예: {% raw %}`{{${first_name}}}`{% endraw %})은 사용자의 프로필 정보를 기반으로 수신한 최종 값을 표시합니다. 이를 통해 규정 준수, 감사 또는 고객지원 요건을 충족하기 위해 전송된 메시지의 사본을 보관할 수 있습니다.
 
@@ -43,19 +43,19 @@ MD5 다이제스트는 알려진 소문자 이메일 주소, 푸시 토큰 또�
 Braze는 푸시 토큰을 해시하기 전에 소문자로 변환합니다. 이로 인해 푸시 토큰 `Test_Push_Token12345`는 키 경로에서 해시 `32b802170652af2b5624b695f34de089`와 함께 `test_push_token12345`로 소문자 변환됩니다.
 {% endalert %}
 
-## 메시지 보관 설정
+## 메시지 보관 설정 {#setting-up-message-archiving}
 
 이 섹션에서는 워크스페이스에 대한 메시지 보관 설정 방법을 안내합니다. 진행하기 전에 회사에서 메시지 보관을 구매하고 활성화했는지 확인하세요.
 
-### 1단계: 클라우드 스토리지 버킷 연결
+### 1단계: 클라우드 스토리지 버킷 연결 {#step-1-connect-a-cloud-storage-bucket}
 
-아직 연결하지 않았다면, 클라우드 스토리지 버킷을 Braze에 연결하세요. 단계별 안내는 [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) 또는 [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/)에 대한 파트너 설명서를 참조하세요.
+아직 연결하지 않았다면, 클라우드 스토리지 버킷을 Braze에 연결하세요. 단계별 안내는 [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3), [Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) 또는 [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)에 대한 파트너 설명서를 참조하세요.
 
 {% alert note %}
 메시지 보관을 위해 Currents를 설정할 필요는 없으므로, 파트너 설명서의 해당 전제 조건은 건너뛸 수 있습니다.
 {% endalert %}
 
-### 2단계: 메시지 보관을 위한 채널 선택 {#select-channels-for-message-archiving}
+### 2단계: 메시지 보관을 위한 채널 선택 {#step-2-select-channels-for-message-archiving}
 
 **메시지 보관** 설정 페이지에서 전송된 메시지의 사본을 클라우드 스토리지 버킷에 저장할 채널을 제어할 수 있습니다.
 
@@ -71,12 +71,18 @@ Braze는 푸시 토큰을 해시하기 전에 소문자로 변환합니다. 이�
 **설정**에 **메시지 보관**이 표시되지 않으면 회사에서 메시지 보관을 구매하고 활성화했는지 확인하세요.
 {% endalert %}
 
+## IP 허용 목록 {#ip-allowlisting}
+
+메시지 보관이 클라우드 스토리지 버킷에 파일을 업로드할 때, Braze는 서버에서 AWS S3, Azure Blob Storage 또는 Google Cloud Storage 엔드포인트로 네트워크 요청을 보냅니다. IP 허용 목록을 사용하면 이러한 요청이 Braze에서 오는 것인지 확인하여 보안 계층을 추가할 수 있습니다.
+
+Braze는 연결된 콘텐츠 및 Currents에 사용되는 것과 동일한 IP 주소에서 메시지 보관 업로드를 전송합니다. 인스턴스별 전체 IP 목록은 [연결된 콘텐츠 IP 허용 목록]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)을 참조하세요.
+
 ## 파일 참조 {#file-references}
 
 다음은 메시지가 전송될 때마다 클라우드 스토리지 버킷으로 전달되는 JSON 페이로드에 대한 참조입니다. 코드 예제 리포지토리에서 [메시지 아카이브 샘플 파일](https://github.com/braze-inc/braze-examples/tree/main/message-archiving)을 참조하세요.
 
 {% tabs %}
-{% tab Email %}
+{% tab 이메일 %}
 
 ```json
 {
@@ -84,7 +90,7 @@ Braze는 푸시 토큰을 해시하기 전에 소문자로 변환합니다. 이�
   "to": ToAddress, ("customer@example.com")
   "subject": SubjectLine ("20% off coupon inside!"),
   "from_name": DisplayName ("Braze"),
-  "from_address": FromAddress ("no-reply@braze.com"),
+  "from_address": FromAddress ("no-reply@example.com"),
   "html_body": HtmlBody,
   "plaintext_body": PlainTextBody,
   "amp_body": AMPEmailBody,
@@ -106,9 +112,9 @@ Braze는 푸시 토큰을 해시하기 전에 소문자로 변환합니다. 이�
 }
 ```
 
-`extras` 필드는 HTML 편집기에서 이메일을 작성할 때 **이메일 추가 정보** 필드에 구성된 키-값 페어를 포함합니다. 이메일 추가 기능은 모든 이메일 서비스 공급자(SendGrid 및 SparkPost 포함)에서 작동하며, 사용 중인 공급자와 관계없이 보관된 메시지에 포함됩니다. 이메일 추가 기능 설정에 대한 자세한 내용은 [이메일 Campaign 생성]({{site.baseurl}}/user_guide/channels/email/html_editor/#adding-email-extras)을 참조하세요. Currents로 데이터를 보내려면 [메시지 추가 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/)를 참조하세요.
+`extras` 필드는 HTML 편집기에서 이메일을 작성할 때 **이메일 추가 정보** 필드에 구성된 키-값 페어를 포함합니다. 이메일 추가 기능은 모든 이메일 서비스 공급자(SendGrid 및 SparkPost 포함)에서 작동하며, 사용 중인 공급자와 관계없이 보관된 메시지에 포함됩니다. 이메일 추가 기능 설정에 대한 자세한 내용은 [이메일 Campaign 생성]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras)을 참조하세요. Currents로 데이터를 보내려면 [메시지 추가 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)를 참조하세요.
 
-![]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
+![이메일 작성기의 이메일 추가 정보 섹션에 키 및 값 필드와 새 추가 항목 추가 옵션이 표시되어 있습니다.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
 {% tab SMS/MMS %}
@@ -137,7 +143,7 @@ Braze는 푸시 토큰을 해시하기 전에 소문자로 변환합니다. 이�
 ```
 
 {% endtab %}
-{% tab Push %}
+{% tab 푸시 %}
 
 ```json
 {
@@ -161,7 +167,7 @@ Braze는 푸시 토큰을 해시하기 전에 소문자로 변환합니다. 이�
 }
 ```
 
-### 푸시 페이로드 구조 변형
+### 푸시 페이로드 구조 변형 {#push-payload-structure-variations}
 
 {% alert important %}
 푸시 알림 아카이브의 최상위 `payload` 필드에는 기기로 전송된 전체 제공자 페이로드가 포함됩니다. 이 JSON 내에서 `aps`(APNs용) 또는 `notification` 및 `data`(FCM용)와 같은 키는 메시지 유형, 플랫폼 및 구성에 따라 크게 달라질 수 있습니다.
@@ -191,40 +197,40 @@ JSON 페이로드 형식은 메시지마다 다를 수 있으며 시간이 지�
 {% endtab %}
 {% endtabs %}
 
-## 자주 묻는 질문
+## 자주 묻는 질문 {#frequently-asked-questions}
 
-### 페이로드에 포함되지 않는 템플릿은 무엇인가요?
+### 페이로드에 포함되지 않는 템플릿은 무엇인가요? {#what-templating-is-not-included-in-the-payload}
 
 메시지가 Braze를 떠난 후 수정된 내용은 클라우드 스토리지 버킷에 저장된 파일에 반영되지 않습니다. 여기에는 클릭 추적을 위한 링크 래핑 및 추적 픽셀 삽입과 같이 메일 전달 파트너가 수행하는 수정 사항이 포함됩니다.
 
-### Campaign 경로에서 "unassociated" 값 아래의 메시지는 무엇인가요?
+### Campaign 경로에서 "unassociated" 값 아래의 메시지는 무엇인가요? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
 메시지가 Campaign 또는 Canvas 외부에서 전송되면, 파일 이름의 Campaign ID는 "unassociated"가 됩니다. 이는 대시보드에서 테스트 메시지를 보내거나, Braze가 SMS/MMS 자동 응답을 보내거나, API를 통해 전송된 메시지에 Campaign ID가 지정되지 않은 경우에 발생합니다.
 
-### 이 발송에 대한 추가 정보를 어떻게 찾을 수 있나요?
+### 이 발송에 대한 추가 정보를 어떻게 찾을 수 있나요? {#how-do-i-find-more-information-about-this-send}
 
 `external_id` 또는 `dispatch_id`를 `user_id`와 함께 사용하여 템플릿 메시지를 Currents 데이터와 교차 참조하면 전달 타임스탬프, 사용자가 메시지를 열었는지 또는 클릭했는지 등의 추가 정보를 확인할 수 있습니다.
 
-### 재시도는 어떻게 처리되나요?
+### 재시도는 어떻게 처리되나요? {#how-are-retries-handled}
 
 클라우드 스토리지 버킷에 연결할 수 없는 경우, Braze는 [백오프 지터](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/#Jitter)를 사용하여 최대 세 번 재시도합니다. AWS S3 사용량 제한 재시도는 Braze에 의해 자동으로 처리됩니다.
 
-### 자격 증명이 유효하지 않으면 어떻게 되나요?
+### 자격 증명이 유효하지 않으면 어떻게 되나요? {#what-happens-if-my-credentials-are-invalid}
 
-클라우드 스토리지 자격 증명이 어느 시점에서든 유효하지 않게 되면, Braze는 클라우드 스토리지 버킷에 메시지를 저장할 수 없으며 해당 메시지는 손실됩니다. Amazon Web Services, Google Cloud Services 또는 Azure(Microsoft Cloud Services)에 대한 [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)을 구성하여 자격 증명 관련 문제 발생 시 알림을 받을 수 있도록 하는 것을 권장합니다.
+클라우드 스토리지 자격 증명이 어느 시점에서든 유효하지 않게 되면, Braze는 클라우드 스토리지 버킷에 메시지를 저장할 수 없으며 해당 메시지는 손실됩니다. Amazon Web Services, Google Cloud Storage 또는 Azure(Microsoft Cloud Services)에 대한 [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)을 구성하여 자격 증명 관련 문제 발생 시 알림을 받을 수 있도록 하는 것을 권장합니다.
 
-### 아카이브 파일의 `sent_at` 타임스탬프가 Currents의 전송 타임스탬프와 약간 다른 이유는 무엇인가요?
+### 아카이브 파일의 `sent_at` 타임스탬프가 Currents의 전송 타임스탬프와 약간 다른 이유는 무엇인가요? {#why-does-my-archive-files-sent_at-timestamp-differ-slightly-from-the-sent-timestamp-in-currents}
 
 렌더링된 사본은 사용자에게 메시지를 보내기 직전에 업로드됩니다. 클라우드 스토리지 업로드 시간으로 인해 렌더링된 사본의 `sent_at` 타임스탬프와 실제 전송이 발생한 시간 사이에 몇 초의 지연이 있을 수 있습니다.
 
-### Currents 데이터에 사용하는 현재 버킷을 유지하면서 메시지 보관 전용 새 버킷을 만들 수 있나요?
+### Currents 데이터에 사용하는 현재 버킷을 유지하면서 메시지 보관 전용 새 버킷을 만들 수 있나요? {#can-i-create-a-new-bucket-specifically-for-message-archiving-while-keeping-the-current-bucket-used-for-currents-data}
 
-아니요. 이러한 전용 버킷 생성에 관심이 있다면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 제출해 주세요.
+아니요. {% multi_lang_include product_feedback_cta.md context="gap" feature="dedicated message archiving buckets while keeping a separate Currents bucket" %}
 
-### 아카이브된 데이터는 Currents 데이터 내보내기 구조와 유사하게 기존 버킷의 전용 폴더에 기록되나요?
+### 아카이브된 데이터는 Currents 데이터 내보내기 구조와 유사하게 기존 버킷의 전용 폴더에 기록되나요? {#is-archived-data-written-to-a-dedicated-folder-in-an-existing-bucket-similar-to-how-currents-data-exports-are-structured}
 
 데이터는 버킷의 `sent_messages` 섹션에 기록됩니다. 자세한 내용은 [작동 방식](#how-it-works)을 참조하세요.
 
-### 메시지 보관을 사용하여 파일을 서로 다른 워크스페이스별로 그룹화할 수 있나요?
+### 메시지 보관을 사용하여 파일을 서로 다른 워크스페이스별로 그룹화할 수 있나요? {#can-i-use-message-archiving-to-group-files-into-different-workspaces}
 
 아니요. 메시지 보관은 워크스페이스를 기준으로 파일을 그룹화하는 기능을 지원하지 않습니다. 대신 Campaign 또는 캔버스 단계 API ID가 속한 워크스페이스를 확인한 후, 해당 정보를 기준으로 그룹화할 수 있습니다.

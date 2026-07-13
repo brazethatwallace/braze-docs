@@ -10,7 +10,7 @@ description: "Saiba como usar vários recursos da Braze para potencializar seus 
 
 > Esta página mostra como usar vários recursos da Braze para potencializar seus casos de uso de segmentação baseada em contas B2B.
 
-Você pode fazer a segmentação baseada em contas B2B de duas maneiras, dependendo de como você configurou seu [modelo de dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/):
+Você pode fazer a segmentação baseada em contas B2B de duas maneiras, dependendo de como você configurou seu [modelo de dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models):
 
 - Ao usar [catálogos para seus objetos de negócios](#option-1-when-using-catalogs-for-your-business-objects)
 - Ao usar [fontes conectadas para seus objetos de negócios](#option-2-when-using-connected-sources-for-your-business-objects)
@@ -43,11 +43,11 @@ Selecione as seguintes variáveis para um caso de uso de segmentação baseada e
 | Propriedade do evento personalizado | account_id |
 | (Em Filtrar resultados SQL) Campo do catálogo | Classification |
 | (Em Filtrar resultados SQL) Valor | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Diretrizes de variáveis para casos de uso B2B" }
 
 #### Segmentação SQL sofisticada {#sophisticated-sql-segmentation}
 
-Para uma segmentação mais sofisticada ou complexa, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). Para ajudar você a começar, aqui estão alguns modelos SQL que podem dar uma vantagem inicial com a segmentação baseada em contas B2B:
+Para uma segmentação mais sofisticada ou complexa, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments). Para ajudar você a começar, aqui estão alguns modelos SQL que podem dar uma vantagem inicial com a segmentação baseada em contas B2B:
 
 1. Crie um segmento comparando dois filtros em um único catálogo (por exemplo, usuários que trabalham no setor de restaurantes para uma conta de nível empresarial). Você deve incluir o ID do catálogo e o ID do item.
 
@@ -108,8 +108,8 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 
 ### Opção 2: Ao usar fontes conectadas para seus objetos de negócios {#option-2-when-using-connected-sources-for-your-business-objects}
 
-Para o básico sobre como usar fontes conectadas na segmentação, consulte [Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/). Use os modelos abordados em [Ao usar catálogos](#option-1-when-using-catalogs-for-your-business-objects) como inspiração para formatar as tabelas de origem, já que você pode formatá-las da maneira que quiser.
+Para o básico sobre como usar fontes conectadas na segmentação, consulte [Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments). Use os modelos abordados em [Ao usar catálogos](#option-1-when-using-catalogs-for-your-business-objects) como inspiração para formatar as tabelas de origem, já que você pode formatá-las da maneira que quiser.
 
 ## Usando sua extensão baseada em conta em um segmento {#using-your-account-based-extension-in-a-segment}
 
-Depois de criar a segmentação no nível da conta nas etapas acima, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).
+Depois de criar a segmentação no nível da conta nas etapas anteriores desta seção, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).

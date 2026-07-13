@@ -15,7 +15,7 @@ channel:
 
 | Androidの例（展開時） | iOSの例（展開時） |
 | :-----: | :----------: |
-| ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
+| ![Push StoriesのAndroidプレビュー]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Push StoriesのiOSプレビュー]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
@@ -31,11 +31,11 @@ Push Storiesを受信するには、以下のSDKバージョンが必要です�
 
 ## Push Storiesの使用方法 {#how-to-use-push-stories}
 
-![]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Push Storiesコンポーザーのドロップダウン]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
 Push Storiesを使用するには、以下の手順を実行します。
 
-1. [プッシュキャンペーン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)を作成します。
+1. [プッシュキャンペーン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)を作成します。
 2. **通知タイプ**で**Push Stories**を選択します。
 3. **iOS**または**Android**を選択します。プッシュメッセージで両方を選択した場合、Push Storyを作成するオプションは表示されません。
 
@@ -43,22 +43,21 @@ Push Storiesを使用するには、以下の手順を実行します。
 
 ページを作成するには、以下のステップを実行します。
 
-1. メインコンポーザーから**Manage Pages**をクリックします。
-    <br><br>![]({% image_buster /assets/img_archive/pushstories_add_pages.png %}){: style="max-width:70%"}<br><br>
+1. メインコンポーザーから**新しいページを追加**を選択します。
 2. 各ページに画像を挿入し、その画像のクリック動作を設定します。
-3. 必要に応じて、各ページに**Title**と**Description**を追加します。1つのページにタイトルと説明を使用する場合は、すべてのページに挿入する必要があります。
+3. 必要に応じて、各ページに**タイトル**と**説明**を追加します。1つのページにタイトルと説明を使用する場合は、すべてのページに挿入する必要があります。
 
 プレビューは反映され、インタラクティブに操作できます。
 
-![]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
+![Push Storiesコンポーザー]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)で画像を取得する場合は、画像URLが`https://`で始まることを確認してください。`http://`を使用するとアプリがクラッシュします。
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content)で画像を取得する場合は、画像URLが`https://`で始まることを確認してください。`http://`を使用するとアプリがクラッシュします。
 {% endalert %}
 
 ### 画像とテキストの仕様 {#image-and-text-specifications}
 
-以下の画像とテキストの仕様は、Push Storiesのフォトカルーセル部分に適用されます。ユーザーがPush Storyを起動するために操作する基本的なプッシュについては、[プッシュメッセージと画像フォーマット]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)を参照してください。
+以下の画像とテキストの仕様は、Push Storiesのフォトカルーセル部分に適用されます。ユーザーがPush Storyを起動するために操作する基本的なプッシュについては、[プッシュメッセージと画像フォーマット]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)を参照してください。
 
 {% tabs %}
 {% tab 画像 %}

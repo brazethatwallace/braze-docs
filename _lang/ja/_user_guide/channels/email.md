@@ -15,16 +15,16 @@ search_rank: 2
 
 ## 前提条件 {#prerequisites}
 
-Brazeでメールを送信する前に、専用IP、ドメイン、メール認証、IPウォーミングを設定する必要があります。詳しい手順については、[メールセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/)を参照してください。
+Brazeでメールを送信する前に、専用IP、ドメイン、メール認証、IPウォーミングを設定する必要があります。詳しい手順については、[メールセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup)を参照してください。
 
 ## メールをカスタマイズする {#customize-your-emails}
 
 メールメッセージは、以下のようなさまざまな方法でカスタマイズできます。
 
-- [Brazeメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [カスタムHTMLテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)
-- [ユーザーサブスクリプション]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Brazeメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [カスタムHTMLテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [ユーザーサブスクリプション]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
 ## ユースケース {#use-cases}
 
@@ -35,8 +35,8 @@ Brazeでメールを送信する前に、専用IP、ドメイン、メール認�
 | リッチメッセージ | リッチでダイナミックなHTMLメッセージを作成できます。 |
 | マルチメディアコンテンツ | 動画や画像など、ユーザーのエンゲージメントを高めるマルチメディアコンテンツを簡単に配置できます。 |
 | ニュースレター | 月刊または週刊のニュースレターを手軽に送信し、ユーザーエンゲージメントを維持します。 |
-| トランザクション | 最近の購入をユーザーに通知し、重要な製品情報や配送情報を[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)で届けます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+| トランザクション | 最近の購入をユーザーに通知し、重要な製品情報や配送情報を[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)で届けます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 ## メールサービス {#email-services}
 
@@ -60,6 +60,6 @@ Brazeは2つのティアの定期メールサポートを提供しています�
 
 ## 次のステップ {#next-steps}
 
-- [メールセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [ドラッグ＆ドロップエディターでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [HTMLエディターでメールを作成する]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [メールセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [ドラッグ＆ドロップエディターでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [HTMLエディターでメールを作成する]({{site.baseurl}}/user_guide/channels/email/html_editor)

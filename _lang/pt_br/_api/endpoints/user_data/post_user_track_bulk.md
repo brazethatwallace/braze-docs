@@ -12,7 +12,7 @@ description: "Este artigo descreve detalhes sobre o endpoint de rastreamento de 
 ---
 {% api %}
 # Criar e atualizar usuários (em massa) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -24,7 +24,7 @@ Este endpoint está atualmente em **beta limitado**. Embora não estejamos adici
 
 ## Quando usar este endpoint {#when-to-use-this-endpoint}
 
-Assim como o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), você pode usar este endpoint para atualizar perfis de usuário. Este endpoint é mais adequado para atualizações em massa:
+Assim como o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), você pode usar este endpoint para atualizar perfis de usuário. Este endpoint é mais adequado para atualizações em massa:
 
 - **Solicitações maiores:** envie até 1.000 usuários por solicitação, permitindo que você faça menos solicitações para grandes preenchimentos retroativos e sincronizações.
 - **Priorização:** durante condições de pico de tráfego, as solicitações para `/users/track` são priorizadas em relação às solicitações para `/users/track/bulk`.
@@ -37,9 +37,9 @@ Os limites do objeto de solicitação do endpoint `/users/track` variam de acord
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.track.bulk`.
+Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.track.bulk`.
 
-Se você estiver fazendo chamadas servidor-a-servidor atrás de um firewall, pode ser necessário adicionar seu endpoint REST da Braze à lista de permissões (por exemplo, `rest.iad-01.braze.com`). Para saber mais, consulte [Endpoints de API]({{site.baseurl}}/api/basics/#api-definitions).
+Se você estiver fazendo chamadas servidor-a-servidor atrás de um firewall, pode ser necessário adicionar seu endpoint REST da Braze à lista de permissões (por exemplo, `rest.iad-01.braze.com`). Para saber mais, consulte [Endpoints de API]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Limite de taxa {#rate-limit}
 
@@ -76,9 +76,9 @@ Para cada objeto de solicitação, você deve incluir um dos seguintes: `externa
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --- | --- | --- | --- |
-| `attributes` | Opcional | Array de objetos de atributos | Consulte [objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | Opcional | Array de objetos de eventos | Consulte [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Opcional | Array de objetos de compras | Consulte [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Opcional | Array de objetos de atributos | Consulte [objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | Opcional | Array de objetos de eventos | Consulte [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Opcional | Array de objetos de compras | Consulte [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros da solicitação" }
 
 ## Exemplos de solicitações {#example-requests}
@@ -210,9 +210,9 @@ Se sua solicitação tiver um erro fatal, você receberá a seguinte resposta:
 
 ### Códigos de resposta de erros fatais {#fatal-error-response-codes}
 
-Para códigos de status e mensagens de erro associadas que a Braze retorna quando sua solicitação tem um erro fatal, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para códigos de status e mensagens de erro associadas que a Braze retorna quando sua solicitação tem um erro fatal, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors).
 
-Se você receber o erro "provided external_id is blacklisted and disallowed", sua solicitação pode incluir um "usuário fictício". Para saber mais, consulte [Bloqueio de spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Se você receber o erro "provided external_id is blacklisted and disallowed", sua solicitação pode incluir um "usuário fictício". Para saber mais, consulte [Bloqueio de spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

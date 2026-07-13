@@ -18,17 +18,17 @@ description: "このページでは、抑制リストを使用して、メッセ
 
 ### 抑制リストの影響を受けるメッセージタイプとチャネル {#message-types-and-channels-affected-by-suppression-lists}
 
-抑制リストは、[フィーチャーフラグ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/)を除くすべてのメッセージタイプとチャネルに適用されます。つまり、抑制リストはデフォルトですべてのチャネル、キャンペーン、キャンバスに適用されます。これには以下が含まれます。
-- [APIキャンペーン]({{site.baseurl}}/api/api_campaigns/)
+抑制リストは、[フィーチャーフラグ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags)を除くすべてのメッセージタイプとチャネルに適用されます。つまり、抑制リストはデフォルトですべてのチャネル、キャンペーン、キャンバスに適用されます。これには以下が含まれます。
+- [APIキャンペーン]({{site.baseurl}}/api/api_campaigns)
 - APIトリガーのキャンペーンおよびキャンバス
-- [トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 抑制リストが適用されない唯一のメッセージタイプはフィーチャーフラグです。抑制リストに含まれるユーザーはフィーチャーフラグからは抑制されませんが、他のすべてのチャネルからは抑制されます。
 
 例外タグを使用すると、抑制リストのユーザーが特定のキャンペーンやキャンバスのターゲットに引き続き含まれるようにできます。詳細については、[抑制リストの設定](#setup)のステップ4を参照してください。抑制リストに例外タグを追加しない場合、その抑制リストのユーザーはフィーチャーフラグ以外のメッセージングのターゲットになりません。
 
 {% alert note %}
-抑制リストは、Brazeダッシュボードで`campaign_id`を使用して作成されたAPIキャンペーンに適用されます。抑制リストは、関連する`campaign_id`なしで[Brazeメッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を通じて送信されたメッセージには適用されません。
+抑制リストは、Brazeダッシュボードで`campaign_id`を使用して作成されたAPIキャンペーンに適用されます。抑制リストは、関連する`campaign_id`なしで[Brazeメッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を通じて送信されたメッセージには適用されません。
 {% endalert %}
 
 ![「例外設定」セクション。APIトリガーのキャンペーンおよびキャンバスに抑制リストを適用しないチェックボックスが表示されています。]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
@@ -39,12 +39,12 @@ description: "このページでは、抑制リストを使用して、メッセ
 すべてのユーザーが抑制リストを表示できますが、抑制リストの作成と管理ができるのは[管理者権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions?tab=admin)を持つユーザーのみです。
 {% endalert %}
 
-1. **オーディエンス** > **抑制リスト**に移動します。<br><br>![3つの抑制リストが表示された「抑制リスト」ページ。]({% image_buster /assets/img/suppression_lists_home.png %})<br><br>
-2. **抑制リストを作成**を選択し、名前を追加します。<br><br>![名前を入力するフィールドがある「抑制リストを作成」ウィンドウ。]({% image_buster /assets/img/create_suppression_list.png %}){: style="max-width:80%;"}<br><br>
+1. **オーディエンス** > **抑制リスト**に移動します。
+2. **抑制リストを作成**を選択し、名前を追加します。
 3. セグメントフィルターを使用して、抑制リストのユーザーを特定します。少なくとも1つ選択する必要があります。
 
 {% alert important %}
-設定プロセスは[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)と似ていますが、抑制リストはセグメントのメンバーシップに関係なく、メッセージを送信**しない**ユーザーのグループです。
+設定プロセスは[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)と似ていますが、抑制リストはセグメントのメンバーシップに関係なく、メッセージを送信**しない**ユーザーのグループです。
 {% endalert %}
 
 ![最後にメールを開封してから90日以上経過したユーザーのフィルターが設定された抑制リストビルダー。]({% image_buster /assets/img/suppression_list_filters.png %})

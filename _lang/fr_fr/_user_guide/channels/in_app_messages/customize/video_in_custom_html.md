@@ -10,7 +10,7 @@ channel:
 
 # Vidéo dans les messages in-app en HTML personnalisé {#video}
 
-> Cet article s'applique aux [messages HTML personnalisés]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+> Cet article s'applique aux [messages HTML personnalisés]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Intégrer des vidéos {#embed-videos}
 
@@ -32,9 +32,9 @@ Le contenu vidéo n'est disponible que lorsque l'appareil dispose d'une vitesse 
 
 ## Considérations pour Android {#android-considerations}
 
-Pour intégrer de la vidéo et d'autres contenus HTML5 dans les messages in-app HTML sur Android, l'accélération matérielle doit être activée dans l'Activity où le message in-app est affiché. Pour plus d'informations, consultez le [guide du développeur Android]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/#android_embedding-youtube-content).
+Pour intégrer de la vidéo et d'autres contenus HTML5 dans les messages in-app HTML sur Android, l'accélération matérielle doit être activée dans l'Activity où le message in-app est affiché. Pour plus d'informations, consultez le [guide du développeur Android]({{site.baseurl}}/developer_guide/in_app_messages/html_messages#android_embedding-youtube-content).
 
-**Lecture automatique** : même avec l'accélération matérielle activée, les WebViews Android peuvent nécessiter un geste de l'utilisateur pour démarrer la lecture multimédia. Si vous avez besoin de la lecture automatique, configurez la WebView utilisée pour afficher les messages in-app HTML afin de désactiver l'exigence de geste utilisateur en définissant [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)). Cela nécessite une personnalisation au niveau du SDK de la façon dont les messages in-app HTML sont affichés. Pour des conseils de configuration, consultez [Personnaliser les messages in-app pour le SDK Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android).
+**Lecture automatique** : même avec l'accélération matérielle activée, les WebViews Android peuvent nécessiter un geste de l'utilisateur pour démarrer la lecture multimédia. Si vous avez besoin de la lecture automatique, configurez la WebView utilisée pour afficher les messages in-app HTML afin de désactiver l'exigence de geste utilisateur en définissant [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)). Cela nécessite une personnalisation au niveau du SDK de la façon dont les messages in-app HTML sont affichés. Pour des conseils de configuration, consultez [Personnaliser les messages in-app pour le SDK Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android).
 
 ## Considérations pour iOS {#ios-considerations}
 
@@ -43,7 +43,7 @@ Pour prendre en charge les appareils iOS :
 - Vous devez inclure l'attribut `playsinline` car la lecture en plein écran n'est pas prise en charge.
 - **La lecture automatique n'est pas garantie sur iOS**. Le comportement de lecture sur iOS dépend de `WKWebView` et des politiques multimédia au niveau du système d'exploitation, et peut nécessiter un geste de l'utilisateur même lorsque `autoplay` et `muted` sont définis. Testez votre message in-app HTML sur vos versions et appareils iOS cibles.
 
-Si la lecture automatique est requise et que vos tests montrent qu'elle ne fonctionne pas par défaut, vous pouvez personnaliser la `WKWebViewConfiguration` utilisée par les messages in-app HTML pour ajuster l'exigence d'action utilisateur pour la lecture multimédia, par exemple en définissant la propriété `mediaTypesRequiringUserActionForPlayback`. Cela nécessite une personnalisation au niveau du SDK. Pour les ressources Swift, consultez [Personnaliser les messages in-app pour le SDK Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=swift) et [Ajouter l'interface JavaScript de Braze aux WebViews pour Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/?sdktab=swift).
+Si la lecture automatique est requise et que vos tests montrent qu'elle ne fonctionne pas par défaut, vous pouvez personnaliser la `WKWebViewConfiguration` utilisée par les messages in-app HTML pour ajuster l'exigence d'action utilisateur pour la lecture multimédia, par exemple en définissant la propriété `mediaTypesRequiringUserActionForPlayback`. Cela nécessite une personnalisation au niveau du SDK. Pour les ressources Swift, consultez [Personnaliser les messages in-app pour le SDK Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=swift) et [Ajouter l'interface JavaScript de Braze aux WebViews pour Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages?sdktab=swift).
 
 ## Considérations pour le Web {#web-considerations}
 

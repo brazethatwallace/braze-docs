@@ -7,7 +7,7 @@ description: "Erfahren Sie, wie Sie Connected-Content verwenden, um Daten aus RE
 
 # REST-API {#rest-api}
 
-> Rufen Sie Daten aus externen REST APIs zum Sendezeitpunkt direkt in Ihre Nachrichten ab – mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). So können Sie Nachrichten mit Realtime-Informationen von Ihren eigenen Servern, Drittanbieter-Diensten oder jedem öffentlich zugänglichen API-Endpunkt personalisieren.
+> Rufen Sie Daten aus externen REST APIs zum Sendezeitpunkt direkt in Ihre Nachrichten ab – mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). So können Sie Nachrichten mit Realtime-Informationen von Ihren eigenen Servern, Drittanbieter-Diensten oder jedem öffentlich zugänglichen API-Endpunkt personalisieren.
 
 ## So funktioniert es {#how-it-works}
 
@@ -35,18 +35,18 @@ Connected-Content unterstützt GET- und POST-Anfragen. Braze erwartet, dass der 
 
 ## Authentifizierung {#authentication}
 
-Braze unterstützt Basic-Authentifizierung, Token-Authentifizierung und OAuth für Connected-Content-Anfragen. Sie können Zugangsdaten sicher im Braze-Dashboard unter **Settings** > **Connected Content** speichern und in Ihren API-Aufrufen referenzieren.
+Braze unterstützt Basic-Authentifizierung, Token-Authentifizierung und OAuth für Connected-Content-Anfragen. Sie können Zugangsdaten sicher im Braze-Dashboard unter **Einstellungen** > **Connected Content** speichern und in Ihren API-Aufrufen referenzieren.
 
-Weitere Informationen finden Sie unter [Einen Connected-Content-API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#authentication-types).
+Weitere Informationen finden Sie unter [Einen Connected-Content-API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types).
 
 ## Fehlerbehandlung {#error-handling}
 
 Wenn der Endpunkt einen Fehler zurückgibt oder eine Zeitüberschreitung auftritt, rendert Braze anstelle der Connected-Content-Antwort einen leeren String. Sie können Fehler erkennen, indem Sie prüfen, ob die gespeicherte Variable null ist, und die Nachricht bedingt abbrechen oder Fallback-Inhalte anzeigen.
 
-Weitere Informationen finden Sie unter [Connected-Content abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/).
+Weitere Informationen finden Sie unter [Connected-Content abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content).
 
 ## Performance-Überlegungen {#performance-considerations}
 
 Da Braze Nachrichten in großem Umfang versendet, muss Ihr Server Tausende gleichzeitiger Verbindungen verarbeiten können. Nutzen Sie Caching, wo es sinnvoll ist, und setzen Sie Rate-Limits für Ihre Nachrichten, um eine Überlastung externer Endpunkte zu vermeiden.
 
-Die vollständige Connected-Content-Referenz finden Sie unter [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+Die vollständige Connected-Content-Referenz finden Sie unter [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).

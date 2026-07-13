@@ -10,6 +10,11 @@ description: >
 
 Use support-case exports to find doc gaps, triage by category, verify against product source when possible, then propose **`_docs`** updates. Two paths coexist: **scheduled CI** (digest + optional Phase 2 rules) and **manual Cursor triage** (this rule, full steps below).
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only $(git merge-base HEAD $(git rev-parse --verify origin/develop 2>/dev/null || git rev-parse --verify develop 2>/dev/null || echo HEAD~1))..HEAD 2>/dev/null`
+- Open PR: !`gh pr view --json number,title,body 2>/dev/null || echo "none"`
+
 ---
 
 ## How the pieces fit together
@@ -35,7 +40,7 @@ Workflow file: [`.github/workflows/export-support-cases-from-looker.yml`](.githu
 4. **Close digest PR** — If a digest PR was opened **and** Phase 2 **succeeded**, that digest PR is closed automatically; the digest remains in the **artifact**.
 5. **Slack (`notify`)** — Posts to **#docs_request** via Docs PR Bot when configured (`SLACK_BOT_TOKEN`, `SLACK_DOCS_REQUEST_CHANNEL` channel ID; optional fallback `SLACK_DEPLOY_NOTIFY_CHANNEL`). **Failures** in export, digest, Phase 2, or close-digest post `:x:` with the workflow run link. **Success with Phase 2 PRs** lists each draft PR and **@mentions** assignees (Slack member lookup by GitHub username, with optional `SUPPORT_ANALYZER_GITHUB_TO_SLACK` JSON override). Digest-only runs (no matching Phase 2 rules) post a short success note when a digest PR was opened.
 
-**Phase 2 and product source:** The Looker workflow does **not** clone `Appboy/platform` (or other product repos). Per-rule **`verification`** in `.github/support_analyzer_phase2_rules.yml` runs **ripgrep** only when the referenced root (for example `platform/`) exists—for example on a developer machine with [reference-repos](../reference-repos/SKILL.md). In GitHub Actions those checks are typically skipped. Use **`verification.required: true`** only in environments where that checkout is always present.
+**Phase 2 and product source:** The Looker workflow does **not** clone `Appboy/platform` (or other product repos). Per-rule **`verification`** in `.github/support_analyzer_phase2_rules.yml` runs **ripgrep** only when the referenced root (for example `platform/`) exists—for example on a developer machine with [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`). In GitHub Actions those checks are typically skipped. Use **`verification.required: true`** only in environments where that checkout is always present.
 
 **Manual / local CSV:** Export from the [Support Cases dashboard](https://braze.looker.com/x/4git0QPwJ9xjVtdBphbkPE) or Snowflake; save under `_data/` (or path you pass in the prompt). Default Look export window is defined in Looker (e.g. recent resolved cases), not in this repo.
 
@@ -84,7 +89,7 @@ For each **unique Case ID**, decide if docs work is needed:
 For each **actionable** ticket:
 
 1. **Extract Q&A** — Distill the core question and resolution from the message thread.
-2. **Verify** — Cross-check behavior against main product source (local workspace: `../platform` when using [reference-repos](../reference-repos/SKILL.md) layout). Do not rely on support text or docs alone. If you verified behavior against source, say so in your analysis; if you could not verify, say that explicitly. For **public** PR descriptions and customer-facing copy, never paste internal `platform` or SDK repository paths—use **Verified against Braze source code.** per [reference-repos](../reference-repos/SKILL.md).
+2. **Verify** — **REQUIRED SUB-SKILL:** Use [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) to cross-check behavior against main product source (local workspace: `../platform` when using the sibling-clone layout). Do not rely on support text or docs alone. If you verified behavior against source, say so in your analysis; if you could not verify, say that explicitly. For **public** PR descriptions and customer-facing copy, never paste internal `platform` or SDK repository paths—use **Verified against Braze source code.** per [reference-repos](../reference-repos/SKILL.md).
 3. **Identify target** — Which existing `_docs` page to update (or flag a new location).
 4. **Record case IDs** — For traceability in PR bodies (Salesforce links only; see Step 7).
 
@@ -123,6 +128,7 @@ Before creating branches, confirm the user wants to proceed.
 1. **Prefer refining existing prose** over new alerts or FAQ entries unless the content cannot fit naturally.
 2. Follow [Braze docs style guides](docs/contributing/style_guide.md).
 3. Keep additions concise (bullets, tables, code samples where appropriate).
+4. When documenting a product limitation or enhancement ask, use `_includes/product_feedback_cta.md` per [Product feedback CTAs](docs/contributing/style_guide/product_feedback_ctas.md). Do not add ad hoc `portal.braze.com` or legacy portal links.
 
 ---
 
@@ -146,29 +152,64 @@ Stage and commit only relevant **`_docs`** (and linked includes if needed) with 
 
 ## Step 7: Open the pull request
 
-- **Title pattern:** `[SA] <short summary>` (example: `[SA] Add FAQ entry about machine opens vs other opens`).
-- **Labels:** Always include **`support analyzer`** (for example `--label "support analyzer"` with `gh pr create`).
-- **Body must include:**
-  - Short list of **what** changed for reviewers.
-  - Bulleted **Salesforce case links**: `https://braze.lightning.force.com/lightning/r/Case/<case ID>/view`
-  - If verified against product source: **Verified against Braze source code.** — **do not** paste paths into `platform` or SDK repos in the PR description.
+**REQUIRED SUB-SKILL:** Use [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) for Steps 0–1, 3–4, quality checklist, and anti-patterns. **Override Step 2 only** as follows.
 
-Optional template:
+### Step 2 override (support-analyzer)
 
-```text
-## Changes
+| Field | Value |
+|-------|--------|
+| **Title** | `[SA] <short summary>` (example: `[SA] Add FAQ entry about machine opens vs other opens`) |
+| **Label** | `support analyzer` — `gh pr edit --add-label "support analyzer"` after create |
+
+**Body** — use the create-pr template and add these sections:
+
+```markdown
+### Why are you making this change? (required)
+
+<Reader outcome in 1–2 sentences.>
+
+### Related PRs, issues, or features (optional)
+
+- [BD-1234](https://jira.atl.braze.com/browse/BD-1234) (if applicable)
+
+### Changes
+
 - [Scope for reviewers — no internal repo paths]
-- [If docs discrepancy: note to tag Eng owner as needed]
+- If verified against product source: **Verified against Braze source code.** — do **not** paste `platform/` or SDK paths.
 
-## Cases
-- https://braze.lightning.force.com/lightning/r/Case/<case ID>/view
+### Cases
+
+- https://braze.lightning.force.com/lightning/r/Case/<case ID>/view (case ID only — no customer names or other PII from ticket prose)
+
+### Verification
+
+<Manual checks only — see create-pr.>
+
+### Contributor checklist
+
+<Copy from create-pr Step 2.>
 ```
+
+### Reviewers (Step 4 follow-up)
+
+If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you changed, assign them. Otherwise assign **`braze-inc/docs-team`** via `gh pr edit --add-reviewer`.
 
 ---
 
-## Step 8: Assign reviewers
+## Step 8: Prune stale support CSVs (optional)
 
-If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you changed, assign them. Otherwise assign **`@braze-inc/docs-team`**.
+After manual triage is complete and any related digest or Phase 2 PRs have merged, remove **dated local exports** you no longer need. The CI canonical file is always **`_data/support_cases_latest.csv`** on branch **`support-analyzer-data`** — never prune that path.
+
+Local exports from `scripts/export_support_cases_from_looker.py` default to `_data/support_cases_<YYYYMMDD>.csv` when `SUPPORT_ANALYZER_OUTPUT` is unset. Prune only snapshots you have finished analyzing.
+
+From the repo root:
+
+```bash
+python3 scripts/prune_data_files.py --dry-run --group support-csv
+python3 scripts/prune_data_files.py --confirm --group support-csv
+```
+
+[`scripts/prune_data_files.py`](../../../scripts/prune_data_files.py) only deletes files under `_data/` and refuses live site config, sitemaps, and `support_cases_latest.csv`.
 
 ---
 
@@ -183,11 +224,13 @@ If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you cha
 
 ## Example prompts
 
+Natural-language example requests:
+
 ```
-@support-analyzer Analyze the CSV in _data/ and draft docs updates.
+Analyze the CSV in _data/ and draft docs updates.
 Focus on [product area] if applicable.
 ```
 
 ```
-@support-analyzer After reviewing the latest weekly digest, triage cases that are not covered by .github/support_analyzer_phase2_rules.yml and propose manual doc updates.
+After reviewing the latest weekly digest, triage cases that are not covered by .github/support_analyzer_phase2_rules.yml and propose manual doc updates.
 ```

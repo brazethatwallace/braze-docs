@@ -6,6 +6,8 @@ description: "Braze Web SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Leitfaden zum Web SDK Repository {#web-sdk-repository-guide}
+
 ## Über das Braze Web SDK {#about-the-braze-web-sdk}
 
 Das Braze Web SDK ermöglicht es Ihnen, die Customer-Engagement-Plattform von Braze direkt in Ihre Webanwendungen zu integrieren. Es wurde mit TypeScript entwickelt und für moderne Webentwicklung konzipiert. Dieses SDK bietet umfassende Tools für Nutzerverwaltung, Messaging, Analytics und Feature-Flags.
@@ -33,8 +35,8 @@ Bevor Sie das Braze Web SDK integrieren, benötigen Sie:
 
 ### Ihre Zugangsdaten abrufen {#getting-your-credentials}
 
-1. **API-Schlüssel**: Zu finden in Ihrem Braze-Dashboard unter Einstellungen → API-Schlüssel
-2. **SDK-Endpunkt**: Zu finden unter Einstellungen → SDK-Authentifizierung → Endpunkte
+1. **API-Schlüssel**: Zu finden in Ihrem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**
+2. **SDK-Endpunkt**: Zu finden unter **Einstellungen** > **SDK-Authentifizierung** > **Endpunkte**
 3. **Service Worker**: Erforderlich für Push-Benachrichtigungen (siehe Abschnitt Push-Benachrichtigungen)
 
 ## Installation {#installation}
@@ -802,11 +804,11 @@ Braze kann auch mit anderen Tag-Management-Lösungen kompatibel sein, indem Sie 
 
 ## Bibliotheken {#libraries}
 
-| Name | Beschreibung | npm | CDN-URL
-| ---- | ------------ | --- | -------
-| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code einschließlich der UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
-| Core | Enthält das SDK ohne UI. Sie müssen Ihre eigene UI für In-App Messages und Content Cards implementieren, wenn Sie diese Version des SDK verwenden. Unsere UI-Elemente sind vollständig über CSS anpassbar, daher empfehlen wir generell die Integration der vollständigen Bibliothek. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
-| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
+| Name | Beschreibung | npm | CDN-URL |
+| ---- | ------------ | --- | ------- |
+| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code einschließlich der UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js |
+| Core | Enthält das SDK ohne UI. Sie müssen Ihre eigene UI für In-App Messages und Content Cards implementieren, wenn Sie diese Version des SDK verwenden. Unsere UI-Elemente sind vollständig über CSS anpassbar, daher empfehlen wir generell die Integration der vollständigen Bibliothek. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js |
+| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotheken" }
 
 ## Unterstützte Browser {#supported-browsers}

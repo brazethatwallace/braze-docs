@@ -44,13 +44,22 @@ Pour les exportations d'**e-mails**, Canva peut vous demander de vous reconnecte
 
 Utilisez ce flux pour les conceptions Canva standard lorsque vous souhaitez obtenir un fichier dans la bibliothèque multimédia de Braze.
 
+Les vidéos suivantes montrent comment envoyer des conceptions depuis Canva vers votre bibliothèque multimédia Braze.
+
+Vidéo : Ouvrir l'application Braze dans Canva et lancer une exportation vers la bibliothèque multimédia.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+Vidéo : Choisir un espace de travail Braze et terminer l'exportation vers la bibliothèque multimédia.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
+
 1. Depuis le menu **Apps** dans votre conception, ouvrez l'application Braze. Si vous n'êtes pas encore connecté, sélectionnez **Connect** et suivez les étapes décrites dans [Autoriser votre compte Braze](#step-2-authorize-your-braze-account).
 2. Choisissez votre espace de travail de destination, saisissez éventuellement un nom de fichier, puis sélectionnez **Start Export**.
 
 ![Écran d'exportation Canva avec l'espace de travail de destination et le bouton Start Export.]({% image_buster /assets/img/canva_integration/canva-upload-screen.jpg %})
 
 {: start="3"}
-3. Lorsque votre exportation est terminée, votre nouvelle ressource est disponible dans la **Bibliothèque multimédia**, avec la source « Canva ».
+3. Lorsque votre exportation est terminée, votre nouvelle ressource est disponible dans la **bibliothèque multimédia**, avec la source « Canva ».
 
 ![Ressource Canva exportée dans la bibliothèque multimédia de Braze.]({% image_buster /assets/img/canva_integration/media-library-source.jpg %})
 
@@ -59,7 +68,7 @@ Utilisez ce flux pour les conceptions Canva standard lorsque vous souhaitez obte
 Utilisez ce flux lorsque votre fichier Canva est un type de conception **E-mail**. Il publie le HTML vers Braze en tant que modèle (métadonnées similaires au flux d'images, mais vous commencez depuis **Share** au lieu de **Apps**).
 
 1. Dans Canva, créez ou ouvrez une conception **E-mail**. Créez votre message de zéro ou utilisez un modèle d'e-mail Canva.
-2. Cliquez sur **Share** en haut à droite de l'éditeur et sélectionnez **Braze**. Si Braze n'apparaît pas dans la liste, ouvrez **See more**, puis faites défiler jusqu'à **More options** pour trouver Braze.
+2. Cliquez sur **Share** dans la barre d'actions de l'éditeur et sélectionnez **Braze**. Si Braze n'apparaît pas dans la liste, ouvrez **See more**, puis faites défiler jusqu'à **More options** pour trouver Braze.
 
 ![Autres moyens de publier dans Canva avec Braze sous More options.]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 
@@ -79,6 +88,6 @@ Utilisez ce flux lorsque votre fichier Canva est un type de conception **E-mail*
 ![Message de succès après la publication d'une conception d'e-mail Canva vers Braze, avec Check it out.]({% image_buster /assets/img/canva_integration/canva-email-publish-success.png %})
 
 {: start="6"}
-6. Dans Braze, finalisez les paramètres d'e-mail requis — tels que l'adresse **From**, l'accroche et un lien de désabonnement — avant d'utiliser le modèle dans une campagne ou un Canvas.
+6. Dans Braze, finalisez les paramètres d'e-mail requis — tels que l'adresse **From**, l'accroche et un lien de désabonnement — avant d'utiliser le modèle dans une Campaign ou un Canvas.
 
 ![Modèle d'e-mail dans Braze ouvert depuis Canva, avec les informations d'envoi et la prévisualisation.]({% image_buster /assets/img/canva_integration/braze-email-template-from-canva.png %})

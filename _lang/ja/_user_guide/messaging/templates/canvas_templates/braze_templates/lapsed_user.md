@@ -3,7 +3,7 @@ nav_title: 離脱ユーザー
 article_title: 離脱ユーザー
 page_order: 4
 page_type: reference
-description: "この記事では、Braze キャンバステンプレートを使用して、過去のエンゲージメントに基づいたインセンティブでユーザーをアプリに呼び戻す方法について説明します。"
+description: "この記事では、Braze Canvasテンプレートを使用して、過去のエンゲージメントに基づいたインセンティブでユーザーをアプリに呼び戻す方法について説明します。"
 tool: Canvas
 ---
 
@@ -15,13 +15,13 @@ tool: Canvas
 
 ## 前提条件 {#prerequisites}
 
-離脱ユーザーテンプレートを正しく使用するには、使用するパートナーとオーディエンスで[Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/)を設定する必要があります。
+離脱ユーザーテンプレートを正しく使用するには、使用するパートナーとオーディエンスで[Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync)を設定する必要があります。
 
 ## テンプレートをニーズに合わせてカスタマイズする {#tailoring-the-template-to-your-needs}
 
 ここでは、映画やドラマの独占コンテンツを提供するストリーミングサービス「MovieCanon」で作業しているとしましょう。離脱ユーザーテンプレートを使用して、30日間アプリを訪問していないユーザーに特典やプレミアムコンテンツをプロモーションできます。
 
-キャンバスを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)インテグレーションを設定し、BrazeのユーザーデータをGoogle Audiencesに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
+キャンバスを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)インテグレーションを設定し、BrazeのユーザーデータをGoogle Audiencesに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
 
 離脱ユーザーテンプレートにアクセスするには、新しいキャンバスを作成する際に、**キャンバステンプレートを使用** > **Brazeテンプレート**を選択します。次に、**離脱ユーザー**の横にある**テンプレートを適用**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
 
@@ -29,51 +29,39 @@ tool: Canvas
 
 目標に合わせてキャンバスの詳細を調整しましょう。
 
-1. テンプレート名の横にある**Edit**を選択します。
-
-![キャンバスの現在のタイトルと説明。]({% image_buster /assets/img/canvas_templates/lapsed_user_old_name_description.png %}){: style="max-width:45%;"}
+1. テンプレート名の横にある**編集**を選択します。
 
 {:start="2"}
 2. このキャンバスがプロモーション付きのメッセージをユーザーに送信し、セッションを開始したユーザーに対してオーディエンス同期を行うことを明示するようにキャンバス名を更新します。
 3. このキャンバスに特典やプロモーションが含まれていることを説明するように説明文を更新します。
 4. キャンバスのホームページでこのcanvasをフィルタリングできるように、**Lapsing/Retention**タグを追加します。
 
-![キャンバス名が「Lapsed User - Visit App」で、簡単なキャンバス説明が記載された「Set Up キャンバス Details」ステップ。]({% image_buster /assets/img/canvas_templates/lapsing_user_1.png %})
-
 ### ステップ 2: コンバージョンイベントを割り当てる {#step-2-assign-your-conversion-events}
 
-**Primary Conversion Event - A**を当社のアプリ（MovieCanon）のユーザーをターゲットにするように更新し、**Primary Conversion Event - B**は購入を行うというデフォルトのままにします。
-
-![特定のアプリでユーザーがセッションを開始することを1次コンバージョンイベントとする「Assign Conversion Events」セクション。]({% image_buster /assets/img/canvas_templates/lapsing_user_2.png %})
+**Primary Conversion Event - A**をアプリ（MovieCanon）のユーザーをターゲットにするように更新し、**Primary Conversion Event - B**は購入を行うというデフォルトのままにします。
 
 ### ステップ 3: エントリスケジュールをカスタマイズする {#step-3-tailor-the-entry-schedule}
 
-エントリスケジュールは**Scheduled**のままにし、デフォルトの時間ベースのオプションを維持して、キャンバスが毎日離脱ユーザーをチェックするようにします。
+エントリスケジュールは**スケジュールされた**のままにし、デフォルトの時間ベースのオプションを維持して、キャンバスが毎日離脱ユーザーをチェックするようにします。
 
 このステップでは2つの調整を行います：
 
 1. 開始日時を選択します。
-2. **On a specific date**の終了パラメーターと、2か月後の日付を選択します。このキャンバスの後に開始したい別の離脱ユーザーキャンバスがあるとしましょう。
+2. **特定の日付**の終了パラメーターと、2か月後の日付を選択します。この例では、このキャンバスの終了後に開始する別の離脱ユーザーキャンバスがあります。
 
-![指定された時間にユーザーがエントリするスケジュール済みキャンバスの「Entry Schedule」ステップ。]({% image_buster /assets/img/canvas_templates/lapsing_user_3.png %})
+### ステップ 4: ターゲットオーディエンスを選択する {#step-4-select-your-target-audience}
 
-### ステップ 4: ターゲットオーディエンスを選択する {#step-4-select-our-target-audience}
-
-エントリオーディエンスのデフォルト設定を維持します。これは、30日以上アプリを使用していないユーザーに設定されています。また、ユーザーが4週間後にキャンバスに再エントリできるように、デフォルトのエントリコントロールも維持します。つまり、ユーザーが30日以上連続でアプリを訪問しなかった場合、そのたびにキャンバスにエントリされます。
-
-![30日間アプリを最後に使用したユーザーをターゲットにする「Target Audience」ステップ。]({% image_buster /assets/img/canvas_templates/lapsing_user_4.png %})
+エントリオーディエンスのデフォルト設定を維持します。これは、30日以上アプリを使用していないユーザーをターゲットにしています。また、ユーザーが4週間後にキャンバスに再エントリできるように、デフォルトのエントリコントロールも維持します。つまり、ユーザーが30日以上連続でアプリを訪問しなかった場合、そのたびにキャンバスにエントリされます。
 
 ### ステップ 5: 送信設定を選択する {#step-5-select-your-send-settings}
 
 デフォルトのサブスクリプション設定のほとんどを維持します：
 
 - メッセージや通知の受信を購読またはオプトインしたユーザーにのみ送信します。
-- オーディエンスが受信するメッセージ数で圧倒されないように、[フリークエンシーキャップルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)を適用します。この場合、「Lapsing/Retention」タグが付いたキャンペーンまたはキャンバスステップをユーザーが受信できる数を、週2回に制限するフリークエンシーキャップを設定します。
+- オーディエンスが受信するメッセージ数で圧倒されないように、[フリークエンシーキャップルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)を適用します。この場合、「Lapsing/Retention」タグが付いたキャンペーンまたはキャンバスステップをユーザーが受信できる数を、週2回に制限するフリークエンシーキャップを設定します。
 - ユーザーのローカルタイムのサイレント時間帯（午前0時〜午前8時）にはメッセージを送信しません。
 
-変更する唯一の設定は、サイレント時間帯にメッセージがトリガーされた場合の対応です。メッセージをキャンセルする代わりに、**Send at next available time**を選択して、ユーザーがプロモーションを見逃さないようにします。
-
-![開始時間が午前0時、終了時間が午前8時の「Quiet Hours」セクション。]({% image_buster /assets/img/canvas_templates/lapsing_user_5.png %})
+変更する唯一の設定は、サイレント時間帯にメッセージがトリガーされた場合の対応です。メッセージをキャンセルする代わりに、**次に利用可能な時間に送信**を選択して、ユーザーがプロモーションを見逃さないようにします。
 
 ### ステップ 6: キャンバスをカスタマイズする {#step-6-customize-your-canvas}
 
@@ -81,26 +69,22 @@ tool: Canvas
 
 1. 30日以上アプリを訪問していないすべてのユーザーに送信される最初のメールをカスタマイズします。このユースケースでは、今日アプリを訪問すると新しい特典がアンロックされることをユーザーに伝えるメールをカスタマイズします。
 
-![今日訪問すると新しい特典がアンロックされることをユーザーに伝えるメールのキャンバスメッセージステップ。]({% image_buster /assets/img/canvas_templates/lapsing_user_6.png %})
-
 {: start="2"}
-2. 「Start Session?」というアクションパスコンポーネントをカスタマイズし、**Started Session**パスで当社のアプリを選択します。
-
-![特定のアプリで開始されたセッションのアクションパス。]({% image_buster /assets/img/canvas_templates/lapsing_user_7.png %})
+2. 「Start Session?」というアクションパスコンポーネントをカスタマイズし、**Started Session**パスでアプリを選択します。
 
 {: start="3"}
 3. 「Sessions?」という条件分岐ステップのデフォルトを維持します。これは、「>1 Session」グループを、過去1暦日にアプリを1回以上使用したユーザーとして定義します。
 4. 「>1 Session」グループに該当するユーザー向けのメッセージステップをカスタマイズします。このユースケースでは、アプリを訪問してくれたことに感謝し、アンロックされた特典をハイライトします。
 5. 最初のメールを受信した後に複数のセッションを行ったユーザーのユーザーデータを更新・同期するために、Ad Audience UpdateステップでGoogle Audience Syncが設定されていることを確認します。
-6. 「A/B Test」という[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#experiment-paths)コンポーネントのデフォルトを維持します。これにより、2回未満のセッションを行ったユーザーに、2つのプロモーション（次のステップでカスタマイズします）のいずれかがランダムに送信されます。
+6. 「A/B Test」という[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths)コンポーネントのデフォルトを維持します。これにより、2回未満のセッションを行ったユーザーに、2つのプロモーション（次のステップでカスタマイズします）のいずれかがランダムに送信されます。
 7. 実験パスの一部としてユーザーに送信される2つのプロモーションをカスタマイズします。このユースケースでは、1つを3か月サブスクリプションの20%割引プロモーション、もう1つを1か月サブスクリプションの10%割引プロモーションにします。
 
 ![ユーザーのセッション数に基づいて分岐するパスを持つキャンバスステップ。]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}
 
 ### ステップ 7: キャンバスをテストして起動する {#step-7-test-and-launch-the-canvas}
 
-キャンバスをテストおよび確認して期待どおりに動作することを確認した後、**Launch キャンバス**を選択して起動します。これで、30日以上アプリを訪問しておらず、メッセージングチャネルを購読しているユーザーに、復帰を促すメールが送信されます！
+キャンバスをテストおよび確認して期待どおりに動作することを確認した後、**キャンバスを起動**を選択して起動します。これで、30日以上アプリを訪問しておらず、メッセージングチャネルを購読しているユーザーに、復帰を促すメールが送信されます！
 
 {% alert tip %}
-キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご確認ください。
+キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご確認ください。
 {% endalert %}

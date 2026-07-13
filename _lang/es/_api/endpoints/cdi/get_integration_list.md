@@ -33,7 +33,7 @@ Cada llamada a este punto de conexión devolverá 10 elementos. Para una lista c
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `cursor` | Opcional | Cadena | Determina la paginación de la lista de integraciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -95,8 +95,8 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | Error | Solución de problemas |
 | --- | --- |
 | `400 Invalid cursor` | Comprueba que tu `cursor` es válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
-Para obtener más códigos de estado y mensajes de error asociados, consulta [Errores fatales y respuestas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para obtener más códigos de estado y mensajes de error asociados, consulta [Errores fatales y respuestas]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

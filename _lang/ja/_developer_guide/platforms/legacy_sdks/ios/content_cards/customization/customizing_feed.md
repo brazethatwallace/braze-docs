@@ -1,9 +1,9 @@
 ---
 nav_title: フィードをカスタマイズする
-article_title: iOS のコンテンツカードフィードをカスタマイズする
+article_title: iOSのContent Cardsフィードをカスタマイズする
 platform: iOS
 page_order: 2
-description: "この記事では、iOS アプリケーションのコンテンツカードフィードのカスタマイズオプションについて説明します。"
+description: "この記事では、iOSアプリケーションのContent Cardsフィードのカスタマイズオプションについて説明します。"
 channel:
   - content cards
 noindex: true
@@ -11,30 +11,30 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# コンテンツカードのフィードをカスタマイズする
+# Content Cardsのフィードをカスタマイズする {#customize-the-content-cards-feed}
 
-`ABKContentCardsTableViewController` を拡張してすべての UI 要素とコンテンツカードの動作をカスタマイズすることで、独自のコンテンツカードインターフェイスを作成できます。コンテンツカードセルをサブクラス化してからプログラムで使用することも、新しいクラスを登録するカスタムストーリーボードを導入することによって使用することもできます。完全な例については、コンテンツカードの[サンプルアプリ](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp)をご確認ください。 
+`ABKContentCardsTableViewController` を拡張してすべてのUI要素とContent Cardsの動作をカスタマイズすることで、独自のContent Cardsインターフェイスを作成できます。Content Cardsセルをサブクラス化してからプログラムで使用することも、新しいクラスを登録するカスタムストーリーボードを導入することによって使用することもできます。完全な例については、Content Cardsの[サンプルアプリ](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp)をご確認ください。
 
-また、サブクラス化戦略を使用すべきか、完全にカスタムのビューコントローラーを使用して、[データ更新を配信登録]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/)すべきかを検討することも重要です。たとえば、`ABKContentCardsTableViewController` をサブクラス化する場合は、[`populateContentCards` メソッド](#overriding-populated-content-cards)を使用してカードのフィルター処理と順序付けを行うことができます (推奨)。ただし、ビューコントローラーを完全にカスタマイズすると、カルーセルでの表示やインタラクティブ要素の追加など、カードの動作をより詳細に制御できるようになりますが、順序付けとフィルター処理のロジックを実装するためにオブザーバーに頼らなければならなくなります。また、インプレッション数、却下イベント数、クリック数を適切に記録するには、それぞれの分析メソッドを実装する必要もあります。
+また、サブクラス化戦略を使用すべきか、完全にカスタムのビューコントローラーを使用して[データ更新を配信登録]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration)すべきかを検討することも重要です。たとえば、`ABKContentCardsTableViewController` をサブクラス化する場合は、[`populateContentCards` メソッド](#overriding-populated-content-cards)を使用してカードのフィルター処理と順序付けを行うことができます（推奨）。ただし、ビューコントローラーを完全にカスタマイズすると、カルーセルでの表示やインタラクティブ要素の追加など、カードの動作をより詳細に制御できるようになりますが、順序付けとフィルター処理のロジックを実装するためにオブザーバーに頼らなければなりません。また、インプレッション、却下イベント、クリックを適切に記録するには、それぞれの分析メソッドを実装する必要もあります。
 
-## UI をカスタマイズする
+## UIをカスタマイズする {#customizing-ui}
 
-次のコードスニペットは、SDK が提供するメソッドを使用して、UI のニーズに合わせてコンテンツカードのスタイル設定と変更を行う方法を示しています。これらの方法によって、カスタムフォント、カスタマイズされたカラーコンポーネント、カスタマイズされたテキストなど、コンテンツカード UI のあらゆる側面をカスタマイズすることができます。 
+次のコードスニペットは、SDKが提供するメソッドを使用して、UIのニーズに合わせてContent Cardsのスタイル設定と変更を行う方法を示しています。これらのメソッドによって、カスタムフォント、カスタマイズされたカラーコンポーネント、カスタマイズされたテキストなど、Content Cards UIのあらゆる側面をカスタマイズすることができます。
 
-コンテンツカードの UI をカスタマイズする方法は 2 通りあります。 
-- ダイナミックメソッド: カードごとの更新 カード UI
-- スタティックメソッド: すべてのカードでUI を更新します
+Content Cards UIをカスタマイズする方法は2通りあります。
+- ダイナミックメソッド: カードごとにカードUIを更新する
+- スタティックメソッド: すべてのカードでUIを更新する
 
-### 動的 UI
+### ダイナミックUI {#dynamic-ui}
 
-コンテンツカーの `applyCard` メソッドはカードオブジェクトを参照し、UI の更新に使用されるキーと値のペアを渡すことができます。
+Content Cardsの `applyCard` メソッドはカードオブジェクトを参照し、UIの更新に使用されるキーと値のペアを渡すことができます。
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
 - (void)applyCard:(ABKCaptionedImageContentCard *)captionedImageCard {
-  [super applyCard:captionedImageCard];    
- 
+  [super applyCard:captionedImageCard];
+
   if ([card.extras objectForKey:ContentCardKeyBackgroundColorValue]) {
     NSString *backgroundColor = [card.extras objectForKey:ContentCardKeyBackgroundColor];
     if ([backgroundColor colorValue]) {
@@ -44,15 +44,15 @@ noindex: true
     }
   } else {
     self.rootView.backgroundColor = [UIColor lightGray];
-  }  
+  }
 }
 ```
 {% endtab %}
 {% tab Swift %}
-`````````swift
+```swift
 override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
-  super.apply(captionedImageCard)         
- 
+  super.apply(captionedImageCard)
+
   if let backgroundColor = card.extras?[ContentCardKey.backgroundColor.rawValue] as? String,
      let backgroundColorValue = backgroundColor.colorValue() {
     rootView.backgroundColor = backgroundColorValue
@@ -64,17 +64,17 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 {% endtab %}
 {% endtabs %}
 
-### 静的 UI
+### スタティックUI {#static-ui}
 
-`setUpUI` メソッドは、すべてのカードで静的コンテンツカードコンポーネントに値を代入できます。
+`setUpUI` メソッドは、すべてのカードで静的なContent Cardsコンポーネントに値を割り当てることができます。
 
 {% tabs %}
 {% tab Objective-C %}
-`````````objc
-#import "CustomClassicContentCardCell.h"  
- 
+```objc
+#import "CustomClassicContentCardCell.h"
+
 @implementation CustomClassicContentCardCell
- 
+
 - (void)setUpUI {
   [super setUpUI];
   self.rootView.backgroundColor = [UIColor lightGrayColor];
@@ -85,10 +85,10 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 ```
 {% endtab %}
 {% tab Swift %}
-`````````swift
+```swift
 override func setUpUI() {
   super.setUpUI()
-     
+
   rootView.backgroundColor = .lightGray
   rootView.layer.borderColor = UIColor.purple.cgColor
   unviewedLineViewColor = .red
@@ -98,22 +98,22 @@ override func setUpUI() {
 {% endtab %}
 {% endtabs %}
 
-## カスタムインターフェイスを提供する
+## カスタムインターフェイスを提供する {#providing-custom-interfaces}
 
-カスタムインターフェイスを提供するには、必要なカードタイプごとにカスタムクラスを登録します。 
+カスタムインターフェイスを提供するには、必要なカードタイプごとにカスタムクラスを登録します。
 
-![バナーコンテンツカード。バナーのコンテンツカードには、バナーの右側に画像, 写真が表示され、「Brazeデモ版をダウンロードしてくれてありがとう！」というテキストが添えられている。]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
-![キャプション付き画像コンテンツカードキャプション付きのコンテンツカードには、Brazeの画像が表示され、その下部に「Brazeデモ版をダウンロードしてくれてありがとう！」というキャプションが重ねて表示されている。]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
-![従来のコンテンツカード。クラシックなコンテンツカードは、カードの中央に画像, 写真を表示し、その下に「Brazeデモ版をダウンロードしてくれてありがとう」という文字が表示される。]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
+![バナーContent Card。バナーのContent Cardには、バナーの右側に画像が表示され、「Thanks for downloading Braze Demo!」というテキストが添えられている。]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
+![キャプション付き画像Content Card。キャプション付きのContent Cardには、Brazeの画像が表示され、その下部に「Thanks for downloading Braze Demo!」というキャプションが重ねて表示されている。]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
+![クラシックContent Card。クラシックなContent Cardは、カードの中央に画像を表示し、その下に「Thanks for downloading Braze Demo」という文字が表示される。]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
 
-Braze には、3 つのコンテンツカードテンプレート (バナー、キャプション付き画像、クラシック) が用意されています。または、独自のカスタムインターフェイスを提供する場合は、次のコードスニペットを参照してください。
+Brazeには、3つのContent Cardsテンプレート（バナー、キャプション付き画像、クラシック）が用意されています。独自のカスタムインターフェイスを提供する場合は、次のコードスニペットを参照してください。
 
 {% tabs %}
 {% tab Objective-C %}
-`````````objc
+```objc
 - (void)registerTableViewCellClasses {
   [super registerTableViewCellClasses];
- 
+
   // Replace the default class registrations with custom classes for these two types of cards
   [self.tableView registerClass:[CustomCaptionedImageContentCardCell class] forCellReuseIdentifier:@"ABKCaptionedImageContentCardCell"];
   [self.tableView registerClass:[CustomClassicContentCardCell class] forCellReuseIdentifier:@"ABKClassicCardCell"];
@@ -121,10 +121,10 @@ Braze には、3 つのコンテンツカードテンプレート (バナー、�
 ```
 {% endtab %}
 {% tab Swift %}
-`````````swift
+```swift
 override func registerTableViewCellClasses() {
   super.registerTableViewCellClasses()
-     
+
   // Replace the default class registrations with custom classes
   tableView.register(CustomCaptionedImageContentCardCell.self, forCellReuseIdentifier: "ABKCaptionedImageContentCardCell")
   tableView.register(CustomBannerContentCardCell.self, forCellReuseIdentifier: "ABKBannerContentCardCell")
@@ -135,13 +135,13 @@ override func registerTableViewCellClasses() {
 {% endtab %}
 {% endtabs %}
 
-## 値が挿入されたコンテンツカードをオーバーライドする
+## 値が挿入されたContent Cardsをオーバーライドする {#overriding-populated-content-cards}
 
-コンテンツカードをプログラムで変更するには、`populateContentCards` メソッドを使用します。
+Content Cardsをプログラムで変更するには、`populateContentCards` メソッドを使用します。
 
 {% tabs %}
 {% tab Objective-C %}
-`````````objc
+```objc
 - (void)populateContentCards {
   NSMutableArray<ABKContentCard *> *cards = [NSMutableArray arrayWithArray:[Appboy.sharedInstance.contentCardsController getContentCards]];
   for (ABKContentCard *card in cards) {
@@ -155,7 +155,7 @@ override func registerTableViewCellClasses() {
 ```
 {% endtab %}
 {% tab Swift %}
-`````````swift
+```swift
 override func populateContentCards() {
   guard let cards = Appboy.sharedInstance()?.contentCardsController.contentCards else { return }
   for card in cards {

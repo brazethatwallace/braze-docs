@@ -6,19 +6,19 @@ page_type: reference
 page_order: 4.8
 ---
 
-# API 사용 사례
+# API 사용 사례 {#api-use-cases}
 
-> [Braze REST API]({{site.baseurl}}/api/basics/)는 고객 참여 전략을 관리하고 최적화하는 데 도움이 되도록 설계된 다양한 엔드포인트를 제공합니다. 이 문서에서는 카탈로그, 이메일 목록 및 주소, 내보내기, 메시지, 환경설정 센터, SMS, 수신 그룹, 템플릿 및 사용자 데이터 등 각 엔드포인트 컬렉션의 여러 사용 사례를 살펴봅니다.<br><br>각 섹션에서는 단계별 가이드, 코드 샘플 및 예상 결과와 함께 시나리오를 소개합니다. 이 글을 마치면 Braze REST API를 사용하여 고객 참여 노력을 강화하는 방법을 더 잘 이해할 수 있을 것입니다.
+> [Braze REST API]({{site.baseurl}}/api/basics)는 고객 참여 전략을 관리하고 최적화하는 데 도움이 되도록 설계된 다양한 엔드포인트를 제공합니다. 이 문서에서는 카탈로그, 이메일 목록 및 주소, 내보내기, 메시지, 환경설정 센터, SMS, 구독 그룹, 템플릿 및 사용자 데이터 등 각 엔드포인트 컬렉션의 여러 사용 사례를 살펴봅니다.<br><br>각 섹션에서는 단계별 가이드, 코드 샘플 및 예상 결과와 함께 시나리오를 소개합니다. 이 문서를 마치면 Braze REST API를 사용하여 고객 참여 노력을 강화하는 방법을 더 잘 이해할 수 있을 것입니다.
 
-## 카탈로그에서 여러 항목 삭제하기
+## 카탈로그에서 여러 항목 삭제하기 {#deleting-multiple-items-in-a-catalog}
 
-주방용품 전문 리테일 브랜드인 키친어리에서 새해를 맞이하여 신제품을 출시합니다. Braze 대시보드에서 키친리에는 "식기류"라는 식기류 컬렉션에 대한 카탈로그가 설정되어 있습니다. 새해에는 식기 컬렉션에서 다음 제품도 제외됩니다.
+주방용품 전문 리테일 브랜드인 Kitchenerie에서 새해를 맞이하여 신제품을 출시합니다. Braze 대시보드에서 Kitchenerie는 "Dishware"라는 식기류 컬렉션에 대한 카탈로그를 설정해 두었습니다. 새해에는 식기류 컬렉션에서 다음 제품도 제거해야 합니다.
 
-* 플레인 비스크
-* 진주 도자기
-* 핑크 쉬머
+* Plain Bisque
+* Pearl Porcelain
+* Pink Shimmer
 
-이러한 제품을 카탈로그에서 제거하기 위해 Kitchener는 [`/catalogs/{catalog_name}/items` 엔드포인트를]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk/) 사용하여 품목 ID를 전달할 수 있습니다.
+이러한 제품을 카탈로그에서 제거하기 위해 Kitchenerie는 [`/catalogs/{catalog_name}/items` 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk)를 사용하여 항목 ID를 전달할 수 있습니다.
 
 다음은 요청 예시입니다:
 
@@ -35,7 +35,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/dishwar
 }'
 ```
 
-이 페이로드를 전송한 후, 응답은 Braze가 Kitchenerie의 식기 카탈로그에서 세 가지 컬렉션을 성공적으로 제거했음을 확인합니다.
+이 페이로드를 전송한 후, 응답은 Braze가 Kitchenerie의 식기류 카탈로그에서 세 가지 컬렉션을 성공적으로 제거했음을 확인합니다.
 
 ```json
 {
@@ -43,9 +43,9 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/dishwar
 }
 ```
 
-## Braze 스팸 목록에서 이메일 삭제하기
+## Braze 스팸 목록에서 이메일 삭제하기 {#removing-emails-from-the-braze-spam-list}
 
-스트리밍 서비스 회사인 MovieCanon의 개발자 팀은 이메일 목록을 주기적으로 감사하여 이메일 캠페인에 가입한 사용자를 식별하고 유지하는 업무를 담당하고 있습니다. 이 감사의 일환으로 MovieCanon은 이 이메일 목록을 스팸 목록에서 삭제하려고 합니다:
+스트리밍 서비스 회사인 MovieCanon의 개발자 팀은 이메일 목록을 주기적으로 감사하여 이메일 Campaigns에 가입한 사용자를 식별하고 유지하는 업무를 담당하고 있습니다. 이 감사의 일환으로 MovieCanon은 다음 이메일 목록을 스팸 목록에서 삭제하려고 합니다:
 
 - august.author.example.com
 - betty.benson@example.com
@@ -76,15 +76,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## 모든 캔버스 감사
+## 모든 Canvases 감사하기 {#auditing-all-canvases}
 
-시즈 밸리 헬스는 수천 명의 환자를 진료하는 10개의 병원과 연구 센터를 운영하는 병원 시스템입니다. 마케팅 팀은 환자에게 독감 예방주사 예약을 상기시키기 위해 보낸 캔버스를 지난 3년간의 Braze 사용 기간과 비교하고자 합니다. 시즈 밸리 헬스의 마케팅 팀은 또한 캔버스 목록과 분석 요약을 모두 빠르고 효율적으로 볼 수 있는 방법을 원했습니다.
+Siege Valley Health는 수천 명의 환자를 진료하는 10개의 병원과 연구 센터를 운영하는 병원 시스템입니다. 마케팅 팀은 지난 3년간 Braze를 사용하면서 환자에게 독감 예방주사 예약을 상기시키기 위해 보낸 Canvases를 비교하고자 합니다. Siege Valley Health의 마케팅 팀은 또한 Canvases 목록과 분석 요약을 모두 빠르고 효율적으로 볼 수 있는 방법을 원합니다.
 
-시즈 밸리 헬스에서 Braze 대시보드를 통해 필터링하지 않고 엔드포인트 조합을 사용하여 이 두 가지 작업을 수행하는 방법에 대해 자세히 알아보겠습니다.
+Siege Valley Health가 Braze 대시보드에서 필터링하지 않고 엔드포인트 조합을 사용하여 이 두 가지 작업을 수행하는 방법을 자세히 살펴보겠습니다.
 
-캔버스를 감사하는 첫 번째 작업의 경우 [`/canvas/list` 엔드포인트를]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) 사용하여 이름과 태그가 포함된 캔버스 목록을 내보냅니다. 다음은 요청 예시입니다:
+Canvases를 감사하는 첫 번째 작업의 경우 [`/canvas/list` 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases)를 사용하여 이름과 태그가 포함된 Canvases 목록을 내보냅니다. 다음은 요청 예시입니다:
 
-{% details Here’s the response that the Siege Valley Health marketing team would receive. %}
+{% details Siege Valley Health 마케팅 팀이 받게 될 응답은 다음과 같습니다. %}
 ```json
 {
   "canvases" : [
@@ -111,7 +111,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 {% enddetails %}
 
-시즈 밸리 헬스의 캔버스 목록에서 첫 번째 캔버스에 대한 분석 요약을 보는 다음 작업으로 넘어가겠습니다. 이를 위해 다음 요청 매개변수와 함께 [`/canvas/data_summary` 엔드포인트를]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) 사용합니다:
+Siege Valley Health의 Canvases 목록에서 첫 번째 Canvas에 대한 분석 요약을 보는 다음 작업으로 넘어가겠습니다. 이를 위해 다음 요청 매개변수와 함께 [`/canvas/data_summary` 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary)를 사용합니다:
 
 * `canvas_id`: "canvas_identifier_2"
 * `ending_at`: 2023-07-10T23:59:59
@@ -124,9 +124,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 예정된 캠페인 및 캔버스 확인
+## 예정된 Campaigns 및 Canvases 확인하기 {#checking-upcoming-scheduled-campaigns-and-canvases}
 
-가장 바쁜 시기가 빠르게 다가오고 있습니다. Flash & Thread는 온라인 및 매장에서 의류와 뷰티 제품을 판매하는 소매 브랜드입니다. 마케팅팀은 2024년 3월 31일 오후 12시 이전에 Braze 대시보드에서 예정된 캠페인과 캔버스를 확인하고자 합니다. 이 작업은 [`/messages/scheduled_broadcasts` 엔드포인트를]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) 사용하여 수행할 수 있습니다.
+온라인 및 매장에서 의류와 뷰티 제품을 판매하는 리테일 브랜드인 Flash & Thread에 가장 바쁜 시기가 빠르게 다가오고 있습니다. 마케팅 팀은 2024년 3월 31일 오후 12시 이전에 Braze 대시보드에서 예정된 Campaigns와 Canvases를 확인하고자 합니다. 이 작업은 [`/messages/scheduled_broadcasts` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled)를 사용하여 수행할 수 있습니다.
 
 다음은 요청 예시입니다:
 
@@ -135,20 +135,20 @@ curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-이 엔드포인트는 다가오는 캠페인과 캔버스의 목록을 반환합니다. 여기에서 마케팅 팀은 응답의 캠페인 및 캔버스에 대한 `name` 필드를 참조하여 메시지 목록을 확인할 수 있습니다.
+이 엔드포인트는 예정된 Campaigns와 Canvases의 목록을 반환합니다. 여기에서 마케팅 팀은 응답의 Campaigns 및 Canvases에 대한 `name` 필드를 참조하여 메시지 목록을 확인할 수 있습니다.
 
-## 이전 환경설정 센터 보기
+## 이전 환경설정 센터 보기 {#viewing-an-older-preference-center}
 
-PoliterWeekly는 이메일을 통해 구독자에게 도달할 수 있는 디지털 매거진입니다. 구독자의 사용자 여정을 더 잘 이해하기 위해 마케팅 팀은 PoliterWeekly의 선호 센터에 대한 세부 정보를 검토하여 생성 및 마지막 업데이트 날짜를 확인하고자 합니다.
+PoliterWeekly는 이메일을 통해 구독자에게 도달할 수 있는 디지털 매거진입니다. 구독자의 사용자 여정을 더 잘 이해하기 위해 마케팅 팀은 PoliterWeekly의 환경설정 센터에 대한 세부 정보를 검토하여 생성 및 마지막 업데이트 날짜를 확인하고자 합니다.
 
-마케팅 팀은 [`/preference_center/v1/{preferenceCenterExternalID}` 엔드포인트]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/)를 사용하여 다음과 같이 환경설정 센터 외부 ID를 경로 매개 변수로 삽입하기만 하면 됩니다.
+마케팅 팀은 [`/preference_center/v1/{preferenceCenterExternalID}` 엔드포인트]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center)를 사용하여 다음과 같이 환경설정 센터 외부 ID를 경로 매개변수로 삽입하기만 하면 됩니다:
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/politer_weekly_preference_center_api_id \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-{% details Here’s the response the PoliterWeekly marketing team would receive. %}
+{% details PoliterWeekly 마케팅 팀이 받게 될 응답은 다음과 같습니다. %}
 
 ```json
 {
@@ -167,20 +167,20 @@ curl --location -g --request GET https://rest.iad-01.braze.com/preference_center
 }
 ```
 
-이 응답을 통해 마케팅 팀은 환경설정 센터가 가장 최근에 업데이트되기 3년 전에 만들어졌음을 알 수 있습니다. 이 정보를 염두에 두고 마케팅 팀은 새로운 환경설정 센터를 만들어 출시할 수 있습니다.
+이 응답을 통해 마케팅 팀은 환경설정 센터가 가장 최근 업데이트보다 3년 전에 생성되었음을 알 수 있습니다. 이 정보를 바탕으로 마케팅 팀은 새로운 환경설정 센터를 만들어 출시할 수 있습니다.
 
 {% enddetails %}
 
-## 유효하지 않은 전화번호 제거하기
+## 유효하지 않은 전화번호 제거하기 {#removing-invalid-phone-numbers}
 
-CashBlastr의 주요 목표는 사람들이 빠른 결제를 주고받을 수 있는 방법을 간소화하는 것입니다. 금융 서비스 회사로서 CashBlastr는 고객의 전화번호 목록을 최신의 정확한 상태로 유지하고자 합니다. 개발자 팀은 마케팅 팀의 SMS 메시지가 적절한 CashBlastr 고객에게 전달될 수 있도록 '유효하지 않음'으로 표시된 다음 전화번호 목록을 제거해야 하는 임무를 받았습니다.
+CashBlastr의 주요 목표는 사람들이 빠른 결제를 주고받을 수 있는 방법을 간소화하는 것입니다. 금융 서비스 회사로서 CashBlastr는 고객의 전화번호 목록을 최신의 정확한 상태로 유지하고자 합니다. 개발자 팀은 마케팅 팀의 SMS 메시지가 적절한 CashBlastr 고객에게 전달될 수 있도록 "유효하지 않음"으로 표시된 다음 전화번호 목록을 제거하는 임무를 받았습니다.
 
 - 12223135467
 - 12183095514
 - 14235662245
 - 14324567892
 
-[`/sms/invalid_phone_numbers/remove` 엔드포인트로]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/) 요청을 보내려면 전화 번호는 [e.164 형식의](https://en.wikipedia.org/wiki/E.164) 문자열 배열이어야 하며 요청당 최대 50개의 전화 번호가 포함되어야 합니다. 전화번호 목록이 50개를 넘지 않으므로 다음은 CashBlastr의 개발팀이 보내는 요청 본문의 예시입니다:
+[`/sms/invalid_phone_numbers/remove` 엔드포인트]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers)로 요청을 보내려면 전화번호는 [e.164 형식](https://en.wikipedia.org/wiki/E.164)의 문자열 배열이어야 하며 요청당 최대 50개의 전화번호를 포함할 수 있습니다. 전화번호 목록이 50개를 넘지 않으므로 다음은 CashBlastr의 개발자 팀이 보내는 요청 본문의 예시입니다:
 
 ```http
 Content-Type: application/json
@@ -190,7 +190,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-이 페이로드를 전송한 후, 응답은 Braze가 CashBlastr의 잘못된 전화번호를 Braze 잘못된 목록에서 제거했음을 확인합니다.
+이 페이로드를 전송한 후, 응답은 Braze가 CashBlastr의 유효하지 않은 전화번호를 Braze 유효하지 않은 목록에서 제거했음을 확인합니다.
 
 ```json
 {
@@ -198,9 +198,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## 사용자의 구독 그룹 상태 보기
+## 사용자의 구독 그룹 상태 보기 {#viewing-a-users-subscription-group-status}
 
-미국의 퀵서비스 레스토랑 체인인 SandwichEmperor의 마케팅 팀은 무작위로 선정된 사용자 목록에 대한 SMS 구독 그룹 상태를 확인하려고 합니다. [`/subscription/status/get` 엔드포인트를]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) 사용하면 샌드위치엠퍼러는 다음 예제 요청을 통해 개별 사용자에 대해 이 작업을 수행할 수 있습니다:
+미국의 퀵서비스 레스토랑 체인인 SandwichEmperor의 마케팅 팀은 무작위로 선정된 사용자 목록에 대한 SMS 구독 그룹 상태를 확인하려고 합니다. [`/subscription/status/get` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하면 SandwichEmperor는 다음 예시 요청을 통해 개별 사용자에 대해 이 작업을 수행할 수 있습니다:
 
 {% raw %}
 ```
@@ -211,13 +211,13 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 
 이 엔드포인트는 이메일에 대한 사용자의 구독 그룹 상태도 나열합니다. 여러 사용자의 구독 그룹 상태를 확인하는 데 사용하세요.
 
-## 이메일 메시징용 HTML 템플릿 확인
+## 이메일 메시징용 HTML 템플릿 확인하기 {#checking-an-html-template-for-email-messaging}
 
-다양한 업계 종사자 간의 인맥 형성을 돕는 소셜 네트워크인 WorkFriends의 마케팅 팀은 사용자에게 이메일 캠페인을 보내는 업무를 담당합니다. 이러한 캠페인에는 종종 지역 이벤트 알림, 주간 뉴스레터, 프로필 활동 하이라이트가 포함됩니다.
+다양한 업계 종사자 간의 인맥 형성을 돕는 소셜 네트워크인 WorkFriends의 마케팅 팀은 사용자에게 이메일 Campaigns를 보내는 업무를 담당합니다. 이러한 Campaigns에는 종종 지역 이벤트 알림, 주간 뉴스레터, 프로필 활동 하이라이트가 포함됩니다.
 
 이 시나리오에서 WorkFriends는 지금까지 기존 브랜딩과 함께 단일 HTML 템플릿을 사용해 왔습니다. 브랜드 아이덴티티를 맞추기 위해 WorkFriends는 새 템플릿으로 전환하기 전에 이 HTML 템플릿에 활용할 수 있는 유용한 정보가 있는지 확인하고자 합니다.
 
-{% details Here’s the response that the WorkFriends team would receive. %}
+{% details WorkFriends 팀이 받게 될 응답은 다음과 같습니다. %}
 
 ```json
 {
@@ -235,4 +235,4 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 
 {% enddetails %}
 
-이 템플릿 정보를 검토한 후 WorkFriends는 [`/templates/email/update` 엔드포인트를]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) 사용하여 API를 통해 이메일 템플릿을 업데이트할 수도 있습니다. Braze 대시보드의 이메일 템플릿은 이러한 편집을 반영합니다.
+이 템플릿 정보를 검토한 후 WorkFriends는 [`/templates/email/update` 엔드포인트]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template)를 사용하여 API를 통해 이메일 템플릿을 업데이트할 수도 있습니다. Braze 대시보드의 이메일 템플릿은 이러한 편집 내용을 반영합니다.

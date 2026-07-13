@@ -26,11 +26,59 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Claude %}
-![「利用可能なBraze関数は何ですか？」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**プロンプトの例**
+
+`What are my available Braze functions?`
+
+**応答の例**
+
+`list_functions`を使ってBraze MCPサーバーを確認したところ、38個の利用可能なAPI関数が見つかりました。
+
+カテゴリ別の例をいくつか紹介します。
+
+- **キャンペーンの分析と管理**
+  - `get_campaign_dataseries`
+  - `get_campaign_details`
+  - `get_campaign_list`
+- **キャンバスの分析と管理**
+  - `get_canvas_data_series`
+  - `get_canvas_data_summary`
+  - `get_canvas_list`
+  - `get_canvas_details`
+- **テンプレート**
+  - `create_email_template`
+- **コンテンツブロック**
+  - `create_content_block`
+  - `get_content_blocks`
+  - `get_content_block_info`
+  - `update_content_block`
 {% endtab %}
 
 {% tab Cursor %}
-![「利用可能なBraze関数は何ですか」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**プロンプトの例**
+
+`What are my available Braze functions?`
+
+**応答の例**
+
+Braze MCPサーバーを使って利用可能な関数を確認します。
+
+- `list_functions`を呼び出しました
+
+その結果に基づくと、以下のようなカテゴリに整理された38個のBraze API関数があります。
+
+- キャンペーンの分析と管理
+- キャンバスの分析と管理
+- テンプレート
+- コンテンツブロック
+
+関数の例：
+
+- `get_campaign_list`
+- `get_canvas_list`
+- `get_canvas_details`
+- `create_email_template`
+- `update_content_block`
 {% endtab %}
 {% endtabs %}
 
@@ -40,11 +88,50 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Claude %}
-![「Canvas IDの詳細を取得する」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/get_details_about_a_canvas_id.png %}){: style="max-width:85%;"}
+**プロンプトの例**
+
+`Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
+
+**応答の例**
+
+`get_canvas_details`を使って`YOUR-TEST-CANVAS-ID-123`の詳細を取得しました。
+
+- **キャンバス名:** `YOUR-TEST-CANVAS-NAME`
+- **ID:** `YOUR-TEST-CANVAS-ID-123`
+- **ステータス:** 下書き（無効）
+- **作成日時:** 2026年1月15日 10:30 AM UTC
+- **最終更新日時:** 2026年1月16日 02:45 PM UTC
+- **スケジュールタイプ:** 時間ベース
+- **プライマリチャネル:** メール
+
+メールメッセージの詳細：
+
+- **件名:** `YOUR-TEST-SUBJECT-LINE`
+- **送信元:** `YOUR-TEST-SENDER@example.com`
+- **メッセージID:** `YOUR-TEST-MESSAGE-ID-123`
 {% endtab %}
 
 {% tab Cursor %}
-![「Canvas IDの詳細を取得する」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/get_details_about_a_canvas_id.png %})
+**プロンプトの例**
+
+`Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
+
+**応答の例**
+
+`get_canvas_details`を使ってこのキャンバスを取得しました。
+
+- **キャンバス ID:** `YOUR-TEST-CANVAS-ID-123`
+- **キャンバス名:** `YOUR-TEST-CANVAS-NAME`
+- **ステータス:** 下書き
+- **チャネル:** メール
+- **メッセージID:** `YOUR-TEST-MESSAGE-ID-123`
+
+メールコンテンツの概要：
+
+1. ブランド画像を含むヘッダーセクション
+2. メインの見出しセクション
+3. CTAボタンを含むヒーローセクション
+4. サポートコンテンツを含む機能セクション
 {% endtab %}
 {% endtabs %}
 
@@ -54,11 +141,49 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Claude %}
-![「最近のキャンバスを表示して」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/show_my_recent_canvases.png %}){: style="max-width:85%;"}
+**プロンプトの例**
+
+`Show me my recent キャンバス`
+
+**応答の例**
+
+`list_functions`で利用可能なツールを確認し、`get_canvas_list`を使って最近編集されたキャンバスを取得しました。
+
+最近のキャンバス：
+
+1. **YOUR-TEST-CANVAS-ALPHA**
+   - ID: `YOUR-TEST-ID-123`
+   - 最終編集日時: 2026年1月16日 02:45 PM UTC
+2. **YOUR-TEST-CANVAS-BETA**
+   - ID: `YOUR-TEST-ID-456`
+   - 最終編集日時: 2026年1月15日 11:10 AM UTC
+3. **YOUR-TEST-CANVAS-GAMMA**
+   - ID: `YOUR-TEST-ID-789`
+   - 最終編集日時: 2026年1月14日 08:25 PM UTC
 {% endtab %}
 
 {% tab Cursor %}
-![「最近のキャンバスを表示して」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
+**プロンプトの例**
+
+`Show me my recent キャンバス`
+
+**応答の例**
+
+Braze MCPサーバーから最近のキャンバス一覧を取得します。
+
+- `list_functions`を呼び出しました
+- `get_canvas_list`を呼び出しました
+
+最近のキャンバス（最終編集日時順）：
+
+- **キャンバス名:** `YOUR-TEST-CANVAS-ALPHA`
+  - **最終編集日時:** 2026年1月16日 02:45 PM UTC
+  - **キャンバス ID:** `YOUR-TEST-ID-123`
+  - **タグ:** `lifecycle`, `email`
+- **キャンバス名:** `YOUR-TEST-CANVAS-BETA`
+  - **最終編集日時:** 2026年1月15日 11:10 AM UTC
+  - **キャンバス ID:** `YOUR-TEST-ID-456`
+  - **タグ:** `promo`
 {% endtab %}
 {% endtabs %}
 
@@ -67,8 +192,39 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 ### メールテンプレートを作成する {#create-an-email-template}
 
 {% tabs %}
+{% tab Claude %}
+**プロンプトの例**
+
+`Create an email template named "YOUR-TEST-TEMPLATE-NAME" for onboarding messages.`
+
+**応答の例**
+
+`create_email_template`を使ってテンプレートを作成しました。
+
+- **テンプレート名:** `YOUR-TEST-TEMPLATE-NAME`
+- **テンプレートID:** `YOUR-TEST-TEMPLATE-ID-123`
+- **件名:** `YOUR-TEST-SUBJECT-LINE`
+- **プリヘッダー:** `YOUR-TEST-PREHEADER`
+- **作成日時:** 2026年1月16日 03:10 PM UTC
+
+キャンペーンやキャンバスを作成・更新する際に`YOUR-TEST-TEMPLATE-ID-123`を参照できます。
+{% endtab %}
+
 {% tab Cursor %}
-![「メールテンプレートを作成する」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
+**プロンプトの例**
+
+`Create an email template named "YOUR-TEST-TEMPLATE-NAME" for onboarding messages.`
+
+**応答の例**
+
+`create_email_template`を使って新しいテンプレートを正常に作成しました。
+
+- **テンプレートID:** `YOUR-TEST-TEMPLATE-ID-123`
+- **テンプレート名:** `YOUR-TEST-TEMPLATE-NAME`
+- **件名:** `YOUR-TEST-SUBJECT-LINE`
+- **説明:** `Onboarding lifecycle template`
+
+ご希望であれば、このテンプレート用のスターターHTMLボディとプレーンテキストのフォールバックも生成できます。
 {% endtab %}
 {% endtabs %}
 
@@ -77,8 +233,42 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 ### コンテンツブロックを更新する {#update-a-content-block}
 
 {% tabs %}
+{% tab Claude %}
+**プロンプトの例**
+
+`Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123" with new body copy for our spring promotion.`
+
+**応答の例**
+
+`update_content_block`を使ってコンテンツブロックを更新しました。
+
+- **コンテンツブロックID:** `YOUR-TEST-CONTENT-BLOCK-ID-123`
+- **名前:** `YOUR-TEST-CONTENT-BLOCK-NAME`
+- **ステータス:** 更新済み
+- **更新日時:** 2026年1月16日 03:25 PM UTC
+
+プレビュー：
+
+`YOUR-TEST-CONTENT-BLOCK-BODY-V2`
+{% endtab %}
+
 {% tab Cursor %}
-![「コンテンツブロックを更新する」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
+**プロンプトの例**
+
+`Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123" with new body copy for our spring promotion.`
+
+**応答の例**
+
+`update_content_block`を実行し、更新が完了したことを確認しました。
+
+- **コンテンツブロックID:** `YOUR-TEST-CONTENT-BLOCK-ID-123`
+- **前のバージョン:** `v1`
+- **現在のバージョン:** `v2`
+- **最終更新日時:** 2026年1月16日 03:25 PM UTC
+
+更新されたコンテンツのプレビュー：
+
+`YOUR-TEST-CONTENT-BLOCK-BODY-V2`
 {% endtab %}
 {% endtabs %}
 

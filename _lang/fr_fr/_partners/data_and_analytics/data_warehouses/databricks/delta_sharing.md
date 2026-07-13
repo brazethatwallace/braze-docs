@@ -56,7 +56,7 @@ De manière similaire à Currents, vous pouvez utiliser Databricks Delta Sharing
 - Mapper des données brutes d'événements ou d'utilisateurs vers un CRM (comme Salesforce)
 - Et bien plus encore
 
-Pour une liste complète des tables et colonnes disponibles dans Databricks, [téléchargez les schémas de tables brutes Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) sous forme de fichier texte. Ce fichier reflète le schéma Databricks Delta Sharing (par exemple, `DB_CREATED_AT` pour l'heure d'ingestion). Il n'est pas interchangeable avec les [schémas de tables brutes Snowflake]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) ou la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), qui décrivent la nomenclature et les champs Snowflake.
+Pour une liste complète des tables et colonnes disponibles dans Databricks, [téléchargez les schémas de tables brutes Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) sous forme de fichier texte. Ce fichier reflète le schéma Databricks Delta Sharing (par exemple, `DB_CREATED_AT` pour l'heure d'ingestion). Il n'est pas interchangeable avec les [schémas de tables brutes Snowflake](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), qui décrivent la nomenclature et les champs Snowflake.
 
 {% alert note %}
 Pendant la bêta fermée, toutes les tables listées dans le fichier de schéma Databricks peuvent ne pas être disponibles dans votre partage. Les noms et types de colonnes peuvent également différer de Snowflake Data Sharing (par exemple, `DB_CREATED_AT` au lieu de `SF_CREATED_AT`). Contactez votre gestionnaire de la satisfaction client Braze si vous avez besoin de la liste actuelle des tables pour votre espace de travail.
@@ -70,13 +70,13 @@ Notez les différences suivantes entre les conventions de nommage de Braze et de
 | ----------- | ----------- | ----------- |
 | `braze_id` | `USER_ID` | L'identifiant unique que Braze attribue automatiquement. |
 | `external_id` | `EXTERNAL_USER_ID` | L'identifiant unique du profil d'un utilisateur que vous définissez dans Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schéma des identifiants utilisateur" }
 
 ## Informations importantes et limitations {#important-information-and-limitations}
 
 ### Disponibilité de la bêta fermée {#closed-beta-availability}
 
-Pendant la bêta fermée, votre partage peut ne pas inclure toutes les tables du fichier de [schémas de tables brutes Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}). Les données partagées peuvent également différer de Snowflake Data Sharing au niveau des noms et types de colonnes. Par exemple, les partages Databricks utilisent `DB_CREATED_AT` pour l'heure d'ingestion, tandis que les partages Snowflake utilisent `SF_CREATED_AT`.
+Pendant la bêta fermée, votre partage peut ne pas inclure toutes les tables du fichier de [schémas de tables brutes Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt). Les données partagées peuvent également différer de Snowflake Data Sharing au niveau des noms et types de colonnes. Par exemple, les partages Databricks utilisent `DB_CREATED_AT` pour l'heure d'ingestion, tandis que les partages Snowflake utilisent `SF_CREATED_AT`.
 
 ### Modifications avec et sans rupture {#breaking-versus-non-breaking-changes}
 
@@ -121,7 +121,7 @@ Les données d'événements dans les vues de partage de données (par exemple, `
 | ----- | ------- |
 | `TIME` | Horodatage Unix auquel l'événement s'est produit. Privilégiez ce champ pour filtrer par heure d'occurrence. |
 | `DB_CREATED_AT` | Horodatage du chargement de la ligne dans Databricks (heure d'ingestion). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Querying shared data: TIME and query performance" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Interrogation des données partagées : TIME et performances des requêtes" }
 
 ### Vitesse, performances et coût des requêtes {#speed-performance-and-cost-of-queries}
 

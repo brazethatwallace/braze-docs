@@ -64,4 +64,4 @@ Pour déterminer si cela est faisable, consultez la documentation de votre plate
 
 Après avoir défini votre audience, passez à la configuration de l'orchestration :
 
-- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

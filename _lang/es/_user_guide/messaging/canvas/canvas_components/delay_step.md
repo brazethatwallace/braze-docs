@@ -19,7 +19,7 @@ Las demoras pueden hacer que tu Canvas se vea más limpio. También puedes usar 
 
 Para crear una demora, añade un paso a tu Canvas. Arrastra y suelta el componente de demora desde la barra lateral, o selecciona el botón <i class="fas fa-plus-circle"></i> de signo más en la parte inferior de un paso y luego elige **Delay**.
 
-#### Demoras extendidas
+### Demoras extendidas
 
 Puedes extender los pasos de demora hasta dos años (730 días). Por ejemplo, si estás incorporando nuevos usuarios a tu aplicación, puedes añadir una demora extendida de dos meses antes de enviar un paso de mensaje para animar a los usuarios que no han iniciado una sesión.
 
@@ -48,14 +48,14 @@ Como ejemplo, supongamos que hoy es 11 de diciembre y nuestro paso de demora est
 
 Seleccionar **Calendar date** te permite retener a los usuarios en el paso hasta una fecha y hora específicas.
 
-#### Consideraciones
+### Consideraciones
 
-##### Los usuarios no recibirán pasos o mensajes con fechas pasadas
+#### Los usuarios no recibirán pasos o mensajes con fechas pasadas
 
 Si la fecha y hora seleccionadas ya han pasado cuando los usuarios llegan al paso de demora, los usuarios saldrán del Canvas. Puede haber hasta 31 días entre el inicio del Canvas y las fechas elegidas para los pasos de "esperar hasta un día exacto".
 
 {% alert important %}
-Si participas en el [acceso anticipado de Canvas Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/), puedes establecer demoras de hasta 2 años.
+Si participas en el [acceso anticipado de Canvas Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), puedes establecer demoras de hasta 2 años.
 {% endalert %}
 
 Por ejemplo, los usuarios no recibirán pasos o mensajes en estos escenarios:
@@ -63,7 +63,7 @@ Por ejemplo, los usuarios no recibirán pasos o mensajes en estos escenarios:
 - Un mensaje está programado para enviarse el 3 de mayo a las 9 pm, pero el paso de demora expira el 3 de mayo a las 9 am.
 - Un paso en Canvas se retrasa hasta una hora específica en la zona horaria local del usuario, pero los usuarios no tienen una zona horaria configurada en su perfil de usuario. La demora entonces se establece por defecto en la zona horaria de la empresa para estos usuarios, que ya ha pasado la hora especificada.
 
-##### Los usuarios saldrán si un paso de demora posterior está dentro del plazo de un paso de demora anterior
+#### Los usuarios saldrán si un paso de demora posterior está dentro del plazo de un paso de demora anterior
 
 Si el Canvas tiene dos pasos de demora pero el primer paso de demora es más largo que el segundo paso de demora, los usuarios también saldrán del Canvas.
 
@@ -101,9 +101,9 @@ Si añades un componente de demora a tu Canvas y no hay pasos posteriores, cualq
 
 ### Demoras personalizadas
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-Selecciona el conmutador **Personalize delay** para configurar una demora personalizada para tus usuarios. Puedes usar esto con un [paso de Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) para seleccionar la variable de contexto por la cual retrasar. Esto anulará la hora del día establecida en el atributo o propiedad seleccionados. Esto es útil cuando se aplica un desfase en días o semanas y quieres que los usuarios avancen a una hora específica. La zona horaria proviene del atributo o propiedad, o usa la alternativa si no hay ninguna disponible.
+Selecciona el conmutador **Personalize delay** para configurar una demora personalizada para tus usuarios. Puedes usar esto con un [paso de Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para seleccionar la variable de contexto por la cual retrasar. Esto anulará la hora del día establecida en el atributo o propiedad seleccionados. Esto es útil cuando se aplica un desfase en días o semanas y quieres que los usuarios avancen a una hora específica. La zona horaria proviene del atributo o propiedad, o usa la alternativa si no hay ninguna disponible.
 
 #### Comportamiento de la zona horaria para "a una hora específica"
 
@@ -147,10 +147,10 @@ Las series temporales de estos análisis están disponibles en la vista expandid
 
 ### Errores de personalización fallida {#personaliztion-failed-errors}
 
-Si los usuarios no están desencadenando una demora personalizada, podría ser porque el paso de Context que configuraste para calificarlos para el paso de demora no está funcionando como esperabas. Cuando una [variable de contexto no es válida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#troubleshooting), un usuario continuará a través de tu Canvas sin que su contexto sea establecido por el paso de Context. Esto puede hacer que no califiquen para pasos posteriores en tu Canvas, como las demoras personalizadas.
+Si los usuarios no están desencadenando una demora personalizada, podría ser porque el paso de Context que configuraste para calificarlos para el paso de demora no está funcionando como esperabas. Cuando una [variable de contexto no es válida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), un usuario continuará a través de tu Canvas sin que su contexto sea establecido por el paso de Context. Esto puede hacer que no califiquen para pasos posteriores en tu Canvas, como las demoras personalizadas.
 
 ### Usuarios en un paso de demora cuando se detiene un Canvas
 
-Cuando [detienes un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases), los usuarios que ya están esperando en un paso de demora no salen inmediatamente. Braze aún programa la finalización de la demora, pero **no se envían más mensajes** mientras el Canvas está detenido.
+Cuando [detienes un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), los usuarios que ya están esperando en un paso de demora no salen inmediatamente. Braze aún programa la finalización de la demora, pero **no se envían más mensajes** mientras el Canvas está detenido.
 
-Si vuelves a habilitar el Canvas antes de que la demora de un usuario haya transcurrido, puede avanzar al siguiente paso según lo programado. Si la ventana de demora ya ha pasado mientras el Canvas estaba detenido, esos usuarios salen del Canvas en lugar de recibir el siguiente paso. Para ver ejemplos, consulta [¿Qué sucede cuando detienes un Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) y [Detener Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases).
+Si vuelves a habilitar el Canvas antes de que la demora de un usuario haya transcurrido, puede avanzar al siguiente paso según lo programado. Si la ventana de demora ya ha pasado mientras el Canvas estaba detenido, esos usuarios salen del Canvas en lugar de recibir el siguiente paso. Para ver ejemplos, consulta [¿Qué sucede cuando detienes un Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) y [Detener Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).

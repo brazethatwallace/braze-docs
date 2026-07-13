@@ -13,7 +13,7 @@ toc_headers: h2
 
 # Créer un message in-app avec l'éditeur traditionnel {#create-an-in-app-message-with-the-traditional-editor}
 
-> Vous pouvez créer un message in-app ou un message dans le navigateur à l'aide de la plateforme Braze via des Campaigns, Canvas ou en tant que campagne API. Nous vous recommandons vivement de planifier vos messages et de préparer tous les éléments à l'avance en utilisant notre pratique [guide de préparation des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/).
+> Vous pouvez créer un message in-app ou un message dans le navigateur à l'aide de la plateforme Braze via des Campaigns, Canvas ou en tant que campagne API. Nous vous recommandons vivement de planifier vos messages et de préparer tous les éléments à l'avance en utilisant notre pratique [guide de préparation des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
 
 ## Étape 1 : Choisir où créer votre message {#create-new-campaign-in-app}
 
@@ -25,9 +25,9 @@ Vous ne savez pas si votre message doit être envoyé via une Campaign ou un Can
 1. Allez dans **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
 2. Sélectionnez **In-App Message**. Notez que les messages in-app ne sont pas disponibles dans les Campaigns multicanales.
 3. Donnez à votre Campaign un nom clair et significatif.
-4. Ajoutez des [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [Étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) selon vos besoins.
-   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), vous pouvez filtrer par étiquettes spécifiques.
-5. Ajoutez et nommez autant de variantes que nécessaire pour votre Campaign. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
+   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+5. Ajoutez et nommez autant de variantes que nécessaire pour votre Campaign. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Si tous les messages de votre Campaign sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
@@ -36,18 +36,18 @@ Si tous les messages de votre Campaign sont similaires ou ont le même contenu, 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) à l'aide du compositeur Canvas.
+1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) et spécifiez un délai si nécessaire. Notez que les étapes contenant des messages in-app ne peuvent pas être basées sur une action.
+3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire. Notez que les étapes contenant des messages in-app ne peuvent pas être basées sur une action.
 4. Filtrez votre audience pour cette étape, si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des Segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
-5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
+5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez les autres canaux de communication que vous souhaitez associer à votre message.
 
 {% alert important %}
 Vous ne pouvez pas avoir plusieurs variantes de messages in-app dans une seule étape.
 {% endalert %}
 
-Vous trouverez plus d'informations spécifiques à Canvas dans [Messages in-app dans Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#messages-in-canvas).
+Vous trouverez plus d'informations spécifiques à Canvas dans [Messages in-app dans Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 
 {% endtab %}
 {% endtabs %}
@@ -56,16 +56,16 @@ Vous trouverez plus d'informations spécifiques à Canvas dans [Messages in-app 
 
 Commencez par choisir les plateformes qui doivent recevoir le message. Utilisez cette sélection pour limiter la diffusion d'une Campaign à un ensemble spécifique d'applications. Par exemple, vous pourriez choisir **Web Browsers** pour un message dans le navigateur encourageant les utilisateurs à télécharger votre application mobile, afin de vous assurer qu'ils ne reçoivent pas le message après avoir déjà obtenu votre application. Comme les sélections de plateforme sont spécifiques à chaque variante, vous pourriez tester l'engagement des messages par plateforme.
 
-| Plateforme                        | Diffusion du message             |
+| Plateforme | Diffusion du message |
 |---------------------------------|------------------------------|
-| Applications mobiles                     | SDK iOS, Android et Vega |
-| Navigateurs web                    | SDK Web                      |
+| Applications mobiles | SDK iOS, Android et Vega |
+| Navigateurs web | SDK Web |
 | Applications mobiles et navigateurs web | SDK iOS, Android, Vega et Web |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Spécifier les plateformes de diffusion" }
 
 ## Étape 3 : Spécifier vos types de messages {#step-3-specify-your-message-types}
 
-Une fois que vous avez sélectionné une plateforme d'envoi, parcourez les types de messages, les dispositions et les autres options associées. Apprenez-en plus sur le comportement attendu et l'apparence de chacun de ces messages sur notre page [Types de messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/), ou en cliquant sur les types de messages liés dans les tableaux suivants.
+Une fois que vous avez sélectionné une plateforme d'envoi, parcourez les types de messages, les dispositions et les autres options associées. Apprenez-en plus sur le comportement attendu et l'apparence de chacun de ces messages sur notre page [Types de messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types), ou en cliquant sur les types de messages liés dans les tableaux suivants.
 
 Lorsque vous décidez quel type de message utiliser, réfléchissez à l'espace que votre message occupera et à quel point il pourrait perturber l'expérience utilisateur.
 
@@ -84,7 +84,7 @@ Ces messages in-app sont acceptés à la fois par les applications mobiles et le
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Message types" class="tg">
+<table aria-label="Types de messages" class="tg">
   <caption>Types de messages</caption>
 <thead>
   <tr>
@@ -134,7 +134,7 @@ Ces messages in-app sont acceptés à la fois par les applications mobiles et le
 
 Ces messages in-app sont personnalisables selon vos besoins.
 
-<table aria-label="Advanced message types" class="tg">
+<table aria-label="Types de messages avancés" class="tg">
   <caption>Types de messages avancés</caption>
 <thead>
   <tr>
@@ -151,7 +151,7 @@ Ces messages in-app sont personnalisables selon vos besoins.
     <td>Messages personnalisés qui fonctionnent selon votre code personnalisé (HTML, CSS et/ou JavaScript).</td>
     <td>N/A</td>
     <td>Vous devez définir l'option d'initialisation <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> sur <code>true</code> pour que votre message in-app fonctionne.</td>
-    <td>C'est une bonne option si vous souhaitez tous les avantages des messages in-app mais avez besoin de fonctionnalités supplémentaires ou que l'apparence reste « fidèle à votre marque ». Vous pouvez modifier chaque détail du message — police, couleur, forme, taille, boutons, etc. <br><br>Exemples de cas d'utilisation : demander aux utilisateurs leur avis sur l'application, formulaires de capture d'e-mail ou messages paginés</td>
+    <td>C'est une bonne option si vous souhaitez tous les avantages des messages in-app mais avez besoin de fonctionnalités supplémentaires ou que l'apparence reste « fidèle à votre marque ». Vous pouvez modifier chaque détail du message — police, couleur, forme, taille, boutons, etc. <br><br>Exemples de cas d'usage : demander aux utilisateurs leur avis sur l'application, formulaires de capture d'e-mail ou messages paginés</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulaire de capture d'e-mail</a></td>
@@ -189,17 +189,17 @@ Le contenu de l'onglet **Compose** varie en fonction des options de message choi
 
 ### Langue {#language}
 
-Sélectionnez **Add Languages** et choisissez les langues souhaitées dans la liste fournie. Cela insérera du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) dans votre message. Nous vous recommandons de sélectionner vos langues avant de rédiger votre contenu afin de pouvoir remplir votre texte aux emplacements appropriés dans le Liquid. Consultez notre [liste complète des langues disponibles]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
+Sélectionnez **Add Languages** et choisissez les langues souhaitées dans la liste fournie. Cela insérera du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) dans votre message. Nous vous recommandons de sélectionner vos langues avant de rédiger votre contenu afin de pouvoir remplir votre texte aux emplacements appropriés dans le Liquid. Consultez notre [liste complète des langues disponibles]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
 ### Image {#image}
 
-Selon votre type de message, vous pouvez **Upload Image**, **Pick a Badge** ou utiliser **Font Awesome**. Pour télécharger une image, sélectionnez **Add Image** ou fournissez une URL d'image. Sélectionner **Add Image** ouvre la **Bibliothèque multimédia**, où vous pouvez sélectionner une image précédemment téléchargée ou en ajouter une nouvelle. Chaque type de message et plateforme peut avoir ses propres proportions et exigences suggérées — assurez-vous de vérifier celles-ci avant de commander ou de créer une image de zéro.
+Selon votre type de message, vous pouvez **Upload Image**, **Pick a Badge** ou utiliser **Font Awesome**. Pour télécharger une image, sélectionnez **Add Image** ou fournissez une URL d'image. Sélectionner **Add Image** ouvre la **bibliothèque multimédia**, où vous pouvez sélectionner une image précédemment téléchargée ou en ajouter une nouvelle. Chaque type de message et plateforme peut avoir ses propres proportions et exigences suggérées — assurez-vous de vérifier celles-ci avant de commander ou de créer une image de zéro.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 ### En-tête et corps {#header-and-body}
 
-Écrivez ce que vous voulez ! Incluez du texte entièrement personnalisé (souvent avec des capacités HTML personnalisées) avec les options d'inclusion de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) et d'autres types de personnalisation. Plus vite vous pouvez faire passer votre message et inciter votre client à cliquer, mieux c'est ! Nous recommandons des en-têtes et un contenu de message clairs et concis.
+Écrivez ce que vous voulez ! Incluez du texte entièrement personnalisé (souvent avec des capacités HTML personnalisées) avec les options d'inclusion de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) et d'autres types de personnalisation. Plus vite vous pouvez faire passer votre message et inciter votre client à cliquer, mieux c'est ! Nous recommandons des en-têtes et un contenu de message clairs et concis.
 
 Certains types de messages n'ont pas besoin d'en-têtes et n'en demandent donc pas.
 
@@ -207,13 +207,13 @@ Certains types de messages n'ont pas besoin d'en-têtes et n'en demandent donc p
 
 ##### Générer du texte avec l'IA {#generating-ai-copy}
 
-Besoin d'aide pour créer un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
+Besoin d'aide pour créer un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
 
 ![Bouton Lancer le rédacteur IA, situé dans le champ Message du compositeur de messages in-app.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
 ##### Créer des messages de droite à gauche {#creating-right-to-left-messages}
 
-Besoin d'aide pour rédiger des messages de droite à gauche pour des langues comme l'arabe et l'hébreu ? Consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/) pour les bonnes pratiques.
+Besoin d'aide pour rédiger des messages de droite à gauche pour des langues comme l'arabe et l'hébreu ? Consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) pour les bonnes pratiques.
 
 ### Texte des boutons {#buttons}
 
@@ -236,16 +236,18 @@ Lorsque votre client clique sur un bouton dans votre message in-app, les actions
 | Action | Description |
 |---|---|
 | Rediriger vers une URL web | Ouvrir une page web non native. |
-| [Lien profond vers l'application]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Lien profond vers un écran existant de votre application. |
+| [Lien profond vers l'application]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Lien profond vers un écran existant de votre application. |
 | Fermer le message | Ferme le message actuellement actif. |
-| Enregistrer un événement personnalisé | Choisissez un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) à déclencher. Peut être utilisé pour afficher un autre message in-app ou déclencher des messages supplémentaires. |
-| Enregistrer un attribut personnalisé | Choisissez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) à définir pour l'utilisateur actuel. |
-| Demander l'autorisation push | Affiche la demande d'autorisation push native. En savoir plus sur l'[amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), ainsi que les [bonnes pratiques]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) pour préparer les utilisateurs au push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
+| Enregistrer un événement personnalisé | Choisissez un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) à déclencher. Peut être utilisé pour afficher un autre message in-app ou déclencher des messages supplémentaires. |
+| Enregistrer un attribut personnalisé | Choisissez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) à définir pour l'utilisateur actuel. |
+| Demander l'autorisation push | Affiche la demande d'autorisation push native. En savoir plus sur l'[amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), ainsi que les [bonnes pratiques]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices) pour préparer les utilisateurs au push. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic" }
 
 Remarque : les options __Demander l'autorisation push__, __Enregistrer un événement personnalisé__ et __Enregistrer un attribut personnalisé__ nécessitent les versions minimales de SDK suivantes :
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
+
+Pour combiner plusieurs actions ou effectuer des actions SDK supplémentaires non disponibles dans le tableau de bord (comme ajouter à un groupe d'abonnement ou définir un type d'abonnement e-mail), vous pouvez utiliser les [deep links Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
 
 ### Options pour appareils iOS {#ios-device-options}
 
@@ -278,7 +280,7 @@ Le contenu de l'onglet **Style** varie en fonction des options de message choisi
 
 | Mise en forme | Saisie | Description |
 |---|---|---|
-| [Profil de couleur]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Appliquer depuis la galerie de modèles de messages in-app. | Sélectionnez **Apply Template** et choisissez dans la galerie. Puis, sélectionnez **Save**. |
+| [Profil de couleur]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) | Appliquer depuis la galerie de modèles de messages in-app. | Sélectionnez **Apply Template** et choisissez dans la galerie. Puis, sélectionnez **Save**. |
 | Alignement du texte | Gauche, centre ou droite. | Disponible uniquement pour les versions plus récentes du SDK Braze. |
 | En-tête | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. |
 | Texte | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. |
@@ -287,19 +289,19 @@ Le contenu de l'onglet **Style** varie en fonction des options de message choisi
 | Couleur d'arrière-plan | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. C'est l'arrière-plan de l'ensemble du message et il s'affichera clairement derrière le corps de votre texte. |
 | Overlay de l'écran | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. Disponible uniquement pour les versions plus récentes du SDK Braze. C'est le cadre autour de l'ensemble du message. |
 | Chevron ou autre option de fermeture du message | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 5 : Styliser votre message in-app" }
 
-[Prévisualisez et testez]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) toujours votre message avant de l'envoyer.
+[Prévisualisez et testez]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) toujours votre message avant de l'envoyer.
 
 {% alert important %}
-Certains types de messages in-app n'offrent pas d'option de style au-delà du téléchargement de HTML personnalisé (ou CSS ou JavaScript) et de ressources via un fichier ZIP. La [fenêtre modale web avec CSS]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#web-modal-css) vous permet de télécharger ou d'écrire du CSS personnalisé pour créer des messages au style entièrement personnalisé et esthétique.
+Certains types de messages in-app n'offrent pas d'option de style au-delà du téléchargement de HTML personnalisé (ou CSS ou JavaScript) et de ressources via un fichier ZIP. La [fenêtre modale web avec CSS]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#web-modal-css) vous permet de télécharger ou d'écrire du CSS personnalisé pour créer des messages au style entièrement personnalisé et esthétique.
 {% endalert %}
 
 ## Étape 6 : Configurer des paramètres supplémentaires (facultatif) {#step-6-configure-additional-settings-optional}
 
 ### Paires clé-valeur {#key-value-pairs}
 
-Vous pouvez ajouter des [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) pour envoyer des champs personnalisés supplémentaires aux appareils des utilisateurs.
+Vous pouvez ajouter des [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) pour envoyer des champs personnalisés supplémentaires aux appareils des utilisateurs.
 
 ## Étape 7 : Construire le reste de votre Campaign ou Canvas {#step-7-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -308,7 +310,7 @@ Vous pouvez ajouter des [paires clé-valeur]({{site.baseurl}}/user_guide/messagi
 
 Construisez le reste de votre Campaign ; consultez les sections suivantes pour plus de conseils sur la meilleure façon d'utiliser nos outils pour créer des messages in-app.
 
-#### Choisir un déclencheur {#choose-a-trigger}
+### Choisir un déclencheur {#choose-a-trigger}
 
 Sélectionnez l'action qui déclenchera votre message, ainsi que les heures de début et de fin de votre Campaign ou Canvas.
 
@@ -329,9 +331,9 @@ La diffusion des messages in-app est entièrement basée sur les déclencheurs d
 
 Une date et une heure de début doivent être sélectionnées ; cependant, une date de fin est facultative. Une date de fin empêchera ce message in-app spécifique de s'afficher sur les appareils après la date/heure spécifiée.
 
-Consultez notre documentation développeur pour le [déclenchement d'événements côté serveur]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) et la [diffusion locale de messages in-app]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
+Consultez notre documentation développeur pour le [déclenchement d'événements côté serveur]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web) et la [diffusion locale de messages in-app]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery#local-in-app-messages).
 
-##### Déclenchement en ligne versus hors ligne {#online-versus-offline-triggering}
+#### Déclenchement en ligne versus hors ligne {#online-versus-offline-triggering}
 
 Les messages in-app fonctionnent en envoyant le message et les déclencheurs à l'appareil de l'utilisateur. Une fois les messages in-app sur un appareil, ils attendent d'être affichés jusqu'à ce que la condition de déclenchement soit remplie. Si les messages in-app sont déjà mis en cache sur l'appareil de l'utilisateur, vous pouvez même déclencher des messages in-app hors ligne sans connexion à Braze (par exemple, en mode avion).
 
@@ -339,7 +341,7 @@ Les messages in-app fonctionnent en envoyant le message et les déclencheurs à 
 Une fois qu'un message in-app a été arrêté, il est possible que certains utilisateurs continuent à voir le message s'ils ont démarré une session avant l'arrêt du message et effectuent ensuite l'événement déclencheur. Ces utilisateurs seront comptés comme une impression unique même après l'arrêt de la Campaign.
 {% endalert %}
 
-#### Choisir une priorité {#choose-a-priority}
+### Choisir une priorité {#choose-a-priority}
 
 Enfin, après avoir sélectionné l'action qui déclenchera le message in-app, vous devez également définir une priorité. Si deux messages sont déclenchés par la même action, les messages de haute priorité seront programmés pour s'afficher sur les appareils des utilisateurs avant les messages de priorité inférieure.
 
@@ -358,21 +360,21 @@ Pour définir les priorités au sein de ces compartiments, cliquez sur **Set Exa
 
 ![Un exemple de la façon dont la priorité est définie pour une Campaign de message in-app et un Canvas.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
-#### Choisir les utilisateurs à cibler {#choose-users-to-target}
+### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des Segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
+Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des Segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
 
 {% alert note %}
 S'il y a un délai sur l'étape du message in-app, l'appartenance au Segment sera évaluée après le délai. Si l'utilisateur est éligible, le message in-app se synchronisera lors de la prochaine session disponible.
 {% endalert %}
 
-##### Réévaluer l'éligibilité de la Campaign et le Liquid {#re-evaluate-campaign-eligibility-and-liquid}
+#### Réévaluer l'éligibilité de la Campaign et le Liquid {#re-evaluate-campaign-eligibility-and-liquid}
 
 Dans certains scénarios, vous pouvez souhaiter réévaluer l'éligibilité d'un utilisateur lorsqu'il déclenche l'affichage d'un message in-app. Les exemples incluent les Campaigns qui ciblent un attribut personnalisé qui change fréquemment ou les messages qui doivent refléter les changements de profil de dernière minute.
 
 ![Case à cocher « Re-evaluate campaign eligibility before displaying » sélectionnée.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
-Lorsque vous sélectionnez **Re-evaluate campaign eligibility before displaying**, une requête supplémentaire sera envoyée à Braze pour confirmer que l'utilisateur est toujours éligible à ce message avant l'envoi. De plus, toutes les variables [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ou de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) seront modélisées à ce moment-là avant l'affichage du message.
+Lorsque vous sélectionnez **Re-evaluate campaign eligibility before displaying**, une requête supplémentaire sera envoyée à Braze pour confirmer que l'utilisateur est toujours éligible à ce message avant l'envoi. De plus, toutes les variables [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) seront modélisées à ce moment-là avant l'affichage du message.
 
 Cela empêche l'envoi de messages in-app aux utilisateurs dans le cadre de Campaigns expirées ou archivées. Si vous ne réévaluez pas l'éligibilité d'un utilisateur, celui-ci recevra le message in-app même après l'expiration ou l'archivage de la Campaign, car le message est dans votre SDK et attend que les utilisateurs le déclenchent.
 
@@ -382,31 +384,31 @@ L'activation de cette option entraînera un léger délai (< 100 ms) entre le mo
 N'utilisez pas cette option pour les messages qui peuvent être déclenchés lorsqu'un utilisateur est hors ligne ou lorsque la réévaluation de l'éligibilité et du Liquid n'est pas nécessaire.
 {% endalert %}
 
-##### Utiliser des données ajoutées par la REST API dans un message {#use-data-added-by-rest-api-in-a-message}
+#### Utiliser des données ajoutées par la REST API dans un message {#use-data-added-by-rest-api-in-a-message}
 
-Les données utilisateur que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) ajoute dans la même session peuvent parfois être utilisées dans le message in-app de cet utilisateur. Par exemple, si un utilisateur fait partie de l'audience d'un message in-app en attente d'un déclencheur, démarre une session, et que dans cette même session la REST API met à jour son profil, ces nouvelles données peuvent apparaître dans le message in-app lorsque **Re-evaluate campaign eligibility before displaying** est sélectionné. Braze ne modélisera pas le message in-app tant qu'il ne sera pas temps de l'afficher.
+Les données utilisateur que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ajoute dans la même session peuvent parfois être utilisées dans le message in-app de cet utilisateur. Par exemple, si un utilisateur fait partie de l'audience d'un message in-app en attente d'un déclencheur, démarre une session, et que dans cette même session la REST API met à jour son profil, ces nouvelles données peuvent apparaître dans le message in-app lorsque **Re-evaluate campaign eligibility before displaying** est sélectionné. Braze ne modélisera pas le message in-app tant qu'il ne sera pas temps de l'afficher.
 
 Si un déclencheur envoie à la fois des données à Braze et déclenche le message in-app, le message ne peut pas utiliser ces données de profil nouvellement mises à jour, même avec un délai planifié. Utilisez plutôt deux déclencheurs distincts : un pour envoyer les données, et un pour déclencher le message in-app.
 
-#### Choisir les événements de conversion {#choose-conversion-events}
+### Choisir les événements de conversion {#choose-conversion-events}
 
-Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une Campaign. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion sera comptabilisée si l'utilisateur effectue l'action spécifiée.
+Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), après avoir reçu une Campaign. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion sera comptabilisée si l'utilisateur effectue l'action spécifiée.
 
 {% endtab %}
 {% tab Canvas %}
 
-Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de notre documentation Canvas.
+Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
 
-Pour des informations sur les options de messages in-app spécifiques à Canvas, consultez [Messages in-app dans Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#messages-in-canvas).
+Pour des informations sur les options de messages in-app spécifiques à Canvas, consultez [Messages in-app dans Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 
 {% endtab %}
 {% endtabs %}
 
 ## Étape 8 : Vérifier et déployer {#step-8-review-and-deploy}
 
-Après avoir terminé la construction de votre Campaign ou Canvas, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message), puis envoyez-la !
+Après avoir terminé la construction de votre Campaign ou Canvas, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message), puis envoyez-la !
 
-Ensuite, consultez [Rapports sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) pour découvrir comment accéder aux résultats de vos campagnes de messages.
+Ensuite, consultez [Rapports sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) pour découvrir comment accéder aux résultats de vos campagnes de communication.
 
 ## Bon à savoir {#things-to-know}
 

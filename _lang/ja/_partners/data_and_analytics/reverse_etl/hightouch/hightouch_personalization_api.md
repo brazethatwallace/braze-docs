@@ -10,13 +10,13 @@ search_tag: Partner
 
 > Hightouchの[Personalization API](https://hightouch.com/docs/destinations/personalization-api)は、クラウドデータウェアハウスの任意のデータセットに基づいて低レイテンシーのデータAPIをホストできるマネージドサービスです。
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![データウェアハウスからHightouchを経由してモバイルアプリ、Webエクスペリエンス、ダイナミックメールへのデータフローを示すHightouch Personalization APIアーキテクチャ図。]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-BrazeとHightouchの統合により、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)とこのAPIを使用して、送信時に最新の顧客またはオブジェクトのデータをキャンペーンやキャンバスに取り込むことができます。
+BrazeとHightouchの統合により、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)とこのAPIを使用して、送信時に最新の顧客またはオブジェクトのデータをキャンペーンやキャンバスに取り込むことができます。
 
 HightouchのPersonalization APIは、Brazeの設定で使用するRESTエンドポイントを提供します。具体的には、Brazeのコネクテッドコンテンツを使用してPersonalization APIに対するGETリクエストを実行し、特定の識別子に関連するすべての情報を取得できます。このAPIによって公開されるデータは、顧客、製品、またはその他のオブジェクトデータを表す場合があります。
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Snowflake、BigQuery、RedshiftからHightouch Personalization APIを経由してBrazeコネクテッドコンテンツへのデータフローを示す図。]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## 前提条件 {#prerequisites}
 
@@ -63,7 +63,7 @@ Hightouchの[ソース](https://hightouch.com/docs/getting-started/concepts#sour
 
 詳細については、関連するソースの[ドキュメント](https://hightouch.com/docs)を参照してください。
 
-### ステップ2: モデルデータ {#step-2-model-data}
+### ステップ2: データをモデリングする {#step-2-model-data}
 
 Hightouchモデルは、ソースからどのようなデータを取得するかを定義します。新しいモデルをセットアップするには、以下の手順に従います。
 
@@ -71,24 +71,24 @@ Hightouchモデルは、ソースからどのようなデータを取得する�
 2. 次に[モデリング方法](https://hightouch.com/docs/models/creating-models)を選択します。すべての情報を1つのテーブルに結合する必要があるため、ビジュアルテーブルセレクタを使って定義できます。あるいは、必要なカラムだけを含むSQLを書いたり、既存のdbtモデル、Looker Looks、Sigmaワークブックに頼ることもできます。<br><br>
 3. 続行する前に、モデルをプレビューして、目的のデータをクエリしていることを確認します。デフォルトでは、Brazeはプレビューを最初の100レコードに制限しています。データを検証したら、**Continue** をクリックします。<br><br>
 4. モデルに名前を付けます（例:「User recommendations」）。<br><br>
-5. 最後に主キーを選択し、**Finish** をクリックします。主キーは、一意の識別子を持つ列である必要があります。これは、特定のユーザーのレコメンデーションを取得するためにPersonalization APIを呼び出すときに使用するフィールドでもあります。
+5. 最後に主キーを選択し、**Finish** をクリックします。主キーは、一意の識別子を持つカラムである必要があります。これは、特定のユーザーのレコメンデーションを取得するためにPersonalization APIを呼び出すときに使用するフィールドでもあります。
 
 ### ステップ3: Personalization APIを設定する {#step-3-configure-personalization-api}
 
 APIでリクエストを受信するための準備は、次の2つのステップからなります。
-- お客様のインフラに最も近い地域でPersonalization APIを有効にする
-- Hightouchが管理するキャッシュでマテリアライズされるべきモデルを定義するために同期を作成する
+- お客様のインフラに最も近いリージョンでPersonalization APIを有効にする
+- Hightouchが管理するキャッシュでマテリアライズするモデルを定義する同期を作成する
 
 以下の手順に従って、両方を完了させます。
 
 1. Hightouchで[**Destinations**](https://app.hightouch.com/destinations)に移動し、作成済みのHightouch Personalization APIを選択します。この送信先が有効になっていない場合は、[Hightouchサポート](mailto:friends@hightouch.com)にお問い合わせください。<br><br>
-2. 次に、適切な地域を選択します。インフラに最も近い地域を選択することで、応答時間を短縮できます。インフラに近いリージョンが表示されない場合は、[Hightouchサポート](mailto:friends@hightouch.com)にお問い合わせください。<br><br>
+2. 次に、適切なリージョンを選択します。インフラに最も近いリージョンを選択することで、応答時間を短縮できます。インフラに近いリージョンが表示されない場合は、[Hightouchサポート](mailto:friends@hightouch.com)にお問い合わせください。<br><br>
 3. [**Syncs** 概要ページ](https://app.hightouch.com/syncs)に移動し、**Add sync** ボタンをクリックします。次に、該当するモデルと、以前に設定した送信先を選択します。<br><br>
 4. 英数字のコレクション名を入力します。コレクションは概念的にはデータベースのテーブルに似ています。各コレクションは特定のデータタイプ（顧客や請求書など）を表します。コレクション名には英数字のみを使用する必要があり、Personalization APIエンドポイントの一部になります。<br><br>
-5. 次に、モデルのどの列をレコード検索のプライマリインデックスとして使用するかを指定します。このフィールドは、コレクション内の各レコードを一意に識別する必要があり、多くの場合、モデルの主キーと同じです。Personalization APIは、複数のインデックスでの検索をサポートしています。たとえば、`user_id`、`anonymous_id`、または`email_address`を使用して顧客プロファイルを取得できます。複数のインデックスを有効にする場合は、[Hightouchサポート](mailto:friends@hightouch.com)にご連絡ください。<br><br>
+5. 次に、モデルのどのカラムをレコード検索のプライマリインデックスとして使用するかを指定します。このフィールドは、コレクション内の各レコードを一意に識別する必要があり、多くの場合、モデルの主キーと同じです。Personalization APIは、複数のインデックスでの検索をサポートしています。たとえば、`user_id`、`anonymous_id`、または`email_address`を使用して顧客プロファイルを取得できます。複数のインデックスを有効にする場合は、[Hightouchサポート](mailto:friends@hightouch.com)にご連絡ください。<br><br>
 6. フィールドマッパーを使用して、APIレスポンスペイロードに含めるモデルのカラムを指定します。これらのフィールドの名前を変更したり、Liquidテンプレート言語を使用して変換を適用するために高度なマッパーを使用したりできます。<br><br>
 7. ユースケースに適した[削除動作](https://www.hightouch.com/docs/destinations/personalization-api#delete-behavior)を選択します。<br><br>
-8. 最後に**Continue**をクリックし、[同期スケジュール](https://hightouch.com/docs/syncs/schedule-sync-ui)を選択します。
+8. 最後に **Continue** をクリックし、[同期スケジュール](https://hightouch.com/docs/syncs/schedule-sync-ui)を選択します。
 
 Hightouchは、ウェアハウス内のデータをマネージドデータベースに同期し、Personalization APIを介して公開します。
 
@@ -124,7 +124,7 @@ Liquidテンプレートを使って、JSONペイロードで返されたプロ�
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Liquidテンプレートを使って、JSONペイロードで返されたプロ�
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ Liquidテンプレートを使って、JSONペイロードで返されたプロ�
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Call personalization API through Braze Connected Content" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeコネクテッドコンテンツを通じてPersonalization APIを呼び出す" }
 
 ## トラブルシューティング {#troubleshooting}
 

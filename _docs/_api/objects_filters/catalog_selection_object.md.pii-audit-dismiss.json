@@ -1,0 +1,5 @@
+{
+  "reason": "catalog_selection_object.md uses sequential numeric external_id 12345678 as a documented API example value, not a real user identifier.",
+  "dismiss_all": false,
+  "dismiss_ids": ["f3c96ae8"]
+}

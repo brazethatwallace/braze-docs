@@ -40,7 +40,7 @@ When using the Simon and Braze integration, Simon only sends deltas on each sync
 
 To use the Braze integration, first authenticate your Braze account in Simon:
 
-1. From the left navigation, click **Integrations** then scroll to Braze.
+1. From the navigation menu, click **Integrations** then scroll to Braze.
 2. Enter your Braze [REST API key][2] and your [dashboard URL][3].
 3. Click **Save Changes**.
 

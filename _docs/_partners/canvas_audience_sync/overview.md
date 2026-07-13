@@ -88,6 +88,22 @@ After selecting your Audience Sync Pro destinations, connect your selected partn
 
 Lastly, create your Audience Sync step in Canvas using this Audience Sync Pro destination.
 
+### Batching and latency
+
+When users enter an Audience Sync step in Canvas, Braze enqueues them into a batching system that aggregates user updates before dispatching to the partner API. A batch is sent when one of the following occurs:
+
+- **The batch reaches its size limit.** This varies by partner:
+  - Default supports up to 2,000 users
+  - Google Ads supports up to 10,000 users
+  - Facebook and TikTok support up to 2,000 users
+- **The batch latency timer expires.** The default is one hour, but this is configurable per partner. For example, The Trade Desk uses 10 minutes.
+
+High-volume Canvases may dispatch sooner because batches fill faster. Lower-volume Canvases wait until the latency timer expires. Braze doesn't guarantee a fixed dispatch time; the timing depends on batch size and the configured latency window.
+
+Braze records dispatch activity in internal logs for monitoring and troubleshooting, but these timestamps are not exposed as queryable fields. After Braze dispatches a batch to the partner API, the partner processes the audience update according to their own Service Level Agreements—typically 6-48 hours. 
+
+Braze doesn't receive confirmation from partners that individual users have been matched or synced. Partner responses are HTTP acknowledgments of receipt, not match confirmations. To verify that an audience has been populated, check the partner's ad platform (such as Google Ads Audience Manager or Meta Business Manager).
+
 ### Audience Sync error emails
 
 If the error is related to the overall partner integration (such as an authorization issue), an email is sent to the user who connected the integration. If that user no longer exists, then the administrators will receive the emails. 
@@ -102,7 +118,7 @@ To configure who will receive these emails, contact your customer success manage
 This documentation is not intended to provide, nor may it be relied upon as providing legal advice. The use of Audience Sync is subject to specific legal requirements. To ensure that you are using it in compliance with all applicable laws, you should seek the advice of your legal counsel.
 {% endalert %}
 
-When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. Below we list some options.
+When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following options can help.
 
 If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), you will be able to use the "Ads Tracking Enabled" filter. Select the value as `true` to only send users into Audience Sync destinations where they have opted in.
 

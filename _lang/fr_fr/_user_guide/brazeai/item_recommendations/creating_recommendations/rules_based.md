@@ -11,10 +11,10 @@ page_order: 2
 
 ## À propos des recommandations de produits basées sur des règles {#about-rules-based-item-recommendations}
 
-Un moteur de recommandation basé sur des règles utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) et les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/) Braze ou le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
+Un moteur de recommandation basé sur des règles utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) et les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs) Braze ou le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
 
 {% alert important %}
-Les recommandations basées sur des règles reposent sur une logique fixe que vous devez définir manuellement. Cela signifie que vos recommandations ne s'ajusteront pas à l'historique d'achat et aux goûts d'un utilisateur, à moins que vous ne mettiez à jour la logique.<br><br>Pour créer des recommandations personnalisées basées sur l'intelligence artificielle qui s'adaptent automatiquement à l'historique de l'utilisateur, consultez les [recommandations de produits basées sur l'IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+Les recommandations basées sur des règles reposent sur une logique fixe que vous devez définir manuellement. Cela signifie que vos recommandations ne s'ajusteront pas à l'historique d'achat et aux goûts d'un utilisateur, à moins que vous ne mettiez à jour la logique.<br><br>Pour créer des recommandations personnalisées basées sur l'IA qui s'adaptent automatiquement à l'historique de l'utilisateur, consultez les [recommandations de produits basées sur l'IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 {% endalert %}
 
 ## Options du moteur de recommandation {#recommendation-engine-options}
@@ -83,7 +83,7 @@ Créez votre moteur de recommandation en utilisant soit un catalogue, soit du Co
 {% tab using a catalog %}
 Pour créer votre moteur de recommandation à l'aide d'un catalogue :
 
-1. [Créez un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) de produits.
+1. [Créez un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create) de produits.
 2. Pour chaque produit, ajoutez une liste de produits recommandés sous forme de chaîne de caractères séparée par un délimiteur (tel qu'une barre verticale `|`) dans une colonne nommée « product_recommendations ».
 3. Transmettez au catalogue l'ID du produit pour lequel vous souhaitez trouver des recommandations.
 4. Obtenez la valeur `product_recommendations` pour ce produit de catalogue et divisez-la par le délimiteur à l'aide d'un filtre Liquid split.
@@ -102,11 +102,9 @@ Imaginons que vous ayez une application de produits diététiques et que vous so
 | **image_url** | L'image qui correspond à la recette. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
-Une fois le catalogue chargé dans Braze, vérifiez l'aperçu d'une série de produits du catalogue pour confirmer que les informations importées sont exactes. Les éléments peuvent apparaître dans un ordre aléatoire dans l'aperçu, mais cela n'affectera pas le résultat du moteur de recommandation.
+Une fois le catalogue chargé dans Braze, confirmez que les informations importées sont exactes en sélectionnant votre catalogue depuis la page Catalogues et en ouvrant l'onglet **Prévisualisation**. Un nombre limité d'éléments apparaît dans l'aperçu et peut être affiché dans un ordre aléatoire, mais cela n'affecte pas le résultat du moteur de recommandation.
 
-![Exemple de catalogue dans Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
-
-Créez une campagne de cartes de contenu. Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
+Une fois le catalogue en place, [créez une campagne de cartes de contenu]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
 
 {% subtabs local %}
 {% subtab title %}
@@ -186,7 +184,7 @@ Pour créer votre moteur de recommandation à l'aide du Contenu connecté, comme
 |------|-----------|
 | **Convertir une feuille de calcul** | Convertissez une feuille de calcul en un endpoint API JSON en utilisant un service comme SheetDP, et prenez note de l'URL API ainsi générée. |
 | **Créer un endpoint personnalisé** | Créez, hébergez et maintenez un endpoint interne personnalisé. |
-| **Utiliser un moteur tiers** | Utilisez un moteur de recommandation tiers, tel que l'un de nos [partenaires Alloy]({{site.baseurl}}/partners/message_personalization/), notamment [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/), et d'autres. |
+| **Utiliser un moteur tiers** | Utilisez un moteur de recommandation tiers, tel que l'un de nos [partenaires Alloy]({{site.baseurl}}/partners/message_personalization), notamment [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield), et d'autres. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
 Ensuite, utilisez Liquid dans votre message pour appeler votre endpoint, faire correspondre une valeur d'attribut personnalisé avec le profil d'un utilisateur et obtenir la recommandation correspondante.
@@ -214,7 +212,7 @@ Remplacez les éléments suivants :
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
 {% alert note %}
-Il s'agit d'un exemple de base que vous devrez peut-être modifier en fonction de vos besoins spécifiques et de la structure de vos données. Pour obtenir des conseils plus détaillés, reportez-vous à la [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ou consultez un développeur.
+Il s'agit d'un exemple de base que vous devrez peut-être modifier en fonction de vos besoins spécifiques et de la structure de vos données. Pour obtenir des conseils plus détaillés, reportez-vous à la [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou consultez un développeur.
 {% endalert %}
 
 ### Exemple

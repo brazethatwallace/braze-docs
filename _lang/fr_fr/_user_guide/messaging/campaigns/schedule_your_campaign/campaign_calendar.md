@@ -34,8 +34,8 @@ Le calendrier d'envoi affiche toutes vos campagnes planifiées pour le mois en c
 Les messages in-app sont toujours déclenchés par une action, ils n'apparaissent donc pas dans le calendrier d'envoi.
 {% endalert %}
 
-Changez de mois en sélectionnant <i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **Voir le mois précédent** ou <i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **Voir le mois suivant**. Pour revenir au mois en cours, sélectionnez **Today**.
+Changez de mois en sélectionnant <i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **Voir le mois précédent** ou <i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **Voir le mois suivant**. Pour revenir au mois en cours, sélectionnez **Aujourd'hui**.
 
 ![Le calendrier d'envoi affichant toutes les campagnes planifiées du mois en cours.]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-Consultez ou modifiez vos campagnes en sélectionnant la campagne dans le calendrier. Pour en savoir plus, consultez [Gérer les campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/).
+Consultez ou modifiez vos campagnes en sélectionnant la campagne dans le calendrier. Pour en savoir plus, consultez [Gérer les campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns).

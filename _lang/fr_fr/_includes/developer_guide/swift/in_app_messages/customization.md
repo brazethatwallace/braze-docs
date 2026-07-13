@@ -8,7 +8,7 @@ Pour personnaliser la présentation des messages in-app et réagir à divers év
 
 ### Étape 1 : Implémenter le protocole `BrazeInAppMessageUIDelegate` {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
 
-Tout d'abord, implémentez le protocole `BrazeInAppMessageUIDelegate` et toutes les méthodes correspondantes que vous souhaitez. Dans l'exemple ci-dessous, nous implémentons ce protocole dans la classe `AppDelegate` de notre application.
+Tout d'abord, implémentez le protocole `BrazeInAppMessageUIDelegate` et toutes les méthodes correspondantes que vous souhaitez. Dans l'exemple ci-dessous, ce protocole est implémenté dans la classe `AppDelegate` de l'application.
 
 {% tabs %}
 {% tab swift %}
@@ -72,7 +72,7 @@ La propriété `clickAction` de votre `Braze.InAppMessage` est définie par déf
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | Ouvre l'URL donnée dans un navigateur externe. Si `useWebView` est défini sur `true`, l'URL s'ouvrira dans une vue web. |
 | `.none` | Le message sera fermé lorsque l'utilisateur cliquera. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types d'action au clic" }
 
 {% alert important %}
 Pour les messages in-app contenant des boutons, le `clickAction` du message sera également inclus dans le payload final si l'action de clic est ajoutée avant l'ajout du texte du bouton.
@@ -211,7 +211,7 @@ Par défaut, les messages in-app contextuels peuvent être fermés d'un simple g
 Ce comportement de balayage est intégré par défaut dans la [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) de `BrazeInAppMessageUI` et s'applique uniquement aux messages in-app contextuels. Les messages in-app modaux et plein écran ne prennent pas en charge le balayage pour fermer. Pour personnaliser davantage la vue contextuelle, y compris le comportement de balayage, vous pouvez modifier les [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) ou fournir une vue personnalisée via le sous-classement.
 
 {% alert note %}
-Appuyer en dehors d'un message contextuel ne le ferme pas. Pour les messages in-app modaux ou plein écran, vous pouvez activer la fermeture par touche extérieure à l'aide de l'attribut `dismissOnBackgroundTap` décrit ci-dessous.
+Appuyer en dehors d'un message contextuel ne le ferme pas. Pour les messages in-app modaux ou plein écran, vous pouvez activer la fermeture par touche extérieure à l'aide de l'attribut `dismissOnBackgroundTap` décrit dans la section suivante.
 {% endalert %}
 
 ## Personnalisation des fermetures modales {#customizing-modal-dismissals}
@@ -241,7 +241,7 @@ La valeur par défaut est `false`. Cela détermine si le message in-app modal se
 |----------|-------------|
 | `true`         | Les messages in-app modaux seront fermés par touche extérieure.     |
 | `false`        | Par défaut, les messages in-app modaux ne seront pas fermés par touche extérieure. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnalisation des fermetures modales" }
 
 Pour plus de détails sur la personnalisation des messages in-app, consultez cet [article](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization).
 
@@ -358,7 +358,7 @@ Configurez `BrazeInAppMessageUI.DisplayChoice` pour qu'il renvoie l'une des vale
 | `.reenqueue`                        | Le message ne sera pas affiché et sera replacé en haut de la pile.                                       |
 | `.later`                            | Le message ne sera pas affiché et sera replacé en haut de la pile. (Obsolète, veuillez utiliser `.reenqueue`) |
 | `.discard`                          | Le message sera supprimé et ne sera pas affiché.                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnalisation de la synchronisation de l'affichage" }
 
 {% alert tip %}
 Pour un exemple d'`InAppMessageUI`, consultez notre [dépôt Swift Braze SDK](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) et [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
@@ -373,7 +373,7 @@ Pour les messages in-app `Full`, `FullImage` et `HTML`, le SDK masque la barre d
 | `.auto`                             | La vue du message décide de l'état masqué de la barre d'état.                                 |
 | `.hidden`                           | Toujours masquer la barre d'état.                                                           |
 | `.visible`                          | Toujours afficher la barre d'état.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Masquer la barre d'état" }
 
 ## Désactivation du mode sombre {#disabling-dark-mode}
 
@@ -487,12 +487,12 @@ func inAppMessage(
 Vous pouvez utiliser les messages in-app dans une Campaign pour demander aux utilisateurs de laisser un avis sur l'App Store.
 
 {% alert note %}
-Étant donné que cet exemple d'invite remplace le comportement par défaut de Braze, nous ne pouvons pas suivre automatiquement les impressions si elle est implémentée. Vous devez [enregistrer vos propres analyses]({{site.baseurl}}/developer_guide/analytics/).
+Étant donné que cet exemple d'invite remplace le comportement par défaut de Braze, nous ne pouvons pas suivre automatiquement les impressions si elle est implémentée. Vous devez [enregistrer vos propres analyses]({{site.baseurl}}/developer_guide/analytics).
 {% endalert %}
 
 ### Étape 1 : Définir le délégué du message in-app {#step-1-set-the-in-app-message-delegate}
 
-Tout d'abord, définissez [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required) dans votre application.
+Tout d'abord, définissez [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required) dans votre application.
 
 ### Étape 2 : Désactiver le message par défaut d'évaluation de l'App Store {#step-2-disable-the-default-app-store-review-message}
 
@@ -531,9 +531,9 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% endtabs %}
 
-### Étape 3 : Créer un lien profond {#step-3-create-a-deep-link}
+### Étape 3 : Créer un deep link {#step-3-create-a-deep-link}
 
-Dans votre code de gestion des liens profonds, ajoutez le code suivant pour traiter le lien profond `{YOUR-APP-SCHEME}:app-store-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
+Dans votre code de gestion des deep links, ajoutez le code suivant pour traiter le deep link `{YOUR-APP-SCHEME}:app-store-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
 
 {% tabs %}
 {% tab swift %}
@@ -573,10 +573,10 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 Créez ensuite une campagne de communication in-app avec les éléments suivants :
 
 - La paire clé-valeur `"AppStore Review" : "true"`
-- Le comportement au clic défini sur « Deep Link Into App », en utilisant le lien profond `{YOUR-APP-SCHEME}:app-store-review`.
+- Le comportement au clic défini sur « Deep Link Into App », en utilisant le deep link `{YOUR-APP-SCHEME}:app-store-review`.
 
 {% endraw %}
 
 {% alert tip %}
-Apple limite les invites d'évaluation de l'App Store à un maximum de trois fois par an pour chaque utilisateur. Votre Campaign doit donc être [limitée en fréquence]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites d'évaluation de l'App Store. Par conséquent, votre invite d'évaluation personnalisée ne doit pas promettre qu'une invite d'évaluation native de l'App Store s'affichera ni demander directement un avis.
+Apple limite les invites d'évaluation de l'App Store à un maximum de trois fois par an pour chaque utilisateur. Votre Campaign doit donc être [limitée en fréquence]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites d'évaluation de l'App Store. Par conséquent, votre invite d'évaluation personnalisée ne doit pas promettre qu'une invite d'évaluation native de l'App Store s'affichera ni demander directement un avis.
 {% endalert %}

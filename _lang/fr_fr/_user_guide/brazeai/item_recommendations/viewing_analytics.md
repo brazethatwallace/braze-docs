@@ -22,7 +22,7 @@ Vous pouvez consulter les analyses de votre recommandation pour voir quels artic
 
 Il s'agit d'indicateurs liés à l'audience de votre recommandation, qui comprennent la précision, la couverture et le type de recommandation.
 
-![Indicateurs d'audience des recommandations affichant la précision (25,3 %), la couverture (54,3 %) et les types de recommandations répartis entre les articles personnalisés et les articles les plus populaires.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Indicateurs d'audience des recommandations affichant la précision, la couverture et les types de recommandations répartis entre les articles personnalisés et les articles les plus populaires.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Pour plus d'informations, reportez-vous au tableau suivant :
 
@@ -43,9 +43,9 @@ Pour plus d'informations, reportez-vous au tableau suivant :
 
 | Indicateur | Description |
 | ------------------- | ---------- |
-| **Articles personnalisés**<br><br>**Articles les plus récents** | Cette colonne répertorie chaque article du catalogue par ordre décroissant de fréquence de recommandation aux utilisateurs. Elle indique également le nombre d'utilisateurs auxquels le modèle a attribué chaque article.<br><br>Les articles **personnalisés** ou les **plus récents** seront affichés en fonction du [type de recommandation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/). |
+| **Articles personnalisés**<br><br>**Articles les plus récents** | Cette colonne répertorie chaque article du catalogue par ordre décroissant de fréquence de recommandation aux utilisateurs. Elle indique également le nombre d'utilisateurs auxquels le modèle a attribué chaque article.<br><br>Les articles **personnalisés** ou les **plus récents** seront affichés en fonction du [type de recommandation]({{site.baseurl}}/user_guide/brazeai/item_recommendations). |
 | **Articles les plus populaires** | Cette colonne présente chaque article du catalogue par ordre décroissant de popularité. La popularité fait ici référence aux articles du catalogue avec lesquels les utilisateurs interagissent le plus souvent dans l'ensemble de l'espace de travail. Les articles les plus populaires sont utilisés comme solution de repli lorsque les recommandations personnalisées ou les plus récentes ne peuvent pas être calculées pour un utilisateur individuel. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Items" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Articles" }
 
 ### Aperçu {#overview}
 

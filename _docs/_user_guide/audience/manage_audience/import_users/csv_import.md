@@ -43,7 +43,7 @@ When importing your customer data, you can use an `external_id` to serve as each
 - Download: [CSV Events Import Template: External ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
 
 {% alert note %} 
-If you’re uploading a mix of users with an `external_id` and users without, you need to create one CSV for each import. One CSV can’t contain both `external_ids` and user aliases.
+If you’re uploading a mix of users with an `external_id` and users without, you need to create one CSV for each import. One CSV can’t contain both `external_id` and user aliases.
 {% endalert %}
 {% endtab %}
 
@@ -58,14 +58,14 @@ If you are uploading or updating user profiles that are alias only, you must hav
 
 | `user_alias_name` | `user_alias_label` | `last_name` | `email` | sample_attribute |
 | :---- | :---- | :---- | :---- | :---- |
-| 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
-| 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
+| 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
+| 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 2: Choose an identifier #choose-an-identifier" }
 
 When you provide both a `user_alias_name` and `user_alias_label` in your import, Braze updates any existing user with the same `user_alias_name` and `user_alias_label`. If a user isn’t found, Braze creates a newly identified user with that `user_alias_name` set.
 
 {% alert important %}
-You can’t use a CSV import to update an existing user with a `user_alias_name` if they already have an `external_id`. Instead, this creates a new user profile with the associated `user_alias_name`. To associate an alias-only user with an `external_id`, use the [Identify users endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/).
+You can’t use a CSV import to update an existing user with a `user_alias_name` if they already have an `external_id`. Instead, this creates a new user profile with the associated `user_alias_name`. To associate an alias-only user with an `external_id`, use the [Identify users endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 Download: [CSV Attributes Import Template: User Alias]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -97,9 +97,9 @@ You can omit an external ID or user alias and use either an email address or pho
 If you include both email addresses and phone numbers in your CSV file, the email address is prioritized over the phone number when looking up profiles.
 {% endalert %}
 
-If an existing profile has that email address or phone number, that profile is updated, and Braze doesn't create a new profile. If there are multiple profiles with that same email address, Braze will use the same logic as the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) where the most recently updated profile will be updated.
+If an existing profile has that email address or phone number, that profile is updated, and Braze doesn't create a new profile. If there are multiple profiles with that same email address, Braze will use the same logic as the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) where the most recently updated profile will be updated.
 
-If a profile with that email address or phone number doesn’t exist, Braze creates a new profile with that identifier. You can use the [`/users/identify` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) to identify this profile later. To delete a user profile, you can also use the [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) endpoint.
+If a profile with that email address or phone number doesn’t exist, Braze creates a new profile with that identifier. You can use the [`/users/identify` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) to identify this profile later. To delete a user profile, you can also use the [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) endpoint.
 {% endtab %}
 {% endtabs %}
 
@@ -139,7 +139,7 @@ The following data types can be used as custom attributes for CSV import. Column
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
 
 {% alert important %}
-Arrays, push tokens, and custom event data types aren’t supported in user import, as commas in your CSV file will be interpreted as a column separator and cause errors while parsing your file.<br><br>To upload these kinds of values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) instead.
+Arrays, push tokens, and custom event data types aren’t supported in user import, as commas in your CSV file will be interpreted as a column separator and cause errors while parsing your file.<br><br>To upload these kinds of values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) instead.
 {% endalert %} 
 
 #### Default attributes
@@ -149,7 +149,7 @@ When importing default attributes, the column headers you use must exactly match
 {% endalert %}
 
 {% alert tip %}
-For the complete list of standard attributes Braze recognizes (across SDK, API, CSV, and Cloud Data Ingestion), see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). The following table covers only the subset that can be set through CSV import.
+For the complete list of standard attributes Braze recognizes (across SDK, API, CSV, and Cloud Data Ingestion), see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). The following table covers only the subset that can be set through CSV import.
 {% endalert %}
 
 The following default attributes are available for user import.
@@ -161,13 +161,13 @@ The following default attributes are available for user import.
 | `user_alias_label` | String | A common label by which to group user aliases. Must be used with `user_alias_name`. | Conditionally. See [Required Identifiers](#required-identifiers-attributes). |
 | `first_name` | String | The first name of your users as they have indicated (for example, `Jane`). | No |
 | `last_name` | String | The last name of your users as they have indicated (for example, `Doe`). | No |
-| `email` | String | The email of your users as they have indicated (for example, `jane.doe@braze.com`). | No |
+| `email` | String | The email of your users as they have indicated (for example, `jane.doe@example.com`). | No |
 | `country` | String | Country codes must be passed to Braze in the ISO-3166-1 alpha-2 standard (for example, `GB`). | No |
 | `dob` | String | Must be passed in the format “YYYY-MM-DD” (for example, `1980-12-21`). This imports your user’s Date of Birth and enables you to target users whose birthday is “today”. | No |
 | `gender` | String | “M”, “F”, “O” (other), “N” (not applicable), “P” (prefer not to say), or nil (unknown). | No |
 | `home_city` | String | The home city of your users as they have indicated (for example, `London`). | No |
-| `language` | String | Language must be passed to Braze in the ISO-639-1 standard (for example, `en`). Refer to our [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/). | No |
-| `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) for formatting guidance. | No |
+| `language` | String | Language must be passed to Braze in the ISO-639-1 standard (for example, `en`). Refer to our [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | No |
+| `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) for formatting guidance. | No |
 | `email_open_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the open tracking pixel from being added to all future emails sent to this user. Available for SparkPost and SendGrid only. | No |
 | `email_click_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the click tracking for all links within a future email, sent to this user. Available for SparkPost and SendGrid only. | No |
 | `email_subscribe` | String | Available values are `opted_in` (explicitly registered to receive email messages), `unsubscribed` (explicitly opted out of email messages), and `subscribed` (neither opted in nor out). | No |
@@ -180,11 +180,11 @@ The following default attributes are available for user import.
 
 #### Updating subscription group status (optional)
 
-Additionally, you can add users to email or SMS subscription groups through user import. This is particularly useful for SMS, because a user must be enrolled into an SMS subscription group to be messaged with the SMS channel. For more information, refer to [SMS subscription groups](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Additionally, you can add users to email or SMS subscription groups through user import. This is particularly useful for SMS, because a user must be enrolled into an SMS subscription group to be messaged with the SMS channel. For more information, refer to [SMS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
 If you are updating subscription group statuses, you must have the following two columns in your CSV:
 
-- `subscription_group_id`: The `id` of the [subscription group](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).  
+- `subscription_group_id`: The `id` of the [subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).  
 - `subscription_state`: Available values are `unsubscribed` (not in the subscription group) or `subscribed` (in the subscription group).
 
 | external_id | first_name | subscription_group_id | subscription_state |
@@ -202,7 +202,7 @@ Only a single `subscription_group_id` can be set per row in the user import. Dif
 {% tab custom events %}
 #### Required identifiers {#required-identifiers-custom-events}
 
-While `external_id` is not required, you **must** include **one** of the following identifiers as a header in your CSV file. For details about each one, review [Choose an identifier](#choose-an-identifier).
+While `external_id` is not required, your CSV file must include a user identifier that maps to **one** of the following identifiers. For details about each one, review [Choose an identifier](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -212,9 +212,9 @@ While `external_id` is not required, you **must** include **one** of the followi
 
 #### Custom event fields
 
-In addition to the following, your CSV may also contain additional column headers for event properties. These properties should have a column header of `<event_name>.properties.<property name>.`
+In addition to the standard fields listed in the following table, your CSV may also contain additional column headers for event properties. These properties should have a column header of `<event_name>.properties.<property name>` or `<property name>`.
 
-For example, the custom event `trip_booked` may have the properties `destination` and `duration`. These can be imported by having the column headers `trip_booked.properties.destination` and `trip_booked.properties.duration`.
+For example, the custom event `trip_booked` may have the properties `destination` and `duration`. You can import these using the column headers `trip_booked.properties.destination` and `trip_booked.properties.duration`. You can also represent properties in the headers as `<property name>`. Braze detects the relevant properties for each event based on whether there is a value in the corresponding CSV cell.
 
 | User Profile Field | Data Type | Information | Required? |
 | :---- | :---- | :---- | :---- |
@@ -222,11 +222,12 @@ For example, the custom event `trip_booked` may have the properties `destination
 | `braze_id` | String | A Braze assigned identifier for your user. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
 | `user_alias_name` | String | A unique user identifier for anonymous users, that's an alternative to `external_id`. Must be used with `user_alias_label`. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
 | `user_alias_label` | String | A common label by which to group user aliases. Must be used with `user_alias_name`. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
-| `email` | String | The email of your users as they have indicated (for example, `jane.doe@braze.com`). | No, and can only be used in the absence of other identifiers. See the following note. |
-| `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) for formatting guidance. | No, and can only be used in the absence of other identifiers. See the following note. |
+| `email` | String | The email of your users as they have indicated (for example, `jane.doe@example.com`). | No, and can only be used in the absence of other identifiers. See the following note. |
+| `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) for formatting guidance. | No, and can only be used in the absence of other identifiers. See the following note. |
 | `name` | String | A custom event of your users. | Yes |
 | `time` | String | The time of the event. May be passed in one of the following ISO-8601 formats: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS" (for example, 2019-11-20T18:38:57) | Yes |
 | `<event name>.properties.<property name>` | Multiple | An event property associated with a custom event. An example is `trip_booked.properties.destination` | No |
+| `<property name>` | Multiple | An event property that you can use across multiple event types. An example is `destination`. This property is associated with an event when there is a non-null value in the corresponding CSV cell. | No |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Custom event fields" }
 
 #### Format requirements for custom events
@@ -235,11 +236,11 @@ When importing custom events using CSV, you must format your file according to t
 
 ##### Understanding custom event formatting
 
-It is important to correctly format your custom events CSV using dot notation so each property is mapped to the right event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
+Correctly format your custom events CSV using dot notation, or with a non-null value in the corresponding cell, so Braze maps each property to the end event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
 
 ##### Use dot notation for event properties
 
-Dot notation is used to define the hierarchical relationship between a custom event and its properties. This formatting convention allows you to import structured event data that includes specific attributes for each event.
+Use dot notation to define the hierarchical relationship between a custom event and its properties. This formatting convention allows you to import structured event data that includes specific attributes for each event.
 
 The dot notation format follows this structure: `event_name.properties.property_name`
 
@@ -257,6 +258,8 @@ For a custom event called `rented_movie` with properties `movie_name` and `genre
 - `rented_movie.properties.genre`
 
 This notation tells Braze to create a custom event named `rented_movie` and attach the properties `movie_name` and `genre` to that specific event instance.
+
+If you use a combination of dot notation and non-dot notation for importing properties, your CSV upload may fail because Braze detects duplicate headers. This occurs when you have headers `rented_movie.properties.movie_name` and `movie_name` within the same file. To avoid this, use only one format of properties for your headers.
 
 ##### One event per row
 
@@ -289,21 +292,19 @@ In this example:
 
 To upload your file, select **Attributes** or **Events**, click **Browse Files**, and upload your CSV. Braze displays a preview of the first few rows and a summary of the detected fields.
 
-![The file preview page showing a preview of the file after upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
+For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![The upload completed modal showing a file preview, import name field, targeting preferences, and file validation checkbox.]({% image_buster /assets/img/csv_import/upload_completed.png %})
-
-In the **Import name** field, you can rename your import. By default, the file name is used.
+Before you upload your CSV file, rename it to the import name you want to see in Braze. You can't edit the import name after upload.
 
 {% alert note %}
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
 {% endalert %}
 
-### Step 5: Map your fields (for attributes) {#csv-data-mapping}
+### Step 5: Map your fields {#csv-data-mapping}
 
-After the preview, you can map your CSV headers to Braze attributes. Braze automatically maps fields in your CSV file to attributes with identical names and creates new attributes where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes for any column.
+After the preview, you can map your CSV headers to Braze attributes, events, or event properties. Braze automatically maps fields in your CSV file to attributes, events, or event properties with identical names, and creates new fields where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes, events, or properties.
+
+For event properties, Braze detects properties and associates them with relevant events based on whether a CSV cell contains a non-null value, or from headers that use dot notation in the format `<event name>.properties.<property name>`.
 
 ![The column mapping page.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
 
@@ -313,23 +314,24 @@ The mapping status column indicates the action that occurs when your CSV file is
 
 | Mapping status | What it means |
 |:---|:---|
-| **Mapped** | Field mapped to an existing attribute or identifier. |
-| **New attribute** | Braze creates a new attribute on import. You can edit this attribute by selecting the **Edit new attribute** button. | 
-| **Data type mismatch** | The detected data type of the CSV column does not match the data type of the existing attribute or identifier. Braze attempts to convert the data type on import to match the existing attribute. The value is dropped if this is not possible. |
-| **Blocklist attribute** | The CSV field matches the name of a blocklisted attribute. Select a different attribute to map to or the column is not imported. |
+| **Mapped** | Field mapped to an existing attribute, event, or identifier. |
+| **New attribute**, **New event**, or **New event property** | Braze creates a new attribute or event on import. You can edit it by selecting the **Edit new attribute**, **Edit new event**, or **Edit new property** button. |  
+| **Data type mismatch** | The detected data type of the CSV column does not match the data type of the existing attribute, event, or identifier. Braze attempts to convert the data type on import to match the existing attribute. Braze drops the value if this isn't possible. |
+| **Blocklist attribute** or **Blocklist event** | The CSV field matches the name of a blocklisted attribute or event. Select a different attribute or event to map to, or it won't be imported. |
 | **Duplicate attribute** | There are one or more fields with the same name in your CSV file. Map the same-name columns to different attributes or only the first column is imported. |
+| **Reserved event key** | The name of your event property matches a reserved event key in Braze, such as `time` or `event_name`. Input a different name or select a different property to map to, or it will be dropped. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Mapping statuses" }
 
 
-#### Editing new attributes
+#### Editing new attributes, events, and properties
 
-When a matching attribute does not exist in your workspace, Braze attempts to create a new attribute on import using the name of the CSV field and the detected data type. You can edit this new attribute before import by selecting the **Edit new attribute** button next to the mapping status.
+When a matching attribute, event, or event property does not exist in your workspace, Braze attempts to create a new attribute, event, or property on import using the name of the CSV field and the detected data type. You can edit this new field before import by selecting the **Edit new attribute**, **Edit new event**, or **Edit new property** button next to the mapping status.
 
 ![The edit new attribute button on the column mapping page.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
 
 {% alert note %}
-You can't proceed beyond the mapping step until an identifier is mapped. Braze automatically maps an identifier when possible. Refer to the **Required fields** section to see if an identifier is mapped.
+You can't proceed beyond the mapping step until an identifier is mapped. Braze automatically maps an identifier when possible. For custom events, you must also map the `name` and `time` columns. Refer to the **Required fields** section for more information.
 {% endalert %}
 
 ### Step 6: Choose targeting preferences {#targeting-preferences}
@@ -425,7 +427,7 @@ Setting `language` or `country` on a user through CSV import or API prevents Bra
 
 If you used [file validation](#file-validation), start with the error report, as it includes the specific issue for each flagged row and a description of how to fix it. For rows that failed during import rather than validation, download the error report by hovering over the row and selecting the <i class="fas fa-download" title="Download"></i> button on the **Import Users** page.
 
-For troubleshooting CSV import, review these common issues below.
+For troubleshooting CSV import, review these common issues in the following sections.
 
 ### Use email as `external_id`
 
@@ -500,7 +502,7 @@ If a piece of default user data (such as `email` or `first_name`) is imported as
 
 #### Change a custom attribute's data type
 
-If you need to change the data type of an existing custom attribute (for example, from string to boolean), update the data type on the [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) page in the dashboard before importing your CSV. If the data type in your CSV doesn't match the attribute's currently defined data type, the import fails with an error.
+If you need to change the data type of an existing custom attribute (for example, from string to boolean), update the data type on the [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) page in the dashboard before importing your CSV. If the data type in your CSV doesn't match the attribute's currently defined data type, the import fails with an error.
 
 #### Multiple data types
 
@@ -510,14 +512,14 @@ Additionally, beginning a number attribute with zero will cause issues because n
 
 #### Default attribute types
 
-Some default attributes may only accept certain values as valid for user updates. For guidance, refer to [Constructing your CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).
+Some default attributes may only accept certain values as valid for user updates. For guidance, refer to [Constructing your CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
 Trailing spaces and differences in capitalization can cause a value to be interpreted as invalid. For example, in the following CSV file, only the user in the first row (`brazetest1`) has their email and push statuses updated successfully because the accepted values are `unsubscribed`, `subscribed`, and `opted_in`. 
 
 ```plaintext
 external_id,email,email_subscribe,push_subscribe
-brazetest1,test1@braze.com,unsubscribed,unsubscribed
-brazetest2,test2@braze.com,Unsubscribed,Unsubscribed
+brazetest1,test1@example.com,unsubscribed,unsubscribed
+brazetest2,test2@example.com,Unsubscribed,Unsubscribed
 ```
 
 ### "Select CSV File" is not working

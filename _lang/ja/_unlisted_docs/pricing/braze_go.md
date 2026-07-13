@@ -16,22 +16,22 @@ Braze Goはすべての市場でご利用いただけるわけではありませ
 
 Braze GoはBrazeと同じ機能をすべて提供しますが、以下の機能に重点的な変更が加えられています。
 
-- アクティブなCampaignsは最大30件まで設定できます。
-- アクティブなCanvasesは最大20件まで設定できます。
+- アクティブなキャンペーンは最大30件まで設定できます。
+- アクティブなキャンバスは最大20件まで設定できます。
 - REST APIのデフォルトレート制限の合計は、ワークスペースあたり1時間に50,000リクエストです。
-    - Braze Go以外のご利用については、[REST APIの制限]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type)をご覧ください。
-- CampaignおよびCanvasのインタラクションデータの保持期間は2か月で、復元はできません。
-    - Braze Go以外のご利用については、[メッセージングインタラクションデータの可用性]({{site.baseurl}}/messaging_interaction_data/)をご覧ください。
+    - Braze Go以外のご利用については、[REST APIの制限]({{site.baseurl}}/api/api_limits#rate-limits-by-request-type)をご覧ください。
+- キャンペーンおよびキャンバスのインタラクションデータの保持期間は2か月で、復元はできません。
+    - Braze Go以外のご利用については、[メッセージングインタラクションデータの可用性]({{site.baseurl}}/messaging_interaction_data)をご覧ください。
 
 {% alert note %}
-CampaignsおよびCanvasesのインタラクションデータはSnowflakeデータとは異なり、一切影響を及ぼしません。
+キャンペーンおよびキャンバスのインタラクションデータはSnowflakeデータとは異なり、一切影響を及ぼしません。
 {% endalert %}
 
 - Braze間のwebhookはサポートされていません。
 - タグに関連するフィルターはサポートされていません。具体的には以下のフィルターが該当します。
-    - タグ付きのCampaignまたはCanvasをクリックまたは開封した
-    - タグ付きのCampaignまたはCanvasから最後にメッセージを受信した
-    - タグ付きのCampaignまたはCanvasを受信した
+    - タグ付きのキャンペーンまたはキャンバスをクリックまたは開封した
+    - タグ付きのキャンペーンまたはキャンバスから最後にメッセージを受信した
+    - タグ付きのキャンペーンまたはキャンバスを受信した
 - Brazeは、ユーザープロファイルのイベントおよび購入データに対してデータ保持ポリシーを実施する場合があります。このポリシーでは、1年以上前に発生し、1年以内に再度実行されていないイベント、購入、またはその両方が削除されます。ただし、このデータはセグメントエクステンション（SQL）では2年間引き続き利用可能です。
 
-上記の機能に更新があった場合は、この記事に反映され、[リリースノート]({{site.baseurl}}/help/release_notes/#most-recent-braze-release-notes)に記載されます。
+この記事に記載されている機能に更新があった場合は、この記事に反映され、[リリースノート]({{site.baseurl}}/help/release_notes#most-recent-braze-release-notes)に記載されます。

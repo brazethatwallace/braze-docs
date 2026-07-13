@@ -13,7 +13,7 @@ description: "Cet article explique comment obtenir votre compte Braze, comment v
 
 Si vous êtes le premier utilisateur Braze de votre entreprise et que vous vous connectez pour la première fois, vous recevrez un e-mail de bienvenue de `@alerts.braze.com` vous demandant de confirmer votre adresse e-mail et de vous connecter le premier jour de votre contrat.
 
-Après avoir confirmé votre compte, vous pouvez ajouter des utilisateurs supplémentaires depuis la page [Utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) de votre tableau de bord. Tous les utilisateurs reçoivent un e-mail leur demandant de confirmer leur compte après avoir été ajoutés.
+Après avoir confirmé votre compte, vous pouvez ajouter des utilisateurs supplémentaires depuis la page [Utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) de votre tableau de bord. Tous les utilisateurs reçoivent un e-mail leur demandant de confirmer leur compte après avoir été ajoutés.
 
 Si vous n'êtes pas le premier utilisateur du compte Braze de votre entreprise, contactez l'administrateur du compte Braze de votre entreprise et demandez-lui de créer votre compte. Vous recevrez alors un e-mail de bienvenue de `@alerts.braze.com` vous demandant de confirmer votre adresse e-mail et de vous connecter.
 
@@ -21,13 +21,13 @@ Si vous n'êtes pas le premier utilisateur du compte Braze de votre entreprise, 
 
 Que ce soit votre première ou votre centième connexion, voici comment accéder à votre tableau de bord. Si vous êtes le premier utilisateur de votre entreprise, suivez les instructions de la section précédente. Sinon, vous pouvez vous connecter après que l'administrateur Braze de votre entreprise a créé votre compte.
 
-Vous pouvez vous connecter depuis le site [Braze.com](https://www.braze.com) ou utiliser l'URL de votre tableau de bord correspondant à votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) spécifique. Pour votre commodité, Braze propose plusieurs options d'authentification unique (SSO) telles que :
+Vous pouvez vous connecter depuis le site [Braze.com](https://www.braze.com) ou utiliser l'URL de votre tableau de bord correspondant à votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) spécifique. Pour votre commodité, Braze propose plusieurs options d'authentification unique (SSO) telles que :
 
-* [Authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/)
-    * [Provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/)
-* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso/)
-* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta/)
-* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin/)
+* [Authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
+    * [Provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)
+* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
+* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
 Après vous être connecté à Braze avec le SSO, vous ne pouvez plus utiliser votre mot de passe pour vous connecter au tableau de bord. Les deux adresses e-mail dirigeront les e-mails vers la même boîte de réception, mais Braze les reconnaîtra comme des comptes distincts lorsque vous vous connecterez. La suppression des cookies vous déconnectera, et tout travail non enregistré sera perdu.
 
@@ -59,11 +59,20 @@ Si votre fournisseur de messagerie ne prend pas en charge l'aliasing avec `+`, v
 
 ### Utiliser la fonctionnalité développeurs multi-entreprises {#use-multi-company-developers}
 
-La fonctionnalité développeurs multi-entreprises permet de partager un seul compte utilisateur entre plusieurs entreprises. Les utilisateurs peuvent basculer entre différents tableaux de bord d'entreprise depuis leur menu de profil utilisateur.
+La fonctionnalité développeurs multi-entreprises permet de partager un seul compte utilisateur entre plusieurs entreprises. Les utilisateurs du tableau de bord peuvent basculer entre différents tableaux de bord d'entreprise depuis leur menu de profil utilisateur.
 
-Si vous utilisez le SSO et souhaitez configurer les développeurs multi-entreprises, vous devez activer un ID d'entité SAML personnalisé en configurant une intégration SSO SAML personnalisée. Suivez les étapes décrites dans [Connexion initiée par le fournisseur de services (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/), mais appliquez ces modifications :
+Si vous utilisez le SSO et souhaitez configurer les développeurs multi-entreprises, vous devez activer un ID d'entité SAML personnalisé en configurant une intégration SSO SAML personnalisée. Suivez les étapes décrites dans [Connexion initiée par le fournisseur de services (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), mais appliquez ces modifications :
 - Changez l'**Entity ID** en `braze_dashboard_<companyID>` pour chaque intégration de tableau de bord.
-- Contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte pour activer le feature flipper `saml_sso_custom_entity_id` pour chaque tableau de bord.
+- Contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour activer le feature flipper `saml_sso_custom_entity_id` pour chaque tableau de bord.
+
+#### Authentification à deux facteurs (2FA) {#two-factor-authentication-2fa}
+
+Le fonctionnement de la 2FA pour les développeurs multi-entreprises dépend de votre méthode de 2FA :
+
+- **E-mail et SMS :** vos paramètres de 2FA sont copiés sur tous les comptes développeur liés. Après avoir configuré la 2FA par e-mail ou SMS sur un compte, la même méthode s'applique à tous vos tableaux de bord d'entreprise.
+- **Mot de passe à usage unique basé sur le temps (TOTP) :** les paramètres TOTP ne sont pas synchronisés entre les comptes. Si vous utilisez une application d'authentification, vous devez configurer un code distinct pour chaque tableau de bord auquel vous vous connectez directement.
+
+Lorsque vous basculez entre les comptes depuis le tableau de bord, vous n'avez besoin de compléter la 2FA qu'une seule fois, la première fois que vous vous connectez à un compte lié au cours de cette session.
 
 ### Considérations pour l'authentification unique (SSO) {#considerations-for-single-sign-on-sso}
 
@@ -90,7 +99,7 @@ La suppression des cookies vous déconnecte, et tout travail non enregistré ser
 - [Supprimer les cookies et les données de site dans Firefox](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
 - [Supprimer tous les cookies dans Microsoft Edge](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
-Si le fait de vider le cache et les cookies de votre navigateur ne résout pas vos problèmes, contactez l'[Assistance]({{site.baseurl}}/support_contact/).
+Si le fait de vider le cache et les cookies de votre navigateur ne résout pas vos problèmes, contactez l'[Assistance]({{site.baseurl}}/support_contact).
 
 ### Erreur « Aw, Snap! » dans Google Chrome {#aw-snap-error-in-google-chrome}
 
@@ -100,11 +109,11 @@ Si Google Chrome affiche une erreur « Aw, Snap! », Chrome a des difficultés �
 
 Cette erreur peut apparaître lorsqu'un utilisateur de l'entreprise n'appartient à aucun espace de travail. Pour résoudre ce problème :
 
-1. Accédez à la page [Utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/).
+1. Accédez à la page [Utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
 2. Vérifiez si l'utilisateur a été ajouté à un espace de travail.
 3. S'il ne fait partie d'aucun espace de travail, ajoutez-le et attribuez-lui les autorisations appropriées.
 4. Demandez à l'utilisateur d'actualiser son tableau de bord.
-5. Si le problème persiste, contactez l'[Assistance]({{site.baseurl}}/support_contact/).
+5. Si le problème persiste, contactez l'[Assistance]({{site.baseurl}}/support_contact).
 
 ### Accéder à l'éditeur par glisser-déposer {#accessing-the-drag-and-drop-editor}
 
@@ -116,7 +125,7 @@ L'éditeur peut rencontrer des problèmes de chargement pour les raisons suivant
 - **Erreur majeure :** cela peut impliquer un problème d'infrastructure ou de produit sous-jacent. Vous pouvez consulter notre [page de statut du système Braze](https://braze.statuspage.io/) car nous sommes probablement au courant de la situation et travaillons activement à sa résolution.
 
 {% alert important %}
-Si vous rencontrez toujours des problèmes, [ouvrez un ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support/). Avant de le faire, vérifiez que votre administrateur informatique a confirmé que `*.bz-rndr.com` est autorisé de votre côté.
+Si vous rencontrez toujours des problèmes, [ouvrez un ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support). Avant de le faire, vérifiez que votre administrateur informatique a confirmé que `*.bz-rndr.com` est autorisé de votre côté.
 {% endalert %}
 
 ### Accéder à Braze Learning {#accessing-braze-learning}
@@ -137,7 +146,7 @@ Si un utilisateur rencontre des problèmes avec l'authentification à deux facte
 Un administrateur doit réinitialiser la 2FA pour l'utilisateur concerné en procédant comme suit :
 
 1. Accédez à **Gérer les utilisateurs**.
-2. Sélectionnez **Edit User** pour l'utilisateur rencontrant des problèmes de 2FA.
+2. Sélectionnez **Modifier l'utilisateur** pour l'utilisateur rencontrant des problèmes de 2FA.
 3. Choisissez l'option pour réinitialiser la 2FA.
 4. Confirmez la réinitialisation de la 2FA lorsque vous y êtes invité.
 5. Si la réinitialisation ne résout pas immédiatement le problème, videz vos cookies et votre cache.
@@ -147,7 +156,7 @@ Braze ne peut pas réinitialiser la 2FA au nom des utilisateurs pour des raisons
 #### Considérations {#considerations}
 
 - Si la 2FA est imposée au niveau de l'entreprise : après la réinitialisation, Braze invite l'utilisateur à configurer à nouveau sa 2FA lors de sa prochaine connexion.
-- Si la 2FA n'est pas imposée au niveau de l'entreprise : l'utilisateur se connecte au tableau de bord sans avoir besoin de reconfigurer la 2FA. S'il souhaite activer la 2FA, il peut le faire dans les Paramètres du compte.
+- Si la 2FA n'est pas imposée au niveau de l'entreprise : l'utilisateur se connecte au tableau de bord sans avoir besoin de reconfigurer la 2FA. S'il souhaite activer la 2FA, il peut le faire dans les paramètres du compte.
 
 {% alert note %}
 Ce processus de réinitialisation s'applique également aux utilisateurs qui ont été bloqués de leur compte pour avoir demandé trop de jetons au cours de la dernière heure.
@@ -166,9 +175,9 @@ Vous pouvez identifier le type de blocage que vous rencontrez grâce au message 
 #### Erreur de mot de passe {#password-error}
 
 La sécurité de votre compte est importante pour nous, c'est pourquoi un mot de passe est requis pour vous connecter à votre compte Braze.
-- Vérifiez que vous vous connectez à la bonne [instance du tableau de bord de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Vérifiez auprès de votre administrateur de compte ou de votre gestionnaire de compte Braze pour vous en assurer.
+- Vérifiez que vous vous connectez à la bonne [instance du tableau de bord de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Vérifiez auprès de votre administrateur de compte ou de votre gestionnaire de compte Braze pour vous en assurer.
 - Votre mot de passe a peut-être expiré, vous devez donc le [réinitialiser](#resetting-your-password).
-- Si vous utilisez un service d'[authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/), vérifiez auprès de votre administrateur de compte que la configuration a été effectuée correctement.
+- Si vous utilisez un service d'[authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), vérifiez auprès de votre administrateur de compte que la configuration a été effectuée correctement.
 - Si votre entreprise utilise plusieurs instances de Braze, vous utilisez peut-être la mauvaise adresse e-mail pour vous connecter.
 
 En cas de doute, vous pouvez toujours [réinitialiser votre mot de passe](#resetting-your-password).
@@ -177,7 +186,7 @@ En cas de doute, vous pouvez toujours [réinitialiser votre mot de passe](#reset
 
 Si vous utilisez la même machine que d'habitude pour vous connecter, Braze devrait automatiquement détecter la bonne instance. Cependant, si ce n'est pas le cas ou si vous vous connectez pour la première fois, tenez compte des éléments suivants :
 
-- Vérifiez que vous vous connectez à la bonne [instance du tableau de bord de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Vérifiez auprès de votre administrateur de compte ou de votre gestionnaire de compte Braze pour vous en assurer.
+- Vérifiez que vous vous connectez à la bonne [instance du tableau de bord de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Vérifiez auprès de votre administrateur de compte ou de votre gestionnaire de compte Braze pour vous en assurer.
 - Si votre entreprise utilise plusieurs instances de Braze, vous utilisez peut-être la mauvaise adresse e-mail pour vous connecter.
 
 #### Suspension du compte {#account-suspension}
@@ -201,7 +210,7 @@ Si le problème se produit sur tous les navigateurs, essayez les solutions suiva
 - **Vérifiez votre connexion réseau :** essayez de désactiver votre VPN, si possible, ou désactivez puis réactivez votre connexion réseau.
 - **Redémarrez votre appareil :** essayez de vous connecter à votre tableau de bord de Braze après avoir redémarré votre appareil.
 
-Si vous avez résolu les problèmes précédents et que votre tableau de bord ne se charge toujours pas ou ne fonctionne pas comme prévu, contactez l'[Assistance]({{site.baseurl}}/braze_support/).
+Si vous avez résolu les problèmes précédents et que votre tableau de bord ne se charge toujours pas ou ne fonctionne pas comme prévu, contactez l'[Assistance]({{site.baseurl}}/braze_support).
 
 ### L'utilisateur n'appartient à aucun espace de travail {#the-user-belongs-to-no-workspace}
 
@@ -222,11 +231,11 @@ Si vous êtes un nouvel utilisateur de Braze et que vous avez des difficultés �
 - Réinitialiser la 2FA : si vous avez des difficultés à configurer la 2FA, votre administrateur peut réinitialiser la 2FA pour votre compte utilisateur dans les paramètres.
 - Rajouter l'utilisateur : si les problèmes persistent, l'administrateur peut supprimer votre compte utilisateur du tableau de bord et vous rajouter. Cela permet de recréer l'utilisateur avec les mêmes informations.
 
-Si les problèmes persistent après ces étapes, contactez l'[Assistance]({{site.baseurl}}/braze_support/) pour obtenir de l'aide supplémentaire.
+Si les problèmes persistent après ces étapes, contactez l'[Assistance]({{site.baseurl}}/braze_support) pour obtenir de l'aide supplémentaire.
 
 ## Étapes suivantes {#next-steps}
 
 Après avoir accédé à votre compte, explorez ces ressources :
 
-- [Le tableau de bord de Braze]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) pour apprendre à naviguer parmi les fonctionnalités et outils clés.
-- [Paramètres de langue]({{site.baseurl}}/user_guide/administer/personal/language_settings/) pour définir la langue de votre tableau de bord.
+- [Le tableau de bord de Braze]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard) pour apprendre à naviguer parmi les fonctionnalités et outils clés.
+- [Paramètres de langue]({{site.baseurl}}/user_guide/administer/personal/language_settings) pour définir la langue de votre tableau de bord.

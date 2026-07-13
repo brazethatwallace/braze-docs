@@ -45,6 +45,6 @@ Cada um desses eventos terá metadados na forma de tags do Datadog para fornecer
 - `campaign_id` / `campaign_name` (se disponível)
 - `canvas_id` / `canvas_name` / `canvas_step_id` / `canvas_step_name` (se disponível)
 
-Esses eventos e tags podem ser monitorados na página **Metrics Explorer** do Datadog. Essas métricas são registradas como [distribuições](https://docs.datadoghq.com/metrics/distributions/) no Datadog. Dada a natureza das métricas e a imprecisão das agregações e rollups do Datadog, a Braze não tenta novamente em caso de erros de rede intermitentes ou outros erros da API do Datadog que possam ocorrer durante a transmissão. Isso significa que essas contagens de métricas podem diferir ligeiramente das contagens exibidas no dashboard da Braze e/ou no Currents.
+Esses eventos e tags podem ser monitorados na página **Metrics Explorer** do Datadog. Essas métricas são registradas como [distribuições](https://docs.datadoghq.com/metrics/distributions/) no Datadog. Dada a natureza das métricas e a imprecisão das agregações e rollups do Datadog, a Braze não faz novas tentativas em caso de erros de rede intermitentes ou outros erros da API do Datadog que possam ocorrer durante a transmissão. Isso significa que essas contagens de métricas podem diferir ligeiramente das contagens exibidas no dashboard da Braze e/ou no Currents.
 
-![Página do Metrics Explorer no Datadog exibindo métricas da Braze]({% image_buster /assets/img/datadog.png %})
+![Página do Metrics Explorer no Datadog exibindo métricas e tags de eventos da Braze.]({% image_buster /assets/img/datadog.png %})

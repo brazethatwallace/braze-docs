@@ -3,13 +3,13 @@ nav_title: Nachrichten-Aktivitätsprotokoll
 article_title: Nachrichten-Aktivitätsprotokoll
 page_order: 3
 page_type: reference
-description: "Dieser Referenzartikel beschreibt das Nachrichten-Aktivitätsprotokoll, das Ihnen Nachrichten anzeigt, die mit Ihren Campaigns und Sendungen verknüpft sind. Hier finden Sie auch Informationen darüber, wie Sie Protokollnachrichten verstehen können."
+description: "Dieser Referenzartikel beschreibt das Nachrichten-Aktivitätsprotokoll, das Ihnen Nachrichten anzeigt, die mit Ihren Kampagnen und Sendungen verknüpft sind. Hier finden Sie auch Informationen darüber, wie Sie Protokollnachrichten verstehen können."
 
 ---
 
 # Nachrichten-Aktivitätsprotokoll {#dev-console-troubleshooting}
 
-> Das **Nachrichten-Aktivitätsprotokoll** gibt Ihnen die Möglichkeit, alle Nachrichten (insbesondere Fehlermeldungen) einzusehen, die mit Ihren Campaigns und Sendungen verknüpft sind.
+> Das **Nachrichten-Aktivitätsprotokoll** gibt Ihnen die Möglichkeit, alle Nachrichten (insbesondere Fehlermeldungen) einzusehen, die mit Ihren Kampagnen und Sendungen verknüpft sind.
 
 Sie können API-Kampagnen-Transaktionen einsehen, Details zu fehlgeschlagenen Nachrichten analysieren und Insights gewinnen, wie Sie die Zustellung von Benachrichtigungen verbessern oder bestehende technische Probleme lösen können.
 
@@ -36,8 +36,8 @@ Sie können nach den folgenden Inhalten filtern, die im **Nachrichten-Aktivität
 - WhatsApp-Fehler
 - Live-Activity-Fehler
 - Fehler bei fehlerhaften Nutzer-Triggern
-- Braze-Agents-Fehler bei [täglichem Aufruf-Limit]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#monitor-your-agent)
-- Braze-Agents-Fehler bei nicht verfügbarem [Modell]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models)
+- Braze-Agents-Fehler bei [täglichem Aufruf-Limit]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#monitor-your-agent)
+- Braze-Agents-Fehler bei nicht verfügbarem [Modell]({{site.baseurl}}/user_guide/brazeai/agents/reference#models)
 
 Diese Nachrichten können von unserem eigenen System, Ihren Apps oder Plattformen oder von unseren Drittanbieter-Partnern stammen. Dies kann zu einer unbegrenzten Anzahl von Nachrichten führen, die in diesem Protokoll erscheinen können.
 
@@ -45,7 +45,7 @@ Diese Nachrichten können von unserem eigenen System, Ihren Apps oder Plattforme
 
 Um zu bestimmen, was Ihre Nachrichten bedeuten, achten Sie auf den Wortlaut jeder Nachricht und die zugehörigen Spalten, da Ihnen dies bei der Fehlerbehebung durch Kontexthinweise helfen kann.
 
-Wenn Sie beispielsweise einen Protokolleintrag haben, dessen Nachricht „empty-cart_app“ lautet und Sie sich nicht sicher sind, was das bedeutet, schauen Sie links in die Spalte **Typ**. Wenn Sie „Aborted Message Error“ sehen, können Sie davon ausgehen, dass die Nachricht als [Abbruchnachricht]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) mit Liquid geschrieben wurde und dass die Nachricht abgebrochen wurde, weil die vorgesehene Empfänger:in einen leeren Warenkorb in Ihrer App hatte.
+Wenn Sie beispielsweise einen Protokolleintrag haben, dessen Nachricht „empty-cart_app“ lautet und Sie sich nicht sicher sind, was das bedeutet, schauen Sie links in die Spalte **Typ**. Wenn Sie „Aborted Message Error“ sehen, können Sie davon ausgehen, dass die Nachricht als [Abbruchnachricht]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) mit Liquid geschrieben wurde und dass die Nachricht abgebrochen wurde, weil die vorgesehene Empfänger:in einen leeren Warenkorb in Ihrer App hatte.
 
 ### Häufige Nachrichten {#common-messages}
 
@@ -57,7 +57,7 @@ Die folgenden Nachrichten dienen als Beispiele und stimmen möglicherweise nicht
 |---|---|---|
 | Soft Bounce | The email address same@example.com soft bounced. | Die E-Mail-Adresse war gültig und die E-Mail-Nachricht erreichte den Mailserver der Empfänger:in, wurde aber aufgrund eines „vorübergehenden“ Problems abgelehnt. <br><br>Häufige Gründe für Soft Bounces sind: {::nomarkdown} <ul> <li> Das Postfach war voll (die Nutzer:in hat ihr Kontingent überschritten) </li> <li> Der Server war nicht erreichbar </li> <li> Die Nachricht war zu groß für den Posteingang der Empfänger:in </li>  </ul> {:/} Wenn eine E-Mail einen Soft Bounce erhalten hat, versuchen wir in der Regel innerhalb von 72 Stunden erneut zuzustellen, aber die Anzahl der Wiederholungsversuche variiert je nach Empfänger:in. |
 | Hard Bounce | The email account that you tried to reach does not exist. Try double-checking the recipient's email address for typos or unnecessary spaces. | Ihre Nachricht hat den Posteingang dieser Person nie erreicht, weil kein Posteingang vorhanden war. Wenn Sie tiefer nachforschen möchten, können solche Nachrichten manchmal Links in der Spalte **Details anzeigen** enthalten, über die Sie das Profil der vorgesehenen Empfänger:in einsehen können.|
-| Block | Spam message is rejected because of anti-spam policy. | Ihre Nachricht wurde als Spam eingestuft. Dieser E-Mail-Fehler wird für eine Nutzer:in protokolliert, wenn wir ein Ereignis vom ESP erhalten haben, das anzeigt, dass die E-Mail verworfen wurde. Es könnte nur für diese bestimmte Empfänger:in gelten, aber wenn Sie diese Nachricht häufig sehen, sollten Sie Ihre Sendegewohnheiten oder den Inhalt Ihrer Nachricht überprüfen. Denken Sie auch zurück – haben Sie [Ihre IP aufgewärmt]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)? Falls nicht, kontaktieren Sie Braze für Ratschläge, wie Sie damit beginnen können.|
+| Block | Spam message is rejected because of anti-spam policy. | Ihre Nachricht wurde als Spam eingestuft. Dieser E-Mail-Fehler wird für eine Nutzer:in protokolliert, wenn wir ein Ereignis vom ESP erhalten haben, das anzeigt, dass die E-Mail verworfen wurde. Es könnte nur für diese bestimmte Empfänger:in gelten, aber wenn Sie diese Nachricht häufig sehen, sollten Sie Ihre Sendegewohnheiten oder den Inhalt Ihrer Nachricht überprüfen. Denken Sie auch zurück – haben Sie [Ihre IP aufgewärmt]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)? Falls nicht, kontaktieren Sie Braze für Ratschläge, wie Sie damit beginnen können.|
 | Aborted Message Error | empty-cart_web | Wenn Sie eine App mit einem Warenkorb haben oder eine Sendung mit einer Abbruchnachricht in Liquid erstellen, können Sie anpassen, welche Nachricht an Sie zurückgegeben wird, wenn die Sendung abgebrochen wird. In diesem Fall lautet die zurückgegebene Nachricht empty-cart_web.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Häufige Nachrichten" }
 

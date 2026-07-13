@@ -44,10 +44,10 @@ Cada linha deve incluir um tipo de identificador por vez, mesmo que sua tabela c
 - A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado.
 - Linhas no limite exato do timestamp podem ser ressincronizadas se novas linhas compartilharem esse timestamp.
 
-Para orientações sobre timestamps duplicados e atualizações incrementais, consulte [Práticas recomendadas da Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+Para orientações sobre timestamps duplicados e atualizações incrementais, consulte [Práticas recomendadas da Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 {% alert note %}
-Fontes de armazenamento de arquivos usam requisitos de configuração diferentes e não suportam `UPDATED_AT`. Para mais informações, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats).
+Fontes de armazenamento de arquivos usam requisitos de configuração diferentes e não suportam `UPDATED_AT`. Para mais informações, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats).
 {% endalert %}
 
 ## Configure a coluna `PAYLOAD` {#set-up-the-payload-column}
@@ -56,12 +56,12 @@ O valor de `PAYLOAD` segue os mesmos formatos de objeto usados pelo endpoint `/u
 
 | Tipo de dados | Referência de formatação |
 | --- | --- |
-| `attributes` | [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [Objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [Objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | [Objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [Objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configure a coluna PAYLOAD" }
 
-Para atributos aninhados, inclua datas usando o formato descrito em [Capturando datas como propriedades de objeto]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties).
+Para atributos aninhados, inclua datas usando o formato descrito em [Capturando datas como propriedades de objeto]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties).
 
 ### Exemplos de carga útil {#payload-examples}
 
@@ -97,7 +97,7 @@ Você pode sincronizar um evento por linha.
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -149,6 +149,6 @@ Para sincronizar status de grupos de inscrições, inclua um ou mais pares de `s
 
 ## Documentação relacionada de configuração CDI {#related-cdi-setup-docs}
 
-- Para exemplos de DDL específicos por fonte, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-- Para configuração baseada em arquivos, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
-- Para orientações sobre comportamento de sincronização e otimização, consulte [Práticas recomendadas da Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/).
+- Para exemplos de DDL específicos por fonte, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+- Para configuração baseada em arquivos, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+- Para orientações sobre comportamento de sincronização e otimização, consulte [Práticas recomendadas da Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices).

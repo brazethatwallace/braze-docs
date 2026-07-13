@@ -8,23 +8,23 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Ihre Produkte aus Shopi
 
 # Shopify-Produktsynchronisierung {#shopify-product-sync}
 
-> Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-[Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) synchronisieren, um die Personalisierung von Nachrichten zu vertiefen.
+> Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-[Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs) synchronisieren, um die Personalisierung von Nachrichten zu vertiefen.
 
 Shopify-Kataloge werden nahezu in Realtime aktualisiert, wenn Sie die Produkte in Ihrem Shopify-Shop bearbeiten und ändern. Sie können Ihren Warenkorb-Abbruch, Ihre Bestellbestätigung und vieles mehr mit den aktuellsten Produktdetails und Informationen anreichern.
 
-Zusätzlich zu den [grundlegenden Shopify-Produktdaten](#supported-shopify-catalog-data) können Sie Shopify-Kollektionen, Produkt-Tags und Produkt-Metafelder mit Ihrem Braze-Katalog synchronisieren. Diese zusätzlichen Felder ermöglichen eine umfangreichere Personalisierung, präzisere Katalogauswahlen und eine leistungsstärkere Segmentierung durch [Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/).
+Zusätzlich zu den [grundlegenden Shopify-Produktdaten](#supported-shopify-catalog-data) können Sie Shopify-Kollektionen, Produkt-Tags und Produkt-Metafelder mit Ihrem Braze-Katalog synchronisieren. Diese zusätzlichen Felder ermöglichen eine umfangreichere Personalisierung, präzisere Katalogauswahlen und eine leistungsstärkere Segmentierung durch [Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension).
 
 ## Shopify-Produktsynchronisierung einrichten {#set-up}
 
-Wenn Sie Ihren Shopify-Shop bereits installiert haben, können Sie Ihre Produkte trotzdem synchronisieren, indem Sie die folgenden Anweisungen befolgen.
+Wenn Sie Ihren Shopify-Shop bereits installiert haben, können Sie Ihre Produkte trotzdem synchronisieren, indem Sie die Anweisungen in diesem Abschnitt befolgen.
 
-### 1. Schritt: Synchronisierung einschalten {#step-1-turn-on-the-sync}
+### Schritt 1: Synchronisierung einschalten {#step-1-turn-on-the-sync}
 
 Sie können Ihre Produkte mit einem Braze-Katalog über den Shopify-Installationsablauf oder auf der Shopify-Partnerseite synchronisieren.
 
 ![Schritt 3 der Einrichtung mit „Shopify Variant ID“ als „Catalog product identifier“.]({% image_buster /assets/img/shopify/sync_products_step1.png %})
 
-### 2. Schritt: Produktbezeichner auswählen {#step-2-select-your-product-identifier}
+### Schritt 2: Produktbezeichner auswählen {#step-2-select-your-product-identifier}
 
 Wählen Sie den Produktbezeichner aus, der als Katalog-ID verwendet werden soll:
 - Shopify Variant ID
@@ -40,7 +40,7 @@ Wenn Sie SKU als Katalog-ID auswählen, stellen Sie sicher, dass alle Produkte u
 - Wenn Sie mehr als ein Produkt mit der gleichen SKU haben, kann dies zu unerwartetem Verhalten führen oder dazu, dass die Produktinformationen unbeabsichtigt durch die doppelte SKU überschrieben werden.
 {% endalert %}
 
-### 3. Schritt: Zusätzliche Produktdaten konfigurieren (optional) {#step-3}
+### Schritt 3: Zusätzliche Produktdaten konfigurieren (optional) {#step-3}
 
 Sie können optional die Synchronisierung für Produkt-Tags, Shopify-Kollektionen und Metafelder aktivieren. Aktivieren oder ändern Sie diese Einstellungen nach der ersten Synchronisierung über die Shopify-Partnerseite.
 
@@ -95,7 +95,7 @@ Braze unterstützt die folgenden Metafeld-Objekte und einige ihrer jeweiligen Ty
 | `url`, `list.url` | String (URL), String-Array (URLs) |
 | `metaobject_reference`, `list.metaobject_reference` | String, String-Array |
 | `mixed_reference`, `list.mixed_reference` | String, String-Array |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Zusätzliche Produktdaten konfigurieren (optional) #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Zusätzliche Produktdaten konfigurieren (optional)" }
 
 {% endsubtab %}
 {% subtab Nicht unterstützte Metafelder %}
@@ -136,7 +136,7 @@ Braze verwendet die Shopify-Kollektions-ID, um synchronisierte Kollektionen zu i
 Beispiele zur Verwendung der einzelnen Produktdatentypen finden Sie unter [Anwendungsfälle für Shopify-Kataloge]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/?tab=shopify%20product%20metafields#shopify-catalog-use-cases).
 {% endalert %}
 
-### 4. Schritt: Synchronisierungsfortschritt verfolgen {#step-4-track-your-sync-progress}
+### Schritt 4: Synchronisierungsfortschritt verfolgen {#step-4-track-your-sync-progress}
 
 Nachdem Sie Ihre Konfiguration gespeichert haben, beginnt Braze mit der Synchronisierung Ihrer Produkte und aktualisiert den Status auf Ihrer Shopify-Partnerseite auf **In Progress**. Die Synchronisierungsdauer hängt von der Anzahl der Produkte und Varianten in Ihrem Shop ab.
 
@@ -152,7 +152,7 @@ Sie können auch synchronisierte Produkt-Tags, Metafelder und Kollektionen in Ih
 Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren Customer-Success-Manager, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
 {% endalert %}
 
-### 5. Schritt: Konfiguration verwalten {#step-5-manage-your-configuration}
+### Schritt 5: Konfiguration verwalten {#step-5-manage-your-configuration}
 
 Jeder Synchronisierungstyp hat eine Übersichtskarte auf der Shopify-Partnerseite, die die Gesamtanzahl der synchronisierten Elemente, den aktuellen Status und einen Link zu Ihrem Katalog anzeigt. Wählen Sie das Ansichtssymbol, um Ihre aktive Konfiguration anzuzeigen und zu bearbeiten.
 
@@ -208,7 +208,7 @@ Braze synchronisiert bis zu 250 Varianten jedes Shopify-Produkts in Ihren Katalo
 {% tabs %}
 {% tab Produkt-Tags %}
 
-Verwenden Sie Produkt-Tags, um Nachrichten basierend auf der Kategorisierung Ihrer Produkte in Shopify zu personalisieren. Sie können beispielsweise eine Aktion mit allen Produkten, die mit „Summer Sale“ getaggt sind, über eine [Katalogauswahl]({{site.baseurl}}/catalog_selections/) versenden oder ein Segment von Nutzer:innen erstellen, die Produkte mit dem Tag „Premium“ gekauft haben.
+Verwenden Sie Produkt-Tags, um Nachrichten basierend auf der Kategorisierung Ihrer Produkte in Shopify zu personalisieren. Sie können beispielsweise eine Aktion mit allen Produkten, die mit „Summer Sale“ getaggt sind, über eine [Katalogauswahl]({{site.baseurl}}/catalog_selections) versenden oder ein Segment von Nutzer:innen erstellen, die Produkte mit dem Tag „Premium“ gekauft haben.
 
 Produkt-Tags werden als Array-Feld für jeden Katalogartikel gespeichert. Informationen zur Konfiguration der Produkt-Tag-Synchronisierung finden Sie unter [Shopify-Produkt-Tags](#shopify-product-tags).
 
@@ -225,7 +225,11 @@ Produkt-Tags werden als Array-Feld für jeden Katalogartikel gespeichert. Inform
 
 ### Personalisierung {#personalization}
 
-1. Erstellen Sie eine Katalogauswahl, die nach Produkten mit dem jeweiligen Produkt-Tag filtert, z. B. „Women's“. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden, und bis zu 50 Produkte in Ihrer Katalogauswahl.
+{% alert note %}
+Wenn Sie Produkt-Tags oder Kollektionen in Katalogauswahlen referenzieren, verwenden Sie nur den Wert selbst ohne die Array-Klammern `[]` oder Anführungszeichen `""`, die in den Katalogdaten erscheinen. Wenn ein Produkt-Tag beispielsweise als `["Women's"]` in Ihrem Katalog angezeigt wird, schreiben Sie `Women's` in Ihren Auswahlfilter.
+{% endalert %}
+
+1. Erstellen Sie eine Katalogauswahl, die nach Produkten mit dem jeweiligen Produkt-Tag filtert, z. B. „Women's“. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden und bis zu 50 Produkte in Ihrer Katalogauswahl.
 
 ![Eine Katalogauswahl, die nach Produkt-Tags mit dem Attribut „Women's“ filtert.]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
 
@@ -293,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### Katalogsegmentierung (SQL) {#catalog-segmentation-sql}
 
-Verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), um Segmente basierend auf Nutzer:innen zu erstellen, die mit einem Produkt-Tag interagiert haben. Um beispielsweise Nutzer:innen zu finden, die mit Katalogartikeln interagiert haben, die einen bestimmten Produkt-Tag enthalten, verwenden Sie diese Abfrage:
+Verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension), um Segmente basierend auf Nutzer:innen zu erstellen, die mit einem Produkt-Tag interagiert haben. Um beispielsweise Nutzer:innen zu finden, die mit Katalogartikeln interagiert haben, die einen bestimmten Produkt-Tag enthalten, verwenden Sie diese Abfrage:
 
 {% raw %}
 ```liquid
@@ -343,7 +347,7 @@ Jedes synchronisierte Metafeld wird zu einer separaten Spalte in Ihrem Katalog, 
 
 ### Personalisierung
 
-1. Erstellen Sie eine [Katalogauswahl]({{site.baseurl}}/catalog_selections/), die nach Metafeldern mit dem jeweiligen Wert filtert.
+1. Erstellen Sie eine [Katalogauswahl]({{site.baseurl}}/catalog_selections), die nach Metafeldern mit dem jeweiligen Wert filtert.
 
 ![Eine Katalogauswahl, die nach Metafeldern mit dem Attribut „summer“ filtert.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
@@ -411,7 +415,7 @@ Check out the latest summer products:
 
 ### Katalogsegmentierung (SQL)
 
-Verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), um Segmente basierend auf Nutzer:innen zu erstellen, die mit einem Produkt-Metafeld interagiert haben. Um beispielsweise Nutzer:innen zu finden, die ein E-Commerce-Event mit einem Produkt ausgelöst haben, dessen Metafeld-Array einen bestimmten Wert enthält, verwenden Sie diese Abfrage:
+Verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension), um Segmente basierend auf Nutzer:innen zu erstellen, die mit einem Produkt-Metafeld interagiert haben. Um beispielsweise Nutzer:innen zu finden, die ein E-Commerce-Event mit einem Produkt ausgelöst haben, dessen Metafeld-Array einen bestimmten Wert enthält, verwenden Sie diese Abfrage:
 
 {% raw %}
 ```sql
@@ -600,7 +604,11 @@ Für Shopify-Kollektionen müssen Sie die **Kollektions-ID** verwenden, die in d
 
 ### Personalisierung
 
-1. Erstellen Sie eine Katalogauswahl mit dem Namen „New Women's Products - In Stock“, die nach Produkten mit der Kollektions-ID filtert. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden, und bis zu 50 Produkte in Ihrer Kollektion.
+{% alert note %}
+Wenn Sie Kollektions-IDs in Katalogauswahlen referenzieren, verwenden Sie nur den numerischen ID-Wert ohne die Array-Klammern `[]`, die in den Katalogdaten erscheinen. Wenn Kollektions-IDs beispielsweise als `[123456789012, 987654321098]` in Ihrem Katalog angezeigt werden, schreiben Sie nur die numerische ID (z. B. `470645342446`) in Ihren Auswahlfilter.
+{% endalert %}
+
+1. Erstellen Sie eine Katalogauswahl mit dem Namen „New Women's Products - In Stock“, die nach Produkten mit der Kollektions-ID filtert. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden und bis zu 50 Produkte in Ihrer Kollektion.
  - Sie können auch eigene angepasste Auswahlen erstellen, indem Sie mit dem Feld **Collections** filtern.
 
 ![Eine Katalogauswahl, die nach Kollektionen mit dem Kollektions-ID-Attribut „470645342446“ filtert.]({% image_buster /assets/img/shopify/collections_selection.png %})
@@ -669,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### Katalogsegmentierung (SQL)
 
-Erstellen Sie ein Segment von Nutzer:innen, die mit einer Kollektion interagiert haben. Verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), um Segmente basierend auf der Kollektionszugehörigkeit zu erstellen. Um beispielsweise Nutzer:innen zu finden, die im letzten Jahr Produkte aus einer bestimmten Kollektion gekauft haben, verwenden Sie diese Abfrage:
+Erstellen Sie ein Segment von Nutzer:innen, die mit einer Kollektion interagiert haben. Verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension), um Segmente basierend auf der Kollektionszugehörigkeit zu erstellen. Um beispielsweise Nutzer:innen zu finden, die im letzten Jahr Produkte aus einer bestimmten Kollektion gekauft haben, verwenden Sie diese Abfrage:
 
 {% raw %}
 ```json
@@ -703,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) und [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) einrichten!<br><br> Beachten Sie, dass Sie für jeden Anwendungsfall ein angepasstes Event erstellen müssen, das den Abo-Status einer Nutzerin oder eines Nutzers in Ihrem Katalog erfasst. Für das angepasste Event benötigen Sie eine Event-Eigenschaft, die entweder der [SKU oder der Shopify-Varianten-ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier) zugeordnet ist, die Sie im Rahmen Ihrer Shopify-Produktsynchronisierung ausgewählt haben.
+Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) und [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) einrichten!<br><br> Beachten Sie, dass Sie für jeden Anwendungsfall ein angepasstes Event erstellen müssen, das den Abo-Status einer Nutzerin oder eines Nutzers in Ihrem Katalog erfasst. Für das angepasste Event benötigen Sie eine Event-Eigenschaft, die entweder der [SKU oder der Shopify-Varianten-ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) zugeordnet ist, die Sie im Rahmen Ihrer Shopify-Produktsynchronisierung ausgewählt haben.
 {% endalert %}
 
 ## Produktsynchronisierung deaktivieren {#deactivate}

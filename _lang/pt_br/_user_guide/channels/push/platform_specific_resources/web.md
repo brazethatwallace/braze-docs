@@ -17,14 +17,14 @@ O push para a web é outra ótima maneira de engajar os usuários do seu aplicat
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de criar e enviar qualquer mensagem push usando a Braze, você precisa trabalhar com seus desenvolvedores para integrar o push ao seu site. Para etapas detalhadas, consulte nosso [guia de integração de push para a web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
+Antes de criar e enviar qualquer mensagem push usando a Braze, você precisa trabalhar com seus desenvolvedores para integrar o push ao seu site. Para etapas detalhadas, consulte nosso [guia de integração de push para a web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
 
 ### Permissão de push {#push-permission}
 
-Qualquer marca pode integrar e usar notificações por push para a web em seu site. As notificações podem alcançar visitantes atuais e anteriores, desde que tenham um navegador aberto, mas os visitantes devem [aceitar receber notificações]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#push-permission) — assim como no push tradicional de apps móveis.
+Qualquer marca pode integrar e usar notificações por push para a web em seu site. As notificações podem alcançar visitantes atuais e anteriores, desde que tenham um navegador aberto, mas os visitantes devem [aceitar receber notificações]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#push-permission) — assim como no push tradicional de apps móveis.
 
 {% alert tip %}
-Considere usar uma mensagem no navegador para preparar os usuários a aceitar o push para a web, também conhecido como [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Considere usar uma mensagem no navegador para preparar os usuários a aceitar o push para a web, também conhecido como [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 {% endalert %}
 
 ## Visão geral {#overview}
@@ -35,7 +35,7 @@ As notificações por push para a web entregam atualizações urgentes e acioná
 - Trazer as pessoas de volta ao seu site com botões de call-to-action claros
 - Personalizar seu push com informações de produtos e clientes para tornar sua mensagem relevante
 
-O push para a web funciona da mesma forma que as notificações por push de apps funcionam no seu celular. Para saber mais sobre como compor um push para a web, confira [Criar uma notificação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message).
+O push para a web funciona da mesma forma que as notificações por push de apps funcionam no seu celular. Para saber mais sobre como compor um push para a web, confira [Criar uma notificação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message).
 
 ![Exemplo de push para a web com a mesma mensagem push exibida em um laptop e um celular.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 
@@ -66,6 +66,16 @@ Os seguintes navegadores são compatíveis com notificações por push para a we
 Para saber mais sobre os padrões do protocolo de push e a compatibilidade de navegadores, você pode consultar recursos com base no seu navegador:
 
 - [Safari (desktop)](https://developer.apple.com/notifications/safari-push-notifications/)
-- [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
+- [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## Endpoints de push para a web 410 (Gone) e inválidos {#410-gone-and-invalid-web-push-endpoints}
+
+Navegadores e serviços de push podem retornar **410 Gone** (ou erros semelhantes de "endpoint inválido") quando uma inscrição de push para a web não é mais aceita. As causas comuns incluem:
+
+- O usuário desativou as notificações do seu site nas configurações do navegador ou do sistema operacional.
+- Um perfil de usuário diferente se inscreveu no mesmo perfil de navegador, então o endpoint foi rotacionado para o novo inscrito.
+- A inscrição expirou após um longo período sem engajamento — depois que o usuário aceitar as notificações novamente, uma nova inscrição será criada na próxima sessão.
+
+Depois que o usuário reativar as notificações, acione novamente o fluxo normal de registro de push para a web do seu site para que a Braze armazene o novo endpoint de inscrição.

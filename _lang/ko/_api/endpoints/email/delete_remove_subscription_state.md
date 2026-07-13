@@ -24,7 +24,7 @@ description: "이 문서에서는 이메일 주소 또는 전화번호를 기준
 | --- | --- | --- | --- |
 | `email` | 필수 | 문자열 | 사용자의 이메일 주소(최소 1개, 최대 50개의 주소를 포함해야 합니다). |
 | `phone` | 필수 | 문자열 | 사용자의 전화번호(최소 1개, 최대 50개의 전화번호를 포함해야 합니다). E.164 형식으로 제공하는 것이 좋습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -33,7 +33,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 {
   {phone: "+12125551212"},
-  {email: "dont.spam@me.com"},
+  {email: "dont.spam@example.com"},
   {phone: "+17185551212"}
 }
 ```

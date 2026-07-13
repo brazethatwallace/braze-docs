@@ -21,7 +21,7 @@ description: "この記事では、「カタログを作成」Brazeエンドポ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.create` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -32,7 +32,7 @@ description: "この記事では、「カタログを作成」Brazeエンドポ�
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalogs` | 必須 | 配列 | カタログオブジェクトを含む配列。このリクエストでは、カタログオブジェクトは1つのみ許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### カタログオブジェクトのパラメーター {#catalog-object-parameters}
 
@@ -41,7 +41,7 @@ description: "この記事では、「カタログを作成」Brazeエンドポ�
 | `name` | 必須 | 文字列 | 作成するカタログの名前。 |
 | `description` | 必須 | 文字列 | 作成するカタログの説明。 |
 | `fields` | 必須 | 配列 | キー `name` と `type` を含むオブジェクトの配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="カタログオブジェクトのパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -209,6 +209,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 | `invalid-fields` | `fields` が正しくフォーマットされていません。 |
 | `too-many-catalog-atoms` | 1つのリクエストにつき1つのカタログしか作成できません。 |
 | `too-many-fields` | フィールド数の上限は500です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

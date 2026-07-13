@@ -36,7 +36,7 @@ Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API �
 3. API 키의 이름을 입력하세요. 예를 들어 "DecisioningStudioGoEmail"과 같이 입력할 수 있습니다.
 4. 다음 카테고리에 따라 권한을 선택하세요:
     - **사용자 데이터:** `users.track`, `users.delete`, `users.export.ids`, `users.export.segment` 선택
-    - **메시지:** `messages.send` 선택
+    - **메시지:** `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete` 선택
     - **Campaigns:** 나열된 모든 권한 선택
     - **Canvas:** 나열된 모든 권한 선택
     - **Segments:** 나열된 모든 권한 선택
@@ -62,7 +62,7 @@ Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API �
 **앱 ID(API 키)를 찾으려면:**
 
 {% alert note %}
-Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서는 API 키로 지칭됨)를 제공합니다. 예를 들어, 워크스페이스 내 특정 앱과 활동을 연결하는 데 활용할 수 있습니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험 담당자와 앱 ID를 연결하는 기능을 지원합니다.<br><br>앱 ID를 사용하지 않는 경우, 임의의 문자열을 플레이스홀더로 입력할 수 있습니다.
+Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서는 API 키로 지칭됨)를 제공합니다. 예를 들어, 워크스페이스 내 특정 앱과 활동을 연결하는 데 활용할 수 있습니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험 담당자와 앱 ID를 연결하는 기능을 지원합니다.<br><br>앱 ID를 사용하지 않는 경우, 임의의 문자열을 입력 안내로 입력할 수 있습니다.
 {% endalert %}
 
 1. Braze 대시보드에서 **설정** > **앱 설정**으로 이동하세요.
@@ -105,7 +105,7 @@ Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에�
 
 통합을 테스트하려면 사용자 ID가 필요합니다:
 
-워크스페이스에서 [식별자 필드 수준 암호화]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)를 사용하는 경우, `/users/track` 엔드포인트로 생성하는 새 테스트 사용자는 암호화된 워크스페이스의 이메일 요구 사항을 따라야 합니다. `email` 필드는 소문자로 변환된 이메일 값의 Base64 인코딩 HMAC-SHA256 해시로 전송하고, `email_encrypted`는 구성된 PII 암호화 키로 생성된 암호화된 이메일 값으로 전송하세요.
+워크스페이스에서 [식별자 필드 수준 암호화]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)를 사용하는 경우, `/users/track` 엔드포인트로 생성하는 새 테스트 사용자는 암호화된 워크스페이스의 이메일 요구 사항을 따라야 합니다. `email` 필드는 소문자로 변환된 이메일 값의 Base64 인코딩 HMAC-SHA256 해시로 전송하고, `email_encrypted`는 구성된 PII 암호화 키로 생성된 암호화된 이메일 값으로 전송하세요.
 
 1. Braze 대시보드에서 **오디언스** > **사용자 검색**으로 이동하세요.
 2. 외부 사용자 ID, 사용자 별칭, 이메일, 전화번호 또는 푸시 토큰으로 사용자를 검색하세요.
@@ -377,4 +377,4 @@ BrazeAI Decisioning Studio™ Go 포털은 가입자 및 참여 데이터를 하
 
 오케스트레이션 설정을 완료했으니, 이제 에이전트 설계를 진행하세요:
 
-- [에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

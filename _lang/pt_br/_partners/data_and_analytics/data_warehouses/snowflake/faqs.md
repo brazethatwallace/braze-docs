@@ -1,5 +1,5 @@
 ---
-nav_title: Perguntas frequentes
+nav_title: FAQ
 article_title: Perguntas frequentes sobre o compartilhamento de dados do Snowflake
 page_order: 50
 page_type: FAQ
@@ -9,56 +9,56 @@ description: "Este artigo responde a perguntas frequentes sobre o compartilhamen
 
 # Perguntas frequentes {#frequently-asked-questions}
 
-### É possível ofuscar dados de IPI por meio do compartilhamento de dados do Snowflake? {#is-it-possible-to-obfuscate-pii-data-via-snowflake-data-sharing}
+## É possível ofuscar dados de IPI por meio do compartilhamento de dados do Snowflake? {#is-it-possible-to-obfuscate-pii-data-via-snowflake-data-sharing}
 Não, no momento não há suporte para isso.
 
-### Preciso de compartilhamento de dados para a mesma região ou entre regiões? {#do-i-need-data-share-for-the-same-region-or-cross-region}
+## Preciso de compartilhamento de dados para a mesma região ou entre regiões? {#do-i-need-data-share-for-the-same-region-or-cross-region}
 Use o compartilhamento de dados para a mesma região nos seguintes cenários:
-- Sua conta do Snowflake está em US-EAST-1 (AWS), e a região do dashboard da Braze é os EUA.
-- Sua região do Snowflake é EU-CENTRAL-1 (AWS), e a região do dashboard da Braze é a UE.
+- Sua conta do Snowflake está em US-EAST-1 (AWS) e a região do dashboard da Braze é os EUA.
+- Sua região do Snowflake é EU-CENTRAL-1 (AWS) e a região do dashboard da Braze é a UE.
 - Sua região do Snowflake está em AP-Northeast-1 (AWS) e a região do dashboard da Braze está no Japão.
 - Sua região do Snowflake está em AP-Southeast-2 (AWS) e a região do dashboard da Braze está na Austrália.
 - Sua região do Snowflake está em AP-Southeast-3 (AWS) e a região do dashboard da Braze está na Indonésia.
 
 Caso contrário, use o compartilhamento de dados entre regiões.
 
-### O que devo fazer com meu compartilhamento de dados quando mudar para uma nova conta do Snowflake? {#what-should-i-do-with-my-data-share-when-i-switch-to-a-new-snowflake-account}
+## O que devo fazer com meu compartilhamento de dados quando mudar para uma nova conta do Snowflake? {#what-should-i-do-with-my-data-share-when-i-switch-to-a-new-snowflake-account}
 Você pode excluir o compartilhamento de dados antigo associado à sua conta antiga do Snowflake e, em seguida, criar um novo compartilhamento para a nova conta. Todos os dados históricos estarão disponíveis no novo compartilhamento.
 
-### Por que não vejo os dados no meu compartilhamento de dados? {#why-dont-i-see-data-in-my-data-share}
+## Por que não vejo os dados no meu compartilhamento de dados? {#why-dont-i-see-data-in-my-data-share}
 Você pode ter usado o ID de conta do Snowflake errado ao criar seu compartilhamento de dados. O ID da conta no dashboard de compartilhamento de dados deve corresponder à saída de `CURRENT_ACCOUNT()` da sua conta do Snowflake.
 
 Se seu compartilhamento for entre regiões, os dados podem não ficar disponíveis imediatamente. Dependendo do volume de dados, pode levar algumas horas para que os dados sejam sincronizados na sua região.
 
-### Por que estou recebendo um erro de conformidade com a HIPAA ao criar um compartilhamento de dados? {#why-am-i-receiving-a-hipaa-compliance-error-when-creating-a-data-share}
+## Por que estou recebendo um erro de conformidade com a HIPAA ao criar um compartilhamento de dados? {#why-am-i-receiving-a-hipaa-compliance-error-when-creating-a-data-share}
 
 A conta especificada não está em conformidade com a HIPAA ou está em [edições do Snowflake](https://docs.snowflake.com/en/user-guide/intro-editions) inferiores à Business Critical. Sua conta do Snowflake precisa fazer upgrade para a edição Business Critical para estar em conformidade com a HIPAA no compartilhamento de dados. Entre em contato com o suporte do Snowflake para obter mais assistência com o upgrade da sua conta.
 
-### Por que não consigo recriar um compartilhamento de dados depois de excluí-lo? {#why-cant-i-recreate-a-data-share-after-deleting-one}
+## Por que não consigo recriar um compartilhamento de dados depois de excluí-lo? {#why-cant-i-recreate-a-data-share-after-deleting-one}
 
 O sistema ainda pode estar processando a exclusão do seu compartilhamento de dados anterior. Aguarde alguns minutos para que o processo de desprovisionamento seja concluído e, em seguida, tente criar o novo compartilhamento de dados novamente.
 
-### Quantas vezes preciso executar o `CREATE DATABASE` quando tenho vários espaços de trabalho compartilhando dados na mesma conta do Snowflake? {#how-many-times-do-i-need-to-run-create-database-when-i-have-multiple-workspaces-sharing-data-to-the-same-snowflake-account}
+## Quantas vezes preciso executar o `CREATE DATABASE` quando tenho vários espaços de trabalho compartilhando dados na mesma conta do Snowflake? {#how-many-times-do-i-need-to-run-create-database-when-i-have-multiple-workspaces-sharing-data-to-the-same-snowflake-account}
 
 Você precisa executar `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` apenas uma vez. Quando vários compartilhamentos de dados de diferentes espaços de trabalho da Braze são compartilhados com a mesma conta do Snowflake, eles são automaticamente combinados no mesmo compartilhamento. Depois de criar o banco de dados inicial, os dados de espaços de trabalho adicionais são automaticamente adicionados ao banco de dados existente sem a necessidade de solicitações de compartilhamento adicionais ou etapas de criação de banco de dados.
 
 Por exemplo, se você criar um compartilhamento de dados para a conta 123 do Snowflake a partir do espaço de trabalho A, você aceita a solicitação de compartilhamento e cria um banco de dados. Quando você cria posteriormente um compartilhamento de dados para a mesma conta 123 do Snowflake a partir do espaço de trabalho B, nenhuma nova solicitação de compartilhamento é enviada — os dados são imediatamente adicionados ao compartilhamento existente e ficam disponíveis no banco de dados criado anteriormente.
 
-### Se eu tiver vários espaços de trabalho, um único banco de dados conterá dados de todos eles? {#if-i-have-multiple-workspaces-does-a-single-database-contain-data-from-all-of-them}
+## Se eu tiver vários espaços de trabalho, um único banco de dados conterá dados de todos eles? {#if-i-have-multiple-workspaces-does-a-single-database-contain-data-from-all-of-them}
 
 Sim. Quando você compartilha dados de vários espaços de trabalho da Braze com a mesma conta do Snowflake, todos os dados são combinados em um único compartilhamento e ficam disponíveis no mesmo banco de dados. Você pode filtrar os dados por `app_group_id` para distinguir os espaços de trabalho.
 
 Como prática recomendada, sempre filtre por `app_group_id` nas suas consultas para prepará-las para o futuro. Isso garante que seus dashboards e relatórios permaneçam precisos se você adicionar outros espaços de trabalho no futuro. Sem esse filtro, suas métricas podem incluir inesperadamente dados de espaços de trabalho recém-adicionados.
 
-### Qual é a abordagem recomendada para gerenciar dados de vários espaços de trabalho no Snowflake? {#what-is-the-recommended-approach-for-managing-data-from-multiple-workspaces-in-snowflake}
+## Qual é a abordagem recomendada para gerenciar dados de vários espaços de trabalho no Snowflake? {#what-is-the-recommended-approach-for-managing-data-from-multiple-workspaces-in-snowflake}
 
 Envie todos os dados da Braze para o mesmo banco de dados e filtre por `app_group_id` para distinguir os espaços de trabalho. Essa abordagem simplifica o gerenciamento de dados e garante relatórios consistentes em toda a organização.
 
-### Quantos conectores de compartilhamento de dados do Snowflake são necessários para vários espaços de trabalho? {#how-many-snowflake-data-share-connectors-do-i-need-for-multiple-workspaces}
+## Quantos conectores de compartilhamento de dados do Snowflake são necessários para vários espaços de trabalho? {#how-many-snowflake-data-share-connectors-do-i-need-for-multiple-workspaces}
 
 O número de conectores necessários depende da sua configuração específica e dos seus direitos. Entre em contato com a equipe da sua conta na Braze para saber mais sobre quais direitos são adequados para o seu caso de uso.
 
-### Quais opções existem para isolar dados de diferentes espaços de trabalho dentro da mesma conta do Snowflake? {#what-options-exist-for-isolating-data-from-different-workspaces-within-the-same-snowflake-account}
+## Quais opções existem para isolar dados de diferentes espaços de trabalho dentro da mesma conta do Snowflake? {#what-options-exist-for-isolating-data-from-different-workspaces-within-the-same-snowflake-account}
 
 Você pode isolar logicamente usando a coluna `app_group_id`, que identifica a qual espaço de trabalho cada linha de dados pertence. As abordagens mais comuns são:
 
@@ -68,10 +68,10 @@ Você pode isolar logicamente usando a coluna `app_group_id`, que identifica a q
 
 Você configura essas opções dentro da sua conta do Snowflake.
 
-### Posso usar uma conta do Snowflake diferente para isolar dados de diferentes espaços de trabalho? {#can-i-use-a-different-snowflake-account-to-isolate-data-from-different-workspaces}
+## Posso usar uma conta do Snowflake diferente para isolar dados de diferentes espaços de trabalho? {#can-i-use-a-different-snowflake-account-to-isolate-data-from-different-workspaces}
 
 Sim. Se o espaço de trabalho A compartilha com a conta X e o espaço de trabalho B compartilha com a conta Y, cada conta recebe um compartilhamento independente com dados separados. No entanto, a maioria das organizações usa uma única conta do Snowflake para todos os dados de negócios. Portanto, essa abordagem pode adicionar sobrecarga operacional. Considere essa compensação antes de escolhê-la em vez das abordagens de isolamento lógico descritas na seção anterior.
 
-### O isolamento de dados por espaço de trabalho é um caso de uso suportado para o compartilhamento de dados do Snowflake? {#is-workspace-data-isolation-a-supported-use-case-for-snowflake-data-sharing}
+## O isolamento de dados por espaço de trabalho é um caso de uso suportado para o compartilhamento de dados do Snowflake? {#is-workspace-data-isolation-a-supported-use-case-for-snowflake-data-sharing}
 
 Sim, por meio das abordagens de isolamento lógico descritas nas seções anteriores. A Braze não cria compartilhamentos separados para cada espaço de trabalho, então você gerencia o isolamento no nível do Snowflake usando views, políticas de acesso a linhas ou contas separadas.

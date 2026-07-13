@@ -6,6 +6,8 @@ description: "Braze Swift SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Leitfaden zum Swift-SDK-Repository {#swift-sdk-repository-guide}
+
 ## Über das Braze Swift SDK {#about-the-braze-swift-sdk}
 
 Das Braze Swift SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zum Nutzer:innen-Engagement in Ihre Anwendung zu integrieren.
@@ -16,6 +18,8 @@ Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 - [Braze-Entwicklerleitfaden](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Schnellstart {#quickstart}
+
+Die folgenden Snippets zeigen die Mindestkonfiguration, die erforderlich ist, um das Braze Swift SDK zu Ihrer App hinzuzufügen.
 
 ``` swift
 // AppDelegate.swift
@@ -51,6 +55,8 @@ Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-E
 
 ## Versionsunterstützung {#version-support}
 
+Die folgende Tabelle listet die mindestens unterstützten Versionen für Tools auf, die vom Braze Swift SDK verwendet werden.
+
 Tool | Mindestens unterstützte Version
 :----|:----
 iOS|12.0+
@@ -64,6 +70,8 @@ Xcode|26.0+ (17A324)
 - CocoaPods
 
 ## Bibliotheken {#libraries}
+
+Die folgende Tabelle beschreibt jede Bibliothek im Braze Swift SDK.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
@@ -103,7 +111,7 @@ Erkunden Sie unser [Beispielprojekt](https://github.com/braze-inc/braze-swift-sd
 
 ## Kontakt {#contact}
 
-Bei Fragen wenden Sie sich bitte an [support@braze.com](mailto:support@braze.com).
+Bei Fragen wenden Sie sich bitte an den technischen Support von Braze.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

@@ -20,7 +20,7 @@ description: "この記事では、「ユーザー設定センターの詳細を
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`preference_center.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`preference_center.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -31,7 +31,7 @@ description: "この記事では、「ユーザー設定センターの詳細を
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | 必須 | 文字列 | ユーザー設定センターのID。 |
-{: aria-label="Path parameters" }
+{: aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 

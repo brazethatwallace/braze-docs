@@ -17,7 +17,7 @@ Event
 
 Selecione usuários que abriram uma determinada Campaign de e-mail mais de uma vez no passado.
 
-Isso também funciona para limitar mensagens no app pelo número de impressões, como selecionar usuários com mais de três impressões como exclusão de Segment na mesma Campaign.
+Isso também funciona para limitar mensagens no app pelo número de impressões, como selecionar usuários com mais de três impressões como exclusão de segmento na mesma Campaign.
 
 ```sql
 SELECT user_id FROM "USERS_MESSAGES_EMAIL_OPEN_SHARED"
@@ -67,7 +67,7 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-Selecione usuários que fizeram uma compra em cada um dos últimos quatro trimestres. Esse Segment de usuários pode ser usado com [audience sync]({{site.baseurl}}/partners/canvas_audience_sync/) para identificar clientes semelhantes de alto valor para aquisição.
+Selecione usuários que fizeram uma compra em cada um dos últimos quatro trimestres. Esse segmento de usuários pode ser usado com [audience sync]({{site.baseurl}}/partners/canvas_audience_sync) para identificar clientes semelhantes de alto valor para aquisição.
 
 ```sql
 ELECT DISTINCT user_id

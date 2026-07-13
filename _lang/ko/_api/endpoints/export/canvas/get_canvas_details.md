@@ -20,7 +20,7 @@ description: "이 문서에서는 Canvas 세부 정보 내보내기 Braze 엔드
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.details` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.details` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -30,10 +30,10 @@ description: "이 문서에서는 Canvas 세부 정보 내보내기 Braze 엔드
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 필수 | 문자열 | [Canvas API 식별자]({{site.baseurl}}/api/identifier_types/) 참조 |
+| `canvas_id` | 필수 | 문자열 | [Canvas API 식별자]({{site.baseurl}}/api/identifier_types) 참조 |
 | `post_launch_draft_version` | 선택 사항 | 부울 | 출시 후 초안이 있는 Canvases의 경우, 이를 `true`로 설정하면 사용 가능한 초안 변경 사항이 표시됩니다. 기본값은 `false`입니다. |
 | `include_has_translatable_content` | 선택 사항 | 부울 | `true`로 설정하면 API 응답에 각 메시지에 대한 `has_translatable_content` 필드가 포함됩니다. 기본값은 `false`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -106,7 +106,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 
 ### 채널별 메시지 {#messages-by-channel}
 
-다음은 다양한 채널(이메일, 푸시, SMS, 인앱 메시지)을 통해 전송된 Canvas 메시지가 포함된 응답 예시입니다:
+다음은 다양한 채널(이메일, 푸시, SMS, 인앱 메시지)을 통해 전송된 Canvas 메시지가 포함된 응답 예시입니다.
 
 ```json
 {
@@ -220,7 +220,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

@@ -15,11 +15,11 @@ description: "Este artigo de referência aborda o objeto de evento, o que ele é
 
 Um objeto de evento é um objeto que é passado pela API quando ocorre um evento específico. Os objetos de eventos são armazenados em um vetor de eventos. Cada objeto de evento no vetor de eventos representa uma única ocorrência de um evento personalizado por um usuário específico no valor de tempo designado. O objeto de evento tem muitos campos diferentes que permitem a personalização por meio da configuração e do uso das propriedades do evento em mensagens, coleta de dados e personalização.
 
-Para etapas sobre como configurar eventos personalizados para uma plataforma específica, consulte o Guia de Integração da Plataforma no [Guia do Desenvolvedor]({{site.baseurl}}/developer_guide/home/). Consulte o artigo relevante com base na sua plataforma:
+Para etapas sobre como configurar eventos personalizados para uma plataforma específica, consulte o Guia de Integração da Plataforma no [Guia do Desenvolvedor]({{site.baseurl}}/developer_guide/home). Consulte o artigo relevante com base na sua plataforma:
 
-- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Corpo do objeto {#object-body}
 
@@ -42,12 +42,12 @@ Para etapas sobre como configurar eventos personalizados para uma plataforma esp
 }
 ```
 
-- [ID de usuário externo]({{site.baseurl}}/api/basics/#user-ids)
-- [Identificador do app]({{site.baseurl}}/api/identifier_types/)
+- [ID de usuário externo]({{site.baseurl}}/api/basics#user-ids)
+- [Identificador do app]({{site.baseurl}}/api/identifier_types)
 - [Código de tempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Alguns pares de identificadores não podem ser usados juntos em uma única solicitação. Quando tanto `email` quanto `phone` são fornecidos, `email` tem precedência sobre `phone`. Para detalhes completos, consulte [Resolução de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Alguns pares de identificadores não podem ser usados juntos em uma única solicitação. Quando tanto `email` quanto `phone` são fornecidos, `email` tem precedência sobre `phone`. Para detalhes completos, consulte [Resolução de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 #### Atualizar apenas os perfis existentes {#update-existing-profiles-only}
@@ -68,11 +68,11 @@ Os valores de propriedade podem ser qualquer um dos seguintes tipos de dados:
 | --- | --- |
 | Números | Como [números inteiros](https://en.wikipedia.org/wiki/Integer) ou [flutuantes](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
 | Booleanos | `true` ou `false` |
-| Datetimes | Deve ser formatado como strings no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou em qualquer um dos seguintes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Não é compatível com matrizes. <br><br>Note que "T" é um designador de tempo, não um espaço reservado, e não deve ser alterado ou removido. <br><br>Atributos de tempo sem um fuso horário serão definidos como meia-noite UTC por padrão (e serão formatados no dashboard como o equivalente a meia-noite UTC no fuso horário da empresa). <br><br> Os eventos com registros de data e hora no futuro terão como padrão a hora atual.  |
+| Datetimes | Deve ser formatado como strings no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou em qualquer um dos seguintes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Não é compatível com vetores. <br><br>Note que "T" é um designador de tempo, não um espaço reservado, e não deve ser alterado ou removido. <br><br>Atributos de tempo sem um fuso horário serão definidos como meia-noite UTC por padrão (e serão formatados no dashboard como o equivalente a meia-noite UTC no fuso horário da empresa). <br><br> Os eventos com registros de data e hora no futuro terão como padrão a hora atual.  |
 | Strings | 255 caracteres ou menos. |
-| Matrizes | As matrizes não podem incluir datetimes. |
+| Vetores | Os vetores não podem incluir datetimes. |
 | Objetos | Os objetos serão ingeridos como strings. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Event properties object" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Objeto de propriedades do evento" }
 
 Os objetos de propriedade de evento que contêm valores de vetor ou objeto podem ter uma carga útil de propriedade de evento de até 100&nbsp;KB.
 
@@ -89,7 +89,7 @@ Usar chaves reservadas como nomes de propriedades de eventos personalizados resu
 
 ### Persistência de propriedades de eventos {#event-property-persistence}
 
-As propriedades de eventos são projetadas para filtragem e personalização de Liquid em mensagens disparadas por seus eventos principais. Por padrão, elas não são mantidas no perfil de usuário da Braze. Para usar valores de propriedades de eventos na segmentação, consulte [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), que detalha as várias abordagens para armazenar valores de propriedades de eventos a longo prazo.
+As propriedades de eventos são projetadas para filtragem e personalização de Liquid em mensagens disparadas por seus eventos principais. Por padrão, elas não são mantidas no perfil de usuário da Braze. Para usar valores de propriedades de eventos na segmentação, consulte [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events), que detalha as várias abordagens para armazenar valores de propriedades de eventos a longo prazo.
 
 #### Exemplo de solicitação de evento {#event-example-request}
 
@@ -112,7 +112,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "time" : "2013-07-16T19:20:45+01:00",
       "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
       }
     },
     {
@@ -128,4 +128,4 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Objetos de eventos {#event-objects}
 
-Usando o exemplo fornecido, podemos ver que alguém assistiu a um trailer recentemente e depois alugou um filme. Embora não possamos entrar em uma Campaign e segmentar os usuários com base nessas propriedades, podemos usar essas propriedades estrategicamente, usando-as na forma de um recibo, para enviar uma mensagem personalizada por meio de um canal usando Liquid. Por exemplo, "Olá **Beth**, obrigado por alugar **The Sad Egg** de **Dan Alexander**, aqui estão alguns filmes recomendados com base no seu aluguel..."
+Usando o exemplo fornecido, podemos ver que alguém assistiu a um trailer recentemente e depois alugou um filme. Embora não possamos entrar em uma Campaign e segmentar os usuários com base nessas propriedades, podemos usar essas propriedades estrategicamente, usando-as na forma de um recibo, para enviar uma mensagem personalizada por meio de um canal usando Liquid. Por exemplo, "Olá **Alex**, obrigado por alugar **The Sad Egg** de **Alex Smith**, aqui estão alguns filmes recomendados com base no seu aluguel..."

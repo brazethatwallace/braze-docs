@@ -52,7 +52,7 @@ Before you upload your CSV file, ensure that your CSV file meets the following r
 |-----------------|---------|
 | Headers | The first column in the CSV file must be named `id`, and each row must have a unique `id` value. |
 | Columns | A CSV file can have a maximum of 1,000 fields (columns), and each column name can be up to 250 characters long. |
-| File size | For Free plans, the total size of all CSV files across a company is limited to 100 MB. For Pro plans, the maximum file size for a single CSV file is 2 GB. |
+| File size | For Free plans, the total size of all CSV files across a company is limited to 500 MB. For Pro plans, the maximum file size for a single CSV file is 2 GB. |
 | Field values | Each cell (field value) can contain up to 5,000 characters. |
 | Valid characters | The `id` column and all header values can only contain letters, numbers, hyphens, and underscores. |
 | Data types | Supported data types for CSV uploads include string, number, boolean, time, and geolocation. For the full list of data types, including those available only through the API and CDI, refer to [Supported data types](#supported-data-types). |
@@ -68,7 +68,7 @@ Need more space to accommodate for your CSV files? Contact your Braze account ma
 
 Drag and drop your file to the upload zone, or select **Upload CSV** and choose your file.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![Drag and drop your file to the upload zone, or select Upload CSV and choose your file.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 Select a data type for each column.
 
@@ -76,7 +76,7 @@ Select a data type for each column.
 This data type cannot be edited after you set up your catalog. In addition, a `NULL` value isn't supported in CSV upload and will be treated as a string.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![This data type cannot be edited after you set up your catalog. In addition, a NULL value isn't supported in CSV upload and will be treated as a string.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Enter a name and optional description for your catalog. Keep the following requirements in mind when naming your catalog:
 
@@ -93,7 +93,7 @@ You can also [use templates in a catalog name](#template-catalog-names), letting
 Select **Process Catalog** to create the catalog.
 
 {% alert important %}
-Your CSV file can be rejected if you go above your [tier](#tiers). 
+Your CSV file can be rejected if you go earlier in this section your [tier](#tiers). 
 {% endalert %}
 
 ### Tutorial: Creating a catalog from a CSV file
@@ -144,13 +144,13 @@ Next, we'll name this catalog "games_catalog" and select the **Process Catalog**
 
 Note that you won't be able to edit this name after the catalog is created. You can delete a catalog and re-upload an updated version using the same catalog name.
 
-After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/).
+After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
 {% endtab %}
 
 {% tab Create in browser %}
 ### Prerequisites
 
-Before you can edit or create catalogs in the browser, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) for your workspace:
+Before you can edit or create catalogs in the browser, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) for your workspace:
 
 - View Catalogs
 - Edit Catalogs
@@ -223,35 +223,35 @@ To update your catalog after uploading a CSV or creating a catalog in the browse
 
 ### Using the REST API
 
-As you build more catalogs, you can also use the [List catalogs endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) to return a list of the catalogs in a workspace.
+As you build more catalogs, you can also use the [List catalogs endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) to return a list of the catalogs in a workspace.
 
 The REST API supports all [catalog data types](#supported-data-types), including JSON objects and string arrays. JSON objects and string arrays can only be created or updated through the REST API.
 
 ### Using Cloud Data Ingestion
 
-You can maintain catalogs through [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) by syncing catalog data directly from your data warehouse (such as Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, or S3) on a scheduled basis.
+You can maintain catalogs through [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) by syncing catalog data directly from your data warehouse (such as Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, or S3) on a scheduled basis.
 
 ## Managing catalog items
 
 In addition to managing your catalogs, you can also use asynchronous and synchronous endpoints to manage the catalog items. This includes the ability to edit and delete catalog items, and to list catalog item details. 
 
-For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
+For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Catalog storage {#tiers}
 
-The free version of catalogs supports CSV file sizes of up to 100 MB for all CSV files combined across your company, whereas the Catalogs Pro version supports CSV file sizes of up to 2 GB for a single CSV file.
+The free version of catalogs supports CSV file sizes of up to 500 MB for all CSV files combined across your company, whereas the Catalogs Pro version supports CSV file sizes of up to 2 GB for a single CSV file.
 
 {% alert important %}
 The package entitlement shown in the Braze dashboard is rounded to the nearest unit for visual purposes; however, you are still entitled to the full entitlement purchased. To request an upgrade for catalog storage, contact your Braze account manager.
 {% endalert %}
 
-#### Free version
+### Free version
 
-The storage size for the free version of catalogs is up to 100&nbsp;MB. You can have unlimited items as long as they're under 100&nbsp;MB. 
+The storage size for the free version of catalogs is up to 500&nbsp;MB. You can have unlimited items as long as they're under 500&nbsp;MB. 
 
 #### Catalogs Pro
 
-At a company level, the maximum storage for Catalogs Pro is based on the size of catalog data. The storage size options are: 5&nbsp;GB, 10&nbsp;GB, or 15&nbsp;GB. Note that the free version's storage (100&nbsp;MB) is included in each of these plans.
+At a company level, the maximum storage for Catalogs Pro is based on the size of catalog data. The storage size options are: 5&nbsp;GB, 10&nbsp;GB, or 15&nbsp;GB. Note that the free version's storage (500&nbsp;MB) is included in each of these plans.
 
 ## Specifications
 

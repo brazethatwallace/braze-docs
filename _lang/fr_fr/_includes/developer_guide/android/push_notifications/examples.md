@@ -2,7 +2,7 @@
 
 ## Disposition personnalisée des notifications {#custom-notification-layout}
 
-Les notifications de Braze sont envoyées sous forme de [messages de données](https://firebase.google.com/docs/cloud-messaging/concept-options), ce qui signifie que votre application aura toujours la possibilité de répondre et d'adapter son comportement en conséquence, même en arrière-plan (contrairement aux messages de notification, qui peuvent être traités automatiquement par le système lorsque votre application est en arrière-plan). Votre application pourra ainsi personnaliser l'expérience, par exemple en affichant des éléments d'interface personnalisés dans la notification envoyée à la barre de notification. Bien que cette approche de l'implémentation push puisse sembler inhabituelle, l'une de nos fonctionnalités phares chez Braze, [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/), est un excellent exemple d'utilisation de composants de vue personnalisés pour créer une expérience engageante !
+Les notifications de Braze sont envoyées sous forme de [messages de données](https://firebase.google.com/docs/cloud-messaging/concept-options), ce qui signifie que votre application aura toujours la possibilité de répondre et d'adapter son comportement en conséquence, même en arrière-plan (contrairement aux messages de notification, qui peuvent être traités automatiquement par le système lorsque votre application est en arrière-plan). Votre application pourra ainsi personnaliser l'expérience, par exemple en affichant des éléments d'interface personnalisés dans la notification envoyée à la barre de notification. Bien que cette approche de l'implémentation push puisse sembler inhabituelle, l'une de nos fonctionnalités phares chez Braze, [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories), est un excellent exemple d'utilisation de composants de vue personnalisés pour créer une expérience engageante !
 
 {% alert important %}
 Android impose certaines limitations sur les composants pouvant être utilisés pour implémenter des vues de notification personnalisées. Les dispositions de la vue de notification doivent _uniquement_ contenir des objets de vue compatibles avec le framework [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews).
@@ -10,7 +10,7 @@ Android impose certaines limitations sur les composants pouvant être utilisés 
 
 Vous pouvez utiliser l'interface [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) pour personnaliser l'affichage des notifications push de Braze. En étendant `BrazeNotificationFactory`, Braze appellera la méthode `createNotification()` de votre fabrique avant que la notification ne soit affichée à l'utilisateur. Il transmettra ensuite un payload contenant des paires clé-valeur personnalisées envoyées via le tableau de bord de Braze ou la REST API.
 
-Dans cette section, vous collaborerez avec Superb Owl, l'animateur d'un nouveau jeu télévisé dans lequel des équipes de sauvetage d'animaux sauvages s'affrontent pour déterminer qui peut sauver le plus grand nombre de hiboux. Ils souhaitent exploiter les notifications de mise à jour en direct dans leur application Android, afin d'afficher le statut d'un match en cours et d'effectuer des mises à jour dynamiques de la notification en temps réel.
+Dans cette section, vous collaborerez avec Superb Owl, l'animateur d'un nouveau jeu télévisé dans lequel des équipes de sauvetage d'animaux sauvages s'affrontent pour déterminer qui peut sauver le plus grand nombre de hiboux. Ils souhaitent tirer parti des notifications de mise à jour en direct dans leur application Android, afin d'afficher le statut d'un match en cours et d'effectuer des mises à jour dynamiques de la notification en temps réel.
 
 ![La mise à jour en direct que Superb Owl souhaite afficher, montrant un match en cours entre « Wild Bird Fund » et « Owl Rescue ». C'est le quatrième quart-temps et le score est de 2-4 avec OWL en tête.]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
 
@@ -248,7 +248,7 @@ class MyApplication : Application() {
 
 ### Étape 5 : Envoyer l'activité {#step-5-send-the-activity}
 
-Vous pouvez utiliser l'endpoint REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) pour envoyer une notification push à l'appareil Android d'un utilisateur.
+Vous pouvez utiliser l'endpoint REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) pour envoyer une notification push à l'appareil Android d'un utilisateur.
 
 #### Exemple de commande curl {#example-curl-command}
 
@@ -288,13 +288,13 @@ Bien que les commandes curl soient utiles pour les tests, nous recommandons de g
 | Clé | Description |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `REST_API_KEY` | Une clé REST API de Braze avec les autorisations `messages.send`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| `BRAZE_REST_ENDPOINT` | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics/#endpoints). |
+| `BRAZE_REST_ENDPOINT` | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics#endpoints). |
 | `USER_ID` | L'ID de l'utilisateur auquel vous envoyez la notification. |
 | `messages.android_push.title` | Le titre du message. Par défaut, il n'est pas utilisé pour les notifications en direct de la fabrique de notifications personnalisée, mais il peut servir de solution de repli. |
 | `messages.android_push.alert` | Le corps du message. Par défaut, il n'est pas utilisé pour les notifications en direct de la fabrique de notifications personnalisée, mais il peut servir de solution de repli. |
-| `messages.extra` | Paires clé-valeur que la fabrique de notifications personnalisée utilise pour les notifications en direct. Vous pouvez attribuer n'importe quelle chaîne de caractères à cette valeur — toutefois, dans l'exemple ci-dessus, `live_updates` est utilisé pour déterminer s'il s'agit d'une notification push par défaut ou en direct. |
+| `messages.extra` | Paires clé-valeur que la fabrique de notifications personnalisée utilise pour les notifications en direct. Vous pouvez attribuer n'importe quelle chaîne de caractères à cette valeur — toutefois, dans cet exemple, `live_updates` est utilisé pour déterminer s'il s'agit d'une notification push par défaut ou en direct. |
 | `ASSIGNED_NOTIFICATION_ID` | L'ID de notification que vous souhaitez attribuer à la notification en direct de l'utilisateur choisi. L'ID doit être unique pour ce match et doit être utilisé pour [mettre à jour la notification existante](#android_step-4-update-data-with-the-braze-rest-api) ultérieurement. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paramètres de la requête" }
 
 ### Étape 6 : Mettre à jour l'activité {#step-6-update-the-activity}
 

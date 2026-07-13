@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour l
 ---
 {% api %}
 # Mettre à jour les messages planifiés {#update-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/update
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ Cet endpoint accepte les mises à jour du paramètre `schedule` ou du paramètre
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `messages.schedule.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `messages.schedule.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -51,8 +51,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | Requis | Chaîne de caractères | Le `schedule_id` à mettre à jour (obtenu à partir de la réponse de création de planification). |
-| `schedule` | Facultatif | Objet | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-| `messages` | Facultatif | Objet | Voir [les objets d'envoi de messages disponibles]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
+| `schedule` | Facultatif | Objet | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object). |
+| `messages` | Facultatif | Objet | Voir [les objets d'envoi de messages disponibles]({{site.baseurl}}/api/objects_filters#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}

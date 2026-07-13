@@ -10,7 +10,7 @@ permalink: /workspace_rate_limits/
 
 ## Pré-requisitos {#prerequisites}
 
-Os limites de taxa do espaço de trabalho estão disponíveis apenas para contratos da Braze sem pontos de dados. Além disso, você precisará de [permissões de administrador](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para gerenciar limites de taxa.
+Os limites de taxa do espaço de trabalho estão disponíveis apenas para contratos da Braze sem pontos de dados. Além disso, você precisará de [permissões de administrador]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para gerenciar limites de taxa.
 
 ## Sobre os limites de taxa do espaço de trabalho {#about-workspace-rate-limits}
 
@@ -73,6 +73,6 @@ O valor `Retry-After` reflete o número de segundos até o início da próxima h
 
 ### Dashboard de uso da API {#api-usage-dashboard}
 
-Para monitorar o volume de solicitações, códigos de resposta e comportamento de ingestão entre espaços de trabalho, você também pode usar o [dashboard de uso da API](https://www.braze.com/docs/user_guide/analytics/dashboard/api_usage_dashboard).
+Para monitorar o volume de solicitações, códigos de resposta e comportamento de ingestão entre espaços de trabalho, você também pode usar o [dashboard de uso da API]({{site.baseurl}}/user_guide/analytics/dashboard/api_usage_dashboard/).
 
 Você pode filtrar o dashboard para exibir `429 Workspace Rate Limited` ou `429 Company Rate Limited`, para identificar rapidamente se uma solicitação foi limitada pelo limite de taxa da empresa ou do espaço de trabalho.

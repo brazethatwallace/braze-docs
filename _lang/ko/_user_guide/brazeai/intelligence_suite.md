@@ -18,8 +18,8 @@ Intelligence Suite는 사용자 기록과 Campaign 및 Canvas 성과를 분석�
 
 ### eCommerce {#ecommerce}
 
-- **반짝 세일:** [인텔리전트 채널 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)를 사용하여 사용자 기록을 분석하고, 푸시 알림에 더 잘 반응하는 사용자와 이메일에 더 잘 반응하는 사용자를 식별한 다음, 해당 사용자에게 각각 푸시 알림과 이메일을 보냅니다. 선택적으로, 선호 채널을 결정하기에 충분한 데이터가 없는 사용자에게는 특정 채널을 지정할 수 있습니다.
-- **프로모션 배너:** [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)을 사용하여 반복 Campaign에서 다양한 프로모션 배너의 성과를 분석한 다음, 가장 높은 클릭률을 기록하는 배너를 자동으로 선택하여 전송합니다.
+- **반짝 세일:** [인텔리전트 채널 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)를 사용하여 사용자 기록을 분석하고, 푸시 알림에 더 잘 반응하는 사용자와 이메일에 더 잘 반응하는 사용자를 식별한 다음, 해당 사용자에게 각각 푸시 알림과 이메일을 보냅니다. 선택적으로, 선호 채널을 결정하기에 충분한 데이터가 없는 사용자에게는 특정 채널을 지정할 수 있습니다.
+- **프로모션 배너:** [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 사용하여 반복 Campaign에서 다양한 프로모션 배너의 성과를 분석한 다음, 가장 높은 클릭률을 기록하는 배너를 자동으로 선택하여 전송합니다.
 
 ### 여행 {#travel}
 
@@ -28,5 +28,5 @@ Intelligence Suite는 사용자 기록과 Campaign 및 Canvas 성과를 분석�
 
 ### 엔터테인먼트 {#entertainment}
 
-- **새로운 콘텐츠 프로모션:** [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)을 사용하여 사용자가 메시지를 열 가능성이 가장 높은 시간에 새로운 영화, 프로그램, 음악 및 기타 유형의 콘텐츠에 대한 알림을 보내세요.
+- **새로운 콘텐츠 프로모션:** [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)을 사용하여 사용자가 메시지를 열 가능성이 가장 높은 시간에 새로운 영화, 프로그램, 음악 및 기타 유형의 콘텐츠에 대한 알림을 보내세요.
 - **인게임 구매:** 지능형 선택을 사용하여 인게임 구매를 위한 다양한 프로모션 메시지를 테스트하고, 가장 높은 전환율을 기록하는 메시지를 자동으로 선택하세요.

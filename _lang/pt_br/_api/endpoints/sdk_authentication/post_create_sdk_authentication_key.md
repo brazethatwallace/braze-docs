@@ -18,7 +18,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze para cr
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `sdk_authentication.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sdk_authentication.create`.
 
 ## Limite de taxa {#rate-limit}
 

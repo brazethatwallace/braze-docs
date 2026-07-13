@@ -10,7 +10,7 @@ permalink: /workspace_rate_limits/
 
 ## 필수 조건 {#prerequisites}
 
-워크스페이스 사용량 제한은 데이터 포인트가 포함되지 않은 Braze 계약에서만 사용할 수 있습니다. 또한 사용량 제한을 관리하려면 [관리자 권한](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 필요합니다.
+워크스페이스 사용량 제한은 데이터 포인트가 포함되지 않은 Braze 계약에서만 사용할 수 있습니다. 또한 사용량 제한을 관리하려면 [관리자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 필요합니다.
 
 ## 워크스페이스 사용량 제한 소개 {#about-workspace-rate-limits}
 
@@ -73,6 +73,6 @@ permalink: /workspace_rate_limits/
 
 ### API 사용량 대시보드 {#api-usage-dashboard}
 
-워크스페이스 전반의 요청량, 응답 코드, 수집 동작을 모니터링하려면 [API 사용량 대시보드](https://www.braze.com/docs/user_guide/analytics/dashboard/api_usage_dashboard)를 사용할 수도 있습니다.
+워크스페이스 전반의 요청량, 응답 코드, 수집 동작을 모니터링하려면 [API 사용량 대시보드]({{site.baseurl}}/user_guide/analytics/dashboard/api_usage_dashboard/)를 사용할 수도 있습니다.
 
 대시보드에서 `429 Workspace Rate Limited` 또는 `429 Company Rate Limited`로 필터링하여 요청이 회사 수준 사용량 제한에 의해 제한되었는지 워크스페이스 사용량 제한에 의해 제한되었는지 빠르게 확인할 수 있습니다.

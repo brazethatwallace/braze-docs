@@ -15,11 +15,11 @@ description: "Este artigo descreve detalhes sobre o endpoint Ver traduções de 
 /templates/email/translations/source
 {% endapimethod %}
 
-> Use este endpoint para ver as traduções de origem de um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre recursos de tradução.
+> Use este endpoint para ver as traduções de origem de um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para saber mais sobre recursos de tradução.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `templates.email.info`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `templates.email.info`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -27,10 +27,10 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de consulta {#query-parameters}
 
-| Parâmetro     | Obrigatória | Tipo de dados | Descrição                          |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---------------|-------------|---------------|------------------------------------|
-| `template_id` | Obrigatória | String        | O ID do seu modelo de e-mail.      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+| `template_id` | Obrigatória | String | O ID do seu modelo de e-mail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
 ## Exemplo de solicitação {#example-request}
 

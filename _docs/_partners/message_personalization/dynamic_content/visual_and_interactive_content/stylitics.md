@@ -18,7 +18,7 @@ _This integration is maintained by Stylitics._
 
 Your Braze and Stylitics integration allows you to enhance your existing email campaigns with engaging and relevant bundled content, creating a personalized customer experience.
 
-![]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
+![Stylitics bundled content example embedded in a Braze email experience.]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
 
 ## Prerequisites
 

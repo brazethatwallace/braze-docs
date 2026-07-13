@@ -9,7 +9,7 @@ page_type: tutorial
 
 > Este exemplo mostra como uma marca fictícia usa o Predictive Churn para reduzir proativamente a perda de usuários. Em vez de esperar que o churn aconteça, faça a previsão de quais usuários estão em risco e envie mensagens personalizadas enquanto eles ainda estão ativos.
 
-Digamos que Camila é gerente de CRM na MovieCanon, uma plataforma de streaming para filmes independentes, documentários e séries internacionais.
+Vamos supor que Camila é gerente de CRM na MovieCanon, uma plataforma de streaming para filmes independentes, documentários e séries internacionais.
 
 A equipe de Camila identificou uma tendência preocupante: os usuários se inscrevem, assistem a um ou dois filmes e depois desaparecem. Historicamente, eles tentaram enviar um e-mail genérico dizendo "Sentimos sua falta" uma semana depois, mas com uma taxa de conversão de apenas 3%, isso foi muito pouco e muito tarde. A maioria dos usuários não volta a se engajar, e o churn se torna inevitável.
 
@@ -38,16 +38,16 @@ Camila começa modelando o resultado que deseja evitar: usuários se tornando in
 6. Ela define a programação de atualização da previsão para semanalmente, para que as pontuações permaneçam atualizadas.
 7. Ela seleciona **Criar previsão**.
 
-O modelo então inicia o treinamento, analisando comportamentos como sessões recentes, frequência de visualização e interações com o conteúdo para revelar padrões que preveem o abandono. Uma hora depois, Camila recebe um e-mail informando que sua previsão concluiu o treinamento, então ela a abre na Braze e verifica a pontuação de [qualidade da previsão]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#prediction_quality). Está classificada como "Boa", o que significa que as previsões do modelo provavelmente são precisas e confiáveis. Confiante no desempenho do modelo, ela segue em frente.
+O modelo então inicia o treinamento, analisando comportamentos como sessões recentes, frequência de visualização e interações com o conteúdo para revelar padrões que preveem o abandono. Uma hora depois, Camila recebe um e-mail informando que sua previsão concluiu o treinamento, então ela a abre na Braze e verifica a pontuação de [qualidade da previsão]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics#prediction_quality). Está classificada como "Boa", o que significa que as previsões do modelo provavelmente são precisas e confiáveis. Confiante no desempenho do modelo, ela segue em frente.
 
 ## Etapa 2: Segmente os usuários por risco de churn {#step-2-segment-users-by-churn-risk}
 
-Após o modelo concluir o treinamento, a Braze atribui a cada usuário elegível uma [pontuação de risco de churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/#churn_score) entre 0 e 100.
+Após o modelo concluir o treinamento, a Braze atribui a cada usuário elegível uma [pontuação de risco de churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics#churn_score) entre 0 e 100.
 
 Para determinar um limite inicial para o direcionamento, Camila usa o controle deslizante de população de previsão para visualizar quantos usuários se enquadram em cada faixa de pontuação e qual é a precisão da previsão nesse nível. Ela equilibra cobertura e precisão com base nos verdadeiros positivos esperados. Com base nisso, ela decide direcionar para pontuações de risco superiores a 70.
 
 1. Camila navega até Segments na Braze.
-2. Ela cria um [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando o [filtro de pontuação de risco de churn]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#churn-risk-score) e seleciona a previsão de churn que criou:
+2. Ela cria um [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) usando o [filtro de pontuação de risco de churn]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#churn-risk-score) e seleciona a previsão de churn que criou:
    - **Provável churn:** Pontuação superior a 70
 
 ![Filtragem de segment para usuários com pontuação de risco de churn superior a 70.]({% image_buster /assets/img/ai_use_cases/churn_risk_score.png %})
@@ -56,11 +56,11 @@ Para determinar um limite inicial para o direcionamento, Camila usa o controle d
 
 Com sua previsão e segment prontos, Camila configura uma Campaign recorrente que alcança automaticamente os usuários que se tornam vulneráveis a cada semana.
 
-1. Camila cria uma Campaign recorrente e ativa o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), para que cada mensagem seja entregue quando cada usuário individual estiver mais propenso a se engajar, em vez de depender de um dia e horário fixos.
+1. Camila cria uma Campaign recorrente e ativa o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), para que cada mensagem seja entregue quando cada usuário individual estiver mais propenso a se engajar, em vez de depender de um dia e horário fixos.
 2. Ela direciona para o segment "Provável churn" que acabou de criar.
 3. Ela define o evento de conversão da Campaign como o evento personalizado `stream_started`, para rastrear quantos usuários realmente retornam para visualizar o conteúdo.
 4. Camila escolhe o e-mail como seu canal principal — ele lhe dá espaço para destacar várias opções de conteúdo personalizado em um formato visualmente rico, sem muita pressão. O e-mail inclui:
-   - Uma lista de observação personalizada alimentada por [Recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), selecionada dinamicamente a partir do catálogo da MovieCanon
+   - Uma lista de observação personalizada alimentada por [Recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations), selecionada dinamicamente a partir do catálogo da MovieCanon
    - Uma chamada à ação que leva o usuário diretamente para o app.
 
 Isso garante que, a cada semana, a MovieCanon alcance apenas os usuários que precisam de um empurrãozinho — sem excesso de envio de mensagens, sem suposições.
@@ -74,7 +74,7 @@ Isso garante que, a cada semana, a MovieCanon alcance apenas os usuários que pr
 
 ## Etapa 4: Meça o desempenho {#step-4-measure-performance}
 
-Após algumas semanas, Camila verifica a [análise de dados da Campaign]({{site.baseurl}}/user_guide/channels/email/reporting/) para avaliar o desempenho da estratégia.
+Após algumas semanas, Camila verifica a [análise de dados da Campaign]({{site.baseurl}}/user_guide/channels/email/reporting) para avaliar o desempenho da estratégia.
 
 Ela vê:
 
@@ -82,9 +82,9 @@ Ela vê:
 - *Taxa de cliques:* 15%
 - *Taxa de conversão* (transmissão iniciada em 48 horas): 11%
 
-Em comparação com a antiga Campaign "Sentimos sua falta" (onde as taxas de conversão oscilavam em torno de 3%), esse novo fluxo reduz o churn no grupo-alvo em 28%. Ela analisa o [relatório de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) para identificar onde os usuários abandonam o processo. Embora as taxas de abertura e cliques sejam altas, ela percebe um leve atrito entre o clique e a conversão — o que a leva a considerar testar o texto da CTA ou experimentar um novo layout.
+Em comparação com a antiga Campaign "Sentimos sua falta" (onde as taxas de conversão oscilavam em torno de 3%), esse novo fluxo reduz o churn no grupo-alvo em 28%. Ela analisa o [relatório de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) para identificar onde os usuários abandonam o processo. Embora as taxas de abertura e cliques sejam altas, ela percebe um leve atrito entre o clique e a conversão — o que a leva a considerar testar o texto da CTA ou experimentar um novo layout.
 
-Para entender o impacto a longo prazo, Camila também rastreia o volume de usuários que entram no segment "Provável churn" semana após semana. Isso a ajuda a avaliar a integridade geral do ciclo de vida e a informar a estratégia de retenção em um nível mais amplo. Por fim, ela revisita a página de [análises de previsão]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) para sua previsão de churn, a fim de comparar os usuários previstos como churners com os reais — uma verificação útil para garantir que o modelo esteja funcionando conforme o esperado.
+Para entender o impacto a longo prazo, Camila também rastreia o volume de usuários que entram no segment "Provável churn" semana após semana. Isso a ajuda a avaliar a integridade geral do ciclo de vida e a informar a estratégia de retenção em um nível mais amplo. Por fim, ela revisita a página de [análises de previsão]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) para sua previsão de churn, a fim de comparar os usuários previstos como churners com os reais — uma verificação útil para garantir que o modelo esteja funcionando conforme o esperado.
 
 Com base nesses insights, Camila planeja fazer testes A/B com linhas de assunto, testar diferentes janelas de tempo e experimentar formatos de conteúdo, como recomendações em estilo carrossel em uma mensagem no app.
 

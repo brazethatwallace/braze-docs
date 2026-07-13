@@ -17,7 +17,7 @@ description: "Este artigo explica como configurar seus IPs e domínios para o en
 <br>
 
 {% alert important %}
-Você pode usar SendGrid, SparkPost ou Amazon Simple Email Service (SES) como seu parceiro de prestador de serviço de e-mail (ESP). A partir de 2026, a Braze usa o Amazon SES como ESP padrão para novas configurações de e-mail. Para mais detalhes, consulte [Configuração do Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/).
+Você pode usar SendGrid, SparkPost ou Amazon Simple Email Service (SES) como seu parceiro de prestador de serviço de e-mail (ESP). A partir de 2026, a Braze usa o Amazon SES como ESP padrão para novas configurações de e-mail. Para mais detalhes, consulte [Configuração do Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
 {% endalert %}
 
 ## Método 1: Coordenar com a Braze (recomendado) {#method-1-coordinate-with-braze-recommended}
@@ -38,7 +38,7 @@ Após receber seu e-mail, começaremos a configurar seus IPs, domínios e subdom
 
 Após a configuração dos seus IPs, domínios, subdomínios e pools de IP, enviaremos uma lista de registros DNS. Peça aos seus engenheiros e desenvolvedores que adicionem esses registros DNS onde necessário e, depois que forem adicionados, avise a equipe de integração da Braze.
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 Após a Braze fornecer seus registros DNS, adicione-os assim que sua equipe de DNS ou de TI puder. A verificação de domínio tem prazo limitado, e se os registros forem adicionados tarde demais, a verificação pode falhar mesmo que os registros DNS sejam resolvidos corretamente depois. Se seus registros DNS parecerem corretos, mas a verificação falhar, entre em contato com a equipe de integração ou o suporte da Braze para reiniciar a verificação.
 
@@ -50,7 +50,7 @@ Verificaremos sua configuração e validaremos todas as informações em nossos 
 
 Este método configura um domínio de envio, um domínio de rastreamento e um IP no total para uma empresa. Se você planeja configurar mais, consulte a equipe de integração da Braze (método 1).
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>Se você estiver usando o recurso de configuração de e-mail por autoatendimento, consulte também a equipe de integração da Braze.
 
 ### Pré-requisitos {#prerequisites}
@@ -72,7 +72,7 @@ Um domínio de envio é usado no endereço "de" ao enviar um e-mail. Insira um d
 
 Em seguida, adicione os registros TXT e CNAME da parte inferior da página ao seu provedor DNS. Depois, volte ao dashboard da Braze e clique em **Verificar**.
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![Página de configuração de e-mail mostrando registros DNS TXT e CNAME para verificar um domínio de envio.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 Se a verificação falhar e você acreditar que seus registros DNS estão corretos, entre em contato com o suporte da Braze para obter assistência.
 
@@ -100,4 +100,4 @@ Quando um pool de IP contém vários endereços IP dedicados, a Braze e seu pres
 
 ### Próximas etapas
 
-Após a conclusão da verificação do remetente, recomendamos o aquecimento de IP para que suas mensagens cheguem às caixas de entrada de destino com uma taxa consistentemente alta. Depois de concluir essa configuração, consulte também a equipe de integração da Braze para confirmar se seus domínios e [endereço IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) estão funcionando.
+Após a conclusão da verificação do remetente, recomendamos o aquecimento de IP para que suas mensagens cheguem às caixas de entrada de destino com uma taxa consistentemente alta. Depois de concluir essa configuração, consulte também a equipe de integração da Braze para confirmar se seus domínios e [endereço IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) estão funcionando.

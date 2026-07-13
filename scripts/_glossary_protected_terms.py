@@ -21,15 +21,21 @@ Most locales render each term identically to English — the empty
 The ``Canvases`` override for ``es``/``fr``/``pt-br`` intentionally
 collapses the plural to singular: those locales do not pluralize
 English loanwords with an added ``s`` in docs prose, so the canonical
-plural is the same word as the singular. ``de``/``ja``/``ko`` keep
-the English plural.
+plural is the same word as the singular. ``de``/``ko`` keep the English
+plural; ``ja`` localizes Campaign/Canvas/Segment product nouns to
+``キャンペーン`` / ``キャンバス`` / ``セグメント``.
 """
 
 PROTECTED_PRODUCT_TERMS = {
     "Braze":            {},
     "BrazeAI":          {},
-    "Canvas":           {},
-    "Canvases":         {"es": "Canvas", "fr": "Canvas", "pt-br": "Canvas"},
+    "Canvas":           {"ja": "キャンバス"},
+    "Canvases":         {
+        "es": "Canvas",
+        "fr": "Canvas",
+        "pt-br": "Canvas",
+        "ja": "キャンバス",
+    },
     "Currents":         {},
     "Content Cards":    {},
     "Content Blocks":   {},
@@ -38,10 +44,10 @@ PROTECTED_PRODUCT_TERMS = {
     "SDK":              {},
     "API":              {},
     "REST API":         {},
-    "Segment":          {},
-    "Segments":         {},
-    "Campaign":         {},
-    "Campaigns":        {},
+    "Segment":          {"ja": "セグメント"},
+    "Segments":         {"ja": "セグメント"},
+    "Campaign":         {"ja": "キャンペーン"},
+    "Campaigns":        {"ja": "キャンペーン"},
     "Push Stories":     {},
     "In-App Messages":  {},
 }

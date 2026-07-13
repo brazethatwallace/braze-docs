@@ -92,7 +92,11 @@ Le modèle de données des Content Cards est disponible dans le module `BrazeKit
 - Image classique
 - Contrôle
 
-Pour accéder au modèle de données des Content Cards, appelez `contentCards.cards` sur votre instance `braze`. Voir [Enregistrer les analyses]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) pour plus d'informations sur l'abonnement aux données de cartes.
+Pour accéder au modèle de données des Content Cards, appelez `contentCards.cards` sur votre instance `braze`. Voir [Enregistrer les analyses]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) pour plus d'informations sur l'abonnement aux données de cartes.
+
+{% alert note %}
+La lecture de `contentCards.cards`, `contentCards.unviewedCards` ou `contentCards.lastUpdate` bloque le thread appelant jusqu'à ce que le SDK ait terminé ses opérations post-initialisation. Pour les contextes sur le thread principal ou sensibles à la latence, utilisez plutôt les alternatives non bloquantes [`getCachedContentCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getcachedcontentcards(_:)), [`getUnviewedCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getunviewedcards(_:)) ou [`getLastUpdate(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getlastupdate(_:)).
+{% endalert %}
 
 {% alert note %}
 N'oubliez pas que `BrazeKit` propose une classe alternative [`ContentCardRaw`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw) pour la compatibilité avec Objective-C.
@@ -104,12 +108,12 @@ Chaque carte est initialisée avec un objet `Context`, qui contient diverses mé
 
 | Méthode | Description |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `card.context?.logImpression()` | Enregistre l'événement d'impression de la carte de contenu. |
-| `card.context?.logClick()` | Enregistre l'événement de clic sur la carte de contenu. |
+| `card.context?.logImpression()` | Enregistre l'événement d'impression de la Content Card. |
+| `card.context?.logClick()` | Enregistre l'événement de clic sur la Content Card. |
 | `card.context?.processClickAction()` | Traite une entrée [`ClickAction`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/clickaction) donnée. |
-| `card.context?.logDismissed()` | Enregistre l'événement de rejet de la carte de contenu. |
-| `card.context?.logError()` | Enregistre une erreur liée à la carte de contenu. |
-| `card.context?.loadImage()` | Charge une image de carte de contenu à partir d'une URL. Cette méthode peut être nulle si la carte de contenu n'a pas d'image. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+| `card.context?.logDismissed()` | Enregistre l'événement de rejet de la Content Card. |
+| `card.context?.logError()` | Enregistre une erreur liée à la Content Card. |
+| `card.context?.loadImage()` | Charge une image de Content Card à partir d'une URL. Cette méthode peut être nulle si la Content Card n'a pas d'image. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Méthodes de carte" }
 
 Pour plus de détails, reportez-vous à la [documentation de la classe `Context`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw/context-swift.class)

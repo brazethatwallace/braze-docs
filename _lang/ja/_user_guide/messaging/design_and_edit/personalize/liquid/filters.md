@@ -8,7 +8,7 @@ description: "このリファレンスページでは、静的または動的コ
 
 # フィルター {#filters}
 
-> このリファレンス記事では、Liquidのフィルターの概要と、Brazeでサポートされているフィルターについて説明します。これらのフィルターの活用アイデアをお探しですか？[Liquidユースケースライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)をご覧ください。
+> このリファレンス記事では、Liquidのフィルターの概要と、Brazeでサポートされているフィルターについて説明します。これらのフィルターの活用アイデアをお探しですか？[Liquidユースケースライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)をご覧ください。
 
 フィルターは、Liquidで数値、文字列、変数、オブジェクトの出力を変更する方法です。フィルターを使用して、文字列を小文字から大文字に変換したり、加算や除算などの数学的演算を実行したりするなど、静的または動的テキストを再フォーマットできます。
 
@@ -34,7 +34,7 @@ BrazeはShopifyのすべてのLiquidフィルターをサポートしている�
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-`````````liquid
+```liquid
 BIG SALE
 ```
 {% endraw %}
@@ -44,7 +44,7 @@ BIG SALE
 この例では、`Big Sale` が文字列で、`upcase` が適用されるフィルターです。
 
 {% alert note %}
-フィルターは `assign` ステートメントと出力タグ {% raw %}(`{{ }}`){% endraw %} で使用できますが、条件文（`if`、`elsif`、`unless`）、`case`/`when`、`for` ループ、または配列アクセスブラケットでは使用できません。これらのコンテキストでフィルター処理された値を使用するには、まず結果を変数に割り当ててください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
+フィルターは `assign` ステートメントと出力タグ {% raw %}(`{{ }}`){% endraw %} で使用できますが、条件文（`if`、`elsif`、`unless`）、`case`/`when`、`for` ループ、または配列アクセスブラケットでは使用できません。これらのコンテキストでフィルター処理された値を使用するには、まず結果を変数に割り当ててください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)を参照してください。
 {% endalert %}
 
 ### 複数フィルターの構文 {#syntax-for-multiple-filters}
@@ -54,14 +54,14 @@ BIG SALE
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-`````````liquid
+```liquid
  {{ "Big Sale" | upcase | remove: "BIG" }}
 ```
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-`````````liquid
+```liquid
 SALE
 ```
 {% endraw %}
@@ -130,7 +130,7 @@ Liquidで整数（整数値）を整数で除算する場合、答えが浮動�
 
 {% raw %}
 
-`````````liquid
+```liquid
 {{custom_attribute.${current_rewards_balance} | plus: {{custom_attribute.${giftcard_balance}}}}}
 ```
 
@@ -145,7 +145,7 @@ Liquidで整数（整数値）を整数で除算する場合、答えが浮動�
 
 1. `assign` タグを使用して、`current_rewards_balance` のカスタム属性を「balance」という用語に置き換えます。これにより、操作可能な `balance` という名前の変数が作成されます。
 
-`````````liquid
+```liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
 ```
 
@@ -155,7 +155,7 @@ Liquidで整数（整数値）を整数で除算する場合、答えが浮動�
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-`````````liquid
+```liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
 You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
 ```
@@ -163,7 +163,7 @@ You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-`````````liquid
+```liquid
 You have $35 to spend!
 ```
 {% endraw %}
@@ -184,7 +184,7 @@ You have $35 to spend!
 {% alert important %}
 `money` フィルターで数値を正しくフォーマットするには、数値からカンマを削除し、`money` フィルターの前に `plus: 0` フィルターを追加してください。例えば、以下のLiquidを参照してください。<br><br>
 {% raw %}
-`````````liquid
+```liquid
 {% assign my_int = "350000.25" | plus: 0 %}
 {{ my_int | money }}
 ```
@@ -200,7 +200,7 @@ Shopifyの `money` フィルターの動作は、Brazeでの使用方法とは�
 {% raw %}
 カスタム属性（`account_balance` など）を入力する場合は、常に `money` フィルターを使用して、小数点を正しい位置に配置し、数値の末尾からゼロが削除されないようにする必要があります。
 
-`````````liquid
+```liquid
 ${{custom_attribute.${account_balance} | money}}
 ```
 {% endraw %}
@@ -216,14 +216,14 @@ Brazeの `money` フィルターは、プリセット設定に従って自動的
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-`````````liquid
+```liquid
 ${{event_properties.${rewards_redeemed} | money }}
 ```
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-`````````liquid
+```liquid
 $145.00
 ```
 {% endraw %}
@@ -235,14 +235,14 @@ Shopifyの [money](https://shopify.dev/api/liquid/filters/money) フィルター
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-`````````liquid
+```liquid
 ${{event_properties.${rewards_redeemed} | divided_by: 100.00 | money }}
 ```
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-`````````liquid
+```liquid
 $1.45
 ```
 {% endraw %}
@@ -265,9 +265,9 @@ Liquidでは、ストレート引用符とカーリー引用符は異なりま�
 | [downcase](https://shopify.dev/api/liquid/filters/downcase) | 文字列を小文字に変換します。 | ✅  対応 |
 | [escape](https://shopify.dev/api/liquid/filters/escape) | 文字列をエスケープします。 | ✅  対応 |
 | [handleize](https://shopify.dev/api/liquid/filters/handleize) | 文字列をハンドル形式にフォーマットします。 | ⛔  非対応 |
-| [md5](https://shopify.dev/api/liquid/filters/md5) | 文字列をMD5ハッシュに変換します。詳細については、[エンコーディングフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)を参照してください。 | ✅  対応 |
-| [sha1](https://shopify.dev/api/liquid/filters/sha1) | 文字列をSHA-1ハッシュに変換します。詳細については、[エンコーディングフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)を参照してください。 | ✅  対応 |
-| hmac_sha1_hex<br>(旧 [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | ハッシュメッセージ認証コード（HMAC）を使用して文字列をSHA-1ハッシュに変換します。メッセージの秘密鍵をフィルターのパラメーターとして渡します。詳細については、[エンコーディングフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)を参照してください。 | ✅  対応 |
+| [md5](https://shopify.dev/api/liquid/filters/md5) | 文字列をMD5ハッシュに変換します。詳細については、[エンコーディングフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)を参照してください。 | ✅  対応 |
+| [sha1](https://shopify.dev/api/liquid/filters/sha1) | 文字列をSHA-1ハッシュに変換します。詳細については、[エンコーディングフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)を参照してください。 | ✅  対応 |
+| hmac_sha1_hex<br>(旧 [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | ハッシュメッセージ認証コード（HMAC）を使用して文字列をSHA-1ハッシュに変換します。メッセージの秘密鍵をフィルターのパラメーターとして渡します。詳細については、[エンコーディングフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)を参照してください。 | ✅  対応 |
 | [hmac_sha256](https://shopify.dev/api/liquid/filters/hmac_sha256) | ハッシュメッセージ認証コード（HMAC）を使用して文字列をSHA-256ハッシュに変換します。メッセージの秘密鍵をフィルターのパラメーターとして渡します。 | ✅  対応 |
 | hmac_sha512 | ハッシュメッセージ認証コード（HMAC）を使用して文字列をSHA-512ハッシュに変換します。メッセージの秘密鍵をフィルターのパラメーターとして渡します。 | ✅  対応 |
 | [newline_to_br](https://shopify.dev/api/liquid/filters/newline_to_br) | 文字列内の各改行の前に `<br>` 改行HTMLタグを挿入します。 | ✅  対応 |
@@ -301,7 +301,7 @@ Liquidでは、ストレート引用符とカーリー引用符は異なりま�
 | [highlight](https://shopify.dev/api/liquid/filters/highlight) | 送信された検索語に一致する場合、検索結果内の単語をhighlightクラスを持つHTML `<strong>` タグで囲みます。 | ⛔  非対応 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional filters" }
 
-エンコーディングフィルターやURLフィルターなど、その他のサポートされているフィルターについては、[高度なフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/)ページをご覧ください。
+エンコーディングフィルターやURLフィルターなど、その他のサポートされているフィルターについては、[高度なフィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters)ページをご覧ください。
 
 ### 日付フィルター {#date-filter}
 
@@ -312,14 +312,14 @@ Liquidでは、ストレート引用符とカーリー引用符は異なりま�
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-`````````liquid
+```liquid
 {{custom_attribute.${date_attribute} | date: '%b %d'}}
 ```
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-`````````liquid
+```liquid
 03 June
 ```
 {% endraw %}
@@ -331,14 +331,14 @@ Liquidでは、ストレート引用符とカーリー引用符は異なりま�
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-`````````liquid
+```liquid
 {{custom_attribute.${date_attribute} | date: '%s' }}
 ```
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-`````````liquid
+```liquid
 1433351621
 ```
 {% endraw %}

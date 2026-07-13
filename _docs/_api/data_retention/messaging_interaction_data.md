@@ -11,19 +11,19 @@ page_type: reference
 
 > Learn about messaging interaction data for campaigns and Canvases, including how long Braze keeps it and which features use it for retargeting.
 
-### What is messaging interaction data?
+## What is messaging interaction data?
 
 Messaging interaction data refers to how a user interacts with a campaign or Canvas they received (for example, when a user opens campaign A or a user receives variant A). This data is used for retargeting.
 
-### When is messaging interaction data available?
+## When is messaging interaction data available?
 
 Interaction data is always available. For active campaigns and Canvases, interaction data is always available in real time. 
 
-For stopped campaigns and Canvases, their interaction data expires after three months unless it's used in retargeting filters by active campaigns or Canvases. Expired interaction data is moved to long-term storage and is not available for use unless restored using the process described below.
+For stopped campaigns and Canvases, their interaction data expires after three months unless it's used in retargeting filters by active campaigns or Canvases. Expired interaction data is moved to long-term storage and is not available for use unless restored using the process described.
 
 Expired interaction data is never deleted and can be restored at any time.
 
-#### Features that use interaction data
+### Features that use interaction data
 
 The following features use messaging interaction data:
 
@@ -54,7 +54,7 @@ These features do not include expired interaction data in their results. To incl
 
 For example, Canvases can't be launched if the interaction data is expired, which means an edit like adding a team to the Canvas can't be saved.
 
-#### Features that don't use interaction data
+### Features that don't use interaction data
 
 The following features **do not** use messaging interaction data, meaning these features are unaffected by the expiration of messaging interaction data:
 
@@ -85,7 +85,7 @@ The following features **do not** use messaging interaction data, meaning these 
     - Last Viewed News Feed
     - News Feed View Count
 
-### How do I restore messaging interaction data?
+## How do I restore messaging interaction data?
 
 To restore your interaction data, follow these steps:
 
@@ -96,7 +96,7 @@ You can also restore interaction data for multiple campaigns from the **Campaign
 
 The time for interaction data to restore can vary, but in most cases, this process can range from 5 to 15 minutes. After the restoration is complete, you will receive an email.
 
-#### Restoring by tag
+### Restoring by tag
 
 You can also restore interaction data for expired campaigns or Canvases with a given tag.
 
@@ -106,7 +106,7 @@ You can also restore interaction data for expired campaigns or Canvases with a g
 
 After another three months of inactivity, these campaigns or Canvases expire again.
 
-#### Retargeting by tag
+### Retargeting by tag
 
 Campaigns that use retargeting filters that are retargeting by tag are not exempt from expiration. Retargeting filters that are retargeting by tag include:
 
@@ -114,7 +114,7 @@ Campaigns that use retargeting filters that are retargeting by tag are not exemp
 - Clicked/Opened Campaign or Canvas With Tag
 - Last Received Message from Campaign or Canvas With Tag
 
-### When was messaging interaction data available in the past?
+## When was messaging interaction data available in the past?
 
 Previously, message interaction data was deleted when a campaign or Canvas:
 
@@ -122,3 +122,16 @@ Previously, message interaction data was deleted when a campaign or Canvas:
 - Was not used for retargeting in any active campaigns, Canvases, or Content Cards.
 
 Campaigns and Canvases with previously deleted messaging interaction data cannot be used in retargeting filters for campaigns, Canvases, and segments.
+
+## Troubleshooting
+
+You might encounter the following error messages when trying to resume or unarchive campaigns, Canvases, or Content Cards with expired interaction data:
+
+| Error message | When it appears | Troubleshooting |
+| --- | --- | --- |
+| "Can't resume Canvases because at least one Canvas is using filters or segments that have expired data. Remove these and try again." | When you try to resume one or more Canvases (bulk action) that use filters or segments with expired interaction data | [Restore interaction data](#how-do-i-restore-messaging-interaction-data) for the campaigns or Canvases referenced in the filters, or remove the affected filters from the Canvas |
+| "Can't resume {name} because it is using filters or segments that have expired data. Remove these and try again." | When you try to resume a single Canvas that uses filters or segments with expired interaction data | [Restore interaction data](#how-do-i-restore-messaging-interaction-data) for the campaigns or Canvases referenced in the filters, or remove the affected filters from the Canvas |
+| "Resume is only available for stopped Canvases with available interaction data" | When you try to resume a Canvas from the bulk action menu, but the Canvas has expired interaction data | [Restore interaction data](#how-do-i-restore-messaging-interaction-data) for the Canvas |
+| "You can't resume these Campaigns. One or more Campaigns include expired filters." | When you try to resume one or more campaigns that use filters with expired interaction data | [Restore interaction data](#how-do-i-restore-messaging-interaction-data) for the campaigns or Canvases referenced in the filters, or remove the affected filters from the campaign |
+| "You can't unarchive these Cards. One or more Cards include expired filters." | When you try to unarchive one or more Content Cards that use filters with expired interaction data | [Restore interaction data](#how-do-i-restore-messaging-interaction-data) for the campaigns or Canvases referenced in the filters, or remove the affected filters from the Card |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Common error messages" }

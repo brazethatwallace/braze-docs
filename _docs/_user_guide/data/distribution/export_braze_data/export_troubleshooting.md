@@ -27,7 +27,7 @@ You must be logged in to the Braze dashboard to use the link, and the file is av
 - If you see an `AccessDenied` error, the file may have already expired or you may have tried to open it before it was ready. Larger reports take longer to generate, so wait a few minutes and try again.  
 - An `ExpiredToken` error means the four-hour window has passed. Re-run the export to generate a fresh link.  
 - The message `Looks like the file doesn't exist anymore` usually appears when the email is sent but the file hasn't finished uploading to S3. Waiting a few minutes typically resolves it.  
-- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).  
+- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).  
 
 ## API exports  
 When you export through the Export APIs without cloud storage, Braze writes the files to its S3 bucket. You won't receive an email—instead, the API response includes a temporary download URL. The export comes as a ZIP containing multiple JSON files, each with one user per line.  
@@ -55,7 +55,7 @@ In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are mu
 - `AccessDenied` means Braze couldn't write to your bucket. Double-check that your credentials and permissions are still valid.  
 - `ExpiredToken` appears if Braze has lost access to your bucket. Update your credentials in the Braze dashboard.  
 - If some files look smaller than expected, that's normal behavior. The export process intentionally splits files for stability.  
-- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).  
+- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).  
 
 ## API exports  
 When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited.
@@ -89,19 +89,19 @@ The CSV export gives a snapshot of existing users who received a given campaign 
 
 ### "Segment is too large" or export fails when my segment looks under 500,000 users
 
-Dashboard segment **size is an estimate**. CSV export uses that estimate to enforce the [500,000-user export limit]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details); the export pipeline may also evaluate size differently than the segment builder UI. If exports fail for a segment near that threshold, use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) or split the audience into smaller segments, or use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) as described in [Exporting large segments]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments).
+Dashboard segment **size is an estimate**. CSV export uses that estimate to enforce the [500,000-user export limit]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details); the export pipeline may also evaluate size differently than the segment builder UI. If exports fail for a segment near that threshold, use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) or split the audience into smaller segments, or use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) as described in [Exporting large segments]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
 
 ### Why aren't I receiving segment export emails?
 
 First, check your spam folder for an email from `no-reply@alerts.braze.com`. If the email is there, add that address to your safe sender list so future export messages aren't filtered.
 
-If the email isn't in your spam folder, check whether someone else on your team can receive the export. If they can't, consider the size of your export. Delivery time varies with export size, but if the email hasn't arrived after an hour, contact [Support]({{site.baseurl}}/braze_support/).
+If the email isn't in your spam folder, check whether someone else on your team can receive the export. If they can't, consider the size of your export. Delivery time varies with export size, but if the email hasn't arrived after an hour, contact [Support]({{site.baseurl}}/braze_support).
 
 ## Segment export API downloads
 
 ### Can't download an exported segment ZIP file from a Braze URL
 
-If you get a `403 Forbidden` error when using the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), the file may not be ready yet. Large exports can take a while to process. Wait up to an hour before downloading again.
+If you get a `403 Forbidden` error when using the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), the file may not be ready yet. Large exports can take a while to process. Wait up to an hour before downloading again.
 
 If you use an automated script to retrieve the file, you may also receive a `403 Forbidden` error when you request the URL too soon. If you export segment data regularly, consider connecting your own S3 bucket integration and passing files into your own extract, transform, and load (ETL) pipeline.
 
@@ -114,8 +114,8 @@ Exports take time to finish, so immediate access from a script often fails. You 
 
 ### Expected columns are missing from a segment export file
 
-Dashboard **CSV Export User Data** from a segment uses a fixed column set (see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). It does not include a `fields_to_export` column or parameter.
+Dashboard **CSV Export User Data** from a segment uses a fixed column set (see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). It does not include a `fields_to_export` column or parameter.
 
-For API segment exports, you must pass `fields_to_export` in the request body. Some fields pull related data automatically—for example, requesting `canvases_received` also requires journey summary data on the user profile. See the [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) endpoint reference for valid field names and requirements.
+For API segment exports, you must pass `fields_to_export` in the request body. Some fields pull related data automatically—for example, requesting `canvases_received` also requires journey summary data on the user profile. See the [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) endpoint reference for valid field names and requirements.
 
 If columns are missing from an API export ZIP, confirm the `fields_to_export` array in your request includes every field you need and that your workspace uses the required export permissions.

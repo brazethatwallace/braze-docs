@@ -25,9 +25,9 @@ Uma taxa de entrega saudável geralmente fica em torno de 99% com uma taxa de bo
 
 Antes de iniciar o aquecimento de IP:
 
-1. Em **Settings** > **Email Preferences**, defina seu domínio de envio padrão, adicione um link de cancelamento de inscrição válido no seu [rodapé personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), ative o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) e considere páginas personalizadas de cancelamento de inscrição/opt-in quando necessário.
-2. Configure o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) para e-mail.
-3. Crie seus modelos necessários acessando **Content** > **Email**.
+1. Em **Configurações** > **Preferências de e-mail**, defina seu domínio de envio padrão, adicione um link de cancelamento de inscrição válido no seu [rodapé personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), ative o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) e considere páginas personalizadas de cancelamento de inscrição/opt-in quando necessário.
+2. Configure o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) para e-mail.
+3. Crie seus modelos necessários acessando **Conteúdo** > **E-mail**.
 
 ## E se eu não tiver tempo para aquecer os IPs? {#what-if-i-dont-have-time-to-warm-ips}
 
@@ -37,7 +37,7 @@ Os ISPs limitam a entrega de e-mails quando surge suspeita de spam para proteger
 
 Se o engajamento for moderado, eles podem continuar limitando seu e-mail para coletar mais dados de engajamento e determinar com mais certeza se o e-mail é spam ou não. Se o e-mail tiver métricas de engajamento muito altas, eles podem parar de limitar esse e-mail completamente. Eles usam esses dados para criar uma reputação de e-mail que, em última análise, determinará se seus e-mails serão filtrados automaticamente para spam.
 
-Se seu domínio ou IP for bloqueado por um ISP, os registros de mensagens no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) conterão informações sobre quais sites visitar para recorrer junto a esses ISPs e sair dessas listas.
+Se seu domínio ou IP for bloqueado por um ISP, os registros de mensagens no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) conterão informações sobre quais sites visitar para recorrer junto a esses ISPs e sair dessas listas.
 
 ## Cronogramas de aquecimento de IP {#ip-warming-schedules}
 
@@ -151,13 +151,13 @@ A maioria dos ISPs armazena dados de reputação por apenas 30 dias. Se você fi
 
 ### Endereços de IP {#ip-addresses}
 
-Após três meses sem uso, a Braze pode reciclar e reatribuir endereços de IP. Independentemente do histórico anterior de um endereço de IP, o aquecimento completo de IP é recomendado para todos os IPs recém-atribuídos, pois a maioria dos ISPs armazena dados de reputação por apenas 30 dias. Para a maioria dos ISPs, isso significa que um período de inatividade de três meses efetivamente redefine a reputação. Se você tiver mais dúvidas sobre o histórico de um endereço de IP específico, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Após três meses sem uso, a Braze pode reciclar e reatribuir endereços de IP. Independentemente do histórico anterior de um endereço de IP, o aquecimento completo de IP é recomendado para todos os IPs recém-atribuídos, pois a maioria dos ISPs armazena dados de reputação por apenas 30 dias. Para a maioria dos ISPs, isso significa que um período de inatividade de três meses efetivamente redefine a reputação. Se você tiver mais dúvidas sobre o histórico de um endereço de IP específico, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Como limitar envios durante o aquecimento {#how-to-limit-sends-during-warming}
 
-Nosso recurso integrado de limitação de usuários é uma ferramenta útil para ajudar você no aquecimento do seu endereço de IP. Após escolher os segmentos de envio de mensagens desejados durante a criação da Campaign, na etapa [Usuários-alvo]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), selecione o menu suspenso **Advanced Options** para limitar seus usuários. À medida que seu cronograma de aquecimento avança, você pode aumentar gradualmente esse limite para aumentar o volume de e-mails enviados.
+Nosso recurso integrado de limitação de usuários é uma ferramenta útil para ajudar você no aquecimento do seu endereço de IP. Após escolher os segmentos de envio de mensagens desejados durante a criação da Campaign, na etapa [Usuários-alvo]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas), selecione o menu suspenso **Opções avançadas** para limitar seus usuários. À medida que seu cronograma de aquecimento avança, você pode aumentar gradualmente esse limite para aumentar o volume de e-mails enviados.
 
-![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
+![O recurso integrado de limitação de usuários serve como uma ferramenta útil para ajudar no aquecimento do seu endereço de IP. Após escolher os segmentos de envio de mensagens desejados durante a criação da Campaign, na etapa Usuários-alvo, selecione o menu suspenso Opções avançadas para limitar seus usuários. À medida que seu cronograma de aquecimento avança, você pode aumentar gradualmente esse limite para aumentar o volume de e-mails enviados.]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
 ## Segmentação de subdomínio {#subdomain-segmentation}
 
@@ -189,17 +189,17 @@ Consulte nosso [cronograma de aquecimento de IP](#ip-warming-schedules) para dis
 
 ### Limpe suas listas de e-mail {#clean-your-email-lists}
 
-Garanta que sua lista de e-mail esteja limpa e não contenha e-mails antigos ou não verificados. Assegurar que você esteja em conformidade com [CASL e CAN-SPAM]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations/) é o ideal.
+Garanta que sua lista de e-mail esteja limpa e não contenha e-mails antigos ou não verificados. Assegurar que você esteja em conformidade com [CASL e CAN-SPAM]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations) é o ideal.
 
 ### Monitore a reputação do remetente {#monitor-your-sender-reputation}
 
 Ao conduzir o processo de aquecimento de IP, certifique-se de monitorar cuidadosamente a reputação do remetente. Estas métricas específicas são importantes de acompanhar:
-- **Taxas de bounce:** Se qualquer Campaign tiver uma taxa de bounce superior a 3-5%, você deve avaliar a limpeza da sua lista seguindo as diretrizes do nosso artigo [Mantenha limpo: a importância da higiene da lista de e-mail](https://www.braze.com/blog/email-list-hygiene/). Além disso, considere implementar uma [política de sunset]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) para parar de enviar e-mails para endereços inativos ou sem engajamento.
+- **Taxas de bounce:** Se qualquer Campaign tiver uma taxa de bounce superior a 3-5%, você deve avaliar a limpeza da sua lista seguindo as diretrizes do nosso artigo [Mantenha limpo: a importância da higiene da lista de e-mail](https://www.braze.com/blog/email-list-hygiene/). Além disso, considere implementar uma [política de sunset]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) para parar de enviar e-mails para endereços inativos ou sem engajamento.
 - **Relatórios de spam:** Se qualquer Campaign for reportada como spam a uma taxa superior a 0,08%, você deve reavaliar o conteúdo que está enviando, verificar se está direcionado a um público interessado e garantir que seus e-mails estejam redigidos de forma adequada para despertar o interesse.
 - **Taxas de abertura:** As taxas de abertura são um indicador útil de posicionamento na caixa de entrada. Se suas taxas de abertura únicas estiverem acima de 25%, é provável que você esteja tendo um alto posicionamento na caixa de entrada, o que indica uma reputação positiva do remetente.
 
 {% alert tip %}
-A Braze não recomenda usar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) para aquecer seus IPs. Como as Campaigns de aquecimento de IP são algumas das primeiras Campaigns que você envia, a Braze não terá informações suficientes sobre seus usuários para calcular um horário de envio ideal. Nesse caso, todas as mensagens com Intelligent Timing usariam o horário de fallback e seriam enviadas no mesmo horário.
+A Braze não recomenda usar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) para aquecer seus IPs. Como as Campaigns de aquecimento de IP são algumas das primeiras Campaigns que você envia, a Braze não terá informações suficientes sobre seus usuários para calcular um horário de envio ideal. Nesse caso, todas as mensagens com Intelligent Timing usariam o horário de fallback e seriam enviadas no mesmo horário.
 {% endalert %}
 
 {% alert tip %}

@@ -12,9 +12,9 @@ tool:
 
 # Indicateurs par segments {#metrics-by-segments}
 
-> Utilisez les modèles de rapports du [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) pour ventiler les indicateurs de performance des campagnes, Canvas, variantes et étapes par segments.
+> Utilisez les modèles de rapports du [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) pour ventiler les indicateurs de performance des campagnes, Canvas, variantes et étapes par segments.
 
-Le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) doit être activé pour les segments dont vous souhaitez consulter les indicateurs.
+Le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) doit être activé pour les segments dont vous souhaitez consulter les indicateurs.
 
 Pour exécuter ces rapports, procédez comme suit :
 1. Dans le **Générateur de requêtes**, choisissez de créer un nouveau rapport SQL à partir d'un modèle.

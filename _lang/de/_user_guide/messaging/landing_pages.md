@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > Braze Landing-Pages sind eigenständige Webseiten, die Ihre Strategie zur Nutzer:innen-Gewinnung und zum Engagement unterstützen können.
 
-Nutzen Sie Landing-Pages, um Ihre Zielgruppe zu vergrößern, Nutzerdaten zu erfassen, Sonderangebote zu bewerben und Multichannel-Kampagnen zu unterstützen. Eine Referenz der Drag-and-Drop-Blöcke für Landing-Pages finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+Nutzen Sie Landing-Pages, um Ihre Zielgruppe zu vergrößern, Nutzerdaten zu erfassen, Sonderangebote zu bewerben und Multichannel-Kampagnen zu unterstützen. Eine Referenz der Drag-and-Drop-Blöcke für Landing-Pages finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
 Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
@@ -21,7 +21,7 @@ Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Br
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen können, benötigen Sie entweder Administrator-[Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) oder alle folgenden Berechtigungen:
+Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen können, benötigen Sie entweder Administrator-[Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) oder alle folgenden Berechtigungen:
 
 - Landing-Pages anzeigen
 - Landing-Page-Entwürfe bearbeiten
@@ -37,7 +37,7 @@ Die Anzahl der veröffentlichten Landing-Pages, angepassten Domains und Features
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Veröffentlichte Landing-Pages | Fünf pro Unternehmen | 20 zusätzlich |
 | Angepasste Domains | Eine pro Unternehmen | Fünf zusätzlich |
-| [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Nicht verfügbar | Verfügbar |
+| [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | Nicht verfügbar | Verfügbar |
 | Vorausgefüllte Formularfelder | Nicht verfügbar | Verfügbar |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tarifoptionen" }
 
@@ -70,7 +70,7 @@ Die Größe des Landing-Page-Bodys kann bis zu 500 KB betragen.
 
 Ja, nicht personalisierte Landing-Pages können hohe Traffic-Szenarien effektiv bewältigen. Wenn eine nicht personalisierte Landing-Page zum ersten Mal angefordert wird, wird sie von Braze über Cloudflare gecacht. Das bedeutet, dass alle nachfolgenden Anfragen für denselben Link aus dem Cache bedient werden, sodass die Performance bei hohem Anfragevolumen nicht beeinträchtigt wird. Dieser Cache ist 24 Stunden gültig, und gecachte Seitenaufrufe zählen nicht für Rate-Limits.
 
-Für personalisierte Landing-Pages (mit Liquid-Personalisierung) gelten Rate-Limits für nicht gecachte Anfragen. Um eine optimale Performance aufrechtzuerhalten, lesen Sie [Hinweise zur Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
+Für personalisierte Landing-Pages (mit Liquid-Personalisierung) gelten Rate-Limits für nicht gecachte Anfragen. Um eine optimale Performance aufrechtzuerhalten, lesen Sie [Hinweise zur Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
 ### Gibt es technische Anforderungen, um eine Landing-Page zu veröffentlichen? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
@@ -87,6 +87,6 @@ Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger für 
 - **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Eingangs-Trigger und fügen Sie einen Webhook-Schritt hinzu.
 - **Campaign:** Verwenden Sie das Ereignis **Submitted a Landing Page form**, um basierend auf der Formularübermittlung zu triggern.
 
-Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Nutzerprofil erstellt werden – selbst wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie einen Canvas ein, der durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-zu-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
+Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Nutzerprofil erstellt werden – selbst wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie einen Canvas ein, der durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-zu-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
 
 Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Nutzerprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.

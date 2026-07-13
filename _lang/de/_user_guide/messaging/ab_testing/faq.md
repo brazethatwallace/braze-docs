@@ -25,19 +25,19 @@ Multivariate Tests sind eine Erweiterung von A/B-Tests, die es dem Marketer erm�
 
 ### Wie werden A/B-Testergebnisse berechnet? {#how-are-ab-test-results-calculated}
 
-Braze testet alle Varianten gegeneinander mit Pearsons Chi-Quadrat-Tests, die messen, ob eine Variante alle anderen statistisch signifikant bei einem Signifikanzniveau von p < 0,05 übertrifft – was wir als 95%ige Signifikanz bezeichnen. Unter allen Varianten, die diese Signifikanzschwelle überschreiten, wird die am besten performende Variante als „Gewinner“ bestimmt.
+Braze testet alle Varianten gegeneinander mit Pearsons Chi-Quadrat-Tests, die messen, ob eine Variante alle anderen statistisch signifikant bei einem Signifikanzniveau von p < 0,05 übertrifft – was wir als 95%ige Signifikanz bezeichnen. Unter allen Varianten, die diese Signifikanzschwelle überschreiten, wird die am besten performende Variante als „Gewinnervariante“ bestimmt.
 
 Dies ist ein separater Test vom Konfidenzwert, der nur die Performance einer Variante im Vergleich zur Kontrollgruppe mit einem numerischen Wert zwischen 0 und 100 % beschreibt. Konkret gibt er an, wie zuversichtlich wir sind, dass der standardisierte Unterschied in der Konversionsrate zwischen Variante und Kontrollgruppe signifikant größer als zufällig ist.
 
 ### Warum ist die Variantenverteilung nicht gleichmäßig? {#why-isnt-the-variant-distribution-even}
 
-Die Variantenzuweisung wird bei jedem Versand zufällig vorgenommen, sodass die tatsächliche Aufteilung möglicherweise nicht exakt Ihren konfigurierten Prozentsätzen entspricht – insbesondere bei kleineren Stichprobengrößen. Weitere Informationen finden Sie unter [Variantenverteilung]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution/).
+Die Variantenzuweisung wird bei jedem Versand zufällig vorgenommen, sodass die tatsächliche Aufteilung möglicherweise nicht exakt Ihren konfigurierten Prozentsätzen entspricht – insbesondere bei kleineren Stichprobengrößen. Weitere Informationen finden Sie unter [Variantenverteilung]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution).
 
 ## Tests durchführen und abschließen {#running-and-concluding-tests}
 
 ### Wann ist der erste Test abgeschlossen? {#when-is-the-initial-test-over}
 
-Bei Verwendung der Gewinnervariante für einmalige Campaigns ist der Test abgeschlossen, wenn der Versandzeitpunkt der Gewinnervariante erreicht ist. Braze bestimmt eine Variante als Gewinner, wenn sie die höchste Konversionsrate mit einem statistisch signifikanten Vorsprung aufweist.
+Bei Verwendung der Gewinnervariante für einmalige Campaigns ist der Test abgeschlossen, wenn der Versandzeitpunkt der Gewinnervariante erreicht ist. Braze bestimmt eine Variante als Gewinnervariante, wenn sie die höchste Konversionsrate mit einem statistisch signifikanten Vorsprung aufweist.
 
 Für wiederkehrende, aktionsbasierte und API-getriggerte Campaigns können Sie die Intelligente Auswahl verwenden, um die Performance-Daten jeder Variante kontinuierlich zu verfolgen und den Campaign-Traffic fortlaufend auf die am besten performenden Varianten zu optimieren. Bei der Intelligenten Auswahl definieren Sie nicht explizit eine Experimentgruppe, in der Nutzer:innen zufällige Varianten erhalten – stattdessen verfeinert der Braze-Algorithmus kontinuierlich seine Einschätzung der am besten performenden Variante, was eine schnellere Auswahl des Top-Performers ermöglichen kann.
 
@@ -57,7 +57,7 @@ Dasselbe gilt, da die Canvas-Pfade nach einem Experiment ebenfalls Varianten sin
 
 #### Kann ich Maßnahmen ergreifen, um Nutzer:innen in Campaigns und Canvases neu zu verteilen? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
-Die einzige Möglichkeit, Nutzer:innen in Canvases neu zu verteilen, ist die Verwendung von [zufälligen Pfaden in Experimentpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#step-1-choose-the-number-of-paths-and-audience-distribution), die bei erneutem Eintritt in das Canvas immer die Pfadzuweisungen zufällig neu vergeben. Dies ist jedoch kein Standardexperiment und könnte Experimentergebnisse ungültig machen, da die Kontrollgruppe durch Treatment-Nutzer:innen kontaminiert werden kann.
+Die einzige Möglichkeit, Nutzer:innen in Canvases neu zu verteilen, ist die Verwendung von [zufälligen Pfaden in Experimentpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), die bei erneutem Eintritt in das Canvas immer die Pfadzuweisungen zufällig neu vergeben. Dies ist jedoch kein Standardexperiment und könnte Experimentergebnisse ungültig machen, da die Kontrollgruppe durch Treatment-Nutzer:innen kontaminiert werden kann.
 
 ## Konfidenz und Verzerrung {#confidence-and-bias}
 
@@ -67,6 +67,8 @@ Die Konfidenz steigt im Laufe der Zeit, wenn alle anderen Faktoren konstant blei
 
 Konfidenz ist ein Maß dafür, wie zuversichtlich Braze ist, dass sich die Variante von der Kontrollgruppe unterscheidet. Je mehr Nachrichten gesendet werden, desto größer wird die statistische Aussagekraft des Tests, was die Zuversicht erhöht, dass gemessene Performance-Unterschiede nicht auf Zufall zurückzuführen sind. Im Allgemeinen erhöht eine größere Stichprobengröße unsere Zuversicht, kleinere Performance-Unterschiede zwischen Varianten und Kontrollgruppe zu identifizieren.
 
+Wenn sich die Konversionsraten der Varianten und der Kontrollgruppe jedoch annähern (näher zusammenrücken), während mehr Nachrichten gesendet werden, kann die Konfidenz sinken, da der gemessene Unterschied, der Sie interessiert, kleiner wird – was den Vorteil einer größeren Stichprobengröße überwiegen kann.
+
 ### Können Kontrollgruppen- und Testgruppenzuweisungen eine Verzerrung in Tests einführen? {#can-control-and-test-group-assignments-introduce-bias-to-testing}
 
 Es gibt praktisch keine Möglichkeit, dass die Attribute oder Verhaltensweisen von Nutzer:innen vor der Erstellung einer bestimmten Kampagne oder eines Canvas systematisch zwischen Varianten und Kontrollgruppe variieren könnten.
@@ -75,4 +77,4 @@ Um Nutzer:innen Nachrichtenvarianten, Canvas-Varianten oder ihren jeweiligen Kon
 
 ### Warum kann ich Rate-Limiting nicht mit einer Kontrollgruppe verwenden? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Braze unterstützt derzeit kein Rate-Limiting bei A/B-Tests mit einer Kontrollgruppe. Dies liegt daran, dass Rate-Limiting nicht auf die gleiche Weise auf die Kontrollgruppe angewendet wird wie auf die Varianten, was zu einer Verzerrung führt. Erwägen Sie stattdessen die Verwendung der [Intelligenten Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), die den Prozentsatz der Nutzer:innen, die jede Variante erhalten, automatisch auf Basis von Analytics und der Performance der Campaign anpasst.
+Braze unterstützt derzeit kein Rate-Limiting bei A/B-Tests mit einer Kontrollgruppe. Dies liegt daran, dass Rate-Limiting nicht auf die gleiche Weise auf die Kontrollgruppe angewendet wird wie auf die Varianten, was zu einer Verzerrung führt. Erwägen Sie stattdessen die Verwendung der [Intelligenten Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), die den Prozentsatz der Nutzer:innen, die jede Variante erhalten, automatisch auf Basis von Analytics und der Performance der Campaign anpasst.

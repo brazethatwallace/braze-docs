@@ -23,7 +23,7 @@ Avant de tester votre campagne de communication, il est important d'identifier v
 
 ### Facultatif : Créer un groupe de test de contenu {#optional-create-a-content-test-group}
 
-Un moyen pratique d'organiser vos utilisateurs test est de créer un [groupe de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), qui comprend un groupe d'utilisateurs qui recevront des messages de test provenant de campagnes. Vous pouvez ajouter ce groupe de test au champ **Add Content Test Groups** sous **Test Recipients** dans votre campagne, et lancer vos tests sans créer ni ajouter d'utilisateurs test individuels.
+Un moyen pratique d'organiser vos utilisateurs test est de créer un [groupe de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), qui comprend un groupe d'utilisateurs qui recevront des messages de test provenant de campagnes. Vous pouvez ajouter ce groupe de test au champ **Add Content Test Groups** sous **Test Recipients** dans votre campagne, et lancer vos tests sans créer ni ajouter d'utilisateurs test individuels.
 
 ## Étape 2 : Envoyer des messages de test spécifiques au canal {#step-2-send-channel-specific-test-messages}
 
@@ -33,7 +33,7 @@ Pour les étapes d'envoi de messages de test, consultez la section suivante corr
 {% tab Bannières %}
 
 {% alert important %}
-Avant de pouvoir tester des messages de type bannière dans Braze, vous devez créer une campagne de type bannière dans Braze. De plus, vérifiez que l'emplacement que vous souhaitez tester est déjà [intégré dans votre application ou site web]({{site.baseurl}}/developer_guide/banners/placements/).
+Avant de pouvoir tester des messages de type bannière dans Braze, vous devez créer une campagne de type bannière dans Braze. De plus, vérifiez que l'emplacement que vous souhaitez tester est déjà [intégré dans votre application ou site web]({{site.baseurl}}/developer_guide/banners/placements).
 {% endalert %}
 
 Après avoir créé votre message de type bannière, vous pouvez prévisualiser votre bannière ou envoyer un message de test.
@@ -62,7 +62,7 @@ Gardez à l'esprit que votre prévisualisation peut ne pas être identique au re
 {% tab Content Card %}
 
 {% alert important %}
-Pour envoyer un test à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou à des utilisateurs individuels, les notifications push doivent être activées sur vos appareils de test avec des jetons de notification push valides enregistrés pour l'utilisateur test avant l'envoi. Pour les utilisateurs iOS, vous devez appuyer sur la notification push envoyée par Braze pour afficher la Content Card de test. Ce comportement s'applique uniquement aux Content Cards de test.
+Pour envoyer un test à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à des utilisateurs individuels, les notifications push doivent être activées sur vos appareils de test avec des jetons de notification push valides enregistrés pour l'utilisateur test avant l'envoi. Pour les utilisateurs iOS, vous devez appuyer sur la notification push envoyée par Braze pour afficher la Content Card de test. Ce comportement s'applique uniquement aux Content Cards de test.
 {% endalert %}
 
 Les Content Cards de test sont envoyées via une notification push. La carte est intégrée dans le payload de la notification push, et le SDK l'extrait et la met en cache localement lorsque la notification push est reçue.
@@ -91,7 +91,7 @@ Dans l'onglet **Preview** de votre compositeur, l'affichage de votre message peu
 
 - Votre utilisateur test est-il inscrit aux notifications push avec un jeton de notification push valide ?
 - Les images et médias s'affichent-ils et fonctionnent-ils comme prévu ?
-- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) si le Liquid ne renvoie aucune information ?
+- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) si le Liquid ne renvoie aucune information ?
 - Votre texte est-il clair, concis et correct ?
 - Vos liens dirigent-ils l'utilisateur vers la bonne destination ?
 - Votre utilisateur test est-il inscrit aux notifications push avec un jeton de notification push valide ?
@@ -107,7 +107,7 @@ Si une image de Content Card ne s'affiche pas ou apparaît cassée :
 
 ### Débogage {#debug}
 
-Après l'envoi de vos Content Cards, vous pouvez analyser ou déboguer tout problème depuis le [journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) dans la console de développement.
+Après l'envoi de vos Content Cards, vous pouvez analyser ou déboguer tout problème depuis le [journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans la console de développement.
 
 Un cas d'utilisation courant consiste à essayer de déboguer pourquoi un utilisateur ne peut pas voir une Content Card particulière. Pour ce faire, vous pouvez consulter les **journaux des événements utilisateur** pour les Content Cards envoyées au SDK au démarrage de la session, mais avant une impression, et les relier à une campagne spécifique :
 
@@ -162,7 +162,7 @@ Si votre campagne d'e-mail contient une image de grande taille et ne s'affiche p
 {% tab Message in-app %}
 
 {% alert warning %}
-Pour envoyer un test à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou à des utilisateurs individuels, les notifications push doivent être activées sur vos appareils de test avant l'envoi. Par exemple, vous devez avoir les notifications push activées sur votre appareil iOS pour pouvoir appuyer sur la notification avant que le message de test ne s'affiche. {% endalert %}
+Pour envoyer un test à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à des utilisateurs individuels, les notifications push doivent être activées sur vos appareils de test avant l'envoi. Par exemple, vous devez avoir les notifications push activées sur votre appareil iOS pour pouvoir appuyer sur la notification avant que le message de test ne s'affiche. {% endalert %}
 
 Si vous avez configuré les notifications push dans votre application et sur votre appareil de test, vous pouvez envoyer des messages in-app de test à votre application pour voir à quoi ils ressemblent en temps réel.
 
@@ -197,7 +197,7 @@ Dans la **prévisualisation**, l'affichage de votre message peut ne pas être id
 ### Liste de vérification du test
 
 - Les images et médias s'affichent-ils et fonctionnent-ils comme prévu ?
-- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) si le Liquid ne renvoie aucune information ?
+- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) si le Liquid ne renvoie aucune information ?
 - Votre texte est-il clair, concis et correct ?
 - Vos boutons dirigent-ils l'utilisateur vers la bonne destination ?
 
@@ -243,7 +243,7 @@ Le scanner s'exécute automatiquement sur les messages HTML personnalisés et é
 
 ![Notification push de test]({% image_buster /assets/img_archive/testpush.png %})
 
-Si vous voyez une erreur indiquant qu'aucun des utilisateurs sélectionnés n'a de jeton de notification push correspondant, l'utilisateur test ne dispose pas d'un jeton de notification push valide pour la plateforme sélectionnée. L'utilisateur doit avoir démarré une session dans l'application et activé les notifications push pour cet appareil. Pour plus d'informations, consultez [Activation des notifications push et états d'abonnement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+Si vous voyez une erreur indiquant qu'aucun des utilisateurs sélectionnés n'a de jeton de notification push correspondant, l'utilisateur test ne dispose pas d'un jeton de notification push valide pour la plateforme sélectionnée. L'utilisateur doit avoir démarré une session dans l'application et activé les notifications push pour cet appareil. Pour plus d'informations, consultez [Activation des notifications push et états d'abonnement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 #### Push web {#web-push}
 
@@ -256,7 +256,7 @@ Si vous voyez une erreur indiquant qu'aucun des utilisateurs sélectionnés n'a 
 
 Si vous avez déjà accepté les notifications push depuis le tableau de bord de Braze, le message s'affiche dans le coin de votre écran. Sinon, sélectionnez **Allow** lorsque vous y êtes invité, et le message s'affichera.
 
-Si vous voyez une erreur indiquant qu'aucun des utilisateurs sélectionnés n'a de jeton de notification push correspondant pour les notifications push web, vérifiez que l'utilisateur test dispose d'un jeton de notification push valide enregistré pour la plateforme sélectionnée. Pour recevoir un jeton de notification push, l'utilisateur doit être configuré pour recevoir des notifications push pour l'application sur son appareil. Pour plus de détails, consultez [Activation des notifications push et états d'abonnement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+Si vous voyez une erreur indiquant qu'aucun des utilisateurs sélectionnés n'a de jeton de notification push correspondant pour les notifications push web, vérifiez que l'utilisateur test dispose d'un jeton de notification push valide enregistré pour la plateforme sélectionnée. Pour recevoir un jeton de notification push, l'utilisateur doit être configuré pour recevoir des notifications push pour l'application sur son appareil. Pour plus de détails, consultez [Activation des notifications push et états d'abonnement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 {% endtab %}
 {% tab SMS/MMS et RCS %}
@@ -273,8 +273,6 @@ Après avoir créé votre message SMS, MMS ou RCS, vous pouvez envoyer un messag
 {% tab Webhook %}
 
 Après avoir créé votre webhook, vous pouvez effectuer un envoi de test pour vérifier la réponse du webhook. Sélectionnez l'onglet **Test** et sélectionnez **Send Test** pour envoyer un test à l'URL du webhook fournie. Vous pouvez également sélectionner un utilisateur individuel pour prévisualiser la réponse en tant qu'utilisateur spécifique.
-
-![Webhook de test]({% image_buster /assets/img/webhook_test.png %})
 
 {% endtab %}
 {% tab WhatsApp %}
@@ -295,7 +293,7 @@ Si vous testez des campagnes qui utilisent des données utilisateur ou des propr
 
 ### Tester des campagnes personnalisées avec des attributs utilisateur {#testing-campaigns-personalized-with-user-attributes}
 
-Si vous utilisez la [personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/) dans votre message, vous devrez suivre des étapes supplémentaires pour prévisualiser correctement votre campagne et vérifier que les données utilisateur remplissent correctement le contenu.
+Si vous utilisez la [personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) dans votre message, vous devrez suivre des étapes supplémentaires pour prévisualiser correctement votre campagne et vérifier que les données utilisateur remplissent correctement le contenu.
 
 Lors de l'envoi d'un message de test, assurez-vous de choisir l'option **Select Existing User** ou de prévisualiser en tant que **Custom User**.
 
@@ -321,7 +319,7 @@ Vous pouvez modifier des champs individuels d'un utilisateur aléatoire ou exist
 
 ### Tester des campagnes personnalisées avec des propriétés d'événement personnalisées {#testing-campaigns-personalized-with-custom-event-properties}
 
-Le test de campagnes personnalisées avec des [propriétés d'événement personnalisées]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) diffère légèrement du test d'autres types de campagnes décrits précédemment.
+Le test de campagnes personnalisées avec des [propriétés d'événement personnalisées]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) diffère légèrement du test d'autres types de campagnes décrits précédemment.
 
 {% tabs local %}
 {% tab Déclenchement manuel %}
@@ -335,7 +333,7 @@ Vous pouvez déclencher la campagne vous-même comme méthode robuste pour teste
 ![Rédaction d'un message de test avec des propriétés]({% image_buster /assets/img_archive/testeventproperties-compose.png %})
 
 {: start="2"}
-2. Utilisez la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) pour envoyer la campagne lorsque l'événement se produit.
+2. Utilisez la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) pour envoyer la campagne lorsque l'événement se produit.
 
 {% alert note %}
 Si vous testez une campagne push iOS, vous devez définir le délai à une minute pour vous laisser le temps de quitter l'application, car iOS n'envoie pas de notifications push pour l'application actuellement ouverte. Les autres types de campagnes peuvent être configurés pour un envoi immédiat.
@@ -399,6 +397,6 @@ Si votre campagne de message in-app n'est pas déclenchée par une campagne push
 
 Pour les envois de test sur Android et iOS, les messages in-app qui utilisent le comportement au clic **Request push permission** peuvent ne pas s'afficher sur certains appareils. En guise de solution de contournement :
 - **Android :** Les appareils doivent être sous Android 13 et utiliser la version 21.0.0 de notre SDK Android. Une autre raison peut être que l'appareil sur lequel le message in-app est affiché dispose déjà d'une invite au niveau du système. Vous avez peut-être sélectionné **Do not ask again**, vous devrez donc peut-être réinstaller l'application pour réinitialiser les autorisations de notification avant de tester à nouveau.
-- **iOS :** Nous recommandons à votre équipe de développement de vérifier l'implémentation des notifications push pour votre application et de supprimer manuellement tout code qui demanderait les autorisations push. Pour plus d'informations, consultez [Messages in-app d'amorce push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+- **iOS :** Nous recommandons à votre équipe de développement de vérifier l'implémentation des notifications push pour votre application et de supprimer manuellement tout code qui demanderait les autorisations push. Pour plus d'informations, consultez [Messages in-app d'amorce push]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
 Pour qu'une campagne de message in-app basée sur une action soit envoyée, vous devez enregistrer les événements personnalisés via le SDK de Braze, et non via les REST API, afin que les utilisateurs puissent recevoir les messages in-app éligibles directement sur leur appareil. Les utilisateurs reçoivent le message in-app s'ils effectuent l'événement pendant la session.

@@ -30,11 +30,11 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ![ボタン要素をカスタマイズするためのサイドメニューが表示されたアプリ内メッセージエディター。]({% image_buster /assets/img/drag_and_drop/templates/product_announcement_button.png %})
 
-また、**Pages**セクションで製品アナウンスにメッセージを追加し、それらを順番にリンクすることもできます。たとえば、製品の機能を簡単に説明する一連のメッセージをまとめ、最後にユーザーを製品ページに誘導するボタンを配置できます。その方法については、[ページを接続する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together)を参照してください。
+また、**Pages**セクションで製品アナウンスにメッセージを追加し、それらを順番にリンクすることもできます。たとえば、製品の機能を簡単に説明する一連のメッセージをまとめ、最後にユーザーを製品ページに誘導するボタンを配置できます。その方法については、[ページを接続する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together)を参照してください。
 
 ### ステップ 4:メッセージのスタイルを設定する {#step-4-style-your-message}
 
-ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)を使用して、製品アナウンスの外観をカスタマイズします。
+ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)を使用して、製品アナウンスの外観をカスタマイズします。
 
 ## 結果の分析 {#analyzing-the-results}
 

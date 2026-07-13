@@ -15,7 +15,7 @@ description: "この記事では、ダッシュボードのユーザーアカウ
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> このエンドポイントを使用して、SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) メソッドによって返されるリソース`id`を指定することで、既存のダッシュボードユーザーを永続的に削除できます。
+> このエンドポイントを使用して、SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account)メソッドによって返されるリソース`id`を指定することで、既存のダッシュボードユーザーを永続的に削除できます。
 
 これは、Brazeダッシュボードの**会社ユーザー**セクションでユーザーを削除するのと同様です。
 
@@ -23,7 +23,7 @@ description: "この記事では、ダッシュボードのユーザーアカウ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin`ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning/)を参照してください。
+このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin`ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)を参照してください。
 
 ## レート制限 {#rate-limit}
 
@@ -33,8 +33,8 @@ description: "この記事では、ダッシュボードのユーザーアカウ
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `id` | 必須 | 文字列 | ユーザーのリソースID。このパラメーターは、`POST` `/scim/v2/Users/`または`GET` `/scim/v2/Users?filter=userName eq "user@test.com"`メソッドによって返されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | 必須 | 文字列 | ユーザーのリソースIDです。このパラメーターは、`POST` `/scim/v2/Users/`または`GET` `/scim/v2/Users?filter=userName eq "user@example.com"`メソッドによって返されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエスト本文 {#request-body}
 
@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 ## リクエスト例 {#example-request}
-`````````bash
+```bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
@@ -56,13 +56,13 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 
 ### エラー応答例 {#example-error-response}
 
-`````````http
+```http
 HTTP/1.1 204 Not Found
 Content-Type: text/html; charset=UTF-8
 ```
 
 このIDを持つ開発者がBrazeに存在しない場合、エンドポイントは次のように応答します。
-`````````http
+```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # 로플랫 {#loplat}
 
-> [Loplat](https://www.loplat.com/)은 선도적인 오프라인 위치 기반 플랫폼입니다. loplat SDK를 사용하여 매장의 유동 인구를 스마트하게 증가시키고 매장 내 구매를 유도하는 마케팅 캠페인을 실행하세요. 캠페인이 끝난 후 유동 인구 분석을 통해 매장 성과를 측정할 수 있습니다.
+> [Loplat](https://www.loplat.com/)은 선도적인 오프라인 위치 기반 플랫폼입니다. loplat SDK를 사용하여 매장의 유동 인구를 스마트하게 증가시키고 매장 내 구매를 유도하는 마케팅 캠페인을 실행하세요. 캠페인이 끝난 후 유동 인구 분석을 통해 매장 성능을 측정할 수 있습니다.
 
 _이 통합은 Loplat에서 유지 관리합니다._
 
@@ -27,9 +27,9 @@ Braze와 loplat 통합을 통해 loplat의 위치 서비스(매장 POI 및 커�
 | Braze REST API 키 | 다음 권한이 있는 Braze REST API 키:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
-loplat에서 제공하는 커스텀 이벤트 위치 정보는 캠페인에서 다음과 같은 활용 사례를 달성하는 데 사용할 수 있습니다.
+loplat에서 제공하는 커스텀 이벤트 위치 정보는 캠페인에서 다음과 같은 사용 사례를 달성하는 데 사용할 수 있습니다.
 
 - [면세점 프로모션 알림](https://www.loplat.com/loplat-x#usecase)
     - 공항 탑승구 근처에 있는 사용자에게 면세점 할인 쿠폰을 보내세요.
@@ -44,7 +44,7 @@ loplat에서 제공하는 커스텀 이벤트 위치 정보는 캠페인에서 �
 
 ### 2단계: Braze와 loplat X 대시보드를 동기화하고 캠페인 생성 {#step-2-sync-the-braze-and-loplat-x-dashboards-and-create-a-campaign}
 
-Braze 대시보드에서 새 API 키를 생성하세요. API 키를 복사하여 loplat X 대시보드의 **Settings > API Settings**에 붙여넣으세요. 자세한 내용은 [loplat X 사용 설명서](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e?pvs=25)를 참조하세요.
+Braze 대시보드에서 새 API 키를 생성하세요. API 키를 복사하여 loplat X 대시보드의 **Settings** > **API Settings**에 붙여넣으세요. 자세한 내용은 [loplat X 사용 설명서](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e?pvs=25)를 참조하세요.
 
 #### API 트리거 전달 {#api-triggered-delivery}
 
@@ -53,7 +53,7 @@ Braze 대시보드에서 새 API 키를 생성하세요. API 키를 복사하여
 3. loplat X로 이동하여 [loplat X 사용 설명서](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#2ed232c885014f19b1870b9fca4230fb)의 안내에 따라 캠페인을 생성하세요.
 4. **Campaign Message Settings**에 Braze 캠페인 ID를 붙여넣고 캠페인을 시작하세요.
 
-![]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
+![API 트리거 전달을 위한 Braze 캠페인 ID가 표시된 loplat X 캠페인 설정.]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
 
 #### 실행 기반 전달 {#action-based-delivery}
 
@@ -63,4 +63,4 @@ Braze 대시보드에서 새 API 키를 생성하세요. API 키를 복사하여
 3. Braze 대시보드로 이동하여 **Action-Based Delivery**로 전송되는 Campaign 또는 Canvas를 생성하세요.
 4. loplat X에서 생성한 커스텀 이벤트를 선택하여 위치 트리거 동작을 설정합니다.
 
-![]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})
+![loplat 커스텀 이벤트를 트리거로 사용하는 Braze 실행 기반 캠페인 설정.]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})

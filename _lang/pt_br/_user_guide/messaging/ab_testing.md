@@ -1,6 +1,6 @@
 ---
 nav_title: Testes A/B
-article_title: "Testes A/B"
+article_title: Testes A/B
 page_order: 6
 layout: dev_guide
 guide_top_header: "Testes A/B"
@@ -42,4 +42,4 @@ guide_featured_list:
 - **Saiba o que você está testando.** Isolar uma única mudança identifica qual elemento teve o maior impacto. Testar múltiplas diferenças permite comparar abordagens mais amplas.
 - **Defina a duração do teste antecipadamente** e não encerre o teste antes do prazo, mesmo que os resultados iniciais pareçam promissores.
 - **Adicione testes antes do lançamento.** Adicionar um teste a uma Campaign em andamento produz resultados imprecisos. Clone a Campaign, interrompa a original e adicione o teste ao clone.
-- **Inclua um [grupo de controle]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#including-a-control-group)** para medir o impacto em comparação com não enviar nenhuma mensagem.
+- **Inclua um [grupo de controle]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#including-a-control-group)** para medir o impacto em comparação com não enviar nenhuma mensagem.

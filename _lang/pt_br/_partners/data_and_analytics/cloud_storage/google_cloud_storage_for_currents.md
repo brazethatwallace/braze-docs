@@ -24,8 +24,8 @@ A integração entre a Braze e o Google Cloud Storage permite enviar dados do Cu
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta do Google Cloud Storage | É necessário ter uma conta do Google Cloud Storage para usar essa parceria. |
-| Currents | Para exportar dados de volta para o Google Cloud Storage, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado para sua conta. O Currents não é necessário se você estiver apenas configurando o arquivamento de mensagens. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Currents | Para exportar dados de volta para o Google Cloud Storage, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) configurado para sua conta. O Currents não é necessário se você estiver apenas configurando o arquivamento de mensagens. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -41,7 +41,7 @@ Isso pode ser feito usando as instruções a seguir, que orientam na criação d
 
 Crie uma nova função no Console do Google Cloud Platform navegando até **IAM & admin** > **Roles** > **+ Create Role**.
 
-![]({% image_buster /assets/img/gcs1.png %})
+![Página de funções do Google Cloud IAM com a ação Criar Função.]({% image_buster /assets/img/gcs1.png %})
 
 Dê um nome à função, selecione **+Add Permissions** e escolha as seguintes permissões:
 
@@ -57,7 +57,7 @@ A permissão `storage.objects.delete` é opcional. Ela permite que a Braze limpe
 
 Quando terminar, selecione **Create**.
 
-![]({% image_buster /assets/img/gcs2.png %})
+![Editor de função personalizada do Google Cloud com permissões de armazenamento selecionadas.]({% image_buster /assets/img/gcs2.png %})
 
 ### Etapa 2: Crie uma nova conta de serviço {#step-2-create-a-new-service-account}
 
@@ -65,7 +65,7 @@ Quando terminar, selecione **Create**.
 
 Crie uma nova conta de serviço no Console do Google Cloud Platform navegando até **IAM & admin** > **Service Accounts** e selecionando **Create Service Account**.
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Página de contas de serviço do Google Cloud com a opção Criar Conta de Serviço selecionada.]({% image_buster /assets/img/gcs3.png %})
 
 Em seguida, dê um nome à conta de serviço e conceda a ela acesso à função personalizada recém-criada.
 
@@ -75,7 +75,7 @@ Em seguida, dê um nome à conta de serviço e conceda a ela acesso à função 
 
 Na parte inferior da página, use o botão **Create Key** para criar uma chave privada **JSON** para usar na Braze. Depois que a chave for criada, ela será baixada na sua máquina.
 
-![]({% image_buster /assets/img/gcs5.png %})
+![Caixa de diálogo de criação de chave da conta de serviço do Google Cloud com o tipo de chave JSON selecionado.]({% image_buster /assets/img/gcs5.png %})
 
 ### Etapa 3: Configurar o Currents na Braze {#step-3-set-up-currents-in-braze}
 
@@ -93,7 +93,7 @@ Por fim, role até a parte inferior da página e selecione quais eventos de enga
 
 ### Etapa 4: Configure as exportações do Google Cloud Storage {#step-4-set-up-google-cloud-storage-exports}
 
-Para configurar as exportações do Google Cloud Storage (GCS), acesse **Parceiros de tecnologia** > **Google Cloud Storage**, insira suas credenciais do GCS e selecione **Make this the default data export destination**.
+Para configurar as exportações do Google Cloud Storage (GCS), acesse **Parceiros de Tecnologia** > **Google Cloud Storage**, insira suas credenciais do GCS e selecione **Make this the default data export destination**.
 
 Tenha em mente que a organização e o conteúdo de quaisquer arquivos exportados serão idênticos nas integrações do AWS S3, Microsoft Azure e Google Cloud Storage.
 

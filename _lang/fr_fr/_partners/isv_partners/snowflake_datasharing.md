@@ -9,20 +9,20 @@ hidden: true
 
 Les partages sont provisionnés par client après l'achat d'un droit de partage de données Snowflake. Lorsqu'un client demande un partage de données, Braze ajoute un partage à l'espace de travail du client, et ce dernier peut utiliser l'interface en libre-service pour ajouter les données du compte Snowflake du partenaire concerné.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Provisionnement du partage de données Snowflake dans le tableau de bord de Braze]({% image_buster /assets/img/snowflake.png %})
 
 Une fois le partage provisionné, toutes les données sont immédiatement accessibles depuis l'instance Snowflake en tant que partage de données entrant.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![Partage de données entrant Snowflake dans l'instance Snowflake du client]({% image_buster /assets/img/snowflake2.png %})
 
-Dans votre instance Snowflake, vous verrez un partage par région. Chaque table comporte une colonne, `app_group_id`, qui est en fait une clé de locataire pour Braze. Lorsque de nouveaux clients sont ajoutés à un partage au sein d'une même région, ils apparaissent sous la forme de différents `app_group_ids` dans les tables existantes.
+Dans votre instance Snowflake, vous verrez un partage par région. Chaque table comporte une colonne, `app_group_id`, qui fait office de clé de locataire pour Braze. Lorsque de nouveaux clients sont ajoutés à un partage au sein d'une même région, ils apparaissent sous la forme de différents `app_group_ids` dans les tables existantes.
 
 {% alert important %}
 Braze héberge actuellement toutes les données au niveau de l'utilisateur dans les régions Snowflake AWS US East-1 et EU-Central (Francfort). Bien que Braze puisse effectuer des partages inter-régions, il est plus rentable pour les clients de partager avec `US-EAST-1` et/ou `EU-CENTRAL-1`.
 {% endalert %}
 
 {% alert tip %}
-Téléchargez les [schémas des tables brutes]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) ici ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible sur la place de marché Snowflake pour vous familiariser avec les événements partagés.
+Téléchargez les [schémas des tables brutes](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible sur la place de marché Snowflake pour vous familiariser avec les événements partagés.
 {% endalert %}
 
 ## Gestion des événements en double {#handling-duplicate-events}

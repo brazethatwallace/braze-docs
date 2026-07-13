@@ -22,7 +22,7 @@ Puedes consultar los análisis de tu recomendación para ver qué artículos se 
 
 Estas son métricas relacionadas con la audiencia de tus recomendaciones, que incluyen precisión, cobertura y tipo de recomendación.
 
-![Métricas de audiencia de recomendaciones que muestran precisión (25,3 %), cobertura (54,3 %) y tipos de recomendaciones divididas entre artículos personalizados y más populares.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Métricas de audiencia de recomendaciones que muestran precisión, cobertura y tipos de recomendaciones divididas entre artículos personalizados y más populares.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Consulta la siguiente tabla para obtener más información:
 
@@ -31,7 +31,7 @@ Consulta la siguiente tabla para obtener más información:
 | **Precisión**           | El porcentaje de veces que el modelo predijo correctamente el siguiente artículo que compró un usuario. La precisión depende en gran medida del tamaño y la combinación específicos de tu catálogo, y debe utilizarse como guía para comprender con qué frecuencia el modelo es correcto.<br><br>En pruebas anteriores, hemos visto que los modelos rinden bien con cifras de precisión que oscilan entre el 6 y el 20 %. Esta métrica se actualiza cuando el modelo vuelve a entrenarse.  |
 | **Cobertura**            | Qué porcentaje de artículos disponibles en el catálogo se recomiendan al menos a un usuario. Puedes esperar ver una mayor cobertura de artículos con recomendaciones de artículos personalizados que con los más populares. |
 | **Tipo de recomendación** | El porcentaje de usuarios que recibirán recomendaciones personalizadas o más recientes frente a la alternativa de los artículos más populares. La alternativa se envía a los usuarios que no tienen datos suficientes para generar una recomendación personalizada o más reciente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Audiencia" }
 
 ### Artículos {#items}
 
@@ -43,12 +43,12 @@ Consulta la siguiente tabla para obtener más información:
 
 | Métrica              | Descripción |
 | ------------------- | ---------- |
-| **Artículos personalizados**<br><br>**Artículos más recientes** | Esta columna enumera cada artículo del catálogo en orden descendente según la frecuencia con la que se recomiendan a los usuarios. También muestra a cuántos usuarios asignó el modelo cada artículo.<br><br>Se mostrarán los artículos **personalizados** o **los más recientes** dependiendo del [tipo de recomendación]({{site.baseurl}}/user_guide/brazeai/item_recommendations/). |
-| **Artículos más populares** | Esta columna enumera cada artículo del catálogo en orden descendente de popularidad. La popularidad aquí se refiere a los artículos del catálogo con los que los usuarios interactúan más a menudo en todo el espacio de trabajo. Los más populares se utilizan como alternativa cuando no se puede calcular la recomendación personalizada o la más reciente para un usuario individual. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Items" }
+| **Artículos personalizados**<br><br>**Artículos más recientes** | Esta columna enumera cada artículo del catálogo en orden descendente según la frecuencia con la que se recomienda a los usuarios. También muestra a cuántos usuarios asignó el modelo cada artículo.<br><br>Se mostrarán los artículos **personalizados** o **los más recientes** dependiendo del [tipo de recomendación]({{site.baseurl}}/user_guide/brazeai/item_recommendations). |
+| **Artículos más populares** | Esta columna enumera cada artículo del catálogo en orden descendente de popularidad. La popularidad aquí se refiere a los artículos del catálogo con los que los usuarios interactúan con más frecuencia en todo el espacio de trabajo. Los más populares se utilizan como alternativa cuando no se puede calcular la recomendación personalizada o la más reciente para un usuario individual. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Artículos" }
 
 ### Resumen {#overview}
 
 Este es un resumen de la configuración de recomendaciones que has elegido, que incluye la fecha de la última actualización de las recomendaciones.
 
-![Tabla resumen de recomendaciones que muestra el tipo, el catálogo, el tipo de evento, el nombre del evento personalizado, el nombre de la propiedad y la última fecha de actualización.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }
+![Tabla de resumen de recomendaciones que muestra el tipo, el catálogo, el tipo de evento, el nombre del evento personalizado, el nombre de la propiedad y la última fecha de actualización.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }

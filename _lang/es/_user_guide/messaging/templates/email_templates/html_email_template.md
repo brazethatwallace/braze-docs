@@ -12,7 +12,7 @@ channel:
 
 # Cargar una plantilla de correo electrónico HTML {#upload-an-html-email-template}
 
-> El dashboard de Braze te permite cargar tus propias plantillas de correo electrónico HTML y guardarlas para usarlas más adelante en campañas. También puedes [crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) usando nuestro editor.
+> El dashboard de Braze te permite cargar tus propias plantillas de correo electrónico HTML y guardarlas para usarlas más adelante en campañas. También puedes [crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) usando nuestro editor.
 
 ## Requisitos {#upload-requirements}
 
@@ -53,7 +53,7 @@ Para usar tu correo electrónico en una campaña de API, necesitas el `email_tem
 
 ## Administrar plantillas de correo electrónico {#managing-email-templates}
 
-Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) y [archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) plantillas de correo electrónico. Obtén más información sobre cómo crear y administrar plantillas y contenido creativo en [Plantillas]({{site.baseurl}}/user_guide/messaging/templates/).
+Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) y [archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) plantillas de correo electrónico. Obtén más información sobre cómo crear y administrar plantillas y contenido creativo en [Plantillas]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Solución de problemas {#troubleshooting}
 
@@ -74,4 +74,4 @@ Ten en cuenta que al descargar los archivos de campañas HTML, pasos en Canvas c
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-Para obtener respuestas a preguntas frecuentes sobre plantillas de correo electrónico, consulta nuestra página de [preguntas frecuentes sobre plantillas de correo electrónico y enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Para obtener respuestas a preguntas frecuentes sobre plantillas de correo electrónico, consulta nuestra página de [preguntas frecuentes sobre plantillas de correo electrónico y enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

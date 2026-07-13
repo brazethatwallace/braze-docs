@@ -18,7 +18,7 @@ Teams sind nicht in allen Braze-Verträgen enthalten. Um auf dieses Feature zuzu
 
 ## Wie unterscheiden sich Teams von Berechtigungsgruppen und Rollen? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Teams erstellen {#creating-teams}
 
@@ -36,9 +36,9 @@ Braze-Administrator:innen und eingeschränkte Nutzer:innen mit der unternehmensw
 
 ### Berechtigungen von Unternehmensnutzer:innen einschränken, ohne sie zu löschen {#limit-company-user-permissions-without-deleting-a-user}
 
-Um zu verhindern, dass sich ein:e Unternehmensnutzer:in anmeldet, ohne das Konto zu löschen, [suspendieren Sie den/die Nutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). Durch die Suspendierung wird das Konto in einen inaktiven Zustand versetzt, in dem sich der/die Nutzer:in nicht anmelden kann.
+Um zu verhindern, dass sich ein:e Unternehmensnutzer:in anmeldet, ohne das Konto zu löschen, [suspendieren Sie den/die Nutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). Durch die Suspendierung wird das Konto in einen inaktiven Zustand versetzt, in dem sich der/die Nutzer:in nicht anmelden kann.
 
-Wenn der/die Nutzer:in sich weiterhin mit eingeschränkten Möglichkeiten anmelden können soll, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen**, wählen Sie den/die Nutzer:in aus und bearbeiten Sie die Berechtigungen. Entfernen Sie Berechtigungen auf Workspace-Ebene für Campaigns, Canvases, Segmente und Nutzerdaten und belassen Sie nur minimalen Zugriff – zum Beispiel „Medienbibliothek-Assets anzeigen“. Weitere Informationen finden Sie unter [Berechtigungen eines/einer Nutzer:in bearbeiten]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+Wenn der/die Nutzer:in sich weiterhin mit eingeschränkten Möglichkeiten anmelden können soll, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen**, wählen Sie den/die Nutzer:in aus und bearbeiten Sie die Berechtigungen. Entfernen Sie Berechtigungen auf Workspace-Ebene für Campaigns, Canvases, Segmente und Nutzerdaten und belassen Sie nur minimalen Zugriff – zum Beispiel „Medienbibliothek-Assets anzeigen“. Weitere Informationen finden Sie unter [Berechtigungen eines/einer Nutzer:in bearbeiten]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 Team-Berechtigungen bauen auf Workspace-Berechtigungen auf. Wenn Sie den/die Nutzer:in einem Team zuweisen, gewähren Sie nur die minimal erforderlichen Berechtigungen auf Team-Ebene und vergeben Sie keine Berechtigungen für Campaigns, Canvases, Segmente oder Nutzerprofile. Der/die Nutzer:in bleibt im Workspace und kann sich anmelden, kann aber die meisten Messaging- oder Zielgruppenaktionen nicht ausführen.
 
@@ -51,7 +51,7 @@ Führen Sie dann die folgenden Schritte aus:
 ![Berechtigungen auf Workspace-Ebene mit dem Berechtigungsset „Banner Template“.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Wählen Sie **+ Add team-level permissions** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
+2. Wählen Sie **+ Berechtigungen auf Team-Ebene hinzufügen** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
 3. Weisen Sie spezifische Berechtigungen im Abschnitt **Team**-Berechtigungen zu.
 
 ![Berechtigungen für Landing-Page-Templates auf Team-Ebene.]({% image_buster /assets/img/teams.png %})
@@ -102,11 +102,13 @@ Im Folgenden finden Sie alle verfügbaren Berechtigungen, die Sie auf Team-Ebene
 - Dashboard-Berichte bearbeiten
 - Dashboard-Berichte löschen
 
-Beschreibungen der einzelnen Nutzerberechtigungen und deren Verwendung finden Sie in unserem Abschnitt [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Beschreibungen der einzelnen Nutzerberechtigungen und deren Verwendung finden Sie in unserem Abschnitt [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Team-Tags zuweisen {#tags-and-filters}
 
 Sie können ein Team Canvases, Campaigns, Content Cards, Segmenten, E-Mail-Templates, Webhook-Templates, Content Blocks und Medienbibliothek-Assets mit dem Filter **Team hinzufügen** zuweisen.
+
+Bei Canvases validieren Team-Filter Nutzer:innen nur beim Canvas-Entry. Nachdem ein:e Nutzer:in ein Canvas betreten hat, erhält er/sie weiterhin Nachrichten aus allen Canvas-Schritten, auch wenn sich die Attribute ändern und er/sie die Kriterien des Team-Filters nicht mehr erfüllt. Team-Filter verhalten sich nicht wie Zustellungsvalidierungen, die Nutzer:innen bei jedem Nachrichtenschritt erneut auswerten.
 
 ![Hinzufügen eines Team-Tags zu einer Campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 

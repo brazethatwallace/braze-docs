@@ -6,6 +6,8 @@ description: "Référence du README du SDK Flutter Braze, miroir depuis GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK Flutter {#flutter-sdk-repository-guide}
+
 ## À propos du SDK Flutter Braze {#about-the-braze-flutter-sdk}
 
 Le SDK Flutter Braze vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.
@@ -16,6 +18,8 @@ Pour commencer, consultez les ressources suivantes :
 - [Guide développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter)
 
 ## Démarrage rapide {#quickstart}
+
+Les extraits de code suivants montrent la configuration minimale requise pour ajouter le SDK Flutter Braze à votre application.
 
 ``` bash
 flutter pub add braze_plugin
@@ -79,9 +83,11 @@ _braze = new BrazePlugin();
 _braze.changeUser("Jane Doe");
 ```
 
-Consultez [le guide développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter) pour les options d'intégration avancées.
+Pour plus d'informations sur les options d'intégration avancées, consultez le [guide développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter).
 
 ## Versions prises en charge {#version-support}
+
+Le tableau suivant répertorie les versions minimales prises en charge pour les outils utilisés par le SDK Flutter Braze.
 
 | Outil                                                        | Version minimale prise en charge |
 | :----------------------------------------------------------- | :------------------------------- |
@@ -91,7 +97,7 @@ Consultez [le guide développeur Braze](https://www.braze.com/docs/developer_gui
 | Cible de déploiement iOS                                     | 12.0+                            |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Versions prises en charge" }
 
-Ce SDK hérite également des exigences de ses SDK natifs Braze sous-jacents. Veillez à respecter les informations de compatibilité des versions définies dans [braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk) et [braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk).
+Ce SDK hérite également des exigences des SDK natifs Braze sous-jacents. Pour plus d'informations, consultez [braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk) et [braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk).
 
 ## Exemple d'application {#sample-app}
 
@@ -99,7 +105,7 @@ Le dossier [`/example`](https://github.com/braze-inc/braze-flutter-sdk/tree/mast
 
 ## Contact {#contact}
 
-Si vous avez des questions, veuillez contacter [support@braze.com](mailto:support@braze.com).
+Si vous avez des questions, contactez le support technique Braze pour obtenir de l'aide.
 <!-- END GENERATED README CONTENT -->
 
 Pour les détails du dépôt et les exemples de projets, consultez [https://github.com/braze-inc/braze-flutter-sdk](https://github.com/braze-inc/braze-flutter-sdk).

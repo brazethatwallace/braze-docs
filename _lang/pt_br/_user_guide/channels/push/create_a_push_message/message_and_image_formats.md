@@ -24,7 +24,7 @@ Para obter os melhores resultados, consulte as diretrizes de tamanho de imagem e
 (iOS) 2:1 *Recomendado* | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG, GIF
 (Android) Ícone de push | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 (Android) Notificação expandida | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Push para iOS e Android" }
 
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
@@ -38,9 +38,9 @@ Para obter os melhores resultados, consulte as diretrizes de tamanho de imagem e
 (iOS) Alerta em banner | 80 caracteres | 65 caracteres
 (Android) Tela de bloqueio | 49 caracteres | N/A
 (Android) Gaveta de notificações | 597 caracteres | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push para iOS e Android" }
 
-Quer saber quantos caracteres você pode usar em uma notificação por push no iOS sem que ela seja truncada? Confira nossas [diretrizes de contagem de caracteres para iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Quer saber quantos caracteres você pode usar em uma notificação por push no iOS sem que ela seja truncada? Confira nossas [diretrizes de contagem de caracteres para iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 {% endtab %}
 {% tab Tamanho da carga útil %}
@@ -50,7 +50,7 @@ Quer saber quantos caracteres você pode usar em uma notificação por push no i
 iOS anterior ao 8 | 0,256 KB
 iOS 8 em diante | 2 KB
 Android (FCM) | 4 KB
-{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push para iOS e Android" }
 
 {% endtab %}
 {% tab Exemplo de imagem %}
@@ -93,45 +93,42 @@ Notificações com imagens grandes ficam melhores ao usar uma imagem de pelo men
 
 | **Navegador** | **Tamanho de ícone recomendado**
 | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
-Chrome | 192 x 192 ≥
-Firefox | 192 x 192 ≥
-Safari | 192 x 192 ≥ (Os ícones são configuráveis por Campaign no Safari 16+ no macOS 13+)
-Opera | 192x192 ≥
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
+| Chrome | 192 x 192 ≥
+| Firefox | 192 x 192 ≥
+| Safari | 192 x 192 ≥ (Os ícones são configuráveis por campanha no Safari 16+ no macOS 13+)
+| Opera | 192x192 ≥
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push para a web" }
 
 | **Navegador** | **Plataforma** | **Tamanho de imagem grande**
 | --- | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
-Chrome | Android | Proporção 2:1
-Firefox | Android | N/A
-Chrome | Windows | Proporção 2:1
-Edge | Windows | Proporção 2:1
-Firefox | Windows | N/A
-Firefox | Windows | Proporção 2:1
-Safari | macOS | N/A
-Chrome | macOS | N/A
-Firefox | macOS | N/A
-Opera | macOS | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
+| Chrome | Android | Proporção 2:1
+| Firefox | Android | N/A
+| Chrome | Windows | Proporção 2:1
+| Edge | Windows | Proporção 2:1
+| Firefox | Windows | N/A
+| Firefox | Windows | Proporção 2:1
+| Safari | macOS | N/A
+| Chrome | macOS | N/A
+| Firefox | macOS | N/A
+| Opera | macOS | N/A
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push para a web" }
 
 {% endtab %}
 {% tab Texto %}
 
 | **Navegador** | **Plataforma** | **Comprimento máximo do título**  | **Comprimento máximo do corpo da mensagem**
 | --- | --- | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
-Chrome | Android | 35 | 50
-Firefox | Android | 35 | 50
-Chrome | Windows | 50 | 120
-Edge | Windows | 50 | 120
-Firefox | Windows | 54 | 200
-Opera | Windows | 50 | 120
-Chrome | macOS | 35 | 50
-Safari | macOS | 38 | 84
-Firefox | macOS | 38 | 42
-Opera | macOS | 38 | 42
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
+| Chrome | Android | 35 | 50
+| Firefox | Android | 35 | 50
+| Chrome | Windows | 50 | 120
+| Edge | Windows | 50 | 120
+| Firefox | Windows | 54 | 200
+| Opera | Windows | 50 | 120
+| Chrome | macOS | 35 | 50
+| Safari | macOS | 38 | 84
+| Firefox | macOS | 38 | 42
+| Opera | macOS | 38 | 42
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Push para a web" }
 
 {% endtab %}
 {% endtabs %}

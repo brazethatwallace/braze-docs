@@ -6,6 +6,8 @@ description: "Braze React Native SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# React Native SDK repository guide
+
 ## About the Braze React Native SDK
 
 The Braze React Native SDK connects your iOS and Android apps to Braze: user profiles, messaging surfaces, analytics, and feature flags. It wraps the native [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) and [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk) behind a JavaScript API.
@@ -18,7 +20,7 @@ The Braze React Native SDK connects your iOS and Android apps to Braze: user pro
 - **In-app messages**: Default Braze UI or custom handling via subscriptions and logging APIs
 - **Content Cards**: Default feed UI, or fetch cards and build your own UI
 - **Banners**: Placement-based HTML banners, including `BrazeBannerView`
-- **Push notifications**: Permission prompts, token registration, payload listeners (see platform notes below)
+- **Push notifications**: Permission prompts, token registration, payload listeners (see [Push notifications](#push-notifications))
 - **Feature flags**: Refresh, read properties, log impressions
 - **Analytics**: Custom events, purchases, immediate flush
 - **SDK controls**: Enable/disable SDK, wipe local data, SDK Authentication signatures
@@ -47,7 +49,7 @@ npm install @braze/react-native-sdk
 
 This section shows the minimum setup required to initialize the Braze React Native SDK.
 
-1. Install the npm package (above).
+1. Install the npm package in [Installation](#installation).
 2. Complete **native setup** for Android and iOS (configuration, permissions, push if needed).
 3. Initialize the SDK from JavaScript and start using it:
 
@@ -71,7 +73,7 @@ Calling `Braze.initialize` again with different credentials tears down the curre
 
 ## Native setup
 
-> **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The snippets below are minimal examples.
+> **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The following snippets are minimal examples.
 
 ### Android
 
@@ -221,7 +223,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 ### Content Cards
 
 ``` typescript
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 Braze.requestContentCardsRefresh();
 Braze.launchContentCards(); // default Braze UI
 
@@ -240,7 +242,7 @@ Braze.requestBannersRefresh(["homepage_banner"]);
 const banner = await Braze.getBanner("homepage_banner");
 
 // Or use the native Banner view:
-// <Braze.BrazeBannerView placementID="homepage_banner" />
+// <Braze.BrazeBannerView placementId="homepage_banner" />
 ```
 
 ### Push notifications
@@ -425,7 +427,7 @@ For deeper troubleshooting (network, session, or campaign behavior), see the [Br
 
 ## Contact
 
-For questions, contact [support@braze.com](mailto:support@braze.com).
+For questions, contact Braze Technical Support for assistance.
 <!-- END GENERATED README CONTENT -->
 
 For repository details and sample projects, see [https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk).

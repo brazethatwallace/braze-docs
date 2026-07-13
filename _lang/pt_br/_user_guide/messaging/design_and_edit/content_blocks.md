@@ -13,7 +13,7 @@ tool:
 
 # Blocos de conteúdo {#content-blocks}
 
-> Os blocos de conteúdo permitem que você gerencie conteúdo reutilizável e multicanal em um único local centralizado. Use-os para criar uma aparência consistente em suas campanhas, distribuir os mesmos códigos de oferta por diferentes canais ou criar ativos predefinidos para envio de mensagens consistente em escala. Você também pode criar e gerenciar seus blocos de conteúdo [usando a API]({{site.baseurl}}/api/endpoints/templates/).
+> Os blocos de conteúdo permitem que você gerencie conteúdo reutilizável e multicanal em um único local centralizado. Use-os para criar uma aparência consistente em suas campanhas, distribuir os mesmos códigos de oferta por diferentes canais ou criar ativos predefinidos para envio de mensagens consistente em escala. Você também pode criar e gerenciar seus blocos de conteúdo [usando a API]({{site.baseurl}}/api/endpoints/templates).
 
 ## Criar um bloco de conteúdo {#create-a-content-block}
 
@@ -22,7 +22,7 @@ Existem dois tipos de blocos de conteúdo: arrastar e soltar e HTML. Cada tipo c
 {% tabs %}
 {% tab Arrastar e soltar %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Cada bloco de conteúdo de arrastar e soltar é limitado a uma linha. No entanto, você pode usar blocos do editor de arrastar e soltar para criar e personalizar o bloco de conteúdo de acordo com o seu envio de mensagens por e-mail.
@@ -31,7 +31,7 @@ Cada bloco de conteúdo de arrastar e soltar é limitado a uma linha. No entanto
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}
@@ -40,7 +40,7 @@ Cada bloco de conteúdo de arrastar e soltar é limitado a uma linha. No entanto
 
 | Atributo do bloco de conteúdo | Especificações |
 |---|---|
-| Nome | Campo obrigatório com no máximo 100 caracteres. Não pode ser renomeado após o bloco de conteúdo ter sido salvo. Além disso, você não pode dar a um novo bloco de conteúdo o mesmo nome de um bloco anterior, mesmo que o anterior tenha sido arquivado. |
+| Nome | Campo obrigatório com no máximo 100 caracteres. Os nomes dos blocos de conteúdo podem conter apenas letras (A-Z), números (0-9), hifens (`-`) e underscores (`_`). Espaços e outros caracteres especiais não são permitidos e são convertidos automaticamente (por exemplo, espaços são substituídos por underscores). Os nomes não podem ser alterados após o bloco de conteúdo ser salvo, e você não pode reutilizar o nome de um bloco de conteúdo anterior, mesmo que arquivado. |
 | Descrição | (opcional) No máximo 250 caracteres. Descreva o bloco de conteúdo para que outros usuários da Braze saibam para que serve e onde é usado. |
 | Tamanho do conteúdo | No máximo 50 KB. |
 | Posicionamento | Os blocos de conteúdo não podem ser usados em um rodapé de e-mail, mas você pode [criar um bloco de conteúdo que inclua um rodapé](#email-footers) para uso em seus e-mails. |
@@ -83,10 +83,10 @@ Para inserir um bloco de conteúdo usando Liquid:
 1. Copie a **Content Block Liquid Tag** na seção **Content Block Details**.
 2. Insira a Liquid tag do bloco de conteúdo na mensagem. Você também pode começar a digitar o Liquid e a tag será preenchida automaticamente.
 
-No editor de arrastar e soltar, você também pode adicionar um bloco de conteúdo pelo painel de **Personalization**:
+No editor de arrastar e soltar, você também pode adicionar um bloco de conteúdo pelo painel de **Personalização**:
 
-1. Acesse sua campanha de e-mail e selecione **Edit Email Body**.
-2. Clique em <i class="fas fa-plus"></i> **Personalization**.
+1. Acesse sua Campaign de e-mail e selecione **Edit Email Body**.
+2. Clique em <i class="fas fa-plus"></i> **Personalização**.
 3. Selecione **Content Blocks** no menu suspenso **Personalization Type**.
 4. Selecione o nome do seu bloco de conteúdo no campo **Attribute**.
 5. Copie e cole o trecho Liquid em um bloco de texto do editor. <br>![A guia Adicionar personalização com opções.]({% image_buster /assets/img_archive/dnd_content_block_personalization.png %}){: style="max-width:30%;"}
@@ -103,11 +103,9 @@ Os blocos de conteúdo inseridos via Liquid **estão vinculados** ao bloco de co
 
 ## Pré-visualizar blocos de conteúdo {#preview-content-blocks}
 
-Após adicionar um bloco de conteúdo em uma Campaign ou Canvas ativo, você pode pré-visualizá-lo na Biblioteca de blocos de conteúdo passando o cursor sobre o bloco de conteúdo e selecionando o ícone <i class="fa fa-eye preview-icon"></i> **Pré-visualização**.
+Após adicionar um bloco de conteúdo em uma Campaign ou Canvas ativo, você pode pré-visualizá-lo na Biblioteca de blocos de conteúdo passando o cursor sobre o bloco de conteúdo e selecionando o ícone <i class="fa fa-eye preview-icon"></i> **Prévia**.
 
-Essa pré-visualização inclui informações sobre o bloco de conteúdo, como quem o criou, tags, data de criação, data da última edição, descrição, tipo de editor, contagem de inclusões com detalhes (uma lista clicável de mensagens ou blocos de conteúdo que usam o bloco de conteúdo) e uma pré-visualização real do bloco de conteúdo.
-
-![Pré-visualização de um bloco de conteúdo "Workout_Promo" para ciclismo e dança que tem uma inclusão.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
+Essa prévia inclui informações sobre o bloco de conteúdo, como quem o criou, tags, data de criação, data da última edição, descrição, tipo de editor, contagem de inclusões com detalhes (uma lista clicável de mensagens ou blocos de conteúdo que usam o bloco de conteúdo) e uma prévia real do bloco de conteúdo.
 
 ## Aninhar blocos de conteúdo {#nest-content-blocks}
 
@@ -131,7 +129,7 @@ Após fazer edições em um bloco de conteúdo, você pode salvar e lançar o bl
 
 Os blocos de conteúdo não podem ser usados em um rodapé de e-mail, mas você pode criar um bloco de conteúdo que inclua conteúdo de rodapé para uso em seus e-mails. Para fazer isso:
 
-1. Acesse **Settings** > **Email Preferences** > **Custom Footer** e crie o rodapé.
+1. Acesse **Configurações** > **Preferências de e-mail** > **Rodapé personalizado** e crie o rodapé.
 2. Adicione o rodapé a um bloco de conteúdo na **Biblioteca de blocos de conteúdo**.
 3. Adicione esse bloco de conteúdo aos seus modelos de e-mail ou mensagens.
 

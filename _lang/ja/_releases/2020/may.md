@@ -3,48 +3,48 @@ nav_title: 5月
 page_order: 8
 noindex: true
 page_type: update
-description: "この記事には2020年5月のリリースノートが含まれている。"
+description: "この記事には2020年5月のリリースノートが含まれています。"
 ---
-# 2020年5月
+# 2020年5月 {#may-2020}
 
 ## Google Tag Manager
 
-[Google Tag Managerを]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)使用したBrazeのAndroid SDKのデプロイと管理方法に関するドキュメントと例を追加。
+[Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)を使用したBrazeのAndroid SDKのデプロイと管理方法に関するドキュメントと例を追加しました。
 
-## 新しいブラックリスト電子メールAPIエンドポイント
+## 新しいブラックリストメールAPIエンドポイント {#new-blacklist-email-api-endpoint}
 
-Braze API経由でメールアドレスを[ブラックリスト化]({{site.baseurl}}/api/endpoints/email/post_blacklist/)できるようになった。メールアドレスをブラックリストに登録すると、そのユーザーはメールの配信を停止され、ハードバウンスされたことになる。
+Braze API経由でメールアドレスを[ブラックリスト化]({{site.baseurl}}/api/endpoints/email/post_blacklist)できるようになりました。メールアドレスをブラックリストに登録すると、そのユーザーはメールの配信停止となり、ハードバウンスとしてマークされます。
 
-## Braze APIエンドポイントのAPIキー変更
+## Braze APIエンドポイントのAPIキー変更 {#api-key-change-for-braze-api-endpoints}
 
-2020年5月より、BrazeはAPIキーの読み取り方法をより安全なものに変更した。これで API キーがリクエストヘッダーとして渡されるはずです。[**リクエスト例**] の下の個々のエンドポイントページや、[**API キーの説明**] で例を確認できます。
+2020年5月より、BrazeはAPIキーの読み取り方法をより安全なものに変更しました。APIキーはリクエストヘッダーとして渡す必要があります。例は、各エンドポイントページの**リクエスト例**セクション、および**APIキーの説明**で確認できます。
 
-Braze は、リクエストボディとURL パラメータに渡される`api_key` を引き続きサポートしますが、最終的にはサンセット(TBD) になります。**API コールを適宜更新します。**これらの変更は[Postman](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#intro)内で更新された。
+Brazeは、リクエストボディおよびURLパラメータで渡される`api_key`を引き続きサポートしますが、最終的には廃止される予定です（時期未定）。**APIコールを適宜更新してください。**これらの変更は[Postman](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#intro)内で更新されています。
 {% details API Key Explanation %}
 {% tabs %}
 {% tab GET Request %}
-この例では、`/email/hard_bounces` エンドポイントを使用している。
+この例では、`/email/hard_bounces`エンドポイントを使用しています。
 
-**前:リクエスト本文のAPI キー**
+**導入前：リクエストボディのAPIキー**
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?api_key={YOUR_REST_API_KEY}&start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?api_key={YOUR_REST_API_KEY}&start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@example.com' \
 ```
-**現在: ヘッダーのAPIキー**
+**現在：ヘッダーのAPIキー**
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endtab %}
 {% tab POST Request %}
-この例では、`/user/track` エンドポイントを使用している。
+この例では、`/user/track`エンドポイントを使用しています。
 
-**前:リクエスト本文のAPI キー**
+**導入前：リクエストボディのAPIキー**
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 	"api_key": YOUR-API-KEY-HERE ,
-	"attributes": [ 
+	"attributes": [
  	{
  	  "external_id":"user_id",
       "string_attribute": "sherman",
@@ -55,13 +55,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ]
 }'
 ```
-**現在: ヘッダーのAPIキー**
+**現在：ヘッダーのAPIキー**
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
-	"attributes": [ 
+	"attributes": [
  	{
 	  "external_id":"user_id",
       "string_attribute": "sherman",
@@ -75,5 +75,3 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% endtab %}
 {% endtabs %}
 {% enddetails %}
-
-

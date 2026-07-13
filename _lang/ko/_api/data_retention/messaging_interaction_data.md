@@ -11,11 +11,11 @@ page_type: reference
 
 > Campaign 및 Canvases의 메시징 상호작용 데이터에 대해 알아보세요. Braze가 이 데이터를 얼마나 오래 보관하는지, 그리고 리타겟팅에 어떤 기능이 이 데이터를 사용하는지 확인할 수 있습니다.
 
-### 메시징 상호작용 데이터란 무엇인가요? {#what-is-messaging-interaction-data}
+## 메시징 상호작용 데이터란 무엇인가요? {#what-is-messaging-interaction-data}
 
 메시징 상호작용 데이터는 사용자가 수신한 Campaign 또는 Canvas와 어떻게 상호작용하는지를 나타냅니다(예: 사용자가 Campaign A를 열거나 사용자가 배리언트 A를 수신하는 경우). 이 데이터는 리타겟팅에 사용됩니다.
 
-### 메시징 상호작용 데이터는 언제 사용할 수 있나요? {#when-is-messaging-interaction-data-available}
+## 메시징 상호작용 데이터는 언제 사용할 수 있나요? {#when-is-messaging-interaction-data-available}
 
 상호작용 데이터는 항상 사용할 수 있습니다. 활성 Campaigns 및 Canvases의 경우, 상호작용 데이터는 항상 실시간으로 사용할 수 있습니다.
 
@@ -23,7 +23,7 @@ page_type: reference
 
 만료된 상호작용 데이터는 절대 삭제되지 않으며 언제든지 복원할 수 있습니다.
 
-#### 상호작용 데이터를 사용하는 기능 {#features-that-use-interaction-data}
+### 상호작용 데이터를 사용하는 기능 {#features-that-use-interaction-data}
 
 다음 기능은 메시징 상호작용 데이터를 사용합니다:
 
@@ -48,13 +48,13 @@ page_type: reference
     - Last Received Message from Campaign or Canvas With Tag
 - 고객 프로필의 **Campaigns Received** 및 **Canvas Messages Received** 목록
 - `/users/export` 엔드포인트
-- Campaign 및 Canvas 요약 페이지의 **User Data** CSV 내보내기
+- Campaign 및 Canvas 요약 페이지의 **사용자 데이터** CSV 내보내기
 
 이러한 기능은 결과에 만료된 상호작용 데이터를 포함하지 않습니다. 이러한 기능의 결과에 만료된 상호작용 데이터를 포함하려면 만료된 데이터가 있는 Campaign 또는 Canvas를 복원하세요.
 
 예를 들어, 상호작용 데이터가 만료된 경우 Canvases를 시작할 수 없으며, 이는 Canvas에 팀을 추가하는 것과 같은 편집을 저장할 수 없음을 의미합니다.
 
-#### 상호작용 데이터를 사용하지 않는 기능 {#features-that-dont-use-interaction-data}
+### 상호작용 데이터를 사용하지 않는 기능 {#features-that-dont-use-interaction-data}
 
 다음 기능은 메시징 상호작용 데이터를 사용하지 **않으며**, 이는 메시징 상호작용 데이터의 만료에 영향을 받지 않음을 의미합니다:
 
@@ -85,7 +85,7 @@ page_type: reference
     - Last Viewed News Feed
     - News Feed View Count
 
-### 메시징 상호작용 데이터를 복원하려면 어떻게 해야 하나요? {#how-do-i-restore-messaging-interaction-data}
+## 메시징 상호작용 데이터를 복원하려면 어떻게 해야 하나요? {#how-do-i-restore-messaging-interaction-data}
 
 상호작용 데이터를 복원하려면 다음 단계를 따르세요:
 
@@ -96,7 +96,7 @@ page_type: reference
 
 상호작용 데이터를 복원하는 데 걸리는 시간은 다를 수 있지만, 대부분의 경우 5~15분 정도 소요됩니다. 복원이 완료되면 이메일을 받게 됩니다.
 
-#### 태그별 복원 {#restoring-by-tag}
+### 태그별 복원 {#restoring-by-tag}
 
 특정 태그가 있는 만료된 Campaigns 또는 Canvases의 상호작용 데이터를 복원할 수도 있습니다.
 
@@ -106,7 +106,7 @@ page_type: reference
 
 비활성 상태가 3개월 더 지속되면 해당 Campaigns 또는 Canvases는 다시 만료됩니다.
 
-#### 태그별 리타겟팅 {#retargeting-by-tag}
+### 태그별 리타겟팅 {#retargeting-by-tag}
 
 태그별로 리타겟팅하는 리타겟팅 필터를 사용하는 Campaigns는 만료에서 면제되지 않습니다. 태그별로 리타겟팅하는 리타겟팅 필터에는 다음이 포함됩니다:
 
@@ -114,7 +114,7 @@ page_type: reference
 - Clicked/Opened Campaign or Canvas With Tag
 - Last Received Message from Campaign or Canvas With Tag
 
-### 과거에 메시징 상호작용 데이터는 언제 사용할 수 있었나요? {#when-was-messaging-interaction-data-available-in-the-past}
+## 과거에 메시징 상호작용 데이터는 언제 사용할 수 있었나요? {#when-was-messaging-interaction-data-available-in-the-past}
 
 이전에는 Campaign 또는 Canvas가 다음 조건을 충족하면 메시지 상호작용 데이터가 삭제되었습니다:
 
@@ -122,3 +122,16 @@ page_type: reference
 - 활성 Campaigns, Canvases 또는 Content Cards의 리타겟팅에 사용되지 않은 경우.
 
 이전에 메시징 상호작용 데이터가 삭제된 Campaigns 및 Canvases는 Campaigns, Canvases 및 Segments의 리타겟팅 필터에서 사용할 수 없습니다.
+
+## 문제 해결 {#troubleshooting}
+
+만료된 상호작용 데이터가 있는 Campaigns, Canvases 또는 Content Cards를 재개하거나 보관 해제하려고 할 때 다음과 같은 오류 메시지가 나타날 수 있습니다:
+
+| 오류 메시지 | 표시 시점 | 문제 해결 |
+| --- | --- | --- |
+| "Can't resume Canvases because at least one Canvas is using filters or segments that have expired data. Remove these and try again." | 만료된 상호작용 데이터가 있는 필터 또는 Segments를 사용하는 하나 이상의 Canvases를 재개하려고 할 때(일괄 작업) | 필터에서 참조하는 Campaigns 또는 Canvases의 [상호작용 데이터를 복원](#how-do-i-restore-messaging-interaction-data)하거나, Canvas에서 영향을 받는 필터를 제거합니다 |
+| "Can't resume {name} because it is using filters or segments that have expired data. Remove these and try again." | 만료된 상호작용 데이터가 있는 필터 또는 Segments를 사용하는 단일 Canvas를 재개하려고 할 때 | 필터에서 참조하는 Campaigns 또는 Canvases의 [상호작용 데이터를 복원](#how-do-i-restore-messaging-interaction-data)하거나, Canvas에서 영향을 받는 필터를 제거합니다 |
+| "Resume is only available for stopped Canvases with available interaction data" | 일괄 작업 메뉴에서 Canvas를 재개하려고 하지만 해당 Canvas의 상호작용 데이터가 만료된 경우 | Canvas의 [상호작용 데이터를 복원](#how-do-i-restore-messaging-interaction-data)합니다 |
+| "You can't resume these Campaigns. One or more Campaigns include expired filters." | 만료된 상호작용 데이터가 있는 필터를 사용하는 하나 이상의 Campaigns를 재개하려고 할 때 | 필터에서 참조하는 Campaigns 또는 Canvases의 [상호작용 데이터를 복원](#how-do-i-restore-messaging-interaction-data)하거나, Campaign에서 영향을 받는 필터를 제거합니다 |
+| "You can't unarchive these Cards. One or more Cards include expired filters." | 만료된 상호작용 데이터가 있는 필터를 사용하는 하나 이상의 Content Cards를 보관 해제하려고 할 때 | 필터에서 참조하는 Campaigns 또는 Canvases의 [상호작용 데이터를 복원](#how-do-i-restore-messaging-interaction-data)하거나, 카드에서 영향을 받는 필터를 제거합니다 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="일반적인 오류 메시지" }

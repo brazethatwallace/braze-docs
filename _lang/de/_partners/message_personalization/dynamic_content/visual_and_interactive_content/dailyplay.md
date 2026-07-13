@@ -34,17 +34,16 @@ Sie können Spiel-Meilensteine, Reward-Einlösungen und Engagement-Metriken an B
 
 ## Voraussetzungen {#prerequisites}
 
-
 | Anforderung | Beschreibung |
 | --- | --- |
 | DailyPlay-Konto | Ein DailyPlay-Konto ist erforderlich, um diese Integration zu nutzen. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel in Braze unter **Settings** > **APIs and Identifiers** > **API Keys**. Weitere Informationen finden Sie unter [API-Schlüssel]({{site.baseurl}}/api/api_key/). |
-| Braze REST-Endpunkt | Die REST-Endpunkt-URL für [Ihre Braze-Instanz]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. Weitere Informationen finden Sie unter [API-Schlüssel]({{site.baseurl}}/api/api_key). |
+| Braze REST-Endpunkt | Die REST-Endpunkt-URL für [Ihre Braze-Instanz]({{site.baseurl}}/api/basics#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Verbindung erstellen {#step-1-create-a-connection}
+### Schritt 1: Verbindung erstellen {#step-1-create-a-connection}
 
 1. Gehen Sie im [DailyPlay-Dashboard](https://app.dailyplay.ai/connections) zur Seite **Connections** und wählen Sie **Add Connection**.
 
@@ -55,42 +54,42 @@ Sie können Spiel-Meilensteine, Reward-Einlösungen und Engagement-Metriken an B
 
 ![DailyPlay-Modal „Add Connection“ mit ausgewähltem Braze und Zugangsdatenfeldern für API-Schlüssel, App-ID und REST-Endpunkt.]({% image_buster /assets/img/dailyplay/add_connection.png %}){: style="max-width:60%;"}
 
-### 2. Schritt: Stream erstellen {#step-2-create-a-stream}
+### Schritt 2: Stream erstellen {#step-2-create-a-stream}
 
 Gehen Sie zur Seite **Streams** und erstellen Sie einen neuen Stream.
 
-1. Fügen Sie die in [Schritt 1](#schritt-1-verbindung-erstellen) erstellte Braze-Verbindung zum neuen Stream hinzu.
+1. Fügen Sie die in Schritt 1 erstellte Braze-Verbindung zum neuen Stream hinzu.
 2. Konfigurieren Sie die zu verfolgenden Trigger-Events, z. B. **Stream Access**, **Play Start**, **Play Complete** und **Prize Redemption**.
 3. Erstellen Sie Spiele und fügen Sie sie dem Stream hinzu.
 4. Kopieren Sie den Braze-Integrationscode für den Stream.
 
 ![DailyPlay-Modal „Manage Connections“ mit Braze-Trigger-Events und dem Einbettungscode für Braze-E-Mail-Templates.]({% image_buster /assets/img/dailyplay/manage_connections.png %}){: style="max-width:70%;"}
 
-### 3. Schritt: Campaign in Braze erstellen {#step-3-create-a-campaign-in-braze}
+### Schritt 3: Campaign in Braze erstellen {#step-3-create-a-campaign-in-braze}
 
 Fügen Sie den Code aus Schritt 2 in Ihre Campaign in Braze ein.
 
 Wenn Nutzer:innen Spiele im Stream spielen, triggert DailyPlay ein Event und sendet es über Ihren Braze REST-Endpunkt an Braze.
 
-### 4. Schritt: Aktionen überprüfen und Ihren Funnel erweitern {#step-4-inspect-actions-and-expand-your-funnel}
+### Schritt 4: Aktionen überprüfen und Ihren Funnel erweitern {#step-4-inspect-actions-and-expand-your-funnel}
 
 Nutzer:innen, die Aktionen in DailyPlay-Streams abschließen, erhalten angepasste Attribute und angepasste Events in ihrem Braze-Profil.
 
-Erstellen Sie eine [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/) oder ein [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) mit einem [aktionsbasierten]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) Trigger, der die für Ihren Anwendungsfall erforderlichen angepassten DailyPlay-Events oder angepassten Attribute verwendet.
+Erstellen Sie eine [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) oder ein [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) mit einem [aktionsbasierten]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) Trigger, der die für Ihren Anwendungsfall erforderlichen angepassten DailyPlay-Events oder angepassten Attribute verwendet.
 
 ## DailyPlay mit Braze verwenden {#use-dailyplay-with-braze}
 
 Um ein bestimmtes Kundensegment anzusprechen, führen Sie diese Schritte aus, nachdem Sie die Integrationseinrichtung abgeschlossen haben.
 
-### 1. Schritt: DailyPlay-Konfiguration einrichten {#step-1-set-up-your-dailyplay-configuration}
+### Schritt 1: DailyPlay-Konfiguration einrichten {#step-1-set-up-your-dailyplay-configuration}
 
 Folgen Sie den obigen Integrationsschritten, um Ihre Braze-Verbindung und Ihren DailyPlay-Stream einzurichten. Kopieren Sie den Integrationscode.
 
-### 2. Schritt: Braze-Campaign oder Canvas erstellen {#step-2-create-a-braze-campaign-or-canvas}
+### Schritt 2: Braze-Campaign oder Canvas erstellen {#step-2-create-a-braze-campaign-or-canvas}
 
 Erstellen Sie eine Campaign oder ein Canvas mit einem aktionsbasierten Trigger. Wählen Sie die für Ihren Anwendungsfall erforderlichen angepassten DailyPlay-Events oder angepassten Attribute aus.
 
-Sie können [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) verwenden, um Eigenschaften zu referenzieren, die DailyPlay in Ihrem Nachrichtentext sendet.
+Sie können [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) verwenden, um Eigenschaften zu referenzieren, die DailyPlay in Ihrem Nachrichtentext sendet.
 
 **Beispiel für angepasstes Attribut:**
 

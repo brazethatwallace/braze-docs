@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Customer behavior and user events
 article_title: Customer behavior and user events
 layout: customer_behavior_events_glossary
@@ -26,7 +29,7 @@ Contact your Braze representative or open a [support ticket]({{site.baseurl}}/br
 
 {% details Explanation of customer behavior and user event structure and platform values %}
 
-### Event structure
+## Event structure
 
 This customer behavior and user events breakdown shows what type of information is generally included in a customer behavior or user event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 

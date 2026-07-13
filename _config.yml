@@ -240,6 +240,8 @@ exclude:
     "_site",
     "vercel.json",
     "scripts",
+    ".claude",
+    ".cursor",
   ]
 
 # Setting for image buster

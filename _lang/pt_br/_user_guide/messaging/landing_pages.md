@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > As landing pages da Braze são páginas web independentes que podem impulsionar sua estratégia de aquisição e engajamento de usuários.
 
-Use landing pages para expandir seu público, capturar dados de usuários, promover ofertas especiais e dar suporte a campanhas multicanal. Para uma referência dos blocos de arrastar e soltar de landing pages, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+Use landing pages para expandir seu público, capturar dados de usuários, promover ofertas especiais e dar suporte a campanhas multicanal. Para uma referência dos blocos de arrastar e soltar de landing pages, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
 A disponibilidade de landing pages e domínios personalizados depende do seu pacote Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
@@ -21,7 +21,7 @@ A disponibilidade de landing pages e domínios personalizados depende do seu pac
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de acessar, criar e publicar landing pages, você precisa ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) de administrador ou todas as seguintes permissões:
+Antes de acessar, criar e publicar landing pages, você precisa ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) de administrador ou todas as seguintes permissões:
 
 - View Landing Pages
 - Edit Landing Page Drafts
@@ -37,7 +37,7 @@ O número de landing pages publicadas, domínios personalizados e recursos que v
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Landing pages publicadas                                                                 | Cinco por empresa | 20 adicionais |
 | Domínios personalizados          | Um por empresa | Cinco adicionais |
-| [Personalização com Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Não disponível | Disponível |
+| [Personalização com Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | Não disponível | Disponível |
 | Campos de formulário pré-preenchidos | Não disponível | Disponível |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Níveis de plano" }
 
@@ -70,7 +70,7 @@ O corpo da landing page pode ter até 500 KB.
 
 Sim, landing pages não personalizadas conseguem lidar com cenários de alto tráfego de forma eficaz. Quando uma landing page não personalizada é solicitada pela primeira vez, a Braze a armazena em cache por meio do Cloudflare. Isso significa que todas as solicitações subsequentes para o mesmo link são servidas a partir do cache, de modo que o desempenho não é prejudicado em solicitações de alto volume. Esse cache dura 24 horas, e as visualizações de páginas em cache não contam para os limites de taxa.
 
-Para landing pages personalizadas (usando personalização com Liquid), os limites de taxa se aplicam a solicitações não armazenadas em cache. Para manter o desempenho ideal, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
+Para landing pages personalizadas (usando personalização com Liquid), os limites de taxa se aplicam a solicitações não armazenadas em cache. Para manter o desempenho ideal, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
 ### Existem requisitos técnicos para publicar uma landing page? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
@@ -87,6 +87,6 @@ Não, mas o evento **Submitted a Landing Page form** pode atuar como gatilho par
 - **Canvas:** Use o evento **Submitted a Landing Page form** como gatilho de entrada do Canvas e adicione uma etapa de webhook.
 - **Campaign:** Use o evento **Submitted a Landing Page form** para disparar com base no envio do formulário.
 
-Quando a página não é enviada por meio de um canal da Braze (como por um site ou anúncio), um novo perfil de usuário pode ser criado no envio — mesmo que essa pessoa já exista na Braze. Para lidar com isso, configure um Canvas disparado por **Submitted a Landing Page form** e adicione uma etapa de webhook Braze-to-Braze que chame o endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) para mesclar o novo perfil ao existente.
+Quando a página não é enviada por meio de um canal da Braze (como por um site ou anúncio), um novo perfil de usuário pode ser criado no envio — mesmo que essa pessoa já exista na Braze. Para lidar com isso, configure um Canvas disparado por **Submitted a Landing Page form** e adicione uma etapa de webhook Braze-to-Braze que chame o endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para mesclar o novo perfil ao existente.
 
 Quando você usa a Liquid tag `landing_page_url` para compartilhar a página, os envios de formulário são automaticamente vinculados ao perfil de usuário existente. Você pode então referenciar os atributos de usuário enviados na landing page por meio de Liquid para templates subsequentes.

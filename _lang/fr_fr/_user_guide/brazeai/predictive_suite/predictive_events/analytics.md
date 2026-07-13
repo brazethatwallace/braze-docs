@@ -12,9 +12,9 @@ page_order: 1.3
 
 ## À propos des analyses prédictives des événements {#about-predictive-event-analytics}
 
-Dès que la prédiction est terminée et que cette page est remplie, vous pouvez commencer à utiliser les [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) dans les segments ou les Campaigns pour exploiter les résultats du modèle. Si vous souhaitez de l'aide pour décider qui cibler et pourquoi, cette page peut vous guider en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
+Dès que la prédiction est terminée et que cette page est remplie, vous pouvez commencer à utiliser les [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) dans les segments ou les Campaigns pour exploiter les résultats du modèle. Si vous souhaitez de l'aide pour décider qui cibler et pourquoi, cette page peut vous guider en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
 
-Tels sont les éléments constitutifs des analyses prédictives des événements :
+Tels sont les composants des analyses prédictives des événements :
 
 - [Score de probabilité](#purchase_score)
 - [Qualité de prédiction](#prediction_quality)
@@ -25,7 +25,7 @@ La distribution des scores de probabilité pour l'ensemble de l'audience de pré
 
 Lorsque vous déplacez les curseurs sur différentes positions, la barre située dans la moitié gauche du panneau vous indique combien d'utilisateurs, sur l'ensemble de l'audience de prédiction, seraient ciblés en utilisant la partie de la population que vous avez sélectionnée.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![Lorsque vous déplacez les curseurs sur différentes positions, la barre située dans la moitié gauche du panneau vous indique combien d'utilisateurs, sur l'ensemble de l'audience de prédiction, seraient ciblés en utilisant la partie de la population que vous avez sélectionnée.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Score de probabilité {#purchase_score}
 
@@ -41,13 +41,13 @@ Les scores et les catégories correspondantes seront mis à jour selon la planif
 
 ### Accès aux scores de probabilité au niveau utilisateur {#accessing-user-level-likelihood-scores}
 
-Pour consulter le score de probabilité d'un utilisateur individuel, recherchez cet utilisateur dans le tableau de bord et rendez-vous dans **Engagement** > **Predictions** afin de visualiser son score. Pour accéder aux scores et aux catégories de plusieurs utilisateurs à la fois, créez un [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) à l'aide des filtres [Score de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) ou [Catégorie de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-category), puis exportez les utilisateurs de ce segment. Lors de l'exportation, vous pouvez inclure les scores de probabilité dans les données exportées.
+Pour consulter le score de probabilité d'un utilisateur individuel, recherchez cet utilisateur dans le tableau de bord et rendez-vous dans **Engagement** > **Predictions** afin de visualiser son score. Pour accéder aux scores et aux catégories de plusieurs utilisateurs à la fois, créez un [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) à l'aide des filtres [Score de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) ou [Catégorie de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category), puis exportez les utilisateurs de ce segment. Lors de l'exportation, vous pouvez inclure les scores de probabilité dans les données exportées.
 
 {% alert note %}
-Bien que les événements prédictifs et [la prédiction du taux d'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) attribuent tous deux des scores aux utilisateurs, il existe des différences importantes :<br><br>
+Bien que les événements prédictifs et [la prédiction de l'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) attribuent tous deux des scores aux utilisateurs, il existe des différences importantes :<br><br>
 
 - **Événements prédictifs** (prédictions d'achat) : prennent en compte tous les utilisateurs de l'audience de prédiction, qu'ils aient déjà effectué l'événement cible ou non. Par exemple, une prédiction d'achat peut identifier les utilisateurs susceptibles d'effectuer leur premier achat.
-- **Prédiction du taux d'attrition** : ne prend en compte que les utilisateurs ayant déjà effectué l'événement personnalisé. Les prédictions d'attrition identifient les utilisateurs qui ont déjà effectué une action et qui sont susceptibles de cesser de le faire. Un utilisateur qui ne s'est jamais connecté ne peut être considéré comme « désabonné » s'il ne se connecte pas.
+- **Prédiction de l'attrition** : ne prend en compte que les utilisateurs ayant déjà effectué l'événement personnalisé. Les prédictions d'attrition identifient les utilisateurs qui ont déjà effectué une action et qui sont susceptibles de cesser de le faire. Un utilisateur qui ne s'est jamais connecté ne peut être considéré comme « en attrition » s'il ne se connecte pas.
 
 Lors de l'exportation des scores de risque d'attrition à partir d'un segment, ces scores reflètent le modèle de prédiction d'attrition, qui diffère des modèles de prédiction des achats ou d'autres événements.
 {% endalert %}
@@ -60,7 +60,7 @@ Dans la moitié droite du panneau situé sous le graphique, nous présentons des
 
 ### Susceptibles de réaliser l'événement {#expected-to-perform}
 
-Vous pouvez utiliser la précision estimée pour vérifier combien d'utilisateurs sélectionnés sont censés effectuer l'événement.
+Vous pouvez utiliser la précision estimée pour vérifier combien d'utilisateurs sélectionnés sont censés réaliser l'événement.
 
 La prédiction n'est pas parfaitement exacte — et aucune prédiction ne l'est jamais — ce qui signifie que Braze ne sera pas en mesure d'identifier chaque futur utilisateur susceptible de réaliser l'événement. Les scores de probabilité sont comme un ensemble de prédictions informées et fiables. La barre de progression indique combien de « vrais positifs » attendus dans l'audience de prédiction seront ciblés avec l'audience sélectionnée. Notez que nous nous attendons à ce que ce nombre d'utilisateurs réalise l'événement même si vous ne leur envoyez pas de message.
 
@@ -68,7 +68,7 @@ La prédiction n'est pas parfaitement exacte — et aucune prédiction ne l'est 
 
 Vous pouvez utiliser la précision estimée pour vérifier combien d'utilisateurs sélectionnés sont susceptibles de ne pas réaliser l'événement.
 
-Tous les modèles de machine learning font des erreurs. Il se peut que certains utilisateurs de votre sélection aient un score de probabilité élevé, mais qu'ils ne réalisent finalement pas l'événement. Si vous n'agissiez pas, ils ne réaliseraient pas l'événement. Ils seront de toute façon ciblés, il s'agit donc d'une erreur ou d'un « faux positif ». La largeur totale de cette deuxième barre de progression représente le nombre attendu d'utilisateurs qui n'effectueront pas l'événement, et la partie remplie représente ceux qui seront incorrectement ciblés avec la position actuelle du curseur.
+Tous les modèles de machine learning font des erreurs. Il se peut que certains utilisateurs de votre sélection aient un score de probabilité élevé, mais qu'ils ne réalisent finalement pas l'événement. Si vous n'agissiez pas, ils ne réaliseraient pas l'événement. Ils seront de toute façon ciblés, il s'agit donc d'une erreur ou d'un « faux positif ». La largeur totale de cette deuxième barre de progression représente le nombre attendu d'utilisateurs qui ne réaliseront pas l'événement, et la partie remplie représente ceux qui seront incorrectement ciblés avec la position actuelle du curseur.
 
 À l'aide de ces informations, nous vous encourageons à décider du nombre de vrais positifs que vous souhaitez capturer, du nombre de faux positifs dont vous pouvez accepter le ciblage et du coût des erreurs pour votre entreprise. Si vous envoyez une promotion intéressante, vous pouvez cibler uniquement les non-acheteurs (faux positifs) en privilégiant le côté gauche du graphique. Vous pouvez également encourager les acheteurs réguliers (les vrais positifs) à acheter de nouveau en sélectionnant une section d'utilisateurs qui privilégie le côté droit du graphique.
 

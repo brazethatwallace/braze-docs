@@ -6,6 +6,8 @@ description: "GitHub에서 미러링된 Braze Swift SDK README 참조입니다."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Swift SDK 리포지토리 가이드 {#swift-sdk-repository-guide}
+
 ## Braze Swift SDK 소개 {#about-the-braze-swift-sdk}
 
 Braze Swift SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
@@ -16,6 +18,8 @@ Braze Swift SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플
 - [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
 
 ## 빠른 시작 {#quickstart}
+
+다음 스니펫은 Braze Swift SDK를 앱에 추가하는 데 필요한 최소 구성을 보여줍니다.
 
 ``` swift
 // AppDelegate.swift
@@ -47,9 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-고급 통합 옵션은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)를 참조하세요.
+고급 통합 옵션에 대한 자세한 내용은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)를 참조하세요.
 
 ## 버전 지원 {#version-support}
+
+다음 표는 Braze Swift SDK에서 사용하는 도구의 최소 지원 버전을 나열합니다.
 
 도구 | 최소 지원 버전
 :----|:----
@@ -65,6 +71,8 @@ Xcode|26.0+ (17A324)
 
 ## 라이브러리 {#libraries}
 
+다음 표는 Braze Swift SDK의 각 라이브러리를 설명합니다.
+
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
 |                                                                                                                             | iOS |     tvOS      | macCatalyst |   visionOS    |
@@ -72,7 +80,7 @@ Xcode|26.0+ (17A324)
 | **BrazeKit**<br/> _[분석] 및 [푸시 알림]을 지원하는 메인 SDK 라이브러리._                            |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
 | **BrazeUI**<br/> _[In-App Messages] 및 [Content Cards]를 위한 Braze 제공 사용자 인터페이스 라이브러리._                         |  ✅  |      n/a      |      ✅      |       ✅       |
 | **BrazeLocation**<br/> _[위치 분석 및 지오펜스 모니터링]을 지원하는 위치 라이브러리._               |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
-| **BrazeNotificationService**<br/> _[리치 푸시 알림]을 지원하는 알림 서비스 확장 라이브러리._  |  ✅  |      n/a      |      ✅      |       ✅       |
+| **BrazeNotificationService**<br/> _[리치 푸시 알림]을 지원하는 알림 서비스 확장 라이브러리._ |  ✅  |      n/a      |      ✅      |       ✅       |
 | **BrazePushStory**<br/> _[Push Stories]를 지원하는 알림 콘텐츠 확장 라이브러리._                      |  ✅  |      n/a      |      ✅      |       ✅       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="라이브러리" }
 
@@ -101,9 +109,9 @@ Xcode|26.0+ (17A324)
 | 병합 가능 XCFrameworks (얼리 액세스) | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="대체 리포지토리" }
 
-## 연락처 {#contact}
+## 문의 {#contact}
 
-질문이 있으시면 [support@braze.com](mailto:support@braze.com)으로 문의해 주세요.
+질문이 있으시면 Braze 기술 지원팀에 문의하여 도움을 받으세요.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

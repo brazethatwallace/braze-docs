@@ -1,7 +1,7 @@
 ---
 nav_title: NiftyImages
 article_title: NiftyImages
-description: "Erfahren Sie, wie Sie NiftyImages in Braze integrieren können."
+description: "Erfahren Sie, wie Sie NiftyImages mit Braze verbinden, um personalisierte dynamische Visuals zu erstellen, Kontakteigenschaften zu synchronisieren und Assets als wiederverwendbare Content Blocks zu veröffentlichen."
 alias: /partners/niftyimages/
 page_type: partner
 search_tag: Partner
@@ -9,57 +9,130 @@ search_tag: Partner
 
 # NiftyImages
 
-> [NiftyImages](https://niftyimages.com) ist eine Software zur Personalisierung von E-Mails in Realtime, die es Marketern erlaubt, relevante und aktuelle E-Mails effizienter zu versenden und gleichzeitig das Engagement und den Umsatz zu steigern. Es ist ein nutzer:innen-freundliches Tool, mit dem Marketer einfach und schnell dynamische Inhalte zu ihren E-Mails hinzufügen können.
+> [NiftyImages](https://niftyimages.com) unterstützt Braze-Kund:innen bei der Erstellung personalisierter Realtime-Inhalte für E-Mail, Mobilgeräte und In-App-Messaging. Durch die Verknüpfung von Live-Kunden-, Produkt- und Geschäftsdaten mit dynamischen Bildern und Inhalten können Marken zeitnahe, relevante Erlebnisse wie Countdown-Timer, personalisierte Empfehlungen, lokalisierte Nachrichten, Bestandsaktualisierungen und Aktionsangebote bereitstellen, die Engagement und Conversions steigern.
 
 _Diese Integration wird von NiftyImages gepflegt._
 
-## Voraussetzungen
+## Über die Integration {#about-the-integration}
 
-NiftyImages funktioniert mit der Standard Braze-Plattform, ohne dass eine Integration erforderlich ist. Um loszulegen, benötigen Sie lediglich ein [NiftyImages-Konto](https://niftyimages.com/Signup).
+Die NiftyImages-Integration für Braze hilft Ihnen, personalisierte, dynamische Visuals mithilfe von Braze-Kontaktdaten zu erstellen. Teams können Assets wie personalisierte Bilder, Countdown-Timer, Karten, Kalender, Loyalty-Visuals und mehr erstellen und sie anschließend als wiederverwendbare Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) für den Einsatz in Kampagnen und Canvases veröffentlichen. Das spart Zeit, reduziert Fehler und vereinfacht die Verwaltung personalisierter Inhalte.
 
-## Unterstützte Funktionen
+## Anwendungsfälle {#use-cases}
 
-Indem Sie NiftyImages in Braze nutzen, können Sie dynamische und personalisierte Bilder für Ihre E-Mail Kampagnen erstellen, indem Sie Ihre bestehenden Tags zur Personalisierung in Braze auf Ihre NiftyImages URLs abbilden.
+Sie können NiftyImages verwenden, um:
 
-- **Privatsphäre:** Alle Ihre Daten werden in Braze gespeichert, nicht in NiftyImages.
-- **Personalisierte Bilder:** Verwenden Sie einen beliebigen Braze Merge Tag, um ein Bild zu personalisieren.
-- **Charts und Diagramme:** Zeigen Sie Stufen, Kundenstatus, ausgegebenes Geld, Punkte usw. in angepassten Charts und Diagrammen an.
-- **Abbildungen:** Zeigen Sie eine Abbildung einer Karte mit dem nächstgelegenen Standort an, an dem ein Nutzer:innen seine E-Mail öffnet.
-- **Angepasste Countdown-Timer:** Zeigen Sie eindeutige Timer mit Datumsvariablen für Geburtstage, das Auslaufen von Testversionen, das Datum des letzten Kaufs, überfällige Rechnungen oder das letzte Anmeldedatum an.
-- **Inhalte in Echtzeit:** Zeigen Sie Realtime-Bilder für Produktempfehlungen, Warenkorb-Abbrüche, Preisrückgänge, Lagerbestände, Wetter und mehr an.
-- **Live-Umfragen:** Zeigen Sie Live-Umfragen an, um das Engagement zu fördern und Insights über die Interessenlage zu erhalten.
-- **Regelbasierte Logik:** Zeigen Sie dynamische Bilder an, die auf Nutzerdaten, demografischen Daten, Verhalten, Standort, Tageszeit, Wochentag, geöffnetem Gerät, Betriebssystem und mehr basieren.
+- **Bilder zu personalisieren:** Erstellen Sie Bilder, die den Namen, den Loyalty-Status, das Prämienguthaben, den Standort, die Produktpräferenz, die Mitgliedschaftsstufe, Kontodetails oder andere Braze-Kontakteigenschaften jeder Kund:in enthalten.
+- **Countdown-Timer hinzuzufügen:** Fügen Sie Realtime-Countdown-Timer für Verkaufsaktionen, Produktlaunches, Events, zeitlich begrenzte Angebote, Termine, Onboarding-Fristen und personalisierte Ablaufdaten hinzu.
+- **Dynamische Karten anzuzeigen:** Zeigen Sie den nächstgelegenen Shop, Veranstaltungsort, Servicebereich, Händler, Club, Branch oder Abholort basierend auf Kundenstandortdaten oder Braze-Kontakteigenschaften an.
+- **Kalender anzuzeigen:** Zeigen Sie personalisierte Termine, Events, Buchungen, Verlängerungszeiträume, Campaign-Momente oder Kunden-Meilensteine direkt in Campaign-Visuals an.
+- **Live-Umfragen durchzuführen:** Fügen Sie interaktive Umfragen zu Kampagnen hinzu und zeigen Sie live aktualisierte Ergebnisse an, nachdem Kund:innen abgestimmt haben.
+- **Rubbellose zu erstellen:** Erstellen Sie gamifizierte Rubbellos-Erlebnisse, die eine personalisierte Belohnung, einen Rabatt, ein Angebot, ein Bild oder eine Nachricht enthüllen.
+- **Loyalty-Daten zu visualisieren:** Verwandeln Sie Kundendaten in Fortschrittsbalken, Kontozusammenfassungen, Loyalty-Visuals, Charts und Diagramme, die für jede Empfänger:in personalisiert sind.
+- **Regelbasierten Content anzuwenden:** Zeigen Sie verschiedene Visuals basierend auf Zeit, Standort, Gerät, Kundendaten, Zielgruppen-Segment oder Campaign-Logik an.
+- **Dynamischen Content wiederzuverwenden:** Veröffentlichen Sie fertige NiftyImages-Assets in Braze Content Blocks, damit Teams sie in Marketing-E-Mails, Templates, Kampagnen und gemeinsamen Marken-Assets wiederverwenden können.
 
-Hier sehen Sie zum Beispiel ein angepasstes Bild, das von NiftyImages unter Verwendung des Vornamens einer Kund:in erstellt wurde.
+## Voraussetzungen {#prerequisites}
 
-![ALT_TEXT.]({% image_buster /assets/img/niftyimages/1.png %}){: style="max-width:70%;"}
+Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 
-## Ein NiftyImage erstellen
+| Anforderung | Beschreibung |
+| ------------ | ----------- |
+| NiftyImages-Konto | Ein [NiftyImages-Konto](https://niftyimages.com/Signup) ist erforderlich, um personalisierte Bilder, Timer, Karten, Kalender, Rubbellose, Charts und andere dynamische Visuals zu erstellen und zu verwalten. |
+| Braze-Konto | Ein Braze-Konto ist erforderlich, um NiftyImages in Braze Campaigns, Canvases, E-Mail-Templates und Messaging-Kanälen zu verwenden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `custom_attributes.get` und `content_blocks.create`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner** erstellt werden. |
+| Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-### Schritt 1: Erstellen Sie einen Tag zum Zusammenführen
+## Integration
 
-Wählen Sie in NiftyImages ein Tag für die Zusammenführung aus und geben Sie dann Ihre Standardwerte ein. Wenn Sie fertig sind, wählen Sie **Weiter**.
+Verbinden Sie Ihr Braze-Konto in NiftyImages, um Kontakteigenschaften zu synchronisieren und Assets in Braze Content Blocks zu veröffentlichen.
 
-![Alt-Text]({% image_buster /assets/img/niftyimages/2.png %}){: style="max-width:70%;"}
+### 1. Schritt: Integrationen in NiftyImages öffnen {#step-1-open-integrations-in-niftyimages}
 
-Geben Sie optional Ihre Datentypen ein und wählen Sie dann **Weiter**.
+1. Gehen Sie in NiftyImages zu **Settings** > **Integrations**.
+2. Wählen Sie **Braze** aus.
+3. Wählen Sie **Connect Braze** aus.
 
-![Alt-Text]({% image_buster /assets/img/niftyimages/3.png %})
-{: style="max-width:70%;"}
+### 2. Schritt: Ihren Braze REST-API-Schlüssel erstellen {#step-2-create-your-braze-rest-api-key}
 
-Optional können Sie Ihre Tags zur späteren Verwendung speichern. Wenn Sie fertig sind, wählen Sie **Speichern**, um Ihren Tag zu erstellen.
+1. Gehen Sie in Braze zu **Einstellungen** > **APIs und Bezeichner**.
+2. Erstellen oder wählen Sie einen REST-API-Schlüssel für die NiftyImages-Integration aus.
+3. Wählen Sie unter **Custom Attributes** die Option `custom_attributes.get` aus.
+4. Wählen Sie unter **Content Blocks** die Option `content_blocks.create` aus.
+5. Speichern Sie den API-Schlüssel und kopieren Sie dann den REST-API-Schlüssel und Ihren [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints).
 
-![Alt-Text]({% image_buster /assets/img/niftyimages/4.png %}){: style="max-width:70%;"}
+### 3. Schritt: Ihr Braze-Konto in NiftyImages verbinden {#step-3-connect-your-braze-account-in-niftyimages}
 
-### Schritt 2: Passen Sie Ihr Bild an
+1. Kehren Sie zum Braze-Integrationsbildschirm in NiftyImages zurück.
+2. Fügen Sie den Braze REST-API-Schlüssel ein.
+3. Geben Sie Ihren Braze REST-Endpunkt ein.
+4. Bestätigen Sie die Verbindung.
+5. Überprüfen Sie, ob Ihr Braze-Konto unter **Connected Braze accounts** mit dem Status **Active** oder **Connected** angezeigt wird.
 
-Passen Sie die Schriftart, die Schriftgröße, die Positionierung, die Farbe, die Überlagerung und vieles mehr an Ihr Bild an. Wenn Sie fertig sind, kopieren Sie die URL Ihres Bildes.
+Sie können bei Bedarf mehrere Braze-Konten verbinden, was für Agenturen, Multi-Marken-Teams oder Organisationen nützlich ist, die mehrere Braze-Instanzen verwalten.
 
-![Alt-Text]({% image_buster /assets/img/niftyimages/5.png %})
+## Assets in NiftyImages anpassen {#customize-assets-in-niftyimages}
 
-### Schritt 3: Fügen Sie die Bild-URL zu Braze hinzu
+Nachdem Sie Braze verbunden haben, verwenden Sie Contact Variable Sync und die Content-Block-Veröffentlichung, um personalisierte Visuals zu verwalten.
 
-Öffnen Sie in Braze eine Kampagne oder ein Canvas und fügen Sie die URL Ihres NiftyImage ein. Optional können Sie eine Vorschau Ihrer Änderungen anzeigen, um Ihre Liquid-Tags zu überprüfen.
+### Contact Variable Sync verwenden {#use-contact-variable-sync}
 
+Contact Variable Sync ermöglicht es Ihnen, vorhandene Braze-Kontakteigenschaften direkt in NiftyImages zu verwenden, ohne Merge-Tags manuell einzugeben oder neu zu erstellen.
 
-![Alt-Text]({% image_buster /assets/img/niftyimages/6.png %})
+1. Erstellen oder bearbeiten Sie ein personalisiertes Bild oder ein anderes NiftyImages-Asset.
+2. Öffnen Sie den Merge-Tag- oder Personalisierungs-Picker.
+3. Wählen Sie **Pick from connected integrations** und dann die Braze-Eigenschaften aus, die Sie verwenden möchten.
+4. Fügen Sie diese Werte zu Text-, Bild-, Timer-, Karten-, Chart-, Kalender- oder dynamischen Content-Ebenen hinzu.
+5. Speichern Sie das Bild.
+
+Gespeicherte Bilder, die Braze-Variablen verwenden, enthalten diese Personalisierungswerte automatisch in der NiftyImages-Bild-URL.
+
+### In Braze Content Blocks veröffentlichen {#publish-to-braze-content-blocks}
+
+1. Stellen Sie Ihr NiftyImages-Asset fertig.
+2. Wählen Sie **Send to Braze** aus.
+
+## NiftyImages in Braze verwenden {#use-niftyimages-in-braze}
+
+Verwenden Sie veröffentlichte Content Blocks in Braze E-Mail-Templates, Kampagnen und Canvases.
+
+### Ein NiftyImages-Asset zu einer Braze-E-Mail hinzufügen {#add-a-niftyimages-asset-to-a-braze-email}
+
+1. Öffnen Sie ein E-Mail-Template, eine Kampagne oder eine Canvas-E-Mail-Nachricht in Braze.
+2. Öffnen Sie im Nachrichteneditor das Personalisierungsmenü und wählen Sie **Content Blocks** als Personalisierungstyp aus.
+3. Wählen Sie den NiftyImages Content Block aus, den Sie aus NiftyImages veröffentlicht haben.
+
+### NiftyImages-Assets in Braze wiederverwenden {#reuse-niftyimages-assets-across-braze}
+
+1. Verwenden Sie den veröffentlichten Content Block in Marketing-E-Mails, E-Mail-Templates, Kampagnen, gemeinsamen Marken-Assets und automatisierten Flows.
+2. Wenn ein NiftyImages-Asset dynamische Variablen verwendet, übergibt Braze die Kontaktwerte basierend auf der Nachricht und dem Kanal.
+3. Aktualisieren Sie das Quell-Asset in NiftyImages, wenn Sie kreative Änderungen benötigen.
+
+### Ein Braze-Konto trennen {#disconnect-a-braze-account}
+
+1. Kehren Sie in NiftyImages zu **Settings** > **Integrations** zurück.
+2. Öffnen Sie die Braze-Verbindungsseite.
+3. Wählen Sie das Symbol zum Entfernen oder Trennen für das Konto aus, das Sie entfernen möchten.
+4. Bestätigen Sie die Trennung.
+
+## Hinweise {#considerations}
+
+- **REST-API-Berechtigungen:** Der Braze REST-API-Schlüssel muss `custom_attributes.get` für die Synchronisierung von Kontakteigenschaften und `content_blocks.create` für die Veröffentlichung von Assets in Braze Content Blocks enthalten.
+- **Verfügbarkeit von Kontakteigenschaften:** Nur Kontakteigenschaften, die dem verbundenen Braze-Konto zur Verfügung stehen, können in NiftyImages synchronisiert werden.
+- **Fallback-Werte:** Verwenden Sie Fallback-Werte beim Erstellen personalisierter Visuals, damit jede Kund:in ein ansprechendes Bild sieht, auch wenn eine Kontakteigenschaft fehlt.
+- **Wiederverwendbare Content Blocks:** Die Veröffentlichung in Braze Content Blocks hilft Teams, manuelles Kopieren und Einfügen von HTML zu vermeiden, Merge-Tag-Fehler zu reduzieren und Assets in Kampagnen und Templates wiederzuverwenden.
+- **Mehrere Braze-Konten:** NiftyImages unterstützt mehrere verbundene Braze-Konten, was für Agenturen, Multi-Marken-Teams und Teams hilfreich ist, die mehrere Braze-Instanzen verwalten.
+- **Testen:** Testen Sie die endgültige Braze-Nachricht mit Beispiel-Kundenprofilen, bevor Sie eine Kampagne oder ein Canvas starten.
+
+## Fehlerbehebung {#troubleshooting}
+
+Sehen Sie sich die folgende Tabelle an, wenn bei der NiftyImages-Integration Probleme auftreten.
+
+| Problem | Lösung |
+| ----- | ---------- |
+| Braze-Konto lässt sich nicht verbinden | Stellen Sie sicher, dass der REST-API-Schlüssel gültig ist, der REST-Endpunkt korrekt ist und der Schlüssel die erforderlichen Berechtigungen enthält. |
+| Braze-Kontakteigenschaften werden in NiftyImages nicht angezeigt | Stellen Sie sicher, dass der API-Schlüssel `custom_attributes.get` enthält. Aktualisieren Sie dann die Braze-Verbindung in NiftyImages. |
+| Das Asset wird nicht in Braze Content Blocks veröffentlicht | Stellen Sie sicher, dass der API-Schlüssel `content_blocks.create` enthält und dass das verbundene Braze-Konto die Erstellung von Content Blocks erlaubt. |
+| Personalisierung wird nicht korrekt angezeigt | Überprüfen Sie, ob die ausgewählte Braze-Kontakteigenschaft einen Wert für die Testnutzer:in enthält. Fügen Sie bei Bedarf Fallback-Werte in NiftyImages hinzu. |
+| Das Bild wird in Braze nicht gerendert | Stellen Sie sicher, dass das NiftyImages-Asset gespeichert, aktiv und korrekt veröffentlicht ist. Senden Sie eine Braze-Testnachricht, um das Bild im vorgesehenen Kanal zu überprüfen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }

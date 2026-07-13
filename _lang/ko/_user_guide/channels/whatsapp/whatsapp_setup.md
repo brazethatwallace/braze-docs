@@ -31,7 +31,7 @@ search_rank: 2
 | Meta Business Manager 계정 | 이 메시징 채널을 활용하려면 Meta Business 계정이 필요합니다. |
 | WhatsApp Business 계정 | 이 메시징 채널을 활용하려면 WhatsApp Business 계정이 필요합니다. |
 | WhatsApp 전화번호 | 메시징 채널을 사용하려면 WhatsApp의 [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) 또는 [On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) 요구 사항을 충족하는 전화번호를 확보해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -49,7 +49,7 @@ WhatsApp 파트너 페이지에서 **Begin Integration**을 선택합니다.
 
 ### 2단계: WhatsApp 설정 {#step-2-whatsapp-setup}
 
-다음으로 Braze 설정 워크플로가 표시됩니다. 단계별 안내는 [WhatsApp 임베디드 가입]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)을 참조하세요.
+다음으로 Braze 설정 워크플로가 표시됩니다. 단계별 안내는 [WhatsApp 임베디드 가입]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)을 참조하세요.
 
 이 흐름에서 다음을 수행합니다:
 1. Meta 및 WhatsApp Business 계정을 생성하거나 선택합니다. [WhatsApp 표시 이름 가이드라인](https://www.facebook.com/business/help/757569725593362)을 반드시 검토하세요. <br><br>회사에 이미 하나 이상의 기존 Meta Business 계정이 있을 가능성이 높습니다. 그런 경우 WhatsApp Business 계정을 포함시킬 계정을 선택하세요. WhatsApp에 대한 사용자 권한 및 비즈니스 인증은 Meta Business 계정에서 중앙 집중식으로 관리됩니다.<br><br>
@@ -60,7 +60,7 @@ WhatsApp 파트너 페이지에서 **Begin Integration**을 선택합니다.
 
 ### 3단계: WhatsApp 템플릿 생성하기 {#step-3-create-whatsapp-templates}
 
-승인된 WhatsApp 메시지 템플릿만 고객과의 대화를 시작하는 데 사용할 수 있습니다. WhatsApp 템플릿은 [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)에서 구축할 수 있습니다. Braze에서 지원하는 WhatsApp 메시징 기능 목록은 [지원되는 WhatsApp 기능]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#supported-whatsapp-features)을 확인하세요.
+승인된 WhatsApp 메시지 템플릿만 고객과의 대화를 시작하는 데 사용할 수 있습니다. WhatsApp 템플릿은 [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)에서 구축할 수 있습니다. Braze에서 지원하는 WhatsApp 메시징 기능 목록은 [지원되는 WhatsApp 기능]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features)을 확인하세요.
 
 1. **[템플릿 매니저](https://business.facebook.com/wa/manage/message-templates)로 이동하기**<br>
 Meta Business Manager에서 **Account Tools** 아래의 **Message Templates**를 선택합니다.
@@ -82,15 +82,15 @@ Meta Business Manager에서 **Account Tools** 아래의 **Message Templates**를
 메시지 템플릿의 승인 상태는 Meta Business Manager의 **Message Template** 페이지에서 확인하거나, Braze에서 Campaign 또는 Canvas를 생성할 때 확인할 수 있습니다. 또한 알림 권한 설정에 따라 WhatsApp 팀으로부터 이메일로 알림을 받을 수 있습니다.
 
 {% alert note %}
-승인된 템플릿은 원하는 만큼 많은 Campaigns 및 Canvases에서 사용할 수 있습니다. 또한 원하는 만큼 많은 옵트인 사용자에게 전송할 수 있습니다. 이는 템플릿의 품질이 저하되지 않는 한 유효합니다.
+승인된 템플릿은 원하는 만큼 많은 Campaign 및 Canvas에서 사용할 수 있습니다. 또한 원하는 만큼 많은 옵트인 사용자에게 전송할 수 있습니다. 이는 템플릿의 품질이 저하되지 않는 한 유효합니다.
 {% endalert %}
 
 ### 4단계: WhatsApp Campaign 생성하기 {#step-4-create-a-whatsapp-campaign}
 
-WhatsApp 템플릿이 승인되면 대시보드로 이동하여 [WhatsApp Canvas 또는 Campaign]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)을 구축할 수 있습니다.
+WhatsApp 템플릿이 승인되면 대시보드로 이동하여 [WhatsApp Canvas 또는 Campaign]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)을 구축할 수 있습니다.
 
 {% alert note %}
-WhatsApp Business 계정이 생성된 후 Meta가 초기 메시징 한도를 결정합니다. 자세한 내용은 [처리량]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/#throughput)을 확인하세요.
+WhatsApp Business 계정이 생성된 후 Meta가 초기 메시징 한도를 결정합니다. 자세한 내용은 [처리량]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc#throughput)을 확인하세요.
 {% endalert %}
 
 ## 다음 단계 {#next-steps}
@@ -100,7 +100,7 @@ WhatsApp Business 계정이 생성된 후 Meta가 초기 메시징 한도를 결
 	- 기존 Meta Business Manager를 사용한 적이 있다면 이미 비즈니스 인증이 완료되어 있을 수 있습니다.
 - [공식 비즈니스 계정](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
-또한 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/)에 대해 읽어보고, [조직에서 메시지 템플릿](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143)을 생성하는 데 접근이 필요한 사용자를 추가하는 것을 권장합니다.
+또한 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers)에 대해 읽어보고, [조직에서 메시지 템플릿](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143)을 생성하는 데 접근이 필요한 사용자를 추가하는 것을 권장합니다.
 
 ### WhatsApp Cloud API 로컬 스토리지 {#whatsapp-cloud-api-local-storage}
 

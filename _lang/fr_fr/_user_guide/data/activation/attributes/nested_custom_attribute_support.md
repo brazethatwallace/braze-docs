@@ -22,9 +22,10 @@ description: "Cet article de référence explique comment utiliser les attributs
 - Les noms de clé et les valeurs de chaîne de caractères ont une limite de taille de 255 caractères.
 - Les noms de clé ne peuvent pas contenir d'espaces.
 - Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un payload API si vous tentez d'envoyer un attribut personnalisé imbriqué à un profil utilisateur.
-- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home/) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
+- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
 - Les attributs personnalisés imbriqués ne peuvent pas être utilisés comme filtre lors d'un appel API Connected Audience.
-- Par défaut, le filtre de segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support/).
+- Par défaut, le filtre de Segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support).
+- Lors de la prévisualisation de messages dans le tableau de bord à l'aide de **Prévisualiser en tant qu'utilisateur personnalisé**, vous ne pouvez saisir des données fictives que sous forme de chaîne de caractères ou de tableau de chaînes de caractères — les objets imbriqués ne sont pas pris en charge. Pour prévisualiser un message qui fait référence à des attributs personnalisés imbriqués, sélectionnez un utilisateur existant qui possède déjà l'attribut imbriqué dans son profil. Pour les propriétés d'événements personnalisés imbriqués, vous devez lancer une Campaign en production ciblant un utilisateur test pour vérifier le rendu.
 
 ## Exemple d'API {#api-example}
 
@@ -106,7 +107,7 @@ Pour supprimer un objet d'attribut personnalisé, envoyez un POST à `users/trac
 ```
 
 {% alert note %}
-Cette approche ne peut pas être utilisée pour supprimer une clé imbriquée à l'intérieur d'un [tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Cette approche ne peut pas être utilisée pour supprimer une clé imbriquée à l'intérieur d'un [tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}
 
 {% endtab %}
@@ -231,7 +232,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 Pour capturer des dates en tant que propriétés d'objet, vous devez utiliser la clé `$time`. Dans l'exemple suivant, un objet « Important Dates » est utilisé pour capturer l'ensemble des propriétés d'objet `birthday` et `wedding_anniversary`. La valeur de ces dates est un objet avec une clé `$time`, qui ne peut pas être une valeur nulle.
 
 {% alert note %}
-Si vous n'avez pas capturé les dates en tant que propriétés d'objet initialement, nous vous recommandons de renvoyer ces données en utilisant la clé `$time` pour tous les utilisateurs. Sinon, cela pourrait entraîner des segments incomplets lors de l'utilisation de l'attribut `$time`. Cependant, si la valeur de `$time` dans un attribut personnalisé imbriqué n'est pas correctement formatée, l'ensemble de l'attribut personnalisé imbriqué ne sera pas mis à jour.
+Si vous n'avez pas capturé les dates en tant que propriétés d'objet initialement, nous vous recommandons de renvoyer ces données en utilisant la clé `$time` pour tous les utilisateurs. Sinon, cela pourrait entraîner des Segments incomplets lors de l'utilisation de l'attribut `$time`. Cependant, si la valeur de `$time` dans un attribut personnalisé imbriqué n'est pas correctement formatée, l'ensemble de l'attribut personnalisé imbriqué ne sera pas mis à jour.
 {% endalert %}
 
 ```json
@@ -264,15 +265,31 @@ Utilisez la balise de personnalisation `custom_attribute` et la notation par poi
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-![Utilisation de Liquid pour intégrer le nom d'une chanson et le nombre de fois qu'un auditeur l'a écoutée dans un message]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+Pour utiliser le Liquid d'attributs personnalisés imbriqués dans votre message :
+
+1. Accédez à une Campaign ou un Canvas, puis ouvrez l'étape de message dans laquelle vous souhaitez ajouter la personnalisation.
+2. Dans le compositeur de messages, insérez l'extrait Liquid à l'endroit où vous souhaitez que la valeur apparaisse.
+3. Utilisez **Prévisualiser et tester** avec un utilisateur existant qui possède déjà l'attribut personnalisé imbriqué dans son profil pour confirmer que la valeur s'affiche comme prévu.
 
 ### Personnalisation {#personalization}
 
-En utilisant la fenêtre modale **Ajouter une personnalisation**, vous pouvez également insérer des attributs personnalisés imbriqués dans vos messages. Sélectionnez **Attributs personnalisés imbriqués** comme type de personnalisation. Ensuite, sélectionnez l'attribut de niveau supérieur et la clé d'attribut.
+Vous pouvez utiliser **Ajouter une personnalisation** pour insérer un attribut personnalisé imbriqué dans votre message.
 
-Par exemple, dans la fenêtre modale de personnalisation ci-dessous, cela insère l'attribut personnalisé imbriqué d'un bureau de quartier local en fonction des préférences d'un utilisateur.
+Pour ouvrir **Ajouter une personnalisation** :
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Accédez à une Campaign ou un Canvas, puis ouvrez l'étape de message dans laquelle vous souhaitez ajouter la personnalisation.
+2. Dans le compositeur de messages, sélectionnez **Personnalisation** pour ouvrir le panneau latéral **Ajouter une personnalisation**, où vous pouvez choisir les options de personnalisation.
+
+Pour configurer la personnalisation d'un attribut personnalisé imbriqué :
+
+1. Dans **Type de personnalisation**, sélectionnez **Attributs personnalisés imbriqués**.
+2. Dans **Attribut de niveau supérieur**, sélectionnez le chemin de l'attribut personnalisé imbriqué que vous souhaitez insérer.
+   Par exemple, sélectionnez `preferences.neighborhood_office`.
+3. Facultatif : dans **Valeur par défaut**, saisissez une valeur de repli pour les utilisateurs qui n'ont pas leur propre valeur pour cet attribut.
+4. Vérifiez l'**extrait Liquid** généré pour confirmer qu'il correspond au chemin attendu.
+5. Sélectionnez **Insérer**.
+
+Dans cet exemple, Braze insère la valeur imbriquée de `preferences.neighborhood_office` dans votre message. Les valeurs par défaut sont des valeurs de repli que votre message inclut pour les utilisateurs qui n'ont pas leur propre valeur pour un attribut.
 
 {% alert tip %}
 Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insertion d'attributs personnalisés imbriqués.
@@ -280,16 +297,16 @@ Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insert
 
 ## Régénérer les schémas {#regenerate-schema}
 
-Une fois qu'un schéma a été généré, vous pouvez le régénérer **une fois par jour calendaire** (en fonction du fuseau horaire de votre entreprise). Cette section décrit comment régénérer votre schéma. Pour des informations plus détaillées sur les schémas, consultez [Générer un schéma à l'aide de l'explorateur d'objets imbriqués]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Une fois qu'un schéma a été généré, vous pouvez le régénérer **une fois par jour calendaire** (en fonction du fuseau horaire de votre entreprise). Cette section décrit comment régénérer votre schéma. Pour des informations plus détaillées sur les schémas, consultez [Générer un schéma à l'aide de l'explorateur d'objets imbriqués]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
 Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
 1. Accédez à **Paramètres des données** > **Attributs personnalisés**.
 2. Recherchez votre attribut personnalisé imbriqué.
-3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus" aria-label="Gérer le schéma"></i> **Gérer le schéma** pour gérer le schéma.
+3. Dans la colonne **Nom de l'attribut** correspondant à votre attribut, sélectionnez <i class="fas fa-plus" aria-label="Gérer le schéma"></i> **Gérer le schéma** pour gérer le schéma.
 4. Une fenêtre modale apparaîtra. Sélectionnez **Régénérer le schéma**.
 
-L'action **Régénérer le schéma** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que l'état est **En cours de génération**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
+L'action **Régénérer le schéma** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que le statut est **En cours de génération**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
 
 {% alert important %}
 Pour réinitialiser le schéma d'un tableau d'objets avec un objet existant, vous devez créer un nouvel attribut personnalisé. La régénération du schéma ne supprime pas les objets existants.
@@ -301,13 +318,42 @@ Si les données n'apparaissent pas comme prévu après la régénération du sch
 
 Vous pouvez déclencher une action lorsqu'un objet d'attribut personnalisé imbriqué change. Cette option n'est pas disponible pour les modifications de tableaux d'objets. Si vous ne voyez pas l'option d'affichage de l'explorateur de chemins, vérifiez que vous avez généré un schéma.
 
-Par exemple, dans une campagne basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Change Custom Attribute Value** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
+Par exemple, dans une Campaign basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Modifier la valeur d'un attribut personnalisé** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
 
-![Paramètres de réception d'une campagne basée sur une action avec un déclencheur de modification de la valeur d'un attribut personnalisé pour les préférences imbriquées.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+Pour configurer ce déclencheur dans une Campaign basée sur une action :
+
+1. Créez ou modifiez une Campaign, puis définissez le type de réception sur **Livraison par événement**.
+2. Dans les paramètres de déclenchement, sélectionnez **Modifier la valeur d'un attribut personnalisé**.
+3. Sélectionnez le chemin de l'attribut personnalisé imbriqué que vous souhaitez surveiller.
+   Par exemple, sélectionnez `preferences.neighborhood_office`.
+4. Sélectionnez la condition de déclenchement souhaitée, par exemple **toute nouvelle valeur**.
+5. Terminez la configuration du message et de l'audience de votre Campaign, puis lancez la Campaign.
+
+## Résolution des problèmes {#troubleshooting}
+
+### Valeurs d'attributs personnalisés imbriqués non appliquées de manière cohérente {#nested-custom-attribute-values-not-applied-consistently}
+
+Si vous constatez que les valeurs d'attributs personnalisés imbriqués ne sont pas ajoutées de manière cohérente aux profils utilisateur, le problème est souvent lié à des incompatibilités de types de données.
+
+Pour diagnostiquer et résoudre ce problème :
+
+1. **Comparez des exemples d'utilisateurs :** obtenez un exemple d'utilisateur réussi et un exemple d'utilisateur non réussi pour lesquels l'attribut personnalisé imbriqué aurait dû être défini.
+2. **Examinez la structure des données :** affichez et comparez les valeurs d'attributs personnalisés sur les deux profils :
+   - Les propriétés sont-elles stockées sous un objet ?
+   - Les propriétés sont-elles stockées sous forme de tableau de propriétés ?
+3. **Vérifiez le filtre de segmentation :** comparez la structure de données stockée avec la manière dont l'attribut personnalisé imbriqué est référencé dans vos filtres de segmentation.
+4. **Vérifiez le type de données :** pour identifier le type de données d'un attribut personnalisé :
+   - Accédez à **Paramètres des données** > **Attributs personnalisés**.
+   - Recherchez l'attribut personnalisé de niveau supérieur qui contient l'attribut imbriqué que vous souhaitez vérifier.
+   - Si la ligne affiche **Générer le schéma**, sélectionnez-la pour générer le schéma d'abord.
+   - Une fois le schéma généré, sélectionnez l'icône plus dans la colonne **Nom de l'attribut** pour cet attribut.
+   - Dans la fenêtre modale **Modifier le schéma**, examinez les attributs imbriqués et leurs valeurs correspondantes dans la colonne **Type de données**.
+
+Si vous constatez que le type de données ne correspond pas au format prévu sur les profils utilisateur, supprimez la valeur incorrectement formatée des profils utilisateur concernés et renvoyez l'attribut dans le format correct en utilisant la requête API ou la méthode SDK appropriée.
 
 ## Comportement de segmentation avec les tableaux d'objets {#segmentation-behavior-with-arrays-of-objects}
 
-Lorsque vous utilisez plusieurs filtres `Nested Custom Attribute` avec une logique ET pour segmenter un tableau d'objets, chaque filtre est évalué indépendamment sur tous les éléments du tableau. Un utilisateur est qualifié pour le segment si _n'importe quel_ élément du tableau satisfait chaque filtre individuel — les filtres n'ont pas besoin de correspondre au _même_ élément.
+Lorsque vous utilisez plusieurs filtres `Nested Custom Attribute` avec une logique ET pour segmenter un tableau d'objets, chaque filtre est évalué indépendamment sur tous les éléments du tableau. Un utilisateur est qualifié pour le Segment si _n'importe quel_ élément du tableau satisfait chaque filtre individuel — les filtres n'ont pas besoin de correspondre au _même_ élément.
 
 Par exemple, supposons qu'un utilisateur possède le tableau suivant :
 
@@ -320,14 +366,14 @@ Par exemple, supposons qu'un utilisateur possède le tableau suivant :
 }
 ```
 
-Un segment avec les filtres ET suivants :
+Un Segment avec les filtres ET suivants :
 
 - `orders[].price` est supérieur à 50
 - `orders[].price` est inférieur à 30
 
-Cet utilisateur serait qualifié car le premier filtre correspond à l'élément « Shoes » (80 > 50) et le second filtre correspond à l'élément « Hat » (25 < 30). Même si aucun élément unique ne satisfait les deux conditions, l'utilisateur entre quand même dans le segment.
+Cet utilisateur serait qualifié car le premier filtre correspond à l'élément « Shoes » (80 > 50) et le second filtre correspond à l'élément « Hat » (25 < 30). Même si aucun élément unique ne satisfait les deux conditions, l'utilisateur entre quand même dans le Segment.
 
-Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
+Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
 
 ## Points de donnée {#data-points}
 

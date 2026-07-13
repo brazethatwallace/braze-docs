@@ -16,7 +16,7 @@ platform:
 
 # Migration des Content Cards vers les bannières {#migrate-from-content-cards-to-banners}
 
-> Ce guide vous accompagne dans la migration des Content Cards vers les bannières pour les cas d'utilisation d'envoi de messages de type bannière. Les bannières sont idéales pour les messages in-app persistants, intégrés dans vos applications et sur le Web, qui apparaissent à des emplacements spécifiques dans votre application.
+> Ce guide vous accompagne dans la migration des Content Cards vers les bannières pour les cas d'usage de messages de type bannière. Les bannières sont idéales pour les messages in-app et web persistants, intégrés directement dans votre application à des emplacements spécifiques.
 
 ## Pourquoi migrer vers les bannières ? {#why-migrate-to-banners}
 
@@ -39,7 +39,7 @@ Les bannières présentent plusieurs avantages par rapport aux Content Cards pou
 
 ### Persistance {#persistence}
 
-- **Aucune limite d'expiration** : Les campagnes de bannières n'ont pas de limite d'expiration de 30 jours comme les Content Cards, ce qui permet une véritable persistance des messages.
+- **Aucune limite d'expiration** : Les Campaigns de bannières n'ont pas de limite d'expiration de 30 jours comme les Content Cards, ce qui permet une véritable persistance des messages.
 
 ## Quand migrer {#when-to-migrate}
 
@@ -54,9 +54,9 @@ Envisagez la migration vers les bannières si vous utilisez les Content Cards po
 
 Continuez à utiliser les Content Cards si vous avez besoin de :
 
-- **Expériences de fil d'actualité :** Tout cas d'utilisation impliquant plusieurs messages défilables ou une « boîte de réception » sous forme de cartes.
+- **Expériences de fil d'actualité :** Tout cas d'usage impliquant plusieurs messages défilables ou une « boîte de réception » sous forme de cartes.
 - **Fonctionnalités spécifiques :** Les messages qui nécessitent du contenu connecté ou des codes promotionnels, car les bannières ne les prennent pas en charge de manière native.
-- **Livraison par événement :** Cas d'utilisation nécessitant strictement une réception déclenchée par API ou une livraison par événement. Bien que les bannières ne prennent pas en charge la réception déclenchée par API ou la livraison par événement, l'évaluation d'éligibilité en temps réel signifie que les utilisateurs sont instantanément qualifiés ou disqualifiés en fonction de leur appartenance à un Segment à chaque actualisation.
+- **Livraison par événement :** Cas d'usage nécessitant strictement une réception déclenchée par API ou une livraison par événement. Bien que les bannières ne prennent pas en charge la réception déclenchée par API ou la livraison par événement, l'évaluation d'éligibilité en temps réel signifie que les utilisateurs sont instantanément qualifiés ou disqualifiés en fonction de leur appartenance à un Segment à chaque actualisation.
 
 ## Guide de migration {#migration-guide}
 
@@ -64,7 +64,11 @@ Continuez à utiliser les Content Cards si vous avez besoin de :
 
 Avant de procéder à la migration, assurez-vous que votre SDK Braze répond aux exigences minimales en matière de version :
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
+
+Les fermetures et la rééligibilité nécessitent les versions minimales de SDK suivantes :
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### S'abonner aux mises à jour {#subscribe-to-updates}
 
@@ -759,7 +763,7 @@ Lors de la migration des Content Cards vers les bannières, tenez compte des lim
 
 ### Migration des messages déclenchés {#migrating-triggered-messages}
 
-Les bannières ne prennent en charge que les campagnes avec planification. Pour migrer un message précédemment déclenché par API ou par événement, convertissez-le en ciblage basé sur un Segment :
+Les bannières ne prennent en charge que les Campaigns avec planification. Pour migrer un message précédemment déclenché par API ou par événement, convertissez-le en ciblage basé sur un Segment :
 
 - **Exemple :** Au lieu de déclencher une carte « Compléter le profil » via l'API, créez un Segment pour les utilisateurs inscrits au cours des 7 derniers jours mais n'ayant pas encore complété leur profil.
 - **Éligibilité en temps réel :** Les utilisateurs sont instantanément qualifiés ou disqualifiés pour la bannière à chaque actualisation, en fonction de leur appartenance à un Segment.
@@ -773,7 +777,7 @@ Les bannières ne prennent en charge que les campagnes avec planification. Pour 
 | Emplacements multiples | S.O. | ✅ Prise en charge de plusieurs emplacements |
 | Types de cartes (classique, avec légende, image uniquement) | ✅ Plusieurs types prédéfinis | ✅ Bannière HTML unique (plus flexible) |
 | **Gestion du contenu** |
-| Éditeur par glisser-déposer | ❌ Nécessite l'intervention d'un développeur pour la personnalisation | ✅ Les marketeurs peuvent créer/mettre à jour sans intervention technique |
+| Éditeur par glisser-déposer | ❌ Nécessite l'intervention d'un développeur pour la personnalisation | ✅ Les marketeurs peuvent créer et mettre à jour sans intervention technique |
 | HTML/CSS personnalisé | ❌ Limité à la structure de la carte | ✅ Prise en charge complète HTML/CSS |
 | Paires clé-valeur pour la personnalisation | ✅ Nécessaire pour une personnalisation avancée | ✅ Paires clé-valeur fortement typées appelées « propriétés » pour une personnalisation avancée |
 | **Persistance et expiration** |
@@ -782,16 +786,17 @@ Les bannières ne prennent en charge que les campagnes avec planification. Pour 
 | **Affichage et ciblage** |
 | Interface utilisateur du flux | ✅ Flux par défaut disponible | ❌ Basé uniquement sur l'emplacement |
 | Placement contextuel | ❌ Basé sur le flux | ✅ Prise en charge native des emplacements |
-| Priorisation native | ❌ Nécessite une logique personnalisée | ✅ Priorisation intégrée |
+| Priorisation | ❌ Nécessite une logique personnalisée | ✅ Priorisation native |
 | **Interaction utilisateur** |
-| Fermeture manuelle | ✅ Pris en charge | ❌ Non pris en charge |
+| Fermeture manuelle | ✅ Pris en charge | ✅ Pris en charge |
+| Rééligibilité après fermeture | ❌ Nécessite des filtres personnalisés ou une logique de Campaign | ✅ Période d'attente par défaut |
 | Cartes épinglées | ✅ Pris en charge | S.O. |
 | **Analyse** |
 | Analyses automatiques (interface utilisateur par défaut) | ✅ Pris en charge | ✅ Pris en charge |
 | Tri par priorité | ❌ Non pris en charge | ✅ Pris en charge |
 | **Mises à jour du contenu** |
-| Actualisation du modèle Liquid | ❌ Une seule fois par carte lors de l'envoi/du lancement | ✅ Actualisé à chaque rafraîchissement |
-| Actualisation de l'éligibilité | ❌ Une seule fois par carte lors de l'envoi/du lancement | ✅ Actualisé à chaque session |
+| Actualisation du modèle Liquid | ❌ Une seule fois par carte lors de l'envoi ou du lancement | ✅ Actualisé à chaque rafraîchissement |
+| Actualisation de l'éligibilité | ❌ Une seule fois par carte lors de l'envoi ou du lancement | ✅ Actualisé à chaque session |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Différences de fonctionnalités" }
 
 ### Limites du produit {#product-limitations}
@@ -806,7 +811,7 @@ Les bannières ne prennent en charge que les campagnes avec planification. Pour 
 
 ## Articles connexes {#related-articles}
 
-- [Emplacements des bannières]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Tutoriel : Afficher une bannière par ID d'emplacement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
-- [Analyse des bannières]({{site.baseurl}}/developer_guide/banners/analytics/)
-- [FAQ sur les bannières]({{site.baseurl}}/developer_guide/banners/faq/)
+- [Emplacements des bannières]({{site.baseurl}}/developer_guide/banners/placements)
+- [Tutoriel : Afficher une bannière par ID d'emplacement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Analyse des bannières]({{site.baseurl}}/developer_guide/banners/analytics)
+- [FAQ sur les bannières]({{site.baseurl}}/developer_guide/banners/faq)

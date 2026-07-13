@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## 권한 세트 생성 {#create-a-permission-set}
 
-권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
+권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **사용자 관리** > **권한 세트**로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 권한 세트 예시 %}
@@ -32,7 +32,7 @@ tool: Dashboard
 
 ## 역할 생성 {#creating-a-role}
 
-역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
+역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 역할을 생성하려면 **설정** > **사용자 관리** > **역할**로 이동한 다음 **역할 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 역할 예시 %}
@@ -47,7 +47,7 @@ tool: Dashboard
 
 ## 권한 세트와 역할은 Teams와 어떻게 다른가요? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Teams에 사용자 권한을 추가할 때 고려 사항 {#considerations-for-adding-user-permissions-to-teams}
 
@@ -91,14 +91,14 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 - **제한된 사용자:** "Edit Dashboard Users" 권한이 있는 제한된 사용자는 다른 제한된 사용자를 관리할 수 있지만, 회사 관리자 계정을 생성하거나 관리할 수는 없습니다.
 - **대시보드 사용자 관리 범위:** 사용자 세부 정보 페이지에서는 편집자가 접근할 수 있는 워크스페이스의 권한만 표시됩니다. 하나의 워크스페이스에서 사용자를 편집할 수 있는 제한된 사용자는 다른 워크스페이스의 권한 체크박스를 볼 수 없을 수 있습니다.
 - **사용자 데이터 내보내기:** 사용자 데이터를 내보내려면 내보내기 권한 외에 워크스페이스 수준 접근 권한이 필요합니다.
-- **복합 권한:** 일부 영역에는 여러 권한이 필요합니다. 예를 들어, [기술 파트너]({{site.baseurl}}/partners/)를 구성하려면 일반적으로 파트너 접근 권한과 관련 워크스페이스 기능에 대한 기본 읽기 권한이 모두 필요합니다.
+- **복합 권한:** 일부 영역에는 여러 권한이 필요합니다. 예를 들어, [기술 파트너]({{site.baseurl}}/partners)를 구성하려면 일반적으로 파트너 접근 권한과 관련 워크스페이스 기능에 대한 기본 읽기 권한이 모두 필요합니다.
 - **사용자 데이터 가져오기 및 업데이트:** 이 권한에는 대시보드 사용자 레코드뿐만 아니라 가져오기 플로우를 통해 앱 사용자 프로필을 편집하는 기능도 포함됩니다.
 
 ## 사용자 권한 편집 {#edit-a-users-permissions}
 
-사용자의 현재 관리자, 회사 또는 워크스페이스 권한을 편집하려면 **설정** > **회사 사용자**로 이동한 다음 해당 사용자의 이름을 선택합니다.
+사용자의 현재 관리자, 회사 또는 워크스페이스 권한을 편집하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 해당 사용자의 이름을 선택합니다.
 
-![대시보드 사용자 테이블이 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
+![대시보드 사용자 테이블이 표시된 Braze의 "회사 사용자" 페이지]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
 {% tab 관리자 %}
@@ -107,16 +107,14 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 관리자는 모든 기능에 접근할 수 있으며 모든 회사 설정을 수정할 수 있습니다. 관리자는 다음을 수행할 수 있습니다:
 
-- [승인 설정]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow) 변경
-- 다른 [Braze 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users) 추가, 편집, 삭제, 일시 중지 또는 일시 중지 해제
+- [승인 설정]({{site.baseurl}}/user_guide/messaging/governance/approvals#turning-on-the-approval-workflow) 변경
+- 다른 [Braze 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#adding-company-users) 추가, 편집, 삭제, 일시 중지 또는 일시 중지 해제
 - Braze 사용자를 CSV로 내보내기
 
 관리자 권한을 부여하거나 제거하려면 **This user is an admin**을 선택한 다음 **Update user**를 선택합니다.
 
-![관리자 체크박스가 강조 표시된 선택된 사용자의 세부 정보.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
-
 {% alert warning %}
-사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당하기 전까지 해당 사용자는 Braze에 접근할 수 없습니다.
+사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당하기 전까지 해당 사용자는 Braze에 접근할 수 없습니다.
 {% endalert %}
 
 {% endtab %}
@@ -128,7 +126,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 | 권한 이름 | 설명 |
 |----------|-----------|
-| Manage company settings | 사용자가 권한 설정 및 발송자 확인을 수정할 수 있습니다. |
+| Manage company settings | 사용자가 권한 설정 및 발신자 인증을 수정할 수 있습니다. |
 | Create and delete workspaces | 사용자가 워크스페이스를 생성하고 삭제할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="회사 수준 권한" }
 
@@ -137,7 +135,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 ### 워크스페이스 {#workspace}
 
-Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **Select workspaces and permissions**를 선택한 다음 수동으로 권한을 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당합니다. 서로 다른 워크스페이스에 대해 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
+Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **Select workspaces and permissions**를 선택한 다음 수동으로 권한을 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당합니다. 서로 다른 워크스페이스에 대해 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% subtabs %}
 {% subtab 수동 선택 %}
@@ -146,7 +144,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 완료되면 **Update user**를 선택합니다.
 
-![Braze에서 워크스페이스 수준 권한을 수동으로 선택하는 화면.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
+![Braze에서 워크스페이스 수준 권한을 수동으로 선택하는 화면]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
 {% subtab 권한 세트 할당 %}
@@ -155,7 +153,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 완료되면 **Update user**를 선택합니다.
 
-![Braze에서 권한 세트를 통해 워크스페이스 수준 권한을 할당하는 화면.]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
+![Braze에서 권한 세트를 통해 워크스페이스 수준 권한을 할당하는 화면]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
 {% subtab 역할 할당 %}
@@ -164,7 +162,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 완료되면 **Update user**를 선택합니다.
 
-![Braze에서 역할을 통해 워크스페이스 수준 권한을 할당하는 화면.]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
+![Braze에서 역할을 통해 워크스페이스 수준 권한을 할당하는 화면]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -173,9 +171,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 ## 사용자 권한 내보내기 {#exporting-user-permissions}
 
-사용자 및 권한 목록을 다운로드하려면 **설정** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
-
-![Export Users 옵션이 강조 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+사용자 및 권한 목록을 다운로드하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
 
 ## 권한 목록 {#list-of-permissions}
 
@@ -187,12 +183,12 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | Campaigns | Launch Campaigns | 기존 Campaign 시작, 중지, 일시 중지 또는 재개 |
 | Campaigns | Archive Campaigns | Campaign을 아카이브로 이동 |
 | Campaigns | Edit Campaigns | Campaign 생성 및 업데이트 |
-| Campaigns | Approve and Deny Campaigns | Campaign 승인 또는 거부. [Campaign 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
+| Campaigns | Approve and Deny Campaigns | Campaign 승인 또는 거부. [Campaign 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
 | Canvas | View Canvases | Canvases 보기 |
 | Canvas | Archive Canvases | Canvases를 아카이브로 이동 |
 | Canvas | Edit Canvases | Canvases 생성 및 업데이트 |
 | Canvas | Launch Canvases | 기존 Canvases 시작, 중지, 일시 중지 또는 재개 |
-| Canvas | Approve and Deny Canvases | Canvases 승인 또는 거부. [Canvases 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
+| Canvas | Approve and Deny Canvases | Canvases 승인 또는 거부. [Canvases 승인 워크플로우]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals)가 활성화되어 있어야 이 권한이 적용됩니다. 이 설정은 현재 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 계정 매니저에게 문의하세요. |
 | 기능 플래그 | View Feature Flags | 기능 플래그 보기 |
 | 기능 플래그 | Archive Feature Flags | 기능 플래그를 아카이브로 이동 |
 | 기능 플래그 | Edit Feature Flags | 기능 플래그 생성 및 업데이트 |
@@ -212,8 +208,8 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
-| 전역 제어 그룹 | View Global Control Group | 전역 제어 그룹 설정 페이지 보기 |
-| 전역 제어 그룹 | Edit Global Control Group | 전역 제어 그룹 생성 및 변경 사항 저장. "Edit Global Control Group" 권한이 있는 사용자는 "Edit Campaigns" 및 "Edit Canvases" 권한도 부여받아야 합니다. "Edit Global Control Group" 권한이 있는 사용자에게는 "View Global Control Group" 권한도 부여됩니다. |
+| 글로벌 컨트롤 그룹 | View Global Control Group | 글로벌 컨트롤 그룹 설정 페이지 보기 |
+| 글로벌 컨트롤 그룹 | Edit Global Control Group | 글로벌 컨트롤 그룹 생성 및 변경 사항 저장. "Edit Global Control Group" 권한이 있는 사용자는 "Edit Campaigns" 및 "Edit Canvases" 권한도 부여받아야 합니다. "Edit Global Control Group" 권한이 있는 사용자에게는 "View Global Control Group" 권한도 부여됩니다. |
 | 위치 | Archive Locations | 위치를 아카이브로 이동 |
 | 위치 | View Locations | 위치 보기 |
 | 위치 | Edit Locations | 위치 생성 및 편집 |
@@ -225,7 +221,8 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 데이터 | Edit User Data | 사용자 데이터 생성 및 업데이트 |
 | 사용자 데이터 | Export User Data | 대시보드에서 사용자 다운로드 |
 | 중복 사용자 | View User Merge Records | 사용자 병합 기록 목록 보기 |
-| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기 |
+| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기. "View Custom Attributes Marked as PII" 권한이 없는 경우, PII로 표시된 커스텀 속성을 참조하는 Campaign을 저장하거나 실행할 수 없습니다. |
+| 사용자 | View User Event Properties | 고객 프로필의 **이벤트 기록** 탭에서 이벤트 속성정보 보기 |
 | 중복 사용자 | Merge Duplicate Users | 중복 사용자를 하나의 사용자로 결합. 병합 후 중복 항목은 제거됩니다 |
 | 사용자 삭제 | View User Deletion Records | 사용자 삭제 기록 목록 보기 |
 | 사용자 삭제 | Delete Users | 대시보드에서 사용자를 개별 또는 일괄로 영구 삭제 |
@@ -238,9 +235,9 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 배너 템플릿 | View Banner Templates | 배너 템플릿 보기 |
 | 배너 템플릿 | Archive Banner Templates | 배너 템플릿을 아카이브로 이동 |
 | 배너 템플릿 | Edit Banner Templates | 배너 템플릿 생성 및 업데이트 |
-| 캔버스 템플릿 | View Canvas Templates | 캔버스 템플릿 보기 |
-| 캔버스 템플릿 | Archive Canvas Templates | 캔버스 템플릿을 아카이브로 이동 |
-| 캔버스 템플릿 | Create and Edit Canvas Templates | 캔버스 템플릿 생성 및 업데이트 |
+| Canvas 템플릿 | View Canvas Templates | Canvas 템플릿 보기 |
+| Canvas 템플릿 | Archive Canvas Templates | Canvas 템플릿을 아카이브로 이동 |
+| Canvas 템플릿 | Create and Edit Canvas Templates | Canvas 템플릿 생성 및 업데이트 |
 | Content Blocks | View Content Blocks | Content Blocks 보기 |
 | Content Blocks | Launch Content Blocks | 임시 저장된 Content Blocks 게시, 시작된 Content Blocks 편집, 아카이브 및 아카이브 해제 |
 | Content Blocks | Archive Content Blocks | Content Blocks를 아카이브로 이동 |
@@ -259,7 +256,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 웹훅 템플릿 | View Webhook Templates | 변경 없이 웹훅 템플릿 보기 |
 | 웹훅 템플릿 | Archive Webhook Templates | 웹훅 템플릿을 아카이브로 이동 |
 | 웹훅 템플릿 | Edit Webhook Templates | 웹훅 템플릿 생성 및 업데이트 |
-| WhatsApp 메시지 템플릿 | View WhatsApp Message Templates | 사용자가 [WhatsApp 메시지 템플릿]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message)을 볼 수 있습니다 |
+| WhatsApp 메시지 템플릿 | View WhatsApp Message Templates | 사용자가 [WhatsApp 메시지 템플릿]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message)을 볼 수 있습니다 |
 | WhatsApp 메시지 템플릿 | Edit WhatsApp Message Templates | 사용자가 템플릿 빌더에서 WhatsApp 메시지 템플릿을 생성할 수 있습니다. 이 기능은 현재 얼리 액세스 중입니다. |
 | Meta의 WhatsApp 메시지 템플릿 | View WhatsApp Message Templates From Meta | 모든 WhatsApp 템플릿 보기 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="템플릿 권한" }
@@ -365,7 +362,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 도메인 설정 | Edit Domain Settings | 확인된 도메인에서 위임된 도메인 및 커스텀 도메인 추가 |
 | 필드 수준 암호화 | Edit Identifier Field-Level Encryption | 필드 수준 암호화 설정 활성화 및 업데이트 |
 | 미디어 라이브러리 자산 | View Media Library Assets | 미디어 라이브러리 자산 보기 |
-| 미디어 라이브러리 자산 | Delete Media Library Assets | 미디어 라이브러리 자산 영구 삭제 |
+| 미디어 라이브러리 자산 | Delete Media Library Assets | UI에서 미디어 라이브러리 자산을 제거합니다. 삭제된 자산은 해당 자산을 참조하는 메시지가 깨지지 않도록 Braze에서 계속 호스팅됩니다. 자산을 영구적으로 삭제하려면 Braze 고객지원에 문의하세요. |
 | 미디어 라이브러리 자산 | Edit Media Library Assets | 미디어 라이브러리 자산 생성 및 업데이트 |
 | 미디어 라이브러리 자산 | Replace Media Library Assets | 기존 미디어 라이브러리 자산의 파일을 URL 및 자산 ID를 유지하면서 교체 |
 | 메시징 사용량 제한 | View Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 보기 |

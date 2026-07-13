@@ -36,17 +36,17 @@ _この統合はOpen Loyaltyによって管理されています。_
 | :--- | :--- |
 | Open Loyaltyアカウント | このパートナーシップを利用するには、Open LoyaltyテナントのAdminアカウントが必要です。 |
 | Open Loyalty REST APIキー | Open Loyalty REST APIキー（BrazeからOpen Loyaltyにデータを送信する統合の場合）。<br><br> **Settings > Admins > API Keys**で作成します。 |
-| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> Brazeダッシュボードの**Settings** > **API Keys**からこのキーを作成します。 |
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> Brazeダッシュボードの**設定** > **APIキー**からこのキーを作成します。 |
 | Brazeデータ変換 | Webhookリスナーを設定するには、Brazeの「データ設定」タブへのアクセスが必要です。 |
 | IDの一致 | Brazeでのユーザーの`external_id`が、Open Loyaltyの`loyaltyCardNumber`（または別のデフォルト識別子）と一致している必要があります。 |
 | テナントID | Open LoyaltyのテナントID（アウトバウンド更新に必要）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
 主な統合は、データ変換を使用してOpen LoyaltyのWebhookイベントをBrazeに同期します。
 
-### ステップ 1：BrazeでWebhook URLを生成する {#step-1-generate-the-webhook-url-in-braze}
+### ステップ1：BrazeでWebhook URLを生成する {#step-1-generate-the-webhook-url-in-braze}
 
 まず、Brazeでデータ変換を作成し、データを受信するためのユニークなURLを生成します。
 
@@ -56,27 +56,27 @@ _この統合はOpen Loyaltyによって管理されています。_
      * **Transformation name**：説明的な名前を付けます（例：「Open Loyalty Point Update Events」）。
      * **Select destination**：**POST: Track users**を選択します。
 4.  **Create Transformation**をクリックします。
-5.  右側にある**Webhook URL**を見つけ、**Copy**をクリックします。
+5.  詳細パネルで**Webhook URL**を見つけ、**Copy**をクリックします。
 
 {% alert important %}
 このURLは安全に保管してください。次のステップで必要になります。
 {% endalert %}
 
-### ステップ 2：Open LoyaltyでWebhookサブスクリプションを作成する {#step-2-create-the-webhook-subscription-in-open-loyalty}
+### ステップ2：Open LoyaltyでWebhookサブスクリプションを作成する {#step-2-create-the-webhook-subscription-in-open-loyalty}
 
 Open Loyaltyに、先ほど生成したURLへ特定のイベントを送信するよう設定します。
 
 1.  Open Loyalty管理パネルにログインします。
 2.  **General > Webhooks**に移動します。
 3.  **Add new webhook**をクリックし、サブスクリプションを設定します。
-    * **eventName**：追跡したいイベントを選択します（例：`AvailablePointsAmountChanged`、`CustomerLevelChanged`、`キャンペーンEffectWasApplied`）。
+    * **eventName**：追跡したいイベントを選択します（例：`AvailablePointsAmountChanged`、`CustomerLevelChanged`、`CampaignEffectWasApplied`）。
     * **url**：ステップ1のBraze Webhook URLを貼り付けます。
     * 以下のヘッダーを追加します。
       * `Content-Type: application/json`
-      * `User-エージェント: partner-OpenLoyalty`
+      * `User-Agent: partner-OpenLoyalty`
 4.  Webhookサブスクリプションを保存します。
 
-### ステップ 3：データ変換を設定する {#step-3-configure-the-data-transformation}
+### ステップ3：データ変換を設定する {#step-3-configure-the-data-transformation}
 
 受信したOpen LoyaltyのペイロードをBrazeのプロパティにマッピングするJavaScriptロジックをBrazeに記述します。
 
@@ -123,11 +123,11 @@ return brazecall;
 
 インバウンドの統合が完了したら、**アウトバウンド更新**を設定し、Brazeでの行動に基づいてOpen Loyalty会員を変更します。
 
-### ステップ 1：Braze Webhook キャンペーンを設定する {#step-1-configure-braze-webhook-campaign}
+### ステップ1：Braze Webhookキャンペーンを設定する {#step-1-configure-braze-webhook-campaign}
 
 このプロセスでは、Braze Webhookを使用してOpen Loyalty Member APIに`PATCH`リクエストを送信します（例：「VIP」ラベルを追加する）。
 
-1.  Brazeで、新しい**Webhook キャンペーン**を作成します（またはキャンバス内のWebhookを使用します）。
+1.  Brazeで、新しい**Webhookキャンペーン**を作成します（またはキャンバス内のWebhookを使用します）。
 2.  **Compose Webhook**をクリックします。
 3.  **Webhook URL**：Open Loyaltyインスタンス、テナントID、ユーザーID用のBraze Liquid変数を使ってURLを構築します。
     * フォーマット：
@@ -136,10 +136,10 @@ return brazecall;
       {% endraw %}
 4. 以下のフィールドに入力します。
     * **Request Method**：`PATCH`
-    * **Request Headers**：
+    * **リクエストヘッダー**：
       * `Content-Type`: `application/json`
       * `X-AUTH-TOKEN`: `<YOUR_PERMANENT_TOKEN>`
-      * `User-エージェント: Braze`
+      * `User-Agent: Braze`
 5.  **Request Body**：`Raw text`を選択し、ペイロードを貼り付けます。
 
 ```json
@@ -155,13 +155,13 @@ return brazecall;
 }
 ```
 
-### ステップ 2：トリガーを設定する {#step-2-configure-the-trigger}
+### ステップ2：トリガーを設定する {#step-2-configure-the-trigger}
 
-1.  **Delivery**または**Entry Schedule**タブに移動します。
+1.  **配信**または**エントリスケジュール**タブに移動します。
 2.  以下のフィールドに入力します。
-    * **Delivery Method**：アクションベース。
-    * **Trigger**：関連するトリガーを定義します（例：ユーザーがBrazeで特定のセグメントに入る）。
-    * **Launch**：キャンペーンを有効化します。
+    * **配信方法**：アクションベース。
+    * **トリガー**：関連するトリガーを定義します（例：ユーザーがBrazeで特定のセグメントに入る）。
+    * **起動**：キャンペーンを有効化します。
 
 ## トラブルシューティング {#troubleshooting}
 

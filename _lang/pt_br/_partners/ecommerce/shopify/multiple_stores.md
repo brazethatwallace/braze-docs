@@ -11,16 +11,16 @@ description: "Este artigo de referência aborda como conectar e configurar vári
 > Conecte vários domínios de lojas da Shopify a um único espaço de trabalho para ter uma visão holística de seus clientes em todos os mercados. Crie e lance programas e jornadas de automação em um único espaço de trabalho sem duplicar esforços em lojas regionais.
 
 {% alert important %}
-Esse recurso não é compatível com o Shopify Markets ou o Markets Pro. Se você quiser solicitar suporte para eles, envie uma [solicitação de produto]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Esse recurso não é compatível com o Shopify Markets ou o Markets Pro. {% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## Requisitos {#requirements}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Configurar uma loja da Shopify | Certifique-se de que você já tenha [configurado pelo menos uma loja Shopify com a Braze]({{site.baseurl}}/shopify_overview/). |
+| Configurar uma loja da Shopify | Certifique-se de que você já tenha [configurado pelo menos uma loja Shopify com a Braze]({{site.baseurl}}/shopify_overview). |
 | Domínios exclusivos de vitrines da Shopify para cada região | O suporte a várias lojas destina-se ao uso com domínios de loja exclusivos da Shopify para diferentes vitrines regionais. <br><br>Se você quiser conectar várias submarcas à Braze, recomendamos a criação de espaços de trabalho separados para cada submarca. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Conexão de uma loja adicional {#connecting-an-additional-store}
 Depois de instalar o app da Braze em sua loja Shopify e instalar sua primeira loja, selecione **+ Connect New Store**.
@@ -37,7 +37,7 @@ Como na sua primeira integração com a loja do Shopify, você pode escolher ent
 
 Escolha a opção que melhor atenda às suas necessidades:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 Para visualizar a integração de cada loja e definir configurações avançadas, selecione uma loja no menu suspenso.
 
@@ -57,11 +57,11 @@ Você pode escolher entre as seguintes opções para seu ID externo da Braze:
 |------|-----------|
 | ID de cliente da Shopify | Se você usar o ID de cliente do Shopify como seu ID externo da Braze, cada loja gerará um ID de cliente exclusivo para cada usuário. Isso significa que, se um usuário interagir com várias lojas, ele terá perfis separados na Braze. |
 | E-mail, e-mail com hash ou ID externo personalizado | Se você usar os tipos de e-mail, e-mail com hash ou ID externo personalizado, os usuários que se engajarem em várias lojas terão seus perfis mesclados em um único perfil consolidado quando fizerem login ou realizarem um pedido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ID externo da Braze" }
 
 ### Campos mesclados {#merged-fields}
 
-Quando um perfil de usuário é sincronizado, os seguintes campos são mesclados. Para obter detalhes completos sobre o comportamento de mesclagem, consulte [Comportamento de mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior).
+Quando um perfil de usuário é sincronizado, os seguintes campos são mesclados. Para obter detalhes completos sobre o comportamento de mesclagem, consulte [Comportamento de mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 - Informações sobre o dispositivo
 - Contagem total de sessões (combinada de ambos os perfis)
@@ -91,9 +91,9 @@ Como alternativa, você pode sincronizar as informações de opt-in de marketing
 
 | Opção | Recursos |
 |------|---------|
-| API | - [Endpoints de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups/) para substituir diretamente o que é suportado pela integração<br>- [Endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) para definir os dados do grupo de inscrições ou o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- [Central de Preferências da Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions/) para opções de coleta de opt-in de marketing mais personalizadas |
+| API | - [Endpoints de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) para substituir diretamente o que é suportado pela integração<br>- [Endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups) para definir os dados do grupo de inscrições ou o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)<br>- [Central de Preferências da Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions) para opções de coleta de opt-in de marketing mais personalizadas |
 | SDKs | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Coleta de assinantes (opcional)" }
 {% endtab %}
 {% endtabs %}
 
@@ -146,7 +146,7 @@ Os eventos personalizados da Shopify compatíveis incluem:
 - `shopify_paid_order`
 - `shopify_account_login`
 
-Para obter uma visão geral completa de todas as cargas úteis de eventos, consulte [Recursos de dados do Shopify]({{site.baseurl}}/shopify_data_features/).
+Para obter uma visão geral completa de todas as cargas úteis de eventos, consulte [Recursos de dados do Shopify]({{site.baseurl}}/shopify_data_features).
 
 ### Sincronização de produtos do Shopify {#shopify-product-sync}
 

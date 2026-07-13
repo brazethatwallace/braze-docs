@@ -89,6 +89,7 @@ O fato de seus e-mails terem sido enviados com sucesso não significa que eles n
 
 Um processo de double opt-in consiste em enviar um e-mail de acompanhamento com um link de confirmação após um opt-in inicial. Isso fornece validação de que os destinatários desejam receber seu conteúdo. Você pode ir ainda mais longe pedindo aos usuários que adicionem você à lista de contatos deles. Além disso, certifique-se de fazer suas listas de e-mail crescerem organicamente&#8212;listas compradas tendem a estar desatualizadas!
 
+
 ### Construa sua reputação {#build-your-reputation}
 
 Certifique-se de definir expectativas quando as pessoas se inscrevem para receber seus e-mails. Seja explícito sobre o que você enviará e com que frequência. Então, incentive os usuários a interagir com suas campanhas de e-mail fornecendo conteúdo valioso. Ter conteúdo personalizado e relevante diminui a probabilidade de seus destinatários marcarem as mensagens como spam.
@@ -113,4 +114,4 @@ No iOS, seus usuários sempre foram solicitados a fazer opt-in para notificaçõ
 
 ### Android {#spam-android}
 
-No Android, seus usuários podem ser considerados como tendo feito opt-in pelo consentimento implícito declarado na sua política de privacidade ou contrato de licença de usuário final. Você pode querer implementar um processo de opt-in expresso, talvez em uma tela inicial assim que o usuário inicia o app pela primeira vez. Visite o artigo [Práticas recomendadas de push]({{site.baseurl}}/user_guide/channels/push/best_practices/) para mais detalhes. Você também pode orientar o usuário sobre quais tipos de notificações por push ele receberá, aumentando assim a taxa de opt-in.
+No Android, seus usuários podem ser considerados como tendo feito opt-in pelo consentimento implícito declarado na sua política de privacidade ou contrato de licença de usuário final. Você pode querer implementar um processo de opt-in expresso, talvez em uma tela inicial assim que o usuário inicia o app pela primeira vez. Visite o artigo [Práticas recomendadas de push]({{site.baseurl}}/user_guide/channels/push/best_practices) para mais detalhes. Você também pode orientar o usuário sobre quais tipos de notificações por push ele receberá, aumentando assim a taxa de opt-in.

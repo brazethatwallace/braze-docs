@@ -12,15 +12,15 @@ channel:
 
 > As mensagens de captura de e-mail permitem que você solicite aos usuários do seu site que enviem seus endereços de e-mail. A Braze adiciona o endereço ao perfil de usuário para uso em todas as suas campanhas de envio de mensagens.
 
-Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Como funciona {#how-it-works}
 
 Quando um usuário final insere seu endereço de e-mail nesse formulário, a Braze adiciona o endereço de e-mail ao perfil de usuário.
 
-- Para [usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#anonymous-user-profiles) que ainda não possuem uma conta, o endereço de e-mail é armazenado no perfil de usuário anônimo vinculado ao dispositivo do usuário.
+- Para [usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) que ainda não possuem uma conta, o endereço de e-mail é armazenado no perfil de usuário anônimo vinculado ao dispositivo do usuário.
 - Se já existir um endereço de e-mail no perfil de usuário, o novo endereço inserido substituirá o endereço existente.
-- Se o usuário conhecido tiver um endereço de e-mail sinalizado como [hard bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#hard-bounce), a Braze verifica se o novo endereço de e-mail inserido é diferente do que está no perfil da Braze. Se o endereço de e-mail fornecido for diferente, a Braze atualiza o endereço de e-mail e remove o status de hard bounce.
+- Se o usuário conhecido tiver um endereço de e-mail sinalizado como [hard bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce), a Braze verifica se o novo endereço de e-mail inserido é diferente do que está no perfil da Braze. Se o endereço de e-mail fornecido for diferente, a Braze atualiza o endereço de e-mail e remove o status de hard bounce.
 - Se um usuário inserir um endereço de e-mail inválido, verá a mensagem de erro: "Please enter a valid email."
     - Endereços de e-mail inválidos:
         - `example`
@@ -30,7 +30,7 @@ Quando um usuário final insere seu endereço de e-mail nesse formulário, a Bra
     - Endereços de e-mail válidos:
         - `example@gmail.com`
         - `example@gnail.com` (com erro de digitação)
-    - Para saber mais sobre a validação de e-mail na Braze, consulte [Diretrizes técnicas e notas sobre e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+    - Para saber mais sobre a validação de e-mail na Braze, consulte [Diretrizes técnicas e notas sobre e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% details Mais sobre usuários identificados versus anônimos %}
 
@@ -38,9 +38,9 @@ O formulário de captura de e-mail define o endereço de e-mail no perfil de usu
 
 Se um usuário anônimo inserir seu e-mail no formulário e enviá-lo, a Braze adicionará o endereço de e-mail ao perfil dele. Se `changeUser` for chamado posteriormente na jornada web e um novo `external_id` for atribuído (como quando um novo usuário se registra no serviço), todos os dados do perfil de usuário anônimo serão mesclados, incluindo o endereço de e-mail.
 
-Se `changeUser` for chamado com um `external_id` existente, o perfil de usuário anônimo será órfão e [campos específicos de dados do perfil de usuário]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior) que ainda não existem no usuário identificado serão mesclados, mas os campos que já existem serão perdidos, incluindo o endereço de e-mail.
+Se `changeUser` for chamado com um `external_id` existente, o perfil de usuário anônimo será órfão e [campos específicos de dados do perfil de usuário]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior) que ainda não existem no usuário identificado serão mesclados, mas os campos que já existem serão perdidos, incluindo o endereço de e-mail.
 
-Para saber mais, consulte o [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Para saber mais, consulte o [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 
@@ -82,6 +82,6 @@ Você também pode combinar os dois filtros usando a lógica `AND`, se desejar. 
 
 Depois de lançar o formulário de captura de e-mail e coletar endereços de e-mail dos seus usuários, você pode direcionar os usuários que preencheram o formulário.
 
-1. Em qualquer filtro de Segment na Braze, selecione o filtro `Clicked/Opened Campaign`.
+1. Em qualquer filtro de segmento na Braze, selecione o filtro `Clicked/Opened Campaign`.
 2. No menu suspenso, selecione `clicked in-app message button 1`.
 3. Selecione sua Campaign de formulário de captura de e-mail.

@@ -25,7 +25,7 @@ En général, comme les extensions sont composées de HTML et de JavaScript, vou
 
 ## Ce qui n'est pas pris en charge {#whats-not-supported}
 
-* Les service workers ne sont pas pris en charge par le SDK Braze pour le Web, mais cette fonctionnalité est envisagée pour une future version.
+* L'utilisation du SDK Braze depuis un service de traitement n'est pas prise en charge. Vous pouvez toutefois utiliser le SDK Braze dans la fenêtre contextuelle ou la page de paramètres de votre extension. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## Types d'extensions {#extension-types}
 
@@ -36,7 +36,7 @@ Braze peut être inclus dans les parties suivantes de votre extension :
 | Page contextuelle | La page [Popup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) est une boîte de dialogue qui peut être affichée aux utilisateurs lorsqu'ils cliquent sur l'icône de votre extension dans la barre d'outils du navigateur. | Analyses, messages in-app et Content Cards |
 | Scripts d'arrière-plan | Les [scripts d'arrière-plan](https://developer.chrome.com/extensions/background_pages) (Manifest v2 uniquement) permettent à votre extension d'inspecter et d'interagir avec la navigation de l'utilisateur ou de modifier les pages Web (par exemple, comment les bloqueurs de publicité détectent et modifient le contenu des pages). | Analyses, messages in-app et Content Cards.<br><br>Les scripts d'arrière-plan ne sont pas visibles des utilisateurs, donc en ce qui concerne l'envoi de messages, vous devez communiquer à l'aide des onglets du navigateur ou de votre page contextuelle lors de l'affichage des messages. |
 | Pages d'options | La [page d'options](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) permet à vos utilisateurs de basculer les paramètres de votre extension. Il s'agit d'une page HTML autonome qui ouvre un nouvel onglet. | Analyses, messages in-app et Content Cards |
-{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="Extension types" }
+{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="Types d'extensions" }
 
 ## Autorisations {#permissions}
 
@@ -47,10 +47,10 @@ Toutefois, si vous utilisez [Google Tag Manager]({{ site.baseurl }}/developer_gu
 ## Démarrage {#getting-started}
 
 {% alert tip %}
-Avant de commencer, assurez-vous d'avoir lu le [guide de configuration initiale du SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) pour le Web afin d'en savoir plus sur notre intégration JavaScript en général.  <br><br>Vous pouvez également mettre en signet la [référence du SDK JavaScript](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) pour obtenir tous les détails sur les différentes méthodes et options de configuration du SDK.
+Avant de commencer, assurez-vous d'avoir lu le [guide de configuration initiale du SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) pour le Web afin d'en savoir plus sur notre intégration JavaScript en général.  <br><br>Vous pouvez également mettre en signet la [référence du SDK JavaScript](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) pour obtenir tous les détails sur les différentes méthodes et options de configuration du SDK.
 {% endalert %}
 
-Pour intégrer le SDK Braze pour le Web, vous devez d'abord télécharger une copie de la dernière bibliothèque JavaScript. Cela peut se faire en utilisant NPM ou en le téléchargeant directement depuis le [réseau de diffusion de contenu de Braze](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
+Pour intégrer le SDK Braze pour le Web, vous devez d'abord télécharger une copie de la dernière bibliothèque JavaScript. Cela peut se faire en utilisant NPM ou en le téléchargeant directement depuis le [CDN de Braze](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
 
 Sinon, si vous préférez utiliser [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) ou une copie hébergée à l'extérieur du SDK Braze, gardez à l'esprit que le chargement de ressources externes nécessite d'ajuster le paramètre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) dans votre `manifest.json`.
 

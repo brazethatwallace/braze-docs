@@ -30,7 +30,7 @@ description: "이 문서에서는 작업 동기화 상태 목록 Braze 엔드포
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `integration_id` | 필수 | 문자열 | 통합 ID. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 쿼리 매개변수 {#query-parameters}
 
@@ -39,7 +39,7 @@ description: "이 문서에서는 작업 동기화 상태 목록 Braze 엔드포
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `cursor` | 선택 사항 | 문자열 | 동기화 상태의 페이지네이션을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="쿼리 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -96,7 +96,7 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
 | `partial` | 일부 행이 오류로 인해 동기화에 실패했습니다. |
 | `error` | 동기화된 행이 없습니다. |
 | `config_error` | 통합 구성에 오류가 발생했습니다. 통합 설정을 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example success response" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="성공 응답 예시" }
 
 ## 문제 해결 {#troubleshooting}
 
@@ -106,8 +106,8 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
 | --- | --- |
 | `400 Invalid cursor` | `cursor`가 유효한지 확인하세요. |
 | `400 Invalid integration ID` | `integration_id`가 유효한지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
-추가 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
+추가 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors#fatal-errors)을 참조하세요.
 
 {% endapi %}

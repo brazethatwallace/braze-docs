@@ -20,9 +20,9 @@ En el siguiente ejemplo, las condiciones `connected.recommendations.size < 5` y 
 ```
 {% endraw %}
 
-## Especificar un motivo de cancelación
+## Especificar un motivo de cancelación {#specify-an-abort-reason}
 
-También puedes especificar un motivo de cancelación, que se guardará en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Este motivo de cancelación debe ser una cadena y no puede contener Liquid.
+También puedes especificar un motivo de cancelación, que se guardará en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Este motivo de cancelación debe ser una cadena y no puede contener Liquid.
 
 {% raw %}
 `{% abort_message('Could not get enough recommendations') %}`

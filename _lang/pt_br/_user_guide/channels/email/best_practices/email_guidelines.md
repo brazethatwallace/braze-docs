@@ -39,7 +39,7 @@ A validação de e-mail acontece quando o endereço de e-mail de um usuário é 
 
 Os endereços de e-mail direcionados pelos servidores da Braze devem ser validados de acordo com os padrões [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). A Braze não aceita determinados caracteres e os reconhece como inválidos. Se um e-mail sofrer bounce, a Braze marca o e-mail como inválido e o status de inscrição não é alterado.
 
-Para informações sobre caracteres não permitidos e regras de validação de e-mail, consulte [Validação de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works).
+Para informações sobre caracteres não permitidos e regras de validação de e-mail, consulte [Validação de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
 ## Endereços de remetente e resposta {#from-and-reply-to-addresses}
 
@@ -89,7 +89,7 @@ Confira as listas a seguir para tags e atributos HTML que não são permitidos n
 - `<bgsound>`
 - `<embed>`
 - `<frameset>`
-- `<iframe>`
+- `iframe`
 - `<ilayer>`
 - `<layer>`
 - `<link>`

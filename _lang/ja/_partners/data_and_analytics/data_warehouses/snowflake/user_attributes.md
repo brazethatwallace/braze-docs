@@ -75,51 +75,92 @@ toc_headers: h2
 * 特に`USER_ID`以外の属性でフィルタリングする場合、クエリの実行が高速です。
 * **制限事項:** データはリアルタイムで更新されません。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_default_attributes_view_shared-schema}
 
-| 列名     | データタイプ     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `FIRST_NAME` | VARCHAR |
-| `LAST_NAME` | VARCHAR |
-| `EMAIL_ADDRESS` | VARCHAR |
-| `GENDER` | VARCHAR |
-| `PHONE_NUMBER` | VARCHAR |
-| `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
-| `HOME_CITY` | VARCHAR |
-| `COUNTRY` | VARCHAR |
-| `LANGUAGE` | VARCHAR |
-| `ARCHIVED` | BOOLEAN |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
+| 列名     | データタイプ     | 説明 |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Brazeワークスペースの識別子 |
+| `APP_ID` | VARCHAR | ワークスペース内の特定のアプリ |
+| `USER_ID` | VARCHAR | Brazeの一意のユーザー識別子 |
+| `TIME` | NUMBER | プロファイル更新のUnixタイムスタンプ（秒） |
+| `TIME_MS` | NUMBER | プロファイル更新のUnixタイムスタンプ（ミリ秒） |
+| `UPDATE_SOURCE` | VARCHAR | 属性更新のソース（API、SDK、ダッシュボードなど） |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | Snowflakeでデータが最後に更新された日時 |
+| `EXTERNAL_USER_ID` | VARCHAR | 独自のユーザー識別子（設定されている場合） |
+| `FIRST_NAME` | VARCHAR | ユーザーの名 |
+| `LAST_NAME` | VARCHAR | ユーザーの姓 |
+| `EMAIL_ADDRESS` | VARCHAR | ユーザーのメールアドレス |
+| `GENDER` | VARCHAR | ユーザーの性別 |
+| `PHONE_NUMBER` | VARCHAR | ユーザーの電話番号 |
+| `DOB` | VARCHAR | ユーザーの生年月日 |
+| `TIME_ZONE` | VARCHAR | ユーザーのタイムゾーン |
+| `HOME_CITY` | VARCHAR | ユーザーの居住都市 |
+| `COUNTRY` | VARCHAR | ユーザーの国 |
+| `LANGUAGE` | VARCHAR | ユーザーの言語設定 |
+| `ARCHIVED` | BOOLEAN | ユーザープロファイルがアーカイブされているかどうか |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
 ### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_custom_attributes_view_shared-schema}
 
-| 列名     | データタイプ     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `CUSTOM_ATTRIBUTES` | VARIANT |
-| `ARCHIVED` | BOOLEAN |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
+| 列名     | データタイプ     | 説明 |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Brazeワークスペースの識別子 |
+| `APP_ID` | VARCHAR | ワークスペース内の特定のアプリ |
+| `USER_ID` | VARCHAR | Brazeの一意のユーザー識別子 |
+| `EXTERNAL_USER_ID` | VARCHAR | 独自のユーザー識別子（設定されている場合） |
+| `TIME` | NUMBER | プロファイル更新のUnixタイムスタンプ（秒） |
+| `TIME_MS` | NUMBER | プロファイル更新のUnixタイムスタンプ（ミリ秒） |
+| `UPDATE_SOURCE` | VARCHAR | 属性更新のソース（API、SDK、ダッシュボードなど） |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | Snowflakeでデータが最後に更新された日時 |
+| `CUSTOM_ATTRIBUTES` | VARIANT | すべてのカスタム属性を含むJSONオブジェクト（キーと値のペア） |
+| `ARCHIVED` | BOOLEAN | ユーザープロファイルがアーカイブされているかどうか |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
+
+#### CUSTOM_ATTRIBUTESの操作 {#working-with-custom_attributes}
+
+`CUSTOM_ATTRIBUTES`列は、すべてのカスタム属性をJSONオブジェクトとして格納します。SnowflakeのJSON関数を使用して個々の属性にアクセスできます。
+
+**例: 特定のカスタム属性のクエリ**
+
+```sql
+-- Get users with a specific loyalty tier
+SELECT
+  USER_ID,
+  EXTERNAL_USER_ID,
+  CUSTOM_ATTRIBUTES:loyalty_tier::STRING as loyalty_tier,
+  CUSTOM_ATTRIBUTES:points::NUMBER as points
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+WHERE CUSTOM_ATTRIBUTES:loyalty_tier::STRING = 'gold';
+
+-- Get users who made a purchase above a certain amount
+SELECT
+  USER_ID,
+  CUSTOM_ATTRIBUTES:last_purchase_amount::NUMBER as last_purchase_amount
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+WHERE CUSTOM_ATTRIBUTES:last_purchase_amount::NUMBER > 100;
+```
+
+**例: カスタム属性データの分析**
+
+```sql
+-- Count users by subscription status
+SELECT
+  CUSTOM_ATTRIBUTES:subscription_status::STRING as subscription_status,
+  COUNT(*) as user_count
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+GROUP BY CUSTOM_ATTRIBUTES:subscription_status::STRING;
+
+-- Find average order value by customer segment
+SELECT
+  CUSTOM_ATTRIBUTES:customer_segment::STRING as segment,
+  AVG(CUSTOM_ATTRIBUTES:lifetime_value::NUMBER) as avg_lifetime_value
+FROM USER_CUSTOM_ATTRIBUTES_VIEW_SHARED
+WHERE CUSTOM_ATTRIBUTES:customer_segment IS NOT NULL
+GROUP BY CUSTOM_ATTRIBUTES:customer_segment::STRING;
+```
 
 ## リアルタイムユーザープロファイルビュー {#real-time-user-profile-views}
 
@@ -137,50 +178,52 @@ toc_headers: h2
     * USER_IDフィルターを使用しないクエリは全ユーザーの集計が必要となるため、実行時間が大幅に長くなります。
     * 大規模なデータセット（1億人以上のユーザーなど）に対するクエリは数分かかる場合があります。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_latest_state_default_attributes_view_shared-schema}
 
-| 列名     | データタイプ     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `ARCHIVED` | BOOLEAN |
-| `SF_UPDATED_AT` | TIMESTAMP_LTZ |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `FIRST_NAME` | VARCHAR |
-| `LAST_NAME` | VARCHAR |
-| `EMAIL_ADDRESS` | VARCHAR |
-| `GENDER` | VARCHAR |
-| `PHONE_NUMBER` | VARCHAR |
-| `DOB` | VARCHAR |
-| `HOME_CITY` | VARCHAR |
-| `COUNTRY` | VARCHAR |
-| `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
+| 列名     | データタイプ     | 説明 |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Brazeワークスペースの識別子 |
+| `APP_ID` | VARCHAR | ワークスペース内の特定のアプリ |
+| `USER_ID` | VARCHAR | Brazeの一意のユーザー識別子 |
+| `TIME` | NUMBER | プロファイル更新のUnixタイムスタンプ（秒） |
+| `TIME_MS` | NUMBER | プロファイル更新のUnixタイムスタンプ（ミリ秒） |
+| `UPDATE_SOURCE` | VARCHAR | 属性更新のソース（API、SDK、ダッシュボードなど） |
+| `ARCHIVED` | BOOLEAN | ユーザープロファイルがアーカイブされているかどうか |
+| `SF_UPDATED_AT` | TIMESTAMP_LTZ | Snowflakeでデータが最後に更新された日時 |
+| `EXTERNAL_USER_ID` | VARCHAR | 独自のユーザー識別子（設定されている場合） |
+| `FIRST_NAME` | VARCHAR | ユーザーの名 |
+| `LAST_NAME` | VARCHAR | ユーザーの姓 |
+| `EMAIL_ADDRESS` | VARCHAR | ユーザーのメールアドレス |
+| `GENDER` | VARCHAR | ユーザーの性別 |
+| `PHONE_NUMBER` | VARCHAR | ユーザーの電話番号 |
+| `DOB` | VARCHAR | ユーザーの生年月日 |
+| `HOME_CITY` | VARCHAR | ユーザーの居住都市 |
+| `COUNTRY` | VARCHAR | ユーザーの国 |
+| `LANGUAGE` | VARCHAR | ユーザーの言語設定 |
+| `TIME_ZONE` | VARCHAR | ユーザーのタイムゾーン |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`スキーマ {#user_latest_state_custom_attribute_view_shared-schema}
 
-| 列名     | データタイプ     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `ARCHIVED` | BOOLEAN |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `APP_ID` | VARCHAR |
-| `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
+| 列名     | データタイプ     | 説明 |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Brazeワークスペースの識別子 |
+| `USER_ID` | VARCHAR | Brazeの一意のユーザー識別子 |
+| `EXTERNAL_USER_ID` | VARCHAR | 独自のユーザー識別子（設定されている場合） |
+| `TIME` | NUMBER | プロファイル更新のUnixタイムスタンプ（秒） |
+| `TIME_MS` | NUMBER | プロファイル更新のUnixタイムスタンプ（ミリ秒） |
+| `UPDATE_SOURCE` | VARCHAR | 属性更新のソース（API、SDK、ダッシュボードなど） |
+| `ARCHIVED` | BOOLEAN | ユーザープロファイルがアーカイブされているかどうか |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | Snowflakeでデータが最後に更新された日時 |
+| `APP_ID` | VARCHAR | ワークスペース内の特定のアプリ |
+| `CUSTOM_ATTRIBUTES` | OBJECT | すべてのカスタム属性を含むJSONオブジェクト（キーと値のペア） |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
+
+{% alert note %}
+このビューでは、`CUSTOM_ATTRIBUTES`に`VARIANT`ではなく`OBJECT`タイプを使用します。個々の属性をクエリするには、同じJSONアクセサー構文（`:attribute_name::TYPE`）を使用してください。
+{% endalert %}
 
 ## 変更履歴ログ {#historical-change-logs}
 
@@ -195,53 +238,122 @@ toc_headers: h2
 * データは12時間ごとにスナップショットされます。つまり、この時間枠内の複数の更新は1つのレコードに統合されます。この期間内の個々の変更は個別に保持されません。
 * `EFF_DT`と`END_DT`は、ユーザーの属性状態の開始と終了を示します。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`スキーマ {#user_default_attributes_history_view_shared-schema}
 
-| 列名     | データタイプ     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `FIRST_NAME` | VARCHAR |
-| `LAST_NAME` | VARCHAR |
-| `EMAIL_ADDRESS` | VARCHAR |
-| `GENDER` | VARCHAR |
-| `PHONE_NUMBER` | VARCHAR |
-| `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
-| `HOME_CITY` | VARCHAR |
-| `COUNTRY` | VARCHAR |
-| `LANGUAGE` | VARCHAR |
-| `EFF_DT` | TIMESTAMP_NTZ |
-| `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
+| 列名     | データタイプ     | 説明 |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Brazeワークスペースの識別子 |
+| `USER_ID` | VARCHAR | Brazeの一意のユーザー識別子 |
+| `APP_ID` | VARCHAR | ワークスペース内の特定のアプリ |
+| `TIME` | NUMBER | プロファイル更新のUnixタイムスタンプ（秒） |
+| `TIME_MS` | NUMBER | プロファイル更新のUnixタイムスタンプ（ミリ秒） |
+| `UPDATE_SOURCE` | VARCHAR | 属性更新のソース（API、SDK、ダッシュボードなど） |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | Snowflakeでデータが最後に更新された日時 |
+| `EXTERNAL_USER_ID` | VARCHAR | 独自のユーザー識別子（設定されている場合） |
+| `FIRST_NAME` | VARCHAR | ユーザーの名 |
+| `LAST_NAME` | VARCHAR | ユーザーの姓 |
+| `EMAIL_ADDRESS` | VARCHAR | ユーザーのメールアドレス |
+| `GENDER` | VARCHAR | ユーザーの性別 |
+| `PHONE_NUMBER` | VARCHAR | ユーザーの電話番号 |
+| `DOB` | VARCHAR | ユーザーの生年月日 |
+| `TIME_ZONE` | VARCHAR | ユーザーのタイムゾーン |
+| `HOME_CITY` | VARCHAR | ユーザーの居住都市 |
+| `COUNTRY` | VARCHAR | ユーザーの国 |
+| `LANGUAGE` | VARCHAR | ユーザーの言語設定 |
+| `EFF_DT` | TIMESTAMP_NTZ | 有効日: この属性状態が開始された日時 |
+| `END_DT` | TIMESTAMP_NTZ | 終了日: この属性状態が終了した日時（現在の状態の場合はNULL） |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
 
 ### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`スキーマ {#user_custom_attributes_history_view_shared-schema}
 
-| 列名     | データタイプ     |
-|-----------------|---------------|
-| `APP_GROUP_ID` | VARCHAR |
-| `USER_ID` | VARCHAR |
-| `APP_ID` | VARCHAR |
-| `EXTERNAL_USER_ID` | VARCHAR |
-| `TIME` | NUMBER |
-| `TIME_MS` | NUMBER |
-| `UPDATE_SOURCE` | VARCHAR |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `CUSTOM_ATTRIBUTES` | VARIANT |
-| `ARCHIVED` | BOOLEAN |
-| `EFF_DT` | TIMESTAMP_NTZ |
-| `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
+| 列名     | データタイプ     | 説明 |
+|-----------------|---------------|-------------|
+| `APP_GROUP_ID` | VARCHAR | Brazeワークスペースの識別子 |
+| `USER_ID` | VARCHAR | Brazeの一意のユーザー識別子 |
+| `APP_ID` | VARCHAR | ワークスペース内の特定のアプリ |
+| `EXTERNAL_USER_ID` | VARCHAR | 独自のユーザー識別子（設定されている場合） |
+| `TIME` | NUMBER | プロファイル更新のUnixタイムスタンプ（秒） |
+| `TIME_MS` | NUMBER | プロファイル更新のUnixタイムスタンプ（ミリ秒） |
+| `UPDATE_SOURCE` | VARCHAR | 属性更新のソース（API、SDK、ダッシュボードなど） |
+| `SF_UPDATED_AT` | TIMESTAMP_NTZ | Snowflakeでデータが最後に更新された日時 |
+| `CUSTOM_ATTRIBUTES` | VARIANT | すべてのカスタム属性を含むJSONオブジェクト（キーと値のペア） |
+| `ARCHIVED` | BOOLEAN | ユーザープロファイルがアーカイブされているかどうか |
+| `EFF_DT` | TIMESTAMP_NTZ | 有効日: この属性状態が開始された日時 |
+| `END_DT` | TIMESTAMP_NTZ | 終了日: この属性状態が終了した日時（現在の状態の場合はNULL） |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
+
+## 一般的なユースケース {#common-use-cases}
+
+### ユーザーセグメントの構築 {#building-user-segments}
+
+```sql
+-- Find active users in a specific city who haven't received an email recently
+SELECT
+  d.EXTERNAL_USER_ID,
+  d.EMAIL_ADDRESS,
+  d.HOME_CITY,
+  c.CUSTOM_ATTRIBUTES:last_email_sent::TIMESTAMP as last_email_sent
+FROM USER_DEFAULT_ATTRIBUTES_VIEW_SHARED d
+JOIN USER_CUSTOM_ATTRIBUTES_VIEW_SHARED c
+  ON d.USER_ID = c.USER_ID
+WHERE d.HOME_CITY = 'New York'
+  AND d.EMAIL_ADDRESS IS NOT NULL
+  AND (c.CUSTOM_ATTRIBUTES:last_email_sent::TIMESTAMP < DATEADD(day, -30, CURRENT_TIMESTAMP())
+       OR c.CUSTOM_ATTRIBUTES:last_email_sent IS NULL);
+```
+
+### 経時的なユーザー行動の分析 {#analyzing-user-behavior-over-time}
+
+```sql
+-- Track how a user's loyalty tier changed over the past 6 months
+SELECT
+  USER_ID,
+  CUSTOM_ATTRIBUTES:loyalty_tier::STRING as loyalty_tier,
+  EFF_DT,
+  END_DT
+FROM USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED
+WHERE USER_ID = 'user_123'
+  AND EFF_DT >= DATEADD(month, -6, CURRENT_TIMESTAMP())
+ORDER BY EFF_DT DESC;
+```
+
+### デフォルト属性とカスタム属性の結合 {#combining-default-and-custom-attributes}
+
+```sql
+-- Get a complete user profile with both default and custom attributes
+SELECT
+  d.EXTERNAL_USER_ID,
+  d.FIRST_NAME,
+  d.LAST_NAME,
+  d.EMAIL_ADDRESS,
+  d.COUNTRY,
+  c.CUSTOM_ATTRIBUTES:subscription_status::STRING as subscription_status,
+  c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER as lifetime_value,
+  c.CUSTOM_ATTRIBUTES:last_purchase_date::DATE as last_purchase_date
+FROM USER_DEFAULT_ATTRIBUTES_VIEW_SHARED d
+LEFT JOIN USER_CUSTOM_ATTRIBUTES_VIEW_SHARED c
+  ON d.USER_ID = c.USER_ID
+WHERE d.EXTERNAL_USER_ID = 'customer_456';
+```
+
+### 高価値顧客の特定 {#finding-high-value-customers}
+
+```sql
+-- Identify users with high lifetime value who are at risk of churning
+SELECT
+  d.EXTERNAL_USER_ID,
+  d.EMAIL_ADDRESS,
+  c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER as lifetime_value,
+  c.CUSTOM_ATTRIBUTES:days_since_last_purchase::NUMBER as days_since_last_purchase
+FROM USER_DEFAULT_ATTRIBUTES_VIEW_SHARED d
+JOIN USER_CUSTOM_ATTRIBUTES_VIEW_SHARED c
+  ON d.USER_ID = c.USER_ID
+WHERE c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER > 1000
+  AND c.CUSTOM_ATTRIBUTES:days_since_last_purchase::NUMBER > 90
+ORDER BY c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER DESC;
+```
 
 ## ベストプラクティス {#best-practices}
 
@@ -251,7 +363,7 @@ toc_headers: h2
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
 | 最近の更新を必要としない**一般的なクエリ** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 高速な実行。データは最大12時間前のものです。                          |
 | **最新のユーザー属性**を必要とするクエリ       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | ほぼリアルタイムの更新を提供しますが、大規模なデータセットでは低速になる場合があります。 |
-| 属性変更の**履歴追跡**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
+| 属性変更の**履歴トラッキング**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
 
 ### パフォーマンスに関する考慮事項 {#performance-considerations}

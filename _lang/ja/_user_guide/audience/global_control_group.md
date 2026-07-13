@@ -23,12 +23,12 @@ toc_headers: h2
 グローバルコントロールグループでは、全ユーザーの一定割合をコントロールグループとして設定できます。保存すると、グループ内のユーザーはキャンペーンやキャンバスを一切受信しなくなります。
 
 {% alert important %}
-グローバルコントロールグループは、[APIキャンペーン]({{site.baseurl}}/api/api_campaigns/)を除くすべてのチャネル、キャンペーン、キャンバスに適用されます。つまり、コントロールグループ内のユーザーは引き続きAPIキャンペーンを受信します。ただし、この例外はContent Cardsには適用されません。APIトリガーのContent Cards キャンペーンを使用している場合、コントロールグループ内のユーザーはそれを受信しません。
+グローバルコントロールグループは、[API キャンペーン]({{site.baseurl}}/api/api_campaigns)を除くすべてのチャネル、キャンペーン、キャンバスに適用されます。つまり、コントロールグループ内のユーザーは引き続きAPI キャンペーンを受信します。ただし、この例外はContent Cardsには適用されません。APIトリガーのContent Cards キャンペーンを使用している場合、コントロールグループ内のユーザーはそれを受信しません。
 {% endalert %}
 
 ### グローバルコントロールグループへのユーザーのランダム割り当て {#assign-users-randomly-to-the-global-control-group}
 
-Brazeは[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/#step-1-segment-your-users-by-the-random-bucket-attribute)の複数の範囲をランダムに選択し、選択されたバケットに含まれるユーザーを対象とします。他の目的でランダムバケット番号を現在使用している場合は、[注意事項](#things-to-watch-for)を確認してください。
+Brazeは[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute)の複数の範囲をランダムに選択し、選択されたバケットに含まれるユーザーを対象とします。他の目的でランダムバケット番号を現在使用している場合は、[注意事項](#things-to-watch-for)を確認してください。
 
 グローバルコントロールグループが生成されると、該当するランダムバケット番号を持つすべてのユーザーがグループに含まれます。さらに、この時点以降に参加した新規ユーザー（グローバルコントロールグループの生成後に獲得されたユーザー）で、これらのランダムバケット番号を持つユーザーもグローバルコントロールグループに追加されます。同様に、多くのユーザーが削除された場合、削除されたユーザーの一定割合がこのグループに含まれているため、グローバルコントロールグループのサイズが縮小することが予想されます。これにより、グループのサイズはユーザー群全体に対する一定の割合として維持されます。
 
@@ -40,7 +40,7 @@ Brazeはアップリフトのレポート用にトリートメントグループ
 
 ### フィーチャーフラグからのユーザーの除外 {#exclude-users-from-feature-flags}
 
-グローバルコントロールグループ内のユーザーに対して[フィーチャーフラグ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/)を有効にすることはできません。つまり、グローバルコントロールグループ内のユーザーはフィーチャーフラグの実験にも参加できません。
+グローバルコントロールグループ内のユーザーに対して[フィーチャーフラグ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags)を有効にすることはできません。つまり、グローバルコントロールグループ内のユーザーはフィーチャーフラグの実験にも参加できません。
 
 ### グローバルコントロールグループからのユーザーの除外 {#exclude-users-from-the-global-control-group}
 
@@ -92,7 +92,7 @@ Brazeはアップリフトのレポート用にトリートメントグループ
 
 グローバルコントロールグループに含まれるユーザーを確認したい場合は、CSVまたはAPIでグループのメンバーをエクスポートできます。
 
-CSVエクスポートを実行するには、**Global Control Group Settings**タブに移動し、<i class="fas fa-download"></i>&nbsp;**Export**をクリックします。APIでエクスポートするには、[`/users/export/global_control_group`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)を使用します。
+CSVエクスポートを実行するには、**Global Control Group Settings**タブに移動し、<i class="fas fa-download"></i>&nbsp;**Export**をクリックします。APIでエクスポートするには、[`/users/export/global_control_group`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group)を使用します。
 
 {% alert important %}
 過去のコントロールグループは保存されないため、現在のグループのメンバーのみエクスポートできます。コントロールグループを無効にする前に、必要な情報をすべてエクスポートしてください。
@@ -114,7 +114,7 @@ CSVエクスポートを実行するには、**Global Control Group Settings**�
 
 次に、レポートを実行するパラメーター（セッションまたは特定のカスタムイベント）を選択し、**Run Report**を選択します。
 
-![]({% image_buster /assets/img/control_group/control_group6.png %})
+![レポートを実行するパラメーター（セッションまたは特定のカスタムイベント）を選択し、Run Reportを選択します。]({% image_buster /assets/img/control_group/control_group6.png %})
 
 ### レポートの設定 {#configuring-your-report}
 
@@ -122,7 +122,7 @@ CSVエクスポートを実行するには、**Global Control Group Settings**�
 
 レポートの割合指標は四捨五入されることに注意してください。たとえば、コンバージョン数がコントロールグループまたはトリートメントグループ全体に対して非常に小さい割合の場合、コンバージョン率は0%に丸められることがあります。
 
-このレポートには、コントロールからの変化指標に対する[信頼度]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence)の割合も表示されます。コントロールとトリートメントのコンバージョン率が同一の場合、信頼度0%が予想されます。これは、2つのグループ間でパフォーマンスに差がある確率が0%であることを示しています。
+このレポートには、コントロールからの変化指標に対する[信頼度]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence)の割合も表示されます。コントロールとトリートメントのコンバージョン率が同一の場合、信頼度0%が予想されます。これは、2つのグループ間でパフォーマンスに差がある確率が0%であることを示しています。
 
 #### グループサイズ {#group-sizes}
 
@@ -143,7 +143,7 @@ CSVエクスポートを実行するには、**Global Control Group Settings**�
 | 推定グループサイズ | 選択した期間中のコントロールグループとトリートメントグループの推定ユーザー数。 | レポートに選択した期間中にコントロールグループとトリートメントグループが達した最大メンバーシップサイズ。 |
 | 合計イベント数 | 選択した期間中に選択したイベントが発生した合計回数。これはユニークではありません（たとえば、ユーザーが期間中にイベントを2回実行した場合、イベントは2回カウントされます）。 | 選択した期間中の各日にイベントが発生した回数の合計。 |
 | ユーザーあたりのイベント数 | 選択した期間中に各グループのユーザーがコンバージョンイベントを完了した推定平均回数。 | 合計イベント数 ÷ 推定グループサイズ。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レポート指標" }
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -156,7 +156,7 @@ CSVエクスポートを実行するには、**Global Control Group Settings**�
 | グローバルコントロールグループレポートにデータがない。 | グローバルコントロールグループを保存せずにグローバルコントロールグループレポートにアクセスした場合、レポートにデータは表示されません。グローバルコントロールグループを作成して保存し、再試行してください。 |
 | コンバージョン率が0%、またはイベントが0件以上発生しているにもかかわらずグラフが表示されない。 | コンバージョン数が非常に少なく、コントロールグループまたはトリートメントグループが非常に大きい場合、コンバージョン率は0%に丸められ、グラフに表示されないことがあります。合計イベント数の指標を確認することで検証できます。増分アップリフト率の指標を使用して、2つのグループの効果を比較できます。 |
 | コンバージョン率（またはその他の指標）が、データを表示する期間によって大幅に変動する。 | 短い期間でデータを表示している場合、指標が日ごとや週ごとに変動する可能性があります。少なくとも1か月以上の期間で指標を表示してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 ### 注意事項 {#things-to-watch-for}
 
@@ -180,9 +180,9 @@ CSVエクスポートを実行するには、**Global Control Group Settings**�
 
 #### 開発者コンソールのグローバルコントロールグループセグメント {#global-control-group-segments-on-the-developer-console}
 
-[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページの**Additional API Identifiers**セクションに、複数の**Global Control** セグメントが表示される場合があります。これは、グローバルコントロールグループが有効または無効にされるたびに、新しいグローバルコントロールグループが形成されるためです。これにより、「Global Control Group」というラベルの付いた複数のセグメントが作成されます。
+[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページの**Additional API Identifiers**セクションに、複数の**Global Control** セグメントが表示される場合があります。これは、グローバルコントロールグループが有効または無効にされるたびに、新しいグローバルコントロールグループが形成されるためです。これにより、「Global Control Group」というラベルの付いた複数のセグメントが作成されます。
 
-これらのセグメントのうち、アクティブなものは1つだけで、[`/users/export/global_control_group`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)を使用してクエリするか、ダッシュボードからエクスポートできます。ダッシュボードからのエクスポートでは、このグローバルコントロールグループを構成するサブセグメントが具体的に示されます。
+これらのセグメントのうち、アクティブなものは1つだけで、[`/users/export/global_control_group`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group)を使用してクエリするか、ダッシュボードからエクスポートできます。ダッシュボードからのエクスポートでは、このグローバルコントロールグループを構成するサブセグメントが具体的に示されます。
 
 ## テストのベストプラクティス {#testing-best-practices}
 

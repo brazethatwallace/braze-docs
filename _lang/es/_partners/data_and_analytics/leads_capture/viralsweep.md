@@ -24,7 +24,7 @@ La integración de Braze y ViralSweep te permite realizar sorteos y concursos en
 | ----------- | ----------- |
 | Cuenta de ViralSweep | Se requiere una cuenta de ViralSweep que utilice el plan de empresa para aprovechar esta asociación. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de datos de usuario y correo electrónico. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -33,13 +33,13 @@ La integración de Braze y ViralSweep te permite realizar sorteos y concursos en
 
 En ViralSweep, ve a **Integrations > Email & SMS > Add Service** y selecciona **Braze**.
 
-![]({% image_buster /assets/img/viralsweep/connect.gif %})
+![Página de integraciones de ViralSweep con Braze seleccionado en los servicios de correo electrónico y SMS.]({% image_buster /assets/img/viralsweep/connect.gif %})
 
 ### Paso 2: Añadir credenciales de Braze {#step-2-add-braze-credentials}
 
-En la ventana de configuración de integraciones, proporciona tu clave de API REST de Braze y tu punto de conexión REST. Asegúrate de que el punto de conexión que proporcionas no incluye `https://`, por ejemplo, `dashboard-03.braze.com`.
+En la ventana de configuración de integraciones, proporciona tu clave de API REST de Braze y tu endpoint REST. Asegúrate de que el endpoint que proporcionas no incluya `https://`, por ejemplo, `dashboard-03.braze.com`.
 
-![Página de integración del servicio ViralSweep que solicita al usuario la clave de API de Braze y la URL del dashboard de Braze.]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
+![Página de integración del servicio ViralSweep que solicita al usuario la clave de API de Braze y la URL del panel de Braze.]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
 
 Haz clic en **Connect**.
 
@@ -69,7 +69,7 @@ Sí. Si realizas una promoción y ViralSweep pasa a alguien a Braze, y luego rea
 
 ## Solución de problemas {#troubleshooting}
 
-Si te has conectado a Braze y no se están añadiendo datos a tu cuenta, puede deberse a que:
+Si te has conectado a Braze y no se están añadiendo datos a tu cuenta, puede deberse a lo siguiente:
 
 - **El correo electrónico ya existe en Braze**<br>
 Es posible que la dirección de correo electrónico introducida en la promoción ya figure en tu cuenta de Braze, por lo que no se añadirá de nuevo; solo se actualizará si se proporciona nueva información para ese contacto.<br><br>

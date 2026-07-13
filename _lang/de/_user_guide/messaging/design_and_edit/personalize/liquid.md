@@ -51,13 +51,13 @@ guide_featured_list:
 
 Liquid fungiert als Brücke zwischen Ihrer Nachricht und Ihren Nutzerdaten. Wenn Sie eine Nachricht senden, durchsucht Braze den Text nach Liquid-Syntax. Sobald Liquid gefunden wird, werden die relevanten Daten für die jeweilige Nutzer:in abgerufen und der Code durch den tatsächlichen Wert ersetzt, bevor die Nachricht gesendet wird.
 
-Sie können beispielsweise ein angepasstes Attribut aus einem Nutzerprofil abrufen, das ein ganzzahliger Datentyp ist, und diesen Wert auf die nächste ganze Zahl runden. Weitere Informationen zur Liquid-Syntax und -Verwendung finden Sie unter [**Unterstützte Personalisierungs-Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Sie können beispielsweise ein angepasstes Attribut aus einem Nutzerprofil abrufen, das ein ganzzahliger Datentyp ist, und diesen Wert auf die nächste ganze Zahl runden. Weitere Informationen zur Liquid-Syntax und -Verwendung finden Sie unter [**Unterstützte Personalisierungs-Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 Die Liquid-Template-Sprache unterstützt die Verwendung von Objekten, Tags und Filtern.
 
-- [**Objekte**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ermöglichen es Ihnen, personalisierte Attribute in Ihre Nachrichten einzufügen.
-- [**Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) ermöglichen es Ihnen, Daten in Nachrichten einzufügen und bedingte Logik zu verwenden, um Nachrichten zu senden, wenn bestimmte Bedingungen erfüllt sind. Sie können Tags beispielsweise nutzen, um intelligente Logik wie „if“-Anweisungen in Ihre Campaigns einzubauen.
-- [**Filter**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) ermöglichen es Ihnen, personalisierte Attribute und dynamischen Content umzuformatieren. Sie könnten beispielsweise den [`date`-Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#date-filter) verwenden, um einen Zeitstempel wie *2016-09-07 08:43:50 UTC* in ein Datum wie *7. September 2016* umzuwandeln.
+- [**Objekte**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ermöglichen es Ihnen, personalisierte Attribute in Ihre Nachrichten einzufügen.
+- [**Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) ermöglichen es Ihnen, Daten in Nachrichten einzufügen und bedingte Logik zu verwenden, um Nachrichten zu senden, wenn bestimmte Bedingungen erfüllt sind. Sie können Tags beispielsweise nutzen, um intelligente Logik wie „if“-Anweisungen in Ihre Campaigns einzubauen.
+- [**Filter**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) ermöglichen es Ihnen, personalisierte Attribute und dynamischen Content umzuformatieren. Sie könnten beispielsweise den [`date`-Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#date-filter) verwenden, um einen Zeitstempel wie *2016-09-07 08:43:50 UTC* in ein Datum wie *7. September 2016* umzuwandeln.
 
 {% alert warning %}
 Braze unterstützt derzeit nicht 100 % von Shopifys Liquid, sondern nur bestimmte Teile, die wir in unserer Dokumentation beschrieben haben. Wir empfehlen dringend, alle Nachrichten mit Liquid vor dem Versand zu testen, um das Risiko von Fehlern oder der Verwendung von nicht unterstütztem Liquid zu minimieren.
@@ -65,7 +65,7 @@ Braze unterstützt derzeit nicht 100 % von Shopifys Liquid, sondern nur bestimmt
 
 ### Liquid-5-Unterstützung {#liquid-5-support}
 
-Braze unterstützt Liquid bis einschließlich **Liquid 5 von Shopify**. Die Liquid-Implementierung unterstützt Syntax-Personalisierungs-Tag-Typen und Whitespace-Kontrolle. Weitere Informationen zu bestimmten Tags finden Sie unter [Syntax-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#syntax-tags).
+Braze unterstützt Liquid bis einschließlich **Liquid 5 von Shopify**. Die Liquid-Implementierung unterstützt Syntax-Personalisierungs-Tag-Typen und Whitespace-Kontrolle. Weitere Informationen zu bestimmten Tags finden Sie unter [Syntax-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#syntax-tags).
 
 Die folgenden neuen Array- und mathematischen Filter stehen Ihnen in Ihrem Liquid beim Erstellen Ihrer Nachrichten zur Verfügung.
 - `at_least`
@@ -75,7 +75,7 @@ Die folgenden neuen Array- und mathematischen Filter stehen Ihnen in Ihrem Liqui
 - `sort_natural`
 - `where`
 
-Definitionen finden Sie unter [Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/).
+Definitionen finden Sie unter [Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
 
 ## Wichtige Begriffe {#terms-to-know}
 

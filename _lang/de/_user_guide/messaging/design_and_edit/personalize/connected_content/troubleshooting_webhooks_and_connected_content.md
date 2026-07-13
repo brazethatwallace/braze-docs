@@ -11,7 +11,7 @@ description: "Dieser Artikel behandelt die Fehlerbehebung bei Webhook- und Conne
 
 ## 4XX-Fehler {#4xx-errors}
 
-`4XX`-Fehler weisen darauf hin, dass ein Problem mit der an den Endpunkt gesendeten Anfrage vorliegt. Diese Fehler werden in der Regel durch fehlerhafte Anfragen verursacht, einschließlich fehlerhafter Parameter, fehlender Authentifizierungs-Header oder falscher URLs. Beachten Sie, dass diese Fehler auch für den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) gelten.
+`4XX`-Fehler weisen darauf hin, dass ein Problem mit der an den Endpunkt gesendeten Anfrage vorliegt. Diese Fehler werden in der Regel durch fehlerhafte Anfragen verursacht, einschließlich fehlerhafter Parameter, fehlender Authentifizierungs-Header oder falscher URLs. Beachten Sie, dass diese Fehler auch für den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) gelten.
 
 In der folgenden Tabelle finden Sie Details zu den Fehlercodes und Schritte zur Behebung:
 
@@ -108,7 +108,7 @@ table td {
       <td>Es wurden zu viele Anfragen in einem bestimmten Zeitraum gesendet.</td>
       <td>
         <ul>
-          <li>Senken Sie das Rate-Limit Ihrer Kampagne oder Ihres Canvas-Schritts.</li>
+          <li>Senken Sie das Rate-Limit Ihrer Campaign oder Ihres Canvas-Schritts.</li>
         </ul>
       </td>
     </tr>
@@ -149,18 +149,18 @@ Wenn Anfragen gestoppt werden, simuliert Braze Antworten mit einem `598`-Fehlerc
 
 Die folgenden Fehlercodes tragen zur Fehlerzählung des Detektors für fehlerhafte Hosts bei: `408`, `429`, `502`, `503`, `504`, `529`.
 
-Für Webhooks wiederholt Braze automatisch HTTP-Anfragen, die vom Detektor für fehlerhafte Hosts gestoppt wurden. Diese automatische Wiederholung verwendet exponentielles Backoff und wiederholt nur wenige Male, bevor sie fehlschlägt. Weitere Informationen zu Webhook-Fehlern finden Sie unter [Fehler, Wiederholungslogik und Zeitüberschreitungen]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts).
+Für Webhooks wiederholt Braze automatisch HTTP-Anfragen, die vom Detektor für fehlerhafte Hosts gestoppt wurden. Diese automatische Wiederholung verwendet exponentielles Backoff und wiederholt nur wenige Male, bevor sie fehlschlägt. Weitere Informationen zu Webhook-Fehlern finden Sie unter [Fehler, Wiederholungslogik und Zeitüberschreitungen]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#errors-retry-logic-and-timeouts).
 
-Für Connected-Content fährt Braze, wenn Anfragen an den Ziel-Host vom Detektor für fehlerhafte Hosts gestoppt werden, fort, Nachrichten zu rendern und Ihrer Liquid-Logik zu folgen, als hätte es einen Fehler-Antwortcode erhalten. Wenn Sie sicherstellen möchten, dass diese Connected-Content-Anfragen wiederholt werden, wenn sie vom Detektor für fehlerhafte Hosts gestoppt werden, verwenden Sie die Option `:retry`. Weitere Informationen zur Option `:retry` finden Sie unter [Connected-Content-Wiederholungen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
+Für Connected-Content fährt Braze, wenn Anfragen an den Ziel-Host vom Detektor für fehlerhafte Hosts gestoppt werden, fort, Nachrichten zu rendern und Ihrer Liquid-Logik zu folgen, als hätte es einen Fehler-Antwortcode erhalten. Wenn Sie sicherstellen möchten, dass diese Connected-Content-Anfragen wiederholt werden, wenn sie vom Detektor für fehlerhafte Hosts gestoppt werden, verwenden Sie die Option `:retry`. Weitere Informationen zur Option `:retry` finden Sie unter [Connected-Content-Wiederholungen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
-Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
+Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact).
 
 ### Connected-Content gibt keinen Antworttext zurück {#connected-content-returns-no-response-body}
 
 Wenn ein Connected-Content-Aufruf in Ihrer Nachrichtenvorschau oder beim Senden leer gerendert wird, prüfen Sie Folgendes:
 
 - **Geschützte Leerzeichen in der URL:** Braze entfernt geschützte Leerzeichen (`&nbsp;` oder Unicode `U+00A0`) aus Connected-Content-URLs, bevor die Anfrage gesendet wird. Wenn Ihre URL aus einem Dokument oder Dashboard-Feld kopiert wurde, das geschützte Leerzeichen zwischen Zeichen eingefügt hat, kann die Anfrage fehlschlagen oder keinen verwendbaren Antworttext zurückgeben. Geben Sie die URL im Klartext erneut ein oder entfernen Sie versteckte Leerzeichen und zeigen Sie dann erneut die Vorschau an.
-- **HTTP-Fehler und leere Antworttexte:** Bei Statuscodes über 300 oder blockierten Hosts kann Connected-Content einen leeren String rendern. Siehe [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) und überprüfen Sie Fehler im **Nachrichten-Aktivitätsprotokoll**.
+- **HTTP-Fehler und leere Antworttexte:** Bei Statuscodes ab 300 oder blockierten Hosts kann Connected-Content einen leeren String rendern. Siehe [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) und überprüfen Sie Fehler im **Nachrichten-Aktivitätsprotokoll**.
 
 ## Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll {#automated-emails-and-message-activity-log-entries}
 
@@ -169,14 +169,14 @@ Wenn ein Connected-Content-Aufruf in Ihrer Nachrichtenvorschau oder beim Senden 
 Wenn in einem Workspace innerhalb von 24 Stunden mehr als 100.000 Webhook- oder Connected-Content-Endpunkt-Fehler (einschließlich Wiederholungen) auftreten, sendet Braze Ihnen eine E-Mail mit den folgenden Informationen zur Behebung der Fehler.
 
 - Name des Workspace
-- Ein Link zum Canvas oder zur Kampagne
+- Ein Link zum Canvas oder zur Campaign
 - Endpunkt-URL
 - Fehlercode
 - Zeitpunkt, zu dem der Fehler zuletzt beobachtet wurde
 - Links zum Nachrichten-Aktivitätsprotokoll und zur zugehörigen Dokumentation
 
 {% alert note %}
-Sie können den Fehlerschwellenwert pro Workspace konfigurieren. Um diesen Schwellenwert anzupassen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
+Sie können den Fehlerschwellenwert pro Workspace konfigurieren. Um diesen Schwellenwert anzupassen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 Die Endpunkt-Fehler sind:
@@ -193,7 +193,7 @@ Um sich für den Empfang dieser E-Mails anzumelden, gehen Sie wie folgt vor:
 
 ### Einträge im Nachrichten-Aktivitätsprotokoll {#message-activity-log-entries}
 
-Wenn ein Fehler auftritt, gibt es mindestens einen Eintrag im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), der damit zusammenhängt. Wenn die Anfrage wiederholt wird und schließlich erfolgreich ist, sind diese Details in Currents und der Snowflake-Datenfreigabe verfügbar. Beachten Sie, dass selbst wenn eine Anfrage nach einer Wiederholung schließlich erfolgreich ist, die Fehler dennoch die automatisierte E-Mail auslösen können.
+Wenn ein Fehler auftritt, gibt es mindestens einen Eintrag im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), der damit zusammenhängt. Wenn die Anfrage wiederholt wird und schließlich erfolgreich ist, sind diese Details in Currents und der Snowflake-Datenfreigabe verfügbar. Beachten Sie, dass selbst wenn eine Anfrage nach einer Wiederholung schließlich erfolgreich ist, die Fehler dennoch die automatisierte E-Mail auslösen können.
 
 ### Zusätzliche Fehler-Insights in Braze-Currents {#additional-failure-insights-in-braze-currents}
 
@@ -203,4 +203,4 @@ Um die Transparenz bei Webhook-bezogenen Problemen zu erhöhen, streamt Braze de
 Connected-Content-Anfragen sind in diesen Webhook-Fehlerereignissen nicht enthalten.
 {% endalert %}
 
-Weitere Informationen finden Sie im [Glossar der Nachrichten-Engagement-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Weitere Informationen finden Sie im [Glossar der Nachrichten-Engagement-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).

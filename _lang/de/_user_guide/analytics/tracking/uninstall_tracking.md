@@ -8,7 +8,7 @@ tool: Reports
 
 ---
 
-# Uninstall-Tracking {#uninstall-tracking}
+# Uninstall-Tracking
 
 > Dieser Artikel zeigt Ihnen, wie Sie die Gesamtheit der App-Deinstallationen im Laufe der Zeit betrachten können, um Trends und Anomalien zu erkennen, und wie Sie Deinstallationen auf Kampagnenebene verfolgen können, um festzustellen, ob eine bestimmte Campaign App-Installationen fördert oder verhindert.
 
@@ -37,7 +37,7 @@ Wenn Sie das Uninstall-Tracking für eine App aktivieren, sendet Braze jede Nach
 
 ### Konfiguration {#configuration}
 
-Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Nutzerprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
+Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Nutzerprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
 
 ## Segmente nach Deinstallationen filtern {#filtering-segments-by-uninstalls}
 
@@ -81,9 +81,13 @@ Weitere Informationen zur Verwendung des Uninstall-Trackings finden Sie in unser
 
 ## Fehlerbehebung {#troubleshooting}
 
+### Wann wird ein Nutzerprofil als deinstalliert markiert? Wann wird die Deinstallationsmarkierung entfernt? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+
+Braze markiert eine:n Nutzer:in als deinstalliert, wenn erkannt wird, dass die App nicht mehr auf dem Gerät vorhanden ist (siehe [Funktionsweise](#how-it-works) zur Erkennung über reguläre Push-Nachrichten und optionales Uninstall-Tracking). Nachdem jemand Ihre App erneut installiert hat, kann die Deinstallationsmarkierung im Profil bestehen bleiben, bis die Person **die App öffnet und eine neue Sitzung startet** – die bloße Neuinstallation entfernt die Markierung nicht. Bis zu dieser Sitzung behandeln Segmente und Filter, die den Deinstallationsstatus verwenden (z. B. **Has Not Uninstalled**), den oder die Nutzer:in weiterhin als deinstalliert.
+
 ### Warum sehe ich plötzlich einen Anstieg bei den Deinstallationen? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
-Wenn die Deinstallationen von Apps sprunghaft ansteigen, kann das daran liegen, dass Firebase Cloud Messaging (FCM) und der Apple Push Notification Service (APNS) alte Token in unterschiedlicher Häufigkeit widerrufen.
+Wenn die Deinstallationen von Apps sprunghaft ansteigen, kann das daran liegen, dass Firebase Cloud Messaging (FCM) und der Apple Push Notification Service (APNs) alte Token in unterschiedlicher Häufigkeit widerrufen.
 
 {% alert note %}
 Aus Datenschutzgründen können die Push-Anbieter von Braze Token in unregelmäßigen Abständen widerrufen, was dazu führen kann, dass die Anzahl der Deinstallationen in einem bestimmten Zeitraum gelegentlich stark ansteigt.<br><br>Um diese Änderungen zu validieren, überwachen Sie das Uninstall-Tracking zusammen mit einer Metrik für Nutzeraktionen, wie beispielsweise der direkten Push-Öffnungsrate. Wenn die Deinstallationen stark zunehmen, die direkten Push-Öffnungen jedoch stabil bleiben, spiegelt der Anstieg wahrscheinlich eher die Aufhebung alter Token durch einen Anbieter wider als das tatsächliche Nutzerverhalten.
@@ -97,7 +101,7 @@ So zeigen Sie Deinstallationen nach Segment an:
 1. Gehen Sie zur **Home**-Seite des Dashboards.
 2. Wählen Sie im Abschnitt **Performance Over Time** die Option **Uninstalls** für **Statistics For** und **By Segment** für **Breakdown** aus.
 
-Wenn Sie ein Segment haben, das passive Nutzer:innen mit aktiviertem [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) verfolgt, vergleichen Sie dessen Deinstallationstrend mit dem allgemeinen App-Trend.
+Wenn Sie ein Segment haben, das passive Nutzer:innen mit aktiviertem [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) verfolgt, vergleichen Sie dessen Deinstallationstrend mit dem allgemeinen App-Trend.
 
 ### Wie kann ich bestätigen, dass Deinstallationen echt sind? {#how-do-i-confirm-uninstalls-are-genuine}
 
@@ -108,3 +112,7 @@ Wenn Sie ein Segment haben, das passive Nutzer:innen mit aktiviertem [Analytics-
 Der Unterschied ist zu erwarten.
 
 Apple verwendet einen zufälligen Zeitplan, um die Meldung zu verzögern, wenn ein Push-Token ungültig wird. Das bedeutet, dass APNs auch nach der Deinstallation einer App noch für eine gewisse Zeit erfolgreiche Antworten auf Push-Benachrichtigungen zurückgeben können. Diese Verzögerung ist beabsichtigt und dient dem Schutz der Privatsphäre der Nutzer:innen. Es wird kein Bounce oder Fehler gemeldet, bis APNs einen `410`-Status für ein ungültiges Token zurückgibt.
+
+### Wie hängt das Uninstall-Tracking mit stillen oder Hintergrund-Push-Nachrichten zusammen? {#how-does-uninstall-tracking-relate-to-silent-or-background-push}
+
+Die Deinstallationserkennung kann Push-Nachrichten mit niedriger Priorität im Hintergrund verwenden, die nicht als sichtbare Benachrichtigung angezeigt werden. Diese sind von den [**Sends**]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) einer Campaign in den Standard-Messaging-Analytics getrennt. Wenn Sie Deinstallationstrends analysieren, betrachten Sie die Deinstallationsdiagramme zusammen mit den Push-Engagement-Metriken, anstatt Deinstallations-Pushes direkt mit den Gesamtzahlen der Marketing-Sends zu vergleichen.

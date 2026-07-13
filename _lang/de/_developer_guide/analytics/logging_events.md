@@ -14,7 +14,7 @@ description: "Erfahren Sie, wie Sie angepasste Events über das Braze SDK protok
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
 {% endalert %}
 
-Informationen zu empfohlenen E-Commerce-Events finden Sie unter [E-Commerce-Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Informationen zu empfohlenen E-Commerce-Events finden Sie unter [E-Commerce-Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 ## Protokollieren eines angepassten Events {#logging-a-custom-event}
 
@@ -345,9 +345,9 @@ Bei der Protokollierung eines angepassten Events können mehrere Eigenschaften p
 
 Erkundigen Sie sich bei Ihren Entwickler:innen, welche Event-Eigenschaften getrackt werden. Beachten Sie, dass bei allen Event-Eigenschaften zwischen Groß- und Kleinschreibung unterschieden wird. Weitere Informationen zum Tracking angepasster Events finden Sie in diesen Artikeln basierend auf Ihrer Plattform:
 
-* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Protokoll überprüfen {#verify-log}
 
@@ -355,15 +355,15 @@ Um zu bestätigen, dass die Event-Eigenschaften erfolgreich getrackt werden, kö
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**.
 2. Suchen Sie Ihr angepasstes Event in der Liste.
-3. Wählen Sie für Ihr Event **Manage Properties**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
+3. Wählen Sie für Ihr Event **Eigenschaften verwalten**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
 
 ### Werte überprüfen {#verify-values}
 
-Nachdem Sie [Ihre:n Nutzer:in als Testnutzer:in hinzugefügt haben]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users), führen Sie die folgenden Schritte aus, um Ihre Werte zu überprüfen:
+Nachdem Sie [Ihre:n Nutzer:in als Testnutzer:in hinzugefügt haben]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab#adding-test-users), führen Sie die folgenden Schritte aus, um Ihre Werte zu überprüfen:
 
 1. Führen Sie das angepasste Event innerhalb der App aus.
 2. Warten Sie etwa 10 Sekunden, bis die Daten übertragen wurden.
-3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/), um das angepasste Event und den Wert der damit übergebenen Event-Eigenschaft anzuzeigen.
+3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log), um das angepasste Event und den Wert der damit übergebenen Event-Eigenschaft anzuzeigen.
 
 ## Fehlerbehebung bei angepassten Events {#troubleshooting-custom-events}
 
@@ -381,13 +381,13 @@ Wenn ein angepasstes Event nicht angezeigt wird, stimmt die getrackte Aktion in 
 Wenn Sie eine:n Nutzer:in nicht identifizieren, bevor Sie ein angepasstes Event protokollieren, kann Braze dieses Event einem anonymen Profil zuordnen.
 
 - Rufen Sie `changeUser()` auf, bevor Sie das angepasste Event ausführen, damit Braze es einem identifizierten Nutzerprofil zuordnet.
-- Testen Sie mit einer/einem identifizierten Testnutzer:in und überprüfen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/).
+- Testen Sie mit einer/einem identifizierten Testnutzer:in und überprüfen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log).
 
 ### Überprüfen der Einrichtung der Protokollierung angepasster Events {#verifying-custom-event-logging-setup}
 
 Wenn angepasste Events nicht wie erwartet angezeigt werden, bestätigen Sie, dass Ihr Entwickler:innen-Team die Protokollierung angepasster Events für die richtige App-Aktion implementiert hat.
 
 - Bitten Sie Ihr Entwickler:innen-Team zu überprüfen, ob das Event korrekt protokolliert und durch die erwartete Nutzer:innen-Aktion getriggert wird.
-- Wenn Ihr Team ein Ticket beim Braze Support eröffnet, fügen Sie [ausführliche Protokolle]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) und relevante Code-Snippets bei.
-- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwickler:innen-Team die [Voraussetzungen für den SDK-Debugger](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) nutzen, um ausführliche Protokolle zu generieren.
-- Wenn Ihr Entwickler:innen-Team das Problem nicht identifizieren kann, eröffnen Sie ein [Braze Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+- Wenn Ihr Team ein Ticket beim Braze Support eröffnet, fügen Sie [ausführliche Protokolle]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) und relevante Code-Snippets bei.
+- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwickler:innen-Team die [Voraussetzungen für den SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) nutzen, um ausführliche Protokolle zu generieren.
+- Wenn Ihr Entwickler:innen-Team das Problem nicht identifizieren kann, eröffnen Sie ein [Braze Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).

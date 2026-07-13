@@ -18,7 +18,7 @@ description: "BrazeAI Decisioning Studioエージェントのオーディエン�
 | **ランダムコントロール** | ランダムに選択されたオプションを受け取る顧客（ベースライン比較用） |
 | **Business-as-Usual（オプション）** | 現在のマーケティングジャーニーを受け取る顧客（既存のパフォーマンスとの比較用） |
 | **ホールドアウト（オプション）** | コミュニケーションを受け取らない顧客（キャンペーン全体の影響を測定するため） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Treatment groups" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トリートメントグループ" }
 
 ## オーディエンスの設定 {#configure-your-audience}
 
@@ -64,4 +64,4 @@ Brazeでは、複数のセグメントを取り込み、それらを組み合わ
 
 オーディエンスを定義したら、オーケストレーションのセットアップに進みます。
 
-- [オーケストレーションのセットアップ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [オーケストレーションのセットアップ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

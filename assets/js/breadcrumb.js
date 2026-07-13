@@ -37,7 +37,8 @@ $(document).ready(function() {
 
       var ol = $('<ol>');
       $.each(bc_items, function(i, item) { ol.append(item); });
-      breadcrumb.empty().append($('<nav>').attr('aria-label', 'Breadcrumb').append(ol));
+      var breadcrumbLabel = (typeof site_i18n !== 'undefined' && site_i18n['breadcrumb_nav']) ? site_i18n['breadcrumb_nav'] : 'Breadcrumb trail';
+      breadcrumb.empty().append($('<nav>').attr('aria-label', breadcrumbLabel).append(ol));
       breadcrumb.parent().addClass('has_breadcrumb');
     } else {
       breadcrumb.hide();

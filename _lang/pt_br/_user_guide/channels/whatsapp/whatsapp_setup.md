@@ -49,7 +49,7 @@ Na janela aberta, selecione **Next** até que o botão **Begin Integration** apa
 
 ### Etapa 2: Configuração do WhatsApp {#step-2-whatsapp-setup}
 
-Em seguida, você será guiado pelo fluxo de configuração da Braze. Para um passo a passo detalhado, consulte [Cadastro integrado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+Em seguida, você será guiado pelo fluxo de configuração da Braze. Para um passo a passo detalhado, consulte [Cadastro integrado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 Nesse fluxo, você irá:
 1. Criar ou selecionar suas contas Meta e WhatsApp Business. Certifique-se de revisar as [diretrizes de nome de exibição do WhatsApp](https://www.facebook.com/business/help/757569725593362). <br><br>É provável que você já tenha pelo menos uma conta Meta Business existente na sua empresa. Se for o caso, selecione aquela na qual você deseja que sua conta do WhatsApp Business esteja vinculada. As permissões de usuário e a verificação de negócios para o WhatsApp serão controladas centralmente na sua conta Meta Business.<br><br>
@@ -60,7 +60,7 @@ Após a conclusão da configuração, um grupo de inscrições dedicado ao Whats
 
 ### Etapa 3: Criar modelos de WhatsApp {#step-3-create-whatsapp-templates}
 
-Somente modelos de mensagem do WhatsApp aprovados podem ser usados para iniciar conversas com clientes. Os modelos de WhatsApp podem ser criados no [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Para ver a lista de recursos de envio de mensagens do WhatsApp compatíveis com a Braze, confira [Recursos compatíveis do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#supported-whatsapp-features).
+Somente modelos de mensagem do WhatsApp aprovados podem ser usados para iniciar conversas com clientes. Os modelos de WhatsApp podem ser criados no [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Para ver a lista de recursos de envio de mensagens do WhatsApp compatíveis com a Braze, confira [Recursos compatíveis do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
 
 1. **Navegue até o [gerenciador de modelos](https://business.facebook.com/wa/manage/message-templates)**<br>
 No Meta Business Manager, em **Account Tools**, selecione **Message Templates**.
@@ -87,10 +87,10 @@ Modelos aprovados podem ser usados em quantas Campaigns e Canvas você quiser. E
 
 ### Etapa 4: Criar uma Campaign de WhatsApp {#step-4-create-a-whatsapp-campaign}
 
-Depois que os modelos de WhatsApp forem aprovados, você pode acessar o dashboard para criar um [Canvas ou Campaign de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+Depois que os modelos de WhatsApp forem aprovados, você pode acessar o dashboard para criar um [Canvas ou Campaign de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 {% alert note %}
-Após a criação da sua conta do WhatsApp Business, a Meta determinará seu limite inicial de envio de mensagens. Para saber mais, confira [taxa de transferência]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/#throughput).
+Após a criação da sua conta do WhatsApp Business, a Meta determinará seu limite inicial de envio de mensagens. Para saber mais, confira [taxa de transferência]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc#throughput).
 {% endalert %}
 
 ## Próximas etapas {#next-steps}
@@ -100,7 +100,7 @@ Após concluir a integração, recomendamos completar os dois processos da Meta 
 	- Você pode já ter a verificação de negócios se utilizou um Meta Business Manager existente.
 - [Conta comercial oficial](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
-Também recomendamos ler sobre [números de telefone de usuários]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/) e adicionar quaisquer usuários que precisarão de acesso para criar [modelos de mensagem na sua organização](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143).
+Também recomendamos ler sobre [números de telefone dos usuários]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) e adicionar quaisquer usuários que precisarão de acesso para criar [modelos de mensagem na sua organização](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143).
 
 ### Armazenamento local da Cloud API do WhatsApp {#whatsapp-cloud-api-local-storage}
 

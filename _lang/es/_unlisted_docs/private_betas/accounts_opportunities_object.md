@@ -65,17 +65,17 @@ table td {
 | `phone`            | String     | No*      | El número de teléfono del usuario. |
 | `user_role`             | String     | No       | El rol que tiene el usuario en la cuenta, como "director" o "empleado". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-<sup>Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
+<sup>*Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
 
 #### Usar un archivo CSV {#using-a-csv-file}
 
 Carga tu CSV con las relaciones usuario-cuenta a Braze:
 
-1. Ve a **Configuración de datos** > **Cuentas**.
-2. Selecciona **Actualizar datos**.
-3. En **Carga de CSV**, selecciona **Usuarios** y luego carga tu archivo a Braze.
+1. Ve a **Data Settings** > **Accounts**.
+2. Selecciona **Update data**.
+3. En **CSV upload**, selecciona **Users** y luego carga tu archivo a Braze.
 
-![El menú desplegable "Cargar datos" en la página "Cuentas" en Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![El menú desplegable "Upload data" en la página "Accounts" en Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ### Paso 2: Importar datos de cuenta {#step-2-import-account-data}
 
@@ -91,7 +91,7 @@ table td {
 |-----------------------------|------------|----------|------------------------------------------------------------------------------------|
 | `id`                          | String     | Sí      | El ID de la cuenta en tu plataforma de administración de las relaciones con el cliente (CRM). |
 | `name`                        | String     | Sí      | El nombre de la cuenta.                                                                |
-| `type`                        | String     | No       | El tipo de cuenta, como cliente, socio o revendedor.                                                                                   |
+| `type`                        | String     | No       | El tipo de cuenta, como cliente, partner o revendedor.                                                                                   |
 | `annual_revenue`              | String     | No       | Ingresos anuales de la cuenta.                                                      |
 | `industry`                    | String     | No       | Industria en la que opera la cuenta.                                             |
 | `number_of_employees`         | String     | No       | Número de empleados, admite rangos.                                           |
@@ -113,21 +113,21 @@ table td {
 Aunque algunos campos son opcionales, inclúyelos cuando sea posible porque son nombres de campo reservados y ayudan a mantener tus datos organizados.
 {% endalert %}
 
-A continuación, importa tus datos de cuenta a Braze cargando un archivo CSV o usando la REST API de Braze. Puedes ver estos datos en **Configuración de datos**. No puedes editar estos datos en el editor del navegador.
+A continuación, importa tus datos de cuenta a Braze cargando un archivo CSV o usando la REST API de Braze. Puedes ver estos datos en **Data Settings**. No puedes editar estos datos en el editor del navegador.
 
 #### Usar un archivo CSV
 
 Para importar tus datos a través de CSV:
 
-1. Ve a **Configuración de datos** > **Cuentas**.
-2. Selecciona **Actualizar datos**.
-3. En **Carga de CSV**, selecciona **Datos de cuenta** y luego carga tu archivo a Braze.
+1. Ve a **Data Settings** > **Accounts**.
+2. Selecciona **Update data**.
+3. En **CSV upload**, selecciona **Account Data** y luego carga tu archivo a Braze.
 
-![El menú desplegable "Cargar datos" en la página "Cuentas" en Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![El menú desplegable "Upload data" en la página "Accounts" en Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ## Usar la API de Braze {#using-the-braze-api}
 
-Las API (interfaces de programación de aplicaciones) permiten que diferentes sistemas de software se comuniquen de forma programática. Cuando interactúas con la API de Braze, envías solicitudes HTTP a puntos de conexión específicos. Los puntos de conexión son URL estructuradas que aceptan instrucciones y devuelven respuestas. El método HTTP le indica a Braze qué acción realizar, y el cuerpo de la solicitud contiene los datos.
+Las API (interfaces de programación de aplicaciones) permiten que diferentes sistemas de software se comuniquen de forma programática. Cuando interactúas con la API de Braze, envías solicitudes HTTP a endpoints específicos. Los endpoints son URL estructuradas que aceptan instrucciones y devuelven respuestas. El método HTTP le indica a Braze qué acción realizar, y el cuerpo de la solicitud contiene los datos.
 
 Para la administración de cuentas, la API de Braze usa estos métodos HTTP:
 
@@ -142,10 +142,10 @@ La API de Braze te da control programático sobre los datos de cuenta a escala. 
 Para más información sobre métodos HTTP y cómo funcionan las REST API, consulta los siguientes recursos:
 - [Métodos de solicitud HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) en MDN Web Docs
 - [Tutorial de REST API](https://restapitutorial.com/)
-- [Resumen de la API de Braze](https://www.braze.com/docs/api/basics)
+- [Resumen de la API de Braze]({{site.baseurl}}/api/basics)
 
 {% alert note %}
-Usa una clave de API con permisos de catálogos para autenticar solicitudes al punto de conexión `/business/accounts`.
+Usa una clave de API con permisos de catálogos para autenticar solicitudes al endpoint `/business/accounts`.
 {% endalert %}
 
 Esta sección cubre cómo usar la API de Braze para:
@@ -158,9 +158,9 @@ Esta sección cubre cómo usar la API de Braze para:
 
 Dado que `PUT` es idempotente, puedes enviar la misma solicitud varias veces y Braze actualiza los registros existentes en lugar de crear duplicados. Esto lo convierte en una opción confiable para mantener los registros de cuenta en Braze actualizados.
 
-El siguiente fragmento de código envía una solicitud `PUT` al punto de conexión `/business/accounts`. El arreglo `accounts` contiene múltiples objetos de empresa, cada uno mapeado a los campos de cuenta definidos en [Paso 2: Importar datos de cuenta](#step-2-import-account-data). Braze procesa cada objeto y crea o actualiza el registro correspondiente en tu página de **Cuentas**. Esta operación es asíncrona. Braze pone la solicitud en cola y la procesa en segundo plano, lo que la hace adecuada para importaciones masivas donde no se requiere confirmación inmediata.
+El siguiente fragmento de código envía una solicitud `PUT` al endpoint `/business/accounts`. El arreglo `accounts` contiene múltiples objetos de empresa, cada uno mapeado a los campos de cuenta definidos en [Paso 2: Importar datos de cuenta](#step-2-import-account-data). Braze procesa cada objeto y crea o actualiza el registro correspondiente en tu página de **Accounts**. Esta operación es asíncrona. Braze pone la solicitud en cola y la procesa en segundo plano, lo que la hace adecuada para importaciones masivas donde no se requiere confirmación inmediata.
 
-Para crear múltiples cuentas, envía una solicitud `PUT` a `/business/accounts`. Si una cuenta no existe, Braze agrega un nuevo elemento en la página de **Cuentas**. Cada solicitud puede admitir hasta 50 cuentas. Ten en cuenta que esta operación es asíncrona.
+Para crear múltiples cuentas, envía una solicitud `PUT` a `/business/accounts`. Si una cuenta no existe, Braze agrega un nuevo elemento en la página de **Accounts**. Cada solicitud puede admitir hasta 50 cuentas. Ten en cuenta que esta operación es asíncrona.
 
 Tu solicitud debería ser similar a la siguiente:
 
@@ -186,7 +186,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.acme.com",
                   "main_phone": "+1-212-555-1234",
                   "created_date": "2023-01-15T09:30:00Z",
-                  "account_owner_email_address": "owner@acme.com",
+                  "account_owner_email_address": "owner@example.com",
                   "parent_account_id": "",
                   "sic_code": "2011"
               },
@@ -206,7 +206,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.globalsolutions.com",
                   "main_phone": "+1-650-555-5678",
                   "created_date": "2023-02-20T14:45:00Z",
-                  "account_owner_email_address": "partner@globalsolutions.com",
+                  "account_owner_email_address": "partner@example.com",
                   "parent_account_id": "ACC001",
                   "sic_code": "7372"
               },
@@ -226,7 +226,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.oceanicventures.com",
                   "main_phone": "+1-305-555-6789",
                   "created_date": "2023-03-05T08:15:00Z",
-                  "account_owner_email_address": "contact@oceanicventures.com",
+                  "account_owner_email_address": "contact@example.com",
                   "parent_account_id": "",
                   "sic_code": "5941"
               }
@@ -236,7 +236,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
 
 ### Crear una cuenta {#create-one-account}
 
-Al igual que al crear múltiples cuentas, esta operación usa el método `PUT`. La diferencia es que el ID de la cuenta se incluye directamente en la URL del punto de conexión en lugar del cuerpo de la solicitud. Esto te da un control preciso sobre un solo registro.
+Al igual que al crear múltiples cuentas, esta operación usa el método `PUT`. La diferencia es que el ID de la cuenta se incluye directamente en la URL del endpoint en lugar del cuerpo de la solicitud. Esto te da un control preciso sobre un solo registro.
 
 El siguiente fragmento de código envía una solicitud `PUT` a `/business/accounts/ACC001`, donde `ACC001` es el identificador único de la cuenta. Esta operación es síncrona. Braze procesa la solicitud de inmediato y devuelve una respuesta tan pronto como se completa. Esto es adecuado para integraciones en tiempo real. Por ejemplo, cuando la información de la cuenta cambia en tu sistema, puedes reflejar esa actualización en Braze de inmediato para segmentación o personalización.
 
@@ -265,7 +265,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
                 "website": "http://www.acme.com",
                 "main_phone": "+1-212-555-1234",
                 "created_date": "2023-01-15T09:30:00Z",
-                "account_owner_email_address": "owner@acme.com",
+                "account_owner_email_address": "owner@example.com",
                 "parent_account_id": "",
                 "sic_code": "2011"
             }
@@ -277,7 +277,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
 
 El método `DELETE` elimina registros de cuenta de Braze. A diferencia de `PUT`, las solicitudes `DELETE` no son reversibles. Una vez que se elimina una cuenta, la asociación entre los usuarios y esa cuenta también se elimina.
 
-El siguiente fragmento de código envía una solicitud `DELETE` a `/business/accounts` con una lista de ID de cuenta en el cuerpo de la solicitud. Braze procesa cada ID y elimina el registro de cuenta correspondiente. Esta operación es asíncrona. Braze pone las eliminaciones en cola y las procesa en segundo plano. Usa esto para tareas de limpieza masiva, como cuando un grupo de cuentas ha abandonado, se ha consolidado o ya no es relevante para la segmentación en Braze.
+El siguiente fragmento de código envía una solicitud `DELETE` a `/business/accounts` con una lista de ID de cuenta en el cuerpo de la solicitud. Braze procesa cada ID y elimina el registro de cuenta correspondiente. Esta operación es asíncrona. Braze pone las eliminaciones en cola y las procesa en segundo plano. Usa esto para tareas de limpieza masiva, como cuando un grupo de cuentas ha cancelado, se ha consolidado o ya no es relevante para la segmentación en Braze.
 
 Para eliminar múltiples cuentas, envía una solicitud `DELETE` a `/business/accounts` con un cuerpo que contenga una lista de ID de cuenta. Ten en cuenta que esta operación es asíncrona.
 
@@ -298,7 +298,7 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts \
 
 ### Eliminar una cuenta {#delete-one-account}
 
-Al igual que al crear una cuenta, esta operación apunta a una cuenta específica incluyendo su ID directamente en la URL del punto de conexión. Esto te da un control preciso sobre un solo registro sin afectar a otros.
+Al igual que al crear una cuenta, esta operación apunta a una cuenta específica incluyendo su ID directamente en la URL del endpoint. Esto te da un control preciso sobre un solo registro sin afectar a otros.
 
 El siguiente fragmento de código envía una solicitud `DELETE` a `/business/accounts/ACC001`. Esta operación es síncrona. Braze procesa la solicitud de inmediato y devuelve una respuesta tan pronto como se completa. Usa esto cuando una cuenta individual se cierra, se fusiona o necesita ser eliminada de Braze por motivos de cumplimiento o higiene de datos.
 
@@ -317,11 +317,11 @@ Después de haber [importado tus datos a Braze](#importing-data-to-braze), puede
 
 ### Paso 1: Crear un segmento {#step-1-build-a-segment}
 
-A continuación, crea un segmento que combine datos de usuario y datos de cuenta. Para este ejemplo, te diriges a directores en empresas del sector salud para aumentar el registro en un nuevo seminario web de tu empresa de promoción de la salud.
+A continuación, crea un segmento que combine datos de usuario y datos de cuenta. Para este ejemplo, te diriges a directores en empresas del sector salud para aumentar el registro en un nuevo webinar de tu empresa de promoción de la salud.
 
-1. Ve a **Audiencia** > **Segments** y selecciona **Crear segmento**.
+1. Ve a **Audience** > **Segments** y selecciona **Create Segment**.
 2. Dale un nombre a tu segmento.
-3. En el **Constructor de segmentos**, selecciona el filtro **Empresa** y configura los siguientes filtros de segmentación. Cuando termines, selecciona **Guardar**.
+3. En el **Segment Builder**, selecciona el filtro **Business** y configura los siguientes filtros de segmentación. Cuando termines, selecciona **Save**.
 
 | Filtro                          | Descripción                                      |
 |---------------------------------|--------------------------------------------------|
@@ -330,7 +330,7 @@ A continuación, crea un segmento que combine datos de usuario y datos de cuenta
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}
-Actualmente, para usar múltiples filtros de cuenta, selecciona **Agregar criterios** en lugar de usar el menú desplegable **O/Y**.
+Actualmente, para usar múltiples filtros de cuenta, selecciona **Add Criteria** en lugar de usar el menú desplegable **OR/AND**.
 {% endalert %}
 
 ![Filtros de segmentación configurados para crear un segmento de usuarios que son directores en empresas del sector salud.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
@@ -341,11 +341,11 @@ La segmentación funciona solo con los primeros 1,000 registros de cuenta que co
 
 ### Paso 2: Usar Liquid para personalizar {#step-2-use-liquid-to-personalize}
 
-Ahora puedes personalizar tu mensaje para enviar a los usuarios información sobre oportunidades. En este ejemplo, redacta un mensaje para tus directores y vincúlalos al seminario web. También puedes usar un catálogo de Braze para obtener imágenes específicas de la industria para la personalización.
+Ahora puedes personalizar tu mensaje para enviar a los usuarios información sobre oportunidades. En este ejemplo, redacta un mensaje para tus directores y vincúlalos al webinar. También puedes usar un catálogo de Braze para obtener imágenes específicas de la industria para la personalización.
 
 #### Paso 2.1: Personalizar con información de cuenta {#step-21-personalize-with-account-information}
 
-Selecciona **Empresa** como tipo de personalización y luego selecciona **Nombre** para personalizar el mensaje con el nombre de la empresa del usuario.
+Selecciona **Business** como tipo de personalización y luego selecciona **Name** para personalizar el mensaje con el nombre de la empresa del usuario.
 
 Lo siguiente se copia a tu portapapeles.
 

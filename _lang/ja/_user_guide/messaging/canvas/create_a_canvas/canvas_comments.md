@@ -12,7 +12,7 @@ tool: Canvas
 
 > キャンバスのコメントは、マーケティングチームがキャンバスの細かい詳細を特定、議論、確認するための優れたコラボレーションスペースです。キャンバスを構築する際に、同僚からの追加フィードバックが必要な箇所を特定するためのコメントを作成・管理できます。
 
-![]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![コメントサイドバーに未解決のコメントスレッドが表示されたキャンバスビルダー。]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
 ## メリット {#benefits}
 
@@ -24,11 +24,11 @@ tool: Canvas
 
 ## コメントの方法 {#how-to-comment}
 
-デフォルトでは、サイドバーに未解決のコメントが表示されます。<i class="fa-solid fa-sliders"></i> フィルターアイコンを使用して、未解決のコメント、解決済みのコメント、すべてのコメントの表示を切り替えることができます。また、「自分宛」のコメントに切り替えると、自分がタグ付けされたスレッドが表示されます。
+デフォルトでは、サイドバーに未解決のコメントが表示されます。<i class="fa-solid fa-sliders" aria-label="フィルター"></i> フィルターアイコンを使用して、未解決のコメント、解決済みのコメント、すべてのコメントの表示を切り替えることができます。また、「自分宛」のコメントに切り替えると、自分がタグ付けされたスレッドが表示されます。
 
 コメントを残すには、キャンバスの上部にある <i class="fas fa-comment"></i> コメントアイコンをクリックします。カーソルがコメントアイコンに変わります。コメントしたいステップをクリックしてください。カーソルを元に戻すには、**Esc** キーを押すか、コメントアイコンを再度クリックします。
 
-##### キーボードショートカット {#keyboard-shortcuts}
+### キーボードショートカット {#keyboard-shortcuts}
 
 キーボードショートカットを使用してコメントを追加することもできます。
 
@@ -36,7 +36,7 @@ tool: Canvas
 | --- | --- |
 | <kbd>⌘</kbd> + <kbd>Enter</kbd> | <kbd>Ctrl</kbd> + <kbd>Enter</kbd>|
 | <kbd>Tab</kbd> + <kbd>Enter</kbd> | <kbd>Tab</kbd> + <kbd>Enter</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キーボードショートカット" }
 
 既存のコメントを表示するには、サイドバーを開くか、ステップ名の横にある <i class="fas fa-comment"></i> コメントアイコンを選択します。スレッド内の既存のコメントに返信することもできます。
 
@@ -48,7 +48,7 @@ tool: Canvas
 
 ## 通知の管理 {#managing-notifications}
 
-![]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![コメントアラートのキャンバス通知設定パネル。]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
 キャンバスのメール通知を管理するには、サイドバーを開いて <i class="fa-solid fa-bell"></i> **Notifications** をクリックします。ここで通知設定を選択できます。
 
@@ -56,4 +56,4 @@ tool: Canvas
 
 キャンバスのコメント通知をオフにするには、**None** を選択します。デフォルトでは、キャンバスの作成者はすべての新しいコメントの通知を受け取るようにオプトインされており、他のユーザーはメンションまたは返信の通知を受け取るようにオプトインされています。
 
-これらの通知設定の下にある **Comments within Canvas** トグルは、すべてのキャンバスにわたる通知のオプトイン/オプトアウトを制御します。この設定をオフにすると、コメントアクションに関するメール通知は一切届かなくなります。
+これらの通知設定の下にある **Comments within キャンバス** トグルは、すべてのキャンバスにわたる通知のオプトイン/オプトアウトを制御します。この設定をオフにすると、コメントアクションに関するメール通知は一切届かなくなります。

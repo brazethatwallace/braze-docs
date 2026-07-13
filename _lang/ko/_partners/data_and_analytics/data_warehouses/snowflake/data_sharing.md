@@ -2,7 +2,7 @@
 nav_title: "데이터 공유"
 article_title: Snowflake 데이터 공유
 page_order: 0
-description: "이 참조 문서에서는 Snowflake 보안 데이터 공유 통합에 대해 다루며, 이를 통해 Snowflake 인스턴스에서 직접 Braze 참여 및 캠페인 데이터에 액세스할 수 있습니다."
+description: "이 참조 문서에서는 Snowflake 보안 데이터 공유 통합에 대해 다루며, 이를 통해 Snowflake 인스턴스에서 직접 Braze 참여 및 Campaign 데이터에 액세스할 수 있습니다."
 page_type: partner
 search_tag: Partner
 
@@ -24,7 +24,7 @@ Snowflake 데이터 공유는 Braze 데이터 배포의 일부입니다. 데이�
 
 또한 Snowflake의 기본 제공 역할 및 권한 기능을 사용하면 Braze에서 공유된 데이터에 대한 액세스를 Snowflake 계정 및 해당 데이터에 이미 적용된 액세스 제어를 사용하여 제어하고 관리할 수 있습니다. 자체 데이터와 동일한 방식으로 액세스를 제한하고 모니터링할 수 있습니다.
 
-- **인사이트 도출 시간 단축**<br>구축하는 데 몇 주가 걸리는 ETL 프로세스에 작별을 고하세요. Braze와 Snowflake의 고유한 아키텍처 덕분에 모든 고객 참여 및 캠페인 데이터가 데이터 레이크에 도착하는 즉시 액세스하고 쿼리할 수 있습니다. 데이터가 복사되거나 이동되지 않으므로 가장 관련성 높고 최신의 정보만을 기반으로 고객 경험을 제공할 수 있습니다.
+- **인사이트 도출 시간 단축**<br>구축하는 데 몇 주가 걸리는 ETL 프로세스에 작별을 고하세요. Braze와 Snowflake의 고유한 아키텍처 덕분에 모든 고객 참여 및 Campaign 데이터가 데이터 레이크에 도착하는 즉시 액세스하고 쿼리할 수 있습니다. 데이터가 복사되거나 이동되지 않으므로 가장 관련성 높고 최신의 정보만을 기반으로 고객 경험을 제공할 수 있습니다.
 - **데이터 사일로 해소**<br>채널과 플랫폼 전반에 걸쳐 고객에 대한 전체적인 뷰를 만드세요. 데이터 공유를 통해 Braze 고객 참여 데이터를 다른 모든 Snowflake 데이터와 결합하는 것이 그 어느 때보다 쉬워져, 단일하고 신뢰할 수 있는 소스에서 더 풍부한 인사이트를 얻을 수 있습니다.
 - **참여 성과 비교**<br>Braze 벤치마크로 고객 참여 전략을 최적화하세요. Braze와 Snowflake가 제공하는 이 인터랙티브 도구를 사용하면 채널, 산업 및 기기 플랫폼 전반의 벤치마크와 브랜드의 참여 데이터를 비교할 수 있습니다.
 
@@ -36,7 +36,7 @@ Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이
 | ----------- | ----------- |
 | Braze 액세스 | 데이터 공유를 설정하려면 Braze 계정 또는 고객 성공 매니저에게 문의하세요. |
 | Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 보안 데이터 공유 설정 {#setting-up-secure-data-sharing}
 
@@ -44,7 +44,7 @@ Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake
 
 ### 1단계: Braze에서 데이터 공유 전송 {#step-1-send-the-datashare-from-braze}
 
-1. Braze에서 **Partner Integrations** > **Data Sharing**으로 이동합니다.
+1. Braze에서 **파트너 통합** > **데이터 공유**로 이동합니다.
 2. Snowflake 계정 세부 정보와 로케이터를 입력합니다. 계정 로케이터를 가져오려면 대상 계정에서 `SELECT CURRENT_ACCOUNT()`를 실행하세요.
 3. CRR 공유를 사용하는 경우 클라우드 공급자와 리전을 지정합니다.
 4. 완료되면 **Create Datashare**를 선택합니다. 그러면 Snowflake 계정으로 데이터 공유가 전송됩니다.
@@ -77,7 +77,7 @@ Currents와 마찬가지로 Snowflake 보안 데이터 공유를 사용하여 �
 - 원시 이벤트 또는 사용자 데이터를 CRM(예: Salesforce)에 매핑
 - 기타 다양한 활용
 
-[여기에서 원시 테이블 스키마를 다운로드하세요.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[원시 테이블 스키마를 다운로드하세요.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### 사용자 ID 스키마 {#user-id-schema}
 
@@ -87,7 +87,7 @@ Currents와 마찬가지로 Snowflake 보안 데이터 공유를 사용하여 �
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정한 사용자 프로필의 고유 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 ID 스키마" }
 
 ## 중요 정보 및 제한 사항 {#important-information-and-limitations}
 

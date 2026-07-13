@@ -35,7 +35,7 @@ For a use case where you need to create or update a user profile in Braze withou
 
 ```json
 {
- "email_address": "test@braze.com",
+ "email_address": "test@example.com",
  "fields_to_export": ["braze_id", "user_aliases"]
 }
 ```
@@ -48,17 +48,17 @@ If the request does not return a user profile, you can choose to either create a
 
 Use the user track endpoint to create a user alias, using your chosen identifier as the alias name. By including `_update_existing_only` as `false` within the attribute, event, or purchase object where the new user alias is defined, you can create the alias profile and add attributes, events, and purchases to that profile simultaneously. 
 
-In order for the user alias to be a sendable profile, you must include the email address in the `email` field, as shown below.
+In order for the user alias to be a sendable profile, you must include the email address in the `email` field, as shown in the following example.
 
 ```json
 {
    "attributes": [
    {
      "user_alias" : {
-       "alias_name" : "test@braze.com",
+       "alias_name" : "test@example.com",
        "alias_label" : "email"
      },
-     "email": "test@braze.com",
+     "email": "test@example.com",
      "_update_existing_only": false,
      "string_attribute": "sherman",
      "boolean_attribute_1": true,
@@ -79,7 +79,7 @@ Use the email address as the identifier in the user track endpoint.
 {
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 25,
@@ -157,7 +157,7 @@ Customers can set up campaigns and Canvases to be API-triggered. The API request
     - Data that can be dynamically populated into the message at the time of sending.
 
 ### API campaigns
-When creating API campaigns (different from the API-triggered campaigns referenced above), the Braze dashboard is only used to generate a `campaign_id`, which lets the customer track analytics for campaign reporting. The campaign message itself is defined within the API request. 
+When creating API campaigns (different from the API-triggered campaigns referenced in this section), the Braze dashboard is only used to generate a `campaign_id`, which lets the customer track analytics for campaign reporting. The campaign message itself is defined within the API request. 
 - [Send API campaign immediately]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [Schedule an API campaign]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 

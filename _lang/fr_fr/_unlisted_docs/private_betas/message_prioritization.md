@@ -27,7 +27,7 @@ Imaginons que vous gérez des promotions par e-mail pour des partenariats payant
 
 ## Catégories {#categories}
 
-Les règles de priorisation reposent sur un classement de catégories, qui est un libellé que vous pouvez attribuer à une Campaign donnée (similaire à une [étiquette](https://www.braze.com/docs/user_guide/administrative/app_settings/tags)). Vous pouvez créer jusqu'à 20 catégories à un moment donné.
+Les règles de priorisation reposent sur un classement de catégories, qui est un libellé que vous pouvez attribuer à une Campaign donnée (similaire à une [étiquette]({{site.baseurl}}/user_guide/administrative/app_settings/tags)). Vous pouvez créer jusqu'à 20 catégories à un moment donné.
 
 Pour ajouter une nouvelle catégorie :
 
@@ -42,7 +42,7 @@ Pour ajouter une nouvelle catégorie :
 
 ![Un exemple de catégorie nommée « P3 » avec la description « Ceci deviendra ma troisième catégorie de priorité la plus élevée. »]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization3.png %}){: style="max-width:60%;"}
 
-Pour modifier ou supprimer une catégorie, sélectionnez le menu <i class="fas fa-ellipsis-vertical" aria-label="Menu d'options"></i>.
+Pour modifier ou supprimer une catégorie, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>.
 
 ## Règles de priorisation {#prioritization-rules}
 
@@ -61,7 +61,7 @@ Une fois vos catégories configurées, vous pouvez les classer dans un ensemble 
 {:start="4"}
 4. Continuez à ajouter des règles en sélectionnant **+ Ajouter une règle** sous votre dernière règle.
 
-Pour réorganiser les règles, sélectionnez et faites glisser l'icône <i class="fa-solid fa-grip-vertical" aria-label="Réorganiser"></i> en haut à gauche d'une règle. Pour supprimer une règle, sélectionnez le menu <i class="fas fa-ellipsis-vertical" aria-label="Menu d'options"></i> puis **Supprimer la règle**.
+Pour réorganiser les règles, sélectionnez et faites glisser l'icône <i class="fa-solid fa-grip-vertical"></i> au début d'une règle. Pour supprimer une règle, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> puis **Supprimer la règle**.
 
 N'oubliez pas de sélectionner **Enregistrer** pour que vos modifications soient appliquées.
 
@@ -128,24 +128,24 @@ Au moment de l'envoi, nous comparerons le message en cours d'envoi avec les autr
 
 ### Comment puis-je m'assurer qu'un message est toujours envoyé ? {#how-can-i-make-sure-a-message-is-always-sent}
 
-Il peut y avoir des scénarios où vous souhaitez qu'un message soit toujours envoyé, comme dans le cas de notifications transactionnelles ou légales. Dans ce cas, vous devriez désactiver la limite de fréquence pour ce message (ce qui le rend également inéligible à la priorisation des messages). Cela enverra le message chaque fois qu'il est planifié ou déclenché, sans tenir compte des autres envois en cours.
+Il peut y avoir des scénarios où vous souhaitez qu'un message soit toujours envoyé, comme dans le cas de notifications transactionnelles ou juridiques. Dans ce cas, vous devriez désactiver la limite de fréquence pour ce message (ce qui le rend également inéligible à la priorisation des messages). Cela enverra le message chaque fois qu'il est planifié ou déclenché, sans tenir compte des autres envois en cours.
 
 ### Quand les messages sont-ils réellement priorisés ? Y a-t-il un calendrier ? {#when-are-messages-actually-prioritized-is-there-a-schedule}
 
 Chaque message est priorisé à son propre moment d'envoi planifié. Il n'y a pas de moment d'évaluation universel pour les messages priorisés.
 
-### Mon message était planifié pour être envoyé, mais il ne l'a pas encore été en raison d'une limite de débit ou d'autres retards. Qu'est-ce que cela signifie pour la priorisation des autres Campaigns ? {#my-message-was-scheduled-to-send-already-but-it-hasnt-yet-because-of-rate-limiting-or-other-delays-what-does-this-mean-for-prioritizing-other-campaigns}
+### Mon message était planifié pour être envoyé, mais il ne l'a pas encore été en raison d'une limitation du débit ou d'autres retards. Qu'est-ce que cela signifie pour la priorisation des autres Campaigns ? {#my-message-was-scheduled-to-send-already-but-it-hasnt-yet-because-of-rate-limiting-or-other-delays-what-does-this-mean-for-prioritizing-other-campaigns}
 
 Nous supposerons que votre message a été envoyé à l'heure initialement planifiée s'il est encore en cours de traitement. Nous utiliserons cette hypothèse pour déterminer s'il faut envoyer d'autres messages priorisés à venir. Lorsque ce message sera finalement envoyé, nous utiliserons l'heure d'envoi réelle.
 
 ### Mon message a été priorisé mais annulé à la dernière minute. Qu'est-ce que cela signifie pour la priorisation ? {#my-message-was-prioritized-but-aborted-last-minute-what-does-that-mean-for-prioritization}
 
-Lorsqu'un message est priorisé, Braze supposera qu'il a été envoyé à l'heure initialement planifiée. De manière générale pour la priorisation des messages, nous ne recommandons pas d'utiliser les abandons Liquid. Si un message est abandonné en raison de la [logique Liquid `abort_message`](https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), nous supposerons qu'il a été envoyé à cet utilisateur et prioriserons les futures Campaigns en conséquence.
+Lorsqu'un message est priorisé, Braze supposera qu'il a été envoyé à l'heure initialement planifiée. De manière générale pour la priorisation des messages, nous ne recommandons pas d'utiliser les abandons Liquid. Si un message est abandonné en raison de la [logique Liquid `abort_message`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), nous supposerons qu'il a été envoyé à cet utilisateur et prioriserons les futures Campaigns en conséquence.
 
 Imaginons que vous avez deux messages : Message 1 et Message 2. Si le Message 1 est abandonné en faveur d'un futur Message 2 de priorité supérieure, cela ne garantit pas que le Message 2 sera effectivement envoyé. Le Message 2 peut toujours être abandonné pour diverses raisons, notamment :
 
 - Les abandons Liquid
-- L'utilisateur ne faisant plus partie du segment
+- L'utilisateur ne faisant plus partie du Segment
 - Les limites de fréquence en raison d'un message en dehors des règles de priorisation.
 
 Si le Message 2 est abandonné, il n'y aura pas de nouvelle tentative d'envoi du Message 1.
@@ -167,4 +167,4 @@ Pour le moment, la priorisation des messages n'est pas prise en charge pour les 
 
 ### Existe-t-il des fonctionnalités de reporting ou d'analyse spécifiques à la priorisation des messages ? {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-Pour le moment, il n'existe pas de fonctionnalité de reporting ou d'analyse spécifique à cette fonctionnalité. Nous vous encourageons à utiliser les [fonctionnalités de reporting existantes de Braze](https://www.braze.com/docs/user_guide/analytics/reporting) pour surveiller la santé et les performances de vos Campaigns priorisées.
+Pour le moment, il n'existe pas de fonctionnalité de reporting ou d'analyse spécifique à cette fonctionnalité. Nous vous encourageons à utiliser les [fonctionnalités de reporting existantes de Braze]({{site.baseurl}}/user_guide/analytics/reporting) pour surveiller la santé et les performances de vos Campaigns priorisées.

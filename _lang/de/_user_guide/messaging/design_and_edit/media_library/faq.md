@@ -12,6 +12,8 @@ description: "Dieser Artikel enthält Antworten auf häufig gestellte Fragen zur
 
 > Diese Seite enthält Antworten auf häufig gestellte Fragen zur Medienbibliothek in Braze.
 
+## Allgemein {#general}
+
 ### Gibt es Speicherlimits für Bilder in der Medienbibliothek? {#are-there-storage-limits-for-images-within-the-media-library}
 
 Nein, es gibt keine Speicherlimits für Assets in der Medienbibliothek. Es gibt jedoch Größenbeschränkungen für Assets (maximal 5 MB).
@@ -27,6 +29,10 @@ Nein, die Medienbibliothek unterstützt keine Videodateien. Wir empfehlen, diese
 ### Kann ich alle Bildtypen zuschneiden? {#can-i-crop-all-image-types}
 
 Nein, die Medienbibliothek unterstützt das Zuschneiden von GIF-Bildern nicht.
+
+### Kann ich SVG-Bilder in E-Mails verwenden? {#can-i-use-svg-images-in-email}
+
+SVG-Bilder werden für E-Mails nicht empfohlen, da die Unterstützung bei E-Mail-Clients eingeschränkt ist. Gmail und mehrere andere große E-Mail-Anbieter rendern SVG-Bilder nicht, was zu fehlerhaften oder fehlenden Bildern bei Empfänger:innen führen kann. Verwenden Sie für eine zuverlässige E-Mail-Darstellung stattdessen die Formate PNG, JPEG oder GIF.
 
 ### Wie schneide ich ein vorhandenes Bild zu? {#how-do-i-crop-an-existing-image}
 
@@ -57,8 +63,8 @@ Das liegt daran, dass die meisten Composer Einschränkungen hinsichtlich des zul
 
 ### Ein Bild mit KI generieren {#generate-an-image-using-ai}
 
-Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie **KI-Bildgenerator** auswählen. Sie benötigen die Berechtigung **Medienbibliothek-Assets bearbeiten**. Wenn Sie die Option nicht sehen, wenden Sie sich an Ihr Braze-Kundenteam. Weitere Informationen zu den Schritten und Richtlinien finden Sie unter [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/) und [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie **KI-Bildgenerator** auswählen. Sie benötigen die Berechtigung **Medienbibliothek-Assets bearbeiten**. Wenn Sie die Option nicht sehen, wenden Sie sich an Ihr Braze-Kundenteam. Weitere Informationen zu den Schritten und Richtlinien finden Sie unter [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) und [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### Kann ich Vanity-URLs für Medienbibliothek-Bild-Assets erstellen? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-Vanity-URLs für Medienbibliothek-Assets werden nicht unterstützt, da benutzerdefinierte URLs die CDN-Zustellung beeinträchtigen würden. Sie können ein Bild unter seiner bestehenden URL ersetzen, wenn Campaigns bereits auf diese URL verweisen. Weitere Informationen finden Sie unter [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file).
+Vanity-URLs für Medienbibliothek-Assets werden nicht unterstützt, da benutzerdefinierte URLs die CDN-Zustellung beeinträchtigen würden. Sie können ein Bild unter seiner bestehenden URL ersetzen, wenn Campaigns bereits auf diese URL verweisen. Weitere Informationen finden Sie unter [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).

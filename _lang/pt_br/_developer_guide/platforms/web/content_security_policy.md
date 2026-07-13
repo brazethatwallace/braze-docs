@@ -36,12 +36,12 @@ braze.initialize(apiKey, {
 ### `connect-src` {#connect-src}
 
 {% alert warning %}
-Sua URL deve corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) da sua opção de inicialização `baseUrl` escolhida.
+Sua URL deve corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) da sua opção de inicialização `baseUrl` escolhida.
 {% endalert %}
 
 | URL | Informações |
 |---|-----------|
-| `connect-src https://sdk.iad-01.braze.com` | Permite que o SDK se comunique com as APIs da Braze. Altere essa URL para corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) da sua opção de inicialização `baseUrl` escolhida. |
+| `connect-src https://sdk.iad-01.braze.com` | Permite que o SDK se comunique com as APIs da Braze. Altere essa URL para corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) da sua opção de inicialização `baseUrl` escolhida. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
@@ -49,7 +49,7 @@ Sua URL deve corresponder ao [endpoint de SDK da API]({{site.baseurl}}/user_guid
 | URL | Informações |
 |---|-----------|
 | `script-src https://js.appboycdn.com` | Obrigatória ao usar a integração hospedada por CDN. |
-| `script-src 'unsafe-eval'` | Obrigatória ao usar o snippet de integração que contém referência a `appboyQueue`. Para evitar o uso dessa diretiva, [integre o SDK usando o NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager). |
+| `script-src 'unsafe-eval'` | Obrigatória ao usar o snippet de integração que contém referência a `appboyQueue`. Para evitar o uso dessa diretiva, [integre o SDK usando o NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager). |
 | `script-src 'nonce-...'`<br>ou<br>`script-src 'unsafe-inline'` | Obrigatória para determinadas mensagens no app, como HTML personalizado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 

@@ -10,17 +10,17 @@ description: "このリファレンス記事では、エンジニアや開発者
 
 > この記事では、Braze Pilotの使用を開始する方法について説明します。ここでは、アプリのダウンロード方法、Brazeダッシュボードとの接続の初期化、そしてセットアップの完了までの手順をご案内します。
 
-## ステップ 1: Braze Pilotをダウンロードする {#step-1-download-braze-pilot}
+## ステップ1: Braze Pilotをダウンロードする {#step-1-download-braze-pilot}
 
-Braze Pilotを使い始めるには、まずApple App StoreまたはGoogle Play Storeからアプリをダウンロードする必要があります。アプリストアでアプリを検索するか、以下のQRコードをスキャンして、お使いのデバイス用のアプリページにアクセスできます。
+Braze Pilotを使い始めるには、まずApple App StoreまたはGoogle Play Storeからアプリをダウンロードする必要があります。アプリストアでアプリを検索するか、以下のセクションのQRコードをスキャンして、お使いのデバイス用のアプリページにアクセスできます。
 
-## ステップ 2: 利用規約に同意する {#step-2-accept-the-terms-and-conditions}
+## ステップ2: 利用規約に同意する {#step-2-accept-the-terms-and-conditions}
 
 次に、利用規約に同意し、フォームに職場のメールアドレスを入力します。メールアドレスはアプリの利用状況分析にのみ使用され、マーケティング目的には一切使用されません。
 
 ![Braze Pilotのウェルカムページ。]({% image_buster /assets/img/braze_pilot/pilot_welcome.png %}){:style="max-width:30%"} ![仕事用のメールアドレスを入力するオプション。]({% image_buster /assets/img/braze_pilot/pilot_signin.png %}){:style="max-width:30%"}
 
-## ステップ 3: Braze SDKとの接続を初期化する {#step-3-initialize-the-connection-with-the-braze-sdk}
+## ステップ3: Braze SDKとの接続を初期化する {#step-3-initialize-the-connection-with-the-braze-sdk}
 
 Braze Pilotでは、任意のBrazeダッシュボードに対してBraze SDKを初期化できます。SDKが初期化されると、PilotはエンゲージメントデータをBrazeに送信し始め、そのBrazeダッシュボードから起動されたあらゆるメッセージングをトリガーできるようになります。
 
@@ -43,7 +43,7 @@ SDKの初期化に必要なすべての詳細情報を含むQRコードをスキ
 
 ### 方法2: セットアップウィザード {#method-2-setup-wizard}
 
-Brazeダッシュボードの**App Settings**ページから、ダッシュボードワークスペースとの接続を初期化するためのステップバイステップガイドに従います。
+Brazeダッシュボードの**アプリ設定**ページから、ダッシュボードワークスペースとの接続を初期化するためのステップバイステップガイドに従います。
 
 ![Braze Pilotセットアップウィザードのステップ1。]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
@@ -54,7 +54,7 @@ Brazeダッシュボードの**App Settings**ページから、ダッシュボ�
 {% endtab %}
 {% endtabs %}
 
-## ステップ 4: プッシュ権限を許可する {#step-4-allow-push-permissions}
+## ステップ4: プッシュ権限を許可する {#step-4-allow-push-permissions}
 
 最後に、アプリを通じてプッシュ通知機能をテストしたい場合は、アプリにプッシュ通知の送信権限を許可することをお勧めします。アプリにこれらの権限を付与するには、デバイスの設定でアプリの設定を更新する方法と、Brazeからアプリにプッシュプライマーメッセージを送信する方法があります。
 
@@ -77,7 +77,7 @@ Brazeダッシュボードの**App Settings**ページから、ダッシュボ�
 {% endtab %}
 {% tab プッシュプライマーメッセージを送信する %}
 
-Brazeのアプリ内メッセージを使用して、アプリのプッシュ通知権限をリクエストできます。これは自社の消費者向けに行う場合と同じです。このタイプのメッセージをBrazeで作成する方法については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages)を参照してください。
+Brazeのアプリ内メッセージを使用して、アプリのプッシュ通知権限をリクエストできます。これは自社の消費者向けに行う場合と同じです。このタイプのメッセージをBrazeで作成する方法については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages)を参照してください。
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -87,8 +87,8 @@ Brazeのアプリ内メッセージを使用して、アプリのプッシュ通
 {% endtab %}
 {% endtabs %}
 
-## ステップ 5: PilotでBrazeメッセージングを体験する {#step-5-experience-braze-messaging-in-pilot}
+## ステップ5: PilotでBrazeメッセージングを体験する {#step-5-experience-braze-messaging-in-pilot}
 
 これで、Braze Pilotのユーザーとして、Brazeダッシュボードからキャンペーンやキャンバスを受け取る準備が整いました！デモワークスペースで公開済みのキャンペーンにアクセスして、Brazeのユースケースを簡単に確認してから、ライブワークスペースに移動して自身のメッセージ配信を開始しましょう。
 
-Brazeでのキャンペーンとキャンバスの設定方法の詳細については、[はじめに: キャンペーンとキャンバス]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/)を参照してください。
+Brazeでのキャンペーンとキャンバスの設定方法の詳細については、[はじめに: キャンペーンとキャンバス]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases)を参照してください。

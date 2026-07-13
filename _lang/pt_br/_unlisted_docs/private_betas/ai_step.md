@@ -32,7 +32,7 @@ Você também pode registrar a saída de qualquer etapa de IA como um atributo p
 
 ### Usando etapas de Contexto {#using-context-steps}
 
-Você pode aproveitar as [etapas de Contexto do Canvas](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) para referenciar facilmente as saídas posteriormente no seu Canvas.
+Você pode aproveitar as [etapas de Contexto do Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) para referenciar facilmente as saídas posteriormente no seu Canvas.
 
 A seguir, um exemplo de etapa de Contexto que você pode configurar após sua etapa de IA. Neste exemplo, uma etapa de IA anterior contém as saídas da etapa de IA para pontuação de sentimento e mensagem, e esta etapa de Contexto cria as variáveis `sentiment_score` e `message`, que podem ser usadas em etapas subsequentes.
 
@@ -51,7 +51,7 @@ As etapas de IA possuem as seguintes métricas no nível da etapa:
 | _Saiu do Canvas_ | Número de usuários que saíram do Canvas se a etapa de IA foi a última etapa |
 | _Saída gerada com sucesso_ | Número de usuários para os quais a etapa de IA gerou a saída com sucesso |
 | _Falha na geração da saída_ | Número de usuários para os quais a etapa de IA falhou ao gerar a saída; nesse caso, os usuários ainda avançarão para as etapas subsequentes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br_1 .reset-td-br-2 role="presentation" }
 
 ### Entendendo as saídas da etapa de IA {#understanding-your-ai-step-outputs}
 

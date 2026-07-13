@@ -73,15 +73,13 @@ Brazeダッシュボードで、**設定** > **設定およびテスト** > **AP
    - `users.track`
    - `users.export.ids`
 3. APIキーを保存します。
-4. APIキーとRESTエンドポイントをコピーします。
-
-![BrazeのAPIキーページ。データインポートキーやLinkrunner統合に必要なRESTエンドポイントなど、APIキーの作成と管理ができます。]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. APIキーとRESTエンドポイントをコピーします。次のステップでこれらをLinkrunnerに貼り付けます。APIキーは秘密情報として扱い、公開しないでください。
 
 ### ステップ 3:LinkrunnerのダッシュボードでBrazeを設定する {#step-3-configure-braze-in-linkrunners-dashboard}
 
 1. Linkrunnerで、左側のパネルの**統合**に移動します。
 2. **分析**の下で、Brazeの**設定**を選択します。
-3. ステップ 2でコピーしたAPIキーとRESTエンドポイントを入力します。
+3. ステップ2でコピーしたAPIキーとRESTエンドポイントを入力します。
 
 詳細については、[Linkrunnerのドキュメント](https://docs.linkrunner.io/analytics-integrations/braze)を参照してください。
 

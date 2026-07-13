@@ -62,7 +62,7 @@ Using a raw text **Request Body**, compose the webhook body to include the desir
 }
  ```
 
-![]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
+![SessionM webhook composer with JSON payload for Braze campaign trigger setup.]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
 
 In the **Settings** tab, add the key-value pairs for each request header field:
     - Create a key `Content-Type` with a corresponding value `application/json`

@@ -1,20 +1,20 @@
 ---
-nav_title: "Tutorial: 콘텐츠 카드 받은편지함"
-article_title: "Tutorial: 콘텐츠 카드로 받은편지함 만들기"
+nav_title: "튜토리얼: Content Cards 받은편지함"
+article_title: "튜토리얼: Content Cards로 받은편지함 만들기"
 description: ""
 page_order: 6
 layout: scrolly
 ---
 
-# Tutorial: 콘텐츠 카드로 받은편지함 만들기
+# 튜토리얼: Content Cards로 받은편지함 만들기 {#tutorial-making-an-inbox-with-content-cards}
 
-> 이 튜토리얼의 샘플 코드를 따라 Braze 콘텐츠 카드로 받은편지함을 구축하세요.
+> 이 튜토리얼의 샘플 코드를 따라 Braze Content Cards로 받은편지함을 구축하세요.
 
 {% sdktabs %}
 {% sdktab android %}
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Android(Compose)용 콘텐츠 카드로 받은편지함 만들기
+## Android(Compose)용 Content Cards로 받은편지함 만들기 {#making-an-inbox-with-content-cards-for-android-compose}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -167,46 +167,46 @@ fun ContentCardItem(
 }
 ```
 
-!!단계
+!!step
 lines-MainApplication.kt=12
 
-#### 1\. 디버깅 활성화(선택 사항)
+### 1. 디버깅 활성화(선택 사항) {#1-enable-debugging-optional}
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
+!!step
 lines-ContentCardsInboxScreen.kt=47-69
 
-#### 2\. UI 뷰 구축하기
+#### 2. UI 뷰 구축하기 {#2-build-a-ui-view}
 
-Jetpack Compose의 경우, 스크롤 가능한 목록에 콘텐츠 카드를 표시하기 위해 [`LazyColumn`](<https://developer.android.com/develop/ui/compose/lists#lazy>)을 사용하세요.
+Jetpack Compose의 경우, 스크롤 가능한 목록에 Content Cards를 표시하기 위해 [`LazyColumn`](<https://developer.android.com/develop/ui/compose/lists#lazy>)을 사용하세요.
 
-!!단계
+!!step
 lines-ContentCardsInboxScreen.kt=25-37
 
-#### 3\. 콘텐츠 카드 업데이트 구독하기
+#### 3. Content Cards 업데이트 구독하기 {#3-subscribe-to-content-card-updates}
 
-구독 생명주기를 관리하기 위해 [`DisposableEffect`](<https://developer.android.com/develop/ui/compose/side-effects#disposableeffect>)을 사용하여 컴포저블이 구성에서 벗어날 때 적절한 정리를 보장하세요.
+구독 생명주기를 관리하기 위해 [`DisposableEffect`](<https://developer.android.com/develop/ui/compose/side-effects#disposableeffect>)를 사용하여 컴포저블이 컴포지션에서 벗어날 때 적절한 정리를 보장하세요.
 
-!!단계
+!!step
 lines-ContentCardsInboxScreen.kt=84-95
 
-#### 4\. 커스텀 받은편지함 UI 구축하기
+#### 4. 커스텀 받은편지함 UI 구축하기 {#4-build-a-custom-inbox-ui}
 
-[속성](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)과 같은 콘텐츠 카드 `title`, `description`, `url`를 사용하면 특정 UI 요구 사항에 맞는 콘텐츠 카드를 구축할 수 있습니다. 이 경우, 우리는 Jetpack Compose의 `Card`와 `Column` 컴포저블로 받은편지함을 구축하고 있습니다.
+Content Cards [속성](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)(예: `title`, `description`, `url`)을 사용하면 특정 UI 요구 사항에 맞는 Content Cards를 구축할 수 있습니다. 이 경우, Jetpack Compose의 `Card`와 `Column` 컴포저블로 받은편지함을 구축하고 있습니다.
 
-!!단계
+!!step
 lines-ContentCardsInboxScreen.kt=57,62
 
-#### 5\. 노출 및 클릭 추적하기
+#### 5. 노출 및 클릭 추적하기 {#5-track-impressions-and-clicks}
 
-콘텐츠 카드에 대해 사용할 수 있는 [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>) 및 [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
+Content Cards에서 사용할 수 있는 [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>) 및 [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
 
-노출은 사용자가 카드를 볼 때 한 번만 기록해야 합니다. 카드가 보일 때 노출을 기록하기 위해 `LaunchedEffect`을 사용하세요. 노출이 올바르게 기록되도록 앱의 뷰 생명주기와 사용 사례를 고려해야 할 수 있습니다.
+노출은 사용자가 카드를 볼 때 한 번만 기록해야 합니다. 카드가 보일 때 노출을 기록하기 위해 `LaunchedEffect`를 사용하세요. 노출이 올바르게 기록되도록 앱의 뷰 생명주기와 사용 사례를 고려해야 할 수 있습니다.
 
 {% endscrolly %}
 
-## Android용 콘텐츠 카드로 받은편지함 만들기 (RecyclerView)
+## Android(RecyclerView)용 Content Cards로 받은편지함 만들기 {#making-an-inbox-with-content-cards-for-android-recyclerview}
 
 {% scrolly %}
 
@@ -363,49 +363,49 @@ class ContentCardsActivity : ComponentActivity() {
 
 ```
 
-!!단계
+!!step
 lines-MainApplication.kt=12
 
-#### 1\. 디버깅 활성화(선택 사항)
+### 1. 디버깅 활성화(선택 사항)
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
+!!step
 lines-content_card_inbox.xml=1-24
 
-#### 2\. UI 뷰 구축하기
+#### 2. UI 뷰 구축하기
 
-이 튜토리얼에서는 Android의 [`RecyclerView`](<https://developer.android.com/develop/ui/views/layout/recyclerview>)를 사용하여 콘텐츠 카드를 표시하지만, 사용 사례에 맞는 클래스와 구성 요소로 UI를 구축하는 것을 권장합니다. Braze는 기본적으로 UI를 제공하지만, 이 튜토리얼은 외관과 동작을 사용자 정의하기 위해 사용자 정의 보기를 만드는 방법을 안내합니다.
+이 튜토리얼에서는 Android의 [`RecyclerView`](<https://developer.android.com/develop/ui/views/layout/recyclerview>)를 사용하여 Content Cards를 표시하지만, 사용 사례에 맞는 클래스와 구성요소로 UI를 구축하는 것을 권장합니다. Braze는 기본적으로 UI를 제공하지만, 이 튜토리얼은 외관과 동작을 커스터마이즈하기 위해 커스텀 뷰를 만드는 방법을 안내합니다.
 
-!!단계
+!!step
 lines-ContentCardInboxActivity.kt=29-35,40-42,44
 
-#### 3\. 콘텐츠 카드 업데이트 구독하기
+#### 3. Content Cards 업데이트 구독하기
 
-새 콘텐츠 카드가 사용 가능할 때 UI가 응답하도록 [`subscribeToContentCardsUpdates`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-content-cards-updates.html?query=abstract%20fun%20subscribeToContentCardsUpdates(subscriber:%20IEventSubscriber%3CContentCardsUpdatedEvent%3E)>)를 사용하세요. 여기에서 구독자는 활동 생명 주기 후크 내에서 등록 및 제거됩니다.
+새 Content Cards가 사용 가능할 때 UI가 응답하도록 [`subscribeToContentCardsUpdates`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-content-cards-updates.html?query=abstract%20fun%20subscribeToContentCardsUpdates(subscriber:%20IEventSubscriber%3CContentCardsUpdatedEvent%3E)>)를 사용하세요. 여기에서 구독자는 액티비티 생명주기 훅 내에서 등록 및 제거됩니다.
 
-!!단계
+!!step
 lines-ContentCardInboxActivity.kt=73-84
 
-#### 4\. 커스텀 받은편지함 UI 구축하기
+#### 4. 커스텀 받은편지함 UI 구축하기
 
-[속성](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)과 같은 콘텐츠 카드 `title`, `description`, `url`를 사용하면 특정 UI 요구 사항에 맞는 콘텐츠 카드를 구축할 수 있습니다. 이 경우, 우리는 Android의 기본 `RecyclerView`로 받은편지함을 구축하고 있습니다.
+Content Cards [속성](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>)(예: `title`, `description`, `url`)을 사용하면 특정 UI 요구 사항에 맞는 Content Cards를 구축할 수 있습니다. 이 경우, Android의 기본 `RecyclerView`로 받은편지함을 구축하고 있습니다.
 
-!!단계
+!!step
 lines-ContentCardInboxActivity.kt=90,93
 
-#### 5\. 노출 및 클릭 추적하기
+#### 5. 노출 및 클릭 추적하기
 
-콘텐츠 카드에 대해 사용할 수 있는 [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>) 및 [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
+Content Cards에서 사용할 수 있는 [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>) 및 [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
 
 노출은 사용자가 카드를 볼 때 한 번만 기록해야 합니다. 여기에서는 카드별 플래그를 사용하여 중복 로그를 방지하는 단순한 메커니즘을 사용합니다. 노출이 올바르게 기록되도록 앱의 뷰 생명주기와 사용 사례를 고려해야 할 수 있습니다.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} 또한 [Swift용 인앱 메시지 활성화]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)가 필요합니다.
+{% multi_lang_include developer_guide/prerequisites/swift.md %} 또한 [Swift용 인앱 메시지 활성화]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages)가 필요합니다.
 
-## Swift용 콘텐츠 카드로 받은편지함 만들기
+## Swift용 Content Cards로 받은편지함 만들기 {#making-an-inbox-with-content-cards-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -505,7 +505,7 @@ class BrazeInboxViewController: UITableViewController {
         // Work with the content card's title and description
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.text = [card.title, card.description].compactMap { $0 }.joined(separator: "\n")
-        
+
         return cell
     }
 
@@ -517,7 +517,7 @@ class BrazeInboxViewController: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     override func tableView(_ tableView: UITableView,
                             willDisplay cell: UITableViewCell,
                             forRowAt indexPath: IndexPath) {
@@ -529,51 +529,51 @@ class BrazeInboxViewController: UITableViewController {
 }
 ```
 
-!!단계
+!!step
 lines-AppDelegate.swift=15
 
-#### 1\. 디버깅 활성화(선택 사항)
+### 1. 디버깅 활성화(선택 사항)
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
+!!step
 lines-BrazeInboxView.swift=5
 
-#### 2\. UI 뷰 구축하기
+#### 2. UI 뷰 구축하기
 
-이 튜토리얼에서는 Swift의 [`UITableViewController`](https://developer.apple.com/documentation/uikit/uitableviewcontroller)를 사용하지만, 사용 사례에 맞는 클래스와 구성 요소로 UI를 구축하는 것을 권장합니다.
+이 튜토리얼에서는 Swift의 [`UITableViewController`](https://developer.apple.com/documentation/uikit/uitableviewcontroller)를 사용하지만, 사용 사례에 맞는 클래스와 구성요소로 UI를 구축하는 것을 권장합니다.
 
-!!단계
-라인-BrazeInboxView.swift=15-20
+!!step
+lines-BrazeInboxView.swift=15-20
 
-#### 3\. 콘텐츠 카드 업데이트 구독하기
+#### 3. Content Cards 업데이트 구독하기
 
-콘텐츠 카드 리스너에 가입하여 최신 업데이트를 받고, 그 후 `requestRefresh()`을 호출하여 해당 사용자에 대한 최신 콘텐츠 카드를 요청하세요.
+Content Cards 리스너를 구독하여 최신 업데이트를 받은 다음, `requestRefresh()`를 호출하여 해당 사용자에 대한 최신 Content Cards를 요청하세요.
 
-!!단계
+!!step
 lines-BrazeInboxView.swift=34-35
 
-#### 4\. 커스텀 받은편지함 UI 구축하기
+#### 4. 커스텀 받은편지함 UI 구축하기
 
-[콘텐츠 카드](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard)을 사용하여 `title`, `description`, `imageUrl`와 같은 특정 UI 요구 사항에 맞는 콘텐츠 카드를 구축할 수 있습니다. 이 경우, 우리는 Swift의 기본 테이블 API로 받은편지함을 구축하고 있습니다.
+Content Cards [`속성`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard)(예: `title`, `description`, `imageUrl`)을 사용하면 특정 UI 요구 사항에 맞는 Content Cards를 구축할 수 있습니다. 이 경우, Swift의 기본 테이블 API로 받은편지함을 구축하고 있습니다.
 
-!!단계
+!!step
 lines-BrazeInboxView.swift=8,43,49-56
 
-#### 5\. 노출 및 클릭 추적하기
+#### 5. 노출 및 클릭 추적하기
 
-콘텐츠 카드에 사용할 수 있는 [`logClick(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logclick(using:)/>) 및 [`logImpression(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logimpression(using:)/>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
+콘텐츠 카드에서 사용할 수 있는 [`logClick(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logclick(using:)/>) 및 [`logImpression(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logimpression(using:)/>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
 
-또한, 해제에 대해 [`logDismissed(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logdismissed(using:)/>)을 사용할 수 있습니다.
+또한, 해제 시 [`logDismissed(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logdismissed(using:)/>)을 사용할 수 있습니다.
 
-노출은 사용자가 볼 때 한 번만 기록되어야 합니다. 여기서는 `Set`과 `willDisplay`를 사용하여 단순한 메커니즘을 사용하여 이를 달성합니다. 앱의 UI 생명 주기와 사용 사례를 고려하여 노출이 올바르게 기록되도록 해야 할 수 있습니다.
+노출은 사용자가 볼 때 한 번만 기록되어야 합니다. 여기서는 `Set`과 `willDisplay`를 사용하는 단순한 메커니즘으로 이를 달성합니다. 앱의 UI 생명주기와 사용 사례를 고려하여 노출이 올바르게 기록되도록 해야 할 수 있습니다.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} 그러나 추가 설정은 필요하지 않습니다.
 
-## 웹용 콘텐츠 카드로 받은편지함 만들기
+## 웹용 Content Cards로 받은편지함 만들기 {#making-an-inbox-with-content-cards-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -734,44 +734,44 @@ braze.requestContentCardsRefresh();
 </html>
 ```
 
-!!단계
+!!step
 lines-main.js=3-4,9
 
-#### 1\. 디버깅 활성화(선택 사항)
+### 1. 디버깅 활성화(선택 사항)
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요. 선택적으로, 콘솔에서 Braze Web SDK 메서드를 실행할 수도 있습니다.
 
-!!단계
+!!step
 lines-index.html=1-44
 
-#### 2\. UI 구축
+#### 2. UI 구축하기 {#2-build-the-ui}
 
-받은편지함 페이지를 위한 UI를 만듭니다. 여기서는 ID `cards-list`가 있는 `div`을 포함하는 기본 HTML 페이지를 구축하고 있습니다. 이는 콘텐츠 카드를 렌더링하기 위한 대상 컨테이너로 사용됩니다.
+받은편지함 페이지를 위한 UI를 만듭니다. 여기서는 ID가 `cards-list`인 `div`를 포함하는 기본 HTML 페이지를 구축하고 있습니다. 이는 Content Cards를 렌더링하기 위한 대상 컨테이너로 사용됩니다.
 
-!!단계
+!!step
 lines-main.js=96-99,101
 
-#### 3\. 콘텐츠 카드 업데이트 구독하기
+#### 3. Content Cards 업데이트 구독하기
 
-최신 업데이트를 받기 위해 콘텐츠 카드 리스너에 가입하고, 그 후 [`requestContentCardsRefresh()`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh>)을 호출하여 해당 사용자에 대한 최신 콘텐츠 카드를 요청합니다. 또는 세션 시작 시 자동 새로 고침을 위해 `openSession()` 이전에 가입자를 호출합니다. 
+Content Cards 리스너를 구독하여 최신 업데이트를 받은 다음, [`requestContentCardsRefresh()`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh>)를 호출하여 해당 사용자에 대한 최신 Content Cards를 요청합니다. 또는 세션 시작 시 자동 새로고침을 위해 `openSession()` 이전에 구독자를 호출합니다.
 
-!!단계
+!!step
 lines-main.js=64,67,70-74
 
-#### 4\. 받은편지함 요소 구축
+#### 4. 받은편지함 요소 구축하기 {#4-build-the-inbox-elements}
 
-콘텐츠 카드 [attributes](<https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html>)와 같은 `title`, `description`, 및 `url`를 사용하면 특정 UI 요구 사항에 맞게 콘텐츠 카드를 표시할 수 있습니다.
+Content Cards [속성](<https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html>)(예: `title`, `description`, `url`)을 사용하면 특정 UI 요구 사항에 맞게 Content Cards를 표시할 수 있습니다.
 
-!!단계
+!!step
 lines-main.js=22-25,28-43,84,91
 
-#### 5\. 노출 및 클릭 추적하기
+#### 5. 노출 및 클릭 추적하기
 
-콘텐츠 카드에 대해 사용할 수 있는 [`logContentCardImpressions`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions>) 및 [`logContentCardClick`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
+Content Cards에서 사용할 수 있는 [`logContentCardImpressions`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions>) 및 [`logContentCardClick`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick>) 메서드를 사용하여 노출 및 클릭을 기록할 수 있습니다.
 
-또한, 해제에 대해 [`logCardDismissal`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcarddismissal>)을 사용할 수 있습니다.
+또한, 해제 시 [`logCardDismissal`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcarddismissal>)을 사용할 수 있습니다.
 
-노출은 사용자가 볼 때 한 번만 기록되어야 합니다. 여기서 `IntersectionObserver`와 `Set`가 `card.id`로 키가 지정되어 중복 로그를 방지합니다. 앱의 UI 생명 주기와 사용 사례를 고려하여 노출이 올바르게 기록되도록 해야 할 수 있습니다.
+노출은 사용자가 볼 때 한 번만 기록되어야 합니다. 여기서 `IntersectionObserver`와 `card.id`로 키가 지정된 `Set`가 중복 로그를 방지합니다. 앱의 UI 생명주기와 사용 사례를 고려하여 노출이 올바르게 기록되도록 해야 할 수 있습니다.
 
 {% endscrolly %}
 {% endsdktab %}

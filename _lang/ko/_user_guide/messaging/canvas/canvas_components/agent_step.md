@@ -11,13 +11,13 @@ toc_headers: h2
 
 # 에이전트 단계 {#agent-step}
 
-> 에이전트 단계를 사용하면 AI 기반 의사결정 및 콘텐츠 생성을 Canvas 워크플로에 직접 추가할 수 있습니다. 보다 일반적인 정보는 [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
+> 에이전트 단계를 사용하면 AI 기반 의사결정 및 콘텐츠 생성을 Canvas 워크플로에 직접 추가할 수 있습니다. 보다 일반적인 정보는 [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents)를 참조하세요.
 
 ![Canvas 사용자 여정의 에이전트 단계.]({% image_buster /assets/img/ai_agent/agent_step.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
 ## 필수 조건 {#prerequisites}
 
-에이전트 단계는 [Canvas 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)를 사용하여 관련 컨텍스트를 수집하고 Canvas에서 활용할 수 있는 변수를 출력합니다.
+에이전트 단계는 [Canvas 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)를 사용하여 관련 컨텍스트를 수집하고 Canvas에서 활용할 수 있는 변수를 출력합니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -37,25 +37,29 @@ toc_headers: h2
 
 ### 2단계: 에이전트 선택 {#step-2-choose-your-agent}
 
-이 단계에서 데이터를 처리할 에이전트를 선택합니다. 기존 에이전트를 선택하세요. 설정 안내는 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)을 참조하세요.
+이 단계에서 데이터를 처리할 에이전트를 선택합니다. 설정 안내는 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)을 참조하세요.
+
+에이전트 목록에서 각 에이전트에는 [일일 호출 한도]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#step-3-set-up-details)가 표시됩니다. 한도 위에 마우스를 올리면 오늘의 한도 대비 진행 상황을 확인할 수 있으며, 사용 비율과 한도 대비 오늘 사용된 호출 수가 표시됩니다.
+
+![에이전트 드롭다운에 두 개의 에이전트가 나열된 에이전트 단계 설정 패널. 각 에이전트에는 일일 호출 한도가 표시됩니다. 첫 번째 에이전트의 툴팁에는 사용 비율과 오늘 사용된 호출 수가 표시됩니다.]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
 
 ### 3단계: 에이전트 출력 설정 {#define-the-output-variable}
 
-에이전트 출력은 "출력 변수"라고 하며, 쉽게 접근할 수 있도록 [컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#context-variable-types)에 저장됩니다. 출력 변수를 정의하려면 변수에 이름을 지정하세요.
+에이전트 출력은 "출력 변수"라고 하며, 쉽게 접근할 수 있도록 [컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types)에 저장됩니다. 출력 변수를 정의하려면 변수에 이름을 지정하세요.
 
-출력 변수의 데이터 유형은 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents/)에서 설정됩니다. 에이전트 출력은 문자열, 숫자, 부울 또는 오브젝트로 저장할 수 있습니다. 이를 통해 Canvas에서 텍스트 개인화와 조건 로직 모두에 유연하게 활용할 수 있습니다. 각 유형의 일반적인 사용 사례는 다음과 같습니다:
+출력 변수의 데이터 유형은 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에서 설정됩니다. 에이전트 출력은 문자열, 숫자, 부울 또는 오브젝트로 저장할 수 있습니다. 이를 통해 Canvas에서 텍스트 개인화와 조건 로직 모두에 유연하게 활용할 수 있습니다. 각 유형의 일반적인 사용 사례는 다음과 같습니다:
 
 | 데이터 유형 | 일반적인 사용 사례 |
 | --- | --- |
 | 문자열 | 메시지 개인화(제목란, 카피, 응답) |
-| 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)에서의 라우팅 |
-| 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)에서의 예/아니오 분기 |
-| 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 위의 데이터 유형 중 하나 이상을 활용 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정" }
+| 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)에서의 라우팅 |
+| 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)에서의 예/아니오 분기 |
+| 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 이 섹션의 앞부분에 나온 데이터 유형 중 하나 이상을 활용 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정 #define-the-output-variable" }
 
 컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **Context Variable** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
-오브젝트 출력 변수에서 특정 등록정보를 사용하려면, Liquid에서 점 표기법을 사용하여 해당 등록정보에 접근합니다: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
+오브젝트 출력 변수에서 특정 속성정보를 사용하려면, Liquid에서 점 표기법을 사용하여 해당 속성정보에 접근합니다: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
 ![변수 "agent_output"에 대한 오브젝트 데이터 유형 출력을 가진 Body HTML Writer용 에이전트 단계.]({% image_buster /assets/img/ai_agent/test_agent_step.png %}){: style="max-width:80%;"}
 
@@ -77,14 +81,14 @@ toc_headers: h2
 
 ## 오류 처리 {#error-handling}
 
-Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어를 처리하는 방법에 대해서는 Braze 에이전트의 [오류 처리]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling)를 참조하세요.
+Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어를 처리하는 방법에 대해서는 에이전트 배포의 [오류 처리 및 대체 동작]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior)과 Braze 에이전트의 [오류 처리]({{site.baseurl}}/user_guide/brazeai/agents#error-handling)를 참조하세요.
 
-- 에이전트가 어떤 이유로든(예: 타임아웃 오류 또는 잘못된 API 키) 실패하면, 출력 변수는 `null`로 설정됩니다.
-    - 에이전트가 일일 호출 한도에 도달하면, 출력 변수는 `null`로 설정됩니다.
-- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
+- 연결된 모델이 LLM 공급자로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하면, Braze는 호출이 성공하거나 완료할 수 없다고 판단할 때까지 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다. 이후 사용자는 다음 캔버스 단계로 진행합니다.
+- 기타 실패(예: 타임아웃 오류 또는 잘못된 API 키)가 발생하거나 에이전트가 일일 호출 한도에 도달하면, 에이전트 콘솔에서 [대체 값이 설정]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)되어 있지 않은 한 출력 변수는 `null`로 설정됩니다. 대체 값이 설정된 경우, Braze는 사용자별로 Liquid를 사용하여 대체 값을 렌더링하고 그 결과를 출력 변수에 저장합니다. 일일 한도로 인해 호출이 차단된 경우에도 마찬가지입니다.
+- 대체 값을 설정하지 않은 경우, 다운스트림 메시지 단계에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하여 null 출력을 처리하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
 - 동일한 입력에 대한 응답은 캐시되며, 몇 분 이내에 반복되는 동일한 호출에 재사용될 수 있습니다.
     - 캐시된 값을 사용하는 응답도 총 호출 수 및 일일 호출 수에 포함됩니다.
-- 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. Braze는 [호출 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)에 따라 호출을 대기줄에 넣으므로, 대량 발송 시 사용자가 대기 상태로 남아 있을 수 있습니다. 로그를 확인하여 호출이 진행되고 있는지 확인하세요.
+- 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. Braze는 [호출 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)에 따라 호출을 대기줄에 넣으므로, 대량 발송 시 사용자가 대기 상태로 남아 있을 수 있습니다. 로그를 확인하여 호출이 진행되고 있는지 확인하세요.
 
 ## 분석 {#analytics}
 
@@ -106,12 +110,12 @@ Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어�
 다음 패턴은 여행 예시에 세 개의 에이전트를 사용합니다: 누군가가 최근 앱에서 검색했지만 예약하지 않았고, 결제를 유도하는 리타겟팅 카피를 원하는 경우입니다.
 
 - 에이전트 1은 Canvas 컨텍스트를 요약합니다. 로열티 등급, 마지막 검색 도시, 높은 의도의 검색 행동 등의 필드를 읽고, 이후 단계에서 재사용할 수 있는 짧은 구조화된 요약을 출력 변수로 반환합니다.
-- 에이전트 2는 Canvas에서 분기할 수 있는 라우팅 값을 반환합니다. 출력이 분기 방식과 일치하도록 숫자, 부울 또는 구조화된 오브젝트를 사용하세요. 해당 값을 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 또는 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 단계에 매핑합니다. 예를 들어, 로열티 중심 메시징과 할인 중심 메시징에 대해 별도의 경로를 고려해 보세요.
+- 에이전트 2는 Canvas에서 분기할 수 있는 라우팅 값을 반환합니다. 출력이 분기 방식과 일치하도록 숫자, 부울 또는 구조화된 오브젝트를 사용하세요. 해당 값을 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 또는 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) 단계에 매핑합니다. 예를 들어, 로열티 중심 메시징과 할인 중심 메시징에 대해 별도의 경로를 고려해 보세요.
 - 에이전트 3은 원하는 분기에서만 생성된 메시지 텍스트를 작성합니다. 에이전트 1의 요약(및 분기별 컨텍스트)을 전달하여 이 에이전트가 동일한 프롬프트에서 입력을 정규화하고 전략을 선택하는 대신 톤과 채널 제한에 집중하도록 합니다.
 
 ### 실험 경로 단계를 사용하여 에이전트 여정을 소규모로 테스트하세요 {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
-기존 여정 대비 에이전트의 성과와 크레딧 소비를 테스트하려면, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) 단계를 추가하여 오디언스의 일부만 에이전트 단계가 포함된 분기에 진입하도록 하세요.
+기존 여정 대비 에이전트의 성과와 크레딧 소비를 테스트하려면, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 추가하여 오디언스의 일부만 에이전트 단계가 포함된 분기에 진입하도록 하세요.
 
 예를 들어, 하루에 수천 명의 사용자를 에이전트가 있는 경로로 보내고 나머지는 대조군 경로 또는 에이전트가 없는 경로로 보낼 수 있습니다. 1~2주간 데이터를 수집하고 경로 간 핵심 성과 지표(KPI), 반대 측정기준, 에이전트 크레딧 소비를 비교하세요. 이렇게 하면 에이전트 활성화 분기로의 트래픽을 늘리기 전에 신뢰를 구축하고 ROI를 입증할 수 있으며, 호출 소비를 제한하면서 진행할 수 있습니다.
 
@@ -132,7 +136,7 @@ Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어�
 
 ## 관련 문서 {#related-articles}
 
-- [Braze 에이전트 개요]({{site.baseurl}}/user_guide/brazeai/agents/)
-- [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
-- [에이전트 배포]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
-- [에이전트 참조]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
+- [Braze 에이전트 개요]({{site.baseurl}}/user_guide/brazeai/agents)
+- [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+- [에이전트 배포]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)
+- [에이전트 참조]({{site.baseurl}}/user_guide/brazeai/agents/reference)

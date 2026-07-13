@@ -1,7 +1,7 @@
 ---
 nav_title: Regelbasierte Empfehlungen
 article_title: Regelbasierte Artikelempfehlungen erstellen
-description: "Dieser Referenzartikel beschreibt, wie Sie eine KI-Artikelempfehlung für Artikel in einem Katalog erstellen."
+description: "Dieser Referenzartikel beschreibt, wie Sie eine regelbasierte Artikelempfehlung für Artikel in einem Katalog erstellen."
 page_order: 2
 ---
 
@@ -11,10 +11,10 @@ page_order: 2
 
 ## Über regelbasierte Artikelempfehlungen {#about-rules-based-item-recommendations}
 
-Ein regelbasiertes Empfehlungssystem verwendet Nutzerdaten und Produktinformationen, um Nutzer:innen relevante Artikel in Nachrichten vorzuschlagen. Es verwendet [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) und entweder Braze-[Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), um Inhalte auf Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
+Ein regelbasiertes Empfehlungssystem verwendet Nutzerdaten und Produktinformationen, um Nutzer:innen relevante Artikel in Nachrichten vorzuschlagen. Es verwendet [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) und entweder Braze-[Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), um Inhalte auf Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
 
 {% alert important %}
-Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell festlegen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an die Kaufhistorie und den Geschmack einer Nutzerin oder eines Nutzers anpassen, sofern Sie die Logik nicht aktualisieren.<br><br>Um personalisierte KI-Empfehlungen zu erstellen, die sich automatisch an den Verlauf von Nutzer:innen anpassen, sehen Sie sich [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/) an.
+Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell festlegen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an die Kaufhistorie und den Geschmack einer Nutzerin oder eines Nutzers anpassen, sofern Sie die Logik nicht aktualisieren.<br><br>Um personalisierte KI-Empfehlungen zu erstellen, die sich automatisch an den Verlauf von Nutzer:innen anpassen, sehen Sie sich [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) an.
 {% endalert %}
 
 ## Optionen des Empfehlungssystems {#recommendation-engine-options}
@@ -83,7 +83,7 @@ Erstellen Sie Ihr Empfehlungssystem entweder mit einem Katalog oder mit Connecte
 {% tab using a catalog %}
 So erstellen Sie Ihr Empfehlungssystem mithilfe eines Katalogs:
 
-1. [Erstellen Sie einen Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) mit Produkten.
+1. [Erstellen Sie einen Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create) mit Produkten.
 2. Fügen Sie für jedes Produkt eine Liste empfohlener Produkte als String hinzu, der durch ein Trennzeichen (z. B. ein Pipe-Zeichen `|`) getrennt ist, in einer Spalte mit dem Namen „product_recommendations“.
 3. Übergeben Sie dem Katalog die Produkt-ID, für die Sie Empfehlungen finden möchten.
 4. Rufen Sie den Wert `product_recommendations` für diesen Katalogartikel ab und teilen Sie ihn mit einem Liquid-Split-Filter am Trennzeichen auf.
@@ -102,11 +102,9 @@ Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Cont
 | **image_url** | Das Bild, das dem Rezept entspricht. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 
-Nachdem der Katalog in Braze hochgeladen wurde, überprüfen Sie die Vorschau einer ausgewählten Anzahl von Katalogartikeln, um die Richtigkeit der importierten Informationen zu bestätigen. Die Artikel können in der Vorschau zufällig angeordnet sein, aber das hat keinen Einfluss auf die Ausgabe des Empfehlungssystems.
+Nachdem der Katalog in Braze hochgeladen wurde, bestätigen Sie die Richtigkeit der importierten Informationen, indem Sie Ihren Katalog auf der Katalogseite auswählen und den Tab **Vorschau** öffnen. Eine ausgewählte Anzahl von Artikeln wird in der Vorschau angezeigt und kann zufällig angeordnet sein, aber das hat keinen Einfluss auf die Ausgabe des Empfehlungssystems.
 
-![Beispielkatalog in Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
-
-Erstellen Sie eine Content-Card-Kampagne. Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
+Erstellen Sie mit dem vorhandenen Katalog eine [Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
 
 {% subtabs local %}
 {% subtab title %}
@@ -186,7 +184,7 @@ Um Ihr Empfehlungssystem mit Connected-Content zu erstellen, erstellen Sie zunä
 |------|-----------|
 | **Tabellenkalkulation konvertieren** | Konvertieren Sie eine Tabellenkalkulation in einen JSON-API-Endpunkt, indem Sie einen Dienst wie SheetDP verwenden, und notieren Sie sich die API-URL, die dadurch erzeugt wird. |
 | **Einen angepassten Endpunkt erstellen** | Erstellen, hosten und pflegen Sie einen speziell entwickelten internen Endpunkt. |
-| **Ein Drittanbieter-System verwenden** | Verwenden Sie ein Empfehlungssystem eines Drittanbieters, z. B. eines unserer [Technologie-Partner]({{site.baseurl}}/partners/message_personalization/), darunter [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) und andere. |
+| **Ein Drittanbieter-System verwenden** | Verwenden Sie ein Empfehlungssystem eines Drittanbieters, z. B. eines unserer [Technologie-Partner]({{site.baseurl}}/partners/message_personalization), darunter [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield) und andere. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 
 Verwenden Sie als Nächstes Liquid in Ihrer Nachricht, die Ihren Endpunkt aufruft, um einen angepassten Attributwert mit dem Profil von Nutzer:innen abzugleichen und die entsprechende Empfehlung abzurufen.
@@ -214,7 +212,7 @@ Ersetzen Sie Folgendes:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 
 {% alert note %}
-Dies ist ein einfaches Beispiel, das Sie je nach Ihren spezifischen Anforderungen und Ihrer Datenstruktur möglicherweise weiter anpassen müssen. Ausführlichere Anleitungen finden Sie in der [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) oder wenden Sie sich an eine Entwicklerin oder einen Entwickler.
+Dies ist ein einfaches Beispiel, das Sie je nach Ihren spezifischen Anforderungen und Ihrer Datenstruktur möglicherweise weiter anpassen müssen. Ausführlichere Anleitungen finden Sie in der [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) oder wenden Sie sich an eine Entwicklerin oder einen Entwickler.
 {% endalert %}
 
 ### Beispiel

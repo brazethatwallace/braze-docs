@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 ---
 {% api %}
 # Excluir usuários {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -18,7 +18,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 Até 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` podem ser incluídos em uma única solicitação. Somente um dos campos `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` pode ser incluído em uma única solicitação.
 
-Se tiver um caso de uso que não possa ser resolvido com a exclusão de usuários em massa por meio da API, entre em contato com a [equipe de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) para obter assistência.
+Se tiver um caso de uso que não possa ser resolvido com a exclusão de usuários em massa por meio da API, entre em contato com a [equipe de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obter assistência.
 
 {% alert warning %}
 A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Para saber mais, consulte [Efeitos da exclusão de perfis de usuário](#effects-of-deleting-user-profiles).
@@ -28,7 +28,7 @@ A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanen
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.delete`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -55,11 +55,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parâmetro         | Obrigatória | Tipo de dados                  | Descrição                                                                                      |
 |-------------------|----------|----------------------------|--------------------------------------------------------------------------------------------------|
 | `external_ids`    | Opcional | Array de strings           | Identificadores externos a serem excluídos.                                                    |
-| `user_aliases`    | Opcional | Array de objetos de alias de usuário | [Aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/) a serem excluídos. |
+| `user_aliases`    | Opcional | Array de objetos de alias de usuário | [Aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) a serem excluídos. |
 | `braze_ids`       | Opcional | Array de strings           | Identificadores de usuário da Braze a serem excluídos.                                                  |
 | `email_addresses` | Opcional | Array de strings           | E-mails de usuários a serem excluídos. Para saber mais, consulte [Exclusão de usuários por e-mail](#deleting-users-by-email).                                                             |
 | `phone_numbers` | Opcional | Array de strings | Números de telefone do usuário a serem excluídos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Exclusão de usuários por endereços de e-mail e números de telefone {#deleting-users-by-email-addresses-and-phone-numbers}
 
@@ -95,7 +95,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   ],
   "email_addresses": [
     {
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -115,12 +115,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 Quando você remove um usuário com esse endpoint, o seguinte ocorre:
 
 - O perfil do usuário é excluído (anulado).
-- As contagens de usuários do espaço de trabalho (como o total de usuários na [página inicial de análise de dados]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) são atualizadas para refletir os usuários removidos.
+- As contagens de usuários do espaço de trabalho (como o total de usuários na [página inicial de análise de dados]({{site.baseurl}}/user_guide/analytics/dashboards/home)) são atualizadas para refletir os usuários removidos.
 - O usuário removido ainda conta para a porcentagem de conversão agregada. As contagens de eventos personalizados e de compras não são atualizadas para os usuários removidos.
 
 ### Vários perfis com um endereço de e-mail compartilhado {#multiple-profiles-with-a-shared-email-address}
 
-Para mesclar perfis de usuário que compartilham o mesmo endereço de e-mail, chame o [endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
+Para mesclar perfis de usuário que compartilham o mesmo endereço de e-mail, chame o [endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ## Solução de problemas {#troubleshooting}
 
@@ -131,9 +131,9 @@ Uma resposta de sucesso confirma que a solicitação foi enfileirada, não que a
 Se o usuário ainda existir após vários minutos, verifique se o identificador na sua solicitação corresponde ao perfil real do usuário:
 
 - **Array `external_ids`:** confirme se cada valor corresponde exatamente ao ID externo de um usuário.
-- **`braze_id`:** você pode encontrar o `braze_id` de um usuário exportando os dados dele com o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) ou exportando um segmento para CSV (onde o `braze_id` aparece como "Appboy ID").
+- **`braze_id`:** você pode encontrar o `braze_id` de um usuário exportando os dados dele com o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) ou exportando um segmento para CSV (onde o `braze_id` aparece como "Appboy ID").
 - **Perfis somente com alias ou somente com e-mail:** se o perfil não tiver um `external_id`, crie um segmento filtrando por **External User ID is blank** combinado com o e-mail ou número de telefone conhecido e, em seguida, exporte para CSV para obter o `braze_id`.
 
-Para confirmar se um usuário foi excluído, chame o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) usando o mesmo tipo de identificador que você usou na solicitação de exclusão (por exemplo, incluindo o valor em `external_ids`, `braze_id` ou `user_aliases`). Se o usuário não existir mais, a resposta conterá `"users": []` e poderá incluir `"invalid_user_ids"` listando esse identificador.
+Para confirmar se um usuário foi excluído, chame o [endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) usando o mesmo tipo de identificador que você usou na solicitação de exclusão (por exemplo, incluindo o valor em `external_ids`, `braze_id` ou `user_aliases`). Se o usuário não existir mais, a resposta conterá `"users": []` e poderá incluir `"invalid_user_ids"` listando esse identificador.
 
 {% endapi %}

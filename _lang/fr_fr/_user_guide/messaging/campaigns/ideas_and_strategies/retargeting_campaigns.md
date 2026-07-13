@@ -6,24 +6,24 @@ page_type: reference
 description: "Cet article de référence explique comment et pourquoi envisager le reciblage de campagnes en fonction des messages reçus par vos utilisateurs."
 tool:
   - Campaigns
-  
+
 ---
 
-# Recibler des campagnes
+# Recibler des campagnes {#retarget-campaigns}
 
 > En reciblant des campagnes en fonction des actions précédentes de l'utilisateur, par exemple s'il a ouvert ou non un e-mail, vous pouvez reclassifier vos utilisateurs et ouvrir la voie à une approche de marketing axé sur les données efficace.
 
-Braze prend en charge le reciblage des utilisateurs en fonction des messages qu'ils ont reçus. Vous pouvez recibler les utilisateurs en fonction de leurs interactions avec vos campagnes et vos Canvas. 
+Braze prend en charge le reciblage des utilisateurs en fonction des messages qu'ils ont reçus. Vous pouvez recibler les utilisateurs en fonction de leurs interactions avec vos campagnes et vos Canvas.
 
 Chacun de ces filtres de reciblage vous offre plusieurs options une fois ajoutés. Pour en savoir plus sur le ciblage des utilisateurs, consultez notre [cours d'apprentissage Braze](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) sur la configuration des campagnes !
 
 ![Section Détails du segment avec le menu déroulant des filtres disponibles.]({% image_buster /assets/img_archive/retarget.png %}){: style="max-width:80%;"}
 
-## Filtres de reciblage
+## Filtres de reciblage {#retargeting-filters}
 
 Vous pouvez utiliser les filtres de reciblage de cette section pour vos utilisateurs dans vos campagnes et Canvas.
 
-### A cliqué/ouvert une campagne
+### A cliqué/ouvert une campagne {#clickedopened-campaign}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas :
 
@@ -33,11 +33,11 @@ Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas :
 - Ouvert un e-mail
 - Vu un message in-app
 
-![]({% image_buster /assets/img_archive/clickedopened.png %})
+![Filtre A cliqué/ouvert une campagne avec les options d'interaction par canal.]({% image_buster /assets/img_archive/clickedopened.png %})
 
 Ce filtre peut être affiné en sélectionnant la campagne que vous souhaitez recibler.
 
-### A cliqué ou ouvert une campagne ou un Canvas avec une étiquette
+### A cliqué ou ouvert une campagne ou un Canvas avec une étiquette {#clicked-or-opened-campaign-or-canvas-with-tag}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas interagi avec des campagnes ou des Canvas portant une étiquette donnée :
 
@@ -47,65 +47,65 @@ Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas interagi a
 - Ouvert un e-mail
 - Vu un message in-app
 
-![]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
+![Filtre A cliqué ou ouvert une campagne ou un Canvas avec une étiquette.]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
 
-### A converti à partir d'une campagne
+### A converti à partir d'une campagne {#converted-from-campaign}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas converti (sur la base de la conversion principale) dans votre campagne cible.
 
 Pour les campagnes récurrentes, ce filtre indique si les utilisateurs ont converti sur le message le plus récent de la campagne.
 
-![]({% image_buster /assets/img_archive/converted_from_campaign.png %})
+![Filtre A converti à partir d'une campagne avec sélection de la campagne.]({% image_buster /assets/img_archive/converted_from_campaign.png %})
 
-### A converti à partir d'un Canvas
+### A converti à partir d'un Canvas {#converted-from-canvas}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas converti (sur la base de la conversion principale) dans votre Canvas cible.
 
 Pour les Canvas récurrents, ce filtre indique si les utilisateurs ont converti à un moment quelconque de leur parcours dans le Canvas.
 
-![]({% image_buster /assets/img_archive/converted_from_canvas.png %})
+![Filtre A converti à partir d'un Canvas avec sélection du Canvas.]({% image_buster /assets/img_archive/converted_from_canvas.png %})
 
-### Dans le groupe de contrôle d'une campagne
+### Dans le groupe de contrôle d'une campagne {#in-campaign-control-group}
 
 Utilisez ce filtre pour trouver les utilisateurs qui font ou ne font pas partie du groupe de contrôle de votre campagne cible.
 
-![]({% image_buster /assets/img_archive/campaign_control_group.png %})
+![Filtre Dans le groupe de contrôle d'une campagne avec sélection de la campagne.]({% image_buster /assets/img_archive/campaign_control_group.png %})
 
-### Dans le groupe de contrôle d'un Canvas
+### Dans le groupe de contrôle d'un Canvas {#in-canvas-control-group}
 
 Utilisez ce filtre pour trouver les utilisateurs qui font ou ne font pas partie du groupe de contrôle de votre Canvas cible, que vous pouvez sélectionner dans le menu déroulant.
 
-![]({% image_buster /assets/img_archive/canvas_control_group.png %})
+![Filtre Dans le groupe de contrôle d'un Canvas avec sélection du Canvas.]({% image_buster /assets/img_archive/canvas_control_group.png %})
 
-### Dernier message reçu d'une campagne spécifique
+### Dernier message reçu d'une campagne spécifique {#last-received-message-from-specific-campaign}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont reçu pour la dernière fois une campagne spécifique avant ou après une date ou un nombre de jours donné. Ce filtre ne tient pas compte du moment où les utilisateurs ont reçu d'autres campagnes.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
-![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
+![Filtre Dernier message reçu d'une campagne spécifique avec options de date.]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
-### Dernier message reçu d'une campagne ou d'un Canvas avec une étiquette
+### Dernier message reçu d'une campagne ou d'un Canvas avec une étiquette {#last-received-message-from-campaign-or-canvas-with-tag}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont reçu pour la dernière fois une campagne ou un Canvas portant une étiquette donnée avant ou après une date ou un nombre de jours donné. Ce filtre ne tient pas compte du moment où les utilisateurs ont reçu d'autres campagnes ou Canvas.
 
-![]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
+![Filtre Dernier message reçu d'une campagne ou d'un Canvas avec une étiquette.]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
 
-### A reçu un message d'une campagne
+### A reçu un message d'une campagne {#received-message-from-campaign}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas reçu votre campagne cible.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
-![]({% image_buster /assets/img_archive/receivedcamp.png %})
+![Filtre A reçu un message d'une campagne avec sélection de la campagne.]({% image_buster /assets/img_archive/receivedcamp.png %})
 
-### A reçu un message d'une campagne ou d'un Canvas avec une étiquette
+### A reçu un message d'une campagne ou d'un Canvas avec une étiquette {#received-message-from-campaign-or-canvas-with-tag}
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas reçu une campagne ou un Canvas portant votre étiquette cible.
 
-![]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
+![Filtre A reçu un message d'une campagne ou d'un Canvas avec une étiquette.]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
 
-## Avantages du reciblage de campagnes
+## Avantages du reciblage de campagnes {#advantages-with-retargeting-campaigns}
 
 Le reciblage est particulièrement efficace lorsque le segment d'origine inclut également une action spécifique que vous souhaitez voir les utilisateurs effectuer. Par exemple, imaginons que vous ayez une carte ciblant les utilisateurs qui n'ont jamais effectué d'achat. La carte fait la promotion d'un achat in-app à prix réduit. Le segment initial se présente comme suit :
 

@@ -8,6 +8,6 @@ description: "Découvrez comment créer des enquêtes sur les pages d'accueil Br
 
 # Enquêtes sur les pages d'accueil {#landing-page-surveys}
 
-> Les enquêtes Braze recueillent des retours sur les pages d'accueil que vous pouvez analyser et utiliser dans vos messages de suivi. Pendant la bêta, les enquêtes sont créées dans l'[éditeur par glisser-déposer des pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
+> Les enquêtes Braze recueillent des retours sur les pages d'accueil que vous pouvez analyser et utiliser dans vos messages de suivi. Pendant la bêta, les enquêtes sont créées dans l'[éditeur par glisser-déposer des pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages).
 
 {% multi_lang_include surveys/content.md channel='landing_page' %}

@@ -37,10 +37,10 @@ Siga estas etapas para configurar notificações de queda de preço em um catál
 
 | Campo | Descrição |
 | --- | --- |
-| **Fallback catalog** | O catálogo usado para a inscrição se não houver uma propriedade `catalog_name` no evento personalizado. |
-| **Custom event for subscribing** | O evento personalizado usado para inscrever um usuário nas notificações de catálogo. Quando esse evento ocorrer, o usuário que o realizou será inscrito. |
-| **Custom event for unsubscribing** | O evento personalizado usado para cancelar a inscrição de um usuário nas notificações. Esse evento é opcional. Se o usuário não realizar esse evento, ele será desinscrito após 90 dias ou quando o evento de queda de preço for acionado, o que ocorrer primeiro. |
-| **Item ID event property** | A propriedade no evento personalizado acima usada para determinar o item para uma inscrição ou cancelamento de inscrição. Essa propriedade no evento personalizado deve conter um ID de item que existe em um catálogo. O evento personalizado deve conter uma propriedade `catalog_name` para especificar em qual catálogo esse item está. |
+| **Catálogo de fallback** | O catálogo usado para a inscrição se não houver uma propriedade `catalog_name` no evento personalizado. |
+| **Evento personalizado para inscrição** | O evento personalizado usado para inscrever um usuário nas notificações de catálogo. Quando esse evento ocorrer, o usuário que o realizou será inscrito. |
+| **Evento personalizado para cancelamento de inscrição** | O evento personalizado usado para cancelar a inscrição de um usuário nas notificações. Esse evento é opcional. Se o usuário não realizar esse evento, ele será desinscrito após 90 dias ou quando o evento de queda de preço for acionado, o que ocorrer primeiro. |
+| **Propriedade de evento do ID do item** | A propriedade no evento personalizado mencionado anteriormente nesta seção, usada para determinar o item para uma inscrição ou cancelamento de inscrição. Essa propriedade no evento personalizado deve conter um ID de item que existe em um catálogo. O evento personalizado deve conter uma propriedade `catalog_name` para especificar em qual catálogo esse item está. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurando notificações de queda de preço" }
 
 Aqui está um exemplo de evento personalizado:
@@ -90,7 +90,7 @@ Após configurar as notificações de queda de preço em um catálogo, siga esta
 1. Configure um Canvas baseado em ação.
 2. Selecione **Perform Price Drop Event** como o gatilho.
 3. Selecione o nome do catálogo com as notificações de queda de preço.
-4. Continue [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) seu Canvas como de costume.
+4. Continue [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) seu Canvas como de costume.
 
 Agora, seus clientes serão notificados quando o preço de um item cair.
 

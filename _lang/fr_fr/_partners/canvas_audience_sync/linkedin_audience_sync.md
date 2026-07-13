@@ -13,7 +13,7 @@ page_order: 4
 
 Grâce à la synchronisation de l'audience Braze avec LinkedIn, les marques peuvent ajouter les données utilisateurs de leur intégration Braze aux listes de clients LinkedIn pour diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore. Les critères que vous utilisez généralement pour déclencher un message (notification push, e-mail, SMS, webhook, etc.) dans un Canvas Braze en fonction de vos données utilisateur peuvent maintenant déclencher une publicité pour cet utilisateur dans vos listes de clients LinkedIn.
 
-**Les cas d'utilisation courants de la synchronisation de l'audience sont les suivants** :
+**Les cas d'usage courants de la synchronisation de l'audience sont les suivants** :
 
 - Ciblage des utilisateurs à forte valeur ajoutée via plusieurs canaux pour favoriser les achats ou l'engagement
 - Reciblage des utilisateurs qui sont moins réactifs aux autres canaux marketing
@@ -21,7 +21,7 @@ Grâce à la synchronisation de l'audience Braze avec LinkedIn, les marques peuv
 
 Cette fonctionnalité permet aux marques de contrôler quelles données first-party spécifiques sont partagées avec LinkedIn. Chez Braze, les intégrations avec lesquelles vous pouvez et ne pouvez pas partager vos données first-party sont considérées avec le plus grand sérieux. Pour plus d'informations, consultez notre [politique de confidentialité](https://www.braze.com/privacy).
 
-{% multi_lang_include early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
 
 ## Conditions préalables {#prerequisites}
 
@@ -38,7 +38,7 @@ Vous devez vous assurer que les éléments suivants ont été créés, complét�
 ### Étape 1 : Se connecter à LinkedIn {#step-1-connect-to-linkedin}
 
 {% alert important %}
-Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour connecter LinkedIn à votre compte Braze.
+Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) pour connecter LinkedIn à votre compte Braze.
 {% endalert %}
 
 Dans le tableau de bord de Braze, accédez à **Partenaires technologiques** et sélectionnez **LinkedIn**. Dans la section **LinkedIn Audience Sync**, sélectionnez **Connect LinkedIn**.
@@ -57,9 +57,9 @@ Votre connexion LinkedIn sera appliquée au niveau de l'espace de travail Braze.
 
 ### Étape 2 : Configurer vos critères d'entrée Canvas {#step-2-configure-your-canvas-entry-criteria}
 
-Lorsque vous créez des audiences pour le suivi publicitaire, vous pouvez souhaiter inclure ou exclure certains utilisateurs en fonction de leurs préférences, et vous conformer aux lois sur la protection de la vie privée, telles que le droit « Ne pas vendre ou partager » en vertu de la [CCPA](https://oag.ca.gov/privacy/ccpa). Les marketeurs devraient implémenter les filtres pertinents pour l'éligibilité des utilisateurs dans leurs critères d'entrée Canvas. Ci-dessous, nous listons quelques options.
+Lorsque vous créez des audiences pour le suivi publicitaire, vous pouvez souhaiter inclure ou exclure certains utilisateurs en fonction de leurs préférences, et vous conformer aux lois sur la protection de la vie privée, telles que le droit « Ne pas vendre ou partager » en vertu de la [CCPA](https://oag.ca.gov/privacy/ccpa). Les marketeurs devraient implémenter les filtres pertinents pour l'éligibilité des utilisateurs dans leurs critères d'entrée Canvas. Voici quelques options possibles.
 
-Si vous avez collecté l'[IDFA iOS via le SDK Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations/#optional-idfa-collection), vous pourrez utiliser le filtre **Ads Tracking Enabled**. Sélectionnez la valeur `true` afin d'envoyer uniquement les utilisateurs vers les destinations de synchronisation d'audience où ils ont donné leur consentement.
+Si vous avez collecté l'[IDFA iOS via le SDK Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection), vous pourrez utiliser le filtre **Ads Tracking Enabled**. Sélectionnez la valeur `true` afin d'envoyer uniquement les utilisateurs vers les destinations de synchronisation d'audience où ils ont donné leur consentement.
 
 ![Une audience d'entrée avec le filtre « Ad Tracking Enabled is true ».]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -67,7 +67,7 @@ Si vous collectez `opt-ins`, `opt-outs`, `Do Not Sell Or Share`, ou tout autre a
 
 ![Un Canvas dont l'audience d'entrée est « opted_in_marketing » égal à « true ».]({% image_buster /assets/img/linkedin/linkedin4.png %}){: style="max-width:75%;"}
 
-Pour en savoir plus sur la manière de se conformer à ces lois sur la protection des données au sein de la plateforme Braze, consultez l'[Assistance technique à la protection des données]({{site.baseurl}}/dp-technical-assistance/).
+Pour en savoir plus sur la manière de se conformer à ces lois sur la protection des données au sein de la plateforme Braze, consultez l'[Assistance technique à la protection des données]({{site.baseurl}}/dp-technical-assistance).
 
 ### Étape 3 : Ajouter une étape de synchronisation de l'audience avec LinkedIn {#step-3-add-an-audience-sync-step-with-linkedin}
 
@@ -79,7 +79,7 @@ Ajoutez un composant dans votre Canvas et sélectionnez Audience Sync. Cliquez s
 
 Sélectionnez **LinkedIn** comme partenaire souhaité pour la synchronisation d'audience.
 
-![Les détails de la « Configuration de la synchronisation de l'audience » avec les multiples partenaires à choisir.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
+![Les détails de la configuration de la synchronisation de l'audience avec les multiples partenaires à choisir.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
 
 Sélectionnez ensuite le compte publicitaire LinkedIn souhaité. Dans la liste déroulante **Choose a New or Existing Audience**, saisissez le nom d'une audience nouvelle ou existante.
 
@@ -133,10 +133,10 @@ La limite de débit de l'API de LinkedIn n'autorise pas plus de dix requêtes pa
 
 Le tableau suivant contient des indicateurs et des descriptions pour vous aider à mieux comprendre les analyses de votre composant de synchronisation de l'audience.
 
-| INDICATEUR | DESCRIPTION |
+| Indicateur | Description |
 | ------ | ----------- |
 | Entered | Nombre d'utilisateurs ayant entré ce composant pour être synchronisés avec LinkedIn. |
-| Proceeded to Next Step | Combien d'utilisateurs sont passés au composant suivant s'il y en a un ? Tous les utilisateurs avanceront automatiquement si c'est la dernière étape de la branche Canvas. |
+| Proceeded to Next Step | Nombre d'utilisateurs passés au composant suivant s'il y en a un. Tous les utilisateurs avanceront automatiquement si c'est la dernière étape de la branche Canvas. |
 | Users Synced | Nombre d'utilisateurs qui ont été synchronisés avec succès sur LinkedIn. |
 | Users Not Synced | Nombre d'utilisateurs qui n'ont pas été synchronisés en raison de champs manquants. |
 | Users Pending | Nombre d'utilisateurs actuellement traités par Braze en vue d'une synchronisation avec LinkedIn. |

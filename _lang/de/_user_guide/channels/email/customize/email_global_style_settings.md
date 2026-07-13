@@ -14,7 +14,7 @@ tool:
 
 > Mit globalen Stileinstellungen können Sie das Erscheinungsbild Ihrer E-Mail-Campaigns und Canvases personalisieren. Sie können ein Standard-Theme für Ihren Drag-and-Drop-Editor hinzufügen und anpassen. Dazu gehört die Bearbeitung Ihrer Stile für E-Mail-Titel, Text, Buttons und mehr. Eine Kombination dieser Einstellungen kann dazu beitragen, ein einheitliches Erscheinungsbild in Ihrem E-Mail-Messaging zu schaffen.
 
-Um Ihre globalen Stileinstellungen zu bearbeiten, gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Drag-and-Drop-E-Mail-Präferenzen**. Nachdem Sie die Stile im Drag-and-Drop-E-Mail-Editor bearbeitet haben, wählen Sie **Speichern**. Um Ihre E-Mail-Campaigns und Canvases weiter anzupassen, erfahren Sie, wie Sie [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) einbinden können.
+Um Ihre globalen Stileinstellungen zu bearbeiten, gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Drag-and-Drop-E-Mail-Präferenzen**. Nachdem Sie die Stile im Drag-and-Drop-E-Mail-Editor bearbeitet haben, wählen Sie **Speichern**. Um Ihre E-Mail-Campaigns und Canvases weiter anzupassen, erfahren Sie, wie Sie [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) einbinden können.
 
 ![Abschnitt „Globale E-Mail-Stileinstellungen“ im Tab „Drag-and-Drop-E-Mail-Editor-Einstellungen“.]({% image_buster /assets/img_archive/dnd_global_style_settings.png %})
 
@@ -57,7 +57,7 @@ Um eine benutzerdefinierte Schriftart hinzuzufügen, gehen Sie wie folgt vor:
 Gmail unterstützt keine benutzerdefinierten Schriftarten, sodass Ihre benutzerdefinierte Schriftart möglicherweise als Standard-Systemschriftart angezeigt wird. Überprüfen Sie bei anderen E-Mail-Plattformen, ob Ihre benutzerdefinierte Schriftart korrekt angezeigt wird, bevor Sie Ihr E-Mail-Messaging versenden.
 {% endalert %}
 
-Um andere benutzerdefinierte Schriftarten in Ihren E-Mail-Campaigns zu verwenden, können Sie ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) oder [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) erstellen, die die benutzerdefinierte Schriftart enthalten. Sie können beispielsweise ein spezielles E-Mail-Template mit festlichen benutzerdefinierten Schriftarten erstellen, die auf Ihr Verkaufsthema zugeschnitten sind. Stellen Sie sicher, dass Ihre Schriftartwahl websicher ist und auf Ihren E-Mail-Plattformen unterstützt wird.
+Um andere benutzerdefinierte Schriftarten in Ihren E-Mail-Campaigns zu verwenden, können Sie ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) oder [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) erstellen, die die benutzerdefinierte Schriftart enthalten. Sie können beispielsweise ein spezielles E-Mail-Template mit festlichen benutzerdefinierten Schriftarten erstellen, die auf Ihr Verkaufsthema zugeschnitten sind. Stellen Sie sicher, dass Ihre Schriftartwahl websicher ist und auf Ihren E-Mail-Plattformen unterstützt wird.
 
 ### Fallback-Schriftart {#fallback-font}
 

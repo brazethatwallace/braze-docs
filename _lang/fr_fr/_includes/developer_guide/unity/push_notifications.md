@@ -16,11 +16,11 @@ L'intégration du SDK Firebase Unity peut entraîner le remplacement de votre `A
 
 #### Étape 1.2 : Définir vos identifiants Firebase {#step-12-set-your-firebase-credentials}
 
-Vous devez saisir votre clé de serveur Firebase et votre ID d'expéditeur dans le tableau de bord de Braze. Pour ce faire, connectez-vous à la [Firebase Developers Console](https://console.firebase.google.com/) et sélectionnez votre projet Firebase. Ensuite, sélectionnez **Cloud Messaging** sous **Settings** et copiez la clé du serveur et l'ID de l'expéditeur :<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+Vous devez saisir votre clé de serveur Firebase et votre ID d'expéditeur dans le tableau de bord de Braze. Pour ce faire, connectez-vous à la [Firebase Developers Console](https://console.firebase.google.com/) et sélectionnez votre projet Firebase. Ensuite, sélectionnez **Cloud Messaging** sous **Settings** et copiez la clé du serveur et l'ID de l'expéditeur :<br>![Paramètres Cloud Messaging de la console Firebase affichant la clé du serveur et l'ID de l'expéditeur.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
-Dans Braze, sélectionnez votre application Android sur la page **Paramètres des applications**, sous **Gérer les paramètres**. Saisissez ensuite votre clé de serveur Firebase dans le champ **Firebase Cloud Messaging Server Key** et l'ID d'expéditeur Firebase dans le champ **Firebase Cloud Messaging Sender ID**.
+Dans Braze, sélectionnez votre application Android sur la page **App Settings**, sous **Manage Settings**. Saisissez ensuite votre clé de serveur Firebase dans le champ **Firebase Cloud Messaging Server Key** et l'ID d'expéditeur Firebase dans le champ **Firebase Cloud Messaging Sender ID**.
 
-![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
+![Paramètres de l'application Android dans Braze avec les champs de clé de serveur et d'ID d'expéditeur Firebase Cloud Messaging.]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
@@ -169,9 +169,9 @@ Le fichier Jar ADM requis peut être placé n'importe où dans votre projet, con
 
 #### Étape 2.4 : Ajouter le secret client et l'ID client à votre tableau de bord de Braze {#step-24-add-client-secret-and-client-id-to-your-braze-dashboard}
 
-Enfin, vous devez ajouter le secret client et l'ID client que vous avez obtenus à l'[étape 1](#unity_step-1-enable-adm) à la page **Gérer les paramètres** du tableau de bord de Braze.
+Enfin, vous devez ajouter le secret client et l'ID client que vous avez obtenus à l'[étape 1](#unity_step-1-enable-adm) à la page **Manage Settings** du tableau de bord de Braze.
 
-![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
+![Page des paramètres de l'application Fire OS dans Braze avec les champs ID client et secret client ADM.]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -298,11 +298,11 @@ Pour en savoir plus sur les écouteurs push ADM, consultez [Amazon : Intégrer A
 
 {% tabs %}
 {% tab Android %}
-#### Liens profonds vers des ressources in-app {#deep-linking-to-in-app-resources}
+### Liens profonds vers des ressources in-app {#deep-linking-to-in-app-resources}
 
 Bien que Braze puisse gérer les liens profonds standard par défaut (tels que les URL de sites web, les URI Android, etc.), la création de liens profonds personnalisés nécessite une configuration supplémentaire du Manifeste.
 
-Pour obtenir des conseils sur la configuration, consultez [Liens profonds vers des ressources in-app](https://developer.android.com/training/app-links/deep-linking).
+Pour obtenir des conseils sur la configuration, consultez [Deep Linking to In-App Resources](https://developer.android.com/training/app-links/deep-linking).
 
 #### Ajout d'icônes de notification push Braze {#adding-braze-push-notification-icons}
 
@@ -310,9 +310,9 @@ Pour obtenir des conseils sur la configuration, consultez [Liens profonds vers d
 N'ajoutez pas d'images d'icônes de notification sous `Assets/Plugins/Android/res`. Unity [a déprécié la fourniture de ressources Android dans ce chemin](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), ce qui peut générer des avertissements de build ou des erreurs de validation. Empaquetez vos drawables d'icônes dans un [plug-in Android Archive (AAR)](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) ou un projet de bibliothèque Android afin qu'ils soient fusionnés dans les ressources de l'application compilée comme tout autre drawable.
 {% endalert %}
 
-Pour ajouter des icônes push à votre projet, créez un plug-in AAR ou une bibliothèque Android contenant les fichiers d'image des icônes sous `res/drawable*` (ou des dossiers spécifiques à la densité), puis référencez chaque icône dans **Braze > Braze Configuration** en utilisant le nom complet de la ressource `@drawable/` (voir [Étape 2.1 : Configurer les paramètres push](#unity_step-21-configure-push-settings)). Pour les étapes d'empaquetage et d'importation dans Unity, consultez [Projets de bibliothèques Android et plug-ins Android Archive](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+Pour ajouter des icônes push à votre projet, créez un plug-in AAR ou une bibliothèque Android contenant les fichiers d'image des icônes sous `res/drawable*` (ou des dossiers spécifiques à la densité), puis référencez chaque icône dans **Braze > Braze Configuration** en utilisant le nom complet de la ressource `@drawable/` (voir [Étape 2.1 : Configurer les paramètres push](#unity_step-21-configure-push-settings)). Pour les étapes d'empaquetage et d'importation dans Unity, consultez [Android Library Projects and Android Archive plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
 
-Pour les règles de conception des petites icônes (alpha uniquement, sans couleur), consultez [Notifications push Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), Étape 2 : Conformer les petites icônes aux directives de conception.
+Pour les règles de conception des petites icônes (alpha uniquement, sans couleur), consultez [Notifications push Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), étape 2 : conformer les petites icônes aux directives de conception.
 {% endtab %}
 
 {% tab Swift %}

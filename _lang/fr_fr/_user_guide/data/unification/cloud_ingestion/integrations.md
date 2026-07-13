@@ -65,10 +65,10 @@ Il peut y avoir un temps de préchauffage de deux à cinq minutes lorsque Braze 
 
 ### Étape 1 : Configurer les tables ou les vues {#step-1-set-up-tables-or-views}
 
-Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
+Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
 
 {% alert note %}
-Votre table ou vue source peut inclure des colonnes qui ne sont pas répertoriées pour votre entrepôt dans les onglets ci-dessous (par exemple, des colonnes d'audit ou de hachage). Braze ne lit que les colonnes décrites dans ces onglets ; les autres colonnes ne sont pas utilisées lors des synchronisations d'Ingestion de données cloud.
+Votre table ou vue source peut inclure des colonnes qui ne sont pas répertoriées pour votre entrepôt dans les onglets de la section suivante (par exemple, des colonnes d'audit ou de hachage). Braze ne lit que les colonnes décrites dans ces onglets ; les autres colonnes ne sont pas utilisées lors des synchronisations d'Ingestion de données cloud.
 {% endalert %}
 
 {% tabs %}
@@ -148,7 +148,7 @@ Lorsque vous connectez différents espaces de travail au même compte Snowflake,
 
 Selon la configuration de votre compte Snowflake, vous devrez peut-être autoriser les adresses IP suivantes dans votre politique réseau Snowflake. Pour plus d'informations, consultez la documentation Snowflake sur la [modification d'une politique réseau](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -211,7 +211,7 @@ Points importants à connaître :
 
 Autorisez l'accès à partir des IP suivantes correspondant à la région de votre tableau de bord de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.1 : Configurer la table" }
 
 Vous pouvez nommer le projet, le jeu de données et la table comme vous le souhaitez, mais les noms de colonnes doivent correspondre à la définition ci-dessus.
 
@@ -294,7 +294,7 @@ Après avoir créé le compte de service et accordé les autorisations, génére
 
 Si vous avez des politiques réseau en place, vous devez donner à Braze un accès réseau à votre instance BigQuery. Autorisez l'accès à partir des IP suivantes correspondant à la région de votre tableau de bord de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.1 : Configurer la table" }
 
 Vous pouvez nommer le schéma et la table comme vous le souhaitez, mais les noms de colonnes doivent correspondre à la définition ci-dessus.
 
@@ -368,7 +368,7 @@ Conservez le jeton en lieu sûr jusqu'à ce que vous ayez besoin de le saisir da
 
 Si vous avez des politiques réseau en place, vous devez donner à Braze un accès réseau à votre instance Databricks. Autorisez l'accès à partir des IP suivantes correspondant à la région de votre tableau de bord de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -457,7 +457,7 @@ Pour récupérer l'endpoint SQL de votre entrepôt, accédez à l'**espace de tr
 
 Selon la configuration de votre compte Microsoft Fabric, vous devrez peut-être autoriser les adresses IP suivantes dans votre pare-feu pour permettre le trafic en provenance de Braze. Pour plus d'informations, consultez la documentation sur l'[accès conditionnel Entra](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -511,6 +511,35 @@ Dans le tableau de bord de Braze, le champ **Database name** n'accepte que les l
 #### Étape 2.2 : Tester la connexion et se connecter à la source {#step-22-test-connection-and-connect-to-source}
 
 Sélectionnez ensuite **Test connection**. En cas de succès, finalisez les paramètres restants et cliquez sur **Connect to Source**. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
+
+#### Résolution des problèmes : identifiant de snapshot invalide {#troubleshooting-invalid-snapshot-identifier}
+
+Si Braze renvoie une erreur `Invalid snapshot identifier` lors du **Test connection** ou de la configuration de la synchronisation, Redshift ne parvient pas à résoudre la référence de snapshot utilisée lorsque votre objet source est interrogé.
+
+Dans Redshift, un snapshot est une sauvegarde ponctuelle d'un cluster. Chaque snapshot possède un identifiant unique utilisé par Redshift pour référencer cet état de sauvegarde. Pour plus d'informations, consultez [Snapshots et sauvegardes Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html).
+
+Cette erreur peut survenir lorsque des métadonnées changent pendant que Braze valide l'objet source, par exemple lors d'opérations de copie, de restauration ou de réplication de snapshots. Pour plus d'informations, consultez [Copier des snapshots vers une autre région AWS](https://docs.aws.amazon.com/redshift/latest/mgmt/cross-region-snapshot-copy.html) et [Restaurer un cluster à partir d'un snapshot](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshot-restore-cluster-from-snapshot.html).
+
+Pour résoudre le problème :
+
+1. Vérifiez les paramètres de la source dans Braze, y compris l'endpoint du cluster, la base de données, le schéma et le nom de l'objet.
+2. Exécutez la même requête directement dans Redshift pour confirmer que la table ou la vue est lisible et stable.
+3. Réessayez une fois que les opérations de snapshot, de restauration, de redimensionnement ou de réplication en cours sont terminées.
+4. Si le problème persiste, interrogez une vue matérialisée au lieu d'une table de base qui change fréquemment.
+
+Une vue matérialisée stocke des résultats de requête précalculés que vous pouvez actualiser selon un calendrier, ce qui peut rendre les lectures plus stables pour les synchronisations CDI. Pour plus d'informations, consultez [Vues matérialisées dans Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html).
+
+Exemple :
+
+```sql
+CREATE MATERIALIZED VIEW ingestion.users_attributes_mv AS
+SELECT updated_at, external_id, alias_label, alias_name, braze_id, email, phone, payload
+FROM ingestion.users_attributes_sync;
+
+REFRESH MATERIALIZED VIEW ingestion.users_attributes_mv;
+```
+
+Après avoir créé la vue matérialisée, utilisez le nom de la vue matérialisée comme objet source dans votre synchronisation CDI Braze au lieu de la table de base.
 {% endtab %}
 {% tab BigQuery %}
 
@@ -596,7 +625,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 
@@ -629,7 +658,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 
@@ -660,7 +689,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 
@@ -692,7 +721,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +754,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 {% endtabs %}

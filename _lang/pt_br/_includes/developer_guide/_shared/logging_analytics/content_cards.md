@@ -1,4 +1,4 @@
-> Ao construir uma interface personalizada para Content Cards, você deve registrar manualmente análises como impressões, cliques e dispensas, pois isso é tratado automaticamente apenas para modelos de cartão padrão. Registrar esses eventos é uma parte padrão da integração de Content Cards e é essencial para relatórios e faturamento precisos de Campaigns. Para fazer isso, preencha sua interface personalizada com dados dos modelos de dados da Braze e, em seguida, registre manualmente os eventos. Depois de entender como registrar a análise de dados, você poderá ver as maneiras comuns pelas quais os clientes da Braze [criam Content Cards personalizados]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+> Ao construir uma interface personalizada para Content Cards, você deve registrar manualmente análises como impressões, cliques e dispensas, pois isso é tratado automaticamente apenas para modelos de cartão padrão. Registrar esses eventos é uma parte padrão da integração de Content Cards e é essencial para relatórios e faturamento precisos de Campaigns. Para fazer isso, preencha sua interface personalizada com dados dos modelos de dados da Braze e, em seguida, registre manualmente os eventos. Depois de entender como registrar a análise de dados, você poderá ver as maneiras comuns pelas quais os clientes da Braze [criam Content Cards personalizados]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ## Registrando análise de dados {#logging-analytics}
 
@@ -40,7 +40,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Os Content Cards somente serão atualizados no início da sessão se uma solicitação de inscrição for chamada antes de `openSession()`. Você também pode optar por [atualizar manualmente o feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/).
+Os Content Cards somente serão atualizados no início da sessão se uma solicitação de inscrição for chamada antes de `openSession()`. Você também pode optar por [atualizar manualmente o feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 {% endtab %}
@@ -135,6 +135,10 @@ Para acessar o modelo de dados dos Content Cards, chame [`contentCards.cards`](h
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
+{% alert note %}
+A leitura de `contentCards.cards`, `contentCards.unviewedCards` ou `contentCards.lastUpdate` bloqueia a thread de chamada até que o SDK conclua suas operações pós-inicialização. Use os getters não bloqueantes em [Acessores de snapshot não bloqueantes](#non-blocking-snapshot-accessors) para contextos na thread principal ou sensíveis à latência.
+{% endalert %}
+
 Além disso, você também pode manter uma inscrição para observar as alterações nos seus Content Cards. Você pode fazer isso de duas maneiras:
 1. Manutenção de um cancelável; ou
 2. Manutenção de um `AsyncStream`.
@@ -156,6 +160,27 @@ let cancellable = AppDelegate.braze?.contentCards.subscribeToUpdates { [weak sel
 let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.cardsStream
 ```
 
+### Acessores de snapshot não bloqueantes {#non-blocking-snapshot-accessors}
+
+Use esses métodos para ler o estado em cache atual sem bloquear a thread de chamada. Cada handler de conclusão é sempre entregue na thread principal.
+
+```swift
+// All cached cards.
+AppDelegate.braze?.contentCards.getCachedContentCards { cards in
+  // Use `cards` here.
+}
+
+// Unviewed cards only (excludes control cards).
+AppDelegate.braze?.contentCards.getUnviewedCards { cards in
+  // Use `cards` here.
+}
+
+// Date of the last server sync for the current user (nil until the first sync completes).
+AppDelegate.braze?.contentCards.getLastUpdate { date in
+  // Use `date` here.
+}
+```
+
 {% endsubtab %}
 {% subtab Objective-C %}
 
@@ -169,6 +194,25 @@ Além disso, para manter uma inscrição nos seus Content Cards, você pode cham
 // This subscription is maintained through Braze cancellable, which will continue to observe for changes until the subscription is cancelled.
 BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSArray<BRZContentCardRaw *> *contentCards) {
   // Implement your completion handler to respond to updates in `contentCards`.
+}];
+```
+
+Para ler o estado em cache atual sem bloquear a thread de chamada, use os métodos a seguir. Cada handler de conclusão é entregue na thread principal.
+
+```objc
+// All cached cards.
+[AppDelegate.braze.contentCards getCachedContentCardsWithCompletion:^(NSArray<BRZContentCardRaw *> *cards) {
+  // Use `cards` here.
+}];
+
+// Unviewed cards only (excludes control cards).
+[AppDelegate.braze.contentCards getUnviewedCardsWithCompletion:^(NSArray<BRZContentCardRaw *> *cards) {
+  // Use `cards` here.
+}];
+
+// Date of the last server sync for the current user (nil until the first sync completes).
+[AppDelegate.braze.contentCards getLastUpdateWithCompletion:^(NSDate * _Nullable date) {
+  // Use `date` here.
 }];
 ```
 
@@ -388,7 +432,7 @@ function onCardClick(card) {
 |---|---|
 | `url` | Uma URL válida ou uma URL de ação da Braze válida com o esquema `brazeActions://`. |
 | `openLinkInNewTab` | (Opcional) Se a URL deve ser aberta em uma nova guia. O padrão é `false`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Handling on-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Lidando com o comportamento ao clicar" }
 
 {% alert important %}
 Se você não chamar `handleBrazeAction()`, os comportamentos ao clicar configurados no dashboard da Braze (como "Registrar evento personalizado" ou "Navegar para URL") não serão executados para cartões exibidos em um feed personalizado.
@@ -397,12 +441,12 @@ Se você não chamar `handleBrazeAction()`, os comportamentos ao clicar configur
 {% endtab %}
 {% tab android %}
 
-O comportamento ao clicar é tratado automaticamente pela interface padrão dos Content Cards. Para implementações personalizadas, use a interface [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) descrita na seção [Registrando análise de dados](#logging-analytics) acima.
+O comportamento ao clicar é tratado automaticamente pela interface padrão dos Content Cards. Para implementações personalizadas, use a interface [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) descrita na seção [Registrando análise de dados](#logging-analytics).
 
 {% endtab %}
 {% tab swift %}
 
-O comportamento ao clicar é tratado automaticamente pela interface padrão dos Content Cards. Para implementações personalizadas, use o protocolo [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) descrito na seção [Registrando análise de dados](#logging-analytics) acima.
+O comportamento ao clicar é tratado automaticamente pela interface padrão dos Content Cards. Para implementações personalizadas, use o protocolo [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) descrito na seção [Registrando análise de dados](#logging-analytics).
 
 {% endtab %}
 {% endtabs %}

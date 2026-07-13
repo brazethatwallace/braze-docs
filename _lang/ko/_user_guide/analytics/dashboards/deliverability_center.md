@@ -11,11 +11,11 @@ channel:
 
 # 전달 가능성 센터 {#deliverability-center}
 
-> 전달 가능성 센터는 [Gmail Postmaster Tools](https://www.gmail.com/postmaster/)를 활용하여 발송된 이메일에 대한 데이터를 추적하고 발송 도메인에 대한 데이터를 수집함으로써 이메일 성과에 대한 더 깊은 인사이트를 제공합니다.
+> 전달 가능성 센터는 [Gmail Postmaster Tools](https://www.gmail.com/postmaster/)를 활용하여 발송된 이메일에 대한 데이터를 추적하고 발송 도메인에 대한 데이터를 수집함으로써 이메일 성능에 대한 더 깊은 인사이트를 제공합니다.
 
-이메일 전달 가능성은 캠페인 성공의 핵심입니다. Braze 대시보드의 전달 가능성 센터를 사용하면 **IP Reputation** 또는 **Delivery Errors**별로 도메인을 확인하여 이메일 전달 가능성과 관련된 잠재적 문제를 발견하고 해결할 수 있습니다.
+이메일 전달 가능성은 Campaign(캠페인) 성공의 핵심입니다. Braze 대시보드의 전달 가능성 센터를 사용하면 **IP Reputation** 또는 **Delivery Errors**별로 도메인을 확인하여 이메일 전달 가능성과 관련된 잠재적 문제를 발견하고 해결할 수 있습니다.
 
-전달 가능성 센터에 접근하려면 워크스페이스에 대해 아래 드롭다운에 나열된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다.
+전달 가능성 센터에 접근하려면 워크스페이스에 대해 아래 드롭다운에 나열된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다.
 
 {% details 전달 가능성 센터에 필요한 사용자 권한 %}
 
@@ -80,6 +80,13 @@ channel:
 {% endalert %}
 
 ## Google Postmaster 통합 {#integrating-google-postmaster}
+
+{% alert important %}
+**Google Postmaster Tools v2 마이그레이션**<br>
+Google은 기존 Postmaster Tools(v1)를 지원 중단하고 최신 사용자 인터페이스와 새로운 대시보드(Gmail의 발신자 가이드라인 준수를 모니터링하는 데 도움이 되는 규정 준수 대시보드 포함)를 갖춘 차세대 버전(v2)을 출시했습니다. 모든 사용자는 2026년 10월 31일까지 v2로 마이그레이션해야 합니다.<br><br>
+Google Postmaster Tool 연결을 재승인하려면 **파트너 통합** > **기술 파트너**로 이동하여 **Google Postmaster**를 열고 **Change Account**를 선택하여 새로운 v2 권한으로 재인증합니다. 완료되면 v2로 업그레이드되어 새로운 대시보드와 데이터에 접근할 수 있습니다.<br><br>
+자세한 내용은 [새로운 Postmaster Tools에 대한 Google의 공지](https://support.google.com/mail/answer/16594218?hl=en)를 참조하세요.
+{% endalert %}
 
 전달 가능성 센터를 설정하기 전에 도메인이 [Gmail Postmaster Tools에 추가](https://support.google.com/mail/answer/9981691?hl=en)되었는지 확인하세요.
 
@@ -151,14 +158,24 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | TLS 아웃바운드 | 해당 도메인으로 발송된 모든 메일 중 TLS를 통해 수락된 발신 메일(Gmail에서)의 비율을 표시합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="암호화" }
 
-전달 가능성을 개선하는 더 많은 아이디어는 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps)을 참조하세요. 이메일 캠페인을 발송하기 전에 확인해야 할 사항은 [이메일 모범 사례]({{site.baseurl}}/user_guide/channels/email/best_practices/)를 참조하세요.
+전달 가능성을 개선하는 더 많은 아이디어는 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps)을 참조하세요. 이메일 캠페인을 발송하기 전에 확인해야 할 사항은 [이메일 모범 사례]({{site.baseurl}}/user_guide/channels/email/best_practices)를 참조하세요.
 
 ## Microsoft Smart Network Data Services(SNDS) 설정 {#set-up-microsoft-smart-network-data-services-snds}
 
-Microsoft가 주요 메일박스 제공업체인 경우 이 통합을 사용하여 Microsoft 평판 데이터에 접근하고 확인할 수 있습니다. 이를 통해 IP의 상태를 모니터링하여 이메일이 어떻게 수신되고 있는지 파악할 수 있습니다.
+Microsoft가 주요 메일박스 제공업체인 경우 전달 가능성 센터에서 Microsoft SNDS 데이터를 확인할 수 있습니다. 여기에는 Amazon SES, SendGrid 또는 SparkPost를 사용하는 워크스페이스의 전용 발송 IP가 포함됩니다. 이 데이터를 사용하여 IP 상태를 모니터링하고 Microsoft 받은편지함 제공업체가 발송을 어떻게 평가하는지 파악할 수 있습니다.
+
+Microsoft SNDS는 Outlook, Hotmail, Live 등 Microsoft 받은편지함 제공업체가 보고하는 스팸 신고, 스팸 트랩 히트 및 발송량에 대한 IP 수준 데이터를 제공합니다.
 
 {% alert important %}
-전달 가능성 센터에 데이터가 표시되지 않는 경우 IP 주소 목록과 함께 [고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
+전달 가능성 센터에 데이터가 표시되지 않는 경우 IP 주소 목록과 함께 [고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
+{% endalert %}
+
+### Amazon SES
+
+Amazon SES를 통해 이메일을 발송하는 워크스페이스의 경우, 전달 가능성 센터에 전용 발송 IP에 대한 Microsoft SNDS 측정기준이 표시됩니다. Braze는 이 기능이 워크스페이스에서 활성화되면 최대 90일간의 과거 SNDS 데이터를 백필합니다.
+
+{% alert note %}
+Amazon SES는 **Trap message period start** 또는 **Trap message period end** 측정기준을 제공하지 않습니다. SES 발송 IP의 경우 해당 열은 Microsoft SNDS 표에서 숨겨집니다. 해당 IP에 대한 스팸 트랩 히트를 포함한 다른 SNDS 측정기준은 계속 확인할 수 있습니다.
 {% endalert %}
 
 ![샘플 IP, 수신자, RCPT 명령, 데이터 명령, 필터 결과, 불만 비율, 트랩 메시지 기간 시작 및 종료, 스팸 트랩 히트를 포함한 Microsoft SNDS 결과 예시.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
@@ -202,6 +219,10 @@ Microsoft가 주요 메일박스 제공업체인 경우 이 통합을 사용하�
 #### 스팸 트랩 히트 {#spam-trap-hits}
 
 스팸 트랩 히트는 "트랩 계정"으로 전송된 메시지 수입니다. 트랩 계정은 Outlook.com에서 유지 관리하는 계정으로 어떤 메일도 요청하지 않습니다. 이러한 트랩 계정으로 전송된 메시지는 스팸으로 간주될 가능성이 높으므로 이 측정기준을 모니터링하여 낮게 유지하는 것이 중요합니다. 스팸 트랩 히트가 낮다는 것은 메시지가 이러한 계정으로 전송되지 않고 실제 계정으로 전송되고 있음을 의미합니다.
+
+#### 트랩 메시지 기간 시작 및 종료 {#trap-message-period-start-and-end}
+
+이 열은 활동 기간 동안 해당 IP에서 트랩 계정으로 전송된 첫 번째 및 마지막 메시지가 수신된 시점을 표시합니다. Amazon SES는 이러한 측정기준을 제공하지 않으므로 Microsoft SNDS 표에서 SES 발송 IP만 확인할 때 해당 열은 숨겨집니다.
 
 {% alert tip %}
 Braze에서 인증된 도메인 중 하나와 관련된 기록을 찾고 있다면, 전달 가능성 센터는 Google Postmaster 또는 Microsoft SNDS의 데이터를 나열하므로 해당 플랫폼에 Braze와 공유할 데이터가 없을 수 있습니다. 또는 일관된 이메일 전달을 유지하면 더 높은 평판으로 이어질 수 있습니다.

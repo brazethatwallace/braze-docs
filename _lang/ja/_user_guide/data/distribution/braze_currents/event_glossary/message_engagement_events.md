@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "この用語集には、Brazeが追跡し、Currentsを使用して選択されたデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントがリストされています。"
+description: "この用語集では、BrazeがCurrentsを使用してトラッキングし、選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントを一覧にしています。"
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -15,25 +15,25 @@ lazy_partner_tabs: true
 
 {% details スキーマの範囲と関連リソース %}
 
-ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
+ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。その他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の一覧を参照し、それぞれのページをご確認ください。
 
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
 
 {% enddetails %}
 
 {% details メッセージエンゲージメントイベントの構造とプラットフォーム値の説明 %}
 
-### イベントの構造 {#event-structure}
+## イベント構造 {#event-structure}
 
-このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報のタイプを示しています。開発者とビジネスインテリジェンス戦略チームは、構成要素をしっかり理解したうえで、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやグラフを作成したり、その他の貴重なデータ指標を活用したりすることができます。
+このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。コンポーネントをしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
 
-![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、Campaignまたはキャンバストラッキングプロパティ、イベント固有のプロパティごとにグループ化されている。]({% image_buster /assets/img/message_engagement_event.png %})
+![メッセージエンゲージメントイベントの内訳。メール購読解除イベントを示し、リストされたプロパティがユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティにグループ化されています]({% image_buster /assets/img/message_engagement_event.png %})
 
-メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**Campaign / キャンバス追跡**プロパティ、および**イベント固有**のプロパティで構成されます。
+メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン/キャンバスのトラッキング**プロパティ、および**イベント固有**のプロパティで構成されています。
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
@@ -41,14 +41,14 @@ lazy_partner_tabs: true
 
 | Brazeスキーマ | Currentsスキーマ | 説明 |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられる一意の識別子。 |
-| `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されたユーザープロファイルの一意の識別子。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
+| `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられる一意の識別子です。 |
+| `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されるユーザープロファイルの一意の識別子です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーIDスキーマ" }
 
-### プラットフォームの値 {#platform-values}
+### プラットフォーム値 {#platform-values}
 
-特定のイベントは、ユーザーのデバイスのプラットフォームを示す `platform` 値を返します。
-<br>次の表に、返される可能性のある値の詳細を示します。
+一部のイベントは、ユーザーのデバイスのプラットフォームを指定する `platform` 値を返します。
+<br>以下の表に、返される可能性のある値を示します。
 
 | ユーザーデバイス | プラットフォーム値 |
 | --- | --- |
@@ -59,15 +59,15 @@ lazy_partner_tabs: true
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プラットフォーム値" }
 
 {% enddetails %}
 
 {% details メッセージエンゲージメントイベントに関する考慮事項 %}
 
-- Currentsは、900&nbsp;KBを超えるペイロードを持つイベントをドロップします。
-- キャンバスフローに関連するオブジェクトのIDは、グループ化に使用でき、[キャンバスの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)によって人間が読める名前に変換できます。
-- Campaignやキャンバスを更新した直後、特定のフィールドが最新の状態をすぐに表示しない場合があります。
+- Currentsは、ペイロードが900&nbsp;KBを超えるイベントをドロップします。
+- キャンバスフローに関連するオブジェクトには、グループ化に使用でき、[キャンバス詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)を通じて人間が読める名前に変換できるIDがあります。
+- キャンペーンまたはキャンバスを更新した直後に、一部のフィールドが最新の状態を表示しない場合があります。
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ lazy_partner_tabs: true
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- これらのフィールドの完全な一貫性が必要な場合は、最終更新から1時間待ってからユーザーにメッセージを送信してください。
+- これらのフィールドの完全な一貫性が必要な場合は、最後の更新から1時間待ってからユーザーにメッセージを送信してください。
 
 {% enddetails %}
 
@@ -84,8 +84,7 @@ lazy_partner_tabs: true
 <!--overview-end-->
 
 {% api %}
-
-## エージェントが実行したイベント {#agent-executed-events}
+## エージェント実行イベント {#agent-executed-events}
 
 {% apitags %}
 Agent
@@ -125,7 +124,7 @@ Agent
   "prompt_tokens" : "(required, int) how many prompt tokens this request used",
   "provider_request_id" : "(optional, string) any request ID given to us by the model provider for the api call",
   "reasoning_tokens" : "(required, int) how many reasoning tokens this request used",
-  "request_id" : "(required, string) unique id for this overall LLM request and complete execution",
+  "request_id" : "(required, string) Unique id for this overall LLM request and complete execution",
   "time" : "(required, long) unix timestamp at which this event is logged",
   "total_tokens" : "(required, int) how many total tokens this request used",
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
@@ -165,7 +164,7 @@ Agent
     "prompt_tokens" : "(required, int) how many prompt tokens this request used",
     "provider_request_id" : "(optional, string) any request ID given to us by the model provider for the api call",
     "reasoning_tokens" : "(required, int) how many reasoning tokens this request used",
-    "request_id" : "(required, string) unique id for this overall LLM request and complete execution",
+    "request_id" : "(required, string) Unique id for this overall LLM request and complete execution",
     "total_tokens" : "(required, int) how many total tokens this request used"
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
@@ -201,7 +200,7 @@ Agent
   "id" : "(required, string) Globally unique ID for this event",
   "invocation_source" : "(optional, string) which ruby object invoked the LLM request",
   "is_error" : "(required, boolean) whether or not this request errored out",
-  "request_id" : "(optional, string) unique id for this overall LLM request and complete execution",
+  "request_id" : "(optional, string) Unique ID for this overall LLM request and complete execution",
   "time" : "(required, long) unix timestamp at which this event is logged",
   "tool_arguments" : "(required, string) JSON of the tool arguments",
   "tool_call_id" : "(required, string) globally unique id for this tool call",
@@ -223,7 +222,7 @@ Agent
     "duration" : "(required, int) How long the tool invocation took in milliseconds",
     "invocation_source" : "(optional, string) which ruby object invoked the LLM request",
     "is_error" : "(required, boolean) whether or not this request errored out",
-    "request_id" : "(optional, string) unique id for this overall LLM request and complete execution",
+    "request_id" : "(optional, string) Unique ID for this overall LLM request and complete execution",
     "tool_arguments" : "(required, string) JSON of the tool arguments",
     "tool_call_id" : "(required, string) globally unique id for this tool call",
     "tool_name" : "(required, string) Name of the Tool"
@@ -244,10 +243,10 @@ Agent
 Uninstall
 {% endapitags %}
 
-このイベントは、ユーザーがアプリをアンインストールしたときに発生します。このデータを使用して、ユーザーがアプリをアンインストールしたタイミングを追跡できます。これは現在メッセージエンゲージメントイベントですが、将来的にはユーザー行動イベントに変更される予定です。
+このイベントは、ユーザーがアプリをアンインストールしたときに発生します。このデータを使用して、ユーザーがアプリをアンインストールしたタイミングをトラッキングできます。これは現在メッセージエンゲージメントイベントですが、将来的にはユーザー行動イベントに変更される予定です。
 
 {% alert important %}
-このイベントは、ユーザーが実際にアプリをアンインストールしたときには発生しません。その時点を正確に追跡することが不可能だからです。Brazeは、アプリがユーザーのデバイスにまだ存在するかどうかを判断するために、毎日サイレントプッシュを送信します。そのサイレントプッシュでエラーが返された場合、アプリがアンインストールされたと見なされます。
+このイベントは、ユーザーが実際にアプリをアンインストールしたときには発生しません。その時点を正確にトラッキングすることが不可能だからです。Brazeは、アプリがユーザーのデバイスにまだ存在するかどうかを判断するために、毎日サイレントプッシュを送信します。そのサイレントプッシュでエラーが返された場合、アプリがアンインストールされたと見なされます。
 {% endalert %}
 
 {% tabs %}
@@ -360,7 +359,7 @@ Uninstall
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Application Uninstalled (users.behaviors.Uninstall)
 
@@ -388,13 +387,13 @@ Uninstall
 {% endapi %}
 
 {% api %}
-## グローバルサブスクリプション状態変更イベント {#global-subscription-state-change-events}
+## グローバル購読状態変更イベント {#global-subscription-state-change-events}
 
 {% apitags %}
 Subscription
 {% endapitags %}
 
-このイベントは、Brazeがユーザーのグローバルサブスクリプション状態を更新するリクエストを受信したときに発生します。
+このイベントは、Brazeがユーザーのグローバル購読状態を更新するリクエストを受信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -583,7 +582,7 @@ Subscription
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Global Subscription State Changed (users.behaviors.subscription.GlobalStateChange)
 
@@ -624,15 +623,15 @@ Subscription
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細 {#property-details}
+### プロパティの詳細 {#property-details}
 
-- `state_change_source` は、完全なソース名の文字列を返します。例えば、ソースがCSVインポートの場合、文字列 `CSV Import` が返されます。利用可能なソースを以下に示します。
+- `state_change_source` は、完全なソース名の文字列を返します。例えば、ソースがCSVインポートの場合、文字列 `CSV Import` が返されます。利用可能なソースを以下の表に示します。
 
 | ソース | 説明 |
 | --- | --- |
 | SDK | SDKエンドポイント |
-| ダッシュボード | ユーザーのサブスクリプション状態がダッシュボードの**ユーザープロファイル**ページから更新された場合 |
-| サブスクリプションページ | ユーザー設定センター以外のメールリンクを介してユーザーが配信停止した場合 |
+| ダッシュボード | ユーザーの購読状態がダッシュボードの**ユーザープロファイル**ページから更新された場合 |
+| 購読ページ | ユーザー設定センター以外のメールリンクを介してユーザーが購読解除した場合 |
 | REST API | REST APIエンドポイント |
 | CSVインポート | CSVユーザーインポート |
 | ユーザー設定センター | ユーザー設定センターからユーザーが更新された場合 |
@@ -641,7 +640,7 @@ Subscription
 | ユーザーマージ | ユーザーのマージプロセスによってユーザーが更新された場合 |
 | キャンバスユーザー更新ステップ | キャンバスユーザー更新ステップによってユーザーが更新された場合 |
 | プッシュトークン登録 | トークン登録プロセスによってユーザーが更新された場合 |
-| リスト配信停止 | ユーザーがBrazeのmailtoまたはワンクリックリスト配信停止ヘッダーを使用して配信停止した場合 |
+| リスト購読解除 | ユーザーがBrazeのmailtoまたはワンクリックリスト購読解除ヘッダーを使用して購読解除した場合 |
 | その他 | デモまたはプロバイダーの同期ジョブ、SMSおよびWhatsAppイベントコールバックなど、その他のソースが含まれます |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="プロパティの詳細" }
 
@@ -649,16 +648,16 @@ Subscription
 {% endapi %}
 
 {% api %}
-## サブスクリプショングループの状態変更イベント {#subscription-group-state-change-events}
+## 購読グループの状態変更イベント {#subscription-group-state-change-events}
 
 {% apitags %}
 Subscription
 {% endapitags %}
 
-このイベントは、サブスクリプショングループ内のユーザーのサブスクリプション状態が変化したときに発生します。
+このイベントは、購読グループ内のユーザーの購読状態が変化したときに発生します。
 
 {% alert important %}
-サブスクリプショングループは、現時点ではメール、SMS、RCS、WhatsAppチャネルでのみ利用可能です。
+購読グループは、現時点ではメール、SMS、RCS、WhatsAppチャネルでのみ利用可能です。
 {% endalert %}
 
 {% tabs %}
@@ -867,7 +866,7 @@ Subscription
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Subscription Group State Changed (users.behaviors.subscriptiongroup.StateChange)
 
@@ -911,21 +910,20 @@ Subscription
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 {% multi_lang_include currents/property_details_dispatch_state_source.md %}
 
 
 {% endapi %}
 
 {% api %}
-
-## Campaignコンバージョンイベント {#campaign-conversion-events}
+## キャンペーンコンバージョンイベント {#campaign-conversion-events}
 
 {% apitags %}
 Campaign, Conversion
 {% endapitags %}
 
-このイベントは、Campaignにコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
+このイベントは、キャンペーンでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
 コンバージョンイベントは `conversion_behavior` フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index` フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
@@ -1082,7 +1080,7 @@ Campaign, Conversion
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Campaign Converted (users.campaigns.Conversion)
 
@@ -1118,13 +1116,13 @@ Campaign, Conversion
 {% endapi %}
 
 {% api %}
-## Campaignコントロールグループの登録イベント {#campaign-control-group-enrollment-events}
+## キャンペーンコントロールグループの登録イベント {#campaign-control-group-enrollment-events}
 
 {% apitags %}
 Campaign, Entry
 {% endapitags %}
 
-このイベントは、複数のバリアントを持つCampaignに設定されたコントロールバリアントにユーザーが登録されたときに発生します。このイベントは、このユーザーに対するチャネル送信イベントが発生しないために生成されます。
+このイベントは、複数のバリアントを持つキャンペーンに設定されたコントロールバリアントにユーザーが登録されたときに発生します。このイベントは、このユーザーに対するチャネル送信イベントが発生しないために生成されます。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1267,7 +1265,7 @@ Campaign, Entry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Campaign Control Group Entered (users.campaigns.EnrollInControl)
 
@@ -1301,13 +1299,13 @@ Campaign, Entry
 {% endapi %}
 
 {% api %}
-## Canvasコンバージョンイベント {#canvas-conversion-events}
+## キャンバスコンバージョンイベント {#canvas-conversion-events}
 
 {% apitags %}
 Canvas, Conversion
 {% endapitags %}
 
-このイベントは、Canvasでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
+このイベントは、キャンバスでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
 コンバージョンイベントは `conversion_behavior` フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index` フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
@@ -1465,7 +1463,7 @@ Canvas, Conversion
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Canvas Converted (users.canvas.Conversion)
 
@@ -1501,13 +1499,13 @@ Canvas, Conversion
 {% endapi %}
 
 {% api %}
-## Canvasエントリイベント {#canvas-entry-events}
+## キャンバスエントリイベント {#canvas-entry-events}
 
 {% apitags %}
 Canvas, Entry
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasに入ったときに発生します。このイベントは、ユーザーがどのバリアントに入ったかを示します。
+このイベントは、ユーザーがキャンバスに入ったときに発生します。このイベントは、ユーザーがどのバリアントに入ったかを示します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1652,7 +1650,7 @@ Canvas, Entry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Canvas Entered (users.canvas.Entry)
 
@@ -1686,13 +1684,180 @@ Canvas, Entry
 {% endapi %}
 
 {% api %}
+## キャンバス Content Optimizer ステップ送信イベント {#canvas-content-optimizer-step-send-events}
+
+{% apitags %}
+Canvas, Content Optimizer, Sends
+{% endapitags %}
+
+コンテンツ最適化キャンバスステップのキャンバス送信です。
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.canvas.costep.Send
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "channel" : "(optional, string) Channel this event belongs to",
+  "combination_token" : "(required, string) Component combination assigned",
+  "content_optimizer_step_id" : "(required, string) CO step internal ID",
+  "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Canvas Content Optimizer Step Send (users.canvas.costep.Send)
+
+{
+  "event_properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.canvas.costep.Send
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Canvas Content Optimizer Step Send (users.canvas.costep.Send)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Canvas Content Optimizer Step Sends (users.canvas.costep.Send)
+
+{
+  "device_info" : { },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "channel" : "(optional, string) Channel this event belongs to",
+          "combination_token" : "(required, string) Component combination assigned",
+          "content_optimizer_step_id" : "(required, string) CO step internal ID",
+          "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab セグメント %}
+```json
+// Canvas Content Optimizer Step Sent (users.canvas.costep.Send)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : { },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
 ## 退出オーディエンスマッチイベント {#exit-match-audience-events}
 
 {% apitags %}
 Exit, Canvas
 {% endapitags %}
 
-このイベントは、ユーザーがオーディエンスに一致してCanvasを退出したときに発生します。
+このイベントは、ユーザーがオーディエンスに一致してキャンバスを退出したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1828,7 +1993,7 @@ Exit, Canvas
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Exit Matched Audience (users.canvas.exit.MatchedAudience)
 
@@ -1860,14 +2025,13 @@ Exit, Canvas
 {% endapi %}
 
 {% api %}
-
 ## 退出イベント実行イベント {#exit-perform-event-events}
 
 {% apitags %}
 Exit, Canvas
 {% endapitags %}
 
-このイベントは、ユーザーがイベントを実行してCanvasを退出したときに発生します。
+このイベントは、ユーザーがイベントを実行してキャンバスを退出したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2003,7 +2167,7 @@ Exit, Canvas
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Exit Performed Event (users.canvas.exit.PerformedEvent)
 
@@ -2041,7 +2205,7 @@ Exit, Canvas
 Canvas, Conversion
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasの実験ステップでコンバージョンを達成したときに発生します。
+このイベントは、ユーザーがキャンバスの実験ステップでコンバージョンを達成したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2197,7 +2361,7 @@ Canvas, Conversion
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Experiment Step Converted (users.canvas.experimentstep.Conversion)
 
@@ -2240,7 +2404,7 @@ Canvas, Conversion
 Canvas, Entry
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasの実験ステップパスに入ったときに発生します。
+このイベントは、ユーザーがキャンバスの実験ステップパスに入ったときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2387,7 +2551,7 @@ Canvas, Entry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Experiment Split Entered (users.canvas.experimentstep.SplitEntry)
 
@@ -2428,7 +2592,7 @@ Canvas, Entry
 Canvas, Progression
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasのステップを何らかの結果を伴って進行したときに発生します。このイベントは、ステップへのエントリ時または退出時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）およびAdvanceの結果のみがステップ進行イベントを生成します。
+このイベントは、ユーザーがキャンバスのステップを何らかの結果を伴って進行したときに発生します。このイベントは、ステップへのエントリ時または退出時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）およびAdvanceの結果のみがステップ進行イベントを生成します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2592,7 +2756,7 @@ Canvas, Progression
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Canvas Step Progression (users.canvasstep.Progression)
 
@@ -2630,7 +2794,6 @@ Canvas, Progression
 {% endapi %}
 
 {% api %}
-
 ## バナー中止イベント {#banner-abort-events}
 
 {% apitags %}
@@ -2868,7 +3031,7 @@ Banner, Abort
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Banner Aborted (users.messages.banner.Abort)
 
@@ -2913,9 +3076,9 @@ Banner, Abort
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 Banner messages every 1 week`
 
@@ -3154,7 +3317,7 @@ Banner, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Banner Clicked (users.messages.banner.Click)
 
@@ -3201,7 +3364,6 @@ Banner, Clicks
 {% endapi %}
 
 {% api %}
-
 ## バナー却下イベント {#banner-dismissal-events}
 
 {% apitags %}
@@ -3465,7 +3627,7 @@ Banner, Dismissal
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Banner Dismissed (users.messages.banner.Dismiss)
 
@@ -3747,7 +3909,7 @@ Banner, Impressions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Banner Viewed (users.messages.banner.Impression)
 
@@ -3981,7 +4143,7 @@ Abort, Content Cards
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Content Card Aborted (users.messages.contentcard.Abort)
 
@@ -4019,18 +4181,17 @@ Abort, Content Cards
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信の ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 Content Card messages every 1 week`
 
 {% endapi %}
 
 {% api %}
-
-## Content Cardsのクリックイベント {#content-card-click-events}
+## Content Cardsクリックイベント {#content-card-click-events}
 
 {% apitags %}
 Content Cards, Clicks
@@ -4249,7 +4410,7 @@ Content Cards, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Content Card Clicked (users.messages.contentcard.Click)
 
@@ -4293,10 +4454,10 @@ Content Cards, Clicks
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して `ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
 
 {% endapi %}
 
@@ -4520,7 +4681,7 @@ Content Cards, Dismissal
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Content Card Dismissed (users.messages.contentcard.Dismiss)
 
@@ -4564,10 +4725,10 @@ Content Cards, Dismissal
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して `ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
 
 {% endapi %}
 
@@ -4791,7 +4952,7 @@ Content Cards, Impressions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Content Card Viewed (users.messages.contentcard.Impression)
 
@@ -4835,16 +4996,15 @@ Content Cards, Impressions
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して `ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
 
 {% endapi %}
 
 {% api %}
-
-## Content Cardsの送信イベント {#content-card-send-events}
+## Content Cards送信イベント {#content-card-send-events}
 
 {% apitags %}
 Content Cards, Sends
@@ -5030,7 +5190,7 @@ Content Cards, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Content Card Sent (users.messages.contentcard.Send)
 
@@ -5068,9 +5228,9 @@ Content Cards, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `message_extras` を使用すると、コネクテッドコンテンツからの動的データ、カスタム属性（言語や国など）、およびCanvasエントリプロパティで送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
+- `message_extras` を使用すると、Connected Contentからの動的データ、カスタム属性（言語や国など）、およびキャンバスエントリプロパティで送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
 
 {% endapi %}
 
@@ -5273,7 +5433,7 @@ Abort, Email
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Aborted (users.messages.email.Abort)
 
@@ -5314,10 +5474,10 @@ Abort, Email
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type` は、グローバルなフリークエンシーキャップルールによりメッセージが中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止をトリガーした特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 email messages every 1 week`
 
@@ -5532,7 +5692,7 @@ Email, Bounce
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Bounced (users.messages.email.Bounce)
 
@@ -5575,22 +5735,21 @@ Email, Bounce
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作は、キャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
 
 {% endapi %}
 
 {% api %}
-
 ## メールクリックイベント {#email-click-events}
 
 {% apitags %}
 Email, Clicks
 {% endapitags %}
 
-このイベントは、ユーザーがメールをクリックしたときに発生します。ユーザーが複数回クリックしたり、メール内の異なるリンクをクリックしたりすると、同じCampaignについて複数のイベントが生成される場合があります。
+このイベントは、ユーザーがメールをクリックしたときに発生します。ユーザーが複数回クリックしたり、メール内の異なるリンクをクリックしたりすると、同じキャンペーンについて複数のイベントが生成される場合があります。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -5839,7 +5998,7 @@ Email, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Link Clicked (users.messages.email.Click)
 
@@ -5902,6 +6061,7 @@ Email, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "click_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
+  "click_id_type" : "(optional, string) The click identifier type; indicates the source query parameter name for click_id",
   "email" : "(optional, string) [PII] Email address of the user",
   "email_sha256" : "(optional, string) SHA-256 hash of the normalized email address; only present for email events",
   "event_id" : "(required, string) Globally unique ID for this event",
@@ -5913,10 +6073,10 @@ Email, Clicks
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作は、キャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
 
 {% endapi %}
 
@@ -6130,7 +6290,7 @@ Email, Deferral
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Deferred (users.messages.email.Deferral)
 
@@ -6173,10 +6333,10 @@ Email, Deferral
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
@@ -6379,7 +6539,7 @@ Email, Delivery
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Delivered (users.messages.email.Delivery)
 
@@ -6420,22 +6580,21 @@ Email, Delivery
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
 {% api %}
-
 ## メールのスパムマークイベント {#email-mark-as-spam-events}
 
 {% apitags %}
 Email, Spam
 {% endapitags %}
 
-このイベントは、エンドユーザーがメールの「スパム」ボタンを押したときに発生します。Brazeはメールがスパムフォルダーに入ったかどうかを追跡しないため、このイベントはメールがスパムフォルダーに振り分けられた事実を表すものではないことに注意してください。
+このイベントは、エンドユーザーがメールの「スパム」ボタンを押したときに発生します。Brazeはメールがスパムフォルダーに入ったかどうかをトラッキングしないため、このイベントはメールがスパムフォルダーに振り分けられた事実を表すものではないことに注意してください。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -6630,7 +6789,7 @@ Email, Spam
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Marked as Spam (users.messages.email.MarkAsSpam)
 
@@ -6672,10 +6831,10 @@ Email, Spam
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
@@ -6686,7 +6845,7 @@ Email, Spam
 Email, Opens
 {% endapitags %}
 
-このイベントは、ユーザーがメールを開封したときに発生します。ユーザーが同じメールを複数回開封した場合、同じCampaignに対して複数のイベントが生成されることがあります。
+このイベントは、ユーザーがメールを開封したときに発生します。ユーザーが同じメールを複数回開封した場合、同じキャンペーンに対して複数のイベントが生成されることがあります。
 
 {% alert important %}
 メール開封イベントのフィールド `device_model` と `mailbox_provider` が空になることは既知の動作です。現時点ではこれらを無視してください。
@@ -6920,7 +7079,7 @@ Email, Opens
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Opened (users.messages.email.Open)
 
@@ -6989,10 +7148,10 @@ Email, Opens
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
@@ -7199,7 +7358,7 @@ Email, Retry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Retried (users.messages.email.Retry)
 
@@ -7243,7 +7402,6 @@ Email, Retry
 {% endapi %}
 
 {% api %}
-
 ## メール送信イベント {#email-send-events}
 
 {% apitags %}
@@ -7270,6 +7428,7 @@ Email, Sends
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "from_domain" : "(optional, string) Sending domain for the email",
   "id" : "(required, string) Globally unique ID for this event",
   "ip_pool" : "(optional, string) IP pool from which the email send was made",
   "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -7437,7 +7596,7 @@ Email, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Sent (users.messages.email.Send)
 
@@ -7498,11 +7657,11 @@ Email, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
+- `message_extras` を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
 
 {% endapi %}
 
@@ -7710,7 +7869,7 @@ Email, Bounce
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Email Soft Bounced (users.messages.email.SoftBounce)
 
@@ -7752,10 +7911,10 @@ Email, Bounce
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
 
 {% endapi %}
 
@@ -7769,7 +7928,7 @@ Email, Subscription
 このイベントは、エンドユーザーがメールの「配信停止」をクリックしたときに発生します。
 
 {% alert important %}
-`Unsubscribe` イベントは、ユーザーがメール内の配信停止リンク（メール本文やフッター内の通常の配信停止リンク、または[list-unsubscribeヘッダー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)を使用した場合）をクリックした際に発生する特殊なクリックイベントと見なされます。ユーザーの状態が配信停止に変わった時点では発生しません。サブスクリプション状態の変更がAPI経由で送信された場合、またはカスタム（Braze以外の）配信停止リンクで行われた場合、Currentsではメール配信停止イベントはトリガーされません。
+`Unsubscribe` イベントは、ユーザーがメール内の配信停止リンク（メール本文やフッター内の通常の配信停止リンク、または[list-unsubscribeヘッダー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)を使用した場合）をクリックした際に発生する特殊なクリックイベントと見なされます。ユーザーの状態が配信停止に変わった時点では発生しません。購読状態の変更がAPI経由で送信された場合、またはカスタム（Braze以外の）配信停止リンクで行われた場合、Currentsではメール配信停止イベントはトリガーされません。
 {% endalert %}
 
 {% tabs %}
@@ -7950,7 +8109,7 @@ Email, Subscription
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Unsubscribed (users.messages.email.Unsubscribe)
 
@@ -7989,15 +8148,14 @@ Email, Subscription
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
 
 {% endapi %}
 
 {% api %}
-
 ## フィーチャーフラグ実験のインプレッションイベント {#feature-flag-experiment-impression-events}
 
 {% apitags %}
@@ -8205,7 +8363,7 @@ Feature Flags, Impressions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Feature Flag Experiment Impressed (users.messages.featureflag.Impression)
 
@@ -8295,7 +8453,7 @@ In-App Messages, Abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Which version of in-app message, legacy or triggered"
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8481,7 +8639,7 @@ In-App Messages, Abort
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // In-App Message Aborted (users.messages.inappmessage.Abort)
 
@@ -8527,9 +8685,9 @@ In-App Messages, Abort
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 in-app messages every 1 week`
 
@@ -8580,7 +8738,8 @@ In-App Messages, Clicks
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8764,7 +8923,7 @@ In-App Messages, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // In-App Message Clicked (users.messages.inappmessage.Click)
 
@@ -8809,15 +8968,14 @@ In-App Messages, Clicks
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
 
 {% endapi %}
 
 {% api %}
-
 ## アプリ内メッセージインプレッションイベント {#in-app-message-impression-events}
 
 {% apitags %}
@@ -8863,7 +9021,8 @@ In-App Messages, Impressions
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -9051,7 +9210,7 @@ In-App Messages, Impressions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // In-App Message Viewed (users.messages.inappmessage.Impression)
 
@@ -9097,21 +9256,21 @@ In-App Messages, Impressions
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFA と Android Google 広告 ID を明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
+- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
 
 {% endapi %}
 
 {% api %}
-## LINE 中止イベント {#line-abort-events}
+## LINE中止イベント {#line-abort-events}
 
 {% apitags %}
 LINE, Abort
 {% endapitags %}
 
-このイベントは、スケジュールされた LINE メッセージが LINE への送信前に配信できない場合に発生します。
+このイベントは、スケジュールされたLINEメッセージがLINEへの送信前に配信できない場合に発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9299,7 +9458,7 @@ LINE, Abort
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Aborted (users.messages.line.Abort)
 
@@ -9338,10 +9497,10 @@ LINE, Abort
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 LINE messages every 1 week`
 
@@ -9552,7 +9711,7 @@ LINE, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Clicked (users.messages.line.Click)
 
@@ -9592,21 +9751,20 @@ LINE, Clicks
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
 ## LINE インバウンド受信イベント {#line-inbound-receive-events}
 
 {% apitags %}
 LINE, Inbound Received
 {% endapitags %}
 
-このイベントは、ユーザーからLINEメッセージを受信したときに発生します。
+このイベントは、ユーザーから LINE メッセージを受信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9794,7 +9952,7 @@ LINE, Inbound Received
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // LINE Inbound Received (users.messages.line.InboundReceive)
 
@@ -9833,9 +9991,9 @@ LINE, Inbound Received
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -10034,7 +10192,7 @@ LINE, Retry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Line Retried (users.messages.line.Retry)
 
@@ -10076,7 +10234,7 @@ LINE, Retry
 {% endapi %}
 
 {% api %}
-## LINE 送信イベント {#line-send-events}
+## LINE送信イベント {#line-send-events}
 
 {% apitags %}
 LINE, Sends
@@ -10265,7 +10423,7 @@ LINE, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Sent (users.messages.line.Send)
 
@@ -10303,9 +10461,9 @@ LINE, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -10316,7 +10474,7 @@ LINE, Sends
 Live Activity, Outcome
 {% endapitags %}
 
-このイベントは、ライブアクティビティの送信後にBrazeがサードパーティプロバイダー（APNsなど）から応答を受信したときに発生します。
+このイベントは、ライブアクティビティの送信後にBrazeがサードパーティプロバイダー（APNsなど）からレスポンスを受信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10453,7 +10611,7 @@ Live Activity, Outcome
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Live Activity Outcome (users.messages.liveactivity.Outcome)
 
@@ -10486,7 +10644,6 @@ Live Activity, Outcome
 {% endapi %}
 
 {% api %}
-
 ## ライブアクティビティ送信イベント {#live-activity-send-events}
 
 {% apitags %}
@@ -10625,7 +10782,7 @@ Live Activity, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Live Activity Sent (users.messages.liveactivity.Send)
 
@@ -10657,7 +10814,7 @@ Live Activity, Sends
 {% endapi %}
 
 {% api %}
-## プッシュ通知の中止イベント {#push-notification-abort-events}
+## プッシュ通知中止イベント {#push-notification-abort-events}
 
 {% apitags %}
 Abort, Push
@@ -10855,7 +11012,7 @@ Abort, Push
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Push Notification Aborted (users.messages.pushnotification.Abort)
 
@@ -10895,10 +11052,10 @@ Abort, Push
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-- `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 push messages every 1 week`
 
@@ -11116,7 +11273,7 @@ Push, Bounce
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Push Notification Bounced (users.messages.pushnotification.Bounce)
 
@@ -11158,10 +11315,10 @@ Push, Bounce
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データを取り込んでいる場合は、`ad_id`の送信を有効にするフィーチャーフリッパーについて、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
-- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、`ad_id`の送信を有効にするフィーチャーフリッパーについて、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11325,7 +11482,7 @@ Push, iOS, Opens
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Ios Foreground Push Opened (users.messages.pushnotification.IosForeground)
 
@@ -11368,26 +11525,25 @@ Push, iOS, Opens
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)を参照してください。
-- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
-- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
-## プッシュ通知の開封イベント {#push-notification-open-events}
+## プッシュ通知開封イベント {#push-notification-open-events}
 
 {% apitags %}
 Push, Opens
 {% endapitags %}
 
-このイベントは、ユーザーがプッシュ通知を直接クリックしてアプリケーションを開封したときに発生します。現在、プッシュ開封イベントは「オープン数の合計」ではなく「直接開封数」を指します。キャンペーンレベルの「誘発された開封数」に表示される統計情報は、ユーザーレベルで帰属していないため、これに含まれません。
+このイベントは、ユーザーがプッシュ通知を直接クリックしてアプリケーションを開いたときに発生します。現在、プッシュ開封イベントは「オープン数の合計」ではなく「直接開封数」を指します。キャンペーンレベルで表示される「誘発された開封数」の統計情報は、ユーザーレベルで帰属していないため、これに含まれません。
 
 {% alert note %}
-まれに、Currentsデータにおいてプッシュ開封が対応するプッシュ送信イベントより前に表示されることがあります。これは以下の理由によるものです。
+まれに、以下の理由により、Currentsデータにおいてプッシュ開封が対応するプッシュ送信イベントより前に表示されることがあります。
 - SDKの時計が正しくない。
 - バッチ書き込みのレイテンシが高い。記録された送信時刻は早期の配信より遅れることがあるため、バッチの最終送信タイムスタンプが書き込まれる前に、非常に早い開封が記録される場合があります。大量の送信はバッチ処理で発送され、記録されます。
 {% endalert %}
@@ -11470,7 +11626,7 @@ Push, Opens
 ```
 {% endtab %}
 
-{% tab カスタムHTTPコネクター %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.messages.pushnotification.Open
 
@@ -11604,7 +11760,7 @@ Push, Opens
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Push Notification Tapped (users.messages.pushnotification.Open)
 
@@ -11647,11 +11803,11 @@ Push, Opens
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して、`ad_id` の送信を有効にしてください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11858,7 +12014,7 @@ Push, Retry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Push Notification Retried (users.messages.pushnotification.Retry)
 
@@ -11906,7 +12062,7 @@ Push, Retry
 Push, Sends
 {% endapitags %}
 
-このイベントは、Brazeがユーザー宛てのプッシュメッセージを処理し、Apple Push Notification ServiceまたはFire Cloud Messagingに伝達したときに発生します。これは、プッシュがデバイスに配信されたという意味ではなく、単にメッセージが送信されたことを意味します。
+このイベントは、Brazeがユーザー宛てのプッシュメッセージを処理し、Apple Push Notification ServiceまたはFire Cloud Messagingに伝達したときに発生します。これはプッシュがデバイスに配信されたという意味ではなく、単にメッセージが送信されたことを意味します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12121,7 +12277,7 @@ Push, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Push Notification Sent (users.messages.pushnotification.Send)
 
@@ -12165,17 +12321,16 @@ Push, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、アカウントマネージャーに連絡して、`ad_id` の送信を有効にしてください。
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
+- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。同じ配信に属するイベントをグループ化するために`dispatch_id`を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
 ## RCS中止イベント {#rcs-abort-events}
 
 {% apitags %}
@@ -12195,6 +12350,7 @@ RCS, Abort
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12223,6 +12379,7 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12241,7 +12398,7 @@ RCS, Abort
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab カスタムHTTPコネクター %}
 ```json
 // users.messages.rcs.Abort
 
@@ -12254,6 +12411,7 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12285,6 +12443,7 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12318,6 +12477,7 @@ RCS, Abort
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12345,7 +12505,7 @@ RCS, Abort
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Aborted (users.messages.rcs.Abort)
 
@@ -12363,6 +12523,7 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12380,11 +12541,11 @@ RCS, Abort
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
-- `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中断された場合、`frequency_capped` になります。
-- `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 RCS messages every 1 week`
+- `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
+- `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中断された場合、`frequency_capped`になります。
+- `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 RCS messages every 1 week`
 
 {% endapi %}
 
@@ -12406,6 +12567,7 @@ RCS, Clicks
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12444,6 +12606,7 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12483,6 +12646,7 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12523,6 +12687,7 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12567,6 +12732,7 @@ RCS, Clicks
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12605,7 +12771,7 @@ RCS, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Clicked (users.messages.rcs.Click)
 
@@ -12623,6 +12789,7 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12669,6 +12836,7 @@ RCS, Delivery
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12701,6 +12869,7 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12734,6 +12903,7 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12768,6 +12938,7 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12806,6 +12977,7 @@ RCS, Delivery
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12839,7 +13011,7 @@ RCS, Delivery
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Delivered (users.messages.rcs.Delivery)
 
@@ -12857,6 +13029,7 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12878,15 +13051,14 @@ RCS, Delivery
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、特定のメッセージディスパッチ（Campaignの送信など）のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、特定のメッセージディスパッチ（キャンペーン送信など）のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
-## RCS 受信イベント {#rcs-inbound-received-events}
+## RCS受信イベント {#rcs-inbound-received-events}
 
 {% apitags %}
 RCS, Inbound Received
@@ -12904,6 +13076,7 @@ RCS, Inbound Received
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12936,6 +13109,7 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12971,6 +13145,7 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12988,7 +13163,7 @@ RCS, Inbound Received
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user" : {
     "external_user_id" : "(optional, string) [PII] External ID of the user",
-    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+    "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
   }
 }
 ```
@@ -13006,6 +13181,7 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13043,6 +13219,7 @@ RCS, Inbound Received
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13075,7 +13252,7 @@ RCS, Inbound Received
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Inbound Received (users.messages.rcs.InboundReceive)
 
@@ -13094,6 +13271,7 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13124,7 +13302,7 @@ RCS, Inbound Received
 RCS, Read
 {% endapitags %}
 
-このイベントは、ユーザーが自身のデバイスでRCSメッセージを開封した際に生成されます。これはユーザーがメッセージのコンテンツを確認または閲覧したことを示します。
+このイベントは、ユーザーがデバイス上でRCSメッセージを開封した際に生成されます。これはユーザーがメッセージのコンテンツを確認または閲覧したことを示します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13135,6 +13313,7 @@ RCS, Read
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -13161,6 +13340,7 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13190,6 +13370,7 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13219,6 +13400,7 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13250,6 +13432,7 @@ RCS, Read
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13278,7 +13461,7 @@ RCS, Read
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Read (users.messages.rcs.Read)
 
@@ -13296,6 +13479,7 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13332,6 +13516,7 @@ RCS, Rejection
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -13367,6 +13552,7 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13403,6 +13589,7 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13440,6 +13627,7 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13481,6 +13669,7 @@ RCS, Rejection
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13517,7 +13706,7 @@ RCS, Rejection
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Rejected (users.messages.rcs.Rejection)
 
@@ -13535,6 +13724,7 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13562,14 +13752,13 @@ RCS, Rejection
 {% endapi %}
 
 {% api %}
-
 ## RCS 送信イベント {#rcs-send-events}
 
 {% apitags %}
 RCS, Sends
 {% endapitags %}
 
-このイベントは、BrazeからラストマイルデリバリーパートナーへRCSメッセージが送信された際に生成されます。
+このイベントは、Brazeからラストマイルデリバリーパートナーへ RCS メッセージが送信された際に生成されます。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13580,6 +13769,7 @@ RCS, Sends
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -13614,6 +13804,7 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13649,6 +13840,7 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13685,6 +13877,7 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13725,6 +13918,7 @@ RCS, Sends
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13760,7 +13954,7 @@ RCS, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Sent (users.messages.rcs.Send)
 
@@ -13778,6 +13972,7 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13801,14 +13996,14 @@ RCS, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-## SMS 中止イベント {#sms-abort-events}
+## SMS中止イベント {#sms-abort-events}
 
 {% apitags %}
 Abort, SMS
@@ -13982,7 +14177,7 @@ Abort, SMS
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Aborted (users.messages.sms.Abort)
 
@@ -14018,16 +14213,16 @@ Abort, SMS
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
+- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 SMS messages every 1 week`
 
 {% endapi %}
 
 {% api %}
-## SMS キャリア送信イベント {#sms-carrier-send-events}
+## SMSキャリア送信イベント {#sms-carrier-send-events}
 
 {% apitags %}
 SMS, Sends
@@ -14223,7 +14418,7 @@ SMS, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Sent to Carrier (users.messages.sms.CarrierSend)
 
@@ -14263,14 +14458,13 @@ SMS, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
 ## SMS配信イベント {#sms-delivery-events}
 
 {% apitags %}
@@ -14468,7 +14662,7 @@ SMS, Delivery
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Delivered (users.messages.sms.Delivery)
 
@@ -14509,9 +14703,9 @@ SMS, Delivery
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -14718,7 +14912,7 @@ SMS, Delivery, Failure
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Delivery Failed (users.messages.sms.DeliveryFailure)
 
@@ -14760,9 +14954,9 @@ SMS, Delivery, Failure
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -14773,11 +14967,11 @@ SMS, Delivery, Failure
 SMS, Inbound Received
 {% endapitags %}
 
-このイベントは、ユーザーの1人がBraze SMSサブスクリプショングループのいずれかの電話番号にSMSを送信したときに発生します。
+このイベントは、ユーザーの1人がBraze SMS購読グループのいずれかの電話番号にSMSを送信したときに発生します。
 
-Brazeがインバウンドメッセージを受信すると、その電話番号を共有するすべてのユーザーにインバウンドメッセージを帰属させます。その結果、Brazeインスタンス内の複数のユーザーが同じ電話番号を共有している場合、インバウンドメッセージごとに複数のイベントを受信する可能性があります。以前にそのユーザーに送信されたメッセージに基づいて特定のユーザーIDへのアトリビューションが必要な場合は、SMS配信イベントを使用して、Brazeの番号から最後にメッセージを受信したユーザーIDにインバウンド受信イベントを帰属させることができます。
+BrazeがインバウンドSMSを受信すると、その電話番号を共有するすべてのユーザーにインバウンドメッセージを帰属させます。その結果、Brazeインスタンス内の複数のユーザーが同じ電話番号を共有している場合、インバウンドメッセージごとに複数のイベントを受信する可能性があります。以前にそのユーザーに送信されたメッセージに基づいて特定のユーザーIDへのアトリビューションが必要な場合は、SMS配信イベントを使用して、Brazeの番号から最後にメッセージを受信したユーザーIDにインバウンド受信イベントを帰属させることができます。
 
-BrazeがこのインバウンドメッセージがBrazeから送信されたアウトバウンドのCampaignまたはCanvasコンポーネントへの返信であることを検出した場合、CampaignまたはCanvasのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、最後のアウトバウンドSMSの帰属Campaign情報には1分間のキャッシュがあります。
+BrazeがこのインバウンドメッセージがBrazeから送信されたアウトバウンドのキャンペーンまたはキャンバスコンポーネントへの返信であることを検出した場合、キャンペーンまたはキャンバスのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、最後のアウトバウンドSMSの帰属キャンペーン情報には1分間のキャッシュがあります。
 
 
 {% tabs %}
@@ -14960,7 +15154,7 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Inbound Received (users.messages.sms.InboundReceive)
 
@@ -15003,7 +15197,6 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
 {% endapi %}
 
 {% api %}
-
 ## SMS拒否イベント {#sms-rejection-events}
 
 {% apitags %}
@@ -15215,7 +15408,7 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Rejected (users.messages.sms.Rejection)
 
@@ -15258,9 +15451,9 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id`は、Campaignの送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -15439,7 +15632,7 @@ SMS, Retry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Retried (users.messages.sms.Retry)
 
@@ -15675,7 +15868,7 @@ SMS, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Sent (users.messages.sms.Send)
 
@@ -15735,16 +15928,15 @@ SMS, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `message_extras`を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/)を参照してください。
-- `dispatch_id`は、Campaignの送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag)を参照してください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
-## SMSショートリンクのクリックイベント {#sms-short-link-click-events}
+## SMSショートリンククリックイベント {#sms-short-link-click-events}
 
 {% apitags %}
 SMS, Clicks
@@ -15940,7 +16132,7 @@ SMS, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // SMS Short Link Clicked (users.messages.sms.ShortLinkClick)
 
@@ -16009,7 +16201,7 @@ SMS, Clicks
 Abort, Webhooks
 {% endapitags %}
 
-このイベントは、WebhookメッセージがLiquidの中止などに基づいて中止された場合に発生します。
+このイベントは、Webhookメッセージが Liquid の中止などに基づいて中止された場合に発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -16191,7 +16383,7 @@ Abort, Webhooks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Webhook Aborted (users.messages.webhook.Abort)
 
@@ -16229,12 +16421,12 @@ Abort, Webhooks
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
-- `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
-- `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 webhook messages every 1 week`
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
+- `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
+- `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 webhook messages every 1 week`
 
 {% endapi %}
 
@@ -16245,7 +16437,7 @@ Abort, Webhooks
 Failure, Webhooks
 {% endapitags %}
 
-このイベントは、Webhookメッセージが配信されたものの、エンドポイントからのエラー応答により失敗した場合に発生します。
+このイベントは、Webhookメッセージが配信されたものの、エンドポイントからのエラーレスポンスにより失敗した場合に発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -16458,7 +16650,7 @@ Failure, Webhooks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Webhook Failed (users.messages.webhook.Failure)
 
@@ -16503,21 +16695,20 @@ Failure, Webhooks
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
 ## Webhook再試行イベント {#webhook-retry-events}
 
 {% apitags %}
 Webhooks, Retry
 {% endapitags %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりした際に発生し、設定された再試行ウィンドウ内で後から再試行されます。これはメッセージ優先順位付けのベータ版のお客様のみ利用可能です。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりした際に発生し、設定された再試行ウィンドウ内で後から再試行されます。これはメッセージ優先順位付けベータ版のお客様のみ利用可能です。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -16587,7 +16778,7 @@ Webhooks, Retry
 ```
 {% endtab %}
 
-{% tab カスタムHTTPコネクター %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.messages.webhook.Retry
 
@@ -16703,7 +16894,7 @@ Webhooks, Retry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Webhook Retried (users.messages.webhook.Retry)
 
@@ -16750,7 +16941,7 @@ Webhooks, Retry
 Webhooks, Sends
 {% endapitags %}
 
-このイベントは、Webhookが処理され、そのWebhookに指定されたサードパーティに送信されたときに発生します。これは、リクエストが受信されたかどうかを示すものではないことに注意してください。
+このイベントは、Webhookが処理され、そのWebhookに指定されたサードパーティに送信されたときに発生します。これはリクエストが受信されたかどうかを示すものではないことに注意してください。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -16812,7 +17003,7 @@ Webhooks, Sends
 ```
 {% endtab %}
 
-{% tab カスタムHTTPコネクター %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.messages.webhook.Send
 
@@ -16925,7 +17116,7 @@ Webhooks, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Webhook Sent (users.messages.webhook.Send)
 
@@ -16962,10 +17153,10 @@ Webhooks, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語や国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語や国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -17046,7 +17237,7 @@ WhatsApp, Abort
 ```
 {% endtab %}
 
-{% tab カスタムHTTPコネクター %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.messages.whatsapp.Abort
 
@@ -17169,7 +17360,7 @@ WhatsApp, Abort
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Aborted (users.messages.whatsapp.Abort)
 
@@ -17210,17 +17401,16 @@ WhatsApp, Abort
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
-- `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
-- `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
+- `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
+- `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 WhatsApp messages every 1 week`
 
 {% endapi %}
 
 {% api %}
-
 ## WhatsAppトラッキングリンクのクリックイベント {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -17411,7 +17601,7 @@ WhatsApp, Clicks
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Tracked Link Clicked (users.messages.whatsapp.Click)
 
@@ -17534,7 +17724,7 @@ WhatsApp, Delivery
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab カスタムHTTPコネクター %}
 ```json
 // users.messages.whatsapp.Delivery
 
@@ -17666,7 +17856,7 @@ WhatsApp, Delivery
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Delivered (users.messages.whatsapp.Delivery)
 
@@ -17710,9 +17900,9 @@ WhatsApp, Delivery
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -17803,7 +17993,7 @@ WhatsApp, Failure
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab カスタムHTTPコネクター %}
 ```json
 // users.messages.whatsapp.Failure
 
@@ -17941,7 +18131,7 @@ WhatsApp, Failure
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Failed (users.messages.whatsapp.Failure)
 
@@ -17987,21 +18177,20 @@ WhatsApp, Failure
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
 {% api %}
-
 ## WhatsApp受信イベント {#whatsapp-inbound-received-events}
 
 {% apitags %}
 WhatsApp, Inbound Received
 {% endapitags %}
 
-このイベントは、ユーザーの1人がBraze WhatsAppサブスクリプショングループのいずれかの電話番号にWhatsAppメッセージを送信したときに発生します。
+このイベントは、ユーザーの1人がBrazeのWhatsApp購読グループのいずれかの電話番号にWhatsAppメッセージを送信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -18233,7 +18422,7 @@ WhatsApp, Inbound Received
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Inbound Received (users.messages.whatsapp.InboundReceive)
 
@@ -18499,7 +18688,7 @@ WhatsApp, Read
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Read (users.messages.whatsapp.Read)
 
@@ -18543,9 +18732,9 @@ WhatsApp, Read
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -18750,7 +18939,7 @@ WhatsApp, Retry
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Retried (users.messages.whatsapp.Retry)
 
@@ -18794,7 +18983,6 @@ WhatsApp, Retry
 {% endapi %}
 
 {% api %}
-
 ## WhatsApp送信イベント {#whatsapp-send-events}
 
 {% apitags %}
@@ -18878,7 +19066,7 @@ WhatsApp, Sends
 ```
 {% endtab %}
 
-{% tab カスタムHTTPコネクター %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.messages.whatsapp.Send
 
@@ -19013,7 +19201,7 @@ WhatsApp, Sends
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // WhatsApp Sent (users.messages.whatsapp.Send)
 
@@ -19058,50 +19246,8 @@ WhatsApp, Sends
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-
-{% endapi %}
-
-{% api %}
-## ユーザープロファイル更新イベント {#user-profile-update-events}
-
-{% apitags %}
-Profile
-{% endapitags %}
-
-これはユーザーのプロファイル更新を表します。
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.profile.Update
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
-  "country" : "(optional, string) [PII] Country of the user",
-  "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
-  "email_address" : "(optional, string) [PII] Email address of the user",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "first_name" : "(optional, string) [PII] First name of the user",
-  "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
-  "home_city" : "(optional, string) [PII] Home city of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "language" : "(optional, string) [PII] Language of the user",
-  "last_name" : "(optional, string) [PII] Last name of the user",
-  "phone_number" : "(optional, string) [PII] Phone number of the user in e.164 format",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "time_ms" : "(required, long) Time in milliseconds when the update happened",
-  "timezone" : "(optional, string) Time zone of the user",
-  "update_source" : "(required, string) The source of this update",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}

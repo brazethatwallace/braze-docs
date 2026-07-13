@@ -25,7 +25,7 @@ In general, since extensions are HTML and JavaScript, you can use Braze for the 
 
 ## What's not supported
 
-* Service workers are not supported by the Braze Web SDK, however, this is on the roadmap for future consideration.
+* Using the Braze SDK from within a service worker is not supported. You can still use the Braze SDK in your extension's popup or settings page. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## Extension types
 
@@ -47,7 +47,7 @@ However, if you use [Google Tag Manager]({{ site.baseurl }}/developer_guide/plat
 ## Getting started
 
 {% alert tip %}
-Before you get started, make sure you've read through the Web SDK's [Initial SDK setup guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) to learn more about our JavaScript integration in general.  <br><br>You may also want to bookmark the [JavaScript SDK reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) for full details on all of the different SDK methods and configuration options.
+Before you get started, make sure you've read through the Web SDK's [Initial SDK setup guide]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) to learn more about our JavaScript integration in general.  <br><br>You may also want to bookmark the [JavaScript SDK reference](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) for full details on all of the different SDK methods and configuration options.
 {% endalert %}
 
 To integrate the Braze Web SDK, you'll first need to download a copy of the latest JavaScript library. This can be done using NPM or directly downloading it from the [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js).

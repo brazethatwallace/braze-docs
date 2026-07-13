@@ -7,11 +7,11 @@ page_order: 2
 
 # Rastrear usuários por meio de um formulário {#track-users-through-a-form}
 
-> Saiba como rastrear usuários que enviam um formulário pela sua landing page adicionando uma Liquid tag de landing page às suas mensagens. Essa Liquid tag é compatível com todos os canais de envio de mensagens da Braze, incluindo e-mail, SMS, mensagens no app e muito mais. Para saber mais sobre rastreamento de dados, consulte [Sobre dados de rastreamento de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data/).
+> Saiba como rastrear usuários que enviam um formulário pela sua landing page adicionando uma Liquid tag de landing page às suas mensagens. Essa Liquid tag é compatível com todos os canais de envio de mensagens da Braze, incluindo e-mail, SMS, mensagens no app e muito mais. Para saber mais sobre rastreamento de dados, consulte [Sobre dados de rastreamento de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data).
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de começar, você precisará criar uma [landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) e uma [campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
+Antes de começar, você precisará criar uma [landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) e uma [campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
 
 ## Como funciona {#how-it-works}
 
@@ -49,9 +49,9 @@ A Braze gerará automaticamente uma Liquid tag usando a [URL da sua landing page
 
 | **Tipo de personalização** | Escolha **Landing Page**. |
 | **Landing page** | Escolha a landing page [que você criou anteriormente](#prerequisites). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate the Liquid tag" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Gerar a Liquid tag" }
 
-Para adicionar a Liquid tag à sua mensagem, você pode selecionar **Insert** ou copiar o snippet para a área de transferência e adicioná-lo manualmente.
+Para adicionar a Liquid tag à sua mensagem, você pode selecionar **Inserir** ou copiar o snippet para a área de transferência e adicioná-lo manualmente.
 
 ![Uma Liquid tag gerada automaticamente para a landing page selecionada.]({% image_buster /assets/img/landing_pages/get-snippet.png %}){: style="max-width:40%;"}
 

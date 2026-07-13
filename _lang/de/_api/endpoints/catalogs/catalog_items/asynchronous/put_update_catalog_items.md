@@ -23,7 +23,7 @@ Wenn ein Katalogartikel nicht vorhanden ist, erstellt dieser Endpunkt den Artike
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.replace_items`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.replace_items`.
 
 ## Rate-Limit
 
@@ -34,14 +34,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
 ## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `items` | Erforderlich | Array | Ein Array, das Artikelobjekte enthält. Jedes Objekt muss eine ID haben. Die Artikelobjekte sollten Felder enthalten, die im Katalog vorhanden sind. Pro Anfrage sind bis zu 50 Artikelobjekte zulässig. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -88,7 +88,7 @@ Das Feld `Location` verwendet den Datentyp `geo`, der ein Array im Format `[long
 Es gibt drei Statuscode-Antworten für diesen Endpunkt: `202`, `400` und `404`.
 
 {% alert note %}
-Das System kann auch eine `400`-Antwort zurückgeben, wenn Ihr Unternehmen das Speicherlimit für Kataloge erreicht hat. Die kostenlose Version der Kataloge ist auf 100&nbsp;MB begrenzt. Weitere Informationen zu Speicherstufen und zum Upgraden finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+Das System kann auch eine `400`-Antwort zurückgeben, wenn Ihr Unternehmen das Speicherlimit für Kataloge erreicht hat. Die kostenlose Version der Kataloge ist auf 100&nbsp;MB begrenzt. Weitere Informationen zu Speicherstufen und zum Upgraden finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Beispiel für eine erfolgreiche Antwort {#example-success-response}
@@ -130,8 +130,8 @@ In der folgenden Tabelle finden Sie mögliche zurückgegebene Fehler und die zug
 | Fehler | Fehlerbehebung |
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
-| `company-size-limit-already-reached` | Das Speicherlimit für Kataloge ist erreicht. Weitere Informationen zu Speicherstufen finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations). |
-| `company-size-limit-surge` | Die Anfrage überschreitet den verbleibenden Katalogspeicher Ihres Unternehmens. Versuchen Sie es erneut mit einem kleineren Update. Weitere Informationen zu Speicherstufen finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations). |
+| `company-size-limit-already-reached` | Das Speicherlimit für Kataloge ist erreicht. Weitere Informationen zu Speicherstufen finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
+| `company-size-limit-surge` | Die Anfrage überschreitet den verbleibenden Katalogspeicher Ihres Unternehmens. Versuchen Sie es erneut mit einem kleineren Update. Weitere Informationen zu Speicherstufen finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
 | `ids-not-string` | Bestätigen Sie, dass jede Artikel-ID ein String ist. |
 | `ids-not-unique` | Prüfen Sie, ob jede Artikel-ID eindeutig ist. |
 | `ids-too-large` | Die Zeichenbegrenzung für jede Artikel-ID beträgt 250 Zeichen. |
@@ -144,6 +144,6 @@ In der folgenden Tabelle finden Sie mögliche zurückgegebene Fehler und die zug
 | `too-deep-nesting-in-value-object` | Artikelobjekte dürfen nicht mehr als 50 Verschachtelungsebenen haben. |
 | `request-includes-too-many-items` | Ihre Anfrage enthält zu viele Artikel. Das Limit pro Anfrage beträgt 50 Artikel. |
 | `unable-to-coerce-value` | Artikeltypen können nicht konvertiert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

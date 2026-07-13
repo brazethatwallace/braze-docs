@@ -7,7 +7,7 @@ page_order: 1
 
 # アプリ内メッセージのスタイル設定 {#in-app-message-style-settings}
 
-> ドラッグ＆ドロップの編集エクスペリエンスは、**ビルド**と**プレビュー＆テスト**の2つのセクションに分かれています。この記事では、エディターの**ビルド**タブでの作業に必要な情報を説明します。すでに[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)していることを前提としています。
+> ドラッグ＆ドロップの編集エクスペリエンスは、**ビルド**と**プレビュー＆テスト**の2つのセクションに分かれています。この記事では、エディターの**ビルド**タブでの作業に必要な情報を説明します。すでに[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)していることを前提としています。
 
 ![「メッセージスタイル」タブ。]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 **メッセージスタイル**タブから、アプリ内メッセージ内のすべての関連ブロックに適用される特定のスタイルを設定できます。たとえば、メッセージ内のすべてのテキストのフォントやすべてのリンクの色をカスタマイズできます。
 
-このセクションのスタイルは、特定のブロックでオーバーライドしない限り、メッセージ全体で使用されます。メッセージに[複数のページ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page)がある場合、表示タイプと最大幅を除き、個々のページのメッセージレベルのスタイルをオーバーライドすることもできます。
+このセクションのスタイルは、特定のブロックでオーバーライドしない限り、メッセージ全体で使用されます。メッセージに[複数のページ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page)がある場合、表示タイプと最大幅を除き、個々のページのメッセージレベルのスタイルをオーバーライドすることもできます。
 
 デザインをスムーズに進めるために、ブロックレベルのスタイルをカスタマイズする前に、メッセージレベルのスタイルを設定することをお勧めします。
 
@@ -26,7 +26,7 @@ page_order: 1
 
 ### カスタムフォント {#custom-fonts}
 
-フォントのファイルタイプは`.ttf`、`.woff`、`.otf`、`.woff2`に対応しています。詳細については、[アセットファイル]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#asset-files)を参照してください。
+フォントのファイルタイプは`.ttf`、`.woff`、`.otf`、`.woff2`に対応しています。詳細については、[アセットファイル]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files)を参照してください。
 
 カスタムフォントでは一部のスタイルオプションが利用できない場合があるため、フォントファミリーの複数のバリエーションを追加できます。現在、URL経由でのフォント追加はサポートされていません。
 
@@ -76,7 +76,7 @@ page_order: 1
 
 #### 背景画像 {#background-image}
 
-**行プロパティ**パネルで行に背景画像を追加できます。**背景画像**をオンに切り替え、画像URLを入力するか、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)から画像を選択します。最後に、代替テキスト、サイズ、位置、および画像を繰り返して行全体にパターンを作成するかどうかを設定します。
+**行プロパティ**パネルで行に背景画像を追加できます。**背景画像**をオンに切り替え、画像URLを入力するか、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)から画像を選択します。最後に、代替テキスト、サイズ、位置、および画像を繰り返して行全体にパターンを作成するかどうかを設定します。
 
 ![ピザの行背景画像が水平方向に繰り返しパターンで表示されている例。]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,7 +90,7 @@ page_order: 1
 
 ![選択可能なドラッグ＆ドロップボックス。]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-各ブロックには、パディングの細かい制御など、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
+各ブロックには、パディングの細かい制御など、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
 
 アプリ内メッセージを作成する際、ツールバーでモバイル、タブレット、またはデスクトップビューを選択して、ユーザーグループに対してアプリ内メッセージがどのように表示されるかをプレビューできます。これにより、コンテンツがレスポンシブであることを確認し、必要な調整を随時行うことができます。
 
@@ -106,7 +106,7 @@ page_order: 1
 
 **メッセージスタイル**タブからメッセージの背景に画像を追加できます。
 
-1. Canvasエリアで背景コンテナを選択します。これはメッセージのスクロール可能なセクションです。
+1. キャンバスエリアで背景コンテナを選択します。これはメッセージのスクロール可能なセクションです。
 2. **メッセージスタイル**タブで、**背景画像**をオンにします。
 3. メディアライブラリから画像を追加するか、画像がホストされているURLを入力します。
 
@@ -118,13 +118,13 @@ page_order: 1
 
 ![Liquidパーソナライゼーションを追加するアイコン。]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-アプリ内メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を追加するには、エディターツールバーから<i class="fa-solid fa-circle-plus"></i> **パーソナライゼーションを追加**を選択します。ここでは、デフォルト属性、デバイス属性、カスタム属性など、さまざまなパーソナライゼーションタイプを追加できます。
+アプリ内メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を追加するには、エディターツールバーから<i class="fa-solid fa-circle-plus"></i> **パーソナライゼーションを追加**を選択します。ここでは、デフォルト属性、デバイス属性、カスタム属性など、さまざまなパーソナライゼーションタイプを追加できます。
 
 次に、生成されたLiquidスニペットをメッセージに挿入します。アプリ内メッセージのデザインと構築が完了したら、**プレビュー＆テスト**に移動してメッセージをプレビューします。
 
 ### AIコピーライターの使用 {#using-the-ai-copywriter}
 
-アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
+アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
 
 {% alert tip %}
 ブロック内のテキストをハイライトしてからアイコンをクリックすると、数クリック省略できます。ハイライトされたテキストがツールに追加され、すぐにコピーが生成されます。

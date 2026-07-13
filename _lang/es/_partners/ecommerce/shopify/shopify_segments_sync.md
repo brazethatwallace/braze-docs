@@ -19,7 +19,8 @@ La sincronización de segmentos de Shopify se encuentra actualmente en fase beta
 | Requisito | Descripción |
 | --- | --- |
 | Integración de Braze con Shopify | La aplicación de Braze para Shopify debe estar instalada en tu tienda Shopify y conectada a un espacio de trabajo de Braze. Para obtener instrucciones de configuración, consulta [Configuración de la integración estándar de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) o [Configuración de la integración personalizada de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Permiso de usuario de Shopify | El usuario de Shopify que inicie la sincronización de segmentos debe tener el permiso **Exportar** para exportar datos de clientes. Para más información sobre los permisos de Shopify, consulta la [documentación de permisos de tienda de Shopify](https://help.shopify.com/en/manual/your-account/users/roles/permissions/store-permissions#customers-permissions). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Cómo funciona {#how-it-works}
 
@@ -32,7 +33,7 @@ La sincronización de segmentos de Shopify funciona en dos fases.
 | --- | --- |
 | `customer.joined_segment` | El usuario se añade a la cohorte correspondiente de Braze. |
 | `customer.left_segment` | El usuario se elimina de la cohorte correspondiente de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook topic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tema del webhook" }
 
 Si una sincronización falla, el modal de extensión de acción muestra un banner de error con una acción recomendada. Selecciona **Sync with Braze** para reintentar.
 

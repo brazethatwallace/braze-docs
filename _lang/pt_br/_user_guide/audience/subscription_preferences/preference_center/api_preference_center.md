@@ -9,7 +9,7 @@ channel:
 
 # Central de Preferências de e-mail via API {#api-email-preference-center}
 
-> Configurar uma Central de Preferências oferece um local centralizado para que seus usuários editem e gerenciem suas preferências de notificação para o [envio de mensagens por e-mail]({{site.baseurl}}/user_guide/channels/email/). Este artigo inclui etapas para criar uma Central de Preferências gerada por API, mas você também pode criar uma Central de Preferências usando o [editor de arrastar e soltar]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/).
+> Configurar uma Central de Preferências oferece um local centralizado para que seus usuários editem e gerenciem suas preferências de notificação para o [envio de mensagens por e-mail]({{site.baseurl}}/user_guide/channels/email). Este artigo inclui etapas para criar uma Central de Preferências gerada por API, mas você também pode criar uma Central de Preferências usando o [editor de arrastar e soltar]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center).
 
 No dashboard da Braze, acesse **Audience** > **Email Preference Centers**.
 
@@ -21,7 +21,7 @@ A Central de Preferências foi projetada para ser usada dentro do canal de e-mai
 
 ## Criar uma Central de Preferências com API {#create-a-preference-center-with-api}
 
-Usando os [endpoints da Braze para Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/), você pode criar uma Central de Preferências, um site hospedado pela Braze, que pode exibir o estado de inscrição e os status dos grupos de inscrições dos seus usuários. Usando HTML e CSS, sua equipe de desenvolvimento pode construir a Central de Preferências para que o estilo da página corresponda às diretrizes da sua marca.
+Usando os [endpoints da Braze para Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center), você pode criar uma Central de Preferências, um site hospedado pela Braze, que pode exibir o estado de inscrição e os status dos grupos de inscrições dos seus usuários. Usando HTML e CSS, sua equipe de desenvolvimento pode construir a Central de Preferências para que o estilo da página corresponda às diretrizes da sua marca.
 
 O uso de Liquid permite recuperar os nomes dos seus grupos de inscrições e o status de cada usuário. Dessa forma, a Braze armazena e recupera esses dados quando a página é carregada.
 
@@ -37,12 +37,12 @@ O uso de Liquid permite recuperar os nomes dos seus grupos de inscrições e o s
 
 ### Etapa 1: Use o endpoint Criar Central de Preferências {#step-1-use-the-create-preference-center-endpoint}
 
-Vamos começar a construir uma Central de Preferências usando o [endpoint Criar Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center/). Para personalizar sua Central de Preferências, você pode incluir HTML alinhado com sua marca no campo `preference_center_page_html` e no campo `confirmation_page_html`.
+Vamos começar a construir uma Central de Preferências usando o [endpoint Criar Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center). Para personalizar sua Central de Preferências, você pode incluir HTML alinhado com sua marca no campo `preference_center_page_html` e no campo `confirmation_page_html`.
 
-O [endpoint Gerar URL da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/) permite que você obtenha a URL da Central de Preferências para um usuário específico fora de um e-mail enviado pela Braze.
+O [endpoint Gerar URL da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) permite que você obtenha a URL da Central de Preferências para um usuário específico fora de um e-mail enviado pela Braze.
 
 {% alert note %}
-A Braze renderiza `confirmation_page_html` em um iframe que usa uma URL `data:`. Os navegadores tratam URLs `data:` como origens opacas. Como resultado, scripts nesse iframe não podem carregar recursos externos adicionais, e a navegação na janela pai ou a comunicação entre frames a partir dessa página falha.<br><br>Em vez disso, você pode vincular a conteúdo externo, como uma URL de pesquisa hospedada, em vez de incorporar scripts. Se você precisar incorporar uma ferramenta de terceiros e o fornecedor permitir, use um `<iframe>` cujo `src` aponte para a URL HTTPS hospedada da ferramenta.
+A Braze renderiza `confirmation_page_html` em um iframe que usa uma URL `data:`. Os navegadores tratam URLs `data:` como origens opacas. Como resultado, scripts nesse iframe não podem carregar recursos externos adicionais, e a navegação na janela pai ou a comunicação entre frames a partir dessa página falha.<br><br>Em vez disso, você pode vincular a conteúdo externo, como uma URL de pesquisa hospedada, em vez de incorporar scripts. Se você precisar incorporar uma ferramenta de terceiros e o fornecedor permitir, use um `<iframe title="Descrição do conteúdo incorporado" src="https://example.com/...">` apontando para a URL HTTPS hospedada da ferramenta.
 {% endalert %}
 
 ### Etapa 2: Inclua na sua campanha de e-mail {#step-2-include-in-your-email-campaign}
@@ -57,7 +57,7 @@ Para inserir um link para a Central de Preferências nos seus e-mails, use a seg
 ```
 {%endraw%}
 
-Você também pode usar uma combinação de HTML que inclua Liquid. Por exemplo, você pode colar o seguinte como URL no editor de HTML ou no editor de arrastar e soltar. Isso mostra o layout básico da Central de Preferências que lista todos os grupos de inscrições de e-mail automaticamente. Se você usar [alias de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/), adicione um ponto de interrogação (`?`) após a Liquid tag para que a Braze possa anexar parâmetros de rastreamento.
+Você também pode usar uma combinação de HTML que inclua Liquid. Por exemplo, você pode colar o seguinte como URL no editor de HTML ou no editor de arrastar e soltar. Isso mostra o layout básico da Central de Preferências que lista todos os grupos de inscrições de e-mail automaticamente. Se você usar [alias de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing), adicione um ponto de interrogação (`?`) após a Liquid tag para que a Braze possa anexar parâmetros de rastreamento.
 
 {% raw %}
 ```html
@@ -73,22 +73,22 @@ A Liquid tag acima só funciona ao lançar uma Campaign ou Canvas. Enviar um e-m
 
 #### Editar uma Central de Preferências {#edit-a-preference-center}
 
-Você pode editar e atualizar sua Central de Preferências usando o [endpoint Atualizar Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/).
+Você pode editar e atualizar sua Central de Preferências usando o [endpoint Atualizar Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center).
 
 #### Identificar centrais de preferências e detalhes {#identify-preference-centers-and-details}
 
-Para identificar suas centrais de preferências, use o [endpoint Ver detalhes da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) para retornar informações relacionadas, como o timestamp da última atualização, o ID da Central de Preferências e mais.
+Para identificar suas centrais de preferências, use o [endpoint Ver detalhes da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) para retornar informações relacionadas, como o timestamp da última atualização, o ID da Central de Preferências e mais.
 
 ## Personalizar uma Central de Preferências {#customize-a-preference-center}
 
-A Braze gerencia as atualizações do estado de inscrição a partir da Central de Preferências, o que mantém a Central de Preferências sincronizada. No entanto, você também pode criar e hospedar sua própria Central de Preferências usando as [APIs de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups/) com as seguintes opções.
+A Braze gerencia as atualizações do estado de inscrição a partir da Central de Preferências, o que mantém a Central de Preferências sincronizada. No entanto, você também pode criar e hospedar sua própria Central de Preferências usando as [APIs de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) com as seguintes opções.
 
 ### Opção 1: Link com parâmetros de query string {#option-1-link-with-string-query-parameters}
 
 Use pares de campo-valor de query string no corpo da URL para passar o ID do usuário e a categoria de e-mail para a página, de modo que os usuários só precisem confirmar sua escolha de cancelar a inscrição. Essa opção é boa para quem armazena um identificador de usuário em formato hash e ainda não possui uma central de inscrições.
 
 Para essa opção, cada categoria de e-mail requer seu próprio link específico de cancelamento de inscrição:<br>
-`http://mycompany.com/query-string-form-fill?field_id=John&field_category=offers`
+`http://mycompany.com/query-string-form-fill?field_id=Alex&field_category=offers`
 
 {% alert tip %}
 Também é possível aplicar hash ao ID externo do usuário no momento do envio usando um filtro Liquid. Isso converterá o `user_id` em um valor hash MD5, por exemplo:
@@ -109,7 +109,7 @@ Essa abordagem não requer pares de campo-valor de query string incorporados na 
 ```json
 {
     "user_id": "1234567890",
-    "name": "John Doe",
+    "name": "Alex Smith",
     "category": "offers"
 }
 ```
@@ -147,7 +147,7 @@ Não. Se você vir a mensagem "Your Email Body does not include an unsubscribe l
 
 ### Como atualizo o ícone padrão do navegador? {#how-do-i-update-the-default-browser-icon}
 
-Por padrão, o ícone ao lado do nome da aba do navegador (favicon) usa o logotipo da Braze. Para adicionar um favicon personalizado, você o define por meio do atributo `links-tags` na sua chamada de API para Criar ou Atualizar a [Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/). A Braze então injeta a tag {% raw %}`<link rel="icon" ...>`{% endraw %} na página hospedada para você.
+Por padrão, o ícone ao lado do nome da aba do navegador (favicon) usa o logotipo da Braze. Para adicionar um favicon personalizado, você o define por meio do atributo `links-tags` na sua chamada de API para Criar ou Atualizar a [Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center). A Braze então injeta a tag {% raw %}`<link rel="icon" ...>`{% endraw %} na página hospedada para você.
 
 {% raw %}
 ```

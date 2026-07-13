@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles del punto de conexión Actual
 /templates/email/translations/
 {% endapimethod %}
 
-> Usa este punto de conexión para actualizar las traducciones de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
+> Usa este punto de conexión para actualizar las traducciones de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `templates.translations.update`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `templates.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -36,7 +36,7 @@ No hay parámetros de ruta para este punto de conexión.
 | `template_id` | Obligatorio | Cadena | El ID de tu plantilla de correo electrónico. |
 | `locale_id` | Obligatorio | Cadena | El ID de la configuración regional. |
 | `translations_map` | Obligatorio | Cadena | El mapa de las traducciones de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

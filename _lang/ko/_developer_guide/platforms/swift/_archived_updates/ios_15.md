@@ -27,7 +27,7 @@ iOS 15에는 사용자가 하루 종일 집중하고 자주 방해받지 않도�
 
 이제 iOS 15 사용자는 "집중 모드"를 생성할 수 있습니다. 이는 어떤 알림이 집중 상태를 뚫고 눈에 띄게 표시될지 결정하는 데 사용되는 커스텀 프로필입니다.
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![iOS 15 사용자는 집중 모드를 생성하여 어떤 알림이 집중 상태를 뚫고 눈에 띄게 표시될지 결정할 수 있습니다.]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### 방해 수준 {#interruption-levels}
 
@@ -38,17 +38,17 @@ iOS 15에서는 푸시 알림을 네 가지 방해 수준 중 하나로 보낼 �
 * **시간 긴급**(신규) - 소리, 진동, 화면 깨우기 허용, 허용된 경우 시스템 제어를 해제할 수 있음.
 * **중요** - 소리, 진동, 화면 깨우기 허용, 시스템 제어를 해제할 수 있으며 벨소리 스위치를 우회할 수 있음.
 
-iOS 푸시에서 이 옵션을 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#interruption-level)을 참조하세요.
+iOS 푸시에서 이 옵션을 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level)을 참조하세요.
 
 ### 알림 요약 {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![알림 요약 관련 스크린샷.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 iOS 15에서는 사용자가 선택적으로 하루 중 특정 시간을 선택하여 알림 요약을 받을 수 있습니다. 즉각적인 주의가 필요하지 않은 알림(예: "수동"으로 전송되거나 사용자가 집중 모드에 있을 때 전송되는 알림)은 하루 종일 계속 방해받지 않도록 그룹화됩니다.
 
 보내는 각 알림에 대해 곧 "관련성 점수"를 지정하여 요약 상단에 표시할 알림을 제어할 수 있습니다.
 
-알림의 "관련성 점수"를 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#relevance-score)을 참조하세요.
+알림의 "관련성 점수"를 설정하는 방법에 대해 자세히 알아보려면 [iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score)을 참조하세요.
 
 ## 위치 버튼 {#location-buttons}
 

@@ -25,7 +25,7 @@ Decisioning Studio Go prend en charge les CEP suivants pour l'accès aux donnée
 |-----|-----------------|-----------------|
 | **Braze** | Segments | Exportation Braze Currents |
 | **Salesforce Marketing Cloud** | Extensions de données | Automatisation des requêtes SQL |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles d'intégration pris en charge" }
 
 ## Exigences en matière de données par CEP {#data-requirements-by-cep}
 
@@ -56,7 +56,7 @@ Pour les intégrations Salesforce Marketing Cloud, Decisioning Studio Go requier
 1. **Extensions de données :** Votre audience doit être définie dans une extension de données accessible par Decisioning Studio Go. Utilisez la SubscriberKey comme identifiant utilisateur principal.
 2. **Accès aux événements de suivi :** Tant que le package d'application installé prend en charge la configuration automatisée de bout en bout, aucune configuration supplémentaire n'est nécessaire.
 
-Les extensions de données et les requêtes SQL sont configurées dans le cadre de la [configuration de l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/).
+Les extensions de données et les requêtes SQL sont configurées dans le cadre de la [configuration de l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration).
 
 {% endtab %}
 {% endtabs %}
@@ -70,4 +70,4 @@ Les extensions de données et les requêtes SQL sont configurées dans le cadre 
 
 Maintenant que vous comprenez comment Go se connecte aux données, procédez à la configuration de votre intégration CEP :
 
-- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
+- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)

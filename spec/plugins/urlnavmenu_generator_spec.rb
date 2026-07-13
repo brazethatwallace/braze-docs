@@ -1,28 +1,19 @@
 require 'cgi'
+require 'liquid'
 
-# Stub Jekyll and Liquid so the plugin loads without a full Jekyll environment
-module Jekyll
-  class Document
-    attr_reader :url, :id, :data
-    def initialize(url, id, data = {})
-      @url  = url
-      @id   = id
-      @data = data
+# Stub Jekyll Document so plugin code can type-check menu pages
+unless defined?(Jekyll::Document)
+  module Jekyll
+    class Document
+      attr_reader :url, :id, :data
+      def initialize(url, id, data = {})
+        @url  = url
+        @id   = id
+        @data = data
+      end
+      def [](key) = @data[key]
+      def respond_to?(method, *) = method == :id ? true : super
     end
-    def [](key) = @data[key]
-    def respond_to?(method, *) = method == :id ? true : super
-  end
-end
-
-module Liquid
-  class Tag
-    def initialize(tag_name, markup, tokens); end
-  end
-
-  module Template
-    def self.register_tag(name, klass); end
-    def self.parse(str) = self
-    def self.render(ctx) = str
   end
 end
 
@@ -49,6 +40,28 @@ def build_test_menu(current_page_id)
       :menu_nav_pages => { 'install' => install_doc },
       'install'       => nil
     }
+  }
+end
+
+# Same tree with setup as the first root item (lower page_order).
+def build_test_menu_setup_first
+  intro_doc   = Jekyll::Document.new('/docs/guide/intro',           '/docs/guide/intro')
+  setup_doc   = Jekyll::Document.new('/docs/guide/setup',           '/docs/guide/setup')
+  install_doc = Jekyll::Document.new('/docs/guide/setup/install',   '/docs/guide/setup/install')
+
+  intro_entry   = ['intro',   'intro',   'Introduction',  2, '/docs/guide/intro',         '/docs/guide/intro/']
+  setup_entry   = ['setup',   'setup',   'Setup',         1, '/docs/guide/setup',         '/docs/guide/setup/']
+  install_entry = ['install', 'install', 'Install',       1, '/docs/guide/setup/install', '/docs/guide/setup/install/']
+
+  {
+    :menu_nav_list   => { 'setup' => setup_entry, 'intro' => intro_entry },
+    :menu_nav_pages  => { 'setup' => setup_doc,   'intro' => intro_doc   },
+    'setup'          => {
+      :menu_nav_list  => { 'install' => install_entry },
+      :menu_nav_pages => { 'install' => install_doc },
+      'install'       => nil
+    },
+    'intro'          => nil
   }
 end
 
@@ -92,6 +105,7 @@ def build_menu_instance(current_page_url, current_page_id)
   instance.instance_variable_set(:@baseurl,          '')
   instance.instance_variable_set(:@nav_expand_list,  [])
   instance.instance_variable_set(:@minlevel,         2)
+  instance.instance_variable_set(:@rail_slot_used,   false)
 
   current_page = Struct.new(:url, :id).new(current_page_url, current_page_id)
   instance.instance_variable_set(:@currentpage,      current_page)
@@ -105,7 +119,7 @@ RSpec.describe Jekyll::UrlNavMenu, '#build_menu_html' do
     it "renders aria-current='page' on the active span" do
       menu     = build_test_menu('/docs/guide/intro')
       instance = build_menu_instance('/docs/guide/intro/', '/docs/guide/intro')
-      html     = instance.send(:build_menu_html, menu, '', 0)
+      html     = instance.send(:build_menu_html, menu, '', 0, true)
 
       expect(html).to include("aria-current='page'")
     end
@@ -113,10 +127,30 @@ RSpec.describe Jekyll::UrlNavMenu, '#build_menu_html' do
     it 'wraps the first root item in nav-item--rail for the sidebar toggle host' do
       menu     = build_test_menu('/docs/guide/intro')
       instance = build_menu_instance('/docs/guide/intro/', '/docs/guide/intro')
-      html     = instance.send(:build_menu_html, menu, '', 0)
+      html     = instance.send(:build_menu_html, menu, '', 0, true)
 
       expect(html).to include('nav-item--rail')
       expect(html).to include("id='sidebar_toggle_host'")
+    end
+
+    it 'emits only one sidebar_toggle_host when nav_level is 1 and a nested section is current' do
+      menu     = build_test_menu('/docs/guide/setup/install')
+      instance = build_menu_instance('/docs/guide/setup/install/', '/docs/guide/setup/install')
+      instance.instance_variable_set(:@minlevel, 1)
+      html     = instance.send(:build_menu_html, menu, '', 0, true)
+
+      expect(html.scan(/id='sidebar_toggle_host'/).length).to eq(1)
+    end
+
+    it 'keeps nav-item--rail on the first root item when it is current and has children' do
+      menu     = build_test_menu_setup_first
+      instance = build_menu_instance('/docs/guide/setup/', '/docs/guide/setup')
+      instance.instance_variable_set(:@minlevel, 1)
+      html     = instance.send(:build_menu_html, menu, '', 0, true)
+
+      expect(html.scan(/id='sidebar_toggle_host'/).length).to eq(1)
+      expect(html).to match(/class='[^']*nav-item--rail[^']*' id='parent_nav_setup'/)
+      expect(html).not_to match(/class='[^']*nav-item--rail[^']*' id='parent_nav_setup_install'/)
     end
   end
 
@@ -124,7 +158,7 @@ RSpec.describe Jekyll::UrlNavMenu, '#build_menu_html' do
     it "renders aria-current='page' on the active span inside the nav_item_row" do
       menu     = build_test_menu('/docs/guide/setup')
       instance = build_menu_instance('/docs/guide/setup/', '/docs/guide/setup')
-      html     = instance.send(:build_menu_html, menu, '', 0)
+      html     = instance.send(:build_menu_html, menu, '', 0, true)
 
       expect(html).to include("aria-current='page'")
     end
@@ -134,7 +168,7 @@ RSpec.describe Jekyll::UrlNavMenu, '#build_menu_html' do
     it 'does not render aria-current on a regular link' do
       menu     = build_test_menu('/docs/guide/intro')
       instance = build_menu_instance('/docs/guide/setup/', '/docs/guide/setup')
-      html     = instance.send(:build_menu_html, menu, '', 0)
+      html     = instance.send(:build_menu_html, menu, '', 0, true)
 
       # intro is not the current page — its link should have no aria-current
       expect(html).not_to match(/href='[^']*intro[^']*'[^>]*aria-current/)
@@ -145,7 +179,7 @@ RSpec.describe Jekyll::UrlNavMenu, '#build_menu_html' do
     it 'renders a flat nav_reg with nav_link directly inside, no nav_block wrapper' do
       menu     = build_test_menu('/docs/guide/setup')
       instance = build_menu_instance('/docs/guide/setup/', '/docs/guide/setup')
-      html     = instance.send(:build_menu_html, menu, '', 0)
+      html     = instance.send(:build_menu_html, menu, '', 0, true)
 
       # Non-active leaf (install) should be nav_reg > a.nav_link, no nav_block in between
       expect(html).to include("<div class='nav_reg'")

@@ -10,7 +10,7 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 
 # Objeto de e-mail {#email-object}
 
-> O objeto `email` permite que você modifique ou crie e-mails por meio dos nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
+> O objeto `email` permite que você modifique ou crie e-mails por meio dos nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
 
 ## Objeto de e-mail
 
@@ -18,8 +18,8 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -35,9 +35,9 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 }
 ```
 
-- [Identificador do app]({{site.baseurl}}/api/identifier_types/)
+- [Identificador do app]({{site.baseurl}}/api/identifier_types)
   - Qualquer `app_id` válido de um app configurado no seu espaço de trabalho funciona para todos os usuários no seu espaço de trabalho, independentemente de o usuário ter ou não o app específico em seu perfil.
-- Para saber mais e conferir as melhores práticas sobre pré-cabeçalhos, consulte [Estilização de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
+- Para saber mais e conferir as melhores práticas sobre pré-cabeçalhos, consulte [Estilização de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling).
 
 {% alert warning %}
 A Braze recomenda que você evite usar links do Google Drive para o `url` dos seus anexos, pois isso pode bloquear as chamadas dos nossos servidores para obter o arquivo e resultar no não envio da mensagem de e-mail.
@@ -79,7 +79,7 @@ Um `email_template_id` pode ser recuperado na parte inferior de qualquer modelo 
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -98,4 +98,4 @@ Quando a Braze busca um arquivo a partir de um `url` de anexo:
 - **Cache:** a Braze pode reutilizar um arquivo recuperado recentemente por até aproximadamente 24 horas. Se você precisa que cada envio utilize uma nova versão do arquivo imediatamente, use uma URL distinta por versão (por exemplo, um caminho ou parâmetro de consulta que mude quando o arquivo for alterado).
 - **Timeouts:** os hosts devem responder rapidamente. Se a URL do anexo for lenta ou travar, o envio da mensagem pode falhar — procure obter respostas em cerca de dois minutos.
 - **Segurança:** não inclua informações de identificação pessoal (IPI) ou dados sensíveis nas URLs de anexos (incluindo query strings), pois as URLs podem aparecer em registros ou sistemas downstream.
-- **Firewalls:** se a URL só é acessível a partir de redes específicas, libere o tráfego da Braze conforme a [lista de IPs permitidos do Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Use [credenciais de autenticação básica](#authentication-for-email-file-attachments) quando o arquivo exigir login.
+- **Firewalls:** se a URL só é acessível a partir de redes específicas, libere o tráfego da Braze conforme a [lista de IPs permitidos do Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Use [credenciais de autenticação básica](#authentication-for-email-file-attachments) quando o arquivo exigir login.

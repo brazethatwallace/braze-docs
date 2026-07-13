@@ -11,7 +11,7 @@ toc_headers: h2
 
 > Esta página explica como usar o Editor SQL da Ingestão de dados na nuvem (CDI) da Braze para criar e validar sincronizações com consultas de SQL.
 
-O Editor SQL da Ingestão de dados na nuvem permite criar sincronizações escrevendo consultas de SQL diretamente no seu data warehouse. Isso elimina a necessidade de criar ou manter uma tabela CDI dedicada, que antes era obrigatória na [Etapa 1.1 das Integrações de Data Warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+O Editor SQL da Ingestão de dados na nuvem permite criar sincronizações escrevendo consultas de SQL diretamente no seu data warehouse. Isso elimina a necessidade de criar ou manter uma tabela CDI dedicada, que antes era obrigatória na [Etapa 1.1 das Integrações de Data Warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 Use o Editor SQL quando quiser:
 
@@ -26,18 +26,22 @@ O Editor SQL da Ingestão de dados na nuvem está em beta. Fale com o seu gerent
 
 ## Pré-requisitos e limitações {#prerequisites-and-limitations}
 
-Durante o beta, o Editor SQL tem as seguintes limitações:
+O Editor SQL tem as seguintes limitações:
 
-- Disponível apenas para sincronizações de **User Attributes**
-- Suporta uma fonte de warehouse: **Snowflake**
+- Disponível apenas para fontes de data warehouse: Snowflake, Redshift, BigQuery, Databricks e Fabric.
+- Apenas consultas de leitura com uma única instrução são suportadas.
 
 {% alert note %}
-A Braze executa apenas consultas de leitura nos seus dados e não modifica suas tabelas subjacentes. A Braze pode criar objetos temporários durante a execução da consulta, mas não os persiste.
+A Braze executa apenas consultas de leitura nos seus dados e não modifica suas tabelas subjacentes. Objetos temporários podem ser criados durante a execução da consulta, mas não são persistidos.
 {% endalert %}
 
 ## Criar uma nova sincronização com o Editor SQL {#create-a-new-sql-editor-sync}
 
-Siga estas etapas para criar uma sincronização com o Editor SQL. Se você já configurou uma fonte Snowflake para CDI, pule para a Etapa 3.
+Siga estas etapas para criar primeiro uma fonte e depois uma sincronização com o Editor SQL. Se você já configurou uma fonte para CDI, pule para a Etapa 3.
+
+{% alert note %}
+Essas etapas usam uma fonte Snowflake como exemplo. O processo de configuração para outras fontes de data warehouse é semelhante e pode ser encontrado na [Etapa 2: Criar uma nova fonte no dashboard da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) da documentação [Configurando integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
+{% endalert %}
 
 ### Etapa 1: Configurar sua role, permissões, warehouse e usuário no Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
@@ -128,17 +132,11 @@ De volta à Braze, selecione **Test connection** para verificar o acesso à font
 
 1. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Syncs**.
 2. Selecione **Create data sync**.
-3. Escolha **User Attributes** em **Data Type**.
-4. Referencie a fonte Snowflake da Etapa 2.
+3. Escolha qualquer sincronização em **Data Type**.
+4. Referencie a fonte da Etapa 2.
 5. Selecione **SQL** e escreva uma consulta SQL que retorne dados de usuários do seu warehouse. Sua consulta SQL define os dados que serão sincronizados com a Braze. O resultado da consulta se torna o schema da sua sincronização.
 
-![O fluxo de criação de sincronização de dados mostrando SQL selecionado com uma consulta de exemplo no editor SQL.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
-
-Sua consulta SQL deve retornar:
-
-- Um identificador de usuário (`EXTERNAL_ID`, `BRAZE_ID`, `ALIAS_NAME` e `ALIAS_LABEL`, `EMAIL` ou `PHONE`)
-- Uma coluna `UPDATED_AT`
-- Pelo menos uma coluna adicional (atributo)
+Você pode usar o Source Explorer para navegar pelas tabelas e views disponíveis para sincronização, ou o gerador de SQL com IA para obter a ajuda do Braze Operator na sua consulta SQL.
 
 {% alert note %}
 Apenas consultas de leitura são suportadas, incluindo cláusulas `JOIN`. Para mais detalhes, consulte [Restrições de SQL](#sql-constraints).
@@ -154,15 +152,22 @@ A pré-visualização:
 - Mostra até 100 linhas
 - Mostra até 250 colunas
 
-Você deve pré-visualizar e validar sua consulta com sucesso antes de continuar. Para detalhes sobre erros e correções, consulte [Comportamento de validação](#validation-behavior) e [Solução de problemas](#troubleshooting).
+Para validar com sucesso, sua consulta SQL deve retornar várias colunas obrigatórias:
+
+| Tipo de dados da sincronização | Colunas obrigatórias |
+|---|---|
+| Atributos | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- Pelo menos uma coluna adicional (atributo) para sincronizar. |
+| Excluir usuários | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`. |
+| Canvas Triggers | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`. |
+| Eventos personalizados | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- `NAME` para representar o nome do evento.<br>- `TIME` para representar o horário do evento. Se indisponível, o CDI usa `UPDATED_AT` como substituto. |
+| Eventos de compra | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- `TIME` para representar o horário do evento de compra. Se indisponível, o CDI usa `UPDATED_AT` como substituto. |
+| Catálogo | - `ID` para representar o identificador do item do catálogo.<br>- `UPDATED_AT`.<br>- Pelo menos uma coluna adicional (campo do catálogo) para sincronizar. |
+| Contas | - `ID` para representar o identificador da conta.<br>- `NAME` para representar o nome da conta.<br>- `UPDATED_AT`.<br>- Pelo menos uma coluna adicional (campo da conta) para sincronizar. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4: Pré-visualizar e validar sua consulta" }
+
+Colunas adicionais além das obrigatórias são sincronizadas como atributos, propriedades de contexto do Canvas, propriedades de eventos, campos de catálogo e campos de conta, respectivamente. Consulte [Comportamento de validação](#validation-behavior) e [Solução de problemas](#troubleshooting) para dicas úteis sobre erros de pré-visualização e validação e como corrigi-los.
 
 ### Etapa 5: Revisar o mapeamento de atributos e criar a sincronização {#step-5-review-attribute-mapping-and-create-sync}
-
-Após a validação:
-
-- A coluna de identificador faz a correspondência dos usuários
-- A coluna `UPDATED_AT` controla a sincronização incremental
-- A Braze sincroniza todas as outras colunas como atributos
 
 Quando a validação for bem-sucedida, continue para **Next: Notifications** e crie sua sincronização.
 
@@ -171,41 +176,6 @@ Uma configuração SQL incorreta pode levar a resultados indesejados, incluindo 
 {% endalert %}
 
 ## Restrições de SQL {#sql-constraints}
-
-Sua consulta deve atender aos seguintes requisitos.
-
-### Incluir um identificador de usuário {#include-a-user-identifier}
-
-Sua consulta deve incluir pelo menos um dos seguintes:
-
-- `EXTERNAL_ID`
-- `BRAZE_ID`
-- `EMAIL`
-- `PHONE`
-- `ALIAS_NAME` e `ALIAS_LABEL`
-
-Se nenhum identificador válido for detectado, a validação falha.
-
-{% alert note %}
-Esses identificadores diferenciam maiúsculas de minúsculas e devem estar em letras maiúsculas.
-{% endalert %}
-
-### Incluir `UPDATED_AT` {#include-updated_at}
-
-Sua consulta deve incluir uma coluna `UPDATED_AT`.
-
-`UPDATED_AT` diferencia maiúsculas de minúsculas e deve estar em letras maiúsculas.
-
-Se estiver ausente, a validação falha.
-
-### Incluir pelo menos uma coluna de atributo {#include-at-least-one-attribute-column}
-
-Sua consulta deve incluir pelo menos uma coluna além de:
-
-- Coluna(s) de identificador de usuário
-- `UPDATED_AT`
-
-Caso contrário, a validação falha.
 
 ### Usar apenas consultas `SELECT` {#use-select-queries-only}
 
@@ -263,15 +233,15 @@ Se sua consulta demorar muito para executar:
 - A validação falha
 - Um erro de tempo limite é exibido
 
-### Colunas obrigatórias ausentes {#missing-required-columns}
+### Erros de schema da tabela {#table-schema-errors}
 
 Se sua consulta compilar, a validação ainda pode falhar se:
 
 - Nenhuma coluna de identificador for encontrada
 - `UPDATED_AT` estiver ausente
-- Nenhuma coluna de atributo estiver presente
+- Outras colunas obrigatórias estiverem ausentes
 
-Nesse caso, a pré-visualização ainda é exibida para ajudar você a chegar a uma validação bem-sucedida.
+Nesse caso, a pré-visualização ainda é exibida para ajudar você a chegar a uma validação bem-sucedida. Consulte a [Etapa 4 na seção anterior](#step-4-preview-and-validate-your-query) para detalhes sobre as colunas obrigatórias para cada tipo de dados de sincronização.
 
 ### Resultados com zero linhas {#zero-row-results}
 
@@ -283,7 +253,7 @@ Se sua consulta retornar zero linhas:
 
 ## Suporte a `PAYLOAD` (legado) {#payload-support-legacy}
 
-O Editor SQL suporta [tabelas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) onde uma coluna `PAYLOAD` está presente.
+O Editor SQL suporta [tabelas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) onde uma coluna `PAYLOAD` está presente.
 
 Se sua consulta incluir:
 
@@ -331,7 +301,7 @@ Verifique se sua consulta inclui um identificador válido, como `external_id`.
 
 Adicione uma coluna de timestamp para sincronização incremental.
 
-### Nenhum atributo para sincronizar {#no-attributes-to-sync}
+### Adicione mais colunas... Não há atributos/campos de catálogo/campos de conta para sincronizar {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 Adicione pelo menos uma coluna adicional além do identificador e `UPDATED_AT`.
 

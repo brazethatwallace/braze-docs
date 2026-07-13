@@ -6,9 +6,11 @@ description: "GitHub에서 미러링된 Braze JavaScript SDK README 참조입니
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK 리포지토리 가이드 {#javascript-sdk-repository-guide}
+
 ## Braze JavaScript SDK 소개 {#about-the-braze-javascript-sdk}
 
-Braze JavaScript SDK는 Braze 메시징, 분석, 사용자 참여 기능을 애플리케이션에 통합할 수 있도록 도와줍니다.
+Braze JavaScript SDK는 Braze 메시징, 분석, 사용자 인게이지먼트 기능을 애플리케이션에 통합할 수 있도록 도와줍니다.
 
 시작하려면 다음 리소스를 참조하세요:
 
@@ -665,7 +667,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 **데이터 플러시:**
 - 10초마다 자동 플러시(구성 가능, 최소: 3초)
 - 플러시가 조용히 실패할 수 있습니다 - `requestImmediateDataFlush()` 콜백을 사용하세요
-- 네트워크를 사용할 수 없는 경우 데이터가 대기줄에 추가되고, 네트워크가 복원되면 플러시됩니다
+- 네트워크를 사용할 수 없는 경우 데이터가 대기열에 추가되고, 네트워크가 복원되면 플러시됩니다
 
 ### 중요한 구현 참고 사항 {#important-implementation-notes}
 
@@ -693,7 +695,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 11. **타입 안전성**: SDK는 완전한 타입 정의와 함께 TypeScript로 작성되었습니다. 최상의 경험과 타입 검사를 위해 TypeScript를 사용하세요.
 
-12. **유효성 검사 규칙**: 이벤트 이름, 속성 키, 등록정보 키에는 엄격한 유효성 검사가 적용됩니다(최대 255자, `$`로 시작할 수 없음, 영숫자 + 구두점만 허용). 잘못된 값은 무시되거나 오류를 발생시킬 수 있습니다.
+12. **유효성 검사 규칙**: 이벤트 이름, 속성 키, 속성정보 키에는 엄격한 유효성 검사가 적용됩니다(최대 255자, `$`로 시작할 수 없음, 영숫자 + 구두점만 허용). 잘못된 값은 무시되거나 오류를 발생시킬 수 있습니다.
 
 ## 디버깅 / 문제 해결 {#debugging-troubleshooting}
 

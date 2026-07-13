@@ -1,6 +1,6 @@
 ---
-nav_title: "GET: キャンバスリストをエクスポートする"
-article_title: "GET: キャンバスリストをエクスポートする"
+nav_title: "GET: キャンバスリストのエクスポート"
+article_title: "GET: キャンバスリストのエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,7 +9,7 @@ description: "この記事では、「キャンバスリストのエクスポー
 
 ---
 {% api %}
-# キャンバスリストをエクスポートする {#export-canvas-list}
+# キャンバスリストのエクスポート {#export-canvas-list}
 {% apimethod get %}
 /canvas/list
 {% endapimethod %}
@@ -24,7 +24,7 @@ description: "この記事では、「キャンバスリストのエクスポー
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.list`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`canvas.list`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -58,14 +58,14 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   		"name" : (string) the Canvas name,
   		"tags" : (array) the tag names associated with the Canvas formatted as strings,
   	},
-    ... (more キャンバス)
+    ... (more Canvases)
   ],
   "message": (required, string) the status of the export, returns 'success' when completed without errors
 }
 ```
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」を参照してください。
 {% endalert %}
 
 {% endapi %}

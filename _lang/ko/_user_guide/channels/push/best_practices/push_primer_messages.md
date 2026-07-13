@@ -77,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## 1단계: 인앱 메시지 생성 {#step-1-create-an-in-app-message}
 
-먼저 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)한 다음, 메시지 유형과 레이아웃을 선택합니다.
+먼저 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)한 다음, 메시지 유형과 레이아웃을 선택합니다.
 
 메시지와 버튼 모두를 위한 충분한 공간을 확보하려면 전체화면 또는 모달 메시지 레이아웃을 사용하세요. 전체화면을 선택하는 경우 이미지가 필수입니다.
 
@@ -97,7 +97,7 @@ Breaking news on the go! Enable push notifications to get alerts for major stori
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-모범 사례 및 추가 리소스는 [커스텀 옵트인 프롬프트 생성]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)을 참조하세요.
+모범 사례 및 추가 리소스는 [커스텀 옵트인 프롬프트 생성]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)을 참조하세요.
 
 ## 3단계: 버튼 동작 지정 {#button-actions}
 
@@ -218,4 +218,4 @@ Braze는 기기 수준이 아닌 프로필 수준에서 사용자 데이터를 �
 
 ## 6단계: 전환 이벤트 {#step-6-conversion-events}
 
-Braze는 전환에 대한 기본 설정을 제안하지만, 푸시 프라이머와 관련된 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 설정할 수도 있습니다.
+Braze는 전환에 대한 기본 설정을 제안하지만, 푸시 프라이머와 관련된 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 설정할 수도 있습니다.

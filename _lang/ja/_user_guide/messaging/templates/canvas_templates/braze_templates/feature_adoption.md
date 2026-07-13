@@ -3,7 +3,7 @@ nav_title: 機能導入
 article_title: 機能導入
 page_order: 3
 page_type: reference
-description: "この記事では、Braze キャンバステンプレートを使用して、メリットや使い方のヒントを強調するタイムリーでパーソナライズ済みのメッセージを配信する方法について説明します。"
+description: "この記事では、Braze Canvasテンプレートを使用して、メリットや使い方のヒントを強調するタイムリーでパーソナライズ済みのメッセージを配信する方法について説明します。"
 tool: Canvas
 ---
 
@@ -15,7 +15,7 @@ tool: Canvas
 
 ## 前提条件 {#prerequisites}
 
-このテンプレートを正しく使用するには、ユーザーが機能を使用したタイミングを参照する[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)が必要です。
+このテンプレートを正しく使用するには、ユーザーが機能を使用したタイミングを参照する[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)が必要です。
 
 ## テンプレートをニーズに合わせて調整する {#tailoring-the-template-to-your-needs}
 
@@ -86,14 +86,14 @@ tool: Canvas
 
 1. Cruise Control機能はカートに注文が追加された後にのみ利用可能なため、最初のアクショングループに**Added to cart**と名前を付け、カスタムイベントとして`added_to_cart`を選択します。
 
-![アクショングループ名が「Added to cart」に設定され、「Perform Custom Event」が「added_to_cart」に設定されています。]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_added_to_cart.png %}){: style="max-width:60%;"}
+![アクショングループ名が「Added to cart」に設定され、「Perform Custom Event」が「added_to_cart」に設定されている画面。]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_added_to_cart.png %}){: style="max-width:60%;"}
 
 {: start="2"}
 2. 2番目のアクショングループ**Taken Tour**はそのままにします。ユーザーがアプリのツアーを完了したかどうかを評価し、完了した場合は2番目のパスに進むようにするためです。
 3. 後続のアクションパス**Assess Usage**で、**Used Feature >3x**を**Viewed Cruise Control settings**に置き換えます。
 4. **Perform Custom Event**ドロップダウンを選択し、カスタムイベントとして`scheduled_delivery`を選択します。
 
-![アクショングループ名が「Used Feature >3x」に設定され、「Perform Custom Event」が「scheduled_delivery」に設定されています。]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_assess_usage.png %}){: style="max-width:60%;"}
+![アクショングループ名が「Used Feature >3x」に設定され、「Perform Custom Event」が「scheduled_delivery」に設定されている画面。]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_assess_usage.png %}){: style="max-width:60%;"}
 
 #### フィードバック調査を設定する {#set-up-feedback-survey}
 
@@ -110,5 +110,5 @@ tool: Canvas
 キャンバスをテストおよび確認して期待どおりに動作することを確かめた後、**キャンバスを起動**を選択してキャンバスを起動します。これで、パーソナライズされたユーザージャーニーでユーザーをターゲットにし、新機能Cruise Controlの導入を促すことができます。
 
 {% alert tip %}
-キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご確認ください。
+キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご確認ください。
 {% endalert %}

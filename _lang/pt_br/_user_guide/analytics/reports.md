@@ -51,14 +51,14 @@ guide_menu_list:
 
 | Relatório | Ideal para | Descrição |
 | --- | --- | --- |
-| [Análise de dados de Campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) | Resultados de Campaign por canal | Visualize resultados em tempo real de cada Campaign, detalhados por canal de envio de mensagens. |
-| [Análise de dados do Canvas]({{site.baseurl}}/user_guide/analytics/reports/canvas_analytics/) | Desempenho de Canvas | Visualize estatísticas gerais, desempenho de variantes e métricas por etapa de um Canvas. |
-| [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) | Comparação entre Campaigns | Compare resultados de várias Campaigns ou Canvas em uma única visualização, com métricas personalizáveis e detalhamentos. |
-| [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) | Análise personalizada com SQL | Escreva consultas de SQL personalizadas nos seus dados da Braze no Snowflake ou use modelos prontos para análises comuns. |
-| [Relatórios de engajamento]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/) | Exportações de e-mail agendadas | Configure exportações recorrentes em CSV com estatísticas de engajamento para Campaigns e Canvas selecionados. |
-| [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/) | Tendências de eventos personalizados | Monitore a frequência de eventos personalizados ao longo do tempo, detalhados por segmento ou normalizados por fórmulas de KPI. |
-| [Relatório de receitas]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) | Receitas e compras | Acompanhe receitas, compras e detalhamentos por produto ao longo do tempo, com filtros opcionais por segmento. |
-| [Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) | Análise de funil de conversão | Analise as jornadas que seus clientes percorrem após receberem uma Campaign ou Canvas, incluindo pontos de abandono. |
-| [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/) | Impacto na retenção a longo prazo | Meça a eficácia de uma Campaign ou Canvas em reengajar usuários ao longo do tempo (até 30 dias). |
-| [Configurar relatórios]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/) | Resumo semanal por e-mail | Assine um e-mail semanal de análise de dados e escolha quais eventos personalizados incluir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Choosing a report" }
+| [Análise de dados de Campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) | Resultados de Campaign por canal | Visualize resultados em tempo real de cada Campaign, detalhados por canal de envio de mensagens. |
+| [Análise de dados do Canvas]({{site.baseurl}}/user_guide/analytics/reports/canvas_analytics) | Desempenho do Canvas | Visualize estatísticas gerais, desempenho de variantes e métricas por etapa de um Canvas. |
+| [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder) | Comparação entre Campaigns | Compare resultados de várias Campaigns ou Canvas em uma única visualização, com métricas personalizáveis e detalhamentos. |
+| [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) | Análise personalizada com SQL | Escreva consultas de SQL personalizadas nos seus dados da Braze no Snowflake ou use modelos prontos para análises comuns. |
+| [Relatórios de engajamento]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports) | Exportações de e-mail agendadas | Configure exportações recorrentes em CSV com estatísticas de engajamento para Campaigns e Canvas selecionados. |
+| [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) | Tendências de eventos personalizados | Monitore a frequência de eventos personalizados ao longo do tempo, detalhados por segmento ou normalizados por fórmulas de KPI. |
+| [Relatório de receitas]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) | Receitas e compras | Acompanhe receitas, compras e detalhamentos por produto ao longo do tempo, com filtros opcionais por segmento. |
+| [Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) | Análise de funil de conversão | Analise as jornadas que seus clientes percorrem após receberem uma Campaign ou Canvas, incluindo pontos de abandono. |
+| [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) | Impacto na retenção a longo prazo | Meça a eficácia de uma Campaign ou Canvas em reengajar usuários ao longo do tempo (até 30 dias). |
+| [Configurar relatórios]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting) | Resumo semanal por e-mail | Assine um e-mail semanal de análise de dados e escolha quais eventos personalizados incluir. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Escolhendo um relatório" }

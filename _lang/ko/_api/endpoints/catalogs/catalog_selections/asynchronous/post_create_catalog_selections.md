@@ -19,7 +19,7 @@ description: "이 문서에서는 카탈로그 선택 항목 만들기 Braze 엔
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.create_selection` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.create_selection` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -36,7 +36,7 @@ description: "이 문서에서는 카탈로그 선택 항목 만들기 Braze 엔
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | 필수 | 오브젝트 | 선택 기준이 포함된 오브젝트입니다. 오브젝트 및 해당 필드에 대한 전체 분석은 [카탈로그 선택 오브젝트]({{site.baseurl}}/api/objects_filters/catalog_selection_object/)를 참조하세요. |
+| `selection` | 필수 | 오브젝트 | 선택 기준이 포함된 오브젝트입니다. 오브젝트 및 해당 필드에 대한 전체 분석은 [카탈로그 선택 오브젝트]({{site.baseurl}}/api/objects_filters/catalog_selection_object)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### 선택 오브젝트 매개변수 {#selection-object-parameters}

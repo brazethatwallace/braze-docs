@@ -10,12 +10,12 @@ page_order: 4
 > Verwenden Sie Liquid-Personalisierung in Landing-Pages, um den Inhalt dynamisch mit Nutzerprofildaten anzupassen. So können Sie beispielsweise Überschriften basierend auf verschiedenen Nutzerattributen personalisieren, ohne mehrere statische Landing-Pages verwalten zu müssen.
 
 {% alert important %}
-Liquid-Personalisierung für Landing-Pages ist nur im Pro-Tier der Landing-Pages verfügbar. Derzeit werden [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), [Mehrsprachigkeit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/) und [Aktionscodes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) nicht mit Liquid-Personalisierung in Landing-Pages unterstützt.
+Liquid-Personalisierung für Landing-Pages ist nur im Pro-Tier der Landing-Pages verfügbar. Derzeit werden [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), [Mehrsprachigkeit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) und [Aktionscodes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) nicht mit Liquid-Personalisierung in Landing-Pages unterstützt.
 {% endalert %}
 
 ## Liquid einfügen {#inserting-liquid}
 
-Im Drag-and-Drop-Editor können Sie Liquid-Personalisierung sowohl im Editor als auch in den Seiten- oder Block-Einstellungen im rechten Panel einfügen. Anleitungen zur Implementierung von Liquid finden Sie in unserer speziellen [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#using-liquid).
+Im Drag-and-Drop-Editor können Sie Liquid-Personalisierung sowohl im Editor als auch in den Seiten- oder Block-Einstellungen im rechten Panel einfügen. Anleitungen zur Implementierung von Liquid finden Sie in unserer speziellen [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid).
 
 ![Landing-Page-Editor mit hinzugefügter Liquid-Personalisierung.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -41,13 +41,13 @@ Um zu verhindern, dass Ihre Seite die Größenbeschränkungen überschreitet ode
 - Nicht kontinuierlich durch große Datensätze iteriert oder diese referenziert.
 - Nicht auf umfangreiche mathematische oder bedingte Logik innerhalb des Liquid-Blocks angewiesen ist.
 
-Vermeiden Sie außerdem das direkte Einbetten großer Skripte, Stylesheets und Base64-kodierter Assets in Ihren Landing-Page-Code. Diese Inline-Assets zählen zur Seitengrößenbeschränkung und können das Rendering verlangsamen. Laden Sie stattdessen Schriftarten, Bilder, Stylesheets und Skripte in die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) hoch. Assets, die über die Medienbibliothek bereitgestellt werden, werden auf dem CDN von Braze gehostet, sodass sie nicht für das Liquid-Rendering verarbeitet werden und nicht zur Seitengrößenbeschränkung zählen.
+Vermeiden Sie außerdem das direkte Einbetten großer Skripte, Stylesheets und Base64-kodierter Assets in Ihren Landing-Page-Code. Diese Inline-Assets zählen zur Seitengrößenbeschränkung und können das Rendering verlangsamen. Laden Sie stattdessen Schriftarten, Bilder, Stylesheets und Skripte in die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) hoch. Assets, die über die Medienbibliothek bereitgestellt werden, werden auf dem CDN von Braze gehostet, sodass sie nicht für das Liquid-Rendering verarbeitet werden und nicht zur Seitengrößenbeschränkung zählen.
 
 ### Liquid für identifizierte und anonyme Nutzer:innen verwenden {#use-liquid-for-identified-and-anonymous-users}
 
 Liquid kann das Landing-Page-Erlebnis sowohl für identifizierte als auch für anonyme Besucher:innen anpassen.
 
-- **Identifizierte Nutzer:innen:** Verlinken Sie die Landing-Page aus einer Braze-Nachricht und fügen Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags) hinzu. Dadurch wird die Person mit ihrem Braze-Profil verknüpft und das Seitenerlebnis personalisiert.
+- **Identifizierte Nutzer:innen:** Verlinken Sie die Landing-Page aus einer Braze-Nachricht und fügen Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags) hinzu. Dadurch wird die Person mit ihrem Braze-Profil verknüpft und das Seitenerlebnis personalisiert.
 - **Anonyme Besucher:innen:** Verwenden Sie Liquid für kontextuelle, nicht profilbasierte Inhalte, wie z. B. eine Zufallszahl oder eine tageszeitabhängige Begrüßung.
 
 ### Formularfelder vorausfüllen {#pre-fill-form-fields}
@@ -67,12 +67,16 @@ Das Vorausfüllen funktioniert nur für [identifizierte Nutzer:innen](#use-liqui
 - **Eingabefelder:** Zeigen ihren Platzhaltertext an.
 - **Kontrollkästchen, Optionsfelder und ähnliche Steuerelemente:** Bleiben nicht ausgewählt, bis Nutzer:innen mit ihnen interagieren.
 
+{% alert warning %}
+Wenn Nutzer:innen einen Landing-Page-Link (aus einer E-Mail, SMS oder einer anderen Nachricht) an eine andere Person weiterleiten, sieht die empfangende Person die vorausgefüllten Daten, die für die ursprünglichen Nutzer:innen bestimmt waren. Dies ist die gleiche Sicherheitsüberlegung, die auch für Abmeldelinks und Preference-Center-Links gilt. Berücksichtigen Sie die Sensibilität der vorausgefüllten Daten und das Weiterleitungsverhalten Ihrer Zielgruppe, wenn Sie dieses Feature verwenden.
+{% endalert %}
+
 ## Externe Daten mit benutzerdefiniertem Code abrufen {#fetching-external-data-with-custom-code}
 
 Sie können einen **Custom-Code**-Block verwenden, um Daten von externen Endpunkten abzurufen und auf Ihrer Landing-Page anzuzeigen. Dieser Ansatz führt die Anfrage clientseitig (im Browser der Nutzer:innen) aus, sodass die Seite schnell geladen wird, ohne serverseitige Rendering-Verzögerungen.
 
 {% alert warning %}
-Beim Abrufen externer Daten sind Sie für die Sicherheit Ihrer Implementierung verantwortlich. Externe Bezeichner, die in API-Aufrufen verwendet werden, sollten UUIDs sein oder ein gleichwertig sicheres Benennungsschema verwenden – siehe [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+Beim Abrufen externer Daten sind Sie für die Sicherheit Ihrer Implementierung verantwortlich. Externe Bezeichner, die in API-Aufrufen verwendet werden, sollten UUIDs sein oder ein gleichwertig sicheres Benennungsschema verwenden – siehe [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 {% endalert %}
 
 ### Anwendungsfall {#use-case}
@@ -127,7 +131,7 @@ Beim Abrufen externer Daten in Landing-Pages:
 - **Ladezustände:** Nutzer:innen sehen Platzhaltertext, bis der Endpunkt antwortet. Erwägen Sie, einen Ladeindikator oder ein Skeleton-Screen hinzuzufügen.
 - **Fehlerbehandlung:** Wenn der Endpunkt fehlschlägt oder langsam antwortet, kann die Seite fehlerhaft erscheinen. Implementieren Sie geeignete Fehlermeldungen und Fallbacks.
 - **Performance:** Die Seite wird sofort geladen, aber die Daten erscheinen erst, nachdem die externe Anfrage abgeschlossen ist. Halten Sie Ihre API-Antworten schnell für das beste Nutzererlebnis.
-- **Sicherheit:** Stellen Sie sicher, dass Ihr API-Endpunkt den Bezeichner validiert und nur Daten zurückgibt, die die Person sehen darf. Implementieren Sie Rate-Limiting, um Missbrauch zu verhindern. Hinweise zur Wahl sicherer Bezeichner finden Sie unter [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+- **Sicherheit:** Stellen Sie sicher, dass Ihr API-Endpunkt den Bezeichner validiert und nur Daten zurückgibt, die die Person sehen darf. Implementieren Sie Rate-Limiting, um Missbrauch zu verhindern. Hinweise zur Wahl sicherer Bezeichner finden Sie unter [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 ## Fallback-Seiten {#fallback-pages}
 
