@@ -5525,9 +5525,12 @@ validurls['/docs/whatsapp_pricing_updates'] = '/docs/whatsapp_pricing_updates';
 
 validurls['/docs/user_guide/brazeai/operator/prompt_examples'] = '/docs/user_guide/brazeai/operator/prompt_library';
 
-
 validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines';
 validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines#generate-brand-guidelines-with-brazeai'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines#creating-brand-guidelines';
 validurls['/docs/partners/peak'] = '/docs/partners/ecommerce/analytics_workflow/peak';
 validurls['/docs/partners/partners'] = '/docs/partners/home';
 validurls['/docs/partners/alpaco'] = '/docs/partners/message_orchestration/templates/alpaco';
+
+validurls['/docs/knowledge_sources/'] = '/docs/user_guide/brazeai/agents/knowledge_sources/';
+
+// validurls['OLD'] = 'NEW';
