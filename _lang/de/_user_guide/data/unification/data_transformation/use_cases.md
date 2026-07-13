@@ -1,46 +1,67 @@
 ---
 nav_title: Anwendungsfälle
-article_title: Braze Anwendungsfälle zur Datentransformation
+article_title: Anwendungsfälle für Braze-Datentransformation
 page_order: 2
 page_type: reference
-description: "Dieser referenzierte Artikel enthält einige Anwendungsfälle für Braze Data Transformation."
+description: "Dieser Referenzartikel enthält einige Anwendungsfälle für die Braze-Datentransformation."
 ---
 
-# Anwendungsfälle der Datentransformation
+# Anwendungsfälle für die Datentransformation {#data-transformation-use-cases}
 
-> Betrachten Sie die folgenden möglichen Anwendungsfälle mit Braze Data Transformation und einer Kombination aus Webhooks von den beispielhaften externen Plattformen.
+> Betrachten Sie die folgenden möglichen Anwendungsfälle mit der Braze-Datentransformation und einer Kombination aus Webhooks von den beispielhaften externen Plattformen.
 
-## Leads generieren
+## Leads generieren {#generating-leads}
 
 Sie hosten ein Typeform-Formular zur Lead-Generierung auf Ihrer Website. Wenn neue Nutzer:innen dieses Formular ausfüllen, können Sie:
-- Erstellen Sie neue Nutzer:innen in Braze.
-- Fügen Sie sie zu einer Ihrer E-Mail-Listen von Braze hinzu.
-- Synchronisieren Sie einige ihrer Antworten als angepasste Attribute in Braze, denn ihre Antworten sind wertvolle First-Party-Daten, die in Zukunft für personalisierte Messaging-Erlebnisse genutzt werden können.
+- Neue Nutzer:innen in Braze erstellen.
+- Sie zu einer Ihrer Braze-E-Mail-Listen hinzufügen.
+- Einige ihrer Antworten als angepasste Attribute in Braze synchronisieren, da ihre Antworten wertvolle First-Party-Daten sind, die in Zukunft personalisierte Messaging-Erlebnisse ermöglichen können.
 
-## Öffnung von Dienst-Tickets
+## Service-Tickets eröffnen {#opening-service-tickets}
 
-Wenn Kunden:in Tickets für den Dienst auf einer Plattform wie Zendesk öffnen, können Sie diese anpassen:
-- Schreiben Sie ein angepasstes Event in Braze, wenn ein Zendesk Ticket erstellt wird.
-- Schreiben Sie ein angepasstes Event mit Event-Eigenschaften in Braze, wenn eine negative CSAT-Bewertung an Zendesk übermittelt wird.
+Wenn Kund:innen Service-Tickets auf einer Plattform wie Zendesk eröffnen, können Sie:
+- Ein angepasstes Event in Braze schreiben, wenn ein Zendesk-Ticket erstellt wird.
+- Ein angepasstes Event mit Event-Eigenschaften in Braze schreiben, wenn eine negative CSAT-Bewertung an Zendesk übermittelt wird.
 
-## Integration mit Braze
+## Integration mit Braze {#integrating-with-braze}
 
-Braze verfügt über eine Integration mit [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate/), einer Plattform für Insights und Umfragen. Mit der Datentransformation können Sie mehrere Antworten auf Umfragen unter einem verschachtelten angepassten Attribut speichern, anstatt wie bei der bestehenden Integration mehrere angepasste Attribute zu speichern.
+Braze verfügt über eine Integration mit [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), einer Plattform für Insights und Umfragen. Mit der Datentransformation können Sie mehrere Umfrageantworten unter einem verschachtelten angepassten Attribut speichern, anstatt wie bei der bestehenden Integration mehrere angepasste Attribute zu speichern.
 
-## Beispiel für einen Code zur Transformation
+## HubSpot-Kontaktattribute synchronisieren {#sync-hubspot-contact-attributes}
 
-Sehen Sie sich diese Beispiel-Payload von Typeform an, einer Plattform für Umfragen, die immer dann gesendet wird, wenn eine Antwort auf eine Umfrage eingegangen ist.
+Wenn Sie HubSpot als Ihr CRM und Braze für Messaging verwenden, können Sie die Datentransformation nutzen, um HubSpot-Webhook-Payloads in Braze-`/users/track`-Updates umzuwandeln.
 
-![]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
+Dieses Beispiel prüft auf eine `external_id`, kopiert das eingehende Nutzerobjekt und sendet alle enthaltenen Felder als angepasste Attribute an Braze.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
+
+## Beispiel für Transformationscode {#example-transformation-code}
+
+Sehen Sie sich diese Beispiel-Payload von Typeform an, einer Umfrageplattform, die immer dann gesendet wird, wenn eine Umfrageantwort eingeht.
+
+![Screenshot zum Beispiel für Transformationscode.]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
 
 {% tabs local %}
-{% tab Basic transformation %}
+{% tab Einfache Transformation %}
 
-Dieses Beispiel nimmt die Antworten auf Umfragen als Attribute und schreibt ein Ereignis, um anzuzeigen, dass die Umfrage abgeschlossen wurde:
+Dieses Beispiel nimmt die Umfrageantworten als Attribute und schreibt ein Event, um anzuzeigen, dass die Umfrage abgeschlossen wurde:
 
 ```
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -48,7 +69,7 @@ return {
       "home_weather_rating": payload.form_response.answers[1].number
     }
   ],
-  "events": [ 
+  "events": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -63,9 +84,9 @@ return {
 ```
 
 {% endtab %}
-{% tab Advanced transformation %}
+{% tab Erweiterte Transformation %}
 
-Lassen Sie uns das Beispiel für die grundlegende Transformation weiter ausbauen und eine `if` Anweisung einführen, um den Nutzer:innen in eine der Antworten einzuordnen.
+Bauen wir das Beispiel für die einfache Transformation weiter aus und führen eine `if`-Anweisung ein, um die Nutzer:innen anhand einer der Antworten zu kategorisieren.
 
 ```
 let nps_category;
@@ -79,7 +100,7 @@ if (nps_number < 7) {
 }
 
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,

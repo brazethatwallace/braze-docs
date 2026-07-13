@@ -1,40 +1,40 @@
 ---
-nav_title: "PUT: 환경 설정 센터 업데이트"
-article_title: "PUT: 환경 설정 센터 업데이트"
+nav_title: "PUT: 환경설정 센터 업데이트"
+article_title: "PUT: 환경설정 센터 업데이트"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "이 문서에서는 환경 설정 센터 업데이트 Braze 엔드포인트에 대한 세부 정보를 설명합니다."
+description: "이 문서에서는 환경설정 센터 업데이트 Braze 엔드포인트에 대한 세부 정보를 설명합니다."
 
 ---
 {% api %}
-# 환경 설정 센터 업데이트
+# 환경설정 센터 업데이트 {#update-preference-center}
 {% apimethod put %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 환경 설정 센터를 업데이트할 수 있습니다.
+> 이 엔드포인트를 사용하여 환경설정 센터를 업데이트할 수 있습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#bf1b43db-3f1b-461f-ad9a-2fbe35b804d7 {% endapiref %}
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
-## 경로 매개변수
+## 경로 매개변수 {#path-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| 필수 | 문자열 | 환경 설정 센터의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preferenceCenterExternalID` | 필수 | 문자열 | 환경설정 센터의 ID입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="경로 매개변수" }
 
 
-## 요청 본문
+## 요청 본문 {#request-body}
 
 ```
 Content-Type: application/json
@@ -64,18 +64,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-|`preference_center_page_html`| 필수 | 문자열 | 환경 설정 센터 페이지의 HTML입니다. |
-|`preference_center_title`| 선택 사항 | 문자열 | 환경 설정 센터 및 확인 페이지의 제목입니다. 제목을 지정하지 않으면 페이지 제목이 기본값으로 "Preference Center"로 설정됩니다. |
-|`confirmation_page_html`| 필수 | 문자열 | 확인 페이지의 HTML입니다. |
-|`state` | 선택 사항 | 문자열 | `active` 또는 `draft`를 선택합니다.|
-|`options` | 선택 사항 | 오브젝트 | 속성: <br>`meta-viewport-content`: 이 값이 있으면 `viewport` 메타 태그가 `content= <value of attribute>`와 함께 페이지에 추가됩니다.<br><br> `link-tags`: 페이지의 파비콘을 설정합니다. 설정하면 rel 속성이 포함된 `<link>` 태그가 페이지에 추가됩니다.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preference_center_page_html` | 필수 | 문자열 | 환경설정 센터 페이지의 HTML입니다. |
+| `preference_center_title` | 선택 사항 | 문자열 | 환경설정 센터 및 확인 페이지의 제목입니다. 제목을 지정하지 않으면 페이지 제목이 기본값으로 "Preference Center"로 설정됩니다. |
+| `confirmation_page_html` | 필수 | 문자열 | 확인 페이지의 HTML입니다. |
+| `state` | 선택 사항 | 문자열 | `active` 또는 `draft`를 선택합니다.|
+| `options` | 선택 사항 | 오브젝트 | 속성: <br>`meta-viewport-content`: 이 값이 있으면 `viewport` 메타 태그가 `content= <value of attribute>`와 함께 페이지에 추가됩니다.<br><br> `link-tags`: 페이지의 파비콘을 설정합니다. 설정하면 rel 속성이 포함된 `<link>` 태그가 페이지에 추가됩니다.  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 요청 예시
+## 요청 예시 {#example-request}
 
 {% raw %}
 ```
@@ -93,7 +93,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/preference_center/
 ```
 {% endraw %}
 
-## 응답 예시
+## 응답 예시 {#example-response}
 {% raw %}
 ```
 {

@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Exportar detalles de la campaña"
 article_title: "GET: Exportar detalles de la campaña"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -16,13 +16,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 > Utiliza este punto de conexión para recuperar información relevante sobre una campaña especificada, que puede identificarse mediante `campaign_id`.
 
-Si quieres recuperar datos de Canvas, consulta el punto de conexión [Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+Si quieres recuperar datos de Canvas, consulta el punto de conexión [Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.details`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.details`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -30,12 +30,12 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obligatoria | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) y en la página **Campaign Details** dentro de tu dashboard; o puedes utilizar el [punto de conexión Exportar lista de campañas](#campaign-list-endpoint). |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) y en la página **Campaign Details** dentro de tu dashboard; o puedes utilizar el [punto de conexión Exportar lista de campañas](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Opcional | Booleano | Para los mensajes que tienen un borrador posterior al lanzamiento, configurar esto en `true` mostrará los cambios disponibles en el borrador. Predeterminado: `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Cuando se establece en `true`, la respuesta de la API incluye un campo `has_translatable_content` para cada mensaje. Predeterminado: `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 {% raw %}
@@ -92,7 +92,7 @@ La respuesta `messages` contendrá información sobre cada mensaje. A continuaci
 ```
 
 {% endtab %}
-{% tab Email %}
+{% tab Correo electrónico %}
 
 ```json
 {
@@ -114,7 +114,7 @@ La respuesta `messages` contendrá información sobre cada mensaje. A continuaci
 ```
 
 {% endtab %}
-{% tab In-app messages %}
+{% tab Mensajes dentro de la aplicación %}
 
 El formato de la respuesta depende del tipo de mensaje dentro de la aplicación. Los mensajes dentro de la aplicación de tipo cuestionario devuelven los campos `type` y `data`. Otros tipos de mensajes dentro de la aplicación (deslizamiento hacia arriba, modal y pantalla completa) devuelven los campos `name`, `message` y `extras`.
 
@@ -233,7 +233,7 @@ El formato de la respuesta depende del tipo de mensaje dentro de la aplicación.
 ```
 
 {% endtab %}
-{% tab Control messages %}
+{% tab Mensajes de control %}
 
 ```json
 {
@@ -252,7 +252,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 
 
 {% tabs %}
-{% tab Clicks email %}
+{% tab Hace clic en correo electrónico %}
 
 ```json
 {
@@ -262,7 +262,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 ```
 
 {% endtab %}
-{% tab Opens email %}
+{% tab Abre correo electrónico %}
 
 ```json
 {
@@ -272,7 +272,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 ```
 
 {% endtab %}
-{% tab Makes purchase (any purchase) %}
+{% tab Realiza una compra (cualquier compra) %}
 
 ```json
 {
@@ -282,7 +282,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 ```
 
 {% endtab %}
-{% tab Makes purchase (specific product) %}
+{% tab Realiza una compra (producto específico) %}
 
 ```json
 {
@@ -293,7 +293,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 ```
 
 {% endtab %}
-{% tab Performs custom event %}
+{% tab Realiza un evento personalizado %}
 
 ```json
 {
@@ -305,7 +305,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 
 
 {% endtab %}
-{% tab Upgrades app %}
+{% tab Actualiza la aplicación %}
 
 ```json
 {
@@ -315,7 +315,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 }
 ```
 {% endtab %}
-{% tab Uses app %}
+{% tab Usa la aplicación %}
 
 ```json
 {
@@ -329,7 +329,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 {% endtabs %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y de API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y de API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

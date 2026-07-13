@@ -4,39 +4,41 @@ page_order: 0
 noindex: true
 ---
 
-# 레이아웃 예시: 개요
+# 레이아웃 예시: 개요 {#example-layout-overview}
 
 > 개요 레이아웃은 사용자가 버튼을 클릭하여 페이지의 특정 부분 또는 완전히 다른 페이지로 이동할 수 있도록 페이지 상단에 특정 탐색 옵션을 만드는 데 유용합니다.
 
-셀렉터 레이아웃의 대표적인 예로는 [SDK 체인지로그](https://www.braze.com/docs/developer_guide/changelogs) 페이지 또는 [인앱 메시지 크리에이티브 세부 정보 페이지](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/)가 있습니다.
+셀렉터 레이아웃의 대표적인 예로는 [SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs/) 페이지 또는 [인앱 메시지 크리에이티브 세부 정보 페이지]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/)가 있습니다.
 
-## 필수 구성 요소
+## 필수 구성요소 {#required-components}
 
-1. YAML 열기 및 닫기 표기법. 즉, 콘텐츠 앞에는 ---, 뒤에는 ---가 표시됩니다.
-2. 특정 매개변수 내용을 따옴표로 묶습니다. (헤더 매개변수, 텍스트 매개변수, 하이픈 또는 기타 특수 문자가 포함된 콘텐츠)
+1. YAML 열기 및 닫기 표기법. 즉, 콘텐츠 앞에는 ---, 뒤에는 ---를 표기합니다.
+2. 특정 매개변수 콘텐츠를 따옴표로 묶습니다. (헤더 매개변수, 텍스트 매개변수, 하이픈 또는 기타 특수 문자가 포함된 콘텐츠)
 3. 용어집 태그 표기법(필터 태그)
 
-## 필수 매개 변수
+## 필수 매개변수 {#required-parameters}
 
-|매개변수 | 콘텐츠 유형 | 세부 정보 |
+| 매개변수 | 콘텐츠 유형 | 세부 정보 |
 |---|---|---|
-|`page_order`| 숫자 | 섹션 내에서 페이지를 주문합니다. 이 순서는 왼쪽 탐색에 반영됩니다. |
-| `nav-title`| 영숫자 | 왼쪽 탐색에 표시될 제목을 입력합니다. |
-|`layout`| 영숫자 - 공백 없음 | 문서의 [레이아웃 섹션에서](https://github.com/Appboy/braze-docs/tree/develop/_layouts) 레이아웃을 선택합니다. | 
-|`guide_top_header`|영숫자 | 페이지 제목을 지정합니다.|
-|`guide_top_text`|영숫자 | 페이지에 대한 설명을 입력하면 버튼과 버튼의 제목 바로 위에 표시됩니다. 콘텐츠 주위에 따옴표가 필요합니다. |
-|`guide_featured_title`| 영숫자 | 카드 제목을 지정합니다. 버튼 바로 위에 표시됩니다.
-|`guide_featured_list`| 더 많은 YAML, 영숫자 | 아래 [가이드 목록 형식](#guide-listing-format)을 참조하세요. |
+| `page_order` | 숫자 | 섹션 내에서 페이지 순서를 지정합니다. 이 순서는 왼쪽 탐색에 반영됩니다. |
+| `nav-title` | 영숫자 | 왼쪽 탐색에 표시될 제목입니다. |
+| `layout` | 영숫자 - 공백 없음 | 설명서의 [레이아웃 섹션](https://github.com/Appboy/braze-docs/tree/develop/_layouts)에서 레이아웃을 선택합니다. |
+| `guide_top_header` | 영숫자 | 페이지 제목을 지정합니다. |
+| `guide_top_text` | 영숫자 | 페이지에 대한 설명을 입력하면 버튼과 버튼 제목 바로 위에 표시됩니다. 콘텐츠 주위에 따옴표가 필요합니다. |
+| `guide_featured_title` | 영숫자 | 카드 제목을 지정합니다. 버튼 바로 위에 표시됩니다.
+| `guide_featured_list` | 추가 YAML, 영숫자 | 아래 [가이드 목록 형식](#guide-listing-format)을 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 매개변수" }
 
-### 가이드 목록 형식
+### 가이드 목록 형식 {#guide-listing-format}
 
-|매개변수 | 콘텐츠 유형 | 세부 정보 |
+| 매개변수 | 콘텐츠 유형 | 세부 정보 |
 |---|---|---|
-|`name`| 영숫자 | 상자 이름을 지정합니다. |
-| `link`| URL 또는 경로 | 상자가 이동할 위치로 연결되는 링크입니다. 전체 URL 또는 `/docs...`(내부 링크인 경우)를 포함해야 합니다  |
-|`image`| 경로 | 이미지 위치로 연결되는 링크입니다. |
+| `name` | 영숫자 | 상자 이름을 지정합니다. |
+| `link` | URL 또는 경로 | 상자가 이동할 위치로 연결되는 링크입니다. 전체 URL 또는 (내부 링크인 경우) `/docs...`를 포함해야 합니다. |
+| `image` | 경로 | 이미지 위치로 연결되는 링크입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="가이드 목록 형식" }
 
-형식 예제:
+형식 예시:
 
 ```yaml
 - name: Modal
@@ -44,7 +46,7 @@ noindex: true
   image: /assets/img/braze_icons/layout-alt-01.svg
 ```
 
-## 예시
+## 예시 {#example}
 
 ```yaml
 ---

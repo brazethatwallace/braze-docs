@@ -9,13 +9,13 @@ search_tag: Partner
 
 # CataBoom
 
-> [CataBoom](https://www.cataboom.com/) es una plataforma de gamificación. Las marcas la utilizan para crear y lanzar experiencias digitales interactivas, como juegos de girar y ganar, cuestionarios y juegos de premio instantáneo. Estas experiencias profundizan la interacción y recopilan datos propios.
+> [CataBoom](https://www.cataboom.com/) es una plataforma de gamificación. Las marcas la utilizan para crear y lanzar experiencias digitales interactivas, como juegos de girar y ganar, cuestionarios y juegos de premio instantáneo. Estas experiencias profundizan la participación y recopilan datos propios.
 
 *Esta integración es mantenida por CataBoom.*
 
 ## Acerca de esta integración {#about-this-integration}
 
-Usa la integración de Braze y CataBoom para añadir enlaces de juego personalizados a tus mensajes. Puedes pasar identificadores de usuario y atributos entre las campañas de Catapult y Braze en tiempo real. Luego puedes impulsar Campaigns personalizadas, desencadenadores y recorridos de seguimiento con esos datos.
+Usa la integración de Braze y CataBoom para añadir enlaces de juego personalizados a tus mensajes. Puedes pasar identificadores de usuario y atributos entre las campañas de Catapult y Braze en tiempo real. Luego puedes impulsar campañas personalizadas, desencadenadores y recorridos de seguimiento con esos datos.
 
 ## Requisitos previos {#prerequisites}
 
@@ -24,9 +24,9 @@ Antes de empezar, necesitas lo siguiente:
 | Requisito previo | Descripción |
 | --- | --- |
 | Cuenta de Catapult | Se requiere una cuenta de Catapult para usar esta integración. |
-| Clave de API REST de Braze (opcional) | Si usas webhooks de Catapult, necesitas una clave de API REST de Braze con los permisos de datos de usuario que requiera tu caso de uso. Crea la clave en Braze en **Settings** > **APIs and Identifiers** > **API Keys**. |
-| Punto de conexión REST de Braze (opcional) | Si usas webhooks de Catapult, usa la URL del punto de conexión REST que coincida con la URL de Braze para [tu instancia de Braze]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Clave de API REST de Braze (opcional) | Si usas webhooks de Catapult, necesitas una clave de API REST de Braze con los permisos de datos de usuario que requiera tu caso de uso. Crea la clave en Braze en **Configuración** > **API e identificadores** > **Claves de API**. |
+| Endpoint REST de Braze (opcional) | Si usas webhooks de Catapult, usa la URL del endpoint REST que coincida con la URL de Braze para [tu instancia de Braze]({{site.baseurl}}/api/basics#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Paso 1: Crea tu experiencia de juego {#step-1-create-your-game-experience}
 
@@ -34,14 +34,14 @@ Crea tu experiencia de juego en la plataforma Catapult. Los siguientes pasos mue
 
 1. Crea la campaña.
 
-Selecciona **New Campaign** en la esquina superior derecha. Introduce un nombre de campaña, elige un slug de URL y selecciona la categoría y el tipo de juego.
+Selecciona **New Campaign** en el área de navegación superior. Introduce un nombre de campaña, elige un slug de URL y selecciona la categoría y el tipo de juego.
 
-![Formulario New Campaign del dashboard de CataBoom con campos de nombre de campaña, URL, categoría de juego y tipo de juego.]({% image_buster /assets/img/cataboom/new_campaign.png %})
+![Formulario New Campaign del panel de CataBoom con campos de nombre de campaña, URL, categoría de juego y tipo de juego.]({% image_buster /assets/img/cataboom/new_campaign.png %})
 
 {: start="2"}
 2. Habilita la API Request Unique URL.
 
-En el menú izquierdo, selecciona **Link Configuration**.
+En el menú de navegación, selecciona **Link Configuration**.
 
 En la página **Link Configuration**, habilita **Request Unique URL API**. Esta opción crea una URL de sistema a sistema que puedes usar más adelante en Braze, por ejemplo en una tarjeta de contenido.
 
@@ -50,7 +50,7 @@ En la página **Link Configuration**, habilita **Request Unique URL API**. Esta 
 {: start="3"}
 3. Configura el seguimiento de jugadas con Account ID.
 
-En el menú izquierdo, selecciona **Play Control**.
+En el menú de navegación, selecciona **Play Control**.
 
 En la página **Play Control**, en **Play Tracking**, establece **Play Count Tracked By** en **Account ID Parameter**.
 
@@ -58,12 +58,12 @@ Puedes pasar un Account ID para cada jugador para el seguimiento, límites de ju
 
 ![Página Play Control de CataBoom con Play Count Tracked By configurado como Account ID Parameter.]({% image_buster /assets/img/cataboom/play_control.png %})
 
-Ahora tienes suficiente configurado para ejecutar una prueba en Braze. Los pasos opcionales a continuación completan una configuración de juego completa típica. Catapult también ofrece muchas otras configuraciones que puedes usar para personalizar la experiencia de juego.
+Ahora tienes suficiente configurado para ejecutar una prueba en Braze. Los pasos opcionales de esta sección completan una configuración de juego completa típica. Catapult también ofrece muchas otras configuraciones que puedes usar para personalizar la experiencia de juego.
 
 {: start="4"}
 4. Añade tus creatividades (opcional).
 
-En el menú izquierdo, selecciona **Creative**.
+En el menú de navegación, selecciona **Creative**.
 
 Carga tus activos. Catapult admite control total de marca para tu experiencia de juego.
 
@@ -72,7 +72,7 @@ Carga tus activos. Catapult admite control total de marca para tu experiencia de
 {: start="5"}
 5. Configura los premios para juegos basados en el azar (opcional).
 
-En el menú izquierdo, selecciona **Summary**.
+En el menú de navegación, selecciona **Summary**.
 
 En la página **Summary**, expande **Prize Options**.
 
@@ -90,7 +90,7 @@ Este ejemplo muestra cómo crear una **tarjeta de contenido** que usa la Request
 
 1. Añade contenido conectado para la URL de jugada.
 
-En tu tarjeta de contenido, añade texto y contenido dinámico según sea necesario. Envuelve tu Request Unique URL de CataBoom en una etiqueta de [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/). Añade un parámetro de consulta `AccountID` que use una etiqueta de personalización de Braze que coincida con el identificador que usas en Catapult. El ejemplo usa {% raw %}`{{${user_id}}}`{% endraw %}.
+En tu tarjeta de contenido, añade texto y contenido dinámico según sea necesario. Envuelve tu Request Unique URL de CataBoom en una etiqueta de [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content). Añade un parámetro de consulta `AccountID` que use una etiqueta de personalización de Braze que coincida con el identificador que usas en Catapult. El ejemplo usa {% raw %}`{{${user_id}}}`{% endraw %}.
 
 Reemplaza la URL base y los parámetros de consulta `username` y `password` con los valores de la página **Link Configuration** de tu campaña en Catapult.
 
@@ -100,8 +100,8 @@ Reemplaza la URL base y los parámetros de consulta `username` y `password` con 
 ```
 {% endraw %}
 
-Usa el `result` guardado en tu tarjeta (por ejemplo, como la URL del enlace o en el cuerpo del mensaje). Sigue el formato de respuesta de la API de CataBoom para tu campaña. Para más información sobre parámetros de consulta y Liquid en URLs, consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/).
+Usa el `result` guardado en tu tarjeta (por ejemplo, como la URL del enlace o en el cuerpo del mensaje). Sigue el formato de respuesta de la API de CataBoom para tu campaña. Para más información sobre parámetros de consulta y Liquid en URLs, consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call).
 
-![Compositor de tarjeta de contenido de Braze mostrando contenido conectado en el campo de mensaje y una vista previa móvil de la tarjeta.]({% image_buster /assets/img/cataboom/braze_content_card.png %})
+![Creador de tarjeta de contenido de Braze mostrando contenido conectado en el campo de mensaje y una vista previa móvil de la tarjeta.]({% image_buster /assets/img/cataboom/braze_content_card.png %})
 
 El contenido conectado solicita un enlace de jugada único cuando el usuario abre la tarjeta de contenido. Puedes añadir otros parámetros de consulta para experiencias más personalizadas.

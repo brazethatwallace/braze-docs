@@ -6,17 +6,19 @@ page_order: 1
 description: "이 문서에서는 eCommerce 매출 - 라스트 터치 기여도 대시보드에 대한 개요를 제공합니다."
 ---
 
-# eCommerce 매출 대시보드
+# eCommerce 매출 대시보드 {#ecommerce-revenue-dashboard}
 
-> **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 [eCommerce 권장 이벤트]({{site.baseurl}}/ecommerce_events/)를 사용하여 캠페인 및 캔버스의 라스트 터치 기여 매출을 추적합니다. 이 대시보드를 사용하여 어떤 메시지가 매출을 유도하는지 파악하고, 시간에 따른 전반적인 eCommerce 성과를 모니터링할 수 있습니다.
+> **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 [eCommerce 권장 이벤트]({{site.baseurl}}/ecommerce_events)를 사용하여 Campaigns 및 Canvases의 라스트 터치 기여 매출을 추적합니다. 이 대시보드를 사용하여 어떤 메시지가 매출을 유도하는지 파악하고, 시간에 따른 전반적인 eCommerce 성과를 모니터링할 수 있습니다.
 
 {% alert note %}
-eCommerce 권장 이벤트는 현재 얼리 액세스 중입니다. 이 얼리 액세스에 참여하고 싶으시면 Braze 고객 성공 매니저에게 문의하세요. <br><br>새로운 [Shopify 커넥터]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector)를 사용하는 경우, 이러한 권장 이벤트는 통합을 통해 자동으로 제공됩니다. 그렇지 않은 경우, 이 대시보드에 데이터가 표시되려면 먼저 이벤트를 구현해야 합니다.
+새로운 [Shopify 커넥터]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores?tab=shopify%20connector)를 사용하는 경우, eCommerce 권장 이벤트는 통합을 통해 자동으로 제공됩니다. 그렇지 않은 경우, 이 대시보드에 데이터가 표시되려면 먼저 이벤트를 구현해야 합니다.
 {% endalert %}
 
-eCommerce 매출 대시보드를 보려면 **분석** > **대시보드 빌더**로 이동한 다음 **eCommerce 매출 - 라스트 터치 기여도**를 선택합니다. 이 대시보드는 선택한 전환 기간 내에서 사용자가 주문하기 전에 마지막으로 상호작용한 캠페인 또는 캔버스에 기여된 매출을 보고합니다.
+eCommerce 매출 대시보드를 보려면 **Analytics** > **대시보드 빌더**로 이동한 다음 **eCommerce Revenue - Last Touch Attribution**을 선택합니다. 이 대시보드는 선택한 전환 기간 내에서 사용자가 주문하기 전에 마지막으로 상호작용한 Campaign 또는 Canvas에 기여된 매출을 보고합니다.
 
-## 사용 가능한 측정기준
+![eCommerce 매출 - 라스트 터치 기여도 대시보드에 eCommerce 매출, 일일 주문 수, 일일 평균 eCommerce 매출 통계와 시간별 eCommerce 매출 차트가 표시된 모습.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
+
+## 사용 가능한 측정기준 {#available-metrics}
 
 | 측정기준 | 정의 |
 | --- | --- |
@@ -24,13 +26,15 @@ eCommerce 매출 대시보드를 보려면 **분석** > **대시보드 빌더**�
 | 일일 주문 수 | 하루 평균 고유 주문 수입니다. |
 | 일일 평균 eCommerce 매출 | 선택한 기간의 일일 평균 기여 매출입니다. |
 | 시간별 eCommerce 매출 | 선택한 날짜 범위의 기여 매출 시계열입니다. |
-| 캠페인별 eCommerce 매출 | 캠페인별로 분류된 기여 매출입니다. |
-| 캔버스별 eCommerce 매출 | 캔버스별로 분류된 기여 매출입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Campaign별 eCommerce 매출 | Campaign별로 분류된 기여 매출입니다. |
+| Canvas별 eCommerce 매출 | Canvas별로 분류된 기여 매출입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 가능한 측정기준" }
 
-## 기여도 모델
+![Campaign별 eCommerce 매출 및 Canvas별 eCommerce 매출 차트.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
-**eCommerce 매출 - 라스트 터치 기여도** 대시보드는 라스트 터치 기여도를 사용합니다. 이는 사용자가 주문하기 전에 가장 최근에 참여한 Braze 캠페인 또는 캔버스에 매출이 기여된다는 것을 의미합니다.
+## 기여도 모델 {#attribution-model}
+
+**eCommerce 매출 - 라스트 터치 기여도** 대시보드는 라스트 터치 기여도를 사용합니다. 이는 사용자가 주문하기 전에 가장 최근에 참여한 Braze Campaign 또는 Canvas에 매출이 기여된다는 것을 의미합니다.
 
 다음 메시지 상호작용이 기여도의 터치 이벤트로 인정됩니다:
 
@@ -45,7 +49,7 @@ eCommerce 매출 대시보드를 보려면 **분석** > **대시보드 빌더**�
 메시지 상호작용은 선택한 전환 기간 내에 발생해야 합니다. 전환 기간 내에 적격한 메시지 상호작용이 없는 주문은 기여되지 않습니다.
 {% endalert %}
 
-## 포함된 데이터
+## 포함된 데이터 {#included-data}
 
 **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 eCommerce 권장 이벤트의 데이터를 가져옵니다:
 
@@ -66,13 +70,12 @@ eCommerce 매출 대시보드를 보려면 **분석** > **대시보드 빌더**�
 | --- | --- |
 | 총 매출 | 주문 금액 합계 − 환불 금액 합계 |
 | 총 주문 수 | 고유 주문 수 − 고유 취소 주문 수 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="포함된 데이터" }
 
-### 제외된 데이터
+### 제외된 데이터 {#excluded-data}
 
-레거시 구매 이벤트를 사용하여 기록된 구매는 포함되지 않습니다. **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 현재 LTV 또는 캠페인이나 캔버스 내 매출 보고서와 같은 레거시 구매 이벤트에 연결된 기능을 지원하지 않습니다.
+레거시 구매 이벤트를 사용하여 기록된 구매는 포함되지 않습니다. **eCommerce 매출 - 라스트 터치 기여도** 대시보드는 현재 LTV 또는 Campaigns이나 Canvases 내 매출 보고서와 같은 레거시 구매 이벤트에 연결된 기능을 지원하지 않습니다.
 
-
-## 통화 처리
+## 통화 처리 {#currency-handling}
 
 모든 매출은 USD로 표시됩니다. USD가 아닌 통화는 이벤트가 보고된 날짜의 환율을 사용하여 USD로 변환됩니다. 변환을 방지하려면 이벤트를 전송할 때 통화를 `USD`로 하드코딩하세요.

@@ -12,7 +12,7 @@ description: "Este artículo de referencia explica cómo exportar datos de segme
 > Esta página explica cómo solicitar una exportación CSV de los datos de usuario de un segmento, y los datos incluidos en la exportación.
 
 {% alert note %}
-Las opciones de exportación CSV aparecen en el desplegable **User Data** solo para los usuarios de la empresa que tienen el [permiso "Export User Data"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para ese espacio de trabajo.
+Las opciones de exportación CSV aparecen en el desplegable **User Data** solo para los usuarios de la empresa que tienen el [permiso "Export User Data"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para ese espacio de trabajo.
 {% endalert %}
 
 Para exportar los datos de un segmento a un CSV, selecciona el menú desplegable **User Data** mientras editas un segmento y elige exportar los datos de usuario o las direcciones de correo electrónico del segmento.
@@ -41,7 +41,7 @@ Los usuarios del dashboard necesitan el permiso **Export user data** para utiliz
 Debido a las restricciones de tamaño de los archivos, la exportación puede fallar si el tamaño estimado de tu segmento es superior a 500 000 usuarios. Ten en cuenta que esta restricción utiliza el tamaño estimado de tu segmento, y no el cálculo exacto. Para más detalles, consulta [Exportar segmentos grandes](#exporting-large-segments).
 {% endalert %}
 
-Si has vinculado tus [credenciales de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration) a Braze, el CSV se cargará en tu contenedor de S3 con la clave `segment-export/SEGMENT_ID/YYYY-MM-dd/users-RANDOMSTRING.zip`. Debes haber iniciado sesión en el dashboard para acceder al enlace de descarga que se te ha enviado por correo electrónico.
+Si has vinculado tus [credenciales de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3#amazon-s3-integration) a Braze, el CSV se cargará en tu contenedor de S3 con la clave `segment-export/SEGMENT_ID/YYYY-MM-dd/users-RANDOMSTRING.zip`. Debes haber iniciado sesión en el dashboard para acceder al enlace de descarga que se te ha enviado por correo electrónico.
 
 {% multi_lang_include alerts/important_alerts.md alert='S3 file bucket export' %}
 
@@ -91,10 +91,10 @@ Dependiendo de tu selección, tu exportación incluirá lo siguiente.
 | windows_ad_ids              | ID de publicidad de Windows                       |
 | Eventos personalizados               | Basado en la selección en la exportación                             |
 | Atributos personalizados           | Basado en la selección en la exportación                             |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exportación de datos de usuario a CSV" }
 
 {% alert note %}
-Cuando exportas datos de usuario de un paso en Canvas, el CSV incluye a todos los usuarios que han pasado por ese paso durante toda la vida útil del paso en Canvas. No puedes limitar la exportación a un rango de fechas u otra ventana de tiempo. Para saber cómo ejecutar estas exportaciones, consulta [Exportar datos de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
+Cuando exportas datos de usuario de un paso en Canvas, el CSV incluye a todos los usuarios que han pasado por ese paso durante toda la vida útil del paso en Canvas. No puedes limitar la exportación a un rango de fechas u otra ventana de tiempo. Para saber cómo ejecutar estas exportaciones, consulta [Exportar datos de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data).
 {% endalert %}
 
 ### Exportación de direcciones de correo electrónico a CSV {#csv-export-email-addresses}
@@ -108,10 +108,14 @@ Cuando exportas datos de usuario de un paso en Canvas, el CSV incluye a todos lo
 | unsubscribed_from_emails_at | Fecha de cancelación de suscripción de correos electrónicos |
 | opted_in_to_emails_at       | Fecha de adhesión voluntaria a correos electrónicos      |
 | user_aliases                | Alias de usuario, en su caso   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exportación de direcciones de correo electrónico a CSV" }
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita nuestro artículo de [solución de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita nuestro artículo de [solución de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+{% endalert %}
+
+{% alert note %}
+Los datos de los grupos de suscripción no están disponibles a través de las exportaciones de segmentos. Para identificar usuarios por estado de suscripción, crea un segmento aparte basado en la pertenencia a un grupo de suscripción y exporta ese segmento.
 {% endalert %}
 
 ## Exportar segmentos grandes {#exporting-large-segments}
@@ -126,16 +130,18 @@ Puedes dividir un segmento grande en segmentos más pequeños y luego exportar c
 {% endtab %}
 {% tab Números de contenedor aleatorios %}
 
-También puedes utilizar [números de contenedor aleatorios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) para dividir tu base de usuarios en varios segmentos, y combinarlos después de la exportación. Por ejemplo, si necesitas dividir tu segmento en dos segmentos diferentes, puedes hacerlo con los siguientes filtros:
+También puedes utilizar [números de contenedor aleatorios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) para dividir tu base de usuarios en varios segmentos, y combinarlos después de la exportación. Por ejemplo, si necesitas dividir tu segmento en dos segmentos diferentes, puedes hacerlo con los siguientes filtros:
 - Segmento 1: El número de contenedor aleatorio es inferior a 5000 (incluye 0-4999)
 - Segmento 2: El número de contenedor aleatorio es superior a 4999 (incluye 5000-9999)
 
 {% endtab %}
 {% tab Puntos de conexión %}
 
-También puedes aprovechar los siguientes puntos de conexión para exportar datos de usuario de un segmento específico. Ten en cuenta que estos puntos de conexión están sujetos a límites de datos.
-- [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
-- [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+También puedes aprovechar los siguientes puntos de conexión para exportar datos de usuario de un segmento específico. Ten en cuenta que estos puntos de conexión están sujetos a límites de datos y [límites de velocidad]({{site.baseurl}}/api/basics).
+- [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
+- [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group)
+
+Si has vinculado tus [credenciales de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3#amazon-s3-integration), las exportaciones grandes se pueden entregar en tu contenedor, además del enlace de descarga enviado por correo electrónico, como se describe en [Detalles de la exportación CSV de segmentos](#segment-csv-export-details).
 
 {% endtab %}
 {% endtabs %}

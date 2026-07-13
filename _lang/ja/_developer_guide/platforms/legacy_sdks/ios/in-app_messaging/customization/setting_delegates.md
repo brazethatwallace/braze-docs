@@ -1,9 +1,9 @@
 ---
-nav_title: 代議員を設定する
-article_title: iOS向けにアプリ内メッセージのデリゲートを設定する
+nav_title: デリゲートの設定
+article_title: iOS向けアプリ内メッセージデリゲートの設定
 platform: iOS
 page_order: 2
-description: "この参考記事では、iOS アプリケーションのアプリ内メッセージングデリゲートの設定について説明します。"
+description: "このリファレンス記事では、iOSアプリケーションのアプリ内メッセージングデリゲートの設定について説明します。"
 channel:
   - in-app messages
 
@@ -12,15 +12,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# 代議員を設定する
+# デリゲートの設定 {#set-delegates}
 
 アプリ内メッセージの表示と配信のカスタマイズは、オプションのデリゲートを設定することでコードで実行できます。
 
-## アプリ内メッセージデリゲート
+## アプリ内メッセージデリゲート {#in-app-message-delegate}
 
-[`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) デリゲートを使用すると、トリガーされたアプリ内メッセージペイロードを受信して​​さらに処理したり、表示ライフサイクルイベントを受信したり、表示タイミングを制御したりできます。 
+[`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) デリゲートを使用すると、トリガーされたアプリ内メッセージペイロードを受信してさらに処理したり、表示ライフサイクルイベントを受信したり、表示タイミングを制御したりできます。
 
-以下を呼び出して、Braze インスタンスに `ABKInAppMessageUIDelegate` デリゲートオブジェクトを設定します。
+以下を呼び出して、Brazeインスタンスに`ABKInAppMessageUIDelegate`デリゲートオブジェクトを設定します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -39,13 +39,13 @@ Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInA
 {% endtab %}
 {% endtabs %}
 
-実装例については、アプリ内メッセージの[サンプルアプリ](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m)を確認してください。Braze UI ライブラリをプロジェクトに含めていない場合 (一般的ではありません)、このデリゲートは使用できないことに注意してください。
+実装例については、アプリ内メッセージの[サンプルアプリ](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m)を確認してください。Braze UIライブラリーをプロジェクトに含めていない場合（一般的ではありません）、このデリゲートは使用できないことに注意してください。
 
-## コアアプリ内メッセージデリゲート
+## コアアプリ内メッセージデリゲート {#core-in-app-message-delegate}
 
-プロジェクトに Braze UI ライブラリを含めず、アプリ内でさらなる処理やカスタム表示のためにトリガーされたアプリ内メッセージペイロードを受信したい場合は、[`ABKInAppMessageControllerDelegate`]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates/) プロトコルを実装してください。
+プロジェクトにBraze UIライブラリーを含めず、アプリ内でさらなる処理やカスタム表示のためにトリガーされたアプリ内メッセージペイロードを受信したい場合は、[`ABKInAppMessageControllerDelegate`]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates) プロトコルを実装してください。
 
-以下を呼び出して、Braze インスタンスに `ABKInAppMessageControllerDelegate` デリゲートオブジェクトを設定します。
+以下を呼び出して、Brazeインスタンスに`ABKInAppMessageControllerDelegate`デリゲートオブジェクトを設定します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -64,7 +64,7 @@ Appboy.sharedInstance()?.inAppMessageController.delegate = self
 {% endtab %}
 {% endtabs %}
 
-または、キー `ABKInAppMessageControllerDelegateKey` を使用して `appboyOptions` を使用いて、初期化時にコアのアプリ内メッセージデリゲートを設定することもできます。
+または、キー`ABKInAppMessageControllerDelegateKey`を使用して`appboyOptions`経由で、初期化時にコアのアプリ内メッセージデリゲートを設定することもできます。
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
@@ -87,15 +87,13 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 {% endtab %}
 {% endtabs %}
 
-## メソッド宣言
+## メソッド宣言 {#method-declarations}
 
-詳細については、次のヘッダー ファイルを参照してください。
+詳細については、以下のヘッダーファイルを参照してください。
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
 - [`ABKInAppMessageControllerDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h)
 
-## 実装サンプル
+## 実装サンプル {#implementation-samples}
 
-アプリ内メッセージサンプルアプリの [`ViewController.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m) を参照してください。
-
-
+アプリ内メッセージサンプルアプリの[`ViewController.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m)を参照してください。

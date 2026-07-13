@@ -26,7 +26,7 @@ Les éléments suivants sont requis avant d'activer l'intégration :
 |---|---|
 | Compte Flybuy | Un compte Flybuy avec au moins un projet. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -38,7 +38,7 @@ Pour activer l'intégration, suivez les étapes suivantes :
 4. Cliquez sur **Finish Setup**.
 
 {% alert important %}
-Flybuy associe `loyalty_id` au `external_id` de Braze pour les utilisateurs connectés.
+Flybuy associe `loyalty_id` à l'`external_id` de Braze pour les utilisateurs connectés.
 {% endalert %}
 
 ## Cas d'utilisation {#use-cases}

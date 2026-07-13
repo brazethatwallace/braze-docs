@@ -29,7 +29,7 @@ Now, follow the respective steps for your data source:
 {% tab Reports %}
 
 {: start="4"}
-4. Select **+ Add Tile** and then choose one of the reports you created in [Report Builder (New)]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+4. Select **+ Add Tile** and then choose one of the reports you created in [Report Builder (New)]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert important %}
 After a Report Builder report is added to a Dashboard Builder tile, the tile is not connected to the original report. If you edit the original report in Report Builder, you must delete the existing dashboard tile and create a new one using the updated report as the data source.
@@ -37,7 +37,7 @@ After a Report Builder report is added to a Dashboard Builder tile, the tile is 
 
 {: start="5"}
 5. Select the pencil icon to change how the title and chart type display in the tile.
-    - You can toggle between different chart types below the default visualization. The current options include bar charts (horizontal or vertical), and line charts (only available if you selected **Date** as a drilldown option in the Report Builder setup).<br><br>![Toggles for different chart types.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
+    - You can toggle between different chart types in the chart type controls. The current options include bar charts (horizontal or vertical), and line charts (only available if you selected **Date** as a drilldown option in the Report Builder setup).<br><br>![Toggles for different chart types.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
     - Use the metrics dropdown to select which metrics to include in your visualization. By default, the first column in the report will be the default displayed metric.
 6. Select **Save** after you've changed the visualization to your liking.
 7. Add a name, description, and tag to make your dashboard easier to find later.
@@ -46,11 +46,11 @@ After a Report Builder report is added to a Dashboard Builder tile, the tile is 
 {: start="4"}
 4. Select **+ Add Tile** and then choose a query you’ve run in Query Builder.
 5. To edit how the query results display in the tile, select the pencil icon to change the title and chart type.
-    - You can toggle between different chart types below the default visualization. Current options include tables, bar charts (horizontal or vertical), and line charts.<br><br>![Toggles for different chart types.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
+    - You can toggle between different chart types in the chart type controls. Current options include tables, bar charts (horizontal or vertical), and line charts.<br><br>![Toggles for different chart types.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
         - If you choose one of the chart options, use the **X-axis** dropdown to select a single column from your query results to use as your x-axis.
         - Use the **Y-axis** dropdown to select which metrics to include in your visualization. By default, all columns from your query results will display, so de-select the columns you’re not interested in viewing.<br><br>![Toggles for different chart types.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Optional) You can use the **Grouping** dropdown to group together your query results. For example, if you have campaign ID as a column result and you want to add together all the rows with that value, use the **Grouping** dropdown.  
-        - (Optional) To edit the data being displayed, select the query that is attached to the visual and make your edits in [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/). 
+        - (Optional) To edit the data being displayed, select the query that is attached to the visual and make your edits in [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder). 
 6. Select **Save** after you've changed the visualization to your liking.
 7. Add a name, description, and tag to make your dashboard easier to find later.
 {% endtab %}
@@ -78,7 +78,7 @@ Make a copy of your tile by selecting **Duplicate Tile** at the bottom of the ti
 
 ### Adjust tile size and position
 
-Adjust the tile size by dragging the bottom-right corner of the tile, and adjust the tile position on the dashboard by dragging the handle at the top right corner of the tile.
+Adjust the tile size by dragging the resize handle, and adjust the tile position on the dashboard by dragging the tile handle.
 
 ## Running a dashboard
 
@@ -111,7 +111,7 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Purchases per Product | A count of all purchases grouped by product. |
 | Revenue by Channel | Sum of all campaign and Canvas revenue events with a qualifying last-touch event, grouped by channel. | 
 | Revenue Time Series | Sum of all campaign and Canvas revenue events with a qualifying last-touch event, grouped by day in UTC. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue - Last Touch Attribution" }
 
 #### Devices and carriers
 
@@ -121,7 +121,7 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Device Model | Count of users in the selected date range who opened a push notification, grouped by device model. |
 | Device Operating System | Count of users in the selected date range who opened a push notification, grouped by device operating system. |
 | Device Screen Size | Count of users in the selected date range who opened a push notification, grouped by device screen resolution (size). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Devices and carriers" }
 
 #### Segment Insights - Email
 
@@ -141,7 +141,7 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Bottom 10 Campaigns for Purchase Metrics | Ranked list of campaigns with the lowest purchase conversion metrics from email engagement (configurable metric for ranking).|
 | Top 10 Canvases for Purchase Metrics | Ranked list of Canvases with the highest purchase conversion metrics from email engagement (configurable metric for ranking).|
 | Bottom 10 Canvases for Purchase Metrics | Ranked list of Canvases with the lowest purchase conversion metrics from email engagement (configurable metric for ranking).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment Insights - Email" }
 
 #### Session Analytics
 
@@ -152,9 +152,9 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Campaigns convert to sessions | Count of unique sessions that occurred at the same time as campaign conversions, grouped by campaign ID and ranked by session count.|
 | Canvases convert to sessions | Count of unique sessions that occurred at the same time as Canvas conversions, grouped by Canvas ID and ranked by session count.|
 | Total # of sessions per user | List of top 1,000 users by their total session count within the selected date range.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Session Analytics" }
 
 ## Share your feedback with us
 
-Select the **Send feedback** button or contact your customer success manager to share your feedback with us.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="Dashboard Builder" %}
 

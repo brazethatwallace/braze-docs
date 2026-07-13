@@ -15,9 +15,13 @@ tool:
 
 ## Como funciona {#how-it-works}
 
-Toda vez que uma mensagem é enviada em uma campanha multivariante, o sistema seleciona de forma independente uma opção aleatória de acordo com as porcentagens que você definiu e atribui uma variante com base no resultado. É como jogar uma moeda — anomalias são possíveis. Se você já jogou uma moeda 100 vezes, sabe que provavelmente não vai obter uma divisão exata de 50-50 entre cara e coroa todas as vezes, mesmo tendo apenas duas opções. Você pode obter 52 caras e 48 coroas.
+A distribuição entre variantes nem sempre é uniforme. Toda vez que uma mensagem é enviada em uma campanha multivariante, a Braze seleciona de forma independente uma opção aleatória de acordo com as porcentagens que você definiu e atribui uma variante com base no resultado. É como jogar uma moeda — anomalias são possíveis. Se você jogar uma moeda 100 vezes, provavelmente não vai obter uma divisão exata de 50-50 entre cara e coroa, mesmo tendo apenas duas opções. Você pode obter 52 caras e 48 coroas.
 
-Se você tem múltiplas variantes que deseja dividir igualmente, certifique-se de que o número de variantes seja um múltiplo de 100. Caso contrário, algumas variantes terão uma porcentagem maior de usuários distribuídos em comparação com outras. Por exemplo, se sua campanha tem 7 variantes, não é possível ter uma distribuição uniforme, já que 7 não divide 100 igualmente como número inteiro. Nesse caso, você teria 2 variantes de 15% e 5 variantes de 14%.
+Da mesma forma, se você quiser dividir múltiplas variantes igualmente usando porcentagens com números inteiros, certifique-se de que o número de variantes divida 100 de forma exata. Caso contrário, algumas variantes terão uma porcentagem maior de usuários distribuídos em comparação com outras. Por exemplo, se sua campanha tem sete variantes, não é possível ter uma distribuição uniforme, já que sete não divide 100 igualmente como número inteiro. Nesse caso, você teria duas variantes de 15% e cinco variantes de 14%.
+
+{% alert tip %}
+Para distribuir usuários em um Canvas, você pode adicionar uma [etapa de Divisão de decisão]({{site.baseurl}}/decision_split) e separar os usuários com base nos seus [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers).
+{% endalert %}
 
 ## Distribuição de mensagens no app {#in-app-message-distribution}
 

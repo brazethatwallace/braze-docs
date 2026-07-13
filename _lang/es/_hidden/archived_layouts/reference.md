@@ -32,30 +32,30 @@ channel:
   - Push
   - SMS
   - Webhooks
-    
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
 ---
 
-# Título de la página
+# Título de la página {#page-title}
 
->  Este tipo de artículo explica un concepto y contiene información específica sobre procesos técnicos y contenido de productos (pasos en Canvas, segmentación, un tipo concreto de objeto, etc.). El otro tipo de plantilla de Referencia es un Glosario. Este formato no se utiliza para nuestro glosario de la API ni para la documentación de referencia, a menos que haya un concepto específico que deba explicarse. Asegúrate de señalar que aprenderán [esto](#what-is-x-concept), [aquello](#topic-1-regarding-this-concept) y [lo otro](#topic-2-regarding-this-concept) en esta página. Este es un [buen ejemplo de documento de referencia general](https://guide.meteor.com/code-style.html). Este es un buen ejemplo de un [documento de referencia muy técnico](https://www.w3schools.com/html/html_intro.asp).
+>  Este tipo de artículo explica un concepto y contiene información específica sobre procesos técnicos y contenido de productos (pasos en Canvas, segmentación, un tipo concreto de objeto, etc.). El otro tipo de plantilla de referencia es un glosario. Este formato no se utiliza para nuestro glosario de la API ni para la documentación de referencia, a menos que haya un concepto específico que deba explicarse. Asegúrate de señalar que aprenderán [esto](#what-is-x-concept), [aquello](#topic-1-regarding-this-concept) y [lo otro](#topic-2-regarding-this-concept) en esta página. Este es un [buen ejemplo de documento de referencia general](https://guide.meteor.com/code-style.html). Este es un buen ejemplo de un [documento de referencia muy técnico](https://www.w3schools.com/html/html_intro.asp).
 
-## Qué es el Concepto X
+## Qué es el concepto X {#what-is-x-concept}
 
 Incluye:
 - Origen de este concepto, si procede.
 - Enlaces a recursos externos sobre este concepto y otros nombres para él, según sea necesario.
-- Cómo se utiliza y aplica este concepto en Braze.  
-- ¿Cuáles son las ventajas de este concepto?
+- Cómo se utiliza y aplica este concepto en Braze.
+- Cuáles son las ventajas de este concepto
 
 
-## Tema 1 Sobre este Concepto
+## Tema 1 sobre este concepto {#topic-1-regarding-this-concept}
 
-Esto debería explicar un aspecto específico de este concepto, como por ejemplo cómo se utiliza un tipo concreto de Paso en Canvas en combinación con un canal. Si quieres ver un ejemplo de cómo hacer esto en un contexto real, consulta [este enlace a ese tutorial]().
+Esto debería explicar un aspecto específico de este concepto, como por ejemplo cómo se utiliza un tipo concreto de paso en Canvas en combinación con un canal. Si quieres ver un ejemplo de cómo hacer esto en un contexto real, consulta [este enlace a ese tutorial]().
 
-### Ejemplo de código
+### Ejemplo de código {#code-sample}
 
 Si estás explicando un concepto técnico, anótalo aquí y muestra un ejemplo de código.
 
@@ -74,15 +74,15 @@ Si estás explicando un concepto técnico, anótalo aquí y muestra un ejemplo d
 </html>
 ```
 
-Asegúrate de definir los parámetros o elementos que los usuarios podrían tener que ajustar a partir de la muestra de código. Muchos usuarios se limitan a copiar y pegar.
+Asegúrate de definir los parámetros o elementos que los usuarios podrían tener que ajustar a partir del ejemplo de código. Muchos usuarios se limitan a copiar y pegar.
 
 | Variable | Descripción |
 | -------- | ----------- |
-| Título de la página | Puedes titular tu página como quieras. Tienes que tener esto. |
-| Mi primer encabezado | Recomendamos ponerlo en mayúsculas. Esto también es opcional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Puedes titular tu página como quieras. Es obligatorio. |
+| My First Heading | Recomendamos ponerlo en mayúsculas. Esto es opcional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code Sample" }
 
 
-## Tema 2 sobre este concepto
+## Tema 2 sobre este concepto {#topic-2-regarding-this-concept}
 
 En caso de que se añada un segundo tema, asegúrate de distinguirlo inmediatamente del primer concepto. Después, pasa a explicar el concepto. ¡No dudes en añadir diagramas!

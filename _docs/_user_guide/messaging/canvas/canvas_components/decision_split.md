@@ -23,7 +23,7 @@ To create a decision split in your workflow, add a step to your Canvas. Then, dr
 
 ### Define your split
 
-How do you want to split your users? You can use [segments]({{site.baseurl}}/user_guide/audience/segments/) and filters to draw the line. Essentially, you're creating a `true` or `false` query that will evaluate your users and then funnel them to one step or another. You must use at least one segment or one filter. You do not need to use both a segment and a filter.
+How do you want to split your users? You can use [segments]({{site.baseurl}}/user_guide/audience/segments) and filters to draw the line. Essentially, you're creating a `true` or `false` query that will evaluate your users and then funnel them to one step or another. You must use at least one segment or one filter. You do not need to use both a segment and a filter.
 
 ![A Decision Split step with the filter "Foreground Push Enabled is true" selected.]({% image_buster /assets/img/define-split-2.png %})
 
@@ -50,5 +50,5 @@ Refer to the following table for descriptions of analytics for this step:
 | _Entered_ | The total number of times the step has been entered. If your Canvas has re-eligibility and a user enters a Decision Split step twice, two entries will be recorded. |
 | _Yes_ | The number of entries that met the specified criteria and proceeded down the "yes" path. |
 | _No_ | The number of entries that did not meet the specified criteria and proceeded down the "no" path. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
 

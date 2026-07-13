@@ -18,7 +18,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `custom_attributes.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `custom_attributes.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -28,10 +28,10 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 Ten en cuenta que cada llamada a este punto de conexión devolverá 50 atributos. Para más de 50 atributos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `cursor` | Opcional | Cadena | Determina la paginación de los atributos personalizados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 ## Ejemplos de solicitudes {#example-requests}
 
@@ -72,10 +72,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ### Códigos de respuesta de error fatal {#fatal-export}
 
-Para conocer los códigos de estado y los mensajes de error asociados que se devolverán si tu solicitud encuentra un error fatal, consulta [Errores fatales]({{site.baseurl}}/api/errors/#fatal-errors).
+Para conocer los códigos de estado y los mensajes de error asociados que se devolverán si tu solicitud encuentra un error fatal, consulta [Errores fatales]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

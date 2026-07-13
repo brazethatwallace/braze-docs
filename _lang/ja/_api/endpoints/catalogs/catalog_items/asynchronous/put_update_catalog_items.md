@@ -1,49 +1,49 @@
 ---
-nav_title: "PUT:複数のカタログ項目を置き換える"
-article_title: "PUT:複数のカタログ項目の置換"
+nav_title: "PUT: 複数のカタログ項目を置き換える"
+article_title: "PUT: 複数のカタログ項目を置き換える"
 search_tag: Endpoint
 page_order: 4
 
 layout: api_page
 page_type: reference
-description: "この記事では、「複数のカタログ項目を置換」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「複数のカタログ項目を置き換える」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# カタログ項目の置換
+# カタログ項目を置き換える {#replace-catalog-items}
 {% apimethod put %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> このエンドポイントを使用して、カタログ内の複数の項目を置換します。
+> このエンドポイントを使用して、カタログ内の複数の項目を置き換えます。
 
-カタログアイテムが存在しない場合、このエンドポイントはカタログ内にアイテムを作成します。1つのリクエストにつき、最大50個のカタログアイテムに対応できます。このエンドポイントは非同期である。
+カタログ項目が存在しない場合、このエンドポイントはカタログ内にその項目を作成します。1回のリクエストにつき、最大50個のカタログ項目に対応できます。このエンドポイントは非同期です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#ab30a4fc-60bc-4460-885c-1b92af8bc061 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`catalogs.replace_items`の権限が必要です。
+このエンドポイントを使用するには、`catalogs.replace_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## パスパラメーター
+## パスパラメーター {#path-parameters}
 
-| パラメータ | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `items` | required | 配列 | アイテム・オブジェクトを含む配列。各オブジェクトにはID が必要です。アイテムオブジェクトには、カタログに存在するフィールドs が含まれている必要があります。リクエストごとに最大 50 個のアイテムオブジェクトが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | 必須 | 配列 | 項目オブジェクトを含む配列。各オブジェクトにはIDが必要です。項目オブジェクトには、カタログに存在するフィールドが含まれている必要があります。リクエストごとに最大50個の項目オブジェクトが許可されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 ```
 curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -78,11 +79,19 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 }'
 ```
 
-## 応答
+{% alert note %}
+`Location` フィールドは `geo` データタイプを使用しており、`[経度, 緯度]` の形式の配列を期待します。
+{% endalert %}
 
-このエンドポイントには、`202`、`400`、`404` という 3 つのステータスコード応答があります。
+## 応答 {#response}
 
-### 成功応答の例
+このエンドポイントには、`202`、`400`、`404` の3つのステータスコード応答があります。
+
+{% alert note %}
+カタログのストレージ上限に達した場合にも、`400` 応答が返されることがあります。カタログの無料版は100&nbsp;MBが上限です。ストレージ階層とアップグレード方法の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。
+{% endalert %}
+
+### 成功応答の例 {#example-success-response}
 
 ステータスコード `202` は、次の応答本文を返す可能性があります。
 
@@ -92,9 +101,9 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 }
 ```
 
-### エラー応答例
+### エラー応答の例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。遭遇する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照のこと。
+ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {
@@ -114,25 +123,27 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 }
 ```
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
 次のテーブルに、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `catalog-not-found` | カタログ名が有効であることを確認する。 |
-| `ids-not-string` | 各項目ID が文字列であることを確認します。 |
-| `ids-not-unique` | 各項目の ID が一意であることを確認します。 |
-| `ids-too-large` | 各アイテムIDの文字数制限は250文字である。 |
-| `item-array-invalid` | `items` はオブジェクト配列でなければなりません。 |
-| `items-missing-ids` | 項目IDがない項目もあります。各項目にIDがあることを確認します。 |
-| `items-too-large` | 項目値は5000 文字を超えることはできません。 |
-| `invalid-ids` | アイテムID名に使用できる文字は、アルファベット、数字、ハイフン、アンダースコアである。 |
-| `invalid-fields` | APIリクエストで送信するすべてのフィールドが、すでにカタログに存在していることを確認する。これは、エラーに記載されている ID フィールドとは関係ありません。 |
+| `catalog-not-found` | カタログ名が有効であることを確認してください。 |
+| `company-size-limit-already-reached` | カタログのストレージサイズ上限に達しています。ストレージ階層の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。 |
+| `company-size-limit-surge` | リクエストが会社の残りのカタログストレージを超えています。より小さい更新で再試行してください。ストレージ階層の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。 |
+| `ids-not-string` | 各項目IDが文字列であることを確認してください。 |
+| `ids-not-unique` | 各項目IDが一意であることを確認してください。 |
+| `ids-too-large` | 各項目IDの文字数制限は250文字です。 |
+| `item-array-invalid` | `items` はオブジェクトの配列でなければなりません。 |
+| `items-missing-ids` | 項目IDがない項目があります。各項目にIDがあることを確認してください。 |
+| `items-too-large` | 項目の値は5,000文字を超えることはできません。 |
+| `invalid-ids` | 項目ID名に使用できる文字は、アルファベット、数字、ハイフン、アンダースコアです。 |
+| `invalid-fields` | APIリクエストで送信するすべてのフィールドが、すでにカタログに存在していることを確認してください。これはエラーに記載されているIDフィールドとは関係ありません。 |
 | `invalid-keys-in-value-object` | 項目オブジェクトのキーに `.` または `$` を含めることはできません。 |
-| `too-deep-nesting-in-value-object` | アイテム・オブジェクトは50レベル以上の入れ子を持つことはできない。 |
-| `request-includes-too-many-items` | あなたのリクエストは項目が多すぎます。リクエストごとの項目の上限は50個です。 |
+| `too-deep-nesting-in-value-object` | 項目オブジェクトは50レベルを超えるネストを持つことはできません。 |
+| `request-includes-too-many-items` | リクエストの項目数が多すぎます。リクエストごとの項目の上限は50個です。 |
 | `unable-to-coerce-value` | 項目タイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

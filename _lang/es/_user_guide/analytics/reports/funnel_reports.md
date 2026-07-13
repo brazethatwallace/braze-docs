@@ -38,7 +38,7 @@ Los informes de embudo están disponibles desde las siguientes ubicaciones en el
 - La página **Canvas Details** para un Canvas específico, seleccionando el botón **Analyze Variants**
 
 {% alert important %}
-Los informes de embudo no están disponibles para [Campaigns de API]({{site.baseurl}}/api/api_campaigns/).
+Los informes de embudo no están disponibles para [Campaigns de API]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 ### Paso 1: Selecciona un rango de fechas {#step-1-select-a-date-range}
@@ -59,7 +59,7 @@ Para cada informe de embudo, el primer evento es cuando el usuario recibe tu men
 
 | Campaign | Inició sesión, Realizó compra, Realizó evento personalizado, Evento de interacción con mensaje |
 | Canvas | Inició sesión, Realizó compra, Realizó evento personalizado, Recibió paso en Canvas, Interactuó con paso |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos disponibles para informes de embudo" }
 
 {% alert note %}
 El evento de informe **Interactuó con paso** solo se puede usar con pasos en Canvas que utilicen los canales de mensajería de correo electrónico o push.

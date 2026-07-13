@@ -28,7 +28,7 @@ Lo siguiente es necesario antes de comenzar:
 | Aplicación iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de tu plataforma, es posible que se requieran fragmentos de código en tu aplicación. |
 | SDK de Linkrunner | Debes instalar el [SDK de Linkrunner](https://docs.linkrunner.io/introduction). |
 | SDK de Braze | Debes integrar el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -66,28 +66,26 @@ try await LinkrunnerSDK.shared.signup(userData: userData)
 
 ### Paso 2: Crear una clave de API en Braze {#step-2-create-api-key-in-braze}
 
-En tu dashboard de Braze, ve a **Settings** > **Setup and Testing** > **APIs and Identifiers** > **API Keys**.
+En tu dashboard de Braze, ve a **Configuración** > **Configuración y pruebas** > **API e identificadores** > **Claves de API**.
 
-1. Selecciona **Create API Key**.
-2. En **User Data**, selecciona los siguientes permisos:
+1. Selecciona **Crear clave de API**.
+2. En **Datos de usuario**, selecciona los siguientes permisos:
    - `users.track`
    - `users.export.ids`
 3. Guarda la clave de API.
-4. Copia la clave de API y el punto de conexión REST.
-
-![Esta imagen muestra la página de claves de API en Braze donde puedes crear y administrar claves de API, incluyendo la clave de importación de datos y el punto de conexión REST necesarios para la integración con Linkrunner.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. Copia la clave de API y el punto de conexión REST. Pega estos valores en Linkrunner en el siguiente paso. Trata la clave de API como un secreto y no la compartas públicamente.
 
 ### Paso 3: Configurar Braze en el dashboard de Linkrunner {#step-3-configure-braze-in-linkrunners-dashboard}
 
-1. En Linkrunner, ve a **Integrations** en el panel izquierdo.
-2. En **Analytics**, selecciona **Configure** para Braze.
+1. En Linkrunner, ve a **Integraciones** en el panel izquierdo.
+2. En **Análisis**, selecciona **Configurar** para Braze.
 3. Introduce la clave de API y el punto de conexión REST que copiaste en el paso 2.
 
 Para más información, consulta la [documentación de Linkrunner](https://docs.linkrunner.io/analytics-integrations/braze).
 
 ### Paso 4: Ver los datos de atribución de usuarios {#step-4-view-user-attribution-data}
 
-Linkrunner envía `lr_campaign` y `lr_ad_network` como atributos personalizados. Consulta estos datos en la sección **Custom Attributes** del perfil de usuario en el dashboard de Braze.
+Linkrunner envía `lr_campaign` y `lr_ad_network` como atributos personalizados. Consulta estos datos en la sección **Atributos personalizados** del perfil de usuario en el dashboard de Braze.
 
 ## Datos de atribución de Facebook y X (anteriormente Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 

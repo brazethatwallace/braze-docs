@@ -15,9 +15,9 @@ alias: /line/subscription_groups/
 
 | Status | Definition |
 | --- | --- |
-| Abonniert | Die Nutzer:innen sind dem LINE-Kanal innerhalb ihrer LINE-App gefolgt. Nutzer:innen werden automatisch abonniert, wenn sie nach Abschluss der Integrationsschritte folgen. |
-| Abgemeldet | Die Nutzer:innen sind dem LINE-Kanal innerhalb ihrer LINE-App nicht gefolgt, oder sie haben den LINE-Kanal explizit entfolgt. <br><br> Nutzer:innen, die sich von einer LINE-Abo-Gruppe abmelden, erhalten keine LINE-Nachrichten mehr von Sendekanälen, die zu dieser Abo-Gruppe gehören. |
-{: .reset-td-br-1 .reset-td-br-2 }
+| Abonniert | Die Nutzer:in ist dem LINE-Kanal innerhalb ihrer LINE-App gefolgt. Nutzer:innen werden automatisch abonniert, wenn sie nach Abschluss der Integrationsschritte folgen. |
+| Abgemeldet | Die Nutzer:in ist dem LINE-Kanal innerhalb ihrer LINE-App nicht gefolgt, oder hat den LINE-Kanal explizit entfolgt. <br><br> Nutzer:innen, die sich von einer LINE-Abo-Gruppe abmelden, erhalten keine LINE-Nachrichten mehr von Sendekanälen, die zu dieser Abo-Gruppe gehören. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE subscription groups" }
 
 ## LINE-Abo-Gruppe von Nutzer:innen festlegen {#setting-a-users-line-subscription-group}
 

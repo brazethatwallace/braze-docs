@@ -14,7 +14,7 @@ tool:
 
 > **간단한 설문조사** 인앱 메시지 템플릿을 사용하여 사용자 속성, 인사이트 및 선호도를 수집하고 Campaign 전략을 강화하세요.
 
-이 메시지 유형은 [기존 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에서 사용할 수 있습니다.
+이 메시지 유형은 [기존 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)에서 사용할 수 있습니다.
 
 일반적인 설문조사 사용 사례로는 사용자에게 앱을 어떻게 사용하고 싶은지 묻기, 개인 선호도에 대해 자세히 알아보기, 특정 기능에 대한 만족도를 묻기 등이 있습니다.
 
@@ -22,7 +22,7 @@ tool:
 
 ## SDK 요구 사항 {#supported-sdk-versions}
 
-이 인앱 메시지는 [Flex CSS](https://caniuse.com/flexbox)를 지원하는 기기에만 전달되며, 최소 다음 [SDK 버전]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions) 이상이어야 합니다.
+이 인앱 메시지는 [Flex CSS](https://caniuse.com/flexbox)를 지원하는 기기에만 전달되며, 최소 다음 [SDK 버전]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) 이상이어야 합니다.
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
@@ -32,7 +32,7 @@ tool:
 
 ## 설문조사 만들기 {#create}
 
-[인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)를 만들 때 **메시지 유형**으로 **간단한 설문조사**를 선택합니다.
+[인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)를 만들 때 **메시지 유형**으로 **간단한 설문조사**를 선택합니다.
 
 이 설문조사 템플릿은 모바일 앱과 웹 브라우저 모두에서 지원됩니다. SDK가 이 기능에 필요한 [최소 SDK 버전](#supported-sdk-versions)인지 확인하세요.
 
@@ -60,7 +60,7 @@ tool:
 
 **제출 시 속성 기록**을 선택하여 사용자의 제출 내용을 기반으로 속성을 수집합니다. 이 옵션을 사용하여 새로운 Segment와 리타겟팅 Campaign을 만들 수 있습니다. 예를 들어, [만족도 설문조사](#user-satisfaction)에서 만족하지 않은 모든 사용자에게 후속 이메일을 보낼 수 있습니다.
 
-각 선택지에 커스텀 속성을 추가하려면 드롭다운 메뉴에서 커스텀 속성 이름을 선택하거나 새로 만든 다음, 이 선택지가 제출될 때 설정할 값을 입력합니다. [설정 페이지]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)에서 새 커스텀 속성을 만들 수도 있습니다.
+각 선택지에 커스텀 속성을 추가하려면 드롭다운 메뉴에서 커스텀 속성 이름을 선택하거나 새로 만든 다음, 이 선택지가 제출될 때 설정할 값을 입력합니다. [설정 페이지]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)에서 새 커스텀 속성을 만들 수도 있습니다.
 
 커스텀 속성의 데이터 유형은 설문조사 설정 방식에 따라 중요합니다.
 
@@ -73,7 +73,7 @@ tool:
 
 ##### 예시 {#example}
 
-예를 들어, [알림 환경설정 설문조사](#notification-preferences)에서 각 선택지를 부울(true/false) 속성으로 만들어 사용자가 관심 있는 주제를 선택할 수 있도록 할 수 있습니다. 사용자가 "프로모션" 선택지를 체크하면 해당 [고객 프로필]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)에 커스텀 속성 `Promotions Topic`이 `true`로 업데이트됩니다. 선택지를 체크하지 않으면 해당 속성은 변경되지 않습니다.
+예를 들어, [알림 환경설정 설문조사](#notification-preferences)에서 각 선택지를 부울(true/false) 속성으로 만들어 사용자가 관심 있는 주제를 선택할 수 있도록 할 수 있습니다. 사용자가 "프로모션" 선택지를 체크하면 해당 [고객 프로필]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)에 커스텀 속성 `Promotions Topic`이 `true`로 업데이트됩니다. 선택지를 체크하지 않으면 해당 속성은 변경되지 않습니다.
 
 그런 다음 `Custom Attribute` 필터를 사용하여 커스텀 속성 `Promotions Topic`이 `true`인 사용자의 Segment를 만들어 프로모션에 관심 있는 사용자만 관련 Campaign을 받도록 할 수 있습니다.
 
@@ -119,13 +119,13 @@ Campaign이 시작되면 실시간으로 결과를 분석하여 각 선택지의
 - **설문조사 결과**는 각 응답 옵션을 선택한 사용자 수와 각 선택지가 전체 제출에서 차지하는 비율을 보여줍니다.
 - **확인 페이지 측정기준**(활성화된 경우)에는 확인 화면을 본 사용자 수, 버튼을 클릭한 사용자 수, 상호작용 없이 해제한 사용자 수가 포함됩니다.
 
-설문조사 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하고 "In-App Message"로 필터링하세요.
+설문조사 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하고 "In-App Message"로 필터링하세요.
 
-Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/)를 확인하세요.
+Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting)를 확인하세요.
 
 ### Currents {#currents}
 
-선택한 선택지는 [**인앱 메시지 클릭 이벤트**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#api_fzzdoylmrtwe) `button_id` 필드 아래에서 Currents로 자동 전달됩니다. 각 선택지는 고유 식별자(UUID)와 함께 전송됩니다.
+선택한 선택지는 [**인앱 메시지 클릭 이벤트**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe) `button_id` 필드 아래에서 Currents로 자동 전달됩니다. 각 선택지는 고유 식별자(UUID)와 함께 전송됩니다.
 
 ## 사용 사례 {#use-cases}
 
@@ -140,12 +140,12 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 | 선택지 | 속성 | 값 |
 |---------------------------------------|------------------------|-------|
-| 😡 매우 불만족 | `customer_satisfaction` | 1 |
-| 😟 불만족 | `customer_satisfaction` | 2 |
-| 🙂 보통 | `customer_satisfaction` | 3 |
-| 😊 만족 | `customer_satisfaction` | 4 |
-| 😍 매우 만족 | `customer_satisfaction` | 5 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 😡 매우 불만족 | `customer_satisfaction` | 1     |
+| 😟 불만족 | `customer_satisfaction` | 2     |
+| 🙂 보통 | `customer_satisfaction` | 3     |
+| 😊 만족 | `customer_satisfaction` | 4     |
+| 😍 매우 만족 | `customer_satisfaction` | 5     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용자 만족도" }
 
 사용자가 설문조사를 제출하면 선택한 값이 커스텀 속성으로 기록됩니다. 그런 다음 오디언스 필터를 사용하여 후속 Campaign을 구축할 수 있습니다. 예를 들어, `customer_satisfaction` 속성이 "1" 또는 "2"인 사용자에게 윈백 메시지를 타겟팅할 수 있습니다.
 
@@ -161,11 +161,11 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 | 선택지 | 속성 | 값 |
 |--------------------|------------------------|--------|
 | 제품 업데이트 | `wants_product_updates`| `true` |
-| 프로모션 | `wants_promotions` | `true` |
-| 이벤트 초대 | `wants_event_invites` | `true` |
-| 설문조사 및 피드백 | `wants_surveys` | `true` |
-| 팁 및 튜토리얼 | `wants_tips` | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 프로모션 | `wants_promotions`     | `true` |
+| 이벤트 초대 | `wants_event_invites`  | `true` |
+| 설문조사 및 피드백 | `wants_surveys`        | `true` |
+| 팁 및 튜토리얼 | `wants_tips`           | `true` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 환경설정" }
 
 {% endtab %}
 {% tab 고객 목표 파악 %}
@@ -178,12 +178,12 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 | 선택지 | 속성 | 값 |
 |----------------------------|------------------|-----------|
-| 상태 확인 | `product_goal` | `status` |
-| 계정 업그레이드 | `product_goal` | `upgrade` |
-| 예약 잡기 | `product_goal` | `schedule`|
-| 고객지원 | `product_goal` | `support` |
-| 둘러보기 | `product_goal` | `browse` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 상태 확인 | `product_goal`   | `status`  |
+| 계정 업그레이드 | `product_goal`   | `upgrade` |
+| 예약 잡기 | `product_goal`   | `schedule`|
+| 고객지원 | `product_goal`   | `support` |
+| 둘러보기 | `product_goal`   | `browse`  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="고객 목표 파악" }
 
 사용자가 설문조사를 제출하면 선택한 값이 프로필에 커스텀 속성으로 기록됩니다. 그런 다음 이 데이터를 사용하여 향후 경험을 개인화하거나 주요 목표에 따라 사용자를 세분화할 수 있습니다.
 
@@ -199,11 +199,11 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 | 선택지 | 속성 | 값 |
 |---------------------|------------------|-------------|
 | 너무 비쌈 | `upgrade_reason` | `expensive` |
-| 가치가 없음 | `upgrade_reason` | `value` |
+| 가치가 없음 | `upgrade_reason` | `value`     |
 | 사용하기 어려움 | `upgrade_reason` | `difficult` |
 | 경쟁사 사용 중 | `upgrade_reason` | `competitor`|
-| 기타 이유 | `upgrade_reason` | `other` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 기타 이유 | `upgrade_reason` | `other`     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="전환율 개선" }
 
 사용자가 설문조사를 제출하면 선택한 값이 프로필에 저장됩니다. 그런 다음 할인 혜택이나 사용성 개선 등 특정 이의에 맞춘 Campaign으로 이러한 사용자를 타겟팅할 수 있습니다.
 
@@ -218,14 +218,14 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 | 선택지 | 속성 | 값 |
 |-------------------|--------------------|--------------|
-| 북마크 | `favorite_features`| `bookmarks` |
-| 모바일 앱 | `favorite_features`| `mobile` |
-| 게시물 공유 | `favorite_features`| `sharing` |
-| 고객지원 | `favorite_features`| `support` |
-| 커스터마이즈 | `favorite_features`| `custom` |
-| 가격/가치 | `favorite_features`| `value` |
-| 커뮤니티 | `favorite_features`| `community` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 북마크 | `favorite_features`| `bookmarks`  |
+| 모바일 앱 | `favorite_features`| `mobile`     |
+| 게시물 공유 | `favorite_features`| `sharing`    |
+| 고객지원 | `favorite_features`| `support`    |
+| 커스터마이즈 | `favorite_features`| `custom`     |
+| 가격/가치 | `favorite_features`| `value`      |
+| 커뮤니티 | `favorite_features`| `community`  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="선호 기능" }
 
 이 설문조사는 다중 선택을 사용하므로 사용자의 프로필은 선택한 모든 기능 값의 목록으로 업데이트됩니다.
 

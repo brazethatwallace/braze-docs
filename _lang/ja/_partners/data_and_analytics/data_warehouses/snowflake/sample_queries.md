@@ -1,6 +1,6 @@
 ---
 nav_title: "サンプルクエリ"
-article_title: Snowflake サンプルクエリ
+article_title: Snowflakeサンプルクエリ
 page_order: 1
 description: "このパートナーページでは、Snowflakeクエリを設定する際に参照できるユースケースのサンプルクエリをいくつか紹介しています。"
 page_type: partner
@@ -40,9 +40,9 @@ LIMIT 10;
 
 {% tab Querying Changelogs%}
 
-Campaign名とCanvas名はイベント自体には含まれていません。代わりに、変更ログテーブルに公開されます。
+キャンペーン名とキャンバス名はイベント自体には含まれていません。代わりに、変更ログテーブルに公開されます。
 
-次のようなクエリでCampaignの変更ログテーブルと結合することで、Campaignに関連するイベントのCampaign名を確認できます。
+次のようなクエリでキャンペーンの変更ログテーブルと結合することで、キャンペーンに関連するイベントのキャンペーン名を確認できます。
 
 ```sql
 SELECT event.id, event.time, ccs.time, ccs.name, ccs.conversion_behaviors[event.conversion_behavior_index]
@@ -53,12 +53,12 @@ AND ccs.time < event.time
 qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 ```
 いくつかの重要な注意点があります。
-- ここではSnowflakeの[window](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)関数を使用しています。
-- 左結合により、Campaignに関連しないイベントも含まれます。
-- `campaign_id` があるにもかかわらずCampaign名が表示されないイベントがある場合、そのCampaignはデータ共有が製品として存在する前に作成された可能性があります。
-- `CHANGELOGS_CANVAS_SHARED` テーブルと結合する同様のクエリを使用して、Canvas名を確認することもできます。
+- ここではSnowflakeの[ウィンドウ](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)関数を使用しています。
+- 左結合により、キャンペーンに関連しないイベントも含まれます。
+- `campaign_id` があるにもかかわらずキャンペーン名が表示されないイベントがある場合、そのキャンペーンはデータ共有が製品として存在する前に作成された可能性があります。
+- `CHANGELOGS_CANVAS_SHARED` テーブルと結合する同様のクエリを使用して、キャンバス名を確認することもできます。
 
-CampaignとCanvasの両方の名前を表示したい場合は、次のサブクエリを使用する必要があります。
+キャンペーンとキャンバスの両方の名前を表示したい場合は、次のサブクエリを使用する必要があります。
 ```sql
 SELECT campaign_join.*, canvas.name AS canvas_name
 FROM
@@ -147,7 +147,7 @@ LIMIT 500;
 {% endtab %}
 {% tab Unique Email Clicks %}
 
-このユニークメールクリック数クエリを使用して、指定された時間枠内のユニークなメールクリックを分析できます。これを計算するアルゴリズムは次のとおりです。
+このユニークメールクリッククエリを使用して、指定された時間枠内のユニークなメールクリックを分析できます。これを計算するアルゴリズムは次のとおりです。
   1. キー（`app_group_id`、`message_variation_id`、`dispatch_id`、`email_address`）でイベントをパーティション分割します。
   2. 各パーティション内でイベントを時間順に並べ、最初のイベントは常にユニークイベントとなります。
   3. 後続のすべてのイベントについて、前のイベントから7日以上経過して発生した場合、ユニークイベントと見なされます。
@@ -199,13 +199,66 @@ GROUP BY email_address;
 {% endtab %}
 {% tab Unique Email Opens %}
 
-このクエリを使用して、Snowflakeのメール開封イベントから**ユニーク開封数**を近似できます。たとえば、ダッシュボードの**Unique Opens**列との照合に利用できます。
+このユニークメール開封クエリを使用して、指定された時間枠内のユニークなメール開封を分析できます。これを計算するアルゴリズムは次のとおりです。
+  1. キー（`app_group_id`、`message_variation_id`、`dispatch_id`、`email_address`）でイベントをパーティション分割します。
+  2. 各パーティション内でイベントを時間順に並べます。最初のイベントは常にユニークイベントとなります。
+  3. 後続のすべてのイベントについて、前のイベントから7日以上経過して発生した場合、ユニークイベントと見なされます。
+
+Snowflakeの[ウィンドウ関数](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)を使用してこれを実現できます。次のクエリは、過去365日間のすべてのメール開封を返し、`is_unique` 列でどのイベントがユニークであるかを示します。
+
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
+```
+
+ユニークイベントのみを返すには、`QUALIFY` 句を使用します。
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true;
+```
+
+メールアドレスごとにグループ化されたユニークイベント数を確認するには、次のようにします。
+```sql
+WITH unique_events AS(
+  SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true)
+SELECT email_address, count(*) AS count
+FROM unique_events
+GROUP BY email_address;
+```
+
+特定のキャンペーン、キャンバス、またはキャンバスステップにスコープを限定した別のアプローチとして、次のクエリを使用します。日付範囲と識別子の変数を設定してから、`SELECT` ステートメントを実行すると、3つの方法で計算されたユニーク開封数が返されます。
+
+クエリ結果は、一部のワークスペースではダッシュボードの指標とわずかに異なる場合があります。たとえば、ユニーク性は `email_address` でパーティション分割できますが、プロファイル削除後に一部の過去の開封イベントにメールアドレスが含まれていない場合があります。そのような場合、同じ期間で完全に一致させることができない可能性があります。
 
 この例では3つのカウントを返します。
 
 - **Unique Opens (over 7 days)：** 7日間のローリング期間におけるユニーク開封数です。
 - **Unique Opens (during date window)：** 指定された期間内のユニーク開封数です。期間前に発生した開封は考慮されません。
-- **Unique Opens (for emails delivered within same timeframe)：** 対応する配信イベントも同じ期間内に発生したユニーク開封数です（その期間内に配信されたメッセージに紐づく開封のみを確認したい場合に便利です）。
+- **Unique Opens (for emails delivered within same timeframe)：** 対応する配信イベントも同じ期間内に発生したユニーク開封数です。
 
 {% raw %}
 ```sql
@@ -213,16 +266,16 @@ GROUP BY email_address;
     Set or comment out variables if not required. These are set per session.
     You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
 
-    For example, endDate=1656799199&startDate=1656194400
+    For example, endDate=1234567890&startDate=1234500000
 
     To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
 */
 
-SET fromDateTime = '1656194400';
-SET toDateTime = '1656799199';
+SET fromDateTime = '1234500000';
+SET toDateTime = '1234567890';
 -- SET campaignID = '';
 -- SET canvasID = '';
-SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+SET canvasStepID = '0123456789abcdef01234567';
 
 SELECT
     'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
@@ -272,6 +325,5 @@ WHERE
                 umed.time between $fromDateTime and $toDateTime);
 ```
 {% endraw %}
-
 {% endtab %}
 {% endtabs %}

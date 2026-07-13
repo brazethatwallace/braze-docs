@@ -2,7 +2,7 @@
 nav_title: E-Mail-Registrierung mit Bild
 article_title: E-Mail-Registrierung mit Hintergrundbild
 alias: "/email_image/"
-page_order: 4
+page_order: 5
 description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um Ihren Markenstil mit einer einfachen Nachricht zu präsentieren und Ihre E-Mail-Liste aufzubauen."
 ---
 
@@ -26,7 +26,7 @@ Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **Email sign-up 
 
 ### 3. Schritt: E-Mail-Registrierungskomponente anpassen {#step-3-customize-your-email-sign-up-component}
 
-Um mit dem Erstellen Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie das E-Mail-Erfassungselement im Editor aus. Standardmäßig erhalten erfasste E-Mail-Adressen die globale Abo-Gruppe **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Um mit dem Erstellen Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie das E-Mail-Erfassungselement im Editor aus. Standardmäßig erhalten erfasste E-Mail-Adressen die globale Abo-Gruppe **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Sie können den Platzhaltertext und den Beschriftungstext des E-Mail-Erfassungselements anpassen.
 
@@ -42,12 +42,12 @@ Sie können den Platzhaltertext und den Beschriftungstext des E-Mail-Erfassungse
 
 ### 5. Schritt: Nachricht gestalten {#step-5-style-your-message}
 
-Passen Sie das Erscheinungsbild Ihres Registrierungsformulars mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) an. Fügen Sie Ihr eigenes Hintergrundbild hinzu, indem Sie die Standard-Hintergrundbild-URL im Menü **Message container** ersetzen, oder entfernen Sie die URL und wählen Sie Ihr Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) aus.
+Passen Sie das Erscheinungsbild Ihres Registrierungsformulars mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) an. Fügen Sie Ihr eigenes Hintergrundbild hinzu, indem Sie die Standard-Hintergrundbild-URL im Menü **Message container** ersetzen, oder entfernen Sie die URL und wählen Sie Ihr Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) aus.
 
 ## Ergebnisse analysieren {#analyzing-the-results}
 
 {% multi_lang_include drag_and_drop/templates.md section='reporting' %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 {% multi_lang_include drag_and_drop/templates.md section='email double opt-in' %}

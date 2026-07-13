@@ -50,19 +50,11 @@ The following JavaScript methods are supported within custom HTML for in-app mes
 }
 </style>
 
-{% alert note %}
-You cannot reference Liquid to insert <code>customAttributes</code> into JavaScript Bridge methods.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### Button click tracking
 
 Use the `brazeBridge.logClick(button_id)` method to track clicks in your custom HTML.
-
-{% alert note %}
-**Banners:** Only `brazeBridge.logClick()` (without arguments) is supported. Button IDs and custom button tracking are supported for in-app messages only.
-{% endalert %}
 
 For in-app messages, you can programmatically track "Button 1", "Button 2", and "Body Clicks" using `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')`, or `brazeBridge.logClick()`, respectively.
 
@@ -71,8 +63,8 @@ For in-app messages, you can programmatically track "Button 1", "Button 2", and 
 | Body click | `brazeBridge.logClick()`    | In-app messages and Banners |
 | Button 1   | `brazeBridge.logClick('0')` | In-app messages only |
 | Button 2   | `brazeBridge.logClick('1')` | In-app messages only |
-| Custom button tracking |`brazeBridge.logClick('your custom name here')`| In-app messages only |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Custom button tracking |`brazeBridge.logClick('your custom name here')`| In-app messages and Banners |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
 
 For in-app messages, you can track multiple button click events per impression. For example, to close a message and log a Button 2 click:
 

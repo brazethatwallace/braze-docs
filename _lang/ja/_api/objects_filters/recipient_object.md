@@ -13,7 +13,7 @@ description: "この参照記事では、Braze 受信者オブジェクトのさ
 
 このオブジェクトには、`external_user_id`、`user_alias`、`braze_id`、または `email` のいずれかを含める必要があります。**リクエストでは1つだけ指定してください。**
 
-受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)、[Canvasエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を組み合わせることができます。
+受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object)、[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を組み合わせることができます。
 
 ## オブジェクト本体 {#object-body}
 
@@ -26,18 +26,22 @@ description: "この参照記事では、Braze 受信者オブジェクトのさ
   "prioritization": (optional, array) see Prioritization; required when using email,
   "trigger_properties": (optional, object) personalization key-value pairs for this user when sending a campaign or message; see Trigger Properties,
   "context": (optional, object) personalization key-value pairs for this user when triggering a Canvas; see Canvas context object,
-  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases,
+  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases; if set to `false`, an `attributes` object must also be included,
   "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
 }]
 ```
 
-`send_to_existing_only` が `true` の場合、Brazeは既存のユーザーにのみメッセージを送信します。ただし、このフラグはユーザーエイリアスでは使用できません。`send_to_existing_only` が `false` の場合、属性を含める必要があります。Brazeはメッセージを送信する前に、`id` と属性を持つユーザーを作成します。
+`send_to_existing_only` が `true` の場合、Brazeは既存のユーザーにのみメッセージを送信します。ただし、このフラグはユーザーエイリアスでは使用できません。
 
-- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
-- [ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
-- [外部ユーザー ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [優先順位付け]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
+`send_to_existing_only` が `false` の場合、同じ受信者に `attributes` オブジェクトを含める必要があります。このフラグは `attributes` の代わりにはなりません。Brazeは `attributes` を使用して、送信前のプロファイル作成または更新を行います（例えば、メールやSMS配信のために `email` や電話番号フィールドを追加したり、サブスクリプショングループを更新したりします）。このオブジェクトがない場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)や[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)で新規ユーザーに対する意図した組み合わせ動作は得られません。
+
+そのプロファイルは、Brazeが送信する前に、メッセージのオーディエンスおよびチャネル適格性ルールを満たしている必要があります。
+
+- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [外部ユーザー ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [優先順位付け]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)
+- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
 
 ## 受信者オブジェクトの重複排除 {#recipient-object-deduping}
 

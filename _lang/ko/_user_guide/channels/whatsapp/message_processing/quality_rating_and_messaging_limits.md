@@ -19,7 +19,7 @@ channel:
 | --- | --- |
 | 품질 등급 | 최근 7일 동안 고객이 수신한 메시지를 기반으로 한 등급입니다. 이 등급은 전화번호 차단 사유 및 기타 신고 문제 등 고객의 피드백에 의해 결정됩니다. [품질 등급에 대해](https://www.facebook.com/business/help/896873687365001) 자세히 알아보려면 Meta 설명서를 참조하세요.|
 | 메시징 한도 | 24시간 롤링 기간 동안 각 전화번호로 시작할 수 있는 비즈니스 주도 대화의 최대 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definitions" }
 
 ## 온보딩 {#onboarding}
 

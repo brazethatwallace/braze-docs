@@ -15,13 +15,11 @@ description: "This article outlines details about the Update translation in a Co
 /content_blocks/translations
 {% endapimethod %}
 
-> Use this endpoint to update multiple translations for a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
-
-{% include early_access_beta_alert.md feature='This endpoint' %}
+> Use this endpoint to update multiple translations for a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `content_blocks.translations.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `content_blocks.translations.update` permission.
 
 ## Rate limit
 
@@ -38,7 +36,7 @@ There are no path parameters for this endpoint.
 | `content_block_id` | Required | String | The ID of your Content Block. |
 | `locale_id`| Required | String | The ID (UUID) of the locale. |
 | `translation_map` | Required | Object | Object containing the new translations. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 All translation IDs are considered universal unique identifiers (UUIDs), which can be found in the GET endpoint's response.

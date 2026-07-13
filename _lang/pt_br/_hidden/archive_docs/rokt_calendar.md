@@ -24,11 +24,11 @@ A integração entre a Braze e o Rokt Calendar permite que os assinantes do Rokt
 | ------------ | ----------- |
 | Conta Rokt Calendar | É necessário ter uma conta Rokt Calendar específica do cliente para aproveitar essa parceria. Entre em contato com [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com) para falar com um gerente de contas  |
 | Configuração do Rokt Calendar | Seu gerente de conta do Rokt Calendar trabalhará com você para configurar o calendário da forma mais adequada às suas necessidades, incluindo configurações como:<br>- Flag de mesclagem<br>- Flag de fallback de SubscriberID<br>- Captura de e-mail, se necessário |
-| Credenciais OAuth do Rokt Calendar | Essa chave, fornecida pelo gerente da sua conta Rokt Calendar, permitirá conectar suas contas da Braze e do Rokt Calendar.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Conteúdo conectado**. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Você precisará fornecer essa chave ao seu gerente de conta do Rokt Calendar.<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Credenciais OAuth do Rokt Calendar | Essa chave, fornecida pelo gerente da sua conta Rokt Calendar, permitirá conectar suas contas da Braze e do Rokt Calendar.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **Connected Content**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Você precisará fornecer essa chave ao seu gerente de conta do Rokt Calendar.<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | [Endpoint REST da Braze]({{site.baseurl}}/api/basics/#endpoints) | A URL do seu endpoint REST. Seu endpoint dependerá da URL da Braze para a sua instância. |
 | ID do assinante externo | Esse é o identificador usado pelo processo de inscrição do Rokt Calendar para fazer a correspondência entre o assinante do calendário e o usuário da Braze. Isso é algo que você passa para o Rokt Calendar.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Segmentação de público {#audience-segmentation}
 
@@ -52,7 +52,7 @@ Quando o Rokt Calendar cria um novo usuário ou faz a correspondência de um ass
 | `rokt:subscription_id` | O ID da inscrição, que serve como identificador único, relacionado à inscrição criada | `06423672-b6ba-4536-aa36-70788a7a0a36` |
 | `rokt:subscription_method` | Método de inscrição (webcal/Google) relacionado à inscrição criada. | `WebCal/f5733866ade2` |
 | `rokt:tags` | Tags de calendário usadas relacionadas à inscrição criada. | `Test Calendar 1/All Teams/f5733866ade2 and Test Calendar 1/TeamI//f5733866ade2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience segmentation #audience-segmentation" }
 
 O Rokt Calendar também acionará um evento personalizado `subscribe` assim que o usuário se inscrever no seu calendário Rokt, que pode ser usado na segmentação da Braze ou como gatilho para uma Campaign ou componente do Canvas.
 
@@ -83,30 +83,30 @@ Na Braze, você pode configurar uma campanha de webhook ou um webhook dentro de 
 - Enviar um novo evento personalizado: permitir que novos eventos sejam adicionados aos calendários de um segmento de assinantes.
 - Atualizar um evento personalizado: permitir que uma atualização seja feita em um evento existente nos calendários dos assinantes.
 
-Para criar um modelo de webhook do Rokt Calendar para usar em futuras Campaigns ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Para criar um modelo de webhook do Rokt Calendar para usar em futuras Campaigns ou Canvas, navegue até **Templates** > **Webhook Templates** na plataforma Braze.
 
 Se quiser criar uma campanha de webhook única do Rokt Calendar ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova campanha.
 
 {% tabs %}
 {% tab Send a new event %}
 Depois de selecionar o modelo de webhook do Rokt Calendar, você verá o seguinte:
-- **URL do webhook**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}`{% endraw %}
-- **Corpo da solicitação**: Texto bruto
+- **Webhook URL**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}`{% endraw %}
+- **Request Body**: Raw Text
 {% endtab %}
 {% tab Update an existing event %}
 Depois de selecionar o modelo de webhook do Rokt Calendar, você verá o seguinte:
-- **URL do webhook**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}/update`{% endraw %}
-- **Corpo da solicitação**: Texto bruto
+- **Webhook URL**: {% raw %}`{% assign accountCode = {{custom_attribute.${rokt:account_code}}}[0] | split: '/' | first %}https://api.roktcalendar.com/v1/subscriptionevent/{{accountCode}}/update`{% endraw %}
+- **Request Body**: Raw Text
 {% endtab %}
 {% endtabs %}
 
 #### Cabeçalhos e método da solicitação {#request-headers-and-method}
 
-O Rokt Calendar requer um `HTTP Header` para autorização que inclua o nome da sua credencial de Conteúdo conectado do Rokt Calendar. Os itens a seguir já estarão incluídos no modelo como pares de chave-valor, mas na guia **Configurações**, você deve substituir `<Rokt-Calendar-API>` pelo nome da credencial encontrado em `Manage Settings > Connected Content > Credential`.
+O Rokt Calendar requer um `HTTP Header` para autorização que inclua o nome da sua credencial de Conteúdo conectado do Rokt Calendar. Os itens a seguir já estarão incluídos no modelo como pares de chave-valor, mas na guia **Settings**, você deve substituir `<Rokt-Calendar-API>` pelo nome da credencial encontrado em `Manage Settings > Connected Content > Credential`.
 
 {% raw %}
-- **Método HTTP**: POST
-- **Cabeçalho da solicitação**:
+- **HTTP Method**: POST
+- **Request Header**:
   - **Authorization**: Bearer `{% connected_content https://api.roktcalendar.com/oauth2/token :method post :basic_auth <Rokt-Calendar-API> :body grant_type=client_credentials :save token :retry %}{{token.access_token}}`
   - **Content-Type**: application/json
 {% endraw %}
@@ -178,11 +178,11 @@ Os campos a seguir incluem informações que podem ser personalizadas no nível 
 | `eventTitle` <br>***Obrigatório** | O título do evento como apareceria no calendário | Summer Sale 2019
 | `eventDescr` | A descrição do evento como apareceria no calendário | The sale is on for three days; click this link `www.mybusiness.com/sale` to see the offers. |
 | `eventLocation` | O local do evento como apareceria no calendário. Note que isso é frequentemente usado como uma segunda chamada para ação, complementar ao eventTitle. | Open the event to get 50% off |
-| `eventStart` <br>***Obrigatório**  | A data e a hora de início do evento como apareceria no calendário | `2019-02-21T15:00:00` |
-| `eventEnd` <br>***Obrigatório**  | A data e a hora de término do evento como apareceria no calendário | `2019-02-21T16:00:00` |
+| `eventStart` <br>***Obrigatório**  | A data e a hora de início do evento como apareceriam no calendário | `2019-02-21T15:00:00` |
+| `eventEnd` <br>***Obrigatório**  | A data e a hora de término do evento como apareceriam no calendário | `2019-02-21T16:00:00` |
 | `eventTz` <br>***Obrigatório**  | O fuso horário do evento como apareceria no calendário. Note que a lista de fusos horários aplicáveis pode ser encontrada [aqui](https://roktcalendar-api.readme.io/docs/timezones). | `Eastern Standard Time` |
 | `notifyBefore` <br>***Obrigatório**  | O horário do lembrete do evento como apareceria no calendário. Note que isso é expresso em minutos | `15` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Request body" }
 {% endtab %}
 {% endtabs %}
 
@@ -192,8 +192,8 @@ Para obter uma lista de fusos horários válidos, consulte [https://roktcalendar
 
 ### Etapa 3: pré-visualize sua solicitação {#step-3-preview-your-request}
 
-Pré-visualize a solicitação no painel **Pré-visualização** ou navegue até a guia **Teste**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
+Pré-visualize a solicitação no painel **Preview** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
-Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Saved Webhook Templates** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

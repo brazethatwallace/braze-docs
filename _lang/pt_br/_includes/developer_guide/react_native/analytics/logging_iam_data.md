@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
-## Métodos de registro
+## Métodos de registro {#methods-for-logging}
 
-Você pode usar esses métodos passando sua instância`BrazeInAppMessage` para registro análise de dados e realizar ações:
+Você pode usar esses métodos passando sua instância `BrazeInAppMessage` para registrar análise de dados e realizar ações:
 
 | Método                                                    | Descrição                                                                           |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -12,11 +12,11 @@ Você pode usar esses métodos passando sua instância`BrazeInAppMessage` para r
 | `hideCurrentInAppMessage()`                               | Descarta a mensagem no app atualmente exibida.                                     |
 | `performInAppMessageAction(inAppMessage)`                 | Executa a ação para uma mensagem no app.                                            |
 | `performInAppMessageButtonAction(inAppMessage, buttonId)` | Executa a ação para um botão de mensagem no app.                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de registro" }
 
-## Envio de mensagens de dados
+## Manipulando dados de mensagens {#handling-message-data}
 
-Na maioria dos casos, você pode usar o método `Braze.addListener` para registrar ouvintes de eventos para lidar com dados provenientes de mensagens no app. 
+Na maioria dos casos, você pode usar o método `Braze.addListener` para registrar ouvintes de eventos para lidar com dados provenientes de mensagens no app.
 
 Além disso, você pode acessar os dados da mensagem no app na camada JavaScript chamando o método `Braze.subscribeToInAppMessage` para que os SDKs publiquem um evento `inAppMessageReceived` quando uma mensagem no app for acionada. Passe um retorno de chamada para este método para executar seu próprio código quando a mensagem no app for acionada e recebida pelo ouvinte.
 
@@ -24,7 +24,7 @@ Para personalizar a forma como os dados das mensagens são tratados, consulte os
 
 {% tabs local %}
 {% tab basic %}
-Para aprimorar o comportamento padrão, ou se você não tiver acesso para personalizar o código nativo do iOS ou do Android, recomendamos que você desative a interface do usuário padrão e, ao mesmo tempo, continue recebendo eventos de mensagens no app com código personalizado do Braze. Para desativar a interface do usuário padrão, passe `false` para o método `Braze.subscribeToInAppMessage` e use os dados da mensagem no app para construir sua própria mensagem em JavaScript. Note que será necessário registrar manualmente a análise de dados em suas mensagens se optar por desativar a IU padrão.
+Para aprimorar o comportamento padrão, ou se você não tiver acesso para personalizar o código nativo do iOS ou do Android, recomendamos que você desative a interface do usuário padrão e, ao mesmo tempo, continue recebendo eventos de mensagens no app da Braze. Para desativar a interface do usuário padrão, passe `false` para o método `Braze.subscribeToInAppMessage` e use os dados da mensagem no app para construir sua própria mensagem em JavaScript. Note que será necessário registrar manualmente a análise de dados em suas mensagens se optar por desativar a IU padrão.
 
 ```javascript
 import Braze from "@braze/react-native-sdk";
@@ -51,14 +51,14 @@ Braze.subscribeToInAppMessage(false, (event) => {
 Para incluir uma lógica mais avançada para determinar se deve ou não mostrar uma mensagem no app usando a interface do usuário integrada, implemente mensagens no app através da camada nativa.
 
 {% alert warning %}
-Como esta é uma opção de personalização avançada, note que substituir a implementação padrão da Braze também anulará a lógica para emitir eventos de mensagens no app para seus ouvintes JavaScript. Se você deseja continuar usando `Braze.subscribeToInAppMessage` ou `Braze.addListener` conforme descrito em [Accessando dados de mensagem no app](#accessing-in-app-message-data), você precisará lidar com a publicação dos eventos por conta própria.
+Como esta é uma opção de personalização avançada, note que substituir a implementação padrão da Braze também anulará a lógica para emitir eventos de mensagens no app para seus ouvintes JavaScript. Se você deseja continuar usando `Braze.subscribeToInAppMessage` ou `Braze.addListener` conforme descrito em [Acessando dados de mensagem no app](#accessing-in-app-message-data), você precisará lidar com a publicação dos eventos por conta própria.
 {% endalert %}
 
 {% subtabs %}
 {% subtab Android %}
-Implemente o `IInAppMessageManagerListener` conforme descrito em nosso artigo do Android sobre [Custom Manager Listener]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Na sua `beforeInAppMessageDisplayed` implementação, você pode acessar os dados `inAppMessage`, enviá-los para a camada JavaScript e decidir mostrar ou não a mensagem nativa com base no valor de retorno.
+Implemente o `IInAppMessageManagerListener` conforme descrito em nosso artigo do Android sobre [Custom Manager Listener]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Na sua implementação de `beforeInAppMessageDisplayed`, você pode acessar os dados `inAppMessage`, enviá-los para a camada JavaScript e decidir mostrar ou não a mensagem nativa com base no valor de retorno.
 
-Para mais informações sobre esses valores, consulte nossa [documentação do Android]({{site.baseurl}}/developer_guide/in_app_messages/).
+Para mais informações sobre esses valores, consulte nossa [documentação do Android]({{site.baseurl}}/developer_guide/in_app_messages).
 
 ```java
 // In-app messaging
@@ -78,13 +78,13 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 ```
 {% endsubtab %}
 {% subtab iOS %}
-### Substituindo o delegate de interface do usuário padrão
+### Substituindo o delegate de interface do usuário padrão {#overriding-the-default-ui-delegate}
 
 Por padrão, [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/) é criado e atribuído quando você inicializa a instância `braze`. `BrazeInAppMessageUI` é uma implementação do protocolo [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) e vem com uma propriedade `delegate` que pode ser usada para personalizar o tratamento de mensagens no app que foram recebidas.
 
-1. Implemente o `BrazeInAppMessageUIDelegate` conforme descrito em [nosso artigo sobre iOS aqui](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
+1. Implemente o delegate `BrazeInAppMessageUIDelegate` conforme descrito em [nosso artigo sobre iOS aqui](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
 
-2. No método delegate`inAppMessage(_:displayChoiceForMessage:)`, você pode acessar os dados `inAppMessage`, enviá-los para a camada JavaScript e decidir mostrar ou não a mensagem nativa com base no valor de retorno.
+2. No método delegate `inAppMessage(_:displayChoiceForMessage:)`, você pode acessar os dados `inAppMessage`, enviá-los para a camada JavaScript e decidir mostrar ou não a mensagem nativa com base no valor de retorno.
 
 Para mais detalhes sobre esses valores, consulte nossa [documentação do iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/).
 
@@ -107,10 +107,10 @@ Para mais detalhes sobre esses valores, consulte nossa [documentação do iOS](h
 }
 ```
 
-Para usar este delegate, atribua-o a `brazeInAppMessagePresenter.delegate` após inicializar a instância `braze`. 
+Para usar este delegate, atribua-o a `brazeInAppMessagePresenter.delegate` após inicializar a instância `braze`.
 
 {% alert note %}
-`BrazeUI` só pode ser importado em Objective-C ou SWIFT. Se você estiver usando Objective-C++, precisará lidar com isso em um arquivo separado.
+`BrazeUI` só pode ser importado em Objective-C ou Swift. Se você estiver usando Objective-C++, precisará lidar com isso em um arquivo separado.
 {% endalert %}
 
 ```objc
@@ -124,9 +124,9 @@ Para usar este delegate, atribua-o a `brazeInAppMessagePresenter.delegate` após
 }
 ```
 
-### Substituindo a interface de usuário nativa padrão
+### Substituindo a interface de usuário nativa padrão {#overriding-the-default-native-ui}
 
-Se você deseja personalizar totalmente a apresentação de suas mensagens no app na camada nativa do iOS, conforme o protocolo [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) e atribua seu apresentador personalizado seguindo o exemplo abaixo:
+Se você deseja personalizar totalmente a apresentação de suas mensagens no app na camada nativa do iOS, implemente o protocolo [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) e atribua seu apresentador personalizado seguindo o exemplo abaixo:
 
 ```objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:apiKey endpoint:endpoint];

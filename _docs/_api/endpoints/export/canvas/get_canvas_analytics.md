@@ -16,13 +16,13 @@ description: "This article outlines details about the Export Canvas data series 
 
 > Use this endpoint to export time series data for a Canvas.
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.data_series` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.data_series` permission.
 
 ## Rate limit
 
@@ -32,14 +32,14 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 | Parameter | Required | Data Type | Description |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Required | String | See [Canvas API identifier]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Required | String | See [Canvas API identifier]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Required | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Date on which the data export should end. Defaults to time of the request. |
 | `starting_at` | Optional* | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Date on which the data export should begin. <br><br>* Either `length` or `starting_at` is required. |
 | `length` | Optional* | String | Maximum number of days before `ending_at` to include in the returned series. Must be between 1 and 14 (inclusive). <br><br>* Either `length` or `starting_at` is required. |
 | `include_variant_breakdown` | Optional | Boolean | Whether or not to include variant statistics (defaults to `false`).  |
 | `include_step_breakdown` | Optional | Boolean | Whether or not to include step statistics (defaults to `false`). |
 | `include_deleted_step_data` | Optional | Boolean | Whether or not to include step statistics for deleted steps (defaults to `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 
@@ -117,7 +117,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
 ```
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

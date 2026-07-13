@@ -35,7 +35,7 @@ You must ensure that you have the following items created and/or completed prior
 | --- | --- | --- |
 | Criteo ad account | [Criteo](https://marketing.criteo.com/) | An active Criteo ad account tied to your brand.<br><br>Ensure that your Criteo admin has granted you the appropriate permissions to access Audiences. |
 | [Criteo Advertising Guidelines](https://www.criteo.com/advertising-guidelines/)<br>and<br>[Criteo Brand Safety Guidelines](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | As an active Criteo customer, you must ensure that you can comply with Criteo’s Advertising and Brand Safety Guidelines prior to launching any Criteo campaigns. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration 
 
@@ -63,15 +63,15 @@ Your Criteo connection will be applied at the Braze workspace level. If your Cri
 
 ### Step 2: Configure your Canvas entry criteria
 
-When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and in order to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. Below we list some options.
+When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and in order to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following options can help.
 
 If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), you will be able to use the Ads Tracking Enabled filter. Select the value as true to only send users into Audience Sync destinations where they have opted in.
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![Canvas entry filter showing Ads Tracking Enabled set to true.]({% image_buster /assets/img/criteo/criteo11.png %})
 
 If you are collecting `opt-ins`, `opt-outs`, `Do Not Sell Or Share`, or any other relevant custom attributes, you should include these within your Canvas entry criteria as a filter:
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![Canvas entry filter using custom opt-in attributes for audience eligibility.]({% image_buster /assets/img/criteo/criteo12.png %})
 
 To learn more on how to comply with these Data Protection laws within the Braze platform, see [Data Protection Technical Assistance]({{site.baseurl}}/dp-technical-assistance/).
 
@@ -87,7 +87,7 @@ Click on the **Custom Audience** button to open the component editor.
 
 Select **Criteo** as the desired Audience Sync partner. 
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Audience Sync step editor with Criteo selected as the partner.]({% image_buster /assets/img/criteo/criteo6.png %})
 
 Then select your desired Criteo ad account. Under the **Choose a New or Existing Audience** dropdown, type in the name of a new or existing audience.
 
@@ -140,7 +140,7 @@ The following table includes metrics and descriptions to help you better underst
 | Users Pending | Number of users currently being processed by Braze to sync into Criteo. |
 | Users Errored | Number of users who were not synced to Criteo due to an API error after about 13 hours of retries. Potential causes of errors can include an invalid Criteo token or if the audience was deleted on Criteo. |
 | Exited Canvas | Number of users who have exited the Canvas. This occurs when the last step in a Canvas is an Audience Sync component. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Remember that there will be a delay in reporting for users synced and users errored metrics due to the bulk flusher and the 13-hour retry, respectively.

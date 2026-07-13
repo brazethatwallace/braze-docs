@@ -30,7 +30,7 @@ USAGE:
 
 OPTIONS:
   deploy         Create the deploy body text for weekly deployments
-  release        Create the release body text for monthly releases
+  release        (Deprecated) Generate deploy-PR list for monthly release notes
   tlinks         Transform reference links to inline links on 1 or more pages
   rlinks         Remove unused reference links on 1 or more pages
   ulinks         Update old links using newest redirect on 1 or more pages
@@ -61,6 +61,8 @@ When a new nightly run opens while an older `auto-deploy-*` deploy PR is still o
 
 Sitemap last-modified updates are a **separate** scheduled workflow ([**Nightly sitemap last-modified update**](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-sitemap-update.yml)) that opens PRs into `develop`; merge those before approving the deploy PR when you want the latest `_data/sitemap_*.json` dates in that release.
 
+Optional Slack alerts for **Nightly Release Deploy** and **Nightly sitemap last-modified update** (success paths and failures) use the same repository secrets `SLACK_BOT_TOKEN` and `SLACK_DEPLOY_NOTIFY_CHANNEL`; see the comments at the top of [`.github/workflows/nightly-deploy.yml`](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-deploy.yml) and [`.github/workflows/nightly-sitemap-update.yml`](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-sitemap-update.yml).
+
 ### Usage example
 
 ```bash
@@ -77,16 +79,16 @@ $ ./bdocs deploy
 
 This command creates a Markdown file in your `scripts/temp` folder that lists merged `deploy` pull requests from [braze-inc/braze-docs](https://github.com/braze-inc/braze-docs) from the last release notes until today. Under each deploy PR is a list of merged contributor PRs, each as a markdown link in the form `[#NNNN](pull-url) - subject`.
 
-The default behavior uses the latest `v.*` git tag. First, it finds that tag in your local repo, then includes deploy PRs merged from 00:00:00 UTC on the calendar day after that tag’s commit through 23:59:59 UTC today. Run `git fetch origin main --tags` first if tags are stale.
+The generator is [`scripts/generate_releases_deploy.py`](https://github.com/braze-inc/braze-docs/blob/develop/scripts/generate_releases_deploy.py). It checks for `gh`, fetches `v.*` tags from `origin`, auto-detects the repo root, and defaults to the window from the day after the latest `v.*` tag through today (UTC).
 
-The generator script is [`scripts/generate_releases_deploy.py`](https://github.com/braze-inc/braze-docs/blob/develop/scripts/generate_releases_deploy.py).
+> **Deprecated:** `./bdocs release` still works but prints a deprecation notice. Prefer running the script directly.
 
 ### Usage example
 
 #### Example command
 
 ```bash
-$ ./bdocs release
+$ python3 scripts/generate_releases_deploy.py
 Merged deploy PRs: 2026-04-03..2026-04-13 (2026-04-03T00:00:00Z → 2026-04-13T23:59:59Z)
 Wrote /path/to/braze-docs/scripts/temp/releases_deploy_2026-04-03_to_2026-04-13.md (45123 bytes)
 ```
@@ -98,7 +100,7 @@ The path depends on your clone location.
 This command puts the output in a file called `my_deploy_list.md`.
 
 ```bash
-$ ./bdocs release scripts/temp/my_deploy_list.md
+$ python3 scripts/generate_releases_deploy.py scripts/temp/my_deploy_list.md
 Merged deploy PRs: 2026-04-03..2026-04-13 (2026-04-03T00:00:00Z → 2026-04-13T23:59:59Z)
 Wrote /path/to/braze-docs/scripts/temp/my_deploy_list.md (45123 bytes)
 ```
@@ -108,10 +110,18 @@ Wrote /path/to/braze-docs/scripts/temp/my_deploy_list.md (45123 bytes)
 This command pulls PRs from March 6, 2026 to April 2, 2026. 
 
 ```bash
-$ ./bdocs release 2026-03-06 2026-04-02 "April 2026"
+$ python3 scripts/generate_releases_deploy.py 2026-03-06 2026-04-02 "April 2026"
 Merged deploy PRs: 2026-03-06..2026-04-02 (2026-03-06T00:00:00Z → 2026-04-02T23:59:59Z)
 Wrote /path/to/braze-docs/scripts/temp/releases_deploy_2026-03-06_to_2026-04-02.md (28491 bytes)
 ```
+
+#### Legacy wrapper
+
+```bash
+$ ./bdocs release
+```
+
+Same behavior as `python3 scripts/generate_releases_deploy.py`, with a deprecation notice on stderr.
 
 #### Excerpt from example generated Markdown
 

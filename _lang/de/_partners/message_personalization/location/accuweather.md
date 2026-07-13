@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AccuWeather
 
-> [AccuWeather](https://www.accuweather.com/) ist ein Medienunternehmen, das weltweit Dienste zur Wettervorhersage anbietet. Mit AccuWeather können Sie Ihre Marketingkampagnen anreichern und personalisieren sowie Übersetzungen durch den Einsatz von Braze [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) automatisieren.
+> [AccuWeather](https://www.accuweather.com/) ist ein Medienunternehmen, das weltweit Dienste zur Wettervorhersage anbietet. Mit AccuWeather können Sie Ihre Marketingkampagnen anreichern und personalisieren sowie Übersetzungen durch den Einsatz von Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) automatisieren.
 
 _Diese Integration wird von AccuWeather gepflegt._
 
@@ -19,7 +19,7 @@ _Diese Integration wird von AccuWeather gepflegt._
 | Anforderung | Beschreibung |
 |---|---|
 | AccuWeather API-Schlüssel | Kontaktieren Sie Ihren AccuWeather Account Manager, um kompatible API-Schlüssel für Ihre Anfrage-URLs zu erhalten.<br><br>Weitere Anweisungen finden Sie auf der Seite [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Verfügbare AccuWeather APIs {#available-accuweather-apis}
 
@@ -36,7 +36,7 @@ Im Folgenden finden Sie die AccuWeather APIs, die Sie in Ihren Braze Campaigns u
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | Rufen Sie Radar- und Satellitenbilder ab. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Erhalten Sie die aktuelle Position, frühere Positionen und Vorhersagen für tropische Wirbelstürme weltweit. |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | Erhalten Sie eine Liste der verfügbaren Sprachen. Erhalten Sie Übersetzungen für bestimmte Gruppen von Phrasen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare AccuWeather APIs" }
 
 ## Connected-Content-Beispiel {#connected-content-example}
 
@@ -58,13 +58,13 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-![Eine Connected-Content-Push-Nachricht mit dem Inhalt „It's raining! Grab an Umbrella!“, angezeigt auf einem Android-Gerät]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
+![Eine Connected-Content-Push-Nachricht mit dem Text „It's raining! Grab an Umbrella!“, angezeigt auf einem Android-Gerät]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
 
 Eine Aufschlüsselung der beiden Connected-Content-Aufrufe finden Sie in den folgenden Beispielen.
 
 {% tabs %}
 {% tab Locations %}
-#### Locations-API-Beispiel {#locations-api-example}
+### Locations-API-Beispiel {#locations-api-example}
 
 {% raw %}
 Innerhalb des ersten `connected_content`-Tags wird eine GET-Anfrage an die [Locations API](https://apidev.accuweather.com/developers/locationsAPIguide) gestellt. Für dieses Beispiel können Sie alternativ die `{{${city}}}` der Nutzer:in nutzen, wenn Sie kein angepasstes Attribut für die Postleitzahl haben.
@@ -157,9 +157,9 @@ Dieses JSON-Objekt kann in einer lokalen Variable `location_info` gespeichert we
 {% endtab %}
 {% tab Current conditions %}
 
-#### Current-Conditions-API-Beispiel {#current-conditions-api-example}
+### Current-Conditions-API-Beispiel {#current-conditions-api-example}
 
-Für den zweiten `connected_content`-Tag wird eine GET-Anfrage an die [Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) gestellt. Der **Location Key** muss der Anfrage-URL hinzugefügt werden. Hier ist ein Beispiel für den `connected_content`-Tag:
+Für den zweiten `connected_content`-Tag wird eine GET-Anfrage an die [Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) gestellt. Der **Standortschlüssel** muss der Anfrage-URL hinzugefügt werden. Hier ist ein Beispiel für den `connected_content`-Tag:
 
 {% raw %}
 ```

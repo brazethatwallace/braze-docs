@@ -24,15 +24,9 @@ Para obtener los mejores resultados, consulta las siguientes directrices sobre t
 (iOS) 2:1 *Recomendado* | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG, GIF
 (Android) Icono push | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 (Android) Notificación expandida | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Push en iOS y Android" }
 
-{% alert note %}
-Los GIF no son compatibles con las notificaciones push de Android. Esta es una limitación de la plataforma Android, no de Braze.
-
-Para los mensajes dentro de la aplicación y Content Cards en Android, puedes admitir GIF integrando una biblioteca de imágenes de terceros, como [Glide](https://bumptech.github.io/glide/) o [Fresco](https://frescolib.org/).
-
-En iOS, las notificaciones push admiten GIF. Los mensajes dentro de la aplicación y Content Cards requieren un proveedor de imágenes GIF personalizado.
-{% endalert %}
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 {% endtab %}
 {% tab Texto %}
@@ -44,9 +38,9 @@ En iOS, las notificaciones push admiten GIF. Los mensajes dentro de la aplicaci�
 (iOS) Alerta de banner | 80 caracteres | 65 caracteres
 (Android) Pantalla de bloqueo | 49 caracteres | N/A
 (Android) Panel de notificaciones | 597 caracteres | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push en iOS y Android" }
 
-¿Te preguntas cuántos caracteres puedes usar en una notificación push de iOS sin que se trunque? Consulta nuestras [directrices de recuento de caracteres en iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+¿Te preguntas cuántos caracteres puedes usar en una notificación push de iOS sin que se trunque? Consulta nuestras [directrices de recuento de caracteres en iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 {% endtab %}
 {% tab Tamaño de carga útil %}
@@ -56,7 +50,7 @@ En iOS, las notificaciones push admiten GIF. Los mensajes dentro de la aplicaci�
 pre iOS 8 | 0,256 KB
 post iOS 8 | 2 KB
 Android (FCM) | 4 KB
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push en iOS y Android" }
 
 {% endtab %}
 {% tab Ejemplo de imagen %}
@@ -99,14 +93,16 @@ Las notificaciones con imágenes grandes se muestran mejor cuando se utiliza una
 
 | **Navegador** | **Tamaño de icono recomendado**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Notificación push web" }
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (Los iconos se pueden configurar por campaña con Safari 16+ en macOS 13+)
 Opera | 192x192 ≥
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Notificación push web" }
 
 | **Navegador** | **Plataforma** | **Tamaño de imagen grande**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificación push web" }
 Chrome | Android | Relación de aspecto 2:1
 Firefox | Android | N/A
 Chrome | Windows | Relación de aspecto 2:1
@@ -117,13 +113,14 @@ Safari | macOS | N/A
 Chrome | macOS | N/A
 Firefox | macOS | N/A
 Opera | macOS | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificación push web" }
 
 {% endtab %}
 {% tab Texto %}
 
 | **Navegador** | **Plataforma** | **Longitud máxima del título**  | **Longitud máxima del cuerpo del mensaje**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Notificación push web" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120
@@ -134,7 +131,7 @@ Chrome | macOS | 35 | 50
 Safari | macOS | 38 | 84
 Firefox | macOS | 38 | 42
 Opera | macOS | 38 | 42
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Notificación push web" }
 
 {% endtab %}
 {% endtabs %}

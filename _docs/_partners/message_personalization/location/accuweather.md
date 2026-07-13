@@ -19,7 +19,7 @@ _This integration is maintained by AccuWeather._
 | Requirement | Description |
 |---|---|
 | AccuWeather API Key | Contact your AccuWeather account manager for compatible API keys to use in your request URLs.<br><br>Further instructions can be found on the [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/) page. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Available AccuWeather APIs
 
@@ -36,7 +36,7 @@ The following are the AccuWeather APIs you can reference within your Braze campa
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | Get radar and satellite images. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Get current position, past positions, and forecasts for tropical cyclones worldwide. |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | Get a list of available languages. Get translations for specific groups of phrases. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available AccuWeather APIs" }
 
 ## Connected Content example
 
@@ -64,7 +64,7 @@ A breakdown of the two Connected Content calls can be found in the following exa
 
 {% tabs %}
 {% tab Locations %}
-#### Locations API example
+### Locations API example
 
 {% raw %}
 Within the first `connected_content` tag, a GET request is made to the [Locations API](https://apidev.accuweather.com/developers/locationsAPIguide). For this example, you can alternatively leverage the user's `{{${city}}}` if you do not have a zip code custom attribute.
@@ -157,7 +157,7 @@ This JSON object can be stored into a local variable `location_info` by specifyi
 {% endtab %}
 {% tab Current conditions %}
 
-#### Current conditions API example
+### Current conditions API example
 
 For the second `connected_content` tag, a GET request is made to the [Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide). The **location key** will need to be added to the request URL. Here is the example `connected_content` tag:
 

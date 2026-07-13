@@ -4,7 +4,7 @@ article_title: Kanäle
 page_order: 5
 layout: dev_guide
 guide_top_header: "Kanäle"
-guide_top_text: "Erreichen Sie Ihre Nutzer:innen über den richtigen Kanal zum richtigen Zeitpunkt. Wählen Sie zwischen In-Produkt-Kanälen wie In-App-Nachrichten, Content-Cards und Bannern oder externen Kanälen wie Push, E-Mail, SMS und WhatsApp."
+guide_top_text: "Erreichen Sie Ihre Nutzer:innen über den richtigen Kanal zum richtigen Zeitpunkt. Wählen Sie zwischen In-Produkt-Kanälen wie In-App-Nachrichten, Content Cards und Bannern oder externen Kanälen wie Push, E-Mail, SMS und WhatsApp."
 
 page_type: landing
 description: "Erreichen Sie Ihre Nutzer:innen über In-Produkt- und externe Messaging-Kanäle in Braze."
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: In-App-Nachrichten
     link: /docs/user_guide/channels/in_app_messages
     image: /assets/img/braze_icons/phone-02.svg
-  - name: Content-Cards
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Banner
@@ -36,7 +36,7 @@ guide_menu_list:
     link: /docs/user_guide/channels/line
     image: /assets/img/braze_icons/message-chat-circle.svg
   - name: Live-Benachrichtigungen
-    link: /docs/developer_guide/live_notifications/
+    link: /docs/developer_guide/live_notifications
     image: /assets/img/braze_icons/phone-02.svg
   - name: Push
     link: /docs/user_guide/channels/push
@@ -61,7 +61,7 @@ Wenn Sie entscheiden, welcher Messaging-Kanal für Ihre Campaigns und Canvases a
 
 Die Braze Messaging-Matrix vereinfacht die Kanalauswahl, indem sie **Inhaltskomplexität** gegen **Zustellungsdringlichkeit** abbildet. Durch die Abwägung dieser beiden Faktoren können Sie dafür sorgen, dass Ihre Nachricht Resonanz erzeugt, anstatt zu stören.
 
-![Mobile-/Web-Push sind einfacher Inhalt mit hoher Dringlichkeit; E-Mails sind reichhaltiger Inhalt mit hoher Dringlichkeit; In-App-/Browser-Nachrichten sind einfacher Inhalt mit niedriger Dringlichkeit; Content-Cards sind niedrige Dringlichkeit mit reichhaltigem Inhalt]({% image_buster /assets/img_archive/messaging_matrix.png %})
+![Mobile-/Web-Push sind einfacher Inhalt mit hoher Dringlichkeit; E-Mails sind reichhaltiger Inhalt mit hoher Dringlichkeit; In-App-/Browser-Nachrichten sind einfacher Inhalt mit niedriger Dringlichkeit; Content Cards sind niedrige Dringlichkeit mit reichhaltigem Inhalt]({% image_buster /assets/img_archive/messaging_matrix.png %})
 
 Die Matrix hebt zwar die wichtigsten Kanäle hervor, ist aber anpassbar: SMS und WhatsApp beispielsweise sind Kanäle mit hoher Dringlichkeit, die durch Multimedia-Formate auch reichhaltigen Inhalt ermöglichen. Um mehr darüber zu erfahren, wie Sie diese Matrix nutzen können, schauen Sie sich unseren Braze-Lernkurs zu [kanalübergreifendem Messaging](https://learning.braze.com/cross-channel-messaging) an.
 
@@ -70,6 +70,6 @@ Die Matrix hebt zwar die wichtigsten Kanäle hervor, ist aber anpassbar: SMS und
 Sie können Braze nutzen, um barrierefreie Messaging-Kampagnen über jeden Kanal zu erstellen. Arbeiten Sie mit Ihrem Entwicklungsteam zusammen, um sicherzustellen, dass Sie die Barrierefreiheitsstandards in Ihrer Implementierung einhalten. Wenn Sie zusätzliche Orientierung wünschen, empfehlen wir:
 
 - [Grundlagen barrierefreier Nachrichten](https://learning.braze.com/accessible-messaging-foundations): Lernen Sie in diesem Braze-Lernkurs grundlegende Barrierefreiheitsprinzipien kennen, die für Markenkommunikation gelten.
-- [Barrierefreie Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/): Erfahren Sie, wie Sie Alt-Text hinzufügen und Ihre Inhalte für assistive Technologien direkt in Braze strukturieren.
+- [Barrierefreie Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility): Erfahren Sie, wie Sie Alt-Text hinzufügen und Ihre Inhalte für assistive Technologien direkt in Braze strukturieren.
 
-Wenn Sie Feedback zur Barrierefreiheit von Braze oder über Braze versendeten Nachrichten haben, freuen wir uns, von Ihnen zu hören. Öffnen Sie das **Support**-Menü in der globalen Kopfzeile und wählen Sie **Share feedback**, um uns Ihre Gedanken mitzuteilen.
+Wenn Sie Feedback zur Barrierefreiheit von Braze oder über Braze versendeten Nachrichten haben, freuen wir uns, von Ihnen zu hören. Öffnen Sie das **Support**-Menü in der globalen Kopfzeile und wählen Sie **Feedback teilen**, um uns Ihre Gedanken mitzuteilen.

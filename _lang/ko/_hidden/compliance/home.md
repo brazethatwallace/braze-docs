@@ -68,7 +68,7 @@ Braze는 [www.braze.com/subprocessors](https://www.braze.com/subprocessors/)의 
 
 ### 웹훅 사용 예외 조건 {#webhook-use-exception-terms}
 
-2024년 12월 9일 이후에 메시지 크레딧을 구독한 고객(주문서 발효일 기준)에게 적용됩니다: 웹훅 채널 규정 준수 설명서에 명시된 제한 사항은 타사 제공자 플랫폼을 통해 모바일 메시지를 발송하기 위한 웹훅 사용에는 적용되지 않습니다.
+2024년 12월 9일 이후에 액션 크레딧을 구독한 고객(주문서 발효일 기준)에게 적용됩니다: 웹훅 채널 규정 준수 설명서에 명시된 제한 사항은 타사 제공자 플랫폼을 통해 모바일 메시지를 발송하기 위한 웹훅 사용에는 적용되지 않습니다.
 
 ### 자체 SMS 커넥터(BYO SMS Connector) {#bring-your-own-byo-sms-connector}
 
@@ -102,7 +102,7 @@ Braze는 Braze 서비스 외부에서 메시지 발송 또는 기타 동작을 �
 
 ### 적용 가능한 타사 제공자 조건 {#applicable-third-party-provider-terms}
 
-고객은 Braze [WhatsApp 설정](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) 페이지에 설명된 바와 같이, WhatsApp, LLC 및 그 계열사가 요구하는 조건을 포함하여 WhatsApp 채널에 적용되는 모든 필수 조건, 조건 및 정책을 준수해야 합니다.
+고객은 Braze [WhatsApp 설정]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) 페이지에 설명된 바와 같이, WhatsApp, LLC 및 그 계열사가 요구하는 조건을 포함하여 WhatsApp 채널에 적용되는 모든 필수 조건, 조건 및 정책을 준수해야 합니다.
 
 ### 웹훅 사용 예외 조건
 
@@ -118,7 +118,7 @@ Braze는 Braze 서비스 외부에서 메시지 발송 또는 기타 동작을 �
 
 ### 필수 조건 {#pre-requisites}
 
-LINE 채널을 통해 메시지를 발송하려면, 고객은 LINE의 자체 재량에 따라 승인 및 부여되는 LINE 인증 공식 계정을 획득해야 합니다. 고객은 LINE 채널 사용을 위한 Braze 메시지 크레딧을 구매하기 전에 LINE으로부터 인증 공식 계정을 획득해야 합니다.
+LINE 채널을 통해 메시지를 발송하려면, 고객은 LINE의 자체 재량에 따라 승인 및 부여되는 LINE 인증 공식 계정을 획득해야 합니다. 고객은 LINE 채널 사용을 위한 Braze 액션 크레딧을 구매하기 전에 LINE으로부터 인증 공식 계정을 획득해야 합니다.
 
 ### 적용 가능한 타사 제공자 조건
 
@@ -135,7 +135,7 @@ LINE 조건에 상반되는 내용이 있더라도, 고객은 LINE 서비스 사
 
 고객은 Shopify가 언제든지 자체 재량에 따라 다음을 수행할 수 있음을 인정합니다: (i) Braze가 고객의 Shopify 통합 액세스를 비활성화하거나 차단하도록 요구하는 것, 또는 (ii) 고객의 Shopify 통합 액세스 제공을 중단, 일시 중지 또는 종료하는 것. Braze는 Shopify가 고객 또는 Braze 서비스 전반을 통해 Shopify 통합에 대한 액세스 제공을 중단하는 것과 관련하여 어떠한 책임도 지지 않습니다.
 
-## 6. 오디언스 동기화 규정 준수 설명서 {#audience-sync-compliance-documentation}
+## 6. 오디언스 동기화 규정 준수 설명서 {audience-sync-compliance-documentation} {#6-audience-sync-compliance-documentation-audience-sync-compliance-documentation}
 
 다음 추가 조건은 고객의 오디언스 동기화 사용에 적용됩니다.
 

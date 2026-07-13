@@ -112,6 +112,26 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+Reading `braze.featureFlags.featureFlags` or `braze.featureFlags.featureFlag(id:)` blocks the calling thread until the SDK has completed its post-initialization operations. For main-thread or latency-sensitive contexts, use [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)) instead.
+
+```swift
+// Non-blocking — completion handler always delivers on the main thread.
+braze.featureFlags.getAllFeatureFlags { flags in
+  let liveChatEnabled = flags.first(where: { $0.id == "enable_live_chat" })?.enabled ?? false
+  liveChatView.isHidden = !liveChatEnabled
+}
+```
+
+In Objective-C:
+
+```objc
+[braze.featureFlags getAllFeatureFlagsWithCompletion:^(NSArray<BRZFeatureFlag *> *flags) {
+  // Use `flags` here.
+}];
+```
+{% endalert %}
+
 ```swift
 // Get the initial value from the Braze SDK
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")
@@ -243,6 +263,8 @@ Now, users in this segment start to see the new loyalty program, and after it's 
 
 Use feature flags to experiment and confirm your hypotheses around your new feature. By splitting traffic into two or more groups, you can compare the impact of a feature flag across groups, and determine the best course of action based on the results.
 
+For feature flag experiments, you can have up to nine total groups: one control group plus up to eight variants.
+
 An [A/B test]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) is a powerful tool that compares users' responses to multiple versions of a variable.
 
 In this example, our team has built a new checkout flow for our eCommerce app. Even though we're confident it's improving the user experience, we want to run an A/B test to measure its impact on our app's revenue.
@@ -318,9 +340,13 @@ Once we determine our winner, we can stop this campaign and increase the rollout
 
 ### Segmentation
 
-Use the **Feature Flag** filter to create a segment or target messaging at users based on whether they have a feature flag enabled. For example, let's say we have a feature flag that controls premium content in our app. We could create a segment that filters for users who don't have the feature flag enabled, and then send that segment a message urging them to upgrade their account to view premium content.
+Use the **Feature Flag** filter to create a segment or target messaging at users based on whether they have a feature flag enabled. For example, say you have a feature flag that controls premium content in your app. You could create a segment that filters for users who don't have the feature flag enabled, and then send that segment a message urging them to upgrade their account to view premium content.
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
+1. Open your segment or message audience.
+2. Add the **Feature Flag** filter.
+3. Select the feature flag.
+4. Set the comparator to **is** to include users who have the feature flag enabled, or **is not** to include users who do not.
+![Braze segment builder using a Feature Flag enabled-value filter.]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
 
 For more information about filtering on segments, see [Creating a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
@@ -337,7 +363,7 @@ These are the feature flag limitations for free and paid plans.
 | [Active feature flags](#active-feature-flags)                                                                     | 10 per workspace | 110 per workspace |
 | [Active campaign experiments]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | 1 per workspace  | 100 per workspace |
 | [Feature Flag Canvas steps]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | Unlimited        | Unlimited         |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
 
 A feature flag is considered active and will count toward your limit if any of the following apply:
 

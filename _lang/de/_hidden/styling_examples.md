@@ -152,7 +152,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | US-08    | `https://dashboard-08.braze.com`                                      | `https://rest.iad-08.braze.com` |
 | EU-01    | `https://dashboard.braze.eu` oder<br> `https://dashboard-01.braze.eu`   | `https://rest.fra-01.braze.eu`  |
 | AU-01    | `https://dashboard.au-01.braze.com/`                                  | `https://rest.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
 {% endtab %}
 {% tab Markdown %}
 ```
@@ -169,7 +169,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | EU-01    | `https://dashboard.braze.eu` or<br> `https://dashboard-01.braze.eu`   | `https://rest.fra-01.braze.eu`  |
 | EU-02    | `https://dashboard-02.braze.eu`                                       | `https://rest.fra-02.braze.eu`  |
 | AU-01    | `https://dashboard.au-01.braze.com/`                                  | `https://rest.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
 ```
 {% endtab %}
 {% endtabs %}
@@ -179,7 +179,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 Um den Tabellen-Wortumbruch nach Spalte zurückzusetzen, verwenden Sie die folgende Syntax:
 
 ```markdown
-{: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM role="presentation"}
+{: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM aria-label="Resetting Table word-break by column" }
 ```
 
 Ersetzen Sie `NUM` durch die entsprechende Spaltennummer, bis zu maximal 4 Spalten. Wenn Sie weniger als 4 Spalten haben, entfernen Sie die zusätzlichen `.reset-td-br-NUM`-Platzhalter. Ihre Tabelle sollte in etwa so aussehen:
@@ -190,27 +190,27 @@ Ersetzen Sie `NUM` durch die entsprechende Spaltennummer, bis zu maximal 4 Spalt
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | An email was successfully delivered to a User's mail server. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | User opened an email.                                        | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | In-App Message Impression                                        | Platform-specific Feed | User viewed an In-App Message.                               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Resetting Table word-break by column" }
 
 ```
 {% tabs local %}
-{% tab Before %}
+{% tab Vorher %}
 
 | Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | An email was successfully delivered to a User's mail server. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
-| `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | User opened an email.                                        | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
-| In-App-Message-Impression                                        | Platform-specific Feed | User viewed an In-App Message.                               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
+| UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | Eine E-Mail wurde erfolgreich an den Mailserver einer Nutzer:in zugestellt. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
+| `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | Nutzer:in hat eine E-Mail geöffnet.                          | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
+| In-App-Message-Impression                                        | Platform-specific Feed | Nutzer:in hat eine In-App-Nachricht angesehen.               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
 
 {% endtab %}
-{% tab After %}
+{% tab Nachher %}
 
 | Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | An email was successfully delivered to a User's mail server. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
-| `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | User opened an email.                                        | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
-| In-App-Message-Impression                                        | Platform-specific Feed | User viewed an In-App Message.                               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation"}
+| UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | Eine E-Mail wurde erfolgreich an den Mailserver einer Nutzer:in zugestellt. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
+| `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | Nutzer:in hat eine E-Mail geöffnet.                          | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
+| In-App-Message-Impression                                        | Platform-specific Feed | Nutzer:in hat eine In-App-Nachricht angesehen.               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Resetting Table word-break by column" }
 {% endtab %}
 {% endtabs %}
 
@@ -654,10 +654,10 @@ Subtab-2a-Inhalt
 Tab-Inhalt 2
 {% subtabs %}
 {% subtab Subtab 1b %}
-Subtab-1a-Inhalt
+Subtab-1b-Inhalt
 {% endsubtab %}
 {% subtab Subtab 2b %}
-Subtab-2a-Inhalt
+Subtab-2b-Inhalt
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

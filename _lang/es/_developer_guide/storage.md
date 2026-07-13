@@ -17,7 +17,7 @@ platform:
 
 ## Propiedades del dispositivo {#device-properties}
 
-De forma predeterminada, Braze recopilará las siguientes propiedades a nivel de dispositivo para permitir la personalización de mensajes basada en el dispositivo, el idioma y la zona horaria:
+De forma predeterminada, Braze recopila las siguientes propiedades a nivel de dispositivo para permitir la personalización de mensajes basada en el dispositivo, el idioma y la zona horaria:
 
 {% tabs %}
 {% tab web %}
@@ -58,7 +58,7 @@ De forma predeterminada, Braze recopilará las siguientes propiedades a nivel de
 - Zona horaria del dispositivo
 
 {% alert note %}
-El SDK de Braze no recopila IDFA automáticamente. Las aplicaciones pueden pasar opcionalmente IDFA a Braze implementando los métodos que se indican directamente a continuación. Las aplicaciones deben obtener la adhesión voluntaria explícita al seguimiento por parte del usuario final a través del marco de transparencia de seguimiento de aplicaciones antes de pasar IDFA a Braze.
+El SDK de Braze no recopila IDFA automáticamente. Las aplicaciones pueden pasar opcionalmente IDFA a Braze implementando los métodos de las siguientes secciones. Las aplicaciones deben obtener la adhesión voluntaria explícita al seguimiento por parte del usuario final a través del marco de transparencia de seguimiento de aplicaciones antes de pasar IDFA a Braze.
 
 1. Para establecer el estado de seguimiento de la publicidad, utiliza [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/).
 2. Para configurar el identificador del anunciante (IDFA), utiliza [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
@@ -66,14 +66,14 @@ El SDK de Braze no recopila IDFA automáticamente. Las aplicaciones pueden pasar
 {% endtab %}
 {% endtabs %}
 
-De forma predeterminada, todas las propiedades están habilitadas. Sin embargo, puedes elegir habilitarlas o deshabilitarlas manualmente. Ten en cuenta que algunas características del SDK de Braze requieren propiedades específicas (como la entrega según la zona horaria local y la zona horaria), así que asegúrate de probar tu configuración antes de lanzarla a producción.
+De forma predeterminada, todas las propiedades están habilitadas. Sin embargo, puedes habilitarlas o deshabilitarlas manualmente. Ten en cuenta que algunas características del SDK de Braze requieren propiedades específicas (como la entrega según la zona horaria local y la zona horaria), así que asegúrate de probar tu configuración antes de lanzarla a producción.
 
 {% tabs %}
 {% tab web %}
 Por ejemplo, puedes especificar el idioma del dispositivo para incluirlo en la lista de permitidos. Para obtener más información, consulta la opción `devicePropertyAllowlist` para [`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions).
 
 ```javascript
-import * as braze from"@braze/web-sdk";
+import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
     baseUrl: "BASE-URL",
     devicePropertyAllowlist: [ braze.DeviceProperties.LANGUAGE ] // list of `DeviceProperties` you want to collect
@@ -117,23 +117,25 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Para obtener más información sobre las propiedades de los dispositivos recopiladas automáticamente, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Para obtener más información sobre las propiedades de los dispositivos recopiladas automáticamente, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 {% endalert %}
 
 ## Almacenamiento de cookies (solo Web) {#cookies}
 
-Después de [inicializar el SDK Web de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), este creará y almacenará cookies con una caducidad de 400 días que se renovarán automáticamente en nuevas sesiones.
+Después de [inicializar el SDK Web de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), el SDK crea y almacena cookies de origen (establecidas en tu propio dominio) con una caducidad de 400 días que se renuevan automáticamente en nuevas sesiones.
+
+Las cookies solo almacenan identificadores de usuario, sesión y dispositivo. Otros datos, como los mensajes dentro de la aplicación en espera de activarse, Content Cards y eventos o atributos en cola que aún no se han sincronizado con Braze, se almacenan en `localStorage`.
 
 Se almacenan las siguientes cookies:
 
-|Cookie|Descripción|Tamaño|
+| Cookie | Descripción | Tamaño |
 | --- | ---- | --- |
-|`ab.storage.userId.[your-api-key]`|Se utiliza para determinar si el usuario conectado actualmente ha cambiado y para asociar eventos con el usuario actual.|En función del tamaño del valor pasado a `changeUser`|
-|`ab.storage.sessionId.[your-api-key]`|Cadena generada aleatoriamente que se utiliza para determinar si el usuario está iniciando una sesión nueva o existente, para sincronizar mensajes y calcular los análisis de la sesión.|~200 bytes|
-|`ab.storage.deviceId.[your-api-key]`|Cadena generada aleatoriamente que se utiliza para identificar a los usuarios anónimos, diferenciar los dispositivos de los usuarios y habilitar la mensajería basada en dispositivos.|~200 bytes|
-|`ab.optOut`|Se utiliza para almacenar la preferencia de exclusión de un usuario cuando se llama a `disableSDK`.|~40 bytes|
-|`ab._gd`|Se crea temporalmente (y luego se elimina) para determinar el dominio de cookie de nivel raíz, lo que permite que el SDK funcione correctamente en subdominios.|n/a|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `ab.storage.userId.[your-api-key]` | Se utiliza para determinar si el usuario conectado actualmente ha cambiado y para asociar eventos con el usuario actual. | En función del tamaño del valor pasado a `changeUser` |
+| `ab.storage.sessionId.[your-api-key]` | Cadena generada aleatoriamente que se utiliza para determinar si el usuario está iniciando una sesión nueva o existente, para sincronizar mensajes y calcular los análisis de la sesión. | ~200 bytes |
+| `ab.storage.deviceId.[your-api-key]` | Cadena generada aleatoriamente que se utiliza para identificar a los usuarios anónimos, diferenciar los dispositivos de los usuarios y habilitar la mensajería basada en dispositivos. | ~200 bytes |
+| `ab.optOut` | Se utiliza para almacenar la preferencia de exclusión de un usuario cuando se llama a `disableSDK`. | ~40 bytes |
+| `ab._gd` | Se crea temporalmente (y luego se elimina) para determinar el dominio de cookie de nivel raíz, lo que permite que el SDK funcione correctamente en subdominios. | n/a |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Almacenamiento de cookies (solo Web)" }
 
 ### Cambiar la caducidad de las cookies {#cookie-expiry}
 
@@ -149,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### Desactivar cookies {#disable-cookies}
 
-Para desactivar todas las cookies, utiliza la opción [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) al inicializar el SDK Web. Esto evitará que se asocien usuarios anónimos que navegan entre subdominios y dará lugar a un nuevo usuario en cada subdominio.
+Para desactivar todas las cookies, utiliza la opción [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) al inicializar el SDK Web. Cuando las cookies están desactivadas, el SDK utiliza `localStorage` en su lugar para identificar usuarios y sesiones. Esto evita que se asocien usuarios anónimos que navegan entre subdominios y da lugar a un nuevo usuario en cada subdominio.
 
 ```javascript
 import * as braze from "@braze/web-sdk";

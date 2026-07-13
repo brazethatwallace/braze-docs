@@ -16,7 +16,7 @@ Braze Swift SDKのインストールには、[Swift Package Manager（SwiftPM）
 
 プロジェクトを開き、プロジェクトの設定に移動します。**Swift Packages**タブを選択し、パッケージリストの下にある<i class="fas fa-plus"></i>追加ボタンをクリックします。
 
-![]({% image_buster /assets/img/swiftpackages.png %})
+![Swift Packagesタブとパッケージ追加ボタンが表示されたXcodeプロジェクト設定。]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
 バージョン7.4.0以降、Braze Swift SDKには[静的XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static)および[動的XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic)としての追加の配布チャネルがあります。これらの形式のいずれかを使用したい場合は、それぞれのリポジトリのインストール手順に従ってください。
@@ -24,17 +24,18 @@ Braze Swift SDKのインストールには、[Swift Package Manager（SwiftPM）
 
 iOS Swift SDKリポジトリのURL `https://github.com/braze-inc/braze-swift-sdk` をテキストフィールドに入力します。**Dependency Rule**セクションで、SDKバージョンを選択します。最後に、**Add Package**をクリックします。
 
-![]({% image_buster /assets/img/importsdk_example.png %})
+![Braze Swift SDKリポジトリURLが入力されたXcodeのAdd Packageダイアログ。]({% image_buster /assets/img/importsdk_example.png %})
 
 #### ステップ1.2：パッケージを選択する {#step-12-select-your-packages}
 
-Braze Swift SDKは、開発者がどの機能をプロジェクトにインポートするかをより詳細に制御できるように、機能をスタンドアロンライブラリーに分離しています。
+Braze Swift SDKは、開発者がどの機能をプロジェクトにインポートするかをより詳細にコントロールできるように、機能をスタンドアロンライブラリーに分離しています。
 
 | パッケージ | 詳細 |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `BrazeKit` | 分析とプッシュ通知をサポートするメインSDKライブラリー。 |
 | `BrazeLocation` | 位置情報分析とジオフェンス監視をサポートする位置情報ライブラリー。 |
 | `BrazeUI` | アプリ内メッセージ、Content Cards、バナー用のBraze提供ユーザーインターフェイスライブラリー。デフォルトのUIコンポーネントを使用する場合は、このライブラリーをインポートしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1.2：パッケージを選択する" }
 
 {: .ws-td-nw-1}
 
@@ -48,12 +49,13 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | リッチプッシュ通知をサポートする通知サービス拡張ライブラリー。 |
 | `BrazePushStory` | Push Storiesをサポートする通知コンテンツ拡張ライブラリー。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="拡張ライブラリーについて" }
 
 {: .ws-td-nw-1}
 
 ご自身のニーズに最も適したパッケージを選択し、**Add Package**をクリックしてください。必ず最低でも`BrazeKit`を選択してください。
 
-![]({% image_buster /assets/img/add_package.png %})
+![パッケージ追加前にBrazeKitが選択されたXcodeパッケージプロダクトリスト。]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}
@@ -89,12 +91,13 @@ end
 
 ##### 追加ライブラリーについて {#about-additional-libraries}
 
-Braze Swift SDKは、開発者がどの機能をプロジェクトにインポートするかをより詳細に制御できるように、機能をスタンドアロンライブラリーに分離しています。`BrazeKit`に加えて、以下のライブラリーをPodfileに追加できます：
+Braze Swift SDKは、開発者がどの機能をプロジェクトにインポートするかをより詳細にコントロールできるように、機能をスタンドアロンライブラリーに分離しています。`BrazeKit`に加えて、以下のライブラリーをPodfileに追加できます：
 
 | ライブラリー | 詳細 |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | 位置情報分析とジオフェンス監視をサポートする位置情報ライブラリー。 |
 | `pod 'BrazeUI'` | アプリ内メッセージ、Content Cards、バナー用のBraze提供ユーザーインターフェイスライブラリー。デフォルトのUIコンポーネントを使用する場合は、このライブラリーをインポートしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="追加ライブラリーについて" }
 
 {: .ws-td-nw-1}
 
@@ -106,6 +109,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | リッチプッシュ通知をサポートする通知サービス拡張ライブラリー。 |
 | `pod 'BrazePushStory'` | Push Storiesをサポートする通知コンテンツ拡張ライブラリー。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="拡張ライブラリー" }
 
 {: .ws-td-nw-1}
 
@@ -150,8 +154,9 @@ Braze Swift SDKにはさまざまなスタンドアロンのXCFrameworkが含ま
 | `BrazeKitCompat` | いいえ | `Appboy-iOS-SDK`バージョン4.X.Xで使用可能だったすべての`Appboy`および`ABK*`クラスとメソッドを含む互換性ライブラリー。使用の詳細については、[移行ガイド](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)の最小限の移行シナリオを参照してください。 |
 | `BrazeUICompat` | いいえ | `Appboy-iOS-SDK`バージョン4.X.Xの`AppboyUI`ライブラリーで使用可能だったすべての`ABK*`クラスとメソッドを含む互換性ライブラリー。使用の詳細については、[移行ガイド](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)の最小限の移行シナリオを参照してください。 |
 | `SDWebImage` | いいえ | 最小限の移行シナリオで`BrazeUICompat`によってのみ使用される依存関係。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2：フレームワークを選択する" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1.2：フレームワークを選択する" }
 
 #### ステップ1.3：ファイルを準備する {#step-13-prepare-your-files}
 
@@ -461,16 +466,20 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
 ```
 
-**設定の管理**ページから、`YOUR-APP-IDENTIFIER-API-KEY`と`YOUR-BRAZE-ENDPOINT`を正しい値で更新してください。アプリ識別子APIキーの場所について詳しくは、[APIドキュメント]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key)をご覧ください。
+**設定の管理**ページから、`YOUR-APP-IDENTIFIER-API-KEY`と`YOUR-BRAZE-ENDPOINT`を正しい値で更新してください。アプリ識別子APIキーの場所について詳しくは、[APIドキュメント]({{site.baseurl}}/api/api_key#the-app-identifier-api-key)をご覧ください。
 
 {% endsubtab %}
 {% endsubtabs local %}
+
+{% alert note %}
+`Braze.init`は呼び出しスレッド上で即座に返されます。SDKは内部キューで起動処理を行います。`init`の直後にメインスレッドで`braze.deviceId`などの同期プロパティを読み取ると、SDKが初期化後の処理を完了するまで呼び出しスレッドがブロックされます。メインスレッドやレイテンシに敏感なコンテキストでは、ブロックせずに値を読み取るために`braze.getDeviceId(_:)`（Swift）または`[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]`（Objective-C）を使用してください。
+{% endalert %}
 
 ## オプション設定 {#optional-configurations}
 
 ### ロギング {#logging}
 
-すべてのプラットフォームにわたる一元的な概要については、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)を参照してください。ログ出力の解釈方法については、[詳細ログの読み方]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/)を参照してください。
+すべてのプラットフォームにわたる一元的な概要については、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)を参照してください。ログ出力の解釈方法については、[詳細ログの読み方]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs)を参照してください。
 
 #### ログレベル {#log-levels}
 
@@ -482,8 +491,9 @@ Braze Swift SDKのデフォルトのログレベルは`.error`です。これは
 | `.info` | `BRZLoggerLevelInfo` | 一般的なSDK情報（ユーザーの変更など）+ `.error`を記録します。 |
 | `.error` | `BRZLoggerLevelError` | エラーを記録します。 |
 | `.disabled` | `BRZLoggerLevelDisabled` | ロギングは行われません。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ログレベル" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ログレベル" }
 
 #### ログレベルの設定 {#setting-the-log-level}
 

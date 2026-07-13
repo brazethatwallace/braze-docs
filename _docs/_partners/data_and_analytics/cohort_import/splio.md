@@ -19,7 +19,7 @@ The Braze and Splio integration lets you plan and execute better CRM strategies,
 | Requirement | Description |
 |---|---|
 | Splio account | You need a Splio account for this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Data import integration
 

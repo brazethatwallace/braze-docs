@@ -1,60 +1,59 @@
 ---
 nav_title: "GET: Mostrar el estado del grupo de suscripción de los usuarios"
 article_title: "GET: Listar el estado del grupo de suscripción del usuario"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Enumerar el estado del grupo de suscripción del usuario de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Listar el estado del grupo de suscripción del usuario de Braze."
 
 ---
 {% api %}
-# Listar el estado del grupo de suscripción del usuario
+# Listar el estado del grupo de suscripción del usuario {#list-users-subscription-group-status}
 {% apimethod get %}
 /subscription/status/get
 {% endapimethod %}
 
-> Utilice este punto final para obtener el estado de suscripción de un usuario en un grupo de suscripción.
+> Utiliza este punto de conexión para obtener el estado de suscripción de un usuario en un grupo de suscripción.
 
-Estos grupos estarán disponibles en la página **Grupo de suscripción**. La respuesta de este punto final incluirá el ID externo y la categoría de suscrito, dado de baja o desconocido para el grupo de suscripción específico solicitado en la llamada a la API. Esto se puede utilizar para actualizar el estado del grupo de suscripción en posteriores llamadas a la API o para mostrarlo en una página web alojada.
+Estos grupos estarán disponibles en la página **Grupo de suscripción**. La respuesta de este punto de conexión incluirá el ID externo y el valor suscrito, dado de baja o desconocido para el grupo de suscripción específico solicitado en la llamada a la API. Esto se puede utilizar para actualizar el estado del grupo de suscripción en posteriores llamadas a la API o para mostrarlo en una página web alojada.
 
-Si desea ver ejemplos o probar este punto final para **Grupos de suscripción por correo electrónico**:
+Si quieres ver ejemplos o probar este punto de conexión para **grupos de suscripción de correo electrónico**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
 
-Si quieres ver ejemplos o probar este punto final para **Grupos de Suscripción SMS**:
+Si quieres ver ejemplos o probar este punto de conexión para **grupos de suscripción de SMS**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4b8515b8-067f-41fd-b213-8bb2d18b1557 {% endapiref %}
 
-Si quieres ver ejemplos o probar este punto final para **Grupos de WhatsApp**:
+Si quieres ver ejemplos o probar este punto de conexión para **grupos de WhatsApp**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4b8515b8-067f-41fd-b213-8bb2d18b1557 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `subscription.status.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `subscription.status.get`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids)  | Obligatoria | Cadena | La dirección `id` de su grupo de suscripción. |
-| `external_id`  |  Requerido* | Cadena | La dirección `external_id` del usuario (debe incluir como mínimo uno y como máximo 50 `external_ids`). <br><br>Cuando se envían tanto un `external_id` como un `email`/`phone`, solo se aplicarán a la consulta de resultados los `external_id` proporcionados. |
-| `email` | Requerido* | Cadena | La dirección de correo electrónico del usuario. Se puede pasar como una matriz de cadenas con un máximo de 50.<br><br> Si envías una dirección de correo electrónico y un número de teléfono (sin `external_id`), se producirá un error. |
-| `phone` | Requerido* | Cadena en [E.164](https://en.wikipedia.org/wiki/E.164) formato | El número de teléfono del usuario. Si no se incluye el correo electrónico, deberá incluir al menos un número de teléfono (con un máximo de 50).<br><br> Si envías una dirección de correo electrónico y un número de teléfono (sin `external_id`), se producirá un error. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Obligatorio | Cadena | El `id` de tu grupo de suscripción. |
+| `external_id` | Obligatorio* | Cadena | El `external_id` del usuario (debe incluir como mínimo uno y como máximo 50 `external_ids`). <br><br>Cuando se envían tanto un `external_id` como un `email`/`phone`, solo se aplicarán a la consulta de resultados los `external_id` proporcionados. |
+| `email` | Obligatorio* | Cadena | La dirección de correo electrónico del usuario. Se puede pasar como una matriz de cadenas con un máximo de 50.<br><br> Si envías una dirección de correo electrónico y un número de teléfono (sin `external_id`), se producirá un error. |
+| `phone` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | El número de teléfono del usuario. Si no se incluye el correo electrónico, deberás incluir al menos un número de teléfono (con un máximo de 50).<br><br> Si envías una dirección de correo electrónico y un número de teléfono (sin `external_id`), se producirá un error. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+*Se requiere uno de `external_id`, `email` o `phone` para cada usuario.
 
-\*Se requiere uno de `external_id` o `email` o `phone` para cada usuario.
+- Para los grupos de suscripción de SMS y WhatsApp, se requiere `external_id` o `phone`. Cuando se envían ambos, solo se utiliza el `external_id` para la consulta y el número de teléfono se aplica a ese usuario.
+- Para los grupos de suscripción por correo electrónico, se requiere `external_id` o `email`. Cuando se envían ambos, solo se utiliza el `external_id` para la consulta y la dirección de correo electrónico se aplica a ese usuario.
 
-- Para los grupos de suscripción de SMS y WhatsApp, se requiere `external_id` o `phone`.  Cuando se envían ambos, sólo se utiliza el `external_id` para la consulta y el número de teléfono se aplica a ese usuario.
-- Para los grupos de suscripción por correo electrónico, se requiere `external_id` o `email`.  Cuando se envían ambos, sólo se utiliza el `external_id` para la consulta y la dirección de correo electrónico se aplica a ese usuario.
-
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 {% tabs %}
 {% tab Multiple Users %}
@@ -75,16 +74,16 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
 
-## Respuesta
+## Respuesta {#response}
 
-Todas las respuestas correctas devolverán `Subscribed`, `Unsubscribed`, o `Unknown` dependiendo del estado y del historial del usuario con el grupo de suscripción.
+Todas las respuestas correctas devolverán `Subscribed`, `Unsubscribed` o `Unknown` dependiendo del estado y del historial del usuario con el grupo de suscripción.
 
 ```json
 {
@@ -97,7 +96,7 @@ Todas las respuestas correctas devolverán `Subscribed`, `Unsubscribed`, o `Unkn
 ```
 
 {% alert important %}
-Este punto final devuelve el estado del grupo de suscripción independientemente del estado de suscripción global del usuario. Si un usuario cancela su suscripción globalmente, el panel de Braze te muestra como dado de baja de cada grupo de suscripción. Sin embargo, este punto final sigue devolviendo el último estado del grupo de suscripción (por ejemplo, `Subscribed`) porque el estado global de las suscripciones sustituye a los grupos de suscripción individuales sin sobrescribirlos.<br><br>Braze conserva los estados individuales de los grupos de suscripción, de modo que, si el usuario vuelve a suscribirse globalmente, cada grupo de suscripción vuelve al estado guardado anteriormente. Para determinar el estado efectivo de la suscripción de un usuario, comprueba tanto tu estado de suscripción global como el estado del grupo de suscripción devuelto por este punto final.
+Este punto de conexión devuelve el estado del grupo de suscripción de forma independiente del estado de suscripción global del usuario. Si un usuario cancela su suscripción globalmente, el panel de Braze lo muestra como dado de baja de cada grupo de suscripción. Sin embargo, este punto de conexión sigue devolviendo el último estado guardado del grupo de suscripción (por ejemplo, `Subscribed`) porque el estado global de las suscripciones sustituye a los grupos de suscripción individuales sin sobrescribirlos.<br><br>Braze conserva los estados individuales de los grupos de suscripción, de modo que, si el usuario vuelve a suscribirse globalmente, cada grupo de suscripción vuelve al estado guardado anteriormente. Para determinar el estado efectivo de la suscripción de un usuario, comprueba tanto su estado de suscripción global como el estado del grupo de suscripción devuelto por este punto de conexión.
 {% endalert %}
 
 {% endapi %}

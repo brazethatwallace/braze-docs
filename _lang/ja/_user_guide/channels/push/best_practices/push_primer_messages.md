@@ -26,11 +26,11 @@ Brazeでプッシュプライマーアプリ内メッセージを作成するに
 
 {% tabs local %}
 {% tab android %}
-|OSバージョン|追加情報|
+| OSバージョン | 追加情報 |
 |----------|----------------------|
 | **Android 12以前** | プッシュはデフォルトでオプトインされているため、プッシュプライマーの実装は推奨されません。 |
 | **Android 13以降** | ユーザーがプッシュ許可プロンプトを2回拒否すると、Androidはそれ以降のプロンプト（Brazeプッシュプライマーメッセージを含む）をブロックします。許可を付与するには、ユーザーがデバイスの設定でアプリのプッシュを手動で有効にする必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 {% endtab %}
 
 {% tab swift %}
@@ -40,6 +40,7 @@ Brazeでプッシュプライマーアプリ内メッセージを作成するに
 - アプリのプッシュ設定が明示的にオンまたはオフの場合、プロンプトは表示されません。[仮承認](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375)を持つユーザーにのみ表示されます。
   - **アプリのプッシュ設定がオンの場合：** ユーザーはすでにオプトインしているため、Brazeはアプリ内メッセージを表示しません。
   - **アプリのプッシュ設定がオフの場合：** デバイスの設定内にあるアプリのプッシュ通知設定にユーザーをリダイレクトする必要があります。
+- **拒否後の再テスト：** ユーザーがネイティブプロンプトを拒否した場合、iOSはそのアプリインストールに対して再度プロンプトを表示しません。プッシュプライマーフローを再テストするには、通常、アプリをアンインストールして再インストールするか、**設定**でアプリの通知許可を変更する必要があります。
 
 ### 手動でのコード削除 {#manual-code-removal}
 
@@ -76,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## ステップ 1: アプリ内メッセージを作成する {#step-1-create-an-in-app-message}
 
-まず、[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)し、メッセージタイプとレイアウトを選択します。
+まず、[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)し、メッセージタイプとレイアウトを選択します。
 
 メッセージとボタンの両方に十分なスペースを確保するため、フルスクリーンまたはモーダルのメッセージレイアウトを使用してください。フルスクリーンを選択する場合、画像が必要になることにご注意ください。
 
@@ -96,7 +97,7 @@ Breaking news on the go! Enable push notifications to get alerts for major stori
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を参照してください。
+ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)を参照してください。
 
 ## ステップ 3: ボタンの動作を指定する {#button-actions}
 
@@ -107,7 +108,7 @@ Get push notifications from Movie Cannon? Notifications may include new movies, 
 - **ボタン1：**「メッセージを閉じる」に設定します。これはセカンダリボタン、つまり「今はしない」オプションです。
 - **ボタン2：**「プッシュ許可をリクエスト」に設定します。これはプライマリボタン、つまり「通知を許可」オプションです。
 
-![2つのボタン「通知を許可」と「今はしない」を持つアプリ内メッセージ作成画面。]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
+![「通知を許可」と「今はしない」の2つのボタンを持つアプリ内メッセージ作成画面。]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
 
 ## ステップ 4: 配信をスケジュールする {#step-4-schedule-delivery}
 
@@ -119,7 +120,7 @@ Get push notifications from Movie Cannon? Notifications may include new movies, 
 
 ## ステップ 5: ユーザーをターゲットにする {#step-5-target-users}
 
-プッシュプライマーCampaignの目標は、プッシュ許可をまだ付与していないデバイスを持つユーザーに促すことです。これには、初回ユーザーや、新しいデバイスを取得したりアプリケーションを再インストールした既存ユーザーが含まれます。
+プッシュプライマーキャンペーンの目標は、プッシュ許可をまだ付与していないデバイスを持つユーザーに促すことです。これには、初回ユーザーや、新しいデバイスを取得したりアプリケーションを再インストールした既存ユーザーが含まれます。
 
 {% alert important %}
 **ノーコードプッシュプライマーによる自動抑制**: ノーコードプッシュプライマー（「プッシュ許可をリクエスト」ボタンアクション）を使用する場合、セグメンテーションにプッシュサブスクリプションフィルターを追加する必要はありません。SDKは、ユーザーの他のデバイスでのプッシュステータスに関係なく、すでにアクティブなプッシュトークンを持つデバイスでアプリ内メッセージを自動的に抑制します。複数のデバイスを持つユーザーのターゲティングの詳細については、[複数のデバイスを持つユーザーのターゲティング](#targeting-users-with-multiple-devices)を参照してください。
@@ -131,7 +132,7 @@ Get push notifications from Movie Cannon? Notifications may include new movies, 
 `Push Subscription Status is not Opted In`のようなユーザーレベルのフィルターを使用すると、別のデバイスですでにオプトインしているユーザーが除外され、新しいデバイスでプロンプトを受け取れなくなります。
 {% endalert %}
 
-それ以外にも、最も適切と思われる追加のSegmentを決定できます。たとえば、2回目の購入を完了したユーザー、会員になるためにアカウントを作成したばかりのユーザー、または週に2回以上アプリを訪問するユーザーをターゲットにすることができます。これらの重要なSegmentのユーザーをターゲットにすることで、ユーザーがオプトインしてプッシュが有効になる可能性が高まります。
+それ以外にも、最も適切と思われる追加のセグメントを決定できます。たとえば、2回目の購入を完了したユーザー、会員になるためにアカウントを作成したばかりのユーザー、または週に2回以上アプリを訪問するユーザーをターゲットにすることができます。これらの重要なセグメントのユーザーをターゲットにすることで、ユーザーがオプトインしてプッシュが有効になる可能性が高まります。
 
 ### 複数のデバイスを持つユーザーのターゲティング {#targeting-users-with-multiple-devices}
 
@@ -147,12 +148,12 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスA: Android、プッシュにオプトイン済み
 - デバイスB: iOS、プッシュにオプトインしていない
 
-**機能しないSegmentフィルター：**
-- `Push enabled = false` - ユーザーはAndroidデバイスでプッシュが有効なため、Segmentに含まれません。SegmentにはiOSデバイスが含まれません。
-- `Push subscription status is not opted in` - ユーザーはAndroidデバイスでプッシュが有効なため、Segmentに含まれません。SegmentにはiOSデバイスが含まれません。
+**機能しないセグメントフィルター：**
+- `Push enabled = false` - ユーザーはAndroidデバイスでプッシュが有効なため、セグメントに含まれません。セグメントにはiOSデバイスが含まれません。
+- `Push subscription status is not opted in` - ユーザーはAndroidデバイスでプッシュが有効なため、セグメントに含まれません。セグメントにはiOSデバイスが含まれません。
 
-**機能するSegmentフィルター：**
-- `Push enabled for iOS = false` - ユーザーはAndroidデバイスでプッシュが有効ですが、iOSデバイスのみをターゲットにしているため、ユーザーはSegmentに含まれます。SegmentにはiOSデバイスが含まれます。
+**機能するセグメントフィルター：**
+- `Push enabled for iOS = false` - ユーザーはAndroidデバイスでプッシュが有効ですが、iOSデバイスのみをターゲットにしているため、ユーザーはセグメントに含まれます。セグメントにはiOSデバイスが含まれます。
 
 {% enddetails %}
 
@@ -162,13 +163,13 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスA: プッシュにオプトイン済み
 - デバイスB: 仮承認済みだがオプトインしていない
 
-**機能しないSegmentフィルター：**
-- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
-- `Provisionally opted in = true` - デバイスAは完全にオプトイン済みのため、仮承認状態ではありません。ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
-- `Push enabled for app > iOS = false` - デバイスAはiOSでプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
-- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
+**機能しないセグメントフィルター：**
+- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
+- `Provisionally opted in = true` - デバイスAは完全にオプトイン済みのため、仮承認状態ではありません。ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
+- `Push enabled for app > iOS = false` - デバイスAはiOSでプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
+- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
 
-**結果：** これらのプッシュフィルターをどのように組み合わせても、Segmentから少なくとも1つのデバイスが除外されます。
+**結果：** これらのプッシュフィルターをどのように組み合わせても、セグメントから少なくとも1つのデバイスが除外されます。
 
 {% enddetails %}
 
@@ -179,10 +180,10 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスB: プッシュにオプトインしていない
 - デバイスC: プッシュにオプトインしていない
 
-**機能しないSegmentフィルター：**
-- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
-- `Push enabled for app > X = false` - デバイスAは指定されたアプリでプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
-- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
+**機能しないセグメントフィルター：**
+- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
+- `Push enabled for app > X = false` - デバイスAは指定されたアプリでプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
+- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
 
 **結果：** これらのプッシュフィルターをどのように組み合わせても、少なくとも1つのデバイスがターゲットから外れます。
 
@@ -202,7 +203,7 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 
 **ノーコードプッシュプライマーが必要**: 自動抑制が機能するには、ノーコードプッシュプライマーを使用する必要があります。「プッシュ許可をリクエスト」ボタンアクションの代わりにカスタムロジックやディープリンクを設定した場合、SDKはプッシュプライマーを表示しようとしていることを識別できません。その結果、そのデバイスのサブスクリプション状態に関係なくメッセージが表示されます。
 
-**オプトアウトしたユーザーの抑制**: プッシュを明示的にオプトアウトしたユーザー（ネイティブリクエストやデバイス設定から）に対してアプリ内メッセージを抑制し、それらのユーザーを別のナーチャリングCampaignでリターゲティングしたい場合があります。これを行うには、ノーコードプライマーと組み合わせて以下のLiquidロジックを使用します。
+**オプトアウトしたユーザーの抑制**: プッシュを明示的にオプトアウトしたユーザー（ネイティブリクエストやデバイス設定から）に対してアプリ内メッセージを抑制し、それらのユーザーを別のナーチャリングキャンペーンでリターゲティングしたい場合があります。これを行うには、ノーコードプライマーと組み合わせて以下のLiquidロジックを使用します。
 
 {% raw %}
 ```liquid
@@ -217,4 +218,4 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 
 ## ステップ 6: コンバージョンイベント {#step-6-conversion-events}
 
-Brazeではコンバージョンのデフォルト設定を推奨していますが、プッシュプライマーに関連する[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を設定することもできます。
+Brazeではコンバージョンのデフォルト設定を推奨していますが、プッシュプライマーに関連する[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を設定することもできます。

@@ -1,6 +1,6 @@
 # Configurar el servidor Braze MCP {#setting-up-the-braze-mcp-server}
 
-> Aprende a configurar el servidor Braze MCP, para que puedas interactuar con tus datos de Braze utilizando herramientas de lenguaje natural como Claude y Cursor. Para obtener información más general, consulta [Servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> Aprende a configurar el servidor MCP de Braze para poder interactuar con tus datos de Braze utilizando herramientas de lenguaje natural como Claude y Cursor. Para obtener información más general, consulta [Servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -13,7 +13,7 @@ Antes de empezar, necesitarás lo siguiente:
 | Clave de API de Braze | Una clave de API de Braze con los permisos necesarios. Crearás una nueva clave cuando [configures tu servidor Braze MCP](#create-api-key). |
 | Cliente MCP | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) y [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) son oficialmente compatibles. Debes tener una cuenta en uno de estos clientes para poder utilizar el servidor Braze MCP. |
 | Terminal | Una aplicación de terminal para que puedas ejecutar comandos e instalar herramientas. Utiliza tu aplicación de terminal preferida o la que venga preinstalada en tu computadora. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Configuración del servidor Braze MCP
 
@@ -67,7 +67,7 @@ everything's installed!
 
 ### Paso 2: Crear una clave de API {#create-api-key}
 
-El servidor Braze MCP admite 39 puntos finales que no devuelven datos de los perfiles de usuario de Braze.
+El servidor Braze MCP incluye puntos de conexión de solo lectura y de escritura. No devuelven datos de los perfiles de usuario de Braze. Los puntos de conexión de escritura permiten a los agentes crear o actualizar contenido en tu espacio de trabajo.
 
 Para crear tu clave de API:
 
@@ -76,7 +76,7 @@ Para crear tu clave de API:
 3. Asigna algunos o todos los permisos siguientes a tu clave.
 
 {% alert important %}
-Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar que tu agente realice cambios en Braze, no incluyas el permiso `media_library.create`.
+Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar que tu agente realice cambios en Braze, no incluyas ningún permiso de escritura al crear tu clave de API.
 {% endalert %}
 
 {% details Lista de permisos compatibles %}
@@ -88,7 +88,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
 | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 #### Canvas
 
@@ -98,7 +98,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
 | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
 #### Catalogs
 
@@ -107,7 +107,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | `catalogs.get` |
 | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | `catalogs.get_items` |
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
 #### Cloud Data Ingestion
 
@@ -115,22 +115,26 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 |----------|---------------------|
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | `cdi.integration_list` |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud Data Ingestion" }
 
 #### Content Blocks
+
+Los permisos `content_blocks.create` y `content_blocks.update` son permisos de escritura. Añádelos solo si quieres que tu agente cree o actualice Content Blocks en tu espacio de trabajo.
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 #### Custom Attributes
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
 #### Events
 
@@ -139,7 +143,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | `events.list` |
 | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | `events.data_series` |
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
 #### KPIs
 
@@ -149,23 +153,23 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | `kpi.dau.data_series` |
 | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | `kpi.mau.data_series` |
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
 #### Media Library
 
-Este punto de conexión es un punto de conexión de escritura compatible con el servidor Braze MCP. Añade este permiso solo si quieres que tu agente cargue activos a tu biblioteca de medios.
+El permiso `media_library.create` es un permiso de escritura. Añádelo solo si quieres que tu agente cargue activos a tu biblioteca de medios.
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
 #### Messages
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
 #### Preference Center
 
@@ -173,7 +177,7 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 |----------|---------------------|
 | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | `preference_center.list` |
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
 #### Purchases
 
@@ -182,7 +186,7 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | `purchases.product_list` |
 | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | `purchases.revenue_series` |
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
 
 #### Segments
 
@@ -191,28 +195,28 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
 | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
 #### Sends
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
 
 #### Sessions
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
 #### SDK Authentication Keys
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
 #### Subscription
 
@@ -220,19 +224,23 @@ Este punto de conexión es un punto de conexión de escritura compatible con el 
 |----------|---------------------|
 | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | `subscription.status.get` |
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
 #### Templates
+
+Los permisos `templates.email.create` y `templates.email.update` son permisos de escritura. Añádelos solo si quieres que tu agente cree o actualice plantillas de correo electrónico en tu espacio de trabajo.
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-No reutilices una clave de API existente. Crea una específicamente para tu cliente MCP. Asigna únicamente los permisos que tu agente necesite. Los agentes pueden intentar utilizar cualquier permiso que les concedas, así que deja desactivados los permisos de escritura como `media_library.create` si no quieres que tu agente realice cambios en Braze.
+No reutilices una clave de API existente. Crea una específicamente para tu cliente MCP. Asigna únicamente los permisos que tu agente necesite. Los agentes pueden intentar utilizar cualquier permiso que les concedas, así que deja desactivados los permisos de escritura si no quieres que tu agente realice cambios en Braze.
 {% endalert %}
 
 ### Paso 3: Obtén tu identificador y punto de conexión {#step-3-get-your-identifier-and-endpoint}
@@ -339,15 +347,18 @@ Después de configurar el servidor Braze MCP, intenta enviar una solicitud de pr
 
 {% tabs %}
 {% tab Claude %}
-![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Solicitud de ejemplo:** `What are my available Braze functions?`
+**Respuesta de ejemplo:** Se utilizó `list_functions` y se devolvieron las categorías de funciones disponibles del servidor Braze MCP.
 {% endtab %}
 
 {% tab Cursor %}
-![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Solicitud de ejemplo:** `What are my available Braze functions?`
+**Respuesta de ejemplo:** Se consultó `list_functions` y se listaron funciones como `get_canvas_list`.
 {% endtab %}
 
 {% tab Gemini CLI %}
-![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Gemini CLI.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**Solicitud de ejemplo:** `What are my available Braze functions?`
+**Respuesta de ejemplo:** Se consultó `list_functions` en Gemini CLI y se devolvieron las categorías de funciones disponibles del servidor Braze MCP junto con funciones de ejemplo.
 {% endtab %}
 {% endtabs %}
 
@@ -392,6 +403,21 @@ uvx --python 3.12 braze-mcp-server@latest
 ```
 
 ### Configuración del cliente {#client-configuration}
+
+#### «Esta extensión no es compatible con tu dispositivo» {#this-extension-is-not-compatible-with-your-device}
+
+Si ves este error al instalar la extensión del servidor Braze MCP, puede indicar una de las siguientes situaciones:
+
+- **Tu dispositivo no cumple los requisitos**: algunas extensiones de servidor MCP requieren versiones específicas del sistema operativo o hardware.
+- **Faltan herramientas de desarrollo (solo macOS)**: en macOS, la instalación de la extensión requiere herramientas de desarrollo de línea de comandos para ejecutar comandos de Python. Si estas herramientas no están instaladas, la instalación fallará con este error.
+
+Para instalar las herramientas de desarrollo de línea de comandos en macOS, ejecuta lo siguiente en tu terminal:
+
+```bash
+xcode-select --install
+```
+
+Una vez completada la instalación, reinicia tu cliente MCP e intenta instalar la extensión de nuevo.
 
 #### El cliente MCP no puede encontrar el servidor Braze {#mcp-client-cant-find-the-braze-server}
 

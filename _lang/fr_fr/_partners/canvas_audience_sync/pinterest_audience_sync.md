@@ -10,11 +10,11 @@ tool:
 
 ---
 
-# Synchronisation d'audiences avec Pinterest {#audience-sync-to-pinterest}
+# Synchronisation d'audience avec Pinterest {#audience-sync-to-pinterest}
 
-En utilisant la synchronisation d'audience Braze vers Pinterest, les marques peuvent choisir d'ajouter des données utilisateur de leur propre intégration Braze aux audiences Pinterest pour diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore. Tout critère que vous utiliseriez normalement pour déclencher un message (push, e-mail, SMS, webhook, etc.) dans un Canvas Braze basé sur vos données utilisateur peut désormais être utilisé pour déclencher une annonce à cet utilisateur dans vos audiences Pinterest.
+En utilisant la synchronisation d'audience Braze vers Pinterest, les marques peuvent choisir d'ajouter des données utilisateur de leur propre intégration Braze aux audiences Pinterest pour diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore. Tout critère que vous utiliseriez normalement pour déclencher un message (notification push, e-mail, SMS, webhook, etc.) dans un Canvas Braze basé sur vos données utilisateur peut désormais être utilisé pour déclencher une annonce à cet utilisateur dans vos audiences Pinterest.
 
-**Les cas d'utilisation courants pour la synchronisation d'audience incluent :**
+**Les cas d'usage courants pour la synchronisation d'audience incluent :**
 
 - Cibler des utilisateurs à forte valeur via plusieurs canaux pour stimuler les achats ou l'engagement
 - Recibler les utilisateurs qui réagissent moins aux autres canaux de marketing
@@ -36,14 +36,14 @@ Vous devez vous assurer que les éléments suivants sont créés, complétés et
 | Centre d'affaires Pinterest | [Pinterest](https://www.pinterest.com/business/hub/) | Un outil centralisé pour gérer les ressources Pinterest de votre marque (tels que les comptes publicitaires, les pages, les applications). |
 | Compte publicitaire Pinterest | [Pinterest](https://ads.pinterest.com/) | Un compte publicitaire Pinterest actif lié au Centre d'affaires Pinterest de votre marque.<br><br>Assurez-vous que l'administrateur du Centre d'affaires Pinterest vous a accordé les autorisations d'administrateur pour les comptes publicitaires Pinterest que vous prévoyez d'utiliser avec Braze. |
 | Conditions et politiques Pinterest | Pinterest | Acceptez de vous conformer à toutes les conditions, politiques, directives et documentations requises par Pinterest relatives à votre utilisation de la synchronisation d'audience Pinterest, y compris toutes les conditions, politiques, directives et documentations incorporées par référence, qui peuvent inclure : les Conditions de service, les Conditions de service pour les entreprises, la Politique de confidentialité, les Conditions de service pour les développeurs et les API, les Conditions relatives aux données publicitaires, les Directives publicitaires, l'Accord de services publicitaires, les Directives communautaires et les Directives de marque. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
 ### Étape 1 : Se connecter à Pinterest {#step-1-connect-to-pinterest}
 
 {% alert important %}
-Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour connecter Pinterest à votre compte Braze.
+Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) pour connecter Pinterest à votre compte Braze.
 {% endalert %}
 
 Dans le tableau de bord de Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Pinterest**. Sous Synchronisation d'audience Pinterest, sélectionnez **Connect Pinterest**.
@@ -66,7 +66,7 @@ Votre connexion Pinterest sera appliquée au niveau de l'espace de travail Braze
 
 Ajoutez un composant dans votre Canvas et sélectionnez **Audience Sync**.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Sélecteur d'étape Canvas avec l'option du composant Audience Sync.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Carte du composant Audience Sync ajoutée à un parcours Canvas.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### Étape 3 : Configuration de la synchronisation {#step-3-sync-setup}
 
@@ -74,12 +74,12 @@ Cliquez sur le bouton **Custom Audience** pour ouvrir l'éditeur de composants.
 
 Sélectionnez **Pinterest** comme partenaire de synchronisation d'audience souhaité.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Éditeur du composant Audience Sync avec Pinterest sélectionné comme partenaire de synchronisation.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Ensuite, sélectionnez le compte publicitaire Pinterest souhaité. Sous le menu déroulant **Choose a New or Existing Audience**, saisissez le nom d'une audience nouvelle ou existante.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Créer une nouvelle audience %}
 
 **Créer une nouvelle audience**<br>
 Saisissez un nom pour la nouvelle audience, sélectionnez **Add Users to Audience**, et sélectionnez les champs que vous souhaitez synchroniser avec Pinterest. Ensuite, enregistrez votre audience en cliquant sur le bouton **Create Audience** en bas de l'éditeur d'étape.
@@ -92,7 +92,7 @@ Braze affiche une notification en haut de l'éditeur d'étape si l'audience est 
 
 Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les utilisateurs en quasi-temps réel lorsqu'ils entrent dans l'étape de synchronisation d'audience.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Synchroniser avec une audience existante %}
 **Synchroniser avec une audience existante**<br>
 Braze offre également la possibilité d'ajouter des utilisateurs aux audiences Pinterest existantes pour s'assurer que ces audiences sont à jour. Pour synchroniser avec une audience existante, saisissez le nom de l'audience existante dans le menu déroulant et ajoutez-la à l'audience. Braze ajoutera ensuite les utilisateurs en quasi-temps réel lorsqu'ils entreront dans l'étape de synchronisation d'audience.
 
@@ -113,7 +113,7 @@ Vous pouvez consulter l'audience sur Pinterest en accédant à votre compte gest
 
 Lorsque les utilisateurs atteignent l'étape de synchronisation d'audience, Braze les synchronise en quasi-temps réel tout en respectant les limites de débit de l'API marketing de Pinterest. Braze met en lot et traite autant d'utilisateurs que possible toutes les 5 secondes avant de les envoyer à Pinterest.
 
-La limite de débit de l'API Segment de Pinterest n'autorise pas plus de sept requêtes par seconde et par utilisateur et 1 900 utilisateurs par requête. Si un client atteint cette limite, Braze retente la synchronisation pendant environ 13 heures. Si la synchronisation n'est toujours pas possible, Braze répertorie ces utilisateurs sous l'indicateur Users Errored.
+La limite de débit de l'API Segment de Pinterest n'autorise pas plus de sept requêtes par seconde et par utilisateur, et 1 900 utilisateurs par requête. Si un client atteint cette limite, Braze retente la synchronisation pendant environ 13 heures. Si la synchronisation n'est toujours pas possible, Braze répertorie ces utilisateurs sous l'indicateur Users Errored.
 
 ## Comprendre les analyses {#understanding-analytics}
 
@@ -128,10 +128,10 @@ Le tableau suivant comprend des indicateurs et des descriptions pour vous aider 
 | Utilisateurs en attente | Nombre d'utilisateurs actuellement traités par Braze pour la synchronisation avec Pinterest. |
 | Utilisateurs en erreur | Nombre d'utilisateurs qui n'ont pas été synchronisés avec Pinterest en raison d'une erreur d'API après environ 13 heures de tentatives. Les causes potentielles d'erreurs peuvent inclure un jeton Pinterest non valide ou la suppression de l'audience sur Pinterest. |
 | Sortis du Canvas | Nombre d'utilisateurs ayant quitté le Canvas. Cela se produit lorsque la dernière étape d'un Canvas est un composant de synchronisation d'audience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprendre les analyses" }
 
 {% alert important %}
-N'oubliez pas qu'il y aura un délai dans la génération des rapports pour les utilisateurs synchronisés et les indicateurs d'erreurs en raison du vidage en masse et de la période de 13 heures de nouvelles tentatives, respectivement.
+N'oubliez pas qu'il y aura un délai dans la génération des rapports pour les utilisateurs synchronisés et les indicateurs d'erreurs, en raison du vidage en masse et de la période de 13 heures de nouvelles tentatives, respectivement.
 {% endalert %}
 
 ## Foire aux questions {#frequently-asked-questions}

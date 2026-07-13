@@ -12,13 +12,13 @@ search_tag: Partner
 
 > [Worthy](https://worthy.ai/)とBrazeの連携では、Worthyのドラッグアンドドロップエディターを使ってパーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Brazeを通じて配信できます。さらに、Worthyは自動的に以下を実行します。
 
-*この連携はWorthyによって管理されています。*
+_この連携はWorthyによって管理されています。_
 
 ## 連携について {#about-the-integration}
 
 - メッセージングのためのコネクテッドコンテンツサーバーとセキュアなAPIを作成します。
 - 分析とクリックトラッキングを備えたアプリ内メッセージを構築し、Brazeに直接表示します。
-- Worthyのドラッグアンドドロップエディターを使用してHTMLを自動的にエクスポートし、Brazeの**Custom Code**アプリ内メッセージCampaignで使用します。必要なAPI接続と設定したダイナミックなコンテンツが含まれます。
+- Worthyのドラッグアンドドロップエディターを使用してHTMLを自動的にエクスポートし、Brazeの**Custom Code**アプリ内メッセージキャンペーンで使用します。必要なAPI接続と設定したダイナミックなコンテンツが含まれます。
 
 ## ユースケース {#use-cases}
 
@@ -32,9 +32,9 @@ search_tag: Partner
 
 | 必要条件 | 説明 |
 | --- | --- |
-| [Worthy](https://worthy.ai/) アカウント | このパートナーシップを活用するには、Worthyアカウントが必要です。 |
+| [Worthy](https://worthy.ai/)アカウント | このパートナーシップを活用するには、Worthyアカウントが必要です。 |
 | Braze SDK | リッチなアプリ内メッセージを送信するには、モバイルアプリケーションでBraze SDKを設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 
@@ -42,12 +42,12 @@ search_tag: Partner
 
 Worthyダッシュボードでアプリに移動し、**Message Creator**を選択して、ユーザーのエンゲージメントに使用するパーソナライズされたメッセージを作成します。
 
-### ステップ2：Braze Campaignを作成する {#step-2-create-a-braze-campaign}
+### ステップ2：Brazeでキャンペーンを作成する {#step-2-create-a-braze-campaign}
 
-Brazeで[アプリ内メッセージCampaign]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を作成し、**メッセージタイプ**を**Custom Code**に設定します。
+Brazeで[アプリ内メッセージキャンペーン]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を作成し、**メッセージタイプ**を**Custom Code**に設定します。
 
 ### ステップ3：パーソナライズされたメッセージをBrazeにコピーする {#step-3-copy-your-personalized-message-into-braze}
 
-Worthyメッセージクリエーターで**Export**をクリックし、**Braze**を選択して、パーソナライズされたメッセージをBraze Campaignで使用するためにエクスポートします。エクスポートされたコンテンツを、Braze Campaignエディターの**HTML + Asset Zip**の下にあるHTMLテキストボックスにコピーします。
+Worthyメッセージクリエーターで**エクスポート**をクリックし、**Braze**を選択して、パーソナライズされたメッセージをBraze キャンペーンで使用するためにエクスポートします。エクスポートされたコンテンツを、Braze キャンペーンエディターの**HTML + Asset Zip**の下にあるHTMLテキストボックスにコピーします。
 
-以上です！Braze Campaignエディターの**Test**タブを使用して、パーソナライズされたメッセージをすぐにテストできます。
+以上です！Braze キャンペーンエディターの**Test**タブを使用して、パーソナライズされたメッセージをすぐにテストできます。

@@ -22,7 +22,7 @@ Die Kampagnen werden in 100er-Gruppen zurückgegeben, sortiert nach Erstellungsz
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.list`.
 
 ## Rate-Limit
 
@@ -36,7 +36,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `include_archived` | Optional | Boolescher Wert | Ob archivierte Kampagnen einbezogen werden sollen oder nicht, Standardwert ist false. |
 | `sort_direction` | Optional | String | - Erstellungszeit vom neuesten zum ältesten sortieren: Geben Sie den Wert `desc` ein.<br> - Erstellungszeit vom ältesten zum neuesten sortieren: Geben Sie den Wert `asc` ein. <br><br>Wenn `sort_direction` nicht angegeben ist, ist die Standardreihenfolge vom ältesten zum neuesten. |
 | `last_edit.time[gt]` | Optional | Zeit | Filtert die Ergebnisse und gibt nur Kampagnen zurück, die nach dem angegebenen Zeitpunkt bearbeitet wurden. Das Format ist `yyyy-MM-DDTHH:mm:ss`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -64,7 +64,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 ```
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

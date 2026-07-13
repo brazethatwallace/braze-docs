@@ -11,7 +11,7 @@ channel: email
 
 > Use automated IP warming to gradually ramp email volume from a new IP address to build sender reputation with inbox providers.
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## How it works
 
@@ -99,7 +99,7 @@ The system monitors your health based on the following industry benchmarks:
 - Bounces greater than 5%
 - Spam complaint rates greater than 0.04%
 
-If stats are below our benchmarks, the system holds volume the next day rather than increasing the volume to mitigate risk to your sender reputation.
+If stats are under our benchmarks, the system holds volume the next day rather than increasing the volume to mitigate risk to your sender reputation.
 
 ## Stop an IP warmup plan
 

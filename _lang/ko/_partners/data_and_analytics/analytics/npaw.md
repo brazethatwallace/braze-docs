@@ -2,7 +2,7 @@
 nav_title: NPAW
 article_title: NPAW
 alias: /partners/npaw/
-description: "This reference article outlines the partnership between Braze and NPAW, an intelligent data analytics platform that provides actionable insights to leading online media professionals."
+description: "이 참조 문서에서는 선도적인 온라인 미디어 전문가에게 유용한 인사이트를 제공하는 지능형 데이터 분석 플랫폼인 NPAW와 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
 search_tag: Partner
 hidden: true
@@ -11,46 +11,45 @@ hidden: true
 
 # NPAW
 
-> [NPAW](https://nicepeopleatwork.com/), also knows as _Nice People at Work_, is an intelligent data analytics platform that provides actionable insights to leading online media professionals. With NPAW's YOUBORA tool suite, Braze customers can now leverage a predictive and robust AI to greater understand customer behavior and drive engagement across platforms.
+> [NPAW](https://nicepeopleatwork.com/)는 _Nice People at Work_으로도 알려져 있으며, 선도적인 온라인 미디어 전문가에게 유용한 인사이트를 제공하는 지능형 데이터 분석 플랫폼입니다. NPAW의 YOUBORA 도구 스위트를 통해 Braze 고객은 예측적이고 강력한 인공지능을 활용하여 고객 행동을 더 잘 이해하고 플랫폼 전반에서 인게이지먼트를 유도할 수 있습니다.
 
-# Prerequisites
+# 필수 조건 {#prerequisites}
 
-| Requirement   |Origin| Description |
+| 요구 사항 | Origin | 설명 |
 | --------------|------|-------------|
-| YOUBORA API Key |[YOUBORA Settings](https://youbora.nicepeopleatwork.com/users/login)|An API Key generated on user sign up and can be located under **Settings** |
-| ID |[Braze Settings](https://dashboard.braze.com/sign_in) | YOUBORA gives you the options of whether to link the software to Braze via a ***Braze ID***, an ***external User ID***, or a ***User ID*** |
-| Endpoint |[Braze Settings](https://dashboard.braze.com/sign_in)| A fully customizable URL endpoint configurable through your Braze dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| YOUBORA API 키 | [YOUBORA 설정](https://youbora.nicepeopleatwork.com/users/login) | 사용자 가입 시 생성되는 API 키로, **설정**에서 확인할 수 있습니다. |
+| ID | [Braze 설정](https://dashboard.braze.com/sign_in) | YOUBORA에서는 ***Braze ID***, ***외부 사용자 ID*** 또는 ***사용자 ID***를 통해 소프트웨어를 Braze에 연결할 수 있는 옵션을 제공합니다. |
+| 엔드포인트 | [Braze 설정](https://dashboard.braze.com/sign_in) | Braze 대시보드를 통해 구성할 수 있는 완전히 커스텀 가능한 URL 엔드포인트입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
-# Analytics integration
+# 분석 통합 {#analytics-integration}
 
-## Accessing the integrations page
+## 통합 페이지 접근하기 {#accessing-the-integrations-page}
 
-After logging into your YOUBORA tool suite account, navigate to the Integrations page by selecting **Integrations** option from the dropdown account menu.
+YOUBORA 도구 스위트 계정에 로그인한 후, 드롭다운 계정 메뉴에서 **Integrations** 옵션을 선택하여 통합 페이지로 이동합니다.
 
 ![NPAW 드롭다운]({% image_buster /assets/img/npaw_dropdown.png %})
 
-## Configuring your integration
+## 통합 구성하기 {#configuring-your-integration}
 
-Once you have accessed the Integration page, scroll down until you
-see the **Braze** integration option. After clicking on this, it will expand and offer a number of required parameters to fill out:
+통합 페이지에 접근한 후, **Braze** 통합 옵션이 보일 때까지 아래로 스크롤합니다. 이를 클릭하면 확장되어 입력해야 할 필수 파라미터가 표시됩니다.
 
 ![NPAW 통합]({% image_buster /assets/img/npaw_integration.png %})
 
-Fill in the details with the appropriate information gathered from the perquisites section, where:
-* **Connector Name** is an **alphanumeric** string that will be used to refer to this integration in the future. This value can be set to anything you like as long as it contains **only** letters and numbers.
-* **User ID** is the ID previously chosen to link your YOUBORA software with your Braze account. For example, if you choose to perform the link via your **Braze ID**, select **Braze ID** from the dropdown to assign the value to the proper field.
-* **API Key** is your YOUBORA tools suite API Key found previously within the **API** section under **Settings** .
-* **Endpoint** is the customizable URL endpoint previously setup within your Braze dashboard.
+필수 조건 섹션에서 수집한 적절한 정보로 세부 사항을 입력합니다.
+* **Connector Name**은 향후 이 통합을 참조하는 데 사용되는 **영숫자** 문자열입니다. 이 값은 **오직** 문자와 숫자만 포함하는 한 원하는 대로 설정할 수 있습니다.
+* **User ID**는 YOUBORA 소프트웨어를 Braze 계정에 연결하기 위해 이전에 선택한 ID입니다. 예를 들어, **Braze ID**를 통해 연결하려면 드롭다운에서 **Braze ID**를 선택하여 적절한 필드에 값을 할당합니다.
+* **API Key**는 이전에 **설정**의 **API** 섹션에서 확인한 YOUBORA 도구 스위트 API 키입니다.
+* **Endpoint**는 이전에 Braze 대시보드에서 설정한 커스텀 가능한 URL 엔드포인트입니다.
 
-Once all the fields have been filled out, simply click on the **Connect** button to establish a connection and save the changes made.
+모든 필드를 입력한 후, **Connect** 버튼을 클릭하여 연결을 설정하고 변경 사항을 저장합니다.
 
-## Using your NPAW integration
+## NPAW 통합 사용하기 {#using-your-npaw-integration}
 
-Once you have finished configuring your integration with Braze, navigate to the **Users** product and select the **Sample Manager** within the **Sections Manager**.
+Braze와의 통합 구성을 완료한 후, **Users** 제품으로 이동하여 **Sections Manager** 내에서 **Sample Manager**를 선택합니다.
 
-After creating a sample within the **Sample Manger**, you will now be able to click on the triple dot icon on the right-hand side to send all users within your sample to Braze.
+**Sample Manager**에서 샘플을 생성한 후, 행 작업 메뉴에서 점 세 개 아이콘을 클릭하여 샘플 내의 모든 사용자를 Braze로 전송할 수 있습니다.
 
 ![NPAW 샘플 매니저]({% image_buster /assets/img/npaw_sample_manager.png %})
 
-Now, after you send your users to Braze, you can take action and focus campaigns on user segments to re-engage inactive users, contact your most loyal users or any action on any user segment!
+이제 사용자를 Braze로 전송한 후, 사용자 Segment에 대해 Campaign(캠페인)을 집중하여 비활성 사용자를 다시 참여시키거나, 가장 충성도 높은 사용자에게 연락하거나, 모든 사용자 Segment에 대해 원하는 조치를 취할 수 있습니다!

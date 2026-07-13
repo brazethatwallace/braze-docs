@@ -57,7 +57,7 @@ Pour ajouter un lien de désabonnement personnalisé, vous pouvez remplacer le l
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Ensuite, appelez l'[endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) pour mettre à jour le statut d'abonnement de l'utilisateur. Pour plus de détails, consultez notre documentation sur la [modification des abonnements e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Ensuite, appelez l'[endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) pour mettre à jour le statut d'abonnement de l'utilisateur. Pour plus de détails, consultez notre documentation sur la [modification des abonnements e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Puis enregistrez ce nouveau lien. La balise de désabonnement par défaut de Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} doit figurer dans le pied de page. Cela signifie que vous devez inclure le lien par défaut en le « masquant », soit en plaçant la balise dans un commentaire, soit dans une balise `<div>` masquée.
 
@@ -67,7 +67,7 @@ Voici quelques bonnes pratiques à suivre lors de la création et de l'utilisati
 
 ### Personnaliser avec des attributs {#personalizing-with-attributes}
 
-Lors de la création d'un pied de page personnalisé, Braze vous recommande d'utiliser des [attributs pour la personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/). L'ensemble complet des attributs par défaut et personnalisés est disponible, mais voici quelques-uns qui pourraient vous être utiles :
+Lors de la création d'un pied de page personnalisé, Braze vous recommande d'utiliser des [attributs pour la personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). L'ensemble complet des attributs par défaut et personnalisés est disponible, mais voici quelques-uns qui pourraient vous être utiles :
 
 | Attribut | Balise |
 | --------- | --- |
@@ -76,7 +76,7 @@ Lors de la création d'un pied de page personnalisé, Braze vous recommande d'ut
 | URL d'abonnement personnalisée de l'utilisateur | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | URL d'inscription personnalisée de l'utilisateur | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | URL du centre de préférences Braze personnalisé de l'utilisateur | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnaliser avec des attributs" }
 
 ### Inclure un lien de désabonnement et un lien d'abonnement {#including-an-unsubscribe-link-and-opt-in-link}
 
@@ -94,4 +94,4 @@ Si vous n'incluez pas de pied de page en texte brut, Braze en créera automatiqu
 
 ## Considérations {#considerations}
 
-Si vous utilisez [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/), notez que {% raw %}`{{${email_footer}}}`{% endraw %} n'est pas une balise Liquid standard. Elle est pré-traitée avant l'exécution de Liquid, donc utiliser {% raw %}`{{${email_footer}}}`{% endraw %} comme valeur de variable de contexte et appeler le drapeau `:rerender` échouera silencieusement. Utilisez plutôt un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) pour un pied de page d'e-mail.
+Si vous utilisez [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), notez que {% raw %}`{{${email_footer}}}`{% endraw %} n'est pas une balise Liquid standard. Elle est pré-traitée avant l'exécution de Liquid, donc utiliser {% raw %}`{{${email_footer}}}`{% endraw %} comme valeur de variable de contexte et appeler le drapeau `:rerender` échouera silencieusement. Utilisez plutôt un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) pour un pied de page d'e-mail.

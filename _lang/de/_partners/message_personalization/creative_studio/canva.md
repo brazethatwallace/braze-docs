@@ -20,7 +20,7 @@ Die Integration von Braze und Canva unterstützt zwei Exportpfade:
 | --- | --- |
 | **Bild oder Design in die Medienbibliothek** | Sendet Ihr Design als Asset an die Braze-Medienbibliothek. |
 | **E-Mail-Design an Braze** | Veröffentlicht ein Canva-**E-Mail**-Dokument als Braze-E-Mail-Template, einschließlich Betreffzeilen-Metadaten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Über die Integration" }
 
 ## Braze mit Canva integrieren {#integrate-braze-with-canva}
 
@@ -38,13 +38,22 @@ Wenn Sie die Braze-App zum ersten Mal verwenden – egal ob Sie sie über das Me
 
 Für **E-Mail**-Exporte fordert Canva Sie möglicherweise auf, sich erneut anzumelden und zusätzlichen Zugriff zu genehmigen, einschließlich der Berechtigung zum **Erstellen von E-Mail-Templates**. Akzeptieren Sie diese Berechtigungen, um die Veröffentlichung von E-Mail-Designs an Braze abzuschließen.
 
-![Connect-Button und Autorisierungsablauf zum Verknüpfen von Canva mit Braze.]({% image_buster /assets/img/canva_integration/canva-connect-panel.jpg %})
+![„Connect“-Button und Autorisierungsablauf zum Verknüpfen von Canva mit Braze.]({% image_buster /assets/img/canva_integration/canva-connect-panel.jpg %})
 
 ## Bilder in die Medienbibliothek exportieren {#export-images-to-the-media-library}
 
 Verwenden Sie diesen Ablauf für Standard-Canva-Designs, wenn Sie eine Datei in der Braze-Medienbibliothek benötigen.
 
-1. Öffnen Sie im Menü **Apps** in Ihrem Design die Braze-App. Falls Sie noch nicht verbunden sind, wählen Sie **Connect** und führen Sie die Schritte unter [Ihr Braze-Konto autorisieren](#step-2-authorize-your-braze-account) aus.
+Die folgenden Videos zeigen, wie Sie Designs von Canva an Ihre Braze-Medienbibliothek senden.
+
+Video: Öffnen Sie die Braze-App in Canva und starten Sie einen Medienbibliothek-Export.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+Video: Wählen Sie einen Braze-Workspace und schließen Sie den Export in die Medienbibliothek ab.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
+
+1. Öffnen Sie im Menü **Apps** in Ihrem Design die Braze-App. Falls Sie noch nicht verbunden sind, wählen Sie **Connect** und führen Sie die Schritte unter [Schritt 2: Ihr Braze-Konto autorisieren](#step-2-authorize-your-braze-account) aus.
 2. Wählen Sie Ihren Ziel-Workspace aus, geben Sie optional einen Dateinamen ein und wählen Sie **Start Export**.
 
 ![Canva-Exportbildschirm mit Ziel-Workspace und „Start Export“-Button.]({% image_buster /assets/img/canva_integration/canva-upload-screen.jpg %})
@@ -59,7 +68,7 @@ Verwenden Sie diesen Ablauf für Standard-Canva-Designs, wenn Sie eine Datei in 
 Verwenden Sie diesen Ablauf, wenn Ihre Canva-Datei ein **E-Mail**-Designtyp ist. Dabei wird HTML als Template an Braze veröffentlicht (ähnliche Metadaten wie beim Bild-Ablauf, aber Sie starten über **Share** statt über **Apps**).
 
 1. Erstellen oder öffnen Sie in Canva ein **E-Mail**-Design. Erstellen Sie Ihre Nachricht von Grund auf oder verwenden Sie ein Canva-E-Mail-Template.
-2. Klicken Sie oben rechts im Editor auf **Share** und wählen Sie **Braze**. Falls Braze nicht aufgelistet ist, öffnen Sie **See more** und scrollen Sie zu **More options**, um Braze zu finden.
+2. Klicken Sie in der Editor-Aktionsleiste auf **Share** und wählen Sie **Braze**. Falls Braze nicht aufgelistet ist, öffnen Sie **See more** und scrollen Sie zu **More options**, um Braze zu finden.
 
 ![Weitere Veröffentlichungsoptionen in Canva mit Braze unter „More options“.]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 
@@ -79,6 +88,6 @@ Verwenden Sie diesen Ablauf, wenn Ihre Canva-Datei ein **E-Mail**-Designtyp ist.
 ![Erfolgsmeldung nach der Veröffentlichung eines Canva-E-Mail-Designs an Braze mit „Check it out“.]({% image_buster /assets/img/canva_integration/canva-email-publish-success.png %})
 
 {: start="6"}
-6. Vervollständigen Sie in Braze alle erforderlichen E-Mail-Einstellungen – wie **Absender**-Adresse, Preheader und einen Abmeldelink – bevor Sie das Template in einer Kampagne oder einem Canvas verwenden.
+6. Vervollständigen Sie in Braze alle erforderlichen E-Mail-Einstellungen – wie **Absender**-Adresse, Preheader und einen Abmeldelink – bevor Sie das Template in einer Campaign oder einem Canvas verwenden.
 
 ![E-Mail-Template in Braze, geöffnet aus Canva, mit Versandinformationen und Vorschau.]({% image_buster /assets/img/canva_integration/braze-email-template-from-canva.png %})

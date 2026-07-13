@@ -1,7 +1,7 @@
 ---
 nav_title: Stripe
 article_title: Stripe
-description: "This article outlines the partnership between Braze and Stripe."
+description: "이 문서에서는 Braze와 Stripe 간의 파트너십에 대해 설명합니다."
 alias: /partners/stripe/
 page_type: partner
 search_tag: Partner
@@ -9,68 +9,68 @@ search_tag: Partner
 
 # Stripe
 
-> [Stripe](https://www.stripe.com/) is a comprehensive financial infrastructure platform that enables businesses to accept payments, manage revenue operations, and facilitate global commerce through a suite of integrated APIs and services.
+> [Stripe](https://www.stripe.com/)는 통합 API 및 서비스 제품군을 통해 기업이 결제를 수락하고, 매출 운영을 관리하며, 글로벌 커머스를 촉진할 수 있도록 지원하는 종합 금융 인프라 플랫폼입니다.
 
-By integrating Braze and Stripe, you can:
+Braze와 Stripe를 통합하면 다음을 수행할 수 있습니다.
 
-- Update user profiles in Braze with real-time payment and billing data from Stripe.
-- Trigger messaging in Braze based on Stripe events such as trial started, subscription activated, subscription cancellation, and more.
-- Personalize Braze messaging based on a user’s payment history or billing status received using Stripe webhooks.
+- Stripe의 실시간 결제 및 청구 데이터로 Braze의 고객 프로필을 업데이트합니다.
+- 체험판 시작, 구독 활성화, 구독 취소 등 Stripe 이벤트를 기반으로 Braze에서 메시징을 트리거합니다.
+- Stripe 웹훅을 통해 수신한 사용자의 결제 내역 또는 청구 상태를 기반으로 Braze 메시징을 개인화합니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Stripe account | A Stripe account with access to webhooks is required to take advantage of this partnership. |
-| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/data_transformation/) is necessary to receive data from Stripe. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Stripe 계정 | 이 파트너십을 활용하려면 웹훅에 접근할 수 있는 Stripe 계정이 필요합니다. |
+| Braze 데이터 변환 | Stripe에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Set up the Braze Data Transformation to accept Stripe’s webhooks {#step-1}
+### 1단계: Stripe 웹훅을 수신하기 위한 Braze 데이터 변환 설정 {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
-### 2단계: Set up Stripe webhooks
+### 2단계: Stripe 웹훅 설정 {#step-2-set-up-stripe-webhooks}
 
-Follow the steps in [Stripe's webhooks documentation](https://docs.stripe.com/development/dashboard/webhooks) to set up a webhook.
+[Stripe 웹훅 설명서](https://docs.stripe.com/development/dashboard/webhooks)의 단계를 따라 웹훅을 설정합니다.
 
-Add your Data Transformation webhook URL as the **Destination URL** and select the event types you’d like to send to Braze. Refer to [Stripe's documentation](https://docs.stripe.com/api/events/types) for a full list of event types.
+데이터 변환 웹훅 URL을 **Destination URL**로 추가하고 Braze로 전송할 이벤트 유형을 선택합니다. 전체 이벤트 유형 목록은 [Stripe 설명서](https://docs.stripe.com/api/events/types)를 참조하세요.
 
-![스트라이프 웹훅 구성 예시.]({% image_buster /assets/img/stripe/stripe_webhook_configuration.png %}){: style="max-width:80%;"}
+![Stripe 웹훅 구성 예시.]({% image_buster /assets/img/stripe/stripe_webhook_configuration.png %}){: style="max-width:80%;"}
 
-Then, send a test event to your Data Transformation. 
+그런 다음 데이터 변환으로 테스트 이벤트를 전송합니다.
 
-### Step 3: Write transformation code to accept your chosen Stripe events
+### 3단계: 선택한 Stripe 이벤트를 수신하기 위한 변환 코드 작성 {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
 
-Next, you'll transform the webhook payload that will be sent from Stripe to a JavaScript object return value.
+다음으로, Stripe에서 전송되는 웹훅 페이로드를 JavaScript 오브젝트 반환 값으로 변환합니다.
 
-1. Refresh your Data Transformation and make sure you can see the Stripe test payload in the **Webhook details** section.
-2. Update your Data Transformation code to support your chosen Stripe events.
-3. Select **Validate** to return a preview of your code's output and to check if it's an acceptable `/users/track` request.
-4. Save and activate your Data Transformation.
+1. 데이터 변환을 새로고침하고 **Webhook details** 섹션에서 Stripe 테스트 페이로드를 확인할 수 있는지 확인합니다.
+2. 선택한 Stripe 이벤트를 지원하도록 데이터 변환 코드를 업데이트합니다.
+3. **Validate**를 선택하여 코드 출력의 미리보기를 반환하고 유효한 `/users/track` 요청인지 확인합니다.
+4. 데이터 변환을 저장하고 활성화합니다.
 
-![웹훅 세부 정보 및 변환 코드의 예시입니다.]({% image_buster /assets/img/stripe/stripe_data_transformation.png %})
+![웹훅 세부 정보 및 변환 코드의 예시.]({% image_buster /assets/img/stripe/stripe_data_transformation.png %})
 
-#### Request body format
+#### 요청 본문 형식 {#request-body-format}
 
-This return value must adhere to the `/users/track` endpoint request body format:
+이 반환 값은 `/users/track` 엔드포인트 요청 본문 형식을 준수해야 합니다.
 
-- Transformation code is accepted in the JavaScript programming language. Any standard JavaScript control flow, such as if/else logic, is supported.
-- Transformation code accesses the webhook request body using the payload variable. This variable is an object populated by parsing the request body JSON.
-- Any feature supported in our `/users/track` endpoint is supported, including:
-    - User attribute objects, event objects, and purchase objects
-    - Nested attributes and nested custom event properties
-    - Subscription group updates
-    - Email address as an identifier
+- 변환 코드는 JavaScript 프로그래밍 언어로 작성됩니다. if/else 로직과 같은 모든 표준 JavaScript 제어 흐름이 지원됩니다.
+- 변환 코드는 payload 변수를 사용하여 웹훅 요청 본문에 접근합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 오브젝트입니다.
+- `/users/track` 엔드포인트에서 지원하는 모든 기능이 지원되며, 다음을 포함합니다.
+    - 사용자 속성 오브젝트, 이벤트 오브젝트 및 구매 오브젝트
+    - 중첩 속성 및 중첩 커스텀 이벤트 등록정보
+    - 구독 그룹 업데이트
+    - 식별자로서의 이메일 주소
 
-### Step 4: Publish your Stripe webhook
+### 4단계: Stripe 웹훅 게시 {#step-4-publish-your-stripe-webhook}
 
-After writing your Data Transformation, select **Validate** to make your Data Transformation code is formatted correctly and will work as expected. Then, save and activate your Data Transformation. After activating, custom event data will be logged to a user's profile when they complete the event.
+데이터 변환을 작성한 후 **Validate**를 선택하여 데이터 변환 코드가 올바르게 포맷되었는지, 예상대로 작동하는지 확인합니다. 그런 다음 데이터 변환을 저장하고 활성화합니다. 활성화 후 사용자가 이벤트를 완료하면 커스텀 이벤트 데이터가 해당 사용자의 프로필에 기록됩니다.
 
-![Braze 고객 프로필에 "충전 성공" 스트라이프 커스텀 이벤트가 표시됩니다.]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
+![Braze 고객 프로필에 표시된 Stripe 커스텀 이벤트 "Charge Succeeded".]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
 
-## Example Stripe webhook payload {#example}
+## Stripe 웹훅 페이로드 예시 {#example}
 
 ```json
 {
@@ -233,18 +233,18 @@ After writing your Data Transformation, select **Validate** to make your Data Tr
 }
 ```
 
-## Data Transformation use cases
+## 데이터 변환 활용 사례 {#data-transformation-use-cases}
 
-The following are example templates built using our [example Stripe webhook payload](#example). These templates can be used as a starting point. You can start from scratch or delete specific components as you see fit.
+다음은 [Stripe 웹훅 페이로드 예시](#example)를 사용하여 구축한 예시 템플릿입니다. 이 템플릿을 시작점으로 사용할 수 있습니다. 처음부터 시작하거나 필요에 따라 특정 구성요소를 삭제할 수 있습니다.
 
-In this example template, we're logging a custom event to the Braze profile. The event type will be sent as the custom event name, and the data object will be passed as event properties. 
+이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. 이벤트 유형은 커스텀 이벤트 이름으로 전송되고, 데이터 오브젝트는 이벤트 등록정보로 전달됩니다.
 
-### Use case: customer as an identifier
+### 활용 사례: customer를 식별자로 사용 {#use-case-customer-as-an-identifier}
 
-In this example template, we are using the customer field as the identifier.
+이 예시 템플릿에서는 customer 필드를 식별자로 사용합니다.
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 
 ```javascript
 
@@ -283,7 +283,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 
 ```json
 {
@@ -305,6 +305,6 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-## Monitoring and troubleshooting
+## 모니터링 및 문제 해결 {#monitoring-and-troubleshooting}
 
-Refer to [Monitoring your transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) for more information on monitoring and troubleshooting your transformation.
+변환 모니터링 및 문제 해결에 대한 자세한 내용은 [변환 모니터링]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)을 참조하세요.

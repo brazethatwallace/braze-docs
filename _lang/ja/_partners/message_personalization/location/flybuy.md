@@ -26,7 +26,7 @@ FlybuyはリッチなユーザーインテリジェンスイベントをBrazeに
 |---|---|
 | Flybuyアカウント | 少なくとも1つのプロジェクトを持つFlybuyアカウント。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## インテグレーション {#integration}
 
@@ -54,11 +54,11 @@ Flybuyは、ログイン済みユーザーの`loyalty_id`をBrazeの`external_id
 
 カスタムイベントとカスタム属性を使用して、さまざまなパーソナライズ体験を実現できます。
 
-### ピックアップ体験が悪かった顧客のオーディエンスSegmentを構築する {#build-an-audience-segment-of-customers-who-had-a-bad-pickup-experience}
+### ピックアップ体験が悪かった顧客のオーディエンスセグメントを構築する {#build-an-audience-segment-of-customers-who-had-a-bad-pickup-experience}
 
 たとえば、ピックアップ体験を5つ星未満と評価した顧客をターゲットにします。
 
-![ピックアップ体験が悪かった場合のSegment]({% image_buster /assets/img/flybuy/flybuy1.png %})
+![ピックアップ体験が悪かった場合のセグメント]({% image_buster /assets/img/flybuy/flybuy1.png %})
 
 ### 顧客が仮想ピックアップエリアに入ったときにアラートをトリガーする {#trigger-an-alert-when-a-customer-enters-a-virtual-pickup-area}
 
@@ -68,11 +68,11 @@ Flybuyは、ログイン済みユーザーの`loyalty_id`をBrazeの`external_id
 
 ![顧客が仮想ピックアップエリアに入ったときのアラートメッセージ]({% image_buster /assets/img/flybuy/flybuy2a.png %})
 
-### 待ち時間が長かった顧客のオーディエンスSegmentを構築する {#build-an-audience-segment-of-customers-who-had-a-long-wait-time}
+### 待ち時間が長かった顧客のオーディエンスセグメントを構築する {#build-an-audience-segment-of-customers-who-had-a-long-wait-time}
 
 たとえば、仮想店舗エリアを退出する際に2分以上の待ち時間があった顧客をターゲットにします。
 
-![待ち時間が長かった顧客のオーディエンスSegment]({% image_buster /assets/img/flybuy/flybuy3.png %})
+![待ち時間が長かった顧客のオーディエンスセグメント]({% image_buster /assets/img/flybuy/flybuy3.png %})
 
 ### 顧客が間違った場所に向かっているときにコース修正アラートをトリガーする {#trigger-a-course-correction-alert-when-a-customer-is-headed-to-the-wrong-location}
 
@@ -82,7 +82,7 @@ Flybuyは、ログイン済みユーザーの`loyalty_id`をBrazeの`external_id
 
 たとえば、VIP顧客がお気に入りのロケーションに到着したときに特別オファーを送信します。
 
-### 注文に商品が不足していた顧客のオーディエンスSegmentを構築する {#build-an-audience-segment-of-customers-who-were-missing-items-in-their-order}
+### 注文に商品が不足していた顧客のオーディエンスセグメントを構築する {#build-an-audience-segment-of-customers-who-were-missing-items-in-their-order}
 
 たとえば、デジタル注文で商品が不足していたとコメントした顧客をターゲットにします。
 

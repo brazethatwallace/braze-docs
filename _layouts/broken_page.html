@@ -3,6 +3,8 @@ layout: default
 hide_toc: true
 hide_bottom_nav: true
 hide_breadcrumb: true
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -71,7 +73,7 @@ if (site_language && (site_language != 'en')){
     {%- endif -%}
     {% unless hide_url %}
     siteurl = removeleadingslash("{{ page.url }}");
-    validurls['{{ site.baseurl }}' + siteurl.toLowerCase()] = '{{ site.baseurl }}' + siteurl + '/';
+    validurls['{{ site.baseurl }}' + siteurl.toLowerCase()] = '{{ site.baseurl }}' + siteurl;
     {% endunless %}
   {%- endfor -%}
 
@@ -127,8 +129,12 @@ $(document).ready(function(k){
 {%- assign hide_bottom_nav = page.hide_bottom_nav -%}
 {%- assign hide_breadcrumb = page.hide_breadcrumb -%}
 {%- assign hide_feedback = page.hide_feedback -%}
+{%- assign hide_toc = page.hide_toc -%}
 {%- unless hide_nav -%}
 {%- assign hide_nav = layout.hide_nav -%}
+{%- endunless -%}
+{%- unless hide_toc -%}
+{%- assign hide_toc = layout.hide_toc -%}
 {%- endunless -%}
 
 {%- unless hide_bottom_nav -%}
@@ -157,7 +163,7 @@ $(document).ready(function(k){
       <div id="broken_banner">
         <div id="broken_banner_img"><img src="{{ page.broken_image | multi_lang }}" alt="Broken Image" /></div>
         <div id="broken_banner_info" class="broken_info">
-          <div id="content_start"></div>
+          <div id="content_start" tabindex="-1"></div>
           <div id="broken_banner_text">
             {{ page.broken_text }}
           </div>
@@ -222,4 +228,13 @@ $(document).ready(function(k){
     {%- endunless -%}
 
     {% include footer.html %}
+</div>
+<div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  <div class="gitedit_div" style="margin-top: 30px;padding-left: 5px;" aria-hidden="true"></div>
+  {%- unless hide_toc -%}
+  <div id="toc" ></div>
+  {%- endunless -%}
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
 </div>

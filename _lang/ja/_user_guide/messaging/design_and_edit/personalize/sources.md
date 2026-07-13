@@ -5,8 +5,8 @@ page_order: 1
 layout: dev_guide
 
 guide_top_header: "ソース"
-guide_top_text: "パーソナライゼーションソースは、<a href='/docs/user_guide/messaging/design_and_edit/personalize/liquid'>Liquid</a> を使用してメッセージで参照するデータを提供します。各ソースは、ユーザープロファイル属性から外部 API 応答、カタログアイテムまで、さまざまな種類のデータを提供します。"
-description: "ユーザープロファイル、REST API、カタログ、プロモーションコードなど、Braze メッセージのパーソナライゼーションに利用できるデータソースについて説明します。"
+guide_top_text: "パーソナライゼーションソースは、<a href='/docs/user_guide/messaging/design_and_edit/personalize/liquid'>Liquid</a> を使用してメッセージで参照するデータを提供します。各ソースは、ユーザープロファイル属性から外部APIの応答、カタログアイテムまで、さまざまな種類のデータを提供します。"
+description: "ユーザープロファイル、REST API、カタログ、プロモーションコードなど、Brazeメッセージのパーソナライゼーションに利用できるデータソースについて説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -16,6 +16,9 @@ guide_featured_list:
 - name: REST API
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/rest_api
   image: /assets/img/braze_icons/server-01.svg
+- name: ソース間のキャンペーンおよびキャンバス属性
+  link: /docs/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources
+  image: /assets/img/braze_icons/dataflow-03.svg
 - name: カタログ
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/catalog
   image: /assets/img/braze_icons/list.svg

@@ -1,7 +1,7 @@
 ---
 nav_title: Regal
 article_title: Regal
-description: "Este artigo de referência descreve a parceria entre o Braze e a Regal, uma solução de vendas por telefone e SMS que permite usar dados de ambas as fontes para criar experiências personalizadas para seus clientes."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Regal, uma plataforma de agentes de IA por voz que ajuda você a orquestrar jornadas personalizadas e omnicanal para clientes usando dados da Braze e conversas da Regal."
 alias: /partners/regal/
 page_type: partner
 search_tag: Partner
@@ -10,268 +10,333 @@ search_tag: Partner
 
 # Regal
 
-> [Regal.io](https://regal.io) é a solução de vendas por telefone e SMS construída para gerar mais conversas, para que você possa atingir suas metas de crescimento muito mais rápido.
+> [Regal.io](https://regal.io) é uma plataforma de agentes de IA por voz que ajuda empresas a oferecer melhores experiências ao cliente por meio de conversas inteligentes e em tempo real em diversos canais.
 
-Ao integrar a Regal e o Braze, você pode criar uma experiência mais consistente e personalizada em todos os pontos de contato com o cliente.
-- Envie o próximo melhor e-mail ou notificação por push da Braze com base no que foi dito em uma conversa telefônica na Regal.
-- Dispare uma chamada na Regal quando um cliente de alto valor clica em um e-mail de marketing da Braze, mas não converte.
+_Essa integração é mantida pela Regal._
 
-## Pré-requisitos
+Ao integrar a Regal com a Braze, você pode unificar dados comportamentais e IA conversacional para orquestrar jornadas personalizadas e omnicanal para clientes. A Braze captura sinais ao longo do ciclo de vida do cliente, que a Regal usa para alimentar conversas com agentes de IA, roteamento e decisões em tempo real.
+
+Use dados da Braze para definir o que seus agentes de IA dizem, como respondem e quando interagir. Envie resultados e insights de conversas de volta para a Braze para melhorar o direcionamento e o marketing de ciclo de vida. Dispare chamadas e SMS com IA em momentos-chave da jornada do cliente e faça o acompanhamento na Braze com base no que acontece em cada conversa.
+
+## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Regal | É necessário ter uma conta Regal para aproveitar essa parceria. |
-| Chave de API da Regal | Uma chave de API da Regal permitirá o envio de eventos da Braze para a Regal.<br><br>Envie um e-mail para [support@regal.io](mailto:support@regal.io) para obter essa chave. |
-| Transformação de Dados Braze | A transformação de dados está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente da Braze se quiser em participar do acesso antecipado. Isso é necessário para receber dados do Regal. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Chave de API da Regal | Uma chave de API da Regal permite o envio de eventos da Braze para a Regal.<br><br>Envie um e-mail para [support@regal.io](mailto:support@regal.io) para obter essa chave. |
+| Transformação de dados da Braze | Uma [Transformação de dados]({{site.baseurl}}/data_transformation) é necessária para receber dados da Regal. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração: Envio de dados do Braze para a Regal
+## Integração: envio de dados da Braze para a Regal {#integration-sending-data-from-braze-to-regal}
 
-A seção a seguir descreve como usar o Braze como fonte para enviar o perfil do cliente e os dados do evento para a Regal usando o Braze Canvas ou webhooks de campanha.
+Use webhooks de Canvas ou Campaign da Braze para enviar dados de perfil e eventos de clientes da Braze para a Regal.
 
-### Etapa 1: Criar novos contatos no Regal
+### Etapa 1: Criar novos contatos na Regal {#step-1-create-new-contacts-in-regal}
 
-Crie um canva ou uma campanha que se conecte à Regal sempre que um novo contato for criado na Braze e que você queira que esteja disponível para chamadas e mensagens de texto na Regal. 
+Crie um Canvas ou uma Campaign que envie webhooks para a Regal sempre que você criar um novo perfil na Braze que deva estar disponível para chamadas e mensagens de texto na Regal.
 
-1. Crie um Canva ou uma campanha intitulada "Create New Contact for Regal" (Criar novo contato para a Regal) e selecione **Action-Based (Baseado em ação** ) como o tipo de entrada.
+1. Crie um Canvas ou uma Campaign intitulada "Create New Contact for Regal" e selecione **Baseada em ação** como o tipo de entrada.
 
-2. Defina a lógica do disparo como **Evento personalizado** e selecione o evento que é disparado quando um contato com um número de telefone é criado. A Regal também recomenda adicionar um filtro extra no campo do telefone para garantir que ele esteja definido.
+2. Defina a lógica do disparo como **Evento personalizado** e selecione o evento que é disparado quando um perfil com número de telefone é criado. A Regal também recomenda adicionar um filtro para confirmar que o campo de telefone está definido.
 
 3. Em seu novo modelo de webhook, preencha os seguintes campos:
    - **URL do webhook**: <https://events.regalvoice.com/events>
-   - **Corpo da solicitação**: Texto bruto
+   - **Corpo da solicitação**: Raw Text
+
+#### Cabeçalhos de solicitação e método {#request-headers-and-method}
+
+A Regal também requer um cabeçalho HTTP para autorização e um método HTTP. Os itens a seguir já estão incluídos no modelo como pares de valores-chave na guia **Configurações**:
+{% raw %}
+- **Método HTTP**: POST
+- **Cabeçalhos da solicitação**:
+    - **Authorization**: `{{<REGAL_API_KEY>}}`
+    - **Content-Type**: application/json
+{% endraw %}
+
+#### Corpo da solicitação {#request-body}
+
+O único identificador obrigatório é um número de telefone dentro de `traits.phones`. Use o objeto `traits.phones` para associar um ou mais números de telefone a um contato. Cada número de telefone pode armazenar seu próprio rótulo, designação principal e status de aceitação para voz e SMS. Essa estrutura é especialmente útil quando um contato tem vários números de telefone.
+
+```json
+{
+  "userId": "<uniqueIdentifier>",
+  "traits": {
+    "phones": {
+      "<primaryPhoneNumber>": {
+        "label": "Mobile",
+        "isPrimary": true,
+        "voiceOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      },
+      "<secondaryPhoneNumber>": {
+        "label": "Home",
+        "isPrimary": false,
+        "voiceOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      }
+    },
+    "email": "<email>",
+    "firstName": "<firstName>",
+    "lastName": "<lastName>",
+    "custom1": "<custom1>",
+    "custom2": "<custom2>"
+  },
+  "eventSource": "braze"
+}
+```
+
+O exemplo de carga útil acima pressupõe que os números de telefone listados incluem o status atual de consentimento para voz e SMS. Se isso não for o caso, você pode omitir `voiceOptIn` e `smsOptIn` ao criar o contato e configurar um Canvas ou Campaign separado para atualizar o consentimento no número de telefone relevante quando a aceitação for coletada.
+
+### Etapa 2: Atualizar informações de aceitação {#step-2-update-opt-in-information}
+
+Se a aceitação e o cancelamento de inscrição puderem ocorrer em diferentes pontos do seu app, atualize a Regal quando os usuários alterarem o status de inscrição.
+
+A Regal recomenda usar o esquema `traits.phones` para que você possa gerenciar aceitação e cancelamento de inscrição por número de telefone, em vez de no nível do contato.
+
+Use a seguinte configuração de Canvas para enviar informações de aceitação atualizadas para a Regal.
+
+1. Crie um novo Canvas ou Campaign intitulado "Send Opt In or Out to Regal".
+
+2. Selecione uma das seguintes opções de disparo e escolha o campo que representa o status de aceitação do usuário:
+    - **Campo do perfil de usuário atualizado**
+    - **Atualizar status do grupo de inscrições**
+    - **Status de inscrição**
+
+3. Em seu novo modelo de webhook, preencha os seguintes campos:
+   - **URL do webhook**: <https://events.regalvoice.com/events>
+   - **Corpo da solicitação**: Raw Text
 
 #### Cabeçalhos de solicitação e método
 
-A Regal.io também requer um cabeçalho HTTP para autorização e um método HTTP. O seguinte já estará incluído no modelo como um par de valores-chave na guia **Settings (Configurações)**:
+A Regal também requer um cabeçalho HTTP para autorização e um método HTTP. Os itens a seguir já estão incluídos no modelo como pares de valores-chave na guia **Configurações**:
 {% raw %}
 - **Método HTTP**: POST
-- **Cabeçalhos de solicitação**:
-    - **Autorização**: `{{<REGAL_API_KEY>}}`
+- **Cabeçalhos da solicitação**:
+    - **Authorization**: `{{<REGAL_API_KEY>}}`
     - **Content-Type**: application/json
 {% endraw %}
 
 #### Corpo da solicitação
 
-O único campo obrigatório abaixo é a propriedade `traits.phone`. O restante é opcional. No entanto, se você incluir `optIn`, deverá incluir `optIn.channel` e `optIn.subscribed`.
-
 ```json
 {
-    "userId": "<uniqueIdentifier>", //this is optional
-    "traits": {
-        "phone": "<phoneNumber>",
-        "email": "<email>",
-        "firstName": "<firstName>",
-        "lastName": "<lastName>",
-        "optIn": [
-            {
-                "channel": "voice",
-                "source": "<leadSource>",
-                "subscribed": true
-            },
-            {
-                "channel": "sms",
-                "source": "<leadSource>",
-                "subscribed": true
-            }
-        ],
-        "custom1": "<custom1>",
-        "custom2": "<custom2>"
-    },
-    "eventSource": "braze"
+  "userId": "<uniqueIdentifier>",
+  "traits": {
+    "phones": {
+      "<phoneNumber>": {
+        "voiceOptIn": {
+          "subscribed": "<voice_optin_subscribed>",
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": "<sms_optin_subscribed>",
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      }
+    }
+  },
+  "eventSource": "braze"
 }
 ```
 
-O exemplo de carga útil acima pressupõe que todos os seus contatos aceitaram a aceitação de voz e SMS. Se isso não for válido para o seu caso, você poderá remover a propriedade `optIn` do item acima e configurar um canva ou uma campanha separada para atualizar um contato na Regal quando o `optIn` for coletado.
+Você também pode incluir atributos adicionais de perfil de usuário nessa carga útil para manter outros atributos atualizados ao mesmo tempo.
 
-### Etapa 2: Atualizar informações de aceitação 
+### Etapa 3: Enviar eventos personalizados {#step-3-send-custom-events}
 
-Se a aceitação e a saída puderem ocorrer em diferentes partes da experiência do usuário no app, é importante atualizar o Regal à medida que os usuários aceitarem ou saírem. Abaixo está um canva recomendado para enviar informações de aceitação atualizadas para a Regal. Ele presume que você salvará as informações como campo de perfil na Braze. Se não for o caso, o disparo poderá ser um evento na sua conta da Braze que represente a aceitação ou o cancelamento da inscrição de um usuário (o exemplo abaixo é para aceitação por telefone, mas você pode configurar uma canva ou campanha semelhante para aceitação por SMS, caso faça a coleta separadamente).
+Configure um Canvas ou Campaign para cada evento-chave que deseja enviar à Regal.
 
-1. Crie uma nova tela ou campanha com o título "Send Opt In or Out to Regal" (Enviar aceitação ou recusa para a Regal).
+Esses eventos fazem mais do que disparar ações de contato (por exemplo, um texto de confirmação quando um lead conclui a inscrição). Eles fornecem o contexto em tempo real que alimenta a forma como os agentes de IA da Regal falam, tomam decisões e roteiam conversas ao longo da jornada do cliente. Ao enviar dados de eventos e atributos da Braze, você permite que os agentes de IA adaptem as conversas com base no comportamento, nas preferências e no estágio do ciclo de vida de cada usuário.
 
-2. Selecione uma das seguintes opções de disparo e escolha o campo que representa o status de aceitação do usuário. Se você disparar um evento para a Braze para representar a aceitação ou o cancelamento, use esse evento como o gatilho.
-    - Campo do perfil do usuário atualizado
-    - Atualizar status do grupo de inscrições
-    - Status de inscrição
+Por exemplo, eventos e atributos da Braze podem ser usados na Regal para:
 
-3. Em seu novo modelo de webhook, preencha os seguintes campos:
-   - **URL do webhook**: <https://events.regalvoice.com/events>
-   - **Corpo da solicitação**: Texto bruto
+- **Personalizar a fala do agente de IA**: Referenciar comportamentos recentes ou interesses em produtos diretamente nas conversas.
+  - Exemplo: Se um usuário explorou opções de seguro de vida, o agente pode referenciar `contact.firstName` e `contact.brazeProductInterest` na conversa.
+- **Conduzir lógica dinâmica de conversa**: Ajustar o que o agente prioriza em tempo real.
+  - Exemplo: Se `contact.brazeAge` for maior que 65, priorizar a cobertura Medicare; caso contrário, focar em planos ACA e no status atual do seguro.
+- **Habilitar roteamento e escalonamento inteligentes**: Rotear conversas com base em valor ou intenção.
+  - Exemplo: Se `contact.brazeLeadTier` for "High Value", transferir para um agente sênior após a qualificação; caso contrário, continuar com o agente de IA.
+- **Alinhar mensagens e ofertas**: Personalizar o que o agente apresenta com base no contexto da Campaign.
+  - Exemplo: Se `contact.brazeCampaignName` for "Spring Mortgage Promo", destacar a oferta promocional durante a conversa.
 
-#### Cabeçalhos de solicitação e método
-
-A Regal.io também requer um cabeçalho HTTP para autorização e um método HTTP. O seguinte já estará incluído no modelo como um par de valores-chave, mas na guia **Configurações**:
-{% raw %}
-- **Método HTTP**: POST
-- **Cabeçalhos de solicitação**:
-    - **Autorização**: `{{<REGAL_API_KEY>}}`
-    - **Content-Type**: application/json
-{% endraw %}
-
-#### Corpo da solicitação
-
-Você também pode adicionar outros atributos de perfil de usuário nessa carga útil se quiser garantir que mais atributos sejam atualizados simultaneamente.
+Crie um novo Canvas ou Campaign intitulado "Send Product Interest Event to Regal."
 
 ```json
 {
-    "userId": "<uniqueIdentifier>", //this is optional
-    "traits": {
-        "phone": "<phoneNumber>",
-        "optIn": [
-            {
-                "channel": "voice",
-                "source": "<leadSource>",
-                "subscribed": "<voice_optin_subscribed>"
-            },
-            {
-                "channel": "sms",
-                "source": "<leadSource>",
-                "subscribed": "<voice_optin_subscribed>"
-            }
-        ]
+  "userId": "<uniqueIdentifier>",
+  "traits": {
+    "phones": {
+      "<primaryPhoneNumber>": {
+        "label": "Mobile",
+        "isPrimary": true,
+        "voiceOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      },
+      "<secondaryPhoneNumber>": {
+        "label": "Home",
+        "isPrimary": false,
+        "voiceOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      }
     },
-    "eventSource": "braze"
+    "email": "<email>",
+    "firstName": "<firstName>",
+    "lastName": "<lastName>",
+    "brazeProductInterest": "Life Insurance",
+    "brazeAge": 68,
+    "brazeLeadTier": "High Value",
+    "brazeCampaignName": "Spring Insurance Promo"
+  },
+  "name": "Product Interest Captured",
+  "properties": {
+    "action": "Viewed Product Comparison",
+    "productCategory": "Life Insurance",
+    "intentScore": "High",
+    "lastPage": "Compare Life Insurance Plans",
+    "readyToCommit": true
+  },
+  "eventSource": "braze"
 }
 ```
 
-### Etapa 3: Enviar eventos personalizados
+#### Atributos de contato atualizados {#up-to-date-contact-attributes}
 
-Por fim, configure um canva ou uma campanha para cada um dos principais eventos que deseja enviar à Regal. A Regal recomenda o envio de quaisquer eventos que sejam importantes para disparar SMS e chamadas na Regal (como um evento em cada etapa do fluxo de inscrição ou compra) ou que sejam usados como critérios de saída para que os contatos saiam das campanhas da Regal.
-
-Por exemplo, abaixo está um fluxo de trabalho para enviar um evento à Regal quando um usuário conclui a primeira etapa de um aplicativo.
-
-1. Crie um novo canva ou campanha com o nome "Enviar evento concluído da etapa 1 do aplicativo para a Regal".
-
-2. Defina a lógica do nó de gatilho como **Evento personalizado** e selecione o nome do evento que deseja enviar à Regal, como "Etapa 1 do aplicativo concluída".
-
-3. Em seu novo modelo de webhook, preencha os seguintes campos:
-   - **URL do webhook**: <https://events.regalvoice.com/events>
-   - **Corpo da solicitação**: Texto bruto
-
-#### Cabeçalhos de solicitação e método
-
-A Regal.io também requer um cabeçalho HTTP para autorização e um método HTTP. O seguinte já estará incluído no modelo como um par de valores-chave, mas na guia **Configurações**:
-{% raw %}
-- **Método HTTP**: POST
-- **Cabeçalhos de solicitação**:
-    - **Autorização**: `{{<REGAL_API_KEY>}}`
-    - **Content-Type**: application/json
-{% endraw %}
-
-#### Corpo da solicitação
-
-Você pode adicionar outros atributos de perfil de usuário nessa carga útil se quiser garantir que mais atributos sejam atualizados simultaneamente.
-
-```json
-{
-    "userId": "<uniqueIdentifier>", //this is optional
-    "traits": {
-        "phone": "<phoneNumber>",
-        "firstName": "<firstName>",
-        "lastName": "<lastName>",
-        "custom1": "<custom1>",
-        "custom2": "<custom2>",
-        "custom3": "<custom3>"
-    },
-    "name": "Application Step 1 Completed",
-    "properties": {
-      "educationalLevel": "<educationalLevel>",
-      "preferredLocation": "<preferredLocation>",
-      "preferredSubject": "<preferredSubject>",
-      "readytoCommit": true
-    },
-    "eventSource": "braze"
-}
-```
-
-#### Atribuições de contato atualizadas
-
-Embora não seja necessário, a Regal recomenda também enviar quaisquer campos de dados de perfil de usuários importantes nas cargas úteis dos fluxos de trabalho do evento para garantir que a Regal tenha acesso às atribuições de contato mais atualizadas no momento em que os eventos importantes estiverem disponíveis.
+A Regal também recomenda enviar atributos-chave de perfil de usuário nas cargas úteis de eventos para que a Regal tenha atributos de contato atualizados quando eventos importantes ocorrerem.
 
 {% alert note %}
-Se tiver dúvidas sobre quais eventos são importantes para enviar à Regal ou sobre a melhor forma de configurar esses canvas e campanhas, entre em contato pelo e-mail support@regal.io.
+Se tiver dúvidas sobre quais eventos enviar à Regal ou sobre como configurar esses Canvas e Campaigns, envie um e-mail para [support@regal.io](mailto:support@regal.io).
 {% endalert %}
 
-## Integração: Envio de dados do Regal para o Braze
+## Integração: envio de dados da Regal para a Braze {#integration-sending-data-from-regal-to-braze}
 
-Esta seção descreve como obter eventos de relatórios da Regal, como `SMS.sent` e `call.completed`, no Braze para que eles possam aparecer em seus perfis do Braze e estar disponíveis na ferramenta de segmentação do Braze, no Canva e nas campanhas. Essa integração usa os Webhooks do Regal Reporting e a transformação de dados do Braze para automatizar o fluxo de dados.
+Use os webhooks de relatórios da Regal e a Transformação de dados da Braze para enviar eventos de relatórios da Regal (como `SMS.sent` e `call.completed`) para a Braze. Depois de mapear esses eventos, eles aparecem nos perfis de usuário e ficam disponíveis para segmentação, Canvas e Campaigns.
 
-### Etapa 1: Criar uma transformação de dados no Braze
+### Etapa 1: Criar uma Transformação de dados na Braze {#step-1-create-a-data-transformation-in-braze}
 
-{% alert important %}
-A transformação de dados está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente da Braze se quiser em participar do acesso antecipado.
-{% endalert %}
+Crie uma Transformação de dados para cada webhook da Regal que você planeja enviar à Braze.
 
-O Braze recomenda criar uma transformação de acordo com o webhook do Regal que você planeja enviar ao Braze. 
+Para criar uma Transformação de dados:
+1. Navegue até a página **Transformações** no dashboard da Braze.
+2. Dê um nome à sua transformação e clique em **Criar transformação**.
+3. Na lista de transformações, selecione <i class="fa-solid fa-ellipsis-vertical" title="Exibir ações"></i> **Exibir ações** e selecione **Copiar URL do webhook**.
 
-Para criar uma transformação de dados:
-1. Navegue até a página **Transformations (Transformações** ) em seu dashboard do Braze.
-2. Dê um nome à sua transformação e clique em **Create transformation (Criar transformação**).
-3. Na lista de transformações, clique em <i class="fa-solid fa-ellipsis-vertical" title="Exibir ações"></i> e selecione **Copiar URL do webhook**.
-
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
-
-### Etapa 2: Ativar webhooks de relatórios no Regal
+### Etapa 2: Ativar webhooks de relatórios na Regal {#step-2-enable-reporting-webhooks-in-regal}
 
 Para configurar webhooks de relatórios:
-1. Acesse o app da Regal e abra a página **de configurações**.
+1. Acesse o app da Regal e abra a página **Settings**.
 
-2. Na seção **Reporting Webhooks** (Webooks de relatório), clique em **Create Webhooks** (Criar webhooks).
+2. Na seção **Reporting Webhooks**, clique em **Create Webhooks**.
 
-3. Na entrada do endpoint do webhook, adicione o URL do webhook da transformação de dados da Braze para a transformação de dados associada.
+3. Na entrada do endpoint do webhook, adicione a URL do webhook da Transformação de dados da Braze para a Transformação de dados associada.
 
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
+#### Atualização de um endpoint {#updating-an-endpoint}
 
-#### Atualização de um ponto de extremidade
 Quando você edita um endpoint, pode levar até 5 minutos para que o cache seja atualizado e envie eventos para o novo endpoint.
-#### Tentativas
-Atualmente, não há novas tentativas nesses eventos. Se uma resposta não for recebida em 5 segundos, o evento será descartado e não passará por novas tentativas. A Regal adicionará novas tentativas em uma versão futura.
-#### Eventos
-O [guia de Webhooks de Relatórios](https://developer.regal.io/docs/reporting-webhooks#events) da Regal inclui a lista completa de eventos de Relatório que eles publicam. Lá você pode ver definições de propriedades e exemplos de cargas úteis.
 
-### Etapa 3: Transforme os eventos Regal em eventos Braze
+#### Novas tentativas {#retries}
 
-O recurso [Transformação de Dados]({{site.baseurl}}/data_transformation) do Braze permite que você mapeie eventos de Regal recebidos no formato necessário para serem adicionados como atributos, eventos ou compras no Braze.
+Atualmente, a Regal não faz novas tentativas para esses eventos. Se a Braze não responder em 5 segundos, a Regal descarta o evento. A Regal planeja adicionar novas tentativas em uma versão futura.
 
-1. Dê um nome à sua transformação de dados. Recomenda-se configurar uma transformação de dados por webhook de evento.
+#### Eventos {#events}
+Para a lista completa de eventos de relatórios, definições de propriedades e exemplos de cargas úteis, consulte o [guia de webhooks de relatórios](https://developer.regal.io/docs/reporting-webhooks#events) da Regal.
 
-2. Para testar a conexão, crie uma chamada de saída do Regal Agent Desktop para seu telefone celular e envie o formulário Resumo da conversa para criar um evento call.completed.
+### Etapa 3: Transformar os eventos da Regal em eventos da Braze {#step-3-transform-regal-events-into-braze-events}
 
-3. Determine quais identificadores serão usados para mapear seus contatos da Regal para seus perfis da Braze. Os identificadores disponíveis nos eventos do Regal incluem:
-   - `userId` - somente definido em eventos se você tiver enviado anteriormente esse identificador para um contato
+O recurso [Transformação de dados]({{site.baseurl}}/data_transformation) da Braze permite que você mapeie eventos recebidos da Regal no formato necessário para serem adicionados como atributos, eventos ou compras na Braze.
+
+1. Dê um nome à sua Transformação de dados. Recomenda-se configurar uma Transformação de dados por webhook de evento.
+
+2. Para testar a conexão, crie uma chamada de saída do Regal Agent Desktop para seu celular e envie o formulário de resumo da conversa para criar um evento `call.completed`.
+
+3. Determine quais identificadores serão usados para mapear seus contatos da Regal para seus perfis da Braze. Os identificadores disponíveis nos eventos da Regal incluem:
+   - `userId` — somente definido em eventos se você tiver enviado anteriormente esse identificador para um contato
    - `traits.phone`
-   - `traits.email` - somente definido em eventos se você tiver enviado anteriormente esse identificador para um contato
+   - `traits.email` — somente definido em eventos se você tiver enviado anteriormente esse identificador para um contato
 
-#### Identificadores com suporte da Braze
-- O Braze não oferece suporte a números telefônicos como identificador. Para usar isso como um identificador, o número de telefone pode ser definido como um [alias de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) no Braze.
-- Ao usar a transformação de dados do Braze, o endereço de e-mail pode ser usado como um identificador. Se o endereço de e-mail existir como perfil na Braze, o perfil existente será atualizado. Se o endereço de e-mail ainda não existir no Braze, será criado um perfil somente de e-mail.
+Nas cargas úteis de eventos da Braze para a Regal, a Regal recomenda usar `traits.phones` para suportar múltiplos números de telefone e consentimento no nível do telefone. Nos eventos de relatórios da Regal enviados de volta para a Braze, `traits.phone` ainda pode aparecer como identificador nas cargas úteis de eventos.
 
-## Casos de uso
+#### Identificadores compatíveis com a Braze {#braze-supported-identifiers}
+- A Braze não oferece suporte a números de telefone como identificador. Para usar isso como identificador, o número de telefone pode ser definido como um [alias de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) na Braze.
+- Ao usar a Transformação de dados da Braze, o endereço de e-mail pode ser usado como identificador. Se o endereço de e-mail existir como perfil na Braze, o perfil existente será atualizado. Se o endereço de e-mail ainda não existir na Braze, será criado um perfil somente de e-mail.
+
+## Casos de uso {#use-cases}
 
 {% tabs %}
-{% tab Trigger an email %}
+{% tab Disparar um e-mail %}
 
 **Disparar um e-mail da Braze com base em uma disposição de chamada na Regal**
 
-Abaixo está um exemplo de carga útil para um evento `call.completed` no Regal. 
+O exemplo de carga útil a seguir mostra um evento `call.completed` na Regal.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -294,7 +359,7 @@ Abaixo está um exemplo de carga útil para um evento `call.completed` no Regal.
 }
 ```
 
-Abaixo está um exemplo de transformação de dados para mapear isso para um evento personalizado no Braze.
+O exemplo de Transformação de dados a seguir mapeia isso para um evento personalizado na Braze.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze must first be converted to ISO 8601. This can be done with the following code:
@@ -348,23 +413,23 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Update profile attributes %}
+{% tab Atualizar atributos do perfil %}
 
 **Atualizar os atributos do perfil na Braze com base nos eventos `contact.attribute.edited` da Regal**
 
-Abaixo está um exemplo de carga útil para um evento `contact.attribute.edited` no Regal. Esse evento é disparado sempre que um de seus agentes aprende algo novo em uma conversa e atualiza uma atribuição no perfil do contato.
+O exemplo de carga útil a seguir mostra um evento `contact.attribute.edited` na Regal. A Regal envia esse evento quando um agente atualiza um atributo no perfil de um contato durante uma conversa.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -380,7 +445,7 @@ Abaixo está um exemplo de carga útil para um evento `contact.attribute.edited`
 }
 ```
 
-Abaixo está um exemplo de transformação de dados para mapear os novos valores de propriedades personalizadas para os atributos relevantes em seus perfis Braze:
+O exemplo de Transformação de dados a seguir mapeia os novos valores de propriedades personalizadas para os atributos relevantes em seus perfis da Braze:
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -412,18 +477,18 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab Keep your experiments in sync %}
+{% tab Manter seus experimentos em sincronia %}
 
-**Mantenha seus experimentos no Braze e no Regal em sincronia usando os eventos do `contact.experiment.assigned` **
+**Mantenha seus experimentos na Braze e na Regal em sincronia usando os eventos `contact.experiment.assigned`**
 
-Abaixo está um exemplo de carga útil para um evento `contact.experiment.assigned` no Regal.
+O exemplo de carga útil a seguir mostra um evento `contact.experiment.assigned` na Regal.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -439,7 +504,7 @@ Abaixo está um exemplo de carga útil para um evento `contact.experiment.assign
 }
 ```
 
-Abaixo está um exemplo de transformação de dados para mapear isso para um evento personalizado no Braze.
+O exemplo de Transformação de dados a seguir mapeia isso para um evento personalizado na Braze.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze, it must first be converted to ISO 8601. This can be done with the following code:
@@ -475,18 +540,18 @@ return brazecall;
 
 ```
 {% endtab %}
-{% tab Unsubscribe a contact %}
+{% tab Cancelar inscrição de um contato %}
 
-**Cancelar inscrição de um contato no Braze com base em um `contact.unsubscribed` da Regal**
+**Cancelar inscrição de um contato na Braze com base nos eventos `contact.unsubscribed` da Regal**
 
-Abaixo está um exemplo de carga útil para um evento `contact.unsubscribed` no Regal.
+O exemplo de carga útil a seguir mostra um evento `contact.unsubscribed` na Regal.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -503,7 +568,7 @@ Abaixo está um exemplo de carga útil para um evento `contact.unsubscribed` no 
 }
 ```
 
-Abaixo está um exemplo de transformação de dados para cancelar a inscrição do contato na Braze.
+O exemplo de Transformação de dados a seguir cancela a inscrição do contato na Braze.
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -529,5 +594,127 @@ return brazecall;
 ```
 
 {% endtab %}
-{% endtabs %}
+{% tab Disparar acompanhamento a partir da análise de chamada %}
 
+**Disparar jornadas de acompanhamento personalizadas na Braze com base nos eventos `call.analysis.available` da Regal**
+
+Use o evento `call.analysis.available` da Regal para identificar o principal motivo pelo qual um cliente não converteu e disparar uma jornada de acompanhamento personalizada na Braze.
+
+Por exemplo:
+
+- Quando a objeção principal for preço, envie um e-mail de acompanhamento focado em valor.
+- Quando a objeção principal for timing, coloque o usuário em uma sequência de nutrição para reconsideração posterior.
+- Quando a objeção principal for confiança, envie depoimentos, avaliações ou garantias de conformidade.
+- Quando `needs_human_agent` for verdadeiro, notifique uma equipe de vendas ou suporte e suprima mensagens automatizadas adicionais.
+
+O exemplo de carga útil a seguir mostra um evento `call.analysis.available` na Regal.
+
+```json
+{
+  "traits": {
+    "phone": "+1XXXXXXXXXX",
+    "email": "xxx@example.com"
+  },
+  "name": "call.analysis.available",
+  "brand": "circle-bank",
+  "contact_email": "xxx@example.com",
+  "contact_phone": "+1XXXXXXXXXX",
+  "created_at": "1754079836",
+  "entity_type": "event",
+  "event_id": "9f5d8dbb2973b0e2359c6fd34111111",
+  "event_type": "regal_voice_event",
+  "external_id": "41dd1aa2-1111-f011-a2d5-00505611111",
+  "original_timestamp": "1754079835",
+  "profile_id": "62653af1111111173af128291e92",
+  "properties": {
+    "agent_email": "xxx@example.com",
+    "call_analysis": {
+      "purchase_intent": "medium",
+      "primary_objection": "price",
+      "secondary_objection": "needs_to_compare",
+      "product_interest": "Life Insurance",
+      "follow_up_required": true,
+      "follow_up_email_text": "Thanks for speaking with us today. I know cost is top of mind, so I wanted to send over a simple summary of the life insurance options we discussed and what may fit your budget.",
+      "recommended_next_action": "send_value_oriented_follow_up",
+      "needs_human_agent": false,
+      "customer_sentiment_label": "interested_but_hesitant"
+    },
+    "contact_phone": "+1XXXXXXXXXX",
+    "incoming_sip_headers": {
+      "Via": "SIP/2.0/UDP srv1.example.com;branch=z9hG4bK776asdhds",
+      "From": "<sip:customer@example.com>;tag=1928301774",
+      "Call-ID": "a84b4c76e66710"
+    },
+    "is_ai_agent": true,
+    "outgoing_sip_headers": {
+      "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
+      "To": "<sip:agent@example.com>",
+      "User-Agent": "RegalVoiceAI/1.0"
+    },
+    "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
+  },
+  "originalTimestamp": "1754079835",
+  "source": "Regal Voice"
+}
+```
+
+Use uma Transformação de dados para mapear os campos de `call_analysis` (como `primary_objection` e `needs_human_agent`) para eventos personalizados ou atributos de perfil na Braze. Em seguida, crie lógica de Canvas ou Campaign na Braze que se ramifique com base nesses valores.
+
+{% endtab %}
+{% tab Armazenar links de transcrição de chamada %}
+
+**Atualizar atributos do perfil com links de transcrição dos eventos `call.transcript.available`**
+
+Use o evento `call.transcript.available` para enviar um link para a transcrição completa da chamada para a Braze. Mapeie a URL da transcrição para um atributo de perfil de usuário na Braze com a Transformação de dados para que sua equipe possa acessar e revisar conversas a partir do perfil de usuário.
+
+O exemplo de carga útil a seguir mostra um evento `call.transcript.available` na Regal.
+
+```json
+{
+  "userId": "123",
+  "traits": {
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
+  },
+  "name": "call.transcript.available",
+  "properties": {
+    "agent_email": "xxx@example.com",
+    "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
+    "is_voicemail": false,
+    "moments_count": 18,
+    "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
+    "recording_link": "https://api.twilio.com/2010-04-01/Accounts/ACxxx/Recordings/xxx.mp3",
+    "recording_duration": 78.75987,
+    "request_timestamp": 1657799128,
+    "response_timestamp": 1657799136,
+    "sentiments": {
+      "contact_sentiment": 70,
+      "agent_sentiment": 75,
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+    },
+    "trackers": [
+      {
+        "tracker_id": "4be87957-9140-4451-894a-bdbaed1f2460",
+        "tracker_name": "Refinance"
+      },
+      {
+        "tracker_id": "eb2577c6-5e23-4c65-9e04-5cc5d49eee7e",
+        "tracker_name": "High Intent"
+      }
+    ],
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript_is_truncated": false,
+    "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
+  },
+  "originalTimestamp": "1657843308",
+  "eventSource": "Regal Voice",
+  "eventId": "f49a3cf9cb1336683bd5f19dwe4c61147"
+}
+```
+
+{% endtab %}
+{% endtabs %}

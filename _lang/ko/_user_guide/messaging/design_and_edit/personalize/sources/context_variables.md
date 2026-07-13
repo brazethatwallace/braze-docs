@@ -2,39 +2,39 @@
 nav_title: 컨텍스트 변수
 article_title: 컨텍스트 변수
 page_type: reference
-description: "이 참조 문서에서는 Braze 캔버스의 컨텍스트 변수에 대해 유형, 사용법, 모범 사례를 포함하여 설명합니다."
+description: "이 참조 문서에서는 Braze Canvas의 컨텍스트 변수에 대해 유형, 사용법, 모범 사례를 포함하여 설명합니다."
 ---
 
-# 컨텍스트 변수
+# 컨텍스트 변수 {#context-variables}
 
-> 컨텍스트 변수는 특정 캔버스를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. 컨텍스트 변수를 사용하면 사용자의 프로필 정보를 영구적으로 변경하지 않고도 지연을 개인화하고, 사용자를 동적으로 세그먼트하며, 메시징을 풍부하게 만들 수 있습니다. 컨텍스트 변수는 캔버스 세션 내에서만 존재하며, 다른 캔버스나 세션 외부에서는 유지되지 않습니다.
+> 컨텍스트 변수는 특정 Canvas를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. 컨텍스트 변수를 사용하면 사용자의 프로필 정보를 영구적으로 변경하지 않고도 지연을 개인화하고, 사용자를 동적으로 세그먼트하며, 메시징을 풍부하게 만들 수 있습니다. 컨텍스트 변수는 Canvas 세션 내에서만 존재하며, 다른 Canvas나 세션 외부에서는 유지되지 않습니다.
 
 ## 컨텍스트 변수의 작동 방식 {#how-context-variables-work}
 
 컨텍스트 변수는 두 가지 방법으로 설정할 수 있습니다:
 
-- **캔버스 진입 시:** 사용자가 캔버스에 진입하면 이벤트 또는 API 트리거의 데이터가 자동으로 컨텍스트 변수를 채울 수 있습니다.
-- **컨텍스트 단계에서:** [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)를 추가하여 캔버스 내에서 컨텍스트 변수를 수동으로 정의하거나 업데이트할 수 있습니다.
+- **Canvas 진입 시:** 사용자가 Canvas에 진입하면 이벤트 또는 API 트리거의 데이터가 자동으로 컨텍스트 변수를 채울 수 있습니다.
+- **컨텍스트 단계에서:** [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 추가하여 Canvas 내에서 컨텍스트 변수를 수동으로 정의하거나 업데이트할 수 있습니다.
 
 각 컨텍스트 변수에는 다음이 포함됩니다:
 
 - 이름(예: `flight_time` 또는 `subscription_renewal_date`)
 - 데이터 유형(예: 숫자, 문자열, 시간 또는 배열)
-- [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) 또는 **개인화 추가** 도구를 통해 할당하는 값
+- [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) 또는 **개인화 추가** 도구를 통해 할당하는 값
 
-정의된 후에는 다음 형식으로 참조하여 캔버스 전체에서 컨텍스트 변수를 사용할 수 있습니다: {% raw %}`{{context.${example_variable_name}}}`{% endraw %}.
+정의된 후에는 다음 형식으로 참조하여 Canvas 전체에서 컨텍스트 변수를 사용할 수 있습니다: {% raw %}`{{context.${example_variable_name}}}`{% endraw %}.
 
 예를 들어, {% raw %}`{{context.${flight_time}}}`{% endraw %}은 사용자의 예정된 비행 시간을 반환할 수 있습니다.
 
-사용자가 캔버스에 진입할 때마다(이전에 진입한 적이 있더라도) 컨텍스트 변수는 최신 진입 데이터와 캔버스 설정에 따라 재정의됩니다. 이 상태 기반 접근 방식을 통해 각 캔버스 진입은 자체적인 독립 컨텍스트를 유지할 수 있으며, 사용자가 동일한 여정 내에서 여러 활성 상태를 가지면서도 각 상태에 대한 특정 컨텍스트를 유지할 수 있습니다.
+사용자가 Canvas에 진입할 때마다(이전에 진입한 적이 있더라도) 컨텍스트 변수는 최신 진입 데이터와 Canvas 설정에 따라 재정의됩니다. 이 상태 기반 접근 방식을 통해 각 Canvas 진입은 자체적인 독립 컨텍스트를 유지할 수 있으며, 사용자가 동일한 여정 내에서 여러 활성 상태를 가지면서도 각 상태에 대한 특정 컨텍스트를 유지할 수 있습니다.
 
 예를 들어, 고객에게 예정된 항공편이 두 개 있는 경우 두 개의 별도 여정 상태가 동시에 실행되며, 각각 출발 시간과 목적지와 같은 고유한 항공편별 컨텍스트 변수를 갖습니다. 이를 통해 뉴욕행 오후 2시 항공편에 대한 개인화된 알림을 보내는 동시에 내일 로스앤젤레스행 오전 8시 항공편에 대한 다른 업데이트를 보낼 수 있어, 각 메시지가 특정 예약과 관련성을 유지합니다.
 
 ## 고려 사항 {#considerations}
 
-[컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)당 최대 10개의 컨텍스트 변수를 정의할 수 있습니다. 각 변수 이름은 최대 100자이며 문자, 숫자 또는 밑줄만 사용해야 합니다.
+[컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)당 최대 10개의 컨텍스트 변수를 정의할 수 있습니다. 각 변수 이름은 최대 100자이며 문자, 숫자 또는 밑줄만 사용해야 합니다.
 
-컨텍스트 변수 정의는 최대 10,240자까지 가능합니다. API 트리거 캔버스에 컨텍스트 변수를 전달하는 경우, 컨텍스트 단계에서 생성된 변수와 동일한 네임스페이스를 공유합니다. 예를 들어, [`/canvas/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) 컨텍스트 오브젝트에서 `purchased_item` 변수를 보내면 {% raw %}`{{context.${purchased_item}}}`{% endraw %}으로 참조할 수 있습니다. 컨텍스트 단계에서 해당 변수를 재정의하면 새 값이 해당 사용자 여정의 API 값을 덮어씁니다.
+컨텍스트 변수 정의는 최대 10,240자까지 가능합니다. API 트리거 Canvas에 컨텍스트 변수를 전달하는 경우, 컨텍스트 단계에서 생성된 변수와 동일한 네임스페이스를 공유합니다. 예를 들어, [`/canvas/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) 컨텍스트 오브젝트에서 `purchased_item` 변수를 보내면 {% raw %}`{{context.${purchased_item}}}`{% endraw %}으로 참조할 수 있습니다. 컨텍스트 단계에서 해당 변수를 재정의하면 새 값이 해당 사용자 여정의 API 값을 덮어씁니다.
 
 컨텍스트 단계당 최대 50KB를 저장할 수 있으며, 최대 10개의 변수에 분산됩니다. 단계의 모든 변수 총 크기가 50KB를 초과하면 한도를 초과하는 변수는 평가되거나 저장되지 않습니다. 예를 들어, 컨텍스트 단계에 세 개의 변수가 있는 경우:
 
@@ -49,19 +49,19 @@ description: "이 참조 문서에서는 Braze 캔버스의 컨텍스트 변수�
 단계에서 생성되거나 업데이트되는 컨텍스트 변수에는 다음 데이터 유형을 할당할 수 있습니다.
 
 {% alert note %}
-컨텍스트 변수는 [이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#expected-format)와 동일한 데이터 유형 예상 형식을 갖습니다. <br><br>배열 유형을 사용할 때 Braze는 값을 JSON으로 구문 분석하려고 시도하며, 이를 통해 오브젝트 배열을 성공적으로 생성할 수 있습니다. 배열 내의 오브젝트가 유효한 JSON이 아닌 경우 결과는 단순 문자열 배열이 됩니다. <br><br>중첩 오브젝트 및 오브젝트 배열의 경우 [`as_json_string` Liquid 필터](#converting-connected-content-strings-to-json)를 사용하세요. 컨텍스트 단계에서 동일한 오브젝트를 생성하는 경우 `as_json_string`을 사용하여 오브젝트를 렌더링해야 합니다. 예: {%raw%}```{{context.${object_array} | as_json_string }}```{%endraw%}
+컨텍스트 변수는 [이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format)와 동일한 데이터 유형 예상 형식을 갖습니다. <br><br>배열 유형을 사용할 때 Braze는 값을 JSON으로 구문 분석하려고 시도하며, 이를 통해 오브젝트 배열을 성공적으로 생성할 수 있습니다. 배열 내의 오브젝트가 유효한 JSON이 아닌 경우 결과는 단순 문자열 배열이 됩니다. <br><br>중첩 오브젝트 및 오브젝트 배열의 경우 [`as_json_string` Liquid 필터](#converting-connected-content-strings-to-json)를 사용하세요. 컨텍스트 단계에서 동일한 오브젝트를 생성하는 경우 `as_json_string`을 사용하여 오브젝트를 렌더링해야 합니다. 예: {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
 {% endalert %}
 
 | 데이터 유형 | 예시 변수 이름 | 예시 값 |
 |---|---|---|
-|부울| loyalty_program |{% raw %}<code>true</code>{% endraw %}|
-|숫자| credit_score |{% raw %}<code>740</code>{% endraw %}|
-|문자열| product_name |{% raw %}<code>green_tea</code>{% endraw %} |
-|배열| favorite_products|{% raw %}<code>["wireless_headphones", "smart_homehub", "fitness_tracker_swatch"]</code>{% endraw %}|
-|배열(오브젝트)| pet_details |{% raw %}<code>[<br>&emsp;{ "id": 1, "type": "dog", "breed": "beagle", "name": "Gus" }<br>&emsp;,<br>&emsp;{ "id": 2, "type": "cat", "breed": "calico", "name": "Gerald" }<br>]</code>{% endraw %}|
-|시간(UTC) | last_purchase_date|{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
-|오브젝트(평탄화) | user_profile|{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 부울 | loyalty_program |{% raw %}<code>true</code>{% endraw %}|
+| 숫자 | credit_score |{% raw %}<code>740</code>{% endraw %}|
+| 문자열 | product_name |{% raw %}<code>green_tea</code>{% endraw %} |
+| 배열 | favorite_products|{% raw %}<code>["wireless_headphones", "smart_homehub", "fitness_tracker_swatch"]</code>{% endraw %}|
+| 배열(오브젝트) | pet_details |{% raw %}<code>[<br>&emsp;{ "id": 1, "type": "dog", "breed": "beagle", "name": "Gus" }<br>&emsp;,<br>&emsp;{ "id": 2, "type": "cat", "breed": "calico", "name": "Gerald" }<br>]</code>{% endraw %}|
+| 시간(UTC) | last_purchase_date|{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
+| 오브젝트(평탄화) | user_profile|{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 유형" }
 
 기본적으로 시간 데이터 유형은 UTC입니다. 문자열 데이터 유형을 사용하여 시간 값을 저장하면 PST와 같은 다른 시간대로 시간을 정의할 수 있습니다.
 
@@ -77,17 +77,17 @@ description: "이 참조 문서에서는 Braze 캔버스의 컨텍스트 변수�
 }
 ```
 
-[오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 또는 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 필터에서 점 표기법을 사용하여 컨텍스트 변수 이름으로 경로를 입력합니다(예: `order_summary.shipping.carrier`). 필터가 평가되면 Braze는 해당 경로를 `overnight` 값으로 확인합니다.
+[오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 또는 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) 필터에서 점 표기법을 사용하여 컨텍스트 변수 이름으로 경로를 입력합니다(예: `order_summary.shipping.carrier`). 필터가 평가되면 Braze는 해당 경로를 `overnight` 값으로 확인합니다.
 
-Liquid에서([메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) 단계 등) 대신 {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %}를 사용합니다.
+Liquid에서([메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) 단계 등) 대신 {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %}를 사용합니다.
 
 ## 컨텍스트 변수 사용 {#using-context-variables}
 
-캔버스에서 Liquid를 사용하는 모든 곳에서 컨텍스트 변수를 사용할 수 있습니다. 예를 들어 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) 및 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계에서 **개인화 추가**를 선택하여 사용할 수 있습니다. 메시지 단계의 인앱 메시지 및 배너의 경우 컨텍스트 변수를 선택하여 메시지 만료 시점을 결정할 수 있습니다.
+Canvas에서 Liquid를 사용하는 모든 곳에서 컨텍스트 변수를 사용할 수 있습니다. 예를 들어 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) 및 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) 단계에서 **개인화 추가**를 선택하여 사용할 수 있습니다. 메시지 단계의 인앱 메시지 및 배너의 경우 컨텍스트 변수를 선택하여 메시지 만료 시점을 결정할 수 있습니다.
 
 예를 들어, 승객에게 다가오는 항공편 전에 VIP 라운지 이용 권한에 대해 알리고 싶다고 가정해 보겠습니다. 이 메시지는 퍼스트 클래스 티켓을 구매한 승객에게만 발송되어야 합니다. 컨텍스트 변수는 이 정보를 추적하는 유연한 방법입니다.
 
-사용자는 비행기 티켓을 구매할 때 캔버스에 진입합니다. 라운지 이용 자격을 결정하기 위해 컨텍스트 단계에서 `lounge_access_granted`라는 컨텍스트 변수를 생성한 다음, 사용자 여정의 후속 단계에서 해당 컨텍스트 변수를 참조합니다.
+사용자는 비행기 티켓을 구매할 때 Canvas에 진입합니다. 라운지 이용 자격을 결정하기 위해 컨텍스트 단계에서 `lounge_access_granted`라는 컨텍스트 변수를 생성한 다음, 사용자 여정의 후속 단계에서 해당 컨텍스트 변수를 참조합니다.
 
 ![승객이 VIP 라운지 이용 자격이 있는지 추적하도록 설정된 컨텍스트 변수.]({% image_buster /assets/img/context_example4.png %}){: style="max-width:90%"}
 
@@ -101,7 +101,7 @@ Liquid에서([메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_com
 ![구매한 비행기 티켓 유형에 따라 다른 메시지를 보내는 메시지 단계.]({% image_buster /assets/img/context_example3.png %}){: style="max-width:90%"}
 
 {% alert tip %}
-컨텍스트 단계의 정보를 사용하여 [개인화된 지연 옵션]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays)을 추가할 수 있습니다. 즉, 사용자를 지연시키는 변수를 선택할 수 있습니다.
+컨텍스트 단계의 정보를 사용하여 [개인화된 지연 옵션]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays)을 추가할 수 있습니다. 즉, 사용자를 지연시키는 변수를 선택할 수 있습니다.
 {% endalert %}
 
 ### 행동 경로 및 종료 기준 {#for-action-paths-and-exit-criteria}
@@ -139,7 +139,7 @@ Liquid에서([메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_com
 {% tabs %}
 {% tab 커스텀 이벤트 수행 %}
 
-종료 기준은 캔버스에서 사용자 여정의 어느 시점에서든 다음 조건을 충족하면 캔버스를 종료한다고 명시합니다:
+종료 기준은 Canvas에서 사용자 여정의 어느 시점에서든 다음 조건을 충족하면 Canvas를 종료한다고 명시합니다:
 
 - 커스텀 이벤트 **장바구니 포기**를 수행하고,
 - 기본 등록정보 **장바구니 내 항목**이 컨텍스트 변수 `cart_item_threshold`의 문자열 값과 일치하는 경우.
@@ -149,7 +149,7 @@ Liquid에서([메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_com
 {% endtab %}
 {% tab 구매하기 %}
 
-종료 기준은 캔버스에서 사용자 여정의 어느 시점에서든 다음 조건을 충족하면 캔버스를 종료한다고 명시합니다:
+종료 기준은 Canvas에서 사용자 여정의 어느 시점에서든 다음 조건을 충족하면 Canvas를 종료한다고 명시합니다:
 
 - "book" 제품 이름에 대한 특정 구매를 하고,
 - 해당 구매의 중첩 등록정보 "loyalty_program"이 사용자의 커스텀 속성 "VIP"와 같은 경우.
@@ -161,27 +161,27 @@ Liquid에서([메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_com
 
 ### 만료 설정 {#set-an-expiration}
 
-캔버스 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) 단계의 [배너]({{site.baseurl}}/user_guide/channels/banners/) 및 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/)의 경우, 만료에 대해 **단계가 사용 가능한 후 기간**을 선택한 다음 **기간 개인화**를 켜서 컨텍스트 변수에서 가용성 기간을 설정합니다. 예를 들어, 컨텍스트 단계의 프로모션 또는 예약 기간과 일치시킬 수 있습니다.
+Canvas [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) 단계의 [배너]({{site.baseurl}}/user_guide/channels/banners) 및 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages)의 경우, 만료에 대해 **단계가 사용 가능한 후 기간**을 선택한 다음 **기간 개인화**를 켜서 컨텍스트 변수에서 가용성 기간을 설정합니다. 예를 들어, 컨텍스트 단계의 프로모션 또는 예약 기간과 일치시킬 수 있습니다.
 
 **기간 개인화**는 해당 기간 기반 만료 옵션에 적용됩니다. 대신 **특정 날짜 및 시간에**를 선택하는 경우 날짜 및 시간 컨트롤을 사용하여 만료를 설정합니다.
 
 ### 행동 경로 지연 {#action-path-delays}
 
-[행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) 단계에서 **평가 기간** 아래의 **지연 개인화**를 켜서 컨텍스트 변수에서 사용자가 단계에 머무는 시간을 설정합니다. 등급이나 지역과 같은 세부 정보에 따라 사용자별로 대기 기간이 달라야 할 때 사용합니다.
+[행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계에서 **평가 기간** 아래의 **지연 개인화**를 켜서 컨텍스트 변수에서 사용자가 단계에 머무는 시간을 설정합니다. 등급이나 지역과 같은 세부 정보에 따라 사용자별로 대기 기간이 달라야 할 때 사용합니다.
 
 ### 컨텍스트 변수 필터 {#context-variable-filters}
 
-[오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 및 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 단계에서 이전에 선언된 컨텍스트 변수를 사용하는 필터를 생성할 수 있습니다.
+[오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 및 [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) 단계에서 이전에 선언된 컨텍스트 변수를 사용하는 필터를 생성할 수 있습니다.
 
 {% alert note %}
 컨텍스트 변수 필터는 오디언스 경로 및 결정 분할 단계에서만 사용할 수 있습니다.
 {% endalert %}
 
-컨텍스트 변수는 캔버스 범위 내에서만 선언되고 접근할 수 있으므로 세그먼트에서 참조할 수 없습니다. 컨텍스트 변수 필터는 오디언스 경로와 결정 분할 단계에서 유사하게 작동합니다. 오디언스 경로 단계는 여러 그룹을 나타내고, 결정 분할 단계는 이진 결정을 나타냅니다.
+컨텍스트 변수는 Canvas 범위 내에서만 선언되고 접근할 수 있으므로 Segments에서 참조할 수 없습니다. 컨텍스트 변수 필터는 오디언스 경로와 결정 분할 단계에서 유사하게 작동합니다. 오디언스 경로 단계는 여러 그룹을 나타내고, 결정 분할 단계는 이진 결정을 나타냅니다.
 
 ![컨텍스트 변수로 필터를 생성하는 옵션이 있는 결정 분할 단계 예시.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-캔버스 컨텍스트 변수에 사전 정의된 유형이 있는 것과 마찬가지로, 컨텍스트 변수와 정적 값 간의 비교는 [일치하는 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#supported-data-types)이어야 합니다. 컨텍스트 변수 필터는 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)의 비교와 유사하게 부울, 숫자, 문자열, 시간 및 연중 일자에 대해 여러 데이터 유형에 걸쳐 비교를 허용합니다.
+Canvas 컨텍스트 변수에 사전 정의된 유형이 있는 것과 마찬가지로, 컨텍스트 변수와 정적 값 간의 비교는 [일치하는 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types)이어야 합니다. 컨텍스트 변수 필터는 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)의 비교와 유사하게 부울, 숫자, 문자열, 시간 및 연중 일자에 대해 여러 데이터 유형에 걸쳐 비교를 허용합니다.
 
 {% alert note %}
 컨텍스트 변수와 비교에 동일한 데이터 유형을 사용하세요. 예를 들어, 컨텍스트 변수가 시간 데이터 유형인 경우 시간 비교("이전" 또는 "이후" 등)를 사용하세요. 일치하지 않는 데이터 유형(예: 시간 컨텍스트 변수에 문자열 비교)을 사용하면 예기치 않은 동작이 발생할 수 있습니다.
@@ -218,13 +218,13 @@ Liquid에서([메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_com
 
 ## 시간대 일관성 표준화 {#time-zone-consistency-standardization}
 
-타임스탬프 유형을 사용하는 대부분의 이벤트 등록정보는 캔버스에서 이미 UTC로 되어 있지만 일부 예외가 있습니다. 캔버스 컨텍스트의 추가로 인해 동작 기반 캔버스의 모든 기본 타임스탬프 이벤트 등록정보가 일관되게 UTC로 표시됩니다. 이 변경은 캔버스 단계와 메시지를 편집할 때 보다 예측 가능하고 일관된 경험을 보장하기 위한 광범위한 노력의 일환입니다. 이 변경은 특정 캔버스가 컨텍스트 단계를 사용하는지 여부에 관계없이 모든 동작 기반 캔버스에 영향을 미칩니다.
+타임스탬프 유형을 사용하는 대부분의 이벤트 등록정보는 Canvas에서 이미 UTC로 되어 있지만 일부 예외가 있습니다. Canvas 컨텍스트의 추가로 인해 동작 기반 Canvases의 모든 기본 타임스탬프 이벤트 등록정보가 일관되게 UTC로 표시됩니다. 이 변경은 캔버스 단계와 메시지를 편집할 때 보다 예측 가능하고 일관된 경험을 보장하기 위한 광범위한 노력의 일환입니다. 이 변경은 특정 Canvas가 컨텍스트 단계를 사용하는지 여부에 관계없이 모든 동작 기반 Canvases에 영향을 미칩니다.
 
 {% alert important %}
-모든 상황에서 타임스탬프가 원하는 시간대로 표시되도록 [Liquid time_zone 필터]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/#things-to-know)를 사용하는 것을 강력히 권장합니다. 예시는 [컨텍스트 단계 문서의 자주 묻는 질문]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#faq-example)을 참조하세요.
+모든 상황에서 타임스탬프가 원하는 시간대로 표시되도록 [Liquid time_zone 필터]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know)를 사용하는 것을 강력히 권장합니다. 예시는 [컨텍스트 단계 문서의 자주 묻는 질문]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#faq-example)을 참조하세요.
 {% endalert %}
 
 ## 관련 문서 {#related-articles}
 
-- [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
-- [Liquid를 사용한 개인화 및 동적 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)
+- [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Liquid를 사용한 개인화 및 동적 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)

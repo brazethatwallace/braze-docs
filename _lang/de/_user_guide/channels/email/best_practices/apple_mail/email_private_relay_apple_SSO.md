@@ -9,7 +9,7 @@ channel:
 toc_headers: h2
 ---
 
-# E-Mails an Apple Private Relay senden
+# E-Mails an Apple Private Relay senden {#send-emails-to-apple-private-relay}
 
 > Das Single Sign-on (SSO)-Feature von Apple erlaubt es Nutzer:innen, ihre E-Mail-Adressen (`example@icloud.com`) zu teilen oder ihre E-Mail-Adressen auszublenden, indem anstelle der persönlichen E-Mail-Adresse eine maskierte Adresse (`tq1234snin@privaterelay.appleid.com`) an Marken weitergegeben wird. Apple leitet dann die an die Relay-Adressen gesendeten Nachrichten an die tatsächliche E-Mail-Adresse der Nutzer:innen weiter.
 
@@ -17,7 +17,7 @@ Um E-Mails an das private E-Mail-Relay von Apple zu senden, registrieren Sie Ihr
 
 Wenn Nutzer:innen beschließen, die E-Mail-Weiterleitung an die Relay-E-Mail Ihrer App zu deaktivieren, erhält Braze wie gewohnt die Bounce-Informationen. Diese Nutzer:innen können Apps, die „Mit Apple anmelden“ verwenden, über die Einstellungsseite ihrer Apple-ID verwalten (siehe [Dokumentation von Apple](https://support.apple.com/en-us/HT210426)).
 
-## Ihren E-Mail-Anbieter konfigurieren
+## Ihren E-Mail-Anbieter konfigurieren {#configure-your-email-provider}
 
 {% tabs %}
 {% tab SendGrid %}
@@ -41,17 +41,17 @@ Um Apple Private Relay für SparkPost einzurichten, folgen Sie diesen Schritten:
 2. Folgen Sie der [Dokumentation von Apple](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service), um die E-Mail-Domains zu registrieren.
 3. Apple überprüft die Domains automatisch, zeigt an, welche verifiziert sind, und bietet die Möglichkeit, die Domains erneut zu verifizieren oder zu löschen.
 
-### Wenn die Versanddomain auch die Bounce-Domain ist
+### Wenn die Versanddomain auch die Bounce-Domain ist {#when-the-sending-domain-is-also-the-bounce-domain}
 
 Wenn eine Versanddomain auch als Bounce-Domain verwendet wird, können Sie keine Einträge speichern und müssen diese zusätzlichen Schritte befolgen:
 
 1. Wenn die Domain bereits auf SparkPost verifiziert wurde, **müssen** Sie MX- und TXT-Einträge erstellen:
 
 | Instanz | MX-Eintrag                   | TXT-Eintrag                                    |
-|----------|-----------------------------|-----------------------------------------------|
+|---------|------------------------------|------------------------------------------------|
 | US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
 | EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wenn die Versanddomain auch die Bounce-Domain ist" }
 
 {% alert important %}
 Um SPF-Fehler zu vermeiden, müssen Sie die MX- und TXT-Einträge erstellen und im DNS propagieren lassen, **bevor** Sie den CNAME-Eintrag löschen.
@@ -80,4 +80,4 @@ Bestätigen Sie, dass Ihre DKIM/SPF-Konfiguration mit dem übereinstimmt, was Si
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie weitere Fragen haben, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Wenn Sie weitere Fragen haben, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).

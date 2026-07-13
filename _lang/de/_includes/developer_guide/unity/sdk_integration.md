@@ -8,7 +8,7 @@ Eine vollständige Liste der Typen, Funktionen, Variablen und mehr finden Sie in
 
 Bevor Sie beginnen, überprüfen Sie, ob Ihre Umgebung von der [neuesten Braze Unity SDK-Version](https://github.com/braze-inc/braze-unity-sdk/releases) unterstützt wird.
 
-### 1. Schritt: Wählen Sie Ihr Braze Unity-Paket {#step-1-choose-your-braze-unity-package}
+### Schritt 1: Wählen Sie Ihr Braze Unity-Paket {#step-1-choose-your-braze-unity-package}
 
 {% tabs %}
 {% tab Android %}
@@ -22,7 +22,9 @@ Auf der [Braze Unity Releases-Seite](https://github.com/Appboy/appboy-unity-sdk/
     - Dieses Paket ähnelt dem `Appboy.unitypackage`, mit der Ausnahme, dass das [SDWebImage](https://github.com/SDWebImage/SDWebImage)-Framework nicht enthalten ist. Dieses Paket ist nützlich, wenn Sie das SDWebImage-Framework nicht in Ihrer iOS-App verwenden möchten.
 
 {% alert note %}
-Ab Unity 2.6.0 benötigt das gebündelte Braze Android SDK-Artefakt [AndroidX](https://developer.android.com/jetpack/androidx)-Abhängigkeiten. Wenn Sie zuvor ein `jetified unitypackage` verwendet haben, können Sie bedenkenlos auf das entsprechende `unitypackage` umsteigen.
+Ab Unity 2.6.0 benötigt das gebündelte Braze Android SDK-Artefakt [AndroidX](https://developer.android.com/jetpack/androidx)-Abhängigkeiten. Wenn Sie zuvor ein `jetified` unitypackage verwendet haben, können Sie bedenkenlos auf das entsprechende `unitypackage` umsteigen.
+
+Wenn Android-Builds mit der Meldung „This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled“ fehlschlagen, aktivieren Sie [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing) in Ihren Unity Publishing Settings. Öffnen Sie dann `Assets/Plugins/Android/gradleTemplate.properties` und setzen Sie `android.useAndroidX=true`. Ein funktionierendes Template finden Sie in der [Braze Unity-Beispiel-App](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) und deren [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties)-Datei.
 {% endalert %}
 {% endtab %}
 
@@ -32,7 +34,7 @@ Das Braze [`.unitypackage`](https://docs.unity3d.com/Manual/AssetPackages.html) 
 Das Braze Unity-Paket steht auf der [Braze Unity Releases-Seite](https://github.com/Appboy/appboy-unity-sdk/releases) mit zwei Integrationsoptionen zum Download bereit:
 
 1. Nur `Appboy.unitypackage`
-  - Dieses Paket bündelt die Braze Android- und iOS-SDKs ohne zusätzliche Abhängigkeiten. Mit dieser Integrationsmethode funktionieren die In-App-Nachrichten und Content-Cards-Features von Braze auf iOS nicht ordnungsgemäß. Wenn Sie die volle Funktionalität von Braze ohne angepassten Code nutzen möchten, verwenden Sie stattdessen die unten stehende Option.
+  - Dieses Paket bündelt die Braze Android- und iOS-SDKs ohne zusätzliche Abhängigkeiten. Mit dieser Integrationsmethode funktionieren die In-App-Nachrichten und Content-Cards-Features von Braze auf iOS nicht ordnungsgemäß. Wenn Sie die volle Funktionalität von Braze ohne angepassten Code nutzen möchten, verwenden Sie stattdessen die nächste Option.
   - Um diese Integrationsoption zu nutzen, stellen Sie sicher, dass das Kästchen neben `Import SDWebImage dependency` in der Unity-UI unter „Braze Configuration“ *deaktiviert* ist.
 2. `Appboy.unitypackage` mit `SDWebImage`
   - Diese Integrationsoption bündelt die Braze Android- und iOS-SDKs sowie die [SDWebImage](https://github.com/SDWebImage/SDWebImage)-Abhängigkeit für das iOS-SDK, die für die ordnungsgemäße Funktionalität der In-App-Nachrichten und Content-Cards-Features von Braze auf iOS erforderlich ist. Das `SDWebImage`-Framework wird zum Herunterladen und Anzeigen von Bildern, einschließlich GIFs, verwendet. Wenn Sie die volle Funktionalität von Braze nutzen möchten, laden Sie dieses Paket herunter und importieren Sie es.
@@ -44,7 +46,7 @@ Um zu prüfen, ob Sie die [SDWebImage](https://github.com/SDWebImage/SDWebImage)
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Paket importieren {#step-2-import-the-package}
+### Schritt 2: Paket importieren {#step-2-import-the-package}
 
 {% tabs %}
 {% tab Android %}
@@ -68,7 +70,7 @@ Wenn Sie nur das iOS- oder Android-Plugin importieren möchten, heben Sie die Au
 {% endtab %}
 {% endtabs %}
 
-### 3. Schritt: SDK konfigurieren {#step-3-configure-the-sdk}
+### Schritt 3: SDK konfigurieren {#step-3-configure-the-sdk}
 
 {% tabs %}
 {% tab Android %}
@@ -124,7 +126,7 @@ Alle in Ihrer `AndroidManifest.xml`-Datei registrierten Activity-Klassen sollten
 
 Um Ihren Paketnamen zu finden, klicken Sie auf **File > Build Settings > Player Settings > Android Tab**.
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![Unity Player Settings Android-Tab mit dem Anwendungspaketnamen.]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 In Ihrer `AndroidManifest.xml` sollten alle Instanzen von `REPLACE_WITH_YOUR_PACKAGE_NAME` durch Ihren `Package Name` aus dem vorherigen Schritt ersetzt werden.
 
@@ -167,7 +169,7 @@ Braze bietet eine native Unity-Lösung für die Automatisierung der Unity-iOS-In
 2. Aktivieren Sie das Kontrollkästchen **Automate Unity iOS Integration**.
 3. Geben Sie im Feld **Braze API Key** den API-Schlüssel Ihrer Anwendung ein, den Sie unter **Einstellungen verwalten** finden.
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Unity Braze-Konfigurationsfenster mit den Feldern „Automate Unity iOS Integration“ und „Braze API Key“.]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 Wenn Ihre Anwendung bereits eine andere `UnityAppController`-Unterklasse verwendet, müssen Sie die Implementierung Ihrer Unterklasse mit `AppboyAppDelegate.mm` zusammenführen.
 {% endtab %}
@@ -175,7 +177,7 @@ Wenn Ihre Anwendung bereits eine andere `UnityAppController`-Unterklasse verwend
 
 ## Unity-Paket anpassen {#customizing-the-unity-package}
 
-### 1. Schritt: Repository klonen {#step-1-clone-the-repository}
+### Schritt 1: Repository klonen {#step-1-clone-the-repository}
 
 Klonen Sie in Ihrem Terminal das [Braze Unity SDK GitHub-Repository](https://github.com/braze-inc/braze-unity-sdk) und navigieren Sie dann zu diesem Ordner:
 
@@ -195,7 +197,7 @@ cd C:\PATH\TO\DIRECTORY\braze-unity-sdk
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Paket aus dem Repository exportieren {#step-2-export-package-from-repository}
+### Schritt 2: Paket aus dem Repository exportieren {#step-2-export-package-from-repository}
 
 Starten Sie zunächst Unity und lassen Sie es im Hintergrund laufen. Führen Sie dann im Stammverzeichnis des Repositorys den folgenden Befehl aus, um das Paket nach `braze-unity-sdk/unity-package/` zu exportieren.
 
@@ -217,7 +219,7 @@ Starten Sie zunächst Unity und lassen Sie es im Hintergrund laufen. Führen Sie
 Wenn nach der Ausführung dieser Befehle Probleme auftreten, lesen Sie [Unity: Befehlszeilenargumente](https://docs.unity3d.com/2017.2/Documentation/Manual/CommandLineArguments.html).
 {% endalert %}
 
-### 3. Schritt: Paket in Unity importieren {#step-3-import-package-into-unity}
+### Schritt 3: Paket in Unity importieren {#step-3-import-package-into-unity}
 
 1. Importieren Sie in Unity das gewünschte Paket in Ihr Unity-Projekt, indem Sie zu **Assets** > **Import Package** > **Custom Package** navigieren.
 2. Falls es Dateien gibt, die Sie nicht importieren möchten, deaktivieren Sie diese jetzt.
@@ -229,7 +231,7 @@ Um die Vorteile der automatisierten iOS-Integration des Braze Unity SDK zu nutze
 
 1. Entfernen Sie den gesamten Braze-bezogenen Code aus der `UnityAppController`-Unterklasse Ihres Xcode-Projekts.
 2. Entfernen Sie die Braze iOS-Bibliotheken aus Ihrem Unity- oder Xcode-Projekt (z. B. `Appboy_iOS_SDK.framework` und `SDWebImage.framework`).
-3. Importieren Sie das Braze Unity-Paket erneut in Ihr Projekt. Eine vollständige Anleitung finden Sie unter [2. Schritt: Paket importieren](#unity_step-2-import-the-package).
+3. Importieren Sie das Braze Unity-Paket erneut in Ihr Projekt. Eine vollständige Anleitung finden Sie unter [Schritt 2: Paket importieren](#unity_step-2-import-the-package).
 4. Legen Sie Ihren API-Schlüssel erneut fest. Eine vollständige Anleitung finden Sie unter [Schritt 3.1: API-Schlüssel festlegen](#unity_step-31-set-your-api-key).
 
 ## Optionale Konfigurationen {#optional-configurations}
@@ -247,7 +249,7 @@ Um die ausführliche Protokollierung im Unity-Editor zu aktivieren, gehen Sie wi
 Um das Braze Unity-Plugin mit Prime31-Plugins zu verwenden, bearbeiten Sie die `AndroidManifest.xml` Ihres Projekts, um die mit Prime31 kompatiblen Activity-Klassen zu verwenden. Ändern Sie alle Referenzen von
 `com.braze.unity.BrazeUnityPlayerActivity` zu `com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`
 
-### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
+### Amazon Device Messaging (ADM)
 
 Braze unterstützt die Integration von [ADM Push](https://developer.amazon.com/public/apis/engage/device-messaging) in Unity-Apps. Wenn Sie ADM Push integrieren möchten, erstellen Sie eine Datei namens `api_key.txt`, die Ihren ADM-API-Schlüssel enthält, und legen Sie sie im Ordner `Plugins/Android/assets/` ab. Weitere Informationen zur Integration von ADM mit Braze finden Sie in unserer [Anleitung zur ADM-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity).
 

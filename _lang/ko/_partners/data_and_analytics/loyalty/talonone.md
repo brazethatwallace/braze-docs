@@ -25,7 +25,7 @@ Braze와 Talon.One 통합은 Talon.One에서 생성된 코드를 Braze 연결된
 | ----------- | ----------- |
 | Talon.One 계정 | 이 파트너십을 활용하려면 Talon.One 계정이 필요합니다. |
 | Talon.One API 키 | Talon.One에서 **Settings** > **Developer Settings**로 이동하여 통합을 위한 Braze 서드파티 API 키를 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert warning %}
 Talon.One은 분당 최대 2,500건의 메시지 사용량 제한을 **_필수로 요구합니다_**. 이 사용량 제한은 Braze 대시보드에서 [수정]({{site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/rate-limiting/#delivery-speed-rate-limiting)할 수 있습니다.

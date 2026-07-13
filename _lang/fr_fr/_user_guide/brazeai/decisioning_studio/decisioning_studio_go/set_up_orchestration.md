@@ -6,38 +6,38 @@ description: "Découvrez comment connecter BrazeAI Decisioning Studio Go à votr
 toc_headers: h2
 ---
 
-# Configurer l'orchestration
+# Configurer l'orchestration {#set-up-orchestration}
 
 > BrazeAI Decisioning Studio™ Go doit se connecter à votre plateforme d'engagement client (CEP) pour orchestrer des communications personnalisées. Cet article explique comment configurer l'intégration pour chaque CEP pris en charge.
 
-## CEP pris en charge
+## CEP pris en charge {#supported-ceps}
 
 Decisioning Studio Go prend en charge les plateformes d'engagement client suivantes :
 
 | CEP | Type d'intégration | Fonctionnalités clés |
 |-----|-----------------|--------------|
-| **Braze** | Campagnes déclenchées par API | Intégration native, déclenchement en temps réel |
+| **Braze** | Campaigns déclenchées par API | Intégration native, déclenchement en temps réel |
 | **Salesforce Marketing Cloud** | Journey Builder avec événements API | Automatisation des requêtes SQL, extensions de données |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEP pris en charge" }
 
-Sélectionnez votre CEP ci-dessous pour commencer la configuration de l'intégration.
+Sélectionnez votre CEP dans cette liste pour commencer la configuration de l'intégration.
 
 {% tabs %}
 {% tab Braze %}
 
-## Configurer l'intégration Braze
+## Configurer l'intégration Braze {#set-up-braze-integration}
 
 Pour intégrer Decisioning Studio Go avec Braze, vous allez créer une clé API, configurer une campagne déclenchée par API et fournir les identifiants nécessaires au portail Decisioning Studio Go.
 
-### Étape 1 : Créer une clé API REST
+### Étape 1 : Créer une clé API REST {#step-1-create-a-rest-api-key}
 
 1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **API et identifiants** > **Clés API**.
 2. Sélectionnez **Créer une clé API**.
 3. Saisissez un nom pour votre clé API. Par exemple : « DecisioningStudioGoEmail ».
 4. Sélectionnez les autorisations en fonction des catégories suivantes :
     - **Données utilisateur :** sélectionnez `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
-    - **Messages :** sélectionnez `messages.send`
-    - **Campagnes :** sélectionnez toutes les autorisations répertoriées
+    - **Messages :** sélectionnez `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete`
+    - **Campaigns :** sélectionnez toutes les autorisations répertoriées
     - **Canvas :** sélectionnez toutes les autorisations répertoriées
     - **Segments :** sélectionnez toutes les autorisations répertoriées
     - **Modèles :** sélectionnez toutes les autorisations répertoriées
@@ -46,14 +46,14 @@ Pour intégrer Decisioning Studio Go avec Braze, vous allez créer une clé API,
 5. Sélectionnez **Créer une clé API**.
 6. Copiez la clé API et collez-la dans votre portail BrazeAI Decisioning Studio™ Go.
 
-### Étape 2 : Identifier le nom d'affichage de votre e-mail
+### Étape 2 : Identifier le nom d'affichage de votre e-mail {#step-2-locate-your-email-display-name}
 
 1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Préférences des e-mails**.
 2. Identifiez le nom d'affichage à utiliser avec BrazeAI Decisioning Studio™ Go.
-3. Copiez et collez le **nom d'affichage de l'expéditeur** dans le portail BrazeAI Decisioning Studio™ Go en tant que **nom d'affichage de l'e-mail**.
-4. Copiez et collez l'adresse e-mail associée dans votre portail BrazeAI Decisioning Studio™ Go en tant qu'**adresse e-mail d'expéditeur**, en combinant la partie locale et le domaine.
+3. Copiez et collez le **From Display Name** dans le portail BrazeAI Decisioning Studio™ Go en tant que **Email Display Name**.
+4. Copiez et collez l'adresse e-mail associée dans votre portail BrazeAI Decisioning Studio™ Go en tant qu'**adresse e-mail d'expéditeur** (From email address), en combinant la partie locale et le domaine.
 
-### Étape 3 : Trouver votre URL Braze et votre ID d'application
+### Étape 3 : Trouver votre URL Braze et votre ID d'application {#step-3-find-your-braze-url-and-app-id}
 
 **Pour trouver votre URL Braze :**
 1. Accédez au tableau de bord de Braze.
@@ -69,43 +69,43 @@ Braze fournit des ID d'application (appelés clés API dans le tableau de bord d
 2. Accédez à l'application que vous souhaitez suivre.
 3. Copiez et collez la **clé API** dans votre portail BrazeAI Decisioning Studio™ Go.
 
-### Étape 4 : Créer une campagne déclenchée par API
+### Étape 4 : Créer une campagne déclenchée par API {#step-4-create-an-api-triggered-campaign}
 
-1. Dans le tableau de bord de Braze, accédez à **Envoi de messages** > **Campagnes**.
-2. Sélectionnez **Créer une campagne**.
-3. Pour le type de campagne, sélectionnez **Campagne API**.
+1. Dans le tableau de bord de Braze, accédez à **Messaging** > **Campaigns**.
+2. Sélectionnez **Create Campaign**.
+3. Pour le type de campagne, sélectionnez **API Campaign**.
 4. Saisissez un nom pour votre campagne. Par exemple : « Decisioning Studio Go Email ».
 
 ![Une campagne API intitulée « Decisioning Studio Go Email ».]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
 
 {: start="5"}
-5. Pour votre canal de communication, sélectionnez **E-mail**.
+5. Pour votre canal de communication, sélectionnez **Email**.
 
 ![Option permettant de sélectionner votre canal de communication pour la campagne API.]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. Dans **Options supplémentaires**, cochez la case **Autoriser les utilisateurs à redevenir éligibles pour recevoir la campagne**.
-7. Pour le délai de rééligibilité, saisissez **1** et sélectionnez **Heures** dans le menu déroulant.
+6. Dans **Additional Options**, cochez la case **Allow users to become re-eligible to receive campaign**.
+7. Pour le délai de rééligibilité, saisissez **1** et sélectionnez **Hours** dans le menu déroulant.
 
 ![Rééligibilité sélectionnée pour la campagne API.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8. Sélectionnez **Enregistrer la campagne**.
+8. Sélectionnez **Save Campaign**.
 
-### Étape 5 : Copier les ID de votre campagne et de votre message
+### Étape 5 : Copier les ID de votre campagne et de votre message {#step-5-copy-your-campaign-and-message-ids}
 
-1. Dans votre campagne API, copiez l'**ID de la campagne**. Ensuite, accédez au portail BrazeAI Decisioning Studio™ Go et collez l'**ID de la campagne**.
+1. Dans votre campagne API, copiez le **Campaign ID**. Ensuite, accédez au portail BrazeAI Decisioning Studio™ Go et collez le **Campaign ID**.
 
 ![Exemple d'ID de variante de message à copier-coller.]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
 
 {: start="2"}
-2. Copiez l'**ID de la variante du message**. Ensuite, accédez au portail BrazeAI Decisioning Studio™ Go et collez l'**ID de la variante du message**.
+2. Copiez le **Message Variation ID**. Ensuite, accédez au portail BrazeAI Decisioning Studio™ Go et collez le **Message Variation ID**.
 
-### Étape 6 : Identifier un ID d'utilisateur test
+### Étape 6 : Identifier un ID d'utilisateur test {#step-6-locate-a-test-user-id}
 
 Pour tester votre intégration, vous aurez besoin d'un ID utilisateur :
 
-Si votre espace de travail utilise le [chiffrement au niveau des champs d'identification]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), tout nouvel utilisateur test créé avec l'endpoint `/users/track` doit respecter les exigences relatives aux e-mails pour les espaces de travail chiffrés. Envoyez le champ `email` sous forme de hachage HMAC-SHA256 encodé en Base64 de la valeur de l'e-mail en minuscules, et envoyez `email_encrypted` comme valeur d'e-mail chiffrée générée avec vos clés de chiffrement PII configurées.
+Si votre espace de travail utilise le [chiffrement au niveau des champs d'identification]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), tout nouvel utilisateur test créé avec l'endpoint `/users/track` doit respecter les exigences relatives aux e-mails pour les espaces de travail chiffrés. Envoyez le champ `email` sous forme de hachage HMAC-SHA256 encodé en Base64 de la valeur de l'e-mail en minuscules, et envoyez `email_encrypted` comme valeur d'e-mail chiffrée générée avec vos clés de chiffrement PII configurées.
 
 1. Dans le tableau de bord de Braze, accédez à **Audience** > **Rechercher des utilisateurs**.
 2. Recherchez l'utilisateur par son ID externe, son alias d'utilisateur, son e-mail, son numéro de téléphone ou son jeton de notification push.
@@ -116,11 +116,11 @@ Si votre espace de travail utilise le [chiffrement au niveau des champs d'identi
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
 
-## Configurer l'intégration SFMC
+## Configurer l'intégration SFMC {#set-up-sfmc-integration}
 
 Pour intégrer Decisioning Studio Go avec Salesforce Marketing Cloud, vous allez configurer un package d'application, créer une automatisation de requête de données et construire un parcours pour gérer les envois déclenchés.
 
-### Partie 1 : Configurer un package d'application SFMC
+### Partie 1 : Configurer un package d'application SFMC {#part-1-set-up-an-sfmc-app-package}
 
 1. Accédez à la page d'accueil de Marketing Cloud.
 2. Ouvrez le menu dans l'en-tête global et sélectionnez **Setup**.
@@ -166,9 +166,9 @@ Pour intégrer Decisioning Studio Go avec Salesforce Marketing Cloud, vous allez
 10. Sélectionnez **Save**.
 11. Copiez et collez les champs suivants dans le portail BrazeAI Decisioning Studio™ Go : **Client Id**, **Client Secret**, **Authentication Base URI**, **REST Base URI**, **SOAP Base URI**.
 
-### Partie 2 : Configurer l'automatisation des requêtes de données
+### Partie 2 : Configurer l'automatisation des requêtes de données {#part-2-set-up-a-data-query-automation}
 
-#### Étape 1 : Créer une nouvelle automatisation
+#### Étape 1 : Créer une nouvelle automatisation {#step-1-create-a-new-automation}
 
 1. Depuis la page d'accueil de Salesforce Marketing Cloud, accédez à **Journey Builder** et sélectionnez **Automation Studio**.
 
@@ -192,7 +192,7 @@ Pour intégrer Decisioning Studio Go avec Salesforce Marketing Cloud, vous allez
 
 ![Exemple de planification défini pour le 25 janvier 2024 à minuit (heure de l'Est), à répéter quotidiennement.]({% image_buster /assets/img/decisioning_studio_go/query12.png %})
 
-#### Étape 2 : Créer vos requêtes SQL
+#### Étape 2 : Créer vos requêtes SQL {#step-2-create-your-sql-queries}
 
 Ensuite, créez deux requêtes SQL : une requête sur les utilisateurs abonnés et une requête sur l'engagement. Ces requêtes permettent à BrazeAI Decisioning Studio™ Go de récupérer les données nécessaires pour constituer l'audience et ingérer les événements d'engagement.
 
@@ -257,7 +257,7 @@ Le nom de l'extension de données cible est également fourni dans votre portail
 
 ![Nom de l'extension de données correspondant à la clé externe de l'exemple.]({% image_buster /assets/img/decisioning_studio_go/query4.png %})
 
-#### Étape 3 : Exécuter l'automatisation
+#### Étape 3 : Exécuter l'automatisation {#step-3-run-the-automation}
 
 1. Attribuez un nom à l'automatisation et sélectionnez **Save**.
 
@@ -276,9 +276,9 @@ Le nom de l'extension de données cible est également fourni dans votre portail
 
 Vous pouvez maintenant vérifier que l'automatisation fonctionne correctement. Contactez l'assistance Braze pour obtenir de l'aide si votre automatisation ne fonctionne pas comme prévu.
 
-### Partie 3 : Créer votre parcours SFMC
+### Partie 3 : Créer votre parcours SFMC {#part-3-create-your-sfmc-journey}
 
-#### Étape 1 : Configurer le parcours
+#### Étape 1 : Configurer le parcours {#step-1-set-up-the-journey}
 
 1. Dans Salesforce Marketing Cloud, accédez à **Journey Builder** > **Journey Builder**.
 2. Sélectionnez **Create New Journey**.
@@ -286,7 +286,7 @@ Vous pouvez maintenant vérifier que l'automatisation fonctionne correctement. C
 
 ![Une source d'entrée API Event connectée à un nœud Decision Split et à plusieurs nœuds Email.]({% image_buster /assets/img/decisioning_studio_go/journey1.png %})
 
-#### Étape 2 : Construire le parcours
+#### Étape 2 : Construire le parcours {#step-2-build-the-journey}
 
 **Créer une source d'entrée :**
 
@@ -338,7 +338,7 @@ Vous pouvez maintenant vérifier que l'automatisation fonctionne correctement. C
 
 ![Un nœud Email ajouté au parcours.]({% image_buster /assets/img/decisioning_studio_go/journey9.png %})
 
-#### Étape 3 : Activer le parcours
+#### Étape 3 : Activer le parcours {#step-3-activate-the-journey}
 
 Après avoir configuré votre parcours, activez-le et partagez les informations suivantes avec l'équipe BrazeAI Decisioning Studio™ Go :
 
@@ -373,8 +373,8 @@ C'est terminé ! Vous pouvez maintenant commencer à déclencher des envois via 
 {% endtab %}
 {% endtabs %}
 
-## Étapes suivantes
+## Étapes suivantes {#next-steps}
 
 Maintenant que vous avez configuré l'orchestration, passez à la conception de votre agent :
 
-- [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

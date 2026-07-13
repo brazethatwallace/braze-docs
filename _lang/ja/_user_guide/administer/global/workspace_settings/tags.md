@@ -3,32 +3,33 @@ nav_title: タグの管理
 article_title: タグの管理
 page_order: 6
 page_type: reference
-description: "このリファレンス記事では、Braze ダッシュボードでのタグの管理方法について説明します。タグのネスト、名前変更、Campaigns、Canvases、Segments 全体でのタグの整理などを取り上げます。"
+description: "このリファレンス記事では、Brazeダッシュボードでのタグの管理方法について説明します。タグのネスト、名前変更、キャンペーン、キャンバス、セグメント全体でのタグの整理などを取り上げます。"
 ---
 
-# タグの管理
+# タグの管理 {#managing-tags}
 
-> Campaigns、Canvases、Segments 全体で使用するタグを一元的に管理できます。タグの名前変更、削除、追加を行うには、**設定** > **タグ管理** に移動します。
+> キャンペーン、キャンバス、セグメント全体で使用するタグを一元的に管理できます。タグの名前変更、削除、追加を行うには、**設定** > **タグ管理**に移動します。
 
-Campaigns、Canvases、Segments、カスタムデータにタグを追加する方法については、[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)を参照してください。
+キャンペーン、キャンバス、セグメント、カスタムデータにタグを追加する方法については、[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags)を参照してください。
 
-## タグのネスト
+## タグのネスト {#nesting-tags}
 
 タグをさらに整理するために、親タグの下にネストできます。たとえば、すべてのホリデータグを親タグ `Holidays` の下にネストしたり、マーケティングファネルのステージに関連するすべてのタグを親タグ `Funnel` の下にネストしたりできます。
 
-![ネストされたグループごとに整理されたタグのリストを表示するタグ管理ページ。]({% image_buster /assets/img_archive/tags_view.png %})
+- **新しいタグをネストする:** タグを作成し、**Nest Tag Under**を選択して、新しいタグをネストする既存のタグを選択します。
+- **既存のタグをネストする:** **タグ管理**ページに移動し、タグのある行にカーソルを合わせて**<i class="fas fa-pencil-alt"></i>Edit**を選択します。次に、**Nest Tag Under**を選択して親タグを選択します。
 
-新しいタグをネストするには、タグを作成し、**Nest Tag Under** を選択して、新しいタグをネストする既存のタグを選択します。
+### 親タグが使用中だが **Nest Tag Under** に表示されない場合 {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
-既存のタグをネストするには、**タグ管理** ページに移動し、タグのある行にカーソルを合わせて **<i class="fas fa-pencil-alt"></i>Edit** を選択します。次に、**Nest Tag Under** を選択して親タグを選択します。
+親タグがダッシュボードで適用されているにもかかわらず、新しいタグの作成時に **Nest Tag Under** ドロップダウンに表示されない場合は、その親タグをスタンドアロンタグとして再作成して、リストで検索可能にしてください。この動作は、親タグがワークスペース内の別の場所でネストされた依存関係としてのみ存在する場合に想定される動作です。
 
 ![「Nest Tag Under」オプションが選択された新しいタグダイアログ。]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## ベストプラクティス {#tags-best-practices}
 
-タグを使用して、Campaigns、Canvases、Segments をビジネス目標、ファネルステージ、地域などで整理します。
+タグを使用して、キャンペーン、キャンバス、セグメントをビジネス目標、ファネルステージ、地域などで整理します。
 
-次の表は、e コマースアプリで役立つタグの例を示しています。
+次の表は、eコマースアプリで役立つタグの例を示しています。
 
 <style>
 table td {
@@ -37,13 +38,14 @@ table td {
 </style>
 
 
-<table>
+<table aria-label="ベストプラクティス #tags-best-practices">
+  <caption>ベストプラクティス</caption>
 <thead>
   <tr>
     <th>ファネル</th>
     <th>ビジネス目標</th>
     <th>地域</th>
-    <th>Campaigns</th>
+    <th>キャンペーン</th>
     <th>ホリデー</th>
     <th>トランザクション</th>
   </tr>
@@ -60,16 +62,16 @@ table td {
 </tbody>
 </table>
 
-## ユースケース
+## ユースケース {#use-cases}
 
 以下は、メッセージングライフサイクルを管理するためにタグを使用する一般的なユースケースです。
 
 {% tabs %}
 {% tab スロットリング %}
 
-### スロットリング
+### スロットリング {#throttling}
 
-顧客が特定の種類の Campaign を受信する頻度を制限します。たとえば、プロモーション Campaign の頻度を制限するために、次のフィルターを設定できます。
+顧客が特定の種類のキャンペーンを受信する頻度を制限します。たとえば、プロモーションキャンペーンの頻度を制限するために、次のフィルターを設定できます。
 
 `Last received campaign` にタグ `Promo` が付いたものを5日以上前に受信
 <br>`OR`<br>
@@ -78,9 +80,9 @@ table td {
 {% endtab %}
 {% tab レポート %}
 
-### レポート
+### レポート {#reporting}
 
-エンゲージメントレポートを設定して、特定のタグが付いたすべての Campaign のボリュームを監視します。たとえば、すべてのプッシュ Campaign を監視したい場合は、それらの Campaign に `Push Reporting` のようなタグを追加し、[エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)を設定して、タグ付けされた Campaign のレポートを毎日送信するようにできます。
+エンゲージメントレポートを設定して、特定のタグが付いたすべてのキャンペーンのボリュームを監視します。たとえば、すべてのプッシュキャンペーンを監視したい場合は、それらのキャンペーンに `Push Reporting` のようなタグを追加し、[エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)を設定して、タグ付けされたキャンペーンのレポートを毎日送信するようにできます。
 
 {% endtab %}
 {% endtabs %}

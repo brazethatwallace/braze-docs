@@ -32,6 +32,10 @@ O [guia de início rápido do Snowflake](https://quickstarts.snowflake.com/guide
 2. Na sua instância do Redshift, configure as tabelas ou views que deseja sincronizar com a Braze.
 3. Crie uma nova origem e sincronização no dashboard da Braze.
 4. Teste a integração e inicie a sincronização.
+
+{% alert note %}
+As linhas processadas por sincronização dependem do desempenho do seu warehouse, da latência de rede e da quantidade de dados novos que correspondem à consulta de sincronização. Use o **Histórico de sincronização** da integração no dashboard para ver a duração e a contagem de linhas das execuções recentes.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Crie uma conta de serviço e permita o acesso ao(s) projeto(s) e conjunto(s) de dados do BigQuery que contêm os dados que você deseja sincronizar.
@@ -61,10 +65,10 @@ Pode haver de dois a cinco minutos de tempo de aquecimento quando a Braze se con
 
 ### Etapa 1: Configurar tabelas ou views {#step-1-set-up-tables-or-views}
 
-Antes de começar, revise [Configuração de tabelas para Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) para entender os requisitos da tabela de origem em comparação com os requisitos de formatação de `PAYLOAD`.
+Antes de começar, revise [Configuração de tabelas para Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) para entender os requisitos da tabela de origem em comparação com os requisitos de formatação de `PAYLOAD`.
 
 {% alert note %}
-Sua tabela ou view de origem pode incluir colunas que não estão listadas para o seu warehouse nas guias abaixo (por exemplo, auditoria ou hashing). A Braze lê apenas as colunas descritas nessas guias; outras colunas não são usadas durante as sincronizações de Ingestão de Dados na Nuvem.
+Sua tabela ou view de origem pode incluir colunas que não estão listadas para o seu warehouse nas guias da seção a seguir (por exemplo, auditoria ou hashing). A Braze lê apenas as colunas descritas nessas guias; outras colunas não são usadas durante as sincronizações de Ingestão de Dados na Nuvem.
 {% endalert %}
 
 {% tabs %}
@@ -94,9 +98,9 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 Você pode nomear o banco de dados, o esquema e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
 - `UPDATED_AT` - A hora em que essa linha foi atualizada ou adicionada à tabela. A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado. Linhas no limite exato do timestamp podem ser ressincronizadas se novas linhas compartilharem o mesmo timestamp.
-- **Colunas de identificador de usuário** \- Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
+- **Colunas de identificador de usuário** - Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze.
-    - `ALIAS_NAME` e `ALIAS_LABEL` \- Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
+    - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
     - `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade. Se você incluir tanto e-mail quanto telefone, o e-mail será usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade.
@@ -144,7 +148,7 @@ Ao conectar diferentes espaços de trabalho à mesma conta do Snowflake, é nece
 
 Dependendo da configuração da sua conta do Snowflake, talvez seja necessário permitir os seguintes endereços IP na sua política de rede do Snowflake. Para saber mais sobre como ativar isso, consulte a documentação relevante do Snowflake sobre a [modificação de uma política de rede](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -177,9 +181,9 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 Você pode nomear o banco de dados, o esquema e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
 - `UPDATED_AT` - A hora em que essa linha foi atualizada ou adicionada à tabela. A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado. Linhas no limite exato do timestamp podem ser ressincronizadas se novas linhas compartilharem o mesmo timestamp.
-- **Colunas de identificador de usuário** \- Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
+- **Colunas de identificador de usuário** - Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze.
-    - `ALIAS_NAME` e `ALIAS_LABEL` \- Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
+    - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
     - `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade. Se você incluir tanto e-mail quanto telefone, o e-mail será usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade.
@@ -207,7 +211,7 @@ Alguns aspectos importantes:
 
 Permita o acesso dos seguintes IPs correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -250,13 +254,14 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.1: Preparar a tabela" }
 
 Você pode nomear o projeto, o conjunto de dados e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
 - `UPDATED_AT` - A hora em que essa linha foi atualizada ou adicionada à tabela. A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado. Linhas no limite exato do timestamp podem ser ressincronizadas se novas linhas compartilharem o mesmo timestamp.
-- **Colunas de identificador de usuário** \- Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
+- **Colunas de identificador de usuário** - Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze.
-    - `ALIAS_NAME` e `ALIAS_LABEL` \- Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
+    - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
     - `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade. Se você incluir tanto e-mail quanto telefone, o e-mail será usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade.
@@ -289,7 +294,7 @@ Depois de criar a conta de serviço e conceder permissões, gere uma chave JSON.
 
 Se você tiver políticas de rede em vigor, deverá conceder à Braze acesso de rede à sua instância do BigQuery. Permita o acesso dos seguintes IPs correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -334,13 +339,14 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.1: Preparar a tabela" }
 
 Você pode nomear o esquema e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
 - `UPDATED_AT` - A hora em que essa linha foi atualizada ou adicionada à tabela. A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado. Linhas no limite exato do timestamp podem ser ressincronizadas se novas linhas compartilharem o mesmo timestamp.
-- **Colunas de identificador de usuário** \- Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
+- **Colunas de identificador de usuário** - Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze.
-    - `ALIAS_NAME` e `ALIAS_LABEL` \- Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
+    - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
     - `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade. Se você incluir tanto e-mail quanto telefone, o e-mail será usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade.
@@ -362,7 +368,7 @@ Mantenha o token em um local seguro até que seja necessário inseri-lo no dashb
 
 Se você tiver políticas de rede em vigor, deverá conceder à Braze acesso de rede à sua instância do Databricks. Permita o acesso dos seguintes IPs correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -432,9 +438,9 @@ GO
 Você pode nomear o warehouse, o esquema e a tabela ou view como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
 - `UPDATED_AT` - A hora em que essa linha foi atualizada ou adicionada à tabela. A Braze sincroniza as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado. Linhas no limite exato do timestamp podem ser ressincronizadas se novas linhas compartilharem o mesmo timestamp.
-- **Colunas de identificador de usuário** \- Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
+- **Colunas de identificador de usuário** - Sua tabela pode conter uma ou mais colunas de identificador de usuário. Cada linha deve conter apenas um identificador (`external_id`, a combinação de `alias_name` e `alias_label`, `braze_id`, `email` ou `phone`). Uma tabela de origem pode ter colunas para um, dois, três, quatro ou todos os cinco tipos de identificadores.
     - `EXTERNAL_ID` - Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze.
-    - `ALIAS_NAME` e `ALIAS_LABEL` \- Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
+    - `ALIAS_NAME` e `ALIAS_LABEL` - Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`.
     - `BRAZE_ID` - O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário.
     - `EMAIL` - O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade. Se você incluir tanto e-mail quanto telefone, o e-mail será usado como identificador principal.
     - `PHONE` - O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade.
@@ -451,7 +457,7 @@ Para recuperar o endpoint SQL do seu warehouse, acesse o **espaço de trabalho**
 
 Dependendo da configuração da sua conta Microsoft Fabric, talvez seja necessário permitir os seguintes endereços IP no seu firewall para permitir o tráfego da Braze. Para saber mais sobre como ativar esse recurso, consulte a documentação relevante sobre o [Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -463,15 +469,22 @@ Dependendo da configuração da sua conta Microsoft Fabric, talvez seja necessá
 {% tabs %}
 {% tab Snowflake %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Snowflake**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Snowflake**.
 
 #### Etapa 2.1: Adicionar informações de conexão do Snowflake {#step-21-add-snowflake-connection-information}
 
 Escolha um nome para sua origem e insira suas credenciais e configuração do Snowflake, depois prossiga para a próxima etapa.
 
-{% alert note %}
-Para o campo **Snowflake Account Locator**, insira seu [identificador de conta do Snowflake](https://docs.snowflake.com/en/user-guide/admin-account-identifier), que normalmente segue um formato como `xy12345.us-east-1.aws`. Isso não é o mesmo que um nome de banco de dados ou nome de warehouse.
-{% endalert %}
+Antes de continuar, confirme o valor inserido em **Snowflake Account Locator**.
+
+Para o campo **Snowflake Account Locator**, insira seu [identificador de conta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) do Snowflake. Insira apenas o valor do identificador de conta, como `myorganization-myaccount`. Não inclua `https://`, `.snowflakecomputing.com` ou qualquer caminho.
+
+Para encontrar o identificador de conta do Snowflake:
+
+1. No Snowsight, selecione o menu da sua conta.
+2. Selecione **View account details**.
+3. Copie o valor de **Account identifier**.
+4. Se você copiar de uma URL do Snowflake, use apenas o valor antes de `.snowflakecomputing.com`.
 
 #### Etapa 2.2: Adicionar uma chave pública ao usuário da Braze {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -485,7 +498,7 @@ ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 {% endtab %}
 {% tab Redshift %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Amazon Redshift**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Amazon Redshift**.
 
 #### Etapa 2.1: Adicionar informações de conexão do Redshift e tabela de origem {#step-21-add-redshift-connection-information-and-source-table}
 
@@ -498,10 +511,39 @@ No dashboard da Braze, o campo **Database name** aceita apenas letras (A–Z, a�
 #### Etapa 2.2: Testar conexão e conectar à origem {#step-22-test-connection-and-connect-to-source}
 
 Em seguida, selecione **Test connection**. Se for bem-sucedido, finalize as configurações restantes e clique em **Connect to Source**. Se a conexão falhar, uma mensagem de erro será exibida para ajudar a solucionar o problema.
+
+#### Solução de problemas: identificador de snapshot inválido {#troubleshooting-invalid-snapshot-identifier}
+
+Se a Braze retornar um erro `Invalid snapshot identifier` durante o **Test connection** ou a configuração da sincronização, o Redshift não consegue resolver a referência de snapshot usada quando o objeto de origem é consultado.
+
+No Redshift, um snapshot é um backup pontual de um cluster. Cada snapshot tem um identificador exclusivo usado pelo Redshift para referenciar esse estado de backup. Para saber mais, consulte [Snapshots e backups do Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html).
+
+Esse erro pode ocorrer quando os metadados mudam enquanto a Braze valida o objeto de origem, como durante operações de cópia, restauração ou replicação de snapshots. Para saber mais, consulte [copiar snapshots para outra região da AWS](https://docs.aws.amazon.com/redshift/latest/mgmt/cross-region-snapshot-copy.html) e [restaurar um cluster a partir de um snapshot](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshot-restore-cluster-from-snapshot.html).
+
+Para solucionar o problema:
+
+1. Verifique as configurações de origem na Braze, incluindo endpoint do cluster, banco de dados, esquema e nome do objeto.
+2. Execute a mesma consulta diretamente no Redshift para confirmar que a tabela ou view é legível e estável.
+3. Tente novamente após a conclusão de atividades de snapshot, restauração, redimensionamento ou replicação.
+4. Se o problema persistir, consulte uma view materializada em vez de uma tabela base que muda frequentemente.
+
+Uma view materializada armazena resultados de consulta pré-computados que você pode atualizar em um cronograma, o que pode tornar as leituras mais estáveis para sincronizações CDI. Para saber mais, consulte [views materializadas no Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html).
+
+Exemplo:
+
+```sql
+CREATE MATERIALIZED VIEW ingestion.users_attributes_mv AS
+SELECT updated_at, external_id, alias_label, alias_name, braze_id, email, phone, payload
+FROM ingestion.users_attributes_sync;
+
+REFRESH MATERIALIZED VIEW ingestion.users_attributes_mv;
+```
+
+Depois de criar a view materializada, use o nome da view materializada como o objeto de origem na sua sincronização CDI da Braze em vez da tabela base.
 {% endtab %}
 {% tab BigQuery %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Google BigQuery**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Google BigQuery**.
 
 #### Etapa 2.1: Adicionar informações de conexão do BigQuery e tabela de origem {#step-21-add-bigquery-connection-information-and-source-table}
 
@@ -514,7 +556,7 @@ Em seguida, selecione **Test connection**. Se for bem-sucedido, finalize as conf
 {% endtab %}
 {% tab Databricks %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Databricks**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Databricks**.
 
 #### Etapa 2.1: Adicionar informações de conexão do Databricks e tabela de origem {#step-21-add-databricks-connection-information-and-source-table}
 
@@ -531,7 +573,7 @@ Você deve testar com êxito uma origem antes que ela possa ser criada. Se você
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-No dashboard da Braze, acesse Data Settings > Cloud Data Ingestion > Sources, selecione **Add data source** e, em seguida, selecione **Microsoft Fabric**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Microsoft Fabric**.
 
 #### Etapa 2.1: Configurar uma sincronização de Ingestão de Dados na Nuvem {#step-21-set-up-a-cloud-data-ingestion-sync}
 
@@ -552,7 +594,7 @@ Você deve testar com êxito uma origem antes que ela possa ser criada. Se você
 {% endtabs %}
 
 ### Etapa 3: Criar uma nova sincronização no dashboard da Braze {#step-3-create-a-new-sync-in-the-braze-dashboard}
-Acesse **Data Settings** > **Cloud Data Ingestion** > **Syncs** e selecione **Create data sync**.
+Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Sincronizações** e selecione **Criar sincronização de dados**.
 
 {% tabs %}
 {% tab Snowflake %}
@@ -583,7 +625,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -616,7 +658,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -647,7 +689,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -679,7 +721,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -712,7 +754,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 {% endtabs %}
@@ -761,26 +803,26 @@ Se você reutilizar o mesmo usuário em várias integrações, não será possí
 
 {% tabs %}
 {% tab Snowflake %}
-Quando ativada, sua sincronização será executada de acordo com a programação configurada durante a instalação. Se você quiser executar a sincronização fora da programação normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
+Quando ativada, sua sincronização será executada de acordo com o cronograma configurado durante a instalação. Se você quiser executar a sincronização fora do cronograma normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
 
 {% endtab %}
 {% tab Redshift %}
-Quando ativada, sua sincronização será executada de acordo com a programação configurada durante a instalação. Se você quiser executar a sincronização fora da programação normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
+Quando ativada, sua sincronização será executada de acordo com o cronograma configurado durante a instalação. Se você quiser executar a sincronização fora do cronograma normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
 
 {% endtab %}
 {% tab BigQuery %}
 
-Quando ativada, sua sincronização será executada de acordo com a programação configurada durante a instalação. Se você quiser executar a sincronização fora da programação normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
+Quando ativada, sua sincronização será executada de acordo com o cronograma configurado durante a instalação. Se você quiser executar a sincronização fora do cronograma normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
 
 {% endtab %}
 {% tab Databricks %}
 
-Quando ativada, sua sincronização será executada de acordo com a programação configurada durante a instalação. Se você quiser executar a sincronização fora da programação normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
+Quando ativada, sua sincronização será executada de acordo com o cronograma configurado durante a instalação. Se você quiser executar a sincronização fora do cronograma normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Quando ativada, sua sincronização será executada de acordo com a programação configurada durante a instalação. Se você quiser executar a sincronização fora da programação normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
+Quando ativada, sua sincronização será executada de acordo com o cronograma configurado durante a instalação. Se você quiser executar a sincronização fora do cronograma normal de testes ou buscar os dados mais recentes, selecione **Sync Now**. Essa execução não afetará as sincronizações futuras programadas regularmente.
 
 {% endtab %}
 

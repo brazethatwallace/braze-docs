@@ -1,43 +1,43 @@
 ---
-nav_title: "GET: 목록 통합"
-article_title: "GET: 목록 통합"
+nav_title: "GET: 통합 목록 조회"
+article_title: "GET: 통합 목록 조회"
 search_tag: Endpoint
 page_order: 1
 alias: /api/cdi/get_integration_list/
 layout: api_page
 page_type: reference
-description: "이 문서에서는 목록 통합 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 통합 목록 조회 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 
 ---
 {% api %}
-# 목록 통합
+# 통합 목록 조회 {#list-integrations}
 {% apimethod get %}
 /cdi/integrations
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 기존 연동 목록을 반환합니다.
+> 이 엔드포인트를 사용하여 기존 통합 목록을 반환합니다.
 
 
 {% alert note %}
-이 엔드포인트를 사용하려면 `cdi.integration_list` 권한으로 API 키를 생성해야 합니다.
+이 엔드포인트를 사용하려면 `cdi.integration_list` 권한이 있는 API 키를 생성해야 합니다.
 {% endalert %}
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi list integrations' %}
 
-## 쿼리 매개변수
+## 쿼리 매개변수 {#query-parameters}
 
-이 엔드포인트에 대한 각 호출은 10개 항목을 반환합니다. 10개가 넘는 통합이 있는 목록의 경우 `Link` 헤더를 사용하여 예제 응답에 표시된 대로 다음 페이지에서 데이터를 검색합니다.
+이 엔드포인트에 대한 각 호출은 10개의 항목을 반환합니다. 10개가 넘는 통합이 있는 목록의 경우, 예시 응답에 표시된 것처럼 `Link` 헤더를 사용하여 다음 페이지의 데이터를 검색합니다.
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `cursor` | Optional | 문자열 | 통합 목록의 페이지 매김을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cursor` | 선택 사항 | 문자열 | 통합 목록의 페이지 매김을 결정합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="쿼리 매개변수" }
 
-## 요청 예시
+## 요청 예시 {#example-request}
 
-### 커서 없음
+### 커서 없음 {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
@@ -45,7 +45,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### 커서 포함
+### 커서 포함 {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cursor=c2tpcDow' \
@@ -53,14 +53,14 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cu
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 응답
+## 응답 {#response}
 
-### 성공 응답의 예
+### 성공 응답 예시 {#example-success-response}
 
 `200` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다.
 
 {% alert note %}
-총 통합 수가 10개 이하인 경우 `Link` 헤더는 존재하지 않습니다. 커서가 없는 통화의 경우 `prev`가 표시되지 않습니다. 항목의 마지막 페이지를 보면 `next` 이 표시되지 않습니다.
+총 통합 수가 10개 이하인 경우 `Link` 헤더는 존재하지 않습니다. 커서가 없는 호출의 경우 `prev`가 표시되지 않습니다. 항목의 마지막 페이지를 볼 때는 `next`가 표시되지 않습니다.
 {% endalert %}
 
 ```
@@ -88,15 +88,15 @@ Link: </cdi/integrations?cursor=c2tpcDow>; rel="prev",</cdi/integrations?cursor=
 }
 ```
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-다음 표에는 가능한 반환 오류와 관련된 문제 해결 단계가 나와 있습니다.
+다음 표에는 반환될 수 있는 오류와 관련 문제 해결 단계가 나와 있습니다.
 
 | 오류 | 문제 해결 |
 | --- | --- |
-| `400 Invalid cursor` | `cursor` 주소가 유효한지 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `400 Invalid cursor` | `cursor`가 유효한지 확인하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
-추가 상태 코드 및 관련 오류 메시지는 [치명적인 오류 & 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하십시오.
+추가 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors#fatal-errors)을 참조하세요.
 
 {% endapi %}

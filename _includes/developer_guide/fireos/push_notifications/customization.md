@@ -4,7 +4,7 @@
 
 There are many advanced settings available for FireOS push notifications sent through the Braze dashboard. This article will describe these features and how to use them successfully.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze FireOS push composer advanced settings panel.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### Time to live (TTL) {#ttl}
 
@@ -49,7 +49,7 @@ The priority levels that you can set on Fire OS push notifications are:
 | Default  | Most notifications - use if your message doesn't explicitly fall under any of the other priority types | `0` |
 | Low      | Information that you want users to know about but does not require immediate action | `-1` |
 | Min      | Contextual or background information. | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
 
 For more information, refer to Google's [Android notification](http://developer.android.com/design/patterns/notifications.html) documentation.
 

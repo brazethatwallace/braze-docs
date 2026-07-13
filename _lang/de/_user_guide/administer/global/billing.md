@@ -76,8 +76,6 @@ Die Felder in diesem Abschnitt sind wie folgt definiert:
 - **Zugeteilte Datenpunkte:** Die Menge der im Vertrag pro Abrechnungszeitraum zugeteilten Datenpunkte.
 - **Vertragliche Datenpunkt-Nutzung:** Eine kumulative Gesamtsumme aller über die Lifetime des Vertrags protokollierten Datenpunkte, die im nächsten Abrechnungszeitraum nicht zurückgesetzt wird.
 
-![Abschnitt „Vertragsdetails“ im Tab „Datenpunkt-Nutzung gesamt“]({% image_buster /assets/img/contract_details.png %})
-
 ### Abrechnungsdaten des Unternehmens {#company-billing-data}
 
 #### Datenpunkt-Nutzung gesamt auf App-Ebene {#app-level-total-data-point-usage}
@@ -110,5 +108,5 @@ Dieses Diagramm gibt Ihnen die Möglichkeit, Ihre gesamte Datenpunkt-Nutzung sch
 
 ## Nächste Schritte {#next-steps}
 
-- [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/), um Benachrichtigungen für abrechnungsbezogene Ereignisse und Nutzungsschwellenwerte zu konfigurieren.
-- [Dashboard zur Nachrichtennutzung]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/), um den Verbrauch von SMS-, WhatsApp- und RCS-Credits zu überwachen.
+- [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences), um Benachrichtigungen für abrechnungsbezogene Ereignisse und Nutzungsschwellenwerte zu konfigurieren.
+- [Dashboard zur Nutzung von Credits]({{site.baseurl}}/credits_usage_dashboard), um den Verbrauch von Nachrichten-Credits zu überwachen.

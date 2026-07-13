@@ -14,56 +14,54 @@ search_tag: Partner
 
 _GrowthLoop se encarga del mantenimiento de esta integración._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de Braze y GrowthLoop te permite segmentar los datos de clientes directamente desde el almacén de datos y enviarlos a Braze, garantizando que los usuarios puedan optimizar el profundo conjunto de características de Braze junto con su única fuente de verdad. Agiliza los esfuerzos de marketing para la segmentación y activación de clientes, reduciendo el tiempo que se tarda en segmentar, lanzar, probar y medir los resultados de las campañas dirigidas enviadas a Braze.
+La integración de Braze y GrowthLoop te permite segmentar los datos de clientes directamente desde el almacén de datos y enviarlos a Braze, garantizando que los usuarios puedan optimizar el amplio conjunto de características de Braze junto con su única fuente de verdad. Agiliza los esfuerzos de marketing para la segmentación y activación de clientes, reduciendo el tiempo que se tarda en segmentar, lanzar, probar y medir los resultados de las campañas dirigidas enviadas a Braze.
 
-## Requisitos previos 
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta GrowthLoop Growth or Enterprise | Se necesita una cuenta GrowthLoop para beneficiarse de esta asociación. |
-| Clave de API REST Braze | Una clave de API REST de Braze con todos los permisos.<br><br>Puede crearse en el panel Braze desde **Configuración** > **Claves API**. |
-| Punto final REST Braze | La URL de su punto final REST. Tu punto final dependerá de la [URL Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| Cuenta GrowthLoop Growth o Enterprise | Se necesita una cuenta GrowthLoop para beneficiarse de esta asociación. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos prácticos
+## Casos de uso {#use-cases}
 
-Envía listas de clientes desde tu almacén de datos a Braze, segmentando campañas de correo electrónico y notificaciones push en un clic, y mantenlas siempre sincronizadas.
+Envía listas de clientes desde tu almacén de datos a Braze para segmentar campañas de correo electrónico y notificaciones push en un clic, y mantenlas siempre sincronizadas.
 
-- Correos electrónicos basados en la activación del registro: envía correos electrónicos para ayudar a los usuarios que se caen en tu flujo de registro y conviértelos en usuarios activos.
-- Correos electrónicos basados en cualquier comportamiento del usuario: envía correos electrónicos basados en el comportamiento del usuario, como "Añadir a la cesta".
-- Correos electrónicos a clientes que se han dado de baja: reactiva a los clientes que se han dado de baja por correo electrónico con una oferta.
+- Correos electrónicos basados en la activación del registro: envía correos electrónicos para ayudar a los usuarios que abandonan tu flujo de registro y conviértelos en usuarios activos.
+- Correos electrónicos basados en cualquier comportamiento del usuario: envía correos electrónicos basados en el comportamiento del usuario, como "Añadir al carrito".
+- Correos electrónicos a clientes perdidos: reactiva a los clientes perdidos por correo electrónico con una oferta.
 
-## Integración
+## Integración {#integration}
 
-### Configurar la conexión Braze en GrowthLoop
+### Configurar la conexión de Braze en GrowthLoop {#configure-braze-connection-in-growthloop}
 
-Cuando accedas a la Plataforma de segmentación dentro de GrowthLoop, ve a la pestaña **Destinos** de la barra lateral izquierda y haz clic en **Nuevo destino** en la esquina superior derecha.
+Cuando accedas a la plataforma de segmentación dentro de GrowthLoop, ve a la pestaña **Destinations** en la barra lateral de navegación y haz clic en **New Destination** en la barra de acciones.
 
-Desplázate hasta que encuentres Braze y haz clic en **Añadir Braze**.
+Desplázate hasta que encuentres Braze y haz clic en **Add Braze**.
 
 Aparecerá una ventana emergente para configurar la conexión con el destino.
 
-- **Nombre del destino**: Así es como se denominará el destino y se hará referencia a él en la aplicación en adelante
-- **Frecuencia de sincronización**: Selecciona Diario o Cada Hora; esto controlará la frecuencia con la que GrowthLoop exporta audiencias a Braze
-- **Clave de API**: Clave de API creada en los requisitos, con los permisos necesarios
-- **URL de la API**: URL como se define en los requisitos
+- **Destination name**: así es como se denominará el destino y se hará referencia a él en la aplicación en adelante
+- **Sync frequency**: selecciona Daily o Hourly; esto controlará la frecuencia con la que GrowthLoop exporta audiencias a Braze
+- **API key**: clave de API creada en los requisitos, con los permisos necesarios
+- **API URL**: URL como se define en los requisitos
 
-Haz clic en **Crear**, ¡y ya puedes exportar tu primera audiencia a Braze! Para crear una audiencia en GrowthLoop, visita [Crear una audiencia](https://www.growthloop.com/help-center-articles/create-an-audience).
+Haz clic en **Create**, ¡y ya puedes exportar tu primera audiencia a Braze! Para crear una audiencia en GrowthLoop, visita [Crear una audiencia](https://www.growthloop.com/help-center-articles/create-an-audience).
 
-### Exportación de publicaciones
+### Posterior a la exportación {#post-export}
 
 Una vez exportada tu audiencia, cada 15 minutos GrowthLoop generará una versión actualizada de tus listas de clientes y la enviará a Braze.
 
-Al mismo tiempo, GrowthLoop eliminará de tu audiencia a los usuarios que ya no cumplan los requisitos y añadirá nuevos usuarios cualificados a tu audiencia. 
+Al mismo tiempo, GrowthLoop eliminará de tu audiencia a los usuarios que ya no cumplan los requisitos y añadirá nuevos usuarios cualificados a tu audiencia.
 
-Braze emparejará a los usuarios y creará una bandera, indicando que forman parte de una audiencia de GrowthLoop.
+Braze emparejará a los usuarios y creará una marca, indicando que forman parte de una audiencia de GrowthLoop.
 
-Cuando creas una campaña en Braze, puedes seleccionar clientes en esa audiencia de GrowthLoop. 
+Cuando crees una campaña en Braze, puedes seleccionar clientes en esa audiencia de GrowthLoop.
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 Ponte en contacto con el equipo de GrowthLoop en solutions@growthloop.com para obtener más información o ayuda.
-
-

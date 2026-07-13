@@ -14,7 +14,7 @@ description: "この記事には2017年5月のリリースノートが含まれ�
 
 ## タグの更新 {#update-to-tags}
 
-Segmentタグをネストして、ダッシュボードをより適切に整理できるようになりました。詳細については、[Segmentタグ]({{site.baseurl}}/user_guide/administrative/app_settings/tags/#campaign-segment-and-news-feed-card-tags)を参照してください。
+セグメントタグをネストして、ダッシュボードをより適切に整理できるようになりました。詳細については、[セグメントタグ]({{site.baseurl}}/user_guide/administrative/app_settings/tags/#campaign-segment-and-news-feed-card-tags)を参照してください。
 
 ## アプリ内メッセージ設定の更新 {#update-to-in-app-messages-configuration}
 
@@ -34,12 +34,12 @@ Liquidパーソナライゼーションが簡素化され、ポップアップ�
 
 ## ダッシュボードUIの更新 {#dashboard-ui-updates}
 
-Campaignのターゲティングおよびセグメント詳細ページのダッシュボード下部にテーブルが表示され、自分に関連する統計情報のみが確認できるようになりました。これにより、Campaignの受信者とその状況をより適切に構築および追跡できます。[ターゲティングおよびエンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/)について詳しくはこちらをご覧ください。
+キャンペーンのターゲティングおよびセグメント詳細ページのダッシュボード下部にテーブルが表示され、自分に関連する統計情報のみが確認できるようになりました。これにより、キャンペーンの受信者とその状況をより適切に構築および追跡できます。[ターゲティングおよびエンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/)について詳しくはこちらをご覧ください。
 
 ## IPウォームアップの新しいクォータアラート {#new-quota-alerts-for-ip-warming}
 
 IPウォームアップスケジュールに応じたクォータに達したときに通知するアラートが追加され、計画から逸脱することがなくなりました。[IPウォーミング]({{site.baseurl}}/user_guide/channels/email/best_practices/)について詳しくはこちらをご覧ください。
 
-## エンゲージメントレポートのCanvasデータ {#canvas-data-in-engagement-reports}
+## エンゲージメントレポートのキャンバスデータ {#canvas-data-in-engagement-reports}
 
-CanvasとCampaignのデータをエンゲージメントレポートにまとめてエクスポートできるようになり、データ分析が効率化されました。[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports)の詳細はこちらをご覧ください。
+キャンバスとキャンペーンのデータをエンゲージメントレポートにまとめてエクスポートできるようになり、データ分析が効率化されました。[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports)の詳細はこちらをご覧ください。

@@ -2,7 +2,7 @@
 nav_title: Anúncio de produto
 article_title: Anúncio de produto
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "Esta página explica como usar o editor de arrastar e soltar de mensagens no app para aumentar a visibilidade de lançamentos de novos produtos."
 ---
 
@@ -30,11 +30,11 @@ Para começar a criar seu anúncio de produto, selecione o componente de botão 
 
 ![O editor de mensagens no app com um menu lateral para personalizar o elemento de botão.]({% image_buster /assets/img/drag_and_drop/templates/product_announcement_button.png %})
 
-Você também pode adicionar mensagens extras ao seu anúncio de produto na seção **Pages** e vinculá-las em sequência. Por exemplo, você pode montar uma sequência de mensagens que descrevem brevemente as funcionalidades do produto e terminam com um botão que leva os usuários à página do produto. Saiba como fazer isso em [Conectar páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Você também pode adicionar mensagens extras ao seu anúncio de produto na seção **Pages** e vinculá-las em sequência. Por exemplo, você pode montar uma sequência de mensagens que descrevem brevemente as funcionalidades do produto e terminam com um botão que leva os usuários à página do produto. Saiba como fazer isso em [Conectar páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Etapa 4: Estilize sua mensagem {#step-4-style-your-message}
 
-Personalize a aparência do seu anúncio de produto usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastar e soltar.
+Personalize a aparência do seu anúncio de produto usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastar e soltar.
 
 ## Analisando os resultados {#analyzing-the-results}
 

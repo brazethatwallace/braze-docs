@@ -1,10 +1,10 @@
 # Feature-Flags erstellen {#create-feature-flags}
 
-> Mit Feature-Flags können Sie Funktionen für eine ausgewählte Nutzergruppe remote aktivieren oder deaktivieren. Erstellen Sie ein neues Feature-Flag im Braze-Dashboard. Geben Sie einen Namen und eine `ID`, eine Zielgruppe und einen Prozentsatz der Nutzer:innen an, für die dieses Feature aktiviert werden soll. Dann können Sie mit der gleichen `ID` im Code Ihrer App oder Website bestimmte Teile Ihrer Geschäftslogik bedingt ausführen. Mehr über Feature-Flags und wie Sie sie in Braze verwenden können, erfahren Sie unter [Über Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags/).
+> Mit Feature-Flags können Sie Funktionen für eine ausgewählte Nutzergruppe remote aktivieren oder deaktivieren. Erstellen Sie ein neues Feature-Flag im Braze-Dashboard. Geben Sie einen Namen und eine `ID`, eine Zielgruppe und einen Prozentsatz der Nutzer:innen an, für die dieses Feature aktiviert werden soll. Dann können Sie mit der gleichen `ID` im Code Ihrer App oder Website bestimmte Teile Ihrer Geschäftslogik bedingt ausführen. Mehr über Feature-Flags und wie Sie sie in Braze verwenden können, erfahren Sie unter [Über Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags).
 
 ## Voraussetzungen {#prerequisites}
 
-### SDK-Version {#sdk-version}
+### SDK-Version
 
 Wenn Sie Feature-Flags verwenden möchten, stellen Sie sicher, dass Ihre SDKs mit den folgenden Mindestversionen auf dem neuesten Stand sind:
 
@@ -12,19 +12,19 @@ Wenn Sie Feature-Flags verwenden möchten, stellen Sie sicher, dass Ihre SDKs mi
 
 ### Braze-Berechtigungen {#braze-permissions}
 
-Um Feature-Flags im Dashboard zu verwalten, müssen Sie entweder Administrator:in sein oder über die folgenden [Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) verfügen:
+Um Feature-Flags im Dashboard zu verwalten, müssen Sie entweder Administrator:in sein oder über die folgenden [Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) verfügen:
 
 | Berechtigung                                                                    | Was Sie tun können                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Feature-Flags verwalten**                                                      | Feature-Flags anzeigen, erstellen und bearbeiten.     |
-| **Zugang zu Kampagnen, Canvases, Karten, Feature-Flags, Segmenten, Medienbibliothek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Zugang zu Campaigns, Canvases, Karten, Feature-Flags, Segmenten, Medienbibliothek** | Die Liste der verfügbaren Feature-Flags anzeigen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Berechtigungen" }
 
 ## Erstellen eines Feature-Flags {#creating-a-feature-flag}
 
 ### 1. Schritt: Neues Feature-Flag erstellen {#step-1-create-a-new-feature-flag}
 
-Gehen Sie zu **Messaging** > **Feature-Flags** und wählen Sie dann **Feature-Flag erstellen**.
+Gehen Sie zu **Messaging** > **Feature Flags** und wählen Sie dann **Feature-Flag erstellen**.
 
 ![Eine Datentabelle, die ein vorhandenes Feature-Flag und die Vorgehensweise zum Erstellen eines neuen Feature-Flags darstellt.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
@@ -41,35 +41,36 @@ Geben Sie unter **Feature-Flag-Details** einen Namen, eine ID und eine Beschreib
 | ID           | Die eindeutige ID, die Sie in Ihrem Code verwenden, um zu prüfen, ob dieses Feature [für eine Nutzer:in aktiviert](#enabled) ist. Diese ID kann später nicht mehr geändert werden. Informieren Sie sich daher über die [Best Practices zur ID-Benennung](#naming-conventions), bevor Sie fortfahren. |
 | Beschreibung  | Eine optionale Beschreibung, die etwas Kontext zu Ihrem Feature-Flag liefert.   |
 | Eigenschaften   | Optionale Eigenschaften, die Ihr Feature-Flag remote konfigurieren. Sie können in Canvas-Schritten oder Feature-Flag-Experimenten überschrieben werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Details angeben" }
 
 ### Schritt 2a: Angepasste Eigenschaften erstellen {#step-2a-create-custom-properties}
 
 Unter **Eigenschaften** können Sie optional angepasste Eigenschaften erstellen, auf die Ihre App über das Braze SDK zugreifen kann, wenn Ihr Feature aktiviert ist. Sie können jeder Variablen einen String-, Booleschen-, Bild-, Zeitstempel-, JSON- oder Zahlenwert zuweisen sowie einen Standardwert festlegen.
 
 {% tabs local %}
-{% tab example %}
+{% tab Beispiel %}
 Im folgenden Beispiel zeigt das Feature-Flag ein Banner für einen nicht vorrätigen Artikel in einem E-Commerce-Shop an, wobei die aufgeführten angepassten Eigenschaften verwendet werden:
 
-|Eigenschaftsname|Typ|Wert|
+| Eigenschaftsname | Typ | Wert |
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
-|`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `banner_height` | `number` | `75` |
+| `banner_color` | `string` | `blue` |
+| `banner_text` | `string` | `Widgets are out of stock until July 1.` |
+| `dismissible` | `boolean` | `false` |
+| `homepage_icon` | `image` | `http://s3.amazonaws.com/[bucket_name]/` |
+| `account_start` | `timestamp` | `2011-01-01T12:00:00Z` |
+| `footer_settings` | `JSON` | `{ "colors": [ "red", "blue", "green" ], "placement": 123 }` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2a: Angepasste Eigenschaften erstellen" }
 
 {% alert tip %}
-Sie können beliebig viele Eigenschaften hinzufügen. Die Eigenschaften eines Feature-Flags sind jedoch auf insgesamt 10 KB begrenzt. Sowohl die Eigenschaftswerte als auch die Schlüssel sind auf eine Länge von 255 Zeichen begrenzt.
+Sie können beliebig viele Eigenschaften hinzufügen. Die Eigenschaften eines Feature-Flags sind jedoch auf insgesamt 10.000 Zeichen begrenzt.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### 4. Schritt: Segmente für die Zielgruppe auswählen {#step-4-choose-segments-to-target}
 
-Bevor Sie ein Feature-Flag einführen, müssen Sie ein [Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/) von Nutzer:innen als Zielgruppe auswählen. Wählen Sie **Regel hinzufügen** für Ihr neu erstelltes Flag und verwenden Sie anschließend die Dropdown-Menüs für Filtergruppe und Segment, um Nutzer:innen aus Ihrer Zielgruppe herauszufiltern. Fügen Sie mehrere Filter hinzu, um Ihre Zielgruppe weiter einzugrenzen.
+Bevor Sie ein Feature-Flag einführen, müssen Sie ein [Segment]({{site.baseurl}}/user_guide/engagement_tools/segments) von Nutzer:innen als Zielgruppe auswählen. Wählen Sie **Regel hinzufügen** für Ihr neu erstelltes Flag und verwenden Sie anschließend die Dropdown-Menüs für Filtergruppe und Segment, um Nutzer:innen aus Ihrer Zielgruppe herauszufiltern. Fügen Sie mehrere Filter hinzu, um Ihre Zielgruppe weiter einzugrenzen.
 
 ![Ein Textfeld mit der Bezeichnung „Rollout-Traffic“, in dem Segmente und Filter hinzugefügt werden können.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -904,7 +905,7 @@ Hier können Sie nachsehen, wann eine Änderung stattgefunden hat, wer die Ände
 
 ## Segmentieren mit Feature-Flags {#segmentation}
 
-Braze verfolgt automatisch, welche Nutzer:innen derzeit für ein Feature-Flag aktiviert sind. Sie können ein Segment erstellen oder Messaging gezielt ausrichten, indem Sie den [Filter **Feature-Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags) verwenden. Weitere Informationen zum Filtern nach Segmenten finden Sie unter [Erstellen eines Segments]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze verfolgt automatisch, welche Nutzer:innen derzeit für ein Feature-Flag aktiviert sind. Sie können ein Segment erstellen oder Messaging gezielt ausrichten, indem Sie den [Filter **Feature-Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags) verwenden. Weitere Informationen zum Filtern nach Segmenten finden Sie unter [Erstellen eines Segments]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 ![Der Abschnitt „Filter“ mit dem Begriff „Feature-Flag“ in der Filtersuchleiste.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -912,7 +913,7 @@ Braze verfolgt automatisch, welche Nutzer:innen derzeit für ein Feature-Flag ak
 Um rekursive Segmente zu vermeiden, ist es nicht möglich, ein Segment zu erstellen, das auf andere Feature-Flags verweist.
 {% endalert %}
 
-## Best Practices {#best-practices}
+## Best Practices
 
 ### Kombinieren Sie Rollouts nicht mit Canvases oder Experimenten {#dont-combine-rollouts-with-canvases-or-experiments}
 
@@ -933,7 +934,7 @@ Ersetzen Sie Folgendes:
 | `BEHAVIOR`  | Das Verhalten des Features. Achten Sie in Ihrem Code darauf, dass das Verhalten standardmäßig deaktiviert ist, und vermeiden Sie Ausdrücke wie `disabled` im Namen des Feature-Flags. |
 | `PRODUCT`   | Das Produkt, zu dem das Feature gehört.                                                                                       |
 | `FEATURE`    | Der Name des Features.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benennungskonventionen" }
 
 Hier ist ein Beispiel für ein Feature-Flag, wobei `show` das Verhalten, `animation_profile` das Produkt und `driver` das Feature ist:
 

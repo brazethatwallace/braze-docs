@@ -7,13 +7,13 @@ description: "Este artículo explica los alias para identificar la especificaci�
 
 ---
 
-# Alias para identificar objetos
+# Alias para identificar objetos {#aliases-to-identify-object}
 
-Una solicitud a la API con cualquier campo del objeto atributos crea o actualiza un atributo de ese nombre con el valor dado en el perfil de usuario especificado.
+Una solicitud a la API con cualquier campo del objeto de atributos crea o actualiza un atributo de ese nombre con el valor dado en el perfil de usuario especificado.
 
-Utiliza los nombres de campo de perfil de usuario de Braze (enumerados a continuación o cualquiera de los enumerados en la sección de [campos de perfil de usuario de Braze]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)) para actualizar esos valores especiales en el perfil de usuario en el panel o añade tus propios datos de atributos personalizados al usuario.
+Utiliza los nombres de campo de perfil de usuario de Braze (enumerados a continuación o cualquiera de los enumerados en la sección de [campos de perfil de usuario de Braze]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)) para actualizar esos valores especiales en el perfil de usuario en el dashboard o añade tus propios datos de atributos personalizados al usuario.
 
-## Cuerpo del objeto
+## Cuerpo del objeto {#object-body}
 
 ```json
 {
@@ -32,5 +32,5 @@ Utiliza los nombres de campo de perfil de usuario de Braze (enumerados a continu
 }
 ```
 
-- [ID usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+- [ID de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)

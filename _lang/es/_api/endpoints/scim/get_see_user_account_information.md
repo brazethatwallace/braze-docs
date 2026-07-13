@@ -1,47 +1,47 @@
 ---
-nav_title: "GET: Buscar una cuenta de usuario existente en el panel"
-article_title: "GET: Buscar una cuenta de usuario existente en el salpicadero"
+nav_title: "GET: Buscar una cuenta de usuario existente en el dashboard"
+article_title: "GET: Buscar una cuenta de usuario existente en el dashboard"
 alias: /get_see_user_account_information/
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto final de Braze para buscar el ID de recurso de una cuenta de usuario existente en el panel de Braze."
+description: "Este artículo describe los detalles sobre el punto de conexión de Braze para buscar el ID de recurso de una cuenta de usuario existente en el dashboard."
 ---
 
 {% api %}
-# Buscar una cuenta de usuario existente en el panel de control por ID de recurso
+# Buscar una cuenta de usuario existente en el dashboard por ID de recurso {#look-up-an-existing-dashboard-user-account-by-resource-id}
 {% apimethod get %}
-/scim/v2/Usuarios/{id}
+/scim/v2/Users/{id}
 {% endapimethod %}
 
-> Utiliza este punto final para buscar una cuenta de usuario existente en el panel especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/).
+> Utiliza este punto de conexión para buscar una cuenta de usuario existente en el dashboard especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás un token SCIM. Utilizarás el origen de tu servicio como cabecera de `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='look up dashboard user' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `id` | Obligatoria | Cadena | ID del recurso del usuario. Este parámetro lo devuelven los métodos `POST` `/scim/v2/Users/` o `GET`  `/scim/v2/Users?filter=userName eq "user@test.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `id` | Obligatorio | Cadena | El ID de recurso del usuario. Este parámetro lo devuelven los métodos `POST` `/scim/v2/Users/` o `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
@@ -49,12 +49,12 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 ```
 
-## Respuesta
+## Respuesta {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

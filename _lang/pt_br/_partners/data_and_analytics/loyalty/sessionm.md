@@ -9,14 +9,14 @@ search_tag: Partner
 
 # Plataforma de fidelidade SessionM {#sessionm-loyalty-platform}
 
-> A [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) é uma plataforma de engajamento com clientes e fidelidade que oferece recursos de gerenciamento de campanhas e soluções de gerenciamento de fidelidade para ajudar os profissionais de marketing a impulsionar o direcionamento para aumentar o engajamento e a lucratividade.
+> A [SessionM](https://sessionm.com/) é uma plataforma de engajamento com clientes e fidelidade, parte da Capillary Technologies, que oferece recursos de gerenciamento de campanhas e soluções de gerenciamento de fidelidade para ajudar os profissionais de marketing a impulsionar o direcionamento para aumentar o engajamento e a lucratividade.
 
 ## Pré-requisitos {#prerequisites}
 
 | Origem | Requisito | Descrição |
 | --- | --- | --- |
 | Braze | Uma chave da API REST da Braze | Uma chave da API REST da Braze com permissões `trigger_send`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Braze | Um endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze | Um endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics#endpoints). |
 | Braze e SessionM | Identificador correspondente | Para usar a integração, certifique-se de que tanto a SessionM quanto a Braze tenham um registro dos identificadores usados por cada plataforma. As referências a `user_id` correspondem ao identificador de usuário da SessionM gerado no momento da criação do perfil na SessionM. |
 | SessionM | Uma conta SessionM | É necessário ter uma conta SessionM para aproveitar essa parceria. |
 | SessionM | Um endpoint REST do SessionM Core | Seu endpoint dependerá da URL da SessionM da sua instância. Isso pode ser criado no dashboard da SessionM em **Digital Properties**. |
@@ -25,11 +25,7 @@ search_tag: Partner
 | SessionM | Um endpoint REST do SessionM Connect | Seu endpoint dependerá da URL da SessionM da sua instância. Entre em contato com o gerente técnico de conta da SessionM ou com a equipe de Delivery para obter. |
 | SessionM | Uma string de autorização REST do SessionM Connect | A string de autorização básica do SessionM Connect associada à sua instância. Essa string de autenticação pode ser usada para todas as chamadas baseadas em connect, incluindo get_user_offers. Entre em contato com o gerente técnico de conta da SessionM ou com a equipe de Delivery para obter. |
 | SessionM | Um ID de varejista do SessionM Connect REST | Um GUID de identificação exclusivo para o cliente específico associado à sua instância. Entre em contato com o gerente técnico de conta da SessionM ou com a equipe de Delivery para obter. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %}
-Se estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), você pode criar uma chave de API em **Console de desenvolvedor** > **Configurações de API**.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -66,7 +62,7 @@ Usando um **corpo de solicitação** de texto bruto, crie o corpo do webhook par
 }
  ```
 
-![]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
+![Criador de webhook da SessionM com carga útil JSON para configuração de disparo de Campaign na Braze.]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
 
 Na guia **Configurações**, adicione os pares de chave-valor para cada campo de cabeçalho de solicitação:
     - Crie uma chave `Content-Type` com o valor correspondente `application/json`
@@ -103,9 +99,9 @@ Exporte seu segmento da Braze usando o segmentador da Braze e forneça um arquiv
 
 ## Recuperação da carteira de ofertas em tempo real com a Braze {#retrieving-real-time-offer-wallet-with-braze}
 
-A integração da SessionM com a Braze permite a extração em tempo real dos dados de usuários da SessionM no momento do envio da mensagem, usando Conteúdo conectado, para eliminar o risco de comunicar aos clientes ofertas de fidelidade desatualizadas, expiradas ou já resgatadas.
+A integração da SessionM com a Braze permite a extração em tempo real dos dados de usuários da SessionM no momento do envio da mensagem, usando Conteúdo Conectado, para eliminar o risco de comunicar aos clientes ofertas de fidelidade desatualizadas, expiradas ou já resgatadas.
 
-O exemplo a seguir mostra o Conteúdo conectado sendo usado para modelar dados da carteira de ofertas em uma mensagem. No entanto, o Conteúdo conectado pode ser usado com qualquer um dos endpoints Connect da SessionM.
+O exemplo a seguir mostra o Conteúdo Conectado sendo usado para modelar dados da carteira de ofertas em uma mensagem. No entanto, o Conteúdo Conectado pode ser usado com qualquer um dos endpoints Connect da SessionM.
 
 ### Etapa 1: Emitir oferta na SessionM {#step-1-issue-offer-in-sessionm}
 
@@ -117,9 +113,9 @@ Em seguida, a SessionM adiciona a oferta à carteira do cliente no estado emitid
 
 ### Etapa 2: Chamar a API SessionM Offer Wallet {#step-2-call-sessionm-offer-wallet-api}
 
-Na etapa da Campaign ou do Canvas com as ofertas da SessionM, use o [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para fazer uma chamada de API para o [endpoint `get_user_offers` da SessionM](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
+Na etapa da Campaign ou do Canvas com as ofertas da SessionM, use o [Conteúdo Conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) para fazer uma chamada de API para o [endpoint `get_user_offers` da SessionM](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
 
-Na solicitação de Conteúdo conectado, especifique o `user_id` da SessionM do usuário e seu `retailer_id` para recuperar a lista completa de ofertas ativas que o cliente tem em sua carteira. Cada solicitação a esse endpoint pode incluir um único usuário. Entre em contato com a equipe da SessionM para obter a chave de string codificada para o cabeçalho de autorização básica na sua chamada de Conteúdo conectado.
+Na solicitação de Conteúdo Conectado, especifique o `user_id` da SessionM do usuário e seu `retailer_id` para recuperar a lista completa de ofertas ativas que o cliente tem em sua carteira. Cada solicitação a esse endpoint pode incluir um único usuário. Entre em contato com a equipe da SessionM para obter a chave de string codificada para o cabeçalho de autorização básica na sua chamada de Conteúdo Conectado.
 
 No corpo da solicitação, `culture` tem como padrão `en-US`, mas é possível usar Liquid para modelar o idioma de um usuário para ofertas multilíngues da SessionM (por exemplo, usando {% raw %}`"culture":"{{${language}}}"`{% endraw %}).
 
@@ -216,7 +212,7 @@ Campos adicionais podem ser configurados com base em necessidades específicas:
 
 - **Dados da oferta:** `offer_id`, `offer title`, `user offer id`, `description`, `terms and conditions`, `logo`, `pos discount id`, `expiration date`
 - **Dados do prêmio por pontos:** `point award amount`, `point account name`
-- **Dados do evento de gatilho:** qualquer dado no evento de gatilho que utilize o resultado do webhook de disparo/envio
+- **Dados do evento-gatilho:** qualquer dado no evento-gatilho que utilize o resultado do webhook de disparo/envio
 - **Dados específicos da campanha:** `campaign runtime`, `campaign_id`, `campaign name`, `campaign custom data`
 
 Campos adicionais são enviados à Braze como `trigger_properties` para personalizar a mensagem.
@@ -227,11 +223,11 @@ Crie uma Campaign disparada por API ou um Canvas na Braze para ser disparado pel
 
 ![Propriedades do disparador da API.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-Na guia **Schedule Delivery**, anote o ID da Campaign ou do Canvas, pois ele será adicionado às **Advanced Settings** da campanha SessionM.
+Na guia **Agendar entrega**, anote o ID da Campaign ou do Canvas, pois ele será adicionado às **Configurações avançadas** da campanha SessionM.
 
 ![Campaign disparada por API.]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 
-Finalize os detalhes da sua Campaign ou Canvas e selecione **Launch**.
+Finalize os detalhes da sua Campaign ou Canvas e selecione **Lançar**.
 
 ### Etapa 3: Criar uma campanha promocional ou de envio de mensagens da SessionM {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
 

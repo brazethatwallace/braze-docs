@@ -57,7 +57,7 @@ Braze SDK에는 효율성 향상, 배터리 사용량 감소, 다양한 네트�
 | 필요한 경우에만 콘텐츠를 새로고침하세요 | 사용자 동작(스크롤 이벤트 등)마다 콘텐츠를 새로고침하지 마세요 |
 | SDK가 자동으로 배치 처리를 수행하도록 하세요 | 절대적으로 필요한 경우가 아니면 즉시 데이터 전송을 강제하지 마세요 |
 | 분석에 가치를 더하는 이벤트에 집중하세요 | 빈도를 고려하지 않고 SDK 메서드를 빠르게 연속 호출하지 마세요 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="모범 사례" }
 
 ## 도움 받기 {#getting-help}
 
@@ -69,7 +69,7 @@ SDK 사용량 제한 문제를 겪고 있다면 다음 네트워킹 메서드를
 - `logCustomEvent()`
 - `logPurchase()`
 
-[Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의할 때는 사용 중인 각 네트워킹 SDK 메서드에 대해 다음 세부 정보를 포함해 주세요:
+[Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의할 때는 사용 중인 각 네트워킹 SDK 메서드에 대해 다음 세부 정보를 포함해 주세요:
 
 ```plaintext
 Method name:

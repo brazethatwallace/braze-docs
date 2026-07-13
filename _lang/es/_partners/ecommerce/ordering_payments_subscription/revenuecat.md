@@ -1,7 +1,7 @@
 ---
 nav_title: RevenueCat
 article_title: RevenueCat
-description: "La integración de RevenueCat y Braze le permite sincronizar automáticamente los eventos del ciclo de vida de compra y suscripción de sus clientes en todas las plataformas. Esto le permite crear campañas que reaccionan a la etapa del ciclo de vida de suscripción de sus clientes, como la participación con los clientes que optaron por salir durante su prueba gratuita o el envío de recordatorios a los clientes con problemas de facturación."
+description: "La integración de RevenueCat y Braze te permite sincronizar automáticamente los eventos del ciclo de vida de compra y suscripción de tus clientes en todas las plataformas. Esto te permite crear campañas que reaccionen a la etapa del ciclo de vida de suscripción de tus clientes, como interactuar con clientes que cancelaron durante su prueba gratuita o enviar recordatorios a clientes con problemas de facturación."
 alias: /partners/revenuecat/
 page_type: partner
 search_tag: Partner
@@ -10,40 +10,40 @@ search_tag: Partner
 
 # RevenueCat
 
-> [RevenueCat](https://www.revenuecat.com/) es la única fuente de información sobre el estado de tu suscripción en iOS, Android y Web. Tanto si está creando una nueva aplicación como si ya tiene millones de suscriptores, puede utilizar RevenueCat para crear compras dentro de la aplicación multiplataforma, gestionar sus productos y suscriptores y analizar sus datos, sin necesidad de código de servidor.
+> [RevenueCat](https://www.revenuecat.com/) es la única fuente de verdad para el estado de tu suscripción en iOS, Android y web. Tanto si estás creando una nueva aplicación como si ya tienes millones de suscriptores, puedes usar RevenueCat para crear compras dentro de la aplicación multiplataforma, gestionar tus productos y suscriptores, y analizar tus datos, sin necesidad de código de servidor.
 
 _Esta integración está mantenida por RevenueCat._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
-La integración de RevenueCat y Braze le permite sincronizar automáticamente los eventos del ciclo de vida de compra y suscripción de sus clientes en todas las plataformas. Esto le permite crear campañas que reaccionan a la etapa del ciclo de vida de suscripción de sus clientes, como la participación con los clientes que optaron por salir durante su prueba gratuita o el envío de recordatorios a los clientes con problemas de facturación.
+La integración de RevenueCat y Braze te permite sincronizar automáticamente los eventos del ciclo de vida de compra y suscripción de tus clientes en todas las plataformas. Esto te permite crear campañas que reaccionen a la etapa del ciclo de vida de suscripción de tus clientes, como interactuar con clientes que cancelaron durante su prueba gratuita o enviar recordatorios a clientes con problemas de facturación.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Como mínimo, tendrá que habilitar la integración desde el panel de RevenueCat para conectar RevenueCat a Braze. Si está utilizando el SDK de Braze, puede utilizar los SDK de RevenueCat y Braze juntos para mejorar la integración asegurándose de que se está utilizando el mismo identificador de cliente en ambos sistemas.
+Como mínimo, necesitarás habilitar la integración desde el panel de RevenueCat para conectar RevenueCat con Braze. Si estás usando el SDK de Braze, puedes usar los SDK de RevenueCat y Braze juntos para mejorar la integración asegurándote de que se utiliza el mismo identificador de cliente en ambos sistemas.
 
 | Requisito | Descripción |
 |---|---|
-| Cuenta y aplicación RevenueCat | Se necesita una [cuenta RevenueCat](https://app.revenuecat.com/login) para beneficiarse de esta asociación. También debe tener una aplicación RevenueCat configurada. |
-| SDK RevenueCat | Además del SDK de Braze necesario, recomendamos instalar el [SDK de Reven](https://docs.revenuecat.com/docs/configuring-sdk) ueCat para proporcionar alias de usuario a RevenueCat. |
-| instancia de Braze | Puedes obtener tu instancia de Braze a través de tu administrador de incorporación a Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints).<br><br>RevenueCat requiere que la instancia de Braze envíe desde el servidor al punto final REST Braze correcto. |
-| Clave REST API de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel Braze desde **Configuración** > **Claves API**. |
-| Clave REST API de prueba Braze (opcional) | Se puede utilizar una clave API de prueba para las compras de prueba y de producción si desea que estas solicitudes se envíen a instancias Braze independientes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cuenta y aplicación de RevenueCat | Se necesita una [cuenta de RevenueCat](https://app.revenuecat.com/login) para aprovechar esta asociación. También debes tener una aplicación de RevenueCat configurada. |
+| SDK de RevenueCat | Además del SDK de Braze requerido, recomendamos instalar el [SDK de RevenueCat](https://docs.revenuecat.com/docs/configuring-sdk) para proporcionar alias de usuario a RevenueCat. |
+| Instancia de Braze | Tu instancia de Braze puede obtenerse a través de tu administrador de incorporación de Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics#endpoints).<br><br>RevenueCat requiere la instancia de Braze para enviar desde el servidor al endpoint REST de Braze correcto. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de prueba de Braze (opcional) | Se puede usar una clave de API de prueba para compras de prueba y producción si deseas que estas solicitudes se envíen a instancias de Braze independientes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Ejemplos 
+## Ejemplos {#use-cases}
 
-- Active una campaña de incorporación que destaque sus funciones premium cuando un cliente inicie una prueba gratuita.
-- Enviar un recordatorio para actualizar la información de facturación cuando se recibe un evento de "Problema de facturación".
-- Envíe una encuesta de opinión después de que un cliente cancele una prueba gratuita. 
+- Activa una Campaign de incorporación que destaque tus funciones premium cuando un cliente inicie una prueba gratuita.
+- Envía un recordatorio para actualizar la información de facturación cuando se reciba un evento de "Problema de facturación".
+- Envía un cuestionario de opinión después de que un cliente cancele una prueba gratuita.
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Establecer identidad de usuario Braze
+### Paso 1: Establecer la identidad de usuario de Braze {#step-1-set-braze-user-identity}
 
-En el SDK de Braze, puede configurar el ID de usuario de Braze para que coincida con el ID de usuario de la aplicación RevenueCat, lo que garantiza que los eventos enviados desde Braze y RevenueCat se puedan sincronizar con el mismo usuario.
+En el SDK de Braze, puedes configurar el ID de usuario de Braze para que coincida con el ID de usuario de la aplicación RevenueCat, lo que garantiza que los eventos enviados desde Braze y RevenueCat puedan sincronizarse con el mismo usuario.
 
-Configure el Braze SDK con el mismo ID de usuario de la aplicación que RevenueCat o utilice el método Braze SDK `.changeUser()`.
+Configura el SDK de Braze con el mismo ID de usuario de la aplicación que RevenueCat o usa el método `.changeUser()` del SDK de Braze.
 
 {% tabs local %}
 {% tab swift %}
@@ -55,7 +55,7 @@ Purchases.configure(withAPIKey: "public_sdk_key", appUserID: "my_app_user_id")
 Appboy.sharedInstance()?.changeUser("my_app_user_id")
 
 // Optional User Alias Object attributes
-Purchases.shared.setAttributes(["$brazeAliasName" : "name", 
+Purchases.shared.setAttributes(["$brazeAliasName" : "name",
                              "$brazeAliasLabel" : "label"])
 ```
 {% endtab %}
@@ -92,32 +92,32 @@ Purchases.getSharedInstance().setAttributes(attributes);
 {% endtab %}
 {% endtabs %}
 
-#### Enviar objeto alias de usuario a Braze (opcional) 
+#### Enviar objeto alias de usuario a Braze (opcional) {#send-user-alias-object-to-braze-optional}
 
-Si desea enviar un identificador de usuario único alternativo distinto del identificador de usuario de la aplicación RevenueCat, actualice los usuarios con los siguientes datos como atributos de suscriptor de RevenueCat.
+Si deseas enviar un identificador de usuario único alternativo distinto del ID de usuario de la aplicación RevenueCat, actualiza los usuarios con los siguientes datos como atributos de suscriptor de RevenueCat.
 
 | Clave | Descripción |
 |---|---|
-| `$brazeAliasName` | El Braze `alias_name` en el [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
-| `$brazeAliasLabel` | El Braze `alias_label` en el [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `$brazeAliasName` | El `alias_name` de Braze en el [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) |
+| `$brazeAliasLabel` | El `alias_label` de Braze en el [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enviar objeto alias de usuario a Braze (opcional)" }
 
-Ambos atributos son necesarios para que el [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) se envíe junto con los datos del evento. Estas propiedades pueden configurarse manualmente, como cualquier otro [atributo del suscriptor de RevenueCat](https://docs.revenuecat.com/docs/subscriber-attributes). En el primer paso se muestran fragmentos de código de ejemplo.
+Ambos atributos son necesarios para que el [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) se envíe junto con los datos del evento. Estas propiedades pueden configurarse manualmente, como cualquier otro [atributo de suscriptor de RevenueCat](https://docs.revenuecat.com/docs/subscriber-attributes). En el paso uno se muestran fragmentos de código de ejemplo.
 
-### Paso 2: Enviar eventos RevenueCat a Braze
+### Paso 2: Enviar eventos de RevenueCat a Braze {#step-2-send-revenuecat-events-to-braze}
 
-Después de configurar el SDK de compras de RevenueCat y el SDK de Braze para que tengan la misma identidad de usuario, puede activar la integración y configurar los nombres de los eventos desde el panel de RevenueCat.
+Después de configurar el SDK de compras de RevenueCat y el SDK de Braze para que tengan la misma identidad de usuario, puedes activar la integración y configurar los nombres de los eventos desde el panel de RevenueCat.
 
-1. Navegue hasta su proyecto en el panel de control de RevenueCat y busque la tarjeta **Integraciones** en el menú de la izquierda. Selecciona **\+ Nuevo**.
-2. A continuación, seleccione **Braze** entre las integraciones disponibles y añada su instancia de Braze y su clave de API REST de Braze. 
-3. Introduzca los nombres de eventos que RevenueCat enviará o elija los nombres de eventos por defecto. Encontrará más información sobre los eventos disponibles en [el paso 3](#configure-event-names).
-4. Seleccione si desea que RevenueCat informe de los ingresos (después del corte de la tienda de aplicaciones) o de los ingresos (ventas brutas).
+1. Navega hasta tu proyecto en el panel de RevenueCat y busca la tarjeta **Integrations** en el menú de navegación. Selecciona **+ New**.
+2. A continuación, selecciona **Braze** entre las integraciones disponibles y añade tu instancia de Braze y tu clave de API REST de Braze.
+3. Introduce los nombres de eventos que RevenueCat enviará o elige los nombres de eventos predeterminados. Encontrarás más información sobre los eventos disponibles en el [paso 3](#configure-event-names).
+4. Selecciona si deseas que RevenueCat informe de los ingresos netos (después del corte de la tienda de aplicaciones) o de los ingresos brutos (ventas brutas).
 
 ![Configuración de Braze en RevenueCat con campos para la instancia de Braze, el identificador de la clave de API y el identificador del sandbox.]({% image_buster /assets/img/revenuecat/braze_settings_in_revenuecat.png %})
 
-### Paso 3: Configurar los nombres de los eventos {#configure-event-names}
+### Paso 3: Configurar los nombres de los eventos {#configure-event-names}
 
-Introduzca los nombres de eventos que RevenueCat enviará o seleccione entre los nombres de eventos por defecto seleccionando **Usar Nombres de Eventos por Defecto**. Los eventos que RevenueCat admite enviar se describen en el siguiente cuadro.
+Introduce los nombres de eventos que RevenueCat enviará o selecciona entre los nombres de eventos predeterminados seleccionando **Use Default Event Names**. Los eventos que RevenueCat admite enviar se describen en el siguiente cuadro.
 
 | Evento | Descripción |
 |---|---|
@@ -125,23 +125,21 @@ Introduzca los nombres de eventos que RevenueCat enviará o seleccione entre los
 | Prueba iniciada | El inicio de una prueba gratuita de un producto de suscripción con renovación automática. |
 | Prueba convertida | Cuando un producto de suscripción con renovación automática pasa de un periodo de prueba gratuito a un periodo normal de pago. |
 | Prueba cancelada | Cuando un usuario desactiva las renovaciones de un producto de suscripción con renovación automática durante un periodo de prueba gratuito. |
-| Renovación | Cuando se renueva un producto de suscripción autorrenovable, o un usuario vuelve a comprar el producto de suscripción autorrenovable tras un lapso en su suscripción. |
-| Anulación | Cuando un usuario desactiva las renovaciones de un producto de suscripción de renovación automática durante el periodo de pago normal. |
-| Compra sin suscripción | La compra de cualquier producto que no sea una suscripción de renovación automática. |
+| Renovación | Cuando se renueva un producto de suscripción con renovación automática, o un usuario vuelve a comprar el producto de suscripción con renovación automática tras un lapso en su suscripción. |
+| Cancelación | Cuando un usuario desactiva las renovaciones de un producto de suscripción con renovación automática durante el periodo de pago normal. |
+| Compra sin suscripción | La compra de cualquier producto que no sea una suscripción con renovación automática. |
 | Caducidad | Cuando caduca una suscripción. |
 | Problema de facturación | Cuando ha habido un problema al intentar cobrar al usuario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configurar los nombres de los eventos" }
 
 Para los eventos que incluyan ingresos, RevenueCat registrará automáticamente este importe junto con el evento en Braze, como las conversiones de prueba y las renovaciones.
 
-## Mediante esta integración
+## Uso de esta integración {#using-this-integration}
 
-Después de configurar los ajustes de Braze en RevenueCat, los eventos comenzarán a fluir automáticamente de RevenueCat a Braze sin ninguna otra acción por su parte.
+Después de configurar los ajustes de Braze en RevenueCat, los eventos comenzarán a fluir automáticamente de RevenueCat a Braze sin ninguna otra acción de tu parte.
 
-## Personalización
+## Personalización {#customization}
 
-### Añadir una clave de API de sandbox para Pruebas
+### Añadir una clave de API de sandbox para pruebas {#add-a-sandbox-api-key-for-testing}
 
-Si sólo proporcionas una clave de API REST de Braze a RevenueCat, sólo se enviarán los eventos de producción. Si también quieres enviar eventos de prueba de sandbox, [crea otra clave de API REST Braze]({{site.baseurl}}/api/basics/#app-group-rest-api-keys) y añádela a tu configuración Braze en RevenueCat.
-
-
+Si solo proporcionas una clave de API REST de Braze a RevenueCat, solo se enviarán los eventos de producción. Si también quieres enviar eventos de prueba de sandbox, [crea otra clave de API REST de Braze]({{site.baseurl}}/api/basics#app-group-rest-api-keys) y añádela a tu configuración de Braze en RevenueCat.

@@ -10,13 +10,11 @@ description: "Diese Seite bietet eine Übersicht darüber, wie Sie Braze-Canvase
 
 > Erfahren Sie, wie Sie Canvas-Trigger mithilfe von CDI für eine Zero-Copy-Personalisierung synchronisieren können. Dieses Feature greift auf nutzerspezifische Informationen aus Ihrer Datenspeicher-Lösung zu und überträgt diese an einen Ziel-Canvas. Canvas-Schritte können optional Personalisierungsfelder enthalten, die nicht in Braze-Nutzerprofilen persistent gespeichert werden.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Canvas-Trigger synchronisieren {#syncing-canvas-triggers}
 
 ### Schnellstart-Schritte {#quick-start-steps}
 
-Falls Sie bereits mit Braze CDI vertraut sind, beachten Sie bitte, dass die Einrichtung einer Canvas-Trigger-Synchronisierung weitgehend dem Prozess für [CDI-Integrationen von Nutzerdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/) entspricht, mit folgenden Einschränkungen:
+Falls Sie bereits mit Braze CDI vertraut sind, beachten Sie bitte, dass die Einrichtung einer Canvas-Trigger-Synchronisierung weitgehend dem Prozess für [CDI-Integrationen von Nutzerdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) entspricht, mit folgenden Einschränkungen:
 
 - Es werden ausschließlich externe IDs oder Nutzer-Alias-Bezeichner unterstützt. E-Mail-Adressen und Telefonnummern werden nicht als Bezeichner unterstützt.
 - Es können nur bestehende Braze-Nutzer:innen synchronisiert werden. Neue Nutzer:innen können nicht angelegt werden.
@@ -83,7 +81,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 ##### Schritt 1.3: Netzwerkrichtlinien konfigurieren {#step-13-configure-network-policies}
 
-Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional).
+Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional).
 
 {% endtab %}
 {% tab Redshift %}
@@ -130,7 +128,7 @@ GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
 
 ##### Schritt 1.3: Netzwerkrichtlinien konfigurieren
 
-Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=redshift#step-13-allow-access-to-braze-ips).
+Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=redshift#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -146,12 +144,12 @@ Beachten Sie beim Erstellen Ihrer Quelltabelle Folgendes:
 
 | Feldname | Typ | Erforderlich? |
 | :---- | :---- | :---- |
-| **`UPDATED_AT`** | Zeitstempel | Ja |
+| **`UPDATED_AT`** | Timestamp | Ja |
 | **`PROPERTIES`** | JSON | Ja |
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1.2: Quelltabelle in BigQuery einrichten" }
 
 {% alert note %}
 Eigenschaften sind nicht für jede Zeile oder jede Nutzer:in erforderlich. Die Eigenschaftswerte müssen jedoch ein gültiger JSON-String sein. Geben Sie einen leeren `{}`-String ein, wenn für die Zeile keine Eigenschaften vorhanden sind.
@@ -180,12 +178,12 @@ Erstellen Sie eine Nutzer:in und erteilen Sie Berechtigungen. Sollten Sie bereit
 | BigQuery User | Ermöglicht Braze, Abfragen auszuführen, Metadaten zu lesen und Tabellen aufzulisten. |
 | BigQuery Data Viewer | Ermöglicht Braze, Datensätze und Inhalte einzusehen. |
 | BigQuery Job User | Ermöglicht Braze, Jobs auszuführen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1.3: Zugangsdaten einrichten" }
 
 Generieren Sie nach der Erteilung der Berechtigungen einen JSON-Schlüssel. Anweisungen finden Sie unter [Schlüssel erstellen und löschen](https://cloud.google.com/iam/docs/keys-create-delete). Sie laden ihn später im Braze-Dashboard hoch.
 
 ##### Schritt 1.4: Netzwerkrichtlinien konfigurieren {#step-14-configure-network-policies}
-Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=bigquery#step-13-allow-access-to-braze-ips).
+Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=bigquery#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab Databricks %}
@@ -202,12 +200,12 @@ Beachten Sie beim Erstellen Ihrer Quelltabelle Folgendes:
 
 | Feldname | Typ | Erforderlich |
 | :---- | :---- | :---- |
-| `UPDATED_AT` | Zeitstempel | Ja |
+| `UPDATED_AT` | Timestamp | Ja |
 | `PROPERTIES` | JSON | Ja |
 | `EXTERNAL_ID` | STRING | NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: Quelltabelle in Databricks einrichten" }
 
 Sie können das Schema und die Tabelle nach Belieben benennen, jedoch sollten die Spaltennamen mit der vorangegangenen Definition übereinstimmen.
 
@@ -246,7 +244,7 @@ Erstellen Sie ein persönliches Zugriffstoken in Databricks:
 
 ##### Schritt 1.4: Netzwerkrichtlinien konfigurieren
 
-Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=databricks#step-13-allow-access-to-braze-ips).
+Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=databricks#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab Fabric %}
@@ -273,7 +271,7 @@ Erstellen Sie einen Dienstprinzipal und erteilen Sie Berechtigungen. Falls Sie b
 
 ##### Schritt 1.3: Netzwerkrichtlinien konfigurieren
 
-Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional).
+Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von Braze zur Allowlist hinzu, um die Verbindung zum CDI-Dienst zu ermöglichen. Die Liste der IP-Adressen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional).
 
 {% endtab %}
 {% tab Dateispeicher %}
@@ -285,10 +283,10 @@ Um Canvas-Trigger aus dem Dateispeicher zu synchronisieren, erstellen Sie eine Q
 | `EXTERNAL_ID` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen. |
 | `ALIAS_NAME` und `ALIAS_LABEL` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Diese beiden Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`. |
 | `PROPERTIES` | Ja | JSON-String von Feldern, die als Personalisierungs-Eigenschaften in Ihrem Canvas verfügbar gemacht werden sollen. Dieser sollte nutzerspezifische Informationen enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.3: Netzwerkrichtlinien konfigurieren" }
 
 {% alert tip %}
-Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Synchronisierung mit Amazon S3 finden Sie unter [Dateispeicher-Integrationen](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Synchronisierung mit Amazon S3 finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 {% endtab %}
@@ -296,10 +294,10 @@ Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zei
 
 #### 2. Schritt: Ziel-Canvas konfigurieren {#step-2-configure-your-destination-canvas}
 
-1. Richten Sie Ihren Ziel-Canvas für Canvas-Trigger ein. Erstellen Sie einen neuen oder wählen Sie einen vorhandenen API-getriggerten Canvas aus. Anweisungen zum Erstellen eines Canvas mit einem API-getriggerten Zustellungszeitplan finden Sie unter [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types).
+1. Richten Sie Ihren Ziel-Canvas für Canvas-Trigger ein. Erstellen Sie einen neuen oder wählen Sie einen vorhandenen API-getriggerten Canvas aus. Anweisungen zum Erstellen eines Canvas mit einem API-getriggerten Zustellungszeitplan finden Sie unter [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types).
 2. Nachdem Sie den API-getriggerten Zustellungszeitplan ausgewählt haben, fahren Sie mit der Canvas-Einrichtung fort und erstellen Sie Ihren Canvas. Canvases können von einfachen Einzelnachrichten bis hin zu komplexen Kunden-Workflows mit mehreren Schritten reichen.
-3. Verwenden Sie innerhalb Ihrer Canvas-Schritte [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), um Nachrichten mit Eigenschaftsfeldern zu personalisieren, die Sie aus Ihrer Quelltabelle synchronisieren möchten.
-  * Wenn Sie beispielsweise in Schritt 1 ein Eigenschaftsfeld für `account_balance` eingerichtet haben, würden Sie die folgende Liquid-Vorlage verwenden, um Ihre Nachricht zu personalisieren: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
+3. Verwenden Sie innerhalb Ihrer Canvas-Schritte [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), um Nachrichten mit Eigenschaftsfeldern zu personalisieren, die Sie aus Ihrer Quelltabelle synchronisieren möchten.
+  * Wenn Sie beispielsweise in [Schritt 1](#step-1-set-up-data-source-for-canvas-triggers) ein Eigenschaftsfeld für `account_balance` eingerichtet haben, würden Sie die folgende Liquid-Vorlage verwenden, um Ihre Nachricht zu personalisieren: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. Nachdem Sie Ihren Canvas erstellt haben, starten Sie ihn und fahren Sie mit [Schritt 3](#step-3-create-your-zero-copy-sync) fort.
 
 #### 3. Schritt: Zero-Copy-Synchronisierung erstellen {#step-3-create-your-zero-copy-sync}
@@ -326,13 +324,10 @@ Wenn die Synchronisierung ausgeführt wird, beginnen die Nutzer:innen in Ihrer Q
 
 CDI Canvas-Trigger nutzen Ihr REST API-Rate-Limit für `/canvas/trigger/send`. Wenn Sie diesen Endpunkt gleichzeitig mit CDI Canvas-Triggern und Ihrer REST API-Integration verwenden, wird die kombinierte Nutzung auf Ihr Rate-Limit angerechnet.
 
-Da sich CDI Canvas-Trigger noch in der Early-Access-Phase befinden, beachten Sie bitte die folgenden Details:
+Bei jedem Synchronisierungslauf werden Nutzer:innen mit einer maximalen Rate von etwa 3,75 Millionen Nutzer:innen pro Stunde in den jeweiligen Ziel-Canvas aufgenommen. Rechnen Sie mit längeren Zeiten zwischen Quelle und Canvas-Eintritt, wenn:
 
-* Bis zu 5 aktive Canvas-Trigger-Synchronisierungen pro Workspace
-* Bei jedem Synchronisierungslauf werden Nutzer:innen mit einer maximalen Rate von etwa 3,75 Millionen Nutzer:innen pro Stunde in den jeweiligen Ziel-Canvas aufgenommen.
-  * Rechnen Sie mit längeren Zeiten zwischen Quelle und Canvas-Eintritt, wenn:
-    * Mehr als 3,75 Millionen Nutzer:innen pro Synchronisierungslauf synchronisiert werden.
-    * CDI Canvas-Trigger verwendet werden, während das [Rate-Limit Ihrer REST API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) bereits ausgeschöpft ist.
+* Mehr als 3,75 Millionen Nutzer:innen pro Synchronisierungslauf synchronisiert werden.
+* CDI Canvas-Trigger verwendet werden, während das [Rate-Limit Ihrer REST API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit) bereits ausgeschöpft ist.
 
 Beachten Sie Folgendes zur Zero-Copy-CDI, wenn die Nachrichtenarchivierung aktiviert ist:
 

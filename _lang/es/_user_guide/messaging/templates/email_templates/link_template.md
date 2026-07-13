@@ -31,7 +31,7 @@ Supongamos que estás ejecutando una campaña promocional de correo electrónico
 
 Puedes crear un número ilimitado de plantillas de enlaces para cubrir tus diversas necesidades. Para crear una plantilla de enlaces, haz lo siguiente:
 
-1. Ve a **Plantillas** > **Plantillas de enlaces de correo electrónico**.
+1. Ve a **Contenido** > **Enlace de correo electrónico**.
 2. Selecciona **Crear plantilla de enlace de correo electrónico**.
 3. Dale un nombre a tu plantilla de enlaces.
 4. (Opcional) Añade una descripción, equipo o etiqueta para agregar detalles sobre la plantilla de enlaces.
@@ -42,29 +42,29 @@ Hay dos tipos de plantillas de enlaces que puedes crear:
 - [Plantilla de enlaces que se inserta antes de una URL](#prepend-link-template)
 - [Plantilla de enlaces que se inserta después de una URL](#append-link-template)
 
-Al usar plantillas de enlaces y [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), Liquid solo debe añadirse dentro de la etiqueta body para garantizar una representación consistente.
+Al usar plantillas de enlaces y [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), Liquid solo debe añadirse dentro de la etiqueta body para garantizar una representación consistente.
 
 ### Anteponer: crear una plantilla de enlaces que se inserta antes de una URL {#prepend-link-template}
 
 Para añadir una cadena o URL antes de los enlaces en tu mensaje de correo electrónico, haz lo siguiente:
 
 1. Crea una nueva plantilla de enlaces.
-2. Establece la **Template Position** en **Before URL**.
+2. Establece la **Posición de la plantilla** en **Antes de URL**.
 3. Introduce una cadena que siempre se antepondrá a tu URL.
 
-La **Template Preview** te ofrece un ejemplo de cómo se insertará la plantilla de enlaces antes de una URL.
+La **Vista previa de la plantilla** te ofrece un ejemplo de cómo se insertará la plantilla de enlaces antes de una URL.
 
-![Campos de Template Position, Prepend URL y Template Preview para el proceso de inserción de la plantilla de enlaces antes de una URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
+![Campos de posición de la plantilla, URL antepuesta y vista previa de la plantilla para el proceso de inserción de la plantilla de enlaces antes de una URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
 
 ### Añadir: crear una plantilla de enlaces que se inserta después de una URL {#append-link-template}
 
 Si quieres añadir parámetros de consulta después de una URL en tu mensaje de correo electrónico:
 
 1. Crea una nueva plantilla de enlaces.
-2. Establece la **Template Position** en **After URL**.
+2. Establece la **Posición de la plantilla** en **Después de URL**.
 3. Introduce los parámetros de consulta (`value=example`) al final de cada URL. Puedes tener múltiples parámetros añadidos al final de una URL.
 
-![Campos de Template Position, Query Parameters y Template Preview para el proceso de inserción de la plantilla de enlaces después de una URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
+![Campos de posición de la plantilla, parámetros de consulta y vista previa de la plantilla para el proceso de inserción de la plantilla de enlaces después de una URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
 ## Usar plantillas de enlaces en campañas de correo electrónico {#using-link-templates-in-email-campaigns}
 
@@ -73,23 +73,23 @@ Después de configurar tus plantillas de enlaces, puedes aplicarlas en tu correo
 Para aplicar una plantilla de enlaces en el editor HTML o en el editor de arrastrar y soltar, sigue estos pasos:
 
 {% alert important %}
-Para acceder a la pestaña **Link Management** en el editor HTML actualizado o en el editor de arrastrar y soltar, debes tener activado el aliasing de enlaces. Para activar el aliasing de enlaces, ponte en contacto con tu director de cuentas. Para más información, consulta [Aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/).
+Para acceder a la pestaña **Gestión de enlaces** en el editor HTML actualizado o en el editor de arrastrar y soltar, debes tener activado el aliasing de enlaces. Para activar el aliasing de enlaces, ponte en contacto con tu director de cuentas. Para más información, consulta [Aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}
 
-- **Editor HTML actualizado:** En la pestaña **Content**, selecciona **Link Management**, selecciona **Add a Link Template**, elige tu plantilla de enlaces y luego selecciona **Add**.
-- **Editor de arrastrar y soltar:** En la pestaña **Content**, selecciona **Link Management**, selecciona **Add a Link Template**, elige tu plantilla de enlaces y luego selecciona **Add**.
+- **Editor HTML actualizado:** En la pestaña **Contenido**, selecciona **Gestión de enlaces**, selecciona **Añadir una plantilla de enlaces**, elige tu plantilla de enlaces y luego selecciona **Añadir**.
+- **Editor de arrastrar y soltar:** En la pestaña **Contenido**, selecciona **Gestión de enlaces**, selecciona **Añadir una plantilla de enlaces**, elige tu plantilla de enlaces y luego selecciona **Añadir**.
 
-![Pestaña Link Management en el editor de arrastrar y soltar con una lista de ejemplo de plantillas de enlaces.]({% image_buster /assets/img_archive/link_template_messagecomposer2.png %})
+![Pestaña Gestión de enlaces en el editor de arrastrar y soltar con una lista de ejemplo de plantillas de enlaces.]({% image_buster /assets/img_archive/link_template_messagecomposer2.png %})
 
 {% alert note %}
 Las plantillas de enlaces no se aplican al texto sin formato. Esto significa que Currents puede mostrar clics que no incluyen los parámetros de las plantillas de enlaces, ya que esos clics pueden provenir de la versión de texto sin formato del correo electrónico.
 {% endalert %}
 
-A medida que añades plantillas de enlaces en la pestaña **Link Management**, desplázate hacia la derecha para ver las plantillas que has añadido. Si los enlaces existentes dentro de un correo electrónico ya tienen una plantilla de enlaces añadida, los enlaces recién añadidos también tendrán la plantilla de enlaces añadida de forma predeterminada.
+A medida que añades plantillas de enlaces en la pestaña **Gestión de enlaces**, desplázate hacia la derecha para ver las plantillas que has añadido. Si los enlaces existentes dentro de un correo electrónico ya tienen una plantilla de enlaces añadida, los enlaces recién añadidos también tendrán la plantilla de enlaces añadida de forma predeterminada.
 
 ## Administrar plantillas de enlaces {#managing-link-templates}
 
-También puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) plantillas de enlaces. Obtén más información sobre cómo crear y administrar plantillas y contenido creativo en [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates/).
+También puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) plantillas de enlaces. Obtén más información sobre cómo crear y administrar plantillas y contenido creativo en [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates).
 
 {% alert important %}
 Archivar plantillas no está disponible actualmente para las plantillas de enlaces.
@@ -97,4 +97,4 @@ Archivar plantillas no está disponible actualmente para las plantillas de enlac
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-Para obtener respuestas a las preguntas frecuentes sobre plantillas de enlaces, consulta nuestra página de [Preguntas frecuentes sobre plantillas]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Para obtener respuestas a las preguntas frecuentes sobre plantillas de enlaces, consulta nuestra página de [Preguntas frecuentes sobre plantillas]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

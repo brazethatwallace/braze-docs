@@ -3,7 +3,7 @@ nav_title: Idées et stratégies
 article_title: Idées et stratégies
 layout: dev_guide
 guide_top_header: "Idées et stratégies"
-guide_top_text: "Découvrez comment créer la campagne idéale grâce à ces cas d'utilisation et autres idées."
+guide_top_text: "Découvrez des exemples détaillés et des modèles pour atteindre vos objectifs courants de campagne. Cette section couvre le reciblage des utilisateurs actifs et inactifs, l'adoption de fonctionnalités et les mises à jour d'application, l'attribution d'installation, l'ajout de liens de calendrier aux messages, ainsi que l'automatisation des workflows d'inscription avec des outils externes comme Zoom. Parcourez ces cas d'utilisation pour trouver des approches adaptables à vos propres audiences."
 page_order: 5
 
 tool: Campaigns
@@ -13,9 +13,9 @@ description: "Cette page regroupe les idées et stratégies de campagne. Vous y 
 guide_featured_title: "Articles de la section"
 guide_featured_list:
   - name: Bonnes pratiques
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
-  - name: Campagnes d'utilisateurs actifs
+  - name: Campagnes pour utilisateurs actifs
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
     image: /assets/img/braze_icons/users-01.svg
   - name: Liens d'ajout au calendrier
@@ -45,7 +45,7 @@ guide_menu_list:
   - name: Créer des messages de droite à gauche
     link: /docs/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages
     image: /assets/img/braze_icons/globe-02.svg
-  - name: Système d'e-mail de rappel de réservation
+  - name: E-mail de rappel de réservation
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
 ---

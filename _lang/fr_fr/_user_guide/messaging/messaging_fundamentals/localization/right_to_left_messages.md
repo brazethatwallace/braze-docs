@@ -23,8 +23,8 @@ De plus, vérifiez la ponctuation et les emojis pour déterminer si votre messag
 | Rendu occidental standard | Rendu de droite à gauche |
 |------------------|------------------------|
 | Affiche le point d'exclamation et l'emoji à la **fin** des phrases. | Affiche le point d'exclamation et l'emoji au **début** de la phrase. |
-| ![Exemple de message standard de droite à gauche.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Exemple de message de gauche à droite.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| ![Exemple de message avec rendu standard de droite à gauche.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Exemple de message avec rendu de gauche à droite.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Apparence des messages" }
 
 ## Créer un message de droite à gauche {#creating-a-right-to-left-message}
 
@@ -42,6 +42,14 @@ Pour créer votre message de droite à gauche dans Braze :
 La méthode de copier-coller pour les messages push peut être difficile à utiliser avec les notifications push plus longues, car un contenu plus long peut s'afficher sur plusieurs lignes sur un appareil mobile. Si vous copiez le texte de votre message depuis l'extérieur de Braze (par exemple un document Word) et le collez directement dans Braze, l'alignement des phrases et le placement des mots peuvent changer. Pour éviter ce scénario, copiez et collez par segments et ajoutez un saut de ligne. Par exemple, copiez et collez les cinq premiers mots, ajoutez un saut de ligne, copiez les cinq mots suivants, ajoutez un saut de ligne, et ainsi de suite.
 
 Les fonctions de prévisualisation et de test sont conçues pour les messages de gauche à droite, donc les messages de droite à gauche ne s'afficheront pas correctement dans la section **Preview & Test**, mais s'afficheront correctement sur les appareils des utilisateurs si leurs paramètres sont configurés en conséquence. Nous vous suggérons de vous envoyer des messages dans un environnement en production pour confirmer qu'ils s'affichent correctement en fonction des paramètres de l'appareil.
+
+### Alignement du titre et du corps {#title-and-body-alignment}
+
+Pour les notifications push, l'alignement du titre suit généralement les paramètres de langue de l'appareil, tandis que l'alignement du corps peut suivre le premier caractère directionnel fort de chaque ligne (traitez chaque ligne après un saut de ligne séparément). Cela signifie qu'une seule notification push peut mélanger les alignements d'une ligne à l'autre — par exemple, une ligne de corps de droite à gauche suivie d'une ligne de gauche à droite. Lorsque vous avez besoin d'une mise en page prévisible, maintenez une cohérence directionnelle et utilisez des sauts de ligne entre les segments multilingues.
+
+{% alert note %}
+Le rendu dépend toujours du système d'exploitation de l'appareil et du client push. Envoyez des [messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) à vos propres appareils pour confirmer l'alignement avant de passer en production.
+{% endalert %}
 
 ### Texte bidirectionnel {#bi-directional-text}
 

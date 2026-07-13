@@ -1,9 +1,9 @@
 ---
 nav_title: Crear notificaciones enriquecidas
-article_title: "Creando notificaciones push enriquecidas para iOS"
+article_title: "Creación de notificaciones push enriquecidas para iOS"
 page_order: 3
 page_type: tutorial
-description: "Este tutorial cubre los requisitos y pasos para crear notificaciones enriquecidas de iOS para tus campañas de Braze."
+description: "Este tutorial cubre los requisitos y pasos para crear notificaciones enriquecidas de iOS para tus Campaigns de Braze."
 
 platform: iOS
 channel:
@@ -15,25 +15,28 @@ tool:
 
 # Crear notificaciones push enriquecidas para iOS {#create-rich-push-notifications-for-ios}
 
-> Las notificaciones enriquecidas permiten una mayor personalización en tus notificaciones push al añadir contenido adicional más allá del texto. Las notificaciones de Android han incluido imágenes en las notificaciones push desde hace tiempo, presentadas como una "imagen de notificación expandida". A partir de iOS 10, tus clientes podrán recibir notificaciones push de iOS que incluyan GIF, imágenes, videos o audio.
+> Las notificaciones enriquecidas permiten una mayor personalización en tus notificaciones push al añadir contenido adicional más allá del texto. Las notificaciones de Android incluyen imágenes en las notificaciones push desde hace tiempo, lo que se conoce como "imagen de notificación expandida". A partir de iOS 10, tus clientes podrán recibir notificaciones push de iOS que incluyan GIF, imágenes, videos o audio.
 
 ## Requisitos previos {#prerequisites}
 
 Antes de crear una notificación push enriquecida para iOS, ten en cuenta los siguientes detalles:
 
-- Para asegurarte de que tu aplicación pueda enviar notificaciones enriquecidas, sigue las instrucciones de [integración push de iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications), ya que tu desarrollador necesitará añadir una extensión de servicio a tu aplicación.
+- Para asegurarte de que tu aplicación pueda enviar notificaciones enriquecidas, sigue las instrucciones de [integración push de iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#ios-10-rich-notifications), ya que tu desarrollador necesitará añadir una extensión de servicio a tu aplicación.
 - Los tipos de archivo que actualmente admitimos para carga directa en nuestro dashboard incluyen JPEG, PNG o GIF. Estos archivos también se pueden introducir en el campo de URL con plantilla junto con estos tipos de archivo adicionales: AIF, M4A, MP3, MP4 o WAV.
 - Consulta la [documentación de Apple](https://developer.apple.com/reference/usernotifications/unnotificationattachment) para conocer las limitaciones y especificaciones de medios.
-- Las notificaciones enriquecidas de iOS no están disponibles al crear una campaña push rápida.
 - iOS escalará las imágenes para que se ajusten a la pantalla y escalará las imágenes enriquecidas para la vista activa o de bloqueo.
 
 {% alert note %}
 Desde enero de 2020, las notificaciones push enriquecidas de iOS pueden manejar imágenes de 1038x1038 que pesen menos de 10&nbsp;MB, pero recomendamos usar el tamaño de archivo más pequeño posible. En la práctica, enviar archivos grandes puede causar estrés innecesario en la red y hacer que los tiempos de espera de descarga sean más frecuentes.
 {% endalert %}
 
+{% alert important %}
+Es posible que las imágenes de las notificaciones push no se muestren como se espera si el tamaño del archivo de la imagen es demasiado grande, la relación de aspecto es incorrecta, el texto excede la longitud máxima del mensaje o el texto del título excede la longitud máxima del título.
+{% endalert %}
+
 ### Recuento de caracteres {#character-count}
 
-Aunque no podemos proporcionar una regla estricta sobre el número preciso de caracteres a incluir en un push, [proporcionamos algunas directrices]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) a considerar al diseñar mensajes de iOS. Puede haber cierta variación dependiendo de la presencia de una imagen, el estado de la notificación y la configuración de visualización del dispositivo del usuario, y el tamaño del dispositivo. En caso de duda, mantenlo breve y conciso.
+Aunque no podemos proporcionar una regla estricta sobre el número preciso de caracteres a incluir en un push, [proporcionamos algunas directrices]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats) a considerar al diseñar mensajes de iOS. Puede haber cierta variación dependiendo de la presencia de una imagen, el estado de la notificación y la configuración de visualización del dispositivo del usuario, y el tamaño del dispositivo. En caso de duda, mantenlo breve y conciso.
 
 Como práctica recomendada, Braze recomienda mantener cada línea de texto tanto para el título opcional como para el cuerpo del mensaje en aproximadamente 30-40 caracteres en una notificación push móvil.
 
@@ -41,7 +44,8 @@ Como práctica recomendada, Braze recomienda mantener cada línea de texto tanto
 
 Tus usuarios pueden ver las notificaciones push en una variedad de situaciones diferentes, y podrían ver diferentes longitudes de texto como se indica a continuación.
 
-<table>
+<table aria-label="Estados de notificación">
+  <caption>Estados de notificación</caption>
 <thead>
   <tr>
     <th>Pantalla de bloqueo o centro de notificaciones</th>
@@ -57,7 +61,7 @@ Tus usuarios pueden ver las notificaciones push en una variedad de situaciones d
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Estados de notificación" }
 
 ![Ejemplos de notificaciones push mostradas en la pantalla de bloqueo, expandidas y con el dispositivo activo.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 
@@ -112,20 +116,20 @@ Los siguientes detalles también pueden afectar el truncamiento de texto:
 
 - **Configuración de pantalla del teléfono:** un usuario puede aumentar o disminuir el tamaño de fuente global de la interfaz en su teléfono, generalmente por razones de accesibilidad.
 - **Ancho del dispositivo:** el mensaje podría mostrarse en un teléfono pequeño o en un iPad ancho.
-- **Tipos de contenido:** los emojis y caracteres anchos como "m" y "w" ocupan más espacio que "i" o "t", y las palabras más largas como "engagement" pueden ajustarse de línea de forma más abrupta que las palabras más cortas.
+- **Tipos de contenido:** los emojis y caracteres anchos como "m" y "w" ocupan más espacio que "i" o "t", y las palabras más largas como "interacción" pueden ajustarse de línea de forma más abrupta que las palabras más cortas.
 
 {% endtab %}
 {% endtabs %}
 
 ## Configurar tu notificación enriquecida de iOS {#setting-up-your-ios-rich-notification}
 
-### Paso 1: Crear una campaña push {#step-1-create-a-push-campaign}
+### Paso 1: Crear una Campaign push {#step-1-create-a-push-campaign}
 
-Sigue los [pasos de la campaña]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message) para redactar una notificación push para iOS. Usarás el mismo compositor que utilizas para configurar notificaciones push que no contienen contenido enriquecido.
+Sigue los [pasos de la Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) para redactar una notificación push para iOS. Usarás el mismo compositor que utilizas para configurar notificaciones push que no contienen contenido enriquecido.
 
 ### Paso 2: Añadir medios {#step-2-add-media}
 
-Añade tu archivo de imagen, GIF, audio o video en el campo **Rich Notification Media** en el compositor del mensaje. Consulta los [requisitos](#requirements) sobre cómo añadir tus archivos de contenido.
+Añade tu archivo de imagen, GIF, audio o video en el campo **iOS Notification Image** en el compositor del mensaje. Consulta los [requisitos](#requirements) sobre cómo añadir tus archivos de contenido.
 
 ![Un ejemplo de texto de resumen para una notificación push.]({% image_buster /assets/img_archive/rich_notification_add_image.png %}){: style="max-width:70%;" }
 
@@ -133,9 +137,9 @@ También puedes limitar este mensaje para que solo se envíe a usuarios que teng
 
 ![La sección de imagen de notificación expandida donde puedes añadir una imagen o introducir una URL de imagen.]({% image_buster /assets/img_archive/rich_notification_ios10_select.png %}){: style="max-width:70%;" }
 
-### Paso 3: Continuar creando tu campaña {#step-3-continue-creating-your-campaign}
+### Paso 3: Continuar creando tu Campaign {#step-3-continue-creating-your-campaign}
 
-Una vez que el contenido de tu notificación enriquecida se haya cargado en el dashboard, puedes continuar [planificando tu campaña]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#schedule-push-campaign).
+Una vez que el contenido de tu notificación enriquecida se haya cargado en el dashboard, puedes continuar [planificando tu Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign).
 
 Cuando un usuario reciba la notificación push, puede presionar con fuerza el mensaje push para expandir la imagen.
 

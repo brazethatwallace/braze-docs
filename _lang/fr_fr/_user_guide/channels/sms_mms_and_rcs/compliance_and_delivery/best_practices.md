@@ -23,11 +23,11 @@ Se conformer aux demandes de désinscription des destinataires est une obligatio
 En vertu de leurs contrats d'abonnement avec nous, nos clients sont seuls responsables de leur conformité aux lois applicables dans le cadre de l'utilisation de nos services. En conséquence, nous recommandons vivement aux clients de porter une attention particulière à la configuration correcte de leur environnement SMS, de tester ces configurations de manière approfondie, de prendre des mesures pour surveiller la conformité des désinscriptions et d'agir rapidement s'ils identifient des cas de non-conformité aux demandes de désinscription.
 
 Lors de la configuration des SMS et MMS dans Braze pour gérer les abonnements et désinscriptions, consultez la liste de ressources suivante :
-* [Groupes d'abonnement SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) : groupes d'abonnement et méthodes et statuts d'abonnement/désinscription.
-* [API REST des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/) : comment traiter les abonnements et désinscriptions reçus depuis une source autre qu'une réponse directe à un message.
-* [Traitement des mots-clés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/) : explications sur la manière dont Braze gère le traitement et la gestion des mots-clés.
-* [Double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) : exige que les utilisateurs confirment explicitement leur intention d'abonnement avant de pouvoir recevoir des messages SMS. Le double abonnement SMS est une obligation dans certains pays, c'est pourquoi Braze recommande de le configurer.
-* [Envoi de messages SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/) : fondamentaux de l'envoi de SMS avec Braze, y compris l'importance des groupes d'abonnement, les exigences relatives aux segments SMS et aux corps de message, et plus encore.
+* [Groupes d'abonnement SMS]({{site.baseurl}}/sms_rcs_subscription_groups) : groupes d'abonnement et méthodes et statuts d'abonnement/désinscription.
+* [API REST des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups) : comment traiter les abonnements et désinscriptions reçus depuis une source autre qu'une réponse directe à un message.
+* [Traitement des mots-clés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) : explications sur la manière dont Braze gère le traitement et la gestion des mots-clés.
+* [Double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) : exige que les utilisateurs confirment explicitement leur intention d'abonnement avant de pouvoir recevoir des messages SMS. Le double abonnement SMS est une obligation dans certains pays, c'est pourquoi Braze recommande de le configurer.
+* [Envoi de messages SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending) : fondamentaux de l'envoi de SMS avec Braze, y compris l'importance des groupes d'abonnement, les exigences relatives aux segments SMS et aux corps de message, et plus encore.
 
 ### Points à prendre en compte {#considerations}
 
@@ -37,6 +37,18 @@ Lorsque les SMS et MMS ont été configurés sur plusieurs instances et qu'en ra
 * Nous recommandons vivement aux clients de tester les désinscriptions pour chaque groupe d'abonnement qu'ils ont dans Braze. Identifier ce problème avant de lancer un message est préférable à devoir le corriger après qu'un problème a été identifié.
 
 Braze gère les abonnements SMS/MMS à la fois au niveau du profil utilisateur (`user_id`) et au niveau du numéro de téléphone (`channel_id`). Lorsqu'un numéro de téléphone est abonné ou désabonné, la mise à jour s'applique à tous les profils partageant ce numéro. Dans le cas où un utilisateur final s'est abonné avec un certain numéro de téléphone, puis change de numéro, le nouveau numéro héritera du statut du groupe d'abonnement de l'utilisateur. En conséquence, si un utilisateur final s'est désabonné, puis revient sur l'application ou le site web avec un nouveau numéro de téléphone, il ne recevra pas de messages non souhaités.
+
+## Recommandations pour l'hygiène de la liste des numéros de téléphone {#phone-number-list-hygiene-recommendations}
+
+Maintenir l'hygiène de votre liste de numéros de téléphone vous aide à conserver des données de consentement et de joignabilité valides au fil du temps. Braze marque certains numéros de téléphone comme invalides afin de réduire les risques de non-conformité, de soutenir les pratiques d'envoi de messages basées sur le consentement et d'éviter d'envoyer des messages à des numéros qui pourraient ne plus appartenir à l'utilisateur d'origine.
+
+Pour connaître les raisons pour lesquelles les numéros de téléphone sont généralement marqués comme invalides, consultez [Gestion des numéros de téléphone invalides]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
+
+Nous recommandons le flux de travail suivant pour supprimer les numéros de téléphone invalides :
+
+1. Identifiez les numéros de téléphone concernés via l'[endpoint `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers).
+2. Différenciez les numéros de téléphone désactivés des numéros de téléphone ayant reçu des erreurs de l'opérateur.
+3. Pour les numéros de téléphone désactivés, vérifiez à nouveau le numéro auprès de l'utilisateur. Une fois que l'utilisateur a confirmé son numéro de téléphone, supprimez le numéro de la liste des numéros invalides via l'[endpoint `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers).
 
 ## Recommandations contre le trafic frauduleux (traffic pumping) {#traffic-pumping-recommendations}
 
@@ -48,7 +60,7 @@ Le traffic pumping est une forme de fraude qui se produit lorsqu'un acteur malve
 
 * Les numéros surtaxés utilisés pour ce type de fraude sont souvent, mais pas toujours, configurés dans des pays en dehors de vos zones géographiques d'envoi habituelles.
 * Des pics inhabituels dans l'envoi de messages depuis des formulaires en ligne peuvent indiquer du traffic pumping.
-    * Nous recommandons de configurer des [alertes de campagne]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts/) pour plafonner et notifier si un nombre anormalement élevé de messages est envoyé.
+    * Nous recommandons de configurer des [alertes de campagne]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts) pour plafonner et notifier si un nombre anormalement élevé de messages est envoyé.
 * Des formulaires en ligne incomplets peuvent indiquer un remplissage programmatique de formulaires.
 * Lors de la création de formulaires en ligne, nous recommandons de définir des règles pour s'assurer que les formulaires sont entièrement remplis et d'utiliser des outils tels que le CAPTCHA pour minimiser les risques.
 
@@ -60,7 +72,7 @@ Les clients sont responsables de la surveillance du trafic qu'ils envoient et se
 
 Certaines marques peuvent souhaiter envoyer des messages à un groupe d'utilisateurs dont les numéros de téléphone proviennent de différents pays. Pour envoyer un message SMS à un numéro de téléphone dans un pays donné, la bonne pratique consiste à utiliser un code long ou un code court provenant du même pays. En effet, les codes courts ne peuvent envoyer des SMS qu'aux numéros de téléphone du même pays que celui dans lequel le code court a été créé.
 
-Pour surmonter cette limitation, lors du [processus de configuration]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/) des groupes d'abonnement, les groupes peuvent être configurés pour contenir des codes longs et courts de plusieurs pays différents. Une fois cette configuration terminée, les numéros d'envoi ayant le même indicatif pays que le numéro de téléphone de l'utilisateur cible seront automatiquement utilisés lors du lancement d'une campagne. Vous n'aurez pas besoin de créer des campagnes distinctes pour les utilisateurs ayant des numéros de téléphone avec des indicatifs pays différents, ce qui vous permet de lancer une seule campagne ou d'utiliser un seul composant Canvas pour cibler les utilisateurs concernés.
+Pour surmonter cette limitation, lors du [processus de configuration]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) des groupes d'abonnement, les groupes peuvent être configurés pour contenir des codes longs et courts de plusieurs pays différents. Une fois cette configuration terminée, les numéros d'envoi ayant le même indicatif pays que le numéro de téléphone de l'utilisateur cible seront automatiquement utilisés lors du lancement d'une campagne. Vous n'aurez pas besoin de créer des campagnes distinctes pour les utilisateurs ayant des numéros de téléphone avec des indicatifs pays différents, ce qui vous permet de lancer une seule campagne ou d'utiliser un seul composant Canvas pour cibler les utilisateurs concernés.
 
 ![Les payloads SMS sont envoyés en utilisant le même indicatif pays que le numéro de téléphone de l'utilisateur cible.]({% image_buster /assets/img/sms/multi_country_subgroups.png %})
 
@@ -87,7 +99,7 @@ Vous prévoyez d'effectuer des envois en grand volume ? Voici quelques bonnes pr
 
 ### Heures calmes natives de Braze {#braze-native-quiet-hours}
 
-Nous recommandons vivement d'activer les [heures calmes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) pour toutes les campagnes et Canvas SMS afin de respecter les réglementations régionales et les bonnes pratiques.
+Nous recommandons vivement d'activer les [heures calmes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#quiet-hours) pour toutes les campagnes et Canvas SMS afin de respecter les réglementations régionales et les bonnes pratiques.
 
 ### Protection supplémentaire via les Content Blocks {#additional-safeguard-through-content-blocks}
 
@@ -95,7 +107,7 @@ Vous pouvez ajouter une vérification basée sur Liquid à l'intérieur d'un Con
 
 #### Configuration {#setup}
 
-Incluez l'extrait de code suivant en haut du corps de votre message SMS. Cet exemple annule l'envoi s'il se situe en dehors d'une fenêtre de 9 h à 21 h dans le [fuseau horaire local]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer) de l'utilisateur.
+Incluez l'extrait de code suivant en haut du corps de votre message SMS. Cet exemple annule l'envoi s'il se situe en dehors d'une fenêtre de 9 h à 21 h dans le [fuseau horaire local]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer) de l'utilisateur.
 
 {% raw %}
 ```liquid
@@ -109,6 +121,6 @@ Incluez l'extrait de code suivant en haut du corps de votre message SMS. Cet exe
 
 #### Points à prendre en compte
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} permet d'évaluer la fenêtre par rapport au fuseau horaire local de chaque utilisateur, et non par rapport à un fuseau horaire global fixe, comme expliqué dans [cette FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permet d'évaluer la fenêtre par rapport au fuseau horaire local de chaque utilisateur, et non par rapport à un fuseau horaire global fixe, comme expliqué dans [cette FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 - Les messages supprimés par {% raw %}`abort_message()`{% endraw %} ne sont pas reprogrammés pour le lendemain ; ils sont annulés.
-- {% raw %} Par défaut, les messages annulés ne sont pas visibles dans les rapports standard de campagne. Cependant, lorsque Liquid annule un envoi avec `{% abort_message %}`, Braze l'enregistre dans le Journal d'activité des messages comme une erreur de message (par défaut, il affiche `{% abort_message %}` appelé). Si vous passez une chaîne de caractères, cette raison est ce qui apparaît dans le journal, par exemple `{% abort_message('language was nil') %}`{% endraw %}. Pour avoir de la visibilité sur ces suppressions dans le tableau de bord, contactez votre gestionnaire de la satisfaction client pour accéder au [tableau de bord de diagnostic de l'envoi de messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/).
+- {% raw %} Par défaut, les messages annulés ne sont pas visibles dans les rapports standard de campagne. Cependant, lorsque Liquid annule un envoi avec `{% abort_message %}`, Braze l'enregistre dans le Journal d'activité des messages comme une erreur de message (par défaut, il affiche `{% abort_message %}` appelé). Si vous passez une chaîne de caractères, cette raison est ce qui apparaît dans le journal, par exemple `{% abort_message('language was nil') %}`{% endraw %}. Pour avoir de la visibilité sur ces suppressions dans le tableau de bord, contactez votre gestionnaire de la satisfaction client pour accéder au [tableau de bord de diagnostic de l'envoi de messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).

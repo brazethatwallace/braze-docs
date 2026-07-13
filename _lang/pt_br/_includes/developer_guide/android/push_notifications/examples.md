@@ -1,22 +1,22 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %} Você também precisará [configurar notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
 
-## Layout de notificação personalizado
+## Layout de notificação personalizado {#custom-notification-layout}
 
-As notificações do Braze são enviadas como [mensagens de dados](https://firebase.google.com/docs/cloud-messaging/concept-options), o que significa que seu aplicativo sempre terá a chance de responder e executar o comportamento de acordo, mesmo em segundo plano (em contraste com as mensagens de notificação, que podem ser tratadas automaticamente pelo sistema quando seu app está em segundo plano). Dessa forma, seu aplicativo terá a chance de personalizar a experiência, por exemplo, exibindo elementos personalizados da interface do usuário na notificação entregue na bandeja de notificações. Embora a implementação do push dessa maneira possa não ser familiar para alguns, um de nossos recursos bem conhecidos no Braze, o [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/), é um excelente exemplo do uso de componentes de exibição personalizados para criar uma experiência envolvente!
+As notificações da Braze são enviadas como [mensagens de dados](https://firebase.google.com/docs/cloud-messaging/concept-options), o que significa que seu aplicativo sempre terá a chance de responder e executar o comportamento adequado, mesmo em segundo plano (diferentemente das mensagens de notificação, que podem ser tratadas automaticamente pelo sistema quando seu app está em segundo plano). Dessa forma, seu aplicativo terá a chance de personalizar a experiência, por exemplo, exibindo elementos personalizados de interface dentro da notificação entregue na bandeja de notificações. Embora implementar push dessa maneira possa não ser familiar para alguns, um de nossos recursos mais conhecidos na Braze, o [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories), é um excelente exemplo do uso de componentes de visualização personalizados para criar uma experiência envolvente!
 
 {% alert important %}
-O Android impõe algumas limitações quanto aos componentes que podem ser usados para implementar exibições de notificação personalizadas. Os layouts de exibição de notificação devem conter _apenas_ objetos de exibição compatíveis com a estrutura [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews).
+O Android impõe algumas limitações quanto aos componentes que podem ser usados para implementar visualizações de notificação personalizadas. Os layouts de visualização de notificação devem conter _apenas_ objetos de visualização compatíveis com o framework [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews).
 {% endalert %}
 
-Você pode usar a interface [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para personalizar como as notificações por push do Braze são exibidas. Ao estender o site `BrazeNotificationFactory`, o Braze chamará o método `createNotification()` de sua fábrica antes que a notificação seja exibida ao usuário. Em seguida, ele passará uma carga útil contendo pares de chave-valor personalizados enviados pelo dashboard do Braze ou pela API REST.
+Você pode usar a interface [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para personalizar como as notificações por push da Braze são exibidas. Ao estender `BrazeNotificationFactory`, a Braze chamará o método `createNotification()` da sua fábrica antes que a notificação seja exibida ao usuário. Em seguida, será passada uma carga útil contendo pares de chave-valor personalizados enviados pelo dashboard da Braze ou pela REST API.
 
-Nesta seção, você fará parceria com a Superb Owl, a apresentadora de um novo game show em que equipes de resgate de animais selvagens competem para ver quem consegue salvar mais corujas. Eles querem aproveitar as notificações de atualização ao vivo em seu app para Android, para que possam exibir o status de uma partida em andamento e fazer atualizações dinâmicas na notificação em tempo real.
+Nesta seção, você fará parceria com a Superb Owl, a apresentadora de um novo game show em que equipes de resgate de animais selvagens competem para ver quem consegue salvar mais corujas. Eles querem aproveitar as notificações de atualização ao vivo em seu app Android, para que possam exibir o status de uma partida em andamento e fazer atualizações dinâmicas na notificação em tempo real.
 
 ![A atualização ao vivo que a Superb Owl quer mostrar exibe uma partida em andamento entre "Wild Bird Fund" e "Owl Rescue". No momento, estamos no quarto período e o placar está em 2 a 4, com a OWL na liderança.]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
 
-### Etapa 1: Adicionar um layout personalizado
+### Etapa 1: Adicionar um layout personalizado {#step-1-add-a-custom-layout}
 
-Você pode adicionar um ou mais layouts RemoteView de notificação personalizados ao seu projeto. São úteis para lidar com a forma como as notificações são exibidas quando recolhidas ou expandidas. Sua estrutura de diretórios deve ser semelhante à seguinte:
+Você pode adicionar um ou mais layouts RemoteView de notificação personalizados ao seu projeto. Eles são úteis para controlar como as notificações são exibidas quando recolhidas ou expandidas. Sua estrutura de diretórios deve ser semelhante à seguinte:
 
 ```plaintext
 .
@@ -49,7 +49,7 @@ Em cada arquivo XML, crie um layout personalizado. A Superb Owl criou os seguint
 {% endtab %}
 
 {% tab Example: Expanded layout %}
-{% details Show the sample code %}
+{% details Mostrar o código de exemplo %}
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -133,13 +133,13 @@ Em cada arquivo XML, crie um layout personalizado. A Superb Owl criou os seguint
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Criar uma fábrica de notificações personalizada
+### Etapa 2: Criar uma fábrica de notificações personalizada {#step-2-create-a-custom-notification-factory}
 
-Em seu aplicativo, crie um novo arquivo chamado `MyCustomNotificationFactory.kt` que estende [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para manipular como os layouts personalizados do RemoteView são exibidos.
+Em seu aplicativo, crie um novo arquivo chamado `MyCustomNotificationFactory.kt` que estende [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para controlar como os layouts personalizados do RemoteView são exibidos.
 
-No exemplo a seguir, o Superb Owl criou uma fábrica de notificações personalizada para exibir um layout RemoteView para partidas em andamento. Na [próxima etapa](#android_step-3-map-custom-data), eles criarão um novo método chamado `getTeamInfo` para mapear os dados de uma equipe para a atividade.
+No exemplo a seguir, a Superb Owl criou uma fábrica de notificações personalizada para exibir um layout RemoteView para partidas em andamento. Na [próxima etapa](#android_step-3-map-custom-data), eles criarão um novo método chamado `getTeamInfo` para mapear os dados de uma equipe para a atividade.
 
-{% details Show the sample code %}
+{% details Mostrar o código de exemplo %}
 ```kotlin
 import android.app.Notification
 import android.widget.RemoteViews
@@ -205,7 +205,7 @@ class MyCustomNotificationFactory : BrazeNotificationFactory() {
 ```
 {% enddetails %}
 
-### Etapa 3: Mapear dados personalizados
+### Etapa 3: Mapear dados personalizados {#step-3-map-custom-data}
 
 Em `MyCustomNotificationFactory.kt`, crie um novo método para tratar os dados quando as atualizações ao vivo forem exibidas.
 
@@ -229,9 +229,9 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 }
 ```
 
-### Etapa 4: Definir a fábrica de notificações personalizadas
+### Etapa 4: Definir a fábrica de notificações personalizada {#step-4-set-the-custom-notification-factory}
 
-Em sua classe de aplicativo, use [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)para definir sua fábrica de notificações personalizada.
+Em sua classe de aplicativo, use [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?) para definir sua fábrica de notificações personalizada.
 
 ```kotlin
 import com.braze.Braze
@@ -246,11 +246,11 @@ class MyApplication : Application() {
 }
 ```
 
-### Etapa 5: Enviar a atividade
+### Etapa 5: Enviar a atividade {#step-5-send-the-activity}
 
-Você pode usar o endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST API para enviar uma notificação por push para o dispositivo Android de um usuário.
+Você pode usar o endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) da REST API para enviar uma notificação por push para o dispositivo Android de um usuário.
 
-#### Exemplo de comando curl
+#### Exemplo de comando curl {#example-curl-command}
 
 A Superb Owl enviou sua solicitação usando o seguinte comando curl:
 
@@ -280,32 +280,32 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa chamada no backend, onde você já está lidando com as [iOS Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
+Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa chamada no seu backend, onde você já está lidando com as [iOS Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
 {% endalert %}
 
-#### Parâmetros de solicitação
+#### Parâmetros de solicitação {#request-parameters}
 
-| Chave                           | Descrição                                                                                                                                                                                                                                      |
+| Chave | Descrição |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `REST_API_KEY`                | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Isso pode ser criado no dashboard do Braze em **Configurações** > **Chaves de API**.                                                                                                     |
-| `BRAZE_REST_ENDPOINT`         | Sua URL de endpoint REST. Seu endpoint dependerá da [URL do Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints).                                                                                                                  |
+| `REST_API_KEY`                | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**.                                                                                                     |
+| `BRAZE_REST_ENDPOINT`         | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints).                                                                                                                  |
 | `USER_ID`                     | O ID do usuário para o qual você está enviando a notificação.                                                                                                                                                                                          |
-| `messages.android_push.title` | O título da mensagem. Por padrão, isso não é usado para as notificações ao vivo da fábrica de notificações personalizadas, mas pode ser usado como fallback.                                                                                                    |
-| `messages.android_push.alert` | O corpo da mensagem. Por padrão, isso não é usado para as notificações ao vivo da fábrica de notificações personalizadas, mas pode ser usado como fallback.                                                                                                     |
-| `messages.extra`              | Pares de valores-chave que a fábrica de notificações personalizadas usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor; no entanto, no exemplo acima, `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo.  |
-| `ASSIGNED_NOTIFICATION_ID`    | O ID de notificação que deseja atribuir à notificação ao vivo do usuário escolhido. O ID deve ser exclusivo para esse jogo e deve ser usado para [atualizar a notificação existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `messages.android_push.title` | O título da mensagem. Por padrão, isso não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback.                                                                                                    |
+| `messages.android_push.alert` | O corpo da mensagem. Por padrão, isso não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback.                                                                                                     |
+| `messages.extra`              | Pares de chave-valor que a fábrica de notificações personalizada usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor&#8212;no entanto, neste exemplo, `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo.  |
+| `ASSIGNED_NOTIFICATION_ID`    | O ID de notificação que você deseja atribuir à notificação ao vivo do usuário escolhido. O ID deve ser exclusivo para esse jogo e deve ser usado para [atualizar a notificação existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Parâmetros de solicitação" }
 
-### Etapa 6: Atualizar a atividade
+### Etapa 6: Atualizar a atividade {#step-6-update-the-activity}
 
-Para atualizar a notificação existente do RemoteView com novos dados, modifique os pares de valores-chave relevantes atribuídos a `messages.extra` e, em seguida, use o mesmo `notification_id` e chame novamente o endpoint `/messages/send`.
+Para atualizar a notificação existente do RemoteView com novos dados, modifique os pares de chave-valor relevantes atribuídos a `messages.extra` e, em seguida, use o mesmo `notification_id` e chame novamente o endpoint `/messages/send`.
 
-## Notificações por push personalizadas
+## Notificações por push personalizadas {#personalized-push-notifications}
 
-As notificações por push podem exibir informações específicas do usuário dentro de uma hierarquia de visualização personalizada. No exemplo a seguir, um disparador de API é usado para enviar notificações por push personalizadas a um usuário para que ele possa verificar seu progresso atual depois de concluir uma tarefa específica no app.
+As notificações por push podem exibir informações específicas do usuário dentro de uma hierarquia de visualização personalizada. No exemplo a seguir, um disparo de API é usado para enviar uma notificação por push personalizada a um usuário para que ele possa verificar seu progresso atual depois de concluir uma tarefa específica no app.
 
-![Exemplo de dashboard push personalizado]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
+![Exemplo de push personalizado no dashboard]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
 
-Para configurar um push personalizado no dashboard, registre a categoria específica que deseja exibir e, em seguida, defina quaisquer atribuições de usuário relevantes que gostaria de exibir usando o Liquid.
+Para configurar um push personalizado no dashboard, registre a categoria específica que deseja exibir e, em seguida, defina quaisquer atributos de usuário relevantes que gostaria de exibir usando Liquid.
 
-![Exemplo de dashboard push personalizado]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
+![Exemplo de configuração de push personalizado no dashboard]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}

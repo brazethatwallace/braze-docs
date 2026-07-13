@@ -26,7 +26,7 @@ _この統合はFuture Anthemによって管理されています。_
 | Future Anthemアカウント | Future Anthemアカウントが必要です。 |
 | Braze REST APIキー | [`users.track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)の権限を持つBraze REST APIキー。これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | インスタンスに一致するBraze [RESTエンドポイント]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)（例: `rest.iad-01.com`）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -42,6 +42,7 @@ Future Anthemカスタマーサクセスチームが統合の設定をサポー�
 | Future Anthemの属性例 | Brazeの属性例 |
 | ----------------------------------- | --------------------------- |
 | ![プレイヤーのプロファイル属性を表示するFuture Anthemダッシュボード。]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Future Anthemから同期されたカスタムオブジェクト属性を表示するBrazeユーザープロファイル。]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Integration" }
 
 ## Brazeカスタム属性 {#braze-custom-attributes}
 
@@ -57,7 +58,7 @@ Future Anthemカスタマーサクセスチームが統合の設定をサポー�
 | アキュムレーターベットのレコメンデーション（イベントラベル） | `{"Bet_1": "Haaland goal vs. Manchester United", "Bet_2": "Liverpool vs. Everton"}` | オブジェクト |
 | アキュムレーターベットのレコメンデーション（数値オッズ） | `{"Bet_1": 1.5, "Bet_2": 2}` | オブジェクト |
 | ベットビルダーのベットレコメンデーション | `{"Sport":"American Football", "Competition":"NFL", "Event":"Seahawks@Giants", "Market":"MoneyLine", "Selection":"Seahawks"}` | オブジェクト |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab ボーナスレコメンデーション %}
@@ -73,7 +74,7 @@ Future Anthemカスタマーサクセスチームが統合の設定をサポー�
 | ベット＆ゲットボーナス値レコメンデーション | 20 | 数値 |
 | その他のボーナス値レコメンデーション | 0 | 数値 |
 | 将来のCLTV | 3126 | 数値 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab ゲームレコメンデーション %}
@@ -88,7 +89,7 @@ Future Anthemカスタマーサクセスチームが統合の設定をサポー�
 | 次のおすすめ（ゲームシーケンス） | Fishin' Frenzy The Big Catch, Big Banker, 9 Masks of Fire, Super Lion, Fishin' Bigger Pots of Gold | 配列 |
 | 人気ゲーム | Temple of Iris, Fishin' Frenzy, Fishing Reward, Crazy Time, Fluffy Favourites | 配列 |
 | トレンドゲーム | Pig Banker, Hyper Gold, Pyramid King, Gold Cash | 配列 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -97,7 +98,7 @@ Future Anthemカスタマーサクセスチームが統合の設定をサポー�
 | サブカテゴリー | 例 | データタイプ |
 | ----------- | ------- | --------- |
 | プレイヤーが属するクラスターを表示 | High Value Game Diverse | 文字列 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -107,7 +108,7 @@ Future Anthemカスタマーサクセスチームが統合の設定をサポー�
 | ----------- | ------- | --------- |
 | リスクスコア | 0.5 | 数値 |
 | リスクのあるプレイヤー | True | ブール値 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% endtabs %}

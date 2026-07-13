@@ -24,10 +24,10 @@ A partir del 7 de abril de 2022, Transifex ha dejado obsoletas sus versiones 2 y
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
+| Requisito | Descripción |
+| --- | --- |
 | Cuenta de Transifex | Se necesita una [cuenta de Transifex](https://www.transifex.com/signin/) para beneficiarse de esta asociación. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

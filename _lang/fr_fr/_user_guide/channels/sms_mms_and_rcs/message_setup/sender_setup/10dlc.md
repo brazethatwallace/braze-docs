@@ -44,7 +44,7 @@ L'enregistrement auprès de l'A2P 10DLC peut inclure plusieurs types de frais :
 | Frais d'enregistrement | Frais nominaux appliqués lors de l'enregistrement de votre marque et de votre cas d'utilisation sur l'ensemble des principaux réseaux américains. |
 | Frais de vérification secondaire | Les marques peuvent contester leur [score de confiance](#trust-score) et demander un processus de vérification secondaire pour améliorer leur débit global ; des frais sont associés à ce processus. |
 | Frais d'opérateur | Frais facturés par les opérateurs pour les SMS et MMS sortants envoyés aux utilisateurs après l'enregistrement 10DLC. À compter du 1er octobre 2021, les frais d'opérateur seront plus élevés pour le trafic non enregistré (codes longs standard) que pour le trafic enregistré (10DLC). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Coûts" }
 
 Consultez l'article Twilio sur le 10DLC pour vérifier les [estimations de frais](https://support.twilio.com/hc/en-us/articles/1260803965530-What-pricing-and-fees-are-associated-with-the-A2P-10DLC-service-) mises à jour.
 
@@ -61,7 +61,7 @@ Le Campaign Registry (TCR) est un organisme tiers qui utilise un algorithme de r
 | Élevé | 75-100 | 75 MPS | 75 MPS | 75 MPS |
 | Moyen | 50-74 | 40 MPS | 40 MPS | 40 MPS |
 | Faible | 1-49 | 4 MPS | 4 MPS | 4 MPS |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Score de confiance de la marque" }
 
 {% alert tip %}
 Les entreprises figurant dans l'indice Russell 3000 se verront accorder un débit élevé et un score de confiance de marque élevé après l'enregistrement et l'examen 10DLC.
@@ -90,7 +90,7 @@ Selon votre cas d'utilisation, le score de confiance nécessaire pour atteindre 
 | 2FA | Toute authentification ou vérification de compte, comme les OTP. |
 | Alertes de sécurité | Notification d'un système compromis. |
 | Alertes de fraude | Messages concernant une activité potentiellement frauduleuse. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation de messagerie" }
 
 {% tabs %}
 {% tab Cas d'utilisation déclaré %}
@@ -101,7 +101,7 @@ Un cas d'utilisation déclaré signifie que vous avez choisi un cas d'utilisatio
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Cas d'utilisation de messagerie" }
 
 {% endtab %}
 {% tab Cas d'utilisation marketing mixte %}
@@ -113,7 +113,7 @@ Les cas d'utilisation marketing mixte peuvent être enregistrés pour les client
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Cas d'utilisation de messagerie" }
 
 {% endtab %}
 {% endtabs %}

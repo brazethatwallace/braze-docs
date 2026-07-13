@@ -15,21 +15,21 @@ Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgez
 
 ## Definition {#definition}
 
-„Datenpunkte“ beziehen sich auf eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsbeginn, einem Sitzungsende, einem angepassten Event oder einem aufgezeichneten Kauf sowie an jedem Attribut, das in einem Endnutzerprofil gesetzt wird. Der Klarheit halber gilt jeder der oben genannten Datenpunkte (wie z. B. Sitzungsbeginn, Sitzungsende, angepasstes Event oder aufgezeichneter Kauf sowie jedes Attribut), die dem Profil eines Endnutzers zu einem bestimmten Zeitpunkt zugeordnet werden, als ein einzelner Datenpunkt.
+„Datenpunkte“ beziehen sich auf eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsbeginn, einem Sitzungsende, einem angepassten Event oder einem aufgezeichneten Kauf sowie an jedem Attribut, das in einem Endnutzerprofil gesetzt wird. Der Klarheit halber gilt jeder der oben genannten Datenpunkte (wie z. B. Sitzungsbeginn, Sitzungsende, angepasstes Event oder aufgezeichneter Kauf sowie jedes Attribut), die dem Profil einer Endnutzer:in zu einem bestimmten Zeitpunkt zugeordnet werden, als ein einzelner Datenpunkt.
 
-Daten und Ereignisse, die standardmäßig von den Braze-Diensten erfasst werden, wie z. B. Push-Token, Geräteinformationen und alle Ereignisse zum Tracking des Campaign-Engagements, wie z. B. E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen, werden *nicht* als Datenpunkte gezählt.
+Daten und Events, die standardmäßig von den Braze-Diensten erfasst werden, wie z. B. Push-Token, Geräteinformationen und alle Events zum Tracking des Campaign-Engagements, wie z. B. E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen, werden *nicht* als Datenpunkte gezählt.
 
 Lesen Sie den Abschnitt [Verbrauchszählung](#consumption-count) in diesem Artikel, um zu verstehen, welche Daten auf Ihre Datenpunkt-Zuweisung angerechnet werden.
 
 ## Anzeigen der Datenpunkt-Nutzung {#viewing-data-point-usage}
 
-Um Ihre Datenpunkt-Nutzung einzusehen, gehen Sie zu **Settings** > **Billing** und wählen Sie den Tab **Total Data Points Usage**.
+Um Ihre Datenpunkt-Nutzung einzusehen, gehen Sie zu **Einstellungen** > **Abrechnung** und wählen Sie den Tab **Datenpunkt-Nutzung gesamt**.
 
 ### Aktualisierungszeitplan für Datenpunkte {#data-point-refresh-schedule}
 
-Die Datenpunkt-Nutzung wird alle 24 Stunden zwischengespeichert (nicht in Realtime). Bis der Cache aktualisiert wird, sehen verschiedene Dashboard-Nutzer:innen möglicherweise dieselben Gesamtwerte, auch wenn sie den Tab zu unterschiedlichen Zeiten am selben Tag öffnen. Informationen zum gleichen Caching-Verhalten bei anderen Abrechnungsansichten finden Sie unter [Dashboard „Datenpunkte gesamt“]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+Die Datenpunkt-Nutzung wird alle 24 Stunden zwischengespeichert (nicht in Realtime), jeweils gegen 2 Uhr morgens ET. Bis der Cache aktualisiert wird, sehen verschiedene Dashboard-Nutzer:innen möglicherweise dieselben Gesamtwerte, auch wenn sie den Tab zu unterschiedlichen Zeiten am selben Tag öffnen. Informationen zum gleichen Caching-Verhalten bei anderen Abrechnungsansichten finden Sie unter [Dashboard „Datenpunkte gesamt“]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
 
-Weitere Informationen zu den Komponenten des Datenpunkt-Dashboards finden Sie unter [Abrechnung]({{site.baseurl}}/user_guide/administer/global/billing/).
+Weitere Informationen zu den Komponenten des Datenpunkt-Dashboards finden Sie unter [Abrechnung]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **Verschwenden Sie keine Datenpunkte – aktualisieren Sie nur sich ändernde Daten!**<br><br>
@@ -42,11 +42,13 @@ Insgesamt werden Datenpunkte gesammelt, wenn die Profildaten von Nutzer:innen ak
 
 In den folgenden Abschnitten finden Sie eine Aufschlüsselung, wie Braze Datenpunkte sammelt. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
 
+Bei der API-Ingestion folgt jedes abrechenbare Update über [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) denselben Regeln wie andere Profilupdates: Beispielsweise zählt jedes protokollierte **angepasste Event** als Datenpunkt, und **angepasste Attribute** zählen in der Regel pro aktualisiertem Attribut in dieser Anfrage (siehe die abrechenbaren Tabellen im folgenden Abschnitt und [Besondere Umstände](#special-circumstances)).
+
 Bei den folgenden Aktionen werden keine Datenpunkte protokolliert:
 - Löschen von Nutzer:innen aus Braze
 - Verwendung von Connected-Content im Messaging
 - Änderungen des Abo-Status global und in Bezug auf Abo-Gruppen
-- Umbenennung der externen IDs Ihrer Nutzer:innen durch [API-Aufrufe]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
+- Umbenennung der externen IDs Ihrer Nutzer:innen durch [API-Aufrufe]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Blockieren von Events, Attributen oder Event-Eigenschaften
 
 ### Besondere Umstände {#special-circumstances}
@@ -82,7 +84,7 @@ Die folgenden Tabellen dienen der Veranschaulichung. Die genauen Namenskonventio
 {% tabs %}
 {% tab Nicht abrechenbar %}
 
-#### Nicht abrechenbare Datenpunkte (Standard) {#non-billable-data-points-default}
+### Nicht abrechenbare Datenpunkte (Standard) {#non-billable-data-points-default}
 
 <div class="small_table"></div>
 
@@ -108,17 +110,17 @@ Die folgenden Tabellen dienen der Veranschaulichung. Die genauen Namenskonventio
 | Install-Attribution | Anzeige |
 | Verschiedenes | Zufällige Bucket-Nummer |
 | Empfangene Canvas-Nachrichten | Empfangene Canvas-Nachrichten |
-| Messaging-Engagement | Alle Engagement-Ereignisse (wie Öffnungen, Klicks, Impressionen und Abbrüche) |
+| Messaging-Engagement | Alle Engagement-Events (wie Öffnungen, Klicks, Impressionen und Abbrüche) |
 | Twitter | Follower |
 | Twitter | Folgt |
 | Twitter | Anzahl der Tweets |
 | Facebook | Likes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nicht abrechenbare Datenpunkte (Standard)" }
 
 {% endtab %}
 {% tab Abrechenbar %}
 
-#### Abrechenbare Datenpunkte {#billable-data-points}
+### Abrechenbare Datenpunkte {#billable-data-points}
 
 {% alert important %}
 Das Hinzufügen, Entfernen oder Aktualisieren der folgenden Datentypen führt zu einem abrechenbaren Datenpunkt.
@@ -158,7 +160,7 @@ table td {
 | App-Nutzungsdaten | Sitzungsende | |
 | Angepasste Attribute | Alle angepassten Attribute | |
 | Angepasste Events | Alle angepassten Events | |
-| Angepasste Event-Eigenschaften | Alle angepassten Event-Eigenschaften | Angepasste Event-Eigenschaften, die für die Segmentierung mit den Filtern `X Custom Event Property in Y Days` oder `X Purchase Property in Y Days` aktiviert wurden, werden alle als separate Datenpunkte gezählt – zusätzlich zu dem Datenpunkt, der durch das angepasste Event selbst gezählt wird.
+| Angepasste Event-Eigenschaften | Alle angepassten Event-Eigenschaften | Angepasste Event-Eigenschaften, die für die Segmentierung mit den Filtern `X Custom Event Property in Y Days` oder `X Purchase Property in Y Days` aktiviert wurden, werden alle als separate Datenpunkte gezählt – zusätzlich zu dem Datenpunkt, der durch das angepasste Event selbst gezählt wird. |
 | Käufe | Alle Käufe | |
 | Kauf-Details | Alle Kauf-Details | |
 | Amplitude-Kohorte – Zuweisung | Alle Zuweisungen | |
@@ -167,7 +169,7 @@ table td {
 | Appsflyer-Kohorte – Zuweisung | Alle Zuweisungen | |
 | Letzter Standort | Alle letzten Standorte | Beim Betreten oder Verlassen von Geofences werden keine Datenpunkte protokolliert, da Geofence-Daten nicht im Nutzerprofil gespeichert werden. Geofences werden von den Standortdiensten von Apple und Google überwacht; Braze wird nur benachrichtigt, wenn Nutzer:innen einen Geofence triggern. |
 | Twitter | Nutzername | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abrechenbare Datenpunkte" }
 
 {% endtab %}
 {% endtabs %}

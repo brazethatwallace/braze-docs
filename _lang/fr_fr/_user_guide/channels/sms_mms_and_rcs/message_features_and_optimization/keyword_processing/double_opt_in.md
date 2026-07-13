@@ -16,7 +16,7 @@ channel:
 
 Lorsque le double abonnement est activé, les utilisateurs reçoivent un message leur demandant leur consentement explicite avant de pouvoir être contactés par vos Campaigns ou Canvas.
 
-Bien que ce ne soit pas une exigence explicite du Telephone Consumer Protection Act de 1991 (TCPA), Braze recommande de configurer le double abonnement pour confirmer que les utilisateurs sont informés et consentent à faire partie de votre programme SMS, MMS ou RCS. Pour plus d'informations sur la conformité, consultez [Lois, réglementations et prévention des abus pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Bien que ce ne soit pas une exigence explicite du Telephone Consumer Protection Act de 1991 (TCPA), Braze recommande de configurer le double abonnement pour confirmer que les utilisateurs sont informés et consentent à faire partie de votre programme SMS, MMS ou RCS. Pour plus d'informations sur la conformité, consultez [Lois, réglementations et prévention des abus pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ## Flux de double abonnement {#double-opt-in-workflows}
 
@@ -42,13 +42,13 @@ Pour activer le double abonnement, accédez au tableau **Global Keywords** dans 
 
 ### Champs configurables {#configurable-fields}
 
-| Catégorie   |    Champs    | Description
+| Catégorie | Champs | Description
 | ----------- |----------- |----------------
 | Demande d'abonnement | Mots-clés | Ce sont les mots-clés qu'un utilisateur peut envoyer par SMS pour indiquer son intention d'abonnement. `START` est un mot-clé obligatoire. Cette demande d'abonnement sera également envoyée à l'utilisateur lorsque son statut d'abonnement est mis à jour par les sources listées dans la section [Sources d'abonnement](#subscription-sources).
 | | Message de réponse | C'est la réponse initiale qu'un utilisateur recevra après avoir envoyé un mot-clé d'abonnement (par exemple, « Répondez Y pour confirmer que vous souhaitez recevoir des messages de ce numéro. Des frais de messages et données peuvent s'appliquer. »)
 | Confirmation de double abonnement | Mots-clés | Ce sont les mots-clés avec lesquels un utilisateur peut répondre pour confirmer son intention d'abonnement. Au moins un mot-clé est requis. Ces mots-clés doivent être spécifiés dans le champ **Message de réponse de la demande d'abonnement**.
 | | Message de réponse | C'est la réponse de confirmation qu'un utilisateur recevra après avoir explicitement confirmé son abonnement et être désormais joignable par message. Le statut du groupe d'abonnement de l'utilisateur sera défini sur `Subscribed`.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs configurables" }
 
 Lorsqu'un utilisateur reçoit une demande d'abonnement, il dispose de 30 jours pour confirmer son intention d'abonnement. Si un utilisateur souhaite s'abonner après cette fenêtre de 30 jours, il doit envoyer un mot-clé d'abonnement pour relancer le flux de double abonnement.
 
@@ -56,9 +56,9 @@ Lorsqu'un utilisateur reçoit une demande d'abonnement, il dispose de 30 jours p
 
 ## Statut du groupe d'abonnement {#subscription-group-status}
 
-Ce n'est qu'après avoir complété le flux de double abonnement que le [statut du groupe d'abonnement]({{site.baseurl}}/sms_rcs_subscription_groups/) de l'utilisateur est mis à jour sur `Subscribed`. Si l'utilisateur commence le flux mais ne le termine pas, il reste `Unsubscribed` et ne peut pas recevoir de messages de ce groupe d'abonnement.
+Ce n'est qu'après avoir complété le flux de double abonnement que le [statut du groupe d'abonnement]({{site.baseurl}}/sms_rcs_subscription_groups) de l'utilisateur est mis à jour sur `Subscribed`. Si l'utilisateur commence le flux mais ne le termine pas, il reste `Unsubscribed` et ne peut pas recevoir de messages de ce groupe d'abonnement.
 
-Les utilisateurs peuvent également entrer dans le flux de double abonnement s'ils sont [abonnés depuis d'autres sources]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/) (par exemple, REST API, SDK).
+Les utilisateurs peuvent également entrer dans le flux de double abonnement s'ils sont [abonnés depuis d'autres sources]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (par exemple, REST API, SDK).
 
 ## Sources d'abonnement {#subscription-sources}
 
@@ -70,15 +70,15 @@ Lorsque les utilisateurs entrent dans le flux de double abonnement via des sourc
 
 Chaque source d'abonnement a un comportement d'inscription différent, comme décrit dans le tableau suivant.
 
-Source    | Comportement d'inscription au double abonnement
------------ | -----------
-SDK | Les utilisateurs entreront automatiquement dans le flux de double abonnement lorsqu'ils s'abonnent via le SDK Braze.
-REST API | Les utilisateurs peuvent entrer dans le flux lorsque le statut d'abonnement est défini via `/subscription/status/set`, `/v2/subscription/status/set` ou `/users/track` et que le paramètre facultatif `use_double_opt_in_logic` est passé avec la valeur `true` (par exemple, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Si ce paramètre est omis, les utilisateurs n'entreront pas dans le flux de double abonnement.
-Shopify | Les utilisateurs n'entreront pas dans le flux de double abonnement lorsque leur statut d'abonnement est défini par notre intégration Shopify.
-Importation d'utilisateurs | Les utilisateurs n'entreront pas dans le flux de double abonnement lorsque leur statut d'abonnement est défini par l'importation d'utilisateurs.
-[Centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | Les utilisateurs entreront automatiquement dans le flux de double abonnement lorsqu'ils s'abonnent via un centre de préférences.
-Étape de mise à jour utilisateur | Les utilisateurs peuvent entrer dans le flux de double abonnement lorsque leur statut d'abonnement est défini via l'étape de mise à jour utilisateur et que le paramètre facultatif `use_double_opt_in_logic` est passé avec la valeur `true`. Si ce paramètre est omis, les utilisateurs n'entreront pas dans le flux de double abonnement.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Source | Comportement d'inscription au double abonnement
+| ----------- | -----------
+| SDK | Les utilisateurs entreront automatiquement dans le flux de double abonnement lorsqu'ils s'abonnent via le SDK Braze.
+| REST API | Les utilisateurs peuvent entrer dans le flux lorsque le statut d'abonnement est défini via `/subscription/status/set`, `/v2/subscription/status/set` ou `/users/track` et que le paramètre facultatif `use_double_opt_in_logic` est passé avec la valeur `true` (par exemple, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Si ce paramètre est omis, les utilisateurs n'entreront pas dans le flux de double abonnement.
+| Shopify | Les utilisateurs n'entreront pas dans le flux de double abonnement lorsque leur statut d'abonnement est défini par notre intégration Shopify.
+| Importation d'utilisateurs | Les utilisateurs n'entreront pas dans le flux de double abonnement lorsque leur statut d'abonnement est défini par l'importation d'utilisateurs.
+| [Centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Les utilisateurs entreront automatiquement dans le flux de double abonnement lorsqu'ils s'abonnent via un centre de préférences.
+| Étape de mise à jour utilisateur | Les utilisateurs peuvent entrer dans le flux de double abonnement lorsque leur statut d'abonnement est défini via l'étape de mise à jour utilisateur et que le paramètre facultatif `use_double_opt_in_logic` est passé avec la valeur `true`. Si ce paramètre est omis, les utilisateurs n'entreront pas dans le flux de double abonnement.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sources d'abonnement" }
 
 ## Prise en charge multilingue {#multi-language-support}
 Pour les messages entrants, le double abonnement est pris en charge pour toutes les langues définies dans le groupe d'abonnement. Cela signifie que vous pouvez définir vos réponses automatiques dans différentes langues et Braze enverra la réponse automatique associée à une langue spécifique lorsqu'un mot-clé correspondant est reçu.

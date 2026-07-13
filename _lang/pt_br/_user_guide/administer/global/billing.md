@@ -76,8 +76,6 @@ Os campos nesta seção são definidos da seguinte forma:
 - **Pontos de dados alocados:** A quantidade de pontos de dados alocados no contrato por período de faturamento.
 - **Uso de pontos de dados do contrato:** Um total acumulado de todos os pontos de dados registrados ao longo da vigência do contrato, que não é redefinido no próximo período de faturamento.
 
-![Seção de detalhes do contrato na guia Total de uso de pontos de dados]({% image_buster /assets/img/contract_details.png %})
-
 ### Dados de faturamento da empresa {#company-billing-data}
 
 #### Uso total de pontos de dados por app {#app-level-total-data-point-usage}
@@ -110,5 +108,5 @@ Este gráfico permite visualizar rapidamente o uso total de pontos de dados em c
 
 ## Próximas etapas {#next-steps}
 
-- [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para configurar alertas para eventos relacionados ao faturamento e limites de uso.
-- [Dashboard de uso de mensagens]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) para monitorar o consumo de créditos de SMS, WhatsApp e RCS.
+- [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para configurar alertas para eventos relacionados ao faturamento e limites de uso.
+- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard) para monitorar o consumo de créditos de mensagens.

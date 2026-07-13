@@ -28,17 +28,17 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Capacidades de Currents
+## Capacidades de Currents {#currents-capabilities}
 
 Currents te permite:
-* Transmitir datos de eventos de Braze a un almacén de datos o a uno de nuestros [socios de análisis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) para un análisis detallado.
+* Transmitir datos de eventos de Braze a un almacén de datos o a uno de nuestros [socios de análisis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) para un análisis detallado.
 * Transmitir datos de eventos de Braze de forma continua para potenciar herramientas de inteligencia empresarial, algoritmos de aprendizaje automático y mucho más.
-* Enrutar datos de eventos de Braze a una variedad de otros sistemas utilizando [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) o [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/).
+* Enrutar datos de eventos de Braze a una variedad de otros sistemas utilizando [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) o [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents).
 
-Hay mucho más que puedes hacer con los datos de eventos a los que accedes mediante Currents. ¡[Braze también usa Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)!
+Hay mucho más que puedes hacer con los datos de eventos a los que accedes mediante Currents. ¡[Braze también usa Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!
 
-## Cómo acceder a Currents
+## Cómo acceder a Currents {#how-to-access-currents}
 
-Muchos de nuestros paquetes profesionales y empresariales ya incluyen un conector de Currents. Si te interesa utilizar Currents, ponte en contacto con tu director de cuentas. Tu director de cuentas y nuestros especialistas en datos pueden ayudarte con la [configuración e integración de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/).
+Muchos de nuestros paquetes profesionales y empresariales ya incluyen un conector de Currents. Si te interesa utilizar Currents, ponte en contacto con tu director de cuentas. Tu director de cuentas y nuestros especialistas en datos pueden ayudarte con la [configuración e integración de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents).
 
 <br><br>

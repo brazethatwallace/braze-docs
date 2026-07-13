@@ -20,9 +20,9 @@ Braze와 RudderStack 통합은 Android, iOS 및 웹 애플리케이션을 위한
 | RudderStack 계정 | 이 파트너십을 활용하려면 [RudderStack 계정](https://app.rudderstack.com/)이 필요합니다. |
 | 구성된 소스 | [소스](https://www.rudderstack.com/docs/dashboard-guides/sources/)는 기본적으로 웹사이트, 모바일 앱 또는 백엔드 서버와 같이 RudderStack으로 전송되는 모든 데이터의 출처입니다. RudderStack에서 Braze를 대상으로 설정하기 전에 소스를 구성해야 합니다. |
 | Braze REST API 키 | `users.track`, `users.identify`, `users.delete`, `users.alias.new` 권한이 있는 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze 앱 키 | Braze 대시보드에서 앱 키를 가져오려면 **설정** > **앱 설정** > **식별**으로 이동하여 앱 이름을 찾습니다. 연결된 식별자 문자열을 저장합니다.
-| 데이터 센터 | 데이터 센터는 Braze 대시보드 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)와 일치합니다.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze 앱 키 | Braze 대시보드에서 앱 키를 가져오려면 **설정** > **앱 설정** > **식별**로 이동하여 앱 이름을 찾습니다. 연결된 식별자 문자열을 저장합니다.
+| 데이터 센터 | 데이터 센터는 Braze 대시보드 [인스턴스]({{site.baseurl}}/api/basics#endpoints)와 일치합니다.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -35,8 +35,6 @@ Braze로 데이터 전송을 시작하려면 먼저 RudderStack 앱에 소스가
 데이터 소스가 설정되면 RudderStack 대시보드에서 **Destinations** 아래의 **ADD DESTINATION**을 선택합니다. 사용 가능한 대상 목록에서 **Braze**를 선택하고 **Next**를 클릭합니다.
 
 Braze 대상에서 앱 키, Braze REST API 키, 데이터 클러스터 및 네이티브 SDK 옵션(디바이스 모드 전용)을 제공합니다. 네이티브 SDK 옵션을 활성화하면 Braze 네이티브 SDK를 사용하여 이벤트를 전송합니다.
-
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
 ### 3단계: 통합 유형 선택 {#step-3-choose-the-type-of-integration}
 
@@ -95,7 +93,7 @@ RudderStack의 서버 측 SDK(Java, Python, Node.js, Go, Ruby)는 클라우드 �
 초기 설정을 완료한 후 Braze에서 데이터를 올바르게 수신하려면 다음 설정을 구성합니다:
 
 - **Enable subscription groups in group call**: 이 설정을 활성화하면 그룹 이벤트에서 구독 그룹 상태를 전송합니다. 자세한 내용은 [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group)을 참조하세요.
-- **Use Custom Attributes Operation**: Braze에서 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) 기능을 사용하여 커스텀 속성 오브젝트로 세그먼트를 생성하고 메시지를 개인화하려면 이 설정을 활성화합니다. 자세한 내용은 [중첩 커스텀 속성으로 사용자 특성 전송](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes)을 참조하세요.
+- **Use Custom Attributes Operation**: Braze에서 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) 기능을 사용하여 커스텀 속성 오브젝트로 세그먼트를 생성하고 메시지를 개인화하려면 이 설정을 활성화합니다. 자세한 내용은 [중첩 커스텀 속성으로 사용자 특성 전송](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes)을 참조하세요.
 - **Track events for anonymous users**: 이 설정을 활성화하면 익명 사용자 활동을 추적하고 이 정보를 Braze로 전송합니다.
 
 ### 디바이스 모드 설정 {#device-mode-settings}
@@ -128,7 +126,7 @@ RudderStack [Data Regulation API](https://www.rudderstack.com/docs/api/data-regu
 RudderStack의 [`track` 메서드](https://rudderstack.com/docs/destinations/marketing/braze/#track)는 모든 사용자 활동과 해당 활동에 관련된 등록정보를 캡처합니다.
 
 **주문 완료**<br>
-[RudderStack eCommerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/)를 사용하여 `Order Completed`라는 이름의 이벤트에 대해 track 메서드를 호출하면, RudderStack은 해당 이벤트에 나열된 제품을 [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data)로 Braze에 전송합니다.
+[RudderStack eCommerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/)를 사용하여 `Order Completed`라는 이름의 이벤트에 대해 track 메서드를 호출하면, RudderStack은 해당 이벤트에 나열된 제품을 [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data)로 Braze에 전송합니다.
 
 {% endtab %}
 {% tab Screen %}
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,
@@ -253,5 +251,5 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-업데이트 및 제거 작업의 경우 `identifier`는 필수 키입니다. 중첩 배열에 추가, 업데이트 또는 제거 작업이 없는 경우 RudderStack은 기본적으로 생성 작업을 사용하여 등록정보를 생성합니다. 중첩 커스텀 속성 전송에 대한 자세한 내용은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)을 참조하세요.
+업데이트 및 제거 작업의 경우 `identifier`는 필수 키입니다. 중첩 배열에 추가, 업데이트 또는 제거 작업이 없는 경우 RudderStack은 기본적으로 생성 작업을 사용하여 등록정보를 생성합니다. 중첩 커스텀 속성 전송에 대한 자세한 내용은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)을 참조하세요.
 {% endalert %}

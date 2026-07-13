@@ -14,7 +14,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 /email/unsubscribes
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 `start_date`에서 `end_date`까지의 기간 동안 수신 거부한 최신 이메일을 반환합니다. 전체 구독 상태 기록을 보려면 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 사용하여 이 데이터를 추적하세요.
+> 이 엔드포인트를 사용하여 `start_date`에서 `end_date`까지의 기간 동안 수신 거부한 최신 이메일을 반환합니다. 전체 구독 상태 기록을 보려면 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 이 데이터를 추적하세요.
 
 이 엔드포인트를 사용하여 Braze와 다른 이메일 시스템 또는 자체 데이터베이스 간의 양방향 동기화를 설정할 수 있습니다.
 
@@ -22,7 +22,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `email.unsubscribe` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `email.unsubscribe` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -38,7 +38,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 | `offset` | 선택 사항 | 정수 | 검색을 시작할 목록의 시작점입니다(선택 사항). |
 | `sort_direction` | 선택 사항 | 문자열 | `asc` 값을 전달하면 수신 거부를 가장 오래된 것부터 최신 순으로 정렬합니다. `desc`를 전달하면 최신에서 오래된 순으로 정렬합니다. `sort_direction`이 포함되지 않은 경우 기본 순서는 최신에서 오래된 순서입니다. |
 | `email` | 선택 사항 <br>(참고 참조) | 문자열 | 제공된 경우 해당 사용자가 수신 거부했는지 여부를 반환합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}
 `end_date`와 함께 `email` 또는 `start_date` 중 하나를 반드시 제공해야 합니다.
@@ -48,7 +48,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 
 ## 요청 예시 {#example-request}
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 

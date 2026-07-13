@@ -1,31 +1,31 @@
-## Acerca de las tarjetas de contenido de .NET MAUI
+## Acerca de las Content Cards de .NET MAUI {#about-net-maui-content-cards}
 
-El SDK Braze .NET MAUI (antes Xamarin) incluye una fuente de tarjetas predeterminada para que puedas empezar a utilizar las tarjetas de contenido. La fuente predeterminada de tarjetas incluida en el SDK de Braze gestionará todos los análisis de seguimiento, descarte de tarjetas y representación de las tarjetas de contenido de un usuario.
+El SDK de Braze .NET MAUI (antes Xamarin) incluye una fuente de tarjetas predeterminada para que puedas empezar a utilizar las Content Cards. La fuente predeterminada de tarjetas incluida en el SDK de Braze gestionará todos los análisis de seguimiento, descarte de tarjetas y representación de las Content Cards de un usuario.
 
 {% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
-## Tipos y propiedades de las tarjetas
+## Tipos y propiedades de las tarjetas {#card-types-and-properties}
 
-El SDK Braze .NET MAUI tiene tres tipos de tarjetas de contenido únicos que comparten un modelo base: [Banner](#xamarin_banner), [imagen con pie de foto](#xamarin_captioned-image) y [clásico](#xamarin_classic). Cada tipo hereda propiedades comunes de un modelo base y tiene las siguientes propiedades adicionales.
+El SDK de Braze .NET MAUI tiene tres tipos de tarjetas de contenido únicos que comparten un modelo base: [Banner](#xamarin_banner), [imagen con pie de foto](#xamarin_captioned-image) y [clásica](#xamarin_classic). Cada tipo hereda propiedades comunes de un modelo base y tiene las siguientes propiedades adicionales.
 
-### Modelo de tarjeta base
+### Modelo de tarjeta base {#base-card-model}
 
-|Propiedad           | Descripción                                                                                                            |
+| Propiedad | Descripción |
 |-------------------|------------------------------------------------------------------------------------------------------------------------|
-|`idString`         | El ID de la tarjeta configurado por Braze.                                                                                            |
-|`created`          | La marca de tiempo UNIX de la hora de creación de la tarjeta desde Braze.                                                             |
-|`expiresAt`        | La fecha UNIX de caducidad de la tarjeta. Cuando el valor es inferior a 0, significa que la tarjeta no caduca nunca.      |
-|`viewed`           | Si el usuario ha leído o no la tarjeta. Esto no registra análisis.                                           |
-|`clicked`          | Si el usuario ha hecho clic en la tarjeta.                                                                         |
-|`pinned`           | Si la tarjeta está anclada.                                                                                            |
-|`dismissed`        | Si el usuario ha descartado esta tarjeta. Marcar como descartada una tarjeta que ya ha sido descartada será un no-op. |
-|`dismissible`      | Si la tarjeta es descartable por el usuario.                                                                           |
-|`urlString`        | (Opcional) La cadena URL asociada a la acción de clic en la tarjeta.                                                       |
-|`openUrlInWebView` | Si las URL de esta tarjeta deben abrirse en Braze WebView o no.                                                 |
-|`isControlCard`    | Si esta tarjeta es una tarjeta de control. Las tarjetas de control no deben mostrarse al usuario.                                |
-|`extras`           | El mapa de extras clave-valor de esta tarjeta.                                                                             |
-|`isTest`           | Si esta tarjeta es una tarjeta de prueba.                                                                                      |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `idString` | El ID de la tarjeta configurado por Braze. |
+| `created` | La marca de tiempo UNIX de la hora de creación de la tarjeta desde Braze. |
+| `expiresAt` | La marca de tiempo UNIX de la fecha de caducidad de la tarjeta. Cuando el valor es inferior a 0, significa que la tarjeta no caduca nunca. |
+| `viewed` | Si el usuario ha leído o no la tarjeta. Esto no registra análisis. |
+| `clicked` | Si el usuario ha hecho clic en la tarjeta. |
+| `pinned` | Si la tarjeta está anclada. |
+| `dismissed` | Si el usuario ha descartado esta tarjeta. Marcar como descartada una tarjeta que ya ha sido descartada será un no-op. |
+| `dismissible` | Si la tarjeta es descartable por el usuario. |
+| `urlString` | (Opcional) La cadena URL asociada a la acción de clic en la tarjeta. |
+| `openUrlInWebView` | Si las URL de esta tarjeta deben abrirse en Braze WebView o no. |
+| `isControlCard` | Si esta tarjeta es una tarjeta de control. Las tarjetas de control no deben mostrarse al usuario. |
+| `extras` | El mapa de extras clave-valor de esta tarjeta. |
+| `isTest` | Si esta tarjeta es una tarjeta de prueba. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modelo de tarjeta base" }
 
 Para una referencia completa de la tarjeta base, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
 
@@ -33,51 +33,52 @@ Para una referencia completa de la tarjeta base, consulta la documentación de [
 
 Las tarjetas banner son imágenes de tamaño completo en las que se puede hacer clic.
 
-|Propiedad           | Descripción                                                                                                       |
+| Propiedad | Descripción |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
-|`image`            | La URL de la imagen de la tarjeta.                                                                                      |
-|`imageAspectRatio` | La relación de aspecto de la imagen de la tarjeta. Sirve como pista antes de que se complete la carga de la imagen. Ten en cuenta que la propiedad puede no suministrarse en determinadas circunstancias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `image` | La URL de la imagen de la tarjeta. |
+| `imageAspectRatio` | La relación de aspecto de la imagen de la tarjeta. Sirve como pista antes de que se complete la carga de la imagen. Ten en cuenta que la propiedad puede no suministrarse en determinadas circunstancias. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner" }
 
-Para una referencia completa de la tarjeta banner, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct) (ahora renombrada a sólo imagen).
+Para una referencia completa de la tarjeta banner, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct) (ahora renombrada a solo imagen).
 
-### Imagen subtitulada
+### Imagen con pie de foto {#captioned-image}
 
-Las tarjetas de imágenes con subtítulos son imágenes de tamaño completo en las que se puede hacer clic y que van acompañadas de un texto descriptivo.
+Las tarjetas de imagen con pie de foto son imágenes de tamaño completo en las que se puede hacer clic y que van acompañadas de un texto descriptivo.
 
-|Propiedad           | Descripción                                                                                                       |
+| Propiedad | Descripción |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
-|`image`            | La URL de la imagen de la tarjeta.                                                                                      |
-|`imageAspectRatio` | La relación de aspecto de la imagen de la tarjeta. Sirve como pista antes de que se complete la carga de la imagen. Ten en cuenta que la propiedad puede no suministrarse en determinadas circunstancias. |
-|`title`            | El texto del título de la tarjeta.                                                                                      |
-|`cardDescription`  | El texto descriptivo de la tarjeta.                                                                                |
-|`domain`           | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `image` | La URL de la imagen de la tarjeta. |
+| `imageAspectRatio` | La relación de aspecto de la imagen de la tarjeta. Sirve como pista antes de que se complete la carga de la imagen. Ten en cuenta que la propiedad puede no suministrarse en determinadas circunstancias. |
+| `title` | El texto del título de la tarjeta. |
+| `cardDescription` | El texto descriptivo de la tarjeta. |
+| `domain` | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Imagen con pie de foto" }
 
-Para una referencia completa de la tarjeta de imagen subtitulada, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
+Para una referencia completa de la tarjeta de imagen con pie de foto, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
 
-### Clásica
+### Clásica {#classic}
 
-Las tarjetas clásicas tienen un título, una descripción y una imagen opcional a la izquierda del texto.
+Las tarjetas clásicas tienen un título, una descripción y una imagen opcional antes del texto.
 
-|Propiedad           | Descripción                                                                                                       |
+| Propiedad | Descripción |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
-|`image`            | (Opcional) La URL de la imagen de la tarjeta.                                                                           |
-|`title`            | El texto del título de la tarjeta.                                                                                      |
-|`cardDescription`  | El texto descriptivo de la tarjeta.                                                                                |
-|`domain`           | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `image` | (Opcional) La URL de la imagen de la tarjeta. |
+| `title` | El texto del título de la tarjeta. |
+| `cardDescription` | El texto descriptivo de la tarjeta. |
+| `domain` | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Clásica" }
 
-Para una referencia completa de la tarjeta de contenido clásica (anuncio de texto), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Para una referencia completa de la tarjeta de imagen clásica (noticias breves), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
+Para una referencia completa de la Content Card clásica (anuncio de texto), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Para una referencia completa de la tarjeta de imagen clásica (noticias breves), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
 
-## Métodos de tarjeta
+## Métodos de tarjeta {#card-methods}
 
-Puedes utilizar estos métodos adicionales para crear una fuente personalizada de tarjetas de contenido dentro de tu aplicación:
+Puedes utilizar estos métodos adicionales para crear una fuente personalizada de Content Cards dentro de tu aplicación:
 
-| Método                                   | Descripción                                                                                            |
+| Método | Descripción |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `requestContentCardsRefresh()`           | Solicita las últimas tarjetas de contenido al servidor SDK de Braze.                                           |
-| `getContentCards()`                      | Recupera tarjetas de contenido del SDK Braze. Esto devolverá la última lista de tarjetas del servidor. |
-| `logContentCardClicked(cardId)`          | Registra un clic para el ID de tarjeta de contenido dado. Este método sólo se utiliza para análisis.                    |
-| `logContentCardImpression(cardId)`       | Registra una impresión para el ID de tarjeta de contenido dado.                                                      |
-| `logContentCardDismissed(cardId)`        | Registra un descarte para el ID de tarjeta de contenido dado.                                                        |
+| `requestContentCardsRefresh()` | Solicita las últimas Content Cards al servidor del SDK de Braze. |
+| `getContentCards()` | Recupera Content Cards del SDK de Braze. Esto devolverá la última lista de tarjetas del servidor. |
+| `logContentCardClicked(cardId)` | Registra un clic para el ID de Content Card dado. Este método solo se utiliza para análisis. |
+| `logContentCardImpression(cardId)` | Registra una impresión para el ID de Content Card dado. |
+| `logContentCardDismissed(cardId)` | Registra un descarte para el ID de Content Card dado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de tarjeta" }

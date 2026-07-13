@@ -143,6 +143,6 @@ Wenn Branch-Links aus Braze-Campaigns nicht wie erwartet funktionieren, folgen S
 | Link funktioniert über Push, aber nicht per E-Mail | Klick-Tracking-Domain fehlt AASA | AASA auf der Klick-Tracking-Domain Ihres ESP hosten; siehe [E-Mail-Einrichtung](#deep-linking-in-email) |
 | `shouldOpenURL` wird für Branch-Links nie ausgelöst | `forwardUniversalLinks` nicht aktiviert | `configuration.forwardUniversalLinks = true` setzen |
 | Branch-Link funktioniert aus Notizen, aber nicht aus Braze | `BrazeDelegate` gibt `true` für Branch-URLs zurück | Domain-Prüfung in `shouldOpenURL` überprüfen, ob sie Ihre Branch-Domain enthält |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Häufige Probleme" }
 
 Weitere Szenarien zur Deeplinking-Fehlerbehebung finden Sie unter [Deeplinking-Fehlerbehebung]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).

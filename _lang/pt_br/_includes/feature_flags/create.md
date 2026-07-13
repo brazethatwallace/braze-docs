@@ -1,6 +1,6 @@
-# Criar bandeiras de recurso {#create-feature-flags}
+# Criar Feature Flags {#create-feature-flags}
 
-> As Feature Flags permitem ativar ou desativar remotamente a funcionalidade para uma seleção de usuários. Crie uma nova Feature Flag no dashboard da Braze. Forneça um nome e um `ID`, um público-alvo e uma porcentagem de usuários para os quais ativar esse recurso. Em seguida, usando o mesmo `ID` no código do seu app ou site, você pode executar condicionalmente determinadas partes da sua lógica de negócios. Para saber mais sobre as Feature Flags e como você pode usá-las na Braze, consulte [Sobre as Feature Flags]({{site.baseurl}}/developer_guide/feature_flags/).
+> As Feature Flags permitem ativar ou desativar remotamente a funcionalidade para uma seleção de usuários. Crie uma nova Feature Flag no dashboard da Braze. Forneça um nome e um `ID`, um público-alvo e uma porcentagem de usuários para os quais ativar esse recurso. Em seguida, usando o mesmo `ID` no código do seu app ou site, você pode executar condicionalmente determinadas partes da sua lógica de negócios. Para saber mais sobre as Feature Flags e como você pode usá-las na Braze, consulte [Sobre as Feature Flags]({{site.baseurl}}/developer_guide/feature_flags).
 
 ## Pré-requisitos {#prerequisites}
 
@@ -12,13 +12,13 @@ Para usar as Feature Flags, confira se os seus SDKs estão atualizados com pelo 
 
 ### Permissões da Braze {#braze-permissions}
 
-Para gerenciar as Feature Flags no dashboard, você precisará ser um administrador ou ter as seguintes [permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/):
+Para gerenciar as Feature Flags no dashboard, você precisará ser um administrador ou ter as seguintes [permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions):
 
 | Permissão                                                                    | O que você pode fazer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Gerenciar Feature Flags**                                                      | Visualizar, criar e editar Feature Flags.     |
 | **Acessar Campaigns, Canvas, cartões, Feature Flags, Segments, Biblioteca de mídia** | Visualizar a lista de Feature Flags disponíveis. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões da Braze" }
 
 ## Criação de uma Feature Flag {#creating-a-feature-flag}
 
@@ -41,7 +41,7 @@ Em **Detalhes da Feature Flag**, insira um nome, ID e descrição para sua Featu
 | ID           | O ID exclusivo que você usará em seu código para verificar se esse recurso está [ativado para um usuário](#enabled). Esse ID não pode ser alterado posteriormente, portanto, revise as [práticas recomendadas de nomenclatura de ID](#naming-conventions) antes de continuar. |
 | Descrição  | Uma descrição opcional que fornece algum contexto sobre sua Feature Flag.   |
 | Propriedades   | Propriedades opcionais que configuram remotamente sua Feature Flag. Elas podem ser sobrescritas em etapas do Canvas ou em experimentos de Feature Flag. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Preencha os detalhes" }
 
 ### Etapa 2a: Criar propriedades personalizadas {#step-2a-create-custom-properties}
 
@@ -53,23 +53,24 @@ No exemplo a seguir, a Feature Flag mostra um banner de produto esgotado para um
 
 |Nome da propriedade|Tipo|Valor|
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
 |`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2a: Criar propriedades personalizadas" }
 
 {% alert tip %}
-Não há limite para o número de propriedades que você pode adicionar. No entanto, as propriedades de uma Feature Flag são limitadas a um total de 10 KB. Tanto os valores de propriedade quanto as chaves estão limitados a 255 caracteres de comprimento.
+Não há limite para o número de propriedades que você pode adicionar. No entanto, as propriedades de uma Feature Flag são limitadas a um total de 10.000 caracteres.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### Etapa 4: Escolha os segmentos a serem direcionados {#step-4-choose-segments-to-target}
 
-Antes de implementar uma Feature Flag, é necessário escolher um [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/) de usuários para direcionamento. Selecione **Adicionar regra** no seu flag recém-criado e depois use os menus suspensos de grupo de filtro e segmento para filtrar usuários fora do seu público-alvo. Adicione múltiplos filtros para restringir ainda mais seu público.
+Antes de implementar uma Feature Flag, é necessário escolher um [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments) de usuários para direcionamento. Selecione **Adicionar regra** no seu flag recém-criado e depois use os menus suspensos de grupo de filtro e segmento para filtrar usuários fora do seu público-alvo. Adicione múltiplos filtros para restringir ainda mais seu público.
 
 ![Uma caixa de texto rotulada Tráfego de lançamento com a capacidade de adicionar segmentos e filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -904,7 +905,7 @@ Aqui, você pode revisar quando uma mudança aconteceu, quem fez a mudança, a q
 
 ## Segmentação com Feature Flags {#segmentation}
 
-A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 ![A seção "Filtros" com "Feature Flag" digitado na barra de pesquisa de filtros.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -933,7 +934,7 @@ Substitua o seguinte:
 | `BEHAVIOR`  | O comportamento do recurso. Em seu código, certifique-se de que o comportamento esteja desativado por padrão e evite usar frases como `disabled` no nome da Feature Flag. |
 | `PRODUCT`   | O produto ao qual o recurso pertence.                                                                                       |
 | `FEATURE`    | O nome do recurso.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Convenções de nomenclatura" }
 
 Veja um exemplo de Feature Flag em que `show` é o comportamento, `animation_profile` é o produto e `driver` é o recurso:
 

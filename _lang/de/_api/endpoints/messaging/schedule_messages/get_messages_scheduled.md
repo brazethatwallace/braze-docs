@@ -1,47 +1,47 @@
 ---
-nav_title: "GET: Liste der anstehenden geplanten Kampagnen und Canvase"
-article_title: "GET: Liste geplanter Kampagnen und Canvase"
-search_tag: Endpunkt
+nav_title: "GET: Liste der anstehenden geplanten Campaigns und Canvases"
+article_title: "GET: Liste der anstehenden geplanten Campaigns und Canvases"
+search_tag: Endpoint
 page_order: 0
 layout: api_page
 page_type: reference
-description: "Dieser Artikel enthält Einzelheiten über den Endpunkt Liste der geplanten Kampagnen und Canvase Braze."
+description: "Dieser Artikel enthält Einzelheiten über den Braze-Endpunkt „Liste der anstehenden geplanten Campaigns und Canvases“."
 
 ---
 {% api %}
-# Liste der anstehenden geplanten Kampagnen und Canvase
+# Liste der anstehenden geplanten Campaigns und Canvases {#list-upcoming-scheduled-campaigns-and-canvases}
 {% apimethod get %}
 /messages/scheduled_broadcasts
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine JSON-Liste mit Informationen über geplante Kampagnen und Eingänge Canvase zwischen jetzt und einem in der Anfrage angegebenen `end_time` zurückzugeben.
+> Verwenden Sie diesen Endpunkt, um eine JSON-Liste mit Informationen über geplante Campaigns und Eingangs-Canvases zwischen jetzt und einer in der Anfrage angegebenen `end_time` zurückzugeben.
 
-Tägliche, wiederkehrende Nachrichten erscheinen nur einmal bei ihrem nächsten Vorkommen. Die über diesen Endpunkt zurückgegebenen Ergebnisse umfassen Kampagnen und Canvase, die im Braze-Dashboard erstellt und geplant wurden.
+Tägliche, wiederkehrende Nachrichten erscheinen nur einmal mit ihrem nächsten Vorkommen. Die über diesen Endpunkt zurückgegebenen Ergebnisse umfassen Campaigns und Canvases, die im Braze-Dashboard erstellt und geplant wurden.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6f623cc3-383b-4bf7-b14d-7c56fc5562f5 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `messages.schedule_broadcasts`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `messages.schedule_broadcasts`.
 
-## Rate-Limit
+## Rate-Limits {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `end_time` | Erforderlich | String im [ISO-8601-Format](https://en.wikipedia.org/wiki/ISO_8601)  | Enddatum des Bereichs zum Abrufen der nächsten geplanten Kampagnen und Canvase. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `end_time` | Erforderlich | String im [ISO-8601-Format](https://en.wikipedia.org/wiki/ISO_8601) | Enddatum des Bereichs zum Abrufen der anstehenden geplanten Campaigns und Canvases. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_broadcasts?end_time=2018-09-01T00:00:00-04:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {

@@ -6,15 +6,15 @@ description: "このリファレンス記事では、ローカルコネクテッ
 search_rank: 1
 ---
 
-# ローカルコネクテッドコンテンツ変数
+# ローカルコネクテッドコンテンツ変数 {#local-connected-content-variables}
 
 > このページでは、ローカルコネクテッドコンテンツ変数の概要と、その使用方法および保存方法について説明します。
 
-Braze は送信時に `connected_content` タグ内で指定されたエンドポイントに対して標準的な GET リクエストを行います。エンドポイントが JSON を返す場合、自動的に解析され、`connected` という変数に格納されます。エンドポイントがテキストを返す場合、`connected_content` タグの代わりにメッセージに直接挿入されます。
+Brazeは送信時に`connected_content`タグ内で指定されたエンドポイントに対して標準的なGETリクエストを行います。エンドポイントがJSONを返す場合、自動的に解析され、`connected`という変数に格納されます。エンドポイントがテキストを返す場合、`connected_content`タグの代わりにメッセージに直接挿入されます。
 
-応答を変数に保存したい場合は、JSON オブジェクトを返すことをお勧めします。コネクテッドコンテンツの応答でタグをテキストに置き換えたい場合は、応答が有効な JSON（[json.org](http://www.json.org) で定義されているもの）でないことを確認してください。
+応答を変数に保存したい場合は、JSONオブジェクトを返すことをお勧めします。コネクテッドコンテンツの応答でタグをテキストに置き換えたい場合は、応答が有効なJSON（[json.org](http://www.json.org) で定義されているもの）でないことを確認してください。
 
-URL の後に `:save your_variable_name` を指定して、データを別の名前で保存することもできます。たとえば、次の `connected_content` タグは応答を `localweather` というローカル変数に保存します（複数の `connected_content` JSON 変数を保存できます）。
+URLの後に`:save your_variable_name`を指定して、データを別の名前で保存することもできます。たとえば、次の`connected_content`タグは応答を`localweather`というローカル変数に保存します（複数の`connected_content` JSON変数を保存できます）。
 
 {% raw %}
 ```js
@@ -22,13 +22,17 @@ URL の後に `:save your_variable_name` を指定して、データを別の名
 ```
 {% endraw %}
 
-Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す無料の天気 API です。このコードはテストと学習目的でのみ使用してください。
+Metaweatherは「Where-on-Earth ID」を使用してエリアの天気を返す無料の天気APIです。このコードはテストと学習目的でのみ使用してください。
 
->  保存された変数は、`connected_content` リクエストを含むフィールド内でのみアクセスできます。たとえば、メッセージフィールドとタイトルフィールドの両方で `localweather` 変数を使用したい場合は、両方のフィールド内で `connected_content` リクエストを行う必要があります。リクエストが同一の場合、Braze は送信先サーバーに 2 回目のリクエストを行う代わりに、キャッシュされた結果を使用します。ただし、HTTP POST 経由で行われたコネクテッドコンテンツの呼び出しはデフォルトではキャッシュされず、送信先サーバーに 2 回目のリクエストを行います。POST 呼び出しにキャッシュを追加したい場合は、[`cache_max_age`](#configurable-caching) オプションを参照してください。
+保存された変数は、`connected_content`リクエストを含むフィールド内でのみアクセスできます。たとえば、メッセージフィールドとタイトルフィールドの両方で`localweather`変数を使用したい場合は、両方のフィールド内で`connected_content`リクエストを行う必要があります。
 
-## JSON の解析
+GETリクエストは通常デフォルトでキャッシュされますが、いくつかの例外があります（高カーディナリティのユーザー属性を含むURL、`:no_cache`、または1 MBを超えるレスポンスボディなど）。同一のGETリクエストが複数のフィールドに存在する場合、Brazeはエンドポイントを再度呼び出す代わりにキャッシュされた応答を再利用します。キャッシュの動作の詳細については、[応答のキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照してください。
 
-コネクテッドコンテンツは、`:save` を指定すると、JSON 形式の結果をローカル変数として解釈します。たとえば、天気関連のコネクテッドコンテンツエンドポイントが次の JSON オブジェクトを返し、`:save localweather` を指定してローカル変数 `localweather` に格納します。
+HTTP POST経由で行われたコネクテッドコンテンツの呼び出しはデフォルトではキャッシュされません。POST応答をキャッシュするには、タグに`:cache_max_age`を追加します。[デフォルトのキャッシュ設定]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings)を参照してください。
+
+## JSONの解析 {#json-parsing}
+
+コネクテッドコンテンツは、`:save`を指定すると、JSON形式の結果をローカル変数として解釈します。たとえば、天気関連のコネクテッドコンテンツエンドポイントが次のJSONオブジェクトを返し、`:save localweather`を指定してローカル変数`localweather`に格納します。
 {% raw %}
 
 ```js
@@ -62,10 +66,10 @@ Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す
   }
 ```
 
-`{{localweather.consolidated_weather[0].weather_state_name}}` を参照することで、雨が降っているかどうかをテストできます。このオブジェクトで使用した場合、`Clear` が返されます。結果のロケーション名でパーソナライズしたい場合は、`{{localweather.title}}` で `New York` が返されます。
+`{{localweather.consolidated_weather[0].weather_state_name}}`を参照することで、雨が降っているかどうかをテストできます。このオブジェクトで使用した場合、`Clear`が返されます。結果のロケーション名でもパーソナライズしたい場合は、`{{localweather.title}}`で`New York`が返されます。
 {% endraw %}
 
-次の画像は、正しく設定されている場合にダッシュボードで表示されるシンタックスハイライトの種類を示しています。また、`connected_content` リクエストの例をどのように活用できるかも示しています。
+次の画像は、正しく設定されている場合にダッシュボードで表示されるシンタックスハイライトの種類を示しています。また、`connected_content`リクエストの例をどのように活用できるかも示しています。
 
 {% raw %}
 ```liquid
@@ -82,28 +86,28 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%} で `Rain` を返した場合、ユーザーは次のプッシュ通知を受け取ります。
+APIが{%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%}で`Rain`を返した場合、ユーザーは次のプッシュ通知を受け取ります。
 
 ![「It's raining! Grab an umbrella!」というメッセージのプッシュ通知]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
-### JSON ボディの提供
+### JSONボディの提供 {#providing-json-body}
 
-独自の JSON ボディを提供したい場合、スペースがなければインラインで記述できます。ボディにスペースがある場合は、assign または capture ステートメントを使用する必要があります。つまり、以下の 3 つのいずれも使用できます。
+独自のJSONボディを提供したい場合、スペースがなければインラインで記述できます。ボディにスペースがある場合は、assignまたはcaptureステートメントを使用する必要があります。つまり、以下の3つのいずれも使用できます。
 
 {% raw %}
-##### インライン: スペースは使用不可
+##### インライン：スペースは使用不可 {#inline-spaces-not-allowed}
 
 ```js
 {% connected_content https://example.com/api/endpoint :method post :body {"foo":"bar","baz":"{{1|plus:1}}"} :content_type application/json %}
 ```
 
-##### capture ステートメント内のボディ: スペース使用可
+##### captureステートメント内のボディ：スペース使用可 {#body-in-a-capture-statement-spaces-allowed}
 
 ```js
 {% capture postbody %}
@@ -134,7 +138,7 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 {% endraw %}
 
 {% raw %}
-##### assign ステートメント内のボディ: スペース使用可
+##### assignステートメント内のボディ：スペース使用可 {#body-in-an-assign-statement-spaces-allowed}
 
 ```js
 {% assign postbody = '{"foo":"bar", "baz": "2"}' %}
@@ -142,9 +146,9 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 ```
 {% endraw %}
 
-## HTTP ステータスコード
+## HTTPステータスコード {#http-status-codes}
 
-コネクテッドコンテンツの呼び出しから HTTP ステータスを利用するには、まずローカル変数として保存し、次に `__http_status_code__` キーを使用します。例:
+コネクテッドコンテンツの呼び出しからHTTPステータスを利用するには、まずローカル変数として保存し、次に`__http_status_code__`キーを使用します。例：
 
 {% raw %}
 ```js
@@ -156,7 +160,7 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 {% endraw %}
 
 {% alert important %}
-このキーは、エンドポイントが有効な JSON オブジェクトと `2XX` 応答を返す場合にのみ、コネクテッドコンテンツオブジェクトに自動的に追加されます。エンドポイントが配列やその他の型を返す場合、このキーは応答に自動的に設定できません。
+このキーは、エンドポイントが有効なJSONオブジェクトと`2XX`応答を返す場合にのみ、コネクテッドコンテンツオブジェクトに自動的に追加されます。エンドポイントが配列やその他の型を返す場合、このキーは応答に自動的に設定できません。
 {% endalert %}
 
 

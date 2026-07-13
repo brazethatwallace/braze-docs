@@ -11,7 +11,7 @@ page_order: 1
 
 ## Acerca de las recomendaciones de elementos de IA {#about-ai-item-recommendations}
 
-Utiliza las recomendaciones de elementos de IA para calcular los productos más populares o crear recomendaciones personalizadas basadas en IA para un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) específico. Después de crear tu recomendación, puedes utilizar la personalización para insertar esos productos en tus mensajes.
+Utiliza las recomendaciones de elementos de IA para calcular los productos más populares o crear recomendaciones personalizadas basadas en IA para un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) específico. Después de crear tu recomendación, puedes utilizar la personalización para insertar esos productos en tus mensajes.
 
 {% alert tip %}
 [Las recomendaciones AI Personalizado](#recommendation-types) funcionan mejor con al menos unos cientos de elementos del catálogo, como máximo 100.000 elementos del catálogo y, normalmente, al menos 30.000 usuarios con datos de compra o interacción. Esto es solo una guía aproximada y puede variar. Los otros tipos de recomendación pueden funcionar con menos datos, incluso cuando se utiliza **Más popular** como alternativa.
@@ -25,12 +25,12 @@ Utiliza las recomendaciones de elementos de IA para calcular los productos más 
 
 Antes de empezar, necesitas lo siguiente:
 
-- Al menos un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) para poder utilizar cualquiera de los tipos de recomendaciones que se describen a continuación.
+- Al menos un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) para poder utilizar cualquiera de los tipos de recomendaciones que se describen a continuación.
 - Datos de compra o evento en Braze (eventos personalizados, el evento de pedido realizado o el objeto de compra) que incluyan una referencia al elemento y coincidan con los ID de los elementos del catálogo.
 
 ### Paso 1: Crear una nueva recomendación {#step-1-create-a-new-recommendation}
 
-Puedes crear una recomendación de elementos de IA desde cualquiera de los dos lugares del dashboard:
+Puedes crear una recomendación de elementos de IA desde cualquiera de los dos lugares del panel:
 
 {% tabs local %}
 {% tab Desde el menú de navegación %}
@@ -47,11 +47,11 @@ También puedes optar por crear una recomendación directamente desde un catálo
 
 Dale a tu recomendación un nombre y una descripción opcional.
 
-![Paso "Detalles de la recomendación" con los campos nombre y descripción.]({% image_buster /assets/img/item_recs_1.png %})
+![Paso "Detalles de la recomendación" con los campos de nombre y descripción.]({% image_buster /assets/img/item_recs_1.png %})
 
 ### Paso 3: Define tu recomendación {#recommendation-type}
 
-Selecciona un tipo de recomendación. Cada tipo utiliza los datos de interacción con los elementos de los últimos seis meses, como datos de compras, pedidos realizados o eventos personalizados. Para obtener información más detallada y casos de uso de cada uno, consulta [Tipos y casos de uso]({{site.baseurl}}/user_guide/brazeai/item_recommendations/).
+Selecciona un tipo de recomendación. Cada tipo utiliza los datos de interacción con los elementos de los últimos seis meses, como datos de compras, pedidos realizados o eventos personalizados. Para obtener información más detallada y casos de uso de cada uno, consulta [Tipos y casos de uso]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
 Al utilizar **Más reciente** o **AI Personalizado**, los usuarios con datos insuficientes para crear recomendaciones individualizadas recibirán los elementos **Más populares** como alternativa. Puedes ver una aproximación de la proporción de usuarios que reciben la alternativa **Más popular** en la página de **Analytics**. La alternativa **Más popular** solo devuelve elementos que existen en el catálogo vinculado.
@@ -69,11 +69,11 @@ Por ejemplo, al utilizar la versión pro de las recomendaciones de elementos de 
 
 #### Paso 3.2: Seleccionar un catálogo {#step-32-select-a-catalog}
 
-Si aún no está rellenado, selecciona el [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) del que esta recomendación extraerá los elementos.
+Si aún no está rellenado, selecciona el [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) del que esta recomendación extraerá los elementos.
 
 #### Paso 3.3: Añadir una selección (opcional) {#step-33-add-a-selection-optional}
 
-Si quieres tener más control sobre tu recomendación, elige una [selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para aplicar filtros personalizados. Las selecciones filtran las recomendaciones por columnas específicas de tu catálogo, como marca, tamaño o ubicación. Las selecciones que contienen Liquid no pueden utilizarse en tu recomendación.
+Si quieres tener más control sobre tu recomendación, elige una [selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) para aplicar filtros personalizados. Las selecciones filtran las recomendaciones por columnas específicas de tu catálogo, como marca, tamaño o ubicación. Las selecciones que contienen Liquid no pueden utilizarse en tu recomendación.
 
 ![Un ejemplo de la selección "en stock" elegida para la recomendación.]({% image_buster /assets/img/item_recs_2-2.png %})
 
@@ -87,10 +87,10 @@ Selecciona el evento para el que quieres que se optimice esta recomendación. Es
 
 Puedes optimizar para:
 
-- Eventos de compra con el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/)
+- Eventos de compra con el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object)
 - Eventos personalizados que representan una compra
 - Eventos personalizados que representen cualquier otra interacción con elementos (como vistas de productos, clics o reproducciones multimedia)
-- Pedidos realizados con el [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- Pedidos realizados con el [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 
 Si eliges **Custom Event**, selecciona tu evento de la lista.
 
@@ -115,8 +115,8 @@ El campo **Property Name** se rellenará previamente con una lista de campos env
 Hay algunos requisitos para seleccionar tu propiedad:
 
 - Debe mapearse al campo `id` de tu catálogo seleccionado.
-- **Si seleccionaste el evento de pedido realizado o estás utilizando [eventos de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) para entrenar recomendaciones de elementos:** Introduce `products.product_id` para el ID del producto.
-  - El campo puede estar dentro de una matriz de productos, o terminar con una matriz de ID. En cualquier caso, cada ID de producto se tratará como un evento independiente y secuencial con la misma marca de tiempo.
+- **Si seleccionaste el evento de pedido realizado o estás utilizando [eventos de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) para entrenar recomendaciones de elementos:** Introduce `products.product_id` para el ID del producto.
+  - El campo puede estar dentro de una matriz de productos o terminar con una matriz de ID. En cualquier caso, cada ID de producto se tratará como un evento independiente y secuencial con la misma marca de tiempo.
 - **Si seleccionaste objeto de compra:** Debe ser el `product_id` o un campo de `properties` de tu evento de interacción.
 - **Si seleccionaste evento personalizado:** Debe ser un campo de `properties` de tu evento personalizado.
 - Los campos anidados deben escribirse en el desplegable **Property Name** en notación de puntos con el formato `event_property.nested_property`. Por ejemplo, si seleccionas la propiedad anidada `district_name` dentro de la propiedad de evento `location`, introducirías `location.district_name`.
@@ -130,7 +130,8 @@ Los siguientes ejemplos de mapeados hacen referencia a este catálogo de muestra
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Ejemplos de mapeados" class="tg">
+  <caption>Ejemplos de mapeados</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

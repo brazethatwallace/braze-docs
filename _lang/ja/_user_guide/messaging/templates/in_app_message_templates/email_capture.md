@@ -2,7 +2,7 @@
 nav_title: メールサインアップフォーム
 article_title: メールサインアップフォーム
 alias: "/email_capture/"
-page_order: 2
+page_order: 3
 description: "このページでは、アプリ内メッセージのドラッグ＆ドロップエディターを使用してメールサインアップフォームを作成する方法について説明します。"
 ---
 
@@ -26,7 +26,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ### ステップ 3:メールサインアップコンポーネントをカスタマイズする {#step-3-customize-your-email-sign-up-component}
 
-メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループの**購読中**が設定されます。特定のサブスクリプショングループにユーザーをオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)を参照してください。
+メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループの**Subscribed**が設定されます。特定のサブスクリプショングループにユーザーをオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states)を参照してください。
 
 メールキャプチャ要素のプレースホルダーテキストとラベルテキストをカスタマイズできます。
 
@@ -34,7 +34,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 #### メールバリデーション {#email-validation}
 
-ユーザーが許可されていない特殊文字を含むメールアドレスを入力した場合、一般的なエラーインジケーターが表示され、フォームを送信できません。このエラーメッセージはカスタマイズできません。エラーの動作は**Preview & Test**タブおよびテストデバイスで確認できます。Brazeがメールアドレスをどのようにフォーマットするかについて詳しくは、[メールバリデーション]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/)を参照してください。
+ユーザーが許可されていない特殊文字を含むメールアドレスを入力した場合、一般的なエラーインジケーターが表示され、フォームを送信できません。このエラーメッセージはカスタマイズできません。エラーの動作は**Preview & Test**タブおよびテストデバイスで確認できます。Brazeがメールアドレスをどのようにフォーマットするかについて詳しくは、[メールバリデーション]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation)を参照してください。
 
 ### ステップ 4:免責事項の文言を追加する（オプション） {#step-4-add-disclaimer-language-optional}
 
@@ -42,7 +42,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ### ステップ 5:メッセージをスタイリングする {#step-5-style-your-message}
 
-ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)を使用して、サインアップフォームの外観をカスタマイズします。
+ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)を使用して、サインアップフォームの外観をカスタマイズします。
 
 ## 結果の分析 {#analyzing-the-results}
 

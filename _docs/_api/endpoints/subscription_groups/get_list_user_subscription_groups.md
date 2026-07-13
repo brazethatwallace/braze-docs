@@ -30,7 +30,7 @@ If you want to see examples or test this endpoint for **WhatsApp Groups**:
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `subscription.groups.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `subscription.groups.get` permission.
 
 ## Rate limit
 
@@ -45,7 +45,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `phone` | Required* | String in [E.164](https://en.wikipedia.org/wiki/E.164) format | The phone number of the user. Must include at least one phone number (with a maximum of 50). |
 | `limit` | Optional | Integer | The limit on the maximum number of results returned. Default (and maximum) `limit` is 100. |
 | `offset`  |  Optional | Integer | Number of templates to skip before returning the rest of the templates that fit the search criteria. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert tip %}
 If there are multiple users (multiple `external_ids`) who share the same email address, all users will be returned as a separate user (even if they have the same email address or subscription group).
@@ -70,7 +70,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@braze.com&limit=100&offset=0' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@example.com&limit=100&offset=0' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}
@@ -86,8 +86,8 @@ Only subscription groups that have had a subscription status update in a user's 
     "users": [
         {
             "email": "test@example.com",
-            "phone": "50505050",
-            "external_id": "20500",
+            "phone": "+11112223333",
+            "external_id": "external_identifier",
             "subscription_groups": [
                 {
                   "id": "ec2fcc919fca",

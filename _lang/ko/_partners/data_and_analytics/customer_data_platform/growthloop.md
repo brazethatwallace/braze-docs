@@ -1,7 +1,7 @@
 ---
 nav_title: GrowthLoop
 article_title: GrowthLoop
-description: "This reference article outlines the partnership between Braze and GrowthLoop, a platform that allows you to segment customer data directly from data warehouses and send it to Braze."
+description: "이 참조 문서에서는 데이터 웨어하우스에서 직접 고객 데이터를 세분화하여 Braze로 전송할 수 있는 플랫폼인 GrowthLoop과 Braze 간의 파트너십에 대해 설명합니다."
 alias: /partners/growthloop/
 page_type: partner
 search_tag: Partner
@@ -10,60 +10,58 @@ search_tag: Partner
 
 # GrowthLoop
 
-> [GrowthLoop](https://growthloop.com/) helps marketing teams activate customer data from the cloud data warehouse to Braze and other channels. Automate, scale, and measure marketing programs from your cloud data warehouse, keeping the data in a single, centralized location.
+> [GrowthLoop](https://growthloop.com/)은 마케팅 팀이 클라우드 데이터 웨어하우스에서 고객 데이터를 활성화하여 Braze 및 기타 채널로 전송할 수 있도록 지원합니다. 클라우드 데이터 웨어하우스에서 마케팅 프로그램을 자동화, 확장 및 측정하여 데이터를 하나의 중앙 집중식 위치에 유지합니다.
 
-_This integration is maintained by GrowthLoop._
+_이 통합은 GrowthLoop에서 유지 관리합니다._
 
-## 통합 정보
+## 통합 정보 {#about-the-integration}
 
-The Braze and GrowthLoop integration allows you to segment customer data directly from data warehouse and send it to Braze–ensuring that users can optimize the deep feature set of Braze in tandem with their single source of truth. Streamline marketing efforts for customer segmentation and activation, reducing the time it takes to segment, launch, test, and measure the results of targeted campaigns sent to Braze.
+Braze와 GrowthLoop 통합을 사용하면 데이터 웨어하우스에서 직접 고객 데이터를 세분화하여 Braze로 전송할 수 있으므로, 단일 소스 오브 트루스(Single Source of Truth)와 함께 Braze의 심층 기능 세트를 최적화할 수 있습니다. 고객 세분화 및 활성화를 위한 마케팅 활동을 간소화하여 Braze로 전송되는 타겟팅된 Campaign의 세분화, 시작, 테스트 및 결과 측정에 소요되는 시간을 단축합니다.
 
-## Prerequisites 
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| GrowthLoop growth or enterprise account | A GrowthLoop account is required to take advantage of this partnership. |
-| Braze Rest API key | A Braze REST API key with all permissions.<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| GrowthLoop growth 또는 enterprise 계정 | 이 파트너십을 활용하려면 GrowthLoop 계정이 필요합니다. |
+| Braze REST API 키 | 모든 권한이 포함된 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Use cases
+## 사용 사례 {#use-cases}
 
-Send customer lists from your data warehouse to Braze, targeting email and push notification campaigns in one click, and always keep them in sync.
+데이터 웨어하우스에서 Braze로 고객 목록을 전송하여 이메일 및 푸시 알림 Campaign을 한 번의 클릭으로 타겟팅하고 항상 동기화 상태를 유지합니다.
 
-- Emails based on sign-up activation — send emails to help users that fall off in your sign-up flow and convert them to active users.
-- Emails based on any user behavior — send emails based on user behavior, such as "Add to Cart."
-- Emails to churned customers — re-engage churned customers via email with an offer.
+- 가입 활성화 기반 이메일 — 가입 플로우에서 이탈한 사용자에게 이메일을 보내 활성 사용자로 전환합니다.
+- 사용자 행동 기반 이메일 — "장바구니에 추가"와 같은 사용자 행동을 기반으로 이메일을 전송합니다.
+- 이탈 고객 대상 이메일 — 이메일을 통해 이탈 고객에게 오퍼를 제공하여 재참여를 유도합니다.
 
-## Integration
+## 통합 {#integration}
 
-### Configure Braze connection in GrowthLoop
+### GrowthLoop에서 Braze 연결 구성 {#configure-braze-connection-in-growthloop}
 
-When you sign into the Segmentation Platform within GrowthLoop, navigate to the **Destinations** tab on the left sidebar and click **New Destination** in the top right corner.
+GrowthLoop 내 세분화 플랫폼에 로그인한 후, 왼쪽 사이드바의 **Destinations** 탭으로 이동하여 액션 바에서 **New Destination**을 클릭합니다.
 
-Scroll until you can find Braze, and click **Add Braze**.
+Braze를 찾을 때까지 스크롤한 다음 **Add Braze**를 클릭합니다.
 
-A popup will appear to configure the connection to the destination.
+대상 연결을 구성하기 위한 팝업이 나타납니다.
 
-- **Destination name**: This is how the destination will be named and referred to in the app going forward
-- **Sync frequency**: Select Daily or Hourly; this will control how often GrowthLoop exports audiences to Braze
-- **API key**: API key created in the requirements, with the necessary permissions
-- **API URL**: URL as defined in the requirements
+- **Destination name**: 앱에서 앞으로 대상의 이름으로 지정되고 참조되는 이름입니다.
+- **Sync frequency**: Daily 또는 Hourly를 선택합니다. GrowthLoop이 Braze로 오디언스를 내보내는 빈도를 제어합니다.
+- **API key**: 필요한 권한이 포함된, 필수 조건에서 생성한 API 키입니다.
+- **API URL**: 필수 조건에서 정의한 URL입니다.
 
-Click **Create**, and you can export your first audience to Braze! To create an audience in GrowthLoop, visit [Create an Audience](https://www.growthloop.com/help-center-articles/create-an-audience).
+**Create**를 클릭하면 첫 번째 오디언스를 Braze로 내보낼 수 있습니다! GrowthLoop에서 오디언스를 생성하려면 [오디언스 생성](https://www.growthloop.com/help-center-articles/create-an-audience)을 참조하세요.
 
-### Post export
+### 내보내기 후 {#post-export}
 
-Once your audience has been exported, every 15 minutes, GrowthLoop will generate an updated version of your customer lists and send it to Braze.
+오디언스가 내보내기되면 GrowthLoop은 15분마다 고객 목록의 업데이트된 버전을 생성하여 Braze로 전송합니다.
 
-At the same time, GrowthLoop will remove users from your audience that no longer qualify and add newly qualified users to your audience. 
+동시에 GrowthLoop은 더 이상 자격이 없는 사용자를 오디언스에서 제거하고 새로 자격을 갖춘 사용자를 오디언스에 추가합니다.
 
-Braze will match users and create a flag, signifying they are part of a GrowthLoop audience.
+Braze는 사용자를 매칭하고 GrowthLoop 오디언스에 속해 있음을 나타내는 플래그를 생성합니다.
 
-When you create a campaign in Braze, you can select customers in that GrowthLoop audience. 
+Braze에서 Campaign을 생성할 때 해당 GrowthLoop 오디언스의 고객을 선택할 수 있습니다.
 
-## Troubleshooting
+## 문제 해결 {#troubleshooting}
 
-Contact the GrowthLoop team at solutions@growthloop.com for additional information or support.
-
-
+추가 정보나 고객지원이 필요한 경우 solutions@growthloop.com으로 GrowthLoop 팀에 문의하세요.

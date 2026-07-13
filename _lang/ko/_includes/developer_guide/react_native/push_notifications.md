@@ -21,13 +21,13 @@ Expo를 푸시 알림에 사용하려면 먼저 [Braze Expo 플러그인을 설�
 
 먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음, <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
 
-!["Settings" 메뉴가 열려 있는 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![Settings 메뉴가 열려 있는 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
 **Cloud Messaging**을 선택한 다음, **Firebase Cloud Messaging API (V1)**에서 **Sender ID**를 클립보드에 복사합니다.
 
-!["Sender ID"가 강조 표시된 Firebase 프로젝트의 "Cloud Messaging" 페이지.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![Sender ID가 강조 표시된 Firebase 프로젝트의 Cloud Messaging 페이지.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-그런 다음 프로젝트의 `app.json` 파일을 열고 `firebaseCloudMessagingSenderId` 등록정보를 클립보드의 Sender ID로 설정합니다. 예를 들면 다음과 같습니다:
+그런 다음 프로젝트의 `app.json` 파일을 열고 `firebaseCloudMessagingSenderId` 속성을 클립보드의 Sender ID로 설정합니다. 예를 들면 다음과 같습니다:
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
@@ -116,7 +116,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 푸시 알림 필드의 전체 목록은 아래 표를 참조하세요:
 
-| 필드 이름         | 유형      | 설명 |
+| 필드 이름 | 유형 | 설명 |
 | ------------------ | --------- | ----------- |
 | `payload_type`     | 문자열    | 알림 페이로드 유형을 지정합니다. Braze React Native SDK에서 전송되는 두 가지 값은 `push_opened`와 `push_received`입니다. |
 | `url`              | 문자열    | 알림에 의해 열린 URL을 지정합니다. |
@@ -127,18 +127,18 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `badge_count`      | 숫자   | 알림의 배지 수를 나타냅니다. |
 | `timestamp`        | 숫자 | 애플리케이션이 페이로드를 수신한 시간을 나타냅니다. |
 | `is_silent`        | 부울   | `true`이면 페이로드가 무음으로 수신됩니다. Android 무음 푸시 알림 전송에 대한 자세한 내용은 [Android 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 참조하세요. iOS 무음 푸시 알림 전송에 대한 자세한 내용은 [iOS 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 참조하세요. |
-| `is_braze_internal`| 부울   | 지오펜스 동기화, 피처 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
+| `is_braze_internal`| 부울   | 피처 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
 | `image_url`        | 문자열    | 알림 이미지와 연결된 URL을 지정합니다. |
-| `braze_properties` | 오브젝트    | Campaign과 관련된 Braze 등록정보(키-값 페어)를 나타냅니다. |
+| `braze_properties` | 오브젝트    | Campaign과 관련된 Braze 속성정보(키-값 페어)를 나타냅니다. |
 | `ios`              | 오브젝트    | iOS 전용 필드를 나타냅니다. |
 | `android`          | 오브젝트    | Android 전용 필드를 나타냅니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 알림 이벤트 필드" }
 
 ### 3단계: 딥링킹 활성화(선택 사항) {#step-3-enable-deep-linking-optional}
 
-푸시 알림 클릭 시 Braze가 React 구성요소 내에서 딥링크를 처리할 수 있도록 하려면, 먼저 [React Native Linking](https://reactnative.dev/docs/linking) 라이브러리에 설명된 단계를 구현하거나 원하는 솔루션을 사용하세요. 그런 다음 아래의 추가 단계를 따르세요.
+푸시 알림 클릭 시 Braze가 React 컴포넌트 내에서 딥링크를 처리할 수 있도록 하려면, 먼저 [React Native Linking](https://reactnative.dev/docs/linking) 라이브러리에 설명된 단계를 구현하거나 원하는 솔루션을 사용하세요. 그런 다음 아래의 추가 단계를 따르세요.
 
-딥링크에 대한 자세한 내용은 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)를 참조하세요.
+딥링크에 대한 자세한 내용은 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)를 참조하세요.
 
 {% alert important %}
 기존 React Native 푸시 통합을 마이그레이션하는 경우, Braze SDK, React Native, Expo 또는 관련 라이브러리를 업그레이드한 후 딥링킹을 다시 테스트하세요. 다음 사항을 확인하세요:
@@ -151,7 +151,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 {% tab Android Native %}
 [Braze Expo 플러그인]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option)을 사용하는 경우, `app.json`에서 `androidHandlePushDeepLinksAutomatically`를 `true`로 설정하여 푸시 알림 딥링크를 자동으로 처리할 수 있습니다.
 
-딥링크를 수동으로 처리하려면 네이티브 Android 설명서를 참조하세요: [딥링크 추가]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/).
+딥링크를 수동으로 처리하려면 네이티브 Android 설명서를 참조하세요: [딥링크 추가]({{site.baseurl}}/developer_guide/push_notifications/deep_linking).
 
 #### 3.1단계: 앱 시작 시 푸시 알림 페이로드 저장 {#step-31-store-the-push-notification-payload-on-app-launch}
 
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### 3.2단계: 종료 상태에서의 딥링크 처리 {#step-32-handle-deep-links-from-a-closed-state}
+#### 3.2단계: 종료 상태에서의 딥링크 처리
 
 [React Native Linking](https://reactnative.dev/docs/linking)이 처리하는 기본 시나리오 외에도, `Braze.getInitialPushPayload` 메서드를 구현하고 `url` 값을 가져와서 앱이 실행되지 않는 상태에서 푸시 알림으로 열리는 딥링크를 처리하세요. 예를 들면 다음과 같습니다:
 
@@ -389,7 +389,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endsubtab %}
 {% endsubtabs %}
 
-예제 통합은 [여기](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm)에서 샘플 앱을 참조하세요.
+예제 통합은 [이 AppDelegate 예제](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm)에서 샘플 앱을 참조하세요.
 {% endtab %}
 {% endtabs %}
 
@@ -462,7 +462,7 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 {% endalert %}
 
 1. `Braze.changeUserId('your-user-id')` 메서드를 호출하여 React Native 애플리케이션에서 활성 사용자를 설정합니다.
-2. **Campaigns**으로 이동하여 새 푸시 알림 Campaign을 만듭니다. 테스트할 플랫폼을 선택합니다.
+2. **Campaigns**로 이동하여 새 푸시 알림 Campaign을 만듭니다. 테스트할 플랫폼을 선택합니다.
 3. 테스트 알림을 작성하고 **Test** 탭으로 이동합니다. 테스트 사용자와 동일한 `user-id`를 추가하고 **Send Test**를 클릭합니다. 곧 기기에서 알림을 받을 수 있습니다.
 
 ![자신의 사용자 ID를 테스트 수신자로 추가하여 푸시 알림을 테스트할 수 있는 Braze 푸시 Campaign.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
@@ -530,4 +530,4 @@ iOS 통합의 경우, 프로젝트 종속성과의 잠재적 충돌을 식별하
 3. Braze Expo 플러그인을 사용하는 경우, `androidHandlePushDeepLinksAutomatically`가 구현에 맞게 올바르게 설정되어 있는지 확인합니다.
 4. 최근에 추가된 종속성이 알림 처리 또는 앱 델리게이트 동작을 재정의하고 있는지 검토합니다.
 
-이러한 확인을 완료한 후에도 문제가 지속되면, [고객지원 티켓을 열고]({{site.baseurl}}/user_guide/administrative/access_braze/support/) SDK 로그와 재현 단계를 포함해 주세요.
+이러한 확인을 완료한 후에도 문제가 지속되면, [고객지원 티켓을 열고]({{site.baseurl}}/user_guide/administrative/access_braze/support) SDK 로그와 재현 단계를 포함해 주세요.

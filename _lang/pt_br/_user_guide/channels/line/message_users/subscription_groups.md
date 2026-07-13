@@ -16,8 +16,8 @@ alias: /line/subscription_groups/
 | Estado | Definição |
 | --- | --- |
 | Inscrito | O usuário seguiu o canal LINE de dentro do app LINE. Os usuários são automaticamente inscritos quando seguem o canal após você ter concluído as etapas de integração. |
-| Cancelado | O usuário não seguiu o canal LINE de dentro do app LINE, ou o usuário deixou de seguir explicitamente o canal LINE. <br><br> Usuários que cancelarem a inscrição de um grupo de inscrições LINE não receberão mais nenhuma mensagem LINE dos canais de envio que pertencem ao grupo de inscrições. |
-{: .reset-td-br-1 .reset-td-br-2 }
+| Cancelou inscrição | O usuário não seguiu o canal LINE de dentro do app LINE, ou o usuário deixou de seguir explicitamente o canal LINE. <br><br> Usuários que cancelarem a inscrição de um grupo de inscrições LINE não receberão mais nenhuma mensagem LINE dos canais de envio que pertencem ao grupo de inscrições. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE subscription groups" }
 
 ## Definindo o grupo de inscrições LINE de um usuário {#setting-a-users-line-subscription-group}
 

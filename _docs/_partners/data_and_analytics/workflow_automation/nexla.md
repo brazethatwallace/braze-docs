@@ -21,7 +21,7 @@ The Braze and Nexla integration allows customers that use [Currents]({{site.base
 | Nexla account | A [Nexla account](https://www.nexla.com/get-demo) is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -36,7 +36,7 @@ If you do not already have a Nexla account, head to the Nexla [website](https://
 ### Step 2: Add your source
 
 #### If Braze is your data source
-1. In the Nexla platform, navigate to **Flows > Create a New Flow** on the left toolbar.
+1. In the Nexla platform, navigate to **Flows > Create a New Flow** in the navigation toolbar.
 2. Click **Create New Source**, select the Braze connector, and click **Next**. 
 3. Select **Add a New Credential**, name the credential, add your Braze API key and REST endpoint, and **Save**.
 4. Lastly, select your data and click **Save**. 

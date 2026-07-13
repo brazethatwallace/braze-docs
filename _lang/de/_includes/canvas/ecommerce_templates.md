@@ -3,7 +3,7 @@
 
 ### Abgebrochenes Stöbern {#abandoned-browse}
 
-Verwenden Sie das Template **Abgebrochenes Stöbern**, um Nutzer:innen anzusprechen, die sich Produkte angesehen, aber weder in den Warenkorb gelegt noch eine Bestellung aufgegeben haben.
+Verwenden Sie das Template **Abandoned browse**, um Nutzer:innen anzusprechen, die sich Produkte angesehen, aber weder in den Warenkorb gelegt noch eine Bestellung aufgegeben haben.
 
 ![Ein angewandtes „Abandoned Browse“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/abandoned_browse.png %})
 
@@ -42,7 +42,7 @@ Hier sehen Sie ein Beispiel, wie Sie einen HTML-Produktblock für Ihre E-Mail be
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned browse product personalization for emails" style="width:100%">
   <tr>
     <th><img src="{{context.${image_url}}}" width="200" height="200"><img></th>
     <th align="left">
@@ -69,15 +69,15 @@ Hier sehen Sie ein Beispiel, wie Sie einen HTML-Produktblock für Ihre E-Mail be
 
 ### Warenkorb-Abbruch {#abandoned-cart}
 
-Verwenden Sie das Template **Warenkorb-Abbruch**, um potenzielle entgangene Umsätze von Kund:innen abzufangen, die Produkte in ihren Warenkorb gelegt, aber weder zur Kasse gegangen sind noch eine Bestellung aufgegeben haben.
+Verwenden Sie das Template **Abandoned cart**, um potenzielle entgangene Umsätze von Kund:innen abzufangen, die Produkte in ihren Warenkorb gelegt, aber weder zur Kasse gegangen sind noch eine Bestellung aufgegeben haben.
 
 ![Ein angewandtes „Abandoned Cart“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### Einrichtung {#setup}
+#### Einrichtung
 
 Wählen Sie auf der Canvas-Seite **Use a Canvas Template** > **Braze templates** und wenden Sie dann das Template **Abandoned cart** an.
 
-##### Standardeinstellungen {#default-settings}
+##### Standardeinstellungen
 
 Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
 - Grundlagen
@@ -121,7 +121,7 @@ Hier sehen Sie ein Beispiel, wie Sie mit Ihrem `shopping_cart` Liquid-Tag einen 
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned cart product personalization for emails #abandoned-cart-checkout" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -170,15 +170,15 @@ Wenn Sie Shopify verwenden, erstellen Sie Ihre Warenkorb-URL mit diesem Liquid-T
 
 ### Abgebrochener Checkout {#abandoned-checkout}
 
-Verwenden Sie das Template **Abgebrochener Checkout**, um Kund:innen anzusprechen, die den Checkout-Prozess begonnen, aber vor der Bestellung abgebrochen haben.
+Verwenden Sie das Template **Abandoned checkout**, um Kund:innen anzusprechen, die den Checkout-Prozess begonnen, aber vor der Bestellung abgebrochen haben.
 
 ![Ein angewandtes „Abandoned Checkout“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### Einrichtung {#setup}
+#### Einrichtung
 
 Wählen Sie auf der Canvas-Seite **Use a Canvas Template** > **Braze templates** und wenden Sie dann das Template **Abandoned checkout** an.
 
-##### Standardeinstellungen {#default-settings}
+##### Standardeinstellungen
 
 Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
 
@@ -212,7 +212,7 @@ Hier sehen Sie ein Beispiel, wie Sie mit Ihrem `shopping_cart` Liquid-Tag einen 
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned checkout personalization for emails" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -241,11 +241,11 @@ Der Parameter `abort_if_not_abandoned` ist spezifisch für den Anwendungsfall de
 | ----- | -------- |
 | `true` (Standard) | Die Nachricht wird abgebrochen, wenn der Warenkorb nicht verlassen wurde – das heißt, wenn der/die Nutzer:in die Bestellung inzwischen abgeschlossen hat. |
 | `false` | Die Nachricht wird auch dann gesendet, wenn sich der Warenkorb nicht im abgebrochenen Zustand befindet. So kann die E-Mail Warenkorb-Details enthalten, unabhängig vom aktuellen Checkout-Status. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="abortifnotabandoned #abort-if-not-abandoned" }
 
 Setzen Sie `abort_if_not_abandoned` auf `false`, wenn Sie die Checkout-Erinnerung unabhängig davon senden möchten, ob der Warenkorb zum Sendezeitpunkt noch als abgebrochen gilt. Wenn Sie den Parameter weglassen oder auf `true` setzen, bricht Braze die Nachricht für Nutzer:innen ab, die ihren Kauf bereits abgeschlossen haben.
 
-##### Checkout-URL {#checkout-url}
+##### Checkout-URL
 
 {% raw %}
 ```liquid
@@ -258,15 +258,15 @@ Setzen Sie `abort_if_not_abandoned` auf `false`, wenn Sie die Checkout-Erinnerun
 
 ### Bestellbestätigung und Feedback-Umfrage {#order-confirmation-and-feedback-survey}
 
-Verwenden Sie das Template **Bestellbestätigung & Feedback-Umfrage**, um erfolgreiche Bestellungen zu bestätigen und die Kundenzufriedenheit zu steigern.
+Verwenden Sie das Template **Order confirmation & feedback survey**, um erfolgreiche Bestellungen zu bestätigen und die Kundenzufriedenheit zu steigern.
 
 ![Ein angewandtes „Order confirmation“ Canvas-Template mit erweiterten „Entry Rules“.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### Einrichtung {#setup}
+#### Einrichtung
 
 Wählen Sie auf der Canvas-Seite **Use a Canvas Template** > **Braze templates** und wenden Sie dann das Template **Order confirmation & feedback survey** an.
 
-##### Standardeinstellungen {#default-settings}
+##### Standardeinstellungen
 
 Die folgenden Einstellungen sind in Ihrem Canvas vorkonfiguriert:
 
@@ -296,7 +296,7 @@ Hier sehen Sie ein Beispiel, wie Sie einen HTML-Produktblock zu Ihrer Bestellbes
 
 {% raw %}
 ```json
-<table style="width:100%">
+<table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
   <tr>

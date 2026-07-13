@@ -10,39 +10,39 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Editar 
 
 ---
 {% api %}
-# edita item do catálogo
+# Editar item do catálogo {#edit-catalog-item}
 {% apimethod patch %}
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Use esse ponto de extremidade para editar um item existente em seu catálogo.
+> Use esse endpoint para editar um item existente em seu catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e35976ae-ff77-42b7-b691-a883c980d8c0 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.update_item`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.update_item`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## Parâmetros da jornada
+## Parâmetros de caminho {#path-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `catalog_name` | Obrigatória | String | Nome do catálogo. |
-| `item_id` | Obrigatória | String | A ID do item do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `item_id` | Obrigatória | String | O ID do item do catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `items` | Obrigatória | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter campos que existem no catálogo, exceto o campo `id`. Somente um objeto de item é permitido por solicitação. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaurants/items/restaurant1' \
@@ -53,9 +53,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -73,14 +74,15 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-Os operadores `$add` e `$remove` são aplicáveis somente a campos do tipo matriz e são compatíveis apenas com os pontos de extremidade PATCH.
+- O campo `Location` usa o tipo de dados `geo`, que espera um vetor formatado como `[longitude, latitude]`.
+- Os operadores `$add` e `$remove` são aplicáveis somente a campos do tipo vetor e são compatíveis apenas com endpoints PATCH.
 {% endalert %}
 
-## Resposta
+## Resposta {#response}
 
 Há três respostas de código de status para esse endpoint: `200`, `400` e `404`.
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 O código de status `200` poderia retornar o seguinte corpo de resposta.
 
@@ -90,9 +92,9 @@ O código de status `200` poderia retornar o seguinte corpo de resposta.
 }
 ```
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
-O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
+O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para saber mais sobre os erros que você pode encontrar.
 
 ```json
 {
@@ -112,13 +114,13 @@ O código de status `400` poderia retornar o seguinte corpo de resposta. Consult
 }
 ```
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 A tabela a seguir lista os possíveis erros retornados e as etapas de solução de problemas associadas.
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `arbitrary-error` | Ocorreu um erro arbitrário. Tente novamente ou entre em contato com [o suporte]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Ocorreu um erro arbitrário. Tente novamente ou entre em contato com o [suporte]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Verifique se o nome do catálogo é válido. |
 | `filtered-set-field-too-long` | O valor do campo está sendo usado em um conjunto filtrado que excede o limite de caracteres de um item. |
 | `id-in-body` | Já existe um ID de item no catálogo. |
@@ -132,6 +134,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `request-includes-too-many-items` | Você só pode editar um item do catálogo por solicitação. |
 | `too-deep-nesting-in-value-object` | Os objetos de item não podem ter mais de 50 níveis de aninhamento. |
 | `unable-to-coerce-value` | Os tipos de itens não podem ser convertidos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

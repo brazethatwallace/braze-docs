@@ -12,9 +12,9 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Sons personalizados
+# Sons personalizados {#custom-sounds}
 
-## Etapa 1: Hospedagem do som no app
+## Etapa 1: Hospedagem do som no app {#step-1-hosting-the-sound-in-the-app}
 
 Os sons de notificação por push personalizados devem ser hospedados localmente no pacote principal do aplicativo cliente. São aceitos os seguintes formatos de dados de áudio:
 
@@ -31,15 +31,14 @@ Você pode usar a ferramenta afconvert para converter sons. Por exemplo, para co
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
 ```
 
-Você pode inspecionar um som para determinar seu formato de dados abrindo-o no QuickTime Player e escolhendo **Mostrar Inspetor de Filme** no menu **Filme**.
+Você pode inspecionar um som para determinar seu formato de dados abrindo-o no QuickTime Player e escolhendo **Show Movie Inspector** no menu **Movie**.
 
 Os sons personalizados devem ter menos de 30 segundos quando reproduzidos. Se um som personalizado estiver acima desse limite, o som padrão do sistema será reproduzido.
 
-## Etapa 2: Fornecimento ao dashboard de um URL de protocolo para o som
+## Etapa 2: Fornecimento ao dashboard de uma URL de protocolo para o som {#step-2-providing-the-dashboard-with-a-protocol-url-for-the-sound}
 
-Seu som deve ser hospedado localmente no app. Você deve especificar um URL de protocolo que direcione para o local do arquivo de som no app dentro do campo **Sound (Som** ) no criador do push. Especificar "padrão" neste campo reproduzirá o som de notificação padrão no dispositivo. Isso pode ser especificado por meio de nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/) ou de nosso dashboard em **Configurações** no criador de push, conforme ilustrado na captura de tela a seguir:
+Seu som deve ser hospedado localmente no app. Você deve especificar uma URL de protocolo que direcione para o local do arquivo de som no app dentro do campo **Sound** no criador de push. Especificar "default" neste campo reproduzirá o som de notificação padrão no dispositivo. Isso pode ser especificado por meio da nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) ou do nosso dashboard em **Configurações** no criador de push, conforme ilustrado na captura de tela a seguir:
 
-![]({% image_buster /assets/img_archive/sound_push_ios.png %})
+![Seu som deve ser hospedado localmente no app. Você deve especificar uma URL de protocolo que direcione para o local do arquivo de som no app dentro do campo Sound no criador de push. Especificar "default" neste campo reproduzirá o som de notificação padrão no dispositivo. Isso pode ser especificado por meio da API de envio de mensagens ou do dashboard em Configurações no criador de push, conforme ilustrado na captura de tela a seguir.]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Se o arquivo de som especificado não existir ou se a palavra-chave “default” for inserida, a Braze usará o som de alerta padrão do dispositivo. Além de nosso dashboard, o som também pode ser configurado por meio de nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/). Consulte a documentação para desenvolvedores da Apple sobre a [preparação de sons de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para obter informações adicionais.
-
+Se o arquivo de som especificado não existir ou se a palavra-chave "default" for inserida, a Braze usará o som de alerta padrão do dispositivo. Além do nosso dashboard, o som também pode ser configurado por meio da nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging). Consulte a documentação para desenvolvedores da Apple sobre a [preparação de sons de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para obter informações adicionais.

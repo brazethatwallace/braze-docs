@@ -26,19 +26,19 @@ L'intégration entre Braze et Inkit vous permet de générer des documents et de
 | Clé API Inkit<br><br>`<INKIT_API_TOKEN>` | Cette clé se trouve sur votre [tableau de bord Inkit](https://app.inkit.io/#/account/integrations) sous l'onglet **Development** et vous permettra de connecter vos comptes Braze et Inkit. |
 | ID du modèle Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Après avoir créé un modèle, vous pouvez copier l'ID du modèle à partir de l'onglet **Templates** pour l'utiliser dans votre modèle dans Braze.<br><br>Par exemple, vous pouvez créer un modèle appelé `invoice_template` dans l'environnement Inkit avec l'ID de modèle : `tmpl_3bDScFl9cwr3OAVR1RSdEC`.
 | En-tête HTTP | L'en-tête HTTP fait partie de la requête API que vous envoyez de Braze à Inkit. Vous devez y inclure votre clé API Inkit pour authentifier et autoriser les appels à l'API Inkit. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
 ### Étape 1 : Créer un modèle Inkit {#step-1-create-an-inkit-template}
 
-Sur la plateforme Inkit, créez un modèle à utiliser dans votre Campaign Braze en HTML, Word, PowerPoint, Excel ou PDF. Consultez la [documentation d'Inkit](https://docs.inkit.com/docs/create-a-template) pour en savoir plus.
+Sur la plateforme Inkit, créez un modèle à utiliser dans votre campagne Braze en HTML, Word, PowerPoint, Excel ou PDF. Consultez la [documentation d'Inkit](https://docs.inkit.com/docs/create-a-template) pour en savoir plus.
 
 ### Étape 2 : Créer votre modèle de webhook Braze {#step-2-create-your-braze-webhook-template}
 
-Pour créer un modèle de webhook Inkit à utiliser dans de futures Campaigns ou Canvas, accédez à **Modèles** > **Modèles de webhook** dans la plateforme Braze.
+Pour créer un modèle de webhook Inkit à utiliser dans de futures campagnes ou Canvas, accédez à **Contenu** > **Webhook** dans la plateforme Braze. Sélectionnez ensuite **Créer un modèle de webhook**.
 
-Si vous souhaitez créer une Campaign webhook Inkit unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle Campaign.
+Si vous souhaitez créer une campagne webhook Inkit unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
 
 ![Une sélection de modèles de webhook prédéfinis disponibles dans l'onglet Modèles de webhook de la section Modèles et médias.]({% image_buster /assets/img/inkit-webhook-template.png %})
 
@@ -63,7 +63,7 @@ Inkit a besoin d'un `HTTP Header` pour l'autorisation, incluant votre clé API I
 
 #### Corps de la requête {#request-body}
 
-Veillez à ce que votre Liquid corresponde aux attributs personnalisés appropriés associés aux champs obligatoires et facultatifs suivants. Vous pouvez également ajouter des champs de données personnalisés à toute requête.
+Veillez à ce que votre Liquid corresponde aux attributs personnalisés appropriés associés aux champs requis et facultatifs suivants. Vous pouvez également ajouter des champs de données personnalisés à toute requête.
 
 ```json
 {% raw %}{
@@ -91,5 +91,5 @@ Votre texte brut sera automatiquement mis en évidence s'il s'agit d'une balise 
 Prévisualisez votre requête dans le panneau **Preview** ou accédez à l'onglet **Test**, où vous pouvez sélectionner un utilisateur aléatoire, un utilisateur existant ou personnaliser le vôtre pour tester votre webhook.
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

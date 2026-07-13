@@ -1,35 +1,33 @@
 ---
 nav_title: Android向けライブ更新
 article_title: Android Braze SDKのライブ更新
-page_order: 0.1
-description: "Android Braze SDK の Live 更新の設定方法を学びます。"
-platform: 
-  - Android
-  - FireOS
-hidden: true
+layout: redirect
+redirect_to: /docs/developer_guide/live_notifications/
+noindex: true
 ---
 
-# Android用ライブ更新
+<!--
+# Android向けライブ更新 {#live-updates-for-android}
 
-> Braze SDK で Android Live 更新 ([Progress Centric Notifications とも言います](https://developer.android.com/about/versions/16/features/progress-centric-notifications)) を使用する方法について説明します。これらの通知は、[Swift Braze SDK のライブアクティビティ]({{site.baseurl}}/developer_guide/live_notifications/live_activities)に似ており、インタラクティブなロック画面通知を表示できます。Android 16 では、進行状況を中心とした通知が導入され、ユーザーが開始した最初から最後までのジャーニーをシームレスに追跡できます。
+> Braze SDKでAndroidライブ更新（[Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications)とも呼ばれます）を使用する方法について説明します。これらの通知は[Swift Braze SDKのライブアクティビティ]({{site.baseurl}}/developer_guide/live_notifications/live_activities)に似ており、インタラクティブなロック画面通知を表示できます。Android 16では進行状況を中心とした通知が導入され、ユーザーが開始した最初から最後までのジャーニーをシームレスに追跡できるようになります。
 
-## 仕組み
+## 仕組み {#how-it-works}
 
-[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) インターフェイスを使用して、Braze プッシュ通知の表示方法をカスタマイズできます。`BrazeNotificationFactory` を拡張することで、通知がユーザーに表示される前に Braze はファクトリーの`createNotification()` メソッドを呼び出します。その後、Braze ダッシュボードまたは REST API を通じて送信されたカスタムのキーと値のペアを含むペイロードを渡します。
+[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)インターフェイスを使用して、Brazeプッシュ通知の表示方法をカスタマイズできます。`BrazeNotificationFactory`を拡張することで、通知がユーザーに表示される前にBrazeはファクトリーの`createNotification()`メソッドを呼び出します。その後、BrazeダッシュボードまたはREST APIを通じて送信されたカスタムのキーと値のペアを含むペイロードを渡します。
 
-## ライブ更新を表示する
+## ライブ更新を表示する {#displaying-a-live-update}
 
-このセクションでは、野生動物救助チームが誰が一番多くのフクロウを救えるかを競う新しいゲーム番組の司会者、スーパーブクロウとパートナーを組むことになる。Android アプリで Live 更新を活用して、進行中の一致のステータスを表示し、リアルタイムで通知をダイナミックに更新できるようにしようとしています。
+このセクションでは、野生動物救助チームが誰が一番多くのフクロウを救えるかを競う新しいゲーム番組のホスト、Superb Owlとパートナーを組みます。彼らはAndroidアプリでライブ更新を活用して、進行中の試合のステータスを表示し、リアルタイムで通知をダイナミックに更新しようとしています。
 
 ![Androidからのライブ更新の例]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 
 #{% multi_lang_include developer_guide/prerequisites/android.md %}
 
-### ステップ 1: カスタム通知ファクトリーを作成する
+### ステップ1: カスタム通知ファクトリーを作成する {#step-1-create-a-custom-notification-factory}
 
-アプリケーションで、[`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) を拡張して Braze Live 更新の表示方法を処理する、`MyCustomNotificationFactory.kt` という名前の新しいファイルを作成します。
+アプリケーションで、[`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を拡張してBrazeライブ更新の表示方法を処理する、`MyCustomNotificationFactory.kt`という名前の新しいファイルを作成します。
 
-次の例では、Superb Owl は、進行中の一致の Live 更新を表示するカスタム通知ファクトリを作成しました。次のステップでは、`getTeamInfo` という新しいメソッドを作成し、チームのデータをアクティビティにマッピングする。
+次の例では、Superb Owlは進行中の試合のライブ更新を表示するカスタム通知ファクトリーを作成しました。次のステップでは、`getTeamInfo`という新しいメソッドを作成し、チームのデータをアクティビティにマッピングします。
 
 ```kotlin
 class MyCustomNotificationFactory : IBrazeNotificationFactory {
@@ -69,11 +67,11 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 }
 ```
 
-### ステップ2: 顧客データをマップする
+### ステップ2: カスタムデータをマッピングする {#step-2-map-custom-data}
 
-`MyCustomNotificationFactory.kt` で、ライブ更新が表示されたときにデータを処理するための新しいメソッドを作成する。
+`MyCustomNotificationFactory.kt`で、ライブ更新が表示されたときにデータを処理するための新しいメソッドを作成します。
 
-Superb Owlは、各チームの名前とロゴを拡大されたライブ更新に対応させるために、以下の方法を作成した：
+Superb Owlは、各チームの名前とロゴを拡張されたライブ更新にマッピングするために、以下のメソッドを作成しました。
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -93,9 +91,9 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 }
 ```
 
-### ステップ 3:カスタム通知ファクトリーを設定する
+### ステップ3: カスタム通知ファクトリーを設定する {#step-3-set-the-custom-notification-factory}
 
-アプリケーションクラスで [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?) を使用して、カスタム通知ファクトリを設定します。
+アプリケーションクラスで[`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)を使用して、カスタム通知ファクトリーを設定します。
 
 ```kotlin
 class MyApplication : Application() {
@@ -108,13 +106,13 @@ class MyApplication : Application() {
 }
 ```
 
-### ステップ4:アクティビティを送信する
+### ステップ4: アクティビティを送信する {#step-4-send-the-activity}
 
-あなたは [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)REST APIエンドポイントを使用して、ユーザーのAndroidデバイスにプッシュ通知を送信できる。
+[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST APIエンドポイントを使用して、ユーザーのAndroidデバイスにプッシュ通知を送信できます。
 
-#### curlコマンドの例
+#### curlコマンドの例 {#example-curl-command}
 
-Superb Owl は以下の curl コマンドを使ってリクエストを送信しました。
+Superb Owlは以下のcurlコマンドを使ってリクエストを送信しました。
 
 ```
 curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
@@ -142,22 +140,23 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-curl コマンドはテストに役立ちますが、既に [iOS Live アクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをおすすめします。
+curlコマンドはテストに役立ちますが、すでに[iOSライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをおすすめします。
 {% endalert %}
 
-#### リクエストパラメーター
+#### リクエストパラメーター {#request-parameters}
 
-| キー                          | 説明 |
+| キー | 説明 |
 |------------------------------|------------|
-| `REST_API_KEY`               | `messages.send` 権限を持つ Braze REST API キー。<br><br> これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
-| `BRAZE_REST_ENDPOINT`         | RESTエンドポイントのURL。エンドポイントはインスタンスの [Braze URL]({{site.baseurl}}/api/basics/#endpoints) に応じて異なります。 |
-| `USER_ID`                    | 通知を送信するユーザーのID。 |
-| `messages.android_push.title` | メッセージのタイトル。デフォルトでは、これはカスタム通知ファクトリのライブ通知には使用されませんが、フォールバックとして使用できます。 |
-| `messages.android_push.alert` | メッセージの本文。デフォルトでは、これはカスタム通知ファクトリのライブ通知には使用されませんが、フォールバックとして使用できます。 |
-| `messages.extra`             | カスタム通知ファクトリがライブ通知に使用するキーと値のペア。この値には任意の文字列を割り当てることができます。ただし、上記の例では、`live_updates` を使用して、デフォルトのプッシュ通知かライブプッシュ通知かを判断します。 |
-| `ASSIGNED_NOTIFICATION_ID`   | 選択したユーザーのライブ通知に割り当てたい通知ID。ID はこのゲームに対して一意である必要があり、後で[既存の通知を更新する](#android_step-4-update-data-with-the-braze-rest-api)ために使用する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `REST_API_KEY` | `messages.send`権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| `BRAZE_REST_ENDPOINT` | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics#endpoints)に応じて異なります。 |
+| `USER_ID` | 通知を送信するユーザーのID。 |
+| `messages.android_push.title` | メッセージのタイトル。デフォルトでは、これはカスタム通知ファクトリーのライブ通知には使用されませんが、フォールバックとして使用できます。 |
+| `messages.android_push.alert` | メッセージの本文。デフォルトでは、これはカスタム通知ファクトリーのライブ通知には使用されませんが、フォールバックとして使用できます。 |
+| `messages.extra` | カスタム通知ファクトリーがライブ通知に使用するキーと値のペア。この値には任意の文字列を割り当てることができます&#8212;ただし、[curlコマンドの例](#example-curl-command)では、`live_updates`を使用して、デフォルトのプッシュ通知かライブプッシュ通知かを判断しています。 |
+| `ASSIGNED_NOTIFICATION_ID` | 選択したユーザーのライブ通知に割り当てる通知ID。IDはこのゲームに対してユニークである必要があり、後で[既存の通知を更新する](#android_step-4-update-data-with-the-braze-rest-api)ために使用する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストパラメーター" }
 
-### ステップ 5: アクティビティを更新する
+### ステップ5: アクティビティを更新する {#step-5-update-the-activity}
 
-既存のライブアップデートを新しいデータで更新するには、`messages.extra` に割り当てられた関連するキーと値のペアを修正し、同じ`notification_id` を使用し、`/messages/send` エンドポイントを再度呼び出す。
+既存のライブ更新を新しいデータで更新するには、`messages.extra`に割り当てられた関連するキーと値のペアを修正し、同じ`notification_id`を使用して`/messages/send`エンドポイントを再度呼び出します。
+-->

@@ -3,7 +3,7 @@
   margin-bottom: 30px;
   font-size: 16px;
   @media (min-width: $window-large-px) {
-    margin-top:30px;
+    margin-top: 0;
   }
   @media (min-width: $window-xlarge-px) {
     max-width: $main_max_width;
@@ -35,10 +35,7 @@
   h1 {
     color: $black-shark;
     font-family: $braze-bold;
-    margin-top: 40px;
-  }
-  #breadcrumb {
-    margin-top: 0px;
+    margin-top: 10px;
   }
 
   .flex {
@@ -66,31 +63,14 @@
   }
 
   #api_filter {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     margin-bottom: 15px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex: 1 0 100%;
-    @media (min-width: $window-medium-px) {
-    }
     @media (min-width: $window-large-px) {
-      margin-bottom: 30px;
-    }
-    #api_filter_list {
-      margin-top: 15px;
-      flex: 1 0 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      margin-bottom: 24px;
     }
     #api_search {
-      flex: 1 0 100%;
+      display: block;
       width: 100%;
-      padding: 5px 14px 5px 30px;
+      padding: 14px 14px 14px 30px;
       font-size: 14px;
       line-height: 1.15;
       margin: 0;
@@ -98,24 +78,74 @@
       outline-offset: -2px;
       touch-action: manipulation;
       background-image: url(#{$base_url}/assets/img/search_black_shark.svg);
-      background-position: left 10px top 5px;
+      background-position: left 10px top 14px;
       background-size: 14px 14px;
       background-repeat: no-repeat;
       background-color: transparent;
+      border-radius: 6px;
+      border: 2px solid black;
     }
-    #api_filter_title {
+  }
+
+  // Preamble section (collapsible overview): visible/hidden state
+  #glossary-preamble {
+    margin-bottom: 24px;
+    &.glossary-preamble--hidden {
+      display: none;
+    }
+    // The details_title divs are sticky-header anchor offsets. Inside the
+    // preamble they stack above the search input with negative margins,
+    // making the input unclickable. Suppress them — preamble collapsibles
+    // don't need deep-link anchor targets.
+    .details_title {
+      display: none;
+    }
+    // The preamble lives inside #api-main, outside of #article-main, so it
+    // doesn't inherit the braze-link mixin applied to article body links.
+    // Apply it explicitly so links here match the rest of the docs site.
+    a {
+      @include braze-link;
+    }
+  }
+
+  #api_list {
+    > .api-glossary-preamble {
+      flex: 0 0 100%;
       width: 100%;
-      flex: 1 0 100%;
-      margin-top: 15px;
+      max-width: 100%;
+      display: block;
     }
-    .api_filter_div {
-      flex: 1 0 50%;
-      @media (min-width: $window-medium-px) {
-        flex: 0 0 33%;
+
+    > .details_title,
+    > details,
+    > .alert {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+
+    .api-glossary-preamble {
+      details {
+        display: block;
+        width: 100%;
+        clear: both;
+        margin-bottom: 8px;
       }
-      @media (min-width: $window-large-px) {
-        flex: 0 0 25%;
+
+      .details_title {
+        display: block;
+        width: 100%;
       }
+    }
+  }
+
+  // Reserve space for lazy tab panes before their content loads so the page
+  // doesn't shift when schemas are fetched. Height is released after load.
+  .ab-tab-pane[data-currents-lazy] {
+    min-height: 420px;
+    &[data-currents-loaded="true"] {
+      min-height: 0;
     }
   }
 
@@ -134,6 +164,7 @@
     .api_tags {
       display: none;
     }
+
     .api_type {
       background-color: #ebebeb;
       border-radius: 10px;
@@ -171,15 +202,15 @@
         padding: 4px 15px;
         display: inline-block;
         float: right;
-        background-color: #f7918e;
+        background-color: #b04040; // #f7918e → darkened for 5.7:1 with white text
         a {
           text-decoration: none;
           border-bottom-width: 0;
           color: #ffffff;
           &:hover {
-            text-decoration: none;
+            text-decoration: underline;
             background-color: transparent;
-            color: #000000;
+            color: #ffffff; // keep white for 5.7:1 on #b04040 background
           }
         }
         margin-left: 15px;
@@ -291,7 +322,113 @@
   #results_msg {
     color: $black-shark;
     font-size: 14px;
-    display: none;
   }
 
+  #results_count {
+    color: $black-shark;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .api-sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+}
+
+// Hidden overflow filter items — scoped outside #api-main because filters live in #toc_col
+.filter-overflow--hidden {
+  display: none;
+}
+
+// Sidebar filter panel (lives in #toc_col for this layout)
+#glossary-filter-sidebar {
+  padding-top: 8px;
+
+  #api_filter_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .api_filter_group {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    legend {
+      font-family: $braze-bold;
+      font-size: 13px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      padding: 0;
+      width: 100%;
+      color: $black-shark;
+    }
+  }
+
+  .api_filter_group_list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .api_filter_div {
+    label {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 13px;
+      line-height: 1.4;
+      cursor: pointer;
+      color: $black-shark;
+      input[type="checkbox"] {
+        flex-shrink: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+#glossary-filter-toggle {
+  display: block;
+  margin-top: 16px;
+  background: none;
+  border: none;
+  padding: 0 0 32px;
+  font-size: 13px;
+  font-family: $braze-bold;
+  color: $braze-link-color;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: darken($braze-link-color, 12%);
+  }
+
+  &[aria-expanded="true"] {
+    .show-more-text { display: none; }
+    .show-less-text { display: inline; }
+  }
+  &[aria-expanded="false"] {
+    .show-more-text { display: inline; }
+    .show-less-text { display: none; }
+  }
+}
+
+// Align the TOC "On this page..." header with the breadcrumb on report_metrics pages.
+// The breadcrumb sits at padding-top(#api-main) 15px + margin-top(#breadcrumb) 40px = 55px
+// from the row top. The TOC content sits at padding-top(#toc) 8px. The 47px here closes
+// that gap so both land at the same offset.
+@media (min-width: $window-medium-px) {
+  #main_content:has(#api-main) + #toc_col {
+    padding-top: 47px;
+  }
 }

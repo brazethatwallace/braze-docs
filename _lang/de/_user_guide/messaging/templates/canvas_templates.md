@@ -22,58 +22,52 @@ Gehen Sie im Braze-Dashboard zu **Messaging** > **Canvas** und wählen Sie ein b
 
 ### 2. Schritt: Erstellen Sie Ihr Template {#step-2-create-your-template}
 
-Wählen Sie im Canvas-Editor **Edit Canvas** oder **Edit draft**, je nachdem, ob Ihr Canvas aktiv ist oder sich im Entwurf befindet. Erweitern Sie das Dropdown **Save as draft** in der Fußzeile und wählen Sie **Save as template**.
-
-![]({% image_buster /assets/img/save_canvas_as_template.png %})
+Wählen Sie im Canvas-Editor **Canvas bearbeiten** oder **Entwurf bearbeiten**, je nachdem, ob Ihr Canvas aktiv ist oder sich im Entwurf befindet. Erweitern Sie das Dropdown **Als Entwurf speichern** in der Fußzeile und wählen Sie **Als Template speichern**.
 
 ### 3. Schritt: Speichern Sie Ihr Template {#step-3-save-your-template}
 
-Geben Sie Ihrem Template als Nächstes einen Namen und fügen Sie relevante Tags hinzu. Wählen Sie dann **Save**. Ihr Template ist jetzt einsatzbereit, um ein Canvas zu erstellen, und gibt Ihnen einen Vorsprung, da die grundlegenden Einstellungen und Schritte bereits vorhanden sind.
+Geben Sie Ihrem Template als Nächstes einen Namen und fügen Sie relevante Tags hinzu. Wählen Sie dann **Speichern**. Ihr Template ist jetzt einsatzbereit, um ein Canvas zu erstellen, und gibt Ihnen einen Vorsprung, da die grundlegenden Einstellungen und Schritte bereits vorhanden sind.
 
 ## Methode 2: Über den Canvas-Template-Editor erstellen {#method-2-create-via-canvas-template-editor}
 
 ### 1. Schritt: Gehen Sie zum Canvas-Template-Editor {#step-1-go-to-the-canvas-template-editor}
 
-Gehen Sie im Braze-Dashboard zu **Templates** > **Canvas Templates**.
-
-{% alert note %}
-Wenn Sie die ältere Navigation verwenden, finden Sie diese Seite unter **Engagement** > **Templates & Media** > **Canvas Templates**.
-{% endalert %}
+Gehen Sie im Braze-Dashboard zu **Inhalt** > **Canvas**.
 
 ### 2. Schritt: Erstellen Sie ein neues Template {#step-2-create-a-new-template}
 
-Wählen Sie **Create template** und beginnen Sie mit der Einrichtung Ihrer Canvas-Details. Sie können damit beginnen, Ihrem Canvas-Template einen Namen zu geben.
+Wählen Sie **Template erstellen** und beginnen Sie mit der Einrichtung Ihrer Canvas-Details. Sie können damit beginnen, Ihrem Canvas-Template einen Namen zu geben.
 
 ![Ein Beispiel für ein Canvas-Template mit dem Namen „Annual sale Canvas template“ und der Beschreibung „Use for annual spring promotion“.]({% image_buster /assets/img/canvas_template_example.png %})
 
 ### 3. Schritt: Passen Sie Ihr Template an {#step-3-customize-your-template}
 
-Passen Sie als Nächstes Ihr Template an, indem Sie [Ihr Canvas einrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas). Sie können entscheiden, wann Nutzer:innen das Canvas betreten sollen, festlegen, welche Nutzer:innen dieses Canvas betreten können, Ihre Sendeeinstellungen anpassen und die User-Journey für das Template erstellen.
+Passen Sie als Nächstes Ihr Template an, indem Sie [Ihr Canvas einrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas). Sie können entscheiden, wann Nutzer:innen das Canvas betreten sollen, festlegen, welche Nutzer:innen dieses Canvas betreten können, Ihre Sendeeinstellungen anpassen und die User-Journey für das Template erstellen.
 
 ### 4. Schritt: Speichern Sie Ihr Template {#step-4-save-your-template}
 
-Nachdem Sie Ihr Template fertig angepasst haben, wählen Sie den Button **Save template**. Auf der Seite **Canvas template** können Sie die Details Ihres Canvas-Templates anzeigen, indem Sie <i class="fas fa-list"></i> **Template details** auswählen.
+Nachdem Sie Ihr Template fertig angepasst haben, wählen Sie den Button **Template speichern**. Auf der Seite **Canvas-Template** können Sie die Details Ihres Canvas-Templates anzeigen, indem Sie <i class="fas fa-list"></i> **Template-Details** auswählen.
 
 ## Canvas-Templates verwenden {#using-canvas-templates}
 
 Es gibt zwei Möglichkeiten, Ihr Template beim Erstellen eines Canvas zu verwenden:
 
-- **Über Messaging**: Gehen Sie zu **Messaging** > **Canvas**. Wählen Sie den Button **Create Canvas** und dann **Use a Canvas Template**.
-- **Über Templates**: Gehen Sie zu **Templates** > **Canvas Templates** und suchen Sie Ihr gewünschtes Template. Wählen Sie dann das Menü <i class="fas fa-ellipsis-vertical"></i> und anschließend **Apply template**. Dadurch gelangen Sie zu einem neuen Canvas, bei dem das Template im Canvas-Composer angewendet wurde.
+- **Über Messaging**: Gehen Sie zu **Messaging** > **Canvas**. Wählen Sie den Button **Canvas erstellen** und dann **Canvas-Template verwenden**.
+- **Über Inhalt**: Gehen Sie zu **Inhalt** > **Canvas** und suchen Sie Ihr gewünschtes Template unter **Canvas-Templates**. Wählen Sie dann das Menü <i class="fas fa-ellipsis-vertical"></i> und anschließend **Template anwenden**. Dadurch gelangen Sie zu einem neuen Canvas, bei dem das Template im Canvas-Composer angewendet wurde.
 
 ### Verfügbare Braze-Templates {#available-braze-templates}
 
-Eine Liste der verfügbaren Canvas-Templates finden Sie unter [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Details zur Verwendung von E-Commerce-Canvas-Templates finden Sie unter [So verwenden Sie empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_use_cases/).
+Eine Liste der verfügbaren Canvas-Templates finden Sie unter [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates). Details zur Verwendung von E-Commerce-Canvas-Templates finden Sie unter [So verwenden Sie empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Canvas-Templates verwalten {#managing-canvas-templates}
 
-Canvas-Templates können dupliziert und archiviert werden, ähnlich wie ein tatsächliches Canvas. Um ein Canvas-Template zu bearbeiten, wählen Sie das Template und dann **<i class="fas fa-pencil-alt"></i>Edit**.
+Canvas-Templates können dupliziert und archiviert werden, ähnlich wie ein tatsächliches Canvas. Um ein Canvas-Template zu bearbeiten, wählen Sie das Template und dann **<i class="fas fa-pencil-alt"></i>Bearbeiten**.
 
 Auf Workspace-Ebene können Sie Berechtigungen für Nutzer:innen aktualisieren, um den Zugriff zum Erstellen, Bearbeiten, Anzeigen oder Archivieren von Canvas-Templates zu erlauben oder einzuschränken.
 
 ### Berechtigungen für Teams und Workspaces {#permissions-for-teams-and-workspaces}
 
-Um nur bestimmten Nutzer:innen den Zugriff auf und die Verwendung bestimmter Canvas-Templates zu ermöglichen, [fügen Sie ein Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) zu den Templates hinzu und weisen Sie dann die Team-Berechtigung „Zugriff auf Campaigns, Canvases, Content Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentrum“ zu.
+Um nur bestimmten Nutzer:innen den Zugriff auf und die Verwendung bestimmter Canvas-Templates zu ermöglichen, [fügen Sie ein Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu den Templates hinzu und weisen Sie dann die Team-Berechtigung „Zugriff auf Campaigns, Canvases, Content Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentrum“ zu.
 
 Wenn Sie eine der folgenden Berechtigungen auf Team-Ebene, aber nicht auf Workspace-Ebene zuweisen, können Sie nur Folgendes tun, das Ihrem Team zugewiesen ist:
 
@@ -87,8 +81,8 @@ Wenn Berechtigungen sowohl auf Workspace- als auch auf Team-Ebene gewährt werde
 
 ### Kann ich einen unvollständigen Schritt in einem Canvas-Template speichern? {#can-i-save-an-incomplete-step-in-a-canvas-template}
 
-Ja, Sie können unvollständige Schritte als Canvas-Template speichern. Wenn das Template jedoch verwendet wird, erscheint ein Fehler auf dem Button **Save template**, der angibt, was zum Starten des Canvas benötigt wird.
+Ja, Sie können unvollständige Schritte als Canvas-Template speichern. Wenn das Template jedoch verwendet wird, erscheint ein Fehler auf dem Button **Template speichern**, der angibt, was zum Starten des Canvas benötigt wird.
 
 ### Kann ich meine Canvas-Builder-Einstellungen als Template speichern, oder kann ich nur Schritte speichern? {#can-i-save-my-canvas-builder-settings-as-a-template-or-can-i-only-save-steps}
 
-Ja, Sie können Einstellungen im Canvas-Builder innerhalb eines Canvas-Templates speichern. Wenn Sie beispielsweise häufig eine Kombination aus Segmenten und Filtern verwenden möchten, können Sie diese **Target Audience**-Einstellungen als Teil Ihres Canvas-Templates speichern.
+Ja, Sie können Einstellungen im Canvas-Builder innerhalb eines Canvas-Templates speichern. Wenn Sie beispielsweise häufig eine Kombination aus Segmenten und Filtern verwenden möchten, können Sie diese **Zielgruppe**-Einstellungen als Teil Ihres Canvas-Templates speichern.

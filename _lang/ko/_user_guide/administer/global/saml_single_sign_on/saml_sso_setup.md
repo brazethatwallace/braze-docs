@@ -4,13 +4,13 @@ article_title: SAML SSO 설정
 page_order: 0
 page_type: tutorial
 toc_headers: h2
-description: "이 문서에서는 Braze 계정에 SAML 싱글 사인온을 활성화하는 방법을 안내합니다."
+description: "이 문서에서는 Braze 계정에 SAML SSO를 활성화하는 방법을 안내합니다."
 
 ---
 
 # 서비스 공급자(SP) 시작 로그인 {#service-provider-sp-initiated-login}
 
-> 이 문서에서는 Braze 계정에 SAML 싱글 사인온을 활성화하는 방법과 SAML 트레이스를 얻는 방법을 안내합니다.
+> 이 문서에서는 Braze 계정에 SAML SSO를 활성화하는 방법과 SAML 트레이스를 얻는 방법을 안내합니다.
 
 ## 요구 사항 {#requirements}
 
@@ -21,7 +21,7 @@ description: "이 문서에서는 Braze 계정에 SAML 싱글 사인온을 활�
 | Assertion Consumer Service(ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> 유럽 연합 도메인의 경우 ACS URL은 `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`입니다. <br><br> 일부 IdP에서는 이를 Reply URL, Sign-On URL, Audience URL 또는 Audience URI라고도 합니다. |
 | Entity ID | `braze_dashboard` |
 | RelayState API 키 | **설정** > **API 키**로 이동하여 `sso.saml.login` 권한이 있는 API 키를 생성한 다음, 생성된 API 키를 IdP 내에서 `RelayState` 매개변수로 입력합니다. 자세한 단계는 [RelayState 설정하기](#setting-up-your-relaystate)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ## SAML SSO 설정하기 {#setting-up-saml-sso}
 
@@ -35,9 +35,10 @@ Okta를 ID 공급자로 사용할 계획이라면 [Okta 사이트](https://www.o
 
 | SAML 속성 | 필수 여부 | 허용되는 SAML 속성 |
 |---|---|---|
-|`email` | 필수 | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
+| `email` | 필수 | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | 선택 사항 | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | 선택 사항 | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1단계: ID 공급자 구성" }
 
 {% alert note %}
 Braze는 SAML Assertion에서 `email`만 필수로 요구합니다.
@@ -56,7 +57,7 @@ ID 공급자에서 Braze 설정을 완료하면 ID 공급자가 Braze 계정에 
 | SAML 이름 | 로그인 화면에서 버튼 텍스트로 표시됩니다.<br>일반적으로 "Okta"와 같은 ID 공급자의 이름입니다. |
 | 타겟 URL | IdP 내에서 Braze를 설정한 후 제공됩니다.<br> 일부 IdP에서는 이를 SSO URL 또는 SAML 2.0 엔드포인트라고 합니다. |
 | 인증서 | ID 공급자가 제공하는 `x.509` 인증서입니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: Braze 구성" }
 
 대시보드에 `x.509` 인증서를 추가할 때 다음 형식을 따르는지 확인하세요:
 
@@ -72,14 +73,12 @@ ID 공급자에서 Braze 설정을 완료하면 ID 공급자가 Braze 계정에 
 
 보안 설정을 저장하고 로그아웃합니다. 그런 다음 ID 공급자를 사용하여 다시 로그인합니다.
 
-![SSO가 활성화된 대시보드 로그인 화면]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## RelayState 설정하기 {#setting-up-your-relaystate}
 
-1. Braze에서 **설정** > **API 키**로 이동합니다.
+1. Braze에서 **설정** > **API 및 식별자**로 이동합니다.
 2. **API 키** 탭에서 **API 키 생성** 버튼을 선택합니다.
 3. **API 키 이름** 필드에 키 이름을 입력합니다.
-4. **권한** 아래의 **SSO** 드롭다운을 확장하고 **sso.saml.login**을 체크합니다.<br><br>![sso.saml.login이 체크된 "권한" 섹션.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. **권한** 아래의 **SSO** 드롭다운을 확장하고 **sso.saml.login**을 체크합니다.
 5. **API 키 생성**을 선택합니다.
 6. **API 키** 탭에서 생성한 API 키 옆의 식별자를 복사합니다.
 7. RelayState API 키를 IdP의 RelayState에 붙여넣습니다(IdP에 따라 "Relay State" 또는 "Default Relay State"로 표시될 수 있습니다).
@@ -90,11 +89,15 @@ SSO를 사용하기로 선택한 멤버는 더 이상 이전처럼 비밀번호�
 
 ## 제한 {#restriction}
 
-조직의 멤버가 Google SSO 또는 SAML SSO로만 로그인하도록 제한할 수 있습니다. 제한을 활성화하려면 **보안 설정**으로 이동하여 **Google SSO 전용 로그인 적용** 또는 **커스텀 SAML SSO 전용 로그인 적용**을 선택합니다.
+조직의 멤버가 Google SSO 또는 SAML SSO로만 로그인하도록 제한할 수 있습니다. 제한을 활성화하려면 **보안 설정**으로 이동하여 **Enforce Google SSO only login** 또는 **Enforce custom SAML SSO only login**을 선택합니다.
 
 ![최소 비밀번호 길이 8자, 비밀번호 재사용 3회로 설정된 "인증 규칙" 섹션의 예시. 비밀번호는 180일 후 만료되며, 사용자는 1,440분 비활성 후 로그아웃됩니다.]({% image_buster /assets/img/sso3.png %})
 
 제한을 활성화하면 회사의 Braze 사용자는 이전에 비밀번호로 로그인한 적이 있더라도 더 이상 비밀번호를 사용하여 로그인할 수 없습니다.
+
+{% alert important %}
+SSO가 적용된 후에는 SSO 인증이 실패할 경우 대체 로그인 옵션이 없습니다. SSO 적용을 활성화하기 전에 SSO 구성이 올바른지, 모든 인증서가 최신 상태이고 갱신되었는지, 보안 설정이 적절히 관리되고 있는지 확인하여 로그인 문제를 방지하세요.
+{% endalert %}
 
 ## SAML 트레이스 얻기 {#obtaining-a-saml-trace}
 
@@ -166,9 +169,15 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 
 `ERROR_CODE_SSO_INVALID_RELAY_STATE` 오류가 발생하면 RelayState가 잘못 구성되었거나 존재하지 않을 수 있습니다. 아직 설정하지 않았다면 IdP 관리 시스템에서 RelayState를 설정해야 합니다. 단계는 [RelayState 설정하기](#setting-up-your-relaystate)를 참조하세요.
 
+### SSO 로그인에 성공했는데 Braze 로그인 페이지로 돌아가나요? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+RelayState가 올바르게 구성되지 않은 경우 이 문제가 발생할 수 있습니다. IdP 로그인을 위한 API 키를 생성(**설정** > **API 키**)하고 해당 API 키를 IdP에서 `RelayState` 매개변수로 설정했는지 확인하세요. RelayState는 로그인하려는 회사 계정을 식별합니다. 단계별 지침은 [RelayState 설정하기](#setting-up-your-relaystate)를 참조하세요.
+
+여전히 로그인할 수 없는 경우, 가능하면 SAML 트레이스와 함께 [Braze 고객지원에 문의]({{site.baseurl}}/braze_support)하세요. 트레이스 캡처에 대한 도움말은 [SAML 트레이스 얻기](#obtaining-a-saml-trace)를 참조하세요.
+
 ### 사용자가 Okta와 Braze 사이에서 로그인 루프에 빠져 있나요? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-사용자가 Okta SSO와 Braze 대시보드 사이를 순환하며 로그인할 수 없는 경우, Okta로 이동하여 SSO URL 대상을 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)(예: `https://dashboard-07.braze.com`)로 설정해야 합니다.
+사용자가 Okta SSO와 Braze 대시보드 사이를 순환하며 로그인할 수 없는 경우, Okta로 이동하여 SSO URL 대상을 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)(예: `https://dashboard-07.braze.com`)로 설정해야 합니다.
 
 다른 IdP를 사용하는 경우, 회사에서 올바른 SAML 또는 x.509 인증서를 Braze에 업로드했는지 확인하세요.
 
@@ -176,9 +185,23 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 
 회사에서 IdP의 앱 스토어에서 Braze 앱을 다운로드하지 않은 경우, 사전 구축된 통합을 다운로드해야 합니다. 예를 들어 Okta가 IdP인 경우 [통합 페이지](https://www.okta.com/integrations/braze/)에서 Braze 앱을 다운로드합니다.
 
+## Google SSO
+
+회사에서 커스텀 SAML 대신 Google SSO를 사용하는 경우, Braze 계정 매니저에게 워크스페이스에 대한 Google SSO 활성화를 요청하세요. 활성화된 후 **보안 설정**으로 이동하여 **Enforce Google SSO only login**을 선택하면 모든 회사 사용자에게 Google 인증을 요구할 수 있습니다.
+
+Google SSO 적용이 활성화되면 사용자는 Google 인증으로 로그인해야 하며 더 이상 Braze 비밀번호를 사용할 수 없습니다. 각 사용자는 Braze 대시보드 이메일 주소와 일치하는 Google 계정으로 로그인해야 합니다. 로그인 시 다른 Google 계정을 선택하면 Braze가 인증 시도를 거부합니다.
+
+### Google SSO 로그인 문제 해결 {#troubleshooting-google-sso-sign-in}
+
+일부 사용자가 Google SSO로 로그인할 수 없는 경우 다음을 확인하세요:
+
+- 사용자의 Google 계정 이메일이 Braze 대시보드 이메일 주소와 정확히 일치하는지 확인합니다.
+- 사용자가 회사 이메일 주소에 대한 Google 계정에 접근할 수 있는지 확인합니다.
+- 사용자가 Braze에서 정지되지 않았는지 확인합니다(**설정** > **회사 사용자**).
+
 ## 다음 단계 {#next-steps}
 
 SAML SSO를 설정한 후 다음을 수행할 수 있습니다:
 
-- 보안 설정에서 [SSO 전용 로그인 적용]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction)을 설정하여 사용자가 비밀번호로 로그인하는 것을 제한합니다.
-- [SAML 적시 프로비저닝 설정]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/)을 통해 새 사용자가 첫 SSO 로그인 시 자동으로 Braze 계정을 생성하도록 합니다.
+- 보안 설정에서 [SSO 전용 로그인 적용]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction)을 설정하여 사용자가 비밀번호로 로그인하는 것을 제한합니다.
+- [SAML 적시 프로비저닝 설정]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)을 통해 새 사용자가 첫 SSO 로그인 시 자동으로 Braze 계정을 생성하도록 합니다.

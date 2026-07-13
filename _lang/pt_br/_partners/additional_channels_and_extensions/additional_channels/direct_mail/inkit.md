@@ -20,13 +20,13 @@ A integração entre a Braze e a Inkit permite gerar documentos e enviá-los por
 
 ## Pré-requisitos {#prerequisites}
 
-|Requisito| Descrição|
-| ---| ---|
-|Conta da Inkit | É necessário ter uma [conta Inkit](https://www.inkit.com/) para aproveitar essa parceria. |
-| Chave de API da Inkit<br><br>`<INKIT_API_TOKEN>` | Essa chave pode ser encontrada no [dashboard da Inkit](https://app.inkit.io/#/account/integrations), na guia **Development**, e permitirá a conexão das contas da Braze e da Inkit.|
-| ID de modelo da Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Depois de criar um modelo, você pode copiar o ID do modelo na guia **Templates** para usá-lo em seu modelo na Braze.<br><br>Por exemplo, você pode criar um modelo chamado `invoice_template` no ambiente da Inkit com o ID de modelo: `tmpl_3bDScFl9cwr3OAVR1RSdEC`.
+| Requisito | Descrição |
+| --- | --- |
+| Conta da Inkit | É necessário ter uma [conta Inkit](https://www.inkit.com/) para aproveitar essa parceria. |
+| Chave de API da Inkit<br><br>`<INKIT_API_TOKEN>` | Essa chave pode ser encontrada no [dashboard da Inkit](https://app.inkit.io/#/account/integrations), na guia **Development**, e permitirá a conexão das contas da Braze e da Inkit. |
+| ID de modelo da Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Depois de criar um modelo, você pode copiar o ID do modelo na guia **Templates** para usá-lo em seu modelo na Braze.<br><br>Por exemplo, você pode criar um modelo chamado `invoice_template` no ambiente da Inkit com o ID de modelo: `tmpl_3bDScFl9cwr3OAVR1RSdEC`. |
 | Cabeçalho HTTP | O cabeçalho HTTP faz parte da solicitação de API que você envia da Braze para a Inkit. Nele, você incluirá sua chave de API da Inkit para autenticar e autorizar chamadas para a API da Inkit. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -36,17 +36,17 @@ Na plataforma da Inkit, crie um modelo para ser usado na sua Campaign da Braze e
 
 ### Etapa 2: crie seu modelo de webhook da Braze {#step-2-create-your-braze-webhook-template}
 
-Para criar um modelo de webhook da Inkit a ser usado em futuras Campaigns ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Para criar um modelo de webhook da Inkit a ser usado em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Create webhook template**.
 
 Se você quiser criar uma Campaign única de webhook da Inkit ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 
 ![Uma seleção de modelos de webhook predefinidos disponíveis na guia Modelos de webhook da seção Modelos e mídia.]({% image_buster /assets/img/inkit-webhook-template.png %})
 
 Depois de selecionar o modelo de webhook da Inkit, você verá o seguinte:
-- **URL do webhook**: em branco
-- **Corpo da solicitação**: texto bruto
+- **Webhook URL**: em branco
+- **Request Body**: texto bruto
 
-No campo URL do webhook, [crie](https://docs.inkit.com/docs/set-up-a-webhook-to-an-event) e insira uma URL de webhook da Inkit.
+No campo Webhook URL, [crie](https://docs.inkit.com/docs/set-up-a-webhook-to-an-event) e insira uma URL de webhook da Inkit.
 
 ![Código do corpo da solicitação e URL do webhook exibidos na guia de composição do criador de webhooks da Braze.]({% image_buster /assets/img/inkit-integration.png %})
 
@@ -55,8 +55,8 @@ No campo URL do webhook, [crie](https://docs.inkit.com/docs/set-up-a-webhook-to-
 A Inkit requer um `HTTP Header` para autorização que inclua sua chave de API da Inkit codificada em base 64. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Settings**, você deve substituir o `<INKIT_API_TOKEN>` pela sua chave de API da Inkit.
 
 {% raw %}
-- **Método HTTP**: POST
-- **Cabeçalho da solicitação**:
+- **HTTP Method**: POST
+- **Request Header**:
   - **Authorization**: Basic `{{ '<INKIT_API_TOKEN>' | base64_encode }}`
   - **Content-Type**: application/json
 {% endraw %}

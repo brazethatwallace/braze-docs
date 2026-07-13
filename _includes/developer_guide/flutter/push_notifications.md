@@ -70,13 +70,13 @@ pushEventsStreamSubscription = braze.subscribeToPushNotificationEvents((BrazePus
 pushEventsStreamSubscription.cancel();
 ```
 
-##### Push notification event fields
+#### Push notification event fields
 
 {% alert note %}
 Because of platform limitations on iOS, the Braze SDK can only process push payloads while the app is in the foreground. Listeners will only trigger for the `push_opened` event type on iOS after a user has interacted with a push.
 {% endalert %}
 
-For a full list of push notification fields, refer to the table below:
+For a full list of push notification fields, refer to the following table:
 
 | Field Name         | Type      | Description |
 | ------------------ | --------- | ----------- |
@@ -89,12 +89,12 @@ For a full list of push notification fields, refer to the table below:
 | `badgeCount`      | Number   | Represents the badge count of the notification. |
 | `timestamp`        | Number | Represents the time at which the payload was received by the application. |
 | `isSilent`        | Boolean   | If `true`, the payload is received silently. For details on sending Android silent push notifications, refer to [Silent push notifications on Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). For details on sending iOS silent push notifications, refer to [Silent push notifications on iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `isBrazeInternal`| Boolean   | This will be `true` if a notification payload was sent for an internal SDK feature, such as geofences sync, Feature Flag sync, or uninstall tracking. The payload is received silently for the user. |
+| `isBrazeInternal`| Boolean   | This will be `true` if a notification payload was sent for an internal SDK feature, such as Feature Flag sync or uninstall tracking. The payload is received silently for the user. |
 | `imageUrl`        | String    | Specifies the URL associated with the notification image. |
 | `brazeProperties` | Object    | Represents Braze properties associated with the campaign (key-value pairs). |
 | `ios`              | Object    | Represents iOS-specific fields. |
 | `android`          | Object    | Represents Android-specific fields. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Step 3: Test displaying push notifications
 

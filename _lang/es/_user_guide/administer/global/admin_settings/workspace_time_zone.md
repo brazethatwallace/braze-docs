@@ -21,11 +21,9 @@ Por ejemplo, si la zona horaria de un espacio de trabajo está configurada en PS
 
 ## Administración de las zonas horarias del espacio de trabajo {#manage-workspace-time-zones}
 
-Si eres administrador, puedes acceder y administrar las zonas horarias del espacio de trabajo yendo a **Settings** > **Admin Settings** > **Workspace Time Zones**.
+Si eres administrador, puedes acceder y administrar las zonas horarias del espacio de trabajo yendo a **Configuración** > **Configuración de administrador** > **Zonas horarias del espacio de trabajo**.
 
 Aquí puedes ver una lista de todos tus espacios de trabajo, su zona horaria configurada y la última vez que se editó la zona horaria. Usa la barra de búsqueda para encontrar espacios de trabajo específicos por nombre.
-
-![Página "Zonas horarias del espacio de trabajo" con una lista de espacios de trabajo, sus respectivas zonas horarias y cuándo se editaron por última vez.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
 
 ### Configurar una zona horaria {#setting-a-time-zone}
 
@@ -36,28 +34,27 @@ Las actualizaciones de zona horaria pueden tardar unos minutos en surtir efecto.
 {% tabs %}
 {% tab Espacio de trabajo único %}
 1. Localiza el espacio de trabajo deseado en la lista.
-2. Selecciona el icono **Edit** junto al nombre del espacio de trabajo.
+2. Selecciona el icono **Editar** junto al nombre del espacio de trabajo.
 
-![Botón "Edit" junto al nombre de un espacio de trabajo.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
+![Botón "Editar" junto al nombre de un espacio de trabajo.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
 3. En el menú desplegable, selecciona la zona horaria deseada para ese espacio de trabajo.
-4. Selecciona **Save**.
+4. Selecciona **Guardar**.
 
-![Menú desplegable con la zona horaria GMT seleccionada.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab Múltiples espacios de trabajo %}
 
 Puedes aplicar una zona horaria específica a varios espacios de trabajo a la vez haciendo lo siguiente:
 
 1. Selecciona las casillas junto a todos los espacios de trabajo que deseas actualizar.
-2. Selecciona **Edit time zone**.
+2. Selecciona **Editar zona horaria**.
 3. En el menú desplegable, selecciona una zona horaria para aplicar a todos los espacios de trabajo seleccionados.
 
-![Página "Workspace time zones" con varios espacios de trabajo seleccionados y un botón "Edit time zone".]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+![Página "Zonas horarias del espacio de trabajo" con varios espacios de trabajo seleccionados y un botón "Editar zona horaria".]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
-4. Selecciona **Save**.
+4. Selecciona **Guardar**.
 
 {% endtab %}
 {% endtabs %}
@@ -68,7 +65,7 @@ Puedes aplicar una zona horaria específica a varios espacios de trabajo a la ve
 Informa a los equipos y partes interesadas relevantes dentro de cada espacio de trabajo sobre cualquier cambio de zona horaria para evitar confusiones con los horarios de las campañas.
 {% endalert %}
 
-- **Campañas con hora local e Intelligent Timing:** Las campañas y los Canvas que utilizan la hora local del usuario o [Intelligent Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#option-3-intelligent-timing) para la entrega seguirán funcionando como antes y no se verán afectados por las zonas horarias del espacio de trabajo.
+- **Campañas con hora local e Intelligent Timing:** Las campañas y los Canvas que utilizan la hora local del usuario o [Intelligent Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#option-3-intelligent-timing) para la entrega seguirán funcionando como antes y no se verán afectados por las zonas horarias del espacio de trabajo.
 - **Campañas y Canvas programados:** Cualquier campaña o Canvas programado que no utilice la hora local del usuario ni Intelligent Timing para la entrega ahora se enviará según la zona horaria seleccionada del espacio de trabajo.
 - **Campañas programadas antes de un cambio de zona horaria:** Si programaste una campaña o Canvas antes de cambiar la zona horaria del espacio de trabajo, Braze mantiene la hora de envío original y no la reprograma. Por ejemplo, si una campaña está configurada para enviarse a las 7 p. m. PST y la zona horaria del espacio de trabajo se cambia a EST, la campaña se sigue enviando a las 7 p. m. PST (que ahora corresponde con las 10 p. m. EST). El sistema seguirá haciendo referencia a la hora original, pero la interpretará a través de la nueva zona horaria del espacio de trabajo.
 
@@ -86,10 +83,6 @@ Un espacio de trabajo actualiza su zona horaria de hora del este (EST) a hora de
 - **Nueva hora de corte:** 11:59 p. m. PST (que es las 2:59 a. m. EST del día siguiente)
 
 Tras este cambio, un usuario que realiza el evento personalizado a las 10 p. m. PST del 6 de marzo de 2026 (que es la 1 a. m. EST del 7 de marzo de 2026) ahora se incluye en la audiencia, ya que se encontraba dentro del límite del día calendario en PST para esa fecha.
-
-## Discrepancias en los informes {#reporting-discrepancies}
-
-Las zonas horarias del espacio de trabajo proporcionan un control preciso sobre el envío de campañas, pero debes tener en cuenta las posibles discrepancias en los informes mientras esta característica se encuentra en acceso anticipado. Cruza los puntos de datos y ten en cuenta la zona horaria al analizar los informes de espacios de trabajo con anulaciones de zona horaria específicas.
 
 ## Impacto en los datos de rendimiento {#impact-on-performance-data}
 

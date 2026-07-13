@@ -1,0 +1,179 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------
+# pre-commit: Accessibility checks for Braze Docs
+#
+# Checks staged markdown and HTML include files for WCAG 2.2 AA violations:
+#   - Table accessible names (WCAG 1.3.1)  → auto-fixes high-confidence cases
+#   - Image alt text (WCAG 1.1.1)          → reports; manual fix required
+#   - Non-descriptive link text (2.4.4)    → reports; manual fix required
+#   - Heading hierarchy (2.4.6)            → reports; manual fix required
+#   - Inline iframes without title (4.1.2) → reports; manual fix required
+#
+# Install: run scripts/install_hooks.sh from the repo root.
+# Skip:    SKIP_A11Y=1 git commit
+# ---------------------------------------------------------------------------
+
+set -euo pipefail
+
+# Allow contributors to bypass for emergency commits
+if [[ "${SKIP_A11Y:-0}" == "1" ]]; then
+  echo "⚠️  Accessibility pre-commit hook skipped (SKIP_A11Y=1)"
+  exit 0
+fi
+
+# ---------------------------------------------------------------------------
+# Get staged markdown and HTML include files only
+# ---------------------------------------------------------------------------
+STAGED_FILES=()
+while IFS= read -r f; do
+  STAGED_FILES+=("$f")
+done < <(
+  git diff --cached --name-only --diff-filter=ACMRT \
+    | grep -E '^(_docs/|_includes/).*(\.md|\.html)$' \
+    | grep -v '_lang/' \
+    | grep -v '_docs/_hidden/' \
+    || true
+)
+
+if [[ ${#STAGED_FILES[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+# ---------------------------------------------------------------------------
+# Verify scripts are present
+# ---------------------------------------------------------------------------
+for script in \
+  scripts/check_table_accessibility.py \
+  scripts/check_content_accessibility.py \
+  scripts/apply_a11y_fixes.py; do
+  if [[ ! -f "$script" ]]; then
+    echo "⚠️  $script not found — skipping accessibility check"
+    exit 0
+  fi
+done
+
+echo "🔍 Checking ${#STAGED_FILES[@]} staged file(s) for WCAG 2.2 AA violations..."
+
+SHA=$(git rev-parse --short HEAD 2>/dev/null || echo "pre-commit")
+TABLE_JSON="/tmp/a11y-table-${SHA}-pre-commit.json"
+CONTENT_JSON="/tmp/a11y-content-${SHA}-pre-commit.json"
+OVERALL_EXIT=0
+
+# ---------------------------------------------------------------------------
+# 1. Table accessibility check + auto-fix high-confidence violations
+# ---------------------------------------------------------------------------
+TABLE_EXIT=0
+python3 scripts/check_table_accessibility.py \
+  --json "$TABLE_JSON" \
+  "${STAGED_FILES[@]}" > /dev/null 2>&1 || TABLE_EXIT=$?
+
+if [[ $TABLE_EXIT -eq 2 ]]; then
+  echo "❌ check_table_accessibility.py exited with an error — fix the script issue and try again."
+  exit 1
+fi
+
+if [[ $TABLE_EXIT -eq 1 ]]; then
+  echo ""
+  echo "📋 Table accessibility violations found. Applying high-confidence fixes..."
+  python3 scripts/apply_a11y_fixes.py "$TABLE_JSON" || true
+  # Re-stage any files that were just modified
+  git add -- "${STAGED_FILES[@]}"
+  # Re-run to see if violations remain after auto-fix
+  TABLE_EXIT=0
+  python3 scripts/check_table_accessibility.py \
+    --json "$TABLE_JSON" \
+    "${STAGED_FILES[@]}" > /dev/null 2>&1 || TABLE_EXIT=$?
+fi
+
+if [[ $TABLE_EXIT -eq 1 ]]; then
+  echo ""
+  echo "⚠️  Table violations remain after auto-fix (medium/low confidence — needs manual attention):"
+  python3 scripts/check_table_accessibility.py "${STAGED_FILES[@]}" 2>&1 | head -40
+  OVERALL_EXIT=1
+fi
+
+# ---------------------------------------------------------------------------
+# 2. Content accessibility check (no auto-fix)
+# ---------------------------------------------------------------------------
+CONTENT_EXIT=0
+python3 scripts/check_content_accessibility.py \
+  --json "$CONTENT_JSON" \
+  "${STAGED_FILES[@]}" > /dev/null 2>&1 || CONTENT_EXIT=$?
+
+if [[ $CONTENT_EXIT -eq 2 ]]; then
+  echo "❌ check_content_accessibility.py exited with an error — fix the script issue and try again."
+  exit 1
+fi
+
+if [[ $CONTENT_EXIT -eq 1 ]]; then
+  echo ""
+  echo "⚠️  Content accessibility violations found (manual fix required):"
+  python3 scripts/check_content_accessibility.py "${STAGED_FILES[@]}" 2>&1
+  OVERALL_EXIT=1
+fi
+
+# ---------------------------------------------------------------------------
+# Result
+# ---------------------------------------------------------------------------
+if [[ $OVERALL_EXIT -ne 0 ]]; then
+  echo ""
+  echo "────────────────────────────────────────────────────────"
+  echo "❌  Commit blocked: WCAG 2.2 AA violations must be fixed"
+  echo "    before committing. See output above for file paths"
+  echo "    and fix guidance."
+  echo ""
+  echo "    For guided fixes: open Cursor chat and run"
+  echo "    /check-accessibility markdown"
+  echo ""
+  echo "    To bypass (emergencies only): SKIP_A11Y=1 git commit"
+  echo "────────────────────────────────────────────────────────"
+  exit 1
+fi
+
+echo "✅ Accessibility checks passed."
+
+# ---------------------------------------------------------------------------
+# 3. Screenshot PII check (optional — requires tesseract)
+# ---------------------------------------------------------------------------
+if [[ "${SKIP_PII:-0}" != "1" && -f scripts/check_screenshot_pii.py ]]; then
+  STAGED_IMAGES=()
+  while IFS= read -r f; do
+    STAGED_IMAGES+=("$f")
+  done < <(
+    git diff --cached --name-only --diff-filter=ACMRT \
+      | grep -E '^assets/img/.*\.(png|jpg|jpeg)$' \
+      || true
+  )
+
+  if [[ ${#STAGED_IMAGES[@]} -gt 0 ]]; then
+    if command -v tesseract >/dev/null 2>&1; then
+      echo "🔍 Checking ${#STAGED_IMAGES[@]} staged image(s) for likely PII..."
+      PII_OUTPUT="$(mktemp)"
+      PII_EXIT=0
+      python3 scripts/check_screenshot_pii.py "${STAGED_IMAGES[@]}" > "$PII_OUTPUT" 2>&1 || PII_EXIT=$?
+      if [[ $PII_EXIT -eq 2 ]]; then
+        echo ""
+        echo "❌ Screenshot PII check failed (scanner error — invalid sidecar, bad paths, or OCR error)."
+        cat "$PII_OUTPUT"
+        rm -f "$PII_OUTPUT"
+        exit 1
+      elif [[ $PII_EXIT -eq 1 ]]; then
+        echo ""
+        echo "⚠️  Screenshot PII violations found:"
+        head -40 "$PII_OUTPUT"
+        echo ""
+        echo "    Fix images or add a .pii-audit-dismiss.json sidecar."
+        echo "    To bypass (emergencies only): SKIP_PII=1 git commit"
+        rm -f "$PII_OUTPUT"
+        exit 1
+      else
+        echo "✅ Screenshot PII checks passed."
+      fi
+      rm -f "$PII_OUTPUT"
+    else
+      echo "⚠️  tesseract not installed — skipping local screenshot PII check (CI will still run)."
+    fi
+  fi
+fi
+
+exit 0

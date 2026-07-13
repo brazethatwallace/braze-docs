@@ -1,5 +1,5 @@
 ---
-nav_title: "POST: Content-Block-Update"
+nav_title: "POST: Content-Block aktualisieren"
 article_title: "POST: Content-Block aktualisieren"
 search_tag: Endpoint
 page_order: 4
@@ -14,12 +14,16 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Content Bl
 /content_blocks/update
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) zu aktualisieren.
+> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) zu aktualisieren.
+
+{% alert tip %}
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) aufrufen. So können KI-Tools wie Claude und Cursor Content Blocks über natürlichsprachliche Eingaben aktualisieren.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `content_blocks.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `content_blocks.update`.
 
 ## Rate-Limit
 
@@ -52,8 +56,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | Optional | String | Beschreibung des Content-Blocks. Muss weniger als 250 Zeichen umfassen. |
 | `content` | Optional | String | HTML- oder Textinhalte innerhalb von Content Blocks. |
 | `state` | Optional | String | Wählen Sie `active` oder `draft`. Der Standardwert ist `active`, wenn nichts angegeben wird. |
-| `tags` | Optional | String-Array | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) müssen bereits existieren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `tags` | Optional | String-Array | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags) müssen bereits existieren. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```bash
@@ -105,7 +109,7 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `Tags must be an array` | Tags müssen als String-Array formatiert werden, zum Beispiel `["marketing", "promotional", "transactional"]`. |
 | `All tags must be strings` | Achten Sie darauf, dass Ihre Tags in Anführungszeichen (`""`) eingeschlossen sind. |
 | `Some tags could not be found` | Um bei der Erstellung eines Content-Blocks ein Tag hinzuzufügen, muss das Tag bereits in Braze vorhanden sein. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 
 {% endapi %}

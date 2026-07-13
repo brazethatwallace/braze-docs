@@ -19,7 +19,7 @@ search_tag: Partner
 | Cuenta de AppsFlyer | Se necesita una cuenta de AppsFlyer para aprovechar esta asociación. |
 | Aplicación iOS o Android | Esta integración es compatible con aplicaciones iOS y Android. Dependiendo de tu plataforma, es posible que se requieran fragmentos de código en tu aplicación. Encontrarás más detalles sobre estos requisitos en el paso 1 del proceso de integración. |
 | SDK de AppsFlyer | Además del SDK de Braze necesario, debes instalar el [SDK de AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de la importación de datos {#data-import-integration}
 

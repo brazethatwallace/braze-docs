@@ -4,7 +4,7 @@ article_title: Braze SDK チュートリアル
 page_order: 1.9
 layout: dev_guide
 guide_top_header: "Braze SDK チュートリアル"
-guide_top_text: "> 各 Braze SDK チュートリアルには、アプリに新しい機能を実装するのに役立つステップバイステップのスクロール可能なコードが含まれています。下のチュートリアルを選択して始めましょう!"
+guide_top_text: "> 各Braze SDKチュートリアルには、アプリに新しい機能を実装するのに役立つステップバイステップのスクロール可能なコードが含まれています。リストからチュートリアルを選択して始めましょう！"
 
 guide_menu_title: "Banners"
 guide_menu_list:
@@ -14,7 +14,7 @@ guide_menu_list:
 
 guide_menu_title2: "Content Cards"
 guide_menu_list2:
-  - name: コンテンツカードを使った受信トレイの作成
+  - name: Content Cardsを使った受信トレイの作成
     link: /docs/developer_guide/content_cards/content_card_inbox
     image: /assets/img/braze_icons/brush-02.svg
 
@@ -26,7 +26,7 @@ guide_menu_list3:
   - name: 条件付きでメッセージを表示する
     link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
     image: /assets/img/braze_icons/zap-off.svg
-  - name: トリガーメッセージを延期する
+  - name: トリガーメッセージの延期
     link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
     image: /assets/img/braze_icons/watch-circle.svg
 ---

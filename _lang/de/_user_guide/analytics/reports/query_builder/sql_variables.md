@@ -33,11 +33,11 @@ Um eine Variable zu Ihrer Abfrage hinzuzufügen, verwenden Sie die folgende Synt
 
 Ersetzen Sie Folgendes:
 
-| Platzhalter      | Beschreibung                                                                                                                              |
+| Platzhalter | Beschreibung |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `variable_type`   | Der vordefinierte Variablentyp, den Sie verwenden möchten, z. B. `campaign` oder `catalog_fields`. Die vollständige Liste finden Sie unter [Unterstützte Variablentypen](#variable-types). |
+| `variable_type` | Der vordefinierte Variablentyp, den Sie verwenden möchten, z. B. `campaign` oder `catalog_fields`. Die vollständige Liste finden Sie unter [Unterstützte Variablentypen](#variable-types). |
 | `custom_label` | Das Label zur Identifizierung der Variable im Tab **Variablen** Ihres Abfrage-Builders. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="1. Schritt: Variable hinzufügen" }
 
 Im folgenden Beispiel wird die Gesamtzahl der Nutzer:innen zwischen dem ersten und letzten Tag eines Monats für eine Campaign abgefragt. Jeder Variable wird im nächsten Schritt ein Wert zugewiesen.
 
@@ -75,7 +75,7 @@ some_number_column < {{number.${custom_label}}}
 {% endtab %}
 {% endtabs %}
 
-### String
+### String {#string}
 
 Zum Ändern sich wiederholender String-Werte zwischen Berichtsausführungen. Verwenden Sie diese Variable, um das Hartcodieren eines Werts an mehreren Stellen in Ihrem SQL zu vermeiden.
 
@@ -183,7 +183,7 @@ Sie können den Datumsbereich auf eine der folgenden Optionen festlegen. Wenn so
 | Startdatum | Gibt ein Startdatum an | Erfordert `start_date` |
 | Enddatum | Gibt ein Enddatum an | Erfordert `end_date` |
 | Datumsbereich | Gibt sowohl ein Start- als auch ein Enddatum an | Erfordert sowohl `start_date` als auch `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datumsbereich" }
 
 Ihr Liquid wird verwendet, um einen Kalender innerhalb des angegebenen Datumsbereichs anzuzeigen:
 
@@ -243,7 +243,7 @@ message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 Alle Campaign- und Canvas-Variablen müssen dieselben Bezeichner verwenden, um Zustände innerhalb einer einzelnen Gruppe zu synchronisieren.
 {% endalert %}
 
-### Canvases
+### Canvases {#canvases}
 
 {% tabs local %}
 {% tab Ein Canvas %}
@@ -393,7 +393,7 @@ name = '{{custom_event_properties.${property names)}}}'
 {% endtab %}
 {% endtabs %}
 
-### Workspace
+### Workspace {#workspace}
 
 `workspace` wird verwendet, um einen einzelnen Workspace aus dem Braze-Dashboard auszuwählen.
 
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) aktiviert ist. Wird auf die Segment-Analytics-ID gesetzt, die den in der Spalte `user_segment_membership_ids` gespeicherten IDs in den Tabellen entspricht, in denen diese Spalte verfügbar ist.
+Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist. Wird auf die Segment-Analytics-ID gesetzt, die den in der Spalte `user_segment_membership_ids` gespeicherten IDs in den Tabellen entspricht, in denen diese Spalte verfügbar ist.
 
 {% tabs %}
 {% tab Verwendung %}
@@ -455,7 +455,7 @@ Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_
 {% endtab %}
 {% endtabs %}
 
-### Tags
+### Tags {#tags}
 
 Zur Auswahl von Tags für Campaigns und Canvases. Wird auf Campaigns und Canvases mit einfach zitierten, kommagetrennten BSON-IDs gesetzt, die mit den ausgewählten Tags verknüpft sind.
 

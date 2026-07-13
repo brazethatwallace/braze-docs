@@ -17,14 +17,14 @@ Cet article vous guidera à travers un cas d'utilisation du modèle **Retour en 
 
 Pour utiliser ce modèle avec succès, vous aurez besoin des éléments suivants :
 
-- Un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) contenant des informations sur votre article
-- Les [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#how-back-in-stock-notifications-work) doivent être configurées pour l'article au sujet duquel vous souhaitez envoyer des messages aux utilisateurs
+- Un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create) contenant des informations sur votre article
+- Les [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work) doivent être configurées pour l'article au sujet duquel vous souhaitez envoyer des messages aux utilisateurs
 
 ## Adapter le modèle à vos besoins {#tailoring-the-template-to-your-needs}
 
 Imaginons que nous travaillons pour PantsLabyrinth, un détaillant de vêtements en vente directe spécialisé dans les pantalons habillés, les jeans, les culottes et bien d'autres types de pantalons. Nous pouvons utiliser le modèle de retour en stock pour notifier les clients sur différents canaux lorsqu'une paire de jeans populaire, le Classic Straight Leg, est de nouveau en stock.
 
-Avant de créer le Canvas, nous [configurons un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) contenant des informations sur notre inventaire de pantalons droits et [configurons les notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#setting-up-back-in-stock-notifications) pour le jean Classic Straight Leg. Nous avons fait en sorte que les utilisateurs s'abonnent aux notifications après avoir effectué l'événement personnalisé consistant à ajouter le jean Classic Straight Leg en favori dans l'application.
+Avant de créer le Canvas, nous [configurons un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create) contenant des informations sur notre inventaire de pantalons droits et [configurons les notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#setting-up-back-in-stock-notifications) pour le jean Classic Straight Leg. Nous avons fait en sorte que les utilisateurs s'abonnent aux notifications après avoir effectué l'événement personnalisé consistant à ajouter le jean Classic Straight Leg en favori dans l'application.
 
 Pour accéder au modèle de retour en stock, lors de la création d'un nouveau Canvas, sélectionnez **Use a Canvas template** > **Braze templates**. Ensuite, à côté de **Back in Stock**, sélectionnez **Apply Template**. Nous pouvons maintenant parcourir le modèle pour l'adapter à nos besoins.
 
@@ -45,7 +45,7 @@ Ajustons les détails du Canvas pour refléter notre objectif.
 
 ### Étape 2 : Affecter les événements de conversion {#step-2-assign-conversion-events}
 
-Changez l'**Primary Conversion Event - A** en **Make a specific purchase** et sélectionnez **Classic Straight Leg** pour le nom du produit.
+Changez l'**événement de conversion principal - A** en **Make a specific purchase** et sélectionnez **Classic Straight Leg** pour le nom du produit.
 
 ![La section « Assign Conversion Events » pour le type d'événement de conversion d'achat du produit Classic Straight Leg avec une date limite de conversion de 7 jours.]({% image_buster /assets/img/canvas_templates/back_in_stock_2.png %})
 
@@ -60,7 +60,7 @@ Nous apporterons deux ajustements à cette étape :
 ![L'étape « Entry Schedule » pour un Canvas basé sur une action.]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
 
 {: start="2"}
-2. Définissez le **Start Time (Required)** sur la date et l'heure de début souhaitées.
+2. Définissez l'**heure de début (obligatoire)** sur la date et l'heure de début souhaitées.
 
 ![La section « Entry Window » avec une heure de début au 2 janvier 2025 à 0 h 00.]({% image_buster /assets/img/canvas_templates/back_in_stock_4.png %})
 
@@ -91,10 +91,10 @@ Nous conserverons les paramètres d'abonnement par défaut, de sorte que nous n'
 
 ### Étape 6 : Personnaliser votre Canvas {#step-6-customize-your-canvas}
 
-Nous allons maintenant construire notre Canvas en personnalisant les canaux et le contenu qui seront envoyés aux utilisateurs. Comme nous utilisons les quatre canaux du modèle (notification push mobile et web, SMS et e-mail) et le filtre [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/), nous n'avons pas besoin d'en ajouter ou d'en supprimer.
+Nous allons maintenant construire notre Canvas en personnalisant les canaux et le contenu qui seront envoyés aux utilisateurs. Comme nous utilisons les quatre canaux du modèle (notification push mobile et web, SMS et e-mail) et le filtre [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), nous n'avons pas besoin d'en ajouter ou d'en supprimer.
 
 {% alert tip %}
-Vous pouvez utiliser les [propriétés d'entrée Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) pour personnaliser les messages de votre Canvas en fonction du produit auquel vous faites référence.
+Vous pouvez utiliser les [propriétés d'entrée Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) pour personnaliser les messages de votre Canvas en fonction du produit auquel vous faites référence.
 {% endalert %}
 
 Nous commencerons notre personnalisation en parcourant chaque étape de message pour mettre à jour le contenu.
@@ -113,5 +113,5 @@ Nous commencerons notre personnalisation en parcourant chaque étape de message 
 Après avoir testé et vérifié que notre Canvas fonctionne comme prévu, nous le lancerons en sélectionnant **Launch Canvas**. Désormais, nos utilisateurs qui ont ajouté notre jean Classic Straight Leg en favori et qui se sont abonnés à nos canaux de communication recevront des notifications lorsqu'il sera de nouveau en stock !
 
 {% alert tip %}
-Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
+Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
 {% endalert %}

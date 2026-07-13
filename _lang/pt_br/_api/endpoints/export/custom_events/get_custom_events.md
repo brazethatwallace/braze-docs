@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `events.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `events.list`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -28,10 +28,10 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro| Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | -------- | -------- | --------- | ----------- |
 | `page` | Opcional | Inteiro | A página de nomes de eventos a ser retornada; o padrão é 0 (retorna o primeiro conjunto de até 250). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```
@@ -55,10 +55,10 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ### Códigos de resposta a erros fatais {#fatal-export}
 
-Para obter os códigos de status e as mensagens de erro associadas que serão retornadas se sua solicitação encontrar um erro fatal, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para obter os códigos de status e as mensagens de erro associadas que serão retornadas se sua solicitação encontrar um erro fatal, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

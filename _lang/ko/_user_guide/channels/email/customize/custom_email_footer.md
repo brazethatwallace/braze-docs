@@ -30,7 +30,7 @@ channel:
 
 ![커스텀 바닥글의 예시.]({% image_buster /assets/img_archive/custom_footer.png %})
 
-기본 바닥글은 {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} 속성과 실제 우편 주소를 사용합니다. 이 기본값을 사용하는 경우 **Protocol**에서 **&#60;other&#62;**를 선택해야 합니다.
+기본 바닥글은 {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} 속성과 실제 우편 주소를 사용합니다. 이 기본값을 사용하는 경우 **프로토콜**에서 **&#60;other&#62;**를 선택해야 합니다.
 
 {% alert important %}
 CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포함해야 합니다. 이 Liquid 속성 {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} 또는 커스텀 탈퇴 URL을 사용할 수 있습니다. 탈퇴 링크가 없으면 커스텀 바닥글을 저장할 수 없습니다.
@@ -57,7 +57,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-다음으로, [`/email/status` 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/)를 호출하여 사용자의 구독 상태를 업데이트합니다. 자세한 내용은 [이메일 구독 상태 변경]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)에 대한 설명서를 참조하세요.
+다음으로, [`/email/status` 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)를 호출하여 사용자의 구독 상태를 업데이트합니다. 자세한 내용은 [이메일 구독 상태 변경]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)에 대한 설명서를 참조하세요.
 
 그런 다음 이 새 링크를 저장합니다. 기본 Braze 탈퇴 태그 {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%}가 바닥글에 있어야 합니다. 즉, 태그를 주석에 넣거나 숨겨진 `<div>` 태그에 배치하여 기본 링크를 "숨기는" 방식으로 포함해야 합니다.
 
@@ -67,7 +67,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 
 ### 속성을 사용한 개인화 {#personalizing-with-attributes}
 
-커스텀 바닥글을 만들 때 Braze는 [개인화를 위한 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)을 사용할 것을 권장합니다. 기본 및 커스텀 속성의 전체 세트를 사용할 수 있지만, 다음은 유용할 수 있는 몇 가지입니다:
+커스텀 바닥글을 만들 때 Braze는 [개인화를 위한 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)을 사용할 것을 권장합니다. 기본 및 커스텀 속성의 전체 세트를 사용할 수 있지만, 다음은 유용할 수 있는 몇 가지입니다:
 
 | 속성 | 태그 |
 | --------- | --- |
@@ -76,7 +76,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 | 사용자의 커스텀 옵트인 URL | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | 사용자의 커스텀 구독 URL | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | 사용자의 커스텀 Braze 환경설정 센터 URL | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="속성을 사용한 개인화" }
 
 ### 탈퇴 링크 및 옵트인 링크 포함 {#including-an-unsubscribe-link-and-opt-in-link}
 
@@ -88,10 +88,10 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 
 **이메일 환경설정** 페이지의 **가입 페이지 및 바닥글** 탭에서 일반 텍스트 이메일용 커스텀 바닥글을 설정할 수도 있으며, HTML 이메일용 커스텀 바닥글과 동일한 규칙을 따릅니다.
 
-일반 텍스트 바닥글을 포함하지 않으면 Braze가 HTML 바닥글에서 자동으로 생성합니다. 커스텀 바닥글이 만족스러우면 **Save**를 선택합니다.
+일반 텍스트 바닥글을 포함하지 않으면 Braze가 HTML 바닥글에서 자동으로 생성합니다. 커스텀 바닥글이 만족스러우면 **저장**을 선택합니다.
 
 ![커스텀 일반 텍스트 바닥글 설정 옵션이 선택된 이메일.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 
 ## 고려 사항 {#considerations}
 
-[BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/)를 사용하는 경우, {% raw %}`{{${email_footer}}}`{% endraw %}는 표준 Liquid 태그가 아닙니다. Liquid가 실행되기 전에 사전 처리되므로, {% raw %}`{{${email_footer}}}`{% endraw %}를 컨텍스트 변수 값으로 사용하고 `:rerender` 플래그를 호출하면 자동으로 실패합니다. 대신 이메일 바닥글에 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers)을 사용하세요.
+[BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio)를 사용하는 경우, {% raw %}`{{${email_footer}}}`{% endraw %}는 표준 Liquid 태그가 아닙니다. Liquid가 실행되기 전에 사전 처리되므로, {% raw %}`{{${email_footer}}}`{% endraw %}를 컨텍스트 변수 값으로 사용하고 `:rerender` 플래그를 호출하면 자동으로 실패합니다. 대신 이메일 바닥글에 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers)을 사용하세요.

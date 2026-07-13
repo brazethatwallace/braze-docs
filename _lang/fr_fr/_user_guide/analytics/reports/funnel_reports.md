@@ -38,7 +38,7 @@ Les rapports d'entonnoir sont disponibles aux emplacements suivants dans le tabl
 - La page **Canvas Details** pour un Canvas spécifique, en sélectionnant le bouton **Analyze Variants**
 
 {% alert important %}
-Les rapports d'entonnoir ne sont pas disponibles pour les [campagnes API]({{site.baseurl}}/api/api_campaigns/).
+Les rapports d'entonnoir ne sont pas disponibles pour les [campagnes API]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 ### Étape 1 : Sélectionner une plage de dates {#step-1-select-a-date-range}
@@ -59,7 +59,7 @@ Pour chaque rapport d'entonnoir, le premier événement est la réception du mes
 
 | Campaign | Démarrage de session, Achat effectué, Événement personnalisé effectué, Événement d'engagement lié aux messages |
 | Canvas | Démarrage de session, Achat effectué, Événement personnalisé effectué, Étape du Canvas reçue, Interaction avec l'étape |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements disponibles pour les rapports d'entonnoir" }
 
 {% alert note %}
 L'événement de rapport **Interaction avec l'étape** ne peut être utilisé qu'avec les étapes du Canvas qui utilisent les canaux e-mail ou push.

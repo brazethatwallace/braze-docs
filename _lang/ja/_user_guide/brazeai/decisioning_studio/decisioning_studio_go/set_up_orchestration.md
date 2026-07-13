@@ -6,11 +6,11 @@ description: "BrazeAI Decisioning Studio Goをカスタマーエンゲージメ�
 toc_headers: h2
 ---
 
-# オーケストレーションを設定する
+# オーケストレーションを設定する {#set-up-orchestration}
 
 > BrazeAI Decisioning Studio™ Goは、パーソナライズされたコミュニケーションをオーケストレーションするために、カスタマーエンゲージメントプラットフォーム（CEP）に接続する必要があります。この記事では、サポートされている各CEPの統合設定方法を説明します。
 
-## サポートされているCEP
+## サポートされているCEP {#supported-ceps}
 
 Decisioning Studio Goは、以下のカスタマーエンゲージメントプラットフォームをサポートしています。
 
@@ -18,42 +18,42 @@ Decisioning Studio Goは、以下のカスタマーエンゲージメントプ�
 |-----|-----------------|--------------|
 | **Braze** | APIトリガーキャンペーン | ネイティブ統合、リアルタイムトリガー |
 | **Salesforce Marketing Cloud** | APIイベント付きJourney Builder | SQLクエリのオートメーション、データエクステンション |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされているCEP" }
 
 以下からCEPを選択して、統合設定を開始しましょう。
 
 {% tabs %}
 {% tab Braze %}
 
-## Braze統合を設定する
+## Braze統合を設定する {#set-up-braze-integration}
 
 Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、APIトリガーキャンペーンを設定し、必要な識別子をDecisioning Studio Goポータルに提供します。
 
-### ステップ 1: REST APIキーを作成する
+### ステップ1: REST APIキーを作成する {#step-1-create-a-rest-api-key}
 
 1. Brazeダッシュボードで、**設定** > **APIと識別子** > **APIキー**に移動します。
 2. **APIキーを作成**を選択します。
 3. APIキーの名前を入力します。例：「DecisioningStudioGoEmail」
 4. 以下のカテゴリに基づいて権限を選択します。
-    - **ユーザーデータ：** `users.track`、`users.delete`、`users.export.ids`、`users.export.segment` を選択
-    - **メッセージ：** `messages.send` を選択
-    - **キャンペーン：**リストされているすべての権限を選択
-    - **キャンバス：**リストされているすべての権限を選択
-    - **セグメント：**リストされているすべての権限を選択
-    - **テンプレート：**リストされているすべての権限を選択
+    - **ユーザーデータ：** `users.track`、`users.delete`、`users.export.ids`、`users.export.segment`を選択
+    - **メッセージ：** `messages.send`、`messages.schedule.create`、`messages.schedule.update`、`messages.schedule.delete`を選択
+    - **キャンペーン：** リストされているすべての権限を選択
+    - **キャンバス：** リストされているすべての権限を選択
+    - **セグメント：** リストされているすべての権限を選択
+    - **テンプレート：** リストされているすべての権限を選択
 
 {: start="5"}
 5. **APIキーを作成**を選択します。
 6. APIキーをコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます。
 
-### ステップ 2: メールの表示名を確認する
+### ステップ2: メールの表示名を確認する {#step-2-locate-your-email-display-name}
 
 1. Brazeダッシュボードで、**設定** > **メール設定**に移動します。
 2. BrazeAI Decisioning Studio™ Goで使用する表示名を確認します。
-3. **From Display Name**をコピーし、BrazeAI Decisioning Studio™ Goポータルに**Email Display Name**として貼り付けます。
+3. **差出人の表示名**をコピーし、BrazeAI Decisioning Studio™ Goポータルに**メール表示名**として貼り付けます。
 4. 関連するメールアドレスをコピーし、BrazeAI Decisioning Studio™ Goポータルに**送信元メールアドレス**として貼り付けます。このメールアドレスはローカル部分とドメインを組み合わせたものです。
 
-### ステップ 3: BrazeのURLとApp IDを見つける
+### ステップ3: BrazeのURLとApp IDを見つける {#step-3-find-your-braze-url-and-app-id}
 
 **BrazeのURLを見つけるには：**
 1. Brazeダッシュボードに移動します。
@@ -69,7 +69,7 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 2. トラッキングしたいアプリに移動します。
 3. **APIキー**をコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます。
 
-### ステップ 4: APIトリガーキャンペーンを作成する
+### ステップ4: APIトリガーキャンペーンを作成する {#step-4-create-an-api-triggered-campaign}
 
 1. Brazeダッシュボードで、**メッセージング** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択します。
@@ -84,15 +84,15 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 ![APIキャンペーンのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. **追加オプション**で、**ユーザーがキャンペーンの受信資格を再取得できるようにする**チェックボックスを選択します。
-7. 再資格取得までの時間として、**1**を入力し、ドロップダウンから**時間**を選択します。
+6. **追加オプション**で、**ユーザーがキャンペーンを再度受信できるようにする**チェックボックスを選択します。
+7. 再受信資格までの時間として、**1**を入力し、ドロップダウンから**時間**を選択します。
 
-![APIキャンペーンの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
+![APIキャンペーンの再受信資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
 8. **キャンペーンを保存**を選択します。
 
-### ステップ 5: キャンペーンIDとメッセージIDをコピーする
+### ステップ5: キャンペーンIDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
 
 1. APIキャンペーンで、**キャンペーンID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**キャンペーンID**を貼り付けます。
 
@@ -101,11 +101,11 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 {: start="2"}
 2. **メッセージバリエーションID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**メッセージバリエーションID**を貼り付けます。
 
-### ステップ 6: テストユーザーIDを確認する
+### ステップ6: テストユーザーIDを確認する {#step-6-locate-a-test-user-id}
 
 統合をテストするには、ユーザーIDが必要です。
 
-ワークスペースで[識別子フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)を使用している場合、`/users/track`エンドポイントで作成する新しいテストユーザーは、暗号化されたワークスペースのメール要件に従う必要があります。`email`フィールドには、小文字に変換したメール値のBase64エンコードされたHMAC-SHA256ハッシュを送信し、`email_encrypted`には設定済みのPII暗号化キーで生成された暗号化メール値を送信してください。
+ワークスペースで[識別子フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)を使用している場合、`/users/track`エンドポイントで作成する新しいテストユーザーは、暗号化されたワークスペースのメール要件に従う必要があります。`email`フィールドには、小文字に変換したメール値のBase64エンコードされたHMAC-SHA256ハッシュを送信し、`email_encrypted`には設定済みのPII暗号化キーで生成された暗号化メール値を送信してください。
 
 1. Brazeダッシュボードで、**オーディエンス** > **ユーザーを検索**に移動します。
 2. 外部ユーザーID、ユーザーエイリアス、メール、電話番号、またはプッシュトークンでユーザーを検索します。
@@ -116,11 +116,11 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
 
-## SFMC統合を設定する
+## SFMC統合を設定する {#set-up-sfmc-integration}
 
 Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプリパッケージを設定し、データクエリオートメーションを作成し、トリガー送信を処理するJourneyを構築します。
 
-### パート1: SFMCアプリパッケージを設定する
+### パート1: SFMCアプリパッケージを設定する {#part-1-set-up-an-sfmc-app-package}
 
 1. Marketing Cloudのホームページに移動します。
 2. グローバルヘッダーのメニューを開き、**Setup**を選択します。
@@ -166,9 +166,9 @@ Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプ
 10. **Save**を選択します。
 11. 以下のフィールドをコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます：**Client Id**、**Client Secret**、**Authentication Base URI**、**REST Base URI**、**SOAP Base URI**。
 
-### パート2: データクエリオートメーションを設定する
+### パート2: データクエリオートメーションを設定する {#part-2-set-up-a-data-query-automation}
 
-#### ステップ 1: 新しいオートメーションを作成する
+#### ステップ1: 新しいオートメーションを作成する {#step-1-create-a-new-automation}
 
 1. Salesforce Marketing Cloudのホームから、**Journey Builder**に移動し、**Automation Studio**を選択します。
 
@@ -183,16 +183,16 @@ Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプ
 {: start="4"}
 4. **Schedule**ノードで、**Configure**を選択します。
 5. スケジュールに以下を設定します。
-    - **Start Date：**翌日の日付
-    - **Time：****12:00 AM**
-    - **Time Zone：****(GMT-05:00) Eastern (US & Canada)**
+    - **Start Date：** 翌日の日付
+    - **Time：** **12:00 AM**
+    - **Time Zone：** **(GMT-05:00) Eastern (US & Canada)**
 6. **Repeat**で、**Daily**を選択します。
 7. このスケジュールを終了しないように設定します。
 8. **Done**を選択してスケジュールを保存します。
 
 ![2024年1月25日午前0時（米国東部時間）に定義されたスケジュール例。毎日繰り返されます。]({% image_buster /assets/img/decisioning_studio_go/query12.png %})
 
-#### ステップ 2: SQLクエリを作成する
+#### ステップ2: SQLクエリを作成する {#step-2-create-your-sql-queries}
 
 次に、2つのSQLクエリを作成します。サブスクライバークエリとエンゲージメントクエリです。これらのクエリにより、BrazeAI Decisioning Studio™ Goはオーディエンスを構成するデータの取得とエンゲージメントイベントの取り込みが可能になります。
 
@@ -257,7 +257,7 @@ Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプ
 
 ![外部キーの例に一致するデータエクステンション名。]({% image_buster /assets/img/decisioning_studio_go/query4.png %})
 
-#### ステップ 3: オートメーションを実行する
+#### ステップ3: オートメーションを実行する {#step-3-run-the-automation}
 
 1. オートメーションに名前を付け、**Save**を選択します。
 
@@ -276,9 +276,9 @@ Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプ
 
 これで、オートメーションが正常に動作しているか確認できます。オートメーションが期待通りに動作しない場合は、Brazeサポートに連絡して追加の支援を受けてください。
 
-### パート3: SFMC Journeyを作成する
+### パート3: SFMC Journeyを作成する {#part-3-create-your-sfmc-journey}
 
-#### ステップ 1: Journeyを設定する
+#### ステップ1: Journeyを設定する {#step-1-set-up-the-journey}
 
 1. Salesforce Marketing Cloudで、**Journey Builder** > **Journey Builder**に移動します。
 2. **Create New Journey**を選択します。
@@ -286,7 +286,7 @@ Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプ
 
 ![API Eventエントリソースが条件分岐ノードと複数のメールノードに接続されている。]({% image_buster /assets/img/decisioning_studio_go/journey1.png %})
 
-#### ステップ 2: Journeyを構築する
+#### ステップ2: Journeyを構築する {#step-2-build-the-journey}
 
 **エントリソースを作成する：**
 
@@ -308,15 +308,15 @@ Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプ
 
 **条件分岐を追加する：**
 
-1. **API Entry Event**の後に**条件分岐**をドラッグ＆ドロップします。
-2. **条件分岐**の詳細で、最初のパスの**Edit**を選択します。
+1. **API Entry Event**の後に**Decision Split**をドラッグ＆ドロップします。
+2. **Decision Split**の詳細で、最初のパスの**Edit**を選択します。
 
-![「Edit」ボタンがある条件分岐の詳細。]({% image_buster /assets/img/decisioning_studio_go/journey5.png %})
+![「Edit」ボタンがあるDecision Splitの詳細。]({% image_buster /assets/img/decisioning_studio_go/journey5.png %})
 
 {: start="3"}
-3. レコメンデーションデータエクステンションから渡されるテンプレートIDを使用するように**条件分岐**を更新します。**Journey Data**の下にある適切なフィールドを確認します。
+3. レコメンデーションデータエクステンションから渡されるテンプレートIDを使用するように**Decision Split**を更新します。**Journey Data**の下にある適切なフィールドを確認します。
 
-![条件分岐のパス1にあるJourney Dataセクション。]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
+![Decision Splitのパス1にあるJourney Dataセクション。]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
 
 {: start="4"}
 4. エントリイベントを選択し、目的のテンプレートIDフィールドを確認して、ワークスペースにドラッグします。
@@ -327,18 +327,18 @@ Decisioning Studio GoをSalesforce Marketing Cloudと統合するには、アプ
 5. 最初のメールテンプレートのテンプレートIDを入力し、**Done**を選択します。
 6. **Summary**を選択してこのパスを保存します。
 7. 各メールテンプレートにパスを追加し、上記のステップ4〜6を繰り返してフィルター条件を設定します。テンプレートIDが各テンプレートのID値と一致するようにしてください。
-8. **Done**を選択して**条件分岐**ノードを保存します。
+8. **Done**を選択して**Decision Split**ノードを保存します。
 
-![各メールテンプレートIDに対応する条件分岐の2つのパス。]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
+![各メールテンプレートIDに対応するDecision Splitの2つのパス。]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
 
-**各条件分岐にメールを追加する：**
+**各Decision Splitにメールを追加する：**
 
-1. **条件分岐**の各パスに**Email**ノードをドラッグします。
-2. **Email**を選択し、各パスに適用すべき適切なテンプレートを選択します（つまり、ID値を持つテンプレートが条件分岐のロジックと一致する必要があります）。
+1. **Decision Split**の各パスに**Email**ノードをドラッグします。
+2. **Email**を選択し、各パスに適用すべき適切なテンプレートを選択します（つまり、ID値を持つテンプレートがDecision Splitのロジックと一致する必要があります）。
 
 ![Journeyに追加されたメールノード。]({% image_buster /assets/img/decisioning_studio_go/journey9.png %})
 
-#### ステップ 3: Journeyを有効化する
+#### ステップ3: Journeyを有効化する {#step-3-activate-the-journey}
 
 Journeyを設定したら、有効化して以下の詳細をBrazeAI Decisioning Studio™ Goチームと共有します。
 
@@ -373,8 +373,8 @@ BrazeAI Decisioning Studio™ Goポータルには、サブスクライバーと
 {% endtab %}
 {% endtabs %}
 
-## 次のステップ
+## 次のステップ {#next-steps}
 
 オーケストレーションの設定が完了したら、次にエージェントの設計に進みましょう。
 
-- [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

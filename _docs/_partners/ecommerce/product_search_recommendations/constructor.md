@@ -26,7 +26,7 @@ With the Braze and Constructor integration, you can use Constructor’s Offsite 
 | Requirement | Description |
 |-------------|-------------|
 | Constructor Account | A Constructor account with its Offsite Discovery service enabled is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -34,7 +34,7 @@ Work with your Constructor onboarding team to complete the integration process. 
 
 ## Constructor's Offsite Discovery API URL
 
-You can use Constructor's Offsite Discovery API URL to render product images and direct users to the appropriate product detail page. Below is a breakdown of the endpoint structure and an example of how to use it:
+You can use Constructor's Offsite Discovery API URL to render product images and direct users to the appropriate product detail page. The following is a breakdown of the endpoint structure and an example of how to use it:
 
 ### Example
 
@@ -59,7 +59,7 @@ You can use Constructor's Offsite Discovery API URL to render product images and
 | `key` | The Constructor index key for this customer. |
 | `style_id` | Determines which images are displayed for the product card. For example, different `style_ids` display unique product card images. |
 | `campaign_id` | Unique ID for the email campaign. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Parameters" }
 
 ### Optional inputs
 
@@ -67,5 +67,5 @@ You can use Constructor's Offsite Discovery API URL to render product images and
 |-------------|-------------|
 | `item_id` | Represents the seed item. Necessary for item-item based strategies, such as alternative, complementary, bundles. For example, the first item in an email is the seed item, with subsequent items as alternatives. |
 | `num_results` | Number of products to be added to the email. The default is 10, up to 100. For example, `num_results = 3` means three recommendations are added. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Optional inputs" }
 

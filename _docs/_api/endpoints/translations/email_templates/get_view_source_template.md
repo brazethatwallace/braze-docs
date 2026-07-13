@@ -15,13 +15,11 @@ description: "This article outlines details about the View source translations f
 /templates/email/translations/source
 {% endapimethod %}
 
-> Use this endpoint to view the source translations for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Use this endpoint to view the source translations for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `templates.email.info` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `templates.email.info` permission.
 
 ## Rate limit
 
@@ -32,7 +30,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter     | Required | Data Type | Description                     |
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | Required | String    | The ID for your email template. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 ## Example request
 

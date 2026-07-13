@@ -1,14 +1,14 @@
 ---
 page_order: 1
 nav_title: 딥링킹
-article_title: Braze SDK를 위한 인앱 메시지 딥링킹
+article_title: Braze SDK용 인앱 메시지 딥링킹
 channel:
   - push notifications
 ---
 
-# 인앱 메시지 딥링킹
+# 인앱 메시지 딥링킹 {#in-app-message-deep-linking}
 
-> Braze SDK의 인앱 메시지 내에서 딥링킹하는 방법을 알아보세요.
+> Braze SDK의 인앱 메시지 내에서 딥링크하는 방법을 알아보세요.
 
 {% sdktabs %}
 {% sdktab android %}

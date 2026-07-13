@@ -21,9 +21,9 @@ A integração da Braze com a Segment permite que você utilize o Braze Currents
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Segment | É necessário ter uma [conta da Segment](https://app.segment.com/login) para aproveitar essa parceria. |
-| Destino da Braze | Você já deve ter [configurado a Braze como um destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) na sua integração com a Segment.<br><br>Isso inclui fornecer o data center correto da Braze e a chave da API REST nas suas [configurações de conexão]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
-| Currents | Para exportar dados de volta para a Segment, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado na sua conta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Destino da Braze | Você já deve ter [configurado a Braze como um destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) na sua integração com a Segment.<br><br>Isso inclui fornecer o data center correto da Braze e a chave da API REST nas suas [configurações de conexão]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
+| Currents | Para exportar dados de volta para a Segment, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) configurado na sua conta. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -47,9 +47,9 @@ No dashboard da Segment, selecione sua fonte da Segment. Em seguida, acesse **Se
 
 Em seguida, selecione os eventos de engajamento com mensagens que você gostaria de exportar. Consulte a tabela de eventos e propriedades de exportação listada a seguir. Todos os eventos enviados para a Segment incluirão o `external_user_id` do usuário como `userId` e o `braze_id` do usuário como `anonymousId`.
 
-Lembre-se de que a Braze só envia dados de eventos para usuários sem um `external_user_id` se **Include events from anonymous users** estiver marcado.
+Lembre-se de que a Braze só envia dados de eventos para usuários sem um `external_user_id` se a opção **Include events from anonymous users** estiver marcada.
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![Lista de todos os eventos de engajamento com mensagens disponíveis na página Segment Currents na Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,75 +61,13 @@ Para saber mais, visite a [documentação](https://segment.com/docs/connections/
 
 ## Como atualizar seu Current {#updating-your-current}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## Eventos Currents compatíveis {#supported-currents-events}
 
-A Braze suporta a exportação dos seguintes dados listados nos glossários de eventos de [comportamento do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) e [engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) do Currents para a Segment:
+A Braze suporta a exportação dos seguintes eventos para a Segment:
 
-### Comportamentos {#behaviors}
-- Desinstalação: `users.behaviors.Uninstall`
-- Inscrição (mudança de estado global): `users.behaviors.subscription.GlobalStateChange`
-- Grupo de inscrições (mudança de estado): `users.behaviors.subscriptiongroup.StateChange`
+- [Eventos de engajamento com mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-### Campaigns
-- Abortar: `users_campaigns_abort`
-- Conversão: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-
-### Canvas
-- Abortar: `users_canvas_abort`
-- Conversão: `users.canvas.Conversion`
-- Entrada: `users.canvas.Entry`
-- Saída (público correspondente, evento realizado)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Etapa do experimento (conversão, entrada dividida)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### Mensagens {#messages}
-- Cartão de conteúdo (abortar, clicar, descartar, impressão, enviar)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- E-mail (abortar, bounce, clicar, entrega, marcar como spam, abrir, enviar, softbounce, cancelar inscrição)
-  - `users.messages.email.Abort`
-  - `users.messages.email.Bounce`
-  - `users.messages.email.Click`
-  - `users.messages.email.Delivery`
-  - `users.messages.email.MarkAsSpam`
-  - `users.messages.email.Open`
-  - `users.messages.email.Send`
-  - `users.messages.email.SoftBounce`
-  - `users.messages.email.Unsubscribe`
-- Mensagem no app (abortar, clicar, impressão)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Notificação por push (abortar, bounce, iOSforeground, abrir, enviar)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (abortar, envio da operadora, entrega, falha na entrega, recebimento de entrada, rejeição, envio, clique em link curto)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (abortar, enviar)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (abortar, entrega, falha, recebimento de entrada, leitura, envio)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
+Para a estrutura da carga útil de cada evento, selecione a guia **Segment** no [glossário de eventos de engajamento com mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e no [glossário de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).

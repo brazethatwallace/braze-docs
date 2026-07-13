@@ -19,8 +19,8 @@ search_rank: 3
 
 Before you start, make sure you have the following:
 
-- **Push integrated into your app or website.** Work with your developers to set this up. For detailed steps, refer to the integration guides for [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android), and [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **A push opt-in strategy.** Users must grant push permission on their device. Consider using [push primer messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) to explain the value before prompting.
+- **Push integrated into your app or website.** Work with your developers to set this up. For detailed steps, refer to the integration guides for [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android), and [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **A push opt-in strategy.** Users must grant push permission on their device. Consider using [push primer messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) to explain the value before prompting.
 
 ## Use cases
 
@@ -30,7 +30,7 @@ Before you start, make sure you have the following:
 | First purchases | After users are comfortable using your app, you can use push notifications to help convert them into in-app purchasers. |
 | New features | Push notifications can be effective in notifying disengaged users about new features that might attract them back to your app. |
 | Time-sensitive offers | If you have a clock ticking on an offer, push is a great way to let your users know about it before it expires. These messages generally carry a high sense of urgency and are optimal for reminding recently-lapsed users about your app. For example, if your app is a game and you offer an in-game currency bonus for a daily play streak, alerting a user that their streak is at risk can be an effective push after they've reached a certain number of days. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Push message regulations
 
@@ -46,9 +46,15 @@ Your push messages must follow the [Apple App Store Review Guidelines](https://d
 | Apple [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) | Push must not be required for the app to function and must not carry sensitive personal or confidential information. Don't use push for promotions or direct marketing unless customers explicitly opt in via consent language in your app's UI and can opt out in the app. |
 | Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | You may not monetize built-in capabilities such as Push Notifications, the camera, or the gyroscope, or Apple services such as Apple Music or iCloud. |
 | Google Play — [Unauthorized use or imitation of system functionality](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Apps must not mimic or interfere with system notifications. System-level notifications are only for integral app features (for example, an airline app notifying users of deals, or a game notifying users of in-game promotions). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push message regulations" }
+
+## Frequently asked questions
+
+### When does Braze record a successful Send for push?
+
+Braze typically logs a **Send** once the message is dispatched from Braze toward Apple, Google, or your web push service. **Delivered**, opens, bounces, and uninstall signals are tracked separately and may arrive later. Use step- and campaign-level analytics together with [push troubleshooting]({{site.baseurl}}/user_guide/channels/push/troubleshooting/) when **Sends** and downstream metrics look misaligned.
 
 ## Next steps
 
-- [Push setup]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Create a push message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Push setup]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Create a push message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

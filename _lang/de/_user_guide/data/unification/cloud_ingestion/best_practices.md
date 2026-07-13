@@ -12,7 +12,7 @@ description: "Diese Seite bietet eine Übersicht über die Cloud-Datenaufnahme, 
 
 > Mit Braze Cloud Data Ingestion können Sie eine direkte Verbindung von Ihrem Data Warehouse oder Dateispeichersystem zu Braze einrichten, um relevante Nutzer- oder Katalogdaten zu synchronisieren. Wenn Sie diese Daten mit Braze synchronisieren, können Sie sie für Anwendungsfälle wie Personalisierung, Triggern oder Segmentierung nutzen.
 
-## Die Spalte `UPDATED_AT` verstehen {#understanding-the-updatedat-column}
+## Die Spalte `UPDATED_AT` verstehen {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT` ist nur für Data-Warehouse-Integrationen relevant, nicht für S3-Synchronisierungen.
@@ -51,7 +51,7 @@ Wenn Sie CDI verwenden, um Daten aus externen Quellen (wie Databricks oder Snowf
 - **Zahlen als Strings gespeichert:** Konvertieren Sie numerische Spalten in Ihrer Quellabfrage vor der Synchronisierung in Integer- oder Gleitkommazahl-Typen.
 - **Inkonsistente Typen zwischen Synchronisierungen:** Wenn sich ein Spaltentyp zwischen Synchronisierungen ändert, kann Braze die neuen Daten ablehnen. Überprüfen Sie, ob Ihr Quellschema konsistent bleibt.
 
-Informationen zum Erzwingen oder Ändern von Datentypen für angepasste Attribute im Braze-Dashboard finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+Informationen zum Erzwingen oder Ändern von Datentypen für angepasste Attribute im Braze-Dashboard finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 Sie können Nutzerdaten anhand der externen ID, des Nutzer-Alias, der Braze-ID, der E-Mail-Adresse oder der Telefonnummer aktualisieren. Sie können Nutzer:innen anhand der externen ID, des Nutzer-Alias oder der Braze-ID löschen.
 
@@ -286,7 +286,7 @@ In diesem dritten Durchlauf wurde eine weitere neue Zeile für `customer_1234` m
 `UPDATED_AT`-Werte dürfen sogar nach der Startzeit eines bestimmten Synchronisierungslaufs liegen. Dies wird jedoch nicht empfohlen, da dadurch der letzte `UPDATED_AT`-Zeitstempel „in die Zukunft verschoben“ wird und nachfolgende Synchronisierungen frühere Werte nicht mehr synchronisieren.
 {% endalert %}
 
-## Verwenden Sie einen UTC-Zeitstempel für die Spalte `UPDATED_AT` {#use-a-utc-timestamp-for-the-updatedat-column}
+## Verwenden Sie einen UTC-Zeitstempel für die Spalte `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
 Die Spalte `UPDATED_AT` sollte in UTC sein, um Probleme mit der Sommerzeit zu vermeiden. Bevorzugen Sie reine UTC-Funktionen wie z. B. `SYSDATE()` anstelle von `CURRENT_DATE()`, wann immer dies möglich ist.
 
@@ -313,7 +313,8 @@ Dieses Beispiel zeigt den allgemeinen Prozess für die erstmalige Synchronisieru
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Beispiel: Verwaltung nachfolgender Updates">
+  <caption>Beispiel: Verwaltung nachfolgender Updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -418,9 +419,10 @@ Nichts davon wurde bisher mit Braze synchronisiert, also fügen Sie alles der Qu
   </tbody>
 </table>
 
-Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle verfügbaren Daten bis zum „2023-03-16 15:00:00“ synchronisiert haben. Am Morgen des 2. Tages wird dann ein ETL ausgeführt und einige Felder in Ihrer Nutzertabelle werden aktualisiert (hervorgehoben):
+Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle verfügbaren Daten bis zum „2023-03-16 15:00:00“ synchronisiert haben. Am Morgen des 2. Tages wird dann ein ETL ausgeführt und einige Felder in Ihrer Nutzertabelle werden aktualisiert (mit * gekennzeichnet):
 
-<table>
+<table aria-label="Beispiel: Verwaltung nachfolgender Updates">
+  <caption>Beispiel: Verwaltung nachfolgender Updates. * kennzeichnet ein Feld, das seit der letzten Synchronisierung aktualisiert wurde.</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -433,14 +435,14 @@ Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle ver
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -449,13 +451,13 @@ Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle ver
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -463,7 +465,7 @@ Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle ver
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -543,7 +545,7 @@ Bei jeder Synchronisierung sucht Braze nach Zeilen, die noch nicht synchronisier
 
 Die Datenpunkt-Nutzung ist bei CDI identisch mit anderen Erfassungsmethoden wie REST APIs oder SDKs. Es liegt daher in Ihrer Verantwortung, sicherzustellen, dass Sie nur neue oder aktualisierte Attribute in Ihre Quelltabellen einfügen.
 
-### Trennen Sie `EXTERNAL_ID` von der Spalte `PAYLOAD` {#separate-externalid-from-payload-column}
+### Trennen Sie `EXTERNAL_ID` von der Spalte `PAYLOAD` {#separate-external_id-from-payload-column}
 
 Das Objekt `PAYLOAD` sollte keine externe ID oder einen anderen ID-Typ enthalten.
 
@@ -683,7 +685,7 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### Verwenden Sie den Zeitstempel `UPDATED_AT` {#use-the-updatedat-timestamp}
+### Verwenden Sie den Zeitstempel `UPDATED_AT` {#use-the-updated_at-timestamp}
 
 Braze verwendet den Zeitstempel `UPDATED_AT`, um zu verfolgen, welche Daten erfolgreich synchronisiert wurden. CDI verfolgt auch die Anzahl der Zeilen beim zuletzt synchronisierten Zeitstempel. Wenn zwischen den Durchläufen neue Zeilen mit demselben Zeitstempel hinzugefügt werden, synchronisiert CDI alle Zeilen mit diesem Zeitstempel erneut, was zu doppelten Daten führen kann. Weitere Details und Tipps finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden](#avoid-resyncing-rows-with-duplicate-timestamps).
 
@@ -693,7 +695,7 @@ Wir haben ein öffentliches [GitHub-Repository](https://github.com/braze-inc/bra
 
 ### Datenformatierung {#data-formatting}
 
-Die Anforderungen an die Tabelleneinrichtung und die Payload-Formatierung für Cloud Data Ingestion sind unter [Tabelleneinrichtung für Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) dokumentiert.
+Die Anforderungen an die Tabelleneinrichtung und die Payload-Formatierung für Cloud Data Ingestion sind unter [Tabelleneinrichtung für Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) dokumentiert.
 
 Verwenden Sie diese Seite, um Folgendes zu unterscheiden:
 
@@ -715,6 +717,6 @@ Wir empfehlen, Abfragen innerhalb einer Stunde abzuschließen, um eine optimale 
 | Datentyp | Sie können Nutzerattribute, Events und Käufe über Cloud Data Ingestion synchronisieren. |
 | Braze-Region | Dieses Produkt ist in allen Braze-Regionen verfügbar. Jede Braze-Region kann sich mit jeder Quelldatenregion verbinden. |
 | Quellregion | Braze stellt die Verbindung zu Ihrem Data Warehouse oder Ihrer Cloud-Umgebung in jeder Region und bei jedem Cloud-Anbieter her. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Produktbeschränkungen" }
 
 <br><br>

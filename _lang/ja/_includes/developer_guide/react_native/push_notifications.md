@@ -60,7 +60,7 @@ Expoでプッシュ通知を使う前に、[Braze Expoプラグインを設定](
 }
 ```
 
-[Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/)などの追加のプッシュ通知ライブラリーに依存している場合は、ネイティブのセットアップ手順ではなく、これらの設定を使用する必要があることに注意してください。
+[Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/)などの追加のプッシュ通知ライブラリに依存している場合は、ネイティブのセットアップ手順ではなく、これらの設定を使用する必要があることに注意してください。
 {% endtab %}
 
 {% tab Android Native %}
@@ -127,21 +127,21 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `badge_count`      | 数値   | 通知のバッジカウントを表します。 |
 | `timestamp`        | 数値 | ペイロードがアプリケーションによって受信された時刻を表します。 |
 | `is_silent`        | ブール値   | `true` の場合、ペイロードはサイレントに受信されます。Androidのサイレントプッシュ通知の送信の詳細については、[Androidでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を参照してください。iOSのサイレントプッシュ通知の送信の詳細については、[iOSでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)を参照してください。 |
-| `is_braze_internal`| ブール値   | ジオフェンス同期、フィーチャーフラグ同期、またはアンインストール追跡などの内部SDK機能に対して通知ペイロードが送信された場合、これは `true` になります。ペイロードはユーザーに対してサイレントに受信されます。 |
+| `is_braze_internal`| ブール値   | フィーチャーフラグ同期やアンインストール追跡などの内部SDK機能に対して通知ペイロードが送信された場合、これは `true` になります。ペイロードはユーザーに対してサイレントに受信されます。 |
 | `image_url`        | 文字列    | 通知画像に関連するURLを指定します。 |
-| `braze_properties` | オブジェクト    | Campaignに関連するBrazeプロパティ（キーと値のペア）を表します。 |
+| `braze_properties` | オブジェクト    | キャンペーンに関連するBrazeプロパティ（キーと値のペア）を表します。 |
 | `ios`              | オブジェクト    | iOS固有のフィールドを表します。 |
 | `android`          | オブジェクト    | Android固有のフィールドを表します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュ通知イベントフィールド" }
 
 ### ステップ3：ディープリンクを有効にする（オプション） {#step-3-enable-deep-linking-optional}
 
-Reactコンポーネント内でプッシュ通知がクリックされた際にBrazeがディープリンクを処理できるようにするには、まず[React Native Linking](https://reactnative.dev/docs/linking)ライブラリーで説明されているステップを実装するか、任意のソリューションで実装してください。次に、以下の追加ステップに従ってください。
+Reactコンポーネント内でプッシュ通知がクリックされた際にBrazeがディープリンクを処理できるようにするには、まず[React Native Linking](https://reactnative.dev/docs/linking)ライブラリで説明されているステップを実装するか、任意のソリューションで実装してください。次に、以下の追加ステップに従ってください。
 
-ディープリンクの詳細については、[FAQの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
+ディープリンクの詳細については、[FAQの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)を参照してください。
 
 {% alert important %}
-既存のReact Nativeプッシュ統合を移行する場合は、Braze SDK、React Native、Expo、または関連ライブラリーをアップグレードした後にディープリンクを再テストしてください。以下を確認してください：
+既存のReact Nativeプッシュ統合を移行する場合は、Braze SDK、React Native、Expo、または関連ライブラリをアップグレードした後にディープリンクを再テストしてください。以下を確認してください：
 - [React Native Linking](https://reactnative.dev/docs/linking)がまだ設定されており、ディープリンクURLを処理していること。
 - iOSの初期プッシュペイロード処理（[ステップ3.1](#step-3-1)を参照）が実装されており、アプリ起動時にまだ呼び出されていること。
 - プッシュクリックイベントを処理するために使用しているネイティブデリゲートまたはリスナーメソッドがまだ登録されており、期待通りに呼び出されていること。
@@ -151,7 +151,7 @@ Reactコンポーネント内でプッシュ通知がクリックされた際に
 {% tab Android Native %}
 [Braze Expoプラグイン]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option)を使用している場合、`app.json` で `androidHandlePushDeepLinksAutomatically` を `true` に設定することで、プッシュ通知のディープリンクを自動的に処理できます。
 
-代わりにディープリンクを手動で処理するには、ネイティブAndroidのドキュメントを参照してください：[ディープリンクを追加する]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/)。
+代わりにディープリンクを手動で処理するには、ネイティブAndroidのドキュメントを参照してください：[ディープリンクを追加する]({{site.baseurl}}/developer_guide/push_notifications/deep_linking)。
 
 #### ステップ3.1：アプリ起動時にプッシュ通知のペイロードを保存する {#step-31-store-the-push-notification-payload-on-app-launch}
 
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### ステップ3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
+#### ステップ3.2：閉じた状態からのディープリンクを処理する
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 
@@ -389,7 +389,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endsubtab %}
 {% endsubtabs %}
 
-統合の例については、[こちら](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm)のサンプルアプリを参照してください。
+統合の例については、[こちらのAppDelegateの例](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm)のサンプルアプリを参照してください。
 {% endtab %}
 {% endtabs %}
 
@@ -462,10 +462,10 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
 {% endalert %}
 
 1. React Nativeアプリケーションで `Braze.changeUserId('your-user-id')` メソッドを呼び出して、アクティブユーザーを設定します。
-2. **Campaigns**に移動し、新しいプッシュ通知Campaignを作成します。テストしたいプラットフォームを選択します。
-3. テスト通知を作成し、**テスト**タブに移動します。テストユーザーと同じ `user-id` を追加し、**テストを送信**をクリックします。まもなくデバイスに通知が届くはずです。
+2. **キャンペーン**に移動し、新しいプッシュ通知キャンペーンを作成します。テストしたいプラットフォームを選択します。
+3. テスト通知を作成し、**テスト**タブに移動します。テストユーザーと同じ `user-id` を追加し、**テスト送信**をクリックします。まもなくデバイスに通知が届くはずです。
 
-![Brazeのプッシュ通知Campaignでは、自分のユーザーIDをテスト受信者として追加し、プッシュ通知をテストすることができます。]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
+![Brazeのプッシュ通知キャンペーンでは、自分のユーザーIDをテスト受信者として追加し、プッシュ通知をテストすることができます。]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
 ## Expoプラグインを使う {#using-the-expo-plugin}
 
@@ -506,9 +506,9 @@ Expo Application Services（EAS）を使用していて、`enableBrazeIosRichPus
 
 Expoプラグイン経由のプッシュ通知が機能しなくなった場合：
 
-1. Braze SDKがまだセッションを追跡しているか確認してください。
+1. Braze SDKがまだセッションをトラッキングしているか確認してください。
 2. SDKが明示的または暗黙的な `wipeData` 呼び出しによって無効化されていないことを確認してください。
-3. Expoや関連ライブラリーの最近のアップグレードを確認してください。Brazeの設定と競合する可能性があります。
+3. Expoや関連ライブラリの最近のアップグレードを確認してください。Brazeの設定と競合する可能性があります。
 4. 最近追加されたプロジェクトの依存関係を確認し、それらが既存のプッシュ通知デリゲートメソッドを手動で上書きしていないかチェックしてください。
 
 {% alert tip %}
@@ -530,4 +530,4 @@ iOS統合については、プロジェクトの依存関係との潜在的な�
 3. Braze Expoプラグインを使用している場合、`androidHandlePushDeepLinksAutomatically` が実装に合わせて正しく設定されていることを確認してください。
 4. 最近追加された依存関係が通知処理やアプリデリゲートの動作を上書きしていないか確認してください。
 
-これらの確認を完了しても問題が解決しない場合は、[サポートチケットを開いて]({{site.baseurl}}/user_guide/administrative/access_braze/support/)、SDKログと再現手順を添付してください。
+これらの確認を完了しても問題が解決しない場合は、[サポートチケットを開いて]({{site.baseurl}}/user_guide/administrative/access_braze/support)、SDKログと再現手順を添付してください。

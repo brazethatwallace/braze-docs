@@ -5,13 +5,13 @@ page_order: 2
 description: "Aprende a revisar y aprobar acciones cuando BrazeAI Operator proponga cambios en el dashboard."
 ---
 
-# Revisión de las acciones de BrazeAI Operator
+# Revisión de las acciones de BrazeAI Operator {#reviewing-brazeai-operator-actions}
 
 > Aprende a revisar y aprobar acciones cuando BrazeAI Operator<sup>TM</sup> proponga cambios en el dashboard.
 
 ![Operator presentando tarjetas de acciones sugeridas para su revisión.]({% image_buster /assets/img/operator/suggested_actions.png %}){: style="max-width:40%; border:none; float:right; margin-left:15px;"}
 
-## Cómo funcionan las tarjetas de acción
+## Cómo funcionan las tarjetas de acción {#how-action-cards-work}
 
 Cuando Operator propone cambios en el dashboard (como rellenar campos de formularios, actualizar la configuración o generar imágenes), presenta cada cambio como una tarjeta de acción para su revisión.
 
@@ -22,28 +22,28 @@ Cuando Operator propone cambios en el dashboard (como rellenar campos de formula
 
 Si una acción falla después de su aprobación, Operator te notificará con detalles sobre el fallo.
 
-### Disponibilidad
+### Disponibilidad {#availability}
 
-Las tarjetas de acción son compatibles con los siguientes editores y páginas. 
+Las tarjetas de acción son compatibles con los siguientes editores y páginas.
 
 - **Editores de mensajes:**
     - Mensajes dentro de la aplicación (solo editor tradicional)
-    - Tarjetas de contenido
+    - Content Cards
     - Correo electrónico (solo editor HTML)
     - Notificaciones push
     - SMS/MMS/RCS
     - Webhooks
-- Página [Crear agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
- 
+- Página [Crear agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+
 En otras páginas, Operator proporciona una lista de pasos a seguir en la interfaz de usuario en lugar de realizar la acción por sí mismo. La funcionalidad de Operator se mejora periódicamente y se espera ampliar la cobertura de las herramientas de creación.
 
-## Modificar un plan
+## Modificar un plan {#modify-a-plan}
 
 Para modificar el plan de Operator, primero aprueba o rechaza las acciones pendientes. A continuación, describe el cambio deseado en un nuevo mensaje de chat.
 
 Las acciones aprobadas no se pueden deshacer a través de Operator. Describe el nuevo cambio a Operator o realiza los cambios manualmente en el dashboard.
 
-## Aprobación automática de acciones
+## Aprobación automática de acciones {#auto-approve-actions}
 
 El conmutador **Aprobación automática de acciones** se encuentra en el panel de chat de Operator.
 
@@ -53,3 +53,5 @@ El conmutador **Aprobación automática de acciones** se encuentra en el panel d
 ![El conmutador de aprobación automática y el modal de confirmación en el panel de chat de Operator.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 
 La aprobación automática se restablece cuando actualizas la página, abres una nueva pestaña o cierras sesión y vuelves a iniciarla. Navegar entre páginas en el dashboard no la restablece. La aprobación automática se puede desactivar en cualquier momento.
+
+Para obtener información sobre cómo restringir el acceso a Operator y auditar el uso del equipo, consulta [Privacidad de datos y seguridad]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).

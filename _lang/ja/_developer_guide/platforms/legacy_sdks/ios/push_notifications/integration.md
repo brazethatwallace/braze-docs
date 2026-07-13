@@ -3,7 +3,7 @@ nav_title: 統合
 article_title: iOS 向けのプッシュ統合
 platform: iOS
 page_order: 0
-description: "この参照記事では、iOS アプリケーションにプッシュ通知を統合する方法を説明します。"
+description: "この参照記事では、iOS アプリケーションにプッシュ通知を統合する方法について説明します。"
 channel:
   - push
 search_rank: 5
@@ -38,7 +38,7 @@ noindex: true
 
 プロジェクト設定で、**Capabilities** タブの **Push Notifications** 機能がオンになっていることを確認します。
 
-![]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![プロジェクト設定で、Capabilities タブの Push Notifications 機能がオンになっていることを確認します。]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
 開発用と本番用のプッシュ証明書が別々にある場合は、**General** タブの **Automatically manage signing** チェックボックスをオフにしてください。これにより、Xcodeの自動コード署名機能は開発署名のみを行うため、ビルド構成ごとに異なるプロビジョニングプロファイルを選択できるようになります。
 
@@ -48,10 +48,10 @@ noindex: true
 
 ユーザーのデバイスをAPNsに登録するには、アプリの `application:didFinishLaunchingWithOptions:` デリゲートメソッド内に適切なコードサンプルを含める必要があります。アプリケーションのメインスレッドですべてのプッシュ統合コードを呼び出すようにしてください。
 
-Brazeには、プッシュアクションボタンをサポートするデフォルトのプッシュカテゴリーも用意されており、プッシュ登録コードに手動で追加する必要があります。その他の統合ステップについては、[プッシュアクションボタン]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/)を参照してください。
+Brazeには、プッシュアクションボタンをサポートするデフォルトのプッシュカテゴリーも用意されており、プッシュ登録コードに手動で追加する必要があります。その他の統合ステップについては、[プッシュアクションボタン]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons)を参照してください。
 
 {% alert warning %}
-[プッシュ通知のベストプラクティス]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting/)の説明に従ってカスタムプッシュプロンプトを実装している場合は、アプリにプッシュ権限を付与した後、**アプリが実行されるたびに**次のコードを呼び出すようにしてください。**[デバイストークンは任意に変更される可能性がある](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html)ため、アプリはAPNsに再登録する必要があります。**
+[プッシュ通知のベストプラクティス]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting)の説明に従ってカスタムプッシュプロンプトを実装している場合は、アプリにプッシュ権限を付与した後、**アプリが実行されるたびに**次のコードを呼び出すようにしてください。**[デバイストークンは任意に変更される可能性がある](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html)ため、アプリはAPNsに再登録する必要があります。**
 {% endalert %}
 
 ### UserNotification フレームワークの使用（iOS 10以降） {#using-usernotification-framework-ios-10}
@@ -59,7 +59,7 @@ Brazeには、プッシュアクションボタンをサポートするデフォ
 iOS 10で導入された `UserNotifications` フレームワーク（推奨）を使用している場合は、アプリデリゲートの `application:didFinishLaunchingWithOptions:` メソッドに以下のコードを追加します。
 
 {% alert important %}
-次のコードサンプルには、仮のプッシュ認証の統合が含まれています（5行目と6行目）。アプリで仮認証を使用する予定がない場合は、`requestAuthorization` オプションに `UNAuthorizationOptionProvisional` を追加するコード行を削除できます。<br>プッシュ仮認証の詳細については、[iOS 通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/)をご覧ください。
+次のコードサンプルには、仮のプッシュ認証の統合が含まれています（5行目と6行目）。アプリで仮認証を使用する予定がない場合は、`requestAuthorization` オプションに `UNAuthorizationOptionProvisional` を追加するコード行を削除できます。<br>プッシュ仮認証の詳細については、[iOS 通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options)をご覧ください。
 {% endalert %}
 
 {% tabs %}
@@ -304,8 +304,8 @@ Appboy.sharedInstance()?.register(application,
 
 ## ステップ 6:ディープリンク {#step-6-deep-linking}
 
-プッシュからアプリへのディープリンクは、標準のプッシュ統合ドキュメントを介して自動的に処理されます。アプリ内の特定の場所にディープリンクを追加する方法について詳しくは、[高度なユースケース]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-implementation)を参照してください。
+プッシュからアプリへのディープリンクは、標準のプッシュ統合ドキュメントを介して自動的に処理されます。アプリ内の特定の場所にディープリンクを追加する方法について詳しくは、[高度なユースケース]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-implementation)を参照してください。
 
 ## ステップ 7:単体テスト（オプション） {#step-7-unit-tests-optional}
 
-ここまでの統合手順のテストカバレッジを追加するには、[プッシュ単体テスト]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests/)を実装します。
+ここまでの統合手順のテストカバレッジを追加するには、[プッシュ単体テスト]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests)を実装します。

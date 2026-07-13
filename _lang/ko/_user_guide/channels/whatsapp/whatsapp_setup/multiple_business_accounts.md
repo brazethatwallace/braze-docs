@@ -24,12 +24,12 @@ channel:
 
 워크스페이스당 최대 10개의 WhatsApp 비즈니스 계정을 추가할 수 있습니다. 비즈니스 계정은 서로 다른 Meta Business Manager에 중첩될 수 있습니다. 계정을 추가하려면:
 
-1. **Technology Partners** > **WhatsApp**으로 이동하여 **Add WhatsApp Business Account**를 선택합니다.
+1. **기술 파트너** > **WhatsApp**으로 이동하여 **Add WhatsApp Business Account**를 선택합니다.
 
 ![비즈니스 계정 추가 또는 구독 그룹 및 번호 추가 옵션이 있는 WhatsApp 메시징 통합 섹션.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
 {: start="2"}
-2. 가입 워크플로를 진행합니다. 자세한 단계별 안내는 [WhatsApp 임베디드 가입]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)을 참조하세요.
+2. 가입 워크플로를 진행합니다. 자세한 단계별 안내는 [WhatsApp 임베디드 가입]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)을 참조하세요.
 
 {% alert important %}
 전화번호는 다른 WhatsApp 계정에 등록되어 있지 않아야 하는 등 WhatsApp 전화번호의 모든 요구 사항을 충족해야 합니다.
@@ -37,7 +37,7 @@ channel:
 
 ## 다중 구독 그룹 및 전화번호 {#multiple-subscription-groups-and-phone-numbers}
 
-메시지 템플릿은 동일한 WhatsApp 비즈니스 계정 내의 모든 전화번호 간에 공유됩니다. WhatsApp 구독 그룹에 대한 자세한 내용은 [구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)을 참조하세요.
+메시지 템플릿은 동일한 WhatsApp 비즈니스 계정 내의 모든 전화번호 간에 공유됩니다. WhatsApp 구독 그룹에 대한 자세한 내용은 [구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)을 참조하세요.
 
 각 WhatsApp 전화번호는 사용자에게 별도의 WhatsApp 채팅으로 표시됩니다. WhatsApp 비즈니스 계정 내의 각 전화번호는 서로 독립적으로 운영되므로, 다음 항목에 대해 동일하거나 다른 값을 가질 수 있습니다:
 - 표시 이름
@@ -49,7 +49,7 @@ channel:
 
 WhatsApp 비즈니스 계정당 최대 20개의 구독 그룹(및 발송 전화번호)을 추가할 수 있습니다. 구독 그룹과 전화번호를 추가하려면:
 
-1. **Technology Partners** > **WhatsApp**으로 이동하여 **Add Subscription Group and Number**를 선택합니다.
+1. **기술 파트너** > **WhatsApp**으로 이동하여 **Add Subscription Group and Number**를 선택합니다.
 
 ![비즈니스 계정 추가 또는 구독 그룹 및 번호 추가 옵션이 있는 WhatsApp 메시징 통합 섹션.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
@@ -58,5 +58,5 @@ WhatsApp 비즈니스 계정당 최대 20개의 구독 그룹(및 발송 전화�
 
 ### 구독 그룹 및 전화번호 제거 {#removing-a-subscription-group-and-phone-number}
 
-1. **Audience** > **Subscriptions**로 이동하여 구독 그룹을 아카이브합니다.
+1. **오디언스** > **구독**으로 이동하여 구독 그룹을 아카이브합니다.
 2. Meta Business Manager로 이동하여 전화번호를 삭제합니다.

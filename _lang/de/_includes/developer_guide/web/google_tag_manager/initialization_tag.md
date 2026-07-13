@@ -35,7 +35,7 @@ Geben Sie die erforderlichen Mindestinformationen ein:
 | **API Key**   | Ihr [Braze-API-Schlüssel]({{site.baseurl}}/api/basics/#about-rest-api-keys), den Sie im Braze-Dashboard unter **Settings** > **App-Einstellungen** finden. |
 | **API Endpoint** | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
 | **SDK Version**  | Die aktuellste `MAJOR.MINOR`-Version des Web Braze SDK, die im [Changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web) aufgeführt ist. Wenn die neueste Version beispielsweise `4.1.2` ist, geben Sie `4.1` ein. Weitere Informationen finden Sie unter [Über die SDK-Versionsverwaltung]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Tag konfigurieren" }
 
 Für zusätzliche Initialisierungseinstellungen wählen Sie **Braze Initialization Options** und wählen die gewünschten Optionen aus.
 
@@ -61,6 +61,7 @@ Das Braze Initialization Tag bietet die folgenden Optionen. Die meisten davon la
 | **Open Cards in New Tab** | `openCardsInNewTab` | Öffnet Content-Card-Links in einem neuen Tab, wenn die Standard-Feed-UI verwendet wird. |
 | **Service Worker Location** | `serviceWorkerLocation` | Benutzerdefinierter Pfad für die Service-Worker-Datei (Standard: `/service-worker.js`). |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | Sitzungszeitlimit in Sekunden (Standard: 1800). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="4. Schritt: Initialisierungsoptionen auswählen" }
 
 {% alert note %}
 Um [angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) bei Verwendung des Google Tag Manager Braze Initialization Tag zu aktivieren, wählen Sie **Allow HTML In-App Messages** in den **Braze Initialization Options** aus. Dieses Kontrollkästchen entspricht der Initialisierungsoption `allowUserSuppliedJavascript` in `braze.initialize()` und setzt sie auf `true`. Das Google Tag Manager Braze Initialization Tag verwendet dieses Label anstelle des Optionsnamens.

@@ -5,11 +5,11 @@ description: "이 온보딩 참조 문서에서는 Braze SDK 개발자를 위한
 page_order: 0
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}개발자용 SDK 개요 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}개발자용 SDK 개요 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Braze SDK 통합을 시작하기 전에 정확히 무엇을 구축하고 통합하는지 궁금할 수 있습니다. 요구 사항에 맞게 SDK를 추가로 커스터마이즈하는 방법도 궁금할 수 있습니다. 이 문서는 모든 SDK 관련 질문에 대한 답을 찾는 데 도움을 줄 수 있습니다.
 
-SDK에 대한 기본적인 개요를 찾고 계신 마케터인가요? 대신 [마케터 개요]({{site.baseurl}}/user_guide/get_started/sdk_overview/)를 확인하세요.
+SDK에 대한 기본적인 개요를 찾고 계신 마케터인가요? 대신 [마케터 개요]({{site.baseurl}}/user_guide/get_started/sdk_overview)를 확인하세요.
 
 간단히 말해서, Braze SDK는:
 * 사용자 데이터를 수집하고 통합된 고객 프로필로 동기화합니다
@@ -33,7 +33,7 @@ Braze SDK는 앱에 있는 다른 SDK를 방해하지 않으면서 매우 원활
 
 ## 기본 분석 및 세션 처리 {#default-analytics-and-session-handling}
 
-특정 사용자 데이터(예: 처음 사용한 앱, 마지막으로 사용한 앱, 총 세션 수, 기기 OS 등)는 SDK에서 자동으로 수집됩니다. 통합 가이드에 따라 SDK를 구현하면 이 [기본 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/) 기능을 활용할 수 있습니다. 이 목록을 확인하면 사용자에 대한 동일한 정보를 두 번 이상 저장하지 않도록 하는 데 도움이 됩니다. 세션 시작 및 세션 종료를 제외한 모든 자동 추적 데이터는 데이터 포인트 사용량에 포함되지 않습니다.
+특정 사용자 데이터(예: 처음 사용한 앱, 마지막으로 사용한 앱, 총 세션 수, 기기 OS 등)는 SDK에서 자동으로 수집됩니다. 통합 가이드에 따라 SDK를 구현하면 이 [기본 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) 기능을 활용할 수 있습니다. 이 목록을 확인하면 사용자에 대한 동일한 정보를 두 번 이상 저장하지 않도록 하는 데 도움이 됩니다. 세션 시작 및 세션 종료를 제외한 모든 자동 추적 데이터는 데이터 포인트 사용량에 포함되지 않습니다.
 
 {% alert note %}
 모든 기능이 구성 가능하지만 기본 데이터 수집 모델을 완전히 구현하는 것이 좋습니다.
@@ -45,12 +45,12 @@ Braze SDK는 앱에 있는 다른 SDK를 방해하지 않으면서 매우 원활
 
 Braze SDK는 데이터(세션, 커스텀 이벤트 등)를 캐시하고 주기적으로 업로드합니다. 데이터가 업로드된 후에만 대시보드에서 값이 업데이트됩니다. 업로드 간격은 기기의 상태를 고려하며 네트워크 연결 품질에 따라 결정됩니다.
 
-|네트워크 연결 품질 |    데이터 플러시 간격|
+| 네트워크 연결 품질 | 데이터 플러시 간격 |
 |---|---|
-|매우 양호    |10초|
-|양호    |30초|
-|미흡    |60초|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 매우 양호 | 10초 |
+| 양호 | 30초 |
+| 미흡 | 60초 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 업로드 및 다운로드" }
 
 네트워크 연결이 없으면 네트워크 연결이 다시 설정될 때까지 데이터가 기기에 로컬로 캐시됩니다. 연결이 다시 설정되면 데이터가 Braze에 업로드됩니다.
 
@@ -71,7 +71,7 @@ SDK 통합에서 특정 데이터의 자동 수집을 차단하거나 이를 수
 {% tabs %}
 {% tab Web SDK %}
 
-SDK의 특정 부분을 통합하지 않거나 사용자에 대해 [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk)를 사용할 수 있습니다. 이 메서드는 `disableSDK()` 호출 이전에 기록된 데이터를 동기화하며, 이 페이지 및 향후 페이지 로드에서 이후 모든 Braze Web SDK 호출을 무시합니다. 나중에 데이터 수집을 재개하려면 [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) 메서드를 사용하여 데이터 수집을 재개할 수 있습니다. 이에 대한 자세한 내용은 [웹 추적 비활성화]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=web) 문서에서 확인할 수 있습니다.
+SDK의 특정 부분을 통합하지 않거나 사용자에 대해 [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk)를 사용할 수 있습니다. 이 메서드는 `disableSDK()` 호출 이전에 기록된 데이터를 동기화하며, 이 페이지 및 향후 페이지 로드에서 이후 모든 Braze Web SDK 호출을 무시합니다. 나중에 데이터 수집을 재개하려면 [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) 메서드를 사용하여 데이터 수집을 재개할 수 있습니다. 이에 대한 자세한 내용은 [웹 추적 비활성화]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web) 문서에서 확인할 수 있습니다.
 
 {% endtab %}
 {% tab Android SDK %}
@@ -91,7 +91,7 @@ SDK의 특정 부분을 통합하지 않거나 사용자에 대해 [`disableSDK`
 기본적으로 모든 필드는 Braze Swift SDK에 의해 수집됩니다. 일부 기기 속성을 제거하면 SDK 기능이 비활성화될 수 있습니다.
 {% endalert %}
 
-자세한 사용법은 Swift SDK 설명서의 [스토리지]({{site.baseurl}}/developer_guide/storage/?tab=swift)를 참조하세요.
+자세한 사용법은 Swift SDK 설명서의 [스토리지]({{site.baseurl}}/developer_guide/storage?tab=swift)를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -103,5 +103,5 @@ SDK의 특정 부분을 통합하지 않거나 사용자에 대해 [`disableSDK`
 ![워크스페이스에 Swifty라는 앱이 있습니다. 라이브 SDK 버전은 6.6.0입니다.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 
 {% alert tip %}
-iOS 앱이 있는 경우 **라이브 SDK 버전**이 Swift SDK의 첫 번째 릴리스 버전인 5.0.0 이상이면 기존 [Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) 대신 [Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)를 사용 중임을 확인할 수 있습니다.
+iOS 앱이 있는 경우 **라이브 SDK 버전**이 Swift SDK의 첫 번째 릴리스 버전인 5.0.0 이상이면 기존 [Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) 대신 [Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)를 사용 중임을 확인할 수 있습니다.
 {% endalert %}

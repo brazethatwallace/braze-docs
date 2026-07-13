@@ -13,7 +13,7 @@ description: "Dieser Artikel beschreibt, wie Sie Ihr Braze-Konto erhalten, wie S
 
 Wenn Sie die erste Braze-Nutzer:in Ihres Unternehmens sind und sich zum ersten Mal anmelden, erhalten Sie eine Willkommens-E-Mail von `@alerts.braze.com`, in der Sie aufgefordert werden, Ihre E-Mail-Adresse zu bestätigen und sich am ersten Tag Ihres Vertrags anzumelden.
 
-Nachdem Sie Ihr Konto bestätigt haben, können Sie weitere Nutzer:innen über die Seite [Unternehmensnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) in Ihrem Dashboard hinzufügen. Alle Nutzer:innen erhalten eine E-Mail mit der Aufforderung, ihr Konto zu bestätigen, nachdem sie hinzugefügt wurden.
+Nachdem Sie Ihr Konto bestätigt haben, können Sie weitere Nutzer:innen über die Seite [Unternehmensnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) in Ihrem Dashboard hinzufügen. Alle Nutzer:innen erhalten eine E-Mail mit der Aufforderung, ihr Konto zu bestätigen, nachdem sie hinzugefügt wurden.
 
 Wenn Sie nicht die erste Nutzer:in im Braze-Konto Ihres Unternehmens sind, wenden Sie sich an die Braze-Kontoadministrator:in Ihres Unternehmens und bitten Sie darum, Ihr Konto zu erstellen. Sie erhalten dann eine Willkommens-E-Mail von `@alerts.braze.com`, in der Sie aufgefordert werden, Ihre E-Mail-Adresse zu bestätigen und sich anzumelden.
 
@@ -21,13 +21,13 @@ Wenn Sie nicht die erste Nutzer:in im Braze-Konto Ihres Unternehmens sind, wende
 
 Ob es Ihre erste oder hundertste Anmeldung ist – so greifen Sie auf Ihr Dashboard zu. Wenn Sie die erste Nutzer:in Ihres Unternehmens sind, folgen Sie den Anweisungen im vorherigen Abschnitt. Andernfalls können Sie sich anmelden, nachdem die Braze-Admin Ihres Unternehmens Ihr Konto erstellt hat.
 
-Sie können sich entweder über die [Braze.com](https://www.braze.com)-Startseite anmelden oder Ihre Dashboard-URL verwenden, die Ihrer spezifischen [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) entspricht. Für Ihren Komfort bietet Braze mehrere Single-Sign-on-Optionen (SSO) an, wie zum Beispiel:
+Sie können sich entweder über die [Braze.com](https://www.braze.com)-Startseite anmelden oder Ihre Dashboard-URL verwenden, die Ihrer spezifischen [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) entspricht. Für Ihren Komfort bietet Braze mehrere Single-Sign-on-Optionen (SSO) an, wie zum Beispiel:
 
-* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/)
-    * [SAML Just-in-Time-Bereitstellung]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/)
-* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso/)
-* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta/)
-* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin/)
+* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
+    * [SAML Just-in-Time-Bereitstellung]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)
+* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
+* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
 Nachdem Sie sich über SSO bei Braze angemeldet haben, können Sie sich nicht mehr mit Ihrem Passwort im Dashboard anmelden. Beide E-Mail-Adressen leiten E-Mails an denselben Posteingang weiter, aber Braze erkennt sie bei der Anmeldung als separate Konten. Das Löschen von Cookies meldet Sie ab, sodass nicht gespeicherte Arbeit verloren geht.
 
@@ -59,11 +59,20 @@ Wenn Ihr E-Mail-Anbieter kein `+`-Aliasing unterstützt, können Sie dennoch sep
 
 ### Multi-Company-Entwickler:innen verwenden {#use-multi-company-developers}
 
-Das Feature Multi-Company-Entwickler:innen ermöglicht die gemeinsame Nutzung eines einzelnen Nutzerkontos über mehrere Unternehmen hinweg. Nutzer:innen können über ihr Nutzerprofilmenü zwischen verschiedenen Unternehmens-Dashboards wechseln.
+Das Feature Multi-Company-Entwickler:innen ermöglicht die gemeinsame Nutzung eines einzelnen Nutzerkontos über mehrere Unternehmen hinweg. Dashboard-Nutzer:innen können über ihr Nutzerprofilmenü zwischen verschiedenen Unternehmens-Dashboards umschalten.
 
-Wenn Sie SSO verwenden und Multi-Company-Entwickler:innen einrichten möchten, müssen Sie eine benutzerdefinierte SAML-Entity-ID aktivieren, indem Sie eine benutzerdefinierte SAML-SSO-Integration einrichten. Folgen Sie den Schritten unter [Service-Provider-initiierte Anmeldung (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/), wenden Sie jedoch diese Änderungen an:
+Wenn Sie SSO verwenden und Multi-Company-Entwickler:innen einrichten möchten, müssen Sie eine benutzerdefinierte SAML-Entity-ID aktivieren, indem Sie eine benutzerdefinierte SAML-SSO-Integration einrichten. Folgen Sie den Schritten unter [Service-Provider-initiierte Anmeldung (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), wenden Sie jedoch diese Änderungen an:
 - Ändern Sie die **Entity-ID** für jede Dashboard-Integration in `braze_dashboard_<companyID>`.
 - Kontaktieren Sie Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper `saml_sso_custom_entity_id` für jedes Dashboard zu aktivieren.
+
+#### Zwei-Faktor-Authentifizierung (2FA) {#two-factor-authentication-2fa}
+
+Wie 2FA für Multi-Company-Entwickler:innen funktioniert, hängt von Ihrer 2FA-Methode ab:
+
+- **E-Mail und SMS:** Ihre 2FA-Einstellungen werden auf alle verknüpften Entwicklerkonten kopiert. Nachdem Sie E-Mail- oder SMS-2FA auf einem Konto eingerichtet haben, gilt dieselbe Methode für alle Ihre Unternehmens-Dashboards.
+- **Zeitbasiertes Einmalpasswort (TOTP):** TOTP-Einstellungen werden nicht kontenübergreifend synchronisiert. Wenn Sie eine Authenticator-App verwenden, müssen Sie für jedes Dashboard, bei dem Sie sich direkt anmelden, einen separaten Code einrichten.
+
+Wenn Sie innerhalb des Dashboards zwischen Konten wechseln, müssen Sie die 2FA nur einmal abschließen – beim ersten Mal, wenn Sie sich während dieser Sitzung bei einem verknüpften Konto anmelden.
 
 ### Hinweise zu Single Sign-on (SSO) {#considerations-for-single-sign-on-sso}
 
@@ -90,17 +99,21 @@ Das Löschen von Cookies meldet Sie ab, sodass nicht gespeicherte Arbeit verlore
 - [Cookies und Website-Daten in Firefox löschen](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
 - [Alle Cookies in Microsoft Edge löschen](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
-Wenn das Löschen von Browser-Cache und Cookies Ihre Probleme nicht löst, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/).
+Wenn das Löschen von Browser-Cache und Cookies Ihre Probleme nicht löst, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact).
+
+### „Aw, Snap!“-Fehler in Google Chrome {#aw-snap-error-in-google-chrome}
+
+Wenn Google Chrome einen „Aw, Snap!“-Fehler anzeigt, hat Chrome Probleme beim Laden der Braze-Dashboard-Seite. Schritte zur Fehlerbehebung finden Sie unter [Hilfe bei häufigen Fehlermeldungen in Chrome](https://support.google.com/chrome/answer/95669?co=GENIE.Platform%3DDesktop&hl=en).
 
 ### „Bitte Seite aktualisieren“ oder „Unerwarteter Fehler“ beim Navigieren im Dashboard {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
 
 Dieser Fehler kann auftreten, wenn eine Unternehmensnutzer:in keinem Workspace zugeordnet ist. Zur Fehlerbehebung:
 
-1. Gehen Sie zur Seite [Unternehmensnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/).
+1. Gehen Sie zur Seite [Unternehmensnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
 2. Prüfen Sie, ob die Nutzer:in einem Workspace hinzugefügt wurde.
 3. Wenn sie keinem Workspace zugeordnet ist, fügen Sie sie hinzu und weisen Sie die entsprechenden Berechtigungen zu.
 4. Bitten Sie die Nutzer:in, ihr Dashboard zu aktualisieren.
-5. Wenn das Problem weiterhin besteht, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/).
+5. Wenn das Problem weiterhin besteht, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact).
 
 ### Zugriff auf den Drag-and-Drop-Editor {#accessing-the-drag-and-drop-editor}
 
@@ -112,7 +125,7 @@ Der Editor kann aufgrund der folgenden Ursachen Ladeprobleme haben:
 - **Schwerwiegender Fehler:** Dies kann ein zugrunde liegendes Infrastruktur- oder Produktproblem betreffen. Sie können unsere [Braze-Systemstatusseite](https://braze.statuspage.io/) überprüfen, da wir wahrscheinlich über die Situation informiert sind und aktiv an einer Lösung arbeiten.
 
 {% alert important %}
-Wenn Sie weiterhin Probleme haben, [erstellen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/). Stellen Sie vorher sicher, dass Ihre IT-Administrator:in bestätigt hat, dass `*.bz-rndr.com` auf Ihrer Seite auf der Allowlist steht.
+Wenn Sie weiterhin Probleme haben, [erstellen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support). Stellen Sie vorher sicher, dass Ihre IT-Administrator:in bestätigt hat, dass `*.bz-rndr.com` auf Ihrer Seite auf der Allowlist steht.
 {% endalert %}
 
 ### Zugriff auf Braze-Lernangebote {#accessing-braze-learning}
@@ -162,9 +175,9 @@ Sie können anhand der Fehlermeldung erkennen, welche Art von Sperrung vorliegt:
 #### Passwortfehler {#password-error}
 
 Die Sicherheit Ihres Kontos ist uns wichtig, daher sind Passwörter für die Anmeldung bei Ihrem Braze-Konto erforderlich.
-- Prüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) anmelden. Wenden Sie sich an Ihre Kontoadministrator:in oder Ihren Braze-Account-Manager, um sicherzugehen.
+- Prüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anmelden. Wenden Sie sich an Ihre Kontoadministrator:in oder Ihren Braze-Account-Manager, um sicherzugehen.
 - Ihr Passwort ist möglicherweise abgelaufen, sodass Sie es [zurücksetzen](#resetting-your-password) müssen.
-- Wenn Sie einen [Single-Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/)-Dienst verwenden, prüfen Sie bei Ihrer Kontoadministrator:in, ob die Einrichtung korrekt abgeschlossen wurde.
+- Wenn Sie einen [Single-Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)-Dienst verwenden, prüfen Sie bei Ihrer Kontoadministrator:in, ob die Einrichtung korrekt abgeschlossen wurde.
 - Wenn Ihr Unternehmen mehrere Braze-Instanzen nutzt, verwenden Sie möglicherweise die falsche E-Mail-Adresse zur Anmeldung.
 
 Im Zweifelsfall können Sie jederzeit [Ihr Passwort zurücksetzen](#resetting-your-password).
@@ -173,7 +186,7 @@ Im Zweifelsfall können Sie jederzeit [Ihr Passwort zurücksetzen](#resetting-yo
 
 Wenn Sie denselben Computer verwenden, mit dem Sie sich normalerweise anmelden, sollte Braze automatisch die richtige Instanz erkennen. Falls nicht oder wenn Sie sich zum ersten Mal anmelden, beachten Sie Folgendes:
 
-- Prüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) anmelden. Wenden Sie sich an Ihre Kontoadministrator:in oder Ihren Braze-Account-Manager, um sicherzugehen.
+- Prüfen Sie, ob Sie sich bei der richtigen [Braze-Dashboard-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) anmelden. Wenden Sie sich an Ihre Kontoadministrator:in oder Ihren Braze-Account-Manager, um sicherzugehen.
 - Wenn Ihr Unternehmen mehrere Braze-Instanzen nutzt, verwenden Sie möglicherweise die falsche E-Mail-Adresse zur Anmeldung.
 
 #### Kontosperrung {#account-suspension}
@@ -197,7 +210,7 @@ Wenn das Problem in allen Browsern auftritt, versuchen Sie Folgendes:
 - **Netzwerkverbindung prüfen:** Versuchen Sie, Ihr VPN zu deaktivieren, falls möglich, oder deaktivieren und reaktivieren Sie Ihre Netzwerkverbindung.
 - **Gerät neu starten:** Versuchen Sie, sich nach einem Neustart Ihres Geräts in Ihrem Braze-Dashboard anzumelden.
 
-Wenn Sie die vorherigen Probleme gelöst haben und Ihr Dashboard immer noch nicht geladen wird oder nicht wie erwartet funktioniert, kontaktieren Sie den [Support]({{site.baseurl}}/braze_support/).
+Wenn Sie die vorherigen Probleme gelöst haben und Ihr Dashboard immer noch nicht geladen wird oder nicht wie erwartet funktioniert, kontaktieren Sie den [Support]({{site.baseurl}}/braze_support).
 
 ### Die Nutzer:in gehört keinem Workspace an {#the-user-belongs-to-no-workspace}
 
@@ -218,11 +231,11 @@ Wenn Sie eine neue Braze-Nutzer:in sind und Probleme beim Anmelden oder beim ers
 - 2FA zurücksetzen: Wenn Sie Probleme bei der Einrichtung der 2FA haben, kann Ihre Admin die 2FA für Ihr Nutzerkonto in den Einstellungen zurücksetzen.
 - Nutzer:in erneut hinzufügen: Wenn die Probleme weiterhin bestehen, kann die Admin Ihr Nutzerkonto aus dem Dashboard löschen und Sie erneut hinzufügen. Dies ermöglicht die Erstellung der Nutzer:in mit denselben Daten.
 
-Wenn die Probleme nach diesen Schritten weiterhin bestehen, kontaktieren Sie den [Support]({{site.baseurl}}/braze_support/) für weitere Unterstützung.
+Wenn die Probleme nach diesen Schritten weiterhin bestehen, kontaktieren Sie den [Support]({{site.baseurl}}/braze_support) für weitere Unterstützung.
 
 ## Nächste Schritte {#next-steps}
 
 Nachdem Sie auf Ihr Konto zugegriffen haben, erkunden Sie diese Ressourcen:
 
-- [Das Braze-Dashboard]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), um zu erfahren, wie Sie wichtige Features und Tools navigieren.
-- [Spracheinstellungen]({{site.baseurl}}/user_guide/administer/personal/language_settings/), um Ihre bevorzugte Dashboard-Sprache festzulegen.
+- [Das Braze-Dashboard]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard), um zu erfahren, wie Sie wichtige Features und Tools navigieren.
+- [Spracheinstellungen]({{site.baseurl}}/user_guide/administer/personal/language_settings), um Ihre bevorzugte Dashboard-Sprache festzulegen.

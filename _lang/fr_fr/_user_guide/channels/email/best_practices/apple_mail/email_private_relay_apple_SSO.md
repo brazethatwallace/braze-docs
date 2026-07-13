@@ -9,7 +9,7 @@ channel:
 toc_headers: h2
 ---
 
-# Envoyer des e-mails à Apple Private Relay
+# Envoyer des e-mails à Apple Private Relay {#send-emails-to-apple-private-relay}
 
 > La fonctionnalité d'authentification unique (SSO) d'Apple permet aux utilisateurs de partager leur adresse e-mail (`example@icloud.com`) ou de la masquer en fournissant aux marques une adresse anonymisée (`tq1234snin@privaterelay.appleid.com`) au lieu de leur adresse e-mail personnelle. Apple transfère ensuite les messages envoyés aux adresses relais vers l'adresse e-mail réelle de l'utilisateur.
 
@@ -17,7 +17,7 @@ Pour envoyer des e-mails au relais d'e-mail privé d'Apple, enregistrez vos doma
 
 Si un utilisateur décide de désactiver le transfert d'e-mails vers l'adresse relais de votre application, Braze recevra les informations de rebond comme d'habitude. Ces utilisateurs peuvent gérer les applications qui utilisent la connexion avec Apple depuis leur page de paramètres Apple ID (voir la [documentation d'Apple](https://support.apple.com/en-us/HT210426)).
 
-## Configurer votre fournisseur d'e-mail
+## Configurer votre fournisseur d'e-mail {#configure-your-email-provider}
 
 {% tabs %}
 {% tab SendGrid %}
@@ -41,17 +41,17 @@ Pour configurer Apple Private Relay avec SparkPost, suivez ces étapes :
 2. Suivez la [documentation d'Apple](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service) pour enregistrer les domaines d'e-mail.
 3. Apple vérifiera automatiquement les domaines, affichera ceux qui sont vérifiés et proposera l'option de revérifier ou de supprimer les domaines.
 
-### Lorsque le domaine d'envoi est aussi le domaine de rebond
+### Lorsque le domaine d'envoi est aussi le domaine de rebond {#when-the-sending-domain-is-also-the-bounce-domain}
 
 Si un domaine d'envoi est également utilisé comme domaine de rebond, vous ne pourrez pas stocker d'enregistrements et devrez suivre ces étapes supplémentaires :
 
 1. Si le domaine a déjà été vérifié sur SparkPost, vous **devez** créer des enregistrements MX et TXT :
 
-| Instance | Enregistrement MX            | Enregistrement TXT                             |
-|----------|------------------------------|-------------------------------------------------|
-| US       | `smtp.sparkpostmail.com`     | `"v=spf1 redirect=_spf.sparkpostmail.com"`      |
-| EU       | `smtp.eu.sparkpostmail.com`  | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"`   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| Instance | Enregistrement MX | Enregistrement TXT |
+|----------|-----------------------------|-----------------------------------------------|
+| US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
+| EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Lorsque le domaine d'envoi est aussi le domaine de rebond" }
 
 {% alert important %}
 Pour éviter les échecs SPF, vous devez créer les enregistrements MX et TXT et les propager dans le DNS **avant** de supprimer l'enregistrement CNAME.
@@ -80,4 +80,4 @@ Confirmez que vos enregistrements DKIM/SPF correspondent à ce que vous avez enr
 {% endtab %}
 {% endtabs %}
 
-Si vous avez d'autres questions, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/).
+Si vous avez d'autres questions, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support).

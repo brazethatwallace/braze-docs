@@ -21,19 +21,19 @@ O recurso de bloco de produto de arrastar e soltar está em acesso antecipado e,
 
 | Requisito | Descrição |
 | --- | --- |
-| Eventos recomendados de eCommerce | Os [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) fornecem esquemas de dados padronizados para eventos comportamentais importantes que ocorrem antes e depois de um pedido ser realizado. Esses eventos eventualmente substituirão o evento de compra legado da Braze e se tornarão o padrão para rastreamento de comportamento relacionado a comércio. <br><br> Os eventos recomendados de eCommerce são obrigatórios para blocos de produto dinâmicos.<br><br> Os eventos recomendados de eCommerce estão atualmente em acesso antecipado. Fale com o seu gerente de sucesso do cliente na Braze se tiver interesse em participar deste acesso antecipado. |
-| Modelos de Canvas de eCommerce | Os eventos recomendados de eCommerce oferecem suporte a modelos pré-construídos, incluindo modelos de Canvas de eCommerce projetados para casos de uso essenciais, como navegação abandonada, carrinho abandonado e confirmações de pedido. <br><br>Se você planeja implementar qualquer um desses casos de uso essenciais de eCommerce usando os [modelos de Canvas de eCommerce]({{site.baseurl}}/ecommerce_use_cases/), é necessário usar ou seguir o modelo de Canvas fornecido. |
+| Eventos recomendados de eCommerce | Os [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events) fornecem esquemas de dados padronizados para eventos comportamentais importantes que ocorrem antes e depois de um pedido ser realizado. Esses eventos eventualmente substituirão o evento de compra legado da Braze e se tornarão o padrão para rastreamento de comportamento relacionado a comércio. <br><br> Os eventos recomendados de eCommerce são obrigatórios para blocos de produto dinâmicos. |
+| Modelos de Canvas de eCommerce | Os eventos recomendados de eCommerce oferecem suporte a modelos pré-construídos, incluindo modelos de Canvas de eCommerce projetados para casos de uso essenciais, como navegação abandonada, carrinho abandonado e confirmações de pedido. <br><br>Se você planeja implementar qualquer um desses casos de uso essenciais de eCommerce usando os [modelos de Canvas de eCommerce]({{site.baseurl}}/ecommerce_use_cases), é necessário usar ou seguir o modelo de Canvas fornecido. |
 | Catálogo da Braze | Você precisa criar um catálogo da Braze que inclua os seguintes campos, que serão usados na configuração do seu bloco de produto:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
-| Seleção de catálogo | Para blocos de produto estáticos, você precisa criar uma [seleção de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para especificar quais produtos incluir no seu bloco de produto. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Seleção de catálogo | Para blocos de produto estáticos, você precisa criar uma [seleção de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) para especificar quais produtos incluir no seu bloco de produto. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Tipos de blocos de produto de arrastar e soltar {#types-of-drag-and-drop-product-blocks}
 
 | Bloco de produto | Finalidade | Casos de uso | Disponibilidade |
 | --- | --- | --- | --- |
-| Dinâmico | Personalize suas mensagens com uma vitrine de produtos baseada nas interações do cliente, usando [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) e catálogos dentro dos nossos [modelos de Canvas de eCommerce]({{site.baseurl}}/ecommerce_use_cases/). | {::nomarkdown}<ul><li>Navegação abandonada</li><li>Carrinho abandonado</li><li>Checkout abandonado</li><li>Confirmações de pedido</li></ul>{:/} | Disponível apenas em Canvas. |
-| Estático | Personalize produtos usando dados armazenados em um catálogo da Braze. Você precisa usar uma [seleção de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para especificar quais produtos incluir. | Ideal para destacar lançamentos de novos produtos ou ofertas específicas por categoria. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Dinâmico | Personalize suas mensagens com uma vitrine de produtos baseada nas interações do cliente, usando [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events) e catálogos dentro dos nossos [modelos de Canvas de eCommerce]({{site.baseurl}}/ecommerce_use_cases). | {::nomarkdown}<ul><li>Navegação abandonada</li><li>Carrinho abandonado</li><li>Checkout abandonado</li><li>Confirmações de pedido</li></ul>{:/} | Disponível apenas em Canvas. |
+| Estático | Personalize produtos usando dados armazenados em um catálogo da Braze. Você precisa usar uma [seleção de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) para especificar quais produtos incluir. | Ideal para destacar lançamentos de novos produtos ou ofertas específicas por categoria. | |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de blocos de produto de arrastar e soltar" }
 
 ## Configuração de conteúdo do bloco de produto {#product-block-content-configuration}
 
@@ -52,7 +52,7 @@ Na seção **Product Fields**, selecione o tipo de bloco de produto e ative os c
 | Botão para URL do produto | Catálogos |
 | Preço | Propriedade do evento recomendado de eCommerce |
 | Quantidade | Propriedade do evento recomendado de eCommerce |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloco de produto dinâmico" }
 
 ![Campos de produto para um bloco de produto dinâmico, divididos em dados do catálogo e dados do evento.]({% image_buster /assets/img/product_blocks/dynamic_fields.png %}){: style="max-width:50%;"}
 
@@ -64,7 +64,7 @@ Na seção **Product Fields**, selecione o tipo de bloco de produto e ative os c
 | Título do produto | Catálogos |
 | Botão para URL do produto | Catálogos |
 | Preço | Catálogos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloco de produto estático" }
 
 ![Campos de produto para um bloco de produto estático, todos categorizados como dados do catálogo.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -78,13 +78,13 @@ Use as opções de layout para personalizar como seus produtos são exibidos den
 | Alinhamento | Ajuste o alinhamento dos campos de texto e do botão dentro do bloco. |
 | Máximo de produtos por linha | Exiba até três produtos por linha, até 12 produtos no total para blocos de produto estáticos e até 24 produtos no total para blocos de produto dinâmicos. |
 | Espaçamento entre produtos | Defina o espaçamento entre os produtos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Opções de layout" }
 
 ![Opções de layout para orientação do produto, alinhamento, máximo de produtos por linha e espaçamento entre produtos.]({% image_buster /assets/img/product_blocks/layout_options.png %}){: style="max-width:50%;"}
 
 ### Configurações globais de estilo de e-mail {#global-email-style-settings}
 
-As [configurações globais de estilo de e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) permitem aplicar estilos consistentes aos seus e-mails na Braze. Isso significa que você pode definir estilos específicos — como fontes, cores e designs de botões — que serão aplicados automaticamente a todos os seus e-mails.
+As [configurações globais de estilo de e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) permitem aplicar estilos consistentes aos seus e-mails na Braze. Isso significa que você pode definir estilos específicos — como fontes, cores e designs de botões — que serão aplicados automaticamente a todos os seus e-mails.
 
 #### Como as configurações globais de estilo de e-mail funcionam com blocos de produto {#how-global-email-style-settings-work-with-product-blocks}
 
@@ -95,7 +95,7 @@ Os estilos existentes para parágrafos e botões são aplicados automaticamente 
 ### Configuração do catálogo {#catalog-setup}
 
 {% alert important %}
-Se você está usando a integração da Braze com a Shopify para [sincronização de produtos]({{site.baseurl}}/shopify_catalogs/), não é necessário realizar nenhuma etapa adicional para usar os blocos de produto de arrastar e soltar.<br><br> Se você não tem informações de variantes de produto, é necessário duplicar as informações do produto de nível superior tanto nos campos de produto quanto nos campos de variante de produto dentro das cargas úteis de eventos e catálogos. Isso significa que você precisa fornecer os mesmos detalhes do produto para ambos os identificadores para manter a consistência e garantir o funcionamento correto do bloco de produto.
+Se você está usando a integração da Braze com a Shopify para [sincronização de produtos]({{site.baseurl}}/shopify_catalogs), não é necessário realizar nenhuma etapa adicional para usar os blocos de produto de arrastar e soltar.<br><br> Se você não tem informações de variantes de produto, é necessário duplicar as informações do produto de nível superior tanto nos campos de produto quanto nos campos de variante de produto dentro das cargas úteis de eventos e catálogos. Isso significa que você precisa fornecer os mesmos detalhes do produto para ambos os identificadores para manter a consistência e garantir o funcionamento correto do bloco de produto.
 {% endalert %}
 
 Para usar blocos de produto de arrastar e soltar, você precisa configurar um catálogo da Braze que inclua valores de campos específicos. Esses campos são usados na configuração do seu bloco de produto. Certifique-se de que o seu catálogo inclua os seguintes campos:
@@ -105,8 +105,9 @@ Para usar blocos de produto de arrastar e soltar, você precisa configurar um ca
 | `product_title` | O título do produto. |
 | `product_url` | A URL onde os clientes podem visualizar ou comprar o produto. |
 | `variant_image_url` | A URL da imagem da variante. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuração do catálogo" }
 
-Comece rapidamente usando este [catálogo de produtos de exemplo]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv), que inclui os campos obrigatórios.
+Comece rapidamente usando este [catálogo de produtos de exemplo](/docs/assets/download_file/ecommerce_product_catalog_sample.csv), que inclui os campos obrigatórios.
 
 ![Um arquivo CSV de exemplo com os campos obrigatórios, além de outros.]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 
@@ -127,7 +128,7 @@ Este guia vai orientar você nas etapas para criar, testar e garantir o funciona
 #### Bloco de produto dinâmico
 
 {% alert note %}
-Os blocos de produto dinâmicos exigem [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) e só podem ser usados dentro de [Canvas]({{site.baseurl}}/ecommerce_use_cases/). Para usuários da Braze com Shopify, esses eventos são incluídos automaticamente como parte da integração. Para usuários que não usam Shopify, é necessário trabalhar com seus desenvolvedores para enviar esses eventos para a Braze e garantir que o identificador principal do produto dentro dos eventos seja adicionado como ID do item do catálogo.
+Os blocos de produto dinâmicos exigem [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events) e só podem ser usados dentro de [Canvas]({{site.baseurl}}/ecommerce_use_cases). Para usuários da Braze com Shopify, esses eventos são incluídos automaticamente como parte da integração. Para usuários que não usam Shopify, é necessário trabalhar com seus desenvolvedores para enviar esses eventos para a Braze e garantir que o identificador principal do produto dentro dos eventos seja adicionado como ID do item do catálogo.
 {% endalert %}
 
 Crie um novo Canvas que use um dos modelos disponíveis da Braze para o seu caso de uso específico:
@@ -136,7 +137,7 @@ Crie um novo Canvas que use um dos modelos disponíveis da Braze para o seu caso
 - Checkout abandonado
 - Confirmações de pedido
 
-Para instruções detalhadas sobre como criar seus Canvas de eCommerce, consulte [Casos de uso de eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
+Para instruções detalhadas sobre como criar seus Canvas de eCommerce, consulte [Casos de uso de eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 #### Bloco de produto estático
 

@@ -1,38 +1,38 @@
 ---
-nav_title: "POST: Erstellen Sie geplante Nachrichten"
+nav_title: "POST: Geplante Nachrichten erstellen"
 article_title: "POST: Geplante Nachrichten erstellen"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt Zeitplan Nachrichten erstellen von Braze."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Geplante Nachrichten erstellen“."
 
 ---
 {% api %}
-# Erstellen Sie geplante Nachrichten
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
-/nachrichten/zeitplan/erstellen
+# Geplante Nachrichten erstellen {#create-scheduled-messages}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
+/messages/schedule/create
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um einen Zeitplan für eine Kampagne, ein Canvas oder eine andere Nachricht zu erstellen, die zu einem bestimmten Zeitpunkt versendet werden soll, und geben Sie einen Bezeichner an, mit dem Sie diese Nachricht für Updates referenzieren können.
+> Verwenden Sie diesen Endpunkt, um eine Kampagne, ein Canvas oder eine andere Nachricht zu planen, die zu einem bestimmten Zeitpunkt gesendet werden soll. Der Endpunkt gibt Ihnen einen Bezeichner zurück, mit dem Sie die Nachricht für Updates referenzieren können.
 
-Wenn Sie ein Segment Targeting betreiben, wird eine Aufzeichnung Ihrer Anfrage in der [Entwickler:in-Konsole](https://dashboard.braze.com/app_settings/developer_console/activitylog/) gespeichert, nachdem alle geplanten Nachrichten versendet worden sind.
+Wenn Sie ein Segment als Zielgruppe verwenden, wird ein Datensatz Ihrer Anfrage in der [Entwicklungskonsole](https://dashboard.braze.com/app_settings/developer_console/activitylog/) gespeichert, nachdem alle geplanten Nachrichten gesendet wurden.
 
 {% alert tip %}
-Wenn Sie daran interessiert sind, Nachrichten sofort an bestimmte Nutzer:innen zu senden, verwenden Sie stattdessen den [Endpunkt`/messages/send` ]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
+Wenn Sie Nachrichten sofort an bestimmte Nutzer:innen senden möchten, verwenden Sie stattdessen den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#25272fb8-bc39-41df-9a41-07ecfd76cb1d {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `messages.schedule.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `messages.schedule.create`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -71,24 +71,24 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`broadcast`| Optional | Boolesch | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an ein ganzes Segment senden, auf das eine Kampagne oder ein Canvas abzielt. Dieser Parameter ist standardmäßig auf `false` eingestellt. <br><br> Wenn `broadcast` auf `true` eingestellt ist, kann eine Empfänger:innen-Liste nicht aufgenommen werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Sie Ihre Nachricht an eine größere Zielgruppe als erwartet senden. |
-| `external_user_ids` | Optional | String-Array | Siehe [externer Bezeichner für Nutzer:innen]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). |
-| `user_aliases` | Optional | Array von Nutzer:innen-Alias-Objekten | Siehe [Nutzer-Alias Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `audience` | Optional | Verbundenes Objekt der Zielgruppe | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-| `segment_id` | Optional | String | Siehe [Bezeichner für Segmente]({{site.baseurl}}/api/identifier_types/). |
-| `campaign_id`|Optional|String| Siehe [Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Optional | String | Siehe [Bezeichner senden]({{site.baseurl}}/api/identifier_types/). |
-| `override_messaging_limits` | Optional | Boolesch | Frequency-Capping für Kampagnen ignorieren, Standardwert ist false |
-|`recipient_subscription_state`| Optional | String | Verwenden Sie diese Option, um Nachrichten nur an Nutzer:in (`opted_in`), nur an Nutzer:in (`subscribed`) oder an alle Nutzer:in zu senden, auch an abgemeldete Nutzer (`all`), die sich angemeldet haben. <br><br>Die Verwendung von `all` Nutzer:innen ist nützlich für Transaktions-E-Mails Messaging. Standardmäßig ist `subscribed` eingestellt. |
-| `schedule` | Erforderlich | Objekt Zeitplan | Siehe [Zeitplan Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/) |
-| `messages` | Optional | Messaging Objekt | Siehe [verfügbare Messaging-Objekte]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `broadcast` | Optional | Boolescher Wert | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an ein gesamtes Segment senden, auf das eine Kampagne oder ein Canvas abzielt. Dieser Parameter ist standardmäßig auf `false` eingestellt. <br><br> Wenn `broadcast` auf `true` gesetzt ist, kann keine Empfängerliste angegeben werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, da ein unbeabsichtigtes Setzen dieses Flags dazu führen kann, dass Ihre Nachricht an eine größere Zielgruppe als erwartet gesendet wird. |
+| `external_user_ids` | Optional | String-Array | Siehe [externer Nutzer-Bezeichner]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). |
+| `user_aliases` | Optional | Array von Nutzer-Alias-Objekten | Siehe [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object). |
+| `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience). |
+| `segment_id` | Optional | String | Siehe [Segment-Bezeichner]({{site.baseurl}}/api/identifier_types). |
+| `campaign_id` | Optional | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Optional | String | Siehe [Sende-Bezeichner]({{site.baseurl}}/api/identifier_types). |
+| `override_messaging_limits` | Optional | Boolescher Wert | Frequency-Capping für Kampagnen ignorieren, Standardwert ist false |
+| `recipient_subscription_state` | Optional | String | Verwenden Sie diesen Parameter, um Nachrichten nur an Nutzer:innen zu senden, die sich angemeldet haben (`opted_in`), nur an Nutzer:innen, die abonniert oder angemeldet sind (`subscribed`), oder an alle Nutzer:innen, einschließlich abgemeldeter Nutzer:innen (`all`). <br><br>Die Verwendung von `all` ist nützlich für Transaktions-E-Mails. Standardmäßig ist `subscribed` eingestellt. |
+| `schedule` | Erforderlich | Zeitplan-Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object) |
+| `messages` | Optional | Messaging-Objekt | Siehe [verfügbare Messaging-Objekte]({{site.baseurl}}/api/objects_filters#messaging-objects). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/create' \
 --data-raw '{
@@ -167,9 +167,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
 ```json
 {

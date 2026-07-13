@@ -18,11 +18,13 @@ description: "Cet article présente en détail l'endpoint Braze Exporter l'analy
 
 Braze stocke les analyses d'envoi pendant 14 jours après l'envoi. Les conversions de la campagne seront attribuées au `send_id` le plus récent qu'un utilisateur donné a reçu de cette campagne.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Cet endpoint est réservé aux Campagnes API. Pour l'utiliser, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `sends.data_series`.
+Cet endpoint est réservé aux Campagnes API. Pour l'utiliser, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sends.data_series`.
 
 ## Limite de débit {#rate-limit}
 
@@ -32,11 +34,11 @@ Cet endpoint est réservé aux Campagnes API. Pour l'utiliser, vous aurez besoin
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant API de campagne]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Requis | Chaîne de caractères | Voir [identifiant API d'envoi]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant API de campagne]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Requis | Chaîne de caractères | Voir [identifiant API d'envoi]({{site.baseurl}}/api/identifier_types). |
 | `length` | Requis | Entier | Nombre maximum de jours avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 100 (inclus). |
 | `ending_at` | Facultatif | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle la série de données doit se terminer. Par défaut, correspond à l'heure de la requête. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 
@@ -97,7 +99,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 ```
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

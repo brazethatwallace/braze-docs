@@ -22,7 +22,8 @@ Os tipos mais comuns de condições de corrida podem ocorrer quando você estive
 
 - Direcionamento a novos usuários
 - Uso de vários endpoints de API
-- Correspondência entre filtros de público e disparadores baseados em ação.
+- Correspondência entre filtros de público e disparadores baseados em ação
+- Uso do gatilho "Interagir com etapa"
 
 Considere os seguintes cenários e implemente as práticas recomendadas para evitar essas condições de corrida.
 
@@ -49,7 +50,7 @@ Depois que um novo usuário é criado, você pode adicionar uma postergação an
 
 Por exemplo, depois que um usuário se registra no seu app, você pode enviar uma oferta promocional após 24 horas. Ou, se você está criando um usuário ou registrando um atributo personalizado, pode adicionar uma postergação de um minuto antes de prosseguir no seu processo para evitar essa condição de corrida.
 
-Você também pode adicionar essa postergação no [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/) para o evento personalizado específico que faz um novo usuário entrar em um Canvas.
+Você também pode adicionar essa postergação no [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration) para o evento personalizado específico que faz um novo usuário entrar em um Canvas.
 
 ## Cenário 2: Usando múltiplos endpoints de API {#scenario-2-using-multiple-api-endpoints}
 
@@ -62,13 +63,13 @@ Existem alguns cenários em que múltiplos endpoints de API também podem result
 - Endpoints de API separados são usados para criar usuários e disparar Canvas ou Campaigns
 - Múltiplas chamadas separadas são feitas ao endpoint `/users/track` para atualizar atributos personalizados, eventos ou compras
 
-Quando informações de usuários são enviadas à Braze usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), pode levar alguns segundos para o processamento. Isso significa que, quando solicitações são feitas simultaneamente aos endpoints `/users/track` e de envio de mensagens como `/campaign/trigger/send`, não há garantia de que as informações do usuário sejam atualizadas antes de uma mensagem ser enviada.
+Quando informações de usuários são enviadas à Braze usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), pode levar alguns segundos para o processamento. Isso significa que, quando solicitações são feitas simultaneamente aos endpoints `/users/track` e de envio de mensagens como `/campaign/trigger/send`, não há garantia de que as informações do usuário sejam atualizadas antes de uma mensagem ser enviada.
 
 {% alert note %}
 Se atributos e eventos de usuários são enviados na mesma solicitação (seja pelo `/users/track` ou pelo SDK), a Braze processa os atributos antes dos eventos ou de tentar enviar qualquer mensagem.
 {% endalert %}
 
-### Práticas recomendadas {#best-practices}
+### Práticas recomendadas
 
 #### Ao usar múltiplos endpoints, envie suas solicitações uma de cada vez {#when-using-multiple-endpoints-send-your-requests-one-at-a-time}
 
@@ -78,25 +79,25 @@ Se você está enviando uma solicitação de API de mensagem agendada, essas sol
 
 #### Inclua dados essenciais junto com o gatilho {#include-key-data-with-the-trigger}
 
-Em vez de usar múltiplos endpoints, você pode incluir os [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body) e as [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) em uma única chamada de API usando o [endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Em vez de usar múltiplos endpoints, você pode incluir os [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) e as [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object) em uma única chamada de API usando o [endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
 Quando esses objetos são incluídos com o gatilho, os atributos são processados primeiro, antes de a mensagem ser disparada, eliminando possíveis condições de corrida. As propriedades de gatilho não atualizam o perfil do usuário, mas são usadas apenas no contexto da mensagem.
 
 #### Use o endpoint POST: Rastrear usuários (síncrono) {#use-the-post-track-users-sync-endpoint}
 
-Use o [endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) para registrar eventos personalizados e compras e atualizar atributos do perfil de usuário de forma síncrona. Usar esse endpoint para atualizar perfis de usuários ao mesmo tempo e em uma única chamada pode ajudar a evitar possíveis condições de corrida.
+Use o [endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) para registrar eventos personalizados e compras e atualizar atributos do perfil de usuário de forma síncrona. Usar esse endpoint para atualizar perfis de usuários ao mesmo tempo e em uma única chamada pode ajudar a evitar possíveis condições de corrida.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Cenário 3: Correspondência entre gatilhos baseados em ação e filtros de público {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
 Outra condição de corrida comum pode ocorrer se você configurar uma Campaign ou Canvas baseado em ação com o mesmo gatilho do filtro de público (como um atributo alterado ou um evento personalizado realizado). O usuário pode não estar no público no momento em que realiza o evento de gatilho, o que significa que ele não receberá a Campaign nem entrará no Canvas.
 
-### Práticas recomendadas {#best-practices}
+### Práticas recomendadas
 
 #### Verifique seu público após uma postergação {#check-your-audience-after-a-delay}
 
-Para evitar o uso de filtros de público que contenham os critérios de gatilho, recomendamos verificar seu público antes da entrega. Por exemplo, você pode [usar validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) nas etapas de Mensagem do Canvas como uma verificação adicional para confirmar que seu público atende aos critérios de entrega no momento do envio da mensagem. Você também pode aproveitar os critérios de saída do Canvas para remover qualquer usuário em qualquer ponto da jornada se ele atender aos seus critérios.
+Para evitar o uso de filtros de público que contenham os critérios de gatilho, recomendamos verificar seu público antes da entrega. Por exemplo, você pode [usar validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings) nas etapas de Mensagem do Canvas como uma verificação adicional para confirmar que seu público atende aos critérios de entrega no momento do envio da mensagem. Você também pode aproveitar os critérios de saída do Canvas para remover qualquer usuário em qualquer ponto da jornada se ele atender aos seus critérios.
 
 Para Campaigns, você pode usar eventos de saída para permitir que Campaigns com um evento de gatilho cancelem mensagens para usuários que realizem o evento de saída enquanto estiverem na postergação.
 
@@ -132,3 +133,21 @@ Se houver uma condição de corrida durante a avaliação de entrada do Canvas, 
 Se um usuário dispara o evento de entrada do Canvas várias vezes dentro do mesmo segundo, a Braze permite apenas uma entrada para aquele segundo (mesmo que a reentrada esteja ativada). Isso evita entradas duplicadas, então o número total de entradas no Canvas pode ser menor do que o total de eventos de gatilho.
 
 Recomendamos confirmar como os dados de usuários são gerenciados e atualizados, especificamente quando e como atributos específicos são atualizados, como por SDK, API, API em lote e outros métodos. Isso pode ajudar a identificar e esclarecer por que um usuário entrou em uma Campaign ou Canvas em comparação com quando o perfil do usuário foi atualizado.
+
+## Cenário 4: Usando o gatilho "Interagir com etapa" {#scenario-4-using-the-interact-with-step-trigger}
+
+Em um Canvas, quando uma etapa de Mensagem é imediatamente seguida por uma etapa de Jornadas de ação que usa o gatilho "Interagir com etapa", uma condição de corrida pode ocorrer. Como os usuários podem interagir com uma mensagem assim que ela é entregue, é possível que um usuário conclua a ação rastreada antes de entrar oficialmente na etapa de Jornadas de ação.
+
+Nesse caso, a etapa de Jornadas de ação não registra a interação, pois ela avalia apenas eventos que ocorrem após a entrada na etapa, o que significa que o usuário pode ser direcionado por uma jornada não intencional.
+
+Um Canvas envia uma notificação por push em uma etapa de Mensagem, seguida por uma etapa de Jornadas de ação que verifica se o usuário abriu essa notificação por push. Se um usuário abrir a notificação por push imediatamente ao recebê-la (antes de entrar na etapa de Jornadas de ação), o evento de abertura pode não ser capturado. O usuário poderia então ser incorretamente direcionado pela jornada "não abriu", mesmo tendo interagido com a mensagem.
+
+### Práticas recomendadas
+
+#### Rastreie o engajamento usando um evento personalizado {#track-engagement-using-a-custom-event}
+
+Evite depender de "Interagir com etapa" imediatamente após uma etapa de Mensagem quando se espera que as interações dos usuários ocorram rapidamente. Em vez disso, rastreie o engajamento usando um evento personalizado (por exemplo, disparado a partir do app ou site após a interação) e avalie esse evento em uma etapa posterior. Isso garante que o evento seja registrado após o usuário ter entrado na etapa.
+
+#### Evite ramificações que dependam da interação {#avoid-branches-that-are-dependent-on-interaction}
+
+Projete seu Canvas de modo que a perda de uma interação imediata não prejudique a experiência do usuário. Por exemplo, evite decisões críticas de ramificação que dependam exclusivamente de a interação ser capturada na próxima etapa, ou adicione lógica de acompanhamento que possa corrigir as rotas dos usuários.

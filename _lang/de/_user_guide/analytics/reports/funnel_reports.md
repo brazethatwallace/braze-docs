@@ -38,7 +38,7 @@ Funnel-Berichte sind an folgenden Stellen im Dashboard verfügbar:
 - Die Seite **Canvas Details** für einen bestimmten Canvas, über den Button **Analyze Variants**
 
 {% alert important %}
-Funnel-Berichte sind nicht verfügbar für [API-Kampagnen]({{site.baseurl}}/api/api_campaigns/).
+Funnel-Berichte sind nicht verfügbar für [API-Kampagnen]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 ### 1. Schritt: Datumsbereich auswählen {#step-1-select-a-date-range}
@@ -49,7 +49,7 @@ Sie können einen Zeitrahmen für Ihren Bericht auswählen (innerhalb der letzte
 Wenn Sie das Fenster zum Abschluss des Funnels auf einen Tag setzen, muss das Funnel-Event innerhalb von 24 Stunden nach Nachrichtenempfang stattfinden. Wenn Sie jedoch mehrere Tage auswählen, wird das Zeitfenster als Kalendertage in der Zeitzone des Unternehmens gezählt.
 {% endalert %}
 
-![Funnel-Bericht für einen Canvas mit „Last 7 Days“ als ausgewähltem Zeitrahmen im Dropdown.]({% image_buster /assets/img/funnel_report/funnel_report5.png %}){: style="max-width:90%;"}
+![Funnel-Bericht für einen Canvas mit „Letzte 7 Tage“ als ausgewähltem Zeitrahmen im Dropdown.]({% image_buster /assets/img/funnel_report/funnel_report5.png %}){: style="max-width:90%;"}
 
 ### 2. Schritt: Events für Funnel-Schritte auswählen {#step-2-select-events-for-funnel-steps}
 
@@ -59,7 +59,7 @@ Für jeden Funnel-Bericht ist das erste Event der Empfang Ihrer Nachricht durch 
 
 | Campaign | Sitzung gestartet, Kauf getätigt, angepasstes Event ausgeführt, Nachrichten-Engagement-Event |
 | Canvas | Sitzung gestartet, Kauf getätigt, angepasstes Event ausgeführt, Canvas-Schritt erhalten, mit Schritt interagiert |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Funnel-Bericht-Events" }
 
 {% alert note %}
 Das Bericht-Event **Mit Schritt interagiert** kann nur mit Canvas-Schritten verwendet werden, die die Messaging-Kanäle E-Mail oder Push nutzen.

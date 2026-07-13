@@ -1,13 +1,13 @@
-カスタムHTMLアプリ内メッセージとバナーは、Braze SDKと連携するためのJavaScript「ブリッジ」をサポートしている。これにより、ユーザーがリンク付き要素をクリックしたり、コンテンツと何らかの形でエンゲージメントを行った際に、カスタムBrazeアクションをトリガーできる。これらの方法は、グローバル変数 `brazeBridge` または`appboyBridge` とともに存在します。
+カスタムHTMLアプリ内メッセージとバナーは、Braze SDKと連携するためのJavaScript「ブリッジ」をサポートしており、ユーザーがリンク付き要素をクリックしたり、コンテンツと何らかの形でエンゲージメントを行った際に、カスタムBrazeアクションをトリガーできます。これらのメソッドは、グローバル変数`brazeBridge`または`appboyBridge`とともに存在します。
 
 {% alert important %}
-Brazeでは、グローバル変数`brazeBridge` の使用を推奨している。グローバル変数 `appboyBridge` は非推奨ですが、既存のユーザー向けに引き続き機能しています。`appboyBridge` を使用している場合は、`brazeBridge` に移行することをお勧めします。<br><br> `appboyBridge` は以下のSDKバージョンで非推奨となった：<br><br>
-- Web:[3.3.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/web/changelog/#330)
-- Android :[14.0.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog/#1400)
-- iOS:[4.2.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog/#420)
+Brazeでは、グローバル変数`brazeBridge`の使用を推奨しています。グローバル変数`appboyBridge`は非推奨ですが、既存のユーザー向けに引き続き機能します。`appboyBridge`を使用している場合は、`brazeBridge`に移行することをお勧めします。<br><br>`appboyBridge`は以下のSDKバージョンで非推奨となりました：<br><br>
+- Web：[3.3.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/web/changelog/#330)
+- Android：[14.0.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog/#1400)
+- iOS：[4.2.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog/#420)
 {% endalert %}
 
-例えば、カスタム属性とカスタムイベントをログに記録し、メッセージを閉じるには、カスタムHTML内で以下のJavaScriptを使用できる：
+例えば、カスタム属性とカスタムイベントをログに記録し、メッセージを閉じるには、カスタムHTML内で以下のJavaScriptを使用できます：
 
 ```html
 <button id="button">Set Favorite Color</button>
@@ -32,9 +32,9 @@ window.addEventListener("ab.BridgeReady", function(){
 </script>
 ```
 
-### JavaScriptブリッジ・メソッド {#bridge}
+### JavaScriptブリッジメソッド {#bridge}
 
-アプリ内メッセージとバナーのカスタムHTMLでは、以下のJavaScriptメソッドがサポートされている：
+アプリ内メッセージとバナーのカスタムHTMLでは、以下のJavaScriptメソッドがサポートされています：
 
 <style>
 /* Makes first column wider */
@@ -50,44 +50,36 @@ window.addEventListener("ab.BridgeReady", function(){
 }
 </style>
 
-{% alert note %}
-Liquid を参照して、 <code>customAttributes</code> をJavaScript Bridge のメソッドに挿入することはできません。
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
-### ボタンクリックのトラッキング
+### ボタンクリックのトラッキング {#button-click-tracking}
 
-カスタムHTML内のクリックのトラッキングを行うには、メソッド`brazeBridge.logClick(button_id)`を使用する。
+カスタムHTML内のクリックをトラッキングするには、`brazeBridge.logClick(button_id)`メソッドを使用します。
 
-{% alert note %}
-**バナー:**引数なしの only`brazeBridge.logClick()` のみがサポートされている。ボタンIDとカスタムボタントラッキングは、アプリ内メッセージでのみサポートされている。
-{% endalert %}
+アプリ内メッセージでは、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「本文クリック」をプログラムでトラッキングできます。
 
-アプリ内メッセージについては、プログラムで「ボタン1」「ボタン2」「本文クリック」をそれぞれ、`brazeBridge.logClick('1')` 、 `brazeBridge.logClick()`、 `brazeBridge.logClick('0')`を使ってトラッキングできる。
-
-| クリック数     | 方法                       | サポート |
+| クリック | メソッド | サポート |
 | ---------- | ---------------------------- | --------- |
-| 本文クリック | `brazeBridge.logClick()`    | アプリ内メッセージとバナー |
-| ボタン1   | `brazeBridge.logClick('0')` | アプリ内メッセージのみ |
-| ボタン2   | `brazeBridge.logClick('1')` | アプリ内メッセージのみ |
-| カスタムボタンのトラッキング |`brazeBridge.logClick('your custom name here')`| アプリ内メッセージのみ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 本文クリック | `brazeBridge.logClick()` | アプリ内メッセージとバナー |
+| ボタン1 | `brazeBridge.logClick('0')` | アプリ内メッセージのみ |
+| ボタン2 | `brazeBridge.logClick('1')` | アプリ内メッセージのみ |
+| カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` | アプリ内メッセージとバナー |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ボタンクリックのトラッキング" }
 
-アプリ内メッセージについては、1回のインプレッションごとに複数のボタンクリックイベントをトラッキングできる。例えば、メッセージを閉じ、ボタン2のクリックを記録するには：
+アプリ内メッセージでは、1回のインプレッションごとに複数のボタンクリックイベントをトラッキングできます。例えば、メッセージを閉じてボタン2のクリックを記録するには：
 
 ```html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
 ```
 
-また、新しいカスタムボタンの名前 (キャンペーンあたり一意の名前を最大 100 個) も追跡できます。`brazeBridge.logClick('blue button')`、`brazeBridge.logClick('viewed carousel page 3')` などがあります。
+また、新しいカスタムボタン名をトラッキングすることもできます（キャンペーンあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
 
 {% alert tip %}
-属性`onclick`内でJavaScriptメソッドを使用する場合、文字列値はシングルクォートで囲むこと。そうしないと、ダブルクォートで囲まれたHTML属性との衝突を避けるためだ。
+`onclick`属性内でJavaScriptメソッドを使用する場合、ダブルクォートで囲まれたHTML属性との衝突を避けるため、文字列値はシングルクォートで囲んでください。
 {% endalert %}
 
-#### 制限事項（アプリ内メッセージのみ）
+#### 制限事項（アプリ内メッセージのみ） {#limitations-in-app-messages-only}
 
-- キャンペーンあたり最大 100 個の一意のボタン ID を設定できます。
-- ボタン ID はそれぞれ最大 255文字です。
-- ボタン ID には、英字、数字、スペース、ダッシュ、およびアンダースコアのみを使用できます。
+- キャンペーンあたり最大100個のユニークなボタンIDを設定できます。
+- ボタンIDはそれぞれ最大255文字です。
+- ボタンIDには、英字、数字、スペース、ダッシュ、およびアンダースコアのみを使用できます。

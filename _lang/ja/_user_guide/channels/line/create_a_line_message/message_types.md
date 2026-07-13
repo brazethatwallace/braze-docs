@@ -1,17 +1,17 @@
 ---
 nav_title: メッセージタイプ
-article_title: LINE メッセージタイプ
+article_title: LINEメッセージタイプ
 page_order: 0
 description: "この記事では、さまざまなタイプのLINEメッセージについて説明します。"
 page_type: reference
 tool:
- - Campaigns
+ - キャンペーン
 channel:
  - LINE
 alias: /line/create/message_types/
 ---
 
-# LINE メッセージタイプ {#line-message-types}
+# LINEメッセージタイプ {#line-message-types}
 
 > この記事では、作成できるLINEメッセージタイプについて、その特徴と制限事項を含めて説明します。
 
@@ -32,7 +32,7 @@ LINEテキストメッセージには最大5,000文字を含めることがで�
 
 ## 画像 {#image}
 
-LINE画像メッセージは、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)、URL、またはLiquidを通じて追加できます。これらの画像はスタンドアロンであり、クリック可能なリンクは含まれません。
+LINE画像メッセージは、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)、URL、またはLiquidを通じて追加できます。これらの画像はスタンドアロンであり、クリック可能なリンクは含まれません。
 
 ユースケース:
 - 旅行先を紹介して、ユーザーに航空券の購入を検討してもらう
@@ -45,15 +45,15 @@ LINE画像メッセージは、[メディアライブラリ]({{site.baseurl}}/us
 
 URL画像は、以下を組み込むユースケースに使用します:
 - 画像ソース属性にLiquidを含めることで、Liquidダイナミック画像を使用できます。例えば、画像URLとして {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} を挿入すると、画像にユーザーの名を含めることができます
-- [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用して、Webサーバーまたは公開アクセス可能なAPIから画像を直接取得する
-- [Brazeカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を使用して、インポートされたCSVファイルやAPIエンドポイントから画像にアクセスする
+- [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用して、Webサーバーまたは公開アクセス可能なAPIから画像を直接取得する
+- [Brazeカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)を使用して、インポートされたCSVファイルやAPIエンドポイントから画像にアクセスする
 
 | **仕様** | **推奨プロパティ** |
 |--------------------------|----------------------------|
 | 画像ファイルURL長 | 最大2,000文字  |
 | 画像形式          | PNG、JPEG             |
 | ファイルサイズ     |  最大10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL画像" }
 
 ## リッチメッセージ（イメージマップ） {#rich-messages-image-map}
 
@@ -74,7 +74,7 @@ LINEリッチメッセージは、画像上の特定の領域を選択すると�
 | 画像形式          | PNG（透過可）、JPEG             |
 | アスペクト比          | 1:1（幅:高さ）
 | ファイルサイズ     |  最大10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="イメージマップ" }
 
 ### URIリンク {#uri-link}
 
@@ -82,7 +82,7 @@ LINEリッチメッセージは、画像上の特定の領域を選択すると�
 |--------------------------|----------------------------|
 | 文字数      | 最大1,000 |
 | スキーム              | HTTP、HTTPS、LINE、tel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URIリンク" }
 
 ### テキスト
 
@@ -106,7 +106,7 @@ LINEカードベースメッセージでは、ユーザーがカルーセルの�
 | カラム数                  | 最大10 |
 | アスペクト比             | 長方形: 1.51:1 <br> 正方形: 1:1  |
 | タイトル                    | 最大40文字
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージ" }
 
 
 ### 画像
@@ -117,7 +117,7 @@ LINEカードベースメッセージでは、ユーザーがカルーセルの�
 | 画像形式              | JPEGまたはPNG |
 | 幅                     | 1,024ピクセル  |
 | ファイルサイズ                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="画像" }
 
 
 ### テキスト
@@ -126,4 +126,4 @@ LINEカードベースメッセージでは、ユーザーがカルーセルの�
 |-------------------------|----------------------------|
 | 文字数              | 最大120（画像またはタイトルなし） <br> 最大60（画像またはタイトル付きメッセージ）  |
 | アクション                 | 最大3 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="テキスト" }

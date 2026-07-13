@@ -38,7 +38,7 @@ Os relatórios de funil estão disponíveis nos seguintes locais do dashboard:
 - A página **Canvas Details** de um Canvas específico, selecionando o botão **Analyze Variants**
 
 {% alert important %}
-Os relatórios de funil não estão disponíveis para [Campaigns da API]({{site.baseurl}}/api/api_campaigns/).
+Os relatórios de funil não estão disponíveis para [Campaigns da API]({{site.baseurl}}/api/api_campaigns).
 {% endalert %}
 
 ### Etapa 1: Selecione um intervalo de datas {#step-1-select-a-date-range}
@@ -59,7 +59,7 @@ Para cada relatório de funil, o primeiro evento é quando o usuário recebe sua
 
 | Campaign | Iniciou sessão, Realizou compra, Realizou evento personalizado, Evento de engajamento com mensagem |
 | Canvas | Iniciou sessão, Realizou compra, Realizou evento personalizado, Recebeu etapa do Canvas, Interagiu com etapa |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos disponíveis para relatórios de funil" }
 
 {% alert note %}
 O evento de relatório **Interagiu com etapa** só pode ser usado com etapas do Canvas que utilizam os canais de e-mail ou push.

@@ -37,7 +37,7 @@ Braze and Survicate work together to cover a range of feedback use cases, helpin
 | Survicate account | You need a Survicate account to activate this integration. |
 | Braze REST API key | A Braze REST API key with the permission `users.track`. <br><br> This can be created in the Braze dashboard from **Settings** > **APIs and Identifiers**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Key features of the integration
 
@@ -130,7 +130,7 @@ You can find a sample snippet and React implementation [on Survicate's developer
 {% endalert %}
 
 {: start="3"}
-3. In your Braze campaign, set up the Target and Assign steps. When complete, your campaign is ready to launch. In the Review step, you can see how the campaign looks. The survey appears on your website in the place specified in the Survicate panel, as described above.
+3. In your Braze campaign, set up the Target and Assign steps. When complete, your campaign is ready to launch. In the Review step, you can see how the campaign looks. The survey appears on your website in the place specified in the Survicate panel, as described in Step 1.
 
 ### Enabling the Braze integration
 

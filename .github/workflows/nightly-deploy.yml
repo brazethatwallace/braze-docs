@@ -7,6 +7,10 @@
 # If an older open auto-deploy-* PR already targets main, this workflow creates the new
 # PR first, then comments on the old PR, closes it, and deletes its remote head branch.
 #
+# Optional Slack (bot token): add secrets SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL
+# (channel ID, e.g. C0123…). Invite the bot to the channel. Notifies on success (PR
+# opened or nothing to deploy) and failure. If secrets are unset, notifications are skipped.
+#
 name: Nightly Release Deploy
 
 on:
@@ -21,6 +25,10 @@ concurrency:
 jobs:
   create-pr:
     runs-on: ubuntu-latest
+    outputs:
+      deploy_status: ${{ steps.snapshot.outputs.status }}
+      pr_number: ${{ steps.snapshot.outputs.pr_number }}
+      pr_url: ${{ steps.snapshot.outputs.pr_url }}
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
@@ -28,11 +36,12 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Snapshot branch, body, PR, supersede previous deploy PRs
+        id: snapshot
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -43,6 +52,11 @@ jobs:
           git fetch origin main develop
           if git diff --quiet origin/main..origin/develop; then
             echo "No changes between develop and main. Skipping."
+            {
+              echo "status=skipped"
+              echo "pr_number="
+              echo "pr_url="
+            } >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -98,3 +112,59 @@ jobs:
               || echo "Warning: could not close PR #${old_num} (may already be closed; continuing)."
             git push origin ":refs/heads/${old_ref}" || echo "Note: could not delete origin/${old_ref} (may already be gone)."
           done
+
+          PR_URL="https://github.com/${REPO}/pull/${NEW_NUM}"
+          {
+            echo "status=created"
+            echo "pr_number=${NEW_NUM}"
+            echo "pr_url=${PR_URL}"
+          } >> "$GITHUB_OUTPUT"
+
+  notify:
+    name: Slack notification
+    needs: create-pr
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Nightly Release Deploy result to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DEPLOY_STATUS: ${{ needs.create-pr.outputs.deploy_status }}
+          PR_URL: ${{ needs.create-pr.outputs.pr_url }}
+          PR_NUMBER: ${{ needs.create-pr.outputs.pr_number }}
+          JOB_RESULT: ${{ needs.create-pr.result }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_DEPLOY_NOTIFY_CHANNEL:-}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL); skipping."
+            exit 0
+          fi
+
+          if [ "$JOB_RESULT" = "failure" ]; then
+            TEXT=":x: *Nightly Release Deploy* failed\n${RUN_URL}"
+          elif [ "$DEPLOY_STATUS" = "skipped" ]; then
+            TEXT=":white_check_mark: *Nightly Release Deploy* — no PR (no diff between \`develop\` and \`main\`)\n${RUN_URL}"
+          elif [ "$DEPLOY_STATUS" = "created" ] && [ -n "$PR_URL" ]; then
+            TEXT=":white_check_mark: *Nightly Release Deploy* — opened PR <${PR_URL}|#${PR_NUMBER}>"
+          else
+            TEXT="*Nightly Release Deploy* finished (result: ${JOB_RESULT}, status: ${DEPLOY_STATUS:-unknown})\n${RUN_URL}"
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$SLACK_DEPLOY_NOTIFY_CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null

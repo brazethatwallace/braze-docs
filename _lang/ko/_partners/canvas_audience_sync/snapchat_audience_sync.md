@@ -16,7 +16,7 @@ Braze Audience Sync to Snapchat을 사용하면 브랜드는 Braze 통합의 사
 
 **오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다:**
 
-- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 참여 유도
+- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 인게이지먼트 유도
 - 다른 마케팅 채널에 반응이 적은 사용자 리타겟팅
 - 이미 브랜드의 충성 소비자인 사용자가 광고를 받지 않도록 억제 오디언스 생성
 - 유사 오디언스를 생성하여 신규 사용자를 더 효율적으로 확보
@@ -37,14 +37,14 @@ Canvas에서 Snapchat 오디언스 단계를 설정하기 전에 다음 항목�
 | Snapchat Business Manager | Snapchat | 브랜드의 Snapchat 자산(광고 계정, 페이지, 앱 등)을 관리하는 중앙 집중식 도구입니다. |
 | Snapchat 광고 계정 | Snapchat | 브랜드의 Snapchat Business Manager에 연결된 활성 Snapchat 광고 계정입니다.<br><br>Snapchat Business Manager 관리자가 Braze와 함께 사용할 Snapchat 광고 계정에 대한 관리자 권한을 부여했는지 확인하세요. |
 | Snapchat 약관 및 정책 | [Snapchat](https://www.snap.com/en-US/policies) | Snapchat Audience Sync 사용과 관련된 Snapchat의 필수 약관, 정책, 가이드라인 및 문서(여기에 참조로 포함된 약관, 정책, 가이드라인 및 문서 포함)를 준수하는 데 동의합니다. 여기에는 서비스 약관, 비즈니스 서비스 약관, 개발자 약관, Audience Match, 광고 정책, 상업 콘텐츠 정책, 커뮤니티 가이드라인 및 공급업체 책임이 포함될 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
 ### 1단계: Snapchat에 연결 {#step-1-connect-to-snapchat}
 
 {% alert important %}
-Snapchat을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 있어야 합니다.
+Snapchat을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)이 있어야 합니다.
 {% endalert %}
 
 Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **Snapchat**을 선택합니다. Snapchat Audience Sync 아래에서 **Connect Snapchat**을 선택합니다.
@@ -67,15 +67,15 @@ Snapchat 연결은 Braze 워크스페이스 수준에서 적용됩니다. Snapch
 
 Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Audience Sync 구성요소 옵션이 있는 Canvas 단계 선택기입니다.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Canvas 경로에 추가된 Audience Sync 구성요소 카드입니다.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### 3단계: 동기화 설정 {#step-3-sync-setup}
 
 **Custom Audience** 버튼을 클릭하여 구성요소 편집기를 엽니다.
 
-원하는 Audience Sync 파트너로 **TikTok**을 선택합니다.
+원하는 Audience Sync 파트너로 **Snapchat**을 선택합니다.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Snapchat이 동기화 파트너로 선택된 Audience Sync 구성요소 편집기입니다.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 그런 다음 원하는 Snapchat 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 
@@ -113,7 +113,7 @@ Snapchat에서 오디언스를 확인하려면 광고 관리자 계정에 접속
 
 ## 사용자 동기화 및 사용량 제한 고려 사항 {#user-syncing-and-rate-limit-considerations}
 
-사용자가 Audience Sync 단계에 도달하면 Braze는 Snapchat의 API 사용량 제한을 준수하면서 거의 실시간으로 동기화합니다. Braze는 5초마다 가능한 한 많은 사용자를 일괄 처리하여 Snapchat으로 보내기 전에 처리합니다.
+사용자가 Audience Sync 단계에 도달하면 Braze는 Snapchat의 API 사용량 제한을 준수하면서 거의 실시간으로 동기화합니다. Braze는 5초마다 가능한 한 많은 사용자를 일괄 처리한 후 Snapchat으로 전송합니다.
 
 Snapchat의 API 사용량 제한은 초당 쿼리 10건, 요청당 사용자 수 100,000명을 넘지 못하도록 설정되어 있습니다. 고객이 이 제한에 도달하면 Braze는 최대 약 13시간 동안 동기화를 다시 시도합니다. 그래도 동기화가 되지 않으면 Braze는 이러한 사용자를 Users Errored 측정기준 아래에 나열합니다.
 
@@ -130,7 +130,7 @@ Snapchat의 API 사용량 제한은 초당 쿼리 10건, 요청당 사용자 수
 | 대기 중인 사용자 | 현재 Braze에서 Snapchat으로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | 오류가 발생한 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Snapchat에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 Snapchat 토큰 또는 Snapchat에서 오디언스가 삭제된 경우가 포함될 수 있습니다. |
 | Canvas 종료함 | Canvas를 종료한 사용자 수입니다. 이는 Canvas의 마지막 단계가 Audience Sync 구성요소인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해하기" }
 
 {% alert important %}
 대량 플러셔와 13시간 재시도로 인해 동기화된 사용자 및 오류 측정기준에 대한 보고가 각각 지연될 수 있습니다.

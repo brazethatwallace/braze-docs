@@ -22,7 +22,7 @@ This integration also allows you to [import user cohorts to Braze]({{site.baseur
 | Hightouch account | A Hightouch account is required to take advantage of this partnership.
 | Braze REST API key | A Braze REST API key with `users.track` and `users.export.ids` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).<br><br>Hightouch requires the name of the cluster your Braze instance sits on. For example, if your Braze endpoint is `https://rest.iad-01.braze.com`, you only need `iad-01`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -37,7 +37,7 @@ This integration also allows you to [import user cohorts to Braze]({{site.baseur
 
 1. On the Hightouch platform, in the **Destinations** section, click **Add destination**.
 2. Select **Braze** from the list of available destinations.
-3. Provide your Braze REST endpoint (excluding "https://rest.") and your Braze REST API Key.<br><br>![]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
+3. Provide your Braze REST endpoint (excluding "https://rest.") and your Braze REST API Key.<br><br>![Hightouch Braze destination setup form with endpoint and API key fields.]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
 
 ### Step 2: Object and event syncing
 
@@ -47,6 +47,7 @@ Hightouch supports syncing to both user objects and events.
 |---|---|---|
 | Object | Syncs records to objects such as users or organizations in your destination.| Upsert or update |
 | Events | Syncs records as events to your destination; this is often in the form of a track call. | Track event or track purchase |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Object and event syncing" }
 
 {% alert note %}
 Refer to [Hightouch](https://hightouch.com/docs/destinations/braze#syncing-and-data-point-consumption) for more information on how syncs affect how data points are logged.
@@ -69,7 +70,7 @@ Further instructions on object and event syncing can be found in [Hightouch docu
 ## Integration demo
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 

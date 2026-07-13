@@ -3,7 +3,7 @@ nav_title: "Push Primer"
 article_title: Push Primer für iOS
 page_order: 6
 page_type: reference
-description: "Dieser Referenzartikel beschreibt die Integration von iOS-Push Primern."
+description: "Dieser Referenzartikel beschreibt die Integration von iOS-Push-Primern."
 platform: iOS
 channel:
   - push
@@ -13,13 +13,13 @@ alias: /push_primer/
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Push Primer-Integration
+# Push-Primer-Integration {#push-primer-integration}
 
-Push-Primer-Kampagnen ermutigen Ihre Nutzer, Push auf ihrem Gerät für Ihre App zu aktivieren. Die Erlaubnis von Nutzern einzuholen, um Nachrichten direkt an ihre Geräte zu senden, kann kompliziert sein, aber unsere Anleitungen können Ihnen dabei helfen! Dieser Leitfaden beschreibt die von Entwicklern durchzuführenden Schritte für die Integration von Push Priming.
+Push-Primer-Campaigns ermutigen Ihre Nutzer:innen, Push auf ihrem Gerät für Ihre App zu aktivieren. Die Erlaubnis von Nutzer:innen einzuholen, um Nachrichten direkt an ihre Geräte zu senden, kann komplex sein, aber unsere Anleitungen können Ihnen dabei helfen! Dieser Leitfaden beschreibt die Schritte, die Entwickler:innen für die Integration von Push Priming durchführen müssen.
 
-## Schritt 1: Snippet in die Datei AppDelegate.m einfügen
+## 1. Schritt: Snippet in die Datei AppDelegate.m einfügen {#step-1-add-snippet-in-appdelegatem-file}
 
-Fügen Sie die folgende Codezeile anstelle der Standardintegration in Ihre `AppDelegate.m` Datei ein:
+Fügen Sie die folgende Codezeile anstelle der Standardintegration in Ihre `AppDelegate.m`-Datei ein:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## Schritt 2: Benutzerdefiniertes Ereignisprüfprogramm an die Datei AppDelegate.m anhängen
+## 2. Schritt: Prüfung für angepasste Events an die Datei AppDelegate.m anhängen {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-Das folgende Code-Snippet prüft, ob ein angepasstes Event ausgelöst werden muss. Fügen Sie die folgende Codezeile in Ihr `AppDelegate.m` ein.
+Das folgende Code-Snippet prüft, ob ein angepasstes Event ausgelöst werden muss. Fügen Sie die folgende Codezeile in Ihre `AppDelegate.m`-Datei ein.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## Schritt 3: Deeplink-Handler einrichten
+## 3. Schritt: Deeplink-Handler einrichten {#step-3-set-up-a-deep-link-handler}
 
-Platzieren Sie das folgende Code-Snippet im Deeplink-Handling-Code. Sie sollten diesen Deeplinking-Code nur für Ihre Push-Primer-In-App-Nachricht ausführen.
+Platzieren Sie das folgende Code-Snippet in Ihrem Deeplink-Handling-Code. Sie sollten diesen Deeplinking-Code nur für Ihre Push-Primer-In-App-Nachricht ausführen.
 
-Weitere Informationen über Deep Linking finden Sie unter [Anpassung der Linkbehandlung]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-handling-customization).
+Weitere Informationen über Deeplinking finden Sie unter [Anpassung der Linkbehandlung]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization).
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

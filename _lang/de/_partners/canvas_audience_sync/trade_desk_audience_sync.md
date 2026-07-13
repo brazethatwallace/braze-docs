@@ -25,8 +25,8 @@ Stellen Sie sicher, dass die folgenden Punkte erstellt, abgeschlossen oder akzep
 | Anforderung | Herkunft | Beschreibung |
 | --- | --- | --- |
 | API-Token | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Ein Standard-API-Token, das auf der The Trade Desk-Plattform erstellt wurde. Wir empfehlen, die Lifetime des API-Tokens auf bis zu ein Jahr festzulegen, um minimale Unterbrechungen Ihrer Canvases mit The Trade Desk Audience Sync zu vermeiden. |
-| The Trade Desk Nutzungsbedingungen & Richtlinien | The Trade Desk | Sie müssen einer UID2/CRM-Teilnahmerichtlinie zustimmen, bevor Sie Daten an The Trade Desk senden können. Kontaktieren Sie Ihre Vertretung bei The Trade Desk, um zu bestätigen, dass Sie die entsprechende Signatur haben, um die Datenzustellung an The Trade Desk zu aktivieren.<br><br> {::nomarkdown}<ul><li>Bestätigen Sie, dass der CRM-Datenverwaltungszugriff in Ihrem Konto aktiviert ist&#8212;Ihre Vertretung bei The Trade Desk kann Ihnen dabei helfen. Sie benötigen Ihre Advertiser-ID.</li><li>Halten Sie Ihr Standard-API-Token bereit. Sie können den Anweisungen auf dieser Seite folgen, um eines zu generieren.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| The Trade Desk Nutzungsbedingungen und Richtlinien | The Trade Desk | Sie müssen einer UID2/CRM-Teilnahmerichtlinie zustimmen, bevor Sie Daten an The Trade Desk senden können. Kontaktieren Sie Ihre Vertretung bei The Trade Desk, um zu bestätigen, dass Sie die entsprechende Signatur haben, um die Datenzustellung an The Trade Desk zu aktivieren.<br><br> {::nomarkdown}<ul><li>Bestätigen Sie, dass der CRM-Datenverwaltungszugriff in Ihrem Konto aktiviert ist&#8212;Ihre Vertretung bei The Trade Desk kann Ihnen dabei helfen. Sie benötigen Ihre Advertiser-ID.</li><li>Halten Sie Ihr Standard-API-Token bereit. Sie können den Anweisungen auf dieser Seite folgen, um eines zu generieren.</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 

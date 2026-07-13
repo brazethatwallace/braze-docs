@@ -5,7 +5,7 @@ page_order: 3
 description: "Aprende a utilizar el informe de diagnósticos para monitorear el estado de los datos de entrada y salida en BrazeAI Decisioning Studio."
 ---
 
-# Informe de diagnósticos
+# Informe de diagnósticos {#diagnostics-report}
 
 > El informe de diagnósticos contiene dos tipos de informe diferentes: **De salida** y **De entrada**.
 
@@ -19,7 +19,7 @@ El informe de diagnósticos de salida muestra el volumen diario de recomendacion
 
 {% tab inbound %}
 
-El informe de diagnósticos de entrada monitorea el estado de tus fuentes de datos en BrazeAI<sup>TM</sup>. Rastrea detalles como el recuento de archivos, tamaños y volúmenes de filas para cada activo, lo que te ayuda a confirmar que los datos están fluyendo según lo esperado y a solucionar problemas antes de que afecten a tus agentes o campañas.
+El informe de diagnósticos de entrada monitorea el estado de tus fuentes de datos en BrazeAI<sup>TM</sup>. Rastrea detalles como el recuento de archivos, tamaños y volúmenes de filas para cada activo, lo que te ayuda a confirmar que los datos están fluyendo según lo esperado y a solucionar problemas antes de que afecten a tus agentes o Campaigns.
 
 Puedes usar el menú desplegable para seleccionar diferentes métricas del gráfico, como el tamaño promedio de archivo o el recuento de archivos.
 
@@ -36,7 +36,7 @@ Consulta la siguiente tabla para obtener más detalles sobre cada métrica en el
 | Tamaño máximo de archivo (MB) | El tamaño del archivo más grande recibido, en megabytes. |
 | Tamaño promedio de archivo (MB) | El tamaño promedio de todos los archivos recibidos, en megabytes. |
 | Recuento de filas de archivo | El número total de filas contenidas en los archivos entregados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Diagnostics report" }
 
 {% endtab %}
 {% endtabs %}

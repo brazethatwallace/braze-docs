@@ -14,21 +14,21 @@ toc_headers: h2
 
 # 글로벌 컨트롤 그룹 {#global-control-group}
 
-> 글로벌 컨트롤 그룹을 사용하여 Campaign이나 Canvases를 수신하지 않을 전체 사용자의 비율을 지정하면, 시간 경과에 따른 메시징 활동의 전반적인 영향을 분석할 수 있습니다.
+> 글로벌 컨트롤 그룹을 사용하여 Campaigns이나 Canvases를 수신하지 않을 전체 사용자의 비율을 지정하면, 시간 경과에 따른 메시징 활동의 전반적인 영향을 분석할 수 있습니다.
 
 메시징을 수신하는 사용자와 수신하지 않는 사용자의 행동을 비교하면, 마케팅 Campaigns과 Canvases가 세션 및 커스텀 이벤트의 상승에 어떻게 기여하는지 더 잘 이해할 수 있습니다.
 
 ## 글로벌 컨트롤 그룹의 작동 방식 {#how-the-global-control-group-works}
 
-글로벌 컨트롤 그룹을 사용하면 전체 사용자의 일정 비율을 대조군으로 설정할 수 있습니다. 저장하면 해당 그룹의 사용자는 어떤 Campaign이나 Canvases도 수신하지 않습니다.
+글로벌 컨트롤 그룹을 사용하면 전체 사용자의 일정 비율을 대조군으로 설정할 수 있습니다. 저장하면 해당 그룹의 사용자는 어떤 Campaigns이나 Canvases도 수신하지 않습니다.
 
 {% alert important %}
-글로벌 컨트롤 그룹은 [API 캠페인]({{site.baseurl}}/api/api_campaigns/)을 제외한 모든 채널, Campaigns, Canvases에 적용됩니다. 즉, 대조군의 사용자는 여전히 API 캠페인을 수신합니다. 그러나 이 예외는 Content Cards에는 적용되지 않습니다. API 트리거 콘텐츠 카드 캠페인을 사용하는 경우, 대조군의 사용자는 해당 캠페인을 수신하지 않습니다.
+글로벌 컨트롤 그룹은 [API 캠페인]({{site.baseurl}}/api/api_campaigns)을 제외한 모든 채널, Campaigns, Canvases에 적용됩니다. 즉, 대조군의 사용자는 여전히 API 캠페인을 수신합니다. 그러나 이 예외는 Content Cards에는 적용되지 않습니다. API 트리거 콘텐츠 카드 캠페인을 사용하는 경우, 대조군의 사용자는 해당 캠페인을 수신하지 않습니다.
 {% endalert %}
 
 ### 글로벌 컨트롤 그룹에 사용자를 무작위로 할당 {#assign-users-randomly-to-the-global-control-group}
 
-Braze는 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/#step-1-segment-your-users-by-the-random-bucket-attribute)의 여러 범위를 무작위로 선택하고, 선택된 버킷에 속하는 사용자를 포함합니다. 현재 다른 목적으로 무작위 버킷 번호를 사용하고 있다면, [주의 사항](#things-to-watch-for)을 확인하세요.
+Braze는 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute)의 여러 범위를 무작위로 선택하고, 선택된 버킷에 속하는 사용자를 포함합니다. 현재 다른 목적으로 무작위 버킷 번호를 사용하고 있다면, [주의 사항](#things-to-watch-for)을 확인하세요.
 
 글로벌 컨트롤 그룹이 생성되면, 해당 무작위 버킷 번호를 가진 모든 사용자가 그룹에 포함됩니다. 또한 이 시점 이후에 가입한 신규 사용자(글로벌 컨트롤 그룹이 생성된 후 획득한 사용자) 중 해당 무작위 버킷 번호를 가진 사용자도 글로벌 컨트롤 그룹에 추가됩니다. 마찬가지로, 많은 사용자가 삭제되면 삭제된 사용자 중 일정 비율이 이 그룹에 속해 있었으므로 글로벌 컨트롤 그룹의 크기가 줄어들 수 있습니다. 이를 통해 전체 사용자 기반 대비 그룹 크기가 일정한 비율로 유지됩니다.
 
@@ -40,7 +40,7 @@ Braze는 상승 효과 보고를 위한 처리군도 생성합니다. 처리군�
 
 ### 피처 플래그에서 사용자 제외 {#exclude-users-from-feature-flags}
 
-글로벌 컨트롤 그룹의 사용자에 대해 [피처 플래그]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/)를 활성화할 수 없습니다. 즉, 글로벌 컨트롤 그룹의 사용자는 피처 플래그 실험에도 참여할 수 없습니다.
+글로벌 컨트롤 그룹의 사용자에 대해 [피처 플래그]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags)를 활성화할 수 없습니다. 즉, 글로벌 컨트롤 그룹의 사용자는 피처 플래그 실험에도 참여할 수 없습니다.
 
 ### 글로벌 컨트롤 그룹에서 사용자 제외 {#exclude-users-from-the-global-control-group}
 
@@ -54,7 +54,7 @@ Braze는 상승 효과 보고를 위한 처리군도 생성합니다. 처리군�
 
 ### 2단계: 전체 사용자의 비율을 이 대조군에 할당 {#step-2-assign-a-percentage-of-all-users-to-this-control-group}
 
-대조군의 비율을 입력하고 **Save**를 선택합니다. 입력하면 Braze가 글로벌 컨트롤, 처리군, 처리군 샘플에 속하는 사용자 수의 추정치를 표시합니다. 워크스페이스에 사용자가 많을수록 이 추정치가 더 정확해진다는 점을 유의하세요.
+대조군의 비율을 입력하고 **저장**을 선택합니다. 입력하면 Braze가 글로벌 컨트롤, 처리군, 처리군 샘플에 속하는 사용자 수의 추정치를 표시합니다. 워크스페이스에 사용자가 많을수록 이 추정치가 더 정확해진다는 점을 유의하세요.
 
 글로벌 컨트롤 그룹의 사용자 수는 초기 설정 후 워크스페이스에 더 많은 사용자가 추가될 때 이 비율에 비례하도록 자동으로 업데이트됩니다. 또한 글로벌 컨트롤 그룹이 설정된 후 가입한 사용자 중 해당 무작위 버킷 번호를 가진 사용자도 글로벌 컨트롤 그룹에 추가됩니다. 많은 사용자가 추가되면 전체 사용자 기반 대비 일정한 비율을 유지하기 위해 글로벌 컨트롤 그룹의 크기가 커집니다. 글로벌 컨트롤 그룹의 크기가 커져도 이전에 그룹에 속해 있던 사용자는 그대로 유지됩니다(그룹을 비활성화하고 새로 생성하여 변경하지 않는 한).
 
@@ -92,7 +92,7 @@ Braze는 상승 효과 보고를 위한 처리군도 생성합니다. 처리군�
 
 글로벌 컨트롤 그룹에 어떤 사용자가 속해 있는지 확인하려면, CSV 또는 API를 통해 그룹 멤버를 내보낼 수 있습니다.
 
-CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으로 이동하여 <i class="fas fa-download"></i>&nbsp;**Export**를 클릭합니다. API를 통해 내보내려면 [`/users/export/global_control_group` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)를 사용합니다.
+CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으로 이동하여 <i class="fas fa-download" aria-label="내보내기"></i>&nbsp;**내보내기**를 클릭합니다. API를 통해 내보내려면 [`/users/export/global_control_group` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group)를 사용합니다.
 
 {% alert important %}
 이전 대조군은 보존되지 않으므로 현재 그룹의 멤버만 내보낼 수 있습니다. 대조군을 비활성화하기 전에 필요한 정보를 반드시 내보내세요.
@@ -100,9 +100,9 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 
 ## 사용자가 글로벌 컨트롤 그룹에 속해 있는지 확인 {#view-whether-a-user-is-in-a-global-control-group}
 
-개별 사용자 프로필의 **Engagement** 탭에 있는 **Miscellaneous** 섹션으로 이동하여 글로벌 컨트롤 그룹 멤버십을 확인할 수 있습니다.
+개별 사용자 프로필의 **참여** 탭에 있는 **기타** 섹션으로 이동하여 글로벌 컨트롤 그룹 멤버십을 확인할 수 있습니다.
 
-![사용자의 무작위 버킷 번호가 6356이며 글로벌 컨트롤 그룹에 속하지 않는다고 보고하는 "Miscellaneous" 섹션.]({% image_buster /assets/img/control_group/control_group1.png %}){: style="max-width:50%;"}
+![사용자의 무작위 버킷 번호가 6356이며 글로벌 컨트롤 그룹에 속하지 않는다고 보고하는 "기타" 섹션.]({% image_buster /assets/img/control_group/control_group1.png %}){: style="max-width:50%;"}
 
 ## 보고 {#reporting}
 
@@ -110,11 +110,11 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 
 ### 보고서 보기 {#viewing-a-report}
 
-대시보드에서 글로벌 컨트롤 그룹 보고서를 보려면 **분석** > **글로벌 컨트롤 그룹 보고서**로 이동합니다.
+대시보드에서 글로벌 컨트롤 그룹 보고서를 보려면 **Analytics** > **글로벌 컨트롤 그룹 보고서**로 이동합니다.
 
-다음으로, 보고서를 실행할 매개변수(세션 또는 특정 커스텀 이벤트)를 선택하고 **Run Report**를 선택합니다.
+다음으로, 보고서를 실행할 매개변수(세션 또는 특정 커스텀 이벤트)를 선택하고 **리포트 실행**을 선택합니다.
 
-![]({% image_buster /assets/img/control_group/control_group6.png %})
+![보고서를 실행할 매개변수(세션 또는 특정 커스텀 이벤트)를 선택하고 리포트 실행을 선택합니다.]({% image_buster /assets/img/control_group/control_group6.png %})
 
 ### 보고서 구성 {#configuring-your-report}
 
@@ -122,7 +122,7 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 
 보고서의 백분율 측정기준은 반올림된다는 점을 유의하세요. 예를 들어, 전환 수가 전체 대조군 또는 처리군의 매우 낮은 비율인 경우 전환율이 0%로 반올림될 수 있습니다.
 
-이 보고서는 대조군 대비 변화 측정기준에 대한 [신뢰도]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence) 백분율도 표시합니다. 대조군과 처리군의 전환율이 동일한 경우 신뢰도 0%가 예상됩니다. 이는 두 그룹 간 성과 차이가 있을 확률이 0%임을 나타냅니다.
+이 보고서는 대조군 대비 변화 측정기준에 대한 [신뢰도]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence) 백분율도 표시합니다. 대조군과 처리군의 전환율이 동일한 경우 신뢰도 0%가 예상됩니다. 이는 두 그룹 간 성과 차이가 있을 확률이 0%임을 나타냅니다.
 
 #### 그룹 크기 {#group-sizes}
 
@@ -143,7 +143,7 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 | 추정 그룹 크기 | 선택한 기간 동안 대조군과 처리군의 추정 사용자 수입니다. | 보고서에서 선택한 기간 동안 대조군과 처리군이 도달한 최대 멤버십 크기입니다. |
 | 총 이벤트 수 | 선택한 기간 동안 선택한 이벤트가 발생한 총 횟수입니다. 고유 이벤트가 아닙니다(예: 사용자가 해당 기간 동안 이벤트를 두 번 수행하면 이벤트가 두 번 증가합니다). | 선택한 기간 동안 매일 이벤트가 발생한 횟수의 합계입니다. |
 | 사용자당 이벤트 | 선택한 기간 동안 각 그룹의 사용자가 전환 이벤트를 완료한 추정 평균 횟수입니다. | 총 이벤트 ÷ 추정 그룹 크기. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="보고서 측정기준" }
 
 ## 문제 해결 {#troubleshooting}
 
@@ -156,7 +156,7 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 | 글로벌 컨트롤 그룹 보고서에 데이터가 없습니다. | 글로벌 컨트롤 그룹을 저장하지 않고 글로벌 컨트롤 그룹 보고서에 접근하면 보고서에 데이터가 표시되지 않습니다. 글로벌 컨트롤 그룹을 생성하고 저장한 후 다시 시도하세요. |
 | 전환율이 0%이거나 이벤트가 0건 이상 발생하고 있는데도 그래프가 표시되지 않습니다. | 전환 수가 매우 적고 대조군 또는 처리군이 매우 큰 경우 전환율이 0%로 반올림되어 그래프에 표시되지 않을 수 있습니다. 총 이벤트 수 측정기준을 확인하여 이를 검증할 수 있습니다. 증분 상승 효과 백분율 측정기준을 사용하여 두 그룹의 효과를 비교할 수 있습니다. |
 | 데이터를 보는 기간에 따라 전환율(또는 기타 측정기준)이 크게 변합니다. | 짧은 기간의 데이터를 보는 경우 측정기준이 일별 또는 주별로 변동할 수 있습니다. 최소 한 달 이상의 기간에 걸쳐 측정기준을 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 ### 주의 사항 {#things-to-watch-for}
 
@@ -174,13 +174,15 @@ CSV 내보내기를 실행하려면 **글로벌 컨트롤 그룹 설정** 탭으
 
 글로벌 컨트롤 그룹의 사용자는 태그 예외가 있는 메시지를 제외한 모든 메시지 수신이 보류되며, Campaign이나 Canvas에 대조군을 추가하면 Braze는 글로벌 처리군의 일부가 해당 특정 Campaign이나 Canvas를 수신하지 못하도록 보류합니다. 즉, 글로벌 컨트롤 그룹의 멤버가 특정 Campaign이나 Canvas를 수신할 자격이 없는 경우, 해당 특정 Campaign이나 Canvas의 대조군에 포함되지 않습니다.
 
-> 요약하면, 글로벌 컨트롤 그룹의 사용자는 Campaign이나 Canvas 오디언스에 진입하기 전에 필터링됩니다. Campaign이나 Canvas에 진입한 사용자 중 일정 비율이 대조 배리언트에 할당됩니다.
+{% alert note %}
+요약하면, 글로벌 컨트롤 그룹의 사용자는 Campaign이나 Canvas 오디언스에 진입하기 전에 필터링됩니다. Campaign이나 Canvas에 진입한 사용자 중 일정 비율이 대조 배리언트에 할당됩니다.
+{% endalert %}
 
-#### 개발자 콘솔의 글로벌 컨트롤 그룹 Segment {#global-control-group-segments-on-the-developer-console}
+#### 개발자 콘솔의 글로벌 컨트롤 그룹 Segments {#global-control-group-segments-on-the-developer-console}
 
-[API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지의 **Additional API Identifiers** 섹션에서 여러 **Global Control** Segment를 볼 수 있습니다. 이는 글로벌 컨트롤 그룹이 활성화되거나 비활성화될 때마다 새로운 글로벌 컨트롤 그룹이 형성되기 때문입니다. 이로 인해 "Global Control Group"이라는 레이블이 붙은 여러 Segment가 생깁니다.
+[API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지의 **Additional API Identifiers** 섹션에서 여러 **Global Control** Segments를 볼 수 있습니다. 이는 글로벌 컨트롤 그룹이 활성화되거나 비활성화될 때마다 새로운 글로벌 컨트롤 그룹이 형성되기 때문입니다. 이로 인해 "Global Control Group"이라는 레이블이 붙은 여러 Segments가 생깁니다.
 
-이 중 하나만 활성 상태이며 [`/users/export/global_control_group` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)를 사용하여 쿼리하거나 대시보드에서 내보낼 수 있습니다. 대시보드에서의 내보내기는 이 글로벌 컨트롤 그룹을 구성하는 하위 Segment를 구체적으로 명시합니다.
+이 중 하나만 활성 상태이며 [`/users/export/global_control_group` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group)를 사용하여 쿼리하거나 대시보드에서 내보낼 수 있습니다. 대시보드에서의 내보내기는 이 글로벌 컨트롤 그룹을 구성하는 하위 Segments를 구체적으로 명시합니다.
 
 ## 테스트 모범 사례 {#testing-best-practices}
 

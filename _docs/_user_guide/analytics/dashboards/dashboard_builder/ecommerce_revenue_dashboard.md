@@ -8,13 +8,15 @@ description: "This article provides an overview of the eCommerce Revenue - Last 
 
 # eCommerce revenue dashboard
 
-> The **eCommerce Revenue - Last Touch Attribution** dashboard tracks last-touch attributed revenue for campaigns and Canvases using [eCommerce recommended events]({{site.baseurl}}/ecommerce_events/). Use this dashboard to understand which messages drive revenue and to monitor overall eCommerce performance over time.
+> The **eCommerce Revenue - Last Touch Attribution** dashboard tracks last-touch attributed revenue for campaigns and Canvases using [eCommerce recommended events]({{site.baseurl}}/ecommerce_events). Use this dashboard to understand which messages drive revenue and to monitor overall eCommerce performance over time.
 
 {% alert note %}
-eCommerce recommended events are currently in early access. Contact your Braze customer success manager if you’re interested in participating in this early access. <br><br>If you're using the new [Shopify connector]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), these recommended events will be automatically available through the integration. Otherwise, these events must be implemented before data appears in this dashboard.
+If you're using the new [Shopify connector]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores?tab=shopify%20connector), eCommerce recommended events are automatically available through the integration. Otherwise, these events must be implemented before data appears in this dashboard.
 {% endalert %}
 
 To view your eCommerce revenue dashboard, go to **Analytics** > **Dashboard Builder**, then select **eCommerce Revenue - Last Touch Attribution**. This dashboard reports on revenue attributed to the last campaign or Canvas a user interacted with before placing an order, within the selected conversion window.
+
+![eCommerce Revenue - Last Touch Attribution dashboard showing statistics for eCommerce Revenue, Daily Orders Placed, and Average Daily eCommerce Revenue, and an eCommerce Revenue Over Time chart.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
 
 ## Available metrics
 
@@ -26,7 +28,9 @@ To view your eCommerce revenue dashboard, go to **Analytics** > **Dashboard Buil
 | eCommerce Revenue Over Time | A time series of attributed revenue in the selected date range. |
 | eCommerce Revenue by Campaign | Attributed revenue broken down by campaign. | 
 | eCommerce Revenue by Canvas | Attributed revenue broken down by Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+
+![eCommerce Revenue by Campaign and eCommerce Revenue by Canvas charts.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
 ## Attribution model
 
@@ -66,12 +70,11 @@ Revenue and order counts use Braze standardized calculations.
 | --- | --- |
 | Total Revenue | Sum of order placed values − Sum of refunded values |
 | Total Orders | Distinct orders placed − Distinct orders cancelled |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Included data" }
 
 ### Excluded data
 
 Purchases logged using the legacy purchase event are not included. The **eCommerce Revenue - Last Touch Attribution** dashboard currently does not support features tied to legacy purchase events, such as LTV or revenue reporting within campaigns or Canvases. 
-
 
 ## Currency handling
 

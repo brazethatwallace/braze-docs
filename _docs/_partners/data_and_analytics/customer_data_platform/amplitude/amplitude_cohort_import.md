@@ -18,20 +18,19 @@ Any integration you set up will count toward your account's data point volume.
 
 In Braze, navigate to **Partner Integrations** > **Technology Partners** and select **Amplitude**. Here, you will find the REST endpoint and generate your Braze data import key. 
 
-Once generated, you can create a new key or invalidate an existing one. The data import key and the REST endpoint are used in the next step when setting up a postback in Amplitude's dashboard.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+Once generated, you can create a new key or invalidate an existing one. The data import key and the REST endpoint are used in the next step when setting up a postback in Amplitude's dashboard.<br><br>![Braze Amplitude technology partner page showing data import key and endpoint.]({% image_buster /assets/img/amplitude3.png %})
 
 ### Step 2: Set up the Braze integration in Amplitude
 
 In Amplitude, navigate to **Sources & Destinations** > **[project name]** > **Destinations** > **Braze**. In the prompt that appears, provide the Braze data import key and REST endpoint, and click **Save**.
 
-![]({% image_buster /assets/img/amplitude.png %})
+![Amplitude destination settings for Braze cohort sync with credentials entered.]({% image_buster /assets/img/amplitude.png %})
 
 ### Step 3: Export an Amplitude cohort to Braze
 
-First, to export users from Amplitude to Braze, create a [cohort](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) of users you wish to export. Amplitude can sync cohorts to Braze using the following identifiers:
-- User Alias
+First, to export users from Amplitude to Braze, create a [cohort](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) of users you wish to export. Then, to capture identified and anonymous users, set up two syncs for that cohort with these identifier mapping properties: 
+- User ID (External ID) 
 - Device ID
-- User ID (External ID)
 
 You can set up multiple Braze connections in your Amplitude account. This allows you to configure one connection to sync user IDs for known users and another to sync device IDs for anonymous users.
 

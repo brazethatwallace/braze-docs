@@ -13,7 +13,7 @@ page_order: 10
 
 ### Was ist der Unterschied zwischen Canvas-Agents und Katalog-Agents? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 
-Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas- oder Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
+Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
 
 ### Welche Vorteile bietet das Auto-Modell im Vergleich zum Bring-your-own-Modell (BYO)? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -24,7 +24,7 @@ Vorteile des Braze Auto-Modells:
 
 ### Wo kann ich meine aktuelle Agent-Nutzung einsehen? {#where-can-i-find-my-current-agent-usage}
 
-Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credits-Nutzung**, um Details zu Ihrer Agent-Nutzung und den Credit-Kosten einzusehen.
+Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Nutzung**, um Details zu Ihrer Agent-Nutzung und den Credit-Kosten einzusehen.
 
 ### Kann ich bedingte Liquid-Anweisungen in Agent-Anweisungen verwenden? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
@@ -32,13 +32,21 @@ Nein. Der Versuch, Liquid-Blöcke wie {% raw %}`{% if %}`{% endraw %}-Anweisunge
 
 ### Können Agents auf Nutzerdaten zugreifen, die über die spezifischen Liquid-Attribute oder -Werte hinausgehen, die ich ihnen übergebe? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
-Nein. Agents erhalten nur die spezifischen Datenpunkte, die ihnen über Liquid übergeben werden, sowie [Ressourcen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources), die dem Agent-Kontext hinzugefügt wurden. Agents können nicht in Nutzerprofilen nach Attributen suchen, für deren Abfrage sie vom Marketer nicht konfiguriert wurden.
+Nein. Agents erhalten nur die spezifischen Datenpunkte, die ihnen über Liquid übergeben werden, sowie [Ressourcen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources), die dem Agent-Kontext hinzugefügt wurden. Agents können nicht in Nutzerprofilen nach Attributen suchen, für deren Abfrage sie vom Marketer nicht konfiguriert wurden.
 
 ## Fehlerbehebung {#troubleshooting}
 
 ### Warum hat mein Agent meine Anweisungen oder Regeln nicht befolgt? {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator/), um herauszufinden, warum Ihr Agent Ihre Anweisungen nicht befolgt. Operator kann Schritt-für-Schritt-Anleitungen und detaillierte Erklärungen liefern.
+Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator), um herauszufinden, warum Ihr Agent Ihre Anweisungen nicht befolgt. Operator kann Schritt-für-Schritt-Anleitungen und detaillierte Erklärungen liefern.
+
+### Warum hat mein Katalog-Agent einige Zeilen übersprungen? {#why-did-my-catalog-agent-skip-some-rows}
+
+Katalog-Agents überspringen eine Zeile, wenn eine Spalte, die Sie als **zum Ausführen erforderlich** markiert haben, leer ist oder fehlt – beispielsweise ein `gender`-Feld, das noch nicht ausgefüllt wurde. Nachdem Sie Eingabespalten ausgewählt haben, aktivieren Sie die Pflichtfeld-Kontrolle für das Katalogfeld und legen fest, welche Spalten Werte enthalten müssen, bevor der Agent ausgeführt wird. Ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne den Aufruf zu blockieren. So werden keine Token für unvollständige Daten verschwendet.
+
+Der Agent berücksichtigt auch Spaltenabhängigkeiten. Wenn eine Ausgabespalte von anderen Spalten abhängt (z. B. Spalte D Werte in den Spalten B und C erfordert), wird der Agent für diese Zeile erst ausgeführt, wenn die vorgelagerten Spalten befüllt sind.
+
+Weitere Informationen finden Sie unter [Best Practices für Katalog-Agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ### Mein Agent hat Schwierigkeiten mit einer komplexen Aufgabe. Wie kann ich seine Performance verbessern? {#subagent-approach}
 
@@ -46,7 +54,7 @@ Wenn der Agent mit den gestellten Aufgaben Schwierigkeiten hat, ziehen Sie einen
 
 - Agent 1 standardisiert und transformiert eingehende unstrukturierte Canvas-Kontextdaten.
 - Agent 2 referenziert einen Katalog mit Artikeldetails und identifiziert, welche Artikel relevant sein könnten.
-- Agent 3 referenziert einen anderen Katalog, der verschiedene mögliche Beschreibungen für jeden Artikel enthält, und wählt die für die Nutzer:innen relevanteste Artikelbeschreibung für eine E-Mail aus.
+- Agent 3 referenziert einen anderen Katalog, der verschiedene mögliche Beschreibungen für jeden Artikel enthält, und wählt die für die/den Nutzer:in relevanteste Artikelbeschreibung für eine E-Mail aus.
 
 ### Was kann dazu führen, dass ein angepasster Agent häufig ein Timeout hat? {#what-might-cause-a-custom-agent-to-frequently-time-out}
 
@@ -57,7 +65,9 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 - Die Agent-Anweisungen ein anderes Ausgabeformat verlangen als das im Tab **Ausgabe** festgelegte (z. B. wenn die Agent-Anweisungen einen String verlangen, aber im Tab **Ausgabe** die Ausgabe als Zahl definiert ist)
 - Die Aufgabe des Agents zu komplex ist und von einem [Sub-Agent-Ansatz](#subagent-approach) profitieren würde
 
-## Compliance
+Konfigurieren Sie für Canvas-Agents [Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole, damit Nutzer:innen auch dann eine Ausgabe erhalten, wenn ein Aufruf fehlschlägt.
+
+## Compliance {#compliance}
 
 ### Ist die Agentenkonsole DSGVO-/CCPA-konform? {#is-agent-console-gdprccpa-compliant}
 

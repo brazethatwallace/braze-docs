@@ -1,14 +1,14 @@
 ---
 nav_title: スタイリング例
 article_title: スタイリング例
-description: "これは、ヘッダー、タブ、コードブロックなど、Braze Docs でページがスタイル設定される方法です。"
+description: "これは、ヘッダー、タブ、コードブロックなど、Braze Docsでページがスタイル設定される方法です。"
 page_order: 8
 noindex: true
 ---
 
 # スタイリング例 {#styling-examples}
 
-これは、ヘッダー、タブ、コードブロックなど、Braze Docs でページがスタイル設定される方法です。
+これは、ヘッダー、タブ、コードブロックなど、Braze Docsでページがスタイル設定される方法です。
 
 ## ヘッダーテスト {#header-test}
 
@@ -66,13 +66,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 
 ## カスタムヘッダーアンカー {#custom-header-anchor}
 
-ヘッダーにアンカーを追加するには、ヘッダーがある行の末尾に次のコードを追加します。`anchor-text` をこの見出しのアンカーに置き換えます。小文字を使用し、単語間にハイフンを入れます。
+ヘッダーにアンカーを追加するには、ヘッダーがある行の末尾に次のコードを追加します。`anchor-text`をこの見出しのアンカーに置き換えます。小文字を使用し、単語間にハイフンを入れてください。
 
 ```
 # Heading Text {#anchor-text}
 ```
 
-番号記号 `#` の後にカスタムアンカーが続く標準リンクを作成することで、カスタムアンカーを持つ見出しにリンクできます。
+番号記号`#`の後にカスタムアンカーが続く標準リンクを作成することで、カスタムアンカーを持つ見出しにリンクできます。
 
 {% raw %}
 ```
@@ -131,7 +131,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 
 Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at lectus tempus tempor.
 
-``` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectus tempus tempor. ```
+````````` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectus tempus tempor. ```
 ```
 {% endtab %}
 {% endtabs %}
@@ -152,7 +152,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | US-08    | `https://dashboard-08.braze.com`                                      | `https://rest.iad-08.braze.com` |
 | EU-01    | `https://dashboard.braze.eu` or<br> `https://dashboard-01.braze.eu`   | `https://rest.fra-01.braze.eu`  |
 | AU-01    | `https://dashboard.au-01.braze.com/`                                  | `https://rest.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
 {% endtab %}
 {% tab Markdown %}
 ```
@@ -169,7 +169,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | EU-01    | `https://dashboard.braze.eu` or<br> `https://dashboard-01.braze.eu`   | `https://rest.fra-01.braze.eu`  |
 | EU-02    | `https://dashboard-02.braze.eu`                                       | `https://rest.fra-02.braze.eu`  |
 | AU-01    | `https://dashboard.au-01.braze.com/`                                  | `https://rest.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
 ```
 {% endtab %}
 {% endtabs %}
@@ -178,19 +178,19 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 
 テーブルの列ごとのワードブレークをリセットするには、次の構文を使用します。
 
-```markdown
-{: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM role="presentation"}
+`````````markdown
+{: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM aria-label="Resetting Table word-break by column" }
 ```
 
-`NUM` を対応する列番号に置き換えます（最大4列まで）。4列未満の場合は、余分な `.reset-td-br-NUM` プレースホルダーを削除してください。テーブルは次のようになります。
+`NUM`を対応する列番号に置き換えます（最大4列まで）。4列未満の場合は、余分な`.reset-td-br-NUM`プレースホルダーを削除してください。テーブルは次のようになります。
 
-```markdown
+`````````markdown
 | Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | An email was successfully delivered to a User's mail server. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | User opened an email.                                        | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | In-App Message Impression                                        | Platform-specific Feed | User viewed an In-App Message.                               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Resetting Table word-break by column" }
 
 ```
 {% tabs local %}
@@ -210,7 +210,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | メールがユーザーのメールサーバーに正常に配信されました。 | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | ユーザーがメールを開封しました。                                        | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | In-App-Message-Impression                                        | Platform-specific Feed | ユーザーがアプリ内メッセージを閲覧しました。                               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Resetting Table word-break by column" }
 {% endtab %}
 {% endtabs %}
 
@@ -263,8 +263,8 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {% tab Styling %}
 {% gallery %}
 {{site.baseurl}}/assets/img_archive/EBTH_Email.png?bf892368baf287cba5ab9a6e3b09431d <br> これは[リンク](https://www.braze.com)です。
-{{site.baseurl}}/assets/img_archive/iHeartRadio_Email.png?ecd2c8fe148939b7de957fe85cd6317e <br> これは別の `comment` です。
-{{site.baseurl}}/assets/img_archive/Saucey_Email.png?b9768937a1cc12d4c08e55a52e700d68 <br> これはさらに別の **comment** です。
+{{site.baseurl}}/assets/img_archive/iHeartRadio_Email.png?ecd2c8fe148939b7de957fe85cd6317e <br> これは別の`comment`です。
+{{site.baseurl}}/assets/img_archive/Saucey_Email.png?b9768937a1cc12d4c08e55a52e700d68 <br> これはさらに別の**comment**です。
 {{site.baseurl}}/assets/img/schellman_iso27001_seal_grey_CMYK_300dpi_jpg.png?1b1fb9dbb80b0332c62512dcf9c83258 <br> **画像タイトル** <br> これは改行されるかどうかのテストです。
 {{site.baseurl}}/assets/img/SOC2.png?6338040be8e98c4c9abe1f35b3e43e3a <br> これは通常のコメントです。
 {% endgallery %}
@@ -304,20 +304,20 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {% tabs %}
 {% tab Styling %}
 #### コードテスト Objective C
-```objc
+`````````objc
 - (void)submitFeedback:(ABKFeedback * )feedback
  withCompletionHandler:(nullable void (^)(ABKFeedbackSentResult feedbackSentResult))completionHandler;
 ```
 
 #### コードテスト Swift
-```swift
+`````````swift
 Appboy.sharedInstance()?.submitFeedback(feedback) { (feedbackSentResult) in
       print("Feedback sent: (feedbackSentResult)")
     }
 ```
 
 #### コードテスト Java
-```java
+`````````java
 @Override
 public void onResume() {
   super.onResume();
@@ -337,7 +337,7 @@ public void onResume() {
 ```
 
 #### コードテスト JavaScript
-```javascript
+`````````javascript
 braze.subscribeToFeedUpdates(function(feed) {
   var cards = feed.cards;
   braze.showFeed(undefined, cards);
@@ -346,7 +346,7 @@ braze.requestFeedRefresh();
 ```
 
 #### Pygmentsテスト
-```python
+`````````python
 #!/usr/bin/python3
 
 from engine import RunForrestRun
@@ -434,23 +434,23 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 <br /><br />
 
 #### Loomの例
-* `source="loom"` を使用します
+* `source="loom"`を使用します
 {% multi_lang_include video.html id="c1d3199463c448e8918f046265b54eb2" source="loom" %}
 
 {% endtab %}
 {% tab Markdown %}
 
-YouTube動画を埋め込むには、YouTube IDが必要です。URLの `v=` の後に表示されます。たとえば、`https://www.youtube.com/watch?v=VR1qn1OBP7k` のIDは `VR1qn1OBP7k` です。
+YouTube動画を埋め込むには、YouTube IDが必要です。URLの`v=`の後に表示されます。たとえば、`https://www.youtube.com/watch?v=VR1qn1OBP7k`のIDは`VR1qn1OBP7k`です。
 
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[youtube_id]" source="youtube" %}
 ```
 {% endraw %}
 
-右寄せまたは左寄せにし、最大幅を50%に制限するには、`align` パラメーターに `left` または `right` を使用します。
+右寄せまたは左寄せにし、最大幅を50%に制限するには、`align`パラメーターに`left`または`right`を使用します。
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[youtube_id]" align="left" source="youtube" %}
 
 {% multi_lang_include video.html id="[youtube_id]" align="right" source="youtube" %}
@@ -459,7 +459,7 @@ YouTube動画を埋め込むには、YouTube IDが必要です。URLの `v=` の
 
 Loomの例:
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[lid]" source="loom" %}
 ```
 {% endraw %}
@@ -469,10 +469,10 @@ Loomの例:
 
 #### 高解像度向けステータス配置付きフィーチャー動画レイアウト
 
-高解像度表示用に左側に静的動画を配置するフィーチャー動画レイアウトを使用するには、ページのYAMLヘッダーに `video_id` と `video_type`（`youtube` など）を追加します。デフォルトでは `video_source` は `youtube` に設定されています。
+高解像度表示用に左側に静的動画を配置するフィーチャー動画レイアウトを使用するには、ページのYAMLヘッダーに`video_id`と`video_type`（`youtube`など）を追加します。デフォルトでは`video_source`は`youtube`に設定されています。
 
 {% raw %}
-```yaml
+`````````yaml
 layout: featured_video
 video_id: [video_id]
 video_source: youtube
@@ -542,14 +542,14 @@ video_source: youtube
 {% details クリックして展開 %}
 #### 隠しコードブロックがあります！
 
-```python
+`````````python
 print("hello world!")
 ```
 {% enddetails %}
 {% endtab %}
 {% tab Markdown %}
 {% raw %}
-```liquid
+`````````liquid
 {% details Click me to Expand %}
 ...
 {% enddetails %}
@@ -565,15 +565,15 @@ print("hello world!")
 {% tabs local %}
 {% tab OBJECTIVE-C %}
 
-`AppDelegate.m` ファイルに次のコード行を追加します。
+`AppDelegate.m`ファイルに次のコード行を追加します。
 
-```objc
+`````````objc
 {% if include.platform == 'iOS' %}#import "Appboy-iOS-SDK/AppboyKit.h"{% else %}#import <AppboyTVOSKit/AppboyKit.h>{% endif %}
 ```
 
-`AppDelegate.m` ファイル内の `application:didFinishLaunchingWithOptions` メソッドに次のスニペットを追加します。
+`AppDelegate.m`ファイル内の`application:didFinishLaunchingWithOptions`メソッドに次のスニペットを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
          inApplication:application
      withLaunchOptions:launchOptions];
@@ -582,17 +582,17 @@ print("hello world!")
 {% endtab %}
 {% tab swift %}
 
-Braze SDKをCocoaPodsまたはCarthageで統合する場合は、`AppDelegate.swift` ファイルに次のコード行を追加します。
+Braze SDKをCocoaPodsまたはCarthageで統合する場合は、`AppDelegate.swift`ファイルに次のコード行を追加します。
 
-```swift
+`````````swift
 {% if include.platform == 'iOS' %}#import Appboy_iOS_SDK{% else %}#import AppboyTVOSKit{% endif %}
 ```
 
 SwiftプロジェクトでObjective-Cコードを使用する方法の詳細については、[Apple Developer Docs][apple_initial_setup_19]を参照してください。
 
-`AppDelegate.swift` の `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` に次のスニペットを追加します。
+`AppDelegate.swift`の`application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool`に次のスニペットを追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 {% endtab %}
@@ -600,18 +600,18 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 
 #### 使い方
 {% raw %}
-**tabs** を `{% tabs %}` と `{% endtabs %}` で囲みます。
-個々の **tab** をLiquidコードとタブ名 `{% tab [タブ名] %}` と `{% endtab %}` で囲みます。
+**tabs**を`{% tabs %}`と`{% endtabs %}`で囲みます。
+個々の**tab**をLiquidコードとタブ名`{% tab [タブ名] %}`と`{% endtab %}`で囲みます。
 {% endraw %}
 
 {% alert important %}
  ページ上のタブの数は一貫している必要があります。そうでないと、タブのコンテンツが非表示になる場合があります。
- たとえば、あるタブセットに `C++`、`C-Sharp`、`JS` があり、別のタブセットに `C-Sharp` と `JS` がある場合、
-誰かが `C++` をクリックすると、もう一方のセクションには何も表示されません。回避策については、以下のローカルタブオプションを参照してください。
+ たとえば、あるタブセットに`C++`、`C-Sharp`、`JS`があり、別のタブセットに`C-Sharp`と`JS`がある場合、
+誰かが`C++`をクリックすると、もう一方のセクションには何も表示されません。回避策については、以下のローカルタブオプションを参照してください。
 {% endalert %}
 
 {% raw %}
-```liquid
+`````````liquid
 {% tabs %}
 {% tab objective-c %}
 Content of objective-c
@@ -624,10 +624,10 @@ Content of swift
 {% endraw %}
 
 #### ローカルタブ
-特定のセクションのタブコンテンツのみを変更する自己完結型タブの場合は、親タブブロックで local パラメーターを使用します。
+特定のセクションのタブコンテンツのみを変更する自己完結型タブの場合は、親タブブロックでlocalパラメーターを使用します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% tabs local %}
 ...
 {% endtabs %}
@@ -635,8 +635,8 @@ Content of swift
 {% endraw %}
 
 #### サブタブ
-タブ内のタブには、`subtabs` と `subtab` を使用できます。デフォルト設定は `local` です。
-グローバルな `subtabs` には、`global` オプションを使用します: {% raw %}`{% subtabs global %}`{% endraw %}
+タブ内のタブには、`subtabs`と`subtab`を使用できます。デフォルト設定は`local`です。
+グローバルな`subtabs`には、`global`オプションを使用します: {% raw %}`{% subtabs global %}`{% endraw %}
 
 {% tabs local %}
 {% tab Tab 1 %}
@@ -654,10 +654,10 @@ Content of swift
 タブコンテンツ2
 {% subtabs %}
 {% subtab Subtab 1b %}
-サブタブ1aのコンテンツ
+サブタブ1bのコンテンツ
 {% endsubtab %}
 {% subtab Subtab 2b %}
-サブタブ2aのコンテンツ
+サブタブ2bのコンテンツ
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

@@ -18,7 +18,7 @@ A Braze atualiza a associação do usuário ao Segment conforme os dados são en
 
 ### Cálculo do total de usuários contatáveis {#total-reachable-users-calculation}
 
-Cada Segment exibe o número total de usuários que são membros desse Segment. Ao filtrar por **Usuários de todos os apps**, também são exibidos alguns dos canais de envio de mensagens mais utilizados (como push para a web ou e-mail) e o número de usuários contatáveis para esses canais específicos.
+Cada Segment exibe o número total de usuários que são membros desse Segment. Ao filtrar por **Users from all apps**, também são exibidos alguns dos canais de envio de mensagens mais utilizados (como push para a web ou e-mail) e o número de usuários contatáveis para esses canais específicos.
 
 É possível que o número total de usuários seja diferente do número de usuários contatáveis por cada canal. Além disso, nem todos os canais são listados na tabela de usuários contatáveis. Por exemplo, Content Cards, webhooks e WhatsApp não são exibidos no detalhamento. Isso significa que a contagem total de usuários contatáveis pode ser maior do que a soma dos usuários de cada canal exibido.
 
@@ -30,43 +30,47 @@ Para que um usuário seja listado como contatável por um determinado canal, ele
 
 Um único usuário pode pertencer a diferentes grupos de usuários contatáveis. Por exemplo, um usuário pode ter tanto um endereço de e-mail válido quanto um token por push válido para Android e ter feito opt-in para ambos, mas não ter nenhum token por push para iOS associado. A diferença entre o total de usuários contatáveis e a soma dos diferentes canais representa o número de usuários que se qualificaram para o Segment, mas não são contatáveis por esses canais de comunicação.
 
+{% alert note %}
+**Total de usuários contatáveis** inclui todos que correspondem aos filtros do seu Segment, mesmo que não estejam mais inscritos em um canal. As linhas de canal, como **iOS**, contam os usuários que são contatáveis apenas naquele canal de acordo com as regras em [Usuários contatáveis por canal](#reachable-users-by-channel). Para alinhar os totais do Segment com os usuários inscritos, adicione filtros como **Push enabled for iOS** é verdadeiro (ou o equivalente para o seu canal).
+{% endalert %}
+
 ## Estatísticas de tamanho do Segment {#statistics-for-segment-size}
 
-As estatísticas estimadas são aproximadas por meio da amostragem de apenas uma parte do seu Segment, então você deve esperar tamanhos estimados maiores ou menores do que o valor real, com espaços de trabalho maiores apresentando margens de erro potencialmente maiores. Para obter uma contagem precisa de usuários no seu Segment, selecione **Calcular estatísticas exatas**. A associação exata ao Segment sempre será calculada antes que um Segment seja afetado por uma mensagem enviada em uma Campaign ou Canvas.
+As estatísticas estimadas são aproximadas por meio da amostragem de apenas uma parte do seu Segment, então você deve esperar tamanhos estimados maiores ou menores do que o valor real, com espaços de trabalho maiores apresentando margens de erro potencialmente maiores. Para obter uma contagem precisa de usuários no seu Segment, selecione **Calculate Exact Statistics**. A associação exata ao Segment sempre será calculada antes que um Segment seja afetado por uma mensagem enviada em uma Campaign ou Canvas.
 
 A Braze fornece as seguintes estatísticas sobre o tamanho do Segment.
 
 ### Estatísticas de filtro {#filter-statistics}
 
-Para cada grupo de filtros, você pode visualizar os usuários contatáveis estimados. Selecione **Expandir estatísticas extras do funil** para ver um detalhamento por canal.
+Para cada grupo de filtros, você pode visualizar os usuários contatáveis estimados. Selecione **Expand extra funnel statistics** para ver um detalhamento por canal.
 
 ![Um grupo de filtros com um filtro para usuários que tiveram exatamente uma contagem de sessão.]({% image_buster /assets/img_archive/segment_filter_stats.png %})
 
 ## Estimativa de usuários contatáveis {#reachable-users-estimate}
 
-Você pode visualizar os usuários contatáveis estimados de um Segment inteiro, incluindo contagens estimadas de usuários para cada canal, no painel lateral **Usuários contatáveis**. Essa **estimativa** mostra uma faixa aproximada para o tamanho do seu Segment e uma estimativa de qual porcentagem da sua base total de usuários se enquadra nesse Segment. As estatísticas estimadas ficam em cache por 15 minutos, a menos que você faça edições no seu Segment, caso em que as estatísticas estimadas serão atualizadas automaticamente. Você também pode visualizar uma contagem exata de usuários contatáveis (tanto para o Segment geral quanto por canal) selecionando **Calcular estatísticas exatas**.
+Você pode visualizar os usuários contatáveis estimados de um Segment inteiro, incluindo contagens estimadas de usuários para cada canal, no painel lateral **Reachable users**. Essa **estimativa** mostra uma faixa aproximada para o tamanho do seu Segment e uma estimativa de qual porcentagem da sua base total de usuários se enquadra nesse Segment. As estatísticas estimadas ficam em cache por 15 minutos, a menos que você faça edições no seu Segment, caso em que as estatísticas estimadas serão atualizadas automaticamente. Você também pode visualizar uma contagem exata de usuários contatáveis (tanto para o Segment geral quanto por canal) selecionando **Calculate exact statistics**.
 
-![O painel "Usuários contatáveis" informando que há entre 2,3M e 2,4M de usuários estimados.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
+![O painel "Reachable users" informando que há entre 2,3M e 2,4M de usuários estimados.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
 
 ### Considerações sobre contagens estimadas {#considerations-for-estimate-counts}
 
-A Braze mede o número de usuários estimados consultando um subconjunto dos seus usuários e extrapolando esses resultados para todo o seu público. Como o subconjunto de usuários que a Braze consulta pode variar a cada cálculo dessa estimativa, a estimativa também pode mudar em casos em que a associação ao seu público tecnicamente deveria ter permanecido a mesma. Por exemplo, se você reordenar seus filtros ou verificar o mesmo Segment em um horário diferente, é possível que a contagem estimada mude (mesmo que **Calcular estatísticas exatas** revelasse os mesmos resultados se o seu Segment não tivesse mudado).
+A Braze mede o número de usuários estimados consultando um subconjunto dos seus usuários e extrapolando esses resultados para todo o seu público. Como o subconjunto de usuários que a Braze consulta pode variar a cada cálculo dessa estimativa, a estimativa também pode mudar em casos em que a associação ao seu público tecnicamente deveria ter permanecido a mesma. Por exemplo, se você reordenar seus filtros ou verificar o mesmo Segment em um horário diferente, é possível que a contagem estimada mude (mesmo que **Calculate exact stats** revelasse os mesmos resultados se o seu Segment não tivesse mudado).
 
 Se você tem uma grande população de usuários no seu espaço de trabalho, pode notar mais variação entre suas contagens estimadas em comparação com as contagens de cálculo exato, especialmente nos casos em que o seu Segment representa uma porcentagem muito pequena da população total do seu espaço de trabalho. Isso ocorre porque a Braze mede a estimativa consultando um subconjunto dos seus usuários e extrapolando os resultados para toda a sua base de usuários. Para bases de usuários maiores, diferenças maiores entre contagens estimadas e exatas são esperadas.
 
-Segments muito pequenos terão uma faixa estimada que inclui 0, o que significa que a porcentagem do total de usuários pode ser arredondada para 0. Nesses casos, **Calcular estatísticas exatas** ajudará você a ver uma contagem precisa do tamanho do seu Segment, que pode não ser realmente 0.
+Segments muito pequenos terão uma faixa estimada que inclui 0, o que significa que a porcentagem do total de usuários pode ser arredondada para 0. Nesses casos, **Calculate exact stats** ajudará você a ver uma contagem precisa do tamanho do seu Segment, que pode não ser realmente 0.
 
-![O painel lateral "Usuários contatáveis" mostrando uma contagem exata de usuários de "31".]({% image_buster /assets/img_archive/reachable_users_panel.png %})
+![O painel lateral "Reachable users" mostrando uma contagem exata de usuários de "31".]({% image_buster /assets/img_archive/reachable_users_panel.png %})
 
 ### Usuários contatáveis por canal {#reachable-users-by-channel}
 
-Para visualizar o número de usuários contatáveis para cada canal de envio de mensagens, selecione **Mostrar detalhamento** no painel **Usuários contatáveis**. Isso exibe alguns dos canais de envio de mensagens mais utilizados (como push para a web ou e-mail) e o número de usuários contatáveis para esses canais específicos.
+Para visualizar o número de usuários contatáveis para cada canal de envio de mensagens, selecione **Show breakdown** no painel **Reachable users**. Isso exibe alguns dos canais de envio de mensagens mais utilizados (como push para a web ou e-mail) e o número de usuários contatáveis para esses canais específicos.
 
 A métrica _Total_ representa usuários únicos. Por exemplo, se um usuário tem tanto push para Android quanto push para iOS, ele será contado em ambas as linhas, mas contará como apenas 1 usuário na linha _Total_.
 
 No entanto, é possível que o número total de usuários seja diferente da soma dos usuários contatáveis por cada canal, já que um único usuário pode pertencer a diferentes grupos de usuários contatáveis. Por exemplo, um usuário pode ter tanto um endereço de e-mail válido quanto um token por push válido para Android e ter feito opt-in para ambos, mas não ter nenhum token por push para iOS associado.
 
-Tenha em mente que nem todos os canais são listados na tabela **Usuários contatáveis** (como Content Cards, webhooks e WhatsApp). Por exemplo, se você tem usuários contatáveis apenas por WhatsApp, eles serão refletidos no _Total_, mas não em nenhuma das linhas específicas de canal. Isso significa que a contagem total de usuários contatáveis pode ser diferente da soma dos usuários de cada canal exibido.
+Tenha em mente que nem todos os canais são listados na tabela **Reachable users** (como Content Cards, webhooks e WhatsApp). Por exemplo, se você tem usuários contatáveis apenas por WhatsApp, eles serão refletidos no _Total_, mas não em nenhuma das linhas específicas de canal. Isso significa que a contagem total de usuários contatáveis pode ser diferente da soma dos usuários de cada canal exibido.
 
 Nos casos em que o _Total_ é maior do que a soma dos canais, a diferença representa o número de usuários que se qualificaram para o Segment, mas não são contatáveis por esses canais de comunicação.
 
@@ -83,39 +87,38 @@ Os seguintes filtros são aplicados para cada canal ao determinar os usuários c
 | E-mail | **Email Available** é verdadeiro. |
 | Push | **Foreground Push Enabled** é verdadeiro. |
 | SMS | **Subscription Group** é qualquer grupo de inscrições de SMS. **Invalid Phone Number** é falso. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtros aplicados para usuários contatáveis por canal específico" }
 
 ## Calculando estatísticas exatas {#calculating-exact-statistics}
 
-Para visualizar uma contagem precisa do número de usuários no seu Segment, selecione **Calcular estatísticas exatas** no painel **Usuários contatáveis**.
+Para visualizar uma contagem precisa do número de usuários no seu Segment, selecione **Calculate exact stats** no painel **Reachable users**.
 
-Para atualizar as estatísticas de um cálculo que você já executou anteriormente, selecione **Atualizar estatísticas exatas**. A data em que esse cálculo foi executado pela última vez será atualizada automaticamente.
+Para atualizar as estatísticas de um cálculo que você já executou anteriormente, selecione **Refresh exact statistics**. A data em que esse cálculo foi executado pela última vez será atualizada automaticamente.
 
 A precisão de um cálculo é de apenas 99,999% ou mais. Portanto, para Segments grandes, você pode notar pequenas variações&#8212;mesmo ao calcular estatísticas exatas&#8212;o que é um comportamento normal. Além disso, os resultados de estatísticas exatas ficam em cache por 24 horas, a menos que você faça edições no seu Segment, caso em que você pode recalcular as estatísticas exatas.
 
 {% alert note %}
-Segments divididos igualmente por [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) não terão o mesmo tamanho. Por exemplo, se você criar um Segment com o filtro **Random Bucket # less than 5000** e outro Segment com o filtro **Random Bucket # at least 5000**, é possível e esperado que os tamanhos dos Segments variem em até alguns pontos percentuais. Isso ocorre por situações como usuários inativos sendo excluídos e usuários não contatáveis.
+Segments divididos igualmente por [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) não terão o mesmo tamanho. Por exemplo, se você criar um Segment com o filtro **Random Bucket # less than 5000** e outro Segment com o filtro **Random Bucket # at least 5000**, é possível e esperado que os tamanhos dos Segments variem em até alguns pontos percentuais. Isso ocorre por situações como usuários inativos sendo excluídos e usuários não contatáveis.
 {% endalert %}
 
-![Captura de tela do painel Usuários contatáveis mostrando estatísticas exatas e um menu de detalhamento expandido.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})
+![Captura de tela do painel Reachable users mostrando estatísticas exatas e um menu de detalhamento expandido.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})
 
-As estatísticas no nível de cada filtro sempre serão estimadas, mesmo que você calcule estatísticas exatas. **Calcular estatísticas exatas** calcula apenas as estatísticas exatas no nível do Segment, não no nível do filtro ou grupo de filtros. Esse cálculo pode levar alguns minutos para ser executado. Espaços de trabalho maiores, em particular, podem exigir períodos mais longos para concluir os cálculos. Você pode acompanhar o progresso na barra de progresso do painel **Usuários contatáveis**. Quando se espera que um cálculo leve mais de cinco minutos, a Braze enviará os resultados por e-mail.
+As estatísticas no nível de cada filtro sempre serão estimadas, mesmo que você calcule estatísticas exatas. **Calculate exact stats** calcula apenas as estatísticas exatas no nível do Segment, não no nível do filtro ou grupo de filtros. Esse cálculo pode levar alguns minutos para ser executado. Espaços de trabalho maiores, em particular, podem exigir períodos mais longos para concluir os cálculos. Você pode acompanhar o progresso na barra de progresso do painel **Reachable users**. Quando se espera que um cálculo leve mais de cinco minutos, a Braze enviará os resultados por e-mail.
 
-A Braze prioriza um cálculo por vez por espaço de trabalho, então executar vários cálculos ao mesmo tempo causará atrasos. Você pode selecionar **Ver fila de cálculos** para ver quais Segments estão à frente do seu, o progresso deles, quem os iniciou, e ter uma ideia de quando o seu cálculo poderá ser priorizado.
+A Braze prioriza um cálculo por vez por espaço de trabalho, então executar vários cálculos ao mesmo tempo causará atrasos. Você pode selecionar **View calculation queue** para ver quais Segments estão à frente do seu, o progresso deles, quem os iniciou, e ter uma ideia de quando o seu cálculo poderá ser priorizado.
 
 ![Uma fila de cálculos com um cálculo.]({% image_buster /assets/img_archive/calculation_queue.png %})
 
-Você pode cancelar um cálculo de estatísticas exatas selecionando **Cancelar**. Isso pode ser útil se houver vários cálculos na fila e você quiser priorizar outro cálculo primeiro.
+Você pode cancelar um cálculo de estatísticas exatas selecionando **Cancel**. Isso pode ser útil se houver vários cálculos na fila e você quiser priorizar outro cálculo primeiro.
 
-![Um cálculo ativo com a opção de cancelar]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## Visualizando o histórico de tamanho de associação ao Segment {#viewing-historical-segment-membership-size}
 
 Para todos os Segments, você pode visualizar um gráfico de associação histórica que mostra a associação estimada ao Segment para cada dia. Esse gráfico mostra como o tamanho do seu Segment mudou ao longo do tempo. Use o menu suspenso para filtrar a associação ao Segment por intervalo de datas.
 
-![Use o menu suspenso de Associação Histórica para filtrar a associação ao Segment por intervalo de datas.]({% image_buster /assets/img_archive/historical_membership2.png %})
+![Use o menu suspenso Historical Membership para filtrar a associação ao Segment por intervalo de datas.]({% image_buster /assets/img_archive/historical_membership2.png %})
 
-Como o objetivo desse gráfico é dar uma noção das tendências gerais de associação ao Segment, a contagem diária é uma estimativa, semelhante a como o tamanho do Segment é uma estimativa antes de você selecionar **Calcular estatísticas exatas**. E como esse gráfico mostra estimativas, é possível que o tamanho do seu Segment apareça como "0" nesse gráfico, mesmo que o tamanho real (que pode ser determinado após selecionar **Calcular estatísticas exatas**) não seja "0". É especialmente provável que o gráfico mostre uma estimativa de "0" se o seu Segment for muito pequeno em relação ao tamanho da população do seu espaço de trabalho.
+Como o objetivo desse gráfico é dar uma noção das tendências gerais de associação ao Segment, a contagem diária é uma estimativa, semelhante a como o tamanho do Segment é uma estimativa antes de você selecionar **Calculate Exact Statistics**. E como esse gráfico mostra estimativas, é possível que o tamanho do seu Segment apareça como "0" nesse gráfico, mesmo que o tamanho real (que pode ser determinado após selecionar **Calculate Exact Stats**) não seja "0". É especialmente provável que o gráfico mostre uma estimativa de "0" se o seu Segment for muito pequeno em relação ao tamanho da população do seu espaço de trabalho.
 
 Por exemplo, digamos que seu espaço de trabalho contém 100 milhões de usuários e seu Segment tem cerca de 700 usuários. É possível que em alguns dias, nenhum usuário esteja no Segment e nenhum usuário caia na faixa de bucket aleatório usada para a estimativa de associação histórica, resultando em uma contagem de associação de 0 para aquele dia.
 
@@ -137,4 +140,4 @@ A contagem de associação pode mudar significativamente por diversas razões, c
 | Usuários são excluídos | Um número significativo de usuários foi excluído. |
 | Uma integração com parceiros sincronizou com a Braze | Um terceiro enviou dados para a Braze que influenciaram significativamente a associação ao Segment. |
 | Usuários inativos são arquivados | Um número significativo de perfis inativos foi arquivado. Por exemplo, um grande número de usuários importados por CSV nunca registra atividade e é arquivado ao mesmo tempo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Razões para mudanças significativas" }

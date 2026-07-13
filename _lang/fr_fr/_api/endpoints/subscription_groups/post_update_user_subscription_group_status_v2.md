@@ -18,7 +18,7 @@ channel:
 
 > Utilisez cet endpoint pour mettre à jour en masse le statut d'abonnement de jusqu'à 50 utilisateurs sur le tableau de bord de Braze.
 
-Vous pouvez accéder au `subscription_group_id` d'un groupe d'abonnement en vous rendant sur la page **Groupe d'abonnement**.
+Vous pouvez accéder au `subscription_group_id` d'un groupe d'abonnement en vous rendant sur la page **Subscription Group**.
 
 Pour consulter des exemples ou tester cet endpoint pour **les groupes d'abonnement par e-mail** :
 
@@ -34,15 +34,15 @@ Pour consulter des exemples ou tester cet endpoint pour **les groupes WhatsApp**
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `subscription.status.set`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `subscription.status.set`.
 
 {% alert note %}
-Si vous souhaitez utiliser cet endpoint avec [les groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contactez votre gestionnaire de la satisfaction client.
+Si vous souhaitez utiliser cet endpoint avec [les groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), contactez votre gestionnaire de la satisfaction client. <br><br>Pour les groupes d'abonnement LINE, nous recommandons d'utiliser un attribut personnalisé pour suivre séparément le consentement sur le site web ou l'application, puis de cibler les Campaigns en utilisant cet attribut personnalisé en combinaison avec l'état d'abonnement LINE. Cette approche garantit que votre état d'abonnement reflète fidèlement les utilisateurs qui se sont réellement abonnés dans l'application LINE. L'ajout manuel d'utilisateurs aux groupes d'abonnement LINE via l'API peut entraîner des états désynchronisés et des envois échoués, car Braze ne peut pas réabonner les utilisateurs dans l'application LINE ni envoyer de messages aux utilisateurs qui ont bloqué un compte dans LINE.
 {% endalert %}
 
 ## Différences par rapport à la V1 {#differences-from-v1}
 
-L'endpoint V2 diffère de l'[endpoint V1]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) de la manière suivante :
+L'endpoint V2 diffère de l'[endpoint V1]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) de la manière suivante :
 
 - **Groupes d'abonnement multiples** : La V2 vous permet de mettre à jour plusieurs groupes d'abonnement en une seule requête API, tandis que la V1 ne prend en charge qu'un seul groupe d'abonnement par requête.
 - **Mise à jour simultanée des abonnements e-mail et SMS** : Lorsque vous utilisez `external_ids`, vous pouvez mettre à jour les groupes d'abonnement par e-mail et par SMS pour les mêmes utilisateurs en un seul appel API. Avec la V1, vous devez effectuer des appels API distincts pour les groupes d'abonnement par e-mail et par SMS.
@@ -51,6 +51,8 @@ L'endpoint V2 diffère de l'[endpoint V1]({{site.baseurl}}/api/endpoints/subscri
 {% alert important %}
 **Format du numéro de téléphone** : Les numéros de téléphone doivent être au [format E.164](https://en.wikipedia.org/wiki/E.164) (par exemple, `+12223334444`). Les numéros de téléphone qui ne sont pas au format E.164 sont rejetés.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Limite de débit {#rate-limit}
 
@@ -79,20 +81,20 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 {% alert tip %}
-Lorsque vous créez de nouveaux utilisateurs à l'aide de l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), vous pouvez définir des groupes d'abonnement dans l'objet des attributs de l'utilisateur, ce qui vous permet de créer un utilisateur et de définir l'état du groupe d'abonnement en un seul appel API.
+Lorsque vous créez de nouveaux utilisateurs à l'aide de l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), vous pouvez définir des groupes d'abonnement dans l'objet des attributs de l'utilisateur, ce qui vous permet de créer un utilisateur et de définir l'état du groupe d'abonnement en un seul appel API.
 {% endalert %}
 
 ## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Requis | Chaîne de caractères | L'`id` de votre groupe d'abonnement. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Requis | Chaîne de caractères | L'`id` de votre groupe d'abonnement. |
 | `subscription_state` | Requis | Chaîne de caractères | Les valeurs disponibles sont `unsubscribed` (pas dans le groupe d'abonnement) ou `subscribed` (dans le groupe d'abonnement). |
 | `external_ids` | Requis* | Tableau de chaînes de caractères | L'`external_id` de l'utilisateur ou des utilisateurs, pouvant inclure jusqu'à 50 `id`s. |
 | `emails` | Requis* | Chaîne de caractères ou tableau de chaînes de caractères | L'adresse e-mail de l'utilisateur, qui peut être transmise sous forme de tableau de chaînes de caractères. Doit inclure au moins une adresse e-mail (50 maximum). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent la même adresse e-mail, tous les utilisateurs partageant cette adresse e-mail sont mis à jour avec les modifications du groupe d'abonnement. |
 | `phones` | Requis* | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Vous pouvez transmettre les numéros de téléphone des utilisateurs sous forme de tableau de chaînes de caractères. Vous devez inclure au moins un numéro de téléphone (jusqu'à 50). Les numéros de téléphone doivent être au format E.164 (par exemple, `+12223334444`). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent le même numéro de téléphone, tous les utilisateurs partageant ce numéro de téléphone sont mis à jour avec les mêmes modifications du groupe d'abonnement. |
-| `use_double_opt_in_logic` | Facultatif | Valeur booléenne | La valeur par défaut est `false` si ce paramètre est omis. Pour les groupes d'abonnement SMS, définissez-le sur `true` pour intégrer l'utilisateur au workflow de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) lorsque son statut d'abonnement est défini sur `subscribed`. Les utilisateurs intégrés au workflow de double abonnement de cette manière reçoivent au maximum une demande d'abonnement par jour, quel que soit le nombre de fois où ils sont intégrés au workflow. Si ce paramètre est omis ou défini sur `false`, les utilisateurs sont abonnés sans passer par le workflow de double abonnement. Ce paramètre ne s'applique pas aux groupes d'abonnement par e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `use_double_opt_in_logic` | Facultatif | Valeur booléenne | La valeur par défaut est `false` si ce paramètre est omis. Pour les groupes d'abonnement SMS, définissez-le sur `true` pour intégrer l'utilisateur au workflow de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) lorsque son statut d'abonnement est défini sur `subscribed`. Les utilisateurs intégrés au workflow de double abonnement de cette manière reçoivent au maximum une demande d'abonnement par jour, quel que soit le nombre de fois où ils sont intégrés au workflow. Si ce paramètre est omis ou défini sur `false`, les utilisateurs sont abonnés sans passer par le workflow de double abonnement. Ce paramètre ne s'applique pas aux groupes d'abonnement par e-mail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert important %}
 **Sélection de l'identifiant** :
@@ -114,12 +116,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     },
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     }
   ]
 }
@@ -136,7 +138,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "emails":["example1@email.com","example2@email.com"]
+      "emails":["example1@example.com","example2@example.com"]
     }
   ]
 }

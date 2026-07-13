@@ -21,7 +21,7 @@ description: "This article outlines details about the Create catalog Braze endpo
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.create` permission.
 
 ## Rate limit
 
@@ -32,7 +32,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `catalogs` | Required | Array | An array that contains catalog objects. Only one catalog object is allowed for this request. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Catalog object parameters
 
@@ -41,7 +41,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `name` | Required | String | The name of the catalog that you want to create. |
 | `description` | Required | String | The description of the catalog that you want to create. |
 | `fields` | Required | Array | An array of objects where the object contains keys `name` and `type`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
 
 ## Example request
 ```
@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -95,6 +99,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
   ]
 }'
 ```
+
+{% alert note %}
+The `geo` data type stores a geographic coordinate as an array formatted as `[longitude, latitude]`. For example, `[-73.988103, 40.779109]`.
+{% endalert %}
 
 ## Response
 
@@ -136,6 +144,10 @@ The status code `201` could return the following response body.
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -197,6 +209,6 @@ The following table lists possible returned errors and their associated troubles
 | `invalid-fields` | `fields` is not formatted correctly. |
 | `too-many-catalog-atoms` | You can only create one catalog per request. |
 | `too-many-fields` | Number of fields limit is 500. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

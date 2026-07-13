@@ -1,16 +1,16 @@
 ---
-nav_title: "POST: Mehrere Artikel im Katalog erstellen"
+nav_title: "POST: Mehrere Katalogartikel erstellen"
 article_title: "POST: Mehrere Katalogartikel erstellen"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Mehrere Katalogartikel erstellen in Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Mehrere Katalogartikel erstellen“."
 
 ---
 {% api %}
-# Mehrere Artikel im Katalog erstellen
+# Mehrere Katalogartikel erstellen {#create-multiple-catalog-items}
 {% apimethod post %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
@@ -21,29 +21,29 @@ Jede Anfrage kann bis zu 50 Artikel enthalten. Dieser Endpunkt ist asynchron.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cea18bb3-b83a-4160-81fe-8cd42aa6e7cc {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.add_items`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.add_items`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
-## Parameter der Anfrage
+## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `items` | Erforderlich | Array | Ein Array, das Artikel-Objekte enthält. Die Artikelobjekte sollten alle Felder des Katalogs enthalten. Es sind bis zu 50 Artikel pro Anfrage zulässig. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | Erforderlich | Array | Ein Array, das Artikel-Objekte enthält. Die Artikel-Objekte sollten alle Felder des Katalogs enthalten. Es sind bis zu 50 Artikel-Objekte pro Anfrage zulässig. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -58,9 +58,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 5,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -75,9 +76,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 10,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 40.7413,
-        "Longitude": -73.9764
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hot Dog",
@@ -92,9 +94,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 3,
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 40.7489,
-        "Longitude": -73.9972
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Buffalo Wings",
@@ -106,13 +109,17 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
-## Antwort
+{% alert note %}
+Das Feld `Location` verwendet den Datentyp `geo`, der ein Array im Format `[Längengrad, Breitengrad]` erwartet.
+{% endalert %}
 
-Es gibt drei Status Code Antworten für diesen Endpunkt: `202`, `400`, und `404`.
+## Antwort {#response}
 
-### Beispiel für eine erfolgreiche Antwort
+Für diesen Endpunkt gibt es drei Statuscode-Antworten: `202`, `400` und `404`.
 
-Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
+
+Der Statuscode `202` könnte den folgenden Antworttext zurückgeben.
 
 ```json
 {
@@ -120,9 +127,9 @@ Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die auftreten können.
 
 ```json
 {
@@ -142,25 +149,25 @@ Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
+In der folgenden Tabelle finden Sie mögliche zurückgegebene Fehler und die entsprechenden Schritte zur Fehlerbehebung.
 
-| Fehler | Fehlersuche |
+| Fehler | Fehlerbehebung |
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
-| `ids-not-strings` | Artikel IDs müssen vom Typ String sein. |
-| `ids-not-unique` | Die IDs der Artikel müssen in der Anfrage eindeutig sein. |
-| `ids-too-large` | Artikel IDs dürfen nicht mehr als 250 Zeichen lang sein. |
-| `invalid-ids` | Artikel IDs dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. |
+| `ids-not-strings` | Artikel-IDs müssen vom Typ String sein. |
+| `ids-not-unique` | Artikel-IDs müssen in der Anfrage eindeutig sein. |
+| `ids-too-large` | Artikel-IDs dürfen nicht mehr als 250 Zeichen lang sein. |
+| `invalid-ids` | Artikel-IDs dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. |
 | `invalid-fields` | Stellen Sie sicher, dass alle Felder, die Sie in der API-Anfrage senden, bereits im Katalog vorhanden sind. Dies hat nichts mit dem in der Fehlermeldung erwähnten ID-Feld zu tun. |
-| `invalid-keys-in-value-object` | Artikel-Objektschlüssel können nicht `.` oder `$` enthalten. |
+| `invalid-keys-in-value-object` | Artikel-Objektschlüssel dürfen nicht `.` oder `$` enthalten. |
 | `item-array-invalid` | `items` muss ein Array von Objekten sein. |
-| `items-missing-ids` | Einige Artikel haben keine IDs. Prüfen Sie, ob jeder Artikel eine ID hat. |
-| `items-too-large` | Die Werte der Artikel dürfen nicht länger als 5.000 Zeichen sein. |
-| `request-includes-too-many-items` | Ihre Anfrage enthält zu viele Artikel. Die Anzahl der Artikel pro Anfrage ist auf 50 begrenzt. |
-| `too-deep-nesting-in-value-object` | Artikel-Objekte können nicht mehr als 50 Verschachtelungsebenen haben. |
-| `unable-to-coerce-value` | Artikel-Typen können nicht umgewandelt werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `items-missing-ids` | Einige Artikel haben keine Artikel-IDs. Prüfen Sie, ob jeder Artikel eine Artikel-ID hat. |
+| `items-too-large` | Artikelwerte dürfen nicht mehr als 5.000 Zeichen umfassen. |
+| `request-includes-too-many-items` | Ihre Anfrage enthält zu viele Artikel. Das Limit pro Anfrage beträgt 50 Artikel. |
+| `too-deep-nesting-in-value-object` | Artikel-Objekte dürfen nicht mehr als 50 Verschachtelungsebenen haben. |
+| `unable-to-coerce-value` | Artikeltypen können nicht konvertiert werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

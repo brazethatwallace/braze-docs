@@ -25,7 +25,7 @@ The Braze and Lexer integration allows you to sync data across the two platforms
 | Braze REST API key | A Braze REST API key with all `user` permissions (excluding `user.delete`) and `segment.list` permissions. The permission set may change as Lexer adds support for more Braze objects, so you may either want to grant more permissions now or plan to update these permissions in the future.<br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | Your [REST endpoint URL]({{site.baseurl}}/api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
 | Amazon AWS S3 bucket and credentials | Before beginning the integration, you must have access credentials for an AWS S3 bucket connected to your Lexer hub (this may be a bucket you create or one that Lexer creates and manages for you). Visit [Lexer](https://learn.lexer.io/docs/amazon-s3) for guidance on this requirement. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -39,10 +39,10 @@ In Lexer, navigate to **Manage > Integration**, select the **Braze** tile, and c
   - **AWS S3 secret access key**: Visit Amazon for information on [creating an access key](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
 - **Braze export segment ID**: The ID for the segment you have created in Braze containing all users you wish to export to Lexer. If there are users you do not want to export to Lexer, you may exclude them from the segment you created in Braze. To find your segment identifier, click into your desired segment in Braze and locate the **Segment API Identifier**.
 
-![]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
+![Lexer Manage Integrations screen showing Braze integration fields for API URL, API key, AWS S3 bucket details, and Braze export segment ID.]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 
 ### Choosing an AWS S3 option (Lexer-managed or self-managed)
-Using a Lexer-managed bucket is the preferred way of connecting Braze to your Lexer hub and will reduce the amount of setup needed. Lexer will provide the one-off details you will need to configure Braze.
+Using a Lexer-managed bucket is the preferred way of connecting Braze to your Lexer hub and reduces the amount of setup needed. Lexer provides the one-off details you need to configure Braze.
 
 If you have already connected an S3 bucket to Braze and are using it for other purposes, you will need to instead provide Lexer access to this self-managed bucket by following the preceding steps.
 
@@ -58,11 +58,11 @@ Lexer Activate will automatically update your Braze profiles, adding or removing
 2. Select the appropriate Braze activation for this campaign.
 3. Add your segment.
 4. Update your audience name; this will become your attribute value in Braze.
-5. This is the custom attribute we'll be updating in Braze. Contact [Lexer support](support@lexer.io) to update.
+5. This is the custom attribute we'll be updating in Braze. Contact [Lexer support](mailto:support@lexer.io) to update.
 6. Check the appropriate list action—in most cases, you'll want to maintain your list.
 7. Review the terms and conditions, and click **SEND AUDIENCE**.
 
-![]({% image_buster /assets/img/lexer/lexer.png %})
+![Lexer Activate workflow showing activation channel selection, audience creation, and activation details before sending an audience to Braze.]({% image_buster /assets/img/lexer/lexer.png %})
 
 ### Step 2: Verify activation
 

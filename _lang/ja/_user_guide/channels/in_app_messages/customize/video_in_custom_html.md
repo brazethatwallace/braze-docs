@@ -10,7 +10,7 @@ channel:
 
 # カスタムHTMLアプリ内メッセージでの動画 {#video}
 
-> この記事は、[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)の[カスタムHTMLメッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)に適用されます。
+> この記事は、[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)の[カスタムHTMLメッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)に適用されます。
 
 ## 動画の埋め込み {#embed-videos}
 
@@ -24,7 +24,7 @@ HTMLアプリ内メッセージで動画を再生するには、以下の `<vide
 </video>
 ```
 
-ローカルの動画アセットを使用する場合は、Campaignにアセットをアップロードする際にこのファイルを含めてください。
+ローカルの動画アセットを使用する場合は、キャンペーンにアセットをアップロードする際にこのファイルを含めてください。
 
 {% alert note %}
 動画コンテンツは、デバイスのネットワーク速度が十分な場合にのみ利用可能です。ただし、動画がデバイスのローカルから提供される場合は除きます。
@@ -32,9 +32,9 @@ HTMLアプリ内メッセージで動画を再生するには、以下の `<vide
 
 ## Androidに関する考慮事項 {#android-considerations}
 
-Androidでは、HTMLアプリ内メッセージに動画やその他のHTML5コンテンツを埋め込むために、アプリ内メッセージが表示されるActivityでハードウェアアクセラレーションを有効にする必要があります。詳細については、[Android開発者ガイド]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/#android_embedding-youtube-content)を参照してください。
+Androidでは、HTMLアプリ内メッセージに動画やその他のHTML5コンテンツを埋め込むために、アプリ内メッセージが表示されるActivityでハードウェアアクセラレーションを有効にする必要があります。詳細については、[Android開発者ガイド]({{site.baseurl}}/developer_guide/in_app_messages/html_messages#android_embedding-youtube-content)を参照してください。
 
-**自動再生**: ハードウェアアクセラレーションが有効であっても、Android WebViewではメディア再生を開始するためにユーザージェスチャーが必要になる場合があります。自動再生が必要な場合は、HTMLアプリ内メッセージのレンダリングに使用されるWebViewで[`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean))を設定して、ユーザージェスチャー要件を無効にしてください。これにはHTMLアプリ内メッセージの表示方法に対するSDKレベルのカスタマイズが必要です。セットアップガイダンスについては、[Braze SDKのアプリ内メッセージをカスタマイズする]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android)を参照してください。
+**自動再生**: ハードウェアアクセラレーションが有効であっても、Android WebViewではメディア再生を開始するためにユーザージェスチャーが必要になる場合があります。自動再生が必要な場合は、HTMLアプリ内メッセージのレンダリングに使用されるWebViewで[`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean))を設定して、ユーザージェスチャー要件を無効にしてください。これにはHTMLアプリ内メッセージの表示方法に対するSDKレベルのカスタマイズが必要です。セットアップガイダンスについては、[Braze SDKのアプリ内メッセージをカスタマイズする]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android)を参照してください。
 
 ## iOSに関する考慮事項 {#ios-considerations}
 
@@ -43,7 +43,7 @@ iOSデバイスをサポートするには:
 - フルスクリーン再生はサポートされていないため、`playsinline` 属性を含める必要があります。
 - **iOSでは自動再生が保証されません**。iOSの再生動作は `WKWebView` とOSレベルのメディアポリシーに依存しており、`autoplay` と `muted` が設定されていてもユーザージェスチャーが必要になる場合があります。ターゲットのiOSバージョンとデバイスでHTMLアプリ内メッセージをテストしてください。
 
-自動再生が必要で、テストによりデフォルトでは動作しないことが判明した場合は、HTMLアプリ内メッセージで使用される `WKWebViewConfiguration` をカスタマイズして、メディア再生のユーザーアクション要件を調整できます。たとえば、`mediaTypesRequiringUserActionForPlayback` プロパティを設定します。これにはSDKレベルのカスタマイズが必要です。Swiftリソースについては、[Braze SDKのアプリ内メッセージをカスタマイズする]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=swift)および[SwiftのWebViewにBraze JavaScriptインターフェイスを追加する]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/?sdktab=swift)を参照してください。
+自動再生が必要で、テストによりデフォルトでは動作しないことが判明した場合は、HTMLアプリ内メッセージで使用される `WKWebViewConfiguration` をカスタマイズして、メディア再生のユーザーアクション要件を調整できます。たとえば、`mediaTypesRequiringUserActionForPlayback` プロパティを設定します。これにはSDKレベルのカスタマイズが必要です。Swiftリソースについては、[Braze SDKのアプリ内メッセージをカスタマイズする]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=swift)および[SwiftのWebViewにBraze JavaScriptインターフェイスを追加する]({{site.baseurl}}/developer_guide/in_app_messages/html_messages?sdktab=swift)を参照してください。
 
 ## Webに関する考慮事項 {#web-considerations}
 

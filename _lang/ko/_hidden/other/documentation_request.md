@@ -367,7 +367,7 @@ hide_toc: true
     $(document).ready(function() {
       var braze_internal = $('#braze_internal').remove();
       $('#header_nav').after(braze_internal);
-      
+
       // Handle Form Element visibility
       function toggleFormElements() {
         var selectedValue = $('#doc_urgent').val();
@@ -388,18 +388,18 @@ hide_toc: true
             $('[id^="resource_urls"]').hide();
         }
       }
-      
+
       // Show/hide disclosures on page load
       toggleFormElements();
-      
+
       // Show/hide disclosures when selection changes
       $('#doc_urgent').change(function() {
         toggleFormElements();
       });
-      
+
       $('#doc_form').submit(function(e) {
         $('#submit_progress').css('display','inline');
-        $('#submit_text').html('Submitting');
+        $('#submit_text').html('제출 중');
         $('#ticket_submit_button').prop("disabled",true);
 
         e.preventDefault();
@@ -415,7 +415,7 @@ hide_toc: true
           $('#doc_div').hide();
           $('#doc_thankyou').show();
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
-              $(this).html('<h3>Thanks for your submission!</h3> Someone from our team will contact you if we have any questions. To view the status of your ticket or add comments, check your email for your ticket confirmation.').fadeTo(800,1);
+              $(this).html('<h3>제출해 주셔서 감사합니다!</h3> 궁금한 사항이 있으면 팀에서 연락드리겠습니다. 티켓 상태를 확인하거나 댓글을 추가하려면 이메일에서 티켓 확인 메일을 확인해 주세요.').fadeTo(800,1);
           });
         });
 
@@ -431,8 +431,8 @@ hide_toc: true
         <form id="doc_form">
           <div class="row">
             <div class="col">
-              <h1 class="h1">Documentation Request Form</h1>
-              <p class="subhead">All fields are required unless otherwise noted.</p>
+              <h1 class="h1">설명서 요청 양식</h1>
+              <p class="subhead">별도로 명시되지 않은 한 모든 필드는 필수입니다.</p>
               <div class="gradient-line"></div>
             </div>
           </div>
@@ -442,63 +442,63 @@ hide_toc: true
               <div class="form-group" id="doc_urgent_div">
               <div class="form-check">
                 <label class="form-check-label" for="doc_urgent" style="display: block;">
-                Request Type
+                요청 유형
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
-              <option value="urgent">Urgent: I am raising smoke about an issue on Braze Docs or have a high-priority update</option>
-              <option value="feature">Feature: I have a new feature or new behavior for an existing feature</option>
-              <option value="suggestion" selected="selected">Suggestion: I have a proposed improvement or need clarification for an article</option>
+              <option value="urgent">긴급: Braze 문서에 문제가 있거나 우선순위가 높은 업데이트가 있습니다</option>
+              <option value="feature">기능: 새로운 기능 또는 기존 기능의 새로운 동작이 있습니다</option>
+              <option value="suggestion" selected="selected">제안: 문서에 대한 개선 제안 또는 명확한 설명이 필요합니다</option>
               </select>
 
               </div>
-            
+
               <div style="height: 12px;"></div>
 
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
-                  <b>Important: </b>
-                  Copilot will author this suggestion, and it will be reviewed by the Docs team. Confirm that <strong>no customer-specific information</strong> or <strong>links</strong> are included.
+                  <b>중요: </b>
+                  Copilot이 이 제안을 작성하며, 문서 팀에서 검토합니다. <strong>고객별 정보</strong>나 <strong>링크</strong>가 포함되어 있지 않은지 확인해 주세요.
                 </div>
               </div>
               </div>
 
               <div class="form-group">
-                <label for="doc_due_date" id="doc_due_date_label">Due date (optional)</label>
-                <div class="sublabel">If this request is time-sensitive or related to a feature release, please enter a due date.</div>
+                <label for="doc_due_date" id="doc_due_date_label">마감일 (선택 사항)</label>
+                <div class="sublabel">이 요청이 시간에 민감하거나 기능 릴리스와 관련된 경우 마감일을 입력해 주세요.</div>
                 <div class="input-group">
                   <input type="date" class="form-control" id="doc_due_date" maxlength="80" name="Due_Date" value="" />
                 </div>
               </div>
               <div class="form-group">
 
-                <label for="doc_email" id="doc_email_label">Email address</label>
+                <label for="doc_email" id="doc_email_label">이메일 주소</label>
                 <div class="input-group">
-                  <input type="email" class="form-control email-input" id="doc_email" maxlength="80" name="Email" placeholder="e.g., firstname.lastname@braze.com" required="required" value="" />
+                  <input type="email" class="form-control email-input" id="doc_email" maxlength="80" name="Email" placeholder="예: firstname.lastname@braze.com" required="required" value="" />
                   <i class="fa-solid fa-envelope email-icon"></i>
                   </div>
               </div>
               <div class="form-group" id="doc_request_div">
-                <label for="doc_request" id="doc_request_label">Request summary</label>
-                <div class="sublabel">This is the name for your ticket</div>
-                <input type="text" name="Request_Subject" id="doc_request" maxlength="180" required="required" value="" placeholder="Enter your request" class="form-control" />
+                <label for="doc_request" id="doc_request_label">요청 요약</label>
+                <div class="sublabel">티켓의 이름입니다</div>
+                <input type="text" name="Request_Subject" id="doc_request" maxlength="180" required="required" value="" placeholder="요청을 입력하세요" class="form-control" />
               </div>
 
               <div class="form-group" id="doc_request_url">
                 <label for="doc_request" id="doc_request_url_label">Braze URL</label>
-                <input type="url" name="Request_Url" id="doc_request_url" maxlength="180" required="required" value="" placeholder="e.g., https://www.braze.com/docs/" class="form-control" />
+                <input type="url" name="Request_Url" id="doc_request_url" maxlength="180" required="required" value="" placeholder="예: {{ site.homeurl }}{{ site.baseurl }}/" class="form-control" />
               </div>
 
               <div class="form-group">
 
-                <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">Description</label>
-                <div class="sublabel" style="margin-bottom:6px;">Provide as much detail as possible about the requested update.</div>
+                <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">설명</label>
+                <div class="sublabel" style="margin-bottom:6px;">요청된 업데이트에 대해 가능한 한 자세히 설명해 주세요.</div>
                 <textarea name="Description" class="form-control" id="doc_description" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
 
               <div class="form-group" id="resource_urls">
-                <label for="resource_urls" id="resource_urls_label">Resource URLs</label>
-                 <div class="sublabel" style="margin-bottom:6px;">Include URLs from Confluence, Productboard, Google Docs, Jira, or any other resources about this feature.</div>
+                <label for="resource_urls" id="resource_urls_label">리소스 URL</label>
+                 <div class="sublabel" style="margin-bottom:6px;">이 기능과 관련된 Confluence, Productboard, Google Docs, Jira 또는 기타 리소스의 URL을 포함해 주세요.</div>
                 <textarea name="Resource_Urls" class="form-control" id="resource_urls" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="2" ></textarea>
 
@@ -506,8 +506,8 @@ hide_toc: true
 
               <div class="form-group">
 
-                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Code snippets (optional)</label>
-                <div class="sublabel" style="margin-bottom:6px;">This is useful if you're a developer. Include context and make sure it's clear what code language is used.</div>
+                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">코드 스니펫 (선택 사항)</label>
+                <div class="sublabel" style="margin-bottom:6px;">개발자에게 유용합니다. 컨텍스트를 포함하고 어떤 코드 언어가 사용되었는지 명확히 해 주세요.</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
@@ -515,17 +515,17 @@ hide_toc: true
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="Y" id="doc_verify" name="Verified">
                 <label class="form-check-label" for="doc_verify" id="doc_verify_label">
-                <span></span> I have verified this information with the respective product team
+                <span></span> 해당 제품 팀과 이 정보를 확인했습니다
               </label>
               </div>
-              </div>          
+              </div>
               <div class="inline_text">
-              Please wait up to ten seconds after submitting for your request to process.
+              제출 후 요청이 처리될 때까지 최대 10초 정도 기다려 주세요.
               </div>
               <button type="submit" name="Submit Question" value="Submit" class="btn" id="ticket_submit_button" role="button">
 
               <div id="submit_progress"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-              <div id="submit_text"> Submit Request </div></button>
+              <div id="submit_text"> 요청 제출 </div></button>
 
             </div>
 

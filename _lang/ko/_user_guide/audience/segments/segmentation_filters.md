@@ -4,7 +4,7 @@ nav_title: 세분화 필터
 article_title: 세분화 필터
 layout: glossary_page
 glossary_top_header: "세분화 필터"
-glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요."
+glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요. 간격 필터는 100년으로 제한됩니다."
 
 page_type: glossary
 tool: Segments
@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: 필터가 사용되는 모든 곳(예&#58; Segments, Campaigns 등)에서 Segment 멤버십을 기준으로 필터링하고, 하나의 Campaign 내에서 여러 Segments를 타겟팅할 수 있습니다. <br><br>이 필터를 이미 사용하고 있는 Segments는 다른 Segments에 추가로 포함하거나 중첩할 수 없습니다. 이렇게 하면 Segment A가 Segment B를 포함하고, Segment B가 다시 Segment A를 포함하려는 순환이 발생할 수 있기 때문입니다. 이런 상황이 발생하면 Segment가 계속 자기 자신을 참조하게 되어 실제로 누가 해당 Segment에 속하는지 계산할 수 없게 됩니다. 또한 이러한 Segment 중첩은 복잡성을 높이고 처리 속도를 저하시킬 수 있습니다. 대신 포함하려는 Segment를 동일한 필터를 사용하여 다시 생성하세요.
+    description: 필터가 사용되는 모든 곳(예&#58; Segments, Campaigns 등)에서 Segment 멤버십을 기준으로 필터링하고, 하나의 Campaign 내에서 여러 Segments를 타겟팅할 수 있습니다. <br><br>특정 시점의 Segment 멤버십을 캡처하려면, Campaign 또는 Canvas를 발송하기 전에 대시보드에서 Segment의 사용자를 내보내거나 <a href="/docs/api/endpoints/export/user_data/post_users_segment/"><code>/users/export/segment</code> 엔드포인트</a> 를 호출하세요. Braze는 사용자별 세분화 이력을 저장하지 않으므로, 과거 특정 시점에 사용자가 Segment에 속해 있었는지 소급하여 확인할 수 없습니다. 자세한 내용은 <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Segment 데이터를 CSV로 내보내기</a> 를 참조하세요.<br><br>이 필터를 이미 사용하고 있는 Segments는 다른 Segments에 추가로 포함하거나 중첩할 수 없습니다. 이렇게 하면 Segment A가 Segment B를 포함하고, Segment B가 다시 Segment A를 포함하려는 순환이 발생할 수 있기 때문입니다. 이런 상황이 발생하면 Segment가 계속 자기 자신을 참조하게 되어 실제로 누가 해당 Segment에 속하는지 계산할 수 없게 됩니다. 또한 이러한 Segment 중첩은 복잡성을 높이고 처리 속도를 저하시킬 수 있습니다. 대신 포함하려는 Segment를 동일한 필터를 사용하여 다시 생성하세요.<br><br>Segment가 **Segment Membership** 필터 드롭다운에 표시되지 않으면, 동일한 필터로 다시 생성하고 새 Segment를 선택하거나, 순환을 만들 수 있는 방식으로 이 오디언스에 이미 의존하고 있지 않은지 확인하세요.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: 커스텀 속성의 등록정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다.
+    description: 커스텀 속성의 속성정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다.
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -69,7 +69,7 @@ glossaries:
     tags:
       - Custom attribute
   - name: Custom Event
-    description: 사용자가 특별히 기록된 이벤트를 수행했는지 여부를 판단합니다.<br><br>예시:<br>activity_name 등록정보가 있는 활동 완료.<br><br>시간대:<br>UTC - 캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다
+    description: 사용자가 특별히 기록된 이벤트를 수행했는지 여부를 판단합니다.<br><br>예시:<br>activity_name 속성정보가 있는 활동 완료.<br><br>시간대:<br>UTC - 캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다
     tags:
       - Custom events
   - name: First Did Custom Event
@@ -81,11 +81,11 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: 사용자가 지정된 캘린더 일수(1~30일) 내에 특별히 기록된 이벤트를 0~50회 수행했는지 여부를 판단합니다. (캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다)<br> <a href="/docs/x-in-y-behavior/">X-in-Y 동작에 대해 자세히 알아보세요.</a> <br><br>예시:<br>유기한 장바구니가 지난 1 캘린더 일 내에 정확히 0회<br><br>시간대:<br>UTC - 모든 시간대를 고려하기 위해, 1 캘린더 일은 Segment가 평가되는 시점에 따라 24-48시간의 사용자 기록을 확인합니다. 2 캘린더 일의 경우 48-72시간의 사용자 기록을 확인하며, 이후도 마찬가지입니다.
+    description: 사용자가 지정된 캘린더 일수(1~30일) 내에 특별히 기록된 이벤트를 0~50회 수행했는지 여부를 판단합니다. (캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다)<br> <a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a> <br><br>예시:<br>유기한 장바구니가 지난 1 캘린더 일 내에 정확히 0회<br><br>시간대:<br>UTC - 모든 시간대를 고려하기 위해, 1 캘린더 일은 Segment가 평가되는 시점에 따라 24-48시간의 사용자 기록을 확인합니다. 2 캘린더 일의 경우 48-72시간의 사용자 기록을 확인하며, 이후도 마찬가지입니다.
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: 사용자가 지정된 캘린더 일수(1~30일) 내에 특정 등록정보와 관련하여 특별히 기록된 이벤트를 0~50회 수행했는지 여부를 판단합니다. (캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다)<br><a href="/docs/x-in-y-behavior/">X-in-Y 동작에 대해 자세히 알아보세요.</a> <br><br>예시:<br> "event_name" 등록정보가 있는 즐겨찾기 추가가 지난 1 캘린더 일 내에 정확히 0회<br><br>시간대:<br>UTC - 모든 시간대를 고려하기 위해, 1 캘린더 일은 Segment가 평가되는 시점에 따라 24-48시간의 사용자 기록을 확인합니다. 2 캘린더 일의 경우 48-72시간의 사용자 기록을 확인하며, 이후도 마찬가지입니다.
+    description: 사용자가 지정된 캘린더 일수(1~30일) 내에 특정 속성정보와 관련하여 특별히 기록된 이벤트를 0~50회 수행했는지 여부를 판단합니다. (캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다)<br><a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a> <br><br>예시:<br> "event_name" 속성정보가 있는 즐겨찾기 추가가 지난 1 캘린더 일 내에 정확히 0회<br><br>시간대:<br>UTC - 모든 시간대를 고려하기 위해, 1 캘린더 일은 Segment가 평가되는 시점에 따라 24-48시간의 사용자 기록을 확인합니다. 2 캘린더 일의 경우 48-72시간의 사용자 기록을 확인하며, 이후도 마찬가지입니다.
     tags:
       - Custom events
   - name: Email Address
@@ -109,7 +109,7 @@ glossaries:
     tags:
       - Sessions
   - name: X Sessions In Last Y Days
-    description: 지정된 캘린더 일수(1~30일) 내에 앱에서 사용자가 가진 세션 수(0~50회)를 기준으로 세분화합니다. <br> <a href="/docs/x-in-y-behavior/">X-in-Y 동작에 대해 자세히 알아보세요.</a>
+    description: 지정된 캘린더 일수(1~30일) 내에 앱에서 사용자가 가진 세션 수(0~50회)를 기준으로 세분화합니다. <br> <a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a>
     tags:
       - Sessions
   - name: First Used App
@@ -133,15 +133,15 @@ glossaries:
     tags:
       - Sessions
   - name: Received Message from Campaign
-    description: 사용자가 특정 Campaign을 수신했는지 여부를 기준으로 세분화합니다. <br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 이는 마지막 메시지가 SMS 또는 RCS 제공업체에 전달된 시점입니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
+    description: 사용자가 특정 Campaign을 수신했는지 여부를 기준으로 세분화합니다. <br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 사용자는 발송 시점에 메시지를 "수신"한 것으로 간주됩니다. 메시지가 사용자의 기기에 도달하지 못하더라도 사용자는 여전히 이 필터와 일치합니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
     tags:
       - Retargeting
   - name: Received Campaign Variant
-    description: 사용자가 다변량 Campaign의 어떤 배리언트를 수신했는지를 기준으로 세분화합니다.<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 이는 마지막 메시지가 SMS 또는 RCS 제공업체에 전달된 시점입니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
+    description: 사용자가 다변량 Campaign의 어떤 배리언트를 수신했는지를 기준으로 세분화합니다.<br><br>이 필터는 다변량 및 다변량 빠른 푸시 Campaigns에 적용됩니다. API Campaigns, 표준 멀티채널 Campaigns, 기능 플래그 실험 Campaigns는 Campaign 선택기에 표시되지 않습니다. 웹훅 전용 Campaigns는 Campaign 선택기에 표시되지 않습니다.<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 사용자는 발송 시점에 메시지를 "수신"한 것으로 간주됩니다. 메시지가 사용자의 기기에 도달하지 못하더라도 사용자는 여전히 이 필터와 일치합니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
     tags:
       - Retargeting
   - name: Received Message from Canvas Step
-    description: 사용자가 특정 Canvas 구성요소를 수신했는지 여부를 기준으로 세분화합니다.<br><br>Content Cards 및 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 이는 마지막 메시지가 SMS 또는 RCS 제공업체에 전달된 시점입니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
+    description: 사용자가 특정 Canvas 구성요소를 수신했는지 여부를 기준으로 세분화합니다.<br><br>Content Cards 및 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 사용자는 발송 시점에 메시지를 "수신"한 것으로 간주됩니다. 메시지가 사용자의 기기에 도달하지 못하더라도 사용자는 여전히 이 필터와 일치합니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
@@ -153,7 +153,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
-    description: 사용자가 특정 태그가 있는 특정 Campaign 또는 Canvas를 수신했는지 여부를 기준으로 세분화합니다.<br><br>Content Cards, 배너(Campaigns만 해당), 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 이는 마지막 메시지가 SMS 또는 RCS 제공업체에 전달된 시점입니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
+    description: 사용자가 특정 태그가 있는 특정 Campaign 또는 Canvas를 수신했는지 여부를 기준으로 세분화합니다.<br><br>Braze는 이 필터가 실행될 때 선택된 태그를 사용하는 마지막 200개의 발송된 Campaigns 및 Canvases만 평가합니다.<br><br>Content Cards, 배너(Campaigns만 해당), 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 사용자는 발송 시점에 메시지를 "수신"한 것으로 간주됩니다. 메시지가 사용자의 기기에 도달하지 못하더라도 사용자는 여전히 이 필터와 일치합니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
@@ -193,15 +193,15 @@ glossaries:
     tags:
       - Devices
   - name: Clicked/Opened Campaign
-    description: 특정 Campaign과의 상호작용을 기준으로 필터링합니다. 이메일 메시징의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다.<br><br>이메일의 경우, "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션도 포함됩니다. 탈퇴 링크 및 환경설정 센터 클릭은 이 필터에 포함되지 않습니다. 여러 사용자가 동일한 이메일 주소를 공유하는 경우:<br>- 이메일이 열리거나 클릭되면, 동일한 이메일 주소를 가진 다른 모든 사용자의 프로필도 업데이트됩니다. <br>- 원래 사용자가 메시지 발송 후 열림 또는 클릭 전에 이메일 주소를 변경하면, 열림 또는 클릭은 원래 사용자 대신 해당 이메일 주소를 가진 나머지 모든 사용자에게 적용됩니다.<br><br>SMS 및 RCS의 경우, 상호작용은 다음과 같이 정의됩니다:<br>- 사용자가 주어진 키워드 카테고리와 일치하는 답장 SMS 또는 RCS를 마지막으로 보낸 시점. 이는 해당 전화번호를 가진 모든 사용자가 수신한 가장 최근 Campaign에 귀속됩니다. Campaign은 지난 4시간 이내에 수신되었어야 합니다.<br>- 사용자가 주어진 Campaign에서 사용자 클릭 추적이 활성화된 SMS 또는 RCS 메시지의 단축 링크를 마지막으로 선택한 시점.
+    description: 특정 Campaign과의 상호작용을 기준으로 필터링합니다. 인앱 메시지의 경우, 클릭된 인앱 메시지에는 본문 및 버튼 클릭이 포함됩니다. 닫기 동작이나 X로 메시지를 닫는 것은 포함되지 않습니다.<br><br>이메일의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다. 이 필터에는 "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션도 포함됩니다. 탈퇴 링크 및 환경설정 센터 클릭은 이 필터에 포함되지 않습니다. 여러 사용자가 동일한 이메일 주소를 공유하는 경우:<br>- 이메일이 열리거나 클릭되면, 동일한 이메일 주소를 가진 다른 모든 사용자의 프로필도 업데이트됩니다. <br>- 원래 사용자가 메시지 발송 후 열림 또는 클릭 전에 이메일 주소를 변경하면, 열림 또는 클릭은 원래 사용자 대신 해당 이메일 주소를 가진 나머지 모든 사용자에게 적용됩니다.<br><br>SMS 및 RCS의 경우, 상호작용은 다음과 같이 정의됩니다:<br>- 사용자가 주어진 키워드 카테고리와 일치하는 답장 SMS 또는 RCS를 마지막으로 보낸 시점. 이는 해당 전화번호를 가진 모든 사용자가 수신한 가장 최근 Campaign에 귀속됩니다. Campaign은 지난 4시간 이내에 수신되었어야 합니다.<br>- 사용자가 주어진 Campaign에서 사용자 클릭 추적이 활성화된 SMS 또는 RCS 메시지의 단축 링크를 마지막으로 선택한 시점.
     tags:
       - Retargeting
   - name: Clicked/Opened Campaign or Canvas With Tag
-    description: 특정 태그가 있는 특정 Campaign과의 상호작용을 기준으로 필터링합니다. 이메일 메시징의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다.<br><br>이메일의 경우, "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션이 포함됩니다. 여러 사용자가 동일한 이메일 주소를 공유하는 경우:<br>- 이메일이 열리거나 클릭되면, 동일한 이메일 주소를 가진 다른 모든 사용자의 프로필도 업데이트됩니다. <br>- 원래 사용자가 메시지 발송 후 열림 또는 클릭 전에 이메일 주소를 변경하면, 열림 또는 클릭은 원래 사용자 대신 해당 이메일 주소를 가진 나머지 모든 사용자에게 적용됩니다.<br><br>SMS 및 RCS의 경우, 상호작용은 다음과 같이 정의됩니다:<br>- 사용자가 주어진 키워드 카테고리와 일치하는 답장 SMS 또는 RCS를 마지막으로 보낸 시점. 이는 해당 전화번호를 가진 모든 사용자가 수신한 가장 최근 Campaign에 귀속됩니다. Campaign은 지난 4시간 이내에 수신되었어야 합니다.<br>- 사용자가 태그가 있는 주어진 Campaign 또는 캔버스 단계에서 사용자 클릭 추적이 활성화된 SMS 또는 RCS 메시지의 단축 링크를 마지막으로 선택한 시점.
+    description: 특정 태그가 있는 특정 Campaign과의 상호작용을 기준으로 필터링합니다. 인앱 메시지의 경우, 클릭된 인앱 메시지에는 본문 및 버튼 클릭이 포함됩니다. 닫기 동작이나 X로 메시지를 닫는 것은 포함되지 않습니다.<br><br>이메일의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다. 이 필터에는 "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션이 포함됩니다. 여러 사용자가 동일한 이메일 주소를 공유하는 경우:<br>- 이메일이 열리거나 클릭되면, 동일한 이메일 주소를 가진 다른 모든 사용자의 프로필도 업데이트됩니다. <br>- 원래 사용자가 메시지 발송 후 열림 또는 클릭 전에 이메일 주소를 변경하면, 열림 또는 클릭은 원래 사용자 대신 해당 이메일 주소를 가진 나머지 모든 사용자에게 적용됩니다.<br><br>SMS 및 RCS의 경우, 상호작용은 다음과 같이 정의됩니다:<br>- 사용자가 주어진 키워드 카테고리와 일치하는 답장 SMS 또는 RCS를 마지막으로 보낸 시점. 이는 해당 전화번호를 가진 모든 사용자가 수신한 가장 최근 Campaign에 귀속됩니다. Campaign은 지난 4시간 이내에 수신되었어야 합니다.<br>- 사용자가 태그가 있는 주어진 Campaign 또는 캔버스 단계에서 사용자 클릭 추적이 활성화된 SMS 또는 RCS 메시지의 단축 링크를 마지막으로 선택한 시점.
     tags:
       - Retargeting
   - name: Clicked/Opened Step
-    description: 특정 Canvas 구성요소와의 상호작용을 기준으로 필터링합니다. 이메일 메시징의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다.<br><br>이메일의 경우, "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션이 포함됩니다.<br><br>SMS 및 RCS의 경우, 상호작용은 다음과 같이 정의됩니다:<br>- 사용자가 주어진 키워드 카테고리와 일치하는 답장 SMS 또는 RCS를 마지막으로 보낸 시점. 이는 해당 전화번호를 가진 모든 사용자가 수신한 가장 최근 Campaign에 귀속됩니다. Campaign은 지난 4시간 이내에 수신되었어야 합니다. <br>- 사용자가 주어진 캔버스 단계에서 사용자 클릭 추적이 활성화된 SMS 또는 RCS 메시지의 단축 링크를 마지막으로 선택한 시점.
+    description: 특정 Canvas 구성요소와의 상호작용을 기준으로 필터링합니다. 인앱 메시지의 경우, 클릭된 인앱 메시지에는 본문 및 버튼 클릭도 포함됩니다. 닫기 동작이나 X로 메시지를 닫는 것은 포함되지 않습니다.<br><br>이메일의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다. 이 필터에는 "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션이 포함됩니다.<br><br>SMS 및 RCS의 경우, 상호작용은 다음과 같이 정의됩니다:<br>- 사용자가 주어진 키워드 카테고리와 일치하는 답장 SMS 또는 RCS를 마지막으로 보낸 시점. 이는 해당 전화번호를 가진 모든 사용자가 수신한 가장 최근 Campaign에 귀속됩니다. Campaign은 지난 4시간 이내에 수신되었어야 합니다. <br>- 사용자가 주어진 캔버스 단계에서 사용자 클릭 추적이 활성화된 SMS 또는 RCS 메시지의 단축 링크를 마지막으로 선택한 시점.
     tags:
       - Retargeting
   - name: Clicked Alias in Campaign
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: 사용자의 이메일 주소가 하드바운스되었는지(예&#58; 이메일 주소가 유효하지 않음) 여부를 기준으로 세분화합니다.
+    description: 사용자의 이메일 주소가 하드바운스되었는지(예&#58; 이메일 주소가 유효하지 않음) 여부를 기준으로 세분화합니다. 유효하지 않은 이메일을 가진 사용자를 내보내려면 <a href="/docs/api/endpoints/email/get_list_hard_bounces/"><code>/email/hard_bounces</code> 엔드포인트</a> 를 호출하거나, 이메일 주소가 비어 있지 않음, 이메일 사용 불가, 이메일 구독 상태가 탈퇴가 아님과 같은 필터로 Segment를 구성하세요.
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -261,7 +261,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Any Message
-    description: 마지막으로 수신한 메시지를 판단하여 사용자를 세분화합니다. (24시간 기간)<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 마지막으로 노출을 기록한 시점이며 카드나 인앱 메시지가 마지막으로 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 이는 마지막 메시지가 SMS 또는 RCS 제공업체에 전달된 시점입니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>예시:<br>마지막 메시지 수신이 1일 미만 전 = 24시간 미만 전<br><br>시간대:<br>회사 시간대
+    description: 마지막으로 수신한 메시지를 판단하여 사용자를 세분화합니다. (24시간 기간)<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 마지막으로 노출을 기록한 시점이며 카드나 인앱 메시지가 마지막으로 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 사용자는 발송 시점에 메시지를 "수신"한 것으로 간주됩니다. 메시지가 사용자의 기기에 도달하지 못하더라도 사용자는 여전히 이 필터와 일치합니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>예시:<br>마지막 메시지 수신이 1일 미만 전 = 24시간 미만 전<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Last Engaged With Message
@@ -269,11 +269,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Clicked card
-    description: 사용자가 특정 Content Cards를 클릭했는지 여부를 기준으로 세분화합니다. 이 필터는 "Campaign 클릭/열림", "태그가 있는 Campaign 또는 Canvas 클릭/열림", "단계 클릭/열림"의 하위 필터로 사용할 수 있습니다.
+    description: 사용자가 특정 콘텐츠 카드를 클릭했는지 여부를 기준으로 세분화합니다. 이 필터는 "Campaign 클릭/열림", "태그가 있는 Campaign 또는 Canvas 클릭/열림", "단계 클릭/열림"의 하위 필터로 사용할 수 있습니다.
     tags:
       - Retargeting
   - name: Feature Flags
-    description: 특정 <a href="/docs/developer_guide/feature_flags/">기능 플래그</a> 가 현재 활성화된 사용자의 Segment입니다.
+    description: 특정 <a href="/docs/developer_guide/feature_flags">기능 플래그</a> 가 현재 활성화된 사용자의 Segment입니다.
     tags:
       - Retargeting
   - name: Subscription Group
@@ -333,11 +333,11 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Purchases in Last Y Days
-    description: 지정된 캘린더 일수(1~30일) 내에 사용자가 구매한 횟수(0~50회)를 기준으로 세분화합니다. <br> <a href="/docs/x-in-y-behavior/">X-in-Y 동작에 대해 자세히 알아보세요.</a>
+    description: 지정된 캘린더 일수(1~30일) 내에 사용자가 구매한 횟수(0~50회)를 기준으로 세분화합니다. <br> <a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a>
     tags:
       - Purchase behavior
   - name: X Purchase Property In Y Days
-    description: 지정된 캘린더 일수(1~30일) 내에 특정 구매 등록정보와 관련하여 구매가 이루어진 횟수를 기준으로 사용자를 세분화합니다. <br> <a href="/docs/x-in-y-behavior/">X-in-Y 동작에 대해 자세히 알아보세요.</a>
+    description: 지정된 캘린더 일수(1~30일) 내에 특정 구매 속성정보와 관련하여 구매가 이루어진 횟수를 기준으로 사용자를 세분화합니다. <br> <a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a>
     tags:
       - Purchase behavior
   - name: First Made Purchase
@@ -361,47 +361,47 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Money Spent in Y Days
-    description: 지정된 캘린더 일수(1~30일) 내에 앱에서 사용자가 지출한 금액을 기준으로 세분화합니다. 이 금액에는 최근 50건의 구매 합계만 포함됩니다. <br> <a href="/docs/x-in-y-behavior/">X-in-Y 동작에 대해 자세히 알아보세요.</a>
+    description: 지정된 캘린더 일수(1~30일) 내에 앱에서 사용자가 지출한 금액을 기준으로 세분화합니다. 이 금액에는 최근 50건의 구매 합계만 포함됩니다. <br> <a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a>
     tags:
       - Purchase behavior
   - name: Last order placed (last 730 days)
-    description: 사용자가 마지막으로 주문한 시점을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가되며, 최대 조회 기간은 최근 2년입니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자가 마지막으로 주문한 시점을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가되며, 최대 조회 기간은 최근 2년입니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total orders count (last 730 days)
-    description: 최근 2년 내 사용자의 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 내 사용자의 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total orders count
-    description: 사용자의 전체 기간에 걸친 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자의 전체 기간에 걸친 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total canceled orders count (last 730 days)
-    description: 최근 2년 내 사용자가 취소한 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 내 사용자가 취소한 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
-    description: 사용자가 브랜드와의 구매 이력에서 생성할 것으로 예상되는 총 매출을 기준으로 세분화합니다. 계산은 최근 730일을 고려하며, 평균 주문 금액(AOV)에 총 주문 수를 곱한 후 사용자의 활성 구매 기간(첫 번째 주문과 가장 최근 주문 사이의 기간)을 반영합니다. 이 필터는 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 에서 추적된 데이터를 사용합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자가 브랜드와의 구매 이력에서 생성할 것으로 예상되는 총 매출을 기준으로 세분화합니다. 계산은 최근 730일을 고려하며, 평균 주문 금액(AOV)에 총 주문 수를 곱한 후 사용자의 활성 구매 기간(첫 번째 주문과 가장 최근 주문 사이의 기간)을 반영합니다. 이 필터는 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 에서 추적된 데이터를 사용합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total refund value (last 730 days)
-    description: 최근 2년 동안 사용자에게 부여된 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 동안 사용자에게 부여된 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total refund value
-    description: 사용자의 전체 기간에 걸쳐 부여된 총 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자의 전체 기간에 걸쳐 부여된 총 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total revenue (last 730 days)
-    description: 최근 2년 동안 사용자의 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 eCommerce 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 의 매출을 차감하여 계산합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 동안 사용자의 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 이커머스 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 의 매출을 차감하여 계산합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total revenue
-    description: 사용자의 전체 기간에 걸쳐 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 eCommerce 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 의 매출을 차감하여 계산합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자의 전체 기간에 걸쳐 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 이커머스 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 의 매출을 차감하여 계산합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Average order value (last 730 days)
-    description: 최근 2년 동안 사용자 주문의 평균(산술 평균) 금액을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 동안 사용자 주문의 평균(산술 평균) 금액을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Country
@@ -445,15 +445,15 @@ glossaries:
     tags:
       - App
   - name: Most Recent App Version Name
-    description: 사용자 앱의 최신 이름을 기준으로 세분화합니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 <code>true</code>를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.
+    description: 사용자 앱의 최신 이름을 기준으로 세분화합니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 `true`를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.
     tags:
       - App
   - name: Most Recent App Version Number
-    description: 사용자 앱의 최신 앱 버전 번호를 기준으로 세분화합니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 <code>true</code>를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.<br><br>현재 앱 버전이 채워지는 데 시간이 걸릴 수 있습니다. 고객 프로필의 앱 버전은 SDK에 의해 정보가 캡처될 때 업데이트되며, 이는 사용자가 앱을 열 때에 의존합니다. 사용자가 앱을 열지 않으면 현재 버전이 업데이트되지 않습니다. 이러한 필터는 소급 적용되지도 않습니다. 현재 및 미래 버전에 대해 "초과" 또는 "같음"을 사용하는 것이 좋지만, 과거 버전 필터를 사용하면 예상치 못한 동작이 발생할 수 있습니다.
+    description: 사용자 앱의 최신 앱 버전 번호를 기준으로 세분화합니다. 괄호 안의 버전 번호가 필터링에 사용되며, 그 앞의 번호는 참조용입니다. 예를 들어, "3.7.0(134.0.0.0)"에서 "134.0.0.0"이 필터링되는 버전 번호입니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 `true`를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.<br><br>현재 앱 버전이 채워지는 데 시간이 걸릴 수 있습니다. 고객 프로필의 앱 버전은 SDK에 의해 정보가 캡처될 때 업데이트되며, 이는 사용자가 앱을 열 때에 의존합니다. 사용자가 앱을 열지 않으면 현재 버전이 업데이트되지 않습니다. 이러한 필터는 소급 적용되지도 않습니다. 현재 및 미래 버전에 대해 "초과" 또는 "같음"을 사용하는 것이 좋지만, 과거 버전 필터를 사용하면 예상치 못한 동작이 발생할 수 있습니다.
     tags:
       - App
   - name: Uninstalled
-    description: 앱을 삭제하고 재설치하지 않은 사용자를 기준으로 세분화합니다.
+    description: 사용자가 현재 백엔드에서 삭제된 것으로 표시되어 있는지 여부를 기준으로 세분화합니다. 앱을 삭제한 후 나중에 다시 설치한 사용자는 포함되지 않습니다. 이 필터는 현재 삭제 상태를 반영하며, 모든 삭제 이벤트의 이력 로그가 아닙니다.
     tags:
       - Uninstall
   - name: Device Carrier
@@ -469,11 +469,11 @@ glossaries:
     tags:
       - Devices
   - name: Device OS
-    description: 지정된 운영체제를 가진 기기가 하나 이상인 사용자를 세분화합니다. 운영체제 범위로 사용자를 세분화하려면 <a href="/docs/user_guide/audience/segments/segmentation_filters#device-os-version-number">기기 OS 버전 번호</a> 필터를 사용하세요.
+    description: 지정된 운영 체제를 가진 기기가 하나 이상인 사용자를 세분화합니다. 운영 체제 범위로 사용자를 세분화하려면 <a href="/docs/user_guide/audience/segments/segmentation_filters#device-os-version-number">기기 OS 버전 번호</a> 필터를 사용하세요.
     tags:
       - Devices
   - name: Device OS Version Number
-    description: 지정된 범위 내의 운영체제 버전을 가진 기기가 하나 이상인 사용자를 세분화합니다. 예를 들어, iOS 운영체제 버전이 26.0 이상인 사용자를 타겟팅할 수 있습니다.
+    description: 지정된 범위 내의 운영 체제 버전을 가진 기기가 하나 이상인 사용자를 세분화합니다. 예를 들어, iOS 운영 체제 버전이 26.0 이상인 사용자를 타겟팅할 수 있습니다.
     tags:
       - Devices
   - name: Most Recent Device Locale
@@ -489,7 +489,7 @@ glossaries:
     tags:
       - Devices
   - name: Web Browser
-    description: 웹사이트에 접속하는 데 사용하는 웹 브라우저를 기준으로 사용자를 세분화합니다.
+    description: 웹사이트에 접속하는 데 사용하는 웹 브라우저를 기준으로 사용자를 세분화합니다. 이 필터는 가장 최근에 사용한 브라우저뿐만 아니라 사용자의 기기 이력에 있는 모든 브라우저와 일치합니다.
     tags:
       - Devices
   - name: Device IDFA
@@ -521,7 +521,7 @@ glossaries:
     tags:
       - Location
   - name: Location Available
-    description: 사용자가 위치를 보고했는지 여부를 기준으로 세분화합니다. 이 필터를 사용하려면 앱에 <a href="/docs/search/?query=location%20tracking">위치 추적이 통합</a> 되어 있어야 합니다.
+    description: 사용자가 위치를 보고했는지 여부를 기준으로 세분화합니다. 이 필터를 사용하려면 앱에 <a href="/docs/search?query=location%20tracking">위치 추적이 통합</a> 되어 있어야 합니다.
     tags:
       - Location
   - name: Amplitude Cohorts
@@ -573,11 +573,11 @@ glossaries:
     tags:
       - Install attribution
   - name: Churn Risk Category
-    description: 특정 예측에 따른 이탈 위험 카테고리를 기준으로 사용자를 세분화합니다.
+    description: 특정 예측에 따른 고객이탈 위험 카테고리를 기준으로 사용자를 세분화합니다.
     tags:
       - Intelligence and predictive
   - name: Churn Risk Score
-    description: 특정 예측에 따른 이탈 위험 점수를 기준으로 사용자를 세분화합니다.
+    description: 특정 예측에 따른 고객이탈 위험 점수를 기준으로 사용자를 세분화합니다.
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Category

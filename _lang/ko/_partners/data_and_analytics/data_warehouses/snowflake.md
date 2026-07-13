@@ -18,10 +18,10 @@ Braze는 Snowflake와 두 가지 통합을 제공합니다. 이 두 가지를 �
 
 ### 데이터 공유 (Braze에서 Snowflake로) {#data-sharing-braze-to-snowflake}
 
-Snowflake [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)를 사용하면 Snowflake 인스턴스에서 직접 Braze 참여 및 캠페인 데이터에 안전하게 실시간으로 접근할 수 있습니다. 계정 간에 데이터가 복사되거나 전송되지 않으며, 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 저장소를 통해 이루어집니다.
+Snowflake [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)를 사용하면 Snowflake 인스턴스에서 직접 Braze 참여 및 Campaign 데이터에 안전하게 실시간으로 접근할 수 있습니다. 계정 간에 데이터가 복사되거나 전송되지 않으며, 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 저장소를 통해 이루어집니다.
 
 **데이터 공유를 사용하면 좋은 경우:**
-- Snowflake SQL을 사용하여 Braze 이벤트 및 캠페인 데이터를 쿼리하고 싶을 때
+- Snowflake SQL을 사용하여 Braze 이벤트 및 Campaign 데이터를 쿼리하고 싶을 때
 - 복잡한 보고서를 생성하고 기여도 모델링을 수행하고 싶을 때
 - Braze 데이터를 Snowflake 웨어하우스의 다른 데이터와 결합하고 싶을 때
 - 채널, 산업, 기기 플랫폼 전반에 걸쳐 참여 데이터를 벤치마크하고 싶을 때
@@ -47,8 +47,8 @@ Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Braze 접근 권한 | Braze에서 이 기능에 접근하려면 Braze 계정 매니저 또는 고객 성공 매니저에게 문의해야 합니다. |
-| Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. HIPAA(미국의료정보보호법) 비대상 고객의 경우 Snowflake Standard 또는 Enterprise Edition이 지원됩니다. HIPAA(미국의료정보보호법) 준수 데이터 공유의 경우 Business Critical Edition이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 보안 데이터 공유 설정 {#setting-up-secure-data-sharing}
 
@@ -89,7 +89,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 
 사용 가능한 테이블 및 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 참조하세요. Snowflake 데이터 공유에는 해당 참조의 모든 테이블과 스냅샷, Campaign 및 Canvas 체인지로그, 에이전트 콘솔 이벤트, 메시지 재시도 이벤트에 대한 추가 Snowflake 전용 테이블이 포함됩니다.
 
-[원시 테이블 스키마를 다운로드]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})하여 텍스트 파일로 확인할 수도 있습니다.
+[원시 테이블 스키마를 다운로드](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)하여 텍스트 파일로 확인할 수도 있습니다.
 
 ### 사용자 ID 스키마 {#user-id-schema}
 
@@ -99,7 +99,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정하는 고객 프로필의 고유 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 ID 스키마" }
 
 ## 중요 정보 및 제한 사항 {#important-information-and-limitations}
 
@@ -124,7 +124,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 
 ### Snowflake 리전 {#snowflake-regions}
 
-Braze는 현재 Snowflake AWS US East-1, EU-Central (프랑크푸르트), AP-Northeast-1(도쿄), AP-Southeast-2(시드니), AP-Southeast-3(자카르타) 리전에서 모든 사용자 수준 데이터를 호스팅하고 있습니다. 해당 리전 외부의 사용자에 대해서는, Braze가 AWS, Azure 또는 GCP 리전에서 Snowflake 인프라를 호스팅하는 공동 고객에게 데이터 공유를 제공할 수 있습니다.
+Braze는 현재 Snowflake AWS US East-1, EU-Central(프랑크푸르트), AP-Northeast-1(도쿄), AP-Southeast-2(시드니), AP-Southeast-3(자카르타) 리전에서 모든 사용자 수준 데이터를 호스팅하고 있습니다. 해당 리전 외부의 사용자에 대해서는, Braze가 AWS, Azure 또는 GCP 리전에서 Snowflake 인프라를 호스팅하는 공동 고객에게 데이터 공유를 제공할 수 있습니다.
 
 ### 데이터 보존 {#data-retention}
 
@@ -150,7 +150,7 @@ Snowflake의 과거 이벤트 데이터 아카이브는 2019년 4월까지 거�
 | ----- | ------- |
 | `TIME` | 이벤트가 발생한 Unix 타임스탬프입니다. 발생 시점 기준으로 필터링할 때 이 필드를 사용하세요. |
 | `SF_CREATED_AT` | 행이 Snowflake에 로드된 타임스탬프(수집 시간)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="공유 데이터 쿼리: TIME 및 쿼리 성능" }
 
 ### 쿼리 속도, 성능, 비용 {#speed-performance-cost-of-queries}
 

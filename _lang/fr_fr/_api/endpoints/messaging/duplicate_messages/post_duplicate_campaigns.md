@@ -1,30 +1,30 @@
 ---
-nav_title: "POST : Campagnes en double"
-article_title: "POST : Campagnes en double"
+nav_title: "POST : Dupliquer des campagnes"
+article_title: "POST : Dupliquer des campagnes"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Dupliquer des campagnes."
+description: "Cet article présente en détail l'endpoint Dupliquer des campagnes."
 
 ---
 {% api %}
-# Dupliquer des campagnes à l'aide de l'API
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
-/campagnes/duplicate
+# Dupliquer des campagnes à l'aide de l'API {#duplicate-campaigns-using-the-api}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
+/campaigns/duplicate
 {% endapimethod %}
 
-> Utilisez cet endpoint pour dupliquer des campagnes. Cet endpoint de l'API est similaire à la [duplication des campagnes dans le tableau de bord de Braze][1].
+> Utilisez cet endpoint pour dupliquer des campagnes. Cet endpoint de l'API est similaire à la [duplication des campagnes dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous devrez générer une clé API avec l’autorisation `campaigns.duplicate`.
+Pour utiliser cet endpoint, vous devrez générer une clé API avec l'autorisation `campaigns.duplicate`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
-Ce point d'accès est limité à 100 appels d’API par minute.
+Cet endpoint est limité à 100 appels d'API par minute.
 
-## Corps de la demande
+## Corps de la demande {#request-body}
 
 ```
 Content-Type: application/json
@@ -36,25 +36,23 @@ Authorization: Bearer YOUR-REST-API-KEY
   "campaign_id": (required, string) The campaign identifier,
   "name": (required, string) The name of the resulting campaign,
   "description": (optional, string) The description of the resulting campaign,
+  "tag_names": (optional, array of strings) The tags of the resulting campaign,
 }
 ```
 
-## Paramètres de demande
+## Paramètres de demande {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
-|`name`| Requis | Chaîne de caractères | Le nom de la campagne résultante. |
-|`description`| Facultatif | Chaîne de caractères | Le champ de description de la campagne résultante. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types). |
+| `name` | Requis | Chaîne de caractères | Le nom de la campagne résultante. |
+| `description` | Facultatif | Chaîne de caractères | Le champ de description de la campagne résultante. |
+| `tag_names` | Facultatif | Tableau de chaînes de caractères | Les étiquettes de la campagne résultante. Il doit s'agir d'étiquettes existantes. Si vous ajoutez de nouvelles étiquettes dans la requête, elles remplaceront toutes les étiquettes présentes sur la campagne d'origine. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 
-## Réponse
+## Réponse {#response}
 
-Cet endpoint renverra un code de statut `202` et la création de la campagne se fera de manière asynchrone. Vous pouvez utiliser le [téléchargement des événements de sécurité][2] pour consulter les enregistrements indiquant quand les campagnes ont été dupliquées et par quelle clé API.
-
-
-[1]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-campaigns-and-canvases
-[2]: {{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings/#downloading-a-security-event-report
+Cet endpoint renvoie un code de statut `202` et la création de la campagne se fait de manière asynchrone. Vous pouvez utiliser le [téléchargement des événements de sécurité]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) pour consulter les enregistrements indiquant quand les campagnes ont été dupliquées et par quelle clé API.
 
 {% endapi %}

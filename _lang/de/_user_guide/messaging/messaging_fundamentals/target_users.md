@@ -20,27 +20,27 @@ tool:
 Unter **Targeting-Optionen** können Sie die folgenden Optionen verwenden, um auszuwählen, welche Nutzer:innen Sie mit Ihrer Campaign oder Ihrem Canvas ansprechen möchten. Nur Nutzer:innen, die Ihren definierten Kriterien entsprechen, erhalten die Nachricht. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
 
 {% tabs local %}
-{% tab single segment %}
+{% tab Einzelnes Segment %}
 Um Mitglieder eines zuvor erstellten Segments anzusprechen, wählen Sie ein Segment aus dem Dropdown unter **Zielgruppen nach Segment zusammenstellen** aus.
 {% endtab %}
 
-{% tab multiple segments %}
+{% tab Mehrere Segmente %}
 Um Nutzer:innen anzusprechen, die in mehrere zuvor erstellte Segmente fallen, fügen Sie mehrere Segmente aus dem Dropdown unter **Zielgruppen nach Segment zusammenstellen** hinzu. Die resultierende Zielgruppe besteht aus Nutzer:innen, die sowohl im ersten Segment als auch im zweiten Segment und im dritten Segment usw. enthalten sind.
 {% endtab %}
 
-{% tab multiple filters %}
+{% tab Mehrere Filter %}
 Um Nutzer:innen ohne Hinzufügen eines Segments anzusprechen, können Sie eine Reihe von Filtern verwenden. Dies ist eine Ad-hoc-Zielgruppe während der Nachrichtenerstellung und ermöglicht es Ihnen, die Segment-Erstellung zu überspringen, wenn Sie an einmalige Zielgruppen senden.
 
 ![Zusätzliche Filter für eine Nachricht, die Nutzer:innen anspricht, die die App zuletzt innerhalb des Tages geöffnet haben, noch nie eine Campaign oder einen Canvas-Schritt erhalten haben und vor weniger als 30 Tagen einen Kauf getätigt haben.]({% image_buster /assets/img_archive/additional_filters.png %}){: style="max-width:90%;"}
 {% endtab %}
 
-{% tab segments & filters %}
+{% tab Segmente und Filter %}
 Sie können auch Nutzer:innen eines oder mehrerer zuvor erstellter Segmente ansprechen, die zusätzlich unter weitere Filter fallen. Nachdem Sie zunächst Ihre Segmente ausgewählt haben, können Sie Ihre Zielgruppe im Abschnitt **Zusätzliche Filter** weiter eingrenzen. Dies wird im folgenden Screenshot demonstriert, der Nutzer:innen anspricht, die im Segment „Daily Active Users“ und im Segment „Never opened email“ enthalten sind und vor mehr als 30 Tagen einen Kauf getätigt haben.
 
 ![Targeting-Optionen für eine Nachricht, die zwei Segmente enthält und einen zusätzlichen Filter für einen letzten Kauf vor weniger als 30 Tagen hat.]({% image_buster /assets/img_archive/target_segmenter.png %}){: style="max-width:90%;"}
 {% endtab %}
 
-{% tab Specific apps %}
+{% tab Bestimmte Apps %}
 
 Sie können eine Campaign-Nachricht oder einen Canvas-Schritt an bestimmte Apps senden, z. B. eine In-App-Nachricht oder Push-Benachrichtigung nur an Android- oder iOS-Apps.
 
@@ -55,7 +55,7 @@ Angenommen, Sie möchten eine In-App-Nachricht nur an Android-Apps senden.
 ![Ein Segment, das Nutzer:innen aus einer bestimmten App anspricht, „Test_Android“.]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. Gehen Sie in Ihrer Campaign oder Ihrem Canvas zum Schritt **Zielgruppe** und bestätigen Sie, dass Ihr Segment im Abschnitt **Zielgruppen nach Segment zusammenstellen** hinzugefügt ist.
+2. Bestätigen Sie im Schritt **Zielgruppe**, dass Ihr Segment im Abschnitt **Zielgruppen nach Segment zusammenstellen** hinzugefügt ist.
 
 ![Der Schritt „Zielgruppe“ mit einem ausgewählten Beispiel-Segment.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
@@ -67,18 +67,18 @@ Dies funktioniert nicht, wenn Sie Ihr Segment im Abschnitt **Zusätzliche Filter
 {% endtabs %}
 
 {% alert tip %}
-Für E-Mail-Campaigns können Sie Seed-Gruppen im Abschnitt **Seed-Gruppen** ansprechen. Beachten Sie, dass Seed-Gruppen für API-Campaigns nicht verfügbar sind, obwohl Sie Seed-Gruppen über einen API-getriggerten Eintritt in eine Campaign einbeziehen können. Weitere Informationen finden Sie unter [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups).
+Für E-Mail-Campaigns können Sie Seed-Gruppen im Abschnitt **Seed-Gruppen** ansprechen. Beachten Sie, dass Seed-Gruppen für API-Campaigns nicht verfügbar sind, obwohl Sie Seed-Gruppen über einen API-getriggerten Eintritt in eine Campaign einbeziehen können. Weitere Informationen finden Sie unter [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups).
 {% endalert %}
 
 ### 2. Schritt: Ihre Zielgruppe testen {#step-2-test-your-audience}
 
-Nachdem Sie Segmente und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [eine:n Nutzer:in nachschlagen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
+Nachdem Sie Segmente und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [eine:n Nutzer:in nachschlagen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
 
 ![Der Abschnitt „Nutzer:innen-Suche“ mit einem Button „Nutzer:in nachschlagen“.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
 #### Zielgruppen-Zusammenfassung {#audience-summary}
 
-Die **Zielgruppen-Zusammenfassung** zeigt eine Übersicht darüber, wer sich in Ihrer Zielgruppe befindet. Hier können Sie Ihre Zielgruppe weiter einschränken, indem Sie eine maximale Nutzer:innen-Obergrenze festlegen oder die Zustellgeschwindigkeit mit [Rate-Limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) begrenzen.
+Die **Zielgruppen-Zusammenfassung** zeigt eine Übersicht darüber, wer sich in Ihrer Zielgruppe befindet. Hier können Sie Ihre Zielgruppe weiter einschränken, indem Sie eine maximale Nutzer:innen-Obergrenze festlegen oder die Zustellgeschwindigkeit mit [Rate-Limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) begrenzen.
 
 ![Der Abschnitt „Zielgruppen-Zusammenfassung“ mit Optionen zum Festlegen einer maximalen Nutzer:innen-Obergrenze oder zur Begrenzung der Zustellgeschwindigkeit.]({% image_buster /assets/img_archive/audience_summary.png %})
 
@@ -86,18 +86,18 @@ Die **Zielgruppen-Zusammenfassung** zeigt eine Übersicht darüber, wer sich in 
 
 Im Abschnitt **A/B-Tests** können Sie einen Test einrichten, um die Reaktionen der Nutzer:innen auf mehrere Versionen derselben Marketing-Campaign zu vergleichen. Diese Versionen verfolgen ähnliche Marketingziele, unterscheiden sich aber in Formulierung und Stil. Das Ziel ist es, die Version der Campaign zu identifizieren, die Ihre Marketingziele am besten erreicht.
 
-Weitere Informationen und Best Practices finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Weitere Informationen und Best Practices finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 #### Zielgruppenstatistiken {#audience-statistics}
 
-Braze stellt detaillierte Zielgruppenstatistiken der angesprochenen Kanäle in der Fußzeile bereit. Je größer Ihre Nutzerbasis ist, desto wahrscheinlicher ist es, dass die Anzahl der **erreichbaren Nutzer:innen** eine grobe Schätzung darstellt. Die Anzahl der erreichbaren Nutzer:innen kann sinken, wenn Sie eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group/) verwenden oder die Nachrichtenberechtigung einrichten.
+Braze stellt detaillierte Zielgruppenstatistiken der angesprochenen Kanäle in der Fußzeile bereit. Je größer Ihre Nutzerbasis ist, desto wahrscheinlicher ist es, dass die Anzahl der **erreichbaren Nutzer:innen** eine grobe Schätzung darstellt. Die Anzahl der erreichbaren Nutzer:innen kann sinken, wenn Sie eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) verwenden oder die Nachrichtenberechtigung einrichten.
 
-- Um eine genaue Anzahl Ihrer erreichbaren Nutzer:innen zu ermitteln, wählen Sie [Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics), da hierbei jede:r Nutzer:in in Ihrer Nutzerbasis durchsucht wird.
+- Um eine genaue Anzahl Ihrer erreichbaren Nutzer:innen zu ermitteln, wählen Sie [Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics), da hierbei jede:r Nutzer:in in Ihrer Nutzerbasis durchsucht wird.
 - Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird oder den Lifetime-Value (LTV) für dieses Segment, wählen Sie **Zusätzliche Statistiken anzeigen**.
 
 ##### Warum die Zielgruppengröße von der Anzahl erreichbarer Nutzer:innen abweichen kann {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![Der Abschnitt „Gesamtpopulation“ mit geschätzten Zahlen für erreichbare Nutzer:innen in jedem angesprochenen Kanal.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 
@@ -147,7 +147,7 @@ Ein besserer Ansatz wäre, eine breitere Zielgruppe zu verwenden und den Filter 
 
 Auf diese Weise erfüllt ein qualifizierender Kauf sowohl den Filter als auch den Trigger für die Nachricht – keine zweite Aktion erforderlich.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 - Stellen Sie sicher, dass das Zielgruppen-Segment Nutzer:innen enthält, bevor die Eintrittskriterien eintreten.
 - Vermeiden Sie Zielgruppen-Filter, die erst nach Ihrem Ereignis greifen. Wenn ein Filter von etwas abhängt, das zum Zeitpunkt des Triggers geschieht (wie „Sitzungsanzahl = 0“), ist die:der Nutzer:in möglicherweise nicht mehr qualifiziert, wenn Braze die Prüfung durchführt.

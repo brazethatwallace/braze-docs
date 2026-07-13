@@ -6,23 +6,24 @@ page_type: reference
 description: "Cet article de référence explique comment gérer les balises dans le tableau de bord de Braze, notamment l'imbrication, le renommage et l'organisation des balises pour les campagnes, les Canvas et les segments."
 ---
 
-# Gestion des balises
+# Gestion des balises {#managing-tags}
 
 > Vous pouvez gérer les balises que vous utilisez pour les campagnes, les Canvas et les segments depuis un emplacement centralisé. Pour renommer, supprimer ou ajouter des balises, accédez à **Paramètres** > **Gestion des balises**.
 
-Pour savoir comment ajouter des balises aux campagnes, Canvas, segments et données personnalisées, consultez [Balises]({{site.baseurl}}/user_guide/messaging/governance/tags/).
+Pour savoir comment ajouter des balises aux campagnes, Canvas, segments et données personnalisées, consultez [Balises]({{site.baseurl}}/user_guide/messaging/governance/tags).
 
-## Imbrication des balises
+## Imbrication des balises {#nesting-tags}
 
 Pour mieux organiser vos balises, vous pouvez les imbriquer sous une balise parente. Par exemple, vous pouvez regrouper toutes les balises de vacances sous une balise parente `Holidays`, ou toutes les balises liées à une étape de votre entonnoir marketing sous une balise parente `Funnel`.
 
-![La page Gestion des balises affichant une liste de balises organisées par groupes imbriqués.]({% image_buster /assets/img_archive/tags_view.png %})
+- **Imbriquer une nouvelle balise :** créez une balise, sélectionnez **Nest Tag Under**, puis choisissez la balise existante sous laquelle imbriquer votre nouvelle balise.
+- **Imbriquer une balise existante :** accédez à la page **Gestion des balises**, survolez la ligne contenant votre balise et sélectionnez **<i class="fas fa-pencil-alt"></i>Edit**. Ensuite, sélectionnez **Nest Tag Under** et choisissez la balise parente.
 
-Pour imbriquer une nouvelle balise, créez une balise, sélectionnez **Nest Tag Under**, puis choisissez la balise existante sous laquelle imbriquer votre nouvelle balise.
+### La balise parente est utilisée mais absente de **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
-Pour imbriquer une balise existante, accédez à la page **Gestion des balises**, survolez la ligne contenant votre balise et sélectionnez **<i class="fas fa-pencil-alt"></i>Edit**. Ensuite, sélectionnez **Nest Tag Under** et choisissez la balise parente.
+Lorsqu'une balise parente est appliquée dans le tableau de bord mais n'apparaît pas dans le menu déroulant **Nest Tag Under** lors de la création d'une nouvelle balise, recréez la balise parente en tant que balise autonome afin qu'elle devienne consultable dans la liste. Ce comportement est attendu lorsque la balise parente n'existe que comme dépendance imbriquée ailleurs dans votre espace de travail.
 
-![La boîte de dialogue de nouvelle balise avec l'option Nest Tag Under sélectionnée.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
+![Boîte de dialogue de nouvelle balise avec l'option Nest Tag Under sélectionnée.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## Bonnes pratiques {#tags-best-practices}
 
@@ -37,13 +38,14 @@ table td {
 </style>
 
 
-<table>
+<table aria-label="Bonnes pratiques">
+  <caption>Bonnes pratiques</caption>
 <thead>
   <tr>
     <th>Entonnoir</th>
     <th>Objectifs commerciaux</th>
     <th>Régional</th>
-    <th>Campagnes</th>
+    <th>Campaigns</th>
     <th>Vacances</th>
     <th>Transactions</th>
   </tr>
@@ -60,14 +62,14 @@ table td {
 </tbody>
 </table>
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
 Voici des cas d'utilisation courants pour gérer le cycle de vie de vos messages à l'aide de balises.
 
 {% tabs %}
 {% tab Limitation de fréquence %}
 
-### Limitation de fréquence
+### Limitation de fréquence {#throttling}
 
 Limitez la fréquence à laquelle vos clients reçoivent des campagnes d'un certain type. Par exemple, vous pourriez définir les filtres suivants pour limiter la fréquence des campagnes promotionnelles :
 
@@ -78,9 +80,9 @@ Limitez la fréquence à laquelle vos clients reçoivent des campagnes d'un cert
 {% endtab %}
 {% tab Rapports %}
 
-### Rapports
+### Rapports {#reporting}
 
-Configurez un rapport d'engagement pour surveiller le volume de toutes les campagnes associées à une certaine balise. Par exemple, si vous souhaitez suivre toutes vos campagnes push, vous pouvez ajouter une balise comme `Push Reporting` à ces campagnes, puis configurer un [rapport d'engagement]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) pour recevoir chaque jour un rapport sur ces campagnes balisées.
+Configurez un rapport d'engagement pour surveiller le volume de toutes les campagnes associées à une certaine balise. Par exemple, si vous souhaitez suivre toutes vos campagnes push, vous pouvez ajouter une balise comme `Push Reporting` à ces campagnes, puis configurer un [rapport d'engagement]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases) pour recevoir chaque jour un rapport sur ces campagnes balisées.
 
 {% endtab %}
 {% endtabs %}

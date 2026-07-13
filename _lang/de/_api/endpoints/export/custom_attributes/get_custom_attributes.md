@@ -18,7 +18,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Angep
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `custom_attributes.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `custom_attributes.get`.
 
 ## Rate-Limit
 
@@ -31,7 +31,7 @@ Beachten Sie, dass jeder Aufruf dieses Endpunkts 50 Attribute zurückgibt. Bei m
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `cursor` | Optional | String | Bestimmt die Paginierung der angepassten Attribute. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abfrageparameter" }
 
 ## Beispielanfragen {#example-requests}
 
@@ -72,10 +72,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ### Antwortcodes bei schwerwiegenden Fehlern {#fatal-export}
 
-Statuscodes und zugehörige Fehlermeldungen, die zurückgegeben werden, wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Schwerwiegende Fehler]({{site.baseurl}}/api/errors/#fatal-errors).
+Statuscodes und zugehörige Fehlermeldungen, die zurückgegeben werden, wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Schwerwiegende Fehler]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

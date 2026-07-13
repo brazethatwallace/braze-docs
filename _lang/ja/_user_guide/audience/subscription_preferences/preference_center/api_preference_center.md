@@ -9,7 +9,7 @@ channel:
 
 # APIメールユーザー設定センター {#api-email-preference-center}
 
-> ユーザー設定センターを設定すると、ユーザーが[メールメッセージング]({{site.baseurl}}/user_guide/channels/email/)の通知設定を一か所で編集・管理できるようになります。この記事では、APIで生成するユーザー設定センターの構築手順を説明しますが、[ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/)を使用してユーザー設定センターを構築することもできます。
+> ユーザー設定センターを設定すると、ユーザーが[メールメッセージング]({{site.baseurl}}/user_guide/channels/email)の通知設定を一か所で編集・管理できるようになります。この記事では、APIで生成するユーザー設定センターの構築手順を説明しますが、[ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center)を使用してユーザー設定センターを構築することもできます。
 
 Brazeダッシュボードで、**オーディエンス** > **メールユーザー設定センター**に移動します。
 
@@ -21,7 +21,7 @@ Brazeダッシュボードで、**オーディエンス** > **メールユーザ
 
 ## APIでユーザー設定センターを作成する {#create-a-preference-center-with-api}
 
-[ユーザー設定センターBrazeエンドポイント]({{site.baseurl}}/api/endpoints/preference_center/)を使用すると、Brazeがホストするウェブサイトであるユーザー設定センターを作成でき、ユーザーのサブスクリプション状態やサブスクリプショングループのステータスを表示できます。HTMLとCSSを使用して、開発者チームがページのスタイリングをブランドガイドラインに合わせたユーザー設定センターを構築できます。
+[ユーザー設定センターBrazeエンドポイント]({{site.baseurl}}/api/endpoints/preference_center)を使用すると、Brazeがホストするウェブサイトであるユーザー設定センターを作成でき、ユーザーのサブスクリプション状態やサブスクリプショングループのステータスを表示できます。HTMLとCSSを使用して、開発者チームがページのスタイリングをブランドガイドラインに合わせたユーザー設定センターを構築できます。
 
 Liquidを使用すると、サブスクリプショングループの名前と各ユーザーのステータスを取得できます。これにより、ページが読み込まれたときにBrazeがこのデータを保存・取得します。
 
@@ -33,19 +33,19 @@ Liquidを使用すると、サブスクリプショングループの名前と�
 | メール、SMS、またはWhatsAppサブスクリプショングループを持つ有効なワークスペース | 有効なユーザーとメール、SMS、またはWhatsAppサブスクリプショングループを持つ稼働中のワークスペース。 |
 | 有効なユーザー | メールアドレスとexternal IDを持つユーザー。 |
 | ユーザー設定センター権限を持つ生成済みAPIキー | Brazeダッシュボードで、**設定** > **APIキー**に移動し、ユーザー設定センター権限を持つAPIキーにアクセスできることを確認します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ### ステップ 1: ユーザー設定センター作成エンドポイントを使用する {#step-1-use-the-create-preference-center-endpoint}
 
-[ユーザー設定センター作成エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center/)を使用して、ユーザー設定センターの構築を始めましょう。ユーザー設定センターをカスタマイズするには、ブランディングに合ったHTMLを`preference_center_page_html`フィールドと`confirmation_page_html`フィールドに含めることができます。
+[ユーザー設定センター作成エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center)を使用して、ユーザー設定センターの構築を始めましょう。ユーザー設定センターをカスタマイズするには、ブランディングに合ったHTMLを`preference_center_page_html`フィールドと`confirmation_page_html`フィールドに含めることができます。
 
-[ユーザー設定センターURL生成エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/)を使用すると、Brazeを通じて送信されるメール以外で、特定のユーザーのユーザー設定センターURLを取得できます。
+[ユーザー設定センターURL生成エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center)を使用すると、Brazeを通じて送信されるメール以外で、特定のユーザーのユーザー設定センターURLを取得できます。
 
 {% alert note %}
-Brazeは`data:` URLを使用するiframe内で`confirmation_page_html`をレンダリングします。ブラウザは`data:` URLを不透明なオリジンとして扱います。そのため、そのiframe内のスクリプトは追加の外部リソースを読み込むことができず、そのページから親ウィンドウのナビゲーションやフレーム間通信は失敗します。<br><br>代わりに、スクリプトを埋め込む代わりに、ホストされた調査URLなどの外部コンテンツにリンクできます。サードパーティツールを埋め込む必要があり、ベンダーが許可している場合は、ツールのホストされたHTTPS URLを`src`に指定した`<iframe>`を使用してください。
+Brazeは`data:` URLを使用するiframe内で`confirmation_page_html`をレンダリングします。ブラウザは`data:` URLを不透明なオリジンとして扱います。そのため、そのiframe内のスクリプトは追加の外部リソースを読み込むことができず、そのページから親ウィンドウのナビゲーションやフレーム間通信は失敗します。<br><br>代わりに、スクリプトを埋め込む代わりに、ホストされた調査URLなどの外部コンテンツにリンクできます。サードパーティツールを埋め込む必要があり、ベンダーが許可している場合は、ツールのホストされたHTTPS URLを指す`<iframe title="埋め込みコンテンツの説明" src="https://example.com/...">`を使用してください。
 {% endalert %}
 
-### ステップ 2: メールCampaignに含める {#step-2-include-in-your-email-campaign}
+### ステップ 2: メールキャンペーンに含める {#step-2-include-in-your-email-campaign}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
@@ -57,7 +57,7 @@ Brazeは`data:` URLを使用するiframe内で`confirmation_page_html`をレン�
 ```
 {%endraw%}
 
-Liquidを含むHTMLの組み合わせも使用できます。たとえば、HTMLエディターまたはドラッグ＆ドロップエディターでURLとして以下を貼り付けることができます。これにより、すべてのメールサブスクリプショングループを自動的にリストする基本的なユーザー設定センターレイアウトが表示されます。[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/)を使用する場合は、Brazeがトラッキングパラメーターを追加できるように、Liquidタグの後に末尾のクエスチョンマーク（`?`）を追加してください。
+Liquidを含むHTMLの組み合わせも使用できます。たとえば、HTMLエディターまたはドラッグ＆ドロップエディターでURLとして以下を貼り付けることができます。これにより、すべてのメールサブスクリプショングループを自動的にリストする基本的なユーザー設定センターレイアウトが表示されます。[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)を使用する場合は、Brazeがトラッキングパラメーターを追加できるように、Liquidタグの後に末尾のクエスチョンマーク（`?`）を追加してください。
 
 {% raw %}
 ```html
@@ -68,27 +68,27 @@ Liquidを含むHTMLの組み合わせも使用できます。たとえば、HTML
 ユーザー設定センターには、ユーザーがすべてのメールの配信を停止できるチェックボックスがあります。テストメッセージとして送信された場合、これらの設定は保存できないことに注意してください。
 
 {% alert important %}
-上記のLiquidタグは、CampaignまたはCanvasを起動する場合にのみ機能します。テストメールの送信では有効なリンクは生成されません。ユーザー設定センターのリンクを確認するには、テストプロファイルのみをターゲットとするCampaignでメッセージを起動してください。
+上記のLiquidタグは、キャンペーンまたはキャンバスを起動する場合にのみ機能します。テストメールの送信では有効なリンクは生成されません。ユーザー設定センターのリンクを確認するには、テストプロファイルのみをターゲットとするキャンペーンでメッセージを起動してください。
 {% endalert %}
 
 #### ユーザー設定センターを編集する {#edit-a-preference-center}
 
-[ユーザー設定センター更新エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/)を使用して、ユーザー設定センターを編集・更新できます。
+[ユーザー設定センター更新エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center)を使用して、ユーザー設定センターを編集・更新できます。
 
 #### ユーザー設定センターと詳細を確認する {#identify-preference-centers-and-details}
 
-ユーザー設定センターを確認するには、[ユーザー設定センター詳細表示エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/)を使用して、最終更新タイムスタンプやユーザー設定センターIDなどの関連情報を返します。
+ユーザー設定センターを確認するには、[ユーザー設定センター詳細表示エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center)を使用して、最終更新タイムスタンプやユーザー設定センターIDなどの関連情報を返します。
 
 ## ユーザー設定センターをカスタマイズする {#customize-a-preference-center}
 
-Brazeはユーザー設定センターからのサブスクリプション状態の更新を管理し、ユーザー設定センターを同期した状態に保ちます。ただし、以下のオプションで[サブスクリプショングループAPI]({{site.baseurl}}/api/endpoints/subscription_groups/)を使用して、独自のユーザー設定センターを作成・ホストすることもできます。
+Brazeはユーザー設定センターからのサブスクリプション状態の更新を管理し、ユーザー設定センターを同期した状態に保ちます。ただし、以下のオプションで[サブスクリプショングループAPI]({{site.baseurl}}/api/endpoints/subscription_groups)を使用して、独自のユーザー設定センターを作成・ホストすることもできます。
 
 ### オプション 1: 文字列クエリパラメーターを使用したリンク {#option-1-link-with-string-query-parameters}
 
 URLの本文にクエリ文字列のフィールド値ペアを使用して、ユーザーIDとメールカテゴリをページに渡すことで、ユーザーは配信停止の選択を確認するだけで済みます。このオプションは、ユーザー識別子をハッシュ形式で保存しており、まだサブスクリプションセンターを持っていない場合に適しています。
 
 このオプションでは、各メールカテゴリに固有の配信停止リンクが必要です:<br>
-`http://mycompany.com/query-string-form-fill?field_id=John&field_category=offers`
+`http://mycompany.com/query-string-form-fill?field_id=Alex&field_category=offers`
 
 {% alert tip %}
 Liquidフィルターを使用して、送信時にユーザーのexternal IDをハッシュ化することも可能です。これにより、`user_id`がMD5ハッシュ値に変換されます。例:
@@ -109,7 +109,7 @@ My encoded string is: {{my_string}}
 ```json
 {
     "user_id": "1234567890",
-    "name": "John Doe",
+    "name": "Alex Smith",
     "category": "offers"
 }
 ```
@@ -126,7 +126,7 @@ My encoded string is: {{my_string}}
 
 いいえ。ただし、カスタムのオプトインおよびオプトアウトページのHTMLを記述する際にLiquidを活用できます。動的リンクを使用して配信停止を管理している場合、これは単一のリンクです。
 
-たとえば、スペイン語を話すユーザーの配信停止率を追跡する場合、別々のCampaignを使用するか、Currentsに関する分析を活用する必要があります（ユーザーが配信停止した時期を確認し、そのユーザーの優先言語を確認するなど）。
+たとえば、スペイン語を話すユーザーの配信停止率を追跡する場合、別々のキャンペーンを使用するか、Currentsに関する分析を活用する必要があります（ユーザーが配信停止した時期を確認し、そのユーザーの優先言語を確認するなど）。
 
 別の例として、スペイン語を話すユーザーの配信停止率を追跡する場合、ユーザーの言語がスペイン語であれば配信停止URLに`?Spanish=true`のようなクエリパラメーター文字列を追加し、そうでなければ通常の配信停止リンクを使用できます:
 
@@ -143,11 +143,11 @@ ${unsubscribe_url}
 
 ### 送信には配信停止リンクとメールユーザー設定センターの両方が必要ですか？ {#are-both-unsubscribe-links-and-email-preference-centers-required-for-sending}
 
-いいえ。メールCampaignの作成時に「メール本文に配信停止リンクが含まれていません」というメッセージが表示される場合、配信停止リンクがコンテンツブロックに含まれている場合にこの警告が表示されることが想定されています。
+いいえ。メールキャンペーンの作成時に「メール本文に配信停止リンクが含まれていません」というメッセージが表示される場合、配信停止リンクがコンテンツブロックに含まれている場合にこの警告が表示されることが想定されています。
 
 ### デフォルトのブラウザアイコンを更新するにはどうすればよいですか？ {#how-do-i-update-the-default-browser-icon}
 
-デフォルトでは、ブラウザタブ名の横のアイコン（ファビコン）にはBrazeのロゴが使用されます。カスタムファビコンを追加するには、作成または更新の[ユーザー設定センターAPI呼び出し]({{site.baseurl}}/api/endpoints/preference_center/)で`links-tags`属性を介して設定します。Brazeはホストされたページに{% raw %}`<link rel="icon" ...>`{% endraw %}タグを挿入します。
+デフォルトでは、ブラウザタブ名の横のアイコン（ファビコン）にはBrazeのロゴが使用されます。カスタムファビコンを追加するには、作成または更新の[ユーザー設定センターAPI呼び出し]({{site.baseurl}}/api/endpoints/preference_center)で`links-tags`属性を介して設定します。Brazeはホストされたページに{% raw %}`<link rel="icon" ...>`{% endraw %}タグを挿入します。
 
 {% raw %}
 ```

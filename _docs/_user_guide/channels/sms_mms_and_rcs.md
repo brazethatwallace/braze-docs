@@ -23,9 +23,9 @@ SMS, MMS, and RCS availability depends on your Braze package. Contact your accou
 
 Before you start, make sure you have the following:
 
-- Short codes, long codes, or Alphanumeric sender IDs configured. For more information, refer to [Sender setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/).
-- Familiarity with SMS laws and regulations, including TCPA and carrier requirements. For more information, refer to [Laws and regulations]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
-- Explicit opt-in consent collected from users. For more information, refer to [Collecting user opt-ins]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins/).
+- Short codes, long codes, or Alphanumeric sender IDs configured. For more information, refer to [Sender setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup).
+- Familiarity with SMS laws and regulations, including TCPA and carrier requirements. For more information, refer to [Laws and regulations]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
+- Explicit opt-in consent collected from users. For more information, refer to [Collecting user opt-ins]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins).
 
 ## Use cases
 
@@ -36,7 +36,7 @@ Before you start, make sure you have the following:
 | Two-factor authentication | Deliver one-time verification codes for account login and transaction confirmation. |
 | Promotional offers | Reach customers with time-sensitive promotions, flash sales, and personalized discounts directly on their phone. |
 | Customer support | Enable two-way conversations to resolve customer inquiries, collect feedback, or confirm service requests. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## SMS, MMS, and RCS compared
 
@@ -53,9 +53,9 @@ RCS (Rich Communication Services) builds on SMS with a richer, more app-like exp
 - Show a verified sender profile with branding so messages are easy to trust.
 - Support read receipts and typing indicators where carriers allow it.
 
-RCS is suited to use cases such as transactional updates (shipping, appointments), promotions with rich creative, customer support with quick-reply paths, and onboarding or tutorials that benefit from media and structured actions. For setup and migration from SMS, see [RCS setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/).
+RCS is suited to use cases such as transactional updates (shipping, appointments), promotions with rich creative, customer support with quick-reply paths, and onboarding or tutorials that benefit from media and structured actions. For setup and migration from SMS, see [RCS setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup).
 
 ## Next steps
 
-- [Message setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/)
-- [Create a message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)
+- [Message setup]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup)
+- [Create a message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)

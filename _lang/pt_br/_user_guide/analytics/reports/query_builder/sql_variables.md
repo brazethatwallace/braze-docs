@@ -33,11 +33,11 @@ Para adicionar uma variável à sua consulta, use a seguinte sintaxe:
 
 Substitua o seguinte:
 
-| Placeholder      | Descrição                                                                                                                              |
+| Placeholder | Descrição |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `variable_type`   | O tipo de variável predefinido que você deseja usar, como `campaign` ou `catalog_fields`. Para a lista completa, consulte [Tipos de variáveis suportados](#variable-types). |
+| `variable_type` | O tipo de variável predefinido que você deseja usar, como `campaign` ou `catalog_fields`. Para a lista completa, consulte [Tipos de variáveis suportados](#variable-types). |
 | `custom_label` | O rótulo usado para identificar a variável na guia **Variables** do seu Criador de consultas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Adicionar uma variável" }
 
 No exemplo a seguir, o número total de usuários entre o primeiro e o último dia de um mês é consultado para uma Campaign. Cada variável receberá um valor na próxima etapa.
 
@@ -61,7 +61,7 @@ No exemplo a seguir, a Campaign "Summer Feature Launch" é atribuída como valor
 
 ## Tipos de variáveis gerais {#variable-types}
 
-### Number
+### Number {#number}
 
 `number` pode ser usado em combinação com outras variáveis que não sejam string. Aceita qualquer número positivo ou negativo, incluindo números decimais, como `5.5`.
 
@@ -75,7 +75,7 @@ some_number_column < {{number.${custom_label}}}
 {% endtab %}
 {% endtabs %}
 
-### String
+### String {#string}
 
 Para alterar valores de string repetitivos entre execuções de relatório. Use esta variável para evitar codificar um valor várias vezes no seu SQL.
 
@@ -183,7 +183,7 @@ Você pode definir o intervalo de datas para qualquer uma das seguintes opções
 | Data de início | Especifica uma data de início | Requer `start_date` |
 | Data de término | Especifica uma data de término | Requer `end_date` |
 | Intervalo de datas | Especifica tanto uma data de início quanto de término | Requer tanto `start_date` quanto `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Intervalo de datas" }
 
 Seu Liquid será usado para exibir um calendário dentro do intervalo de datas fornecido:
 
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) ativado. Defina como o ID de análise de dados do Segment, que corresponde aos IDs armazenados na coluna `user_segment_membership_ids` nas tabelas onde essa coluna está disponível.
+Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado. Defina como o ID de análise de dados do Segment, que corresponde aos IDs armazenados na coluna `user_segment_membership_ids` nas tabelas onde essa coluna está disponível.
 
 {% tabs %}
 {% tab uso %}
@@ -455,7 +455,7 @@ Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site
 {% endtab %}
 {% endtabs %}
 
-### Tags
+### Tags {#tags}
 
 Para selecionar tags para Campaigns e Canvas. Defina para Campaigns e Canvas com IDs BSON separados por vírgulas e entre aspas simples que estejam associados às tags selecionadas.
 
@@ -571,7 +571,7 @@ include_double_quotes: 'true'
 {% endtab %}
 {% endtabs %}
 
-### Placeholder
+### Placeholder {#placeholder}
 
 Para especificar o texto de placeholder exibido no campo de entrada da variável.
 

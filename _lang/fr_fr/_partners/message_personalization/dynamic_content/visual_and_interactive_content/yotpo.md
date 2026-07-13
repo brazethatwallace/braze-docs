@@ -22,8 +22,8 @@ Grâce à l'intégration de Braze et de Yotpo, vous pouvez extraire et afficher 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Yotpo | Un compte Yotpo est nécessaire pour bénéficier de ce partenariat. |
-| Clé API des avis Yotpo | Cette API sera mise en œuvre dans l'extrait de code Contenu connecté.<br><br>Pour plus d'informations, reportez-vous à la section [Trouver votre clé d'application Yotpo et votre clé secrète](https://support.yotpo.com/en/article/finding-your-yotpo-app-key-and-secret-key). |
-| Clé API de fidélisation Yotpo | Cette clé API et cet identifiant unique global (GUID) seront mis en œuvre dans l'extrait de code Contenu connecté.<br><br>Pour plus d'informations, reportez-vous à la section [Trouver votre clé API et GUID de fidélisation et de recommandation](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
+| Clé API des avis Yotpo | Cette API sera mise en œuvre dans l'extrait de code de Contenu connecté.<br><br>Pour plus d'informations, reportez-vous à la section [Trouver votre clé d'application Yotpo et votre clé secrète](https://support.yotpo.com/en/article/finding-your-yotpo-app-key-and-secret-key). |
+| Clé API de fidélisation Yotpo | Cette clé API et cet identifiant unique global (GUID) seront mis en œuvre dans l'extrait de code de Contenu connecté.<br><br>Pour plus d'informations, reportez-vous à la section [Trouver votre clé API et GUID de fidélisation et de recommandation](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 Avant de continuer, confirmez que l'ID du produit Yotpo est le même que le `product_id` qui sera extrait dynamiquement de Braze. Cette étape est obligatoire pour que l'intégration fonctionne.

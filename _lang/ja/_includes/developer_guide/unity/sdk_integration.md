@@ -22,7 +22,9 @@ Braze [`.unitypackage`](https://docs.unity3d.com/Manual/AssetPackages.html)は�
     - このパッケージは`Appboy.unitypackage`に似ていますが、[SDWebImage](https://github.com/SDWebImage/SDWebImage)フレームワークが含まれていない点が異なります。このパッケージは、iOSアプリにSDWebImageフレームワークを含めたくない場合に便利です。
 
 {% alert note %}
-Unity 2.6.0以降、バンドルされたBraze Android SDKアーティファクトには[AndroidX](https://developer.android.com/jetpack/androidx)依存関係が必要です。以前に`jetified unitypackage`を使用していた場合は、対応する`unitypackage`に安全に移行できます。
+Unity 2.6.0以降、バンドルされたBraze Android SDKアーティファクトには[AndroidX](https://developer.android.com/jetpack/androidx)依存関係が必要です。以前に`jetified` unitypackageを使用していた場合は、対応する`unitypackage`に安全に移行できます。
+
+Androidビルドが「This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled」で失敗する場合は、UnityのPublishing Settingsで[Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing)を有効にしてください。次に`Assets/Plugins/Android/gradleTemplate.properties`を開き、`android.useAndroidX=true`を設定します。動作するテンプレートについては、[Braze Unityサンプルアプリ](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)とその[`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties)ファイルを参照してください。
 {% endalert %}
 {% endtab %}
 
@@ -124,7 +126,7 @@ Braze SDKが機能するように[`AndroidManifest.xml`](https://docs.unity3d.co
 
 パッケージ名を確認するには、**File > Build Settings > Player Settings > Android Tab**を選択します。
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![Unity Player SettingsのAndroidタブ。アプリケーションのパッケージ名が表示されています。]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 `AndroidManifest.xml`では、`REPLACE_WITH_YOUR_PACKAGE_NAME`のすべてのインスタンスを前のステップの`Package Name`に置き換える必要があります。
 
@@ -167,7 +169,7 @@ Brazeは、Unity iOS統合を自動化するためのネイティブUnityソリ�
 2. **Automate Unity iOS Integration**ボックスにチェックマークを入れます。
 3. **Braze API Key**フィールドに、**設定の管理**にあるアプリケーションのAPIキーを入力します。
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Unity Braze設定ウィンドウ。Automate Unity iOS IntegrationとBraze API Keyフィールドが表示されています。]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 アプリですでに別の`UnityAppController`サブクラスを使用している場合は、サブクラスの実装を`AppboyAppDelegate.mm`とマージする必要があります。
 {% endtab %}
@@ -244,10 +246,10 @@ Unityエディターで詳細ログを有効にするには、以下の手順を
 
 ### Prime 31の互換性 {#prime-31-compatibility}
 
-Prime31プラグインでBraze Unityプラグインを使用するには、Prime31互換のActivityクラスを使用するようにプロジェクトの`AndroidManifest.xml`を編集します。以下のすべての参照を変更してください。
-`com.braze.unity.BrazeUnityPlayerActivity`を`com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`に変更します。
+Prime31プラグインでBraze Unityプラグインを使用するには、Prime31互換のActivityクラスを使用するようにプロジェクトの`AndroidManifest.xml`を編集します。以下のすべての参照を
+`com.braze.unity.BrazeUnityPlayerActivity`から`com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`に変更してください。
 
-### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
+### Amazon Device Messaging (ADM)
 
 Brazeは、Unityアプリへの[ADMプッシュ](https://developer.amazon.com/public/apis/engage/device-messaging)の統合をサポートしています。ADMプッシュを統合する場合は、ADM APIキーを含む`api_key.txt`というファイルを作成し、`Plugins/Android/assets/`フォルダーに配置してください。ADMとBrazeの統合の詳細については、[ADMプッシュ統合の説明]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity)を参照してください。
 

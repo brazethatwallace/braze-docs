@@ -8,12 +8,12 @@ layout: redirect
 redirect_to: /docs/developer_guide/getting_started/
 ---
 
-# Resumen de la personalización
+# Resumen de la personalización {#customization-overview}
 
-> ¡Casi todo en Braze es totalmente personalizable! Los artículos de esta Guía de personalización te muestran cómo enfocar el perfeccionamiento de tu experiencia Braze mediante una mezcla de configuración y personalización. Durante este proceso, los equipos de marketing e ingeniería deben colaborar estrechamente para coordinar exactamente cómo personalizar los canales de mensajería Braze.
+> ¡Casi todo en Braze es totalmente personalizable! Los artículos de esta guía de personalización te muestran cómo enfocar el perfeccionamiento de tu experiencia con Braze mediante una mezcla de configuración y personalización. Durante este proceso, los equipos de marketing e ingeniería deben colaborar estrechamente para coordinar exactamente cómo personalizar los canales de mensajería de Braze.
 
 {% alert note %}
-El SDK de Braze es un potente conjunto de herramientas, pero a alto nivel proporciona dos importantes funciones: ayuda a recopilar y sincronizar los datos de usuario entre plataformas en un perfil de usuario consolidado, y también gestiona canales de mensajería como mensajes dentro de la aplicación, notificaciones push y tarjetas de contenido. Para los artículos de la Guía de personalización, se asume que ya has pasado por el [proceso de implementación del SDK]({{site.baseurl}}/developer_guide/home).
+El SDK de Braze es un potente conjunto de herramientas, pero a alto nivel proporciona dos importantes funciones: ayuda a recopilar y sincronizar los datos de usuario entre plataformas en un perfil de usuario consolidado, y también gestiona canales de mensajería como mensajes dentro de la aplicación, notificaciones push y Content Cards. Los artículos de la guía de personalización asumen que ya has pasado por el [proceso de implementación del SDK]({{site.baseurl}}/developer_guide/home).
 {% endalert %}
 
 Todos los componentes de Braze están diseñados para ser accesibles, adaptables y personalizables. Por ello, te recomendamos que empieces con los componentes predeterminados de `BrazeUI` y los personalices para adaptarlos a las necesidades de tu marca y a tu caso de uso. En Braze, dividimos la personalización en tres enfoques diferentes, según el esfuerzo asociado y el nivel de flexibilidad proporcionado. Estos enfoques se denominan "gatear", "caminar" o "correr".
@@ -32,15 +32,16 @@ table td {
 </style>
 
 {% tabs %}
-{% tab Crawl %}
+{% tab Gatear %}
 
-![Ejemplo de aplicación financiera que muestra tarjetas de contenido solo de imagen y tarjetas de contenido subtituladas.]({% image_buster/assets/img_archive/cc_pyrite_crawl.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
+![Ejemplo de aplicación financiera que muestra Content Cards de imagen subtitulada y solo imagen]({% image_buster/assets/img_archive/cc_pyrite_crawl.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
 
-El enfoque Crawl pone el poder de la personalización directamente en manos de los especialistas en marketing. Aunque para integrar los canales de mensajería Braze en tu aplicación o sitio web es necesario un ligero trabajo de desarrollo previo, este enfoque te permite ponerte en marcha antes. 
+El enfoque Gatear pone el poder de la personalización directamente en manos de los especialistas en marketing. Aunque para integrar los canales de mensajería de Braze en tu aplicación o sitio web es necesario un ligero trabajo de desarrollo previo, este enfoque te permite ponerte en marcha antes.
 
-Los especialistas en marketing determinan el contenido, la audiencia y el momento de envío de los mensajes a través del panel. Sin embargo, las opciones de estilo son limitadas. Este enfoque es el más adecuado para equipos con recursos limitados de desarrolladores o que desean compartir rápidamente contenidos sencillos. 
+Los especialistas en marketing determinan el contenido, la audiencia y el momento de envío de los mensajes a través del dashboard. Sin embargo, las opciones de estilo son limitadas. Este enfoque es el más adecuado para equipos con recursos limitados de desarrolladores o que desean compartir rápidamente contenidos sencillos.
 
-<table>
+<table aria-label="Resumen de la personalización">
+  <caption>Resumen de la personalización</caption>
 <thead>
   <tr>
     <th>Personalización</th>
@@ -50,7 +51,7 @@ Los especialistas en marketing determinan el contenido, la audiencia y el moment
 <tbody>
   <tr>
     <td><b>Esfuerzo</b></td>
-    <td>Baja</td>
+    <td>Bajo</td>
   </tr>
     <tr>
     <td><b>Trabajo de desarrollador</b></td>
@@ -65,7 +66,7 @@ Los especialistas en marketing determinan el contenido, la audiencia y el moment
     <td>Elige entre las opciones de comportamiento predeterminadas.</td>
   </tr>
   <tr>
-    <td><b>Seguimiento analítico</b></td>
+    <td><b>Seguimiento de análisis</b></td>
     <td>Los análisis se capturan en Braze.</td>
   </tr>
   <tr>
@@ -76,17 +77,18 @@ Los especialistas en marketing determinan el contenido, la audiencia y el moment
 </table>
 
 {% endtab %}
-{% tab Walk %}
+{% tab Caminar %}
 
-![Ejemplo de aplicación financiera que muestra tarjetas de contenido personalizadas.]({% image_buster/assets/img_archive/cc_pyrite_walk.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
+![Ejemplo de aplicación financiera que muestra Content Cards con personalización]({% image_buster/assets/img_archive/cc_pyrite_walk.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
 
-Un enfoque híbrido de la implementación, el enfoque Walk implica que tanto el equipo de marketing como el de desarrolladores colaboren para hacer coincidir la marca de tu aplicación o sitio web. 
+Un enfoque híbrido de la implementación, el enfoque Caminar implica que tanto el equipo de marketing como el de desarrolladores colaboren para hacer coincidir la marca de tu aplicación o sitio web.
 
-Durante el proceso de implementación, los desarrolladores escriben código personalizado para actualizar el aspecto de un canal de mensajería para que se ajuste más a tu marca. Esto incluye cambiar el tipo y tamaño de letra, las esquinas redondeadas y los colores. Este enfoque sigue utilizando las opciones predeterminadas, sólo que con un estilo de plantilla programado.
+Durante el proceso de implementación, los desarrolladores escriben código personalizado para actualizar el aspecto de un canal de mensajería y que se ajuste más a tu marca. Esto incluye cambiar el tipo y tamaño de letra, las esquinas redondeadas y los colores. Este enfoque sigue utilizando las opciones predeterminadas, solo que con un estilo de plantilla programático.
 
-Los especialistas en marketing siguen manteniendo el control de la audiencia, el contenido, el comportamiento al hacer clic y la caducidad directamente en el panel Braze.
+Los especialistas en marketing siguen manteniendo el control de la audiencia, el contenido, el comportamiento al hacer clic y la caducidad directamente en el dashboard de Braze.
 
-<table>
+<table aria-label="Resumen de la personalización">
+  <caption>Resumen de la personalización</caption>
 <thead>
   <tr>
     <th>Personalización</th>
@@ -96,22 +98,22 @@ Los especialistas en marketing siguen manteniendo el control de la audiencia, el
 <tbody>
   <tr>
     <td><b>Esfuerzo</b></td>
-    <td>Baja</td>
+    <td>Bajo</td>
   </tr>
     <tr>
     <td><b>Trabajo de desarrollador</b></td>
     <td>0-4 horas</td>
   </tr>
   <tr>
-    <td><b>INTERFAZ DE USUARIO</b></td>
-    <td>Utiliza plantillas Braze o utiliza plantillas creadas por tus propios desarrolladores.</td>
+    <td><b>IU</b></td>
+    <td>Utiliza plantillas de Braze o utiliza plantillas creadas por tus propios desarrolladores.</td>
   </tr>
   <tr>
     <td><b>Comportamiento</b></td>
     <td>Elige entre las opciones de comportamiento predeterminadas.</td>
   </tr>
   <tr>
-    <td><b>Seguimiento analítico</b></td>
+    <td><b>Seguimiento de análisis</b></td>
     <td>Los análisis predeterminados se capturan en Braze.</td>
   </tr>
   <tr>
@@ -122,15 +124,16 @@ Los especialistas en marketing siguen manteniendo el control de la audiencia, el
 </table>
 
 {% endtab %}
-{% tab Run %}
+{% tab Correr %}
 
-![Ejemplo de aplicación financiera que muestra tarjetas de contenido personalizadas con captura de correo electrónico.]({% image_buster/assets/img_archive/cc_pyrite_run.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
+![Ejemplo de aplicación financiera que muestra Content Cards personalizadas con captura de correo electrónico]({% image_buster/assets/img_archive/cc_pyrite_run.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
 
-Con el enfoque de "correr", los desarrolladores toman la iniciativa con pleno control de la experiencia del usuario. El código personalizado dicta qué aspecto tendrán los mensajes, cómo se comportan y cómo interactúan con otros canales de mensajería (por ejemplo, desencadenar una tarjeta de contenido basada en una notificación push).
+Con el enfoque Correr, los desarrolladores toman la iniciativa con pleno control de la experiencia del usuario. El código personalizado dicta qué aspecto tendrán los mensajes, cómo se comportan y cómo interactúan con otros canales de mensajería (por ejemplo, desencadenar una Content Card a partir de una notificación push).
 
-Cuando crees contenido personalizado completamente nuevo, como nuevos tipos de tarjetas de contenido o mensajes dentro de la aplicación con una interfaz de usuario a medida, el SDK de Braze no hará un [seguimiento automático]({{site.baseurl}}/developer_guide/analytics/) de los análisis. Debes gestionar los análisis mediante programación para que los especialistas en marketing sigan teniendo acceso a métricas como impresiones, clics y descartes en el panel Braze. Llama a los métodos de análisis del SDK de Braze para que el SDK devuelva estos datos a Braze. Cada canal de mensajería dispone de un artículo de análisis para facilitar esta tarea.
+Cuando crees contenido personalizado completamente nuevo, como nuevos tipos de Content Cards o mensajes dentro de la aplicación con una interfaz de usuario a medida, el SDK de Braze no hará un [seguimiento automático de los análisis]({{site.baseurl}}/developer_guide/analytics). Debes gestionar los análisis mediante programación para que los especialistas en marketing sigan teniendo acceso a métricas como impresiones, clics y descartes en el dashboard de Braze. Llama a los métodos de análisis del SDK de Braze para que el SDK devuelva estos datos a Braze. Cada canal de mensajería dispone de un artículo de análisis para facilitar esta tarea.
 
-<table>
+<table aria-label="Resumen de la personalización">
+  <caption>Resumen de la personalización</caption>
 <thead>
   <tr>
     <th>Personalización</th>
@@ -144,23 +147,23 @@ Cuando crees contenido personalizado completamente nuevo, como nuevos tipos de t
   </tr>
     <tr>
     <td><b>Trabajo de desarrollador</b></td>
-    <td>Poco esfuerzo: 1-4 horas<br>Esfuerzo medio: 4-8 horas<br>Mucho esfuerzo: Más de 8 horas</td>
+    <td>Poco esfuerzo: 1-4 horas<br>Esfuerzo medio: 4-8 horas<br>Mucho esfuerzo: más de 8 horas</td>
   </tr>
   <tr>
-    <td><b>INTERFAZ DE USUARIO</b></td>
-    <td>Personalizado</td>
+    <td><b>IU</b></td>
+    <td>Personalizada</td>
   </tr>
   <tr>
     <td><b>Comportamiento</b></td>
     <td>Personalizado</td>
   </tr>
   <tr>
-    <td><b>Seguimiento analítico</b></td>
+    <td><b>Seguimiento de análisis</b></td>
     <td>Personalizado</td>
   </tr>
   <tr>
     <td><b>Pares clave-valor</b></td>
-    <td>Obligatoria</td>
+    <td>Obligatorio</td>
   </tr>
 </tbody>
 </table>

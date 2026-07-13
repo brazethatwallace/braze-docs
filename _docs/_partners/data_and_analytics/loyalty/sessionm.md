@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM Loyalty Platform
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) is a customer engagement and loyalty platform that provides campaign management features and loyalty management solutions to help marketers drive targeted outreach to increase engagement and profitability.
+> [SessionM](https://sessionm.com/) is a customer engagement and loyalty platform, part of Capillary Technologies, that provides campaign management features and loyalty management solutions to help marketers drive targeted outreach to increase engagement and profitability.
 
 ## Prerequisites
 
@@ -25,11 +25,7 @@ search_tag: Partner
 | SessionM | A SessionM Connect REST endpoint | Your endpoint will depend on the SessionM URL of your instance. Contact your SessionM technical account manager or Delivery team to provide. |
 | SessionM | A SessionM Connect REST Authorization string | The SessionM Connect Basic Authorization string associated with your instance. This authentication string can be used for all connect based calls including get_user_offers. Please contact your SessionM technical account manager or Delivery team to provide. |
 | SessionM | A SessionM Connect REST Retailer ID | A unique guid identification to the specific customer associated with your instance. Contact your SessionM technical account manager or Delivery team to provide. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-{% alert note %} 
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), you can create an API key at **Developer Console** > **API Settings**. 
-{% endalert %} 
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -66,7 +62,7 @@ Using a raw text **Request Body**, compose the webhook body to include the desir
 }
  ```
 
-![]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
+![SessionM webhook composer with JSON payload for Braze campaign trigger setup.]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
 
 In the **Settings** tab, add the key-value pairs for each request header field:
     - Create a key `Content-Type` with a corresponding value `application/json`

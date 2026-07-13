@@ -26,4 +26,4 @@ Here's what we recommend for various ranges of _Prediction Quality_:
 | 40 - 60 | Good. This model will produce accurate predictions, but trying different audience settings may achieve even better results. |
 | 20 - 40| Fair. This model can provide accuracy and value, but consider trying different audience definitions to see if they increase performance. |
 | 0 - 20 | Poor. We recommend you change your audience definitions and try again. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Recommended ranges" }

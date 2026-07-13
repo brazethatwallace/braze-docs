@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Exportieren von U
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `purchases.revenue_series`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `purchases.revenue_series`.
 
 ## Rate-Limit
 
@@ -33,9 +33,9 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `ending_at` | Optional | Datetime ([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) String) | Datum, an dem der Datenexport enden soll. Standardmäßig wird der Zeitpunkt der Anfrage verwendet. |
 | `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Serie enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
 | `unit` | Optional | String | Zeiteinheit zwischen Datenpunkten. Kann Tag oder Stunde sein, Standardeinstellung ist Tag. |
-| `app_id` | Optional | String | API-Bezeichner der App, abgerufen von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Wenn nicht angegeben, werden die Ergebnisse für alle Apps in einem Workspace zurückgegeben. |
+| `app_id` | Optional | String | API-Bezeichner der App, abgerufen von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Wenn nicht angegeben, werden die Ergebnisse für alle Apps in einem Workspace zurückgegeben. |
 | `product` | Optional | String | Name des Produkts, nach dem die Antwort gefiltert werden soll. Wenn nicht angegeben, werden die Ergebnisse für alle Apps zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 {% endapi %}
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

@@ -6,7 +6,7 @@ guide_top_header: "Kampagnen testen"
 guide_top_text: "Bevor Sie Ihre Kampagnen versenden, sollten Sie Ihre Nachrichten immer testen. Danach sollten Sie sich stets die Ergebnisse ansehen, um sicherzustellen, dass Ihre Kampagne erfolgreich war und sich positiv auf Ihre zukünftigen Kampagnen auswirkt.<br><br> Hier finden Sie Ressourcen zum Testen von Kampagnen, z. B. zum Versenden von Testnachrichten und zur Durchführung von A/B-Tests."
 page_order: 4
 
-tool: 
+tool:
   - Campaigns
   - Reports
 page_type: landing
@@ -18,7 +18,7 @@ guide_featured_list:
     link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages
     image: /assets/img/braze_icons/mail-01.svg
   - name: API-getriggerte und aktionsbasierte Kampagnen
-    link: /docs/user_guide/messaging/campaigns/testing_and_more/triggered_action_based
+    link: /docs/user_guide/messaging/campaigns/test_campaigns/triggered_action_based
     image: /assets/img/braze_icons/columns-01.svg
   - name: Multivariate und A/B-Tests
     link: /docs/user_guide/messaging/ab_testing
@@ -29,7 +29,7 @@ guide_menu_list:
   - name: Kampagnen-Analytics
     link: /docs/user_guide/analytics/reports/campaign_analytics
     image: /assets/img/braze_icons/pie-chart-01.svg
-  - name: Bindungsberichte
+  - name: Berichte zur Bindung
     link: /docs/user_guide/analytics/reports/retention_reports
     image: /assets/img/braze_icons/line-chart-down-01.svg
   - name: Funnel-Berichte

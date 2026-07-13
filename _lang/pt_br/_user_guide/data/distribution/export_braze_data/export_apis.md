@@ -8,13 +8,13 @@ platform: API
 
 ---
 
-# APIs de exportação
+# APIs de exportação {#export-apis}
 
 > Esta página ajuda você a decidir quando usar APIs de exportação em vez de downloads de CSV do dashboard.
 
-As APIs de exportação da Braze permitem exportar dados da Braze programaticamente como JSON. Para saber mais sobre o que você pode exportar, pré-requisitos e como a entrega funciona, consulte [Endpoints de exportação]({{site.baseurl}}/api/endpoints/export/).
+As APIs de exportação da Braze permitem exportar dados da Braze programaticamente como JSON. Para saber mais sobre o que você pode exportar, pré-requisitos e como a entrega funciona, consulte [Endpoints de exportação]({{site.baseurl}}/api/endpoints/export).
 
-## Quando usar APIs de exportação em vez de downloads de CSV
+## Quando usar APIs de exportação em vez de downloads de CSV {#when-to-use-export-apis-instead-of-csv-downloads}
 
 A tabela a seguir descreve cenários comuns em que usar a API de exportação é uma escolha melhor do que um download de CSV pelo dashboard.
 
@@ -25,8 +25,8 @@ A tabela a seguir descreve cenários comuns em que usar a API de exportação é
 | Você precisa alimentar dados em ferramentas externas | Envie dados de exportação diretamente para ferramentas de BI, data warehouses ou outras plataformas de análise de dados. |
 | Você precisa de dados que não estão disponíveis como exportação de CSV no dashboard | Algumas categorias de dados, incluindo KPIs, séries de receita, análise de dados de eventos personalizados e dados de sessão, estão disponíveis apenas pela API. |
 | Você quer interagir com os dados de forma programática | Use a saída JSON para processamento personalizado, transformações ou integrações. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quando usar APIs de exportação em vez de downloads de CSV" }
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, consulte [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, consulte [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

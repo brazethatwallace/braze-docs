@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [일치하는 커스텀 속성에 따라 메시지 개인화하기](#attribute-matching)
+- [유럽식 숫자 표기법에 맞게 통화 포맷하기](#european-currency-format)
 - [두 커스텀 속성을 빼서 차이를 금액으로 표시하기](#attribute-monetary-difference)
 - [전체 이름이 first_name 필드에 저장된 경우 사용자의 이름 참조하기](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### 유럽식 숫자 표기법에 맞게 통화 포맷하기 {#european-currency-format}
+
+소수점 구분 기호로 쉼표를, 천 단위 구분 기호로 마침표를 사용하는 로케일(예: 독일 또는 이탈리아)의 경우, [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) 및 [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) 필터와 `replace`를 함께 사용하여 구분 기호를 교체합니다. 마침표와 쉼표가 같은 패스에서 교체되지 않도록 `#`을 임시 플레이스홀더로 사용합니다.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**출력:** `1.234.567,89`
+
+**설명:** `money` 필터는 소수점 자릿수를 추가하지만 통화 기호나 로케일별 구분 기호는 추가하지 않습니다. `number_with_delimiter`는 미국식 천 단위 구분 기호를 추가하고, `replace` 필터가 이를 유럽식 포맷으로 변환합니다.
 {% endraw %}
 
 ### 두 커스텀 속성을 빼서 차이를 금액으로 표시하기 {#attribute-monetary-difference}
@@ -858,7 +873,7 @@ Miscellaneous
 
 ### 마케팅 이메일을 차단한 고객에게 이메일 발송 피하기 {#misc-avoid-blocked-emails}
 
-이 사용 사례는 Content Blocks에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 Campaign이나 Canvases에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
+이 사용 사례는 Content Blocks에 저장된 차단된 사용자 목록을 가져와 해당 차단된 사용자가 향후 Campaigns이나 Canvases에서 커뮤니케이션이나 타겟팅되지 않도록 확인합니다.
 
 {% alert important %}
 이 Liquid를 사용하려면 먼저 차단된 이메일 목록을 Content Blocks에 저장해야 합니다. 목록에는 이메일 주소 사이에 추가 공백이나 문자가 삽입되지 않아야 합니다(예: `test@braze.com,abc@braze.com`).
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 이 사용 사례를 통해 사용자는 커스텀 이벤트를 기반으로 다가오는 리마인더를 설정할 수 있습니다. 예시 시나리오에서는 사용자가 26일 이상 남은 보험 갱신 날짜에 대한 리마인더를 설정할 수 있으며, 보험 갱신 날짜 26일, 13일, 7일 또는 2일 전에 리마인더가 발송됩니다.
 
-이 사용 사례에서는 다음 내용이 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) 또는 캔버스 단계의 본문에 들어가야 합니다.
+이 사용 사례에서는 다음 내용이 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 또는 캔버스 단계의 본문에 들어가야 합니다.
 
 {% raw %}
 ```liquid
@@ -1373,6 +1388,10 @@ Time zones
 - [발송 시점에 시간 범위 밖이면 메시지 중단하기](#abort-send-time-hour-range)
 - [고정 시간대에서 시간 범위 밖이면 메시지 중단하기](#abort-fixed-timezone-window)
 
+{% alert note %}
+사용자가 예상치 못한 현지 시간에 메시지를 받는 경우, 기기 또는 프로필 시간대가 변경되었을 수 있습니다(예: 여행 후). 현지 시간 전달은 발송 시점의 프로필 시간대를 사용하며, 사용자가 평소 지역에서 새 세션을 시작해야 {% raw %}`{{${time_zone}}}`{% endraw %}와 같은 값이 예상대로 반영됩니다. 그러나 [사용자의 시간대를 템플릿에 삽입](#users-time-zone)할 수 있습니다.
+{% endalert %}
+
 ### 사용자의 시간대를 템플릿에 삽입하기 {#users-time-zone}
 
 기본적으로 Liquid의 날짜와 시간은 협정 세계시(UTC)로 렌더링됩니다. 사용자의 현지 시간대로 날짜와 시간을 표시하려면 `date` 필터와 함께 `time_zone` 필터를 사용하세요.
@@ -1520,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} 이것은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options)의 반대입니다. {% endalert %}
+{% alert note %} 이것은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options)의 반대입니다. {% endalert %}
 
 ### 발송 시점에 시간 범위 밖이면 메시지 중단하기 {#abort-send-time-hour-range}
 
@@ -1796,3 +1815,5 @@ Default copy
 {% endraw %}
 
 {% endapi %}
+
+이 라이브러리의 많은 예시에서는 조건이 충족되지 않을 때 발송을 건너뛰기 위해 `abort_message` 태그를 사용합니다. Liquid를 사용한 발송 중단에 대한 전체 참조(날짜 및 시간 기반 패턴 포함)는 [Liquid 메시지 중단하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 참조하세요.

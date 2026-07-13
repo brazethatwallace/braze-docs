@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Nachricht basierend auf übereinstimmenden angepassten Attributen personalisieren](#attribute-matching)
+- [Währung für europäische Zahlenkonventionen formatieren](#european-currency-format)
 - [Zwei angepasste Attribute subtrahieren und die Differenz als Geldwert anzeigen](#attribute-monetary-difference)
 - [Vornamen referenzieren, wenn der vollständige Name im first_name-Feld gespeichert ist](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Währung für europäische Zahlenkonventionen formatieren {#european-currency-format}
+
+Für Regionen, die ein Komma als Dezimaltrennzeichen und einen Punkt als Tausendertrennzeichen verwenden (z. B. Deutschland oder Italien), verwenden Sie die Filter [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) und [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) mit `replace`, um die Trennzeichen zu tauschen. Verwenden Sie `#` als temporären Platzhalter, damit Punkte und Kommas nicht im selben Durchgang vertauscht werden.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Ausgabe:** `1.234.567,89`
+
+**Erklärung:** Der `money`-Filter fügt Dezimalstellen hinzu, aber kein Währungssymbol oder regionsspezifische Trennzeichen. `number_with_delimiter` fügt US-amerikanische Tausendertrennzeichen hinzu, und die `replace`-Filter wandeln sie in das europäische Format um.
 {% endraw %}
 
 ### Zwei angepasste Attribute subtrahieren und die Differenz als Geldwert anzeigen {#attribute-monetary-difference}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 Dieser Anwendungsfall ermöglicht es Nutzer:innen, bevorstehende Erinnerungen basierend auf angepassten Events einzurichten. Das Beispielszenario ermöglicht es, eine Erinnerung für ein Verlängerungsdatum einer Police einzurichten, das 26 oder mehr Tage entfernt ist, wobei Erinnerungen 26, 13, 7 oder 2 Tage vor dem Verlängerungsdatum gesendet werden.
 
-Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) oder eines Canvas-Schritts stehen.
+Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) oder eines Canvas-Schritts stehen.
 
 {% raw %}
 ```liquid
@@ -1306,7 +1321,7 @@ Content for Android.
 
 Dieser Anwendungsfall prüft, ob der Mobilfunkanbieter des Geräts Verizon ist, und zeigt in diesem Fall eine spezifische Nachricht an.
 
-Für Push-Benachrichtigungen und In-App-Nachrichten-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
+Für Push-Benachrichtigungen und In-App Messages-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
 
 {% raw %}
 ```liquid
@@ -1334,7 +1349,7 @@ SMS
 
 ### Verschiedene Nachrichten basierend auf eingehenden SMS-Schlüsselwörtern senden {#sms-keyword-response}
 
-Dieser Anwendungsfall nutzt die dynamische Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START“ im Vergleich zu „JOIN“ schreibt.
+Dieser Anwendungsfall nutzt die dynamische SMS-Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START“ im Vergleich zu „JOIN“ schreibt.
 
 {% raw %}
 ```liquid
@@ -1372,6 +1387,10 @@ Time zones
 - [Verschiedene Nachrichten basierend auf der Tageszeit in der lokalen Zeitzone senden](#time-of-day)
 - [Nachricht außerhalb eines Stundenbereichs zum Sendezeitpunkt abbrechen](#abort-send-time-hour-range)
 - [Nachricht außerhalb eines Zeitfensters in einer festen Zeitzone abbrechen](#abort-fixed-timezone-window)
+
+{% alert note %}
+Wenn ein/e Nutzer:in eine Nachricht zu einer unerwarteten Ortszeit erhält, hat sich möglicherweise die Zeitzone des Geräts oder Profils geändert (z. B. nach einer Reise). Die Zustellung zur Ortszeit verwendet die Zeitzone im Profil zum Sendezeitpunkt; Nutzer:innen benötigen möglicherweise eine neue Sitzung in ihrer gewohnten Region, bevor Werte wie {% raw %}`{{${time_zone}}}`{% endraw %} das erwartete Ergebnis liefern. Sie können jedoch [die Zeitzone des/der Nutzer:in einfügen](#users-time-zone).
+{% endalert %}
 
 ### Zeitzone des/der Nutzer:in einfügen {#users-time-zone}
 
@@ -1466,7 +1485,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### Wiederkehrende In-App-Nachricht innerhalb eines Zeitfensters in der lokalen Zeitzone senden {#time-reoccurring-iam-window}
+### Wiederkehrende In-App-Nachricht innerhalb eines Zeitfensters in der lokalen Zeitzone senden {#time-reocurring-iam-window}
 
 Dieser Anwendungsfall zeigt eine Nachricht an, wenn die aktuelle Uhrzeit innerhalb eines festgelegten Fensters liegt.
 
@@ -1520,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Nachricht außerhalb eines Stundenbereichs zum Sendezeitpunkt abbrechen {#abort-send-time-hour-range}
 
@@ -1796,3 +1815,5 @@ Dieser Anwendungsfall bricht die Nachricht ab, wenn Liquid an einem bestimmten W
 {% endraw %}
 
 {% endapi %}
+
+Viele Beispiele in dieser Bibliothek verwenden den `abort_message`-Tag, um einen Versand zu überspringen, wenn Bedingungen nicht erfüllt sind. Eine vollständige Referenz zum Abbrechen von Versendungen mit Liquid, einschließlich datums- und zeitbasierter Muster, finden Sie unter [Liquid-Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

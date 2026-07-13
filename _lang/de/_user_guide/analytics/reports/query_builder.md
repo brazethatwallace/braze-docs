@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # Abfrage-Builder {#query-builder}
 
-> Der Abfrage-Builder erstellt Berichte aus Braze-Daten in Snowflake. Der Abfrage-Builder enthält vorgefertigte SQL-[Abfragevorlagen]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/), die Ihnen den Einstieg erleichtern, oder Sie schreiben eigene SQL-Anfragen, um noch mehr Insights zu gewinnen.
+> Der Abfrage-Builder erstellt Berichte aus Braze-Daten in Snowflake. Der Abfrage-Builder enthält vorgefertigte SQL-[Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates), die Ihnen den Einstieg erleichtern, oder Sie schreiben eigene SQL-Anfragen, um noch mehr Insights zu gewinnen.
 
-Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, können Sie ihn nur nutzen, wenn Sie die [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) „PII anzeigen“ besitzen.
+Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, können Sie ihn nur nutzen, wenn Sie die [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) „PII anzeigen“ besitzen.
 
 ## Verfügbare Datentabellen {#available-data-tables}
 
-Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Berichte im Abfrage-Builder ausführen {#running-reports-in-the-query-builder}
 
@@ -23,7 +23,7 @@ So führen Sie einen Bericht im Abfrage-Builder aus:
 
 1. Gehen Sie zu **Analytics** > **Query Builder**.
 2. Wählen Sie **Create SQL Query**. Wenn Sie Inspiration oder Hilfe beim Erstellen Ihrer Abfrage benötigen, wählen Sie **Query Template** und wählen Sie eine Vorlage aus der Liste. Andernfalls wählen Sie **SQL Editor**, um direkt zum Editor zu gelangen.
-3. Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Edit"></i>, um Ihrer SQL-Abfrage einen aussagekräftigen Namen zu geben.
+3. Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Bearbeiten"></i>, um Ihrer SQL-Abfrage einen aussagekräftigen Namen zu geben.
 4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI helfen](#ai-query-builder) über den Tab **AI Query Builder**. Wenn Sie eigenes SQL schreiben, lesen Sie [Eigene SQL-Anfragen schreiben](#custom-sql) für Anforderungen und Ressourcen.
 5. Wählen Sie **Run Query**.
 6. Speichern Sie Ihre Abfrage.
@@ -33,15 +33,15 @@ So führen Sie einen Bericht im Abfrage-Builder aus:
 
 Ergebnisse jedes Berichts können einmal pro Tag generiert werden. Wenn Sie denselben Bericht mehr als einmal an einem Kalendertag ausführen, sehen Sie in beiden Berichten dieselben Ergebnisse.
 
-### Abfragevorlagen {#query-templates}
+### Abfrage-Templates {#query-templates}
 
-Greifen Sie auf Abfragevorlagen zu, indem Sie beim Erstellen eines Berichts **Create SQL Query** > **Query Template** wählen.
+Greifen Sie auf Abfrage-Templates zu, indem Sie beim Erstellen eines Berichts **Create SQL Query** > **Query Template** wählen.
 
-Eine Liste der verfügbaren Vorlagen finden Sie unter [Abfragevorlagen]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/).
+Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates).
 
 ### Datenzeitraum {#data-timeframe}
 
-Abfragen liefern Daten der letzten 60 Tage. Wenn Sie Currents oder die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) nutzen, können Sie möglicherweise Daten von bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
+Abfragen liefern Daten der letzten 60 Tage. Wenn Sie Currents oder die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) nutzen, können Sie möglicherweise Daten von bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
 
 ### Zeitzone des Abfrage-Builders {#query-builder-time-zone}
 
@@ -90,21 +90,21 @@ So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
 ### Tipps {#tips}
 
-- Machen Sie sich mit den verfügbaren Tabellen und Spalten in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht existieren, kann ChatGPT eine fiktive Tabelle erfinden.
-- Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql) für dieses Feature vertraut. Die Nichteinhaltung dieser Regeln führt zu einem Fehler.
+- Machen Sie sich mit den verfügbaren Tabellen und Spalten in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht existieren, kann ChatGPT eine fiktive Tabelle erfinden.
+- Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) für dieses Feature vertraut. Die Nichteinhaltung dieser Regeln führt zu einem Fehler.
 - Sie können mit dem KI-Abfrage-Builder bis zu 20 Prompts pro Minute senden.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Eigene SQL-Anfragen schreiben {#custom-sql}
 
-Schreiben Sie Ihre SQL-Abfrage mit der [Snowflake-Syntax](https://docs.snowflake.com/en/sql-reference). In der [Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) finden Sie eine vollständige Liste der Tabellen und Spalten, die abgefragt werden können.
+Schreiben Sie Ihre SQL-Abfrage mit der [Snowflake-Syntax](https://docs.snowflake.com/en/sql-reference). In der [Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) finden Sie eine vollständige Liste der Tabellen und Spalten, die abgefragt werden können.
 
 So zeigen Sie Tabellendetails im Abfrage-Builder an:
 
 1. Öffnen Sie auf der Seite **Query Builder** das Panel **Reference** und wählen Sie **Available Data Tables**, um die verfügbaren Datentabellen und ihre Namen anzuzeigen.
 3. Wählen Sie <i class="fas fa-chevron-down" alt=""></i> **See Details**, um die Tabellenbeschreibung und Informationen zu den Tabellenspalten wie Datentypen anzuzeigen.
-4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Tabellennamen in den SQL-Editor kopieren"></i> **Copy table name to SQL editor**.
 
 Um von Braze bereitgestellte vorgefertigte Abfragen zu verwenden, wählen Sie **Query Template** beim Erstellen eines Berichts im Abfrage-Builder.
 
@@ -131,7 +131,7 @@ Wenn Sie nach `CANVAS_ID`, `CANVAS_VARIATION_API_ID` oder `CAMPAIGN_ID` abfragen
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eigene SQL-Anfragen schreiben" }
 
 Diese Abfrage ruft alle drei IDs und ihre zugehörigen Namensspalten mit maximal 100 Zeilen ab:
 
@@ -168,7 +168,7 @@ Nachdem eine Variable erstellt wurde, erscheint sie im Tab **Variables** Ihres A
 
 - Sparen Sie Zeit, indem Sie eine Campaign-Variable erstellen, aus der Sie beim Erstellen Ihres Berichts auswählen können, anstatt Campaign-IDs einzufügen.
 - Tauschen Sie Werte aus, indem Sie Variablen hinzufügen, mit denen Sie den Bericht für leicht unterschiedliche Anwendungsfälle in der Zukunft wiederverwenden können (z. B. ein anderes angepasstes Event).
-- Reduzieren Sie Nutzerfehler beim Bearbeiten Ihres SQL, indem Sie den Bearbeitungsaufwand für jeden Bericht verringern. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann nutzen können.
+- Reduzieren Sie Nutzer:innenfehler beim Bearbeiten Ihres SQL, indem Sie den Bearbeitungsaufwand für jeden Bericht verringern. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann nutzen können.
 
 ### Richtlinien {#guidelines}
 
@@ -215,7 +215,7 @@ Alle vier Typen werden angezeigt, wenn sowohl `start_date` als auch `end_date` m
 | Startdatum | Gibt ein Startdatum an | Erfordert `start_date` |
 | Enddatum | Gibt ein Enddatum an | Erfordert `end_date` |
 | Datumsbereich | Gibt sowohl ein Start- als auch ein Enddatum an | Erfordert sowohl `start_date` als auch `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beispielwerte" }
 
 - **Ersetzungswert:** Ersetzt `start_date` und `end_date` durch einen Unix-Zeitstempel in Sekunden für ein angegebenes Datum in UTC, z. B. `1696517353`.
 - **Verwendungsbeispiel:** Für alle Variablen – relativ, Startdatum, Enddatum und Datumsbereich:

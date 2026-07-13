@@ -30,46 +30,46 @@ Qualquer URL que comece com `http://` ou `https://` será encurtada. Você pode 
 
 Para configurar o rastreamento de cliques para uma mensagem de texto:
 
-1. Arraste uma mensagem de **Texto** para o criador e adicione uma URL ao campo de texto.
+1. Arraste uma mensagem de **Text** para o criador e adicione uma URL ao campo de texto.
 
-![Criador de mensagens LINE com uma mensagem de texto contendo uma URL longa: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![Criador de mensagens LINE com uma mensagem de texto contendo uma URL longa: {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
-2. Acesse a guia **Configurações** e confirme que o **Rastreamento de cliques** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
+2. Acesse a guia **Settings** e confirme que o **Click Tracking** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
 
 {% alert note %}
-Você pode visualizar prévias do link encurtado na guia **Configurações** ou **Pré-visualização e teste**. O link completo será exibido no criador enquanto você constrói sua mensagem.
+Você pode visualizar prévias do link encurtado na guia **Settings** ou **Preview & Test**. O link completo será exibido no criador enquanto você constrói sua mensagem.
 {% endalert %}
 
-![Guia "Configurações" do criador de mensagens LINE com "Rastreamento de cliques" ativado e uma prévia de mensagem de texto contendo uma URL encurtada: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![Guia "Settings" do criador de mensagens LINE com "Click Tracking" ativado e uma prévia de mensagem de texto contendo uma URL encurtada: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### Mensagens rich {#rich-messages}
 
 Para configurar o rastreamento de cliques para uma mensagem rich:
 
-1. Arraste uma **Mensagem rich** para o criador e selecione um modelo.
-2. Selecione **URI** para o **Comportamento ao clicar** da área tocável aplicável.
-3. Insira uma URL no campo **Abrir URL**.
+1. Arraste uma **Rich message** para o criador e selecione um modelo.
+2. Selecione **URI** para o **On-click behavior** da área tocável aplicável.
+3. Insira uma URL no campo **Open URL**.
 
 ![Criador de mensagens LINE com uma mensagem rich com duas áreas tocáveis, cada uma com uma URL.]({% image_buster /assets/img/line/rich_message_click_tracking.png %})
 
 {: start="4"}
-4. Acesse a guia **Configurações** e confirme que o **Rastreamento de cliques** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
+4. Acesse a guia **Settings** e confirme que o **Click Tracking** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
 
 ### Mensagens baseadas em cartão {#card-based-messages}
 
 Para configurar o rastreamento de cliques para uma mensagem baseada em cartão:
 
-1. Arraste uma **Mensagem baseada em cartão** para o criador.
-2. Selecione **URI** para o **Comportamento ao clicar** das áreas de cartão ou botão aplicáveis.
+1. Arraste uma **Card-based message** para o criador.
+2. Selecione **URI** para o **On-click behavior** das áreas de cartão ou botão aplicáveis.
 
 ![Criador de mensagens LINE com uma mensagem baseada em cartão com dois botões, cada um com uma URL.]({% image_buster /assets/img/line/card_based_message_click_tracking.png %})
 
 {: start="3"}
-3. Acesse a guia **Configurações** e confirme que o **Rastreamento de cliques** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
+3. Acesse a guia **Settings** e confirme que o **Click Tracking** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
 
 {% alert note %}
-URLs nos campos **Título** ou **Descrição** não serão encurtadas porque esses campos não são clicáveis dentro do LINE.
+URLs nos campos **Title** ou **Description** não serão encurtadas porque esses campos não são clicáveis dentro do LINE.
 {% endalert %}
 
 ## Domínios personalizados {#custom-domains}
@@ -102,7 +102,7 @@ A Braze encurta URLs que são renderizadas por Liquid, mesmo aquelas incluídas 
 
 ## Testes {#testing}
 
-Antes de lançar sua Campaign ou Canvas, é uma prática recomendada pré-visualizar e testar sua mensagem primeiro. Para isso, acesse a guia **Teste** para pré-visualizar e enviar uma mensagem LINE para grupos de teste de conteúdo ou para um usuário individual.
+Antes de lançar sua Campaign ou Canvas, é uma prática recomendada pré-visualizar e testar sua mensagem primeiro. Para isso, acesse a guia **Test** para pré-visualizar e enviar uma mensagem LINE para grupos de teste de conteúdo ou para um usuário individual.
 
 Essa prévia será atualizada com a personalização relevante e a URL encurtada.
 
@@ -112,30 +112,30 @@ Se um rascunho for criado dentro de um Canvas ativo, uma URL encurtada não ser�
 
 ## Relatórios {#reporting}
 
-A tabela de desempenho do LINE inclui a coluna **Total de cliques** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais detalhes sobre métricas do LINE, consulte [Desempenho de mensagens LINE]({{site.baseurl}}/user_guide/channels/line/reporting/).
+A tabela de desempenho do LINE inclui a coluna **Total Clicks** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais detalhes sobre métricas do LINE, consulte [Desempenho de mensagens LINE]({{site.baseurl}}/user_guide/channels/line/reporting/).
 
 ![Desempenho de uma etapa do Canvas LINE.]({% image_buster /assets/img/line/line_step_performance.png %}){: style="max-width:30%;"}
 
-Os dados de cliques serão reportados automaticamente no dashboard de análise de dados.
+Os dados de cliques serão reportados automaticamente no dashboard de Analytics.
 
-![Dashboard de análise de desempenho do LINE.]({% image_buster /assets/img/line/line_performance.png %})
+![Dashboard de desempenho do LINE.]({% image_buster /assets/img/line/line_performance.png %})
 
 ## Redirecionamento de usuários {#retargeting-users}
 
 Você pode redirecionar usuários que clicaram em uma URL em uma mensagem LINE usando os seguintes filtros de segmentação e gatilhos:
 
 - Gatilhos baseados em ação
-    - Interagir com Campaign
-    - Interagir com etapa
+    - Interact with Campaign
+    - Interact with Step
 
 ![Gatilho de entrega baseada em ação do LINE.]({% image_buster /assets/img/line/line_action_based.png %})
 
 - Filtros de segmentação
-    - Clicou/Abriu Campaign
-    - Clicou/Abriu Campaign ou Canvas com tag
-    - Clicou/Abriu etapa
+    - Clicked/Opened Campaign
+    - Clicked/Opened Campaign or Canvas with Tag
+    - Clicked/Opened Step
 
-![Grupo de filtros exibindo os três filtros de segmentação: "Clicou/Abriu Campaign", "Clicou/Abriu Campaign ou Canvas com tag" e "Clicou/Abriu etapa".]({% image_buster /assets/img/line/line_segmentation_filters.png %})
+![Grupo de filtros exibindo os três filtros de segmentação: "Clicked/Opened Campaign", "Clicked/Opened Campaign or Canvas with Tag" e "Clicked/Opened Step".]({% image_buster /assets/img/line/line_segmentation_filters.png %})
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

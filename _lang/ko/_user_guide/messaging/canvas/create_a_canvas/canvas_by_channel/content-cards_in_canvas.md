@@ -41,6 +41,16 @@ Content Cards 단계가 Canvas와 상호작용하는 방식을 변경하는 두 
 
 Canvas 시작일로부터 30일 이상 앞선 만료 날짜를 설정할 때는 주의하세요. 사용자가 지정된 만료 날짜보다 30일 이상 전에 메시지 단계에 도달하면 카드가 전송되지 않습니다.
 
+#### Liquid를 사용한 개인화된 만료 {#personalized-expiry-with-liquid}
+
+Liquid 개인화를 사용하여 만료 기간을 설정하는 경우(예: 커스텀 속성 또는 Canvas 진입 속성 사용), 절대 날짜나 상대 날짜와는 동작이 다릅니다.
+
+- 개인화된 만료가 30일보다 긴 기간으로 확인되면, Braze가 자동으로 최대 30일로 제한합니다.
+- Content Cards는 제한된 만료 기간으로 사용자에게 전송됩니다.
+- 사용자는 Canvas의 다음 단계로 진행합니다.
+
+이 제한을 통해 확인된 기간이 플랫폼 한도를 초과하더라도 개인화된 만료가 적용된 카드가 전달됩니다. 처리 원장 결과에는 "Personalized expiration capped by max TTL"이 표시되며, `reason=capped_by_max_ttl` 및 `capped=true`를 나타내는 세부 정보가 포함됩니다.
+
 ### 만료 동작 {#expiration-behavior}
 
 Content Cards는 사용자가 Canvas 여정의 후속 단계로 진행하더라도 만료 날짜에 도달할 때까지 사용자의 피드에서 계속 사용할 수 있습니다. Canvas의 다음 단계가 전달될 때 Content Cards가 활성 상태가 아니길 원한다면, 만료 기간이 후속 단계의 지연보다 짧은지 확인하세요.
@@ -55,24 +65,24 @@ Content Cards는 사용자가 구매를 완료하거나 커스텀 이벤트를 �
 
 ## 보고서 및 분석 {#reporting-and-analytics}
 
-Canvas에서 Content Cards 단계를 시작한 후 이 단계에 대한 여러 측정기준을 분석할 수 있습니다. 이러한 측정기준에는 전송된 메시지 수, 고유 수신자, 전환율, 총 매출 등이 포함됩니다.
+Canvas에서 Content Cards 단계를 시작한 후 이 단계에 대한 여러 측정기준을 분석할 수 있습니다. 이러한 측정기준에는 전송된 메시지 수, 일일 고유 노출 횟수, 전환율, 총 매출 등이 포함됩니다.
 
 ![Content Cards 메시지 성과가 표시된 메시지 단계의 분석.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-사용 가능한 측정기준과 정의에 대한 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요.
+사용 가능한 측정기준과 정의에 대한 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
 
 ## 활용 사례 {#use-cases}
 
-#### 프로모션 오퍼 {#promotional-offers}
+### 프로모션 오퍼 {#promotional-offers}
 
 사용자가 특정 프로모션 및 광고 대상이 될 때 카드를 사용자의 피드에 추가합니다. 예를 들어, 사용자가 특정 동작을 수행하거나 구매를 한 후 새로운 오퍼 대상이 되면, Canvas를 사용하여 다른 메시징 채널과 함께 Content Cards를 전송할 수 있으므로 다음에 앱을 열 때 해당 오퍼를 확인할 수 있습니다.
 
-#### 푸시 알림 받은편지함 {#push-notification-inbox}
+### 푸시 알림 받은편지함 {#push-notification-inbox}
 
 사용자가 푸시 알림을 무시하거나 이메일을 삭제하는 경우가 있지만, 마음이 바뀔 경우를 대비하여 알림을 보내거나 오퍼를 홍보하고 싶을 수 있습니다.
 
 Canvas를 사용하면 Content Cards와 푸시 알림을 모두 전송하는 구성요소를 추가하여 푸시를 통해 전송된 프로모션 메시지와 연동되는 지속적인 카드 "받은편지함"을 사용자에게 제공할 수 있습니다.
 
-#### 카테고리 기반 다중 피드 {#multiple-feeds-based-on-categories}
+### 카테고리 기반 다중 피드 {#multiple-feeds-based-on-categories}
 
-사용자가 탐색할 수 있는 다양한 주제, 또는 트랜잭션 및 마케팅 피드와 같은 카테고리를 기반으로 Content Cards를 여러 피드로 분리할 수 있습니다. 키-값 페어를 사용하여 다중 피드를 만드는 방법에 대한 자세한 내용은 [Content Cards 피드 커스터마이징]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds) 가이드를 참조하세요.
+사용자가 탐색할 수 있는 다양한 주제, 또는 트랜잭션 및 마케팅 피드와 같은 카테고리를 기반으로 Content Cards를 여러 피드로 분리할 수 있습니다. 키-값 페어를 사용하여 다중 피드를 만드는 방법에 대한 자세한 내용은 [Content Cards 피드 커스터마이징]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds) 가이드를 참조하세요.

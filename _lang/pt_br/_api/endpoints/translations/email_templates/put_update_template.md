@@ -15,21 +15,19 @@ description: "Este artigo descreve detalhes sobre o endpoint Atualizar traduçõ
 /templates/email/translations/
 {% endapimethod %}
 
-> Use este endpoint para atualizar traduções para um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulte [Localizações em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Use este endpoint para atualizar traduções para um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para saber mais sobre os recursos de tradução.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `templates.translations.update`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `templates.translations.update`.
 
 ## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros de caminho {#path-parameters}
+## Parâmetros de jornada {#path-parameters}
 
-Não há parâmetros de caminho para este endpoint.
+Não há parâmetros de jornada para este endpoint.
 
 ## Parâmetros de solicitação {#request-parameters}
 
@@ -38,7 +36,7 @@ Não há parâmetros de caminho para este endpoint.
 | `template_id` | Obrigatória | String | O ID do seu modelo de e-mail. |
 | `locale_id` | Obrigatória | String | O ID da localização. |
 | `translations_map` | Obrigatória | String | O mapa das traduções para o seu modelo de e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

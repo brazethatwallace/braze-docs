@@ -13,7 +13,7 @@ tool: Reports
 
 ## 보고서 보기 {#viewing-a-report}
 
-대시보드에서 이 보고서를 보려면 **분석** > **사용자 지정 이벤트 보고서**로 이동합니다. 분석하려는 커스텀 이벤트를 선택한 다음 **Apply**를 선택하여 그래프를 생성합니다.
+대시보드에서 이 보고서를 보려면 **Analytics** > **사용자 지정 이벤트 보고서**로 이동합니다. 분석하려는 커스텀 이벤트를 선택한 다음 **Apply**를 선택하여 그래프를 생성합니다.
 
 ![커스텀 이벤트]({% image_buster /assets/img_archive/Export_events.png %})
 
@@ -27,12 +27,26 @@ tool: Reports
 | Breakdown custom events by | 선택한 커스텀 이벤트의 시계열이 그룹화되는 방식을 제어합니다. 기본적으로 차트는 날짜별 전체 집계 추세를 표시합니다. **Custom Events by Hour**로 전환하면 일중 패턴을 확인할 수 있고, **Custom Events per MAU**로 전환하면 월간 활성 사용자 수 대비 이벤트 볼륨을 정규화할 수 있습니다. |
 | Filter by Segments | 이 옵션을 토글하면 하나 이상의 Segment별로 이벤트 수를 분류할 수 있습니다. 활성화하면 비교하려는 Segments를 선택합니다. 그래프에는 각 Segment에서 커스텀 이벤트를 수행한 사용자 수가 표시됩니다. |
 | KPI formula | 원시 이벤트 수를 분자(예: 커스텀 이벤트 수)와 분모(예: DAU, MAU 또는 분석이 활성화된 Segment 크기)로 구성된 계산 측정기준으로 대체합니다. 하나 이상의 수식을 선택하면 차트에 선택한 기간 동안 각 수식의 값이 표시되어 총 이벤트 볼륨 대신 정규화된 성과(예: "활성 사용자당 이벤트")를 비교할 수 있습니다. 선택한 기간과 수식에 대해 사용 가능한 데이터가 없는 경우 Braze는 "데이터 없음" 메시지를 표시합니다. 기간을 넓히거나 다른 수식을 선택해 보세요. **Manage KPI formulas**를 선택하여 수식을 생성하거나 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="보고서 구성하기" }
 
 ## 데이터 내보내기 {#exporting-data}
 
-커스텀 이벤트 데이터를 내보내려면 **Performance Over Time** 그래프에서 <i class="fas fa-bars" title="Chart context menu"></i>를 선택한 다음 내보내기 옵션을 선택합니다.
+커스텀 이벤트 데이터를 내보내려면 **Performance Over Time** 그래프에서 <i class="fas fa-bars" title="차트 컨텍스트 메뉴"></i> **차트 컨텍스트 메뉴**를 선택한 다음 내보내기 옵션을 선택합니다.
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
+
+## 문제 해결 {#troubleshooting}
+
+### Segment 분류가 워크스페이스 전체 합계와 일치하지 않는 경우 {#segment-breakdown-doesnt-match-workspace-totals}
+
+**Filter by Segments**를 사용하거나 **Apps** 드롭다운으로 보고서를 좁히면, 차트는 워크스페이스 전체의 모든 이벤트 발생 건수가 아니라 선택한 Segment(또는 앱)에서 커스텀 이벤트를 수행한 사용자를 집계합니다.
+
+Segment 라인을 필터가 적용되지 않은 보기(또는 **All Apps**)와 비교하면 다음과 같은 이유로 합계가 달라지는 경우가 많습니다.
+
+- **All Apps**에는 워크스페이스 내 모든 앱의 사용자와 이벤트가 포함될 수 있습니다.
+- 단일 앱 필터는 해당 앱에 연결된 프로필만 포함합니다.
+- Segment 필터는 쿼리 시점에 Segment 정의에 부합하는 사용자를 집계하므로, Segment 기준 밖에서 이벤트를 수행한 사용자는 제외될 수 있습니다.
+
+동일한 기준으로 비교하려면 비교하는 각 시리즈에 동일한 앱 필터와 Segment 선택을 적용하거나, 데이터를 내보내어 분석 도구에서 수치를 대조하세요.

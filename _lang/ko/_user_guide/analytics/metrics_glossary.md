@@ -68,7 +68,7 @@ Email, Web Push, iOS Push
 |-------|-----------------------|
 | 이메일 | SendGrid를 사용하는 고객의 이메일 반송은 하드바운스, 스팸(`spam_report_drops`), 잘못된 주소로 발송된 이메일(`invalid_emails`)로 구성됩니다.<br><br>이메일의 경우, *반송 %* 또는 *반송률*은 발송 서비스에서 발송에 실패했거나 "반환됨" 또는 "수신되지 않음"으로 지정된 메시지, 또는 대상 이메일 사용자에게 수신되지 않은 메시지의 비율입니다.|
 | 푸시 | 이 사용자들은 향후 모든 푸시 알림에서 자동으로 구독 취소됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="반송" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-다양한 채널에 걸친 메시지의 성과입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments/#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
+다양한 채널에 걸친 메시지의 성능입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
 
 {% endapi %}
 
@@ -249,7 +249,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | 이메일, 푸시, 웹훅 | 전환은 최초 발송 이후 추적됩니다.|
 | Content Cards | 전환은 사용자가 Content Cards를 처음 조회할 때 집계됩니다.|
 | 인앱 메시지 | 전환은 사용자가 인앱 메시지 Campaign을 수신하고 조회한 후, 메시지를 클릭했는지 여부와 관계없이 정의된 전환 기간 내에 특정 전환 이벤트를 수행하면 집계됩니다.<br><br>전환은 가장 최근에 수신한 메시지에 귀속됩니다. 재자격이 활성화된 경우, 전환은 정의된 전환 기간 내에 발생하는 한 가장 최근에 수신한 인앱 메시지에 할당됩니다. 그러나 인앱 메시지에 이미 전환이 할당된 경우, 해당 특정 메시지에 대해 새로운 전환을 기록할 수 없습니다. 즉, 각 인앱 메시지 전달은 하나의 전환에만 연결됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전환 (B, C, D)" }
 
 {% endapi %}
 
@@ -293,8 +293,8 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 | 채널 | 추가 정보 |
 |-------|-----------------------|
-| 인앱 메시지 | 일일 총 <i>고유 노출 횟수</i> 측정기준은 인앱 메시지의 <i>전환율</i>을 계산하는 데 사용됩니다.<br><br>인앱 메시지의 <i>고유 노출 횟수</i>는 워크스페이스 시간대 기준으로 하루에 한 번만 집계될 수 있습니다. 사용자가 원하는 동작("전환")을 완료하는 횟수는 같은 날 내에 증가할 수 있습니다. 전환은 하루에 여러 번 발생할 수 있지만, <i>고유 노출 횟수</i>는 그렇지 않습니다. 따라서 사용자가 하루 내에 전환을 여러 번 완료하면 <i>전환율</i>은 그에 따라 증가할 수 있지만, <i>고유 노출 횟수</i>는 해당 날에 한 번만 집계됩니다. 자세한 내용은 <a href="/docs/user_guide/channels/in_app_messages/reporting/">인앱 메시지 리포팅</a> 을 참조하세요.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| 인앱 메시지 | 일일 총 <i>고유 노출 횟수</i> 측정기준은 인앱 메시지의 <i>전환율</i>을 계산하는 데 사용됩니다.<br><br>인앱 메시지의 <i>고유 노출 횟수</i>는 워크스페이스 시간대 기준으로 하루에 한 번만 집계될 수 있습니다. 사용자가 원하는 동작("전환")을 완료하는 횟수는 같은 날 내에 증가할 수 있습니다. 전환은 하루에 여러 번 발생할 수 있지만, <i>고유 노출 횟수</i>는 그렇지 않습니다. 따라서 사용자가 하루 내에 전환을 여러 번 완료하면 <i>전환율</i>은 그에 따라 증가할 수 있지만, <i>고유 노출 횟수</i>는 해당 날에 한 번만 집계됩니다. 자세한 내용은 <a href="/docs/user_guide/channels/in_app_messages/reporting">인앱 메시지 리포팅</a> 을 참조하세요.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전환율" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -333,7 +333,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 | 채널 | 추가 정보 |
 |-------|-----------------------|
 | 이메일 | 이메일 수신이 가능한 대상에게 성공적으로 발송되고 수신된 총 메시지 수(발송)를 의미합니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전달" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -357,7 +357,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}
 
-전달 실패 원인을 파악하려면 <a href="/docs/braze_support/">Braze 고객지원</a> 에 문의하세요.
+전달 실패 원인을 파악하려면 <a href="/docs/braze_support">Braze 고객지원</a> 에 문의하세요.
 
 <span class="calculation-line">계산: (발송) - (통신사 전송)</span>
 
@@ -373,7 +373,7 @@ RCS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures RCS' %}
 
-전달 실패 원인을 파악하려면 <a href="/docs/braze_support/">Braze 고객지원</a> 에 문의하세요.
+전달 실패 원인을 파악하려면 <a href="/docs/braze_support">Braze 고객지원</a> 에 문의하세요.
 
 <span class="calculation-line">계산: (발송) - (통신사 전송)</span>
 
@@ -389,7 +389,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Failed Delivery Rate' %}
 
-전달 실패 원인을 파악하려면 <a href="/docs/braze_support/">Braze 고객지원</a> 에 문의하세요.
+전달 실패 원인을 파악하려면 <a href="/docs/braze_support">Braze 고객지원</a> 에 문의하세요.
 
 <span class="calculation-line">계산: (전달 실패) / (발송)</span>
 
@@ -483,7 +483,7 @@ Email
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-이 경우 Braze는 해당 이메일 주소를 유효하지 않은 것으로 표시하지만 사용자의 [구독 상태]({{site.baseurl}}/user_guide/channels/email/subscriptions/)는 업데이트하지 않습니다. 이메일이 하드바운스를 수신하면 Braze는 해당 이메일 주소로의 향후 요청을 중단합니다.
+이 경우 Braze는 해당 이메일 주소를 유효하지 않은 것으로 표시하지만 사용자의 [구독 상태]({{site.baseurl}}/user_guide/channels/email/subscriptions)는 업데이트하지 않습니다. 이메일이 하드바운스를 수신하면 Braze는 해당 이메일 주소로의 향후 요청을 중단합니다.
 
 {% endapi %}
 
@@ -647,7 +647,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 |-------|-----------------------|
 | 이메일, 푸시, 웹훅 | 최초 발송 이후.|
 | Content Cards, 인앱 메시지 | 사용자가 Content Cards 또는 메시지를 처음 조회할 때.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="주요 전환 (A) 또는 주요 전환 이벤트" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -705,7 +705,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | SMS/MMS | SMS 제공업체가 상위 통신사 및 대상 기기로부터 확인을 받은 후 "전달됨"으로 처리됩니다.|
 | 인앱 메시지 | 정의된 트리거 동작에 따라 표시 시점에 수신됩니다.|
 | WhatsApp | 정의된 트리거 동작에 따라 표시 시점에 수신됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="수신" }
 
 {% endapi %}
 
@@ -768,7 +768,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Sends' %} 이 측정기준은 Braze에서 제공합니다. 예약된 Campaign을 시작하면 이 측정기준에는 사용량 제한으로 인해 아직 발송되지 않은 메시지를 포함하여 발송된 모든 메시지가 포함됩니다.
 
 {% alert tip %}
-Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/)에서 선택한 항목에 따라 다르게 계산됩니다.
+Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation)에서 선택한 항목에 따라 다르게 계산됩니다.
 
 - **시작 또는 단계 진입 시:** 생성되어 조회 가능한 카드 수입니다. 사용자가 카드를 조회했는지 여부는 포함되지 않습니다.
 - **첫 노출 시:** 사용자에게 표시된 카드 수입니다.
@@ -789,7 +789,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Messages Sent' %} 이 측정기준은 Braze에서 제공합니다. 예약된 Campaign을 시작하면 이 측정기준에는 사용량 제한으로 인해 아직 발송되지 않은 메시지를 포함하여 발송된 모든 메시지가 포함됩니다.
 
 {% alert tip %}
-Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/)에서 선택한 항목에 따라 다르게 계산됩니다.
+Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation)에서 선택한 항목에 따라 다르게 계산됩니다.
 
 - **시작 또는 단계 진입 시:** 생성되어 조회 가능한 카드 수입니다. 사용자가 카드를 조회했는지 여부는 포함되지 않습니다.
 - **첫 노출 시:** 사용자에게 표시된 카드 수입니다.
@@ -833,7 +833,7 @@ Email
 
 _소프트바운스_는 _지연_과 다릅니다. 이 재시도 기간 동안 이메일이 성공적으로 전달되지 않으면, Braze는 시도된 Campaign 발송당 하나의 소프트바운스 이벤트를 전송합니다. 2025년 2월 25일 이전에는 이러한 재시도가 하나의 Campaign 발송에 대해 여러 소프트바운스로 집계되었습니다.
 
-소프트바운스는 Campaign 분석에서 추적되지 않지만, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 모니터링할 수 있습니다. 또한 이러한 사용자를 발송에서 제외하거나 [소프트바운스 Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced)를 사용하여 최근 30일간의 소프트바운스 수를 확인할 수 있습니다. 메시지 활동 로그에서 소프트바운스의 원인을 확인하고 이메일 Campaign의 "발송"과 "전달" 간의 차이를 파악할 수도 있습니다.
+소프트바운스는 Campaign 분석에서 추적되지 않지만, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 모니터링할 수 있습니다. 또한 이러한 사용자를 발송에서 제외하거나 [소프트바운스 Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced)를 사용하여 최근 30일간의 소프트바운스 수를 확인할 수 있습니다. 메시지 활동 로그에서 소프트바운스의 원인을 확인하고 이메일 Campaign의 "발송"과 "전달" 간의 차이를 파악할 수도 있습니다.
 
 {% endapi %}
 
@@ -901,7 +901,7 @@ Email, Content Cards, SMS/MMS, LINE
 |-------|-------|
 | LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다. AMP 이메일에는 HTML 및 일반 텍스트 버전 모두에서 기록된 클릭이 포함됩니다. 이 수치는 스팸 방지 도구에 의해 인위적으로 부풀려질 수 있습니다.|
 | 배너 | 동일한 사용자가 여러 번 클릭했는지 여부와 관계없이, 전달된 메시지 내에서 클릭한 총 사용자 수(및 비율)입니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="총 클릭 수" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## 총 닫기 수 {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} 사용자가 동일한 Campaign에서 두 개의 다른 카드를 수신하고 둘 다 닫으면, 이 횟수는 2만큼 증가합니다. 재자격을 사용하면 사용자가 카드를 수신할 때마다 _총 닫기 수_를 한 번씩 증가시킬 수 있으며, 각 카드는 별도의 메시지입니다.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Content Cards의 경우, 사용자가 동일한 Campaign에서 두 개의 다른 카드를 수신하고 둘 다 닫으면, 이 횟수는 2만큼 증가합니다. 재자격을 사용하면 사용자가 카드를 수신할 때마다 _총 닫기 수_를 한 번씩 증가시킬 수 있으며, 각 카드는 별도의 메시지입니다. 배너의 경우, 닫기 동작이 활성화되어 있을 때 각 닫기를 집계합니다.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -951,8 +951,8 @@ In-App Message, Content Cards
 | 채널 | 추가 정보 |
 |-------|-----------------------|
 | Content Cards | 특정 Content Cards에 대해 기록된 총 노출 횟수입니다. 동일한 사용자에 대해 여러 번 증가할 수 있습니다.|
-| 인앱 메시지 | 여러 기기가 있고 재자격이 꺼져 있는 경우, 사용자는 인앱 메시지를 한 번만 볼 수 있습니다. 사용자가 여러 기기를 사용하더라도 타겟팅된 첫 번째 기기에서만 볼 수 있습니다. 이는 프로필에 통합된 기기가 있고 사용자가 여러 기기에서 하나의 사용자 ID로 로그인한 것을 전제로 합니다. 재자격이 켜져 있으면 사용자가 인앱 메시지를 볼 때마다 노출이 기록됩니다. 자세한 내용은 <a href="/docs/user_guide/channels/in_app_messages/reporting/">인앱 메시지 리포팅</a> 을 참조하세요.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| 인앱 메시지 | 여러 기기가 있고 재자격이 꺼져 있는 경우, 사용자는 인앱 메시지를 한 번만 볼 수 있습니다. 사용자가 여러 기기를 사용하더라도 타겟팅된 첫 번째 기기에서만 볼 수 있습니다. 이는 프로필에 통합된 기기가 있고 사용자가 여러 기기에서 하나의 사용자 ID로 로그인한 것을 전제로 합니다. 재자격이 켜져 있으면 사용자가 인앱 메시지를 볼 때마다 노출이 기록됩니다. 자세한 내용은 <a href="/docs/user_guide/channels/in_app_messages/reporting">인앱 메시지 리포팅</a> 을 참조하세요.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="총 노출 횟수" }
 
 <span class="calculation-line">계산: 횟수</span>
 
@@ -972,7 +972,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 |-------|-----------------------|
 | LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다.|
 | AMP 이메일 | HTML 및 일반 텍스트 버전의 총 열람 수입니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="총 열람 수" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1018,7 +1018,7 @@ Email, Content Cards, LINE
 |-------|-----------------------|
 | 이메일 | 7일 동안 추적됩니다.|
 | LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고유 클릭 수" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1049,6 +1049,22 @@ Content Cards
 
 {% api %}
 
+## 일일 고유 노출 횟수 {#unique-daily-impressions}
+
+{% apitags %}
+Content Cards, Banners
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %}
+
+이 수치는 Braze에서 수신되며 `user_id`를 기반으로 합니다. 일일 고유 노출 횟수는 Campaign 또는 캔버스 단계 수준에서 집계됩니다.
+
+<span class="calculation-line">계산: 횟수</span>
+
+{% endapi %}
+
+{% api %}
+
 ## 고유 노출 횟수 {#unique-impressions}
 
 {% apitags %}
@@ -1059,9 +1075,9 @@ In-App Message, Content Cards
 
 | 채널 | 추가 정보 |
 |-------|-----------------------|
-| 인앱 메시지 | 재자격이 켜져 있고 사용자가 트리거 동작을 수행하면, 워크스페이스 시간대 기준으로 새로운 날에 고유 노출 횟수가 다시 증가할 수 있습니다. 재자격이 켜져 있으면 <i>고유 노출 횟수</i> = <i>고유 수신자 수</i>입니다. 자세한 내용은 <a href="/docs/user_guide/channels/in_app_messages/reporting/">인앱 메시지 리포팅</a> 을 참조하세요.|
+| 인앱 메시지 | 재자격이 켜져 있고 사용자가 트리거 동작을 수행하면, 워크스페이스 시간대 기준으로 새로운 날에 고유 노출 횟수가 다시 증가할 수 있습니다. 재자격이 켜져 있으면 <i>고유 노출 횟수</i> = <i>고유 수신자 수</i>입니다. 자세한 내용은 <a href="/docs/user_guide/channels/in_app_messages/reporting">인앱 메시지 리포팅</a> 을 참조하세요.|
 | Content Cards | 사용자가 카드를 두 번째로 조회할 때는 횟수가 증가하지 않습니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고유 노출 횟수" }
 
 <span class="calculation-line">계산: 횟수</span>
 
@@ -1075,13 +1091,13 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} 특정 기간을 평가할 때, <i>고유 열람 수</i>가 같은 기간의 <i>발송</i>보다 높게 나타날 수 있습니다. 이는 사용자가 해당 기간 외에 발송된 메시지에 대해 여전히 열람 이벤트를 기록할 수 있기 때문입니다. 전체 Campaign 기간 동안 <i>고유 열람 수</i>는 항상 총 <i>발송</i>보다 낮습니다.
 
 | 채널 | 추가 정보 |
 |-------|-----------------------|
 | 이메일 | 7일 동안 추적됩니다.|
 | LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고유 열람 수" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1100,12 +1116,12 @@ Email, LINE
 ## 고유 수신자 수 {#unique-recipients}
 
 {% apitags %}
-All
+Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-조회자는 매일 고유 수신자가 될 수 있으므로, 이 수치는 <i>고유 노출 횟수</i>보다 높을 수 있습니다. Content Cards의 경우, 각 Content Cards는 한 번만 수신될 수 있으므로 날짜에 관계없이 동일한 Content Cards를 두 번째로 조회해도 이 횟수는 증가하지 않습니다.<br><br>이 수치는 Braze에서 수신되며 `user_id`를 기반으로 합니다. 고유 수신자 수는 <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>발송 식별자</a> 수준이 아닌 Campaign 또는 캔버스 단계 수준에서 집계됩니다.
+조회자는 매일 고유 수신자가 될 수 있으므로, 이 수치는 <i>고유 노출 횟수</i>보다 높을 수 있습니다. 이 수치는 Braze에서 수신되며 `user_id`를 기반으로 합니다. 고유 수신자 수는 <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>발송 식별자</a> 수준이 아닌 Campaign 또는 캔버스 단계 수준에서 집계됩니다.
 
 <span class="calculation-line">계산: 횟수</span>
 

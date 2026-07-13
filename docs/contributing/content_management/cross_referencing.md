@@ -55,3 +55,16 @@ Your in-line link should be similar to the following:
 ```markdown
 To learn about the different custom attribute data types you can use to segment users, view <a href="/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types">Custom attribute data types</a>.
 ```
+
+## Links to pages that use `{% sdktabs %}`
+
+Some user guide pages group related content in **tabs** (Liquid `{% sdktabs %}` / `{% sdktab %}`). When you link from another article into a specific tab and heading, the URL needs both a query parameter and a fragment so the site opens the right tab and scrolls to the right section.
+
+| URL piece | Rule |
+| --- | --- |
+| `?sdktab=` | Use the **lowercased tab label** exactly as it appears on the page's tab control (for example `?sdktab=in-app%20messages`). This is **not** the same as the compact prefix used in HTML `id` attributes. |
+| Hash `#...` | Heading `id` values inside a tab are prefixed with the tab's **slug** (tab label with non-alphanumeric characters removed). Example: tab **in-app messages** → slug `inappmessages`, heading `### Button` → `#inappmessages_button`. |
+| Example (published URL) | `https://www.braze.com/docs/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_button` |
+| Example (in `_docs/`) | Use `{{site.baseurl}}` the same way as other internal links: `[Button]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_button)` |
+
+When you change heading text inside a tab, search the repository for old fragment URLs. If external or bookmarked links would break, add `local_redirect` to that page's YAML front matter. For more information, see [Redirecting URLs](redirecting_urls.md).

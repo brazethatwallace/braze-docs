@@ -1,18 +1,18 @@
 ---
-nav_title: "GETする：[エンドポイント名]。"
-article_title: "レイアウト例：GET: [Endpoint Name]"
+nav_title: "GET: [エンドポイント名]"
+article_title: "レイアウト例: GET: [エンドポイント名]"
 search_tag: Endpoint
 page_order: 1
 excerpt_separator: ""
 layout: api_page
 page_type: reference
-description: "この記事では、Get [エンドポイント名] Braze エンドポイントを使用するための使用方法とパラメーターについて説明します。"
+description: "この記事では、Get [エンドポイント名] Brazeエンドポイントの使用方法とパラメーターについて説明します。"
 
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
 {% api %}
-# クエリまたはリスト [項目エンドポイント "Gets"]] 。
+# クエリまたはリスト [項目エンドポイント「Gets」] {#query-or-list-item-endpoint-gets}
 
 {% apimethod get %}
 /sms/invalid_phone_numbers
@@ -20,34 +20,34 @@ noindex: true
 
 <!--
 This is the description of the endpoint. API descriptions usually start with "Use this endpoint to..."-->
-このエンドポイントを使用して、一定期間内に「無効」と判断された電話番号のリストを引き出す。
+このエンドポイントを使用して、一定期間内に「無効」と判断された電話番号のリストを取得します。
 
 <!-- Your postman link. After you have published the endpoint to postman, you will be able get a direct link to the information in the postman docs to share here-->
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1614a82f-510a-4c37-95a6-8207a125e487 {% endapiref %}
 
-## レート制限
+## レート制限 {#rate-limit}
 
 <!-- The rate limit of the endpoint. This pulls from /includes/rate_limits/ and displays specific endpoint limits based on the endpoint provided -->
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
 <!--This is where you can give more information about your endpoint parameters. -->
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | ----------|-----------| ----------|----- |
-| `start_date` | オプション <br>(注を参照) | YYYY-MM-DD形式の文字列| 無効な電話番号を取得する範囲の開始日であり、`end_date` より前である必要があります。これは API によって UTC 時間の真夜中として扱われます。 |
-| `end_date` | オプション <br>(注を参照) | YYYY-MM-DD形式の文字列 | 無効な電話番号を取得する範囲の終了日。これは API によって UTC 時間の真夜中として扱われます。 |
-| `limit` | オプション | 整数 | 返される結果の数を制限するためのオプション・フィールド。デフォルトは100で、最大は500です。 |
-| `offset` | オプション | 整数 | 取得先となるリスト内のオプションの開始点。 |
-| `phone_numbers` | オプション <br>(注を参照) | e.164 形式の文字列の配列 | 提供された場合、電話番号が無効であることが判明した場合は返却する。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `start_date` | オプション <br>(注を参照) | YYYY-MM-DD形式の文字列 | 無効な電話番号を取得する範囲の開始日であり、`end_date`より前である必要があります。これはAPIによってUTC時間の真夜中として扱われます。 |
+| `end_date` | オプション <br>(注を参照) | YYYY-MM-DD形式の文字列 | 無効な電話番号を取得する範囲の終了日。これはAPIによってUTC時間の真夜中として扱われます。 |
+| `limit` | オプション | 整数 | 返される結果の数を制限するオプションフィールド。デフォルトは100で、最大は500です。 |
+| `offset` | オプション | 整数 | リスト内の取得開始位置を指定するオプションフィールド。 |
+| `phone_numbers` | オプション <br>(注を参照) | e.164形式の文字列の配列 | 指定された場合、無効であることが判明した電話番号を返します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
-`start_date` と `end_date`、または `phone_numbers` のいずれかを指定する必要があります。`start_date`、`end_date`、`phone_numbers` の3つすべてを指定した場合、指定された電話番号を優先し、日付の範囲は無視します。
+`start_date`と`end_date`、または`phone_numbers`のいずれかを指定する必要があります。`start_date`、`end_date`、`phone_numbers`の3つすべてを指定した場合、指定された電話番号が優先され、日付範囲は無視されます。
 {% endalert %}
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 <!--The following example demonstrates a request that will pull a list of phone numbers that have been deemed invalid via the API:-->
 ```
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/sms/invalid_phone_n
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 
-## 応答
+## 応答 {#response}
 
 <!-- An example response that defines the different variables returned-->
 ```json

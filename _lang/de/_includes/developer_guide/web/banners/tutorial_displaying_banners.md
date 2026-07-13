@@ -1,10 +1,10 @@
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Bevor Sie mit diesem Tutorial beginnen, überprüfen Sie, ob Ihr Braze SDK die Mindestanforderungen erfüllt:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Anzeige von Bannern für das Internet SDK
+## Anzeige von Bannern für das Web SDK {#displaying-banners-for-the-web-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Web" %}
 
@@ -46,41 +46,41 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 <!-- ...the rest of your html -->
 ```
 
-!Schritt
-Zeilen-index.js=5
+!!step
+lines-index.js=5
 
-#### 1\. Enablement von Fehlersuchen (optional)
+### 1. Debugging aktivieren (optional) {#1-enable-debugging-optional}
 
 Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
 
-!Schritt
-Zeilen-index.js=8-23
+!!step
+lines-index.js=8-23
 
-#### 2\. Banner Updates abonnieren
+### 2. Banner-Updates abonnieren {#2-subscribe-to-banner-updates}
 
-Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird. Rufen Sie innerhalb des Handlers `braze.getBanner("global_banner")` auf, um die letzte Platzierung zu erhalten.
+Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird. Rufen Sie innerhalb des Handlers `braze.getBanner("global_banner")` auf, um die neueste Platzierung abzurufen.
 
-!Schritt
-Zeilen-index.js=15-22
+!!step
+lines-index.js=15-22
 
-#### 3\. Fügen Sie das Banner ein und behandeln Sie Kontrollgruppen
+### 3. Banner einfügen und Kontrollgruppen behandeln {#3-insert-the-banner-and-handle-control-groups}
 
-Verwenden Sie `braze.insertBanner(banner, container)`, um ein Banner einzufügen, wenn es zurückgegeben wird. Damit Ihr Layout übersichtlich bleibt, blenden Sie Banner aus oder ein, die zu einer Kontrollgruppe gehören (zum Beispiel, wenn `isControl` `true` ist).
+Verwenden Sie `braze.insertBanner(banner, container)`, um ein Banner einzufügen, wenn es zurückgegeben wird. Damit Ihr Layout übersichtlich bleibt, blenden Sie Banner aus oder reduzieren Sie sie, die Teil einer Kontrollgruppe sind (zum Beispiel wenn `isControl` den Wert `true` hat).
 
-!Schritt
-Zeilen-index.js=25
+!!step
+lines-index.js=25
 
-#### 4\. Aktualisieren Sie Ihre Banner
+### 4. Banner aktualisieren {#4-refresh-your-banners}
 
 Rufen Sie nach der Initialisierung des SDK `requestBannersRefresh(["global_banner", ...])` auf, um sicherzustellen, dass die Banner zu Beginn jeder Sitzung aktualisiert werden.
 
 Sie können diese Funktion auch jederzeit aufrufen, um die Bannerplatzierungen später zu aktualisieren.
 
-!Schritt
-Zeilen-main.html=3
+!!step
+lines-main.html=3
 
-#### 5\. Fügen Sie einen Container für Ihr Banner hinzu
+### 5. Einen Container für Ihr Banner hinzufügen {#5-add-a-container-for-your-banner}
 
-Fügen Sie in Ihrem HTML ein neues Element `<div>` hinzu und geben Sie ihm einen kurzen, bannerbezogenen `id`, wie z.B. `global-banner-container`. Braze verwendet diese `<div>`, um Ihr Banner auf der Seite einzufügen.
+Fügen Sie in Ihrem HTML ein neues `<div>`-Element hinzu und geben Sie ihm eine kurze, bannerbezogene `id`, wie z. B. `global-banner-container`. Braze verwendet dieses `<div>`, um Ihr Banner auf der Seite einzufügen.
 
 {% endscrolly %}

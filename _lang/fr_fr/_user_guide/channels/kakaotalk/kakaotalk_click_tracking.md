@@ -51,7 +51,7 @@ Pour configurer le suivi des clics pour un message éléments de liste :
 
 ## Domaines personnalisés {#custom-domains}
 
-Le suivi des clics KakaoTalk vous permet d'utiliser votre propre domaine pour personnaliser l'apparence de vos URL raccourcies, contribuant ainsi à véhiculer une image de marque cohérente. Pour en savoir plus, consultez [Domaines personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
+Le suivi des clics KakaoTalk vous permet d'utiliser votre propre domaine pour personnaliser l'apparence de vos URL raccourcies, contribuant ainsi à véhiculer une image de marque cohérente. Pour en savoir plus, consultez [Domaines personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
 
 ## Personnalisation Liquid dans les URL {#liquid-personalization-in-urls}
 
@@ -78,7 +78,7 @@ Braze raccourcit les URL rendues par Liquid, y compris celles incluses dans les 
 
 ## Tests {#testing}
 
-Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message KakaoTalk à des groupes de test de contenu ou à un utilisateur individuel.
+Avant de lancer votre campagne ou votre Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message KakaoTalk à des groupes de test de contenu ou à un utilisateur individuel.
 
 La prévisualisation sera mise à jour avec la personnalisation pertinente et l'URL raccourcie.
 
@@ -88,7 +88,7 @@ Si un brouillon est créé au sein d'un Canvas actif, une URL raccourcie ne sera
 
 ## Rapports {#reporting}
 
-Le tableau de performance KakaoTalk inclut la colonne **Total Clicks** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Pour plus de détails sur les indicateurs KakaoTalk, consultez [Rapports KakaoTalk]({{site.baseurl}}/kakaotalk_reporting/).
+Le tableau de performance KakaoTalk inclut la colonne **Total Clicks** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Pour plus de détails sur les indicateurs KakaoTalk, consultez [Rapports KakaoTalk]({{site.baseurl}}/kakaotalk_reporting).
 
 Les données de clics sont automatiquement reportées dans le tableau de bord d'analyse.
 

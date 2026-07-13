@@ -12,9 +12,9 @@ noindex: true
 
 # Deeplinking für iOS {#deep-linking-for-ios}
 
-Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
+Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
 
-## 1. Schritt: Ein Schema registrieren {#step-1-register-a-scheme}
+## Schritt 1: Ein Schema registrieren {#step-1-register-a-scheme}
 
 Sie müssen ein angepasstes Schema in der Datei `Info.plist` angeben. Die Navigationsstruktur wird durch ein Array von Wörterbüchern definiert. Jedes dieser Wörterbücher enthält ein String-Array.
 
@@ -41,7 +41,7 @@ Wenn Sie Ihre `Info.plist`-Datei direkt bearbeiten möchten, können Sie auch di
 </array>
 ```
 
-## 2. Schritt: Angepasstes Schema in die Allowlist eintragen (iOS 9+) {#step-2-allowlist-the-custom-scheme-ios-9}
+## Schritt 2: Angepasstes Schema in die Allowlist eintragen (iOS 9+) {#step-2-allowlist-the-custom-scheme-ios-9}
 
 Ab iOS 9 müssen Apps eine Allowlist mit angepassten Schemata haben, die die App öffnen darf. Der Versuch, Schemata außerhalb dieser Liste aufzurufen, führt dazu, dass das System einen Fehler in den Protokollen des Geräts aufzeichnet und der Deeplink nicht geöffnet wird. Ein Beispiel für diesen Fehler sieht so aus:
 
@@ -64,7 +64,7 @@ Sie sollten alle Schemata, zu denen die App Deeplinks setzen muss, in einer Allo
 
 Weitere Informationen finden Sie in der [Dokumentation von Apple](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14) zum Schlüssel `LSApplicationQueriesSchemes`.
 
-## 3. Schritt: Handler implementieren {#step-3-implement-a-handler}
+## Schritt 3: Handler implementieren {#step-3-implement-a-handler}
 
 Nachdem Ihre App aktiviert wurde, ruft iOS die Methode [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) auf. Das wichtige Argument ist das [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL)-Objekt.
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Beispiel einer Deeplink-Konfiguration im Braze-Dashboard.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Universelle Links {#universal-links}
 
@@ -138,7 +138,7 @@ Weitere Informationen finden Sie bei [Apple](https://developer.apple.com/library
 Die Standard-Integration für universelle Links ist nicht mit Push-Benachrichtigungen oder In-App-Nachrichten von Braze kompatibel. Informationen zur Handhabung universeller Links innerhalb Ihrer Anwendung finden Sie unter [Anpassung der Link-Handhabung](#linking-handling-customization). Alternativ empfehlen wir, [schemabasierte Deeplinks](#step-1-registering-a-scheme) mit Push-Benachrichtigungen und In-App-Nachrichten zu verwenden.
 {% endalert%}
 
-## App Transport Security (ATS)
+## App Transport Security (ATS) {#app-transport-security-ats}
 Mit iOS 9 wurde eine grundlegende Änderung eingeführt, die in In-App-Nachrichten und Push-Benachrichtigungen eingebettete Internet-URLs betrifft.
 
 ### ATS-Anforderungen {#ats-requirements}
@@ -164,7 +164,7 @@ Die ATS-Konformität wird für Links durchgesetzt, die innerhalb der mobilen App
 Sie können ATS auf eine der folgenden drei Arten handhaben:
 
 #### Bestätigen, dass alle Links ATS-konform sind (empfohlen) {#confirm-all-links-are-ats-compliant-recommended}
-Ihre Braze-Integration kann die ATS-Anforderungen erfüllen, indem Sie sicherstellen, dass alle bestehenden Links, zu denen Sie Nutzer:innen führen (über In-App-Nachrichten und Push-Kampagnen), die ATS-Anforderungen erfüllen. Es gibt zwar Möglichkeiten, die ATS-Beschränkungen zu umgehen, aber wir empfehlen, zu überprüfen, ob alle verlinkten URLs ATS-konform sind. Da Apple immer mehr Wert auf die Sicherheit von Anwendungen legt, werden die folgenden Ansätze zur Zulassung von ATS-Ausnahmen von Apple nicht garantiert unterstützt.
+Ihre Braze-Integration kann die ATS-Anforderungen erfüllen, indem Sie sicherstellen, dass alle bestehenden Links, zu denen Sie Nutzer:innen führen (über In-App-Nachrichten und Push-Campaigns), die ATS-Anforderungen erfüllen. Es gibt zwar Möglichkeiten, die ATS-Beschränkungen zu umgehen, aber wir empfehlen, zu überprüfen, ob alle verlinkten URLs ATS-konform sind. Da Apple immer mehr Wert auf die Sicherheit von Anwendungen legt, werden die folgenden Ansätze zur Zulassung von ATS-Ausnahmen von Apple nicht garantiert unterstützt.
 
 Ein SSL-Tool kann Ihnen dabei helfen, Sicherheitsprobleme des Webservers zu erkennen. Dieser [SSL-Server-Test](https://www.ssllabs.com/ssltest/index.html) von Qualys, Inc. bietet einen Punkt speziell für die Einhaltung von Apple ATS 9 und iOS 9.
 
@@ -242,7 +242,7 @@ Um einen kodierten Link zu dekodieren, verwenden Sie die `NSString`-Methode [`st
 
 ### Standard-WebView-Anpassung {#default-webview-customization}
 
-Die anpassbare Klasse `ABKModalWebViewController` zeigt Internet-URLs an, die vom SDK geöffnet werden – typischerweise wenn „Web-URL in App öffnen“ für einen Web-Deeplink ausgewählt wurde.
+Die anpassbare Klasse `ABKModalWebViewController` zeigt Internet-URLs an, die vom SDK geöffnet werden – typischerweise wenn „Internet-URL in App öffnen“ für einen Web-Deeplink ausgewählt wurde.
 
 Sie können eine Kategorie für die Klasse `ABKModalWebViewController` deklarieren oder sie direkt ändern, um die Webansicht anzupassen. Weitere Details finden Sie in der [.h-Datei](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h) und der [.m-Datei](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m) der Klasse.
 

@@ -3,14 +3,14 @@ nav_title: アカウントベースのセグメンテーション
 article_title: アカウントベースのセグメンテーションを設定する
 page_order: 2
 page_type: reference
-description: "B2B アカウントベースのセグメンテーションのユースケースを強化するためのBrazeのさまざまな機能の使用方法を学びます。"
+description: "B2Bアカウントベースのセグメンテーションのユースケースを強化するためのBrazeのさまざまな機能の使用方法を学びます。"
 ---
 
 # アカウントベースのセグメンテーションを設定する {#set-up-account-based-segmentation}
 
 > このページでは、さまざまなBraze機能を使用してB2Bアカウントベースのセグメンテーションのユースケースを強化する方法について説明します。
 
-[B2B データモデル]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/)の設定方法に応じて、次の2つの方法でB2Bアカウントベースのセグメンテーションを実行できます。
+[B2Bデータモデル]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)の設定方法に応じて、次の2つの方法でB2Bアカウントベースのセグメンテーションを実行できます。
 
 - [ビジネスオブジェクトにカタログを使用する場合](#option-1-when-using-catalogs-for-your-business-objects)
 - [ビジネスオブジェクトに接続ソースを使用する場合](#option-2-when-using-connected-sources-for-your-business-objects)
@@ -25,8 +25,8 @@ description: "B2B アカウントベースのセグメンテーションのユ�
 
 ターゲットのエンタープライズアカウントの従業員であるユーザーをセグメント化するとします。
 
-1. **オーディエンス** > **セグメントエクステンション** > **新規エクステンションを作成** > **テンプレートから開始** の順に移動し、**イベント用のカタログセグメント** テンプレートを選択します。<br><br> ![「テンプレートの選択」モーダルで、イベントまたは購入のカタログセグメントオプションを選択できます。]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>SQLエディターには、ユーザーイベントデータとカタログデータを結合し、特定のカタログアイテムにエンゲージしたユーザーをセグメンテーションするテンプレートが自動的に入力されます。<br><br>![**変数** タブが開いた状態の新しいエクステンションのSQLエディター。]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
-2. **変数** タブを使用して、セグメントを生成する前にテンプレートに必要なフィールドを指定します。<br><br>Brazeがカタログアイテムへのエンゲージメントに基づいてユーザーを識別するには、次のことを行う必要があります。
+1. **オーディエンス** > **セグメントエクステンション** > **新規エクステンションを作成** > **テンプレートから開始**の順に移動し、**イベントのカタログセグメント**テンプレートを選択します。<br><br> ![「テンプレートの選択」モーダルで、イベントまたは購入のカタログセグメントオプションを選択できます。]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>SQLエディターには、ユーザーイベントデータとカタログデータを結合し、特定のカタログアイテムにエンゲージしたユーザーをセグメンテーションするテンプレートが自動的に入力されます。<br><br>![「変数」タブが開いた状態の新しいエクステンションのSQLエディター。]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
+2. **変数**タブを使用して、セグメントを生成する前にテンプレートに必要なフィールドを指定します。<br><br>Brazeがカタログアイテムへのエンゲージメントに基づいてユーザーを識別するには、次のことを行う必要があります。
 - カタログフィールドを含むカタログを選択する
 - イベントプロパティを含むカスタムイベントを選択する
 - カタログのフィールドとイベントのプロパティ値を一致させる
@@ -41,13 +41,13 @@ B2Bアカウントベースのセグメンテーションのユースケース�
 | カタログフィールド | ID |
 | カスタムイベント | account_linked |
 | カスタムイベントプロパティ | account_id |
-| (SQL結果のフィルターで) カタログフィールド | Classification |
-| (SQL結果のフィルターで) 値 | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| (Filter SQL Resultsで) カタログフィールド | Classification |
+| (Filter SQL Resultsで) 値 | Enterprise |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="B2Bユースケースの変数ガイドライン" }
 
 #### 高度なSQLセグメンテーション {#sophisticated-sql-segmentation}
 
-より高度で複雑なセグメンテーションについては、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)を参照してください。B2Bアカウントベースのセグメンテーションを開始するのに役立つSQLテンプレートをいくつか紹介します。
+より高度で複雑なセグメンテーションについては、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)を参照してください。B2Bアカウントベースのセグメンテーションを開始するのに役立つSQLテンプレートをいくつか紹介します。
 
 1. 1つのカタログで2つのフィルターを比較するセグメントを作成します（エンタープライズレベルのアカウントでレストラン業界に勤務するユーザーなど）。カタログIDとアイテムIDを含める必要があります。
 
@@ -108,8 +108,8 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 
 ### オプション2: ビジネスオブジェクトに接続ソースを使用する場合 {#option-2-when-using-connected-sources-for-your-business-objects}
 
-セグメンテーションにおける接続ソースの使用方法の基本については、[CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)を参照してください。[カタログを使用する場合](#option-1-when-using-catalogs-for-your-business-objects)で取り上げたテンプレートを参考に、ソーステーブルのフォーマットを自由に設定できます。
+セグメンテーションにおける接続ソースの使用方法の基本については、[CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)を参照してください。[カタログを使用する場合](#option-1-when-using-catalogs-for-your-business-objects)で取り上げたテンプレートを参考に、ソーステーブルのフォーマットを自由に設定できます。
 
 ## セグメントでアカウントベースのエクステンションを使用する {#using-your-account-based-extension-in-a-segment}
 
-上記のステップでアカウントレベルのセグメンテーションを作成したら、それらのセグメントエクステンションをターゲティング条件に直接取り込むことができます。また、役割や以前のキャンペーンへのエンゲージメントなど、ユーザーの属性条件を段階的に追加して適用することも簡単です。詳しくは、[セグメントでエクステンションを使用する]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment)を参照してください。
+このセクションの前のステップでアカウントレベルのセグメンテーションを作成したら、それらのセグメントエクステンションをターゲティング条件に直接取り込むことができます。また、役割や以前のキャンペーンへのエンゲージメントなど、ユーザーの属性条件を段階的に追加して適用することも簡単です。詳しくは、[セグメントでエクステンションを使用する]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment)を参照してください。

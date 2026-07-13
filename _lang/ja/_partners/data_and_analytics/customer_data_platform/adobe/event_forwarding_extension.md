@@ -10,17 +10,17 @@ search_tag: Partner
 
 # Track Events APIイベント転送拡張機能 {#track-events-api-event-forwarding-extension}
 
-> Braze Track Events APIの[イベント転送](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en)拡張機能を使用すると、Adobe Experience Platform Edge Networkでキャプチャされたデータを利用して、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) APIを使用してサーバーサイドのイベントの形式でBrazeに送信できます。
+> Braze Track Events APIの[イベント転送](https://experienceleague.adobe.com/docs/experience-platform/tags/event-forwarding/overview.html?lang=en)拡張機能を使用すると、Adobe Experience Platform Edge Networkでキャプチャされたデータを利用して、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) APIを使用してサーバーサイドのイベントの形式でBrazeに送信できます。
 
 このドキュメントでは、拡張機能のユースケース、イベント転送ライブラリへのインストール方法、およびイベント転送[ルール](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en)でその機能を使用する方法について説明します。
 
 {% alert note %}
-Adobeイベント転送を使用すると、Brazeのデータポイント使用量が増加する可能性があります。詳細については、[データポイント]({{site.baseurl}}/user_guide/onboarding_with_braze/data_points/#billable-data-points)に関するBrazeのドキュメントを参照してください。
+Adobeイベント転送を使用すると、Brazeのデータポイント使用量が増加する可能性があります。詳細については、[データポイント]({{site.baseurl}}/user_guide/onboarding_with_braze/data_points#billable-data-points)に関するBrazeのドキュメントを参照してください。
 {% endalert %}
 
 ## ユースケース {#use-cases}
 
-この拡張機能は、Brazeの顧客分析およびターゲティング機能を活用するために、Edge Networkからのデータを使用する必要があります。
+この拡張機能は、Brazeの顧客分析およびターゲティング機能を活用するために、Edge Networkからのデータを使用します。
 
 たとえば、マルチチャネルプレゼンス（Webサイトとモバイル）を展開しており、Webサイトプラットフォームとモバイルプラットフォームからトランザクション入力や会話入力をイベントデータとして取得している小売組織について考えてみます。
 
@@ -30,8 +30,8 @@ Adobeイベント転送を使用すると、Brazeのデータポイント使用�
 
 | API | レート制限 |
 | --- | --- |
-| User Track | 1分あたり50,000件のリクエスト。<br><br>詳細については、[User Track APIのドキュメント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#rate-limit)を参照してください。
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| User Track | 1分あたり50,000件のリクエスト。<br><br>詳細については、[User Track APIのドキュメント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#rate-limit)を参照してください。
+{: .reset-td-br-1 .reset-td-br-2 aria-label="レート制限" }
 
 ## 統合 {#integration}
 
@@ -41,9 +41,9 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 
 | キーのタイプ | 説明 |
 | --- | --- |
-| Brazeインスタンス | Brazeインスタンスは、Brazeオンボーディングマネージャーから入手できます。また、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)でも確認できます。 |
+| Brazeインスタンス | Brazeインスタンスは、Brazeオンボーディングマネージャーから入手できます。また、[API概要ページ]({{site.baseurl}}/api/basics#endpoints)でも確認できます。 |
 | Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1:必要な設定の詳細を収集する" }
 
 ### ステップ2:シークレットを作成する {#step-2-create-a-secret}
 
@@ -59,17 +59,17 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 
 拡張機能をインストールした後、新しいイベント転送[ルール](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en)を作成し、必要に応じてその条件を設定します。ルールのアクションを設定する際に、**Braze**拡張機能を選択し、アクションタイプとして**Send Event**を選択します。
 
-![]({% image_buster /assets/img/efe.png %})
+![Braze Send Eventを使用するように設定されたAdobeイベント転送ルールアクション。]({% image_buster /assets/img/efe.png %})
 
 {% tabs local %}
 {% tab User Identification %}
 
 | 入力 | 説明 |
 | --- | --- |
-| 外部ユーザーID | 長く、ランダムで、よく分散されたUUIDまたはGUID。ユーザーIDの命名に別の方法を選択する場合、それらも長く、ランダムで、よく分散されている必要があります。[推奨されるユーザーID命名規則]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention)について詳しく学びます。 |
+| 外部ユーザーID | 長く、ランダムで、よく分散されたUUIDまたはGUID。ユーザーIDの命名に別の方法を選択する場合、それらも長く、ランダムで、よく分散されている必要があります。[推奨されるユーザーID命名規則]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention)について詳しく学びます。 |
 | BrazeユーザーID | Brazeユーザー識別子。 |
 | ユーザーエイリアス | エイリアスは、代替の一意のユーザー識別子として機能します。エイリアスを使用して、コアユーザーIDとは異なる次元でユーザーを識別します。<br><br>ユーザーエイリアスオブジェクトは2つの部分で構成されています。識別子自体の`alias_name`とエイリアスの種類を示す`alias_label`です。ユーザーは異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_name`は`alias_label`ごとに1つしか持つことができません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4:送信イベントルールを作成する" }
 
 {% alert note %}
 イベントをユーザーに結びつけるには、`External User ID`フィールド、`Braze User Identifier`フィールド、または`User Alias`セクションのいずれかを入力する必要があります。
@@ -84,10 +84,10 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 | イベント時間 | ISO 8601または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式の日付時刻文字列。 | はい |
 | アプリ識別子 | アプリ識別子または`app_id`は、ワークスペース内の特定のアプリとアクティビティを関連付けるパラメーターです。ワークスペース内のどのアプリと対話するかを指定します。 | いいえ |
 | イベントプロパティ | イベントのカスタムプロパティを含むJSONオブジェクト。 | いいえ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4:送信イベントルールを作成する" }
 
 {% alert note %}
-**Braze Send Event**アクションには**Event Name**と**Event Time**を指定するだけで済みますが、カスタムプロパティフィールドにはできるだけ多くの情報を含めるべきです。詳細については[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください。
+**Braze Send Event**アクションには**Event Name**と**Event Time**を指定するだけで済みますが、カスタムプロパティフィールドにはできるだけ多くの情報を含めるべきです。詳細については[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)を参照してください。
 {% endalert %}
 
 {% endtab %}
@@ -109,7 +109,7 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 | タイムゾーン | [IANAタイムゾーンデータベース](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)からのタイムゾーン名（例：'America/New_York'または'Eastern Time (US & Canada)'）。 |
 | Facebook | `id`（文字列）、`likes`（文字列の配列）、`num_friends`（整数）のいずれかを含むハッシュ。 |
 | Twitter | id（整数）、`screen_name`（文字列、X（旧Twitter）ハンドル）、`followers_count`（整数）、`friends_count`（整数）、`statuses_count`（整数）のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4:送信イベントルールを作成する" }
 
 {% alert note %}
 設定内で追加されたすべての属性は、属性の値が変更されたかどうかに関係なく、イベントがBrazeに送信されるたびに送信されます。ユーザー属性を設定する際には、これがデータポイント使用量にどのような影響を与えるかを確認してください。
@@ -122,17 +122,17 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 
 拡張機能をインストールした後、新しいイベント転送[ルール](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en)を作成し、必要に応じてその条件を設定します。ルールのアクションを設定する際に、**Braze**拡張機能を選択し、アクションタイプとして**Send Purchase Event**を選択します。
 
-![]({% image_buster /assets/img/efe2.png %})
+![Braze Send Purchase Eventを使用するように設定されたAdobeイベント転送ルールアクション。]({% image_buster /assets/img/efe2.png %})
 
 {% tabs local %}
 {% tab User Identification %}
 
 | 入力 | 説明 |
 | --- | --- |
-| 外部ユーザーID | 長く、ランダムで、よく分散されたUUIDまたはGUID。ユーザーIDの命名に別の方法を選択する場合、それらも長く、ランダムで、よく分散されている必要があります。[推奨されるユーザーID命名規則]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#suggested-user-id-naming-convention)について詳しく学びます。 |
+| 外部ユーザーID | 長く、ランダムで、よく分散されたUUIDまたはGUID。ユーザーIDの命名に別の方法を選択する場合、それらも長く、ランダムで、よく分散されている必要があります。[推奨されるユーザーID命名規則]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention)について詳しく学びます。 |
 | BrazeユーザーID | Brazeユーザー識別子。 |
 | ユーザーエイリアス | エイリアスは、代替の一意のユーザー識別子として機能します。エイリアスを使用して、コアユーザーIDとは異なる次元でユーザーを識別します。<br><br>ユーザーエイリアスオブジェクトは2つの部分で構成されています。識別子自体の`alias_name`とエイリアスの種類を示す`alias_label`です。ユーザーは異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_name`は`alias_label`ごとに1つしか持つことができません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ5:購入イベント送信ルールを作成する" }
 
 {% alert note %}
 イベントをユーザーにリンクするには、`External User ID`フィールド、`Braze User Identifier`フィールド、または`User Alias`セクションのいずれかを入力する必要があります。
@@ -150,10 +150,10 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 | 数量 | 購入数量。指定されていない場合、デフォルト値は1になります。最大値は100未満にする必要があります。 | いいえ |
 | アプリ識別子 | アプリ識別子または`app_id`は、ワークスペース内の特定のアプリとアクティビティを関連付けるパラメーターです。ワークスペース内のどのアプリと対話するかを指定します。 | いいえ |
 | 購入プロパティ | 購入のカスタムプロパティを含むJSONオブジェクト。 | いいえ |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ5:購入イベント送信ルールを作成する" }
 
 {% alert note %}
-**Send Purchase Event**アクションには`Product ID`、`Purchase Time`、`Currency`、および`Price`のみを指定する必要がありますが、購入プロパティフィールドにはできるだけ多くの情報を含めるべきです。詳細については[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください。
+**Send Purchase Event**アクションには`Product ID`、`Purchase Time`、`Currency`、および`Price`のみを指定する必要がありますが、購入プロパティフィールドにはできるだけ多くの情報を含めるべきです。詳細については[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照してください。
 {% endalert %}
 
 {% endtab %}
@@ -177,7 +177,7 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 | タイムゾーン | [IANAタイムゾーンデータベース](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)からのタイムゾーン名（例：'America/New_York'または'Eastern Time (US & Canada)'）。 |
 | Facebook | `id`（文字列）、`likes`（文字列の配列）、`num_friends`（整数）のいずれかを含むハッシュ。 |
 | Twitter | id（整数）、`screen_name`（文字列、X（旧Twitter）ハンドル）、`followers_count`（整数）、`friends_count`（整数）、`statuses_count`（整数）のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ5:購入イベント送信ルールを作成する" }
 
 {% alert note %}
 設定内で追加されたすべての属性は、属性の値が変更されたかどうかに関係なく、イベントがBrazeに送信されるたびに送信されます。ユーザー属性を設定する際には、これがデータポイント使用量にどのような影響を与えるかを確認してください。
@@ -188,4 +188,4 @@ Edge NetworkをBrazeに接続するには、以下が必要です。
 
 ### ステップ6:Braze内のデータを検証する {#step-6-validate-data-within-braze}
 
-イベントコレクションとAdobe Experience Platformの統合が成功した場合、[ユーザープロファイルを表示する]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)際にBrazeコンソール内にイベントが表示されます。具体的には、Brazeに送信された新しいイベントデータは、特定のユーザーの[概要タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#overview-tab)の**購入**または**カスタムイベント**セクションに反映されます。
+イベントコレクションとAdobe Experience Platformの統合が成功した場合、[ユーザープロファイルを表示する]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)際にBrazeコンソール内にイベントが表示されます。具体的には、Brazeに送信された新しいイベントデータは、特定のユーザーの[概要タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#overview-tab)の**購入**または**カスタムイベント**セクションに反映されます。

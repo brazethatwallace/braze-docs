@@ -1,16 +1,16 @@
 ---
 nav_title: "GET: Details zum Katalogartikel auflisten"
-article_title: "GET: Liste Katalog Artikel Details"
+article_title: "GET: Details zum Katalogartikel auflisten"
 search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts List catalog item details Braze."
+description: "Dieser Artikel beschreibt die Details zum Braze-Endpunkt „Details zum Katalogartikel auflisten“."
 
 ---
 {% api %}
-# Details zum Katalogartikel auflisten
+# Details zum Katalogartikel auflisten {#list-catalog-item-details}
 {% apimethod get %}
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
@@ -19,27 +19,27 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts List catalog i
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#52c6631c-7366-48e5-9e0e-16de7b6285cc {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.get_item`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.get_item`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
 | `item_id` | Erforderlich | String | Die ID des Katalogartikels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
-## Parameter der Anfrage
+## Anfrage-Parameter {#request-parameters}
 
 Für diesen Endpunkt gibt es keinen Anfragetext.
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items/restaurant1' \
@@ -47,13 +47,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Für diesen Endpunkt gibt es zwei Status Code Antworten: `200` und `404`.
+Für diesen Endpunkt gibt es zwei Statuscode-Antworten: `200` und `404`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Antwortkörper zurückgeben.
+Der Statuscode `200` könnte den folgenden Antworttext zurückgeben.
 
 ```json
 {
@@ -72,9 +72,9 @@ Der Status Code `200` könnte den folgenden Antwortkörper zurückgeben.
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `404` könnte die folgende Antwort liefern. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `404` könnte die folgende Antwort zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {
@@ -94,14 +94,14 @@ Der Status Code `404` könnte die folgende Antwort liefern. Unter [Fehlerbehebun
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
 In der folgenden Tabelle sind die möglichen zurückgegebenen Fehler und die dazugehörigen Schritte zur Fehlerbehebung aufgelistet, falls zutreffend.
 
-| Fehler | Fehlersuche |
+| Fehler | Fehlerbehebung |
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
 | `item-not-found` | Prüfen Sie, ob der Artikel im Katalog enthalten ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

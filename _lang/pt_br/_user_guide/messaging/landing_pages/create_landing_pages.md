@@ -11,15 +11,13 @@ page_order: 0
 
 ## Pré-requisitos {#prerequisites}
 
-Para acessar o construtor de landing pages, você precisa de [determinadas permissões]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). Se você não tiver acesso, peça ajuda ao administrador da Braze.
+Para acessar o construtor de landing pages, você precisa de [determinadas permissões]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Se você não tiver acesso, peça ajuda ao administrador da Braze.
 
 ## Criando uma landing page {#creating-a-landing-page}
 
 ### Etapa 1: Criar um novo rascunho {#step-1-create-a-new-draft}
 
 Acesse **Messaging** > **Landing Pages** e selecione **Create landing page**. Você também pode selecionar o nome de uma landing page existente para duplicá-la ou fazer alterações.
-
-![A seção de landing pages no dashboard da Braze.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### Etapa 2: Inserir os detalhes da página {#step-2-enter-the-page-details}
 
@@ -40,8 +38,8 @@ Sugerimos seguir estas práticas recomendadas:
 | Título do site | O título exibido na aba do navegador. | Use até 60 caracteres. |
 | Meta descrição | Um trecho de texto exibido nos resultados de busca. | Use entre 140 e 160 caracteres. |
 | Favicon | O ícone que aparece ao lado do título do site na aba do navegador. | Use uma proporção de 1:1 e um tipo de arquivo compatível: PNG, JPEG ou ICO. |
-| URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam seu formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam seu formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes do site" }
 
 ### Etapa 3: Personalizar a página {#step-3-customize-the-page}
 
@@ -49,7 +47,7 @@ Se ainda não fez isso, selecione **Salvar como rascunho**. Para começar a pers
 
 ![Um exemplo de landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
-O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha.
+O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha. Para uma referência dedicada de cada bloco e suas propriedades, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![A seção "Build" contendo "Rows" e "Form Blocks".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -68,11 +66,11 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 | Link | Um hiperlink que os usuários podem clicar para navegar até uma URL específica. Pode ser incorporado dentro do texto ou independente. |
 | Espaçador | Um bloco invisível que adiciona espaçamento vertical entre elementos para melhorar o layout e a legibilidade. |
 | Código personalizado | Um bloco que permite inserir e executar HTML, CSS ou JavaScript personalizados para personalização avançada. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Personalizar a página" }
 
-##### Span text {#span-text}
+#### Span text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Blocos de formulário %}
@@ -89,10 +87,10 @@ Você pode usar esses blocos para criar um formulário que vincula os dados envi
 | Menu suspenso | Os usuários podem selecionar um item de uma lista predefinida. Você pode adicionar qualquer string de atributo personalizado à lista. |
 | Caixa de seleção | Se um usuário marcar a caixa, o atributo do bloco é definido como `true`. Se não for marcada, o atributo é definido como `false`. |
 | Grupo de caixas de seleção | Os usuários podem selecionar entre várias opções apresentadas. Os valores são definidos ou adicionados a um atributo personalizado de array definido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
-Depois de criar uma landing page com um formulário, certifique-se de incorporar a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) na sua mensagem. Com essa tag, a Braze pode identificar e atualizar automaticamente os perfis de usuários existentes quando eles enviam o formulário.
+Depois de criar uma landing page com um formulário, certifique-se de incorporar a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) na sua mensagem. Com essa tag, a Braze pode identificar e atualizar automaticamente os perfis de usuários existentes quando eles enviam o formulário.
 {% endalert %}
 
 {% endtab %}
@@ -138,10 +136,6 @@ Se você não incluir uma página de confirmação, os usuários podem não sabe
 Se sua página de confirmação abrir em uma nova aba, um usuário que retornar à landing page original e reenviar com informações atualizadas pode sobrescrever o envio anterior, resultando em dados inconsistentes.
 {% endalert %}
 
-{% alert important %}
-Se você configurar um botão com **Submit form when button is clicked** ativado e usar **On-click Behavior** para abrir uma URL da web em uma nova aba, o bloqueador de pop-ups integrado do Safari no iOS pode impedir que a navegação funcione. Isso ocorre porque o envio do formulário seguido pela abertura de uma nova aba é tratado como um pop-up.<br><br>Para evitar esse problema, configure botões com envio de formulário para abrir a URL resultante na mesma aba (não em uma nova aba). Botões sem envio de formulário podem abrir URLs em novas abas sem problemas.
-{% endalert %}
-
 ### Etapa 5: Pré-visualizar a página {#step-5-preview-the-page}
 
 Você pode pré-visualizar sua landing page na guia **Preview** do editor. Depois de salvar sua landing page como rascunho, você pode visitar a URL acessando **Landing Pages** e selecionando **Copy URL** ao lado da sua landing page. Você também pode compartilhar a URL com colaboradores.
@@ -156,9 +150,13 @@ Antes de publicar, certifique-se de que:
 
 Quando estiver pronto, selecione **Publish Landing Page**.
 
+{% alert note %}
+Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando o botão **Submit** de um formulário também abre outra URL, seja na mesma aba ou em uma nova aba.
+{% endalert %}
+
 ## Usando modelos {#using-templates}
 
-Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
+Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Modelos de landing page** (**Content** > **Landing Page**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
 
 ## Gerenciando modelos {#managing-templates}
 

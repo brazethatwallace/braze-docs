@@ -23,7 +23,7 @@ Before you start, make sure you have the following:
 - A Meta Business Manager account and a WhatsApp Business account
 - A WhatsApp phone number that meets [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) requirements
 
-For a full walkthrough, refer to [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/).
+For a full walkthrough, refer to [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ## Use cases
 
@@ -34,9 +34,9 @@ For a full walkthrough, refer to [WhatsApp setup]({{site.baseurl}}/user_guide/ch
 | Appointment reminders | Reduce no-shows with timely appointment reminders and allow customers to confirm or reschedule. |
 | Promotional campaigns | Reach customers with targeted promotions, product launches, and personalized offers through rich media messages. |
 | Two-way conversations | Build deeper relationships with interactive messaging that lets customers respond, ask questions, and provide feedback. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Next steps
 
-- [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-- [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+- [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)

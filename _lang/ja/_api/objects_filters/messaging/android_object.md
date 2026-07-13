@@ -10,7 +10,7 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
 ---
 # Androidオブジェクト {#android-object}
 
-> `android_push` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を介してAndroidプッシュ通知およびAndroidプッシュアラートコンテンツに関連する情報を定義またはリクエストできます。
+> `android_push` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を介してAndroidプッシュ通知およびAndroidプッシュアラートコンテンツに関連する情報を定義またはリクエストできます。
 
 ## Androidプッシュオブジェクト {#android-push-object}
 
@@ -48,13 +48,13 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
 
 | パラメータ | 詳細 |
 | --------- | ------- |
-| `priority` | このパラメータは `-2` から `2` までの値を受け付けます。`-2` は「MIN」優先度を表し、`2` は「MAX」を表します。`0` は「DEFAULT」値です。<br> <br> この範囲外の値が送信された場合、デフォルトは0になります。どの優先度レベルを使用するかについては、[Androidの通知優先度]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority)を参照してください。 |
-| `android_priority` | このパラメータは、FCM送信者の優先度を指定するために `normal` または `high` のいずれかの値を受け付けます。デフォルトでは、メッセージは[プッシュ設定]({{site.baseurl}}/user_guide/administrative/app_settings/push_settings/#default-fcm-priority-for-android-campaigns)ページで構成されたデフォルトのFCM優先度で送信されます。<br><br> 値の違いが配信に与える影響の詳細については、[Androidメッセージの優先度](https://firebase.google.com/docs/cloud-messaging/android/message-priority)を参照してください。 |
-| `collapse_key` | FCMは、1台のデバイスにつき同時に最大4つのコラプスキーしか保存できません。4つ以上のコラプスキーを使用する場合、FCMはどのキーが保持されるかを保証しません。BrazeはCampaign用にデフォルトでこれらのうちの1つを使用するため、Androidメッセージ用に追加のコラプスキーは最大3つまでに指定してください。 |
+| `priority` | このパラメータは `-2` から `2` までの値を受け付けます。`-2` は「MIN」優先度を表し、`2` は「MAX」を表します。`0` は「DEFAULT」値です。<br> <br> この範囲外の値が送信された場合、デフォルトは0になります。どの優先度レベルを使用するかについては、[Androidの通知優先度]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority)を参照してください。 |
+| `android_priority` | このパラメータは、FCM送信者の優先度を指定するために `normal` または `high` のいずれかの値を受け付けます。デフォルトでは、メッセージは[プッシュ設定]({{site.baseurl}}/user_guide/administrative/app_settings/push_settings#default-fcm-priority-for-android-campaigns)ページで構成されたデフォルトのFCM優先度で送信されます。<br><br> 値の違いが配信に与える影響の詳細については、[Androidメッセージの優先度](https://firebase.google.com/docs/cloud-messaging/android/message-priority)を参照してください。 |
+| `collapse_key` | FCMは、1台のデバイスにつき同時に最大4つのコラプスキーしか保存できません。4つ以上のコラプスキーを使用する場合、FCMはどのキーが保持されるかを保証しません。Brazeはキャンペーン用にデフォルトでこれらのうちの1つを使用するため、Androidメッセージ用に追加のコラプスキーは最大3つまでに指定してください。 |
 | `push_icon_image_url` | large iconパラメーターの値は、画像がホストされている場所にリンクするURLである必要があります。<br> <br> 画像は1:1のアスペクト比にトリミングし、40×40以上にしてください。 |
-| `notification_channel` | これが指定されていない場合、Brazeは[ダッシュボードのフォールバック]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel)チャネルIDで通知ペイロードを送信しようとします。詳細については、[通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/)を参照し、統合時の[通知チャネルの定義]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels)ステップを参照してください。 |
-| `send_to_sync` | `send_to_sync` メッセージの詳細については、[Androidのサイレント通知]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications/#silent-push-notifications)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `notification_channel` | これが指定されていない場合、Brazeは[ダッシュボードのフォールバック]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel)チャネルIDで通知ペイロードを送信しようとします。詳細については、[通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)を参照し、統合時の[通知チャネルの定義]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels)ステップを参照してください。 |
+| `send_to_sync` | `send_to_sync` メッセージの詳細については、[Androidのサイレント通知]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications#silent-push-notifications)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="追加パラメータの詳細" }
 
 ## Androidプッシュアクションボタンオブジェクト {#android-push-action-button-object}
 

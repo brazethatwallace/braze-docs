@@ -21,7 +21,7 @@ Upon setup, you will be asked to provide a sign-on URL and an Assertion Consumer
 | Assertion Consumer Service (ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> For European Union domains, the ASC URL is `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> For some IdPs, this can also be referred to as the Reply URL, Sign-On URL, Audience URL, or Audience URI. |
 | Entity ID | `braze_dashboard` |
 | RelayState API key | Go to **Settings** > **API Keys** and create an API key with `sso.saml.login` permissions, and then input the generated API key as the `RelayState` parameter within your IdP. For detailed steps, refer to [Setting up your RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Setting up SAML SSO
 
@@ -38,6 +38,7 @@ If you plan on using Okta as your identity provider, make sure to use the pre-bu
 |`email` | Required | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Optional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Optional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1: Configure your identity provider" }
 
 {% alert note %}
 Braze only requires `email` in the SAML Assertion.
@@ -56,7 +57,7 @@ On the same page, input the following:
 | SAML Name | This will appear as the button text on the login screen.<br>This is typically your identity provider's name, like "Okta." |
 | Target URL | This is provided after setting up Braze within your IdP.<br> Some IdPs reference this as the SSO URL or SAML 2.0 Endpoint. |
 | Certificate | The `x.509` certificate that is provided by your identity provider.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
 
 Make sure that your `x.509` certificate follows this format when adding it to the dashboard:
 
@@ -72,14 +73,12 @@ Make sure that your `x.509` certificate follows this format when adding it to th
 
 Save your security settings and log out. Then, sign back in with your identity provider.
 
-![Dashboard login screen with SSO enabled]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## Setting up your RelayState
 
 1. In Braze, go to **Settings** > **APIs and Identifiers**.
 2. In the **API Keys** tab, select the **Create API key** button.
 3. In the **API key name** field, enter a name for your key.
-4. Extend the **SSO** dropdown under **Permissions** and check **sso.saml.login**.<br><br>![The "Permissions" section with sso.saml.login checked.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. Extend the **SSO** dropdown under **Permissions** and check **sso.saml.login**.
 5. Select **Create API key**.
 6. In the **API Keys** tab, copy the identifier next to the API key you created.
 7. Paste the RelayState API Key into your IdP's RelayState (it may also appear as "Relay State" or "Default Relay State" depending on your IdP).
@@ -95,6 +94,10 @@ You can restrict the members of your organization to only sign in with either Go
 ![Example setup of "Authentication Rules" section with a minimum password length of 8 characters and password reusability of 3 times. The passwords will expire after 180 days, and users will be logged out after 1,440 minutes of inactivity.]({% image_buster /assets/img/sso3.png %})
 
 By turning on restrictions, your company's Braze users will no longer be able to log in using a password, even if they have logged in with a password before.
+
+{% alert important %}
+After SSO is enforced, there is no fallback option for logging in if SSO authentication fails. Before enabling SSO enforcement, make sure your SSO configuration is correct, all certificates are current and renewed, and your security settings are properly managed to prevent login issues.
+{% endalert %}
 
 ## Obtaining a SAML trace
 
@@ -166,9 +169,15 @@ Have the affected user [clear their browser's cache and cookies](https://its.uio
 
 If you're getting the error `ERROR_CODE_SSO_INVALID_RELAY_STATE`, your RelayState could be misconfigured or nonexistent. If you haven't already, you need to set your RelayState in your IdP management system. For steps, refer to [Setting up your RelayState](#setting-up-your-relaystate). 
 
+### Does successful SSO sign-in return you to the Braze login page?
+
+This can occur when RelayState isn't configured correctly. Confirm you created an API key (in **Settings** > **API Keys**) for IdP sign-in and set that API key as the `RelayState` parameter in your IdP. RelayState identifies which company account you're signing into. For step-by-step instructions, see [Setting up your RelayState](#setting-up-your-relaystate).
+
+If you still can't sign in, [contact Braze Support]({{site.baseurl}}/braze_support) with a SAML trace if possible. For help capturing a trace, see [Obtaining a SAML trace](#obtaining-a-saml-trace).
+
 ### Is the user stuck in a sign-in loop between Okta and Braze?
 
-If a user can't sign in because they're stuck cycling between the Okta SSO and Braze dashboard, you need to go to Okta and set the SSO URL destination to your [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) (for example, `https://dashboard-07.braze.com`). 
+If a user can't sign in because they're stuck cycling between the Okta SSO and Braze dashboard, you need to go to Okta and set the SSO URL destination to your [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) (for example, `https://dashboard-07.braze.com`). 
 
 If you're using another IdP, check if your company uploaded the correct SAML or x.509 certificate to Braze.
 
@@ -176,9 +185,23 @@ If you're using another IdP, check if your company uploaded the correct SAML or 
 
 If your company didn't download the Braze app from your IdP's app store, you need to download the pre-built integration. For example, if Okta is your IdP, you'd download the Braze app from their [integration page](https://www.okta.com/integrations/braze/).
 
+## Google SSO
+
+If your company uses Google SSO instead of custom SAML, contact your Braze account manager to enable Google SSO for your workspace. After it's enabled, go to **Security Settings** and select **Enforce Google SSO only login** to require Google Authentication for all company users.
+
+When Google SSO enforcement is turned on, users must sign in with Google Authentication and can no longer use a Braze password. Each user must sign in with the Google account that matches their Braze dashboard email address. If a user selects a different Google account during sign-in, Braze rejects the authentication attempt.
+
+### Troubleshooting Google SSO sign-in
+
+If some users can't sign in with Google SSO, check the following:
+
+- The user's Google account email matches their Braze dashboard email address exactly.
+- The user has access to a Google account for their company email address.
+- The user isn't suspended in Braze (**Settings** > **Company Users**).
+
 ## Next steps
 
 After setting up SAML SSO, you can:
 
-- [Enforce SSO-only login]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction) in your security settings to restrict users from logging in with a password.
-- [Set up SAML just-in-time provisioning]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/) so new users automatically create Braze accounts on their first SSO sign-in.
+- [Enforce SSO-only login]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) in your security settings to restrict users from logging in with a password.
+- [Set up SAML just-in-time provisioning]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) so new users automatically create Braze accounts on their first SSO sign-in.

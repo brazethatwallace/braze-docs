@@ -10,7 +10,7 @@ description: "이 문서에서는 트리거 동기화 Braze 엔드포인트에 �
 
 ---
 {% api %}
-# 동기화 트리거
+# 동기화 트리거 {#trigger-a-sync}
 {% apimethod post %}
 /cdi/integrations/{integration_id}/sync
 {% endapimethod %}
@@ -21,18 +21,18 @@ description: "이 문서에서는 트리거 동기화 Braze 엔드포인트에 �
 이 엔드포인트를 사용하려면 `cdi.integration_sync` 권한이 있는 API 키를 생성해야 합니다.
 {% endalert %}
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi job sync' %}
 
-## 경로 매개변수
+## 경로 매개변수 {#path-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `integration_id` | Required | 문자열 | 통합 ID. 이것은 Braze 대시보드에서 통합을 볼 때 URL에서 찾을 수 있습니다. URL 형식은 `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `integration_id` | 필수 | 문자열 | 통합 ID. Braze 대시보드에서 통합을 볼 때 URL에서 확인할 수 있습니다. URL 형식은 `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
-## 예시 요청
+## 요청 예시 {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/sync' \
@@ -40,9 +40,9 @@ curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/0
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 응답
+## 응답 {#response}
 
-### 성공 응답의 예
+### 성공 응답 예시 {#example-success-response}
 
 `202` 상태 코드는 다음 응답 본문을 반환할 수 있습니다.
 
@@ -52,17 +52,17 @@ curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/0
 }
 ```
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-다음 표에는 가능한 반환 오류와 관련된 문제 해결 단계가 나와 있습니다.
+다음 표에는 반환될 수 있는 오류와 관련 문제 해결 단계가 나와 있습니다.
 
 | 오류 | 문제 해결 |
 | --- | --- |
-| `400 Invalid integration ID` | `integration_id` 주소가 유효한지 확인합니다. |
-| `404 Integration not found` | 주어진 통합 ID에 대한 통합이 없습니다. 통합 ID가 유효한지 확인하세요. |
-| `429 Another job is in progress` | 현재 이 통합을 위해 동기화가 진행 중입니다. 동기화가 완료된 후 다시 시도하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `400 Invalid integration ID` | `integration_id`가 유효한지 확인하세요. |
+| `404 Integration not found` | 지정된 통합 ID에 대한 통합이 존재하지 않습니다. 통합 ID가 유효한지 확인하세요. |
+| `429 Another job is in progress` | 현재 이 통합에 대해 동기화가 진행 중입니다. 동기화가 완료된 후 다시 시도하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
-추가 상태 코드 및 관련 오류 메시지는 [치명적인 오류 & 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하십시오.
+추가 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors#fatal-errors)을 참조하세요.
 
 {% endapi %}

@@ -19,7 +19,7 @@ description: "This article outlines details about the Delete catalog field Braze
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.delete_fields` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.delete_fields` permission.
 
 ## Rate limit
 
@@ -31,7 +31,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | -------------- | -------- | --------- | -------------------------- |
 | `catalog_name` | Required | String    | Name of the catalog.       |
 | `field_name`   | Required | String    | Name of the catalog field. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Example request
 
@@ -87,6 +87,6 @@ The following table lists possible returned errors and their associated troubles
 | `field-referenced-by-selection` | Check that the catalog field is currently in use by a selection. |
 | `field-is-inventory`            | Check that the catalog field is used as an inventory field.      |
 | `invalid-field-name`            | Check that the catalog field name is valid.                      |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

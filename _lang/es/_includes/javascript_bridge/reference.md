@@ -1,4 +1,4 @@
-Los mensajes y banners HTML personalizados dentro de la aplicación admiten un «puente» JavaScript para interactuar con el SDK de Braze, lo que te permite desencadear acciones personalizadas de Braze cuando los usuarios realizan clics en elementos con enlaces o realizan alguna otra forma de interacción con tu contenido. Estos métodos existen con la variable global `brazeBridge` o `appboyBridge`.
+Los mensajes y banners HTML personalizados dentro de la aplicación admiten un «puente» JavaScript para interactuar con el SDK de Braze, lo que te permite desencadenar acciones personalizadas de Braze cuando los usuarios hacen clic en elementos con enlaces o interactúan de alguna otra forma con tu contenido. Estos métodos existen con la variable global `brazeBridge` o `appboyBridge`.
 
 {% alert important %}
 Braze recomienda utilizar la variable global `brazeBridge`. La variable global `appboyBridge` está obsoleta pero seguirá funcionando para los usuarios existentes. Si estás utilizando `appboyBridge`, te sugerimos que migres a `brazeBridge`. <br><br> `appboyBridge` quedó obsoleto en las siguientes versiones del SDK:<br><br>
@@ -50,44 +50,36 @@ Los siguientes métodos JavaScript son compatibles con el HTML personalizado par
 }
 </style>
 
-{% alert note %}
-No puedes hacer referencia a Liquid para insertar <code>customAttributes</code> en métodos Bridge de JavaScript.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
-### Seguimiento de clics en botones
+### Seguimiento de clics en botones {#button-click-tracking}
 
-Utiliza el`brazeBridge.logClick(button_id)`método para realizar el seguimiento de los clics en tu HTML personalizado.
+Utiliza el método `brazeBridge.logClick(button_id)` para realizar el seguimiento de los clics en tu HTML personalizado.
 
-{% alert note %}
-**Banners:** Solo se admite`brazeBridge.logClick()`  (sin argumentos). Los ID de botones y el seguimiento de botones personalizados solo son compatibles con los mensajes dentro de la aplicación.
-{% endalert %}
+Para los mensajes dentro de la aplicación, puedes realizar el seguimiento mediante programación de «Botón 1», «Botón 2» y «Clics en el cuerpo» utilizando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` o `brazeBridge.logClick()`, respectivamente.
 
-Para los mensajes dentro de la aplicación, puedes realizar el seguimiento mediante programación de «Botón 1», «Botón 2» y «Clics en el cuerpo» utilizando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')`, o `brazeBridge.logClick()`, respectivamente.
-
-| Clics     | Método                       | Apoyado |
+| Clics     | Método                       | Compatible |
 | ---------- | ---------------------------- | --------- |
-| Clic en el cuerpo | `brazeBridge.logClick()`    | Mensajes y banners dentro de la aplicación |
+| Clic en el cuerpo | `brazeBridge.logClick()`    | Mensajes dentro de la aplicación y banners |
 | Botón 1   | `brazeBridge.logClick('0')` | Solo mensajes dentro de la aplicación |
 | Botón 2   | `brazeBridge.logClick('1')` | Solo mensajes dentro de la aplicación |
-| Seguimiento de botones personalizados |`brazeBridge.logClick('your custom name here')`| Solo mensajes dentro de la aplicación |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Seguimiento de botones personalizados | `brazeBridge.logClick('your custom name here')` | Mensajes dentro de la aplicación y banners |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de clics en botones" }
 
-En el caso de los mensajes dentro de la aplicación, puedes realizar el seguimiento de varios eventos de clics en botones por impresión. Por ejemplo, para cerrar un mensaje y registrar un clic en el botón 2:
+En el caso de los mensajes dentro de la aplicación, puedes realizar el seguimiento de varios eventos de clic en botones por impresión. Por ejemplo, para cerrar un mensaje y registrar un clic en el botón 2:
 
 ```html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
 ```
 
-También puede hacer un seguimiento de los nuevos nombres de botones personalizados (hasta 100 nombres únicos por campaña). Por ejemplo, `brazeBridge.logClick('blue button')` o `brazeBridge.logClick('viewed carousel page 3')`.
+También puedes realizar el seguimiento de nuevos nombres de botones personalizados (hasta 100 nombres únicos por campaña). Por ejemplo, `brazeBridge.logClick('blue button')` o `brazeBridge.logClick('viewed carousel page 3')`.
 
 {% alert tip %}
-Cuando utilices métodos JavaScript dentro de un`onclick`atributo, envuelve los valores de cadena entre comillas simples para evitar conflictos con el atributo HTML entre comillas dobles.
+Cuando utilices métodos JavaScript dentro de un atributo `onclick`, envuelve los valores de cadena entre comillas simples para evitar conflictos con el atributo HTML entre comillas dobles.
 {% endalert %}
 
-#### Limitaciones (solo mensajes dentro de la aplicación)
+#### Limitaciones (solo mensajes dentro de la aplicación) {#limitations-in-app-messages-only}
 
 - Puedes tener hasta 100 ID de botón únicos por campaña.
-- Los identificadores de los botones pueden tener hasta 255 caracteres cada uno.
-- Los identificadores de botón sólo pueden incluir letras, números, espacios, guiones y guiones bajos.
+- Los ID de botón pueden tener hasta 255 caracteres cada uno.
+- Los ID de botón solo pueden incluir letras, números, espacios, guiones y guiones bajos.

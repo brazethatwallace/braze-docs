@@ -6,36 +6,36 @@ A partir de iOS 14, las geovallas no funcionan de forma fiable para los usuarios
 
 ## Configuración de geovallas {#setting-up-geofences}
 
-### Paso 1: Habilitar en Braze
+### Paso 1: Habilitar en Braze {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### Paso 2: Habilita los servicios de ubicación de tu aplicación.
+### Paso 2: Habilita los servicios de ubicación de tu aplicación {#step-2-enable-your-apps-location-services}
 
-De forma predeterminada, los servicios de ubicación de Braze no están habilitados. Para habilitarlos en tu aplicación, sigue estos pasos. Para obtener un tutorial paso a paso, consulta [Tutorial: Ubicaciones y geovallas de ](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)Braze.
+De forma predeterminada, los servicios de ubicación de Braze no están habilitados. Para habilitarlos en tu aplicación, sigue estos pasos. Para obtener un tutorial paso a paso, consulta [Tutorial: Ubicaciones y geovallas de Braze](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/).
 
-#### Paso 2.1: Añadir el`BrazeLocation`módulo
+#### Paso 2.1: Añadir el módulo `BrazeLocation` {#step-21-add-the-brazelocation-module}
 
-En Xcode, abre la pestaña **General**. En **Marcos, bibliotecas y contenido incrustado**, añade el`BrazeLocation`módulo.
+En Xcode, abre la pestaña **General**. En **Frameworks, Libraries, and Embedded Content**, añade el módulo `BrazeLocation`.
 
-![Añade el módulo BrazeLocation en tu proyecto Xcode.]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
+![Añade el módulo BrazeLocation en tu proyecto Xcode]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
 
-#### Paso 2.2: Actualiza tu `Info.plist`
+#### Paso 2.2: Actualiza tu `Info.plist` {#step-22-update-your-infoplist}
 
-En tu `info.plist`, asigna un`String`valor a una de las siguientes claves que describa por qué tu aplicación necesita realizar el seguimiento de la ubicación. Esta cadena se mostrará cuando se solicite a tus usuarios que activen los servicios de ubicación, así que asegúrate de explicar claramente la importancia de habilitar esta característica para tu aplicación.
+En tu `info.plist`, asigna un valor `String` a una de las siguientes claves que describa por qué tu aplicación necesita realizar el seguimiento de la ubicación. Esta cadena se mostrará cuando se solicite a tus usuarios que activen los servicios de ubicación, así que asegúrate de explicar claramente la importancia de habilitar esta característica para tu aplicación.
 
-- `NSLocationAlwaysAndWhenInUseUsageDescription` 
+- `NSLocationAlwaysAndWhenInUseUsageDescription`
 - `NSLocationWhenInUseUsageDescription`
 
-![Info.plist cadenas de ubicación en Xcode]({% image_buster /assets/img/sdk_geofences/info-plist-location-strings.png %})
+![Cadenas de ubicación de Info.plist en Xcode]({% image_buster /assets/img/sdk_geofences/info-plist-location-strings.png %})
 
 {% alert important %}
 Apple ha dejado de utilizar `NSLocationAlwaysUsageDescription`. Para obtener más información, consulta [la documentación para desarrolladores de Apple](https://developer.apple.com/documentation/bundleresources/information-property-list/nslocationalwaysusagedescription).
 {% endalert %}
 
-### Paso 3: Habilita las geovallas en tu código.
+### Paso 3: Habilita las geovallas en tu código {#step-3-enable-geofences-in-your-code}
 
-En el código de tu aplicación, habilita las geovallas estableciendo`location.geofencesEnabled`  en`true`  en el`configuration`objeto que inicializa la[`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)instancia . Para otras opciones`location` de configuración, consulta [la referencia de Braze SWIFT SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
+En el código de tu aplicación, habilita las geovallas estableciendo `location.geofencesEnabled` en `true` en el objeto `configuration` que inicializa la instancia [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/). Para otras opciones de configuración de `location`, consulta [la referencia del SDK de Swift de Braze](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
 
 {% tabs %}
 {% tab swift %}
@@ -78,17 +78,17 @@ AppDelegate.braze = braze;
 {% endtab %}
 {% endtabs %}
 
-#### Paso 3.1: Habilitar informes en segundo plano (opcional)
+#### Paso 3.1: Habilitar informes en segundo plano (opcional) {#step-31-enable-background-reporting-optional}
 
-De forma predeterminada, los eventos de geovalla solo se supervisan si la aplicación está en primer plano o tiene`Always`  autorización, lo que supervisa todos los estados de la aplicación.
+De forma predeterminada, los eventos de geovalla solo se supervisan si la aplicación está en primer plano o tiene autorización `Always`, lo que supervisa todos los estados de la aplicación.
 
-Sin embargo, también puedes optar por supervisar los eventos de geovalla si tu aplicación está en segundo plano o tiene[`When In Use`](#swift_request-authorization) [ autorización](#swift_request-authorization). 
+Sin embargo, también puedes optar por supervisar los eventos de geovalla si tu aplicación está en segundo plano o tiene [autorización `When In Use`](#swift_request-authorization).
 
-Para supervisar estos eventos de geovalla adicionales, abre tu proyecto Xcode y ve a **Capacidades& de firma**. En **Modos en segundo plano**, marca **Actualizaciones de ubicación**.
+Para supervisar estos eventos de geovalla adicionales, abre tu proyecto Xcode y ve a **Signing & Capabilities**. En **Background Modes**, marca **Location updates**.
 
-![En Xcode, Modo en segundo plano > Actualizaciones de ubicación]({% image_buster /assets/img/sdk_geofences/xcode-background-modes-location-updates.png %})
+![En Xcode, Background Mode > Location Updates]({% image_buster /assets/img/sdk_geofences/xcode-background-modes-location-updates.png %})
 
-A continuación, habilita`allowBackgroundGeofenceUpdates`  en el código de tu aplicación. Esto permite a Braze ampliar el estado «En uso» de tu aplicación mediante la supervisión continua de las actualizaciones de ubicación. Esta configuración solo funciona cuando la aplicación está en segundo plano. Cuando la aplicación se vuelve a abrir, todos los procesos en segundo plano existentes se pausan y, en su lugar, se da prioridad a los procesos en primer plano.
+A continuación, habilita `allowBackgroundGeofenceUpdates` en el código de tu aplicación. Esto permite a Braze ampliar el estado "When In Use" de tu aplicación mediante la supervisión continua de las actualizaciones de ubicación. Esta configuración solo funciona cuando la aplicación está en segundo plano. Cuando la aplicación se vuelve a abrir, todos los procesos en segundo plano existentes se pausan y, en su lugar, se da prioridad a los procesos en primer plano.
 
 {% tabs %}
 {% tab swift %}
@@ -135,16 +135,16 @@ AppDelegate.braze = braze;
 {% endtabs %}
 
 {% alert important %}
-Para evitar el agotamiento de la batería y el límite de velocidad, configura`distanceFilter`  con un valor que se ajuste a las necesidades específicas de tu aplicación. Si configuras `distanceFilter` con un valor más alto, evitarás que tu aplicación solicite la ubicación de tu usuario con demasiada frecuencia.
+Para evitar el agotamiento de la batería y el límite de velocidad, configura `distanceFilter` con un valor que se ajuste a las necesidades específicas de tu aplicación. Si configuras `distanceFilter` con un valor más alto, evitarás que tu aplicación solicite la ubicación del usuario con demasiada frecuencia.
 {% endalert %}
 
 ### Paso 4: Solicitar autorización {#request-authorization}
 
-Cuando solicites autorización a un usuario, solicita la autorización`When In Use``Always`  o  .
+Cuando solicites autorización a un usuario, solicita la autorización `When In Use` o `Always`.
 
 {% tabs local %}
 {% tab When In Use %}
-Para solicitar la autorización de `When In Use`, utiliza el método `requestWhenInUseAuthorization()`:
+Para solicitar la autorización `When In Use`, utiliza el método `requestWhenInUseAuthorization()`:
 
 {% subtabs %}
 {% subtab swift %}
@@ -166,10 +166,10 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% tab Always %}
 De manera predeterminada, `requestAlwaysAuthorization()` solo concede a tu aplicación la autorización `When In Use` y volverá a solicitar al usuario la autorización `Always` cuando haya transcurrido cierto tiempo.
 
-Sin embargo, puedes optar por solicitar inmediatamente al usuario que primero llame a`requestWhenInUseAuthorization()`  y luego a`requestAlwaysAuthorization()`  después de recibir tu autorización `When In Use`inicial .
+Sin embargo, puedes optar por solicitar inmediatamente al usuario llamando primero a `requestWhenInUseAuthorization()` y luego a `requestAlwaysAuthorization()` después de recibir tu autorización inicial `When In Use`.
 
 {% alert important %}
-Sólo puedes pedir autorización inmediata a `Always` una sola vez.
+Solo puedes solicitar autorización inmediata `Always` una sola vez.
 {% endalert %}
 
 {% subtabs %}
@@ -190,21 +190,13 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 {% endtab %}
 {% endtabs %}
 
-### Paso 5: Verificar push en segundo plano
-
-Braze sincroniza las geovallas con los dispositivos mediante notificaciones push en segundo plano. Sigue estas instrucciones para [configurar notificaciones push silenciosas,]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) de modo que las actualizaciones de geovallas del servidor se gestionen correctamente.
-
-{% alert note %}
-Para asegurarte de que tu aplicación no realice ninguna acción no deseada al recibir notificaciones de sincronización de geovallas de Braze, sigue las instrucciones del artículo [sobre cómo ignorar las notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications).
-{% endalert %}
-
 ## Solicitar geovallas manualmente {#manually-request-geofences}
 
 Cuando el SDK de Braze solicita geovallas al backend, informa de la ubicación actual del usuario y recibe las geovallas que se consideran más relevantes en función de la ubicación comunicada.
 
 Para controlar la ubicación que el SDK informa con el fin de recibir las geovallas más relevantes, puedes solicitar geovallas manualmente proporcionando las coordenadas deseadas.
 
-### Paso 1: Configura `automaticGeofenceRequests` en `false`
+### Paso 1: Configura `automaticGeofenceRequests` en `false` {#step-1-set-automaticgeofencerequests-to-false}
 
 Puedes desactivar las solicitudes automáticas de geovallas en tu objeto `configuration` pasado a [`init(configuration)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/init(configuration:)). Configura `automaticGeofenceRequests` en `false`.
 
@@ -236,7 +228,7 @@ AppDelegate.braze = braze;
 {% endtab %}
 {% endtabs %}
 
-### Paso 2: Llamar`requestGeofences`  manualmente
+### Paso 2: Llama a `requestGeofences` manualmente {#step-2-call-requestgeofences-manually}
 
 En tu código, solicita geovallas con la latitud y longitud adecuadas.
 
@@ -260,34 +252,34 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ## Preguntas más frecuentes (FAQ) {#faq}
 
-#### ¿Por qué no recibo geovallas en tu dispositivo?
+### ¿Por qué no recibo geovallas en mi dispositivo? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta SDK Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk) para comprobar los registros del SDK. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
+Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk) para comprobar los registros del SDK. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
 
 A continuación se indican otras posibles razones por las que es posible que no recibas geovallas en tu dispositivo:
 
-##### Limitaciones del sistema operativo iOS
+#### Limitaciones del sistema operativo iOS {#ios-operating-system-limitations}
 
 El sistema operativo iOS solo permite almacenar hasta 20 geovallas para una aplicación determinada. Con las geovallas habilitadas, Braze utilizará algunas de estas 20 plazas disponibles.
 
 Para evitar interrupciones accidentales o no deseadas en otras funciones relacionadas con las geovallas de tu aplicación, debes habilitar las geovallas de ubicación para aplicaciones individuales en el panel. Para que nuestros servicios de ubicación funcionen correctamente, comprueba que tu aplicación no esté utilizando todos los puntos de geovalla disponibles.
 
-##### Limitación de velocidad
+#### Límite de velocidad {#rate-limiting}
 
 Braze tiene un límite de una actualización de geovalla por sesión para evitar solicitudes innecesarias.
 
-#### ¿Cómo funciona si utilizas tanto las características de geovalla de Braze como las que no son de Braze?
+### ¿Cómo funciona si utilizo tanto las características de geovalla de Braze como las que no son de Braze? {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
 
 Como se ha mencionado anteriormente, iOS permite que una sola aplicación almacene un máximo de 20 geovallas. Este almacenamiento es compartido por las geovallas de Braze y las que no son de Braze, y es administrado por [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager).
 
 Por ejemplo, si tu aplicación contiene 20 geovallas que no son de Braze, no habría almacenamiento para realizar el seguimiento de ninguna geovalla de Braze (o viceversa). Para recibir nuevas geovallas, tendrás que utilizar [las API de ubicación de Apple](https://developer.apple.com/documentation/corelocation) para dejar de supervisar algunas de las geovallas existentes en el dispositivo.
 
-#### ¿Se puede utilizar la característica de geovalla cuando un dispositivo está desconectado?
+### ¿Se puede utilizar la característica de geovalla cuando un dispositivo está desconectado? {#can-the-geofences-feature-be-used-while-a-device-is-offline}
 
 Un dispositivo solo necesita estar conectado a Internet cuando se produce una actualización. Una vez que hayas recibido correctamente las geovallas del servidor, es posible registrar una entrada o salida de la geovalla incluso si el dispositivo está desconectado. Esto se debe a que la ubicación de un dispositivo funciona de forma independiente de su conexión a Internet.
 
-Por ejemplo, supongamos que un dispositivo ha recibido y realizado el registro de las geovallas al inicio de la sesión y se desconecta. Si luego entra en una de esas geovallas registradas, puede desencadenar una campaña de Braze.
+Por ejemplo, supongamos que un dispositivo ha recibido y registrado las geovallas al inicio de la sesión y se desconecta. Si luego entra en una de esas geovallas registradas, puede desencadenar una campaña de Braze.
 
-#### ¿Por qué no se supervisan las geovallas cuando tu aplicación se ejecuta en segundo plano o se cierra?
+### ¿Por qué no se supervisan las geovallas cuando mi aplicación se ejecuta en segundo plano o se cierra? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
-Sin`Always`autorización, Apple restringe el funcionamiento de los servicios de ubicación cuando una aplicación no está en uso. Esto lo impone el sistema operativo y queda fuera del control del SDK de Braze. Aunque Braze ofrece configuraciones independientes para ejecutar servicios mientras la aplicación está en segundo plano, no hay forma de eludir estas restricciones para las aplicaciones que se cierran sin recibir la autorización explícita del usuario.
+Sin autorización `Always`, Apple restringe el funcionamiento de los servicios de ubicación cuando una aplicación no está en uso. Esto lo impone el sistema operativo y queda fuera del control del SDK de Braze. Aunque Braze ofrece configuraciones independientes para ejecutar servicios mientras la aplicación está en segundo plano, no hay forma de eludir estas restricciones para las aplicaciones que se cierran sin recibir la autorización explícita del usuario.

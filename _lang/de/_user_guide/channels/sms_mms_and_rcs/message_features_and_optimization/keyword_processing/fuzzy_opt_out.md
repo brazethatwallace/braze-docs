@@ -15,18 +15,18 @@ page_order: 4
 
 ![iOS-Nachrichtenchat, der ausgehende Abmeldenachrichten als Antwort auf die eingehende Fuzzy-Abmeldung „Please stopppp“ zeigt.]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-> Nutzer:innen, die SMS, MMS und RCS mit Braze versenden, müssen die geltenden Gesetze, Vorschriften und Branchenstandards einhalten. Für die Abmeldung schreiben Gesetze wie der TCPA vor, dass bei einer Nachricht, die eine angemessene Widerrufung der Einwilligung darstellt (einschließlich anerkannter Abmelde-Keywords wie „STOP“, „STOPALL“, „UNSUBSCRIBE“, „CANCEL“, „END“ oder „QUIT“), alle nachfolgenden Nachrichten im Zusammenhang mit diesem Messaging-Programm eingestellt werden müssen. Braze verarbeitet anerkannte Abmelde-Keywords automatisch und meldet die Nutzer:innen ab.<br><br> Die Fuzzy-Abmeldung erweitert diese Funktion, indem sie versucht, eingehende Nachrichten zu erkennen, die keinem konfigurierten **Abmelde-Keyword** in der Kategorie **Opt-out** der Abo-Gruppe entsprechen (also weder einem [Standard-Abmelde-Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) noch einem [benutzerdefinierten Abmelde-Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/), aber dennoch eine Abmeldeabsicht signalisieren – zum Beispiel eine Nachricht wie „goodbye“ oder „leave me alone“.
+> Nutzer:innen, die SMS, MMS und RCS mit Braze versenden, müssen die geltenden Gesetze, Vorschriften und Branchenstandards einhalten. Für die Abmeldung schreiben Gesetze wie der TCPA vor, dass bei einer Nachricht, die eine angemessene Widerrufung der Einwilligung darstellt (einschließlich anerkannter Abmelde-Keywords wie „STOP“, „STOPALL“, „UNSUBSCRIBE“, „CANCEL“, „END“ oder „QUIT“), alle nachfolgenden Nachrichten im Zusammenhang mit diesem Messaging-Programm eingestellt werden müssen. Braze verarbeitet anerkannte Abmelde-Keywords automatisch und meldet die Nutzer:innen ab.<br><br> Die Fuzzy-Abmeldung erweitert diese Funktion, indem sie versucht, eingehende Nachrichten zu erkennen, die keinem konfigurierten **Abmelde-Keyword** in der Kategorie **Opt-out** der Abo-Gruppe entsprechen (also weder einem [Standard-Abmelde-Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) noch einem [angepassten Abmelde-Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)), aber dennoch eine Abmeldeabsicht signalisieren – zum Beispiel eine Nachricht wie „goodbye“ oder „leave me alone“.
 
 Die Fuzzy-Abmeldung ist standardmäßig deaktiviert. Wenn die Fuzzy-Abmeldung aktiviert ist und eine eingehende Nachricht als „fuzzy“ eingestuft wird, können Sie Braze so konfigurieren, dass Nutzer:innen entweder automatisch abgemeldet werden oder eine Nachricht erhalten, die erklärt, wie sie sich manuell abmelden können. Für US-Marken wird die automatische Abmeldung dringend empfohlen, um die TCPA-Anforderungen einzuhalten.
 
 {% alert note %}
-Derzeit werden nur Abmelde-Keywords (Standard und benutzerdefiniert) unterstützt, die mit Englisch als [lokaler Sprache]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support) erstellt wurden.
+Derzeit werden nur Abmelde-Keywords (Standard und angepasst) unterstützt, die mit Englisch als [lokaler Sprache]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support) erstellt wurden.
 {% endalert %}
 
 ## Was wird als „fuzzy“ eingestuft? {#what-is-deemed-as-fuzzy}
 
-Die Kriterien, damit eine eingehende Antwort als „fuzzy“ eingestuft wird, sind wie folgt (Vergleiche verwenden jedes Keyword in der Kategorie **Opt-out**, einschließlich Standard- und benutzerdefinierter Keywords):
-- Wenn das Vertauschen eines Buchstabens mit dem Buchstaben links oder rechts davon auf einer QWERTY-Tastatur ein passendes Abmelde-Keyword ergibt.
+Die Kriterien, damit eine eingehende Antwort als „fuzzy“ eingestuft wird, sind wie folgt (Vergleiche verwenden jedes Keyword in der Kategorie **Opt-out**, einschließlich Standard- und angepasster Keywords):
+- Wenn das Ersetzen eines Buchstabens durch eine benachbarte Taste auf einer QWERTY-Tastatur ein passendes Abmelde-Keyword ergibt.
 - Ein Teilstring der Nachricht einem Abmelde-Keyword entspricht.
 
 Zum Beispiel werden „Stpo“ oder „Please stopppp“ als fuzzy eingestuft, und eine Fuzzy-Abmeldeantwort wird gesendet. Wenn die Nutzer:innen dann mit einem Abmelde-Keyword antworten, wird ein Abmeldeereignis ausgelöst.
@@ -40,8 +40,8 @@ Um die Fuzzy-Abmeldung zu konfigurieren, navigieren Sie zur Keyword-Verwaltungss
 3. Schalten Sie **Fuzzy Opt-Out** auf **On** um.
 4. Wählen Sie Ihre bevorzugte Option für **Fuzzy Opt-Out Logic** aus:
    - **Automatically unsubscribe:** Wenn Nutzer:innen eine Nachricht senden, die einem Abmelde-Keyword ähnelt, werden sie sofort abgemeldet, ohne eine Aufforderung zu erhalten. Die Standard-Abmeldebestätigungsnachricht wird dann gesendet.
-   - **Send opt-out instructions:** Wenn Nutzer:innen eine Nachricht senden, die einem Abmelde-Keyword ähnelt, sendet Braze eine benutzerdefinierte Antwort (die **Opt-out instruction message**), die erklärt, wie sie sich abmelden können.
-5. Wenn Sie **Send opt-out instructions** ausgewählt haben, geben Sie Ihren benutzerdefinierten Text im Feld **Opt-out instruction message** ein. Dieses Feld ist für diese Einstellung erforderlich.
+   - **Send opt-out instructions:** Wenn Nutzer:innen eine Nachricht senden, die einem Abmelde-Keyword ähnelt, sendet Braze eine angepasste Antwort (die **Opt-out instruction message**), die erklärt, wie sie sich abmelden können.
+5. Wenn Sie **Send opt-out instructions** ausgewählt haben, geben Sie Ihren angepassten Text im Feld **Opt-out instruction message** ein. Dieses Feld ist für diese Einstellung erforderlich.
 6. Wählen Sie **Save** aus.
 
 ![Abschnitt zum Bearbeiten von Abmelde-Keywords und zum Bereitstellen einer Abmeldeanweisungsnachricht.]({% image_buster /assets/img/sms/fuzzy2.png %})

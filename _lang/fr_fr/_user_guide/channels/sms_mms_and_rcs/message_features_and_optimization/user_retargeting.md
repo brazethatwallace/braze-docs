@@ -19,7 +19,7 @@ channel:
 > En plus de modifier l'état d'abonnement de l'utilisateur et d'envoyer des réponses automatiques basées sur les mots-clés entrants, Braze enregistre également les interactions dans le profil utilisateur à des fins de filtrage et de déclenchement de messages.<br><br>Ces filtres et déclencheurs vous permettent de filtrer les actions en fonction des utilisateurs qui ont reçu ou répondu à des campagnes SMS, MMS et RCS, ou d'interagir davantage avec les utilisateurs qui ont cliqué sur des URL raccourcies.
 
 {% alert tip %}
-Pour en savoir plus sur les mots-clés personnalisés et comment configurer la messagerie bidirectionnelle pour tirer parti de ces options de reciblage, consultez notre article sur les [mots-clés personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/).
+Pour en savoir plus sur les mots-clés personnalisés et comment configurer la messagerie bidirectionnelle pour tirer parti de ces options de reciblage, consultez notre article sur les [mots-clés personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
 {% endalert %}
 
 ## Options de reciblage {#retargeting-options}
@@ -30,7 +30,7 @@ Lors de la création d'audiences avec le reciblage des utilisateurs, vous pouvez
 
 ### Filtrer les utilisateurs par SMS, MMS et RCS {#filter-users-by-sms-mms-and-rcs}
 
-Les utilisateurs peuvent être filtrés en fonction de la dernière fois qu'ils ont reçu un SMS, MMS ou RCS, ou s'ils ont reçu un SMS, MMS ou RCS d'une campagne spécifique. Les filtres peuvent être définis à l'étape **Target Audiences** du générateur de campagne.
+Les utilisateurs peuvent être filtrés en fonction de la dernière fois qu'ils ont reçu un SMS, MMS ou RCS, ou s'ils ont reçu un SMS, MMS ou RCS d'une campagne spécifique. Les filtres peuvent être définis à l'étape **Audience cible** du générateur de campagne.
 
 {% alert note %}
 Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même numéro de téléphone que le profil ayant enregistré l'interaction. Les utilisateurs qui partagent un numéro de téléphone avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.
@@ -50,11 +50,11 @@ Filtre les utilisateurs qui ont reçu un message d'une campagne spécifique. Ave
 
 Pour déclencher des messages lorsque les utilisateurs reçoivent des messages SMS, MMS ou RCS d'une campagne spécifique, sélectionnez **Interact with Campaign** comme action de déclenchement pour une campagne basée sur une action. Ensuite, sélectionnez **Receive SMS** et la campagne SMS, MMS ou RCS que vous souhaitez utiliser.
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![Pour déclencher des messages lorsque les utilisateurs reçoivent des messages SMS, MMS ou RCS d'une campagne spécifique, sélectionnez Interact with Campaign comme action de déclenchement pour une campagne basée sur une action. Ensuite, sélectionnez Receive SMS et la campagne SMS, MMS ou RCS que vous souhaitez utiliser.]({% image_buster /assets/img/sms/trigger.png %})
 
 ### Filtrer par liens de suivi avancé {#filter-by-advanced-tracking-links}
 
-Reciblez les utilisateurs qui ont cliqué sur des campagnes avec des [liens de suivi avancé]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/).
+Reciblez les utilisateurs qui ont cliqué sur des campagnes avec des [liens de suivi avancé]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 Seules les campagnes avec le suivi avancé activé apparaissent dans les menus déroulants suivants :
 
 #### Recibler les utilisateurs qui ont cliqué sur une campagne SMS, MMS ou RCS spécifique {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
@@ -63,19 +63,19 @@ Seules les campagnes avec le suivi avancé activé apparaissent dans les menus d
 2. Sélectionnez **clicked shortened sms link**.
 3. Choisissez la campagne souhaitée.
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![Capture d'écran relative au reciblage des utilisateurs qui ont cliqué sur une campagne SMS, MMS ou RCS spécifique.]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### Recibler les utilisateurs qui ont cliqué sur une étape Canvas spécifique {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
 1. Créez un segment en utilisant le filtre **Clicked/Opened Step**.
 2. Sélectionnez **clicked shortened sms link**.
-3. Choisissez le Canvas et l'étape du canvas souhaités.
+3. Choisissez le Canvas et l'étape du Canvas souhaités.
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![Capture d'écran relative au reciblage des utilisateurs qui ont cliqué sur une étape Canvas spécifique.]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## Reciblage spécifique par catégorie de mots-clés {#keyword-category-specific-retargeting}
 
-En plus des trois catégories de mots-clés par défaut (abonnement, désabonnement et aide), vous pouvez également créer jusqu'à 25 catégories de mots-clés personnalisées, vous permettant d'identifier des mots-clés et des réponses arbitraires. Ces catégories peuvent être utilisées pour le filtrage et le reciblage. Pour en savoir plus sur les catégories de mots-clés globales et comment les configurer, consultez [Traitement des mots-clés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/).
+En plus des trois catégories de mots-clés par défaut (abonnement, désabonnement et aide), vous pouvez également créer jusqu'à 25 catégories de mots-clés personnalisées, vous permettant d'identifier des mots-clés et des réponses arbitraires. Ces catégories peuvent être utilisées pour le filtrage et le reciblage. Pour en savoir plus sur les catégories de mots-clés globales et comment les configurer, consultez [Traitement des mots-clés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing).
 
 ### Filtrer par récence {#filter-by-recency}
 
@@ -106,7 +106,7 @@ Les messages peuvent être déclenchés lorsque les utilisateurs envoient des me
 Lors de l'évaluation d'un message entrant par rapport à un événement déclencheur défini, les espaces en début et en fin de message sont supprimés avant le début de l'évaluation.
 
 {% alert tip %}
-Si un Canvas basé sur une action est déclenché par un message SMS ou MMS entrant, vous pouvez référencer les [propriétés Liquid SMS prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) dans n'importe quelle étape du canvas jusqu'au prochain parcours d'action.
+Si un Canvas basé sur une action est déclenché par un message SMS ou MMS entrant, vous pouvez référencer les [propriétés Liquid SMS prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) dans n'importe quelle étape du Canvas jusqu'au prochain parcours d'action.
 {% endalert %}
 
 #### Déclencher par catégorie de mots-clés entrants {#trigger-by-inbound-keyword-category}
@@ -121,7 +121,7 @@ Notez que lors du déclenchement d'un message sur une réponse de mot-clé « Au
 
 #### Modéliser les mots-clés {#template-keywords}
 
-Lors du déclenchement d'une campagne ou d'un composant Canvas sur un SMS ou MMS entrant, vous pouvez optionnellement intégrer le texte ou les pièces jointes multimédias envoyés par votre utilisateur dans le corps de votre campagne ou Canvas avec Liquid. Cela vous permet d'accéder à la réponse de l'utilisateur que vous pouvez ensuite inclure dans votre réponse, appliquer une logique conditionnelle, ou tout ce que vous pouvez faire avec Liquid.
+Lors du déclenchement d'une campagne ou d'un composant Canvas sur un SMS ou MMS entrant, vous pouvez optionnellement intégrer le texte ou les pièces jointes multimédias envoyés par votre utilisateur dans le corps de votre campagne ou Canvas avec Liquid. Cela vous permet d'accéder à la réponse de l'utilisateur, que vous pouvez ensuite inclure dans votre réponse, appliquer une logique conditionnelle, ou tout ce que vous pouvez faire avec Liquid.
 
 {% raw %}
 

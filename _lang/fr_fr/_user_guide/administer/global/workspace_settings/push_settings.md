@@ -8,15 +8,15 @@ channel: push
 
 ---
 
-# Paramètres de notifications push
+# Paramètres de notifications push {#push-settings}
 
 > La page **Paramètres de notifications push** vous permet de configurer les paramètres clés de vos notifications push, notamment la durée de vie des notifications push (TTL) et la priorité FCM par défaut pour les campagnes Android. Ces paramètres permettent d'optimiser la réception et l'efficacité de vos notifications push, garantissant ainsi une meilleure expérience à vos utilisateurs.
 
-## Qu'est-ce que le TTL des notifications push ?
+## Qu'est-ce que le TTL des notifications push ? {#what-is-push-ttl}
 
-La durée de vie des notifications push (TTL) contrôle la durée pendant laquelle Braze tentera de délivrer une notification push aux appareils qui sont hors ligne au moment de l'envoi de la campagne. Si un appareil se reconnecte après l'expiration du TTL, le message ne sera pas envoyé. Ce paramètre ne supprime pas une notification si elle a déjà été reçue par l'appareil de l'utilisateur — il contrôle uniquement la durée pendant laquelle le fournisseur push tente de délivrer une notification.
+La durée de vie des notifications push (TTL) contrôle la durée pendant laquelle Braze tentera de délivrer une notification push aux appareils qui sont hors ligne au moment de l'envoi de la campagne. Si un appareil se reconnecte après l'expiration du TTL, le message ne sera pas distribué. Ce paramètre ne supprime pas une notification si elle a déjà été reçue par l'appareil de l'utilisateur — il contrôle uniquement la durée pendant laquelle le fournisseur push tente de délivrer une notification.
 
-## Réglage des valeurs TTL push par défaut
+## Réglage des valeurs TTL push par défaut {#setting-default-push-ttl-values}
 
 Par défaut, Braze définit le TTL des notifications push au maximum pour chaque service d'envoi de messages push.
 
@@ -26,19 +26,19 @@ Par défaut, Braze définit le TTL des notifications push au maximum pour chaque
 | Firebase Cloud Messaging (FCM) | 28 jours |
 | Kindle (ADM) | 31 jours |
 | Huawei (HMS) | 15 jours |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting default Push TTL values" }
 
 Ces paramètres s'appliquent globalement à toutes les campagnes push, sauf si un TTL différent est défini pour un message spécifique. Pour ajuster le TTL d'un message, consultez [Paramètres avancés de campagne]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/#ttl).
 
 Pour définir un TTL push par défaut différent :
 
-1. Accédez à **Paramètres** > **Gérer les paramètres** > **Paramètres de notifications push**.
+1. Accédez à **Settings** > **Manage Settings** > **Push Settings**.
 2. Pour chaque plateforme Android, définissez une valeur de durée de vie par défaut. Vous pouvez définir des incréments plus petits comme des heures ou des secondes pour un contrôle plus précis.
-3. Sélectionnez **Enregistrer** pour appliquer vos modifications.
+3. Sélectionnez **Save** pour appliquer vos modifications.
 
 ![Paramètres de TTL push pour les appareils Firebase, Web, Kindle et Huawei.]({% image_buster /assets/img/push_ttl.png %})
 
-## Priorité FCM par défaut pour les campagnes Android
+## Priorité FCM par défaut pour les campagnes Android {#default-fcm-priority-for-android-campaigns}
 
 Vous pouvez définir la priorité Firebase Cloud Messaging (FCM) par défaut pour toutes les campagnes push Android. Cette priorité détermine la manière dont la notification push est délivrée aux appareils des utilisateurs.
 
@@ -46,15 +46,15 @@ Les options de priorité FCM sont les suivantes :
 
 | Priorité | Description | Cas d'utilisation |
 | --- | --- | --- |
-| Normale | Priorité de distribution standard, optimisée pour l'autonomie de la batterie | Contenu ne nécessitant pas une attention immédiate |
-| Élevée | Les messages sont envoyés immédiatement | Notifications urgentes nécessitant une distribution rapide |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Normal | Priorité de distribution standard, optimisée pour l'autonomie de la batterie | Contenu ne nécessitant pas une attention immédiate |
+| High | Les messages sont envoyés immédiatement | Notifications urgentes nécessitant une distribution rapide |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default FCM Priority for Android Campaigns" }
 
 Pour définir la priorité FCM par défaut :
 
-1. Accédez à **Paramètres** > **Gérer les paramètres** > **Paramètres de notifications push**.
-2. Dans la section Priorité FCM, sélectionnez « Normale » ou « Élevée » comme paramètre par défaut.
-3. Sélectionnez **Enregistrer** pour appliquer vos modifications.
+1. Accédez à **Settings** > **Manage Settings** > **Push Settings**.
+2. Dans la section Priorité FCM, sélectionnez « Normal » ou « High » comme paramètre par défaut.
+3. Sélectionnez **Save** pour appliquer vos modifications.
 
 ![Paramètres de priorité de distribution Android.]({% image_buster /assets/img/push_fcm_priority_settings.png %})
 

@@ -9,7 +9,7 @@ description: "Erfahren Sie mehr über die Braze-Datenplattform und wie Sie Ihre 
 
 > Erfahren Sie mehr über die Braze-Datenplattform und wie Sie Ihre Daten vereinheitlichen, aktivieren und verteilen können.
 
-Die Braze-Datenplattform (BDP) ist ein umfassendes, modulares Set von Datenfunktionen und Partnerintegrationen, mit dem Sie personalisierte Erlebnisse für Ihre Kund:innen schaffen können. Bei Braze denken wir über Daten in drei zentralen Aufgabenbereichen nach: [Vereinheitlichung]({{site.baseurl}}/user_guide/data/unification/), [Aktivierung]({{site.baseurl}}/user_guide/data/activation/) und [Verteilung]({{site.baseurl}}/user_guide/data/distribution/).
+Die Braze-Datenplattform (BDP) ist ein umfassendes, modulares Set von Datenfunktionen und Partnerintegrationen, mit dem Sie personalisierte Erlebnisse für Ihre Kund:innen schaffen können. Bei Braze denken wir über Daten in drei zentralen Aufgabenbereichen nach: [Vereinheitlichung]({{site.baseurl}}/user_guide/data/unification), [Aktivierung]({{site.baseurl}}/user_guide/data/activation) und [Verteilung]({{site.baseurl}}/user_guide/data/distribution).
 
 Durch die Kombination von Features der Braze-Datenplattform können Sie Ihre Daten nutzen, um aussagekräftige, zielgerichtete Nachrichten zu erstellen, die in Realtime auf das Verhalten Ihrer Kund:innen reagieren.
 
@@ -17,19 +17,19 @@ Durch die Kombination von Features der Braze-Datenplattform können Sie Ihre Dat
 
 ### Vereinheitlichen Sie Ihre Daten {#unify-your-data}
 
-Nutzerdaten fließen über viele Eingänge in Braze ein. Erfassen und konsolidieren Sie First-Party-Daten aus beliebigen Quellen mithilfe von [APIs]({{site.baseurl}}/api/home/) und [SDKs]({{site.baseurl}}/developer_guide/sdk_integration/). Sie können auch integrierte Aufnahme-Tools wie die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) verwenden, um eine direkte Integration von Ihrem Data Warehouse oder Ihrer Dateispeicherlösung zu Braze herzustellen, oder die [Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/) nutzen, um Webhook-Integrationen für die Datenübertragung in Braze zu erstellen und zu verwalten.
+Nutzerdaten fließen über viele Eingänge in Braze ein. Erfassen und konsolidieren Sie First-Party-Daten aus beliebigen Quellen mithilfe von [APIs]({{site.baseurl}}/api/home) und [SDKs]({{site.baseurl}}/developer_guide/sdk_integration). Sie können auch integrierte Aufnahme-Tools wie die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) verwenden, um eine direkte Integration von Ihrem Data Warehouse oder Ihrer Dateispeicherlösung zu Braze herzustellen, oder die [Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) nutzen, um Webhook-Integrationen für die Datenübertragung in Braze zu erstellen und zu verwalten.
 
 ### Aktivieren Sie Ihre Daten {#activate-your-data}
 
-Bereinigen, organisieren und bereiten Sie Ihre Daten für die Nutzung vor. Dazu gehört, das Verhalten und die Präferenzen Ihrer Kund:innen in Realtime über Nutzerprofile und Segmente zu verstehen. Nutzen Sie das [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) bei der Erstellung zielgerichteter Nachrichten und verwenden Sie [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/), um Ihre Nachrichten mit Produkt- oder Inhaltsdaten anzureichern. Identifizieren Sie, wie Ihre Kund:innen auf diese personalisierten Erlebnisse reagieren.
+Bereinigen, organisieren und bereiten Sie Ihre Daten für die Nutzung vor. Dazu gehört, das Verhalten und die Präferenzen Ihrer Kund:innen in Realtime über Nutzerprofile und Segmente zu verstehen. Nutzen Sie das [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary) bei der Erstellung zielgerichteter Nachrichten und verwenden Sie [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs), um Ihre Nachrichten mit Produkt- oder Inhaltsdaten anzureichern. Identifizieren Sie, wie Ihre Kund:innen auf diese personalisierten Erlebnisse reagieren.
 
 ### Verteilen Sie Ihre Daten {#distribute-your-data}
 
-Streamen und [exportieren Sie Ihre Daten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/) in externe Systeme für weiterführende Insights und Entscheidungen. Verwenden Sie [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), um Braze-Eventdaten in ein Data Warehouse zu streamen und Business-Intelligence-Tools zu betreiben. Sie können Ihre Datenfunktionen auch mit [Technologie-Partnerintegrationen]({{site.baseurl}}/partners/data_and_analytics/) erweitern.
+Streamen und [exportieren Sie Ihre Daten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data) in externe Systeme für weiterführende Insights und Entscheidungen. Verwenden Sie [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), um Braze-Eventdaten in ein Data Warehouse zu streamen und Business-Intelligence-Tools zu betreiben. Sie können Ihre Datenfunktionen auch mit [Technologie-Partnerintegrationen]({{site.baseurl}}/partners/data_and_analytics) erweitern.
 
 ## Dateninfrastruktur {#data-infrastructure}
 
-Die Braze-Dateninfrastruktur umfasst [Datenzentren]({{site.baseurl}}/user_guide/data/infrastructure/data_centers/), die dazu beitragen, die Latenz zu minimieren – also die Zeit, die Daten benötigen, um zwischen Server und Nutzer:in übertragen zu werden. Diese geografische Verteilung ermöglicht es, dass unsere Dienste zuverlässig und skalierbar sind. Wir bieten außerdem [Verschlüsselung auf Feldebene]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/) an, um sensible Daten zu schützen und die in Braze geteilten personenbezogenen Daten (PII) zu minimieren. Weitere Informationen zu Nutzung und Abrechnung finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
+Die Braze-Dateninfrastruktur umfasst [Datenzentren]({{site.baseurl}}/user_guide/data/infrastructure/data_centers), die dazu beitragen, die Latenz zu minimieren – also die Zeit, die Daten benötigen, um zwischen Server und Nutzer:in übertragen zu werden. Diese geografische Verteilung ermöglicht es, dass unsere Dienste zuverlässig und skalierbar sind. Wir bieten außerdem [Verschlüsselung auf Feldebene]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption) an, um sensible Daten zu schützen und die in Braze geteilten personenbezogenen Daten (PII) zu minimieren. Weitere Informationen zu Nutzung und Abrechnung finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 ## Grundprinzipien {#core-principles}
 
@@ -41,7 +41,7 @@ Daten spielen eine entscheidende Rolle bei der Verbesserung Ihrer Customer-Engag
 - **Stream-Processing-Architektur:** Sie können Aktionen für jeden Datenpunkt triggern, der in Braze aufgenommen wird – für Segmentierung, Orchestrierung und Personalisierung.
 {% enddetails %}
 
-{% details Datenagilität steigern, um die Performance zu verbessern %}
+{% details Agilität bei Daten steigern, um die Performance zu verbessern %}
 - **Flexibler Aufbau von Zielgruppen:** Verringern Sie die Abhängigkeit von technischen Teams bei der Erstellung von Zielgruppen und liefern Sie personalisiertes Customer-Engagement in großem Umfang.
 - **Geschwindigkeit und Performance:** Engagement-Daten und Insights werden in Realtime bereitgestellt, was iteratives, effektives Customer-Engagement sowie umfassendere Geschäftsentscheidungen unterstützt.
 {% enddetails %}

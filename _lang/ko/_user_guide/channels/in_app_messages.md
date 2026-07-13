@@ -19,8 +19,8 @@ search_rank: 5
 인앱 메시지를 보내려면 먼저 앱이나 웹사이트에 [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)를 통합해야 합니다. 추가 설정은 필요하지 않습니다.
 
 최소 SDK 버전 및 기능별 요구 사항은 다음을 참조하세요:
-- [드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [메시지 유형]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/)
+- [드래그 앤 드롭 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [메시지 유형]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 
 ## 활용 사례 {#use-cases}
 
@@ -28,11 +28,11 @@ search_rank: 5
 
 | 활용 사례 | 설명 |
 | --- | --- |
-| 푸시 프라이밍 | 풍부한 인앱 메시지를 사용하여 [푸시 프라이밍]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) Campaign을 실행하여 고객에게 앱이나 사이트에서 푸시를 수신하는 이점을 보여주고, 푸시 권한을 부여하도록 프롬프트를 제시합니다.
+| 푸시 프라이밍 | 풍부한 인앱 메시지를 사용하여 [푸시 프라이밍]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) Campaign을 실행하여 고객에게 앱이나 사이트에서 푸시를 수신하는 이점을 보여주고, 푸시 권한을 부여하도록 프롬프트를 제시합니다.
 | 세일 및 프로모션 | 모달 인앱 메시지를 사용하여 정적 프로모션 코드나 혜택이 포함된 시각적으로 매력적인 미디어로 고객을 맞이하세요. 그렇지 않았다면 하지 않았을 구매나 전환을 유도합니다. |
 | 기능 채택 장려 | 고객이 앱의 다른 부분을 사용하거나 서비스를 활용하도록 장려합니다. |
-| 고도로 개인화된 Campaign(캠페인) | 고객이 앱이나 사이트에 들어올 때 가장 먼저 보는 것으로 인앱 메시지를 배치합니다. [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)와 같은 Braze 개인화 기능을 추가하여 사용자가 행동을 취하도록 유도하고, 아웃리치를 더욱 효과적으로 만드세요.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 고도로 개인화된 Campaign | 고객이 앱이나 사이트에 들어올 때 가장 먼저 보는 것으로 인앱 메시지를 배치합니다. [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)와 같은 Braze 개인화 기능을 추가하여 사용자가 행동을 취하도록 유도하고, 아웃리치를 더욱 효과적으로 만드세요.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 고려할 수 있는 기타 활용 사례는 다음과 같습니다:
 
@@ -70,13 +70,13 @@ search_rank: 5
 {% endtab %}
 {% endtabs %}
 
-이러한 기본 메시지 템플릿 외에도 커스텀 HTML 인앱 메시지, CSS가 포함된 웹 모달 또는 웹 이메일 캡처 양식을 사용하여 메시징을 추가로 커스텀할 수 있습니다. 자세한 내용은 [사용자 정의]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/)를 참조하세요.
+이러한 기본 메시지 템플릿 외에도 커스텀 HTML 인앱 메시지, CSS가 포함된 웹 모달 또는 웹 이메일 캡처 양식을 사용하여 메시징을 추가로 커스텀할 수 있습니다. 자세한 내용은 [사용자 지정]({{site.baseurl}}/user_guide/channels/in_app_messages/customize)을 참조하세요.
 
-표시 시점의 템플릿 전달이 **중단** 로깅에 미치는 영향에 대해서는 [인앱 메시지 FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/)를 참조하세요.
+표시 시점의 템플릿 전달이 **중단** 로깅에 미치는 영향에 대해서는 [인앱 메시지 FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq)를 참조하세요.
 
 ## 다음 단계 {#next-steps}
 
-- [드래그 앤 드롭 에디터로 인앱 메시지 만들기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [기존 에디터로 인앱 메시지 만들기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)
+- [드래그 앤 드롭 편집기로 인앱 메시지 만들기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [기존 편집기로 인앱 메시지 만들기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

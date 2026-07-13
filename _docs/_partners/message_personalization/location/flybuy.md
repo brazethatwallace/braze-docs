@@ -26,7 +26,7 @@ The following is required before you enable the integration:
 |---|---|
 | Flybuy account | A Flybuy account with at least one project. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

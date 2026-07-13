@@ -3,22 +3,22 @@ nav_title: Daten von Amazon S3 zu Snowflake übertragen
 article_title: Daten von Amazon S3 zu Snowflake übertragen
 page_order: 7
 page_type: tutorial
-description: "In diesem Artikel erfahren Sie, wie Sie mit Hilfe des ETL-Prozesses (Extrahieren, Transformieren, Laden) Daten aus einem Cloud-Speicher (z.B. Amazon S3) in ein Warehouse (z.B. Snowflake) übertragen."
+description: "In diesem Artikel erfahren Sie, wie Sie mit Hilfe des Extract, Transform, Load-Prozesses (ETL) Daten aus einem Cloud-Speicher (z. B. Amazon S3) in ein Data Warehouse (z. B. Snowflake) übertragen."
 tool: Currents
 
 ---
 
-# Daten von Amazon S3 zu Snowflake übertragen
+# Daten von Amazon S3 zu Snowflake übertragen {#transfer-data-from-amazon-s3-to-snowflake}
 
-> Wenn sich Ihre Daten derzeit in Amazon S3 befinden, können Sie sie mit dem Prozess Extrahieren, Laden, Transformieren (ELT) in Snowflake oder ein anderes relationales Data Warehouse übertragen. Auf dieser Seite erfahren Sie, wie Sie das tun können.
+> Wenn sich Ihre Daten derzeit in Amazon S3 befinden, können Sie sie mit dem Prozess Extract, Load, Transform (ELT) in Snowflake oder ein anderes relationales Data Warehouse übertragen. Auf dieser Seite erfahren Sie, wie das funktioniert.
 
 {% alert note %}
-Wenn Sie spezifischere Anwendungsfälle haben und möchten, dass Braze Ihre Currents-Instanz in Dienst nimmt, wenden Sie sich an Ihren Account Manager:in und fragen Sie ihn nach den Braze Data Professional Serviceleistungen; Dienste.
+Wenn Sie spezifischere Anwendungsfälle haben und möchten, dass Braze Ihre Currents-Instanz betreut, wenden Sie sich an Ihre:n Braze Account Manager:in und fragen Sie nach den Braze Data Professional Services.
 {% endalert %}
 
-## Funktionsweise
+## Funktionsweise {#how-it-works}
 
-Der Prozess Extrahieren, Laden, Transformieren (ELT) ist ein automatisierter Prozess, der Daten in [Snowflake](https://www.snowflake.com/) überträgt, sodass Sie die [Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory) verwenden können, um diese Daten in Looker zu visualisieren und so Insights und Feedback für Ihre Campaigns, Canvases und Segments zu gewinnen.
+Der Prozess Extract, Load, Transform (ELT) ist ein automatisierter Prozess, der Daten in [Snowflake](https://www.snowflake.com/) überträgt, sodass Sie die [Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory) verwenden können, um diese Daten in Looker zu visualisieren und so Insights und Feedback für Ihre Campaigns, Canvases und Segmente zu gewinnen.
 
 Nachdem Sie einen Export von Currents nach S3 eingerichtet haben und Live-Ereignisdaten empfangen, können Sie Ihre Live-ELT-Pipeline in Snowflake konfigurieren, indem Sie die folgenden Komponenten einrichten:
 
@@ -29,7 +29,7 @@ Nachdem Sie einen Export von Currents nach S3 eingerichtet haben und Live-Ereign
 
 **Auto-Ingest Snowpipes** nutzen SQS-Warteschlangen, um Benachrichtigungen von S3 an Snowpipe zu senden. Dieser Prozess wird von Snowflake verwaltet, nachdem SQS konfiguriert wurde.
 
-### 1. Schritt: Externe S3-Stage konfigurieren
+### 1. Schritt: Externe S3-Stage konfigurieren {#step-1-configure-the-external-s3-stage}
 
 {% alert note %}
 Tabellen in Ihrer Datenbank werden in diesem Schritt erstellt.
@@ -105,34 +105,34 @@ COPY INTO
 {: start="4"}
 4. Verwenden Sie abschließend den Befehl `show pipes;`, um Ihre SQS-Informationen anzuzeigen. Der Name der SQS-Warteschlange wird in einer neuen Spalte namens `NOTIFICATION_CHANNEL` angezeigt, da diese Pipe als Auto-Ingest-Pipe erstellt wurde.
 
-### 2. Schritt: Bucket-Events erstellen
+### 2. Schritt: Bucket-Ereignisse erstellen {#step-2-create-bucket-events}
 
 1. Navigieren Sie in AWS zum entsprechenden Bucket der neuen Snowflake-Stage. Gehen Sie dann unter dem Tab **Properties** zu **Events**.
 
 ![AWS-Tab „Properties“]({% image_buster /assets/img/aws-properties.png %}){: height="50%" width="50%"}
 
 {: start="2"}
-2. Erstellen Sie nach Bedarf neue Events für jeden Satz von Currents-Daten ([Messaging]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), [Kundenverhalten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)) oder beides.
+2. Erstellen Sie nach Bedarf neue Ereignisse für jeden Satz von Currents-Daten ([Messaging]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)) oder beides.
 
-![Erstellen eines neuen Events in AWS]({% image_buster /assets/img/aws-events.png %}){: height="50%" width="50%"}
+![Erstellen eines neuen Ereignisses in AWS]({% image_buster /assets/img/aws-events.png %}){: height="50%" width="50%"}
 
 {: start="3"}
 3. Aktivieren Sie das entsprechende Kontrollkästchen für die Benachrichtigungen zur Objekterstellung sowie den ARN am unteren Rand des Formulars (aus der Spalte „Notification Channel“ in Snowflake).
 
 ## Konfigurieren von Auto-Ingest Snowpipes {#auto-ingest-snowpipes}
 
-Damit die AWS SQS-Konfiguration die richtigen Tabellen erzeugt, müssen Sie die Struktur der eingehenden Daten korrekt definieren. Verwenden Sie dazu die folgenden Beispiele und Schemas aus unserer Currents-Dokumentation für [Messaging-Engagement- oder Messaging-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) oder beides.
+Damit die AWS SQS-Konfiguration die richtigen Tabellen erzeugt, müssen Sie die Struktur der eingehenden Daten korrekt definieren. Verwenden Sie dazu die folgenden Beispiele und Schemas aus unserer Currents-Dokumentation für [Messaging-Engagement- oder Messaging-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder beides.
 
 Es ist entscheidend, dass Sie Ihre Tabellen gemäß den Braze-Currents-Schemas strukturieren, da Braze-Currents kontinuierlich Daten über bestimmte Felder mit bestimmten Datentypen in diese laden wird. Beispielsweise wird eine `user_id` als String geladen und in den Currents-Daten als `user_id` bezeichnet.
 
 {% alert note %}
-  Je nach Ihrer Currents-Integration müssen Sie möglicherweise verschiedene Events einrichten (z. B. [Messaging-Engagement- oder Messaging-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)). Sie können auch ein Skript für einen Teil oder den gesamten Prozess schreiben.
+  Je nach Ihrer Currents-Integration müssen Sie möglicherweise verschiedene Ereignisse einrichten (z. B. [Messaging-Engagement- oder Messaging-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und [Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)). Sie können auch ein Skript für einen Teil oder den gesamten Prozess schreiben.
 {% endalert %}
 
 {% tabs %}
   {% tab User Behavior Events %}
 
-1. Erstellen Sie eine Tabelle, in die (`INTO`) wir kontinuierlich Daten laden werden, unter Verwendung der folgenden Struktur aus dem Currents-Schema:
+1. Erstellen Sie eine Tabelle, in die (`INTO`) Sie kontinuierlich Daten laden werden, unter Verwendung der folgenden Struktur aus dem Currents-Schema:
 
 ```sql
 CREATE TABLE
@@ -196,7 +196,7 @@ Sie müssen die Befehle `CREATE TABLE` und `CREATE PIPE` für jeden Event-Typ wi
  {% endtab %}
  {% tab Messaging Events %}
 
-1. Erstellen Sie eine Tabelle, in die (`INTO`) wir kontinuierlich Daten laden werden, unter Verwendung der folgenden Struktur aus dem Currents-Schema:
+1. Erstellen Sie eine Tabelle, in die (`INTO`) Sie kontinuierlich Daten laden werden, unter Verwendung der folgenden Struktur aus dem Currents-Schema:
 
 ```sql
 CREATE TABLE
@@ -275,5 +275,5 @@ Sie müssen die Befehle `CREATE TABLE` und `CREATE PIPE` für jeden Event-Typ wi
 Informationen zu den Arten von Analytics, die Sie mit Braze-Currents durchführen können, finden Sie in unseren [Looker Blocks](https://github.com/llooker?q=braze).
 
 {% alert note %}
-Kontaktieren Sie Ihren Account Manager:in, wenn Sie Fragen haben oder daran interessiert sind, dass Braze Sie durch diesen Prozess begleitet.
+Kontaktieren Sie Ihre:n Braze Account Manager:in, wenn Sie Fragen haben oder daran interessiert sind, dass Braze Sie durch diesen Prozess begleitet.
 {% endalert %}

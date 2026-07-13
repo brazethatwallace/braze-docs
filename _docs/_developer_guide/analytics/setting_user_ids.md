@@ -8,7 +8,7 @@ description: "Learn how to set user IDs through the Braze SDK."
 
 # Set user IDs
 
-> Learn how to set user IDs through the Braze SDK. These are unique identifiers that let you track users across devices and platforms, import their data through the [user data API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data), and send targeted messages through the [messaging API]({{site.baseurl}}/api/endpoints/messaging/). If you don't assign a unique ID to a user, Braze assigns them an anonymous ID instead; however, you can't use these features until you do.
+> Learn how to set user IDs through the Braze SDK. These are unique identifiers that let you track users across devices and platforms, import their data through the [user data API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data), and send targeted messages through the [messaging API]({{site.baseurl}}/api/endpoints/messaging). If you don't assign a unique ID to a user, Braze assigns them an anonymous ID instead; however, you can't use these features until you do.
 
 {% alert note %}
 For wrapper SDKs not listed, use the relevant native Android or Swift method instead.
@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser` enqueues the user switch and returns immediately on the calling thread. Any attribute setters called on `braze.user` afterward are automatically serialized behind the operations initiated by `changeUser`. Reading `braze.user.id` blocks the calling thread until the user switch fully completes. For main-thread or latency-sensitive contexts, use the non-blocking alternatives instead.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}
@@ -188,22 +214,22 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 We recommend that you create user IDs using the [Universally Unique Identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier) standard, meaning they are 128-bit strings that are random and well distributed.
 
-Alternatively, you can hash an existing unique identifier (such as a name or email address) to generate your user IDs instead. If you do so, be sure to implement [SDK authentication]({{site.baseurl}}/developer_guide/sdk_integration/authentication/), so you can prevent user impersonation.
+Alternatively, you can hash an existing unique identifier (such as a name or email address) to generate your user IDs instead. If you do so, be sure to implement [SDK authentication]({{site.baseurl}}/developer_guide/sdk_integration/authentication), so you can prevent user impersonation.
 
 {% alert warning %}
 Do not use a guessable value or incrementing number for your user ID. This may expose your organization to malicious attacks or data exfiltration.
 
-For added security, use [SDK Authentication]({{site.baseurl}}/developer_guide/sdk_integration/authentication/).
+For added security, use [SDK Authentication]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
-While it's essential that you correctly name your user IDs from the start, you can always rename them in the future using the [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/) endpoint.
+While it's essential that you correctly name your user IDs from the start, you can always rename them in the future using the [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration) endpoint.
 
 | ID types not recommended | Example not recommended |
 | ------------ | ----------- |
 | User's visible profile ID or username | JonDoe829525552 |
 | Email Address | Anna@email.com |
 | Auto-incrementing user ID | 123 |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ID Naming best practices" }
 
 {% alert warning %}
 Avoid sharing details about how you create user IDs, as this may expose your organization to malicious attacks or data exfiltration.

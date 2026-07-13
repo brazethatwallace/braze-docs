@@ -19,8 +19,8 @@ search_rank: 5
 Avant de pouvoir envoyer des messages in-app, vous devez intégrer le [SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) dans votre application ou votre site web. Aucune configuration supplémentaire n'est requise.
 
 Pour les versions minimales du SDK et les exigences spécifiques aux fonctionnalités, consultez :
-- [Éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Types de messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/)
+- [Éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Types de messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 
 ## Cas d'utilisation {#use-cases}
 
@@ -28,11 +28,11 @@ Grâce au contenu riche offert par les messages in-app, vous pouvez exploiter ce
 
 | Cas d'utilisation | Explication |
 | --- | --- |
-| Amorce push | Lancez une campagne d'[amorce push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) en utilisant un message in-app enrichi pour montrer à vos clients les avantages de s'abonner aux notifications push pour votre application ou site, et présentez-leur une invite à accorder l'autorisation push.
+| Amorce push | Lancez une campagne d'[amorce push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) en utilisant un message in-app enrichi pour montrer à vos clients les avantages de s'abonner aux notifications push pour votre application ou site, et présentez-leur une invite à accorder l'autorisation push.
 | Ventes et promotions | Utilisez des messages in-app modaux pour accueillir les clients avec des médias visuellement attrayants contenant des codes de promotion statiques ou des offres. Incitez-les à effectuer des achats ou des conversions qu'ils n'auraient pas réalisés autrement. |
 | Encourager l'adoption de fonctionnalités | Encouragez les clients à utiliser d'autres parties de votre application ou à profiter d'un service. |
-| Campagnes hautement personnalisées | Placez des messages in-app comme la première chose que vos clients voient lorsqu'ils ouvrent votre application ou site. Ajoutez des fonctionnalités de personnalisation Braze, telles que le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), pour inciter les utilisateurs à agir et ainsi rendre votre communication plus efficace.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Campagnes hautement personnalisées | Placez des messages in-app comme la première chose que vos clients voient lorsqu'ils ouvrent votre application ou site. Ajoutez des fonctionnalités de personnalisation Braze, telles que le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), pour inciter les utilisateurs à agir et ainsi rendre votre communication plus efficace.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 Voici d'autres cas d'utilisation à envisager :
 
@@ -70,13 +70,13 @@ Les messages plein écran sont exactement ce que leur nom indique : ils occupent
 {% endtab %}
 {% endtabs %}
 
-En plus de ces modèles de messages par défaut, vous pouvez également personnaliser davantage vos messages en utilisant des messages in-app HTML personnalisés, des fenêtres modales web avec CSS ou des formulaires de capture d'e-mail web. Pour en savoir plus, consultez [Personnalisation]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+En plus de ces modèles de messages par défaut, vous pouvez également personnaliser davantage vos messages en utilisant des messages in-app HTML personnalisés, des fenêtres modales web avec CSS ou des formulaires de capture d'e-mail web. Pour en savoir plus, consultez [Personnalisation]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
-Pour savoir comment la distribution basée sur des modèles au moment de l'affichage affecte la journalisation des **abandons**, consultez la [FAQ sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
+Pour savoir comment la distribution basée sur des modèles au moment de l'affichage affecte la journalisation des **abandons**, consultez la [FAQ sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 
 ## Étapes suivantes {#next-steps}
 
-- [Créer un message in-app avec l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Créer un message in-app avec l'éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)
+- [Créer un message in-app avec l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Créer un message in-app avec l'éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

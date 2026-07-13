@@ -4,37 +4,39 @@ page_order: 0
 noindex: true
 ---
 
-# Exemplo de layout: Visão geral
+# Exemplo de layout: Visão geral {#example-layout-overview}
 
-> O layout de visão geral é bom para criar uma opção de navegação específica na parte superior de uma página que permita aos usuários clicar em um botão para ir para uma parte específica de uma página ou para uma página completamente diferente.
+> O layout de visão geral é ideal para criar uma opção de navegação específica na parte superior de uma página, permitindo que os usuários cliquem em um botão para ir a uma parte específica da página ou a uma página completamente diferente.
 
-Exemplos clássicos do layout do seletor são a página [Changelogs do SDK](https://www.braze.com/docs/developer_guide/changelogs) ou a página [Detalhes de criativos da mensagem no app](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Exemplos clássicos do layout de seletor são a página de [changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs/) ou a página de [detalhes de criativos da mensagem no app]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
 
-## Componentes necessários
+## Componentes necessários {#required-components}
 
 1. Notação de abertura e fechamento do YAML. Em outras palavras, --- antes do conteúdo e --- depois.
 2. Aspas em torno de determinados conteúdos de parâmetros. (Parâmetros de cabeçalho, parâmetros de texto, conteúdo com hífens ou outros caracteres especiais.)
-3. Notação das tags do glossário (Essas são tags de filtro)
+3. Notação das tags do glossário (essas são tags de filtro)
 
-## Parâmetros necessários
+## Parâmetros necessários {#required-parameters}
 
-|Parâmetro | Tipo de conteúdo | Informações |
+| Parâmetro | Tipo de conteúdo | Informações |
 |---|---|---|
-|`page_order`| numérico | Ordene a página dentro da seção. Essa ordem será refletida na navegação à esquerda. |
-| `nav-title`| Alfanumérico | Título que aparecerá na navegação à esquerda. |
-|`layout`| Alfanumérico - Sem espaços | Selecione um layout na [seção de layout](https://github.com/Appboy/braze-docs/tree/develop/_layouts) da documentação. | 
-|`guide_top_header`|Alfanumérico | Dê um título à sua página.|
-|`guide_top_text`|Alfanumérico | Descreva sua página; isso será colocado diretamente acima dos botões e de seu título. São necessárias citações em torno do conteúdo. |
-|`guide_featured_title`| Alfanumérico | Dê um título a seus cartões. Ele ficará diretamente acima dos botões.
-|`guide_featured_list`| Mais YAML, alfanumérico | Consulte o [formato de listas do guia](#guide-listing-format) abaixo. |
+| `page_order` | Numérico | Ordene a página dentro da seção. Essa ordem será refletida na navegação à esquerda. |
+| `nav-title` | Alfanumérico | Título que aparecerá na navegação à esquerda. |
+| `layout` | Alfanumérico - Sem espaços | Selecione um layout na [seção de layout](https://github.com/Appboy/braze-docs/tree/develop/_layouts) da documentação. |
+| `guide_top_header` | Alfanumérico | Dê um título à sua página. |
+| `guide_top_text` | Alfanumérico | Descreva sua página; isso será exibido diretamente acima dos botões e de seu título. São necessárias aspas em torno do conteúdo. |
+| `guide_featured_title` | Alfanumérico | Dê um título aos seus cartões. Ele ficará diretamente acima dos botões.
+| `guide_featured_list` | Mais YAML, alfanumérico | Consulte o [formato de listagem do guia](#guide-listing-format) abaixo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros necessários" }
 
-### Formato de listagem do guia
+### Formato de listagem do guia {#guide-listing-format}
 
-|Parâmetro | Tipo de conteúdo | Informações |
+| Parâmetro | Tipo de conteúdo | Informações |
 |---|---|---|
-|`name`| Alfanumérico | Dá um nome para a caixa. |
-| `link`| URL ou caminho | Link de destino da caixa. Deve conter o URL completo ou (se for um link interno) `/docs...`  |
-|`image`| Jornada | Link do local da imagem. |
+| `name` | Alfanumérico | Dê um nome à caixa. |
+| `link` | URL ou caminho | Link de destino da caixa. Deve conter o URL completo ou (se for um link interno) `/docs...` |
+| `image` | Caminho | Link do local da imagem. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Formato de listagem do guia" }
 
 Exemplo de formato:
 
@@ -44,7 +46,7 @@ Exemplo de formato:
   image: /assets/img/braze_icons/layout-alt-01.svg
 ```
 
-## Exemplo
+## Exemplo {#example}
 
 ```yaml
 ---

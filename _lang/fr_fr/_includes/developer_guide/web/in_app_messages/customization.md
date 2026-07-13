@@ -33,9 +33,9 @@ braze.initialize("YOUR-API-KEY", {
 Cette fonctionnalité n'est disponible que pour le SDK Web de Braze v3.3.0 et les versions ultérieures.
 {% endalert %}
 
-## Personnalisation de la fermeture des messages {#customizing-message-dismissals}
+## Personnaliser la fermeture des messages {#customizing-message-dismissals}
 
-Par défaut, lorsqu'un message in-app est affiché, le fait d'appuyer sur la touche Échap ou de cliquer sur l'arrière-plan grisé de la page ferme le message. Configurez l'[option d'initialisation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) `requireExplicitInAppMessageDismissal` sur `true` pour éviter ce comportement et exiger un clic explicite sur un bouton pour fermer les messages.
+Par défaut, lorsqu'un message in-app est affiché, le fait d'appuyer sur la touche Échap ou de cliquer sur l'arrière-plan grisé de la page fermera le message. Configurez l'[option d'initialisation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) `requireExplicitInAppMessageDismissal` sur `true` pour empêcher ce comportement et exiger un clic explicite sur un bouton pour fermer les messages.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -45,7 +45,7 @@ braze.initialize("YOUR-API-KEY", {
 });
 ```
 
-## Personnalisation du moment d'affichage {#customizing-display-timing}
+## Personnaliser le moment d'affichage {#customizing-display-timing}
 
 Pour remplacer le comportement d'affichage par défaut, supprimez les appels à `braze.automaticallyShowInAppMessages()` et gérez les messages dans `braze.subscribeToInAppMessage()`. Enregistrez votre rappel avant `braze.openSession()`, afin de pouvoir intercepter les messages de début de session et décider d'afficher ou de différer chaque message.
 
@@ -93,7 +93,7 @@ Pour des conseils connexes sur la personnalisation de la réception, consultez :
 
 ## Ouverture des liens dans un nouvel onglet {#opening-links-in-a-new-tab}
 
-Pour configurer les liens de messages in-app afin qu'ils s'ouvrent dans un nouvel onglet, définissez l'option `openInAppMessagesInNewTab` sur `true` pour forcer tous les liens issus des clics sur les messages in-app à s'ouvrir dans un nouvel onglet ou une nouvelle fenêtre.
+Pour configurer les liens de vos messages in-app afin qu'ils s'ouvrent dans un nouvel onglet, définissez l'option `openInAppMessagesInNewTab` sur `true` pour forcer tous les liens issus des clics sur les messages in-app à s'ouvrir dans un nouvel onglet ou une nouvelle fenêtre.
 
 ```javascript
 braze.initialize('api-key', { openInAppMessagesInNewTab: true} );

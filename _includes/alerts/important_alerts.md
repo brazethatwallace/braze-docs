@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-A [new version of the Shopify integration]({{site.baseurl}}/partners/shopify/#new-shopify-integration) will be released in phases starting in April 2025. The phases will be based on the type of Shopify store and the external ID used to set up the initial integration. <br><br>**The old version of the integration will no longer be available after August 28, 2025. Update to the new version before this date to continue using the integration without any issues.**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
@@ -61,7 +53,7 @@ There are certain browsers, such as the Naver Android and iOS apps, that don’t
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-The legacy purchase event is entering maintenance mode. Existing purchase events continue to work as expected, but no new functionality is being built on top of them in favor of eCommerce recommended events. You can continue using purchase events for the foreseeable future. Braze provides advance notice well before any end-of-life date is set.
+The legacy purchase event is entering maintenance mode. Existing Braze customers can continue using legacy purchase events. They'll keep working as expected, but new functionality will be built on eCommerce recommended events going forward. Braze will provide advance notice well before any end-of-life date is set. New Braze customers should use [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), as legacy purchase events will not be available.
 {% endalert %}
 
 {% endif %}

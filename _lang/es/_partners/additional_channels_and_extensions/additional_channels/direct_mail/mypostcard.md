@@ -17,12 +17,12 @@ Utiliza la integración de MyPostcard y Braze para enviar a tus clientes correos
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito                      | Descripción                                                                                                             |
-|----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Cuenta MyPostcard B2B           | Es necesario registrarse en MyPostcard para beneficiarse de esta integración.                                          |
-| Clave de API B2B y credenciales        | Puedes encontrar tu clave de API y las credenciales en la herramienta de administración MyPostcard B2B.                                         |
+| Requisito | Descripción |
+|---|---|
+| Cuenta MyPostcard B2B | Es necesario registrarse en MyPostcard para beneficiarse de esta integración. |
+| Clave de API B2B y credenciales | Puedes encontrar tu clave de API y las credenciales en la herramienta de administración MyPostcard B2B. |
 | Campaña MyPostcard B2B aprobada | Para aprovechar esta integración, necesitas configurar una campaña de correo impreso en la herramienta MyPostcard B2B. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}
 
@@ -38,26 +38,23 @@ Para integrarte con MyPostcard, [inicia sesión o regístrate](https://www.mypos
 
 ### Paso 1: Crea tu plantilla de webhook de Braze {#step-1-create-your-braze-webhook-template}
 
-Crea una plantilla de webhook de MyPostcard para utilizarla en futuras Campaigns o Canvas navegando hasta **Templates** > **Webhook Templates** en la plataforma Braze.
-
-{% alert note %}
-Si utilizas la [navegación antigua]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), ve a **Engagement** > **Templates & Media** > **Webhook Templates**.
-{% endalert %}
+Para crear una plantilla de webhook de MyPostcard que puedas utilizar en futuras Campaigns o Canvas, ve a **Contenido** > **Webhook** en la plataforma Braze. Luego, selecciona **Crear plantilla de webhook**.
 
 Si quieres crear una campaña única de webhook de MyPostcard o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña. Rellena los siguientes campos:
 
-| Campo         | Descripción                                               |
-|---------------|-----------------------------------------------------------|
-| **Webhook URL** | La URL del webhook tal y como se muestra en la herramienta de administración B2B.             |
-| **Request Body** | Texto sin formato (formato JSON que se encuentra en la herramienta de administración B2B).        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Campo | Descripción |
+|---|---|
+| **Webhook URL** | La URL del webhook tal y como se muestra en la herramienta de administración B2B. |
+| **Request Body** | Texto sin formato (formato JSON que se encuentra en la herramienta de administración B2B). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### Método y encabezados de solicitud {#request-method-and-headers}
 
 MyPostcard requiere que se incluya en la plantilla un método HTTP junto con los siguientes encabezados HTTP.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
+  <caption>Método y encabezados de solicitud</caption>
   <thead>
     <tr>
       <th><strong>Campo</strong></th>
@@ -84,7 +81,7 @@ MyPostcard requiere que se incluya en la plantilla un método HTTP junto con los
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### Cuerpo de la solicitud {#request-body}
 
@@ -99,5 +96,5 @@ A continuación, previsualiza tu solicitud en el panel **Preview** o ve a la pes
 ![Pestaña de prueba de webhook con diferentes campos para validar la implementación.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

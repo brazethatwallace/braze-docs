@@ -7,7 +7,7 @@ description: "Learn how to use Connected Content to pull data from REST APIs int
 
 # REST API
 
-> Pull data from external REST APIs directly into your messages at send time using [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). This lets you personalize messages with real-time information from your own servers, third-party services, or any publicly accessible API endpoint.
+> Pull data from external REST APIs directly into your messages at send time using [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). This lets you personalize messages with real-time information from your own servers, third-party services, or any publicly accessible API endpoint.
 
 ## How it works
 
@@ -31,22 +31,22 @@ Connected Content supports GET and POST requests. Braze requires the server to r
 | Weather-based content | Pull local weather data to tailor messaging |
 | Loyalty point balances | Show up-to-date rewards or account balances |
 | Content feeds | Insert the latest blog posts, articles, or news items |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Common use cases" }
 
 ## Authentication
 
 Braze supports basic authentication, token authentication, and OAuth for Connected Content requests. You can store credentials securely in the Braze dashboard under **Settings** > **Connected Content** and reference them in your API calls.
 
-For more information, see [Making a Connected Content API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#authentication-types).
+For more information, see [Making a Connected Content API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types).
 
 ## Error handling
 
 If the endpoint returns an error or times out, Braze renders an empty string in place of the Connected Content response. You can detect failures by checking if the saved variable is null and conditionally abort the message or display fallback content.
 
-For more information, see [Aborting Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/).
+For more information, see [Aborting Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content).
 
 ## Performance considerations
 
 Because Braze delivers messages at high volume, your server must handle thousands of concurrent connections. Use caching where appropriate and set rate limits on your messages to avoid overloading external endpoints.
 
-For the complete Connected Content reference, see [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+For the complete Connected Content reference, see [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).

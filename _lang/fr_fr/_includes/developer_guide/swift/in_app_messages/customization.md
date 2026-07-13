@@ -1,14 +1,14 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
-## Configuration du délégué UI (obligatoire)
+## Configuration du délégué UI (obligatoire) {#setting-up-the-ui-delegate-required}
 
-Pour personnaliser la présentation des messages in-app et réagir à divers événements du cycle de vie, il est nécessaire de configurer [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate). Il s'agit d'un protocole délégué utilisé pour recevoir et traiter les charges utiles des messages in-app déclenchés, recevoir les événements du cycle de vie de l'affichage et contrôler la synchronisation de l'affichage. Pour utiliser ce service`BrazeInAppMessageUIDelegate`, il est nécessaire de :
-- Veuillez utiliser l'implémentation[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui) par défaut comme votre `inAppMessagePresenter`. 
-- Veuillez inclure la`BrazeUI`bibliothèque dans votre projet.
+Pour personnaliser la présentation des messages in-app et réagir à divers événements du cycle de vie, vous devez configurer [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate). Il s'agit d'un protocole délégué utilisé pour recevoir et traiter les payloads des messages in-app déclenchés, recevoir les événements du cycle de vie de l'affichage et contrôler la synchronisation de l'affichage. Pour utiliser `BrazeInAppMessageUIDelegate`, vous devez :
+- Utiliser l'implémentation par défaut [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui) comme votre `inAppMessagePresenter`.
+- Inclure la bibliothèque `BrazeUI` dans votre projet.
 
-### Étape 1 : Mettre en œuvre le`BrazeInAppMessageUIDelegate`protocole 
+### Étape 1 : Implémenter le protocole `BrazeInAppMessageUIDelegate` {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
 
-Tout d'abord, implémentez le protocole `BrazeInAppMessageUIDelegate` et toutes les méthodes correspondantes que vous souhaitez. Dans l'exemple ci-dessous, nous implémentons ce protocole dans la classe `AppDelegate` de notre application.
+Tout d'abord, implémentez le protocole `BrazeInAppMessageUIDelegate` et toutes les méthodes correspondantes que vous souhaitez. Dans l'exemple ci-dessous, ce protocole est implémenté dans la classe `AppDelegate` de l'application.
 
 {% tabs %}
 {% tab swift %}
@@ -31,9 +31,9 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 {% endtab %}
 {% endtabs %}
 
-### Étape 2 : Veuillez attribuer l'objet`delegate` 
+### Étape 2 : Assigner l'objet `delegate` {#step-2-assign-the-delegate-object}
 
-Veuillez attribuer `delegate`l'objet à `BrazeInAppMessageUI`l'instance avant d'attribuer cette interface utilisateur de message in-app à votre `inAppMessagePresenter`.
+Assignez l'objet `delegate` sur l'instance `BrazeInAppMessageUI` avant d'assigner cette interface utilisateur de message in-app comme votre `inAppMessagePresenter`.
 
 {% tabs %}
 {% tab swift %}
@@ -51,34 +51,34 @@ AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 ```
 
 {% alert important %}
-Toutes les méthodes de délégation ne sont pas disponibles en Objective-C en raison de l'incompatibilité de leurs paramètres avec l’exécution du langage.
+Toutes les méthodes de délégation ne sont pas disponibles en Objective-C en raison de l'incompatibilité de leurs paramètres avec le runtime du langage.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-Pour obtenir une description étape par étape de l’implémentation du délégué de l'interface utilisateur des messages in-app, reportez-vous à ce [tutoriel](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
+Pour une implémentation étape par étape du délégué de l'interface utilisateur des messages in-app, consultez ce [tutoriel](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
 {% endalert %}
 
-## Comportement lors du clic
+## Comportement au clic {#on-click-behavior}
 
-Chaque objet `Braze.InAppMessage` contient une [`ClickAction`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/clickaction) correspondante qui définit le comportement en cas de clic. 
+Chaque objet `Braze.InAppMessage` contient une [`ClickAction`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/clickaction) correspondante qui définit le comportement au clic.
 
-### Cliquez sur les types d'action
+### Types d'action au clic {#click-action-types}
 
-La propriété `clickAction` de votre `Braze.InAppMessage` est par défaut `.none` mais peut être définie sur l'une des valeurs suivantes :
+La propriété `clickAction` de votre `Braze.InAppMessage` est définie par défaut sur `.none` mais peut être configurée sur l'une des valeurs suivantes :
 
 | `ClickAction` | Comportement au clic |
 | -------------------------- | -------- |
-| `.url(URL, useWebView: Bool)` | Ouvre l'URL donné dans un navigateur externe. Si `useWebView` est définie sur `true`, elle s'ouvrira dans une vue Web. |
-| `.none` | Le message sera rejeté lorsque vous cliquerez. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `.url(URL, useWebView: Bool)` | Ouvre l'URL donnée dans un navigateur externe. Si `useWebView` est défini sur `true`, l'URL s'ouvrira dans une vue web. |
+| `.none` | Le message sera fermé lorsque l'utilisateur cliquera. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types d'action au clic" }
 
 {% alert important %}
-Pour les messages in-app contenant des boutons, le message `clickAction` sera également inclus dans la charge utile finale si l'action de clic est ajoutée avant l'ajout du texte du bouton.
+Pour les messages in-app contenant des boutons, le `clickAction` du message sera également inclus dans le payload final si l'action de clic est ajoutée avant l'ajout du texte du bouton.
 {% endalert %}
 
-### Personnalisation du comportement au clic
+### Personnalisation du comportement au clic {#customizing-on-click-behavior}
 
 Pour personnaliser ce comportement, vous pouvez modifier la propriété `clickAction` en vous référant à l'exemple suivant :
 
@@ -87,7 +87,7 @@ Pour personnaliser ce comportement, vous pouvez modifier la propriété `clickAc
 
 ```swift
 func inAppMessage(
-  _ ui: BrazeInAppMessageUI, 
+  _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
 ) {
   if let newUrl = URL(string: "{your-url}") {
@@ -104,9 +104,9 @@ La méthode `inAppMessage(_:prepareWith:)` n'est pas disponible en Objective-C.
 {% endtab %}
 {% endtabs %}
 
-### Gestion du comportement personnalisé
+### Gestion du comportement personnalisé {#handling-the-custom-behavior}
 
-La méthode déléguée[`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) suivante est appelée lorsqu'un utilisateur clique sur un message in-app. Ce rappel est déclenché lorsque l'utilisateur clique sur les boutons de message in-app et les boutons de message HTML in-app (liens). Un ID de bouton est fourni en tant que paramètre facultatif pour ces interactions. Ce rappel n'est pas invoqué pour les clics programmatiques déclenchés via un déclencheur`brazeBridge.logClick()`.
+La méthode déléguée [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) suivante est appelée lorsqu'un utilisateur clique sur un message in-app. Ce rappel est déclenché pour les clics initiés par l'utilisateur sur les boutons de messages in-app et les boutons de messages in-app HTML (liens), et un ID de bouton est fourni en tant que paramètre facultatif pour ces interactions. Ce rappel n'est pas invoqué pour les clics programmatiques déclenchés via `brazeBridge.logClick()`.
 
 {% tabs %}
 {% tab swift %}
@@ -167,7 +167,7 @@ func inAppMessage(
     default:
       break
     }
-    
+
     print(button?.id)
     print(button?.text)
     print(button?.clickAction)
@@ -200,25 +200,25 @@ func inAppMessage(
 {% endtab %}
 {% endtabs %}
 
-## Glisser pour fermer les messages contextuels
+## Balayer pour fermer les messages contextuels {#swiping-to-dismiss-slideup-messages}
 
-Par défaut, les messages in-app contextuels peuvent être supprimés d'un simple geste du doigt. La direction du balayage dépend de la position contextuelle de glissement vers le haut :
+Par défaut, les messages in-app contextuels peuvent être fermés d'un simple geste de balayage. La direction du balayage dépend de la position du message contextuel :
 
-- **Balayage vers la gauche ou vers la droite :** Rejette le contexteuel, quelle que soit sa position.
-- **Contextuel : faire glisser vers le haut depuis le bas :** Balayer l'écran de haut en bas permet de fermer le message. Balayer de bas en haut ne permet pas de le fermer.
-- **Contextuel : glisser vers le haut depuis le haut :** Balayer l'écran de bas en haut permet de fermer le message. Balayer l'écran de haut en bas ne permet pas de le fermer.
+- **Balayage vers la gauche ou vers la droite :** ferme le message contextuel quelle que soit sa position.
+- **Message contextuel depuis le bas :** balayer de haut en bas ferme le message. Balayer de bas en haut ne le ferme pas.
+- **Message contextuel depuis le haut :** balayer de bas en haut ferme le message. Balayer de haut en bas ne le ferme pas.
 
-Ce comportement de balayage est créé par défaut `BrazeInAppMessageUI`[`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview)et s'applique uniquement aux messages in-app contextuels. Les messages in-app modaux et complets ne prennent pas en charge la fonctionnalité « balayer pour fermer ». Pour personnaliser davantage l'affichage contextuel, y compris le comportement de balayage, vous pouvez modifier le[`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct)  ou fournir un affichage personnalisé via la sous-classification.
+Ce comportement de balayage est intégré par défaut dans la [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) de `BrazeInAppMessageUI` et s'applique uniquement aux messages in-app contextuels. Les messages in-app modaux et plein écran ne prennent pas en charge le balayage pour fermer. Pour personnaliser davantage la vue contextuelle, y compris le comportement de balayage, vous pouvez modifier les [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) ou fournir une vue personnalisée via le sous-classement.
 
 {% alert note %}
-Appuyer en dehors d'un message contextuel ne le fait pas disparaître. Pour les messages in-app ou fenêtres modales/boîtes de dialogue modales, etc., vous pouvez activer la suppression par pression externe à l'aide de `dismissOnBackgroundTap`l'attribut décrit ci-dessous.
+Appuyer en dehors d'un message contextuel ne le ferme pas. Pour les messages in-app modaux ou plein écran, vous pouvez activer la fermeture par touche extérieure à l'aide de l'attribut `dismissOnBackgroundTap` décrit dans la section suivante.
 {% endalert %}
 
-## Personnalisation des fermetures de fenêtres modales/boîtes de dialogue modales, etc.
+## Personnalisation des fermetures modales {#customizing-modal-dismissals}
 
-Pour activer les rejets par touché extérieur, vous pouvez modifier la propriété `dismissOnBackgroundTap` de la structure `Attributes` du type de message in-app que vous souhaitez personnaliser. 
+Pour activer la fermeture par touche extérieure, vous pouvez modifier la propriété `dismissOnBackgroundTap` de la structure `Attributes` du type de message in-app que vous souhaitez personnaliser.
 
-Par exemple, si vous souhaitez activer cette fonctionnalité pour les messages in-app de type fenêtre modale, vous pouvez configurer ce qui suit :
+Par exemple, si vous souhaitez activer cette fonctionnalité pour les messages in-app de type image modale, vous pouvez configurer ce qui suit :
 
 {% tabs %}
 {% tab swift %}
@@ -235,23 +235,23 @@ La personnalisation via `Attributes` n'est pas disponible en Objective-C.
 {% endtab %}
 {% endtabs %}
 
-La valeur par défaut est `false`. Cela détermine si le message in-app modal sera rejeté lorsque l’utilisateur touche à l’extérieur du message in-app.
+La valeur par défaut est `false`. Cela détermine si le message in-app modal sera fermé lorsque l'utilisateur touche en dehors du message in-app.
 
 | `DismissModalOnOutsideTap` | Description |
 |----------|-------------|
-| `true`         | Les messages in-app modaux seront rejetés par touche extérieure.     |
-| `false`        | Par défaut, les messages in-app modaux ne seront rejetés par touche extérieure. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `true`         | Les messages in-app modaux seront fermés par touche extérieure.     |
+| `false`        | Par défaut, les messages in-app modaux ne seront pas fermés par touche extérieure. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnalisation des fermetures modales" }
 
 Pour plus de détails sur la personnalisation des messages in-app, consultez cet [article](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization).
 
-## Personnalisation de l'orientation des messages
+## Personnalisation de l'orientation des messages {#customizing-message-orientation}
 
 Vous pouvez personnaliser l'orientation de vos messages in-app. Vous pouvez définir une nouvelle orientation par défaut pour tous les messages ou définir une orientation personnalisée pour un seul message.
 
 {% tabs local %}
 {% tab all messages %}
-Pour sélectionner une orientation par défaut pour tous les messages in-app, veuillez utiliser la[`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)méthode pour définir la`preferredOrientation`propriété sur `PresentationContext`. 
+Pour choisir une orientation par défaut pour tous les messages in-app, utilisez la méthode [`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) pour définir la propriété `preferredOrientation` sur le `PresentationContext`.
 
 Par exemple, pour définir le mode portrait comme orientation par défaut :
 
@@ -281,7 +281,7 @@ func inAppMessage(
 {% endtab %}
 
 {% tab single message %}
-Pour définir l'orientation d'un message unique, veuillez modifier la`orientation`propriété de `Braze.InAppMessage`:
+Pour définir l'orientation d'un seul message, modifiez la propriété `orientation` de `Braze.InAppMessage` :
 
 {% subtabs %}
 {% subtab swift %}
@@ -316,19 +316,19 @@ inAppMessage.orientation = BRZInAppMessageRawOrientationLandscape;
 {% endtab %}
 {% endtabs %}
 
-Une fois le message in-app affiché, tout changement d'orientation de l'appareil pendant que le message est encore affiché entraînera la rotation du message avec l'appareil (à condition que cela soit pris en charge par la configuration `orientation`du message).
+Une fois le message in-app affiché, tout changement d'orientation de l'appareil pendant que le message est encore visible entraînera la rotation du message avec l'appareil (à condition que cela soit pris en charge par la configuration `orientation` du message).
 
-L'orientation de l'appareil doit également être prise en charge par la propriété `orientation`du message in-app pour que le message s'affiche. En outre, le paramètre `preferredOrientation` ne sera respecté que s'il est inclus dans les orientations d'interface prises en charge par votre application, dans la section **Informations sur le déploiement** des paramètres de votre cible dans Xcode.
+L'orientation de l'appareil doit également être prise en charge par la propriété `orientation` du message in-app pour que le message s'affiche. De plus, le paramètre `preferredOrientation` ne sera respecté que s'il est inclus dans les orientations d'interface prises en charge par votre application, dans la section **Deployment Info** des paramètres de votre cible dans Xcode.
 
 ![Orientations prises en charge dans Xcode.]({% image_buster /assets/img/supported_interface_orientations_xcode.png %})
 
 {% alert note %}
-L'orientation n'est appliquée que pour la présentation du message. Lorsque l'appareil change d'orientation, l'affichage des messages adopte l'une des orientations qu'il prend en charge. Sur les appareils de petite taille (iPhones, iPod Touch), l'orientation paysage d'une fenêtre modale ou d'un message in-app complet peut conduire à un contenu tronqué.
+L'orientation n'est appliquée que pour la présentation du message. Lorsque l'appareil change d'orientation, la vue du message adopte l'une des orientations qu'elle prend en charge. Sur les appareils de petite taille (iPhones, iPod Touch), définir une orientation paysage pour un message in-app modal ou plein écran peut entraîner un contenu tronqué.
 {% endalert %}
 
-## Personnalisation de la durée d'affichage 
+## Personnalisation de la synchronisation de l'affichage {#customizing-display-timing}
 
-Vous pouvez contrôler si un message in-app disponible s'affichera à certains moments de votre expérience sur communication. Si, dans certaines situations, vous ne souhaitez pas que le message in-app apparaisse, par exemple pendant un jeu en plein écran ou sur un écran de chargement, vous pouvez retarder ou supprimer les messages in-app en attente. Pour contrôler le moment de l'envoi du message in-app, utilisez la [méthode de délégué](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) `inAppMessage(_:displayChoiceForMessage:)` pour définir la propriété `BrazeInAppMessageUI.DisplayChoice`. 
+Vous pouvez contrôler si un message in-app disponible s'affichera à certains moments de votre expérience utilisateur. Si, dans certaines situations, vous ne souhaitez pas que le message in-app apparaisse, par exemple pendant un jeu en plein écran ou sur un écran de chargement, vous pouvez retarder ou supprimer les messages in-app en attente. Pour contrôler la synchronisation des messages in-app, utilisez la [méthode de délégué](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) `inAppMessage(_:displayChoiceForMessage:)` pour définir la propriété `BrazeInAppMessageUI.DisplayChoice`.
 
 {% tabs %}
 {% tab swift %}
@@ -352,34 +352,34 @@ func inAppMessage(
 
 Configurez `BrazeInAppMessageUI.DisplayChoice` pour qu'il renvoie l'une des valeurs suivantes :
 
-| Choix de l'affichage                      | Comportement                                                                                                                    |
+| Choix d'affichage                      | Comportement                                                                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `.now`                              | Le message s’affichera immédiatement Il s'agit de la valeur par défaut.                                                       |
-| `.reenqueue`                        | Le message ne s’affichera pas et sera replacé sur le dessus de la pile.                                       |
-| `.later`                            | Le message ne s’affichera pas et sera replacé sur le dessus de la pile. (Déclassé, veuillez utiliser `.reenqueue`) |
+| `.now`                              | Le message sera affiché immédiatement. Il s'agit de la valeur par défaut.                                                       |
+| `.reenqueue`                        | Le message ne sera pas affiché et sera replacé en haut de la pile.                                       |
+| `.later`                            | Le message ne sera pas affiché et sera replacé en haut de la pile. (Obsolète, veuillez utiliser `.reenqueue`) |
 | `.discard`                          | Le message sera supprimé et ne sera pas affiché.                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnalisation de la synchronisation de l'affichage" }
 
 {% alert tip %}
-Pour obtenir un exemple`InAppMessageUI`, veuillez consulter notre [référentiel Swift Braze SDK](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) et [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
+Pour un exemple d'`InAppMessageUI`, consultez notre [dépôt Swift Braze SDK](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) et [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
 {% endalert %}
 
-## Masquer la barre d'état
+## Masquer la barre d'état {#hiding-the-status-bar}
 
-Pour les messages in-app `Full`, `FullImage` et `HTML`, le SDK masque la barre d'état par défaut. Pour les autres types de messages in-app, la barre d'état reste intacte. Pour configurer ce comportement, utilisez la [méthode de délégué](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)` pour définir la propriété `statusBarHideBehavior` sur le `PresentationContext`. Ce champ prend l'une des valeurs suivantes :
+Pour les messages in-app `Full`, `FullImage` et `HTML`, le SDK masque la barre d'état par défaut. Pour les autres types de messages in-app, la barre d'état reste inchangée. Pour configurer ce comportement, utilisez la [méthode de délégué](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)` pour définir la propriété `statusBarHideBehavior` sur le `PresentationContext`. Ce champ prend l'une des valeurs suivantes :
 
 | Comportement de masquage de la barre d'état            | Description                                                                           |
 | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| `.auto`                             | L'affichage des messages décide de l'état masqué de la barre d'état.                                 |
-| `.hidden`                           | Masquez toujours la barre d'état.                                                           |
-| `.visible`                          | Affichez toujours la barre d'état.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `.auto`                             | La vue du message décide de l'état masqué de la barre d'état.                                 |
+| `.hidden`                           | Toujours masquer la barre d'état.                                                           |
+| `.visible`                          | Toujours afficher la barre d'état.                                                        |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Masquer la barre d'état" }
 
-## Désactivation du mode sombre
+## Désactivation du mode sombre {#disabling-dark-mode}
 
-Pour empêcher les messages in-app d'adopter le style du mode sombre lorsque l'appareil de l'utilisateur a activé le mode sombre, implémentez la [méthode de délégué](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)`. Le `PresentationContext` transmis à la méthode contient une référence à l'objet `InAppMessage` à présenter. Chaque `InAppMessage` possède une propriété `themes` contenant un thème de mode `dark` et `light`. Si vous définissez la propriété `themes.dark` sur la valeur `nil`, Braze présentera automatiquement le message in-app à l'aide de son thème lumineux.
+Pour empêcher les messages in-app d'adopter le style du mode sombre lorsque l'appareil de l'utilisateur a activé le mode sombre, implémentez la [méthode de délégué](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)`. Le `PresentationContext` transmis à la méthode contient une référence à l'objet `InAppMessage` à présenter. Chaque `InAppMessage` possède une propriété `themes` contenant un thème de mode `dark` et `light`. Si vous définissez la propriété `themes.dark` sur `nil`, Braze présentera automatiquement le message in-app en utilisant son thème clair.
 
-Les types de messages in-app avec boutons ont un objet `themes` supplémentaire sur leur propriété `buttons`. Pour empêcher les boutons d'adopter le style du mode sombre, vous pouvez utiliser l'option [`map(_:)`](https://developer.apple.com/documentation/swift/array/map(_:)-87c4d) pour créer un nouveau tableau de boutons avec un thème `light` et sans thème `dark`.
+Les types de messages in-app avec boutons possèdent un objet `themes` supplémentaire sur leur propriété `buttons`. Pour empêcher les boutons d'adopter le style du mode sombre, vous pouvez utiliser [`map(_:)`](https://developer.apple.com/documentation/swift/array/map(_:)-87c4d) pour créer un nouveau tableau de boutons avec un thème `light` et sans thème `dark`.
 
 {% tabs %}
 {% tab swift %}
@@ -394,7 +394,7 @@ func inAppMessage(
       guard var slideup = context.message.slideup else { return }
       slideup.themes.dark = nil
       context.message.slideup = slideup
-    
+
     case .modal:
       guard var modal = context.message.modal else { return }
       modal.themes.dark = nil
@@ -404,7 +404,7 @@ func inAppMessage(
         return newButton
       }
       context.message.modal = modal
-    
+
     case .modalImage:
       guard var modalImage = context.message.modalImage else { return }
       modalImage.themes.dark = nil
@@ -414,7 +414,7 @@ func inAppMessage(
         return newButton
       }
       context.message.modalImage = modalImage
-    
+
     case .full:
       guard var full = context.message.full else { return }
       full.themes.dark = nil
@@ -424,7 +424,7 @@ func inAppMessage(
         return newButton
       }
       context.message.full = full
-    
+
     case .fullImage:
       guard var fullImage = context.message.fullImage else { return }
       fullImage.themes.dark = nil
@@ -434,7 +434,7 @@ func inAppMessage(
         return newButton
       }
       context.message.fullImage = fullImage
-    
+
     default:
       break
   }
@@ -482,21 +482,21 @@ func inAppMessage(
 {% endtab %}
 {% endtabs %}
 
-## Personnalisation de l'invite d'évaluation de l'App Store
+## Personnalisation de l'invite d'évaluation de l'App Store {#customizing-the-app-store-review-prompt}
 
-Vous pouvez utiliser les messages in-app dans une campagne pour solliciter les utilisateurs afin qu'ils laissent un avis sur l'App Store.
+Vous pouvez utiliser les messages in-app dans une Campaign pour demander aux utilisateurs de laisser un avis sur l'App Store.
 
 {% alert note %}
-Étant donné que cet exemple d'invite remplace le comportement par défaut de Braze, nous ne pouvons pas assurer automatiquement le suivi des impressions en cas de mise en œuvre. Veuillez [enregistrer vos propres analyses analytiques]({{site.baseurl}}/developer_guide/analytics/).
+Étant donné que cet exemple d'invite remplace le comportement par défaut de Braze, nous ne pouvons pas suivre automatiquement les impressions si elle est implémentée. Vous devez [enregistrer vos propres analyses]({{site.baseurl}}/developer_guide/analytics).
 {% endalert %}
 
-### Étape 1 : Définir le délégué du message in-app
+### Étape 1 : Définir le délégué du message in-app {#step-1-set-the-in-app-message-delegate}
 
-Tout d'abord, définissez l'élément [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required) dans votre application. 
+Tout d'abord, définissez [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required) dans votre application.
 
-### Étape 2 : Désactiver le message par défaut d’évaluation de l’App Store
+### Étape 2 : Désactiver le message par défaut d'évaluation de l'App Store {#step-2-disable-the-default-app-store-review-message}
 
-Ensuite, implémentez la `inAppMessage(_:displayChoiceForMessage:)` [méthode de délégation](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) pour désactiver le message par défaut d'évaluation de l'App Store.
+Ensuite, implémentez la [méthode de délégué](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) `inAppMessage(_:displayChoiceForMessage:)` pour désactiver le message par défaut d'évaluation de l'App Store.
 
 {% tabs %}
 {% tab swift %}
@@ -531,9 +531,9 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% endtabs %}
 
-### Étape 3 : Créer un lien profond
+### Étape 3 : Créer un deep link {#step-3-create-a-deep-link}
 
-Dans votre code de traitement de liaison profonde, ajoutez le code suivant pour traiter le lien profond `{YOUR-APP-SCHEME}:app-store-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
+Dans votre code de gestion des deep links, ajoutez le code suivant pour traiter le deep link `{YOUR-APP-SCHEME}:app-store-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
 
 {% tabs %}
 {% tab swift %}
@@ -568,15 +568,15 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-### Étape 4 : Définir un comportement personnalisé au clic
+### Étape 4 : Définir un comportement personnalisé au clic {#step-4-set-custom-on-click-behavior}
 
-Créez ensuite une campagne de communication in-app avec les éléments suivants :
+Créez ensuite une campagne de communication in-app avec les éléments suivants :
 
 - La paire clé-valeur `"AppStore Review" : "true"`
-- Le comportement en cours défini sur « Deep Link Into App », en utilisant le lien profond `{YOUR-APP-SCHEME}:app-store-review`.
+- Le comportement au clic défini sur « Deep Link Into App », en utilisant le deep link `{YOUR-APP-SCHEME}:app-store-review`.
 
 {% endraw %}
 
 {% alert tip %}
-Apple limite les demandes d’évaluation de l’App Store à un maximum de trois fois par an pour chaque utilisateur. Votre campagne doit donc être [limitée]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites de commentaires de l’App Store. Par conséquent, votre invite de révision personnalisée ne doit pas promettre qu’une invite de commentaire native de l’App Store s’affichera ou demander directement un commentaire.
+Apple limite les invites d'évaluation de l'App Store à un maximum de trois fois par an pour chaque utilisateur. Votre Campaign doit donc être [limitée en fréquence]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) à trois fois par an et par utilisateur.<br><br>Les utilisateurs peuvent désactiver les invites d'évaluation de l'App Store. Par conséquent, votre invite d'évaluation personnalisée ne doit pas promettre qu'une invite d'évaluation native de l'App Store s'affichera ni demander directement un avis.
 {% endalert %}

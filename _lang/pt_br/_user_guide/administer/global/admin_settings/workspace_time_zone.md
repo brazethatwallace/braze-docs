@@ -17,15 +17,13 @@ Os fusos horários do espaço de trabalho para envio de mensagens estão sendo d
 
 Por padrão, um novo espaço de trabalho herda o fuso horário definido para sua empresa. Os administradores podem substituir esse padrão para um ou mais espaços de trabalho com fusos horários do espaço de trabalho. Quando um fuso horário do espaço de trabalho é definido, Campaigns agendadas e Canvas dentro desse espaço de trabalho referenciam esse novo fuso horário para seus horários de envio.
 
-Por exemplo, se um fuso horário do espaço de trabalho é definido como PST e uma Campaign dentro desse espaço de trabalho está agendada para ser enviada às 15h PST, ela será entregue às 15h PST. Isso é verdade mesmo que o fuso horário geral da sua empresa seja diferente (como EST, onde 15h PST seria 18h EST).
+Por exemplo, se um fuso horário do espaço de trabalho é definido como PST, e uma Campaign dentro desse espaço de trabalho está agendada para ser enviada às 15h PST, ela será entregue às 15h PST. Isso é verdade mesmo que o fuso horário geral da sua empresa seja diferente (como EST, onde 15h PST seria 18h EST).
 
 ## Gerenciar fusos horários do espaço de trabalho {#manage-workspace-time-zones}
 
-Se você é um administrador, pode acessar e gerenciar fusos horários do espaço de trabalho indo para **Settings** > **Admin Settings** > **Workspace Time Zones**.
+Se você é um administrador, pode acessar e gerenciar fusos horários do espaço de trabalho indo para **Configurações** > **Configurações de administrador** > **Fusos horários do espaço de trabalho**.
 
 Aqui, você pode visualizar uma lista de todos os seus espaços de trabalho, o fuso horário definido para cada um e a última vez que o fuso horário foi editado. Use a barra de pesquisa para encontrar espaços de trabalho específicos pelo nome.
-
-![Página "Workspace Time Zones" com uma lista de espaços de trabalho, seus respectivos fusos horários e quando os fusos horários foram editados pela última vez.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
 
 ### Definindo um fuso horário {#setting-a-time-zone}
 
@@ -36,28 +34,27 @@ Pode levar alguns minutos para que as atualizações de fuso horário entrem em 
 {% tabs %}
 {% tab Individual %}
 1. Localize o espaço de trabalho desejado na lista.
-2. Selecione o ícone **Edit** ao lado do nome do espaço de trabalho.
+2. Selecione o ícone **Editar** ao lado do nome do espaço de trabalho.
 
-![Botão "Edit" ao lado do nome de um espaço de trabalho.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
+![Botão "Editar" ao lado do nome de um espaço de trabalho.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
 3. No menu suspenso, selecione o fuso horário desejado para esse espaço de trabalho.
-4. Selecione **Save**.
+4. Selecione **Salvar**.
 
-![Menu suspenso com o fuso horário GMT selecionado.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab Múltiplas %}
 
 Você pode aplicar um fuso horário específico a vários espaços de trabalho de uma só vez fazendo o seguinte:
 
 1. Marque as caixas ao lado de todos os espaços de trabalho que deseja atualizar.
-2. Selecione **Edit time zone**.
+2. Selecione **Editar fuso horário**.
 3. No menu suspenso, selecione um fuso horário para aplicar a todos os espaços de trabalho selecionados.
 
-![Página "Workspace time zones" com vários espaços de trabalho selecionados e um botão "Edit time zone".]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+![Página "Fusos horários do espaço de trabalho" com vários espaços de trabalho selecionados e um botão "Editar fuso horário".]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
-4. Selecione **Save**.
+4. Selecione **Salvar**.
 
 {% endtab %}
 {% endtabs %}
@@ -68,7 +65,7 @@ Você pode aplicar um fuso horário específico a vários espaços de trabalho d
 Informe as equipes e partes interessadas relevantes dentro de cada espaço de trabalho sobre quaisquer alterações de fuso horário para evitar confusão sobre os agendamentos de Campaigns.
 {% endalert %}
 
-- **Campaigns com horário local e Intelligent Timing:** Campaigns e Canvas que usam o horário local do usuário ou [Intelligent Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#option-3-intelligent-timing) para entrega continuarão funcionando como antes e não serão afetados pelos fusos horários do espaço de trabalho.
+- **Campaigns com horário local e Intelligent Timing:** Campaigns e Canvas que usam o horário local do usuário ou [Intelligent Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#option-3-intelligent-timing) para entrega continuarão funcionando como antes e não serão afetados pelos fusos horários do espaço de trabalho.
 - **Campaigns e Canvas agendados:** Qualquer Campaign ou Canvas agendado que não use o horário local do usuário ou Intelligent Timing para entrega agora será enviado com base no fuso horário selecionado do espaço de trabalho.
 - **Campaigns agendadas antes de uma alteração de fuso horário:** Se você agendou uma Campaign ou Canvas antes de alterar o fuso horário do espaço de trabalho, a Braze mantém o horário de envio original e não o reagenda. Por exemplo, se uma Campaign está configurada para ser enviada às 19h PST e o fuso horário do espaço de trabalho é alterado para EST, a Campaign ainda será enviada às 19h PST (que agora corresponde a 22h EST). O sistema continuará referenciando o horário original, mas o interpretará através do novo fuso horário do espaço de trabalho.
 
@@ -86,10 +83,6 @@ Um espaço de trabalho atualiza seu fuso horário de Eastern Time (EST) para Pac
 - **Novo horário de corte:** 23h59 PST (que é 2h59 EST do dia seguinte)
 
 Após essa alteração, um usuário que realiza o evento personalizado às 22h PST em 6 de março de 2026 (que é 1h EST em 7 de março de 2026) agora é incluído no público, pois ele se enquadrou dentro do limite do calendário PST para aquela data.
-
-## Discrepâncias em relatórios {#reporting-discrepancies}
-
-Os fusos horários do espaço de trabalho proporcionam controle preciso sobre o envio de Campaigns, mas você deve estar ciente de possíveis discrepâncias em relatórios enquanto esse recurso está em acesso antecipado. Faça referência cruzada dos pontos de dados e esteja atento ao fuso horário ao analisar relatórios de espaços de trabalho com substituições de fuso horário específicas.
 
 ## Impacto nos dados de desempenho {#impact-on-performance-data}
 

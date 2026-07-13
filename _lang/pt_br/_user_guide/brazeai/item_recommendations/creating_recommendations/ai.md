@@ -11,7 +11,7 @@ page_order: 1
 
 ## Sobre recomendações de itens de IA {#about-ai-item-recommendations}
 
-Use recomendações de itens de IA para calcular os produtos mais populares ou criar recomendações personalizadas de IA para um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) específico. Depois de criar sua recomendação, você pode usar a personalização para inserir esses produtos em suas mensagens.
+Use recomendações de itens de IA para calcular os produtos mais populares ou criar recomendações personalizadas de IA para um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) específico. Depois de criar sua recomendação, você pode usar a personalização para inserir esses produtos em suas mensagens.
 
 {% alert tip %}
 [As recomendações de IA Personalizado](#recommendation-types) funcionam melhor com pelo menos algumas centenas de itens no catálogo, no máximo 100.000 itens e, normalmente, com pelo menos 30.000 usuários com dados de compra ou interação. Esse é apenas um guia aproximado e pode variar. Os outros tipos de recomendação podem trabalhar com menos dados, inclusive quando **Mais Popular** é usado como fallback.
@@ -25,7 +25,7 @@ Use recomendações de itens de IA para calcular os produtos mais populares ou c
 
 Antes de começar, você precisará ter o seguinte:
 
-- Pelo menos um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) para usar qualquer um dos tipos de recomendação descritos abaixo.
+- Pelo menos um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) para usar qualquer um dos tipos de recomendação descritos na seção a seguir.
 - Dados de compra ou de evento na Braze (eventos personalizados, o evento de pedido realizado ou o objeto de compra) que incluam uma referência ao item e correspondam aos IDs dos itens do catálogo.
 
 ### Etapa 1: Criar uma nova recomendação {#step-1-create-a-new-recommendation}
@@ -47,11 +47,11 @@ Você também pode optar por criar uma recomendação diretamente de um catálog
 
 Dê um nome e uma descrição opcional à sua recomendação.
 
-![Etapa "Recommendation details" com os campos de nome e descrição.]({% image_buster /assets/img/item_recs_1.png %})
+![Etapa "Detalhes da recomendação" com os campos de nome e descrição.]({% image_buster /assets/img/item_recs_1.png %})
 
 ### Etapa 3: Defina sua recomendação {#recommendation-type}
 
-Selecione um tipo de recomendação. Cada tipo usa os últimos seis meses de dados de interação com itens, como dados de compra, pedido realizado ou evento personalizado. Para informações mais detalhadas e casos de uso para cada um, veja [Tipos e casos de uso]({{site.baseurl}}/user_guide/brazeai/item_recommendations/).
+Selecione um tipo de recomendação. Cada tipo usa os últimos seis meses de dados de interação com itens, como dados de compra, pedido realizado ou evento personalizado. Para informações mais detalhadas e casos de uso para cada um, veja [Tipos e casos de uso]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
 Ao usar **Mais Recente** ou **IA Personalizado**, os usuários com dados insuficientes para criar recomendações individualizadas receberão itens **Mais Popular** como fallback. Você pode ver uma aproximação da proporção de usuários que recebem o fallback **Mais Popular** exibida na página **Analytics**. O fallback **Mais Popular** retorna apenas itens que existem no catálogo vinculado.
@@ -61,7 +61,7 @@ Ao usar **Mais Recente** ou **IA Personalizado**, os usuários com dados insufic
 
 Para evitar sugerir itens que um usuário já tenha comprado ou com os quais já tenha interagido, selecione **Do not recommend items users have previously interacted with**. Essa opção só está disponível quando o **Type** de recomendação está definido como **AI Personalized**.
 
-![Etapa "Define your recommendation" com "AI Personalized" como o tipo e a opção "Do not recommend items users have previously interacted with" selecionada.]({% image_buster /assets/img/item_recs_2-3.png %})
+![Etapa "Defina sua recomendação" com "AI Personalized" como o tipo e a opção "Do not recommend items users have previously interacted with" selecionada.]({% image_buster /assets/img/item_recs_2-3.png %})
 
 Essa configuração impede que as mensagens reutilizem os itens que um usuário já comprou ou com os quais interagiu, desde que a recomendação tenha sido atualizada recentemente. Os itens comprados ou com os quais houve interação entre as atualizações de recomendação ainda podem aparecer. Na versão gratuita das recomendações de itens, as atualizações ocorrem semanalmente. Na versão pro das recomendações de itens de IA, as atualizações ocorrem a cada 24 horas.
 
@@ -69,11 +69,11 @@ Por exemplo, ao usar a versão pro das recomendações de itens de IA, se um usu
 
 #### Etapa 3.2: Selecione um catálogo {#step-32-select-a-catalog}
 
-Se ainda não estiver preenchido, selecione o [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) do qual esta recomendação irá buscar itens.
+Se ainda não estiver preenchido, selecione o [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) do qual esta recomendação irá buscar itens.
 
 #### Etapa 3.3: Adicionar uma seleção (opcional) {#step-33-add-a-selection-optional}
 
-Se quiser ter mais controle sobre sua recomendação, escolha uma [seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para aplicar filtros personalizados. As seleções filtram as recomendações por colunas específicas em seu catálogo, como marca, tamanho ou local. As seleções que contêm Liquid não podem ser usadas em sua recomendação.
+Se quiser ter mais controle sobre sua recomendação, escolha uma [seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) para aplicar filtros personalizados. As seleções filtram as recomendações por colunas específicas em seu catálogo, como marca, tamanho ou local. As seleções que contêm Liquid não podem ser usadas em sua recomendação.
 
 ![Um exemplo da seleção "in-stock" selecionada para a recomendação.]({% image_buster /assets/img/item_recs_2-2.png %})
 
@@ -87,10 +87,10 @@ Selecione o evento para o qual você deseja que essa recomendação seja otimiza
 
 Você pode otimizar para:
 
-- Eventos de compra com o [objeto Purchase]({{site.baseurl}}/api/objects_filters/purchase_object/)
+- Eventos de compra com o [objeto Purchase]({{site.baseurl}}/api/objects_filters/purchase_object)
 - Eventos personalizados que representam uma compra
 - Eventos personalizados que representam qualquer outra interação com itens (como visualizações de produtos, cliques ou reproduções de mídia)
-- Pedidos realizados com o [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- Pedidos realizados com o [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 
 Se você escolher **Custom Event**, selecione seu evento na lista.
 
@@ -115,7 +115,7 @@ O campo **Property Name** será preenchido previamente com uma lista de campos e
 Há alguns requisitos para selecionar sua propriedade:
 
 - Deve ser mapeada para o campo `id` do seu catálogo selecionado.
-- **Se você selecionou o evento de pedido realizado ou está usando [eventos de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) para treinar recomendações de itens:** Insira `products.product_id` para o ID do produto.
+- **Se você selecionou o evento de pedido realizado ou está usando [eventos de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) para treinar recomendações de itens:** Insira `products.product_id` para o ID do produto.
   - O campo pode estar dentro de um array de produtos ou terminar com um array de IDs. Em ambos os casos, cada ID de produto será tratado como um evento separado e sequencial com o mesmo registro de data e hora.
 - **Se você selecionou o objeto Purchase:** Deve ser o `product_id` ou um campo do `properties` do evento de interação.
 - **Se você selecionou Evento personalizado:** Deve ser um campo do `properties` do seu evento personalizado.
@@ -130,7 +130,8 @@ Os exemplos de mapeamentos a seguir referem-se a este catálogo de amostra:
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Exemplos de mapeamentos" class="tg">
+  <caption>Exemplos de mapeamentos</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

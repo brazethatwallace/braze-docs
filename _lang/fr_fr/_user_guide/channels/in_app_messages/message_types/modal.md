@@ -14,13 +14,13 @@ description: "Cet article de référence couvre les exigences en matière de mes
 
 > Les fenêtres modales apparaissent au centre de l'écran de l'appareil avec un overlay qui les fait ressortir par rapport à votre application en arrière-plan. Elles sont parfaites pour suggérer de manière visible à vos utilisateurs de profiter d'une promotion ou d'une offre spéciale.
 
-Ce type de message est disponible dans l'[éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) et dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Ce type de message est disponible dans l'[éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) et dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ![Deux messages in-app de type fenêtre modale côte à côte, détaillant les recommandations pour les images et le texte. Consultez les sections suivantes pour plus de détails.]({% image_buster /assets/img/modal-spec.png %}){: style="max-width: 801px; border: none;"}
 
 ## Spécifications des images {#image-specifications}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 ## Écrans plus grands {#larger-screens}
 

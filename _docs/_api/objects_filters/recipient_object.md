@@ -13,7 +13,7 @@ description: "This reference article explains the different components of the Br
 
 You must include one of `external_user_id`, `user_alias`, `braze_id`, or `email` in this object. **Requests must specify only one.**
 
-The recipients object allows you to combine the [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/), the [trigger properties object]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), the [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/), and the [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+The recipients object allows you to combine the [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object), the [trigger properties object]({{site.baseurl}}/api/objects_filters/trigger_properties_object), the [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), and the [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 
 ## Object body
 
@@ -26,18 +26,22 @@ The recipients object allows you to combine the [user alias object]({{site.baseu
   "prioritization": (optional, array) see Prioritization; required when using email,
   "trigger_properties": (optional, object) personalization key-value pairs for this user when sending a campaign or message; see Trigger Properties,
   "context": (optional, object) personalization key-value pairs for this user when triggering a Canvas; see Canvas context object,
-  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases,
+  "send_to_existing_only": (optional, boolean) defaults to true; cannot be used with user aliases; if set to `false`, an `attributes` object must also be included,
   "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
 }]
 ```
 
-When `send_to_existing_only` is `true`, Braze only sends the message to existing users. However, you cannot use this flag with user aliases. When `send_to_existing_only` is `false`, you must include an attribute. Braze creates a user with the `id` and attributes before sending the message.
+When `send_to_existing_only` is `true`, Braze only sends the message to existing users. However, you cannot use this flag with user aliases.
 
-- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
-- [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
-- [External user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Prioritization]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
+When `send_to_existing_only` is `false`, you must include an `attributes` object on the same recipient. The flag does not replace `attributes`. Braze uses `attributes` for the pre-send profile create or update (for example adding `email` or phone fields for Email or SMS delivery, or updating subscription groups). Without that object, you do not get the intended combined behavior for net-new users on [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) or [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+
+That profile must still meet the message's audience and channel eligibility rules before Braze sends.
+
+- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [External user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Prioritization]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)
+- [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
 
 ## Recipient object deduping
 

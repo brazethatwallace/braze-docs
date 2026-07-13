@@ -55,7 +55,7 @@ qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 Einige wichtige Punkte sind zu beachten:
 - Hier werden die [Fensterfunktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwendet.
 - Der Left Join sorgt dafür, dass auch Events, die nicht mit einer Campaign in Verbindung stehen, berücksichtigt werden.
-- Wenn Sie Events mit `campaign_id`s sehen, aber keine Campaign-Namen, besteht die Möglichkeit, dass die Campaign mit einem Namen erstellt wurde, bevor Datenfreigabe als Produkt existierte.
+- Wenn Sie Events mit `campaign_id`s sehen, aber keine Campaign-Namen, besteht die Möglichkeit, dass die Campaign mit einem Namen erstellt wurde, bevor Data Sharing als Produkt existierte.
 - Sie können Canvas-Namen mit einer ähnlichen Abfrage anzeigen, indem Sie stattdessen mit der Tabelle `CHANGELOGS_CANVAS_SHARED` verknüpfen.
 
 Wenn Sie sowohl Campaign- als auch Canvas-Namen sehen möchten, müssen Sie möglicherweise die folgende Unterabfrage verwenden:
@@ -199,13 +199,66 @@ GROUP BY email_address;
 {% endtab %}
 {% tab Unique Email Opens %}
 
-Verwenden Sie diese Abfrage, um **eindeutige Öffnungen** aus Snowflake-E-Mail-Öffnungs-Events zu approximieren – zum Beispiel, um sie mit der Spalte **Unique Opens** im Dashboard abzugleichen.
+Verwenden Sie diese Abfrage für eindeutige E-Mail-Öffnungen, um die eindeutigen E-Mail-Öffnungen in einem bestimmten Zeitfenster zu analysieren. Der Algorithmus zur Berechnung lautet wie folgt:
+  1. Unterteilen Sie die Events nach dem Schlüssel (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
+  2. Ordnen Sie die Events in jeder Partition nach Zeit. Das erste Event ist immer ein eindeutiges Event.
+  3. Jedes nachfolgende Event, das mehr als sieben Tage nach seinem Vorgänger eintritt, wird als eindeutiges Event betrachtet.
+
+Dazu können Sie die [Fensterfunktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwenden. Die folgende Abfrage liefert alle E-Mail-Öffnungen der letzten 365 Tage und zeigt in der Spalte `is_unique` an, welche Events eindeutig sind:
+
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
+```
+
+Um nur die eindeutigen Events zurückzugeben, verwenden Sie die `QUALIFY`-Klausel:
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true;
+```
+
+Um die Anzahl eindeutiger Events gruppiert nach E-Mail-Adresse anzuzeigen:
+```sql
+WITH unique_events AS(
+  SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true)
+SELECT email_address, count(*) AS count
+FROM unique_events
+GROUP BY email_address;
+```
+
+Für einen alternativen Ansatz, der auf eine bestimmte Campaign, ein Canvas oder einen Canvas-Schritt beschränkt ist, verwenden Sie die folgende Abfrage. Legen Sie den Datumsbereich und die Bezeichner-Variablen fest und führen Sie dann die `SELECT`-Anweisungen aus, um eindeutige Öffnungen auf drei Arten berechnet zurückzugeben:
+
+Die Abfrageergebnisse können in einigen Workspaces leicht von den Dashboard-Metriken abweichen. Beispielsweise kann die Eindeutigkeit nach `email_address` partitioniert werden, und einige historische Öffnungs-Events enthalten nach einer Profillöschung möglicherweise keine E-Mail-Adresse mehr. In diesen Fällen ist eine exakte Übereinstimmung für denselben Zeitraum möglicherweise nicht möglich.
 
 Dieses Beispiel gibt drei Zählwerte zurück:
 
-- **Unique Opens (over 7 days):** Eindeutige Öffnungen über einen rollierenden Zeitraum von sieben Tagen.
-- **Unique Opens (during date window):** Eindeutige Öffnungen innerhalb des angegebenen Zeitraums. Dies gilt unabhängig von Öffnungen, die vor dem Zeitraum stattgefunden haben.
-- **Unique Opens (for emails delivered within same timeframe):** Eindeutige Öffnungen, bei denen das zugehörige Zustellungs-Event ebenfalls innerhalb desselben Fensters stattfand (nützlich, wenn Sie nur Öffnungen für Nachrichten sehen möchten, die in diesem Zeitraum zugestellt wurden).
+- **Eindeutige Öffnungen (über 7 Tage):** Eindeutige Öffnungen über einen rollierenden Zeitraum von sieben Tagen.
+- **Eindeutige Öffnungen (im Datumsfenster):** Eindeutige Öffnungen innerhalb des angegebenen Zeitraums. Dies gilt unabhängig von Öffnungen, die vor dem Zeitraum stattgefunden haben.
+- **Eindeutige Öffnungen (für im selben Zeitraum zugestellte E-Mails):** Eindeutige Öffnungen, bei denen das zugehörige Zustellungs-Event ebenfalls innerhalb desselben Fensters stattfand.
 
 {% raw %}
 ```sql
@@ -213,16 +266,16 @@ Dieses Beispiel gibt drei Zählwerte zurück:
     Set or comment out variables if not required. These are set per session.
     You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
 
-    For example, endDate=1656799199&startDate=1656194400
+    For example, endDate=1234567890&startDate=1234500000
 
     To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
 */
 
-SET fromDateTime = '1656194400';
-SET toDateTime = '1656799199';
+SET fromDateTime = '1234500000';
+SET toDateTime = '1234567890';
 -- SET campaignID = '';
 -- SET canvasID = '';
-SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+SET canvasStepID = '0123456789abcdef01234567';
 
 SELECT
     'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
@@ -272,6 +325,5 @@ WHERE
                 umed.time between $fromDateTime and $toDateTime);
 ```
 {% endraw %}
-
 {% endtab %}
 {% endtabs %}

@@ -17,7 +17,7 @@ search_tag: Partner
 
 ## ユースケース {#use-cases}
 
-OdicciプラットフォームをBrazeと接続することで、シームレスなデータ共有とCampaign管理が可能になります。具体的には以下が含まれます。
+OdicciプラットフォームをBrazeと接続することで、シームレスなデータ共有とキャンペーン管理が可能になります。具体的には以下が含まれます。
 
 - Odicciエクスペリエンスで収集したオーディエンスデータを自動的にBrazeに送信する。
 - ユーザーとのインタラクションに基づいてパーソナライズされたマーケティングキャンペーンをトリガーする。
@@ -35,21 +35,21 @@ OdicciプラットフォームをBrazeと接続することで、シームレス
 
 開始する前に、以下が必要です。
 
-| 前提条件 | 説明 |
+| 要件 | 説明 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Odicciアカウント | このパートナーシップを利用するには、**統合**セクションへのアクセス権があるOdicciアカウントが必要です。|
 | Braze REST APIキー | `users.track`および`campaigns.list`権限を持つBraze REST APIキー。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## Odicciの統合 {#integrating-odicci}
 
 ### ステップ1: Odicciで統合を有効にする {#step-1-enable-the-integration-in-odicci}
 
 1. Odicciアカウントにログインします。
-2. **Settings > Integrations**セクションに移動します。
-3. **Braze**統合を見つけ、**Connect**をクリックします。
+2. **設定 > 統合**セクションに移動します。
+3. **Braze**統合を見つけ、**接続**をクリックします。
 
-   ![Braze統合を接続する]({% image_buster /assets/img/odicci/braze_connect.png %})
+   ![Braze統合の接続画面]({% image_buster /assets/img/odicci/braze_connect.png %})
 
 4. Braze REST APIキーを所定のフィールドに入力します。
 5. 設定を保存して、アカウントレベルで統合を有効にします。
@@ -57,23 +57,23 @@ OdicciプラットフォームをBrazeと接続することで、シームレス
 ### ステップ2: Braze REST APIキーを取得する {#step-2-obtain-your-braze-rest-api-key}
 
 1. Brazeアカウントにログインします。
-2. **Developer Console > REST API Keys**に移動します。
+2. **開発者コンソール > REST APIキー**に移動します。
 3. 新しいAPIキーを作成するか、`users.track`権限がある既存のAPIキーをコピーします。
 
 ### ステップ3: エクスペリエンスレベルで統合をアクティブ化する {#step-3-activate-the-integration-at-the-experience-level}
 
-1. Odicci Studioで**Experience**を作成するか、開きます。
-2. **Studio > Settings > Integrations**に移動します。
+1. Odicci Studioで**エクスペリエンス**を作成するか、開きます。
+2. **Studio > 設定 > 統合**に移動します。
 3. **Braze**チェックボックスを探し、チェックを入れてエクスペリエンスの統合をアクティブ化します。
 4. 変更を保存します。
 
 ### ステップ4: フィールドをマッピングする {#step-4-map-fields}
 
-1. 統合をアクティブ化した後、**Studio > Settings > Integrations**セクションにとどまります。
+1. 統合をアクティブ化した後、**Studio > 設定 > 統合**セクションにとどまります。
 2. Odicciエクスペリエンスのフィールド（例: `Email`、`Name`）をBrazeの対応するフィールドにマッピングします。
 3. 設定を保存します。
 
-   ![フィールドマッピングの設定]({% image_buster /assets/img/odicci/braze_field_mapping.png %})
+   ![フィールドマッピングの設定画面]({% image_buster /assets/img/odicci/braze_field_mapping.png %})
 
 ### ステップ5: 統合をテストする {#step-5-test-the-integration}
 
@@ -91,8 +91,8 @@ Braze APIキーを再確認し、必要な権限を保持していることを�
 
 ### データが同期されない {#data-not-syncing}
 
-**Field Mapping**セクションのフィールドが正しく設定されていることを確認します。次に、APIキーにユーザーデータのインポート権限があることを確認します。
+**フィールドマッピング**セクションのフィールドが正しく設定されていることを確認します。次に、APIキーにユーザーデータのインポート権限があることを確認します。
 
-### Campaignがトリガーされない {#campaign-not-triggering}
+### キャンペーンがトリガーされない {#campaign-not-triggering}
 
-BrazeのCampaign設定を確認し、正しいオーディエンスまたはトリガー条件が設定されていることを確認します。
+Brazeのキャンペーン設定を確認し、正しいオーディエンスまたはトリガー条件が設定されていることを確認します。

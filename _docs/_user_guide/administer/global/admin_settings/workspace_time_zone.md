@@ -25,8 +25,6 @@ If you're an admin, you can access and manage workspace time zones by going to *
 
 Here, you can view a list of all your workspaces, their set time zone, and the last time the time zone was edited. Use the search bar to find specific workspaces by name.
 
-!["Workspace Time Zones" page with a list of workspaces, their respective time zones, and when the time zones were last edited.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
-
 ### Setting a time zone 
 
 {% alert note %}
@@ -44,7 +42,6 @@ It may take up to a few minutes for time zone updates to take effect.
 3. In the dropdown menu, select the desired time zone for that workspace.
 4. Select **Save**.
 
-![Dropdown menu with the GMT time zone selected.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab Multiple workspaces %}
 
@@ -86,10 +83,6 @@ A workspace updates its time zone from Eastern Time (EST) to Pacific Time (PST).
 - **New cutoff time:** 11:59 pm PST (which is 2:59 am EST the following day)
 
 Following this change, a user who performs the custom event at 10 pm PST on March 6, 2026 (which is 1 am EST on March 7, 2026) is now included in the audience, as they fell within the PST calendar boundary for that date.
-
-## Reporting discrepancies
-
-Workspace time zones provide precise control over campaign sending, but you should be aware of potential reporting discrepancies while this feature is in early access. Cross-reference data points and be mindful of the time zone when analyzing reports for workspaces with specific time zone overrides.
 
 ## Impact on performance data
 

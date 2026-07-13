@@ -30,8 +30,8 @@ The Eagle Eye Connect is a bi-directional integration between Braze and AIR that
 |--------------------------|-------------|
 | Eagle Eye AIR account    | You need an active Eagle Eye AIR account to take advantage of this partnership. To get started, contact Eagle Eye’s Partnerships team at [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com). |
 | Braze REST API key       | A Braze REST API key with `users.track` permissions. <br><br>This can be created in the Braze dashboard from **Settings > API Keys**. |
-| Braze REST endpoint      | [Your REST endpoint URL](https://www.braze.com/docs/api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Braze REST endpoint      | [Your REST endpoint URL]({{site.baseurl}}/api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Outbound vs. inbound
 
@@ -39,7 +39,8 @@ The following tables outline the two types of integrations supported between Bra
 
 {% tabs local %}
 {% tab outbound %}
-<table>
+<table aria-label="Outbound vs. inbound">
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>Direction</th>
@@ -70,11 +71,12 @@ The following tables outline the two types of integrations supported between Bra
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
 {% endtab %}
 
 {% tab inbound %}
-<table>
+<table aria-label="Outbound vs. inbound">
+  <caption>Outbound vs. inbound</caption>
   <thead>
     <tr>
       <th>Direction</th>
@@ -103,7 +105,7 @@ The following tables outline the two types of integrations supported between Bra
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
 {% endtab %}
 {% endtabs %}
 
@@ -127,7 +129,7 @@ First, you'll provide the following details to your Eagle Eye team:
 | Identifier matching    | Determine and share the primary user identifier for profile updates that is common in AIR and Braze, such as External ID or Email. |
 | Auth key               | Determine and share a secret auth key for each inbound and outbound connector. |
 | Currency code          | Share the 3-digit currency code for displaying monetary purchase amounts (e.g., USD). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Provide configuration details" }
 
 ### Step 2: Configure Eagle Eye Connect 
 

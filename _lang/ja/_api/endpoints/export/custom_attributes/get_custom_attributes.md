@@ -18,7 +18,7 @@ description: "この記事では、Brazeのカスタム属性エクスポート�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`custom_attributes.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`custom_attributes.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -31,7 +31,7 @@ description: "この記事では、Brazeのカスタム属性エクスポート�
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `cursor` | オプション | 文字列 | カスタム属性のページネーションを決定します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="クエリパラメーター" }
 
 ## リクエスト例 {#example-requests}
 
@@ -72,10 +72,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ### 致命的なエラーの応答コード {#fatal-export}
 
-リクエストで致命的なエラーが発生した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラー]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+リクエストで致命的なエラーが発生した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラー]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」を参照してください。
 {% endalert %}
 
 {% endapi %}

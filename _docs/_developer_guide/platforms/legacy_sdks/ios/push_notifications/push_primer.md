@@ -132,7 +132,7 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 
 Place this following code snippet inside your deep link handling code. You should only execute this deep linking code for your push primer in-app message.
 
-Refer to [link handling customization]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-handling-customization) for more information on deep linking.
+Refer to [link handling customization]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization) for more information on deep linking.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

@@ -3,12 +3,12 @@ nav_title: Accessibilité
 article_title: Créer des messages accessibles dans Braze
 page_order: 0.5
 page_type: reference
-description: "Cet article de référence explique pourquoi l'accessibilité est importante dans votre contenu marketing, et comment vous pouvez créer des messages accessibles dans Braze."
+description: "Cet article de référence explique pourquoi l'accessibilité est importante dans le contenu marketing, comment la langue d'accessibilité (HTML lang) de Braze fonctionne selon les canaux, et comment vous pouvez créer des messages accessibles dans Braze."
 ---
 
 # Créer des messages accessibles dans Braze {#build-accessible-messages-in-braze}
 
-> Découvrez pourquoi l'accessibilité est importante dans votre contenu marketing, et comment vous pouvez créer des messages accessibles dans Braze. Pour plus de conseils, consultez notre cours [Accessible Messaging Foundations](https://learning.braze.com/accessible-messaging-foundations) sur Braze Learning.
+> Découvrez pourquoi l'accessibilité est importante dans votre contenu marketing, et comment vous pouvez créer des messages accessibles dans Braze. Pour plus de conseils, consultez notre cours [Fondamentaux de l'envoi de messages accessibles](https://learning.braze.com/accessible-messaging-foundations) sur Braze Learning.
 
 Un contenu marketing qui exclut les personnes en situation de handicap, même involontairement, peut empêcher des millions de personnes d'interagir avec votre marque. L'accessibilité en marketing consiste à permettre à chacun de vivre votre marketing, de comprendre votre communication et d'avoir la possibilité d'investir dans votre produit, service ou marque, ou d'en devenir fan.
 
@@ -122,7 +122,7 @@ Une fois votre structure en place, l'étape suivante consiste à vous assurer qu
 
 - **Écrivez des phrases courtes et claires :** Les phrases courtes sont faciles à comprendre pour tout le monde, en particulier pour les personnes utilisant des lecteurs d'écran ou ayant des difficultés à traiter des informations complexes. Écrivez à un niveau de lecture correspondant à la cinquième (environ 12 ans). Vous pouvez utiliser des ressources telles que [Hemingway App](https://hemingwayapp.com/) pour vérifier le niveau de lecture de votre texte.
 - **Choisissez des tailles de police et un espacement lisibles :** Un texte trop petit peut être difficile à lire, surtout sur mobile. Utilisez au moins 14 px pour le corps du texte. Agrandissez les titres pour que les utilisateurs puissent clairement voir la différence. Un espacement supplémentaire entre les lignes (environ 1,5 de hauteur de ligne) et les paragraphes améliore la lisibilité, en particulier pour les personnes ayant des besoins visuels ou cognitifs.
-- **Évitez le texte justifié :** Le texte justifié crée un espacement inégal entre les mots, rendant la lecture difficile pour les personnes dyslexiques ou ayant des handicaps cognitifs. Envisagez d'aligner à gauche le contenu qui s'étend sur plus de deux lignes pour les langues de gauche à droite, ou à droite pour les [langues de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- **Évitez le texte justifié :** Le texte justifié crée un espacement inégal entre les mots, rendant la lecture difficile pour les personnes dyslexiques ou ayant des handicaps cognitifs. Envisagez d'aligner à gauche le contenu qui s'étend sur plus de deux lignes pour les langues de gauche à droite, ou à droite pour les [langues de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 - **Utilisez le gras, l'italique et les majuscules avec parcimonie :** Mettre trop de texte en évidence rend la lecture difficile, en particulier pour les personnes dyslexiques ou malvoyantes. Restez simple.
 
 #### Clarté et facilité d'utilisation {#clarity-and-usability}
@@ -131,7 +131,43 @@ Enfin, parlons des détails les plus fins, ceux qui aident les utilisateurs non 
 
 - **Étiquetez clairement les liens et les boutons :** Assurez-vous que le texte de vos [liens](#links) et [boutons](#buttons) explique clairement ce qui va se passer ensuite. Cela aide les personnes utilisant des lecteurs d'écran ou naviguant au clavier à savoir à quoi s'attendre.
 - **Utilisez les symboles et les emojis avec modération :** Les caractères spéciaux et les emojis peuvent rendre votre contenu ludique, mais ils peuvent être déroutants lorsqu'ils sont lus par des lecteurs d'écran. Utilisez-les avec parcimonie et assurez-vous qu'ils ne remplacent pas un texte clair et descriptif.
-- **Testez la troncature :** Testez toujours votre texte en [envoyant un message de test]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) sur un appareil pour vous assurer que votre texte n'est pas tronqué. Si votre message est coupé, cela nuit à la fois à vous et à votre audience, car cela empêche votre contenu de les atteindre.
+- **Testez la troncature :** Testez toujours votre texte en [envoyant un message de test]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) sur un appareil pour vous assurer que votre texte n'est pas tronqué. Si votre message est coupé, cela nuit à la fois à vous et à votre audience, car cela empêche votre contenu de les atteindre.
+
+### Langue d'accessibilité {#accessibility-language}
+
+La **langue d'accessibilité** indique aux lecteurs d'écran et autres outils d'assistance dans quelle langue se trouve votre contenu. Pour les canaux qui envoient une page HTML complète ou un e-mail, Braze peut ajouter une balise de langue (`lang`) lorsque vous la définissez dans l'éditeur ou via Liquid. Cela prend en charge le [critère de succès WCAG 2.1 3.1.1 Langue de la page (niveau A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
+
+Si vous laissez la langue d'accessibilité vide et qu'aucune valeur par défaut sûre n'est disponible, Braze omet la balise de langue. Si aucune langue n'est définie, les outils d'assistance se rabattent souvent sur la langue du téléphone ou de l'ordinateur de la personne. Si celle-ci diffère de la langue du message, la prononciation peut être incorrecte.
+
+Les Campaigns et les Canvas utilisent les mêmes éditeurs pour ces options, sauf si une fonctionnalité n'est pas disponible pour votre espace de travail.
+
+#### Configurer la langue d'accessibilité {#configure-accessibility-language}
+
+Lorsque votre éditeur le propose, accédez à la section **Accessibilité** dans les paramètres du message. Choisissez une langue dans le menu déroulant ou utilisez Liquid (par exemple {% raw %}`{{accessibility_language}}`{% endraw %} lorsque les [messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) sont activés et que les **Paramètres de localisation** sont configurés).
+
+#### Messages multilingues {#multi-language-messages}
+
+Dans les **Paramètres de localisation**, définissez une langue d'accessibilité pour chaque locale afin que Liquid puisse renseigner {% raw %}`{{accessibility_language}}`{% endraw %} pour les envois localisés. Le fait que cette valeur soit déjà sélectionnée pour les nouveaux messages dépend du canal. Pour les flux de travail CSV et de traduction, commencez par [Paramètres de langue et accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
+
+#### Prise en charge par canal et éditeur {#channel-and-editor-support}
+
+Utilisez ce tableau pour comparer les canaux. Les valeurs par défaut peuvent différer, alors vérifiez ce que votre audience reçoit réellement.
+
+| Canal | Ce qu'il faut savoir |
+| --- | --- |
+| E-mail (glisser-déposer, modèle complet) | Définissez la langue dans l'éditeur. Avec les messages multilingues, un modèle d'e-mail complet peut faire correspondre automatiquement la langue de chaque locale. Si vous utilisez uniquement des Content Blocks (ligne unique), ces raccourcis ne fonctionnent pas de la même manière — choisissez la langue vous-même là où l'éditeur le permet. |
+| E-mail (code HTML) | Braze n'ajoute pas de balise de langue pour vous. Ajoutez-la dans votre HTML si nécessaire. |
+| Messages in-app (glisser-déposer) | Lorsque vous choisissez une langue sous **Accessibilité**, Braze ajoute cette langue au HTML externe du message afin que les lecteurs d'écran traitent l'ensemble du message dans cette langue. Avec les messages multilingues activés, les nouveaux messages peuvent utiliser par défaut les langues de vos locales. La **prévisualisation** peut ne pas afficher de langue tant que vous n'en avez pas choisi une sous **Paramètres**. |
+| Bannières | Même comportement que les messages in-app. |
+| Pages d'accueil | Vous pouvez définir la langue sur la page en ligne. Choisissez une langue, ou utilisez Liquid si votre compte autorise Liquid sur les pages d'accueil. Les valeurs par défaut diffèrent également de celles des messages in-app et des bannières — vérifiez la page publiée. |
+| Content Cards | Les Content Cards utilisent un champ **Langue** pour les applications au lieu d'une langue d'accessibilité explicite. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prise en charge par canal et éditeur" }
+
+Lorsque vous écrivez du HTML vous-même, vous pouvez toujours ajouter une balise de langue sur une partie du message (par exemple, une phrase dans une autre langue). Pour plus de modèles, consultez [HTML personnalisé](#custom-html).
+
+#### Référence aux normes {#standards-reference}
+
+Lorsque Braze ajoute une balise de langue au niveau racine du HTML, il suit la règle HTML [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang). Les outils de test recherchent souvent [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Les Content Cards utilisent votre champ **Langue** au lieu de ce modèle HTML.
 
 ### Boutons {#buttons}
 
@@ -204,7 +240,7 @@ Par exemple, réfléchissez à la manière dont vous pourriez rédiger un lien v
 | Mauvais | Mieux | Idéal |
 | --- | --- | --- |
 | Cliquez ici | Cliquez ici pour accéder à la météo du jour | La météo du jour |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rédigez un texte de lien descriptif" }
 
 Comme pour tout contenu, restez direct avec le moins de mots superflus possible.
 
@@ -298,7 +334,7 @@ Les utilisateurs de lecteurs d'écran s'appuient sur le texte alt pour comprendr
       <td>« Vivez votre meilleure vie maintenant ! » (Ignore le vélo et le décor urbain)</td>
     </tr>
     <tr>
-      <td>« Immeuble d'appartements bleu avec un panneau "À louer" devant. »</td>
+      <td>« Immeuble d'appartements bleu avec un panneau « À louer » devant. »</td>
       <td>« La clé d'un avenir meilleur ! » (Ne reflète pas l'immeuble ni le panneau)</td>
     </tr>
   </tbody>
@@ -352,7 +388,7 @@ Les lecteurs d'écran annoncent déjà qu'il s'agit d'une image. Passez directem
       <td>« Image d'une table dressée pour un brunch »</td>
     </tr>
     <tr>
-      <td>« Panneau publicitaire en bord de route avec le texte en gras "Grande ouverture" »</td>
+      <td>« Panneau publicitaire en bord de route avec le texte en gras « Grande ouverture » »</td>
       <td>« Photo d'un panneau publicitaire en bord de route »</td>
     </tr>
     <tr>
@@ -379,15 +415,15 @@ Si une image contient du texte essentiel, intégrez cette information dans le te
   </thead>
   <tbody>
     <tr>
-      <td>« Bannière indiquant "Soldes d'été — 50 % de réduction sur tous les maillots de bain." »</td>
+      <td>« Bannière indiquant « Soldes d'été — 50 % de réduction sur tous les maillots de bain. » »</td>
       <td>« Bannière faisant la promotion d'une vente. » (Ne mentionne pas la réduction réelle)</td>
     </tr>
     <tr>
-      <td>« Logo avec le texte "Café Toscana" en police cursive »</td>
-      <td>« Image de logo pour un café. » (N'inclut pas le texte "Café Toscana")</td>
+      <td>« Logo avec le texte « Café Toscana » en police cursive »</td>
+      <td>« Image de logo pour un café. » (N'inclut pas le texte « Café Toscana »)</td>
     </tr>
     <tr>
-      <td>« Publicité annonçant "Billets de concert disponibles maintenant — Début le 5 juin" »</td>
+      <td>« Publicité annonçant « Billets de concert disponibles maintenant — Début le 5 juin » »</td>
       <td>« Publicité de concert. » (Aucun détail sur l'événement)</td>
     </tr>
   </tbody>
@@ -504,7 +540,7 @@ Vous pouvez tester vos choix de couleurs à l'aide de l'[outil de vérification 
 Si vous utilisez du HTML personnalisé dans vos messages :
 
 - Utilisez du [HTML sémantique](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). Cela signifie utiliser les éléments HTML appropriés pour leur fonction prévue au lieu de styliser un élément pour qu'il ressemble à un autre. La plupart des éléments HTML disposent de leur propre prise en charge de l'accessibilité intégrée.
-- Définissez l'[attribut `lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) dans votre HTML pour identifier la langue de votre contenu. Les lecteurs d'écran utilisent différentes bibliothèques sonores pour chaque langue en fonction de la prononciation et des caractéristiques de celle-ci. Si cela n'est pas spécifié, un lecteur d'écran suppose que le contenu est rédigé dans la langue par défaut que l'utilisateur a choisie lors de la configuration du lecteur d'écran. Si le message n'est pas réellement dans la langue par défaut, le lecteur d'écran risque de ne pas prononcer correctement le message.
+- Pour la langue au niveau du document, lorsque Braze peut ajouter des métadonnées HTML à l'export, consultez [Langue d'accessibilité](#accessibility-language) ; le comportement varie selon le canal. Lorsque vous balisez le contenu vous-même, définissez l'[attribut `lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) dans votre HTML pour identifier la langue de votre contenu. Les lecteurs d'écran utilisent différentes bibliothèques sonores pour chaque langue en fonction de la prononciation et des caractéristiques de celle-ci. Si cela n'est pas spécifié, un lecteur d'écran suppose que le contenu est rédigé dans la langue par défaut que l'utilisateur a choisie lors de la configuration du lecteur d'écran. Si le message n'est pas réellement dans la langue par défaut, le lecteur d'écran risque de ne pas prononcer correctement le message.
 
 {% raw %}
 ```html
@@ -513,7 +549,7 @@ Si vous utilisez du HTML personnalisé dans vos messages :
 {% endraw %}
 
 {% alert note %}
-Lorsque vous utilisez l'éditeur d'e-mails par glisser-déposer, la valeur de la langue pour l'e-mail peut être définie en accédant à l'onglet **Paramètres** et en sélectionnant la valeur de langue appropriée.
+Lorsque vous utilisez l'éditeur d'e-mails par glisser-déposer, définissez la langue depuis l'onglet **Paramètres** lorsque ce contrôle est disponible. Les e-mails avec modèle complet et ceux utilisant uniquement des blocs de contenu peuvent avoir des valeurs par défaut différentes pour la langue d'accessibilité — consultez [Langue d'accessibilité](#accessibility-language). Les autres canaux sont également couverts dans cette section.
 {% endalert %}
 
 - Utilisez les [attributs ARIA](#aria-attributes) pour fournir un contexte supplémentaire. Ces attributs fournissent des informations complémentaires aux technologies d'assistance, aidant à clarifier le rôle, l'état ou les propriétés des éléments d'interface qui pourraient autrement être ambigus.
@@ -597,8 +633,8 @@ Les e-mails créés dans l'éditeur d'e-mails par glisser-déposer ont les élé
 
 Pour vous aider à identifier et corriger les problèmes d'accessibilité en amont, Braze propose des tests d'accessibilité automatisés dans les domaines suivants :
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing) pour les e-mails
-- [Scanner d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner) pour les messages créés avec notre éditeur HTML (par exemple, les messages in-app HTML, les Content Blocks HTML, les [pieds de page d'e-mail personnalisés]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), les [pages d'abonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page) et les [pages de désabonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)).
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) pour les e-mails
+- [Scanner d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) pour les messages créés avec notre éditeur HTML (par exemple, les messages in-app HTML, les Content Blocks HTML, les [pieds de page d'e-mail personnalisés]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), les [pages d'abonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page) et les [pages de désabonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)).
 
 Ces tests vérifient votre message par rapport aux directives d'accessibilité du contenu web ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)), un ensemble de normes techniques internationalement reconnues pour le contenu accessible. Tout problème pouvant être détecté automatiquement est signalé et classé par gravité pour vous aider à prioriser.
 
@@ -623,7 +659,7 @@ Voici quelques exemples de ce que les outils automatisés ne peuvent pas détect
 - Si le texte sur les images d'arrière-plan respecte les exigences de contraste des couleurs
 - Si les instructions ou les libellés sont clairs et utiles pour tous les utilisateurs
 
-Ces limitations ne sont pas propres à Braze — elles sont communes à tous les outils de test d'accessibilité automatisés. Les vérifications automatisées ne peuvent pas simuler chaque technologie d'assistance, lecteur d'écran ou besoin utilisateur. C'est pourquoi l'accessibilité n'est pas une vérification ponctuelle — c'est une pratique continue.
+Ces limitations ne sont pas propres à Braze&#8212;elles sont communes à tous les outils de test d'accessibilité automatisés. Les vérifications automatisées ne peuvent pas simuler chaque technologie d'assistance, lecteur d'écran ou besoin utilisateur. C'est pourquoi l'accessibilité n'est pas une vérification ponctuelle&#8212;c'est une pratique continue.
 
 Même si votre message passe toutes les vérifications automatisées, il est toujours important de :
 
@@ -632,3 +668,5 @@ Même si votre message passe toutes les vérifications automatisées, il est tou
 - Utiliser des outils comme les lecteurs d'écran, la navigation au clavier uniquement et le zoom du navigateur pour simuler différents besoins d'accès.
 
 En combinant les tests automatisés avec une révision manuelle réfléchie, vous détecterez davantage de problèmes potentiels et créerez des campagnes plus inclusives et utilisables pour chaque destinataire.
+
+{% multi_lang_include accessibility/automated_testing.md %}

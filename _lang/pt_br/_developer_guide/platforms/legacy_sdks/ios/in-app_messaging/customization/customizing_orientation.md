@@ -12,9 +12,9 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Personalizar orientação
+# Personalizar orientação {#customize-orientation}
 
-## Definindo a orientação para todas as mensagens no app
+## Definindo a orientação para todas as mensagens no app {#setting-orientation-for-all-in-app-messages}
 
 Para definir uma orientação fixa para todas as mensagens no app, você pode definir a propriedade `supportedOrientationMask` em `ABKInAppMessageUIController`. Adicione o seguinte código após a chamada do seu app para `startWithApiKey:inApplication:withLaunchOptions:`:
 
@@ -42,11 +42,11 @@ if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessage
 {% endtab %}
 {% endtabs %}
 
-A seguir, todas as mensagens no app serão exibidas na orientação suportada, independentemente da orientação do dispositivo. Nota que a orientação do dispositivo também deve ser suportada pela propriedade `orientation` da mensagem no app para que a mensagem seja exibida.
+A seguir, todas as mensagens no app serão exibidas na orientação suportada, independentemente da orientação do dispositivo. Note que a orientação do dispositivo também deve ser suportada pela propriedade `orientation` da mensagem no app para que a mensagem seja exibida.
 
-## Como definir a orientação por mensagem no app
+## Como definir a orientação por mensagem no app {#setting-orientation-per-in-app-message}
 
-Você também pode definir a orientação por mensagem. Para fazer isso, defina um [delegado de mensagem no app]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates/). Em seguida, no seu método de delegado `beforeInAppMessageDisplayed:`, defina a propriedade `orientation` no `ABKInAppMessage`:
+Você também pode definir a orientação por mensagem. Para fazer isso, defina um [delegado de mensagem no app]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates). Em seguida, no seu método de delegado `beforeInAppMessageDisplayed:`, defina a propriedade `orientation` no `ABKInAppMessage`:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -62,7 +62,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% tab swift %}
 
-```swift    
+```swift
   // Set inAppMessage orientation to portrait
   inAppMessage.orientation = ABKInAppMessageOrientation.portrait
 
@@ -73,15 +73,14 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% endtabs %}
 
-Mensagens no app não serão exibidas se a orientação do dispositivo não corresponder à propriedade `orientation` na mensagem no app.
+As mensagens no app não serão exibidas se a orientação do dispositivo não corresponder à propriedade `orientation` na mensagem no app.
 
 {% alert note %}
 Para iPads, as mensagens no app aparecerão no estilo de orientação preferido do usuário, independentemente da orientação real da tela.
 {% endalert %}
 
-## Declarações de métodos
+## Declarações de métodos {#method-declarations}
 
 Para saber mais, consulte o seguinte arquivo de cabeçalho:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

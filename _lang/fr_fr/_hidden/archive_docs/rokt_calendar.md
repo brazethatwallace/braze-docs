@@ -28,7 +28,7 @@ L'intégration de Braze et de Rokt Calendar permet de transmettre vos abonnés R
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. Vous devrez fournir cette clé à votre gestionnaire de compte Rokt Calendar.<br><br>Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | [Endpoint REST Braze]({{site.baseurl}}/api/basics/#endpoints) | L'URL de votre endpoint REST. Votre endpoint dépendra de l'URL Braze de votre instance. |
 | ID externe de l'abonné | Il s'agit de l'identifiant utilisé par le processus d'abonnement Rokt Calendar pour faire correspondre l'abonné au calendrier avec l'utilisateur Braze. C'est un élément que vous transmettez à Rokt Calendar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Segmentation de l'audience {#audience-segmentation}
 
@@ -52,7 +52,7 @@ Lorsque Rokt Calendar crée un nouvel utilisateur ou fait correspondre un abonn�
 | `rokt:subscription_id` | L'ID de l'abonnement, servant d'identifiant unique, lié à l'abonnement créé | `06423672-b6ba-4536-aa36-70788a7a0a36` |
 | `rokt:subscription_method` | Méthode d'abonnement (webcal/Google) liée à l'abonnement créé | `WebCal/f5733866ade2` |
 | `rokt:tags` | Étiquettes du calendrier utilisées en rapport avec l'abonnement créé | `Test Calendar 1/All Teams/f5733866ade2 and Test Calendar 1/TeamI//f5733866ade2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience segmentation #audience-segmentation" }
 
 Rokt Calendar déclenche également un événement personnalisé `subscribe` dès que l'utilisateur s'est abonné à votre calendrier Rokt. Cet événement peut être utilisé dans la segmentation Braze ou comme déclencheur d'une campagne ou d'un composant Canvas.
 
@@ -182,7 +182,7 @@ Les champs suivants contiennent des informations qui peuvent être personnalisé
 | `eventEnd` <br>***Requis**  | La date et l'heure de fin de l'événement telles qu'elles apparaissent dans le calendrier | `2019-02-21T16:00:00` |
 | `eventTz` <br>***Requis**  | Le fuseau horaire de l'événement tel qu'il apparaîtrait dans le calendrier. Notez que la liste des fuseaux horaires applicables se trouve [ici](https://roktcalendar-api.readme.io/docs/timezones). | `Eastern Standard Time` |
 | `notifyBefore` <br>***Requis**  | Le délai de rappel de l'événement tel qu'il apparaîtrait dans le calendrier. Notez qu'il est exprimé en minutes. | `15` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Request body" }
 {% endtab %}
 {% endtabs %}
 

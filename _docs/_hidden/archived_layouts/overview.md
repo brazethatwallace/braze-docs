@@ -8,7 +8,7 @@ noindex: true
 
 > The overview layout is good for creating a specific navigation option at the top of a page that allows users to click a button to travel to a specific part of a page or a completely other page.
 
-Classic examples of the Selector Layout are [the SDK Changelogs](https://www.braze.com/docs/developer_guide/changelogs) page, or the [In-app Message Creative Details page](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Classic examples of the Selector Layout are [the SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) page, or the [In-app Message Creative Details page]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
 
 ## Required Components
 
@@ -27,6 +27,7 @@ Classic examples of the Selector Layout are [the SDK Changelogs](https://www.bra
 |`guide_top_text`|Alphanumeric | Describe your page, this will go directly above the buttons and their title. Quotes required around content. |
 |`guide_featured_title`| Alphanumeric | Title your cards. This will go directly above the buttons.
 |`guide_featured_list`| More YAML, Alphanumeric | See [Guide Listing Format](#guide-listing-format) below. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
 
 ### Guide Listing Format
 
@@ -35,6 +36,7 @@ Classic examples of the Selector Layout are [the SDK Changelogs](https://www.bra
 |`name`| Alphanumeric | Name the box. |
 | `link`| URL or Path | Link to where the box will go. Must contain full URL or (if an internal link) `/docs...`  |
 |`image`| Path | Link to location of image. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Guide Listing Format" }
 
 Format example:
 

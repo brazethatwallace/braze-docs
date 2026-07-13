@@ -5,18 +5,18 @@ page_order: 2
 alias: /partners/tealium_audience_stream/
 description: "이 참조 문서에서는 모바일, 웹 및 대체 데이터를 다른 서드파티 소스에 연결할 수 있는 범용 데이터 허브인 Tealium과 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 
 ---
 
 # Tealium AudienceStream
 
-> Tealium [AudienceStream](https://docs.tealium.com/server-side/getting-started/audiencestream-cdp/introduction/)은 옴니채널 고객 세분화 및 실시간 액션 엔진입니다. AudienceStream은 EventStream으로 유입되는 데이터를 가져와 브랜드에 대한 고객 참여의 가장 중요한 속성을 나타내는 방문자 프로필을 생성합니다.
+> Tealium [AudienceStream](https://docs.tealium.com/server-side/getting-started/audiencestream-cdp/introduction/)은 옴니채널 고객 세분화 및 실시간 동작 엔진입니다. AudienceStream은 EventStream으로 유입되는 데이터를 가져와 브랜드에 대한 고객 인게이지먼트의 가장 중요한 속성을 나타내는 방문자 프로필을 생성합니다.
 
-Braze와 Tealium 통합은 AudienceStream 방문자 프로필을 활용합니다. 공유된 행동은 이러한 프로필을 세분화하여 공통 특성을 가진 방문자 집합(오디언스)을 생성합니다. 이러한 오디언스는 커넥터를 통해 실시간으로 마케팅 기술 스택을 지원할 수 있습니다.
+Braze와 Tealium 통합은 AudienceStream 방문자 프로필을 활용합니다. 공유된 행동은 이러한 프로필을 세분화하여 공통 특성을 가진 방문자 집합(오디언스)을 생성합니다. 이러한 오디언스는 커넥터를 통해 실시간으로 기술적 마케팅 스택을 지원할 수 있습니다.
 
 {% alert important %}
-Tealium AudienceStream과 EventStream은 배치 및 비배치 커넥터 동작을 모두 제공합니다. 비배치 커넥터는 실시간 요청이 사용 사례에 중요하고 Braze API 사용량 제한 사양에 도달하는 것에 대한 우려가 없을 때 사용해야 합니다. 질문이 있으시면 Braze [고객지원]({{site.baseurl}}/braze_support/) 또는 고객 성공 매니저에게 문의하세요.
+Tealium AudienceStream과 EventStream은 배치 및 비배치 커넥터 동작을 모두 제공합니다. 비배치 커넥터는 실시간 요청이 사용 사례에 중요하고 Braze API 사용량 제한 사양에 도달하는 것에 대한 우려가 없을 때 사용해야 합니다. 질문이 있으시면 Braze [고객지원]({{site.baseurl}}/braze_support) 또는 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
@@ -25,8 +25,8 @@ Tealium AudienceStream과 EventStream은 배치 및 비배치 커넥터 동작�
 | ---- | ----------- |
 | Tealium 계정 | 서버 측 액세스가 가능한 [Tealium 계정](https://my.tealiumiq.com/)이 필요합니다. 이 파트너십을 최대한 활용하려면 클라이언트 측 통합도 사용하는 것을 권장합니다. |
 | REST API 키 | `users.track`, `users.delete`, `subscription.status.set` 권한이 있는 Braze REST API 키.<br><br>**Braze 대시보드 > 개발자 콘솔 > REST API 키 > 새 API 키 생성**에서 생성할 수 있습니다. |
-| [Braze REST 엔드포인트]({{site.baseurl}}/api/basics/#endpoints) | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Braze REST 엔드포인트]({{site.baseurl}}/api/basics#endpoints) | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -34,7 +34,7 @@ Tealium AudienceStream과 EventStream은 배치 및 비배치 커넥터 동작�
 
 #### 속성 이해하기 {#understanding-attributes}
 
-AudienceStream을 사용하는 첫 번째 단계는 속성을 생성하는 것입니다. 속성을 사용하면 방문자의 습관, 선호도, 행동 및 브랜드에 대한 참여를 나타내는 중요한 특성을 정의할 수 있습니다.
+AudienceStream을 사용하는 첫 번째 단계는 속성을 생성하는 것입니다. 속성을 사용하면 방문자의 습관, 선호도, 행동 및 브랜드에 대한 인게이지먼트를 나타내는 중요한 특성을 정의할 수 있습니다.
 
 **방문 속성**: 방문 속성은 사용자의 현재 방문(또는 세션)과 관련됩니다. 이러한 속성에 저장된 데이터는 방문 기간 동안 유지됩니다. 방문 속성의 예시는 다음과 같습니다:
 - 방문 시간 (숫자)
@@ -121,13 +121,13 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 
 나타나는 **Source** 대화 상자에서 이전 단계에서 생성한 오디언스와 상황에 적합하다고 생각되는 트리거를 선택합니다. 빈도 제한을 토글하여 이 동작이 트리거되는 빈도를 제어할 수도 있습니다.
 
-![]({% image_buster /assets/img/tealium/create_source.png %}){: style="max-width:90%;"}
+![오디언스 및 트리거 선택이 포함된 Tealium AudienceStream 커넥터 소스 구성]({% image_buster /assets/img/tealium/create_source.png %}){: style="max-width:90%;"}
 
 #### 구성 {#configuration}
 
 다음으로 **Configuration** 대화 상자가 나타납니다. 페이지 하단에서 **Add Connector**를 선택합니다. 커넥터 이름을 지정하고 여기에 Braze API 엔드포인트와 Braze REST API 키를 입력합니다.
 
-![]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
+![Braze 엔드포인트 및 REST API 키 필드가 포함된 Tealium 커넥터 구성 대화 상자]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
 
 이전에 커넥터를 생성한 적이 있다면 사용 가능한 커넥터 목록에서 기존 커넥터를 선택적으로 사용하고 연필 아이콘으로 수정하거나 휴지통 아이콘으로 삭제할 수 있습니다.
 
@@ -140,7 +140,7 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 {% alert important %}
 제공되는 모든 필드가 필수는 아닙니다.
 
-![]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
+![최소화할 수 있는 선택적 필드가 표시된 Tealium 동작 매핑 패널]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
 {% endalert %}
 
 {% tabs local %}
@@ -150,18 +150,18 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 
 | 매개변수 | 설명 |
 | ---------- | ----------- |
-| 사용자 ID | 이 필드를 사용하여 Tealium 사용자 ID 필드를 Braze에 해당하는 필드에 매핑합니다. 하나 이상의 사용자 ID 속성을 매핑합니다. 여러 ID가 지정된 경우 다음 우선순위에 따라 첫 번째 비어 있지 않은 값이 선택됩니다: 외부 ID, Braze ID, 별칭 이름, 별칭 라벨.<br><br>- 푸시 토큰을 가져오는 경우 외부 ID와 Braze ID를 지정하면 안 됩니다.<br>- 사용자 별칭을 지정하는 경우 별칭 이름과 별칭 라벨을 설정해야 합니다. <br><br>자세한 내용은 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 확인하세요. |
-| 사용자 속성 | 기존 Braze 고객 프로필 필드 이름을 사용하여 Braze 대시보드에서 고객 프로필 값을 업데이트하거나 고객 프로필에 자체 커스텀 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) 데이터를 추가합니다.<br><br>- 기본적으로 존재하지 않는 경우 새 사용자가 생성됩니다.<br>- **Update Existing Only**를 `true`로 설정하면 기존 사용자만 업데이트되며 새 사용자는 생성되지 않습니다.<br>- Tealium 속성이 비어 있으면 null로 변환되어 Braze 고객 프로필에서 제거됩니다. 사용자 속성을 제거하기 위해 null 값을 Braze에 보내지 않으려면 보강을 사용해야 합니다. |
+| 사용자 ID | 이 필드를 사용하여 Tealium 사용자 ID 필드를 Braze에 해당하는 필드에 매핑합니다. 하나 이상의 사용자 ID 속성을 매핑합니다. 여러 ID가 지정된 경우 다음 우선순위에 따라 첫 번째 비어 있지 않은 값이 선택됩니다: 외부 ID, Braze ID, 별칭 이름, 별칭 라벨.<br><br>- 푸시 토큰을 가져오는 경우 외부 ID와 Braze ID를 지정하면 안 됩니다.<br>- 사용자 별칭을 지정하는 경우 별칭 이름과 별칭 라벨을 설정해야 합니다. <br><br>자세한 내용은 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 확인하세요. |
+| 사용자 속성 | 기존 Braze 고객 프로필 필드 이름을 사용하여 Braze 대시보드에서 고객 프로필 값을 업데이트하거나 고객 프로필에 자체 커스텀 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 데이터를 추가합니다.<br><br>- 기본적으로 존재하지 않는 경우 새 사용자가 생성됩니다.<br>- **Update Existing Only**를 `true`로 설정하면 기존 사용자만 업데이트되며 새 사용자는 생성되지 않습니다.<br>- Tealium 속성이 비어 있으면 null로 변환되어 Braze 고객 프로필에서 제거됩니다. 사용자 속성을 제거하기 위해 null 값을 Braze에 보내지 않으려면 보강을 사용해야 합니다. |
 | 사용자 속성 수정 | 이 필드를 사용하여 특정 사용자 속성을 증가 또는 감소시킵니다.<br><br>- 정수 속성은 양의 정수 또는 음의 정수로 증가시킬 수 있습니다.<br>- 배열 속성은 기존 배열에서 값을 추가하거나 제거하여 수정할 수 있습니다. |
-| 이벤트 | 이벤트는 특정 사용자가 특정 타임스탬프에 수행한 커스텀 이벤트의 단일 발생을 나타냅니다. 이 필드를 사용하여 Braze [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/)와 같은 이벤트 속성을 추적하고 매핑합니다. <br><br>- 이벤트 속성 `Name`은 매핑된 모든 이벤트에 필수입니다.<br>- 이벤트 속성 `Time`은 명시적으로 매핑되지 않는 한 자동으로 현재 시간으로 설정됩니다. <br>- 기본적으로 존재하지 않는 경우 새 이벤트가 생성됩니다. `Update Existing Only`를 `true`로 설정하면 기존 이벤트만 업데이트되며 새 이벤트는 생성되지 않습니다.<br>- 배열 유형 속성을 매핑하여 여러 이벤트를 추가합니다. 배열 유형 속성은 동일한 길이여야 합니다.<br>- 단일 값 속성을 사용할 수 있으며 각 이벤트에 적용됩니다. |
+| 이벤트 | 이벤트는 특정 사용자가 특정 타임스탬프에 수행한 커스텀 이벤트의 단일 발생을 나타냅니다. 이 필드를 사용하여 Braze [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object)와 같은 이벤트 속성을 추적하고 매핑합니다. <br><br>- 이벤트 속성 `Name`은 매핑된 모든 이벤트에 필수입니다.<br>- 이벤트 속성 `Time`은 명시적으로 매핑되지 않는 한 자동으로 현재 시간으로 설정됩니다. <br>- 기본적으로 존재하지 않는 경우 새 이벤트가 생성됩니다. `Update Existing Only`를 `true`로 설정하면 기존 이벤트만 업데이트되며 새 이벤트는 생성되지 않습니다.<br>- 배열 유형 속성을 매핑하여 여러 이벤트를 추가합니다. 배열 유형 속성은 동일한 길이여야 합니다.<br>- 단일 값 속성을 사용할 수 있으며 각 이벤트에 적용됩니다. |
 | 이벤트 템플릿 | 본문 데이터에서 참조할 이벤트 템플릿을 제공합니다. 템플릿을 사용하여 Braze로 보내기 전에 데이터를 변환할 수 있습니다. 자세한 내용은 Tealium의 [템플릿 가이드](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/)를 참조하세요. |
 | 이벤트 템플릿 변수 | 이벤트 템플릿 변수를 데이터 입력으로 제공합니다. 자세한 내용은 Tealium의 [템플릿 변수 가이드](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/)를 참조하세요. |
-| 구매 | 이 필드를 사용하여 Braze [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)와 같은 사용자 구매 속성을 추적하고 매핑합니다.<br><br>- 구매 속성 `Product ID`, `Currency`, `Price`는 매핑된 모든 구매에 필수입니다.<br>- 구매 속성 `Time`은 명시적으로 매핑되지 않는 한 자동으로 현재 시간으로 설정됩니다.<br>- 기본적으로 존재하지 않는 경우 새 구매가 생성됩니다. `Update Existing Only`를 `true`로 설정하면 기존 구매만 업데이트되며 새 구매는 생성되지 않습니다.<br>- 배열 유형 속성을 매핑하여 여러 구매 항목을 추가합니다. 배열 유형 속성은 동일한 길이여야 합니다.<br>- 단일 값 속성을 사용할 수 있으며 각 항목에 적용됩니다. |
+| 구매 | 이 필드를 사용하여 Braze [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)와 같은 사용자 구매 속성을 추적하고 매핑합니다.<br><br>- 구매 속성 `Product ID`, `Currency`, `Price`는 매핑된 모든 구매에 필수입니다.<br>- 구매 속성 `Time`은 명시적으로 매핑되지 않는 한 자동으로 현재 시간으로 설정됩니다.<br>- 기본적으로 존재하지 않는 경우 새 구매가 생성됩니다. `Update Existing Only`를 `true`로 설정하면 기존 구매만 업데이트되며 새 구매는 생성되지 않습니다.<br>- 배열 유형 속성을 매핑하여 여러 구매 항목을 추가합니다. 배열 유형 속성은 동일한 길이여야 합니다.<br>- 단일 값 속성을 사용할 수 있으며 각 항목에 적용됩니다. |
 | 구매 템플릿 | 템플릿을 사용하여 Braze로 보내기 전에 데이터를 변환할 수 있습니다.<br>- 중첩된 오브젝트 지원이 필요한 경우 구매 템플릿을 정의합니다.<br>- 구매 템플릿이 정의되면 동작의 구매 섹션에서 설정한 구성은 무시됩니다.<br>- 자세한 내용은 Tealium의 [템플릿 가이드](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/)를 참조하세요. |
 | 구매 템플릿 변수 | 제품 템플릿 변수를 데이터 입력으로 제공합니다. 자세한 내용은 Tealium의 [템플릿 변수 가이드](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="동작" }
 
-![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
+![매핑된 사용자 속성 및 이벤트 필드가 포함된 Tealium Track User 동작 예시]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% tab 사용자 삭제 - 비배치 %}
@@ -170,10 +170,10 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 
 | 매개변수 | 설명 |
 | ---------- | ----------- |
-| 사용자 ID | 이 필드를 사용하여 Tealium 사용자 ID 필드를 Braze에 해당하는 필드에 매핑합니다.<br><br>- 하나 이상의 사용자 ID 속성을 매핑합니다. 여러 ID가 지정된 경우 다음 우선순위에 따라 첫 번째 비어 있지 않은 값이 선택됩니다: 외부 ID, Braze ID, 별칭 이름, 별칭 라벨.<br>- 사용자 별칭을 지정하는 경우 별칭 이름과 별칭 라벨을 모두 설정해야 합니다.<br><br>자세한 내용은 Braze [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 사용자 ID | 이 필드를 사용하여 Tealium 사용자 ID 필드를 Braze에 해당하는 필드에 매핑합니다.<br><br>- 하나 이상의 사용자 ID 속성을 매핑합니다. 여러 ID가 지정된 경우 다음 우선순위에 따라 첫 번째 비어 있지 않은 값이 선택됩니다: 외부 ID, Braze ID, 별칭 이름, 별칭 라벨.<br>- 사용자 별칭을 지정하는 경우 별칭 이름과 별칭 라벨을 모두 설정해야 합니다.<br><br>자세한 내용은 Braze [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="동작" }
 
-![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
+![Braze 사용자 ID 매핑이 구성된 Tealium 사용자 삭제 동작]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% tab 사용자 구독 그룹 상태 업데이트 - 비배치 %}
@@ -182,11 +182,11 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 | 매개변수 | 설명 |
 | ---------- | ----------- |
 | 그룹 유형 | 이 필드를 사용하여 SMS 또는 이메일 구독 그룹인지 표시합니다. |
-| 업데이트 유형 | 이 동작을 구독 취소 또는 구독 이벤트에 매핑합니다. |
+| 업데이트 유형 | 이 동작을 탈퇴 또는 가입 이벤트에 매핑합니다. |
 | 속성 | - 구독 그룹 ID (필수): 앞의 필드에서 매핑된 그룹 유형과 관련된 구독 그룹의 ID입니다.<br>- 외부 ID: 사용자의 외부 ID입니다.<br><br>이메일 그룹 전용:<br>- 이메일: 사용자의 이메일 주소입니다.<br>**외부 ID가 정의되지 않은 경우 이메일이 필수입니다.**<br><br>SMS 그룹 전용:<br>- 전화번호: E.164 형식의 전화번호입니다. 예: +14155552671.<br>**외부 ID가 정의되지 않은 경우 전화번호가 필수입니다.** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="동작" }
 
-![]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
+![그룹 유형 및 업데이트 유형 매핑이 포함된 Tealium 구독 그룹 상태 업데이트 동작]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% endtabs %}
@@ -216,14 +216,14 @@ Tealium의 Trace 도구 구현에 대한 자세한 지침은 Tealium의 [Trace �
 ## 통합 데모 {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Tealium AudienceStream 통합 데모" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## 잠재적 데이터 포인트 초과 {#potential-data-point-overages}
 
 Tealium을 통해 Braze를 통합할 때 실수로 데이터 초과가 발생할 수 있는 세 가지 주요 방법이 있습니다:
 
-#### 중복 데이터 전송 - 속성의 Braze 델타만 전송하세요 {#sending-duplicate-data-only-send-braze-deltas-of-attributes}
+### 중복 데이터 전송 - 속성의 Braze 델타만 전송하세요 {#sending-duplicate-data-only-send-braze-deltas-of-attributes}
 Tealium은 사용자 속성의 Braze 델타를 전송하지 않습니다. 예를 들어, 사용자의 이름, 이메일, 휴대폰 번호를 추적하는 EventStream 동작이 있는 경우, Tealium은 동작이 트리거될 때마다 세 가지 속성을 모두 Braze에 전송합니다. Tealium은 변경되거나 업데이트된 내용을 확인하고 해당 정보만 전송하지 않습니다.<br><br>
 **해결 방법**: <br>백엔드를 확인하여 속성이 변경되었는지 평가하고, 변경된 경우 Tealium의 관련 메서드를 호출하여 고객 프로필을 업데이트할 수 있습니다. **이것은 Braze를 직접 통합하는 사용자가 일반적으로 수행하는 방법입니다.** <br>**또는**<br> 백엔드에 자체 고객 프로필 버전을 저장하지 않아 속성이 변경되었는지 알 수 없는 경우, AudienceStream을 사용하고 [보강을 생성](https://docs.tealium.com/server-side/attributes/manage-enrichments/add-enrichment/)하여 값이 변경된 경우에만 사용자 속성을 전송할 수 있습니다.
 
@@ -232,5 +232,5 @@ Tealium은 사용자 속성의 Braze 델타를 전송하지 않습니다. 예를
 **해결 방법**: <br>각 동작을 추적하기 위해 별도의 이벤트 사양 또는 피드를 설정합니다. <br>**또는**<br> Tealium 대시보드의 토글을 사용하여 실행하지 않으려는 동작(또는 커넥터)을 비활성화합니다.
 
 #### Braze를 너무 일찍 초기화 {#initializing-braze-too-early}
-Braze Web SDK 태그를 사용하여 Tealium과 통합하는 경우 MAU가 급격히 증가하는 것을 볼 수 있습니다. **Braze가 페이지 로드 시 초기화되면, 웹 사용자가 처음으로 웹사이트를 방문할 때마다 Braze가 익명 프로필을 생성합니다.** 이에는 봇 트래픽도 포함되어 활성 사용자 수가 부풀려질 수 있습니다. 일부 사용자는 MAU 수를 줄이기 위해 "로그인" 또는 "동영상 시청"과 같은 특정 동작을 완료한 경우에만 사용자 행동을 추적하고 싶을 수 있습니다.<br><br>
+Braze 웹 SDK 태그를 사용하여 Tealium과 통합하는 경우 MAU가 급격히 증가하는 것을 볼 수 있습니다. **Braze가 페이지 로드 시 초기화되면, 웹 사용자가 처음으로 웹사이트를 방문할 때마다 Braze가 익명 프로필을 생성합니다.** 이에는 봇 트래픽도 포함되어 활성 사용자 수가 부풀려질 수 있습니다. 일부 사용자는 MAU 수를 줄이기 위해 "로그인" 또는 "동영상 시청"과 같은 특정 동작을 완료한 경우에만 사용자 행동을 추적하고 싶을 수 있습니다.<br><br>
 **해결 방법**: <br>[로드 규칙](https://docs.tealium.com/iq-tag-management/load-rules/about/)을 설정하여 사이트에서 태그가 로드되는 시기와 위치를 정확히 결정합니다. 봇 트래픽 필터링 및 조건부 SDK 초기화에 대한 보다 포괄적인 안내는 [봇 트래픽 필터링]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering)을 참조하세요.

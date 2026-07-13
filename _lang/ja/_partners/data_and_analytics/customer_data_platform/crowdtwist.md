@@ -10,11 +10,11 @@ search_tag: Partner
 
 # Oracle Crowdtwist
 
-> [Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)は、ブランドがパーソナライズされたカスタマーエクスペリエンスを提供できるようにする、クラウドネイティブなカスタマーロイヤルティソリューションのリーディングカンパニーです。同社のソリューションは100以上のすぐに使えるエンゲージメントパスを提供し、マーケターがより完全な顧客ビューを構築するための迅速なTime-to-Valueを実現します。
+> [Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)は、ブランドがパーソナライズされた顧客体験を提供できるようにする、クラウドネイティブなカスタマーロイヤルティソリューションのリーディングカンパニーです。同社のソリューションは100以上のすぐに使えるエンゲージメントパスを提供し、マーケターがより完全な顧客ビューを構築するための迅速なTime-to-Valueを実現します。
 
 Oracle Crowdtwistのデータプッシュ機能では、Crowdtwistのプラットフォームで更新が発生するたびに、ユーザーやイベントのメタデータを渡すことができます。
 
-このガイドでは、Oracle Crowdtwistのユーザープロファイル、ユーザーアクティビティ、およびユーザーリデンプションのライブプッシュフィードをBraze環境に統合する方法について説明します。このドキュメントでは明示的にカバーされていませんが、さらに2つのデータプッシュタイプが利用可能であり、そのセットアップは以下に概説する同じ原則に従います。
+このガイドでは、Oracle Crowdtwistのユーザープロファイル、ユーザーアクティビティ、およびユーザーリデンプションのライブプッシュフィードをBraze環境に統合する方法について説明します。このドキュメントでは明示的にカバーされていませんが、さらに2つのデータプッシュタイプが利用可能であり、そのセットアップはこのガイドで概説する同じ原則に従います。
 
 * [Live Pushユーザープロファイル](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html): 新規プロファイルの作成と既存プロファイルの更新を含みます。
 
@@ -28,37 +28,36 @@ Brazeデータ変換テンプレートを使用することで、Brazeに関係�
 
 ## 前提条件 {#prerequisites}
 
-
 | 必要条件 | 説明 |
 | --- | --- |
 | Oracle Crowdtwistアカウント | このパートナーシップを利用するには、[Oracle Crowdtwistアカウント](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)が必要です。 |
-| Brazeデータ変換エンドポイント | この統合は、Brazeの[データ変換ツール]({{site.baseurl}}/user_guide/data/unification/data_transformation/)に依存しています。データ変換を作成すると、Brazeは、Crowdtwistのデータプッシュの送信先として追加できるユニークなエンドポイントを生成します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Brazeデータ変換エンドポイント | この統合は、Brazeの[データ変換ツール]({{site.baseurl}}/user_guide/data/unification/data_transformation)に依存しています。データ変換を作成すると、Brazeは、Crowdtwistのデータプッシュの送信先として追加できるユニークなエンドポイントを生成します。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
 BrazeとOracle Crowdtwistは、顧客がユーザープロファイル、ユーザーリデンプション、およびユーザーアクティビティイベントを活用した独自のデータ変換を開発できるように、[データ変換テンプレート]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation)を作成しました。
 
-## ステップ1:Oracle Crowdtwistテンプレートからデータ変換を作成する {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
+## ステップ1: Oracle Crowdtwistテンプレートからデータ変換を作成する {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-**Data Settings > Data Transformation > Create Transformations > Use a Template**に移動し、お好みの「BRAZE <> CROWDTWIST」テンプレートを選択します。
+**データ設定** > **データ変換** > **変換を作成** > **テンプレートを使用**に移動し、お好みの「BRAZE <> CROWDTWIST」テンプレートを選択します。
 
 ユーザープロファイル、ユーザーアクティビティ、ユーザーリデンプションの各イベントを変換するためのテンプレートが1つずつ、合計4つのテンプレートがあります。さらに、条件ロジックを使用してさまざまなデータプッシュイベントに適用するマスターテンプレートもあります。
 
 [Oracle CrowdtwistのData Pushドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/DataPush.html)に示されているように、Data Pushオブジェクトには異なるメタデータが含まれているため、適切なBrazeオブジェクトを作成するには、それぞれ独自の変換コードが必要になります。マスターテンプレートは、3つのタイプのオブジェクトをそれぞれ受け入れるために1つのデータ変換を設定し、各オブジェクトからの値で適切な出力を作成する方法を示しています。
 
-## ステップ2:テンプレートの更新とテスト {#step-2-update-and-test-template}
+## ステップ2: テンプレートの更新とテスト {#step-2-update-and-test-template}
 
-以下に、注釈付きテンプレートを掲載します。これらのテンプレートの本体は、`/users/track` 送信先に適用されるように設計されています。注釈は `//` 行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
+このセクションでは、注釈付きテンプレートを紹介します。これらのテンプレートの本体は、`/users/track`送信先に適用されるように設計されています。注釈は`//`行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
 
-この変換はJavaScriptを使い、「brazecall」と呼ばれるオブジェクトを構築します。このオブジェクトで、Braze REST APIエンドポイントに送信するリクエストボディを作成します。これらの送信先へのリクエストに必要な構造については、「送信先」セクションのリンクを参照してください。
+この変換はJavaScriptを使用し、「brazecall」と呼ばれるオブジェクトを構築します。このオブジェクトで、Braze REST APIエンドポイントに送信するリクエストボディを作成します。これらの送信先へのリクエストに必要な構造については、「送信先」セクションのリンクを参照してください。
 
 {% alert note %}
-各「キー」の「値」が `payload.` で始まっていることに注目してください。ペイロードはOracle Crowdtwistから受け取ったデータオブジェクトを表します。JavaScriptのドット記法を使用して、Brazeオブジェクトの要素に入力するデータを選択します。例えば、`external_id: payload.thirdPartyId` と表示された場合、これはOracle Crowdtwistに保存されている `third_party_id` の値によってBrazeのexternal IDが設定されていることを意味します。Oracle Crowdtwistから送られてくるオブジェクトのスキーマや構成の詳細については、[Oracleのドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html)を参照してください。
+各「キー」の「値」が`payload.`で始まっていることに注目してください。ペイロードはOracle Crowdtwistから受け取ったデータオブジェクトを表します。JavaScriptのドット記法を使用して、Brazeオブジェクトの要素に入力するデータを選択します。例えば、`external_id: payload.thirdPartyId`と表示された場合、これはOracle Crowdtwistに保存されている`third_party_id`の値によってBrazeのexternal IDが設定されていることを意味します。Oracle Crowdtwistから送られてくるオブジェクトのスキーマや構成の詳細については、[Oracleのドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html)を参照してください。
 {% endalert %}
 
 {% alert important %}
-Oracle Crowdtwistから送られてきたオブジェクトを使って、Brazeにユーザーを作成します。値 `false` を持つ `update_existing_only` キーを含めることで、属性またはイベントオブジェクトがBrazeに存在しない識別子を含む場合、Brazeはイベントまたは属性オブジェクトに含まれる属性を持つユーザープロファイルを作成します。Oracle CrowdtwistがBrazeに既に存在するプロファイルのみを更新するようにしたい場合は、各属性またはイベントオブジェクトでこの属性を `true` に設定してください。
+Oracle Crowdtwistから送られてきたオブジェクトを使用して、Brazeにユーザーを作成します。値`false`を持つ`update_existing_only`キーを含めることで、属性またはイベントオブジェクトがBrazeに存在しない識別子を含む場合、Brazeはイベントまたは属性オブジェクトに含まれる属性を持つユーザープロファイルを作成します。Oracle CrowdtwistがBrazeに既に存在するプロファイルのみを更新するようにしたい場合は、各属性またはイベントオブジェクトでこの属性を`true`に設定してください。
 {% endalert %}
 
 ### データ変換テンプレート {#data-transformation-templates}
@@ -75,7 +74,7 @@ let brazecall = {
      "_update_existing_only": false,
      "crowdtwist_loyalty_points": payload.redeemablePoints,
  //In this example, the "tierInfo" object from Crowdtwist is transformed into a Braze Nested Custom Attribute. Use the "_merge_objects" value to avoid duplications in a data point efficient manner.
- //The "tierinfo_current_level" attribute is a flat Braze custom attribute, while "tierInfo" below is a nested object mirroring the Crowdtwist payload; the difference in capitalization is intentional.
+ //The "tierinfo_current_level" attribute is a flat Braze custom attribute, while the following "tierInfo" value is a nested object mirroring the Crowdtwist payload; the difference in capitalization is intentional.
      "tierinfo_current_level": payload.tierInfo.currentLevel,
      "_merge_objects" : true,
      "tierInfo" : {
@@ -237,20 +236,18 @@ return brazecall;
 
 ### 送信先 {#destinations}
 
-このガイドのテンプレートは「Track Users」送信先に配信するように作成されていますが、関連する[REST APIドキュメント]({{site.baseurl}}/api/home/)を参照しながら、[Brazeのデータ変換ガイド]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation/#step-2-create-a-transformation)に記載されているどのエンドポイントにも送信できるようにテンプレートを設計することができます。
+このガイドのテンプレートは「Track Users」送信先に配信するように作成されていますが、関連する[REST APIドキュメント]({{site.baseurl}}/api/home)を参照しながら、[Brazeのデータ変換ガイド]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation)に記載されているどのエンドポイントにも送信できるようにテンプレートを設計することができます。
 
 ### テスト {#testing}
 
-テンプレートをお好みに修正したら、正しく動作するかどうかを検証する必要があります。**Validate**をクリックすると、コードの出力プレビューが表示され、選択した送信先で受け入れられるリクエストかどうかを確認できます。
+テンプレートをお好みに修正したら、正しく動作するかどうかを検証する必要があります。変換エディターで**Validate**を選択し、**Output**セクションにプレビューを生成して、選択した送信先に対してBrazeがマッピング済みリクエストを受け入れるかどうかを確認します。
 
-![Brazeデータ変換UIのスクリーンショット]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
+**Output**フィールドに表示されるオブジェクトに問題がなければ、**Activate**を選択して、データ変換エンドポイントがデータを受け入れる準備を整えます。
 
-「output」フィールドに表示されるオブジェクトに問題がなければ、**Activate**をクリックして、データ変換エンドポイントがデータを受け入れる準備を整えます。
-
-データ変換のWebhook URLは左側のサイドパネルにあります。これをコピーし、Oracle CrowdtwistのIntegration Hub内の設定に使用してください。
+データ変換のWebhook URLは変換の詳細パネルに表示されます。これをコピーし、Oracle CrowdtwistのIntegration Hub内の設定に使用してください。
 
 {% alert important %}
-Brazeデータ変換エンドポイントには、毎分1000リクエストのレート制限があります。このデータをBrazeで利用できるようにする速度を検討し、より高いデータ変換レート制限が必要な場合は、Brazeアカウントマネージャーにご相談ください。
+Brazeデータ変換エンドポイントには、毎分1,000リクエストのレート制限があります。このデータをBrazeで利用できるようにする速度を検討し、より高いデータ変換レート制限が必要な場合は、Brazeアカウントマネージャーにご相談ください。
 {% endalert %}
 
-データ変換は非常にダイナミックなツールであり、JavaScriptを理解し、REST APIドキュメントを参考にすれば、このドキュメントで説明されている以外の目的にも設計することができます。データ変換テンプレートの複雑な変更に関するサポートやトラブルシューティングについては、カスタマーサクセスマネージャーにご相談ください。
+データ変換は非常にダイナミックなツールであり、JavaScriptを理解し、REST APIドキュメントを参考にすれば、このドキュメントで説明されている以外の目的にも設計することができます。データ変換テンプレートの複雑な変更に関するサポートやトラブルシューティングについては、カスタマーサクセスマネージャーにご相談いただき、利用可能なガイダンスについてお問い合わせください。

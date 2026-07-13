@@ -1,5 +1,8 @@
 ---
 layout: default
+hide_toc: true
+hide_feedback: true
+hide_binary_feedback: false
 
 ---
 
@@ -12,8 +15,12 @@ layout: default
 {%- assign hide_bottom_nav = page.hide_bottom_nav -%}
 {%- assign hide_breadcrumb = page.hide_breadcrumb -%}
 {%- assign hide_feedback = page.hide_feedback -%}
+{%- assign hide_toc = page.hide_toc -%}
 {%- unless hide_nav -%}
 {%- assign hide_nav = layout.hide_nav -%}
+{%- endunless -%}
+{%- unless hide_toc -%}
+{%- assign hide_toc = layout.hide_toc -%}
 {%- endunless -%}
 
 {%- unless hide_bottom_nav -%}
@@ -39,7 +46,7 @@ layout: default
 <div class="col d-print-block " id="main_content" >
 
     <div id="featured_main">
-    <div id="content_start"></div>
+    <div id="content_start" tabindex="-1"></div>
     {%- unless hide_breadcrumb -%}
     <div id="breadcrumb">
     </div>
@@ -90,4 +97,13 @@ layout: default
     {%- endunless -%}
 
     {% include footer.html class="footer_dev" %}
+</div>
+<div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  <div class="gitedit_div" style="margin-top: 30px;padding-left: 5px;" aria-hidden="true"></div>
+  {%- unless hide_toc -%}
+  <div id="toc" ></div>
+  {%- endunless -%}
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
 </div>

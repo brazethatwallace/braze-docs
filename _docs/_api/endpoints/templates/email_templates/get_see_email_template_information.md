@@ -23,7 +23,7 @@ Templates built using the drag-and-drop editor for email are not accepted.
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `templates.email.info` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `templates.email.info` permission.
 
 ## Rate limit
 
@@ -33,8 +33,8 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) wi
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `email_template_id`  | Required | String | See [email template API identifier]({{site.baseurl}}/api/identifier_types/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | Required | String | See [email template API identifier]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 {% raw %}

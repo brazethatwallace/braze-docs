@@ -14,11 +14,17 @@ SDK 버전 6.0.0부터 Braze는 React Native Turbo 모듈을 사용하며, 이�
 iOS 앱이 `RCTAppDelegate`를 준수하고 이전 `AppDelegate` 설정을 따르는 경우, Turbo 모듈에서 이벤트를 구독할 때 발생할 수 있는 충돌을 방지하기 위해 [완전한 네이티브 설정](#reactnative_step-2-complete-native-setup)의 샘플을 검토하세요.
 {% endalert %}
 
+## React 및 React Native 버전 요구 사항 {#react-and-react-native-version-requirements}
+
+Braze는 React Native SDK가 지원하는 것 이상의 별도 최소 React 버전을 게시하지 않습니다. SDK를 통합하려면 React Native 버전 0.71 이상을 사용하세요. 지원되는 React Native 버전의 전체 목록은 [React Native SDK GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)를 참조하세요.
+
+React, React Native 또는 Braze SDK를 업그레이드할 때는 배포 전에 SDK [체인지로그](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md)에서 호환성을 깨뜨리는 변경 사항을 검토하세요.
+
 ## React Native SDK 통합하기 {#integrating-the-react-native-sdk}
 
 ### 필수 조건 {#prerequisites}
 
-SDK를 통합하려면 React Native 버전 0.71 이상이 필요합니다. 지원되는 버전의 전체 목록은 [React Native SDK GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)를 참조하세요.
+지원되는 React Native 버전 및 업그레이드 안내는 [React 및 React Native 버전 요구 사항](#react-and-react-native-version-requirements)을 참조하세요.
 
 ### 1단계: Braze 라이브러리 통합 {#step-1-integrate-the-braze-library}
 
@@ -61,31 +67,31 @@ npx expo install @braze/expo-plugin
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. API 키와 엔드포인트는 더 이상 여기에서 설정하지 않습니다. JavaScript에서 `Braze.initialize()`를 통해 런타임에 제공하세요. 구현 요구 사항에 따라 다음 선택적 구성 매개변수를 추가하세요:
 
-| 메서드                                        | 유형    | 설명                                                                                                                                              |
+| 메서드 | 유형 | 설명 |
 | --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enableBrazeIosPush`                          | boolean | iOS 전용. iOS에서 푸시 알림을 처리하기 위해 Braze를 사용할지 여부.                       |
-| `enableFirebaseCloudMessaging`                | boolean | Android 전용. 푸시 알림에 Firebase Cloud Messaging을 사용할지 여부.             |
-| `firebaseCloudMessagingSenderId`              | string  | Android 전용. Firebase Cloud Messaging 발신자 ID.                                    |
-| `sessionTimeout`                              | integer | 애플리케이션의 Braze 세션 타임아웃(초).                                                                                               |
-| `enableSdkAuthentication`                     | boolean | [SDK 인증](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능을 활성화할지 여부.      |
-| `logLevel`                                    | integer | 애플리케이션의 로그 레벨. 기본 로그 레벨은 8이며 최소한의 정보를 기록합니다. 디버깅을 위해 상세 로깅을 활성화하려면 로그 레벨 0을 사용하세요.    |
-| `minimumTriggerIntervalInSeconds`             | integer | 트리거 사이의 최소 시간 간격(초). 기본값은 30초입니다.                                                                           |
-| `enableAutomaticLocationCollection`           | boolean | 자동 위치 수집이 활성화되어 있는지 여부(사용자가 허용하는 경우).                                                                                  |
-| `enableGeofence`                              | boolean | 지오펜스가 활성화되어 있는지 여부.                                                                                                                           |
-| `enableAutomaticGeofenceRequests`             | boolean | 지오펜스 요청이 자동으로 이루어져야 하는지 여부.                                                                                                  |
-| `dismissModalOnOutsideTap`                    | boolean | iOS 전용. 사용자가 인앱 메시지 외부를 클릭할 때 모달 인앱 메시지가 해제되는지 여부.                                           |
-| `androidHandlePushDeepLinksAutomatically`     | boolean | Android 전용. Braze SDK가 푸시 딥링크를 자동으로 처리해야 하는지 여부.                                                                         |
-| `androidPushNotificationHtmlRenderingEnabled` | boolean | Android 전용. 푸시 알림의 텍스트 콘텐츠를 `android.text.Html.fromHtml`을 사용하여 HTML로 해석하고 렌더링할지 여부를 설정합니다.        |
-| `androidNotificationAccentColor`              | string  | Android 전용. Android 알림 강조 색상을 설정합니다.                                                                                                |
-| `androidNotificationLargeIcon`                | string  | Android 전용. Android 알림 큰 아이콘을 설정합니다.                                                                                                  |
-| `androidNotificationSmallIcon`                | string  | Android 전용. Android 알림 작은 아이콘을 설정합니다.                                                                                                  |
-| `iosRequestPushPermissionsAutomatically`      | boolean | iOS 전용. 앱 실행 시 사용자에게 푸시 권한을 자동으로 요청할지 여부.                                                          |
-| `enableBrazeIosRichPush`                      | boolean | iOS 전용. iOS에 리치 푸시 기능을 활성화할지 여부.                                                                                                  |
-| `enableBrazeIosPushStories`                   | boolean | iOS 전용. iOS용 Braze Push Stories를 활성화할지 여부.                                                                                                  |
-| `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS Push Stories에 사용되는 앱 그룹.                                                                                                       |
-| `iosUseUUIDAsDeviceId`                        | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부.                                                                                       |
-| `iosForwardUniversalLinks`                    | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `enableBrazeIosPush` | boolean | iOS 전용. iOS에서 푸시 알림을 처리하기 위해 Braze를 사용할지 여부. |
+| `enableFirebaseCloudMessaging` | boolean | Android 전용. 푸시 알림에 Firebase Cloud Messaging을 사용할지 여부. |
+| `firebaseCloudMessagingSenderId` | string | Android 전용. Firebase Cloud Messaging 발신자 ID. |
+| `sessionTimeout` | integer | 애플리케이션의 Braze 세션 타임아웃(초). |
+| `enableSdkAuthentication` | boolean | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능을 활성화할지 여부. |
+| `logLevel` | integer | 애플리케이션의 로그 레벨. 기본 로그 레벨은 8이며 최소한의 정보를 기록합니다. 디버깅을 위해 상세 로깅을 활성화하려면 로그 레벨 0을 사용하세요. |
+| `minimumTriggerIntervalInSeconds` | integer | 트리거 사이의 최소 시간 간격(초). 기본값은 30초입니다. |
+| `enableAutomaticLocationCollection` | boolean | 자동 위치 수집이 활성화되어 있는지 여부(사용자가 허용하는 경우). |
+| `enableGeofence` | boolean | 지오펜스가 활성화되어 있는지 여부. |
+| `enableAutomaticGeofenceRequests` | boolean | 지오펜스 요청이 자동으로 이루어져야 하는지 여부. |
+| `dismissModalOnOutsideTap` | boolean | iOS 전용. 사용자가 인앱 메시지 외부를 클릭할 때 모달 인앱 메시지가 해제되는지 여부. |
+| `androidHandlePushDeepLinksAutomatically` | boolean | Android 전용. Braze SDK가 푸시 딥링크를 자동으로 처리해야 하는지 여부. |
+| `androidPushNotificationHtmlRenderingEnabled` | boolean | Android 전용. 푸시 알림의 텍스트 콘텐츠를 `android.text.Html.fromHtml`을 사용하여 HTML로 해석하고 렌더링할지 여부를 설정합니다. |
+| `androidNotificationAccentColor` | string | Android 전용. Android 알림 강조 색상을 설정합니다. |
+| `androidNotificationLargeIcon` | string | Android 전용. Android 알림 큰 아이콘을 설정합니다. |
+| `androidNotificationSmallIcon` | string | Android 전용. Android 알림 작은 아이콘을 설정합니다. |
+| `iosRequestPushPermissionsAutomatically` | boolean | iOS 전용. 앱 실행 시 사용자에게 푸시 권한을 자동으로 요청할지 여부. |
+| `enableBrazeIosRichPush` | boolean | iOS 전용. iOS에 리치 푸시 기능을 활성화할지 여부. |
+| `enableBrazeIosPushStories` | boolean | iOS 전용. iOS용 Braze Push Stories를 활성화할지 여부. |
+| `iosPushStoryAppGroup` | string | iOS 전용. iOS Push Stories에 사용되는 앱 그룹. |
+| `iosUseUUIDAsDeviceId` | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부. |
+| `iosForwardUniversalLinks` | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
 
 다음 코드 스니펫은 `app.json` 구성 예시입니다:
 
@@ -417,34 +423,34 @@ npx expo install @braze/expo-plugin
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. 다음 구성 옵션을 제공할 수 있습니다:
 
-| 메서드                                        | 유형    | 설명                                                                                                                                              |
+| 메서드 | 유형 | 설명 |
 | --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `androidApiKey`                               | string  | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 Android 애플리케이션의 [API 키]({{site.baseurl}}/api/identifier_types/). |
-| `iosApiKey`                                   | string  | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 iOS 애플리케이션의 [API 키]({{site.baseurl}}/api/identifier_types/).     |
-| `baseUrl`                                     | string  | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 애플리케이션의 [SDK 엔드포인트]({{site.baseurl}}/api/basics/#endpoints).    |
-| `enableBrazeIosPush`                          | boolean | iOS 전용. iOS에서 푸시 알림을 처리하기 위해 Braze를 사용할지 여부. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다.                       |
-| `enableFirebaseCloudMessaging`                | boolean | Android 전용. 푸시 알림에 Firebase Cloud Messaging을 사용할지 여부. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다.             |
-| `firebaseCloudMessagingSenderId`              | string  | Android 전용. Firebase Cloud Messaging 발신자 ID. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다.                                    |
-| `sessionTimeout`                              | integer | 애플리케이션의 Braze 세션 타임아웃(초).                                                                                               |
-| `enableSdkAuthentication`                     | boolean | [SDK 인증](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능을 활성화할지 여부.      |
-| `logLevel`                                    | integer | 애플리케이션의 로그 레벨. 기본 로그 레벨은 8이며 최소한의 정보를 기록합니다. 디버깅을 위해 상세 로깅을 활성화하려면 로그 레벨 0을 사용하세요.    |
-| `minimumTriggerIntervalInSeconds`             | integer | 트리거 사이의 최소 시간 간격(초). 기본값은 30초입니다.                                                                           |
-| `enableAutomaticLocationCollection`           | boolean | 자동 위치 수집이 활성화되어 있는지 여부(사용자가 허용하는 경우).                                                                                  |
-| `enableGeofence`                              | boolean | 지오펜스가 활성화되어 있는지 여부.                                                                                                                           |
-| `enableAutomaticGeofenceRequests`             | boolean | 지오펜스 요청이 자동으로 이루어져야 하는지 여부.                                                                                                  |
-| `dismissModalOnOutsideTap`                    | boolean | iOS 전용. 사용자가 인앱 메시지 외부를 클릭할 때 모달 인앱 메시지가 해제되는지 여부.                                           |
-| `androidHandlePushDeepLinksAutomatically`     | boolean | Android 전용. Braze SDK가 푸시 딥링크를 자동으로 처리해야 하는지 여부.                                                                         |
-| `androidPushNotificationHtmlRenderingEnabled` | boolean | Android 전용. 푸시 알림의 텍스트 콘텐츠를 `android.text.Html.fromHtml`을 사용하여 HTML로 해석하고 렌더링할지 여부를 설정합니다.        |
-| `androidNotificationAccentColor`              | string  | Android 전용. Android 알림 강조 색상을 설정합니다.                                                                                                |
-| `androidNotificationLargeIcon`                | string  | Android 전용. Android 알림 큰 아이콘을 설정합니다.                                                                                                  |
-| `androidNotificationSmallIcon`                | string  | Android 전용. Android 알림 작은 아이콘을 설정합니다.                                                                                                  |
-| `iosRequestPushPermissionsAutomatically`      | boolean | iOS 전용. 앱 실행 시 사용자에게 푸시 권한을 자동으로 요청할지 여부.                                                          |
-| `enableBrazeIosRichPush`                      | boolean | iOS 전용. iOS에 리치 푸시 기능을 활성화할지 여부.                                                                                                  |
-| `enableBrazeIosPushStories`                   | boolean | iOS 전용. iOS용 Braze Push Stories를 활성화할지 여부.                                                                                                  |
-| `iosPushStoryAppGroup`                        | string  | iOS 전용. iOS Push Stories에 사용되는 앱 그룹.                                                                                                       |
-| `iosUseUUIDAsDeviceId`                        | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부.                                                                                       |
-| `iosForwardUniversalLinks`                    | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). 활성화되면 SDK는 [앱에서 유니버설 링크 지원](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/)에 정의된 시스템 메서드로 유니버설 링크를 자동으로 전달합니다. React Native SDK v11.1.0 및 Expo Plugin v3.2.0에서 도입되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `androidApiKey` | string | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 Android 애플리케이션의 [API 키]({{site.baseurl}}/api/identifier_types). |
+| `iosApiKey` | string | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 iOS 애플리케이션의 [API 키]({{site.baseurl}}/api/identifier_types). |
+| `baseUrl` | string | 필수. Braze 대시보드의 **설정 관리** 아래에 있는 애플리케이션의 [SDK 엔드포인트]({{site.baseurl}}/api/basics#endpoints). |
+| `enableBrazeIosPush` | boolean | iOS 전용. iOS에서 푸시 알림을 처리하기 위해 Braze를 사용할지 여부. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다. |
+| `enableFirebaseCloudMessaging` | boolean | Android 전용. 푸시 알림에 Firebase Cloud Messaging을 사용할지 여부. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다. |
+| `firebaseCloudMessagingSenderId` | string | Android 전용. Firebase Cloud Messaging 발신자 ID. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다. |
+| `sessionTimeout` | integer | 애플리케이션의 Braze 세션 타임아웃(초). |
+| `enableSdkAuthentication` | boolean | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능을 활성화할지 여부. |
+| `logLevel` | integer | 애플리케이션의 로그 레벨. 기본 로그 레벨은 8이며 최소한의 정보를 기록합니다. 디버깅을 위해 상세 로깅을 활성화하려면 로그 레벨 0을 사용하세요. |
+| `minimumTriggerIntervalInSeconds` | integer | 트리거 사이의 최소 시간 간격(초). 기본값은 30초입니다. |
+| `enableAutomaticLocationCollection` | boolean | 자동 위치 수집이 활성화되어 있는지 여부(사용자가 허용하는 경우). |
+| `enableGeofence` | boolean | 지오펜스가 활성화되어 있는지 여부. |
+| `enableAutomaticGeofenceRequests` | boolean | 지오펜스 요청이 자동으로 이루어져야 하는지 여부. |
+| `dismissModalOnOutsideTap` | boolean | iOS 전용. 사용자가 인앱 메시지 외부를 클릭할 때 모달 인앱 메시지가 해제되는지 여부. |
+| `androidHandlePushDeepLinksAutomatically` | boolean | Android 전용. Braze SDK가 푸시 딥링크를 자동으로 처리해야 하는지 여부. |
+| `androidPushNotificationHtmlRenderingEnabled` | boolean | Android 전용. 푸시 알림의 텍스트 콘텐츠를 `android.text.Html.fromHtml`을 사용하여 HTML로 해석하고 렌더링할지 여부를 설정합니다. |
+| `androidNotificationAccentColor` | string | Android 전용. Android 알림 강조 색상을 설정합니다. |
+| `androidNotificationLargeIcon` | string | Android 전용. Android 알림 큰 아이콘을 설정합니다. |
+| `androidNotificationSmallIcon` | string | Android 전용. Android 알림 작은 아이콘을 설정합니다. |
+| `iosRequestPushPermissionsAutomatically` | boolean | iOS 전용. 앱 실행 시 사용자에게 푸시 권한을 자동으로 요청할지 여부. |
+| `enableBrazeIosRichPush` | boolean | iOS 전용. iOS에 리치 푸시 기능을 활성화할지 여부. |
+| `enableBrazeIosPushStories` | boolean | iOS 전용. iOS용 Braze Push Stories를 활성화할지 여부. |
+| `iosPushStoryAppGroup` | string | iOS 전용. iOS Push Stories에 사용되는 앱 그룹. |
+| `iosUseUUIDAsDeviceId` | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부. |
+| `iosForwardUniversalLinks` | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). 활성화되면 SDK는 [앱에서 유니버설 링크 지원](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/)에 정의된 시스템 메서드로 유니버설 링크를 자동으로 전달합니다. React Native SDK v11.1.0 및 Expo Plugin v3.2.0에서 도입되었습니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
 
 다음 코드 스니펫은 `app.json` 구성 예시입니다:
 
@@ -550,7 +556,7 @@ npx expo prebuild
 
 #### 방법 2: React Native CLI 사용 {#method-2-using-react-native-cli}
 
-##### Android 설정 {#set-up-android-1}
+##### Android 설정
 
 **2.1단계: Kotlin Gradle 플러그인 추가**
 
@@ -570,7 +576,7 @@ buildscript {
 
 **2.2단계: Braze SDK 구성**
 
-Braze 서버에 연결하려면 프로젝트의 `res/values` 폴더에 `braze.xml` 파일을 만드세요. 다음 코드 스니펫은 `braze.xml` 구성 예시입니다. API [키]({{site.baseurl}}/api/identifier_types/) 및 [엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 실제 값으로 바꾸세요:
+Braze 서버에 연결하려면 프로젝트의 `res/values` 폴더에 `braze.xml` 파일을 만드세요. 다음 코드 스니펫은 `braze.xml` 구성 예시입니다. API [키]({{site.baseurl}}/api/identifier_types) 및 [엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 실제 값으로 바꾸세요:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -646,7 +652,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOS 설정 {#set-up-ios-1}
+##### iOS 설정
 
 **2.5단계: (선택 사항) 동적 XCFrameworks용 Podfile 구성**
 
@@ -685,7 +691,7 @@ import BrazeKit
 import braze_react_native_sdk
 ```
 
-`application(_:didFinishLaunchingWithOptions:)` 메서드에서 API [키]({{site.baseurl}}/api/identifier_types/) 및 [엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 앱의 값으로 바꾸세요. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 속성을 만들어 쉽게 액세스할 수 있도록 합니다.
+`application(_:didFinishLaunchingWithOptions:)` 메서드에서 API [키]({{site.baseurl}}/api/identifier_types) 및 [엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 앱의 값으로 바꾸세요. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 속성을 만들어 쉽게 액세스할 수 있도록 합니다.
 
 {% alert note %}
 이 예제는 React Native 설정에서 여러 추상화를 제공하는 [RCTAppDelegate](https://github.com/facebook/react-native/blob/e64756ae5bb5c0607a4d97a134620fafcb132b3b/packages/react-native/Libraries/AppDelegate/RCTAppDelegate.h)의 구현을 가정합니다. 앱에 다른 설정을 사용하는 경우 필요에 따라 구현을 조정하세요.
@@ -730,7 +736,7 @@ static var braze: Braze? = nil
 #import "BrazeReactBridge.h"
 ```
 
-`application:didFinishLaunchingWithOptions:` 메서드에서 API [키]({{site.baseurl}}/api/identifier_types/) 및 [엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 앱의 값으로 바꾸세요. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 속성을 만들어 쉽게 액세스할 수 있도록 합니다.
+`application:didFinishLaunchingWithOptions:` 메서드에서 API [키]({{site.baseurl}}/api/identifier_types) 및 [엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 앱의 값으로 바꾸세요. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 속성을 만들어 쉽게 액세스할 수 있도록 합니다.
 
 {% alert note %}
 이 예제는 React Native 설정에서 여러 추상화를 제공하는 [RCTAppDelegate](https://github.com/facebook/react-native/blob/e64756ae5bb5c0607a4d97a134620fafcb132b3b/packages/react-native/Libraries/AppDelegate/RCTAppDelegate.h)의 구현을 가정합니다. 앱에 다른 설정을 사용하는 경우 필요에 따라 구현을 조정하세요.
@@ -900,7 +906,7 @@ const App = () => {
   )
 ```
 
-Braze 대시보드에서 [사용자 검색]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/#using-user-search)으로 이동하여 `some-user-id`와 일치하는 ID를 가진 사용자를 찾으세요. 세션 및 기기 데이터가 기록되었는지 확인할 수 있습니다.
+Braze 대시보드에서 [사용자 검색]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search#using-user-search)으로 이동하여 `some-user-id`와 일치하는 ID를 가진 사용자를 찾으세요. 세션 및 기기 데이터가 기록되었는지 확인할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}
@@ -909,6 +915,6 @@ Braze 대시보드에서 [사용자 검색]({{site.baseurl}}/user_guide/engageme
 
 Braze SDK를 통합한 후 일반 메시징 기능을 구현할 수 있습니다:
 
-- [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/): 사용자에게 푸시 알림을 설정하고 전송하세요.
-- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages/): 앱 내에서 상황별 메시지를 표시하세요.
-- [배너]({{site.baseurl}}/developer_guide/banners/): 앱 인터페이스에 지속 배너를 표시하세요.
+- [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications): 사용자에게 푸시 알림을 설정하고 전송하세요.
+- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages): 앱 내에서 상황별 메시지를 표시하세요.
+- [배너]({{site.baseurl}}/developer_guide/banners): 앱 인터페이스에 지속 배너를 표시하세요.

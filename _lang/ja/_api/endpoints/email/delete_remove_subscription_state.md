@@ -1,44 +1,44 @@
 ---
-nav_title: "DELETE:メールアドレスまたは電話番号でサブスクリプション状態を削除"
-article_title: "DELETE:メールアドレスまたは電話番号でサブスクリプション状態を削除"
-search_tag: エンドポイント
+nav_title: "DELETE: メールアドレスまたは電話番号でサブスクリプション状態を削除"
+article_title: "DELETE: メールアドレスまたは電話番号でサブスクリプション状態を削除"
+search_tag: Endpoint
 page_order: 0
 hidden: true
 layout: api_page
 page_type: reference
-description: "この記事では、メールアドレスまたは電話番号のBrazeエンドポイントによるサブスクリプション状態の削除についての詳細を説明します。"
+description: "この記事では、メールアドレスまたは電話番号でサブスクリプション状態を削除するBrazeエンドポイントの詳細について説明します。"
 
 ---
 
 {% api %}
-# メールアドレスまたは電話番号でサブスクリプション状態を削除
+# メールアドレスまたは電話番号でサブスクリプション状態を削除 {#delete-subscription-state-by-email-address-or-phone-number}
 {% apimethod delete %}
 /users/subscription
 {% endapimethod %}
 
 > このエンドポイントを使用して、メールアドレスまたは電話番号に基づいてサブスクリプション状態の値を削除します。
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `email` | はい | 文字列 | ユーザーのメールアドレス （最低1個、最大50個のアドレスを含むこと）。 |
-| `phone` | はい | 文字列 | ユーザーの電話番号 （最低1個、最大50個の電話番号を含むこと）。これは、E.164 形式で指定することをお勧めします。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email` | はい | 文字列 | ユーザーのメールアドレス（最低1個、最大50個のアドレスを含める必要があります）。 |
+| `phone` | はい | 文字列 | ユーザーの電話番号（最低1個、最大50個の電話番号を含める必要があります）。E.164形式で指定することをお勧めします。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 ```http
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 {
   {phone: "+12125551212"},
-  {email: "dont.spam@me.com"},
+  {email: "dont.spam@example.com"},
   {phone: "+17185551212"}
 }
 ```
 
-## 応答
+## 応答 {#response}
 
 ```json
 {

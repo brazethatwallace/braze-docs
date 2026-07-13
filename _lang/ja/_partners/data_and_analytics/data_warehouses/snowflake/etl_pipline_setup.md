@@ -2,19 +2,19 @@
 nav_title: "ETLイベントパイプラインの設定"
 article_title: Snowflake ETLイベントパイプラインの設定
 page_order: 2
-description: "このパートナーページではメールクリッククエリの設定例を示します。これは、独自のクエリを設定するときに参照します。"
+description: "このパートナーページでは、独自のクエリを設定する際に参照できるメールクリッククエリの設定例を紹介します。"
 page_type: partner
 search_tag: Partner
 
 ---
 
-# ETLイベントパイプラインの設定
+# ETLイベントパイプラインの設定 {#etl-event-pipeline-setup}
 
-> このパートナーページではメールクリッククエリの設定例を示します。これは、独自のクエリを設定するときに参照します。
+> このパートナーページでは、独自のクエリを設定する際に参照できるメールクリッククエリの設定例を紹介します。
 
-このメールクリッククエリを使用して、Braze キャンペーンおよびキャンバス内の特定のメールでのインタラクションを分析できます。
+このメールクリッククエリを使用して、Braze キャンペーンおよびキャンバスの特定のメールに対するインタラクションを分析できます。
 
-## このクエリを設定する
+## このクエリを設定する {#set-up-this-query}
 
 `BRAZE` のデータベースを作成し、次に `BRAZE_CURRENTS;` のデータベースが存在しない場合はそのデータベースを作成します。
 
@@ -34,7 +34,7 @@ show stages;
 
 テーブルを作成するには、次のコマンドを使用します。
 
-```sql
+`````````sql
 CREATE TABLE
   braze_currents.public.users_messages_email_click (
     id STRING,
@@ -60,7 +60,7 @@ CREATE TABLE
 
 パイプを作成または置換するには、次のコマンドを使用します。
 
-```sql
+`````````sql
 CREATE OR REPLACE PIPE
   pipe_users_messages_email_click
     auto_ingest=true AS
@@ -94,26 +94,26 @@ COPY INTO
 show pipes;
 ```
 
-## このクエリの例を使用して、さらに実行します
+## このクエリの例を活用する {#do-more-with-this-query-example}
 
-前述のコマンドの出力から `notification_channel` をコピーし、S3 バケット通知を設定するときに使用します。
+前述のコマンドの出力から `notification_channel` をコピーし、S3バケット通知を設定する際に使用します。
 
-指定された以下のパイプ名について、S3 からSnowflake に手動で同期します。
-```sql
+指定された以下のパイプ名について、S3からSnowflakeに手動で同期します。
+`````````sql
 ALTER PIPE
   pipe_users_messages_email_click
   refresh ;
 ```
 
-S3 から Snowflake にメッセージが転送されたタイミングを示すパイプステータスを確認します。
-```sql
+パイプのステータスを確認します。これにより、S3からSnowflakeにメッセージが転送されたタイミングが表示されます。
+`````````sql
 SELECT
   SYSTEM$PIPE_STATUS(
     'pipe_users_messages_email_click'
   )
 ```
 
-最後に、以下から`*`を選択して、テーブルのコピー履歴を表示します。
-```sql
+最後に、以下から `*` を選択して、テーブルのコピー履歴を表示します。
+`````````sql
 table(braze_currents.information_schema.copy_history(table_name=>'users_messages_email_click', start_time=> dateadd(hours, -1, current_timestamp())));
 ```

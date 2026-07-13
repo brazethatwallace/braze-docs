@@ -24,6 +24,8 @@ description: "This reference article covers using nested custom attributes as a 
 - Periods (`.`) and dollar signs (`$`) aren't supported characters in an API payload if you're attempting to send a nested custom attribute to a user profile.
 - Not all Braze Partners support nested custom attributes. Refer to the [Partner documentation]({{site.baseurl}}/partners/home) to confirm if specific partner integrations support this feature.
 - Nested custom attributes cannot be used as a filter when making a Connected Audience API call.
+- By default, the **Nested Custom Attributes** segment filter includes object-type custom attributes, array-of-object attributes, and array-type custom attributes. When you select an attribute, the property schema selector includes array paths (using `[]` notation) for nested array fields. To hide top-level array custom attributes from that filter, contact [Braze Support]({{site.baseurl}}/braze_support).
+- When previewing messages in the dashboard using **Preview as a Custom User**, you can enter mock data only as a string or array of strings — nested objects are not supported. To preview a message that references nested custom attributes, select an existing user who already has the nested attribute on their profile. For nested custom event properties, you must launch a live campaign targeted to a test user to verify rendering.
 
 ## API example
 
@@ -105,7 +107,7 @@ To delete a custom attribute object, send a POST to `users/track` with the custo
 ```
 
 {% alert note %}
-This approach can't be used to delete a nested key inside an [array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+This approach can't be used to delete a nested key inside an [array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}
 
 {% endtab %}
@@ -263,15 +265,31 @@ Use the `custom_attribute` personalization tag and dot notation to access proper
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-![Using Liquid to template a song name and the number of times a listener has played that song into a message]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+To use nested custom attribute Liquid in your message:
+
+1. Go to a campaign or Canvas, then open the message step where you want to add personalization.
+2. In the message composer, insert the Liquid snippet where you want the value to appear.
+3. Use **Preview & Test** with an existing user who already has the nested custom attribute on their profile to confirm that the value renders as expected.
 
 ### Personalization
 
-Using the **Add Personalization** modal, you can also insert nested custom attributes into your messaging. Select **Nested Custom Attributes** as the personalization type. Next, select the top-level attribute and attribute key. 
+You can use **Add Personalization** to insert a nested custom attribute into your message.
 
-For example, in the personalization modal below, this inserts the nested custom attribute of a local neighborhood office based on a user's preferences.
+To open **Add Personalization**:
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Go to a campaign or Canvas, then open the message step where you want to add personalization.
+2. In the message composer, select **Personalization** to open the **Add Personalization** sidebar, where you can choose personalization options.
+
+To configure nested custom attribute personalization:
+
+1. In **Personalization Type**, select **Nested Custom Attributes**.
+2. In **Top Level Attribute**, select the nested custom attribute path you want to insert.  
+   For example, select `preferences.neighborhood_office`.
+3. Optional: In **Default value**, enter a fallback value for users who do not have their own value for that attribute.
+4. Review the generated **Liquid Snippet** to confirm it matches your expected path.
+5. Select **Insert**.
+
+For this example, Braze inserts the nested value for `preferences.neighborhood_office` into your message. Default values are fallbacks that your message includes for users who do not have their own value for an attribute.
 
 {% alert tip %}
 Check that a schema has been generated if you don't see the option to insert nested custom attributes.
@@ -279,16 +297,16 @@ Check that a schema has been generated if you don't see the option to insert nes
 
 ## Regenerate schemas {#regenerate-schema}
 
-After a schema has been generated, it can be regenerated once every 24 hours. This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+After a schema has been generated, you can regenerate it **once per calendar day** (based on your company's time zone). This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
 To regenerate the schema for your nested custom attribute:
 
 1. Go to **Data Settings** > **Custom Attributes**.
 2. Search for your nested custom attribute.
-3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> to manage the schema.
+3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> **Manage schema** to manage the schema.
 4. A modal will appear. Select **Regenerate Schema**.
 
-The option to regenerate schema will be disabled if it has been less than 24 hours since the schema was last regenerated. Regenerating the schema will only detect new objects and will not delete objects that currently exist in the schema.
+The **Regenerate Schema** action is limited to **once per calendar day** in your company's time zone. You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.
 
 {% alert important %}
 To reset the schema for an object array with an existing object, you need to create a new custom attribute. Schema regeneration doesn't delete existing objects.
@@ -302,7 +320,36 @@ You can trigger when a nested custom attribute object changes. This option isn't
 
 For example, in an action-based campaign, you can add a new trigger action for **Change Custom Attribute Value** to target users who have changed their neighborhood office preferences.
 
-![Action-based campaign delivery settings with a Change Custom Attribute Value trigger for nested preferences.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+To configure this trigger in an action-based campaign:
+
+1. Create or edit a campaign, then set the delivery type to **Action-Based Delivery**.
+2. In the trigger settings, select **Change Custom Attribute Value**.
+3. Select the nested custom attribute path you want to monitor.  
+   For example, select `preferences.neighborhood_office`.
+4. Select the trigger condition you want, such as **any new value**.
+5. Finish configuring your campaign message and audience, then launch the campaign.
+
+## Troubleshooting
+
+### Nested custom attribute values not applied consistently
+
+If you notice that nested custom attribute values are not being added to user profiles consistently, the issue is often related to data type mismatches.
+
+To diagnose and resolve this issue:
+
+1. **Compare user examples:** Get one successful and one unsuccessful user example where the nested custom attribute should have been set.
+2. **Review the data structure:** View and compare the custom attribute values on both profiles:
+   - Are the properties stored under an object?
+   - Are the properties stored as an array of properties?
+3. **Check the segmentation filter:** Compare the stored data structure against how the nested custom attribute is referenced in your segmentation filters.
+4. **Verify the data type:** To identify the data type of a custom attribute:
+   - Go to **Data Settings** > **Custom Attributes**.
+   - Search for the top-level custom attribute that contains the nested attribute you want to verify.
+   - If the row shows **Generate Schema**, select it to generate the schema first.
+   - After the schema is generated, select the plus icon in the **Attribute Name** column for that attribute.
+   - In the **Edit schema** modal, review the nested attributes and their corresponding values in the **Data type** column.
+
+If you find that the data type does not match the intended format across user profiles, remove the incorrectly formatted value from the affected user profiles and resend the attribute in the correct format using the appropriate API request or SDK method.
 
 ## Segmentation behavior with arrays of objects
 
@@ -326,7 +373,7 @@ A segment with the following AND filters:
 
 This user would qualify because the first filter matches the "Shoes" item (80 > 50) and the second filter matches the "Hat" item (25 < 30). Even though no single item satisfies both conditions, the user still enters the segment.
 
-If you need all conditions to match the same item within an array, use [multi-criteria segmentation](#multi-criteria-segmentation) on the same path, or restructure your data to avoid cross-item matching.
+If you need all conditions to match the same item within an array, use [multi-criteria segmentation]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) on the same path, or restructure your data to avoid cross-item matching.
 
 ## Data points
 
@@ -356,4 +403,3 @@ Any key that is sent consumes a data point. For example, this object initialized
 {% alert note %}
 Updating a custom attribute object to `null` also consumes a data point.
 {% endalert %}
-

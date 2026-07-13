@@ -11,24 +11,24 @@ description: "Este artigo descreve detalhes sobre o endpoint Criar nova conta de
 ---
 
 {% api %}
-# Criar nova conta de usuário do dashboard
+# Criar nova conta de usuário do dashboard {#create-new-dashboard-user-account}
 {% apimethod post %}
 /scim/v2/Users
 {% endapimethod %}
 
-> Use esse ponto de extremidade para criar uma nova conta de usuário do dashboard especificando e-mail, nome e sobrenome, permissões (para definir permissões no nível da empresa, do espaço de trabalho e da equipe).
+> Use esse endpoint para criar uma nova conta de usuário do dashboard especificando e-mail, nome e sobrenome, permissões (para definir permissões no nível da empresa, do espaço de trabalho e da equipe).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem de seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para usar esse endpoint, você precisará de um token SCIM. Você usará a origin do seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='create dashboard user' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 ```
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
@@ -37,7 +37,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 ```
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -77,18 +77,18 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `schemas` | Obrigatória | Array de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
-| `userName` | Obrigatória | String | O endereço de e-mail do usuário. |
-| `name` | Obrigatória | Objeto JSON | Esse objeto contém o nome de batismo e o sobrenome do usuário. |
-| `department` | Obrigatória | String | String de departamento válido da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Opcional | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `schemas` | Obrigatório | Array de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
+| `userName` | Obrigatório | String | O endereço de e-mail do usuário. |
+| `name` | Obrigatório | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
+| `department` | Obrigatório | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Opcional | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Content-Type: application/json' \
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Authorization: Bearer YOUR-SCIM–TOKEN-HERE' \
 --data raw '{
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -128,12 +128,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 }'
 ```
 
-## Resposta
+## Resposta {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -205,22 +205,22 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 }
 ```
 
-## Parâmetros de resposta
+## Parâmetros de resposta {#response-parameters}
 
 | Parâmetro | Tipo de dados | Descrição |
 | --------- | --------- | ----------- |
 | `schemas` | Array de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
 | `userName` | String | O endereço de e-mail do usuário. |
 | `name` | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
-| `department` | String | String de departamento válido da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
-| `id` | String | ID gerado pelo Braze que é usado para pesquisar e gerenciar contas de usuário. |
+| `department` | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `id` | String | ID gerado pela Braze usado para pesquisar e gerenciar contas de usuário. |
 | `lastSignInAt` | String | Data do último login bem-sucedido, em UTC. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
-### Estados de erro
+### Estados de erro {#error-states}
 
-Se um usuário com esse `userName` ou endereço de e-mail já existir no Braze, o endpoint responderá com:
+Se um usuário com esse `userName` ou endereço de e-mail já existir na Braze, o endpoint responderá com:
 
 ```http
 HTTP/1.1 409 Conflict

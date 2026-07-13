@@ -1,154 +1,118 @@
-## Verwendung von In-App-Nachrichten-Editor-Blöcken {#using-in-app-message-editor-blocks}
+## Editor-Blöcke für In-App-Nachrichten {#in-app-message-editor-blocks}
 
-Die Editor-Blöcke befinden sich im Abschnitt **Build** für In-App-Nachrichten. Um sie zu verwenden, ziehen Sie einen Editor-Block in eine Spalte. Er passt sich automatisch an die Spaltenbreite an. Jeder Editor-Block hat eigene Einstellungen, wie z. B. eine granulare Steuerung des Paddings. Das rechte Panel wechselt automatisch in ein Eigenschafts-Panel für das ausgewählte Inhaltselement.
+Editor-Blöcke befinden sich im Abschnitt **Build** für In-App-Nachrichten. Ziehen Sie einen Block in eine Spalte – er passt sich automatisch an die Spaltenbreite an. Wählen Sie einen Block aus, um seine Einstellungen im rechten Panel zu bearbeiten.
 
-## Typen {#types}
-
-Die folgende Tabelle zeigt, wie Sie die einzelnen Editor-Block-Typen verwenden können.
-
-| Name | Beschreibung |
-| --- | --- |
-| Titel | Fügt einen Titeltext in die Nachricht ein. |
-| Absatz | Fügt einen Absatztext in die Nachricht ein. |
-| Button | Fügt einen Standard-Button hinzu. Die Eigenschaften dieses Blocks ermöglichen das Bearbeiten, Einrichten von Links und das Protokollieren von Analytics. |
-| Radio-Button | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Bei der Übermittlung protokolliert das Nutzerprofil das zugehörige angepasste Attribut, das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert. |
-| Bild | Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ein. |
-| Link | Fügt einen Hyperlink ein, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
-| Spacer | Fügt Leerraum oder Padding zwischen anderen Blöcken hinzu. |
-| Angepasster Code | Fügt angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen ein und führt es aus. |
-| Telefonerfassung | Fügt ein Formularfeld für Telefonnummern ein. Nach der Übermittlung wird der/die Nutzer:in in die [SMS-]({{site.baseurl}}/sms_rcs_subscription_groups/) oder [WhatsApp-Abo-Gruppe]({{site.baseurl}}/whatsapp_subscription_groups/) aufgenommen. |
-| E-Mail-Erfassung | Fügt ein Formularfeld für E-Mail-Adressen ein. Nach der Übermittlung wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt. |
-| Kurztext    | Fügt ein Formularfeld ein, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
-| Dropdown      | Fügt ein Dropdown-Menü mit einer vordefinierten Liste von Elementen ein, aus der Nutzer:innen eines auswählen können. Sie können der Liste beliebige angepasste Attribut-Strings hinzufügen. |
-| Kontrollkästchen      | Fügt ein Kontrollkästchen ein. Wenn der/die Nutzer:in das Kästchen markiert, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht markiert ist, wird sein Attribut auf `false` gesetzt. |
-| Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren vorgegebenen Optionen auswählen. Die Werte werden entweder festgelegt oder zu einem definierten angepassten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-## Eigenschaften {#properties}
-
-Einzelheiten zu den Eigenschaften der einzelnen Editor-Blöcke finden Sie in den folgenden Tabellen.
+Weitere Informationen zum Erstellen von In-App-Nachrichten im **Drag-and-Drop-Editor** finden Sie unter [In-App-Nachricht per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
 
 ### Titel und Absatz {#title-and-paragraph}
 
-| Eigenschaft | Beschreibung |
-| --- | --- |
-| Schriftfamilie | Der Schriftstil für den Text |
-| Schriftschnitt | Bestimmt die Stärke des Textes |
-| Schriftgröße | Bestimmt die Größe des Textes |
-| Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen |
-| Buchstabenabstand | Ändert den Abstand zwischen den einzelnen Zeichen |
-| Textausrichtung | Richtet den Text linksbündig, zentriert, rechtsbündig oder im Blocksatz aus |
-| Textfarbe | Ändert die Farbe des Textes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Fügt Titel- oder Absatztext in die Nachricht ein.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
 ### Button
 
-| Eigenschaft | Beschreibung |
-| --- | --- |
-| Button-Breite | Ändert die Breite des Buttons auf automatisch oder manuell |
-| Schriftfamilie | Der Schriftstil für den Text |
-| Schriftschnitt | Bestimmt die Stärke des Textes |
-| Schriftgröße | Bestimmt die Größe des Textes |
-| Buchstabenabstand | Ändert den Abstand zwischen den einzelnen Zeichen |
-| Button-Ausrichtung | Richtet den Button linksbündig, zentriert oder rechtsbündig aus |
-| Button-Textfarbe | Ändert die Farbe des Textes auf dem Button |
-| Hintergrundfarbe | Ändert die Farbe des Button-Hintergrunds |
-| Rahmenstil | Legt den Stil des Button-Rahmens fest |
-| Rahmenradius | Bestimmt, wie rund die Ecken sein sollen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Fügt einen Standard-Button mit konfigurierbarem Styling, Links und Analytics hinzu.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
+
+#### On-Click-Verhalten {#on-click-behavior}
+
+{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
+
+### Radio-Button
+
+Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Bei der Übermittlung protokolliert das Nutzerprofil das zugehörige [angepasste Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), das ein String sein muss, um gespeichert zu werden. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
 ### Bild {#image}
 
+Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ein.
+
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| Eigenschaft | Beschreibung |
-| --- | --- |
-| URL | Die gehostete Adresse für das Bild |
-| Ausrichtung | Richtet das Bild linksbündig, zentriert oder rechtsbündig aus |
-| Hintergrundfarbe | Ändert die Farbe des Bild-Hintergrunds |
-| Rahmenstil | Legt den Stil des Bild-Rahmens fest |
-| Rahmenradius | Bestimmt, wie rund die Ecken des Bildes sein sollen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
+
+Informationen zu Bildspezifikationen finden Sie in unseren [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#in-app-messages).
+
+#### On-Click-Verhalten
+
+{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
 ### Link
 
-| Eigenschaft | Beschreibung |
-| --- | --- |
-| Schriftfamilie | Der Schriftstil für den Text |
-| Schriftschnitt | Bestimmt die Stärke des Textes |
-| Buchstabenabstand | Ändert den Abstand zwischen den einzelnen Zeichen |
-| Textfarbe | Ändert die Farbe des Textes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Fügt einen Hyperlink ein, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
+
+#### On-Click-Verhalten
+
+{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
 ### Spacer
 
-| Eigenschaft | Beschreibung |
-| --- | --- |
-| Hintergrundfarbe | Ändert die Hintergrundfarbe des Spacers |
-| Höhe | Ändert die Höhe des Spacers. Sie können dies auch über die Ziehpunkte am Spacer ändern. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Fügt Leerraum oder Padding zwischen anderen Blöcken hinzu.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
 
 ### Angepasster Code {#custom-code}
+
+Fügt angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen ein.
 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Angepasster Code | Ermöglicht es Ihnen, HTML, CSS und JavaScript für eine In-App-Nachricht hinzuzufügen, zu bearbeiten oder zu löschen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasster Code" }
 
 ### Telefonerfassung {#phone-capture}
 
-| Eigenschaft | Beschreibung |
-| --- | --- |
-| Abo-Gruppe | Die [SMS-]({{site.baseurl}}/sms_rcs_subscription_groups/) oder [WhatsApp-Abo-Gruppe]({{site.baseurl}}/whatsapp_subscription_groups/), die Nutzer:innen durch Angabe ihrer Telefonnummer abonnieren, mit der Option, Nummern aus allen Ländern zu erfassen |
-| Textausrichtung | Richtet den Text linksbündig, zentriert, rechtsbündig oder im Blocksatz aus |
-| Platzhaltertext | Eine Platzhalter-Telefonnummer zur Anzeige |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Fügt ein Formularfeld für Telefonnummern ein. Nach der Übermittlung wird der/die Nutzer:in in die [SMS-]({{site.baseurl}}/sms_rcs_subscription_groups/) oder [WhatsApp-Abo-Gruppe]({{site.baseurl}}/whatsapp_subscription_groups/) aufgenommen.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
 ### E-Mail-Erfassung {#email-capture}
 
-| Eigenschaft | Beschreibung |
-| --- | --- |
-| Schriftfamilie | Der Schriftstil für den Text |
-| Schriftschnitt | Bestimmt die Stärke des Textes |
-| Schriftgröße | Bestimmt die Größe des Textes |
-| Zeilenhöhe | Ändert den Abstand zwischen den Textzeilen |
-| Textfarbe | Ändert die Farbe des Textes |
-| Buchstabenabstand | Ändert den Abstand zwischen den einzelnen Zeichen |
-| Textausrichtung | Richtet den Text linksbündig, zentriert, rechtsbündig oder im Blocksatz aus |
-| Platzhaltertext | Eine Platzhalter-E-Mail-Adresse zur Anzeige |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Fügt ein Formularfeld für E-Mail-Adressen ein. Nach der Übermittlung wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt.
 
-## Aktionen {#actions}
+{% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
-Sie können eine Aktion zuweisen, die ausgeführt wird, wenn Nutzer:innen auf einen Button, einen Link oder ein Bild in der Nachricht tippen. Sie können auch [Liquid]({{site.baseurl}}/liquid/) verwenden, um die Aktionen zu personalisieren. Einzelheiten zu den Aktionen der einzelnen Editor-Blöcke finden Sie in den folgenden Tabellen.
+### Kurztext {#short-text}
 
-### Button
+Fügt ein Formularfeld ein, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt.
 
-| Aktion | Beschreibung |
-| --- | --- |
-| Formular absenden, wenn auf den Button geklickt wird | Sendet das Formular ab und führt das ausgewählte Klickverhalten aus. Deaktivieren Sie diese Option, um nur das Klickverhalten auszuführen. |
-| Separate Verhaltensweisen für jede Plattform festlegen | Passt das Verhalten des Buttons für jede Plattform separat an. |
-| On-Click-Verhalten | Legt die Aktion fest, die ausgeführt wird, wenn Nutzer:innen auf den Button klicken, z. B. das Schließen der Nachricht, das Öffnen der Web-URL, das Deeplinking zu einer bestimmten Seite der App, das Wechseln zu einer anderen Seite oder [die Anfrage einer Push-Berechtigung]({{site.baseurl}}/push_primer/). |
-| Angepasste Attribute oder Ereignisse protokollieren | Legt fest, ob ein Klick auf den Button das Nutzerprofil mit angepassten Daten aktualisiert. Sie können auch den Bezeichner für die Berichterstattung auswählen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/short_text_properties.md %}
 
-### Bild
+### Dropdown
 
-Informationen zu Bildspezifikationen finden Sie in unseren [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages).
+Fügt ein Dropdown-Menü mit einer vordefinierten Liste von Elementen ein, aus der Nutzer:innen eines auswählen können. Sie können der Liste beliebige angepasste Attribut-Strings hinzufügen.
 
-| Aktion | Beschreibung |
-| --- | --- |
-| Alt-Text | Der Text, der anstelle eines Bildes erscheint, wenn das Bild nicht geladen werden kann. Screenreader lesen den Alt-Text vor, um Bilder zu erklären. Verwenden Sie daher einfache Sprache, um wichtige Informationen über ein Bild bereitzustellen. |
-| Formular bei Klick auf Bild absenden | Sendet das Formular ab und führt das ausgewählte Klickverhalten aus. Deaktivieren Sie diese Option, um nur das Klickverhalten auszuführen. |
-| Separate Verhaltensweisen für jede Plattform festlegen | Passt das Verhalten des Bildes für jede Plattform separat an. |
-| On-Click-Verhalten | Legt die Aktion fest, die ausgeführt wird, wenn Nutzer:innen auf das Bild klicken, z. B. das Schließen der Nachricht, das Öffnen der Web-URL, das Deeplinking zu einer bestimmten Seite der App, das Wechseln zu einer anderen Seite oder [die Anfrage einer Push-Berechtigung]({{site.baseurl}}/push_primer/). |
-| Angepasste Attribute oder Ereignisse protokollieren | Legt fest, ob ein Klick auf das Bild das Nutzerprofil mit angepassten Daten aktualisiert. Sie können auch den Bezeichner für die Berichterstattung auswählen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/dropdown_properties.md %}
 
-### Link
+### Kontrollkästchen {#checkbox}
 
-| Aktion | Beschreibung |
-| --- | --- |
-| URL | Der Hyperlink, zu dem navigiert wird |
-| Bezeichner für Berichterstattung | Legt fest, welcher Bezeichner für die Berichterstattung verwendet wird |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Fügt ein Kontrollkästchen ein. Wenn der/die Nutzer:in das Kästchen markiert, wird das [angepasste boolesche Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) des Blocks auf `true` gesetzt. Wenn es nicht markiert ist, wird das Attribut auf `false` gesetzt.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
+
+### Kontrollkästchen-Gruppe {#checkbox-group}
+
+Nutzer:innen können aus mehreren vorgegebenen Optionen auswählen. Die Werte werden festgelegt oder zu einem definierten [angepassten Array-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) hinzugefügt.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
+
+### Langtext {#long-text}
+
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) oder Ihren Customer-Success-Manager.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
+
+<!-- Saved row is not yet released. Uncomment when available.
+### Saved row
+
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+-->
+
+## Wissenswertes {#things-to-know}
+
+- **Video:** Der Standard-Composer enthält keinen dedizierten Video-Block. Verwenden Sie **Angepasster Code**, um bei Bedarf einen Player einzubetten. Weitere Informationen finden Sie unter [In-App-Nachrichten: Häufig gestellte Fragen]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).

@@ -1,20 +1,20 @@
 ---
 nav_title: デフォルト値の設定
-article_title: Liquid のデフォルト値の設定
+article_title: Liquidのデフォルト値の設定
 page_order: 5
 description: "この参照記事では、メッセージで使用するパーソナライゼーション属性にデフォルトのフォールバック値を設定する方法について説明します。"
 
 ---
 
-# デフォルト値の設定
-
-{% raw %}
+# デフォルト値の設定 {#set-default-values}
 
 > メッセージで使用するすべてのパーソナライゼーション属性に、デフォルトのフォールバック値を設定できます。この記事では、デフォルト値の仕組み、設定方法、およびメッセージでの使用方法について説明します。
 
-## 仕組み
+{% raw %}
 
-デフォルト値は、"default" という名前の [Liquid フィルター](http://docs.shopify.com/themes/liquid-documentation/filters)を指定することで追加できます（以下に示すように、`|` を使用してフィルターをインラインで区別します）。
+## 仕組み {#how-they-work}
+
+デフォルト値は、"default" という名前の [Liquidフィルター](http://docs.shopify.com/themes/liquid-documentation/filters)を指定することで追加できます（以下に示すように、`|` を使用してフィルターをインラインで区別します）。
 
 ```
 | default: 'Insert Your Desired Default Here'
@@ -45,11 +45,11 @@ Hi Valued User, thanks for using the App!
 デフォルト値は空の値（empty）に対して表示されますが、ブランクの値（blank）に対しては表示されません。空の値は何も含まれていませんが、ブランクの値にはスペースなどの空白文字のみが含まれ、その他の文字は含まれていません。たとえば、空の文字列は `""` のようになり、ブランクの文字列は `" "` のようになります。
 {% endalert %}
 
-## さまざまなデータタイプのデフォルト値の設定
+## さまざまなデータタイプのデフォルト値の設定 {#setting-default-values-for-different-data-types}
 
-上記の例は、文字列のデフォルト値を設定する方法を示しています。`empty`、`nil`（未定義）、または `false` の値を持つ任意の Liquid データタイプに対してデフォルト値を設定できます。これには文字列、ブール値、配列、オブジェクト、数値が含まれます。
+前のセクションの例は、文字列のデフォルト値を設定する方法を示しています。`empty`、`nil`（未定義）、または `false` の値を持つ任意のLiquidデータタイプに対してデフォルト値を設定できます。これには文字列、ブール値、配列、オブジェクト、数値が含まれます。
 
-### ユースケース: ブール値
+### ユースケース：ブール値 {#use-case-booleans}
 
 `premium_user` というブール値のカスタム属性があり、ユーザーのプレミアムステータスに基づいてパーソナライズされたメッセージを送信したいとします。一部のユーザーにはプレミアムステータスが設定されていないため、それらのユーザーを捕捉するためにデフォルト値を設定する必要があります。
 
@@ -78,7 +78,7 @@ Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for
 ```
 {% endraw %}
 
-{% details 完全な Liquid コード %}
+{% details 完全なLiquidコード %}
 {% raw %}
 ```liquid
 {% assign is_premium_user = {{custom_attribute.${premium_user}}} | default: false %}
@@ -91,7 +91,7 @@ Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for
 {% endraw %}
 {% enddetails %}
 
-### ユースケース: 数値
+### ユースケース：数値 {#use-case-numbers}
 
 `reward_points` という数値のカスタム属性があり、ユーザーの報酬ポイントを含むメッセージを送信したいとします。一部のユーザーには報酬ポイントが設定されていないため、それらのユーザーに対応するデフォルト値を設定する必要があります。
 
@@ -112,9 +112,9 @@ Hi {{${first_name} | default: 'valued user'}}, you have {{custom_attribute.${rew
 ```
 {% endraw %}
 
-### ユースケース: オブジェクト
+### ユースケース：オブジェクト {#use-case-objects}
 
-`city` と `state` のプロパティを含む `location` という階層化カスタム属性オブジェクトがあるとします。これらのプロパティのいずれかが設定されていない場合、ユーザーに提供を促したいとします。
+`city` と `state` のプロパティを含む `location` というネストされたカスタム属性オブジェクトがあるとします。これらのプロパティのいずれかが設定されていない場合、ユーザーに提供を促したいとします。
 
 1. ユーザーの名で呼びかけ、名前がない場合のデフォルト値を含めます。
 
@@ -144,7 +144,7 @@ State: {{custom_attribute.${address.state} | default: 'Unknown'}}
 ```
 {% endraw %}
 
-{% details 完全な Liquid コード %}
+{% details 完全なLiquidコード %}
 {% raw %}
 ```liquid
 Hi {{${first_name} | default: 'valued user'}}
@@ -158,7 +158,7 @@ State: {{custom_attribute.${address.state} | default: 'Unknown'}}
 {% endraw %}
 {% enddetails %}
 
-### ユースケース: 配列
+### ユースケース：配列 {#use-case-arrays}
 
 `upcoming_trips` という配列のカスタム属性があり、`destination` と `departure_date` のプロパティを持つ旅行が含まれているとします。旅行がスケジュールされているかどうかに基づいて、ユーザーにパーソナライズされたメッセージを送信したいとします。
 
@@ -191,7 +191,7 @@ Hello {{${first_name} | default: 'fellow traveler'}},
 ```
 {% endraw %}
 
-{% details 完全な Liquid コード %}
+{% details 完全なLiquidコード %}
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${upcoming_trips}}} == blank %}

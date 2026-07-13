@@ -11,12 +11,12 @@ description: "This article outlines the details about the Blacklist emails Braze
 ---
 {% api %}
 # Blacklist emails
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
 {% alert important %}
-Braze has released the [`/email/blocklist` endpoint]({{site.baseurl}}/api/endpoints/email/post_blocklist/) with the same functionality as the `/email/blacklist` endpoint. We recommend you use the `/email/blocklist` endpoint instead.
+Braze has released the [`/email/blocklist` endpoint]({{site.baseurl}}/api/endpoints/email/post_blocklist) with the same functionality as the `/email/blacklist` endpoint. We recommend you use the `/email/blocklist` endpoint instead.
 {% endalert %}
 
 > Use this endpoint to unsubscribe a user from email and mark them as hard bounced.
@@ -25,7 +25,7 @@ Braze has released the [`/email/blocklist` endpoint]({{site.baseurl}}/api/endpoi
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `email.blacklist` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `email.blacklist` permission.
 
 ## Rate limit
 
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parameter | Required | Data Type | Description |
 | -----------|----------| --------|------- |
 | `email` | Required | String or array | String email address to blacklist, or an array of up to 50 email addresses to blacklist. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

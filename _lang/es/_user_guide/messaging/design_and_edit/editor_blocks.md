@@ -1,18 +1,24 @@
 ---
 nav_title: Bloques de editor
-article_title: Bloques de editor
+article_title: Bloques de editor de arrastrar y soltar
 alias: "/dnd/editor_blocks/"
 channel:
 - email
 - in-app messages
+- landing pages
+- banners
+- preference center
 page_order: 3
-description: "Este artículo de referencia cubre los diferentes bloques de editor que se proporcionan en el editor de arrastrar y soltar para correo electrónico y mensajes dentro de la aplicación."
+page_type: reference
+description: "Este artículo de referencia cubre los bloques de editor en el editor de arrastrar y soltar para correo electrónico, mensajes dentro de la aplicación, páginas de inicio, Banners y centros de preferencias de correo electrónico de arrastrar y soltar."
 tool: Media
 ---
 
-# Bloques del editor de arrastrar y soltar
+# Bloques de editor de arrastrar y soltar {#drag-and-drop-editor-blocks}
 
-> Los bloques de editor son los distintos bloques disponibles en el **editor de arrastrar y soltar**. Este artículo de referencia incluye una serie de mosaicos que representan los diferentes tipos de contenido que puedes usar en tus mensajes.
+> Los bloques de editor son las piezas que arrastras a las filas y columnas en el editor de arrastrar y soltar.
+
+Selecciona el editor que estás usando:
 
 {% sdktabs %}
 
@@ -22,6 +28,18 @@ tool: Media
 
 {% sdktab in-app messages %}
 {% multi_lang_include drag_and_drop/iam_editor_blocks.md %}
+{% endsdktab %}
+
+{% sdktab landing pages %}
+{% multi_lang_include drag_and_drop/landing_page_editor_blocks.md %}
+{% endsdktab %}
+
+{% sdktab banners %}
+{% multi_lang_include drag_and_drop/banner_editor_blocks.md %}
+{% endsdktab %}
+
+{% sdktab preference center %}
+{% multi_lang_include drag_and_drop/preference_center_editor_blocks.md %}
 {% endsdktab %}
 
 {% endsdktabs %}

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AccuWeather
 
-> [AccuWeather](https://www.accuweather.com/) est une société de médias qui fournit des services de prévisions météorologiques dans le monde entier. Avec AccuWeather, vous pouvez enrichir et personnaliser vos campagnes marketing, ainsi qu'automatiser les traductions grâce au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) de Braze.
+> [AccuWeather](https://www.accuweather.com/) est une société de médias qui fournit des services de prévisions météorologiques dans le monde entier. Avec AccuWeather, vous pouvez enrichir et personnaliser vos campagnes marketing, ainsi qu'automatiser les traductions grâce au [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
 
 _Cette intégration est maintenue par AccuWeather._
 
@@ -19,7 +19,7 @@ _Cette intégration est maintenue par AccuWeather._
 | Condition | Description |
 |---|---|
 | Clé API AccuWeather | Contactez votre gestionnaire de compte AccuWeather pour obtenir des clés API compatibles à utiliser dans les URL de vos requêtes.<br><br>Vous trouverez des instructions supplémentaires sur la page [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## API AccuWeather disponibles {#available-accuweather-apis}
 
@@ -36,11 +36,11 @@ Voici les API AccuWeather que vous pouvez référencer dans vos Campaigns et Can
 | [Imagerie](https://apidev.accuweather.com/developers/imageryAPIguide) | Obtenez des images radar et satellites. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Obtenez la position actuelle, les positions passées et les prévisions des cyclones tropicaux dans le monde entier. |
 | [Traductions](https://apidev.accuweather.com/developers/translationsApiGuide) | Consultez la liste des langues disponibles. Obtenez des traductions pour des groupes de phrases spécifiques. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API AccuWeather disponibles" }
 
-## Exemple de Contenu connecté {#connected-content-example}
+## Exemple de contenu connecté {#connected-content-example}
 
-L'exemple suivant montre un appel de Contenu connecté affichant deux types de messages différents en fonction des conditions actuelles du code postal d'un utilisateur aux États-Unis. Les endpoints de l'API des localisations et des conditions actuelles d'AccuWeather sont utilisés.
+L'exemple suivant montre un appel de contenu connecté affichant deux types de messages différents en fonction des conditions actuelles du code postal d'un utilisateur aux États-Unis. Les endpoints de l'API des localisations et des conditions actuelles d'AccuWeather sont utilisés.
 {% raw %}
 
 ```liquid
@@ -58,16 +58,16 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-![Un message push de Contenu connecté indiquant « It's raining! Grab an Umbrella! » affiché sur un appareil Android]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
+![Un message push de contenu connecté indiquant « It's raining! Grab an Umbrella! » affiché sur un appareil Android]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
 
-Vous trouverez le détail des deux appels de Contenu connecté dans les exemples suivants.
+Vous trouverez le détail des deux appels de contenu connecté dans les exemples suivants.
 
 {% tabs %}
 {% tab Locations %}
-#### Exemple d'API de localisation {#locations-api-example}
+### Exemple d'API de localisation {#locations-api-example}
 
 {% raw %}
-Dans la première balise `connected_content`, une requête GET est envoyée à l'[API des localisations](https://apidev.accuweather.com/developers/locationsAPIguide). Pour cet exemple, vous pouvez également utiliser le `{{${city}}}` de l'utilisateur si vous ne disposez pas d'un attribut personnalisé de code postal.
+Dans la première balise `connected_content`, une requête GET est envoyée à l'[API des localisations](https://apidev.accuweather.com/developers/locationsAPIguide). Pour cet exemple, vous pouvez également tirer parti du `{{${city}}}` de l'utilisateur si vous ne disposez pas d'un attribut personnalisé de code postal.
 
 ```
 {% connected_content http://dataservice.accuweather.com/locations/v1/postalcodes/{{${country}}}/search?q={{custom_attribute.${Zip Code}}}&apikey={your API key} :save location_info %}
@@ -157,7 +157,7 @@ Cet objet JSON peut être stocké dans une variable locale `location_info` en sp
 {% endtab %}
 {% tab Current conditions %}
 
-#### Exemple d'API pour les conditions actuelles {#current-conditions-api-example}
+### Exemple d'API pour les conditions actuelles {#current-conditions-api-example}
 
 Pour la deuxième balise `connected_content`, une requête GET est envoyée à l'[API des conditions actuelles](https://apidev.accuweather.com/developers/currentConditionsAPIGuide). La **clé d'emplacement** devra être ajoutée à l'URL de la requête. Voici l'exemple de la balise `connected_content` :
 

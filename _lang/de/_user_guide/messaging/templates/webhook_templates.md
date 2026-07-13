@@ -16,7 +16,7 @@ description: "Erfahren Sie, wie Sie Webhook-Templates erstellen und anpassen, um
 
 ## 1. Schritt: Zum Webhook-Template-Editor navigieren {#step-1-go-to-the-webhook-template-editor}
 
-Gehen Sie im Braze-Dashboard zu **Templates** > **Webhook Templates**.
+Gehen Sie im Braze-Dashboard zu **Inhalt** > **Webhook**.
 
 ![Die Seite „Webhook-Templates“ mit vorgefertigten und gespeicherten Webhook-Templates.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 
@@ -24,13 +24,13 @@ Gehen Sie im Braze-Dashboard zu **Templates** > **Webhook Templates**.
 
 Hier können Sie ein neues Template erstellen, eines der vorgefertigten Webhook-Templates verwenden oder ein bestehendes Template bearbeiten.
 
-Wenn Sie beispielsweise [LINE]({{site.baseurl}}/user_guide/channels/line/) als Messaging-Kanal verwenden, können Sie mithilfe der vorgefertigten Templates für **LINE Carousel** oder **LINE Image** mehrere Webhooks einrichten.
+Wenn Sie beispielsweise [LINE]({{site.baseurl}}/user_guide/channels/line) als Messaging-Kanal verwenden, können Sie mithilfe der vorgefertigten Templates für **LINE Carousel** oder **LINE Image** mehrere Webhooks einrichten.
 
 ## 3. Schritt: Template-Details ausfüllen {#step-3-fill-out-template-details}
 
 1. Geben Sie Ihrem Webhook-Template einen eindeutigen Namen.
 2. (Optional) Fügen Sie eine Template-Beschreibung hinzu, die erklärt, wie dieses Template verwendet werden soll.
-3. Fügen Sie bei Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu, um Ihr Template leichter finden und filtern zu können.
+3. Fügen Sie bei Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu, um Ihr Template leichter finden und filtern zu können.
 
 ## 4. Schritt: Template erstellen {#step-4-build-your-template}
 
@@ -55,4 +55,4 @@ Speichern Sie Ihr Template, indem Sie **Save Template** auswählen. Jetzt könne
 
 ## Ihre Templates verwalten {#managing-your-templates}
 
-Sie können Webhook-Templates [duplizieren und archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/), um Ihre Liste von Templates besser zu organisieren und zu verwalten.
+Sie können Webhook-Templates [duplizieren und archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates), um Ihre Liste von Templates besser zu organisieren und zu verwalten.

@@ -77,7 +77,7 @@ Pensez à définir les paramètres ou éléments que les utilisateurs devront aj
 | -------- | ----------- |
 | Titre de la page | Choisissez le nom que vous voulez pour votre page. Votre page doit comporter un nom. |
 | Mon premier titre | Nous recommandons de le mettre en majuscule. Cependant, cela reste facultatif. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple de code" }
 
 ## Étape 2 : Ensuite, faites cela {#step-2-do-the-next-thing}
 

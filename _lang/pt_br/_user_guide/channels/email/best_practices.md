@@ -1,9 +1,9 @@
 ---
 page_order: 22
 nav_title: Melhores práticas
-article_title: Práticas recomendadas de envio de e-mail
+article_title: Melhores práticas de e-mail
 layout: dev_guide
-guide_top_header: "Práticas recomendadas de envio de e-mail"
+guide_top_header: "Melhores práticas de e-mail"
 guide_top_text: "Antes de enviar suas mensagens de e-mail, consulte os artigos a seguir para saber o que verificar e ter em mente."
 
 page_type: landing
@@ -19,19 +19,19 @@ guide_featured_list:
     link: /docs/user_guide/channels/email/best_practices/email_styling
     image: /assets/img/braze_icons/brush-02.svg
   - name: "Casos de uso"
-    link: /docs/user_guide/channels/email/best_practices/use_cases
+    link: /docs/user_guide/channels/email/use_cases
     image: /assets/img/braze_icons/edit-05.svg
   - name: "Políticas de sunset"
     link: /docs/user_guide/channels/email/best_practices/sunset_policies
     image: /assets/img/braze_icons/sun-setting-03.svg
   - name: "Envio de mensagens de teste"
-    link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email
+    link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email
     image: /assets/img/braze_icons/mail-01.svg
   - name: "Saiba antes de enviar"
-    link: /docs/know_before_send/
+    link: /docs/know_before_send
     image: /assets/img/braze_icons/send-01.svg
   - name: "Entregabilidade de e-mail"
-    link: /docs/user_guide/channels/email/best_practices/improve_deliverability/
+    link: /docs/user_guide/channels/email/best_practices/improve_deliverability
     image: /assets/img/braze_icons/send-02.svg
 
 ---

@@ -7,11 +7,11 @@ page_order: 2
 
 # Rastrear usuarios a través de un formulario {#track-users-through-a-form}
 
-> Aprende a rastrear a los usuarios que envían un formulario a través de tu página de inicio añadiendo una etiqueta de Liquid de página de inicio a tus mensajes. Esta etiqueta de Liquid es compatible con todos los canales de mensajería de Braze, incluidos correo electrónico, SMS, mensajes dentro de la aplicación y más. Para obtener más información sobre el seguimiento de datos, consulta [Acerca de los datos de seguimiento de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data/).
+> Aprende a rastrear a los usuarios que envían un formulario a través de tu página de inicio añadiendo una etiqueta de Liquid de página de inicio a tus mensajes. Esta etiqueta de Liquid es compatible con todos los canales de mensajería de Braze, incluidos correo electrónico, SMS, mensajes dentro de la aplicación y más. Para obtener más información sobre el seguimiento de datos, consulta [Acerca de los datos de seguimiento de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data).
 
 ## Requisitos previos {#prerequisites}
 
-Antes de empezar, tendrás que crear una [página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) y una [campaña]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
+Antes de empezar, tendrás que crear una [página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) y una [campaña]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
 
 ## Cómo funciona {#how-it-works}
 
@@ -24,14 +24,14 @@ Puedes añadir una etiqueta de Liquid {% raw %}`{% landing_page_url %}`{% endraw
 {% endraw %}
 
 {% alert tip %}
-También puedes utilizar las páginas de inicio para la generación de leads incrustando la URL de la página en tus canales externos. Después de crear una página de inicio, ve a **Landing Page Details** para obtener la URL única de tu página de inicio.
+También puedes utilizar las páginas de inicio para la generación de leads incrustando la URL de la página en tus canales externos. Después de crear una página de inicio, ve a **Detalles de la página de inicio** para obtener la URL única de tu página de inicio.
 {% endalert %}
 
 ## Uso de etiquetas de Liquid de páginas de inicio {#using-landing-page-liquid-tags}
 
 ### Paso 1: Verificar la URL de la página {#page-url}
 
-Braze utilizará la URL de tu página de inicio para generar su etiqueta de Liquid única. Si deseas cambiar la URL de la página actual, ve a **Messaging** > **Landing Pages** y abre tu página de inicio. En **page URL**, puedes introducir una nueva URL de página.
+Braze utilizará la URL de tu página de inicio para generar su etiqueta de Liquid única. Si deseas cambiar la URL de la página actual, ve a **Mensajería** > **Páginas de inicio** y abre tu página de inicio. En **URL de la página**, puedes introducir una nueva URL de página.
 
 {% alert warning %}
 Si cambias la URL de la página después de enviar tu mensaje, cualquier usuario que intente visitar tu página de inicio utilizando la URL antigua será redirigido a una página `404`.
@@ -41,17 +41,17 @@ Si cambias la URL de la página después de enviar tu mensaje, cualquier usuario
 
 ### Paso 2: Generar la etiqueta de Liquid {#step-2-generate-the-liquid-tag}
 
-Ve a **Messaging** > **Campaigns** y elige una Campaign. En tu editor de mensajes, selecciona **Personalization**.
+Ve a **Mensajería** > **Campaigns** y elige una Campaign. En tu editor de mensajes, selecciona **Personalización**.
 
-![El botón "Add personalization" en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/select-personalization.png %}){: style="max-width:75%;"}
+![El botón "Añadir personalización" en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/select-personalization.png %}){: style="max-width:75%;"}
 
 Braze generará automáticamente una etiqueta de Liquid utilizando la [URL de tu página de inicio](#page-url). Consulta la siguiente tabla para generar tu etiqueta:
 
-|**Tipo de personalización**| Elige **Landing Page**.|
-|**Página de inicio**|Elige la página de inicio [que creaste anteriormente](#prerequisites).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Tipo de personalización** | Elige **Página de inicio**. |
+| **Página de inicio** | Elige la página de inicio [que creaste anteriormente](#prerequisites). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Generar la etiqueta de Liquid" }
 
-Para añadir la etiqueta de Liquid a tu mensaje, puedes seleccionar **Insert** o copiar el fragmento de código a tu portapapeles y añadirlo manualmente.
+Para añadir la etiqueta de Liquid a tu mensaje, puedes seleccionar **Insertar** o copiar el fragmento de código a tu portapapeles y añadirlo manualmente.
 
 ![Una etiqueta de Liquid generada automáticamente para la página de inicio seleccionada.]({% image_buster /assets/img/landing_pages/get-snippet.png %}){: style="max-width:40%;"}
 

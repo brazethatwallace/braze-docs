@@ -18,7 +18,7 @@ tool:
 
 ## Indicateurs des messages in-app {#in-app-message-metrics}
 
-Voici les principaux indicateurs des messages in-app que vous pouvez retrouver dans vos analyses. Pour les définitions de tous les indicateurs utilisés dans Braze, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Voici les principaux indicateurs des messages in-app que vous pouvez retrouver dans vos analyses. Pour les définitions de tous les indicateurs utilisés dans Braze, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Pour les messages in-app, cette page définit les impressions uniques en utilisant une limite de jour calendaire dans le fuseau horaire de votre espace de travail.
@@ -31,7 +31,13 @@ Pour les messages in-app, cette page définit les impressions uniques en utilisa
 | Conversions | Le suivi des conversions commence après qu'un utilisateur a enregistré une impression d'un message in-app. Une conversion est comptabilisée si l'utilisateur a reçu et vu la campagne de message in-app, puis effectue l'événement de conversion spécifique dans la fenêtre de conversion définie, qu'il ait cliqué ou non sur le message. <br><br> Les conversions sont attribuées au message reçu le plus récemment. Si la rééligibilité est activée, la conversion est attribuée au dernier message in-app reçu, à condition qu'elle se produise dans la fenêtre de conversion définie. Cependant, si une conversion a déjà été attribuée au message in-app, une nouvelle conversion ne peut pas être enregistrée pour ce message spécifique. Cela garantit que chaque distribution de message in-app n'est associée qu'à une seule conversion. |
 | Conversions totales | Lorsqu'un utilisateur ne voit une campagne de message in-app qu'une seule fois, une seule conversion est comptabilisée, même s'il effectue l'événement de conversion plusieurs fois par la suite. Cependant, si la rééligibilité est activée et que l'utilisateur voit la campagne de message in-app plusieurs fois, les *Conversions totales* peuvent augmenter d'une unité à chaque fois que l'utilisateur enregistre une impression pour une nouvelle instance de la campagne de message in-app. <br><br> Par exemple, si un utilisateur déclenche un message in-app deux fois et convertit après chaque impression (ce qui donne deux conversions), les *Conversions totales* augmentent de deux. En revanche, s'il n'y a eu qu'une seule impression suivie de deux événements de conversion, une seule conversion est enregistrée et les *Conversions totales* augmentent d'une unité. |
 | Taux de conversion | L'indicateur d'impressions uniques quotidiennes (*Impressions uniques*) est utilisé pour calculer le taux de conversion. <br><br> Taux de conversion = (Conversions primaires) / (Impressions uniques) <br><br> Pour les messages in-app, les *Impressions uniques* ne peuvent être comptabilisées qu'une seule fois par jour calendaire dans le fuseau horaire de votre espace de travail. Le nombre de fois qu'un utilisateur effectue une action souhaitée (une « conversion ») peut augmenter au cours de ce même jour calendaire. Par conséquent, si un utilisateur effectue une conversion plusieurs fois dans la même journée, le *Taux de conversion* peut augmenter en conséquence, mais les *Impressions uniques* ne sont comptabilisées qu'une seule fois pour ce jour calendaire. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs des messages in-app" }
+
+{% alert tip %}
+Les *Impressions totales* peuvent dépasser les *Impressions uniques* lorsqu'un utilisateur consulte le message plusieurs fois au cours du même jour calendaire (voir les définitions des indicateurs dans le tableau précédent). Pour identifier les utilisateurs présentant un nombre d'impressions anormalement élevé, créez un segment avec le filtre **Nombre d'appareils** défini sur **supérieur à** `1` et le filtre **A reçu un message de la campagne** pour la campagne concernée.
+{% endalert %}
+
+Pour les déséquilibres d'impressions entre le groupe de contrôle et la variante dans les tests A/B, consultez [Écarts entre le groupe de contrôle et la variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## Comment les conversions s'incrémentent-elles avec la rééligibilité ? {#how-do-conversions-increment-with-re-eligibility}
 

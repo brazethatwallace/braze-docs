@@ -13,7 +13,7 @@ description: "Cet article de référence explique comment construire des fonctio
 Si vous disposez d'équipes internes de data science ou de data engineering, elles sont les mieux placées pour construire et sélectionner les fonctionnalités, car elles ont le plus de contexte sur les signaux significatifs dans vos données.
 
 {% alert note %}
-Pour les clients Braze, les fonctionnalités client sont généralement transmises à Decisioning Studio via des attributs personnalisés sur les profils utilisateur. Pour plus de détails sur les attributs personnalisés par rapport aux événements personnalisés et leurs stratégies de mise à jour respectives, consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/).
+Pour les clients Braze, les fonctionnalités client sont généralement transmises à Decisioning Studio via des attributs personnalisés sur les profils utilisateur. Pour plus de détails sur les attributs personnalisés par rapport aux événements personnalisés et leurs stratégies de mise à jour respectives, consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 {% endalert %}
 
 ## Types de fonctionnalités client {#types-of-customer-features}
@@ -26,7 +26,7 @@ Il existe quatre catégories courantes de fonctionnalités client :
 | **Propension utilisateur** | Scores dérivés de modèles pour la probabilité qu'un client effectue une action | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Comportement utilisateur** | Résumés de l'activité client sur une fenêtre temporelle | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Environnemental** | Signaux contextuels externes au client | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types de fonctionnalités client" }
 
 Ensemble, ces types de fonctionnalités fournissent au modèle les informations nécessaires pour identifier des segments, distinguer les clients entre eux et adapter les recommandations en conséquence.
 
@@ -34,12 +34,12 @@ Ensemble, ces types de fonctionnalités fournissent au modèle les informations 
 
 Gardez les points suivants à l'esprit lors de la sélection et de la construction de fonctionnalités :
 
-- **Couverture :** Les fonctionnalités doivent couvrir tous les clients de votre audience cible. Une fonctionnalité manquante ou nulle pour une grande partie de votre audience donne moins d'informations au modèle pour ces clients.
-- **Granularité :** Toutes les fonctionnalités doivent être agrégées au niveau du client. Consultez [Utiliser l'ID externe Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) pour comprendre ce que signifie « niveau client » en pratique.
-- **Fraîcheur :** Les fonctionnalités doivent être mises à jour selon un calendrier temporel, et non en réaction à des événements. Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) pour comprendre pourquoi c'est important.
-- **Validité :** Les valeurs des fonctionnalités doivent se situer dans des plages cohérentes avec leur définition. Une fonctionnalité pour « achats au cours des 30 derniers jours » ne devrait jamais être négative.
-- **Parcimonie :** Évitez les fonctionnalités qui sont à zéro ou nulles pour la grande majorité des clients, sauf s'il existe une raison métier claire. Les fonctionnalités éparses ajoutent du bruit sans apporter de signal.
-- **Corrélation :** Évitez d'inclure des fonctionnalités fortement corrélées entre elles. Les fonctionnalités redondantes peuvent introduire des biais et ralentir l'entraînement sans améliorer les prédictions.
+- **Couverture :** les fonctionnalités doivent couvrir tous les clients de votre audience cible. Une fonctionnalité manquante ou nulle pour une grande partie de votre audience donne moins d'informations au modèle pour ces clients.
+- **Granularité :** toutes les fonctionnalités doivent être agrégées au niveau du client. Consultez [Utiliser l'ID externe Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) pour comprendre ce que signifie « niveau client » en pratique.
+- **Fraîcheur :** les fonctionnalités doivent être mises à jour selon un calendrier temporel, et non en réaction à des événements. Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) pour comprendre pourquoi c'est important.
+- **Validité :** les valeurs des fonctionnalités doivent se situer dans des plages cohérentes avec leur définition. Une fonctionnalité pour « achats au cours des 30 derniers jours » ne devrait jamais être négative.
+- **Parcimonie :** évitez les fonctionnalités qui sont à zéro ou nulles pour la grande majorité des clients, sauf s'il existe une raison métier claire. Les fonctionnalités éparses ajoutent du bruit sans apporter de signal.
+- **Corrélation :** évitez d'inclure des fonctionnalités fortement corrélées entre elles. Les fonctionnalités redondantes peuvent introduire des biais et ralentir l'entraînement sans améliorer les prédictions.
 
 ## Construire des fonctionnalités comportementales {#construct-behavioral-features}
 
@@ -49,8 +49,8 @@ Les fonctionnalités comportementales résument l'historique des actions d'un cl
 
 La bonne fenêtre temporelle dépend de la fréquence à laquelle les clients effectuent l'action que vous mesurez :
 
-- **Fenêtres courtes (7 à 28 jours) :** À utiliser pour les activités à haute fréquence telles que les connexions à l'application, les ouvertures d'e-mails ou les visites de site web.
-- **Fenêtres longues (90 à 365 jours) :** À utiliser pour les activités peu fréquentes telles que les achats de produits, les renouvellements d'abonnement ou les contacts avec le service client.
+- **Fenêtres courtes (7 à 28 jours) :** à utiliser pour les activités à haute fréquence telles que les connexions à l'application, les ouvertures d'e-mails ou les visites de site web.
+- **Fenêtres longues (90 à 365 jours) :** à utiliser pour les activités peu fréquentes telles que les achats de produits, les renouvellements d'abonnement ou les contacts avec le service client.
 
 Un diagnostic utile : si un pourcentage élevé de vos valeurs de fonctionnalités est à zéro, la fenêtre temporelle est probablement trop courte. Élargissez-la jusqu'à observer une variance significative entre les clients.
 
@@ -81,8 +81,8 @@ Avec des fonctionnalités alignées sur les actions, le modèle peut également 
 
 L'alignement exact entre fonctionnalités et actions est l'idéal, mais il est souvent limité par la disponibilité des données. Deux approches peuvent aider lorsque vous ne pouvez pas construire des fonctionnalités parfaitement alignées :
 
-**Résumé des données :** Si vous ne pouvez pas distinguer les achats de thé noir de ceux de bubble tea, utilisez une fonctionnalité agrégée `tea_orders_past_14d`. Cela perd en précision mais aide tout de même le modèle à distinguer les clients qui préfèrent le thé de ceux qui préfèrent le café.
+**Résumé des données :** si vous ne pouvez pas distinguer les achats de thé noir de ceux de bubble tea, utilisez une fonctionnalité agrégée `tea_orders_past_14d`. Cela perd en précision mais aide tout de même le modèle à distinguer les clients qui préfèrent le thé de ceux qui préfèrent le café.
 
-**Signaux indirects :** Les fonctionnalités qui ne sont pas directement dans l'espace d'actions peuvent tout de même être précieuses si elles ont une relation logique avec celui-ci. Par exemple, `dessert_purchased_past_30d` est un indicateur raisonnable de la préférence pour les produits sucrés, qui est probablement corrélée avec la préférence pour le bubble tea. Le modèle peut apprendre de ces signaux indirects même sans correspondance directe avec une fonctionnalité.
+**Signaux indirects :** les fonctionnalités qui ne sont pas directement dans l'espace d'actions peuvent tout de même être précieuses si elles ont une relation logique avec celui-ci. Par exemple, `dessert_purchased_past_30d` est un indicateur raisonnable de la préférence pour les produits sucrés, qui est probablement corrélée avec la préférence pour le bubble tea. Le modèle peut apprendre de ces signaux indirects même sans correspondance directe avec une fonctionnalité.
 
 Le principe sous-jacent est que des informations plus pertinentes et granulaires sont toujours utiles, mais le modèle peut aussi apprendre à partir de fonctionnalités imparfaites. Commencez avec ce dont vous disposez et affinez au fil du temps à mesure que davantage de données deviennent disponibles.

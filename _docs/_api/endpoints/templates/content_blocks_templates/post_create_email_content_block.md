@@ -14,12 +14,16 @@ description: "This article outlines details about the Create Content Blocks Braz
 /content_blocks/create
 {% endapimethod %}
 
-> Use this endpoint to create a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
+> Use this endpoint to create a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks).
+
+{% alert tip %}
+You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server) using the [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) function. This lets AI tools like Claude and Cursor create content blocks through natural language prompts.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `content_blocks.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `content_blocks.create` permission.
 
 ## Rate limit
 
@@ -50,8 +54,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | Optional | String | Description of the Content Block. Must be less than 250 characters. |
 | `content` | Required | String | HTML or text content within the Content Block. |
 | `state` | Optional | String | Choose `active` or `draft`. Defaults to `active` if not specified. |
-| `tags` | Optional | Array of strings | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) must already exist. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `tags` | Optional | Array of strings | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags) must already exist. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```bash
@@ -100,7 +104,7 @@ The following table lists possible returned errors and their associated troubles
 | `Tags must be an array` | Tags must be formatted as an array of strings, for example `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Make sure your tags are encapsulated in quotes (`""`). |
 | `Some tags could not be found` | To add a tag when creating a Content Block, the tag must already exist in Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

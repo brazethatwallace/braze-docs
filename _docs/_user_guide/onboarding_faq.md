@@ -28,9 +28,9 @@ To further keep track of anonymous users, you can implement [user aliases]({{sit
 
 If an anonymous user profile with an alias is later recognized with an `external_id`, they will be treated as a normal identified user profile, but will retain their existing alias and can still be referenced by that alias.
 
-For alias users that you want to merge with identified users, you can merge any fields that are pertinent to the actual profile that you want to keep. You would have to export that data before deleting it from the alias profile using our [Export user profile by identifier endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). You can then use our [Track users endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to post these events to the profile you kept. This will preserve any data you want to keep such as attributes that were previously recorded on one profile, but not the other.
+For alias users that you want to merge with identified users, you can merge any fields that are pertinent to the actual profile that you want to keep. You would have to export that data before deleting it from the alias profile using our [Export user profile by identifier endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). You can then use our [Track users endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to post these events to the profile you kept. This will preserve any data you want to keep such as attributes that were previously recorded on one profile, but not the other.
 
-For a full breakdown of different methods for collecting new and existing user data in Braze, check out [data collection best practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices/).
+For a full breakdown of different methods for collecting new and existing user data in Braze, check out [data collection best practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
 
 {% endapi %}
 {% api %}
@@ -47,7 +47,7 @@ To import previously identified users, you can upload a CSV to Braze, or send da
 
 You can upload and update user profiles via CSV files from **Audience** > **Import Users**. When importing your customer data, you'll need to specify each customer's unique identifier, also known as `external_id`.
 
-Before starting your CSV import, it's important to understand from your engineering team how users will be identified in Braze. Typically this would be a database ID used internally. This should align with how users will be identified by the Braze SDK on mobile and web, so that each customer will have a single user profile within Braze across their devices. Learn more about the Braze [user profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Before starting your CSV import, it's important to understand from your engineering team how users will be identified in Braze. Typically this would be a database ID used internally. This should align with how users will be identified by the Braze SDK on mobile and web, so that each customer will have a single user profile within Braze across their devices. Learn more about the Braze [user profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 When you provide an `external_id` in your import, Braze will update any existing user with the same `external_id` or create a newly identified user with that `external_id` set if one is not found.
 
@@ -55,9 +55,9 @@ For more information and to download CSV import templates, refer to [user import
 
 #### API
 
-To upload users via API, you can use our [Track users endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to import them into Braze.
+To upload users via API, you can use our [Track users endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to import them into Braze.
 
-If you are unsure whether the user already exists in Braze, you can implement our [Export user profile by identifier endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) to verify. If you identify that the user already exists in Braze, you can use our `/users/track` endpoint to post the new data you'd like to add to the user profile that already exists in Braze.
+If you are unsure whether the user already exists in Braze, you can implement our [Export user profile by identifier endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) to verify. If you identify that the user already exists in Braze, you can use our `/users/track` endpoint to post the new data you'd like to add to the user profile that already exists in Braze.
 
 {% alert note %}
 Keep the following nuances in mind when using the `/users/track` endpoint:
@@ -84,7 +84,7 @@ By default, for your user to receive your messages through push, their push subs
 |Subscribed| Default push subscription state when a user profile is created in Braze. |
 |Opted-In| A user has explicitly expressed a preference to receive push notifications. Braze will automatically move a user's opt-in state to `Opted-In` if a user accepts an OS-level push prompt.<br><br>This does not apply to users on Android 12 or below.|
 |Unsubscribed| A user explicitly unsubscribed from push through your application or other methods your brand provides. By default, Braze push campaigns only target users that are `Subscribed` or `Opted-in` for push.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What's the difference between the push subscription statuses?" }
 
 {% endapi %}
 {% api %}
@@ -140,7 +140,7 @@ To download a CSV template, refer to [user import]({{site.baseurl}}/user_guide/a
 Segments
 {% endapitags %}
 
-The Braze SDK provides you with a powerful arsenal of filters to segment and target your users based on specific features and attributes. You can use the [Segmentation Filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) glossary to search or narrow these filters by Filter Category (Custom Data, User Activity, Retargeting, Marketing Activity, User Attributes, Install Attribution, Social Activity, Testing, Other).
+The Braze SDK provides you with a powerful arsenal of filters to segment and target your users based on specific features and attributes. You can use the [Segmentation Filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) glossary to search or narrow these filters by Filter Category (Custom Data, User Activity, Retargeting, Marketing Activity, User Attributes, Install Attribution, Social Activity, Testing, Other).
 
 {% endapi %}
 {% api %}
@@ -159,7 +159,7 @@ Once you have created your segment, add a `Most Recent Location` filter to targe
 - For polygonal regions, you can more specifically designate which areas you wish to be included in your segment.
 
 {% alert tip %}
-Interested in taking advantage of location targeting with the help of a Braze partner? Check out our available Braze [contextual location partners]({{site.baseurl}}/partners/message_personalization/).
+Interested in taking advantage of location targeting with the help of a Braze partner? Check out our available Braze [contextual location partners]({{site.baseurl}}/partners/message_personalization).
 {% endalert %}
 
 {% endapi %}
@@ -171,7 +171,7 @@ Interested in taking advantage of location targeting with the help of a Braze pa
 Segments
 {% endapitags %}
 
-You can use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)! Segment Extensions enable you to target a more precise list of users than you otherwise could with a regular segment.
+You can use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension)! Segment Extensions enable you to target a more precise list of users than you otherwise could with a regular segment.
 
 You can create up to 10 Segment Extensions per workspace. After these extension lists are generated, they can then be included or excluded as a filter in your segments. When creating a Segment Extension, you can also specify that the list be regenerated once every 24 hours.
 
@@ -184,7 +184,7 @@ You can create up to 10 Segment Extensions per workspace. After these extension 
 
 To increase targeting precision, you can select **Add Property Filters** and segment based on the specific properties of your purchase or custom event. Braze supports event property segmentation based on string, numeric, boolean, and time objects.
 
-We also support segmentation based on [nested event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+We also support segmentation based on [nested event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 Segment Extensions rely on long term storage of event properties and don't have the 30-day custom event property storage limit. This means you can look back on event properties tracked within the past year, and tracking doesn't wait until the extension has been set up first.
 
@@ -218,7 +218,7 @@ Finally, after you've created an extension, you can use it as a filter when crea
 Campaigns
 {% endapitags %}
 
-To create a multichannel campaign, go to the **Campaigns** page, select **Create Campaign**, then select **Multichannel Campaign**. When inside a multichannel campaign, select **Add Messaging Channel** from the compose tab to add your desired channels. Click the channel icons that appear to toggle through different messaging composers as you build your campaign copy for the different channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps, supported channels, and how to switch composers.
 
 {% endapi %}
 {% api %}
@@ -229,7 +229,7 @@ To create a multichannel campaign, go to the **Campaigns** page, select **Create
 Campaigns
 {% endapitags %}
 
-Creating multivariate campaigns and running Canvases with multiple variants are a great way to start! For example, you can run a [multivariate campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/) to test out one message that has different copies or subject lines. Canvases with multiple variants are helpful for testing entire workflows.
+Creating multivariate campaigns and running Canvases with multiple variants are a great way to start! For example, you can run a [multivariate campaign]({{site.baseurl}}/user_guide/messaging/ab_testing) to test out one message that has different copies or subject lines. Canvases with multiple variants are helpful for testing entire workflows.
 
 {% endapi %}
 {% api %}
@@ -268,7 +268,7 @@ Campaigns
 
 Braze will automatically determine a user's time zone from their device. This is designed to support time zone accuracy and full coverage of your users. Users created through the User API or otherwise without a time zone will have your company's time zone as their default time zone until they are recognized in your app by the SDK.
 
-You can check your company's time zone in your [company settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/).
+You can check your company's time zone in your [company settings]({{site.baseurl}}/user_guide/administer/global/admin_settings).
 
 {% endapi %}
 {% api %}
@@ -382,7 +382,7 @@ For a user to be eligible for entry, they must be eligible for both checks. For 
 
 To enter, a user must match your audience and filters at both evaluation times. If the user is not eligible at the first check, Braze does not run the second check. There is no minimum length of time that a user must have been in the segment before launch—only eligibility at each check matters.
 
-This evaluation behavior is separate from [how far in advance you schedule the campaign in the dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). For the full explanation, examples, and scheduling guidance, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) and [How do I schedule a local time zone campaign?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) in the Campaigns FAQ.
+This evaluation behavior is separate from [how far in advance you schedule the campaign in the dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign). For the full explanation, examples, and scheduling guidance, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery) and [How do I schedule a local time zone campaign?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign) in the Campaigns FAQ.
 
 {% endapi %}
 {% api %}
@@ -408,7 +408,7 @@ Canvases
 
 We queue a job for each step—they run at around the same time, and one of them "wins". In practice, this may be sorted somewhat evenly, but it's likely to have at least a slight bias toward the step that was created first.
 
-Moreover, we can't make any guarantees about exactly what that distribution will look like. If you want to ensure an even split, add a [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) filter.
+Moreover, we can't make any guarantees about exactly what that distribution will look like. If you want to ensure an even split, add a [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) filter.
 
 {% endapi %}
 {% api %}
@@ -440,7 +440,7 @@ Canvases
 
 Exception events only trigger while the user is waiting to receive the Canvas component it's associated with. If a user performs an action in advance, the exception event will not trigger.
 
-If you want to except users who have performed a certain event in advance, use [filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) instead.
+If you want to except users who have performed a certain event in advance, use [filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) instead.
 
 {% endapi %}
 {% api %}
@@ -453,7 +453,7 @@ Canvases
 
 If you edit some of the steps of a multi-step Canvas, users who were already in the audience but have not received the steps will receive the updated version of the message. Note that this will only happen if they haven't been evaluated for the step yet.
 
-For more information on what you can or can't edit after launch, check out [Changing Your Canvas After Launch]({{site.baseurl}}/post-launch_edits/).
+For more information on what you can or can't edit after launch, check out [Changing Your Canvas After Launch]({{site.baseurl}}/post-launch_edits).
 
 {% endapi %}
 {% api %}
@@ -530,7 +530,7 @@ The number of users entering a Canvas may differ from your expected number becau
 Analytics
 {% endapitags %}
 
-Depending on the channel, Braze measures a variety of metrics to enable you to determine a campaign's success and inform future ones. You can find a comprehensive list in our [report metrics glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Depending on the channel, Braze measures a variety of metrics to enable you to determine a campaign's success and inform future ones. You can find a comprehensive list in our [report metrics glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% endapi %}
 {% api %}
@@ -543,7 +543,7 @@ Analytics
 
 On the **Revenue** page, you can view data on revenue or purchases over specific periods of time, for a specific product, or your app's total revenue or purchases. These revenue numbers are generated from the purchases made from campaign recipients within a certain conversion period.
 
-That being said, it's important to note that Braze is a marketing tool and not a revenue management tool. Our [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object/) doesn't support refunds and cancellations, so you may see discrepancies when comparing data with other tools.
+That being said, it's important to note that Braze is a marketing tool and not a revenue management tool. Our [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object) doesn't support refunds and cancellations, so you may see discrepancies when comparing data with other tools.
 
 {% endapi %}
 {% api %}
@@ -556,7 +556,7 @@ Analytics
 
 Our Currents tool continuously streams both messaging engagement and customer behavior data to one of our many data partners, empowering you to use the unique and valuable data Braze creates to power your business intelligence and analytics efforts in other best-in-class partners.
 
-This data goes beyond messaging engagement metrics, and can also includes more complex numbers such as custom attribute and event performance. For more details, review our [currents events glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+This data goes beyond messaging engagement metrics, and can also includes more complex numbers such as custom attribute and event performance. For more details, review our [currents events glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 
 {% endapi %}
 {% api %}
@@ -593,6 +593,6 @@ Engagement Reports provide you with CSVs of engagement statistics for specific m
 
 The Report Builder allows you to compare the results of multiple campaigns or Canvases in a single view so that you can easily determine which engagement strategies most impacted your key metrics. For both campaigns and Canvases, you're able to export your data and save your report to view in the future.
 
-For more information on the uses of reports and analytics in Braze, refer to [reports overview]({{site.baseurl}}/user_guide/analytics/reports/).
+For more information on the uses of reports and analytics in Braze, refer to [reports overview]({{site.baseurl}}/user_guide/analytics/reports).
 
 {% endapi %}

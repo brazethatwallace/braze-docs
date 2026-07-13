@@ -14,7 +14,7 @@ search_tag: Partner
 
 Front에서 수신되는 웹훅에는 라이브 상담원이 보낸 메시지가 포함된 페이로드가 담겨 있습니다. 이 요청은 Braze 엔드포인트에서 수락되기 전에 형식을 변환해야 합니다. Front 데이터 변환 템플릿은 페이로드를 재형식화하고 고객 프로필에 **Outbound SMS Sent**라는 커스텀 이벤트를 기록하며, 메시지 본문은 이벤트 속성정보로 전달됩니다.
 
-Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation/) 설명서에서 각 티어의 지원 매트릭스를 검토하는 것을 권장합니다. Free 및 Pro 티어는 월별 활성 변환 수와 수신 요청 수가 다릅니다. 현재 사용 중인 플랜이 사용 사례를 지원할 수 있는지 확인하세요.
+Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation) 설명서에서 각 티어의 지원 매트릭스를 검토하는 것을 권장합니다. Free 및 Pro 티어는 월별 활성 변환 수와 수신 요청 수가 다릅니다. 현재 사용 중인 플랜이 사용 사례를 지원할 수 있는지 확인하세요.
 
 ## 필수 조건 {#prerequisites}
 
@@ -23,10 +23,11 @@ Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}
 | 요구 사항 | 설명 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Front 계정 | 이 파트너십을 활용하려면 Front 계정이 필요합니다.|
-| Braze 데이터 변환 웹훅 URL | [Braze 데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation/)은 Front에서 수신되는 웹훅을 Braze /users/track 엔드포인트에서 수락할 수 있도록 재형식화하는 데 사용됩니다.|
+| Braze 데이터 변환 웹훅 URL | [Braze 데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation)은 Front에서 수신되는 웹훅을 Braze /users/track 엔드포인트에서 수락할 수 있도록 재형식화하는 데 사용됩니다.|
 | Front REST API 키 | Front REST API 키는 Braze에서 Front로 아웃바운드 웹훅 요청을 보내는 데 사용됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 - Braze 자동 SMS 메시징을 사용하여 사용자 선호도를 파악하고 라이브 영업 상담원이 후속 조치를 취하고 판매를 완료할 수 있도록 하여 리드 생성 프로세스를 간소화합니다.
 - 자동 SMS 응답과 라이브 채팅 지원을 통해 판매 전환을 유도하여 장바구니를 포기한 고객을 다시 참여시킵니다.
@@ -35,7 +36,7 @@ Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}
 
 ### 1단계: 데이터 변환 생성 {#step-1-create-a-data-transformation}
 
-먼저 Braze에서 새 데이터 변환을 생성합니다. 다음 단계는 간략화된 것입니다. 전체 안내는 [변환 생성하기]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/)를 참조하세요.
+먼저 Braze에서 새 데이터 변환을 생성합니다. 다음 단계는 간략화된 것입니다. 전체 안내는 [변환 생성하기]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation)를 참조하세요.
 
 1. Braze에서 **데이터 설정** > **데이터 변환**으로 이동한 다음 **변환 생성**을 선택합니다.
 2. **편집 환경**에서 **처음부터 시작**을 선택합니다.
@@ -72,12 +73,10 @@ Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}
     ```
     {% endraw %}
 
-    변환은 다음과 유사해야 합니다:
-
-    ![데이터 변환의 예.]({% image_buster /assets/img/front/data_transformation.png %})
+    변환은 위의 JavaScript 예시를 따르되, 속성 이름과 경로를 Front 웹훅 페이로드에 맞게 조정하세요.
 
 {% alert tip %}
-이 템플릿을 특정 요구 사항에 맞게 수정할 수 있습니다. 예를 들어, 사전 설정된 커스텀 이벤트 이름을 커스터마이즈할 수 있습니다. 자세한 내용은 [데이터 변환 개요]({{site.baseurl}}/user_guide/data/unification/data_transformation/)를 참조하세요.
+이 템플릿을 특정 요구 사항에 맞게 수정할 수 있습니다. 예를 들어, 사전 설정된 커스텀 이벤트 이름을 커스터마이즈할 수 있습니다. 자세한 내용은 [데이터 변환 개요]({{site.baseurl}}/user_guide/data/unification/data_transformation)를 참조하세요.
 {% endalert %}
 
 ### 2단계: 아웃바운드 SMS Campaign 생성 {#step-2-create-an-outbound-sms-campaign}
@@ -96,9 +95,9 @@ Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}
 
 메시지는 다음과 유사해야 합니다:
 
-![Liquid 코드를 사용하는 메시지의 예.]({% image_buster /assets/img/front/sms_to_braze.png %}){: style="max-width:80%;"}
+![Liquid 코드를 사용하는 메시지 예시.]({% image_buster /assets/img/front/sms_to_braze.png %}){: style="max-width:80%;"}
 
-#### 2.2 전달 스케줄 설정 {#22-schedule-the-delivery}
+#### 2.2단계: 전달 스케줄 설정 {#22-schedule-the-delivery}
 
 전달 유형으로 **실행 기반 전달**을 선택한 다음, 커스텀 이벤트 트리거로 **Outbound SMS Sent**를 선택합니다.
 
@@ -132,9 +131,9 @@ Front 대시보드에서 **Settings** > **Channels** > **Add Channels**로 이�
 
 | 번호 | 목적 |
 |---|---|
-| 웹훅 Campaign 1 | Front에 라이브 채팅 대화가 요청되고 있음을 알립니다.|
-| 웹훅 Campaign 2 | 고객이 인바운드로 보낸 모든 대화형 SMS 응답을 Front 받은편지함으로 전달합니다.|
-{: .reset-td-br-1 .reset-td-br-2 }
+| 웹훅 Campaign 1 | Front에 라이브 채팅 대화가 요청되고 있음을 알립니다. |
+| 웹훅 Campaign 2 | 고객이 인바운드로 보낸 모든 대화형 SMS 응답을 Front 받은편지함으로 전달합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5단계: 인바운드 SMS 전달 설정" }
 
 #### 5.1단계: SMS 키워드 카테고리 생성 {#step-51-create-an-sms-keyword-category}
 
@@ -142,10 +141,10 @@ Braze 대시보드에서 **오디언스**로 이동하여 **SMS 구독 그룹**�
 
 | 필드 | 설명 |
 |---|---|
-| 키워드 카테고리 | 키워드 카테고리의 이름(예: `FrontSMS1`).|
-| 키워드 | 커스텀 키워드(예: `TIMETOMOW`). 실수로 트리거되는 것을 방지하기 위해 일반적인 단어는 피하세요. 키워드는 대소문자를 구분하지 않으므로 `lawn`은 `LAWN`과 일치합니다.|
-| 응답 메시지 | 키워드가 감지될 때 전송될 메시지(예: "조경사가 곧 연락드릴 것입니다.").|
-{: .reset-td-br-1 .reset-td-br-2 }
+| 키워드 카테고리 | 키워드 카테고리의 이름(예: `FrontSMS1`). |
+| 키워드 | 커스텀 키워드(예: `TIMETOMOW`). 실수로 트리거되는 것을 방지하기 위해 일반적인 단어는 피하세요. 키워드는 대소문자를 구분하지 않으므로 `lawn`은 `LAWN`과 일치합니다. |
+| 응답 메시지 | 키워드가 감지될 때 전송될 메시지(예: "조경사가 곧 연락드릴 것입니다."). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5.1단계: SMS 키워드 카테고리 생성" }
 
 ![Braze의 SMS 키워드 카테고리 예시.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
@@ -153,7 +152,7 @@ Braze 대시보드에서 **오디언스**로 이동하여 **SMS 구독 그룹**�
 
 Braze 대시보드에서 [이전에 생성한](#step-3-configure-the-settings-for-your-new-custom-braze-channel) URL을 사용하여 첫 번째 웹훅 Campaign을 생성합니다.
 
-![Braze에서 생성해야 할 첫 번째 웹훅 Campaign의 예.]({% image_buster /assets/img/front/sms_to_front.png %}){: style="max-width:65%;"}
+![Braze에서 생성해야 할 첫 번째 웹훅 Campaign 예시.]({% image_buster /assets/img/front/sms_to_front.png %}){: style="max-width:65%;"}
 
 요청 본문에 다음을 추가합니다:
 
@@ -178,7 +177,7 @@ Braze 대시보드에서 [이전에 생성한](#step-3-configure-the-settings-fo
 
 설정 탭에서 `Authorization`, `content-type`, `accept` 요청 헤더를 구성합니다.
 
-![세 개의 필수 헤더가 포함된 요청의 예.]({% image_buster /assets/img/front/webhook_settings.png %}){: style="max-width:65%;"}
+![세 개의 필수 헤더가 포함된 요청 예시.]({% image_buster /assets/img/front/webhook_settings.png %}){: style="max-width:65%;"}
 
 #### 5.3단계: 첫 번째 전달 스케줄 설정 {#step-53-schedule-the-first-delivery}
 
@@ -192,7 +191,7 @@ Braze 대시보드에서 [이전에 생성한](#step-3-configure-the-settings-fo
 
 #### 5.4단계: 두 번째 웹훅 Campaign 생성 {#step-54-create-your-second-webhook-campaign}
 
-두 번째 웹훅 Campaign은 첫 번째와 동일하므로 [첫 번째 Campaign을 복제하고 이름을 변경할 수 있습니다]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns/#duplicating-segments-or-campaigns).
+두 번째 웹훅 Campaign은 첫 번째와 동일하므로 [첫 번째 Campaign을 복제하고 이름을 변경할 수 있습니다]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-or-campaigns).
 
 #### 5.5단계: 두 번째 전달 스케줄 설정 {#step-55-schedule-the-second-delivery}
 
@@ -209,7 +208,7 @@ Braze 대시보드에서 [이전에 생성한](#step-3-configure-the-settings-fo
 그런 다음 필터를 구성합니다:
 
 1. **Campaign**에서 [이전에 생성한](#step-2-create-an-outbound-sms-campaign) SMS Campaign을 선택합니다.
-2. **Operator**에서 **Less Than**을 선택합니다.
+2. **연산자**에서 **Less Than**을 선택합니다.
 3. **기간**에서 고객의 응답 없이 채팅이 열려 있어야 하는 시간을 선택합니다.
 
 ![선택된 오디언스 필터의 구성 설정.]({% image_buster /assets/img/front/front_target_audience.png %})
@@ -218,7 +217,7 @@ Braze 대시보드에서 [이전에 생성한](#step-3-configure-the-settings-fo
 
 ### 청구 가능한 메시지 세그먼트 {#billable-segments}
 
-- Braze의 SMS 메시지는 메시지 세그먼트 단위로 요금이 부과됩니다. 세그먼트를 정의하는 기준과 메시지가 어떻게 분할되는지 이해하는 것이 메시지 요금 청구 방식을 이해하는 핵심입니다. 자세한 내용은 [설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/)를 참조하세요.
+- Braze의 SMS 메시지는 메시지 세그먼트 단위로 요금이 부과됩니다. 세그먼트를 정의하는 기준과 메시지가 어떻게 분할되는지 이해하는 것이 메시지 요금 청구 방식을 이해하는 핵심입니다. 자세한 내용은 [설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)를 참조하세요.
 - 긴 상담원 응답은 더 많은 청구 가능한 세그먼트를 소비합니다.
 
 ### 데이터 포인트 기록 {#logging-data-points}

@@ -22,7 +22,7 @@ To get started, you need to authenticate your Braze account within your Simon AI
 | Simon AI          | You must have an existing Simon AI account to leverage the Braze integration from within Simon AI.                                                                    |
 | Braze REST API key  | A Braze REST API key with `users.track`, `campaigns.trigger.schedule.create`, and `campaigns.trigger.send` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze Dashboard URL | [Your REST endpoint URL][3]. Your endpoint will depend on the Braze URL for your instance.                                                                                |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -40,7 +40,7 @@ When using the Simon and Braze integration, Simon only sends deltas on each sync
 
 To use the Braze integration, first authenticate your Braze account in Simon:
 
-1. From the left navigation, click **Integrations** then scroll to Braze.
+1. From the navigation menu, click **Integrations** then scroll to Braze.
 2. Enter your Braze [REST API key][2] and your [dashboard URL][3].
 3. Click **Save Changes**.
 

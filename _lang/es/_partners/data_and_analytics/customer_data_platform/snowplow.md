@@ -28,13 +28,13 @@ Aprovecha los ricos datos de comportamiento de Snowplow para impulsar potentes i
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito             | Descripción                                                                                                                                                                                                                                                                              |
+| Requisito | Descripción |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pipeline de Snowplow       | Necesitas un pipeline de Snowplow en funcionamiento.                                                                                                                                                                                                                                          |
-| Acceso a la consola de Snowplow | Debes tener acceso a la consola de Snowplow para configurar los reenviadores de eventos.                                                                                                                                                                                                                                |
-| Clave de API REST de Braze      | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze     | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia.                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Pipeline de Snowplow | Necesitas un pipeline de Snowplow en funcionamiento. |
+| Acceso a la consola de Snowplow | Debes tener acceso a la consola de Snowplow para configurar los reenviadores de eventos. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -70,7 +70,7 @@ Para cada tipo de objeto, puedes configurar mapeados de campos para especificar 
 Confirma que los eventos están llegando a Braze comprobando las siguientes páginas en tu cuenta de Braze:
 
 1. **Generador de consultas**: En Braze, ve a **Analytics** > **Query Builder**. Puedes escribir consultas en las siguientes tablas para obtener una vista previa de los datos reenviados desde Snowplow: `USER_BEHAVIORS_CUSTOMEVENT_SHARED` y `USERS_BEHAVIORS_PURCHASE_SHARED`.
-2. **Panel de uso de la API**: En Braze, ve a **Settings** > **APIs and Identifiers** para ver un gráfico del uso de la API a lo largo del tiempo. Puedes filtrar específicamente por la clave de API que utiliza Snowplow y ver tanto los éxitos como los errores.
+2. **Panel de uso de la API**: En Braze, ve a **Configuración** > **API e identificadores** para ver un gráfico del uso de la API a lo largo del tiempo. Puedes filtrar específicamente por la clave de API que utiliza Snowplow y ver tanto los éxitos como los errores.
 
 ## Envío de propiedades personalizadas {#sending-custom-properties}
 
@@ -86,4 +86,4 @@ Consulta la [documentación del objeto de evento]({{site.baseurl}}/api/objects_f
 
 ## Limitaciones {#limitations}
 
-**Límites de velocidad:** Braze aplica un límite de velocidad de 3.000 llamadas a la API cada tres segundos para la API de seguimiento de usuarios. Como Snowplow no admite el procesamiento por lotes para los reenviadores de eventos, este límite de velocidad de la API también funciona como límite de tasa de eventos. Si tu caudal de entrada supera los 3.000 eventos cada tres segundos, puedes experimentar un aumento de la latencia.
+**Límites de velocidad:** Braze aplica un límite de velocidad de 3000 llamadas a la API cada tres segundos para la API de seguimiento de usuarios. Como Snowplow no admite el procesamiento por lotes para los reenviadores de eventos, este límite de velocidad de la API también funciona como límite de tasa de eventos. Si tu caudal de entrada supera los 3000 eventos cada tres segundos, puedes experimentar un aumento de la latencia.

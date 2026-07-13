@@ -2,7 +2,15 @@
 
 > Saiba mais sobre o servidor MCP da Braze, uma conexão segura que permite que ferramentas de IA como Claude e Cursor acessem dados da Braze que não são IPI para responder perguntas, analisar tendências e fornecer insights.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
+{% alert important %}
+Neste verão, a Braze está lançando um servidor MCP remoto, hospedado pela Braze, em acesso antecipado. Ele substitui o servidor beta hospedado localmente (`braze-mcp-server` no [PyPI](https://pypi.org/project/braze-mcp-server/) e no diretório de extensões do Claude Desktop).<br><br>
+
+**O que isso significa para você:**<br><br>
+
+- O servidor hospedado localmente continuará funcionando, mas não é mais suportado. Não adicionaremos novos endpoints nem corrigiremos problemas no beta.
+- Quando o servidor remoto estiver disponível em acesso antecipado, você precisará migrar para ele. O servidor remoto não requer instalação local, usa OAuth em vez de chaves de API estáticas e funciona com clientes MCP como Claude, Copilot, Gemini CLI, Codex e Cursor.
+- Acompanhe esta página para saber sobre a disponibilidade do acesso antecipado ou entre em contato com a equipe da sua conta na Braze para manifestar interesse.
+{% endalert %}
 
 ## O que é o Model Context Protocol (MCP)? {#what-is-model-context-protocol-mcp}
 
@@ -19,10 +27,10 @@ Após [configurar o servidor MCP da Braze]{% if include.section == "user" %}({{s
 - Engenheiros de CRM criando fluxos de trabalho de agentes em várias etapas.
 - Profissionais de marketing técnico experimentando consultas em linguagem natural.
 
-O servidor MCP da Braze suporta 39 endpoints que não retornam dados dos perfis de usuários da Braze. Você pode escolher quais endpoints atribuir à sua chave de API da Braze para controlar o que um agente pode acessar ou alterar.
+O servidor MCP da Braze inclui endpoints somente leitura e de escrita. Eles não retornam dados dos perfis de usuários da Braze. Você escolhe quais endpoints atribuir à sua chave de API da Braze, e essa escolha controla o que um agente pode ler, criar ou atualizar. Para a lista completa de endpoints disponíveis e suas permissões necessárias, veja [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
-Atribua apenas as permissões de chave de API que você deseja que seu agente tenha. Se você não quiser que seu agente faça alterações na Braze, certifique-se de deixar as permissões de escrita desativadas. Agentes podem tentar gravar dados por meio de qualquer permissão que você conceder.
+Atribua apenas as permissões de chave de API que você deseja que seu agente tenha. Se você não quiser que seu agente faça alterações na Braze, deixe as permissões de escrita desativadas ao criar sua chave de API. Agentes podem tentar gravar dados por meio de qualquer permissão de escrita que você conceder.
 {% endalert %}
 
 ## Exemplo de uso {#usage-example}
@@ -31,11 +39,13 @@ Você pode interagir com a Braze por meio de linguagem natural usando ferramenta
 
 {% tabs %}
 {% tab Claude %}
-!['Quais são minhas funções disponíveis na Braze?' sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Exemplo de prompt:** `What are my available Braze functions?`
+**Exemplo de resposta:** Usou `list_functions` e retornou as categorias de funções MCP disponíveis da Braze.
 {% endtab %}
 
 {% tab Cursor %}
-!['Quais são minhas funções disponíveis na Braze' sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Exemplo de prompt:** `What are my available Braze functions?`
+**Exemplo de resposta:** Consultou `list_functions` e listou funções como `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 
@@ -51,7 +61,7 @@ Os clientes MCP podem acessar endpoints que não retornam IPI. Você controla qu
 
 ### Meu cliente MCP pode alterar dados da Braze? {#can-my-mcp-client-change-braze-data}
 
-O servidor expõe apenas o endpoint de escrita `/media_library/create`, que permite fazer upload de ativos de mídia na sua Biblioteca de mídia. Se você não quiser que seu agente faça essas alterações na Braze, deixe a permissão `media_library.create` desmarcada ao criar sua chave de API.
+Sim. O servidor expõe um conjunto focado de endpoints de escrita que permitem que agentes criem ou atualizem conteúdo no seu espaço de trabalho, como ativos da Biblioteca de mídia, modelos de e-mail e blocos de conteúdo. Cada endpoint de escrita requer sua própria permissão de chave de API. Se você não quiser que seu agente faça uma determinada alteração na Braze, deixe essa permissão desativada ao criar sua chave de API. Para a lista completa de funções de escrita e suas permissões necessárias, veja [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 ### Posso usar um servidor MCP de terceiros para a Braze? {#can-i-use-a-third-party-mcp-server-for-braze}
 
@@ -67,7 +77,7 @@ Não. Você precisará criar uma nova chave de API para seu cliente MCP. Lembre-
 
 ### O servidor MCP da Braze está hospedado localmente ou remotamente? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-O servidor MCP da Braze está hospedado localmente.
+O servidor MCP da Braze atualmente disponível está hospedado localmente. Um servidor MCP remoto, hospedado pela Braze, está chegando em acesso antecipado neste verão e substituirá o servidor beta hospedado localmente.
 
 ### Por que o Cursor está listando apenas funções? {#why-is-cursor-only-listing-functions}
 
@@ -75,8 +85,8 @@ Verifique se você está no modo de pergunta ou no modo de agente. Para usar o s
 
 ### O que eu faço quando o agente retorna uma resposta que parece incorreta? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
 
-Ao trabalhar com ferramentas como o Cursor, você pode querer tentar mudar o modelo utilizado. Por exemplo, se você tiver configurado para automático, tente mudar para um modelo específico e experimente para descobrir qual modelo funciona melhor para o seu caso de uso. Você também pode tentar iniciar um novo chat e repetir o prompt.
+Ao trabalhar com ferramentas como o Cursor, você pode tentar mudar o modelo utilizado. Por exemplo, se estiver configurado como automático, tente mudar para um modelo específico e experimente para descobrir qual funciona melhor para o seu caso de uso. Você também pode iniciar um novo chat e repetir o prompt.
 
-Se os problemas persistirem, você pode nos enviar um e-mail para [mcp-product@braze.com](mailto:mcp-product@braze.com) para nos informar. Se possível, inclua um vídeo e expanda as funções de chamada para que possamos ver quais chamadas o agente tentou.
+Se os problemas persistirem, envie um e-mail para [mcp-product@braze.com](mailto:mcp-product@braze.com) para nos informar. Se possível, inclua um vídeo e expanda as funções de chamada para que possamos ver quais chamadas o agente tentou.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

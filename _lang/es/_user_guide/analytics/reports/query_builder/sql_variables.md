@@ -37,7 +37,7 @@ Reemplaza lo siguiente:
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | El tipo de variable predefinido que deseas usar, como `campaign` o `catalog_fields`. Para la lista completa, consulta [Tipos de variables compatibles](#variable-types). |
 | `custom_label` | La etiqueta utilizada para identificar la variable en la pestaña **Variables** de tu Generador de consultas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Añadir una variable" }
 
 En el siguiente ejemplo, se consulta el número total de usuarios entre el primer y el último día de un mes para una Campaign. A cada variable se le asignará un valor en el siguiente paso.
 
@@ -183,7 +183,7 @@ Puedes establecer el rango de fechas en cualquiera de las siguientes opciones. S
 | Fecha de inicio | Especifica una fecha de inicio | Requiere `start_date` |
 | Fecha de fin | Especifica una fecha de fin | Requiere `end_date` |
 | Rango de fechas | Especifica tanto una fecha de inicio como de fin | Requiere tanto `start_date` como `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rango de fechas" }
 
 Tu Liquid se usará para mostrar un calendario dentro del rango de fechas dado:
 
@@ -327,7 +327,7 @@ Todas las variables de Campaign y Canvas deben usar los mismos identificadores p
 
 ### Productos {#products}
 
-`products` se usa para seleccionar uno o más productos del dashboard de Braze.
+`products` se usa para seleccionar uno o más productos del panel de Braze.
 
 {% tabs %}
 {% tab uso %}
@@ -355,7 +355,7 @@ Selecciona uno o más eventos personalizados o propiedades de eventos personaliz
 
 {% tabs local %}
 {% tab evento %}
-`custom_events` se usa para seleccionar uno o más eventos personalizados del dashboard de Braze.
+`custom_events` se usa para seleccionar uno o más eventos personalizados del panel de Braze.
 
 {% subtabs %}
 {% subtab uso %}
@@ -395,7 +395,7 @@ name = '{{custom_event_properties.${property names)}}}'
 
 ### Espacio de trabajo {#workspace}
 
-`workspace` se usa para seleccionar un único espacio de trabajo del dashboard de Braze.
+`workspace` se usa para seleccionar un único espacio de trabajo del panel de Braze.
 
 {% tabs %}
 {% tab uso %}
@@ -413,7 +413,7 @@ Selecciona uno o más catálogos o campos de catálogo de una lista.
 
 {% tabs local %}
 {% tab catálogos %}
-`catalogs` se usa para seleccionar uno o más catálogos del dashboard de Braze.
+`catalogs` se usa para seleccionar uno o más catálogos del panel de Braze.
 
 {% subtabs %}
 {% subtab uso %}
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Para seleccionar Segments que tengan activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/). Se establece con el ID de análisis del Segment, que corresponde a los ID almacenados en la columna `user_segment_membership_ids` en las tablas donde esta columna está disponible.
+Para seleccionar Segments que tengan activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking). Se establece con el ID de análisis del Segment, que corresponde a los ID almacenados en la columna `user_segment_membership_ids` en las tablas donde esta columna está disponible.
 
 {% tabs %}
 {% tab uso %}
@@ -505,7 +505,7 @@ Para saber si el valor de una variable está completado. Esto es útil para vari
 ```
 {% endraw %}
 
-### Visible
+### Visible {#visible}
 
 Para determinar si las variables son visibles. Todas las variables son visibles de forma predeterminada en la pestaña **Variables**, donde puedes ingresar valores.
 

@@ -1,32 +1,32 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## プッシュ通知の設定
+## プッシュ通知の設定 {#setting-up-push-notifications}
 
-[Huawei](https://huaweimobileservices.com/) 製の新しいスマートフォンには、プッシュ配信に使用されるサービス、Huawei Mobile Services (HMS) が、Google の Firebase Cloud Messaging (FCM) の代わりに搭載されています。
+[Huawei](https://huaweimobileservices.com/) 製の新しいスマートフォンには、GoogleのFirebase Cloud Messaging (FCM) の代わりにプッシュ配信に使用されるサービス、Huawei Mobile Services (HMS) が搭載されています。
 
-### ステップ 1: Huawei 開発者アカウントに登録する
+### ステップ1:Huawei開発者アカウントに登録する {#step-1-register-for-a-huawei-developer-account}
 
-始める前に、[Huawei 開発者アカウント](https://developer.huawei.com/consumer/en/console)への登録と設定が必要です。Huawei アカウントで、**[My Projects] > [Project Settings] > [App Information]** に移動し、`App ID` と`App secret` を書き留めます。
+始める前に、[Huawei開発者アカウント](https://developer.huawei.com/consumer/en/console)への登録と設定が必要です。Huaweiアカウントで、**[My Projects] > [Project Settings] > [App Information]** に移動し、`App ID` と `App secret` を書き留めます。
 
-![]({% image_buster /assets/img/huawei/huawei-credentials.png %})
+![App IDとApp secretが表示されているHuawei開発者コンソールのアプリ情報ページ。]({% image_buster /assets/img/huawei/huawei-credentials.png %})
 
-### ステップ 2:Braze ダッシュボードで新しい Huawei アプリを作成する
+### ステップ2:Brazeダッシュボードで新しいHuaweiアプリを作成する {#step-2-create-a-new-huawei-app-in-the-braze-dashboard}
 
-Braze ダッシュボードで、[**設定**] ナビゲーションの下にある [**アプリ設定**] に移動します。
+Brazeダッシュボードで、**設定**ナビゲーションの下にある**アプリ設定**に移動します。
 
-[**\+ アプリ**] をクリックし、名前 (My Huawei App など) を入力し、プラットフォームとして `Android` を選択します。
+**+ アプリを追加**をクリックし、名前（My Huawei Appなど）を入力し、プラットフォームとして `Android` を選択します。
 
-![]({% image_buster /assets/img/huawei/huawei-create-app.png %}){: style="max-width:60%;"}
+![Android Huaweiアプリを作成するBrazeのアプリ追加ダイアログ。]({% image_buster /assets/img/huawei/huawei-create-app.png %}){: style="max-width:60%;"}
 
-新しい Braze アプリを作成したら、プッシュ通知設定を見つけて、プッシュプロバイダーとして `Huawei` を選択します。次に、`Huawei Client Secret` と `Huawei App ID` を指定します。
+新しいBrazeアプリを作成したら、プッシュ通知設定を見つけて、プッシュプロバイダーとして `Huawei` を選択します。次に、`Huawei Client Secret` と `Huawei App ID` を指定します。
 
-![]({% image_buster /assets/img/huawei/huawei-dashboard-credentials.png %})
+![Huawei App IDとClient Secretフィールドが表示されているBrazeのHuaweiプッシュプロバイダー設定。]({% image_buster /assets/img/huawei/huawei-dashboard-credentials.png %})
 
-### ステップ 3:Huawei メッセージング SDK をアプリに統合する
+### ステップ3:HuaweiメッセージングSDKをアプリに統合する {#step-3-integrate-the-huawei-messaging-sdk-into-your-app}
 
-Huawei は、Huawei Messaging Service をアプリケーションに統合する [Android 統合 codelab](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html) を提供しています。以下の手順に従って開始してください。
+Huaweiは、Huawei Messaging Serviceをアプリケーションに統合する[Android統合codelab](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html)を提供しています。以下の手順に従って開始してください。
 
-codelab が完了したら、カスタムの [Huawei Message Service](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls) を作成してプッシュトークンを取得し、メッセージを Braze SDK に転送する必要があります。
+codelabが完了したら、カスタムの[Huawei Message Service](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls)を作成してプッシュトークンを取得し、メッセージをBraze SDKに転送する必要があります。
 
 {% tabs %}
 {% tab JAVA %}
@@ -83,44 +83,44 @@ class CustomPushService: HmsMessageService() {
 </service>
 ```
 
-### ステップ 4: フォアグラウンド通知を処理する
+### ステップ4:フォアグラウンド通知を処理する {#step-4-handle-foreground-notifications}
 
-デフォルトでは、アプリがフォアグラウンドにあるときにプッシュ通知が届くと、Huaweiは自動的にそれを表示する。プッシュ通知のペイロードをBrazeで処理させる場合（分析トラッキング、ディープリンク処理、カスタム処理のため）、メソッド`HmsMessageService.onMessageReceived`内で受信したプッシュデータをBrazeにルーティングする。
+デフォルトでは、アプリがフォアグラウンドにあるときにプッシュ通知が届くと、Huaweiは自動的にそれを表示します。Brazeにプッシュ通知のペイロードを処理させる場合（分析トラッキング、ディープリンク処理、カスタム処理のため）、`HmsMessageService.onMessageReceived` メソッド内で受信したプッシュデータをBrazeにルーティングします。
 
-呼び出すと`BrazeHuaweiPushHandler.handleHmsRemoteMessageData`、BrazeはペイロードがBrazeプッシュ通知かどうかを判断し、該当する場合は通知を作成して表示する。詳細については、Android プッシュ通知のドキュメントにある[「フォアグラウンド通知の処理」]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#handling-foreground-notifications)を参照せよ。
+`BrazeHuaweiPushHandler.handleHmsRemoteMessageData` を呼び出すと、BrazeはペイロードがBrazeプッシュ通知かどうかを判断し、該当する場合は通知を作成して表示します。詳細については、Androidプッシュ通知のドキュメントにある[フォアグラウンド通知の処理]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#handling-foreground-notifications)を参照してください。
 
-完全な例については、Braze Android SDKドキュメントの[Huaweiハンドラーリファレンス](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-huawei-push-handler/index.html)を参照せよ。
+完全な例については、Braze Android SDKドキュメントの[Huaweiハンドラーリファレンス](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-huawei-push-handler/index.html)を参照してください。
 
-### ステップ 5: プッシュ通知をテストする（任意）
+### ステップ5:プッシュ通知をテストする（任意） {#step-5-test-your-push-notifications-optional}
 
-ここまでで、Braze ダッシュボードに新しい Huawei Android アプリを作成し、Huawei 開発者の認証情報を使用して設定し、Braze および Huawei SDK をアプリに統合しました。
+ここまでで、Brazeダッシュボードに新しいHuawei Androidアプリを作成し、Huawei開発者の認証情報を使用して設定し、BrazeおよびHuawei SDKをアプリに統合しました。
 
-次に、Braze で新しいプッシュキャンペーンをテストすることで、統合をテストします。
+次に、Brazeで新しいプッシュキャンペーンをテストすることで、統合をテストできます。
 
-#### ステップ 5.1:新しいプッシュ通知キャンペーンを作成する
+#### ステップ5.1:新しいプッシュ通知キャンペーンを作成する {#step-51-create-a-new-push-notification-campaign}
 
-[**キャンペーン**] ページで、新しいキャンペーンを作成し、メッセージタイプとして [**プッシュ通知**] を選択します。
+**キャンペーン**ページで、新しいキャンペーンを作成し、メッセージタイプとして**プッシュ通知**を選択します。
 
-キャンペーンに名前を付けたら、プッシュプラットフォームとして [**Android プッシュ通知**] を選択します。
+キャンペーンに名前を付けたら、プッシュプラットフォームとして**Androidプッシュ**を選択します。
 
-![利用可能なプッシュ・プラットフォームを表示するキャンペーン作成コンポーザー。]({% image_buster /assets/img/huawei/huawei-test-push-platforms.png %})
+![利用可能なプッシュプラットフォームを表示するキャンペーン作成コンポーザー。]({% image_buster /assets/img/huawei/huawei-test-push-platforms.png %})
 
-次に、タイトルとメッセージを付けてプッシュキャンペーンを作成します。
+次に、タイトルとメッセージを入力してプッシュキャンペーンを作成します。
 
-#### ステップ 5.2:テストプッシュを送信する
+#### ステップ5.2:テストプッシュを送信する {#step-52-send-a-test-push}
 
-[**Test**] タブで、[`changeUser(USER_ID_STRING)` method]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#assigning-a-user-id) を使ってアプリに設定したユーザーIDを入力し、[**Send Test**] をクリックしてテストプッシュを送信する。
+**テスト**タブで、[`changeUser(USER_ID_STRING)` メソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids#assigning-a-user-id)を使ってアプリに設定したユーザーIDを入力し、**テスト送信**をクリックしてテストプッシュを送信します。
 
-![キャンペーン作成コンポーザーのテストタブを見ると、ユーザーIDを入力し、「個人ユーザーを追加」フィールドに入力することで、自分自身にテストメッセージを送信できることがわかる。]({% image_buster /assets/img/huawei/huawei-test-send.png %})
+![キャンペーン作成コンポーザーのテストタブ。ユーザーIDを入力し、「個人ユーザーを追加」フィールドに入力することで、自分自身にテストメッセージを送信できます。]({% image_buster /assets/img/huawei/huawei-test-send.png %})
 
-この時点で、Braze から Huawei (HMS) デバイスにテストプッシュ通知が届くはずです。
+この時点で、BrazeからHuawei (HMS) デバイスにテストプッシュ通知が届くはずです。
 
-#### ステップ 5.3:Huaweiセグメンテーションを設定する（任意）
+#### ステップ5.3:Huaweiセグメンテーションを設定する（任意） {#step-53-set-up-huawei-segmentation-optional}
 
-Braze ダッシュボードの Huawei アプリは Android プッシュプラットフォーム上に構築されているため、すべての Android ユーザー (Firebase Cloud Messaging および Huawei Mobile Services) にプッシュを送信するか、キャンペーンオーディエンスを特定のアプリにセグメント化するかを柔軟に選択できます。
+Brazeダッシュボードの Huaweiアプリは Androidプッシュプラットフォーム上に構築されているため、すべてのAndroidユーザー（Firebase Cloud MessagingおよびHuawei Mobile Services）にプッシュを送信するか、キャンペーンオーディエンスを特定のアプリにセグメント化するかを柔軟に選択できます。
 
-Huawei アプリのみにプッシュを送信するには、[新しいセグメントを作成]({{ site.baseurl }}/user_guide/engagement_tools/segments/creating_a_segment/#step-3-choose-your-app-or-platform) して、[**アプリ**] セクション内で Huawei アプリを選択します。
+Huaweiアプリのみにプッシュを送信するには、[新しいセグメントを作成]({{ site.baseurl }}/user_guide/engagement_tools/segments/creating_a_segment/#step-3-choose-your-app-or-platform)して、**アプリ**セクション内でHuaweiアプリを選択します。
 
-![]({% image_buster /assets/img/huawei/huawei-segmentation.png %})
+![プッシュターゲティング用にHuaweiアプリを選択するBrazeセグメントのアプリフィルター。]({% image_buster /assets/img/huawei/huawei-segmentation.png %})
 
-もちろん、すべての Android プッシュプロバイダーに同じプッシュを送信する場合は、アプリを指定しないことを選択することで、現在のワークスペース内で設定されているすべての Android アプリに送信できます。
+もちろん、すべてのAndroidプッシュプロバイダーに同じプッシュを送信する場合は、アプリを指定しないことを選択することで、現在のワークスペース内で設定されているすべてのAndroidアプリに送信できます。

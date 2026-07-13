@@ -12,7 +12,7 @@ description: "이 페이지에서는 클라우드 데이터 수집, 모범 사�
 
 > Braze 클라우드 데이터 수집을 사용하면 데이터 웨어하우스 또는 파일 저장 시스템에서 Braze로 직접 연결을 설정하여 관련 사용자 또는 카탈로그 데이터를 동기화할 수 있습니다. 이 데이터를 Braze에 동기화하면 개인화, 트리거 또는 세분화와 같은 사용 사례에 활용할 수 있습니다.
 
-## `UPDATED_AT` 열 이해하기 {#understanding-the-updatedat-column}
+## `UPDATED_AT` 열 이해하기 {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT`는 S3 동기화가 아닌 데이터 웨어하우스 통합에만 관련이 있습니다.
@@ -51,7 +51,7 @@ CDI를 사용하여 외부 소스(예: Databricks 또는 Snowflake)에서 데이
 - **문자열로 저장된 숫자:** 동기화 전에 소스 쿼리에서 숫자 열을 정수 또는 플로트 유형으로 캐스팅하세요.
 - **동기화 간 일관되지 않은 유형:** 동기화 간에 열 유형이 변경되면 Braze가 새 데이터를 거부할 수 있습니다. 소스 스키마가 일관되게 유지되는지 확인하세요.
 
-Braze 대시보드에서 커스텀 속성의 데이터 유형을 강제하거나 변경하는 방법은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons)를 참조하세요.
+Braze 대시보드에서 커스텀 속성의 데이터 유형을 강제하거나 변경하는 방법은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons)를 참조하세요.
 
 외부 ID, 사용자 별칭, Braze ID, 이메일 또는 전화번호로 사용자 데이터를 업데이트할 수 있습니다. 외부 ID, 사용자 별칭 또는 Braze ID로 사용자를 삭제할 수 있습니다.
 
@@ -286,7 +286,7 @@ CDI는 마지막으로 동기화된 `UPDATED_AT` 값의 행 수를 추적합니�
 `UPDATED_AT` 값은 주어진 동기화의 실행 시작 시간보다 더 늦을 수도 있습니다. 그러나 이렇게 하면 마지막 `UPDATED_AT` 타임스탬프가 "미래로" 밀려나 이후 동기화에서 이전 값을 동기화하지 못하게 되므로 권장하지 않습니다.
 {% endalert %}
 
-## `UPDATED_AT` 열에 UTC 타임스탬프 사용 {#use-a-utc-timestamp-for-the-updatedat-column}
+## `UPDATED_AT` 열에 UTC 타임스탬프 사용 {#use-a-utc-timestamp-for-the-updated_at-column}
 
 `UPDATED_AT` 열은 일광 절약 시간 문제를 방지하기 위해 UTC로 설정해야 합니다. 가능한 경우 `CURRENT_DATE()` 대신 `SYSDATE()`와 같은 UTC 전용 함수를 사용하세요.
 
@@ -313,7 +313,8 @@ CDI는 마지막으로 동기화된 `UPDATED_AT` 타임스탬프의 행 수를 �
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="예시: 후속 업데이트 관리">
+  <caption>예시: 후속 업데이트 관리</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -418,9 +419,10 @@ FROM EXAMPLE_DATA;
   </tbody>
 </table>
 
-동기화가 실행되고 Braze는 사용 가능한 모든 데이터를 "2023-03-16 15:00:00"까지 동기화했다고 기록합니다. 그런 다음, 2일째 아침에 ETL이 실행되고 사용자 테이블의 일부 필드가 업데이트됩니다(강조 표시됨):
+동기화가 실행되고 Braze는 사용 가능한 모든 데이터를 "2023-03-16 15:00:00"까지 동기화했다고 기록합니다. 그런 다음, 2일째 아침에 ETL이 실행되고 사용자 테이블의 일부 필드가 업데이트됩니다(*로 표시):
 
-<table>
+<table aria-label="예시: 후속 업데이트 관리">
+  <caption>예시: 후속 업데이트 관리. *는 마지막 동기화 이후 업데이트된 필드를 나타냅니다.</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -433,14 +435,14 @@ FROM EXAMPLE_DATA;
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -449,13 +451,13 @@ FROM EXAMPLE_DATA;
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -463,7 +465,7 @@ FROM EXAMPLE_DATA;
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -543,7 +545,7 @@ CDI는 새 행만 동기화하므로 다음 동기화가 실행되면 마지막 
 
 CDI를 사용하는 데이터 포인트 사용량은 REST API나 SDK와 같은 다른 수집 방법과 동일하므로, 소스 테이블에 새로운 속성이나 업데이트된 속성만 추가하고 있는지 확인하는 것은 여러분의 몫입니다.
 
-### `EXTERNAL_ID` 열과 `PAYLOAD` 열을 분리 {#separate-externalid-from-payload-column}
+### `EXTERNAL_ID` 열과 `PAYLOAD` 열을 분리 {#separate-external_id-from-payload-column}
 
 `PAYLOAD` 오브젝트에는 외부 ID 또는 다른 ID 유형이 포함되어서는 안 됩니다.
 
@@ -683,7 +685,7 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### `UPDATED_AT` 타임스탬프 사용 {#use-the-updatedat-timestamp}
+### `UPDATED_AT` 타임스탬프 사용 {#use-the-updated_at-timestamp}
 
 Braze는 `UPDATED_AT` 타임스탬프를 사용하여 어떤 데이터가 성공적으로 동기화되었는지 추적합니다. CDI는 마지막으로 동기화된 타임스탬프의 행 수도 추적합니다. 실행 사이에 동일한 타임스탬프로 새 행이 추가되면 CDI는 해당 타임스탬프의 모든 행을 다시 동기화하여 중복 데이터가 발생할 수 있습니다. 자세한 내용과 팁은 [중복 타임스탬프가 있는 행의 재동기화 방지](#avoid-resyncing-rows-with-duplicate-timestamps)를 참조하세요.
 
@@ -693,7 +695,7 @@ Braze는 `UPDATED_AT` 타임스탬프를 사용하여 어떤 데이터가 성공
 
 ### 데이터 형식 {#data-formatting}
 
-클라우드 데이터 수집 테이블 설정 요구 사항 및 페이로드 형식 요구 사항은 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)에 문서화되어 있습니다.
+클라우드 데이터 수집 테이블 설정 요구 사항 및 페이로드 형식 요구 사항은 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)에 문서화되어 있습니다.
 
 해당 페이지를 사용하여 다음을 구분하세요:
 
@@ -715,6 +717,6 @@ Braze는 `UPDATED_AT` 타임스탬프를 사용하여 어떤 데이터가 성공
 | 데이터 유형 | 클라우드 데이터 수집을 통해 사용자 속성, 이벤트 및 구매를 동기화할 수 있습니다. |
 | Braze 지역 | 이 제품은 모든 Braze 지역에서 사용할 수 있습니다. 어떤 Braze 지역이든 어떤 소스 데이터 지역에든 연결할 수 있습니다. |
 | 소스 지역 | Braze는 모든 지역 또는 클라우드 제공업체의 데이터 웨어하우스 또는 클라우드 환경에 연결됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제품 제한 사항" }
 
 <br><br>

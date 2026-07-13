@@ -12,6 +12,8 @@ channel: email
 
 > As you build your email campaign, it's important to keep in mind how your email messaging is received across your various users and email service providers (ESPs). 
 
+## General
+
 Here are some quick tips to keep in mind while building your content:
 
 - When formatting your email, use inline style sheets as CSS.
@@ -23,11 +25,11 @@ Here are some quick tips to keep in mind while building your content:
 - Braze improves load times by using a global CDN to host all email images.
 - On mobile, image columns are narrow (~100px each), so multi-image rows still fit (for example, four images ≈ four usable columns).
 
-### Implementing alternative text
+## Alternative text
 
 Since spam filters watch for both an HTML and a plain text version of a message, utilizing plain text alternatives is a great way to lower your spam score. In addition, alternative text `(alt="")` can serve to complement and in some cases stand in lieu of images included in your email body that may have been filtered out by a user's email provider. Screen readers announce alt text to explain images, so this is an opportunity to use plain language to provide key information about an image.
 
-### Email validation
+## Email validation
 
 {% alert important %}
 Validation is used for dashboard email addresses, end-user email addresses (your customers), and from and reply-to addresses done of an email message.
@@ -35,17 +37,27 @@ Validation is used for dashboard email addresses, end-user email addresses (your
 
 Email validation happens when a user's email address is updated or is being imported into Braze by the API, CSV upload, SDK, or modified in the dashboard. Note that your email addresses cannot include whitespaces, and if sent using the API, whitespaces can result in a `400` error.
 
-Email addresses targeted via the Braze servers must be validated per [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822) standards, Braze does not accept certain characters and recognizes them as invalid. If an email is bounced, Braze marks the email as invalid and the subscription status is not changed. 
+Email addresses targeted through the Braze servers must be validated per [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822) standards, Braze does not accept certain characters and recognizes them as invalid. If an email is bounced, Braze marks the email as invalid and the subscription status is not changed. 
 
-For information about disallowed characters and email validation rules, see [Email validation]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works).
+For information about disallowed characters and email validation rules, see [Email validation]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
-### Setting from and reply-to addresses
+## From and reply-to addresses
 
 When setting your "from" addresses, make sure your "from" email domain matches your sending domain (such as `marketing.yourdomain.com`). Failure to do this may result in SPF and DKIM misalignment. All reply-to emails can be set to your root domain.
 
 {% alert note %}
 Unicode encoding is not supported in "from" addresses.
 {% endalert %}
+
+## Attachments in email {#attachments}
+
+When you add attachments to email messages, follow these deliverability best practices:
+
+- Spam filters scan attachments and may flag your message
+- Mail providers sometimes take longer to accept messages that include attachments
+- Outside one-to-one messages, attachments can make your message look risky in the inbox.
+- Keep each attachment under 2&nbsp;MB.
+- Don’t send sensitive information as an attachment. Instead, send users to your secure portal to view it there instead.
 
 ## Layout (drag-and-drop and custom HTML)
 
@@ -58,7 +70,7 @@ Layout can break when Braze-generated HTML/CSS conflicts with custom HTML. If th
 
 Content Blocks that pull in HTML from outside the editor can also break the layout.
 
-## Using UTM parameters in email URLs
+## UTM parameters in email URLs
 
 UTM parameters tag URLs for analytics. You can build them with Liquid and custom attributes. 
 
@@ -66,7 +78,7 @@ UTM parameters tag URLs for analytics. You can build them with Liquid and custom
 - Avoid spaces and special characters in values (use `_` or `-`). 
 - Confirm your analytics tool ingests UTMs. Trim trailing spaces inside Liquid `capture` blocks. UTMs are case-sensitive.
 
-### Checking HTML details
+### Check HTML details
 
 Keep in mind that some HTML tags and attributes are not allowed as they may potentially let malicious code run in the browser.
 
@@ -77,7 +89,7 @@ Check out the following lists for HTML tags and attributes that aren't allowed i
 - `<bgsound>`
 - `<embed>`
 - `<frameset>`
-- `<iframe>`
+- `iframe`
 - `<ilayer>`
 - `<layer>`
 - `<link>`

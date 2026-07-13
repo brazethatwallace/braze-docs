@@ -30,7 +30,7 @@ The most common naming structure is `group_noun_action`. Events should all be lo
 
 ### Properties
 
-Tag one event and then identify differences by using properties. This is helpful for events that are inherently the same but have minor differences, such as channels for a campaign. We can also easily see how users flow through events. Refer to the [event properties object]({{site.baseurl}}/api/objects_filters/event_object/#event-properties-object) for an example and additional context.
+Tag one event and then identify differences by using properties. This is helpful for events that are inherently the same but have minor differences, such as channels for a campaign. We can also easily see how users flow through events. Refer to the [event properties object]({{site.baseurl}}/api/objects_filters/event_object#event-properties-object) for an example and additional context.
 
 ## Examples
 

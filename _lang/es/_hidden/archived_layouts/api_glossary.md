@@ -1,5 +1,5 @@
 ---
-title: Glosario API o Código
+title: Glosario de API o código
 navlink: apitest
 layout: api_page
 page_order: 2
@@ -42,21 +42,21 @@ noindex: true
 excerpt_separator: ""
 ---
 {% api %}
-## 1 Crear plantilla de correo electrónico
+## 1 Crear plantilla de correo electrónico {#1-create-email-template}
 {% apimethod post %}
 /templates/email/create
 {% endapimethod %}
 {% apitags %}
-Publicar,Correo electrónico,Crear,Plantilla,REST,API
+Post,Email,Create,Template,REST,API
 {% endapitags %}
 
-Utiliza las API REST de plantillas de correo electrónico para administrar mediante programación las plantillas de correo electrónico que almacenaste en los paneles de Braze, en la página Plantillas & Medios. Braze proporciona dos puntos finales para crear y actualizar tus plantillas de correo electrónico.
+Utiliza las API REST de plantillas de correo electrónico para administrar mediante programación las plantillas de correo electrónico que almacenaste en los paneles de Braze, en la página Plantillas y medios. Braze proporciona dos puntos de conexión para crear y actualizar tus plantillas de correo electrónico.
 
-La respuesta de este punto final incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
+La respuesta de este punto de conexión incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### REQUEST BODY
+#### CUERPO DE LA SOLICITUD {#request-body}
 ```
 {
   "template_name": "email_template_name",
@@ -68,7 +68,7 @@ La respuesta de este punto final incluye un campo para `email_template_id`, que 
 
 ```
 
-#### EJEMPLO DE RESPUESTA
+#### EJEMPLO DE RESPUESTA {#example-response}
 ```
 {
   "template_name": "email_template_name",
@@ -80,32 +80,32 @@ La respuesta de este punto final incluye un campo para `email_template_id`, que 
 ```
 
 
-#### DETALLES DE LOS PARÁMETROS
+#### DETALLES DE LOS PARÁMETROS {#parameter-details}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `modified_after`  | No | Cadena en ISO 8601 | Recupera solo las plantillas actualizadas a partir de la hora indicada o después. |
-| `modified_before`  |  No | Cadena en ISO 8601 | Recupera sólo las plantillas actualizadas a la hora indicada o antes. |
-| `limit` | No | Número positivo | Número máximo de plantillas a recuperar, predeterminado a 100 si no se proporciona, el valor máximo aceptable es 1000. |
+| `modified_before`  |  No | Cadena en ISO 8601 | Recupera solo las plantillas actualizadas a la hora indicada o antes. |
+| `limit` | No | Número positivo | Número máximo de plantillas a recuperar; predeterminado a 100 si no se proporciona, el valor máximo aceptable es 1000. |
 | `offset`  |  No | Número positivo | Número de plantillas que saltar antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="DETALLES DE LOS PARÁMETROS" }
 
 
 {% endapi %}
 {% api %}
-## 2 Plantilla de correo electrónico de lista disponible
+## 2 Listar plantillas de correo electrónico disponibles {#2-list-available-email-template}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-Obtener,Correo electrónico,Plantilla,Lista,REST
+Get,Email,Template,List,REST
 {% endapitags %}
 
-Utiliza los siguientes puntos finales para obtener una lista de las plantillas disponibles.
+Utiliza los siguientes puntos de conexión para obtener una lista de las plantillas disponibles.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### REQUEST BODY
+#### CUERPO DE LA SOLICITUD
 ```
 GET https://YOUR_REST_API_URL/templates/email/list
 
@@ -137,24 +137,24 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 #### DETALLES DE LOS PARÁMETROS
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `email_template_id`  | Sí | Cadena | El identificador API de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | Sí | Cadena | El identificador de API de tu plantilla de correo electrónico. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="DETALLES DE LOS PARÁMETROS" }
 
 {% endapi %}
 
 
 {% api %}
-## 3 Campañas Desencadenar envío
-{% apimethod post %}campañas/desencadenar/enviar{% endapimethod %}
-{% apitags %}Publicar, Campañas, Desencadenar,Enviar{% endapitags %}
+## 3 Envío desencadenado de Campaigns {#3-campaigns-trigger-send}
+{% apimethod post %}campaigns/trigger/send{% endapimethod %}
+{% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
 
-La entrega desencadenada por API te permite alojar el contenido de los mensajes dentro del panel de Braze, a la vez que dictas cuándo se envía un mensaje y a quién a través de tu API. 
+La entrega desencadenada por API te permite alojar el contenido de los mensajes dentro del panel de Braze, a la vez que dictas cuándo se envía un mensaje y a quién a través de tu API.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### REQUEST BODY
+#### CUERPO DE LA SOLICITUD
 ```
 POST https://YOUR_REST_API_URL/campaigns/trigger/send
 Content-Type: application/json
@@ -186,7 +186,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 {
   "canvas_id": (required, string) see Canvas Identifier,
-  "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to all users in this request,
+  "context": (optional, object) personalization key-value pairs that will apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if "recipients" is omitted,
   "audience": (optional, Connected Audience Object) see Connected Audience,
   // Including 'audience' will only send to users in the audience
@@ -195,7 +195,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       // Either "external_user_id" or "user_alias" is required. Requests must specify only one.
       "user_alias": (optional, User Alias Object) User Alias of user to receive message,
       "external_user_id": (optional, string) External ID of user to receive message,
-      "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent canvas_entry_properties)
+      "context": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent context)
     },
     ...
   ]
@@ -205,24 +205,24 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 #### DETALLES DE LOS PARÁMETROS
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `email_template_id`  | Sí | Cadena | El identificador API de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | Sí | Cadena | El identificador de API de tu plantilla de correo electrónico. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="DETALLES DE LOS PARÁMETROS" }
 
 {% endapi %}
 
 
 {% api %}
-## 4 Campañas Desencadenar envío
+## 4 Envío desencadenado de Campaigns {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
-{% apitags %}PUT, Campañas, Desencadenar, Enviar{% endapitags %}
+{% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
 
-Este punto final puede utilizarse para registrar eventos personalizados, atributos de usuario y compras de usuarios. Puedes incluir hasta 75 atributos, eventos y objetos de compra por solicitud. Es decir, sólo puedes publicar atributos para un máximo de 75 usuarios a la vez, pero en la misma llamada a la API también puedes proporcionar hasta 75 eventos y hasta 75 compras.
+Este punto de conexión puede utilizarse para registrar eventos personalizados, atributos de usuario y compras de usuarios. Puedes incluir hasta 75 objetos de atributos, eventos y compras por solicitud. Es decir, solo puedes publicar atributos para un máximo de 75 usuarios a la vez, pero en la misma llamada a la API también puedes proporcionar hasta 75 eventos y hasta 75 compras.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### REQUEST BODY
+#### CUERPO DE LA SOLICITUD
 ```
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
@@ -248,7 +248,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean).
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -263,30 +263,30 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 #### DETALLES DE LOS PARÁMETROS
 
-| Campo Perfil de usuario | Especificación del tipo de datos |
+| Campo del perfil de usuario | Especificación del tipo de datos |
 | ---| --- |
 | country | (cadena) Requerimos que los códigos de país se pasen a Braze en la [norma ISO-3166-1 alfa-2][17]. |
-| current_location | (objeto) De la forma {"longitud": -73,991443, "latitud": 40.753824} |
+| current_location | (objeto) De la forma {"longitude": -73.991443, "latitude": 40.753824} |
 | date_of_first_session | (fecha en la que el usuario utilizó la aplicación por primera vez) Cadena en formato ISO 8601 o en formato `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
 | date_of_last_session | (fecha en la que el usuario utilizó la aplicación por última vez) Cadena en formato ISO 8601 o en formato `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
 | dob | (fecha de nacimiento) Cadena en formato "AAAA-MM-DD", por ejemplo, 1980-12-21. |
-| correo electrónico | (cadena) |
+| email | (cadena) |
 | email_subscribe | (cadena) Los valores disponibles son "opted_in" (se ha registrado explícitamente para recibir mensajes de correo electrónico), "unsubscribed" (se ha dado de baja explícitamente de los mensajes de correo electrónico) y "subscribed" (ni se ha dado de alta ni de baja).  |
 | external_id | (cadena) Del identificador único del usuario. |
-| Facebook | hash que contiene cualquiera de `id` (cadena), `likes` (matriz de cadenas), `num_friends` (entero). |
+| facebook | hash que contiene cualquiera de `id` (cadena), `likes` (matriz de cadenas), `num_friends` (entero). |
 | first_name | (cadena) |
 | gender | (cadena) "M", "F", "O" (otro), "N" (no procede), "P" (prefiere no decirlo) o nil (desconocido). |
 | home_city | (cadena) |
 | image_url | (cadena) URL de la imagen que se asociará al perfil de usuario. |
-| language | (cadena) requerimos que el idioma se pase a Braze en la [norma ISO-639-1][24]. <br>[Lista de lenguas aceptadas](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/)|
+| language | (cadena) requerimos que el idioma se pase a Braze en la [norma ISO-639-1][24]. <br>[Lista de idiomas aceptados](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
 | last_name | (cadena) |
-|marked_email_as_spam_at| (cadena) Fecha en la que el correo electrónico del usuario fue marcado como correo no deseado. Aparece en formato ISO 8601 o en formato aaaa-MM-dd'T'HH:mm:ss:SSSZ.|
-| teléfono | (cadena) |
-| push_subscribe | (cadena) Los valores disponibles son "opted_in" (registrado explícitamente para recibir mensajes push), "desuscrito" (optó explícitamente por no recibir mensajes push) y "suscrito" (ni optó por recibirlos ni por no recibirlos).  |
+| marked_email_as_spam_at | (cadena) Fecha en la que el correo electrónico del usuario fue marcado como correo no deseado. Aparece en formato ISO 8601 o en formato yyyy-MM-dd'T'HH:mm:ss:SSSZ. |
+| phone | (cadena) |
+| push_subscribe | (cadena) Los valores disponibles son "opted_in" (registrado explícitamente para recibir mensajes push), "unsubscribed" (optó explícitamente por no recibir mensajes push) y "subscribed" (ni optó por recibirlos ni por no recibirlos).  |
 | push_tokens | Matriz de objetos con `app_id` y cadena `token`. Opcionalmente, puedes proporcionar un `device_id` para el dispositivo al que está asociado este token, por ejemplo, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si no se proporciona un `device_id`, se generará uno aleatoriamente. |
-| time_zone | (cadena) Del nombre de la zona horaria de la [Base de datos de zonas horarias de IANA][26] (por ejemplo, "America/New_York" o "Eastern Time (US & Canada)"). Sólo se establecerán los valores de zona horaria válidos. |
-| twitter | Hash que contiene `id` (entero), `screen_name` (cadena, X (antes Twitter) handle), `followers_count` (entero), `friends_count` (entero), `statuses_count` (entero). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| time_zone | (cadena) Del nombre de la zona horaria de la [Base de datos de zonas horarias de IANA][26] (por ejemplo, "America/New_York" o "Eastern Time (US & Canada)"). Solo se establecerán los valores de zona horaria válidos. |
+| twitter | Hash que contiene cualquiera de `id` (entero), `screen_name` (cadena, identificador de X (antes Twitter)), `followers_count` (entero), `friends_count` (entero), `statuses_count` (entero). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="DETALLES DE LOS PARÁMETROS" }
 
 {% endapi %}
 

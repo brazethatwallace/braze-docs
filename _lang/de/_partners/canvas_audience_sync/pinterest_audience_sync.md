@@ -29,6 +29,7 @@ Braze Audience Sync to Pinterest ist eine Audience Sync Pro-Integration. Für we
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
+
 Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und/oder akzeptiert wurden, bevor Sie Ihren Pinterest Audience-Schritt in Canvas einrichten.
 
 | Anforderung | Herkunft | Beschreibung |
@@ -36,14 +37,14 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und
 | Pinterest Business Hub | [Pinterest](https://www.pinterest.com/business/hub/) | Ein zentrales Tool zur Verwaltung der Pinterest-Assets Ihrer Marke (z. B. Anzeigenkonten, Seiten, Apps). |
 | Pinterest-Anzeigenkonto | [Pinterest](https://ads.pinterest.com/) | Ein aktives Pinterest-Anzeigenkonto, das mit dem Pinterest Business Hub Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihr Pinterest Business Hub-Administrator Ihnen Administratorrechte für die Pinterest-Anzeigenkonten erteilt hat, die Sie mit Braze verwenden möchten. |
 | Pinterest-Bedingungen und -Richtlinien | Pinterest | Sie erklären sich damit einverstanden, alle erforderlichen Bedingungen, Richtlinien, Leitfäden und Dokumentationen von Pinterest in Bezug auf Ihre Nutzung von Pinterest Audience Sync einzuhalten, einschließlich aller Bedingungen, Richtlinien, Leitfäden und Dokumentationen, auf die darin verwiesen wird, wie z. B.: die Allgemeinen Geschäftsbedingungen, die Geschäftsbedingungen für Unternehmen, die Datenschutzrichtlinie, die Servicebedingungen für Entwickler und APIs, die Bedingungen für Anzeigendaten, die Werberichtlinien, die Vereinbarung über Werbedienste, die Community-Richtlinien und die Markenrichtlinien. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Mit Pinterest verbinden {#step-1-connect-to-pinterest}
+### Schritt 1: Mit Pinterest verbinden {#step-1-connect-to-pinterest}
 
 {% alert important %}
-Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) haben, um Pinterest mit Ihrem Braze-Konto zu verbinden.
+Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) haben, um Pinterest mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
 Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Pinterest** aus. Wählen Sie unter Pinterest Audience Sync die Option **Connect Pinterest** aus.
@@ -52,7 +53,7 @@ Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner
 
 Sie werden dann auf die Pinterest-OAuth-Seite weitergeleitet, um Braze für Ad Account Management und Audience Management zu autorisieren.
 
-Nachdem Sie **Confirm** ausgewählt haben, werden Sie zurück zu Braze geleitet, um die Pinterest-Anzeigenkonten auszuwählen, die Sie synchronisieren möchten.
+Nachdem Sie **Bestätigen** ausgewählt haben, werden Sie zurück zu Braze geleitet, um die Pinterest-Anzeigenkonten auszuwählen, die Sie synchronisieren möchten.
 
 ![Eine Liste der verfügbaren Anzeigenkonten, die Sie mit Pinterest verbinden können.]({% image_buster /assets/img/pinterest/pinterest2.png %}){: style="max-width:80%;"}
 
@@ -62,24 +63,24 @@ Wenn die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite z
 
 Ihre Pinterest-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Pinterest-Administrator Sie aus Ihrem Pinterest Business Hub oder dem Zugriff auf die verbundenen Pinterest-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die Pinterest Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
-### 2. Schritt: Einen Audience Sync-Schritt mit Pinterest hinzufügen {#step-2-add-an-audience-sync-step-with-pinterest}
+### Schritt 2: Einen Audience Sync-Schritt mit Pinterest hinzufügen {#step-2-add-an-audience-sync-step-with-pinterest}
 
 Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie **Audience Sync**.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Canvas-Schrittauswahl mit der Option „Audience Sync“-Komponente.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Sync-Komponentenkarte, die einem Canvas-Pfad hinzugefügt wurde.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### 3. Schritt: Sync-Einrichtung {#step-3-sync-setup}
+### Schritt 3: Sync-Einrichtung {#step-3-sync-setup}
 
 Klicken Sie auf den Button **Custom Audience**, um den Komponenteneditor zu öffnen.
 
 Wählen Sie **Pinterest** als gewünschten Audience Sync-Partner aus.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Audience Sync-Komponenteneditor mit Pinterest als ausgewähltem Sync-Partner.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Wählen Sie dann Ihr gewünschtes Pinterest-Anzeigenkonto aus. Geben Sie im Dropdown **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Eine neue Zielgruppe erstellen %}
 
 **Eine neue Zielgruppe erstellen**<br>
 Geben Sie einen Namen für die neue Zielgruppe ein, wählen Sie **Add Users to Audience** und wählen Sie aus, welche Felder Sie mit Pinterest synchronisieren möchten. Speichern Sie anschließend Ihre Zielgruppe, indem Sie unten im Schritteditor auf den Button **Create Audience** klicken.
@@ -92,7 +93,7 @@ Braze zeigt oben im Schritteditor eine Benachrichtigung an, wenn die Zielgruppe 
 
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, synchronisiert Braze die Nutzer:innen nahezu in Realtime, sobald sie den Audience Sync-Schritt erreichen.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit einer bestehenden Zielgruppe synchronisieren %}
 **Mit einer bestehenden Zielgruppe synchronisieren**<br>
 Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Pinterest-Zielgruppen hinzuzufügen, um sicherzustellen, dass diese Zielgruppen auf dem neuesten Stand sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, geben Sie den Namen der bestehenden Zielgruppe im Dropdown ein und fügen Sie sie hinzu. Braze fügt dann Nutzer:innen nahezu in Realtime hinzu, sobald sie den Audience Sync-Schritt erreichen.
 
@@ -101,7 +102,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Pinterest-Zielgr
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Canvas starten {#step-4-launch-canvas}
+### Schritt 4: Canvas starten {#step-4-launch-canvas}
 
 Sobald Sie Ihre Audience Sync to Pinterest konfiguriert haben, starten Sie das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Pinterest übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
@@ -128,7 +129,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Pinterest verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Pinterest synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Pinterest-Token oder eine auf Pinterest gelöschte Zielgruppe sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
 Beachten Sie, dass es aufgrund des Bulk-Flushers bzw. der 13-stündigen Wiederholungsversuche zu Verzögerungen bei der Berichterstattung über synchronisierte Nutzer:innen und fehlerhafte Metriken kommen kann.

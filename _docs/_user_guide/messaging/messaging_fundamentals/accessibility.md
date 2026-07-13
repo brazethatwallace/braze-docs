@@ -3,7 +3,7 @@ nav_title: Accessibility
 article_title: Build Accessible Messages in Braze
 page_order: 0.5
 page_type: reference
-description: "This reference article explains why accessibility is important to consider in your marketing content, and how you can build accessible messages in Braze."
+description: "This reference article explains why accessibility is important in marketing content, how Braze accessibility language (HTML lang) works across channels, and how you can build accessible messages in Braze."
 ---
 
 # Build accessible messages in Braze
@@ -122,20 +122,56 @@ Once your structure is in place, the next step is making sure your words are act
 
 - **Write short, clear sentences:** Short sentences are easy for everyone to understand, especially people using screen readers or who have trouble processing complex information. Write to a United States seventh-grade reading level. You can use resources such as [Hemingway App](https://hemingwayapp.com/) to check your text's reading level.
 - **Choose readable font sizes and spacing:** Text that's too small can be hard to read—especially on mobile. Use at least 14px for body text. Make headings larger so users can clearly see the difference. Extra spacing between lines (around 1.5 line-height) and paragraphs improves readability, especially for people with visual or cognitive needs.
-- **Avoid justified text:** Justified text creates uneven spacing between words, making reading difficult for people with dyslexia or cognitive disabilities. Consider making content that wraps to more than two lines aligned left for left-to-right languages or aligned right for [right-to-left languages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- **Avoid justified text:** Justified text creates uneven spacing between words, making reading difficult for people with dyslexia or cognitive disabilities. Consider making content that wraps to more than two lines aligned left for left-to-right languages or aligned right for [right-to-left languages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 - **Use bold, italic, and uppercase text sparingly:** Emphasizing too much text makes reading difficult—especially for people with dyslexia or visual impairments. Keep it simple.
 
 #### Clarity and usability
 
 Finally, let's talk about the finer details—the things that help users not just see your content, but understand and interact with it. 
 
-- **Clearly label links and buttons:** Make sure your [link](#links) and [button](#buttons) text clearly explains what happens next. It helps people using screen readers or navigating with a keyboard know what to expect.
+- **Clearly label links and buttons:** Make sure your [link guidance](#links) and [button](#buttons) text clearly explains what happens next. It helps people using screen readers or navigating with a keyboard know what to expect.
 - **Go easy on symbols and emojis:** Special characters and emojis can make your content playful, but they can be confusing when read by screen readers. Use them sparingly, and make sure they don't replace clear, descriptive text.
-- **Test for truncation:** Always test your copy by [sending a test message]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) to a device to make sure your text isn't truncated. If your message is being cut off, this hurts both you and your audience, since it prevents your content from reaching them.
+- **Test for truncation:** Always test your copy by [sending a test message]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) to a device to make sure your text isn't truncated. If your message is being cut off, this hurts both you and your audience, since it prevents your content from reaching them.
+
+### Accessibility language {#accessibility-language}
+
+**Accessibility language** tells screen readers and other assistive tools which language your content is in. For channels that send a full HTML page or email, Braze can add a language tag (`lang`) when you set it in the editor or through Liquid. That supports [WCAG 2.1 Success Criterion 3.1.1 Language of Page (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
+
+If you leave accessibility language blank and there is no safe default available, Braze omits the language tag. If no language is set, assistive tools often fall back to the person's phone or computer language. If that differs from the message language, pronunciation can sound wrong. 
+
+Campaigns and Canvases use the same editors for these options, unless a feature isn't available for your workspace.
+
+#### Configure accessibility language
+
+When your editor includes it, go to the **Accessibility** section in message settings. Pick a language from the dropdown or use Liquid (for example {% raw %}`{{accessibility_language}}`{% endraw %} when [multi-language messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) are turned on and **Localization Settings** are set).
+
+#### Multi-language messages
+
+In **Localization Settings**, set an accessibility language for each locale so Liquid can fill in {% raw %}`{{accessibility_language}}`{% endraw %} for localized sends. Whether that value is already chosen for new messages depends on the channel. For CSV and translation workflows, start with [Language settings and accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
+
+#### Channel and editor support
+
+Use this table to compare channels. Defaults can differ, so spot-check what your audience actually receives.
+
+| Channel | What to know |
+| --- | --- |
+| Email (drag-and-drop, full template) | Set language in the editor. With multi-language messages, a full email template can match each locale's language for you. If you only use Content Blocks (single row), those shortcuts don't work the same—pick the language yourself where the editor allows it. |
+| Email (HTML code) | Braze does not add a language tag for you. Add it in your HTML if you need it. |
+| In-app messages (drag-and-drop) | When you pick a language under **Accessibility**, Braze adds that language to the outer HTML of the message so screen readers treat the whole message as that language. With multi-language messages on, new messages may default to your locale languages. **Preview** might show no language until you choose one under **Settings**. |
+| Banners | Same behavior as in-app messages. |
+| Landing pages | You can set language on the live page. Choose one language, or use Liquid if your account allows Liquid on landing pages. Defaults also differ from in-app messages and Banners—check the published page. |
+| Content Cards | Cards use a **Language** field for apps instead of an explicit accessibility language. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and editor support" }
+
+When you write HTML yourself, you can still add a language tag on part of the message (for example one phrase in another language). For more patterns, see [Custom HTML](#custom-html).
+
+#### Standards reference
+
+When Braze adds a root-level language tag to HTML, it follows the HTML [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) rule. Testing tools often look for [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Content Cards use your **language** field instead of that HTML pattern.
 
 ### Buttons
 
-Use **buttons** to indicate an action, such as sending a form or playing a carousel. If you're navigating to a new URL, consider using a [link](#links) instead.
+Use **buttons** to indicate an action, such as sending a form or playing a carousel. If you're navigating to a new URL, consider using a [link guidance](#links) instead.
 
 #### Write clear, action-oriented text
 
@@ -204,7 +240,7 @@ For example, consider how you might write a link to view a weather report.
 | Bad  | Better | Best |
 | --- | --- | --- | 
 | Click here | Click here to access today's weather | Today's weather |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Write descriptive link text" }
 
 As with all content, keep it straightforward with as few extra words as possible.
 
@@ -504,7 +540,7 @@ You can test your color choices using the [WebAim Contrast Checker Tool](https:/
 If you use any custom HTML in your messaging:
 
 - Use [semantic HTML](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). This means using the correct HTML elements for their intended purpose instead of styling one element to look like another. Most HTML elements have their own accessibility support built in.
-- Set the [`lang` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) within your HTML to identify the language that your content is in. Screen readers use different sound libraries for each language based on the pronunciation and characteristics of that language. If this isn’t specified, a screen reader assumes the content is written in the default language that the user chose when setting up the screen reader. If the message isn’t actually in the default language, then the screen reader might not pronounce the message correctly. 
+- For document-level language where Braze can add HTML metadata on export, refer to [Accessibility language](#accessibility-language); behavior varies by channel. When you mark up content yourself, set the [`lang` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) within your HTML to identify the language that your content is in. Screen readers use different sound libraries for each language based on the pronunciation and characteristics of that language. If this isn’t specified, a screen reader assumes the content is written in the default language that the user chose when setting up the screen reader. If the message isn’t actually in the default language, then the screen reader might not pronounce the message correctly. 
 
 {% raw %}
 ```html
@@ -513,7 +549,7 @@ If you use any custom HTML in your messaging:
 {% endraw %}
 
 {% alert note %}
-When using the email drag-and-drop editor, the language value for the email can be set by going to the **Settings** tab and selecting the appropriate language value.
+When using the drag-and-drop email editor, set language from the **Settings** tab when that control is available. Full-template and content-block-only email can use different defaults for accessibility language—see [Accessibility language](#accessibility-language). Other channels are covered in that section too.
 {% endalert %}
 
 - Use [ARIA attributes](#aria-attributes) to give extra context. These attributes provide additional information to assistive technologies, helping to clarify the role, state, or properties of UI elements that may otherwise be unclear. 
@@ -597,8 +633,8 @@ Emails created in the email drag-and-drop editor have presentational elements au
 
 To help you identify and fix accessibility issues early, Braze offers automated accessibility testing in the following areas:
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing) for emails
-- [Accessibility scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner) for messages created using our HTML editor (for example, HTML in-app messages, HTML Content Blocks, [custom email footers]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), [email opt-in pages]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page), and [email unsubscribe pages]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)).
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) for emails
+- [Accessibility scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) for messages created using our HTML editor (for example, HTML in-app messages, HTML Content Blocks, [custom email footers]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [email opt-in pages]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page), and [email unsubscribe pages]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)).
 
 These tests check your message against the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) standard—a set of internationally recognized technical standards for accessible content. Any issues that can be detected automatically are flagged and categorized by severity to help you prioritize.
 

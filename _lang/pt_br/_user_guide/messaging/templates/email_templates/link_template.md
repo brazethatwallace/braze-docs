@@ -31,8 +31,8 @@ Digamos que você esteja executando uma Campaign promocional de e-mail para o la
 
 Você pode criar um número ilimitado de modelos de links para atender às suas diversas necessidades. Para criar um modelo de link, faça o seguinte:
 
-1. Acesse **Modelos** > **Modelos de links de e-mail**.
-2. Selecione **Create email link template**.
+1. Acesse **Conteúdo** > **Link de e-mail**.
+2. Selecione **Criar modelo de link de e-mail**.
 3. Dê um nome ao seu modelo de link.
 4. (Opcional) Adicione uma descrição, equipe ou tag para incluir detalhes sobre o modelo de link.
 5. (Opcional) Selecione o botão de alternância para adicionar automaticamente o modelo de link aos links em campanhas de e-mail e Canvas. Isso se aplica ao adicionar um novo link a qualquer e-mail novo ou existente.
@@ -42,29 +42,29 @@ Existem dois tipos de modelos de links que você pode criar:
 - [Modelo de link que insere antes de um URL](#prepend-link-template)
 - [Modelo de link que insere depois de um URL](#append-link-template)
 
-Ao usar modelos de links e [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), o Liquid deve ser adicionado apenas dentro da tag body para garantir uma renderização consistente.
+Ao usar modelos de links e [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), o Liquid deve ser adicionado apenas dentro da tag body para garantir uma renderização consistente.
 
 ### Prefixar: criar um modelo de link que insere antes de um URL {#prepend-link-template}
 
 Para adicionar uma string ou URL antes dos links na sua mensagem de e-mail, faça o seguinte:
 
 1. Crie um novo modelo de link.
-2. Defina a **Template Position** como **Before URL**.
+2. Defina a **Posição do modelo** como **Antes do URL**.
 3. Insira uma string que sempre será prefixada ao seu URL.
 
-A **Template Preview** é fornecida para dar um exemplo de como o modelo de link será inserido antes de um URL.
+A **Pré-visualização do modelo** é fornecida para dar um exemplo de como o modelo de link será inserido antes de um URL.
 
-![Campos de Template Position, Prepend URL e Template Preview para o processo de inserção do modelo de link antes de um URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
+![Campos de posição do modelo, URL prefixado e pré-visualização do modelo para o processo de inserção do modelo de link antes de um URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
 
 ### Sufixar: criar um modelo de link que insere depois de um URL {#append-link-template}
 
 Se você quiser adicionar parâmetros de consulta depois de um URL na sua mensagem de e-mail:
 
 1. Crie um novo modelo de link.
-2. Defina a **Template Position** como **After URL**.
+2. Defina a **Posição do modelo** como **Após o URL**.
 3. Insira os parâmetros de consulta (`value=example`) no final de cada URL. Você pode ter vários parâmetros adicionados ao final de um URL.
 
-![Campos de Template Position, Query Parameters e Template Preview para o processo de inserção do modelo de link depois de um URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
+![Campos de posição do modelo, parâmetros de consulta e pré-visualização do modelo para o processo de inserção do modelo de link depois de um URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
 ## Usando modelos de links em campanhas de e-mail {#using-link-templates-in-email-campaigns}
 
@@ -73,7 +73,7 @@ Depois de configurar seus modelos de links, você pode aplicá-los no seu e-mail
 Para aplicar um modelo de link no editor de HTML ou no editor de arrastar e soltar, siga estas etapas:
 
 {% alert important %}
-Para acessar a guia **Link Management** no editor de HTML atualizado ou no editor de arrastar e soltar, você precisa ter o link aliasing ativado. Para ativar o link aliasing, entre em contato com o gerente da sua conta. Para saber mais, consulte [Link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/).
+Para acessar a guia **Link Management** no editor de HTML atualizado ou no editor de arrastar e soltar, você precisa ter o link aliasing ativado. Para ativar o link aliasing, entre em contato com o gerente da sua conta. Para saber mais, consulte [Link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}
 
 - **Editor de HTML atualizado:** Na guia **Content**, selecione **Link Management**, selecione **Add a Link Template**, escolha seu modelo de link e selecione **Add**.
@@ -89,7 +89,7 @@ Ao adicionar modelos de links na guia **Link Management**, role para a direita p
 
 ## Gerenciando modelos de links {#managing-link-templates}
 
-Você também pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) modelos de links. Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates/).
+Você também pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) modelos de links. Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates).
 
 {% alert important %}
 O arquivamento de modelos não está disponível atualmente para modelos de links.
@@ -97,4 +97,4 @@ O arquivamento de modelos não está disponível atualmente para modelos de link
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-Para respostas às perguntas frequentes sobre modelos de links, confira nossa página de [Perguntas frequentes sobre modelos]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Para respostas às perguntas frequentes sobre modelos de links, confira nossa página de [Perguntas frequentes sobre modelos]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

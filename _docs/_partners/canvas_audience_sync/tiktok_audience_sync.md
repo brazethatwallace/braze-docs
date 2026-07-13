@@ -36,7 +36,7 @@ You must ensure the following items are created, completed, and/or accepted befo
 | TikTok for Business Center Account | [TikTok](https://business.tiktok.com/) | A centralized tool to manage your brand's TikTok assets (such as ad accounts, pages, apps). |
 | TikTok Ad Account | [TikTok](https://ads.tiktok.com/) | An active TikTok ad account tied to your brand's Business Center account.<br><br>Ensure that your TikTok Business Center manager admin has granted you admin permissions to the TikTok ad accounts you plan to use with Braze. |
 | TikToK terms & policies | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Agree to comply with any of TikTok’s required terms, policies, guidelines, and documentation related to your use of the Pinterest Audience Sync, including any terms, policies, guidelines, and documentation incorporated by reference therein, which may include: the Commercial Terms of Service, Advertising Terms, Privacy Policy, Custom Audience Terms, Developer Terms of Service, Developer Data Sharing Agreement, Advertising Policies, Brand Guidelines, and Community Guidelines. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration 
 
@@ -52,19 +52,19 @@ In the Braze dashboard, go to **Partner Integrations** > **Technology Partners**
 
 You'll then be redirected to the TikTok OAuth page to authorize Braze for ad account management and Audience Management. After you have selected **Confirm**, you'll be redirected back into Braze to select which TikTok ad accounts you wish to sync to. 
 
-![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
+![TikTok OAuth authorization page requesting access for Braze audience management.]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
 Once successfully connected, you will return to the partner page. Here, you can view which accounts are connected and disconnect existing accounts.
 
-![]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
+![Braze TikTok partner page showing connected TikTok ad accounts.]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-Your TikTok connection will be applied at the Braze app-group level. If your TikTok admin removes you from your TikTok Business Center or access to the connected TikTok accounts, Braze will detect an invalid token. As a result, your active Canvases using TikTok Audience components will show errors, and Braze will not be able to sync users.
+Your TikTok connection will be applied at the Braze workspace level. If your TikTok admin removes you from your TikTok Business Center or access to the connected TikTok accounts, Braze will detect an invalid token. As a result, your active Canvases using TikTok Audience components will show errors, and Braze will not be able to sync users.
 
 ### Step 2: Add a TikTok Audience component in Canvas
 
 Add a component in your Canvas and select **Audience Sync**. 
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Canvas step selector with the Audience Sync component option.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Sync component card added to a Canvas path.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### Step 3: Sync setup
 
@@ -72,11 +72,11 @@ Click on the **Custom Audience** button to open the component editor.
 
 Select **TikTok** as the desired Audience Sync partner.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Audience Sync component editor with TikTok selected as the sync partner.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Then select the desired TikTok ad account. Under the **Choose a New or Existing Audience** dropdown, type in the name of a new or existing audience.
 
-![]({% image_buster /assets/img/tiktok/tiktok11.png %})
+![TikTok Audience Sync editor showing ad account selection and audience dropdown.]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
 {% tab Create a New Audience %}
@@ -84,11 +84,11 @@ Then select the desired TikTok ad account. Under the **Choose a New or Existing 
 **Create a New Audience**<br>
 Enter a name for the new audience, select **Add Users to Audience**, and select which fields you would like to sync with TikTok. Next, save your audience by clicking the **Create Audience** button at the bottom of the step editor.
 
-![]({% image_buster /assets/img/audience_sync/tiktok3.png %})
+![Create New Audience form in the TikTok Audience Sync step with match fields selected.]({% image_buster /assets/img/audience_sync/tiktok3.png %})
 
 Braze displays a notification at the top of the step editor if the audience is created successfully or if errors arise. Users can reference this audience for user removal later in the Canvas journey because the audience was created in draft mode.
 
-![]({% image_buster /assets/img/audience_sync/tiktok2.png %})
+![Success notification in the Audience Sync step after creating a new TikTok audience.]({% image_buster /assets/img/audience_sync/tiktok2.png %})
 
 When you launch a Canvas with a new audience, Braze syncs users in near real-time as they enter the audience step.
 
@@ -129,7 +129,7 @@ The following table includes metrics and descriptions to help you better underst
 | Users Pending | Number of users currently being processed by Braze to sync into TikTok. |
 | Users Errored | Number of users who were not synced to TikTok due to an API error after about 13 hours of retries. Potential causes of errors can include an invalid TikTok token or if the audience was deleted on TikTok. |
 | Exited Canvas | Number of users who have exited the Canvas. This occurs when the last step in a Canvas is an Audience sync component. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Remember that there will be a delay in reporting for users synced and users errored metrics due to the bulk flusher and the 13-hour retry, respectively.

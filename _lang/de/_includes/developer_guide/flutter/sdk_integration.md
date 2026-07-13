@@ -1,21 +1,21 @@
-## Informationen zum Flutter Braze SDK
+## Informationen zum Flutter Braze SDK {#about-the-flutter-braze-sdk}
 
-Nachdem Sie das Braze Flutter SDK auf Android und iOS integriert haben, können Sie die Braze-API in Ihren mit Dart geschriebenen [Flutter-Apps](https://flutter.dev/) verwenden. Dieses Plugin bietet grundlegende Analytics-Funktionen und ermöglicht die Integration von In-App-Nachrichten und Content-Cards für iOS und Android mit einer einzigen Codebasis.
+Nachdem Sie das Braze Flutter SDK auf Android und iOS integriert haben, können Sie die Braze-API in Ihren mit Dart geschriebenen [Flutter-Apps](https://flutter.dev/) verwenden. Dieses Plugin bietet grundlegende Analytics-Funktionen und ermöglicht die Integration von In-App-Nachrichten und Content Cards für iOS und Android mit einer einzigen Codebasis.
 
-## Integration des Flutter SDK
+## Integration des Flutter SDK {#integrating-the-flutter-sdk}
 
-### Voraussetzungen
+### Voraussetzungen {#prerequisites}
 
 Bevor Sie das Braze Flutter SDK integrieren, müssen Sie Folgendes erledigen:
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Braze API-App-Bezeichner | Um den Bezeichner Ihrer App zu finden, gehen Sie zu **Einstellungen** > **APIs und Kennungen** > **App-Bezeichner**. Weitere Informationen finden Sie unter [API-Bezeichner-Typen]({{site.baseurl}}/api/identifier_types/#app-identifier).|
-| Braze SDK-Endpunkt | Ihre SDK-Endpunkt-URL (z. B. `sdk.<cluster>.braze.com`). Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab.|
+| Braze API-App-Bezeichner | Um den Bezeichner Ihrer App zu finden, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **App-Bezeichner**. Weitere Informationen finden Sie unter [API-Bezeichner-Typen]({{site.baseurl}}/api/identifier_types#app-identifier).|
+| Braze SDK-Endpunkt | Ihre SDK-Endpunkt-URL (z. B. `sdk.<cluster>.braze.com`). Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab.|
 | Flutter SDK | Installieren Sie das offizielle [Flutter SDK](https://docs.flutter.dev/get-started/install) und stellen Sie sicher, dass es die [Mindestanforderungen für die unterstützte Version](https://github.com/braze-inc/braze-flutter-sdk#requirements) des Braze Flutter SDK erfüllt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-### 1. Schritt: Integrieren der Braze-Bibliothek
+### Schritt 1: Integrieren der Braze-Bibliothek {#step-1-integrate-the-braze-library}
 
 Fügen Sie das Braze Flutter SDK-Paket über die Befehlszeile hinzu. Dadurch wird die entsprechende Zeile zu Ihrer `pubspec.yaml` hinzugefügt.
 
@@ -23,14 +23,14 @@ Fügen Sie das Braze Flutter SDK-Paket über die Befehlszeile hinzu. Dadurch wir
 flutter pub add braze_plugin
 ```
 
-### 2. Schritt: Vollständige native SDK-Einrichtung
+### Schritt 2: Vollständige native SDK-Einrichtung {#step-2-complete-native-sdk-setup}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-#### 2.1 Android einrichten
+#### 2.1 Android einrichten {#21-set-up-android}
 
-##### Zugangsdaten zur Kompilierzeit bereitstellen
+##### Zugangsdaten zur Kompilierzeit bereitstellen {#provide-credentials-at-compile-time}
 
 Erstellen Sie eine `braze.xml`-Datei im Ordner `android/res/values` Ihres Projekts. Der API-Schlüssel und der Endpunkt werden zur Laufzeit über Dart bereitgestellt und sind daher in dieser Datei nicht erforderlich. Um die verzögerte Initialisierung zu aktivieren, fügen Sie `com_braze_enable_delayed_initialization` zur Datei hinzu:
 
@@ -42,7 +42,7 @@ Erstellen Sie eine `braze.xml`-Datei im Ordner `android/res/values` Ihres Projek
 </resources>
 ```
 
-##### Zugangsdaten zur Laufzeit bereitstellen
+##### Zugangsdaten zur Laufzeit bereitstellen {#provide-credentials-at-runtime}
 
 Alternativ können Sie die verzögerte Initialisierung programmatisch in Ihrer `MainActivity.kt` aktivieren:
 
@@ -64,7 +64,7 @@ Fügen Sie die erforderlichen Berechtigungen zu Ihrer Datei `AndroidManifest.xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 iOS einrichten
+#### 2.2 iOS einrichten {#22-set-up-ios}
 
 Fügen Sie innerhalb Ihrer bestehenden `application(_:didFinishLaunchingWithOptions:)`-Methode einen Aufruf von `BrazePlugin.configure(_:postInitialization:)` hinzu, um Ihre Konfiguration zu speichern. Die Braze-Instanz wird erst erstellt, wenn `initialize()` aus Dart aufgerufen wird. Der API-Schlüssel und der Endpunkt werden hier nicht festgelegt.
 
@@ -235,7 +235,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### 3. Schritt: Plugin einrichten
+### Schritt 3: Plugin einrichten {#step-3-set-up-the-plugin}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -248,9 +248,9 @@ import 'package:braze_plugin/braze_plugin.dart';
 final BrazePlugin braze = BrazePlugin();
 ```
 
-Rufen Sie dann `initialize()` mit Ihrem App-Bezeichner-API-Schlüssel und SDK-Endpunkt auf, um die Braze-Instanz zu erstellen. Nachfolgend finden Sie die Optionen, wo Sie diese Methode in Ihrer App aufrufen können.
+Rufen Sie dann `initialize()` mit Ihrem App-Bezeichner-API-Schlüssel und SDK-Endpunkt auf, um die Braze-Instanz zu erstellen. Nachfolgend finden Sie die Optionen, wo Sie diese Methode in Ihrem App-Ablauf aufrufen können.
 
-#### Standard-Initialisierung
+#### Standard-Initialisierung {#standard-initialization}
 
 Um das SDK beim Start Ihrer App zu initialisieren, rufen Sie `initialize()` in `initState()` auf:
 
@@ -262,7 +262,7 @@ void initState() {
 }
 ```
 
-#### Verzögerte Initialisierung
+#### Verzögerte Initialisierung {#delayed-initialization}
 
 Um die SDK-Initialisierung auf einen späteren Zeitpunkt in der Sitzung zu verschieben – z. B. nachdem die Nutzer:innen ihre Einwilligung erteilt oder die Anmeldung abgeschlossen haben – rufen Sie `initialize()` auf, wenn Sie bereit sind:
 
@@ -277,7 +277,7 @@ void onUserConsent() {
 Push-Benachrichtigungen und Deeplinks, die vor dem Aufruf von `initialize()` empfangen werden, werden unter iOS nicht verarbeitet. Unter Android werden Deeplinks aus Push-Benachrichtigungen nicht aufgelöst, solange das SDK auf die Initialisierung wartet. Wenn Ihre App auf Push-Benachrichtigungen oder Deeplinks beim Start angewiesen ist, verwenden Sie stattdessen die [Standard-Initialisierung](#standard-initialization).
 {% endalert %}
 
-#### Plattformspezifische API-Schlüssel
+#### Plattformspezifische API-Schlüssel {#platform-specific-api-keys}
 
 Da Ihre Android- und iOS-Apps unterschiedliche API-Schlüssel verwenden, nutzen Sie die Plattformerkennung:
 
@@ -291,7 +291,7 @@ if (Platform.isAndroid) {
 }
 ```
 
-#### Erneute Initialisierung
+#### Erneute Initialisierung {#re-initialization}
 
 Sie können `initialize()` mehrfach aufrufen, um das SDK während einer Sitzung mit einem anderen API-Schlüssel und Endpunkt neu zu initialisieren. Jeder Aufruf entfernt die vorherige Braze-Instanz und erstellt eine neue.
 
@@ -317,7 +317,8 @@ Um undefiniertes Verhalten zu vermeiden, weisen Sie in Ihrem Dart-Code nur eine 
 {% endtab %}
 {% endtabs %}
 
-## Testen der Integration
+## Testen der Integration {#testing-the-integration}
+
 Sie können überprüfen, ob das SDK integriert ist, indem Sie die Sitzungsstatistiken im Dashboard prüfen. Wenn Sie Ihre Anwendung auf einer der beiden Plattformen ausführen, sollten Sie im Dashboard (im Abschnitt **Übersicht**) eine neue Sitzung sehen.
 
 Öffnen Sie eine Sitzung für eine:n bestimmte:n Nutzer:in, indem Sie den folgenden Code in Ihrer App aufrufen.

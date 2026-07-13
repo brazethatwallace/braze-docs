@@ -18,13 +18,13 @@ The Push Story feature requires the `UNNotification` framework and iOS 10. The f
 
 ## Step 1: Enable push in your app
 
-Follow the [push notification integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/) to enable push in your app.
+Follow the [push notification integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) to enable push in your app.
 
 ## Step 2: Adding the Notification Content Extension target
 
 In your app project, go to menu **File > New > Target...** and add a new `Notification Content Extension` target and activate it.
 
-![]({% image_buster /assets/img/ios/push_story/add_content_extension.png %})
+![In your app project, go to menu File > New > Target... and add a new Notification Content Extension target and activate it.]({% image_buster /assets/img/ios/push_story/add_content_extension.png %})
 
 Xcode should generate a new target for you and create files automatically for you including:
 
@@ -48,7 +48,7 @@ Xcode should generate a new target for you and create files automatically for yo
 
 The Push Story feature requires the background mode in the **Capabilities** section of the main app target. After turning on the background modes, select **Background fetch** and **Remote notifications**.
 
-![]({% image_buster /assets/img/ios/push_story/enable_background_mode.png %})
+![The Push Story feature requires the background mode in the Capabilities section of the main app target. After turning on the background modes, select Background fetch and Remote notifications.]({% image_buster /assets/img/ios/push_story/enable_background_mode.png %})
 
 ### Adding an App Group
 
@@ -65,11 +65,11 @@ If you do not add your app to an App Group, your app may fail to populate certai
 {% tabs local %}
 {% tab Swift Package Manager %}
 
-After following the [Swift Package Manager integration guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager/), add `AppboyPushStory` to your `Notification Content Extension`:
+After following the [Swift Package Manager integration guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), add `AppboyPushStory` to your `Notification Content Extension`:
 
 ![In Xcode, under frameworks and libraries, select the "+" icon to add a framework.]({% image_buster /assets/img/ios/push_story/spm1.png %})
 
-![]({% image_buster /assets/img/ios/push_story/spm2.png %})
+![After following the Swift Package Manager integration guide, add AppboyPushStory to your Notification Content Extension.]({% image_buster /assets/img/ios/push_story/spm2.png %})
 
 {% endtab %}
 {% tab CocoaPods %}
@@ -91,7 +91,7 @@ Download the latest `AppboyPushStory.zip` from the [GitHub release page](https:/
 - `Resources/ABKPageView.nib`
 - `AppboyPushStory.xcframework`
 
-![]({% image_buster /assets/img/ios/push_story/manual1.png %})
+![Download the latest AppboyPushStory.zip from the GitHub release page, extract it, and add the following files to your project's Notification Content Extension.]({% image_buster /assets/img/ios/push_story/manual1.png %})
 
 {% alert important %}
 Make sure that **Do Not Embed** is selected for **AppboyPushStory.xcframework** under the **Embed** column.
@@ -185,13 +185,13 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
 
 Open the `Notification Content Extension` storyboard and place a new `UIView` in the notification view controller. Rename the class to `ABKStoriesView`. Make the view width and height auto-resizable matching the notification view controller's main view frame.
 
-![]({% image_buster /assets/img/ios/push_story/abkstoriesview_class.png %})
+![Open the Notification Content Extension storyboard and place a new UIView in the notification view controller. Rename the class to ABKStoriesView. Make the view width and height auto-resizable matching the notification view controller's main view frame.]({% image_buster /assets/img/ios/push_story/abkstoriesview_class.png %})
 
-![]({% image_buster /assets/img/ios/push_story/abkstoriesview_size.png %})
+![Open the Notification Content Extension storyboard and place a new UIView in the notification view controller. Rename the class to ABKStoriesView. Make the view width and height auto-resizable matching the notification view controller's main view frame.]({% image_buster /assets/img/ios/push_story/abkstoriesview_size.png %})
 
 Next, link the notification view controller's `storiesView` IBOutlet to the added `ABKStoriesView`.
 
-![]({% image_buster /assets/img/ios/push_story/abkstoriesview_outlet.png %})
+![Screenshot related to step 6: set the notification content extension storyboard.]({% image_buster /assets/img/ios/push_story/abkstoriesview_outlet.png %})
 
 ## Step 7: Set the notification content extension plist
 
@@ -201,11 +201,11 @@ Open the `Info.plist` file of the `Notification Content Extension` and add and c
 `UNNotificationExtensionDefaultContentHidden` = `YES` (`Boolean` type)
 `UNNotificationExtensionInitialContentSizeRatio` = `0.65` (`Number` type)
 
-![]({% image_buster /assets/img/ios/push_story/notificationcontentextension_plist.png %})
+![Screenshot related to step 7: set the notification content extension plist.]({% image_buster /assets/img/ios/push_story/notificationcontentextension_plist.png %})
 
 ## Step 8: Updating the Braze integration in your main app
 
-##### Option 1: Runtime
+### Option 1: Runtime
 
 In the `appboyOptions` dictionary used to configure your Braze instance, add an `ABKPushStoryAppGroupKey` entry and set the value to your workspace API identifier.
 
@@ -234,12 +234,12 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 {% endtab %}
 {% endtabs %}
 
-##### Option 2: Info.plist
+#### Option 2: Info.plist
 
 Alternatively, to configure the Push Story workspace from your `Info.plist` file, add a dictionary named `Braze` to your `Info.plist` file. Inside the `Braze` dictionary, add a string-typed `PushStoryAppGroup` subentry and set the value to your workspace identifier. Note that prior to Braze iOS SDK v4.0.2, the dictionary key `Appboy` must be used in place of `Braze`.
 
 ## Next steps
 
-Next refer to the steps for integrating [action buttons]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/), which is required for buttons to show on a Push Story message.
+Next refer to the steps for integrating [action buttons]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons), which is required for buttons to show on a Push Story message.
 
 

@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-Uma [nova versão da integração do Shopify]({{site.baseurl}}/partners/shopify/#new-shopify-integration) será lançada em fases a partir de abril de 2025. As fases serão baseadas no tipo de loja Shopify e no ID externo usado para configurar a integração inicial. <br><br>**A versão antiga da integração não estará mais disponível após 28 de agosto de 2025. Atualize para a nova versão antes dessa data para continuar usando a integração sem problemas.**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
@@ -45,7 +37,7 @@ Lembre-se de que, embora esses e-mails possam não ser entregues ao gateway de S
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Para maior segurança, recomendamos adicionar nosso recurso de [Autenticação do SDK]({{site.baseurl}}/developer_guide/authentication/) para evitar a simulação de usuários.
+Para maior segurança, recomendamos adicionar nosso recurso de [Autenticação do SDK]({{site.baseurl}}/developer_guide/authentication) para evitar a simulação de usuários.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +53,7 @@ Existem certos navegadores, como os apps Naver para Android e iOS, que não ofer
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-O evento de compra legado está entrando em modo de manutenção. Os eventos de compra existentes continuam funcionando como esperado, mas nenhuma nova funcionalidade está sendo desenvolvida sobre eles, em favor dos eventos recomendados de eCommerce. Você pode continuar usando eventos de compra por tempo indeterminado. A Braze fornecerá aviso prévio bem antes de qualquer data de fim de vida ser definida.
+O evento de compra legado está entrando em modo de manutenção. Clientes existentes da Braze podem continuar usando eventos de compra legados. Eles continuarão funcionando como esperado, mas novas funcionalidades serão desenvolvidas com base nos eventos recomendados de eCommerce daqui em diante. A Braze fornecerá aviso prévio bem antes de qualquer data de fim de vida ser definida. Novos clientes da Braze devem usar os [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events), pois os eventos de compra legados não estarão disponíveis.
 {% endalert %}
 
 {% endif %}
@@ -69,7 +61,7 @@ O evento de compra legado está entrando em modo de manutenção. Os eventos de 
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). Quando isso acontecer, os filtros de segmento não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
+O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events). Quando isso acontecer, os filtros de segmento não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events).
 {% endalert %}
 
 {% endif %}
@@ -85,7 +77,7 @@ Os arquivos exportados armazenados em buckets S3 são automaticamente excluídos
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-A integração do Shopify oferece suporte a webhooks de criação e atualização de clientes do Shopify, que estão localizados nas suas configurações de dados. Quando um perfil de usuário é criado ou atualizado no Shopify, um perfil de usuário correspondente na Braze será criado ou atualizado. <br><br>Essas ações não disparam eventos personalizados na Braze e são usadas exclusivamente para [sincronizar dados de usuários do Shopify com a Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works). Os dados sincronizados incluem [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes), [atributos padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes) e, se ativado na sua configuração, [estados de grupo de inscrições]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins).
+A integração do Shopify oferece suporte a webhooks de criação e atualização de clientes do Shopify, que estão localizados nas suas configurações de dados. Quando um perfil de usuário é criado ou atualizado no Shopify, um perfil de usuário correspondente na Braze será criado ou atualizado. <br><br>Essas ações não disparam eventos personalizados na Braze e são usadas exclusivamente para [sincronizar dados de usuários do Shopify com a Braze]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works). Os dados sincronizados incluem [atributos personalizados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes), [atributos padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes) e, se ativado na sua configuração, [estados de grupo de inscrições]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +85,7 @@ A integração do Shopify oferece suporte a webhooks de criação e atualizaçã
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object/).
+As propriedades de entrada do Canvas fazem parte das variáveis de contexto do Canvas. Isso significa que `canvas_entry_properties` é referenciado como `context`. Cada variável `context` inclui um nome, tipo de dado e um valor que pode incluir Liquid. Atualmente, `canvas_entry_properties` são compatíveis com versões anteriores. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#how-it-works) e [objeto de contexto do Canvas]({{site.baseurl}}/api/objects_filters/context_object).
 {% endalert %}
 
 {% endif %}
@@ -101,7 +93,7 @@ As propriedades de entrada do Canvas fazem parte das variáveis de contexto do C
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você tiver os [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) ativados. Para ajuda para começar, entre em contato com seu gerente de sucesso do cliente.
+Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você tiver os [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ativados. Para ajuda para começar, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
 {% endif %}
@@ -124,7 +116,7 @@ Usar "Day of year" para datas absolutas pode produzir resultados incorretos ou i
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-As permissões granulares estão em acesso antecipado. Quando a migração for planejada para a sua empresa, os administradores da Braze receberão e-mails e banners no dashboard notificando-os sobre a [migração de permissões granulares]({{site.baseurl}}/granular_permissions_migration/).
+As permissões granulares estão em acesso antecipado. Quando a migração for planejada para a sua empresa, os administradores da Braze receberão e-mails e banners no dashboard notificando-os sobre a [migração de permissões granulares]({{site.baseurl}}/granular_permissions_migration).
 {% endalert %}
 
 {% endif %}
@@ -132,7 +124,7 @@ As permissões granulares estão em acesso antecipado. Quando a migração for p
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-A [Biblioteca de mídia da Braze]({{site.baseurl}}/media_library/) oferece suporte apenas a imagens e vídeos. Arquivos de áudio e documentos devem ser referenciados por meio de uma URL hospedada.
+A [Biblioteca de mídia da Braze]({{site.baseurl}}/media_library) oferece suporte apenas a imagens e vídeos. Arquivos de áudio e documentos devem ser referenciados por meio de uma URL hospedada.
 {% endalert %}
 
 {% endif %}
@@ -166,7 +158,7 @@ Content Cards, mensagens no app, Banners e Feature Flags dependem da conectivida
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-Se você está carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), certifique-se de que a URL da imagem comece com `https://`. Usar `http://` pode causar falha no seu app.
+Se você está carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), certifique-se de que a URL da imagem comece com `https://`. Usar `http://` pode causar falha no seu app.
 {% endalert %}
 
 {% endif %}

@@ -8,7 +8,7 @@ To customize the presentation of in-app messages and react to various lifecycle 
 
 ### Step 1: Implement the `BrazeInAppMessageUIDelegate` protocol 
 
-First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In our example below, we are implementing this protocol in our application's `AppDelegate` class.
+First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In the following example, this protocol is implemented in the application's `AppDelegate` class.
 
 {% tabs %}
 {% tab swift %}
@@ -72,7 +72,7 @@ The `clickAction` property on your `Braze.InAppMessage` defaults to `.none` but 
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | Opens the given URL in an external browser. If `useWebView` is set to `true`, it will open in a web view. |
 | `.none` | The message will be dismissed when clicked. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
 
 {% alert important %}
 For in-app messages containing buttons, the message `clickAction` will also be included in the final payload if the click action is added prior to adding the button text.
@@ -211,7 +211,7 @@ By default, slideup in-app messages can be dismissed with a swipe gesture. The d
 This swipe behavior is built into the default `BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) and applies only to slideup in-app messages. Modal and full in-app messages don't support swipe-to-dismiss. To further customize the slideup view, including swipe behavior, you can modify the [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) or provide a custom view via subclassing.
 
 {% alert note %}
-Tapping outside of a slideup message does not dismiss it. For modal or full in-app messages, you can enable outside tap dismissals using the `dismissOnBackgroundTap` attribute described below.
+Tapping outside of a slideup message does not dismiss it. For modal or full in-app messages, you can enable outside tap dismissals using the `dismissOnBackgroundTap` attribute described in the following section.
 {% endalert %}
 
 ## Customizing modal dismissals
@@ -241,7 +241,7 @@ The default value is `false`. This determines if the modal in-app message will b
 |----------|-------------|
 | `true`         | Modal in-app messages will be dismissed on outside tap.     |
 | `false`        | Default, modal in-app messages will not be dismissed on outside tap. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
 
 For more details on in-app message customization, refer to this [article](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization).
 
@@ -358,7 +358,7 @@ Configure `BrazeInAppMessageUI.DisplayChoice` to return one of the following val
 | `.reenqueue`                        | The message will be not be displayed and will be placed back on the top of the stack.                                       |
 | `.later`                            | The message will be not be displayed and will be placed back on the top of the stack. (Deprecated, please use `.reenqueue`) |
 | `.discard`                          | The message will be discarded and will not be displayed.                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
 
 {% alert tip %}
 For a sample of `InAppMessageUI`, check out our [Swift Braze SDK repository](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) and [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
@@ -373,7 +373,7 @@ For `Full`, `FullImage` and `HTML` in-app messages, the SDK will hide the status
 | `.auto`                             | The message view decides the status bar hidden state.                                 |
 | `.hidden`                           | Always hide the status bar.                                                           |
 | `.visible`                          | Always display the status bar.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
 
 ## Disabling dark mode
 

@@ -152,7 +152,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | US-08    | `https://dashboard-08.braze.com`                                      | `https://rest.iad-08.braze.com` |
 | EU-01    | `https://dashboard.braze.eu` o<br> `https://dashboard-01.braze.eu`   | `https://rest.fra-01.braze.eu`  |
 | AU-01    | `https://dashboard.au-01.braze.com/`                                  | `https://rest.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
 {% endtab %}
 {% tab Markdown %}
 ```
@@ -169,7 +169,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | EU-01    | `https://dashboard.braze.eu` or<br> `https://dashboard-01.braze.eu`   | `https://rest.fra-01.braze.eu`  |
 | EU-02    | `https://dashboard-02.braze.eu`                                       | `https://rest.fra-02.braze.eu`  |
 | AU-01    | `https://dashboard.au-01.braze.com/`                                  | `https://rest.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
 ```
 {% endtab %}
 {% endtabs %}
@@ -179,7 +179,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 Para restablecer el salto de palabra de la tabla por columna, usa la siguiente sintaxis:
 
 ```markdown
-{: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM role="presentation"}
+{: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM aria-label="Resetting Table word-break by column" }
 ```
 
 Reemplaza `NUM` con el número de columna correspondiente, hasta un máximo de 4 columnas. Si tienes menos de 4 columnas, elimina los marcadores de posición `.reset-td-br-NUM` adicionales. Tu tabla debería verse similar a lo siguiente:
@@ -190,11 +190,11 @@ Reemplaza `NUM` con el número de columna correspondiente, hasta un máximo de 4
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | An email was successfully delivered to a User's mail server. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | User opened an email.                                        | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | In-App Message Impression                                        | Platform-specific Feed | User viewed an In-App Message.                               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Resetting Table word-break by column" }
 
 ```
 {% tabs local %}
-{% tab Before %}
+{% tab Antes %}
 
 | Nombre del evento                                                | Tipo de fuente         | Descripción                                                                          | Atributos personalizados                                                      |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
@@ -203,14 +203,14 @@ Reemplaza `NUM` con el número de columna correspondiente, hasta un máximo de 4
 | In-App-Message-Impression                                        | Platform-specific Feed | El usuario vio un mensaje dentro de la aplicación.                                   | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
 
 {% endtab %}
-{% tab After %}
+{% tab Después %}
 
 | Nombre del evento                                                | Tipo de fuente         | Descripción                                                                          | Atributos personalizados                                                      |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | Un correo electrónico se entregó correctamente al servidor de correo del usuario.    | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | El usuario abrió un correo electrónico.                                              | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | In-App-Message-Impression                                        | Platform-specific Feed | El usuario vio un mensaje dentro de la aplicación.                                   | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Resetting Table word-break by column" }
 {% endtab %}
 {% endtabs %}
 
@@ -654,10 +654,10 @@ Contenido de subpestaña 2a
 contenido de pestaña 2
 {% subtabs %}
 {% subtab Subtab 1b %}
-Contenido de subpestaña 1a
+Contenido de subpestaña 1b
 {% endsubtab %}
 {% subtab Subtab 2b %}
-Contenido de subpestaña 2a
+Contenido de subpestaña 2b
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

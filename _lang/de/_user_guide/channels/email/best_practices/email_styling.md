@@ -3,30 +3,30 @@ nav_title: E-Mail-Styling
 article_title: E-Mail-Styling
 page_order: 2
 page_type: reference
-description: "In diesem Artikel finden Sie eine Übersicht über Best Practices für das E-Mail-Styling, die Sie bei der Erstellung Ihrer E-Mail-Kampagnen als Referenz nutzen können."
+description: "In diesem Artikel finden Sie eine Übersicht über Best Practices für das E-Mail-Styling, die Sie bei der Erstellung Ihrer E-Mail-Campaigns als Referenz nutzen können."
 channel: email
 
 ---
 
-# E-Mail-Styling
+# E-Mail-Styling {#email-styling}
 
 > Dieser Artikel beschreibt Best Practices für das E-Mail-Styling, einschließlich Betreffzeilen, Preheader-Text, E-Mail-Größe und Bildempfehlungen.
 
-## Adress-Styling
+## Adress-Styling {#address-styling}
 
-Die **Betreffzeile** ist eines der ersten Dinge, die Empfänger:innen sehen, wenn sie Ihre Nachricht erhalten. Wenn Sie sich auf 6 bis 10 Wörter beschränken, erzielen Sie die höchsten Öffnungsraten.
+Die Betreffzeile ist eines der ersten Dinge, die Empfänger:innen sehen, wenn sie Ihre Nachricht erhalten. Wenn Sie sich auf 6 bis 10 Wörter beschränken, erzielen Sie die höchsten Öffnungsraten.
 
-Es gibt auch verschiedene Ansätze für eine gute Betreffzeile – von einer Frage, um das Interesse der Leser:innen zu wecken, über eine direktere Formulierung bis hin zur Personalisierung, um Ihre Kundschaft gezielt anzusprechen. Bleiben Sie nicht bei einer einzigen Betreffzeile, sondern nutzen Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/), um neue Betreffzeilen auszuprobieren und ihre Wirksamkeit zu messen. Die Betreffzeilen sollten nicht länger als 35 Zeichen sein, damit sie auf Mobilgeräten richtig angezeigt werden.
+Es gibt auch verschiedene Ansätze für eine gute Betreffzeile – von einer Frage, um das Interesse der Leser:innen zu wecken, über eine direktere Formulierung bis hin zur Personalisierung, um Ihre Kundschaft gezielt anzusprechen. Bleiben Sie nicht bei einer einzigen Betreffzeile, sondern nutzen Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing), um neue Betreffzeilen auszuprobieren und ihre Wirksamkeit zu messen. Die Betreffzeilen sollten nicht länger als 35 Zeichen sein, damit sie auf Mobilgeräten richtig angezeigt werden.
 
 Im Feld „Von“ sollte klar ersichtlich sein, wer der Sender ist. Verwenden Sie möglichst nicht den Namen einer Person oder eine ungewöhnliche Abkürzung. Verwenden Sie stattdessen einen wiedererkennbaren Namen wie Ihren Markennamen. Wenn die Verwendung eines Personennamens zu den Personalisierungsmethoden Ihrer Marke für E-Mails passt, bleiben Sie konsequent, um eine Beziehung zu den Empfänger:innen aufzubauen. Der „Von“-Name sollte nicht länger als 25 Zeichen sein, damit er auf Mobilgeräten richtig angezeigt wird.
 
-### No-Reply-Adressen
+### No-Reply-Adressen {#no-reply-addresses}
 
 No-Reply-E-Mail-Adressen werden aus mehreren Gründen generell nicht empfohlen, da sie Ihre Leser:innen abschrecken. Viele Empfänger:innen antworten auf die E-Mail, um sich abzumelden. Wenn ihnen das nicht möglich ist, besteht die nächste Maßnahme meistens darin, die E-Mail als Spam zu markieren.
 
 Abwesenheitsbenachrichtigungen können tatsächlich wertvolle Informationen liefern, die Öffnungsraten erhöhen und Spam-Berichte reduzieren (indem diejenigen entfernt werden, die keine E-Mails erhalten möchten). Auf persönlicher Ebene kann eine No-Reply-Adresse auf Empfänger:innen unpersönlich wirken und sie davon abhalten, weitere E-Mails von Ihrem Unternehmen zu empfangen.
 
-## Preheader-Text
+## Preheader-Text {#preheader-text}
 
 Der Preheader-Text in einer E-Mail kommuniziert den Hauptpunkt der Nachricht effizient, um das Interesse der Leser:innen zu wecken und Öffnungen zu fördern. Preheader-Text wird von E-Mail-Marketern auch häufig verwendet, um zusätzliche Informationen zum Inhalt einer E-Mail bereitzustellen. Ein Preheader ist der Vorschautext, der direkt nach dem E-Mail-Betreff angezeigt wird. Im folgenden Beispiel lautet der Preheader `- Brand. New. Lounge Shorts`.
 
@@ -54,7 +54,7 @@ Hier sind einige Best Practices, die Sie beim Verfassen Ihrer Preheader beachten
   - Kurzer, prägnanter Fließtext
   - Klare Handlungsaufforderungen
 
-### Preheader-Zeichenlimits
+### Preheader-Zeichenlimits {#preheader-character-limits}
 
   |   Mobiler E-Mail-Client  |  Limit  |
   |:----------------------:|:-------:|
@@ -63,7 +63,7 @@ Hier sind einige Best Practices, die Sie beim Verfassen Ihrer Preheader beachten
   | Android Gmail          | 24      |
   | iOS Native             | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader-Zeichenlimits" }
 
   |  Desktop-E-Mail-Client  |  Limit  |
   |:----------------------:|:-------:|
@@ -71,7 +71,7 @@ Hier sind einige Best Practices, die Sie beim Verfassen Ihrer Preheader beachten
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader-Zeichenlimits" }
 
 
   |  Webmail-E-Mail-Client  |  Limit  |
@@ -81,19 +81,19 @@ Hier sind einige Best Practices, die Sie beim Verfassen Ihrer Preheader beachten
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader-Zeichenlimits" }
 
-## E-Mail-Größe
+## E-Mail-Größe {#email-size}
 
 Die E-Mail-Größe bezieht sich auf die Größe Ihres Nachrichten-HTML in Braze (der Body, den Sie erstellen, und das, was Braze beim Senden der Nachricht hinzufügt).
 
 - Achten Sie darauf, Ihre E-Mail-Größe zu begrenzen. E-Mail-Bodys, die größer als 102&nbsp;KB sind, belasten nicht nur die Braze-Server erheblich, sondern werden auch von Gmail und anderen E-Mail-Clients abgeschnitten.
-- Gehostete Bilder, die Sie per URL referenzieren, werden nicht auf die gleiche Weise in das HTML eingebettet wie das Einfügen großer Inline-Assets. Wir empfehlen die Verwendung der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) und die Verlinkung per `href`, um die Nachricht kleiner zu halten.
+- Gehostete Bilder, die Sie per URL referenzieren, werden nicht auf die gleiche Weise in das HTML eingebettet wie das Einfügen großer Inline-Assets. Wir empfehlen die Verwendung der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) und die Verlinkung per `href`, um die Nachricht kleiner zu halten.
 
 |   Nur Text   | Text mit Bildern |     E-Mail-Breite    |
 |:-------------:|:----------------:|:------------------:|
 | Maximal 25&nbsp;KB |   Maximal 60&nbsp;KB   | Maximal 600 Pixel |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-Mail-Größe" }
 
 Um das Risiko des Abschneidens zu reduzieren:
 
@@ -105,7 +105,7 @@ Um das Risiko des Abschneidens zu reduzieren:
 Um Ihre E-Mail-Campaign oder Ihr Template zu speichern, stellen Sie sicher, dass Ihr E-Mail-Body 400&nbsp;KB nicht überschreitet.
 {% endalert %}
 
-### Was kann zur endgültigen E-Mail-Größe beitragen?
+### Was kann zur endgültigen E-Mail-Größe beitragen? {#what-can-add-to-the-final-email-size}
 
 Diese Features erhöhen die gerenderte Nachrichtengröße um geringe Beträge:
 
@@ -117,7 +117,7 @@ Diese Features erhöhen die gerenderte Nachrichtengröße um geringe Beträge:
 
 Der Preheader und das Tracking-Pixel fügen ungefähr 600 Zeichen hinzu (weniger als 1&nbsp;KB). Braze fügt typischerweise zwischen 0&nbsp;KB und 5&nbsp;KB hinzu, abhängig von der Anzahl der Links, der Link-Template-Komplexität und ob CSS-Inlining aktiviert ist. Wenn Ihre E-Mail-Größe nahe am Limit liegt, empfehlen wir, E-Mails vor dem Senden zu testen, da die endgültige gerenderte Größe von diesen Eingaben abhängt.
 
-## Textlänge
+## Textlänge {#text-length}
 
 Die folgende Tabelle enthält empfohlene Textlängen.
 
@@ -126,26 +126,30 @@ Die folgende Tabelle enthält empfohlene Textlängen.
 | Betreffzeilenlänge | Maximal 35 Zeichen (für optimale mobile Anzeige) (6 bis 10 Wörter) |
 | Absendernamenlänge | Maximal 25 Zeichen (für optimale mobile Anzeige) |
 | Preheader-Länge | Maximal 85 Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Textlänge" }
 
-## Bildgröße
+## Bildgröße {#image-size}
 
 Die folgende Tabelle enthält empfohlene Bildgrößen. Kleinere, hochwertige Bilder laden schneller – verwenden Sie daher das kleinstmögliche Asset, um die gewünschte Ausgabe zu erzielen.
 
 |     Größe    | Header-Bildbreite |  Body-Bildbreite  |   Dateitypen  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | Maximal 5&nbsp;MB | Maximal 600 Pixel | Maximal 480 Pixel | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bildgröße" }
 
-## Deeplinking
+{% alert note %}
+Gmail Web und die Gmail-Mobile-Apps rendern SVG häufig nicht (und die WEBP-Unterstützung ist inkonsistent). Verwenden Sie PNG oder JPEG für Bilder, die in Gmail zuverlässig angezeigt werden müssen.
+{% endalert %}
 
-Bei Push-Benachrichtigungen und In-App-Nachrichten führt ein [Deeplink]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) Nutzer:innen direkt zu einem bestimmten Ziel innerhalb einer App. Deeplinks erfordern jedoch, dass die App installiert ist, und E-Mails bieten keine Möglichkeit zu wissen, ob Empfänger:innen die App haben. Das bedeutet, dass Deeplinks in E-Mails zu Fehlern bei Empfänger:innen führen können, die die App nicht installiert haben.
+## Deeplinking {#deep-linking}
 
-Verwenden Sie stattdessen [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), die als Standard-URLs funktionieren. Sie können sie so konfigurieren, dass sie die App öffnen oder Nutzer:innen zu einer bestimmten Seite weiterleiten. Sie können auch zum App Store weiterleiten oder auf eine Webseite zurückfallen, wenn die App nicht installiert ist.
+Bei Push-Benachrichtigungen und In-App-Nachrichten führt ein [Deeplink]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) Nutzer:innen direkt zu einem bestimmten Ziel innerhalb einer App. Deeplinks erfordern jedoch, dass die App installiert ist, und E-Mails bieten keine Möglichkeit zu wissen, ob Empfänger:innen die App haben. Das bedeutet, dass Deeplinks in E-Mails zu Fehlern bei Empfänger:innen führen können, die die App nicht installiert haben.
 
-## Content Blocks mit transparenten Bildern
+Verwenden Sie stattdessen [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links), die als Standard-URLs funktionieren. Sie können sie so konfigurieren, dass sie die App öffnen oder Nutzer:innen zu einer bestimmten Seite weiterleiten. Sie können auch zum App Store weiterleiten oder auf eine Webseite zurückfallen, wenn die App nicht installiert ist.
 
-Wenn ein Content-Block ein Bild mit transparentem Hintergrund enthält (z. B. ein Logo) und über einen Liquid-Tag eingefügt wird, kann hinter dem Bild eine Hintergrundfarbe erscheinen. Diese Farbe stammt aus den [globalen E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) des Drag-and-Drop-Editors – insbesondere der **E-Mail-Hintergrundfarbe**. Wenn Ihre globalen Stileinstellungen eine andere Farbe als Weiß verwenden, erscheint diese Farbe stattdessen.
+## Content Blocks mit transparenten Bildern {#content-blocks-with-transparent-images}
+
+Wenn ein Content-Block ein Bild mit transparentem Hintergrund enthält (z. B. ein Logo) und über einen Liquid-Tag eingefügt wird, kann hinter dem Bild eine Hintergrundfarbe erscheinen. Diese Farbe stammt aus den [globalen E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) des Drag-and-Drop-Editors – insbesondere der **E-Mail-Hintergrundfarbe**. Wenn Ihre globalen Stileinstellungen eine andere Farbe als Weiß verwenden, erscheint diese Farbe stattdessen.
 
 Um den Content-Block wie beabsichtigt anzuzeigen:
 

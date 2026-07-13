@@ -13,12 +13,12 @@ search_tag: Partner
 
 ## 이 통합에 대하여 {#about-this-integration}
 
-Cloudinary를 Braze에 연결하면 브랜드는 Cloudinary 자산에 저장된 시각적 미디어에 액세스하여 Braze 메시징 채널에서 사용할 수 있습니다. Cloudinary의 동적 링크를 사용하면 Braze 사용자 속성에 따라 이미지와 동영상을 실시간으로 선택하고 커스텀할 수 있습니다. Cloudinary와 Braze는 함께 각 제품의 스토리를 전달하고 특별한 경험을 대규모로 제공하는 시각적으로 풍부하고 개인화된 Campaigns를 제작할 수 있도록 지원합니다.
+Cloudinary를 Braze에 연결하면 브랜드는 Cloudinary 자산에 저장된 시각적 미디어에 액세스하여 Braze 메시징 채널에서 사용할 수 있습니다. Cloudinary의 동적 링크를 사용하면 Braze 사용자 속성에 따라 이미지와 동영상을 실시간으로 선택하고 커스터마이즈할 수 있습니다. Cloudinary와 Braze는 함께 각 제품의 스토리를 전달하고 특별한 경험을 대규모로 제공하는 시각적으로 풍부하고 개인화된 캠페인을 제작할 수 있도록 지원합니다.
 
 이 페이지에서는 Cloudinary와 Braze 간의 가능한 네 가지 통합 방법을 설명하지만, 이에 국한되지는 않습니다. 이러한 통합 방법은 주로 Cloudinary의 미디어 라이브러리에서 수동으로 복사한 자산 링크를 수정하는 방식에 의존합니다.
 
 {% alert important %}
-[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 Cloudinary의 [Admin API](https://cloudinary.com/documentation/admin_api#banner)를 호출하는 등 보다 고급 통합 방법도 가능하지만, 접근 방식은 고객마다 다를 수 있습니다. 안내가 필요하면 Cloudinary 및 Braze 고객 성공 매니저에게 문의하세요.
+[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 사용하여 Cloudinary의 [Admin API](https://cloudinary.com/documentation/admin_api#banner)를 호출하는 등 보다 고급 통합 방법도 가능하지만, 접근 방식은 고객마다 다를 수 있습니다. 안내가 필요하면 Cloudinary 및 Braze 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
@@ -26,12 +26,12 @@ Cloudinary를 Braze에 연결하면 브랜드는 Cloudinary 자산에 저장된 
 | 요구 사항     | 설명 |
 |-----------------------|-----------------|
 | Cloudinary 계정  | 이 파트너십을 이용하려면 [Cloudinary 계정](https://cloudinary.com/users/register_free?utm_source=braze+docs+page)이 필요합니다.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 방법 {#integration-methods}
 
 {% alert tip %}
-이러한 통합 방법 중 일부는 [이미지](https://cloudinary.com/documentation/image_transformations#banner) 및 [동영상](https://cloudinary.com/documentation/video_manipulation_and_delivery#banner) 자산의 동작과 모양을 보다 심층적으로 커스텀할 수 있는 `f_auto` 및 `q_auto` Cloudinary 변환을 사용합니다. 변환을 포함하도록 Cloudinary 자산 링크를 수정하는 방법에 대한 자세한 내용은 [변환 URL 구조](https://cloudinary.com/documentation/image_transformations#transformation_url_structure)를 참조하세요.
+이러한 통합 방법 중 일부는 [이미지](https://cloudinary.com/documentation/image_transformations#banner) 및 [동영상](https://cloudinary.com/documentation/video_manipulation_and_delivery#banner) 자산의 동작과 모양을 보다 심층적으로 커스터마이즈할 수 있는 `f_auto` 및 `q_auto` Cloudinary 변환을 사용합니다. 변환을 포함하도록 Cloudinary 자산 링크를 수정하는 방법에 대한 자세한 내용은 [변환 URL 구조](https://cloudinary.com/documentation/image_transformations#transformation_url_structure)를 참조하세요.
 {% endalert %}
 
 {% tabs %}
@@ -41,7 +41,7 @@ Cloudinary를 Braze에 연결하면 브랜드는 Cloudinary 자산에 저장된 
 
 Braze Campaigns와 Canvases에서 Cloudinary의 DAM에 있는 이미지와 동영상을 직접 사용하는 가장 간단한 방법은 Cloudinary 미디어 라이브러리의 **Asset** 페이지에서 URL을 가져오는 것입니다.
 
-![이미지 중 하나의 오른쪽 상단에 'Copy URL' 도구 설명이 강조 표시된 Cloudinary의 이미지 자산 라이브러리 그리드 보기]({% image_buster /assets/img/cloudinary/one.png %})
+![이미지 중 하나가 강조 표시되고 'Copy URL' 도구 설명이 표시된 Cloudinary의 이미지 자산 라이브러리 그리드 보기]({% image_buster /assets/img/cloudinary/one.png %})
 
 ### 이미지 및 GIF 설정 {#images-and-gifs-setup}
 
@@ -72,10 +72,10 @@ Braze Campaigns와 Canvases에서 Cloudinary의 DAM에 있는 이미지와 동�
 ```
 {% endraw %}
 
-구체적인 Android 및 iOS 고려 사항은 [동영상]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/)을 참조하세요.
+구체적인 Android 및 iOS 고려 사항은 [동영상]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html)을 참조하세요.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab 동영상을 GIF로 변환 %}
 
 ## 이메일을 위해 동영상을 GIF로 변환하기 {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab 타겟 속성 %}
 
 ## 타겟팅 속성에 따라 캠페인 자산을 동적으로 선택하기 {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -117,7 +117,7 @@ Cloudinary는 [태그](https://cloudinary.com/documentation/assets_onboarding_me
 커스텀 함수 생성 및 적용에 대한 지침과 특정 캠페인의 자산 선택 및 대체 옵션에 대한 커스텀 함수 예시는 Cloudinary의 [`braze-personalization` GitHub 리포지토리](https://github.com/cloudinary-devs/braze-personalization)를 참조하세요. 자세한 안내는 Cloudinary 지원팀에 문의하세요.
 {% endalert %}
 
-### 필수 조건 {#prerequisites}
+### 필수 조건
 
 동적 자산 선택을 활성화하려면 Cloudinary가 태그와 메타데이터를 기반으로 자산 집합을 반환할 수 있어야 합니다. 목록 전달 유형이 제한되어 있는 경우, Cloudinary는 Braze Campaigns에서 개인화된 자산 선택에 필요한 동적 목록을 제공할 수 없습니다.
 - 목록 전달 유형 제한 해제: Cloudinary 콘솔에서 보안 설정을 열고 제한된 이미지 유형 아래의 리소스 목록 항목을 선택 해제합니다.
@@ -140,8 +140,8 @@ Cloudinary는 [태그](https://cloudinary.com/documentation/assets_onboarding_me
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,29 +149,29 @@ Cloudinary는 [태그](https://cloudinary.com/documentation/assets_onboarding_me
 
 - 오디언스 `internal` 및 로캘 `en`을 가진 사용자를 위한 출력 URL:
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - 오디언스 `external` 및 로캘 `es`을 가진 사용자를 위한 출력 URL:
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - 대체 이미지 URL:
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab 개인화된 이미지 생성 %}
 
 ## 개인화된 이미지 생성 {#personalized-image-generation}
 
 Cloudinary의 [텍스트 오버레이 변환](https://cloudinary.com/documentation/accessible_media_visual_audio_clarity#text_overlays_on_images_and_videos/)은 Cloudinary 자산 내에서 직접 Braze의 사용자 데이터를 사용합니다.
 
-다음 예시는 `l_text` 변환을 사용하여 자산에 사용자 이름을 삽입하는 방법을 보여줍니다. Campaigns와 Canvases를 개발할 때 Liquid 태그를 활용하여 `l_text` 매개변수를 채울 텍스트를 결정하면 더욱 커스텀할 수 있습니다.
+다음 예시는 `l_text` 변환을 사용하여 자산에 사용자 이름을 삽입하는 방법을 보여줍니다. Campaigns와 Canvases를 개발할 때 Liquid 태그를 활용하여 `l_text` 매개변수를 채울 텍스트를 결정하면 더욱 세밀하게 커스터마이즈할 수 있습니다.
 
 변환 매개변수를 사용하여 자산을 디자인하는 방법에 대한 자세한 안내는 Cloudinary 지원팀에 문의하세요.
 
-### `l_text` 변환 예시 {#example-ltext-transformation}
+### `l_text` 변환 예시 {#example-l_text-transformation}
 
 {% raw %}
 ```bash
@@ -190,7 +190,7 @@ Cloudinary의 [텍스트 오버레이 변환](https://cloudinary.com/documentati
 ```
 {% endraw %}
 
-![바다가 내려다보이는 파란 지붕의 흰색 교회, 이미지 왼쪽 상단에 반투명한 어두운 직사각형 위에 "John Smith"라는 글자가 표시되어 있습니다.]({% image_buster /assets/img/cloudinary/two.png %})
+![바다가 내려다보이는 파란 지붕의 흰색 교회 이미지 위에 반투명한 어두운 직사각형 안에 'John Smith'라는 글자가 표시되어 있습니다.]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

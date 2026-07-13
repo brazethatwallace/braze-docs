@@ -24,7 +24,7 @@ Con la integración de Braze y Yotpo, puedes extraer y mostrar dinámicamente la
 | Cuenta de Yotpo | Se necesita una cuenta de Yotpo para beneficiarse de esta asociación. |
 | Clave de API de reseñas de Yotpo | Esta API se implementará dentro del fragmento de código de contenido conectado.<br><br>Para más información, consulta [cómo encontrar la clave de tu aplicación de Yotpo y la clave secreta](https://support.yotpo.com/en/article/finding-your-yotpo-app-key-and-secret-key). |
 | Clave de API de fidelización de Yotpo | Esta clave de API y el identificador único global (GUID) se implementarán dentro del fragmento de código de contenido conectado.<br><br>Para más información, consulta [cómo encontrar tu clave de API y GUID de fidelización y referidos](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Antes de continuar, confirma que el ID de producto de Yotpo es el mismo que el `product_id` que se extraerá dinámicamente de Braze. Esto es obligatorio para que la integración funcione.
 
@@ -32,7 +32,7 @@ Para encontrar tu ID de producto de Yotpo, sigue estos pasos:
 
 1. Ve al sitio web de tu tienda.
 2. Abre la página del producto.
-3. Haz clic con el botón derecho y selecciona **Inspeccionar**.
+3. Haz clic con el botón derecho y selecciona **Inspect**.
 4. Pulsa <kbd>Control</kbd> + <kbd>F</kbd> y busca `yotpo-main` en el código. La variable `data-product ID` y su valor aparecen en el div de Yotpo.
 
 ![Inspecciona y busca yotpo-main para encontrar la variable data-product ID]({% image_buster /assets/img/yotpo/image1.png %})
@@ -161,7 +161,7 @@ El fragmento de código tendrá el siguiente aspecto:
 
 ### ¿Qué pasa si no tengo una opinión de 5 estrellas? {#what-if-i-dont-have-a-5-star-review}
 
-Si no tienes ninguna reseña de 5 estrellas (por ejemplo, si la respuesta del punto de conexión devuelve NULL para la reseña de 5 estrellas), no se mostrará ningún contenido.
+Si no tienes ninguna opinión de 5 estrellas (por ejemplo, si la respuesta del punto de conexión devuelve NULL para la opinión de 5 estrellas), no se mostrará ningún contenido.
 
 ### ¿Qué pasa si no tengo una imagen publicada para un producto? {#what-if-i-dont-have-an-image-published-for-a-product}
 

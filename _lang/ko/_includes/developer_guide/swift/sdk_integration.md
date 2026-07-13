@@ -1,14 +1,14 @@
-## 스위프트 SDK 통합 {#integrating-the-swift-sdk}
+## Swift SDK 통합 {#integrating-the-swift-sdk}
 
-스위프트 패키지 매니저(SPM), CocoaPods 또는 수동 통합 방법을 사용하여 Braze 스위프트 SDK를 통합하고 커스터마이즈할 수 있습니다. 다양한 SDK 심볼에 대한 자세한 정보는 [Braze Swift 참조 설명서](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/)를 참조하세요.
+스위프트 패키지 매니저(SPM), CocoaPods 또는 수동 통합 방법을 사용하여 Braze Swift SDK를 통합하고 커스터마이즈할 수 있습니다. 다양한 SDK 심볼에 대한 자세한 정보는 [Braze Swift 참조 설명서](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/)를 참조하세요.
 
 ### 필수 조건 {#prerequisites}
 
 시작하기 전에 [최신 Braze Swift SDK 버전](https://github.com/braze-inc/braze-swift-sdk#version-information)에서 지원하는 환경인지 확인하세요.
 
-### 1단계: Braze 스위프트 SDK 설치 {#step-1-install-the-braze-swift-sdk}
+### 1단계: Braze Swift SDK 설치 {#step-1-install-the-braze-swift-sdk}
 
-Braze 스위프트 SDK를 설치하려면 [스위프트 패키지 매니저(SwiftPM)](https://swift.org/package-manager/) 또는 [CocoaPods](http://cocoapods.org/)를 사용하는 것을 권장합니다. 또는 SDK를 수동으로 설치할 수도 있습니다.
+Braze Swift SDK를 설치하려면 [스위프트 패키지 매니저(SwiftPM)](https://swift.org/package-manager/) 또는 [CocoaPods](http://cocoapods.org/)를 사용하는 것을 권장합니다. 또는 SDK를 수동으로 설치할 수도 있습니다.
 
 {% tabs local %}
 {% tab Swift Package Manager %}
@@ -16,7 +16,7 @@ Braze 스위프트 SDK를 설치하려면 [스위프트 패키지 매니저(Swif
 
 프로젝트를 열고 프로젝트 설정으로 이동합니다. **Swift Packages** 탭을 선택하고 패키지 목록 아래에 있는 <i class="fas fa-plus"></i> 추가 버튼을 클릭합니다.
 
-![]({% image_buster /assets/img/swiftpackages.png %})
+![Swift Packages 탭과 패키지 추가 버튼이 있는 Xcode 프로젝트 설정.]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
 버전 7.4.0부터 Braze Swift SDK는 [정적 XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) 및 [동적 XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic)와 같은 추가 배포 채널을 제공합니다. 이러한 형식 중 하나를 사용하려면 해당 리포지토리의 설치 지침을 따르세요.
@@ -24,7 +24,7 @@ Braze 스위프트 SDK를 설치하려면 [스위프트 패키지 매니저(Swif
 
 텍스트 필드에 iOS Swift SDK 리포지토리 URL `https://github.com/braze-inc/braze-swift-sdk`를 입력합니다. **Dependency Rule** 섹션에서 SDK 버전을 선택합니다. 마지막으로 **Add Package**를 클릭합니다.
 
-![]({% image_buster /assets/img/importsdk_example.png %})
+![Braze Swift SDK 리포지토리 URL이 입력된 Xcode 패키지 추가 대화 상자.]({% image_buster /assets/img/importsdk_example.png %})
 
 #### 1.2단계: 패키지 선택 {#step-12-select-your-packages}
 
@@ -32,9 +32,10 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 
 | 패키지 | 세부 정보 |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BrazeKit` | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
+| `BrazeKit`      | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
 | `BrazeLocation` | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
-| `BrazeUI` | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+| `BrazeUI`       | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="1.2단계: 패키지 선택" }
 
 {: .ws-td-nw-1}
 
@@ -47,13 +48,14 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 | 패키지 | 세부 정보 |
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. |
-| `BrazePushStory` | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+| `BrazePushStory`           | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="확장 라이브러리 정보" }
 
 {: .ws-td-nw-1}
 
 필요에 가장 적합한 패키지를 선택하고 **Add Package**를 클릭합니다. 최소한 `BrazeKit`를 선택해야 합니다.
 
-![]({% image_buster /assets/img/add_package.png %})
+![패키지 추가 전 BrazeKit이 선택된 Xcode 패키지 제품 목록.]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}
@@ -94,7 +96,8 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 | 라이브러리 | 세부 정보 |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
-| `pod 'BrazeUI'` | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+| `pod 'BrazeUI'`       | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="추가 라이브러리 정보" }
 
 {: .ws-td-nw-1}
 
@@ -105,7 +108,8 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 | 라이브러리 | 세부 정보 |
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. |
-| `pod 'BrazePushStory'` | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+| `pod 'BrazePushStory'`           | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="확장 라이브러리" }
 
 {: .ws-td-nw-1}
 
@@ -134,7 +138,7 @@ pod update
 
 [GitHub의 Braze SDK 릴리스 페이지](https://github.com/braze-inc/braze-swift-sdk/releases)로 이동한 다음 `braze-swift-sdk-prebuilt.zip`을 다운로드합니다.
 
-!["GitHub의 Braze SDK 릴리스 페이지."]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
+![GitHub의 Braze SDK 릴리스 페이지.]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
 
 #### 1.2단계: 프레임워크 선택 {#step-12-choose-your-frameworks}
 
@@ -142,16 +146,17 @@ Braze Swift SDK에는 다양한 독립형 XCFrameworks가 포함되어 있어 �
 
 | 패키지 | 필수 여부 | 설명 |
 | -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `BrazeKit` | 예 | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
-| `BrazeLocation` | 아니요 | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
-| `BrazeUI` | 아니요 | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
-| `BrazeNotificationService` | 아니요 | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazeNotificationService` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications)하세요. |
-| `BrazePushStory` | 아니요 | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazePushStory` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories)하세요. |
-| `BrazeKitCompat` | 아니요 | `Appboy-iOS-SDK` 버전 4.X.X에서 사용 가능했던 모든 `Appboy` 및 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
-| `BrazeUICompat` | 아니요 | `Appboy-iOS-SDK` 버전 4.X.X의 `AppboyUI` 라이브러리에서 사용 가능했던 모든 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
-| `SDWebImage` | 아니요 | 최소 마이그레이션 시나리오에서 `BrazeUICompat`에서만 사용하는 종속성입니다. |
+| `BrazeKit`                 | 예       | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
+| `BrazeLocation`            | 아니요        | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
+| `BrazeUI`                  | 아니요        | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+| `BrazeNotificationService` | 아니요        | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazeNotificationService` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications)하세요. |
+| `BrazePushStory`           | 아니요        | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazePushStory` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories)하세요. |
+| `BrazeKitCompat`           | 아니요        | `Appboy-iOS-SDK` 버전 4.X.X에서 사용 가능했던 모든 `Appboy` 및 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
+| `BrazeUICompat`            | 아니요        | `Appboy-iOS-SDK` 버전 4.X.X의 `AppboyUI` 라이브러리에서 사용 가능했던 모든 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
+| `SDWebImage`               | 아니요        | 최소 마이그레이션 시나리오에서 `BrazeUICompat`에서만 사용하는 종속성입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 프레임워크 선택" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="1.2단계: 프레임워크 선택" }
 
 #### 1.3단계: 파일 준비 {#step-13-prepare-your-files}
 
@@ -178,7 +183,7 @@ Braze Swift SDK에는 다양한 독립형 XCFrameworks가 포함되어 있어 �
 
 Xcode 프로젝트에서 빌드 타겟을 선택한 다음 **General**을 선택합니다. **Frameworks, Libraries, and Embedded Content**에서 [이전에 준비한 파일](#swift_step-3-prepare-your-files)을 드래그 앤 드롭합니다.
 
-!["각 Braze 라이브러리가 'Embed & Sign'으로 설정된 예제 Xcode 프로젝트."]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
+![각 Braze 라이브러리가 'Embed & Sign'으로 설정된 예제 Xcode 프로젝트.]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
 
 {% alert note %}
 Swift SDK 12.0.0부터는 정적 및 동적 배리언트 모두에 대해 Braze XCFrameworks에 항상 **Embed & Sign**을 선택해야 합니다. 이렇게 하면 프레임워크 리소스가 앱 번들에 올바르게 포함됩니다.
@@ -206,7 +211,7 @@ empty_swift_file.swift
 
 ### 2단계: 지연 초기화 설정(선택 사항) {#step-2-set-up-delayed-initialization-optional}
 
-Braze Swift SDK의 초기화를 지연할 수 있습니다. 이는 앱이 구성을 로드하거나 SDK를 시작하기 전에 사용자 동의를 기다려야 할 때 유용합니다. 지연 초기화는 SDK 초기화 전에 수신된 Braze 푸시 알림과 푸시 토큰이 큐에 추가되고 SDK가 초기화되면 처리되도록 보장합니다.
+Braze Swift SDK의 초기화를 지연할 수 있습니다. 이는 앱이 구성을 로드하거나 SDK를 시작하기 전에 사용자 동의를 기다려야 할 때 유용합니다. 지연 초기화는 SDK 초기화 전에 수신된 Braze 푸시 알림과 푸시 토큰이 대기줄에 추가되고 SDK가 초기화되면 처리되도록 보장합니다.
 
 지연 초기화를 사용하려면 최소 Braze SDK 버전이 필요합니다:
 {% sdk_min_versions swift:11.2.0 %}
@@ -281,11 +286,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 #### 2.2단계: 푸시 분석 동작 구성(선택 사항) {#step-22-configure-push-analytics-behavior-optional}
 
-지연 초기화가 활성화되면 푸시 분석이 기본적으로 큐에 추가됩니다. 그러나 푸시 분석을 명시적으로 큐에 추가하거나 삭제할 수도 있습니다.
+지연 초기화가 활성화되면 푸시 분석이 기본적으로 대기줄에 추가됩니다. 그러나 푸시 분석을 명시적으로 대기줄에 추가하거나 삭제할 수도 있습니다.
 
-##### 명시적으로 큐에 추가 {#explicitly-queue}
+##### 명시적으로 대기줄에 추가 {#explicitly-queue}
 
-푸시 분석을 명시적으로 큐에 추가하려면(기본 동작) `.queue`를 `analyticsBehavior` 매개변수에 전달합니다. 초기화 전에 큐에 추가된 푸시 분석 이벤트는 초기화 시 처리되어 서버로 전송됩니다.
+푸시 분석을 명시적으로 대기줄에 추가하려면(기본 동작) `.queue`를 `analyticsBehavior` 매개변수에 전달합니다. 초기화 전에 대기줄에 추가된 푸시 분석 이벤트는 초기화 시 처리되어 서버로 전송됩니다.
 
 {% tabs local %}
 {% tab Swift %}
@@ -461,29 +466,34 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
 ```
 
-`YOUR-APP-IDENTIFIER-API-KEY` 및 `YOUR-BRAZE-ENDPOINT`를 **설정 관리** 페이지의 올바른 값으로 업데이트하세요. 앱 식별자 API 키를 찾을 수 있는 위치에 대한 자세한 내용은 [API 설명서]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key)를 참조하세요.
+`YOUR-APP-IDENTIFIER-API-KEY` 및 `YOUR-BRAZE-ENDPOINT`를 **설정 관리** 페이지의 올바른 값으로 업데이트하세요. 앱 식별자 API 키를 찾을 수 있는 위치에 대한 자세한 내용은 [API 설명서]({{site.baseurl}}/api/api_key#the-app-identifier-api-key)를 참조하세요.
 
 {% endsubtab %}
 {% endsubtabs local %}
+
+{% alert note %}
+`Braze.init`은 호출 스레드에서 즉시 반환됩니다. SDK는 내부 대기줄에서 시작 작업을 처리합니다. 메인 스레드에서 `init` 직후 `braze.deviceId`와 같은 동기 속성을 읽으면 SDK가 초기화 후 작업을 완료할 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 차단 없이 값을 읽으려면 `braze.getDeviceId(_:)` (Swift) 또는 `[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]` (Objective-C)를 사용하세요.
+{% endalert %}
 
 ## 선택적 구성 {#optional-configurations}
 
 ### 로깅 {#logging}
 
-모든 플랫폼에서 중앙 집중식 개요를 보려면 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)을 참조하세요. 로그 출력을 해석하는 방법을 알아보려면 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/)를 참조하세요.
+모든 플랫폼에서 중앙 집중식 개요를 보려면 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)을 참조하세요. 로그 출력을 해석하는 방법을 알아보려면 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs)를 참조하세요.
 
 #### 로그 레벨 {#log-levels}
 
 Braze Swift SDK의 기본 로그 레벨은 `.error`이며&#8212;로그가 활성화될 때 최소 지원 레벨이기도 합니다. 다음은 전체 로그 레벨 목록입니다:
 
-| Swift | Objective-C | 설명 |
+| Swift       | Objective-C              | 설명                                                  |
 | ----------- | ------------------------ | ------------------------------------------------------------ |
-| `.debug` | `BRZLoggerLevelDebug` | 디버깅 정보 + `.info` + `.error`를 기록합니다. |
-| `.info` | `BRZLoggerLevelInfo` | 일반 SDK 정보(사용자 변경 사항 등) + `.error`를 기록합니다. |
-| `.error` | `BRZLoggerLevelError` | 오류를 기록합니다. |
-| `.disabled` | `BRZLoggerLevelDisabled` | 로깅이 발생하지 않습니다. |
+| `.debug`    | `BRZLoggerLevelDebug`    | 디버깅 정보 + `.info` + `.error`를 기록합니다.              |
+| `.info`     | `BRZLoggerLevelInfo`     | 일반 SDK 정보(사용자 변경 사항 등) + `.error`를 기록합니다. |
+| `.error`    | `BRZLoggerLevelError`    | 오류를 기록합니다.                                                  |
+| `.disabled` | `BRZLoggerLevelDisabled` | 로깅이 발생하지 않습니다.                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="로그 레벨" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="로그 레벨" }
 
 #### 로그 레벨 설정 {#setting-the-log-level}
 

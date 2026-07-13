@@ -1,0 +1,12 @@
+{
+  "de": {
+    "exception event": "Ausnahme-Event",
+    "experiment paths": "Experimentpfade",
+    "local time": "Ortszeit"
+  },
+  "es": {
+    "button": "botón",
+    "endpoint": "endpoint",
+    "SDK endpoint": "Punto final de SDK"
+  }
+}

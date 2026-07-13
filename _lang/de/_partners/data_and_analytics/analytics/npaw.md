@@ -2,7 +2,7 @@
 nav_title: NPAW
 article_title: NPAW
 alias: /partners/npaw/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und NPAW, einer intelligenten Analytics-Plattform, die umsetzbare Insights für führende Online-Medienschaffende liefert."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und NPAW, einer intelligenten Analytics-Plattform, die umsetzbare Insights für führende Online-Medienschaffende liefert."
 page_type: partner
 search_tag: Partner
 hidden: true
@@ -11,46 +11,45 @@ hidden: true
 
 # NPAW
 
-> [NPAW](https://nicepeopleatwork.com/), auch bekannt als _Nice People at Work_, ist eine intelligente Analytics-Plattform, die umsetzbare Insights für führende Online-Medienschaffende liefert. Mit der YOUBORA-Tool-Suite von NPAW können die Kunden von Braze jetzt eine prädiktive und robuste KI nutzen, um das Kundenverhalten besser zu verstehen und das Engagement plattformübergreifend zu fördern.
+> [NPAW](https://nicepeopleatwork.com/), auch bekannt als _Nice People at Work_, ist eine intelligente Analytics-Plattform, die umsetzbare Insights für führende Online-Medienschaffende liefert. Mit der YOUBORA-Tool-Suite von NPAW können Braze-Kund:innen jetzt eine prädiktive und robuste KI nutzen, um das Kundenverhalten besser zu verstehen und das Engagement plattformübergreifend zu fördern.
 
-# Voraussetzungen
+# Voraussetzungen {#prerequisites}
 
-| Anforderung   |Herkunft| Beschreibung |
+| Anforderung   | Herkunft | Beschreibung |
 | --------------|------|-------------|
-| YOUBORA API-Schlüssel |[YOUBORA Einstellungen](https://youbora.nicepeopleatwork.com/users/login)|Ein API-Schlüssel, der bei der Registrierung der Nutzer:innen generiert wird und sich unter **Einstellungen** befindet |
-| ID |[Braze Einstellungen](https://dashboard.braze.com/sign_in) | YOUBORA bietet Ihnen die Möglichkeit, die Software mit Braze über eine ***Braze ID***, eine ***externe Nutzer:in ID***, oder eine ***Nutzer:innen ID*** |
-| Endpunkt |[Braze Einstellungen](https://dashboard.braze.com/sign_in)| Ein vollständig anpassbarer URL-Endpunkt, der über Ihr Braze-Dashboard konfiguriert werden kann. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| YOUBORA-API-Schlüssel | [YOUBORA-Einstellungen](https://youbora.nicepeopleatwork.com/users/login) | Ein API-Schlüssel, der bei der Registrierung generiert wird und unter **Settings** zu finden ist |
+| ID | [Braze-Einstellungen](https://dashboard.braze.com/sign_in) | YOUBORA bietet Ihnen die Möglichkeit, die Software mit Braze über eine ***Braze-ID***, eine ***externe Nutzer-ID*** oder eine ***Nutzer-ID*** zu verknüpfen |
+| Endpunkt | [Braze-Einstellungen](https://dashboard.braze.com/sign_in) | Ein vollständig anpassbarer URL-Endpunkt, der über Ihr Braze-Dashboard konfiguriert werden kann. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 # Analytics-Integration
 
-## Zugriff auf die Seite mit den Integrationen
+## Zugriff auf die Integrationsseite {#accessing-the-integrations-page}
 
-Nachdem Sie sich bei Ihrem YOUBORA Tool Suite Konto angemeldet haben, navigieren Sie zur Seite Integrationen, indem Sie die Option **Integrationen** aus dem Dropdown-Kontomenü auswählen.
+Nachdem Sie sich bei Ihrem YOUBORA-Tool-Suite-Konto angemeldet haben, navigieren Sie zur Integrationsseite, indem Sie die Option **Integrations** aus dem Dropdown-Kontomenü auswählen.
 
-![NPAW Dropdown]({% image_buster /assets/img/npaw_dropdown.png %})
+![NPAW-Dropdown-Menü]({% image_buster /assets/img/npaw_dropdown.png %})
 
-## Konfigurieren Ihrer Integration
+## Konfigurieren Ihrer Integration {#configuring-your-integration}
 
-Sobald Sie die Seite Integration aufgerufen haben, scrollen Sie nach unten, bis Sie
-siehe die Option Integration von **Braze**. Nachdem Sie darauf geklickt haben, erweitert sich das Fenster und bietet Ihnen eine Reihe von Parametern an, die Sie ausfüllen müssen:
+Sobald Sie die Integrationsseite aufgerufen haben, scrollen Sie nach unten, bis Sie die Integrationsoption **Braze** sehen. Nachdem Sie darauf geklickt haben, wird diese erweitert und bietet Ihnen eine Reihe erforderlicher Parameter zum Ausfüllen an:
 
 ![NPAW-Integration]({% image_buster /assets/img/npaw_integration.png %})
 
-Füllen Sie die Details mit den entsprechenden Informationen aus, die Sie in der Rubrik Nebeneinkünfte finden:
-* Der **Name des Konnektors** ist ein **alphanumerischer** String, der in Zukunft verwendet wird, um auf diese Integration zu referenzieren. Dieser Wert kann auf jeden beliebigen Wert gesetzt werden, solange er **nur** Buchstaben und Zahlen enthält.
-* Die **Nutzer:in** ist die ID, die Sie zuvor gewählt haben, um Ihre YOUBORA Software mit Ihrem Braze-Konto zu verknüpfen. Wenn Sie beispielsweise die Verknüpfung über Ihre **Braze ID** vornehmen möchten, wählen Sie **Braze ID** aus dem Dropdown-Menü aus, um den Wert dem entsprechenden Feld zuzuweisen.
-* Der **API-Schlüssel** ist Ihr YOUBORA Tools Suite API-Schlüssel, den Sie zuvor im Bereich **API** unter **Einstellungen** finden.
-* **Endpunkt** ist der anpassbare URL-Endpunkt, der zuvor in Ihrem Braze-Dashboard eingerichtet wurde.
+Füllen Sie die Details mit den entsprechenden Informationen aus dem Abschnitt „Voraussetzungen“ aus, wobei:
+* **Connector Name** ein **alphanumerischer** String ist, der in Zukunft verwendet wird, um auf diese Integration zu verweisen. Dieser Wert kann beliebig gewählt werden, solange er **nur** Buchstaben und Zahlen enthält.
+* **User ID** die ID ist, die Sie zuvor gewählt haben, um Ihre YOUBORA-Software mit Ihrem Braze-Konto zu verknüpfen. Wenn Sie beispielsweise die Verknüpfung über Ihre **Braze ID** vornehmen möchten, wählen Sie **Braze ID** aus dem Dropdown-Menü aus, um den Wert dem entsprechenden Feld zuzuweisen.
+* **API Key** Ihr YOUBORA-Tool-Suite-API-Schlüssel ist, den Sie zuvor im Bereich **API** unter **Settings** gefunden haben.
+* **Endpoint** der anpassbare URL-Endpunkt ist, der zuvor in Ihrem Braze-Dashboard eingerichtet wurde.
 
-Sobald Sie alle Felder ausgefüllt haben, klicken Sie einfach auf den Button **Verbinden**, um eine Verbindung herzustellen und die Änderungen zu speichern.
+Sobald alle Felder ausgefüllt sind, klicken Sie einfach auf den Button **Connect**, um eine Verbindung herzustellen und die Änderungen zu speichern.
 
-## Verwendung Ihrer NPAW Integration
+## Verwendung Ihrer NPAW-Integration {#using-your-npaw-integration}
 
-Wenn Sie die Integration mit Braze fertig konfiguriert haben, navigieren Sie zum Produkt **Nutzer:innen** und wählen Sie den **Manager für Proben** innerhalb des **Sections Manager** aus.
+Wenn Sie die Integration mit Braze fertig konfiguriert haben, navigieren Sie zum Produkt **Users** und wählen Sie den **Sample Manager** innerhalb des **Sections Manager** aus.
 
-Nachdem Sie eine Probe in der **Probenverwaltung** erstellt haben, können Sie nun auf das Symbol mit dem dreifachen Punkt auf der rechten Seite klicken, um alle Nutzer:innen Ihrer Probe an Braze zu senden.
+Nachdem Sie ein Sample im **Sample Manager** erstellt haben, können Sie auf das Dreipunkt-Symbol im Zeilenaktionsmenü klicken, um alle Nutzer:innen Ihres Samples an Braze zu senden.
 
-![NPAW Sample Manager:in]({% image_buster /assets/img/npaw_sample_manager.png %})
+![NPAW Sample Manager]({% image_buster /assets/img/npaw_sample_manager.png %})
 
-Nachdem Sie Ihre Nutzer:innen an Braze geschickt haben, können Sie jetzt aktiv werden und Kampagnen auf Segmente ausrichten, um inaktive Nutzer:innen wieder zu engagieren, Ihre treuesten Nutzer:innen zu kontaktieren oder eine beliebige Aktion für ein beliebiges Segment durchzuführen!
+Nachdem Sie Ihre Nutzer:innen an Braze gesendet haben, können Sie jetzt aktiv werden und Campaigns auf Nutzersegmente ausrichten, um inaktive Nutzer:innen erneut anzusprechen, Ihre treuesten Nutzer:innen zu kontaktieren oder eine beliebige Aktion für ein beliebiges Nutzersegment durchzuführen!

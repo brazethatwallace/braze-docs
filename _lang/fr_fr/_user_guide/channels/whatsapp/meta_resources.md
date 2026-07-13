@@ -26,6 +26,51 @@ Consultez la documentation Meta suivante pour obtenir des conseils sur les noms 
 
 ## Mises à jour du produit WhatsApp {#whatsapp-product-updates}
 
+### 2026 : noms d'utilisateur professionnels {#2026-business-usernames}
+*Dernière mise à jour : mai 2026*
+
+Meta introduit les noms d'utilisateur professionnels pour WhatsApp — un nom d'affichage optionnel que les entreprises peuvent adopter pour leur numéro de téléphone WhatsApp. Lorsqu'un nom d'utilisateur est défini, il apparaît dans les fenêtres de discussion des applications WhatsApp et WhatsApp Business à la place du numéro de téléphone. Notez que l'adoption d'un nom d'utilisateur ne masque pas votre numéro de téléphone ; il reste toujours visible dans votre profil professionnel.
+
+Les noms d'utilisateur sont uniques pour tous les numéros de téléphone WhatsApp — deux numéros, qu'ils soient personnels ou professionnels, ne peuvent pas partager le même nom d'utilisateur. Ils ne sont pas sensibles à la casse pour les besoins de l'unicité, mais les points et les tirets bas sont traités comme des caractères distincts. Par exemple, `myid`, `my.id` et `my_id` sont tous considérés comme des noms d'utilisateur différents, tandis que `myID` et `myid` sont traités comme identiques.
+
+Les noms d'utilisateur professionnels doivent respecter les exigences de format suivantes :
+
+- Contient uniquement des lettres anglaises (a–z), des chiffres (0–9), des points (`.`) ou des tirets bas (`_`)
+- Comporte entre 3 et 35 caractères
+- Contient au moins une lettre anglaise
+- Ne commence ni ne se termine par un point, et ne contient pas deux points consécutifs
+- Ne commence pas par `www`
+- Ne se termine pas par un suffixe de domaine courant (tel que `.com`, `.org` ou `.net`)
+
+#### Revendiquer un nom d'utilisateur réservé {#claiming-a-reserved-username}
+
+Avant que la fonctionnalité de nom d'utilisateur ne soit largement disponible, Meta peut avoir pré-réservé un nom d'utilisateur pour votre entreprise — correspondant généralement à un nom de page Facebook ou de compte Instagram existant. Vous pouvez revendiquer ce nom d'utilisateur réservé ou en choisir un autre via [WhatsApp Manage](https://business.facebook.com/wa/manage/). Les noms d'utilisateur revendiqués ne sont pas activés tant que Meta ne rend pas la fonctionnalité disponible.
+
+Si le nom d'utilisateur réservé correspond à un nom déjà associé à votre page Facebook ou à votre compte Instagram, vous devez d'abord lier votre numéro de téléphone professionnel à cette page ou à ce compte. Vous pouvez le faire lors de la revendication du nom d'utilisateur dans WhatsApp Manager ou Meta Business Suite, ou en ajoutant votre numéro de téléphone directement depuis la page ou le compte concerné. La liaison nécessite soit un contrôle total de la page ou du compte, soit un accès partiel de base avec la permission `manage_phone`.
+
+#### Priorité d'affichage dans les fenêtres de discussion {#display-priority-in-chat-windows}
+
+Lorsque votre profil professionnel apparaît dans une fenêtre de discussion, WhatsApp utilise l'ordre de priorité suivant (du plus élevé au plus faible) :
+
+1. Nom du contact enregistré
+2. Nom d'entreprise vérifié ou nom de compte professionnel officiel (OBA)
+3. Nom d'utilisateur
+4. Numéro de téléphone
+
+Pour plus d'informations, consultez la documentation de Meta sur les [noms d'utilisateur professionnels](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### Avril 2026 : archivage automatique des modèles inactifs {#april-2026-automatic-archival-of-inactive-templates}
+*Dernière mise à jour : avril 2026*
+
+- Meta archive automatiquement les modèles inactifs depuis 12 mois ou plus.
+- L'archivage automatique est activé pour tous les comptes WhatsApp Business et ne peut pas être désactivé.
+- L'activité d'un modèle inclut la création, la modification, l'envoi, la contestation ou le désarchivage d'un modèle.
+- Les modèles archivés ne peuvent pas être envoyés et sont programmés pour une suppression définitive après 28 jours.
+- Vous pouvez désarchiver les modèles dans la fenêtre de 28 jours pour les restaurer et annuler la suppression programmée.
+- Les notifications sont envoyées via le webhook `message_template_status_update`, par e-mail et via une bannière unique dans WhatsApp Manager.
+
+Pour plus d'informations, consultez la documentation de Meta sur l'[archivage des modèles](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### Juin 2026 : identifiants utilisateur au niveau de l'entreprise {#june-2026-business-scoped-user-ids}
 *Dernière mise à jour : mars 2026*
 
@@ -46,7 +91,7 @@ Consultez la documentation Meta suivante pour obtenir des conseils sur les noms 
 - Auparavant ouvert à tous les clients via WhatsApp Manager
 - Désormais limité aux : gouvernements/grands annonceurs Meta, annonceurs directs, ou via un BSP comme Braze (jusqu'à 5 par semaine)
 - Nouvelles conditions préalables : vérification de l'entreprise, vérification en deux étapes, nom d'affichage approuvé, notoriété
-- Contactez votre gestionnaire de la satisfaction client pour obtenir de l'aide
+- Contactez votre gestionnaire du succès des clients pour obtenir de l'aide
 
 ### Octobre 2025 : réductions tarifaires régionales {#october-2025-regional-pricing-rate-cuts}
 *Dernière mise à jour : mars 2026*
@@ -90,12 +135,12 @@ Meta limitera le nombre de messages de modèles marketing qu'un utilisateur peut
 
 Une exception : si une personne répond à un message marketing, cela ouvrira une fenêtre de service client de 24 heures. Les messages marketing envoyés dans cette fenêtre ne seront pas comptabilisés dans la limite de la personne.
 
-La limite spécifique varie selon l'utilisateur, en fonction de son niveau d'engagement. En savoir plus sur les limites de messages de modèles marketing par utilisateur de WhatsApp [ici](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
+La limite spécifique varie selon l'utilisateur, en fonction de son niveau d'engagement. Pour en savoir plus, consultez la [documentation de WhatsApp sur les limites de messages de modèles marketing par utilisateur](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
 
 ### Janvier 2025 : WhatsApp suspend l'envoi de messages marketing aux utilisateurs américains à partir du 1er avril {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Dernière mise à jour : janvier 2025*
 
-WhatsApp suspendra l'envoi de messages marketing aux utilisateurs américains (personnes disposant de numéros de téléphone américains) à partir du 1er avril 2025. Les [messages utilitaires, de service et d'authentification](https://developers.facebook.com/docs/whatsapp/pricing/) ainsi que les [messages de réponse]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages) resteront autorisés aux États-Unis.
+WhatsApp suspendra l'envoi de messages marketing aux utilisateurs américains (personnes disposant de numéros de téléphone américains) à partir du 1er avril 2025. Les [messages utilitaires, de service et d'authentification](https://developers.facebook.com/docs/whatsapp/pricing/) ainsi que les [messages de réponse]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) resteront autorisés aux États-Unis.
 
 L'envoi de messages marketing (ainsi que tous les autres types de messages) vers tous les autres pays ou régions reste autorisé et ne sera pas affecté.
 
@@ -124,7 +169,7 @@ Bien que WhatsApp ait assoupli sa politique, Braze recommande toujours de recuei
 
 Depuis que Meta a déployé la limite de modèles marketing par utilisateur, Meta a constaté des améliorations significatives des taux de lecture et du sentiment des utilisateurs.
 
-À partir de maintenant, avant la période des fêtes, les personnes aux États-Unis recevront moins de nouvelles conversations marketing. Meta s'attend à ce que ce changement crée des audiences plus engagées, ce qui conduit finalement à de meilleurs résultats pour les entreprises. Cela peut entraîner des taux de livraison plus faibles pour votre entreprise si vous envoyez des messages marketing vers des numéros de téléphone américains, ce qui peut être surveillé avec le code d'erreur `131049` via Braze Currents et le Journal d'activité des messages.
+À partir de maintenant, avant la période des fêtes, les personnes aux États-Unis recevront moins de nouvelles conversations marketing. Meta s'attend à ce que ce changement crée des audiences plus engagées, ce qui conduit finalement à de meilleurs résultats pour les entreprises. Cela peut entraîner des taux de livraison plus faibles pour votre entreprise si vous envoyez des messages marketing vers des numéros de téléphone américains, ce qui peut être surveillé avec le code d'erreur `131049` via Braze Currents et le journal d'activité des messages.
 
 Les entreprises aux États-Unis peuvent toujours envoyer des messages marketing dans d'autres zones géographiques, et il n'y a aucun impact sur les messages utilitaires, d'authentification ou de service, ni sur les messages de modèles marketing envoyés dans une fenêtre de conversation initiée par l'utilisateur (par exemple, une publicité click-to-WhatsApp, un carrousel de produits ou un modèle de coupon envoyé dans le cadre d'une conversation).
 

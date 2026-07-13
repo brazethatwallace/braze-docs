@@ -26,7 +26,7 @@ Folgendes ist erforderlich, bevor Sie die Integration aktivieren:
 |---|---|
 | Flybuy-Konto | Ein Flybuy-Konto mit mindestens einem Projekt. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -34,7 +34,7 @@ Um die Integration zu aktivieren, führen Sie die folgenden Schritte aus:
 
 1. Navigieren Sie im Flybuy-Merchant-Portal zu **Project Info** und klicken Sie auf **Events Engine**.
 2. Klicken Sie auf **Add a Destination** und wählen Sie dann **Braze** aus.
-3. Fügen Sie Ihren Braze-API-Schlüssel und Endpunkt hinzu und wählen Sie die Events aus, die Sie aktivieren möchten.
+3. Fügen Sie Ihren Braze-API-Schlüssel und -Endpunkt hinzu und wählen Sie die Events aus, die Sie aktivieren möchten.
 4. Klicken Sie auf **Finish Setup**.
 
 {% alert important %}
@@ -47,7 +47,7 @@ Flybuy ordnet `loyalty_id` der Braze-`external_id` für eingeloggte Nutzer:innen
 - [Lieferung](https://www.flybuy.com/flybuydelivery)
 - [Drive-Thru](https://www.flybuy.com/flybuydrivethru)
 - [Tischservice](https://www.flybuy.com/flybuytableservice)
-- [Mobiler Hotel-Check-In und Bestellung](https://www.flybuy.com/industries/hospitality)
+- [Mobiler Hotel-Check-in und Bestellung](https://www.flybuy.com/industries/hospitality)
 - [Marketing Suite](https://www.flybuy.com/flybuy-marketing-suite)
 
 ## Beispiele für event- und attributbasierte Trigger {#event-and-attribute-based-trigger-examples}

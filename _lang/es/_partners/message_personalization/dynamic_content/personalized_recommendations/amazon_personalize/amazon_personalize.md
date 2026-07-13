@@ -17,18 +17,18 @@ _Esta integración es mantenida por Amazon Personalize._
 
 ## Sobre la integración {#about-the-integration}
 
-Mediante el aprendizaje automático y un algoritmo que tú ayudas a definir, Amazon Personalize puede ayudarte a entrenar un modelo que produzca recomendaciones de alta calidad para tus sitios web y aplicaciones. Estos modelos te permitirán crear listas de recomendaciones basadas en los comportamientos anteriores de los usuarios, ordenar los elementos por relevancia y recomendar otros elementos en función de la similitud. Las listas obtenidas de la API de Amazon Personalize pueden utilizarse en Contenido conectado de Braze para ejecutar campañas de recomendación personalizadas de Braze. Al integrarse con Amazon Personalize, los clientes tienen libertad para controlar los parámetros utilizados para entrenar los modelos y definir objetivos empresariales opcionales que optimicen el resultado del algoritmo.
+Mediante el aprendizaje automático y un algoritmo que tú ayudas a definir, Amazon Personalize puede ayudarte a entrenar un modelo que produzca recomendaciones de alta calidad para tus sitios web y aplicaciones. Estos modelos te permitirán crear listas de recomendaciones basadas en los comportamientos anteriores de los usuarios, ordenar los elementos por relevancia y recomendar otros elementos en función de la similitud. Las listas obtenidas de la API de Amazon Personalize pueden utilizarse en contenido conectado de Braze para ejecutar campañas de recomendación personalizadas de Braze. Al integrarse con Amazon Personalize, los clientes tienen libertad para controlar los parámetros utilizados para entrenar los modelos y definir objetivos empresariales opcionales que optimicen el resultado del algoritmo.
 
 Este artículo de referencia te ayudará a comprender los casos de uso que ofrece Amazon Personalize, los datos con los que trabaja, cómo configurar el servicio y cómo integrarlo con Braze.
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
+| Requisito | Descripción |
+| --- | --- |
 | Cuenta de Amazon Web Service | Se necesita una cuenta de AWS para beneficiarse de esta asociación. Después de tener una cuenta de AWS, puedes acceder a Amazon Personalize a través de la consola de Amazon Personalize, la interfaz de línea de comandos de AWS (CLI de AWS) o los SDK de AWS. |
 | Casos de uso definidos | Antes de crear un modelo, debes determinar tu caso de uso para esta integración. Consulta la siguiente lista de casos de uso comunes. |
 | Conjuntos de datos | Los modelos de recomendación de Amazon Personalize requieren tres tipos diferentes de conjuntos de datos: interacciones, usuarios y artículos. Consulta los siguientes detalles para ver los requisitos de cada conjunto de datos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% tabs %}
 {% tab Use Cases %}
@@ -101,14 +101,14 @@ Los filtros permiten ajustar el resultado de la recomendación excluyendo elemen
 
 ## Integración de resultados con Braze {#integrating-results-with-braze}
 
-Con el modelo creado y la campaña de recomendaciones, estás listo para ejecutar una campaña de Braze para tus usuarios utilizando Content Cards y Contenido conectado.
-Antes de ejecutar una campaña de Braze, debes crear un servicio que pueda servir estas recomendaciones a través de una API. Puedes seguir [el paso 3 del artículo del taller]({{site.baseurl}}/partners/amazon_personalize_workshop/#step-3-send-personalized-emails-from-braze) para desplegar el servicio utilizando los servicios de AWS. También puedes desplegar tu propio servicio backend independiente que proporcione las recomendaciones.
+Con el modelo creado y la campaña de recomendaciones, estás listo para ejecutar una campaña de Braze para tus usuarios utilizando Content Cards y contenido conectado.
+Antes de ejecutar una campaña de Braze, debes crear un servicio que pueda servir estas recomendaciones a través de una API. Puedes seguir [el paso 3 del artículo del taller]({{site.baseurl}}/partners/amazon_personalize_workshop#step-3-send-personalized-emails-from-braze) para desplegar el servicio utilizando los servicios de AWS. También puedes desplegar tu propio servicio backend independiente que proporcione las recomendaciones.
 
 ### Caso de uso de la campaña de Content Cards {#content-card-campaign-use-case}
 
 Realicemos una campaña de Content Cards con el primer elemento recomendado de la lista.<br><br>
 En los siguientes ejemplos, vamos a consultar
-el punto de conexión `GET http://<service-endpoint.com>/recommendations?user_id=user123` con un parámetro `user_id` que devolverá una lista de elementos recomendados:
+el endpoint `GET http://<service-endpoint.com>/recommendations?user_id=user123` con un parámetro `user_id` que devolverá una lista de elementos recomendados:
 
 ```json
 [
@@ -130,7 +130,7 @@ el punto de conexión `GET http://<service-endpoint.com>/recommendations?user_id
 ]
 ```
 
-En el panel de Braze, crea una nueva [campaña de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). En el campo de texto del mensaje, crea un bloque Liquid de Contenido conectado para consultar la API y guardar la respuesta en la variable `recommendations`:
+En el panel de Braze, crea una nueva [campaña de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). En el campo de texto del mensaje, crea un bloque Liquid de contenido conectado para consultar la API y guardar la respuesta en la variable `recommendations`:
 
 {% raw %}
 
@@ -150,4 +150,4 @@ This seems like a great fit for you:
 
 Incluyendo el título, la imagen y enlazando la URL, así es como quedaría la Content Card completa:
 
-![Una imagen de una campaña con Contenido conectado añadido al cuerpo del mensaje y al campo "Añadir imagen". Esta imagen también muestra la lógica de Contenido conectado añadida al campo "Redirect to Web URL", que enlaza a los usuarios con una URL de recomendación.]({% image_buster /assets/img/amazon_personalize/content-card-campaign.png %})
+![Una imagen de una campaña con contenido conectado añadido al cuerpo del mensaje y al campo "Añadir imagen". Esta imagen también muestra la lógica de contenido conectado añadida al campo "Redirect to Web URL", que enlaza a los usuarios con una URL de recomendación.]({% image_buster /assets/img/amazon_personalize/content-card-campaign.png %})

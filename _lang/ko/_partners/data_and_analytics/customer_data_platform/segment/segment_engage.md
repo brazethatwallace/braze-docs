@@ -16,17 +16,18 @@ search_tag: Partner
 
 > [Segment](https://segment.com)는 고객 데이터를 수집, 정리 및 활성화하는 데 도움이 되는 고객 데이터 플랫폼입니다. 이 참조 문서에서는 [Braze와 Segment Engage](https://segment.com/docs/destinations/braze/#Engage) 간의 연결에 대한 개요와 올바른 구현 및 사용을 위한 요구 사항 및 프로세스를 설명합니다.
 
-Braze와 Segment 통합을 사용하면 Segment의 내장 오디언스 빌더인 [Engage](https://segment.com/docs/engage/)를 사용하여 다양한 소스에서 이미 수집한 데이터를 기반으로 사용자 세그먼트를 생성할 수 있습니다. 이러한 오디언스는 코호트로 Braze에 동기화되거나, [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) 또는 [커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events)를 통해 고객 프로필에 표시되며, 이를 사용하여 Campaign 및 Canvas 리타겟팅에 사용할 Braze Segments를 생성할 수 있습니다.
+Braze와 Segment 통합을 사용하면 Segment의 내장 오디언스 빌더인 [Engage](https://segment.com/docs/engage/)를 사용하여 다양한 소스에서 이미 수집한 데이터를 기반으로 사용자 세그먼트를 생성할 수 있습니다. 이러한 오디언스는 코호트로 Braze에 동기화되거나, [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) 또는 [커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events)를 통해 고객 프로필에 표시되며, 이를 사용하여 Campaign 및 Canvas 리타겟팅에 사용할 Braze 세그먼트를 생성할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Segment 계정 | 이 파트너십을 활용하려면 [Segment 계정](https://app.segment.com/login)이 필요합니다. |
-| Braze 클라우드 대상 | Segment 통합에서 이미 [Braze를 대상으로 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/)해야 합니다.<br><br>여기에는 [연결 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings)에서 올바른 Braze 데이터 센터와 REST API 키를 제공하는 것이 포함됩니다. |
+| Braze 클라우드 대상 | Segment 통합에서 이미 [Braze를 대상으로 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/)해야 합니다.<br><br>여기에는 [연결 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings)에서 올바른 Braze 데이터 센터와 REST API 키를 제공하는 것이 포함됩니다. |
 | Braze 데이터 가져오기 키 | Engage 오디언스를 코호트로 Braze에 동기화하려면 데이터 가져오기 키를 생성해야 합니다.<br><br>코호트 가져오기는 얼리 액세스 중이며, 이 기능에 액세스하려면 Braze 고객 성공 매니저에게 문의하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 코호트 대상 통합 {#cohorts-destination-integration}
 
@@ -48,7 +49,7 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하고 **Segmen
 ### 4단계: Engage 오디언스에서 Braze 세그먼트 생성 {#step-4-create-a-braze-segment-from-the-engage-audience}
 Braze에서 **Segments**로 이동하여 새 세그먼트를 생성하고 필터로 **Segment Cohorts**를 선택합니다. 여기에서 포함할 Segment 코호트를 선택할 수 있습니다. Segment 코호트 세그먼트가 생성되면 Campaign 또는 Canvas를 생성할 때 오디언스 필터로 선택할 수 있습니다.
 
-![]({% image_buster /assets/img/segment/segment3.png %})
+![Segment Cohorts 필터를 사용하는 Braze 세그먼트 빌더.]({% image_buster /assets/img/segment/segment3.png %})
 
 ## 클라우드 모드 통합 {#cloud-mode-integration}
 
@@ -78,6 +79,7 @@ Braze에서 **Segments**로 이동하여 새 세그먼트를 생성하고 필터
 | 계산된 특성 | 오디언스 |
 | -------------- | --------- |
 | ![고객 프로필 내의 커스텀 속성 섹션에 "last_product_viewed_item"이 "Sweater"로 표시됩니다.]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![고객 프로필 내의 커스텀 속성 섹션에 "dormant_shopper"가 "true"로 표시됩니다.]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="계산된 특성 및 오디언스" }
 
 {% endtab %}
 {% tab Track %}
@@ -89,13 +91,14 @@ Braze에서 **Segments**로 이동하여 새 세그먼트를 생성하고 필터
 | 계산된 특성 | 오디언스 |
 | -------------- | --------- |
 | ![고객 프로필 내 커스텀 이벤트 섹션에 "Trait Computed"가 "1"회로 표시되며, 마지막 시간은 "20시간 전"입니다.]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![고객 프로필 내의 커스텀 속성 섹션에 "Audience Entered"가 "1"회로 표시되며, 마지막 시간은 "3월 9일 오전 1시 45분"입니다.]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="계산된 특성 및 오디언스" }
 
 {% endtab %}
 {% endtabs %}
 
 ### 2단계: Braze에서 사용자 세그먼트 생성 {#step-2-segment-users-in-braze}
 
-Braze에서 이러한 사용자의 세그먼트를 생성하려면 **참여** 아래의 **Segments**로 이동하여 새 세그먼트를 생성하고 세그먼트 이름을 지정합니다. 다음으로, 사용한 호출에 따라:
+Braze에서 이러한 사용자의 세그먼트를 생성하려면 **인게이지먼트** 아래의 **Segments**로 이동하여 새 세그먼트를 생성하고 이름을 지정합니다. 다음으로, 사용한 호출에 따라:
 - **Identify**: 필터로 **커스텀 속성**을 선택하고 커스텀 속성을 찾습니다. 그런 다음 "정규식 일치" 옵션(특성) 또는 "같음" 옵션(오디언스)을 사용하고 적절한 변수를 입력합니다.
 - **Track**: 필터로 **커스텀 이벤트**를 선택하고 커스텀 이벤트를 찾습니다. 그런 다음 "초과", "미만" 또는 "정확히" 옵션을 사용하고 원하는 값을 입력합니다. 이는 세그먼트를 정의하는 방식에 따라 달라집니다.
 
@@ -109,6 +112,6 @@ Braze와 Segment Engage 연결의 기본 설정은 `Realtime`이지만, 메시�
 
 Segment의 대시보드는 고객이 "소스"의 데이터가 예상대로 "대상"으로 전송되는지 테스트할 수 있는 "디버거" 기능을 제공합니다.
 
-이 기능은 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 연결되므로, 식별된 사용자(Braze 고객 프로필에 대한 사용자 ID가 이미 있는 사용자)에게만 사용할 수 있습니다.
+이 기능은 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 연결되므로, 식별된 사용자(Braze 고객 프로필에 대한 사용자 ID가 이미 있는 사용자)에게만 사용할 수 있습니다.
 
 이 기능은 사이드 바이 사이드 Braze 통합에서는 작동하지 않습니다. 올바른 Braze REST API 정보를 입력하지 않으면 서버 데이터가 전달되지 않습니다.

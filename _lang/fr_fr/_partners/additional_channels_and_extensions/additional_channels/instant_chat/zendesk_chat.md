@@ -10,16 +10,17 @@ search_tag: Partner
 
 # Zendesk Chat
 
-> [Zendesk Chat](https://www.zendesk.com/service/messaging/) utilise les webhooks de chaque plateforme pour établir une conversation SMS bidirectionnelle. Lorsqu'un utilisateur demande de l'aide, un ticket est créé dans Zendesk. Les réponses des agents sont transmises à Braze par le biais d'une campagne SMS déclenchée par l'API, et les réponses des utilisateurs sont renvoyées à Zendesk.
+> [Zendesk Chat](https://www.zendesk.com/service/messaging/) utilise les webhooks de chaque plateforme pour établir une conversation SMS bidirectionnelle. Lorsqu'un utilisateur demande de l'aide, un ticket est créé dans Zendesk. Les réponses des agents sont transmises à Braze par le biais d'une Campaign SMS déclenchée par l'API, et les réponses des utilisateurs sont renvoyées à Zendesk.
 
 ## Conditions préalables {#prerequisites}
 
 
 | Prérequis | Description |
 |---|---|
-| Un compte Zendesk | Un compte Zendesk est nécessaire pour bénéficier de ce partenariat.|
-| Un jeton d'autorisation de base Zendesk | Un jeton d'autorisation de base Zendesk est utilisé pour effectuer une requête webhook sortante de Braze vers Zendesk.|
-| Une clé API REST de Braze  | Une clé API REST de Braze avec les autorisations `campaigns.trigger.send`. Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**.|
+| Un compte Zendesk | Un compte Zendesk est nécessaire pour bénéficier de ce partenariat. |
+| Un jeton d'autorisation de base Zendesk | Un jeton d'autorisation de base Zendesk est utilisé pour effectuer une requête webhook sortante de Braze vers Zendesk. |
+| Une clé API REST de Braze | Une clé API REST de Braze avec les autorisations `campaigns.trigger.send`. Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -36,9 +37,9 @@ Améliorez l'efficacité du support client en combinant les fonctionnalités SMS
 
 ![Un exemple de webhook Zendesk.]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
 
-### Étape 2 : Créer une campagne SMS sortante {#step-2-create-an-outbound-sms-campaign}
+### Étape 2 : Créer une Campaign SMS sortante {#step-2-create-an-outbound-sms-campaign}
 
-Ensuite, vous allez créer une campagne SMS qui écoutera les webhooks de Zendesk et enverra une réponse SMS personnalisée à vos clients.
+Ensuite, vous allez créer une Campaign SMS qui écoutera les webhooks de Zendesk et enverra une réponse SMS personnalisée à vos clients.
 
 #### Étape 2.1 : Rédigez votre message {#step-21-compose-your-message}
 
@@ -70,9 +71,9 @@ Feel free to respond directly to this number!
 
 #### Étape 2.2 : Planifier la distribution {#step-22-schedule-the-delivery}
 
-Pour le type de distribution, sélectionnez **API-Triggered delivery**, puis copiez l'ID de la campagne, qui sera utilisé dans les étapes suivantes.
+Pour le type de distribution, sélectionnez **API-Triggered delivery**, puis copiez l'ID de la Campaign, qui sera utilisé dans les étapes suivantes.
 
-![API-Triggered delivery]({% image_buster /assets/img/zendesk/instant_chat/chat4.png %}){: style="max-width:70%;"}
+![Livraison déclenchée par l'API]({% image_buster /assets/img/zendesk/instant_chat/chat4.png %}){: style="max-width:70%;"}
 
 Enfin, sous **Delivery Controls**, activez la rééligibilité.
 
@@ -117,11 +118,11 @@ Sous **Actions**, sélectionnez **Notify by Webhook** et choisissez l'endpoint q
 
 ### Étape 4 : Créer un déclencheur dans Zendesk pour mettre à jour un utilisateur lorsqu'un ticket est fermé {#step-4-create-a-trigger-in-zendesk-to-update-a-user-when-a-ticket-is-closed}
 
-Si vous souhaitez informer l'utilisateur que le ticket a été fermé, créez une nouvelle campagne dans Braze avec le corps de réponse modélisé.
+Si vous souhaitez informer l'utilisateur que le ticket a été fermé, créez une nouvelle Campaign dans Braze avec le corps de réponse modélisé.
 
 ![Mettre à jour un utilisateur lorsque le ticket est fermé.]({% image_buster /assets/img/zendesk/instant_chat/chat8.png %}){: style="max-width:70%;"}
 
-Sélectionnez **API-Triggered delivery** et copiez l'ID de la campagne.
+Sélectionnez **API-Triggered delivery** et copiez l'ID de la Campaign.
 
 Ensuite, configurez un déclencheur pour avertir Braze de la clôture du ticket :
 - Catégorie : **Trigger a message**
@@ -159,30 +160,30 @@ Dans l'Admin Center, sélectionnez **People** dans la barre latérale, puis sél
 
 ### Étape 6 : Configurer le transfert des SMS entrants {#step-6-set-up-inbound-sms-forwarding}
 
-Ensuite, vous allez créer deux nouvelles campagnes webhook dans Braze afin de pouvoir transférer les SMS entrants des clients vers la boîte de réception de Zendesk.
+Ensuite, vous allez créer deux nouvelles Campaigns webhook dans Braze afin de pouvoir transférer les SMS entrants des clients vers la boîte de réception de Zendesk.
 
-| Campaign           | Objectif                                                                              |
+| Campaign | Objectif |
 |--------------------|--------------------------------------------------------------------------------------|
-| Campaign webhook 1 | Crée un nouveau ticket dans Zendesk.                                                     |
+| Campaign webhook 1 | Crée un nouveau ticket dans Zendesk. |
 | Campaign webhook 2 | Transfère toutes les réponses SMS conversationnelles envoyées par le client vers Zendesk. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 6 : Configurer le transfert des SMS entrants" }
 
 #### Étape 6.1 : Créer une catégorie de mots-clés SMS {#step-61-create-an-sms-keyword-category}
 
 Dans le tableau de bord de Braze, allez dans **Audience**, choisissez votre **groupe d'abonnement SMS**, puis sélectionnez **Add Custom Keyword**. Remplissez les champs suivants pour créer une catégorie de mots-clés SMS exclusive pour Zendesk.
 
-| Champ            | Description                                                                                                               |
+| Champ | Description |
 |------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Keyword Category | Le nom de votre catégorie de mots-clés, par exemple `ZendeskSMS1`.                                                                 |
-| Keywords         | Vos mots-clés personnalisés, tels que `SUPPORT`.                                                                                  |
-| Reply Message    | Le message envoyé lorsqu'un mot-clé est détecté, par exemple « Un représentant du service client vous contactera sous peu. » |
-{: .reset-td-br-1 .reset-td-br-2 }
+| Keyword Category | Le nom de votre catégorie de mots-clés, par exemple `ZendeskSMS1`. |
+| Keywords | Vos mots-clés personnalisés, tels que `SUPPORT`. |
+| Reply Message | Le message envoyé lorsqu'un mot-clé est détecté, par exemple « Un représentant du service client vous contactera sous peu. » |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 6.1 : Créer une catégorie de mots-clés SMS" }
 
 ![Un exemple de catégorie de mots-clés SMS dans Braze.]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 
-#### Étape 6.2 : Créer votre première campagne webhook {#step-62-create-your-first-webhook-campaign}
+#### Étape 6.2 : Créer votre première Campaign webhook {#step-62-create-your-first-webhook-campaign}
 
-Dans le tableau de bord de Braze, créez votre première campagne webhook. Ce message signalera à Zendesk qu'une demande d'assistance a été effectuée.
+Dans le tableau de bord de Braze, créez votre première Campaign webhook. Ce message signalera à Zendesk qu'une demande d'assistance a été effectuée.
 
 Dans le compositeur de webhook, remplissez les champs suivants :
 - Webhook URL : {% raw %}https://{{url}}.zendesk.com/api/v2/tickets{% endraw %}
@@ -220,15 +221,15 @@ Dans le compositeur de webhook, remplissez les champs suivants :
 
 Pour **Schedule Delivery**, sélectionnez **Action-Based Delivery**, puis choisissez **Send an SMS Inbound Message** comme type de déclencheur. Ajoutez également le groupe d'abonnement SMS et la catégorie de mots-clés que vous avez définis précédemment.
 
-![La page « Schedule Delivery » pour la première campagne webhook.]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
+![La page « Schedule Delivery » pour la première Campaign webhook.]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
 
 Sous **Delivery Controls**, activez la rééligibilité.
 
-![Rééligibilité sélectionnée sous « Delivery Controls » pour la première campagne webhook.]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
+![Rééligibilité sélectionnée sous « Delivery Controls » pour la première Campaign webhook.]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
 
-#### Étape 6.4 : Créer votre deuxième campagne webhook {#step-64-create-your-second-webhook-campaign}
+#### Étape 6.4 : Créer votre deuxième Campaign webhook {#step-64-create-your-second-webhook-campaign}
 
-Configurez une campagne webhook pour transmettre les messages SMS restants de l'utilisateur à Zendesk :
+Configurez une Campaign webhook pour transmettre les messages SMS restants de l'utilisateur à Zendesk :
 
 Comme Zendesk envoie l'ID du ticket sous forme de chaîne de caractères, créez un bloc de contenu pour convertir la chaîne en un entier afin de pouvoir l'utiliser dans le webhook de Zendesk.
 
@@ -259,7 +260,7 @@ Exemple de corps :
 ```
 {% endraw %}
 
-#### Étape 6.5 : Terminer la configuration de la deuxième campagne webhook {#step-65-complete-second-webhook-campaign-setup}
+#### Étape 6.5 : Terminer la configuration de la deuxième Campaign webhook {#step-65-complete-second-webhook-campaign-setup}
 - Mettez en place un déclencheur basé sur une action pour les utilisateurs qui envoient un message entrant dans la catégorie « Other ».
 - Définissez les critères de rééligibilité.
 - Ajoutez les audiences concernées (dans ce cas, l'attribut personnalisé **zendesk_ticket_open** est **true**).

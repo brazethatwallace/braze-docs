@@ -20,7 +20,7 @@ hidden: true
 | YOUBORA API Key |[YOUBORA Settings](https://youbora.nicepeopleatwork.com/users/login)|An API Key generated on user sign up and can be located under **Settings** |
 | ID |[Braze Settings](https://dashboard.braze.com/sign_in) | YOUBORA gives you the options of whether to link the software to Braze via a ***Braze ID***, an ***external User ID***, or a ***User ID*** |
 | Endpoint |[Braze Settings](https://dashboard.braze.com/sign_in)| A fully customizable URL endpoint configurable through your Braze dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 # Analytics integration
 
@@ -49,7 +49,7 @@ Once all the fields have been filled out, simply click on the **Connect** button
 
 Once you have finished configuring your integration with Braze, navigate to the **Users** product and select the **Sample Manager** within the **Sections Manager**.
 
-After creating a sample within the **Sample Manger**, you will now be able to click on the triple dot icon on the right-hand side to send all users within your sample to Braze.
+After creating a sample within the **Sample Manger**, you can click the triple dot icon in the row actions menu to send all users within your sample to Braze.
 
 ![NPAW sample manager]({% image_buster /assets/img/npaw_sample_manager.png %})
 

@@ -1,6 +1,6 @@
 # plugin to check the if the site is production using the heroku ENV variable.
 # If not production website, then add a robot noindex meta header.
-# also don't index if the page is in the hidden folder.
+# also don't index if the page is in the hidden or unlisted_docs folder.
 # Usage:  {% noindex {{ page.path }} %}
 
 module Jekyll
@@ -17,7 +17,7 @@ module Jekyll
       hidepage = currentpage['hidden'].nil? ? false : currentpage['hidden']
       noindex = currentpage['noindex'].nil? ? false : currentpage['noindex']
 
-      if  (ENV['SITE_URL'].to_s.downcase != 'https://www.braze.com') || (hiddenpage.start_with? '_hidden') || (hidepage) || (noindex)
+      if  (ENV['SITE_URL'].to_s.downcase != 'https://www.braze.com') || (hiddenpage.start_with? '_hidden') || (hiddenpage.start_with? '_unlisted_docs') || (hidepage) || (noindex)
         "<meta name=\"robots\" content=\"noindex, nofollow\" >"
       else
         "<meta name=\"google-site-verification\" content=\"kI0o3QRqDw5zhtd9W5umZTzLTDe6X1tp-gybtFg_7bQ\" />"

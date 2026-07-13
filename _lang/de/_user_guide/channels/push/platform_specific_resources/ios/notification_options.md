@@ -77,14 +77,14 @@ Apple bietet Marken die Möglichkeit, stille Push-Benachrichtigungen an die Bena
 Im Gegensatz zu einem herkömmlichen iOS-Push-Token fungiert ein vorläufiges Push-Token als „Probepass“, der es Marken ermöglicht, neue Nutzer:innen zu erreichen, bevor diese die native Push-Opt-in-Aufforderung von Apple gesehen und angeklickt haben. Mit diesem Feature wird Ihre Push-Benachrichtigung direkt in der Benachrichtigungsleiste Ihrer neuen Nutzer:innen zugestellt – mit der Option, zukünftige Benachrichtigungen zu „Behalten“ oder zu „Deaktivieren“. Anstatt eine „Opt-in“-Journey zu erleben, erleben Nutzer:innen eher eine „Opt-out“-Journey.
 
 {% alert tip %}
-Die vorläufige Autorisierung hat das Potenzial, Ihre Opt-in-Rate dramatisch zu steigern, aber nur, wenn Nutzer:innen einen Wert in Ihren Nachrichten sehen. Nutzen Sie unbedingt unsere Features für [Nutzersegmentierung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), [Standort-Targeting]({{site.baseurl}}/user_guide/audience/locations_and_geofences/) und [Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), um sicherzustellen, dass die richtigen Nutzer:innen diese „Probe“-Benachrichtigungen zur richtigen Zeit erhalten. Dann können Sie Nutzer:innen ermutigen, sich vollständig für Ihre Push-Benachrichtigungen zu entscheiden, in dem Wissen, dass diese einen Mehrwert für das App-Erlebnis Ihrer Nutzer:innen bieten.
+Die vorläufige Autorisierung hat das Potenzial, Ihre Opt-in-Rate dramatisch zu steigern, aber nur, wenn Nutzer:innen einen Wert in Ihren Nachrichten sehen. Nutzen Sie unbedingt unsere Features für [Nutzersegmentierung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), [Standort-Targeting]({{site.baseurl}}/user_guide/audience/locations_and_geofences) und [Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), um sicherzustellen, dass die richtigen Nutzer:innen diese „Probe“-Benachrichtigungen zur richtigen Zeit erhalten. Dann können Sie Nutzer:innen ermutigen, sich vollständig für Ihre Push-Benachrichtigungen zu entscheiden, in dem Wissen, dass diese einen Mehrwert für das App-Erlebnis Ihrer Nutzer:innen bieten.
 {% endalert %}
 
-Welche Option die Nutzer:innen auch wählen, das entsprechende Token oder der entsprechende [Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) wird zu ihren [Kontakteinstellungen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) unter dem Tab **Engagement** in ihrem Nutzerprofil hinzugefügt.
+Welche Option die Nutzer:innen auch wählen, das entsprechende Token oder der entsprechende [Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) wird zu ihren [Kontakteinstellungen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) unter dem Tab **Engagement** in ihrem Nutzerprofil hinzugefügt.
 
 ![Kontakteinstellungen mit einem Push-Abo-Status.]({% image_buster /assets/img/profile-push-prov-auth.png %}){: width="50%"}
 
-Sie können Ihre Nutzer:innen mithilfe unserer [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) danach ansprechen, ob sie vorläufig autorisiert sind oder nicht.
+Sie können Ihre Nutzer:innen mithilfe unserer [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) danach ansprechen, ob sie vorläufig autorisiert sind oder nicht.
 
 ![Segment-Details-Panel mit dem Beispiel-Segmentfilter „Provisionally Authorized on iOS Stopwatch (iOS) is true“, um Nutzer:innen anzusprechen.]({% image_buster /assets/img/segment-push-prov-auth.png %})
 
@@ -98,10 +98,10 @@ Wenn Sie zusätzliche Push-Aufforderungen oder [In-App-Push-Primer](https://www.
 
 #### Vorläufige Push-Benachrichtigungen einrichten {#set-up-provisional-push-notifications}
 
-Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu registrieren, indem Sie Ihren Code in Ihrem Token-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK-Implementierung aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass sie [die vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10)).
+Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu registrieren, indem Sie Ihren Code in Ihrem Token-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK-Implementierung aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass sie [die vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10)).
 
 {% alert warning %}
-Die Implementierung der vorläufigen Push-Authentifizierung unterstützt nur iOS 12+ und führt zu einem Fehler, wenn das Deployment-Ziel davor liegt. Mehr dazu erfahren Sie [in unserer ausführlicheren Implementierungsdokumentation hier]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10).
+Die Implementierung der vorläufigen Push-Authentifizierung unterstützt nur iOS 12+ und führt zu einem Fehler, wenn das Deployment-Ziel davor liegt. Mehr dazu erfahren Sie [in unserer ausführlicheren Implementierungsdokumentation hier]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10).
 {% endalert %}
 
 {% tabs local %}
@@ -148,13 +148,13 @@ Bedenken Sie, dass die Nutzer:innen letztendlich die Kontrolle über ihren Fokus
 
 Die folgende Tabelle enthält die Unterbrechungsstufen und ihre Beschreibungen.
 
-|Unterbrechungsstufe|Beschreibung|Wann verwenden|Durchbricht Fokusmodus|
+| Unterbrechungsstufe | Beschreibung | Wann verwenden | Durchbricht Fokusmodus |
 |--|--|--|--|
-|[Passiv](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive)|Sendet eine Benachrichtigung ohne Ton, Vibration oder Bildschirmaktivierung.|Benachrichtigungen, die keine sofortige Aufmerksamkeit erfordern.|Nein|
-|[Aktiv](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (Standard)|Erzeugt nur dann einen Ton, eine Vibration und aktiviert den Bildschirm, wenn sich die Nutzer:innen nicht im Fokusmodus befinden.|Benachrichtigungen, die sofortige Aufmerksamkeit erfordern, es sei denn, die Nutzer:innen haben den Fokusmodus aktiviert.|Nein|
-|[Zeitkritisch](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive)|Erzeugt einen Ton, vibriert und aktiviert den Bildschirm auch im Fokusmodus. Dies erfordert, dass die **Time Sensitive Notifications capability** in Xcode zu Ihrer App hinzugefügt wird.|Zeitkritische Benachrichtigungen, die Nutzer:innen unabhängig von ihrem Fokusmodus stören sollten, wie z. B. Mitfahrgelegenheits- oder Lieferbenachrichtigungen.|Ja|
-|[Kritisch](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical)|Erzeugt einen Ton, vibriert und aktiviert den Bildschirm, selbst wenn der **Nicht stören**-Schalter des Telefons aktiviert ist. Dies [erfordert eine ausdrückliche Genehmigung von Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/).|Notfälle wie schwere Unwetterwarnungen oder Sicherheitswarnungen.|Ja|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| [Passiv](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive) | Sendet eine Benachrichtigung ohne Ton, Vibration oder Bildschirmaktivierung. | Benachrichtigungen, die keine sofortige Aufmerksamkeit erfordern. | Nein |
+| [Aktiv](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (Standard) | Erzeugt nur dann einen Ton, eine Vibration und aktiviert den Bildschirm, wenn sich die Nutzer:innen nicht im Fokusmodus befinden. | Benachrichtigungen, die sofortige Aufmerksamkeit erfordern, es sei denn, die Nutzer:innen haben den Fokusmodus aktiviert. | Nein |
+| [Zeitkritisch](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | Erzeugt einen Ton, vibriert und aktiviert den Bildschirm auch im Fokusmodus. Dies erfordert, dass die **Time Sensitive Notifications capability** in Xcode zu Ihrer App hinzugefügt wird. | Zeitkritische Benachrichtigungen, die Nutzer:innen unabhängig von ihrem Fokusmodus stören sollten, wie z. B. Mitfahrgelegenheits- oder Lieferbenachrichtigungen. | Ja |
+| [Kritisch](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | Erzeugt einen Ton, vibriert und aktiviert den Bildschirm, selbst wenn der **Nicht stören**-Schalter des Telefons aktiviert ist. Dies [erfordert eine ausdrückliche Genehmigung von Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/). | Notfälle wie schwere Unwetterwarnungen oder Sicherheitswarnungen. | Ja |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Unterbrechungsstufe (iOS 15+)" }
 
 ### Relevanzbewertung (iOS 15+) {#relevance-score}
 
@@ -174,5 +174,5 @@ Dieses Feature hat keine Mindestanforderungen an die SDK-Version, wird aber nur 
 
 Weitere Informationen zu maximalen Nachrichtenlängen für verschiedene Nachrichtentypen finden Sie in den folgenden Ressourcen:
 
-- [Bild- und Textspezifikationen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [iOS-Zeichenanzahl-Richtlinien]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)
+- [Bild- und Textspezifikationen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [iOS-Zeichenanzahl-Richtlinien]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)

@@ -14,12 +14,12 @@ noindex: true
 
 <br>
 {% alert important %}
-Vous recherchez le guide d'intégration de base du développeur des Content Cards ? Retrouvez-le [ici]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/).
+Vous recherchez le guide d'intégration de base du développeur des Content Cards ? Retrouvez-le dans le [guide d'intégration de base du développeur des Content Cards]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Guide d'implémentation des Content Cards {#content-card-implementation-guide}
 
-> Ce guide d'implémentation avancé et optionnel couvre les considérations du code des Content Cards, trois cas d'utilisation personnalisés créés par notre équipe, les extraits de code l'accompagnant et les directives sur l'enregistrement des impressions, des clics et des rejets. Visitez notre dépôt de démonstrations Braze [ici](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) ! Notez que ce guide d'implémentation est centré autour d'une implémentation Swift, mais les extraits de code Objective-C sont fournis aux personnes intéressées.
+> Ce guide d'implémentation avancé et optionnel couvre les considérations du code des Content Cards, trois cas d'utilisation personnalisés créés par notre équipe, les extraits de code l'accompagnant et les directives sur l'enregistrement des impressions, des clics et des rejets. Visitez notre dépôt de démonstrations Braze sur [le dépôt de démonstrations Braze sur GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) ! Notez que ce guide d'implémentation est centré autour d'une implémentation Swift, mais les extraits de code Objective-C sont fournis aux personnes intéressées.
 
 ## Considérations du code {#code-considerations}
 
@@ -425,7 +425,7 @@ Le `class_type` est utilisé pour déterminer lequel de vos objets personnalisé
 {% endtab %}
 {% endtabs %}
 
-## Cas d'utilisation {#sample-use-cases}
+## Cas d'utilisation {#use-cases}
 
 Vous trouverez ci-dessous trois cas d'utilisation. Chaque cas d'utilisation offre une explication détaillée, des extraits de code pertinents et un aperçu de la façon dont les variables des Content Cards peuvent être rassemblées et utilisées dans le tableau de bord de Braze :
 - [Content Cards en tant que contenu supplémentaire](#content-cards-as-supplemental-content)
@@ -434,7 +434,7 @@ Vous trouverez ci-dessous trois cas d'utilisation. Chaque cas d'utilisation offr
 
 ### Content Cards en tant que contenu supplémentaire {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Flux avec une liste hybride combinant des données locales et des Content Cards Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Vous pouvez intégrer de façon fluide les Content Cards dans un flux existant, ce qui permet de charger simultanément les données de plusieurs flux. Cela crée une expérience cohésive et harmonieuse avec les Content Cards de Braze et le contenu du flux existant.
 
@@ -453,24 +453,24 @@ Consultez la [section suivante](#logging-impressions-clicks-and-dismissals) pour
 <br>
 Les Content Cards peuvent être utilisées dans un format de centre de messages dans lequel chaque message est sa propre carte. Chaque message du centre de messages est rempli via une charge utile de Content Card et chaque carte contient des paires clé-valeur supplémentaires qui alimentent l'interface ou l'expérience utilisateur lors du clic. Dans l'exemple suivant, un message vous dirige vers une vue personnalisée arbitraire, tandis qu'un autre ouvre une vue web qui affiche du HTML personnalisé.
 
-![]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
+![Centre de messages Content Card avec des cartes de messages individuelles.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
-#### Configuration du tableau de bord {#dashboard-configuration}
+#### Configuration du tableau de bord
 
 Pour les types de messages suivants, la paire clé-valeur `class_type` doit être ajoutée à la configuration de votre tableau de bord. Les valeurs assignées ici sont arbitraires, mais doivent pouvoir être distinguées entre types de classe. Ces paires clé-valeur sont les identifiants clés que l'application examine lorsqu'elle décide où aller lorsque l'utilisateur clique sur un message abrégé de la boîte de réception.
 
 {% tabs local %}
-{% tab Arbitrary custom view message - full page %}
+{% tab Message de vue personnalisée arbitraire - pleine page %}
 
 Les paires clé-valeur pour ce cas d'utilisation comprennent :
 
 - `message_header` défini comme `Full Page`
 - `class_type` défini comme `message_full_page`
 
-![]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
+![Exemple de message Content Card en pleine page.]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
-{% tab Webview message - HTML %}
+{% tab Message webview - HTML %}
 
 Les paires clé-valeur pour ce cas d'utilisation comprennent :
 
@@ -480,7 +480,7 @@ Les paires clé-valeur pour ce cas d'utilisation comprennent :
 
 Ce message recherche également une paire clé-valeur HTML, mais si vous travaillez avec un domaine web, une paire clé-valeur URL est également valide.
 
-![]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
+![Content Card ouvrant une vue web HTML à partir d'une paire clé-valeur.]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -526,7 +526,7 @@ Lorsqu'un message est cliqué, le `ContentCardClassType` gère la façon dont l'
 {% endtab %}
 {% endtabs %}
 
-##### Prêt à enregistrer les analyses ? {#ready-to-log-analytics}
+##### Prêt à enregistrer les analyses ?
 Consultez la [section suivante](#logging-impressions-clicks-and-dismissals) pour mieux comprendre à quoi doit ressembler le flux de données.
 
 ![Une Content Card interactive affichant une promotion de 50 % apparaît dans le coin en bas à gauche de l'écran. Après avoir cliqué, une promotion sera appliquée au panier.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
@@ -537,26 +537,26 @@ Les Content Cards peuvent être utilisées pour créer des expériences dynamiqu
 
 Des cartes bien placées comme celles-ci constituent un excellent moyen d'encourager les utilisateurs à entreprendre des actions spécifiques.
 <br><br><br>
-#### Configuration du tableau de bord {#dashboard-configuration}
+#### Configuration du tableau de bord
 
 La configuration du tableau de bord pour les Content Cards interactives est simple. Les paires clé-valeur pour ce cas d'utilisation comprennent un `discount_percentage` défini comme montant de remise souhaité et un `class_type` défini comme `coupon_code`. Ces paires clé-valeur déterminent la façon dont les Content Cards spécifiques à un type sont filtrées et affichées sur l'écran de paiement.
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
+![Content Card interactive affichant une promotion au moment du paiement.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
 
-##### Prêt à enregistrer les analyses ? {#ready-to-log-analytics}
+##### Prêt à enregistrer les analyses ?
 Consultez la [section suivante](#logging-impressions-clicks-and-dismissals) pour mieux comprendre à quoi doit ressembler le flux de données.
 
 ## Personnalisation du mode sombre {#dark-mode-customization}
 
 Par défaut, les vues des Content Cards s'adaptent automatiquement aux changements de mode sombre de l'appareil grâce à un ensemble de couleurs thématiques.
 
-Ce comportement peut être modifié comme indiqué dans notre [guide des styles personnalisés]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling/#disabling-dark-mode).
+Ce comportement peut être modifié comme indiqué dans notre [guide des styles personnalisés]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling#disabling-dark-mode).
 
 ## Enregistrer les impressions, les clics et les rejets {#logging-impressions-clicks-and-dismissals}
 
 Après avoir étendu vos objets personnalisés pour qu'ils fonctionnent comme des Content Cards, l'enregistrement d'indicateurs précieux tels que les impressions, les clics et les rejets est rapide. Pour ce faire, vous pouvez utiliser un protocole `ContentCardable` qui référence et fournit des données à un fichier auxiliaire qui sera enregistré par le SDK Braze.
 
-#### Composants d'implémentation<br><br> {#implementation-components}
+### Composants d'implémentation {#implementation-components}<br><br> {#implementation-components}
 
 {% tabs %}
 {% tab Swift %}

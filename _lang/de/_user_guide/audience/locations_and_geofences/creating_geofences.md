@@ -10,7 +10,7 @@ tool:
 search_rank: 9
 ---
 
-# Geofences
+# Geofences {#geofences}
 
 > Ein Geofence ist ein virtuelles geografisches Gebiet, das durch Breiten- und Längengrad in Kombination mit einem Radius dargestellt wird und einen Kreis um eine bestimmte globale Position bildet. Geofences können von der Größe eines Gebäudes bis zur Größe einer ganzen Stadt variieren. Sie können Geofences verwenden, um Campaigns in Echtzeit auszulösen, wenn Nutzer:innen deren Grenzen betreten oder verlassen, oder um Follow-up-Campaigns Stunden oder Tage später zu senden.
 
@@ -38,7 +38,7 @@ Die folgende Tabelle beschreibt gängige Geofence-Begriffe:
 | Breiten- und Längengrad | Das geografische Zentrum des Geofence. |
 | Radius | Der Radius des Geofence in Metern, gemessen vom geografischen Zentrum. Legen Sie einen Mindestradius von 100 bis 150 Metern für alle Geofences fest. |
 | Cooldown | Nutzer:innen erhalten Geofence-getriggerte Benachrichtigungen, nachdem sie Eintritts- oder Austrittsübergänge an einzelnen Geofences durchgeführt haben. Nach einem Übergang gibt es einen vordefinierten Zeitraum, in dem diese Nutzer:innen denselben Übergang an diesem einzelnen Geofence nicht erneut durchführen können. Dieser „Cooldown“ ist von Braze vordefiniert und dient hauptsächlich dazu, unnötige Netzwerkanfragen zu verhindern. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="So funktioniert es" }
 
 ## Voraussetzungen {#prerequisites}
 
@@ -46,7 +46,6 @@ Die folgende Tabelle beschreibt gängige Geofence-Begriffe:
 
 Geofence-getriggerte Campaigns sind auf iOS und Android verfügbar. Um Geofences zu unterstützen, ist Folgendes erforderlich:
 
-* Ihre Integration muss Hintergrund-Push-Benachrichtigungen unterstützen.
 * Braze-Geofences oder Standorterfassung müssen aktiviert sein.
 * Nutzer:innen müssen den Standortzugriff „Immer erlauben“ gewähren.
 
@@ -54,7 +53,7 @@ Geofence-getriggerte Campaigns sind auf iOS und Android verfügbar. Um Geofences
 Die Braze-Standorterfassung ist standardmäßig deaktiviert. Um zu überprüfen, ob sie auf Android aktiviert ist, bestätigen Sie, dass `com_braze_enable_location_collection` in Ihrer `braze.xml` auf `true` gesetzt ist.
 {% endalert %}
 
-Plattformspezifische Einrichtungsanweisungen finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences/) im Entwicklerhandbuch.
+Plattformspezifische Einrichtungsanweisungen finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences) im Entwicklerhandbuch.
 
 ### Standortberechtigungen {#location-permissions}
 
@@ -75,7 +74,7 @@ Sowohl iOS als auch Android bieten mehrere Stufen des Standortzugriffs. Die Bere
 | **Bei Verwendung der App erlauben** | Gewährt Standortzugriff, wenn die App im Vordergrund ist. Nachdem dies gewährt wurde, kann iOS eine Folgeaufforderung anzeigen, die Nutzer:innen auffordert, auf „Immer erlauben“ zu upgraden. | Ja. iOS aktiviert die Hintergrund-Standortüberwachung, einschließlich Geofence-Übergänge, für Apps mit dieser Berechtigung. |
 | **Immer erlauben** | Gewährt kontinuierlichen Standortzugriff, auch im Hintergrund und wenn die App geschlossen ist. | Ja. Dies bietet die zuverlässigste Geofence-Überwachung. |
 | **Nicht erlauben** | Verweigert jeglichen Standortzugriff. | Nein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Berechtigungsstufen" }
 
 {% endtab %}
 {% tab Android %}
@@ -85,7 +84,7 @@ Sowohl iOS als auch Android bieten mehrere Stufen des Standortzugriffs. Die Bere
 | **Bei Verwendung der App** | Gewährt Standortzugriff, während die App im Vordergrund ist. | Nein. Auf Android ist der Hintergrund-Standortzugriff für die Geofence-Überwachung erforderlich. |
 | **Immer erlauben** | Gewährt kontinuierlichen Standortzugriff, auch im Hintergrund. Auf Android 10 und höher erfordert dies eine separate Aufforderung, nachdem die anfängliche Berechtigung „Bei Verwendung der App“ gewährt wurde. | Ja. Dies ist für Geofencing auf Android erforderlich. |
 | **Nicht erlauben** | Verweigert jeglichen Standortzugriff. Auf Android 13 und höher blockiert das Betriebssystem weitere In-App-Aufforderungen, wenn Nutzer:innen die Standortaufforderung zweimal ablehnen. | Nein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Berechtigungsstufen" }
 
 {% endtab %}
 {% endtabs %}
@@ -98,7 +97,7 @@ Auf iOS 14+ und Android 12+ können Nutzer:innen zwischen genauem und ungefähre
 |---|---|---|
 | **Genauer Standort (ein)** | Genauigkeit im Bereich von 5 bis 50 Metern, unter Verwendung von GPS, WLAN und Mobilfunk-Triangulation. | Geofences funktionieren wie erwartet. Empfohlen für alle Geofence-basierten Anwendungsfälle. |
 | **Ungefährer Standort (aus)** | Genauigkeit von etwa 3 Quadratkilometern (ungefähr 1 Quadratmeile). Das Gerät gibt einen allgemeinen Bereich statt exakter Koordinaten zurück. | Geofences werden nicht zuverlässig ausgelöst. Das Gerät kann nicht genau bestimmen, ob sich Nutzer:innen innerhalb oder außerhalb einer Geofence-Grenze befinden. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Genauer versus ungefährer Standort" }
 
 {% alert important %}
 Damit Geofencing zuverlässig funktioniert, müssen Nutzer:innen den genauen Standort aktivieren. Nehmen Sie diese Anleitung in Ihre Standortberechtigungs-Primer-Nachrichten auf, damit Nutzer:innen verstehen, warum der genaue Standort wichtig ist.
@@ -108,16 +107,16 @@ Damit Geofencing zuverlässig funktioniert, müssen Nutzer:innen den genauen Sta
 
 Ein Standortberechtigungs-Primer ist eine In-App-Nachricht, die den Wert der Standortdatenfreigabe erklärt, bevor Nutzer:innen die native Betriebssystem-Berechtigungsaufforderung sehen. Da die native Standortaufforderung nur einmal (auf iOS) oder eine begrenzte Anzahl von Malen (auf Android) angezeigt werden kann, erhöht das vorherige Priming der Nutzer:innen die Opt-in-Raten.
 
-### 1. Schritt: Mit Ihrem Entwicklungsteam zusammenarbeiten {#step-1-work-with-your-development-team}
+### Schritt 1: Mit Ihrem Entwicklungsteam zusammenarbeiten {#step-1-work-with-your-development-team}
 
 Da Braze In-App-Nachrichten keine integrierte Button-Aktion zum Aufrufen der nativen Standortberechtigungsaufforderung enthalten, muss Ihr Entwicklungsteam die Standortberechtigungen auf der Geräteseite handhaben. Bevor Sie die In-App-Nachricht in Braze erstellen, koordinieren Sie sich mit Ihrem Entwicklungsteam, um Deeplinks einzurichten, die Ihre In-App-Nachricht aufrufen kann. Die spezifische Implementierung hängt von der Architektur Ihrer App ab, aber gängige Ansätze umfassen:
 
 - Einen Deeplink, der die native Standortberechtigungsaufforderung innerhalb Ihrer App auslöst.
 - Einen Deeplink, der die Standorteinstellungsseite der App in den Betriebssystemeinstellungen des Geräts öffnet, was nützlich ist, um Nutzer:innen erneut aufzufordern, die zuvor ihre Berechtigungen verweigert oder eingeschränkt haben.
 
-Weitere Informationen zu Deeplinks finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/). Plattformspezifische Anleitungen zur Standort- und Geofence-Integration finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences/) im Entwicklerhandbuch.
+Weitere Informationen zu Deeplinks finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls). Plattformspezifische Anleitungen zur Standort- und Geofence-Integration finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences) im Entwicklerhandbuch.
 
-### 2. Schritt: Die Standort-Primer-In-App-Nachricht erstellen {#step-2-build-the-location-primer-in-app-message}
+### Schritt 2: Die Standort-Primer-In-App-Nachricht erstellen {#step-2-build-the-location-primer-in-app-message}
 
 Erstellen Sie eine In-App-Nachricht-Campaign, die den Wert des Standortzugriffs erklärt. Alle In-App-Nachrichtentypen unterstützen dieses Opt-in, einschließlich Drag-and-Drop.
 
@@ -129,7 +128,7 @@ Erstellen Sie eine In-App-Nachricht-Campaign, die den Wert des Standortzugriffs 
 4. Fügen Sie einen primären Call-to-Action-Button hinzu (z. B. **Standort aktivieren**) und setzen Sie das Klickverhalten auf **Deeplink in App**, wobei Sie den Deeplink verwenden, den Ihr Entwicklungsteam erstellt hat, um die native Standortaufforderung auszulösen.
 5. Fügen Sie einen sekundären Button hinzu (z. B. **Nicht jetzt**), der die Nachricht schließt.
 
-### 3. Schritt: Die richtige Zielgruppe ansprechen {#step-3-target-the-right-audience}
+### Schritt 3: Die richtige Zielgruppe ansprechen {#step-3-target-the-right-audience}
 
 Für beste Ergebnisse zeigen Sie den Standort-Primer, wenn Nutzer:innen engagiert sind und wahrscheinlich einen Mehrwert in der Standortfreigabe sehen.
 
@@ -137,7 +136,7 @@ Für beste Ergebnisse zeigen Sie den Standort-Primer, wenn Nutzer:innen engagier
 - **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Ereignissen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
 - **Vermeiden Sie es, den Primer beim ersten Start zu zeigen.** Warten Sie, bis Nutzer:innen genug Mehrwert aus der App erfahren haben, um ein personalisierteres Erlebnis zu wünschen.
 
-### 4. Schritt: Die empfohlene Berechtigungsstufe fördern {#step-4-encourage-the-recommended-permission-level}
+### Schritt 4: Die empfohlene Berechtigungsstufe fördern {#step-4-encourage-the-recommended-permission-level}
 
 Ihre Primer-Nachrichten sollten Nutzer:innen ermutigen, die Berechtigungsstufe zu gewähren, die Geofencing ermöglicht:
 
@@ -150,12 +149,12 @@ In beiden Fällen erinnern Sie Nutzer:innen daran, **Genauer Standort** für das
 
 Wenn Nutzer:innen zuvor den Standortzugriff verweigert oder eine eingeschränkte Berechtigung ausgewählt haben, können Sie die native Aufforderung auf den meisten Betriebssystemversionen nicht erneut aus der App heraus auslösen. Leiten Sie sie stattdessen weiter, um ihre Berechtigungen in den Geräteeinstellungen zu aktualisieren.
 
-Verwenden Sie einen Deeplink in einer benutzerdefinierten [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), um Nutzer:innen zur Standorteinstellungsseite der App im Betriebssystem zu navigieren. Ihr Entwicklungsteam kann einen Deeplink dafür als Teil der Standortberechtigungsbehandlung Ihrer App einrichten (siehe [Schritt 1](#step-1-work-with-your-development-team)).
+Verwenden Sie einen Deeplink in einer benutzerdefinierten [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), um Nutzer:innen zur Standorteinstellungsseite der App im Betriebssystem zu navigieren. Ihr Entwicklungsteam kann einen Deeplink dafür als Teil der Standortberechtigungsbehandlung Ihrer App einrichten (siehe [Schritt 1](#step-1-work-with-your-development-team)).
 
 Beachten Sie beim Erstellen dieser In-App-Nachricht Folgendes:
 
 - **Wann anzeigen:** Sprechen Sie Nutzer:innen an, die die Berechtigung „Bei Verwendung der App“ haben, wenn Sie „Immer erlauben“ benötigen, oder Nutzer:innen, die zuvor den Standortzugriff verweigert haben.
-- **Nachrichtenbeispiel:** „Um das Beste aus standortbasierten Features herauszuholen, aktualisieren Sie Ihre Standorteinstellungen auf ‚Immer erlauben'. Tippen Sie unten, um zu den Einstellungen zu gelangen.“
+- **Nachrichtenbeispiel:** „Um das Beste aus standortbasierten Features herauszuholen, aktualisieren Sie Ihre Standorteinstellungen auf „Immer erlauben“. Tippen Sie unten, um zu den Einstellungen zu gelangen."
 
 {% alert tip %}
 Sie können diese In-App-Nachricht an jedem Punkt der User Journey auslösen – nach einem Kauf, beim Durchsuchen von Inhalten in der Nähe oder als Teil eines Canvas-Flows. Seien Sie selektiv beim erneuten Auffordern: Beschränken Sie diese Campaigns auf loyale oder stark engagierte Nutzer:innen, um Opt-in-Müdigkeit zu vermeiden.
@@ -179,7 +178,7 @@ Dieser Ansatz ist effektiv, weil Nutzer:innen bereits Interesse an einem bestimm
 Nachdem Nutzer:innen die Berechtigung „Bei Verwendung der App“ gewährt haben, zeigen Sie eine Nachfass-In-App-Nachricht während der nächsten Sitzung:
 
 - **Überschrift:** „Verpassen Sie nie ein Angebot in der Nähe“
-- **Text:** „Aktualisieren Sie Ihre Standorteinstellungen auf ‚Immer', damit wir Sie über Angebote benachrichtigen können, auch wenn Sie die App nicht nutzen. Wir senden nur relevante Benachrichtigungen, wenn Sie in der Nähe teilnehmender Standorte sind.“
+- **Text:** „Aktualisieren Sie Ihre Standorteinstellungen auf „Immer“, damit wir Sie über Angebote benachrichtigen können, auch wenn Sie die App nicht nutzen. Wir senden nur relevante Benachrichtigungen, wenn Sie in der Nähe teilnehmender Standorte sind."
 - **CTA:** **Einstellungen aktualisieren** verlinkt per Deeplink zur Standorteinstellungsseite der App im Betriebssystem
 - **Schließen:** **Aktuelle Einstellungen beibehalten** schließt die Nachricht
 
@@ -187,28 +186,28 @@ Diese Nachfassung gibt Nutzer:innen Kontext, warum das Upgrade auf „Immer erla
 
 ## Geofences manuell erstellen {#manually-create-geofences}
 
-### 1. Schritt: Ein Geofence-Set erstellen {#step-1-create-a-geofence-set}
+### Schritt 1: Ein Geofence-Set erstellen {#step-1-create-a-geofence-set}
 
 Um einen Geofence zu erstellen, erstellen Sie zuerst ein Geofence-Set.
 
 1. Gehen Sie im Braze-Dashboard zu **Audience** > **Locations**.
-2. Wählen Sie **Geofence-Set erstellen**.
-3. Geben Sie unter **Set-Name** einen Namen für Ihr Geofence-Set ein.
+2. Wählen Sie **Create Geofence Set**.
+3. Geben Sie unter **Set name** einen Namen für Ihr Geofence-Set ein.
 4. (Optional) Fügen Sie Tags hinzu, um Ihr Set zu filtern.
 
-### 2. Schritt: Die Geofences hinzufügen {#step-2-add-the-geofences}
+### Schritt 2: Die Geofences hinzufügen {#step-2-add-the-geofences}
 
 Fügen Sie als Nächstes Geofences zu Ihrem Geofence-Set hinzu.
 
-1. Wählen Sie **Geofence zeichnen**, um den Kreis auf der Karte zu klicken und zu ziehen. Wiederholen Sie den Vorgang, um bei Bedarf weitere Geofences zu Ihrem Set hinzuzufügen.
-2. (Optional) Wählen Sie **Bearbeiten** und ersetzen Sie die Geofence-Beschreibung durch einen Namen.
-3. (Optional) Wählen Sie **Erweiterte Einstellungen anzeigen** und verwenden Sie diese Einstellungen, um zu steuern, wie Geofence-Analytics aufgezeichnet werden:
-  - Wählen Sie **Analytics für Eintritt aktivieren** und **Analytics für Austritt aktivieren**, um Eintritts- und Austrittsaktivitäten in der [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`-SQL-Tabelle]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) für Berichte und Analysen zu protokollieren.
+1. Wählen Sie **Draw Geofence**, um den Kreis auf der Karte zu klicken und zu ziehen. Wiederholen Sie den Vorgang, um bei Bedarf weitere Geofences zu Ihrem Set hinzuzufügen.
+2. (Optional) Wählen Sie **Edit** und ersetzen Sie die Geofence-Beschreibung durch einen Namen.
+3. (Optional) Wählen Sie **Show Advanced Settings** und verwenden Sie diese Einstellungen, um zu steuern, wie Geofence-Analytics aufgezeichnet werden:
+  - Wählen Sie **Enable Analytics for Enter** und **Enable Analytics for Exit**, um Eintritts- und Austrittsaktivitäten in der [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`-SQL-Tabelle]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) für Berichte und Analysen zu protokollieren.
   - Konfigurieren Sie einen Cooldown-Zeitraum, um festzulegen, wie viele Sekunden vergehen müssen, bevor dieselben Nutzer:innen ein weiteres Eintritts- oder Austrittsereignis für diesen Geofence auslösen können. Wenn Sie keinen Cooldown festlegen, beträgt der Standard sechs Stunden.
-  - Verwenden Sie **Android-Benachrichtigungsreaktionsfähigkeit**, um die maximale Verzögerung in Sekunden festzulegen, die Android-Geräte bei der Zustellung von Eintritts- oder Austrittsereignissen an Ihre App verwenden.
+  - Verwenden Sie **Android Notification Responsiveness**, um die maximale Verzögerung in Sekunden festzulegen, die Android-Geräte bei der Zustellung von Eintritts- oder Austrittsereignissen an Ihre App verwenden.
 
 {: start="4" }
-4. Wählen Sie **Geofence-Set speichern**, um zu speichern.
+4. Wählen Sie **Save Geofence Set**, um zu speichern.
 
 {% alert tip %}
 Erstellen Sie Geofences mit einem Radius von mindestens 200 Metern für optimale Funktionalität. Weitere Informationen finden Sie unter [Geofence-Best-Practices](#geofence-best-practices).
@@ -220,11 +219,11 @@ Erstellen Sie Geofences mit einem Radius von mindestens 200 Metern für optimale
 
 Sie können Geofences als GeoJSON-Objekt vom Typ `FeatureCollection` in großen Mengen hochladen. Jeder Geofence ist ein `Point`-Geometrietyp in der Feature-Sammlung. Die Eigenschaften für jedes Feature erfordern einen `radius`-Schlüssel und einen optionalen `name`-Schlüssel für jeden Geofence.
 
-Um Ihre JSON-Datei hochzuladen, wählen Sie **Mehr** > **JSON hochladen**.
+Um Ihre JSON-Datei hochzuladen, wählen Sie **More** > **Upload JSON**.
 
 Beachten Sie beim Erstellen Ihrer Geofences die folgenden Details:
 
-- Der `coordinates`-Wert im GeoJSON ist als `[Längengrad, Breitengrad]` formatiert.
+- Der `coordinates`-Wert im GeoJSON ist als `[Longitude, Latitude]` formatiert.
 - Der maximale Geofence-Radius, der hochgeladen werden kann, beträgt 10.000 Meter (etwa 10 Kilometer oder 6,2 Meilen).
 
 ### Beispiel {#example}
@@ -267,7 +266,7 @@ Nachdem Sie Ihre Geofences konfiguriert haben, können Sie sie verwenden, um Ihr
 
 ### Campaigns und Canvases triggern {#triggering-campaigns-and-canvases}
 
-Um Geofence-Daten als Teil von Campaign- und Canvas-Triggern zu verwenden, wählen Sie **Aktionsbasierte Zustellung** als Zustellungsmethode. Fügen Sie dann eine Triggeraktion **Geofence triggern** hinzu. Wählen Sie schließlich das Geofence-Set und die Geofence-Übergangsereignistypen für Ihre Nachricht. Sie können Nutzer:innen auch mithilfe von Geofence-Ereignissen durch einen Canvas voranbringen.
+Um Geofence-Daten als Teil von Campaign- und Canvas-Triggern zu verwenden, wählen Sie **Aktionsbasierte Zustellung** als Zustellungsmethode. Fügen Sie dann eine Triggeraktion **Trigger a Geofence** hinzu. Wählen Sie schließlich das Geofence-Set und die Geofence-Übergangsereignistypen für Ihre Nachricht. Sie können Nutzer:innen auch mithilfe von Geofence-Ereignissen durch einen Canvas voranbringen.
 
 ![Eine aktionsbasierte Campaign mit einem Geofence, die ausgelöst wird, wenn Nutzer:innen deutsche Flughäfen betreten.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
 
@@ -284,8 +283,6 @@ Um Geofence-Daten zur Personalisierung einer Nachricht zu verwenden, können Sie
 
 Das Braze SDK fordert Geofences nur einmal pro Tag beim Sitzungsstart an. Wenn Sie nach dem Sitzungsstart Änderungen an den Geofence-Sets vornehmen, müssen Sie 24 Stunden ab dem Zeitpunkt warten, an dem die Sets erstmals heruntergeladen wurden, um das aktualisierte Set zu erhalten.
 
-Wenn Nutzer:innen Hintergrund-Push aktiviert haben, sendet Braze alle 24 Stunden einen stillen Push, wenn Geofence-Sets aktualisiert werden, um die neuesten Standorte auf das Gerät herunterzuladen.
-
 {% alert note %}
 Wenn die Geofences nicht lokal auf das Gerät geladen werden, können Nutzer:innen den Geofence nicht auslösen, selbst wenn sie das Gebiet betreten.
 {% endalert %}
@@ -297,29 +294,24 @@ Wenn die Geofences nicht lokal auf das Gerät geladen werden, können Nutzer:inn
 - Verwenden Sie einen Radius von 200 Metern oder mehr für zuverlässiges Triggern.
 - Vermeiden Sie es, Geofences einzurichten, die sich überlappen oder ineinander verschachtelt sind, da dies Probleme beim Triggern verursachen kann.
 - Ein Geofence kann ein Eintrittsereignis nur einmal alle sechs Stunden auslösen. Dieser Cooldown-Zeitraum wird lokal durchgesetzt. Wenn Nutzer:innen die App deinstallieren oder App-Daten löschen, werden alle Cooldowns zurückgesetzt.
-- Nicht mehr als 20 Geofences insgesamt können auf einem Gerät gespeichert werden. Wenn Nutzer:innen für mehr als 20 berechtigt sind, lädt Braze die nächstgelegenen Standorte basierend auf der Nähe beim Sitzungsstart oder stillen Push-Aktualisierung herunter.
+- Nicht mehr als 20 Geofences insgesamt können auf einem Gerät gespeichert werden. Wenn Nutzer:innen für mehr als 20 berechtigt sind, lädt Braze die nächstgelegenen Standorte basierend auf der Nähe beim Sitzungsstart herunter.
 - Braze sendet nur Geofences innerhalb eines Radius von 2.000 Kilometern um die Nutzer:innen an das Gerät.
 
 ### Geräteanforderungen {#device-requirements}
 
-- Push-Berechtigungen und Standortberechtigungen müssen beide für die App aktiviert sein.
-- Ein gültiger Vordergrund-Push-Token ist erforderlich.
+- Die Nutzer:innen Ihrer Anwendung müssen Standortberechtigungen erteilen. Weitere Informationen finden Sie im Abschnitt [Standortberechtigungen](#location-permissions).
 
 {% alert note %}
-Die grundlegende SDK-Integration aktiviert nur Standort-Tracking. Geofencing erfordert zusätzliche Einrichtungsschritte sowohl für iOS als auch für Android. Details finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences/) im Entwicklerhandbuch.
+Die grundlegende SDK-Integration aktiviert nur Standort-Tracking. Geofencing erfordert zusätzliche Einrichtungsschritte sowohl für iOS als auch für Android. Details finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences) im Entwicklerhandbuch.
 {% endalert %}
 
-Sie können Geofences auch mit Braze-Technologie-Partnern verwenden, wie [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) und [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
+Sie können Geofences auch mit Braze-Technologie-Partnern verwenden, wie [Radar]({{site.baseurl}}/partners/message_personalization/location/radar) und [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare).
+
+## Unterschiede zwischen Geofences und Standort-Tracking {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
-
-### Was ist der Unterschied zwischen Geofences und Standort-Tracking? {#whats-the-difference-between-geofences-and-location-tracking}
-
-In Braze ist ein Geofence ein anderes Konzept als Standort-Tracking. Geofences werden als Trigger für bestimmte Aktionen verwendet – wenn Nutzer:innen eine virtuelle Grenze um einen geografischen Standort betreten oder verlassen, kann eine bestimmte Aktion ausgelöst werden, z. B. das Senden einer Nachricht.
-
-Standort-Tracking erfasst und speichert die aktuellsten Standortdaten von Nutzer:innen. Diese Daten können verwendet werden, um Nutzer:innen basierend auf dem Filter `Most Recent Location` zu segmentieren. Sie könnten beispielsweise den Filter `Most Recent Location` verwenden, um Nutzer:innen in New York anzusprechen.
-
-Weitere Informationen finden Sie unter [Standort-Tracking]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### Wie genau sind Braze-Geofences? {#how-accurate-are-braze-geofences}
 

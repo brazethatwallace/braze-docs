@@ -4,37 +4,39 @@ page_order: 0
 noindex: true
 ---
 
-# Ejemplo de diseño: Resumen
+# Ejemplo de diseño: Resumen {#example-layout-overview}
 
-> El diseño de resumen es bueno para crear una opción de navegación específica en la parte superior de una página que permita a los usuarios hacer clic en un botón para viajar a una parte concreta de una página o a otra completamente distinta.
+> El diseño de resumen es útil para crear una opción de navegación específica en la parte superior de una página que permita a los usuarios hacer clic en un botón para ir a una parte concreta de la página o a otra completamente distinta.
 
-Ejemplos clásicos del diseño del SELECTOR son la página [de registros de cambios del SDK](https://www.braze.com/docs/developer_guide/changelogs) o [la página de detalles creativos de mensajes dentro de la aplicación](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Ejemplos clásicos del diseño del SELECTOR son la página de [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs/) o la [página de detalles creativos de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
 
-## Componentes necesarios
+## Componentes obligatorios {#required-components}
 
-1. Notación YAML de apertura y cierre. En otras palabras, --- antes del contenido, y --- después.
-2. Comillas alrededor del contenido de ciertos parámetros. (Parámetros de encabezado, parámetros de texto, contenido con guiones u otros caracteres especiales).
-3. Notación de glosario de etiquetas (son etiquetas para filtrar)
+1. Notación YAML de apertura y cierre. Es decir, --- antes del contenido y --- después.
+2. Comillas alrededor del contenido de ciertos parámetros (parámetros de encabezado, parámetros de texto, contenido con guiones u otros caracteres especiales).
+3. Notación de etiquetas de glosario (son etiquetas para filtrar).
 
-## Parámetros requeridos
+## Parámetros obligatorios {#required-parameters}
 
-|Parámetro | Tipo de contenido | Detalles |
+| Parámetro | Tipo de contenido | Detalles |
 |---|---|---|
-|`page_order`| numérico | Ordena la página dentro de la sección. Este orden se reflejará en la navegación de la izquierda. |
-| `nav-title`| Alfanumérico | Título que aparecerá en la navegación de la izquierda. |
-|`layout`| Alfanumérico - Sin espacios | Selecciona un diseño en la [sección de diseño](https://github.com/Appboy/braze-docs/tree/develop/_layouts) de la documentación. | 
-|`guide_top_header`|Alfanumérico | Titula tu página.|
-|`guide_top_text`|Alfanumérico | Describe tu página, esto irá directamente encima de los botones y su título. Se requieren comillas alrededor del contenido. |
-|`guide_featured_title`| Alfanumérico | Titula tus tarjetas. Esto irá directamente encima de los botones.
-|`guide_featured_list`| Más YAML, Alfanumérico | Consulta el [Formato de la Lista de Guías](#guide-listing-format) más abajo. |
+| `page_order` | numérico | Ordena la página dentro de la sección. Este orden se reflejará en la navegación de la izquierda. |
+| `nav-title` | alfanumérico | Título que aparecerá en la navegación de la izquierda. |
+| `layout` | alfanumérico - sin espacios | Selecciona un diseño en la [sección de diseño](https://github.com/Appboy/braze-docs/tree/develop/_layouts) de la documentación. |
+| `guide_top_header` | alfanumérico | Titula tu página. |
+| `guide_top_text` | alfanumérico | Describe tu página; esto irá directamente encima de los botones y su título. Se requieren comillas alrededor del contenido. |
+| `guide_featured_title` | alfanumérico | Titula tus tarjetas. Esto irá directamente encima de los botones.
+| `guide_featured_list` | más YAML, alfanumérico | Consulta el [formato del listado de guías](#guide-listing-format) más abajo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros obligatorios" }
 
-### Formato del listado de guías
+### Formato del listado de guías {#guide-listing-format}
 
-|Parámetro | Tipo de contenido | Detalles |
+| Parámetro | Tipo de contenido | Detalles |
 |---|---|---|
-|`name`| Alfanumérico | Ponle un nombre a la casilla. |
-| `link`| URL o ruta | Enlace al lugar donde irá la casilla. Debe contener la URL completa o (si es un enlace interno) `/docs...`  |
-|`image`| Recorrido | Enlace a la ubicación de la imagen. |
+| `name` | alfanumérico | Ponle un nombre a la casilla. |
+| `link` | URL o ruta | Enlace al lugar donde irá la casilla. Debe contener la URL completa o (si es un enlace interno) `/docs...` |
+| `image` | ruta | Enlace a la ubicación de la imagen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Formato del listado de guías" }
 
 Ejemplo de formato:
 
@@ -44,7 +46,7 @@ Ejemplo de formato:
   image: /assets/img/braze_icons/layout-alt-01.svg
 ```
 
-## Ejemplo
+## Ejemplo {#example}
 
 ```yaml
 ---

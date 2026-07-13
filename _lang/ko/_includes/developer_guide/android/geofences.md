@@ -1,12 +1,12 @@
-{% multi_lang_include developer_guide/prerequisites/android.md %} 또한 [무음 푸시 알림을 설정해야]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) 합니다.
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## 지오펜스 설정하기 {#setting-up-geofences}
+## 지오펜스 설정 {#setting-up-geofences}
 
-### 1단계: Braze에서 인에이블먼트하기
+### 1단계: Braze에서 활성화 {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### 2단계: 업데이트 `build.gradle`
+### 2단계: `build.gradle` 업데이트 {#step-2-update-buildgradle}
 
 앱 수준 `build.gradle`에 `android-sdk-location`을 추가합니다. 또한 Google Play 서비스 [설정 가이드](https://developers.google.com/android/guides/setup)를 사용하여 Google Play 서비스 [위치 패키지](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary)를 추가합니다.
 
@@ -17,9 +17,9 @@ dependencies {
 }
 ```
 
-### 3단계: 매니페스트 업데이트
+### 3단계: 매니페스트 업데이트 {#step-3-update-the-manifest}
 
-`AndroidManifest.xml`에 부팅, 세부 위치 및 백그라운드 위치 권한을 추가합니다.
+`AndroidManifest.xml`에 부팅, 정밀 위치 및 백그라운드 위치 권한을 추가합니다.
 
 ```xml
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -28,10 +28,10 @@ dependencies {
 ```
 
 {% alert important %}
-백그라운드 위치 액세스 권한은 Android 10에 추가되었으며 모든 Android 10 이상 기기에서 앱이 백그라운드에 있는 동안 지오펜스가 작동하는 데 필요합니다.
+백그라운드 위치 접근 권한은 Android 10에 추가되었으며, 모든 Android 10 이상 기기에서 앱이 백그라운드에 있는 동안 지오펜스가 작동하는 데 필요합니다.
 {% endalert %}
 
-`AndroidManifest.xml` 의 `application` 요소에 Braze 부팅 리시버를 추가합니다:
+`AndroidManifest.xml`의 `application` 요소에 Braze 부트 리시버를 추가합니다:
 
 ```xml
 <receiver android:name="com.braze.BrazeBootReceiver">
@@ -41,7 +41,7 @@ dependencies {
 </receiver>
 ```
 
-### 4단계: Braze 위치 수집 활성화
+### 4단계: Braze 위치 수집 활성화 {#step-4-enable-braze-location-collection}
 
 아직 Braze 위치 수집을 활성화하지 않았다면 `braze.xml` 파일을 업데이트하여 `com_braze_enable_location_collection`을 포함하고 해당 값이 `true`로 설정되어 있는지 확인합니다.
 
@@ -50,20 +50,20 @@ dependencies {
 ```
 
 {% alert important %}
-Braze Android SDK 버전 3.6.0부터 Braze 위치 수집은 기본적으로 비활성화됩니다.
+Braze Android SDK 버전 3.6.0부터 Braze 위치 수집은 기본적으로 비활성화되어 있습니다.
 {% endalert %}
 
-Braze 위치 수집이 활성화된 경우 Braze 지오펜스가 활성화됩니다. 기본 위치 수집을 옵트아웃하고 싶지만 지오펜스를 계속 사용하려면 `braze.xml`에서 `com_braze_geofences_enabled` 키의 값을 `true`로 설정하여 `com_braze_enable_location_collection` 값과 독립적으로 이 기능을 선택적으로 활성화할 수 있습니다.
+Braze 위치 수집이 활성화되어 있으면 Braze 지오펜스도 활성화됩니다. 기본 위치 수집은 옵트아웃하되 지오펜스는 계속 사용하고 싶다면, `braze.xml`에서 `com_braze_geofences_enabled` 키의 값을 `true`로 설정하여 `com_braze_enable_location_collection` 값과 독립적으로 선택적 활성화할 수 있습니다.
 
 ```xml
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
 
-### 5단계: 최종 사용자로부터 위치 권한 얻기
+### 5단계: 최종 사용자로부터 위치 권한 얻기 {#step-5-obtain-location-permissions-from-the-end-user}
 
-Android M 이상 버전의 경우 위치 정보를 수집하거나 지오펜스를 등록하기 전에 최종사용자에게 위치 권한을 요청해야 합니다.
+Android M 이상 버전에서는 위치 정보를 수집하거나 지오펜스를 등록하기 전에 최종 사용자에게 위치 권한을 요청해야 합니다.
 
-다음 호출을 추가하여 사용자가 앱에 위치 권한을 부여할 때 Braze에 알립니다.
+사용자가 앱에 위치 권한을 부여할 때 Braze에 알리려면 다음 호출을 추가하세요:
 
 {% tabs %}
 {% tab JAVA %}
@@ -164,7 +164,7 @@ object RuntimePermissionUtils {
 {% endtab %}
 {% endtabs %}
 
-앞의 샘플 코드는 다음을 통해 사용할 수 있습니다:
+위의 샘플 코드는 다음과 같이 사용합니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -215,11 +215,11 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 {% endtab %}
 {% endtabs %}
 
-### 6단계: 지오펜스 업데이트 수동 요청(선택 사항)
+### 6단계: 지오펜스 업데이트 수동 요청(선택 사항) {#step-6-manually-request-geofence-updates-optional}
 
-기본적으로 Braze는 기기의 위치를 자동으로 검색하고 수집된 위치를 기반으로 지오펜스를 요청합니다. 그러나 대신 근거리 Braze 지오펜스를 검색하는 데 사용할 GPS 좌표를 수동으로 제공할 수 있습니다. Braze 지오펜스를 수동으로 요청하려면 자동 Braze 지오펜스 요청을 비활성화하고 요청을 위한 GPS 좌표를 제공해야 합니다.
+기본적으로 Braze는 기기의 위치를 자동으로 검색하고 수집된 위치를 기반으로 지오펜스를 요청합니다. 그러나 근접한 Braze 지오펜스를 검색하는 데 사용할 GPS 좌표를 수동으로 제공할 수도 있습니다. Braze 지오펜스를 수동으로 요청하려면 자동 Braze 지오펜스 요청을 비활성화하고 요청에 사용할 GPS 좌표를 제공해야 합니다.
 
-#### Step 6.1: 자동 지오펜스 요청 비활성화
+#### 6.1단계: 자동 지오펜스 요청 비활성화 {#step-61-disable-automatic-geofence-requests}
 
 자동 Braze 지오펜스 요청은 `braze.xml` 파일에서 `com_braze_automatic_geofence_requests_enabled`를 `false`로 설정하여 비활성화할 수 있습니다.
 
@@ -227,7 +227,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 <bool name="com_braze_automatic_geofence_requests_enabled">false</bool>
 ```
 
-이 작업은 다음을 통해 런타임에서 수행할 수 있습니다.
+런타임에서도 다음과 같이 설정할 수 있습니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -250,9 +250,9 @@ Braze.configure(applicationContext, brazeConfigBuilder.build())
 {% endtab %}
 {% endtabs %}
 
-#### Step 6.2: GPS 좌표로 Braze 지오펜스 수동 요청
+#### 6.2단계: GPS 좌표로 Braze 지오펜스 수동 요청 {#step-62-manually-request-braze-geofence-with-gps-coordinate}
 
-Braze 지오펜스는 [`requestGeofences()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-geofences.html) 메서드를 통해 수동으로 요청됩니다.
+Braze 지오펜스는 [`requestGeofences()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-geofences.html) 메서드를 통해 수동으로 요청합니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -272,11 +272,5 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% endtabs %}
 
 {% alert important %}
-지오펜스는 세션당 한 번만 요청할 수 있으며, SDK를 통해 자동으로 요청하거나 이 메서드를 사용하여 수동으로 요청할 수 있습니다.
+지오펜스는 세션당 한 번만 요청할 수 있으며, SDK에 의해 자동으로 요청하거나 이 메서드를 사용하여 수동으로 요청할 수 있습니다.
 {% endalert %}
-
-### 푸시 투 동기화 인에이블먼트 사용
-
-Braze는 백그라운드 푸시를 사용하여 지오펜스를 기기와 동기화합니다. 이 기능은 앱의 일부로 추가 통합이 필요하지 않으므로 대부분의 경우 코드 변경이 필요하지 않습니다.
-
-그러나 애플리케이션이 중지된 경우 백그라운드 푸시를 받으면 백그라운드에서 애플리케이션이 실행되고 `Application.onCreate()` 메서드가 호출됩니다. 커스텀 `Application.onCreate()` 구현이 있는 경우 자동 서버 호출 및 백그라운드 푸시로 트리거하지 않으려는 기타 작업을 연기해야 합니다.

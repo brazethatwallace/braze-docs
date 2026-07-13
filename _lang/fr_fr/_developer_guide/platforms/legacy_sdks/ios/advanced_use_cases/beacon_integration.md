@@ -10,15 +10,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Intégration de balise
+# Intégration de balise {#beacon-integration}
 
-Ici, nous allons découvrir la manière d’intégrer des types spécifiques de balises avec Braze pour permettre la segmentation et la messagerie.
+Nous allons découvrir ici comment intégrer des types spécifiques de balises avec Braze pour permettre la segmentation et l'envoi de messages.
 
-## Balises Infillion
+## Balises Infillion {#infillion-beacons}
 
-Une fois vos balises Infillion configurées et intégrées à votre application, vous pouvez enregistrer des événements personnalisés tels que le début ou la fin d'une visite ou l'observation d'une balise. Vous pouvez également enregistrer des propriétés pour ces événements, comme le nom du lieu ou le temps de pause.
+Une fois vos balises Infillion configurées et intégrées à votre application, vous pouvez enregistrer des événements personnalisés tels que le début ou la fin d'une visite, ou l'observation d'une balise. Vous pouvez également enregistrer des propriétés pour ces événements, comme le nom du lieu ou la durée de présence.
 
-Pour enregistrer un événement personnalisé lorsqu’un utilisateur accède à un endroit, saisissez ce code dans la méthode `didBeginVisit` :
+Pour enregistrer un événement personnalisé lorsqu'un utilisateur accède à un lieu, saisissez ce code dans la méthode `didBeginVisit` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -39,4 +39,4 @@ Appboy.sharedInstance()?.flushDataAndProcessRequestQueue()
 {% endtab %}
 {% endtabs %}
 
-Le `flushDataAndProcessRequestQueue` garantit que votre événement est enregistré, même si l’application est en arrière-plan et que le même processus peut être implémenté pour quitter un emplacement. Notez que cela créera et incrémentera un événement personnalisé unique pour chaque nouvel endroit que l’utilisateur visitera. Si vous prévoyez de créer plus de 50 endroits, nous vous recommandons de créer un événement personnalisé générique « Place Entered » (Lieu accédé) et d’inclure le nom du lieu comme propriété d’événement.
+La méthode `flushDataAndProcessRequestQueue` garantit que votre événement est enregistré même si l'application est en arrière-plan. Le même processus peut être implémenté pour le départ d'un emplacement. Notez que cela créera et incrémentera un événement personnalisé unique pour chaque nouveau lieu visité par l'utilisateur. Si vous prévoyez de créer plus de 50 lieux, nous vous recommandons de créer un événement personnalisé générique « Place Entered » et d'inclure le nom du lieu comme propriété d'événement.

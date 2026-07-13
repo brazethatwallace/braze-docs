@@ -1,13 +1,13 @@
 ---
 page_order: 0
 article_title: Socios tecnológicos
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 
 partner_top_header: "Socios tecnológicos"
-partner_top_text: "Te damos la bienvenida a nuestra lista de Alloys, nuestros socios tecnológicos de Braze. Usa esta página para implementar socios tecnológicos con tu SDK de Braze. En Braze, ve a <b>Integraciones de socios</b> > <b>Socios tecnológicos</b> para conectarte con cualquiera de los socios que aparecen en esta página. <br> <br> Si buscas información sobre cómo unirte a nuestra comunidad Firebrands de clientes que usan Braze para modernizar su experiencia del cliente y marketing, consulta nuestro <a href='https://brazefirebrands.splashthat.com/'>Programa Customer Champions</a>."
-description: "Esta página incluye a todos los socios de Braze. Utilízala para explorar la documentación técnica que te ayudará a implementar socios tecnológicos en tu SDK de Braze."
+partner_top_text: "Te damos la bienvenida a nuestra lista de Alloys, nuestros partners tecnológicos de Braze. Usa esta página para implementar partners tecnológicos con tu SDK de Braze. En Braze, ve a <b>Integraciones de socios</b> > <b>Socios tecnológicos</b> para conectarte con cualquiera de los partners que aparecen en esta página. <br> <br> Si ves <b>Credenciales no válidas</b> para un partner en Braze pero la integración parece correcta en el panel de ese partner, desconecta y vuelve a conectar la integración en la página de socios tecnológicos y confirma las claves de API, los tokens de OAuth y los permisos del lado del partner. <br> <br> Algunos paneles externos (por ejemplo, herramientas de capacidad de entrega o monitoreo de buzón de entrada) pueden mostrar un estado de conexión o verificación diferente al de la página de socios tecnológicos de Braze. Usa el mosaico del partner en Braze para ver el estado de conexión en el que Braze se basa para la sincronización y el envío. <br> <br> Si buscas información sobre cómo unirte a nuestra comunidad Firebrands de clientes que usan Braze para modernizar su experiencia del cliente y marketing, consulta nuestro <a href='https://brazefirebrands.splashthat.com/'>Programa Customer Champions</a>."
+description: "Esta página incluye a todos los partners de Braze. Utilízala para explorar la documentación técnica que te ayudará a implementar partners tecnológicos en tu SDK de Braze."
 
 valid_partner_list:
 - name: Jampp
@@ -46,6 +46,8 @@ valid_partner_list:
   url: /docs/partners/dyspatch/
 - name: Denada
   url: /docs/partners/denada/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: Stensul
   url: /docs/partners/stensul/
 - name: Stripo
@@ -60,6 +62,8 @@ valid_partner_list:
   url: /docs/partners/jebbit/
 - name: Iterate
   url: /docs/partners/iterate/
+- name: Refiner
+  url: /docs/partners/refiner/
 - name: EduMe
   url: /docs/partners/edume/
 - name: Fivetran
@@ -106,6 +110,8 @@ valid_partner_list:
   url: /docs/partners/certona/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -132,6 +138,8 @@ valid_partner_list:
   url: /docs/partners/optilyz/
 - name: Digioh
   url: /docs/partners/digioh/
+- name: DinMo
+  url: /docs/partners/dinmo/
 - name: Nexla
   url: /docs/partners/nexla/
 - name: Amperity
@@ -214,6 +222,8 @@ valid_partner_list:
   url: /docs/partners/wunderkind/
 - name: B.Layer
   url: /docs/partners/blayer-inapps/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Tellius
   url: /docs/partners/tellius/
 - name: Sheetlabs
@@ -284,6 +294,8 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
 - name: GRAVTY by Loyalty Juggernaut
@@ -318,6 +330,8 @@ valid_partner_list:
   url: /docs/partners/justuno/
 - name: Constructor
   url: /docs/partners/constructor/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Email Love
   url: /docs/partners/email_love/
 - name: Adikteev
@@ -348,6 +362,8 @@ valid_partner_list:
   url: /docs/partners/sessionm/
 - name: Tapcart
   url: /docs/partners/tapcart/
+- name: Talkable
+  url: /docs/partners/talkable/
 - name: Mention Me
   url: /docs/partners/mention_me/
 - name: JustAI
@@ -406,6 +422,10 @@ valid_partner_list:
   url: /docs/partners/gemini/
 - name: Anthropic
   url: /docs/partners/anthropic/
+- name: Databricks Mosaic
+  url: /docs/partners/databricks_mosaic/
+- name: Microsoft Foundry
+  url: /docs/partners/microsoft_foundry/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva

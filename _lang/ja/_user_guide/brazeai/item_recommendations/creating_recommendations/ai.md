@@ -11,7 +11,7 @@ page_order: 1
 
 ## AI項目レコメンデーションについて {#about-ai-item-recommendations}
 
-AI項目レコメンデーションを使用して、最も人気のある製品を計算したり、特定の[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)に対してパーソナライズ済みのAIレコメンデーションを作成したりできます。レコメンデーションを作成した後、パーソナライゼーションを使用してメッセージにそれらの製品を挿入できます。
+AI項目レコメンデーションを使用して、最も人気のある製品を計算したり、特定の[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)に対してパーソナライズされたAIレコメンデーションを作成したりできます。レコメンデーションを作成した後、パーソナライゼーションを使用してメッセージにそれらの製品を挿入できます。
 
 {% alert tip %}
 [AIパーソナライズドレコメンデーション](#recommendation-types)は、少なくとも数百のカタログ項目、最大100,000のカタログ項目があり、通常は購入またはインタラクションデータを持つユーザーが30,000人以上いる場合に最も効果的です。これはあくまでも目安であり、状況によって異なります。他のレコメンデーションタイプは、より少ないデータでも動作します。**最も人気がある**がフォールバックとして使用される場合も同様です。
@@ -25,39 +25,39 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 
 始める前に、以下を準備しておく必要があります。
 
-- 以下に説明するレコメンデーションタイプのいずれかを使用するには、少なくとも1つの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)が必要です。
+- 以下に説明するレコメンデーションタイプのいずれかを使用するには、少なくとも1つの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)が必要です。
 - Braze上に、項目への参照を含む購入データまたはイベントデータ（カスタムイベント、注文確定イベント、または購入オブジェクト）があり、カタログの項目IDと一致している必要があります。
 
-### ステップ 1: 新しいレコメンデーションを作成する {#step-1-create-a-new-recommendation}
+### ステップ1: 新しいレコメンデーションを作成する {#step-1-create-a-new-recommendation}
 
 ダッシュボードのいずれかの場所からAI項目レコメンデーションを作成できます。
 
 {% tabs local %}
 {% tab ナビゲーションメニューから %}
 1. **Analytics** > **AI Item Recommendation**に移動します。
-2. **Create Prediction** > **AI Item Recommendation**を選択します。
+2. **予測を作成** > **AI Item Recommendation**を選択します。
 {% endtab %}
 
 {% tab カタログから %}
-個々のカタログから直接レコメンデーションを作成することもできます。**カタログ**ページからカタログを選択し、**Create Recommendation**を選択します。
+個々のカタログから直接レコメンデーションを作成することもできます。**カタログ**ページからカタログを選択し、**レコメンデーションを作成**を選択します。
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2: レコメンデーションの詳細を追加する {#step-2-add-recommendation-details}
+### ステップ2: レコメンデーションの詳細を追加する {#step-2-add-recommendation-details}
 
 レコメンデーションに名前と説明（オプション）を付けます。
 
 ![名前フィールドと説明フィールドを含む「レコメンデーションの詳細」ステップ。]({% image_buster /assets/img/item_recs_1.png %})
 
-### ステップ 3: レコメンデーションを定義する {#recommendation-type}
+### ステップ3: レコメンデーションを定義する {#recommendation-type}
 
-レコメンデーションタイプを選択します。各タイプは、過去6か月間の項目インタラクションデータ（購入、注文確定、またはカスタムイベントデータなど）を使用します。それぞれの詳細な情報とユースケースについては、[タイプとユースケース]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)を参照してください。
+レコメンデーションタイプを選択します。各タイプは、過去6か月間の項目インタラクションデータ（購入、注文確定、またはカスタムイベントデータなど）を使用します。それぞれの詳細な情報とユースケースについては、[タイプとユースケース]({{site.baseurl}}/user_guide/brazeai/item_recommendations)を参照してください。
 
 {% alert tip %}
 **最新**または**AIパーソナライズド**を使用する場合、個別のレコメンデーションを作成するためのデータが不十分なユーザーには、フォールバックとして**最も人気がある**項目が表示されます。**最も人気がある**フォールバックを受信するユーザーの割合の概算は、**Analytics**ページに表示されます。**最も人気がある**フォールバックは、リンクされたカタログに存在する項目のみを返します。
 {% endalert %}
 
-#### ステップ 3.1: 過去の購入やインタラクションを除外する（オプション） {#step-31-exclude-prior-purchases-or-interactions-optional}
+#### ステップ3.1: 過去の購入やインタラクションを除外する（オプション） {#step-31-exclude-prior-purchases-or-interactions-optional}
 
 ユーザーが既に購入または操作した項目をおすすめしないようにするには、**Do not recommend items users have previously interacted with**を選択します。このオプションは、レコメンデーションの**Type**が**AI Personalized**に設定されている場合にのみ使用できます。
 
@@ -67,13 +67,13 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 
 たとえば、AI項目レコメンデーションのPro版を使用している場合、ユーザーが何かを購入し、その後30分以内にマーケティングメールを受信すると、購入したばかりの項目が時間内にメールから除外されない可能性があります。ただし、24時間後に送信されるメッセージには、その項目は含まれません。
 
-#### ステップ 3.2: カタログを選択する {#step-32-select-a-catalog}
+#### ステップ3.2: カタログを選択する {#step-32-select-a-catalog}
 
-まだ入力されていない場合は、このレコメンデーションが項目を取得する[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を選択します。
+まだ入力されていない場合は、このレコメンデーションが項目を取得する[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)を選択します。
 
-#### ステップ 3.3: セレクションを追加する（オプション） {#step-33-add-a-selection-optional}
+#### ステップ3.3: セレクションを追加する（オプション） {#step-33-add-a-selection-optional}
 
-レコメンデーションをさらに細かくコントロールしたい場合は、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を選択してカスタムフィルターを適用します。セレクションは、ブランド、サイズ、ロケーションなど、カタログ内の特定の列によってレコメンデーションをフィルタリングします。Liquidを含むセレクションは、レコメンデーションで使用できません。
+レコメンデーションをさらに細かくコントロールしたい場合は、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を選択してカスタムフィルターを適用します。セレクションは、ブランド、サイズ、ロケーションなど、カタログ内の特定の列によってレコメンデーションをフィルタリングします。Liquidを含むセレクションは、レコメンデーションで使用できません。
 
 ![レコメンデーションに「在庫あり」のセレクションが選択されている例。]({% image_buster /assets/img/item_recs_2-2.png %})
 
@@ -81,16 +81,16 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 セレクションが見つからない場合は、まずカタログで設定されていることを確認してください。
 {% endalert %}
 
-### ステップ 4: レコメンデーションを推進するインタラクションを選択する {#step-4-select-the-interaction-to-drive-recommendations}
+### ステップ4: レコメンデーションを推進するインタラクションを選択する {#step-4-select-the-interaction-to-drive-recommendations}
 
 このレコメンデーションを最適化するイベントを選択します。このイベントは通常「購入」ですが、項目とのあらゆるインタラクションも指定できます。
 
 以下のイベントで最適化できます。
 
-- [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を使用した購入イベント
+- [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を使用した購入イベント
 - 購入を表すカスタムイベント
 - その他の項目インタラクションを表すカスタムイベント（商品の表示、クリック、メディア再生など）
-- [注文確定イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)を使用した注文確定
+- [注文確定イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)を使用した注文確定
 
 **Custom Event**を選択した場合は、リストからイベントを選択します。
 
@@ -100,13 +100,13 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 カスタムイベントは、イベントリストに表示される前に十分なデータが必要です。カスタムイベントが表示されない場合、Brazeのバックエンドがまだ処理していないか、モデルのトレーニングに必要なデータが不足している可能性があります。AIレコメンデーションは過去のデータに基づいてインサイトを生成するため、新しく作成されたイベントやめったにトリガーされないイベントは、より多くのデータが収集されるまで利用できません。
 {% endalert %}
 
-### ステップ 5: 対応するプロパティ名を選択する {#property-name}
+### ステップ5: 対応するプロパティ名を選択する {#property-name}
 
 レコメンデーションを作成するには、インタラクションイベント（注文確定イベント、購入オブジェクト、またはカスタムイベント）のどのフィールドが、カタログの項目の`id`フィールドと一致する一意の識別子を持っているかをBrazeに伝える必要があります。よくわからない場合は[要件を確認](#requirements)してください。
 
 このフィールドを**Property Name**で選択します。
 
-**Property Name**フィールドには、SDK経由でBrazeに送信されるフィールドのリストがあらかじめ入力されます。十分なデータが提供されていれば、これらのプロパティは正しいプロパティである確率の順にランク付けされます。カタログの`id`フィールドに対応するものを選択してください。
+**Property Name**フィールドには、SDKを経由してBrazeに送信されるフィールドのリストがあらかじめ入力されます。十分なデータが提供されていれば、これらのプロパティは正しいプロパティである確率の順にランク付けされます。カタログの`id`フィールドに対応するものを選択してください。
 
 ![カタログ内の項目IDに対応する、選択された「purchase_item」プロパティ名。]({% image_buster /assets/img/item_recs_4.png %})
 
@@ -115,7 +115,7 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 プロパティを選択する際には、いくつかの要件があります。
 
 - 選択したカタログの`id`フィールドにマッピングする必要があります。
-- **注文確定イベントを選択した場合、または[eコマースイベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を使って項目レコメンデーションをトレーニングする場合:** 製品IDには`products.product_id`を入力します。
+- **注文確定イベントを選択した場合、または[eコマースイベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を使って項目レコメンデーションをトレーニングする場合:** 製品IDには`products.product_id`を入力します。
   - フィールドは製品の配列の中にあっても、IDの配列で終わっても構いません。いずれの場合も、各製品IDは、同じタイムスタンプを持つ個別の連続したイベントとして扱われます。
 - **購入オブジェクトを選択した場合:** `product_id`またはインタラクションイベントの`properties`のフィールドである必要があります。
 - **カスタムイベントを選択した場合:** カスタムイベントの`properties`のフィールドである必要があります。
@@ -130,7 +130,8 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="マッピングの例" class="tg">
+  <caption>マッピングの例</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -325,8 +326,8 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 {% endtab %}
 {% endtabs %}
 
-### ステップ 6: レコメンデーションをトレーニングする {#step-6-train-the-recommendation}
+### ステップ6: レコメンデーションをトレーニングする {#step-6-train-the-recommendation}
 
-準備ができたら、**Create Recommendation**を選択します。このプロセスは、完了するまで10分から36時間かかることがあります。レコメンデーションが正常にトレーニングされた場合、または作成に失敗した場合にはその理由を説明するメール通知が届きます。
+準備ができたら、**レコメンデーションを作成**を選択します。このプロセスは、完了するまで10分から36時間かかることがあります。レコメンデーションが正常にトレーニングされた場合、または作成に失敗した場合にはその理由を説明するメール通知が届きます。
 
-レコメンデーションは**Predictions**ページに表示され、必要に応じて編集したりアーカイブしたりできます。レコメンデーションは、毎週1回（有料）または毎月1回（無料）自動的に再トレーニングされます。
+レコメンデーションは**予測**ページに表示され、必要に応じて編集したりアーカイブしたりできます。レコメンデーションは、毎週1回（有料）または毎月1回（無料）自動的に再トレーニングされます。

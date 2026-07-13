@@ -18,14 +18,14 @@ _This integration is maintained by Stylitics._
 
 Your Braze and Stylitics integration allows you to enhance your existing email campaigns with engaging and relevant bundled content, creating a personalized customer experience.
 
-![]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
+![Stylitics bundled content example embedded in a Braze email experience.]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
 
 ## Prerequisites
 
 | Requirement | Description |
 | ----------- | ----------- |
 | Stylitics account | A [Stylitics](https://stylitics.com/) account is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

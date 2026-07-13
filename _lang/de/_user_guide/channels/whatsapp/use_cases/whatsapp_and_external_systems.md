@@ -20,7 +20,7 @@ channel:
 | Externes System | Ein KI- oder Kommunikationssystem eines Drittanbieters, das in der Lage ist, Chatbots und automatisierte Kundenservice-Systeme über APIs zu erstellen und zu verwalten, oder beides. |
 | Braze- und WhatsApp-Integration | Eine von Braze verwaltete WhatsApp-Nummer |
 | Braze-REST-API-Schlüssel | Ein REST-API-Schlüssel mit `campaigns.trigger.send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## So funktioniert es {#how-it-works}
 
@@ -30,7 +30,7 @@ Der Integrations-Workflow lässt sich in zwei zentrale Abläufe unterteilen:
 **Eingehender Ablauf:** Die Nachricht einer Nutzerin oder eines Nutzers trifft in Braze ein und wird dann zur Verarbeitung an Ihr externes System weitergeleitet.
 **Ausgehender Ablauf:** Nach der Verarbeitung der Nachricht sendet Ihr externes System eine Antwort an Braze, das die Nachricht dann an die Endnutzer:in zustellt.
 
-Um diese Kommunikation effizient zu automatisieren, nutzt diese Integration zwei zentrale Braze-Features: [Webhook-Campaigns]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) und [API-getriggerte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+Um diese Kommunikation effizient zu automatisieren, nutzt diese Integration zwei zentrale Braze-Features: [Webhook-Campaigns]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) und [API-getriggerte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 ![Architektur der Integration zwischen dem Braze-WhatsApp-Kanal und einem externen System.]({% image_buster /assets/img/whatsapp/external_system_architecture.png %})
 ## Integration konfigurieren {#configuring-the-integration}

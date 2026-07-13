@@ -1,67 +1,66 @@
 ---
 nav_title: Heap コホートインポート
 article_title: Heap コホートインポート
-description: "このリファレンス記事では、Braze と Heap の統合について詳しく説明します。Heap はデジタルインサイトプラットフォームであり、Heap データを Braze にインポートしたり、ユーザーコホートを作成したり、Braze データを Heap にエクスポートしてセグメントを作成したりできます。"
+description: "このリファレンス記事では、BrazeとHeapの統合について詳しく説明します。Heapはデジタルインサイトプラットフォームであり、HeapデータをBrazeにインポートしたり、ユーザーコホートを作成したり、BrazeデータをHeapにエクスポートしてセグメントを作成したりできます。"
 alias: /partners/heap_cohort_import/
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Heap コホートインポート
+# Heap コホートインポート {#heap-cohort-import}
 
 > [Heap](https://heap.io/) はデジタルインサイトプラットフォームであり、デジタルエクスペリエンスにおいてビジネスに最も大きく影響する機会に集中して取り組むことができるようにし、フリクションを解消し、顧客を楽しませ、収益創出を加速させます。
 
-Braze と Heap の統合により、[Heap データをBraze にインポート](#data-import-integration)し、ユーザーコホートを作成し、[Braze データを Heap にエクスポート]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/)してセグメントを作成することができます。
+BrazeとHeapの統合により、[HeapデータをBrazeにインポート](#data-import-integration)し、ユーザーコホートを作成し、[BrazeデータをHeapにエクスポート]({{site.baseurl}}/partners/data_and_analytics/analytics/heap)してセグメントを作成することができます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Heap アカウント | このパートナーシップを利用するには、[Heap](https://heap.io/about)アカウントが必要です。 |
-| Braze データインポートキー | これは、Braze ダッシュボードの [**パートナー連携**] > [**テクノロジーパートナー**] からキャプチャされます。その後 [**Heap**] を選択します。 |
-| Braze REST エンドポイント | [あなたのRESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。お客様のエンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
-| Braze Currents | BrazeからHeapにデータをエクスポートするには、アカウントで[Braze Currentsを]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)イネーブルメントにする必要がある。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Heapアカウント | このパートナーシップを利用するには、[Heap](https://heap.io/about) アカウントが必要です。 |
+| Brazeデータインポートキー | これは、Brazeダッシュボードの**パートナー連携** > **テクノロジーパートナー**から**Heap**を選択することで取得できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+| Braze Currents | BrazeからHeapにデータをエクスポートするには、アカウントで[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)を有効にする必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## ユースケース
-- 放棄されたファネルを再度利用するユーザーを再エンゲージする:ユーザーが購入またはサブスクリプションのファネルを放棄したときに、再エンゲージメントメッセージングをトリガーします。
-- 試用体験をパーソナライズする：トライアル体験における摩擦点を特定し、トライアル中にユーザーを再エンゲージするための適切なタイミングでリマインダーを送信し、価値を見出す手助けをします。
-- 発表とオファーに対するエンゲージメントを高める：プロモーション、アップデート、および新しいサービス発表のターゲットを、関連性のあるオーディエンスに設定します。
+## ユースケース {#use-cases}
+- ファネルを放棄したユーザーを再エンゲージする：ユーザーが購入または購読のファネルを放棄したときに、再エンゲージメントメッセージングをトリガーします。
+- トライアル体験をパーソナライズする：トライアル体験におけるフリクションポイントを特定し、適切なタイミングでリマインダーを送信してトライアル中のユーザーを再エンゲージし、価値を見出す手助けをします。
+- アナウンスやオファーへのエンゲージメントを高める：プロモーション、更新、新しいサービスのアナウンスを関連性のあるオーディエンスにターゲティングします。
 
-## データインポート統合
+## データインポート統合 {#data-import-integration}
 
-Heap と Braze の統合を使用して、Heap で定義されたコホートを Braze に自動的に同期します。
+HeapとBrazeの統合を使用して、Heapで定義されたコホートをBrazeに自動的に同期します。
 
-### ステップ1:Braze データインポートキーを取得する
+### ステップ1：Brazeデータインポートキーを取得する {#step-1-get-the-braze-data-import-key}
 
-Brazeで [**パートナー連携**] >[**テクノロジーパートナー**] に移動し、[**Heap**] を選択します。 
+Brazeで**パートナー連携** > **テクノロジーパートナー**に移動し、**Heap**を選択します。
 
-このページでは、データインポートキーとRESTエンドポイントを見つけることができます。統合の設定を完了するため、これらの両方の値をメモして Heap アカウントマネージャーに提出します。
+このページでは、データインポートキーとRESTエンドポイントを確認できます。これらの両方の値をメモして、Heapアカウントマネージャーに提供し、統合の設定を完了してください。
 
-![]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
+![BrazeのHeapテクノロジーパートナーページ。データインポートキーとエンドポイントが表示されています。]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 
-### ステップ 2:Brazeでインポートされたユーザーをセグメント化する
+### ステップ2：Brazeでインポートされたユーザーをセグメント化する {#step-2-segment-imported-users-in-braze}
 
-Braze で [**セグメント**] に移動し、Heap コホートセグメントに名前を付け、フィルターとして [**セグメントコホート**] を選択します。ここから、どの Heap コホートを含めるかを選択できます。Heap のコホートセグメントを作成したら、キャンペーンまたはキャンバスを作成するときにこのセグメントをオーディエンスフィルターとして選択できます。
+Brazeで**セグメント**に移動し、Heapコホートセグメントに名前を付け、フィルターとして**Heap Cohorts**を選択します。ここから、含めたいHeapコホートを選択できます。Heapコホートセグメントを作成したら、キャンペーンまたはキャンバスを作成するときにオーディエンスフィルターとして選択できます。
 
-![Braze セグメントビルダーで、ユーザー属性フィルター「Heap cohort」が「次を含む」と「Heap Test Cohort」に設定されている。]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
+![Brazeのセグメントビルダーで、ユーザー属性フィルター「Heap cohort」が「次を含む」と「Heap Test Cohort」に設定されている。]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
-### この統合を使う
+### この統合を使う {#using-this-integration}
 
-Heap セグメントを使用するには、Braze キャンペーンまたはキャンバスを作成し、ターゲットオーディエンスとしてセグメントを選択します。
+Heapセグメントを使用するには、Brazeキャンペーンまたはキャンバスを作成し、ターゲットオーディエンスとしてそのセグメントを選択します。
 
-![Braze キャンペーンビルダーのターゲティングステップで、[セグメントを基準にユーザーをターゲットに設定] フィルターが「Heap cohort」に設定されている。]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
+![Brazeキャンペーンビルダーのターゲティングステップで、「セグメントを基準にユーザーをターゲットに設定」フィルターが「Heap cohort」に設定されている。]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 
 {% alert important %}
-Braze内に既に存在するユーザーのみがコホートに追加または削除されます。コホートインポートはBrazeに新しいユーザーを作成しません。
+Braze内に既に存在するユーザーのみがコホートに追加または削除されます。コホートインポートではBrazeに新しいユーザーは作成されません。
 {% endalert %}
 
-## 統合の詳細
+## 統合の詳細 {#integration-details}
 
-エクスポートされたデータのペイロードの構造は、カスタム HTTP コネクターのペイロード構造と同じです。これは、[カスタム HTTP コネクターのサンプルリポジトリ](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors)で確認できます。
+エクスポートされたデータのペイロード構造は、カスタムHTTPコネクターのペイロード構造と同じです。これは、[カスタムHTTPコネクターのサンプルリポジトリ](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors)で確認できます。
 
-## ユーザーマッチング
+## ユーザーマッチング {#user-matching}
 
-識別されたユーザーは、`external_id` または`alias` のどちらかによって照合できます。匿名ユーザーは、`device_id` によって照合できます。元々匿名ユーザーとして作成された識別されたユーザーは、`device_id` では識別できず、`external_id` または`alias` で識別しなければなりません。
-
+識別されたユーザーは、`external_id`または`alias`のどちらかによって照合できます。匿名ユーザーは、`device_id`によって照合できます。元々匿名ユーザーとして作成された識別済みユーザーは、`device_id`では識別できず、`external_id`または`alias`で識別する必要があります。

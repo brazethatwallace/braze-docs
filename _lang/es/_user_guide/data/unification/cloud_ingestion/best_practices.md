@@ -12,7 +12,7 @@ description: "Esta página ofrece un resumen de la Ingesta de datos de Cloud, bu
 
 > La Ingesta de datos de Cloud de Braze te permite configurar una conexión directa desde tu almacén de datos o sistema de almacenamiento de archivos a Braze para sincronizar datos relevantes de usuarios o catálogos. Al sincronizar estos datos con Braze, puedes aprovecharlos para casos de uso como la personalización, el desencadenamiento o la segmentación.
 
-## Comprender la columna `UPDATED_AT` {#understanding-the-updatedat-column}
+## Comprender la columna `UPDATED_AT` {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT` es relevante solo para integraciones de almacenes de datos, no para sincronizaciones S3.
@@ -26,7 +26,7 @@ Braze CDI sincronizará las filas basándose estrictamente en el valor de `UPDAT
 
 ### Ejemplo: sincronización recurrente {#example-recurring-sync}
 
-Para ilustrar cómo se utiliza `UPDATED_AT` en una sincronización CDI, considera este ejemplo de sincronización periódica para actualizar los atributos de usuario:
+Para ilustrar cómo se utiliza `UPDATED_AT` en una sincronización CDI, considera este ejemplo de sincronización recurrente para actualizar atributos de usuario:
 
 - Fuentes de almacenamiento de archivos
    - Amazon S3
@@ -51,7 +51,7 @@ Al utilizar CDI para sincronizar datos de fuentes externas (como Databricks o Sn
 - **Números almacenados como cadenas:** Convierte las columnas numéricas a tipos integer o float en tu consulta de origen antes de sincronizar.
 - **Tipos inconsistentes entre sincronizaciones:** Si el tipo de una columna cambia entre sincronizaciones, Braze puede rechazar los nuevos datos. Verifica que el esquema de tu origen se mantenga consistente.
 
-Para forzar o cambiar los tipos de datos de los atributos personalizados en el panel de Braze, consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+Para forzar o cambiar los tipos de datos de los atributos personalizados en el panel de Braze, consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 Puedes actualizar los datos de usuario mediante el ID externo, el alias de usuario, el ID de Braze, el correo electrónico o el número de teléfono. Puedes eliminar usuarios por ID externo, alias de usuario o ID de Braze.
 
@@ -122,7 +122,7 @@ En tu almacén de datos, añade los siguientes usuarios y atributos a tu tabla, 
 
 Durante la siguiente sincronización programada, Braze sincroniza todas las filas con una marca de tiempo de `UPDATED_AT` posterior a la marca de tiempo sincronizada más reciente. Braze actualiza o añade campos, por lo que no es necesario sincronizar el perfil de usuario completo cada vez. Tras la sincronización, los perfiles de usuario reflejan las nuevas actualizaciones:
 
-**Sincronización periódica, segunda ejecución el 20 de julio de 2022 a las 12 p. m.**
+**Sincronización recurrente, segunda ejecución el 20 de julio de 2022 a las 12 p. m.**
 
 <table role="presentation">
   <thead>
@@ -194,7 +194,7 @@ Durante la siguiente sincronización programada, Braze sincroniza todas las fila
 
 Se añadió una nueva fila para `customer_9012`, pero su valor de `UPDATED_AT` (`2022-07-16 00:25:30`) es anterior a la marca de tiempo almacenada (`2022-07-19 09:07:23`), por lo que no se sincronizará. Sin embargo, la fila existente de `customer_5678` tiene un valor de `UPDATED_AT` igual a la marca de tiempo almacenada, por lo que se vuelve a sincronizar debido al límite inclusivo. Para más detalles sobre este comportamiento, consulta [Asegúrate de que la hora de UPDATED_AT no sea la misma que la de tu sincronización](#make-sure-the-updated_at-time-isnt-the-same-time-as-your-sync). El `UPDATED_AT` almacenado permanece como `2022-07-19 09:07:23`.
 
-**Sincronización periódica, tercera ejecución el 21 de julio de 2022 a las 12 p. m.**
+**Sincronización recurrente, tercera ejecución el 21 de julio de 2022 a las 12 p. m.**
 
 <table role="presentation">
   <thead>
@@ -286,7 +286,7 @@ En esta tercera ejecución, se añadió otra fila nueva para `customer_1234` con
 Los valores de `UPDATED_AT` pueden ser incluso posteriores a la hora de inicio de la ejecución para una sincronización determinada. Sin embargo, esto no es recomendable, ya que empuja la última marca de tiempo de `UPDATED_AT` «hacia el futuro» y las sincronizaciones posteriores no sincronizarán los valores anteriores.
 {% endalert %}
 
-## Utiliza una marca de tiempo UTC para la columna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updatedat-column}
+## Utiliza una marca de tiempo UTC para la columna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
 La columna `UPDATED_AT` debe estar en UTC para evitar problemas con el horario de verano. Prefiere funciones solo UTC, como `SYSDATE()` en lugar de `CURRENT_DATE()` siempre que sea posible.
 
@@ -313,7 +313,8 @@ Este ejemplo muestra el proceso general para sincronizar datos por primera vez y
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Ejemplo: administración de actualizaciones posteriores">
+  <caption>Ejemplo: administración de actualizaciones posteriores</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -418,9 +419,10 @@ Nada de esto se ha sincronizado antes con Braze, así que añádelo todo a la ta
   </tbody>
 </table>
 
-Se ejecuta una sincronización y Braze registra que has sincronizado todos los datos disponibles hasta "2023-03-16 15:00:00". A continuación, en la mañana del día 2, se ejecuta un ETL y se actualizan algunos campos de la tabla de usuarios (resaltados):
+Se ejecuta una sincronización y Braze registra que has sincronizado todos los datos disponibles hasta "2023-03-16 15:00:00". A continuación, en la mañana del día 2, se ejecuta un ETL y se actualizan algunos campos de la tabla de usuarios (marcados con *):
 
-<table>
+<table aria-label="Ejemplo: administración de actualizaciones posteriores">
+  <caption>Ejemplo: administración de actualizaciones posteriores. * indica un campo actualizado desde la última sincronización.</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -433,14 +435,14 @@ Se ejecuta una sincronización y Braze registra que has sincronizado todos los d
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -449,13 +451,13 @@ Se ejecuta una sincronización y Braze registra que has sincronizado todos los d
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -463,7 +465,7 @@ Se ejecuta una sincronización y Braze registra que has sincronizado todos los d
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -543,7 +545,7 @@ Cada vez que se ejecuta una sincronización, Braze busca filas que no se hayan s
 
 El uso de puntos de datos es idéntico con CDI y con otros métodos de ingesta, como las REST API o los SDK, por lo que depende de ti asegurarte de que solo añades atributos nuevos o actualizados a tus tablas de origen.
 
-### Separa `EXTERNAL_ID` de la columna `PAYLOAD` {#separate-externalid-from-payload-column}
+### Separa `EXTERNAL_ID` de la columna `PAYLOAD` {#separate-external_id-from-payload-column}
 
 El objeto `PAYLOAD` no debe incluir un ID externo u otro tipo de ID.
 
@@ -683,7 +685,7 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### Utiliza la marca de tiempo `UPDATED_AT` {#use-the-updatedat-timestamp}
+### Utiliza la marca de tiempo `UPDATED_AT` {#use-the-updated_at-timestamp}
 
 Braze utiliza la marca de tiempo `UPDATED_AT` para rastrear qué datos se han sincronizado correctamente. CDI también registra el número de filas en la última marca de tiempo sincronizada. Si se añaden nuevas filas con esa misma marca de tiempo entre ejecuciones, CDI vuelve a sincronizar todas las filas con esa marca de tiempo, lo que puede generar datos duplicados. Para más detalles y consejos, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas](#avoid-resyncing-rows-with-duplicate-timestamps).
 
@@ -693,7 +695,7 @@ Disponemos de un [repositorio público en GitHub](https://github.com/braze-inc/b
 
 ### Formato de los datos {#data-formatting}
 
-Los requisitos de configuración de tablas y de formato de la carga útil para la Ingesta de datos de Cloud están documentados en [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Los requisitos de configuración de tablas y de formato de la carga útil para la Ingesta de datos de Cloud están documentados en [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Utiliza esa página para distinguir:
 
@@ -715,6 +717,6 @@ Recomendamos que las consultas se completen en el plazo de una hora para obtener
 | Tipo de datos | Puedes sincronizar atributos de usuario, eventos y compras a través de la Ingesta de datos de Cloud. |
 | Región de Braze | Este producto está disponible en todas las regiones de Braze. Cualquier región de Braze puede conectarse a cualquier región de datos de origen. |
 | Región de origen | Braze se conectará a tu almacén de datos o entorno en la nube en cualquier región o proveedor de nube. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitaciones del producto" }
 
 <br><br>

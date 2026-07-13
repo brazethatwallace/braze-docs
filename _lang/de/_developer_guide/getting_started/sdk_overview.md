@@ -1,27 +1,27 @@
 ---
 nav_title: SDK-Übersicht
-article_title: SDK Übersicht für Entwickler:innen
+article_title: SDK-Übersicht für Entwickler:innen
 description: "Dieser Onboarding-Referenzartikel enthält eine technische Übersicht für Entwickler:innen des Braze SDK. Er behandelt die Standard-Analytics, die vom SDK getrackt werden, die Sperrung der automatischen Datenerfassung und die aktive SDK-Version Ihrer App."
 page_order: 0
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} SDK-Übersicht für Entwickler:innen {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} SDK-Übersicht für Entwickler:innen {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Bevor Sie mit der Integration der Braze SDKs beginnen, werden Sie sich vielleicht fragen, was genau Sie da eigentlich entwickeln und integrieren. Vielleicht sind Sie neugierig, wie Sie das SDK weiter an Ihre Bedürfnisse anpassen können. Dieser Artikel hilft Ihnen, alle Ihre Fragen zum SDK zu beantworten.
 
-Sind Sie ein Marketer, der einen grundlegenden Überblick über das SDK benötigt? Sehen Sie sich stattdessen unsere [Übersicht für Marketer]({{site.baseurl}}/user_guide/get_started/sdk_overview/) an.
+Sind Sie ein Marketer, der einen grundlegenden Überblick über das SDK benötigt? Sehen Sie sich stattdessen unsere [Übersicht für Marketer]({{site.baseurl}}/user_guide/get_started/sdk_overview) an.
 
 Kurz gesagt, das Braze SDK:
 * Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Nutzerprofil
 * Sammelt automatisch Sitzungsdaten, Geräteinformationen und Push-Tokens
 * Erfasst Marketingdaten und angepasste Daten speziell für Ihr Unternehmen
-* Unterstützt Push-Benachrichtigungen, In-App-Nachrichten und Content-Card-Nachrichtenkanäle
+* Unterstützt Push-Benachrichtigungen, In-App Messages und Content-Card-Nachrichtenkanäle
 
 Sehen Sie sich das folgende Video an, um eine kurze Einführung in die Grundlagen der Braze SDK-Integration und die Kernfunktionalität zu erhalten.
 
 {% multi_lang_include video.html id="il152jayp0" source="wistia" %}
 
-## App-Performance
+## App-Performance {#app-performance}
 
 Braze sollte keine negativen Auswirkungen auf die Performance Ihrer App haben.
 
@@ -33,7 +33,7 @@ Das Braze SDK ist so konzipiert, dass es andere SDKs in Ihrer App nicht beeintr�
 
 ## Standard-Analytics und Sitzungsbehandlung {#default-analytics-and-session-handling}
 
-Bestimmte Nutzerdaten werden von unserem SDK automatisch erfasst, z. B. die zuerst verwendete App, die zuletzt verwendete App, die Gesamtzahl der Sitzungen, das Betriebssystem des Geräts usw. Wenn Sie unseren Integrationsleitfäden folgen, um unsere SDKs zu implementieren, können Sie die Vorteile dieser [Standard-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/) nutzen. Wenn Sie diese Liste überprüfen, können Sie vermeiden, die gleichen Informationen über Nutzer:innen mehrfach zu speichern. Mit Ausnahme des Sitzungsbeginns und des Sitzungsendes werden alle anderen automatisch erfassten Daten nicht auf Ihre Datenpunkt-Nutzung angerechnet.
+Bestimmte Nutzerdaten werden von unserem SDK automatisch erfasst, z. B. die zuerst verwendete App, die zuletzt verwendete App, die Gesamtzahl der Sitzungen, das Betriebssystem des Geräts usw. Wenn Sie unseren Integrationsleitfäden folgen, um unsere SDKs zu implementieren, können Sie die Vorteile dieser [Standard-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) nutzen. Wenn Sie diese Liste überprüfen, können Sie vermeiden, die gleichen Informationen über Nutzer:innen mehrfach zu speichern. Mit Ausnahme des Sitzungsbeginns und des Sitzungsendes werden alle anderen automatisch erfassten Daten nicht auf Ihre Datenpunkt-Nutzung angerechnet.
 
 {% alert note %}
 Alle unsere Features sind konfigurierbar, aber es empfiehlt sich, das Standardmodell für die Datenerfassung vollständig zu implementieren.
@@ -45,12 +45,12 @@ Alle unsere Features sind konfigurierbar, aber es empfiehlt sich, das Standardmo
 
 Das Braze SDK speichert Daten (Sitzungen, angepasste Events usw.) im Cache und lädt sie in regelmäßigen Abständen hoch. Erst nachdem die Daten hochgeladen wurden, werden die Werte im Dashboard aktualisiert. Das Upload-Intervall berücksichtigt den Zustand des Geräts und richtet sich nach der Qualität der Netzwerkverbindung:
 
-|Qualität der Netzwerkverbindung |    Data-Flush-Intervall|
+| Qualität der Netzwerkverbindung | Data-Flush-Intervall |
 |---|---|
-|Sehr gut    |10 Sekunden|
-|Gut    |30 Sekunden|
-|Schlecht    |60 Sekunden|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Sehr gut | 10 Sekunden |
+| Gut | 30 Sekunden |
+| Schlecht | 60 Sekunden |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Daten hoch- und herunterladen" }
 
 Wenn keine Netzwerkverbindung besteht, werden die Daten lokal auf dem Gerät zwischengespeichert, bis die Netzwerkverbindung wiederhergestellt ist. Wenn die Verbindung wiederhergestellt ist, werden die Daten auf Braze hochgeladen.
 
@@ -71,7 +71,7 @@ Wir empfehlen Ihnen dringend, die SDKs vollständig zu integrieren, um die Mögl
 {% tabs %}
 {% tab Web SDK %}
 
-Sie können entweder bestimmte Teile des SDK einfach nicht integrieren oder [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) für spezifische Nutzer:innen verwenden. Diese Methode synchronisiert die Daten, die vor dem Aufruf von `disableSDK()` aufgezeichnet wurden, und führt dazu, dass alle nachfolgenden Aufrufe des Braze Web SDK für diese Seite und zukünftige Seitenladungen ignoriert werden. Wenn Sie die Datenerfassung zu einem späteren Zeitpunkt wieder aufnehmen möchten, können Sie mit der Methode [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) die Datenerfassung fortsetzen. Mehr dazu erfahren Sie in unserem Artikel [Deaktivieren von Web-Tracking]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=web).
+Sie können entweder bestimmte Teile des SDK einfach nicht integrieren oder [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) für spezifische Nutzer:innen verwenden. Diese Methode synchronisiert die Daten, die vor dem Aufruf von `disableSDK()` aufgezeichnet wurden, und führt dazu, dass alle nachfolgenden Aufrufe des Braze Web SDK für diese Seite und zukünftige Seitenladungen ignoriert werden. Wenn Sie die Datenerfassung zu einem späteren Zeitpunkt wieder aufnehmen möchten, können Sie mit der Methode [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) die Datenerfassung fortsetzen. Mehr dazu erfahren Sie in unserem Artikel [Deaktivieren von Web-Tracking]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web).
 
 {% endtab %}
 {% tab Android SDK %}
@@ -91,17 +91,17 @@ Sie können die zulässigen Felder zu [`configuration.devicePropertyAllowList`](
 Standardmäßig werden alle Felder durch das Braze Swift SDK erfasst. Das Entfernen einiger Geräteeigenschaften kann SDK-Features deaktivieren.
 {% endalert %}
 
-Weitere Einzelheiten zur Verwendung finden Sie unter [Speicherung]({{site.baseurl}}/developer_guide/storage/?tab=swift) in der Dokumentation zum Swift SDK.
+Weitere Einzelheiten zur Verwendung finden Sie unter [Speicher]({{site.baseurl}}/developer_guide/storage?tab=swift) in der Dokumentation zum Swift SDK.
 
 {% endtab %}
 {% endtabs %}
 
 ## Welche Version des SDK verwende ich? {#what-version-of-the-sdk-am-i-on}
 
-Sie können die SDK-Version einer bestimmten App im Dashboard unter **Einstellungen > App-Einstellungen** sehen. Unter **Live SDK Version** finden Sie die höchste Braze SDK-Version, die von Ihrer letzten Live-App für mindestens 5 % Ihrer Nutzer:innen verwendet wurde.
+Sie können die SDK-Version einer bestimmten App im Dashboard unter **Einstellungen > App Settings** sehen. Unter **Live SDK Version** finden Sie die höchste Braze SDK-Version, die von Ihrer letzten Live-App für mindestens 5 % Ihrer Nutzer:innen verwendet wurde.
 
 ![Eine App namens „Swifty“ in einem Workspace. Die Live SDK-Version ist 6.6.0.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 
 {% alert tip %}
-Wenn Sie eine iOS-App haben, können Sie sich vergewissern, dass Sie das [Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) anstelle des alten [Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) verwenden, wenn Ihre **Live SDK Version** gleich oder höher als 5.0.0 ist, was die erste veröffentlichte Version des Swift SDK war.
+Wenn Sie eine iOS-App haben, können Sie sich vergewissern, dass Sie das [Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) anstelle des alten [Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) verwenden, wenn Ihre **Live SDK Version** gleich oder höher als 5.0.0 ist, was die erste veröffentlichte Version des Swift SDK war.
 {% endalert %}

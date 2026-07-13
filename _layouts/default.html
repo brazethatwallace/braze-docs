@@ -6,7 +6,7 @@
 <body data-spy="scroll" data-target="#toc" >
   {% comment %} Google Tag Manager (noscript) {% endcomment %}
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{site.gta_tag_key}}"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  title="Google Tag Manager" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   {% comment %} End Google Tag Manager (noscript) {% endcomment %}
 <main>
 {% include header.html %}
@@ -17,6 +17,7 @@
   </div>
 </div>
 {% include contentcards.html %}
+{% include back_to_top_button.html %}
 {% include ask_ai_button.html %}
 {% endunless %}
 

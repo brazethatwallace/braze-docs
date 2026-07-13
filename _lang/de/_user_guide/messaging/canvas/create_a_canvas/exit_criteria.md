@@ -15,7 +15,7 @@ tool: Canvas
 > Wie schnell ein:e Nutzer:in den Canvas vollständig verlässt, hängt vom Schritt ab, in dem sie sich befinden – insbesondere bei Delay-Schritten.
 > Weitere Informationen finden Sie unter [Wie Nutzer:innen aussteigen](#how-users-exit).
 
-### Wie Nutzer:innen aussteigen {#how-users-exit}
+## Wie Nutzer:innen aussteigen {#how-users-exit}
 
 Wenn ein:e Nutzer:in das Ausstiegs-Event ausführt, markiert Braze sie sofort für den Ausstieg aus dem Canvas. Danach gelangen sie nicht mehr zu späteren Schritten.
 
@@ -105,5 +105,5 @@ Angenommen, wir möchten Nutzer:innen ansprechen, die noch keinen Kauf bei unser
 ![Ausstiegskriterien-Einstellungen mit „Makes Any Purchase“ als Ausnahme-Event. Wenn ein:e Nutzer:in einen Kauf tätigt, verlässt sie diesen Canvas.]({% image_buster /assets/img_archive/exit_criteria_example.png %}){: style="max-width:80%;"}
 
 {% alert tip %}
-Um Ausstiegskriterien einzurichten, die Event-Eigenschaften mit Canvas-Eingangs-Eigenschaften vergleichen (z. B. nur dann aussteigen, wenn ein:e Nutzer:in den spezifischen Artikel kauft, den sie aufgegeben hat), lesen Sie [Ausstiegskriterien mit Eingangs-Events abgleichen]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria/).
+Um Ausstiegskriterien einzurichten, die Event-Eigenschaften mit Canvas-Eingangs-Eigenschaften vergleichen (z. B. nur dann aussteigen, wenn ein:e Nutzer:in den spezifischen Artikel kauft, den sie aufgegeben hat), lesen Sie [Ausstiegskriterien mit Eingangs-Events abgleichen]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria).
 {% endalert %}

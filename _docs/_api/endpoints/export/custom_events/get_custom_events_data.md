@@ -18,7 +18,7 @@ description: "This article outlines details about the Export custom events Braze
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `events.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `events.get` permission.
 
 ## Rate limit
 
@@ -31,7 +31,7 @@ Note that each call to this endpoint will return 50 events. For more than 50 eve
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `cursor` | Optional | String | Determines the pagination of the custom events. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
 
 ## Example requests
 
@@ -71,10 +71,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 
 ### Fatal error response codes {#fatal-export}
 
-For status codes and associated error messages that will be returned if your request encounters a fatal error, reference [Fatal errors]({{site.baseurl}}/api/errors/#fatal-errors).
+For status codes and associated error messages that will be returned if your request encounters a fatal error, reference [Fatal errors]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

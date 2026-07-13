@@ -1,64 +1,67 @@
 ---
 nav_title: Criptografia em nível de campo do identificador
-article_title: Criptografia do campo de identificador
+article_title: Criptografia em nível de campo do identificador
 page_order: 2
 alias: "/field_level_encryption/"
-description: "Este artigo de referência aborda como criptografar endereços de e-mail para minimizar as informações de identificação pessoal (IPI) compartilhadas no Braze."
+description: "Este artigo de referência aborda como criptografar endereços de e-mail para minimizar as informações de identificação pessoal (IPI) compartilhadas na Braze."
 page_type: reference
 ---
 
-# Criptografia em nível de campo do identificador
+# Criptografia em nível de campo do identificador {#identifier-field-level-encryption}
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+> Criptografe endereços de e-mail para minimizar as informações de identificação pessoal (IPI) compartilhadas na Braze.
+
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
-A criptografia em nível de campo do identificador está disponível como um recurso complementar. Para começar com a criptografia em nível de campo de identificador, entre em contato com seu gerente de conta do Braze.
+A criptografia em nível de campo do identificador está disponível como um recurso complementar. Para começar com a criptografia em nível de campo do identificador, entre em contato com seu gerente de conta da Braze.
 {% endalert %}
 
-## Como funciona?
+## Como funciona {#how-it-works}
 
-Os endereços de e-mail devem ser criptografados e transformados em hash antes de serem adicionados ao Braze. Quando uma mensagem for enviada, será feita uma chamada para o AWS KMS para obter o endereço de e-mail descriptografado. Em seguida, o endereço de e-mail com hash será inserido nos metadados para que os eventos de entrega e engajamento sejam vinculados ao usuário original. É assim que o Braze pode rastrear a análise de dados de e-mail. O Braze redigirá todos os endereços de e-mail em texto simples que forem incluídos e não armazenará o endereço de e-mail em texto simples do usuário.
+Os endereços de e-mail devem ser transformados em hash e criptografados antes de serem adicionados à Braze. Quando uma mensagem é enviada, será feita uma chamada ao AWS KMS para obter o endereço de e-mail descriptografado. Em seguida, o endereço de e-mail com hash será inserido nos metadados para que os eventos de entrega e engajamento sejam vinculados ao usuário original. É assim que a Braze consegue rastrear a análise de dados de e-mail. A Braze redigirá todos os endereços de e-mail em texto simples que forem incluídos e não armazenará o endereço de e-mail em texto simples do usuário.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar a criptografia em nível de campo, você deve ter acesso ao AWS KMS para [criptografar](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) e [fazer hash](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html) dos endereços de e-mail **antes** de enviá-los à Braze. 
+Para usar a criptografia em nível de campo do identificador, você deve ter acesso ao AWS KMS para [criptografar](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) e [fazer hash](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html) dos endereços de e-mail **antes** de enviá-los à Braze.
 
 Siga estas etapas para configurar seu método de autenticação de chave secreta da AWS.
 
 1. Para recuperar o ID da chave de acesso e a chave de acesso secreta, [crie um usuário IAM e um grupo de administradores](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-set-up.html#create-an-admin) na AWS com uma política de permissões para o AWS Key Management Service. O usuário do IAM deve ter as permissões [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) e [kms:GenerateMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html). Para saber mais, consulte [Permissões do AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html).
-2. Selecione **Show User Security Credentials (Mostrar credenciais de segurança do usuário** ) para revelar o ID da chave de acesso e a chave de acesso secreta. Anote essas credenciais em algum lugar ou selecione o botão **Baixar credenciais**, pois você precisará inseri-las ao conectar suas chaves do AWS KMS.
+2. Selecione **Show User Security Credentials** para revelar o ID da chave de acesso e a chave de acesso secreta. Anote essas credenciais em algum lugar ou selecione o botão **Download Credentials**, pois você precisará inseri-las ao conectar suas chaves do AWS KMS.
 3. Você deve configurar o KMS nas seguintes regiões da AWS:
-    - **Clusters Braze nos EUA:** `us-east-1`
-    - **Clusters Braze na UE:** `eu-central-1`
-    - **Braze AU cluster:** `ap-southeast-2`
-    - **Braze ID cluster:** `ap-southeast-3`
+    - **Clusters da Braze nos EUA:** `us-east-1`
+    - **Clusters da Braze na UE:** `eu-central-1`
+    - **Cluster da Braze na AU:** `ap-southeast-2`
+    - **Cluster da Braze na ID:** `ap-southeast-3`
+    - **Cluster da Braze no JP:** `ap-northeast-1`
 4. No AWS Key Management Service, crie duas chaves e certifique-se de que o usuário IAM seja adicionado às permissões de uso da chave:
-    - **[Criptografar/descriptografar](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk):** Selecione o tipo de chave **Simétrica** e o uso de chave **Criptografar e descriptografar**.
-    - **[Hash](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html):** Selecione o tipo de chave **Simétrica** e o uso de chave **Gerar e verificar MAC**. A especificação da chave deve ser **HMAC_256**. Depois de criar a chave, anote o ID da chave HMAC em algum lugar, pois você precisará inseri-lo na Braze.
+    - **[Criptografar/descriptografar](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk):** Selecione o tipo de chave **Symmetric** e o uso de chave **Encrypt and Decrypt**.
+    - **[Hash](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html):** Selecione o tipo de chave **Symmetric** e o uso de chave **Generate and Verify MAC**. A especificação da chave deve ser **HMAC_256**. Depois de criar a chave, anote o ID da chave HMAC em algum lugar, pois você precisará inseri-lo na Braze.
 
-![]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
+![Configurações da chave com as opções symmetric, generate and verify MAC e HMAC_256 selecionadas.]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
-## Etapa 1: Conecte suas chaves AWS KMS
+## Etapa 1: Conecte suas chaves do AWS KMS {#step-1-connect-your-aws-kms-keys}
 
-No dashboard do Braze, acesse **Data Settings** > **Field-Level Encryption** Para suas configurações do AWS KMS, digite o seguinte:
+No dashboard da Braze, acesse **Configurações de dados** > **Field-Level Encryption**. Para suas configurações do AWS KMS, insira o seguinte:
 
-- Acessar ID da chave
-- Chave de acesso de segredo
-- ID da chave HMAC (não pode ser atualizada após o salvamento)
+- ID da chave de acesso
+- Chave de acesso secreta
+- ID da chave HMAC (não pode ser atualizado após o salvamento)
 
-## Etapa 2: Selecione seus campos criptografados
+## Etapa 2: Selecione seus campos criptografados {#step-2-select-your-encrypted-fields}
 
-Em seguida, selecione **Endereço de e-mail** para criptografar o campo. 
+Em seguida, selecione **Email address** para criptografar o campo.
 
-Quando a criptografia é ativada para um campo, ele não pode ser revertido para um campo descriptografado. Isso significa que a criptografia é uma configuração permanente. Ao configurar a criptografia para o endereço de e-mail, confirme se nenhum usuário tem endereços de e-mail no espaço de trabalho. Isso garante que nenhum endereço de e-mail em texto simples seja armazenado no Braze ao ativar o recurso para o espaço de trabalho.
+Quando a criptografia é ativada para um campo, ela não pode ser revertida para um campo descriptografado. Isso significa que a criptografia é uma configuração permanente. Ao configurar a criptografia para o endereço de e-mail, confirme que nenhum usuário tem endereços de e-mail no espaço de trabalho. Isso garante que nenhum endereço de e-mail em texto simples seja armazenado na Braze ao ativar o recurso para o espaço de trabalho.
 
-![]({% image_buster /assets/img/field_level_encryption.png %})
+![Configurações de criptografia em nível de campo.]({% image_buster /assets/img/field_level_encryption.png %})
 
-## Etapa 3: Importação e atualização de usuários
+## Etapa 3: Importar e atualizar usuários {#step-3-import-and-update-users}
 
-Quando a criptografia em nível de campo do identificador estiver ativada, você deverá fazer hash e criptografar o endereço de e-mail antes de adicioná-lo ao Braze. Certifique-se de colocar o endereço de e-mail em letras minúsculas antes de fazer o envio de e-mail. Consulte o [objeto de atribuições do usuário](#user-attributes-object) para obter mais detalhes.
+Quando a criptografia em nível de campo do identificador estiver ativada, você deverá fazer hash e criptografar o endereço de e-mail antes de adicioná-lo à Braze. Certifique-se de converter o endereço de e-mail para letras minúsculas antes de fazer o hash. Consulte o [objeto de atributos do usuário](#user-attributes-object) para obter mais detalhes.
 
-Ao atualizar o endereço de e-mail no Braze, você deve usar o valor de e-mail com hash sempre que `email` estiver incluído. Isso inclui:
+Ao atualizar o endereço de e-mail na Braze, você deve usar o valor de e-mail com hash sempre que `email` estiver incluído. Isso inclui:
 
 - Endpoints REST:
     - `/users/track`
@@ -71,57 +74,57 @@ Ao atualizar o endereço de e-mail no Braze, você deve usar o valor de e-mail c
 Ao criar um novo usuário com um endereço de e-mail, é necessário adicionar `email_encrypted` com o valor de e-mail criptografado do usuário. Caso contrário, o usuário não será criado. Da mesma forma, se estiver adicionando um endereço de e-mail a um usuário existente que não tenha um e-mail, será necessário adicionar `email_encrypted`. Caso contrário, o usuário não será atualizado.
 {% endalert %}
 
-## Considerações
+## Considerações {#considerations}
 
 Esses recursos não são compatíveis com a criptografia em nível de campo do identificador:
 
 - Identificação e captura de endereço de e-mail via SDK
-- Formulários de captura de mensagens no app
-- Relatórios sobre o domínio do destinatário, incluindo gráficos do provedor de caixa de e-mail de Insights de e-mail
-- Filtro de endereços de e-mail por expressão regular
-- Sincronização com o público
+- Formulários de captura de e-mail em mensagens no app
+- Relatórios sobre o domínio do destinatário, incluindo gráficos do provedor de caixa de e-mail do Email Insights
+- Filtro de endereço de e-mail por expressão regular
+- Sincronização de público
 - Integração com o Shopify
 
-### Objeto de atribuições do usuário
+### Objeto de atributos do usuário {#user-attributes-object}
 
-Ao usar a criptografia no nível do campo do identificador com o ponto de extremidade `/users/track`, note esses detalhes de campo para o [objeto de atribuições do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object):
+Ao usar a criptografia em nível de campo do identificador com o endpoint `/users/track`, observe estes detalhes de campo para o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens):
 
 - O campo `email` deve ser o valor com hash do e-mail.
 - O campo `email_encrypted` deve ser o valor criptografado do e-mail.
 
-## Perguntas frequentes
+## Perguntas frequentes {#frequently-asked-questions}
 
-### Qual é a diferença entre criptografia e hashing?
+### Qual é a diferença entre criptografia e hashing? {#what-is-the-difference-between-encrypting-and-hashing}
 
 A criptografia é uma função bidirecional em que é possível criptografar e descriptografar dados. Se o mesmo valor de texto simples for criptografado várias vezes, o algoritmo de criptografia da AWS (AES-256-GCM) produzirá valores criptografados diferentes. O hashing é uma função unidirecional em que o texto simples é embaralhado de uma forma que não pode ser descriptografada. O hashing produz o mesmo valor todas as vezes. Isso nos permite manter estados de inscrição em vários usuários que compartilham o mesmo endereço de e-mail.
 
-### Que endereço de e-mail devo usar em meu envio de teste?
+### Que endereço de e-mail devo usar no meu envio de teste? {#what-email-address-should-i-use-in-my-test-send}
 
-Os endereços de e-mail em texto simples são suportados no envio de testes. Para ver a aparência de um e-mail para um usuário específico, faça o seguinte:
+Os endereços de e-mail em texto simples são aceitos no envio de testes. Para ver como um e-mail aparece para um usuário específico, faça o seguinte:
 
-1. Selecione **Pré-visualizar mensagem como um usuário**.
-2. Em **Test Send (Envio de teste**), selecione **Override recipients attributes (Substituir atribuições dos destinatários) com as atribuições do usuário da prévia atual**.
+1. Selecione **Preview message as a user**.
+2. Em **Test Send**, selecione **Override recipients attributes with current preview user's attributes**.
 
 {%raw%}
-### O que acontecerá se eu adicionar esse endereço de e-mail Liquid `{{${email_address}}}` no Braze?
+### O que acontece se eu adicionar este endereço de e-mail Liquid `{{${email_address}}}` na Braze? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
-O Braze renderizará o endereço de e-mail em texto simples ao enviar o e-mail. Nas prévias, exibiremos a versão criptografada do e-mail. Recomendamos usar o ID externo do usuário se estiver fazendo referência a um usuário em um URL personalizado de um clique.
+A Braze renderizará o endereço de e-mail em texto simples ao enviar o e-mail. Nas pré-visualizações, exibiremos a versão criptografada do e-mail. Recomendamos usar o ID externo do usuário se estiver fazendo referência a um usuário em uma URL personalizada de um clique.
 
-`{{${email_address}}}` não é suportado atualmente no centro de preferências e nas páginas de cancelamento de inscrição.
+`{{${email_address}}}` não é compatível atualmente com a Central de Preferências e as páginas de cancelamento de inscrição.
 {%endraw%}
 
-### Que endereço de e-mail devo esperar ver no Currents?
+### Que endereço de e-mail devo esperar ver no Currents? {#what-email-address-should-i-expect-to-see-in-currents}
 
-O endereço de e-mail com hash é incluído nos eventos de envio e engajamento de e-mail.
+O endereço de e-mail com hash é incluído nos eventos de entrega e engajamento de e-mail.
 
-### Que endereço de e-mail devo esperar ver no arquivamento de mensagens?
+### Que endereço de e-mail devo esperar ver no arquivamento de mensagens? {#what-email-address-should-i-expect-to-see-in-message-archiving}
 
-O endereço de e-mail em texto simples é incluído no arquivamento de mensagens. Eles são enviados diretamente ao provedor de armazenamento em nuvem do cliente e pode haver outros dados pessoais incluídos nos corpos dos e-mails.
+O endereço de e-mail em texto simples é incluído no arquivamento de mensagens. Eles são enviados diretamente ao provedor de armazenamento em nuvem do cliente, e pode haver outros dados pessoais incluídos nos corpos dos e-mails.
 
-### Posso usar mail-to list-unsubscribe para gerenciamento de inscrições com criptografia em nível de campo do identificador?
+### Posso usar mail-to list-unsubscribe para gerenciamento de inscrições com criptografia em nível de campo do identificador? {#can-i-use-mail-to-list-unsubscribe-for-subscription-management-with-identifier-field-level-encryption}
 
-Não. O uso de mail-to list-unsubscribe enviaria o endereço de e-mail descriptografado em texto simples para o Braze. Com a criptografia em nível de campo do identificador ativada, oferecemos suporte ao método HTTP: baseado em URL, incluindo um clique. Também recomendamos incluir um link de cancelamento de inscrição com um clique no corpo do e-mail.
+Não. O uso de mail-to list-unsubscribe enviaria o endereço de e-mail descriptografado em texto simples para a Braze. Com a criptografia em nível de campo do identificador ativada, oferecemos suporte ao método HTTP baseado em URL, incluindo um clique. Também recomendamos incluir um link de cancelamento de inscrição com um clique no corpo do e-mail.
 
-### A criptografia em nível de campo do identificador é compatível com outros identificadores, como o telefone?
+### A criptografia em nível de campo do identificador é compatível com outros identificadores, como telefone? {#does-identifier-field-level-encryption-support-other-identifiers-like-phone}
 
 Não. Atualmente, a criptografia em nível de campo do identificador é compatível apenas com endereços de e-mail.

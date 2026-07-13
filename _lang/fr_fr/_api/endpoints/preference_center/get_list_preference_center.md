@@ -9,7 +9,7 @@ description: "Cet article détaille l'endpoint Braze Répertorier les centres de
 
 ---
 {% api %}
-# Répertorier les centres de préférences
+# Répertorier les centres de préférences {#list-preference-centers}
 {% apimethod get %}
 /preference_center/v1/list
 {% endapimethod %}
@@ -18,26 +18,26 @@ description: "Cet article détaille l'endpoint Braze Répertorier les centres de
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dd8f6667-5eba-4e19-a29e-ba74644c0b8e {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec la permission `preference_center.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec la permission `preference_center.list`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Paramètres de chemin et de requête
+## Paramètres de chemin et de requête {#path-and-request-parameters}
 
 Cet endpoint n'a pas de paramètres de chemin ni de requête.
 
-## Exemple de requête
+## Exemple de requête {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/list \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 
 ```json
 {

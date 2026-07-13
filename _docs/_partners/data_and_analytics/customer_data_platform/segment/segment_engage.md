@@ -25,8 +25,9 @@ The Braze and Segment integration allows you to use [Engage](https://segment.com
 | Segment account | A [Segment account](https://app.segment.com/login) is required to take advantage of this partnership. |
 | Braze Cloud destination | You must have already [set up Braze as a destination]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) in your Segment integration.<br><br>This includes providing the correct Braze data center and REST API key in your [connection settings]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
 | Braze data import key | To sync Engage audiences to Braze as cohorts, you must generate a Data Import key.<br><br>Cohort import is in early access, contact your Braze customer success manager to get access to this feature. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Cohorts Destination integration
 
@@ -48,7 +49,7 @@ Follow [Segment’s instructions](https://segment.com/docs/connections/destinati
 ### Step 4: Create a Braze segment from the Engage audience
 In Braze, navigate to **Segments**, create a new segment, and select **Segment Cohorts** as your filter. From here, you can choose which Segment cohort you wish to include. After the Segment cohort segment is created, you can select it as an audience filter when creating a campaign or Canvas.
 
-![]({% image_buster /assets/img/segment/segment3.png %})
+![Braze segment builder using the Segment Cohorts filter.]({% image_buster /assets/img/segment/segment3.png %})
 
 ## Cloud Mode integration
 
@@ -78,6 +79,7 @@ For example, if you have an Engage computed trait for "Last Product Viewed Item,
 | Computed Trait | Audiences |
 | -------------- | --------- |
 | ![The custom attribute section within a user profile lists "last_product_viewed_item" as "Sweater".]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![The custom attribute section within a user profile lists "dormant_shopper" as "true".]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Computed traits and audiences" }
 
 {% endtab %}
 {% tab Track %}
@@ -89,6 +91,7 @@ Continuing the previous example, if a user has a computed trait for "Last Produc
 | Computed Trait | Audiences |
 | -------------- | --------- |
 | ![The custom event section within a user profile lists "Trait Computed" "1" time, with the last time being "20 hours ago".]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![The custom attribute section within a user profile lists "Audience Entered" "1" time, with the last time being "March 9 at 1:45 am".]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Computed traits and audiences" }
 
 {% endtab %}
 {% endtabs %}

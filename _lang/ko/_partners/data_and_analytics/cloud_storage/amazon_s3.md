@@ -18,7 +18,7 @@ search_tag: Partner
 
 Braze와 Amazon S3 통합에는 두 가지 통합 전략이 있습니다:
 
-- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 활용하여 다른 플랫폼, 도구 및 위치에 연결할 때까지 데이터를 저장할 수 있습니다.
+- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 활용하여 다른 플랫폼, 도구 및 위치에 연결할 때까지 데이터를 저장할 수 있습니다.
 - 대시보드 데이터 내보내기(CSV 내보내기 및 참여 보고서 등)를 사용합니다.
 
 ## 필수 조건 {#prerequisites}
@@ -27,10 +27,10 @@ Braze와 Amazon S3 통합에는 두 가지 통합 전략이 있습니다:
 | ----------- | ----------- |
 | Amazon S3 계정 | 이 파트너십을 이용하려면 Amazon S3 계정이 필요합니다. |
 | 전용 S3 버킷 | Amazon S3와 통합하기 전에 앱용 S3 버킷을 생성해야 합니다.<br><br>이미 S3 버킷이 있는 경우에도 권한을 제한할 수 있도록 Braze 전용 새 버킷을 만드는 것을 권장합니다. 새 버킷을 만드는 방법은 다음 지침을 참조하세요. |
-| Currents | 데이터를 Amazon S3로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. 메시지 아카이브만 설정하는 경우에는 Currents가 필요하지 않습니다. |
+| Currents | 데이터를 Amazon S3로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)가 설정되어 있어야 합니다. 메시지 아카이브만 설정하는 경우에는 Currents가 필요하지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### 새 S3 버킷 만들기 {#creating-a-new-s3-bucket}
+### 새 S3 버킷 만들기 {#creating-a-new-s3-bucket}
 
 앱용 버킷을 만들려면 다음을 수행합니다:
 
@@ -47,7 +47,7 @@ Currents는 [Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/
 
 ## 통합 {#integration}
 
-Braze는 Amazon S3와 두 가지 통합 전략을 제공합니다. 하나는 [Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)용이고, 다른 하나는 모든 대시보드 데이터 내보내기(CSV 내보내기 또는 참여 보고서 등)용입니다. 두 통합 모두 두 가지 인증 또는 승인 방법을 지원합니다:
+Braze는 Amazon S3와 두 가지 통합 전략을 제공합니다. 하나는 [Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents)용이고, 다른 하나는 모든 대시보드 데이터 내보내기(CSV 내보내기 또는 참여 보고서 등)용입니다. 두 통합 모두 두 가지 인증 또는 승인 방법을 지원합니다:
 
 - [AWS 비밀 액세스 키 방법](#aws-secret-key-auth-method)
 - [AWS 역할 ARN 방법](#aws-role-arn-auth-method)
@@ -68,13 +68,13 @@ Braze는 Amazon S3와 두 가지 통합 전략을 제공합니다. 하나는 [Br
 
 새 사용자를 만든 후 **Show User Security Credentials**를 선택하여 액세스 키 ID와 비밀 액세스 키를 확인합니다. 그런 다음 자격 증명을 어딘가에 기록해 두거나 **Download Credentials** 버튼을 선택합니다. 나중에 Braze 대시보드에 입력해야 하기 때문입니다.
 
-![]({% image_buster /assets/img_archive/S3_Credentials.png %})
+![액세스 키 ID와 비밀 액세스 키를 보여주는 AWS IAM 사용자 보안 자격 증명 페이지.]({% image_buster /assets/img_archive/S3_Credentials.png %})
 
 ### 3단계: 정책 생성 {#secret-key-3}
 
 **Policies** > **Get Started** > **Create Policy**로 이동하여 사용자에 대한 권한을 추가합니다. 그런 다음 **Create Your Own Policy**를 선택합니다. 이렇게 하면 제한된 권한이 부여되어 Braze가 지정된 버킷에만 액세스할 수 있습니다.
 
-![]({% image_buster /assets/img_archive/S3_CreatePolicy.png %})
+![S3 통합을 위한 정책 옵션이 있는 AWS IAM 정책 생성 화면.]({% image_buster /assets/img_archive/S3_CreatePolicy.png %})
 
 {% alert note %}
 Currents와 대시보드 데이터 내보내기에는 서로 다른 정책이 필요합니다. `s3:GetObject`는 Braze 백엔드가 오류 처리를 수행할 수 있도록 하기 위해 필요합니다.
@@ -131,7 +131,7 @@ Currents와 대시보드 데이터 내보내기에는 서로 다른 정책이 �
 
 새 정책을 만든 후 **Users**로 이동하여 특정 사용자를 선택합니다. **Permissions** 탭에서 **Attach Policy**를 선택하고 방금 만든 새 정책을 선택합니다. 이제 AWS 자격 증명을 Braze 계정에 연결할 준비가 되었습니다.
 
-![]({% image_buster /assets/img_archive/S3_AttachPolicy.png %})
+![Attach Policy 작업이 선택된 AWS IAM 사용자 권한 탭.]({% image_buster /assets/img_archive/S3_AttachPolicy.png %})
 
 ### 5단계: Braze를 AWS에 연결 {#secret-key-5}
 
@@ -148,7 +148,7 @@ Braze에서 **파트너 통합** > **Currents**로 이동합니다.
 
 Current의 이름을 지정합니다. **Credentials** 섹션에서 **AWS Secret Access Key**가 선택되어 있는지 확인한 다음, 지정된 필드에 S3 액세스 ID, AWS 비밀 액세스 키 및 AWS S3 버킷 이름을 입력합니다.
 
-![]({{site.baseurl}}/assets/img/currents-s3-example.png)
+![AWS 비밀 키 자격 증명 필드가 있는 Amazon S3용 Braze 새 Current 생성 양식.]({{site.baseurl}}/assets/img/currents-s3-example.png)
 
 {% alert warning %}
 AWS 액세스 키 ID와 비밀 액세스 키를 최신 상태로 유지하세요. 커넥터의 자격 증명이 만료되면 커넥터는 이벤트 전송을 중지합니다. 이 상태가 **5일** 이상 지속되면 커넥터의 이벤트가 삭제되고 데이터가 영구적으로 손실됩니다.
@@ -170,7 +170,7 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **Amazon
 
 **AWS Credentials** 페이지에서 **AWS Secret Access Key**가 선택되어 있는지 확인한 다음, 지정된 필드에 AWS 액세스 ID, AWS 비밀 액세스 키 및 AWS S3 버킷 이름을 입력합니다. 비밀 키를 입력할 때 먼저 **Test Credentials**를 선택하여 자격 증명이 작동하는지 확인한 다음, 성공하면 **Save**를 선택합니다.
 
-![]({{site.baseurl}}/assets/img/s3_tech_partners.png)
+![테스트 및 저장 작업이 있는 Braze Amazon S3 기술 파트너 자격 증명 페이지.]({{site.baseurl}}/assets/img/s3_tech_partners.png)
 
 {% alert tip %}
 AWS 콘솔의 **Security Credentials** 탭에서 사용자로 이동하여 **Create Access Key**를 선택하면 언제든지 새 자격 증명을 검색할 수 있습니다.
@@ -189,7 +189,7 @@ AWS 콘솔의 **Security Credentials** 탭에서 사용자로 이동하여 **Cre
 
 시작하려면 계정 관리자로 AWS 관리 콘솔에 로그인합니다. AWS 콘솔의 IAM 섹션으로 이동하여 탐색 바에서 **Policies**를 선택한 다음 **Create Policy**를 선택합니다.
 
-![]({{site.baseurl}}/assets/img/create_policy_1_list.png)
+![Create Policy 버튼이 선택된 AWS IAM 정책 페이지.]({{site.baseurl}}/assets/img/create_policy_1_list.png)
 
 {% alert note %}
 Currents와 대시보드 데이터 내보내기에는 서로 다른 정책이 필요합니다. `s3:GetObject`는 Braze 백엔드가 오류 처리를 수행할 수 있도록 하기 위해 필요합니다.
@@ -248,15 +248,15 @@ Currents와 대시보드 데이터 내보내기에는 서로 다른 정책이 �
 
 다음으로 정책에 이름과 설명을 지정하고 **Create Policy**를 선택합니다.
 
-![]({{site.baseurl}}/assets/img/create_policy_3_name.png)
+![정책 이름 및 설명 필드가 있는 AWS IAM 정책 검토 단계.]({{site.baseurl}}/assets/img/create_policy_3_name.png)
 
-![]({{site.baseurl}}/assets/img/create_policy_4_created.png)
+![새로 생성된 S3 정책을 보여주는 AWS IAM 정책 목록.]({{site.baseurl}}/assets/img/create_policy_4_created.png)
 
 ### 2단계: 역할 생성 {#role-arn-2}
 
 콘솔의 동일한 IAM 섹션에서 **Roles** > **Create Role**을 선택합니다.
 
-![]({{site.baseurl}}/assets/img/create_role_1_list.png)
+![Create Role 버튼이 선택된 AWS IAM 역할 페이지.]({{site.baseurl}}/assets/img/create_role_1_list.png)
 
 Braze 계정에서 Braze 계정 ID와 외부 ID를 검색합니다:
 
@@ -283,11 +283,11 @@ AWS 콘솔로 돌아가서 신뢰할 수 있는 엔터티 선택기 유형으로
 
 AWS 콘솔에서 새로 만든 역할을 목록에서 찾습니다. 이름을 선택하여 해당 역할의 세부 정보를 엽니다.
 
-![]({{site.baseurl}}/assets/img/create_role_5_created.png)
+![새로 생성된 역할의 AWS IAM 역할 세부 정보 페이지.]({{site.baseurl}}/assets/img/create_role_5_created.png)
 
 역할 요약 페이지 상단에 있는 **Role ARN**을 기록해 둡니다.
 
-![]({{site.baseurl}}/assets/img/create_role_6_summary.png)
+![역할 ARN 값을 보여주는 AWS IAM 역할 요약.]({{site.baseurl}}/assets/img/create_role_6_summary.png)
 
 Braze 계정으로 돌아가서 제공된 필드에 역할 ARN을 복사합니다.
 
@@ -300,7 +300,7 @@ Braze 계정으로 돌아가서 제공된 필드에 역할 ARN을 복사합니�
 
 Braze에서 **파트너 통합** > **Currents**로 이동합니다. 그런 다음 **Create New Current**을 선택하고 **Amazon S3 Data Export**를 선택합니다.
 
-![]({{site.baseurl}}/assets/img/currents-role-arn.png)
+![AWS 역할 ARN 및 버킷 필드가 있는 Braze Currents Amazon S3 설정 화면.]({{site.baseurl}}/assets/img/currents-role-arn.png)
 
 Current에 이름을 지정합니다. 그런 다음 **Credentials** 섹션에서 **AWS Role ARN**이 선택되어 있는지 확인하고 지정된 필드에 역할 ARN과 AWS S3 버킷 이름을 입력합니다.
 
@@ -320,7 +320,7 @@ Current에 이름을 지정합니다. 그런 다음 **Credentials** 섹션에서
 
 Braze에서 **통합** 아래의 **기술 파트너** 페이지로 이동하여 **Amazon S3**를 선택합니다.
 
-![]({{site.baseurl}}/assets/img/data-export-role-arn.png)
+![AWS 역할 ARN 자격 증명이 선택된 Braze Amazon S3 기술 파트너 페이지.]({{site.baseurl}}/assets/img/data-export-role-arn.png)
 
 **AWS Credentials** 페이지에서 **AWS Role ARN** 라디오 버튼이 선택되어 있는지 확인한 다음, 지정된 필드에 역할 ARN과 AWS S3 버킷 이름을 입력합니다. 먼저 **Test Credentials**를 선택하여 자격 증명이 올바르게 작동하는지 확인한 다음, 성공하면 **Save**를 선택합니다.
 
@@ -333,6 +333,14 @@ AWS 콘솔의 **Security Credentials** 탭에서 사용자로 이동하여 **Cre
 {% endtab %}
 {% endtabs %}
 
+## Currents의 Amazon S3 자격 증명 업데이트 {#updating-currents-credentials}
+
+통합을 중지하거나 이미 버킷으로 내보낸 데이터를 잃지 않고 기존 Braze Currents 커넥터의 Amazon S3 자격 증명을 업데이트할 수 있습니다.
+
+자격 증명을 새로고침하거나 **AWS Secret Access Key**와 **AWS Role ARN** 간에 전환하려면, 이 문서 앞부분에서 선택한 방법에 대한 IAM 및 AWS 측 단계(정책, 사용자 또는 역할, 필요한 식별자)를 완료하세요.
+
+AWS에서 자격 증명 준비를 마쳤으면 Braze에서 **파트너 통합** > **Currents**로 이동하여 목록에서 Amazon S3 커넥터를 찾고 **Edit**을 선택한 다음 **Credentials**를 업데이트하고 **Update Current**을 선택합니다. Braze가 입력한 자격 증명을 검증하며, 커넥터는 계속 실행되고 버킷에 이미 있는 데이터는 그대로 사용할 수 있습니다. 자세한 내용은 [Currents 설정에서 Currents 업데이트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#updating-currents)를 참조하세요.
+
 ## 내보내기 동작 {#export-behavior}
 
 클라우드 데이터 스토리지 솔루션을 통합하고 API, 대시보드 보고서 또는 CSV 보고서를 내보내는 사용자는 다음과 같은 경험을 하게 됩니다:
@@ -342,9 +350,9 @@ AWS 콘솔의 **Security Credentials** 탭에서 사용자로 이동하여 **Cre
 
 ### `Unable to connect to S3, please validate that your credentials are correct` 오류 {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
 
-CSV 내보내기를 다운로드할 때 이 오류가 표시되면 **기술 파트너** 페이지에서 [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) 통합을 열고 **Test Credentials**를 선택합니다. 결과에서 검증에 실패한 항목이 설명됩니다. 예를 들어 키에 `GetObject` 권한이 없어 Braze가 다운로드 링크를 생성할 수 없는 경우가 있습니다.
+CSV 내보내기를 다운로드할 때 이 오류가 표시되면 **기술 파트너** 페이지에서 [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) 통합을 열고 **Test Credentials**를 선택합니다. 결과에서 검증에 실패한 항목이 설명됩니다. 예를 들어 키에 `GetObject` 권한이 없어 Braze가 다운로드 링크를 생성할 수 없는 경우가 있습니다.
 
-통합 사용자 또는 역할이 Braze 통합에 구성된 S3 버킷 및 오브젝트 경로에서 `s3:GetObject`를 호출할 수 있도록 IAM 정책을 업데이트하세요. 추가 내보내기 문제에 대해서는 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+통합 사용자 또는 역할이 Braze 통합에 구성된 S3 버킷 및 오브젝트 경로에서 `s3:GetObject`를 호출할 수 있도록 IAM 정책을 업데이트하세요. 추가 내보내기 문제에 대해서는 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 
 {% alert important %}
 **JSON 형식 요구 사항:** JSON 내보내기의 경우 Braze는 각 줄에 별도의 JSON 오브젝트가 포함되는 JSONL(줄 바꿈으로 구분된 JSON) 형식을 사용합니다. 이 형식은 단일 JSON 배열 또는 오브젝트인 표준 JSON과는 다릅니다. 내보낸 파일의 각 줄은 유효한 JSON 오브젝트이지만 파일 전체가 하나의 유효한 JSON 문서가 아닙니다. 이러한 파일을 처리할 때는 전체 파일을 하나의 JSON 문서로 구문 분석하지 말고 각 줄을 별도의 JSON 오브젝트로 개별적으로 구문 분석하세요.
@@ -380,7 +388,7 @@ S3 Credentials are invalid because this account does not have 'PutObject access'
 User: arn:aws:sts::XXX:assumed-role/braze-iam-role/braze is not authorized to perform: kms:GenerateDataKey on resource: arn:aws:XXX because no identity-based policy allows the kms:GenerateDataKey action
 ```
 
-[Braze 고객지원]({{site.baseurl}}/braze_support/) 또는 AWS 로그에서 이 오류 메시지를 받은 경우, S3 버킷이 AWS Key Management Service(SSE-KMS) 암호화로 구성되어 있는 것입니다. Braze는 Currents 또는 대시보드 데이터 내보내기에 대해 SSE-KMS를 지원하지 않습니다. 이 문제를 해결하려면 S3 버킷에서 SSE-KMS를 비활성화하세요.
+[Braze 고객지원]({{site.baseurl}}/braze_support) 또는 AWS 로그에서 이 오류 메시지를 받은 경우, S3 버킷이 AWS Key Management Service(SSE-KMS) 암호화로 구성되어 있는 것입니다. Braze는 Currents 또는 대시보드 데이터 내보내기에 대해 SSE-KMS를 지원하지 않습니다. 이 문제를 해결하려면 S3 버킷에서 SSE-KMS를 비활성화하세요.
 
 {% alert note %}
 Braze는 S3 관리 키를 사용한 서버 측 암호화(SSE-S3)를 지원하며, 이는 Currents와 대시보드 데이터 내보내기 모두와 호환됩니다.

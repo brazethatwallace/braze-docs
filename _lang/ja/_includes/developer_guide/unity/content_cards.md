@@ -1,28 +1,28 @@
 {% multi_lang_include developer_guide/prerequisites/unity.md %}
 
-## コンテンツカードをネイティブに表示する {#unity-content-cards-native-ui}
+## Content Cardsをネイティブに表示する {#unity-content-cards-native-ui}
 
-次の呼び出しを使用して、コンテンツカードのデフォルトユーザーインターフェイスを表示できます。
+次の呼び出しを使用して、Content CardsのデフォルトUIを表示できます。
 
 ```csharp
 Appboy.AppboyBinding.DisplayContentCards();
 ```
 
-## Unityでコンテンツカードデータを受信する
+## UnityでContent Cardsデータを受信する {#receiving-content-card-data-in-unity}
 
-Unity ゲームオブジェクトを登録して、コンテンツカードの受信について通知を受けることができます。Brazeコンフィギュレーションエディタから設定のゲームオブジェクトリスナを使用することをお勧めします。
+Unityゲームオブジェクトを登録して、受信するContent Cardsの通知を受け取ることができます。Brazeコンフィギュレーションエディタからゲームオブジェクトリスナーを設定することをお勧めします。
 
-ゲームオブジェクトのリスナーを実行時に設定する必要がある場合は、`AppboyBinding.ConfigureListener()` を使用し、`BrazeUnityMessageType.CONTENT_CARDS_UPDATED` を指定します。
+ゲームオブジェクトリスナーを実行時に設定する必要がある場合は、`AppboyBinding.ConfigureListener()`を使用し、`BrazeUnityMessageType.CONTENT_CARDS_UPDATED`を指定します。
 
-さらに、`AppboyBinding.RequestContentCardsRefresh()` を呼び出して、iOS 上のゲームオブジェクトリスナーでデータの受信を開始する必要があります。
+なお、iOSではゲームオブジェクトリスナーでデータの受信を開始するために、`AppboyBinding.RequestContentCardsRefresh()`の呼び出しも必要です。
 
-## コンテンツカードの解析
+## Content Cardsの解析 {#parsing-content-cards}
 
-Content Cards ゲームオブジェクトコールバックで受信した受信`string` メッセージは、事前に提供されている[`ContentCard`](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/Models/Cards/ContentCard.cs) モデルオブジェクトに構文解析すると便利です。
+Content Cardsゲームオブジェクトコールバックで受信した`string`メッセージは、あらかじめ用意されている[`ContentCard`](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/Models/Cards/ContentCard.cs)モデルオブジェクトに解析すると便利です。
 
-コンテンツカードの解析にはJSON解析が必要で、詳細は以下の例を参照のこと：
+Content Cardsの解析にはJSON解析が必要です。詳細は以下の例を参照してください。
 
-##### コンテンツカードのコールバックの例
+### Content Cardsコールバックの例 {#example-content-cards-callback}
 
 ```csharp
 void ExampleCallback(string message) {
@@ -41,7 +41,7 @@ void ExampleCallback(string message) {
           ContentCard card = new ContentCard(cardJson);
           Debug.Log(String.Format("Created card object for card: {0}", card));
 
-          // Example of logging Content Card analytics on the ContentCard object 
+          // Example of logging Content Card analytics on the ContentCard object
           card.LogImpression();
           card.LogClick();
         } catch {
@@ -55,9 +55,9 @@ void ExampleCallback(string message) {
 }
 ```
 
-## コンテンツカードの更新
+## Content Cardsの更新 {#refreshing-content-cards}
 
-Braze からコンテンツカードを更新するには、次のいずれかのメソッドを呼び出します。
+BrazeからContent Cardsを更新するには、次のいずれかのメソッドを呼び出します。
 
 ```csharp
 // results in a network request to Braze
@@ -66,9 +66,8 @@ AppboyBinding.RequestContentCardsRefresh()
 AppboyBinding.RequestContentCardsRefreshFromCache()
 ```
 
-## 分析
+## 分析 {#analytics}
 
-Braze によって直接表示されないコンテンツカードについては、クリックとインプレッションを手動でログに記録する必要があります。
+Brazeによって直接表示されないContent Cardsについては、クリックとインプレッションを手動でログに記録する必要があります。
 
-[Content カード](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/Models/Cards/ContentCard.cs) で`LogClick()` および`LogImpression()` を使用して、特定のカードs のクリックとインプレッションを記録します。
-
+[ContentCard](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/Models/Cards/ContentCard.cs)の`LogClick()`および`LogImpression()`を使用して、特定のカードのクリックとインプレッションを記録します。

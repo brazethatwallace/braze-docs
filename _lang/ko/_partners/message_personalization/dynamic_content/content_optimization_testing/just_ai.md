@@ -10,7 +10,7 @@ page_type: partner
 
 > [JustAI](https://www.getjust.ai/)는 라이프사이클 마케팅 채널에서 대규모로 메시징을 초개인화하여, 수백 가지 변형을 동적으로 테스트하고 성과가 낮은 콘텐츠를 자동으로 갱신할 수 있도록 지원합니다.
 
-JustAI를 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)와 함께 사용하여 기존 Braze Campaign 및 Canvases를 개인화하면, JustAI가 Braze 커런츠를 활용하여 콘텐츠를 동적으로 최적화합니다. 직접 관리할 필요가 없습니다.
+JustAI를 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)와 함께 사용하여 기존 Braze Campaigns 및 Canvases를 개인화하면, JustAI가 Braze 커런츠를 활용하여 콘텐츠를 동적으로 최적화합니다. 직접 관리할 필요가 없습니다.
 
 ## 이점은 무엇인가요? {#what-are-the-benefits}
 
@@ -29,7 +29,7 @@ JustAI를 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalizatio
 | 요구 사항 | 설명 |
 |---|---|
 | JustAI 계정 | 이 파트너십을 활용하려면 [JustAI](https://www.getjust.ai/) 계정이 필요합니다. JustAI 계정이 없는 경우 [30분 온보딩 통화를 예약](https://www.getjust.ai/book-demo)하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## JustAI와 Braze 통합하기 {#integrating-justai-with-braze}
 
@@ -51,7 +51,7 @@ JustAI를 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalizatio
 
 ### 3단계: Braze 콘텐츠에서 JustAI 사용 {#step-3-use-justai-in-your-braze-content}
 
-JustAI는 연결된 콘텐츠를 사용하여 Canvases 및 Campaign과 함께 작동합니다. Canvas를 생성하는 경우, 각 이메일 단계는 고유한 JustAI 템플릿에 대응해야 합니다.
+JustAI는 연결된 콘텐츠를 사용하여 Canvases 및 Campaigns와 함께 작동합니다. Canvas를 생성하는 경우, 각 이메일 단계는 고유한 JustAI 템플릿에 대응해야 합니다.
 
 #### 3.1단계: A/B 테스트 설정 {#step-31-set-up-your-ab-test}
 
@@ -148,7 +148,7 @@ Braze 커런츠를 사용하면 시간이 지남에 따라 성과 추적 및 최
 ![AWS 비밀 액세스 키에 대한 "자격 증명" 섹션.]({% image_buster /assets/img/just_words/aws_secret_access_key.png %}){: style="max-width:80%;"}
 
 {: start="4" }
-4. 발송, 열기, 클릭, 탈퇴, 전환 등 추적할 이벤트를 선택합니다.
+4. 발송, 오픈, 클릭, 탈퇴, 전환 등 추적할 이벤트를 선택합니다.
 
 ![선택할 이벤트가 있는 "메시지 참여 이벤트" 섹션.]({% image_buster /assets/img/just_words/message_engagement_events.png %}){: style="max-width:80%;"}
 

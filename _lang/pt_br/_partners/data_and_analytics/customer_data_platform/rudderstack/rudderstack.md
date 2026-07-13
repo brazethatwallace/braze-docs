@@ -21,8 +21,8 @@ A integração entre a Braze e o RudderStack oferece uma integração de SDK nat
 | Fonte configurada | Uma [fonte](https://www.rudderstack.com/docs/dashboard-guides/sources/) é essencialmente a origem de qualquer dado enviado ao RudderStack, como sites, apps móveis ou servidores back-end. É necessário configurar a fonte antes de configurar a Braze como um destino no RudderStack. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `users.identify`, `users.delete` e `users.alias.new`.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Chave do app da Braze | Para obter sua chave do app no dashboard da Braze, acesse **Configurações** > **Configurações do app** > **Identificação** e encontre o nome do seu app. Salve a string de identificador associada.
-| Data center | Seu data center se alinha com sua [instância]({{site.baseurl}}/api/basics/#endpoints) do dashboard da Braze.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Data center | Seu data center se alinha com sua [instância]({{site.baseurl}}/api/basics#endpoints) do dashboard da Braze.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -35,8 +35,6 @@ Para começar a enviar dados para a Braze, primeiro você precisa confirmar se h
 Agora que sua fonte de dados está configurada, no dashboard do RudderStack, selecione **ADD DESTINATION** em **Destinations**. Na lista de destinos disponíveis, selecione **Braze** e clique em **Next**.
 
 No destino da Braze, forneça a chave do app, a chave da API REST da Braze, o cluster de dados e a opção de SDK nativo (somente no modo dispositivo). Se ativada, a opção de SDK nativo usará o SDK nativo da Braze para enviar eventos.
-
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
 ### Etapa 3: Escolher o tipo de integração {#step-3-choose-the-type-of-integration}
 
@@ -95,7 +93,7 @@ Para [enviar eventos por meio do modo híbrido](https://www.rudderstack.com/docs
 Após concluir a configuração inicial, defina as seguintes configurações para receber corretamente seus dados na Braze:
 
 - **Ativar grupos de inscrições em chamadas de grupo**: Ative essa configuração para enviar o status do grupo de inscrições em seus eventos de grupo. Para saber mais, consulte [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
-- **Usar operação de atributos personalizados**: Ative essa configuração se quiser usar a funcionalidade de [atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) na Braze para criar segmentos e personalizar suas mensagens usando um objeto de atributo personalizado. Para saber mais, consulte [Enviar características de usuário como atributos personalizados aninhados](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
+- **Usar operação de atributos personalizados**: Ative essa configuração se quiser usar a funcionalidade de [atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) na Braze para criar segmentos e personalizar suas mensagens usando um objeto de atributo personalizado. Para saber mais, consulte [Enviar características de usuário como atributos personalizados aninhados](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
 - **Rastrear eventos para usuários anônimos**: Ative essa configuração para rastrear a atividade de usuários anônimos e enviar essas informações para a Braze.
 
 ### Configurações do modo dispositivo {#device-mode-settings}
@@ -128,7 +126,7 @@ Se você enviar eventos para a Braze usando o modo dispositivo, poderá economiz
 O [método `track`](https://rudderstack.com/docs/destinations/marketing/braze/#track) do RudderStack captura todas as atividades do usuário e as propriedades associadas a essas atividades.
 
 **Pedido concluído**<br>
-Ao usar a [API de eCommerce do RudderStack](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) para chamar o método track de um evento com o nome `Order Completed`, o RudderStack envia os produtos listados nesse evento para a Braze como [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data).
+Ao usar a [API de eCommerce do RudderStack](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) para chamar o método track de um evento com o nome `Order Completed`, o RudderStack envia os produtos listados nesse evento para a Braze como [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data).
 
 {% endtab %}
 {% tab Screen %}
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,
@@ -253,5 +251,5 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-Para as operações de atualização e remoção, `identifier` é uma chave obrigatória. Se as operações de adição, atualização ou remoção não estiverem presentes no vetor aninhado, o RudderStack usará a operação de criação para criar as propriedades por padrão. Consulte [Vetor de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) para saber mais sobre o envio de atributos personalizados aninhados.
+Para as operações de atualização e remoção, `identifier` é uma chave obrigatória. Se as operações de adição, atualização ou remoção não estiverem presentes no vetor aninhado, o RudderStack usará a operação de criação para criar as propriedades por padrão. Consulte [Vetor de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) para saber mais sobre o envio de atributos personalizados aninhados.
 {% endalert %}

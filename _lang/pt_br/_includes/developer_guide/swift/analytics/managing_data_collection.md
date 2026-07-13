@@ -28,7 +28,7 @@ A seguinte versão do SDK da Braze é necessária para implementar esse recurso:
 
 ### Etapa 1: Analise suas políticas atuais {#step-1-review-your-current-policies}
 
-Revise as políticas atuais de coleta de dados do SDK da Braze com sua equipe jurídica para determinar se o seu app coleta dados de rastreamento [conforme definido pela Apple](#what-is-tracking-data). Se não estiver coletando dados de rastreamento, não é necessário personalizar seu manifesto de privacidade para o SDK da Braze neste momento. Para saber mais sobre as políticas de coleta de dados do SDK da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
+Revise as políticas atuais de coleta de dados do SDK da Braze com sua equipe jurídica para determinar se o seu app coleta dados de rastreamento [conforme definido pela Apple](#what-is-tracking-data). Se não estiver coletando dados de rastreamento, não é necessário personalizar seu manifesto de privacidade para o SDK da Braze neste momento. Para saber mais sobre as políticas de coleta de dados do SDK da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection).
 
 {% alert important %}
 Se algum dos seus SDKs que não sejam da Braze coletar dados de rastreamento, será necessário analisar essas políticas separadamente.
@@ -52,7 +52,7 @@ Em **App Privacy Configuration**, escolha **NSPrivacyTracking** e defina seu val
 
 ![O arquivo "PrivacyInfo.xcprivacy" aberto com "NSPrivacyTracking" definido como "YES".]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytracking.png %})
 
-Em **App Privacy Configuration**, escolha **NSPrivacyTrackingDomains**. Na matriz de domínios, adicione um novo elemento e defina seu valor como o endpoint que você [adicionou anteriormente ao seu `AppDelegate`]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration/#update-your-app-delegate), prefixado com `sdk-tracking`.
+Em **App Privacy Configuration**, escolha **NSPrivacyTrackingDomains**. Na matriz de domínios, adicione um novo elemento e defina seu valor como o endpoint que você [adicionou anteriormente ao seu `AppDelegate`]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration#update-your-app-delegate), prefixado com `sdk-tracking`.
 
 ![O arquivo "PrivacyInfo.xcprivacy" aberto com um endpoint de rastreamento da Braze listado em "NSPrivacyTrackingDomains".]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 
@@ -61,7 +61,7 @@ Em **App Privacy Configuration**, escolha **NSPrivacyTrackingDomains**. Na matri
 Em seguida, abra o `AppDelegate.swift` e liste cada [propriedade de rastreamento](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) que deseja declarar, criando uma lista de rastreamento estática ou dinâmica. Lembre-se de que a Apple bloqueará essas propriedades até que o usuário final aceite o prompt de ATT. Portanto, liste apenas as propriedades que você e sua equipe jurídica consideram rastreamento. Por exemplo:
 
 {% tabs %}
-{% tab static example %}
+{% tab Exemplo estático %}
 No exemplo a seguir, `dateOfBirth`, `customEvent` e `customAttribute` são declarados como dados de rastreamento em uma lista estática.
 
 ```swift
@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 {% endtab %}
 
-{% tab dynamic example %}
+{% tab Exemplo dinâmico %}
 No exemplo a seguir, a lista de rastreamento é atualizada automaticamente depois que o usuário final aceita o prompt de ATT.
 
 ```swift
@@ -137,7 +137,7 @@ Para desativar a atividade de rastreamento de dados no Swift SDK, defina a propr
 
 Você pode usar o método [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) para limpar completamente os dados do SDK armazenados localmente no dispositivo de um usuário.
 
-Para as versões 7.0.0 e posteriores do Braze Swift, o SDK e o método `wipeData()` geram aleatoriamente um UUID para o ID do dispositivo. No entanto, se o seu `useUUIDAsDeviceId` estiver definido como `false` _ou_ se estiver usando o Swift SDK versão 5.7.0 ou anterior, também será necessário fazer uma solicitação POST para [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), já que o seu IDFV (Identifier for Vendors) será automaticamente usado como o ID do dispositivo desse usuário.
+Para as versões 7.0.0 e posteriores do Braze Swift, o SDK e o método `wipeData()` geram aleatoriamente um UUID para o ID do dispositivo. No entanto, se o seu `useUUIDAsDeviceId` estiver definido como `false` _ou_ se estiver usando o Swift SDK versão 5.7.0 ou anterior, também será necessário fazer uma solicitação POST para [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete), já que o seu IDFV (Identifier for Vendors) será automaticamente usado como o ID do dispositivo desse usuário.
 
 Se você usa integração manual de push e seu app chama `wipeData()` e depois reativa o SDK na mesma execução do app, chame `registerForRemoteNotifications()` novamente para que a Braze possa receber um token de dispositivo atualizado. Para saber mais, consulte [configuração de notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
@@ -153,6 +153,32 @@ O recurso `useUUIDAsDeviceId` configura o [Swift SDK](https://github.com/braze-i
 
 Se você ainda quiser coletar o IDFV separadamente, poderá usar [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)).
 
+{% alert note %}
+A leitura de `braze.deviceId` bloqueia a thread de chamada até que o SDK conclua suas operações pós-inicialização. Para contextos na thread principal ou sensíveis à latência, use as alternativas não bloqueantes.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.getDeviceId { deviceId in
+  print("Device ID:", deviceId)
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let deviceId = await AppDelegate.braze?.getDeviceId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze getDeviceIdWithCompletion:^(NSString *deviceId) {
+  NSLog(@"Device ID: %@", deviceId);
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
+
 ### Considerações {#considerations}
 
 #### Versão do SDK {#sdk-version}
@@ -161,9 +187,9 @@ No Swift SDK `v7.0.0+`, quando `useUUIDAsDeviceId` estiver ativado (padrão), to
 
 Quando esse recurso não estiver ativado, os dispositivos continuarão a receber o IDFV no momento da criação.
 
-#### Downstream {#downstream}
+#### Downstream
 
-**Parceiros de tecnologia**: Quando esse recurso estiver ativado, todos os parceiros de tecnologia que derivam o valor IDFV do ID do dispositivo da Braze não terão mais acesso a esses dados. Se o valor IDFV derivado do dispositivo for necessário para a integração com parceiros, recomendamos que você defina esse recurso como `false`.
+**Parceiros de tecnologia**: quando esse recurso estiver ativado, todos os parceiros de tecnologia que derivam o valor IDFV do ID do dispositivo da Braze não terão mais acesso a esses dados. Se o valor IDFV derivado do dispositivo for necessário para a integração com parceiros, recomendamos que você defina esse recurso como `false`.
 
 **Currents**: `useUUIDAsDeviceId` definido como true significa que o ID do dispositivo enviado no Currents não será mais igual ao valor IDFV.
 

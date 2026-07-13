@@ -1,20 +1,20 @@
 ---
-nav_title: トリガーメッセージの遅延
+nav_title: トリガーメッセージの延期
 article_title: "チュートリアル: トリガーメッセージの延期と復元"
 description: ""
 page_order: 1
 layout: scrolly
 ---
 
-# チュートリアル: トリガーメッセージの延期と復元
+# チュートリアル: トリガーメッセージの延期と復元 {#tutorial-deferring-and-restoring-triggered-messages}
 
-> このチュートリアルのサンプルコードに従って、Braze SDKを使用してトリガーされたアプリ内メッセージを延期および復元する。
+> このチュートリアルのサンプルコードに従って、Braze SDKを使用してトリガーされたアプリ内メッセージを延期および復元する方法を学びます。
 
 {% sdktabs %}
 {% sdktab web %}
-{% multi_lang_include developer_guide/prerequisites/web.md %} ただし、追加の設定は不要だ。
+{% multi_lang_include developer_guide/prerequisites/web.md %} ただし、追加の設定は不要です。
 
-## Web 用トリガーメッセージの遅延と復元
+## Webのトリガーメッセージの延期と復元 {#deferring-and-restoring-triggered-messages-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Web" %}
 
@@ -50,57 +50,57 @@ document.getElementById("button").onclick = function () {
 !!step
 lines-index.js=2
 
-#### 1\.`automaticallyShowInAppMessages()` の呼び出しを削除する
+### 1. `automaticallyShowInAppMessages()` の呼び出しを削除する {#1-remove-calls-to-automaticallyshowinappmessages}
 
-後で実装するカスタムロジックをオーバーライドするため、[`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) のすべての呼び出しを削除します。
+後で実装するカスタムロジックをオーバーライドしてしまうため、[`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) のすべての呼び出しを削除します。
 
 !!step
 lines-index.js=6
 
-#### 2\.デバッグを有効にする(オプション)
+#### 2. デバッグを有効にする（オプション） {#2-enable-debugging-optional}
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-index.js=9-16
 
-#### 3\.アプリ内メッセージコールバックハンドラーにサブスクライバーする
+#### 3. アプリ内メッセージコールバックハンドラーにサブスクライブする {#3-subscribe-to-the-in-app-message-callback-handler}
 
 [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) を使用してコールバックを登録し、アプリ内メッセージがトリガーされるたびにメッセージを受信します。
 
 !!step
 lines-index.js=11-12
 
-#### 4\.`message` インスタンスを延期する
+#### 4. `message` インスタンスを延期する {#4-defer-the-message-instance}
 
-メッセージを延期するには、[`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage) を呼び出します。Braze はこのメッセージをシリアライズして保存し、将来ページを読み込むときに表示できるようにします。
+メッセージを延期するには、[`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage) を呼び出します。Brazeはこのメッセージをシリアライズして保存し、将来のページ読み込み時に表示できるようにします。
 
 !!step
 lines-index.js=18-24
 
-#### 5\.以前に延期されたメッセージを取得する
+#### 5. 以前に延期されたメッセージを取得する {#5-retrieve-a-previously-deferred-message}
 
-以前に延期されたメッセージを取得するには、[`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage) を呼び出します。 
+以前に延期されたメッセージを取得するには、[`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage) を呼び出します。
 
 !!step
 lines-index.js=21-23
 
-#### 6. 延期されたメッセージを表示する
+#### 6. 延期されたメッセージを表示する {#6-display-the-deferred-message}
 
-延期されたメッセージを取得したら、[`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) にメッセージを渡して表示する。
+延期されたメッセージを取得したら、[`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) にメッセージを渡して表示します。
 
 !!step
 lines-index.js=13-15
 
-#### 7. メッセージをすぐに表示する
+#### 7. メッセージをすぐに表示する {#7-display-a-message-immediately}
 
-メッセージを延期するのではなく、表示するには、`subscribeToInAppMessage` コールバックで [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) を直接呼び出します。
+メッセージを延期するのではなくすぐに表示するには、`subscribeToInAppMessage` コールバックで [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) を直接呼び出します。
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %}[Androidではアプリ内メッセージのイネーブルメント]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages)が必要。
+{% multi_lang_include developer_guide/prerequisites/android.md %} また、[Androidのアプリ内メッセージを有効にする]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages)必要もあります。
 
-## Android 用トリガーメッセージの遅延と復元
+## Androidのトリガーメッセージの延期と復元 {#deferring-and-restoring-triggered-messages-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Android" %}
 
@@ -205,58 +205,58 @@ fun ContentView() {
 !!step
 lines-MainApplication.kt=13-16
 
-#### 1\.シングルトン `Application` インスタンスを作成する
+### 1. シングルトン `Application` インスタンスを作成する {#1-create-a-singleton-application-instance}
 
-コンパニオンオブジェクトを使って、`Application` クラスをシングルトンとして公開し、コード内で後からアクセスできるようにします。
+コンパニオンオブジェクトを使って `Application` クラスをシングルトンとして公開し、コード内で後からアクセスできるようにします。
 
 !!step
 lines-MainApplication.kt=25
 
-#### 2\.デバッグを有効にする(オプション)
+#### 2. デバッグを有効にする（オプション）
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-MainApplication.kt=34-36
 
-#### 3\.アクティビティライフサイクルコールバックを登録する
+#### 3. アクティビティライフサイクルコールバックを登録する {#3-register-activity-lifecycle-callbacks}
 
-アプリ内メッセージのライフサイクルを処理するBrazeのデフォルトリスナーを登録する。
+アプリ内メッセージのライフサイクルを処理するBrazeのデフォルトリスナーを登録します。
 
 !!step
 lines-MainApplication.kt=39-49
 
-#### 4\.アプリ内メッセージリスナーを設定する
+#### 4. アプリ内メッセージリスナーを設定する {#4-set-up-an-in-app-message-listener}
 
-`BrazeInAppMessageManager` を使用して、メッセージが表示される前にメッセージをインターセプトするカスタムリスナーを設定します。
+`BrazeInAppMessageManager` を使用して、メッセージが表示される前にインターセプトするカスタムリスナーを設定します。
 
 !!step
 lines-MainApplication.kt=43,46
 
-#### 5\.条件付きロジックを作成する
+#### 5. 条件付きロジックを作成する {#5-create-conditional-logic}
 
-タイミングをコントロールするには、`showMessage` フラグを使用します。メッセージをすぐに表示する場合は `DISPLAY_NOW` を返し、メッセージを延期する場合は `DISPLAY_LATER` を返します。
+タイミングを制御するには `showMessage` フラグを使用します&#8212;メッセージをすぐに表示する場合は `DISPLAY_NOW` を返し、延期する場合は `DISPLAY_LATER` を返します。
 
 !!step
 lines-MainApplication.kt=52-55
 
-#### 6. 遅延メッセージを表示するメソッドを作成する
+#### 6. 延期メッセージを表示するメソッドを作成する {#6-create-a-method-for-displaying-deferred-messages}
 
-`showDeferredMessage` を使って次のアプリ内メッセージをトリガーします。`showMessage` が`true` の場合、リスナーは `DISPLAY_NOW` を返します。
+`showDeferredMessage` を使って次のアプリ内メッセージをトリガーします。`showMessage` が `true` の場合、リスナーは `DISPLAY_NOW` を返します。
 
 !!step
 lines-MainActivity.kt=29
 
-#### 7. UIからメソッドをトリガーする
+#### 7. UIからメソッドをトリガーする {#7-trigger-the-method-from-your-ui}
 
-以前に遅延されたメッセージを表示するには、ボタンやタップなどの UI から `showDeferredMessage(true)` を呼び出します。
+以前に延期されたメッセージを表示するには、ボタンやタップなどのUIから `showDeferredMessage(true)` を呼び出します。
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} [SWIFTのアプリ内メッセージ機能]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)も[イネーブルメント]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)する必要がある。
+{% multi_lang_include developer_guide/prerequisites/swift.md %} また、[Swiftのアプリ内メッセージを有効にする]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages)必要もあります。
 
-## Swift 用トリガーメッセージの遅延と復元
+## Swiftのトリガーメッセージの延期と復元 {#deferring-and-restoring-triggered-messages-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Swift" %}
 
@@ -347,44 +347,44 @@ struct ContentView: View {
 !!step
 lines-AppDelegate.swift=5
 
-#### 1\.`BrazeInAppMessageUIDelegate` を実装する
+### 1. `BrazeInAppMessageUIDelegate` を実装する {#1-implement-the-brazeinappmessageuidelegate}
 
 `AppDelegate` クラスで [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) を実装して、後で `inAppMessage` メソッドをオーバーライドできるようにします。
 
 !!step
 lines-AppDelegate.swift=19
 
-#### 2\.デバッグを有効にする(オプション)
+#### 2. デバッグを有効にする（オプション）
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-AppDelegate.swift=25-27
 
-#### 3\.Braze UIを設定してデリゲートする
+#### 3. Braze UIとデリゲートを設定する {#3-set-up-your-braze-ui-and-delegate}
 
-`BrazeInAppMessageUI()` はアプリ内メッセージをデフォルトでレンダリングします。`self` をデリゲートとして割り当てることで、メッセージが表示されメッセージををインターセプトして処理することができます。インスタンスは必ず保存しておくこと。後で延期したメッセージをリストアするときに必要になるからだ。
+`BrazeInAppMessageUI()` はデフォルトでアプリ内メッセージをレンダリングします。`self` をデリゲートとして割り当てることで、メッセージが表示される前にインターセプトして処理できます。インスタンスは必ず保存してください。後で延期したメッセージを復元するときに必要になります。
 
 !!step
 lines-AppDelegate.swift=32-41
 
-#### 4\.`DisplayChoice` を条件付きロジックでオーバーライドする
+#### 4. `DisplayChoice` を条件付きロジックでオーバーライドする {#4-override-displaychoice-with-conditional-logic}
 
-メッセージを表示するタイミングを決定するには、[`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) をオーバーライドします。すぐに表示したい場合は `.now`、後で表示したい場合は `.reenqueue` を返します。
+メッセージを表示するタイミングを決定するには、[`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) をオーバーライドします。すぐに表示する場合は `.now` を返し、後で表示する場合は `.reenqueue` を返します。
 
 !!step
 lines-AppDelegate.swift=43-46
 
-#### 5\.遅延メッセージを表示するメソッドを作る
+#### 5. 延期メッセージを表示するメソッドを作成する {#5-create-a-method-to-show-deferred-messages}
 
-`showDeferredMessage(true)` を呼び出してスタック内の次の遅延メッセージを表示するメソッドを作成します。呼び出されると、`showMessage` は`true` に設定され、デリゲートは`.now` を返します。
+`showDeferredMessage(true)` を呼び出してスタック内の次の延期メッセージを表示するメソッドを作成します。呼び出されると `showMessage` が `true` に設定され、デリゲートは `.now` を返します。
 
 !!step
 lines-ContentView.swift=1-14
 
-#### 5\.UIからメソッドをトリガーする
+#### 6. UIからメソッドをトリガーする {#5-trigger-the-method-from-your-ui}
 
-以前に遅延されたメッセージを表示するには、ボタンやタップなどの UI から `showDeferredMessage(true)` を呼び出します。
+以前に延期されたメッセージを表示するには、ボタンやタップなどのUIから `showDeferredMessage(true)` を呼び出します。
 
 {% endscrolly %}
 {% endsdktab %}

@@ -1,30 +1,30 @@
 ---
-nav_title: "COLOCAR: Establecer la clave de autenticación SDK principal"
-article_title: "COLOCAR: Establecer clave de autenticación SDK principal"
-search_tag: Punto de conexión
+nav_title: "PUT: Establecer la clave de autenticación SDK principal"
+article_title: "PUT: Establecer la clave de autenticación SDK principal"
+search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto final SDK de Braze para establecer la clave de autenticación del SDK principal."
+description: "Este artículo describe los detalles sobre el punto de conexión de Braze para establecer la clave de autenticación SDK principal."
 ---
 
 {% api %}
-# Establecer la clave de autenticación del SDK principal
+# Establecer la clave de autenticación SDK principal {#set-primary-sdk-authentication-key}
 {% apimethod put %}
 /app_group/sdk_authentication/primary
 {% endapimethod %}
 
-> Utiliza este punto final SDK para establecer una clave de autenticación SDK como clave principal para tu aplicación.
+> Utiliza este punto de conexión para establecer una clave de autenticación SDK como clave principal para tu aplicación.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `sdk_authentication.primary`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sdk_authentication.primary`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -36,15 +36,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Obligatoria | Cadena | El identificador API de la aplicación. |
-| `key_id` | Obligatoria | Cadena | El ID de la clave de autenticación del SDK que se va a marcar como principal. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | Obligatorio | Cadena | El identificador de API de la aplicación. |
+| `key_id` | Obligatorio | Cadena | El ID de la clave de autenticación SDK que se va a marcar como principal. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```bash
 curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authentication/primary' \
 --header 'Content-Type: application/json' \
@@ -55,7 +55,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 ```json
 {
   "keys": [
@@ -75,23 +75,23 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }
 ```
 
-## Parámetros de respuesta
+## Parámetros de respuesta {#response-parameters}
 
 | Parámetro | Tipo de datos | Descripción |
 | --------- | --------- | ----------- |
 | `keys` | Matriz | Matriz de todos los objetos de clave de autenticación SDK. |
-| `keys[].id` | Cadena | El ID de la clave de autenticación del SDK. |
+| `keys[].id` | Cadena | El ID de la clave de autenticación SDK. |
 | `keys[].rsa_public_key` | Cadena | La cadena de clave pública RSA. |
-| `keys[].description` | Cadena | Descripción de la clave de autenticación del SDK. |
+| `keys[].description` | Cadena | Descripción de la clave de autenticación SDK. |
 | `keys[].is_primary` | Booleano | Si esta clave es la clave de autenticación SDK principal. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros de respuesta" }
 
-### Reglas de validación
+### Reglas de validación {#validation-rules}
 
-Este punto final tiene las siguientes reglas de validación:
+Este punto de conexión tiene las siguientes reglas de validación:
 
-- Debe`key_id` ser un ID de clave de autenticación SDK válido.
-- Debe ser un identificador`app_id` API válido de la aplicación.
+- El `key_id` debe ser un ID de clave de autenticación SDK válido.
+- El `app_id` debe ser un identificador de API de la aplicación válido.
 - La clave de autenticación SDK debe existir para la aplicación especificada.
 
 {% endapi %}

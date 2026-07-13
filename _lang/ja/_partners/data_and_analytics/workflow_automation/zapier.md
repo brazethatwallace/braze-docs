@@ -2,59 +2,59 @@
 nav_title: Zapier
 article_title: Zapier
 alias: /partners/zapier/
-description: "この参考記事では、BrazeとZapier（ウェブアプリ間でデータを共有し、その情報を使ってアクションを自動化できる自動化ウェブツール）のパートナーシップについて概説している。"
+description: "この参考記事では、BrazeとZapier（Webアプリ間でデータを共有し、その情報を使ってアクションを自動化できるオートメーションWebツール）のパートナーシップについて概説しています。"
 page_type: partner
 search_tag: Partner
 
 ---
-# Zapierとの統合
+# Zapierとの統合 {#zapier-integration}
 
-> [Zapier](https://zapier.com/) は、Web アプリ間でデータを共有し、その情報を使用してアクションを自動化できるオートメーション Web ツールです。 
+> [Zapier](https://zapier.com/) は、Webアプリ間でデータを共有し、その情報を使用してアクションを自動化できるオートメーションWebツールです。
 
-Braze と Zapier のパートナーシップでは、Braze API と Braze [Webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook) を活用してサードパーティアプリケーション (Google Workplace、Slack、Salesforce、WordPress など) に接続し、さまざまなアクションを自動化できます。
+BrazeとZapierのパートナーシップでは、Braze APIとBrazeの[Webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook)を活用してサードパーティアプリケーション（Google Workplace、Slack、Salesforce、WordPressなど）に接続し、さまざまなアクションを自動化できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 要件 | 説明 |
 |---|---|
-| Zapierアカウント | このパートナーシップを活用するには、Zapier アカウントが必要です。 |
-| Braze RESTエンドポイント | REST エンドポイントのURL。エンドポイントはインスタンスの [Braze URL]({{site.baseurl}}/api/basics/#api-definitions) に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Zapierアカウント | このパートナーシップを活用するには、Zapierアカウントが必要です。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics#api-definitions)に応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-以下のZapierの例では、POST webhookを使ってWordPressからBrazeに情報を送信する。この情報を使用して Braze キャンバスを作成することができます。
+以下のZapierの例では、POST Webhookを使ってWordPressからBrazeに情報を送信します。この情報を使用してBrazeキャンバスを作成できます。
 
-### ステップ1:Zapierトリガーを作成する
+### ステップ1: Zapierトリガーを作成する {#step-1-create-a-zapier-trigger}
 
-Zapierの用語を使えば、"ザップ "とはアプリやサービスをつなぐ自動化されたワークフローのことだ。どのようなザップでも、最初の部分はトリガーを指定することだ。zap が有効になると、トリガーが検出されるたびにZapier によって対応するアクションが自動的に実行されます。
+Zapierの用語では、「zap」とはアプリやサービスをつなぐ自動化されたワークフローのことです。どのzapでも、最初のパートはトリガーを指定することです。zapが有効になると、トリガーが検出されるたびにZapierによって対応するアクションが自動的に実行されます。
 
-WordPressの例を使って、Zapierプラットフォームで、WordPressの新しい投稿が追加されたときにトリガーされるようにzapを設定し、**Post Statusと** **Post Typeとして** **Publishedと** **Postsを**選択する。 
+WordPressの例を使って、Zapierプラットフォームで、WordPressの新しい投稿が追加されたときにトリガーされるようにzapを設定し、**Post Status**と**Post Type**として**Published**と**Posts**を選択します。
 
-![Zapierプラットフォームで、zap 内でトリガーとして「new comment」、「any webhook」、「new post」のいずれかを選択する。この例では、"new post "が選択されている。][5]
+![Zapierプラットフォームで、zap内でトリガーとして「new comment」、「any webhook」、「new post」のいずれかを選択します。この例では「new post」が選択されています。][5]
 
-![Zapier プラットフォームで、zap 内で目的の post status と post type を選択してトリガーを設定する。この例では、"Published "と "Posts "が選択されている。］[6]
+![Zapierプラットフォームで、zap内で目的のpost statusとpost typeを選択してトリガーを設定します。この例では「Published」と「Posts」が選択されています。][6]
 
-### ステップ2:アクションウェブフックを追加する
+### ステップ2: アクションWebhookを追加する {#step-2-add-an-action-webhook}
 
-次に zap アクションを定義します。zap が有効になり、トリガーが検出されると、アクションが自動的に発生します。
+次にzapアクションを定義します。zapが有効になり、トリガーが検出されると、アクションが自動的に発生します。
 
-この例の続きで、BrazeのエンドポイントにJSONとしてPOSTリクエストを送りたい。これを行うには、[**Apps**] の下にある [**Webhooks**] オプションを選択します。
+この例の続きで、BrazeのエンドポイントにJSONとしてPOSTリクエストを送信します。これを行うには、**Apps**の下にある**Webhooks**オプションを選択します。
 
-![]({% image_buster /assets/img_archive/zapier3.png %})
+![Zapier Appsステップで、アクションとしてWebhooksが選択されています。]({% image_buster /assets/img_archive/zapier3.png %})
 
-### ステップ 3:Braze POSTをセットアップする
+### ステップ3: Braze POSTをセットアップする {#step-3-set-up-braze-post}
 
-Webhook を設定するときに、次の設定を使用して Webhook URL に Braze REST エンドポイントを指定します。完了したら [**Publish**] を選択します。
+Webhookを設定するときに、次の設定を使用してWebhook URLにBraze RESTエンドポイントを指定します。完了したら**Publish**を選択します。
 
-- **方法**：POST
+- **Method**: POST
 - **Webhook URL**: `https://rest.iad-01.braze.com/canvas/trigger/send`
-- **Data Pass-Though**:False
-- **Unflatten**:いいえ
+- **Data Pass-Through**: False
+- **Unflatten**: No
 - **リクエストヘッダー**:
   - **Content-Type**: application/json
-  - **Authorization**:Bearer YOUR-API-KEY
-- **Data**: 
+  - **Authorization**: Bearer YOUR-API-KEY
+- **Data**:
 
 ```json
 {
@@ -62,7 +62,7 @@ Webhook を設定するときに、次の設定を使用して Webhook URL に B
   "recipients": [
     {
       "external_user_id": "external_user_identifier",
-      "canvas_entry_properties":{
+      "context":{
         "string_property": "Your example string",
         "example_integer_property": 1
       }
@@ -71,11 +71,23 @@ Webhook を設定するときに、次の設定を使用して Webhook URL に B
 }
 ```
 
-![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
+![Brazeエンドポイント、ヘッダー、ペイロードフィールドが設定されたZapier Webhookの構成画面。]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 
-### ステップ 4: Brazeのキャンペーンを作成する
+### ステップ4: Brazeキャンペーンを作成する {#step-4-create-a-braze-campaign}
 
-zap の設定が完了したら、Liquid フォーマットを使用してメッセージの情報を表示することで、WordPress データを使用して Braze キャンペーンまたはキャンバスをカスタマイズできます。
+zapの設定が完了したら、Liquidフォーマットを使用してメッセージに情報を表示することで、WordPressデータを使用してBrazeキャンペーンやキャンバスをカスタマイズできます。
+
+## `/users/track`エンドポイントでZapierを使用する {#using-zapier-with-the-userstrack-endpoint}
+
+Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントにデータを送信するには（たとえば、Google Sheetsの**New or Updated Spreadsheet Row**のようなトリガーを使用する場合）、**Webhooks by Zapier**で**Custom Request**を使用してください。標準の**POST**アクションは使用しないでください。標準のPOSTアクションは、`/users/track`エンドポイントと互換性のない形式でリクエストをフォーマットします。
+
+1. Zapierで、トリガーを選択します（たとえば、Google Sheetsの**New or Updated Spreadsheet Row**）。
+2. アクションとして**Webhooks by Zapier**を選択し、**Custom Request**を選択します（POSTではありません）。
+3. **Method**をPOSTに設定し、Braze RESTエンドポイントURL（たとえば`https://rest.iad-01.braze.com/users/track`）を入力し、PostmanやAPI呼び出しと同様に各要素をダブルクォートで囲んでリクエストボディをフォーマットします。トリガーのフィールド（たとえばスプレッドシートの列）を適切な場所でJSONボディにマッピングします。
+4. 必要なヘッダーを追加します:
+   - **Content-Type**: `application/json`
+   - **Authorization**: `Bearer YOUR-REST-API-KEY`（Braze REST APIキーを括弧やクォートなしで使用します）
+5. ステップをテストし、zapを有効にします。
 
 [5]: {% image_buster /assets/img_archive/zapier1.png %}
 [6]: {% image_buster /assets/img_archive/zapier2.png %}

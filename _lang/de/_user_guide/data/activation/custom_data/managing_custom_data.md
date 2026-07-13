@@ -8,9 +8,9 @@ description: "Dieser Referenzartikel beschreibt, wie Sie angepasste Events und A
 
 # Angepasste Daten verwalten {#manage-custom-data}
 
-> Auf dieser Seite erfahren Sie, wie Sie angepasste Daten in Ihren Campaigns und Segments vorbelegen, angepasste Events und Attribute sowie deren Eigenschaften verwalten und Datentypen konfigurieren. Informationen zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+> Auf dieser Seite erfahren Sie, wie Sie angepasste Daten in Ihren Campaigns und Segments vorbelegen, angepasste Events und Attribute sowie deren Eigenschaften verwalten und Datentypen konfigurieren. Informationen zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
-Wie Sie angepasste Attribute im Einzelnen verwalten (einschließlich Beschreibungen hinzufügen, Tags hinzufügen und Attribute als PII kennzeichnen), erfahren Sie unter [Angepasste Attribute verwalten]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes).
+Wie Sie angepasste Attribute im Einzelnen verwalten (einschließlich Beschreibungen hinzufügen, Tags hinzufügen und Attribute als PII kennzeichnen), erfahren Sie unter [Angepasste Attribute verwalten]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes).
 
 ## Angepasste Daten vorbelegen {#pre-populate-custom-data}
 
@@ -20,10 +20,10 @@ Um angepasste Events und Attribute vorzubelegen, gehen Sie wie folgt vor:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events** oder **Angepasste Attribute** oder **Produkte**.
 
-![Navigieren Sie zu „Angepasste Attribute“ oder „Angepasste Events“ oder „Produkte“.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
+![Navigieren Sie zu „Angepasste Attribute“, „Angepasste Events“ oder „Produkte“.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
-2. Um ein angepasstes Attribut, Event oder Produkt hinzuzufügen, gehen Sie auf die entsprechende Seite und wählen Sie **Angepasste Attribute hinzufügen** oder **Angepasste Events hinzufügen** oder **Produkte hinzufügen**.<br><br>Für angepasste Attribute wählen Sie einen [Datentyp]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) für dieses Attribut aus (z. B. Boolescher Wert oder String). Der Datentyp eines Attributs bestimmt die Segmentierungsfilter, die für dieses Attribut verfügbar sind. <br><br>![Neues Attribut oder Event hinzufügen]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
+2. Um ein angepasstes Attribut, Event oder Produkt hinzuzufügen, gehen Sie auf die entsprechende Seite und wählen Sie **Angepasste Attribute hinzufügen** oder **Angepasste Events hinzufügen** oder **Produkte hinzufügen**.<br><br>Für angepasste Attribute wählen Sie einen [Datentyp]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) für dieses Attribut aus (z. B. Boolescher Wert oder String). Der Datentyp eines Attributs bestimmt die Segmentierungsfilter, die für dieses Attribut verfügbar sind. <br><br>![Neues Attribut oder Event hinzufügen]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
 3. Wählen Sie **Speichern**.
 
 ### Benennung angepasster Events und angepasster Attribute {#naming-custom-events-and-custom-attributes}
@@ -32,13 +32,13 @@ Bei angepassten Events und angepassten Attributen wird zwischen Groß- und Klein
 
 ## Eigenschaften verwalten {#managing-properties}
 
-Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften verwalten** für dieses Event oder Produkt aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Campaigns oder Canvases diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) verwenden.
+Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften verwalten** für dieses Event oder Produkt aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Campaigns oder Canvases diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) verwenden.
 
 ![Angepasste Eigenschaften für ein angepasstes Event.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
-Um Event- oder Produkt-Eigenschaften zu blockieren, verwenden Sie das Aktionsmenü auf der Eigenschaftenseite. Informationen zum vollständigen Blockieren angepasster Attribute, Events oder Produkte finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+Um Event- oder Produkt-Eigenschaften zu blockieren, verwenden Sie das Aktionsmenü auf der Eigenschaftenseite. Informationen zum vollständigen Blockieren angepasster Attribute, Events oder Produkte finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
-Um diese hinzugefügten angepassten Attribute, Events, Produkte oder Event-Eigenschaften nachverfolgbar zu machen, müssen Sie Ihr Entwicklerteam bitten, sie im SDK unter genau dem Namen zu erstellen, den Sie zuvor verwendet haben. Alternativ können Sie die Braze [API]({{site.baseurl}}/api/basics/) verwenden, um Daten zu diesem Attribut zu importieren. Danach ist das angepasste Attribut, Event oder andere Datenobjekt aktiv und wird auf Ihre Nutzer:innen angewendet.
+Um diese hinzugefügten angepassten Attribute, Events, Produkte oder Event-Eigenschaften nachverfolgbar zu machen, müssen Sie Ihr Entwicklerteam bitten, sie im SDK unter genau dem Namen zu erstellen, den Sie zuvor verwendet haben. Alternativ können Sie die Braze [API]({{site.baseurl}}/api/basics) verwenden, um Daten zu diesem Attribut zu importieren. Danach ist das angepasste Attribut, Event oder andere Datenobjekt aktiv und wird auf Ihre Nutzer:innen angewendet.
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
@@ -79,10 +79,12 @@ Wenn alle vorhandenen Nutzerdaten dem neuen Typ entsprechen sollen, müssen Sie 
 | Boolescher Wert | Eingaben von `1`, `true`, `t` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `true` gespeichert |
 | Boolescher Wert | Eingaben von `0`, `false`, `f` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `false` gespeichert |
 | Zahl | Ganzzahlen oder Gleitkommazahlen (wie `1`, `1.5`) werden als Zahlen gespeichert |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Zahl | Numerische Strings (wie `"100"` oder `"3.14"`) können in Zahlen umgewandelt werden, wenn das Attribut auf **Zahl** erzwungen wird |
+| String | Numerische Werte können in ihre String-Form umgewandelt werden, wenn das Attribut auf **String** erzwungen wird |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Datentypumwandlung" }
 
-Weitere Informationen zu den spezifischen Filteroptionen, die bei verschiedenen Datentypvergleichen zur Verfügung stehen, finden Sie unter [Berichte konfigurieren]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Weitere Informationen zu den verschiedenen verfügbaren Datentypen finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
+Weitere Informationen zu den spezifischen Filteroptionen, die bei verschiedenen Datentypvergleichen zur Verfügung stehen, finden Sie unter [Berichte konfigurieren]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting). Weitere Informationen zu den verschiedenen verfügbaren Datentypen finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 {% alert note %}
-An Braze gesendete Daten sind unveränderlich und können nicht gelöscht oder verändert werden, nachdem Braze sie erhalten hat. Sie können jedoch jeden der in den vorangegangenen Abschnitten aufgeführten Schritte verwenden, um zu kontrollieren, was Sie in Ihrem Dashboard tracken. Informationen zum Blockieren oder Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+An Braze gesendete Daten sind unveränderlich und können nicht gelöscht oder verändert werden, nachdem Braze sie erhalten hat. Sie können jedoch jeden der in den vorangegangenen Abschnitten aufgeführten Schritte verwenden, um zu kontrollieren, was Sie in Ihrem Dashboard tracken. Informationen zum Blockieren oder Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 {% endalert %}

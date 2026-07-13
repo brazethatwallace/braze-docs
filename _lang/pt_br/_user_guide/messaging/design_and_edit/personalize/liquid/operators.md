@@ -6,13 +6,13 @@ description: "Esta página de referência apresenta os operadores compatíveis c
 
 ---
 
-# Operadores
+# Operadores {#operators}
 
 > Liquid é compatível com muitos [operadores](https://docs.shopify.com/themes/liquid/basics/operators) que podem ser usados em suas instruções condicionais. Esta página aborda os operadores compatíveis com Liquid e apresenta casos de uso de como você pode utilizá-los em suas mensagens.
 
 Esta tabela lista os operadores compatíveis. Observe que parênteses são caracteres inválidos em Liquid e impedem que suas tags funcionem.
 
-|   Sintaxe| Descrição do operador|
+| Sintaxe | Descrição do operador |
 |---------|-----------|
 | ==  | igual a        |
 | !=  | diferente de|
@@ -23,13 +23,13 @@ Esta tabela lista os operadores compatíveis. Observe que parênteses são carac
 | or | condição A ou condição B|
 | and | condição A e condição B|
 | contains | verifica se uma string ou array de strings contém uma string|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operadores" }
 
 {% alert note %}
-Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for`, instruções `case`/`when` ou colchetes de acesso a arrays. Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada ramificação compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Agrupando condições sem parênteses
+## Agrupando condições sem parênteses {#grouping-conditions-without-parentheses}
 
 Liquid não é compatível com parênteses para agrupar expressões. Para avaliar lógica booleana complexa como `(a and b) or c`, use instruções `if` aninhadas ou variáveis intermediárias.
 
@@ -50,11 +50,11 @@ You qualify for a reward!
 ```
 {% endraw %}
 
-## Tutoriais
+## Tutoriais {#tutorials}
 
 Vamos ver alguns tutoriais para aprender a usar esses operadores em suas campanhas de marketing:
 
-### Escolher uma mensagem com um atributo personalizado de número inteiro
+### Escolher uma mensagem com um atributo personalizado de número inteiro {#choose-a-message-with-an-integer-custom-attribute}
 
 Vamos enviar notificações por push com descontos promocionais personalizados para usuários que fizeram ou não compras. A notificação por push usará um atributo personalizado de número inteiro chamado `total_spend` para verificar o gasto total de um usuário.
 
@@ -111,7 +111,7 @@ Se o atributo personalizado "Total Spend" de um usuário não existir ou for igu
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
 ```
 
-### Escolher uma mensagem com um atributo personalizado de string
+### Escolher uma mensagem com um atributo personalizado de string {#choose-a-message-with-a-string-custom-attribute}
 
 Vamos enviar notificações por push para os usuários e personalizar a mensagem com base no jogo mais recente de cada um. Isso usará um atributo personalizado de string chamado `recent_game` para verificar qual jogo o usuário jogou por último.
 
@@ -205,7 +205,7 @@ Se o usuário não jogou nenhum jogo ou se esse atributo personalizado não exis
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 ```
 
-### Cancelar mensagem com base no local
+### Cancelar mensagem com base no local {#abort-message-based-on-location}
 
 Você pode cancelar uma mensagem com base em praticamente qualquer coisa. Vamos cancelar uma mensagem se o usuário não estiver em uma área específica, já que ele pode não se qualificar para a promoção, evento ou entrega.
 
@@ -243,11 +243,15 @@ Stream now!
 
 ![Criador de notificação por push com o código Liquid completo do tutorial.]({% image_buster /assets/img/abort-if.png %})
 
-Você também pode [cancelar mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) com base em Conteúdo conectado.
+Você também pode [cancelar mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) com base em Conteúdo conectado.
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
-### A pré-visualização pode converter incorretamente os tipos de propriedade
+### O envio de teste não chega ao usar `abort_message` {#test-send-doesnt-arrive-when-using-abort_message}
+
+Se você usar [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) e um envio de teste nunca chegar, o usuário de pré-visualização pode estar sem os atributos que seu Liquid espera. A lógica de cancelamento é executada durante a renderização; quando ela é acionada, a Braze não envia a mensagem. Faça a pré-visualização com um usuário que tenha os dados de perfil necessários ou use **Pré-visualizar como usuário** para testar campos de destinatário que forneçam os mesmos valores que seu público de produção teria.
+
+### A pré-visualização pode converter incorretamente os tipos de propriedade {#preview-may-incorrectly-coerce-property-types}
 
 Ao pré-visualizar uma mensagem no dashboard, a maioria das variáveis (como atributos personalizados) é convertida para o tipo correto. No entanto, algumas variáveis não têm um tipo definido que a pré-visualização possa consultar:
 

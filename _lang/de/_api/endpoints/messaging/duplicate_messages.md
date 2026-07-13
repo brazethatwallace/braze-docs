@@ -1,5 +1,5 @@
 ---
-nav_title: Doppelte Nachrichten
+nav_title: Nachrichten duplizieren
 config_only: true
 noindex: true
 ---

@@ -28,7 +28,7 @@ This reference article will help you understand the use cases Amazon Personalize
 | Amazon Web Service account | An AWS account is required to take advantage of this partnership. After you have an AWS account, you can access Amazon Personalize through the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or the AWS SDKs. |
 | Defined use cases | Before creating a model, you must determine your use case for this integration. Reference the following list for common use cases. |
 | Datasets | Amazon Personalize recommendation models require three different types of datasets, interactions, users, and items. Reference the following details to see the requirements for each dataset. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 {% tabs %}
 {% tab Use Cases %}
@@ -92,7 +92,7 @@ Once a solution finishes training, you are ready to evaluate it and compare diff
 
 Once you have created a solution version that you're happy with, it is time to put the recommendations to use. There are two ways to access the recommendations:
 
-1. Real-time campaign<br>A campaign is a deployed solution version with a defined minimum transaction throughput. A transaction is a single API call to get recommendation output, and it is defined as TPS, or transactions per second, with a minimum value of one. The campaign will scale resources in case of an increased load, but it will not drop below your minimum value. You can query the recommendations in the console, AWS CLI, or through AWS SDKs in your code.<br><br>
+1. Real-time campaign<br>A campaign is a deployed solution version with a defined minimum transaction throughput. A transaction is a single API call to get recommendation output, and it is defined as TPS, or transactions per second, with a minimum value of one. The campaign will scale resources in case of an increased load, but it will not drop under your minimum value. You can query the recommendations in the console, AWS CLI, or through AWS SDKs in your code.<br><br>
 2. Batch job<br>A batch job exports the recommendations to an S3 bucket. The job takes an input of a JSON file with a list of user IDs for which you want to export the recommendations. Then, after specifying the correct permissions and the output destination, you're ready to run the job. The runtime depends on the size of your datasets and the recommendations list length.
 
 ### Filters

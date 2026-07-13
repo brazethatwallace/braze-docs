@@ -11,9 +11,9 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Configuração inicial do SDK
+# Configuração inicial do SDK {#initial-sdk-setup}
 
-> Este artigo de referência ensina como instalar o SDK da Braze para macOS. 
+> Este artigo de referência ensina como instalar o SDK da Braze para macOS.
 
 A partir da versão [3.32.0](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0), o SDK da Braze é compatível com macOS para apps que usam [Mac Catalyst](https://developer.apple.com/mac-catalyst/) com integração pelo Swift Package Manager. No momento, o SDK não é compatível com o Mac Catalyst ao usar CocoaPods ou Carthage.
 
@@ -21,13 +21,13 @@ A partir da versão [3.32.0](https://github.com/Appboy/appboy-ios-sdk/releases/t
 Para criar seu app com o Mac Catalyst, consulte a <a href="https://developer.apple.com/documentation/uikit/mac_catalyst">documentação da Apple</a>.
 {% endalert %}
 
-Depois que seu app for compatível com o Catalyst, siga [estas instruções para usar o Swift Package Manager]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/) para importar o SDK da Braze para o seu app.
+Depois que seu app for compatível com o Catalyst, siga [estas instruções para usar o Swift Package Manager]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration?tab=swift%20package%20manager/) para importar o SDK da Braze para o seu app.
 
-## Recursos compatíveis
+## Recursos compatíveis {#supported-features}
 
-A Braze oferece [notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [cartões de conteúdo]({{site.baseurl}}/developer_guide/platforms/swift/content_cards/#content-cards-data-model), [mensagens no app]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift) e [coleta automática de localização]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift) quando executada no Mac Catalyst.
+A Braze oferece suporte a [notificações por push]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model), [mensagens no app]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) e [coleta automática de localização]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) quando executada no Mac Catalyst.
 
-Vale ressaltar que o macOS é incompatível com stories por push, rich push e geofences.
+Vale ressaltar que Push Stories, rich push e geofences não são compatíveis com o macOS.
 
 [1]:https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0
 [2]:https://developer.apple.com/mac-catalyst/

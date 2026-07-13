@@ -3,7 +3,7 @@ nav_title: Katalog erstellen
 article_title: Katalog erstellen
 alias: "/catalogs/"
 page_order: 1
-description: "In diesem Referenzartikel erfahren Sie, wie Sie Kataloge erstellen, die über Liquid auf Nicht-Nutzerdaten in Ihren Braze-Kampagnen verweisen."
+description: "In diesem Referenzartikel erfahren Sie, wie Sie Kataloge erstellen, die über Liquid auf Nicht-Nutzerdaten in Ihren Braze-Campaigns verweisen."
 ---
 
 # Katalog erstellen {#create-a-catalog}
@@ -25,14 +25,25 @@ Nachdem diese Informationen importiert wurden, können Sie in Nachrichten darauf
 
 ## Unterstützte Datentypen {#supported-data-types}
 
-Informationen zu unterstützten Katalogdatentypen, Beschreibungen, Erstellungs- und Aktualisierungsmöglichkeiten (CSV vs. API und CDI) sowie Format und Beispiele finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+Die folgende Tabelle listet die unterstützten Katalogdatentypen auf und zeigt, wie sie erstellt oder aktualisiert werden können.
+
+| Datentyp | Beschreibung | Verfügbar per CSV-Upload | Verfügbar per API und CDI |
+|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
+| String | Eine Zeichenfolge. | ✅ Ja | ✅ Ja |
+| Zahl | Ein numerischer Wert, entweder Ganzzahl oder Gleitkommazahl. | ✅ Ja | ✅ Ja |
+| Boolescher Wert | Ein `true`- oder `false`-Wert. | ✅ Ja | ✅ Ja |
+| Zeitangabe | Ein String im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format. | ✅ Ja | ✅ Ja |
+| Geolocation | Ein `[longitude, latitude]`-Koordinaten-Array. Der Breitengrad muss zwischen -90 und 90 liegen; der Längengrad muss zwischen -180 und 180 liegen. Beispiel: `[-73.988103, 40.779109]`. | ✅ Ja | ✅ Ja |
+| JSON-Objekt | Ein verschachteltes Objekt mit Schlüssel-Wert-Paaren. Kann in der Plattform angezeigt, aber nur über die API oder CDI erstellt oder aktualisiert werden. | ⛔ Nein | ✅ Ja |
+| String-Array | Eine Liste von Strings. Kann in der Plattform angezeigt, aber nur über die API oder CDI erstellt oder aktualisiert werden. Maximal 100 Elemente. | ⛔ Nein | ✅ Ja |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Einen Katalog erstellen {#creating-a-catalog}
 
 Um einen Katalog zu erstellen, navigieren Sie zu **Dateneinstellungen** > **Kataloge**, wählen Sie **Neuen Katalog erstellen** und wählen Sie eine der folgenden Optionen:
 
 {% tabs local %}
-{% tab Upload CSV %}
+{% tab CSV hochladen %}
 ### 1. Schritt: Überprüfen Sie Ihre CSV-Datei {#step-1-review-your-csv-file}
 
 Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass sie die folgenden Anforderungen erfüllt:
@@ -44,7 +55,7 @@ Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass sie die folgenden A
 | Dateigröße | Bei kostenlosen Tarifen ist die Gesamtgröße aller CSV-Dateien eines Unternehmens auf 100 MB begrenzt. Für Pro-Tarife beträgt die maximale Dateigröße für eine einzelne CSV-Datei 2 GB. |
 | Feldwerte | Jede Zelle (Feldwert) kann bis zu 5.000 Zeichen enthalten. |
 | Zulässige Zeichen | Die `id`-Spalte und alle Kopfzeilenwerte dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. |
-| Datentypen | Unterstützte Datentypen für CSV-Uploads umfassen String, Zahl, Boolescher Wert und Zeitangabe. Die vollständige Liste der Datentypen, einschließlich derjenigen, die nur über die API und CDI verfügbar sind, finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
+| Datentypen | Unterstützte Datentypen für CSV-Uploads umfassen String, Zahl, Boolescher Wert, Zeitangabe und Geolocation. Die vollständige Liste der Datentypen, einschließlich derjenigen, die nur über die API und CDI verfügbar sind, finden Sie unter [Unterstützte Datentypen](#supported-data-types). |
 | Formatierung | Formatieren Sie den gesamten Text in Kleinbuchstaben, um die Einheitlichkeit zu gewährleisten. |
 | Kodierung | Speichern und laden Sie die CSV-Datei mit UTF-8-Kodierung hoch. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -57,7 +68,7 @@ Benötigen Sie mehr Platz für Ihre CSV-Dateien? Wenden Sie sich an Ihren Braze 
 
 Ziehen Sie Ihre Datei per Drag-and-Drop in die Upload-Zone, oder wählen Sie **CSV hochladen** und wählen Sie Ihre Datei aus.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![Ziehen Sie Ihre Datei per Drag-and-Drop in die Upload-Zone, oder wählen Sie „CSV hochladen“ und wählen Sie Ihre Datei aus.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 Wählen Sie für jede Spalte einen Datentyp aus.
 
@@ -65,7 +76,7 @@ Wählen Sie für jede Spalte einen Datentyp aus.
 Dieser Datentyp kann nicht mehr bearbeitet werden, nachdem Sie Ihren Katalog eingerichtet haben. Außerdem wird ein `NULL`-Wert beim CSV-Upload nicht unterstützt und als String behandelt.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Datentyp-Auswahl für Katalogspalten. Ein NULL-Wert wird beim CSV-Upload nicht unterstützt und als String behandelt.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Geben Sie einen Namen und optional eine Beschreibung für Ihren Katalog ein. Beachten Sie bei der Benennung Ihres Katalogs die folgenden Anforderungen:
 
@@ -94,7 +105,7 @@ In dieser Anleitung verwenden wir einen Katalog, der zwei Spiele mit Preisangabe
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table class="tg" aria-label="Anleitung: Erstellen eines Katalogs aus einer CSV-Datei">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -133,20 +144,18 @@ Als Nächstes benennen wir diesen Katalog „games_catalog“ und wählen den Bu
 
 Beachten Sie, dass Sie diesen Namen nicht mehr ändern können, nachdem der Katalog erstellt wurde. Sie können einen Katalog löschen und eine aktualisierte Version unter demselben Katalognamen erneut hochladen.
 
-Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog in einer Campaign zu referenzieren]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog in einer Campaign zu referenzieren]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Im Browser erstellen %}
 ### Voraussetzungen {#prerequisites}
 
-Bevor Sie Kataloge im Browser bearbeiten oder erstellen können, benötigen Sie die folgenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) für Ihren Workspace:
+Bevor Sie Kataloge im Browser bearbeiten oder erstellen können, benötigen Sie die folgenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) für Ihren Workspace:
 
 - Kataloge anzeigen
 - Kataloge bearbeiten
 - Kataloge exportieren
 - Kataloge löschen
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ### 1. Schritt: Katalogdetails eingeben {#step-1-enter-catalog-details}
 
@@ -178,7 +187,20 @@ Braze verarbeitet Zeitwerte basierend auf dem Zeitstempel des Dashboards. Wenn e
 {% endtab %}
 {% endtabs %}
 
-Informationen zu Katalogdatentypen mit Format und Beispielen finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+## Katalogdatentypen {#catalog-data-types}
+
+Kataloge unterstützen verschiedene Datentypen, die Ihnen helfen, Ihre Daten effektiv zu organisieren und zu strukturieren. Die folgende Tabelle beschreibt jeden unterstützten Datentyp und wie er auf CSV- und API-Typnamen abgebildet wird:
+
+| Datentyp | Format | Beispiel | Beschreibung |
+|-----------|--------|---------|-------------|
+| String | Text | `"Hello World"` | Jede Zeichenfolge, die für Textdaten wie Namen, Beschreibungen und IDs verwendet wird. Entspricht dem Typ `string` in CSV- und API-Importen. |
+| Zeitangabe | ISO 8601 oder Unix-Zeitstempel (Sekunden) | `"2024-03-15T14:30:00Z"` | Datums- und Zeitwerte im ISO-8601-Format oder als Unix-Zeitstempel in Sekunden. Entspricht dem Typ `time` in der API und dem Typ `datetime` in CSV-Importen. |
+| Boolescher Wert | `true` oder `false` | `true` | Logische Werte, die Wahr- oder Falsch-Zustände darstellen. Entspricht dem Typ `boolean` in CSV- und API-Importen. |
+| Zahl | Ganzzahl oder Dezimalzahl | `42` oder `19.99` | Numerische Werte einschließlich Ganzzahlen und Gleitkommazahlen für Preise, Mengen, Bewertungen und mehr. Entspricht den Typen `integer` und `float` in CSV-Importen und dem Typ `number` in der API. |
+| Geolocation | `[longitude, latitude]`-Array | `[-73.988103, 40.779109]` | Ein Koordinatenpaar, das einen geografischen Standort darstellt. Der Längengrad muss zwischen -180 und 180 liegen; der Breitengrad muss zwischen -90 und 90 liegen. Der API-`type`-Wert ist `geo`. Kann über die Schublade **Felder hinzufügen** in der Katalog-UI, per CSV-Upload oder über die REST API hinzugefügt werden. |
+| Objekt | JSON-Objekt | `{"key": "value", "price": 10}` | Komplexe verschachtelte Datenstrukturen. Der API-`type`-Wert ist `object`. Wird im Dashboard als JSON-Objekt angezeigt. Nur über die API oder Cloud-Datenaufnahme (CDI) verfügbar. |
+| Array | String-Array | `["red", "blue", "green"]` | Listen von String-Werten. Der API-`type`-Wert ist `array`. Wird im Dashboard als String-Array angezeigt. Nur über die API oder CDI verfügbar. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Verwendung von Templates in Katalognamen {#template-catalog-names}
 
@@ -201,35 +223,35 @@ Um Ihren Katalog nach dem Hochladen einer CSV-Datei oder dem Erstellen eines Kat
 
 ### Verwendung der REST API {#using-the-rest-api}
 
-Wenn Sie mehr Kataloge erstellen, können Sie auch den [Endpunkt „Kataloge auflisten“]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) verwenden, um eine Liste der Kataloge in einem Workspace abzurufen.
+Wenn Sie mehr Kataloge erstellen, können Sie auch den [Endpunkt „Kataloge auflisten“]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) verwenden, um eine Liste der Kataloge in einem Workspace abzurufen.
 
-Die REST API unterstützt alle [Katalogdatentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), einschließlich JSON-Objekte und String-Arrays. JSON-Objekte und String-Arrays können ausschließlich über die REST API erstellt oder aktualisiert werden.
+Die REST API unterstützt alle [Katalogdatentypen](#supported-data-types), einschließlich JSON-Objekte und String-Arrays. JSON-Objekte und String-Arrays können ausschließlich über die REST API erstellt oder aktualisiert werden.
 
 ### Nutzung der Cloud-Datenaufnahme {#using-cloud-data-ingestion}
 
-Sie können Kataloge über die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) verwalten, indem Sie Katalogdaten direkt aus Ihrem Data Warehouse (wie Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric oder S3) nach einem festgelegten Zeitplan synchronisieren.
+Sie können Kataloge über die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) verwalten, indem Sie Katalogdaten direkt aus Ihrem Data Warehouse (wie Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric oder S3) nach einem festgelegten Zeitplan synchronisieren.
 
 ## Katalogartikel verwalten {#managing-catalog-items}
 
 Neben der Verwaltung Ihrer Kataloge können Sie auch asynchrone und synchrone Endpunkte zur Verwaltung der Katalogartikel verwenden. Dazu gehört die Möglichkeit, Katalogartikel zu bearbeiten und zu löschen sowie Details zu Katalogartikeln aufzulisten.
 
-Wenn Sie zum Beispiel einen einzelnen Katalogartikel bearbeiten möchten, können Sie den [`/catalogs/catalog_name/items/item_id`-Endpunkt]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/) verwenden.
+Wenn Sie zum Beispiel einen einzelnen Katalogartikel bearbeiten möchten, können Sie den [`/catalogs/catalog_name/items/item_id`-Endpunkt]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item) verwenden.
 
 ## Katalogspeicher {#tiers}
 
-Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgröße von bis zu 100 MB für alle CSV-Dateien in Ihrem Unternehmen, während die Catalogs Pro-Version CSV-Dateien mit einer Größe von bis zu 2 GB für eine einzelne CSV-Datei unterstützt.
+Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgröße von bis zu 100 MB für alle CSV-Dateien in Ihrem Unternehmen, während die Catalogs-Pro-Version CSV-Dateien mit einer Größe von bis zu 2 GB für eine einzelne CSV-Datei unterstützt.
 
 {% alert important %}
 Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf die nächste Einheit gerundet; Sie haben jedoch weiterhin Anspruch auf den vollen erworbenen Umfang. Um ein Upgrade für den Katalogspeicher anzufordern, wenden Sie sich an Ihren Braze Account Manager.
 {% endalert %}
 
-#### Kostenlose Version {#free-version}
+### Kostenlose Version {#free-version}
 
 Die Speichergröße der kostenlosen Version von Catalogs beträgt bis zu 100&nbsp;MB. Sie können eine unbegrenzte Anzahl von Artikeln haben, solange sie unter 100&nbsp;MB bleiben.
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
-Bei Unternehmensebene richtet sich der maximale Speicherplatz für Catalogs Pro nach der Größe der Katalogdaten. Die verfügbaren Speichergrößen sind: 5&nbsp;GB, 10&nbsp;GB oder 15&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
+Auf Unternehmensebene richtet sich der maximale Speicherplatz für Catalogs Pro nach der Größe der Katalogdaten. Die verfügbaren Speichergrößen sind: 5&nbsp;GB, 10&nbsp;GB oder 15&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
 
 ## Spezifikationen {#specifications}
 

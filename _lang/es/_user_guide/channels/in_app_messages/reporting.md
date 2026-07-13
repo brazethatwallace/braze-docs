@@ -18,7 +18,7 @@ tool:
 
 ## Métricas de mensajes dentro de la aplicación {#in-app-message-metrics}
 
-Estas son las métricas clave de mensajes dentro de la aplicación que puedes ver en tus análisis. Para consultar las definiciones de todas las métricas utilizadas en Braze, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Estas son las métricas clave de mensajes dentro de la aplicación que puedes ver en tus análisis. Para consultar las definiciones de todas las métricas utilizadas en Braze, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Para los mensajes dentro de la aplicación, esta página define las impresiones únicas utilizando un límite de día calendario en la zona horaria de tu espacio de trabajo.
@@ -31,7 +31,13 @@ Para los mensajes dentro de la aplicación, esta página define las impresiones 
 | Conversiones | El seguimiento de conversiones comienza después de que un usuario registra una impresión de un mensaje dentro de la aplicación. Se cuenta una conversión si el usuario ha recibido y visto la campaña de mensaje dentro de la aplicación y posteriormente realiza el evento de conversión específico dentro de la ventana de conversión definida, independientemente de si hizo clic en el mensaje o no. <br><br> Las conversiones se atribuyen al mensaje recibido más recientemente. Si la reelegibilidad está habilitada, la conversión se asigna al último mensaje dentro de la aplicación recibido, siempre que ocurra dentro de la ventana de conversión definida. Sin embargo, si el mensaje dentro de la aplicación ya tiene una conversión asignada, no se puede registrar una nueva conversión para ese mensaje específico. Esto garantiza que cada entrega de mensaje dentro de la aplicación se asocie con una sola conversión. |
 | Conversiones totales | Cuando un usuario ve una campaña de mensaje dentro de la aplicación solo una vez, solo se cuenta una conversión, incluso si realiza el evento de conversión varias veces después. Sin embargo, si la reelegibilidad está activada y el usuario ve la campaña de mensaje dentro de la aplicación varias veces, las *Conversiones totales* pueden incrementarse una vez por cada vez que el usuario registra una impresión para una nueva instancia de la campaña de mensaje dentro de la aplicación. <br><br> Por ejemplo, si un usuario desencadena un mensaje dentro de la aplicación dos veces y convierte después de cada impresión (resultando en dos conversiones), las *Conversiones totales* se incrementan en dos. Sin embargo, si solo hubo una impresión seguida de dos eventos de conversión, solo se registra una conversión y las *Conversiones totales* se incrementan en uno. |
 | Tasa de conversión | La métrica de impresiones únicas diarias totales (*Impresiones únicas*) se utiliza para calcular la tasa de conversión. <br><br> Tasa de conversión = (Conversiones primarias) / (Impresiones únicas) <br><br> Para los mensajes dentro de la aplicación, las *Impresiones únicas* solo se pueden contar una vez por día calendario en la zona horaria de tu espacio de trabajo. El número de veces que un usuario completa una acción deseada (una "conversión") puede incrementarse dentro de ese mismo día calendario. Por lo tanto, si un usuario completa una conversión varias veces en un día, la *Tasa de conversión* puede incrementarse en consecuencia, pero las *Impresiones únicas* se cuentan solo una vez para ese día calendario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de mensajes dentro de la aplicación" }
+
+{% alert tip %}
+Las *Impresiones totales* pueden superar a las *Impresiones únicas* cuando un usuario ve el mensaje más de una vez en el mismo día calendario (consulta las definiciones de métricas en la tabla anterior). Para investigar usuarios con recuentos de impresiones inflados, crea un segmento con el filtro **Recuento de dispositivos** configurado en **más de** `1`, y el filtro **Mensaje recibido de Campaign** para la campaña específica.
+{% endalert %}
+
+Para los desequilibrios de impresiones entre el grupo de control y la variante en las pruebas A/B, consulta [Discrepancias entre el grupo de control y la variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## ¿Cómo se incrementan las conversiones con la reelegibilidad? {#how-do-conversions-increment-with-re-eligibility}
 

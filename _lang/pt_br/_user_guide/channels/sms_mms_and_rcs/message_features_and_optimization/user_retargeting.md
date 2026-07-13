@@ -19,7 +19,7 @@ channel:
 > Além de alterar o estado de inscrição do usuário e enviar respostas automáticas com base em palavras-chave recebidas, a Braze também registra interações no perfil do usuário para filtragem e disparo de mensagens.<br><br>Esses filtros e gatilhos permitem filtrar ações com base em usuários que receberam ou responderam a Campaigns de SMS, MMS e RCS, ou engajar ainda mais com usuários que clicaram em URLs encurtadas.
 
 {% alert tip %}
-Para saber mais sobre palavras-chave personalizadas e como configurar o envio de mensagens bidirecional para aproveitar essas opções de redirecionamento, visite nosso artigo sobre [palavras-chave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/).
+Para saber mais sobre palavras-chave personalizadas e como configurar o envio de mensagens bidirecional para aproveitar essas opções de redirecionamento, visite nosso artigo sobre [palavras-chave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
 {% endalert %}
 
 ## Opções de redirecionamento {#retargeting-options}
@@ -50,11 +50,11 @@ Filtra usuários que receberam uma mensagem de uma Campaign específica. Com ess
 
 Para disparar mensagens quando os usuários recebem mensagens de SMS, MMS ou RCS de uma Campaign específica, selecione **Interact with Campaign** como a ação-gatilho para uma Campaign baseada em ação. Em seguida, selecione **Receive SMS** e a Campaign de SMS, MMS ou RCS que você deseja usar.
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![Para disparar mensagens quando os usuários recebem mensagens de SMS, MMS ou RCS de uma Campaign específica, selecione Interact with Campaign como a ação-gatilho para uma Campaign baseada em ação. Em seguida, selecione Receive SMS e a Campaign de SMS, MMS ou RCS que você deseja usar.]({% image_buster /assets/img/sms/trigger.png %})
 
 ### Filtrar por links de rastreamento avançado {#filter-by-advanced-tracking-links}
 
-Redirecione usuários que clicaram em Campaigns com [links de rastreamento avançado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/).
+Redirecione usuários que clicaram em Campaigns com [links de rastreamento avançado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 Apenas Campaigns com rastreamento avançado ativado aparecem nos menus suspensos a seguir:
 
 #### Redirecionar usuários que clicaram em uma Campaign específica de SMS, MMS ou RCS {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
@@ -63,7 +63,7 @@ Apenas Campaigns com rastreamento avançado ativado aparecem nos menus suspensos
 2. Selecione **clicked shortened sms link**.
 3. Escolha a Campaign desejada.
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![Captura de tela relacionada ao redirecionamento de usuários que clicaram em uma Campaign específica de SMS, MMS ou RCS.]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### Redirecionar usuários que clicaram em uma etapa específica do Canvas {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
@@ -71,11 +71,11 @@ Apenas Campaigns com rastreamento avançado ativado aparecem nos menus suspensos
 2. Selecione **clicked shortened sms link**.
 3. Escolha o Canvas e a etapa do Canvas desejados.
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![Captura de tela relacionada ao redirecionamento de usuários que clicaram em uma etapa específica do Canvas.]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## Redirecionamento específico por categoria de palavra-chave {#keyword-category-specific-retargeting}
 
-Além das três categorias padrão de palavras-chave (Opt-in, Descadastramento e Ajuda), você também pode criar até 25 categorias de palavras-chave próprias, permitindo identificar palavras-chave e respostas arbitrárias. Essas categorias podem ser usadas para filtragem e redirecionamento. Para saber mais sobre categorias globais de palavras-chave e como configurá-las, consulte [Processamento de palavras-chave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/).
+Além das três categorias padrão de palavras-chave (Opt-in, Descadastramento e Ajuda), você também pode criar até 25 categorias de palavras-chave próprias, permitindo identificar palavras-chave e respostas arbitrárias. Essas categorias podem ser usadas para filtragem e redirecionamento. Para saber mais sobre categorias globais de palavras-chave e como configurá-las, consulte [Processamento de palavras-chave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing).
 
 ### Filtrar por recência {#filter-by-recency}
 
@@ -106,7 +106,7 @@ As mensagens podem ser disparadas quando os usuários enviam mensagens de entrad
 Ao avaliar se uma mensagem de entrada corresponde a um evento de gatilho definido, os espaços iniciais e finais são removidos antes do início da avaliação.
 
 {% alert tip %}
-Se um Canvas baseado em ação for disparado por uma mensagem de entrada de SMS ou MMS, você pode referenciar [propriedades Liquid de SMS compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) em qualquer etapa do Canvas até a próxima jornada de ação.
+Se um Canvas baseado em ação for disparado por uma mensagem de entrada de SMS ou MMS, você pode referenciar [propriedades Liquid de SMS compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) em qualquer etapa do Canvas até a próxima jornada de ação.
 {% endalert %}
 
 #### Disparar por categoria de palavra-chave de entrada {#trigger-by-inbound-keyword-category}

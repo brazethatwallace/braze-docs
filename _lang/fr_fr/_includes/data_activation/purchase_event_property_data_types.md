@@ -10,6 +10,6 @@ Les valeurs de propriétés peuvent être de l'un des types de données suivants
 | Chaîne de caractères | 255 caractères ou moins |
 | Tableau | Pris en charge ; les dates et heures ne sont pas prises en charge dans les tableaux. |
 | Objet | Ingéré en tant que chaînes de caractères (pas d'objets imbriqués). Pour les données imbriquées, utilisez une valeur de chaîne de caractères (par exemple, sérialisée en JSON). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 Les clés suivantes sont réservées et ne peuvent pas être utilisées comme noms de propriétés : `time`, `product_id`, `quantity`, `event_name`, `price` et `currency`. L'utilisation d'une clé réservée dans l'objet `properties` renvoie l'erreur « Invalid 'properties' field ».

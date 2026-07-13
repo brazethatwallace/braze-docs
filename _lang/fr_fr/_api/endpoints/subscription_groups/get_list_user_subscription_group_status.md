@@ -1,60 +1,59 @@
 ---
-nav_title: "GET : Afficher le statut du groupe d'abonnement des utilisateurs"
-article_title: "GET : Répertorier le statut du groupe d’abonnement de l’utilisateur"
+nav_title: "GET : Afficher le statut du groupe d'abonnement des utilisateurs"
+article_title: "GET : Afficher le statut du groupe d'abonnement des utilisateurs"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Répertorier le statut du groupe d’abonnement des utilisateurs."
+description: "Cet article présente en détail l'endpoint Braze Afficher le statut du groupe d'abonnement des utilisateurs."
 
 ---
 {% api %}
-# Répertorier le statut du groupe d’abonnement de l’utilisateur
+# Afficher le statut du groupe d'abonnement de l'utilisateur {#list-users-subscription-group-status}
 {% apimethod get %}
 /subscription/status/get
 {% endapimethod %}
 
-> Utilisez cet endpoint pour obtenir le statut d’abonnement d’un utilisateur dans un groupe d’abonnement.
+> Utilisez cet endpoint pour obtenir l'état d'abonnement d'un utilisateur dans un groupe d'abonnement.
 
-Ces groupes seront disponibles sur la page des **groupes d'abonnement**. La réponse de cet endpoint inclura l’ID externe et le statut abonné, désabonné, ou inconnu pour le groupe d’abonnement spécifique demandé dans l’appel d’API. Cette option permet de mettre à jour le statut du groupe d’abonnement dans les appels d’API ultérieurs ou de l’afficher sur une page Web hébergée.
+Ces groupes seront disponibles sur la page **Groupe d'abonnement**. La réponse de cet endpoint inclura l'ID externe ainsi que le statut abonné, désabonné ou inconnu pour le groupe d'abonnement spécifique demandé dans l'appel d'API. Cela peut être utilisé pour mettre à jour l'état du groupe d'abonnement dans des appels d'API ultérieurs ou pour l'afficher sur une page web hébergée.
 
-Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes d'abonnement e-mail**:
+Si vous souhaitez voir des exemples ou tester cet endpoint pour les **Groupes d'abonnement e-mail** :
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
 
-Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes d'abonnement SMS**:
+Si vous souhaitez voir des exemples ou tester cet endpoint pour les **Groupes d'abonnement SMS** :
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4b8515b8-067f-41fd-b213-8bb2d18b1557 {% endapiref %}
 
-Si vous souhaitez voir des exemples ou tester cet endpoint pour **WhatsApp Groups :**
+Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes WhatsApp** :
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4b8515b8-067f-41fd-b213-8bb2d18b1557 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `subscription.status.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `subscription.status.get`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids)  | Requis | Chaîne de caractères | L’`id` de votre groupe d’abonnement. |
-| `external_id`  |  Obligatoire* | Chaîne de caractères | L’`external_id` de l’utilisateur (maximum 50 `external_ids`, minimum 1). <br><br>Lorsqu’un `external_id` et un `email`/`phone` sont transmis, seuls le ou les `external_id`(s) fournis seront appliqués à la requête. |
-| `email` | Obligatoire* | Chaîne de caractères | L’adresse e-mail de l’utilisateur. Il peut être transmis comme un tableau de chaînes de caractères avec un maximum de 50 éléments.<br><br> Envoyer une adresse e-mail et un numéro de téléphone en même temps (sans `external_id`) entraînera une erreur. |
-| `phone` | Obligatoire* | Chaîne de caractères dans [E.164](https://en.wikipedia.org/wiki/E.164) format | Le numéro de téléphone de l’utilisateur. Si l’e-mail n’est pas inclus, vous devez ajouter au moins un numéro de téléphone (avec un maximum de 50).<br><br> Envoyer une adresse e-mail et un numéro de téléphone en même temps (sans `external_id`) entraînera une erreur. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Requis | Chaîne de caractères | L'`id` de votre groupe d'abonnement. |
+| `external_id` | Requis* | Chaîne de caractères | L'`external_id` de l'utilisateur (doit inclure au minimum un et au maximum 50 `external_ids`). <br><br>Lorsqu'un `external_id` et un `email`/`phone` sont soumis, seul(s) le(s) `external_id`(s) fourni(s) seront appliqués à la requête. |
+| `email` | Requis* | Chaîne de caractères | L'adresse e-mail de l'utilisateur. Elle peut être transmise sous forme de tableau de chaînes de caractères avec un maximum de 50.<br><br> Soumettre à la fois une adresse e-mail et un numéro de téléphone (sans `external_id`) entraînera une erreur. |
+| `phone` | Requis* | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Le numéro de téléphone de l'utilisateur. Si l'e-mail n'est pas inclus, vous devez fournir au moins un numéro de téléphone (avec un maximum de 50).<br><br> Soumettre à la fois une adresse e-mail et un numéro de téléphone (sans `external_id`) entraînera une erreur. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+*Un `external_id`, un `email` ou un `phone` est requis pour chaque utilisateur.
 
-\*Chaque utilisateur doit disposer d'une des options suivantes : `external_id`, `email` ou `phone`.
+- Pour les groupes d'abonnement SMS et WhatsApp, un `external_id` ou un `phone` est requis. Lorsque les deux sont soumis, seul l'`external_id` est utilisé pour l'interrogation et le numéro de téléphone est appliqué à cet utilisateur.
+- Pour les groupes d'abonnement e-mail, un `external_id` ou un `email` est requis. Lorsque les deux sont soumis, seul l'`external_id` est utilisé pour la requête et l'adresse e-mail est appliquée à cet utilisateur.
 
-- Pour les groupes d'abonnement aux SMS et à WhatsApp, un `external_id` ou un `phone` est nécessaire.  Lorsque les deux sont soumis, seul l’`external_id` est utilisé pour l'interrogation et le numéro de téléphone est appliqué à cet utilisateur.
-- Pour les groupes d’abonnement aux e-mails, `external_id` ou `email` est nécessaire.  Lorsque les deux sont soumis, seul l’`external_id` est utilisé pour la requête et l’adresse e-mail est appliquée à cet utilisateur.
-
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 {% tabs %}
 {% tab Multiple Users %}
@@ -75,16 +74,16 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
 
-## Réponse
+## Réponse {#response}
 
-Toutes les réponses réussies renverront `Subscribed`, `Unsubscribed`, ou `Unknown` selon le statut et l’historique de l’utilisateur avec le groupe d’abonnement.
+Toutes les réponses réussies renverront `Subscribed`, `Unsubscribed` ou `Unknown` en fonction du statut et de l'historique de l'utilisateur avec le groupe d'abonnement.
 
 ```json
 {
@@ -97,7 +96,7 @@ Toutes les réponses réussies renverront `Subscribed`, `Unsubscribed`, ou `Unkn
 ```
 
 {% alert important %}
-Ce endpoint renvoie le statut du groupe d'abonnement indépendamment de l'état d'abonnement global de l'utilisateur. Si un utilisateur est désabonné de manière globale, le tableau de bord de Braze l'affiche comme désabonné de chaque groupe d'abonnement. Cependant, cet endpoint renvoie toujours le dernier statut enregistré du groupe d'abonnement (par exemple, `Subscribed`) car l'état global de l'abonnement remplace les groupes d'abonnement individuels sans les écraser.<br><br>Braze conserve les statuts individuels des groupes d'abonnement afin que, si l'utilisateur se réabonne globalement, chaque groupe d'abonnement revienne à son statut précédemment enregistré. Pour déterminer l'état d'abonnement effectif d'un utilisateur, veuillez vérifier à la fois son statut d'abonnement global et le statut du groupe d'abonnement renvoyé par cet endpoint.
+Cet endpoint renvoie le statut du groupe d'abonnement indépendamment de l'état d'abonnement global de l'utilisateur. Si un utilisateur est globalement désabonné, le tableau de bord de Braze l'affiche comme désabonné de chaque groupe d'abonnement. Cependant, cet endpoint renvoie toujours le dernier statut enregistré du groupe d'abonnement (par exemple, `Subscribed`) car l'état d'abonnement global remplace les groupes d'abonnement individuels sans les écraser.<br><br>Braze conserve les statuts individuels des groupes d'abonnement afin que, si l'utilisateur se réabonne globalement, chaque groupe d'abonnement revienne à son statut précédemment enregistré. Pour déterminer l'état d'abonnement effectif d'un utilisateur, vérifiez à la fois son statut d'abonnement global et le statut du groupe d'abonnement renvoyé par cet endpoint.
 {% endalert %}
 
 {% endapi %}

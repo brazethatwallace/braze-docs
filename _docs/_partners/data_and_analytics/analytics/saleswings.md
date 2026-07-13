@@ -26,7 +26,7 @@ SalesWings allows marketing teams and marketing operations managers to qualify l
 | Braze REST API key | A Braze REST API key with `users.export.ids` permissions (and `users.track` if using the SalesWings insights push feature). <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
 | Segment.com account (optional) | If you are a Segment.com user, you can send all lead engagement and profile data and identify events via Segment.com for lead profiling. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -162,7 +162,7 @@ If you enable SalesWings insights push to Braze, SalesWings updates your Braze u
 | `sw_session_count` | integer | The number of tracked sessions on your website for this lead |
 | `sw_tags` | array of string | The needs and interests that SalesWings identified, represented as “tags”. The names of SalesWings tags configured in the SalesWings [Rule Engine](https://helium.saleswings.pro/falcon) that apply to this lead |
 | Additional lead score attributes | float | One Custom Attribute for every additional lead score configured in the SalesWings [Rule Engine](https://helium.saleswings.pro/falcon). The attribute name is derived from the SalesWings score name, for example, a score named `Likeliness to meet` is sent as Custom Attribute `sw_likeliness_to_meet`. If you rename a score after the system creates it, SalesWings continues syncing with the initial Custom Attribute name. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pushing SalesWings insights to Braze" }
 
 When the push is enabled, SalesWings immediately starts sending Custom Attributes to Braze as soon as underlying data points change in SalesWings lead profiles, and progressively syncs all existing leads even if they don't have new updates.
 
@@ -195,9 +195,9 @@ The following table shows the Braze event types supported by SalesWings and thei
 | Message Events | WhatsApp Read | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | Subscriptions | Global Subscription State Change | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
 | Subscriptions | Subscription Group State Change | `[Subscription status change] $subscription_status to/from $campaign_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Using Braze Currents events in your CRM" }
 
-You can then configure **Custom Event** > **Event Name** and **Custom Event** > **Event Property** conditions for SalesWings tags and scores against the SalesWings event names from the table above. The list of event properties available for conditions is prefilled with some of the commonly used entries, and you can always add new ones in the **Event Property** section of the [Rule Engine configuration page](https://helium.saleswings.pro/falcon).
+You can then configure **Custom Event** > **Event Name** and **Custom Event** > **Event Property** conditions for SalesWings tags and scores against the SalesWings event names from the table in this section. The list of event properties available for conditions is prefilled with some of the commonly used entries, and you can always add new ones in the **Event Property** section of the [Rule Engine configuration page](https://helium.saleswings.pro/falcon).
 
 ![Example of an Event Name condition.]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_custom_event_condition.png %})
 

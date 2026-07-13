@@ -24,7 +24,7 @@ Com os relatórios de engajamento, você pode selecionar manualmente Campaigns e
 
 Independentemente do número de Campaigns ou Canvas selecionados, até dois arquivos CSV são gerados — um para todos os dados de Campaign e outro para todos os dados de Canvas. Você pode acessar esses arquivos CSV pelo link incorporado no e-mail do relatório. Os relatórios de engajamento não são salvos no dashboard da Braze.
 
-Alguns dados são agregados no nível de Campaign ou Canvas, e não no nível de variante de campanha individual ou etapa do Canvas. Se você [excluir uma etapa do Canvas após o lançamento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details), isso também removerá os dados dos relatórios de engajamento.
+Alguns dados são agregados no nível de Campaign ou Canvas, e não no nível de variante de campanha individual ou etapa do Canvas. Se você [excluir uma etapa do Canvas após o lançamento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details), isso também removerá os dados dos relatórios de engajamento.
 
 {% alert tip %}
 Você pode executar o relatório novamente para gerar estatísticas atualizadas.
@@ -51,7 +51,7 @@ Essa opção oferece a liberdade de escolher quais Campaigns ou Canvas você des
 
 #### Selecionar automaticamente Campaigns ou Canvas {#automatically-select-campaigns-or-canvases}
 
-Essa opção permite incluir automaticamente todas as mensagens que contêm uma [tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) específica. Você pode segmentar mensagens que possuem qualquer uma ou todas as tags listadas. Essa opção é útil se você está configurando relatórios recorrentes e costuma adicionar tags às suas mensagens de engajamento.
+Essa opção permite incluir automaticamente todas as mensagens que contêm uma [tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) específica. Você pode segmentar mensagens que possuem qualquer uma ou todas as tags listadas. Essa opção é útil se você está configurando relatórios recorrentes e costuma adicionar tags às suas mensagens de engajamento.
 
 {% alert important %}
 As tags devem corresponder a pelo menos uma Campaign ou Canvas para que o relatório seja gerado. Se você usar **Automatically select campaigns and Canvases based on specific rules** e encontrar um erro, confirme que pelo menos uma Campaign ou Canvas corresponde às suas tags e outros filtros (por exemplo, quando você exige todas as tags listadas, cada mensagem correspondente deve ter todas as tags).
@@ -63,7 +63,7 @@ A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canv
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
-Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nível do espaço de trabalho. Para monitorar o volume total de envios ou impressões em todas as Campaigns e Canvas ativos, como envios e impressões por canal em todo o espaço de trabalho, use o [Criador de relatórios]({{site.baseurl}}/report_builder/).
+Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nível do espaço de trabalho. Para monitorar o volume total de envios ou impressões em todas as Campaigns e Canvas ativos, como envios e impressões por canal em todo o espaço de trabalho, use o [Criador de relatórios]({{site.baseurl}}/report_builder).
 
 {% alert note %}
 *Envios para operadora* está descontinuado, mas continuará sendo suportado para usuários que já o utilizam.
@@ -72,12 +72,12 @@ Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nív
 | Canal | Estatísticas disponíveis |
 | ------| --------------|
 | E-mail | Envios, Aberturas, Aberturas únicas, Cliques, Cliques únicos, Taxa de cliques por abertura, Cancelamentos de inscrição, Bounces, Entregas, Spam reportado |
-| Push  | Envios, Aberturas, Aberturas por influência, Bounces, Cliques no corpo |
-| Push para a web | Envios, Aberturas, Bounces, Cliques no corpo |
+| Push  | Envios, Aberturas, Aberturas por Influência, Bounces, Cliques no corpo |
+| Web push | Envios, Aberturas, Bounces, Cliques no corpo |
 | Mensagem no app | Impressões, Cliques, Cliques no primeiro botão, Cliques no segundo botão |
 | Webhook  |  Envios, Erros |
 | SMS | Envios, Envios para operadora, Entregas confirmadas, Falhas de entrega, Rejeições |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Adicionar estatísticas" }
 
 ### Etapa 4: Concluir a configuração do relatório {#step-4-complete-report-setup}
 
@@ -131,6 +131,21 @@ O relatório contém todas as estatísticas selecionadas na seção [Adicionar e
 
 ## Solução de problemas {#troubleshooting}
 
+### As métricas do relatório de engajamento diferem do dashboard de desempenho de e-mail {#engagement-report-metrics-differ-from-the-email-performance-dashboard}
+
+Os relatórios de engajamento e o [dashboard de desempenho de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance) usam as mesmas definições de métricas de e-mail. Ambos atribuem aberturas e cliques ao dia em que cada evento **ocorreu**, e ambos calculam *Aberturas únicas* e *Cliques únicos* como contagens únicas de sete dias por dia, somadas ao longo do intervalo de datas selecionado. Para definições, consulte [Métricas de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#email-metrics) e [Como as métricas são calculadas]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated) na página de dashboards de desempenho de canal.
+
+Se os totais ainda diferirem para as mesmas Campaigns e período, verifique o seguinte:
+
+| Verificação | Por que é importante |
+| --- | --- |
+| Intervalo de datas e fuso horário | Ambas as superfícies devem cobrir os mesmos dias do calendário no mesmo fuso horário. |
+| Seleção de Campaign ou Canvas | O dashboard de desempenho de e-mail agrega a atividade de e-mail em todo o espaço de trabalho. Um relatório de engajamento inclui apenas as Campaigns ou Canvas que você selecionou. |
+| Linhas diárias versus totais do relatório | Se **Data Display** dividir a exportação em linhas diárias, some essas linhas para comparar com os totais do dashboard para o mesmo intervalo. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verificações quando as métricas de e-mail do relatório de engajamento diferem do dashboard de desempenho de e-mail" }
+
+As diferenças são mais comuns quando os valores do relatório de engajamento são comparados com a análise de dados de **Campaign** ou **Canvas** em vez do dashboard de desempenho de e-mail. As páginas de Campaign e Canvas podem exibir métricas baseadas na data de envio (por exemplo, envios ou conversões atribuídas à data de envio) junto com aberturas e cliques baseados na data do evento. Consulte [O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign) abaixo.
+
 ### O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 
 #### Intervalo de datas incompatível {#mismatched-time-range}
@@ -145,4 +160,11 @@ Se você deseja linhas agregadas por Campaign ou Canvas completo em vez de bucke
 
 #### Cliques duplicados em botões em mensagens no app HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
-Se você usa mensagens no app HTML e os **Cliques no corpo** parecem altos no relatório de engajamento, pode ser que o registro de cliques esteja sendo disparado duas vezes — por exemplo, chamando `brazeBridge.logClick()` para um clique genérico no corpo e também `brazeBridge.logClick('body click')` (ou outro ID) na mesma interação. Pesquise no seu markup por `brazeBridge.logClick(` e alinhe com um padrão por controle. Para o uso recomendado, consulte [Rastreamento de botões]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+Se você usa mensagens no app HTML e os **Cliques no corpo** parecem altos no relatório de engajamento, pode ser que o registro de cliques esteja sendo disparado duas vezes — por exemplo, chamando `brazeBridge.logClick()` para um clique genérico no corpo e também `brazeBridge.logClick('body click')` (ou outro ID) na mesma interação. Pesquise no seu markup por `brazeBridge.logClick(` e alinhe com um padrão por controle. Para o uso recomendado, consulte [Rastreamento de botões]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
+
+#### Links quebrados em e-mails de relatórios de engajamento {#broken-links-in-emailed-engagement-reports}
+
+Se os links em um e-mail de relatório de engajamento programado não abrirem corretamente no seu cliente de e-mail, tente os seguintes passos:
+
+1. Encaminhe o relatório para uma caixa de entrada do Gmail e abra os links no Google Chrome.
+2. Nas configurações do relatório de engajamento, confirme que **Report Schedule** está configurado para enviar quando você espera (por exemplo, imediatamente após a geração do relatório, em vez de em uma programação atrasada).

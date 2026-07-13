@@ -31,7 +31,7 @@ El primer paso es elegir qué CEP usar con Decisioning Studio. Tu elección afec
 | **Braze** | Integración nativa con API (recomendada) | Baja |
 | **Salesforce Marketing Cloud** | Eventos de API + Journey Builder | Media |
 | **Otras CEP** | Personalizada (archivo de recomendaciones) | Alta |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEP compatibles" }
 
 {% alert tip %}
 Si ya estás usando Braze como tu CEP, te recomendamos usar la integración nativa de Braze para la experiencia de configuración más fluida.
@@ -48,11 +48,11 @@ Antes de configurar la orquestación, reúne los siguientes elementos según la 
 |-----------|-------------|
 | **Clave de API REST** | Una nueva clave de API con permisos para datos de usuario, mensajes, Campaigns, Canvas, Segments y plantillas. |
 | **URL del panel de Braze** | La URL de tu instancia de Braze (por ejemplo, `https://dashboard-01.braze.com`). |
-| **ID de la aplicación** | La clave de API asociada con la aplicación que deseas rastrear (se encuentra en **Settings** > **App Settings**). |
-| **Nombre y dirección del remitente de correo electrónico** | La información del remitente que se usará para tus campañas (se encuentra en **Settings** > **Email Preferences**). |
+| **ID de la aplicación** | La clave de API asociada con la aplicación que deseas rastrear (se encuentra en **Configuración** > **Configuración de la aplicación**). |
+| **Nombre y dirección del remitente de correo electrónico** | La información del remitente que se usará para tus campañas (se encuentra en **Configuración** > **Preferencias de correo electrónico**). |
 | **Plantillas base** | Las plantillas de mensaje que tu agente usará para la orquestación. Crearás Campaigns activadas por API para cada plantilla. |
 | **ID de usuario de prueba** | Un ID de usuario para probar la integración antes del lanzamiento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -64,7 +64,7 @@ Antes de configurar la orquestación, reúne los siguientes elementos según la 
 | **Extensiones de datos** | Necesitarás extensiones de datos para datos de suscriptores, datos de interacción y recomendaciones. |
 | **Plantillas de correo electrónico** | Las plantillas que deseas que Decisioning Studio use, con los ID de plantilla para cada una. |
 | **Acceso a Journey Builder** | Acceso para crear y activar journeys de múltiples pasos con fuentes de entrada de eventos de API. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% endtab %}
 {% tab Otras CEP %}
@@ -76,7 +76,7 @@ Si estás usando una CEP distinta a Braze o Salesforce Marketing Cloud, Decision
 | **Capacidad de ingesta de datos** | Tu CEP debe poder ingerir archivos de recomendaciones (normalmente CSV o JSON) que contengan decisiones personalizadas para cada cliente. |
 | **Soporte de contenido dinámico** | Tus campañas deben admitir la población de campos de forma dinámica basándose en los datos de recomendaciones. |
 | **Recursos de ingeniería personalizados** | Tu equipo necesitará construir la integración para leer los archivos de recomendaciones y desencadenar las comunicaciones. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% endtab %}
 {% endtabs %}
@@ -114,11 +114,11 @@ Para integraciones con Braze, planifica qué dimensiones optimizará tu agente. 
 | Llamada a la acción | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | Oferta | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | Monto de descuento | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Propiedades de activación de API" }
 
 ## Configuración de la integración {#integration-setup}
 
-Selecciona tu CEP a continuación para comenzar con la configuración de la integración.
+Selecciona tu CEP de esta lista para comenzar con la configuración de la integración.
 
 {% tabs %}
 {% tab Braze %}
@@ -129,7 +129,7 @@ Sigue estos pasos para integrar un agente de Decisioning Studio con las capacida
 
 ### Paso 1: Crear una clave de API {#step-1-create-an-api-key}
 
-Ve a **Settings** > **API Keys** y crea una nueva clave con los siguientes permisos:
+Ve a **Configuración** > **Claves de API** y crea una nueva clave con los siguientes permisos:
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
@@ -143,7 +143,7 @@ Una plantilla base es cualquier plantilla que el agente de toma de decisiones po
 
 Asegúrate de que todas las Campaigns activadas por API permitan que los usuarios vuelvan a ser elegibles en un plazo de 15 minutos.
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
+![Diagrama de configuración de límite de frecuencia en Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
 
 {% alert note %}
 Aunque el agente de Decisioning Studio nunca enviará la misma campaña más de una vez al día, querrás tener la capacidad de enviar las mismas campañas varias veces al día con fines de prueba.
@@ -157,35 +157,35 @@ Estos sirven como marcadores de posición dinámicos para las decisiones que el 
 
 Supongamos que el agente de Decisioning Studio está optimizando una Campaign de correo electrónico. Esto podría configurarse así:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_email_example_1.png %})
+![Ejemplo de configuración de Campaign de correo electrónico en Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_email_example_1.png %})
 
 Suponiendo que el agente está optimizando la elección de plantillas y el mensaje de llamada a la acción (CTA), se debería crear una Campaign activada por API para cada plantilla, y la sección de CTA de una plantilla podría verse así:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_braze_email_example_2.png %})
+![Ejemplo de sección CTA en una plantilla de correo electrónico de Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_braze_email_example_2.png %})
 
 #### Ejemplo 2: Campaign de push {#example-2-push-campaign}
 
 Supongamos que un agente de Decisioning Studio está optimizando el mensaje de una Campaign de push. Esto podría configurarse así:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_1.png %})
+![Ejemplo de configuración de Campaign de push en Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_1.png %})
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
+![Ejemplo de contenido dinámico en Campaign de push de Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
 
 Resultando en el siguiente mensaje:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
+![Resultado del mensaje push optimizado por Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
 
 #### Ejemplo 3: Campaign de SMS {#example-3-sms-campaign}
 
 Supongamos que el agente de Decisioning Studio está optimizando campos en una Campaign de SMS. Esto podría configurarse así:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
+![Ejemplo de configuración de Campaign de SMS en Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
+![Ejemplo de contenido dinámico en Campaign de SMS de Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
 
 Resultando en el siguiente mensaje:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_3.png %})
+![Resultado del mensaje SMS optimizado por Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_3.png %})
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -194,7 +194,7 @@ Resultando en el siguiente mensaje:
 
 Decisioning Studio admite integración nativa con Salesforce Marketing Cloud. Decisioning Studio desencadena eventos de API en un journey con los datos necesarios para poblar los elementos dinámicos.
 
-Para conocer los pasos detallados para configurar la integración con SFMC, sigue las [instrucciones de SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/) en la documentación de Decisioning Studio Go.
+Para conocer los pasos detallados para configurar la integración con SFMC, sigue las [instrucciones de SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) en la documentación de Decisioning Studio Go.
 
 {% endtab %}
 {% tab Otras CEP %}
@@ -207,11 +207,11 @@ En este escenario, el agente entregará un "archivo de recomendaciones". Este ar
 
 Por ejemplo, el siguiente archivo de recomendaciones:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_2.png %})
+![Ejemplo de archivo de recomendaciones con decisiones personalizadas por cliente]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_2.png %})
 
 Podría usarse para optimizar una Campaign de correo electrónico que se vea así:
 
-![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_1.png %})
+![Ejemplo de Campaign de correo electrónico optimizada con archivo de recomendaciones]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_1.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -221,13 +221,13 @@ Podría usarse para optimizar una Campaign de correo electrónico que se vea as�
 Ten en cuenta estas mejores prácticas mientras te preparas para la orquestación:
 
 1. **Comienza con un alcance reducido.** Usa un canal y una o dos plantillas al principio. Puedes expandir después a medida que aprendas qué funciona.
-2. **Prueba a fondo.** Antes de lanzar, prueba tu integración con un conjunto pequeño de usuarios para verificar que el contenido dinámico se puebla correctamente.
+2. **Prueba a fondo.** Antes de lanzar, prueba tu integración con un conjunto pequeño de usuarios para verificar que el contenido dinámico se rellena correctamente.
 3. **Documenta tu configuración.** Lleva un registro de los ID de Campaign, ID de plantilla, claves de API y otros identificadores. Necesitarás consultarlos en el portal de Decisioning Studio.
 4. **Coordina con tu equipo.** La configuración de la orquestación puede involucrar a los equipos de marketing, ingeniería y datos. Asegúrate de que todos entiendan su rol en el proceso.
-5. **Planifica para los datos de retroalimentación.** La orquestación incluye enviar mensajes y recopilar los datos de interacción y conversión que ayudan a tu agente a aprender. Consulta [Prepara tus datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/) para más detalles.
+5. **Planifica para los datos de retroalimentación.** La orquestación incluye enviar mensajes y recopilar los datos de interacción y conversión que ayudan a tu agente a aprender. Consulta [Prepara tus datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) para más detalles.
 
 ## Próximos pasos {#next-steps}
 
 Después de configurar la orquestación, procede a diseñar tu agente:
 
-- [Diseñar agentes de toma de decisiones]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/)
+- [Diseñar agentes de toma de decisiones]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents)

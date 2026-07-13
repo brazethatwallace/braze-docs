@@ -16,7 +16,7 @@ page_order: 50
 
 Braze will first attempt to find a user with a matching number. If none is found, Braze automatically addresses an unknown number in one of two ways:
 
-1. **If a trigger word with an [opt-in Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/) is set up:**
+1. **If a trigger word with an [opt-in Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) is set up:**
 - Braze creates an anonymous profile
 - We assign a user alias to the profile with the following details:
   - An `alias_name` with the value being the user's provided phone number

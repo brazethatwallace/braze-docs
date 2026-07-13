@@ -12,7 +12,7 @@ search_tag: Partner
 
 # Tealium für Currents {#tealium-for-currents}
 
-> [Tealium](https://www.tealium.com) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Standorte in Ihrem Marketing Stack weiterleitet.
+> [Tealium](https://www.tealium.com) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Orte in Ihrem Marketing Stack weiterleitet.
 
 Die Integration von Braze und Tealium erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern. Mit Currents können Sie auch Daten mit Tealium verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
 
@@ -23,7 +23,7 @@ Die Integration von Braze und Tealium erlaubt es Ihnen, den Informationsfluss zw
 | Tealium EventStream oder Tealium AudienceStream | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Tealium-Konto](https://my.tealiumiq.com/). |
 | Currents | Um Daten zurück nach Tealium zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
 | Tealium-URL | Diese erhalten Sie, indem Sie zu Ihrem Tealium-Dashboard navigieren und die Ingestion-URL kopieren.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -33,7 +33,7 @@ Eine Anleitung zur Erstellung einer Datenquelle finden Sie auf der [Tealium-Webs
 
 ### 2. Schritt: Current erstellen {#step-2-create-current}
 
-Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Tealium Export**. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail und Ihre Tealium-URL an.
+Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Tealium-Export**. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail und Ihre Tealium-URL an.
 
 Wählen Sie dann aus der Liste der verfügbaren Ereignisse aus, was Sie tracken möchten. Standardmäßig enthalten alle an Tealium gesendeten Ereignisse die `external_user_id` der Nutzer:innen. Sie können jedoch das Kontrollkästchen **Include events from anonymous users** aktivieren, um auch Ereignisse ohne `external_user_id` an Tealium zu senden.
 

@@ -30,7 +30,7 @@ Antes de começar, você precisa do seguinte:
 | Chave da API REST da Braze | Uma chave da API REST com as permissões `campaigns.trigger.send`, `canvas.trigger.send` e `users.track`.<br><br> Crie essa chave no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint da API da Braze | Seu endpoint REST da Braze (por exemplo, `https://rest.fra-01.braze.eu`). Para saber mais, consulte [Instâncias e endpoints da Braze]({{site.baseurl}}/api/basics/#endpoints). |
 | IDs de Campaign ou Canvas | IDs dos fluxos de trabalho de **Campaigns** ou **Canvas** que você aciona a partir da GRAVTY®. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -109,7 +109,7 @@ Acione um evento de teste na GRAVTY® para verificar se a sincronização, os ga
 
 ![Os campos de dados são preenchidos com base no mapeamento de campos configurado.]({% image_buster /assets/img/lji/braze-member-profile.png %})
 
-* A comunicação é acionada com base na Campaign ou Canvas configurada.
+* A comunicação é acionada com base na Campaign ou no Canvas configurado.
 
 ![Exemplo de e-mail acionado a partir da Braze.]({% image_buster /assets/img/lji/braze-email-example.png %})
 

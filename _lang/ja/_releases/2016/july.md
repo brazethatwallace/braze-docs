@@ -20,11 +20,11 @@ Brazeは、顧客のアプリにサイレントプッシュを送信し、どの
 
 ## Webhookテストの機能強化 {#added-webhook-testing-enhancements}
 
-Campaignを本番に設定する前に、BrazeからライブWebhookメッセージをテスト送信できるようになりました。テストメッセージを送信することで、安全なサンドボックス環境でメッセージとサーバーエンドポイントが適切に設定されていることを確認できます。[webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook)について詳しくはこちらをご覧ください。
+キャンペーンを本番に設定する前に、BrazeからライブWebhookメッセージをテスト送信できるようになりました。テストメッセージを送信することで、安全なサンドボックス環境でメッセージとサーバーエンドポイントが適切に設定されていることを確認できます。[webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook)について詳しくはこちらをご覧ください。
 
-## Campaign受信者CSVエクスポートに受信メッセージのバリエーションを追加 {#added-message-variation-received-to-campaign-recipients-csv-export}
+## キャンペーン受信者CSVエクスポートに受信メッセージのバリエーションを追加 {#added-message-variation-received-to-campaign-recipients-csv-export}
 
-Campaign受信者CSVエクスポートに、受信したメッセージのバリエーションを示すカラムを追加しました。Brazeからの[データエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/)について詳しくはこちらをご覧ください。
+キャンペーン受信者CSVエクスポートに、受信したメッセージのバリエーションを示すカラムを追加しました。Brazeからの[データエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/)について詳しくはこちらをご覧ください。
 
 ## インプレッション数のおおよその制限 {#approximate-limit-on-number-of-impressions}
 

@@ -1,6 +1,6 @@
 ---
-nav_title: RudderStack
-article_title: RudderStack
+nav_title: Rudderstack
+article_title: Rudderstack
 description: "Cet article présente le partenariat entre Braze et RudderStack, une infrastructure de données client open-source offrant une intégration fluide de Braze pour vos applications Android, iOS et web. Avec RudderStack, vous pouvez envoyer vos données d'événements client in-app directement à Braze pour une analyse contextuelle."
 page_type: partner
 search_tag: Partner
@@ -21,8 +21,8 @@ L'intégration entre Braze et RudderStack offre une intégration SDK native pour
 | Source configurée | Une [source](https://www.rudderstack.com/docs/dashboard-guides/sources/) est essentiellement l'origine de toute donnée envoyée à RudderStack, comme les sites web, les applications mobiles ou les serveurs backend. Vous devez configurer la source avant de configurer Braze comme destination dans RudderStack. |
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track`, `users.identify`, `users.delete` et `users.alias.new`.<br><br>Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Clé d'application Braze | Pour obtenir votre clé d'application dans le tableau de bord de Braze, accédez à **Paramètres** > **Paramètres des applications** > **Identification** et trouvez le nom de votre application. Enregistrez la chaîne de caractères de l'identifiant associé.
-| Centre de données | Votre centre de données correspond à votre [instance]({{site.baseurl}}/api/basics/#endpoints) du tableau de bord de Braze.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Centre de données | Votre centre de données correspond à votre [instance]({{site.baseurl}}/api/basics#endpoints) du tableau de bord de Braze.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -35,8 +35,6 @@ Pour commencer à envoyer des données à Braze, vous devez d'abord vous assurer
 Maintenant que votre source de données est configurée, dans le tableau de bord de RudderStack, sélectionnez **ADD DESTINATION** sous **Destinations**. Dans la liste des destinations disponibles, sélectionnez **Braze** et cliquez sur **Next**.
 
 Dans la destination Braze, indiquez la clé d'application, la clé API REST de Braze, le cluster de données et l'option du SDK natif (mode appareil uniquement). Lorsque l'option du SDK natif est activée, le SDK natif de Braze sera utilisé pour envoyer les événements.
-
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
 ### Étape 3 : Choisir le type d'intégration {#step-3-choose-the-type-of-integration}
 
@@ -95,7 +93,7 @@ Pour [envoyer des événements via le mode hybride](https://www.rudderstack.com/
 Une fois la configuration initiale terminée, configurez les paramètres suivants pour recevoir correctement vos données dans Braze :
 
 - **Enable subscription groups in group call** : activez ce paramètre pour envoyer le statut du groupe d'abonnement dans vos événements de groupe. Pour plus d'informations, consultez la section [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
-- **Use Custom Attributes Operation** : activez ce paramètre si vous souhaitez utiliser la fonctionnalité d'[attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) de Braze pour créer des segments et personnaliser vos messages à l'aide d'un objet d'attribut personnalisé. Pour plus d'informations, consultez la section [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
+- **Use Custom Attributes Operation** : activez ce paramètre si vous souhaitez utiliser la fonctionnalité d'[attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) de Braze pour créer des segments et personnaliser vos messages à l'aide d'un objet d'attribut personnalisé. Pour plus d'informations, consultez la section [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
 - **Track events for anonymous users** : activez ce paramètre pour suivre l'activité des utilisateurs anonymes et envoyer ces informations à Braze.
 
 ### Paramètres du mode appareil {#device-mode-settings}
@@ -128,7 +126,7 @@ Vous pouvez supprimer un utilisateur dans Braze à l'aide de la [règle Suppress
 La [méthode `track`](https://rudderstack.com/docs/destinations/marketing/braze/#track) de RudderStack capture toutes les activités de l'utilisateur et les propriétés associées à ces activités.
 
 **Commande terminée**<br>
-En utilisant l'[API eCommerce de RudderStack](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) pour appeler la méthode track pour un événement portant le nom `Order Completed`, RudderStack envoie les produits listés dans cet événement à Braze en tant que [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data).
+En utilisant l'[API eCommerce de RudderStack](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) pour appeler la méthode track pour un événement portant le nom `Order Completed`, RudderStack envoie les produits listés dans cet événement à Braze en tant que [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data).
 
 {% endtab %}
 {% tab Screen %}
@@ -158,7 +156,7 @@ La [méthode `alias`](https://www.rudderstack.com/docs/destinations/streaming-de
 
 ## Envoyer les traits utilisateur sous forme d'attributs personnalisés imbriqués {#send-user-traits-as-nested-custom-attributes}
 
-Vous pouvez envoyer les traits utilisateur à Braze sous forme d'attributs personnalisés imbriqués et effectuer des opérations d'ajout, de mise à jour et de suppression sur ces traits. Pour ce faire, activez le paramètre « Use Custom Attributes Operation » dans RudderStack lors de la configuration de la destination Braze. Cette fonctionnalité n'est disponible qu'en mode cloud.
+Vous pouvez envoyer les traits utilisateur à Braze sous forme d'attributs personnalisés imbriqués et effectuer des opérations d'ajout, de mise à jour et de suppression sur ces traits. Pour ce faire, activez le paramètre « Use Custom Attributes Operation dashboard » dans RudderStack lors de la configuration de la destination Braze. Cette fonctionnalité n'est disponible qu'en mode cloud.
 
 Vous pouvez envoyer les traits utilisateur sous forme d'attributs personnalisés imbriqués dans vos événements `identify` au format suivant :
 ```javascript
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,
@@ -253,5 +251,5 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-Pour les opérations de mise à jour et de suppression, `identifier` est une clé obligatoire. Si les opérations d'ajout, de mise à jour ou de suppression ne sont pas présentes dans le tableau imbriqué, RudderStack utilise par défaut l'opération de création pour créer les propriétés. Reportez-vous à la section [Tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) pour plus d'informations sur l'envoi d'attributs personnalisés imbriqués.
+Pour les opérations de mise à jour et de suppression, `identifier` est une clé obligatoire. Si les opérations d'ajout, de mise à jour ou de suppression ne sont pas présentes dans le tableau imbriqué, RudderStack utilise par défaut l'opération de création pour créer les propriétés. Reportez-vous à la section [Tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) pour plus d'informations sur l'envoi d'attributs personnalisés imbriqués.
 {% endalert %}

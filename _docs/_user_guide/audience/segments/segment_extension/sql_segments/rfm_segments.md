@@ -21,7 +21,7 @@ RFM analysis is a marketing technique that identifies your best users by scoring
 | Recency | How recently a customer made a purchase. A higher score means more recent purchases. |
 | Frequency | How frequently a customer made a purchase. A higher score means higher frequency. |
 | Monetary value | Total amount of money a customer spent. A higher score means higher spending. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="RFM categories" }
 
 {% alert note %}
 Purchase events must be enabled to use RFM SQL segments because the monetary value for your users is determined by the revenue they’ve generated through Braze purchase events.
@@ -43,7 +43,7 @@ Purchase events must be enabled to use RFM SQL segments because the monetary val
 | Start date | Specify a fixed starting point for your analysis | Analyze user activity from a specific date onward, such as after a campaign launch. |
 | End date | Specify a fixed ending point for your analysis | Analyze user activity up to a specific date, such as before a product update. |
 | Date range | Specify both a start and end date for a custom period | Analyze user behavior during a defined period, such as a promotional event. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating an RFM segment" }
 
 {: start="4"}
 4. Select the generated [RFM groups](#rfm-groups) to include in your segment. If you select multiple groups, your segment includes users who are part of any of the selected groups.
@@ -68,9 +68,9 @@ RFM segments are evaluated in a specific order. Users are assigned to the first 
 | Potential Loyalists| Users who purchased recently with moderate frequency and moderate monetary value.   | 3                | 1-3                | 1-3               |
 | Promising          | Users who made a recent, high-value initial purchase but have not yet established a high purchase frequency. | 3                | 0-3                | 1-3               |
 | New Customer       | Users who made their first purchase very recently.                             | 3                | 0-3                | 0-3               |
-| Needing Attention  | Users with above-average recency, but their purchase frequency or monetary value are below average. | 2-3              | 0-3                | 0-3               |
+| Needing Attention  | Users with higher-than-average recency, but their purchase frequency or monetary value are lower than average. | 2-3              | 0-3                | 0-3               |
 | Cannot lose them   | Users who were previously high-value with good frequency and monetary scores, but have not purchased in a long time. | 0-1              | 2-3                | 2-3               |
 | At Risk            | Users who have historically had moderate frequency and monetary scores, but have not purchased in a long time. | 0-1              | 1-3                | 1-3               |
 | About to Sleep     | Users who have low scores across all metrics.                                       | 1                | 0-3                | 0-3               |
 | Hibernating        | Users who have moderate frequency but have been inactive for an extended period.    | 0                | 0-2                | 0-3               |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="RFM groups" }

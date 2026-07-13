@@ -23,7 +23,7 @@ Braze et DOTS.ECO connectent les parcours d'engagement client à des récompense
 - Affichez une image de certificat personnalisée dans un message in-app après la réussite de l'étape de Contenu connecté.
 - Ajoutez une Content Card « Voir votre certificat » avec l'URL du certificat pour un accès ultérieur.
 - Stockez les métadonnées des certificats (telles que `certificate_url`, `certificate_image_url`, `certificate_header` et `greeting`) en tant qu'attributs personnalisés pour les réutiliser dans de futurs envois de messages.
-- Attribuez des certificats à l'aide d'un ID d'utilisateur distant afin que les utilisateurs puissent réclamer et visualiser leur impact ultérieurement.
+- Attribuez des certificats à l'aide d'un ID utilisateur distant afin que les utilisateurs puissent réclamer et visualiser leur impact ultérieurement.
 - Effectuez des tests A/B sur les messages d'impact (différents textes/images) tout en conservant le même flux de mise à jour utilisateur DOTS.ECO.
 
 
@@ -36,8 +36,8 @@ Avant de commencer, vous devez disposer des éléments suivants :
 | Compte DOTS.ECO | Accès à un compte DOTS.ECO. |
 | Identifiants DOTS.ECO | La demande présentée dans cet article nécessite un jeton d'application DOTS.ECO, une clé API et un ID d'allocation. Pour les récupérer, contactez votre gestionnaire de la satisfaction client DOTS.ECO. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. Créez cette clé dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
-| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de DOTS.ECO {#integrating-dotseco}
 
@@ -51,7 +51,7 @@ Utilisez cette étape pour appeler l'API DOTS.ECO via le Contenu connecté et st
 
 ### Étape 2 : Rédiger du JSON avancé : effectuer une requête POST vers DOTS.ECO à l'aide du Contenu connecté {#step-2-compose-advanced-json-make-a-post-request-to-dotseco-using-connected-content}
 
-Dans l'étape **Mise à jour utilisateur**, passez à l'**éditeur JSON avancé** et utilisez le Contenu connecté pour effectuer une requête POST vers l'API de certificat DOTS.ECO.
+Dans l'étape **Mise à jour utilisateur**, passez à l'**Éditeur JSON avancé** et utilisez le Contenu connecté pour effectuer une requête POST vers l'API de certificat DOTS.ECO.
 
 Utilisez la balise `capture` et une requête de Contenu connecté pour appeler l'endpoint de certificat de DOTS.ECO. Enregistrez ensuite la réponse sur le profil utilisateur sous forme d'attributs personnalisés.
 
@@ -60,7 +60,7 @@ Utilisez la balise `capture` et une requête de Contenu connecté pour appeler l
 ```
 {% capture post_body %}
 {
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
   "impact_qty": 1,
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",
@@ -93,7 +93,7 @@ Envoyez la requête à `https://impact.dots.eco/api/v1/certificate/add?format=sd
 ![Étape de mise à jour utilisateur DOTS.ECO.]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
 {% alert important %}
-Cette intégration utilise le Contenu connecté à l'intérieur d'une étape Canvas de **mise à jour utilisateur** pour appeler l'API DOTS.ECO. Testez d'abord les requêtes avec un client API (par exemple, Postman) pour valider votre jeton et votre payload.
+Cette intégration utilise le Contenu connecté à l'intérieur d'une étape Canvas **Mise à jour utilisateur** pour appeler l'API DOTS.ECO. Testez d'abord les requêtes avec un client API (par exemple, Postman) pour valider votre jeton et votre payload.
 {% endalert %}
 
 ### Étape 3 : Afficher le certificat dans les messages {#step-3-display-the-certificate-in-messages}

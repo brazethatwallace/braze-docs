@@ -1,0 +1,99 @@
+---
+nav_title: プロンプトライブラリー
+article_title: BrazeAI Operatorのプロンプトライブラリー
+page_order: 4
+page_type: reference
+description: "BrazeAI Operatorのプロンプト例を、達成したい目的別に整理して紹介します。"
+---
+
+# BrazeAI Operatorのプロンプトライブラリー {#prompt-library-for-brazeai-operator}
+
+> Brazeのエキスパートが作成したオペレータープロンプトのキュレートされたコレクションを閲覧できます。目的を選択して、関連するプロンプトを見つけてください。詳細については、[ページ対応コンテキストの活用]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を参照してください。
+
+
+<div class="prompt-library-tabs">
+{% sdktabs local %}
+{% sdktab Data analysis %}
+
+{% include copy_block.html content="Summarize the key trends for MAU, DAU, and New Users in this date range and what to do next." available="Home page" %}
+
+{% include copy_block.html content="Show the MAU, DAU, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
+
+{% include copy_block.html content="Break down sessions by app (if available) and highlight which app is driving the most growth this month." available="Home page" %}
+
+{% include copy_block.html content="Give me a 5-bullet health check of our engagement program for the last 30 days, with the biggest opportunities." available="Home page" %}
+
+{% include copy_block.html content="Which Active キャンバス drove the most attributed conversions and revenue in FY26 Q1 (7-day attribution)?" available="キャンバス" %}
+
+{% include copy_block.html content="Summarize this キャンペーン Digest in 5 bullets: biggest wins, biggest issues, and what changed versus the prior period." available="キャンペーン" %}
+
+{% endsdktab %}
+{% sdktab Strategy and optimization %}
+
+{% include copy_block.html content="What are 3 ways to use these app usage insights to shape a re-engagement キャンバス for churn risk users?" available="Home page" %}
+
+{% include copy_block.html content="What does our x% stickiness imply, and what are 3 ways to improve it with lifecycle messaging?" available="Home page" %}
+
+{% include copy_block.html content="What are 3 ways to optimize our active lifecycle キャンバス to increase activation and reduce churn?" available="キャンバス" %}
+
+{% include copy_block.html content="What are 3 ways to restructure our onboarding キャンバス to reduce drop-off and improve activation?" available="キャンバス" %}
+
+{% include copy_block.html content="Show my idle キャンバス and summarize what they last sent and when users last entered (last 90 days)." available="キャンバス" %}
+
+{% include copy_block.html content="How can we use the [your segment name] segment to build a re-engagement journey and reduce churn?" available="セグメント" %}
+
+{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="セグメントエクステンション" %}
+
+{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and キャンバス health and catch issues early?" available="Report Builder" %}
+
+{% endsdktab %}
+{% sdktab Messaging performance %}
+
+{% include copy_block.html content="Show this campaign's key engagement metrics (open/click rates) for the last 30 days and the prior 30 days." available="Individual campaign" %}
+
+{% include copy_block.html content="How much Attributed Revenue and Conversions did this campaign drive in the last 90 days (7-day window)?" available="Individual campaign" %}
+
+{% include copy_block.html content="Compare this campaign's conversion rate versus our other in-app campaigns in this quarter to date." available="Individual campaign" %}
+
+{% include copy_block.html content="Show the top 10 active campaigns by engagement rate in the last 30 days (by channel)." available="キャンペーン, Individual campaign" %}
+
+{% include copy_block.html content="What channels performed best for campaigns targeting 'C&L Newsletter Clickers' versus 'Openers but not Clickers' in the last 30 days?" available="セグメント" %}
+
+{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="セグメントエクステンション" %}
+
+{% include copy_block.html content="Compare our email Open Rate and Click-Through Rate versus industry benchmarks for the last 30 days." available="Email Performance" %}
+
+{% include copy_block.html content="Which email campaigns had the lowest CTR (with high opens) in the last 30 days?" available="Email Performance" %}
+
+{% endsdktab %}
+{% sdktab Audience management %}
+
+{% include copy_block.html content="Which of our active segments were edited most recently, and which ones look like duplicates we should consolidate?" available="セグメント" %}
+
+{% include copy_block.html content='What does "Complex audience" mean here, and how can I simplify those campaigns without losing targeting?' available="キャンペーン" %}
+
+{% include copy_block.html content="What are 3 ways to reduce 'complex audience' in these campaigns without losing targeting accuracy?" available="キャンペーン" %}
+
+{% endsdktab %}
+{% sdktab Onboarding %}
+
+{% include copy_block.html content="Based on what's on this dashboard, what are the first 5 places I should visit in Braze to understand our setup (data, channels, sending, and targeting)?" available="Home page" %}
+
+{% include copy_block.html content="I'm feeling overwhelmed, I want to get started with Agent Console but don't know how. Based on my currently running campaigns, what might I do?" available="キャンペーン" %}
+
+{% include copy_block.html content="What can I do on the Knowledge Sources page, and what's the fastest way to get my first source set up?" available="Agent Console" %}
+
+{% endsdktab %}
+{% sdktab Maintenance and cost savings %}
+
+{% include copy_block.html content="Show me the 5 idle active campaigns and recommend which to pause, refresh, or archive." available="キャンペーン" %}
+
+{% include copy_block.html content="Which セグメントエクステンション are active but haven't been processed recently, and are they safe to archive for free slots?" available="セグメントエクステンション" %}
+
+{% include copy_block.html content="How can we reduce Query Builder credit usage without losing reporting coverage? Suggest 3 tactics." available="Query Builder" %}
+
+{% include copy_block.html content="Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?" available="Query Builder" %}
+
+{% endsdktab %}
+{% endsdktabs %}
+</div>

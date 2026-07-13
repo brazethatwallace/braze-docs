@@ -13,11 +13,11 @@ alias: /push_primer/
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# プッシュプライマーの統合
+# プッシュプライマーの統合 {#push-primer-integration}
 
-プッシュプライマーキャンペーンでは、アプリのデバイスでプッシュを有効にするようにユーザーに促します。ユーザーのデバイスに直接メッセージを送信する許可をユーザーから取得するのは難しい場合がありますが、当社のガイドが役立ちます。このガイドでは、開発者がプッシュプライミングを統合するために行う必要のある手順を示します。
+プッシュプライマーキャンペーンは、アプリのデバイスでプッシュを有効にするようユーザーに促します。ユーザーのデバイスに直接メッセージを送信する許可を得るのは複雑な場合がありますが、当社のガイドが役立ちます。このガイドでは、開発者がプッシュプライミングを統合するために行う必要のあるステップを示します。
 
-## ステップ1:AppDelegate.m ファイルにスニペットを追加する
+## ステップ 1: AppDelegate.m ファイルにスニペットを追加する {#step-1-add-snippet-in-appdelegatem-file}
 
 標準統合の代わりに、次のコード行を `AppDelegate.m` ファイルに追加します。
 
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## ステップ2:カスタム・イベント・チェッカーをAppDelegate.m ファイルに追加する。
+## ステップ 2: カスタムイベントチェッカーを AppDelegate.m ファイルに追加する {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-次のコードスニペットは、カスタムイベントを起動する必要があるかどうかをチェックします。`AppDelegate.m` に次のコード行を追加します。
+次のコードスニペットは、カスタムイベントを発火する必要があるかどうかをチェックします。`AppDelegate.m` に次のコード行を追加します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## ステップ3: ディープリンクハンドラーの設定
+## ステップ 3: ディープリンクハンドラーを設定する {#step-3-set-up-a-deep-link-handler}
 
-以下のコードスニペットをディープリンク処理コードの中に入れてください。このディープリンクコードは、プッシュプライマーアプリ内メッセージに対してのみ実行してください。
+以下のコードスニペットをディープリンク処理コードの中に配置してください。このディープリンクコードは、プッシュプライマーのアプリ内メッセージに対してのみ実行してください。
 
-ディープリンクについて詳しくは、[リンク処理のカスタマイズ]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-handling-customization)を参照してください。
+ディープリンクについて詳しくは、[リンク処理のカスタマイズ]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization)を参照してください。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

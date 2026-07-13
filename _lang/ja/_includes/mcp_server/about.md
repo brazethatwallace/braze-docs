@@ -2,7 +2,15 @@
 
 > Braze MCPサーバーについて学びましょう。これはClaudeやCursorのようなAIツールが非PIIのBrazeデータにアクセスして質問に答え、傾向を分析し、インサイトを提供できるようにする安全な接続です。
 
-{% multi_lang_include mcp_server/beta_alert.md %}
+{% alert important %}
+今夏、BrazeはリモートのBrazeホスト型MCPサーバーを早期アクセスとして提供開始します。これは、ローカルホスト型のベータサーバー（[PyPI](https://pypi.org/project/braze-mcp-server/)上の`braze-mcp-server`およびClaude Desktopの拡張機能ディレクトリ）に代わるものです。<br><br>
+
+**これがあなたにとって意味すること：**<br><br>
+
+- ローカルホスト型サーバーは引き続き動作しますが、サポートは終了しています。ベータ版への新しいエンドポイントの追加や問題の修正は行いません。
+- リモートサーバーが早期アクセスで利用可能になった際には、切り替えが必要です。リモートサーバーはローカルインストール不要で、静的APIキーの代わりにOAuthを使用し、Claude、Copilot、Gemini CLI、Codex、CursorなどのMCPクライアントで動作します。
+- 早期アクセスの提供開始については、このページをご確認いただくか、Brazeアカウントチームにご連絡ください。
+{% endalert %}
 
 ## モデルコンテキストプロトコル（MCP）とは {#what-is-model-context-protocol-mcp}
 
@@ -13,16 +21,16 @@
 
 ## Braze MCPサーバーについて {#about-the-braze-mcp-server}
 
-[Braze MCPサーバーの設定]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}後、エージェントやアシスタント、チャットボットなどのAIツールをBrazeに直接接続し、CanvasやCampaignの分析、カスタム属性、Segmentsなどの集計データを読み取れるようになります。Braze MCPサーバーは以下のようなユースケースに最適です。
+[Braze MCPサーバーの設定]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}後、エージェントやアシスタント、チャットボットなどのAIツールをBrazeに直接接続し、キャンバスやキャンペーンの分析、カスタム属性、セグメントなどの集計データを読み取れるようになります。Braze MCPサーバーは以下のようなユースケースに最適です。
 
 - Brazeのコンテキストを必要とするAI搭載ツールの構築。
 - マルチステップのエージェントワークフローを作成するCRMエンジニア。
 - 自然言語クエリを試す技術系マーケター。
 
-Braze MCPサーバーは、Brazeユーザープロファイルからデータを返さない39個のエンドポイントをサポートしています。Braze APIキーに割り当てるエンドポイントを選択することで、エージェントがアクセスまたは変更できる範囲をコントロールできます。
+Braze MCPサーバーには、読み取り専用と書き込みの両方のエンドポイントが含まれています。Brazeユーザープロファイルからデータを返すことはありません。Braze APIキーに割り当てるエンドポイントを選択することで、エージェントが読み取り、作成、または更新できる範囲をコントロールできます。利用可能なエンドポイントの完全なリストと必要な権限については、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
 
 {% alert warning %}
-エージェントに持たせたいAPIキーの権限のみを割り当ててください。エージェントにBraze内で変更を加えさせたくない場合は、書き込み権限をオフのままにしてください。エージェントは、付与された権限を通じてデータの書き込みを試みる可能性があります。
+エージェントに持たせたいAPIキーの権限のみを割り当ててください。エージェントにBraze内で変更を加えさせたくない場合は、APIキーを作成する際に書き込み権限をオフのままにしてください。エージェントは、付与された書き込み権限を通じてデータの書き込みを試みる可能性があります。
 {% endalert %}
 
 ## 使用例 {#usage-example}
@@ -31,11 +39,13 @@ ClaudeやCursorのようなツールを使って、自然言語でBrazeとやり
 
 {% tabs %}
 {% tab Claude %}
-![「利用可能なBrazeの機能は何ですか？」という質問がClaudeで尋ねられ、回答されている様子。]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**プロンプトの例：** `What are my available Braze functions?`
+**応答の例：** `list_functions`を使用し、利用可能なBraze MCP機能カテゴリを返しました。
 {% endtab %}
 
 {% tab Cursor %}
-![「利用可能なBrazeの機能は何ですか」という質問がCursorで尋ねられ、回答されている様子。]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**プロンプトの例：** `What are my available Braze functions?`
+**応答の例：** `list_functions`をクエリし、`get_canvas_list`などの機能を一覧表示しました。
 {% endtab %}
 {% endtabs %}
 
@@ -51,9 +61,9 @@ MCPクライアントは、PIIを返さないエンドポイントにアクセ�
 
 ### MCPクライアントはBrazeデータを変更できますか？ {#can-my-mcp-client-change-braze-data}
 
-サーバーが公開している書き込みエンドポイントは `/media_library/create` のみで、メディアライブラリにメディアアセットをアップロードできます。エージェントにBraze内でそのような変更を加えさせたくない場合は、APIキーを作成する際に `media_library.create` 権限のチェックを外してください。
+はい。サーバーは、エージェントがワークスペース内のコンテンツ（メディアライブラリのアセット、メールテンプレート、Content Blocksなど）を作成または更新できる、限定された書き込みエンドポイントのセットを公開しています。各書き込みエンドポイントには、それぞれ独自のAPIキー権限が必要です。エージェントにBraze内で特定の変更を加えさせたくない場合は、APIキーを作成する際にその権限をオフのままにしてください。書き込み機能の完全なリストと必要な権限については、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
 
-### Brazeでサードパーティの MCPサーバーを使用できますか？ {#can-i-use-a-third-party-mcp-server-for-braze}
+### BrazeでサードパーティのMCPサーバーを使用できますか？ {#can-i-use-a-third-party-mcp-server-for-braze}
 
 Brazeデータに対してサードパーティのMCPサーバーを使用することは推奨されません。[PyPi](https://pypi.org/project/braze-mcp-server/)でホストされている公式のBraze MCPサーバーのみを使用してください。
 
@@ -67,7 +77,7 @@ Brazeデータに対してサードパーティのMCPサーバーを使用する
 
 ### Braze MCPサーバーはローカルでホストされていますか、それともリモートですか？ {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-Braze MCPサーバーはローカルでホストされています。
+現在利用可能なBraze MCPサーバーはローカルでホストされています。リモートのBrazeホスト型MCPサーバーは今夏に早期アクセスとして提供開始され、ローカルホスト型のベータサーバーに代わるものとなります。
 
 ### Cursorが関数のリストしか表示しないのはなぜですか？ {#why-is-cursor-only-listing-functions}
 

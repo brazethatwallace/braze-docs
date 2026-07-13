@@ -12,20 +12,20 @@ noindex: true
 
 # 통합 완료 {#complete-the-integration}
 
-이 단계를 수행하기 전에 [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration/), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods/), [스위프트 패키지 매니저]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager/) 또는 [수동]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/) 통합을 사용하여 SDK를 통합했는지 확인하세요.
+이 단계를 수행하기 전에 [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), [스위프트 패키지 매니저]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager) 또는 [수동]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options) 통합을 사용하여 SDK를 통합했는지 확인하세요.
 
 ## 1단계: 앱 델리게이트 업데이트 {#step-1-update-your-app-delegate}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-Braze SDK를 CocoaPods, Carthage와 통합하거나 [동적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/)을 사용하는 경우 `AppDelegate.m` 파일에 다음 코드 줄을 추가합니다:
+Braze SDK를 CocoaPods, Carthage와 통합하거나 [동적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)을 사용하는 경우 `AppDelegate.m` 파일에 다음 코드 줄을 추가합니다:
 
 ```objc
 #import "Appboy-iOS-SDK/AppboyKit.h"
 ```
 
-스위프트 패키지 매니저와 통합하거나 [정적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/)을 사용하는 경우 대신 이 줄을 사용합니다:
+스위프트 패키지 매니저와 통합하거나 [정적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)을 사용하는 경우 대신 이 줄을 사용합니다:
 
 ```objc
 #import "AppboyKit.h"
@@ -39,18 +39,18 @@ Braze SDK를 CocoaPods, Carthage와 통합하거나 [동적 수동 통합]({{sit
       withLaunchOptions:launchOptions];
 ```
 
-**설정 관리** 페이지에서 `YOUR-APP-IDENTIFIER-API-KEY`를 올바른 값으로 업데이트합니다. 앱 식별자 API 키를 찾을 수 있는 위치에 대한 자세한 내용은 [API 설명서]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key)를 참조하세요.
+**설정 관리** 페이지에서 `YOUR-APP-IDENTIFIER-API-KEY`를 올바른 값으로 업데이트합니다. 앱 식별자 API 키를 찾을 수 있는 위치에 대한 자세한 내용은 [API 설명서]({{site.baseurl}}/api/api_key#the-app-identifier-api-key)를 참조하세요.
 
 {% endtab %}
 {% tab swift %}
 
-Braze SDK를 CocoaPods, Carthage와 통합하거나 [동적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/)을 사용하는 경우 `AppDelegate.swift` 파일에 다음 코드 줄을 추가합니다:
+Braze SDK를 CocoaPods, Carthage와 통합하거나 [동적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)을 사용하는 경우 `AppDelegate.swift` 파일에 다음 코드 줄을 추가합니다:
 
 ```swift
 import Appboy_iOS_SDK
 ```
 
-스위프트 패키지 매니저와 통합하거나 [정적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/)을 사용하는 경우 대신 이 줄을 사용합니다:
+스위프트 패키지 매니저와 통합하거나 [정적 수동 통합]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)을 사용하는 경우 대신 이 줄을 사용합니다:
 
 ```swift
 import AppboyKit
@@ -63,7 +63,7 @@ Swift 프로젝트에서 Objective-C 코드를 사용하는 방법에 대한 자
 Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
-**설정 관리** 페이지에서 `YOUR-APP-IDENTIFIER-API-KEY`를 올바른 값으로 업데이트합니다. 앱 식별자 API 키를 찾을 수 있는 위치에 대한 자세한 내용은 [API 설명서]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key)를 참조하세요.
+**설정 관리** 페이지에서 `YOUR-APP-IDENTIFIER-API-KEY`를 올바른 값으로 업데이트합니다. 앱 식별자 API 키를 찾을 수 있는 위치에 대한 자세한 내용은 [API 설명서]({{site.baseurl}}/api/api_key#the-app-identifier-api-key)를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -80,7 +80,7 @@ Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaun
 ## 2단계: 데이터 클러스터 지정 {#step-2-specify-your-data-cluster}
 
 {% alert note %}
-2019년 12월부터 커스텀 엔드포인트는 더 이상 제공되지 않습니다. 기존 커스텀 엔드포인트가 있는 경우 계속 사용할 수 있습니다. 자세한 내용은 <a href="{{site.baseurl}}/api/basics/#endpoints">사용 가능한 엔드포인트 목록</a> 을 참조하세요.
+2019년 12월부터 커스텀 엔드포인트는 더 이상 제공되지 않습니다. 기존 커스텀 엔드포인트가 있는 경우 계속 사용할 수 있습니다. 자세한 내용은 <a href="{{site.baseurl}}/api/basics#endpoints">사용 가능한 엔드포인트 목록</a> 을 참조하세요.
 {% endalert %}
 
 ### 컴파일 타임 엔드포인트 구성(권장) {#compile-time-endpoint-configuration-recommended}
@@ -88,7 +88,7 @@ Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaun
 기존 커스텀 엔드포인트가 있는 경우:
 - Braze iOS SDK v3.0.2부터 `Info.plist` 파일을 사용하여 커스텀 엔드포인트를 설정할 수 있습니다. `Info.plist` 파일에 `Braze` 사전을 추가합니다. `Braze` 사전 내에서 `Endpoint` 문자열 하위 항목을 추가하고 값을 커스텀 엔드포인트 URL의 권한으로 설정합니다(예: `https://sdk.iad-01.braze.com`이 아닌 `sdk.iad-01.braze.com`). Braze iOS SDK v4.0.2 이전 버전에서는 `Braze` 대신 `Appboy` 사전 키를 사용해야 합니다.
 
-Braze 담당자가 이미 [올바른 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)를 알려드렸을 것입니다.
+Braze 담당자가 이미 [올바른 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)를 알려드렸을 것입니다.
 
 ### 런타임 엔드포인트 구성 {#runtime-endpoint-configuration}
 
@@ -97,7 +97,7 @@ Braze 담당자가 이미 [올바른 엔드포인트]({{site.baseurl}}/user_guid
 
 ## SDK 통합 완료 {#sdk-integration-complete}
 
-이제 Braze가 애플리케이션에서 데이터를 수집하며 기본 통합이 완료되었습니다. [커스텀 이벤트 추적]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift), [푸시 메시징]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/) 및 전체 Braze 기능 모음을 활성화하려면 다음 문서를 참조하세요.
+이제 Braze가 애플리케이션에서 데이터를 수집하며 기본 통합이 완료되었습니다. [커스텀 이벤트 추적]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift), [푸시 메시징]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) 및 전체 Braze 기능 모음을 활성화하려면 다음 문서를 참조하세요.
 
 ## 시작 시 Braze 커스터마이징 {#customizing-braze-on-startup}
 
@@ -135,7 +135,7 @@ Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY",
 
 이 메서드는 다음 매개변수와 함께 호출됩니다:
 
-- `YOUR-APP-IDENTIFIER-API-KEY` – Braze 대시보드의 [앱 식별자]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) API 키입니다.
+- `YOUR-APP-IDENTIFIER-API-KEY` – Braze 대시보드의 [앱 식별자]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) API 키입니다.
 - `application` – 현재 앱입니다.
 - `launchOptions` – `application:didFinishLaunchingWithOptions:`에서 가져오는 옵션 `NSDictionary`입니다.
 - `appboyOptions` – Braze의 시작 구성 값이 포함된 선택적 `NSDictionary`입니다.

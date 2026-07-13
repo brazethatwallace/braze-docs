@@ -27,16 +27,16 @@ channel:
 
 プッシュトークンは、フォアグラウンドプッシュ通知とバックグラウンドプッシュ通知の両方の送信に使用されます。
 
-| タイプ       | オプトインが必要？ | 説明                                                 |
+| タイプ | オプトインが必要？ | 説明 |
 |------------------|------------------|--------------------------------------------------------------------------------------------------------------|
-| フォアグラウンドプッシュ | はい       | アプリがフォアグラウンドにある間、ユーザーに通知が視覚的に表示されます。           |
-| バックグラウンドプッシュ | いいえ        | 通知は表示されずにバックグラウンドでサイレントに配信されます。アンインストール追跡などの機能によく使用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| フォアグラウンドプッシュ | はい | アプリがフォアグラウンドにある間、ユーザーに通知が視覚的に表示されます。 |
+| バックグラウンドプッシュ | いいえ | 通知は表示されずにバックグラウンドでサイレントに配信されます。アンインストール追跡などの機能によく使用されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="フォアグラウンドプッシュとバックグラウンドプッシュ" }
 
 ユーザーがアプリのプッシュ通知にオプトインすると、「プッシュ登録済み」とみなされ、Brazeの`Foreground Push Enabled for App`セグメンテーションフィルターを使用してターゲティングできるようになります。
 
 {% alert note %}
-これは`Foreground Push Enabled`セグメンテーションフィルターとは異なります。このフィルターは、特定のアプリではなく、少なくとも1つのアプリでプッシュにオプトインしたユーザーを識別するために使用されます。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#foreground-push-enabled)を参照してください。
+これは`Foreground Push Enabled`セグメンテーションフィルターとは異なります。このフィルターは、特定のアプリではなく、少なくとも1つのアプリでプッシュにオプトインしたユーザーを識別するために使用されます。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#foreground-push-enabled)を参照してください。
 {% endalert %}
 
 ### 1つのデバイスに複数のユーザー {#multiple-users-on-a-device}
@@ -52,7 +52,7 @@ channel:
 プッシュプロバイダー（APNs/FCM）には1つのデバイス上の複数のユーザーを区別する方法がないため、最後にログインしたユーザーにプッシュトークンを渡し、デバイス上でプッシュのターゲットとなるユーザーを決定します。
 
 {% alert tip %}
-**連絡先設定** > **プッシュ変更ログ**にエラーメッセージが表示された場合は、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes/)で説明と次のステップを確認してください。
+**連絡先設定** > **プッシュ変更ログ**にエラーメッセージが表示された場合は、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes)で説明と次のステップを確認してください。
 {% endalert %}
 
 ## プッシュトークンの登録 {#push-token-registration}
@@ -67,32 +67,32 @@ channel:
 {% tab Android %}
 アプリがインストールされると、アプリ用のプッシュトークンが自動的に生成されます。ただし、ユーザーが明示的にオプトインするまでは、[バックグラウンドプッシュ通知](#foreground-vs-background)にのみ使用できます。また、登録はAndroidのバージョンによって異なる方法で処理されます。
 
-| バージョン       | 詳細                                                                                                                                                |
+| バージョン | 詳細 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Android 13**         | プッシュ権限はユーザーによってリクエストおよび許可される必要があります。アプリは手動で権限をリクエストできます。また、[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)が作成された後に自動的にプロンプトが表示されます。 |
+| **Android 13** | プッシュ権限はユーザーによってリクエストおよび許可される必要があります。アプリは手動で権限をリクエストできます。また、[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)が作成された後に自動的にプロンプトが表示されます。 |
 | **Android 12以前** | すべてのユーザーは最初のセッション後に`Subscribed`とみなされます。Brazeはこの時点でプッシュトークンを自動的にリクエストし、有効なトークンとデフォルトのサブスクリプション状態`Subscribed`でユーザーのプッシュを有効にします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュトークンの登録" }
 {% endtab %}
 
 {% tab iOS %}
 iOSでは、アプリがインストールされた際にプッシュトークンが自動的に生成されることはありません。また、登録はiOSのバージョンによって異なる方法で処理されます。
 
-| バージョン                         | 仮承認？ | 詳細                                                                                                                                                     |
+| バージョン | 仮承認？ | 詳細 |
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **iOS 12**      | はい                         | ユーザーがプッシュ通知にオプトインすると、標準の承認が付与され、[フォアグラウンドプッシュ通知](#foreground-vs-background)を送信できるようになります。ただし、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)をリクエストすることもでき、通知センターに直接サイレントな[バックグラウンドプッシュ通知](#foreground-vs-background)を送信できます。 |
-| **iOS 11以前** | いいえ                          | すべてのユーザーはプッシュ通知を受信するために明示的にオプトインする必要があります。プッシュトークンは権限が付与された後にのみ生成されます。                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **iOS 12** | はい | ユーザーがプッシュ通知にオプトインすると、標準の承認が付与され、[フォアグラウンドプッシュ通知](#foreground-vs-background)を送信できるようになります。ただし、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)をリクエストすることもでき、通知センターに直接サイレントな[バックグラウンドプッシュ通知](#foreground-vs-background)を送信できます。 |
+| **iOS 11以前** | いいえ | すべてのユーザーはプッシュ通知を受信するために明示的にオプトインする必要があります。プッシュトークンは権限が付与された後にのみ生成されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="プッシュトークンの登録" }
 {% endtab %}
 {% endtabs %}
 
 ### ユーザーのプッシュサブスクリプション状態の確認 {#checking-users-push-subscription-state}
 
-![プッシュサブスクリプション状態が「購読中」に設定されたJohn Doeのユーザープロファイル。]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Jane Doeのユーザープロファイル。「エンゲージメント」タブにプッシュサブスクリプション状態とプッシュ登録の詳細が表示されています。]({% image_buster /assets/img/push_implementation_guide/checking-users-push-subscription-state.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Brazeでユーザーのプッシュサブスクリプション状態を確認するには、2つの方法があります。
 
-- **ユーザープロファイル**: Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)ページから個々のユーザープロファイルにアクセスできます。ユーザーのプロファイルを見つけたら（メールアドレス、電話番号、または外部ユーザーIDで検索）、**エンゲージメント**タブを選択して、ユーザーのサブスクリプション状態を確認および手動で調整できます。
-- **REST APIエクスポート**: エクスポートの[Segmentごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
+- **ユーザープロファイル**: Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)ページから個々のユーザープロファイルにアクセスできます。ユーザーのプロファイルを見つけたら（メールアドレス、電話番号、または外部ユーザーIDで検索）、**エンゲージメント**タブを選択して、ユーザーのサブスクリプション状態を確認および手動で調整できます。
+- **REST APIエクスポート**: エクスポートの[セグメントごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
 
 ### プッシュ登録ステータスの確認 {#checking-push-registration-status}
 
@@ -102,7 +102,7 @@ Brazeでユーザーのプッシュサブスクリプション状態を確認す
 
 ![プッシュトークンの例が表示されたプッシュ変更ログ。]({% image_buster /assets/img/push_changelog.png %}){: style="float:right;max-width:40%;margin-left:15px;margin-top:10px;"}
 
-一方、デバイスエントリのアプリ名に`Background:`というプレフィックスが付いている場合、そのアプリは[バックグラウンドプッシュ]({{site.baseurl}}/user_guide/channels/push/types/#background-push-notifications)のみを受信する権限があり、そのデバイスでユーザーに表示される通知を表示できません。これは通常、ユーザーがそのデバイスでアプリの通知を無効にしたことを示します。
+一方、デバイスエントリのアプリ名に`Background:`というプレフィックスが付いている場合、そのアプリは[バックグラウンドプッシュ]({{site.baseurl}}/user_guide/channels/push/types#background-push-notifications)のみを受信する権限があり、そのデバイスでユーザーに表示される通知を表示できません。これは通常、ユーザーがそのデバイスでアプリの通知を無効にしたことを示します。
 
 プッシュトークンが同じデバイス上の別のユーザーに移動された場合、最初のユーザーはプッシュ登録済みではなくなります。
 
@@ -113,22 +113,22 @@ Brazeでユーザーのプッシュサブスクリプション状態を確認す
 | アクション | 説明 |
 | ------ | ----------- |
 | `changeUser()`メソッドの呼び出し | Brazeの`changeUser()`メソッドは、SDKがユーザー行動データを割り当てるユーザーIDを切り替えます。このメソッドは通常、ユーザーがアプリケーションにログインしたときに呼び出されます。特定のデバイスで異なるまたは新しいユーザーIDで`changeUser()`が呼び出されると、そのデバイスのプッシュトークンは対応するユーザーIDを持つ適切なBrazeプロファイルに移動されます。 |
-| プッシュエラーの発生 | トークンの削除につながる一般的なプッシュエラーには、`MismatchSenderId`、`InvalidRegistration`、およびその他のタイプのプッシュバウンスがあります。<br><br>一般的な[プッシュエラー]({{site.baseurl}}/user_guide/channels/push/push_error_codes/)の完全なリストを確認してください。 |
+| プッシュエラーの発生 | トークンの削除につながる一般的なプッシュエラーには、`MismatchSenderId`、`InvalidRegistration`、およびその他のタイプのプッシュバウンスがあります。<br><br>一般的な[プッシュエラー]({{site.baseurl}}/user_guide/channels/push/push_error_codes)の完全なリストを確認してください。 |
 | ユーザーのアンインストール | ユーザーがデバイスからアプリケーションをアンインストールすると、Brazeはそのユーザーのプッシュトークンをプロファイルから削除します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュトークンの管理" }
 
 ### より広い視点で見ると {#what-does-this-look-like-on-a-broader-scale}
 
 ユーザーが新しいアプリケーションを開き、プッシュプロンプトからプッシュアクセスを許可すると、Braze SDKからプッシュプロバイダーへの呼び出しが行われます。この呼び出しが行われると、プッシュプロバイダーはすべてが正しく設定されているかチェックを実行します。正しく設定されている場合、プッシュトークンがデバイスに渡されます。トークンが届くと、SDKはこれをBrazeに通知します。Brazeがプッシュプロバイダーからトークンを受信した後、ユーザープロファイルを更新または新規作成します。これらのユーザーは登録済みとみなされます。
 
-Campaignを起動する場合、Brazeでプッシュプロバイダーに送信するプッシュペイロードを生成するCampaignを作成します。そこからプロバイダーがプッシュペイロードをユーザーのデバイスに配信し、SDKがメッセージングの状態をBrazeに渡します。
+キャンペーンを起動する場合、Brazeでプッシュプロバイダーに送信するプッシュペイロードを生成するキャンペーンを作成します。そこからプロバイダーがプッシュペイロードをユーザーのデバイスに配信し、SDKがメッセージングの状態をBrazeに渡します。
 
 ![Braze、顧客、Apple Push Notification ServiceまたはFirebase Cloud Messagingの間の前述のプッシュプロセスをマッピングしたフローチャート。]({% image_buster /assets/img/push_process.png %})
 
 | 登録ステップ | メッセージングステップ |
 | ------------------ | --------------- |
 | 1. 顧客（デバイス）がプッシュプロバイダーに登録<br>2. プロバイダーがプッシュトークンを生成して配信<br>3. トークンをBrazeにフラッシュ |1. Brazeがプッシュペイロードをプロバイダーに送信<br>2. プロバイダーがプッシュペイロードをデバイスに配信<br>3. SDKがメッセージング統計をBrazeに渡す |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="より広い視点で見ると" }
 
 ## よくある質問 {#frequently-asked-questions}
 

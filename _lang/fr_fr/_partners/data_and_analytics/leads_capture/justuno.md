@@ -22,7 +22,7 @@ L'intégration de Justuno et de Braze vous offre le meilleur des deux mondes. Vo
 
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track` et `custom_attributes.get`.<br><br>Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST de Braze | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de Justuno à Braze {#integrating-justuno-with-braze}
 
@@ -52,11 +52,11 @@ Pour ajouter l'application Braze à votre [flux de travail Justuno](https://hub.
 
 Pour envoyer des données de profil depuis Justuno vers un groupe d'abonnement e-mail ou SMS spécifique de Braze, vous devez ajouter leur ID à l'application Braze dans votre flux de travail Justuno.
 
-| Type d'ID                          | Requis ? | Description                                                                                                   |
-|----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
-| ID du groupe d'abonnement SMS de Braze  | Oui       | Cet ID est utilisé pour recueillir le consentement SMS à partir des profils utilisateurs. Si aucun ID n'est saisi dans Justuno, les profils n'auront pas de consentement lorsque Justuno transmettra ce profil à Braze. |
-| ID du groupe d'abonnement e-mail de Braze | Non        | Si cet ID n'est pas saisi dans Justuno, Justuno enverra les données du profil à Braze en tant qu'utilisateur sans groupe d'abonnement associé. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Type d'ID | Requis ? | Description |
+|---|---|---|
+| ID du groupe d'abonnement SMS de Braze | Oui | Cet ID est utilisé pour recueillir le consentement SMS à partir des profils utilisateurs. Si aucun ID n'est saisi dans Justuno, les profils n'auront pas de consentement lorsque Justuno transmettra ce profil à Braze. |
+| ID du groupe d'abonnement e-mail de Braze | Non | Si cet ID n'est pas saisi dans Justuno, Justuno enverra les données du profil à Braze en tant qu'utilisateur sans groupe d'abonnement associé. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 3 : Connecter vos groupes d'abonnement Braze" }
 
 #### Étape 3.1 : Localiser les ID dans Braze {#step-31-locate-the-ids-in-braze}
 
@@ -95,6 +95,6 @@ Pour synchroniser des attributs supplémentaires :
 ## Informations importantes {#things-to-know}
 
 - Vous devez saisir manuellement l'ID du groupe d'abonnement dans les paramètres de l'application.
-- Les types de données suivants de Braze ne sont **pas pris en charge** : Objet, tableau d'objets.
+- Les types de données suivants de Braze ne sont **pas pris en charge** : objet, tableau d'objets.
 - Le consentement implicite par SMS est fourni lorsque le champ de consentement SMS de Justuno n'est pas utilisé.
 - Le consentement explicite par SMS est respecté si le design Justuno inclut le champ de consentement.

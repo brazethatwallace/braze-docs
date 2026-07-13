@@ -24,7 +24,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 - [Cuenta de desarrollador de LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [Canal de API de mensajería de LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Para un recorrido completo, consulta [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup/).
+Para un recorrido completo, consulta [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
 ## Casos de uso {#use-cases}
 
@@ -35,11 +35,11 @@ Para un recorrido completo, consulta [Configuración de LINE]({{site.baseurl}}/u
 | Soporte al cliente | Habilita conversaciones bidireccionales para gestionar consultas, proporcionar información sobre productos y resolver problemas. |
 | Notificaciones de pedidos | Mantén a los clientes informados con confirmaciones de pedidos, actualizaciones de envío y notificaciones de entrega. |
 | Interacción con eventos | Impulsa la asistencia y la interacción en eventos con invitaciones, recordatorios y mensajes de seguimiento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## Próximos pasos {#next-steps}
 
-- [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup/)
-- [Crear un mensaje de LINE]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/)
+- [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup)
+- [Crear un mensaje LINE]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)

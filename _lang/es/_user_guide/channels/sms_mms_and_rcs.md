@@ -23,9 +23,9 @@ La disponibilidad de SMS, MMS y RCS depende de tu paquete de Braze. Ponte en con
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
-- Códigos abreviados, códigos largos o identificadores de remitente alfanuméricos configurados. Para más información, consulta [Configuración del remitente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/).
-- Familiaridad con las leyes y regulaciones de SMS, incluidos los requisitos de TCPA y de los operadores. Para más información, consulta [Leyes y regulaciones]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
-- Consentimiento explícito de adhesión voluntaria recopilado de los usuarios. Para más información, consulta [Recopilar adhesiones voluntarias de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins/).
+- Códigos abreviados, códigos largos o identificadores de remitente alfanuméricos configurados. Para más información, consulta [Configuración del remitente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup).
+- Familiaridad con las leyes y regulaciones de SMS, incluidos los requisitos de TCPA y de los operadores. Para más información, consulta [Leyes y regulaciones]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
+- Consentimiento explícito de adhesión voluntaria recopilado de los usuarios. Para más información, consulta [Recopilar adhesiones voluntarias de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins).
 
 ## Casos de uso {#use-cases}
 
@@ -36,7 +36,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 | Autenticación de dos factores | Entrega códigos de verificación de un solo uso para el inicio de sesión en cuentas y la confirmación de transacciones. |
 | Ofertas promocionales | Llega a los clientes con promociones de tiempo limitado, ventas flash y descuentos personalizados directamente en su teléfono. |
 | Soporte al cliente | Habilita conversaciones bidireccionales para resolver consultas de clientes, recopilar comentarios o confirmar solicitudes de servicio. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Comparación entre SMS, MMS y RCS {#sms-mms-and-rcs-compared}
 
@@ -50,12 +50,12 @@ RCS (servicios de comunicación enriquecida) se basa en SMS con una experiencia 
 
 - Entregar imágenes y video de alta resolución en lugar de solo texto plano.
 - Agregar respuestas y acciones sugeridas para que los clientes puedan responder con un solo toque.
-- Mostrar un perfil de remitente verificado con marca para que los mensajes sean fáciles de confiar.
+- Mostrar un perfil de remitente verificado con marca para que los mensajes resulten fáciles de confiar.
 - Admitir confirmaciones de lectura e indicadores de escritura donde los operadores lo permitan.
 
-RCS es adecuado para casos de uso como actualizaciones transaccionales (envíos, citas), promociones con contenido creativo enriquecido, soporte al cliente con rutas de respuesta rápida, e incorporación o tutoriales que se benefician de medios y acciones estructuradas. Para la configuración y migración desde SMS, consulta [Configuración de RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/).
+RCS es adecuado para casos de uso como actualizaciones transaccionales (envíos, citas), promociones con contenido creativo enriquecido, soporte al cliente con rutas de respuesta rápida, e incorporación o tutoriales que se benefician de medios y acciones estructuradas. Para la configuración y migración desde SMS, consulta [Configuración de RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup).
 
 ## Próximos pasos {#next-steps}
 
-- [Configuración de mensajes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/)
-- [Crear un mensaje]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)
+- [Configuración de mensajes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup)
+- [Crear un mensaje]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)

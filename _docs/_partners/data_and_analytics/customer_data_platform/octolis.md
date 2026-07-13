@@ -21,7 +21,7 @@ The Braze and Octolis integration acts as middleware between your raw data sourc
 2. Normalize and score
 3. Real-time synchronization of computed fields and events to Braze
 
-![]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
+![Architecture diagram showing Octolis data sources, processing, and sync flow into Braze.]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ The Braze and Octolis integration acts as middleware between your raw data sourc
 | Braze REST API key | A Braze REST API key with [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
 | Braze app key | Your app identifier key. This can be found within the **Braze Dashboard > Manage Settings > API Key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -54,7 +54,7 @@ These audiences need to be built based on several data sources. A source can be 
 
 Next, to set Braze as a new destination, select **+ Add more** at the top of your current destination within the main screen and select **Braze** from the available business tools.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
+![Octolis destination picker with Braze selected from available business tools.]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
 
 Once selected, provide the following:
 
@@ -63,22 +63,22 @@ Once selected, provide the following:
 - Request volume: Number of requests you can make within this time frame.
 - Custom attributes: Specify here the new fields you will send to Braze, their format (string, integer, float), and tick the **Required for syncs** if you want one of them to be mandatory for a sync.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
+![Octolis Braze destination configuration fields for API key, rate limits, and custom attributes.]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
 
 Once configured, Braze will appear as a new destination on the home screen.
 
 ### Step 3: Create a new sync
 
-From the menu, click **Syncs** and select **Add sync** at the top right. Select the audience you want to select from the audience you have previously created.
+From the menu, click **Syncs** and select **Add sync** in the action bar. Select the audience you want to select from the audience you have previously created.
 Next, select **Braze** as the destination and which entity you will send data to.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
+![Octolis sync creation screen showing audience and Braze destination selections.]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
 
 ### Step 4: Set output settings
 
 By default, Braze creates all the attributes that you would send, but you must document the list of fields to be synchronized.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
+![Octolis output settings screen for Braze field mapping and sync scheduling.]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
 
 Here is a specific definition of settings fields.
 
@@ -90,7 +90,7 @@ Here is a specific definition of settings fields.
 | Which fields should be synced? | Octolis to Braze fields mapping. The list of all available fields appears in the dropdown menu. To send a computed field to Braze, you must first ensure that you created the corresponding column within your Braze entity. |
 | When do you want to sync the audience? | How the data will be sent to Braze: manually, in real-time, or programmed.  |
 | Sync when record is... | Create: For opt-ins, it is important that the Braze table remains master. You don't want Octolis to trigger a sync when the field is updated.<br><br>Update: On the other hand, for a first name field, for example, you want to be able to update the field in your Braze table each time a customer gives you a new entry. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set output settings" }
 
 ## Multi-keys deduplication
 

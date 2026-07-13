@@ -23,7 +23,7 @@ Braze currently offers two integrations to Salesforce Sales Cloud for the follow
 2. [Updating a lead in Salesforce Sales Cloud](#updating-lead)
 
 {% alert note %}
-This integration is purely to update Salesforce from Braze as part of your lead acquisition and nurturing efforts. For syncing data from Salesforce back to Braze, check out [B2B data model]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/) or connect with one of our [technology partners]({{site.baseurl}}/partners/home/). 
+This integration is purely to update Salesforce from Braze as part of your lead acquisition and nurturing efforts. For syncing data from Salesforce back to Braze, check out [B2B data model]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) or connect with one of our [technology partners]({{site.baseurl}}/partners/home). 
 {% endalert %}
 
 ## Prerequisites
@@ -63,7 +63,7 @@ Use templates to quickly reuse this webhook across the Braze platform.
 | Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | HTTP method | `POST` |
 | Request Body | JSON Key/Value Pairs |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### Body property key values
 
@@ -75,7 +75,7 @@ Select **+ Add New Body Property** for each of the key/value pairs you want to m
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### Request headers
 
@@ -85,7 +85,7 @@ Select **+ Add New Header** for each of the following request headers.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4" }
 4. Select **Save Template**.
@@ -94,9 +94,9 @@ Select **+ Add New Header** for each of the following request headers.
  
 ## Updating a lead in Salesforce Sales Cloud {#updating-lead}
 
-To set up a Braze Salesforce Sales Cloud webhook that updates leads in Salesforce, you need a common identifier between Salesforce Sales Cloud and Braze. The example below uses the Salesforce `lead_id` as the Braze `external_id`, but you can also accomplish this by using a `user_alias`. For details on this, refer to [B2B Data]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/)
+To set up a Braze Salesforce Sales Cloud webhook that updates leads in Salesforce, you need a common identifier between Salesforce Sales Cloud and Braze. The example in the following section uses the Salesforce `lead_id` as the Braze `external_id`, but you can also accomplish this by using a `user_alias`. For details on this, refer to [B2B Data]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)
 
-This example specifically demonstrates how to update a lead’s lead stage to “MQL” (Marketing Qualified Lead) after a lead crosses a certain lead threshold. This is a core part of our [B2B lead scoring workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/) use case.
+This example specifically demonstrates how to update a lead’s lead stage to “MQL” (Marketing Qualified Lead) after a lead crosses a certain lead threshold. This is a core part of our [B2B lead scoring workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring) use case.
 
 ### Step 1: Collect your `client_id` and `client_secret`
 
@@ -119,7 +119,7 @@ This example specifically demonstrates how to update a lead’s lead stage to �
 |Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTP method | `PATCH` |
 | Request Body | JSON Key/Value Pairs |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### Body property key values
 
@@ -128,7 +128,7 @@ Select **+ Add New Body Property** for the following key/value pair. Note that `
 | Key | Value |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### Request headers
 
@@ -138,7 +138,7 @@ Select **+ Add New Header** for each of the following request headers.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4"}
 4. Select **Save Template**.

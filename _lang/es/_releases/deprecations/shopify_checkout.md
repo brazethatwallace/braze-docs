@@ -57,4 +57,4 @@ braze.getUser().setEmail(<email address>);
 {: start="4"}
 4. En Braze, fusiona los perfiles de usuario por correo electrónico.
 
-Si encuentras perfiles de usuario duplicados, puedes utilizar nuestra [herramienta de fusión masiva]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users/#bulk-merging) para ayudar a optimizar tus datos.
+Si encuentras perfiles de usuario duplicados, puedes utilizar nuestra [herramienta de fusión masiva]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users#bulk-merging) para ayudar a optimizar tus datos.

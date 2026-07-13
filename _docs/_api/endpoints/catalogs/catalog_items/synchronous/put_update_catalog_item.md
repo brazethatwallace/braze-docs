@@ -23,7 +23,7 @@ If the `item_id` isn't found, this endpoint will create the item in your catalog
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.replace_item` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.replace_item` permission.
 
 ## Rate limit
 
@@ -35,14 +35,14 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 |---|---|---|---|
 | `catalog_name` | Required | String | Name of the catalog. |
 | `item_id` | Required | String | The ID of the catalog item. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request parameters
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `items` | Required | Array | An array that contains item objects. The item objects should contain fields that exist in the catalog except for the `id` field. Only one item object is allowed per request. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 
@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -68,6 +69,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
   ]
 }'
 ```
+
+{% alert note %}
+The `Location` field uses the `geo` data type, which expects an array formatted as `[longitude, latitude]`.
+{% endalert %}
 
 ## Response
 
@@ -111,7 +116,7 @@ The following table lists possible returned errors and their associated troubles
 
 | Error | Troubleshooting |
 | --- | --- |
-| `arbitrary-error` | An arbitrary error occurred. Please try again or contact [Support]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | An arbitrary error occurred. Please try again or contact [Support]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Check that the catalog name is valid. |
 | `filtered-set-field-too-long` | The field value is being used in a filtered set that exceeds the character limit for an item. |
 | `id-in-body` | Remove any item IDs in the request body. |
@@ -125,6 +130,6 @@ The following table lists possible returned errors and their associated troubles
 | `request-includes-too-many-items` | You can only create one catalog item per request. |
 | `too-deep-nesting-in-value-object` | Item objects can't have more than 50 levels of nesting. |
 | `unable-to-coerce-value` | Item types can't be converted. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

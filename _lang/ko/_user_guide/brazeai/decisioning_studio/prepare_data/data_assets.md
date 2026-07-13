@@ -18,7 +18,7 @@ description: "이 참조 문서에서는 BrazeAI Decisioning Studio에 필요한
 - **참여**는 고객이 메시지에 어떻게 반응했는지 알려줍니다
 - **전환**은 궁극적인 비즈니스 목표가 달성되었는지 알려줍니다
 
-이러한 각 자산은 스냅샷이 아닌 증분 이벤트 스트림으로 구성되어야 합니다. 자세한 내용은 [스냅샷과 이벤트 스트림 비교]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)를 참조하세요.
+이러한 각 자산은 스냅샷이 아닌 증분 이벤트 스트림으로 구성되어야 합니다. 자세한 내용은 [스냅샷과 이벤트 스트림 비교]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams)를 참조하세요.
 
 {% alert note %}
 Decisioning Studio가 고객 참여 플랫폼(예: Braze 또는 Salesforce Marketing Cloud)과 네이티브로 통합되어 있는 경우, 추가 구성 없이 활성화 및 참여 데이터가 자동으로 수집될 수 있습니다. 설정 설명서를 확인하세요.
@@ -57,7 +57,7 @@ Decisioning Studio가 고객 참여 플랫폼(예: Braze 또는 Salesforce Marke
 | 각 레코드에 전환 이벤트가 발생한 시점의 타임스탬프가 있어야 합니다 | 정확한 타이밍은 기여도 분석에 필수적입니다. 모델은 전환이 어떤 추천에 기여할 수 있는지 알아야 합니다. |
 | 이진이 아닌 성공 측정기준을 사용하는 경우(예: 전환 여부가 아닌 매출), 각 전환 레코드에 측정기준 값이 포함되어야 합니다 | Decisioning Studio는 측정기준 값을 사용하여 학습 경험을 생성합니다. 값이 없으면 모델은 전환이 발생했다는 것만 학습할 수 있고, 얼마나 가치 있었는지는 학습할 수 없습니다. |
 | 전환이 특정 커뮤니케이션에 직접 기여할 수 있는 경우(예: 쿠폰 사용), 전환을 활성화 레코드와 매칭하는 데 필요한 필드를 포함해야 합니다 | 직접 기여도는 모델에 가장 명확한 학습 신호를 제공합니다. 직접 기여도가 불가능한 경우, Decisioning Studio는 근접성 기반 기여도를 대체 방법으로 사용합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전환 데이터" }
 
 ## 선택 자산 {#optional-assets}
 

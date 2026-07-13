@@ -2,7 +2,7 @@
 nav_title: Branch (アトリビューション)
 article_title: Branch (アトリビューション)
 alias: /partners/branch_for_attribution/
-description: "この参考記事では、あらゆるデバイス、チャネル、プラットフォームでの獲得、エンゲージメント、測定を支援するモバイルリンクプラットフォームであるBrazeとBranchのパートナーシップについて概説している。"
+description: "この参考記事では、あらゆるデバイス、チャネル、プラットフォームでの獲得、エンゲージメント、測定を支援するモバイルリンクプラットフォームであるBrazeとBranchのパートナーシップについて概説しています。"
 page_type: partner
 search_tag: Partner
 ---
@@ -11,39 +11,39 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="PwGKqfwV-Ss" align="right" %}
 
-> [Branch](https://docs.branch.io/pages/integrations/braze/) はあらゆるデバイス、チャネル、プラットフォームでの獲得、エンゲージメント、測定を支援するモバイルリンクプラットフォームで、すべてのユーザータッチポイントの一元的なビューを提供しています。
+> [Branch](https://docs.branch.io/pages/integrations/braze/)はモバイルリンクプラットフォームで、すべてのユーザータッチポイントの包括的なビューを提供することにより、あらゆるデバイス、チャネル、プラットフォームでの獲得、エンゲージメント、測定を支援します。
 
-_この統合は Branch によって管理されます。_
+_この統合はBranchによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Branch と Braze の統合では、堅牢なアトリビューションと[ディープリンク]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)により、ユーザーがいつ、どこで獲得されたかを正確に把握し、ユーザーのジャーニーをパーソナライズできるようになります。
+BrazeとBranchの統合により、堅牢なアトリビューションと[ディープリンク]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)を通じて、ユーザーがいつ、どこで獲得されたかを正確に把握し、ユーザーのジャーニーをパーソナライズできるようになります。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| Branch アカウント | このパートナーシップを活用するには、Branch アカウントが必要です。 |
-| iOSまたはAndroidアプリ | この統合では、iOS アプリと Android アプリがサポートされています。ご使用のプラットフォームによっては、アプリケーションでコードスニペットが必要な場合があります。これらの要件の詳細については、統合プロセスのステップ1を参照してください。 |
-| ブランチSDK | 必要な Braze SDK に加えて、[Branch SDK](https://help.branch.io/developers-hub/docs/native-sdks-overview) をインストールする必要があります。 |
+| Branchアカウント | このパートナーシップを活用するには、Branchアカウントが必要です。 |
+| iOSまたはAndroidアプリ | この統合では、iOSアプリとAndroidアプリがサポートされています。ご使用のプラットフォームによっては、アプリケーションでコードスニペットが必要な場合があります。これらの要件の詳細については、統合プロセスのステップ1を参照してください。 |
+| Branch SDK | 必要なBraze SDKに加えて、[Branch SDK](https://help.branch.io/developers-hub/docs/native-sdks-overview)をインストールする必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:デバイスIDをマップする
+### ステップ1:デバイスIDをマップする {#step-1-map-device-ids}
 
-#### Android 
+#### Android
 
-Android アプリを使用している場合は、Braze のデバイス ID を Branch に渡す必要があります。この ID は、Branch SDK の `setRequestMetadataKey()` メソッドで設定できます。`initSession`を呼び出す前に、次のコードスニペットを含める必要があります。また、Branch SDK でリクエストメタデータを設定する前に、Braze SDK を初期化する必要があります。
+Androidアプリを使用している場合は、BrazeのユニークなデバイスIDをBranchに渡す必要があります。このIDは、Branch SDKの`setRequestMetadataKey()`メソッドで設定できます。`initSession`を呼び出す前に、次のコードスニペットを含める必要があります。また、Branch SDKでリクエストメタデータを設定する前に、Braze SDKを初期化する必要があります。
 
 {% tabs local %}
 {% tab Java %}
 ```java
-Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(context).deviceId); 
+Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(context).deviceId);
 ```
 {% endtab %}
 {% tab Kotlin %}
-```kotlin
+`````````kotlin
 Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(context).deviceId)
 ```
 {% endtab %}
@@ -52,16 +52,16 @@ Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(c
 #### iOS
 
 {% alert important %}
-2023年2月以前は、当社のBranch アトリビューションインテグレーションでは、iOS アトリビューションにマッチするために、ベンダ(IDFV)向けの識別子を主な識別子として使用していました。Objective-C を使用するBraze 顧客 s がBraze`device_id` を取得し、インストール時にBranch に送信する必要はありません。これは、サービスの中断がないためです。
+2023年2月以前は、Branchアトリビューション統合ではiOSアトリビューションデータのマッチングにおいて、IDFV（Identifier for Vendor）を主要な識別子として使用していました。Objective-Cを使用するBrazeのお客様は、Brazeの`device_id`を取得してインストール時にBranchに送信する必要はありません。サービスの中断が発生しないためです。
 {% endalert%}
 
-Swift SDK v5.7.0+ を使用しているお客様は、相互識別子として IDFV を引き続き使用するには、`useUUIDAsDeviceId` フィールドが `false` に設定されていることを確認する必要があります。これにより、統合が中断されることがなくなります。 
+Swift SDK v5.7.0以降を使用しているお客様で、相互識別子としてIDFVを引き続き使用する場合は、`useUUIDAsDeviceId`フィールドが`false`に設定されていることを確認する必要があります。これにより、統合が中断されることがなくなります。
 
-`true` に設定している場合、Brazeが iOS アトリビューションを適切に照合できるように、アプリのインストール時に Branch に Braze`device_id` を渡すために、Swift用の iOS デバイス ID マッピングを実装する必要があります。
+`true`に設定している場合、BrazeがiOSアトリビューションを適切に照合できるように、アプリのインストール時にBranchにBrazeの`device_id`を渡すために、Swift用のiOSデバイスIDマッピングを実装する必要があります。
 
 {% tabs local %}
 {% tab Objective-C %}
-```objc
+`````````objc
 [braze deviceIdOnQueue:dispatch_get_main_queue() completion:^(NSString * _Nonnull deviceId) {
   [[Branch getInstance] setRequestMetadataKey:@"$braze_install_id" value:deviceId];
   // Branch init
@@ -70,48 +70,48 @@ Swift SDK v5.7.0+ を使用しているお客様は、相互識別子として I
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 braze.deviceId { deviceId in
   Branch.getInstance.setRequestMetadata("$braze_install_id", deviceId)
-  // Branch init 
+  // Branch init
 }
 ```
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ2:Brazeデータインポートキーを取得する
+### ステップ2:Brazeデータインポートキーを取得する {#step-2-get-the-braze-data-import-key}
 
-Brazeで、[**パートナー連携**] > [**テクノロジーパートナー**] に移動し、[**Branch**] を選択します。 
+Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Branch**を選択します。
 
-ここでは、REST エンドポイントが見つかり、Brazeデータインポートキーが生成されます。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。Branch のダッシュボードでポストバックを設定する場合、次のステップでデータインポートキーと REST エンドポイントが使用されます。<br><br>![Branch テクノロジーページにある「インストールアトリビューションのデータインポート」ボックス。このボックスには、データインポートキーと REST エンドポイントが表示されている。]({% image_buster /assets/img/attribution/branch.png %}){: style="max-width:90%;"}
+ここでは、RESTエンドポイントが見つかり、Brazeデータインポートキーを生成できます。キーが生成されたら、新しいキーを作成するか、既存のキーを無効にできます。Branchのダッシュボードでポストバックを設定する際に、次のステップでデータインポートキーとRESTエンドポイントを使用します。<br><br>![Branchテクノロジーページにある「インストールアトリビューションのデータインポート」ボックス。このボックスには、データインポートキーとRESTエンドポイントが表示されています。]({% image_buster /assets/img/attribution/branch.png %}){: style="max-width:90%;"}
 
-### ステップ3:データフィードを設定する
+### ステップ3:データフィードを設定する {#step-3-set-up-data-feeds}
 
-1. Branch の [**Exports**] セクションで、[**Data Feeds**] を選択します。
-2. [**Data Feeds Manager**] ページで、ページ上部の [**Data Integrations**] タブを選択します。 
-3. 利用可能なデータパートナーのリストから Braze を選択します。 
-4. Braze エクスポートページで、Braze ダッシュボードで見つけたデータインポートキーと REST エンドポイントを入力し、[**有効**] を選択します。
+1. Branchの**Exports**セクションで、**Data Feeds**を選択します。
+2. **Data Feeds Manager**ページで、ページ上部の**Data Integrations**タブを選択します。
+3. 利用可能なデータパートナーのリストからBrazeを選択します。
+4. Brazeエクスポートページで、Brazeダッシュボードで見つけたデータインポートキーとRESTエンドポイントを入力し、**Enable**を選択します。
 
-### ステップ 4: 統合を確認する
+### ステップ4:統合を確認する {#step-4-confirm-the-integration}
 
-BrazeがアトリビューションデータをBranchから受信すると、"Not Connected"から"Connected"にBrazeのBranch テクノロジーパートナーページのステータスコネクションインジケーターが変化し、最後に成功したリクエストのタイムスタンプが含まれます。
+BrazeがBranchからアトリビューションデータを受信すると、BrazeのBranchテクノロジーパートナーページのステータス接続インジケーターが「Not Connected」から「Connected」に変わり、最後に成功したリクエストのタイムスタンプが含まれます。
 
-このステータスは、Braze が属性d インストールに関する情報を受信した後にのみ変更されます。Brazeは、有機的なインストールを無視し(Branchのポストバックから除外)、接続が成功したかどうかを判断するときにそれらをカウントしません。
+このステータスは、Brazeがアトリビュートされたインストールに関するデータを受信した後にのみ変更されます。Brazeはオーガニックインストールを無視し（Branchのポストバックから除外）、接続が成功したかどうかを判断する際にそれらをカウントしません。
 
-## FacebookとX（旧Twitter）のアトリビューションデータ
+## FacebookとX（旧Twitter）のアトリビューションデータ {#facebook-and-x-formerly-twitter-attribution-data}
 
-FacebookおよびX（旧Twitter）キャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、そのパートナーが帰属データを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできない。
+FacebookおよびX（旧Twitter）のキャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
 
-## Braze での Branch クリックトラッキング URL (オプション)
+## BrazeでのBranchクリックトラッキングURL（オプション） {#branch-click-tracking-urls-in-braze-optional}
 
-Brazeのキャンペーンでクリック追跡リンクを使用すると、どのキャンペーンがアプリのインストールやリエンゲージメントを促進しているかを簡単に確認できる。その結果、マーケティング活動をより効果的に測定できるようになり、ROI を最大化するためにどこにリソースを投資すべきかについて、データに基づいた意思決定ができるようになります。
+Brazeのキャンペーンでクリックトラッキングリンクを使用すると、どのキャンペーンがアプリのインストールやリエンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
 
-Branch のクリックトラッキングリンクを使用するには、Branchの[ドキュメント](https://help.branch.io/using-branch/docs/ad-links)を参照してください。Braze のキャンペーンに Branch のクリックトラッキングリンクを直接挿入できます。その後 Branch は、リンクをクリックしたユーザーを紐づけるため、Branch の[確率的アトリビューション手法](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings)を使用します。Braze キャンペーンのアトリビューションの精度向上のために、Branch トラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的に属性付けします。
+Branchのクリックトラッキングリンクを使い始めるには、Branchの[ドキュメント](https://help.branch.io/using-branch/docs/ad-links)を参照してください。BrazeのキャンペーンにBranchのクリックトラッキングリンクを直接挿入できます。その後Branchは、リンクをクリックしたユーザーをアトリビュートするために、[確率的アトリビューション手法](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings)を使用します。Brazeのキャンペーンからのアトリビューションの精度を向上させるために、Branchトラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビュートできます。
 
 {% tabs local %}
 {% tab Android %}
-Androidの場合、Brazeを使用すると、顧客は[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAID はまた、Branch SDK 統合によってネイティブに収集されます。以下の Liquid ロジックを利用して、Branch のクリックトラッキングリンクに GAID を組み込むことができます。
+Androidの場合、Brazeではお客様が[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAIDはまた、Branch SDKの統合によってネイティブに収集されます。以下のLiquidロジックを利用して、BranchのクリックトラッキングリンクにGAIDを組み込むことができます。
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -122,7 +122,7 @@ user_data_aaid={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-iOSの場合、BrazeとBranchの両方が、SDKの統合を通じてネイティブにIDFVを自動的に収集する。これはデバイス識別子として使用できる。以下の Liquid ロジックを利用して、Branch のクリックトラッキングリンクに IDFV を組み込むことができます。
+iOSの場合、BrazeとBranchの両方がSDKの統合を通じてネイティブにIDFVを自動的に収集します。これはデバイス識別子として使用できます。以下のLiquidロジックを利用して、BranchのクリックトラッキングリンクにIDFVを組み込むことができます。
 
 {% raw %}
 ```
@@ -136,7 +136,5 @@ user_data_idfv={{most_recently_used_device.${id}}}
 
 {% alert note %}
 **この推奨事項の適用は完全に任意です。**<br>
-現在、クリック追跡リンクにIDFVやGAIDなどのデバイス識別子を使用していない場合、または今後使用する予定がない場合でも、ブランチは確率的モデリングによってこれらのクリックを識別することができる。
+現在、クリックトラッキングリンクにIDFVやGAIDなどのデバイス識別子を使用していない場合、または今後使用する予定がない場合でも、Branchは確率的モデリングによってこれらのクリックをアトリビュートすることができます。
 {% endalert %}
-
-

@@ -1,30 +1,30 @@
 ---
 nav_title: "PUT: Primären SDK-Authentifizierungsschlüssel festlegen"
 article_title: "PUT: Primären SDK-Authentifizierungsschlüssel festlegen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des SDK-Endpunkts Set primary SDK Authentication key Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Primären SDK-Authentifizierungsschlüssel festlegen“."
 ---
 
 {% api %}
-# Primären SDK-Authentifizierungsschlüssel festlegen
+# Primären SDK-Authentifizierungsschlüssel festlegen {#set-primary-sdk-authentication-key}
 {% apimethod put %}
 /app_group/sdk_authentication/primary
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um einen SDK-Authentifizierungsschlüssel als Primärschlüssel für Ihre App festzulegen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sdk_authentication.primary`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sdk_authentication.primary`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -36,15 +36,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Erforderlich | String | Der Bezeichner der App APIs. |
-| `key_id` | Erforderlich | String | Die ID des SDK Authentifizierungsschlüssels, der als primär markiert werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | Erforderlich | String | Der API-Bezeichner der App. |
+| `key_id` | Erforderlich | String | Die ID des SDK-Authentifizierungsschlüssels, der als primär markiert werden soll. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```bash
 curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authentication/primary' \
 --header 'Content-Type: application/json' \
@@ -55,7 +55,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 ```json
 {
   "keys": [
@@ -75,23 +75,23 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }
 ```
 
-## Antwort-Parameter
+## Antwortparameter {#response-parameters}
 
 | Parameter | Datentyp | Beschreibung |
 | --------- | --------- | ----------- |
-| `keys` | Array | Array mit allen SDK Authentifizierungsschlüssel-Objekten. |
-| `keys[].id` | String | Die ID des SDK Authentifizierungsschlüssels. |
+| `keys` | Array | Array mit allen SDK-Authentifizierungsschlüssel-Objekten. |
+| `keys[].id` | String | Die ID des SDK-Authentifizierungsschlüssels. |
 | `keys[].rsa_public_key` | String | Der String für den öffentlichen RSA-Schlüssel. |
 | `keys[].description` | String | Beschreibung des SDK-Authentifizierungsschlüssels. |
-| `keys[].is_primary` | Boolesch | Ob dieser Schlüssel der primäre SDK Authentifizierungsschlüssel ist. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `keys[].is_primary` | Boolescher Wert | Ob dieser Schlüssel der primäre SDK-Authentifizierungsschlüssel ist. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
 
-### Validierungsregeln
+### Validierungsregeln {#validation-rules}
 
 Für diesen Endpunkt gelten die folgenden Validierungsregeln:
 
-- Die `key_id` muss eine gültige SDK Authentication Key ID sein.
-- Die `app_id` muss ein gültiger Bezeichner für die App API sein.
+- Die `key_id` muss eine gültige ID eines SDK-Authentifizierungsschlüssels sein.
+- Die `app_id` muss ein gültiger API-Bezeichner der App sein.
 - Der SDK-Authentifizierungsschlüssel muss für die angegebene App existieren.
 
 {% endapi %}

@@ -32,7 +32,7 @@ description: "이 문서에서는 Segment별 사용자 내보내기 Braze 엔드
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.export.segment` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.export.segment` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -58,7 +58,7 @@ Braze에 [S3][1], [Azure][2] 또는 [Google Cloud Storage][3] 자격 증명을 �
 | `RANDOM_UUID` | 요청 시점에 Braze에서 생성한 임의의 UUID입니다. | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | 내보내기가 요청된 Unix 시간(UTC 기준 2017-01-01:00:00:00Z 이후 초)입니다. | `1556044807` |
 | `filename` | 파일당 무작위입니다. | `114f0226319130e1a4770f2602b5639a` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="자격 증명 기반 응답 세부 정보" }
 
 {% enddetails %}
 
@@ -90,12 +90,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | ----------------------------- | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `segment_id` | 필수 | 문자열 | 내보낼 Segment의 식별자입니다. [Segment 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요.<br><br>지정된 Segment의 `segment_id`는 Braze 계정 내 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 찾거나 [Segment 목록 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)를 사용할 수 있습니다. |
+| `segment_id` | 필수 | 문자열 | 내보낼 Segment의 식별자입니다. [Segment 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요.<br><br>지정된 Segment의 `segment_id`는 Braze 계정 내 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지에서 찾거나 [Segment 목록 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment)를 사용할 수 있습니다. |
 | `callback_endpoint` | 선택 사항 | 문자열 | 내보내기가 완료되었을 때 다운로드 URL을 게시할 엔드포인트입니다. |
 | `fields_to_export` | 필수* | 문자열 배열 | 내보낼 사용자 데이터 필드의 이름입니다. 이 매개변수에 `custom_attributes`를 포함하여 모든 커스텀 속성을 내보낼 수도 있습니다. 내보낼 수 있는 전체 필드 목록은 [내보낼 필드](#fields-to-export)를 참조하세요. |
-| `custom_attributes_to_export` | 선택 사항 | 문자열 배열 | 내보낼 특정 커스텀 속성의 이름입니다. 최대 500개의 커스텀 속성을 내보낼 수 있습니다. 대시보드에서 커스텀 속성을 만들고 관리하려면 **데이터 설정** > **커스텀 속성**으로 이동하세요. |
+| `custom_attributes_to_export` | 선택 사항 | 문자열 배열 | 내보낼 특정 커스텀 속성의 이름입니다(최대 500개). 이 매개변수를 사용할 때는 `fields_to_export`에서 `custom_attributes`를 생략하세요. 그렇지 않으면 Braze는 이 목록에 관계없이 모든 커스텀 속성을 내보냅니다. 대시보드에서 커스텀 속성을 만들고 관리하려면 **데이터 설정** > **커스텀 속성**으로 이동하세요. |
 | `output_format` | 선택 사항 | 문자열 | 파일의 출력 형식입니다. 기본값은 `zip` 파일 형식입니다. 자체 S3 버킷을 사용하는 경우 `zip` 또는 `gzip`을 지정할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}
 `fields_to_export` 매개변수에 `custom_attributes`가 포함되어 있으면 `custom_attributes_to_export`에 있는 내용에 관계없이 모든 커스텀 속성이 내보내집니다. 특정 속성을 내보내는 것이 목표인 경우 `fields_to_export` 매개변수에 `custom_attributes`를 포함하지 않아야 합니다. 대신 `custom_attributes_to_export` 매개변수를 사용하세요.
@@ -135,10 +135,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | 내보낼 필드 | 데이터 유형 | 설명 |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | 배열 | 이 사용자가 세션을 기록한 앱으로, 다음 필드를 포함합니다:<br><br>- `name`: 앱 이름<br>- `platform`: iOS, Android 또는 웹과 같은 앱 플랫폼<br>- `version`: 앱 버전 번호 또는 이름<br>- `sessions`: 이 앱의 총 세션 수<br>- `first_used`: 첫 세션 날짜<br>- `last_used`: 마지막 세션 날짜<br><br>모든 필드는 문자열입니다. |
-| `attributed_campaign` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 특정 광고 Campaign의 식별자입니다. |
-| `attributed_source` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 광고가 게재된 플랫폼의 식별자입니다. |
-| `attributed_adgroup` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). Campaign 아래의 선택적 하위 그룹에 대한 식별자입니다. |
-| `attributed_ad` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). Campaign 및 광고 그룹 아래의 선택적 하위 그룹에 대한 식별자입니다. |
+| `attributed_campaign` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). 특정 광고 Campaign의 식별자입니다. |
+| `attributed_source` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). 광고가 게재된 플랫폼의 식별자입니다. |
+| `attributed_adgroup` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). Campaign 아래의 선택적 하위 그룹에 대한 식별자입니다. |
+| `attributed_ad` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). Campaign 및 광고 그룹 아래의 선택적 하위 그룹에 대한 식별자입니다. |
 | `push_subscribe` | 문자열 | 사용자의 푸시 구독 상태입니다. |
 | `email_subscribe` | 문자열 | 사용자의 이메일 구독 상태입니다. |
 | `braze_id` | 문자열 | 이 사용자에 대해 Braze가 설정한 기기별 고유 사용자 식별자입니다. |
@@ -160,12 +160,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `phone` | 문자열 | Braze에 가져온 형식의 사용자 전화번호입니다. 예를 들어, 전화번호 추가 요청이 `1234567890`으로 들어오면 동일한 형식으로 내보내집니다. |
 | `purchases` | 배열 | 이 사용자가 지난 90일 동안 한 구매입니다. |
 | `push_tokens` | 배열 | 사용자의 푸시 토큰에 대한 정보입니다. |
-| `random_bucket` | 정수 | 무작위 사용자 Segment를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)입니다. |
+| `random_bucket` | 정수 | 무작위 사용자 Segment를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)입니다. |
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
-| `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 받은 Campaign 및 Canvas의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
+| `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 받은 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
-| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)(있는 경우)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)(있는 경우)입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
 ## 중요한 알림 {#important-reminders}
 
@@ -173,7 +173,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 - `custom_events`와 `purchases` 모두 `first`와 `count`에 대한 필드가 포함되어 있습니다. 이 두 필드는 전체 기간의 정보를 반영하며, 지난 90일의 데이터로 제한되지 않습니다. 예를 들어, 특정 사용자가 90일 전에 처음으로 이벤트를 수행한 경우, 이는 `first` 필드에 정확하게 반영되며, `count` 필드는 지난 90일 이전에 발생한 이벤트도 고려합니다.
 - 회사가 엔드포인트 수준에서 실행할 수 있는 동시 Segment 내보내기 수는 100개로 제한됩니다. 이 한도를 초과하는 시도는 오류를 발생시킵니다.
 - 첫 번째 내보내기 작업이 여전히 실행 중일 때 Segment를 두 번째로 내보내려고 하면 429 오류가 발생합니다.
-- [`403 Forbidden` 응답]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads)은 내보내기 파일이 아직 준비되지 않았음을 의미하는 경우가 많습니다.
+- [`403 Forbidden` 응답]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting?sdktab=cloud%20storage%20connected#segment-export-api-downloads)은 내보내기 파일이 아직 준비되지 않았음을 의미하는 경우가 많습니다.
+- 구독 그룹 데이터는 Segment 내보내기를 통해 사용할 수 없습니다. 구독 상태별로 사용자를 식별하려면 구독 그룹 멤버십을 기반으로 별도의 Segment를 생성하고 해당 Segment를 내보내세요.
 
 ## 응답 {#response}
 
@@ -187,7 +188,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 ### `null` URL
 
-응답에 `"url": null`이 포함되거나 다운로드 URL이 생략되어 있고 Amazon S3 버킷 또는 Azure Blob Storage 컨테이너와 같은 [클라우드 스토리지 통합]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 구성한 경우, Braze는 API 응답에 임시 다운로드 URL을 반환하는 대신 연결된 버킷 또는 컨테이너에 내보내기를 기록합니다. 연결된 클라우드 스토리지 버킷 또는 컨테이너에서 파일을 가져오세요.
+응답에 `"url": null`이 포함되어 있거나 다운로드 URL이 생략된 경우, Amazon S3 버킷 또는 Azure Blob Storage 컨테이너와 같은 [클라우드 스토리지 통합]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 구성했다면, Braze는 API 응답에 임시 다운로드 URL을 반환하는 대신 연결된 버킷 또는 컨테이너에 내보내기를 기록합니다. 연결된 클라우드 스토리지 버킷 또는 컨테이너에서 파일을 가져오세요.
 
 다운로드 URL이 반환되는 경우 몇 시간 동안만 유효합니다. 따라서 Braze에 자체 S3 자격 증명을 추가하는 것을 적극 권장합니다.
 
@@ -267,7 +268,8 @@ API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 UR
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status,
+        "provisionally_opted_in": (boolean) included for iOS and Android tokens only. Indicates whether the token is in a provisional push authorization state. `true` means the token is provisionally opted in (notifications are delivered quietly), `false` means the token isn't provisional (the user has explicitly authorized or denied push), and `null` means provisional status isn't set. Provisional authorization applies to iOS; Android tokens report `null`
       },
       ...
     ],
@@ -354,13 +356,13 @@ API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 UR
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -413,7 +415,8 @@ API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 UR
         "platform": "Android",
         "token": "12345abcd",
         "device_id": "312ef2c1-83db-4789-967-554545a1bf7a",
-        "notifications_enabled": true
+        "notifications_enabled": true,
+        "provisionally_opted_in": null
       },
       ...
     ],
@@ -482,7 +485,7 @@ API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 UR
 {% endtabs %}
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 [1]: {{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3

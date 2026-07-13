@@ -31,7 +31,7 @@ Let's say you're running a promotional email campaign for a new product launch. 
 
 You can create an unlimited number of link templates to support your various needs. To create a link template, do the following:
 
-1. Go to **Templates** > **Email Link Templates**. 
+1. Go to **Content** > **Email Link**.
 2. Select **Create email link template**.
 3. Give your link template a name.
 4. (Optional) Add a description, team, or tag to add details about the link template.
@@ -42,7 +42,7 @@ There are two types of link templates you can create:
 - [Link template that inserts before a URL](#prepend-link-template)
 - [Link template that inserts after a URL](#append-link-template)
 
-When using link templates and [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), Liquid must only be added within the body tag to ensure consistent rendering.
+When using link templates and [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), Liquid must only be added within the body tag to ensure consistent rendering.
 
 ### Prepend: Create a link template that inserts before a URL {#prepend-link-template}
 
@@ -73,7 +73,7 @@ After you set up your link templates, you can apply them in your email.
 To apply a link template in the HTML editor or the drag-and-drop editor, follow these steps:
 
 {% alert important %}
-To access the **Link Management** tab in the updated HTML editor or the drag-and-drop editor, you must have link aliasing turned on. To turn on link aliasing, contact your account manager. For more information, see [Link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/).
+To access the **Link Management** tab in the updated HTML editor or the drag-and-drop editor, you must have link aliasing turned on. To turn on link aliasing, contact your account manager. For more information, see [Link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}
 
 - **Updated HTML editor:** On the **Content** tab, select **Link Management**, select **Add a Link Template**, choose your link template, and then select **Add**.
@@ -85,17 +85,44 @@ To access the **Link Management** tab in the updated HTML editor or the drag-and
 Link templates aren't applied to plain text. This means Currents may show clicks that don't include the parameters from the link templates as those clicks may come from the plain text version of the email.
 {% endalert %}
 
-As you add link templates in the **Link Management** tab, scroll to the right to view the templates you've added. If existing links within an email already have a link template added, newly added links will also have the link template added by default.
+As you add link templates in the **Link Management** tab, each template appears as an additional column in the table. If existing links within an email already have a link template added, newly added links also have the link template added by default.
+
+{% alert tip %}
+When including links in your message, be sure to start the URLs with `http://` or `https://`.
+{% endalert %}
 
 ## Managing link templates
 
-You can also [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) link templates. Learn more about creating and managing templates and creative content in [Templates & Media]({{site.baseurl}}/user_guide/messaging/templates/).
+You can also [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) link templates. Learn more about creating and managing templates and creative content in [Templates & Media]({{site.baseurl}}/user_guide/messaging/templates).
 
 {% alert important %}
 Archiving templates is not currently available for link templates.
 {% endalert %}
 
+## Troubleshooting
+
+### Missing UTM parameters
+
+Link templates aren't applied to links in standard HTML comments (`<!-- ... -->`). For Outlook conditional comments (for example, `<!--[if mso]>`), link templates are applied when link aliasing is enabled for your workspace. Workspaces without link aliasing enabled still skip conditional comments.
+
+### UTM parameters present in browser but missing from links
+
+This can happen when the URL path in your email doesn't match the full path you intend (for example, a shortened or different path than the website's full URL).
+
+- **What to check:** The `href` in the email includes the complete path to the page (not only a partial path that relies on redirects).
+- **What to expect:** If the path in the email is incomplete or different, UTM parameters from your link template may not be applied to that link when it's clicked, even though the website might still redirect the visitor to the correct page.
+
+For example, if the full link is `https://www.somewebsite.com/women/designer/johnjane` but the email uses `https://www.somewebsite.com/designer/johnjane`, it is expected that UTM parameters won't be added to the email link.
+
+### UTM parameters missing from Liquid-rendered links
+
+When applying link templates, Braze parses each URL to determine where to append parameters. If a Liquid tag renders a URL that cannot be parsed as a valid URI, the link template is silently skipped. Check that your Liquid output produces a well-formed URL. Test by previewing the message for a specific user and verifying the rendered URL is valid. If the URL includes Liquid variables in the path or query string, confirm the output doesn't contain invalid characters or broken encoding.
+
+### UTM values missing in test sends
+
+When test sending link templates, {% raw %}`{{${user_id}}}`{% endraw %} does not get rendered. Instead, duplicate the campaign and set it to target your internal users' email or `external_id` and launch the campaign to verify that all UTM parameters from the link template are populated.
+
 ## Frequently asked questions
 
-For answers to frequently asked questions about link templates, check out our [Templates FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/) page.
+For answers to frequently asked questions about link templates, check out our [Templates FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq) page.
 

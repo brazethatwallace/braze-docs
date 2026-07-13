@@ -1,7 +1,7 @@
 ---
 nav_title: "Playable"
-article_title: Playable
-description: "このリファレンス記事では、Braze と Playable のパートナーシップについて説明します。Playable は動画プラットフォームであり、動画コンテンツを Braze メールキャンペーンに追加できます。"
+article_title: "Playable"
+description: "このリファレンス記事では、BrazeとPlayableのパートナーシップについて説明します。Playableは動画プラットフォームであり、動画コンテンツをBrazeのメールキャンペーンに追加できます。"
 alias: /partners/playable/
 page_type: partner
 search_tag: Partner
@@ -10,38 +10,37 @@ search_tag: Partner
 
 # Playable
 
-> [Playable](https://playable.video) では、自動再生動画をBraze メール キャンペーンs に追加できます。
+> [Playable](https://playable.video)では、自動再生動画コンテンツをBrazeのメールキャンペーンに追加できます。
 
-_この統合は Playable によって管理されます。_
+_この統合はPlayableによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と Playable の統合により、最高のコンテンツ( 高品質動画) を最高のオーディエンスに配信でます (メール)。受信トレイで自動的に再生されるエキサイティングな高品質のコンテンツにより、クリックスルーとポストクリックの指標が向上します。
+BrazeとPlayableの統合により、最高のコンテンツ（高品質動画）を最高のオーディエンス（メール）に配信でき、受信トレイで自動的に再生されるエキサイティングな高品質コンテンツにより、クリックスルーとポストクリックの指標が向上します。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-| 必要条件 | 説明 | 
+| 必要条件 | 説明 |
 | ----------- | ----------- |
-| Playable アカウント | このパートナーシップを活用するには、Playable アカウントが必要です。Playable アカウントをまだお持ちでない場合は、[こちら](https://signup.playable.video)からご登録ください。
-ビデオコンテンツ | 動画ファイルを Playable にアップロードするか、または Facebook、Instagram、YouTube、X (旧 Twitter)、TikTok などの Web サイトの動画 URL を指定します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Playableアカウント | このパートナーシップを活用するには、Playableアカウントが必要です。Playableアカウントをまだお持ちでない場合は、[こちら](https://signup.playable.video)からご登録ください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| 動画コンテンツ | 動画ファイルをPlayableにアップロードするか、Facebook、Instagram、YouTube、X（旧Twitter）、TikTokなどのWebサイトの動画URLを指定します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 実装
+## 実装 {#implementation}
 
-### ステップ1:動画を Playable に追加する
+### ステップ 1:動画をPlayableに追加する {#step-1-add-your-video-to-playable}
 
-Playable プラットフォームで、動画ファイルをアップロードするか、または Facebook、Instagram、YouTube、X (旧 Twitter)、TikTok などの動画の URL を指定して動画を追加します。
+Playableプラットフォームで、動画ファイルをアップロードするか、Facebook、Instagram、YouTube、X（旧Twitter）、TikTokなどの動画URLを指定して動画を追加します。
 
-### ステップ2:埋め込みコードをPlayableからコピーする
+### ステップ 2:埋め込みコードをPlayableからコピーする {#step-2-copy-the-embed-code-from-playable}
 
-アップロードが完了すると、Playable によりコードが生成されます。このコードが Braze キャンペーンに挿入されると、メールに動画が埋め込まれ、メールを開封すると自動再生されます。メールが開封されると、メールクライアント、デバイス、スクリーンサイズ、およびネットワーク状況に応じて最適な動画が Playable サーバーから配信されます。
+アップロードが完了すると、Playableによりコードが生成されます。このコードをBraze キャンペーンに挿入すると、メールに動画が埋め込まれ、開封時に自動再生されます。メールが開封されると、メールクライアント、デバイス、スクリーンサイズ、およびネットワーク状況に応じて最適な動画がPlayableサーバーから配信されます。
 
 {% alert tip %}
-動画は、iPhone Mail、Gmail、Apple Mail、Outlook for iOS、Outlook for Android、Outlook for Mac、Outlook 365 for Windows など、受信トレイの 98% 以上で自動再生されます。従来の Outlook for Windows をご利用の場合は、動画の代わりに静止画像が表示されます。
+動画は、iPhone Mail、Gmail、Apple Mail、Outlook for iOS、Outlook for Android、Outlook for Mac、およびOutlook 365 for Windowsの新しいバージョンなど、受信トレイの98%以上で自動再生されます。従来のOutlook for Windowsをご利用の場合は、動画の代わりに静止画像が表示されます。
 {% endalert %}
 
-### ステップ3:埋め込みコードをBrazeに貼り付けます
+### ステップ 3:埋め込みコードをBrazeに貼り付ける {#step-3-paste-the-embed-code-into-braze}
 
-最後に、コードをBraze メール キャンペーンに貼り付けてから、メール キャンペーンのデザイン、テスト、公開を続行します。
-
-
+最後に、コードをBrazeのメールキャンペーンに貼り付けてから、メールキャンペーンのデザイン、テスト、公開を続行します。

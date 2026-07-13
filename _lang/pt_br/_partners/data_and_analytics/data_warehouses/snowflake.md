@@ -47,8 +47,8 @@ Antes de usar este recurso, você precisará concluir o seguinte:
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Acesso à Braze | Para acessar este recurso na Braze, você precisará entrar em contato com seu gerente de conta ou gerente de sucesso do cliente da Braze. |
-| Conta Snowflake | Uma conta Snowflake com permissões de `admin`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Conta Snowflake | Uma conta Snowflake com permissões de `admin`. Para clientes não HIPAA, o Snowflake Standard ou Enterprise Edition é compatível. Para compartilhamento de dados em conformidade com HIPAA, o Business Critical Edition é obrigatório. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Configurando o Compartilhamento Seguro de Dados {#setting-up-secure-data-sharing}
 
@@ -56,7 +56,7 @@ Para o Snowflake, o compartilhamento de dados acontece entre um [fornecedor de d
 
 ### Etapa 1: Envie o datashare da Braze {#step-1-send-the-datashare-from-braze}
 
-1. Na Braze, acesse **Partner Integrations** > **Data Sharing**.
+1. Na Braze, acesse **Integrações de parceiros** > **Compartilhamento de dados**.
 2. Insira os detalhes da sua conta Snowflake e o localizador. Para obter seu localizador de conta, execute `SELECT CURRENT_ACCOUNT()` na conta de destino.
 3. Se estiver usando um compartilhamento CRR, especifique o provedor de nuvem e a região.
 4. Quando terminar, selecione **Create Datashare**. Isso enviará o datashare para sua conta Snowflake.
@@ -89,7 +89,7 @@ Semelhante ao Currents, você pode usar o Compartilhamento Seguro de Dados do Sn
 
 Para uma lista completa de tabelas e colunas disponíveis, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). O Compartilhamento de Dados do Snowflake inclui todas as tabelas dessa referência, além de tabelas exclusivas do Snowflake para snapshots, changelogs de campanhas e Canvas, eventos do console de agentes e eventos de reenvio de mensagens.
 
-Você também pode [baixar os esquemas de tabela brutos]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) como um arquivo de texto.
+Você também pode [baixar os esquemas de tabela brutos](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) como um arquivo de texto.
 
 ### Esquema de ID do usuário {#user-id-schema}
 
@@ -99,7 +99,7 @@ Note as seguintes diferenças entre as convenções de nomenclatura da Braze e d
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | O identificador exclusivo atribuído automaticamente pela Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário, definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID do usuário" }
 
 ## Informações importantes e limitações {#important-information-and-limitations}
 
@@ -150,7 +150,7 @@ Os dados de eventos nas visualizações de compartilhamento de dados (por exempl
 | ----- | ------- |
 | `TIME` | Timestamp Unix do momento em que o evento ocorreu. Prefira este campo ao filtrar por horário de ocorrência. |
 | `SF_CREATED_AT` | Timestamp de quando a linha foi carregada no Snowflake (horário de ingestão). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consultando dados compartilhados: TIME e desempenho de consultas" }
 
 ### Velocidade, desempenho e custo das consultas {#speed-performance-cost-of-queries}
 

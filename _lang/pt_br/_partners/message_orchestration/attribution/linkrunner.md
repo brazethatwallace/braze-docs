@@ -28,7 +28,7 @@ O seguinte é necessário antes de começar:
 | App iOS ou Android | Essa integração é compatível com apps iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. |
 | SDK do Linkrunner | Você deve instalar o [SDK do Linkrunner](https://docs.linkrunner.io/introduction). |
 | SDK da Braze | Você deve integrar o [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -73,14 +73,12 @@ No dashboard da Braze, acesse **Configurações** > **Configurações e teste** 
    - `users.track`
    - `users.export.ids`
 3. Salve a chave de API.
-4. Copie a chave de API e o endpoint REST.
-
-![Esta imagem mostra a página de chaves de API na Braze, onde você pode criar e gerenciar chaves de API, incluindo a chave de importação de dados e o endpoint REST necessários para a integração com o Linkrunner.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. Copie a chave de API e o endpoint REST. Cole esses valores no Linkrunner na próxima etapa. Trate a chave de API como um segredo e não a compartilhe publicamente.
 
 ### Etapa 3: Configurar a Braze no dashboard do Linkrunner {#step-3-configure-braze-in-linkrunners-dashboard}
 
-1. No Linkrunner, acesse **Integrações** no painel à esquerda.
-2. Em **Analytics**, selecione **Configurar** para a Braze.
+1. No Linkrunner, acesse **Integrations** no painel à esquerda.
+2. Em **Analytics**, selecione **Configure** para a Braze.
 3. Insira a chave de API e o endpoint REST que você copiou na Etapa 2.
 
 Para saber mais, consulte a [documentação do Linkrunner](https://docs.linkrunner.io/analytics-integrations/braze).

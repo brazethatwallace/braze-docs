@@ -10,15 +10,15 @@ search_tag: Partner
 
 # Radar
 
-> [Radar](https://www.radar.com/) es la principal plataforma de geovallado y seguimiento de ubicación. La plataforma Radar tiene tres productos principales: [Geovallas](https://radar.com/product/geofencing), [Seguimiento de viajes](https://radar.com/product/trip-tracking) y [API geográficas](https://radar.com/product/api). La combinación de la plataforma de interacción líder del sector de Braze y las capacidades de geovallado líderes del sector de Radar te permite impulsar los ingresos y la fidelización a través de una amplia gama de experiencias de productos y servicios basadas en la ubicación. Entre ellas se incluyen el seguimiento de la recogida y la entrega, las notificaciones activadas por la ubicación, la personalización contextual, la verificación de la ubicación, los localizadores de tiendas, la función de autocompletar direcciones, y más.
+> [Radar](https://www.radar.com/) es la principal plataforma de geovallado y seguimiento de ubicación. La plataforma Radar tiene tres productos principales: [Geofences](https://radar.com/product/geofencing), [Trip Tracking](https://radar.com/product/trip-tracking) y [Geo APIs](https://radar.com/product/api). La combinación de la plataforma de interacción líder del sector de Braze y las capacidades de geovallado líderes del sector de Radar te permite impulsar los ingresos y la fidelización a través de una amplia gama de experiencias de productos y servicios basadas en la ubicación. Entre ellas se incluyen el seguimiento de la recogida y la entrega, las notificaciones activadas por la ubicación, la personalización contextual, la verificación de la ubicación, los localizadores de tiendas, la función de autocompletar direcciones, y más.
 
 _Esta integración está mantenida por Radar._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Radar te permite acceder a sofisticados activadores de campañas basados en la ubicación y al enriquecimiento del perfil de usuario con datos de ubicación enriquecidos y de primera mano. Cuando se generan eventos de geovalla Radar o de seguimiento de viajes, los eventos personalizados y los atributos de usuario se envían a Braze en tiempo real. Estos eventos y atributos pueden utilizarse para lanzar campañas basadas en la ubicación, impulsar operaciones de recogida y entrega en el último kilómetro, supervisar la logística de flotas y envíos o crear segmentos de usuarios basados en patrones de ubicación.
+La integración de Braze y Radar te permite acceder a sofisticados activadores de campañas basados en la ubicación y al enriquecimiento del perfil de usuario con datos de ubicación enriquecidos y de primera mano. Cuando se generan eventos de geovalla de Radar o de seguimiento de viajes, los eventos personalizados y los atributos de usuario se envían a Braze en tiempo real. Estos eventos y atributos pueden utilizarse para lanzar campañas basadas en la ubicación, impulsar operaciones de recogida y entrega en el último kilómetro, supervisar la logística de flotas y envíos o crear segmentos de usuarios basados en patrones de ubicación.
 
-Además, las Geo API de Radar pueden utilizarse para enriquecer o personalizar tus campañas de marketing a través del [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+Además, las Geo APIs de Radar pueden utilizarse para enriquecer o personalizar tus campañas de marketing a través del [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
 
 ## Requisitos previos {#prerequisites}
 
@@ -28,7 +28,7 @@ Además, las Geo API de Radar pueden utilizarse para enriquecer o personalizar t
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Identificador de la aplicación | Tu [identificador de la aplicación]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) se puede encontrar en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Clave de API de iOS<br>Clave de API de Android | Estas claves de API se pueden encontrar en el panel de Braze desde **Configuración** > **Configuración de la aplicación**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -36,7 +36,7 @@ Para mapear datos entre los SDK de Braze y Radar, debes establecer los mismos ID
 
 Para activar la integración:
 
-1. En Radar, en la página [Integraciones](https://radar.com/documentation/integrations), localiza Braze.
+1. En Radar, en la página [Integrations](https://radar.com/documentation/integrations), localiza Braze.
 1. Establece **Enabled** en **Yes**.
 3. Introduce el identificador de tu aplicación y las claves de API.
 
@@ -72,7 +72,7 @@ Por ejemplo, dirígete a cualquier usuario que haya visitado tu tienda en los ú
 
 El siguiente ejemplo muestra cómo realizar una promoción para llevar a los usuarios cercanos a la tienda con una oferta digital.
 
-![Una imagen de Android de un mensaje push de Contenido conectado que muestra "Nuevas ofertas en tienda, Walmart y Target cerca de ti".]({% image_buster /assets/img/radar_example.png %}){: style="float:right;max-width:30%;border:0;"}
+![Una imagen de Android de un mensaje push de Contenido conectado que muestra "New In Store Deals, Walmart and Target near you".]({% image_buster /assets/img/radar_example.png %}){: style="float:right;max-width:30%;border:0;"}
 
 Para empezar, necesitarás tener a mano tu clave de API publicable de Radar para utilizarla en tus URL de solicitud.
 

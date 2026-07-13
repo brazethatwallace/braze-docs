@@ -2,7 +2,15 @@
 
 > Learn about the Braze MCP server, a secure connection that lets AI tools like Claude and Cursor access non-PII Braze data to answer questions, analyze trends, and provide insights.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
+{% alert important %}
+This summer, Braze is launching a remote, Braze-hosted MCP server in early access. It replaces the locally hosted beta server (`braze-mcp-server` on [PyPI](https://pypi.org/project/braze-mcp-server/) and the Claude Desktop extension directory).<br><br>
+
+**What this means for you:**<br><br>
+
+- The locally hosted server will continue to work, but it is no longer supported. We won't be adding new endpoints or fixing issues in the beta.
+- When the remote server is available in early access, you'll need to switch to it. The remote server requires no local installation, uses OAuth instead of static API keys, and works with MCP clients like Claude, Copilot, Gemini CLI, Codex, and Cursor.
+- Watch this page for early access availability, or contact your Braze account team to express interest.
+{% endalert %}
 
 ## What is Model Context Protocol (MCP)?
 
@@ -19,10 +27,10 @@ After [setting up the Braze MCP server]{% if include.section == "user" %}({{site
 - CRM engineers creating multi-step agent workflows.
 - Technical marketers experimenting with natural language queries.
 
-The Braze MCP server supports 39 endpoints that do not return data from Braze user profiles. You can choose which endpoints to assign to your Braze API key to control what an agent can access or change.
+The Braze MCP server includes both read-only and write endpoints. They do not return data from Braze user profiles. You choose which endpoints to assign to your Braze API key, and that choice controls what an agent can read, create, or update. For the full list of available endpoints and their required permissions, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
-Only assign the API key permissions you want your agent to have. If you don't want your agent to make changes in Braze, ensure you leave write permissions off. Agents may try to write data through any permission you grant.
+Only assign the API key permissions you want your agent to have. If you don't want your agent to make changes in Braze, leave any write permissions off when you create your API key. Agents may try to write data through any write permission you grant.
 {% endalert %}
 
 ## Usage example
@@ -31,11 +39,13 @@ You can interact with Braze through natural language using tools like Claude or 
 
 {% tabs %}
 {% tab Claude %}
-!['What are my available Braze functions?' being asked and answered in Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Used `list_functions` and returned the available Braze MCP function categories.
 {% endtab %}
 
 {% tab Cursor %}
-!['What are my available Braze functions' being asked and answered in Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Queried `list_functions` and listed functions such as `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 
@@ -51,7 +61,7 @@ MCP clients can access endpoints that don't return PII. You control which endpoi
 
 ### Can my MCP client change Braze data?
 
-The server only exposes the `/media_library/create` write endpoint, which enables you to upload media assets into your media library. If you don't want your agent to make those changes in Braze, leave the `media_library.create` permission unchecked when you create your API key.
+Yes. The server exposes a focused set of write endpoints that let agents create or update content in your workspace, such as media library assets, email templates, and content blocks. Each write endpoint requires its own API key permission. If you don't want your agent to make a given change in Braze, leave that permission off when you create your API key. For the full list of write functions and their required permissions, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 ### Can I use a third-party MCP server for Braze?
 
@@ -67,7 +77,7 @@ No. You'll need to create a new API key for your MCP client. Remember to only gi
 
 ### Is the Braze MCP server hosted locally or remotely?
 
-The Braze MCP server is hosted locally.
+The currently available Braze MCP server is hosted locally. A remote, Braze-hosted MCP server is coming to Early Access this summer and will replace the locally hosted beta server.
 
 ### Why is Cursor only listing functions?
 

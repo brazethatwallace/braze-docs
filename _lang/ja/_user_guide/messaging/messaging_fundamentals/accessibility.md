@@ -3,7 +3,7 @@ nav_title: アクセシビリティ
 article_title: Brazeでアクセシブルなメッセージを作成する
 page_order: 0.5
 page_type: reference
-description: "このリファレンス記事では、マーケティングコンテンツにおいてアクセシビリティを考慮することが重要な理由と、Brazeでアクセシブルなメッセージを作成する方法について説明します。"
+description: "このリファレンス記事では、マーケティングコンテンツにおいてアクセシビリティが重要な理由、Brazeのアクセシビリティ言語（HTML lang）がチャネル間でどのように機能するか、そしてBrazeでアクセシブルなメッセージを作成する方法について説明します。"
 ---
 
 # Brazeでアクセシブルなメッセージを作成する {#build-accessible-messages-in-braze}
@@ -122,7 +122,7 @@ description: "このリファレンス記事では、マーケティングコン
 
 - **短く明確な文を書く：** 短い文はすべての人にとって理解しやすく、特にスクリーンリーダーを使用している方や複雑な情報の処理が困難な方にとって重要です。米国の中学1年生レベルの読みやすさで書くようにしましょう。[Hemingway App](https://hemingwayapp.com/)などのリソースを使用して、テキストの読みやすさレベルを確認できます。
 - **読みやすいフォントサイズと間隔を選ぶ：** 小さすぎるテキストは読みにくくなります。特にモバイルでは顕著です。本文テキストには少なくとも14pxを使用してください。見出しはユーザーが違いを明確に認識できるように大きくしましょう。行間（約1.5の行の高さ）と段落間の余分なスペースは、特に視覚的または認知的なニーズを持つ方にとって読みやすさを向上させます。
-- **均等割り付けテキストを避ける：** 均等割り付けテキストは単語間に不均一なスペースを作り、ディスレクシアや認知障がいのある方にとって読みにくくなります。2行以上に折り返すコンテンツは、左から右に読む言語では左揃え、[右から左に読む言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)では右揃えにすることを検討してください。
+- **均等割り付けテキストを避ける：** 均等割り付けテキストは単語間に不均一なスペースを作り、ディスレクシアや認知障がいのある方にとって読みにくくなります。2行以上に折り返すコンテンツは、左から右に読む言語では左揃え、[右から左に読む言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)では右揃えにすることを検討してください。
 - **太字、斜体、大文字テキストは控えめに使用する：** テキストを過度に強調すると、特にディスレクシアや視覚障がいのある方にとって読みにくくなります。シンプルに保ちましょう。
 
 #### 明確さと使いやすさ {#clarity-and-usability}
@@ -131,7 +131,43 @@ description: "このリファレンス記事では、マーケティングコン
 
 - **リンクとボタンに明確なラベルを付ける：** [リンク](#links)と[ボタン](#buttons)のテキストが次に何が起こるかを明確に説明するようにしてください。スクリーンリーダーを使用している方やキーボードでナビゲートしている方が、何を期待できるかを知るのに役立ちます。
 - **記号や絵文字は控えめに使用する：** 特殊文字や絵文字はコンテンツを楽しくしますが、スクリーンリーダーで読み上げられると混乱を招く可能性があります。控えめに使用し、明確で説明的なテキストの代わりにならないようにしてください。
-- **切り捨てをテストする：** テキストが切り捨てられていないことを確認するために、常にデバイスに[テストメッセージを送信]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/)してコピーをテストしてください。メッセージが途中で切れている場合、コンテンツがオーディエンスに届かなくなるため、あなたとオーディエンスの両方にとって不利益です。
+- **切り捨てをテストする：** テキストが切り捨てられていないことを確認するために、常にデバイスに[テストメッセージを送信]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages)してコピーをテストしてください。メッセージが途中で切れている場合、コンテンツがオーディエンスに届かなくなるため、あなたとオーディエンスの両方にとって不利益です。
+
+### アクセシビリティ言語 {#accessibility-language}
+
+**アクセシビリティ言語**は、スクリーンリーダーやその他の支援ツールに、コンテンツがどの言語で書かれているかを伝えます。完全なHTMLページやメールを送信するチャネルでは、エディターで設定するかLiquidを通じて設定すると、Brazeが言語タグ（`lang`）を追加できます。これは[WCAG 2.1達成基準3.1.1 ページの言語（レベルA）](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html)をサポートします。
+
+アクセシビリティ言語を空白のままにし、安全なデフォルトが利用できない場合、Brazeは言語タグを省略します。言語が設定されていない場合、支援ツールは通常、ユーザーの電話やコンピューターの言語にフォールバックします。それがメッセージの言語と異なる場合、発音が正しく聞こえない可能性があります。
+
+キャンペーンとキャンバスは、ワークスペースで機能が利用できない場合を除き、これらのオプションに同じエディターを使用します。
+
+#### アクセシビリティ言語を設定する {#configure-accessibility-language}
+
+エディターにこの機能が含まれている場合、メッセージ設定の**アクセシビリティ**セクションに移動してください。ドロップダウンから言語を選択するか、Liquidを使用してください（例えば、[多言語メッセージ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)がオンになっていて**ローカライゼーション設定**が設定されている場合は{% raw %}`{{accessibility_language}}`{% endraw %}）。
+
+#### 多言語メッセージ {#multi-language-messages}
+
+**ローカライゼーション設定**で、各ロケールにアクセシビリティ言語を設定すると、Liquidがローカライズされた送信に対して{% raw %}`{{accessibility_language}}`{% endraw %}を自動的に入力できます。その値が新しいメッセージに対してすでに選択されているかどうかは、チャネルによって異なります。CSVおよび翻訳ワークフローについては、[言語設定とアクセシビリティ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility)から始めてください。
+
+#### チャネルとエディターのサポート {#channel-and-editor-support}
+
+以下の表でチャネルを比較してください。デフォルトは異なる場合があるため、オーディエンスが実際に受け取る内容をスポットチェックしてください。
+
+| チャネル | 注意事項 |
+| --- | --- |
+| メール（ドラッグ＆ドロップ、フルテンプレート） | エディターで言語を設定します。多言語メッセージを使用すると、フルメールテンプレートが各ロケールの言語に自動的に一致します。Content Blocksのみ（単一行）を使用する場合、これらのショートカットは同じようには機能しません。エディターで許可されている場合は、自分で言語を選択してください。 |
+| メール（HTMLコード） | Brazeは言語タグを自動的に追加しません。必要な場合はHTMLに追加してください。 |
+| アプリ内メッセージ（ドラッグ＆ドロップ） | **アクセシビリティ**で言語を選択すると、Brazeはメッセージの外側のHTMLにその言語を追加し、スクリーンリーダーがメッセージ全体をその言語として扱います。多言語メッセージがオンの場合、新しいメッセージはロケール言語がデフォルトになる場合があります。**プレビュー**では、**設定**で言語を選択するまで言語が表示されない場合があります。 |
+| バナー | アプリ内メッセージと同じ動作です。 |
+| ランディングページ | ライブページで言語を設定できます。1つの言語を選択するか、アカウントでランディングページにLiquidが許可されている場合はLiquidを使用してください。デフォルトもアプリ内メッセージやバナーとは異なります。公開されたページを確認してください。 |
+| Content Cards | Cardsは明示的なアクセシビリティ言語の代わりに、アプリ用の**Language**フィールドを使用します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="チャネルとエディターのサポート" }
+
+HTMLを自分で記述する場合でも、メッセージの一部に言語タグを追加できます（例えば、別の言語の1つのフレーズ）。詳しいパターンについては、[カスタムHTML](#custom-html)をご覧ください。
+
+#### 標準リファレンス {#standards-reference}
+
+BrazeがHTMLにルートレベルの言語タグを追加する場合、HTML [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang)ルールに従います。テストツールは通常[`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang)を確認します。Content Cardsは、そのHTMLパターンの代わりに**language**フィールドを使用します。
 
 ### ボタン {#buttons}
 
@@ -204,7 +240,7 @@ description: "このリファレンス記事では、マーケティングコン
 | 悪い例 | より良い例 | 最良の例 |
 | --- | --- | --- |
 | ここをクリック | ここをクリックして今日の天気を見る | 今日の天気 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="説明的なリンクテキストを書く" }
 
 すべてのコンテンツと同様に、余分な言葉をできるだけ少なくして簡潔にしましょう。
 
@@ -504,7 +540,7 @@ Brazeのドラッグ＆ドロップエディターはデフォルトでセマン
 メッセージングでカスタムHTMLを使用する場合：
 
 - [セマンティックHTML](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)を使用してください。これは、ある要素を別の要素のように見せるスタイリングではなく、意図された目的に対して正しいHTML要素を使用することを意味します。ほとんどのHTML要素には、独自のアクセシビリティサポートが組み込まれています。
-- HTML内に[`lang`属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang)を設定して、コンテンツの言語を識別してください。スクリーンリーダーは、各言語の発音と特性に基づいて異なるサウンドライブラリを使用します。これが指定されていない場合、スクリーンリーダーはコンテンツがユーザーがスクリーンリーダーの設定時に選択したデフォルト言語で書かれていると仮定します。メッセージが実際にはデフォルト言語でない場合、スクリーンリーダーがメッセージを正しく発音できない可能性があります。
+- BrazeがエクスポートでHTMLメタデータを追加できるドキュメントレベルの言語については、[アクセシビリティ言語](#accessibility-language)を参照してください。動作はチャネルによって異なります。コンテンツを自分でマークアップする場合は、HTML内に[`lang`属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang)を設定して、コンテンツの言語を識別してください。スクリーンリーダーは、各言語の発音と特性に基づいて異なるサウンドライブラリを使用します。これが指定されていない場合、スクリーンリーダーはコンテンツがユーザーがスクリーンリーダーの設定時に選択したデフォルト言語で書かれていると仮定します。メッセージが実際にはデフォルト言語でない場合、スクリーンリーダーがメッセージを正しく発音できない可能性があります。
 
 {% raw %}
 ```html
@@ -513,7 +549,7 @@ Brazeのドラッグ＆ドロップエディターはデフォルトでセマン
 {% endraw %}
 
 {% alert note %}
-メールのドラッグ＆ドロップエディターを使用する場合、メールの言語値は**Settings**タブに移動して適切な言語値を選択することで設定できます。
+ドラッグ＆ドロップメールエディターを使用する場合、そのコントロールが利用可能なときは**設定**タブから言語を設定してください。フルテンプレートおよびContent Blocksのみのメールでは、アクセシビリティ言語のデフォルトが異なる場合があります。詳しくは[アクセシビリティ言語](#accessibility-language)をご覧ください。その他のチャネルについてもそのセクションで説明しています。
 {% endalert %}
 
 - [ARIA属性](#aria-attributes)を使用して追加のコンテキストを提供してください。これらの属性は支援技術に追加情報を提供し、それ自体では意味が不明確なUI要素の役割、状態、またはプロパティを明確にするのに役立ちます。
@@ -597,8 +633,8 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 
 アクセシビリティの問題を早期に特定して修正するために、Brazeは以下の領域で自動アクセシビリティテストを提供しています：
 
-- メール用の[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing)
-- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner)（例：HTMLアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)）
+- メール用の[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing)
+- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)（例：HTMLのアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)）
 
 これらのテストは、Webコンテンツアクセシビリティガイドライン（[WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)）標準（アクセシブルなコンテンツのための国際的に認められた技術標準のセット）に基づいてメッセージをチェックします。自動的に検出できる問題はフラグが立てられ、優先順位付けに役立つように重大度別に分類されます。
 
@@ -632,3 +668,5 @@ Inbox VisionはHTMLとドラッグ＆ドロップの両方のメールで機能�
 - スクリーンリーダー、キーボードのみのナビゲーション、ブラウザのズームなどのツールを使用して、さまざまなアクセスニーズをシミュレートする。
 
 自動テストと思慮深い手動レビューを組み合わせることで、より多くの潜在的な問題を発見し、すべての受信者にとってよりインクルーシブで使いやすいキャンペーンを作成できます。
+
+{% multi_lang_include accessibility/automated_testing.md %}

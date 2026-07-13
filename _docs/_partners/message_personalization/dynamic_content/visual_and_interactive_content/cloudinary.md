@@ -26,7 +26,7 @@ More advanced integration methods, including using [Connected Content]({{site.ba
 | Requirements     | Description |                        
 |-----------------------|-----------------|
 | Cloudinary Account  | A [Cloudinary Account](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) is required to take advantage of this partnership  |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration methods
 
@@ -41,7 +41,7 @@ Some of these integration methods use the `f_auto` and `q_auto` Cloudinary Trans
 
 The most direct way to use images and videos directly from Cloudinary's DAM in your Braze campaigns and Canvases is to pull the URL from the Cloudinary Media Library's **Asset** page.
 
-![A grid view of Cloudinary's Image Asset Library, with the top right of one of the images highlighted, showing a "Copy URL" tooltip.]({% image_buster /assets/img/cloudinary/one.png %})
+![A grid view of Cloudinary's Image Asset Library, with one image highlighted and a "Copy URL" tooltip visible.]({% image_buster /assets/img/cloudinary/one.png %})
 
 ### Images and GIFs setup
 
@@ -140,8 +140,8 @@ This example presumes that assets in Cloudinary have two defined SMD fields (“
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %} 
 {% assign locale = {{${language}}}%} 
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner"> 
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner"> 
 ```
 {% endraw %}
 
@@ -149,15 +149,15 @@ This example presumes that assets in Cloudinary have two defined SMD fields (“
 
 - Output URL for users with audience `internal` and locale `en`: 
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - Output URL for users with audience `external` and locale `es`: 
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - Fallback image URL: 
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
@@ -190,7 +190,7 @@ For more guidance on how Transformation parameters can be used to design an asse
 ```
 {% endraw %}
 
-![A white church with a blue roof overlooking the sea, in the top left of the image the words "John Smith" are imposed on an opage dark great rectangle.]({% image_buster /assets/img/cloudinary/two.png %})
+![A white church with a blue roof overlooking the sea, with the words "John Smith" displayed in a dark, semi-transparent rectangle over the image.]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

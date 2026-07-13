@@ -21,19 +21,19 @@ When Personalized Paths is turned on in an Experiment Path step, the behavior is
 
 ### Step 1: Add an Experiment Path
 
-Add an [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) to your Canvas, then turn on **Personalized Paths**.
+Add an [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) to your Canvas, then turn on **Personalized Paths**.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
+![Add an Experiment Path to your Canvas, then turn on Personalized Paths.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
 ### Step 2: Configure Personalized Paths settings
 
-Specify the conversion event that should determine the winner. If there are no conversion events available, return to the first step of Canvas setup and [assign conversion events]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#choose-conversion-events). 
+Specify the conversion event that should determine the winner. If there are no conversion events available, return to the first step of Canvas setup and [assign conversion events]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events). 
 
-If you choose opens or clicks as your conversion event, make sure the first step in the path is a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/). Braze only counts engagement from the first Message step in each respective path. If the path starts with a different step (like a Delay or Audience Path step) and the message comes later, that message won’t be included when evaluating performance.
+If you choose opens or clicks as your conversion event, make sure the first step in the path is a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). Braze only counts engagement from the first Message step in each respective path. If the path starts with a different step (like a Delay or Audience Path step) and the message comes later, that message won’t be included when evaluating performance.
 
 Then set the **Experiment Window**. The **Experiment Window** determines how long users will be sent down all paths before choosing the best path for each user in the delay group. The window begins when the first user enters the step.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
+![Screenshot related to step 2: configure personalized paths settings.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
 ### Step 3: Determine fallback
 
@@ -41,11 +41,11 @@ By default, if the results of the test aren't enough to determine a statisticall
 
 Alternatively, you can select **Continue sending all future users the mix of paths**.
 
-![]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
+![Alternatively, you can select Continue sending all future users the mix of paths.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
 This option will send future users down the mix of paths according to the percentages specified in the experiment path distribution.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
+![Screenshot related to step 3: determine fallback.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
 ### Step 4: Add your paths and launch the Canvas
 
@@ -56,11 +56,11 @@ A single Experiment Path component can contain up to four paths. However, for si
 
 Finish setting up your Canvas as needed, then launch it. When the first user has entered the experiment, you can check the Canvas to see analytics as they come in and [track your experiment's performance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
+![Screenshot related to step 4: add your paths and launch the canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
 
 When the experiment window passes and the experiment is complete, Braze will send users in the delay group to their respective paths with the highest personalized likelihood of conversion based on the recommendation of the predictive model.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
+![Screenshot related to step 4: add your paths and launch the canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% tab Recurring or action-triggered or API-triggered Canvas %}
@@ -71,14 +71,16 @@ When the first user has entered the experiment, you can check the Canvas to see 
 
 When the experiment window passes and the experiment is complete, all subsequent users to enter the Canvas will be sent down the path most likely to result in conversion for them.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
+![Screenshot related to step 4: add your paths and launch the canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% endtabs %}
 
 ## Analytics {#analytics}
 
-If Personalized Paths was turned on, your analytics view is separated into two tabs: **Initial Experiment** and **Personalized Paths**.
+When Personalized Paths is turned on and produces sufficient results, your analytics view is separated into two tabs: **Initial Experiment** and **Personalized Paths**. 
+
+If the experiment completes with insufficient results, only the **Initial Experiment** tab is shown since the model determines that personalization would not outperform sending all users down a single best-performing path. In this case, your configured fallback behavior is applied, and no Personalized Paths analytics are available.
 
 {% tabs local %}
 {% tab Initial Experiment %}
@@ -91,7 +93,7 @@ By default, the test looks for associations between user’s custom events and t
 
 The relationships between custom events and path preferences are displayed in the table on the **Initial Experiment** tab.
 
-![]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
+![Screenshot related to analytics.]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
 
 If the test can't find a meaningful relationship between custom events and path preferences, the test falls back to a session-based analysis method, and no custom event data tables are shown.
 

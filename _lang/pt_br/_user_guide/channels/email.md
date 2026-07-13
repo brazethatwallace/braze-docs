@@ -9,24 +9,24 @@ channel:
 search_rank: 2
 ---
 
-# E-mail
+# E-mail {#email}
 
-> Com o e-mail na Braze, você pode criar mensagens de e-mail totalmente personalizadas em Campaigns ou Canvas que chamam a atenção do usuário fora do seu app ou site. Personalize suas mensagens de e-mail, desde o gerenciamento do seu público até a inclusão de conteúdo multimídia atraente. Para ver exemplos de Campaigns, consulte os [estudos de caso](https://www.braze.com/customers/) da Braze.
+> Com o e-mail na Braze, você pode criar mensagens de e-mail totalmente personalizadas em Campaigns ou Canvas que chamam a atenção do usuário fora do seu app ou site. Personalize suas mensagens de e-mail, desde o gerenciamento do seu público até a inclusão de conteúdo multimídia atraente. Para ver exemplos de Campaigns de e-mail, consulte os [estudos de caso](https://www.braze.com/customers/) da Braze.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Antes de enviar e-mails com a Braze, você precisa configurar seus IPs dedicados, domínios, autenticação de e-mail e aquecimento de IP. Para um passo a passo completo, consulte [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/).
+Antes de enviar e-mails com a Braze, você precisa configurar seus IPs dedicados, domínios, autenticação de e-mail e aquecimento de IP. Para um passo a passo completo, consulte [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
-## Personalize seus e-mails
+## Personalize seus e-mails {#customize-your-emails}
 
 Você pode personalizar suas mensagens de e-mail de várias formas, incluindo:
 
-- [Modelos de e-mail da Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [Modelos de HTML personalizados]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Blocos para o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/)
-- [Inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Modelos de e-mail da Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [Modelos de HTML personalizados]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [Blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [Inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
 | Caso de uso | Explicação |
 | --- | --- |
@@ -35,8 +35,8 @@ Você pode personalizar suas mensagens de e-mail de várias formas, incluindo:
 | Mensagens rich | Permita o envio de mensagens HTML ricas e dinâmicas. |
 | Conteúdo multimídia | Facilidade na inserção de conteúdo multimídia que engaja os usuários, como vídeos e imagens. |
 | Boletins informativos | Envie boletins informativos mensais ou semanais de forma prática para manter o engajamento dos usuários. |
-| Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envios com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envios com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Serviços de e-mail {#email-services}
 
@@ -58,8 +58,8 @@ Esses serviços podem incluir:
   - Recomendações para melhorar o desempenho e os resultados do programa de e-mail utilizando dados e melhores práticas estabelecidas
 - Mitigar e remediar crises para eventos que levam a problemas como inclusão em lista de bloqueio de entregabilidade
 
-## Próximas etapas
+## Próximas etapas {#next-steps}
 
-- [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [Criar um e-mail com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [Criar um e-mail com o editor de HTML]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [Criar um e-mail com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [Criar um e-mail com o editor de HTML]({{site.baseurl}}/user_guide/channels/email/html_editor)

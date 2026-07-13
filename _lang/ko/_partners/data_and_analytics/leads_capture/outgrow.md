@@ -2,107 +2,107 @@
 nav_title: Outgrow
 article_title: Outgrow
 alias: /partners/outgrow/
-description: "This article provides a comprehensive guide on configuring a native integration between Outgrow and Braze for enhanced user data synchronization and personalized campaigns."
+description: "이 문서에서는 Outgrow와 Braze 간의 네이티브 통합을 구성하여 사용자 데이터 동기화 및 개인화된 캠페인을 강화하는 방법에 대한 종합 가이드를 제공합니다."
 page_type: partner
 search_tag: Partner
 ---
 
 # Outgrow
 
-> [Outgrow](https://outgrow.co/) is an interactive content platform that empowers you to create quizzes, calculators, surveys, and other types of engaging content to collect user data and insights. The Braze and Outgrow integration lets you automatically transfer user data from Outgrow into Braze, enabling highly personalized and targeted campaigns.
+> [Outgrow](https://outgrow.co/)는 퀴즈, 계산기, 설문조사 및 기타 유형의 인터랙티브 콘텐츠를 만들어 사용자 데이터와 인사이트를 수집할 수 있는 인터랙티브 콘텐츠 플랫폼입니다. Braze와 Outgrow 통합을 사용하면 Outgrow에서 Braze로 사용자 데이터를 자동으로 전송하여 고도로 개인화되고 타겟팅된 캠페인을 실행할 수 있습니다.
 
-When you use the Braze and Outgrow integration for interactive content, the benefits you get include:
+인터랙티브 콘텐츠에 Braze와 Outgrow 통합을 사용하면 다음과 같은 이점을 얻을 수 있습니다:
 
-- **Enhanced personalization**: Collect data from Outgrow quizzes, surveys, and calculators that can be mapped to custom attributes in Braze. This data allows for precise segmentation and personalized campaigns.
-- **Real-time data sync**: Receive Outgrow data in Braze in real-time, allowing you to act on user insights immediately. This allows for timely follow-ups or personalized messages based on users' most recent interactions.
-- **Streamlined data management**: Automate data transfer between Outgrow and Braze, eliminating manual data exports and imports, reducing data discrepancies, and saving time.
-- **Improved user experience**: Leverage user insights to create more relevant experiences, leading to higher satisfaction, retention, and lifetime value.
-- **Flexible targeting and segmentation**: Refine segmentation in Braze using Outgrow data, allowing you to target users based on specific interactions (such as quiz scores or survey responses) to create campaigns that resonate with your users.
+- **향상된 개인화**: Outgrow 퀴즈, 설문조사, 계산기에서 수집한 데이터를 Braze의 커스텀 속성에 매핑할 수 있습니다. 이 데이터를 통해 정밀한 세분화와 개인화된 캠페인이 가능합니다.
+- **실시간 데이터 동기화**: Outgrow 데이터를 Braze에서 실시간으로 수신하여 사용자 인사이트에 즉시 대응할 수 있습니다. 이를 통해 사용자의 최근 상호작용을 기반으로 적시에 후속 조치를 취하거나 개인화된 메시지를 보낼 수 있습니다.
+- **간소화된 데이터 관리**: Outgrow와 Braze 간의 데이터 전송을 자동화하여 수동 데이터 내보내기 및 가져오기를 없애고, 데이터 불일치를 줄이며, 시간을 절약할 수 있습니다.
+- **향상된 사용자 경험**: 사용자 인사이트를 활용하여 더 관련성 높은 경험을 만들어 만족도, 유지, 생애주기 가치를 높일 수 있습니다.
+- **유연한 타겟팅 및 세분화**: Outgrow 데이터를 사용하여 Braze에서 세분화를 정교하게 조정하고, 특정 상호작용(예: 퀴즈 점수 또는 설문조사 응답)을 기반으로 사용자를 타겟팅하여 사용자에게 공감을 주는 캠페인을 만들 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-Before setting up the Outgrow and Braze integration, confirm you have the following:
+Outgrow와 Braze 통합을 설정하기 전에 다음 사항을 확인하세요:
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 |-------------|-------------|
-| **Outgrow account** | A registered Outgrow account to configure and manage interactive content and data transfer settings |
-| **Braze account** | A Braze account with access to REST API credentials |
-| **API key** | An API key from Braze with the `users.track` permission to enable user data transfer |
-| **Custom attributes in Braze** | Custom attributes set up in Braze to capture Outgrow responses (such as quiz scores, segments, and others) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Outgrow 계정** | 인터랙티브 콘텐츠 및 데이터 전송 설정을 구성하고 관리할 수 있는 등록된 Outgrow 계정 |
+| **Braze 계정** | REST API 자격 증명에 접근할 수 있는 Braze 계정 |
+| **API 키** | 사용자 데이터 전송을 활성화하기 위해 `users.track` 권한이 있는 Braze API 키 |
+| **Braze의 커스텀 속성** | Outgrow 응답(예: 퀴즈 점수, 세그먼트 등)을 캡처하기 위해 Braze에 설정된 커스텀 속성 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Integration
+## 통합 {#integration}
 
-Follow these steps to configure the Braze and Outgrow integration:
+다음 단계에 따라 Braze와 Outgrow 통합을 구성하세요:
 
-### Step 1: Generate Braze API key
+### 1단계: Braze API 키 생성 {#step-1-generate-braze-api-key}
 
-1. In your Braze account, go to **Developer Console** > **API Settings**.
-2. Select **Create New API Key**.
-3. Name your API key, turn on the `users.track` permission, and save the API key.
+1. Braze 계정에서 **개발자 콘솔** > **API 설정**으로 이동합니다.
+2. **새 API 키 생성**을 선택합니다.
+3. API 키의 이름을 지정하고, `users.track` 권한을 활성화한 후 API 키를 저장합니다.
 
-### Step 2: Configure the Braze integration in Outgrow
+### 2단계: Outgrow에서 Braze 통합 구성 {#step-2-configure-the-braze-integration-in-outgrow}
 
-1. Log into your Outgrow account.
-2. In the dashboard, go to **Integrations**.
-3. From the list of available integrations, select **Braze**.
-4. Enter your **Braze API Key** and **REST API Endpoint URL**:
-   - **API Key**: Enter the API key that was generated in Braze
-   - **REST Endpoint URL**: Enter the endpoint for your Braze instance (for example, `https://rest.iad-01.braze.com`)
-5. Select **Save** to turn on the integration.
+1. Outgrow 계정에 로그인합니다.
+2. 대시보드에서 **Integrations**로 이동합니다.
+3. 사용 가능한 통합 목록에서 **Braze**를 선택합니다.
+4. **Braze API Key**와 **REST API Endpoint URL**을 입력합니다:
+   - **API Key**: Braze에서 생성한 API 키를 입력합니다
+   - **REST Endpoint URL**: Braze 인스턴스의 엔드포인트를 입력합니다(예: `https://rest.iad-01.braze.com`)
+5. **Save**를 선택하여 통합을 활성화합니다.
 
-### Step 3: Map Outgrow data to Braze attributes
+### 3단계: Outgrow 데이터를 Braze 속성에 매핑 {#step-3-map-outgrow-data-to-braze-attributes}
 
-In Outgrow, you can map responses from interactive content (such as quiz results, custom segments, or engagement scores) to Braze custom attributes.
+Outgrow에서 인터랙티브 콘텐츠의 응답(예: 퀴즈 결과, 커스텀 세그먼트 또는 인게이지먼트 점수)을 Braze 커스텀 속성에 매핑할 수 있습니다.
 
-1. In the Outgrow **Integration Settings** for Braze, define which Outgrow responses to map to Braze attributes.
-2. Make sure that each selected response aligns with a custom attribute in Braze. For example:
-   - Quiz score maps to `outgrow_quiz_score`.
-   - Custom segment maps to `outgrow_custom_segment`.
-3. Save your mapping settings.
+1. Outgrow의 Braze용 **Integration Settings**에서 Braze 속성에 매핑할 Outgrow 응답을 정의합니다.
+2. 선택한 각 응답이 Braze의 커스텀 속성과 일치하는지 확인합니다. 예를 들어:
+   - 퀴즈 점수는 `outgrow_quiz_score`에 매핑됩니다.
+   - 커스텀 세그먼트는 `outgrow_custom_segment`에 매핑됩니다.
+3. 매핑 설정을 저장합니다.
 
-### Step 4: Test the integration
+### 4단계: 통합 테스트 {#step-4-test-the-integration}
 
-After configuring the integration, run a test to confirm data is properly transferring from Outgrow to Braze.
+통합을 구성한 후 Outgrow에서 Braze로 데이터가 올바르게 전송되는지 확인하기 위해 테스트를 실행합니다.
 
-1. Publish an Outgrow experience (such as a quiz or calculator) and complete it as a test user.
-2. In your Braze account, go to the **User Profile** section and check for updated attributes (such as `outgrow_quiz_score` or `outgrow_custom_segment`).
-3. Verify that the data is correctly populated under the appropriate custom attributes.
+1. Outgrow 경험(예: 퀴즈 또는 계산기)을 게시하고 테스트 사용자로 완료합니다.
+2. Braze 계정에서 **고객 프로필** 섹션으로 이동하여 업데이트된 속성(예: `outgrow_quiz_score` 또는 `outgrow_custom_segment`)을 확인합니다.
+3. 데이터가 적절한 커스텀 속성 아래에 올바르게 채워졌는지 확인합니다.
 
-## Using Outgrow data in Braze for segmentation and targeting
+## Braze에서 Outgrow 데이터를 세분화 및 타겟팅에 활용하기 {#using-outgrow-data-in-braze-for-segmentation-and-targeting}
 
-### Creating segments in Braze with Outgrow data
+### Outgrow 데이터로 Braze에서 Segments 생성하기 {#creating-segments-in-braze-with-outgrow-data}
 
-With the integration, you can create Braze segments based on custom attributes populated from Outgrow responses.
+통합을 통해 Outgrow 응답에서 채워진 커스텀 속성을 기반으로 Braze Segments를 생성할 수 있습니다.
 
-1. In Braze, go to **Engagement** > **Segments** and select **Create New Segment**.
-2. Name your segment and set filters based on Outgrow data. For example:
-   - Filter by `outgrow_quiz_score` to target users who scored above a certain threshold.
-   - Filter by `outgrow_custom_segment` to target users who belong to a particular Outgrow-defined segment.
-3. Save your segment for use in campaigns and Canvases.
+1. Braze에서 **Engagement** > **Segments**로 이동하고 **Create New Segment**를 선택합니다.
+2. Segment 이름을 지정하고 Outgrow 데이터를 기반으로 필터를 설정합니다. 예를 들어:
+   - `outgrow_quiz_score`로 필터링하여 특정 임계값 이상의 점수를 받은 사용자를 타겟팅합니다.
+   - `outgrow_custom_segment`로 필터링하여 특정 Outgrow 정의 세그먼트에 속하는 사용자를 타겟팅합니다.
+3. Campaigns 및 Canvases에서 사용할 수 있도록 Segment를 저장합니다.
 
-### Launching campaigns with Outgrow-defined segments
+### Outgrow 정의 세그먼트로 캠페인 시작하기 {#launching-campaigns-with-outgrow-defined-segments}
 
-You can use the custom segments created from Outgrow data to personalize your Braze campaigns and target users based on their responses to interactive content. To do so and create a more personalized user experience, follow these steps:
+Outgrow 데이터에서 생성된 커스텀 세그먼트를 사용하여 Braze 캠페인을 개인화하고 인터랙티브 콘텐츠에 대한 응답을 기반으로 사용자를 타겟팅할 수 있습니다. 더 개인화된 사용자 경험을 만들려면 다음 단계를 따르세요:
 
-1. In Braze, go to **Engagement** > **Campaigns**.
-2. Select **Create Campaign** and choose your campaign type (email, push, in-app message, or others).
-3. In the audience targeting step, select the segment created from Outgrow attributes (such as users with specific quiz scores or segments).
-4. Customize your campaign content and settings, and then launch.
+1. Braze에서 **Engagement** > **Campaigns**로 이동합니다.
+2. **Create Campaign**을 선택하고 캠페인 유형(이메일, 푸시, 인앱 메시지 등)을 선택합니다.
+3. 오디언스 타겟팅 단계에서 Outgrow 속성으로 생성된 세그먼트(예: 특정 퀴즈 점수 또는 세그먼트를 가진 사용자)를 선택합니다.
+4. 캠페인 콘텐츠와 설정을 커스터마이즈한 후 시작합니다.
 
-## Troubleshooting common issues
+## 일반적인 문제 해결 {#troubleshooting-common-issues}
 
-| Issue | Solution |
+| 문제 | 해결 방법 |
 |-------|----------|
-| **Data isn't transferring to Braze** | Verify that the API key and endpoint URL are correct in your Outgrow integration settings. Make sure the API key has the `users.track` permission turned on. |
-| **Incorrect data mapping** | Make sure that each mapped Outgrow response corresponds to a valid Braze custom attribute and that the attribute names match exactly. |
-| **Segment not filtering correctly** | Make sure that custom attributes in Braze are properly set up and receiving data. Re-check your segment filter logic. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **데이터가 Braze로 전송되지 않음** | Outgrow 통합 설정에서 API 키와 엔드포인트 URL이 올바른지 확인하세요. API 키에 `users.track` 권한이 활성화되어 있는지 확인하세요. |
+| **잘못된 데이터 매핑** | 매핑된 각 Outgrow 응답이 유효한 Braze 커스텀 속성에 대응하는지, 속성 이름이 정확히 일치하는지 확인하세요. |
+| **Segment가 올바르게 필터링되지 않음** | Braze의 커스텀 속성이 올바르게 설정되어 있고 데이터를 수신하고 있는지 확인하세요. Segment 필터 로직을 다시 확인하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="일반적인 문제 해결" }
 
-## Additional considerations
+## 추가 고려 사항 {#additional-considerations}
 
-- **Data privacy**: Comply with data privacy regulations (such as GDPR and CCPA) when transferring user data between platforms.
-- **Rate limits**: Outgrow data is sent to Braze in real-time, but Braze API rate limits may apply for large volumes of data. Plan accordingly for high-traffic experiences.
-- **Custom attribute configuration**: Verify that the Braze custom attributes used in this integration are correctly configured to capture data sent from Outgrow.
+- **데이터 프라이버시**: 플랫폼 간에 사용자 데이터를 전송할 때 데이터 프라이버시 규정(예: GDPR 및 CCPA)을 준수하세요.
+- **사용량 제한**: Outgrow 데이터는 실시간으로 Braze에 전송되지만, 대량의 데이터에 대해서는 Braze API 사용량 제한이 적용될 수 있습니다. 트래픽이 많은 경험에 대해 적절히 계획하세요.
+- **커스텀 속성 구성**: 이 통합에 사용되는 Braze 커스텀 속성이 Outgrow에서 전송된 데이터를 캡처하도록 올바르게 구성되어 있는지 확인하세요.
 
-For additional assistance, refer to [Outgrow documentation](https://support.outgrow.co/docs/configuring-native-integration-between-outgrow-braze) or contact Outgrow Support.
+추가 지원이 필요하면 [Outgrow 설명서](https://support.outgrow.co/docs/configuring-native-integration-between-outgrow-braze)를 참조하거나 Outgrow 고객지원에 문의하세요.

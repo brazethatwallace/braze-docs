@@ -1,20 +1,20 @@
 ---
 nav_title: Getriggerte Nachrichten zurückstellen
-article_title: "Anleitung: Aufschieben und Wiederherstellen getriggerter Nachrichten"
+article_title: "Anleitung: Getriggerte Nachrichten aufschieben und wiederherstellen"
 description: ""
 page_order: 1
 layout: scrolly
 ---
 
-# Anleitung: Aufschieben und Wiederherstellen getriggerter Nachrichten
+# Anleitung: Getriggerte Nachrichten aufschieben und wiederherstellen {#tutorial-deferring-and-restoring-triggered-messages}
 
-> Folgen Sie dem Beispielcode in diesem Tutorial, um mit dem Braze SDK getriggerte In-App-Nachrichten aufzuschieben und wiederherzustellen.
+> Folgen Sie dem Beispielcode in dieser Anleitung, um getriggerte In-App-Nachrichten mit dem Braze SDK aufzuschieben und wiederherzustellen.
 
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} Es ist jedoch keine zusätzliche Einrichtung erforderlich.
 
-## Aufschieben und Wiederherstellen von getriggerten Nachrichten für das Internet
+## Getriggerte Nachrichten für Web aufschieben und wiederherstellen {#deferring-and-restoring-triggered-messages-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Web" %}
 
@@ -47,60 +47,60 @@ document.getElementById("button").onclick = function () {
 };
 ```
 
-!Schritt
-Zeilen-index.js=2
+!!step
+lines-index.js=2
 
-#### 1\. Entfernen Sie Aufrufe von `automaticallyShowInAppMessages()`
+### 1. Aufrufe von `automaticallyShowInAppMessages()` entfernen {#1-remove-calls-to-automaticallyshowinappmessages}
 
-Entfernen Sie alle Aufrufe von [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) da sie jede angepasste Logik, die Sie später implementieren, außer Kraft setzen werden.
+Entfernen Sie alle Aufrufe von [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages), da sie jede angepasste Logik, die Sie später implementieren, außer Kraft setzen.
 
-!Schritt
-Zeilen-index.js=6
+!!step
+lines-index.js=6
 
-#### 2\. Enablement von Fehlersuchen (optional)
+#### 2. Debugging aktivieren (optional) {#2-enable-debugging-optional}
 
 Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
 
-!Schritt
-Zeilen-index.js=9-16
+!!step
+lines-index.js=9-16
 
-#### 3\. Abonnieren Sie den Callback Handler für In-App-Nachrichten
+#### 3. Den Callback-Handler für In-App-Nachrichten abonnieren {#3-subscribe-to-the-in-app-message-callback-handler}
 
-Registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht ausgelöst wird.
+Registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
 
-!Schritt
-Zeilen-index.js=11-12
+!!step
+lines-index.js=11-12
 
-#### 4\. Verschieben Sie die Instanz `message` 
+#### 4. Die `message`-Instanz aufschieben {#4-defer-the-message-instance}
 
-Um die Nachricht aufzuschieben, rufen Sie [`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage). Braze serialisiert und speichert diese Nachricht, damit Sie sie bei einem späteren Laden der Seite anzeigen können.
+Um die Nachricht aufzuschieben, rufen Sie [`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage) auf. Braze serialisiert und speichert diese Nachricht, damit Sie sie bei einem späteren Seitenaufruf anzeigen können.
 
-!Schritt
-Zeilen-index.js=18-24
+!!step
+lines-index.js=18-24
 
-#### 5\. Rufen Sie eine zuvor aufgeschobene Nachricht ab
+#### 5. Eine zuvor aufgeschobene Nachricht abrufen {#5-retrieve-a-previously-deferred-message}
 
-Um alle zuvor zurückgestellten Nachrichten abzurufen, rufen Sie [`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage). 
+Um zuvor aufgeschobene Nachrichten abzurufen, rufen Sie [`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage) auf.
 
-!Schritt
-Zeilen-index.js=21-23
+!!step
+lines-index.js=21-23
 
-#### 6\. Anzeige der aufgeschobenen Nachricht
+#### 6. Die aufgeschobene Nachricht anzeigen {#6-display-the-deferred-message}
 
-Nachdem Sie eine aufgeschobene Nachricht abgerufen haben, zeigen Sie sie an, indem Sie sie an [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage).
+Nachdem Sie eine aufgeschobene Nachricht abgerufen haben, zeigen Sie sie an, indem Sie sie an [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) übergeben.
 
-!Schritt
-Zeilen-index.js=13-15
+!!step
+lines-index.js=13-15
 
-#### 7\. Eine Nachricht sofort anzeigen
+#### 7. Eine Nachricht sofort anzeigen {#7-display-a-message-immediately}
 
-Um eine Nachricht anzuzeigen, anstatt sie zu verschieben, rufen Sie [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) direkt in Ihrem `subscribeToInAppMessage` Callback auf.
+Um eine Nachricht sofort anzuzeigen, anstatt sie aufzuschieben, rufen Sie [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) direkt in Ihrem `subscribeToInAppMessage`-Callback auf.
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} Bitte beachten Sie, dass Sie [für Android]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages) auch [In-App-Nachrichten aktivieren]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages) müssen.
+{% multi_lang_include developer_guide/prerequisites/android.md %} Außerdem müssen Sie [In-App-Nachrichten für Android aktivieren]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages).
 
-## Aufschieben und Wiederherstellen getriggerter Nachrichten für Android
+## Getriggerte Nachrichten für Android aufschieben und wiederherstellen {#deferring-and-restoring-triggered-messages-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Android" %}
 
@@ -202,61 +202,61 @@ fun ContentView() {
 }
 ```
 
-!Schritt
-Zeilen-MainApplication.kt=13-16
+!!step
+lines-MainApplication.kt=13-16
 
-#### 1\. Erstellen Sie eine singleton `Application` Instanz
+### 1. Eine Singleton-`Application`-Instanz erstellen {#1-create-a-singleton-application-instance}
 
-Verwenden Sie ein Begleitobjekt, um Ihre Klasse `Application` als Singleton darzustellen, damit Sie später in Ihrem Code darauf zugreifen können.
+Verwenden Sie ein Companion-Objekt, um Ihre `Application`-Klasse als Singleton bereitzustellen, damit Sie später in Ihrem Code darauf zugreifen können.
 
-!Schritt
-Zeilen-MainApplication.kt=25
+!!step
+lines-MainApplication.kt=25
 
-#### 2\. Enablement von Fehlersuchen (optional)
+#### 2. Debugging aktivieren (optional)
 
 Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
 
-!Schritt
-Zeilen-MainApplication.kt=34-36
+!!step
+lines-MainApplication.kt=34-36
 
-#### 3\. Lebenszyklusrückrufe für Aktivitäten registrieren
+#### 3. Activity-Lifecycle-Callbacks registrieren {#3-register-activity-lifecycle-callbacks}
 
 Registrieren Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
 
-!Schritt
-Zeilen-MainApplication.kt=39-49
+!!step
+lines-MainApplication.kt=39-49
 
-#### 4\. Einrichten eines Hörers für In-App-Nachrichten
+#### 4. Einen Listener für In-App-Nachrichten einrichten {#4-set-up-an-in-app-message-listener}
 
-Verwenden Sie `BrazeInAppMessageManager`, um einen angepassten Listener einzustellen, der Nachrichten abfängt, bevor sie angezeigt werden.
+Verwenden Sie `BrazeInAppMessageManager`, um einen angepassten Listener einzurichten, der Nachrichten abfängt, bevor sie angezeigt werden.
 
-!Schritt
-Zeilen-MainApplication.kt=43,46
+!!step
+lines-MainApplication.kt=43,46
 
-#### 5\. Erstellen Sie bedingte Logik
+#### 5. Bedingte Logik erstellen {#5-create-conditional-logic}
 
-Verwenden Sie das Flag `showMessage`, um das Timing zu steuern - geben Sie `DISPLAY_NOW` ein, um die Nachricht sofort anzuzeigen, oder `DISPLAY_LATER`, um sie zu verschieben.
+Verwenden Sie das Flag `showMessage`, um das Timing zu steuern – geben Sie `DISPLAY_NOW` zurück, um die Nachricht sofort anzuzeigen, oder `DISPLAY_LATER`, um sie aufzuschieben.
 
-!Schritt
-Zeilen-MainApplication.kt=52-55
+!!step
+lines-MainApplication.kt=52-55
 
-#### 6\. Erstellen Sie eine Methode zur Anzeige von zeitversetzten Nachrichten
+#### 6. Eine Methode zur Anzeige aufgeschobener Nachrichten erstellen {#6-create-a-method-for-displaying-deferred-messages}
 
-Verwenden Sie `showDeferredMessage`, um die nächste In-App-Nachricht zu triggern. Wenn `showMessage` `true` ist, gibt der Listener `DISPLAY_NOW` zurück.
+Verwenden Sie `showDeferredMessage`, um die nächste In-App-Nachricht zu triggern. Wenn `showMessage` den Wert `true` hat, gibt der Listener `DISPLAY_NOW` zurück.
 
-!Schritt
-Zeilen-MainActivity.kt=29
+!!step
+lines-MainActivity.kt=29
 
-#### 7\. Triggern Sie die Methode von Ihrer UI aus
+#### 7. Die Methode über Ihre UI triggern {#7-trigger-the-method-from-your-ui}
 
-Um die zuvor aufgeschobene Nachricht anzuzeigen, rufen Sie `showDeferredMessage(true)` von Ihrer UI aus auf, z. B. über einen Button oder durch Antippen.
+Um die zuvor aufgeschobene Nachricht anzuzeigen, rufen Sie `showDeferredMessage(true)` über Ihre UI auf, z. B. über einen Button oder durch Antippen.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} Bitte beachten Sie, dass Sie auch [In-App-Nachrichten für SWIFT aktivieren]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages) müssen.
+{% multi_lang_include developer_guide/prerequisites/swift.md %} Außerdem müssen Sie [In-App-Nachrichten für Swift aktivieren]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages).
 
-## Aufschieben und Wiederherstellen von getriggerten Nachrichten für Swift
+## Getriggerte Nachrichten für Swift aufschieben und wiederherstellen {#deferring-and-restoring-triggered-messages-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Swift" %}
 
@@ -344,47 +344,47 @@ struct ContentView: View {
 }
 ```
 
-!Schritt
-Zeilen-AppDelegate.swift=5
+!!step
+lines-AppDelegate.swift=5
 
-#### 1\. Implementieren Sie die `BrazeInAppMessageUIDelegate`
+### 1. Das `BrazeInAppMessageUIDelegate` implementieren {#1-implement-the-brazeinappmessageuidelegate}
 
-Implementieren Sie in Ihrer Klasse `AppDelegate` die Methode [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) damit Sie die Methode `inAppMessage` später überschreiben können.
+Implementieren Sie in Ihrer `AppDelegate`-Klasse das [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate), damit Sie die Methode `inAppMessage` später überschreiben können.
 
-!Schritt
-Zeilen-AppDelegate.swift=19
+!!step
+lines-AppDelegate.swift=19
 
-#### 2\. Enablement von Fehlersuchen (optional)
+#### 2. Debugging aktivieren (optional)
 
 Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
 
-!Schritt
-Zeilen-AppDelegate.swift=25-27
+!!step
+lines-AppDelegate.swift=25-27
 
-#### 3\. Richten Sie Ihr Braze UI ein und delegieren Sie
+#### 3. Braze-UI und Delegate einrichten {#3-set-up-your-braze-ui-and-delegate}
 
-`BrazeInAppMessageUI()` rendert In-App-Nachrichten standardmäßig. Wenn Sie `self` als Delegierten zuweisen, können Sie Nachrichten abfangen und bearbeiten, bevor sie angezeigt werden. Speichern Sie die Instanz unbedingt, da Sie sie später benötigen, um verschobene Nachrichten wiederherzustellen.
+`BrazeInAppMessageUI()` rendert In-App-Nachrichten standardmäßig. Wenn Sie `self` als Delegate zuweisen, können Sie Nachrichten abfangen und verarbeiten, bevor sie angezeigt werden. Speichern Sie die Instanz unbedingt, da Sie sie später benötigen, um aufgeschobene Nachrichten wiederherzustellen.
 
-!Schritt
-Zeilen-AppDelegate.swift=32-41
+!!step
+lines-AppDelegate.swift=32-41
 
-#### 4\. Überschreiben Sie `DisplayChoice` mit bedingter Logik
+#### 4. `DisplayChoice` mit bedingter Logik überschreiben {#4-override-displaychoice-with-conditional-logic}
 
-Überschreiben Sie [`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) um festzulegen, wann eine Nachricht angezeigt werden soll. Geben Sie `.now` ein, um es sofort anzuzeigen, oder `.reenqueue`, um es auf später zu verschieben.
+Überschreiben Sie [`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb), um festzulegen, wann eine Nachricht angezeigt werden soll. Geben Sie `.now` zurück, um sie sofort anzuzeigen, oder `.reenqueue`, um sie aufzuschieben.
 
-!Schritt
-Zeilen-AppDelegate.swift=43-46
+!!step
+lines-AppDelegate.swift=43-46
 
-#### 5\. Erstellen Sie eine Methode zur Anzeige zeitversetzter Nachrichten
+#### 5. Eine Methode zur Anzeige aufgeschobener Nachrichten erstellen {#5-create-a-method-to-show-deferred-messages}
 
-Erstellen Sie eine Methode, die `showDeferredMessage(true)` aufruft, um die nächste zurückgestellte Nachricht im Stack anzuzeigen. Beim Aufruf wird `showMessage` auf `true` gesetzt, so dass der Delegierte `.now` zurückgibt.
+Erstellen Sie eine Methode, die `showDeferredMessage(true)` aufruft, um die nächste aufgeschobene Nachricht im Stack anzuzeigen. Beim Aufruf wird `showMessage` auf `true` gesetzt, sodass der Delegate `.now` zurückgibt.
 
-!Schritt
-Zeilen-ContentView.swift=1-14
+!!step
+lines-ContentView.swift=1-14
 
-#### 5\. Triggern Sie die Methode von Ihrer UI aus
+#### 6. Die Methode über Ihre UI triggern {#5-trigger-the-method-from-your-ui}
 
-Um die zuvor aufgeschobene Nachricht anzuzeigen, rufen Sie `showDeferredMessage(true)` von Ihrer UI aus auf, z. B. über einen Button oder durch Antippen.
+Um die zuvor aufgeschobene Nachricht anzuzeigen, rufen Sie `showDeferredMessage(true)` über Ihre UI auf, z. B. über einen Button oder durch Antippen.
 
 {% endscrolly %}
 {% endsdktab %}

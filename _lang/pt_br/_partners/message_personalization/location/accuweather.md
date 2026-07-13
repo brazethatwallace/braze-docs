@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AccuWeather
 
-> A [AccuWeather](https://www.accuweather.com/) é uma empresa de mídia que fornece serviços de previsão do tempo em todo o mundo. Com a AccuWeather, você pode enriquecer e personalizar suas campanhas de marketing, bem como automatizar traduções por meio do uso do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) da Braze.
+> A [AccuWeather](https://www.accuweather.com/) é uma empresa de mídia que fornece serviços de previsão do tempo em todo o mundo. Com a AccuWeather, você pode enriquecer e personalizar suas campanhas de marketing, bem como automatizar traduções por meio do uso do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) da Braze.
 
 _Essa integração é mantida pela AccuWeather._
 
@@ -19,7 +19,7 @@ _Essa integração é mantida pela AccuWeather._
 | Requisito | Descrição |
 |---|---|
 | Chave de API da AccuWeather | Entre em contato com o gerente da sua conta AccuWeather para obter as chaves de API compatíveis a serem usadas nos URLs de solicitação.<br><br>Mais instruções podem ser encontradas na página da [API AccuWeather Enterprise](https://apidev.accuweather.com/developers/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## APIs AccuWeather disponíveis {#available-accuweather-apis}
 
@@ -36,7 +36,7 @@ A seguir, confira as APIs da AccuWeather que você pode consultar nas suas Campa
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | Obtenha imagens de radar e satélite. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Obtenha a posição atual, as posições anteriores e as previsões de ciclones tropicais em todo o mundo. |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | Obtenha uma lista dos idiomas disponíveis. Obtenha traduções para grupos específicos de frases. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="APIs AccuWeather disponíveis" }
 
 ## Exemplo de Conteúdo conectado {#connected-content-example}
 
@@ -64,10 +64,10 @@ Um detalhamento das duas chamadas de Conteúdo conectado está disponível nos e
 
 {% tabs %}
 {% tab Locations %}
-#### Exemplo de API de locais {#locations-api-example}
+### Exemplo de API de locais {#locations-api-example}
 
 {% raw %}
-Na primeira tag `connected_content`, é feita uma solicitação GET para a [API de locais](https://apidev.accuweather.com/developers/locationsAPIguide). Para este exemplo, você também pode aproveitar o `{{${city}}}` do usuário se não tiver um atributo personalizado de código postal.
+Na primeira tag `connected_content`, é feita uma solicitação GET para a [API de locais](https://apidev.accuweather.com/developers/locationsAPIguide). Para este exemplo, você também pode alavancar o `{{${city}}}` do usuário se não tiver um atributo personalizado de código postal.
 
 ```
 {% connected_content http://dataservice.accuweather.com/locations/v1/postalcodes/{{${country}}}/search?q={{custom_attribute.${Zip Code}}}&apikey={your API key} :save location_info %}
@@ -155,9 +155,9 @@ Aqui está um exemplo do que a AccuWeather retornará como objeto JSON:
 O ID "Key" é uma variável útil, pois é usada na segunda solicitação GET.
 Esse objeto JSON pode ser armazenado em uma variável local `location_info` especificando `:save location_info` após o URL.
 {% endtab %}
-{% tab Current conditions %}
+{% tab Condições atuais %}
 
-#### Exemplo de API de condições atuais {#current-conditions-api-example}
+### Exemplo de API de condições atuais {#current-conditions-api-example}
 
 Para a segunda tag `connected_content`, é feita uma solicitação GET à [API de condições atuais](https://apidev.accuweather.com/developers/currentConditionsAPIGuide). A **chave do local** precisará ser adicionada ao URL da solicitação. Aqui está o exemplo da tag `connected_content`:
 

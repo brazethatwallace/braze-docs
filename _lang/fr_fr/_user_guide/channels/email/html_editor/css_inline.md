@@ -1,27 +1,51 @@
 ---
-nav_title: Inclusion CSS
-article_title: Inclusion CSS
+nav_title: Insertion CSS
+article_title: Insertion CSS
 page_order: 5.1
-description: "Cet article de référence explique comment activer l'inclusion CSS et présente quelques bonnes pratiques."
+description: "Cet article de référence explique comment activer l'insertion CSS et présente quelques bonnes pratiques."
 channel:
   - email
 
 ---
 
-# Inclusion CSS
+# Insertion CSS {#css-inlining}
 
-> L'inclusion CSS est une forme de prétraitement des e-mails qui déplace les styles d'une feuille de style CSS dans le corps d'un e-mail HTML. Le terme « inlining » désigne le fait que les styles sont appliqués « inline » aux éléments HTML individuels.
+> L'insertion CSS est une forme de prétraitement des e-mails qui déplace les styles d'une feuille de style CSS dans le corps d'un e-mail HTML. Le terme « inlining » désigne le fait que les styles sont appliqués « inline » aux éléments HTML individuels.
 
 Pour certains clients de messagerie, l'insertion CSS peut améliorer le rendu des e-mails et vous aider à confirmer que vos e-mails s'affichent comme prévu. Si la majorité de votre CSS est déjà insérée en ligne ou si vous êtes certain que votre HTML et votre CSS sont compatibles avec les exigences de la plupart des clients de messagerie, il n'est peut-être pas nécessaire d'activer cette fonctionnalité. Les styles incorporés dynamiquement peuvent entrer en conflit avec vos styles en ligne existants et modifier le rendu attendu de la prévisualisation et de l'e-mail.
 
-## Utilisation de l'inclusion CSS
+## Utilisation de l'insertion CSS {#using-css-inlining}
 
-Vous pouvez activer ou désactiver l'insertion CSS pour n'importe quel e-mail à l'aide de la bascule **Activer l'insertion CSS** dans l'onglet **Informations d'envoi** de l'éditeur HTML.
+Vous pouvez activer ou désactiver l'insertion CSS pour n'importe quel e-mail à l'aide de la bascule **Enable inline CSS** dans l'onglet **Sending Info** de l'éditeur HTML.
 
 ![Case à cocher pour gérer l'insertion CSS dans le compositeur HTML.]({% image_buster /assets/img_archive/css-inline2.png %}){: style="max-width:40%;"}
 
-### État d'insertion par défaut
+### État d'insertion par défaut {#default-inlining-state}
 
-Vous pouvez définir un état par défaut (activé ou désactivé) de manière globale depuis **Paramètres** > **Préférences des e-mails**. Recherchez le paramètre **Insertion CSS**. Ce paramètre détermine la valeur par défaut avec laquelle tous les nouveaux e-mails sont créés. Notez que la modification de ce paramètre n'affectera aucun de vos e-mails existants. Vous pouvez également remplacer cette valeur par défaut à tout moment lors de la rédaction de vos e-mails.
+Vous pouvez définir un état par défaut (activé ou désactivé) de manière globale depuis **Paramètres** > **Préférences des e-mails**. Recherchez le paramètre **CSS Inlining**. Ce paramètre détermine la valeur par défaut avec laquelle tous les nouveaux e-mails sont créés. Notez que la modification de ce paramètre n'affectera aucun de vos e-mails existants. Vous pouvez également remplacer cette valeur par défaut à tout moment lors de la rédaction de vos e-mails.
 
 ![Option d'insertion CSS par défaut pour les nouveaux e-mails, située dans les paramètres des e-mails.]({% image_buster /assets/img_archive/css-inline1.png %})
+
+## Contenu connecté et insertion CSS {#connected-content-and-css-inlining}
+
+L'insertion CSS s'exécute **avant** l'évaluation du [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Le HTML renvoyé par le contenu connecté n'est **pas** soumis à la même étape d'insertion. Placez les styles dont vous avez besoin depuis le contenu connecté directement dans la réponse (attributs `style` en ligne ou règles intégrées), ou désactivez l'insertion pour le message si cela correspond mieux à votre modèle.
+
+## Content Blocks dans les modèles HTML personnalisés {#content-blocks-in-custom-html-templates}
+
+Lorsque vous intégrez un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) avec Liquid dans un modèle d'e-mail ou une Campaign en **HTML personnalisé**, les règles CSS du modèle parent peuvent remplacer les styles définis dans le bloc de contenu. Vérifiez les sélecteurs en conflit ou les règles globales dans le wrapper du modèle.
+
+## Limitations CSS de Gmail {#gmail-css-limitations}
+
+Gmail présente des limitations CSS spécifiques qui peuvent entraîner l'affichage des e-mails en vue bureau au lieu de la vue mobile dans l'application Gmail. Cela peut se produire pour les raisons suivantes :
+
+- **Trop de CSS :** si votre e-mail contient un excès de CSS, Gmail peut supprimer l'intégralité du bloc de style.
+- **CSS incompatible :** tout CSS incompatible avec Gmail (y compris du CSS valide que Gmail ne prend pas en charge) peut entraîner la suppression du bloc de style.
+- **Comptes non-Gmail dans l'application Gmail :** le CSS dans le `<head>` n'est pas pris en charge.
+
+### Requêtes média dans Gmail {#media-queries-in-gmail}
+
+Les requêtes média CSS fonctionnent généralement dans les applications Gmail, mais il existe des limitations. Si vous rencontrez des problèmes avec des requêtes média qui ne fonctionnent pas correctement dans Gmail :
+
+- Consultez la [référence CSS prise en charge par Gmail](https://developers.google.com/gmail/design/reference/supported_css) pour vous assurer que votre CSS est compatible.
+- Vérifiez les [directives de conception CSS de Gmail](https://developers.google.com/gmail/design/css) pour connaître les bonnes pratiques.
+- Envisagez des modèles de conception responsive conçus pour le mobile qui ne reposent pas uniquement sur les requêtes média pour le rendu mobile.

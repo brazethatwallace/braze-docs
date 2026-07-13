@@ -17,7 +17,7 @@ Phone numbers are shown in the user profile in local formats, but will not be in
 
 ## Importing phone numbers
 
-You can import phone numbers by [uploading a CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) or [via API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) to create a user.
+You can import phone numbers by [uploading a CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) or [via API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) to create a user.
 
 ### Formatting
 
@@ -29,7 +29,7 @@ All U.S. numbers must be valid, 10-digit phone numbers with a valid area code. T
 
 All international numbers should start with a `+`, followed by their country code and then the phone number. (e.g `+442071838750`)
 
-![]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Screenshot related to formatting.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 However, to ensure accuracy in the event that you are sending to multiple regions with different country or area codes, it is recommended to use the `E.164` format, even for U.S.-based phone numbers.
 
@@ -40,11 +40,11 @@ You can see the differences between local number formatting as well as universal
 | USA | `4155552671` | 1 | `+14155552671` |
 | UK | `02071838750` | 44 | `+442071838750` |
 | Brazil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4 aria-label="Formatting" }
 
 ### Adding users to WhatsApp a subscription group
 
-For a customer to receive an WhatsApp message, they must have a valid phone number and be opted-in to a subscription group. For more information, refer to [WhatsApp subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+For a customer to receive an WhatsApp message, they must have a valid phone number and be opted-in to a subscription group. For more information, refer to [WhatsApp subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 
 ### Multiple users with the same phone number

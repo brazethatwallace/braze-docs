@@ -68,7 +68,7 @@ Braze は、[www.braze.com/subprocessors](https://www.braze.com/subprocessors/) 
 
 ### Webhook 使用例外条件 {#webhook-use-exception-terms}
 
-2024 年 12 月 9 日以降にメッセージクレジットを購入したお客様に適用されます（注文書の発効日に基づく）：Webhook チャネルコンプライアンスドキュメントに記載されている制限は、サードパーティプロバイダーのプラットフォームを通じてモバイルメッセージを送信するためのwebhookの使用には適用されません。
+2024 年 12 月 9 日以降にアクションクレジットを購入したお客様に適用されます（注文書の発効日に基づく）：Webhook チャネルコンプライアンスドキュメントに記載されている制限は、サードパーティプロバイダーのプラットフォームを通じてモバイルメッセージを送信するためのwebhookの使用には適用されません。
 
 ### Bring Your Own (BYO) SMS Connector
 
@@ -102,7 +102,7 @@ Braze は、Braze サービス外でメッセージの送信またはその他�
 
 ### 適用されるサードパーティプロバイダーの条件 {#applicable-third-party-provider-terms}
 
-お客様は、Braze の [WhatsApp セットアップ](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/)ページに記載されている、WhatsApp, LLC およびそのグループ関連会社が要求する条件を含む、WhatsApp チャネルに適用される前提条件、条件、およびポリシーに準拠する必要があります。
+お客様は、Braze の [WhatsApp セットアップ]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/)ページに記載されている、WhatsApp, LLC およびそのグループ関連会社が要求する条件を含む、WhatsApp チャネルに適用される前提条件、条件、およびポリシーに準拠する必要があります。
 
 ### Webhook 使用例外条件
 
@@ -118,13 +118,14 @@ Braze は、Braze サービス外でメッセージの送信またはその他�
 
 ### 前提条件 {#pre-requisites}
 
-LINE チャネルを通じてメッセージを送信するには、お客様は LINE 認証済み公式アカウントを取得する必要があります。これは LINE の独自の裁量により承認および付与されます。お客様は、LINE チャネルの使用のために Braze メッセージクレジットを購入する前に、LINE から認証済み公式アカウントを取得していることを確認する必要があります。
+LINE チャネルを通じてメッセージを送信するには、お客様は LINE 認証済み公式アカウントを取得する必要があります。これは LINE の独自の裁量により承認および付与されます。お客様は、LINE チャネルの使用のために Braze アクションクレジットを購入する前に、LINE から認証済み公式アカウントを取得していることを確認する必要があります。
 
 ### 適用されるサードパーティプロバイダーの条件
 
 LINE チャネルを使用することにより、お客様は、LY Corporation およびその関連会社（総称して「LINE」）が要求するすべての条件およびポリシー（LINE 公式アカウント利用規約、Official Account API 利用規約、LINE 公式アカウントガイドライン、LINE ユーザーデータポリシー、およびそれらに参照により組み込まれるすべてのポリシー、条件、ガイドライン、ドキュメントを含みますがこれらに限定されません）（総称して「LINE 条件」）に準拠し、拘束されることに同意します。明確にするために、お客様は以下の責任を負います：(i) LINE に関連して処理されるデータが、該当する LINE 条件に従って処理されることを確保すること、および (ii) LINE チャネルに関連した LINE サービスの使用に対して LINE に支払うべき料金または支払い。
 
 LINE 条件に反する定めがある場合でも、お客様は LINE サービスの使用について主たる責任を負います。
+
 
 ## 5. Shopify 統合コンプライアンスドキュメント {#shopify-integration-compliance-documentation}
 

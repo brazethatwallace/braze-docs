@@ -30,9 +30,13 @@ Damit Nutzer:innen als über einen bestimmten Kanal erreichbar aufgeführt werde
 
 Einzelne Nutzer:innen können zu verschiedenen Gruppen erreichbarer Nutzer:innen gehören. Beispielsweise könnte eine/ein Nutzer:in sowohl eine gültige E-Mail-Adresse als auch ein gültiges Android-Push-Token haben und für beides ein Opt-in erteilt haben, aber kein zugehöriges iOS-Push-Token besitzen. Die Differenz zwischen den insgesamt erreichbaren Nutzer:innen und der Summe der verschiedenen Kanäle entspricht der Anzahl der Nutzer:innen, die sich für das Segment qualifiziert haben, aber über diese Kommunikationskanäle nicht erreichbar sind.
 
+{% alert note %}
+**Insgesamt erreichbare Nutzer:innen** umfasst alle, die Ihren Segmentfiltern entsprechen, auch wenn sie einen Kanal nicht mehr abonniert haben. Kanalzeilen wie **iOS** zählen Nutzer:innen, die nur über diesen Kanal erreichbar sind, gemäß den Regeln unter [Erreichbare Nutzer:innen nach Kanal](#reachable-users-by-channel). Um die Segmenttotale mit abonnierten Nutzer:innen abzugleichen, fügen Sie Filter wie **Push enabled for iOS** ist wahr (oder das Äquivalent für Ihren Kanal) hinzu.
+{% endalert %}
+
 ## Statistiken zur Segmentgröße {#statistics-for-segment-size}
 
-Geschätzte Statistiken werden durch Stichproben nur eines Teils Ihres Segments approximiert. Sie sollten daher damit rechnen, dass geschätzte Größen größer oder kleiner als der tatsächliche Wert ausfallen, wobei größere Workspaces potenziell größere Fehlerspannen aufweisen können. Um eine genaue Anzahl der Nutzer:innen in Ihrem Segment zu erhalten, wählen Sie **Calculate Exact Statistics**. Die exakte Segmentmitgliedschaft wird immer berechnet, bevor ein Segment von einer Nachricht betroffen ist, die in einer Campaign oder einem Canvas gesendet wird.
+Geschätzte Statistiken werden durch Stichproben nur eines Teils Ihres Segments approximiert. Sie sollten daher damit rechnen, dass geschätzte Größen größer oder kleiner als der tatsächliche Wert ausfallen, wobei größere Workspaces potenziell größere Fehlerspannen aufweisen können. Um eine genaue Anzahl der Nutzer:innen in Ihrem Segment zu erhalten, wählen Sie **Calculate Exact Statistics**. Die exakte Segmentmitgliedschaft wird immer berechnet, bevor ein Segment von einer Nachricht betroffen ist, die in einer Kampagne oder einem Canvas gesendet wird.
 
 Braze stellt die folgenden Statistiken zur Segmentgröße bereit.
 
@@ -46,7 +50,7 @@ Für jede Filtergruppe können Sie die geschätzten erreichbaren Nutzer:innen ei
 
 Sie können die geschätzten erreichbaren Nutzer:innen eines gesamten Segments, einschließlich geschätzter Nutzer:innenzahlen pro Kanal, im Seitenpanel **Reachable users** einsehen. Diese **Schätzung** zeigt Ihnen einen ungefähren Bereich für Ihre Segmentgröße sowie eine Schätzung, welcher Prozentsatz Ihrer gesamten Nutzerbasis in dieses Segment fällt. Beachten Sie, dass geschätzte Statistiken 15 Minuten lang zwischengespeichert werden, es sei denn, Sie nehmen Änderungen an Ihrem Segment vor – in diesem Fall werden die geschätzten Statistiken automatisch aktualisiert. Sie können auch eine exakte Anzahl der erreichbaren Nutzer:innen (sowohl für das gesamte Segment als auch pro Kanal) einsehen, indem Sie **Calculate exact statistics** auswählen.
 
-![Das Panel „Erreichbare Nutzer:innen“ mit der Angabe, dass es 2,3 Mio.–2,4 Mio. geschätzte Nutzer:innen gibt.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
+![Das Panel „Reachable users“ mit der Angabe, dass es 2,3 Mio.–2,4 Mio. geschätzte Nutzer:innen gibt.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
 
 ### Hinweise zu geschätzten Zahlen {#considerations-for-estimate-counts}
 
@@ -56,7 +60,7 @@ Wenn Sie eine große Nutzerpopulation in Ihrem Workspace haben, können Sie grö
 
 Sehr kleine Segmente haben einen geschätzten Bereich, der 0 einschließt, was bedeutet, dass der Prozentsatz der Gesamtnutzer:innen auf 0 gerundet werden kann. In diesen Fällen hilft Ihnen **Calculate exact stats**, eine genaue Anzahl Ihrer Segmentgröße zu sehen, die tatsächlich nicht 0 sein muss.
 
-![Das Seitenpanel „Erreichbare Nutzer:innen“ mit einer exakten Nutzer:innenzahl von „31“.]({% image_buster /assets/img_archive/reachable_users_panel.png %})
+![Das Seitenpanel „Reachable users“ mit einer exakten Nutzer:innenzahl von „31“.]({% image_buster /assets/img_archive/reachable_users_panel.png %})
 
 ### Erreichbare Nutzer:innen nach Kanal {#reachable-users-by-channel}
 
@@ -83,7 +87,7 @@ Die folgenden Filter werden für jeden Kanal bei der Ermittlung der erreichbaren
 | E-Mail | **Email Available** ist wahr. |
 | Push | **Foreground Push Enabled** ist wahr. |
 | SMS | **Subscription Group** ist eine beliebige SMS-Abo-Gruppe. **Invalid Phone Number** ist falsch. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angewendete Filter für kanalspezifische erreichbare Nutzer:innen" }
 
 ## Exakte Statistiken berechnen {#calculating-exact-statistics}
 
@@ -91,13 +95,13 @@ Um eine genaue Anzahl der Nutzer:innen in Ihrem Segment einzusehen, wählen Sie 
 
 Um die Statistiken einer zuvor durchgeführten Berechnung zu aktualisieren, wählen Sie **Refresh exact statistics**. Das Datum der letzten Berechnung wird automatisch aktualisiert.
 
-Beachten Sie, dass die Genauigkeit einer Berechnung nur 99,999 % oder höher beträgt. Bei großen Segmenten können Sie daher leichte Abweichungen feststellen – auch bei der Berechnung exakter Statistiken –, was ein normales Verhalten ist. Darüber hinaus werden Ergebnisse exakter Statistiken 24 Stunden lang zwischengespeichert, es sei denn, Sie nehmen Änderungen an Ihrem Segment vor – in diesem Fall können Sie die exakten Statistiken erneut berechnen.
+Beachten Sie, dass die Genauigkeit einer Berechnung nur 99,999 % oder höher beträgt. Bei großen Segmenten können Sie daher leichte Abweichungen feststellen&#8212;auch bei der Berechnung exakter Statistiken&#8212;, was ein normales Verhalten ist. Darüber hinaus werden Ergebnisse exakter Statistiken 24 Stunden lang zwischengespeichert, es sei denn, Sie nehmen Änderungen an Ihrem Segment vor – in diesem Fall können Sie die exakten Statistiken erneut berechnen.
 
 {% alert note %}
-Segmente, die gleichmäßig durch [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) aufgeteilt werden, haben nicht dieselbe Größe. Wenn Sie beispielsweise ein Segment mit dem Filter **Random Bucket # less than 5000** und ein Segment mit dem Filter **Random Bucket # at least 5000** erstellen, ist es möglich und zu erwarten, dass die Segmentgrößen um bis zu einige Prozentpunkte variieren. Dies liegt an Situationen wie dem Löschen inaktiver Nutzer:innen und der Nichterreichbarkeit von Nutzer:innen.
+Segmente, die gleichmäßig durch [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) aufgeteilt werden, haben nicht dieselbe Größe. Wenn Sie beispielsweise ein Segment mit dem Filter **Random Bucket # less than 5000** und ein Segment mit dem Filter **Random Bucket # at least 5000** erstellen, ist es möglich und zu erwarten, dass die Segmentgrößen um bis zu einige Prozentpunkte variieren. Dies liegt an Situationen wie dem Löschen inaktiver Nutzer:innen und der Nichterreichbarkeit von Nutzer:innen.
 {% endalert %}
 
-![Screenshot des Panels „Erreichbare Nutzer:innen“ mit exakten Statistiken und einem erweiterten Aufschlüsselungsmenü.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})
+![Screenshot des Panels „Reachable users“ mit exakten Statistiken und einem erweiterten Aufschlüsselungsmenü.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})
 
 Die Statistiken auf Filterebene sind immer geschätzt, auch wenn Sie exakte Statistiken berechnen. **Calculate exact stats** berechnet die exakten Statistiken nur auf Segmentebene, nicht auf Filter- oder Filtergruppenebene. Diese Berechnung kann einige Minuten dauern. Insbesondere größere Workspaces können längere Zeiträume für die Berechnung benötigen. Sie können Ihren Fortschritt über den Fortschrittsbalken im Panel **Reachable users** verfolgen. Wenn eine Berechnung voraussichtlich mehr als fünf Minuten dauert, sendet Braze Ihnen die Ergebnisse per E-Mail.
 
@@ -107,7 +111,6 @@ Braze priorisiert jeweils eine Berechnung pro Workspace, sodass das gleichzeitig
 
 Sie können eine Berechnung exakter Statistiken abbrechen, indem Sie **Cancel** auswählen. Dies kann vorteilhaft sein, wenn sich mehrere Berechnungen in der Warteschlange befinden und Sie eine andere Berechnung zuerst priorisieren möchten.
 
-![Eine aktive Berechnung mit der Option zum Abbrechen]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## Historische Segmentmitgliedschaftsgröße anzeigen {#viewing-historical-segment-membership-size}
 
@@ -131,10 +134,10 @@ Die Mitgliedschaftszahl kann sich aus verschiedenen Gründen signifikant ändern
 
 | Grund | Beispiel |
 | --- | --- |
-| Normales Nutzer:innenverhalten | Nutzer:innen abonnieren nach einer besonders erfolgreichen Campaign. |
+| Normales Nutzer:innenverhalten | Nutzer:innen abonnieren nach einer besonders erfolgreichen Kampagne. |
 | Nutzer:innen werden per CSV importiert | Eine CSV-Datei mit Nutzer:innen wurde importiert, die die Segmentmitgliedschaft erheblich erhöht hat. |
 | Segmentzielgruppenkriterien werden geändert | Die Zielgruppenregeln eines bestehenden Segments (wie Filter) wurden geändert, was zu signifikanten Änderungen der Segmentmitgliedschaft führt. |
 | Nutzer:innen werden gelöscht | Eine erhebliche Anzahl von Nutzer:innen wurde gelöscht. |
 | Eine Partnerintegration hat sich mit Braze synchronisiert | Ein Drittanbieter hat Daten an Braze gesendet, die die Segmentmitgliedschaft erheblich beeinflusst haben. |
 | Inaktive Nutzer:innen werden archiviert | Eine erhebliche Anzahl inaktiver Profile wurde archiviert. Beispielsweise wird eine große Anzahl per CSV importierter Nutzer:innen, die nie Aktivität protokollieren, gleichzeitig archiviert. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gründe für signifikante Änderungen" }

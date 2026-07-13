@@ -1,12 +1,12 @@
 ---
 page_order: 0
 article_title: Technologie-Partner
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 
 partner_top_header: "Technologie-Partner"
-partner_top_text: "Willkommen bei unserer Liste der Technologie-Partner – unseren Braze Alloys. Nutzen Sie diese Seite, um Technologie-Partner in das Braze SDK zu implementieren. Gehen Sie in Braze zu <b>Partnerintegrationen</b> > <b>Technologie-Partner</b>, um sich mit einem der auf dieser Seite aufgeführten Partner zu verbinden. <br> <br> Wenn Sie Informationen darüber suchen, wie Sie unserer Firebrands-Community von Kund:innen beitreten können, die Braze nutzen, um ihr Kundenerlebnis und Marketing zu modernisieren, besuchen Sie unser <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>."
+partner_top_text: "Willkommen bei unserer Liste der Technologie-Partner – unseren Braze Alloys. Nutzen Sie diese Seite, um Technologie-Partner in das Braze SDK zu implementieren. Gehen Sie in Braze zu <b>Partnerintegrationen</b> > <b>Technologie-Partner</b>, um sich mit einem der auf dieser Seite aufgeführten Partner zu verbinden. <br> <br> Wenn bei einem Partner in Braze <b>Ungültige Zugangsdaten</b> angezeigt wird, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Seite „Technologie-Partner“ und verbinden Sie sie erneut. Überprüfen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite. <br> <br> Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Seite „Technologie-Partner“. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt. <br> <br> Wenn Sie Informationen darüber suchen, wie Sie unserer Firebrands-Community von Kund:innen beitreten können, die Braze nutzen, um ihr Kundenerlebnis und Marketing zu modernisieren, besuchen Sie unser <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>."
 description: "Diese Landing-Page enthält alle Braze Partner. Hier finden Sie technische Dokumentation, die Sie bei der Implementierung von Technologie-Partnern in das Braze SDK unterstützt."
 
 valid_partner_list:
@@ -46,6 +46,8 @@ valid_partner_list:
   url: /docs/partners/dyspatch/
 - name: Denada
   url: /docs/partners/denada/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: Stensul
   url: /docs/partners/stensul/
 - name: Stripo
@@ -60,6 +62,8 @@ valid_partner_list:
   url: /docs/partners/jebbit/
 - name: Iterate
   url: /docs/partners/iterate/
+- name: Refiner
+  url: /docs/partners/refiner/
 - name: EduMe
   url: /docs/partners/edume/
 - name: Fivetran
@@ -106,6 +110,8 @@ valid_partner_list:
   url: /docs/partners/certona/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -132,6 +138,8 @@ valid_partner_list:
   url: /docs/partners/optilyz/
 - name: Digioh
   url: /docs/partners/digioh/
+- name: DinMo
+  url: /docs/partners/dinmo/
 - name: Nexla
   url: /docs/partners/nexla/
 - name: Amperity
@@ -214,6 +222,8 @@ valid_partner_list:
   url: /docs/partners/wunderkind/
 - name: B.Layer
   url: /docs/partners/blayer-inapps/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Tellius
   url: /docs/partners/tellius/
 - name: Sheetlabs
@@ -284,6 +294,8 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
 - name: GRAVTY by Loyalty Juggernaut
@@ -318,6 +330,8 @@ valid_partner_list:
   url: /docs/partners/justuno/
 - name: Constructor
   url: /docs/partners/constructor/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Email Love
   url: /docs/partners/email_love/
 - name: Adikteev
@@ -348,6 +362,8 @@ valid_partner_list:
   url: /docs/partners/sessionm/
 - name: Tapcart
   url: /docs/partners/tapcart/
+- name: Talkable
+  url: /docs/partners/talkable/
 - name: Mention Me
   url: /docs/partners/mention_me/
 - name: JustAI
@@ -406,6 +422,10 @@ valid_partner_list:
   url: /docs/partners/gemini/
 - name: Anthropic
   url: /docs/partners/anthropic/
+- name: Databricks Mosaic
+  url: /docs/partners/databricks_mosaic/
+- name: Microsoft Foundry
+  url: /docs/partners/microsoft_foundry/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva

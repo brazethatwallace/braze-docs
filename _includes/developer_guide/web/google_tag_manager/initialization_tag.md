@@ -35,7 +35,7 @@ Enter the minimum required information:
 | **API Key**   | Your [Braze API Key]({{site.baseurl}}/api/basics/#about-rest-api-keys), found in the Braze dashboard under **Settings** > **App Settings**. |
 | **API Endpoint** | Your REST endpoint URL. Your endpoint will depend on the Braze URL for [your instance]({{site.baseurl}}/api/basics/#endpoints). |
 | **SDK Version**  | The most recent `MAJOR.MINOR` version of the Web Braze SDK listed in the [changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). For example, if the latest version is `4.1.2`, enter `4.1`. For more information, see [About SDK version management]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure the tag" }
 
 For additional initialization settings, select **Braze Initialization Options** and choose any options you need.
 
@@ -61,6 +61,7 @@ The Braze Initialization Tag exposes the following options. Most of these map di
 | **Open Cards in New Tab** | `openCardsInNewTab` | Opens Content Card links in a new tab when using the default Feed UI. |
 | **Service Worker Location** | `serviceWorkerLocation` | Custom path for the service worker file (default: `/service-worker.js`). |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | Session timeout in seconds (default: 1800). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 4: Choose initialization options" }
 
 {% alert note %}
 To enable [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) when using the Google Tag Manager Braze Initialization Tag, select **Allow HTML In-App Messages** in **Braze Initialization Options**. This checkbox maps to the `allowUserSuppliedJavascript` initialization option in `braze.initialize()` and sets it to `true`. The Google Tag Manager Braze Initialization Tag uses this label instead of the option name.

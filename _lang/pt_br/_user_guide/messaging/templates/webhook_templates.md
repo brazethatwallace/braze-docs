@@ -16,21 +16,21 @@ description: "Saiba como criar e personalizar modelos de webhook para uso poster
 
 ## Etapa 1: Acessar o editor de modelos de webhook {#step-1-go-to-the-webhook-template-editor}
 
-No dashboard da Braze, acesse **Templates** > **Webhook Templates**.
+No dashboard da Braze, acesse **Conteúdo** > **Webhook**.
 
-![A página "Webhook Templates" com modelos de webhook pré-projetados e salvos.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
+![A página "Modelos de webhook" com modelos de webhook pré-projetados e salvos.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 
 ## Etapa 2: Escolher seu modelo {#step-2-choose-your-template}
 
 A partir daqui, você pode optar por criar um novo modelo, usar um dos modelos de webhook pré-projetados ou editar um modelo existente.
 
-Por exemplo, se você estiver usando o [LINE]({{site.baseurl}}/user_guide/channels/line/) como canal de envio de mensagens, pode configurar vários webhooks usando os modelos pré-projetados para **LINE Carousel** ou **LINE Image**.
+Por exemplo, se você estiver usando o [LINE]({{site.baseurl}}/user_guide/channels/line) como canal de envio de mensagens, pode configurar vários webhooks usando os modelos pré-projetados para **LINE Carousel** ou **LINE Image**.
 
 ## Etapa 3: Preencher os detalhes do modelo {#step-3-fill-out-template-details}
 
 1. Dê ao seu modelo de webhook um nome exclusivo.
 2. (Opcional) Adicione uma descrição do modelo para explicar como ele deve ser usado.
-3. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) conforme necessário para ajudar a encontrar e filtrar seu modelo.
+3. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário para ajudar a encontrar e filtrar seu modelo.
 
 ## Etapa 4: Criar seu modelo {#step-4-build-your-template}
 
@@ -39,7 +39,7 @@ Por exemplo, se você estiver usando o [LINE]({{site.baseurl}}/user_guide/channe
 3. Adicione um corpo de solicitação. Pode ser **JSON Key/Value Pairs** ou **Raw Text**.
 4. (Opcional) Adicione um cabeçalho de solicitação. Isso pode ser exigido pelo destino do seu webhook.
 
-![A guia "Compose" ao criar um modelo de webhook. Os campos disponíveis são URL do webhook, método HTTP, corpo da solicitação e cabeçalhos da solicitação. Você também pode adicionar idiomas.]({% image_buster /assets/img_archive/Webhook_template_test.png %}){: style="max-width:90%"}
+![A guia "Redigir" ao criar um modelo de webhook. Os campos disponíveis são URL do webhook, método HTTP, corpo da solicitação e cabeçalhos da solicitação. Você também pode adicionar idiomas.]({% image_buster /assets/img_archive/Webhook_template_test.png %}){: style="max-width:90%"}
 
 ## Etapa 5: Testar seu modelo {#step-5-test-your-template}
 
@@ -55,4 +55,4 @@ As edições feitas em um modelo existente não são refletidas em Campaigns que
 
 ## Gerenciando seus modelos {#managing-your-templates}
 
-Você pode [duplicar e arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) modelos de webhook para ajudar a organizar e gerenciar melhor sua lista de modelos.
+Você pode [duplicar e arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) modelos de webhook para ajudar a organizar e gerenciar melhor sua lista de modelos.

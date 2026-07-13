@@ -14,7 +14,7 @@ platform:
 
 # Customize the style of Content Cards
 
-> Braze Content Cards come with a default look and feel. This article covers styling options for your Content Cards to help you match your brand identity. For the full list of content card types, see [About Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Braze Content Cards come with a default look and feel. This article covers styling options for your Content Cards to help you match your brand identity. For the full list of content card types, see [About Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Creating a custom style
 
@@ -23,7 +23,7 @@ The default Content Cards UI is imported from the UI layer of the Braze SDK. Fro
 ![Two content cards, one with the default font and square corners, and one with rounded corners and a curly font]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Content Card properties such as `title`, `cardDescription`, `imageUrl`, etc., are directly editable through the [dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/), which is the preferred method for changing these details.
+Content Card properties such as `title`, `cardDescription`, `imageUrl`, etc., are directly editable through the [dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), which is the preferred method for changing these details.
 {% endalert %}
 
 
@@ -181,7 +181,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 
 **Modifying content cards programmatically**
 
-You can change Content Cards programmatically by assigning the [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) closure on your `Attributes` struct. The example below modifies the `title` and `description` of compatible cards:
+You can change Content Cards programmatically by assigning the [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) closure on your `Attributes` struct. The following example modifies the `title` and `description` of compatible cards:
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -249,7 +249,7 @@ Here is a truncated example with a custom font family, `my_custom_font_family`, 
   </style>
 ```
 
-For more information about font customization in the Android SDK, see the [font family guide]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization/#font-customization).
+For more information about font customization in the Android SDK, see the [font family guide]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization#font-customization).
 {% endtab %}
 {% tab Jetpack Compose %}
 To change the default font programmatically, you can set the [`titleTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#715371549%2FProperties%2F-1725759721) of `ContentCardStyling`.
@@ -531,7 +531,7 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-This pattern works for any appearance-dependent content, including text, colors, or layouts. Upload your dark mode image assets to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/), then reference them in a key-value pair.
+This pattern works for any appearance-dependent content, including text, colors, or layouts. Upload your dark mode image assets to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications), then reference them in a key-value pair.
 
 ### Disabling unread indicator
 

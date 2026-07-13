@@ -17,11 +17,11 @@ search_tag: Partner
 
 시작하기 전에 다음이 필요합니다:
 
-| 필수 조건          | 설명                        |
+| 필수 조건 | 설명 |
 |-----------------------|------------------------------------|
 | Contentful 계정 | Content Delivery API에 접근할 수 있는 Contentful 계정이 필요합니다. |
 | Braze 계정 | 연결된 콘텐츠 기능에 접근할 수 있는 Braze 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -34,7 +34,7 @@ search_tag: Partner
 ### 2단계: Braze 연결된 콘텐츠 구성 {#step-2-configure-braze-connected-content}
 
 1. 자격 증명을 사용하여 [Braze에 로그인](https://dashboard.braze.com/sign_in)합니다.
-2. Braze 대시보드에서 **Templates** > **Content Blocks** > **Create Content Block** > **HTML code editor**로 이동합니다.
+2. Braze 대시보드에서 **Content** > **Content Block** > **Create Content Block** > **HTML code editor**로 이동합니다.
 3. Contentful의 [Contentful Content Delivery API URL](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links)에 대한 연결된 콘텐츠 요청을 생성합니다. Contentful Content Delivery API URL의 예시는 `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries`입니다.<br><br> 다양한 자산을 가져오려면 특정 변수를 포함해야 합니다. 예시 연결된 콘텐츠 URL 요청은 Contentful의 [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console) 엔드포인트를 대상으로 합니다. 이 엔드포인트에는 `{space_id}` 및 `{environment_id}`, 또는 `{entry_id}` 및 `{access_token}`과 같은 변수가 필요합니다. 이러한 변수는 Contentful 인스턴스에서 가져올 수 있습니다. 이 예시 콘텐츠 블록에서 변수는 Contentful Space ID와 Environment ID로 교체해야 합니다.<br><br>예시 Content Delivery API URL은 Contentful에서 사용 가능한 엔드포인트 중 하나만 사용합니다. 다양한 URL을 활용하여 다양한 사용 사례를 구현할 수 있습니다. 예를 들어, [Image API](https://www.contentful.com/developers/docs/references/images-api/)를 사용하여 Contentful에 저장된 이미지를 캡처할 수 있습니다. 자세한 내용은 [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/)를 참조하세요.
 
 {% alert note %}

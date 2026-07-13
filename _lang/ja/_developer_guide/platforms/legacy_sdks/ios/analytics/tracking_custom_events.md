@@ -14,7 +14,7 @@ noindex: true
 
 Brazeでカスタムイベントを記録することで、アプリの使用パターンに関する詳細を把握し、ダッシュボードでのアクションによってユーザーをセグメント化できます。
 
-実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/)のメモを必ず確認してください。
+実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions)に関するメモを必ず確認してください。
 
 ## カスタムイベントの追加 {#adding-a-custom-event}
 
@@ -89,5 +89,5 @@ Appboy.sharedInstance()?.logCustomEvent(
 
 ## その他のリソース {#additional-resources}
 
-- `Appboy.h` [ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h)内のメソッドの宣言を参照してください。
+- `Appboy.h` [ファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h)内のメソッド宣言を参照してください。
 - 詳細については、[`logCustomEvent`のドキュメント](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa)を参照してください。

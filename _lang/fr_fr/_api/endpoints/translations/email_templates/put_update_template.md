@@ -15,13 +15,11 @@ description: "Cet article présente les détails de l'endpoint Mise à jour des 
 /templates/email/translations/
 {% endapimethod %}
 
-> Utilisez cet endpoint pour mettre à jour les traductions d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> Utilisez cet endpoint pour mettre à jour les traductions d'un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) pour plus d'informations sur les fonctionnalités de traduction.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `templates.translations.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `templates.translations.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -38,7 +36,7 @@ Cet endpoint ne comporte pas de paramètres de chemin.
 | `template_id` | Requis | Chaîne de caractères | L'ID de votre modèle d'e-mail. |
 | `locale_id` | Requis | Chaîne de caractères | L'ID de la locale. |
 | `translations_map` | Requis | Chaîne de caractères | Le mappage des traductions pour votre modèle d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
 Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), qui peuvent être trouvés dans la réponse de l'endpoint GET.

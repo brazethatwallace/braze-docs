@@ -9,7 +9,7 @@ description: "This article outlines details about the Update scheduled API-trigg
 ---
 {% api %}
 # Update scheduled API-triggered campaigns
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/update
 {% endapimethod %}
 
@@ -17,7 +17,7 @@ description: "This article outlines details about the Update scheduled API-trigg
 
 You can pass in `trigger_properties` that Braze templates into the message itself.
 
-Note that to send messages with this endpoint, you must have a campaign ID, created when you build an [API-Triggered Campaign]({{site.baseurl}}/api/api_campaigns/).
+Note that to send messages with this endpoint, you must have a campaign ID, created when you build an [API-Triggered Campaign]({{site.baseurl}}/api/api_campaigns).
 
 Any schedule completely overwrites the one you provided in the create schedule request or previous update schedule requests. For example, if you originally set the schedule to `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` and then later update it to `"schedule" : {"time" : "2015-02-20T14:14:47"}`, Braze sends the message at the specified time in UTC, not in the user's local time.
 
@@ -27,7 +27,7 @@ Scheduled triggers that are updated close to or during the time they were suppos
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `campaigns.trigger.schedule.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.trigger.schedule.update` permission.
 
 ## Rate limit
 
@@ -54,10 +54,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`|Required|String| See [campaign identifier]({{site.baseurl}}/api/identifier_types/)|
+|`campaign_id`|Required|String| See [campaign identifier]({{site.baseurl}}/api/identifier_types)|
 | `schedule_id` | Required | String | The `schedule_id` to update (obtained from the response to create a schedule). |
-|`schedule` | Required | Object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+|`schedule` | Required | Object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

@@ -23,15 +23,15 @@ In diesem Referenzartikel erfahren Sie, welche Anwendungsfälle Amazon Personali
 
 ## Voraussetzungen {#prerequisites}
 
-| Anforderung| Beschreibung|
-| ---| ---|
+| Anforderung | Beschreibung |
+| --- | --- |
 | Amazon Web Service Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein AWS-Konto. Nachdem Sie über ein AWS-Konto verfügen, können Sie über die Amazon Personalize-Konsole, die AWS Command Line Interface (AWS CLI) oder die AWS SDKs auf Amazon Personalize zugreifen. |
 | Definierte Anwendungsfälle | Bevor Sie ein Modell erstellen, müssen Sie Ihren Anwendungsfall für diese Integration festlegen. In der folgenden Liste finden Sie gängige Anwendungsfälle. |
 | Datensätze | Amazon Personalize Empfehlungsmodelle benötigen drei verschiedene Arten von Datensätzen: Interaktionen, Nutzer:innen und Artikel. In den folgenden Details finden Sie die Anforderungen für jeden Datensatz. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% tabs %}
-{% tab Use Cases %}
+{% tab Anwendungsfälle %}
 
 **Anwendungsfälle**
 
@@ -43,7 +43,7 @@ Bevor Sie ein Modell erstellen, müssen Sie Ihren Anwendungsfall für diese Inte
 In der folgenden Anleitung konzentrieren wir uns auf das Rezept für personalisierte Nutzer:innen-Empfehlungen.
 
 {% endtab %}
-{% tab Datasets %}
+{% tab Datensätze %}
 
 **Datensätze**
 
@@ -71,7 +71,7 @@ Für ein Rezept für Nutzer:innen-Empfehlungen müssen Sie einen Interaktionsdat
 Sobald die Datensätze importiert sind, können Sie eine Lösung erstellen. Eine Lösung verwendet eines der Amazon Personalize [Rezepte](https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html) (Algorithmen), um ein Modell zu trainieren. In unserem Fall werden wir das Rezept `USER_PERSONALIZATION` verwenden. Durch das Trainieren der Lösung wird eine Lösungsversion (trainiertes Modell) erstellt, die Sie anhand der Performance-Metriken des Modells bewerten können.
 
 Mit Amazon Personalize können Sie die Hyperparameter anpassen, die das Modell beim Training verwendet. Zum Beispiel:
-- Mit dem Parameter „Perzentil der Länge des Nutzer:innen-Verlaufs“ in der Amazon Personalize-Konsole können Sie das Perzentil des Nutzer:innen-Verlaufs anpassen, das beim Training berücksichtigt werden soll:<br><br>![Minimal-/Maximaleinstellung des Nutzerprofils]({% image_buster /assets/img/amazon_personalize/min_and_max_user_percentile.png %})
+- Mit dem Parameter „Perzentil der Länge des Nutzer:innen-Verlaufs“ in der Amazon Personalize-Konsole können Sie das Perzentil des Nutzer:innen-Verlaufs anpassen, das beim Training berücksichtigt werden soll:<br><br>![Minimal- und Maximaleinstellung des Nutzerprofils]({% image_buster /assets/img/amazon_personalize/min_and_max_user_percentile.png %})
   - `min_user_history_length_percentile`: Schließt einen Prozentsatz der Nutzer:innen mit sehr kurzen Verläufen aus, was hilfreich sein kann, um beliebte Artikel zu eliminieren und Empfehlungen zu erstellen, die auf tiefer liegenden Mustern basieren.
   - `max_user_history_length_percentile`: Passt den Prozentsatz der Nutzer:innen an, der beim Training mit sehr langen Verläufen berücksichtigt werden soll.
 
@@ -92,17 +92,17 @@ Sobald eine Lösung fertig trainiert ist, können Sie sie bewerten und verschied
 
 Sobald Sie eine Lösungsversion erstellt haben, mit der Sie zufrieden sind, ist es an der Zeit, die Empfehlungen in die Tat umzusetzen. Es gibt zwei Möglichkeiten, auf die Empfehlungen zuzugreifen:
 
-1. Realtime-Kampagne<br>Eine Kampagne ist eine eingesetzte Lösungsversion mit einem definierten Mindestdurchsatz an Transaktionen. Eine Transaktion ist ein einzelner API-Aufruf, um die Ausgabe einer Empfehlung zu erhalten. Sie ist definiert als TPS oder Transaktionen pro Sekunde mit einem Mindestwert von eins. Die Kampagne skaliert die Ressourcen im Falle einer erhöhten Belastung, fällt aber nicht unter Ihren Mindestwert. Sie können die Empfehlungen in der Konsole, AWS CLI oder über AWS SDKs in Ihrem Code abfragen.<br><br>
+1. Realtime-Kampagne<br>Eine Kampagne ist eine eingesetzte Lösungsversion mit einem definierten Mindestdurchsatz an Transaktionen. Eine Transaktion ist ein einzelner API-Aufruf, um die Ausgabe einer Empfehlung zu erhalten. Sie ist definiert als TPS oder Transaktionen pro Sekunde mit einem Mindestwert von eins. Die Kampagne skaliert die Ressourcen im Falle einer erhöhten Belastung, fällt aber nicht unter Ihren Mindestwert. Sie können die Empfehlungen in der Konsole, der AWS CLI oder über AWS SDKs in Ihrem Code abfragen.<br><br>
 2. Batch-Auftrag<br>Ein Batch-Auftrag exportiert die Empfehlungen in einen S3-Bucket. Der Auftrag nimmt als Eingabe eine JSON-Datei mit einer Liste von Nutzer-IDs, für die Sie die Empfehlungen exportieren möchten. Nachdem Sie die richtigen Berechtigungen und das Ausgabeziel angegeben haben, können Sie den Auftrag ausführen. Die Laufzeit hängt von der Größe Ihrer Datensätze und der Länge der Empfehlungsliste ab.
 
 ### Filter {#filters}
 
-Mit Filtern können Sie die Ausgabe der Empfehlungen anpassen, indem Sie Artikel auf der Grundlage der Artikel-ID, des Event-Typs oder der Metadaten ausschließen. Sie können Nutzer:innen auch anhand ihrer Metadaten filtern, z. B. Alter oder Status der Treue-Mitgliedschaft. Filter können nützlich sein, um zu verhindern, dass Artikel empfohlen werden, mit denen Nutzer:innen bereits interagiert haben.
+Mit Filtern können Sie die Ausgabe der Empfehlungen anpassen, indem Sie Artikel auf der Grundlage der Artikel-ID, des Ereignistyps oder der Metadaten ausschließen. Sie können Nutzer:innen auch anhand ihrer Metadaten filtern, z. B. Alter oder Status der Treue-Mitgliedschaft. Filter können nützlich sein, um zu verhindern, dass Artikel empfohlen werden, mit denen Nutzer:innen bereits interagiert haben.
 
 ## Integration der Ergebnisse in Braze {#integrating-results-with-braze}
 
 Mit dem erstellten Modell und der Empfehlungskampagne sind Sie bereit, eine Braze-Kampagne für Ihre Nutzer:innen mit Content Cards und Connected-Content durchzuführen.
-Bevor Sie eine Braze-Kampagne starten, müssen Sie einen Dienst erstellen, der diese Empfehlungen über eine API bereitstellen kann. Sie können [Schritt 3 des Workshop-Artikels]({{site.baseurl}}/partners/amazon_personalize_workshop/#step-3-send-personalized-emails-from-braze) befolgen, um den Dienst mithilfe der AWS-Dienste bereitzustellen. Sie können auch Ihren eigenen unabhängigen Backend-Dienst einsetzen, der die Empfehlungen bereitstellt.
+Bevor Sie eine Braze-Kampagne starten, müssen Sie einen Dienst erstellen, der diese Empfehlungen über eine API bereitstellen kann. Sie können [Schritt 3 des Workshop-Artikels]({{site.baseurl}}/partners/amazon_personalize_workshop#step-3-send-personalized-emails-from-braze) befolgen, um den Dienst mithilfe der AWS-Dienste bereitzustellen. Sie können auch Ihren eigenen unabhängigen Backend-Dienst einsetzen, der die Empfehlungen bereitstellt.
 
 ### Anwendungsfall: Content-Card-Kampagne {#content-card-campaign-use-case}
 
@@ -130,7 +130,7 @@ In den folgenden Beispielen werden wir den Endpunkt
 ]
 ```
 
-Erstellen Sie im Braze-Dashboard eine neue [Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). Erstellen Sie im Feld für den Nachrichtentext einen Connected-Content-Liquid-Block, um die API abzufragen und die Antwort in der Variablen `recommendations` zu speichern:
+Erstellen Sie im Braze-Dashboard eine neue [Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). Erstellen Sie im Feld für den Nachrichtentext einen Connected-Content-Liquid-Block, um die API abzufragen und die Antwort in der Variablen `recommendations` zu speichern:
 
 {% raw %}
 

@@ -26,7 +26,7 @@ The following are required to use this integration:
 | Denada account | A [Denada account](https://app.heydenada.com) is required to use this integration. |
 | Braze REST API key | A Braze REST API key with full **Templates** permissions. <br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -39,7 +39,7 @@ Denada is built for marketers and subject matter experts who want to create on-b
 
 ### Step 1: Configure your integration
 
-In Denada, select your company name in the lower-left corner, then select **Team settings** > **Add integration**.
+In Denada, select your company name in the profile menu, then select **Team settings** > **Add integration**.
 
 Select **Braze** as the integration, then enter your Braze **API key** and select your **REST API endpoint** from the list of available regions.
 

@@ -15,17 +15,17 @@ description: "This article outlines details about the Update existing dashboard 
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Use this endpoint to update an existing dashboard user account by specifying the resource `id` returned by the SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) method.
+> Use this endpoint to update an existing dashboard user account by specifying the resource `id` returned by the SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) method.
 
 It allows you to update of given and family names, permissions (for setting permissions at the company, workspace, and team level) and department.
 
-For security reasons, `userName` (email address) cannot be updated through this endpoint. If you want to change the `userName` (email address) for a user, contact [Support]({{site.baseurl}}/support_contact/).
+For security reasons, `userName` (email address) cannot be updated through this endpoint. If you want to change the `userName` (email address) for a user, contact [Support]({{site.baseurl}}/support_contact).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need a SCIM token. You'll use your service origin as the `X-Request-Origin` header. For more information, refer to [Automated user provisioning]({{site.baseurl}}/scim/automated_user_provisioning/).
+To use this endpoint, you'll need a SCIM token. You'll use your service origin as the `X-Request-Origin` header. For more information, refer to [Automated user provisioning]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate limit
 
@@ -35,8 +35,8 @@ To use this endpoint, you'll need a SCIM token. You'll use your service origin a
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `id` | Required | String | The user's resource ID. This parameter is returned by the  `POST` `/scim/v2/Users/` or `GET`  `/scim/v2/Users?filter=userName eq "user@test.com"` methods. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `id` | Required | String | The user's resource ID. This parameter is returned by the  `POST` `/scim/v2/Users/` or `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"` methods. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request body
 ```
@@ -92,9 +92,9 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Required | Array of strings | Expected SCIM 2.0 schema name for user object. |
 | `name` | Required | JSON object | This object contains the user's given name and family name. |
-| `department` | Required | String | Valid department string from the [department string documentation]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Required | JSON object | Permissions object as described in the [permissions object documentation]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `department` | Required | String | Valid department string from the [department string documentation]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Required | JSON object | Permissions object as described in the [permissions object documentation]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
 ## Example request
@@ -141,7 +141,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

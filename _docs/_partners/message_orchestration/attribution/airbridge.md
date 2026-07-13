@@ -25,7 +25,7 @@ The Braze and Airbridge integration lets you pass all non-organic install attrib
 | Airbridge account | An Airbridge account is required to take advantage of this partnership. |
 | iOS or Android app | This integration supports iOS and Android apps. Depending on your platform, code snippets may be required in your application. |
 | Airbridge SDK | In addition to the required Braze SDK, you must install the Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk) or [iOS](https://help.airbridge.io/en/developers/ios-sdk) SDK. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -196,11 +196,11 @@ In Braze, navigate to **Partner Integrations** > **Technology Partners** and sel
 
 Here, you will find the REST endpoint and generate your Braze data import key. After the key is generated, you can create a new key or invalidate an existing one. The data import key and the REST endpoint are used in the next step when setting up a postback in Airbridge's dashboard.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
+![Braze Airbridge partner page showing data import key and REST endpoint fields.]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
 
 ### Step 3: Configure Braze in Airbridge's dashboard
 
-1. In Airbridge, navigate to **Integrations > Third-party Integrations** in the left sidebar and select **Braze**.
+1. In Airbridge, navigate to **Integrations > Third-party Integrations** in the navigation sidebar and select **Braze**.
 2. Provide the data import key and REST endpoint that you found in the Braze dashboard.
 3. Select the event type (Install Event or Install & Deeplink Open Event) and save.
 
@@ -228,10 +228,11 @@ Assuming you configure your integration as suggested, Braze will map install dat
 | `Campaign` | Install Attribution Campaign | The campaign the installs or deeplink opens are attributed to |
 | `Ad Group` | Install Attribution Adgroup | The ad group the installs or deeplink opens are attributed to |
 | `Ad Creative` | Install Attribution Ad | The ad creative the installs or deeplink opens are attributed to |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available data fields" }
 
 Your user base can be segmented by attribution data in the Braze dashboard using the Install Attribution filters.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
+![Braze segment filters displaying available Airbridge install attribution fields.]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
 
 ## Meta Business attribution data
 

@@ -38,7 +38,7 @@ Para realizar un seguimiento continuo de la ubicación de un usuario, tendrás q
 |---|---|
 | `ACCESS_COARSE_LOCATION` | Utiliza el proveedor no GPS que consume menos batería (como una red doméstica). Normalmente, esto es suficiente para la mayoría de las necesidades de datos de ubicación. Según el modelo de permisos en tiempo de ejecución, conceder el permiso de ubicación autoriza implícitamente la recopilación de datos de ubicación precisa. |
 | `ACCESS_FINE_LOCATION`   | Incluye datos GPS para una ubicación más precisa. Según el modelo de permisos en tiempo de ejecución, conceder el permiso de ubicación también cubre el acceso a la ubicación precisa. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
 Tu `AndroidManifest.xml` debe ser similar al siguiente:
 

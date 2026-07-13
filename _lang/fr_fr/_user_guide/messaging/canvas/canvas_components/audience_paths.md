@@ -9,17 +9,17 @@ tool: Canvas
 
 ---
 
-# Parcours d'audience
+# Parcours d'audience {#audience-paths}
 
 > Les Parcours d'audience de Canvas vous permettent de filtrer et de segmenter intuitivement les utilisateurs à grande échelle en envoyant chaque utilisateur dans le premier parcours dont il remplit les critères.
 
 Ce composant Canvas remplace la nécessité de créer un nombre excessif d'étapes complètes basées sur l'audience, en vous permettant de combiner ce qui aurait pu être huit composants complets en un seul. Cela simplifie le ciblage des utilisateurs tout en allégeant vos Canvas d'une complexité inutile.
 
-## Fonctionnement
+## Fonctionnement {#how-it-works}
 
 ![Un Parcours d'audience avec deux groupes : les utilisateurs engagés et tous les autres.]({% image_buster /assets/img/audience_path/audience_path.png %}){: style="float:right;max-width:45%;margin-left:15px;margin-top:15px;"}
 
-Les utilisateurs progressent dans la première branche dont ils remplissent les critères : placez donc le parcours le plus important en premier. Cela réduit l'ambiguïté quant à la destination des utilisateurs et aux messages qu'ils reçoivent. Notez que cet ordre n'est pas [modifiable après le lancement]({{site.baseurl}}/post-launch_edits/).
+Les utilisateurs progressent dans la première branche dont ils remplissent les critères : placez donc le parcours le plus important en premier. Cela réduit l'ambiguïté quant à la destination des utilisateurs et aux messages qu'ils reçoivent. Notez que cet ordre n'est pas [modifiable après le lancement]({{site.baseurl}}/post-launch_edits).
 
 Avec les Parcours d'audience, vous pouvez :
 
@@ -30,7 +30,7 @@ Avec les Parcours d'audience, vous pouvez :
 
 Au sein d'une même étape de Parcours d'audience, les utilisateurs sont évalués par rapport aux groupes d'audience dans l'ordre et progressent dans le premier parcours pour lequel ils sont éligibles. Si vous connectez plusieurs étapes de Parcours d'audience dans un Canvas, les utilisateurs sont réévalués à chaque fois qu'ils atteignent une nouvelle étape de Parcours d'audience.
 
-### Comment les utilisateurs sont évalués
+### Comment les utilisateurs sont évalués {#how-users-are-evaluated}
 
 ![Canvas montrant un délai de 24 heures après une étape Message, suivi d'un Parcours d'audience.]({% image_buster /assets/img/audience_path/audience_path5.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
@@ -39,10 +39,10 @@ Les utilisateurs sont évalués par rapport aux filtres et à l'appartenance aux
 <div style="clear: both;"></div>
 
 {% alert important %}
-Les Parcours d'audience évaluent les utilisateurs en fonction de leurs attributs actuels, de leurs filtres et de leur appartenance aux segments au moment de l'évaluation. Ils ne se basent pas sur l'événement spécifique qui a déclenché l'entrée dans le Canvas. Pour orienter les utilisateurs en fonction d'une action qu'ils effectuent (comme un événement personnalisé), utilisez plutôt les [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/).
+Les Parcours d'audience évaluent les utilisateurs en fonction de leurs attributs actuels, de leurs filtres et de leur appartenance aux segments au moment de l'évaluation. Ils ne se basent pas sur l'événement spécifique qui a déclenché l'entrée dans le Canvas. Pour orienter les utilisateurs en fonction d'une action qu'ils effectuent (comme un événement personnalisé), utilisez plutôt les [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths).
 {% endalert %}
 
-### Laisser du temps pour l'évaluation des utilisateurs
+### Laisser du temps pour l'évaluation des utilisateurs {#allowing-time-for-user-evaluations}
 
 L'évaluation étant immédiate, il est important d'ajouter un délai avant le Parcours d'audience si les critères du parcours dépendent d'une interaction de l'utilisateur avec une étape précédente.
 
@@ -50,7 +50,7 @@ Par exemple, si les utilisateurs reçoivent le Message A et que l'étape suivant
 
 Pour laisser aux utilisateurs le temps d'interagir avec un message envoyé, ajoutez un délai entre l'étape Message et le Parcours d'audience. Par exemple, un délai de 24 heures donne aux utilisateurs 24 heures après l'envoi du message pour interagir avec le Message A avant l'évaluation.
 
-## Créer un Parcours d'audience
+## Créer un Parcours d'audience {#creating-an-audience-path}
 
 Pour ajouter une étape de Parcours d'audience, procédez comme suit :
 
@@ -59,7 +59,7 @@ Pour ajouter une étape de Parcours d'audience, procédez comme suit :
 
 Le composant Parcours d'audience par défaut contient deux groupes d'audience par défaut : **Groupe 1** et **Tous les autres**. Le groupe **Tous les autres** inclut tout utilisateur qui ne correspond à aucun groupe d'audience défini. Ce groupe est toujours le dernier dans l'ordre.
 
-### Définir les groupes d'audience
+### Définir les groupes d'audience {#defining-audience-groups}
 
 La capture d'écran suivante montre la disposition d'une étape de Parcours d'audience développée. Vous pouvez y définir jusqu'à huit groupes d'audience (un prédéfini et sept personnalisables). Pour définir un groupe d'audience, sélectionnez le nom du groupe dans l'éditeur de Parcours d'audience. Vous pouvez renommer votre groupe d'audience, choisir les filtres et segments qui s'appliquent à votre groupe, et ajouter ou supprimer des groupes.
 
@@ -71,13 +71,13 @@ Une fois l'étape de Parcours d'audience terminée, chaque groupe d'audience dis
 
 ![Deux Parcours d'audience avec différents groupes basés sur l'engagement.]({% image_buster /assets/img/audience_path/audience_path4.png %}){: style="max-width:50%"}
 
-### Tester les groupes d'audience
+### Tester les groupes d'audience {#testing-audience-groups}
 
-Après avoir ajouté des segments et des filtres à votre audience, vous pouvez vérifier que vos groupes d'audience sont configurés comme prévu en [recherchant un utilisateur]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) pour confirmer qu'il correspond aux critères d'audience.
+Après avoir ajouté des segments et des filtres à votre audience, vous pouvez vérifier que vos groupes d'audience sont configurés comme prévu en [recherchant un utilisateur]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) pour confirmer qu'il correspond aux critères d'audience.
 
 ![La section « Recherche d'utilisateur ».]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
-## Utiliser les Parcours d'audience
+## Utiliser les Parcours d'audience {#using-audience-paths}
 
 La véritable puissance des Parcours d'audience réside dans le fait de placer les parcours qui vous importent le plus **en premier**. Bien que cette fonctionnalité n'ait pas besoin d'être utilisée de manière stratégique, certains marketeurs peuvent souhaiter mettre en avant certains produits auprès des utilisateurs, comme des offres spéciales ou des éditions limitées.
 
@@ -91,15 +91,15 @@ Lorsque les utilisateurs entrent dans ce composant de Parcours d'audience, ils s
 
 Vous pouvez également consulter les performances de cette étape grâce à l'[analytique Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics#performance-visualization).
 
-### Segmenter les Parcours d'audience avec des numéros de compartiment aléatoires
+### Segmenter les Parcours d'audience avec des numéros de compartiment aléatoires {#segmenting-audience-paths-with-random-bucket-numbers}
 
-Si votre Canvas utilise une [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) (par exemple, en limitant le nombre total d'utilisateurs qui recevront le Canvas), Braze recommande de ne pas utiliser de numéros de compartiment aléatoires pour segmenter vos Parcours d'audience.
+Si votre Canvas utilise une [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) (par exemple, en limitant le nombre total d'utilisateurs qui recevront le Canvas), Braze recommande de ne pas utiliser de numéros de compartiment aléatoires pour segmenter vos Parcours d'audience.
 
-Un [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) est un attribut utilisateur qui peut être utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. Braze utilise le numéro de compartiment aléatoire pour regrouper les utilisateurs pendant la phase de segmentation à l'entrée du Canvas, et chaque groupe est traité séparément. Selon les groupes qui terminent le traitement en premier, certains utilisateurs peuvent être bloqués à l'entrée en raison de la limite de débit, ce qui pourrait entraîner une distribution inégale des utilisateurs lorsqu'ils atteignent l'étape de Parcours d'audience.
+Un [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) est un attribut utilisateur qui peut être utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. Braze utilise le numéro de compartiment aléatoire pour regrouper les utilisateurs pendant la phase de segmentation à l'entrée du Canvas, et chaque groupe est traité séparément. Selon les groupes qui terminent le traitement en premier, certains utilisateurs peuvent être bloqués à l'entrée en raison de la limite de débit, ce qui pourrait entraîner une distribution inégale des utilisateurs lorsqu'ils atteignent l'étape de Parcours d'audience.
 
-Dans ce cas, essayez plutôt d'utiliser les [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/).
+Dans ce cas, essayez plutôt d'utiliser les [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step).
 
-### Utiliser le filtre Canal intelligent avec les Parcours d'audience
+### Utiliser le filtre Canal intelligent avec les Parcours d'audience {#using-intelligent-channel-filter-with-audience-paths}
 
 En combinant les étapes de Parcours d'audience et les filtres de canal intelligent, vous pouvez adapter votre expérience de communication aux préférences et comportements de chaque utilisateur. Ainsi, vos utilisateurs recevront les messages les plus pertinents via les canaux appropriés.
 

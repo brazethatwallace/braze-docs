@@ -19,7 +19,7 @@ from pathlib import Path
 
 REPO = os.environ.get("GITHUB_REPOSITORY", "braze-inc/braze-docs")
 PR_NUMBER = os.environ.get("PR_NUMBER", "")
-REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-20250514")
+REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-6")
 REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 SCRIPTS_DIR = REPO_ROOT / "scripts"
@@ -139,6 +139,16 @@ Dismiss a comment when:
   (e.g., Braze product names, technical terms)
 - It conflicts with the translation rules (e.g., keeping English product names)
 - The current text is actually correct
+- It claims bold dashboard breadcrumb paths must stay in English when the
+  translation matches localized Braze dashboard UI labels for that locale
+  (for example Spanish **Configuración** > **Configuración de administrador**
+  > **Configuración de seguridad** for English **Settings** > **Admin Settings**
+  > **Security Settings**). Localized nav paths are correct; only flag mixed
+  English/localized controls within the same step list.
+- It claims table or icon `aria-label` values must stay in English when they
+  were correctly translated (for example `"Use cases"` → `"Casos de uso"` on
+  a Kramdown IAL line or `"Settings"` → `"Configuración"` on a `fa-gear` icon).
+  Localized `aria-label` values are correct per our translation rules.
 
 ## Response format
 

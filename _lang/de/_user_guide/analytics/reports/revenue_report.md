@@ -50,7 +50,8 @@ Wenn Sie Umsatz für eine Währung ohne Wechselkurs erfassen, zeichnet Braze die
     }
 </style>
 
-<table>
+<table aria-label="Umsatzberechnungen verstehen">
+  <caption>Umsatzberechnungen verstehen</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -89,14 +90,14 @@ In der Tabelle **Product Breakdown** finden Sie eine Liste der Produkte, die im 
 
 ## Umsatzdaten exportieren {#exporting-revenue-data}
 
-Um Ihre Umsatzdaten zu exportieren, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> im Diagramm **Performance Over Time** und wählen Sie Ihre Exportoption aus.
+Um Ihre Umsatzdaten zu exportieren, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> **Chart-Kontextmenü** im Diagramm **Performance Over Time** und wählen Sie Ihre Exportoption aus.
 
 {% alert tip %}
-Suchen Sie nach weiteren Möglichkeiten, Umsatzdaten zu erhalten? Versuchen Sie, Kaufverhalten (sowie den Kauf eines Produkts) zu Campaigns oder Canvases als [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) hinzuzufügen.
+Suchen Sie nach weiteren Möglichkeiten, Umsatzdaten zu erhalten? Versuchen Sie, Kaufverhalten (sowie den Kauf eines Produkts) zu Campaigns oder Canvases als [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) hinzuzufügen.
 {% endalert %}
 
-Sie können Umsatzstatistiken auch fallweise auf den Seiten [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) oder [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) einsehen.
+Sie können Umsatzstatistiken auch fallweise auf den Seiten [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) oder [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) einsehen.
 
 {% alert tip %}
-Umsatzberichte können nicht über die API exportiert werden. Hilfe zu CSV-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Umsatzberichte können nicht über die API exportiert werden. Hilfe zu CSV-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

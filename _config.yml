@@ -102,8 +102,12 @@ collections:
     page_order: 6
   help:
     output: true
-    default_nav_url: home/
+    default_nav_url: help_articles/
   hidden: # Hidden pages not directly linked via navigation
+    title: Braze
+    output: true
+    hidden: true
+  unlisted_docs: # Migrated from the braze-docs-hidden repo. Pages have working permalinks but are excluded from nav, search, and the sitemap.
     title: Braze
     output: true
     hidden: true
@@ -172,6 +176,16 @@ defaults:
       hide_nav: true
   - scope:
       path: ""
+      type: "unlisted_docs"
+    values:
+      layout: "documents"
+      hidden: true
+      noindex: true
+      hide_feedback: true
+      hide_nav: true
+      hide_breadcrumb: true
+  - scope:
+      path: ""
       type: "docs_pages"
     values:
       layout: "bare"
@@ -226,6 +240,8 @@ exclude:
     "_site",
     "vercel.json",
     "scripts",
+    ".claude",
+    ".cursor",
   ]
 
 # Setting for image buster
@@ -233,6 +249,7 @@ image_buster:
   dev: false
   paths:
     - "/assets/img/*.*"
+    - "/assets/unlisted_docs/img/*.*" # assets for the unlisted_docs collection (migrated from braze-docs-hidden)
 
 # Image asset pipeline setting for japr
 asset_pipeline:
@@ -280,6 +297,9 @@ algolia:
     - _docs/_hidden/*
     - _docs/_hidden/*/* #exclude hidden subdirectories from indexing
     - _docs/_hidden/*/*/* #exclude additional hidden subdirectories from indexing
+    - _docs/_unlisted_docs/* # exclude unlisted docs (migrated from braze-docs-hidden) from indexing
+    - _docs/_unlisted_docs/*/* #exclude unlisted_docs subdirectories from indexing
+    - _docs/_unlisted_docs/*/*/* #exclude additional unlisted_docs subdirectories from indexing
     - _docs/_docs_pages/*
     - _docs/_docs_pages/*/* #exclude hidden subdirectories from indexing
     - _docs/_docs_pages/*/*/* #exclude additional hidden subdirectories from indexing

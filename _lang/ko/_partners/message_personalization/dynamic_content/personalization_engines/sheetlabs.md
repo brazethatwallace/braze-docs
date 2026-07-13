@@ -21,7 +21,7 @@ Sheetlabs와 Braze 통합을 통해 [연결된 콘텐츠]({{site.baseurl}}/user_
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Sheetlabs 계정 | 이 파트너십을 활용하려면 [Sheetlabs 계정](https://sheetlabs.com/)이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 

@@ -10,13 +10,13 @@ hidden: true
 
 # Rokt Calendar
 
-> [Rokt Calendar](https://www.rokt.com/rokt-calendar/) は、ブランドがカレンダーイベントや通知の形式で1:1のイベントやプロモーションコミュニケーションをプッシュできるようにするダイナミックなカレンダーマーケティングテクノロジーです。
+> [Rokt Calendar](https://www.rokt.com/rokt-calendar/)は、ブランドがカレンダーイベントや通知の形式で1:1のイベントやプロモーションコミュニケーションをプッシュできるようにするダイナミックなカレンダーマーケティングテクノロジーです。
 
 *この統合はRokt Calendarによって管理されています。*
 
 ## 統合について {#about-the-integration}
 
-BrazeとRokt Calendarの統合により、Rokt Calendarのサブスクライバーとそのデータを Braze Webhook経由でBrazeにプッシュできます。その後、Braze Canvasでこのデータを使用して、以下のカスタム[Rokt Calendar属性](#audience-segmentation)を使用したジャーニーターゲティングとオーディエンスセグメンテーションを行うことができます。
+BrazeとRokt Calendarの統合により、Rokt Calendarのサブスクライバーとそのデータを Braze Webhook経由でBrazeにプッシュできます。その後、Braze キャンバスでこのデータを使用して、以下のカスタム[Rokt Calendar属性](#audience-segmentation)を使用したジャーニーターゲティングとオーディエンスセグメンテーションを行うことができます。
 
 ## 前提条件 {#prerequisites}
 
@@ -28,7 +28,7 @@ BrazeとRokt Calendarの統合により、Rokt Calendarのサブスクライバ�
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。このキーをRokt Calendarのアカウントマネージャーに提供する必要があります。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | [Braze RESTエンドポイント]({{site.baseurl}}/api/basics/#endpoints) | RESTエンドポイントのURL。エンドポイントはインスタンスのBraze URLに依存します。 |
 | 外部サブスクライバーID | これは、Rokt CalendarのサブスクリプションプロセスがカレンダーサブスクライバーとBrazeユーザーを照合するために使用する識別子です。これをRokt Calendarに渡します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## オーディエンスセグメンテーション {#audience-segmentation}
 
@@ -52,15 +52,15 @@ Rokt Calendarが新規ユーザーを作成するか、既存のサブスクラ�
 | `rokt:subscription_id` | 作成されたサブスクリプションに関連する、一意な識別子としてのサブスクリプションID | `06423672-b6ba-4536-aa36-70788a7a0a36` |
 | `rokt:subscription_method` | 作成されたサブスクリプションに関連するサブスクリプション方法（webcal/Google） | `WebCal/f5733866ade2` |
 | `rokt:tags` | 作成されたサブスクリプションに関連して使用されたカレンダータグ | `Test Calendar 1/All Teams/f5733866ade2 and Test Calendar 1/TeamI//f5733866ade2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience segmentation #audience-segmentation" }
 
-また、Rokt Calendarは、ユーザーがRokt Calendarをサブスクライブするとすぐに `subscribe` カスタムイベントをトリガーします。このイベントはBrazeセグメンテーションで使用することも、CampaignまたはCanvasコンポーネントのトリガーとして使用することもできます。
+また、Rokt Calendarは、ユーザーがRokt Calendarをサブスクライブするとすぐに `subscribe` カスタムイベントをトリガーします。このイベントはBrazeセグメンテーションで使用することも、キャンペーンまたはキャンバスコンポーネントのトリガーとして使用することもできます。
 
 ## 統合 {#integration}
 
-### ステップ1:カレンダーサブスクライバーのオーディエンスを作成する {#step-1-building-an-audience-of-calendar-subscribers}
+### ステップ1：カレンダーサブスクライバーのオーディエンスを作成する {#step-1-building-an-audience-of-calendar-subscribers}
 
-Canvasからカレンダーイベントを送信するには、まずすでにサブスクライブしているユーザーがいるRokt Calendarを設定する必要があります。そのためには、カレンダーをサブスクライブする場所と方法をユーザーに通知する必要があります。Rokt Calendarでは以下を推奨しています。
+キャンバスからカレンダーイベントを送信するには、まずすでにサブスクライブしているユーザーがいるRokt Calendarを設定する必要があります。そのためには、カレンダーをサブスクライブする場所と方法をユーザーに通知する必要があります。Rokt Calendarでは以下を推奨しています。
 
 #### サブスクリプションの統合ポイントを提供する {#provide-subscription-integration-points}
 カレンダーサブスクライバーのオーディエンスを作成するには、ユーザーが移動してサブスクライブできる送信先を提供する必要があります。サブスクリプション統合ポイントの例には以下があります：
@@ -76,16 +76,16 @@ Canvasからカレンダーイベントを送信するには、まずすでに�
   - ブログ記事
   - アプリ内通知
 
-### ステップ2:BrazeでRokt CalendarのWebhookを作成する {#step-2-create-a-rokt-calendar-webhook-in-braze}
+### ステップ2：BrazeでRokt CalendarのWebhookを作成する {#step-2-create-a-rokt-calendar-webhook-in-braze}
 
-Brazeでは、以下のいずれかを行うためにWebhookキャンペーンまたはCanvas内のWebhookを設定できます。
+Brazeでは、以下のいずれかを行うためにWebhook キャンペーンまたはキャンバス内のWebhookを設定できます。
 
 - 新しいパーソナライズ済みイベントを送信する：サブスクライバーのカレンダーのセグメントに新しいイベントを追加できるようにします。
 - パーソナライズ済みイベントを更新する：サブスクライバーのカレンダーにある既存のイベントを更新できるようにします。
 
-今後のCampaignやCanvasesで使用するRokt Calendar Webhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
+今後のキャンペーンやキャンバスで使用するRokt Calendar Webhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
 
-単発のRokt Calendar Webhookキャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
+単発のRokt Calendar Webhook キャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 {% tabs %}
 {% tab Send a new event %}
@@ -144,7 +144,7 @@ Rokt Calendarでは、認証のためにRokt Calendarコネクテッドコンテ
 {% endtab %}
 {% tab Update an existing event %}
 {% raw %}
-```javascript
+`````````javascript
 {% capture eventId %}Event_0001{% endcapture %}
 {% capture eventTitle %}Event Title{% endcapture %}
 {% capture eventDescr %}Event Description{% endcapture %}
@@ -182,7 +182,7 @@ Rokt Calendarでは、認証のためにRokt Calendarコネクテッドコンテ
 | `eventEnd` <br>***必須**  | カレンダーに表示されるイベントの終了日時 | `2019-02-21T16:00:00` |
 | `eventTz` <br>***必須**  | カレンダーに表示されるイベントのタイムゾーン。適用可能なタイムゾーンのリストは[こちら](https://roktcalendar-api.readme.io/docs/timezones)で確認できます。 | `Eastern Standard Time` |
 | `notifyBefore` <br>***必須**  | カレンダーに表示されるイベントのリマインダー時刻。分単位で表されます。 | `15` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Request body" }
 {% endtab %}
 {% endtabs %}
 
@@ -190,10 +190,10 @@ Rokt Calendarでは、認証のためにRokt Calendarコネクテッドコンテ
 有効なタイムゾーンのリストは、[https://roktcalendar-api.readme.io/reference/timezones](https://roktcalendar-api.readme.io/reference/timezones)を参照してください。
 {% endalert %}
 
-### ステップ3:リクエストをプレビューする {#step-3-preview-your-request}
+### ステップ3：リクエストをプレビューする {#step-3-preview-your-request}
 
 **プレビュー**パネルでリクエストをプレビューするか、**テスト**タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、独自にカスタマイズしてWebhookをテストします。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
 {% endalert %}

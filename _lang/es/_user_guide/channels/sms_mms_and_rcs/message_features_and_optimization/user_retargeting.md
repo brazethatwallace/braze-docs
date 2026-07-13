@@ -19,7 +19,7 @@ channel:
 > Además de cambiar el estado de suscripción del usuario y enviar respuestas automáticas basadas en palabras clave entrantes, Braze también registrará las interacciones en el perfil de usuario para filtrar y desencadenar mensajes.<br><br>Estos filtros y desencadenantes te permiten filtrar acciones basadas en usuarios que han recibido o han respondido a campañas de SMS, MMS y RCS, o interactuar aún más con usuarios que han hecho clic en URL acortadas.
 
 {% alert tip %}
-Para leer más sobre palabras clave personalizadas y cómo configurar la mensajería bidireccional para aprovechar estas opciones de reorientación, visita nuestro artículo sobre [palabras clave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/).
+Para leer más sobre palabras clave personalizadas y cómo configurar la mensajería bidireccional para aprovechar estas opciones de reorientación, visita nuestro artículo sobre [palabras clave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
 {% endalert %}
 
 ## Opciones de reorientación {#retargeting-options}
@@ -30,7 +30,7 @@ Al crear audiencias con reorientación de usuarios, es posible que desees inclui
 
 ### Filtrar usuarios por SMS, MMS y RCS {#filter-users-by-sms-mms-and-rcs}
 
-Los usuarios pueden filtrarse por la última vez que recibieron un SMS, MMS o RCS, o si han recibido un SMS, MMS o RCS de una Campaign específica. Los filtros se pueden configurar en el paso **Target Audiences** del creador de campañas.
+Los usuarios pueden filtrarse por la última vez que recibieron un SMS, MMS o RCS, o si han recibido un SMS, MMS o RCS de una Campaign específica. Los filtros se pueden configurar en el paso **Público objetivo** del creador de campañas.
 
 {% alert note %}
 Cuando un mensaje es recibido, abierto o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo número de teléfono que el perfil que registró la interacción. Los usuarios que comparten un número de teléfono con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.
@@ -50,11 +50,11 @@ Filtra usuarios que han recibido un mensaje de una Campaign específica. Con est
 
 Para desencadenar mensajes cuando los usuarios reciben mensajes de SMS, MMS o RCS de una Campaign específica, selecciona **Interact with Campaign** como la acción desencadenante para una Campaign basada en acciones. A continuación, selecciona **Receive SMS** y la Campaign de SMS, MMS o RCS que deseas utilizar.
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![Para desencadenar mensajes cuando los usuarios reciben mensajes de SMS, MMS o RCS de una Campaign específica, selecciona Interact with Campaign como la acción desencadenante para una Campaign basada en acciones. A continuación, selecciona Receive SMS y la Campaign de SMS, MMS o RCS que deseas utilizar.]({% image_buster /assets/img/sms/trigger.png %})
 
 ### Filtrar por enlaces de seguimiento avanzado {#filter-by-advanced-tracking-links}
 
-Reorienta a los usuarios que han hecho clic en Campaigns con [enlaces de seguimiento avanzado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/).
+Reorienta a los usuarios que han hecho clic en Campaigns con [enlaces de seguimiento avanzado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 Solo las Campaigns que tienen el seguimiento avanzado habilitado aparecen en los siguientes menús desplegables:
 
 #### Reorientar usuarios que han hecho clic en una Campaign específica de SMS, MMS o RCS {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
@@ -63,7 +63,7 @@ Solo las Campaigns que tienen el seguimiento avanzado habilitado aparecen en los
 2. Selecciona **clicked shortened sms link**.
 3. Elige la Campaign deseada.
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![Captura de pantalla relacionada con reorientar usuarios que han hecho clic en una Campaign específica de SMS, MMS o RCS.]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### Reorientar usuarios que han hecho clic en un paso específico de Canvas {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
@@ -71,11 +71,11 @@ Solo las Campaigns que tienen el seguimiento avanzado habilitado aparecen en los
 2. Selecciona **clicked shortened sms link**.
 3. Elige el Canvas y el paso en Canvas deseados.
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![Captura de pantalla relacionada con reorientar usuarios que han hecho clic en un paso específico de Canvas.]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## Reorientación específica por categoría de palabras clave {#keyword-category-specific-retargeting}
 
-Además de las tres categorías de palabras clave predeterminadas (adhesión voluntaria, cancelación de suscripción y ayuda), también puedes crear hasta 25 categorías de palabras clave propias, lo que te permite identificar palabras clave y respuestas arbitrarias. Estas categorías se pueden usar para filtrar y reorientar. Para leer más sobre las categorías de palabras clave globales y cómo configurarlas, consulta [Procesamiento de palabras clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/).
+Además de las tres categorías de palabras clave predeterminadas (adhesión voluntaria, cancelación de suscripción y ayuda), también puedes crear hasta 25 categorías de palabras clave propias, lo que te permite identificar palabras clave y respuestas arbitrarias. Estas categorías se pueden usar para filtrar y reorientar. Para leer más sobre las categorías de palabras clave globales y cómo configurarlas, consulta [Procesamiento de palabras clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing).
 
 ### Filtrar por recencia {#filter-by-recency}
 
@@ -106,7 +106,7 @@ Los mensajes se pueden desencadenar cuando los usuarios envían mensajes entrant
 Al evaluar si un mensaje entrante cumple con un evento desencadenante definido, los espacios iniciales y finales se eliminan antes de que comience la evaluación.
 
 {% alert tip %}
-Si un Canvas basado en acciones se desencadena por un mensaje entrante de SMS o MMS, puedes hacer referencia a las [propiedades Liquid de SMS compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) en cualquier paso de Canvas hasta la siguiente ruta de acción.
+Si un Canvas basado en acciones se desencadena por un mensaje entrante de SMS o MMS, puedes hacer referencia a las [propiedades Liquid de SMS compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) en cualquier paso de Canvas hasta la siguiente ruta de acción.
 {% endalert %}
 
 #### Desencadenar por categoría de palabra clave entrante {#trigger-by-inbound-keyword-category}

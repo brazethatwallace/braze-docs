@@ -57,7 +57,7 @@ Follow these best practices to help avoid rate limit issues:
 | Refresh content only when necessary | Refresh content on every user action (like scroll events) |
 | Let the SDK handle batching automatically | Force immediate data transmission (unless absolutely necessary) |
 | Focus on events that add value to analytics | Call SDK methods in rapid succession without considering frequency |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Best practices" }
 
 ## Getting help
 
@@ -69,7 +69,7 @@ If you're experiencing SDK rate limit issues, review the following networking me
 - `logCustomEvent()`
 - `logPurchase()`
 
-When contacting [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/), include the following details for each of the networking SDK methods you use:
+When contacting [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support), include the following details for each of the networking SDK methods you use:
 
 ```plaintext
 Method name:

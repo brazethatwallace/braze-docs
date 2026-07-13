@@ -23,6 +23,7 @@ Les types de conditions de concurrence les plus courants peuvent se produire lor
 - Cibler de nouveaux utilisateurs
 - Utiliser plusieurs endpoints API
 - Correspondance entre les déclencheurs basés sur l'action et les filtres d'audience
+- Utiliser le déclencheur « Interagir avec l'étape »
 
 Examinez les scénarios suivants et mettez en œuvre les meilleures pratiques pour éviter ces conditions de concurrence.
 
@@ -49,7 +50,7 @@ Après la création d'un nouvel utilisateur, vous pouvez ajouter un délai avant
 
 Par exemple, après qu'un utilisateur s'est inscrit sur votre application, vous pouvez envoyer une offre promotionnelle après 24 heures. Ou, si vous créez un utilisateur ou enregistrez un attribut personnalisé, vous pouvez ajouter un délai d'une minute avant de poursuivre votre processus pour éviter cette condition de concurrence.
 
-Vous pouvez également ajouter ce délai dans le [SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration/) pour l'événement personnalisé spécifique qui déclenche l'entrée d'un nouvel utilisateur dans un Canvas.
+Vous pouvez également ajouter ce délai dans le [SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration) pour l'événement personnalisé spécifique qui déclenche l'entrée d'un nouvel utilisateur dans un Canvas.
 
 ## Scénario 2 : Utilisation de plusieurs endpoints API {#scenario-2-using-multiple-api-endpoints}
 
@@ -62,13 +63,13 @@ Il existe plusieurs scénarios dans lesquels l'utilisation de plusieurs endpoint
 - Des endpoints API distincts sont utilisés pour créer des utilisateurs et déclencher des Canvas ou des campagnes
 - Plusieurs appels séparés sont effectués vers l'endpoint `/users/track` pour mettre à jour des attributs personnalisés, des événements ou des achats
 
-Lorsque les informations utilisateur sont envoyées à Braze via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), le traitement peut parfois prendre quelques secondes. Cela signifie que lorsque des requêtes sont effectuées simultanément vers `/users/track` et vers des endpoints d'envoi de messages comme `/campaign/trigger/send`, il n'y a aucune garantie que les informations utilisateur soient mises à jour avant l'envoi du message.
+Lorsque les informations utilisateur sont envoyées à Braze via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), le traitement peut parfois prendre quelques secondes. Cela signifie que lorsque des requêtes sont effectuées simultanément vers `/users/track` et vers des endpoints d'envoi de messages comme `/campaign/trigger/send`, il n'y a aucune garantie que les informations utilisateur soient mises à jour avant l'envoi du message.
 
 {% alert note %}
 Si les attributs et les événements utilisateur sont envoyés dans la même requête (que ce soit via `/users/track` ou via le SDK), Braze traite les attributs avant les événements ou avant de tenter d'envoyer un message.
 {% endalert %}
 
-### Meilleures pratiques {#best-practices}
+### Meilleures pratiques
 
 #### Lorsque vous utilisez plusieurs endpoints, envoyez vos requêtes une par une {#when-using-multiple-endpoints-send-your-requests-one-at-a-time}
 
@@ -78,25 +79,25 @@ Si vous envoyez une requête API de message planifié, ces requêtes doivent êt
 
 #### Inclure les données clés avec le déclencheur {#include-key-data-with-the-trigger}
 
-Au lieu d'utiliser plusieurs endpoints, vous pouvez inclure les [attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body) et les [propriétés de déclenchement]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) dans un seul appel API en utilisant l'[endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Au lieu d'utiliser plusieurs endpoints, vous pouvez inclure les [attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) et les [propriétés de déclenchement]({{site.baseurl}}/api/objects_filters/trigger_properties_object) dans un seul appel API en utilisant l'[endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
 Lorsque ces objets sont inclus avec le déclencheur, les attributs sont traités en premier, avant que le message ne soit déclenché, ce qui élimine les conditions de concurrence potentielles. Notez que les propriétés de déclenchement ne mettent pas à jour le profil utilisateur, mais sont utilisées uniquement dans le contexte du message.
 
 #### Utiliser l'endpoint POST : Suivre les utilisateurs (synchrone) {#use-the-post-track-users-sync-endpoint}
 
-Utilisez l'[endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) pour enregistrer des événements personnalisés et des achats, et mettre à jour les attributs du profil utilisateur de manière synchrone. L'utilisation de cet endpoint pour mettre à jour les profils utilisateur en même temps et dans un seul appel peut aider à prévenir les conditions de concurrence potentielles.
+Utilisez l'[endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) pour enregistrer des événements personnalisés et des achats, et mettre à jour les attributs du profil utilisateur de manière synchrone. L'utilisation de cet endpoint pour mettre à jour les profils utilisateur en même temps et dans un seul appel peut aider à prévenir les conditions de concurrence potentielles.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Scénario 3 : Correspondance entre les déclencheurs basés sur l'action et les filtres d'audience {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
 Une autre condition de concurrence courante peut survenir lorsque vous configurez une campagne ou un Canvas basé sur les actions avec le même déclencheur que le filtre d'audience (comme un attribut modifié ou un événement personnalisé effectué). L'utilisateur peut ne pas faire partie de l'audience au moment où il effectue l'événement déclencheur, ce qui signifie qu'il ne recevra pas la campagne ou n'entrera pas dans le Canvas.
 
-### Meilleures pratiques {#best-practices}
+### Meilleures pratiques
 
 #### Vérifier votre audience après un délai {#check-your-audience-after-a-delay}
 
-Pour éviter d'utiliser des filtres d'audience contenant les critères de déclenchement, nous recommandons de vérifier votre audience avant la distribution. Par exemple, vous pouvez [utiliser les validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) dans les étapes de message Canvas comme vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Vous pouvez également tirer parti des critères de sortie du Canvas pour faire sortir les utilisateurs à tout moment du parcours s'ils remplissent vos critères.
+Pour éviter d'utiliser des filtres d'audience contenant les critères de déclenchement, nous recommandons de vérifier votre audience avant la distribution. Par exemple, vous pouvez [utiliser les validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings) dans les étapes de message Canvas comme vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Vous pouvez également tirer parti des critères de sortie du Canvas pour faire sortir les utilisateurs à tout moment du parcours s'ils remplissent vos critères.
 
 Pour les campagnes, vous pouvez utiliser des événements de sortie pour permettre aux campagnes avec un événement déclencheur d'annuler les messages destinés aux utilisateurs qui effectuent l'événement de sortie pendant le délai.
 
@@ -132,3 +133,21 @@ S'il y a une condition de concurrence lors de l'évaluation de l'entrée dans le
 Si un utilisateur déclenche l'événement d'entrée du Canvas plusieurs fois dans la même seconde, Braze n'autorise qu'une seule entrée pour cette seconde (même si la réentrée est activée). Cela empêche les entrées en double, de sorte que le nombre total d'entrées dans le Canvas peut être inférieur au nombre total d'événements déclencheurs.
 
 Nous recommandons de vérifier comment les données utilisateur sont gérées et mises à jour, en particulier quand et comment des attributs spécifiques sont mis à jour, que ce soit par le SDK, l'API, l'API par lots ou d'autres méthodes. Cela peut aider à identifier et clarifier pourquoi un utilisateur est entré dans une campagne ou un Canvas par rapport au moment où son profil a été mis à jour.
+
+## Scénario 4 : Utilisation du déclencheur « Interagir avec l'étape » {#scenario-4-using-the-interact-with-step-trigger}
+
+Dans un Canvas, lorsqu'une étape de message est immédiatement suivie d'une étape de parcours d'action qui utilise le déclencheur « Interagir avec l'étape », une condition de concurrence peut se produire. Étant donné que les utilisateurs peuvent interagir avec un message dès qu'il est distribué, il est possible qu'un utilisateur effectue l'action suivie avant d'entrer officiellement dans l'étape de parcours d'action.
+
+Dans ce cas, l'étape de parcours d'action n'enregistre pas l'interaction, car elle n'évalue que les événements qui se produisent après l'entrée dans l'étape, ce qui signifie que l'utilisateur peut être dirigé vers un chemin non prévu.
+
+Un Canvas envoie une notification push dans une étape de message, suivie d'une étape de parcours d'action qui vérifie si l'utilisateur ouvre cette notification push. Si un utilisateur ouvre la notification push immédiatement après l'avoir reçue (avant d'entrer dans l'étape de parcours d'action), l'événement d'ouverture peut ne pas être capturé. L'utilisateur pourrait alors être incorrectement dirigé vers le chemin « n'a pas ouvert », même s'il a interagi avec le message.
+
+### Meilleures pratiques
+
+#### Suivre l'engagement à l'aide d'un événement personnalisé {#track-engagement-using-a-custom-event}
+
+Évitez de vous appuyer sur « Interagir avec l'étape » immédiatement après une étape de message lorsque les interactions utilisateur sont susceptibles de se produire rapidement. Suivez plutôt l'engagement à l'aide d'un événement personnalisé (par exemple, déclenché depuis l'application ou le site web après l'interaction) et évaluez cet événement dans une étape ultérieure. Cela garantit que l'événement est enregistré après que l'utilisateur est entré dans l'étape.
+
+#### Éviter les branches dépendantes de l'interaction {#avoid-branches-that-are-dependent-on-interaction}
+
+Concevez votre Canvas de sorte que l'absence d'une interaction immédiate ne compromette pas l'expérience utilisateur. Par exemple, évitez les décisions de branchement critiques qui dépendent uniquement de la capture de l'interaction dans l'étape suivante, ou ajoutez une logique de suivi capable de corriger le parcours des utilisateurs.

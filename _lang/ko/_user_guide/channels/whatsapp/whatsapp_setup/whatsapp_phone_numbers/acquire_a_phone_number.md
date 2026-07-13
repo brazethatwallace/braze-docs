@@ -26,6 +26,10 @@ Braze에서 번호를 프로비저닝하지 않으므로 직접 전화번호를 
 - WhatsApp Business Platform에서 이전에 사용되지 않은 번호
 - 개인 WhatsApp 계정에 연결되지 않은 번호
 
+{% alert note %}
+Braze는 비즈니스에서 소유하고 지속적으로 완전한 접근 권한을 가진 번호를 사용할 것을 강력히 권장합니다. WhatsApp 임베디드 가입 과정에서 이 번호로 전송된 메시지에 접근하여 인증해야 합니다. 나중에 번호를 다시 인증해야 할 수 있으므로 해당 번호에 대한 접근 권한을 유지해야 합니다.
+{% endalert %}
+
 ## Twilio 전화번호 획득 {#acquiring-a-twilio-phone-number}
 
 ### 1단계: Twilio 콘솔 또는 API에서 전화번호 구매 {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
@@ -38,24 +42,19 @@ Braze에서 번호를 프로비저닝하지 않으므로 직접 전화번호를 
 
 ### 2단계: 전화번호 구성 {#step-2-configure-your-phone-number}
 
-Twilio의 안내에 따라 [Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number)**만** 사용하여 이메일로 인증 코드를 수신할 수 있도록 Twilio 전화번호를 설정합니다. **다른 단계의 안내는 따르지 마세요.**
+이메일로 인증 코드를 수신할 수 있도록 Twilio 전화번호를 구성합니다. **Twilio 콘솔에서 전화번호를 WhatsApp에 연결하지 마세요.**
 
 {% alert warning %}
-인증 코드를 수신하기 위한 Twilio의 안내만 따르세요.
-다음 단계를 따르면 전화번호가 Twilio에 연결되므로, 마이그레이션을 수행하거나 다른 번호를 구매하지 않는 한 해당 번호를 Braze에 연결할 수 없습니다.
+Twilio 콘솔에서 전화번호를 WhatsApp에 연결하지 마세요. 연결하면 해당 번호가 Twilio의 WhatsApp Business Account에 등록되어 임베디드 가입 워크플로를 통해 Braze에 연결할 수 없게 됩니다.
 {% endalert %}
 
 1. Twilio 콘솔에서 [Active Numbers 페이지](https://www.twilio.com/console/phone-numbers/incoming)로 이동하여 구매한 전화번호를 선택합니다.
 2. **Voice Configuration** 섹션으로 이동하여 **Configure with** 드롭다운에서 **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**를 선택합니다.
 3. **A call comes in** 행에서 **Webhook**을 선택하고 URL을 `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`로 설정합니다. `YOUR_EMAIL_ADDRESS`를 본인의 이메일 주소로 바꿉니다.
-4. Twilio 콘솔에서 **2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register**로 이동하여 전화번호 옆의 **Copy**를 선택합니다.
-5. **Self Sign-up** 창의 **Add your WhatsApp phone number** 페이지에서 **Add a new phone number**를 선택하고 전화번호를 붙여넣습니다.
-6. 인증 방법으로 **Phone call**을 선택한 다음 **Next**를 선택합니다.
-7. 10분 이내에 이메일로 인증 코드를 수신합니다.
 
 ### 3단계: 임베디드 가입 워크플로 완료 {#step-3-complete-the-embedded-sign-up-workflow}
 
-1. Twilio 구성이 완료되면 Braze 대시보드 > **기술 파트너** > **WhatsApp**으로 이동하여 **Begin integration** 또는 **Add WhatsApp Business Account** 중 표시되는 옵션을 선택하여 [임베디드 가입 워크플로]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)를 시작합니다.<br><br>**Add a phone number for WhatsApp** 단계에서 전화번호 인증 방법으로 **Phone call**을 선택합니다. <br><br>![문자 메시지 또는 전화 통화를 통해 전화번호를 인증하는 옵션이 있는 섹션.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
+1. Twilio 구성이 완료되면 Braze 대시보드 > **기술 파트너** > **WhatsApp**으로 이동하여 **Begin integration** 또는 **Add WhatsApp Business Account** 중 표시되는 옵션을 선택하여 [임베디드 가입 워크플로]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)를 시작합니다.<br><br>**Add a phone number for WhatsApp** 단계에서 전화번호 인증 방법으로 **Phone call**을 선택합니다. <br><br>![문자 메시지 또는 전화 통화를 통해 전화번호를 인증하는 옵션이 있는 섹션.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
 
 2. 인증 코드가 이메일 받은편지함으로 전송될 때까지 몇 분 기다린 후 인증 코드를 입력하고 설정을 완료합니다.
 
@@ -71,6 +70,6 @@ Twilio의 안내에 따라 [Twilio Voice](https://www.twilio.com/docs/whatsapp/s
 
 5. 선택한 국가에 따라 Infobip 팀이 등록 세부 정보(예: 미국의 10DLC)에 대해 연락할 때까지 기다립니다.<br><br>
 
-6. Infobip에서 전화번호가 준비되면 Braze 대시보드 > **기술 파트너** > **WhatsApp**으로 이동하여 **Begin integration** 또는 **Add WhatsApp Business Account** 중 표시되는 옵션을 선택하여 [임베디드 가입 워크플로]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)를 시작합니다.<br><br> **Add a phone number for WhatsApp** 단계에서 전화번호 인증 방법으로 **Text message**를 선택합니다.<br><br>![문자 메시지 또는 전화 통화를 통해 전화번호를 인증하는 옵션이 있는 섹션.]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
+6. Infobip에서 전화번호가 준비되면 Braze 대시보드 > **기술 파트너** > **WhatsApp**으로 이동하여 **Begin integration** 또는 **Add WhatsApp Business Account** 중 표시되는 옵션을 선택하여 [임베디드 가입 워크플로]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)를 시작합니다.<br><br> **Add a phone number for WhatsApp** 단계에서 전화번호 인증 방법으로 **Text message**를 선택합니다.<br><br>![문자 메시지 또는 전화 통화를 통해 전화번호를 인증하는 옵션이 있는 섹션.]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
 
-7. Infobip 고객 포털의 [analyze logs](https://www.infobip.com/docs/analyze/analyze-logs)에서 인증 코드를 확인합니다. 표시되기까지 몇 분이 걸릴 수 있습니다. 인증 코드를 입력하고 설정을 완료합니다.
+7. Infobip 고객 포털의 [분석 로그](https://www.infobip.com/docs/analyze/analyze-logs)에서 인증 코드를 확인합니다. 표시되기까지 몇 분이 걸릴 수 있습니다. 인증 코드를 입력하고 설정을 완료합니다.

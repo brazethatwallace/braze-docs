@@ -10,7 +10,7 @@ channel:
 
 ---
 
-# Inbox Vision
+# Inbox Vision {#inbox-vision}
 
 > Inbox Vision을 사용하면 다양한 이메일 클라이언트와 모바일 기기의 관점에서 이메일을 확인할 수 있습니다. 예를 들어, 다크 모드와 라이트 모드의 차이를 테스트하여 이메일이 의도한 대로 렌더링되는지 확인할 수 있습니다.
 
@@ -18,13 +18,13 @@ channel:
 이메일 콘텐츠가 고객 프로필 데이터와 같은 템플릿 정보에 의존하는 경우 Inbox Vision이 작동하지 않을 수 있습니다. Braze는 이 기능을 위해 이메일을 발송할 때 빈 사용자를 템플릿으로 사용합니다.<br><br>이메일 메시지의 모든 Liquid에 기본값을 추가하세요. 기본값이 없으면 잘못된 긍정 결과를 받거나 테스트가 실패할 수 있습니다.
 {% endalert %}
 
-## 고려 사항
+## 고려 사항 {#considerations}
 
 일반적으로 이메일 콘텐츠가 고객 프로필 정보와 같은 템플릿 정보에 의존하는 경우 Inbox Vision에서 이메일이 작동하지 않습니다. 이는 Braze가 이 기능을 사용하여 이메일을 발송할 때 빈 사용자를 템플릿으로 사용하기 때문입니다.
 
 Inbox Vision을 실행하기 전에 이메일 메시지의 Liquid에 기본값 또는 임의의 값을 추가하면 이 문제를 해결할 수 있습니다. Inbox Vision에서 테스트를 마치면 원래 이메일 메시지가 나타납니다. 값이 제공되지 않으면 미리보기 렌더링에 실패할 수 있습니다.
 
-회사에는 Inbox Vision으로 미리볼 수 있는 이메일 수에 제한이 있습니다. Inbox Vision의 **이메일 미리보기** 탭에서 이를 모니터링할 수 있습니다.
+회사에는 Inbox Vision으로 미리볼 수 있는 이메일 수에 제한이 있습니다. Inbox Vision의 **Email Previews** 탭에서 이를 모니터링할 수 있습니다.
 
 미리보기를 확인하려면 제목란과 유효한 발송 도메인을 포함하세요. 데스크탑과 모바일 렌더링 차이에 유의하세요. 미리보기를 사용하여 이메일이 의도한 대로 표시되는지 확인하세요.
 
@@ -35,31 +35,31 @@ Campaign 미리보기 시 권한 오류가 표시되면 캐시와 쿠키를 지�
 Inbox Vision에서 이메일 메시지를 테스트하려면:
 
 1. 드래그 앤 드롭 편집기 또는 HTML 이메일 편집기로 이동합니다.
-2. 편집기에서 **미리보기 및 테스트**를 선택합니다.
+2. 편집기에서 **Preview & Test**를 선택합니다.
 3. **Inbox Vision**을 선택합니다.
-4. **Inbox Vision 실행**을 선택합니다. 최대 10분이 소요될 수 있습니다.
-5. 다음으로, 타일을 선택하여 미리보기를 더 자세히 확인합니다. 미리보기는 **웹 클라이언트**, **애플리케이션 클라이언트**, **모바일 클라이언트** 섹션으로 그룹화됩니다.
+4. **Run Inbox Vision**을 선택합니다. 최대 10분이 소요될 수 있습니다.
+5. 다음으로, 타일을 선택하여 미리보기를 더 자세히 확인합니다. 미리보기는 **Web Clients**, **Application Clients**, **Mobile Clients** 섹션으로 그룹화됩니다.
 
 ![미리볼 이메일 클라이언트를 선택하는 옵션.]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
 {:start="5"}
-5. **Inbox Vision 실행**을 선택합니다. 완료까지 2~10분이 소요될 수 있습니다.
+5. **Run Inbox Vision**을 선택합니다. 완료까지 2~10분이 소요될 수 있습니다.
 
 {% alert note %}
-Inbox Vision은 [중단 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)을 포함하는 이메일 메시지를 지원하지 않습니다. 이러한 이메일은 정적 콘텐츠로 렌더링되기 때문입니다.
+Inbox Vision은 [중단 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)을 포함하는 이메일 메시지를 지원하지 않습니다. 이러한 이메일은 정적 콘텐츠로 렌더링되기 때문입니다.
 {% endalert %}
 
-### 사용자로 미리보기
+### 사용자로 미리보기 {#previewing-as-a-user}
 
 임의의 사용자로 미리볼 때 Inbox Vision은 사용자별 설정이나 속성(이름 또는 환경설정 등)을 저장하지 않습니다. 커스텀 사용자를 선택하면 특정 사용자 데이터를 사용하기 때문에 Inbox Vision 미리보기가 다른 미리보기와 다를 수 있습니다.
 
-## 코드 분석
+## 코드 분석 {#code-analysis}
 
 코드 분석은 잠재적인 HTML 문제를 강조 표시하고, 발생 횟수를 보여주며, 지원되지 않는 HTML 요소를 표시합니다.
 
-### 코드 분석 정보 보기
+### 코드 분석 정보 보기 {#viewing-code-analysis-information}
 
-이 정보는 **Inbox Vision** 탭에서 <i class="fas fa-list"></i> **목록 보기**를 선택하여 확인할 수 있습니다. 목록 보기는 HTML 이메일 템플릿에서만 사용할 수 있습니다. 드래그 앤 드롭 템플릿의 경우 미리보기를 사용하여 문제를 해결하세요.
+이 정보는 **Inbox Vision** 탭에서 <i class="fas fa-list"></i> **List view**를 선택하여 확인할 수 있습니다. 목록 보기는 HTML 이메일 템플릿에서만 사용할 수 있습니다. 드래그 앤 드롭 템플릿의 경우 미리보기를 사용하여 문제를 해결하세요.
 
 ![Inbox Vision 미리보기의 코드 분석 예시.]({% image_buster /assets/img_archive/inboxvision2.png %})
 
@@ -67,7 +67,7 @@ Inbox Vision은 [중단 로직]({{site.baseurl}}/user_guide/messaging/design_and
 Braze가 스크린샷을 찍기 전에 이메일이 도착할 때까지 기다리기 때문에 코드 분석이 특정 클라이언트의 미리보기보다 더 빨리 나타날 수 있습니다.
 {% endalert %}
 
-## 스팸 테스트
+## 스팸 테스트 {#spam-testing}
 
 스팸 테스트는 메일이 스팸으로 필터링될 가능성을 추정합니다. IronPort, SpamAssassin, Barracuda와 같은 필터와 Gmail, Outlook과 같은 ISP 필터를 통해 테스트가 실행되며, 기본적으로 열기나 클릭을 하지 않는 정적 시드 받은편지함을 사용합니다.
 
@@ -75,21 +75,21 @@ Braze가 스크린샷을 찍기 전에 이메일이 도착할 때까지 기다�
 받은편지함 배치는 주로 실제 수신자의 참여에 의해 결정됩니다. 스팸 테스트 결과는 실제 Campaign에서 보이는 것과 다를 수 있습니다.
 {% endalert %}
 
-전달 가능성을 더 명확하게 파악하려면 소규모 실제 코호트로 콘텐츠를 테스트하세요. 높은 열기율과 클릭률이 가장 신뢰할 수 있는 신호입니다. 스팸 테스트는 참여 모니터링과 함께 하나의 입력 자료로 활용하세요.
+전달 가능성을 더 명확하게 파악하려면 소규모 실제 코호트로 콘텐츠를 테스트하세요. 높은 열람율과 클릭률이 가장 신뢰할 수 있는 신호입니다. 스팸 테스트는 참여 모니터링과 함께 하나의 입력 자료로 활용하세요.
 
-### 스팸 테스트 결과 보기
+### 스팸 테스트 결과 보기 {#viewing-spam-test-results}
 
 스팸 테스트 결과를 확인하려면:
 
-1. **Inbox Vision** 섹션에서 **스팸 테스트** 탭을 선택합니다. **스팸 테스트 결과** 테이블에 스팸 필터 이름, 상태, 유형이 표시됩니다.
+1. **Inbox Vision** 섹션에서 **Spam Testing** 탭을 선택합니다. **Spam Test Result** 테이블에 스팸 필터 이름, 상태, 유형이 표시됩니다.
 2. 결과를 검토하고 이메일 Campaign을 조정합니다.
-3. **테스트 다시 실행**을 선택하여 스팸 테스트 결과를 다시 로드합니다.
+3. **Re-run Test**를 선택하여 스팸 테스트 결과를 다시 로드합니다.
 
-## 접근성 테스트
+## 접근성 테스트 {#accessibility-testing}
 
 접근성 테스트는 이메일의 잠재적인 접근성 문제를 강조 표시하고 표준을 충족하지 않는 요소를 보여줍니다. Braze는 W3C에서 개발한 국제적으로 인정받는 표준 세트인 웹 콘텐츠 접근성 지침([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/))의 일부 항목을 기준으로 콘텐츠를 분석하여 웹 콘텐츠의 접근성을 높입니다.
 
-### 작동 방식
+### 작동 방식 {#how-it-works}
 
 Inbox Vision을 실행하면 Braze가 [WCAG 2.2 AA 규칙 세트](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa)의 일반적인 접근성 문제(대체 텍스트 누락, 불충분한 색상 대비, 부적절한 제목 구조 등)를 자동으로 확인하고 심각도를 분류하여 수정 우선순위를 정하는 데 도움을 줍니다.
 
@@ -97,11 +97,11 @@ Inbox Vision을 실행하면 Braze가 [WCAG 2.2 AA 규칙 세트](https://www.w3
 접근성 테스트는 [유럽 접근성법](https://www.braze.com/resources/articles/european-accessibility-at-what-it-means-for-marketers)과 같은 규정 또는 법률에 대한 고객의 준수 노력을 지원하는 데 사용될 수 있습니다. 그러나 고객은 접근성 테스트의 사용이 고객의 준수 의무를 충족하는지 여부에 대해 Braze가 어떠한 진술이나 보증도 하지 않으며, 이와 관련된 모든 책임을 부인한다는 점을 인정합니다.
 {% endalert %}
 
-### 접근성 테스트 결과 보기
+### 접근성 테스트 결과 보기 {#viewing-accessibility-testing-results}
 
-접근성 테스트는 **접근성 테스트** 탭에서 각 규칙에 대해 통과, 실패 또는 검토 필요로 결과를 생성합니다. Braze는 WCAG의 네 가지 원칙인 POUR(인식 가능, 운용 가능, 이해 가능, 견고함)를 사용하여 각 규칙을 분류합니다.
+접근성 테스트는 **Accessibility Testing** 탭에서 각 규칙에 대해 통과, 실패 또는 검토 필요로 결과를 생성합니다. Braze는 WCAG의 네 가지 원칙인 POUR(인식 가능, 운용 가능, 이해 가능, 견고함)를 사용하여 각 규칙을 분류합니다.
 
-#### POUR 카테고리
+#### POUR 카테고리 {#pour-categories}
 
 Inbox Vision은 네 가지 기본 [POUR 원칙](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility)인 인식 가능(Perceivable), 운용 가능(Operable), 이해 가능(Understandable), 견고함(Robust)에 따라 문제를 분류합니다.
 
@@ -111,9 +111,9 @@ Inbox Vision은 네 가지 기본 [POUR 원칙](https://www.w3.org/WAI/WCAG22/Un
 | 운용 가능(Operable) | 사용자 인터페이스 구성요소와 내비게이션은 운용 가능해야 합니다.<br><br>사용자는 인터페이스를 조작할 수 있어야 합니다(사용자가 수행할 수 없는 상호작용을 인터페이스가 요구해서는 안 됩니다). |
 | 이해 가능(Understandable) | 정보와 사용자 인터페이스의 운용은 이해할 수 있어야 합니다.<br><br>사용자는 정보와 사용자 인터페이스의 운용을 이해할 수 있어야 합니다(콘텐츠나 운용이 사용자의 이해 범위를 넘어서는 안 됩니다). |
 | 견고함(Robust) | 콘텐츠는 보조 기술을 포함한 다양한 사용자 에이전트에서 안정적으로 해석될 수 있을 만큼 견고해야 합니다.<br><br>기술이 발전함에 따라 사용자는 콘텐츠에 접근할 수 있어야 합니다(기술과 사용자 에이전트가 진화해도 콘텐츠는 접근 가능한 상태를 유지해야 합니다). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="POUR 카테고리" }
 
-#### 심각도 수준
+#### 심각도 수준 {#severity-levels}
 
 Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근성 문제를 심각도별로 분류합니다.
 
@@ -125,38 +125,38 @@ Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근�
 | 경미(Minor) | 접근성에 비교적 낮은 영향을 미치며 약간의 불편만 초래할 수 있는 문제입니다. |
 | 검토 필요(Needs review) | 문제가 있는지 여부를 감지할 수 없습니다. 텍스트가 배경 이미지 위에 배치되어 대비율을 판단할 수 없는 경우에 발생할 수 있습니다. 자동으로 판단할 수 없으므로 수동으로 검토해야 합니다. |
 | 통과(Passed) | WCAG A, AA 또는 접근성 모범 사례를 통과했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="심각도 수준" }
 
 {% alert important %}
-드래그 앤 드롭 편집기는 문서 `<title>` 요소 설정을 지원하지 않으므로 접근성 스캐너는 항상 이 검사에서 실패합니다.<br><br>이 제한 사항은 향후 개선을 위해 추적되고 있습니다. 이것이 워크플로우나 사용자에게 영향을 미치는 경우 [피드백을 공유]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/#sharing-feedback)하여 영향력 있는 수정의 우선순위를 정하는 데 도움을 주세요.
+드래그 앤 드롭 편집기는 문서 `<title>` 요소 설정을 지원하지 않으므로 접근성 스캐너는 항상 이 검사에서 실패합니다.<br><br>이 제한 사항은 향후 개선을 위해 추적되고 있습니다. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
-### 자동화된 접근성 테스트 이해하기
+### 자동화된 접근성 테스트 이해하기 {#understanding-automated-accessibility-testing}
 
 {% multi_lang_include accessibility/automated_testing.md %}
 
-## 모범 사례
+## 모범 사례 {#best-practices}
 
-### 이메일 가입자 목록 검토
+### 이메일 구독자 목록 검토 {#review-your-email-subscriber-list}
 
-[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard)를 참조하여 가입자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
+[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard)를 참조하여 구독자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
 
-그렇지 않으면 Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 제공하며, 이는 가입자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 더 인기 있는 미리보기가 있는 경우 Inbox Vision을 실행할 때마다 기본 미리보기 세트를 정의할 수 있습니다.
+그렇지 않으면 Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 제공하며, 이는 구독자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 더 인기 있는 미리보기가 있는 경우 Inbox Vision을 실행할 때마다 기본 미리보기 세트를 정의할 수 있습니다.
 
-### 의미 있는 미리보기와 영향을 받는 미리보기 선택
+### 의미 있는 미리보기와 영향을 받는 미리보기 선택 {#select-meaningful-previews-and-impacted-previews}
 
-비즈니스가 주로 미국에 기반을 두고 있다면 GMX.de와 같은 국제 미리보기는 소수의 사용자만 사용하는 특정 미리보기일 수 있습니다. 상당한 가입자 영향이 있는 받은편지함에 대해 우선순위를 정하고 최적화하며, 영향력이 높은 받은편지함을 위해 미리보기를 아껴두는 것을 권장합니다.
+비즈니스가 주로 미국에 기반을 두고 있다면 GMX.de와 같은 국제 미리보기는 소수의 사용자만 사용하는 특정 미리보기일 수 있습니다. 상당한 구독자 영향이 있는 받은편지함에 대해 우선순위를 정하고 최적화하며, 영향력이 높은 받은편지함을 위해 미리보기를 아껴두는 것을 권장합니다.
 
 특정 미리보기에 영향을 미치는 수정을 할 때는 사용하지 않는 미리보기를 소비하지 않도록 영향을 받는 미리보기만 선택하세요.
 
-### 최종 이메일 버전에서 Inbox Vision 실행
+### 최종 이메일 버전에서 Inbox Vision 실행 {#run-inbox-vision-on-the-final-email-version}
 
 이메일 메시지가 프로덕션 준비가 되었거나 거의 완료된 상태에서 Inbox Vision을 실행하는 것을 권장합니다. 이렇게 하면 이메일이 최종 확정되어 사용자에게 발송될 준비가 되기 전에 여러 번의 반복을 거치므로 생성되는 미리보기 수를 줄일 수 있습니다.
 
 단일 편집이나 변경을 할 때마다 Inbox Vision을 실행하면 미리보기가 빠르게 소진될 수 있습니다. 먼저 이메일에 필요한 모든 변경을 한 다음 Inbox Vision을 실행하여 모든 변경 사항이 다양한 환경에서 이메일 렌더링에 어떤 영향을 미치는지 미리보는 것을 권장합니다.
 
-Braze는 실제 이메일 클라이언트를 통해 테스트를 실행하며 렌더링이 정확하도록 노력합니다. 특정 클라이언트에서 지속적으로 문제가 발생하는 경우 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요.
+Braze는 실제 이메일 클라이언트를 통해 테스트를 실행하며 렌더링이 정확하도록 노력합니다. 특정 클라이언트에서 지속적으로 문제가 발생하는 경우 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.
 
-### 테스트 정확도 대 실제 받은편지함
+### 테스트 정확도 대 실제 받은편지함 {#test-accuracy-versus-live-inboxes}
 
 발송된 메시지는 편집기 미리보기와 다르게 보일 수 있습니다. 이는 제공업체마다 동일한 HTML을 다르게 해석하기 때문입니다. 비교를 위해 발송된 HTML의 사본을 다운로드하고, 클라이언트가 `<style>` 블록을 제거하는 경우 CSS 인라이닝을 사용하세요.

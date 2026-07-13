@@ -19,19 +19,19 @@ guide_featured_list:
     link: /docs/user_guide/channels/email/best_practices/email_styling
     image: /assets/img/braze_icons/brush-02.svg
   - name: "활용 사례"
-    link: /docs/user_guide/channels/email/best_practices/use_cases
+    link: /docs/user_guide/channels/email/use_cases
     image: /assets/img/braze_icons/edit-05.svg
   - name: "선셋 정책"
     link: /docs/user_guide/channels/email/best_practices/sunset_policies
     image: /assets/img/braze_icons/sun-setting-03.svg
   - name: "테스트 메시지 보내기"
-    link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email
+    link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email
     image: /assets/img/braze_icons/mail-01.svg
   - name: "보내기 전에 알아두어야 할 사항"
-    link: /docs/know_before_send/
+    link: /docs/know_before_send
     image: /assets/img/braze_icons/send-01.svg
   - name: "이메일 전달 가능성"
-    link: /docs/user_guide/channels/email/best_practices/improve_deliverability/
+    link: /docs/user_guide/channels/email/best_practices/improve_deliverability
     image: /assets/img/braze_icons/send-02.svg
 
 ---

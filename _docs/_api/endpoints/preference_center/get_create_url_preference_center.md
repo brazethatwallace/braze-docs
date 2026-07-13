@@ -22,7 +22,7 @@ Each preference center URL is unique to each user.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `preference_center.user.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `preference_center.user.get` permission.
 
 ## Rate limit
 
@@ -34,7 +34,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | --------- | ---------| --------- | ----------- |
 |`preferenceCenterExternalID`| Required | String | The ID for your preference center. |
 |`userID`| Required | String | The user ID. |
-{:  role="presentation" }
+{: aria-label="Path parameters" }
 
 ## Request parameters
 
@@ -42,7 +42,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | --------- | ---------| --------- | ----------- |
 |`preference_center_api_id`| Required | String | The ID for your preference center. |
 |`external_id`| Required | String | The external ID for a user. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 

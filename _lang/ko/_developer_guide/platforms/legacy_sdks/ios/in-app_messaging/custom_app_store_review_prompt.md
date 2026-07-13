@@ -15,7 +15,7 @@ noindex: true
 # 커스텀 App Store 리뷰 프롬프트 {#custom-app-store-review-prompt}
 
 {% alert note %}
-이 프롬프트를 구현하면 Braze는 자동으로 노출 횟수 추적을 중지하며, 직접 [분석]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks)을 기록해야 합니다.
+이 프롬프트를 구현하면 Braze는 자동으로 노출 횟수 추적을 중지하며, 직접 [분석]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks)을 기록해야 합니다.
 {% endalert %}
 
 사용자에게 App Store 리뷰를 요청하는 Campaign을 생성하는 것은 인앱 메시지의 인기 있는 활용 방법입니다.
@@ -96,5 +96,5 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endraw %}
 
 {% alert tip %}
-Apple은 사용자당 연간 최대 3회로 App Store 리뷰 프롬프트를 제한하므로, Campaign도 사용자당 연간 3회로 [빈도 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)을 설정해야 합니다.<br><br>사용자는 App Store 리뷰 프롬프트를 끌 수 있습니다. 따라서 커스텀 리뷰 프롬프트는 네이티브 App Store 리뷰 프롬프트가 표시될 것이라고 약속하거나 직접적으로 리뷰를 요청해서는 안 됩니다.
+Apple은 사용자당 연간 최대 3회로 App Store 리뷰 프롬프트를 제한하므로, Campaign도 사용자당 연간 3회로 [빈도 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 설정해야 합니다.<br><br>사용자는 App Store 리뷰 프롬프트를 끌 수 있습니다. 따라서 커스텀 리뷰 프롬프트는 네이티브 App Store 리뷰 프롬프트가 표시될 것이라고 약속하거나 직접적으로 리뷰를 요청해서는 안 됩니다.
 {% endalert %}

@@ -14,7 +14,7 @@ description: "このリファレンス記事では、スライドアップアプ
 
 > スライドアップは通常、アプリ画面の上部または下部に表示されます（メッセージ作成時に設定できます）。利用規約やCookie、その他の情報をユーザーに通知するのに最適です。スライドアップは邪魔にならず、メッセージが表示されている間もユーザーはアプリを操作し続けることができます。
 
-このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)で利用できます。
+このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)で利用できます。
 
 ![2つのスライドアップアプリ内メッセージ。1つは画面上部から、もう1つは画面下部から表示され、画像とテキストの推奨事項が記載されています。詳細は以下のセクションを参照してください。]({% image_buster /assets/img/slideup-spec.png %}){: style="max-width: 40%; border: none;"}
 
@@ -31,9 +31,15 @@ description: "このリファレンス記事では、スライドアップアプ
 | レイアウト | アセットサイズ | 備考 |
 |--- | --- | --- |
 | 画像 + テキスト | 1:1アスペクト比<br>高解像度 150 x 150&nbsp;px<br> 最小 50 x 50&nbsp;px | さまざまなアスペクト比の画像は、トリミングされることなく正方形の画像コンテナに収まります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="画像とコピーの動作" }
 
-画像やメッセージの最も重要な部分が期待どおりに表示されることを確認するために、さまざまなデバイスで常に[メッセージをプレビューおよびテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)してください。コンポーザーでメッセージをプレビューする場合、デバイスでの実際のレンダリングとは異なる場合があることに注意してください。
+画像やメッセージの最も重要な部分が期待どおりに表示されることを確認するために、さまざまなデバイスで常に[メッセージをプレビューおよびテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)してください。コンポーザーでメッセージをプレビューする場合、デバイスでの実際のレンダリングとは異なる場合があることに注意してください。
+
+## ハイパーリンクとアンカーテキスト {#hyperlinks-and-anchor-text}
+
+スライドアップにリンクを追加するには、**本文**フィールドにメッセージコピーを入力し、**クリック時の動作**で送信先を設定します（例：**URLにリダイレクト**）。**クリック時の動作**が設定されている場合、閉じるコントロール以外のメッセージ上の任意の場所をタップすると、そのアクションがトリガーされます。
+
+カスタムHTMLアプリ内メッセージの場合は、HTMLリンクを直接使用できます。[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)を参照してください。
 
 ## モバイルデバイス {#mobile-devices}
 

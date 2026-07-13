@@ -77,14 +77,14 @@ Apple permet aux marques d'envoyer des notifications push silencieuses au centre
 Contrairement à un jeton de notification push iOS traditionnel, un jeton de notification push provisoire agit comme un « pass d'essai » qui permet aux marques d'atteindre de nouveaux utilisateurs avant qu'ils n'aient vu et cliqué sur l'invite native d'abonnement push d'Apple. Avec cette fonctionnalité, votre notification push sera envoyée directement dans le centre de notifications de votre nouvel utilisateur avec l'option de « Conserver » ou « Désactiver » les futures notifications. Au lieu de vivre un parcours d'« abonnement », les utilisateurs vivront quelque chose qui s'apparente davantage à un parcours de « désabonnement ».
 
 {% alert tip %}
-L'autorisation provisoire a le potentiel d'augmenter considérablement votre taux d'abonnement, mais uniquement si les utilisateurs voient de la valeur dans vos messages. Assurez-vous d'utiliser nos fonctionnalités de [segmentation des utilisateurs]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), de [ciblage par localisation]({{site.baseurl}}/user_guide/audience/locations_and_geofences/) et de [personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) pour vous assurer que les utilisateurs appropriés reçoivent ces notifications « d'essai » au bon moment. Ensuite, vous pouvez encourager les utilisateurs à s'abonner pleinement à vos notifications push, sachant qu'elles apportent de la valeur à l'expérience de vos utilisateurs avec votre application.
+L'autorisation provisoire a le potentiel d'augmenter considérablement votre taux d'abonnement, mais uniquement si les utilisateurs voient de la valeur dans vos messages. Assurez-vous d'utiliser nos fonctionnalités de [segmentation des utilisateurs]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), de [ciblage par localisation]({{site.baseurl}}/user_guide/audience/locations_and_geofences) et de [personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) pour vous assurer que les utilisateurs appropriés reçoivent ces notifications « d'essai » au bon moment. Ensuite, vous pouvez encourager les utilisateurs à s'abonner pleinement à vos notifications push, sachant qu'elles apportent de la valeur à l'expérience de vos utilisateurs avec votre application.
 {% endalert %}
 
-Quelle que soit l'option choisie par l'utilisateur, le jeton approprié ou le [statut d'abonnement]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) sera ajouté à ses [paramètres de contact]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) sous l'onglet **Engagement** dans son profil utilisateur.
+Quelle que soit l'option choisie par l'utilisateur, le jeton approprié ou le [statut d'abonnement]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) sera ajouté à ses [paramètres de contact]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) sous l'onglet **Engagement** dans son profil utilisateur.
 
 ![Paramètres de contact avec un statut d'abonnement push.]({% image_buster /assets/img/profile-push-prov-auth.png %}){: width="50%"}
 
-Vous pourrez cibler vos utilisateurs selon qu'ils sont provisoirement autorisés ou non à l'aide de nos [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Vous pourrez cibler vos utilisateurs selon qu'ils sont provisoirement autorisés ou non à l'aide de nos [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 ![Panneau de détails du Segment avec l'exemple de filtre de segment « Provisoirement autorisé sur iOS Stopwatch (iOS) est vrai » pour cibler les utilisateurs.]({% image_buster /assets/img/segment-push-prov-auth.png %})
 
@@ -98,10 +98,10 @@ Si vous utilisez des invites push supplémentaires ou des [amorces push in-app](
 
 #### Configurer les notifications push provisoires {#set-up-provisional-push-notifications}
 
-Braze vous permet de vous inscrire à l'authentification provisoire en mettant à jour votre code dans votre extrait de code d'enregistrement de jeton au sein de votre implémentation du SDK iOS de Braze en utilisant les extraits de code suivants comme exemple (envoyez-les à vos développeurs ou assurez-vous qu'ils [implémentent l'authentification push provisoire pendant le processus d'intégration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10)).
+Braze vous permet de vous inscrire à l'authentification provisoire en mettant à jour votre code dans votre extrait de code d'enregistrement de jeton au sein de votre implémentation du SDK iOS de Braze en utilisant les extraits de code suivants comme exemple (envoyez-les à vos développeurs ou assurez-vous qu'ils [implémentent l'authentification push provisoire pendant le processus d'intégration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10)).
 
 {% alert warning %}
-L'implémentation de l'authentification push provisoire ne prend en charge qu'iOS 12+ et générera une erreur si la cible de déploiement est antérieure. Vous pouvez en savoir plus à ce sujet [dans notre documentation d'implémentation plus détaillée ici]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10).
+L'implémentation de l'authentification push provisoire ne prend en charge qu'iOS 12+ et générera une erreur si la cible de déploiement est antérieure. Vous pouvez en savoir plus à ce sujet [dans notre documentation d'implémentation plus détaillée ici]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10).
 {% endalert %}
 
 {% tabs local %}
@@ -138,7 +138,7 @@ Avec le nouveau mode Concentration d'iOS 15, les utilisateurs ont davantage de c
 
 Les applications peuvent désormais spécifier le niveau d'interruption qu'une notification doit inclure, en fonction de son urgence.
 
-Pour modifier le niveau d'interruption d'une notification push iOS, sélectionnez l'onglet **Settings** et choisissez le niveau souhaité dans le menu déroulant **Interruption Level**.
+Pour modifier le niveau d'interruption d'une notification push iOS, sélectionnez l'onglet **Paramètres** et choisissez le niveau souhaité dans le menu déroulant **Niveau d'interruption**.
 
 ![Menu déroulant pour sélectionner le niveau d'interruption.]({% image_buster /assets/img/ios/interruption_level.png %}){: style="max-width:50%"}
 
@@ -148,13 +148,13 @@ Gardez à l'esprit que ce sont les utilisateurs qui contrôlent en fin de compte
 
 Consultez le tableau suivant pour les niveaux d'interruption et leurs descriptions.
 
-|Niveau d'interruption|Description|Quand l'utiliser|Passe outre le mode Concentration|
+| Niveau d'interruption | Description | Quand l'utiliser | Passe outre le mode Concentration |
 |--|--|--|--|
-|[Passif](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive)|Envoie une notification sans son, vibration ni activation de l'écran.|Notifications ne nécessitant pas d'attention immédiate.|Non|
-|[Actif](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (par défaut)|Émettra un son, une vibration et activera l'écran uniquement si l'utilisateur n'est pas en mode Concentration.|Notifications nécessitant une attention immédiate, sauf si l'utilisateur a activé le mode Concentration.|Non|
-|[Urgent](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive)|Émettra un son, une vibration et activera l'écran même en mode Concentration. Cela nécessite que la capacité **Time Sensitive Notifications** soit ajoutée à votre application dans Xcode.|Notifications urgentes qui doivent interrompre les utilisateurs quel que soit leur mode Concentration, comme une notification de covoiturage ou de livraison.|Oui|
-|[Critique](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical)|Émettra un son, une vibration et activera l'écran même si le commutateur **Do Not Disturb** du téléphone est activé. Cela [nécessite une approbation explicite d'Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/).|Urgences telles que les alertes météorologiques graves ou les alertes de sécurité.|Oui|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| [Passive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive) | Envoie une notification sans son, vibration ni activation de l'écran. | Notifications ne nécessitant pas d'attention immédiate. | Non |
+| [Active](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (par défaut) | Émettra un son, une vibration et activera l'écran uniquement si l'utilisateur n'est pas en mode Concentration. | Notifications nécessitant une attention immédiate, sauf si l'utilisateur a activé le mode Concentration. | Non |
+| [Time Sensitive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | Émettra un son, une vibration et activera l'écran même en mode Concentration. Cela nécessite que la capacité **Time Sensitive Notifications** soit ajoutée à votre application dans Xcode. | Notifications urgentes qui doivent interrompre les utilisateurs quel que soit leur mode Concentration, comme une notification de covoiturage ou de livraison. | Oui |
+| [Critical](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | Émettra un son, une vibration et activera l'écran même si le commutateur **Ne pas déranger** du téléphone est activé. Cela [nécessite une approbation explicite d'Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/). | Urgences telles que les alertes météorologiques graves ou les alertes de sécurité. | Oui |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Niveau d'interruption (iOS 15+)" }
 
 ### Score de pertinence (iOS 15+) {#relevance-score}
 
@@ -166,7 +166,7 @@ Les applications peuvent spécifier quelles notifications push sont les plus per
 
 Toutes les notifications resteront accessibles dans le centre de notifications de l'utilisateur.
 
-Pour définir le score de pertinence d'une notification iOS, saisissez une valeur entre `0.0` et `1.0` dans l'onglet **Settings**. Par exemple, le message le plus important doit être envoyé avec `1.0`, tandis qu'un message d'importance moyenne peut être envoyé avec `0.5`.
+Pour définir le score de pertinence d'une notification iOS, saisissez une valeur entre `0.0` et `1.0` dans l'onglet **Paramètres**. Par exemple, le message le plus important doit être envoyé avec `1.0`, tandis qu'un message d'importance moyenne peut être envoyé avec `0.5`.
 
 ![Score de pertinence de « 0.5 ».]({% image_buster /assets/img/ios/relevance-score.png %}){: style="max-width:80%;"}
 
@@ -174,5 +174,5 @@ Cette fonctionnalité n'a pas d'exigence de version minimale du SDK, mais ne s'a
 
 Pour plus d'informations sur les longueurs maximales de messages pour les différents types de messages, consultez les ressources suivantes :
 
-- [Spécifications des images et du texte]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [Directives de nombre de caractères iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)
+- [Spécifications des images et du texte]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [Directives de nombre de caractères iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)

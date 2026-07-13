@@ -73,7 +73,7 @@ Wenn Sie nach `CANVAS_ID`, `CANVAS_VARIATION_API_ID` oder `CAMPAIGN_ID` abfragen
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
 
 Diese Anfrage ruft alle drei IDs und ihre zugehörigen Namensspalten mit maximal 100 Zeilen ab:
 
@@ -132,7 +132,7 @@ Die vollständige Liste der `ABORT_TYPE`-Werte und ihrer Beschreibungen finden S
 
 Alle Anfragen beziehen sich auf die Daten der letzten 60 Tage. Wenn Sie Ihre Ergebnisse exportieren, werden nur bis zu 1.000 Zeilen enthalten sein. Für Berichte, die größere Datenmengen erfordern, können Sie Tools wie [Currents]({{site.baseurl}}/user_guide/data/braze_currents/) oder den [Export-API-Endpunkt]({{site.baseurl}}/api/endpoints/export/) verwenden.
 
-## Snowflake Credits {#snowflake-credits}
+## Snowflake Credits
 
 Jedem Unternehmen stehen 5 Snowflake Credits pro Monat zur Verfügung, die auf alle Workspaces aufgeteilt werden. Ein kleiner Teil eines Snowflake Credits wird immer dann verbraucht, wenn Sie eine Anfrage ausführen oder eine Vorschau einer Tabelle anzeigen.
 

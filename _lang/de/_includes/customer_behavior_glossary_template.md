@@ -1,36 +1,48 @@
 ---
-nav_title: Kundenverhalten und Nutzer-Events
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
+nav_title: Kundenverhalten und Nutzer:innen-Events
+article_title: Kundenverhalten und Nutzer:innen-Events
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
 page_type: glossary
-description: "In diesem Glossar finden Sie eine Auflistung der verschiedenen Kundenverhaltens- und Nutzer-Events, die Braze mit Currents verfolgen und an ausgewählte Data Warehouses senden kann."
+description: "Dieses Glossar listet die verschiedenen Kundenverhalten- und Nutzer:innen-Events auf, die Braze verfolgen und über Currents an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Schemabereich und zugehörige Ressourcen %}
+
+Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehouse-Speicherpartner senden (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage). Einige der hier aufgeführten Event- und Zielkombinationen sind noch nicht allgemein verfügbar. Informationen darüber, welche Events von den verschiedenen Partnern unterstützt werden, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und auf den jeweiligen Seiten.
+
 {% alert tip %}
-Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und in der [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) verfügbar. Informationen zu SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Diese Events sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Informationen zu SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Kontaktieren Sie Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+Wenden Sie sich an Ihre Braze-Vertretung oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Falls Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
 
-{% details Erläuterung der Struktur von Kundenverhaltens- und Nutzer-Events sowie Plattformwerte %}
+{% enddetails %}
 
-### Event-Struktur {#event-structure}
+{% details Erläuterung der Struktur und Plattformwerte von Kundenverhalten- und Nutzer:innen-Events %}
 
-Diese Aufschlüsselung von Kundenverhalten und Nutzer-Events zeigt, welche Art von Informationen in der Regel in einem Kundenverhaltens- oder Nutzer-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Metriken auszuwerten.
+## Event-Struktur {#event-structure}
 
-![Aufschlüsselung eines Nutzer-Events, das ein Kauf-Event mit den aufgeführten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, verhaltensspezifischen Eigenschaften und gerätespezifischen Eigenschaften]({% image_buster /assets/img/customer_engagement_event.png %})
+Diese Aufschlüsselung der Kundenverhalten- und Nutzer:innen-Events zeigt, welche Art von Informationen in der Regel in einem Kundenverhalten- oder Nutzer:innen-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Datenmetriken auszuwerten.
 
-Kundenverhaltens- und Nutzer-Events setzen sich aus **nutzerspezifischen** Eigenschaften, **verhaltensspezifischen** Eigenschaften und **gerätespezifischen** Eigenschaften zusammen.
+![Aufschlüsselung eines Nutzer:innen-Events mit einem Kauf-Event und den aufgelisteten Eigenschaften, gruppiert nach nutzerspezifischen, verhaltensspezifischen und gerätespezifischen Eigenschaften]({% image_buster /assets/img/customer_engagement_event.png %})
+
+Kundenverhalten- und Nutzer:innen-Events bestehen aus **nutzerspezifischen** Eigenschaften, **verhaltensspezifischen** Eigenschaften und **gerätespezifischen** Eigenschaften.
 
 ### Plattformwerte {#platform-values}
 
-Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutzergeräts angibt.
-<br>In der folgenden Tabelle finden Sie die möglichen Rückgabewerte:
+Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Geräts der Nutzer:innen angibt.
+<br>Die folgende Tabelle zeigt die möglichen zurückgegebenen Werte:
 
-| Nutzergerät | Plattformwert |
+| Gerät der Nutzer:innen | Plattformwert |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -39,14 +51,17 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plattformwerte" }
 
 {% enddetails %}
 
-{% alert important %}
-Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehouse-Speicherpartner (wie Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Einige der hier aufgeführten Event- und Zielkombinationen sind noch nicht allgemein verfügbar. Informationen darüber, welche Events von verschiedenen Partnern unterstützt werden, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.<br><br>Beachten Sie außerdem, dass Currents Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB verwirft.
-{% endalert %}
+{% details Hinweise zu Kundenverhalten- und Nutzer:innen-Events %}
 
-{% alert note %}
-Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur bei SDK-initiierten Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder für die Nutzer:in nicht hinterlegt sind, können diese Felder `null` sein.
-{% endalert %}
+- Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
+- Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (zum Beispiel als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder für die Nutzer:innen nicht gesetzt sind, können diese Felder `null` sein.
+
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
