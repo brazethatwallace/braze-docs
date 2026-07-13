@@ -35,8 +35,8 @@ Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messa
 Content Optimizer uses OpenAI only when you explicitly request AI-generated variant suggestions. It does not use OpenAI to choose which variant each user receives or to allocate send traffic.
 
 - **Uses OpenAI:** When you select **Generate AI suggestions** for a content component, Braze sends your seed variant, instructions, optional [brand guideline]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), and (for launched steps with sufficient send data) aggregated performance context to OpenAI to generate variant ideas.
-- **Does not use OpenAI:** Traffic allocation, variant selection at send time, and performance-based optimization use Braze's proprietary multi-armed bandit algorithm. See [How it works](#how-it-works).
-- **Manual entry:** Entering variants manually does not send content to OpenAI.
+- **Bandit optimization:** Braze's proprietary multi-armed bandit algorithm handles traffic allocation, variant selection at send time, and performance-based optimization. See [How it works](#how-it-works).
+- **Manual entry:** You can define variants by typing them yourself without sending content to OpenAI.
 
 ## Use cases
 
@@ -70,11 +70,11 @@ Content Optimizer uses OpenAI only when you explicitly request AI-generated vari
 
 ## How it works {#how-it-works}
 
-The optimization described in this section is performed by Braze's bandit algorithm and does not use OpenAI.
+Braze's bandit algorithm handles the optimization described in this section.
 
 Content Optimizer uses a non-contextual [multi-armed bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit) algorithm to allocate more sends to high-performing variants and reduce allocation to underperforming ones. Over time, this results in continuous improvement of your message content, with minimal manual intervention.
 
-Braze's proprietary bandit optimization algorithm is built specifically for the combinatorial nature of the Content Optimizer step. Given that each message is comprised of several components, the bandit simultaneously learns about the performance of each component (such as the subject line, body, CTA) as well as their interactions when combined into a message. More concretely, when a given combination is sent, all combinations that share the same components benefit from the data of that send. This allows the bandit to learn much faster on the same amount of data, relative to a standard bandit algorithm.
+Braze's proprietary bandit optimization algorithm is built specifically for the combinatorial nature of the Content Optimizer step. Given that each message comprises several components, the bandit simultaneously learns about the performance of each component (such as the subject line, body, CTA) as well as their interactions when combined into a message. More concretely, when a given combination is sent, all combinations that share the same components benefit from the data of that send. This allows the bandit to learn much faster on the same amount of data, relative to a standard bandit algorithm.
 
 When the step first launches, Content Optimizer sends variants randomly to collect initial performance data. After this initial exploration period, the algorithm begins shifting traffic toward higher-performing content combinations, gradually reducing allocation to underperforming options. During the exploration period, traffic is generally distributed across available variants to allow the algorithm to learn from their relative performance.
 
