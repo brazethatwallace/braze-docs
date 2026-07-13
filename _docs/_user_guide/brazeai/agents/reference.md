@@ -226,7 +226,7 @@ If you want to collect user feedback for their most recent dining experience at 
 
 ## Catalogs and fields
 
-Choose specific catalogs for an agent to reference and to give your agent the context it needs to understand your products and other non-user data when relevant. Agents use tools to find the relevant items only and send those to the LLM to minimize token use.
+Choose specific catalogs for an agent to reference and to give your agent the context it needs to understand your products and other non-user data when relevant. Agents use tools to find the relevant items only and send those to the LLM to minimize token use. For better catalog retrieval, create a [knowledge source]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) and add it as agent context instead of attaching the catalog directly.
 
 ![The "restaurants" catalog and "Loyalty_Program" column selected for the agent to search.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 

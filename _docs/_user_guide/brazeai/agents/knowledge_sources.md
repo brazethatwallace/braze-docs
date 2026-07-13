@@ -1,14 +1,14 @@
 ---
 nav_title: Knowledge sources
 article_title: Knowledge sources
-permalink: "/knowledge_sources/"
 description: "This reference article covers how to create and manage knowledge sources for your BrazeAI agents."
 page_type: reference
+page_order: 3.5
 ---
 
 # Knowledge sources
 
-> Knowledge sources help your AI agents interpret catalog data and retrieve the right information to meet your goals.
+> Knowledge sources help your AI agents interpret catalog data and retrieve the right information to meet your goals. For an introduction to Braze Agents, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). To add knowledge to an agent, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources).
 
 {% alert important %}
 Knowledge sources for Agent Console are currently in early access. Contact your Braze account manager if you're interested in participating in this early access.
@@ -49,9 +49,9 @@ To create a knowledge source:
 
 Including every catalog field can add unnecessary context and may reduce output quality. Deselecting fields that aren't relevant to your use case helps the agent focus on the data that matters.
 
-![A knowledge source "nyc_restaurants" that references the catalog "nyc_restaurants".]({% image_buster /assets/unlisted_docs/img/knowledge_sources/knowledge_source_example.png %}){: style="max-width:80%;"}
+![A knowledge source "nyc_restaurants" that references the catalog "nyc_restaurants".]({% image_buster /assets/img/ai_agent/knowledge_source_example.png %})
 
-You can also create a knowledge source as you're building an agent by going to the **Instructions** section of your agent. Then, select **Add knowledge** > **Create knowledge source**.
+You can also create a knowledge source as you're building an agent by going to the **Instructions** section of your agent. Select **Add knowledge** > **Create knowledge source**.
 
 ## Use a knowledge source in your AI agent
 
@@ -59,8 +59,8 @@ You can manage knowledge sources from the **Knowledge Sources** section. Here, y
 
 To use a knowledge source in your AI agent:
 
-1. Go the **Instructions** section of your agent. 
-2. Then, select **+ Agent context** > **Add knowledge**. 
+1. Go to the **Instructions** section of your agent. 
+2. Select **+ Agent context** > **Add knowledge**. 
 3. From the dropdown, select the knowledge source.
 
 Now, your agent can reference the knowledge source and retrieve the relevant catalog data.
@@ -73,13 +73,12 @@ Converting a catalog into a knowledge source helps Braze Agents understand the t
 
 ### When should I create a knowledge source?
 
-Create a knowledge source when you want to set up a custom agent (Canvas agent or catalog agent) which can use a catalog as context. Using knowledge sources is a better way of attaching a catalog as context compared to the existing method.
+Create a knowledge source when you're setting up a custom agent (Canvas agent or catalog agent) that needs catalog data as context. Knowledge sources help agents retrieve catalog data more accurately than referencing the catalog directly in the agent's instructions.
 
 ### If an agent has been given a knowledge source as context, do I also need to assign the original catalog as context?
 
 No. The knowledge source replaces the catalog as agent context—you don't need to attach both. When you create the knowledge source, include only the catalog fields your agent needs.
 
-### How should I evaluate the efficacy of knowledge source?
+### How should I evaluate the effectiveness of a knowledge source?
 
-Duplicate any existing agent you use that references a regular catalog, and switch it to reference the equivalent knowledge source instead. Run a few test invocations in Agent Console to ensure accuracy, and then consider either replacing the existing agent where it’s being deployed, or A/B testing the old agent against the new agent (using Experiment Path step) to understand performance impact.
-
+Duplicate any existing agent you use that references a regular catalog, and switch it to reference the equivalent knowledge source instead. Run a few test invocations in Agent Console to ensure accuracy, and then consider either replacing the existing agent where it's being deployed, or A/B testing the old agent against the new agent (using Experiment Path step) to understand performance impact.

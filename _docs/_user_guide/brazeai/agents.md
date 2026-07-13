@@ -57,6 +57,7 @@ Agents are configured with instructions (system prompts) that define how they be
 | [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
 | [Invocation](#limitations) | A single run of the agent. This counts against your daily limits. |
 | [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | The predefined data structure of the agent's response. |
+| [Knowledge sources]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources/) | A type of agent context used to retrieve data from a catalog more accurately than if the catalog is referenced directly in the agent's instructions. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Limitations
