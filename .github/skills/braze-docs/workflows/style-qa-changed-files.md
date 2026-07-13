@@ -20,6 +20,22 @@ Canonical human guide when a rule is ambiguous:
 3. Fix violations in those lines before opening or updating the PR.
 4. Skip files that are code/markup-only with no editorial prose change.
 
+## Quick command (prose diff)
+
+Run this to inspect changed prose lines in scope:
+
+```bash
+git diff --unified=0 origin/develop...HEAD -- _docs/**/*.md _includes/**/*.md
+```
+
+Interpret the output:
+
+- If you see hunks with `+` / `-` lines in markdown prose, run the checklist on
+  those changed lines only.
+- If there is no output, there are no changed markdown lines in Style QA scope.
+- If output is code/markup-only (for example, Liquid tags or table structure)
+  with no editorial prose edits, Style QA can be skipped for that file.
+
 ## Checklist (changed lines only)
 
 - [ ] **Bold = UI only** — Bold dashboard labels the reader interacts with.

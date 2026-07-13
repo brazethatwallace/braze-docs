@@ -24,13 +24,16 @@ Detect mode from $ARGUMENTS first, then modified files, then ask.
 | $ARGUMENTS: "redirect", "mredirects", "ulinks", "broken_redirect" | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | $ARGUMENTS: "link", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
 | $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
-| $ARGUMENTS: "review", "audit", "style", "check", "qa" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md); for pre-PR diff checks use [style-qa-changed-files.md](workflows/style-qa-changed-files.md) |
+| $ARGUMENTS: "review", "audit", "style", "check", "style qa", "qa style" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md); for pre-PR diff checks use [style-qa-changed-files.md](workflows/style-qa-changed-files.md) |
 | $ARGUMENTS: "css", "layout", "component", "include", "i18n", "custom" | **Custom** | *(workflow is in this file — see Custom components and CSS)* |
 | Modified files include `broken_redirect_list.js` | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
 | Modified files are under `_docs/` with no link/conflict signals | **Write** | [writing-style.md](references/writing-style.md) |
 
 If mode is still ambiguous, ask: "What are you working on?"
+
+Treat bare `qa` by itself as ambiguous. Ask a follow-up instead of auto-routing
+to Review mode.
 
 If AskUserQuestion is available:
 - **Writing or editing content** — Drafting new articles or updating existing ones → **Write**
