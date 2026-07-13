@@ -28,6 +28,8 @@ Content Optimizer is an agent that runs in a Canvas step. It helps you define me
 
 Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
 
+{% multi_lang_include brazeai/generative_ai/policy.md %}
+
 ## Use cases
 
 ### Email
@@ -101,8 +103,6 @@ The best fit for Content Optimizer is in daily recurring entry Canvases, as well
    - Up to 5 variants for each component
 - Only one message is sent per user per entry. There is no memory of previous sends for re-entries.
 - Marketers must manually insert Liquid tags for each component in the message composer where the defined content component variants should render.
-
-{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Next steps
 
