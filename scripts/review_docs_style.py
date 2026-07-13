@@ -1799,7 +1799,7 @@ def main() -> None:
         print("No findings; skipping PR review (pass/fail only in summary comment).")
 
     sync_summary_comment(posted, fallback, summary_notes, files)
-    print("Summary comment updated for this commit.")
+    print("Summary comment posted for this commit.")
 
 
 if __name__ == "__main__":
