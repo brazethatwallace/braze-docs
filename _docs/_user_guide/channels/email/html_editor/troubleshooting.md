@@ -20,7 +20,7 @@ Match your symptom in the table to navigate to the relevant section.
 | Editor behaves oddly in Chrome | [Extension conflicts](#extension-conflicts) |
 | Email looks different across clients | [Email rendering](#email-rendering) |
 | Inbox Vision preview doesn't match sent email | [CSS inlining](#css-inlining) |
-| White space or lines under images in test emails | [White space under images](#white-space-under-images) |
+| White space or lines after images in test emails | [White space under images](#white-space-under-images) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML email symptom" }
 
 ## Standard investigation path
@@ -61,7 +61,9 @@ There are times when the previews in Inbox Vision still don't match what is sent
 
 ### White space under images {#white-space-under-images}
 
-If you notice white space or lines under images in your test emails, this is typically caused by how email clients render inline-level elements. Images are inline-level by default and are aligned to the baseline, which allows browsers to accommodate descenders (the part of letters like "g" or "y" that extend past the baseline). This creates a small gap that appears as white space.
+**Symptom:** White space or lines appear after images in test emails.
+
+If you notice white space or lines appearing after images in your test emails, this is typically caused by how email clients render inline-level elements. Images are inline-level by default and are aligned to the baseline, which allows browsers to accommodate descenders (the part of letters like "g" or "y" that extend beyond the baseline). This creates a small gap that appears as white space.
 
 To fix this, add `display: block;` to your image CSS:
 
