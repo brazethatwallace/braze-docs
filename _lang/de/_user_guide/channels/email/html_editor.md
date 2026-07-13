@@ -2,7 +2,7 @@
 nav_title: HTML-Editor
 article_title: Eine E-Mail mit angepasstem HTML erstellen
 page_order: 2
-description: "Dieser Referenzartikel beschreibt, wie Sie eine E-Mail mit der Braze-Plattform erstellen. Enthalten sind Best Practices zum Verfassen Ihrer Nachrichten, zur Vorschau Ihrer Inhalte und zur Planung Ihrer Kampagne oder Ihres Canvas."
+description: "Dieser Referenzartikel beschreibt, wie Sie eine E-Mail mit der Braze-Plattform erstellen. Enthalten sind Best Practices zum Verfassen Ihrer Nachrichten, zur Vorschau Ihrer Inhalte und zur Planung Ihrer Campaign oder Ihres Canvas."
 tool:
   - Campaigns
 channel:
@@ -29,7 +29,7 @@ Verwenden Sie Campaigns für einfache, einzelne Nachrichten. Verwenden Sie Canva
 {% tabs %}
 {% tab Campaign %}
 
-1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Campaign erstellen**.
 2. Wählen Sie **Email** oder, für Campaigns, die mehrere Kanäle ansprechen, **Multichannel**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
@@ -123,7 +123,7 @@ Nachdem Sie Ihre E-Mail-Nachricht fertig gestaltet und erstellt haben, fügen Si
 1. Wählen Sie unter **Sending Info** eine E-Mail als **From Display Name + Address** aus. Sie können dies auch anpassen, indem Sie **Customize From Display Name + Address** wählen.
 2. Wählen Sie eine E-Mail als **Reply-To Address** aus. Sie können dies auch anpassen, indem Sie **Customize Reply-To Address** wählen.
 3. Wählen Sie als Nächstes eine E-Mail als **BCC Address** aus, um Ihre E-Mail für diese Adresse sichtbar zu machen.
-4. Fügen Sie Ihrer E-Mail eine Betreffzeile hinzu. Optional können Sie auch einen Preheader und Leerraum nach dem Preheader hinzufügen.
+4. Fügen Sie Ihrer E-Mail eine Betreffzeile hinzu. Optional können Sie auch einen Preheader hinzufügen. Um Leerraum nach dem Preheader hinzuzufügen, aktivieren Sie das Kontrollkästchen **Add whitespace after preheader**.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -232,7 +232,7 @@ Wenn Sie Probleme mit Ihrer E-Mail feststellen oder Änderungen vornehmen möcht
 
 {% alert tip %}
 E-Mail-Clients, die Vorschautext unterstützen, ziehen immer genügend Zeichen ein, um den gesamten verfügbaren Vorschautext-Bereich zu füllen. Dies kann jedoch dazu führen, dass der Vorschautext unvollständig oder nicht optimal ist.
-<br><br>Um dies zu vermeiden, können Sie nach Ihrem gewünschten Vorschautext Leerraum erstellen, damit E-Mail-Clients keinen anderen ablenkenden Text oder Zeichen in den Umschlaginhalt ziehen. Fügen Sie dazu eine Kette von Zero-Width-Non-Joinern (‌`&zwnj;`) und geschützten Leerzeichen (`&nbsp;`) nach dem Vorschautext hinzu, der angezeigt werden soll. <br><br>Wenn Sie den folgenden Code am Ende Ihres Vorschautexts im Preheader-Bereich des HTML-Editors hinzufügen, wird der gewünschte Leerraum erzeugt:<br><br>
+<br><br>Um dies zu vermeiden, können Sie nach Ihrem gewünschten Vorschautext Leerraum erstellen, damit E-Mail-Clients keinen anderen ablenkenden Text oder Zeichen in den Umschlaginhalt ziehen. Im Bereich **Sending Settings** können Sie das Kontrollkästchen **Add whitespace after preheader** aktivieren, um automatisch Leerraum hinzuzufügen. <br><br>Alternativ können Sie, wenn Sie mehr Kontrolle benötigen, manuell eine Kette von Zero-Width-Non-Joinern (‌`&zwnj;`) und geschützten Leerzeichen (`&nbsp;`) nach dem Vorschautext hinzufügen, der angezeigt werden soll. <br><br>Wenn Sie den folgenden Code am Ende Ihres Vorschautexts im Preheader-Bereich des HTML-Editors hinzufügen, wird der gewünschte Leerraum erzeugt:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
@@ -260,7 +260,7 @@ Vor dem Senden markiert der Editor häufige Probleme:
 - Fehlender Abmeldelink
 - Absender-Domain nicht auf der Allowlist (Versand wird stark gedrosselt)
 
-## Schritt 4: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 4: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -313,11 +313,11 @@ Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen
 - Bestimmtes angepasstes Event ausführen
 - E-Mail öffnen
 
-Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem Braze eine Conversion zählt, wenn die Person die angegebene Aktion ausführt. Obwohl Braze Öffnungen und Klicks automatisch verfolgt, können Sie das Konversions-Event auf eine Öffnung oder einen Klick setzen, um die [Intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) zu nutzen.
+Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem Braze eine Konversion zählt, wenn die Person die angegebene Aktion ausführt. Obwohl Braze Öffnungen und Klicks automatisch verfolgt, können Sie das Konversions-Event auf eine Öffnung oder einen Klick setzen, um die [intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) zu nutzen.
 {% endtab %}
 
 {% tab Canvas %}
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponenten. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und Intelligenter Auswahl und mehr finden Sie im Schritt [Ihren Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponenten. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Ihren Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
 {% endtab %}
 {% endtabs %}
 

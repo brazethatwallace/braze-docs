@@ -41,7 +41,7 @@ MESSAGE HERE
 
 ## ¿Pueden los usuarios recibir un mensaje dentro de la aplicación de nuevo después de descartarlo? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 Para campañas de mensajes dentro de la aplicación, puedes permitir que los usuarios vuelvan a ser elegibles para recibir la campaña activando la reelegibilidad en **Controles de entrega** (**Permitir que los usuarios vuelvan a ser elegibles para recibir la campaña**). La rapidez con la que pueden recibirla de nuevo depende de la ventana de reelegibilidad que establezcas y de cómo Braze registró el envío anterior. Consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) para conocer el comportamiento de las campañas, incluyendo cómo la reelegibilidad se relaciona con la recepción de mensajes.
 
@@ -69,7 +69,7 @@ Sí, pero solo se puede mostrar un mensaje dentro de la aplicación por cada ocu
 
 Cuando varios mensajes comparten el mismo nivel de prioridad, se muestra primero el mensaje creado más recientemente. Para los desencadenantes de inicio de sesión, el siguiente mensaje más reciente se muestra en una sesión posterior; para otros tipos de desencadenantes, el siguiente mensaje más reciente se muestra la próxima vez que ocurra ese evento desencadenante, lo cual puede ser dentro de la misma sesión o en una sesión posterior.
 
-Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Establece la prioridad exacta**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
+Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Set Exact Priority**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
 
 ## ¿Cómo calcula Braze la expiración de un mensaje dentro de la aplicación configurada como "después de 1 día(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -151,15 +151,15 @@ Los mensajes dentro de la aplicación estándar se muestran tan pronto como la c
 
 Los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages) y las campañas con **Re-evaluate campaign eligibility before displaying** seleccionado requieren una solicitud de red adicional después del desencadenante antes de que aparezca el mensaje. Esto puede añadir un breve retraso (normalmente menos de 100 ms en una conexión estable). Para más información, consulta [Elegir usuarios objetivo]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
 
-### ¿Por qué mi mensaje dentro de la aplicación se ve diferente a la vista previa del dashboard? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+### ¿Por qué mi mensaje dentro de la aplicación se ve diferente a la vista previa del panel? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
-Los mensajes dentro de la aplicación entregados pueden diferir de la vista previa del dashboard cuando:
+Los mensajes dentro de la aplicación entregados pueden diferir de la vista previa del panel cuando:
 
 - Tu integración aplica estilos personalizados o anula la interfaz predeterminada de mensajes dentro de la aplicación en ciertas plataformas
 - La vista previa usa un perfil de usuario de prueba con atributos diferentes a los del destinatario
 - El contenido con plantilla se resuelve de manera diferente en el momento del envío que en el modo de vista previa
 
-Usa [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) con un usuario de prueba cuyo perfil coincida con tu audiencia objetivo al validar la apariencia.
+Usa [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) con un usuario de prueba cuyo perfil coincida con tu público objetivo al validar la apariencia.
 
 ### ¿Por qué un mensaje dentro de la aplicación de varias páginas usa el mismo fondo en todas las páginas? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
 

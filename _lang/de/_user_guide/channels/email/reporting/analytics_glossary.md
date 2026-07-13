@@ -21,7 +21,7 @@ channel:
 
 {% api %}
 
-### Variante {#variation}
+### Variation {#variation}
 
 {% apitags %}
 Count
@@ -35,7 +35,7 @@ Count
 
 {% api %}
 
-### Per E-Mail versendbar {#emailable}
+### Emailable {#emailable}
 
 {% apitags %}
 Count
@@ -49,7 +49,7 @@ Count
 
 {% api %}
 
-### Zielgruppe % {#audience}
+### Audience % {#audience}
 
 {% apitags %}
 Percentage
@@ -57,13 +57,13 @@ Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Audience' %}
 
-<span class="calculation-line">Berechnung: (Zahl der Empfänger:innen in der Variante) / (Eindeutige Empfänger:innen)</span>
+<span class="calculation-line">Berechnung: (Anzahl der Empfänger:innen in der Variante) / (Eindeutige Empfänger:innen)</span>
 
 {% endapi %}
 
 {% api %}
 
-### Eindeutige Empfänger:innen {#unique-recipients}
+### Unique Recipients {#unique-recipients}
 
 {% apitags %}
 Count
@@ -77,7 +77,7 @@ Count
 
 {% api %}
 
-### Sendungen {#sends}
+### Sends {#sends}
 
 {% apitags %}
 Count
@@ -91,7 +91,7 @@ Count
 
 {% api %}
 
-### Nachrichten gesendet {#messages-sent}
+### Messages Sent {#messages-sent}
 
 {% apitags %}
 Count
@@ -105,15 +105,15 @@ Count
 
 {% api %}
 
-### Zustellungen {#deliveries}
+### Deliveries {#deliveries}
 
 {% apitags %}
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Deliveries' %} Bei E-Mails ist *Zustellungen* die Gesamtzahl der Nachrichten (Sendungen), die erfolgreich an E-Mail-fähige Empfänger:innen gesendet und von diesen empfangen wurden.
+{% multi_lang_include analytics/metrics.md metric='Deliveries' %} Bei E-Mails ist *Deliveries* die Gesamtzahl der Nachrichten (Sends), die erfolgreich an E-Mail-fähige Empfänger:innen gesendet und von diesen empfangen wurden.
 
-<span class="calculation-line">Berechnung: (Sendungen) - (Bounces) </span>
+<span class="calculation-line">Berechnung: (Sends) - (Bounces) </span>
 
 {% alert note %}
 Für den **Empfangen**-Status auf Nutzer:innen-Ebene und die zugehörige Logik (z. B. Frequency-Capping) markiert Braze Nutzer:innen in der Regel, wenn der Versand verarbeitet und zur Zustellung übergeben wird – nicht erst, wenn der E-Mail-Anbieter (ESP) die endgültige Zustellung an den Posteingang bestätigt. Dadurch werden Zeitverzögerungen zwischen der ESP-Bestätigung und den produktinternen Regeln vermieden. Dies kann von ESP- oder Drittanbieter-Zustellberichten abweichen.
@@ -123,7 +123,7 @@ Für den **Empfangen**-Status auf Nutzer:innen-Ebene und die zugehörige Logik (
 
 {% api %}
 
-### Zustellungen %
+### Deliveries %
 
 {% apitags %}
 Percentage
@@ -131,7 +131,7 @@ Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Deliveries %' %}
 
-<span class="calculation-line">Berechnung: (Sendungen - Bounces) / (Sendungen) </span>
+<span class="calculation-line">Berechnung: (Sends - Bounces) / (Sends) </span>
 
 {% endapi %}
 
@@ -158,7 +158,7 @@ In [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents
     Berechnung:
     <ul>
         <li><b><i>Bounces</i>:</b> Anzahl</li>
-        <li><b><i>Bounce %</i> oder <i>Bounce-Rate %</i>:</b> (Bounces) / (Sendungen)</li>
+        <li><b><i>Bounce %</i> oder <i>Bounce-Rate %</i>:</b> (Bounces) / (Sends)</li>
     </ul>
 </span>
 {:/}
@@ -191,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Wenn eine E-Mail einen Soft Bounce verursacht, wird in der Regel innerhalb von 72 Stunden ein erneuter Zustellversuch unternommen, wobei die Anzahl der Wiederholungsversuche je nach Empfänger:in variiert.
 
-Obwohl Soft Bounces nicht in Ihren Campaign-Analytics erfasst werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) überwachen oder diese Nutzer:innen mit dem [Soft-Bounce-Segment-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) von Ihrem Versand ausschließen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces einsehen und mögliche Abweichungen zwischen den „Sendungen“ und „Zustellungen“ Ihrer E-Mail-Campaigns nachvollziehen.
+Obwohl Soft Bounces nicht in Ihren Campaign-Analytics erfasst werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) überwachen oder diese Nutzer:innen mit dem [Soft-Bounce-Segment-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) von Ihrem Versand ausschließen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces einsehen und mögliche Abweichungen zwischen den „Sends“ und „Deliveries“ Ihrer E-Mail-Campaigns nachvollziehen.
 
 <span class="calculation-line">Berechnung: Anzahl </span>
 
@@ -212,7 +212,7 @@ Count, Percentage
     Berechnung:
     <ul>
         <li><b><i>Spam</i>:</b> Anzahl</li>
-        <li><b><i>Spam %</i> oder <i>Spam-Rate %</i>:</b> (Als Spam markiert) / (Sendungen)</li>
+        <li><b><i>Spam %</i> oder <i>Spam-Rate %</i>:</b> (Als Spam markiert) / (Sends)</li>
     </ul>
 </span>
 {:/}
@@ -221,7 +221,7 @@ Count, Percentage
 
 {% api %}
 
-### Eindeutige Öffnungen {#unique-opens}
+### Unique Opens {#unique-opens}
 
 {% apitags %}
 Count, Percentage
@@ -233,8 +233,8 @@ Count, Percentage
 <span class="calculation-line">
     Berechnung:
     <ul>
-        <li><b><i>Eindeutige Öffnungen</i>:</b> Anzahl</li>
-        <li><b><i>Eindeutige Öffnungen %</i> oder <i>Eindeutige Öffnungsrate</i>:</b> (Eindeutige Öffnungen) / (Zustellungen)</li>
+        <li><b><i>Unique Opens</i>:</b> Anzahl</li>
+        <li><b><i>Unique Opens %</i> oder <i>Unique Open Rate</i>:</b> (Unique Opens) / (Deliveries)</li>
     </ul>
 </span>
 {:/}
@@ -243,20 +243,20 @@ Count, Percentage
 
 {% api %}
 
-### Eindeutige Klicks {#unique-clicks}
+### Unique Clicks {#unique-clicks}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (ein einzelner Sendeversuch) gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Erfasste angepasste Abmelde-URLs zählen ebenfalls zu den *Eindeutigen Klicks*, wenn Nutzer:innen den Link auswählen. Nach sieben Tagen wird ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt, wenn er/sie erneut klickt. E-Mail-Engagement-Metriken im Dashboard, einschließlich _Eindeutige Klicks_, werden in Braze berechnet und nicht mit aggregierten ESP-Berichten abgeglichen. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (ein einzelner Sendeversuch) gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Erfasste angepasste Abmelde-URLs zählen ebenfalls zu den *Unique Clicks*, wenn Nutzer:innen den Link auswählen. Nach sieben Tagen wird ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt, wenn er/sie erneut klickt. E-Mail-Engagement-Metriken im Dashboard, einschließlich _Unique Clicks_, werden in Braze berechnet und nicht mit aggregierten ESP-Berichten abgeglichen. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
 
 {::nomarkdown}
 <span class="calculation-line">
     Berechnung:
     <ul>
-        <li><b><i>Eindeutige Klicks</i>:</b> Anzahl</li>
-        <li><b><i>Eindeutige Klicks %</i> oder <i>Klickrate</i>:</b> (Eindeutige Klicks) / (Zustellungen)</li>
+        <li><b><i>Unique Clicks</i>:</b> Anzahl</li>
+        <li><b><i>Unique Clicks %</i> oder <i>Klickrate</i>:</b> (Unique Clicks) / (Deliveries)</li>
     </ul>
 </span>
 {:/}
@@ -269,21 +269,21 @@ Wenn die [E-Mail-Heatmap]({{site.baseurl}}/user_guide/channels/email/reporting) 
 
 {% api %}
 
-### Gesamtklicks {#total-clicks}
+### Total Clicks {#total-clicks}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-<i>Gesamtklicks</i> ist die Gesamtzahl der Klicks von Nutzer:innen auf Links in der zugestellten E-Mail, einschließlich mehrfacher Klicks derselben Nutzer:innen. Dies umfasst Klicks auf Braze-Abmeldelinks und erfasste angepasste Abmelde-URLs.
+<i>Total Clicks</i> ist die Gesamtzahl der Klicks von Nutzer:innen auf Links in der zugestellten E-Mail, einschließlich mehrfacher Klicks derselben Nutzer:innen. Dies umfasst Klicks auf Braze-Abmeldelinks und erfasste angepasste Abmelde-URLs.
 
-Wenn *Gesamtklicks* deutlich höher ist als *Eindeutige Klicks*, scannen Sicherheitstools oder Postfachanbieter Links, ohne dass Nutzer:innen die Nachricht öffnen. Vergleichen Sie *Eindeutige Klicks*, wenn Sie das Engagement intern bewerten.
+Wenn *Total Clicks* deutlich höher ist als *Unique Clicks*, scannen Sicherheitstools oder Postfachanbieter Links, ohne dass Nutzer:innen die Nachricht öffnen. Vergleichen Sie *Unique Clicks*, wenn Sie das Engagement intern bewerten.
 
 {% endapi %}
 
 {% api %}
 
-### Abmeldungen oder Unsub {#unsubscribers-or-unsub}
+### Unsubscribers or Unsub {#unsubscribers-or-unsub}
 
 {% apitags %}
 Count, Percentage
@@ -297,18 +297,18 @@ _Abmeldungen_ beziehen sich auf den Standard-Abmeldelink von Braze. Angepasste A
 <span class="calculation-line">
     Berechnung:
     <ul>
-        <li><b><i>Abmeldungen</i> oder <i>Unsub</i>:</b> Anzahl</li>
-        <li><b><i>Abmeldungen %</i> oder <i>Abmelderate</i>:</b> (Abmeldungen) / (Zustellungen)</li>
+        <li><b><i>Unsubscribers</i> oder <i>Unsub</i>:</b> Anzahl</li>
+        <li><b><i>Unsubscribers %</i> oder <i>Unsub Rate</i>:</b> (Unsubscribes) / (Deliveries)</li>
     </ul>
 </span>
 {:/}
 
 #### Warum sich *Abmeldungen* und Klicks auf den Abmeldelink unterscheiden können {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
 
-Vergleichen Sie auf der **Analytics**-Seite einer E-Mail-Campaign oder eines Canvas die Anzahl der *Abmeldungen* mit den Klicks auf die Braze-Abmelde-URL in der Link-Aufschlüsselung, wenn Sie **Gesamtklicks** oder **Eindeutige Klicks** aufklappen. Die beiden Werte stimmen oft überein, können aber abweichen:
+Vergleichen Sie auf der **Analytics**-Seite einer E-Mail-Campaign oder eines Canvas die Anzahl der *Unsubscribes* mit den Klicks auf die Braze-Abmelde-URL in der Link-Aufschlüsselung, wenn Sie **Total Clicks** oder **Unique Clicks** aufklappen. Die beiden Werte stimmen oft überein, können aber abweichen:
 
-- **Mehr *Abmeldungen* als Klicks auf die Abmelde-URL im E-Mail-Text:** [List-Unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) ist ein zusätzlicher Abmeldepfad im E-Mail-Header (nicht der Link in Ihrem Nachrichtentext). Wenn sich Nutzer:innen auf diesem Weg abmelden, wird dies zu den *Abmeldungen* gezählt, zählt aber nicht als Klick auf die erfasste Abmelde-URL im Text.
-- **Mehr Klicks auf die Abmelde-URL im Text als *Abmeldungen*:** Nutzer:innen können diesen Link mehrmals auswählen. Wenn sie sich abmelden, erneut anmelden und sich wieder abmelden, kann die E-Mail-Analyse mehrere Klicks (z. B. zwei) in der Klick-Aufschlüsselung erfassen.
+- **Mehr *Unsubscribes* als Klicks auf die Abmelde-URL im E-Mail-Text:** [List-Unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) ist ein zusätzlicher Abmeldepfad im E-Mail-Header (nicht der Link in Ihrem Nachrichtentext). Wenn sich Nutzer:innen auf diesem Weg abmelden, wird dies zu den *Unsubscribes* gezählt, zählt aber nicht als Klick auf die erfasste Abmelde-URL im Text.
+- **Mehr Klicks auf die Abmelde-URL im Text als *Unsubscribes*:** Nutzer:innen können diesen Link mehrmals auswählen. Wenn sie sich abmelden, erneut anmelden und sich wieder abmelden, kann die E-Mail-Analyse mehrere Klicks (z. B. zwei) in der Klick-Aufschlüsselung erfassen.
 
 Weitere Informationen finden Sie unter [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
@@ -316,7 +316,7 @@ Weitere Informationen finden Sie unter [Warum sehe ich eine andere Anzahl von Ab
 
 {% api %}
 
-### Umsatz {#revenue}
+### Revenue {#revenue}
 
 {% apitags %}
 Count
@@ -330,20 +330,20 @@ Count
 
 {% api %}
 
-### Primäre Conversions (A) oder primäres Konversions-Event {#primary-conversions-a-or-primary-conversion-event}
+### Primary Conversions (A) or Primary Conversion Event {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} Bei E-Mails, Push und Webhooks beginnt das Tracking der Conversions nach dem ersten Versand.
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} Bei E-Mails, Push und Webhooks beginnt das Tracking der Konversionen nach dem ersten Versand.
 
 {::nomarkdown}
 <span class="calculation-line">
     Berechnung:
     <ul>
-        <li><b><i>Primäre Conversions (A)</i> oder <i>Primäres Konversions-Event</i>:</b> Anzahl</li>
-        <li><b><i>Primäre Conversions (A) %</i> oder <i>Primäre Konversions-Event-Rate</i>:</b> (Primäre Conversions) / (Eindeutige Empfänger:innen)</li>
+        <li><b><i>Primary Conversions (A)</i> oder <i>Primary Conversion Event</i>:</b> Anzahl</li>
+        <li><b><i>Primary Conversions (A) %</i> oder <i>Primary Conversion Event Rate</i>:</b> (Primary Conversions) / (Unique Recipients)</li>
     </ul>
 </span>
 {:/}
@@ -352,7 +352,7 @@ Count, Percentage
 
 {% api %}
 
-### Konfidenz {#confidence}
+### Confidence {#confidence}
 
 {% apitags %}
 Count
@@ -364,7 +364,7 @@ Count
 
 {% api %}
 
-### Maschinelle Öffnungen {#machine-opens}
+### Machine Opens {#machine-opens}
 
 {% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Diese Metrik wird seit dem 11. November 2021 für SendGrid und seit dem 2. Dezember 2021 für SparkPost erfasst.
 
@@ -374,13 +374,13 @@ Count
 
 {% api %}
 
-### Sonstige Öffnungen {#other-opens}
+### Other Opens {#other-opens}
 
 {% apitags %}
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Beachten Sie, dass ein:e Nutzer:in eine E-Mail auch öffnen kann (wobei die Öffnung zu <i>Sonstige Öffnungen</i> gezählt wird), bevor ein Zähler für <i>Maschinelle Öffnungen</i> protokolliert wird. Wenn ein:e Nutzer:in eine E-Mail einmal (oder mehrmals) nach einem maschinellen Öffnungs-Ereignis aus einem Nicht-Apple-Mail-Posteingang öffnet, wird die Anzahl der Öffnungen durch die:den Nutzer:in zu <i>Sonstige Öffnungen</i> gezählt und nur einmal zu <i>Eindeutige Öffnungen</i>.
+{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Beachten Sie, dass Nutzer:innen eine E-Mail auch öffnen können (wobei die Öffnung zu <i>Other Opens</i> gezählt wird), bevor ein Zähler für <i>Machine Opens</i> protokolliert wird. Wenn Nutzer:innen eine E-Mail einmal (oder mehrmals) nach einem maschinellen Öffnungs-Ereignis aus einem Nicht-Apple-Mail-Posteingang öffnen, wird die Anzahl der Öffnungen zu <i>Other Opens</i> gezählt und nur einmal zu <i>Unique Opens</i>.
 
 <span class="calculation-line">Berechnung: Anzahl </span>
 
@@ -388,7 +388,7 @@ Count
 
 {% api %}
 
-### Geschätzte tatsächliche Öffnungen {#estimated-real-opens}
+### Estimated Real Opens {#estimated-real-opens}
 
 {% apitags %}
 Count, Percentage
@@ -400,7 +400,7 @@ Count, Percentage
 
 {% api %}
 
-### Klick-zu-Öffnungs-Rate {#click-to-open-rate}
+### Click-to-Open Rate {#click-to-open-rate}
 
 {% apitags %}
 Percentage
@@ -408,7 +408,7 @@ Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
-<span class="calculation-line">Berechnung: (Eindeutige Klicks) / (Eindeutige Öffnungen) (für E-Mail)</span>
+<span class="calculation-line">Berechnung: (Unique Clicks) / (Unique Opens) (für E-Mail)</span>
 
 #### Message-Open-Likelihood-Scores (Segmentierung) {#message-open-likelihood-scores-segmentation}
 
@@ -420,7 +420,7 @@ Der Segment-Filter [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audie
 
 ### Abmeldelinks und eindeutige Klicks {#unsubscribe-links-and-unique-clicks}
 
-Wenn Empfänger:innen auf einen Abmeldelink klicken, zählt Braze dies als Klick, da die Aktion eine URL verwendet. Dies gilt sowohl für von Braze bereitgestellte Abmeldelinks als auch für angepasste Abmeldelinks in Ihrem Nachrichtentext. Diese Klicks fließen zusammen mit anderen Link-Klicks in *Eindeutige Klicks* und *Gesamtklicks* ein. Metrikdefinitionen finden Sie unter [Eindeutige Klicks](#unique-clicks) oben und [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Wenn Empfänger:innen auf einen Abmeldelink klicken, zählt Braze dies als Klick, da die Aktion eine URL verwendet. Dies gilt sowohl für von Braze bereitgestellte Abmeldelinks als auch für angepasste Abmeldelinks in Ihrem Nachrichtentext. Diese Klicks fließen zusammen mit anderen Link-Klicks in *Unique Clicks* und *Total Clicks* ein. Metrikdefinitionen finden Sie unter [Unique Clicks](#unique-clicks) weiter oben in diesem Abschnitt und unter [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Im Browser anzeigen {#view-in-browser}
 
@@ -444,7 +444,7 @@ Setzen Sie auf einwilligungsbasiertes Listenwachstum, setzen Sie inaktive Abonne
 
 ### Gute E-Mail-Zustellraten {#good-email-deliverability-rates}
 
-**Zustellung** gibt an, ob der empfangende Server Ihre Nachricht akzeptiert; Sie können dies mit Metriken wie *Zustellungen* und Bounce-Rate messen. **Zustellbarkeit** (Posteingangsplatzierung) hängt von der Filterung des Anbieters ab und wird nicht als einzelne Braze-Metrik angezeigt.
+**Zustellung** gibt an, ob der empfangende Server Ihre Nachricht akzeptiert; Sie können dies mit Metriken wie *Deliveries* und Bounce-Rate messen. **Zustellbarkeit** (Posteingangsplatzierung) hängt von der Filterung des Anbieters ab und wird nicht als einzelne Braze-Metrik angezeigt.
 
 Als allgemeine Richtlinie sollten Sie eine Zustellrate von nahezu 99 % mit Hard Bounces unter ca. 1 % anstreben und Öffnungen sowie Klicks für Engagement-Trends beobachten. Die genauen Zielwerte variieren je nach Branche und Versandmuster. Informationen zu Praktiken, die Ihre Reputation unterstützen, finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) und [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
 
@@ -458,4 +458,4 @@ Dieses Ergebnis kann auch auftreten, wenn die Campaign **Sofort senden** anzeigt
 - Nutzer:innen haben eine [Wiederzulassungs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)-Periode, sodass sie die Nachricht erst nach Ablauf dieses Fensters erneut erhalten können.
 - Eine andere Campaign oder ein Canvas-Nachrichtenschritt mit höherer Priorität hat den Sendeplatz belegt, wenn sich Trigger überschneiden.
 
-Wenn ein:e Nutzer:in die Nachricht hätte erhalten sollen, dies aber nicht geschehen ist, prüfen Sie frühere Ergebnisse für denselben Trigger (z. B. E-Mail-Bounce oder nicht für den Kanal aktiviert). Eine andere Nachricht im selben Workflow hat diesen Versand möglicherweise verhindert.
+Wenn Nutzer:innen die Nachricht hätten erhalten sollen, dies aber nicht geschehen ist, prüfen Sie frühere Ergebnisse für denselben Trigger (z. B. E-Mail-Bounce oder nicht für den Kanal aktiviert). Eine andere Nachricht im selben Workflow hat diesen Versand möglicherweise verhindert.

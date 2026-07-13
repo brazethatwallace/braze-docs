@@ -2,14 +2,38 @@
 nav_title: Solución de problemas de webhooks y contenido conectado
 article_title: Solución de problemas de solicitudes de webhook y contenido conectado
 page_order: 4
-description: "Este artículo explica cómo solucionar problemas de códigos de error de webhooks y contenido conectado, incluyendo qué son los errores y los pasos para resolverlos."
+description: "Diagnostica errores de webhooks y contenido conectado usando un índice de síntomas, tablas de errores HTTP y orientación sobre la detección de hosts no saludables."
 ---
 
 # Solución de problemas de solicitudes de webhook y contenido conectado {#troubleshoot-webhook-and-connected-content-requests}
 
-> Este artículo explica cómo solucionar problemas de códigos de error comunes de webhooks y contenido conectado, y proporciona explicaciones adicionales sobre cómo pueden producirse estos errores en tus solicitudes.
+> Usa esta página para solucionar problemas de códigos de error comunes de webhooks y contenido conectado. Para la configuración, consulta [Crear un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) y [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
-## Errores 4XX {#4xx-errors}
+## Empieza aquí: identifica tu síntoma {#start-here-match-your-symptom}
+
+Identifica tu síntoma en la tabla para navegar a la sección correspondiente.
+
+| Síntoma | Ir a |
+| --- | --- |
+| Error de cliente `4XX` en el registro de actividad de mensajes | [Errores 4XX](#4xx-errors) |
+| Error de servidor `5XX` o tiempo de espera agotado | [Errores 5XX](#5xx-errors) |
+| `598 Host Unhealthy` o solicitudes detenidas brevemente | [Detección de host no saludable](#unhealthy-host-detection) |
+| El contenido conectado se muestra en blanco en la vista previa o el envío | [El contenido conectado no devuelve cuerpo de respuesta](#connected-content-returns-no-response-body) |
+| Correo electrónico automatizado de error de Braze | [Correos electrónicos automatizados y entradas del registro de actividad de mensajes](#automated-emails-and-message-activity-log-entries) |
+| Necesitas eventos de fallo de webhook en Currents | [Información adicional sobre fallos en Braze Currents](#additional-failure-insights-in-braze-currents) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Síntomas de webhook y contenido conectado" }
+
+## Ruta de investigación estándar {#standard-investigation-path}
+
+Usa este flujo de trabajo cuando una solicitud de webhook o contenido conectado falle o se renderice incorrectamente. Empieza en el paso 1.
+
+1. Abre el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) y anota el código de error, la marca de tiempo y la URL del endpoint.
+2. Para errores `4XX`, verifica la sintaxis de la solicitud, los encabezados de autenticación, la ruta de la URL y el método HTTP contra la documentación del endpoint.
+3. Para errores `5XX`, comprueba el estado del endpoint, los límites de velocidad y si Braze marcó el host como no saludable.
+4. Para contenido conectado, previsualiza el mensaje para un usuario de prueba y confirma que Liquid no se resuelve como un valor en blanco o que rompa el JSON.
+5. Si la detección de host no saludable puede estar involucrada, revisa [Detección de host no saludable](#unhealthy-host-detection) antes de contactar con [soporte de Braze]({{site.baseurl}}/support_contact).
+
+## Errores 4XX {#4xx-errors} {#4xx-errors}
 
 Los errores `4XX` indican que hay un problema con la solicitud enviada al endpoint. Estos errores suelen deberse a solicitudes erróneas, incluyendo parámetros mal formados, encabezados de autenticación faltantes o URL incorrectas. Ten en cuenta que estos errores también se aplican al [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
@@ -22,7 +46,6 @@ table td {
 </style>
 
 <table aria-label="Errores 4XX">
-  <caption>Errores 4XX</caption>
   <thead>
     <tr>
       <th>Código de error</th>
@@ -115,7 +138,7 @@ table td {
   </tbody>
 </table>
 
-## Errores 5XX {#5xx-errors}
+## Errores 5XX {#5xx-errors} {#5xx-errors}
 
 Los errores `5XX` indican que hay un problema con el endpoint. Estos errores suelen deberse a problemas del lado del servidor.
 
@@ -142,8 +165,8 @@ Aquí tienes consejos para solucionar errores `5XX` comunes:
 Los webhooks y el contenido conectado de Braze emplean un mecanismo de detección de host no saludable para detectar cuándo el host de destino experimenta una alta tasa de lentitud significativa o sobrecarga que resulta en tiempos de espera agotados, demasiadas solicitudes u otros resultados que impiden a Braze comunicarse exitosamente con el endpoint de destino. Actúa como una protección para reducir la carga innecesaria que puede estar causando problemas al host de destino. También sirve para estabilizar la infraestructura de Braze y mantener velocidades de mensajería rápidas.
 
 Los umbrales de detección difieren entre webhooks y contenido conectado:
-- **Para webhooks**: Si el número de **fallos supera los 3000 en cualquier ventana de tiempo móvil de un minuto** (por combinación única de nombre de host y grupo de aplicaciones&#8212;**no** por ruta de endpoint), Braze detiene temporalmente las solicitudes al host de destino durante un minuto.
-- **Para contenido conectado**: Si el número de **fallos supera los 3000 Y la tasa de error supera el 90 % en cualquier ventana de tiempo móvil de un minuto** (por combinación única de nombre de host y grupo de aplicaciones&#8212;**no** por ruta de endpoint), Braze detiene temporalmente las solicitudes al host de destino durante un minuto.
+- **Para webhooks**: Si el número de fallos supera los 3000 en cualquier ventana de tiempo móvil de un minuto (por combinación única de nombre de host y grupo de aplicaciones&#8212;no por ruta de endpoint), Braze detiene temporalmente las solicitudes al host de destino durante un minuto.
+- **Para contenido conectado**: Si el número de fallos supera los 3000 Y la tasa de error supera el 90 % en cualquier ventana de tiempo móvil de un minuto (por combinación única de nombre de host y grupo de aplicaciones&#8212;no por ruta de endpoint), Braze detiene temporalmente las solicitudes al host de destino durante un minuto.
 
 Cuando las solicitudes se detienen, Braze simula respuestas con un código de error `598` para indicar el mal estado de salud. Después de un minuto, Braze reanuda las solicitudes a velocidad completa si se determina que el host está saludable. Si el host sigue no saludable, Braze espera otro minuto antes de intentarlo de nuevo.
 
@@ -157,10 +180,12 @@ Si crees que la detección de host no saludable puede estar causando problemas, 
 
 ### El contenido conectado no devuelve cuerpo de respuesta {#connected-content-returns-no-response-body}
 
+**Síntoma:** Una llamada de contenido conectado se renderiza en blanco en la vista previa o el envío de tu mensaje.
+
 Si una llamada de contenido conectado se renderiza en blanco en la vista previa o el envío de tu mensaje, comprueba lo siguiente:
 
 - **Espacios de no separación en la URL:** Braze elimina los espacios de no separación (`&nbsp;` o Unicode `U+00A0`) de las URL de contenido conectado antes de realizar la solicitud. Si tu URL fue copiada de un documento o campo del panel que insertó espacios de no separación entre caracteres, la solicitud puede fallar o no devolver un cuerpo utilizable. Vuelve a escribir la URL en texto plano o elimina los espacios ocultos, y luego previsualiza de nuevo.
-- **Errores HTTP y cuerpos vacíos:** Para códigos de estado anteriores en esta sección de 300 o hosts bloqueados, el contenido conectado puede renderizar una cadena vacía. Consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) y revisa los fallos en el **Registro de actividad de mensajes**.
+- **Errores HTTP y cuerpos vacíos:** Para códigos de estado superiores a 300 o hosts bloqueados, el contenido conectado puede renderizar una cadena vacía. Consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) y revisa los fallos en el **Registro de actividad de mensajes**.
 
 ## Correos electrónicos automatizados y entradas del registro de actividad de mensajes {#automated-emails-and-message-activity-log-entries}
 

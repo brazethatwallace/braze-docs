@@ -55,17 +55,20 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 
 ### 3. Schritt: Banner verfassen {#compose-a-banner}
 
-Um Ihr Banner zu verfassen, können Sie:
+Wählen Sie als Nächstes, wie Sie mit dem Erstellen beginnen möchten:
 
-- Mit einem leeren Template beginnen
-- Ein Braze-Banner-Template verwenden
-- Ein gespeichertes Banner-Template auswählen
+- **Drag-and-Drop-Editor:** Beginnen Sie mit einem leeren Banner und erstellen Sie es visuell mit Blöcken und Zeilen.
+- **HTML-Editor:** Beginnen Sie mit einem leeren Banner und arbeiten Sie direkt in HTML.
+- **Templates:** Öffnen Sie die Template-Bibliothek und wählen Sie ein Design aus **Braze Templates** oder **Your Templates**. Templates werden im Drag-and-Drop-Editor zur Anpassung geöffnet.
 
-![Option zur Auswahl eines leeren Banners oder eines Templates.]({% image_buster /assets/img/banners/choose_banner_composer.png %})
+![Optionen zur Auswahl des Drag-and-Drop-Editors, HTML-Editors oder von Templates für Ihr Banner.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
 #### Schritt 3.1: Banner gestalten {#step-31-style-the-banner}
 
-Sie können Blöcke und Zeilen per Drag-and-Drop in den Canvas-Bereich ziehen, um mit dem Erstellen Ihrer Nachricht zu beginnen. Eine Referenz der Banner-Editor-Blöcke und Links zu gemeinsamen Eigenschaftsdetails finden Sie unter [Editor-Blöcke (Banner)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=banners).
+{% tabs %}
+{% tab Drag-and-Drop-Editor %}
+
+Sie können Blöcke und Zeilen per Drag-and-Drop in den Canvas-Bereich ziehen, um mit dem Erstellen Ihrer Nachricht zu beginnen. Eine Referenz der Banner-Editor-Blöcke und Links zu gemeinsamen Eigenschaftsdetails finden Sie unter [Editor-Blöcke (Banner)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -73,11 +76,28 @@ Um die Hintergrundeigenschaften, Rahmeneinstellungen und mehr Ihrer Nachricht an
 
 ![Style-Panel des Banner-Composers.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% endtab %}
+{% tab HTML-Editor %}
+
+Der HTML-Editor eignet sich am besten für Teams, die bereits eigene HTML-Templates pflegen oder die volle Kontrolle über Markup und Styling wünschen. Sie können angepasstes HTML direkt in den Editor schreiben oder einfügen. Liquid-Personalisierungs-Tags werden vollständig unterstützt, sodass Sie auf Nutzer:innen-Attribute, angepasste Attribute, Katalogartikel und mehr verweisen können.
+
 {% alert tip %}
+Benötigen Sie Hilfe beim Erstellen Ihres Banner-HTML? Wählen Sie **Ask Operator** im HTML-Editor und beschreiben Sie das gewünschte Banner. [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) generiert HTML, das Sie überprüfen und in den Editor einfügen können. Weitere Informationen finden Sie unter [Nachrichten generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
+{% endalert %}
+
+Für Klick- und Schließ-Tracking in Ihrem angepassten HTML müssen Sie JavaScript-Bridge-Methoden explizit aufrufen. Die vollständige Referenz finden Sie unter [Angepasster Code und JavaScript-Bridge für Banner]({{site.baseurl}}/user_guide/channels/banners/custom_code).
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
 Um Nutzer:innen in verschiedenen Sprachen innerhalb einer einzelnen Banner-Campaign anzusprechen, lesen Sie [Mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 {% endalert %}
 
 #### Schritt 3.2: Klickverhalten definieren (optional) {#step-32-define-on-click-behavior-optional}
+
+{% tabs %}
+{% tab Drag-and-Drop-Editor %}
 
 Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken. Für ein detaillierteres Klick-Tracking weisen Sie jedem interaktiven Element über das Feld **Identifier for Reporting** in dessen Eigenschaftenpanel einen angepassten Bezeichner zu.
 
@@ -87,7 +107,24 @@ Das Klickverhalten kann überschrieben werden, wenn ein bestimmtes Element (z. B
 {:/}
 {% endalert %}
 
+{% endtab %}
+{% tab HTML-Editor %}
+
+Im HTML-Editor erfolgt das Klick-Tracking nicht automatisch. Sie müssen `brazeBridge.logClick()` in Ihrem HTML für jedes klickbare Element aufrufen, das Sie tracken möchten. Beispiel:
+
+```html
+<a href="https://example.com" onclick="brazeBridge.logClick()">Shop now</a>
+```
+
+Die vollständige JavaScript-Bridge-Referenz finden Sie unter [Angepasster Code und JavaScript-Bridge für Banner]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
+
+{% endtab %}
+{% endtabs %}
+
 #### Schritt 3.3: Schließverhalten konfigurieren (optional) {#dismiss-behavior}
+
+{% tabs %}
+{% tab Drag-and-Drop-Editor %}
 
 Aktivieren Sie das Kontrollkästchen **Banner can be dismissed** im Abschnitt **Dismiss behavior**, um Nutzer:innen das Schließen des Banners zu ermöglichen. Diese Option ist nützlich, wenn Sie ein zeitlich begrenztes Angebot für eine breite Zielgruppe bewerben, aber nicht interessierten Nutzer:innen erlauben möchten, die Nachricht auszublenden.
 
@@ -102,6 +139,22 @@ Wenn das Schließen aktiviert ist, können Sie den Schließen-Button im Abschnit
 
 Wenn Nutzer:innen ein Banner schließen, wird es für diese Nutzer:innen nicht erneut angezeigt, selbst wenn sie weiterhin die Targeting-Kriterien der Campaign erfüllen.
 
+{% endtab %}
+{% tab HTML-Editor %}
+
+Im HTML-Editor wird das Schließen in Ihrem HTML über `brazeBridge.closeMessage()` gesteuert. Kombinieren Sie es mit `brazeBridge.logClick()`, um die Schließaktion auch als Klick-Event zu tracken. Beispiel:
+
+```html
+<a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
+```
+
+Wenn Nutzer:innen ein Banner auf diese Weise schließen, wird es für diese Nutzer:innen nicht erneut angezeigt, selbst wenn sie weiterhin die Targeting-Kriterien der Campaign erfüllen.
+
+Die vollständige JavaScript-Bridge-Referenz finden Sie unter [Angepasster Code und JavaScript-Bridge für Banner]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
+
+{% endtab %}
+{% endtabs %}
+
 #### Schritt 3.4: Angepasste Eigenschaften hinzufügen (optional) {#custom-properties}
 
 Sie können einem Banner angepasste Eigenschaften hinzufügen, um strukturierte Metadaten wie Strings oder JSON-Objekte anzuhängen. Diese Eigenschaften beeinflussen nicht die Darstellung des Banners, können aber [über das Braze SDK abgerufen werden]({{site.baseurl}}/developer_guide/banners/placements), um das Verhalten oder Erscheinungsbild Ihrer App zu ändern. Beispielsweise könnten Sie:
@@ -110,7 +163,7 @@ Sie können einem Banner angepasste Eigenschaften hinzufügen, um strukturierte 
 - Metadaten wie einen `timestamp` oder ein JSON-Objekt verwenden, um bedingte Logik auszulösen.
 - Das Verhalten eines Banners basierend auf enthaltenen Metadaten wie `ratio` oder `format` steuern.
 
-Um eine angepasste Eigenschaft hinzuzufügen, wählen Sie **Settings** > **Properties** > **Add property**.
+Angepasste Eigenschaften funktionieren im Drag-and-Drop-Editor und im HTML-Editor gleich. Um eine angepasste Eigenschaft hinzuzufügen, wählen Sie **Settings** > **Properties** > **Add property**.
 
 ![Die Eigenschaftenseite mit der Option, die erste angepasste Eigenschaft zu einer Banner-Campaign hinzuzufügen.]({% image_buster /assets/img/banners/add_property.png %})
 

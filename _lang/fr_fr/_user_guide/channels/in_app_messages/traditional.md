@@ -225,7 +225,7 @@ Si vous choisissez de n'utiliser qu'un seul bouton, il s'ajustera automatiquemen
 
 Si vous décidez de formater ces boutons avec vos propres couleurs, nous vous recommandons d'utiliser le bouton 2 pour votre résultat préféré.
 
-En d'autres termes, si vous souhaitez que votre utilisateur clique sur un bouton plutôt que sur l'autre, assurez-vous qu'il se trouve à droite. Le bouton de droite a souvent affiché un meilleur potentiel de clic, surtout s'il a une couleur quelque peu contrastante ou qui se démarque du reste du message. Cela est d'autant plus marqué lorsque le bouton de gauche se fond davantage visuellement avec le message.
+En d'autres termes, si vous souhaitez que votre utilisateur clique sur un bouton plutôt que sur l'autre, assurez-vous qu'il s'agit du bouton secondaire. Le bouton secondaire a souvent affiché un meilleur potentiel de clic, surtout s'il a une couleur quelque peu contrastante ou qui se démarque du reste du message. Cela est d'autant plus marqué lorsque le bouton principal se fond davantage visuellement avec le message.
 
 ![Boutons principal et secondaire dans un message in-app]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -356,7 +356,7 @@ Les options de haute, moyenne et basse priorité pour les messages déclenchés 
 - **Compartiment de priorité par défaut :** Lorsque deux Campaigns partagent le même déclencheur et utilisent la priorité par défaut (moyenne), la Campaign créée en dernier reçoit le déclencheur.
 - **Compartiment de priorité spécifique :** Lorsque plusieurs Campaigns partagent le même déclencheur et sont attribuées à un compartiment de priorité spécifique, la Campaign la plus récemment attribuée à ce compartiment reçoit le déclencheur.
 
-Pour définir les priorités au sein de ces compartiments, cliquez sur **Set Exact Priority**, et vous pouvez glisser-déposer les Campaigns pour les ordonner avec la priorité correcte.
+Pour définir les priorités au sein de ces compartiments, cliquez sur **Set exact priority**, et vous pouvez glisser-déposer les Campaigns pour les ordonner avec la priorité correcte.
 
 ![Un exemple de la façon dont la priorité est définie pour une Campaign de message in-app et un Canvas.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 

@@ -14,7 +14,7 @@ Stellen Sie vor dem Start sicher, dass Sie [Bannerplatzierungen]({{site.baseurl}
 
 Mit Bannern können Marketing- und Produkt-Teams den Inhalt von Apps oder Websites dynamisch personalisieren und so die Realtime-Eignung und das Verhalten der Nutzer:innen widerspiegeln. Sie zeigen Nachrichten persistent inline an und bieten nicht-intrusive, kontextuell relevante Erlebnisse, die zu Beginn einer Sitzung oder während einer Sitzung aktualisiert werden können, wenn Ihre App oder Website dies explizit anfordert.
 
-Nach der Integration von Bannern in eine App oder Website können Marketer die Banner mit einem einfachen Drag-and-Drop-Editor entwerfen und starten. Damit entfällt die Notwendigkeit einer ständigen Unterstützung durch Entwickler:innen, die Komplexität wird reduziert und die Effizienz gesteigert.
+Nach der Integration von Bannern in eine App oder Website können Marketer die Banner mit einem Drag-and-Drop-Editor oder einem vollständigen HTML-Editor entwerfen und starten. Damit entfällt die Notwendigkeit einer ständigen Unterstützung durch Entwickler:innen, die Komplexität wird reduziert und die Effizienz gesteigert.
 
 | Anwendungsfall | Erklärung |
 | --- | --- |
@@ -28,7 +28,7 @@ Nach der Integration von Bannern in eine App oder Website können Marketer die B
 
 Zu den Features für Banner gehören:
 
-- **Einfache Erstellung von Inhalten:** Erstellen Sie Ihr Banner mit einem visuellen Drag-and-Drop-Editor, der Bilder, Text, Buttons, Formulare zur Erfassung von E-Mails, angepassten Code und vieles mehr unterstützt, und zeigen Sie eine Vorschau an.
+- **Einfache Erstellung von Inhalten:** Erstellen Sie Ihr Banner mit einem visuellen Drag-and-Drop-Editor, der Bilder, Text, Buttons, Formulare zur Erfassung von E-Mails, angepassten Code und vieles mehr unterstützt, und zeigen Sie eine Vorschau an. Teams, die ihr eigenes Markup verwalten möchten, können stattdessen den HTML-Editor für die volle Kontrolle über HTML und Stile des Banners verwenden, oder [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) bitten, HTML aus einer Beschreibung zu generieren.
 - **Flexible Platzierungen:** Definieren Sie mehrere Standorte innerhalb Ihrer Anwendung oder Website, an denen Banner erscheinen können, und ermöglichen Sie so ein präzises Targeting auf bestimmte Kontexte oder Nutzererlebnisse.
 - **Dynamische Personalisierung:** Banner berechnen die Personalisierung (Liquid-Logik) und Segmentierung bei jeder Aktualisierung des Banners neu. Wenn Nutzer:innen ihr Profil aktualisieren oder sich ein angepasstes Attribut ändert, spiegelt die nächste Banner-Aktualisierung diese Änderungen wider.
 - **Native Priorisierung:** Legen Sie die Anzeigepriorität fest, wenn mehrere Banner auf dieselbe Platzierung abzielen, um sicherzustellen, dass die richtige Nachricht die Nutzer:innen zur richtigen Zeit erreicht.

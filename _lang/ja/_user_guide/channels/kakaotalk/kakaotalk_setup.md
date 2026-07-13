@@ -20,7 +20,7 @@ channel:
 | KakaoTalkビジネスチャネル | BrazeからKakaoTalkメッセージを送信するには、KakaoTalkアカウントがKakaoTalkビジネスチャネルである必要があります。アカウントを作成すると、デフォルトのステータスはベーシックになります。アカウントをビジネスチャネルにするには、ビジネスの認証を行い、関連するドキュメントを提出する必要があります。 |
 | KakaoTalk発信キー | 有効なKakaoTalk発信キーが必要です。 |
 | 連絡先電話番号 | KakaoTalkチャネルの管理者の連絡先電話番号が必要です。 |
-| BrazeクラスターIPの許可リスト登録 | すべてのお客様にIP許可リストの登録が必要です。KakaoTalkをBrazeに統合する前に、お使いのクラスターのBraze IPアドレスを登録してください。 |
+| BrazeクラスターIPの許可リスト登録 | すべての顧客にIP許可リストの登録が必要です。KakaoTalkをBrazeに統合する前に、お使いのクラスターのBraze IPアドレスを登録してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Braze IPアドレスの登録 {#register-braze-ip-addresses}
@@ -67,7 +67,7 @@ KakaoTalkチャネルの情報（チャネル名、プロフィール画像な�
 ### ステップ1: KakaoTalkチャネルをBrazeに接続する {#step-1-connect-the-kakaotalk-channel-to-braze}
 
 1. **パートナー連携** > **テクノロジーパートナー**に移動し、KakaoTalkプロバイダーを選択します。
-2. プロバイダーに必要な認証情報を収集し（以下を参照）、**テクノロジーパートナー**ページに入力して保存します。
+2. プロバイダーに必要な認証情報を収集し（以下のセクションを参照）、**テクノロジーパートナー**ページに入力して保存します。
 3. 新しく保存した認証情報を使用して送信します。
 
 #### CJ OliveNetworks
@@ -76,7 +76,7 @@ KakaoTalkチャネルの情報（チャネル名、プロフィール画像な�
 
 | フィールド | 場所 |
 | --- | --- |
-| **Comm.One Login ID（로그인 아이디）** | プロファイルを選択します。 |
+| **Comm.One Login ID（로그인 아이디）** | プロフィールを選択します。 |
 | **Sender Key（발신프로필 키）** | **Template Management（템플릿 관리）** > **Sender Profile Management（발신프로필 관리）**に移動します。 |
 | **Channel name（카카오톡 채널 프로필명）** | Comm.Oneダッシュボードで、**Template Management（템플릿 관리）** > **Sender Profile Management（발신프로필 관리）**に移動します。 |
 | **Sender number（연락처）** | {::nomarkdown}<ol><li><b>Account Management（계정 관리）</b>に移動し、メニューアイコンを選択してから<b>View Details（자세히보기）</b>を選択します。</li><li><b>Business Detailed Information（업체 상세 정보）</b> > <b>Company Information（기업정보）</b>に移動します。</li></ul>{:/} |
@@ -94,7 +94,7 @@ KakaoTalkチャネルの情報（チャネル名、プロフィール画像な�
 ![発信キーがマスクされたComm.Oneダッシュボード。]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-KakaoTalk発信キーは、一度に1つのワークスペースにのみ統合できます。同じ発信キーを別のワークスペースで使用するには、まず元のワークスペースでKakaoTalkサブスクリプショングループをアーカイブし、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡して統合を削除してもらう必要があります。Brazeが統合を削除した後、新しいワークスペースで統合をセットアップできます。
+KakaoTalk発信キーは、一度に1つのワークスペースにのみ統合できます。同じ発信キーを別のワークスペースで使用するには、まず元のワークスペースでKakaoTalk購読グループをアーカイブし、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡して統合を削除してもらう必要があります。Brazeが統合を削除した後、新しいワークスペースで統合をセットアップできます。
 {% endalert %}
 
 ![Braze KakaoTalkチャネルの認証情報。]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -131,9 +131,9 @@ Infobipダッシュボードにアクセスし、以下の情報を収集しま�
 | **Channel name** | Infobipから直接提供されます。この情報がない場合は、Infobipにお問い合わせください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
-## ユーザープロファイルの設定 {#set-user-profiles}
+## ユーザープロフィールの設定 {#set-user-profiles}
 
-KakaoTalkでメッセージを送信するには、ユーザープロファイルにE.164形式の電話番号が必要です。電話番号はユーザープロファイルに表示されます。KakaoTalkでは電話番号がE.164形式（例：`+821025749774`）である必要があります。これは、複数の形式の電話番号を受け付ける他のメッセージングチャネルとは異なります。
+KakaoTalkでメッセージを送信するには、ユーザープロフィールにE.164形式の電話番号が必要です。電話番号はユーザープロフィールに表示されます。KakaoTalkでは電話番号がE.164形式（例：`+821025749774`）である必要があります。これは、複数の形式の電話番号を受け付ける他のメッセージングチャネルとは異なります。
 
 ### 電話番号のインポート {#import-phone-numbers}
 

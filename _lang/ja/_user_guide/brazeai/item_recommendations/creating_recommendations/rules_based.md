@@ -1,7 +1,7 @@
 ---
 nav_title: ルールベースのレコメンデーション
 article_title: ルールベースのアイテムレコメンデーションを作成する
-description: "このリファレンス記事では、カタログ内のアイテムに対してAI 項目のレコメンデーションを作成する方法について説明します。"
+description: "このリファレンス記事では、カタログ内のアイテムに対してAIアイテムレコメンデーションを作成する方法について説明します。"
 page_order: 2
 ---
 
@@ -11,15 +11,15 @@ page_order: 2
 
 ## ルールベースのアイテムレコメンデーションについて {#about-rules-based-item-recommendations}
 
-ルールベースのレコメンデーションエンジンは、ユーザーデータと商品情報を使用して、メッセージ内でユーザーに関連アイテムを提案します。[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)とBrazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)または[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)のいずれかを使用して、ユーザーの動作と属性に基づいてコンテンツをダイナミックにパーソナライズします。
+ルールベースのレコメンデーションエンジンは、ユーザーデータと商品情報を使用して、メッセージ内でユーザーに関連アイテムを提案します。[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)とBrazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)または[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)のいずれかを使用して、ユーザーの行動と属性に基づいてコンテンツをダイナミックにパーソナライズします。
 
 {% alert important %}
-ルールベースのレコメンデーションは、手動で設定する必要がある固定ロジックに基づいています。つまり、ロジックを更新しない限り、ユーザーの購入履歴や嗜好に合わせてレコメンデーションが調整されることはありません。<br><br>ユーザーの履歴に合わせて自動的に調整されるパーソナライズされたAIレコメンデーションを作成するには、[AI 項目のレコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を参照してください。
+ルールベースのレコメンデーションは、手動で設定する必要がある固定ロジックに基づいています。つまり、ロジックを更新しない限り、ユーザーの購入履歴や嗜好に合わせてレコメンデーションが調整されることはありません。<br><br>ユーザーの履歴に合わせて自動的に調整されるパーソナライズされたAIレコメンデーションを作成するには、[AIアイテムレコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を参照してください。
 {% endalert %}
 
 ## レコメンデーションエンジンのオプション {#recommendation-engine-options}
 
-利用可能なリソースやユースケースに適したレコメンデーションエンジンを判断する際には、以下の検討事項表を参考にしてください。
+利用可能なリソースやユースケースに適したレコメンデーションエンジンを判断する際には、以下の検討事項の表を参考にしてください。
 
 <table aria-label="レコメンデーションエンジンのオプション" style="text-align: center;">
   <caption>レコメンデーションエンジンのオプション</caption>
@@ -91,20 +91,20 @@ page_order: 2
 
 ### 例 {#example}
 
-健康食品アプリを運営していて、ユーザーがアプリに登録してからの期間に応じて異なるレシピを送信するコンテンツカードキャンペーンを作成したいとします。まず、以下の情報を含むCSVファイルを使用してカタログを作成し、アップロードします。
+健康食品アプリを運営していて、ユーザーがアプリに登録してからの期間に応じて異なるレシピを送信するContent Cardsキャンペーンを作成したいとします。まず、以下の情報を含むCSVファイルを使用してカタログを作成し、アップロードします。
 
 | フィールド | 説明 |
 |-----|-----------|
 | **id** | ユーザーがアプリに登録してからの日数に対応する一意の数値。例えば、`3`は3日間に相当します。 |
 | **type** | `comfort`、`fresh`などのレシピカテゴリー。 |
-| **title** | 各IDに対して送信されるコンテンツカードのタイトル。「今週のランチ用の作り置き」や「タコスについて話そう」などです。 |
+| **title** | 各IDに対して送信されるContent Cardsのタイトル。「今週のランチ用の作り置き」や「タコスについて話そう」などです。 |
 | **link** | レシピ記事へのリンク。 |
 | **image_url** | レシピに対応する画像。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
 カタログがBrazeにアップロードされたら、カタログページからカタログを選択し、**プレビュー**タブを開いて、情報が正確にインポートされたことを確認します。プレビューには一部のアイテムが表示され、ランダムに表示される場合がありますが、レコメンデーションエンジンの出力には影響しません。
 
-カタログの準備ができたら、[コンテンツカードキャンペーンを作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)します。作成画面で、キャンペーンを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
+カタログの準備ができたら、[Content Cardsキャンペーンを作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)します。メッセージ作成画面で、キャンペーンを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるContent Cardsが決まります。
 
 {% subtabs local %}
 {% subtab title %}
@@ -153,9 +153,9 @@ page_order: 2
 
 以下に例を示します。
 
-![コンテンツカードキャンペーンのメッセージ作成画面の例。]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Content Cardsキャンペーンのメッセージ作成画面の例。]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-**クリック時の動作**セクションで、iOS、Android、Webデバイスでユーザーがコンテンツカードをクリックしたときにリダイレクトされる先のLiquidロジックを入力します。
+**クリック時の動作**セクションで、iOS、Android、WebデバイスでユーザーがContent Cardsをクリックしたときにリダイレクトされる先のLiquidロジックを入力します。
 
 {% raw %}
 ```liquid
@@ -170,9 +170,9 @@ page_order: 2
 
 以下に例を示します。
 
-![作成画面でのクリック時の動作ブロックの例。]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
+![メッセージ作成画面でのクリック時の動作ブロックの例。]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-**テスト**タブに移動し、**ユーザーとしてメッセージをプレビュー**で**カスタムユーザー**を選択します。**カスタム属性**フィールドに日付を入力して、その日にサインアップしたユーザーに送信されるコンテンツカードをプレビューします。<br><br>
+**テスト**タブに移動し、**ユーザーとしてメッセージをプレビュー**で**カスタムユーザー**を選択します。**カスタム属性**フィールドに日付を入力して、その日にサインアップしたユーザーに送信されるContent Cardsをプレビューします。<br><br>
 
 ![「start_date」というカスタム属性の例。]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
@@ -217,7 +217,7 @@ page_order: 2
 
 ### 例
 
-Zomato Restaurantsデータベースからおすすめのレストランを取得し、その結果を`restaurants`というローカル変数として保存したいとします。次のコネクテッドコンテンツの呼び出しを行うことができます。
+Zomato Restaurantsデータベースからおすすめのレストランを取得し、その結果を`restaurants`というローカル変数として保存したいとします。次のConnected Contentの呼び出しを行うことができます。
 
 {% raw %}
 ```liquid
@@ -230,7 +230,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 
 次に、ユーザーの市区町村と食べ物の種類に基づいておすすめのレストランを取得したいとします。ユーザーの市区町村と料理の種類のカスタム属性を呼び出しの冒頭にダイナミックに挿入し、`restaurants`の値を変数`city_food.restaurants`に代入することで実現できます。
 
-コネクテッドコンテンツの呼び出しは次のようになります。
+Connected Contentの呼び出しは次のようになります。
 
 {% raw %}
 ```liquid

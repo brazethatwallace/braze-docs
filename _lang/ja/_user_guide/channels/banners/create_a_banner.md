@@ -55,17 +55,20 @@ channel:
 
 ### ステップ3: バナーを作成する {#compose-a-banner}
 
-バナーを作成するには、以下のいずれかを選択できます。
+次に、作成方法を選択します。
 
-- 空白のテンプレートから開始する
-- Brazeバナーテンプレートを使用する
-- 保存済みのバナーテンプレートを選択する
+- **ドラッグ＆ドロップエディター:** 空白のバナーから開始し、ブロックと行を使用して視覚的に構築します。
+- **HTMLエディター:** 空白のバナーから開始し、HTMLで直接作業します。
+- **テンプレート:** テンプレートライブラリを開き、**Brazeテンプレート**または**あなたのテンプレート**からデザインを選択します。テンプレートはドラッグ＆ドロップエディターで開き、カスタマイズできます。
 
-![空白のバナーまたはテンプレートを選択するオプション。]({% image_buster /assets/img/banners/choose_banner_composer.png %})
+![バナーのドラッグ＆ドロップエディター、HTMLエディター、またはテンプレートを選択するオプション。]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
 #### ステップ3.1: バナーのスタイルを設定する {#step-31-style-the-banner}
 
-ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。バナーエディターのブロックと共有プロパティの詳細へのリンクについては、[エディターブロック（バナー）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=banners)を参照してください。
+{% tabs %}
+{% tab ドラッグ＆ドロップエディター %}
+
+ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。バナーエディターのブロックと共有プロパティの詳細へのリンクについては、[エディターブロック（バナー）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -73,11 +76,28 @@ channel:
 
 ![バナーコンポーザーのスタイルパネル。]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% endtab %}
+{% tab HTMLエディター %}
+
+HTMLエディターは、独自のHTMLテンプレートをすでに管理しているチームや、マークアップとスタイリングを完全にコントロールしたいチームに最適です。カスタムHTMLをエディターに直接記述または貼り付けることができます。Liquidパーソナライゼーションタグは完全にサポートされているため、ユーザー属性、カスタム属性、カタログアイテムなどを参照できます。
+
 {% alert tip %}
+バナーHTMLの作成にサポートが必要ですか？HTMLエディターで**Ask Operator**を選択し、作成したいバナーを説明してください。[BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator)がHTMLを生成し、確認してエディターに挿入できます。詳細については、[メッセージを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages)を参照してください。
+{% endalert %}
+
+カスタムHTMLでのクリックおよび非表示のトラッキングには、JavaScriptブリッジメソッドを明示的に呼び出す必要があります。完全なリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
 単一のバナーキャンペーン内で異なる言語のユーザーをターゲットにするには、[多言語メッセージ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 {% endalert %}
 
 #### ステップ3.2: クリック時の動作を定義する（オプション） {#step-32-define-on-click-behavior-optional}
+
+{% tabs %}
+{% tab ドラッグ＆ドロップエディター %}
 
 ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。より詳細なクリックトラッキングのために、プロパティパネルの**Identifier for Reporting**フィールドを使用して、各インタラクティブ要素にカスタム識別子を割り当てます。
 
@@ -87,7 +107,24 @@ channel:
 {:/}
 {% endalert %}
 
+{% endtab %}
+{% tab HTMLエディター %}
+
+HTMLエディターでは、クリックトラッキングは自動ではありません。トラッキングしたい各クリック可能な要素に対して、HTML内から`brazeBridge.logClick()`を呼び出す必要があります。例：
+
+```html
+<a href="https://example.com" onclick="brazeBridge.logClick()">Shop now</a>
+```
+
+完全なJavaScriptブリッジリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)を参照してください。
+
+{% endtab %}
+{% endtabs %}
+
 #### ステップ3.3: 非表示の動作を設定する（オプション） {#dismiss-behavior}
+
+{% tabs %}
+{% tab ドラッグ＆ドロップエディター %}
 
 **Dismiss behavior**セクションの**Banner can be dismissed**チェックボックスを選択すると、ユーザーがバナーを非表示にできるようになります。このオプションは、幅広いオーディエンスに期間限定のオファーを宣伝したいが、興味のないユーザーにはメッセージを非表示にできるようにしたい場合に便利です。
 
@@ -102,6 +139,22 @@ channel:
 
 ユーザーがバナーを非表示にすると、キャンペーンのターゲティング条件に引き続き該当していても、そのユーザーにはバナーが再度表示されません。
 
+{% endtab %}
+{% tab HTMLエディター %}
+
+HTMLエディターでは、非表示はHTML内で`brazeBridge.closeMessage()`を使用して処理されます。`brazeBridge.logClick()`と組み合わせることで、非表示アクションをクリックイベントとしてもトラッキングできます。例：
+
+```html
+<a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
+```
+
+この方法でユーザーがバナーを非表示にすると、キャンペーンのターゲティング条件に引き続き該当していても、そのユーザーにはバナーが再度表示されません。
+
+完全なJavaScriptブリッジリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)を参照してください。
+
+{% endtab %}
+{% endtabs %}
+
 #### ステップ3.4: カスタムプロパティを追加する（オプション） {#custom-properties}
 
 バナーにカスタムプロパティを追加して、文字列やJSONオブジェクトなどの構造化メタデータを添付できます。これらのプロパティはバナーの表示方法には影響しませんが、[Braze SDKを通じてアクセス]({{site.baseurl}}/developer_guide/banners/placements)して、アプリの動作や外観を変更できます。たとえば、以下のことが可能です。
@@ -110,7 +163,7 @@ channel:
 - `timestamp`やJSONオブジェクトなどのメタデータを使用して条件付きロジックをトリガーする。
 - `ratio`や`format`などの含まれるメタデータに基づいてバナーの動作を制御する。
 
-カスタムプロパティを追加するには、**Settings** > **Properties** > **Add property**を選択します。
+カスタムプロパティはドラッグ＆ドロップエディターとHTMLエディターの両方で同じように機能します。カスタムプロパティを追加するには、**設定** > **Properties** > **Add property**を選択します。
 
 ![バナーキャンペーンに最初のカスタムプロパティを追加するオプションを表示するプロパティページ。]({% image_buster /assets/img/banners/add_property.png %})
 

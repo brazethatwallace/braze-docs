@@ -11,7 +11,7 @@ channel:
 
 # AMP para correo electrónico {#amp-for-email}
 
-> Con [AMP para correo electrónico](https://amp.dev/about/email), puedes añadir elementos interactivos a tus correos electrónicos y mejorar las comunicaciones con tus clientes, ofreciendo una experiencia completa directamente en el buzón de entrada de tu usuario. AMP lo hace posible mediante el uso de varios componentes que pueden utilizarse para crear ofertas de correo electrónico atractivas, como cuestionarios, formularios de opinión, campañas de votación, reseñas, centros de suscripción y mucho más. Herramientas como estas pueden ofrecer oportunidades para aumentar la interacción y la retención.
+> Con [AMP para correo electrónico](https://amp.dev/about/email), puedes añadir elementos interactivos a tus correos electrónicos y mejorar las comunicaciones con tus clientes, ofreciendo una experiencia completa directamente en el buzón de entrada de tu usuario. AMP lo hace posible mediante el uso de varios componentes que pueden utilizarse para crear ofertas de correo electrónico atractivas, como cuestionarios, formularios de opinión, campañas de votación, reseñas, centros de suscripción y mucho más. Herramientas como estas pueden ofrecer oportunidades para aumentar la participación y la retención.
 
 ## Requisitos {#requirements}
 
@@ -22,7 +22,7 @@ Braze no es responsable de que los usuarios se registren en Google ni de que cum
 | AMP para correo electrónico activado | AMP está disponible para todos los usuarios. |
 | Habilitación de cuenta de Gmail | Consulta [Habilitar cuenta de Gmail](#enabling-gmail-account). |
 | Autenticación de remitente de Google | Gmail [autentica al remitente](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) de los correos electrónicos AMP con DKIM, SPF y DMARC. Estos deben estar configurados para tu cuenta. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| Elementos de correo electrónico AMP | Un correo electrónico AMP atractivo incluye el uso estratégico de varios componentes. Consulta la pestaña Esenciales en la sección [Componentes](#components) a continuación. |
+| Elementos de correo electrónico AMP | Un correo electrónico AMP atractivo incluye el uso estratégico de varios componentes. Consulta la pestaña Esenciales en la sección [Componentes](#components). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ### Clientes de correo electrónico compatibles {#supported-email-clients}
@@ -51,7 +51,7 @@ Ve a la configuración de Gmail y selecciona **Enable dynamic email** en la pest
 
 ## Uso de la API {#api-usage}
 
-También puedes usar AMP para correo electrónico con nuestra API. Si utilizas cualquiera de los [puntos de conexión de mensajería]({{site.baseurl}}/api/endpoints/messaging) de Braze para enviar un correo electrónico, añade `amp_body` como especificación de objeto como se muestra a continuación.
+También puedes usar AMP para correo electrónico con nuestra API. Si utilizas cualquiera de los [endpoints de mensajería]({{site.baseurl}}/api/endpoints/messaging) de Braze para enviar un correo electrónico, añade `amp_body` como especificación de objeto como se muestra en la siguiente sección.
 
 ### Especificación del objeto de correo electrónico {#email-object-specification}
 
@@ -153,7 +153,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 
 Para obtener una lista completa de componentes AMP, consulta la [documentación de AMP](https://amp.dev/documentation/components/?format=email).
 
-### Casos de uso {#use-cases}
+### Ejemplos {#use-cases}
 
 {% tabs local %}
 {% tab Cuestionarios interactivos %}
@@ -260,7 +260,7 @@ Si ninguna de estas condiciones está causando el error, ponte en contacto con [
 
 Puedes configurar tu buzón de entrada de Gmail para renderizar correos electrónicos AMP con fines de prueba haciendo lo siguiente:
 
-1. En Gmail, selecciona **Settings** en la esquina superior derecha de tu buzón de entrada.
+1. En Gmail, selecciona **Settings** en la barra de herramientas de tu buzón de entrada.
 2. Selecciona **See all settings**.
 3. En la pestaña **General**, ve a la sección **Dynamic email** y confirma que la casilla **Enable dynamic email** está seleccionada.
 4. A continuación, selecciona **Developer Settings** y marca la casilla **Always allow dynamic emails from this sender:**.

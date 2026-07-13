@@ -11,7 +11,7 @@ channel:
 
 # 이메일용 AMP {#amp-for-email}
 
-> [이메일용 AMP](https://amp.dev/about/email)를 사용하면 이메일에 인터랙티브 요소를 추가하고 고객과의 커뮤니케이션을 한 단계 끌어올릴 수 있으며, 사용자의 받은편지함에 직접 풍부한 경험을 전달할 수 있습니다. AMP는 다양한 구성요소를 활용하여 설문조사, 피드백 설문지, 투표 Campaign, 리뷰, 구독 센터 등 매력적인 이메일 콘텐츠를 구축할 수 있게 해줍니다. 이러한 도구는 참여도와 리텐션을 높일 수 있는 기회를 제공합니다.
+> [이메일용 AMP](https://amp.dev/about/email)를 사용하면 이메일에 인터랙티브 요소를 추가하고 고객과의 커뮤니케이션을 한 단계 끌어올릴 수 있으며, 사용자의 받은편지함에 직접 풍부한 경험을 전달할 수 있습니다. AMP는 다양한 구성요소를 활용하여 설문조사, 피드백 설문지, 투표 Campaign(캠페인), 리뷰, 구독 센터 등 매력적인 이메일 오퍼링을 구축할 수 있게 해줍니다. 이러한 도구는 인게이지먼트와 리텐션을 높일 수 있는 기회를 제공합니다.
 
 ## 요구 사항 {#requirements}
 
@@ -23,7 +23,7 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | Gmail 계정 인에이블먼트 | [Gmail 계정 활성화](#enabling-gmail-account)를 참조하세요. |
 | Google 발신자 인증 | Gmail은 DKIM, SPF, DMARC를 사용하여 AMP 이메일의 [발신자를 인증](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication)합니다. 계정에 이를 설정해야 합니다. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
 | AMP 이메일 요소 | 매력적인 AMP 이메일에는 다양한 구성요소의 전략적 사용이 포함됩니다. 아래 [구성요소](#components) 섹션의 필수 요소 탭을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ### 지원되는 이메일 클라이언트 {#supported-email-clients}
 
@@ -35,7 +35,7 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 이메일 클라이언트" }
 
 지원되는 이메일 클라이언트의 전체 목록은 [AMP 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
 
@@ -104,7 +104,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 | 식별 <br><br> `⚡4email` 또는 `amp4email`| 이메일을 AMP HTML 이메일로 식별합니다. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
 | AMP 런타임 로드 <br><br> `<script>` | JavaScript를 사용하여 이메일에서 AMP를 실행할 수 있게 합니다. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
 | CSS 보일러플레이트 | AMP가 로드될 때까지 콘텐츠를 숨깁니다. <br> AMP 이메일을 지원하는 이메일 공급자는 검증된 AMP 스크립트만 클라이언트에서 실행되도록 보안 검사를 시행합니다. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="구성요소" }
 
   {% endtab %}
   {% tab 동적 %}
@@ -115,7 +115,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 |---------|--------------|---------|
 | [아코디언](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| 사용자가 콘텐츠 개요를 보고 원하는 섹션으로 이동할 수 있게 합니다. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
 | [양식](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| AMP 문서에서 입력 필드를 제출하는 양식을 만듭니다. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="구성요소" }
 
 {% alert note %}
 사용자 인증이 필요한 구성요소는 [Google 액세스 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) 또는 [프록시 어설션 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens)을 사용해야 합니다.
@@ -130,7 +130,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 | [애니메이션 이미지](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-anim`| 런타임을 통해 관리되는 애니메이션 이미지(보통 GIF)를 표시합니다. | `<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>` |
 | [캐러셀](https://amp.dev/documentation/components/amp-carousel?format=email) <br><br> `amp-carousel`| 유사한 여러 콘텐츠를 가로 축을 따라 표시합니다. | `<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>` |
 | [이미지](https://amp.dev/documentation/components/amp-img?format=email) | HTML `img` 태그를 대체하는 런타임 관리 요소입니다. <br>  이미지에 [라이트박스를 만들](https://amp.dev/documentation/components/amp-image-lightbox?format=email) 수도 있습니다. | `<amp-img alt="A view of the sea"` <br> `src="images/sea.jpg"` <br> `width="900"` <br>  `height="675"` <br>  `layout="responsive">`  <br> `</amp-img>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="구성요소" }
 
 {% alert note %}
 사용자 인증이 필요한 구성요소는 [Google 액세스 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) 또는 [프록시 어설션 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens)을 사용해야 합니다.
@@ -142,7 +142,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 | 구성요소 | 설명 |
 |---------|--------------|
 | [데이터 바인딩 및 표현식](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| 데이터 바인딩과 JavaScript와 유사한 표현식을 통해 AMP 페이지에 커스텀 상태 기반 인터랙티비티를 추가합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구성요소" }
 
 {% alert note %}
 사용자 인증이 필요한 구성요소는 [Google 액세스 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) 또는 [프록시 어설션 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens)을 사용해야 합니다.
@@ -153,7 +153,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 
 AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentation/components/?format=email)를 확인하세요.
 
-### 활용 사례 {#use-cases}
+### 사용 사례 {#use-cases}
 
 {% tabs local %}
 {% tab 인터랙티브 설문조사 %}
@@ -176,7 +176,7 @@ AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentati
 {% endtab %}
 {% tab 이미지가 많은 이메일 %}
 
-리테일 브랜드처럼 전문적인 사진이 많은 이메일을 자주 보내는 경우, `<amp-image-lightbox>` 구성요소를 사용하여 사용자가 관심 있는 이미지와 상호작용할 수 있게 할 수 있습니다. 사용자가 이미지를 클릭하면 이 구성요소가 메시지 중앙에 이미지를 표시하여 라이트박스 효과를 만듭니다.
+소매 브랜드처럼 전문적인 사진이 많은 이메일을 자주 보내는 경우, `<amp-image-lightbox>` 구성요소를 사용하여 사용자가 관심 있는 이미지와 상호작용할 수 있게 할 수 있습니다. 사용자가 이미지를 클릭하면 이 구성요소가 메시지 중앙에 이미지를 표시하여 라이트박스 효과를 만듭니다.
 
 또한 `<amp-image-lightbox>` 구성요소를 사용하면 사용자가 상세한 이미지 설명을 볼 수 있습니다. 하나 이상의 이미지에 동일한 구성요소를 사용할 수 있습니다. 예를 들어, 이메일에 여러 이미지가 포함된 경우 사용자가 어떤 이미지를 클릭하든 해당 이미지가 라이트박스에 표시됩니다.
 
@@ -260,7 +260,7 @@ AMP 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 �
 
 다음 단계를 수행하여 테스트 목적으로 Gmail 받은편지함에서 AMP 이메일을 렌더링하도록 설정할 수 있습니다:
 
-1. Gmail에서 받은편지함 오른쪽 상단의 **Settings**을 선택합니다.
+1. Gmail에서 받은편지함 도구 모음의 **Settings**를 선택합니다.
 2. **See all settings**를 선택합니다.
 3. **General** 탭에서 **Dynamic email** 섹션으로 이동하여 **Enable dynamic email** 체크박스가 선택되어 있는지 확인합니다.
 4. 다음으로 **Developer Settings**를 선택하고 **Always allow dynamic emails from this sender:** 체크박스를 선택합니다.

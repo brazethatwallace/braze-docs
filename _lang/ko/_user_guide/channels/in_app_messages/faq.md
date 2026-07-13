@@ -41,7 +41,7 @@ MESSAGE HERE
 
 ## 사용자가 인앱 메시지를 닫은 후 다시 수신할 수 있나요? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 인앱 메시지 Campaign의 경우, **전달 제어**에서 재적격성을 활성화하여(**사용자가 Campaign을 다시 수신할 수 있도록 허용**) 사용자가 Campaign을 다시 수신할 자격을 얻도록 할 수 있습니다. 다시 수신할 수 있는 시기는 설정한 재적격성 기간과 Braze가 이전 발송을 기록한 방식에 따라 달라집니다. Campaign 동작 및 재적격성과 메시지 수신의 관계에 대한 자세한 내용은 [Campaign 및 Canvas 재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)을 참조하세요.
 
@@ -61,7 +61,7 @@ Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다
 
 이는 인앱 메시지 Campaign이 활성 상태일 때 Segment 기준을 충족한 사용자에게 발생할 수 있습니다.
 
-이를 방지하려면 Campaign 설정 중에 **Re-evaluate campaign eligibility before displaying**을 선택하세요.
+이를 방지하려면 Campaign 설정 중에 **표시 전 Campaign 적격성 재평가**를 선택하세요.
 
 ## 동일한 세션에서 여러 인앱 메시지가 표시될 수 있나요? {#can-multiple-in-app-messages-display-in-the-same-session}
 
@@ -69,7 +69,7 @@ Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다
 
 여러 메시지가 동일한 우선순위 수준을 공유하는 경우, 가장 최근에 생성된 메시지가 먼저 표시됩니다. 세션 시작 트리거의 경우, 다음으로 최근에 생성된 메시지가 후속 세션에서 표시됩니다. 다른 트리거 유형의 경우, 다음으로 최근에 생성된 메시지가 해당 트리거 이벤트가 다음에 발생할 때 표시되며, 이는 동일한 세션 내이거나 이후 세션일 수 있습니다.
 
-우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **상세 우선순위 지정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority)을 참조하세요.
+우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **정확한 우선순위 설정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority)을 참조하세요.
 
 ## Braze는 "1일 후" 만료로 설정된 인앱 메시지 만료를 어떻게 계산하나요? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -77,7 +77,7 @@ Braze는 1일의 만료 시간을 사용자가 메시지를 수신할 자격을 
 
 ## 템플릿 인앱 메시지란 무엇인가요? {#what-are-templated-in-app-messages}
 
-인앱 메시지는 **Re-evaluate campaign eligibility before displaying**이 선택되었거나 메시지에 다음 Liquid 태그가 존재하는 경우 템플릿 인앱 메시지로 전달됩니다:
+인앱 메시지는 **표시 전 Campaign 적격성 재평가**가 선택되었거나 메시지에 다음 Liquid 태그가 존재하는 경우 템플릿 인앱 메시지로 전달됩니다:
 
 - `canvas_entry_properties`
 - `connected_content`
@@ -149,7 +149,7 @@ HTML이 연결된 콘텐츠에서 반환된 REST 데이터를 참조하는 경�
 
 표준 인앱 메시지는 트리거 이벤트 후 캐시된 페이로드가 준비되는 즉시 표시됩니다. Android 및 iOS에서는 메시지에 참조된 대용량 이미지 또는 기타 CDN 호스팅 자산이 다운로드를 완료하는 동안 인앱 메시지가 나타나기 전에 짧은 지연이 추가될 수 있습니다.
 
-[템플릿 인앱 메시지](#what-are-templated-in-app-messages) 및 **Re-evaluate campaign eligibility before displaying**이 선택된 Campaign은 트리거 후 메시지가 나타나기 전에 추가 네트워크 요청이 필요합니다. 이로 인해 짧은 지연이 추가될 수 있습니다(안정적인 연결에서 일반적으로 100ms 미만). 자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target)을 참조하세요.
+[템플릿 인앱 메시지](#what-are-templated-in-app-messages) 및 **표시 전 Campaign 적격성 재평가**가 선택된 Campaign은 트리거 후 메시지가 나타나기 전에 추가 네트워크 요청이 필요합니다. 이로 인해 짧은 지연이 추가될 수 있습니다(안정적인 연결에서 일반적으로 100ms 미만). 자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target)을 참조하세요.
 
 ### 인앱 메시지가 대시보드 미리보기와 다르게 보이는 이유는 무엇인가요? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
@@ -179,7 +179,7 @@ Braze Android SDK 버전 37.0.0 이상에서는 기본적으로 HTML 인앱 메�
 
 ## 드래그 앤 드롭 인앱 메시지를 커스터마이징할 때 알아야 할 사항은 무엇인가요? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
-[드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)는 모달 및 전체화면 표시 유형을 지원합니다. 이러한 컨테이너 내에서 편집기 블록을 사용하여 콘텐츠를 구축합니다.
+[드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)는 Modal 및 전체화면 표시 유형을 지원합니다. 이러한 컨테이너 내에서 편집기 블록을 사용하여 콘텐츠를 구축합니다.
 
 다음 사항을 참고하세요:
 
@@ -189,7 +189,7 @@ Braze Android SDK 버전 37.0.0 이상에서는 기본적으로 HTML 인앱 메�
 - **플랫폼별 배경:** 단일 메시지는 웹과 모바일에서 동일한 배경 이미지와 색상을 사용합니다. 에디터에서 플랫폼별로 다른 배경을 설정할 수 없습니다.
 - **다중 페이지 메시지:** 배경 이미지와 메시지 수준 클릭 시 동작은 다중 페이지 메시지의 모든 페이지에 적용됩니다. 각 페이지에서 다른 전체 이미지를 사용하려면 다음 페이지로 연결되는 버튼을 추가하세요.
 - **메시지 수준 스타일:** 메시지 수준 스타일은 전체 메시지에 적용됩니다.
-- **배경 이미지:** 배경 이미지는 모달에 맞게 늘어납니다.
+- **배경 이미지:** 배경 이미지는 Modal에 맞게 늘어납니다.
 
 에디터에 대한 추가 고려 사항은 [인앱 메시지 준비 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations)를 참조하세요.
 

@@ -91,7 +91,7 @@ So erstellen Sie Ihr Empfehlungssystem mithilfe eines Katalogs:
 
 ### Beispiel {#example}
 
-Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Content-Card-Kampagne erstellen, die verschiedene Rezepte versendet, je nachdem, wie lange Nutzer:innen bereits bei Ihrer App angemeldet sind. Erstellen Sie zunächst einen Katalog und laden Sie ihn über eine CSV-Datei hoch, die die folgenden Informationen enthält:
+Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Content-Card-Kampagne erstellen, die verschiedene Rezepte versendet, je nachdem, wie lange Nutzer:innen bereits bei Ihrer App registriert sind. Erstellen Sie zunächst einen Katalog und laden Sie ihn über eine CSV-Datei hoch, die die folgenden Informationen enthält:
 
 | Feld | Beschreibung |
 |-----|-----------|

@@ -116,7 +116,7 @@ Count
 <span class="calculation-line">Cálculo: (Envios) - (Bounces) </span>
 
 {% alert note %}
-Para o estado de **recebimento** no nível do usuário e a lógica relacionada (como limite de frequência), a Braze geralmente marca um usuário quando o envio é processado e entregue para despacho — não quando o provedor de serviço de e-mail (ESP) confirma a entrega final na caixa de entrada. Isso evita lacunas de tempo entre a confirmação do ESP e as regras no produto. Pode diferir dos relatórios de entrega do ESP ou de terceiros.
+Para o estado de **recebimento** no nível do usuário e a lógica relacionada (como limite de frequência), a Braze geralmente marca um usuário quando o envio é processado e entregue para despacho — não quando o provedor de serviços de e-mail (ESP) confirma a entrega final na caixa de entrada. Isso evita lacunas de tempo entre a confirmação do ESP e as regras no produto. Pode diferir dos relatórios de entrega do ESP ou de terceiros.
 {% endalert %}
 
 {% endapi %}
@@ -167,7 +167,7 @@ No [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents
 
 {% api %}
 
-### Hard Bounce {#hard-bounce}
+### Hard bounce {#hard-bounce}
 
 {% apitags %}
 Count
@@ -183,7 +183,7 @@ Quando um e-mail sofre hard bounce ou é marcado como spam, a Braze marca o ende
 
 {% api %}
 
-### Soft Bounce {#soft-bounce}
+### Soft bounce {#soft-bounce}
 
 {% apitags %}
 Count
@@ -191,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Se um e-mail receber um soft bounce, geralmente tentaremos novamente dentro de 72 horas, mas o número de tentativas varia de acordo com o destinatário.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 <span class="calculation-line">Cálculo: Contagem </span>
 
@@ -352,7 +352,7 @@ Count, Percentage
 
 {% api %}
 
-### Intervalo de confiança {#confidence}
+### Confiança {#confidence}
 
 {% apitags %}
 Count

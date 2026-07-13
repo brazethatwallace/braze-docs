@@ -68,7 +68,7 @@ channel:
 전달 가능성 센터에 연결하기 전에 Google Postmaster Tools 계정을 설정해야 합니다. 업무용 또는 개인 Gmail 계정을 사용하여 Google Postmaster를 설정할 수 있습니다.
 
 1. [Google Postmaster Tools 대시보드](https://postmaster.google.com/managedomains?pli=1)로 이동합니다.
-2. 오른쪽 하단에서 <i class="fas fa-plus-circle"></i> **도메인 추가**를 선택합니다.
+2. 페이지 하단에서 <i class="fas fa-plus-circle"></i> **도메인 추가**를 선택합니다.
 3. 이메일을 인증할 루트(상위) 도메인을 입력합니다. TXT 레코드가 Braze를 통해 사용하는 하위 도메인이 **아닌** 이 루트(상위) 도메인에 연결되어 있는지 확인하세요. 루트(상위) 도메인을 인증하면 나중에 추가 TXT 레코드를 생성하지 않고도 Postmaster Tools에 하위 도메인을 추가할 수 있습니다. 예를 들어, `braze.com`을 인증하면 나중에 Postmaster Tools에서 `demo.braze.com`을 별도의 하위 도메인으로 추가하여 하위 도메인 수준의 측정기준을 확인할 수 있습니다.
 4. Google에서 도메인의 DNS에 직접 추가할 수 있는 TXT 레코드를 생성합니다. 이는 일반적으로 DNS를 관리하는 담당자가 소유합니다. 특정 DNS를 업데이트하는 방법에 대한 정보와 안내는 [도메인 인증(호스트별 단계)](https://support.google.com/a/topic/1409901)을 참조하세요.
 5. **Next**를 선택합니다. <br>![이메일을 인증하기 위한 예시 도메인 "demo.braze.com".]({% image_buster /assets/img_archive/domain_authentication.png %})

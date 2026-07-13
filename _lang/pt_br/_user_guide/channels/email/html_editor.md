@@ -44,8 +44,8 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique uma postergação conforme necessário.
-4. Filtre seu público para esta etapa, se necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
+3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique um delay conforme necessário.
+4. Filtre seu público para esta etapa, se necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após o delay, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
 {% endtab %}
@@ -111,8 +111,8 @@ Por exemplo, para manter um fundo branco em uma célula, use isto:
 Substitua `#ffffff` pela cor desejada.
 
 {% alert note %}
-Essa abordagem não se aplica de forma confiável apenas a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, então defina o gradiente na célula em vez de apenas na tabela.
-  <caption>Gmail mobile app and dark mode</caption>
+Essa abordagem não se aplica de forma confiável apenas a elementos `<table aria-label="App móvel do Gmail e modo escuro #gmail-dark-mode">`, então defina o gradiente na célula em vez de apenas na tabela.
+  <caption>App móvel do Gmail e modo escuro</caption>
 {% endalert %}
 
 Para mais informações sobre a sintaxe de gradientes, consulte [Gradientes CSS no W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -124,7 +124,7 @@ Depois de terminar de projetar e construir sua mensagem de e-mail, adicione suas
 1. Em **Sending Info**, selecione um e-mail como **From Display Name + Address**. Você também pode personalizar isso selecionando **Customize From Display Name + Address**.
 2. Selecione um e-mail como **Reply-To Address**. Você também pode personalizar isso selecionando **Customize Reply-To Address**.
 3. Em seguida, selecione um e-mail como **BCC Address** para tornar seu e-mail visível para esse endereço.
-4. Adicione uma linha de assunto ao seu e-mail. Opcionalmente, você também pode adicionar um pré-cabeçalho e um espaço em branco após o pré-cabeçalho.
+4. Adicione uma linha de assunto ao seu e-mail. Opcionalmente, você também pode adicionar um pré-cabeçalho. Para adicionar espaço em branco após o pré-cabeçalho, marque a caixa de seleção **Add whitespace after preheader**.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -233,7 +233,7 @@ Se você encontrar algum problema com seu e-mail ou quiser fazer alterações, s
 
 {% alert tip %}
 Clientes de e-mail que suportam texto de pré-visualização sempre puxam caracteres suficientes para preencher todo o espaço disponível de texto de pré-visualização. No entanto, isso pode deixá-lo em situações onde o texto de pré-visualização está incompleto ou não otimizado.
-<br><br>Para evitar isso, você pode criar espaço em branco após o texto de pré-visualização desejado para que os clientes de e-mail não puxem outros textos ou caracteres que distraiam para o conteúdo do envelope. Para isso, adicione uma cadeia de zero-width non-joiners (‌`&zwnj;`) e espaços não quebráveis (`&nbsp;`) após o texto de pré-visualização que você deseja exibir. <br><br>Quando adicionado ao final do seu texto de pré-visualização na seção de pré-cabeçalho, o seguinte trecho de código para o editor de HTML adicionará o espaço em branco que você procura:<br><br>
+<br><br>Para evitar isso, você pode criar espaço em branco após o texto de pré-visualização desejado para que os clientes de e-mail não puxem outros textos ou caracteres que distraiam para o conteúdo do envelope. Na seção **Sending Settings**, você pode marcar a caixa de seleção **Add whitespace after preheader** para adicionar espaço em branco automaticamente. <br><br>Como alternativa, se precisar de mais controle, você pode adicionar manualmente uma cadeia de zero-width non-joiners (‌`&zwnj;`) e espaços não quebráveis (`&nbsp;`) após o texto de pré-visualização que você deseja exibir. <br><br>Quando adicionado ao final do seu texto de pré-visualização na seção de pré-cabeçalho, o seguinte trecho de código para o editor de HTML adicionará o espaço em branco que você procura:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
@@ -314,11 +314,11 @@ A Braze permite rastrear com que frequência os usuários realizam ações espec
 - Realiza um evento personalizado específico
 - Abre o e-mail
 
-Você pode permitir um período de até 30 dias durante o qual a Braze conta uma conversão se o usuário realizar a ação especificada. Embora a Braze rastreie aberturas e cliques automaticamente, você pode definir o evento de conversão como uma abertura ou clique para usar a [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
+Você pode permitir um período de até 30 dias durante o qual a Braze conta uma conversão se o usuário realizar a ação especificada. Embora a Braze rastreie aberturas e cliques automaticamente, você pode definir o evento de conversão como uma abertura ou clique para usar a [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 {% endtab %}
 
 {% tab Canvas %}
-Se ainda não o fez, conclua as seções restantes dos seus componentes de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes dos seus componentes de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 {% endtab %}
 {% endtabs %}
 

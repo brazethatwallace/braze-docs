@@ -57,7 +57,7 @@ Para saber mais sobre o comportamento esperado e a aparência de cada tipo, cons
 
 | Tipo de mensagem | Exemplo | Descrição |
 |---|---|---|
-| [Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Um Content Card clássico com um ícone pequeno e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | O cartão clássico tem uma disposição direta com um título em negrito, texto da mensagem e uma imagem opcional posicionada à esquerda do título e do texto. É melhor usar uma imagem quadrada ou ícone com o cartão clássico. |
+| [Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Um Content Card clássico com um ícone pequeno e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | O cartão clássico tem uma disposição direta com um título em negrito, texto da mensagem e uma imagem opcional posicionada no início do título e do texto. É melhor usar uma imagem quadrada ou ícone com o cartão clássico. |
 | [Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Um Content Card com legenda mostrando a imagem de um halterofilista e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | O cartão de imagem com legenda destaca seu conteúdo com texto e uma imagem chamativa. |
 | [Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Um Content Card somente imagem com apenas texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | O cartão somente imagem chama a atenção com espaço para imagens, GIFs e outros conteúdos criativos sem texto. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Especifique seus tipos de mensagem" }
@@ -159,7 +159,7 @@ A Braze permite que você rastreie com que frequência os usuários realizam aç
 
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) e [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) e [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +193,7 @@ A carga útil total de dados de um único Content Card não pode exceder 2 KB **
 
 Usar Liquid para puxar strings longas de texto (como de atributos personalizados) pode fazer com que você exceda o limite.
 
-O criador de Campaign exibe um aviso se o conteúdo estático exceder o limite. (Não é possível prever o tamanho de conteúdo dinâmico usando Liquid.) **Se o tamanho da mensagem exceder 2 KB, ela é abortada no momento do envio.** Você pode ver esses abortos no Registro de atividades de envio de mensagem com o motivo `Content card maximum size exceeded`.
+O criador de Campaign exibe um aviso se o conteúdo estático exceder o limite. (Não é possível prever o tamanho de conteúdo dinâmico usando Liquid.) **Se o tamanho da mensagem exceder 2 KB, ela é interrompida no momento do envio.** Você pode ver essas interrupções no Registro de atividades de envio de mensagem com o motivo `Content card maximum size exceeded`.
 
 {% alert important %}
 Durante envios de teste, Content Cards que excedem 2 KB ainda podem ser entregues e exibidos corretamente.

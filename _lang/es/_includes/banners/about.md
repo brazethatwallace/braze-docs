@@ -14,7 +14,7 @@ Antes de empezar, asegúrate de haber [creado ubicaciones de Banner]({{site.base
 
 Los Banners permiten a los equipos de marketing y de producto personalizar de forma dinámica el contenido de las aplicaciones o los sitios web, reflejando la elegibilidad y el comportamiento de los usuarios en tiempo real. Muestran mensajes de forma persistente en línea, proporcionando experiencias no intrusivas y contextualmente relevantes que pueden actualizarse al inicio de una sesión o a mitad de sesión cuando tu aplicación o sitio web lo solicita explícitamente.
 
-Una vez que los Banners están integrados en una aplicación o sitio web, los especialistas en marketing pueden diseñarlos y lanzarlos utilizando un sencillo editor de arrastrar y soltar, lo que elimina la necesidad de asistencia continua por parte de los desarrolladores, reduce la complejidad y mejora la eficiencia.
+Una vez que los Banners están integrados en una aplicación o sitio web, los especialistas en marketing pueden diseñarlos y lanzarlos utilizando un editor de arrastrar y soltar o un editor HTML completo, lo que elimina la necesidad de asistencia continua por parte de los desarrolladores, reduce la complejidad y mejora la eficiencia.
 
 | Caso de uso | Explicación |
 | --- | --- |
@@ -28,9 +28,9 @@ Una vez que los Banners están integrados en una aplicación o sitio web, los es
 
 Las características de los Banners incluyen:
 
-- **Creación sencilla de contenido:** Crea y previsualiza tu Banner utilizando un editor visual de arrastrar y soltar compatible con imágenes, texto, botones, formularios de captura de correo electrónico, código personalizado y mucho más.
+- **Creación sencilla de contenido:** Crea y previsualiza tu Banner utilizando un editor visual de arrastrar y soltar compatible con imágenes, texto, botones, formularios de captura de correo electrónico, código personalizado y mucho más. Los equipos que prefieran gestionar su propio marcado pueden utilizar en su lugar el editor HTML para tener control total sobre el HTML y los estilos del Banner, o pedir a [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) que genere HTML a partir de una descripción.
 - **Ubicaciones flexibles:** Define múltiples ubicaciones dentro de tu aplicación o sitio web donde puedan aparecer los Banners, lo que permite una segmentación precisa a contextos específicos o experiencias de usuario.
-- **Personalización dinámica:** Los Banners recalculan la personalización (lógica Liquid) y la segmentación cada vez que se actualiza el Banner. Si un usuario actualiza su perfil o cambia un atributo personalizado, la siguiente actualización del Banner reflejará esos cambios.
+- **Personalización dinámica:** Los Banners recalculan la personalización (lógica Liquid) y la segmentación cada vez que se actualiza el banner. Si un usuario actualiza su perfil o cambia un atributo personalizado, la siguiente actualización del Banner reflejará esos cambios.
 - **Priorización nativa:** Establece la prioridad de visualización cuando varios Banners se dirigen a la misma ubicación, asegurándote de que el mensaje adecuado llegue a los usuarios en el momento adecuado.
 - **Bloque de editor de código personalizado:** Utiliza el bloque de editor de código personalizado para añadir HTML personalizado y así realizar personalizaciones avanzadas o integrarlo fácilmente con tus estilos web actuales.
 

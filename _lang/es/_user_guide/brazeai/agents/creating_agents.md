@@ -23,9 +23,9 @@ Antes de empezar, necesitarás lo siguiente:
 
 ## Cómo funciona {#how-it-works}
 
-Cuando creas un agente, defines su propósito y estableces las pautas sobre cómo debe comportarse. Una vez que esté en vivo, el agente se puede implementar en Braze para generar textos personalizados, tomar decisiones en tiempo real o actualizar campos del catálogo. Mientras construyes tu agente, puedes guardarlo como borrador, y puedes pausar o actualizar un agente en cualquier momento desde el dashboard.
+Cuando creas un agente, defines su propósito y estableces las pautas sobre cómo debe comportarse. Una vez que esté en vivo, el agente se puede implementar en Braze para generar textos personalizados, tomar decisiones en tiempo real o actualizar campos del catálogo. Mientras construyes tu agente, puedes guardarlo como borrador, y puedes pausar o actualizar un agente en cualquier momento desde el panel.
 
-Los siguientes casos de uso muestran algunas formas de aprovechar los agentes personalizados.
+Los siguientes ejemplos muestran algunas formas de aprovechar los agentes personalizados.
 
 | Caso de uso | Descripción |
 | --- | --- |
@@ -60,7 +60,7 @@ A continuación, configura los detalles de tu agente:
 2. (opcional) Añade etiquetas para filtrar tu agente.
 3. Elige el [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) que utilizará tu agente.
 4. Si no estás utilizando el modelo **Braze Auto**, selecciona el [nivel de pensamiento]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) del modelo. Puedes elegir entre mínimo, bajo, medio o alto. Te recomendamos que comiences con **Mínimo** y pruebes las respuestas de tu agente, ajustándolo según sea necesario.
-5. Establece un límite de invocaciones diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador del éxito del cliente para obtener más información.
+5. Establece un límite de invocaciones diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador de éxito de cliente para obtener más información.
 
 ![Interfaz de la Consola de Agente para crear un agente personalizado en Braze. La pantalla muestra campos para introducir el nombre y la descripción del agente, seleccionar un modelo y establecer un límite de invocaciones diario.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
@@ -81,8 +81,8 @@ Para los agentes de Canvas, puedes utilizar Liquid en tus instrucciones para hac
 Selecciona **+ Contexto del agente** para elegir lo que tu agente puede consultar. Esto incluye:
 
 - [Campos del catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): Permite que el agente acceda a los datos de tu catálogo para obtener respuestas más precisas.
-- [Pertenencia a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Permite que el agente personalice las respuestas en función de los Segments a los que pertenezca el usuario. Puedes seleccionar hasta cinco Segments.
-- [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Consulta las directrices sobre el tono y el estilo de la marca que debe seguir el agente. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a inscribirse en un gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
+- [Pertenencia a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Permite que el agente personalice las respuestas en función de los segmentos a los que pertenezca el usuario. Puedes seleccionar hasta cinco segmentos.
+- [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Consulta las directrices sobre el tono y el estilo de la marca que debe seguir el agente. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a suscribirse a un gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
 - [Todo el contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analiza todos los datos de contexto de Canvas de un usuario cuando se invoque este agente, incluidas las variables que no se mencionan en la sección **Instrucciones**.
 - [Datos de interacción del usuario]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): Proporciona al agente los datos recientes de aperturas, clics y conversiones de Campaigns y Canvas de cada usuario.
 
@@ -175,4 +175,4 @@ Operator puede preconfigurar instrucciones, campos de salida y contexto para las
 
 - [Referencia para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference)
 - [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq)
-- [Seminario web de Braze sobre IA en acción: 3 nuevos casos de uso para la personalización 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)
+- [Webinar de Braze sobre IA en acción: 3 nuevos ejemplos para la personalización 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

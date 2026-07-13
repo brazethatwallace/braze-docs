@@ -3,20 +3,20 @@ nav_title: Migrar datos entre espacios de trabajo
 article_title: Migrar datos entre espacios de trabajo e instancias
 page_order: 1
 page_type: reference
-description: "Descubre cómo se aíslan los datos del espacio de trabajo, qué puede copiar o importar Braze entre espacios de trabajo y cómo planificar traslados entre entornos de staging, producción o dashboards independientes."
+description: "Descubre cómo se aíslan los datos del espacio de trabajo, qué puede copiar o importar Braze entre espacios de trabajo y cómo planificar traslados entre entornos de staging, producción o paneles independientes."
 ---
 
 # Migrar datos entre espacios de trabajo e instancias {#migrate-data-between-workspaces-and-instances}
 
 > Los espacios de trabajo mantienen tus datos de Braze separados. Esta página explica cómo ese aislamiento afecta a la migración, qué puedes mover con las características del producto y las API, y qué necesitas reconstruir o gestionar fuera de Braze. La migración suele ser un esfuerzo multifuncional, no solo una tarea del administrador de la empresa. Los administradores suelen encargarse de la configuración del espacio de trabajo y la configuración de canales; los desarrolladores gestionan los cambios en el SDK y la API; los especialistas en marketing reconstruyen los segmentos y copian el contenido de mensajería. Cada paso requiere los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) correspondientes en los espacios de trabajo de origen y destino.
 
-Todo lo que almacenas en Braze —perfiles de usuario, segmentos, contenido de mensajería e historial de interacción— vive dentro de un espacio de trabajo. Un segmento, una Campaign o un Canvas no pueden leer ni dirigirse a datos de otro espacio de trabajo. Los usuarios del dashboard a menudo utilizan múltiples espacios de trabajo en el mismo dashboard de la empresa para staging y producción, para diferentes marcas o para divisiones regionales. Esa configuración te da aislamiento, pero también significa que no hay una única acción en el dashboard que mueva todos los datos de un espacio de trabajo a otro espacio de trabajo o a otra instancia de Braze.
+Todo lo que almacenas en Braze —perfiles de usuario, segmentos, contenido de mensajería e historial de participación— vive dentro de un espacio de trabajo. Un segmento, una Campaign o un Canvas no pueden leer ni dirigirse a datos de otro espacio de trabajo. Los usuarios del panel a menudo utilizan múltiples espacios de trabajo en el mismo panel de la empresa para staging y producción, para diferentes marcas o para divisiones regionales. Esa configuración te da aislamiento, pero también significa que no hay una única acción en el panel que mueva todos los datos de un espacio de trabajo a otro espacio de trabajo o a otra instancia de Braze.
 
 Para contexto de planificación, consulta [Primeros pasos: Espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces) y [Crear y administrar espacios de trabajo]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).
 
 ## Lo que Braze no migra automáticamente entre espacios de trabajo {#what-braze-does-not-automatically-migrate-between-workspaces}
 
-Lo siguiente no se migra de forma masiva cuando apuntas los SDK o las API a un nuevo espacio de trabajo (o a un nuevo entorno de dashboard de Braze con sus propios espacios de trabajo):
+Lo siguiente no se migra de forma masiva cuando apuntas los SDK o las API a un nuevo espacio de trabajo (o a un nuevo entorno de panel de Braze con sus propios espacios de trabajo):
 
 | Área | Comportamiento |
 | --- | --- |
@@ -32,9 +32,9 @@ Si utilizas espacios de trabajo separados para staging y producción, recuerda q
 
 ## Lo que puedes mover o recrear {#what-you-can-move-or-recreate}
 
-### Contenido de Campaigns, Canvas y páginas de inicio {#campaign-canvas-and-landing-page-content}
+### Contenido de Campaigns, Canvas y páginas de destino {#campaign-canvas-and-landing-page-content}
 
-Puedes copiar muchas definiciones de Campaigns, Canvas y páginas de inicio a otro espacio de trabajo como borradores. Los canales compatibles, los campos omitidos y las advertencias sobre Liquid están documentados en [Copiar Campaigns, Canvas y páginas de inicio entre espacios de trabajo]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Después de copiar, actualiza los segmentos, los desencadenantes y cualquier referencia específica del espacio de trabajo antes de lanzar o publicar.
+Puedes copiar muchas definiciones de Campaigns, Canvas y páginas de destino a otro espacio de trabajo como borradores. Los canales compatibles, los campos omitidos y las advertencias sobre Liquid están documentados en [Copiar Campaigns, Canvas y páginas de destino entre espacios de trabajo]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Después de copiar, actualiza los segmentos, los desencadenantes y cualquier referencia específica del espacio de trabajo antes de lanzar o publicar.
 
 ### Datos del perfil de usuario {#user-profile-data}
 
@@ -42,11 +42,11 @@ Enfoques habituales:
 
 - **REST API:** Usa [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para crear o actualizar usuarios en el espacio de trabajo de destino con los identificadores y atributos que necesites. Este es el mismo patrón descrito para [migrar datos de usuario heredados]({{site.baseurl}}/developer_guide/getting_started/integration_overview#migrating-legacy-user-data) al incorporar datos históricos a Braze.
 - **Importación CSV:** Para importaciones dirigidas por especialistas en marketing, consulta [Importar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) e [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
-- **Ingesta de datos de Cloud:** Para sincronizar atributos desde un almacén de datos al espacio de trabajo de destino, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+- **Ingesta de datos en la nube:** Para sincronizar atributos desde un almacén de datos al espacio de trabajo de destino, consulta [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 - **Exportaciones desde el espacio de trabajo de origen:** Usa [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) o [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para extraer los datos que tienes permitido mover, y luego mapéalos en `users/track` o CSV para el destino. Respeta tus obligaciones de retención de datos, privacidad y contractuales al exportar y recargar datos.
 
 {% alert note %}
-La fusión de perfiles duplicados con el punto de conexión [Fusionar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o [usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users) en el dashboard se aplica dentro de un único espacio de trabajo, no entre dos espacios de trabajo.
+La fusión de perfiles duplicados con el endpoint [Fusionar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o [usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users) en el panel se aplica dentro de un único espacio de trabajo, no entre dos espacios de trabajo.
 {% endalert %}
 
 ### Campos de exportación de usuarios que no se mapean a las API estándar de perfil {#user-export-fields-that-dont-map-to-standard-profile-apis}
@@ -75,9 +75,9 @@ A cada usuario se le asigna un [número de contenedor aleatorio]({{site.baseurl}
 
 Si dependes del número anterior para grupos de exclusión o muestreo (por ejemplo, excluir usuarios cuyo `random_bucket` está por debajo de un umbral), guarda el valor exportado como un atributo personalizado y construye segmentos o filtros sobre ese atributo en lugar del campo integrado de contenedor aleatorio.
 
-#### Campos de atribución de socios (`attributed_*`) {#partner-attribution-fields-attributed_}
+#### Campos de atribución de partners (`attributed_*`) {#partner-attribution-fields-attributed_}
 
-Los campos de atribución de integraciones de socios (los campos `attributed_*` en una exportación) no se pueden establecer en los campos estándar de atribución de Braze a través de la REST API. Mapéalos a atributos personalizados en el espacio de trabajo de destino si necesitas conservarlos para segmentación o mensajería.
+Los campos de atribución de integraciones de partners (los campos `attributed_*` en una exportación) no se pueden establecer en los campos estándar de atribución de Braze a través de la REST API. Mapéalos a atributos personalizados en el espacio de trabajo de destino si necesitas conservarlos para segmentación o mensajería.
 
 ### Tokens de notificaciones push {#push-tokens}
 
@@ -87,7 +87,7 @@ Cuando los usuarios ya tienen tokens de notificaciones push de un proveedor ante
 
 Los números de teléfono y los grupos de suscripción se pueden mover entre espacios de trabajo con un flujo de transferencia específico. Consulta [Transferir números de teléfono y grupos de suscripción de WhatsApp entre espacios de trabajo]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/transfer_between_workspaces).
 
-### Datos de interacción y análisis fuera de Braze {#engagement-and-analytics-data-outside-braze}
+### Datos de participación y análisis fuera de Braze {#engagement-and-analytics-data-outside-braze}
 
 Si necesitas un registro histórico de envíos, aperturas o clics al consolidar entornos, [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) y otras exportaciones son la forma compatible de llevar esos datos a tu almacén de datos o herramientas. Esos datos no se reingestan en Braze como historial de mensajes nativo por usuario en otro espacio de trabajo.
 
@@ -99,5 +99,5 @@ Cuando hayas apuntado tu aplicación o sitio a un nuevo espacio de trabajo:
 - Si la misma persona pudiera existir en ambos espacios de trabajo, puedes encontrar [escenarios similares a duplicados]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces#should-i-create-a-new-workspace-when-im-releasing-an-updated-app) (por ejemplo, alcance de push superpuesto). Prefiere un plan deliberado de datos y segmentación en lugar de compartir claves de producción y staging de forma involuntaria.
 
 {% alert tip %}
-Para límites de eliminación de espacios de trabajo o instancias de aplicación, traslados especiales de cuentas o planificación de migraciones a gran escala, [ponte en contacto con soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) con los enlaces de tu dashboard y un resumen de los espacios de trabajo de origen y destino.
+Para límites de eliminación de espacios de trabajo o instancias de aplicación, traslados especiales de cuentas o planificación de migraciones a gran escala, [ponte en contacto con soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) con los enlaces de tu panel y un resumen de los espacios de trabajo de origen y destino.
 {% endalert %}

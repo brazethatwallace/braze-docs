@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie Sie den Performance-Bericht verwenden, um Behand
 
 Ihr Performance-Bericht wird in Schichten aufgebaut und ist vollständig auf Ihren Anwendungsfall zugeschnitten. In Zusammenarbeit mit Ihrem Team:
 
-1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Conversion).
+1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Konversion).
 2. Braze definiert, wie diese Aktion täglich gemessen wird (Volumen, Umsatz, eindeutige Personen und Ähnliches).
 3. Braze definiert die Geschäftsmetrik, die Sie sehen möchten (z. B. Konversionsrate oder Umsatz pro Nutzer:in).
 4. Zeitregeln und Segmentierung werden angewendet.
@@ -48,7 +48,7 @@ Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr
 
 ## KPI-Karten {#kpi-cards}
 
-Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
+Die KPI-Karten auf der primären Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
 
 - Inkrementeller LTV / Kund:in
 - Conversions / Kund:in
@@ -56,7 +56,7 @@ Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendung
 
 Jede Karte stellt die KPI dar, die über den gesamten ausgewählten Datumsbereich berechnet wird. Dies ist ein Gesamtzeitraumwert, kein Tagesdurchschnitt. Wenn Sie beispielsweise „Inkrementeller LTV / Kund:in = 3,192“ sehen, spiegelt das die Performance über das gesamte ausgewählte Fenster wider.
 
-![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der linken Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
+![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der primären Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
 ## KPI-Trendchart {#kpi-trend-chart}
 

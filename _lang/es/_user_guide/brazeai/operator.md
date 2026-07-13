@@ -9,7 +9,7 @@ description: "Aprende a acceder y utilizar BrazeAI Operator<sup>TM</sup>, un asi
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup> es un asistente basado en inteligencia artificial integrado en el dashboard. Operator te ayuda a realizar tareas: responde preguntas, guía en la configuración, realiza la solución de problemas y aporta ideas.
+> BrazeAI Operator<sup>TM</sup> es un asistente basado en inteligencia artificial integrado en el panel. Operator te ayuda a realizar tareas: responde preguntas, guía en la configuración, realiza la solución de problemas y aporta ideas.
 
 ## Acceder a Operator {#access-operator}
 
@@ -20,7 +20,7 @@ Abre Operator desde cualquier página del panel de Braze.
 ![El icono de BrazeAI Operator junto a un perfil de usuario.]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. El panel de chat de Operator se abre en la parte derecha de la pantalla.
+2. El panel de chat de Operator se abre en un panel lateral.
 
 ![El panel de chat de Operator.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
@@ -36,7 +36,7 @@ Mira este video para ver un ejemplo de lo que Operator puede hacer.
 
 Describe lo que intentas lograr utilizando lenguaje natural. Los prompts pueden variar desde preguntas sencillas hasta solicitudes complejas:
 
-- **Simple:** ¿Por qué no se renderiza Liquid?
+- **Simple:** ¿Por qué no se renderiza mi Liquid?
 - **Complejo:** ¿Cómo puedo hacer que la etiqueta `abort_message` de mi mensaje incluya el atributo de usuario que provocó la interrupción?
 
 Operator puede proporcionar instrucciones paso a paso, enlaces a la documentación de Braze y explicaciones en lenguaje sencillo. Las preguntas claras y específicas dan lugar a respuestas más útiles. Operator utiliza [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), que ofrece un razonamiento sólido y es adecuado para tareas complejas de varios pasos. Para ver ejemplos listos para usar, consulta la [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
@@ -45,7 +45,7 @@ Operator puede proporcionar instrucciones paso a paso, enlaces a la documentaci�
 
 Trata a Operator como una conversación, no como un motor de búsqueda. Los prompts breves y naturales son los que mejor funcionan.
 
-- **Sé específico:** En lugar de «Cuéntame sobre Canvas», prueba con «¿Cómo utilizo las Rutas de acción en Canvas?».
+- **Sé específico:** En lugar de «Cuéntame sobre Canvas», prueba con «¿Cómo utilizo las Rutas de Acción en Canvas?».
 - **Haz preguntas de seguimiento:** Si la primera respuesta no satisface tus necesidades, solicita aclaraciones o detalles adicionales.
 - **Utiliza el contexto consciente de la página:** Operator conoce tu ubicación en Braze. Abre Operator mientras visualizas la página correspondiente para obtener resultados más precisos.
 
@@ -63,7 +63,7 @@ Para configurar las directrices de marca, ve a **Configuración** > **Directrice
 
 Operator comprende automáticamente tu ubicación en Braze y adapta las respuestas en función de ese contexto. Por ejemplo, cuando abres Operator mientras creas un Canvas, puede sugerirte pasos relevantes u ofrecerte orientación sobre las características de Canvas sin que tengas que explicar en qué punto del flujo de trabajo te encuentras.
 
-Esta conciencia del contexto significa que puedes formular preguntas más cortas y naturales, como «¿Cómo añado un retraso?», en lugar de «¿Cómo añado un paso de retraso en un flujo de trabajo de Canvas?». Para ver prompts listos para usar organizados por página del dashboard, consulta la [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+Esta conciencia del contexto significa que puedes formular preguntas más cortas y naturales, como «¿Cómo añado un retraso?», en lugar de «¿Cómo añado un paso de retraso en un flujo de trabajo de Canvas?». Para ver prompts listos para usar organizados por página del panel, consulta la [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Trabajar con las respuestas de Operator {#work-with-operator-responses}
 
@@ -79,7 +79,7 @@ Operator muestra sus pasos de razonamiento en secciones plegables etiquetadas co
 
 ### Actúa con Operator {#take-action-with-operator}
 
-Operator puede proponer y ejecutar cambios directamente en el panel de Braze, como rellenar campos de formularios, actualizar la configuración o generar contenido. Cada cambio propuesto se presenta como una tarjeta de acción para que lo revises y apruebes antes de que entre en vigor. Para obtener más información sobre cómo funciona esto, consulta [Revisión de las acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
+Operator puede proponer y ejecutar cambios directamente en el panel de Braze, como rellenar campos de formularios, actualizar la configuración o generar contenido. Cada cambio propuesto se presenta como una tarjeta de acción para que lo revises y apruebes antes de que entre en vigor. Para obtener más información sobre cómo funciona esto, consulta [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Copiar respuestas a otras herramientas {#copy-responses-to-other-tools}
 
@@ -136,8 +136,8 @@ BrazeAI Operator<sup>TM</sup> tiene integración con OpenAI, que actúa como sub
 
 ## Próximos pasos {#next-steps}
 
-- [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Examina ejemplos de prompts organizados por página del dashboard
+- [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Examina ejemplos de prompts organizados por página del panel
 - [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Aprende a revisar y aprobar los cambios propuestos por Operator
-- [Tickets de soporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Envía tickets de soporte directamente desde Operator
+- [Enviar tickets de soporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Envía tickets de soporte directamente desde Operator
 - [Solución de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Consulta problemas comunes y soluciones
 - [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security): Revisa el cumplimiento de HIPAA, la retención de datos y las directrices de minimización de PII

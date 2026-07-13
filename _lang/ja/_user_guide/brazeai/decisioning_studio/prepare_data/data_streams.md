@@ -22,7 +22,7 @@ description: "このリファレンス記事では、スナップショットデ
 |-------|---------|
 | 顧客識別子 | このレコードが誰を記述しているか |
 | スナップショット日付 | このスナップショットがいつ取得されたか |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="必須フィールド" }
 
 ### スナップショットの更新方法 {#how-snapshots-should-be-updated}
 
@@ -32,7 +32,7 @@ description: "このリファレンス記事では、スナップショットデ
 
 ### 日次配信用のスナップショットデータのクエリ {#query-snapshot-data-for-daily-delivery}
 
-Decisioning Studioはおすすめパイプラインを1日1回実行します。スナップショットデータを配信する際は、各パイプライン実行時に前日のスナップショットをエクスポートします：
+Decisioning Studioはレコメンデーションパイプラインを1日1回実行します。スナップショットデータを配信する際は、各パイプライン実行時に前日のスナップショットをエクスポートします：
 
 ```sql
 SELECT *
@@ -42,7 +42,7 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 
 ## イベントストリームデータ（フロー） {#event-stream-data-flow}
 
-イベントストリームは、個別のアクションを発生時に記録します。「この顧客は何をしたか、いつしたか？」という質問に答えるものです。イベントストリームは、生の、不変の、増分的で、時系列のデータに最適です。各レコードは、特定の時点で発生した1つの出来事を表します。例えば、このデータストリームはアクティベーションレコード、エンゲージメントログ（開封、クリック数）、コンバージョンイベント、またはクーポン利用に使用します。
+イベントストリームは、個別のアクションを発生時に記録します。「この顧客は何をしたか、いつしたか？」という質問に答えるものです。イベントストリームは、生の、不変の、増分的で、時系列のデータに最適です。各レコードは、特定の時点で発生した1つの出来事を表します。例えば、このデータストリームはアクティベーションレコード、エンゲージメントログ（開封、クリック）、コンバージョンイベント、またはクーポン利用に使用します。
 
 ### 必須フィールド
 
@@ -51,9 +51,9 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 | 顧客識別子 | このイベントが誰に関するものか |
 | イベントタイプ | 何が起きたか（例：アクティベーション、コンバージョン、クリック） |
 | イベントタイムスタンプ | イベントが実際に発生した日時 |
-| 作成タイムスタンプ | このレコードがシステムに作成された日時（以下の注記を参照） |
+| 作成タイムスタンプ | このレコードがシステムに作成された日時（以下のセクションの注記を参照） |
 | イベントプロパティ | イベントに関する追加メタデータ。これが豊富であるほど、Decisioning Studioはカスタマージャーニー全体でイベントをより適切にリンクできます |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="必須フィールド" }
 
 {% alert important %}
 イベントタイムスタンプと作成タイムスタンプは異なるフィールドであり、両方とも必須です。イベントタイムスタンプは、アクションが実際に発生した日時を記録します。作成タイムスタンプは、データエントリがシステムに書き込まれた日時を記録しますが、処理の遅延により後になる場合があります。この2つを混同しないでください。
@@ -69,14 +69,14 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 
 日次エクスポートのスライスには、`event_timestamp`ではなく`create_timestamp`を使用してください。イベントは発生後にシステムに書き込まれることがあります（遅延到着）。`event_timestamp`でスライスすると、遅延到着したレコードが永久に欠落します。
 
-`````````sql
+```sql
 -- Correct: use create_timestamp to ensure late-arriving events are captured
 SELECT *
 FROM events_data
 WHERE DATE(create_timestamp) = {t-1} -- on run date t, export all records created yesterday
 ```
 
-`````````sql
+```sql
 -- Incorrect: slicing on event_timestamp will permanently lose late-arriving events
 SELECT *
 FROM events_data

@@ -20,7 +20,7 @@ description: "Erfahren Sie, wie Sie auf BrazeAI Operator<sup>TM</sup> zugreifen 
 ![Das Symbol „BrazeAI Operator“ neben einem Nutzerprofil.]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. Das Operator-Chat-Panel öffnet sich auf der rechten Seite des Bildschirms.
+2. Das Operator-Chat-Panel öffnet sich in einem Seitenpanel.
 
 ![Das Chat-Panel von Operator.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
@@ -69,13 +69,13 @@ Dank dieser Kontextbezogenheit können Sie kürzere, natürlichere Fragen stelle
 
 ### Starten Sie mit den vorgeschlagenen Prompts {#get-started-with-suggested-prompts}
 
-Wenn Sie Operator öffnen, werden Ihnen auf Basis häufiger Aufgaben und Ihrer aktuellen Seite vorgeschlagene Prompts angezeigt. Wählen Sie einen aus, um schnell loszulegen, oder geben Sie Ihre eigene Frage ein.
+Wenn Sie eine Konversation mit Operator öffnen, werden Ihnen auf Basis häufiger Aufgaben und Ihrer aktuellen Seite vorgeschlagene Prompts angezeigt. Wählen Sie einen aus, um schnell loszulegen, oder geben Sie Ihre eigene Frage ein.
 
 ### Verstehen Sie, wie Operator denkt {#understand-how-operator-thinks}
 
-Operator zeigt seine Argumentationsschritte in ausblendbaren Abschnitten mit der Bezeichnung **Reasoned** an. Wählen Sie das Dropdown-Menü aus, um diese Abschnitte zu erweitern und nachzuvollziehen, wie Operator zu einer Antwort gelangt ist. Dies ist hilfreich, wenn Sie die Logik hinter einem Vorschlag verstehen oder den Ansatz überprüfen möchten.
+Operator zeigt seine Argumentationsschritte in ausblendbaren Abschnitten mit der Bezeichnung **Reasoned** an. Wählen Sie das Dropdown aus, um diese Abschnitte zu erweitern und nachzuvollziehen, wie Operator zu einer Antwort gelangt ist. Dies ist hilfreich, wenn Sie die Logik hinter einem Vorschlag verstehen oder den Ansatz überprüfen möchten.
 
-![Das ausgeblendete Dropdown-Menü „Reasoned“ in einer Antwort von Operator.]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
+![Das ausgeblendete Dropdown „Reasoned“ in einer Antwort von Operator.]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
 
 ### Aktionen mit Operator ausführen {#take-action-with-operator}
 

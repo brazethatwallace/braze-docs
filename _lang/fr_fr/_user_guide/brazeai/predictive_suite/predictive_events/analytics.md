@@ -12,7 +12,7 @@ page_order: 1.3
 
 ## À propos des analyses prédictives des événements {#about-predictive-event-analytics}
 
-Dès que la prédiction est terminée et que cette page est remplie, vous pouvez commencer à utiliser les [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) dans les segments ou les Campaigns pour exploiter les résultats du modèle. Si vous souhaitez de l'aide pour décider qui cibler et pourquoi, cette page peut vous guider en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
+Dès que la prédiction est terminée et que cette page est remplie, vous pouvez commencer à utiliser les [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) dans les Segments ou les Campaigns pour exploiter les résultats du modèle. Si vous souhaitez de l'aide pour décider qui cibler et pourquoi, cette page peut vous guider en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
 
 Tels sont les composants des analyses prédictives des événements :
 
@@ -41,7 +41,7 @@ Les scores et les catégories correspondantes seront mis à jour selon la planif
 
 ### Accès aux scores de probabilité au niveau utilisateur {#accessing-user-level-likelihood-scores}
 
-Pour consulter le score de probabilité d'un utilisateur individuel, recherchez cet utilisateur dans le tableau de bord et rendez-vous dans **Engagement** > **Predictions** afin de visualiser son score. Pour accéder aux scores et aux catégories de plusieurs utilisateurs à la fois, créez un [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) à l'aide des filtres [Score de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) ou [Catégorie de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category), puis exportez les utilisateurs de ce segment. Lors de l'exportation, vous pouvez inclure les scores de probabilité dans les données exportées.
+Pour consulter le score de probabilité d'un utilisateur individuel, recherchez cet utilisateur dans le tableau de bord et rendez-vous dans **Engagement** > **Predictions** afin de visualiser son score. Pour accéder aux scores et aux catégories de plusieurs utilisateurs à la fois, créez un [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) à l'aide des filtres [Score de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) ou [Catégorie de probabilité d'événement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category), puis exportez les utilisateurs de ce Segment. Lors de l'exportation, vous pouvez inclure les scores de probabilité dans les données exportées.
 
 {% alert note %}
 Bien que les événements prédictifs et [la prédiction de l'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) attribuent tous deux des scores aux utilisateurs, il existe des différences importantes :<br><br>
@@ -49,7 +49,7 @@ Bien que les événements prédictifs et [la prédiction de l'attrition]({{site.
 - **Événements prédictifs** (prédictions d'achat) : prennent en compte tous les utilisateurs de l'audience de prédiction, qu'ils aient déjà effectué l'événement cible ou non. Par exemple, une prédiction d'achat peut identifier les utilisateurs susceptibles d'effectuer leur premier achat.
 - **Prédiction de l'attrition** : ne prend en compte que les utilisateurs ayant déjà effectué l'événement personnalisé. Les prédictions d'attrition identifient les utilisateurs qui ont déjà effectué une action et qui sont susceptibles de cesser de le faire. Un utilisateur qui ne s'est jamais connecté ne peut être considéré comme « en attrition » s'il ne se connecte pas.
 
-Lors de l'exportation des scores de risque d'attrition à partir d'un segment, ces scores reflètent le modèle de prédiction d'attrition, qui diffère des modèles de prédiction des achats ou d'autres événements.
+Lors de l'exportation des scores de risque d'attrition à partir d'un Segment, ces scores reflètent le modèle de prédiction d'attrition, qui diffère des modèles de prédiction des achats ou d'autres événements.
 {% endalert %}
 
 ## Précision estimée {#estimated_results}

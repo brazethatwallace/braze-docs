@@ -118,7 +118,7 @@ Para integrações com a Braze, planeje quais dimensões o seu agente vai otimiz
 
 ## Configuração da integração {#integration-setup}
 
-Selecione a sua CEP abaixo para começar a configuração da integração.
+Selecione a sua CEP na lista abaixo para começar a configuração da integração.
 
 {% tabs %}
 {% tab Braze %}

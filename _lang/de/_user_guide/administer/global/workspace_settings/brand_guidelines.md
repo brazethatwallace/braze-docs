@@ -14,11 +14,11 @@ Erstellen und verwalten Sie Markenrichtlinien unter **Content** > **Brand Guidel
 
 ## Markenrichtlinien erstellen {#creating-brand-guidelines}
 
-### 1. Schritt: Markenrichtlinie erstellen {#step-1-create-a-brand-guideline}
+### Schritt 1: Markenrichtlinie erstellen {#step-1-create-a-brand-guideline}
 
-Wählen Sie auf der Seite **Brand Guidelines** die Option **Neu erstellen** aus. Wenn Sie möchten, dass diese Markenrichtlinie der Standard für den Workspace ist, markieren Sie **Use as default brand guideline**. Sie können einen Standard pro Workspace haben.
+Wählen Sie auf der Seite **Brand Guidelines** die Option **Create new** aus. Wenn Sie möchten, dass diese Markenrichtlinie der Standard für den Workspace ist, markieren Sie **Use as default brand guideline**. Sie können einen Standard pro Workspace haben.
 
-### 2. Schritt: Beschreiben Sie Ihre Markenpersönlichkeit {#step-2-describe-your-brand-personality}
+### Schritt 2: Beschreiben Sie Ihre Markenpersönlichkeit {#step-2-describe-your-brand-personality}
 
 Überlegen Sie bei der **Brand personality**, was Ihre Marke einzigartig macht. Fügen Sie Merkmale, Werte, Sprachstil und alle Archetypen hinzu, die Ihre Marke definieren. Hier sind einige Merkmale, die Sie beachten sollten:
 
@@ -30,19 +30,19 @@ Wählen Sie auf der Seite **Brand Guidelines** die Option **Neu erstellen** aus.
 | Differenzierung | Einzigartige Qualitäten, die Ihre Marke von der Konkurrenz abheben. | Wir heben uns durch personalisierten Kundenservice ab, der über das Erwartete hinausgeht. |
 | Markenstimme | Der Ton und Stil der Kommunikation, den Ihre Marke verwendet. | Unsere Stimme ist locker und dennoch informativ – klar, ohne zu förmlich zu sein. |
 | Markenarchetyp | Der Archetyp, der die Persona Ihrer Marke repräsentiert (Der Held, Der Schöpfer usw.). | Wir verkörpern den Archetyp des „Entdeckers“, der stets neue Herausforderungen und Abenteuer sucht. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Beschreiben Sie Ihre Markenpersönlichkeit" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Beschreiben Sie Ihre Markenpersönlichkeit" }
 
-### 3. Schritt: Sprache definieren, die vermieden werden soll (optional) {#step-3-define-language-that-should-be-avoided-optional}
+### Schritt 3: Sprache definieren, die vermieden werden soll (optional) {#step-3-define-language-that-should-be-avoided-optional}
 
 Listen Sie unter **Exclusions** alle Formulierungen oder Stile auf, die nicht zu Ihrer Marke passen. Beispielsweise möchten Sie vielleicht „Sarkasmus“, „negative Einstellungen“ oder „herablassende“ Töne vermeiden.
 
 ![Das Fenster „Markenrichtlinie erstellen“ mit Feldern für Name, Beschreibung, Persönlichkeit, Ausschlüsse und Ton.]({% image_buster /assets/img/guidelines_create.png %})
 
-### 4. Schritt: Ihre Richtlinien testen {#step-4-test-your-guidelines}
+### Schritt 4: Ihre Richtlinien testen {#step-4-test-your-guidelines}
 
 Testen Sie Ihre Richtlinien, um zu sehen, wie sie funktionieren. Erweitern Sie **Test your guidelines**, um Beispieltexte zu generieren, und passen Sie diese bei Bedarf an.
 
-### 5. Schritt: Ihre Richtlinien speichern {#step-5-save-your-guidelines}
+### Schritt 5: Ihre Richtlinien speichern {#step-5-save-your-guidelines}
 
 Wenn Sie mit Ihren Richtlinien zufrieden sind, wählen Sie **Save brand guideline**. Ihre Richtlinien werden in Ihrem Workspace für die zukünftige Verwendung gespeichert.
 

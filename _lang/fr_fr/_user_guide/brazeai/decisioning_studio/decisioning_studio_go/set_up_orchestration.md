@@ -20,7 +20,7 @@ Decisioning Studio Go prend en charge les plateformes d'engagement client suivan
 | **Salesforce Marketing Cloud** | Journey Builder avec événements API | Automatisation des requêtes SQL, extensions de données |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEP pris en charge" }
 
-Sélectionnez votre CEP ci-dessous pour commencer la configuration de l'intégration.
+Sélectionnez votre CEP dans cette liste pour commencer la configuration de l'intégration.
 
 {% tabs %}
 {% tab Braze %}
@@ -84,7 +84,7 @@ Braze fournit des ID d'application (appelés clés API dans le tableau de bord d
 ![Option permettant de sélectionner votre canal de communication pour la campagne API.]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. Dans **Options supplémentaires**, cochez la case **Allow users to become re-eligible to receive campaign**.
+6. Dans **Additional Options**, cochez la case **Allow users to become re-eligible to receive campaign**.
 7. Pour le délai de rééligibilité, saisissez **1** et sélectionnez **Hours** dans le menu déroulant.
 
 ![Rééligibilité sélectionnée pour la campagne API.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})

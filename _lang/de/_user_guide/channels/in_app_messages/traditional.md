@@ -225,7 +225,7 @@ Wenn Sie sich entscheiden, nur einen Button zu verwenden, passt sich dieser auto
 
 Wenn Sie diese Buttons mit Ihren eigenen Farben formatieren, empfehlen wir, Button 2 für Ihr bevorzugtes Ergebnis zu verwenden.
 
-Mit anderen Worten: Wenn Sie möchten, dass Ihre Nutzer:innen einen Button häufiger anklicken als den anderen, stellen Sie sicher, dass er sich auf der rechten Seite befindet. Der rechte Button hat oft ein besseres Klickpotenzial gezeigt, insbesondere wenn er eine etwas kontrastierende oder anderweitig auffällige Farbe im Vergleich zum Rest der Nachricht hat. Dies wird nur verstärkt, wenn der Button auf der linken Seite visuell stärker mit der Nachricht verschmilzt.
+Mit anderen Worten: Wenn Sie möchten, dass Ihre Nutzer:innen einen Button häufiger anklicken als den anderen, stellen Sie sicher, dass es der sekundäre Button ist. Der sekundäre Button hat oft ein besseres Klickpotenzial gezeigt, insbesondere wenn er eine etwas kontrastierende oder anderweitig auffällige Farbe im Vergleich zum Rest der Nachricht hat. Dies wird nur verstärkt, wenn der primäre Button visuell stärker mit der Nachricht verschmilzt.
 
 ![Primärer und sekundärer Button in einer In-App-Nachricht]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -323,7 +323,7 @@ Beachten Sie: Wenn Sie Ihre In-App-Nachricht basierend auf einem angepassten Eve
 Die Zustellung von In-App-Nachrichten basiert vollständig auf den folgenden Aktions-Triggern:
 
 - Einen Kauf tätigen
-- Die App/Webseite öffnen
+- Die App oder Webseite öffnen
 - Ein angepasstes Event ausführen (funktioniert nur mit Events, die über das SDK gesendet werden)
 - Eine bestimmte Push-Nachricht öffnen
 - Campaigns automatisch so planen, dass sie zu einer bestimmten Zeit in Bezug auf die Ortszeit jeder Nutzerin und jedes Nutzers gesendet werden.
@@ -408,7 +408,7 @@ Informationen zu Canvas-spezifischen In-App-Nachrichten-Optionen finden Sie unte
 
 Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, [testen Sie sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) und senden Sie sie ab!
 
-Sehen Sie sich als Nächstes [In-App-Nachrichten-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Messaging-Campaigns zugreifen können.
+Sehen Sie sich als Nächstes [In-App-Nachrichten-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Messaging-Kampagnen zugreifen können.
 
 ## Wissenswertes {#things-to-know}
 

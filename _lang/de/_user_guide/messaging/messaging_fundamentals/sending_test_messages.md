@@ -17,7 +17,7 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Testnachrichten ü
 Stellen Sie sicher, dass Sie Ihren Campaign-Entwurf nach dem Testen speichern, um das Löschen Ihrer Campaign zu vermeiden. Sie können Testnachrichten senden, ohne die Nachricht als Entwurf zu speichern.
 {% endalert %}
 
-## 1. Schritt: Testnutzer:innen identifizieren {#step-1-identify-your-test-users}
+## Schritt 1: Testnutzer:innen identifizieren {#step-1-identify-your-test-users}
 
 Bevor Sie Ihre Messaging-Kampagne testen, ist es wichtig, Ihre Testnutzer:innen zu identifizieren. Diese Nutzer:innen können entweder vorhandene Nutzer-IDs oder E-Mail-Adressen sein, oder neue Nutzer:innen, die ausschließlich zum Testen von Messaging-Kampagnen verwendet werden.
 
@@ -25,7 +25,7 @@ Bevor Sie Ihre Messaging-Kampagne testen, ist es wichtig, Ihre Testnutzer:innen 
 
 Eine praktische Möglichkeit, Ihre Testnutzer:innen zu organisieren, ist die Erstellung einer [Content-Testgruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), die eine Gruppe von Nutzer:innen enthält, die Testnachrichten von Campaigns erhalten. Sie können diese Testgruppe zum Feld **Content-Testgruppen hinzufügen** unter **Testempfänger:innen** in Ihrer Campaign hinzufügen und Ihre Tests starten, ohne einzelne Testnutzer:innen erstellen oder hinzufügen zu müssen.
 
-## 2. Schritt: Kanalspezifische Testnachrichten senden {#step-2-send-channel-specific-test-messages}
+## Schritt 2: Kanalspezifische Testnachrichten senden {#step-2-send-channel-specific-test-messages}
 
 Informationen zum Senden von Testnachrichten finden Sie im folgenden Abschnitt für Ihren jeweiligen Kanal.
 
@@ -162,7 +162,8 @@ Wenn Ihre E-Mail-Campaign ein großes Bild enthält und in Outlook nicht wie erw
 {% tab In-App-Nachricht %}
 
 {% alert warning %}
-Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten vor dem Senden aktiviert sein. Beispielsweise müssen Sie Push auf Ihrem iOS-Gerät aktiviert haben, um auf die Benachrichtigung zu tippen, bevor die Testnachricht angezeigt wird. {% endalert %}
+Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten vor dem Senden aktiviert sein. Beispielsweise müssen Sie Push auf Ihrem iOS-Gerät aktiviert haben, um auf die Benachrichtigung zu tippen, bevor die Testnachricht angezeigt wird.
+{% endalert %}
 
 Wenn Sie Push-Benachrichtigungen in Ihrer App und auf Ihrem Testgerät eingerichtet haben, können Sie Test-In-App-Nachrichten an Ihre App senden, um zu sehen, wie sie in Echtzeit aussehen.
 
@@ -388,6 +389,7 @@ Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalte
 - Zum Testen von In-App-Nachrichten und Content Cards müssen die Zielnutzer:innen ein Push-Token für das Zielgerät haben.
 - Zum Testen von Abmeldelinks in E-Mails stellen Sie sicher, dass die E-Mail-Adresse Ihrer Testnutzer:innen im jeweiligen Workspace vorhanden ist.
 - Der `List-Unsubscribe`-Header ist nicht in E-Mails enthalten, die über die Testnachrichtenfunktion gesendet werden.
+- E-Mails, die an Seed-Gruppen-Nutzer:innen gesendet werden, aktualisieren nicht die Liste der empfangenen Campaigns im Nutzerprofil und erhöhen nicht die Sendungen in den Dashboard-Analytics.
 
 ## Fehlerbehebung {#troubleshooting}
 

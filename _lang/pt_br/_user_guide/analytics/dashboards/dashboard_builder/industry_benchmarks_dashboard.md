@@ -29,7 +29,7 @@ O dashboard é organizado em quatro seções de canal: **Email**, **Push Notific
 | Cartões de KPI | Mostram a taxa do seu espaço de trabalho para cada métrica principal, junto com o delta em comparação com a taxa do setor. Uma seta verde para cima indica que seu espaço de trabalho está acima da taxa do setor; uma seta vermelha para baixo indica que está abaixo. |
 | Gráfico de tendência mensal | Plota a taxa do seu espaço de trabalho em relação à taxa do setor ao longo do tempo, para que você possa identificar sazonalidade e tendências de longo prazo. |
 | Detalhamento regional | Detalha a taxa do seu espaço de trabalho em relação à taxa do setor por região, para que você possa identificar onde o desempenho regional diverge do setor. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Section" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Seção" }
 
 Em todos os gráficos, a série de cor mais clara representa o benchmark do setor e a série mais escura (prefixada com **Workspace**) representa o seu próprio desempenho.
 
@@ -41,7 +41,7 @@ Cada métrica baseada em canal está disponível em dois tipos:
 |----------|---------------------------------------|------------------------------------------------------|
 | _Total_ | Conta todos os eventos de engajamento. | Se um usuário clica três vezes, isso é contado como três cliques. |
 | _Distinct_ | Conta usuários únicos. | Se um usuário clica três vezes, isso é contado como um clique. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Metric type" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipo de métrica" }
 
 As métricas são agrupadas pelas seguintes combinações de setor, região, subsetor e data:
 
@@ -60,47 +60,47 @@ Selecione uma guia para visualizar as métricas de cada canal.
 {% tabs %}
 {% tab E-mail %}
 
-<table aria-label="Email metrics"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de e-mail"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Unique Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Essa taxa exclui aberturas por máquina.</td><td class="no-split"><i>Unique Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Unique Click Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %}</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Unique Click to Open Rate</i></td><td class="no-split">A porcentagem de usuários que clicaram em um e-mail após abri-lo.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Opens</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de e-mail" }
 
 ![Métricas de benchmarks do setor para e-mail exibidas em gráficos de linha e gráficos de barras.]({% image_buster /assets/img/dashboards/email_industry.png %})
 
 {% endtab %}
 {% tab Push %}
 
-As métricas de push estão disponíveis para iOS, Android, Web e para todas as plataformas combinadas.
+As métricas de push estão disponíveis para iOS, Android, web e para todas as plataformas combinadas.
 
-<table aria-label="Push metrics"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de push"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Direct Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Direct Opens' %}</td><td class="no-split"><i>Direct Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Influenced Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Influenced Opens' %}</td><td class="no-split"><i>Influenced Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Total Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Opens' %}</td><td class="no-split">(<i>Direct Opens</i> + <i>Influenced Opens</i>) / <i>Unique Sends</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de push" }
 
 ![Métricas de benchmarks do setor para push exibidas em gráficos de linha e gráficos de barras.]({% image_buster /assets/img/dashboards/push_industry.png %})
 
 {% endtab %}
 {% tab SMS %}
 
-<table aria-label="SMS metrics"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de SMS"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Delivery Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deliveries' %}</td><td class="no-split"><i>Deliveries</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Short Link Click Rate</i></td><td class="no-split">A porcentagem de usuários que clicaram em um link curto após receber um SMS.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de SMS" }
 
 ![Métricas de benchmarks do setor para SMS exibidas em gráficos de linha e gráficos de barras.]({% image_buster /assets/img/dashboards/sms_industry.png %})
 
 {% endtab %}
 {% tab Content Cards %}
 
-<table aria-label="Content Cards metrics"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de Content Cards"><thead><tr><th>Métrica</th><th>Descrição</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Click Rate</i></td><td class="no-split">A porcentagem de usuários que receberam um Content Card e clicaram em um link.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Impressions</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content Cards metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de Content Cards" }
 
 ![Métricas de benchmarks do setor para Content Cards exibidas em gráficos de linha e gráficos de barras.]({% image_buster /assets/img/dashboards/content_card_industry.png %})
 

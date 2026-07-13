@@ -23,7 +23,7 @@ SDKやAPIを新しいワークスペース（または独自のワークスペ�
 | **ユーザープロファイル** | プロファイルはパッケージ化された単位として転送されません。送信先ワークスペースでユーザーを再作成またはインポートしてください（[ユーザープロファイルデータ](#user-profile-data)を参照）。 |
 | **セグメントとフィルター** | セグメントの定義はソースワークスペースに残ります。可能な限り同じロジックを使用して、送信先ワークスペースでセグメントを再構築してください。 |
 | **メッセージング履歴** | プロファイル上のキャンペーンおよびキャンバスの受信履歴はソースワークスペースに紐づいています。[Brazeオンボーディングに関するFAQ]({{site.baseurl}}/user_guide/onboarding_faq)に記載されているように、カスタム属性などを使用して自分でモデル化しない限り、別のワークスペースの新しいプロファイルには表示されません。 |
-| **チャネル固有の設定** | 送信ドメイン、SMSサブスクリプション、WhatsApp番号、および同様の設定はワークスペースにスコープされています。該当する場合は、送信先ワークスペースで再設定してください。 |
+| **チャネル固有の設定** | 送信ドメイン、SMS購読、WhatsApp番号、および同様の設定はワークスペースにスコープされています。該当する場合は、送信先ワークスペースで再設定してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeがワークスペース間で自動移行しないもの" }
 
 {% alert important %}
@@ -85,7 +85,7 @@ SDKやAPIを新しいワークスペース（または独自のワークスペ�
 
 ### WhatsApp
 
-電話番号とサブスクリプショングループは、特定の転送フローを使用してワークスペース間で移動できます。[ワークスペース間でのWhatsApp電話番号とサブスクリプショングループの転送]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/transfer_between_workspaces)をご覧ください。
+電話番号と購読グループは、特定の転送フローを使用してワークスペース間で移動できます。[ワークスペース間でのWhatsApp電話番号と購読グループの転送]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/transfer_between_workspaces)をご覧ください。
 
 ### Braze外のエンゲージメントおよび分析データ {#engagement-and-analytics-data-outside-braze}
 

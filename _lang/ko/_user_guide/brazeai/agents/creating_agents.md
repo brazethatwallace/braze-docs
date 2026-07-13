@@ -23,11 +23,11 @@ alias: /creating-agents/
 
 ## 작동 방식 {#how-it-works}
 
-에이전트를 생성할 때 목적을 정의하고 동작 방식에 대한 가이드라인을 설정합니다. 라이브 상태가 되면 에이전트를 Braze에 배포하여 개인화된 카피를 생성하고, 실시간 결정을 내리거나, 카탈로그 필드를 업데이트할 수 있습니다. 에이전트를 구축하는 동안 초안으로 저장할 수 있으며, 대시보드에서 언제든지 에이전트를 일시 중지하거나 업데이트할 수 있습니다.
+에이전트를 생성할 때 목적을 정의하고 동작 방식에 대한 가이드라인을 설정합니다. 실시간 상태가 되면 에이전트를 Braze에 배포하여 개인화된 카피를 생성하고, 실시간 결정을 내리거나, 카탈로그 필드를 업데이트할 수 있습니다. 에이전트를 구축하는 동안 초안으로 저장할 수 있으며, 대시보드에서 언제든지 에이전트를 일시 중지하거나 업데이트할 수 있습니다.
 
-다음 활용 사례는 커스텀 에이전트를 활용하는 몇 가지 방법을 보여줍니다.
+다음 사용 사례는 커스텀 에이전트를 활용하는 몇 가지 방법을 보여줍니다.
 
-| 활용 사례 | 설명 |
+| 사용 사례 | 설명 |
 | --- | --- |
 | 고객 피드백 처리 | 사용자 피드백을 에이전트에 전달하여 감정을 분석하고 공감하는 후속 메시지를 생성합니다. 고가치 사용자의 경우 에이전트가 응답을 에스컬레이션하거나 특전을 포함할 수 있습니다. |
 | 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaign을 위해 설명을 줄일 수 있습니다. |
@@ -47,8 +47,8 @@ alias: /creating-agents/
 
 **에이전트 생성**을 선택한 다음 다음 옵션 중 하나를 선택합니다:
 
-- **커스텀 에이전트**를 선택하여 처음부터 에이전트를 구축합니다.
-- **Operator로 에이전트 생성**의 옵션을 선택하여 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)를 사용해 [시작 템플릿](#agent-templates-built-with-operator)을 적용합니다.
+- **커스텀 에이전트**를 선택하여 처음부터 에이전트를 구축합니다
+- **Operator로 에이전트 생성**의 옵션을 선택하여 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)를 사용해 [시작 템플릿](#agent-templates-built-with-operator)을 적용합니다
 
 Operator를 사용하는 경우, 다음 단계로 진행하기 전에 채팅에서 변경 사항을 검토하고 승인하세요.
 
@@ -84,7 +84,7 @@ Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스�
 - [Segment 멤버십]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): 에이전트가 사용자가 속한 Segments에 따라 응답을 개인화할 수 있도록 합니다. 최대 5개의 Segments를 선택할 수 있습니다.
 - [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): 에이전트가 따를 브랜드 보이스와 스타일 가이드라인을 참조합니다. 예를 들어, 에이전트가 사용자에게 체육관 회원 가입을 유도하는 SMS 카피를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여가 되는 가이드라인을 참조할 수 있습니다.
 - [모든 Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): 이 에이전트가 호출될 때 **지침** 섹션에서 참조되지 않은 변수를 포함하여 사용자의 모든 Canvas 컨텍스트 데이터를 분석합니다.
-- [사용자 상호작용 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): 각 사용자의 최근 Campaign 및 Canvas 열기, 클릭, 전환 데이터를 에이전트에 제공합니다.
+- [사용자 상호작용 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): 각 사용자의 최근 Campaign 및 Canvas 열람, 클릭, 전환 데이터를 에이전트에 제공합니다.
 
 ### 5단계: 출력 선택 {#select-output}
 
@@ -121,7 +121,7 @@ Canvas 에이전트의 경우, 대체 값은 [Liquid]({{site.baseurl}}/user_guid
 
 ### 6단계: 에이전트 테스트 {#step-6-test-the-agent}
 
-**미리보기** 창은 구성 화면 내에서 나란히 패널로 표시되는 에이전트의 인스턴스입니다. 에이전트를 생성하거나 업데이트하는 동안 이 섹션을 사용하여 테스트할 수 있으며, 최종 사용자와 유사한 방식으로 경험해 볼 수 있습니다. 이 단계는 에이전트가 예상대로 동작하는지 확인하는 데 도움이 되며, 라이브로 전환하기 전에 미세 조정할 기회를 제공합니다.
+**미리보기** 창은 구성 화면 내에서 나란히 패널로 표시되는 에이전트의 인스턴스입니다. 에이전트를 생성하거나 업데이트하는 동안 이 섹션을 사용하여 테스트할 수 있으며, 최종사용자와 유사한 방식으로 경험해 볼 수 있습니다. 이 단계는 에이전트가 예상대로 동작하는지 확인하는 데 도움이 되며, 실시간으로 전환하기 전에 미세 조정할 기회를 제공합니다.
 
 1. **에이전트 테스트** 필드에 예시 고객 데이터 또는 고객 응답을 입력합니다. 에이전트가 처리할 실제 시나리오를 반영하는 내용이면 됩니다.
 2. 무작위 사용자, 기존 사용자 또는 커스텀 사용자에 대한 에이전트의 응답을 미리 봅니다.
@@ -175,4 +175,4 @@ Operator는 다음 에이전트 콘솔 시작 템플릿에 대해 지침, 출력
 
 - [에이전트 참조]({{site.baseurl}}/user_guide/brazeai/agents/reference)
 - [자주 묻는 질문]({{site.baseurl}}/user_guide/brazeai/agents/faq)
-- [AI 실전 활용: 1:1 개인화를 위한 3가지 새로운 활용 사례에 대한 Braze 웨비나](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)
+- [AI 실전 활용: 1:1 개인화를 위한 3가지 새로운 사용 사례에 대한 Braze 웨비나](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

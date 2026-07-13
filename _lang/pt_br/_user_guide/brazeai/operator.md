@@ -20,7 +20,7 @@ Abra o Operator de qualquer página no dashboard da Braze.
 ![O ícone do BrazeAI Operator ao lado de um perfil de usuário.]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. O painel de chat do Operator se abre no lado direito da tela.
+2. O painel de chat do Operator se abre em um painel lateral.
 
 ![O painel de chat do Operator.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
@@ -45,7 +45,7 @@ O Operator pode fornecer instruções passo a passo, links para a documentação
 
 Trate o Operator como uma conversa, não como um mecanismo de busca. Prompts curtos e naturais funcionam melhor.
 
-- **Seja específico:** Em vez de "Me fale sobre o Canvas", tente "Como eu uso Jornadas de ação no Canvas?".
+- **Seja específico:** Em vez de "Me fale sobre o Canvas", tente "Como eu uso jornadas de ação no Canvas?".
 - **Faça perguntas de acompanhamento:** Se a primeira resposta não atender à sua necessidade, peça esclarecimentos ou informações adicionais.
 - **Use o contexto da página:** O Operator entende sua localização na Braze. Abra o Operator enquanto visualiza a página relevante para obter os resultados mais precisos.
 

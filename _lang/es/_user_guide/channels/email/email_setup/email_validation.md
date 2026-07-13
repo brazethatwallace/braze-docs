@@ -9,11 +9,11 @@ channel: email
 
 ---
 
-# Validación del correo electrónico
+# Validación del correo electrónico {#email-validation}
 
 > Este artículo de referencia cubre las reglas de validación de la parte local y del host para las direcciones de correo electrónico. La validación se utiliza para las direcciones de correo electrónico del panel, las direcciones de correo electrónico del usuario final (tus clientes) y las direcciones de origen y de responder a de un mensaje de correo electrónico.
 
-## Cómo funciona
+## Cómo funciona {#how-it-works}
 
 Braze valida una dirección de correo electrónico cuando se actualiza, se importa mediante API, se carga en formato CSV, se modifica mediante SDK o se modifica en el panel. Las direcciones de correo electrónico no pueden incluir espacios en blanco. Si usas la API, los espacios en blanco devuelven un error `400`.
 
@@ -39,7 +39,7 @@ Braze rechaza ciertos caracteres y marca la dirección como no válida. Si un co
 	- ~
 	- !
 	- ?
-	- . (sólo entre letras u otros caracteres)
+	- . (solo entre letras u otros caracteres)
 {% enddetails %}
 
 {% details Caracteres no aceptados %}
@@ -56,9 +56,9 @@ Si la parte del dominio contiene caracteres ASCII no estándar, deberá estar [c
 
 Si Braze recibe una solicitud para agregar un usuario con una dirección de correo electrónico no válida, la API devuelve un error. Para una carga de CSV, Braze crea el usuario pero omite la dirección de correo electrónico no válida.
 
-## Reglas de validación de la parte local
+## Reglas de validación de la parte local {#local-part-validation-rules}
 
-### Validación general de correo electrónico
+### Validación general de correo electrónico {#general-email-validation}
 
 Para la mayoría de los dominios, la parte local debe seguir estos parámetros:
 - Puede contener cualquier letra, número, incluyendo letras y números Unicode, así como los siguientes caracteres: (+) (&) (#) (_) (-) (^) o (/)
@@ -71,11 +71,11 @@ La siguiente expresión regular se puede usar para validar si una dirección de 
 /\A([a-zA-Z0-9_\-\^+$'\&#\/!%\*=\?`\|~]|[[^\p{ASCII}\p{Space}]&&\p{Alnum}\p{Punct}\p{S}])(([a-zA-Z0-9_\-\^+$'\&#\/!%\*=\?`\|~\.]|[[^\p{ASCII}\p{Space}]&&\p{Alnum}\p{Punct}\p{S}])*([a-zA-Z0-9_\-\^+$'\&#\/!%\*=\?`\|~]|[[^\p{ASCII}\p{Space}]&&\p{Alnum}\p{Punct}\p{S}]))?\z/
 ```
 
-### Direcciones de Gmail
+### Direcciones de Gmail {#gmail-addresses}
 
-Si la parte del dominio es Gmail, la parte local debe tener al menos dos caracteres de longitud y seguir la validación de expresión regular indicada anteriormente.
+Si la parte del dominio es Gmail, la parte local debe tener al menos dos caracteres de longitud y seguir la validación de expresión regular indicada anteriormente en esta sección.
 
-### Dominios de Microsoft
+### Dominios de Microsoft {#microsoft-domains}
 
 Si el dominio del host incluye "msn", "hotmail", "outlook" o "live", Braze utiliza la siguiente expresión regular para validar la parte local: `/\A\w[\-\w]*(?:\.[\-\w]+)*\z/i`
 
@@ -90,7 +90,7 @@ La parte local de la dirección de Microsoft debe seguir estos parámetros:
 
 La prueba de validación verifica si la parte local que precede al "+" coincide con la expresión regular.
 
-## Reglas de validación de la parte del host
+## Reglas de validación de la parte del host {#host-part-validation-rules}
 
 La parte del host no puede ser una dirección IPv4 o IPv6. El dominio de nivel superior (como .com, .org, .net) no puede ser completamente numérico.
 
@@ -109,7 +109,7 @@ El nombre de dominio debe cumplir estos parámetros:
 	- Terminar con un carácter alfanumérico (a-z o 0-9)
 	- Contener de 1 a 63 caracteres
 
-### Validación adicional requerida
+### Validación adicional requerida {#additional-validation-required}
 
 La etiqueta final del dominio debe ser un dominio de nivel superior (TLD) válido, determinado por todo lo que está después del último punto (.). Este TLD debe aparecer en la [lista de TLD de ICANN](https://data.iana.org/TLD/tlds-alpha-by-domain.txt). El validador de Braze solo verifica la sintaxis. No detecta errores tipográficos ni direcciones inexistentes.
 

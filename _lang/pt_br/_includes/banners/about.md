@@ -14,7 +14,7 @@ Antes de começar, certifique-se de ter [posicionamentos de Banner]({{site.baseu
 
 Os Banners permitem que as equipes de marketing e produto personalizem o conteúdo do app ou site dinamicamente, refletindo a elegibilidade e o comportamento do usuário em tempo real. Eles exibem mensagens de forma persistente e inline, proporcionando experiências contextualmente relevantes e não intrusivas que podem ser atualizadas no início de uma sessão ou durante a sessão, quando seu app ou site solicita explicitamente.
 
-Depois que os Banners são integrados a um app ou site, os profissionais de marketing podem projetar e lançar Banners usando um simples editor de arrastar e soltar, eliminando a necessidade de assistência contínua de desenvolvedores, reduzindo a complexidade e melhorando a eficiência.
+Depois que os Banners são integrados a um app ou site, os profissionais de marketing podem projetar e lançar Banners usando um editor de arrastar e soltar ou um editor de HTML completo, eliminando a necessidade de assistência contínua de desenvolvedores, reduzindo a complexidade e melhorando a eficiência.
 
 | Caso de uso | Explicação |
 | --- | --- |
@@ -28,7 +28,7 @@ Depois que os Banners são integrados a um app ou site, os profissionais de mark
 
 Os recursos dos Banners incluem:
 
-- **Construção de conteúdo fácil:** Crie e visualize seu Banner usando um editor visual de arrastar e soltar com suporte para imagens, texto, botões, formulários de captura de e-mail, código personalizado e muito mais.
+- **Construção de conteúdo fácil:** Crie e visualize seu Banner usando um editor visual de arrastar e soltar com suporte para imagens, texto, botões, formulários de captura de e-mail, código personalizado e muito mais. Equipes que preferem gerenciar sua própria marcação podem usar o editor de HTML para controle total sobre o HTML e os estilos do Banner, ou pedir ao [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) para gerar HTML a partir de uma descrição.
 - **Posicionamentos flexíveis:** Defina múltiplos locais dentro do seu aplicativo ou site onde os Banners podem aparecer, permitindo direcionamento preciso a contextos ou experiências de usuário específicas.
 - **Personalização dinâmica:** Os Banners recalculam a personalização (lógica Liquid) e a segmentação toda vez que o banner é atualizado. Se um usuário atualizar seu perfil ou um atributo personalizado mudar, a próxima atualização do Banner refletirá essas mudanças.
 - **Priorização nativa:** Defina a prioridade de exibição para quando vários Banners visam o mesmo posicionamento, garantindo que a mensagem certa chegue aos usuários no momento certo.

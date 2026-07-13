@@ -10,7 +10,7 @@ description: "Cet article de référence couvre la résolution des problèmes li
 
 # Résolution des problèmes liés aux segments {#troubleshoot-segments}
 
-> Identifiez votre symptôme ci-dessous pour accéder à la section appropriée. Cette page couvre les erreurs de lancement, l'éligibilité des utilisateurs, les problèmes de filtres et les incohérences d'analyse. Pour les définitions des filtres, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Pour les estimations de taille de segment, les comptages exacts et les graphiques d'historique d'appartenance, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+> Identifiez votre symptôme dans la liste ci-dessous pour accéder à la section appropriée. Cette page couvre les erreurs de lancement, l'éligibilité des utilisateurs, les problèmes de filtres et les incohérences d'analyse. Pour les définitions des filtres, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Pour les estimations de taille de segment, les comptages exacts et les graphiques d'historique d'appartenance, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Commencez ici : identifiez votre symptôme {#start-here-match-your-symptom}
 

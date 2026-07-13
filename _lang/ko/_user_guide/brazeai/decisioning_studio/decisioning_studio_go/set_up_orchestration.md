@@ -2,21 +2,21 @@
 nav_title: 오케스트레이션 설정
 article_title: 오케스트레이션 설정
 page_order: 2
-description: "BrazeAI Decisioning Studio Go를 고객 참여 플랫폼에 연결하여 개인화된 커뮤니케이션을 활성화하는 방법을 알아보세요."
+description: "BrazeAI Decisioning Studio Go를 고객 인게이지먼트 플랫폼에 연결하여 개인화된 커뮤니케이션을 활성화하는 방법을 알아보세요."
 toc_headers: h2
 ---
 
 # 오케스트레이션 설정 {#set-up-orchestration}
 
-> BrazeAI Decisioning Studio™ Go는 개인화된 커뮤니케이션을 오케스트레이션하기 위해 고객 참여 플랫폼(CEP)에 연결해야 합니다. 이 문서에서는 지원되는 각 CEP에 대한 통합 설정 방법을 설명합니다.
+> BrazeAI Decisioning Studio™ Go는 개인화된 커뮤니케이션을 오케스트레이션하기 위해 고객 인게이지먼트 플랫폼(CEP)에 연결해야 합니다. 이 문서에서는 지원되는 각 CEP에 대한 통합 설정 방법을 설명합니다.
 
 ## 지원되는 CEP {#supported-ceps}
 
-Decisioning Studio Go는 다음 고객 참여 플랫폼을 지원합니다:
+Decisioning Studio Go는 다음 고객 인게이지먼트 플랫폼을 지원합니다:
 
 | CEP | 통합 유형 | 주요 기능 |
 |-----|-----------------|--------------|
-| **Braze** | API 트리거 캠페인 | 네이티브 통합, 실시간 트리거링 |
+| **Braze** | API 트리거 Campaigns | 네이티브 통합, 실시간 트리거링 |
 | **Salesforce Marketing Cloud** | API 이벤트를 지원하는 Journey Builder | SQL 쿼리 자동화, 데이터 확장 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="지원되는 CEP" }
 
@@ -27,7 +27,7 @@ Decisioning Studio Go는 다음 고객 참여 플랫폼을 지원합니다:
 
 ## Braze 통합 설정 {#set-up-braze-integration}
 
-Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API 트리거 캠페인을 구성한 후, 필요한 식별자를 Decisioning Studio Go 포털에 제공해야 합니다.
+Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API 트리거 Campaign을 구성한 후, 필요한 식별자를 Decisioning Studio Go 포털에 제공해야 합니다.
 
 ### 1단계: REST API 키 생성 {#step-1-create-a-rest-api-key}
 
@@ -62,14 +62,14 @@ Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API �
 **앱 ID(API 키)를 찾으려면:**
 
 {% alert note %}
-Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서는 API 키로 지칭됨)를 제공합니다. 예를 들어, 워크스페이스 내 특정 앱과 활동을 연결하는 데 활용할 수 있습니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험 담당자와 앱 ID를 연결하는 기능을 지원합니다.<br><br>앱 ID를 사용하지 않는 경우, 임의의 문자열을 입력 안내로 입력할 수 있습니다.
+Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서는 API 키로 지칭됨)를 제공합니다. 예를 들어, 워크스페이스 내 특정 앱과 활동을 연결하는 데 활용할 수 있습니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험 담당자와 앱 ID를 연결하는 기능을 지원합니다.<br><br>앱 ID를 사용하지 않는 경우, 임의의 문자열을 플레이스홀더로 입력할 수 있습니다.
 {% endalert %}
 
 1. Braze 대시보드에서 **설정** > **앱 설정**으로 이동하세요.
 2. 추적하려는 앱으로 이동하세요.
 3. **API 키**를 복사하여 BrazeAI Decisioning Studio™ Go 포털에 붙여넣으세요.
 
-### 4단계: API 트리거 캠페인 생성 {#step-4-create-an-api-triggered-campaign}
+### 4단계: API 트리거 Campaign 생성 {#step-4-create-an-api-triggered-campaign}
 
 1. Braze 대시보드에서 **메시징** > **Campaigns**로 이동하세요.
 2. **캠페인 생성**을 선택하세요.
@@ -92,7 +92,7 @@ Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에�
 {: start="8"}
 8. **캠페인 저장**을 선택하세요.
 
-### 5단계: 캠페인 및 메시지 ID 복사 {#step-5-copy-your-campaign-and-message-ids}
+### 5단계: Campaign 및 메시지 ID 복사 {#step-5-copy-your-campaign-and-message-ids}
 
 1. API 캠페인에서 **Campaign ID**를 복사하세요. 그런 다음 BrazeAI Decisioning Studio™ Go 포털로 이동하여 **Campaign ID**를 붙여넣으세요.
 
@@ -194,14 +194,14 @@ Decisioning Studio Go를 Salesforce Marketing Cloud와 통합하려면 앱 패�
 
 #### 2단계: SQL 쿼리 생성 {#step-2-create-your-sql-queries}
 
-다음으로, 가입자 쿼리와 참여 쿼리라는 2개의 SQL 쿼리를 생성하세요. 이 쿼리를 통해 BrazeAI Decisioning Studio™ Go는 오디언스를 구성하고 참여 이벤트를 수집하기 위한 데이터를 가져올 수 있습니다.
+다음으로, 구독자 쿼리와 참여 쿼리라는 2개의 SQL 쿼리를 생성하세요. 이 쿼리를 통해 BrazeAI Decisioning Studio™ Go는 오디언스를 구성하고 참여 이벤트를 수집하기 위한 데이터를 가져올 수 있습니다.
 
-**가입자 쿼리:**
+**구독자 쿼리:**
 
 1. **SQL Query**를 캔버스로 드래그 앤 드롭하세요.
 2. **Choose**를 선택하세요.
 3. **Create New Query Activity**를 선택하세요.
-4. 쿼리에 이름과 외부 키를 지정하세요. BrazeAI Decisioning Studio™ Go 포털에서 제공된 가입자 쿼리의 권장 이름과 외부 키를 사용하는 것을 권장합니다.
+4. 쿼리에 이름과 외부 키를 지정하세요. BrazeAI Decisioning Studio™ Go 포털에서 제공된 구독자 쿼리의 권장 이름과 외부 키를 사용하는 것을 권장합니다.
 
 ![예시 "OFE_Subscribers_query_Test5"와 외부 키.]({% image_buster /assets/img/decisioning_studio_go/query11.png %})
 
@@ -218,7 +218,7 @@ Decisioning Studio Go를 Salesforce Marketing Cloud와 통합하려면 앱 패�
 ![검색창에 붙여넣은 외부 키.]({% image_buster /assets/img/decisioning_studio_go/query9.png %})
 
 {: start="9"}
-9. 검색한 외부 키와 일치하는 데이터 확장을 선택하세요. 대상 데이터 확장 이름은 교차 참조를 위해 BrazeAI Decisioning Studio™ Go 포털에도 제공됩니다. 가입자 쿼리의 **Data Extension**은 `BASE_AUDIENCE_DATA` 접미사로 끝나야 합니다.
+9. 검색한 외부 키와 일치하는 데이터 확장을 선택하세요. 대상 데이터 확장 이름은 교차 참조를 위해 BrazeAI Decisioning Studio™ Go 포털에도 제공됩니다. 구독자 쿼리의 **Data Extension**은 `BASE_AUDIENCE_DATA` 접미사로 끝나야 합니다.
 
 ![예시 외부 키와 일치하는 데이터 확장 이름.]({% image_buster /assets/img/decisioning_studio_go/query8.png %})
 
@@ -348,7 +348,7 @@ Decisioning Studio Go를 Salesforce Marketing Cloud와 통합하려면 앱 패�
 * Recommendations data extension external key
 
 {% alert note %}
-BrazeAI Decisioning Studio™ Go 포털은 가입자 및 참여 데이터를 하루에 한 번 내보내기 위해 프로비저닝한 SFMC 자동화를 보여줍니다. 이 자동화를 SFMC에서 열 경우, 일시 중지를 해제하고 다시 활성 상태로 전환해야 합니다.
+BrazeAI Decisioning Studio™ Go 포털은 구독자 및 참여 데이터를 하루에 한 번 내보내기 위해 프로비저닝한 SFMC 자동화를 보여줍니다. 이 자동화를 SFMC에서 열 경우, 일시 중지를 해제하고 다시 실시간 상태로 전환해야 합니다.
 {% endalert %}
 
 1. BrazeAI Decisioning Studio™ Go 포털에서 **Journey name**을 복사하세요.

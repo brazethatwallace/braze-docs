@@ -45,7 +45,14 @@ API Campaign 트랜잭션을 확인하고, 실패한 메시지에 대한 세부 
 
 메시지의 의미를 파악하려면 각 메시지의 문구와 해당 메시지에 대응하는 열에 주의를 기울이세요. 컨텍스트 단서를 활용하여 문제 해결에 도움이 될 수 있습니다.
 
-예를 들어, 메시지에 "empty-cart_app"이라고 표시된 로그 항목이 있고 그 의미를 잘 모르겠다면, 왼쪽의 **유형** 열을 확인하세요. "Aborted Message Error"가 표시되면, 해당 메시지는 Liquid를 사용하여 [중단 메시지]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages)로 작성된 것이며, 메시지의 의도된 수신자가 앱에서 빈 장바구니를 가지고 있었기 때문에 메시지가 중단되었다고 안전하게 추정할 수 있습니다.
+예를 들어, **중단된 메시지 오류** 항목은 [Liquid 중단 메시지]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages)뿐만 아니라 여러 가지 이유로 발생할 수 있습니다. 구체적인 이유는 **메시지** 열을 확인하세요:
+
+- 전송이 Liquid `abort_message` 태그에 의해 중단된 경우, **메시지** 열에 호출된 정확한 Liquid 스니펫이 표시됩니다. 예: {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
+- 다른 중단 이유의 경우, **메시지** 열에 전송이 중단된 이유가 설명됩니다.
+
+### API Campaign 페이로드 {#api-campaign-payloads}
+
+메시지 활동 로그는 API Campaign 유형에 따라 다른 정보를 기록합니다. [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)는 API 메시지 기록에 메시지 본문(messages)을 기록하는 반면, [`/campaigns/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)는 메시지 활동 로그에 요청 페이로드나 `api_trigger_properties`를 기록하지 않습니다.
 
 ### 일반적인 메시지 {#common-messages}
 
@@ -58,7 +65,7 @@ API Campaign 트랜잭션을 확인하고, 실패한 메시지에 대한 세부 
 | 소프트바운스 | 이메일 주소 same@example.com이 소프트바운스되었습니다. | 이메일 주소가 유효하고 이메일 메시지가 수신자의 메일 서버에 도달했지만 "일시적인" 문제로 거부되었습니다. <br><br>일반적인 소프트바운스 원인은 다음과 같습니다: {::nomarkdown} <ul> <li> 메일함이 가득 참 (사용자가 할당량을 초과함) </li> <li> 서버가 다운됨 </li> <li> 메시지가 수신자의 받은편지함에 비해 너무 큼 </li>  </ul> {:/} 이메일이 소프트바운스를 받은 경우, 일반적으로 72시간 이내에 재시도하지만 재시도 횟수는 수신자마다 다릅니다. |
 | 하드바운스 | 연결하려는 이메일 계정이 존재하지 않습니다. 수신자의 이메일 주소에 오타나 불필요한 공백이 없는지 다시 확인해 보세요. | 도달할 받은편지함이 없었기 때문에 메시지가 이 사람의 받은편지함에 도달하지 못했습니다. 더 자세히 알아보려면, 이러한 메시지에는 때때로 **세부 정보 보기** 열에 의도된 수신자의 프로필을 볼 수 있는 링크가 있을 수 있습니다.|
 | 차단 | 스팸 방지 정책으로 인해 스팸 메시지가 거부되었습니다. | 메시지가 스팸으로 분류되었습니다. 이 메일 오류는 이메일 서비스 공급자로부터 이메일이 삭제되었다는 이벤트를 수신한 경우 사용자에 대해 기록됩니다. 해당 의도된 수신자에게만 해당될 수 있지만, 이 메시지가 자주 표시된다면 전송 습관이나 메시지 콘텐츠를 재평가해야 할 수 있습니다. 또한 [IP 워밍업]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)을 했는지 다시 생각해 보세요. 하지 않았다면 Braze에 문의하여 이를 시작하는 방법에 대한 조언을 받으세요.|
-| 중단된 메시지 오류 | empty-cart_web | 장바구니가 있는 앱이 있거나 Liquid에서 중단 메시지가 포함된 전송을 생성하는 경우, 전송이 중단될 때 반환되는 메시지를 커스터마이즈할 수 있습니다. 이 경우 반환된 메시지는 empty-cart_web입니다.|
+| 중단된 메시지 오류 | {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %} | 전송이 Liquid `abort_message` 태그에 의해 중단된 경우, **메시지** 열에 호출된 정확한 Liquid 스니펫이 표시됩니다. 다른 **중단된 메시지 오류** 항목에는 중단 이유를 설명하는 다른 메시지가 포함될 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="일반적인 메시지" }
 
 ### 내 메시지가 여기에 나열되지 않는 이유는? {#why-isnt-my-message-listed-here}
@@ -100,7 +107,7 @@ API Campaign 트랜잭션을 확인하고, 실패한 메시지에 대한 세부 
     - 라이브 활동 오류 (푸시 자격 증명 없음)
     - 라이브 활동 오류 (유효하지 않은 푸시 자격 증명)
     - 기타 라이브 활동 오류
-    - APNs 피드백 제거된 토큰 오류
+    - APN 피드백 제거된 토큰 오류
 - 다음 오류 유형에 대해 동일한 Campaign 또는 캔버스 단계에서 1시간(고정 시계 시간) 내에 동일한 오류 유형의 오류 로그가 최대 100개까지 저장됩니다:
     - 이메일 소프트바운스 오류
     - 이메일 하드바운스 오류
