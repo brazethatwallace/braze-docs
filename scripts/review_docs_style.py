@@ -606,11 +606,6 @@ def cleanup_prior_style_review_comments(
 
 def _replace_prior_inline_after_review(
     prior_inline_comments: list[dict],
-    *,
-    dismissals_changed: bool,
-    dismissed_suggested: set[tuple[str, str]],
-    dismissed_message: set[tuple[str, str]],
-    files_reviewed: list[str],
 ) -> None:
     """Replace prior bot inline comments after a successful review run."""
     if not _replace_prior_style_review_comments():
@@ -618,17 +613,6 @@ def _replace_prior_inline_after_review(
         if removed:
             print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
         return
-
-    if dismissals_changed:
-        sync_summary_comment(
-            0,
-            [],
-            [],
-            files_reviewed,
-            dismissed_suggested=dismissed_suggested,
-            dismissed_message=dismissed_message,
-        )
-        print("Persisted dismissal checkpoint before replacing prior inline comments.")
 
     cleanup_prior_style_review_comments(prior_inline_comments)
 
@@ -1682,12 +1666,19 @@ def _delete_issue_comment(comment_id: int) -> None:
     )
 
 
-def _delete_all_style_review_summary_comments() -> int:
+def _delete_style_review_summary_comments(*, keep_comment_id: int | None = None) -> int:
     """Remove prior automated summary issue comments on this PR."""
     marked = _list_pr_comments_with_marker()
+    deleted = 0
     for comment in marked:
-        _delete_issue_comment(comment["id"])
-    return len(marked)
+        comment_id = comment.get("id")
+        if not comment_id:
+            continue
+        if keep_comment_id is not None and int(comment_id) == int(keep_comment_id):
+            continue
+        _delete_issue_comment(int(comment_id))
+        deleted += 1
+    return deleted
 
 
 def sync_summary_comment(
@@ -1805,11 +1796,7 @@ def sync_summary_comment(
 
     body = "\n".join(lines)
 
-    deleted = _delete_all_style_review_summary_comments()
-    if deleted:
-        print(f"Removed {deleted} prior style review summary comment(s).")
-
-    subprocess.run(
+    result = subprocess.run(
         [
             "gh",
             "api",
@@ -1825,6 +1812,12 @@ def sync_summary_comment(
         text=True,
         check=True,
     )
+    new_comment_id = json.loads(result.stdout).get("id")
+    deleted = _delete_style_review_summary_comments(
+        keep_comment_id=int(new_comment_id) if new_comment_id else None
+    )
+    if deleted:
+        print(f"Removed {deleted} prior style review summary comment(s).")
     print("Created summary comment")
 
     SUMMARY_FILE.write_text(body, encoding="utf-8")
@@ -1881,13 +1874,6 @@ def main() -> None:
                 "(no new comment)."
             )
             return
-        _replace_prior_inline_after_review(
-            prior_inline_comments,
-            dismissals_changed=dismissals_changed,
-            dismissed_suggested=dismissed_suggested,
-            dismissed_message=dismissed_message,
-            files_reviewed=[],
-        )
         sync_summary_comment(
             0,
             [],
@@ -1897,6 +1883,7 @@ def main() -> None:
             dismissed_suggested=dismissed_suggested,
             dismissed_message=dismissed_message,
         )
+        _replace_prior_inline_after_review(prior_inline_comments)
         if code_only_files:
             print(
                 "No user-facing prose changes in eligible Markdown; posted pass summary."
@@ -1972,14 +1959,6 @@ def main() -> None:
         posted, fallback = 0, []
         print("No findings; skipping PR review (pass/fail only in summary comment).")
 
-    _replace_prior_inline_after_review(
-        prior_inline_comments,
-        dismissals_changed=dismissals_changed,
-        dismissed_suggested=dismissed_suggested,
-        dismissed_message=dismissed_message,
-        files_reviewed=files,
-    )
-
     sync_summary_comment(
         posted,
         fallback,
@@ -1988,6 +1967,7 @@ def main() -> None:
         dismissed_suggested=dismissed_suggested,
         dismissed_message=dismissed_message,
     )
+    _replace_prior_inline_after_review(prior_inline_comments)
     print("Summary comment posted for this commit.")
 
 
