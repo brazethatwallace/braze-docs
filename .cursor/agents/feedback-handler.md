@@ -213,9 +213,19 @@ Make the smallest targeted edit that addresses the reported issue.
 Follow these guidelines:
 1. **Prefer refining existing prose** over adding new alerts or FAQ
    entries unless the content cannot fit naturally into existing text.
-2. Follow the Braze docs style guide at `_docs/_contributing/style_guide/`.
+2. Follow the Braze docs style guide at
+   `docs/contributing/style_guide/` (start with
+   `docs/contributing/style_guide/writing_style_guide.md`). For agent
+   summaries, use
+   [`.github/skills/braze-docs/references/writing-style.md`](.github/skills/braze-docs/references/writing-style.md)
+   and
+   [`.github/skills/braze-docs/references/glossary.md`](.github/skills/braze-docs/references/glossary.md).
 3. Keep additions concise — use bullets, tables, and code samples
    where appropriate.
+4. **Bold UI labels only** — do not bold words for emphasis.
+5. **Glossary casing** — keep terms like `campaign`, `segment`
+   (audience), and `catalog` lowercase mid-sentence unless matching a
+   capitalized UI label.
 
 **Never document deprecated, removed, or unavailable product behavior**
 
@@ -247,6 +257,8 @@ Do not:
 - Change formatting or style outside the affected content
 - Add new sections unless the ticket explicitly requests it
 - Edit any file outside `_docs/` or `_includes/`
+- Edit `_docs/_hidden/other/support_contact.md` unless the ticket is
+  explicitly about that page — bulk or drive-by style edits can break it
 
 **Page visibility**
 
@@ -283,9 +295,42 @@ the branch is named anything else — even a minor variation such as
 `BD-6547`, `jira_BD-6547`, or `feature/BD-6547` — the workflow will
 not trigger and the Jira comment will silently never be posted.
 
-### 5. Open a draft PR
+### 5. Style QA (required before opening the PR)
 
-Create the PR as a draft using:
+Before opening the draft PR, run the shared create-pr pre-PR gates —
+especially Style QA — from
+[`.github/skills/create-pr/SKILL.md`](.github/skills/create-pr/SKILL.md)
+**Step 0**.
+
+For prose under `_docs/` or root `_includes/`, follow
+[`.github/skills/braze-docs/workflows/style-qa-changed-files.md`](.github/skills/braze-docs/workflows/style-qa-changed-files.md):
+
+1. Load the writing-style and glossary references linked from that
+   workflow.
+2. Check **only the lines you added or changed** in this run.
+3. Fix bold-for-emphasis, glossary capitalization (for example mid-sentence
+   `Campaign` / `Campaigns`), and other checklist failures in those lines.
+4. Do not restyle unrelated prose and do not touch
+   `_docs/_hidden/other/support_contact.md` unless the ticket is about
+   that page.
+
+If Style QA finds issues, commit the fixes on the same `jira-<TICKET_ID>`
+branch before continuing. If something must stay as-is, call it out in
+**Notes for reviewer**.
+
+Also run the other Step 0 gates that match your changed files (spell-check,
+accessibility, screenshot PII, reference-repos) when applicable. You may
+skip gates that do not apply (for example screenshot PII when you added no
+images).
+
+### 6. Open a draft PR
+
+Create the PR as a draft using the feedback-handler title, body, assignee,
+reviewer, and label rules below. For shared create-pr workflow details
+(Steps 0–1 and 3–4), continue to follow
+[`.github/skills/create-pr/SKILL.md`](.github/skills/create-pr/SKILL.md);
+this step overrides only the PR description format and automation-specific
+metadata.
 
 **PR title format:** `[<ticket_id>] - <descriptive title>` (for example,
 `[BD-1234] - Clarify segment export limits`). Put the ticket ID in

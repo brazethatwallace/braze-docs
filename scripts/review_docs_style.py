@@ -71,7 +71,10 @@ Apply the Braze Docs Style Guide provided in the user message.
 
 - Editorial quality: voice, tone, clarity, active voice, second person, present tense.
 - Style guide compliance: headings, UI formatting, links, lists, numbers, alerts, inclusive language.
-- Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist, etc.
+- Bold text: bold UI labels only. Flag and remove bold used for emphasis or scanning
+  (for example **important**, **finalize**, or mid-sentence **campaign**).
+- Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist,
+  lowercase campaign/segment/catalog in running text unless matching a capitalized UI label, etc.
 - Internal consistency within a file beats isolated style preferences (match dominant usage in the
   same article before suggesting a one-off change).
 - Present tense: target future "will"/"would" for user-action outcomes—not a blanket ban on past

@@ -24,7 +24,7 @@ Detect mode from $ARGUMENTS first, then modified files, then ask.
 | $ARGUMENTS: "redirect", "mredirects", "ulinks", "broken_redirect" | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | $ARGUMENTS: "link", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
 | $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
-| $ARGUMENTS: "review", "audit", "style", "check" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md) |
+| $ARGUMENTS: "review", "audit", "style", "check", "qa" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md); for pre-PR diff checks use [style-qa-changed-files.md](workflows/style-qa-changed-files.md) |
 | $ARGUMENTS: "css", "layout", "component", "include", "i18n", "custom" | **Custom** | *(workflow is in this file — see Custom components and CSS)* |
 | Modified files include `broken_redirect_list.js` | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
@@ -230,6 +230,14 @@ All user-visible text added to `_includes/` files must be localized:
 
 For the full glossary, load [references/glossary.md](references/glossary.md) (loaded automatically in Review mode).
 
+## Pre-PR Style QA
+
+When finishing prose edits and opening a PR (including via
+[create-pr](../create-pr/SKILL.md) or the feedback-handler agent), run the
+non-interactive checklist in
+[workflows/style-qa-changed-files.md](workflows/style-qa-changed-files.md)
+on the changed `_docs/` / root `_includes/` lines before opening the draft.
+
 ## Related skills
 
 When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name` in instructions — do not use `@` or `/` syntax inside skill text. Prefer relative links to sibling `SKILL.md` files for discovery.
@@ -241,4 +249,4 @@ When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name`
 | [support-analyzer](../support-analyzer/SKILL.md) (`braze-docs:support-analyzer`) | Triage support case CSVs and draft docs updates |
 | [salesforce-migration](../salesforce-migration/SKILL.md) (`braze-docs:salesforce-migration`) | SF Knowledge Base migration tickets (Phase 1/2) |
 | [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
-| [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) | Open a draft PR to `develop` with repo-aligned description, pre-PR gates, and manual verification checklist |
+| [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) | Open a draft PR to `develop` with repo-aligned description, pre-PR gates (including Style QA on changed prose), and manual verification checklist |
