@@ -440,20 +440,38 @@ def format_dismissed_section(
     return "\n".join(lines)
 
 
+def _normalize_dismissal_text(text: str) -> str:
+    return re.sub(r"\s+", " ", text.strip())
+
+
 def filter_dismissed_suggestions(
     inline: list[dict],
     dismissed_suggested: set[tuple[str, str]],
     dismissed_message: set[tuple[str, str]],
 ) -> list[dict]:
+    dismissed_suggested_normalized = {
+        (path, _normalize_dismissal_text(suggested))
+        for path, suggested in dismissed_suggested
+    }
+    dismissed_message_normalized = {
+        (path, _normalize_dismissal_text(message))
+        for path, message in dismissed_message
+    }
     kept: list[dict] = []
     for item in inline:
         path = item["path"]
         suggested = item["suggested_line"].rstrip()
         message = item["message"].rstrip()
-        if (path, suggested) in dismissed_suggested:
+        norm_suggested = _normalize_dismissal_text(suggested)
+        norm_message = _normalize_dismissal_text(message)
+        if (path, suggested) in dismissed_suggested or (
+            path, norm_suggested
+        ) in dismissed_suggested_normalized:
             print(f"Skipping dismissed suggestion on `{path}` (matched prior suggested line)")
             continue
-        if (path, message) in dismissed_message:
+        if (path, message) in dismissed_message or (
+            path, norm_message
+        ) in dismissed_message_normalized:
             print(f"Skipping dismissed suggestion on `{path}` (matched prior review message)")
             continue
         kept.append(item)
@@ -577,6 +595,35 @@ def cleanup_prior_style_review_comments(
     if deleted:
         print(f"Removed {deleted} prior automated style review inline comment(s).")
     return deleted
+
+
+def _replace_prior_inline_after_review(
+    prior_inline_comments: list[dict],
+    *,
+    dismissals_changed: bool,
+    dismissed_suggested: set[tuple[str, str]],
+    dismissed_message: set[tuple[str, str]],
+    files_reviewed: list[str],
+) -> None:
+    """Replace prior bot inline comments after a successful review run."""
+    if not _replace_prior_style_review_comments():
+        removed = cleanup_stale_style_review_comments()
+        if removed:
+            print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
+        return
+
+    if dismissals_changed:
+        sync_summary_comment(
+            0,
+            [],
+            [],
+            files_reviewed,
+            dismissed_suggested=dismissed_suggested,
+            dismissed_message=dismissed_message,
+        )
+        print("Persisted dismissal checkpoint before replacing prior inline comments.")
+
+    cleanup_prior_style_review_comments(prior_inline_comments)
 
 
 def cleanup_stale_style_review_comments() -> int:
@@ -1802,7 +1849,10 @@ def main() -> None:
             "style review item(s) on this PR."
         )
 
-    cleanup_prior_style_review_comments(prior_inline_comments)
+    dismissals_changed = (
+        dismissed_suggested != persisted_suggested
+        or dismissed_message != persisted_message
+    )
 
     files = get_changed_markdown_files()
     files, code_only_files = filter_files_with_prose_changes(files)
@@ -1814,10 +1864,6 @@ def main() -> None:
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
         skip_reason = "code_only" if code_only_files else None
-        dismissals_changed = (
-            dismissed_suggested != persisted_suggested
-            or dismissed_message != persisted_message
-        )
         if (
             skip_reason == "code_only"
             and _existing_summary_is_code_only_pass()
@@ -1828,6 +1874,13 @@ def main() -> None:
                 "(no new comment)."
             )
             return
+        _replace_prior_inline_after_review(
+            prior_inline_comments,
+            dismissals_changed=dismissals_changed,
+            dismissed_suggested=dismissed_suggested,
+            dismissed_message=dismissed_message,
+            files_reviewed=[],
+        )
         sync_summary_comment(
             0,
             [],
@@ -1893,9 +1946,31 @@ def main() -> None:
         posted, fallback = post_pull_request_review(postable, summary_notes)
         fallback.extend(_inline_to_review_comment(item) for item in outside_diff)
         print(f"Posted {posted} inline suggestion(s) on the PR diff.")
+        if posted == 0 and postable:
+            print(
+                "Keeping prior inline comments because new suggestions could not be posted."
+            )
+            sync_summary_comment(
+                posted,
+                fallback,
+                summary_notes,
+                files,
+                dismissed_suggested=dismissed_suggested,
+                dismissed_message=dismissed_message,
+            )
+            print("Summary comment posted for this commit.")
+            return
     else:
         posted, fallback = 0, []
         print("No findings; skipping PR review (pass/fail only in summary comment).")
+
+    _replace_prior_inline_after_review(
+        prior_inline_comments,
+        dismissals_changed=dismissals_changed,
+        dismissed_suggested=dismissed_suggested,
+        dismissed_message=dismissed_message,
+        files_reviewed=files,
+    )
 
     sync_summary_comment(
         posted,
