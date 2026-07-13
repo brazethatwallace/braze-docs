@@ -193,7 +193,7 @@ Select **View** for a specific agent call to see the input, output, and user ID.
 
 ![The details panel for an agent Random Sports Assignment that shows the input prompt, output response, and an associated user ID.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 
-For Canvas step agents, logs include a **Fallback Output** section that shows any fallback output configured when the invocation ran.
+For Canvas step agents, logs include a **Fallback Output** section that shows any fallback output that was used when the invocation errored out.
 
 ### Use Currents
 
