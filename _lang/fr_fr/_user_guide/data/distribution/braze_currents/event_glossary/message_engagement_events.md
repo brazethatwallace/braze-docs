@@ -1,11 +1,11 @@
 ---
-nav_title: Événements d'engagement lié aux messages
+nav_title: Événements d'engagement liés aux messages
 layout: message_engagement_events_glossary
 alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Ce glossaire répertorie les différents événements d'engagement lié aux messages que Braze peut suivre et envoyer vers les entrepôts de données de votre choix à l'aide de Currents."
+description: "Ce glossaire répertorie les différents événements d'engagement liés aux messages que Braze peut suivre et envoyer vers les entrepôts de données de votre choix à l'aide de Currents."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -25,7 +25,7 @@ Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site
 
 {% enddetails %}
 
-{% details Explication de la structure des événements d'engagement lié aux messages et des valeurs de plateforme %}
+{% details Explication de la structure des événements d'engagement liés aux messages et des valeurs de plateforme %}
 
 ## Structure des événements {#event-structure}
 
@@ -33,7 +33,7 @@ Cette décomposition des événements montre le type d'informations généraleme
 
 ![Décomposition d'un événement d'engagement lié aux messages montrant un événement de désabonnement par e-mail avec les propriétés répertoriées regroupées par propriétés spécifiques à l'utilisateur, propriétés de suivi de Campaign ou Canvas, et propriétés spécifiques à l'événement]({% image_buster /assets/img/message_engagement_event.png %})
 
-Les événements d'engagement lié aux messages sont composés de propriétés **spécifiques à l'utilisateur**, de propriétés de **suivi de Campaign/Canvas** et de propriétés **spécifiques à l'événement**.
+Les événements d'engagement liés aux messages sont composés de propriétés **spécifiques à l'utilisateur**, de propriétés de **suivi de Campaign/Canvas** et de propriétés **spécifiques à l'événement**.
 
 ### Schéma des identifiants utilisateur {#user-id-schema}
 
@@ -63,11 +63,11 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% details Considérations relatives aux événements d'engagement lié aux messages %}
+{% details Considérations relatives aux événements d'engagement liés aux messages %}
 
-- Currents supprime les événements dont le payload dépasse 900&nbsp;Ko.
+- Currents supprime les événements dont les payloads dépassent 900&nbsp;Ko.
 - Les objets liés à Canvas Flow possèdent des identifiants que vous pouvez utiliser pour le regroupement et traduire en noms lisibles via l'[endpoint d'exportation des détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Certains champs peuvent ne pas afficher leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
+- Certains champs peuvent ne pas refléter leur état le plus récent immédiatement après la mise à jour d'une campagne ou d'un Canvas :
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -229,62 +229,6 @@ Il s'agit du schéma d'enregistrement Kafka utilisé lorsqu'un outil est exécut
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
   "user" : { }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
-## Événements de demande de suppression d'utilisateur {#user-delete-request-events}
-
-{% apitags %}
-User Delete Request
-{% endapitags %}
-
-Lorsqu'un utilisateur est supprimé à la demande du client.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserDeleteRequest
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "id" : "(required, string) Globally unique ID for this event",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
-## Événements d'utilisateur orphelin {#user-orphan-events}
-
-{% apitags %}
-User Orphan
-{% endapitags %}
-
-Lorsqu'un utilisateur devient orphelin, c'est-à-dire que son profil est fusionné avec celui d'un autre utilisateur.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserOrphan
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "device_id" : "(optional, string) ID of the device on which the event occurred",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1555,7 +1499,7 @@ Notez que l'événement de conversion est encodé dans le champ `conversion_beha
 {% endapi %}
 
 {% api %}
-## Événements d'entrée dans le Canvas {#canvas-entry-events}
+## Événements d'entrée dans Canvas {#canvas-entry-events}
 
 {% apitags %}
 Canvas, Entry
@@ -9555,7 +9499,7 @@ Cet événement se produit lorsqu'un message LINE planifié ne peut pas être di
 
 ### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une campagne. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été abandonné. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'abandon]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` prend la valeur `frequency_capped` si le message a été abandonné en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'abandon. Exemple : `Frequency cap rule: 5 LINE messages every 1 week`
@@ -13814,7 +13758,7 @@ RCS, Rejection
 RCS, Sends
 {% endapitags %}
 
-Cet événement est généré lorsqu'un message RCS est envoyé depuis Braze à nos partenaires de distribution du dernier kilomètre.
+Cet événement est généré lorsqu'un message RCS est envoyé depuis Braze vers nos partenaires de distribution du dernier kilomètre.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14054,7 +13998,7 @@ Cet événement est généré lorsqu'un message RCS est envoyé depuis Braze à 
 
 ### Détails de la propriété
 
-- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que l'envoi, le rebond et l'ouverture).
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des notifications push pour cet envoi (tels que l'envoi, le rebond et l'ouverture).
 
 {% endapi %}
 
@@ -19304,48 +19248,6 @@ Cet événement se produit lorsqu'une demande d'envoi a été communiquée avec 
 
 ### Détails de la propriété
 
-- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
-
-{% endapi %}
-
-{% api %}
-## Événements de mise à jour du profil utilisateur {#user-profile-update-events}
-
-{% apitags %}
-Profile
-{% endapitags %}
-
-Cet événement représente les mises à jour du profil d'un utilisateur.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.profile.Update
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
-  "country" : "(optional, string) [PII] Country of the user",
-  "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
-  "email_address" : "(optional, string) [PII] Email address of the user",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "first_name" : "(optional, string) [PII] First name of the user",
-  "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
-  "home_city" : "(optional, string) [PII] Home city of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "language" : "(optional, string) [PII] Language of the user",
-  "last_name" : "(optional, string) [PII] Last name of the user",
-  "phone_number" : "(optional, string) [PII] Phone number of the user in e.164 format",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "time_ms" : "(required, long) Time in milliseconds when the update happened",
-  "timezone" : "(optional, string) Time zone of the user",
-  "update_source" : "(required, string) The source of this update",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des notifications push pour cet envoi (par exemple envoi, rebond et ouverture).
 
 {% endapi %}
