@@ -383,15 +383,22 @@ def _decode_dismissals_marker(body: str) -> tuple[set[tuple[str, str]], set[tupl
         return dismissed_suggested, dismissed_message
     try:
         payload = json.loads(base64.b64decode(match.group(1)).decode("utf-8"))
-    except (json.JSONDecodeError, ValueError, UnicodeDecodeError):
+        if not isinstance(payload, dict):
+            raise TypeError("dismissals payload is not a dict")
+        for entry in payload.get("suggested", []) or []:
+            if not isinstance(entry, (list, tuple)) or len(entry) != 2:
+                continue
+            path, suggested = entry
+            if isinstance(path, str) and isinstance(suggested, str):
+                dismissed_suggested.add((path, suggested.rstrip()))
+        for entry in payload.get("message", []) or []:
+            if not isinstance(entry, (list, tuple)) or len(entry) != 2:
+                continue
+            path, message = entry
+            if isinstance(path, str) and isinstance(message, str):
+                dismissed_message.add((path, message.rstrip()))
+    except (json.JSONDecodeError, ValueError, UnicodeDecodeError, TypeError, AttributeError):
         print("Warning: could not parse persisted dismissal marker from summary comment")
-        return dismissed_suggested, dismissed_message
-    for path, suggested in payload.get("suggested", []):
-        if isinstance(path, str) and isinstance(suggested, str):
-            dismissed_suggested.add((path, suggested.rstrip()))
-    for path, message in payload.get("message", []):
-        if isinstance(path, str) and isinstance(message, str):
-            dismissed_message.add((path, message.rstrip()))
     return dismissed_suggested, dismissed_message
 
 
@@ -1931,8 +1938,9 @@ def main() -> None:
     validated = filter_dismissed_suggestions(
         validated, dismissed_suggested, dismissed_message
     )
-    validated = filter_duplicate_prior_suggestions(validated, prior_suggestions)
-    validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
+    if not _replace_prior_style_review_comments():
+        validated = filter_duplicate_prior_suggestions(validated, prior_suggestions)
+        validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
     postable, outside_diff = filter_to_diff_lines(validated)
 
     summary_notes = data.get("summary") or []
