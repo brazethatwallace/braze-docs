@@ -105,7 +105,7 @@ Archiving templates is not currently available for link templates.
 
 Link templates aren't applied to links in standard HTML comments (`<!-- ... -->`). For Outlook conditional comments (for example, `<!--[if mso]>`), link templates are applied when link aliasing is enabled for your workspace. Workspaces without link aliasing enabled still skip conditional comments.
 
-### UTM parameters aren't displaying in each link, but do appear when you view the email in a browser
+### UTM parameters present in browser but missing from links
 
 This can happen when the URL path in your email doesn't match the full path you intend (for example, a shortened or different path than the website's full URL).
 
@@ -114,11 +114,11 @@ This can happen when the URL path in your email doesn't match the full path you 
 
 For example, if the full link is `https://www.somewebsite.com/women/designer/johnjane` but the email uses `https://www.somewebsite.com/designer/johnjane`, it is expected that UTM parameters won't be added to the email link.
 
-### UTM parameters aren't appending for a link rendered from a Liquid tag
+### UTM parameters missing from Liquid-rendered links
 
 When applying link templates, Braze parses each URL to determine where to append parameters. If a Liquid tag renders a URL that cannot be parsed as a valid URI, the link template is silently skipped. Check that your Liquid output produces a well-formed URL. Test by previewing the message for a specific user and verifying the rendered URL is valid. If the URL includes Liquid variables in the path or query string, confirm the output doesn't contain invalid characters or broken encoding.
 
-### UTM values don't populate compared to the preview in a test send
+### UTM values missing in test sends
 
 When test sending link templates, {% raw %}`{{${user_id}}}`{% endraw %} does not get rendered. Instead, duplicate the campaign and set it to target your internal users' email or `external_id` and launch the campaign to verify that all UTM parameters from the link template are populated.
 
