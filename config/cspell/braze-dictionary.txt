@@ -605,6 +605,7 @@ PhDs
 Phiture's
 phrasee
 pickencoding
+Plazma
 Podfile
 postbacks
 prebuild
