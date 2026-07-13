@@ -311,6 +311,15 @@ First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/admin
 
 [Apple’s Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) requires you to register your sending domains in the Apple Developer Portal to prevent bounces. Google Shielded Email does not require a manual domain registration or allowlisting process.
 
+
+### Can I add hyperlinks in email subject lines or preheaders?
+
+No. Adding hyperlinks in email subject lines is not supported by mailbox providers. While some mailbox providers automatically scan subject lines and convert physical addresses, dates, or times into clickable links, this happens automatically on the recipient's device and is outside Braze's (or any ESP's) control.
+
+Similarly, adding hyperlinks within the preheader is not supported across the email industry.
+
+If you need functionality similar to clickable content in the subject line or preheader area, consider using [Gmail Promotions]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) to add interactive annotations to your emails for Gmail users.
+
 ### What does the bounce reason `unable to get mx info` or `failed to get IPs from PTR record` mean?
 
 In the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), a bounce reason similar to the following indicates a problem resolving the receiving domain's mail setup (the domain after the `@` in the address), not to Braze message composition:
