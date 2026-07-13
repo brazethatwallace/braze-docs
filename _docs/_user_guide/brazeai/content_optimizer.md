@@ -30,6 +30,14 @@ Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messa
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
 
+### OpenAI and Content Optimizer {#openai-and-content-optimizer}
+
+Content Optimizer uses OpenAI only when you explicitly request AI-generated variant suggestions. It does not use OpenAI to choose which variant each user receives or to allocate send traffic.
+
+- **Uses OpenAI:** When you select **Generate AI suggestions** for a content component, Braze sends your seed variant, instructions, optional [brand guideline]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), and (for launched steps with sufficient send data) aggregated performance context to OpenAI to generate variant ideas.
+- **Does not use OpenAI:** Traffic allocation, variant selection at send time, and performance-based optimization use Braze's proprietary multi-armed bandit algorithm. See [How it works](#how-it-works).
+- **Manual entry:** Entering variants manually does not send content to OpenAI.
+
 ## Use cases
 
 ### Email
@@ -60,7 +68,9 @@ Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messa
 | CTA copy variations | Increase click-throughs | Compare action-led and conversational CTA phrasing for links and next-step prompts in SMS, MMS, and RCS. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS, MMS, and RCS messages" }
 
-## How it works
+## How it works {#how-it-works}
+
+The optimization described in this section is performed by Braze's bandit algorithm and does not use OpenAI.
 
 Content Optimizer uses a non-contextual [multi-armed bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit) algorithm to allocate more sends to high-performing variants and reduce allocation to underperforming ones. Over time, this results in continuous improvement of your message content, with minimal manual intervention.
 
