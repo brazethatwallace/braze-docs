@@ -213,9 +213,6 @@ The `{{whats_app.${inbound_media_urls}}}` Liquid field is valid for **seven days
 #### What affects WhatsApp response message latency?
 Response message latency depends on Canvas architecture, webhook round trips, and User Update batching. For sub-minute replies, minimize steps between the inbound trigger and the response message send, and avoid User Update batching delays when subscription state must update first.
 
-#### Are there special BSP requirements to launch WhatsApp in Brazil, Nigeria, Kenya, or Ghana?
-No Braze-specific blockers apply beyond standard Meta Cloud API availability. Confirm local compliance with your legal team. Official Business Account (OBA) applications may require the WABA to meet Meta's age and verification prerequisites.
-
 #### Can I use `{{whats_app.${inbound_profile_name}}}` for personalization?
 Yes, when available on the inbound event. This value reflects the name the user set in WhatsApp and may not match CRM data quality. Validate data before using it in customer-facing copy.
 
