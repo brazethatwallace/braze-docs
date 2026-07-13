@@ -111,6 +111,87 @@ class TestLiquidSafeChunkSplits:
             assert "endapi=0" in str(exc)
 
 
+class TestRepairLiquidPairedTagsFromEnglish:
+    def test_removes_extra_api_open_to_match_english(self):
+        english = "\n\n{% api %}\n## WhatsApp Send {#whatsapp-send}\n\nBody\n\n{% endapi %}\n"
+        translated = (
+            "\n\n{% api %}\n{% api %}\n## Envoi WhatsApp {#whatsapp-send}\n\n"
+            "Corps\n\n{% endapi %}\n"
+        )
+        repaired = at.repair_liquid_paired_tags_from_english(
+            english, translated, label="chunk 26/26"
+        )
+        assert at._count_liquid_tag(repaired, "api") == 1
+        assert at._count_liquid_tag(repaired, "endapi") == 1
+        at.validate_liquid_paired_tags(repaired, label="chunk 26/26")
+
+    def test_appends_missing_endapi_to_match_english(self):
+        english = "{% api %}\n## Foo\n{% endapi %}\n"
+        translated = "{% api %}\n## Foo traduit\n"
+        repaired = at.repair_liquid_paired_tags_from_english(
+            english, translated, label="chunk"
+        )
+        assert repaired.rstrip().endswith("{% endapi %}")
+
+    def test_removes_middle_spurious_open_between_complete_blocks(self):
+        """Regression: prefer unmatched opens over prefer_last+skip_first."""
+        english = (
+            "{% api %}\n## One {#one}\nbody\n{% endapi %}\n\n"
+            "{% api %}\n## Two {#two}\nbody\n{% endapi %}\n"
+        )
+        translated = (
+            "{% api %}\n## Un {#one}\ncorps\n{% endapi %}\n\n"
+            "{% api %}\n"
+            "{% api %}\n## Deux {#two}\ncorps\n{% endapi %}\n"
+        )
+        repaired = at.repair_liquid_paired_tags_from_english(
+            english, translated, label="chunk"
+        )
+        assert at._count_liquid_tag(repaired, "api") == 2
+        assert at._count_liquid_tag(repaired, "endapi") == 2
+        assert "## Un {#one}" in repaired
+        assert "## Deux {#two}" in repaired
+        # Prefer removing the unmatched middle open, not the second block's open.
+        # Wrong prefer_last+skip_first behavior leaves: endapi, then ## Deux
+        # with no opening api for the second block.
+        two_block = repaired[repaired.index("{% endapi %}") :]
+        assert two_block.index("{% api %}") < two_block.index("{#two}")
+        at.validate_liquid_paired_tags(repaired, label="chunk")
+        assert at._liquid_block_stack_at(repaired, len(repaired)) == []
+
+    def test_validate_or_repair_chunk_liquid_repairs_without_retry(self):
+        english = "{% api %}\n## Foo {#foo}\n{% endapi %}\n"
+        translated = "{% api %}\n{% api %}\n## Foo FR {#foo}\n{% endapi %}\n"
+        repaired = at._validate_or_repair_chunk_liquid(
+            english, translated, "chunk 1/1"
+        )
+        assert at._count_liquid_tag(repaired, "api") == 1
+
+    def test_remove_one_liquid_tag_line_skip_first_raises_with_single_match(self):
+        content = "{% api %}\n## Foo\n"
+        try:
+            at._remove_one_liquid_tag_line(content, "api", skip_first=True)
+            assert False, "expected ValueError"
+        except ValueError as exc:
+            assert "cannot preserve first 1" in str(exc)
+
+    def test_remove_one_liquid_tag_line_skip_first_keeps_first_match(self):
+        content = "{% api %}\n{% api %}\n## Foo\n"
+        updated = at._remove_one_liquid_tag_line(
+            content, "api", prefer_last=True, skip_first=True
+        )
+        assert updated.count("{% api %}") == 1
+        assert updated.startswith("{% api %}")
+
+    def test_remove_one_liquid_tag_line_preserve_first_n(self):
+        content = "{% api %}\n{% api %}\n{% api %}\n## Foo\n"
+        updated = at._remove_one_liquid_tag_line(
+            content, "api", prefer_last=True, preserve_first_n=2
+        )
+        assert updated.count("{% api %}") == 2
+        assert updated.startswith("{% api %}\n{% api %}\n")
+
+
 class TestJaCampaignComposerUiRepairs:
     def test_localizes_leaked_wizard_labels(self):
         content = (
