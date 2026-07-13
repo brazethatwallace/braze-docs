@@ -53,7 +53,7 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | ----- | -------- | ----------------------------------- |
 | `alg` | 예  | 지원되는 알고리즘은 `RS256`입니다. |
 | `typ` | 예  | 유형은 `JWT`와 같아야 합니다.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="JWT 헤더" }
 
 **JWT 페이로드**
 
@@ -61,7 +61,7 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | 예  | "subject"는 `changeUser`를 호출할 때 Braze SDK에 제공하는 사용자 ID와 같아야 합니다  |
 | `exp` | 예 | "expiration"은 이 토큰이 만료되는 시점으로, Unix 타임스탬프(초 단위)입니다(예: 2030년 1월 1일의 경우 `1893456000`).                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="JWT 페이로드" }
 
 {% alert tip %}
 JSON 웹 토큰에 대해 더 알아보거나 이 서명 프로세스를 단순화하는 많은 오픈 소스 라이브러리를 둘러보려면 [https://jwt.io](https://jwt.io)를 확인하세요.

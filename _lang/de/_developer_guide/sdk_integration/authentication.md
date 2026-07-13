@@ -53,7 +53,7 @@ Bei der Erstellung des JWT werden die folgenden Felder erwartet:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Ja  | Der unterstützte Algorithmus ist `RS256`. |
 | `typ` | Ja  | Der Typ sollte `JWT` entsprechen.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: Erstellen Sie ein JSON Web Token für die aktuelle Nutzer:in" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="JWT-Header" }
 
 **JWT-Payload**
 
@@ -61,7 +61,7 @@ Bei der Erstellung des JWT werden die folgenden Felder erwartet:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Ja  | Das „Subject“ muss die Nutzer-ID sein, die Sie dem Braze SDK beim Aufruf von `changeUser` übergeben.  |
 | `exp` | Ja | Die „Expiration“ gibt an, wann dieses Token ablaufen soll, als Unix-Zeitstempel in Sekunden (z. B. `1893456000` für den 1. Januar 2030).                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: Erstellen Sie ein JSON Web Token für die aktuelle Nutzer:in" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="JWT-Payload" }
 
 {% alert tip %}
 Um mehr über JSON Web Tokens zu erfahren oder die vielen Open-Source-Bibliotheken zu durchsuchen, die diesen Signierungsprozess vereinfachen, besuchen Sie [https://jwt.io](https://jwt.io).
