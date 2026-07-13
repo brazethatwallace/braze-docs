@@ -132,6 +132,19 @@ For **Auto width**, automatic image resizing picks the best size for the image b
 - Images smaller than the available space use the image's natural size to avoid distortion effects or blurry pictures.
 {% endalert %}
 
+#### Gmail download button behavior
+
+Gmail automatically appends a download button to images that do not have a hyperlink (`href`) associated with them. However, if the image's aspect ratio is 299 x 524 px or smaller, Gmail will not display the download button.
+
+To prevent the download button from appearing on larger images, you can apply the "#" link workaround:
+
+1. Select the **Image** block.
+2. In the **Block Options** panel, go to the **Link** section.
+3. Set the **Link type** to **Open web page**.
+4. Enter a pound sign (`#`) in the **URL** input field.
+
+Adding this link prevents Gmail from displaying the download button while not affecting the user experience.
+
 ### Video
 
 Creates a link to video content. Only YouTube and Vimeo are supported.
