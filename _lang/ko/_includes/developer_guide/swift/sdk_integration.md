@@ -16,7 +16,7 @@ Braze Swift SDK를 설치하려면 [스위프트 패키지 매니저(SwiftPM)](h
 
 프로젝트를 열고 프로젝트 설정으로 이동합니다. **Swift Packages** 탭을 선택하고 패키지 목록 아래에 있는 <i class="fas fa-plus"></i> 추가 버튼을 클릭합니다.
 
-![Swift Packages 탭과 패키지 추가 버튼이 표시된 Xcode 프로젝트 설정.]({% image_buster /assets/img/swiftpackages.png %})
+![Swift Packages 탭과 패키지 추가 버튼이 있는 Xcode 프로젝트 설정.]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
 버전 7.4.0부터 Braze Swift SDK는 [정적 XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) 및 [동적 XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic)와 같은 추가 배포 채널을 제공합니다. 이러한 형식 중 하나를 사용하려면 해당 리포지토리의 설치 지침을 따르세요.
@@ -472,7 +472,7 @@ AppDelegate.braze = braze;
 {% endsubtabs local %}
 
 {% alert note %}
-`Braze.init`은 호출 스레드에서 즉시 반환됩니다. SDK는 내부 대기줄에서 시작 작업을 처리합니다. 메인 스레드에서 `init` 직후 `braze.deviceId`와 같은 동기 속성을 읽으면 SDK가 초기화 후 작업을 완료할 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 차단 없이 값을 읽으려면 `braze.getDeviceId(_:)`(Swift) 또는 `[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]`(Objective-C)를 사용하세요.
+`Braze.init`은 호출 스레드에서 즉시 반환됩니다. SDK는 내부 대기줄에서 시작 작업을 처리합니다. 메인 스레드에서 `init` 직후 `braze.deviceId`와 같은 동기 속성을 읽으면 SDK가 초기화 후 작업을 완료할 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 차단 없이 값을 읽으려면 `braze.getDeviceId(_:)` (Swift) 또는 `[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]` (Objective-C)를 사용하세요.
 {% endalert %}
 
 ## 선택적 구성 {#optional-configurations}

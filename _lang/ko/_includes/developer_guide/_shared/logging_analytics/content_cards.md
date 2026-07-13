@@ -59,7 +59,7 @@ private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscribe
 
 ### 2단계: 업데이트 구독 {#step-2-subscribe-to-updates}
 
-다음으로, Braze의 콘텐츠 카드 업데이트를 구독하기 위해 아래 코드를 추가합니다. 일반적으로 커스텀 콘텐츠 카드 활동의 `Activity.onCreate()` 내부에 배치합니다:
+다음으로, Braze의 Content Cards 업데이트를 구독하기 위해 아래 코드를 추가합니다. 일반적으로 커스텀 Content Cards 활동의 `Activity.onCreate()` 내부에 배치합니다:
 
 ```java
 // Remove the previous subscriber before rebuilding a new one with our new activity.
@@ -98,7 +98,7 @@ private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedE
 
 ### 2단계: 업데이트 구독
 
-다음으로, Braze의 콘텐츠 카드 업데이트를 구독하기 위해 아래 코드를 추가합니다. 일반적으로 커스텀 콘텐츠 카드 활동의 `Activity.onCreate()` 내부에 배치합니다:
+다음으로, Braze의 Content Cards 업데이트를 구독하기 위해 아래 코드를 추가합니다. 일반적으로 커스텀 Content Cards 활동의 `Activity.onCreate()` 내부에 배치합니다:
 
 ```kotlin
 // Remove the previous subscriber before rebuilding a new one with our new activity.
@@ -126,7 +126,7 @@ Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscribe
 {% endtab %}
 {% tab Swift %}
 
-콘텐츠 카드 데이터 모델에 액세스하려면 `braze` 인스턴스에서 [`contentCards.cards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/cards)를 호출합니다.
+Content Cards 데이터 모델에 액세스하려면 `braze` 인스턴스에서 [`contentCards.cards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/cards)를 호출합니다.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -139,7 +139,7 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 `contentCards.cards`, `contentCards.unviewedCards` 또는 `contentCards.lastUpdate`를 읽으면 SDK가 초기화 후 작업을 완료할 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 [논블로킹 스냅샷 접근자](#non-blocking-snapshot-accessors)를 사용하세요.
 {% endalert %}
 
-또한 콘텐츠 카드의 변경 사항을 관찰하기 위해 구독을 유지할 수도 있습니다. 두 가지 방법 중 하나로 할 수 있습니다:
+또한 Content Cards의 변경 사항을 관찰하기 위해 구독을 유지할 수도 있습니다. 두 가지 방법 중 하나로 할 수 있습니다:
 1. 취소 가능 항목 유지 또는
 2. `AsyncStream` 유지.
 
@@ -162,7 +162,7 @@ let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.c
 
 ### 논블로킹 스냅샷 접근자 {#non-blocking-snapshot-accessors}
 
-호출 스레드를 차단하지 않고 현재 캐시된 상태를 읽으려면 다음 메서드를 사용하세요. 각 완료 핸들러는 항상 메인 스레드에서 전달됩니다.
+이 메서드를 사용하면 호출 스레드를 차단하지 않고 현재 캐시된 상태를 읽을 수 있습니다. 각 완료 핸들러는 항상 메인 스레드에서 전달됩니다.
 
 ```swift
 // All cached cards.
@@ -222,7 +222,7 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 {% tab React Native %}
 
-콘텐츠 카드 데이터를 얻으려면 `getContentCards` 메서드를 사용하세요:
+Content Cards 데이터를 얻으려면 `getContentCards` 메서드를 사용하세요:
 
 ```javascript
 import Braze from "@braze/react-native-sdk";
@@ -230,7 +230,7 @@ import Braze from "@braze/react-native-sdk";
 const cards = await Braze.getContentCards();
 ```
 
-업데이트를 수신하려면 콘텐츠 카드 업데이트 이벤트를 구독하세요:
+업데이트를 수신하려면 Content Cards 업데이트 이벤트를 구독하세요:
 
 ```javascript
 const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
@@ -245,13 +245,13 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
-Braze 서버에서 콘텐츠 카드를 수동으로 새로고침하려면:
+Braze 서버에서 Content Cards를 수동으로 새로고침하려면:
 
 ```javascript
 Braze.requestContentCardsRefresh();
 ```
 
-네트워크 요청 없이 캐시된 콘텐츠 카드를 가져오려면:
+네트워크 요청 없이 캐시된 Content Cards를 가져오려면:
 
 ```javascript
 const cachedCards = await Braze.getCachedContentCards();
@@ -286,13 +286,13 @@ braze.logContentCardClick(card);
 {% endtab %}
 {% tab Android %}
 
-[`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt)는 콘텐츠 카드 오브젝트 배열 목록과 같은 Braze SDK 종속성을 참조하여 [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html)를 얻고 Braze 로깅 메서드를 호출할 수 있습니다. `ContentCardable` 기본 클래스를 사용하여 데이터를 쉽게 참조하고 `BrazeManager`에 제공합니다.
+[`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt)는 Content Cards 오브젝트 배열 목록과 같은 Braze SDK 종속성을 참조하여 [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html)를 얻고 Braze 로깅 메서드를 호출할 수 있습니다. `ContentCardable` 기본 클래스를 사용하여 데이터를 쉽게 참조하고 `BrazeManager`에 제공합니다.
 
 카드에 대한 노출 횟수 또는 클릭을 기록하려면 각각 [`Card.logClick()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html) 또는 [`Card.logImpression()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html)을 호출하세요.
 
-특정 카드에 대해 [`isDismissed`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/is-dismissed.html)를 사용하여 콘텐츠 카드를 Braze에 "해제됨"으로 수동 기록하거나 설정할 수 있습니다. 카드가 이미 해제됨으로 표시된 경우 다시 해제됨으로 표시할 수 없습니다.
+특정 카드에 대해 [`isDismissed`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/is-dismissed.html)를 사용하여 Content Cards를 Braze에 "해제됨"으로 수동 기록하거나 설정할 수 있습니다. 카드가 이미 해제됨으로 표시된 경우 다시 해제됨으로 표시할 수 없습니다.
 
-커스텀 클릭 리스너를 만들려면 [`IContentCardsActionListener`](#logging-analytics)를 구현하는 클래스를 만들고 [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html)에 등록하세요. 사용자가 콘텐츠 카드를 클릭할 때 호출되는 [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html) 메서드를 구현합니다. 그런 다음, Braze에 콘텐츠 카드 클릭 리스너를 사용하도록 지시합니다.
+커스텀 클릭 리스너를 만들려면 [`IContentCardsActionListener`](#logging-analytics)를 구현하는 클래스를 만들고 [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html)에 등록하세요. 사용자가 Content Cards를 클릭할 때 호출되는 [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html) 메서드를 구현합니다. 그런 다음, Braze에 Content Cards 클릭 리스너를 사용하도록 지시합니다.
 
 {% subtabs local %}
 {% subtab Java %}
@@ -334,7 +334,7 @@ BrazeContentCardsManager.getInstance().contentCardsActionListener = object : ICo
 {% endsubtabs %}
 
 {% alert important %}
-커스텀 UI에서 제어 배리언트 Content Cards를 처리하려면 [`com.braze.models.cards.Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) 오브젝트를 전달한 다음, 다른 콘텐츠 카드 유형에서와 마찬가지로 `logImpression` 메서드를 호출합니다. 오브젝트는 사용자가 제어 카드를 보았을 때를 분석에 알리기 위해 제어 노출 횟수를 암시적으로 기록합니다.{% endalert %}
+커스텀 UI에서 제어 배리언트 Content Cards를 처리하려면 [`com.braze.models.cards.Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) 오브젝트를 전달한 다음, 다른 Content Cards 유형에서와 마찬가지로 `logImpression` 메서드를 호출합니다. 오브젝트는 사용자가 제어 카드를 보았을 때를 분석에 알리기 위해 제어 노출 횟수를 암시적으로 기록합니다.{% endalert %}
 
 {% endtab %}
 
@@ -379,7 +379,7 @@ contentCardsController.delegate = delegate;
 {% endsubtabs %}
 
 {% alert important %}
-커스텀 UI에서 제어 배리언트 Content Cards를 처리하려면 [`Braze.ContentCard.Control`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/control(_:)) 오브젝트를 전달한 다음, 다른 콘텐츠 카드 유형에서와 마찬가지로 `logImpression` 메서드를 호출합니다. 오브젝트는 사용자가 제어 카드를 보았을 때를 분석에 알리기 위해 제어 노출 횟수를 암시적으로 기록합니다.
+커스텀 UI에서 제어 배리언트 Content Cards를 처리하려면 [`Braze.ContentCard.Control`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/control(_:)) 오브젝트를 전달한 다음, 다른 Content Cards 유형에서와 마찬가지로 `logImpression` 메서드를 호출합니다. 오브젝트는 사용자가 제어 카드를 보았을 때를 분석에 알리기 위해 제어 노출 횟수를 암시적으로 기록합니다.
 {% endalert %}
 {% endtab %}
 
@@ -411,7 +411,7 @@ Braze.logContentCardDismissed(card.id);
 {% tabs %}
 {% tab 웹 %}
 
-사용자가 커스텀 피드에서 콘텐츠 카드를 클릭하면 클릭 시 동작(예: URL 이동, 딥링킹, 커스텀 이벤트 기록)이 자동으로 처리되지 않습니다. [`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)을 사용하여 카드의 URL을 처리하고 Braze 동작(`brazeActions://` URL)을 포함한 구성된 클릭 시 동작을 실행하세요.
+사용자가 커스텀 피드에서 Content Cards를 클릭하면 클릭 시 동작(예: URL 이동, 딥링킹, 커스텀 이벤트 기록)이 자동으로 처리되지 않습니다. [`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction)을 사용하여 카드의 URL을 처리하고 Braze 동작(`brazeActions://` URL)을 포함한 구성된 클릭 시 동작을 실행하세요.
 
 ```javascript
 import * as braze from "@braze/web-sdk";

@@ -18,7 +18,7 @@ Esses exemplos são pontos de partida, não agentes finalizados. Para adaptar um
 
 1. Crie o agente para a superfície relevante — uma [etapa de agente do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ou um agente de catálogo — e abra suas instruções.
 2. Copie o bloco de **Instruções** do exemplo correspondente nesta biblioteca para o seu agente.
-3. Substitua as entradas de placeholder (nome, status de fidelidade, variáveis de contexto, campos do catálogo) pelas [variáveis de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) e campos que existem no seu espaço de trabalho.
+3. Substitua as entradas de espaço reservado (nome, status de fidelidade, variáveis de contexto, campos de catálogo) pelas [variáveis de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) e campos que existem no seu espaço de trabalho.
 4. Adicione qualquer **contexto do agente** necessário, como suas [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), para que o agente possa aplicar suas regras de voz, tom e formatação.
 5. Configure a **Saída** do agente para corresponder às chaves ou **Campos** nomeados nas instruções e, em seguida, teste antes de lançar.
 
@@ -26,7 +26,7 @@ Esses exemplos são pontos de partida, não agentes finalizados. Para adaptar um
 
 {% details Sobre as categorias de exemplos %}
 
-Cada exemplo recebe uma categoria com base no trabalho que o agente realiza e uma tag de tipo de agente (Agente de etapa do Canvas ou Agente de catálogo) para filtragem.
+Cada exemplo recebe uma categoria com base no trabalho que o agente executa, e uma tag de tipo de agente (agente de etapa do Canvas ou agente de catálogo) para filtragem.
 
 ### Geração de conteúdo {#content-generation}
 
@@ -34,15 +34,15 @@ Agentes que produzem textos alinhados à marca para superfícies de envio de men
 
 ### Agente de afinidade {#affinity-agent}
 
-Agentes que inferem os interesses ou a motivação de um usuário a partir de atributos de perfil e comportamento recente e, em seguida, recomendam uma próxima experiência, item ou rota do Canvas. Os exemplos incluem agrupamento por interesses, roteamento de jornada com base em ações recentes e atribuição de categoria em tempo real a partir de sinais de alta intenção.
+Agentes que inferem os interesses ou a motivação de um usuário a partir de atributos de perfil e comportamento recente, e então recomendam uma próxima experiência, item ou rota do Canvas. Os exemplos incluem agrupamento por interesses, roteamento de jornada a partir de ações recentes e atribuição de categoria em tempo real a partir de sinais de alta intenção.
 
 ### Padronização de dados {#data-standardization}
 
-Agentes que transformam entradas não estruturadas em campos consistentes e estruturados para ferramentas e automações downstream. Os exemplos incluem classificação de sentimento e tópico de pesquisas para integração com CRM, ou normalização de SMS ou chat recebidos em intenção, entidades e sinalizadores de conformidade.
+Agentes que transformam entradas não estruturadas em campos consistentes e estruturados para ferramentas e automações downstream. Os exemplos incluem classificação de sentimento e tópico de pesquisas para transferência a um CRM, ou normalização de SMS ou chat recebidos em intenção, entidades e sinalizadores de conformidade.
 
 ### Classificação e roteamento {#classification-and-routing}
 
-Agentes que classificam entradas com base em critérios definidos e retornam valores que suas jornadas usam para ramificação. Os exemplos incluem detecção de intenção de opt-out em mensagens recebidas para que você possa direcionar os usuários de forma conservadora antes de enviar mais mensagens.
+Agentes que classificam entradas com base em critérios definidos e retornam valores que suas jornadas usam para ramificação. Os exemplos incluem detecção de intenção de cancelamento de inscrição em mensagens recebidas para que você possa direcionar os usuários de forma conservadora antes de enviar mais mensagens.
 
 ### Enriquecimento de catálogo {#catalog-enrichment}
 
@@ -141,13 +141,13 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 
 {% api %}
 
-## Analisar feedback do usuário para determinar próximas etapas {#analyze-user-feedback-to-determine-next-steps}
+## Analisar feedback do usuário para determinar próximos passos {#analyze-user-feedback-to-determine-next-steps}
 
 {% apitags %}
 Data standardization, canvas step agent
 {% endapitags %}
 
-Este exemplo descreve como um agente do Canvas pode analisar feedback de usuários de pesquisas pós-viagem e categorizar sentimento e tópicos. O objetivo deste agente é determinar as próximas etapas para uma plataforma de CRM separada.
+Este exemplo descreve como um agente do Canvas pode analisar feedback de usuários de pesquisas pós-viagem e categorizar sentimento e tópicos. O objetivo deste agente é determinar os próximos passos para uma plataforma de CRM separada.
 
 {% tabs local %}
 {% tab Pré-requisitos %}
@@ -294,16 +294,16 @@ Recent Search: "cordless drill"
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Este exemplo descreve como um agente do Canvas pode inferir a motivação atual de um usuário a partir do comportamento recente e do contexto — como favoritos recentes ou histórico de pesquisa — e retornar a melhor chave de rota para a próxima etapa. O objetivo é enviar cada usuário pela jornada do Canvas mais relevante sem segmentação manual.
+Este exemplo descreve como um agente do Canvas pode inferir a motivação atual de um usuário a partir do comportamento recente e do contexto — como favoritos recentes ou histórico de pesquisa — e retornar a melhor chave de rota para o próximo passo. O objetivo é enviar cada usuário pela jornada do Canvas mais relevante sem segmentação manual.
 
 {% tabs local %}
 {% tab Pré-requisitos %}
 
 Estas instruções pressupõem que as seguintes informações estejam disponíveis:
 
-- Atributos do usuário como nome, país, área de atuação, cargo, especialidade e produtos com os quais interagiu recentemente
+- Atributos do usuário como nome, país, profissão, cargo, especialidade e produtos com os quais interagiu recentemente
 - Histórico de engajamento, incluindo aberturas, cliques e conversões recentes de campanhas e as mensagens que os causaram (não frequência de engajamento ou timestamps de recência)
-- Variáveis de contexto para as chaves de rota elegíveis, favoritos recentes, termos de pesquisa recentes e propriedades de evento específicas do gatilho
+- Variáveis de contexto para as chaves de rota elegíveis, favoritos recentes, termos de pesquisa recentes e propriedades de evento específicas do disparo
 - **Contexto do agente** das [instruções do Console do Agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
     - **Todo o contexto do Canvas:** Passa quaisquer variáveis de contexto adicionais para o agente que você ainda não definiu nas instruções do agente, caso sejam úteis ou relevantes
 
@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Este exemplo descreve como um agente do Canvas pode atribuir usuários a uma a três categorias de interesse com base em ações recentes de alta intenção e contexto comportamental (passados pelo contexto do Canvas), e então recomendar a melhor próxima experiência ou item. O objetivo é personalizar a próxima etapa de uma jornada do cliente em tempo real usando sinais comportamentais verificados em vez de suposições.
+Este exemplo descreve como um agente do Canvas pode atribuir usuários a uma a três categorias de interesse com base em ações recentes de alta intenção e contexto comportamental (passados pelo contexto do Canvas), e então recomendar a melhor próxima experiência ou item. O objetivo é personalizar o próximo passo de uma jornada do cliente em tempo real usando sinais comportamentais verificados em vez de suposições.
 
 {% tabs local %}
 {% tab Pré-requisitos %}
@@ -442,16 +442,16 @@ Recent Search: "18v cordless drill"
 
 {% api %}
 
-## Classificar mensagens recebidas quanto à intenção de opt-out {#classify-inbound-messages-for-opt-out-intent}
+## Classificar mensagens recebidas quanto à intenção de cancelamento de inscrição {#classify-inbound-messages-for-opt-out-intent}
 
 {% apitags %}
 Classification and routing, canvas step agent
 {% endapitags %}
 
-Este exemplo descreve como um agente do Canvas pode avaliar uma mensagem recebida de cliente por vez e retornar se ela deve ser tratada como uma solicitação de opt-out de mensagens futuras (por exemplo, STOP, cancelar inscrição ou revogar consentimento). O objetivo é gerar um booleano estrito para que você possa ramificar jornadas de forma conservadora, reduzindo o risco de enviar mensagens após a revogação e evitando falsos positivos quando o usuário está claramente fazendo uma pergunta ou continuando a interagir.
+Este exemplo descreve como um agente do Canvas pode avaliar uma mensagem recebida de cliente por vez e retornar se ela deve ser tratada como uma solicitação de cancelamento de inscrição de mensagens futuras (por exemplo, STOP, cancelar inscrição ou revogar consentimento). O objetivo é gerar um booleano estrito para que você possa ramificar jornadas de forma conservadora, reduzindo o risco de enviar mensagens após a revogação e evitando falsos positivos quando o usuário está claramente fazendo uma pergunta ou continuando a interagir.
 
 {% alert important %}
-O tratamento de opt-out e consentimento envolve obrigações legais que variam por região e canal. Trate este exemplo como um ponto de partida e revise sua lógica final em relação aos seus próprios requisitos de conformidade (como TCPA e GDPR) antes de utilizá-lo em produção.
+O tratamento de cancelamento de inscrição e consentimento envolve obrigações legais que variam por região e canal. Trate este exemplo como um ponto de partida e revise sua lógica final em relação aos seus próprios requisitos de conformidade (como TCPA e GDPR) antes de utilizá-lo em produção.
 {% endalert %}
 
 {% tabs local %}
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, canvas step agent
 {% endapitags %}
 
-Este exemplo descreve como um agente do Canvas pode normalizar respostas de SMS ou chat recebidas, desestruturadas e confusas, em um formato estruturado consistente — classificando intenção, extraindo entidades e sinalizando indicadores de conformidade como opt-outs e IPI. O objetivo é fornecer à automação downstream e às notificações internas dados limpos e legíveis por máquina para roteamento confiável.
+Este exemplo descreve como um agente do Canvas pode normalizar respostas de SMS ou chat recebidas, desestruturadas e confusas, em um formato estruturado consistente — classificando intenção, extraindo entidades e sinalizando indicadores de conformidade como cancelamentos de inscrição e IPI. O objetivo é fornecer à automação downstream e às notificações internas dados limpos e legíveis por máquina para roteamento confiável.
 
 {% tabs local %}
 {% tab Pré-requisitos %}
@@ -674,7 +674,7 @@ Price Tier: $$$
 Catalog enrichment, catalog agent
 {% endapitags %}
 
-Este exemplo descreve como um agente de catálogo pode traduzir strings de UI e marketing em inglês para o idioma-alvo de cada região usando linhas do catálogo que definem localidade, posicionamento na UI e limites de caracteres. O objetivo é produzir texto localizado que você mapeia de volta para as colunas do catálogo, com explicações quando encurtamento, escolhas de localidade ou revisão manual se aplicam.
+Este exemplo descreve como um agente de catálogo pode traduzir strings de UI e marketing em inglês para o idioma-alvo de cada região usando linhas de catálogo que definem localidade, posicionamento na UI e limites de caracteres. O objetivo é produzir texto localizado que você mapeia de volta para as colunas do catálogo, com explicações quando encurtamento, escolhas de localidade ou revisão manual se aplicam.
 
 {% tabs local %}
 {% tab Pré-requisitos %}
@@ -750,7 +750,7 @@ Max Characters: 20
 Catalog enrichment, catalog agent
 {% endapitags %}
 
-Este exemplo descreve como um agente de catálogo pode aprimorar itens existentes do catálogo gerando uma descrição de produto melhorada (45–90 palavras), uma categoria padronizada e um conjunto de tags a partir dos dados existentes do item. O objetivo é escalar o enriquecimento de catálogo alinhado à marca em muitos produtos sem redação manual, evitando fatos inventados ou alegações proibidas.
+Este exemplo descreve como um agente de catálogo pode aprimorar itens de catálogo existentes gerando uma descrição de produto melhorada (45–90 palavras), uma categoria padronizada e um conjunto de tags a partir dos dados existentes do item. O objetivo é escalar o enriquecimento de catálogo alinhado à marca em muitos produtos sem redação manual, evitando fatos inventados ou alegações proibidas.
 
 {% tabs local %}
 {% tab Pré-requisitos %}

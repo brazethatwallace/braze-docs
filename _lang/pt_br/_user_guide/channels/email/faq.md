@@ -54,7 +54,7 @@ Evite [testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools
 
 #### Canvas e endereços de e-mail duplicados {#canvas-and-duplicate-email-addresses}
 
-Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do timing das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para a sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
+Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do timing das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para a sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. Se você precisar de uma alteração no produto, envie feedback por meio da sua equipe da Braze.
 
 ### O que acontece com o estado de inscrição quando o endereço de e-mail de um usuário é alterado para um compartilhado por outro usuário? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -108,7 +108,7 @@ Embora a Braze não envie mais solicitações depois que a Campaign ou o Canvas 
 
 Você pode não ver aberturas ou cliques de e-mail se houver uma configuração incorreta no seu domínio de rastreamento. Isso pode ser devido a qualquer um dos seguintes motivos:
 - Há um problema de SSL onde as URLs de rastreamento são `http` em vez de `https`.
-- Há um problema com sua rede de distribuição de conteúdo (CDN) onde a string de user agent nos eventos de abertura, eventos de clique ou ambos não está sendo preenchida.
+- Há um problema com seu CDN onde a string de user agent nos eventos de abertura, eventos de clique ou ambos não está sendo preenchida.
 
 ### Quais são os riscos potenciais de disparar cliques de servidor? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -176,7 +176,7 @@ Para contornar isso:
 
 ### A métrica *Aberturas Únicas* inclui *Aberturas por Máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-Sim. *Aberturas Únicas* inclui *Aberturas por Máquina*. Você pode visualizar ambas as métricas na visualização **Analytics** da Campaign e no **Criador de relatórios**.
+Sim. *Aberturas Únicas* inclui *Aberturas por Máquina*. Você pode visualizar ambas as métricas na visualização **Analytics** da Campaign e no **Report Builder**.
 
 ### Por que meu volume de entrega de e-mail não corresponde ao meu volume de envio? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -222,7 +222,7 @@ Use as tabelas a seguir para identificar a causa.
 
 | Causa possível | O que verificar |
 |---|---|
-| O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Público-alvo** (para Campaigns) ou **Público-alvo** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) para confirmar que o usuário atendeu a todos os filtros de público, critérios de segmento e regras de entrega no momento do envio. |
+| O usuário não era elegível para a Campaign ou Canvas | Verifique as configurações de **Target Audiences** (para Campaigns) ou **Target Audience** (para Canvas) nas [configurações]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) para confirmar que o usuário atendeu a todos os filtros de público, critérios de segmento e regras de entrega no momento do envio. |
 | A mensagem foi abortada | Verifique o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) para motivos de interrupção, como erros de Liquid ou campos obrigatórios ausentes. |
 | O endereço de e-mail do usuário era inválido ou estava ausente | Em **Pesquisa de usuários**, verifique o perfil do usuário para confirmar que um endereço de e-mail válido estava registrado no momento do envio. |
 | O endereço de e-mail do usuário sofreu hard bounce anteriormente | Um hard bounce marca o endereço de e-mail como inválido e impede envios futuros para esse endereço. Da mesma forma, se um destinatário marcar seu e-mail como SPAM, a Braze envia apenas e-mails de transação para esse usuário, não Campaigns padrão. Verifique a guia **Engajamento** no perfil do usuário. Para saber mais, consulte [Endereços de e-mail cancelados]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) e [Bounces e e-mails inválidos]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |

@@ -53,7 +53,7 @@ Al generar el JWT, se esperan los siguientes campos:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Sí  | El algoritmo admitido es `RS256`. |
 | `typ` | Sí  | El tipo debe ser igual a `JWT`.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Encabezado JWT" }
 
 **Carga útil JWT**
 
@@ -61,7 +61,7 @@ Al generar el JWT, se esperan los siguientes campos:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Sí  | El "asunto" debe ser igual al ID de usuario que proporcionas al SDK de Braze cuando llamas a `changeUser`  |
 | `exp` | Sí | La "caducidad" de cuándo quieres que caduque este token, como una marca de tiempo Unix en segundos (por ejemplo, `1893456000` para el 1 de enero de 2030).                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Carga útil JWT" }
 
 {% alert tip %}
 Para saber más sobre los tokens web JSON, o para echar un vistazo a las muchas bibliotecas de código abierto que simplifican este proceso de firma, consulta [https://jwt.io](https://jwt.io).

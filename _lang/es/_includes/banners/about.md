@@ -4,9 +4,9 @@
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de los Banners depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador del éxito del cliente para empezar.
+La disponibilidad de los Banners depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador de éxito de cliente para empezar.
 
-Antes de empezar, asegúrate de haber [creado ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) en tu aplicación o sitio web.
+Antes de empezar, asegúrate de haber [creado ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements) en tu aplicación o sitio web.
 
 ![Ejemplo de Banner mostrado en un dispositivo.]({% image_buster /assets/img/banners/sample_banner.png %})
 
@@ -30,7 +30,7 @@ Las características de los Banners incluyen:
 
 - **Creación sencilla de contenido:** Crea y previsualiza tu Banner utilizando un editor visual de arrastrar y soltar compatible con imágenes, texto, botones, formularios de captura de correo electrónico, código personalizado y mucho más.
 - **Ubicaciones flexibles:** Define múltiples ubicaciones dentro de tu aplicación o sitio web donde puedan aparecer los Banners, lo que permite una segmentación precisa a contextos específicos o experiencias de usuario.
-- **Personalización dinámica:** Los Banners solo pueden actualizarse al inicio de una nueva sesión o a mitad de sesión si solicitas explícitamente la actualización. Los Banners no se actualizan automáticamente en una nueva sesión. Si no solicitas la actualización, el Banner no se actualizará.
+- **Personalización dinámica:** Los Banners recalculan la personalización (lógica Liquid) y la segmentación cada vez que se actualiza el Banner. Si un usuario actualiza su perfil o cambia un atributo personalizado, la siguiente actualización del Banner reflejará esos cambios.
 - **Priorización nativa:** Establece la prioridad de visualización cuando varios Banners se dirigen a la misma ubicación, asegurándote de que el mensaje adecuado llegue a los usuarios en el momento adecuado.
 - **Bloque de editor de código personalizado:** Utiliza el bloque de editor de código personalizado para añadir HTML personalizado y así realizar personalizaciones avanzadas o integrarlo fácilmente con tus estilos web actuales.
 
@@ -38,9 +38,9 @@ Las características de los Banners incluyen:
 
 ### ID de ubicación {#placement-id}
 
-Las ubicaciones de Banner son ubicaciones específicas de tu aplicación o sitio web [que creas con el SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements/) y que designan dónde pueden aparecer los Banners.
+Las ubicaciones de Banner son ubicaciones específicas de tu aplicación o sitio web [que creas con el SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements) y que designan dónde pueden aparecer los Banners.
 
-Las ubicaciones más habituales son la parte superior de la página de inicio, las páginas de detalles de los productos y los procesos de pago. Una vez creadas las ubicaciones, los Banners se pueden [asignar en tu campaña de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/).
+Las ubicaciones más habituales son la parte superior de la página de inicio, las páginas de detalles de los productos y los procesos de pago. Una vez creadas las ubicaciones, los Banners se pueden [asignar en tu campaña de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner).
 
 No hay un límite fijo en el número de ubicaciones que puedes crear por espacio de trabajo, y puedes crear tantos ID de ubicación como requiera tu experiencia. Cada ubicación debe ser única dentro de un espacio de trabajo. Un único ID de ubicación puede ser referenciado por hasta 25 mensajes activos al mismo tiempo.
 
@@ -50,7 +50,7 @@ Evita modificar los ID de ubicación después de lanzar una campaña de Banner.
 
 ### Prioridad del Banner {#priority}
 
-Cuando varios mensajes de Banner hacen referencia al mismo ID de ubicación, los Banners se muestran por orden de prioridad: alta, media o baja. De forma predeterminada, los Banners están configurados en media, pero puedes [establecer manualmente la prioridad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional) cuando crees o edites tu campaña de Banner.
+Cuando varios mensajes de Banner hacen referencia al mismo ID de ubicación, los Banners se muestran por orden de prioridad: alta, media o baja. De forma predeterminada, los Banners están configurados en media, pero puedes [establecer manualmente la prioridad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#set-banner-priority-optional) cuando crees o edites tu campaña de Banner.
 
 Si varios Banners tienen la misma prioridad, se mostrará primero el Banner más reciente para el que el usuario sea elegible.
 
@@ -70,26 +70,26 @@ Los iframes permiten actualizaciones de contenido dinámicas y personalizadas qu
 
 Esto es lo que debes saber sobre las dimensiones y el tamaño de los Banners:
 
-- Aunque el compositor te permite previsualizar los Banners en diferentes dimensiones, esa información no se guarda ni se envía al SDK.
+- Aunque el creador te permite previsualizar los Banners en diferentes dimensiones, esa información no se guarda ni se envía al SDK.
 - El HTML ocupa todo el ancho del contenedor en el que se representa.
-- Recomendamos crear un elemento de dimensiones fijas y probar esas dimensiones en el compositor.
+- Recomendamos crear un elemento de dimensiones fijas y probar esas dimensiones en el creador.
 
 ## Limitaciones {#limitations}
 
-Cada espacio de trabajo puede admitir hasta 200 campañas de Banner activas. Si se alcanza este límite, tendrás que [archivar o desactivar]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) una campaña existente antes de crear una nueva.
+Cada espacio de trabajo puede admitir hasta 200 campañas de Banner activas. Si se alcanza este límite, tendrás que [archivar o desactivar]({{site.baseurl}}/user_guide/messaging/governance/statuses#changing-the-status) una campaña existente antes de crear una nueva.
 
 Además, los mensajes de Banner no admiten las siguientes características:
 
 - Campaigns desencadenadas por API y basadas en acciones
 - Contenido conectado
 - Códigos promocionales
-- `catalog_items` usando la [etiqueta `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
+- `catalog_items` usando la [etiqueta `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs#using-liquid)
 
 ## Próximos pasos {#next-steps}
 
-- [Crear ubicaciones de Banner en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Crear una campaña de Banner en Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
-- [Tutorial: Mostrar un Banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
+- [Crear ubicaciones de Banner en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements)
+- [Crear una campaña de Banner en Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner)
+- [Tutorial: Mostrar un Banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
 
 {% alert tip %}
 ¿Quieres ayudar a priorizar lo que viene después? Contacta con [banners-feedback@braze.com](mailto:banners-feedback@braze.com).

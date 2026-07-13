@@ -9,7 +9,7 @@ channel:
 search_rank: 3
 ---
 
-# Push {#push}
+# Push
 
 > Push-Benachrichtigungen sind eine bewährte Methode, um zeitkritische Handlungsaufforderungen über Mobilgeräte oder das Internet zu senden und Nutzer:innen erneut anzusprechen, die die App schon länger nicht mehr geöffnet haben. Sie führen Nutzer:innen direkt zu Inhalten und demonstrieren den Wert Ihrer Anwendung.
 
@@ -19,7 +19,7 @@ search_rank: 3
 
 Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
-- **Push ist in Ihre App oder Website integriert.** Arbeiten Sie mit Ihren Entwickler:innen zusammen, um dies einzurichten. Detaillierte Schritte finden Sie in den Integrationsleitfäden für [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) und [Internet]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Push ist in Ihre App oder Website integriert.** Arbeiten Sie mit Ihren Entwickler:innen zusammen, um dies einzurichten. Detaillierte Schritte finden Sie in den Integrationsleitfäden für [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) und [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
 - **Eine Push-Opt-in-Strategie.** Nutzer:innen müssen die Push-Berechtigung auf ihrem Gerät erteilen. Erwägen Sie den Einsatz von [Push-Primer-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), um den Mehrwert zu erklären, bevor Sie die Aufforderung anzeigen.
 
 ## Anwendungsfälle {#use-cases}
@@ -47,6 +47,12 @@ Ihre Push-Nachrichten müssen den [Richtlinien für die Überprüfung im Apple A
 | Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | Sie dürfen integrierte Funktionen wie Push-Benachrichtigungen, die Kamera oder das Gyroskop sowie Apple-Dienste wie Apple Music oder iCloud nicht monetarisieren. |
 | Google Play – [Unbefugte Nutzung oder Nachahmung von Systemfunktionen](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Apps dürfen Systembenachrichtigungen nicht nachahmen oder beeinträchtigen. Benachrichtigungen auf Systemebene sind nur für wesentliche App-Features vorgesehen (z. B. eine Airline-App, die Nutzer:innen über Angebote informiert, oder ein Spiel, das Nutzer:innen über In-Game-Aktionen benachrichtigt). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vorschriften für Push-Nachrichten" }
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Wann protokolliert Braze einen erfolgreichen Versand für Push? {#when-does-braze-record-a-successful-send-for-push}
+
+Braze protokolliert in der Regel einen **Versand**, sobald die Nachricht von Braze an Apple, Google oder Ihren Web-Push-Dienst übermittelt wurde. **Zugestellt**, Öffnungen, Bounces und Deinstallationssignale werden separat erfasst und können später eintreffen. Verwenden Sie Schritt- und Campaign-Analytics zusammen mit der [Push-Fehlerbehebung]({{site.baseurl}}/user_guide/channels/push/troubleshooting), wenn **Versendungen** und nachgelagerte Metriken nicht übereinstimmen.
 
 ## Nächste Schritte {#next-steps}
 

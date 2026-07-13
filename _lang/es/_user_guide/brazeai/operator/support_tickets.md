@@ -11,10 +11,10 @@ description: "Aprende a enviar tickets de soporte directamente desde BrazeAI Ope
 
 ## Cómo enviar un ticket {#how-to-file-a-ticket}
 
-1. Hazle una pregunta a Operator y luego selecciona <i class="fa-regular fa-circle-question"></i> **File a support ticket** (o pídele a Operator que envíe uno).
+1. Hazle una pregunta a Operator y luego selecciona <i class="fa-regular fa-circle-question"></i> **Contact Support** (o pídele a Operator que envíe uno).
 2. Completa el título y la descripción del problema.
 3. Revisa los archivos adjuntos y el contexto sugeridos para incluir.
-4. Revisa y selecciona **Enviar**.
+4. Revisa y selecciona **Submit**.
 
 ## Contexto incluido automáticamente {#auto-included-context}
 

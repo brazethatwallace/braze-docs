@@ -103,7 +103,7 @@ Um die aktuellen Admin-, Unternehmens- oder Workspace-Berechtigungen von Nutzer:
 {% tabs local %}
 {% tab Admin %}
 
-### Admin {#admin}
+### Admin
 
 Admins haben Zugriff auf alle Features und die Möglichkeit, alle Unternehmenseinstellungen zu ändern. Sie können:
 
@@ -133,7 +133,7 @@ Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwa
 {% endtab %}
 {% tab Workspace %}
 
-### Workspace {#workspace}
+### Workspace
 
 Sie können Nutzer:innen für jeden Workspace, dem sie in Braze angehören, unterschiedliche Berechtigungen erteilen. Um deren Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Select workspaces and permissions** und wählen Sie dann deren Berechtigungen manuell aus oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Wenn Sie Nutzer:innen für verschiedene Workspaces unterschiedliche Berechtigungen erteilen müssen, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
@@ -175,7 +175,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 
 ## Liste der Berechtigungen {#list-of-permissions}
 
-### Messaging {#messaging}
+### Messaging
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
@@ -228,7 +228,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzer:innen löschen | Delete Users | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zielgruppen-Berechtigungen" }
 
-### Template {#template}
+### Template
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
@@ -362,7 +362,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Domain-Einstellungen | Edit Domain Settings | Delegierte Domains und angepasste Domains unter „Verifizierte Domains“ hinzufügen |
 | Verschlüsselung auf Feldebene | Edit Identifier Field-Level Encryption | Einstellungen für die Verschlüsselung auf Feldebene aktivieren und aktualisieren |
 | Medienbibliothek-Assets | View Media Library Assets | Medienbibliothek-Assets anzeigen |
-| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets aus der Benutzeroberfläche entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, beschädigt werden. Um ein Asset dauerhaft zu löschen, kontaktieren Sie den Braze-Support. |
+| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets aus der Benutzeroberfläche entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, fehlerhaft werden. Um ein Asset dauerhaft zu löschen, kontaktieren Sie den Braze-Support. |
 | Medienbibliothek-Assets | Edit Media Library Assets | Medienbibliothek-Assets erstellen und aktualisieren |
 | Medienbibliothek-Assets | Replace Media Library Assets | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei URL und Asset-ID stabil bleiben |
 | Messaging-Rate-Limits | View Messaging Rate Limits | Messaging-Rate-Limits auf Workspace-Ebene anzeigen |

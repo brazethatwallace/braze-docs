@@ -48,16 +48,16 @@ Content Cardsは、`openSession()`の前にサブスクライブリクエスト�
 {% subtabs local %}
 {% subtab Java %}
 
-### ステップ1:プライベートサブスクライバー変数を作成する {#step-1-create-a-private-subscriber-variable}
+### ステップ1：プライベートサブスクライバー変数を作成する {#step-1-create-a-private-subscriber-variable}
 
-カードの更新をサブスクライブするには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
+カード更新をサブスクライブするには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
 
 ```java
 // subscriber variable
 private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscriber;
 ```
 
-### ステップ2:更新をサブスクライブする {#step-2-subscribe-to-updates}
+### ステップ2：更新をサブスクライブする {#step-2-subscribe-to-updates}
 
 次に、通常はカスタムContent Cardsアクティビティの`Activity.onCreate()`内で、以下のコードを追加して、BrazeのContent Cards更新をサブスクライブします。
 
@@ -77,7 +77,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh();
 ```
 
-### ステップ3:購読解除する {#step-3-unsubscribe}
+### ステップ3：購読解除する {#step-3-unsubscribe}
 
 また、カスタムアクティビティが表示されなくなったら、購読を解除することをおすすめします。アクティビティの`onDestroy()`ライフサイクルメソッドに次のコードを追加します。
 
@@ -88,15 +88,15 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-### ステップ1:プライベートサブスクライバー変数を作成する
+### ステップ1：プライベートサブスクライバー変数を作成する
 
-カードの更新をサブスクライブするには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
+カード更新をサブスクライブするには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
 
 ```kotlin
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-### ステップ2:更新をサブスクライブする
+### ステップ2：更新をサブスクライブする
 
 次に、通常はカスタムContent Cardsアクティビティの`Activity.onCreate()`内で、以下のコードを追加して、BrazeのContent Cards更新をサブスクライブします。
 
@@ -113,7 +113,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(contentCardsUpdatedSub
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-### ステップ3:購読解除する
+### ステップ3：購読解除する
 
 また、カスタムアクティビティが表示されなくなったら、購読を解除することをおすすめします。アクティビティの`onDestroy()`ライフサイクルメソッドに次のコードを追加します。
 

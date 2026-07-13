@@ -57,7 +57,7 @@ Sim. O Canvas de destino pode ter status de rascunho ou sem atividades.
 
 ### As variáveis de contexto são preservadas? {#are-context-variables-preserved}
 
-Sim. O [contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) do Canvas de origem é sempre passado para o Canvas de destino.
+Sim. O [contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) do Canvas de origem é passado para o Canvas de destino. No entanto, as variáveis de contexto precisam ser invocadas dentro do Canvas de origem para serem passadas ao Canvas de destino.
 
 ### Posso usar a etapa Enviar para Destino para conectar Canvas em vez de usar soluções alternativas com API ou Atualização de usuário? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 

@@ -9,7 +9,7 @@ channel:
 search_rank: 3
 ---
 
-# Push {#push}
+# Push
 
 > Las notificaciones push son una forma probada y eficaz de enviar llamadas a la acción urgentes a través de móvil o web, así como de volver a captar a usuarios que no han entrado en la aplicación desde hace tiempo. Dirigen al usuario directamente al contenido y demuestran el valor de tu aplicación.
 
@@ -47,6 +47,12 @@ Tus mensajes push deben cumplir con las [Directrices de revisión del App Store 
 | Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | No puedes monetizar capacidades integradas como las notificaciones push, la cámara o el giroscopio, ni servicios de Apple como Apple Music o iCloud. |
 | Google Play — [Uso no autorizado o imitación de funcionalidades del sistema](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Las aplicaciones no deben imitar ni interferir con las notificaciones del sistema. Las notificaciones a nivel de sistema son solo para características integrales de la aplicación (por ejemplo, una aplicación de aerolínea que notifica a los usuarios sobre ofertas, o un juego que notifica a los usuarios sobre promociones dentro del juego). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Regulaciones de mensajes push" }
+
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Cuándo registra Braze un envío exitoso de push? {#when-does-braze-record-a-successful-send-for-push}
+
+Braze normalmente registra un **envío** una vez que el mensaje se despacha desde Braze hacia Apple, Google o tu servicio de push web. Las **entregas**, aperturas, rebotes y señales de desinstalación se rastrean por separado y pueden llegar más tarde. Usa los análisis a nivel de paso y de Campaign junto con la [solución de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) cuando los **envíos** y las métricas posteriores no coincidan.
 
 ## Próximos pasos {#next-steps}
 

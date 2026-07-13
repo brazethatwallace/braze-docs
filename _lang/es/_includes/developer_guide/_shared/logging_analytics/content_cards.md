@@ -136,7 +136,7 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
 {% alert note %}
-Leer `contentCards.cards`, `contentCards.unviewedCards` o `contentCards.lastUpdate` bloquea el hilo que realiza la llamada hasta que el SDK haya completado sus operaciones posteriores a la inicialización. Utiliza los getters no bloqueantes en [Accesores de instantáneas no bloqueantes](#non-blocking-snapshot-accessors) para contextos del hilo principal o sensibles a la latencia.
+La lectura de `contentCards.cards`, `contentCards.unviewedCards` o `contentCards.lastUpdate` bloquea el hilo que realiza la llamada hasta que el SDK haya completado sus operaciones posteriores a la inicialización. Utiliza los getters no bloqueantes en [Accesores de instantáneas no bloqueantes](#non-blocking-snapshot-accessors) para contextos del hilo principal o sensibles a la latencia.
 {% endalert %}
 
 Además, también puedes mantener una suscripción para observar los cambios en tus Content Cards. Puedes hacerlo de dos maneras:

@@ -24,7 +24,7 @@ A partir da versão 7.4.0, o SDK Swift da Braze tem canais de distribuição adi
 
 Digite a URL do nosso repositório iOS Swift SDK `https://github.com/braze-inc/braze-swift-sdk` no campo de texto. Na seção **Dependency Rule**, selecione a versão do SDK. Por fim, clique em **Add Package**.
 
-![Diálogo de adicionar pacote do Xcode com a URL do repositório do SDK Swift da Braze inserida.]({% image_buster /assets/img/importsdk_example.png %})
+![Diálogo de adicionar pacote no Xcode com a URL do repositório do SDK Swift da Braze inserida.]({% image_buster /assets/img/importsdk_example.png %})
 
 #### Etapa 1.2: Selecione seus pacotes {#step-12-select-your-packages}
 
@@ -55,7 +55,7 @@ O SDK Swift da Braze separa os recursos em bibliotecas independentes para fornec
 
 Selecione o pacote que melhor atenda às suas necessidades e clique em **Add Package**. Certifique-se de selecionar `BrazeKit` no mínimo.
 
-![Lista de produtos de pacotes do Xcode selecionando BrazeKit antes de adicionar o pacote.]({% image_buster /assets/img/add_package.png %})
+![Lista de produtos de pacotes no Xcode selecionando BrazeKit antes de adicionar o pacote.]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}

@@ -31,7 +31,21 @@ Dies sind die erforderlichen Mindestversionen des SDK, um Bannerplatzierungen zu
 
 ### Schritt 2: Platzierungen in Ihrer App aktualisieren {#requestBannersRefresh}
 
-Um Platzierungen zu aktualisieren, rufen Sie die Aktualisierungsmethode für Ihr SDK auf. Wenn `subscribeToBannersUpdates` aktiv ist, veröffentlicht das SDK Ihre zwischengespeicherten Platzierungs-IDs automatisch zu Beginn jeder neuen Sitzung und wenn Sie `changeUser` aufrufen. Diese automatische Aktualisierung verbraucht kein Rate-Limiting-Token.
+Um Platzierungen zu aktualisieren, rufen Sie die Aktualisierungsmethode für Ihr SDK auf (`requestBannersRefresh()` bei Web und Android oder `requestRefresh()` bei Swift).
+
+Das Aktualisierungsverhalten von Bannern hat zwei Pfade:
+
+1. **Explizite Aktualisierung:** Sie können die Aktualisierungsmethode jederzeit während einer aktiven Sitzung aufrufen.
+2. **Automatische Aktualisierung bei neuer Sitzung:** Nachdem Sie mindestens eine explizite Aktualisierungsanfrage gestellt haben, kann das SDK die zuletzt angeforderten Platzierungs-IDs erneut anfordern, wenn eine neue Braze-Sitzung beginnt (z. B. nach `changeUser()` oder nach einem Sitzungs-Timeout).
+
+Die Rolle von `subscribeToBannersUpdates()` unterscheidet sich je nach Plattform:
+
+- **iOS und Android:** `subscribeToBannersUpdates()` (oder `subscribeToUpdates()` bei Swift) registriert einen Update-Callback. Die automatische Aktualisierung bei Sitzungsstart ist nicht davon abhängig, ob das Abo aktiv ist.
+- **Web:** Die automatische Aktualisierung bei Sitzungsstart ist an die Registrierung von `subscribeToBannersUpdates()` gebunden. Ohne aktives Abo wiederholt das SDK die Aktualisierung bei einer neuen Sitzung nicht automatisch.
+
+In allen Fällen müssen Sie mindestens eine explizite Aktualisierungsanfrage pro App-Lebenszyklus stellen, damit das SDK weiß, welche Platzierungs-IDs aktuell gehalten werden sollen. Banner werden beim ersten Start nicht automatisch abgerufen, ohne diesen initialen Aufruf, und die erfassten Platzierungs-IDs werden nach einem Neustart der App zurückgesetzt.
+
+Automatische Aktualisierungen bei Sitzungsstart verbrauchen kein Rate-Limiting-Token.
 
 {% alert tip %}
 Aktualisieren Sie die Platzierungen so schnell wie möglich, um Verzögerungen beim Herunterladen oder Anzeigen von Bannern zu vermeiden.

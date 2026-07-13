@@ -144,7 +144,7 @@ If totals still differ for the same campaigns and period, check the following:
 | Daily rows versus report totals | If **Data Display** splits the export into daily rows, sum those rows to compare against dashboard totals for the same range. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Checks when engagement report email metrics differ from the Email Performance Dashboard" }
 
-Differences are more common when engagement report figures are compared to **Campaign** or **Canvas** analytics instead of the Email Performance Dashboard. Campaign and Canvas pages can surface send-date metrics (for example, sends or conversions attributed to the send date) alongside event-date opens and clicks. See [Engagement report doesn't match metrics from the Canvas or campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign) below.
+Differences are more common when engagement report figures are compared to **Campaign** or **Canvas** analytics instead of the Email Performance Dashboard. Campaign and Canvas pages can surface send-date metrics (for example, sends or conversions attributed to the send date) alongside event-date opens and clicks. See [Engagement report doesn't match metrics from the Canvas or campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
 
 ### Engagement report doesn't match metrics from the Canvas or campaign
 

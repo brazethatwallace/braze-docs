@@ -11,10 +11,10 @@ description: "Erfahren Sie, wie Sie Support-Tickets direkt über BrazeAI Operato
 
 ## So reichen Sie ein Ticket ein {#how-to-file-a-ticket}
 
-1. Stellen Sie dem Operator eine Frage und wählen Sie dann <i class="fa-regular fa-circle-question"></i> **File a support ticket** aus (oder bitten Sie den Operator, eines einzureichen).
+1. Stellen Sie dem Operator eine Frage und wählen Sie dann <i class="fa-regular fa-circle-question"></i> **Contact Support** aus (oder bitten Sie den Operator, eines einzureichen).
 2. Geben Sie den Titel und die Beschreibung des Problems ein.
 3. Überprüfen Sie die vorgeschlagenen Anhänge und den beizufügenden Kontext.
-4. Überprüfen Sie alles und wählen Sie **Senden** aus.
+4. Überprüfen Sie alles und wählen Sie **Submit** aus.
 
 ## Automatisch enthaltener Kontext {#auto-included-context}
 
@@ -31,4 +31,4 @@ Sie können manuell zusätzlichen Kontext über das Textfeld hinzufügen oder Da
 
 - Fügen Sie eine detaillierte Beschreibung der Schritte zur Reproduktion des Problems hinzu.
 - Geben Sie relevante Fehlermeldungen oder unerwartetes Verhalten an.
-- Überprüfen Sie die automatisch vorgeschlagenen Anhänge vor dem Senden.
+- Überprüfen Sie die automatisch vorgeschlagenen Anhänge vor dem Absenden.
