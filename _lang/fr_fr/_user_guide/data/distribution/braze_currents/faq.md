@@ -15,7 +15,7 @@ tool: Currents
 
 Pour récupérer les indicateurs d'une campagne ou d'un Canvas sur une période définie, utilisez l'une des approches suivantes :
 
-- Soumettez une [demande produit](https://portal.braze.com/) pour des exports alignés sur des dates lorsque vous avez besoin de rapports de type tableau de bord en dehors des fenêtres API standard.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - Appelez les endpoints d'[analyse de campagne]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) ou d'[analyse de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) avec les paramètres `ending_at` et `length` (ou utilisez [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) et [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) pour obtenir des données de séries temporelles.
 - Diffusez les événements vers votre entrepôt de données avec [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) lorsque vous avez besoin de données d'engagement lié aux messages en continu et interrogeables dans Amazon S3, Azure Blob Storage ou une autre destination prise en charge.
 

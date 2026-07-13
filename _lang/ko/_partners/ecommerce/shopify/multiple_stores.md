@@ -11,7 +11,7 @@ description: "이 참조 문서에서는 여러 Shopify 스토어를 단일 워�
 > 여러 Shopify 스토어 도메인을 단일 워크스페이스에 연결하여 모든 시장에 걸쳐 고객을 통합적으로 파악할 수 있습니다. 지역별 스토어에서 중복 작업 없이 단일 워크스페이스에서 자동화 프로그램과 여정을 구축하고 시작하세요.
 
 {% alert important %}
-이 기능은 Shopify Markets 또는 Markets Pro를 지원하지 않습니다. 이에 대한 지원을 요청하려면 [제품 요청]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 제출하세요.
+이 기능은 Shopify Markets 또는 Markets Pro를 지원하지 않습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## 요구 사항 {#requirements}
@@ -71,19 +71,19 @@ Braze 외부 ID에 대해 다음 옵션 중에서 선택할 수 있습니다:
 - 첫 번째 및 마지막 이벤트 날짜(Braze는 가장 빠른 날짜와 가장 최근 날짜를 선택)
 - Campaign 상호작용 데이터(가장 최근 날짜 필드)
 - 워크플로 요약(가장 최근 날짜 필드)
-- 메시지 및 참여 기록
+- 메시지 및 인게이지먼트 기록
 - 구독 그룹
 
-### 가입자 수집(선택 사항) {#collecting-subscribers-optional}
+### 구독자 수집(선택 사항) {#collecting-subscribers-optional}
 
-Braze를 통해 직접(Shopify 커넥터 설정에서) 또는 Shopify에서 데이터를 동기화하는 API 및 SDK 대안을 통해 가입자를 수집할 수 있습니다.
+Braze를 통해 직접(Shopify 커넥터 설정에서) 또는 Shopify에서 데이터를 동기화하는 API 및 SDK 대안을 통해 구독자를 수집할 수 있습니다.
 
 {% tabs local %}
 {% tab Shopify 커넥터 %}
-Shopify 커넥터 설정의 **사용자 관리** 단계에서 Braze를 사용하여 이메일 및 SMS 가입자 옵트인을 수집하고 전용 구독 그룹으로 구성할 수 있습니다:
+Shopify 커넥터 설정의 **사용자 관리** 단계에서 Braze를 사용하여 이메일 및 SMS 구독자 옵트인을 수집하고 전용 구독 그룹으로 구성할 수 있습니다:
 
-1. 연결하는 각 스토어에 대해 고유한 구독 그룹을 생성합니다. 이렇게 하면 가입자가 어디에서 오는지에 대한 정확한 데이터를 유지할 수 있습니다.
-2. 이메일 및 SMS 가입자 수집을 활성화합니다.
+1. 연결하는 각 스토어에 대해 고유한 구독 그룹을 생성합니다. 이렇게 하면 구독자가 어디에서 오는지에 대한 정확한 데이터를 유지할 수 있습니다.
+2. 이메일 및 SMS 구독자 수집을 활성화합니다.
 {% endtab %}
 
 {% tab Braze API 또는 SDK %}
@@ -93,7 +93,7 @@ Shopify 커넥터 설정의 **사용자 관리** 단계에서 Braze를 사용하
 |------|---------|
 | API | - 통합에서 지원하는 것을 직접 대체하는 [구독 그룹 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups)<br>- 구독 그룹 데이터 또는 [글로벌 이메일 구독 상태]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)를 설정하는 [`Users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups)<br>- 더 맞춤화된 마케팅 옵트인 수집 옵션을 위한 [Braze 환경설정 센터]({{site.baseurl}}/user_guide/channels/email/subscriptions) |
 | SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="가입자 수집(선택 사항)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구독자 수집(선택 사항)" }
 {% endtab %}
 {% endtabs %}
 
@@ -108,7 +108,7 @@ Shopify 커넥터 설정의 **사용자 관리** 단계에서 Braze를 사용하
 - 성별
 - 생년월일
 - 국가
-- 도시
+- 구/군/시
 - 마지막 사용 앱
 - 언어
 - 시간대
@@ -118,13 +118,13 @@ Shopify 커넥터 설정의 **사용자 관리** 단계에서 Braze를 사용하
 
 ### 지원되는 이벤트 {#supported-events}
 
-#### eCommerce 권장 이벤트 {#ecommerce-recommended-events}
+#### 이커머스 권장 이벤트 {#ecommerce-recommended-events}
 
-여러 스토어를 연결하면 수신되는 eCommerce 권장 이벤트에 소스 이벤트 속성정보가 포함됩니다. 이 속성정보는 이벤트가 발생한 스토어프론트 URL을 식별하여 세분화 또는 특정 사용 사례 트리거에 이 정보를 활용할 수 있게 합니다.
+여러 스토어를 연결하면 수신되는 이커머스 권장 이벤트에 소스 이벤트 속성정보가 포함됩니다. 이 속성정보는 이벤트가 발생한 스토어프론트 URL을 식별하여 세분화 또는 특정 사용 사례 트리거에 이 정보를 활용할 수 있게 합니다.
 
 ![`ecommerce.order_placed` 커스텀 이벤트를 수행하는 사용자가 진입하도록 트리거가 설정된 액션 기반 Canvas.]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
-Shopify 통합 내에서 지원되는 eCommerce 권장 이벤트는 다음과 같습니다:
+Shopify 통합 내에서 지원되는 이커머스 권장 이벤트는 다음과 같습니다:
 
 - `ecommerce.product_viewed`
 - `ecommerce.cart_updated`

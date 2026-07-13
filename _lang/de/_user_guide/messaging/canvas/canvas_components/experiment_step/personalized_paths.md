@@ -19,13 +19,13 @@ Wenn personalisierte Pfade in einem Experimentpfad-Schritt aktiviert sind, unter
 
 ## Personalisierte Pfade verwenden {#using-personalized-paths}
 
-### 1. Schritt: Einen Experimentpfad hinzufügen {#step-1-add-an-experiment-path}
+### Schritt 1: Einen Experimentpfad hinzufügen {#step-1-add-an-experiment-path}
 
 Fügen Sie Ihrem Canvas einen [Experimentpfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) hinzu und aktivieren Sie dann **Personalized Paths**.
 
 ![Fügen Sie Ihrem Canvas einen Experimentpfad hinzu und aktivieren Sie dann „Personalized Paths“.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
-### 2. Schritt: Einstellungen für personalisierte Pfade konfigurieren {#step-2-configure-personalized-paths-settings}
+### Schritt 2: Einstellungen für personalisierte Pfade konfigurieren {#step-2-configure-personalized-paths-settings}
 
 Legen Sie das Konversions-Event fest, das den Gewinner bestimmen soll. Wenn keine Konversions-Events verfügbar sind, kehren Sie zum ersten Schritt der Canvas-Einrichtung zurück und [weisen Sie Konversions-Events zu]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events).
 
@@ -35,7 +35,7 @@ Legen Sie dann das **Experiment Window** fest. Das **Experiment Window** bestimm
 
 ![Screenshot zu Schritt 2: Einstellungen für personalisierte Pfade konfigurieren.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
-### 3. Schritt: Fallback festlegen {#step-3-determine-fallback}
+### Schritt 3: Fallback festlegen {#step-3-determine-fallback}
 
 Standardmäßig werden alle zukünftigen Nutzer:innen den einzelnen leistungsstärksten Pfad entlang gesendet, wenn die Testergebnisse nicht ausreichen, um einen statistisch signifikanten Gewinner zu ermitteln.
 
@@ -47,7 +47,7 @@ Diese Option sendet zukünftige Nutzer:innen den Mix aus Pfaden gemäß den in d
 
 ![Screenshot zu Schritt 3: Fallback festlegen.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
-### 4. Schritt: Pfade hinzufügen und den Canvas starten {#step-4-add-your-paths-and-launch-the-canvas}
+### Schritt 4: Pfade hinzufügen und den Canvas starten {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
 {% tab Einmaliger Canvas-Versand %}
@@ -78,7 +78,9 @@ Wenn das Experiment-Zeitfenster abgelaufen und das Experiment abgeschlossen ist,
 
 ## Analytics {#analytics}
 
-Wenn personalisierte Pfade aktiviert waren, ist Ihre Analytics-Ansicht in zwei Tabs unterteilt: **Initial Experiment** und **Personalized Paths**.
+Wenn personalisierte Pfade aktiviert sind und ausreichende Ergebnisse liefern, ist Ihre Analytics-Ansicht in zwei Tabs unterteilt: **Initial Experiment** und **Personalized Paths**.
+
+Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird, wird nur der Tab **Initial Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung nicht besser abschneiden würde als das Senden aller Nutzer:innen über einen einzelnen leistungsstärksten Pfad. In diesem Fall wird Ihr konfiguriertes Fallback-Verhalten angewendet, und es stehen keine Analytics für personalisierte Pfade zur Verfügung.
 
 {% tabs local %}
 {% tab Initial Experiment %}
@@ -106,7 +108,7 @@ Diese Merkmale sind:
 - **Häufigkeit:** Wie oft Sitzungen stattfinden
 - **Zugehörigkeitsdauer:** Wie lange die Person bereits Nutzer:in ist
 
-![Die Tabelle „Nutzermerkmale“, die zeigt, welche Nutzer:innen voraussichtlich Pfad 1 und Pfad 2 bevorzugen, basierend auf den drei Buckets, in die sie für Aktualität, Häufigkeit und Zugehörigkeitsdauer fallen.]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab1_2.png %})
+![Die Tabelle „Nutzermerkmale“ zeigt, welche Nutzer:innen voraussichtlich Pfad 1 und Pfad 2 bevorzugen, basierend auf den drei Buckets, in die sie für Aktualität, Häufigkeit und Zugehörigkeitsdauer fallen.]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab1_2.png %})
 
 Stellen Sie sich Aktualität als den Zeitpunkt der letzten Interaktion vor, Häufigkeit als die Regelmäßigkeit des Engagements und Zugehörigkeitsdauer als die Gesamtdauer des Engagements mit Ihnen. Wir gruppieren Nutzer:innen basierend auf diesen drei Faktoren in „Buckets“ (wie in der Tabelle **Nutzermerkmale** erläutert) und sehen dann, welcher Bucket welchen Pfad bevorzugt. Es ist, als würden Sie Nutzer:innen in Hunderte verschiedener Listen sortieren – basierend darauf, wann sie zuletzt bei Ihnen eingekauft haben, wie oft sie einkaufen und wie lange sie bereits Kund:innen sind.
 

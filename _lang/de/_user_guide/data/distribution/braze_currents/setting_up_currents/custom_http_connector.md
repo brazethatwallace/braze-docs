@@ -123,11 +123,11 @@ Genau wie bei unseren [Data-Warehouse-Speicherschemas]({{site.baseurl}}/user_gui
 
 ## Fehlerbehandlung und Retry-Mechanismus {#error-handling-and-retry-mechanism}
 
-Wenn ein Fehler auftritt, stellt Braze die Anfrage in eine Warteschlange und wiederholt sie basierend auf dem empfangenen HTTP-Rückgabecode. Wenn das Problem länger als 5 Tage bestehen bleibt, wird die Integration automatisch deaktiviert: Neue eingehende Events werden verworfen und gehen dauerhaft verloren, und bereits in der Warteschlange befindliche Events werden nach einer Aufbewahrungsfrist von 7 Tagen dauerhaft gelöscht. Wenn Daten länger als 24 Stunden feststecken, werden unsere Bereitschaftsingenieur:innen automatisch benachrichtigt. Eine vollständige Aufschlüsselung, wie jeder Statuscode behandelt wird, finden Sie in der folgenden Tabelle.
+Wenn ein Fehler auftritt, stellt Braze die Anfrage in eine Warteschlange und wiederholt sie basierend auf dem empfangenen HTTP-Rückgabecode. Wenn das Problem länger als 5 Tage bestehen bleibt, wird die Integration automatisch deaktiviert: Neue eingehende Events werden verworfen und gehen dauerhaft verloren, und bereits in der Warteschlange befindliche Events werden nach einer Aufbewahrungsfrist von 7 Tagen dauerhaft gelöscht. Wenn Daten länger als 24 Stunden feststecken, werden unsere Bereitschaftsingenieur:innen automatisch benachrichtigt. Eine vollständige Aufschlüsselung, wie jeder Statuscode behandelt wird, finden Sie in der Tabelle im folgenden Abschnitt.
 
 Wenn Ihre Currents-Integration Authentifizierungsfehler zurückgibt, sendet Braze Ihnen automatisch eine Benachrichtigungs-E-Mail.
 
-Jeder HTTP-Fehlercode, der unten nicht aufgeführt ist, wird als HTTP-`5XX`-Fehler behandelt.
+Jeder HTTP-Fehlercode, der im folgenden Abschnitt nicht aufgeführt ist, wird als HTTP-`5XX`-Fehler behandelt.
 
 {% alert warning %}
 Wenn das Problem länger als 5 Tage bestehen bleibt, wird die Integration deaktiviert. Neue eingehende Events werden verworfen und gehen dauerhaft verloren, und bereits in der Warteschlange befindliche Events werden nach einer Aufbewahrungsfrist von 7 Tagen dauerhaft gelöscht.

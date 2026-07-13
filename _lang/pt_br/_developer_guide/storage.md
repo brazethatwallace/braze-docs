@@ -17,7 +17,7 @@ platform:
 
 ## Propriedades do dispositivo {#device-properties}
 
-Por padrão, a Braze coletará as seguintes propriedades no nível de dispositivo para permitir a personalização de mensagens com base no dispositivo, no idioma e no fuso horário:
+Por padrão, a Braze coleta as seguintes propriedades no nível de dispositivo para permitir a personalização de mensagens com base no dispositivo, no idioma e no fuso horário:
 
 {% tabs %}
 {% tab web %}
@@ -58,7 +58,7 @@ Por padrão, a Braze coletará as seguintes propriedades no nível de dispositiv
 - Fuso horário do dispositivo
 
 {% alert note %}
-O SDK da Braze não coleta o IDFA automaticamente. Os apps podem, opcionalmente, passar o IDFA para a Braze implementando os métodos diretamente abaixo. Os apps precisam obter a aceitação explícita do rastreamento pelo usuário final por meio do framework App Tracking Transparency antes de passar o IDFA para a Braze.
+O SDK da Braze não coleta o IDFA automaticamente. Os apps podem, opcionalmente, passar o IDFA para a Braze implementando os métodos nas seções a seguir. Os apps precisam obter a aceitação explícita do rastreamento pelo usuário final por meio do framework App Tracking Transparency antes de passar o IDFA para a Braze.
 
 1. Para definir o estado de rastreamento de publicidade, use [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/).
 2. Para definir o identificador do anunciante (IDFA), use [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
@@ -66,14 +66,14 @@ O SDK da Braze não coleta o IDFA automaticamente. Os apps podem, opcionalmente,
 {% endtab %}
 {% endtabs %}
 
-Por padrão, todas as propriedades estão ativadas. No entanto, você pode optar por ativá-las ou desativá-las manualmente. Lembre-se de que alguns recursos do SDK da Braze exigem propriedades específicas (como entrega no horário local e fuso horário), então certifique-se de testar sua configuração antes de liberar para produção.
+Por padrão, todas as propriedades estão ativadas. No entanto, você pode ativá-las ou desativá-las manualmente. Lembre-se de que alguns recursos do SDK da Braze exigem propriedades específicas (como entrega no fuso local e fuso horário), então certifique-se de testar sua configuração antes de liberar para produção.
 
 {% tabs %}
 {% tab web %}
 Por exemplo, você pode especificar o idioma do dispositivo para ser incluído na lista permitida. Para saber mais, consulte a opção `devicePropertyAllowlist` para [`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions).
 
 ```javascript
-import * as braze from"@braze/web-sdk";
+import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
     baseUrl: "BASE-URL",
     devicePropertyAllowlist: [ braze.DeviceProperties.LANGUAGE ] // list of `DeviceProperties` you want to collect
@@ -122,7 +122,9 @@ Para saber mais sobre as propriedades de dispositivo coletadas automaticamente, 
 
 ## Armazenamento de cookies (apenas web) {#cookies}
 
-Após [inicializar o SDK Web da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), o SDK criará e armazenará cookies com um vencimento de 400 dias que se renova automaticamente em novas sessões.
+Após [inicializar o SDK Web da Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), o SDK cria e armazena cookies primários (definidos no seu próprio domínio) com um vencimento de 400 dias que se renova automaticamente em novas sessões.
+
+Os cookies armazenam apenas identificadores de usuário, sessão e dispositivo. Outros dados — como mensagens no app aguardando para serem disparadas, Content Cards e eventos ou atributos na fila que ainda não foram sincronizados com a Braze — são armazenados no `localStorage`.
 
 Os seguintes cookies são armazenados:
 
@@ -149,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### Desativando cookies {#disable-cookies}
 
-Para desativar todos os cookies, use a opção [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) ao inicializar o Web SDK. Isso impedirá que você associe usuários anônimos que navegam entre subdomínios e resultará em um novo usuário em cada subdomínio.
+Para desativar todos os cookies, use a opção [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) ao inicializar o Web SDK. Quando os cookies estão desativados, o SDK usa o `localStorage` para identificar usuários e sessões. Isso impedirá que você associe usuários anônimos que navegam entre subdomínios e resultará em um novo usuário em cada subdomínio.
 
 ```javascript
 import * as braze from "@braze/web-sdk";

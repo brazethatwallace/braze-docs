@@ -22,7 +22,7 @@ B2Bキャンペーンを実行するために必要な主要なB2Bオブジェ�
 | --- | --- |
 | リード | 製品やサービスに興味を示したが、まだ機会として認定されていない潜在的な顧客の記録。 |
 | 連絡先 | 通常、適格と判断され、セールス案件を追求するためにリードから連絡先に変換された個人。 |
-| 機会 | 潜在的な売却または進行中の取引の詳細を追跡するレコード |
+| 機会 | 潜在的な売却または進行中の取引の詳細を追跡するレコード。 |
 | アカウント | 適格な見込み顧客、既存の顧客、パートナー、または類似する重要な関係性を持つ競合他社である組織のレコード。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="B2Bデータモデルを作成する" }
 
@@ -30,11 +30,11 @@ Braze内では、この4つのオブジェクトが結合され、ユーザー�
 
 | Braze B2Bオブジェクト | 説明 | 元のB2Bオブジェクト  |
 | --- | --- | --- |
-| ユーザープロファイル | 営業用CRMシステムのリードおよび連絡先に直接マップされます。リードはBrazeによってキャプチャされるため、営業用CRMシステムでは自動的にリードとして作成されます。連絡先に変換されると、連絡先IDと詳細がBrazeに同期されます。 |リード<br> 連絡先 |
+| ユーザープロファイル | 営業用CRMシステムのリードおよび連絡先に直接マップされます。リードはBrazeによってキャプチャされるため、営業用CRMシステムでは自動的にリードとして作成されます。連絡先に変換されると、連絡先IDと詳細がBrazeに同期されます。 | リード<br> 連絡先 |
 | ビジネスオブジェクト | 営業用CRMシステム内のすべての非ユーザーオブジェクトにマップされます。これには、アカウントオブジェクトや案件オブジェクトなど、営業固有のオブジェクトが含まれます。 | アカウント<br> 機会 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="B2Bデータモデルを作成する" }
 
-## ステップ 1:Brazeでビジネスオブジェクトを作成する {#step-1-create-your-business-objects-in-braze}
+## ステップ1:Brazeでビジネスオブジェクトを作成する {#step-1-create-your-business-objects-in-braze}
 
 ビジネスオブジェクトは、ユーザー中心でない任意のデータセットです。B2Bコンテキストでは、アカウントと商談データ、および会社が追跡するその他の関連するユーザー中心でないデータセットが含まれます。
 
@@ -44,12 +44,12 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 | --- | --- |
 | [カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs) | Brazeのプライマリユーザープロファイル上の独立したデータオブジェクト（補足データオブジェクト）です。B2Bのコンテキストでは、アカウントと案件のカタログがある可能性があります。 |
 | [接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) | Brazeがデータウェアハウスに直接クエリを実行できるようにします。すでにリード、連絡先、案件、アカウントの各オブジェクトをデータウェアハウスと定期的に同期している可能性があるため、Brazeセグメンテーションをそのウェアハウスに直接ポイントし、ゼロコピー環境で有効化することができます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1:Brazeでビジネスオブジェクトを作成する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1:Brazeでビジネスオブジェクトを作成する" }
 
 {% tabs %}
 {% tab Catalogs %}
 
-### オプション 1:アカウントと案件のカタログを使用する {#option-1-use-catalogs-for-accounts-and-opportunities}
+### オプション1:アカウントと案件のカタログを使用する {#option-1-use-catalogs-for-accounts-and-opportunities}
 
 カタログは、Brazeでホストおよび管理されるデータテーブルです。アカウントデータと案件データは使用している営業用CRMシステムから作成されますが、Brazeでこれらのデータを複製して、マーケティング目的（アカウントベースのセグメンテーション、アカウントベースのマーケティング、リード管理など）で使用できます。
 
@@ -144,7 +144,7 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 {% endtab %}
 {% tab Connected sources %}
 
-### オプション 2:アカウントと案件に接続されたソースを使用する {#option-2-use-connected-sources-for-accounts-and-opportunities}
+### オプション2:アカウントと案件に接続されたソースを使用する {#option-2-use-connected-sources-for-accounts-and-opportunities}
 
 接続されたソースは、自社データウェアハウスにホストされているデータテーブルであり、Braze [CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)によってクエリが実行されます。カタログとは異なり、Brazeでビジネスオブジェクト（アカウントと案件）を複製する代わりに、データウェアハウスにこれらのオブジェクトを維持し、ウェアハウスを信頼できる情報源として使用します。
 
@@ -153,11 +153,11 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 {% endtab %}
 {% endtabs %}
 
-## ステップ 2:ビジネスオブジェクトをユーザープロファイルに関連付ける {#step-2-relate-your-business-objects-to-user-profiles}
+## ステップ2:ビジネスオブジェクトをユーザープロファイルに関連付ける {#step-2-relate-your-business-objects-to-user-profiles}
 
 ユーザープロファイルは、Brazeの主要なオブジェクトであり、人口統計セグメンテーション、トリガー、パーソナライゼーションの大部分の処理に使用されます。ユーザープロファイルには、SDKやその他のソースによって収集された[デフォルトのユーザーデータ]({{site.baseurl}}/user_guide/data/unification/user_data)と、[カスタムデータ]({{site.baseurl}}/user_guide/data/activation)が含まれます。カスタムデータは、属性（人口統計データ）、イベント（行動データ）、購入（トランザクションデータ）のいずれかの形式になります。
 
-### ステップ 2.1:営業用CRMのIDをBrazeにマッピングする {#step-21-map-sales-crm-ids-to-braze}
+### ステップ2.1:営業用CRMのIDをBrazeにマッピングする {#step-21-map-sales-crm-ids-to-braze}
 
 まず、Brazeとご利用のCRMに、データを共有するための共通の識別子があることを確認します。次の表を使用して、営業用CRMのIDフィールドをBrazeユーザーオブジェクトにマップすることをお勧めします。以下の表ではCRMシステムとしてSalesforceが使用されていますが、これはあらゆるCRMに適用できます。
 
@@ -177,12 +177,12 @@ Salesforceのリードと連絡先の識別子をBrazeにマップするには�
 
 IDを同期したら、Brazeユーザープロファイルをビジネスオブジェクトに関連付ける必要があります。
 
-### ステップ 2.2:ユーザープロファイルとビジネスオブジェクト間の関係を作成する {#step-22-create-a-relationship-between-user-profiles-and-your-business-objects}
+### ステップ2.2:ユーザープロファイルとビジネスオブジェクト間の関係を作成する {#step-22-create-a-relationship-between-user-profiles-and-your-business-objects}
 
 {% tabs %}
 {% tab Catalogs %}
 
-#### オプション 1:カタログを使用する場合 {#option-1-when-using-catalogs}
+#### オプション1:カタログを使用する場合 {#option-1-when-using-catalogs}
 
 商談およびアカウントの詳細がBrazeカタログとして登録されたので、これらのカタログと、メッセージを送信するユーザープロファイルとの間に関係を作成する必要があります。現在、これには2つのステップが必要です。
 
@@ -217,7 +217,7 @@ IDを同期したら、Brazeユーザープロファイルをビジネスオブ�
 {% endtab %}
 {% tab Connected sources %}
 
-#### オプション 2:接続されたソースを使用する場合 {#option-2-when-using-connected-sources}
+#### オプション2:接続されたソースを使用する場合 {#option-2-when-using-connected-sources}
 
 接続されたソースのテーブルの1つに、Brazeでユーザーに対して設定された`external_user_id`に一致する`user_id`が含まれている必要があります。前述のユーザープロファイル設定では、リードと`contact_ids`を`external_id`として使用しています。このため、リード/連絡先のテーブルにこれらのIDが含まれていることを確認する必要があります。
 

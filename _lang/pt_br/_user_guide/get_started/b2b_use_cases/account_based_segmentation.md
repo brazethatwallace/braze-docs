@@ -112,4 +112,4 @@ Para o básico sobre como usar fontes conectadas na segmentação, consulte [Ext
 
 ## Usando sua extensão baseada em conta em um segmento {#using-your-account-based-extension-in-a-segment}
 
-Depois de criar a segmentação no nível da conta nas etapas acima, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).
+Depois de criar a segmentação no nível da conta nas etapas anteriores desta seção, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).

@@ -88,11 +88,11 @@ Selecionar um campo para uma dessas transformações aplicará essa transformaç
 O Currents descartará eventos com cargas úteis excessivamente grandes, superiores a 900&nbsp;KB.
 {% endalert %}
 
-Antes de testar, considere conferir nossos [dados de exemplo do Currents no GitHub](https://github.com/Appboy/currents-examples). Quando estiver pronto para testar, escolha uma opção abaixo:
+Antes de testar, considere conferir nossos [dados de exemplo do Currents no GitHub](https://github.com/Appboy/currents-examples). Quando estiver pronto para testar, escolha uma opção na seção a seguir:
 
 #### Enviando eventos de teste {#sending-test-events}
 
-Para testar sua integração, você pode selecionar **Send Test Events** para enviar um evento de cada um dos seus tipos de evento selecionados para este Current. Para informações detalhadas sobre cada tipo de evento, consulte nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
+Para testar sua integração, você pode selecionar **Enviar eventos de teste** para enviar um evento de cada um dos seus tipos de evento selecionados para este Current. Para informações detalhadas sobre cada tipo de evento, consulte nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ![A página "Teste de Currents" no dashboard da Braze.]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 

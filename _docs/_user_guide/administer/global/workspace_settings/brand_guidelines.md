@@ -27,7 +27,7 @@ For **Brand personality**, think about what makes your brand unique. Include tra
 | Reputation               | How you want your brand to be perceived in the market.                               | We are known for being the most reliable and customer-focused brand in our industry. |
 | Personality traits       | Human-like characteristics that describe your brand's character.                     | Our brand is friendly, approachable, and always upbeat.          |
 | Values                   | Core values that guide your brand's actions and decisions.                           | We value sustainability, transparency, and community.            |
-| Differentiation          | Unique qualities that set your brand apart from competitors.                         | We stand out by offering personalized customer service that goes above and beyond. |
+| Differentiation          | Unique qualities that set your brand apart from competitors.                         | We stand out by offering personalized customer service that goes the extra mile. |
 | Brand voice              | The tone and style of communication your brand uses.                                 | Our voice is casual yet informative, ensuring clarity without being too formal. |
 | Brand archetype          | The archetype that represents your brand's persona (The Hero, The Creator, and so on).    | We embody the "Explorer" archetype, always seeking new challenges and adventures. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Describe your brand personality" }

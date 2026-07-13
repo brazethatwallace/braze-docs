@@ -12,9 +12,9 @@ channel:
 
 > Este artículo cubre la información de la empresa y de campaña de SMS que Braze necesita si estás trabajando con Braze para registrar tu 10DLC.
 
-Si has adquirido la ayuda de Braze para registrar tu 10DLC, deberás enviarnos toda la información obligatoria que se indica a continuación al correo electrónico que aparece más abajo, según lo acordado en tu contrato con nosotros.
+Si has adquirido la ayuda de Braze para registrar tu 10DLC, deberás enviarnos toda la información obligatoria que se indica a continuación al correo electrónico que aparece en la siguiente sección, según lo acordado en tu contrato con nosotros.
 
-Incluye las capturas de pantalla y los archivos adjuntos pertinentes y envía todo a [smsapplications@braze.com](mailto:smsapplications@braze.com). Si tienes alguna pregunta sobre 10DLC, consulta la [guía de SMS 10DLC de Braze]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) o ponte en contacto con tu administrador del éxito del cliente de Braze.
+Incluye las capturas de pantalla y los archivos adjuntos pertinentes y envía todo a [smsapplications@braze.com](mailto:smsapplications@braze.com). Si tienes alguna pregunta sobre 10DLC, consulta la [guía de SMS 10DLC de Braze]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) o ponte en contacto con tu administrador de éxito de cliente de Braze.
 
 
 ## Información de la empresa (10DLC) {#company-information-10dlc}
@@ -48,16 +48,16 @@ Todos los operadores de EE. UU. requieren la siguiente información de la empres
 | Dirección legal completa de la empresa (calle, ciudad, estado, código postal) |                                                               |                                                              |
 | Tipo de empresa (privada, sin ánimo de lucro, gubernamental, pública (proporciona el símbolo bursátil)) |                                       |                                                              |
 | Si es pública, proporciona tu símbolo bursátil                |                                                               |                                                              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Company Information (10DLC)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Información de la empresa (10DLC)" }
 
 ## Información de campaña de SMS {#sms-campaign-information}
 
-Necesitaremos registrar cada grupo de suscripción de SMS que contenga un código largo de EE. UU. con su propia campaña A2P 10DLC (a veces denominada caso de uso). Proporciona la siguiente información una vez por cada uno de tus grupos de suscripción de SMS que contengan un código largo de EE. UU.
+Necesitaremos registrar cada grupo de suscripción de SMS que contenga un código largo de EE. UU. con su propia campaña A2P 10DLC (a veces denominada caso de uso). Proporciona esta información una vez por cada uno de tus grupos de suscripción de SMS que contengan un código largo de EE. UU.
 
 | Campo | Opciones (si corresponde) | Descripción |
 | ------ | ------------------------ | --------------- |
-| Caso de uso de la campaña (elige el que mejor se ajuste) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Nota: Si planeas utilizar un caso de uso "Mixed" para un grupo de suscripción, consulta a tu administrador del éxito del cliente o a tu administrador de incorporación del cliente para obtener detalles importantes de antemano |
-| Nombre de la campaña | | {::nomarkdown}<p>El nombre de la campaña de SMS debe mostrarse de forma coherente en tus mensajes, en los términos del servicio y en cualquier lugar donde tus usuarios se registren en tu programa.</p><p>Ejemplos:</p><ul><li>Braze Marking Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
+| Caso de uso de la campaña (elige el que mejor se ajuste) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Nota: Si planeas utilizar un caso de uso "Mixed" para un grupo de suscripción, consulta a tu administrador de éxito de cliente o a tu administrador de incorporación de cliente para obtener detalles importantes de antemano |
+| Nombre de la campaña | | {::nomarkdown}<p>El nombre de la campaña de SMS debe mostrarse de forma coherente en tus mensajes, en los términos del servicio y en cualquier lugar donde tus usuarios se suscriban a tu programa.</p><p>Ejemplos:</p><ul><li>Braze Marking Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
 | Descripción de la campaña | | Esta campaña envía mensajes de marketing y promocionales a los usuarios que optan por recibir SMS, incluidas ofertas especiales/cupones y notificaciones de recordatorio de carrito. |
 | Dirección de correo electrónico de soporte al cliente | | ¿Dónde pueden los usuarios finales contactar por correo electrónico para obtener ayuda y soporte? |
 | Número de teléfono de soporte al cliente | | ¿Dónde pueden los usuarios finales contactar por teléfono para obtener ayuda y soporte? |
@@ -74,4 +74,4 @@ Necesitaremos registrar cada grupo de suscripción de SMS que contenga un códig
 | Volumen diario estimado | | Indica el número promedio estimado de mensajes enviados por día para este caso de uso/grupo de suscripción en particular, por ejemplo, 10 000. |
 | Lista de verificación de llamada a la acción | | {::nomarkdown} <p>La llamada a la acción debe incluir lo siguiente:</p><ol><li>Descripción del producto</li><li>Divulgación de la frecuencia de mensajes</li><li>Enlace a los términos y condiciones completos</li><li>Enlace a la política de privacidad completa</li><li>Instrucciones de la palabra clave STOP</li><li>Instrucciones de la palabra clave HELP</li><li>Aviso de "Pueden aplicarse tarifas de mensajes y datos"</li></ol> {:/} |
 | Ejemplo de llamada a la acción | | ![Ejemplo de llamada a la acción que contiene todos los detalles obligatorios.]({{site.baseurl}}/assets/img_archive/10dlc_cta_example.png) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS campaign information" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Información de campaña de SMS" }

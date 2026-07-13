@@ -124,7 +124,7 @@ After you finish designing and building your email message, add your sending inf
 1. Under **Sending Info**, select an email as the **From Display Name + Address**. You can also customize this by selecting **Customize From Display Name + Address**.
 2. Select an email as the **Reply-To Address**. You can also customize this by selecting **Customize Reply-To Address**.
 3. Next, select an email as the **BCC Address** to make your email visible to this address.
-4. Add a subject line to your email. Optionally, you can also add a preheader and a whitespace after the preheader.
+4. Add a subject line to your email. Optionally, you can also add a preheader. To add whitespace after the preheader, select the **Add whitespace after preheader** checkbox.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -233,7 +233,7 @@ If you see any issues with your email, or want to make any changes, select **Edi
 
 {% alert tip %}
 Email clients that support preview text always pull in enough characters to fill all available preview text space. However, this can leave you in situations where the preview text is incomplete or unoptimized.
-<br><br>To avoid this, you can create white space after your desired preview text so that email clients don't pull other distracting text or characters into the envelope content. To do so, add a chain of zero-width non-joiners (‌`&zwnj;`) and non-breaking spaces (`&nbsp;`) after the preview text that you want displayed. <br><br>When added to the end of your preview text in the preheader section, the following piece of code for the HTML editor will add the white space you're looking for:<br><br>
+<br><br>To avoid this, you can create white space after your desired preview text so that email clients don't pull other distracting text or characters into the envelope content. In the **Sending Settings** section, you can select the **Add whitespace after preheader** checkbox to automatically add whitespace. <br><br>Alternatively, if you need more control, you can manually add a chain of zero-width non-joiners (‌`&zwnj;`) and non-breaking spaces (`&nbsp;`) after the preview text that you want displayed. <br><br>When added to the end of your preview text in the preheader section, the following piece of code for the HTML editor will add the white space you're looking for:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>

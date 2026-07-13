@@ -29,7 +29,7 @@ Im Tab **Campaign Analytics** können Sie Ihre Berichte in einer Reihe von Panel
 
 Das Panel **Campaign Details** zeigt eine allgemeine Übersicht über die Performance Ihrer LINE-Nachrichten.
 
-Überprüfen Sie dieses Panel, um allgemeine Metriken wie die Anzahl der gesendeten Nachrichten an die Empfänger:innen, die primäre Konversionsrate und den gesamten durch diese Nachricht generierten Umsatz einzusehen. Sie können auf dieser Seite auch die Einstellungen für Zustellung, Zielgruppe und Conversion überprüfen.
+Überprüfen Sie dieses Panel, um allgemeine Metriken wie die Anzahl der gesendeten Nachrichten an die Empfänger:innen, die primäre Konversionsrate und den gesamten durch diese Nachricht generierten Umsatz einzusehen. Sie können auf dieser Seite auch die Einstellungen für Zustellung, Zielgruppe und Konversion überprüfen.
 
 #### Kontrollgruppen {#control-groups}
 
@@ -49,7 +49,7 @@ Hier sind einige wichtige LINE-Metriken, die Sie in Ihren Analytics sehen könne
 
 | Begriff | Definition |
 | --- | --- |
-| Sendungen | Die Gesamtzahl der Sendungen, die erfolgreich zwischen Braze und LINE übermittelt wurden. Dies bedeutet nicht, dass die Nachricht von der Nutzer:in empfangen wurde. |
+| Sendungen | Die Gesamtzahl der Sendungen, die erfolgreich zwischen Braze und LINE übermittelt wurden. Dies bedeutet nicht, dass die Nachricht von den Nutzer:innen empfangen wurde. |
 | Eindeutige Öffnungen | Die Gesamtzahl der gesendeten LINE-Nachrichten, die von Nutzer:innen geöffnet wurden, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
 | Gesamtöffnungen | Die Gesamtzahl, wie oft die gesendeten LINE-Nachrichten von Nutzer:innen geöffnet wurden, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
 | Eindeutige Klicks | Die Gesamtzahl der gesendeten LINE-Nachrichten, die von Nutzer:innen angeklickt wurden, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |

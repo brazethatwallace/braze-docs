@@ -120,25 +120,25 @@ Para obter uma lista completa dos campos de notificação por push, consulte a t
 | ------------------ | --------- | ----------- |
 | `payload_type` | String | Especifica o tipo de carga útil da notificação. Os dois valores enviados pelo SDK da Braze para React Native são `push_opened` e `push_received`. |
 | `url` | String | Especifica a URL que foi aberta pela notificação. |
-| `use_webview` | booleano | Se for `true`, a URL será aberta no app em uma webview modal. Se `false`, a URL será aberta no navegador do dispositivo. |
+| `use_webview` | Booleano | Se for `true`, a URL será aberta no app em uma webview modal. Se `false`, a URL será aberta no navegador do dispositivo. |
 | `title` | String | Representa o título da notificação. |
 | `body` | String | Representa o corpo ou o texto do conteúdo da notificação. |
 | `summary_text` | String | Representa o texto resumido da notificação. Isso é mapeado a partir de `subtitle` no iOS. |
 | `badge_count` | Número | Representa a contagem de emblemas da notificação. |
 | `timestamp` | Número | Representa a hora em que a carga útil foi recebida pelo aplicativo. |
-| `is_silent` | booleano | Se `true`, a carga útil é recebida silenciosamente. Para detalhes sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para detalhes sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal` | booleano | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de Feature Flags ou rastreamento de desinstalação. A carga útil é recebida silenciosamente para o usuário. |
+| `is_silent` | Booleano | Se `true`, a carga útil é recebida silenciosamente. Para detalhes sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para detalhes sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
+| `is_braze_internal` | Booleano | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de Feature Flags ou Uninstall Tracking. A carga útil é recebida silenciosamente para o usuário. |
 | `image_url` | String | Especifica a URL associada à imagem da notificação. |
 | `braze_properties` | Objeto | Representa as propriedades da Braze associadas à Campaign (pares chave-valor). |
 | `ios` | Objeto | Representa campos específicos do iOS. |
 | `android` | Objeto | Representa campos específicos do Android. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de eventos de notificação por push" }
 
 ### Etapa 3: Ativar deep linking (opcional) {#step-3-enable-deep-linking-optional}
 
 Para permitir que a Braze gerencie deep links dentro de componentes React quando uma notificação por push é clicada, primeiro implemente as etapas descritas na biblioteca [React Native Linking](https://reactnative.dev/docs/linking), ou com a solução de sua escolha. Em seguida, siga as etapas adicionais abaixo.
 
-Para saber mais sobre o que são deep links, consulte nosso [artigo de perguntas frequentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+Para saber mais sobre o que são deep links, consulte nosso [artigo de perguntas frequentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 {% alert important %}
 Se você estiver migrando uma integração existente de push com React Native, teste novamente o deep linking após fazer upgrade do SDK da Braze, React Native, Expo ou bibliotecas relacionadas. Confirme que:
@@ -151,7 +151,7 @@ Se você estiver migrando uma integração existente de push com React Native, t
 {% tab Android Native %}
 Se você estiver usando o [plugin Braze Expo]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option), pode gerenciar deep links de notificações por push automaticamente definindo `androidHandlePushDeepLinksAutomatically` como `true` no seu `app.json`.
 
-Para gerenciar deep links manualmente, consulte a documentação nativa do Android: [Adicionando deep links]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/).
+Para gerenciar deep links manualmente, consulte a documentação nativa do Android: [Adicionando deep links]({{site.baseurl}}/developer_guide/push_notifications/deep_linking).
 
 #### Etapa 3.1: Armazene a carga útil da notificação por push ao iniciar o app {#step-31-store-the-push-notification-payload-on-app-launch}
 
@@ -389,7 +389,7 @@ Em seguida, crie e registre seu `BrazeReactDelegate` em `didFinishLaunchingWithO
 {% endsubtab %}
 {% endsubtabs %}
 
-Para um exemplo de integração, consulte nosso app de amostra [aqui](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
+Para um exemplo de integração, consulte nosso app de amostra [neste exemplo de AppDelegate](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
 {% endtab %}
 {% endtabs %}
 
@@ -530,4 +530,4 @@ Se os deep links de notificações por push pararam de abrir após uma migraçã
 3. Se estiver usando o plugin Braze Expo, verifique se `androidHandlePushDeepLinksAutomatically` está configurado corretamente para sua implementação.
 4. Revise as dependências adicionadas recentemente em busca de substituições no tratamento de notificações ou no comportamento do app delegate.
 
-Se você concluiu essas verificações e o problema persiste, [abra um ticket de suporte]({{site.baseurl}}/user_guide/administrative/access_braze/support/) e inclua os logs do SDK e os passos para reprodução.
+Se você concluiu essas verificações e o problema persiste, [abra um ticket de suporte]({{site.baseurl}}/user_guide/administrative/access_braze/support) e inclua os logs do SDK e os passos para reprodução.

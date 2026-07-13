@@ -14,6 +14,10 @@ alias: /scim/automated_user_provisioning/
 
 ## Accès aux paramètres de provisionnement SCIM {#accessing-scim-provisioning-settings}
 
+{% alert important %}
+La disponibilité du provisionnement SCIM dépend de votre édition de plateforme. Si cette fonctionnalité n'est pas disponible dans votre espace de travail, contactez votre gestionnaire du succès des clients pour plus d'informations.
+{% endalert %}
+
 1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Paramètres d'administration** > **Provisionnement SCIM**, puis sélectionnez **Configure SCIM integration**.
 2. Dans l'étape **Braze configuration**, sélectionnez une méthode de provisionnement et fournissez les paramètres d'accès.
 
@@ -153,7 +157,7 @@ Connectez-vous à votre centre d'administration Microsoft Entra.
 4. Sélectionnez le bouton **Select** pour confirmer l'affectation.
 
 {% endtab %}
-{% tab Custom %}
+{% tab Personnalisé %}
 
 ## Étape 1 : Configurer vos paramètres SCIM {#step-1-configure-your-scim-settings}
 

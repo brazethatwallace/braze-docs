@@ -108,7 +108,7 @@ table td {
       <td>Es wurden zu viele Anfragen in einem bestimmten Zeitraum gesendet.</td>
       <td>
         <ul>
-          <li>Senken Sie das Rate-Limit Ihrer Kampagne oder Ihres Canvas-Schritts.</li>
+          <li>Senken Sie das Rate-Limit Ihrer Campaign oder Ihres Canvas-Schritts.</li>
         </ul>
       </td>
     </tr>
@@ -160,7 +160,7 @@ Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kon
 Wenn ein Connected-Content-Aufruf in Ihrer Nachrichtenvorschau oder beim Senden leer gerendert wird, prüfen Sie Folgendes:
 
 - **Geschützte Leerzeichen in der URL:** Braze entfernt geschützte Leerzeichen (`&nbsp;` oder Unicode `U+00A0`) aus Connected-Content-URLs, bevor die Anfrage gesendet wird. Wenn Ihre URL aus einem Dokument oder Dashboard-Feld kopiert wurde, das geschützte Leerzeichen zwischen Zeichen eingefügt hat, kann die Anfrage fehlschlagen oder keinen verwendbaren Antworttext zurückgeben. Geben Sie die URL im Klartext erneut ein oder entfernen Sie versteckte Leerzeichen und zeigen Sie dann erneut die Vorschau an.
-- **HTTP-Fehler und leere Antworttexte:** Bei Statuscodes über 300 oder blockierten Hosts kann Connected-Content einen leeren String rendern. Siehe [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) und überprüfen Sie Fehler im **Nachrichten-Aktivitätsprotokoll**.
+- **HTTP-Fehler und leere Antworttexte:** Bei Statuscodes ab 300 oder blockierten Hosts kann Connected-Content einen leeren String rendern. Siehe [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) und überprüfen Sie Fehler im **Nachrichten-Aktivitätsprotokoll**.
 
 ## Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll {#automated-emails-and-message-activity-log-entries}
 
@@ -169,7 +169,7 @@ Wenn ein Connected-Content-Aufruf in Ihrer Nachrichtenvorschau oder beim Senden 
 Wenn in einem Workspace innerhalb von 24 Stunden mehr als 100.000 Webhook- oder Connected-Content-Endpunkt-Fehler (einschließlich Wiederholungen) auftreten, sendet Braze Ihnen eine E-Mail mit den folgenden Informationen zur Behebung der Fehler.
 
 - Name des Workspace
-- Ein Link zum Canvas oder zur Kampagne
+- Ein Link zum Canvas oder zur Campaign
 - Endpunkt-URL
 - Fehlercode
 - Zeitpunkt, zu dem der Fehler zuletzt beobachtet wurde

@@ -16,6 +16,7 @@ Se o seu [e-mail de teste]({{site.baseurl}}/developer_guide/platform_wide/sendin
 * [Conflitos de extensões](#check-conflicts)
 * [Renderização de e-mail](#check-rendering)
 * [Inlining de CSS](#switch-css-inlining)
+* [Espaço em branco abaixo das imagens](#white-space-under-images)
 
 ### Conflitos de extensões {#extension-conflicts}
 
@@ -34,6 +35,26 @@ Os e-mails são renderizados de forma diferente dependendo dos navegadores e cli
 
 ### Inlining de CSS {#css-inlining}
 
-Há momentos em que as pré-visualizações no Inbox Vision ainda não correspondem ao que é enviado pela Braze. Isso pode ser causado pela diferença no inlining de CSS realizado pela Braze e por outras ferramentas. Se você suspeitar que esse é o caso, desative o inlining de CSS.
+Há momentos em que as prévias no Inbox Vision ainda não correspondem ao que é enviado pela Braze. Isso pode ser causado pela diferença no inlining de CSS realizado pela Braze e por outras ferramentas. Se você suspeitar que esse é o caso, desative o inlining de CSS.
+
+### Espaço em branco abaixo das imagens {#white-space-under-images}
+
+Se você notar espaço em branco ou linhas aparecendo abaixo das imagens nos seus e-mails de teste, isso geralmente é causado pela forma como os clientes de e-mail renderizam elementos inline. As imagens são inline por padrão e são alinhadas à linha de base, o que permite que os navegadores acomodem descendentes (a parte de letras como "g" ou "y" que se estendem abaixo da linha de base). Isso cria um pequeno espaço que aparece como espaço em branco.
+
+Para corrigir isso, adicione `display: block;` ao CSS da sua imagem:
+
+```html
+<style>
+  img {
+    display: block;
+  }
+</style>
+```
+
+Alternativamente, aplique o estilo diretamente a imagens específicas:
+
+```html
+<img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
 
 Ainda precisa de ajuda? Abra um [ticket de suporte]({{site.baseurl}}/braze_support).

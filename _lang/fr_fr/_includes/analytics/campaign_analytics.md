@@ -496,7 +496,7 @@ On parle de report ou d'ajournement lorsqu'un e-mail n'a pas été livré imméd
 
 Les _reports_ diffèrent des _échecs provisoires d'envoi_. Si aucun e-mail n'a été délivré avec succès pendant cette période de réessai, Braze enverra un événement d'échec provisoire d'envoi par tentative de campagne envoyée. Avant le 25 février 2025, ces tentatives étaient comptabilisées comme plusieurs échecs provisoires d'envoi pour un même envoi de campagne.
 
-Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fonctionnalités Currents ou Braze Snowflake (telles que le générateur de requêtes, SQL Segment, Snowflake Data Sharing). Si vous souhaitez les inclure dans l'analytique des campagnes ou de Canvas, veuillez [nous faire part de vos commentaires sur le produit]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fonctionnalités Currents ou Braze Snowflake (telles que le générateur de requêtes, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Taux d'ouverture réel estimé {#estimated-real-open-rate}
 

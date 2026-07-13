@@ -496,7 +496,7 @@ Diferido o aplazamiento es cuando un correo electrónico no se entregó inmediat
 
 Los _aplazamientos_ difieren de los _rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para 1 envío de campaña.
 
-Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el generador de consultas, SQL Segment, Snowflake Data Sharing). Si quieres incluirlo en los análisis de Campaign o Canvas, [envía tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el generador de consultas, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Estimación de la tasa de apertura real {#estimated-real-open-rate}
 

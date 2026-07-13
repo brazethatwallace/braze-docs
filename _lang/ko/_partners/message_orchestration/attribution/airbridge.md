@@ -16,7 +16,7 @@ _이 통합은 Airbridge에서 유지 관리합니다._
 
 ## 통합 정보 {#about-the-integration}
 
-Braze와 Airbridge 통합을 통해 Airbridge에서 Braze로 모든 비유기적 설치 경로 데이터를 전달하여 개인화된 마케팅 Campaign을 구축할 수 있습니다.
+Braze와 Airbridge 통합을 통해 Airbridge에서 Braze로 모든 비유기적 설치 경로 데이터를 전달하여 개인화된 마케팅 Campaign(캠페인)을 구축할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -25,7 +25,7 @@ Braze와 Airbridge 통합을 통해 Airbridge에서 Braze로 모든 비유기적
 | Airbridge 계정 | 이 파트너십을 활용하려면 Airbridge 계정이 필요합니다. |
 | iOS 또는 Android 앱 | 이 통합은 iOS 및 Android 앱을 지원합니다. 플랫폼에 따라 애플리케이션에 코드 스니펫이 필요할 수 있습니다. |
 | Airbridge SDK | 필수 Braze SDK 외에도 Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk) 또는 [iOS](https://help.airbridge.io/en/developers/ios-sdk) SDK를 설치해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -196,13 +196,13 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **Airbri
 
 여기에서 REST 엔드포인트를 확인하고 Braze 데이터 가져오기 키를 생성할 수 있습니다. 키가 생성되면 새 키를 만들거나 기존 키를 무효화할 수 있습니다. 데이터 가져오기 키와 REST 엔드포인트는 Airbridge의 대시보드에서 포스트백을 설정할 때 다음 단계에서 사용됩니다.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
+![데이터 가져오기 키와 REST 엔드포인트 필드가 표시된 Braze Airbridge 파트너 페이지.]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
 
 ### 3단계: Airbridge의 대시보드에서 Braze 구성 {#step-3-configure-braze-in-airbridges-dashboard}
 
 1. Airbridge에서 왼쪽 사이드바의 **Integrations > Third-party Integrations**로 이동하여 **Braze**를 선택합니다.
 2. Braze 대시보드에서 확인한 데이터 가져오기 키와 REST 엔드포인트를 입력합니다.
-3. 이벤트 유형(설치 이벤트 또는 설치 및 딥링크 오픈 이벤트)을 선택하고 저장합니다.
+3. 이벤트 유형(설치 이벤트 또는 설치 및 딥링크 열람 이벤트)을 선택하고 저장합니다.
 
 {% alert note %}
 딥링크 열람 이벤트로 이어진 Campaign의 기여도 데이터는 기기 수준에서 업데이트됩니다. 예를 들어, 두 사용자가 하나의 기기를 사용하고 한 사용자가 딥링크 열람 이벤트를 수행하면, 이 이벤트의 기여도 데이터가 다른 사용자의 데이터에도 반영됩니다.
@@ -228,11 +228,11 @@ Airbridge는 다음 데이터 필드 차트에 나열된 네 가지 유형의 �
 | `Campaign` | Install Attribution Campaign | 설치 또는 딥링크 열람이 기여된 Campaign |
 | `Ad Group` | Install Attribution Adgroup | 설치 또는 딥링크 열람이 기여된 광고 그룹 |
 | `Ad Creative` | Install Attribution Ad | 설치 또는 딥링크 열람이 기여된 광고 크리에이티브 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용 가능한 데이터 필드" }
 
 사용자 기반은 Braze 대시보드에서 설치 기여도 필터를 사용하여 기여도 데이터별로 세분화할 수 있습니다.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
+![사용 가능한 Airbridge 설치 기여도 필드가 표시된 Braze Segment 필터.]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
 
 ## Meta 비즈니스 기여도 데이터 {#meta-business-attribution-data}
 
@@ -246,7 +246,7 @@ Airbridge 클릭 추적 링크를 시작하려면 [Airbridge](https://help.airbr
 
 {% tabs %}
 {% tab Android %}
-Android의 경우, Braze는 고객이 [Google 광고 ID 수집(GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)에 옵트인할 수 있도록 합니다. GAID는 Airbridge SDK 통합을 통해서도 기본적으로 수집됩니다. 다음 Liquid 로직을 활용하여 Airbridge 클릭 추적 링크에 GAID를 포함할 수 있습니다.
+Android의 경우, Braze는 고객이 [Google 광고 ID 수집(GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id)에 옵트인할 수 있도록 합니다. GAID는 Airbridge SDK 통합을 통해서도 기본적으로 수집됩니다. 다음 Liquid 로직을 활용하여 Airbridge 클릭 추적 링크에 GAID를 포함할 수 있습니다.
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

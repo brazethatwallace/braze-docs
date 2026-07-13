@@ -58,7 +58,7 @@ platform:
 - デバイスのタイムゾーン
 
 {% alert note %}
-Braze SDKはIDFAを自動的に収集しません。アプリはオプションで、以下のメソッドを直接実装することでIDFAをBrazeに渡すことができます。アプリはIDFAをBrazeに渡す前に、App Tracking Transparencyフレームワークを通じてエンドユーザーによるトラッキングへの明示的なオプトインを取得する必要があります。
+Braze SDKはIDFAを自動的に収集しません。アプリはオプションで、以下のセクションのメソッドを実装することでIDFAをBrazeに渡すことができます。アプリはIDFAをBrazeに渡す前に、App Tracking Transparencyフレームワークを通じてエンドユーザーによるトラッキングへの明示的なオプトインを取得する必要があります。
 
 1. 広告のトラッキング状態を設定するには、[`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/)を使用します。
 2. 広告主の識別子（IDFA）を設定するには、[`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/)を使用します。
@@ -73,7 +73,7 @@ Braze SDKはIDFAを自動的に収集しません。アプリはオプション�
 例えば、許可リストに登録するデバイスの言語を指定できます。詳細については、[`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)の`devicePropertyAllowlist`オプションを参照してください。
 
 ```javascript
-import * as braze from"@braze/web-sdk";
+import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
     baseUrl: "BASE-URL",
     devicePropertyAllowlist: [ braze.DeviceProperties.LANGUAGE ] // list of `DeviceProperties` you want to collect
@@ -122,7 +122,9 @@ configuration.devicePropertyAllowList = @[
 
 ## Cookieの保存（Webのみ） {#cookies}
 
-[Web Braze SDKを初期化](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)すると、有効期限400日のCookieが作成および保存され、新しいセッションで自動的に更新されます。
+[Web Braze SDKを初期化](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)すると、SDKはファーストパーティCookie（自身のドメインに設定）を作成・保存します。有効期限は400日で、新しいセッションで自動的に更新されます。
+
+Cookieにはユーザー、セッション、デバイスの識別子のみが保存されます。その他のデータ（トリガー待ちのアプリ内メッセージ、Content Cards、まだBrazeに同期されていないキューイベントや属性など）は`localStorage`に保存されます。
 
 以下のCookieが保存されます。
 
@@ -149,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### Cookieを無効にする {#disable-cookies}
 
-すべてのCookieを無効にするには、Web SDKを初期化する際に[`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)オプションを使用します。これにより、サブドメインをまたいで移動する匿名ユーザーを関連付けることができなくなり、各サブドメインで新しいユーザーが生成されます。
+すべてのCookieを無効にするには、Web SDKを初期化する際に[`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)オプションを使用します。Cookieが無効になると、SDKは代わりに`localStorage`を使用してユーザーとセッションを識別します。これにより、サブドメインをまたいで移動する匿名ユーザーを関連付けることができなくなり、各サブドメインで新しいユーザーが生成されます。
 
 ```javascript
 import * as braze from "@braze/web-sdk";

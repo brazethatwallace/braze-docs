@@ -16,7 +16,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
 - [Einfaches Lead Scoring](#simple-lead-scoring)
 - [Externes Lead Scoring](#external-lead-scoring)
 
-2. Erstellen Sie eine Webhook-Kampagne, um qualifizierte Leads an Ihr Vertriebsteam zu senden:
+2. Erstellen Sie eine Webhook-Campaign, um qualifizierte Leads an Ihr Vertriebsteam zu senden:
 - [Lead-Übergabe: Marketing Qualified Lead (MQL) an den Vertrieb](#lead-handoff)
 
 ## Einfaches Lead Scoring {#simple-lead-scoring}
@@ -66,7 +66,7 @@ Wählen Sie unter **Subscription Settings** bei **Send to these users:** die Opt
 
 ### 4. Schritt: Canvas erstellen {#step-4-build-your-canvas}
 
-#### Schritt 4a: Einen Aktions-Pfad hinzufügen {#step-4a-add-an-action-path}
+#### Schritt 4a: Einen Aktionspfad hinzufügen {#step-4a-add-an-action-path}
 
 Wählen Sie unter Ihrer Variante <i class="fas fa-plus" aria-label="Hinzufügen"></i> **Hinzufügen** und dann **Aktionspfade**.
 
@@ -76,14 +76,14 @@ Wählen Sie unter Ihrer Variante <i class="fas fa-plus" aria-label="Hinzufügen"
 
 Jede Aktionsgruppe repräsentiert alle Aktionen, die zur selben Punkte-Erhöhung oder -Verringerung führen. Sie können bis zu acht Aktionsgruppen einrichten. In diesem Szenario richten wir vier Gruppen ein.
 
-Fügen Sie die folgenden Gruppen zu Ihrem Aktions-Pfad hinzu:
+Fügen Sie die folgenden Gruppen zu Ihrem Aktionspfad hinzu:
 
 - **Gruppe 1:** Alle Ereignisse, die für eine Erhöhung um 1 Punkt zählen.
 - **Gruppe 2:** Alle Ereignisse, die für eine Erhöhung um 5 Punkte zählen.
 - **Gruppe 3:** Alle Ereignisse, die für eine Verringerung um 1 Punkt zählen.
 - **Alle anderen:** Aktionspfade ermöglichen es Ihnen, ein Zeitfenster zu definieren, in dem abgewartet wird, ob Nutzer:innen eine Aktion ausführen, bevor sie in eine Gruppe „Alle anderen“ eingeordnet werden. Für das Lead Scoring ist dies eine Gelegenheit, die Punktzahl für „Inaktivität“ zu verringern.
 
-![Aktions-Pfad mit Aktionsgruppen zum Hinzufügen von einem Punkt, fünf Punkten und zehn Punkten; zum Subtrahieren von einem Punkt und zehn Punkten; sowie „Alle anderen“.]({% image_buster /assets/img/b2b/action_paths_selected_simple.png %}){: style="max-width:20%;"}
+![Aktionspfad mit Aktionsgruppen zum Hinzufügen von einem Punkt, fünf Punkten und zehn Punkten; zum Subtrahieren von einem Punkt und zehn Punkten; sowie „Alle anderen“.]({% image_buster /assets/img/b2b/action_paths_selected_simple.png %}){: style="max-width:20%;"}
 
 #### Schritt 4c: Jede Gruppe mit den relevanten Ereignissen konfigurieren {#step-4c-configure-each-group-to-include-the-relevant-events}
 
@@ -93,9 +93,9 @@ Wählen Sie in jeder Aktionsgruppe **Trigger auswählen** und wählen Sie das Er
 
 #### Schritt 4d: Schritte zur Nutzeraktualisierung hinzufügen {#step-4d-add-user-update-steps}
 
-Fügen Sie jedem Canvas-Pfad, der unterhalb Ihres Aktions-Pfads erstellt wurde, einen Schritt zur Nutzeraktualisierung hinzu.
+Fügen Sie jedem Canvas-Pfad, der unterhalb Ihres Aktionspfads erstellt wurde, einen Schritt zur Nutzeraktualisierung hinzu.
 
-![Canvas, das den Aktions-Pfad mit verzweigten Nutzeraktualisierungspfaden für jede Aktionsgruppe anzeigt.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
+![Canvas, das den Aktionspfad mit verzweigten Nutzeraktualisierungspfaden für jede Aktionsgruppe anzeigt.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 Führen Sie auf dem Tab **Verfassen** jedes Nutzeraktualisierungsschritts die folgenden Aktionen für die jeweiligen Felder aus:
@@ -151,13 +151,13 @@ Unser empfohlener Ansatz für Lead-Übergaben besteht darin, allen Nutzer:innen 
 
 Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisieren, empfehlen wir die Verwendung eines getriggerten Webhook-Templates.
 
-### 1. Schritt: Eine Webhook-Kampagne erstellen {#step-1-create-a-webhook-campaign}
+### 1. Schritt: Eine Webhook-Campaign erstellen {#step-1-create-a-webhook-campaign}
 
 ### 2. Schritt: Webhook konfigurieren {#step-2-configure-your-webhook}
 
 #### Schritt 2a: Webhook verfassen {#step-2a-compose-webhook}
 
-1. Geben Sie Ihrer Webhook-Kampagne einen Namen, z. B. „Salesforce > Lead auf MQL aktualisieren“.
+1. Geben Sie Ihrer Webhook-Campaign einen Namen, z. B. „Salesforce > Lead auf MQL aktualisieren“.
 
 2. Geben Sie Ihre Webhook-URL im Format {% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} ein. Die Braze-Nutzer-ID {% raw %}`{{${user_id}}}`{% endraw %} sollte mit Ihrer Salesforce-Kontakt-ID übereinstimmen. Falls nicht, verwenden Sie einen Alias anstelle von {% raw %}`{{${user_id}}}`{% endraw %}.
 
@@ -190,7 +190,7 @@ Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisier
 
 #### Schritt 2b: Webhook-Versand planen {#step-2b-schedule-webhook-sends}
 
-Die Kampagne sollte immer dann getriggert werden, wenn sich der Lead Score von Nutzer:innen ändert. Diese Kampagne wird für alle Nutzer:innen ausgelöst, deren Punktestand sich ändert, betrifft aber nur diejenigen, die derzeit kein MQL sind und den von Ihnen im vorherigen Schritt festgelegten Schwellenwert überschritten haben.
+Die Campaign sollte immer dann getriggert werden, wenn sich der Lead Score von Nutzer:innen ändert. Diese Campaign wird für alle Nutzer:innen ausgelöst, deren Punktestand sich ändert, betrifft aber nur diejenigen, die derzeit kein MQL sind und den von Ihnen im vorherigen Schritt festgelegten Schwellenwert überschritten haben.
 
 Wählen Sie im Schritt **Schedule Delivery** Folgendes aus:
 - Einen **aktionsbasierten** Zustellungstyp
@@ -202,6 +202,6 @@ Fügen Sie im Schritt **Target Audiences** einen Filter ein, der Nutzer:innen au
 
 ![Webhook-Targeting-Optionen mit dem Filter „lead_status“ ist keiner von „MQL“.]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### 3. Schritt: Kampagne starten {#step-3-launch-campaign}
+### 3. Schritt: Campaign starten {#step-3-launch-campaign}
 
 Wählen Sie **Starten** und beobachten Sie, wie sich Ihr Lead-Status in Salesforce ändert, wenn Ihre Kund:innen den MQL-Lead-Score-Schwellenwert überschreiten.

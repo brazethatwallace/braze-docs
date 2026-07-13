@@ -60,7 +60,7 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 
 ## Permissão de push {#push-permission}
 
-Todas as plataformas com push ativado — iOS, Web e Android — exigem opt-in explícito por meio de um prompt do sistema no nível do SO, com algumas pequenas diferenças descritas abaixo.
+Todas as plataformas com push ativado — iOS, Web e Android — exigem opt-in explícito por meio de um prompt do sistema no nível do SO, com algumas pequenas diferenças descritas na seção a seguir.
 
 Como a decisão do usuário é final e você não pode perguntar novamente após uma recusa, usar mensagens no app de [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) é uma estratégia importante para aumentar suas taxas de opt-in.
 
@@ -166,7 +166,7 @@ Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor*
 - **Push de segundo plano ativado no iOS:** O usuário recebeu o prompt de push e disse não, ou disse sim e depois desativou notificações por push nas configurações do dispositivo (refletido após o usuário ter uma sessão).
 - **Push de primeiro plano ativado no iOS:** O usuário recebeu o prompt de push e está elegível para receber push em primeiro plano.
 
-A análise de dados de Campaign refletirá as estatísticas de push de acordo com os detalhes acima. Você também pode baixar os perfis de usuários que entraram na Campaign ou Canvas para fazer referência cruzada com os perfis de usuários.
+A análise de dados de Campaign refletirá as estatísticas de push de acordo com os detalhes anteriores desta seção. Você também pode baixar os perfis de usuários que entraram na Campaign ou Canvas para fazer referência cruzada com os perfis de usuários.
 
 ## Outros cenários específicos de plataforma {#other-platform-specific-scenarios}
 

@@ -31,7 +31,7 @@ search_rank: 1
 4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가합니다.
    * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 사용할 때 특정 태그로 필터링할 수 있습니다.
 5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
-   * Braze에서는 단일 Campaign 내에 SMS와 RCS 배리언트를 모두 포함할 수 있으므로 각각의 성과를 비교할 수 있습니다.
+   * Braze에서는 단일 Campaign 내에 SMS와 RCS 배리언트를 모두 포함할 수 있으므로 각각의 성능을 비교할 수 있습니다.
 
 {% alert tip %}
 Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
@@ -89,7 +89,7 @@ Braze는 RCS 발신자를 포함하는 모든 구독 그룹에 대체용 SMS 코
 
 ### 연락처 카드 추가 {#adding-a-contact-card}
 
-SMS 메시지에 연락처 카드를 추가하여 고객이 비즈니스 및 연락처 정보를 기기 연락처에 추가할 수 있도록 할 수 있습니다. 회사 이름, 전화번호, 주소, 이메일, 작은 사진 등의 등록정보를 할당할 수 있습니다. 자세한 내용은 [연락처 카드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
+SMS 메시지에 연락처 카드를 추가하여 고객이 비즈니스 및 연락처 정보를 기기 연락처에 추가할 수 있도록 할 수 있습니다. 회사 이름, 전화번호, 주소, 이메일, 작은 사진 등의 속성정보를 할당할 수 있습니다. 자세한 내용은 [연락처 카드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
 
 {% endtab %}
 {% tab MMS %}
@@ -104,7 +104,7 @@ MMS 메시지를 보내려면 구독 그룹에 MMS 지원 전화번호가 하나
 
 ### 이미지 사양 {#image-specifications}
 
-| 등록정보 | 권장 사항 |
+| 속성 | 권장 사항 |
 | --- | --- |
 | 크기 | 최대 600&nbsp;KB |
 | 파일 유형 | PNG, JPEG, GIF |
@@ -124,7 +124,7 @@ Google Voice 번호로 MMS를 보내지 마세요. Google Voice는 MMS 지원이
 
 ### 인바운드 MMS 및 개인화 {#inbound-mms-and-personalization}
 
-고객이 미디어가 포함된 인바운드 메시지를 보내면 Braze는 [Currents SMS 인바운드 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 및 Liquid에서 {% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %}로 미디어를 노출합니다(예: 리타겟팅 또는 후속 메시지에서). Canvas에서 인바운드 SMS 등록정보를 사용하는 방법에 대한 자세한 내용은 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 참조하세요.
+고객이 미디어가 포함된 인바운드 메시지를 보내면 Braze는 [Currents SMS 인바운드 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 및 Liquid에서 {% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %}로 미디어를 노출합니다(예: 리타겟팅 또는 후속 메시지에서). Canvas에서 인바운드 SMS 속성정보를 사용하는 방법에 대한 자세한 내용은 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 참조하세요.
 
 {% endtab %}
 {% tab RCS %}
@@ -185,7 +185,7 @@ RCS 미디어 메시지를 사용하면 이미지, 동영상, 문서 파일 등 
 
 **고려 사항:**
 
-RCS 메시지 수신 시 사용자 경험은 통신사 커버리지, 모바일 기기 하드웨어 및 운영체제에 따라 달라질 수 있습니다. RCS는 Android 기기와 더 자연스럽게 통합되며, 기기에 따라 경험이 다른 속도와 품질로 렌더링될 수 있습니다.
+RCS 메시지 수신 시 사용자 경험은 통신사 커버리지, 모바일 기기 하드웨어 및 운영 체제에 따라 달라질 수 있습니다. RCS는 Android 기기와 더 자연스럽게 통합되며, 기기에 따라 경험이 다른 속도와 품질로 렌더링될 수 있습니다.
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -193,7 +193,7 @@ RCS 메시지 수신 시 사용자 경험은 통신사 커버리지, 모바일 �
 언어와 개인화([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), 이모지)를 필요에 따라 사용하여 메시지를 작성합니다. 초과 요금이 발생할 가능성을 줄이기 위해 메시지 문구 제한을 준수하세요.
 
 {% alert important %}
-진행하기 전에 위의 [RCS 메시지 유형 가이드라인](#step-3-compose-your-message)을 읽어보세요. RCS 메시지는 [메시지당 요금이 부과]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)되므로 각 유형에 포함할 수 있는 내용을 이해하는 것이 좋습니다.
+진행하기 전에 이 섹션 앞부분의 [RCS 메시지 유형 가이드라인](#step-3-compose-your-message)을 읽어보세요. RCS 메시지는 [메시지당 요금이 부과]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)되므로 각 유형에 포함할 수 있는 내용을 이해하는 것이 좋습니다.
 {% endalert %}
 
 {% endtab %}
@@ -204,7 +204,7 @@ RCS 메시지 수신 시 사용자 경험은 통신사 커버리지, 모바일 �
 #### Liquid 사용 {#using-liquid}
 
 {% raw %}
-Liquid를 사용할 계획이라면 선택한 개인화에 기본값을 포함하여 사용자의 프로필이 불완전한 경우 이름 대신 빈 자리 표시자 `Hi, !`나 일관성 없는 문장을 받지 않도록 하세요.
+Liquid를 사용할 계획이라면 선택한 개인화에 기본값을 포함하여 사용자의 프로필이 불완전한 경우 이름 대신 빈 입력 안내 `Hi, !`나 일관성 없는 문장을 받지 않도록 하세요.
 {% endraw %}
 
 #### AI 문구 생성 {#generating-ai-copy}
@@ -219,26 +219,26 @@ Liquid를 사용할 계획이라면 선택한 개인화에 기본값을 포함�
 
 #### 대화형 메시지 워크플로 만들기(RCS) {#create-conversational-message-workflows-rcs}
 
-대화형 메시지 워크플로를 사용하면 사용자에게 동적으로 응답하여 양방향 메시징 경험을 만들 수 있습니다. 워크플로를 구축하려면 Canvas를 만든 다음 추천 답장과 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)를 결합하여 사용자가 선택한 답장에 따라 워크플로를 안내합니다.
+대화형 메시지 워크플로를 사용하면 사용자에게 동적으로 응답하여 양방향 메시징 경험을 만들 수 있습니다. 워크플로를 구축하려면 Canvas를 만든 다음 추천 답장과 [작업 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)를 결합하여 사용자가 선택한 답장에 따라 워크플로를 안내합니다.
 
 1. Canvas 빌더에서 여러 추천 답장이 포함된 RCS 메시지 단계를 만듭니다.
 
 ![추천 답장이 포함된 RCS 메시지 작성기.]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
 {: start="2"}
-2. 해당 메시지를 각 추천 답장에 대한 동작 그룹이 있는 행동 경로에 연결합니다.
+2. 해당 메시지를 각 추천 답장에 대한 동작 그룹이 있는 작업 경로에 연결합니다.
 3. 각 동작 그룹에 대해:
    - 트리거로 **SMS 인바운드 메시지 보내기**를 선택합니다.
    - 메시지 본문을 해당 추천 답장과 동일하게 설정합니다.
 
-![세 개의 동작 그룹으로 구성된 행동 경로 단계, 각 추천 답장에 하나씩.]({% image_buster /assets/img/rcs/quick_reply.png %})
+![세 개의 동작 그룹으로 구성된 작업 경로 단계, 각 추천 답장에 하나씩.]({% image_buster /assets/img/rcs/quick_reply.png %})
 
 {: start="4"}
 4. 각 동작 그룹을 RCS 메시지 단계에 연결한 다음 관련 추천 답장에 기반한 콘텐츠를 추가합니다.
 5. 후속 메시지에 추천 답장을 추가하여 대화형 워크플로를 계속합니다.
 6. 워크플로가 완료될 때까지 2~4단계를 반복합니다.
 
-![두 개의 행동 경로가 있는 대화형 워크플로를 보여주는 Canvas.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
+![두 개의 작업 경로가 있는 대화형 워크플로를 보여주는 Canvas.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
 
 ## 4단계: 메시지 미리보기 및 테스트 {#step-4-preview-and-test-your-message}
 
@@ -255,7 +255,7 @@ MMS의 경우 자산(이미지 및 메시지 본문)의 순서를 사용자 지�
 {% endalert %}
 
 {% alert note %}
-RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메시징 앱(예: Google Messages vs. Apple Messages)에 의해 제어되므로 메시지 모양이 달라질 수 있습니다. Braze에 표시되는 미리보기는 최종 사용자가 수신하는 것과 정확히 일치하지 않을 수 있습니다. 가능하면 실제 기기에서 최종 렌더링을 확인하세요. iOS 기기에서의 RCS 렌더링에 대한 자세한 내용은 [iOS 기기에서 RCS 메시지가 정확하게 렌더링되지 않는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)를 참조하세요.
+RCS 렌더링은 사용자의 운영 체제, 기기 제조사, 통신사 및 메시징 앱(예: Google Messages vs. Apple Messages)에 의해 제어되므로 메시지 모양이 달라질 수 있습니다. Braze에 표시되는 미리보기는 최종사용자가 수신하는 것과 정확히 일치하지 않을 수 있습니다. 가능하면 실제 기기에서 최종 렌더링을 확인하세요. iOS 기기에서의 RCS 렌더링에 대한 자세한 내용은 [iOS 기기에서 RCS 메시지가 정확하게 렌더링되지 않는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)를 참조하세요.
 {% endalert %}
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs)를 참조하세요.

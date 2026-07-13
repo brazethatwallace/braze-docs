@@ -97,7 +97,7 @@ Brazeは、標準ポート`80`（HTTP）および`443`（HTTPS）で通信する
 | GET | 新しい情報を書き込むのではなく、既存の情報を取得します。定義上、GETリクエストはリクエストボディをサポートしません。 |
 | PUT | エンドポイントの情報を更新し、既存の情報をリクエストボディの内容で置き換えます。 |
 | DELETE | HTTP URL内のリソースを削除します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTPメソッド" }
 
 ### リクエストボディ {#request-body}
 
@@ -230,17 +230,17 @@ Webhookリクエストが送信されると、受信サーバーはリクエス�
 | `429`（レート制限）  | いいえ | はい |
 | `その他の4XX`（クライアントエラー）  | いいえ | いいえ |
 | `5XX`（サーバーエラー）   | いいえ | はい |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レスポンスコードとリトライロジック" }
 
 {% alert note %}
-Brazeは、上記のステータスコードに対して、エクスポネンシャルバックオフを使用して30分以内に最大5回リトライします。エンドポイントに到達できない場合、リトライは24時間にわたって分散される場合があります。<br><br>各Webhookはタイムアウトまでに90秒が許可されています。
+Brazeは、このセクションで前述したステータスコードに対して、エクスポネンシャルバックオフを使用して30分以内に最大5回リトライします。エンドポイントに到達できない場合、リトライは24時間にわたって分散される場合があります。<br><br>各Webhookはタイムアウトまでに90秒が許可されています。
 {% endalert %}
 
 `Retry-After`およびレート制限レスポンスヘッダーは、**リトライ可能な**試行（たとえば、`408`、`429`、または`5XX`の後）までBrazeが待機する時間に影響を与える場合があります。これらは、`401`などのリトライ不可能なレスポンスをリトライ対象にするものではありません。
 
-#### 認証とコネクテッドコンテンツの認証情報 {#authentication-and-connected-content-credentials}
+#### 認証とConnected Contentの認証情報 {#authentication-and-connected-content-credentials}
 
-送信Webhook HTTPリクエストは、エンドポイントに対する認証に[コネクテッドコンテンツの認証情報]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types)（`:basic_auth`または`:auth_credentials`）のアタッチをサポートしていません。代わりに、Webhookの**リクエストヘッダー**を使用して認証を設定してください。送信時にトークンやシークレットを取得するには、ヘッダーまたはボディフィールドに{% raw %}`{% connected_content %}`{% endraw %}タグを配置して、Webhookが送信される前にLiquidが解決するようにできます。
+送信Webhook HTTPリクエストは、エンドポイントに対する認証に[Connected Contentの認証情報]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types)（`:basic_auth`または`:auth_credentials`）のアタッチをサポートしていません。代わりに、Webhookの**リクエストヘッダー**を使用して認証を設定してください。送信時にトークンやシークレットを取得するには、ヘッダーまたはボディフィールドに{% raw %}`{% connected_content %}`{% endraw %}タグを配置して、Webhookが送信される前にLiquidが解決するようにできます。
 
 #### 保存済みWebhookテンプレートとキャンペーンの使用状況 {#saved-webhook-templates-and-campaign-usage}
 
@@ -248,7 +248,7 @@ Brazeは、特定の**保存済みWebhookテンプレート**を参照するす�
 
 #### トラブルシューティングと追加のエラー詳細 {#troubleshooting-and-additional-error-details}
 
-特定のWebhookエラーの詳細な説明、トラブルシューティング手順、および解決ガイダンスについては、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明しています。
+特定のWebhookエラーの詳細な説明、トラブルシューティング手順、および解決ガイダンスについては、[WebhookとConnected Contentリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明しています。
 
 ### IP許可リスト {#ip-allowlisting}
 

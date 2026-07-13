@@ -15,9 +15,9 @@ Braze Audience Sync to LinkedIn을 사용하면 브랜드는 Braze 통합에서 
 
 **오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다**:
 
-- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 참여를 유도
+- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 인게이지먼트를 유도
 - 다른 마케팅 채널에 반응이 적은 사용자를 리타겟팅
-- 이미 브랜드의 충성 고객인 사용자가 광고를 받지 않도록 억제 오디언스 생성
+- 이미 브랜드의 충성 소비자인 사용자가 광고를 받지 않도록 억제 오디언스 생성
 
 이 기능을 통해 브랜드는 LinkedIn과 공유되는 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [개인정보 보호정책](https://www.braze.com/privacy)을 참조하세요.
 
@@ -57,7 +57,7 @@ LinkedIn 연결은 Braze 워크스페이스 수준에서 적용됩니다. Linked
 
 ### 2단계: Canvas 진입 기준 구성 {#step-2-configure-your-canvas-entry-criteria}
 
-광고 추적을 위한 오디언스를 구축할 때 사용자의 선호도에 따라 특정 사용자를 포함하거나 제외하고, [CCPA](https://oag.ca.gov/privacy/ccpa)의 "판매 또는 공유 금지" 권리와 같은 개인정보 보호법을 준수할 수 있습니다. 마케터는 Canvas 진입 기준 내에서 사용자 자격에 대한 관련 필터를 구현해야 합니다. 아래에 몇 가지 옵션을 나열합니다.
+광고 추적을 위한 오디언스를 구축할 때 사용자의 선호도에 따라 특정 사용자를 포함하거나 제외하고, [CCPA](https://oag.ca.gov/privacy/ccpa)의 "판매 또는 공유 금지" 권리와 같은 개인정보 보호법을 준수할 수 있습니다. 마케터는 Canvas 진입 기준 내에서 사용자 자격에 대한 관련 필터를 구현해야 합니다. 다음 옵션이 도움이 될 수 있습니다.
 
 [Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection)를 수집한 경우 **Ads Tracking Enabled** 필터를 사용할 수 있습니다. 값을 `true`로 선택하면 옵트인한 사용자만 오디언스 동기화 대상으로 보냅니다.
 

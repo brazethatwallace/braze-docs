@@ -3,7 +3,7 @@ nav_title: Création de liens profonds
 article_title: Création de liens profonds pour iOS
 platform: iOS
 page_order: 0
-description: "Cet article explique comment implémenter le délégué universel de création de liens profonds pour votre application iOS, ainsi que des exemples sur la manière de créer des liens profonds vers les paramètres d'application."
+description: "Cet article explique comment implémenter le délégué universel de création de liens profonds pour votre application iOS, ainsi que des exemples sur la manière de créer des deep links vers les paramètres d'application."
 
 noindex: true
 ---
@@ -12,7 +12,7 @@ noindex: true
 
 # Création de liens profonds pour iOS {#deep-linking-for-ios}
 
-Pour obtenir des informations de base sur les liens profonds, consultez notre [article du Guide de l'utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Si vous souhaitez implémenter des liens profonds pour la première fois dans votre application Braze, les étapes ci-dessous vous aideront à démarrer.
+Pour obtenir des informations de base sur les deep links, consultez notre [article du Guide de l'utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Si vous souhaitez implémenter des deep links pour la première fois dans votre application Braze, les étapes ci-dessous vous aideront à démarrer.
 
 ## Étape 1 : Enregistrer un schéma {#step-1-register-a-scheme}
 
@@ -43,15 +43,15 @@ Sinon, si vous souhaitez modifier votre fichier `Info.plist` directement, vous p
 
 ## Étape 2 : Ajouter le schéma personnalisé à la liste autorisée (iOS 9+) {#step-2-allowlist-the-custom-scheme-ios-9}
 
-À partir d'iOS 9, les applications doivent disposer d'une liste autorisée de schémas personnalisés que l'application est autorisée à ouvrir. Toute tentative d'appel de schémas en dehors de cette liste entraînera l'enregistrement d'une erreur dans les journaux de l'appareil, et le lien profond ne s'ouvrira pas. Voici un exemple de cette erreur :
+À partir d'iOS 9, les applications doivent disposer d'une liste autorisée de schémas personnalisés que l'application est autorisée à ouvrir. Toute tentative d'appel de schémas en dehors de cette liste entraînera l'enregistrement d'une erreur dans les journaux de l'appareil, et le deep link ne s'ouvrira pas. Voici un exemple de cette erreur :
 
 ```
 <Warning>: -canOpenURL: failed for URL: "yourapp://deeplink" – error: "This app is not allowed to query for scheme yourapp"
 ```
 
-Par exemple, si un message in-app doit ouvrir l'application Facebook lorsqu'il est touché, l'application doit avoir le schéma personnalisé Facebook (`fb`) dans la liste autorisée. Sinon, le système rejettera le lien profond. Les liens profonds qui dirigent vers une page ou une vue au sein de votre propre application nécessitent toujours que le schéma personnalisé de votre application soit répertorié dans le `Info.plist` de votre application.
+Par exemple, si un message in-app doit ouvrir l'application Facebook lorsqu'il est touché, l'application doit avoir le schéma personnalisé Facebook (`fb`) dans la liste autorisée. Sinon, le système rejettera le deep link. Les deep links qui dirigent vers une page ou une vue au sein de votre propre application nécessitent toujours que le schéma personnalisé de votre application soit répertorié dans le `Info.plist` de votre application.
 
-Vous devez ajouter tous les schémas dont l'application a besoin pour créer des liens profonds dans une liste autorisée dans le `Info.plist` de votre application avec la clé `LSApplicationQueriesSchemes`. Par exemple :
+Vous devez ajouter tous les schémas dont l'application a besoin pour créer des deep links dans une liste autorisée dans le `Info.plist` de votre application avec la clé `LSApplicationQueriesSchemes`. Par exemple :
 
 ```html
 <key>LSApplicationQueriesSchemes</key>
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![Exemple de configuration de lien profond dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
+![Exemple de configuration de deep link dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Liens universels {#universal-links}
 
@@ -135,7 +135,7 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
 Consultez la [documentation d'Apple](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) pour plus d'informations.
 
 {% alert note %}
-L'intégration par défaut des liens universels n'est pas compatible avec les notifications push ni les messages in-app de Braze. Consultez la section [personnalisation de la gestion des liens](#linking-handling-customization) pour gérer les liens universels au sein de votre application. Sinon, nous vous recommandons d'utiliser des [liens profonds basés sur des schémas](#step-1-registering-a-scheme) avec les notifications push et les messages in-app.
+L'intégration par défaut des liens universels n'est pas compatible avec les notifications push ni les messages in-app de Braze. Consultez la section [personnalisation de la gestion des liens](#linking-handling-customization) pour gérer les liens universels au sein de votre application. Sinon, nous vous recommandons d'utiliser des [deep links basés sur des schémas](#step-1-registering-a-scheme) avec les notifications push et les messages in-app.
 {% endalert%}
 
 ## App Transport Security (ATS) {#app-transport-security-ats}
@@ -164,7 +164,7 @@ La conformité ATS est appliquée aux liens ouverts dans l'application mobile (n
 Vous pouvez gérer l'ATS de l'une des trois manières suivantes :
 
 #### Confirmer que tous les liens sont conformes à l'ATS (recommandé) {#confirm-all-links-are-ats-compliant-recommended}
-Votre intégration Braze peut satisfaire aux exigences de l'ATS en veillant à ce que tous les liens existants vers lesquels vous dirigez les utilisateurs (via des Campaigns de messages in-app et de notifications push) respectent les exigences de l'ATS. Bien qu'il existe des moyens de contourner les restrictions ATS, nous vous recommandons de vérifier que toutes les URL liées sont conformes à l'ATS. Compte tenu de l'importance croissante accordée par Apple à la sécurité des applications, il n'est pas garanti que les approches suivantes pour autoriser les exceptions ATS soient prises en charge par Apple.
+Votre intégration Braze peut satisfaire aux exigences de l'ATS en veillant à ce que tous les liens existants vers lesquels vous dirigez les utilisateurs (via des campagnes de messages in-app et de notifications push) respectent les exigences de l'ATS. Bien qu'il existe des moyens de contourner les restrictions ATS, nous vous recommandons de vérifier que toutes les URL liées sont conformes à l'ATS. Compte tenu de l'importance croissante accordée par Apple à la sécurité des applications, il n'est pas garanti que les approches suivantes pour autoriser les exceptions ATS soient prises en charge par Apple.
 
 Un outil SSL peut vous aider à identifier les problèmes de sécurité du serveur web. Ce [test de serveur SSL](https://www.ssllabs.com/ssltest/index.html) de Qualys, Inc. fournit un élément spécifiquement dédié à la conformité Apple ATS 9 et iOS 9.
 
@@ -242,13 +242,13 @@ Pour décoder un lien encodé, utilisez la méthode `NSString` [`stringByRemovin
 
 ### Personnalisation de la WebView par défaut {#default-webview-customization}
 
-La classe personnalisable `ABKModalWebViewController` affiche les URL web ouvertes par le SDK, généralement lorsque l'option « Ouvrir l'URL web dans l'application » est sélectionnée pour un lien profond web.
+La classe personnalisable `ABKModalWebViewController` affiche les URL web ouvertes par le SDK, généralement lorsque l'option « Ouvrir l'URL web dans l'application » est sélectionnée pour un deep link web.
 
 Vous pouvez déclarer une catégorie ou modifier directement la classe `ABKModalWebViewController` pour appliquer la personnalisation à la vue web. Consultez le fichier [.h](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h) et le fichier [.m](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m) de la classe pour plus de détails.
 
 ### Personnalisation de la gestion des liens {#linking-handling-customization}
 
-Le protocole `ABKURLDelegate` peut être utilisé pour personnaliser la gestion des URL telles que les liens profonds, les URL web et les liens universels. Pour définir le délégué lors de l'initialisation de Braze, passez un objet délégué à `ABKURLDelegateKey` dans les `appboyOptions` de [`startWithApiKey:inApplication:withAppboyOptions:`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). Braze appellera ensuite l'implémentation de votre délégué `handleAppboyURL:fromChannel:withExtras:` avant de gérer les URI.
+Le protocole `ABKURLDelegate` peut être utilisé pour personnaliser la gestion des URL telles que les deep links, les URL web et les liens universels. Pour définir le délégué lors de l'initialisation de Braze, passez un objet délégué à `ABKURLDelegateKey` dans les `appboyOptions` de [`startWithApiKey:inApplication:withAppboyOptions:`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). Braze appellera ensuite l'implémentation de votre délégué `handleAppboyURL:fromChannel:withExtras:` avant de gérer les URI.
 
 #### Exemple d'intégration : ABKURLDelegate {#integration-example-abkurldelegate}
 
@@ -284,22 +284,22 @@ func handleAppboyURL(_ url: URL?, from channel: ABKChannel, withExtras extras: [
 {% endtabs %}
 
 {% alert important %}
-Lorsque `handleAppboyURL:fromChannel:withExtras:` renvoie `YES`, Braze considère que votre application gère l'URL et ne l'ouvrira pas. Si vous gérez des liens universels, vous devez explicitement router l'URL vers le gestionnaire de liens universels de votre application, par exemple en appelant vous-même `application:continueUserActivity:restorationHandler:`. Renvoyer `YES` sans gérer l'URL entraînera la fermeture du message in-app ou de la carte de contenu sans action visible.
+Lorsque `handleAppboyURL:fromChannel:withExtras:` renvoie `YES`, Braze considère que votre application gère l'URL et ne l'ouvrira pas. Si vous gérez des liens universels, vous devez explicitement router l'URL vers le gestionnaire de liens universels de votre application, par exemple en appelant vous-même `application:continueUserActivity:restorationHandler:`. Renvoyer `YES` sans gérer l'URL entraînera la fermeture du message in-app ou de la Content Card sans action visible.
 
 Renvoyez `NO` si vous souhaitez que Braze gère l'URL avec son comportement par défaut.
 {% endalert %}
 
 Pour plus d'informations, consultez [`ABKURLDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKURLDelegate.h).
 
-## Cas d'utilisation fréquents {#frequent-use-cases}
+## Cas d'usage fréquents {#frequent-use-cases}
 
-### Création de liens profonds vers les paramètres d'application {#deep-linking-to-app-settings}
+### Création de deep links vers les paramètres d'application {#deep-linking-to-app-settings}
 
-iOS peut diriger les utilisateurs de votre application vers sa page dans l'application Réglages d'iOS. Vous pouvez tirer parti de `UIApplicationOpenSettingsURLString` pour créer des liens profonds vers les paramètres depuis les notifications push et les messages in-app.
+iOS peut diriger les utilisateurs de votre application vers sa page dans l'application Réglages d'iOS. Vous pouvez tirer parti de `UIApplicationOpenSettingsURLString` pour créer des deep links vers les paramètres depuis les notifications push et les messages in-app.
 
-1. Tout d'abord, assurez-vous que votre application est configurée pour les [liens profonds basés sur des schémas](#deep-links) ou les [liens universels](#universal-links).
-2. Choisissez un URI pour le lien profond vers la page **Paramètres** (par exemple, `myapp://settings` ou `https://www.braze.com/settings`).
-3. Si vous utilisez des liens profonds basés sur un schéma personnalisé, ajoutez le code suivant à votre méthode `application:openURL:options:` :
+1. Tout d'abord, assurez-vous que votre application est configurée pour les [deep links basés sur des schémas](#deep-links) ou les [liens universels](#universal-links).
+2. Choisissez un URI pour le deep link vers la page **Paramètres** (par exemple, `myapp://settings` ou `https://www.braze.com/settings`).
+3. Si vous utilisez des deep links basés sur un schéma personnalisé, ajoutez le code suivant à votre méthode `application:openURL:options:` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

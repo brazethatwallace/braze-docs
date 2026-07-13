@@ -144,7 +144,7 @@ O iOS 9 introduziu uma mudança significativa que afeta URLs da web incorporadas
 ### Requisitos do ATS {#ats-requirements}
 Da [documentação da Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14): "O App Transport Security é um recurso que melhora a segurança das conexões entre um app e os serviços da web. O recurso consiste em requisitos de conexão padrão que estão em conformidade com as melhores práticas para conexões seguras. Os apps podem substituir esse comportamento padrão e desativar a segurança de transporte."
 
-O ATS é aplicado por padrão no iOS 9+. Ele requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com forward secrecy. Consulte [Requisitos para Conexão Usando ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de entrega de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
+O ATS é aplicado por padrão no iOS 9+. Ele requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com forward secrecy. Consulte [Requirements for Connecting Using ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de distribuição de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
 
 A menos que sejam especificadas como exceções no `Info.plist` do seu aplicativo, as conexões que não seguirem esses requisitos falharão com erros parecidos com isto:
 
@@ -157,7 +157,7 @@ Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secur
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador da web.
+A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador web.
 
 ### Atendendo aos requisitos do ATS {#handling-ats-requirements}
 

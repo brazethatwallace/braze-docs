@@ -1,6 +1,6 @@
 ---
 nav_title: Swift-Paketmanager
-article_title: Swift Package Manager Integration für iOS
+article_title: Swift-Paketmanager-Integration für iOS
 platform: iOS
 page_order: 3
 description: "Dieses Tutorial behandelt die Installation des Braze SDK mit dem Swift-Paketmanager für iOS."
@@ -10,15 +10,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Integration von Swift Package Manager {#swift-package-manager-integration}
+# Integration des Swift-Paketmanagers {#swift-package-manager-integration}
 
-Die Installation des iOS SDK über den [Swift Package Manager](https://swift.org/package-manager/) (SPM) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie mit diesem Vorgang beginnen, stellen Sie sicher, dass Sie Xcode 12 oder höher verwenden.
+Die Installation des iOS SDK über den [Swift-Paketmanager](https://swift.org/package-manager/) (SPM) automatisiert den Großteil des Installationsprozesses für Sie. Bevor Sie mit diesem Vorgang beginnen, stellen Sie sicher, dass Sie Xcode 12 oder höher verwenden.
 
 {% alert note %}
-tvOS ist derzeit nicht über den Swift Package Manager verfügbar.
+tvOS ist derzeit nicht über den Swift-Paketmanager verfügbar.
 {% endalert %}
 
-## 1. Schritt: Hinzufügen der Abhängigkeit zu Ihrem Projekt {#step-1-adding-the-dependency-to-your-project}
+## Schritt 1: Hinzufügen der Abhängigkeit zu Ihrem Projekt {#step-1-adding-the-dependency-to-your-project}
 
 ### SDK-Version importieren {#import-sdk-version}
 
@@ -51,7 +51,7 @@ Wählen Sie das Paket, das Ihren Anforderungen am besten entspricht, und klicken
 
 ![Xcode-Bildschirm „Add Package“ zur Auswahl der Braze-SDK-Bibliotheksziele.]({% image_buster /assets/img/ios/spm/add_package.png %})
 
-## 2. Schritt: Ihr Projekt konfigurieren {#step-2-configuring-your-project}
+## Schritt 2: Ihr Projekt konfigurieren {#step-2-configuring-your-project}
 
 Navigieren Sie als Nächstes zu den **Build-Einstellungen** Ihres Projekts und fügen Sie das `-ObjC`-Flag zur Einstellung **Other Linker Flags** hinzu. Dieses Flag muss hinzugefügt und eventuelle [Fehler](https://developer.apple.com/library/archive/qa/qa1490/_index.html) müssen behoben werden, um das SDK weiter integrieren zu können.
 
@@ -61,7 +61,7 @@ Navigieren Sie als Nächstes zu den **Build-Einstellungen** Ihres Projekts und f
 Wenn Sie das Flag `-ObjC` nicht hinzufügen, können Teile der API fehlen und das Verhalten ist nicht definiert. Es kann zu unerwarteten Fehlern (z. B. „unrecognized selector sent to class“), Abstürzen der Anwendung und anderen Problemen kommen.
 {% endalert %}
 
-## 3. Schritt: Schema des Ziels bearbeiten {#step-3-editing-the-targets-scheme}
+## Schritt 3: Schema des Ziels bearbeiten {#step-3-editing-the-targets-scheme}
 {% alert important %}
 Wenn Sie Xcode 12.5 oder eine neuere Version verwenden, überspringen Sie diesen Schritt.
 {% endalert %}

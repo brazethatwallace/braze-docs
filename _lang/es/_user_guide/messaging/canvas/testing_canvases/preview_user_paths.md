@@ -32,7 +32,7 @@ Se admiten los siguientes pasos:
 - División de decisiones
 - Demora
 - Ruta de acción
-- Ruta de experimentos
+- Recorrido de experimentos
 - Actualización de usuario (solo en el editor de interfaz de usuario, lo que significa que se omiten los pasos que utilizan el editor JSON)
 
 Si la prueba coincide con un tipo de paso que no aparece en la lista anterior, se omite el paso no compatible y el usuario de prueba continúa con el siguiente paso compatible.
@@ -49,17 +49,17 @@ Si tu vista previa envía el último paso del recorrido de tu usuario en lugar d
 
 ## Vistas previas de tiempos {#previews-for-timing}
 
-Para Canvas planificados, el usuario de prueba entra en el siguiente horario de entrada planificado. Para Canvas basados en acciones con fechas de inicio, el usuario de prueba entra en la fecha y hora de inicio.
+Para Canvas programados, el usuario de prueba entra en el siguiente horario de entrada programado. Para Canvas basados en acciones con fechas de inicio, el usuario de prueba entra en la fecha y hora de inicio.
 
 Aunque los horarios de inicio predeterminados siguen aplicándose, la hora de entrada es configurable en todos los casos, lo que significa que puedes simular una fecha en el pasado o en el futuro. Sin embargo, no puedes probar antes de la fecha de inicio ni después de la fecha de finalización del Canvas.
 
-Los pasos de mensaje y demora muestran la hora a la que un usuario avanzaría o recibiría el mensaje sin necesidad de reconfigurar las demoras. Ten en cuenta que, aunque los pasos indican si se usa Intelligent Timing, esta vista previa del recorrido del usuario no calcula una estimación para un usuario de prueba.
+Los pasos de mensaje y demora muestran la hora a la que un usuario avanzaría o recibiría el mensaje sin necesidad de reconfigurar las demoras. Ten en cuenta que, aunque los pasos indican si se usa la sincronización inteligente, esta vista previa del recorrido del usuario no calcula una estimación para un usuario de prueba.
 
 Para Canvas con un desencadenador de acción como "cambio en el valor de un atributo personalizado", Braze intenta simular el cambio estableciendo temporalmente el atributo del usuario en el desencadenador como vacío **solo para la ejecución de prueba del Canvas** (esto no afecta al perfil de usuario). Esto está pensado para probar que el atributo cambia desde su valor actual.
 
 ## Cuándo los usuarios entran y salen {#when-users-enter-and-exit}
 
-Los usuarios de prueba entran en la vista previa incluso si no son elegibles en la vida real. Si no son elegibles, puedes ver por qué no han cumplido los criterios. Cuando un usuario de prueba entra en la vista previa, asumimos que ha cumplido los criterios de audiencia objetivo y ha realizado los criterios del desencadenador de acción. Por ejemplo, para un Canvas que usa eventos personalizados en los criterios de entrada, se asume que el usuario de prueba ha realizado el evento personalizado como se esperaba en los criterios de entrada. Sin embargo, si el mismo evento personalizado se usa en otra parte del Canvas (como en los criterios de salida), considera cómo esto podría afectar el recorrido de tu usuario.
+Los usuarios de prueba entran en la vista previa incluso si no son elegibles en la vida real. Si no son elegibles, puedes ver por qué no han cumplido los criterios. Cuando un usuario de prueba entra en la vista previa, asumimos que ha cumplido los criterios de público objetivo y ha realizado los criterios del desencadenador de acción. Por ejemplo, para un Canvas que usa eventos personalizados en los criterios de entrada, se asume que el usuario de prueba ha realizado el evento personalizado como se esperaba en los criterios de entrada. Sin embargo, si el mismo evento personalizado se usa en otra parte del Canvas (como en los criterios de salida), considera cómo esto podría afectar el recorrido de tu usuario.
 
 Los eventos, desencadenadores de API, atributos personalizados y propiedades de entrada de Canvas que se asumen para permitir que un usuario de prueba entre al Canvas no se actualizan en el perfil de usuario real y no persisten más allá de la ejecución de prueba. Por ejemplo, durante las pruebas, cuando un atributo personalizado se usa como desencadenador de Canvas, los criterios del desencadenador se aplican a la vista previa del usuario **como si** hubiera desencadenado el cambio de atributo personalizado.
 
@@ -83,7 +83,7 @@ Para enviar todos los mensajes de prueba en un Canvas a la vez, independientemen
 
 ## Capacidad de respuesta {#responsiveness}
 
-Los pasos en Canvas responden a los tiempos al previsualizar los recorridos de usuario. Las actualizaciones realizadas a través del paso de Actualización de usuario se reflejan en los pasos posteriores del flujo, pero no se aplican al perfil de usuario real. Los efectos de que un usuario entre en una variante se reflejan en los pasos futuros de una vista previa.
+Los pasos en Canvas responden a los tiempos al previsualizar los recorridos de usuario. Las actualizaciones realizadas a través del paso de actualización de usuario se reflejan en los pasos posteriores del flujo, pero no se aplican al perfil de usuario real. Los efectos de que un usuario entre en una variante se reflejan en los pasos futuros de una vista previa.
 
 De manera similar, los filtros reconocen las acciones que ocurrieron como resultado de la interacción del usuario de prueba con otros pasos en el Canvas. Por ejemplo, este modo de vista previa reconoce que un usuario encontró un paso de mensaje que fue "enviado" anteriormente en el Canvas, y reconoce que el usuario de prueba "realizó una acción" para avanzar a través de una ruta de acción.
 
@@ -91,13 +91,13 @@ Consulta [Criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/crea
 
 ## Contenido conectado {#connected-content}
 
-El contenido conectado se ejecuta si está incluido en el Canvas. Esto significa que si pruebas un Canvas que tiene llamadas de contenido conectado o Content Blocks que contienen contenido conectado, el Canvas puede enviar las llamadas de contenido conectado, lo que modificaría los datos referenciados en otras Campaigns o Canvas.
+El contenido conectado se ejecuta si está incluido en el Canvas. Esto significa que si pruebas un Canvas que tiene llamadas de contenido conectado o Content Blocks que contienen contenido conectado, el Canvas puede enviar las llamadas de contenido conectado, lo que modificaría los datos referenciados en otras campañas u otros Canvas.
 
-Al previsualizar los recorridos de usuario, considera eliminar el contenido conectado que altera los perfiles de usuario o los datos referenciados en otros Canvas o Campaigns.
+Al previsualizar los recorridos de usuario, considera eliminar el contenido conectado que altera los perfiles de usuario o los datos referenciados en otros Canvas o campañas.
 
 ## Webhooks {#webhooks}
 
-Los webhooks se ejecutan cuando se envían mensajes de prueba, pero no durante la ejecución de prueba. De manera similar al contenido conectado, considera eliminar los webhooks que alteran los perfiles de usuario o los datos referenciados en otros Canvas o Campaigns.
+Los webhooks se ejecutan cuando se envían mensajes de prueba, pero no durante la ejecución de prueba. De manera similar al contenido conectado, considera eliminar los webhooks que alteran los perfiles de usuario o los datos referenciados en otros Canvas o campañas.
 
 ## Variables de contexto y grupos semilla {#context-variables-and-seed-groups}
 

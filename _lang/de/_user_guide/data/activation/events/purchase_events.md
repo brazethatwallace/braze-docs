@@ -215,7 +215,7 @@ Nach der Genehmigung können zusätzliche Eigenschaften im Dashboard unter **Dat
 
 {% include data_activation/segmentable_purchase_properties_keys_note.md %}
 
-### Canvas-Eingangs-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
+### Canvas-Entry-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}
 

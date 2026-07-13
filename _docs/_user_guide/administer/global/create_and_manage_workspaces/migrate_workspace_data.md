@@ -73,7 +73,7 @@ You can set `date_of_first_session` and `date_of_last_session` through [`/users/
 
 Each user is assigned a [random bucket number]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-update-events) in their workspace. That value cannot be re-imported; the user gets a new random bucket in the destination workspace.
 
-If you rely on the old number for holdouts or sampling (for example, excluding users whose `random_bucket` is below a threshold), save the exported value as a custom attribute and build segments or filters on that attribute instead of the built-in random bucket field.
+If you rely on the old number for holdouts or sampling (for example, excluding users whose `random_bucket` is less than a threshold), save the exported value as a custom attribute and build segments or filters on that attribute instead of the built-in random bucket field.
 
 #### Partner attribution fields (`attributed_*`)
 

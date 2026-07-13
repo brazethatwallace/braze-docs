@@ -121,11 +121,11 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 {:start="2"}
 
 2. 사용자를 설정하고 적절한 권한을 부여합니다. 기존 동기화의 자격 증명이 이미 있는 경우 재사용할 수 있지만&#8212;카탈로그 소스 테이블에 대한 액세스 권한을 확장해야 합니다.
-서비스 계정에는 아래 권한이 있어야 합니다:
+서비스 계정에는 다음 섹션의 권한이 있어야 합니다:
 - BigQuery Connection User: Braze가 연결할 수 있도록 합니다.
 - BigQuery User: Braze가 쿼리를 실행하고, 데이터세트 메타데이터를 읽고, 테이블을 나열할 수 있는 액세스 권한을 제공합니다.
 - BigQuery Data Viewer: Braze가 데이터세트와 그 콘텐츠를 볼 수 있는 액세스 권한을 제공합니다.
-- BigQuery Job User: Braze가 작업을 실행할 수 있는 액세스 권한을 제공합니다.<br><br>서비스 계정을 생성하고 권한을 부여한 후 JSON 키를 생성합니다. 자세한 내용은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 이 키는 나중에 Braze 대시보드에 업로드하게 됩니다.
+- BigQuery Job User: Braze가 작업을 실행할 수 있는 액세스 권한을 제공합니다.<br><br>서비스 계정을 생성하고 권한을 부여한 후 JSON 키를 생성합니다. 자세한 내용은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 이 키는 나중에 Braze 대시보드에 업데이트하게 됩니다.
 
 {:start="3"}
 3. 네트워크 정책이 있는 경우 Braze에 BigQuery 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)을 참조하세요.

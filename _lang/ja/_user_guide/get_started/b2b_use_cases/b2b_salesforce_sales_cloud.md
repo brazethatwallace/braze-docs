@@ -52,9 +52,9 @@ SalesforceサポートからSalesforce Sales Cloudで接続アプリを作成す
 
 テンプレートを使って、このWebhookをBrazeプラットフォーム全体ですばやく再利用できます。
 
-1. Brazeで、**Templates** に移動し、**Webhook Templates** を選択してから、**+ Create Webhook Template** を選択します。
+1. Brazeで、**テンプレート**に移動し、**Webhookテンプレート**を選択してから、**+ Webhookテンプレートを作成**を選択します。
 2. テンプレートの名前を指定します（「Salesforce Sales Cloud > Create Lead」など）。
-3. **Compose** タブで、以下の詳細を入力します。
+3. **作成**タブで、以下の詳細を入力します。
 
 #### Webhookの作成 {#compose-webhook}
 
@@ -88,7 +88,7 @@ BrazeからSalesforceにマッピングするキーと値のペアごとに、**
 {: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストヘッダー" }
 
 {: start="4" }
-4. **Save Template** を選択します。
+4. **テンプレートを保存**を選択します。
 
 ![リードを作成するために入力されたWebhookテンプレート。]({% image_buster /assets/img/b2b/create_lead_webhook.png %}){: style="max-width:70%;"}
 
@@ -108,9 +108,9 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ### ステップ2:Webhookテンプレートをセットアップする
 
-1. Brazeで、**Templates** に移動し、**Webhook Templates** を選択してから、**+ Create Webhook Template** を選択します。
+1. Brazeで、**テンプレート**に移動し、**Webhookテンプレート**を選択してから、**+ Webhookテンプレートを作成**を選択します。
 2. テンプレートの名前を指定します（「Salesforce Sales Cloud > Update Lead to MQL」など）。
-3. **Compose** タブで、以下の詳細を入力します。
+3. **作成**タブで、以下の詳細を入力します。
 
 #### Webhookの作成
 
@@ -141,7 +141,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストヘッダー" }
 
 {: start="4"}
-4. **Save Template** を選択します。
+4. **テンプレートを保存**を選択します。
 
 ![リードを更新するために入力されたWebhookテンプレート。]({% image_buster /assets/img/b2b/update_lead_webhook.png %}){: style="max-width:70%;"}
 
@@ -160,7 +160,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ### マーケティング適格リード（MQL）しきい値を超えた場合のリードスコアリングキャンバス {#lead-scoring}
 
-このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff)のユースケースで取り上げていますが、リードスコアリングキャンバス内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhook キャンペーンを作成する代わりに）。
+このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff)のユースケースで取り上げていますが、リードスコアリングキャンバス内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhookキャンペーンを作成する代わりに）。
 
 ユーザーの更新に後続ステップを追加し、ユーザーが定義したMQLしきい値を超えたかどうかをチェックします。超えた場合、そのユーザーのステータスを「MQL」に更新し、このWebhookテンプレートを使用して同じ「MQL」ステータスでSalesforceを更新します。Salesforceは、定義されたリードルーティングルールを使用して、このリードを適切な営業チームにルーティングすることで残りの処理を行います。
 

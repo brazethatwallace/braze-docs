@@ -6,13 +6,13 @@ noindex: true
 hide_toc: true
 ---
 
-# Créditos de mensaje - Sigma (Confidencial) {#message-credits-sigma-confidential}
+# Créditos de mensaje - Sigma (confidencial) {#message-credits-sigma-confidential}
 
-> Créditos de mensaje es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Consola de Agente, SMS, MMS, RCS, WhatsApp y LINE. Los créditos de mensaje proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
+> Créditos de mensaje es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp y LINE. Los créditos de mensaje proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
 
 {% alert note %}
 Los diferentes productos tendrán distintas unidades de medida en los informes.<br><br>
-<b>Consola de Agente:</b> Invocaciones<br>
+<b>Agent Console:</b> Invocaciones<br>
 <b>SMS:</b> Segmentos<br>
 <b>MMS:</b> Envíos<br>
 <b>WhatsApp:</b> Mensajes entregados<br>
@@ -50,68 +50,68 @@ Las definiciones de las columnas son las siguientes:
     </thead>
     <tbody>
     <tr>
-        <td>Consola de Agente</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>Consola de Agente</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Canadá</td>
+        <td>Canada</td>
         <td>1.00</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Canadá Toll Free</td>
+        <td>Canada Toll Free</td>
         <td>1.30</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Estados Unidos</td>
+        <td>United States</td>
         <td>1.00</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Estados Unidos Toll Free</td>
+        <td>United States Toll Free</td>
         <td>1.50</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canadá código largo</td>
+        <td>Canada Long Code</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canadá código abreviado</td>
+        <td>Canada Short Code</td>
         <td>12.00</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canadá Toll Free</td>
+        <td>Canada Toll Free</td>
         <td>3.90</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Estados Unidos</td>
+        <td>United States</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Estados Unidos Toll Free</td>
+        <td>United States Toll Free</td>
         <td>6.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Abjasia</td>
+        <td>Abkhazia</td>
         <td>4.65</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Afganistán</td>
+        <td>Afghanistan</td>
         <td>71.03</td>
     </tr>
     <tr>
@@ -121,12 +121,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Argelia</td>
+        <td>Algeria</td>
         <td>39.23</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Samoa Americana</td>
+        <td>American Samoa</td>
         <td>35.55</td>
     </tr>
     <tr>
@@ -141,12 +141,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Anguila</td>
+        <td>Anguilla</td>
         <td>24.98</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Antigua y Barbuda</td>
+        <td>Antigua and Barbuda</td>
         <td>18.53</td>
     </tr>
     <tr>
@@ -181,7 +181,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Azerbaiyán</td>
+        <td>Azerbaijan</td>
         <td>73.28</td>
     </tr>
     <tr>
@@ -191,12 +191,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Baréin</td>
+        <td>Bahrain</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bangladés</td>
+        <td>Bangladesh</td>
         <td>43.58</td>
     </tr>
     <tr>
@@ -206,32 +206,32 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bielorrusia</td>
+        <td>Belarus</td>
         <td>47.63</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bélgica</td>
+        <td>Belgium</td>
         <td>18.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Belice</td>
+        <td>Belize</td>
         <td>51.75</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Benín</td>
+        <td>Benin</td>
         <td>27.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bermudas</td>
+        <td>Bermuda</td>
         <td>22.43</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bután</td>
+        <td>Bhutan</td>
         <td>75.75</td>
     </tr>
     <tr>
@@ -241,22 +241,22 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bosnia y Herzegovina</td>
+        <td>Bosnia and Herzegovina</td>
         <td>15.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Botsuana</td>
+        <td>Botswana</td>
         <td>18.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Brasil</td>
+        <td>Brazil</td>
         <td>1.88</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Brunéi</td>
+        <td>Brunei</td>
         <td>3.75</td>
     </tr>
     <tr>
@@ -276,32 +276,32 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Camboya</td>
+        <td>Cambodia</td>
         <td>32.25</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Camerún</td>
+        <td>Cameroon</td>
         <td>26.18</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cabo Verde</td>
+        <td>Cape Verde</td>
         <td>27.45</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Caribe Neerlandés</td>
+        <td>Caribbean Netherlands</td>
         <td>16.28</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Caimán</td>
+        <td>Cayman Islands</td>
         <td>25.28</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>República Centroafricana</td>
+        <td>Central African Republic</td>
         <td>23.03</td>
     </tr>
     <tr>
@@ -326,7 +326,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Comoras</td>
+        <td>Comoros</td>
         <td>46.43</td>
     </tr>
     <tr>
@@ -336,7 +336,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Cook</td>
+        <td>Cook Islands</td>
         <td>26.40</td>
     </tr>
     <tr>
@@ -346,7 +346,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Croacia</td>
+        <td>Croatia</td>
         <td>17.33</td>
     </tr>
     <tr>
@@ -356,27 +356,27 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Curazao</td>
+        <td>Curacao</td>
         <td>7.43</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Chipre</td>
+        <td>Cyprus</td>
         <td>16.35</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>República Checa</td>
+        <td>Czech Republic</td>
         <td>7.58</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Dinamarca</td>
+        <td>Denmark</td>
         <td>7.58</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Yibuti</td>
+        <td>Djibouti</td>
         <td>30.68</td>
     </tr>
     <tr>
@@ -386,12 +386,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>República Dominicana</td>
+        <td>Dominican Republic</td>
         <td>9.68</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>RD del Congo</td>
+        <td>DR Congo</td>
         <td>43.28</td>
     </tr>
     <tr>
@@ -401,7 +401,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Egipto</td>
+        <td>Egypt</td>
         <td>18.23</td>
     </tr>
     <tr>
@@ -411,7 +411,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guinea Ecuatorial</td>
+        <td>Equatorial Guinea</td>
         <td>32.70</td>
     </tr>
     <tr>
@@ -426,52 +426,52 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Esuatini</td>
+        <td>Eswatini</td>
         <td>4.35</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Etiopía</td>
+        <td>Ethiopia</td>
         <td>64.73</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Malvinas</td>
+        <td>Falkland Islands</td>
         <td>25.73</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Feroe</td>
+        <td>Faroe Islands</td>
         <td>12.75</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Fiyi</td>
+        <td>Fiji</td>
         <td>31.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Finlandia</td>
+        <td>Finland</td>
         <td>10.95</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Francia</td>
+        <td>France</td>
         <td>7.35</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guayana Francesa</td>
+        <td>French Guiana</td>
         <td>34.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Polinesia Francesa</td>
+        <td>French Polynesia</td>
         <td>33.98</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Gabón</td>
+        <td>Gabon</td>
         <td>49.80</td>
     </tr>
     <tr>
@@ -486,7 +486,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Alemania</td>
+        <td>Germany</td>
         <td>14.10</td>
     </tr>
     <tr>
@@ -501,22 +501,22 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Grecia</td>
+        <td>Greece</td>
         <td>7.43</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Groenlandia</td>
+        <td>Greenland</td>
         <td>7.73</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Granada</td>
+        <td>Grenada</td>
         <td>30.68</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guadalupe</td>
+        <td>Guadeloupe</td>
         <td>25.50</td>
     </tr>
     <tr>
@@ -541,7 +541,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guinea-Bisáu</td>
+        <td>Guinea-Bissau</td>
         <td>29.78</td>
     </tr>
     <tr>
@@ -551,7 +551,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Haití</td>
+        <td>Haiti</td>
         <td>44.55</td>
     </tr>
     <tr>
@@ -566,12 +566,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Hungría</td>
+        <td>Hungary</td>
         <td>14.33</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islandia</td>
+        <td>Iceland</td>
         <td>13.13</td>
     </tr>
     <tr>
@@ -586,22 +586,22 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Irán</td>
+        <td>Iran</td>
         <td>46.88</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Irak</td>
+        <td>Iraq</td>
         <td>35.93</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Irlanda</td>
+        <td>Ireland</td>
         <td>9.83</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Isla de Man</td>
+        <td>Isle of Man</td>
         <td>6.08</td>
     </tr>
     <tr>
@@ -611,12 +611,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Italia</td>
+        <td>Italy</td>
         <td>5.85</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Costa de Marfil</td>
+        <td>Ivory Coast</td>
         <td>18.60</td>
     </tr>
     <tr>
@@ -626,7 +626,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Japón</td>
+        <td>Japan</td>
         <td>7.65</td>
     </tr>
     <tr>
@@ -636,17 +636,17 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Jordania</td>
+        <td>Jordan</td>
         <td>41.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kazajistán</td>
+        <td>Kazakhstan</td>
         <td>41.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kenia</td>
+        <td>Kenya</td>
         <td>19.65</td>
     </tr>
     <tr>
@@ -656,7 +656,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>República de Corea</td>
+        <td>Korea Republic of</td>
         <td>5.18</td>
     </tr>
     <tr>
@@ -671,27 +671,27 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kirguistán</td>
+        <td>Kyrgyzstan</td>
         <td>45.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Laos RDP</td>
+        <td>Laos PDR</td>
         <td>11.55</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Letonia</td>
+        <td>Latvia</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Líbano</td>
+        <td>Lebanon</td>
         <td>23.03</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Lesoto</td>
+        <td>Lesotho</td>
         <td>38.55</td>
     </tr>
     <tr>
@@ -701,7 +701,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Libia</td>
+        <td>Libya</td>
         <td>61.28</td>
     </tr>
     <tr>
@@ -711,12 +711,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Lituania</td>
+        <td>Lithuania</td>
         <td>10.28</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Luxemburgo</td>
+        <td>Luxembourg</td>
         <td>13.95</td>
     </tr>
     <tr>
@@ -736,22 +736,22 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Malaui</td>
+        <td>Malawi</td>
         <td>42.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Malasia</td>
+        <td>Malaysia</td>
         <td>11.03</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Maldivas</td>
+        <td>Maldives</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Malí</td>
+        <td>Mali</td>
         <td>29.78</td>
     </tr>
     <tr>
@@ -761,12 +761,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Marshall</td>
+        <td>Marshall Islands</td>
         <td>30.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Martinica</td>
+        <td>Martinique</td>
         <td>24.98</td>
     </tr>
     <tr>
@@ -776,7 +776,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mauricio</td>
+        <td>Mauritius</td>
         <td>30.15</td>
     </tr>
     <tr>
@@ -786,7 +786,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>México</td>
+        <td>Mexico</td>
         <td>2.03</td>
     </tr>
     <tr>
@@ -796,12 +796,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Moldavia</td>
+        <td>Moldova</td>
         <td>11.93</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mónaco</td>
+        <td>Monaco</td>
         <td>35.10</td>
     </tr>
     <tr>
@@ -821,7 +821,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Marruecos</td>
+        <td>Morocco</td>
         <td>19.80</td>
     </tr>
     <tr>
@@ -851,17 +851,17 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Países Bajos</td>
+        <td>Netherlands</td>
         <td>12.38</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Nueva Caledonia</td>
+        <td>New Caledonia</td>
         <td>33.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Nueva Zelanda</td>
+        <td>New Zealand</td>
         <td>14.40</td>
     </tr>
     <tr>
@@ -871,7 +871,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Níger</td>
+        <td>Niger</td>
         <td>56.18</td>
     </tr>
     <tr>
@@ -886,52 +886,52 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Isla Norfolk</td>
+        <td>Norfolk Island</td>
         <td>5.33</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Macedonia del Norte</td>
+        <td>North Macedonia</td>
         <td>2.55</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Chipre del Norte</td>
+        <td>Northern Cyprus</td>
         <td>1.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Noruega</td>
+        <td>Norway</td>
         <td>7.88</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Omán</td>
+        <td>Oman</td>
         <td>27.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Pakistán</td>
+        <td>Pakistan</td>
         <td>55.95</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Palaos</td>
+        <td>Palau</td>
         <td>18.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Territorio Palestino</td>
+        <td>Palestinian Territory</td>
         <td>57.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Panamá</td>
+        <td>Panama</td>
         <td>16.73</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Papúa Nueva Guinea</td>
+        <td>Papua New Guinea</td>
         <td>142.58</td>
     </tr>
     <tr>
@@ -941,17 +941,17 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Perú</td>
+        <td>Peru</td>
         <td>6.08</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Filipinas</td>
+        <td>Philippines</td>
         <td>2.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Polonia</td>
+        <td>Poland</td>
         <td>3.90</td>
     </tr>
     <tr>
@@ -966,47 +966,47 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Catar</td>
+        <td>Qatar</td>
         <td>3.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Reunión/Mayotte</td>
+        <td>Reunion/Mayotte</td>
         <td>36.15</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Rumanía</td>
+        <td>Romania</td>
         <td>7.95</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Rusia</td>
+        <td>Russia</td>
         <td>71.55</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ruanda</td>
+        <td>Rwanda</td>
         <td>34.95</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>San Cristóbal y Nieves</td>
+        <td>Saint Kitts and Nevis</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Santa Lucía</td>
+        <td>Saint Lucia</td>
         <td>8.03</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>San Pedro y Miquelón</td>
+        <td>Saint Pierre and Miquelon</td>
         <td>17.33</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>San Vicente y las Granadinas</td>
+        <td>Saint Vincent and The Grenadines</td>
         <td>7.95</td>
     </tr>
     <tr>
@@ -1021,12 +1021,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Santo Tomé y Príncipe</td>
+        <td>Sao Tome and Principe</td>
         <td>24.68</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Arabia Saudita</td>
+        <td>Saudi Arabia</td>
         <td>14.33</td>
     </tr>
     <tr>
@@ -1046,12 +1046,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sierra Leona</td>
+        <td>Sierra Leone</td>
         <td>35.48</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Singapur</td>
+        <td>Singapore</td>
         <td>5.25</td>
     </tr>
     <tr>
@@ -1061,17 +1061,17 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Eslovaquia</td>
+        <td>Slovakia</td>
         <td>16.73</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Eslovenia</td>
+        <td>Slovenia</td>
         <td>28.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Salomón</td>
+        <td>Solomon Islands</td>
         <td>15.68</td>
     </tr>
     <tr>
@@ -1081,22 +1081,22 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sudáfrica</td>
+        <td>South Africa</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Osetia del Sur</td>
+        <td>South Ossetia</td>
         <td>15.38</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sudán del Sur</td>
+        <td>South Sudan</td>
         <td>6.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>España</td>
+        <td>Spain</td>
         <td>6.00</td>
     </tr>
     <tr>
@@ -1106,42 +1106,42 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sudán</td>
+        <td>Sudan</td>
         <td>31.13</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Surinam</td>
+        <td>Suriname</td>
         <td>24.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Suazilandia</td>
+        <td>Swaziland</td>
         <td>17.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Suecia</td>
+        <td>Sweden</td>
         <td>6.45</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Suiza</td>
+        <td>Switzerland</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Siria</td>
+        <td>Syria</td>
         <td>58.95</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Taiwán</td>
+        <td>Taiwan</td>
         <td>6.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tayikistán</td>
+        <td>Tajikistan</td>
         <td>85.13</td>
     </tr>
     <tr>
@@ -1151,7 +1151,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tailandia</td>
+        <td>Thailand</td>
         <td>2.70</td>
     </tr>
     <tr>
@@ -1171,27 +1171,27 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Trinidad y Tobago</td>
+        <td>Trinidad and Tobago</td>
         <td>22.65</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Túnez</td>
+        <td>Tunisia</td>
         <td>52.95</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Turquía</td>
+        <td>Turkey</td>
         <td>5.78</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Turkmenistán</td>
+        <td>Turkmenistan</td>
         <td>37.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Turcas y Caicos</td>
+        <td>Turks and Caicos Islands</td>
         <td>25.35</td>
     </tr>
     <tr>
@@ -1206,22 +1206,22 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ucrania</td>
+        <td>Ukraine</td>
         <td>21.45</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Emiratos Árabes Unidos</td>
+        <td>United Arab Emirates</td>
         <td>9.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Reino Unido</td>
+        <td>United Kingdom</td>
         <td>4.88</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Desconocido</td>
+        <td>Unknown</td>
         <td>29.40</td>
     </tr>
     <tr>
@@ -1231,7 +1231,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Uzbekistán</td>
+        <td>Uzbekistan</td>
         <td>51.60</td>
     </tr>
     <tr>
@@ -1251,17 +1251,17 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Vírgenes Británicas</td>
+        <td>Virgin Islands, British</td>
         <td>35.48</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Islas Vírgenes de EE. UU.</td>
+        <td>Virgin Islands, U.S.</td>
         <td>3.75</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Wallis y Futuna</td>
+        <td>Wallis and Futuna</td>
         <td>20.78</td>
     </tr>
     <tr>
@@ -1276,7 +1276,7 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Zimbabue</td>
+        <td>Zimbabwe</td>
         <td>26.63</td>
     </tr>
     <tr>
@@ -2131,27 +2131,27 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>Line</td>
-        <td>Todas las regiones</td>
+        <td>All Regions</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>Todas las regiones</td>
+        <td>All Regions</td>
         <td>0.20</td>
     </tr>
     <tr>
         <td>Webhooks</td>
-        <td>Estándar</td>
+        <td>Standard</td>
         <td>0.08</td>
     </tr>
     <tr>
-        <td>Conector SMS BYO</td>
-        <td>Infobip - Todas las regiones</td>
+        <td>BYO SMS Connector</td>
+        <td>Infobip - All Regions</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>Conector SMS BYO</td>
-        <td>Twilio - Todas las regiones</td>
+        <td>BYO SMS Connector</td>
+        <td>Twilio - All Regions</td>
         <td>0.30</td>
     </tr>
     <tr>
@@ -2281,14 +2281,14 @@ Las definiciones de las columnas son las siguientes:
 
 ------
 
-## Detalles de la Consola de Agente {#agent-console-details}
-Braze cobrará créditos de mensaje por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
+## Detalles de la consola del agente {#agent-console-details}
+Braze cobrará créditos de mensaje por las invocaciones de la consola del agente enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
 ## Detalles del canal SMS/MMS {#smsmms-channel-details}
 
 ### Segmentos de SMS {#sms-segments}
 
-Los segmentos de mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento de mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se envía en un solo despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos de mensaje. Enviar múltiples segmentos de mensaje generará cargos adicionales.
+Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un solo despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
 
 ### Segmentos de MMS {#mms-segments}
 
@@ -2296,31 +2296,31 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 
 ### Tipos de RCS {#rcs-types}
 
-RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta interacción como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
+RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
-- La facturación de RCS se basa en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
+- La facturación de RCS se centra en dos tipos de mensajes diferentes (con distinciones para EE. UU.):
     - **RCS básico:** Solo texto, hasta 160 caracteres
-    - **RCS único:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
+    - **RCS individual:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto > 160 caracteres
     - **RCS enriquecido (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **RCS multimedia enriquecido (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un solo mensaje
+    - **RCS con medios enriquecidos (solo EE. UU.):** Cualquier medio O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
 
-## Detalles del canal WhatsApp {#whatsapp-channel-details}
+## Detalles del canal de WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalles adicionales del canal {#additional-channel-details}
+## Detalles de canales adicionales {#additional-channel-details}
 
 ### Webhooks
 
-Los webhooks pasaron a formar parte de los Créditos de Mensaje el 9 de diciembre de 2024. Braze cobrará Créditos de Mensaje por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada Período de tu Plazo de Suscripción. Los webhooks adicionales se cobrarán según lo establecido en tu Formulario de Pedido.
+Los webhooks pasaron a formar parte de los créditos de mensaje el 9 de diciembre de 2024. Braze cobrará créditos de mensaje por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
 
 ### Conectores SMS propios (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará Créditos de Mensaje por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
+Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará créditos de mensaje por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
 
 ### LINE
 
-Braze cobrará Créditos de Mensaje por cualquier mensaje de LINE enviado desde la plataforma Braze.
+Braze cobrará créditos de mensaje por cualquier mensaje de LINE enviado desde la plataforma Braze.
 
 ## Desglose por región de facturación {#billing-region-breakdown}
 
@@ -2330,26 +2330,23 @@ Estados Unidos, Canadá
 
 ### Resto de África {#rest-of-africa}
 
-Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia,
-Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
+Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
 ### Resto de Asia-Pacífico {#rest-of-asia-pacific}
 
-Afganistán, Australia, Bangladés, Camboya, China, Hong Kong, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Singapur, Sri Lanka, Taiwán, Tayikistán, Tailandia,
-Turkmenistán, Uzbekistán, Vietnam
+Afganistán, Australia, Bangladés, Camboya, China, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Sri Lanka, Taiwán, Tayikistán, Tailandia, Turkmenistán, Uzbekistán, Vietnam
 
 ### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
-Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Hungría, Letonia, Lituania, Macedonia, Moldavia, Polonia, Rumanía, Serbia, Eslovaquia, Eslovenia, Ucrania
+Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Letonia, Lituania, Macedonia, Moldavia, Serbia, Eslovaquia, Eslovenia, Ucrania
 
 ### Resto de América Latina {#rest-of-latin-america}
 
-Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador,
-Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
+Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador, Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
 ### Resto de Oriente Medio {#rest-of-middle-east}
 
-Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Catar, Yemen
+Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Yemen
 
 ### Resto de Europa Occidental {#rest-of-western-europe}
 

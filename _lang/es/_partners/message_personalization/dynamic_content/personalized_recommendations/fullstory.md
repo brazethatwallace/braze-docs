@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Fullstory
 
-> La plataforma de datos de comportamiento de [Fullstory](https://www.fullstory.com/) ayuda a los líderes tecnológicos a tomar decisiones mejores y más informadas. Al inyectar datos de comportamiento digital en su pila de análisis, la tecnología patentada de Fullstory libera el poder de los datos de comportamiento de calidad a escala, transformando cada visita digital en información accionable.
+> La plataforma de datos de comportamiento de [Fullstory](https://www.fullstory.com/) ayuda a los líderes tecnológicos a tomar decisiones mejores y más informadas. Al inyectar datos de comportamiento digital en su pila de análisis, la tecnología patentada de Fullstory libera el poder de los datos de comportamiento de calidad a escala, transformando cada visita digital en análisis accionables.
 
 *Esta integración está mantenida por Fullstory*
 
@@ -27,10 +27,10 @@ Antes de empezar, necesitas lo siguiente:
 
 | Requisito | Descripción |
 |-----------------------|-----------------|
-| Un token de autorización de la API de sesión de Fullstory | Consulta el paso 1 más abajo. |
-| Un token de autorización de contenido conectado de Braze habilitado | Consulta la nota siguiente sobre acceso anticipado. |
-| Un paso de contexto de Canvas en Braze | Consulta la nota siguiente sobre acceso anticipado. |
-| Paso de agente de BrazeAI habilitado | Consulta la nota siguiente sobre acceso anticipado. |
+| Un token de autorización de la API de sesión de Fullstory | Consulta el paso 1 de esta guía. |
+| Un token de autorización de contenido conectado de Braze habilitado | Consulta la nota de acceso anticipado en esta sección. |
+| Un paso de contexto de Canvas en Braze | Consulta la nota de acceso anticipado en esta sección. |
+| Paso de agente de BrazeAI habilitado | Consulta la nota de acceso anticipado en esta sección. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% alert important %}
@@ -41,7 +41,7 @@ Los agentes de Braze, el contexto de Canvas y los tokens de autorización de con
 
 ### Paso 1: Configurar Fullstory para la habilitación de la API de resumen de sesión {#step-1}
 
-#### Paso 1.1: Recuperar el token de autenticación para el punto de conexión de la API de resumen de sesión {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
+#### Paso 1.1: Recuperar el token de autenticación para el endpoint de la API de resumen de sesión {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
 
 Para crear una [clave de API de Fullstory](https://developer.fullstory.com/server/authentication/):
 
@@ -51,20 +51,20 @@ Para crear una [clave de API de Fullstory](https://developer.fullstory.com/serve
 
 #### Paso 1.2: Crear un ID de perfil de resumen de sesión {#step-12-create-a-session-summary-profile-id}
 
-Siguiendo [las indicaciones de Fullstory](https://developer.fullstory.com/anywhere/activation/ai-session-summary-api/#step-1-creating-and-managing-summary-profiles), crea un perfil de resumen de sesión utilizando el punto de conexión dedicado. Aquí es donde defines qué tipo de datos quieres que la respuesta de resumen de sesión proporcione a Braze.
+Siguiendo [las indicaciones de Fullstory](https://developer.fullstory.com/anywhere/activation/ai-session-summary-api/#step-1-creating-and-managing-summary-profiles), crea un perfil de resumen de sesión utilizando el endpoint dedicado. Aquí es donde defines qué tipo de datos quieres que la respuesta de resumen de sesión proporcione a Braze.
 
 En la respuesta a esta solicitud, Fullstory proporciona un ID de perfil de sesión. Este ID de perfil es un componente clave del cuerpo de la solicitud de contenido conectado que se utiliza en el siguiente caso de uso.
 
 ### Paso 2: Crear la autenticación del token de contenido conectado {#step-2-create-the-connected-content-token-authentication}
 
-1. En Braze, ve a **Configuración** > **Configuración del espacio de trabajo** > **Connected Content** > **Add Credential** > **Token Authentication**.
+1. En Braze, ve a **Configuración** > **Configuración del espacio de trabajo** > **Contenido conectado** > **Añadir credencial** > **Autenticación por token**.
 2. Nombra la autenticación `fullstory`.
 3. Añade la clave de encabezado "Authorization". Proporciona el valor de encabezado que Fullstory facilitó en el paso anterior.
-4. En **Allowed Domain**, introduce **api.fullstory.com**.
+4. En **Dominio permitido**, introduce **api.fullstory.com**.
 
 ![Captura de pantalla de Braze mostrando los campos de edición de credenciales]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 ### Crear recorridos de mensajes dinámicos {#create-dynamic-message-journeys}
 
@@ -72,7 +72,7 @@ Utilizando los [flujos de activación](https://help.fullstory.com/hc/en-us/artic
 
 Aprovechando los pasos de contexto de Canvas y el contenido conectado, puedes utilizar este ID para realizar una solicitud de API a Fullstory, recuperar los datos de la sesión y almacenarlos como una variable para utilizarlos más adelante en el recorrido.
 
-![Paso de contexto de Canvas en Braze mostrando la variable de contexto "summary_result" creada y rellenada con una llamada de contenido conectado a Fullstory, para recuperar un resumen de sesión]({% image_buster /assets/img/fullstory/2.png %})
+![Paso de contexto de Canvas en Braze mostrando la variable de contexto "summary_result" creada y rellenada con una llamada de contenido conectado a Fullstory para recuperar un resumen de sesión]({% image_buster /assets/img/fullstory/2.png %})
 
 Con el token de autorización creado anteriormente, utiliza la siguiente estructura de solicitud para obtener los datos del resumen de sesión.
 
@@ -151,7 +151,7 @@ En esta fase, el Canvas puede acceder a la respuesta de la llamada de contenido 
 {% endraw %}
 {% enddetails %}
 
-Puedes aprovechar cualquiera de los datos disponibles en el objeto anterior utilizando la etiqueta de contexto Liquid más adelante en el recorrido del usuario por el Canvas. Los pasos siguientes muestran cómo puedes utilizar estos datos en un paso de [agente]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step/).
+Puedes aprovechar cualquiera de los datos disponibles en el objeto anterior utilizando la etiqueta de contexto Liquid más adelante en el recorrido del usuario por el Canvas. Los pasos siguientes muestran cómo puedes utilizar estos datos en un paso de [agente]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step).
 
 {% alert note %}
 Para evitar comportamientos inesperados, incluye un paso de ruta de audiencia después del paso de contexto, que puede sacar a los usuarios del contexto si su etiqueta de contexto está vacía, lo que indica que la llamada de contenido conectado falló o no devolvió información.
@@ -162,7 +162,7 @@ Para evitar comportamientos inesperados, incluye un paso de ruta de audiencia de
 
 ### Producir el texto adecuado {#produce-appropriate-copy}
 
-Al crear un [paso de agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) en un Canvas desencadenado por Fullstory, e incluir el paso de contexto descrito anteriormente, puedes hacer referencia a los datos de resumen de sesión de Fullstory en el agente.
+Al crear un [paso de agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) en un Canvas desencadenado por Fullstory, e incluir el paso de contexto descrito en esta sección, puedes hacer referencia a los datos de resumen de sesión de Fullstory en el agente.
 
 En este ejemplo, utilizas estos datos para permitir que el agente de Braze genere un texto de mensaje adecuado para su uso en una tarjeta de contenido, que puede animar al usuario a volver a su cesta abandonada.
 
@@ -170,7 +170,7 @@ En este ejemplo, utilizas estos datos para permitir que el agente de Braze gener
 
 Utiliza el mismo nombre para la etiqueta de contexto Liquid creada en este paso que la etiqueta de contexto Liquid utilizada en el paso de agente de IA creado anteriormente.
 
-La instrucción necesaria para tu caso de uso varía. Para conocer las mejores prácticas sobre cómo crear instrucciones eficaces para los agentes, consulta [Escribir instrucciones]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions).
+La instrucción necesaria para tu caso de uso varía. Para conocer las mejores prácticas sobre cómo crear instrucciones eficaces para los agentes, consulta [Escribir instrucciones]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions).
 
 En tu Canvas, selecciona un paso de agente de IA y, a continuación, selecciona el agente **Session Context** en el menú desplegable. Guarda el resultado como una variable, en este caso "message", que puedes colocar en el texto del mensaje utilizando la etiqueta de Liquid {% raw %}`{{context.${message}.message}}`{% endraw %}.
 

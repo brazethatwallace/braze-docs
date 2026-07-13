@@ -368,7 +368,7 @@ Se um grupo de inscrições referenciado em **Sending Info** para cancelamento c
 {% enddetails %}
 
 {% details A configuração de cancelamento de inscrição com um clique está disponível para modelos de e-mail? %}
-Não, atualmente não temos planos de adicionar isso para modelos de e-mail, pois esses modelos não são atribuídos a um domínio de envio. Se você tem interesse nesse recurso para modelos de e-mail, envie um [feedback de produto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Não, atualmente não temos planos de adicionar isso para modelos de e-mail, pois esses modelos não são atribuídos a um domínio de envio. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details Esse recurso verifica se a URL de cancelamento de inscrição com um clique adicionada à opção personalizada é válida? %}

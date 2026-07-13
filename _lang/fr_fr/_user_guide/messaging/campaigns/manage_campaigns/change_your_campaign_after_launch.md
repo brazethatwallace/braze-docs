@@ -4,7 +4,7 @@ article_title: Modifier votre campagne après le lancement
 page_order: 1
 tool: Campaigns
 page_type: reference
-description: "Cet article de référence donne un aperçu des conséquences de la modification de certains aspects d'une campagne après son lancement."
+description: "Cet article de référence donne un aperçu des conséquences de la modification de certains aspects d'une campagne après son lancement, y compris la manière dont les changements se propagent pour les campagnes de messages in-app."
 
 ---
 
@@ -43,6 +43,27 @@ Pour relancer votre campagne, sélectionnez **Reprendre**. Votre campagne repren
 Pour les campagnes avec une audience plus large et des limites de débit, Braze partitionne et planifie des lots de messages à envoyer à différents moments. Lorsqu'une campagne est arrêtée, les envois ne sont pas annulés immédiatement. Ils sont annulés lorsqu'ils commencent à s'exécuter et détectent que la campagne a été arrêtée.
 
 Par exemple, si vous lancez une campagne e-mail avec limite de débit, que vous la mettez en pause pendant quelques heures, puis que vous la reprenez, tous les messages qui étaient planifiés pour être envoyés pendant les heures de pause sont annulés et ne seront jamais envoyés. Les messages restants planifiés après la reprise de la campagne continuent d'être envoyés. Si la rééligibilité est activée pour la campagne, les utilisateurs peuvent redevenir éligibles pour recevoir la campagne en plus des messages qui étaient déjà en file d'attente avant l'arrêt de la campagne.
+
+## Campagnes de messages in-app {#in-app-message-campaigns}
+
+Contrairement aux notifications push ou aux e-mails, les messages in-app sont distribués aux appareils au début de la session et mis en cache localement jusqu'à ce que le déclencheur se déclenche. Lorsque vous modifiez une campagne de messages in-app en cours — par exemple en l'arrêtant, en définissant une [date de fin]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger), en activant **Réévaluer l'éligibilité de la campagne avant l'affichage**, en mettant à jour le contenu, en changeant le déclencheur du message ou en modifiant l'audience cible — la configuration mise à jour se propage lorsque les appareils récupèrent les déclencheurs au début de leur prochaine session.
+
+Voici ce à quoi vous pouvez vous attendre :
+
+- Les appareils qui n'ont pas démarré de nouvelle session depuis votre modification peuvent continuer à utiliser la configuration précédente jusqu'à ce qu'ils synchronisent à nouveau les déclencheurs.
+- Les appareils qui démarrent une session après votre modification reçoivent la dernière configuration.
+
+### Arrêter un lancement erroné {#stop-a-mistaken-launch}
+
+Si vous avez lancé la mauvaise campagne de messages in-app, sélectionnez **Arrêter la campagne** sur la page **Détails de la campagne**. C'est le moyen le plus rapide d'empêcher les nouvelles sessions de télécharger le message. Les utilisateurs qui ont déjà mis en cache le payload avant l'arrêt de la campagne peuvent encore le voir lorsqu'ils remplissent les conditions du déclencheur, jusqu'à ce que leur appareil synchronise les déclencheurs mis à jour lors d'une session ultérieure.
+
+[L'archivage]({{site.baseurl}}/user_guide/messaging/governance/archiving) et les dates de fin suivent les mêmes règles de propagation : ils arrêtent la distribution pour les synchronisations futures mais ne suppriment pas les messages déjà mis en cache sur les appareils. Si vous devez examiner, dupliquer ou modifier la campagne, arrêtez-la d'abord et archivez-la plus tard lorsque vous avez terminé.
+
+### Limiter les distributions obsolètes {#limit-stale-deliveries}
+
+Sélectionnez **Réévaluer l'éligibilité de la campagne avant l'affichage** dans les paramètres de distribution de votre campagne afin que Braze confirme l'appartenance à l'audience et le statut de la campagne juste avant chaque affichage. Cela permet d'éviter les impressions après l'arrêt, l'archivage ou le dépassement de la date de fin d'une campagne. Vous pouvez activer ou désactiver ce paramètre après le lancement, mais il suit les mêmes règles de propagation que les autres modifications : les appareils ne reçoivent la configuration mise à jour qu'à leur prochaine synchronisation des déclencheurs.
+
+Pour en savoir plus, consultez [Choisir les utilisateurs à cibler]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target) et [Pourquoi ma campagne de messages in-app archivée continue-t-elle à générer des impressions de messages in-app ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Campagnes déclenchées {#triggered-campaigns}
 

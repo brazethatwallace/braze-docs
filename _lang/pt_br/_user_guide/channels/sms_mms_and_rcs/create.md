@@ -193,7 +193,7 @@ A experiência do usuário ao receber mensagens RCS pode variar com base na cobe
 Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) e emojis) conforme necessário. Certifique-se de seguir os limites de texto para reduzir suas chances de cobranças excedentes.
 
 {% alert important %}
-Antes de prosseguir, leia as [diretrizes de tipo de mensagem RCS](#step-3-compose-your-message) acima. Mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), então é uma boa ideia entender o que pode ser incluído em cada tipo.
+Antes de prosseguir, leia as [diretrizes de tipo de mensagem RCS](#step-3-compose-your-message) anteriormente nesta seção. Mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), então é uma boa ideia entender o que pode ser incluído em cada tipo.
 {% endalert %}
 
 {% endtab %}
@@ -219,26 +219,26 @@ A aparência final das mensagens da direita para a esquerda depende em grande pa
 
 #### Criar fluxos de mensagens conversacionais (RCS) {#create-conversational-message-workflows-rcs}
 
-Fluxos de mensagens conversacionais permitem responder dinamicamente aos usuários, criando uma experiência de mensagens de ida e volta. Para construir um fluxo, crie um Canvas e combine respostas sugeridas com [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
+Fluxos de mensagens conversacionais permitem responder dinamicamente aos usuários, criando uma experiência de mensagens de ida e volta. Para construir um fluxo, crie um Canvas e combine respostas sugeridas com [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
 
 1. No construtor de Canvas, crie uma etapa de mensagem RCS com múltiplas respostas sugeridas.
 
 ![Criador de mensagem RCS com respostas sugeridas.]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
 {: start="2"}
-2. Conecte essa mensagem a uma Jornada de ação com um grupo de ação para cada resposta sugerida.
+2. Conecte essa mensagem a uma jornada de ação com um grupo de ação para cada resposta sugerida.
 3. Para cada grupo de ação:
    - Selecione o gatilho **Enviar uma mensagem SMS de entrada**.
    - Defina o corpo da mensagem para ser o mesmo da resposta sugerida correspondente.
 
-![Etapa de Jornada de ação configurada com três grupos de ação, um para cada resposta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
+![Etapa de jornada de ação configurada com três grupos de ação, um para cada resposta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
 
 {: start="4"}
 4. Conecte cada grupo de ação a uma etapa de mensagem RCS e adicione conteúdo com base na resposta sugerida associada.
 5. Continue o fluxo conversacional adicionando respostas sugeridas a quaisquer mensagens de acompanhamento.
 6. Repita as etapas 2 a 4 até que o fluxo esteja completo.
 
-![Canvas mostrando um fluxo conversacional com duas Jornadas de ação.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
+![Canvas mostrando um fluxo conversacional com duas jornadas de ação.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
 
 ## Etapa 4: Pré-visualize e teste sua mensagem {#step-4-preview-and-test-your-message}
 
@@ -258,7 +258,7 @@ Para MMS, a ordenação dos ativos (imagem e corpo da mensagem) não pode ser pe
 Como a renderização do RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A pré-visualização mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível. Para saber mais sobre a renderização do RCS em dispositivos iOS, consulte [Por que minha mensagem RCS não é renderizada corretamente em dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
-Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
+Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
 
 ## Etapa 5: Construa o restante da sua campanha ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -281,7 +281,7 @@ Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messa
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Selecione o público maior dos seus segmentos e restrinja ainda mais esse segmento com filtros opcionais. Você receberá automaticamente uma pré-visualização da população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
+Selecione o público maior dos seus segmentos e restrinja ainda mais esse segmento com filtros opcionais. Você receberá automaticamente uma prévia da população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% alert tip %}
 Interessado em redirecionamento? Consulte [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) para saber mais.
@@ -301,7 +301,7 @@ Você também pode definir eventos de conversão personalizados com base no seu 
 {% endtab %}
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 
 {% endtab %}
 {% endtabs %}

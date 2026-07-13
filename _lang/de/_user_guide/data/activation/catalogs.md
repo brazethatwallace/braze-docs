@@ -7,7 +7,7 @@ layout: dev_guide
 guide_top_header: "Kataloge"
 guide_top_text: "Kataloge greifen auf Daten aus importierten CSV-Dateien und API-Endpunkten zu, um Ihre Nachrichten anzureichern – ähnlich wie Sie über Liquid auf angepasste Attribute oder Event-Eigenschaften zugreifen würden."
 
-description: "Auf dieser Landing-Page finden Sie alles rund um Kataloge. Nutzen Sie Kataloge und gefilterte Sets, um Nicht-Nutzerdaten in Ihren Braze-Kampagnen einzusetzen und personalisierte Nachrichten zu versenden."
+description: "Auf dieser Landing-Page finden Sie alles rund um Kataloge. Nutzen Sie Kataloge und gefilterte Sets, um Nicht-Nutzerdaten in Ihren Braze Campaigns einzusetzen und personalisierte Nachrichten zu versenden."
 
 guide_featured_title: "Abschnitt-Artikel"
 guide_featured_list:

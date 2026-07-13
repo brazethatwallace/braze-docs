@@ -18,14 +18,14 @@ _Esta integración está mantenida por Survicate._
 
 Utiliza la integración nativa de Survicate y Braze para sincronizar las respuestas de las encuestas por correo electrónico, dentro de la aplicación, móvil o web con los perfiles de cliente de Braze. Las respuestas a las encuestas se sincronizan automáticamente con los perfiles de usuario de Braze como atributos personalizados o eventos. La información sobre las opiniones en tiempo real facilita el seguimiento y el análisis de las opiniones junto con los datos de clientes y la creación de seguimientos específicos y segmentos hiperpersonalizados.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Braze y Survicate trabajan juntos para cubrir una amplia gama de casos de uso de opiniones, ayudándote a recopilar información accionable de los usuarios y a mejorar la experiencia del cliente:
 
 - Mejora las tasas de respuesta de las encuestas con encuestas incrustadas que pueden responderse desde un buzón de entrada de correo electrónico.
-- Obtén información en las fases críticas del recorrido del cliente a través de mensajes dentro de la aplicación de Braze.
+- Obtén información en las fases críticas del recorrido del cliente a través de In-App Messages de Braze.
 - Utiliza la información almacenada en Survicate para crear segmentos más inteligentes en Braze.
-- Automatiza campañas de seguimiento basadas en las opiniones de los clientes.
+- Automatiza Campaigns de seguimiento basadas en las opiniones de los clientes.
 - Utiliza la información de los clientes para desencadenar flujos de trabajo personalizados.
 - Llega a una audiencia más amplia con encuestas traducidas automáticamente.
 - Envía eventos a los perfiles de contacto de Braze cuando alguien responda a tu encuesta.
@@ -35,17 +35,17 @@ Braze y Survicate trabajan juntos para cubrir una amplia gama de casos de uso de
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Survicate | Necesitas una cuenta de Survicate para activar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con el permiso `users.track`. <br><br> Se puede crear en el dashboard de Braze desde **Settings** > **APIs and Identifiers**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Clave de API REST de Braze | Una clave de API REST de Braze con el permiso `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **API e identificadores**. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Características principales de la integración {#key-features-of-the-integration}
 
 La integración de Survicate y Braze ofrece sincronización de datos en tiempo real, por lo que la información más actualizada de las encuestas de Survicate está disponible inmediatamente en Braze. Basándote en las respuestas a las encuestas, puedes utilizar estos datos para emprender acciones oportunas y personalizadas.
 
-- **Envía las respuestas de las encuestas a Braze como atributos personalizados de usuario**: Enriquece los perfiles de usuario de Braze con datos procedentes de respuestas a encuestas.
-- **Desencadena eventos personalizados en Braze**: Utiliza eventos basados en respuestas a encuestas para dirigirte a grupos específicos o iniciar campañas de seguimiento.
-- **Construye segmentos detallados**: Crea segmentos en Braze utilizando los datos de las encuestas de Survicate para personalizar aún más tu alcance.
+- **Envía las respuestas de las encuestas a Braze como atributos personalizados de usuario**: enriquece los perfiles de usuario de Braze con datos procedentes de respuestas a encuestas.
+- **Desencadena eventos personalizados en Braze**: utiliza eventos basados en respuestas a encuestas para dirigirte a grupos específicos o iniciar Campaigns de seguimiento.
+- **Construye segmentos detallados**: crea segmentos en Braze utilizando los datos de las encuestas de Survicate para personalizar aún más tu alcance.
 
 ## Integración {#integration}
 
@@ -82,12 +82,12 @@ Muestra la primera pregunta directamente en el cuerpo del correo electrónico pa
 
 1. Haz clic en **Get email code** y, a continuación, **Copy the HTML code**:
 
-![Get email code]({% image_buster /assets/img/survicate/survicate_5.gif %})
+![Obtener código de correo electrónico]({% image_buster /assets/img/survicate/survicate_5.gif %})
 
 {: start="2"}
-2. Ve a la campaña de Braze que quieras utilizar para la encuesta, haz clic en **Edit email body** y añade un bloque HTML a tu plantilla:
+2. Ve a la Campaign de Braze que quieras utilizar para la encuesta, haz clic en **Edit email body** y añade un bloque HTML a tu plantilla:
 
-![Obtener código HTML de bloque]({% image_buster /assets/img/survicate/survicate_6.png %})
+![Obtener código de bloque HTML]({% image_buster /assets/img/survicate/survicate_6.png %})
 
 {: start="3"}
 3. Sustituye el código por el que copiaste de tu encuesta de Survicate. A continuación, verás la primera pregunta de la encuesta en la plantilla:
@@ -95,7 +95,7 @@ Muestra la primera pregunta directamente en el cuerpo del correo electrónico pa
 ![Sustituye el código por el que copiaste de tu encuesta de Survicate]({% image_buster /assets/img/survicate/survicate_7.png %})
 
 {: start="4"}
-4. Programa el correo electrónico, elige tu grupo objetivo y tu campaña estará lista para enviar.
+4. Programa el correo electrónico, elige tu grupo objetivo y tu Campaign estará lista para enviar.
 
 {% enddetails %}
 
@@ -106,7 +106,7 @@ Muestra la primera pregunta directamente en el cuerpo del correo electrónico pa
 ![Haz clic en + Create new survey, selecciona cualquier método de creación]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
 {: start="2"}
-2. Lanza tu encuesta de In-App Message de Braze accediendo a tu cuenta de Braze y, a continuación, a **Messaging** > **Campaigns** > **Create campaign** > **In-app message**:
+2. Lanza tu encuesta de In-App Message de Braze accediendo a tu cuenta de Braze y, a continuación, a **Mensajería** > **Campaigns** > **Crear Campaign** > **In-app message**:
 ![Lanza tu encuesta de In-App Message de Braze]({% image_buster /assets/img/survicate/survicate_9.gif %})
 
 ### Lanza tu encuesta de In-App Message de Braze a través del editor tradicional {#launch-your-braze-in-app-messenger-survey-via-the-traditional-editor}
@@ -130,7 +130,7 @@ Puedes encontrar un fragmento de código de muestra y una implementación de Rea
 {% endalert %}
 
 {: start="3"}
-3. En tu campaña de Braze, configura los pasos **Target** y **Assign**. Una vez completado, tu campaña estará lista para lanzarse. En el paso **Review**, puedes ver el aspecto de la campaña. La encuesta aparece en tu sitio web en el lugar especificado en el panel de Survicate, como se ha descrito anteriormente.
+3. En tu Campaign de Braze, configura los pasos **Target** y **Assign**. Una vez completado, tu Campaign estará lista para lanzarse. En el paso **Review**, puedes ver el aspecto de la Campaign. La encuesta aparece en tu sitio web en el lugar especificado en el panel de Survicate, como se ha descrito anteriormente.
 
 ### Habilitación de la integración de Braze {#enabling-the-braze-integration}
 
@@ -209,9 +209,9 @@ El evento contiene propiedades del evento con la respuesta a la pregunta e infor
 
 ![El evento contiene propiedades del evento con la respuesta]({% image_buster /assets/img/survicate/survicate_24.png %})
 
-También puedes utilizar estos datos al crear una campaña en Braze.
+También puedes utilizar estos datos al crear una Campaign en Braze.
 
-![También puedes utilizar estos datos al crear una campaña en Braze]({% image_buster /assets/img/survicate/survicate_25.png %})
+![También puedes utilizar estos datos al crear una Campaign en Braze]({% image_buster /assets/img/survicate/survicate_25.png %})
 
 ### Prueba la integración {#test-the-integration}
 

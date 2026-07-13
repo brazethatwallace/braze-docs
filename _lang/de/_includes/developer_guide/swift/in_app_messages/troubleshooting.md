@@ -6,7 +6,7 @@ Bei der Integration von Braze zusammen mit Netzwerkprotokollierungsbibliotheken 
 
 #### Domains
 
-Die vollständige Liste der CDN-Domains finden Sie im Folgenden:
+Die vollständige Liste der CDN-Domains lautet wie folgt:
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
@@ -15,7 +15,7 @@ Die vollständige Liste der CDN-Domains finden Sie im Folgenden:
 
 #### Beispiele {#examples}
 
-Nachfolgend finden Sie Bibliotheken, von denen bekannt ist, dass sie mit dem Asset-Caching von Braze in Konflikt stehen, sowie Beispiel-Code, um das Problem zu umgehen. Wenn Ihr Projekt eine Bibliothek verwendet, die einen Fehler wegen nicht verfügbarer Ressourcen verursacht und unten nicht aufgeführt ist, konsultieren Sie die Dokumentation dieser Bibliothek für ähnliche APIs.
+Die folgenden Bibliotheken stehen bekanntermaßen mit dem Asset-Caching von Braze in Konflikt. Zu jeder finden Sie Beispiel-Code, um das Problem zu umgehen. Wenn Ihr Projekt eine Bibliothek verwendet, die einen Fehler wegen nicht verfügbarer Ressourcen verursacht und hier nicht aufgeführt ist, konsultieren Sie die Dokumentation dieser Bibliothek für ähnliche APIs.
 
 ##### Netfox
 

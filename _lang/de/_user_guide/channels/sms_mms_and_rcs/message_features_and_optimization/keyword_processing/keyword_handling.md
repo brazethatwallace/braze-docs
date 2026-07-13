@@ -48,7 +48,7 @@ Die folgenden Regeln gelten für Keywords und Keyword-Antworten:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Keyword-Trigger hinzufügen" }
 
 {% alert tip %}
-Möchten Sie erfahren, wie diese Keywords in Ihren Kampagnen und Canvases zum Retargeting und Triggern von Nachrichten verwendet werden können? Besuchen Sie [Nutzer:innen-Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) für weitere Informationen.
+Möchten Sie erfahren, wie diese Keywords in Ihren Campaigns und Canvases zum Retargeting und Triggern von Nachrichten verwendet werden können? Besuchen Sie [Nutzer:innen-Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) für weitere Informationen.
 {% endalert %}
 {% endtab %}
 
@@ -90,7 +90,7 @@ Wählen Sie **Add a Language** und wählen Sie Ihre Zielsprache aus oder suchen 
 Nicht-englische Sprachen werden nicht mit voreingestellten Keywords und Antworten geliefert, sodass Sender mit ihren Marketing- und Rechtsteams zusammenarbeiten müssen, um alle erforderlichen Keywords zu diesem Set hinzuzufügen. Andernfalls verarbeitet Braze keine lokalisierten eingehenden Nachrichten für diese Sprachen.
 {% endalert %}
 
-Wenn Sie eine Sprache löschen müssen, wählen Sie den Button **Delete Language** unten rechts.
+Wenn Sie eine Sprache löschen müssen, wählen Sie den Button **Delete Language** unten auf der Seite.
 
 ![Seite „Global Keywords“ mit ausgewähltem Tab „Italian“. Für jede hinzugefügte Sprache existieren zusätzliche Tabs.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -110,21 +110,21 @@ Um eine benutzerdefinierte Keyword-Kategorie zu erstellen, gehen Sie wie folgt v
 2. Wählen Sie **Add custom keyword**. ![Felder zum Hinzufügen neuer Keywords.]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. Geben Sie einen Namen für die Keyword-Kategorie an und definieren Sie, welche Keywords Nutzer:innen senden können, um die Antwortnachricht zu erhalten.
 
-Nachdem diese Keyword-Kategorie erstellt wurde, steht sie zum [Filtern und Triggern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) in Ihren Kampagnen und Canvases zur Verfügung.
+Nachdem diese Keyword-Kategorie erstellt wurde, steht sie zum [Filtern und Triggern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) in Ihren Campaigns und Canvases zur Verfügung.
 
 Keywords, die in benutzerdefinierten Keyword-Kategorien erstellt werden, unterliegen allen Regeln und Validierungen für die Erstellung neuer Keywords.
 
 ### Lebenszyklus-spezifische Keywords {#lifecycle-specific-keywords}
 
-Wenn Sie einen Anwendungsfall haben, bei dem Sie einschränken möchten, wann Kund:innen während ihres Lebenszyklus ein bestimmtes Keyword senden können (z. B. während des ersten Onboardings), um eine Antwort zu erhalten, können Sie den Trigger **Sent inbound SMS to subscription group within keyword category OTHER** in Ihrer Kampagne oder Ihrem Canvas verwenden und Keywords definieren, die Ihre Nutzer:innen zu einem bestimmten Zeitpunkt senden können.
+Wenn Sie einen Anwendungsfall haben, bei dem Sie einschränken möchten, wann Kund:innen während ihres Lebenszyklus ein bestimmtes Keyword senden können (z. B. während des ersten Onboardings), um eine Antwort zu erhalten, können Sie den Trigger **Sent inbound SMS to subscription group within keyword category OTHER** in Ihrer Campaign oder Ihrem Canvas verwenden und Keywords definieren, die Ihre Nutzer:innen zu einem bestimmten Zeitpunkt senden können.
 
 Dieser Trigger unterstützt das Filtern nach der spezifischen eingehenden Nachricht mithilfe von „ist“- oder „ist nicht“-Vergleichen der Nachricht sowie „stimmt überein“- oder „stimmt nicht überein“-Regex-Regeln zur Validierung der Eingabe der Nutzer:innen.
 
-#### Canvas
+#### Canvas {#canvas}
 
 ![Aktionsbasierter Canvas-Schritt mit dem Trigger „Send inbound SMS to subscription group „Messaging Service“ within keyword category „Other“", wobei der Nachrichtentext dem regulären Ausdruck „caret symbol skip“ entspricht.]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### Campaign {#campaign}
 
 ![Aktionsbasierte Campaign mit dem Trigger „Send inbound SMS to subscription group „Marketing Message Service A“ within keyword category „Other“", wobei der Nachrichtentext „Keyword1“ oder „Keyword2“ ist oder nicht „Keyword A“ ist.]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 
@@ -134,14 +134,14 @@ Wir empfehlen dringend, eine automatische Antwort einzurichten, wenn abonnierte 
 
 Um eine Standardantwort zu senden – zum Beispiel „Sorry! Wir konnten dieses Keyword nicht erkennen.“ – gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine [SMS-Kampagne]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
-2. Wählen Sie für **Zielgruppe** die Option **Alle Nutzer:innen** (der Trigger schränkt weiterhin ein, wer die Nachricht erhält).
-3. Wählen Sie für **Zeitplan** die Option **Aktionsbasierte Zustellung**.
+1. Erstellen Sie eine [SMS-Campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+2. Wählen Sie für **Target audience** die Option **All users** (der Trigger schränkt weiterhin ein, wer die Nachricht erhält).
+3. Wählen Sie für **Schedule** die Option **Action-based delivery**.
 4. Setzen Sie den Trigger auf **Send inbound SMS** an die entsprechende Abo-Gruppe **within keyword category OTHER**.
 5. Geben Sie im **Messaging**-Schritt den Antworttext ein, den Nutzer:innen erhalten sollen.
 
 Informationen dazu, wie Braze eingehende Nachrichten von **unbekannten** Telefonnummern verarbeitet (bevor ein Profil existiert), finden Sie unter [Unbekannte Telefonnummern verarbeiten]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers).
 
 {% alert tip %}
-Möchten Sie erfahren, wie diese Keywords und Keyword-Kategorien in Ihren Kampagnen und Canvases zum Retargeting und Triggern von Nachrichten verwendet werden können? Besuchen Sie [Nutzer:innen-Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) für weitere Informationen.
+Möchten Sie erfahren, wie diese Keywords und Keyword-Kategorien in Ihren Campaigns und Canvases zum Retargeting und Triggern von Nachrichten verwendet werden können? Besuchen Sie [Nutzer:innen-Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) für weitere Informationen.
 {% endalert %}

@@ -22,7 +22,7 @@ Puedes consultar los análisis de tu recomendación para ver qué artículos se 
 
 Estas son métricas relacionadas con la audiencia de tus recomendaciones, que incluyen precisión, cobertura y tipo de recomendación.
 
-![Métricas de audiencia de recomendaciones que muestran precisión (25,3 %), cobertura (54,3 %) y tipos de recomendaciones divididas entre artículos personalizados y más populares.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Métricas de audiencia de recomendaciones que muestran precisión, cobertura y tipos de recomendaciones divididas entre artículos personalizados y más populares.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Consulta la siguiente tabla para obtener más información:
 
@@ -43,12 +43,12 @@ Consulta la siguiente tabla para obtener más información:
 
 | Métrica              | Descripción |
 | ------------------- | ---------- |
-| **Artículos personalizados**<br><br>**Artículos más recientes** | Esta columna enumera cada artículo del catálogo en orden descendente según la frecuencia con la que se recomiendan a los usuarios. También muestra a cuántos usuarios asignó el modelo cada artículo.<br><br>Se mostrarán los artículos **personalizados** o **los más recientes** dependiendo del [tipo de recomendación]({{site.baseurl}}/user_guide/brazeai/item_recommendations). |
-| **Artículos más populares** | Esta columna enumera cada artículo del catálogo en orden descendente de popularidad. La popularidad aquí se refiere a los artículos del catálogo con los que los usuarios interactúan más a menudo en todo el espacio de trabajo. Los más populares se utilizan como alternativa cuando no se puede calcular la recomendación personalizada o la más reciente para un usuario individual. |
+| **Artículos personalizados**<br><br>**Artículos más recientes** | Esta columna enumera cada artículo del catálogo en orden descendente según la frecuencia con la que se recomienda a los usuarios. También muestra a cuántos usuarios asignó el modelo cada artículo.<br><br>Se mostrarán los artículos **personalizados** o **los más recientes** dependiendo del [tipo de recomendación]({{site.baseurl}}/user_guide/brazeai/item_recommendations). |
+| **Artículos más populares** | Esta columna enumera cada artículo del catálogo en orden descendente de popularidad. La popularidad aquí se refiere a los artículos del catálogo con los que los usuarios interactúan con más frecuencia en todo el espacio de trabajo. Los más populares se utilizan como alternativa cuando no se puede calcular la recomendación personalizada o la más reciente para un usuario individual. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Artículos" }
 
 ### Resumen {#overview}
 
 Este es un resumen de la configuración de recomendaciones que has elegido, que incluye la fecha de la última actualización de las recomendaciones.
 
-![Tabla resumen de recomendaciones que muestra el tipo, el catálogo, el tipo de evento, el nombre del evento personalizado, el nombre de la propiedad y la última fecha de actualización.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }
+![Tabla de resumen de recomendaciones que muestra el tipo, el catálogo, el tipo de evento, el nombre del evento personalizado, el nombre de la propiedad y la última fecha de actualización.]({% image_buster /assets/img/item_recs_analytics_3.png %}){: style="max-width:50%" }

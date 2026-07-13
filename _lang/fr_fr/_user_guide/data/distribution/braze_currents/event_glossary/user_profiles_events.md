@@ -12,7 +12,7 @@ search_rank: 7
 <div class="api-glossary-preamble" markdown="1">
 
 {% alert important %}
-Les événements de profils utilisateur sont en version bêta. Contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte pour y accéder.
+Les événements de profils utilisateur sont en version bêta. Contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour y accéder.
 {% endalert %}
 
 {% alert tip %}
@@ -39,6 +39,63 @@ Currents supprime les événements dont les payloads dépassent 900 Ko.
 
 <!--overview-end-->
 
+
+{% api %}
+## Événements de demande de suppression d'utilisateur {#user-delete-request-events}
+
+{% apitags %}
+User Delete Request
+{% endapitags %}
+
+Lorsqu'un utilisateur est supprimé à la demande du client.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserDeleteRequest
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "id" : "(required, string) Globally unique ID for this event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## Événements d'utilisateur orphelin {#user-orphan-events}
+
+{% apitags %}
+User Orphan
+{% endapitags %}
+
+Lorsqu'un utilisateur devient orphelin, c'est-à-dire que son profil est fusionné avec celui d'un autre utilisateur.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserOrphan
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "app_id" : "(optional, string) API ID of the app on which this event occurred",
+  "device_id" : "(optional, string) ID of the device on which the event occurred",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
 {% api %}
 ## Événements de mise à jour de profil utilisateur {#user-profile-update-events}
 
@@ -59,7 +116,7 @@ Cet événement représente les mises à jour de profil d'un utilisateur.
   "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
   "country" : "(optional, string) [PII] Country of the user",
   "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in format \"YYYY-MM-DD\"",
+  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
   "email_address" : "(optional, string) [PII] Email address of the user",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "first_name" : "(optional, string) [PII] First name of the user",

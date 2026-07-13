@@ -15,7 +15,7 @@ tool: Currents
 
 Campaign 또는 Canvas 측정기준을 특정 날짜 범위로 가져오려면 다음 방법 중 하나를 사용하세요:
 
-- 표준 API 기간 외에 대시보드 스타일의 보고가 필요한 경우 날짜 기반 내보내기를 위한 [제품 요청](https://portal.braze.com/)을 제출하세요.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - `ending_at` 및 `length` 파라미터를 사용하여 [Campaign 분석]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) 또는 [Canvas 분석]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) 엔드포인트를 호출하거나, 시계열 데이터를 위해 [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) 및 [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)를 사용하세요.
 - Amazon S3, Azure Blob Storage 또는 기타 지원되는 대상에서 지속적으로 쿼리 가능한 메시지 참여 데이터가 필요한 경우 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 이벤트를 데이터 웨어하우스로 스트리밍하세요.
 

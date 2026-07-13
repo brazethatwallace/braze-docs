@@ -4,7 +4,7 @@
 
 Für die Push-Benachrichtigungen von FireOS, die über das Braze-Dashboard versendet werden, sind viele erweiterte Einstellungen verfügbar. Dieser Artikel beschreibt diese Features und wie Sie sie erfolgreich nutzen können.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Panel für erweiterte Einstellungen im Braze FireOS Push Composer.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### Time to Live (TTL) {#ttl}
 
@@ -24,7 +24,7 @@ Bei Push-Benachrichtigungen, die Bilder enthalten, wird der Nachrichtentext in d
 
 ### Benutzerdefinierte URIs {#custom-uri}
 
-Mit der Funktion **Benutzerdefinierte URI** können Sie eine Web-URL oder eine Android-Ressource angeben, zu der navigiert werden soll, wenn die Benachrichtigung angeklickt wird. Wenn kein benutzerdefinierter URI angegeben ist, gelangen Nutzer:innen durch Klicken auf die Benachrichtigung zu Ihrer App. Sie können den benutzerdefinierten URI verwenden, um Deeplinks in Ihrer App zu setzen und Nutzer:innen zu Ressourcen außerhalb Ihrer App zu leiten. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) oder unser Dashboard unter **Advanced Settings** im Push Composer wie abgebildet festgelegt werden:
+Mit der Funktion **Benutzerdefinierte URI** können Sie eine Web-URL oder eine Android-Ressource angeben, zu der navigiert werden soll, wenn die Benachrichtigung angeklickt wird. Wenn kein benutzerdefinierter URI angegeben ist, gelangen Nutzer:innen durch Klicken auf die Benachrichtigung zu Ihrer App. Sie können den benutzerdefinierten URI verwenden, um Deeplinks in Ihrer App zu setzen und Nutzer:innen zu Ressourcen außerhalb Ihrer App zu leiten. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) oder unser Dashboard unter **Erweiterte Einstellungen** im Push Composer wie abgebildet festgelegt werden:
 
 ![Die Deeplinking-Einstellung im Braze Push Composer.]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -57,7 +57,7 @@ Weitere Informationen finden Sie in der Dokumentation zu [Android-Benachrichtigu
 
 In Android O wurden die Benachrichtigungstöne eine Eigenschaft der Benachrichtigungskanäle. Sie müssen mit Ihrer Entwicklerin bzw. Ihrem Entwickler zusammenarbeiten, um den Ton für einen Kanal während seiner Konfiguration zu definieren, und dann das Dashboard verwenden, um den richtigen Kanal auszuwählen, wenn Sie Ihre Benachrichtigungen senden.
 
-Für Geräte mit Android-Versionen vor O können Sie mit Braze den Ton einer einzelnen Push-Nachricht über den Dashboard Composer einstellen. Hierzu können Sie eine lokale Tonressource auf dem Gerät angeben (z. B. `android.resource://com.mycompany.myapp/raw/mysound`). Wenn Sie in diesem Feld „default“ angeben, wird der standardmäßige Benachrichtigungston auf dem Gerät abgespielt. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) oder das Dashboard unter **Settings** im Push Composer festgelegt werden.
+Für Geräte mit Android-Versionen vor O können Sie mit Braze den Ton einer einzelnen Push-Nachricht über den Dashboard Composer einstellen. Hierzu können Sie eine lokale Tonressource auf dem Gerät angeben (z. B. `android.resource://com.mycompany.myapp/raw/mysound`). Wenn Sie in diesem Feld „default“ angeben, wird der standardmäßige Benachrichtigungston auf dem Gerät abgespielt. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) oder das Dashboard unter **Einstellungen** im Push Composer festgelegt werden.
 
 ![Die erweiterte Ton-Einstellung im Braze Push Composer.]({% image_buster /assets/img_archive/sound_android.png %})
 

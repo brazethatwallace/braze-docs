@@ -48,7 +48,7 @@ Se a solicitação não retornar um perfil de usuário, você pode optar por cri
 
 Use o endpoint de rastreamento de usuário para criar um alias de usuário, usando o identificador escolhido como o nome do alias. Ao incluir `_update_existing_only` como `false` no objeto de atributo, evento ou compra em que o novo alias de usuário é definido, é possível criar o perfil de alias e adicionar atributos, eventos e compras a esse perfil simultaneamente.
 
-Para que o alias de usuário seja um perfil enviável, é necessário incluir o endereço de e-mail no campo `email`, conforme mostrado abaixo.
+Para que o alias de usuário seja um perfil enviável, é necessário incluir o endereço de e-mail no campo `email`, conforme mostrado no exemplo a seguir.
 
 ```json
 {
@@ -98,7 +98,7 @@ Essa funcionalidade está em acesso antecipado.
 ## Sincronização de dados em perfis de usuários {#syncing-data-to-user-profiles}
 
 [User track]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
-- É um endpoint acessível publicamente que pode criar e atualizar usuários na Braze, como registrar atributos no perfil do usuário. Esse endpoint tem um limite de taxa de 50.000 solicitações por minuto aplicado no nível do espaço de trabalho.
+- É um endpoint acessível publicamente que pode criar e atualizar usuários na Braze, como registrar atributos no perfil do usuário. Esse endpoint tem um limite de frequência de 50.000 solicitações por minuto aplicado no nível do espaço de trabalho.
 - Ao usar esse endpoint, inclua a chave `partner` conforme mostrado na documentação do parceiro.
 
 [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/cloud_ingestion/overview#what-is-cloud-data-ingestion)
@@ -111,10 +111,10 @@ Essa funcionalidade está em acesso antecipado.
 
 [Documentação do parceiro de sincronização de importação de coorte]({{site.baseurl}}/partners/isv_partners/cohort_import)<br>
 - Os públicos de usuários podem ser sincronizados com a Braze como uma coorte usando os endpoints da API Braze Cohort Import. Em vez de esses públicos serem armazenados no perfil do usuário como atributos de usuário, os clientes podem criar e direcionar essa coorte por meio de um filtro com a marca do parceiro em nossa ferramenta de segmentação. Isso permite encontrar e direcionar com mais eficiência um segmento específico de usuários.
-- Os endpoints de importação de coorte não são públicos e são específicos de cada parceiro. Por esse motivo, as sincronizações com os endpoints de coorte não serão contabilizadas nos limites de taxa do espaço de trabalho do cliente.
+- Os endpoints de importação de coorte não são públicos e são específicos de cada parceiro. Por esse motivo, as sincronizações com os endpoints de coorte não serão contabilizadas nos limites de frequência do espaço de trabalho do cliente.
 
 [User track]({{site.baseurl}}/api/endpoints/user_data/post_user_track)<br>
-- Esse é um endpoint acessível publicamente que pode ser usado imediatamente para criar usuários na Braze, indicando um usuário em um público específico por meio de um atributo de usuário. A principal diferença entre esse endpoint e o endpoint de importação de coorte é que os públicos enviados usando esse endpoint seriam armazenados no perfil do usuário, enquanto o endpoint de importação de coorte seria exibido como um filtro em nossa ferramenta de segmentação. Esse endpoint tem um limite de taxa de 50.000 solicitações por minuto aplicado no nível do espaço de trabalho.
+- Esse é um endpoint acessível publicamente que pode ser usado imediatamente para criar usuários na Braze, indicando um usuário em um público específico por meio de um atributo de usuário. A principal diferença entre esse endpoint e o endpoint de importação de coorte é que os públicos enviados usando esse endpoint seriam armazenados no perfil do usuário, enquanto o endpoint de importação de coorte seria exibido como um filtro em nossa ferramenta de segmentação. Esse endpoint tem um limite de frequência de 50.000 solicitações por minuto aplicado no nível do espaço de trabalho.
 - Ao usar esse endpoint, verifique se você está incluindo a chave `partner`, conforme mostrado na [documentação do parceiro]({{site.baseurl}}/partners/isv_partners/api_partner).
 
 [Pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points)<br>
@@ -157,7 +157,7 @@ Os clientes podem configurar Campaigns e Canvas para serem disparados por API. A
     - Dados que podem ser preenchidos dinamicamente na mensagem no momento do envio.
 
 ### Campaigns de API {#api-campaigns}
-Ao criar Campaigns de API (diferentes das Campaigns disparadas por API mencionadas acima), o dashboard da Braze é usado apenas para gerar um `campaign_id`, que permite ao cliente rastrear a análise de dados para relatórios de campanha. A própria mensagem da campanha é definida na solicitação da API.
+Ao criar Campaigns de API (diferentes das Campaigns disparadas por API mencionadas nesta seção), o dashboard da Braze é usado apenas para gerar um `campaign_id`, que permite ao cliente rastrear a análise de dados para relatórios de campanha. A própria mensagem da campanha é definida na solicitação da API.
 - [Enviar Campaign de API imediatamente]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [Agendar uma Campaign de API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
 
@@ -184,5 +184,5 @@ Pontos importantes:
 
 Consulte estes artigos para saber mais sobre o Conteúdo conectado:
 - [Fazendo uma chamada de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)
-- [Abortando Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)
+- [Interrupção de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)
 - [Novas tentativas de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)

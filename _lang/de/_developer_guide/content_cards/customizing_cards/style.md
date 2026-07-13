@@ -1,6 +1,6 @@
 ---
 nav_title: Stil
-article_title: Passen Sie den Stil der Content Cards an
+article_title: Den Stil der Content Cards anpassen
 page_order: 1
 description: "Dieser Artikel behandelt die Gestaltungsmöglichkeiten für Ihre Content Cards."
 channel:
@@ -12,7 +12,7 @@ platform:
   - Web
 ---
 
-# Passen Sie den Stil der Content Cards an {#customize-the-style-of-content-cards}
+# Den Stil der Content Cards anpassen {#customize-the-style-of-content-cards}
 
 > Braze Content Cards werden mit einem Standard-Look-and-Feel geliefert. Dieser Artikel befasst sich mit den Styling-Optionen für Ihre Content Cards, damit Sie sie an Ihre Markenidentität anpassen können. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 

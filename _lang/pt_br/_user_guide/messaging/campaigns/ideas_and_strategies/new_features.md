@@ -18,9 +18,9 @@ Campanhas de divulgação de recursos são uma ótima maneira de incentivar os u
 
 ## Filtrando pelas versões mais recentes do app {#filtering-by-most-recent-app-versions}
 
-Os SDKs da Braze rastreiam automaticamente a versão mais recente do app de um usuário. Essas versões podem ser usadas em filtros e Segments para determinar quais usuários devem receber uma mensagem ou Campaign.
+Os SDKs da Braze rastreiam automaticamente a versão mais recente do app de um usuário. Essas versões podem ser usadas em filtros e segmentos para determinar quais usuários devem receber uma mensagem ou Campaign.
 
-![O painel de Opções de direcionamento na etapa Direcionar Usuários no fluxo de criação de Campaigns. A seção Filtros adicionais inclui o seguinte filtro "Most Recent App Version Number for Android Stopwatch (Android) is below 3.7.0 (134.0.0.0)".]({% image_buster /assets/img_archive/new_app_version.png %}){: style="max-width:90%;"}
+![O painel de opções de direcionamento na etapa Direcionar Usuários no fluxo de criação de Campaigns. A seção Filtros adicionais inclui o seguinte filtro "Most Recent App Version Number for Android Stopwatch (Android) is below 3.7.0 (134.0.0.0)".]({% image_buster /assets/img_archive/new_app_version.png %}){: style="max-width:90%;"}
 
 {% alert note %}
 Pode levar algum tempo para que as versões atuais do app sejam preenchidas. A versão do app no perfil de usuário é atualizada quando a informação é capturada pelo SDK, o que depende de quando os usuários abrem seus apps. Se o usuário não abrir o app, a versão atual não será atualizada. <br><br> Esses filtros também não se aplicam retroativamente. É recomendável usar "maior que" ou "igual a" para versões atuais e futuras, mas usar filtros de versões anteriores pode causar comportamentos inesperados.
@@ -65,10 +65,10 @@ Assim que a Braze receber dados da versão 2.0.0 do seu app, você poderá direc
 
 | Filtro  | Versão do app do usuário  | Resultado |
 | :------------- | :----------- | :--------- |
-| Menor que 2.0.0 | 1.0.0 | O usuário está no Segment, mesmo que o SDK da Braze não suportasse o filtro "App Version Number". |
-| Maior que 2.0.0 | 2.5.1 | O usuário e todas as futuras instalações estarão no Segment. |
-| Maior que 2.0.0 | 1.9.9 | O usuário não está no Segment. |
-| Menor ou igual a 2.0.0 | 3.0.1 | O usuário não está no Segment. |
+| Menor que 2.0.0 | 1.0.0 | O usuário está no segmento, mesmo que o SDK da Braze não suportasse o filtro "App Version Number". |
+| Maior que 2.0.0 | 2.5.1 | O usuário e todas as futuras instalações estarão no segmento. |
+| Maior que 2.0.0 | 1.9.9 | O usuário não está no segmento. |
+| Menor ou igual a 2.0.0 | 3.0.1 | O usuário não está no segmento. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Caso de uso" }
 
 ### Nome da versão do app {#app-version-name}

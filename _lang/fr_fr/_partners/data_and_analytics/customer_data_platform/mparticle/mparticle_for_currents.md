@@ -13,16 +13,16 @@ search_tag: Partner
 
 > [mParticle](https://www.mparticle.com) est une plateforme de données client qui collecte et achemine des informations provenant de sources multiples vers divers autres emplacements de votre pile marketing.
 
-L'intégration de Braze et mParticle vous permet de contrôler de façon fluide le flux d'informations entre les deux systèmes. Avec [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), vous pouvez également connecter les données à mParticle pour les rendre exploitables dans l'ensemble des outils de croissance.
+L'intégration de Braze et mParticle vous permet de contrôler de façon fluide le flux d'informations entre les deux systèmes. Avec [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), vous pouvez également connecter les données à mParticle pour les rendre exploitables dans l'ensemble des outils de croissance.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
-| Currents | Pour pouvoir exporter des données dans mParticle, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
+| Currents | Pour pouvoir exporter des données dans mParticle, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) pour votre compte. |
 | Compte mParticle | Un [compte mParticle](https://app.mparticle.com/login) est nécessaire pour profiter de ce partenariat. |
 | Clé et secret serveur-à-serveur mParticle | Vous pouvez les obtenir en accédant à votre tableau de bord mParticle et en créant les [flux nécessaires](#step-1-create-feeds) qui permettent à mParticle de recevoir les données d'interaction de Braze pour les plateformes iOS, Android et Web. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## À propos des identifiants mParticle {#about-mparticle-credentials}
 
@@ -41,7 +41,7 @@ Depuis votre compte administrateur mParticle, accédez à **Setup > Inputs**. Lo
 
 L'intégration de flux Braze prend en charge quatre flux distincts : iOS, Android, Web et Unbound. Le flux Unbound peut être utilisé pour les événements tels que les e-mails qui ne sont pas liés à une plateforme. Vous devrez créer une entrée pour chaque flux de plateforme principal. Vous pouvez créer des entrées supplémentaires depuis **Setup > Inputs**, dans l'onglet **Feed Configurations**.
 
-![]({% image_buster /assets/img/braze-feed-inputs.png %})
+![Configuration des entrées de flux mParticle affichant les options de flux Braze pour iOS, Android, Web et Unbound.]({% image_buster /assets/img/braze-feed-inputs.png %})
 
 Pour chaque flux, sous **Act as Platform**, sélectionnez la plateforme correspondante dans la liste. Si vous ne voyez pas d'option pour sélectionner un flux **act-as**, les données seront traitées comme non liées, mais pourront tout de même être transmises aux sorties d'entrepôt de données.
 
@@ -65,9 +65,9 @@ Tous les événements envoyés à mParticle incluront le `external_user_id` de l
 
 Braze prend en charge l'exportation des événements suivants vers mParticle :
 
-- [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Pour connaître la structure du payload de chaque événement, sélectionnez l'onglet **mParticle** dans le [glossaire des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) et le [glossaire des événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Pour connaître la structure du payload de chaque événement, sélectionnez l'onglet **mParticle** dans le [glossaire des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) et le [glossaire des événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 
 Pour en savoir plus sur l'intégration mParticle, consultez la [documentation mParticle](http://docs.mparticle.com/integrations/braze/feed).

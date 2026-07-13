@@ -54,12 +54,12 @@ toc_headers: h2
 | 문자열 | 메시지 개인화(제목란, 카피, 응답) |
 | 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)에서의 라우팅 |
 | 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)에서의 예/아니오 분기 |
-| 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 위의 데이터 유형 중 하나 이상을 활용 |
+| 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 이 섹션의 앞부분에 나온 데이터 유형 중 하나 이상을 활용 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정 #define-the-output-variable" }
 
 컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **Context Variable** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
-오브젝트 출력 변수에서 특정 등록정보를 사용하려면, Liquid에서 점 표기법을 사용하여 해당 등록정보에 접근합니다: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
+오브젝트 출력 변수에서 특정 속성정보를 사용하려면, Liquid에서 점 표기법을 사용하여 해당 속성정보에 접근합니다: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
 ![변수 "agent_output"에 대한 오브젝트 데이터 유형 출력을 가진 Body HTML Writer용 에이전트 단계.]({% image_buster /assets/img/ai_agent/test_agent_step.png %}){: style="max-width:80%;"}
 

@@ -11,7 +11,7 @@ description: "この参考記事では、複数のShopifyストアを1つのワ�
 > 単一のワークスペースに複数のShopifyストアドメインを接続して、すべての市場における顧客の全体像を把握できます。地域のストア間で作業を重複させることなく、単一のワークスペースでオートメーションプログラムとジャーニーを構築し、起動します。
 
 {% alert important %}
-この機能はShopify MarketsやMarkets Proには対応していません。これらのサポートを希望する場合は、[製品リクエスト]({{site.baseurl}}/user_guide/administer/personal/product_portal)を送信してください。
+この機能はShopify MarketsやMarkets Proには対応していません。{% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## 要件 {#requirements}
@@ -72,7 +72,7 @@ Braze external IDは以下のオプションから選択できます。
 - キャンペーンインタラクションデータ（最新の日付フィールド）
 - ワークフローのサマリー（最新の日付フィールド）
 - メッセージとエンゲージメントの履歴
-- サブスクリプショングループ
+- 購読グループ
 
 ### サブスクライバーの収集（オプション） {#collecting-subscribers-optional}
 
@@ -80,9 +80,9 @@ Brazeを通じて直接（Shopifyコネクターの設定で）サブスクラ�
 
 {% tabs local %}
 {% tab Shopifyコネクター %}
-Shopifyコネクター設定の**ユーザーを管理**ステップで、Brazeを使用してメールやSMSサブスクライバーのオプトインを収集し、専用のサブスクリプショングループに整理できます。
+Shopifyコネクター設定の**ユーザーを管理**ステップで、Brazeを使用してメールやSMSサブスクライバーのオプトインを収集し、専用の購読グループに整理できます。
 
-1. 接続する各ストアに固有のサブスクリプショングループを作成します。これにより、サブスクライバーがどこから来ているかについての正確なデータを維持できます。
+1. 接続する各ストアに固有の購読グループを作成します。これにより、サブスクライバーがどこから来ているかについての正確なデータを維持できます。
 2. メールおよびSMSサブスクライバーの収集を有効にします。
 {% endtab %}
 
@@ -91,7 +91,7 @@ Shopifyコネクター設定の**ユーザーを管理**ステップで、Braze�
 
 | オプション | リソース |
 |------|---------|
-| API | - 統合によってサポートされるものを直接置き換える[サブスクリプショングループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups)<br>- サブスクリプショングループデータまたは[グローバルメールのサブスクリプションステータス]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)を設定する[`Users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups)<br>- よりカスタマイズされたマーケティングオプトイン収集オプションのための[Brazeユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions) |
+| API | - 統合によってサポートされるものを直接置き換える[購読グループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups)<br>- 購読グループデータまたは[グローバルメールの購読ステータス]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)を設定する[`Users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups)<br>- よりカスタマイズされたマーケティングオプトイン収集オプションのための[Brazeユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions) |
 | SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="サブスクライバーの収集（オプション）" }
 {% endtab %}

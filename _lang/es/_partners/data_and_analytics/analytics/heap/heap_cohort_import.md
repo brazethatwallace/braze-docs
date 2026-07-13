@@ -12,22 +12,23 @@ search_tag: Partner
 
 > [Heap](https://heap.io/), una plataforma de información digital, te centra en las oportunidades de tu experiencia digital que más afectan a tu negocio, eliminando fricciones, deleitando a tus clientes y acelerando los ingresos.
 
-La integración de Braze y Heap te permite [importar datos de Heap a Braze](#data-import-integration), crear cohortes de usuarios, así como [exportar datos de Braze a Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/) para crear segmentos.
+La integración de Braze y Heap te permite [importar datos de Heap a Braze](#data-import-integration), crear cohortes de usuarios, así como [exportar datos de Braze a Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap) para crear segmentos.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Heap | Se necesita una cuenta de [Heap](https://heap.io/about) para aprovechar esta integración. |
-| Clave de importación de datos de Braze | Se puede obtener en el dashboard de Braze desde **Integraciones de socios** > **Socios tecnológicos** y luego seleccionando **Heap**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
-| Braze Currents | Para exportar datos de Braze a Heap, necesitas que [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) esté habilitado en tu cuenta. |
+| Clave de importación de datos de Braze | Se puede obtener en el panel de Braze desde **Integraciones de socios** > **Socios tecnológicos** y luego seleccionando **Heap**. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Braze Currents | Para exportar datos de Braze a Heap, necesitas que [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) esté habilitado en tu cuenta. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
-- Reactiva a los usuarios que han abandonado un embudo: desencadena mensajes de reactivación de la interacción cuando los usuarios abandonan el embudo de compra o suscripción.
+## Ejemplos {#use-cases}
+
+- Reactiva a los usuarios que han abandonado un embudo: desencadena mensajes de reactivación cuando los usuarios abandonan el embudo de compra o suscripción.
 - Personaliza la experiencia de prueba: identifica los puntos de fricción en tu experiencia de prueba y envía recordatorios en el momento adecuado para volver a captar a los usuarios durante una prueba y ayudarles a obtener valor.
-- Impulsa una mayor interacción en anuncios y ofertas: dirige las promociones, actualizaciones y anuncios de nuevos servicios a las audiencias pertinentes.
+- Impulsa una mayor participación en anuncios y ofertas: dirige las promociones, actualizaciones y anuncios de nuevos servicios a las audiencias pertinentes.
 
 ## Integración de la importación de datos {#data-import-integration}
 
@@ -37,19 +38,19 @@ Utiliza la integración de Heap con Braze para sincronizar automáticamente las 
 
 En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Heap**.
 
-En esta página, puedes encontrar tu clave de importación de datos y un punto de conexión REST. Toma nota de estos dos valores y proporciónaselos a tu director de cuentas de Heap para terminar de configurar la integración.
+En esta página, puedes encontrar tu clave de importación de datos y un endpoint REST. Toma nota de estos dos valores y proporciónaselos a tu director de cuentas de Heap para terminar de configurar la integración.
 
-![]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
+![Página de partner tecnológico de Heap en Braze que muestra la clave de importación de datos y el endpoint.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 
 ### Paso 2: Segmentar usuarios importados en Braze {#step-2-segment-imported-users-in-braze}
 
-En Braze, ve a **Segments**, asigna un nombre a tu segmento de cohortes de Heap y selecciona **Heap Cohorts** como filtro. Desde aquí, puedes elegir qué cohorte de Heap deseas incluir. Una vez creado tu segmento de cohorte de Heap, puedes seleccionarlo como filtro de audiencia al crear una campaña o Canvas.
+En Braze, ve a **Segments**, asigna un nombre a tu segmento de cohortes de Heap y selecciona **Heap Cohorts** como filtro. Desde aquí, puedes elegir qué cohorte de Heap deseas incluir. Una vez creado tu segmento de cohorte de Heap, puedes seleccionarlo como filtro de audiencia al crear una Campaign o Canvas.
 
 ![En el creador de segmentos de Braze, el filtro de atributos de usuario "Heap cohort" se establece en "includes" y "Heap Test Cohort".]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### Uso de esta integración {#using-this-integration}
 
-Para utilizar tu segmento de Heap, crea una campaña o Canvas en Braze y selecciona el segmento como tu audiencia objetivo.
+Para utilizar tu segmento de Heap, crea una Campaign o Canvas en Braze y selecciona el segmento como tu público objetivo.
 
 ![En el constructor de Campaign de Braze, en el paso de segmentación, el filtro "Selecciona a usuarios por segmento" está establecido en "Heap cohort".]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 

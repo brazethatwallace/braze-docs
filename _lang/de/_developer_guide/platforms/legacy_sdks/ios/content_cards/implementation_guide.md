@@ -438,7 +438,7 @@ Im Folgenden finden Sie drei Anwendungsfälle. Jeder Anwendungsfall enthält ein
 
 Sie können Content Cards nahtlos in einen bestehenden Feed einfügen, sodass Daten aus mehreren Feeds gleichzeitig geladen werden können. Dadurch entsteht ein zusammenhängendes, harmonisches Erlebnis mit Braze Content Cards und vorhandenen Feed-Inhalten.
 
-Das Beispiel auf der rechten Seite zeigt eine `UICollectionView` mit einer hybriden Liste von Artikeln, die über lokale Daten und von Braze bereitgestellte Content Cards gefüllt werden. Auf diese Weise können Content Cards nicht von bestehenden Inhalten unterschieden werden.
+Das Beispiel zeigt eine `UICollectionView` mit einer hybriden Liste von Artikeln, die über lokale Daten und von Braze bereitgestellte Content Cards gefüllt werden. Auf diese Weise können Content Cards nicht von bestehenden Inhalten unterschieden werden.
 
 #### Dashboard-Konfiguration {#dashboard-configuration}
 
@@ -533,7 +533,7 @@ Im [folgenden Abschnitt](#logging-impressions-clicks-and-dismissals) wird näher
 
 ### Interaktive Content Cards {#interactive-content-cards}
 <br>
-Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im Beispiel auf der rechten Seite erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet.
+Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im Beispiel erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet.
 
 Gut platzierte Karten wie diese sind eine großartige Möglichkeit, den Nutzer:innen einen „Anstoß“ zu bestimmten Aktionen zu geben.
 <br><br><br>

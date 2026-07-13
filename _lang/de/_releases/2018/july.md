@@ -5,20 +5,20 @@ noindex: true
 page_type: update
 description: "Dieser Artikel enthält Versionshinweise für Juli 2018."
 ---
-# Juli 2018
+# Juli 2018 {#july-2018}
 
-## Auslöser für Änderungen von Attributen
+## Trigger bei Attributänderungen {#triggers-from-attribute-changes}
 
-Sie können jetzt Kampagnen und Canvas-Schritte auf der Grundlage von Änderungen der Attribut-Werte triggern, z.B. beim Abo-Status und bei Änderungen von angepassten Attributen. Bisher mussten Sie Braze ein Ereignis oder einen API-Trigger senden, um eine Kampagne in Realtime auszulösen. Mit Attribut-Triggern können Sie getriggerte Workflows direkt von Braze aus einrichten, ohne ein Ereignis hinzuzufügen!
+Sie können jetzt Campaigns und Canvas-Schritte auf der Grundlage von Änderungen der Attributwerte triggern, z. B. beim Abo-Status und bei Änderungen von angepassten Attributen. Bisher mussten Sie Braze ein Ereignis oder einen API-Trigger senden, um eine Campaign in Echtzeit auszulösen. Mit Attribut-Triggern können Sie getriggerte Workflows direkt von Braze aus einrichten, ohne ein Ereignis hinzuzufügen!
 
 Dieses Feature ist noch nicht für alle Kund:innen verfügbar. Wenden Sie sich an Ihren Account Manager, wenn Sie dieses Feature für Ihr Braze-Konto aktivieren möchten.
 
-## Canvas Zeitoption hinzugefügt: Ortszeit
+## Canvas-Zeitoption hinzugefügt: Ortszeit {#canvas-time-option-addition-local-time}
 
-Sie können jetzt wählen, ob Sie eine Nachricht zur Ortszeit Ihres Unternehmens oder zur Ortszeit Ihrer Nutzer:innen senden möchten. Wenn Sie Ihren Canvas-Schritt erstellen, wählen Sie einfach "Geplant" und dann "am nächsten" oder "in". Dann können Sie zwischen "Firmenzeit" und "Ortszeit des Nutzers:innen" wählen.
+Sie können jetzt wählen, ob Sie eine Nachricht zur Ortszeit Ihres Unternehmens oder zur Ortszeit Ihrer Nutzer:innen senden möchten. Wenn Sie Ihren Canvas-Schritt erstellen, wählen Sie einfach „Geplant“ und dann „am nächsten“ oder „in“. Dann können Sie zwischen „Firmenzeit“ und „Ortszeit der Nutzer:innen“ wählen.
 
-## Kampagnen-Benachrichtigungen
+## Campaign-Benachrichtigungen {#campaign-alerts}
 
-In den Kampagnen von Braze können Sie jetzt Parameter für die Anzahl der Sendungen innerhalb einer Kampagne festlegen. So können Sie Benachrichtigungen über Ihre Kampagne erhalten, wenn die Anzahl der Sendungen unter oder über den von Ihnen gewählten Wert fällt. Klicken Sie auf die Kampagne, die Sie überwachen möchten, und identifizieren Sie dann den ersten Block **Kampagnenüberwachung**. Klicken Sie auf **Alarm einrichten**, stellen Sie dann Ihren Alarm ein und speichern Sie ihn! 
+In Braze Campaigns können Sie jetzt Parameter für die Anzahl der Sendungen innerhalb einer Campaign festlegen. So können Sie Benachrichtigungen erhalten, wenn die Anzahl der Sendungen außerhalb des von Ihnen gewählten Bereichs liegt. Klicken Sie auf die Campaign, die Sie überwachen möchten, und identifizieren Sie dann den ersten Block **Campaign Monitoring**. Klicken Sie auf **Set Up Alert**, stellen Sie dann Ihre Benachrichtigung ein und speichern Sie sie!
 
-Erfahren Sie mehr über [Kampagnen-Warnungen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/scheduling_and_organizing/campaign_alerts/#campaign-alerts).
+Erfahren Sie mehr über [Campaign-Benachrichtigungen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/scheduling_and_organizing/campaign_alerts#campaign-alerts).

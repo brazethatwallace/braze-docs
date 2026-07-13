@@ -20,11 +20,11 @@ Facebookカスタムオーディエンスをエクスポートする一般的な
 
 {% alert note %}
 Facebookオーディエンスエクスポートは、**ユーザーアクセストークン**を使用してリクエストを承認します。<br><br>
-この機能を[Facebookへのオーディエンス同期]({{site.baseurl}}/audience_sync_facebook/)機能と一緒に使用している場合、Brazeはリクエストを承認するために、すでに生成した、より信頼性の高い**システムユーザートークン**をデフォルトで使用します。
+この機能を[Facebookへのオーディエンス同期]({{site.baseurl}}/audience_sync_facebook)機能と一緒に使用している場合、Brazeはリクエストを承認するために、すでに生成した、より信頼性の高い**システムユーザートークン**をデフォルトで使用します。
 {% endalert %}
 
 {% alert note %}
-ベータ版のMeta ワークアカウントのテストに参加している場合は、アカウントを接続解除してから[Facebookパートナーページ]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync/#step-1-connect-to-facebook)に再接続してください。
+ベータ版のMeta ワークアカウントのテストに参加している場合は、アカウントを接続解除してから[Facebookパートナーページ]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync#step-1-connect-to-facebook)に再接続してください。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -55,7 +55,7 @@ Facebookオーディエンスエクスポートは、**ユーザーアクセス�
 {% alert important %}
 これまでに[Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを受けたことがある顧客のシステムユーザートークンは、Facebookオーディエンスステップに対して引き続き有効です。Facebookのパートナーページを通じて、Facebookシステムユーザートークンを編集したり、取り消したりすることはできません。代わりにFacebookアカウントを接続して、Brazeワークスペース内のFacebookシステムユーザートークンを置き換えることができます。
 
-<br><br>新しいFacebook oAuth設定は、[セグメントを使用したFacebookエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
+<br><br>新しいFacebook oAuth設定は、[セグメントを使用したFacebookエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites)にも適用されます。
 {% endalert %}
 
 ### ステップ2:Facebookにユーザーをエクスポートする {#step-2-export-your-users-into-facebook}
@@ -76,23 +76,23 @@ Brazeでは、Facebookオーディエンスのエクスポートは**セグメ�
 {% endalert %}
 
 {: start="4"}
-4. ユーザーフィールドを選択したら**Export セグメント**を選択します。CSVエクスポートと同様に、Facebookへのセグメントのエクスポートが完了するとメールが届きます。
+4. ユーザーフィールドを選択したら**セグメントをエクスポート**を選択します。CSVエクスポートと同様に、Facebookへのセグメントのエクスポートが完了するとメールが届きます。
 5. [Facebook広告マネージャー](https://www.facebook.com/ads/manager/audiences/manage/)でカスタムオーディエンスを表示します。
 
 {% alert important %}
 ユーザーのプライバシー上の理由により、Facebookでは以下の内容を表示できません。
 
-- カスタムオーディエンスに正常に追加された正確なユーザー。[詳細をご覧ください。](https://www.facebook.com/business/help/112061095610075)
-- カスタムオーディエンスのサイズ。[詳細をご覧ください。](https://marketingland.com/exclusive-facebook-will-no-longer-show-audience-reach-estimates-for-custom-audiences-after-vulnerability-detected-236923)
+- カスタムオーディエンスに正常に追加された正確なユーザー。[個々のオーディエンスメンバーが非表示になる理由についてのFacebookの詳細をご覧ください](https://www.facebook.com/business/help/112061095610075)。
+- カスタムオーディエンスのサイズ。[Facebookのオーディエンスサイズ推定値の変更に関する詳細をご覧ください](https://marketingland.com/exclusive-facebook-will-no-longer-show-audience-reach-estimates-for-custom-audiences-after-vulnerability-detected-236923)。
 {% endalert %}
 
 #### オーディエンスのエクスポートを設定する {#configuring-your-audience-export}
 
 Facebookオーディエンスを構築する際、ユーザーの嗜好に基づき、また[CCPA](https://oag.ca.gov/privacy/ccpa)に基づく「販売または共有しない」権利などのプライバシー法を遵守するために、特定のユーザーを含めたり除外したりしたい場合があります。マーケターは、キャンバスのエントリ基準の範囲内で、ユーザーの適格性に関する適切なフィルターを実装する必要があります。以下にいくつかの選択肢を挙げます。
 
-- [Braze SDKを通じてiOS IDFAを]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)収集した場合、**Ads Tracking Enabled**フィルターを使用できます。ユーザーがオプトインしたオーディエンス同期の送信先にのみユーザーを送信するには、値を`true`に選択します。
+- [Braze SDKを通じてiOS IDFAを]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)収集した場合、**Ads Tracking Enabled**フィルターを使用できます。ユーザーがオプトインした送信先にのみユーザーを送信するには、値を`true`に選択します。
 
-![]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
+![Ads Tracking Enabledがtrueに設定されたキャンバスのエントリフィルター。]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
 
 - オプトイン、オプトアウト、`Do Not Sell Or Share`、またはその他の関連するカスタム属性を収集する場合は、キャンバスのエントリ基準にこれらをフィルターとして含める必要があります。
 
@@ -101,7 +101,7 @@ Facebookオーディエンスを構築する際、ユーザーの嗜好に基づ
 
 #### 類似オーディエンス {#lookalike-audiences}
 
-Facebookオーディエンスとしてセグメントをエクスポートしたら、Facebookの[類似オーディエンス](https://www.facebook.com/business/help/164749007013531?id=401668390442328)を使用して追加のグループを作成できます。この機能は、選択したオーディエンスのデモグラフィック、興味、その他の属性を調べ、類似する属性を持つ新しいオーディエンスを作成します。
+Facebookオーディエンスとしてセグメントを正常にエクスポートしたら、Facebookの[類似オーディエンス](https://www.facebook.com/business/help/164749007013531?id=401668390442328)を使用して追加のグループを作成できます。この機能は、選択したオーディエンスのデモグラフィック、興味、その他の属性を調べ、類似する属性を持つ新しいオーディエンスを作成します。
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -131,8 +131,8 @@ Facebookオーディエンスとしてセグメントをエクスポートする
 
 以下のチェックを行い、設定を確認してください。
 
-- **アプリの管理者であることを確認する：** [developers.facebook.com](https://developers.facebook.com/)にアクセスし、**My Apps**を開いて、会社のアプリを選択します。アプリが表示されない場合は、開発チームにあなたを追加してもらう必要があるかもしれません。アプリのダッシュボードで、左側のメニューの**Roles**に移動し、自分のロール（Admin、Developer、Tester、またはAnalytics User）を確認します。
+- **アプリの管理者であることを確認する：** [developers.facebook.com](https://developers.facebook.com/)にアクセスし、**My Apps**を開いて、会社のアプリを選択します。アプリが表示されない場合は、開発チームにあなたを追加してもらう必要があるかもしれません。アプリのダッシュボードで**Roles**に移動し、自分のロール（Admin、Developer、Tester、またはAnalytics User）を確認します。
 - **広告アカウントがアプリに関連付けられていることを確認する：** Facebook App Dashboardで、**Settings** > **Advanced**に移動し、**Advertising Accounts**までスクロールして、Brazeオーディエンスエクスポートに使用したいFacebook広告アカウントIDがまだリストにない場合は追加します。
-- **広告アカウントの管理者であることを確認する：** [business.facebook.com](https://business.facebook.com/)にアクセスし、左上のドロップダウンから**Business Settings**を選択します。次に、**Accounts** > **Ad accounts**に移動し、広告アカウントを選択します。アクセス権があること、およびカスタムオーディエンスを作成するために必要な権限があることを確認します。
+- **広告アカウントの管理者であることを確認する：** [business.facebook.com](https://business.facebook.com/)にアクセスし、メインメニューから**Business Settings**を開き、**Accounts** > **Ad accounts**に移動して広告アカウントを選択します。アクセス権があること、およびカスタムオーディエンスを作成するために必要な権限があることを確認します。
 
 詳細については、[FacebookのCustom Audience APIドキュメント](https://developers.facebook.com/docs/)および[Facebookのビジネスヘルプセンターのカスタムオーディエンスガイド](https://www.facebook.com/business/help)を参照してください。

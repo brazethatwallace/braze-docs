@@ -19,7 +19,7 @@ Vous cherchez les définitions des termes et indicateurs de votre rapport ? Cons
 
 ## Analyse de la campagne {#campaign-analytics}
 
-Dans l'onglet **Campaign Analytics**, vous pouvez consulter vos rapports sous forme de panneaux. Vous pourriez en voir plus ou moins que ceux répertoriés dans les sections ci-dessous, mais chacun a son utilité.
+Dans l'onglet **Campaign Analytics**, vous pouvez consulter vos rapports sous forme de panneaux. Vous pourriez en voir plus ou moins que ceux répertoriés ici, mais chacun a son utilité.
 
 {% alert note %}
 Les statistiques relatives aux ouvertures et aux clics pour LINE ne sont calculées que si plus de 20 utilisateurs effectuent l'événement un jour donné.
@@ -37,7 +37,7 @@ Pour mesurer l'impact d'un message LINE individuel, vous pouvez ajouter un [grou
 
 ### Performances LINE {#line-performance}
 
-Le panneau **LINE Performance** décrit les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous effectuez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Prévisualisation** pour afficher votre message pour chaque variante ou canal.
+Le panneau **LINE Performance** décrit les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous effectuez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour afficher votre message pour chaque variante ou canal.
 
 ![Le panneau « LINE Performance » affichant les indicateurs pour deux variantes.]({% image_buster /assets/img/line/line_performance.png %})
 

@@ -3,7 +3,7 @@ nav_title: カタログを作成する
 article_title: カタログを作成する
 alias: "/catalogs/"
 page_order: 1
-description: "この参考記事では、Liquidを通してBrazeのCampaignsでユーザー以外のデータを参照するカタログを作成する方法について説明します。"
+description: "このリファレンス記事では、Liquidを通してBrazeのキャンペーンでユーザー以外のデータを参照するカタログを作成する方法について説明します。"
 ---
 
 # カタログを作成する {#create-a-catalog}
@@ -44,7 +44,7 @@ description: "この参考記事では、Liquidを通してBrazeのCampaignsで�
 
 {% tabs local %}
 {% tab CSVをアップロード %}
-### ステップ 1:CSVファイルを確認する {#step-1-review-your-csv-file}
+### ステップ1:CSVファイルを確認する {#step-1-review-your-csv-file}
 
 CSVファイルをアップロードする前に、そのファイルが以下の要件を満たしていることを確認してください。
 
@@ -64,7 +64,7 @@ CSVファイルをアップロードする前に、そのファイルが以下�
 CSVファイルを保存するためにより多くのスペースが必要な場合は、カタログのアップグレードの詳細についてBrazeのアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-### ステップ 2:CSVをアップロードする {#step-2-upload-csv}
+### ステップ2:CSVをアップロードする {#step-2-upload-csv}
 
 ファイルをアップロードゾーンにドラッグ＆ドロップするか、**CSVをアップロード**を選択してファイルを選択します。
 
@@ -93,7 +93,7 @@ CSVファイルを保存するためにより多くのスペースが必要な�
 **カタログを処理**を選択してカタログを作成します。
 
 {% alert important %}
-[ティア](#tiers)を超えた場合、CSVファイルが拒否される可能性があります。
+[ティア](#tiers)の制限を超えた場合、CSVファイルが拒否される可能性があります。
 {% endalert %}
 
 ### チュートリアル:CSVファイルからカタログを作成する {#tutorial-creating-a-catalog-from-a-csv-file}
@@ -157,7 +157,7 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 - カタログをエクスポート
 - カタログを削除
 
-### ステップ 1:カタログの詳細を入力する {#step-1-enter-catalog-details}
+### ステップ1:カタログの詳細を入力する {#step-1-enter-catalog-details}
 
 カタログの名前と任意の説明を入力します。カタログに名前を付ける際には、以下の要件に留意してください。
 
@@ -171,7 +171,7 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 ![「my_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-### ステップ 2:カタログを作成する {#step-2-create-your-catalog}
+### ステップ2:カタログを作成する {#step-2-create-your-catalog}
 
 リストからカタログを選択し、次に**カタログを更新** > **フィールドを追加**を選択します。**フィールド名**を入力し、ドロップダウンからデータタイプを選択します。必要に応じて繰り返します。
 

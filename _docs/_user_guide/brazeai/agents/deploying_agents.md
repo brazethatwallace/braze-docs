@@ -12,7 +12,7 @@ page_order: 2
 
 ## Types of custom agents
 
-Custom agents deploy in different parts of Braze depending on their type. Use the table below to find the right deployment path for your agent.
+Custom agents deploy in different parts of Braze depending on their type. Use the following table to find the right deployment path for your agent.
 
 | Agent type | Deployed in | Runs when | Section |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ For output data types, Liquid templating, and screenshots, see [Agent step]({{si
 
 | Use case | Description |
 | --- | --- |
-| Lead scoring and qualification | Use an Agent step to evaluate incoming leads on a scale (for example, 1-10). Route users with a score above a threshold into nurture paths, while disqualifying low-fit leads. |
+| Lead scoring and qualification | Use an Agent step to evaluate incoming leads on a scale (for example, 1-10). Route users with a score over a threshold into nurture paths, while disqualifying low-fit leads. |
 | Dynamic message personalization | Have an agent generate subject lines, product recommendations, or message copy based on user attributes or recent behaviors. The response can be inserted directly into a Message step. |
 | Customer feedback handling | Pass customer comments to an agent to analyze sentiment and generate empathetic follow-up messages. For high-value users, the agent might escalate the response or include perks. |
 | Intelligent routing | Use agent outputs (boolean or numeric) to split users into different Canvas paths. For example, classify users as "at risk" or "healthy" and adjust messaging cadence accordingly. |

@@ -145,7 +145,7 @@ return brazecall;
 
 A Olo envia o tipo de evento no cabeçalho `X-Olo-Event-Type` de cada webhook. Para suportar vários eventos de webhook da Olo dentro de uma única transformação, use lógica condicional para transformar a carga útil do webhook com base no valor desse tipo de cabeçalho.
 
-No exemplo de transformação abaixo, nosso JavaScript cria uma carga útil específica para os eventos `UserSignedUp` e `OrderPlaced`. Além disso, uma condição `else` lida com uma carga útil para quaisquer eventos da Olo enviados para a Braze sem o cabeçalho X-Olo-Event-Type de `UserSignedUp` e `OrderPlaced`.
+No exemplo de transformação a seguir, nosso JavaScript cria uma carga útil específica para os eventos `UserSignedUp` e `OrderPlaced`. Além disso, uma condição `else` lida com uma carga útil para quaisquer eventos da Olo enviados para a Braze sem o cabeçalho X-Olo-Event-Type de `UserSignedUp` e `OrderPlaced`.
 
 ```javascript
 // captures the value within the X-Olo-Event-Type header for use in the conditional logic

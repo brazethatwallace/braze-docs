@@ -25,7 +25,7 @@ Em geral, como as extensões são HTML e JavaScript, você pode usar a Braze par
 
 ## O que não é suportado {#whats-not-supported}
 
-* O uso do Braze SDK a partir de um service worker não é suportado. Você ainda pode usar o Braze SDK na página de popup ou na página de configurações da sua extensão.
+* O uso do Braze SDK a partir de um service worker não é suportado. Você ainda pode usar o Braze SDK na página de popup ou na página de configurações da sua extensão. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## Tipos de extensão {#extension-types}
 

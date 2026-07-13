@@ -16,7 +16,7 @@ platform:
 
 # Migration des Content Cards vers les bannières {#migrate-from-content-cards-to-banners}
 
-> Ce guide vous accompagne dans la migration des Content Cards vers les bannières pour les cas d'utilisation d'envoi de messages de type bannière. Les bannières sont idéales pour les messages in-app persistants, intégrés dans vos applications et sur le Web, qui apparaissent à des emplacements spécifiques dans votre application.
+> Ce guide vous accompagne dans la migration des Content Cards vers les bannières pour les cas d'usage de messages de type bannière. Les bannières sont idéales pour les messages in-app et web persistants, intégrés directement dans votre application à des emplacements spécifiques.
 
 ## Pourquoi migrer vers les bannières ? {#why-migrate-to-banners}
 
@@ -54,9 +54,9 @@ Envisagez la migration vers les bannières si vous utilisez les Content Cards po
 
 Continuez à utiliser les Content Cards si vous avez besoin de :
 
-- **Expériences de fil d'actualité :** Tout cas d'utilisation impliquant plusieurs messages défilables ou une « boîte de réception » sous forme de cartes.
+- **Expériences de fil d'actualité :** Tout cas d'usage impliquant plusieurs messages défilables ou une « boîte de réception » sous forme de cartes.
 - **Fonctionnalités spécifiques :** Les messages qui nécessitent du contenu connecté ou des codes promotionnels, car les bannières ne les prennent pas en charge de manière native.
-- **Livraison par événement :** Cas d'utilisation nécessitant strictement une réception déclenchée par API ou une livraison par événement. Bien que les bannières ne prennent pas en charge la réception déclenchée par API ou la livraison par événement, l'évaluation d'éligibilité en temps réel signifie que les utilisateurs sont instantanément qualifiés ou disqualifiés en fonction de leur appartenance à un Segment à chaque actualisation.
+- **Livraison par événement :** Cas d'usage nécessitant strictement une réception déclenchée par API ou une livraison par événement. Bien que les bannières ne prennent pas en charge la réception déclenchée par API ou la livraison par événement, l'évaluation d'éligibilité en temps réel signifie que les utilisateurs sont instantanément qualifiés ou disqualifiés en fonction de leur appartenance à un Segment à chaque actualisation.
 
 ## Guide de migration {#migration-guide}
 
@@ -777,7 +777,7 @@ Les bannières ne prennent en charge que les Campaigns avec planification. Pour 
 | Emplacements multiples | S.O. | ✅ Prise en charge de plusieurs emplacements |
 | Types de cartes (classique, avec légende, image uniquement) | ✅ Plusieurs types prédéfinis | ✅ Bannière HTML unique (plus flexible) |
 | **Gestion du contenu** |
-| Éditeur par glisser-déposer | ❌ Nécessite l'intervention d'un développeur pour la personnalisation | ✅ Les marketeurs peuvent créer/mettre à jour sans intervention technique |
+| Éditeur par glisser-déposer | ❌ Nécessite l'intervention d'un développeur pour la personnalisation | ✅ Les marketeurs peuvent créer et mettre à jour sans intervention technique |
 | HTML/CSS personnalisé | ❌ Limité à la structure de la carte | ✅ Prise en charge complète HTML/CSS |
 | Paires clé-valeur pour la personnalisation | ✅ Nécessaire pour une personnalisation avancée | ✅ Paires clé-valeur fortement typées appelées « propriétés » pour une personnalisation avancée |
 | **Persistance et expiration** |
@@ -795,8 +795,8 @@ Les bannières ne prennent en charge que les Campaigns avec planification. Pour 
 | Analyses automatiques (interface utilisateur par défaut) | ✅ Pris en charge | ✅ Pris en charge |
 | Tri par priorité | ❌ Non pris en charge | ✅ Pris en charge |
 | **Mises à jour du contenu** |
-| Actualisation du modèle Liquid | ❌ Une seule fois par carte lors de l'envoi/du lancement | ✅ Actualisé à chaque rafraîchissement |
-| Actualisation de l'éligibilité | ❌ Une seule fois par carte lors de l'envoi/du lancement | ✅ Actualisé à chaque session |
+| Actualisation du modèle Liquid | ❌ Une seule fois par carte lors de l'envoi ou du lancement | ✅ Actualisé à chaque rafraîchissement |
+| Actualisation de l'éligibilité | ❌ Une seule fois par carte lors de l'envoi ou du lancement | ✅ Actualisé à chaque session |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Différences de fonctionnalités" }
 
 ### Limites du produit {#product-limitations}

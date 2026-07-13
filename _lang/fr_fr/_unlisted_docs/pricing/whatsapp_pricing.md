@@ -40,12 +40,12 @@ Voici un résumé rapide des changements précédemment annoncés :
 - La tarification WhatsApp passera à un modèle « par message » au lieu d'un modèle « par conversation ». **Les tarifs « par message » seront identiques aux tarifs actuels « par conversation ».**
 - Les modèles utilitaires envoyés en réponse aux messages des utilisateurs (donc dans une [fenêtre de service client](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows) ouverte) seront gratuits.
 
-*Pour plus de détails sur ces changements, consultez la publication précédente datée du 12 mars ci-dessous.*
+*Pour plus de détails sur ces changements, consultez la publication précédente datée du 12 mars plus loin dans cet article.*
 
 Modifications supplémentaires du 1er juillet (annoncées par Meta le 15 mai) :
 - Meta met à jour les tarifs utilitaires et d'authentification dans plusieurs marchés dans le cadre d'efforts continus pour garantir que la tarification est au même niveau que les canaux alternatifs.
     - Les tarifs pour les messages utilitaires et d'authentification diminuent dans tous les marchés sauf l'Indonésie. En Indonésie, les tarifs utilitaires augmentent et les tarifs d'authentification diminuent.
-- Meta affine sa définition de la catégorie utilitaire, en se basant sur l'engagement et le sentiment des utilisateurs, déplaçant ainsi certains cas d'utilisation vers et depuis la catégorie utilitaire. Consultez la nouvelle [définition des modèles utilitaires](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines) de Meta.
+- Meta affine sa définition de la catégorie utilitaire, en se basant sur l'engagement et le sentiment des utilisateurs, déplaçant ainsi certains cas d'usage vers et depuis la catégorie utilitaire. Consultez la nouvelle [définition des modèles utilitaires](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines) de Meta.
 
 Pour la plupart des clients, ces mises à jour prendront effet automatiquement le 1er juillet.
 
@@ -53,7 +53,7 @@ Pour la plupart des clients, ces mises à jour prendront effet automatiquement l
 
 *Dernière mise à jour le 12 mars 2025 (publication initiale le 13 décembre 2024)*
 
-WhatsApp apporte deux nouvelles modifications à sa tarification à compter du 1er juillet 2025. Braze mettra à jour sa tarification pour refléter ces changements le même jour. Un résumé des modifications et des bonnes pratiques pour les prendre en compte est présenté ci-dessous.
+WhatsApp apporte deux nouvelles modifications à sa tarification à compter du 1er juillet 2025. Braze mettra à jour sa tarification pour refléter ces changements le même jour. Un résumé des modifications et des bonnes pratiques pour les prendre en compte est présenté dans la section suivante.
 
 ### Mise à jour 1 : la tarification WhatsApp passera à un modèle « par message » au lieu d'un modèle « par conversation ». {#update-1-whatsapp-pricing-will-shift-to-a-per-message-model-instead-of-a-per-conversation-model}
 
@@ -66,7 +66,7 @@ Meta passe à un modèle « par message » pour aider les marques à simplifier 
 #### Comment cela affectera-t-il mon utilisation actuelle de WhatsApp ? {#how-will-this-affect-my-current-whatsapp-usage}
 
 - Les conversations actuelles envoyées avec un seul modèle de message dans la fenêtre de 24 heures ne seront pas affectées.
-- **Les conversations actuelles envoyées avec deux modèles de message ou plus du _même type_ dans la fenêtre de 24 heures verront leur coût augmenter.** Par exemple, l'envoi de deux modèles marketing dans la période de 24 heures aura un coût doublé car vous serez facturé par modèle de message.
+- **Les conversations actuelles envoyées avec deux modèles de message ou plus du _même type_ dans la fenêtre de 24 heures verront leur coût augmenter.** Par exemple, l'envoi de deux modèles marketing dans la période de 24 heures aura un coût doublé, car vous serez facturé par modèle de message.
 
 | Exemple de scénario | Tarification avant avril 2025 | Tarification après avril 2025 |
 | --- | --- | --- |
@@ -103,7 +103,7 @@ Nous recommandons les bonnes pratiques suivantes pour prendre en compte ces chan
 Nous recommandons les bonnes pratiques suivantes pour prendre en compte ces changements et optimiser votre budget marketing WhatsApp :
 
 - Limitez l'envoi de plusieurs modèles de messages du même type (sans réponse de l'utilisateur) dans la période de 24 heures. Cela vous évite d'être facturé plus que ce que vous payiez auparavant avec le modèle « par conversation ». C'est également une bonne pratique pour offrir des expériences de qualité à vos clients et limiter la fatigue liée aux messages.
-- Utilisez les [messages de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) lorsque vous répondez aux messages des utilisateurs finaux. Les messages de réponse sont gratuits.
+- Utilisez les [messages de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) lorsque vous répondez aux messages des utilisateurs finaux. Les messages de réponse sont gratuits.
 
 *Remarque : cette mise à jour était initialement prévue pour le 1er avril et désormais le **1er juillet**.*
 
@@ -129,7 +129,7 @@ Le 1er octobre 2024, Meta a réduit de 25 % les tarifs des conversations marketi
 
 #### Que sont les conversations marketing ? {#what-are-marketing-conversations}
 
-Les conversations marketing vous permettent d'atteindre un large éventail d'objectifs, de la sensibilisation à la stimulation des ventes en passant par le reciblage des clients. Parmi les exemples : annonces de nouveaux produits, promotions/offres ciblées et campagnes d'abandon de panier.
+Les conversations marketing vous permettent d'atteindre un large éventail d'objectifs, de la génération de visibilité à la stimulation des ventes en passant par le reciblage des clients. Parmi les exemples : annonces de nouveaux produits, promotions/offres ciblées et campagnes d'abandon de panier.
 
 ### Conversations de service {#service-conversations}
 
@@ -137,14 +137,14 @@ Le 1er novembre 2024, toutes les conversations de service sont gratuites. Les co
 
 #### Que sont les conversations de service ? {#what-are-service-conversations}
 
-Les conversations de service vous permettent de répondre aux demandes des clients. Cela inclut les conversations initiées par un utilisateur final auxquelles la marque répond avec un [message de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) au lieu d'un modèle de message.
+Les conversations de service vous permettent de répondre aux demandes des clients. Cela inclut les conversations initiées par un utilisateur final auxquelles la marque répond avec un [message de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) au lieu d'un modèle de message.
 
 #### Comment tirer parti de cette mise à jour ?
 
 Certaines conversations qui étaient auparavant facturées comme « service » seront désormais gratuites. Cela inclut :
 
-- Les [campagnes de réponse non reconnue]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) où un utilisateur final envoie un message non reconnu et la marque répond avec un message générique en utilisant les [messages de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Par exemple, un utilisateur final envoie un message sans mot-clé et la marque répond « Nous ne reconnaissons pas votre message, veuillez contacter le service client. »
-- Les conversations qui démarrent lorsqu'un utilisateur final envoie un mot-clé promu à la marque et que celle-ci répond en utilisant un [message de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Les exemples courants sont l'abonnement aux messages WhatsApp ou la participation à une promotion spécifique.
+- Les [campagnes de réponse non reconnue]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) où un utilisateur final envoie un message non reconnu et la marque répond avec un message générique en utilisant les [messages de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Par exemple, un utilisateur final envoie un message sans mot-clé et la marque répond « Nous ne reconnaissons pas votre message, veuillez contacter le service client. »
+- Les conversations qui démarrent lorsqu'un utilisateur final envoie un mot-clé promu à la marque et que celle-ci répond en utilisant un [message de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Les exemples courants sont l'abonnement aux messages WhatsApp ou la participation à une promotion spécifique.
 
 <br>
 
@@ -186,4 +186,4 @@ Informations détaillées sur la baisse des conversations utilitaires ci-dessous
 | Royaume-Uni                             | 44,7 %                    |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Pour mieux comprendre comment tirer parti de ces mises à jour, contactez votre gestionnaire de la satisfaction client.
+Pour mieux comprendre comment tirer parti de ces mises à jour, contactez votre gestionnaire du succès des clients.

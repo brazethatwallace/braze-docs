@@ -95,7 +95,7 @@ MismatchSenderIDは、Firebase Cloud Messaging（FCM）での認証エラーを�
 
 1. アプリのFirebaseコンソールに移動します。
 2. **Project Overview**の下で、**Project Settings**を選択します。
-3. **Cloud Messaging**タブで、APIキーの下にある送信者IDがBraze（**設定** > **アプリ設定** > **Cloud Messaging API Key**）のものと一致していることを確認します。
+3. **Cloud Messaging**タブで、APIキーの送信者IDがBraze（**設定** > **アプリ設定** > **Cloud Messaging API Key**）のものと一致していることを確認します。
 
 {% alert warning %}
 Brazeダッシュボードで送信者IDを変更しないでください。変更すると、既存のプッシュ登録が無効になります。送信者IDが一致しない場合は、一致する送信者IDを持つFirebaseプロジェクトを見つける必要があります。
@@ -231,7 +231,7 @@ table {
 
 サイトからの通知がAndroidの通知ドロワーに表示されている場合:
 
-1. プッシュ通知から<i class="fas fa-cog" title="Settings"></i> **設定**をタップし、**Site settings**を選択します。
+1. プッシュ通知から<i class="fas fa-cog" title="設定"></i> **設定**をタップし、**Site settings**を選択します。
 2. **Site settings**から**Clear & Reset**をタップします。
 
 サイトからの通知が開いていない場合:
@@ -250,8 +250,8 @@ table {
 
 ### デスクトップでFirefoxをリセットする {#reset-firefox-on-desktop}
 
-1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="info icon"></i>または<i class="fas fa-lock" alt="lock icon"></i>を選択します。
-2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> **権限をクリア**を選択して通知権限をクリアします。
+1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="情報アイコン"></i>または<i class="fas fa-lock" alt="ロックアイコン"></i>を選択します。
+2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="この権限をクリアして再度確認する"></i> **権限をクリア**を選択して通知権限をクリアします。
 3. 同じメニューで、**Cookieとサイトデータを消去**を選択します。
 4. 確認ダイアログで**OK**を選択します。
 
@@ -288,7 +288,7 @@ Androidでプッシュ権限をリセットするには、Mozillaサポートの
 
 Brazeは、ユーザーが通知をタップしてアプリがセッションを開始したときに直接開封を記録します。リッチプッシュ通知を展開しただけでアプリを開かなかった場合、直接開封は記録されません。
 
-ユーザーがプッシュ通知を受信した後、通知をタップせずにアプリを開いた場合、Brazeは代わりに影響を受けた開封を記録することがあります。定義とレポートについては、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。
+ユーザーがプッシュ通知を受信した後、通知をタップせずにアプリを開いた場合、Brazeは代わりに間接開封を記録することがあります。定義とレポートについては、[間接開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。
 
 ## プッシュエラーメッセージ {#push-error-messages}
 

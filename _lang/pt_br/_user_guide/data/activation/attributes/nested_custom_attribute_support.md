@@ -268,26 +268,26 @@ Use a tag de personalização `custom_attribute` e a notação de ponto para ace
 Para usar Liquid de atributos personalizados aninhados na sua mensagem:
 
 1. Acesse uma Campaign ou um Canvas e abra a etapa de mensagem onde deseja adicionar personalização.
-2. No criador de mensagens, insira o trecho Liquid onde deseja que o valor apareça.
-3. Use **Pré-visualização e teste** com um usuário existente que já tenha o atributo personalizado aninhado em seu perfil para confirmar que o valor é renderizado conforme esperado.
+2. No criador de mensagens, insira o snippet Liquid onde deseja que o valor apareça.
+3. Use **Preview & Test** com um usuário existente que já tenha o atributo personalizado aninhado em seu perfil para confirmar que o valor é renderizado conforme esperado.
 
 ### Personalização {#personalization}
 
-Você pode usar **Adicionar personalização** para inserir um atributo personalizado aninhado na sua mensagem.
+Você pode usar **Add Personalization** para inserir um atributo personalizado aninhado na sua mensagem.
 
-Para abrir **Adicionar personalização**:
+Para abrir **Add Personalization**:
 
 1. Acesse uma Campaign ou um Canvas e abra a etapa de mensagem onde deseja adicionar personalização.
-2. No criador de mensagens, selecione **Personalização** para abrir a barra lateral **Adicionar personalização**, onde você pode escolher opções de personalização.
+2. No criador de mensagens, selecione **Personalization** para abrir a barra lateral **Add Personalization**, onde você pode escolher opções de personalização.
 
 Para configurar a personalização de atributos personalizados aninhados:
 
-1. Em **Tipo de personalização**, selecione **Nested Custom Attributes**.
-2. Em **Atributo de nível superior**, selecione o caminho do atributo personalizado aninhado que deseja inserir.
+1. Em **Personalization Type**, selecione **Nested Custom Attributes**.
+2. Em **Top Level Attribute**, selecione o caminho do atributo personalizado aninhado que deseja inserir.
    Por exemplo, selecione `preferences.neighborhood_office`.
-3. Opcional: em **Valor padrão**, insira um valor de fallback para usuários que não possuem um valor próprio para esse atributo.
-4. Revise o **Trecho Liquid** gerado para confirmar que ele corresponde ao caminho esperado.
-5. Selecione **Inserir**.
+3. Opcional: em **Default value**, insira um valor de fallback para usuários que não possuem um valor próprio para esse atributo.
+4. Revise o **Liquid Snippet** gerado para confirmar que ele corresponde ao caminho esperado.
+5. Selecione **Insert**.
 
 Neste exemplo, a Braze insere o valor aninhado de `preferences.neighborhood_office` na sua mensagem. Os valores padrão são fallbacks que sua mensagem inclui para usuários que não possuem um valor próprio para um atributo.
 
@@ -303,10 +303,10 @@ Para regenerar o esquema do seu atributo personalizado aninhado:
 
 1. Acesse **Configurações de dados** > **Atributos personalizados**.
 2. Pesquise seu atributo personalizado aninhado.
-3. Na coluna **Attribute Name** do seu atributo, selecione <i class="fas fa-plus" aria-label="Gerenciar esquema"></i> **Gerenciar esquema** para gerenciar o esquema.
-4. Um modal será exibido. Selecione **Regenerar esquema**.
+3. Na coluna **Attribute Name** do seu atributo, selecione <i class="fas fa-plus" aria-label="Gerenciar esquema"></i> **Manage schema** para gerenciar o esquema.
+4. Um modal será exibido. Selecione **Regenerate Schema**.
 
-A ação **Regenerar esquema** é limitada a **uma vez por dia corrido** no fuso horário da sua empresa. Não é possível iniciar outra regeneração enquanto um trabalho de esquema já estiver **em andamento** (a opção fica indisponível enquanto o status for **Gerando**). Regenerar o esquema detecta apenas novos objetos e não exclui objetos que já existem no esquema.
+A ação **Regenerate Schema** é limitada a **uma vez por dia corrido** no fuso horário da sua empresa. Não é possível iniciar outra regeneração enquanto um trabalho de esquema já estiver **em andamento** (a opção fica indisponível enquanto o status for **Generating**). Regenerar o esquema detecta apenas novos objetos e não exclui objetos que já existem no esquema.
 
 {% alert important %}
 Para redefinir o esquema de um vetor de objetos com um objeto existente, você precisa criar um novo atributo personalizado. A regeneração do esquema não exclui objetos existentes.
@@ -316,18 +316,40 @@ Se os dados não aparecerem como esperado após regenerar o esquema, o atributo 
 
 ## Disparar alterações em atributos personalizados aninhados {#trigger-nested-custom-attribute-changes}
 
-Você pode disparar ações quando um objeto de atributo personalizado aninhado é alterado. Essa opção não está disponível para alterações em vetores de objetos. Se você não vir a opção de visualizar o explorador de jornadas, verifique se você gerou um esquema.
+Você pode disparar ações quando um objeto de atributo personalizado aninhado é alterado. Essa opção não está disponível para alterações em vetores de objetos. Se você não vir a opção de visualizar o explorador de caminhos, verifique se você gerou um esquema.
 
-Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova ação-gatilho para **Alterar valor de atributo personalizado** para direcionar usuários que alteraram suas preferências de escritório de bairro.
+Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova ação-gatilho para **Change Custom Attribute Value** para direcionar usuários que alteraram suas preferências de escritório de bairro.
 
 Para configurar esse gatilho em uma Campaign baseada em ação:
 
-1. Crie ou edite uma Campaign e defina o tipo de entrega como **Entrega baseada em ação**.
-2. Nas configurações de gatilho, selecione **Alterar valor de atributo personalizado**.
+1. Crie ou edite uma Campaign e defina o tipo de entrega como **Action-Based Delivery**.
+2. Nas configurações de gatilho, selecione **Change Custom Attribute Value**.
 3. Selecione o caminho do atributo personalizado aninhado que deseja monitorar.
    Por exemplo, selecione `preferences.neighborhood_office`.
-4. Selecione a condição de gatilho desejada, como **qualquer novo valor**.
+4. Selecione a condição de gatilho desejada, como **any new value**.
 5. Termine de configurar a mensagem e o público da sua Campaign e, em seguida, lance a Campaign.
+
+## Solução de problemas {#troubleshooting}
+
+### Valores de atributos personalizados aninhados não aplicados de forma consistente {#nested-custom-attribute-values-not-applied-consistently}
+
+Se você perceber que os valores de atributos personalizados aninhados não estão sendo adicionados aos perfis de usuário de forma consistente, o problema geralmente está relacionado a incompatibilidades de tipo de dados.
+
+Para diagnosticar e resolver esse problema:
+
+1. **Compare exemplos de usuários:** obtenha um exemplo de usuário bem-sucedido e um malsucedido em que o atributo personalizado aninhado deveria ter sido definido.
+2. **Revise a estrutura de dados:** visualize e compare os valores do atributo personalizado em ambos os perfis:
+   - As propriedades estão armazenadas em um objeto?
+   - As propriedades estão armazenadas como um vetor de propriedades?
+3. **Verifique o filtro de segmentação:** compare a estrutura de dados armazenada com a forma como o atributo personalizado aninhado é referenciado nos seus filtros de segmentação.
+4. **Verifique o tipo de dados:** para identificar o tipo de dados de um atributo personalizado:
+   - Acesse **Configurações de dados** > **Atributos personalizados**.
+   - Pesquise o atributo personalizado de nível superior que contém o atributo aninhado que deseja verificar.
+   - Se a linha mostrar **Generate Schema**, selecione para gerar o esquema primeiro.
+   - Após o esquema ser gerado, selecione o ícone de mais na coluna **Attribute Name** para esse atributo.
+   - No modal **Edit schema**, revise os atributos aninhados e seus valores correspondentes na coluna **Data type**.
+
+Se você descobrir que o tipo de dados não corresponde ao formato pretendido nos perfis de usuário, remova o valor formatado incorretamente dos perfis de usuário afetados e reenvie o atributo no formato correto usando a solicitação de API ou o método de SDK apropriado.
 
 ## Comportamento de segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 

@@ -1,9 +1,9 @@
 # Indicateurs de fonctionnalité {#feature-flags}
 
-> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection spécifique ou aléatoire d'utilisateurs. Point essentiel : ils vous permettent d'activer et de désactiver une fonctionnalité en production sans déploiement de code supplémentaire ni mise à jour sur les app stores. Vous pouvez ainsi déployer de nouvelles fonctionnalités en toute sécurité et en toute confiance.
+> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection spécifique ou aléatoire d'utilisateurs. Point essentiel : ils vous permettent d'activer et de désactiver une fonctionnalité en production sans déploiement de code supplémentaire ni mise à jour sur les boutiques d'applications. Vous pouvez ainsi déployer de nouvelles fonctionnalités en toute sécurité et en toute confiance.
 
 {% alert tip %}
-Lorsque vous êtes prêt à créer vos propres indicateurs de fonctionnalité, consultez la rubrique [Créer des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create/).
+Lorsque vous êtes prêt à créer vos propres indicateurs de fonctionnalité, consultez la rubrique [Créer des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create).
 {% endalert %}
 
 ## Conditions préalables {#prerequisites}
@@ -29,11 +29,11 @@ Par exemple, imaginons que nous avons décidé d'ajouter un nouveau lien « Live
 
 Avec les indicateurs de fonctionnalité de Braze, nous pouvons déployer progressivement la fonctionnalité et atténuer tous ces risques :
 
-* Nous activerons la fonctionnalité « Assistance en direct » lorsque l'équipe d'assistance indiquera qu'elle est prête.
+* Nous activerons la fonctionnalité « Live Chat Support » lorsque l'équipe d'assistance indiquera qu'elle est prête.
 * Nous activerons cette nouvelle fonctionnalité pour seulement 10 % des utilisateurs afin de vérifier si nos effectifs sont suffisants.
 * En cas de bogues, nous pourrons rapidement désactiver la fonctionnalité au lieu de nous précipiter pour publier une nouvelle version.
 
-Pour déployer progressivement cette fonctionnalité, nous pouvons [créer un indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create/) nommé « Live Chat Widget ».
+Pour déployer progressivement cette fonctionnalité, nous pouvons [créer un indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create) nommé « Live Chat Widget ».
 
 ![Détails de l'indicateur de fonctionnalité pour un exemple nommé Live Chat Widget. L'ID est enable_live_chat. La description de cet indicateur de fonctionnalité indique que le widget de chat en direct s'affichera sur la page d'assistance.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
@@ -112,6 +112,26 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+La lecture de `braze.featureFlags.featureFlags` ou `braze.featureFlags.featureFlag(id:)` bloque le thread appelant jusqu'à ce que le SDK ait terminé ses opérations post-initialisation. Pour les contextes sur le thread principal ou sensibles à la latence, utilisez [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)) à la place.
+
+```swift
+// Non-blocking — completion handler always delivers on the main thread.
+braze.featureFlags.getAllFeatureFlags { flags in
+  let liveChatEnabled = flags.first(where: { $0.id == "enable_live_chat" })?.enabled ?? false
+  liveChatView.isHidden = !liveChatEnabled
+}
+```
+
+En Objective-C :
+
+```objc
+[braze.featureFlags getAllFeatureFlagsWithCompletion:^(NSArray<BRZFeatureFlag *> *flags) {
+  // Use `flags` here.
+}];
+```
+{% endalert %}
+
 ```swift
 // Get the initial value from the Braze SDK
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")
@@ -132,13 +152,13 @@ liveChatView.isHidden = !liveChatEnabled
 
 ### Contrôle à distance des variables d'application {#remotely-control-app-variables}
 
-Utilisez des indicateurs de fonctionnalité pour modifier le comportement de votre application en production. Cela peut s'avérer particulièrement important pour les applications mobiles, où les validations des app stores empêchent de déployer rapidement des modifications pour tous les utilisateurs.
+Utilisez des indicateurs de fonctionnalité pour modifier le comportement de votre application en production. Cela peut s'avérer particulièrement important pour les applications mobiles, où les validations des boutiques d'applications empêchent de déployer rapidement des modifications pour tous les utilisateurs.
 
-Par exemple, imaginons que notre équipe marketing souhaite afficher nos ventes et promotions en cours dans la navigation de notre application. Normalement, nos ingénieurs ont besoin d'une semaine de délai pour tout changement et de trois jours pour la validation de l'app store. Mais avec Thanksgiving, le Black Friday, le Cyber Monday, Hanukkah, Noël et le Nouvel An concentrés sur deux mois, nous ne serons pas en mesure de respecter ces délais serrés.
+Par exemple, imaginons que notre équipe marketing souhaite afficher nos ventes et promotions en cours dans la navigation de notre application. Normalement, nos ingénieurs ont besoin d'une semaine de délai pour tout changement et de trois jours pour la validation de la boutique d'applications. Mais avec Thanksgiving, le Black Friday, le Cyber Monday, Hanukkah, Noël et le Nouvel An concentrés sur deux mois, nous ne serons pas en mesure de respecter ces délais serrés.
 
 Grâce aux indicateurs de fonctionnalité, nous pouvons laisser Braze alimenter le contenu du lien de navigation de notre application, ce qui permet à notre responsable marketing d'effectuer des changements en quelques minutes plutôt qu'en plusieurs jours.
 
-Pour configurer cette fonctionnalité à distance, nous allons créer un indicateur de fonctionnalité appelé `navigation_promo_link` et définir les propriétés initiales suivantes :
+Pour configurer cette fonctionnalité à distance, nous allons créer un nouvel indicateur de fonctionnalité appelé `navigation_promo_link` et définir les propriétés initiales suivantes :
 
 ![Indicateur de fonctionnalité avec des propriétés de lien et de texte renvoyant à une page de vente générique.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-navigation-link-1.png %})
 
@@ -229,11 +249,11 @@ Utilisez des indicateurs de fonctionnalité pour synchroniser le déploiement d'
 
 Imaginons par exemple que nous lancions un nouveau programme de fidélité pour nos utilisateurs. Il peut être difficile pour les équipes marketing et produit de coordonner parfaitement le calendrier des messages promotionnels avec le déploiement d'une fonctionnalité. Cependant, avec les indicateurs de fonctionnalité dans Canvas, notre équipe produit peut appliquer une logique sophistiquée pour activer une fonctionnalité auprès d'une audience spécifique, tandis que notre équipe marketing contrôle les messages associés envoyés à ces mêmes utilisateurs.
 
-Pour coordonner efficacement le déploiement et l'envoi de messages, nous allons créer un indicateur de fonctionnalité appelé `show_loyalty_program`. Pour notre première phase de déploiement, nous laisserons Canvas contrôler quand et pour qui l'indicateur de fonctionnalité est activé. Pour l'instant, nous laisserons le pourcentage de déploiement à 0 % et ne sélectionnerons aucun segment cible.
+Pour coordonner efficacement le déploiement et l'envoi de messages, nous allons créer un nouvel indicateur de fonctionnalité appelé `show_loyalty_program`. Pour notre première phase de déploiement, nous laisserons Canvas contrôler quand et pour qui l'indicateur de fonctionnalité est activé. Pour l'instant, nous laisserons le pourcentage de déploiement à 0 % et ne sélectionnerons aucun segment cible.
 
 ![Indicateur de fonctionnalité portant le nom Programme de fidélité. L'ID est show_loyalty_program, et la description indique que le nouveau programme de fidélité s'affiche sur l'écran d'accueil et la page de profil.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
 
-Ensuite, dans Canvas, nous créerons une [étape Indicateur de fonctionnalité]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) qui active l'indicateur de fonctionnalité `show_loyalty_program` pour notre segment « Clients à forte valeur » :
+Ensuite, dans Canvas, nous créerons une [étape Indicateur de fonctionnalité]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) qui active l'indicateur de fonctionnalité `show_loyalty_program` pour notre segment « Clients à forte valeur » :
 
 ![Exemple de Canvas avec une étape de répartition de l'audience où le segment des clients à forte valeur active l'indicateur de fonctionnalité show_loyalty_program.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
 
@@ -243,7 +263,9 @@ Les utilisateurs de ce segment commenceront alors à voir le nouveau programme d
 
 Utilisez des indicateurs de fonctionnalité pour expérimenter et valider vos hypothèses concernant une nouvelle fonctionnalité. En répartissant le trafic en deux groupes ou plus, vous pouvez comparer l'impact d'un indicateur de fonctionnalité entre les groupes et déterminer la meilleure marche à suivre en fonction des résultats.
 
-Un [test A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) est un outil puissant qui permet de comparer les réponses des utilisateurs à plusieurs versions d'une variable.
+Pour les expériences d'indicateurs de fonctionnalité, vous pouvez avoir jusqu'à neuf groupes au total : un groupe de contrôle et jusqu'à huit variantes.
+
+Un [test A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) est un outil puissant qui permet de comparer les réponses des utilisateurs à plusieurs versions d'une variable.
 
 Dans cet exemple, notre équipe a créé un nouveau flux de paiement pour notre application e-commerce. Même si nous sommes convaincus qu'il améliore l'expérience utilisateur, nous souhaitons réaliser un test A/B pour mesurer son impact sur le chiffre d'affaires de notre application.
 
@@ -308,7 +330,7 @@ if let featureFlag, featureFlag.enabled {
 {% endtab %}
 {% endtabs %}
 
-Nous configurerons notre test A/B dans le cadre d'une [expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/experiments/).
+Nous configurerons notre test A/B dans le cadre d'une [expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/experiments).
 
 Désormais, 50 % des utilisateurs verront l'ancienne expérience, tandis que les 50 % restants verront la nouvelle. Nous pourrons ensuite analyser les deux variantes pour déterminer quel flux de paiement a généré le taux de conversion le plus élevé. {% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}
 
@@ -318,9 +340,15 @@ Une fois le gagnant identifié, nous pourrons arrêter cette campagne et porter 
 
 ### Segmentation
 
-Utilisez le filtre **Indicateur de fonctionnalité** pour créer un segment ou cibler l'envoi de messages aux utilisateurs selon qu'un indicateur de fonctionnalité est activé ou non. Par exemple, imaginons que nous ayons un indicateur de fonctionnalité qui contrôle le contenu premium dans notre application. Nous pourrions créer un segment filtrant les utilisateurs pour lesquels l'indicateur de fonctionnalité n'est pas activé, puis envoyer à ce segment un message les incitant à mettre leur compte à niveau pour accéder au contenu premium.
+Utilisez le filtre **Indicateur de fonctionnalité** pour créer un segment ou cibler l'envoi de messages aux utilisateurs selon qu'un indicateur de fonctionnalité est activé ou non. Par exemple, imaginons que vous ayez un indicateur de fonctionnalité qui contrôle le contenu premium dans votre application. Vous pourriez créer un segment filtrant les utilisateurs pour lesquels l'indicateur de fonctionnalité n'est pas activé, puis envoyer à ce segment un message les incitant à mettre leur compte à niveau pour accéder au contenu premium.
 
-Pour en savoir plus sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+1. Ouvrez votre segment ou l'audience de votre message.
+2. Ajoutez le filtre **Indicateur de fonctionnalité**.
+3. Sélectionnez l'indicateur de fonctionnalité.
+4. Définissez le comparateur sur **est** pour inclure les utilisateurs dont l'indicateur de fonctionnalité est activé, ou **n'est pas** pour inclure les utilisateurs dont l'indicateur n'est pas activé.
+![Générateur de segments Braze utilisant un filtre de valeur activée d'indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
+
+Pour en savoir plus sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 {% alert note %}
 Pour éviter les segments récursifs, il n'est pas possible de créer un segment faisant référence à d'autres indicateurs de fonctionnalité.
@@ -333,9 +361,9 @@ Voici les limites des indicateurs de fonctionnalité pour les plans gratuits et 
 | Fonctionnalité                                                                                                   | Version gratuite     | Version payante      |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | [Indicateurs de fonctionnalité actifs](#active-feature-flags)                                                                     | 10 par espace de travail | 110 par espace de travail |
-| [Expériences de campagnes actives]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | 1 par espace de travail  | 100 par espace de travail |
-| [Étapes Canvas pour l'indicateur de fonctionnalité]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | Illimité        | Illimité         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
+| [Expériences de campagne actives]({{site.baseurl}}/developer_guide/feature_flags/experiments)          | 1 par espace de travail  | 100 par espace de travail |
+| [Étapes Canvas pour l'indicateur de fonctionnalité]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) | Illimité        | Illimité         |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites selon le plan" }
 
 Un indicateur de fonctionnalité est considéré comme actif et sera comptabilisé dans votre limite si l'une des conditions suivantes est remplie :
 

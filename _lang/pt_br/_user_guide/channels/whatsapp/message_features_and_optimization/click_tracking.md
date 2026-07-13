@@ -57,7 +57,7 @@ No Template Builder, acesse a guia **Settings**. Em **Link options**, marque a c
 
 Em **Custom domain**, selecione o domínio que você deseja usar para links encurtados. O menu suspenso mostra todos os domínios de rastreamento personalizados configurados para o seu espaço de trabalho. Se você não selecionar um, a Braze usará o domínio padrão `brz.ai`.
 
-Para adicionar ou alterar domínios, selecione **Gerenciamento de grupos de inscrições**.
+Para adicionar ou alterar domínios, selecione **Subscription Group Management**.
 
 {% alert important %}
 Depois que um modelo é enviado à Meta para aprovação, o domínio de rastreamento não pode ser alterado. Confirme que você selecionou o domínio correto antes de enviar.
@@ -65,12 +65,12 @@ Depois que um modelo é enviado à Meta para aprovação, o domínio de rastream
 
 ##### Etapa 3: Adicionar seus URLs de destino {#step-3-add-your-destination-urls}
 
-Volte para a guia **Redigir** e adicione o conteúdo da sua mensagem.
+Volte para a guia **Compose** e adicione o conteúdo da sua mensagem.
 
 - **Para botões CTA de site:** Insira o URL de destino no campo **Click tracking URL**. A Braze armazena seu URL de destino e formata automaticamente o URL do site do botão com o domínio de rastreamento e um espaço reservado de variável {% raw %}(por exemplo, `https://brz.ai/{{1}}`){% endraw %}. Esse espaço reservado é o que é enviado à Meta. No momento do envio, a Braze gera o URL rastreado completo para cada usuário e preenche a variável.
 - **Para links no corpo do texto:** Insira os URLs diretamente no corpo.
 
-Você pode pré-visualizar o formato do URL rastreado para cada botão diretamente abaixo do campo **Website URL** (por exemplo, `https://brz.ai/XXXXXXXX`).
+Você pode pré-visualizar o formato do URL rastreado para cada botão diretamente no campo **Website URL** (por exemplo, `https://brz.ai/XXXXXXXX`).
 
 ![Seção de botões de chamada para ação mostrando um botão Visit website com o Website URL pré-preenchido no formato rastreado e um campo Click tracking URL para o destino.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
 
@@ -82,7 +82,7 @@ Depois que um modelo é enviado à Meta, o domínio de rastreamento fica bloquea
 
 Se você estiver criando modelos no WhatsApp Business Manager em vez do Template Builder, siga estas etapas para que o rastreamento de cliques funcione corretamente quando o modelo for usado na Braze.
 
-##### Etapa 1: Crie um modelo compatível com rastreamento de cliques no WhatsApp Business Manager {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
+##### Etapa 1: Criar um modelo compatível com rastreamento de cliques no WhatsApp Business Manager {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
 
 1. No seu WhatsApp Business Manager, crie um URL base que seja seu domínio personalizado ou `brz.ai`.
 2. Certifique-se de que os links incluídos no modelo sejam compatíveis com o rastreamento de cliques.
@@ -96,7 +96,7 @@ Se você estiver criando modelos no WhatsApp Business Manager em vez do Template
 
 ![Caixa de texto para inserir o corpo do conteúdo da chamada para ação.]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
 
-##### Etapa 2: Conclua seu modelo na Braze {#step-2-complete-your-template-in-braze}
+##### Etapa 2: Concluir seu modelo na Braze {#step-2-complete-your-template-in-braze}
 
 Ao redigir, a Braze detecta automaticamente quais modelos possuem domínios de URL compatíveis, tanto no corpo do texto quanto para botões CTA. O status é exibido na parte inferior do modelo.
 
@@ -146,7 +146,7 @@ A Braze encurta URLs renderizados por Liquid, incluindo aqueles incluídos em pr
 
 Antes de lançar sua Campaign ou Canvas, a prática recomendada é pré-visualizar e testar sua mensagem primeiro. Para isso, acesse a guia **Test** para pré-visualizar e enviar um WhatsApp para grupos de teste de conteúdo ou para um usuário individual.
 
-Esta pré-visualização será atualizada com a personalização relevante e o URL encurtado.
+Esta prévia será atualizada com a personalização relevante e o URL encurtado.
 
 {% alert important %}
 Se um rascunho for criado dentro de um Canvas ativo, um URL encurtado não será gerado. O URL encurtado real é gerado quando o rascunho do Canvas é ativado.
@@ -174,6 +174,6 @@ Você pode usar o filtro `Clicked/Opened Step` e a interação `clicked tracked 
 
 Sim. Quando o rastreamento de cliques está ativado (ou habilitado com base na configuração do modelo), você pode redirecionar usuários que clicaram em URLs aproveitando os filtros de redirecionamento do WhatsApp ou os eventos de clique do WhatsApp (`users.messages.whatsapp.Click`) enviados pelo Currents.
 
-### As pré-visualizações no dispositivo WhatsApp contam como cliques? {#do-previews-on-the-whatsapp-device-count-as-clicks}
+### As prévias no dispositivo WhatsApp contam como cliques? {#do-previews-on-the-whatsapp-device-count-as-clicks}
 
 Não, elas não contribuem para a taxa de cliques das mensagens do WhatsApp.

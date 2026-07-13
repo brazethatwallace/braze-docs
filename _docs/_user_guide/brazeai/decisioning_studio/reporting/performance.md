@@ -48,7 +48,7 @@ These delays are configured for your use case. If you need to understand your sp
 
 ## KPI cards
 
-The KPI cards on the left side of the report show the key performance indicators configured for your use case, such as:
+The KPI cards on the primary side side of the report show the key performance indicators configured for your use case, such as:
 
 - Incremental LTV / Customer
 - Conversions / Customer

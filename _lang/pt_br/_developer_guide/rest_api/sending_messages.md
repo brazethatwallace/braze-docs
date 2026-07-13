@@ -29,7 +29,7 @@ Para detalhes completos de requisição e resposta, consulte as referências dos
 
 Use este endpoint quando quiser especificar o conteúdo completo da mensagem na requisição da API. Você **deve** incluir um objeto `messages` (por exemplo, `messages.whats_app`, `messages.email` ou `messages.sms`). Você pode omitir `campaign_id` para enviar sem rastreamento de campanha, ou incluir um ID de campanha da API e `message_variation_id` em cada mensagem para rastrear envios no dashboard (consulte a [referência do endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para detalhes).
 
-**Obrigatória:** chave de API com a permissão `messages.send`.
+**Obrigatório:** chave de API com a permissão `messages.send`.
 
 {% alert important %}
 Cada destinatário em `external_user_ids` já deve existir na Braze. Para criar usuários como parte de um envio, use [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) primeiro, ou use a [Opção 2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend) (campanha disparada por API).
@@ -90,12 +90,12 @@ Para outros canais, consulte [Objetos de envio de mensagens]({{site.baseurl}}/ap
 
 Use este endpoint quando o conteúdo da mensagem for construído no dashboard da Braze (campanha disparada por API). Você envia um `campaign_id` **obrigatório** e os destinatários; você **não** envia um objeto `messages`.
 
-**Obrigatória:** chave de API com a permissão `campaigns.trigger.send`.
+**Obrigatório:** chave de API com a permissão `campaigns.trigger.send`.
 
 ### Etapa 1: Crie uma campanha disparada por API {#step-1-create-an-api-triggered-campaign}
 
 1. No dashboard da Braze, acesse **Envio de mensagens** > **Campaigns**.
-2. Selecione **Criar campanha** e depois **API-Triggered Campaign** (não "API Campaign").
+2. Selecione **Create Campaign** e depois **API-Triggered Campaign** (não "API Campaign").
 3. Adicione seu canal de mensagem (WhatsApp, e-mail, SMS, etc.) e construa o conteúdo da mensagem no dashboard.
 4. Anote o **Campaign ID** (e o **Send ID**, se você usar várias variantes de mensagem). Você usará esses valores na requisição da API.
 
@@ -128,7 +128,7 @@ Para o corpo completo da requisição (incluindo `trigger_properties`, `send_to_
 
 ## Verifique sua integração {#verify-your-integration}
 
-1. Envie uma requisição usando uma das opções acima, com seu próprio ID de usuário como destinatário.
+1. Envie uma requisição usando uma das opções disponíveis, com seu próprio ID de usuário como destinatário.
 2. Confirme que a mensagem foi entregue.
 3. Se estiver usando a Opção 2, verifique a campanha no dashboard da Braze para confirmar que o envio foi registrado.
 
@@ -136,4 +136,4 @@ Para o corpo completo da requisição (incluindo `trigger_properties`, `send_to_
 
 - Use os recursos de [personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) da Braze para adaptar o conteúdo quando suportado.
 - Garanta que seu envio de mensagens esteja em conformidade com as regulamentações aplicáveis e inclua as opções de descadastramento e os avisos de privacidade exigidos.
-- Para mais endpoints (agendamento, gatilhos de Canvas, etc.), consulte [Endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+- Para mais endpoints (agendamento, disparos de Canvas, etc.), consulte [Endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).

@@ -23,7 +23,7 @@ Después de habilitar esta característica en tu aplicación, puedes configurar 
 - Actualización de los atributos estándar del perfil de usuario
 - Recibir o desencadenar mensajes
 
-Ahora puedes evitar que los usuarios que hayan iniciado sesión sin autenticarse utilicen la clave de API de SDK de tu aplicación para realizar acciones maliciosas, como la suplantación de identidad.
+Ahora puedes evitar que los usuarios que hayan iniciado sesión sin autenticarse utilicen la clave de API del SDK de tu aplicación para realizar acciones maliciosas, como la suplantación de identidad.
 
 ## Configuración de la autenticación {#setting-up-authentication}
 

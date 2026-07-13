@@ -25,15 +25,15 @@ Notre système analyse les agents utilisateurs associés aux robots d'indexation
 Les indicateurs et workflows Braze suivants sont impactés par les clics de bots :
 
 - **_Total des clics_ :** L'analytique des Campaigns et l'analytique des Canvas excluront les clics de bots, reflétant uniquement les interactions humaines.
-- **Filtres de segmentation :** Les filtres de segment référençant les interactions de liens SMS excluront les clics de bots pour un reciblage plus précis dans les Campaigns et les Canvas.
-- **Orchestration :** Les clics de bots sont filtrés des déclencheurs basés sur les actions et des parcours d'actions Canvas qui référencent les interactions de liens SMS, permettant aux déclencheurs de refléter le comportement humain.
+- **Filtres de segmentation :** Les filtres de Segment référençant les interactions de liens SMS excluront les clics de bots pour un reciblage plus précis dans les Campaigns et les Canvas.
+- **Orchestration :** Les clics de bots sont filtrés des déclencheurs basés sur les actions et des parcours d'action Canvas qui référencent les interactions de liens SMS, permettant aux déclencheurs de refléter le comportement humain.
 - **Braze Intelligence :**
     - **Sélection intelligente :** Exclut les clics de bots lors de l'optimisation de la sélection des variantes.
     - **Canal intelligent :** Exclut les clics de bots lorsque le SMS ou le RCS est sélectionné pour une sélection de canal précise.
     - **Étapes d'expérience :** Exclut les clics de bots pour des résultats d'expérience fiables.
     - **Exportations de données Currents :** Inclut les champs `is_suspected_bot_click` et `suspected_bot_click_reason` pour aider à analyser les clics humains par rapport aux clics de bots. Ces champs sont disponibles dans [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) et le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 
-Les désabonnements provenant de clics de bots suspectés ne sont pas affectés. Braze traite toutes les demandes de désabonnement normalement. Pour bloquer ces désabonnements, [soumettez un retour produit]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Les désabonnements provenant de clics de bots suspectés ne sont pas affectés. Braze traite toutes les demandes de désabonnement normalement. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Champs Currents dans les événements de clic SMS {#currents-fields-in-sms-click-events}
 

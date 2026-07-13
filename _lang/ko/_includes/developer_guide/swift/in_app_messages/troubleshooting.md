@@ -1,6 +1,6 @@
 {% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
 
-### 자산 로딩 문제 해결(`NSURLError` 코드 `-1008`) {#asset-loading}
+### 자산 로드 문제 해결(`NSURLError` 코드 `-1008`) {#asset-loading}
 
 Braze를 서드파티 네트워크 로깅 라이브러리와 함께 통합할 때, 개발자는 도메인 코드 `-1008`과 관련된 `NSURLError`를 흔히 접할 수 있습니다. 이 오류는 이미지 및 글꼴과 같은 자산을 검색할 수 없거나 캐시에 실패했음을 나타냅니다. 이러한 경우를 해결하려면 해당 라이브러리에서 무시해야 하는 도메인 목록에 Braze CDN URL을 등록해야 합니다.
 

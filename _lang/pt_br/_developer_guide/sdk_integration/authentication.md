@@ -806,7 +806,7 @@ Caso o token de um usuário expire no meio da sessão, o SDK possui uma [funçã
 
 Se o seu servidor não conseguir fornecer um JWT ou se você notar algum problema de integração, você sempre pode desativar o recurso no dashboard da Braze.
 
-Uma vez desativado, todas as solicitações pendentes do SDK que falharam serão eventualmente repetidas pelo SDK e aceitas pela Braze.
+Uma vez desativado, o SDK eventualmente tentará novamente as solicitações pendentes que falharam, e a Braze as aceitará.
 
 ### Por que esse recurso usa chaves pública/privada em vez de segredos compartilhados? {#faq-shared-secrets}
 

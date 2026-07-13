@@ -106,7 +106,9 @@ Para ver descrições do que cada permissão de usuário inclui e como usá-las,
 
 ## Atribuir tags de Equipe {#tags-and-filters}
 
-Você pode atribuir uma Equipe a Canvas, Campaigns, Content Cards, Segments, modelos de e-mail, modelos de webhook, Content Blocks e ativos da Biblioteca de mídia com o filtro **Adicionar equipe**.
+Você pode atribuir uma Equipe a Canvas, Campaigns, Content Cards, Segments, modelos de e-mail, modelos de webhook, Content Blocks e ativos da biblioteca de mídia com o filtro **Adicionar equipe**.
+
+Para Canvas, os filtros de equipe validam os usuários apenas na entrada do Canvas. Depois que um usuário entra em um Canvas, ele continua recebendo mensagens de todas as etapas do Canvas, mesmo que seus atributos mudem e ele não corresponda mais aos critérios do filtro de equipe. Os filtros de equipe não se comportam como validações de entrega que reavaliam os usuários em cada etapa de mensagem.
 
 ![Adicionando uma tag de Equipe a uma campanha.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
@@ -135,9 +137,9 @@ Neste cenário, Michelle ainda é membro da Equipe Development, mas também tem 
 
 ![Permissões personalizadas com uma permissão de nível de espaço de trabalho e 15 permissões baseadas em equipe.]({% image_buster /assets/img_archive/scenario2.png %})
 
-Como Michelle tem a permissão de nível de espaço de trabalho "Acessar Campaigns, Canvas, cartões, Content Blocks, Feature Flags, Segments, Biblioteca de mídia e Central de Preferências", ela pode visualizar e atribuir outros filtros de Equipe à campanha que criar.
+Como Michelle tem a permissão de nível de espaço de trabalho "Acessar Campaigns, Canvas, cartões, Content Blocks, Feature Flags, Segments, biblioteca de mídia e Central de Preferências", ela pode visualizar e atribuir outros filtros de Equipe à campanha que criar.
 
-![Menu suspenso de tag de Equipe da campanha com múltiplas tags de Equipe]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
+![Menu suspenso de tag de Equipe da campanha com múltiplas tags de Equipe.]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
 Assim como no primeiro cenário, Michelle deve adicionar a tag de Equipe Development à campanha antes de poder lançá-la.
 
@@ -168,6 +170,6 @@ Você pode arquivar Equipes na página **Equipes internas**.
 
 Selecione uma ou mais Equipes para arquivar. Se a Equipe não estiver associada a nenhum objeto na Braze, ela será arquivada imediatamente. Se a Equipe estiver associada a um objeto, será apresentada uma opção para remover a Equipe após o processo de arquivamento ou substituir a Equipe.
 
-![Arquivando uma Equipe que está associada a um objeto na Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
+![Arquivando uma Equipe que está associada a um objeto na Braze.]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 
 Administradores da Braze podem desarquivar uma Equipe selecionando a Equipe arquivada e selecionando **Desarquivar**.

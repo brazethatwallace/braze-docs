@@ -16,7 +16,7 @@ search_tag: Partner
 
 Braze와 AppsFlyer 통합을 통해 AppsFlyer의 모바일 설치 기여도 데이터를 활용하여 Campaign을 최적화하고 보다 전체적인 Campaign을 구축하는 방법을 더 잘 이해할 수 있습니다.
 
-또한 [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/) 통합을 통해 AppsFlyer 오디언스(코호트)를 Braze로 직접 전달하여, 적절한 시점에 적절한 사용자를 타겟으로 하는 강력한 고객 참여 Campaign을 만들 수 있습니다.
+또한 [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences) 통합을 통해 AppsFlyer 오디언스(코호트)를 Braze로 직접 전달하여, 적절한 시점에 적절한 사용자를 타겟으로 하는 강력한 고객 참여 Campaign을 만들 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -25,8 +25,8 @@ Braze와 AppsFlyer 통합을 통해 AppsFlyer의 모바일 설치 기여도 데�
 | AppsFlyer 계정 | 이 파트너십을 활용하려면 AppsFlyer 계정이 필요합니다. |
 | iOS 또는 Android 앱 | 이 통합은 iOS 및 Android 앱을 지원합니다. 플랫폼에 따라 애플리케이션에 코드 스니펫이 필요할 수 있습니다. 이러한 요구 사항에 대한 자세한 내용은 통합 프로세스의 1단계에서 확인할 수 있습니다. |
 | AppsFlyer SDK | 필수 Braze SDK 외에도 [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)를 설치해야 합니다.
-| 이메일 도메인 설정 완료 | Braze 온보딩 중 이메일 설정의 [IP 및 도메인 설정 단계]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)를 완료해야 합니다. |
-| SSL 인증서 | [SSL 인증서]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)가 구성되어 있어야 합니다. |
+| 이메일 도메인 설정 완료 | Braze 온보딩 중 이메일 설정의 [IP 및 도메인 설정 단계]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains)를 완료해야 합니다. |
+| SSL 인증서 | [SSL 인증서]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate)가 구성되어 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
@@ -103,7 +103,7 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **AppsFl
 
 ### 3단계: AppsFlyer 대시보드에서 Braze 구성 {#step-3-configure-braze-in-appsflyers-dashboard}
 
-1. AppsFlyer에서 왼쪽 바의 **Integrated Partners** 페이지로 이동합니다. 그런 다음 **Braze**를 검색하고 Braze 로고를 선택하여 구성 창을 엽니다.
+1. AppsFlyer에서 탐색 메뉴의 **Integrated Partners** 페이지로 이동합니다. 그런 다음 **Braze**를 검색하고 Braze 로고를 선택하여 구성 창을 엽니다.
 2. **Integration** 탭에서 **Activate Partner**를 켭니다.
 3. Braze 대시보드에서 찾은 데이터 가져오기 키와 REST 엔드포인트를 입력합니다.
 4. **Advanced Privacy**를 끄고 구성을 저장합니다.
@@ -154,9 +154,9 @@ AppsFlyer는 이러한 문제를 방지하는 [서비스](https://support.appsfl
 
 ## 1단계 - 클릭 추적 도메인 만들기 {#step-1-create-a-click-tracking-domain}
 
-[Braze의 이메일 설정 안내]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)의 초기 요소에 따라 이메일 전송 도메인과 클릭 추적 도메인을 만듭니다. 지원을 받으려면 Braze 대시보드를 통해 티켓을 제기하여 Braze 이메일 팀과 함께 새 CTD에 대한 설정을 시작할 수 있습니다.
+[Braze의 이메일 설정 안내]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate)의 초기 요소에 따라 이메일 전송 도메인과 클릭 추적 도메인을 만듭니다. 지원을 받으려면 Braze 대시보드를 통해 티켓을 제기하여 Braze 이메일 팀과 함께 새 CTD에 대한 설정을 시작할 수 있습니다.
 
-![오른쪽 상단의 'Support' 버튼 아래에 있는 'Get Help' 버튼이 표시된 Braze UI]({% image_buster /assets/img/attribution/appsflyer/1.png %})
+![상단 탐색 바의 'Support' 버튼 아래에 있는 'Get Help' 버튼이 표시된 Braze UI.]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
 이미 기존 CTD를 사용 중이더라도 새 CTD를 생성해야 합니다. 이렇게 하면 현재 진행 중인 라이브 이메일 Campaign의 트래픽에 영향을 미치지 않습니다.
 
@@ -175,7 +175,7 @@ AppsFlyer가 SSL 인증서를 생성합니다. 이 단계에서는 이메일 링
 AppsFlyer에서 Braze 통합을 설정하려면:
 
 ### 1. AppsFlyer의 사이드 메뉴에서 Engage > ESP Integration을 선택합니다. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
-![왼쪽 메뉴에 있는 'ESP Integration' 버튼이 표시된 AppsFlyer UI]({% image_buster /assets/img/attribution/appsflyer/2.png %})
+![탐색 메뉴에 있는 'ESP Integration' 버튼이 표시된 AppsFlyer UI.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
 
 
 ### 2. Braze를 선택합니다. {#2-select-braze}
@@ -219,7 +219,7 @@ AppsFlyer는 유니버설 링킹을 지원하기 위해 웹 또는 앱 팀이 �
 
 ## 5단계: Braze에서 SSL 클릭 추적 활성화 확인 {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-이 단계에서는 AppsFlyer에서 CTD 세부 정보를 공유하고 유효성을 검사한 후 테스트 전송을 수행하여 OneLink 전송 도메인에 SSL 인증서가 있는지 확인하는 것이 좋습니다. 이는 [이메일 설정]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) 가이드와 일치합니다.
+이 단계에서는 AppsFlyer에서 CTD 세부 정보를 공유하고 유효성을 검사한 후 테스트 전송을 수행하여 OneLink 전송 도메인에 SSL 인증서가 있는지 확인하는 것이 좋습니다. 이는 [이메일 설정]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate) 가이드와 일치합니다.
 
 OneLink를 사용하여 딥링크를 전송하여 품질 보증 및 문제 해결을 수행할 수 있습니다. OneLink 사용에 대한 자세한 내용은 [AppsFlyer 설명서](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a)를 참조하세요.
 
@@ -239,7 +239,7 @@ AppsFlyer에서 OneLink 추적 URL을 간단히 생성하여 Braze Campaign에 �
 
 {% tabs local %}
 {% tab Android %}
-Android의 경우, Braze를 통해 고객은 [Google 광고 ID 수집(GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)을 옵트인할 수 있습니다. AppsFlyer SDK 통합도 GAID를 수집합니다. 다음 Liquid 로직을 사용하여 AppsFlyer 클릭 추적 링크에 GAID를 포함시킬 수 있습니다:
+Android의 경우, Braze를 통해 고객은 [Google 광고 ID 수집(GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id)을 옵트인할 수 있습니다. AppsFlyer SDK 통합도 GAID를 수집합니다. 다음 Liquid 로직을 사용하여 AppsFlyer 클릭 추적 링크에 GAID를 포함시킬 수 있습니다:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

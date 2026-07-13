@@ -90,7 +90,7 @@ Selecione **Add a Language** e escolha o idioma desejado ou pesquise um idioma n
 Idiomas que não sejam o inglês não vêm com palavras-chave e respostas predefinidas, então os remetentes precisarão trabalhar com suas equipes de marketing e jurídico para adicionar as palavras-chave necessárias a esse conjunto. Caso contrário, a Braze não processará mensagens recebidas localizadas para esses idiomas.
 {% endalert %}
 
-Se você precisar excluir um idioma, selecione o botão **Delete Language** no canto inferior direito.
+Se você precisar excluir um idioma, selecione o botão **Delete Language** na parte inferior da página.
 
 ![Página de palavras-chave globais com a guia "Italiano" selecionada. Guias adicionais existem para cada idioma adicionado.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -120,11 +120,11 @@ Se você tem um caso de uso em que deseja limitar quando um cliente pode enviar 
 
 Esse gatilho suporta filtragem na mensagem de entrada específica usando comparações de "é" ou "não é" da mensagem, bem como regras de regex de "corresponde" ou "não corresponde" para validar a entrada do usuário.
 
-#### Canvas
+#### Canvas {#canvas}
 
 ![Etapa de Canvas baseada em ação com o gatilho Enviou SMS de entrada para o grupo de inscrições "Serviço de Mensagens" dentro da categoria de palavra-chave "Outra" onde o corpo da mensagem corresponde à expressão regular "símbolo de circunflexo skip."]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### Campaign {#campaign}
 
 ![Campaign baseada em ação com o gatilho Enviou SMS de entrada para o grupo de inscrições "Serviço de Mensagens de Marketing A" dentro da categoria de palavra-chave "Outra" onde o corpo da mensagem é "Keyword1" ou é "Keyword2" ou não é "Keyword A".]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 
@@ -135,8 +135,8 @@ Recomendamos fortemente configurar uma resposta automática quando usuários ins
 Para enviar uma resposta padrão — por exemplo, "Desculpe! Não reconhecemos essa palavra-chave." — faça o seguinte:
 
 1. Crie uma [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
-2. Para **Público-alvo**, escolha **Todos os usuários** (o gatilho ainda limita quem recebe a mensagem).
-3. Para **Programar**, escolha **Entrega baseada em ação**.
+2. Para **público-alvo**, escolha **Todos os usuários** (o gatilho ainda limita quem recebe a mensagem).
+3. Para **agendar**, escolha **entrega baseada em ação**.
 4. Defina o gatilho como **Send inbound SMS** para o grupo de inscrições apropriado **within keyword category OTHER**.
 5. Na etapa **Messaging**, insira o corpo da resposta que deseja que os usuários recebam.
 
