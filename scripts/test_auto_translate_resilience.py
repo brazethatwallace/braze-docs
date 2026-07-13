@@ -141,6 +141,22 @@ class TestRepairLiquidPairedTagsFromEnglish:
         )
         assert at._count_liquid_tag(repaired, "api") == 1
 
+    def test_remove_one_liquid_tag_line_skip_first_raises_with_single_match(self):
+        content = "{% api %}\n## Foo\n"
+        try:
+            at._remove_one_liquid_tag_line(content, "api", skip_first=True)
+            assert False, "expected ValueError"
+        except ValueError as exc:
+            assert "cannot skip first" in str(exc)
+
+    def test_remove_one_liquid_tag_line_skip_first_keeps_first_match(self):
+        content = "{% api %}\n{% api %}\n## Foo\n"
+        updated = at._remove_one_liquid_tag_line(
+            content, "api", prefer_last=True, skip_first=True
+        )
+        assert updated.count("{% api %}") == 1
+        assert updated.startswith("{% api %}")
+
 
 class TestJaCampaignComposerUiRepairs:
     def test_localizes_leaked_wizard_labels(self):

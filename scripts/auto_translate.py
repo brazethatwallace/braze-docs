@@ -351,9 +351,12 @@ def _remove_one_liquid_tag_line(content, tag_name, *, prefer_last=False, skip_fi
     matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
     if not matches:
         raise ValueError(f"No standalone {{% {tag_name} %}} line found")
-    pool = matches[1:] if skip_first and len(matches) > 1 else matches
-    if not pool:
-        raise ValueError(f"Only one {{% {tag_name} %}} line; cannot skip first")
+    if skip_first:
+        if len(matches) <= 1:
+            raise ValueError(f"Only one {{% {tag_name} %}} line; cannot skip first")
+        pool = matches[1:]
+    else:
+        pool = matches
     match = pool[-1] if prefer_last else pool[0]
     return content[:match.start()] + content[match.end():]
 
