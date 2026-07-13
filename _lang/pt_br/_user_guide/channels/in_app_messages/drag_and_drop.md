@@ -33,7 +33,7 @@ Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou 
 
 {% details Mais informações sobre SDKs mínimos %}
 
-Mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK (veja a tabela acima). Se um usuário não tiver atualizado seu aplicativo (ou seja, está em uma versão mais antiga do SDK), ele não receberá a mensagem no app.
+Mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK (veja a tabela na seção anterior). Se um usuário não tiver atualizado seu aplicativo (ou seja, está em uma versão mais antiga do SDK), ele não receberá a mensagem no app.
 
 Para aproveitar todos os recursos disponíveis no editor de arrastar e soltar, atualize seus SDKs para as versões recomendadas. Isso permite que você aproveite os seguintes recursos adicionais:
 
@@ -192,4 +192,4 @@ Sim. Para qualquer mensagem no app que você queira reutilizar em uma futura cam
 
 ![Uma pré-visualização de uma mensagem no app para um tour de produto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Você também pode criar e salvar modelos de mensagens no app acessando **Templates** > **In-App Message Templates**.
+Você também pode criar e salvar modelos de mensagens no app acessando **Content** > **In-App Message**.

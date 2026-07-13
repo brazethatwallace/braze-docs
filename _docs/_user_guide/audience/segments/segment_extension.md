@@ -74,7 +74,7 @@ If you are creating a Segment Extension using an eCommerce recommended event, fi
 
 To increase targeting precision, select the **Add Property Filters** checkbox. This will enable you to drill down based on the specific properties of your purchase or custom event. We support event property segmentation based on string, numeric, boolean, and time objects.
 
-For string properties, you can enter in multiple values at once. In the example below, this filter looks for users with a status equal to any of the following: gold, silver, or bronze.
+For string properties, you can enter in multiple values at once. In the following example, this filter looks for users with a status equal to any of the following: gold, silver, or bronze.
 
 ![Segmenting based on string properties.]({% image_buster /assets/img/segment/property5.png %})
 

@@ -2,10 +2,10 @@
 
 ## Conditions préalables {#prerequisites}
 
-Avant de pouvoir utiliser les Content Cards, vous devez [intégrer le SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) dans votre application. Cependant, aucune configuration supplémentaire n'est requise. Pour créer votre propre interface utilisateur, consultez le [guide de personnalisation des Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+Avant de pouvoir utiliser les Content Cards, vous devez [intégrer le SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) dans votre application. Cependant, aucune configuration supplémentaire n'est requise. Pour créer votre propre interface utilisateur, consultez le [guide de personnalisation des Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 {% alert note %}
-Certains bloqueurs de publicités et extensions de confidentialité des navigateurs peuvent bloquer le script du SDK Web de Braze ou les requêtes réseau associées, ce qui peut empêcher le chargement des Content Cards. Si vous utilisez la méthode d'intégration par réseau de diffusion de contenu, envisagez de passer à la [méthode d'intégration NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web), qui stocke les bibliothèques du SDK localement sur votre site web et peut éviter certains problèmes liés aux bloqueurs de publicités.
+Certains bloqueurs de publicités et extensions de confidentialité des navigateurs peuvent bloquer le script du SDK Web de Braze ou les requêtes réseau associées, ce qui peut empêcher le chargement des Content Cards. Si vous utilisez la méthode d'intégration par CDN, envisagez de passer à la [méthode d'intégration NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web), qui stocke les bibliothèques du SDK localement sur votre site web et peut éviter certains problèmes liés aux bloqueurs de publicités.
 {% endalert %}
 
 ## IU de flux standard {#standard-feed-ui}
@@ -45,13 +45,13 @@ Dans cet exemple, nous avons un `<div id="feed"></div>` dans lequel nous voulons
 </script>
 ```
 
-Lorsque vous utilisez les méthodes `toggleContentCards(parentNode, filterFunction)` et `showContentCards(parentNode, filterFunction)`, si aucun argument n'est fourni, toutes les Content Cards seront affichées dans une barre latérale à position fixe sur le côté droit de la page. Sinon, le flux sera placé dans l'option `parentNode` spécifiée.
+Lorsque vous utilisez les méthodes `toggleContentCards(parentNode, filterFunction)` et `showContentCards(parentNode, filterFunction)`, si aucun argument n'est fourni, toutes les Content Cards seront affichées dans une barre latérale à position fixe sur la page. Sinon, le flux sera placé dans l'option `parentNode` spécifiée.
 
 | Paramètres | Description |
 |---|---|
 | `parentNode` | Le nœud HTML dans lequel afficher les Content Cards. Si le nœud parent possède déjà une vue de Content Cards Braze comme descendant direct, les Content Cards existantes seront remplacées. Par exemple, vous devriez transmettre `document.querySelector(".my-container")`. |
 | `filterFunction` | Un filtre ou une fonction de tri pour les cartes affichées dans cette vue. Invoquée avec le tableau d'objets `Card`, triés selon `{pinned, date}`. Doit retourner un tableau d'objets `Card` triés à afficher pour cet utilisateur. Si omis, toutes les cartes seront affichées. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard feed UI" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="IU de flux standard" }
 
 [Consultez la documentation de référence du SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) pour plus d'informations sur le basculement des Content Cards.
 
@@ -71,7 +71,7 @@ Vous pouvez tester votre intégration de Content Cards à l'aide des outils de d
 Le modèle de données des Content Cards est disponible dans le SDK Web et propose les types de Content Cards suivants : [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html), [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html) et [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html). Chaque type hérite des propriétés communes d'un modèle de base [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) et possède les propriétés supplémentaires suivantes.
 
 {% alert tip %}
-Pour enregistrer les données des Content Cards, consultez la section [Enregistrement des analyses]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/).
+Pour enregistrer les données des Content Cards, consultez la section [Enregistrement des analyses]({{site.baseurl}}/developer_guide/content_cards/logging_analytics).
 {% endalert %}
 
 ### Modèle de carte de base {#base-card-model}
@@ -87,7 +87,7 @@ Toutes les Content Cards partagent ces propriétés :
 | `updated` | L'horodatage UNIX de la dernière modification de cette carte. |
 | `viewed` | Cette propriété indique si l'utilisateur a vu la carte ou non. |
 | `isControl` | Cette propriété vaut `true` lorsqu'une carte est un groupe de « contrôle » dans un test A/B. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modèle de carte de base" }
 
 ### Image uniquement {#image-only}
 
@@ -104,7 +104,7 @@ Les cartes [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze
 | `imageUrl` | L'URL de l'image de la carte. |
 | `linkText` | Le texte d'affichage de l'URL. |
 | `url` | L'URL qui sera ouverte après un clic sur la carte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image uniquement" }
 
 ### Image avec légende {#captioned-image}
 
@@ -122,7 +122,7 @@ Les cartes [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/
 | `linkText` | Le texte d'affichage de l'URL. |
 | `title` | Le texte du titre de cette carte. |
 | `url` | L'URL qui sera ouverte après un clic sur la carte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image avec légende" }
 
 ### Classique {#classic}
 
@@ -141,13 +141,13 @@ Le modèle [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/bra
 | `linkText` | Le texte d'affichage de l'URL. |
 | `title` | Le texte du titre de cette carte. |
 | `url` | L'URL qui sera ouverte après un clic sur la carte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classique" }
 
 ## Groupe de contrôle {#control-group}
 
 Si vous utilisez le flux par défaut des Content Cards, les impressions et les clics sont automatiquement suivis.
 
-Si vous utilisez une intégration personnalisée pour les Content Cards, vous devez [enregistrer les impressions]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) lorsqu'une carte de contrôle aurait été vue. Dans ce cadre, veillez à gérer les cartes de contrôle lorsque vous enregistrez des impressions dans un test A/B. Ces cartes sont vierges et, bien qu'elles ne soient pas vues par les utilisateurs, vous devez tout de même enregistrer les impressions afin de comparer leurs performances à celles des cartes hors contrôle.
+Si vous utilisez une intégration personnalisée pour les Content Cards, vous devez [enregistrer les impressions]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) lorsqu'une carte de contrôle aurait été vue. Dans ce cadre, veillez à gérer les cartes de contrôle lorsque vous enregistrez des impressions dans un test A/B. Ces cartes sont vierges et, bien qu'elles ne soient pas vues par les utilisateurs, vous devez tout de même enregistrer les impressions afin de comparer leurs performances à celles des cartes hors contrôle.
 
 Pour déterminer si une Content Card se trouve dans le groupe de contrôle d'un test A/B, vérifiez la propriété `card.isControl` (SDK Web v4.5.0+) ou vérifiez si la carte est une instance de `ControlCard` (`card instanceof braze.ControlCard`).
 
@@ -159,10 +159,10 @@ Utilisez ces méthodes lorsque vous affichez les Content Cards avec l'IU par dé
 
 | Méthode | Description |
 |---|---|
-| [`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards) | Affiche le flux par défaut des Content Cards. Rend les cartes dans un élément HTML `parentNode` fourni, ou sous forme de barre latérale à position fixe sur le côté droit de la page si aucun élément n'est spécifié. Accepte une `filterFunction` facultative pour trier ou filtrer les cartes avant l'affichage. |
+| [`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards) | Affiche le flux par défaut des Content Cards. Rend les cartes dans un élément HTML `parentNode` fourni, ou sous forme de barre latérale à position fixe si aucun élément n'est spécifié. Accepte une `filterFunction` facultative pour trier ou filtrer les cartes avant l'affichage. |
 | [`hideContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#hidecontentcards) | Masque le flux par défaut des Content Cards s'il est actuellement affiché. |
 | [`toggleContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) | Affiche le flux par défaut des Content Cards s'il est masqué, ou le masque s'il est visible. Si vous devez afficher plusieurs flux de Content Cards simultanément, utilisez plutôt `showContentCards` et `hideContentCards`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Default feed methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Méthodes de flux par défaut" }
 
 ### Méthodes de flux personnalisé {#custom-feed-methods}
 
@@ -172,12 +172,12 @@ Utilisez ces méthodes lorsque vous créez votre propre IU de Content Cards :
 |---|---|
 | [`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates) | Enregistre une fonction de rappel invoquée chaque fois que les Content Cards sont mises à jour pour l'utilisateur actuel, par exemple au démarrage de la session. Utilisez cette méthode comme moyen principal de recevoir les données de cartes pour votre flux personnalisé. Elle doit être appelée avant `openSession()` pour recevoir les mises à jour de la session initiale. |
 | [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) | Retourne toutes les cartes actuellement disponibles depuis le dernier rafraîchissement des Content Cards. Utilisez cette méthode pour afficher immédiatement les cartes au chargement de la page sans attendre une nouvelle requête serveur, par exemple lorsque l'utilisateur revient sur une page pendant une session active. |
-| [`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) | Demande un rafraîchissement immédiat des Content Cards depuis les serveurs Braze. Par défaut, les cartes sont rafraîchies au démarrage de la session et lorsque le flux par défaut est rouvert. Utilisez cette méthode pour forcer un rafraîchissement à d'autres moments, par exemple après une action spécifique de l'utilisateur. Tenez compte des [limites de débit]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit). |
-| [`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions) | Enregistre des événements d'impression pour un tableau de cartes. Appelez cette méthode lorsque les cartes sont rendues et visibles par l'utilisateur. Nécessaire pour un reporting de Campaign précis lors de l'utilisation d'une IU personnalisée, car les impressions ne sont pas suivies automatiquement en dehors du flux par défaut. |
-| [`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick) | Enregistre un événement de clic pour une carte unique. Appelez cette méthode lorsqu'un utilisateur interagit avec une carte dans votre IU personnalisée. Nécessaire pour un reporting de Campaign précis, car les clics ne sont pas suivis automatiquement en dehors du flux par défaut. |
+| [`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) | Demande un rafraîchissement immédiat des Content Cards depuis les serveurs Braze. Par défaut, les cartes sont rafraîchies au démarrage de la session et lorsque le flux par défaut est rouvert. Utilisez cette méthode pour forcer un rafraîchissement à d'autres moments, par exemple après une action spécifique de l'utilisateur. Tenez compte des [limites de débit]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#rate-limit). |
+| [`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions) | Enregistre des événements d'impression pour un tableau de cartes. Appelez cette méthode lorsque les cartes sont rendues et visibles par l'utilisateur. Nécessaire pour un reporting de campagne précis lors de l'utilisation d'une IU personnalisée, car les impressions ne sont pas suivies automatiquement en dehors du flux par défaut. |
+| [`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick) | Enregistre un événement de clic pour une carte unique. Appelez cette méthode lorsqu'un utilisateur interagit avec une carte dans votre IU personnalisée. Nécessaire pour un reporting de campagne précis, car les clics ne sont pas suivis automatiquement en dehors du flux par défaut. |
 | [`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction) | Traite l'URL d'une carte et exécute l'action au clic configurée, y compris les actions Braze (URL `brazeActions://`) et la navigation URL standard. Appelez cette méthode dans votre gestionnaire de clic de carte pour vous assurer que les comportements au clic configurés dans le tableau de bord de Braze sont exécutés. |
 | [`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard) | Rejette une carte de manière programmatique, la supprimant du flux de l'utilisateur. Utilisez cette méthode pour permettre aux utilisateurs de rejeter des cartes dans votre IU personnalisée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom feed methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Méthodes de flux personnalisé" }
 
 Pour plus de détails, reportez-vous à la [documentation de référence du SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
@@ -280,7 +280,7 @@ L'argument passé à `logContentCardClick()` doit être un objet `Card` Braze or
 
 ## Utilisation de Google Tag Manager {#using-google-tag-manager}
 
-Google Tag Manager fonctionne en injectant le [CDN de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#install-cdn) (une version de notre SDK Web) directement dans le code de votre site web, ce qui signifie que toutes les méthodes du SDK sont disponibles comme si vous aviez intégré le SDK sans Google Tag Manager, sauf lors de l'implémentation des Content Cards.
+Google Tag Manager fonctionne en injectant le [CDN de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (une version de notre SDK Web) directement dans le code de votre site web, ce qui signifie que toutes les méthodes du SDK sont disponibles comme si vous aviez intégré le SDK sans Google Tag Manager, sauf lors de l'implémentation des Content Cards.
 
 ### Mise en place des Content Cards {#setting-up-content-cards}
 
@@ -302,11 +302,11 @@ Pour plus de liberté dans la personnalisation de l'apparence de vos Content Car
 
 {% subtabs local %}
 {% subtab Flux standard %}
-Lors de l'implémentation de l'[IU de flux standard]({{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration/#standard-feed-ui), les méthodes Braze doivent être précédées de `window.`. Par exemple, `braze.showContentCards` doit être remplacé par `window.braze.showContentCards`.
+Lors de l'implémentation de l'[IU de flux standard]({{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration#standard-feed-ui), les méthodes Braze doivent être précédées de `window.`. Par exemple, `braze.showContentCards` doit être remplacé par `window.braze.showContentCards`.
 {% endsubtab %}
 
 {% subtab Flux personnalisé %}
-Pour l'habillage du [flux personnalisé]({{site.baseurl}}/developer_guide/content_cards/creating_cards/), les étapes sont les mêmes que si vous aviez intégré le SDK sans GTM. Par exemple, si vous souhaitez personnaliser la largeur de votre flux de Content Cards, vous pouvez coller ce qui suit dans votre fichier CSS :
+Pour l'habillage du [flux personnalisé]({{site.baseurl}}/developer_guide/content_cards/creating_cards), les étapes sont les mêmes que si vous aviez intégré le SDK sans GTM. Par exemple, si vous souhaitez personnaliser la largeur de votre flux de Content Cards, vous pouvez coller ce qui suit dans votre fichier CSS :
 
 {% raw %}
 ```css

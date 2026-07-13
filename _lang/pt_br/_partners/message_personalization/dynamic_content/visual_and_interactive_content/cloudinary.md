@@ -18,7 +18,7 @@ A conexão do Cloudinary à Braze dá às marcas acesso à mídia visual armazen
 Esta página descreve quatro métodos de integração possíveis, mas não exaustivos, entre o Cloudinary e a Braze. Esses métodos de integração dependem principalmente da modificação de links de ativos copiados manualmente da Biblioteca de mídia do Cloudinary.
 
 {% alert important %}
-Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para chamar a [API de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o gerente de sucesso do cliente do Cloudinary e da Braze para obter orientação.
+Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para chamar a [API de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o gerente de sucesso do cliente do Cloudinary e da Braze para obter orientação.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -26,7 +26,7 @@ Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectad
 | Requisitos | Descrição |
 |-----------------------|-----------------|
 | Conta do Cloudinary  | É necessário ter uma [conta no Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aproveitar essa parceria  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Métodos de integração {#integration-methods}
 
@@ -41,7 +41,7 @@ Alguns desses métodos de integração usam as transformações `f_auto` e `q_au
 
 A maneira mais direta de usar imagens e vídeos diretamente do DAM do Cloudinary em suas Campaigns e Canvas da Braze é copiar a URL da página de **ativos** da Biblioteca de mídia do Cloudinary.
 
-![Visualização em grade da biblioteca de ativos de imagem do Cloudinary, com o canto superior direito de uma das imagens destacado, mostrando uma dica de ferramenta "Copy URL".]({% image_buster /assets/img/cloudinary/one.png %})
+![Visualização em grade da biblioteca de ativos de imagem do Cloudinary, com uma imagem destacada e uma dica de ferramenta "Copy URL" visível.]({% image_buster /assets/img/cloudinary/one.png %})
 
 ### Configuração de imagens e GIFs {#images-and-gifs-setup}
 
@@ -72,7 +72,7 @@ A maneira mais direta de usar imagens e vídeos diretamente do DAM do Cloudinary
 ```
 {% endraw %}
 
-Consulte [Vídeo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) para considerações específicas sobre Android e iOS.
+Consulte [Vídeo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html) para considerações específicas sobre Android e iOS.
 
 {% endtab %}
 {% tab Converter vídeos em GIFs %}
@@ -190,7 +190,7 @@ Para mais orientações sobre como os parâmetros de transformação podem ser u
 ```
 {% endraw %}
 
-![Uma igreja branca com telhado azul com vista para o mar. No canto superior esquerdo da imagem, as palavras "John Smith" estão sobrepostas em um retângulo escuro e opaco.]({% image_buster /assets/img/cloudinary/two.png %})
+![Uma igreja branca com telhado azul com vista para o mar, com as palavras "John Smith" exibidas em um retângulo escuro e semitransparente sobre a imagem.]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

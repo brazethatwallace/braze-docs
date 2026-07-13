@@ -4,7 +4,7 @@ article_title: What you can do with Operator
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "This reference article covers the AI tasks available through BrazeAI Operator™ — including copywriting, Liquid, image generation, data transformation code, and content review."
+description: "This reference article covers the AI tasks available through BrazeAI Operator™ — including copywriting, message generation, Liquid, image generation, data transformation code, and content review."
 ---
 
 # What you can do with Operator {#operator-capabilities}
@@ -29,6 +29,8 @@ All existing entry points remain in place, so your workflows are unaffected. The
 | Data Transformations AI Copilot | Generated transformation code | The **Insert Code** button on the Data Transformation page |
 | Content review | Checked content for spelling, grammar, tone, offensive language, and stray code | **Review with Operator** button on the **Test** tab |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What's available through Operator" }
+
+Operator can also generate HTML for Banners in the Banner HTML editor. For more information, see [Generate messages](#generate-messages).
 
 ## Apply brand guidelines {#apply-brand-guidelines}
 
@@ -56,6 +58,26 @@ The tone of generated copy is driven by your prompt. Describe the style you want
 {% include copy_block.html content="Rewrite this subject line in a more casual tone." %}
 
 {% include copy_block.html content="Translate this copy into Spanish." %}
+
+## Generate messages {#generate-messages}
+
+Operator can generate message HTML in supported composers. Describe the message you want in natural language, review the output, and insert it into your composer.
+
+You get the best results when you use Operator in the composer you're building, where it has [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context) for the channel and message type. When [brand guidelines](#apply-brand-guidelines) are configured, Operator applies them automatically.
+
+### HTML Banners {#generate-messages-html-banners}
+
+In the [Banner HTML editor]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#compose-a-banner), select **Ask Operator** to generate HTML for your Banner. Describe the layout, content, and styling you want. Operator can include [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) personalization in the generated markup.
+
+Keep the conversation going to refine the result—for example, ask for a different layout, shorter copy, or updated button styling—before you insert the HTML into the editor.
+
+#### Example prompts {#generate-messages-html-banners-example-prompts}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
 
 ## Generate Liquid {#generate-liquid}
 

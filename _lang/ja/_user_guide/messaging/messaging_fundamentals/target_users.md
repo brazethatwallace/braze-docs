@@ -74,7 +74,7 @@ Androidアプリのみにアプリ内メッセージを送信したい場合を�
 
 オーディエンスにセグメントとフィルターを追加した後、[ユーザーを検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)してオーディエンス条件に一致するかどうかを確認することで、オーディエンスが期待どおりに設定されているかテストできます。
 
-![「Lookup User」ボタンがある「User Lookup」セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
+![「ユーザーを検索」ボタンがある「ユーザー検索」セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
 #### オーディエンスの概要 {#audience-summary}
 

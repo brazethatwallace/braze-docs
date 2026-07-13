@@ -40,7 +40,7 @@ Nutzer:innen werden beim Canvas-Eintritt nicht nach E-Mail dedupliziert, sodass 
 
 API-getriggerte Campaigns deduplizieren oder senden Duplikate, je nachdem, wo die Zielgruppe definiert ist. Doppelte E-Mails müssen im API-Aufruf separat mit unterschiedlichen `user_ids` angesprochen werden, um mehrere Zustellungen zu erhalten. Hier sind drei mögliche Szenarien für API-getriggerte Campaigns:
 
-- **Szenario 1: Doppelte E-Mails im Zielsegment:** Wenn dieselbe E-Mail in mehreren Nutzerprofilen erscheint, die in den Zielgruppen-Filtern des Dashboards für eine API-getriggerte Campaign gruppiert sind, erhält nur eines der Profile die E-Mail.
+- **Szenario 1: Doppelte E-Mails im Zielsegment:** Wenn dieselbe E-Mail in mehreren Nutzerprofilen erscheint, die in den Zielgruppenfiltern des Dashboards für eine API-getriggerte Campaign gruppiert sind, erhält nur eines der Profile die E-Mail.
 - **Szenario 2: Doppelte E-Mails in verschiedenen `user_ids` innerhalb des Empfängerobjekts:** Wenn dieselbe E-Mail in mehreren `external_user_id`-Werten erscheint, die vom `recipients`-Objekt referenziert werden, wird die E-Mail zweimal gesendet.
 - **Szenario 3: Doppelte E-Mails aufgrund doppelter `user_ids` innerhalb des Empfängerobjekts:** Wenn Sie versuchen, dasselbe Nutzerprofil zweimal hinzuzufügen, erhält nur eines der Profile die E-Mail.
 
@@ -66,9 +66,9 @@ Nein. Aktualisierungen der ausgehenden E-Mail-Einstellungen wirken sich nicht r�
 
 ### Was ist eine „gute“ E-Mail-Zustellrate? {#what-is-a-good-email-delivery-rate}
 
-Typischerweise liegt die „magische Zahl“ bei etwa 98 % zugestellter Nachrichten mit einer Bounce-Rate von nicht mehr als 3 %. Wenn Ihre Zustellrate darunter fällt, gibt es in der Regel Grund zur Sorge.
+Typischerweise liegt die „magische Zahl“ bei etwa 98 % zugestellter Nachrichten mit einer Bounce-Rate von nicht mehr als 3 %. Wenn weniger als 98 % der Nachrichten zugestellt werden, gibt es in der Regel Grund zur Sorge.
 
-Allerdings kann eine Rate über 98 % dennoch Zustellbarkeitsprobleme aufweisen. Wenn beispielsweise alle Ihre Bounces von einer einzigen Domain stammen, ist das ein klares Signal für ein Reputationsproblem bei diesem Anbieter.
+Allerdings kann eine Zustellrate von 98 % oder höher dennoch Zustellbarkeitsprobleme aufweisen. Wenn beispielsweise alle Ihre Bounces von einer einzigen Domain stammen, ist das ein klares Signal für ein Reputationsproblem bei diesem Anbieter.
 
 Darüber hinaus können Nachrichten zugestellt werden und im Spam-Ordner landen, was auf potenziell schwerwiegende Reputationsprobleme hinweist. Es ist wichtig, nicht nur die Anzahl der zugestellten Nachrichten zu überwachen, sondern auch die Öffnungs- und Klickraten, um festzustellen, ob die Nutzer:innen die Nachrichten tatsächlich in ihren Posteingängen sehen. Da Anbieter in der Regel nicht jede Spam-Instanz melden, könnte selbst eine Spam-Rate von 1 % Anlass zur Sorge und weiteren Analyse sein.
 
@@ -201,7 +201,7 @@ Die Zustellung kann falsch aussehen, selbst wenn Braze wie konfiguriert funktion
 - **Abo-Gruppen:** Die/der Nutzer:in war weiterhin in einer Gruppe angemeldet, die Ihre Nachricht angesprochen hat, auch wenn ihr/sein globaler Abo-Status etwas anderes vermuten ließ.
 - **API- oder Dateiimporte**, die die/den Nutzer:in nach der Segmentierung, aber bevor Sie die Änderung erwartet haben, aktualisiert haben.
 
-Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), die Campaign- oder Canvas-Changelogs und die Segment-Definition. Wenn Sie den Versand immer noch nicht nachvollziehen können, kontaktieren Sie den Braze-Support mit Nutzer-Bezeichnern, `dispatch_id` (falls verfügbar) und Zeitstempeln.
+Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), die Campaign- oder Canvas-Changelogs und die Segment-Definition. Wenn Sie den Versand immer noch nicht nachvollziehen können, kontaktieren Sie den Braze-Support mit Nutzerbezeichnern, `dispatch_id` (falls verfügbar) und Zeitstempeln.
 
 ### Warum hat ein:e Nutzer:in meine E-Mail-Nachricht nicht erhalten? {#why-hasnt-a-user-received-my-email-message}
 
@@ -222,7 +222,7 @@ Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
 
 | Mögliche Ursache | Was zu prüfen ist |
 |---|---|
-| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Target Audiences** (für Campaigns) oder **Target Audience** (für Canvas) [Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), um zu bestätigen, dass die/der Nutzer:in zum Sendezeitpunkt alle Zielgruppen-Filter, Segment-Kriterien und Zustellregeln erfüllt hat. |
+| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Target Audiences** (für Campaigns) oder **Target Audience** (für Canvas) [Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), um zu bestätigen, dass die/der Nutzer:in zum Sendezeitpunkt alle Zielgruppenfilter, Segment-Kriterien und Zustellregeln erfüllt hat. |
 | Die Nachricht wurde abgebrochen | Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) auf Abbruchgründe, wie Liquid-Fehler oder fehlende Pflichtfelder. |
 | Die E-Mail-Adresse der/des Nutzers:in war ungültig oder fehlte | Überprüfen Sie in der **Nutzersuche** das Profil der/des Nutzers:in, um sicherzustellen, dass zum Sendezeitpunkt eine gültige E-Mail-Adresse hinterlegt war. |
 | Die E-Mail-Adresse der/des Nutzers:in hatte zuvor einen Hard Bounce | Ein Hard Bounce markiert die E-Mail-Adresse als ungültig und verhindert zukünftige Sendungen an diese Adresse. Ebenso sendet Braze, wenn ein:e Empfänger:in Ihre E-Mail als Spam markiert, nur Transaktions-E-Mails an diese:n Nutzer:in, keine Standard-Campaigns. Überprüfen Sie den Tab **Engagement** im Profil der/des Nutzers:in. Weitere Informationen finden Sie unter [Abgemeldete E-Mail-Adressen]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) und [Bounces und ungültige E-Mails]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
@@ -242,7 +242,21 @@ Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
 
 ### Wie kann ich Bilder in Outlook optimieren? {#how-can-i-optimize-images-in-outlook}
 
-Outlook verwendet häufig ein Microsoft-Word-ähnliches Rendering, das einen Rahmen um Bilder hinzufügen kann. Sie können Inhalte so umschließen, dass sie in Office-Clients ausgeblendet werden, indem Sie standardmäßige bedingte Kommentare verwenden, zum Beispiel:
+Outlook verwendet häufig Microsoft-Word-Rendering anstelle von Standard-Browser-Rendering, was dazu führen kann, dass Bilder falsch gerendert werden oder Rahmen um Bilder hinzugefügt werden.
+
+Wenn Bilder in Outlook größer als ihre erwartete Breite angezeigt werden, fügen Sie dem Bild das folgende CSS hinzu:
+
+```css
+max-width: 100%;
+```
+
+Zum Beispiel:
+
+```html
+<img src="your-image.png" style="max-width: 100%;" alt="Description">
+```
+
+Sie können Inhalte auch so umschließen, dass sie in Outlook Desktop ausgeblendet werden, indem Sie bedingte Kommentare verwenden:
 
 ```html
 <!--[if !mso]><!-- -->

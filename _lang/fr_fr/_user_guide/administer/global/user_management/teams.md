@@ -1,6 +1,6 @@
 ---
-nav_title: Équipes
-article_title: Équipes
+nav_title: Teams
+article_title: Teams
 page_order: 2
 page_type: reference
 alias: /teams/
@@ -8,7 +8,7 @@ description: "Cet article de référence traite de l'utilisation des Teams Braze
 
 ---
 
-# Équipes {#teams}
+# Teams {#teams}
 
 > En tant qu'administrateur Braze, vous pouvez regrouper les utilisateurs de votre entreprise au sein de Teams avec différents rôles et autorisations. Cela permet à plusieurs groupes d'utilisateurs, sans lien entre eux, de collaborer au sein d'un même espace de travail tout en séparant les types de contenu pouvant être modifiés.
 
@@ -26,7 +26,7 @@ Allez dans **Paramètres** > **Équipes internes** et sélectionnez <i class="fa
 
 ![Fenêtre permettant d'ajouter une nouvelle équipe.]({% image_buster /assets/img_archive/adding_a_team.png %})
 
-Saisissez le **nom de l'équipe**. Si vous le souhaitez, utilisez le champ **Définir l'équipe (facultatif)** pour sélectionner un attribut personnalisé, un emplacement ou une langue afin de préciser davantage les données utilisateur auxquelles l'équipe a accès. Par exemple, un cas d'utilisation possible consiste à effectuer des [tests avec les Teams](#test-with-teams) en créant une équipe de développement qui n'a accès qu'aux utilisateurs test, identifiés par un attribut personnalisé. Un autre cas d'utilisation consiste à restreindre la communication avec les utilisateurs en fonction du produit.
+Saisissez le **nom de l'équipe**. Si vous le souhaitez, utilisez le champ **Définir l'équipe (facultatif)** pour sélectionner un attribut personnalisé, un emplacement ou une langue afin de préciser davantage les données utilisateur auxquelles l'équipe a accès. Par exemple, un cas d'usage possible consiste à effectuer des [tests avec les Teams](#test-with-teams) en créant une équipe de développement qui n'a accès qu'aux utilisateurs test, identifiés par un attribut personnalisé. Un autre cas d'usage consiste à restreindre la communication avec les utilisateurs en fonction du produit.
 
 Si une équipe est définie par un attribut personnalisé, une langue ou un pays, vous pouvez alors utiliser l'équipe pour filtrer les utilisateurs finaux pour des fonctionnalités telles que les Campaigns, les Canvas, les Content Cards, les Segments, et plus encore. Pour en savoir plus, consultez [Attribuer des étiquettes d'équipe](#tags-and-filters).
 
@@ -54,7 +54,7 @@ Effectuez ensuite les étapes suivantes :
 2. Sélectionnez **+ Ajouter des autorisations au niveau de l'équipe**, puis sélectionnez l'**équipe** à laquelle vous souhaitez ajouter cet utilisateur.
 3. Attribuez des autorisations spécifiques depuis la section des autorisations de l'**équipe**.
 
-![Autorisations de modèle de page d'accueil au niveau de l'équipe.]({% image_buster /assets/img/teams.png %})
+![Autorisations de modèle de page de destination au niveau de l'équipe.]({% image_buster /assets/img/teams.png %})
 
 ### Autorisations disponibles au niveau de l'équipe {#available-team-level-permissions}
 
@@ -108,12 +108,14 @@ Pour consulter les descriptions de ce que chaque autorisation utilisateur inclut
 
 Vous pouvez attribuer une équipe aux Canvas, Campaigns, Content Cards, Segments, modèles d'e-mail, modèles de webhook, Content Blocks et ressources de la bibliothèque multimédia à l'aide du filtre **Ajouter une équipe**.
 
+Pour les Canvas, les filtres d'équipe ne valident les utilisateurs qu'à l'entrée du Canvas. Une fois qu'un utilisateur entre dans un Canvas, il continue de recevoir les messages de toutes les étapes du Canvas, même si ses attributs changent et qu'il ne correspond plus aux critères du filtre d'équipe. Les filtres d'équipe ne fonctionnent pas comme des validations de réception qui réévaluent les utilisateurs à chaque étape de message.
+
 ![Ajout d'une étiquette d'équipe à une campagne.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
 - En fonction des *définitions* appliquées lors de la création de l'équipe, lorsqu'un filtre d'équipe est attribué, l'audience de cet outil d'engagement est restreinte aux profils utilisateur correspondant à la définition.
 - En fonction des *autorisations* attribuées, les membres de l'équipe ne pourront accéder qu'aux outils d'engagement du tableau de bord auxquels leur filtre d'équipe est appliqué. S'ils disposent d'autorisations limitées ou inexistantes au niveau de l'espace de travail, ils doivent ajouter un filtre d'équipe à certains objets avant de pouvoir les enregistrer ou les lancer. Les membres de l'équipe peuvent également filtrer les Canvas, Campaigns, Content Cards et Segments par équipe pour identifier le contenu qui les concerne.
 
-### Cas d'utilisation {#use-cases}
+### Cas d'usage {#use-cases}
 
 Considérez les deux scénarios suivants pour une marketeure utilisant Braze nommée Michelle. Michelle est membre d'une équipe appelée « Development ». Elle a accès à toutes les autorisations au niveau de l'équipe pour l'équipe Development.
 
@@ -146,7 +148,7 @@ Comme dans le premier scénario, Michelle doit ajouter l'étiquette d'équipe De
 
 ## Tester avec les Teams {#test-with-teams}
 
-Un cas d'utilisation possible des Teams consiste à créer un système d'approbation basé sur les équipes pour tester et lancer du contenu dans un environnement de production.
+Un cas d'usage possible des Teams consiste à créer un système d'approbation basé sur les équipes pour tester et lancer du contenu dans un environnement de production.
 
 Pour ce faire, créez une équipe « Development » qui n'a accès qu'aux utilisateurs test. Vous pouvez limiter une équipe aux seuls utilisateurs test si vos utilisateurs test sont identifiables par un attribut personnalisé. Ajoutez ensuite l'attribut personnalisé comme définition lors de la création ou de la modification de l'équipe (voir la section précédente [Créer des Teams](#creating-Teams)). Vos approbateurs doivent avoir accès à tous les utilisateurs.
 

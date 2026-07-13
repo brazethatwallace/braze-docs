@@ -251,6 +251,10 @@ When a single dispatch uses multiple channels, that dispatch counts at most once
 
 In-app messages and Content Cards are not counted as or toward caps on campaigns or Canvas components of any type.
 
+##### Push notifications with multiple devices
+
+For push campaigns, frequency capping counts at the campaign or Canvas component level, not per individual device. If a user profile has multiple devices registered for push (for example, an iPhone and an iPad), a campaign-level frequency cap counts that as one send, regardless of how many devices receive the notification. This is similar to how a recurring campaign with a daily cadence counts as one send per day, even if it recurs multiple times throughout the week.
+
 {% alert important %}
 Global frequency capping is scheduled based on the user's time zone, and is calculated by calendar days, not 24-hour periods. For example, if you set up a frequency capping rule of sending no more than one campaign a day, a user may receive a message at 11 pm in their local time zone, and they would be eligible to receive another message an hour later.
 {% endalert %}

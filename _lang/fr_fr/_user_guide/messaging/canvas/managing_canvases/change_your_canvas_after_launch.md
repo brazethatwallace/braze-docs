@@ -67,7 +67,7 @@ L'arrêt d'un Canvas ne fait pas sortir les utilisateurs qui attendent de recevo
 Vous pouvez modifier les paramètres et détails suivants après le lancement d'un Canvas :
 
 * Nom et description du Canvas
-* Équipes et tags
+* Teams et tags
 * Type d'entrée, planification et contrôles
 * État d'abonnement
 * Limite de débit
@@ -190,5 +190,5 @@ Les problèmes suivants sont évitables. Si vous devez apporter des modification
 - Les modifications n'écrasent pas les données Currents, vous pouvez donc constater des écarts entre les étapes du Canvas (comme des `canvas_step_ids` qui n'existent plus dans le Canvas en raison de la suppression)
 - Les utilisateurs peuvent recevoir le même message deux fois
 - Les utilisateurs ne recevront pas de messages en raison de la limite de débit existante
-  - Lorsque vous mettez à jour la limite de débit d'un Canvas actif, la nouvelle limite de débit prend effet pour tous les envois de messages futurs, y compris pour les utilisateurs déjà dans le Canvas. Cependant, en raison de la mise en cache interne (jusqu'à 30 secondes), il peut y avoir un bref délai avant que la nouvelle limite de débit ne soit pleinement appliquée. Notez que Braze met les utilisateurs en file d'attente pour l'étape de message à laquelle ils se trouvent actuellement, de sorte que la limite de débit en vigueur au moment de l'envoi effectif du message de chaque étape est celle qui s'applique.
+  - Lorsque vous mettez à jour la limite de débit d'un Canvas actif, la nouvelle limite de débit ne s'applique qu'aux utilisateurs qui passent par l'étape de message après la modification de la limite de débit. Les utilisateurs qui sont déjà en file d'attente pour une étape de message conservent la limite de débit d'origine qui était en vigueur au moment de leur mise en file d'attente. Pour appliquer une nouvelle limite de débit à tous les utilisateurs, arrêtez le Canvas, dupliquez-le avec la limite de débit mise à jour et lancez le nouveau Canvas. Utilisez un filtre pour empêcher les utilisateurs qui ont reçu des messages du Canvas d'origine d'entrer dans le doublon.
 - Lorsqu'un Canvas est [automatiquement arrêté]({{site.baseurl}}/user_guide/messaging/governance/statuses#available-statuses), les brouillons post-lancement du Canvas sont également supprimés.

@@ -42,7 +42,7 @@ The global header is almost always visible at the top of the screen. It provides
 
 ### Use the side navigation
 
-The vertical menu on the left organizes Braze tools by function and keeps your most-used items within reach. Select a main menu item to reveal its options in a stacked vertical layout. 
+The vertical menu on the primary side organizes Braze tools by function and keeps your most-used items within reach. Select a main menu item to reveal its options in a stacked vertical layout. 
 
 ![Workspace switcher in Braze dashboard]({% image_buster /assets/img/workspace_switcher.png %}){: style="max-width:35%;float:right;margin-left:15px"}
 
@@ -72,7 +72,7 @@ The global search bar, located in the header, is the fastest way to find content
 
 ![Global search open with no search terms entered, showing recently open pages.]({% image_buster /assets/img/navigation/search_recently_opened.png %})
 
-Your recently opened content appears below the search bar. This includes any campaign, Canvas, template, or page you’ve recently interacted with—making it easy to return to your work.
+Your recently opened content appears under the search bar. This includes any campaign, Canvas, template, or page you’ve recently interacted with—making it easy to return to your work.
 
 ### What can you search for?
 

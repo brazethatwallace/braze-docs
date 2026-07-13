@@ -13,7 +13,7 @@ channel:
 
 > El Centro de entrega proporciona más información sobre el rendimiento de tu correo electrónico al admitir el uso de [Gmail Postmaster Tools](https://www.gmail.com/postmaster/) para rastrear datos sobre los correos electrónicos enviados y recopilar datos sobre tu dominio de envío.
 
-La capacidad de entrega del correo electrónico es el núcleo del éxito de una campaña. Usando el Centro de entrega en el dashboard de Braze, puedes ver tus dominios por **IP Reputation** o **Delivery Errors** para descubrir y solucionar cualquier problema potencial con la capacidad de entrega del correo electrónico.
+La capacidad de entrega del correo electrónico es el núcleo del éxito de una campaña. Usando el Centro de entrega en el panel de Braze, puedes ver tus dominios por **IP Reputation** o **Delivery Errors** para descubrir y solucionar cualquier problema potencial con la capacidad de entrega del correo electrónico.
 
 Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) del siguiente desplegable para tu espacio de trabajo.
 
@@ -41,14 +41,14 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 - Ver plantillas de correo electrónico
 - Editar plantillas de correo electrónico
 - Archivar plantillas de correo electrónico
-- Ver plantillas de Webhook
-- Editar plantillas de Webhook
-- Archivar plantillas de Webhook
+- Ver plantillas de webhook
+- Editar plantillas de webhook
+- Archivar plantillas de webhook
 - Ver plantillas de enlaces de correo electrónico
 - Editar plantillas de enlaces de correo electrónico
-- Ver activos de la Biblioteca de medios
-- Editar activos de la Biblioteca de medios
-- Eliminar activos de la Biblioteca de medios
+- Ver activos de la biblioteca de medios
+- Editar activos de la biblioteca de medios
+- Eliminar activos de la biblioteca de medios
 - Ver ubicaciones
 - Editar ubicaciones
 - Archivar ubicaciones
@@ -68,7 +68,7 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 Antes de conectarte al Centro de entrega, necesitarás configurar una cuenta de Google Postmaster Tools. Puedes usar una cuenta de Gmail personal o de trabajo para configurar tu Google Postmaster.
 
 1. Ve al [panel de Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. En la esquina inferior derecha, selecciona <i class="fas fa-plus-circle"></i> **Add domain**.
+2. En la parte inferior de la página, selecciona <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Introduce tu dominio raíz (principal) para autenticar tu correo electrónico. Asegúrate de que el registro TXT esté vinculado a este dominio raíz (principal), **no** al subdominio que estás usando a través de Braze. Verificar el dominio raíz (principal) te permite agregar subdominios posteriormente en Postmaster Tools sin crear registros TXT adicionales. Por ejemplo, al verificar `braze.com`, puedes agregar después `demo.braze.com` como un subdominio separado en Postmaster Tools para ver métricas a nivel de subdominio.
 4. Google genera un registro TXT que se puede agregar directamente al DNS de tu dominio. Esto generalmente lo gestiona quien administra tu DNS. Para obtener información y orientación sobre cómo actualizar tu DNS específico, consulta [Verificar tu dominio (pasos específicos del host)](https://support.google.com/a/topic/1409901).
 5. Selecciona **Next**. <br>![Un ejemplo de dominio "demo.braze.com" para autenticar un correo electrónico.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -101,7 +101,7 @@ Tus dominios verificados se muestran en el Centro de entrega.
 
 ![Dos dominios verificados para Google Postmaster con una reputación media y baja.]({% image_buster /assets/img_archive/deliverability_center2.png %})
 
-También puedes acceder a Google Postmaster en el dashboard de Braze yendo a **Integraciones de socios** > **Socios tecnológicos** > **Google Postmaster**. Después de la integración, Braze obtiene datos de reputación y errores de los últimos 30 días. Es posible que los datos no estén disponibles de inmediato y podrían tardar varios minutos en cargarse.
+También puedes acceder a Google Postmaster en el panel de Braze yendo a **Integraciones de socios** > **Socios tecnológicos** > **Google Postmaster**. Después de la integración, Braze obtiene datos de reputación y errores de los últimos 30 días. Es posible que los datos no estén disponibles de inmediato y podrían tardar varios minutos en cargarse.
 
 ### Autorización no válida o expirada {#invalid-or-expired-authorization}
 
@@ -162,10 +162,20 @@ Para más ideas sobre cómo mejorar la capacidad de entrega, lee [Problemas de c
 
 ## Configurar Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
-Si Microsoft es tu proveedor principal de buzón de entrada, puedes usar esta integración para acceder y ver tus datos de reputación de Microsoft. De esta manera, puedes monitorear el estado de tus IP para ayudar a determinar cómo se están recibiendo tus correos electrónicos.
+Si Microsoft es tu proveedor principal de buzón de entrada, puedes ver los datos de Microsoft SNDS en el Centro de entrega. Esto incluye IP de envío dedicadas para espacios de trabajo que usan Amazon SES, SendGrid o SparkPost. Usa estos datos para monitorear el estado de las IP y comprender cómo los proveedores de buzón de entrada de Microsoft están calificando tus envíos.
+
+Microsoft SNDS proporciona datos a nivel de IP sobre quejas de correo no deseado, impactos de trampas de correo no deseado y volumen de envío según lo informado por los proveedores de buzón de entrada de Microsoft, como Outlook, Hotmail y Live.
 
 {% alert important %}
 Si no ves tus datos en el Centro de entrega, ponte en contacto con [Soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) con una lista de tus direcciones IP.
+{% endalert %}
+
+### Amazon SES
+
+Para espacios de trabajo que envían correo electrónico a través de Amazon SES, el Centro de entrega muestra las métricas de Microsoft SNDS para tus IP de envío dedicadas. Braze rellena hasta 90 días de datos históricos de SNDS cuando esta característica se activa para tu espacio de trabajo.
+
+{% alert note %}
+Amazon SES no proporciona las métricas **Trap message period start** ni **Trap message period end**. Para las IP de envío de SES, esas columnas están ocultas en la tabla de Microsoft SNDS. Aún puedes ver otras métricas de SNDS para esas IP, incluyendo impactos de trampas de correo no deseado.
 {% endalert %}
 
 ![Un ejemplo de resultados de Microsoft SNDS, incluyendo IP de muestra, destinatarios, comandos RCPT, comandos DATA, resultado del filtro, tasa de quejas, período de inicio y fin de mensajes trampa e impactos de trampas de correo no deseado.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
@@ -209,6 +219,10 @@ Para calcular la tasa de quejas, divide el número de quejas entre el número de
 #### Impactos de trampas de correo no deseado {#spam-trap-hits}
 
 Los impactos de trampas de correo no deseado son el número de mensajes enviados a "cuentas trampa", que son cuentas mantenidas por Outlook.com que no solicitan ningún correo. Es probable que cualquier mensaje enviado a estas cuentas trampa se considere correo no deseado, por lo que es importante monitorear esta métrica para asegurarte de que sea baja. Un número bajo de impactos de trampas de correo no deseado significa que los mensajes no se envían a estas cuentas y se están enviando a cuentas reales.
+
+#### Período de inicio y fin de mensajes trampa {#trap-message-period-start-and-end}
+
+Estas columnas muestran cuándo se recibieron el primer y el último mensaje enviados a cuentas trampa desde la IP durante el período de actividad. Amazon SES no proporciona estas métricas, por lo que las columnas están ocultas cuando solo ves IP de envío de SES en la tabla de Microsoft SNDS.
 
 {% alert tip %}
 Si estás buscando registros relacionados con uno de tus dominios verificados en Braze, ten en cuenta que el Centro de entrega muestra tus datos de Google Postmaster o Microsoft SNDS, lo que significa que es probable que alguna de las plataformas no tenga datos para compartir con Braze. Alternativamente, intenta mantener un envío de correo electrónico consistente, ya que esto puede llevar a una reputación más alta.

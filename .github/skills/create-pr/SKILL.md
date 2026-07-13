@@ -33,7 +33,7 @@ Some workflows use a different PR body format while sharing this workflow (Steps
 
 Team variant skills are **thin wrappers** — they delegate here for shared workflow and only override Step 2 (description format). **Edits to Steps 0–1, 3–4, checklist, or anti-patterns in this file apply to all variants.**
 
-The [feedback-handler](../../../.cursor/agents/feedback-handler.md) agent should also delegate Steps 0–1 and 3–4 here when opening its draft PR.
+The [feedback-handler](../../../.cursor/agents/feedback-handler.md) agent **must** run Steps 0–1 here (including Style QA on prose) before opening its draft PR, and should follow Steps 3–4 for title/draft conventions except where that agent overrides title, body, assignee, or label rules.
 
 ## Step 0: Pre-PR gates
 
@@ -43,8 +43,11 @@ Run applicable gates **before** writing the PR description. Skip gates that do n
 |---------------|-----------|
 | `_docs/**`, root `_includes/**`, `_layouts/**`, `assets/js/**`, `assets/css/**`, `assets/scss/**` | **REQUIRED SUB-SKILL:** [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) |
 | `_docs/**/*.md`, root `_includes/**/*.md` | **REQUIRED SUB-SKILL:** [spell-check](../spell-check/SKILL.md) (`braze-docs:spell-check`) |
+| `_docs/**/*.md`, root `_includes/**/*.md` (prose edits) | **Style QA (required):** follow [style-qa-changed-files.md](../braze-docs/workflows/style-qa-changed-files.md) — load [writing-style.md](../braze-docs/references/writing-style.md) and [glossary.md](../braze-docs/references/glossary.md), fix bold-for-emphasis and glossary casing on **changed lines only**, and never touch `_docs/_hidden/other/support_contact.md` unless the change is explicitly about that page |
 | `assets/img/**` (new or updated screenshots) | **REQUIRED SUB-SKILL:** [screenshot-pii-audit](../screenshot-pii-audit/SKILL.md) (`braze-docs:screenshot-pii-audit`). Skip for deletion-only image-pruner batches with no added or replaced images. |
 | Product behavior claims in prose | **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) when verifying against source; note verification in the PR body without pasting `platform/` or SDK paths |
+
+If Style QA finds issues in the prose diff, fix them (or note intentional exceptions in the PR body) before continuing to Step 1.
 
 If the user invoked a team variant skill, follow that skill's wait gates (for example tam-solutions approval) before continuing.
 
@@ -205,7 +208,7 @@ After CI passes, the author selects **Ready for review** and adds the [tech writ
 
 ## Quality checklist
 
-- [ ] **Pre-PR gates ran** — accessibility, screenshot PII, or reference verification when changed files require them.
+- [ ] **Pre-PR gates ran** — accessibility, spell-check, Style QA, screenshot PII, or reference verification when changed files require them.
 - [ ] **The "why" is clear** — a reader cold to this work understands the motivation.
 - [ ] **Decisions are explained, not the diff** — no "updated `_doc_guide.scss`" without reader impact.
 - [ ] **Verification is real** — manual scenarios only; no CI-automated steps in the checklist.
@@ -224,3 +227,4 @@ After CI passes, the author selects **Ready for review** and adds the [tech writ
 - **Editing `_lang/`** in the same PR as English canonical fixes without calling it out.
 - **Customer or account PII in the PR body** — link to Jira or Salesforce cases only; do not paste customer names, emails, or ticket prose that may contain PII.
 - **Marking the contributor checklist complete** (`[x]`) unless the author has confirmed each item.
+- **Skipping Style QA on prose diffs** — bold-for-emphasis and glossary casing slips are common; run [style-qa-changed-files.md](../braze-docs/workflows/style-qa-changed-files.md) before opening the PR.

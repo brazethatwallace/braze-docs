@@ -67,6 +67,14 @@ A custom agent may time out if:
 
 For Canvas agents, configure [fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console so users still receive output when an invocation fails.
 
+### Why did my agent do fine in testing but isn't getting any user-specific data when I launch it in a Canvas?
+
+If your agent works correctly during testing but does not receive user-specific data in a live Canvas, try these troubleshooting steps:
+
+- Make sure the user-specific data you want the agent to receive is entered as Liquid variables in the agent instructions.
+- If you have important data in Canvas context, use the **Add all Canvas context** option in the agent configuration to ensure the agent receives the entire Canvas context.
+- Make sure any Canvas context you want the agent to access is stored as Canvas context. Use a context step before the agent step to store this data.
+
 ## Compliance
 
 ### Is Agent Console GDPR/CCPA compliant?

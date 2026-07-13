@@ -29,7 +29,7 @@ Todos os SDKs da Braze seguem a [Especificação de Versionamento Semântico (Se
 Para receber notificações automáticas quando uma nova versão do SDK for lançada, você pode acompanhar o repositório no GitHub de qualquer SDK da Braze:
 
 1. Acesse o repositório do SDK no GitHub (por exemplo, [braze-android-sdk](https://github.com/braze-inc/braze-android-sdk), [braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk) ou [braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)).
-2. Clique em **Watch** no canto superior direito.
+2. Clique em **Watch** no topo da página.
 3. Clique em **Custom**, selecione **Releases** e clique em **Apply**.
 
 Você receberá uma notificação do GitHub (e um e-mail, dependendo das suas [configurações de notificação](https://github.com/settings/notifications)) cada vez que um novo lançamento for publicado. Para a lista completa de repositórios de SDK, consulte [Referências, repositórios e apps de exemplo]({{site.baseurl}}/developer_guide/references).

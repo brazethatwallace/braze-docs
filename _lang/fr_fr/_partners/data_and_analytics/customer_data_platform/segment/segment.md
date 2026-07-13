@@ -17,9 +17,9 @@ search_tag: Partner
 
 L'intégration de Braze et Segment vous permet de suivre vos utilisateurs et d'acheminer les données vers différents fournisseurs d'analyse des utilisateurs. Segment vous permet de :
 
-- Synchroniser [Segment Engage]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_engage/) avec Braze pour une utilisation dans la segmentation de Campaign et Canvas de Braze.
+- Synchroniser [Segment Engage]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_engage) avec Braze pour une utilisation dans la segmentation de Campaign et Canvas de Braze.
 - [Importer des données entre les deux plateformes](#integration-options). Nous proposons une intégration SDK côte à côte pour vos applications Android, iOS et web, ainsi qu'une intégration serveur à serveur pour la synchronisation de vos données avec les REST API de Braze.
-- [Connecter les données à Segment via Currents]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents/).
+- [Connecter les données à Segment via Currents]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents).
 
 ## Conditions préalables {#prerequisites}
 
@@ -27,7 +27,7 @@ L'intégration de Braze et Segment vous permet de suivre vos utilisateurs et d'a
 | ----------- | ----------- |
 | Compte Segment | Un [compte Segment](https://app.segment.com/login) est nécessaire pour bénéficier de ce partenariat. |
 | Source installée et [bibliothèques](https://segment.com/docs/sources/) source Segment | L'origine de toutes les données envoyées à Segment, telles que les applications mobiles, les sites web ou les serveurs backend.<br><br>Vous devez installer les bibliothèques dans votre application, votre site ou votre serveur avant de pouvoir configurer un flux `Source > Destination` fonctionnel. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -50,8 +50,8 @@ Votre choix de mode de connexion sera déterminé par le type de source pour leq
 | Intégration | Détails |
 | ----------- | ------- |
 | [Côte à côte<br>(mode appareil)](#side-by-side-sdk-integration) | Utilise le SDK de Segment pour traduire les événements en appels natifs de Braze, ce qui permet d'accéder à des fonctionnalités plus avancées et à une utilisation plus complète de Braze que l'intégration serveur à serveur.<br><br>Notez que Segment ne prend pas en charge toutes les méthodes Braze (par exemple, Content Cards). Pour utiliser une méthode Braze qui n'est pas mappée via un mappage correspondant, vous devrez invoquer la méthode en ajoutant du code Braze natif à votre base de code. |
-| [Serveur à serveur<br>(mode cloud)](#server-to-server-integration) | Transfère les données de Segment vers les endpoints REST API de Braze.<br><br>Ne prend pas en charge les fonctionnalités de l'interface utilisateur de Braze telles que les messages in-app, Content Cards ou les notifications push. Il existe également des données capturées automatiquement, telles que les champs au niveau de l'appareil, qui ne sont pas disponibles via cette méthode.<br><br>Envisagez une intégration côte à côte si vous souhaitez utiliser ces fonctionnalités.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose destination framework and connection type #integration-options" }
+| [Serveur à serveur<br>(mode cloud)](#server-to-server-integration) | Transfère les données de Segment vers les endpoints REST API de Braze.<br><br>Ne prend pas en charge les fonctionnalités de l'interface utilisateur de Braze telles que les messages in-app, Content Cards ou les notifications push. Il existe également des données capturées automatiquement, telles que les champs au niveau de l'appareil, qui ne sont pas disponibles via cette méthode.<br><br>Envisagez une intégration côte à côte si vous souhaitez utiliser ces fonctionnalités. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Choisir le framework de destination et le type de connexion" }
 
 {% alert note %}
 Consultez [Segment](https://segment.com/docs/destinations/#connection-modes) pour en savoir plus sur les deux options d'intégration (modes de connexion), y compris les avantages de chacune.
@@ -66,7 +66,7 @@ Lorsque vous utilisez le mode appareil de Segment, vous n'avez pas besoin d'int�
 {% endalert %}
 
 {% alert important %}
-Pour les intégrations en mode appareil sur mobile, vous devez ajouter le plugin de destination Braze à votre application en plus de configurer la destination dans le tableau de bord Segment. Le SDK Segment n'inclut pas le plugin Braze par défaut — sans celui-ci, le SDK Segment ne peut pas transmettre les données ou les appels de méthodes mappées à Braze, et les fonctionnalités telles que le push, les messages in-app et Content Cards ne fonctionneront pas. Consultez les onglets spécifiques à chaque plateforme ci-dessous pour les instructions d'installation.
+Pour les intégrations en mode appareil sur mobile, vous devez ajouter le plugin de destination Braze à votre application en plus de configurer la destination dans le tableau de bord Segment. Le SDK Segment n'inclut pas le plugin Braze par défaut — sans celui-ci, le SDK Segment ne peut pas transmettre les données ou les appels de méthodes mappées à Braze, et les fonctionnalités telles que le push, les messages in-app et Content Cards ne fonctionneront pas. Consultez les onglets spécifiques à chaque plateforme dans cette section pour les instructions d'installation.
 {% endalert %}
 
 Lorsque vous utilisez une connexion en mode appareil, comme si vous intégriez le SDK Braze de manière native, le SDK Braze attribuera un `device_id` et un identifiant backend, `braze_id`, à chaque utilisateur. Cela permet à Braze de capturer l'activité anonyme de l'appareil en faisant correspondre ces identifiants plutôt que `userId`.
@@ -88,7 +88,7 @@ Le SDK Braze que vous utilisez dépend du SDK Segment que vous utilisez :
 | - | ----------- | --------- |
 | Recommandé | [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin) | [Braze Segment Kotlin](https://github.com/braze-inc/braze-segment-kotlin) |
 | Hérité | [Analytics-Android](https://github.com/segmentio/analytics-android) | [Braze Segment Android](https://github.com/braze-inc/braze-segment-android) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side SDK integration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Intégration SDK côte à côte" }
 
 
 {% endalert %}
@@ -112,7 +112,7 @@ Le SDK Braze que vous utilisez dépend du SDK Segment que vous utilisez :
 | - | ----------- | --------- |
 | Recommandé | [Analytics-Swift](https://github.com/segmentio/analytics-swift) | [Braze Segment Swift](https://github.com/braze-inc/braze-segment-swift) |
 | Hérité | [Analytics-iOS](https://github.com/segmentio/analytics-ios) | [Braze Segment iOS](https://github.com/Appboy/appboy-segment-ios) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side SDK integration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Intégration SDK côte à côte" }
 {% endalert %}
 
 Pour configurer Braze comme destination en mode appareil pour votre source iOS, choisissez **Actions** comme **Destination framework**, puis sélectionnez **Save**.
@@ -128,7 +128,7 @@ Le framework Braze Web Mode (Actions) de Segment est recommandé pour configurer
 
 Dans Segment, sélectionnez **Actions** comme framework de destination et **Device Mode** comme mode de connexion.
 
-![]({% image_buster /assets/img/segment/website.png %})
+![Configuration de la destination Segment montrant le framework Actions et le mode Device Mode sélectionnés.]({% image_buster /assets/img/segment/website.png %})
 
 {% endtab %}
 {% tab React Native %}
@@ -153,7 +153,7 @@ Pour configurer Braze comme destination en mode appareil pour chaque source, cho
 
 Également appelée mode cloud, cette intégration transmet les données de Segment aux REST API de Braze. Utilisez le framework [Braze Cloud Mode (Actions)](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/) de Segment pour configurer une destination en mode cloud pour n'importe laquelle de vos sources.
 
-Contrairement à l'intégration côte à côte, l'intégration serveur à serveur ne prend pas en charge les fonctionnalités de l'interface utilisateur de Braze, telles que les messages in-app, Content Cards ou l'enregistrement automatique des jetons push. Il existe également des données [capturées automatiquement]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/#user-data-collection) (telles que les utilisateurs anonymes et les champs au niveau de l'appareil) qui ne sont pas disponibles via le mode cloud.
+Contrairement à l'intégration côte à côte, l'intégration serveur à serveur ne prend pas en charge les fonctionnalités de l'interface utilisateur de Braze, telles que les messages in-app, Content Cards ou l'enregistrement automatique des jetons push. Il existe également des données [capturées automatiquement]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection#user-data-collection) (telles que les utilisateurs anonymes et les champs au niveau de l'appareil) qui ne sont pas disponibles via le mode cloud.
 
 Si vous souhaitez utiliser ces données et ces fonctionnalités, envisagez d'utiliser l'intégration SDK côte à côte (mode appareil).
 
@@ -172,7 +172,7 @@ Définissez les paramètres de votre destination. Tous les paramètres ne s'appl
 | Endpoint d'API personnalisé<br>(endpoint du SDK) | Votre endpoint du SDK Braze qui correspond à votre instance (par exemple `sdk.iad-01.braze.com`). |
 | Région de l'endpoint | Votre instance Braze (par exemple US 01, US 02, EU 01, etc.). |
 | Activer l'enregistrement automatique des messages in-app | Désactivez cette option si vous souhaitez enregistrer manuellement les messages in-app. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Paramètres" }
 
 {% endtab %}
 {% tab Web Device-Mode %}
@@ -206,7 +206,7 @@ Définissez les paramètres de votre destination. Tous les paramètres ne s'appl
 | Suivre uniquement les pages nommées | **Mode appareil web de destination classique (maintenance) uniquement**<br><br>Segment recommande de migrer vers la destination du framework Web Actions où ce paramètre peut être [activé via des mappages](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping).<br><br>Cela enverra uniquement les appels de page à Braze avec un nom qui leur est associé. |
 | Enregistrer l'achat lorsque le chiffre d'affaires est présent | **Mode appareil web de destination classique (maintenance) uniquement**<br><br>Segment recommande de migrer vers la destination du framework Web Actions où ce paramètre peut être [activé via des mappages](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping).<br><br>Lorsque cette option est activée, tous les appels Track avec la propriété de chiffre d'affaires déclencheront un événement d'achat. |
 | Suivre uniquement les utilisateurs connus | **Mode appareil web de destination classique (maintenance) uniquement**<br><br>Segment recommande de migrer vers la destination du framework Web Actions où ce paramètre peut être activé via des mappages.<br><br>S'il est activé, ce nouveau paramètre retarde l'appel de `window.braze.initialize` jusqu'à ce qu'il y ait un `userId` valide. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Paramètres" }
 
 {% endtab %}
 {% tab Cloud-Mode %}
@@ -217,7 +217,7 @@ Définissez les paramètres de votre destination. Tous les paramètres ne s'appl
 | Clé REST API | Vous pouvez la trouver dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
 | Endpoint REST API personnalisé | Votre endpoint REST Braze qui correspond à votre instance (par exemple rest.iad-01.braze.com). |
 | Mettre à jour les utilisateurs existants uniquement | **Mode cloud de destination classique (maintenance) uniquement**<br><br>Segment recommande de migrer vers la destination du framework Cloud Actions où ce paramètre peut être [activé via des mappages](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping).<br><br>Détermine s'il faut uniquement mettre à jour les utilisateurs existants. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Paramètres" }
 
 {% endtab %}
 {% endtabs %}
@@ -235,7 +235,7 @@ Bien que les alias d'utilisateur soient pris en charge en tant qu'identifiant da
 | `userId` (`external_id`) | Toutes |
 | Utilisateur anonyme | Destinations en mode appareil |
 | Alias d'utilisateur | Destinations en mode cloud |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Map methods #methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 4 : Mapper les méthodes" }
 
 La destination Cloud Mode (Actions) propose une [action Créer un alias](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#create-alias) qui peut être utilisée pour créer un utilisateur uniquement avec un alias ou pour ajouter un alias à un profil `external_id` existant. L'[action Identifier l'utilisateur](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#identify-user) peut être utilisée conjointement avec l'action Créer un alias pour fusionner un utilisateur uniquement avec un alias avec un `external_id` une fois que celui-ci est devenu disponible pour l'utilisateur.
 
@@ -243,7 +243,7 @@ Il est également possible de concevoir une solution de contournement et d'utili
 
 Les données de destination envoyées à Braze peuvent être regroupées par lots dans Cloud Mode Actions. La taille des lots est limitée à 75 événements, et ces lots s'accumuleront sur une période de 30 secondes avant d'être vidés. Le traitement par lots des requêtes est effectué par action. Par exemple, les appels Identify (attributs) seront regroupés dans une requête et les appels Track (événements personnalisés) seront regroupés dans une seconde requête. Braze recommande d'activer cette fonctionnalité car elle réduira le nombre de requêtes envoyées de Segment à Braze. Cela réduira à son tour le risque que la destination atteigne les limites de débit de Braze et retente les requêtes.
 
-Vous pouvez activer le traitement par lots pour une action en accédant à votre destination Braze > **Mappings**. À partir de là, cliquez sur l'icône à 3 points à droite du mappage et sélectionnez **Edit Mapping**. Faites défiler vers le bas de la section **Select mappings** et assurez-vous que **Batch Data to Braze** est défini sur **Yes**.
+Vous pouvez activer le traitement par lots pour une action en accédant à votre destination Braze > **Mappings**. À partir de là, cliquez sur l'icône à 3 points à côté du mappage et sélectionnez **Edit Mapping**. Faites défiler vers le bas de la section **Select mappings** et assurez-vous que **Batch Data to Braze** est défini sur **Yes**.
 
 
 {% tabs local %}
@@ -344,7 +344,7 @@ analytics.identify(
 
 ##### Attributs personnalisés {#custom-attributes}
 
-Tous les autres traits seront enregistrés en tant qu'[attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Tous les autres traits seront enregistrés en tant qu'[attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 | Méthode Segment | Méthode Braze | Exemple |
 |---|---|---|
@@ -352,9 +352,9 @@ Tous les autres traits seront enregistrés en tant qu'[attributs personnalisés]
 | Identify avec des traits réservés | Définir les attributs de l'utilisateur | Segment : `analytics.identify({email: "dawei@braze.com"});`<br> Braze : `Braze.getUser().setEmail("dawei@braze.com");`
 | Identify avec des traits personnalisés | Définir des attributs personnalisés | Segment : `analytics.identify({fav_cartoon: "Naruto"});`<br>Braze : `Braze.getUser().setCustomAttribute("fav_cartoon": "Naruto")`;
 | Identify avec un ID utilisateur et des traits | Segment : définir un ID externe et un attribut | Combinez les méthodes précédentes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Attributs personnalisés" }
 
-Dans les destinations [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) et [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile), les mappages ci-dessus peuvent être définis à l'aide de l'action Update User Profile.
+Dans les destinations [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) et [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile), ces mappages peuvent être définis à l'aide de l'action Update User Profile.
 
 {% alert important %}
 Lorsque vous transmettez des données d'attributs utilisateur, vérifiez que vous ne transmettez que des valeurs pour les attributs qui ont changé depuis la dernière mise à jour. Vous éviterez ainsi d'enregistrer inutilement des points de données. Pour les sources côté client, utilisez l'outil [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) open source de Segment pour optimiser votre intégration et limiter l'utilisation des points de données en supprimant les appels `identify()` dupliqués provenant de Segment.
@@ -365,22 +365,22 @@ Lorsque vous transmettez des données d'attributs utilisateur, vérifiez que vou
 {% tab Track %}
 #### Track
 
-Lorsque vous suivez un événement, nous l'enregistrons en tant qu'[événement personnalisé]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) en utilisant le nom fourni.
+Lorsque vous suivez un événement, nous l'enregistrons en tant qu'[événement personnalisé]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events) en utilisant le nom fourni.
 
-Les métadonnées envoyées dans l'objet de propriétés de l'appel Track seront enregistrées dans Braze en tant que propriétés d'événement personnalisées pour l'événement associé. Tous les [types de données de propriétés d'événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) sont pris en charge.
+Les métadonnées envoyées dans l'objet de propriétés de l'appel Track seront enregistrées dans Braze en tant que propriétés d'événement personnalisées pour l'événement associé. Tous les [types de données de propriétés d'événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) sont pris en charge.
 
-Dans les destinations [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-event) et [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-event), les mappages ci-dessus peuvent être définis à l'aide de l'action Track Event.
+Dans les destinations [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-event) et [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-event), ces mappages peuvent être définis à l'aide de l'action Track Event.
 
 | Méthode Segment | Méthode Braze | Exemple |
 |---|---|---|
-| [Track](https://segment.com/docs/spec/track/) | Enregistré en tant qu'[événement personnalisé]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events). | Segment : `analytics.track("played_game");` <br>Braze : `Braze.logCustomEvent("played_game");`|
-| [Track avec propriétés](https://segment.com/docs/spec/track/) | Enregistré en tant que [propriété d'événement]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/). | Segment : `analytics.track("played_game", {name: "BotW", weapon: "boomerang"});` <br>Braze : `Braze.logCustomEvent("played_game", { "name": "BotW", "weapon": "boomerang"});` |
+| [Track](https://segment.com/docs/spec/track/) | Enregistré en tant qu'[événement personnalisé]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events). | Segment : `analytics.track("played_game");` <br>Braze : `Braze.logCustomEvent("played_game");` |
+| [Track avec propriétés](https://segment.com/docs/spec/track/) | Enregistré en tant que [propriété d'événement]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties). | Segment : `analytics.track("played_game", {name: "BotW", weapon: "boomerang"});` <br>Braze : `Braze.logCustomEvent("played_game", { "name": "BotW", "weapon": "boomerang"});` |
 | [Track avec produit](https://segment.com/docs/spec/track/) | Enregistré en tant qu'[événement d'achat]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web). | Segment : `analytics.track("Order Completed", {products: [product_id: "ab12", price: 19]});` <br>Braze : `Braze.logPurchase("ab12", 19);` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Track" }
 
 ##### Commande terminée {#order-completed}
 
-Lorsque vous suivez un événement portant le nom `Order Completed` en utilisant le format décrit dans l'[API eCommerce](https://segment.com/docs/spec/ecommerce/v2/) de Segment, nous enregistrons les produits que vous avez répertoriés en tant qu'[achats]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data).
+Lorsque vous suivez un événement portant le nom `Order Completed` en utilisant le format décrit dans l'[API eCommerce](https://segment.com/docs/spec/ecommerce/v2/) de Segment, nous enregistrons les produits que vous avez répertoriés en tant qu'[achats]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data).
 
 Dans les destinations [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-purchase) et [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-purchase), le mappage par défaut peut être personnalisé via l'action Track Purchase.
 
@@ -398,13 +398,13 @@ Ce type d'événement peut être utilisé comme déclencheur dans les destinatio
 
 ### Étape 5 : Tester votre intégration {#step-5-test-your-integration}
 
-Lorsque vous utilisez l'intégration côte à côte (mode appareil), vos indicateurs d'[aperçu]({{site.baseurl}}/user_guide/analytics/dashboards/home/) (sessions à vie, MAU, DAU, adhérence, sessions quotidiennes et sessions quotidiennes par MAU) peuvent être utilisés pour vérifier que Braze reçoit des données de Segment.
+Lorsque vous utilisez l'intégration côte à côte (mode appareil), vos indicateurs d'[aperçu]({{site.baseurl}}/user_guide/analytics/dashboards/home) (sessions à vie, MAU, DAU, adhérence, sessions quotidiennes et sessions quotidiennes par MAU) peuvent être utilisés pour vérifier que Braze reçoit des données de Segment.
 
-Vous pouvez consulter vos données sur les pages des [événements personnalisés]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data/#custom-event-data) ou du [chiffre d'affaires]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data), ou en [créant un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment). La page **Événements personnalisés** du tableau de bord vous permet de consulter le nombre d'événements personnalisés au fil du temps. Notez que vous ne pourrez pas utiliser de [formules]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula/#creating-a-formula) incluant les statistiques MAU et DAU lors de l'utilisation d'une intégration serveur à serveur (mode cloud).
+Vous pouvez consulter vos données sur les pages des [événements personnalisés]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data#custom-event-data) ou du [chiffre d'affaires]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data), ou en [créant un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment). La page **Événements personnalisés** du tableau de bord vous permet de consulter le nombre d'événements personnalisés au fil du temps. Notez que vous ne pourrez pas utiliser de [formules]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula#creating-a-formula) incluant les statistiques MAU et DAU lors de l'utilisation d'une intégration serveur à serveur (mode cloud).
 
-Si vous envoyez des données d'achat à Braze (voir la commande terminée dans l'onglet **Track** de l'[étape 3](#methods)), la page du [chiffre d'affaires]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data) vous permet de consulter les données relatives aux revenus ou aux achats sur des périodes spécifiques ou le chiffre d'affaires total de votre application.
+Si vous envoyez des données d'achat à Braze (voir la commande terminée dans l'onglet **Track** de l'[étape 4](#methods)), la page du [chiffre d'affaires]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data) vous permet de consulter les données relatives aux revenus ou aux achats sur des périodes spécifiques ou le chiffre d'affaires total de votre application.
 
-[Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment) vous permet de filtrer vos utilisateurs en fonction des données d'événements personnalisés et d'attributs.
+[Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment) vous permet de filtrer vos utilisateurs en fonction des données d'événements personnalisés et d'attributs.
 
 {% alert important %}
 Si vous utilisez une intégration serveur à serveur (mode cloud), les filtres liés aux données de session collectées automatiquement (tels que « première utilisation de l'application » et « dernière utilisation de l'application ») ne fonctionneront pas. Utilisez une intégration côte à côte (mode appareil) si vous souhaitez les utiliser dans votre intégration Segment et Braze.
@@ -412,7 +412,7 @@ Si vous utilisez une intégration serveur à serveur (mode cloud), les filtres l
 
 ## Suppression et blocage d'utilisateurs {#user-deletion-and-suppression}
 
-Si vous devez supprimer ou bloquer des utilisateurs, notez que la [fonctionnalité de suppression d'utilisateurs de Segment](https://segment.com/docs/privacy/user-deletion-and-suppression/#which-destinations-can-i-send-deletion-requests-to) **est** mappée à l'endpoint Braze [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/). Notez que la vérification de ces suppressions peut prendre jusqu'à 30 jours.
+Si vous devez supprimer ou bloquer des utilisateurs, notez que la [fonctionnalité de suppression d'utilisateurs de Segment](https://segment.com/docs/privacy/user-deletion-and-suppression/#which-destinations-can-i-send-deletion-requests-to) **est** mappée à l'endpoint Braze [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete). Notez que la vérification de ces suppressions peut prendre jusqu'à 30 jours.
 
 Vous devez vous assurer de sélectionner un identifiant utilisateur commun entre Braze et Segment (comme `external_id`). Une fois que vous avez lancé une requête de suppression avec Segment, vous pouvez consulter son état dans l'onglet des requêtes de suppression de votre tableau de bord Segment.
 
@@ -420,7 +420,7 @@ Vous devez vous assurer de sélectionner un identifiant utilisateur commun entre
 
 Segment fournit un service aux clients qui leur permet de « retransmettre » toutes les données historiques à un nouveau partenaire technologique. Les nouveaux clients de Braze qui souhaitent importer toutes les données historiques pertinentes peuvent le faire via Segment. Adressez-vous à votre représentant Segment si cela vous intéresse.
 
-Segment se connectera à notre [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour importer les données utilisateur dans Braze en votre nom.
+Segment se connectera à notre [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour importer les données utilisateur dans Braze en votre nom.
 
 {% alert important %}
 Tous les identifiants pris en charge dans la destination Cloud Mode Actions sont pris en charge dans le cadre des rediffusions Segment.
@@ -428,9 +428,9 @@ Tous les identifiants pris en charge dans la destination Cloud Mode Actions sont
 
 ## Bonnes pratiques {#best-practices}
 
-{% details Passez en revue les cas d'utilisation pour éviter les dépassements de données. %}
+{% details Passez en revue les cas d'usage pour éviter les dépassements de données. %}
 
-Segment **ne limite pas** le nombre d'éléments de données que les clients leur envoient. Segment vous permet de tout envoyer ou de décider quels événements vous enverrez à Braze. Plutôt que d'envoyer tous vos événements via Segment, nous vous suggérons de passer en revue les cas d'utilisation avec vos équipes marketing et éditoriales afin de déterminer quels événements vous enverrez à Braze pour éviter les dépassements de données.
+Segment **ne limite pas** le nombre d'éléments de données que les clients leur envoient. Segment vous permet de tout envoyer ou de décider quels événements vous enverrez à Braze. Plutôt que d'envoyer tous vos événements via Segment, nous vous suggérons de passer en revue les cas d'usage avec vos équipes marketing et éditoriales afin de déterminer quels événements vous enverrez à Braze pour éviter les dépassements de données.
 
 {% enddetails %}
 
@@ -440,7 +440,7 @@ Segment **ne limite pas** le nombre d'éléments de données que les clients leu
 | ----------------- | ------------------ |
 | Endpoint du SDK Braze | Endpoint d'API personnalisé |
 | Endpoint REST de Braze | Endpoint REST API personnalisé |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Best practices" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bonnes pratiques" }
 
 Votre endpoint d'API Braze (appelé « endpoint d'API personnalisé » dans Segment) est l'endpoint du SDK que Braze configure pour votre SDK (par exemple `sdk.iad-03.braze.com`). Votre endpoint REST API Braze (appelé « endpoint REST API personnalisé » dans Segment) est l'endpoint REST API (par exemple `https://rest.iad-03.braze.com`).
 {% enddetails %}
@@ -451,7 +451,7 @@ Votre endpoint d'API Braze (appelé « endpoint d'API personnalisé » dans Segm
 | ----------------- | ------------------ |
 | Endpoint du SDK Braze | Endpoint d'API personnalisé |
 | Endpoint REST de Braze | Endpoint REST API personnalisé |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Best practices" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bonnes pratiques" }
 
 Le format approprié doit être respecté pour vous assurer de saisir correctement votre endpoint du SDK Braze. Votre endpoint du SDK Braze ne doit pas inclure `https://` (par exemple `sdk.iad-03.braze.com`), sinon l'intégration de Braze sera interrompue. Cela est nécessaire car Segment ajoute automatiquement le préfixe `https://` à votre endpoint, ce qui entraînerait l'initialisation de Braze avec un endpoint non valide `https://https://sdk.iad-03.braze.com`.
 
@@ -462,7 +462,7 @@ Le format approprié doit être respecté pour vous assurer de saisir correcteme
 Scénarios dans lesquels les données ne sont pas transmises comme prévu :
 
 1. Attributs personnalisés imbriqués
-  - Bien que les [attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/) puissent techniquement être envoyés à Braze via Segment, le **payload complet** sera envoyé à chaque fois. Cela entraînera des [points de données]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support/#data-points) par clé transmise dans l'objet imbriqué chaque fois que le payload est envoyé.<br><br> Pour ne dépenser qu'un sous-ensemble de points de données lors de l'envoi du payload, vous pouvez utiliser la fonctionnalité de [fonctions de destination](https://segment.com/docs/connections/functions/destination-functions/) personnalisées appartenant à Segment. Cette fonctionnalité de la plateforme Segment vous permet de personnaliser la manière dont les données sont envoyées vers les destinations en aval.
+  - Bien que les [attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) puissent techniquement être envoyés à Braze via Segment, le **payload complet** sera envoyé à chaque fois. Cela entraînera des [points de données]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support#data-points) par clé transmise dans l'objet imbriqué chaque fois que le payload est envoyé.<br><br> Pour ne dépenser qu'un sous-ensemble de points de données lors de l'envoi du payload, vous pouvez utiliser la fonctionnalité de [fonctions de destination](https://segment.com/docs/connections/functions/destination-functions/) personnalisées appartenant à Segment. Cette fonctionnalité de la plateforme Segment vous permet de personnaliser la manière dont les données sont envoyées vers les destinations en aval.
 
   {% alert note %}
   Les fonctions de destination personnalisées sont contrôlées dans Segment, et Braze a une visibilité limitée sur les fonctions configurées en externe.

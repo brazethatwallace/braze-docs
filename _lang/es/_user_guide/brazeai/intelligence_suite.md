@@ -3,18 +3,18 @@ nav_title: Intelligence Suite
 article_title: Acerca de Braze Intelligence Suite
 page_order: 6
 search_rank: 12
-description: "La Intelligence Suite de Braze automatiza la toma de decisiones con información basada en datos. Desde el plazo de entrega hasta las pruebas multivariante, las marcas pueden utilizar estas herramientas y características para crear experiencias dinámicas y de canales cruzados que se optimicen a escala."
+description: "La Intelligence Suite de Braze automatiza la toma de decisiones con información basada en datos. Desde el plazo de entrega hasta las pruebas multivariante, las marcas pueden utilizar estas herramientas y características para crear experiencias dinámicas y multicanal que se optimicen a escala."
 tool:
   - Dashboard
 ---
 
 # La Intelligence Suite {#the-intelligence-suite}
 
-> La Intelligence Suite de Braze automatiza la toma de decisiones con información basada en datos. Desde el plazo de entrega hasta las pruebas multivariante, las marcas pueden utilizar estas herramientas y características para crear experiencias dinámicas y de canales cruzados que se optimicen a escala. La Intelligence Suite consta de tres características principales: Intelligent Timing, canal inteligente e Intelligent Selection.
+> La Intelligence Suite de Braze automatiza la toma de decisiones con información basada en datos. Desde el plazo de entrega hasta las pruebas multivariante, las marcas pueden utilizar estas herramientas y características para crear experiencias dinámicas y multicanal que se optimicen a escala. La Intelligence Suite consta de tres características principales: Intelligent Timing, canal inteligente e Intelligent Selection.
 
 ## Casos de uso {#use-cases}
 
-La Intelligence Suite proporciona potentes características para analizar el historial de usuarios y el rendimiento de campañas y Canvas, y luego realizar ajustes automáticos para aumentar la interacción, la audiencia y las conversiones. Para ver algunos ejemplos de cómo estas características pueden beneficiar a distintos sectores, consulta los siguientes casos de uso.
+La Intelligence Suite proporciona potentes características para analizar el historial de usuarios y el rendimiento de campañas y Canvas, y luego realizar ajustes automáticos para aumentar la participación, la audiencia y las conversiones. Para ver algunos ejemplos de cómo estas características pueden beneficiar a distintos sectores, consulta los siguientes casos de uso.
 
 ### Comercio electrónico {#ecommerce}
 

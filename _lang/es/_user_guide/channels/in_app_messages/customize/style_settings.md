@@ -48,7 +48,7 @@ El editor de arrastrar y soltar utiliza dos componentes clave para componer mens
 
 ### Botón de cierre X {#close-x-button}
 
-Para mensajes dentro de la aplicación de tipo modal y pantalla completa, puedes personalizar el botón de cierre que se muestra como <i class="fa-solid fa-xmark"></i> en la esquina superior derecha de tu mensaje. Las opciones de personalización incluyen posición del botón, tamaño, color de relleno, color de fondo, estilo de borde y radio de borde.
+Para mensajes dentro de la aplicación de tipo modal y pantalla completa, puedes personalizar el botón de cierre que se muestra como <i class="fa-solid fa-xmark"></i> en la parte superior de tu mensaje. Las opciones de personalización incluyen posición del botón, tamaño, color de relleno, color de fondo, estilo de borde y radio de borde.
 
 ![Opciones para personalizar el botón de cierre X en mensajes dentro de la aplicación, incluyendo tamaño del botón, color de relleno, color de fondo, estilo de borde y radio de borde.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -92,7 +92,7 @@ Antes de añadir bloques, configura los [estilos a nivel de mensaje](#set-messag
 
 Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
-A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea adaptable y podrás hacer los ajustes necesarios sobre la marcha.
+A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea responsivo y podrás hacer los ajustes necesarios sobre la marcha.
 
 ## Detalles creativos {#creative-details}
 

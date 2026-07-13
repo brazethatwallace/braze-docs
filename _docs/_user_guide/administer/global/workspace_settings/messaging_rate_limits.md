@@ -34,7 +34,7 @@ For example, let’s say you have a workspace messaging rate limit of 100,000 me
 
 The messages are dispatched over a 3-minute interval.
 
-Messages are processed in parallel. When processed, messages are scheduled out to respect the workspace messaging rate limit on a first-come, first-served basis. This means that in the example above, the messages sent out each minute are a varying mix from Campaigns 1, 2, and 3 that add up to 100,000.
+Messages are processed in parallel. When processed, messages are scheduled out to respect the workspace messaging rate limit on a first-come, first-served basis. This means that in this example, the messages sent out each minute are a varying mix from Campaigns 1, 2, and 3 that add up to 100,000.
 
 ![Example of how messages are dispatched for the three campaigns.]({% image_buster /assets/img/workspace_messaging_rate_limits2.png %})
 

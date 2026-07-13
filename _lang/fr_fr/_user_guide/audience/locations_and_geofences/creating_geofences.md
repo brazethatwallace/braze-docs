@@ -95,7 +95,7 @@ Sur iOS 14+ et Android 12+, les utilisateurs peuvent choisir entre la localisati
 
 | Paramètre | Précision | Impact sur le géorepérage |
 |---|---|---|
-| **Localisation précise (activée)** | Précision de l'ordre de 5 à 50 mètres, utilisant le GPS, le Wi-Fi et la triangulation cellulaire. | Les géorepérages fonctionnent comme prévu. Recommandé pour tous les cas d'utilisation basés sur le géorepérage. |
+| **Localisation précise (activée)** | Précision de l'ordre de 5 à 50 mètres, utilisant le GPS, le Wi-Fi et la triangulation cellulaire. | Les géorepérages fonctionnent comme prévu. Recommandé pour tous les cas d'usage basés sur le géorepérage. |
 | **Localisation approximative (désactivée)** | Précision d'environ 3 kilomètres carrés (environ 1 mile carré). L'appareil renvoie une zone générale plutôt que des coordonnées exactes. | Les géorepérages ne se déclenchent pas de manière fiable. L'appareil ne peut pas déterminer avec précision si un utilisateur se trouve à l'intérieur ou à l'extérieur d'une limite de géorepérage. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Localisation précise versus approximative" }
 
@@ -109,23 +109,23 @@ Un message d'amorçage des autorisations de localisation est un message in-app q
 
 ### Étape 1 : Collaborer avec votre équipe de développement {#step-1-work-with-your-development-team}
 
-Étant donné que les messages in-app de Braze n'incluent pas d'action de bouton intégrée pour invoquer l'invite native d'autorisation de localisation, votre équipe de développement doit gérer les autorisations de localisation côté appareil. Avant de créer le message in-app dans Braze, coordonnez-vous avec votre équipe de développement pour configurer des liens profonds que votre message in-app peut appeler. L'implémentation spécifique dépend de l'architecture de votre application, mais les approches courantes incluent :
+Étant donné que les messages in-app de Braze n'incluent pas d'action de bouton intégrée pour invoquer l'invite native d'autorisation de localisation, votre équipe de développement doit gérer les autorisations de localisation côté appareil. Avant de créer le message in-app dans Braze, coordonnez-vous avec votre équipe de développement pour configurer des deep links que votre message in-app peut appeler. L'implémentation spécifique dépend de l'architecture de votre application, mais les approches courantes incluent :
 
-- Un lien profond qui déclenche l'invite native d'autorisation de localisation depuis votre application.
-- Un lien profond qui ouvre la page des paramètres de localisation de l'application dans les paramètres du système d'exploitation de l'appareil, ce qui est utile pour relancer les utilisateurs qui ont précédemment refusé ou limité leurs autorisations.
+- Un deep link qui déclenche l'invite native d'autorisation de localisation depuis votre application.
+- Un deep link qui ouvre la page des paramètres de localisation de l'application dans les paramètres du système d'exploitation de l'appareil, ce qui est utile pour relancer les utilisateurs qui ont précédemment refusé ou limité leurs autorisations.
 
-Pour plus d'informations sur les liens profonds, consultez [Création de liens profonds vers le contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls). Pour des conseils spécifiques à chaque plateforme sur l'intégration de la localisation et du géorepérage, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences) dans le guide du développeur.
+Pour plus d'informations sur les deep links, consultez [Création de liens profonds vers le contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls). Pour des conseils spécifiques à chaque plateforme sur l'intégration de la localisation et du géorepérage, consultez [Géorepérages]({{site.baseurl}}/developer_guide/geofences) dans le guide du développeur.
 
 ### Étape 2 : Créer le message in-app d'amorçage de localisation {#step-2-build-the-location-primer-in-app-message}
 
 Créez une campagne de message in-app qui explique la valeur de l'accès à la localisation. Tous les types de messages in-app prennent en charge cet abonnement, y compris le glisser-déposer.
 
-1. Allez dans **Messaging** > **Campaigns**, puis sélectionnez **Créer une campagne** > **In-App Message**.
+1. Allez dans **Messaging** > **Campaigns**, puis sélectionnez **Create Campaign** > **In-App Message**.
 2. Choisissez un type de message et une disposition. Une disposition **Modal** ou **Full** vous donne plus d'espace pour expliquer les avantages.
 3. Rédigez un message qui explique clairement pourquoi l'accès à la localisation profite à l'utilisateur. Par exemple :
     - « Activez la localisation pour être informé des offres à proximité. »
     - « Activez la localisation pour que nous puissions vous prévenir lorsque votre commande est prête à être retirée dans votre magasin le plus proche. »
-4. Ajoutez un bouton d'appel à l'action principal (tel que **Turn On Location**) et définissez son comportement au clic sur **Deep Link into App**, en utilisant le lien profond créé par votre équipe de développement pour déclencher l'invite native de localisation.
+4. Ajoutez un bouton d'appel à l'action principal (tel que **Turn On Location**) et définissez son comportement au clic sur **Deep Link into App**, en utilisant le deep link créé par votre équipe de développement pour déclencher l'invite native de localisation.
 5. Ajoutez un bouton secondaire (tel que **Not Now**) qui ferme le message.
 
 ### Étape 3 : Cibler la bonne audience {#step-3-target-the-right-audience}
@@ -149,7 +149,7 @@ Dans les deux cas, rappelez aux utilisateurs de garder la **Localisation précis
 
 Si un utilisateur a précédemment refusé l'accès à la localisation ou sélectionné une autorisation limitée, vous ne pouvez pas déclencher à nouveau l'invite native depuis l'application sur la plupart des versions du système d'exploitation. Au lieu de cela, dirigez-les vers la mise à jour de leurs autorisations dans les paramètres de l'appareil.
 
-Utilisez un lien profond dans un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) personnalisé pour diriger l'utilisateur vers la page des paramètres de localisation de l'application dans le système d'exploitation. Votre équipe de développement peut configurer un lien profond à cet effet dans le cadre de la gestion des autorisations de localisation de votre application (consultez l'[étape 1](#step-1-work-with-your-development-team)).
+Utilisez un deep link dans un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) personnalisé pour diriger l'utilisateur vers la page des paramètres de localisation de l'application dans le système d'exploitation. Votre équipe de développement peut configurer un deep link à cet effet dans le cadre de la gestion des autorisations de localisation de votre application (consultez l'[étape 1](#step-1-work-with-your-development-team)).
 
 Lors de la création de ce message in-app, tenez compte des éléments suivants :
 
@@ -168,7 +168,7 @@ Une application de vente au détail affiche un message in-app modal après qu'un
 
 - **Titre :** « Soyez informé des offres en magasin »
 - **Corps :** « Activez la localisation pour que nous puissions vous envoyer des offres exclusives lorsque vous êtes à proximité de vos magasins favoris. Votre localisation n'est consultée que pendant l'utilisation de l'application. »
-- **CTA :** **Turn On Location** crée un lien profond vers l'invite native d'autorisation de localisation
+- **CTA :** **Turn On Location** crée un deep link vers l'invite native d'autorisation de localisation
 - **Fermer :** **Maybe Later** ferme le message
 
 Cette approche est efficace car l'utilisateur a déjà exprimé son intérêt pour un magasin spécifique, créant un contexte naturel pour la demande d'autorisation de localisation.
@@ -179,7 +179,7 @@ Après qu'un utilisateur a accordé l'autorisation « Pendant l'utilisation de l
 
 - **Titre :** « Ne manquez jamais une offre à proximité »
 - **Corps :** « Mettez à jour vos paramètres de localisation sur "Toujours" pour que nous puissions vous informer des offres même lorsque vous ne naviguez pas dans l'application. Nous n'enverrons que des alertes pertinentes lorsque vous serez à proximité des emplacements participants. »
-- **CTA :** **Update Settings** crée un lien profond vers la page des paramètres de localisation de l'application dans le système d'exploitation
+- **CTA :** **Update Settings** crée un deep link vers la page des paramètres de localisation de l'application dans le système d'exploitation
 - **Fermer :** **Keep Current Settings** ferme le message
 
 Ce suivi donne à l'utilisateur le contexte expliquant pourquoi le passage à « Toujours autoriser » apporte une valeur supplémentaire au-delà du niveau d'autorisation initial.
@@ -264,11 +264,11 @@ L'exemple suivant montre le format GeoJSON correct pour spécifier deux géorep�
 
 Après avoir configuré vos géorepérages, vous pouvez les utiliser pour enrichir et améliorer la façon dont vous communiquez avec vos utilisateurs.
 
-### Déclencher des campagnes et des Canvas {#triggering-campaigns-and-canvases}
+### Déclencher des Campaigns et des Canvas {#triggering-campaigns-and-canvases}
 
-Pour utiliser les données de géorepérage dans le cadre des déclencheurs de campagne et de Canvas, choisissez **Livraison par événement** comme méthode de réception. Ensuite, ajoutez une action de déclenchement `Trigger a Geofence`. Enfin, choisissez l'ensemble de géorepérages et les types d'événements de transition de géorepérage pour votre message. Vous pouvez également faire progresser les utilisateurs dans un Canvas à l'aide d'événements de géorepérage.
+Pour utiliser les données de géorepérage dans le cadre des déclencheurs de Campaign et de Canvas, choisissez **Livraison par événement** comme méthode de réception. Ensuite, ajoutez une action de déclenchement `Trigger a Geofence`. Enfin, choisissez l'ensemble de géorepérages et les types d'événements de transition de géorepérage pour votre message. Vous pouvez également faire progresser les utilisateurs dans un Canvas à l'aide d'événements de géorepérage.
 
-![Une campagne par événement avec un géorepérage qui se déclenchera lorsqu'un utilisateur entre dans les aéroports allemands.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
+![Une Campaign par événement avec un géorepérage qui se déclenchera lorsqu'un utilisateur entre dans les aéroports allemands.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
 
 ### Personnaliser les messages {#personalizing-messages}
 
@@ -333,7 +333,7 @@ Pour que les géorepérages fonctionnent, les utilisateurs doivent avoir les ser
 
 ### Les données de géorepérage sont-elles stockées dans les profils utilisateur ? {#is-geofence-data-stored-in-user-profiles}
 
-Non, Braze ne stocke pas les données de géorepérage dans les profils utilisateur. Les géorepérages sont surveillés par les services de localisation d'Apple et de Google, et Braze n'est notifié que lorsqu'un utilisateur déclenche un géorepérage. À ce moment-là, Braze traite toutes les campagnes de déclenchement associées.
+Non, Braze ne stocke pas les données de géorepérage dans les profils utilisateur. Les géorepérages sont surveillés par les services de localisation d'Apple et de Google, et Braze n'est notifié que lorsqu'un utilisateur déclenche un géorepérage. À ce moment-là, Braze traite toutes les Campaigns de déclenchement associées.
 
 ### Puis-je configurer un géorepérage à l'intérieur d'un géorepérage ? {#can-i-set-up-a-geofence-within-a-geofence}
 
@@ -341,4 +341,4 @@ En tant que bonne pratique, évitez de configurer des géorepérages qui se chev
 
 ### Que se passe-t-il si un utilisateur refuse l'accès à la localisation ? {#what-if-a-user-denies-location-access}
 
-Votre équipe de développement peut configurer un lien profond qui ouvre la page des paramètres de localisation de l'application dans le système d'exploitation, où les utilisateurs peuvent mettre à jour leurs autorisations. Vous pouvez utiliser ce lien profond dans un message in-app personnalisé à tout moment du parcours utilisateur. Soyez sélectif quant au moment où vous affichez ce message : ciblez les utilisateurs qui sont engagés ou qui ont effectué une action à forte valeur pour augmenter les chances d'abonnement. Pour plus d'informations, consultez [Rediriger les utilisateurs vers les paramètres du système d'exploitation](#redirecting-users-to-os-settings).
+Votre équipe de développement peut configurer un deep link qui ouvre la page des paramètres de localisation de l'application dans le système d'exploitation, où les utilisateurs peuvent mettre à jour leurs autorisations. Vous pouvez utiliser ce deep link dans un message in-app personnalisé à tout moment du parcours utilisateur. Soyez sélectif quant au moment où vous affichez ce message : ciblez les utilisateurs qui sont engagés ou qui ont effectué une action à forte valeur pour augmenter les chances d'abonnement. Pour plus d'informations, consultez [Rediriger les utilisateurs vers les paramètres du système d'exploitation](#redirecting-users-to-os-settings).

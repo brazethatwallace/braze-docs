@@ -6,7 +6,7 @@ description: "このリファレンス記事では、キャンペーンまたは
 channel:
   - in-app messages
 tool:
-  - キャンペーン
+  - Campaigns
 search_rank: 4.8
 toc_headers: h2
 ---
@@ -15,9 +15,9 @@ toc_headers: h2
 
 > Brazeプラットフォームでは、キャンペーン、キャンバス、またはAPIキャンペーンとしてアプリ内メッセージやブラウザ内メッセージを作成できます。便利な[アプリ内メッセージ準備ガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices)を使用して、事前にメッセージを計画し、すべての素材を準備しておくことを強くお勧めします。
 
-## ステップ 1:メッセージの作成場所を選択する {#create-new-campaign-in-app}
+## ステップ1：メッセージの作成場所を選択する {#create-new-campaign-in-app}
 
-メッセージをキャンペーンとキャンバスのどちらで送信すべきかわからない場合は、キャンペーンは単一のターゲットメッセージングに適しており、キャンバスはマルチステップのユーザージャーニーに適しています。
+メッセージをキャンペーンとキャンバスのどちらで送信すべきかわからない場合は、キャンペーンは単一のターゲットメッセージングキャンペーンに適しており、キャンバスはマルチステップのユーザージャーニーに適しています。
 
 {% tabs %}
 {% tab キャンペーン %}
@@ -52,7 +52,7 @@ toc_headers: h2
 {% endtab %}
 {% endtabs %}
 
-## ステップ 2:配信プラットフォームを指定する {#step-2-specify-delivery-platforms}
+## ステップ2：配信プラットフォームを指定する {#step-2-specify-delivery-platforms}
 
 まず、メッセージを受信するプラットフォームを選択します。この選択を使用して、キャンペーンの配信を特定のアプリセットに制限します。たとえば、モバイルアプリのダウンロードを促すブラウザ内メッセージに**Web Browsers**を選択して、すでにアプリを取得した後にメッセージを受信しないようにすることができます。プラットフォームの選択はバリアントごとに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストすることもできます。
 
@@ -63,7 +63,7 @@ toc_headers: h2
 | Mobile AppsとWeb Browsersの両方 | iOS、Android、Vega、Web SDK |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="配信プラットフォームの指定" }
 
-## ステップ 3:メッセージタイプを指定する {#step-3-specify-your-message-types}
+## ステップ3：メッセージタイプを指定する {#step-3-specify-your-message-types}
 
 送信プラットフォームを選択したら、それに関連するメッセージタイプ、レイアウト、その他のオプションを参照します。これらの各メッセージの期待される動作と外観の詳細については、[メッセージタイプ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)ページを参照するか、以下の表のリンクされたメッセージタイプをクリックしてください。
 
@@ -179,7 +179,7 @@ toc_headers: h2
 Brazeがコードに閉じるボタンまたは却下ボタンが含まれていないことを検出した場合、追加するようリクエストします。便宜上、コードにコピー＆ペーストできるスニペットを用意しています：<br><br>`<a href= "appboy://close">X</a>`
 {% endalert %}
 
-## ステップ 4:アプリ内メッセージを作成する {#step-4-compose-your-in-app-message}
+## ステップ4：アプリ内メッセージを作成する {#step-4-compose-your-in-app-message}
 
 **作成**タブでは、メッセージのコンテンツと動作のすべての側面を編集できます。
 
@@ -225,7 +225,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 これらのボタンを独自の色でフォーマットする場合は、より望ましい結果にはButton 2を使用することをお勧めします。
 
-つまり、ユーザーに一方のボタンをもう一方よりも多くクリックしてもらいたい場合は、右側に配置してください。右側のボタンは、特にメッセージの他の部分とやや対照的な色や目立つ色を持っている場合、クリックされる可能性が高いことが多いです。これは、左側のボタンがメッセージとより視覚的に溶け込んでいる場合にのみ強調されます。
+つまり、ユーザーに一方のボタンをもう一方よりも多くクリックしてもらいたい場合は、セカンダリボタンにしてください。セカンダリボタンは、特にメッセージの他の部分とやや対照的な色や目立つ色を持っている場合、クリックされる可能性が高いことが多いです。これは、プライマリボタンがメッセージとより視覚的に溶け込んでいる場合にのみ強調されます。
 
 ![アプリ内メッセージのプライマリボタンとセカンダリボタン]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -246,6 +246,8 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 注意：__プッシュ許可をリクエスト__、__カスタムイベントを記録__、__カスタム属性を記録__オプションには、以下のSDK最小バージョンが必要です。
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
+
+複数のアクションを組み合わせたり、ダッシュボードでは利用できない追加のSDKアクション（購読グループへの追加やメール購読タイプの設定など）を実行したりするには、[Braze Actionsディープリンク]({{site.baseurl}}/developer_guide/braze_actions)を使用できます。
 
 ### iOSデバイスオプション {#ios-device-options}
 
@@ -270,7 +272,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 この設定はメールキャプチャフォームメッセージタイプにのみ適用されます。メール入力フィールドのプレースホルダーテキストとして表示されるカスタムコピーを入力します。デフォルトは「Enter your email address」です。
 
-## ステップ 5:アプリ内メッセージのスタイルを設定する {#step-5-style-your-in-app-message}
+## ステップ5：アプリ内メッセージのスタイルを設定する {#step-5-style-your-in-app-message}
 
 **スタイル**タブでは、メッセージのすべての視覚的側面を調整できます。画像やバッジをアップロードするか、事前にデザインされたバッジアイコンを選択します。パレットから選択するか、16進数、RGB、またはHSBコードを入力して、ヘッダーと本文テキスト、ボタン、背景の色を変更します。
 
@@ -295,13 +297,13 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 一部のアプリ内メッセージタイプには、カスタムHTML（またはCSS、JavaScript）とアセットをZIPファイルでアップロードする以外のスタイル設定オプションがありません。[CSS付きウェブモーダル]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#web-modal-css)では、カスタムCSSをアップロードまたは記述して、美しく全体的にカスタムスタイルのメッセージングを作成できます。
 {% endalert %}
 
-## ステップ 6:追加設定を構成する（オプション） {#step-6-configure-additional-settings-optional}
+## ステップ6：追加設定を構成する（オプション） {#step-6-configure-additional-settings-optional}
 
 ### キーと値のペア {#key-value-pairs}
 
 [キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)を追加して、ユーザーデバイスに追加のカスタムフィールドを送信できます。
 
-## ステップ 7:キャンペーンまたはキャンバスの残りの部分を構築する {#step-7-build-the-remainder-of-your-campaign-or-canvas}
+## ステップ7：キャンペーンまたはキャンバスの残りの部分を構築する {#step-7-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab キャンペーン %}
@@ -321,7 +323,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 アプリ内メッセージの配信は、完全に以下のアクショントリガーに基づいています。
 
 - 購入を行う
-- アプリ/ウェブページを開く
+- アプリまたはウェブページを開く
 - カスタムイベントを実行する（SDKを使用して送信されたイベントでのみ機能します）
 - 特定のプッシュメッセージを開く
 - 各ユーザーのローカルタイムに合わせて、特定の時間にキャンペーンを自動的にスケジュールして送信します。
@@ -354,7 +356,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 - **デフォルト優先度バケット：**2つのキャンペーンが同じトリガーを共有し、デフォルト（中）優先度を使用している場合、最後に作成されたキャンペーンがトリガーを受け取ります。
 - **特定の優先度バケット：**複数のキャンペーンが同じトリガーを共有し、特定の優先度バケットに割り当てられている場合、そのバケットに最も最近割り当てられたキャンペーンがトリガーを受け取ります。
 
-これらのバケット内で優先度を設定するには、**正確な優先度を設定**をクリックし、キャンペーンをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
+これらのバケット内で優先度を設定するには、**Set Exact Priority**をクリックし、キャンペーンをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
 
 ![アプリ内メッセージのキャンペーンとキャンバスの優先度設定の例。]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
@@ -372,7 +374,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ![「表示前にキャンペーンの適格性を再評価する」のチェックボックスが選択されている状態。]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
-**Re-evaluate campaign eligibility before displaying**を選択すると、送信前にユーザーがこのメッセージの対象であることを確認するために、Brazeへの追加リクエストが行われます。さらに、メッセージが表示される前に、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)変数や[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)がその時点でテンプレート化されます。
+**Re-evaluate campaign eligibility before displaying**を選択すると、送信前にユーザーがこのメッセージの対象であることを確認するために、Brazeへの追加リクエストが行われます。さらに、メッセージが表示される前に、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)変数や[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)がその時点でテンプレート化されます。
 
 これにより、期限切れまたはアーカイブされたキャンペーン内のユーザーにアプリ内メッセージが送信されることを防ぎます。ユーザーの適格性を再評価しない場合、メッセージはSDK内にあり、ユーザーがトリガーするのを待っているため、キャンペーンが期限切れまたはアーカイブされた後でもユーザーはアプリ内メッセージを受信します。
 
@@ -402,7 +404,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 {% endtab %}
 {% endtabs %}
 
-## ステップ 8:確認してデプロイする {#step-8-review-and-deploy}
+## ステップ8：確認してデプロイする {#step-8-review-and-deploy}
 
 キャンペーンまたはキャンバスの最後の部分の構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)してから送信してください！
 

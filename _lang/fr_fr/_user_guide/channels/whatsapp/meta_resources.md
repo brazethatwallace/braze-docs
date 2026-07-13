@@ -91,7 +91,7 @@ Pour plus d'informations, consultez la documentation de Meta sur l'[archivage de
 - Auparavant ouvert à tous les clients via WhatsApp Manager
 - Désormais limité aux : gouvernements/grands annonceurs Meta, annonceurs directs, ou via un BSP comme Braze (jusqu'à 5 par semaine)
 - Nouvelles conditions préalables : vérification de l'entreprise, vérification en deux étapes, nom d'affichage approuvé, notoriété
-- Contactez votre gestionnaire de la satisfaction client pour obtenir de l'aide
+- Contactez votre gestionnaire du succès des clients pour obtenir de l'aide
 
 ### Octobre 2025 : réductions tarifaires régionales {#october-2025-regional-pricing-rate-cuts}
 *Dernière mise à jour : mars 2026*
@@ -135,7 +135,7 @@ Meta limitera le nombre de messages de modèles marketing qu'un utilisateur peut
 
 Une exception : si une personne répond à un message marketing, cela ouvrira une fenêtre de service client de 24 heures. Les messages marketing envoyés dans cette fenêtre ne seront pas comptabilisés dans la limite de la personne.
 
-La limite spécifique varie selon l'utilisateur, en fonction de son niveau d'engagement. En savoir plus sur les limites de messages de modèles marketing par utilisateur de WhatsApp dans la [documentation sur les limites de messages de modèles marketing par utilisateur de WhatsApp](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
+La limite spécifique varie selon l'utilisateur, en fonction de son niveau d'engagement. Pour en savoir plus, consultez la [documentation de WhatsApp sur les limites de messages de modèles marketing par utilisateur](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
 
 ### Janvier 2025 : WhatsApp suspend l'envoi de messages marketing aux utilisateurs américains à partir du 1er avril {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Dernière mise à jour : janvier 2025*
@@ -169,7 +169,7 @@ Bien que WhatsApp ait assoupli sa politique, Braze recommande toujours de recuei
 
 Depuis que Meta a déployé la limite de modèles marketing par utilisateur, Meta a constaté des améliorations significatives des taux de lecture et du sentiment des utilisateurs.
 
-À partir de maintenant, avant la période des fêtes, les personnes aux États-Unis recevront moins de nouvelles conversations marketing. Meta s'attend à ce que ce changement crée des audiences plus engagées, ce qui conduit finalement à de meilleurs résultats pour les entreprises. Cela peut entraîner des taux de livraison plus faibles pour votre entreprise si vous envoyez des messages marketing vers des numéros de téléphone américains, ce qui peut être surveillé avec le code d'erreur `131049` via Braze Currents et le Journal d'activité des messages.
+À partir de maintenant, avant la période des fêtes, les personnes aux États-Unis recevront moins de nouvelles conversations marketing. Meta s'attend à ce que ce changement crée des audiences plus engagées, ce qui conduit finalement à de meilleurs résultats pour les entreprises. Cela peut entraîner des taux de livraison plus faibles pour votre entreprise si vous envoyez des messages marketing vers des numéros de téléphone américains, ce qui peut être surveillé avec le code d'erreur `131049` via Braze Currents et le journal d'activité des messages.
 
 Les entreprises aux États-Unis peuvent toujours envoyer des messages marketing dans d'autres zones géographiques, et il n'y a aucun impact sur les messages utilitaires, d'authentification ou de service, ni sur les messages de modèles marketing envoyés dans une fenêtre de conversation initiée par l'utilisateur (par exemple, une publicité click-to-WhatsApp, un carrousel de produits ou un modèle de coupon envoyé dans le cadre d'une conversation).
 

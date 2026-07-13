@@ -388,6 +388,7 @@ There are a few situations where test messages don't behave the same way as camp
 - For testing in-app messages and Content Cards, the target user must have a push token for the target device.
 - For testing unsubscribe links in emails, make sure your test user's email address is in the respective workspace.
 - The `List-Unsubscribe` header is not included in emails sent by the test message functionality.
+- Emails sent to seed group users do not update the user profile Campaign Received list or increment Sends in dashboard analytics.
 
 ## Troubleshooting
 

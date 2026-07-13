@@ -11,9 +11,9 @@ tool:
 
 # Synchronisation d'audience avec Criteo {#audience-sync-to-criteo}
 
-Grâce à la synchronisation d'audience Braze avec Criteo, les marques peuvent choisir d'ajouter les données utilisateurs de leur propre intégration Braze aux listes de clients Criteo afin de diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore. Tous les critères que vous utiliseriez normalement pour déclencher un message (push, e-mail, SMS, webhook, etc.) dans un Canvas Braze sur la base de vos données utilisateur peuvent désormais être utilisés pour déclencher une publicité pour cet utilisateur dans vos listes de clients Criteo.
+Grâce à la synchronisation d'audience Braze avec Criteo, les marques peuvent choisir d'ajouter les données utilisateurs de leur propre intégration Braze aux listes de clients Criteo afin de diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore. Tous les critères que vous utiliseriez normalement pour déclencher un message (notification push, e-mail, SMS, webhook, etc.) dans un Canvas Braze sur la base de vos données utilisateur peuvent désormais être utilisés pour déclencher une publicité pour cet utilisateur dans vos listes de clients Criteo.
 
-**Les cas d'utilisation courants pour la synchronisation d'audience incluent :**
+**Les cas d'usage courants pour la synchronisation d'audience incluent :**
 
 - Cibler des utilisateurs à forte valeur via plusieurs canaux pour stimuler les achats ou l'engagement
 - Recibler des utilisateurs qui sont moins réactifs aux autres canaux marketing
@@ -35,14 +35,14 @@ Vous devez vous assurer que les éléments suivants ont été créés et/ou comp
 | --- | --- | --- |
 | Compte publicitaire Criteo | [Criteo](https://marketing.criteo.com/) | Un compte publicitaire Criteo actif lié à votre marque.<br><br>Assurez-vous que votre administrateur Criteo vous a accordé les autorisations appropriées pour accéder aux audiences. |
 | [Directives publicitaires de Criteo](https://www.criteo.com/advertising-guidelines/)<br>et<br>[Directives de sécurité de la marque Criteo](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | En tant que client actif de Criteo, vous devez vous assurer que vous pouvez respecter les directives publicitaires et de sécurité de la marque de Criteo avant de lancer toute campagne Criteo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
 ### Étape 1 : Se connecter à Criteo {#step-1-connect-to-criteo}
 
 {% alert important %}
-Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour connecter Criteo à votre compte Braze.
+Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) pour connecter Criteo à votre compte Braze.
 {% endalert %}
 
 Dans le tableau de bord de Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Criteo**. Sous Criteo Audience Export, sélectionnez **Connect Criteo**.
@@ -63,17 +63,17 @@ Votre connexion Criteo sera appliquée au niveau de l'espace de travail Braze. S
 
 ### Étape 2 : Configurer vos critères d'entrée de Canvas {#step-2-configure-your-canvas-entry-criteria}
 
-Lors de la création d'audiences pour le suivi publicitaire, vous pouvez souhaiter inclure ou exclure certains utilisateurs en fonction de leurs préférences, et afin de respecter les lois sur la confidentialité, telles que le droit « Ne pas vendre ou partager » en vertu du [CCPA](https://oag.ca.gov/privacy/ccpa). Les marketeurs devraient mettre en œuvre les filtres pertinents pour l'éligibilité des utilisateurs dans leurs critères d'entrée de Canvas. Ci-dessous, nous listons quelques options.
+Lors de la création d'audiences pour le suivi publicitaire, vous pouvez souhaiter inclure ou exclure certains utilisateurs en fonction de leurs préférences, et afin de respecter les lois sur la confidentialité, telles que le droit « Ne pas vendre ou partager » en vertu du [CCPA](https://oag.ca.gov/privacy/ccpa). Les marketeurs devraient mettre en œuvre les filtres pertinents pour l'éligibilité des utilisateurs dans leurs critères d'entrée de Canvas. Voici quelques options possibles.
 
-Si vous avez collecté l'[IDFA iOS via le SDK Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), vous pourrez utiliser le filtre Ads Tracking Enabled. Sélectionnez la valeur comme vraie pour n'envoyer les utilisateurs que dans les destinations de synchronisation d'audience où ils ont donné leur consentement.
+Si vous avez collecté l'[IDFA iOS via le SDK Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), vous pourrez utiliser le filtre Ads Tracking Enabled. Sélectionnez la valeur comme vraie pour n'envoyer les utilisateurs que dans les destinations de synchronisation d'audience où ils ont donné leur consentement.
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![Filtre d'entrée Canvas avec Ads Tracking Enabled défini sur vrai.]({% image_buster /assets/img/criteo/criteo11.png %})
 
 Si vous collectez des `opt-ins`, `opt-outs`, `Do Not Sell Or Share`, ou tout autre attribut personnalisé pertinent, vous devez les inclure dans les critères d'entrée de votre Canvas en tant que filtre :
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![Filtre d'entrée Canvas utilisant des attributs personnalisés d'abonnement pour l'éligibilité de l'audience.]({% image_buster /assets/img/criteo/criteo12.png %})
 
-Pour en savoir plus sur la manière de se conformer à ces lois sur la protection des données au sein de la plateforme Braze, consultez l'[Assistance technique à la protection des données]({{site.baseurl}}/dp-technical-assistance/).
+Pour en savoir plus sur la manière de se conformer à ces lois sur la protection des données au sein de la plateforme Braze, consultez l'[Assistance technique à la protection des données]({{site.baseurl}}/dp-technical-assistance).
 
 ### Étape 3 : Ajouter une étape de synchronisation d'audience avec Criteo {#step-3-add-an-audience-sync-step-with-criteo}
 
@@ -87,7 +87,7 @@ Cliquez sur le bouton **Custom Audience** pour ouvrir l'éditeur de composants.
 
 Sélectionnez **Criteo** comme partenaire de synchronisation d'audience souhaité.
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Éditeur de l'étape de synchronisation d'audience avec Criteo sélectionné comme partenaire.]({% image_buster /assets/img/criteo/criteo6.png %})
 
 Sélectionnez ensuite le compte publicitaire Criteo souhaité. Dans la liste déroulante **Choose a New or Existing Audience**, saisissez le nom d'une audience nouvelle ou existante.
 
@@ -106,7 +106,7 @@ Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les 
 {% endtab %}
 {% tab Synchroniser avec une audience existante %}
 **Synchroniser avec une audience existante**<br>
-Braze offre également la possibilité d'ajouter des utilisateurs aux audiences Criteo existantes afin de s'assurer que ces audiences sont à jour. Pour effectuer une synchronisation avec une audience existante, saisissez le nom de l'audience existante dans le menu déroulant et sélectionnez **Add to the Audience**. Braze ajoutera ensuite des utilisateurs en temps quasi réel au fur et à mesure qu'ils entreront dans le composant de synchronisation d'audience.
+Braze offre également la possibilité d'ajouter des utilisateurs aux audiences Criteo existantes afin de s'assurer que ces audiences sont à jour. Pour effectuer une synchronisation avec une audience existante, saisissez le nom de l'audience existante dans le menu déroulant et sélectionnez **Add to the Audience**. Braze ajoutera ensuite les utilisateurs en temps quasi réel au fur et à mesure qu'ils entreront dans le composant de synchronisation d'audience.
 
 ![Vue élargie de l'étape Canvas d'audience personnalisée. Le compte publicitaire souhaité et l'audience existante sont sélectionnés ici.]({% image_buster /assets/img/criteo/criteo8.png %})
 
@@ -125,7 +125,7 @@ Vous pouvez voir l'audience dans Criteo en accédant à votre compte gestionnair
 
 Lorsque les utilisateurs atteignent l'étape de synchronisation d'audience, Braze les synchronise quasiment en temps réel tout en respectant les limites de débit de l'API de Criteo. Braze met en lots et traite autant d'utilisateurs que possible toutes les cinq secondes avant de les envoyer à Criteo.
 
-La limite de débit de l'API de Criteo n'autorise pas plus de 250 demandes par minute. Si un client atteint cette limite, Braze retente la synchronisation pendant environ 13 heures. Si la synchronisation n'est toujours pas possible, Braze répertorie ces utilisateurs sous l'indicateur Users Errored.
+La limite de débit de l'API de Criteo n'autorise pas plus de 250 requêtes par minute. Si un client atteint cette limite, Braze retente la synchronisation pendant environ 13 heures. Si la synchronisation n'est toujours pas possible, Braze répertorie ces utilisateurs sous l'indicateur Users Errored.
 
 ## Comprendre les analyses {#understanding-analytics}
 
@@ -140,7 +140,7 @@ Le tableau suivant comprend des indicateurs et des descriptions pour vous aider 
 | Utilisateurs en attente | Nombre d'utilisateurs actuellement traités par Braze pour être synchronisés avec Criteo. |
 | Utilisateurs en erreur | Nombre d'utilisateurs qui n'ont pas été synchronisés avec Criteo en raison d'une erreur d'API après environ 13 heures de tentatives. Les causes potentielles d'erreurs peuvent inclure un jeton Criteo invalide ou la suppression de l'audience dans Criteo. |
 | Sortis du Canvas | Nombre d'utilisateurs ayant quitté le Canvas. Cela se produit lorsque la dernière étape d'un Canvas est un composant de synchronisation d'audience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprendre les analyses" }
 
 {% alert important %}
 N'oubliez pas qu'il y aura un délai dans le reporting des indicateurs d'utilisateurs synchronisés et d'utilisateurs en erreur, en raison respectivement du vidage en masse et de la relance après 13 heures.

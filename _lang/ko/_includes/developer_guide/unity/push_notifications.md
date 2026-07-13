@@ -16,11 +16,11 @@ Firebase Unity SDK를 통합하면 `AndroidManifest.xml`이 재정의될 수 있
 
 #### 1.2단계: Firebase 자격 증명 설정 {#step-12-set-your-firebase-credentials}
 
-Braze 대시보드에 Firebase 서버 키와 발신자 ID를 입력해야 합니다. 이렇게 하려면 [Firebase 개발자 콘솔](https://console.firebase.google.com/)에 로그인하고 Firebase 프로젝트를 선택합니다. 다음으로, **Settings**에서 **Cloud Messaging**을 선택하고 서버 키와 발신자 ID를 복사합니다:<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+Braze 대시보드에 Firebase 서버 키와 발신자 ID를 입력해야 합니다. 이렇게 하려면 [Firebase 개발자 콘솔](https://console.firebase.google.com/)에 로그인하고 Firebase 프로젝트를 선택합니다. 다음으로, **Settings**에서 **Cloud Messaging**을 선택하고 서버 키와 발신자 ID를 복사합니다:<br>![서버 키와 발신자 ID가 표시된 Firebase 콘솔 Cloud Messaging 설정.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
-Braze에서 **Manage Settings** 아래의 **App Settings** 페이지에서 Android 앱을 선택합니다. 다음으로, **Firebase Cloud Messaging Server Key** 필드에 Firebase 서버 키를 입력하고 **Firebase Cloud Messaging Sender** ID 필드에 Firebase 발신자 ID를 입력합니다.
+Braze에서 **설정 관리** 아래의 **App Settings** 페이지에서 Android 앱을 선택합니다. 다음으로, **Firebase Cloud Messaging Server Key** 필드에 Firebase 서버 키를 입력하고 **Firebase Cloud Messaging Sender** ID 필드에 Firebase 발신자 ID를 입력합니다.
 
-![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
+![Firebase Cloud Messaging 서버 키 및 발신자 ID 필드가 있는 Braze Android 앱 설정.]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
@@ -55,7 +55,7 @@ Braze는 iOS 푸시 통합 자동화를 위한 네이티브 Unity 솔루션을 �
 {% tab Android %}
 #### 2.1단계: 푸시 설정 구성하기 {#unity_step-21-configure-push-settings}
 
-Braze SDK는 기기가 푸시 알림을 받을 수 있도록 Firebase 클라우드 메시징 서버에 푸시 등록을 자동으로 처리할 수 있습니다. Unity에서 **Automate Unity Android Integration**을 활성화한 다음 다음 **Push Notification** 설정을 구성합니다.
+Braze SDK는 기기가 푸시 알림을 받을 수 있도록 Firebase Cloud Messaging 서버에 푸시 등록을 자동으로 처리할 수 있습니다. Unity에서 **Automate Unity Android Integration**을 활성화한 다음 다음 **Push Notification** 설정을 구성합니다.
 
 | 설정 | 설명 |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -64,7 +64,7 @@ Braze SDK는 기기가 푸시 알림을 받을 수 있도록 Firebase 클라우�
 | Handle Push Deeplinks Automatically | SDK가 푸시 알림을 클릭할 때 딥링크 열기 또는 앱 열기를 처리해야 하는지 여부. |
 | Small Notification Icon Drawable | 푸시가 도착할 때 표시되는 작은 아이콘에 대한 Android 드로어블 리소스 참조. `@drawable/` 접두사를 포함한 전체 참조를 입력합니다(예: `@drawable/hourglass_icon`). 자동 통합은 이 값을 입력한 그대로 `braze.xml`에 기록합니다. 비워 두면 알림은 애플리케이션 아이콘을 작은 아이콘으로 사용합니다. |
 | Large Notification Icon Drawable | 알림에 사용할 선택적 큰 아이콘. 작은 아이콘과 동일한 `@drawable/` 형식을 사용합니다(예: `@drawable/my_large_icon`). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2.1단계: 푸시 설정 구성하기" }
 
 {% alert note %}
 **Small Notification Icon Drawable**과 **Large Notification Icon Drawable**은 **Braze > Braze Configuration**의 **Push Configuration** 아래에 표시됩니다. 두 값 모두 입력한 그대로 `braze.xml`에 기록됩니다. `@drawable/` 접두사를 직접 포함하세요. Braze Unity 통합에서 자동으로 추가하지 않습니다(예: `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
@@ -169,9 +169,9 @@ preBuild.dependsOn(copyAmazon)
 
 #### 2.4단계: Braze 대시보드에 클라이언트 비밀 및 클라이언트 ID 추가 {#step-24-add-client-secret-and-client-id-to-your-braze-dashboard}
 
-마지막으로 [1단계](#unity_step-1-enable-adm)에서 얻은 클라이언트 비밀과 클라이언트 ID를 Braze 대시보드의 **Manage Settings** 페이지에 추가해야 합니다.
+마지막으로 [1단계](#unity_step-1-enable-adm)에서 얻은 클라이언트 비밀과 클라이언트 ID를 Braze 대시보드의 **설정 관리** 페이지에 추가해야 합니다.
 
-![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
+![ADM 클라이언트 ID 및 클라이언트 비밀 필드가 있는 Braze Fire OS 앱 설정 페이지.]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -195,7 +195,7 @@ preBuild.dependsOn(copyAmazon)
 
 다음 예제는 각각 `PushNotificationReceivedCallback`, `PushNotificationOpenedCallback`, `PushNotificationDeletedCallback`이라는 콜백 메서드 이름을 사용하여 `BrazeCallback` 게임 오브젝트를 구현합니다.
 
-![이 구현 예제 그래픽에서는 이전 섹션에서 언급한 Braze 구성 옵션과 C# 코드 스니펫을 보여줍니다.]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
+![이전 섹션에서 언급한 Braze 구성 옵션과 C# 코드 스니펫을 보여주는 구현 예제 그래픽.]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
 
 ```csharp
 public class MainMenu : MonoBehaviour {
@@ -251,7 +251,7 @@ public class MainMenu : MonoBehaviour {
 
 다음 예제는 각각 `PushNotificationReceivedCallback` 및 `PushNotificationOpenedCallback`이라는 콜백 메서드 이름을 사용하여 `AppboyCallback` 게임 오브젝트를 구현합니다.
 
-![이 구현 예제 그래픽에서는 이전 섹션에서 언급한 Braze 구성 옵션과 C# 코드 스니펫을 보여줍니다.]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
+![이전 섹션에서 언급한 Braze 구성 옵션과 C# 코드 스니펫을 보여주는 구현 예제 그래픽.]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
 
 ```csharp
 public class MainMenu : MonoBehaviour {
@@ -298,7 +298,7 @@ ADM 푸시 리스너에 대해 자세히 알아보려면 [Amazon: Amazon 기기 
 
 {% tabs %}
 {% tab Android %}
-#### 인앱 리소스에 대한 딥링킹 {#deep-linking-to-in-app-resources}
+### 인앱 리소스에 대한 딥링킹 {#deep-linking-to-in-app-resources}
 
 Braze는 기본적으로 표준 딥링크(웹사이트 URL, Android URI 등)를 처리할 수 있지만, 커스텀 딥링크를 생성하려면 추가적인 매니페스트 설정이 필요합니다.
 

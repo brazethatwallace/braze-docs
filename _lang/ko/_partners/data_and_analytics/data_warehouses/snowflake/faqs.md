@@ -9,10 +9,10 @@ description: "이 문서에서는 Snowflake 데이터 공유에 대해 자주 �
 
 # 자주 묻는 질문 {#frequently-asked-questions}
 
-### Snowflake 데이터 공유를 통해 PII 데이터를 난독화할 수 있나요? {#is-it-possible-to-obfuscate-pii-data-via-snowflake-data-sharing}
+## Snowflake 데이터 공유를 통해 PII 데이터를 난독화할 수 있나요? {#is-it-possible-to-obfuscate-pii-data-via-snowflake-data-sharing}
 아니요, 현재는 지원되지 않습니다.
 
-### 동일 리전 데이터 공유가 필요한가요, 아니면 크로스 리전 데이터 공유가 필요한가요? {#do-i-need-data-share-for-the-same-region-or-cross-region}
+## 동일 리전 데이터 공유가 필요한가요, 아니면 크로스 리전 데이터 공유가 필요한가요? {#do-i-need-data-share-for-the-same-region-or-cross-region}
 다음 시나리오에서는 동일 리전 데이터 공유를 사용하세요:
 - Snowflake 계정이 US-EAST-1(AWS)에 있고 Braze 대시보드 리전이 미국에 있는 경우.
 - Snowflake 리전이 EU-CENTRAL-1(AWS)에 있고 Braze 대시보드 리전이 EU에 있는 경우.
@@ -22,43 +22,43 @@ description: "이 문서에서는 Snowflake 데이터 공유에 대해 자주 �
 
 그 외의 경우에는 크로스 리전 데이터 공유를 사용하세요.
 
-### 새 Snowflake 계정으로 전환할 때 데이터 공유는 어떻게 해야 하나요? {#what-should-i-do-with-my-data-share-when-i-switch-to-a-new-snowflake-account}
+## 새 Snowflake 계정으로 전환할 때 데이터 공유는 어떻게 해야 하나요? {#what-should-i-do-with-my-data-share-when-i-switch-to-a-new-snowflake-account}
 이전 Snowflake 계정에 연결된 기존 데이터 공유를 삭제한 다음 새 계정에 대한 새 공유를 생성할 수 있습니다. 모든 과거 데이터는 새 공유에서 사용할 수 있습니다.
 
-### 데이터 공유에서 데이터가 보이지 않는 이유는 무엇인가요? {#why-dont-i-see-data-in-my-data-share}
+## 데이터 공유에서 데이터가 보이지 않는 이유는 무엇인가요? {#why-dont-i-see-data-in-my-data-share}
 데이터 공유를 생성할 때 잘못된 Snowflake 계정 ID를 사용했을 수 있습니다. 데이터 공유 대시보드의 계정 ID는 Snowflake 계정에서 `CURRENT_ACCOUNT()`의 출력과 일치해야 합니다.
 
 공유가 크로스 리전인 경우 데이터가 즉시 사용 가능하지 않을 수 있습니다. 데이터 볼륨에 따라 데이터가 해당 리전으로 동기화되는 데 몇 시간이 걸릴 수 있습니다.
 
-### 데이터 공유를 생성할 때 HIPAA(미국의료정보보호법) 준수 오류가 발생하는 이유는 무엇인가요? {#why-am-i-receiving-a-hipaa-compliance-error-when-creating-a-data-share}
+## 데이터 공유를 생성할 때 HIPAA(미국의료정보보호법) 준수 오류가 발생하는 이유는 무엇인가요? {#why-am-i-receiving-a-hipaa-compliance-error-when-creating-a-data-share}
 
 지정된 계정이 HIPAA(미국의료정보보호법)를 준수하지 않거나 Business Critical보다 낮은 [Snowflake 에디션](https://docs.snowflake.com/en/user-guide/intro-editions)을 사용하고 있습니다. 데이터 공유에서 HIPAA(미국의료정보보호법)를 준수하려면 Snowflake 계정을 Business Critical 에디션으로 업그레이드해야 합니다. 계정 업그레이드에 대한 추가 지원은 Snowflake 고객지원에 문의하세요.
 
-### 데이터 공유를 삭제한 후 다시 생성할 수 없는 이유는 무엇인가요? {#why-cant-i-recreate-a-data-share-after-deleting-one}
+## 데이터 공유를 삭제한 후 다시 생성할 수 없는 이유는 무엇인가요? {#why-cant-i-recreate-a-data-share-after-deleting-one}
 
 시스템이 이전 데이터 공유의 삭제를 아직 처리 중일 수 있습니다. 프로비저닝 해제 프로세스가 완료될 때까지 몇 분 정도 기다린 후 새 데이터 공유를 다시 생성해 보세요.
 
-### 여러 워크스페이스가 동일한 Snowflake 계정으로 데이터를 공유하는 경우 `CREATE DATABASE`를 몇 번 실행해야 하나요? {#how-many-times-do-i-need-to-run-create-database-when-i-have-multiple-workspaces-sharing-data-to-the-same-snowflake-account}
+## 여러 워크스페이스가 동일한 Snowflake 계정으로 데이터를 공유하는 경우 `CREATE DATABASE`를 몇 번 실행해야 하나요? {#how-many-times-do-i-need-to-run-create-database-when-i-have-multiple-workspaces-sharing-data-to-the-same-snowflake-account}
 
 `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>`을 한 번만 실행하면 됩니다. 서로 다른 Braze 워크스페이스의 여러 데이터 공유를 동일한 Snowflake 계정으로 공유하면 자동으로 동일한 공유로 합쳐집니다. 초기 데이터베이스를 생성하면 추가 공유 요청이나 데이터베이스 생성 단계 없이도 추가 워크스페이스의 데이터가 기존 데이터베이스에 자동으로 추가됩니다.
 
 예를 들어, 워크스페이스 A에서 Snowflake 계정 123으로 데이터 공유를 생성하면 공유 요청을 수락하고 데이터베이스를 생성하게 됩니다. 나중에 워크스페이스 B에서 동일한 Snowflake 계정 123으로 데이터 공유를 생성하면 새 공유 요청이 전송되지 않고 데이터가 기존 공유에 즉시 추가되어 이전에 생성한 데이터베이스에서 사용할 수 있게 됩니다.
 
-### 워크스페이스가 여러 개 있는 경우 단일 데이터베이스에 모든 워크스페이스의 데이터가 포함되나요? {#if-i-have-multiple-workspaces-does-a-single-database-contain-data-from-all-of-them}
+## 워크스페이스가 여러 개 있는 경우 단일 데이터베이스에 모든 워크스페이스의 데이터가 포함되나요? {#if-i-have-multiple-workspaces-does-a-single-database-contain-data-from-all-of-them}
 
 네. 여러 Braze 워크스페이스의 데이터를 동일한 Snowflake 계정으로 공유하면 모든 데이터가 하나의 공유로 통합되어 동일한 데이터베이스에서 사용할 수 있습니다. `app_group_id`로 데이터를 필터링하여 워크스페이스를 구분할 수 있습니다.
 
-모범 사례로, 쿼리에서 항상 `app_group_id`로 필터링하여 향후에 대비하세요. 이렇게 하면 나중에 워크스페이스를 추가하더라도 대시보드와 보고서의 정확성을 유지할 수 있습니다. 이 필터가 없으면 측정기준에 새로 추가된 워크스페이스의 데이터가 예기치 않게 포함될 수 있습니다.
+모범 사례로, 쿼리에서 항상 `app_group_id`로 필터링하여 향후에 대비하세요. 이렇게 하면 나중에 워크스페이스를 추가하더라도 대시보드와 보고서의 정확성을 유지할 수 있습니다. 이 필터가 없으면 새로 추가된 워크스페이스의 데이터가 측정기준에 예기치 않게 포함될 수 있습니다.
 
-### Snowflake에서 여러 워크스페이스의 데이터를 관리하는 데 권장되는 접근 방식은 무엇인가요? {#what-is-the-recommended-approach-for-managing-data-from-multiple-workspaces-in-snowflake}
+## Snowflake에서 여러 워크스페이스의 데이터를 관리하는 데 권장되는 접근 방식은 무엇인가요? {#what-is-the-recommended-approach-for-managing-data-from-multiple-workspaces-in-snowflake}
 
 모든 Braze 데이터를 동일한 데이터베이스로 전송하고 `app_group_id`로 필터링하여 워크스페이스를 구분하세요. 이 접근 방식은 데이터 관리를 간소화하고 조직 전체에서 일관된 보고를 보장합니다.
 
-### 여러 워크스페이스에 몇 개의 Snowflake 데이터 공유 커넥터가 필요하나요? {#how-many-snowflake-data-share-connectors-do-i-need-for-multiple-workspaces}
+## 여러 워크스페이스에 몇 개의 Snowflake 데이터 공유 커넥터가 필요한가요? {#how-many-snowflake-data-share-connectors-do-i-need-for-multiple-workspaces}
 
 필요한 커넥터 수는 특정 구성 및 자격에 따라 다릅니다. 사용 사례에 적합한 자격에 대해 자세히 알아보려면 Braze 계정 팀에 문의하세요.
 
-### 동일한 Snowflake 계정 내에서 서로 다른 워크스페이스의 데이터를 격리하는 옵션에는 어떤 것이 있나요? {#what-options-exist-for-isolating-data-from-different-workspaces-within-the-same-snowflake-account}
+## 동일한 Snowflake 계정 내에서 서로 다른 워크스페이스의 데이터를 격리하는 옵션에는 어떤 것이 있나요? {#what-options-exist-for-isolating-data-from-different-workspaces-within-the-same-snowflake-account}
 
 `app_group_id` 열을 사용하여 논리적으로 격리할 수 있으며, 이 열은 각 데이터 행이 어떤 워크스페이스에 속하는지 식별합니다. 가장 일반적인 접근 방식은 다음과 같습니다:
 
@@ -68,10 +68,10 @@ description: "이 문서에서는 Snowflake 데이터 공유에 대해 자주 �
 
 이러한 설정은 Snowflake 계정 내에서 구성합니다.
 
-### 다른 Snowflake 계정을 사용하여 서로 다른 워크스페이스의 데이터를 격리할 수 있나요? {#can-i-use-a-different-snowflake-account-to-isolate-data-from-different-workspaces}
+## 다른 Snowflake 계정을 사용하여 서로 다른 워크스페이스의 데이터를 격리할 수 있나요? {#can-i-use-a-different-snowflake-account-to-isolate-data-from-different-workspaces}
 
 네. 워크스페이스 A가 계정 X로 공유하고 워크스페이스 B가 계정 Y로 공유하면 각 계정은 별도의 데이터가 포함된 독립적인 공유를 받습니다. 그러나 대부분의 조직은 모든 비즈니스 데이터에 단일 Snowflake 계정을 사용합니다. 따라서 이 접근 방식은 운영 오버헤드를 추가할 수 있습니다. 이전 섹션에서 설명한 논리적 격리 접근 방식 대신 이 방법을 선택하기 전에 이러한 트레이드오프를 고려하세요.
 
-### 워크스페이스 데이터 격리는 Snowflake 데이터 공유에서 지원되는 사용 사례인가요? {#is-workspace-data-isolation-a-supported-use-case-for-snowflake-data-sharing}
+## 워크스페이스 데이터 격리는 Snowflake 데이터 공유에서 지원되는 사용 사례인가요? {#is-workspace-data-isolation-a-supported-use-case-for-snowflake-data-sharing}
 
 네, 이전 섹션에서 설명한 논리적 격리 접근 방식을 통해 지원됩니다. Braze는 각 워크스페이스에 대해 별도의 공유를 생성하지 않으므로, 뷰, 행 액세스 정책 또는 별도의 계정을 사용하여 Snowflake 수준에서 격리를 관리합니다.

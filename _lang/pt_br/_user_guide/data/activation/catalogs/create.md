@@ -31,7 +31,7 @@ A tabela a seguir lista os tipos de dados de catálogo suportados e como eles po
 |--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
 | String | Uma sequência de caracteres. | ✅ Sim | ✅ Sim |
 | Número | Um valor numérico, inteiro ou decimal. | ✅ Sim | ✅ Sim |
-| booleano | Um valor `true` ou `false`. | ✅ Sim | ✅ Sim |
+| Booleano | Um valor `true` ou `false`. | ✅ Sim | ✅ Sim |
 | Hora | Uma string formatada no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | ✅ Sim | ✅ Sim |
 | Geolocalização | Um array de coordenadas `[longitude, latitude]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180. Por exemplo, `[-73.988103, 40.779109]`. | ✅ Sim | ✅ Sim |
 | Objeto JSON | Um objeto aninhado com pares chave-valor. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. | ⛔ Não | ✅ Sim |
@@ -48,7 +48,7 @@ Para criar um catálogo, acesse **Configurações de dados** > **Catálogos** e 
 
 Antes de fazer upload do seu arquivo CSV, certifique-se de que ele atende aos seguintes requisitos:
 
-| Requisito CSV | Informações |
+| Requisito CSV | Detalhes |
 |-----------------|---------|
 | Cabeçalhos | A primeira coluna no arquivo CSV deve ser nomeada `id`, e cada linha deve ter um valor `id` único. |
 | Colunas | Um arquivo CSV pode ter no máximo 1.000 campos (colunas), e cada nome de coluna pode ter até 250 caracteres. |
@@ -76,7 +76,7 @@ Selecione um tipo de dado para cada coluna.
 Esse tipo de dados não pode ser editado após a configuração do catálogo. Além disso, o valor `NULL` não é compatível com o upload de CSV e será tratado como uma string.
 {% endalert %}
 
-![Esse tipo de dados não pode ser editado após a configuração do catálogo. Além disso, o valor NULL não é compatível com o upload de CSV e será tratado como uma string.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Seleção de tipo de dado para cada coluna do catálogo. Esse tipo não pode ser editado após a configuração.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os seguintes requisitos ao nomear seu catálogo:
 
@@ -152,10 +152,10 @@ Depois de criar o catálogo, você pode começar a fazer referência ao [catálo
 
 Antes de poder editar ou criar catálogos no navegador, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para seu espaço de trabalho:
 
-- View Catalogs
-- Edit Catalogs
-- Export Catalogs
-- Delete Catalogs
+- Visualizar catálogos
+- Editar catálogos
+- Exportar catálogos
+- Excluir catálogos
 
 ### Etapa 1: Insira os detalhes do catálogo {#step-1-enter-catalog-details}
 
@@ -195,7 +195,7 @@ Os catálogos suportam vários tipos de dados para ajudar você a organizar e es
 |-----------|--------|---------|-------------|
 | String | Texto | `"Hello World"` | Qualquer sequência de caracteres usada para dados de texto, como nomes, descrições e IDs. Equivalente ao tipo `string` em importações CSV e API. |
 | Hora | ISO 8601 ou timestamp Unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de data e hora formatados como ISO 8601 ou timestamp Unix em segundos. Equivalente ao tipo `time` na API e ao tipo `datetime` em importações CSV. |
-| booleano | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações CSV e API. |
+| Booleano | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações CSV e API. |
 | Número | Inteiro ou decimal | `42` ou `19.99` | Valores numéricos incluindo inteiros e números de ponto flutuante para preços, quantidades, avaliações e mais. Equivalente aos tipos `integer` e `float` em importações CSV e ao tipo `number` na API. |
 | Geolocalização | Array `[longitude, latitude]` | `[-73.988103, 40.779109]` | Um par de coordenadas representando uma localização geográfica. A longitude deve estar entre -180 e 180; a latitude deve estar entre -90 e 90. O valor de `type` na API é `geo`. Pode ser adicionado pelo painel **Add Fields** na interface de Catálogos, upload de CSV ou REST API. |
 | Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estruturas de dados aninhadas complexas. O valor de `type` na API é `object`. Exibido como Objeto JSON no dashboard. Disponível apenas via API ou Ingestão de dados na nuvem (CDI). |

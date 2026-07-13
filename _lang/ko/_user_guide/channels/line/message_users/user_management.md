@@ -23,7 +23,7 @@ LINE 사용자 ID는 LINE 공급자별로 고유합니다. 특정 사용자는 �
 
 ## `native_line_id` 속성 설정하기 {#setting-the-native_line_id-attribute}
 
-고객 프로필에 `native_line_id`가 설정되는 여러 시나리오가 있으며, 아래에 설명되어 있습니다.
+고객 프로필에 `native_line_id`가 설정되는 여러 시나리오가 있으며, 아래 목록에 설명되어 있습니다.
 
 | 시나리오 | `native_line_id`가 있는 고객 프로필 존재 여부 | 결과 |
 | --- | --- | --- |

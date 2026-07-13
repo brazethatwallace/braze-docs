@@ -6,10 +6,10 @@ hidden: true
 
 # Métricas de atribución de último contacto {#last-touch-attribution-metrics}
 
-> Añade métricas de atribución de último contacto a tus informes en el Generador de informes.
+> Añade métricas de atribución de último contacto a tus informes en el generador de informes.
 
 {% alert note %}
-Las métricas de atribución de último contacto están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
+Las métricas de atribución de último contacto están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 La atribución de último contacto (LTA) es un modelo de atribución de conversión que otorga todo el crédito de una conversión al último mensaje con el que un usuario interactuó antes de convertir. A diferencia de las ventanas de conversión a nivel de Campaign, la LTA utiliza ventanas de atribución estándar del sector para cada canal:
@@ -52,8 +52,8 @@ Las métricas de ingresos y compras no están disponibles.
 ![El panel Personalizar métricas con las métricas de atribución de último contacto.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Sigue los pasos 7-9 en la página del [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/).
+7. Sigue los pasos 7-9 en la página del [generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
 
 {% alert note %}
-Envía comentarios a tu administrador del éxito del cliente o proporciónalos después de seleccionar el botón **Enviar comentarios**.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}
 {% endalert %}

@@ -15,11 +15,11 @@ search_tag: Partner
 
 ## Sobre essa integração {#about-this-integration}
 
-Você pode aproveitar os insights da Fullstory na Braze para criar imagens momento a momento da experiência de um usuário no site ou no app e fornecer envio de mensagens hipercontextuais. A API de resumo de sessão da Fullstory possibilita a captura de metadados detalhados sobre o comportamento de navegação de um usuário para uso no envio de mensagens da Braze, o que é particularmente poderoso quando aproveitado em uma jornada de envio de mensagens de várias etapas, como um Canvas.
+Você pode alavancar os insights da Fullstory na Braze para criar imagens momento a momento da experiência de um usuário no website ou no app e fornecer envio de mensagens hipercontextuais. A API de resumo de sessão da Fullstory possibilita a captura de metadados detalhados sobre o comportamento de navegação de um usuário para uso no envio de mensagens da Braze, o que é particularmente poderoso quando aproveitado em uma jornada de envio de mensagens de várias etapas, como um Canvas.
 
-O valor em tempo real dos dados de resumo de sessão da Fullstory é melhor aproveitado por meio do Conteúdo conectado. Ao usar o Conteúdo conectado em uma etapa do Canvas Context, é possível armazenar os dados da Fullstory durante toda a jornada do usuário no Canvas para uso em qualquer etapa subsequente do Canvas. Isso também evita a necessidade de gravar esses dados em um perfil de usuário da Braze por meio de eventos ou atributos personalizados.
+O valor em tempo real dos dados de resumo de sessão da Fullstory é melhor aproveitado por meio do Connected Content. Ao usar o Connected Content em uma etapa do Canvas Context, é possível armazenar os dados da Fullstory durante toda a jornada do usuário no Canvas para uso em qualquer etapa subsequente do Canvas. Isso também evita a necessidade de gravar esses dados em um perfil de usuário da Braze por meio de eventos ou atributos personalizados.
 
-No exemplo a seguir, os dados do Canvas Context são aproveitados em uma etapa de Agent AI do Canvas para gerar a mensagem ideal para incentivar um usuário a retomar um carrinho abandonado. No entanto, é possível aproveitar os dados para personalizar a mensagem diretamente, para determinar a jornada do usuário por meio de jornadas do público ou para determinar o texto ou os ativos usados nas etapas subsequentes do envio de mensagens.
+No exemplo a seguir, os dados do Canvas Context são aproveitados em uma etapa de AI Agent do Canvas para gerar a mensagem ideal para incentivar um usuário a retomar um carrinho abandonado. No entanto, é possível aproveitar os dados para personalizar a mensagem diretamente, para determinar a jornada do usuário por meio de jornadas do público ou para determinar o texto ou os ativos usados nas etapas subsequentes do envio de mensagens.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -27,14 +27,14 @@ Antes de começar, você precisa dos seguintes itens:
 
 | Requisito | Descrição |
 |-----------------------|-----------------|
-| Um token de autorização da API de sessão da Fullstory | Consulte a Etapa 1 abaixo. |
-| Um token de autorização de Conteúdo conectado da Braze ativado | Veja a nota abaixo sobre o Acesso Antecipado. |
-| Uma etapa do Canvas Context da Braze | Veja a nota abaixo sobre o Acesso Antecipado. |
-| Etapa de Braze AI Agent ativada | Veja a nota abaixo sobre o Acesso Antecipado. |
+| Um token de autorização da API de sessão da Fullstory | Consulte a Etapa 1 neste guia. |
+| Um token de autorização de Connected Content da Braze ativado | Veja a nota de Acesso Antecipado nesta seção. |
+| Uma etapa do Canvas Context da Braze | Veja a nota de Acesso Antecipado nesta seção. |
+| Etapa de Braze AI Agent ativada | Veja a nota de Acesso Antecipado nesta seção. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert important %}
-Braze Agents, Canvas Context e tokens de autorização de Conteúdo conectado estão todos em Acesso Antecipado. Se você tem interesse em aproveitar essa solução, fale com seu CSM da Braze sobre a ativação dessas ferramentas.
+Braze Agents, Canvas Context e tokens de autorização de Connected Content estão todos em Acesso Antecipado. Se você tem interesse em aproveitar essa solução, fale com seu CSM da Braze sobre a ativação dessas ferramentas.
 {% endalert %}
 
 ## Integrar a Fullstory {#integrate-fullstory}
@@ -53,9 +53,9 @@ Para criar uma [chave de API da Fullstory](https://developer.fullstory.com/serve
 
 Seguindo [as orientações da Fullstory](https://developer.fullstory.com/anywhere/activation/ai-session-summary-api/#step-1-creating-and-managing-summary-profiles), crie um perfil de resumo de sessão usando o endpoint dedicado. É aqui que você define o tipo de dados que deseja que a resposta do resumo de sessão forneça à Braze.
 
-Na resposta a essa solicitação, a Fullstory fornece um ID de perfil de sessão. Esse ID de perfil é um componente-chave do corpo da solicitação de Conteúdo conectado usado no caso de uso a seguir.
+Na resposta a essa solicitação, a Fullstory fornece um ID de perfil de sessão. Esse ID de perfil é um componente-chave do corpo da solicitação de Connected Content usado no caso de uso a seguir.
 
-### Etapa 2: Criar a autenticação do token de Conteúdo conectado {#step-2-create-the-connected-content-token-authentication}
+### Etapa 2: Criar a autenticação do token de Connected Content {#step-2-create-the-connected-content-token-authentication}
 
 1. Na Braze, acesse **Settings** > **Workspace Settings** > **Connected Content** > **Add Credential** > **Token Authentication**.
 2. Nomeie a autenticação como `fullstory`.
@@ -70,9 +70,9 @@ Na resposta a essa solicitação, a Fullstory fornece um ID de perfil de sessão
 
 Usando os [Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) da Fullstory, você pode disparar Canvas da Braze imediatamente após interações-chave do usuário. O poder dessa integração está no `client_session_id` exclusivo (acessível via {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), que o sistema passa automaticamente da Fullstory para a Braze. Esse ID funciona como uma chave, permitindo que a Braze busque o resumo completo da sessão, exatamente o que o usuário experimentou.
 
-Ao aproveitar as etapas do Canvas Context e o Conteúdo conectado, você pode usar esse ID para fazer uma solicitação de API à Fullstory, recuperar os dados da sessão e armazená-los como uma variável para uso posterior na jornada.
+Ao aproveitar as etapas do Canvas Context e o Connected Content, você pode usar esse ID para fazer uma solicitação de API à Fullstory, recuperar os dados da sessão e armazená-los como uma variável para uso posterior na jornada.
 
-![Etapa do Canvas Context da Braze mostrando a variável de contexto "summary_result" sendo criada e preenchida com uma chamada de Conteúdo conectado à Fullstory para recuperar um resumo da sessão]({% image_buster /assets/img/fullstory/2.png %})
+![Etapa do Canvas Context da Braze mostrando a variável de contexto "summary_result" sendo criada e preenchida com uma chamada de Connected Content à Fullstory para recuperar um resumo da sessão]({% image_buster /assets/img/fullstory/2.png %})
 
 Com o token de autorização criado anteriormente, use a seguinte estrutura de solicitação para extrair os dados do resumo da sessão.
 
@@ -87,7 +87,7 @@ Com o token de autorização criado anteriormente, use a seguinte estrutura de s
 A resposta é armazenada como a tag Liquid {% raw %}`{{context.${summary_result}.response}}`{% endraw %}. Use essa tag Context nas etapas subsequentes do Canvas.
 {% endalert %}
 
-Nesse estágio, o Canvas pode acessar a resposta à chamada de Conteúdo conectado, que contém toda a carga útil da mensagem para a sessão de um usuário.
+Nesse estágio, o Canvas pode acessar a resposta à chamada de Connected Content, que contém toda a carga útil da mensagem para a sessão de um usuário.
 
 {% details Exemplo de carga útil da API de resumo de sessão %}
 
@@ -151,18 +151,18 @@ Nesse estágio, o Canvas pode acessar a resposta à chamada de Conteúdo conecta
 {% endraw %}
 {% enddetails %}
 
-É possível aproveitar qualquer um dos dados disponíveis no objeto acima usando a tag Liquid do contexto posteriormente na jornada do usuário no Canvas. As etapas a seguir mostram como você pode usar esses dados em uma etapa de [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step/).
+É possível aproveitar qualquer um dos dados disponíveis no objeto acima usando a tag Liquid do contexto posteriormente na jornada do usuário no Canvas. As etapas a seguir mostram como você pode usar esses dados em uma etapa de [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step).
 
 {% alert note %}
-Para evitar comportamentos inesperados, inclua uma etapa de Jornadas do público após a etapa Context, que pode retirar os usuários do contexto se a tag Context estiver vazia, indicando que a chamada de Conteúdo conectado falhou ou não retornou nenhuma informação.
+Para evitar comportamentos inesperados, inclua uma etapa de jornada do público após a etapa Context, que pode retirar os usuários do contexto se a tag Context estiver vazia, indicando que a chamada de Connected Content falhou ou não retornou nenhuma informação.
 
-![Etapa de Jornadas do público na Braze]({% image_buster /assets/img/fullstory/3.png %})
+![Etapa de jornada do público na Braze]({% image_buster /assets/img/fullstory/3.png %})
 
 {% endalert %}
 
 ### Produzir texto apropriado {#produce-appropriate-copy}
 
-Ao criar uma [etapa de Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) em um Canvas disparado pela Fullstory e incluir a etapa Context descrita acima, você pode referenciar os dados de resumo de sessão da Fullstory no agente.
+Ao criar uma [etapa de Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) em um Canvas disparado pela Fullstory e incluir a etapa Context descrita nesta seção, você pode referenciar os dados de resumo de sessão da Fullstory no agente.
 
 Neste exemplo, você usa esses dados para permitir que o agente da Braze gere um texto de mensagem apropriado para uso em um cartão de conteúdo, o que pode incentivar o usuário a retornar à cesta abandonada.
 
@@ -170,7 +170,7 @@ Neste exemplo, você usa esses dados para permitir que o agente da Braze gere um
 
 Use o mesmo nome para a tag Liquid de Context criada nesta etapa que a tag Liquid de contexto usada na etapa de AI Agent criada anteriormente.
 
-O prompt necessário para o seu caso de uso varia. Para conhecer as práticas recomendadas para a criação de prompts de agente eficazes, consulte [Instruções de redação]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions).
+O prompt necessário para o seu caso de uso varia. Para conhecer as práticas recomendadas para a criação de prompts de agente eficazes, consulte [Instruções de redação]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions).
 
 No seu Canvas, selecione uma etapa de AI Agent e, em seguida, selecione o agente **Session Context** no menu suspenso. Salve a saída como uma variável, nesse caso "message", que pode ser colocada no texto da mensagem usando a tag Liquid {% raw %}`{{context.${message}.message}}`{% endraw %}.
 

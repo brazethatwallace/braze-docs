@@ -11,27 +11,27 @@ tool: Currents
 
 # [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
 
-> [Mixpanel](https://mixpanel.com/)은 Mixpanel에서 다른 플랫폼으로 이벤트를 내보내 더 심층적인 분석을 수행할 수 있는 비즈니스 분석 플랫폼입니다. 수집된 데이터는 커스텀 보고서를 작성하고 사용자 참여 및 리텐션을 측정하는 데 사용할 수 있습니다.
+> [Mixpanel](https://mixpanel.com/)은 Mixpanel에서 다른 플랫폼으로 이벤트를 내보내 더 심층적인 분석을 수행할 수 있는 비즈니스 분석 플랫폼입니다. 수집된 데이터는 커스텀 보고서를 작성하고 사용자 인게이지먼트 및 유지를 측정하는 데 사용할 수 있습니다.
 
-Braze와 Mixpanel 통합을 통해 [Mixpanel 코호트를 Braze로 가져와]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) 향후 Braze Campaign 또는 Canvases에서 사용자를 타겟팅할 수 있는 Braze Segments를 생성할 수 있습니다. 코호트 동기화는 Braze에서 코호트 멤버십을 업데이트하며, Mixpanel 이벤트나 사용자 속성정보를 가져오지는 않습니다. 자세한 내용은 [Mixpanel 코호트 가져오기]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration)를 참조하세요.
+Braze와 Mixpanel 통합을 통해 [Mixpanel 코호트를 Braze로 가져와]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import) 향후 Braze Campaign 또는 Canvases에서 사용자를 타겟팅할 수 있는 Braze Segments를 생성할 수 있습니다. 코호트 동기화는 Braze에서 코호트 멤버십을 업데이트하며, Mixpanel 이벤트나 사용자 속성정보를 가져오지는 않습니다. 자세한 내용은 [Mixpanel 코호트 가져오기]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import#data-import-integration)를 참조하세요.
 
-또한 Braze 커런츠를 사용하여 [Braze 이벤트를 Mixpanel로 내보내](#data-export-integration) 전환, 리텐션 및 제품 사용에 대한 더 심층적인 분석을 수행할 수 있습니다.
+또한 Braze Currents를 사용하여 [Braze 이벤트를 Mixpanel로 내보내](#data-export-integration) 전환, 유지 및 제품 사용에 대한 더 심층적인 분석을 수행할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 |---|---|
 | Mixpanel 계정 | 이 파트너십을 활용하려면 [Mixpanel 계정](https://mixpanel.com/)이 필요합니다. |
-| Currents | 데이터를 Mixpanel로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Currents | 데이터를 Mixpanel로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)가 설정되어 있어야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 데이터 내보내기 통합 {#data-export-integration}
 
-Braze에서 Mixpanel로 내보낼 수 있는 이벤트의 전체 목록은 아래에서 확인할 수 있습니다. Mixpanel로 전송되는 모든 이벤트에는 사용자의 `external_user_id`가 Mixpanel Distinct ID로 포함됩니다. 현재 Braze는 `external_user_id`가 설정되지 않은 사용자에 대해서는 이벤트 데이터를 전송하지 않습니다.
+Braze에서 Mixpanel로 내보낼 수 있는 이벤트의 전체 목록은 이 섹션에서 확인할 수 있습니다. Mixpanel로 전송되는 모든 이벤트에는 사용자의 `external_user_id`가 Mixpanel Distinct ID로 포함됩니다. 현재 Braze는 `external_user_id`가 설정되지 않은 사용자에 대해서는 이벤트 데이터를 전송하지 않습니다.
 
-Mixpanel로 두 가지 유형의 이벤트를 내보낼 수 있습니다: 메시지 발송과 직접 관련된 Braze 이벤트로 구성된 [메시지 참여 이벤트](#supported-currents-events)와 세션, 커스텀 이벤트, 플랫폼을 통해 추적된 구매 등 기타 앱 또는 웹사이트 활동을 포함하는 [고객 행동 이벤트](#supported-currents-events)입니다. 모든 커스텀 이벤트에는 `[Braze Custom Event]` 접두사가 붙습니다. 커스텀 이벤트 속성정보와 구매 이벤트 속성정보에는 각각 `[Custom event property]`와 `[Purchase property]` 접두사가 붙습니다.
+Mixpanel로 두 가지 유형의 이벤트를 내보낼 수 있습니다: 메시지 발송과 직접 관련된 Braze 이벤트로 구성된 [메시지 인게이지먼트 이벤트](#supported-currents-events)와 세션, 커스텀 이벤트, 플랫폼을 통해 추적된 구매 등 기타 앱 또는 웹사이트 활동을 포함하는 [고객 행동 이벤트](#supported-currents-events)입니다. 모든 커스텀 이벤트에는 `[Braze Custom Event]` 접두사가 붙습니다. 커스텀 이벤트 속성정보와 구매 이벤트 속성정보에는 각각 `[Custom event property]`와 `[Purchase property]` 접두사가 붙습니다.
 
-추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요.
+추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.
 
 ### 1단계: Mixpanel 자격 증명 가져오기 {#step-1-get-mixpanel-credentials}
 
@@ -54,10 +54,10 @@ Mixpanel 대시보드에서 새 프로젝트 또는 기존 프로젝트의 **Pro
 
 Braze는 다음 이벤트를 Mixpanel로 내보내는 것을 지원합니다:
 
-- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-각 이벤트의 페이로드 구조에 대해서는 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 및 [고객 행동 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)에서 **Mixpanel** 탭을 선택하세요.
+각 이벤트의 페이로드 구조에 대해서는 [메시지 인게이지먼트 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 및 [고객 행동 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)에서 **Mixpanel** 탭을 선택하세요.
 
 ## 문제 해결 {#troubleshooting}
 

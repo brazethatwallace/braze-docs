@@ -11,7 +11,7 @@ description: "Découvrez comment utiliser le rapport de performance pour compare
 
 ## Comment le rapport est construit {#how-the-report-is-built}
 
-Votre rapport de performance est construit par couches, entièrement personnalisé selon votre cas d'utilisation. En collaboration avec votre équipe :
+Votre rapport de performance est construit par couches, entièrement personnalisé selon votre cas d'usage. En collaboration avec votre équipe :
 
 1. Braze définit ce qui constitue une action (comme un envoi, un clic, un achat ou une conversion).
 2. Braze définit comment mesurer cette action quotidiennement (volume, chiffre d'affaires, personnes uniques, etc.).
@@ -28,7 +28,7 @@ En haut du tableau de bord, vous choisissez :
 - **Date range :** la période couverte par le rapport.
 - **Comparison groups :** les groupes comparés (par exemple, Decisioning Studio versus Business as Usual).
 - **Aggregation :** le paramètre d'agrégation du graphique (Daily, 7-day rolling ou 30-day rolling).
-- **Segments :** tous les segments appliqués. Ceux-ci sont configurés sur mesure avec votre équipe AI Expert Services.
+- **Segments :** tous les Segments appliqués. Ceux-ci sont configurés sur mesure avec votre équipe AI Expert Services.
 - **Timeline events :** permet de superposer des événements configurés sur le graphique pour vous aider à comprendre les changements ou événements susceptibles d'impacter la performance.
 
 ![Rapport de performance montrant les groupes de comparaison, l'agrégation, les segments et les filtres d'événements de la chronologie en haut, ainsi que le sélecteur de plage de dates en haut à droite.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
@@ -42,13 +42,13 @@ Modifier le paramètre d'agrégation (par exemple, moyenne glissante sur 7 jours
 Si vous ne pouvez pas sélectionner une date récente dans le sélecteur de dates, cette date est probablement désactivée en raison de délais configurés pour la disponibilité des données. Il existe deux types de délais pouvant limiter la disponibilité des dates :
 
 - **Délais du pipeline de données :** le temps nécessaire pour ingérer et traiter les données de votre CDP dans Decisioning Studio. Cela garantit que les rapports n'affichent que des données complètes et fiables.
-- **Délais d'activation des recommandations :** le temps entre le moment où le moteur de Decisioning Studio prédit une recommandation et celui où vous l'activez dans vos campagnes. Le reporting n'inclura pas les jours où les recommandations n'ont pas encore été activées.
+- **Délais d'activation des recommandations :** le temps entre le moment où le moteur de Decisioning Studio prédit une recommandation et celui où vous l'activez dans vos Campaigns. Le reporting n'inclura pas les jours où les recommandations n'ont pas encore été activées.
 
-Ces délais sont configurés pour votre cas d'utilisation. Si vous avez besoin de comprendre votre fenêtre de reporting spécifique, contactez votre AI Success Manager.
+Ces délais sont configurés pour votre cas d'usage. Si vous avez besoin de comprendre votre fenêtre de reporting spécifique, contactez votre AI Success Manager.
 
 ## Cartes KPI {#kpi-cards}
 
-Les cartes KPI situées à gauche du rapport affichent les indicateurs clés de performance configurés pour votre cas d'utilisation, tels que :
+Les cartes KPI situées sur le côté principal du rapport affichent les indicateurs clés de performance configurés pour votre cas d'usage, tels que :
 
 - LTV incrémentale / Client
 - Conversions / Client
@@ -112,22 +112,22 @@ Les arbres des facteurs utilisent les mêmes définitions de KPI que le reste du
 
 ## Questions fréquentes {#frequently-asked-questions}
 
-### Comment fonctionnent les segments ? {#how-do-segments-work}
+### Comment fonctionnent les Segments ? {#how-do-segments-work}
 
-Les segments vous permettent de ventiler la performance par groupes définis, tels que les niveaux d'engagement, les caractéristiques client, le type d'appareil ou d'autres attributs configurés.
+Les Segments vous permettent de ventiler la performance par groupes définis, tels que les niveaux d'engagement, les caractéristiques client, le type d'appareil ou d'autres attributs configurés.
 
-L'appartenance à un segment est configurée sur mesure pour votre cas d'utilisation et calculée quotidiennement. Cela signifie que le segment passé d'un client reflète qui il était ce jour-là. Si son comportement change par la suite, les jours historiques restent inchangés. Cela préserve la précision historique et empêche les rapports de se modifier rétroactivement.
+L'appartenance à un Segment est configurée sur mesure pour votre cas d'usage et calculée quotidiennement. Cela signifie que le Segment passé d'un client reflète qui il était ce jour-là. Si son comportement change par la suite, les jours historiques restent inchangés. Cela préserve la précision historique et empêche les rapports de se modifier rétroactivement.
 
 ### Le rapport de performance diffère-t-il entre les agents Go et Pro ? {#does-the-performance-report-for-go-versus-pro-agents-differ}
 
-Les KPI pour les cas d'utilisation Go sont définis automatiquement et standardisés, car tous les cas d'utilisation Go ont le même indicateur cible : les clics uniques.
+Les KPI pour les cas d'usage Go sont définis automatiquement et standardisés, car tous les cas d'usage Go ont le même indicateur cible : les clics uniques.
 
 ### Pourquoi ne puis-je pas sélectionner certaines dates récentes ? {#why-cant-i-select-certain-recent-dates}
 
 Le sélecteur de dates peut ne pas permettre de sélectionner les jours les plus récents. C'est intentionnel. Les rapports peuvent appliquer les contraintes suivantes pour empêcher l'affichage de données incomplètes ou instables :
 
 - **Délais du pipeline de données :** configurés pour tenir compte du temps nécessaire à l'ingestion et au traitement des données de votre CDP. Cela garantit que toutes les données d'un jour donné sont complètes avant que ce jour n'apparaisse dans le reporting.
-- **Délais d'activation des recommandations :** configurés pour tenir compte du décalage entre le moment où les recommandations sont générées et celui où elles sont activées dans vos campagnes. Les jours où les recommandations n'ont pas encore été activées n'apparaîtront pas dans le reporting.
+- **Délais d'activation des recommandations :** configurés pour tenir compte du décalage entre le moment où les recommandations sont générées et celui où elles sont activées dans vos Campaigns. Les jours où les recommandations n'ont pas encore été activées n'apparaîtront pas dans le reporting.
 - **Dates explicitement exclues :** dates que vous avez manuellement exclues dans les paramètres de reporting.
 
 Si vous avez besoin de précisions sur votre fenêtre de reporting ou vos règles de disponibilité des données, contactez votre AI Success Manager.

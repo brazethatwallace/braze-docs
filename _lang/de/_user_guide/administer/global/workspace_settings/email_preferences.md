@@ -299,7 +299,7 @@ Weitere Informationen zum Liquid-Templating für angepasste Fußzeilen finden Si
 {% endtab %}
 {% tab Angepasste Abmeldeseite %}
 
-Braze ermöglicht es Ihnen, eine **Angepasste Abmeldeseite** mit Ihrem eigenen HTML einzurichten. Diese Seite wird angezeigt, nachdem eine Nutzerin oder ein Nutzer sich über den unteren Bereich einer E-Mail abgemeldet hat. Beachten Sie, dass diese Seite weniger als 750 KB groß sein sollte.
+Braze ermöglicht es Ihnen, eine **Angepasste Abmeldeseite** mit Ihrem eigenen HTML einzurichten. Diese Seite wird angezeigt, nachdem sich eine Nutzerin oder ein Nutzer über den unteren Bereich einer E-Mail abgemeldet hat. Beachten Sie, dass diese Seite weniger als 750 KB groß sein sollte.
 
 ![HTML-Editor und Vorschau für die angepasste Abmeldeseite, die nach der Abmeldung von E-Mails angezeigt wird.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
@@ -368,7 +368,7 @@ Wenn eine in den **Sendeinformationen** für One-Click referenzierte Abo-Gruppe 
 {% enddetails %}
 
 {% details Ist die One-Click-Abmeldeeinstellung für E-Mail-Templates verfügbar? %}
-Nein, wir planen derzeit nicht, dies für E-Mail-Templates hinzuzufügen, da diese Templates keiner Sendedomain zugewiesen sind. Wenn Sie an diesem Feature für E-Mail-Templates interessiert sind, reichen Sie [Produktfeedback]({{site.baseurl}}/user_guide/administer/personal/product_portal) ein.
+Nein, wir planen derzeit nicht, dies für E-Mail-Templates hinzuzufügen, da diese Templates keiner Sendedomain zugewiesen sind. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details Prüft dieses Feature, ob die zur angepassten Option hinzugefügte One-Click-Abmelde-URL gültig ist? %}

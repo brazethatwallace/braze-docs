@@ -21,7 +21,7 @@ channel:
 
 {% api %}
 
-### Variación {#variation}
+### Variante {#variation}
 
 {% apitags %}
 Count
@@ -175,7 +175,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-Cuando un correo electrónico tiene un rebote duro o se marca como correo no deseado, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions) del usuario. Braze detiene cualquier envío futuro a esa dirección de correo electrónico. Para eliminar una dirección de correo electrónico de tu lista de rebotes duros, usa el [punto de conexión para eliminar correos electrónicos con rebote duro]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
+Cuando un correo electrónico tiene un rebote duro o se marca como correo no deseado, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions) del usuario. Braze detiene cualquier envío futuro a esa dirección de correo electrónico. Para eliminar una dirección de correo electrónico de tu lista de rebotes duros, usa el [endpoint para eliminar correos electrónicos con rebote duro]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -191,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Si un correo electrónico recibe un rebote blando, normalmente se reintentará en un plazo de 72 horas, pero el número de reintentos varía según el receptor.
 
-Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) o excluir a estos usuarios de tu envío con el [filtro de Segment de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
+Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) o excluir a estos usuarios de tu envío con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -221,20 +221,20 @@ Count, Percentage
 
 {% api %}
 
-### Aperturas únicas {#unique-opens}
+### Unique Opens {#unique-opens}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Para correo electrónico, esto se rastrea durante un período de siete días. Esto significa que un mismo usuario que abre el mismo correo electrónico de nuevo después de siete días cuenta como una nueva apertura única. Como resultado, los recuentos de aperturas únicas en el dashboard pueden ser mayores que una simple consulta `DISTINCT user_id` en los datos de Currents. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Para correo electrónico, esto se rastrea durante un período de siete días. Esto significa que un mismo usuario que abre el mismo correo electrónico de nuevo después de siete días cuenta como una nueva apertura única. Como resultado, los recuentos de aperturas únicas en el panel pueden ser mayores que una simple consulta `DISTINCT user_id` en los datos de Currents. Para que coincidan los recuentos del panel con Currents, filtra por eventos donde `is_unique` sea `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
     Cálculo:
     <ul>
-        <li><b><i>Aperturas únicas</i>:</b> Recuento</li>
-        <li><b><i>% de aperturas únicas</i> o <i>Tasa de aperturas únicas</i>:</b> (Aperturas únicas) / (Entregas)</li>
+        <li><b><i>Unique Opens</i>:</b> Recuento</li>
+        <li><b><i>% de Unique Opens</i> o <i>Tasa de Unique Opens</i>:</b> (Unique Opens) / (Entregas)</li>
     </ul>
 </span>
 {:/}
@@ -249,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (un único intento de envío). Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Las URL de cancelación de suscripción personalizadas rastreadas también cuentan para *Clics únicos* cuando un usuario selecciona el enlace. Después de siete días, otro clic único se contabiliza para el mismo usuario si hace clic de nuevo. Las métricas de interacción de correo electrónico del dashboard, incluidos los _Clics únicos_, se calculan en Braze y no se concilian a partir de informes agregados del ESP. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (un único intento de envío). Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Las URL de cancelación de suscripción personalizadas rastreadas también cuentan para *Clics únicos* cuando un usuario selecciona el enlace. Después de siete días, otro clic único se contabiliza para el mismo usuario si hace clic de nuevo. Las métricas de interacción de correo electrónico del panel, incluidos los _Clics únicos_, se calculan en Braze y no se concilian a partir de informes agregados del ESP. Para que coincidan los recuentos del panel con Currents, filtra por eventos donde `is_unique` sea `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -380,7 +380,7 @@ Count
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Ten en cuenta que un usuario también puede abrir un correo electrónico (de modo que la apertura cuenta para <i>Otras aperturas</i>) antes de que se registre un recuento de <i>Aperturas automáticas</i>. Si un usuario abre un correo electrónico una vez (o más) después de un evento de apertura automática desde un buzón de entrada que no sea Apple Mail, entonces la cantidad de veces que el usuario abre el correo electrónico se calcula para <i>Otras aperturas</i> y solo una vez para <i>Aperturas únicas</i>.
+{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Ten en cuenta que un usuario también puede abrir un correo electrónico (de modo que la apertura cuenta para <i>Otras aperturas</i>) antes de que se registre un recuento de <i>Aperturas automáticas</i>. Si un usuario abre un correo electrónico una vez (o más) después de un evento de apertura automática desde un buzón de entrada que no sea Apple Mail, entonces la cantidad de veces que el usuario abre el correo electrónico se calcula para <i>Otras aperturas</i> y solo una vez para <i>Unique Opens</i>.
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -408,11 +408,11 @@ Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
-<span class="calculation-line">Cálculo: (Clics únicos) / (Aperturas únicas) (para correo electrónico)</span>
+<span class="calculation-line">Cálculo: (Clics únicos) / (Unique Opens) (para correo electrónico)</span>
 
 #### Puntuaciones de probabilidad de apertura de mensajes (segmentación) {#message-open-likelihood-scores-segmentation}
 
-El filtro de Segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) puntúa la probabilidad de que un usuario abra un correo electrónico en una escala de 0 a 100 %. Los usuarios sin suficiente historial de envíos o aperturas para el canal aparecen en blanco. Para correo electrónico, las aperturas automáticas se excluyen del cálculo, que utiliza el historial de mensajes recientes en ese canal (consulta [Filtro de probabilidad de apertura de mensajes para canales individuales]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
+El filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) puntúa la probabilidad de que un usuario abra un correo electrónico en una escala de 0 a 100 %. Los usuarios sin suficiente historial de envíos o aperturas para el canal aparecen en blanco. Para correo electrónico, las aperturas automáticas se excluyen del cálculo, que utiliza el historial de mensajes recientes en ese canal (consulta [Filtro de probabilidad de apertura de mensajes para canales individuales]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
 
 {% endapi %}
 
@@ -420,7 +420,7 @@ El filtro de Segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/aud
 
 ### Enlaces de cancelación de suscripción y clics únicos {#unsubscribe-links-and-unique-clicks}
 
-Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Clics únicos* y *Clics totales* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Clics únicos](#unique-clicks) más arriba y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Clics únicos* y *Clics totales* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Clics únicos](#unique-clicks) más arriba en esta sección y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Ver en el navegador {#view-in-browser}
 
@@ -456,6 +456,6 @@ Puedes ver este resultado incluso cuando la campaña muestra **Enviar inmediatam
 
 - La campaña usa un [evento de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) o un retraso en el momento de envío que afecta la temporización.
 - Los usuarios tienen un período de [reelegibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility), por lo que no pueden recibir el mensaje de nuevo hasta que pase esa ventana.
-- Otro mensaje de campaña o paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
+- Otro mensaje de Campaign o paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
 
 Si un usuario debería haber recibido el mensaje pero no lo hizo, verifica los resultados anteriores para el mismo desencadenante (por ejemplo, rebote de correo electrónico o canal no habilitado). Otro mensaje en el mismo flujo de trabajo puede haber impedido este envío.

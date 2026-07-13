@@ -83,7 +83,7 @@ Then follow the [standard investigation path](#standard-investigation-path).
 | Likely cause | What to check |
 | --- | --- |
 | Wrong **Send To** target | Confirm the campaign or Canvas step targets **Mobile Apps** or **Web Browsers** as appropriate. A Web-only campaign won't send to Android devices. |
-| Custom UI or handler suppresses display | Review delegates (mobile) or [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). See [Customization]({{site.baseurl}}/developer_guide/in_app_messages/customization) and your SDK tab below. |
+| Custom UI or handler suppresses display | Review delegates (mobile) or [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). See [Customization]({{site.baseurl}}/developer_guide/in_app_messages/customization) and your SDK tab for your platform. |
 | Integration never worked on this platform | Confirm this platform and app version have shown in-app messages before. |
 | Trigger didn't fire on the device | The trigger must occur locally through the SDK. A REST API call can't trigger an in-app message in the SDK. See [Triggering messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages). |
 | Empty `triggers` in event user logs | Segment, re-eligibility, frequency cap, or control group. See [Troubleshoot messages not being returned](#troubleshoot-messages-not-being-returned). |
@@ -114,7 +114,7 @@ Common causes:
 - **Scheduled dashboard delay:** Confirm whether a delay is configured on the campaign or step.
 - **Trigger sync race:** If users log an event immediately after session start, triggers may not be synced yet. Consider triggering off session start and segmenting on the intended event so delivery happens on the next session after the event.
 - **Sequential in-app messages:** If you're deferring or restoring messages in a tour, see [Deferring triggered in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- **Large assets or slow CDN:** Optimize images and video for HTML in-app messages. On mobile, images may download before display on slow networks—select your SDK tab below for platform notes.
+- **Large assets or slow CDN:** Optimize images and video for HTML in-app messages. On mobile, images may download before display on slow networks—select your SDK tab for platform notes.
 
 {% alert note %}
 If your in-app message is triggered by session start and you've set an extended session timeout, closing and re-opening the app within that window won't refresh the session. For example, with a 300-second timeout, a session-start in-app message won't display until the session actually refreshes. Adjust the session timeout or trigger type if this affects your test.

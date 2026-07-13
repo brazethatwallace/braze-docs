@@ -222,14 +222,6 @@ To read the current cached state without blocking the calling thread, use the fo
 
 {% tab react native %}
 
-To get the Content Card data, use the `getContentCards` method:
-
-```javascript
-import Braze from "@braze/react-native-sdk";
-
-const cards = await Braze.getContentCards();
-```
-
 To listen for updates, subscribe to Content Card update events:
 
 ```javascript
@@ -245,16 +237,18 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
+To get the most recently cached Content Card data:
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+const cachedCards = await Braze.getCachedContentCards();
+```
+
 To request a manual refresh of Content Cards from Braze servers:
 
 ```javascript
 Braze.requestContentCardsRefresh();
-```
-
-To get cached Content Cards without a network request:
-
-```javascript
-const cachedCards = await Braze.getCachedContentCards();
 ```
 
 {% endtab %}

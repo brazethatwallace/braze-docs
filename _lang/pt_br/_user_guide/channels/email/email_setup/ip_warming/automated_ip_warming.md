@@ -97,7 +97,7 @@ O sistema monitora a integridade com base nos seguintes benchmarks do setor:
 - Taxa de entrega cai para 90% ou menos
 - Taxa de abertura menor que 10%
 - Bounces maiores que 5%
-- Taxas de relatório de spam maiores que 0,04%
+- Taxas de relatório de SPAM maiores que 0,04%
 
 Se as estatísticas estiverem abaixo dos nossos benchmarks, o sistema mantém o volume no dia seguinte em vez de aumentá-lo, para mitigar riscos à reputação do remetente.
 
@@ -117,14 +117,14 @@ O aquecimento de IP é marcado como concluído quando o último dia de aquecimen
 
 O rastreador permanece na página inicial por 90 dias após o término do plano. Após 90 dias, o rastreador é removido. O download dos dados inclui estas métricas padrão de e-mail:
 
-- _Enviados_
-- _Entregues_
+- _Sent_
+- _Delivered_
 - _Bounces_
-- _Relatórios de spam_
-- _Total de aberturas_
-- _Aberturas únicas_
-- _Cliques_
-- _Cancelamentos de inscrição_
+- _Spam reports_
+- _Total opens_
+- _Unique opens_
+- _Clicked_
+- _Unsubscribed_
 
 Se um dia incluir múltiplas campanhas usadas para atingir os requisitos de volume, elas são agregadas na visualização diária.
 

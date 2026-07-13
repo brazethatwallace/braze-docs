@@ -4,12 +4,12 @@ article_title: Gobernanza
 layout: dev_guide
 page_order: 2
 guide_top_header: "Gobernanza"
-guide_top_text: "Administra el ciclo de vida y la organización de tus campañas, Canvas y páginas de inicio. Consulta los artículos a continuación para configurar flujos de trabajo de aprobación, archivar o duplicar elementos, copiarlos entre espacios de trabajo y usar estados y etiquetas para mantener tu espacio de trabajo organizado."
+guide_top_text: "Administra el ciclo de vida y la organización de tus campañas, Canvas y páginas de destino. Consulta los artículos de la siguiente sección para configurar flujos de trabajo de aprobación, archivar o duplicar elementos, copiarlos entre espacios de trabajo y usar estados y etiquetas para mantener tu espacio de trabajo organizado."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Aprobaciones, archivar, duplicar, copiar entre espacios de trabajo, estados y etiquetas para campañas, Canvas y páginas de inicio."
+description: "Aprobaciones, archivar, duplicar, copiar entre espacios de trabajo, estados y etiquetas para campañas, Canvas y páginas de destino."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:

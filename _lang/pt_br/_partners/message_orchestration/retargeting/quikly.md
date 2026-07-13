@@ -24,9 +24,9 @@ A parceria Braze e Quikly permite que você acelere as conversões em eventos de
 | ----------- | ----------- |
 | Conta Quikly | É necessário ter uma conta de parceiro da marca [Quikly](https://www.quikly.com) para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `subscription.status.set`, `users.export.ids` e `subscription.status.get`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Chave de API da Quikly (opcional) | Uma chave de API da Quikly fornecida por seu gerente de sucesso do cliente (somente webhook). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -40,7 +40,7 @@ Por exemplo:
 
 ## Integração {#integration}
 
-Abaixo estão descritas quatro integrações diferentes: aquisição de e-mail, aquisição de SMS, atributos personalizados e webhooks. A integração escolhida dependerá da sua ativação da Quikly e do caso de uso.
+Esta seção descreve quatro integrações diferentes: aquisição de e-mail, aquisição de SMS, atributos personalizados e webhooks. A integração escolhida dependerá da sua ativação da Quikly e do caso de uso.
 
 {% tabs %}
 {% tab Email Acquisition %}
@@ -50,13 +50,13 @@ Abaixo estão descritas quatro integrações diferentes: aquisição de e-mail, 
 Se suas ativações da Quikly coletarem endereços de e-mail de clientes ou dados de perfil, a única etapa necessária é fornecer à Quikly sua chave da API REST e o endpoint. A Quikly configurará sua conta de marca para passar esses dados para a Braze. Se houver atributos de usuário adicionais que você gostaria de incluir, mencione isso ao fornecer as credenciais da API à Quikly.
 
 Aqui está um esboço de como a Quikly executa esse fluxo de trabalho.
-1. Ao participar de uma ativação da Quikly, a Quikly agenda uma pesquisa de usuário usando a [API de exportação]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) para ver se existe um usuário com um determinado `email_address`.
+1. Ao participar de uma ativação da Quikly, a Quikly agenda uma pesquisa de usuário usando a [API de exportação]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para ver se existe um usuário com um determinado `email_address`.
 2. Registre ou atualize o usuário.
   - Se o usuário existir:
     - Não crie um novo perfil.
     - Se desejar, a Quikly pode registrar um atributo personalizado no perfil do usuário para indicar que o usuário participou da ativação.
   - Se o usuário não existir:
-    - A Quikly cria um perfil somente de alias por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze, definindo o e-mail do usuário como o alias do usuário para fazer referência a esse usuário no futuro (já que o usuário não terá um ID externo).
+    - A Quikly cria um perfil somente de alias por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze, definindo o e-mail do usuário como o alias do usuário para fazer referência a esse usuário no futuro (já que o usuário não terá um ID externo).
     - Se desejar, a Quikly pode registrar eventos personalizados para indicar que esse perfil participou da ativação da Quikly.
 
 {% details /users/track request %}
@@ -93,14 +93,14 @@ As ativações da Quikly podem coletar números de telefones celulares diretamen
 A Quikly realizará uma pesquisa de inscrição usando o número de telefone do cliente e o creditará automaticamente na ativação se já existir uma inscrição por SMS. Caso contrário, uma nova inscrição será iniciada e, depois que o status da inscrição for verificado, o cliente receberá o crédito.
 
 Aqui está o fluxo de trabalho completo quando um cliente fornece seu número de celular e consentimento por meio da Quikly:
-1. A Quikly realiza uma pesquisa de inscrição usando o [status do grupo de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) para ver se um determinado `phone` está inscrito em um `subscription_group_id`. Se houver uma inscrição, credite o usuário na ativação da Quikly. Nenhuma ação adicional é necessária.
-2. A Quikly realiza uma pesquisa de usuário usando o [endpoint Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) para ver se existe um perfil de usuário com um determinado `email_address`. Se não houver nenhum usuário, crie um perfil somente de alias por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze, definindo o e-mail do usuário como o alias do usuário para fazer referência a esse usuário no futuro (já que o usuário não terá um ID externo).
-3. Atualize o status da inscrição usando o [endpoint Atualizar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+1. A Quikly realiza uma pesquisa de inscrição usando o [status do grupo de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para ver se um determinado `phone` está inscrito em um `subscription_group_id`. Se houver uma inscrição, credite o usuário na ativação da Quikly. Nenhuma ação adicional é necessária.
+2. A Quikly realiza uma pesquisa de usuário usando o [endpoint Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para ver se existe um perfil de usuário com um determinado `email_address`. Se não houver nenhum usuário, crie um perfil somente de alias por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze, definindo o e-mail do usuário como o alias do usuário para fazer referência a esse usuário no futuro (já que o usuário não terá um ID externo).
+3. Atualize o status da inscrição usando o [endpoint Atualizar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
-Para dar suporte aos fluxos de trabalho de inscrição por SMS de aceitação dupla existentes, a Quikly pode enviar um evento personalizado para a Braze em vez do fluxo de trabalho acima. Nesse caso, em vez de atualizar o status da inscrição diretamente, o [evento personalizado dispara o processo de dupla aceitação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/), e o status da inscrição é monitorado periodicamente para verificar se o usuário fez a aceitação total antes de creditá-lo na ativação da Quikly.
+Para dar suporte aos fluxos de trabalho de inscrição por SMS de aceitação dupla existentes, a Quikly pode enviar um evento personalizado para a Braze em vez do fluxo de trabalho padrão desta seção. Nesse caso, em vez de atualizar o status da inscrição diretamente, o [evento personalizado dispara o processo de dupla aceitação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in), e o status da inscrição é monitorado periodicamente para verificar se o usuário fez a aceitação total antes de creditá-lo na ativação da Quikly.
 
 {% alert important %}
-A Braze aconselha que, ao criar novos usuários por meio do endpoint `/users/track`, deve haver uma postergação de cerca de 2 minutos antes de adicionar usuários ao grupo de inscrições relevante para dar tempo à Braze de criar completamente o perfil do usuário.
+A Braze aconselha que, ao criar novos usuários por meio do endpoint `/users/track`, deve haver um delay de cerca de 2 minutos antes de adicionar usuários ao grupo de inscrições relevante para dar tempo à Braze de criar completamente o perfil do usuário.
 {% endalert %}
 
 {% details Detailed /subscription/status/set request %}
@@ -126,7 +126,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% tab Custom Attributes %}
 ### Atributos personalizados {#custom-attributes}
 
-Dependendo da sua implementação da Braze, você pode querer que os eventos dentro da ativação da Quikly passem em cascata pela Braze para processamento adicional. Por exemplo, você pode querer aplicar um atributo personalizado de usuário com base no nível ou incentivo alcançado na ativação da Quikly, permitindo que você exiba o cartão de conteúdo relevante quando eles abrirem o app ou acessarem seu site. A Quikly trabalhará diretamente com você para implementar essas integrações.
+Dependendo da sua implementação da Braze, você pode querer que os eventos dentro da ativação da Quikly passem em cascata pela Braze para processamento adicional. Por exemplo, você pode querer aplicar um atributo personalizado de usuário com base no nível ou incentivo alcançado na ativação da Quikly, permitindo que você exiba o cartão de conteúdo relevante quando eles abrirem o app ou acessarem seu website. A Quikly trabalhará diretamente com você para implementar essas integrações.
 
 {% endtab %}
 {% tab Webhooks %}
@@ -168,7 +168,7 @@ Selecione ***JSON key/value pairs*** e adicione os seguintes pares:
 Pré-visualize a solicitação no painel **Preview** ou navegue até a guia `Test`, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
-Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 {% endalert %}
 
 {% endtab %}

@@ -22,7 +22,7 @@ noindex: true
 
 ## Extensiones de la aplicación de contenido de notificación {#notification-content-app-extensions}
 
-![Dos mensajes push mostrados uno al lado del otro. El mensaje de la izquierda muestra el aspecto de un push con la interfaz predeterminada. El mensaje de la derecha muestra un push de una tarjeta perforada de café realizado mediante la implementación de una interfaz de usuario push personalizada.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
+![Dos mensajes push mostrados uno al lado del otro. El mensaje de la derecha muestra el aspecto de un push con la interfaz predeterminada. El mensaje de la derecha muestra un push de una tarjeta perforada de café realizado mediante la implementación de una interfaz de usuario push personalizada.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
 
 Las notificaciones push, aunque parecen estándar en diferentes plataformas, ofrecen inmensas opciones de personalización más allá de lo que normalmente se implementa en la interfaz de usuario predeterminada. Cuando se amplía una notificación push, las extensiones de notificación de contenido habilitan una vista personalizada de la notificación push ampliada.
 
@@ -46,7 +46,7 @@ Objective-C<br>
 
 ### Configuración personalizada de categorías {#custom-category-configuration}
 
-Para configurar una vista personalizada en el dashboard, debes activar los botones de notificación e introducir tu categoría personalizada. La categoría personalizada de iOS prerregistrada que proporciones se cotejará con la `UNNotificationExtensionCategory` en el `.plist` de tu objetivo de extensión de contenido de notificaciones. El valor dado aquí debe coincidir con el establecido en el dashboard de Braze.
+Para configurar una vista personalizada en el panel, debes activar los botones de notificación e introducir tu categoría personalizada. La categoría personalizada de iOS prerregistrada que proporciones se cotejará con la `UNNotificationExtensionCategory` en el `.plist` de tu objetivo de extensión de contenido de notificaciones. El valor dado aquí debe coincidir con el establecido en el panel de Braze.
 
 ![Las opciones del botón de notificación que se encuentran en la configuración del creador de mensajes push.]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
 ![Un plist que muestra NSExtension con UNNotificationExtensionCategory establecido en "your_custom_category", UNNotificationExtensionDefaultContentHidden establecido en 1 y UNNotificationExtensionInitialContentSizeRatio establecido en 1.]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
@@ -57,7 +57,7 @@ Dado que los push con extensiones de contenido no siempre son evidentes, se reco
 
 ## Recorrido de casos de uso e implementación {#use-case-and-implementation-walkthrough}
 
-Hay tres tipos de extensión de aplicación de contenido de notificaciones push. Cada tipo tiene un recorrido conceptual, posibles casos de uso y un vistazo a cómo pueden verse y utilizarse las variables de notificación push en el dashboard de Braze:
+Hay tres tipos de extensión de aplicación de contenido de notificaciones push. Cada tipo tiene un recorrido conceptual, posibles casos de uso y un vistazo a cómo pueden verse y utilizarse las variables de notificación push en el panel de Braze:
 - [Notificación push interactiva](#interactive-push-notification)
 - [Notificaciones push personalizadas](#personalized-push-notifications)
 - [Captura de información en notificaciones push](#information-capture-push-notification)
@@ -68,11 +68,11 @@ Las notificaciones push pueden responder a acciones del usuario dentro de una ex
 
 ![Un diagrama de cómo podrían ser las fases de una notificación push interactiva. Las imágenes muestran a un usuario pulsando en una notificación push que muestra un juego de correspondencias interactivo.]({% image_buster /assets/img/push_implementation_guide/push12.png %}){: style="border:0"}
 
-#### Configuración del dashboard {#dashboard-configuration}
+#### Configuración del panel {#dashboard-configuration}
 
-Para configurar una vista personalizada en el dashboard, dentro de la configuración del botón de notificación introduce la categoría específica que quieres mostrar. A continuación, en el `.plist` de tu extensión de contenido de notificaciones, también debes establecer la categoría personalizada en el atributo `UNNotificationExtensionCategory`. El valor dado aquí debe coincidir con el establecido en el dashboard de Braze. Por último, para habilitar las interacciones del usuario en una notificación push, establece la clave `UNNotificationExtensionInteractionEnabled` en verdadero.
+Para configurar una vista personalizada en el panel, dentro de la configuración del botón de notificación introduce la categoría específica que quieres mostrar. A continuación, en el `.plist` de tu extensión de contenido de notificaciones, también debes establecer la categoría personalizada en el atributo `UNNotificationExtensionCategory`. El valor dado aquí debe coincidir con el establecido en el panel de Braze. Por último, para habilitar las interacciones del usuario en una notificación push, establece la clave `UNNotificationExtensionInteractionEnabled` en verdadero.
 
-![La sección de botones de notificación en el dashboard de Braze con el campo de categoría de notificación de iOS establecido en "match_game".]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
+![La sección de botones de notificación en el panel de Braze con el campo de categoría de notificación de iOS establecido en "match_game".]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
 
 ![Las opciones del botón de notificación que se encuentran en la configuración del creador de mensajes push.]({% image_buster /assets/img/push_implementation_guide/push14.png %}){: style="max-width:50%;"}
 
@@ -87,15 +87,15 @@ Visita la [sección siguiente](#logging-analytics) para comprender mejor cómo d
 
 Las notificaciones push pueden mostrar información específica del usuario dentro de una extensión de contenido. El ejemplo de la derecha muestra una notificación push después de que un usuario haya completado una tarea específica (curso de Braze Learning) y ahora se le anima a ampliar esta notificación para comprobar su progreso. La información que se proporciona aquí es específica del usuario y puede dispararse cuando se completa una sesión o se realiza una acción específica del usuario aprovechando un desencadenante de la API.
 
-#### Configuración del dashboard
+#### Configuración del panel
 
-Para configurar un push personalizado en el dashboard, debes registrar la categoría específica que quieres que se muestre y, a continuación, dentro de los pares clave-valor mediante Liquid estándar, establecer los atributos de usuario adecuados que quieres que muestre el mensaje. Estas vistas pueden personalizarse en función de atributos específicos de usuario de un perfil de usuario concreto.
+Para configurar un push personalizado en el panel, debes registrar la categoría específica que quieres que se muestre y, a continuación, dentro de los pares clave-valor mediante Liquid estándar, establecer los atributos de usuario adecuados que quieres que muestre el mensaje. Estas vistas pueden personalizarse en función de atributos específicos de usuario de un perfil de usuario concreto.
 
 ![Cuatro conjuntos de pares clave-valor, donde "next_session_name" y "next_session_complete_date" se establecen como una propiedad de activación de API utilizando Liquid, y "completed_session count" y "total_session_count" se establecen como un atributo personalizado utilizando Liquid.]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
 
 #### Manejo de pares clave-valor {#handling-key-value-pairs}
 
-El siguiente método, `didReceive`, se llama cuando la extensión de contenido ha recibido una notificación y se puede encontrar dentro de `NotificationViewController`. Los pares clave-valor proporcionados en el dashboard se representan en el código mediante el uso de un diccionario `userInfo`.
+El siguiente método, `didReceive`, se llama cuando la extensión de contenido ha recibido una notificación y se puede encontrar dentro de `NotificationViewController`. Los pares clave-valor proporcionados en el panel se representan en el código mediante el uso de un diccionario `userInfo`.
 
 **Análisis sintáctico de los pares clave-valor de las notificaciones push**<br>
 
@@ -149,9 +149,9 @@ Las notificaciones push pueden capturar información del usuario dentro de una e
 
 Ten en cuenta que la información solicitada aquí puede ser muy diversa, como la captura de números SMS; no tiene por qué ser específica del correo electrónico.
 
-#### Configuración del dashboard
+#### Configuración del panel
 
-Para configurar un push capaz de capturar información en el dashboard, debes registrar y configurar tu categoría personalizada, y proporcionar los pares clave-valor necesarios. Como se ve en el ejemplo, también puedes incluir una imagen en tu push. Para ello, debes integrar [notificaciones enriquecidas]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications), establecer el estilo de notificación de tu Campaign en notificación enriquecida e incluir una imagen push enriquecida.
+Para configurar un push capaz de capturar información en el panel, debes registrar y configurar tu categoría personalizada, y proporcionar los pares clave-valor necesarios. Como se ve en el ejemplo, también puedes incluir una imagen en tu push. Para ello, debes integrar [notificaciones enriquecidas]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications), establecer el estilo de notificación de tu Campaign en notificación enriquecida e incluir una imagen push enriquecida.
 
 ![Un mensaje push con tres conjuntos de pares clave-valor. 1. "Braze_id" establecido como una llamada Liquid para recuperar el ID de Braze. 2. "cert_title" establecido como "Braze Marketer Certification". 3. "Cert_description" establecido como "Certified Braze marketers drive...".]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 
@@ -205,7 +205,7 @@ Visita la [sección siguiente](#logging-analytics) para comprender mejor cómo d
 
 ### Registro con la API de Braze (recomendado) {#logging-with-the-braze-api-recommended}
 
-El registro de análisis solo puede hacerse en tiempo real con la ayuda del servidor del cliente que accede a nuestro [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Para registrar los análisis, envía el valor `braze_id` en el campo de los pares clave-valor (como se ve en la siguiente captura de pantalla) para identificar qué perfil de usuario hay que actualizar.
+El registro de análisis solo puede hacerse en tiempo real con la ayuda del servidor del cliente que accede a nuestro [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Para registrar los análisis, envía el valor `braze_id` en el campo de los pares clave-valor (como se ve en la siguiente captura de pantalla) para identificar qué perfil de usuario hay que actualizar.
 
 ![Un mensaje push con tres conjuntos de pares clave-valor. 1. "Braze_id" establecido como una llamada Liquid para recuperar el ID de Braze. 2. "cert_title" establecido como "Braze Marketer Certification". 3. "Cert_description" establecido como "Certified Braze marketers drive...".]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 

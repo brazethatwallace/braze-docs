@@ -35,14 +35,14 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt und/oder abgeschlo
 | --- | --- | --- |
 | Criteo-Werbekonto | [Criteo](https://marketing.criteo.com/) | Ein aktives Criteo-Werbekonto, das mit Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Ihr Criteo-Administrator Ihnen die entsprechenden Berechtigungen für den Zugriff auf Zielgruppen erteilt hat. |
 | [Criteo-Werberichtlinien](https://www.criteo.com/advertising-guidelines/)<br>und<br>[Criteo-Richtlinien zur Markensicherheit](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Als aktive Criteo-Kund:in müssen Sie sicherstellen, dass Sie die Criteo-Richtlinien für Werbung und Markensicherheit einhalten können, bevor Sie Criteo-Campaigns starten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Mit Criteo verbinden {#step-1-connect-to-criteo}
+### Schritt 1: Mit Criteo verbinden {#step-1-connect-to-criteo}
 
 {% alert important %}
-Sie müssen über die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) verfügen, um Criteo mit Ihrem Braze-Konto zu verbinden.
+Sie müssen über die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) verfügen, um Criteo mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
 Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Criteo** aus. Wählen Sie unter Criteo Audience Export die Option **Connect Criteo** aus.
@@ -61,33 +61,33 @@ Nachdem Sie die Verbindung erfolgreich hergestellt haben, gelangen Sie zurück z
 
 Ihre Criteo-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Criteo-Administrator Sie aus Ihrem Criteo-Werbekonto entfernt, erkennt Braze ein ungültiges Token. Dies hat zur Folge, dass Ihre aktiven Canvases, die Criteo verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
-### 2. Schritt: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
+### Schritt 2: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
 
 Beim Aufbau von Zielgruppen für das Ad Tracking möchten Sie möglicherweise bestimmte Nutzer:innen auf der Grundlage ihrer Präferenzen einbeziehen oder ausschließen, um Datenschutzgesetze einzuhalten, wie z. B. das Recht „Nicht verkaufen oder weitergeben“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Eignung der Nutzer:innen in ihre Canvas-Eingangskriterien aufnehmen. Nachfolgend finden Sie einige Optionen.
 
-Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection) erfasst haben, können Sie den Filter „Ads Tracking Enabled“ verwenden. Wählen Sie den Wert „true“ aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
+Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter „Ads Tracking Enabled“ verwenden. Wählen Sie den Wert „true“ aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![Canvas-Eingangsfilter mit „Ads Tracking Enabled“ auf „true“ gesetzt.]({% image_buster /assets/img/criteo/criteo11.png %})
 
 Wenn Sie `opt-ins`, `opt-outs`, `Do Not Sell Or Share` oder andere relevante angepasste Attribute erfassen, sollten Sie diese in Ihre Canvas-Eingangskriterien als Filter einbeziehen:
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![Canvas-Eingangsfilter mit angepassten Opt-in-Attributen für die Zielgruppeneignung.]({% image_buster /assets/img/criteo/criteo12.png %})
 
-Wenn Sie mehr darüber erfahren möchten, wie Sie diese Datenschutzgesetze innerhalb der Braze-Plattform einhalten können, lesen Sie bitte den Abschnitt [Technische Unterstützung zum Datenschutz]({{site.baseurl}}/dp-technical-assistance/).
+Wenn Sie mehr darüber erfahren möchten, wie Sie diese Datenschutzgesetze innerhalb der Braze-Plattform einhalten können, lesen Sie bitte den Abschnitt [Technische Unterstützung zum Datenschutz]({{site.baseurl}}/dp-technical-assistance).
 
-### 3. Schritt: Audience Sync-Schritt mit Criteo hinzufügen {#step-3-add-an-audience-sync-step-with-criteo}
+### Schritt 3: Audience Sync-Schritt mit Criteo hinzufügen {#step-3-add-an-audience-sync-step-with-criteo}
 
 Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie **Audience Sync**.
 
 ![Arbeitsablauf der vorherigen Schritte zum Hinzufügen einer Criteo Audience-Komponente in Canvas.]({% image_buster /assets/img/criteo/criteo9.png %}){: style="max-width:35%;"} ![Arbeitsablauf der vorherigen Schritte zum Hinzufügen einer Criteo Audience-Komponente in Canvas.]({% image_buster /assets/img/criteo/criteo10.png %}){: style="max-width:28%;"}
 
-### 4. Schritt: Sync-Einrichtung {#step-4-sync-setup}
+### Schritt 4: Sync-Einrichtung {#step-4-sync-setup}
 
 Klicken Sie auf den Button **Custom Audience**, um den Komponenteneditor zu öffnen.
 
 Wählen Sie **Criteo** als den gewünschten Audience Sync-Partner aus.
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Audience Sync-Schritteditor mit Criteo als ausgewähltem Partner.]({% image_buster /assets/img/criteo/criteo6.png %})
 
 Wählen Sie dann Ihr gewünschtes Criteo-Werbekonto aus. Geben Sie in der Dropdown-Liste **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
@@ -113,7 +113,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Criteo-Zielgrupp
 {% endtab %}
 {% endtabs %}
 
-### 5. Schritt: Canvas starten {#step-5-launch-canvas}
+### Schritt 5: Canvas starten {#step-5-launch-canvas}
 
 Sobald Sie Ihre Zielgruppen-Synchronisation mit Criteo konfiguriert haben, starten Sie einfach das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Criteo übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
@@ -140,7 +140,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Criteo verarbeitet werden. |
 | Fehler bei Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Criteo synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Criteo-Token oder eine auf Criteo gelöschte Zielgruppe sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
 Denken Sie daran, dass es bei den Metriken „Nutzer:innen synchronisiert“ und „Fehler bei Nutzer:innen“ aufgrund des Bulk-Flush und der 13-stündigen Wiederholung zu einer Verzögerung bei der Berichterstattung kommt.

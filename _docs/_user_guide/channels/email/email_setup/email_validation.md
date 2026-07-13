@@ -73,7 +73,7 @@ The following regular expression can be used to validate if an email address wil
 
 ### Gmail addresses
 
-If the domain part is Gmail, the local part must be at least two characters long and follow the regular expression validation listed above.
+If the domain part is Gmail, the local part must be at least two characters long and follow the regular expression validation listed earlier in this section.
 
 ### Microsoft domains
 

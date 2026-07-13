@@ -14,13 +14,13 @@ description: "Este artigo descreve detalhes sobre o endpoint de duplicação de 
 /canvas/duplicate
 {% endapimethod %}
 
-> Use esse endpoint para duplicar Canvas. Esse endpoint da API é semelhante à [duplicação de Canvas no dashboard da Braze][1].
+> Use esse endpoint para duplicar Canvas. Esse endpoint da API é semelhante à [duplicação de Canvas no dashboard da Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
 ## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `canvas.duplicate`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 Esse endpoint está limitado a 100 chamadas de API por minuto.
 
@@ -36,25 +36,22 @@ Authorization: Bearer YOUR-REST-API-KEY
   "canvas_id": (required, string) The Canvas identifier,
   "name": (required, string) The name of the resulting Canvas,
   "description": (optional, string) The description of the resulting Canvas,
-  "tag_names": (optional, string) The tags of the resulting Canvas,
+  "tag_names": (optional, array of strings) The tags of the resulting Canvas,
 }
 ```
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obrigatória | String | Consulte [Identificador do Canvas]({{site.baseurl}}/api/identifier_types). |
-| `name` | Obrigatória | String | O nome do Canvas resultante. |
+| `canvas_id` | Obrigatório | String | Consulte [Identificador do Canvas]({{site.baseurl}}/api/identifier_types). |
+| `name` | Obrigatório | String | O nome do Canvas resultante. |
 | `description` | Opcional | String | O campo de descrição do Canvas resultante. |
-| `tag_names` | Opcional | String | As tags do Canvas resultante. Essas devem ser tags existentes. Se você adicionar novas tags na solicitação, elas substituirão todas as tags que estavam no Canvas original. |
+| `tag_names` | Opcional | Array de strings | As tags do Canvas resultante. Essas devem ser tags existentes. Se você adicionar novas tags na solicitação, elas substituirão todas as tags que estavam no Canvas original. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Resposta {#response}
 
-Esse endpoint retorna um código de status `202`, e a criação do Canvas ocorre de forma assíncrona. Você pode usar o [download de evento de segurança][2] para ver os registros de quando os Canvas foram duplicados e por qual chave de API.
-
-[1]: {{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/duplicating
-[2]: {{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings
+Esse endpoint retorna um código de status `202`, e a criação do Canvas ocorre de forma assíncrona. Você pode usar o [download de evento de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) para ver os registros de quando os Canvas foram duplicados e por qual chave de API.
 
 {% endapi %}

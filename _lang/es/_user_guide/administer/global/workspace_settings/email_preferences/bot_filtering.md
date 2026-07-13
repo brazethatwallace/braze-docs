@@ -37,9 +37,9 @@ Las siguientes métricas de Braze pueden verse afectadas por los clics de los bo
 
 Las [características de Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) que aprovechan los datos de clics sobre nuestros sistemas de detección pueden verse afectadas. Activar la configuración tiene el potencial de interrumpir temporalmente nuestros sistemas de detección, lo que puede resultar en una disminución de la métrica o entrada debido a esta exclusión de clics sospechosos de bots:
 
-- Intelligent Selection
+- Selección inteligente
 - Canal inteligente
-- Intelligent Timing
+- Sincronización inteligente
 - Paso de experimento
     - Winning Path
     - Personalized Path
@@ -48,7 +48,7 @@ Las [características de Braze Intelligence]({{site.baseurl}}/user_guide/brazeai
     - Variante personalizada
 - Tasa estimada de aperturas reales
 
-Las cancelaciones de suscripción derivadas de clics sospechosos de bots no se verán afectadas. Braze seguirá procesando todas las solicitudes de cancelación de suscripción con normalidad. Si quieres que Braze bloquee estas cancelaciones de suscripción, envía [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Las cancelaciones de suscripción derivadas de clics sospechosos de bots no se verán afectadas. Braze seguirá procesando todas las solicitudes de cancelación de suscripción con normalidad. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Filtros de segmentación afectados por el filtrado de bots {#segmentation-filters-affected-by-bot-filtering}
 

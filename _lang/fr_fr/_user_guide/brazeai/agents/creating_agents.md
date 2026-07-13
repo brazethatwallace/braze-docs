@@ -1,23 +1,23 @@
 ---
 nav_title: Créer des agents
 article_title: Créer des agents personnalisés
-description: "Découvrez comment créer des agents, ce qu'il convient de préparer avant de commencer et comment les mettre en œuvre dans les domaines de l'envoi de messages, de la prise de décision et de la gestion des données."
+description: "Découvrez comment créer des agents, ce qu'il convient de préparer avant de commencer et comment les mettre en œuvre dans les domaines de la communication, de la prise de décision et de la gestion des données."
 page_order: 1
 alias: /creating-agents/
 ---
 
 # Créer des agents personnalisés {#create-custom-agents}
 
-> Découvrez comment créer des agents personnalisés, ce qu'il convient de préparer avant de commencer et comment les mettre en œuvre dans les domaines de l'envoi de messages, de la prise de décision et de la gestion des données. Pour des informations plus générales, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents).
+> Découvrez comment créer des agents personnalisés, ce qu'il convient de préparer avant de commencer et comment les mettre en œuvre dans les domaines de la communication, de la prise de décision et de la gestion des données. Pour des informations plus générales, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents).
 
 ## Conditions préalables {#prerequisites}
 
 Avant de commencer, vous aurez besoin des éléments suivants :
 
 - [L'autorisation]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) d'accéder à la **Console des agents** dans votre espace de travail. Vérifiez auprès de vos administrateurs Braze si cette option n'apparaît pas.
-- L'autorisation de créer et de modifier des agents d'intelligence artificielle personnalisés.
+- L'autorisation de créer et de modifier des agents d'IA personnalisés.
 - Une idée de ce que vous souhaitez que l'agent accomplisse. Les agents Braze peuvent prendre en charge les actions suivantes :
-   - **Envoi de messages personnalisés :** Générer des lignes d'objet, des titres, des textes intégrés au produit ou tout autre contenu.
+   - **Communication personnalisée :** Générer des lignes d'objet, des titres, des textes intégrés au produit ou tout autre contenu.
    - **Routage des utilisateurs :** Diriger les utilisateurs dans Canvas en fonction de leur comportement, de leurs préférences ou d'attributs personnalisés.
    - **Gestion des données :** Calculer des valeurs, enrichir les entrées du catalogue ou actualiser les champs du profil.
 
@@ -25,9 +25,9 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 Lorsque vous créez un agent, vous définissez son objectif et établissez des garde-fous quant à son comportement. Une fois en production, l'agent peut être déployé dans Braze pour générer des textes personnalisés, prendre des décisions en temps réel ou mettre à jour les champs du catalogue. Pendant la création de votre agent, vous pouvez l'enregistrer en tant que brouillon, et vous pouvez suspendre ou mettre à jour un agent à tout moment depuis le tableau de bord.
 
-Les cas d'utilisation suivants illustrent quelques façons de tirer parti des agents personnalisés.
+Les cas d'usage suivants illustrent quelques façons de tirer parti des agents personnalisés.
 
-| Cas d'utilisation | Description |
+| Cas d'usage | Description |
 | --- | --- |
 | Gestion des commentaires clients | Transmettez les commentaires des utilisateurs à un agent afin qu'il analyse le sentiment et génère des messages de suivi empathiques. Pour les utilisateurs à forte valeur, l'agent peut escalader la réponse ou inclure des avantages. |
 | Localisation du contenu | Traduisez le texte du catalogue dans une autre langue pour les campagnes internationales, ou ajustez le ton et la longueur pour les canaux spécifiques à chaque région. Par exemple, traduisez « Classic Clubmaster Sunglasses » en espagnol par « Gafas de sol Classic Clubmaster », ou raccourcissez les descriptions pour les campagnes SMS. |
@@ -60,7 +60,7 @@ Configurez ensuite les détails de votre agent :
 2. (Facultatif) Ajoutez des étiquettes pour filtrer votre agent.
 3. Choisissez le [modèle]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) que votre agent devra utiliser.
 4. Si vous n'utilisez pas le modèle **Braze Auto**, sélectionnez le [niveau de réflexion]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) du modèle. Vous avez le choix entre minimal, faible, moyen ou élevé. Nous vous recommandons de commencer par **Minimal**, de tester les réponses de votre agent, puis d'ajuster ce paramètre si nécessaire.
-5. Définissez une limite d'invocations quotidienne. Par défaut, cette valeur est fixée à 250 000, mais elle peut être augmentée jusqu'à 1 000 000. Si vous souhaitez dépasser 1 000 000, contactez votre gestionnaire de la satisfaction client pour en savoir plus.
+5. Définissez une limite d'invocations quotidienne. Par défaut, cette valeur est fixée à 250 000, mais elle peut être augmentée jusqu'à 1 000 000. Si vous souhaitez dépasser 1 000 000, contactez votre gestionnaire du succès des clients pour en savoir plus.
 
 ![Interface de la Console des agents pour la création d'un agent personnalisé dans Braze. L'écran affiche des champs permettant de saisir le nom et la description de l'agent, de sélectionner un modèle et de définir une limite d'invocations quotidienne.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
@@ -84,7 +84,7 @@ Sélectionnez **+ Contexte de l'agent** pour choisir les éléments auxquels vot
 - [Appartenance à un segment]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context) : Permettez à l'agent de personnaliser les réponses en fonction des segments auxquels appartient l'utilisateur. Vous pouvez sélectionner jusqu'à cinq segments.
 - [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) : Référencez les directives relatives au ton et au style de la marque que l'agent doit respecter. Par exemple, si vous souhaitez que votre agent génère un SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre directive prédéfinie, audacieuse et motivante.
 - [Contexte Canvas complet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) : Analysez toutes les données de contexte Canvas pour un utilisateur lorsque cet agent est invoqué, y compris les variables qui ne sont pas référencées dans la section **Instructions**.
-- [Données d'interaction utilisateur]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history) : Fournissez à l'agent les données récentes d'ouvertures, de clics et de conversions des campagnes et Canvas de chaque utilisateur.
+- [Données d'interaction utilisateur]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history) : Fournissez à l'agent les données récentes d'ouvertures, de clics et de conversions des Campaigns et Canvas de chaque utilisateur.
 
 ### Étape 5 : Sélectionner la sortie {#select-output}
 
@@ -102,7 +102,7 @@ Les valeurs de repli sont disponibles uniquement pour les **agents d'étape Canv
 
 Les **agents de catalogue** ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
 
-![Configuration de la sortie dans la Console des agents, affichant le champ de sortie de repli pour un schéma de type Nombre.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+![Configuration de la sortie dans la Console des agents, affichant le champ de sortie de repli pour un schéma de type nombre.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Pour les agents Canvas, les valeurs de repli prennent en charge le templating [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) afin que vous puissiez faire référence aux attributs utilisateur ou aux variables de contexte dans le texte de repli.
 
@@ -175,4 +175,4 @@ Operator peut préconfigurer les instructions, les champs de sortie et le contex
 
 - [Article de référence pour les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference)
 - [Questions fréquentes]({{site.baseurl}}/user_guide/brazeai/agents/faq)
-- [Webinaire Braze sur l'intelligence artificielle en action : 3 nouveaux cas d'utilisation pour la personnalisation 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)
+- [Webinaire Braze sur l'IA en action : 3 nouveaux cas d'usage pour la personnalisation 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

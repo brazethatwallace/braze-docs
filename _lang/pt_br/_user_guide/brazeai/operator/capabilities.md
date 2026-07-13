@@ -4,7 +4,7 @@ article_title: O que você pode fazer com o Operator
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Este artigo de referência aborda as tarefas de IA disponíveis por meio do BrazeAI Operator™ — incluindo redação de textos, Liquid, geração de imagens, código de transformação de dados e revisão de conteúdo."
+description: "Este artigo de referência aborda as tarefas de IA disponíveis por meio do BrazeAI Operator™ — incluindo redação de textos, geração de mensagens, Liquid, geração de imagens, código de transformação de dados e revisão de conteúdo."
 ---
 
 # O que você pode fazer com o Operator {#operator-capabilities}
@@ -29,6 +29,8 @@ Todos os pontos de entrada existentes permanecem no lugar, então seus fluxos de
 | Data Transformations AI Copilot | Gerava código de transformação | O botão **Insert Code** na página de Transformação de dados |
 | Revisão de conteúdo | Verificava o conteúdo quanto a ortografia, gramática, tom, linguagem ofensiva e código solto | Botão **Review with Operator** na guia **Test** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="O que está disponível por meio do Operator" }
+
+O Operator também pode gerar HTML para Banners no editor de HTML de Banners. Para saber mais, consulte [Gerar mensagens](#generate-messages).
 
 ## Aplicar diretrizes da marca {#apply-brand-guidelines}
 
@@ -56,6 +58,26 @@ O tom do texto gerado é orientado pelo seu prompt. Descreva o estilo que você 
 {% include copy_block.html content="Rewrite this subject line in a more casual tone." %}
 
 {% include copy_block.html content="Translate this copy into Spanish." %}
+
+## Gerar mensagens {#generate-messages}
+
+O Operator pode gerar HTML de mensagens em criadores compatíveis. Descreva a mensagem que você quer em linguagem natural, revise o resultado e insira no seu criador.
+
+Você obtém os melhores resultados quando usa o Operator no criador em que está trabalhando, onde ele tem [contexto da página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) para o canal e o tipo de mensagem. Quando as [diretrizes da marca](#apply-brand-guidelines) estão configuradas, o Operator as aplica automaticamente.
+
+### Banners em HTML {#generate-messages-html-banners}
+
+No [editor de HTML de Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), selecione **Ask Operator** para gerar HTML para o seu Banner. Descreva o layout, o conteúdo e o estilo que você quer. O Operator pode incluir personalização com [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) na marcação gerada.
+
+Mantenha o fluxo da conversa para refinar o resultado — por exemplo, peça um layout diferente, um texto mais curto ou um estilo de botão atualizado — antes de inserir o HTML no editor.
+
+#### Exemplos de prompts {#generate-messages-html-banners-example-prompts}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
 
 ## Gerar Liquid {#generate-liquid}
 
@@ -147,7 +169,7 @@ Na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/
 ### Dicas de prompt {#generate-images-prompt-tips}
 
 - Descreva o assunto, estilo, clima e cores de forma específica. Quanto mais detalhes você incluir, melhor o resultado.
-- Apenas entrada de texto; o upload de uma imagem de referência não é suportado.
+- Apenas entrada de texto; o upload de uma imagem de referência não é compatível.
 - Quando você aplica [diretrizes da marca](#apply-brand-guidelines) como contexto no seu prompt do Operator, o Operator as aplica diretamente à imagem gerada, para que o resultado reflita o estilo visual da sua marca.
 - As gerações de imagens contam para o seu limite diário de uso do Operator. Para saber mais, consulte [Limitações]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
 

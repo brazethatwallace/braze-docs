@@ -18,7 +18,7 @@ Sie können Webhooks verwenden, um Informationen an Systeme wie Salesforce oder 
 Um mehr darüber zu erfahren, was Webhooks sind und wie Sie sie in Braze verwenden können, lesen Sie [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks), bevor Sie fortfahren.
 {% endalert %}
 
-## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
+## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
 Sind Sie unsicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden sollte? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
@@ -54,7 +54,7 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 {% endtab %}
 {% endtabs %}
 
-## 2. Schritt: Erstellen Sie Ihren Webhook {#step-2-build-your-webhook}
+## Schritt 2: Erstellen Sie Ihren Webhook {#step-2-build-your-webhook}
 
 Sie können einen Webhook von Grund auf neu erstellen, ein vorhandenes Template verwenden oder eines unserer bestehenden Templates nutzen. Erstellen Sie dann Ihren Webhook im Tab **Verfassen** des Editors.
 
@@ -129,7 +129,7 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ![Anfrage-Body mit URL-codiertem String.]({% image_buster /assets/img_archive/webhook_rawtext_URL-encoded.png %})
 
-## 3. Schritt: Zusätzliche Einstellungen konfigurieren {#step-3-configure-additional-settings}
+## Schritt 3: Zusätzliche Einstellungen konfigurieren {#step-3-configure-additional-settings}
 
 ### Anfrage-Header (optional) {#request-headers-optional}
 
@@ -143,7 +143,7 @@ Content-Type-Spezifikationen müssen den Schlüssel `Content-Type` verwenden. G�
 
 Autorisierungs-Header müssen den Schlüssel `Authorization` verwenden. Gängige Werte sind {% raw %} `Bearer {{YOUR_TOKEN}}` oder `Basic {{YOUR_TOKEN}}` {% endraw %}, wobei `YOUR_TOKEN` die von Ihrem Anbieter oder System bereitgestellten Zugangsdaten sind.
 
-## 4. Schritt: Testnachricht senden {#step-4-test-send-your-message}
+## Schritt 4: Testnachricht senden {#step-4-test-send-your-message}
 
 Bevor Sie Ihre Campaign live schalten, empfiehlt Braze, den Webhook zu testen, um sicherzustellen, dass die Anfrage korrekt formatiert ist.
 
@@ -165,7 +165,7 @@ Nach dem Senden des Test-Webhooks erscheint ein Dialog mit der Antwortnachricht.
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=webhook).
 
-## 5. Schritt: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 5: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -178,7 +178,7 @@ Webhooks können basierend auf einem geplanten Zeitpunkt, einer Aktion oder eine
 
 Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und die [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
-In diesem Schritt können Sie auch Zustellungs-Kontrollgruppen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) werden können, die Campaign zu erhalten, oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)-Regeln aktivieren.
+In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) werden können, die Campaign zu erhalten, oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)-Regeln aktivieren.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
@@ -188,7 +188,7 @@ Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseur
 
 ### Konversions-Events wählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
 
 {% endtab %}
 
@@ -199,7 +199,7 @@ Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte I
 {% endtab %}
 {% endtabs %}
 
-## 6. Schritt: Überprüfen und bereitstellen {#step-6-review-and-deploy}
+## Schritt 6: Überprüfen und bereitstellen {#step-6-review-and-deploy}
 
 Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, testen Sie sie und senden Sie sie ab!
 
@@ -233,7 +233,7 @@ Wenn die Webhook-Anfrage gesendet wird, gibt der empfangende Server einen Antwor
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortcodes und Wiederholungslogik" }
 
 {% alert note %}
-Braze wiederholt die oben genannten Statuscodes bis zu fünfmal innerhalb von 30 Minuten mit exponentiellem Backoff. Wenn wir Ihren Endpunkt nicht erreichen können, können sich die Wiederholungen über einen Zeitraum von 24 Stunden erstrecken.<br><br>Jeder Webhook hat ein Timeout von 90 Sekunden.
+Braze wiederholt die oben in diesem Abschnitt genannten Statuscodes bis zu fünfmal innerhalb von 30 Minuten mit exponentiellem Backoff. Wenn wir Ihren Endpunkt nicht erreichen können, können sich die Wiederholungen über einen Zeitraum von 24 Stunden erstrecken.<br><br>Jeder Webhook hat ein Timeout von 90 Sekunden.
 {% endalert %}
 
 `Retry-After`- und Rate-Limit-Antwort-Header können beeinflussen, wie lange Braze vor einem **wiederholbaren** Versuch wartet (z. B. nach `408`, `429` oder `5XX`). Sie machen nicht-wiederholbare Antworten wie `401` nicht für eine Wiederholung berechtigt.

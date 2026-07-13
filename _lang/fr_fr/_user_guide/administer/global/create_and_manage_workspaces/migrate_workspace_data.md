@@ -32,9 +32,9 @@ Si vous utilisez des espaces de travail distincts pour le staging et la producti
 
 ## Ce que vous pouvez déplacer ou recréer {#what-you-can-move-or-recreate}
 
-### Contenu des Campaigns, Canvas et pages d'accueil {#campaign-canvas-and-landing-page-content}
+### Contenu des Campaigns, Canvas et pages de destination {#campaign-canvas-and-landing-page-content}
 
-Vous pouvez copier de nombreuses définitions de Campaigns, Canvas et pages d'accueil vers un autre espace de travail sous forme de brouillons. Les canaux pris en charge, les champs omis et les mises en garde concernant Liquid sont documentés dans [Copier des Campaigns, Canvas et pages d'accueil entre espaces de travail]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Après la copie, mettez à jour les segments, les déclencheurs et toutes les références spécifiques à l'espace de travail avant de lancer ou de publier.
+Vous pouvez copier de nombreuses définitions de Campaigns, Canvas et pages de destination vers un autre espace de travail sous forme de brouillons. Les canaux pris en charge, les champs omis et les mises en garde concernant Liquid sont documentés dans [Copier des Campaigns, Canvas et pages de destination entre espaces de travail]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Après la copie, mettez à jour les segments, les déclencheurs et toutes les références spécifiques à l'espace de travail avant de lancer ou de publier.
 
 ### Données de profil utilisateur {#user-profile-data}
 

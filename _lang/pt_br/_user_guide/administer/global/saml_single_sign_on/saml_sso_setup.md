@@ -95,6 +95,10 @@ Você pode restringir os membros da sua organização para que façam login apen
 
 Ao ativar as restrições, os usuários da Braze da sua empresa não poderão mais fazer login usando uma senha, mesmo que tenham feito login com uma senha anteriormente.
 
+{% alert important %}
+Depois que o SSO é aplicado, não há opção de fallback para login caso a autenticação SSO falhe. Antes de ativar a aplicação do SSO, certifique-se de que a configuração do SSO está correta, todos os certificados estão atualizados e renovados, e suas configurações de segurança estão devidamente gerenciadas para evitar problemas de login.
+{% endalert %}
+
 ## Obtendo um rastreamento SAML {#obtaining-a-saml-trace}
 
 Se você tiver problemas de login relacionados ao SSO, obter um rastreamento SAML pode ajudar a solucionar problemas na sua conexão SSO, identificando o que é enviado nas solicitações SAML.

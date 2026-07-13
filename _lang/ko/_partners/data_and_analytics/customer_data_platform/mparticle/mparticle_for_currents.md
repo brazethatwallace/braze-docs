@@ -13,16 +13,16 @@ search_tag: Partner
 
 > [mParticle](https://www.mparticle.com)은 여러 소스에서 정보를 수집하여 마케팅 스택의 다양한 위치로 라우팅하는 고객 데이터 플랫폼입니다.
 
-Braze와 mParticle 통합을 통해 두 시스템 간의 정보 흐름을 원활하게 제어할 수 있습니다. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 사용하면 데이터를 mParticle에 연결하여 전체 성장 스택에서 활용할 수도 있습니다.
+Braze와 mParticle 통합을 통해 두 시스템 간의 정보 흐름을 원활하게 제어할 수 있습니다. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하면 데이터를 mParticle에 연결하여 전체 성장 스택에서 활용할 수도 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Currents | 데이터를 mParticle로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
+| Currents | 데이터를 mParticle로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)가 설정되어 있어야 합니다. |
 | mParticle 계정 | 이 파트너십을 활용하려면 [mParticle 계정](https://app.mparticle.com/login)이 필요합니다. |
 | mParticle 서버 간 키 및 시크릿 | mParticle 대시보드로 이동하여 mParticle이 iOS, Android 및 웹 플랫폼에 대한 Braze 상호작용 데이터를 수신할 수 있도록 [필요한 피드](#step-1-create-feeds)를 생성하면 얻을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## mParticle 자격 증명 정보 {#about-mparticle-credentials}
 
@@ -41,7 +41,7 @@ mParticle 관리자 계정에서 **Setup > Inputs**로 이동합니다. mParticl
 
 Braze 피드 통합은 iOS, Android, 웹, 언바운드의 네 가지 별도 피드를 지원합니다. 언바운드 피드는 플랫폼에 연결되지 않은 이메일과 같은 이벤트에 사용할 수 있습니다. 각 주요 플랫폼 피드에 대한 입력을 생성해야 합니다. **Setup > Inputs**의 **Feed Configurations** 탭에서 추가 입력을 생성할 수 있습니다.
 
-![]({% image_buster /assets/img/braze-feed-inputs.png %})
+![Braze iOS, Android, 웹 및 언바운드 피드 옵션을 보여주는 mParticle 피드 입력 설정.]({% image_buster /assets/img/braze-feed-inputs.png %})
 
 각 피드에 대해 **Act as Platform**에서 목록에서 일치하는 플랫폼을 선택합니다. **act-as** 피드를 선택하는 옵션이 표시되지 않으면 데이터는 언바운드로 처리되지만 데이터 웨어하우스 출력으로 전달할 수 있습니다.
 
@@ -65,9 +65,9 @@ mParticle로 전송되는 모든 이벤트에는 사용자의 `external_user_id`
 
 Braze는 다음 이벤트를 mParticle로 내보내는 것을 지원합니다.
 
-- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-각 이벤트의 페이로드 구조에 대해서는 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 및 [고객 행동 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)에서 **mParticle** 탭을 선택하세요.
+각 이벤트의 페이로드 구조에 대해서는 [메시지 인게이지먼트 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 및 [고객 행동 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)에서 **mParticle** 탭을 선택하세요.
 
 mParticle 통합에 대해 자세히 알아보려면 [mParticle 설명서](http://docs.mparticle.com/integrations/braze/feed)를 참조하세요.

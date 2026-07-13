@@ -28,7 +28,7 @@ description: "このリファレンス記事では、キャンペーンでタグ
 {% endif %}
 ```
 
-緑色でハイライトされることを確認してから、`X` をメッセージフィールドの角にある青い `+` を使って選択した Liquid またはコネクテッドコンテンツに置き換え、`0` を希望の値に置き換えます。
+緑色でハイライトされることを確認してから、`X` をメッセージフィールドの角にある青い `+` を使って選択した Liquid またはConnected Contentに置き換え、`0` を希望の値に置き換えます。
 <br><br>
 次に、`else` 条件の間に必要に応じてメッセージバリエーションを追加します:
 ```liquid
@@ -85,14 +85,14 @@ This is not a cake nor a cookie
 {% endcase %}
 ```
 
-`handle` の代わりにBrazeのパーソナライゼーションタグやその他の Liquid 式を使用して同じパターンを適用できます。構文オプションの詳細については、Shopifyの [`case` タグドキュメント](https://shopify.dev/docs/api/liquid/tags/case)を参照してください。
+`handle` の代わりにBrazeのパーソナライゼーションタグやその他の Liquid 式を使用して同じパターンを適用できます。構文オプションの詳細については、Shopifyの[`case` タグドキュメント](https://shopify.dev/docs/api/liquid/tags/case)を参照してください。
 
 #### `endif`
 
 `{% endif %}` タグは `if` ブロックが終了したことを示します。そのチェーン内で `if`、`elsif`、`unless`、または `else` を使用するすべてのメッセージに `{% endif %}` タグを含める必要があります。`{% endif %}` タグを含めないと、Brazeがメッセージを解析できないためエラーが発生します。`{% case %}` を使用する場合は、`{% endif %}` ではなく `{% endcase %}` でブロックを閉じてください。
 
 {% alert note %}
-`if`、`elsif`、`unless` タグでは演算子を使用できますが、フィルターは使用できません。`case` と `when` タグでは、`case` 式が `when` の値と等しい場合に各ブランチが一致します。これらの式でもフィルターはサポートされていません。フィルター処理された値を評価するには、まずフィルター結果を変数に割り当ててから、その変数を `case` または `when` 句で参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
+`if`、`elsif`、`unless` タグでは演算子を使用できますが、フィルターは使用できません。`case` と `when` タグでは、`case` 式が `when` の値と等しい場合に各ブランチが一致します。これらの式でもフィルターはサポートされていません。フィルター処理された値を評価するには、まずフィルター結果を変数に割り当ててから、その変数を `case` または `when` 句で参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)を参照してください。
 {% endalert %}
 
 ### チュートリアル: ロケーションベースのコンテンツを配信する {#tutorial-deliver-location-based-content}
@@ -220,7 +220,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 ## カスタム属性の参照 {#referencing-custom-attributes}
 
-[カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)した後、Liquid メッセージングでこれらのカスタム属性を参照できます。
+[カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes)した後、Liquid メッセージングでこれらのカスタム属性を参照できます。
 
 条件ロジックを使用する場合、正しい構文を使用するために、カスタム属性のデータタイプを知る必要があります。ダッシュボードの**カスタム属性**ページから、カスタム属性に関連付けられたデータタイプを確認し、各データタイプに対して以下に記載されている例を参照してください。
 
@@ -230,9 +230,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 文字列と配列はストレートアポストロフィで囲む必要がありますが、ブール値と整数にはアポストロフィは不要です。
 {% endalert %}
 
-#### ブール値 {#boolean}
+### ブール値 {#boolean}
 
-[ブール値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans)はバイナリ値で、`registration_complete: true` のように `true` または `false` に設定できます。ブール値にはアポストロフィは付きません。
+[ブール値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans)はバイナリ値で、`registration_complete: true` のように `true` または `false` に設定できます。ブール値にはアポストロフィは付きません。
 
 {% raw %}
 
@@ -242,9 +242,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% endraw %}
 
-#### 数値 {#number}
+### 数値 {#number}
 
-[数値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers)は整数または浮動小数点数の数値です。たとえば、ユーザーは `shoe_size: 10` や `levels_completed: 287` を持つことがあります。数値にはアポストロフィは付きません。
+[数値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers)は整数または浮動小数点数の数値です。たとえば、ユーザーは `shoe_size: 10` や `levels_completed: 287` を持つことがあります。数値にはアポストロフィは付きません。
 
 {% raw %}
 
@@ -264,9 +264,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% endraw %}
 
-#### 文字列 {#string}
+### 文字列 {#string}
 
-[文字列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings)は英数字で構成され、ユーザーに関するデータを格納します。たとえば、`favorite_color: red` や `phone_number: 3025981329` などがあります。文字列の値はアポストロフィで囲む必要があります。
+[文字列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings)は英数字で構成され、ユーザーに関するデータを格納します。たとえば、`favorite_color: red` や `phone_number: 3025981329` などがあります。文字列の値はアポストロフィで囲む必要があります。
 
 {% raw %}
 
@@ -278,9 +278,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 文字列の場合、Liquidで「==」と「contains」の両方を使用できます。
 
-#### 配列 {#array}
+### 配列 {#array}
 
-[配列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays)は、ユーザーに関する情報のリストです。たとえば、ユーザーは `last_viewed_shows: stranger things, planet earth, westworld` を持つことがあります。配列の値はアポストロフィで囲む必要があります。
+[配列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays)は、ユーザーに関する情報のリストです。たとえば、ユーザーは `last_viewed_shows: stranger things, planet earth, westworld` を持つことがあります。配列の値はアポストロフィで囲む必要があります。
 
 {% raw %}
 
@@ -292,9 +292,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 配列の場合、「contains」を使用する必要があり、「==」は使用できません。
 
-#### 時間 {#time}
+### 時間 {#time}
 
-イベントが発生した時点のタイムスタンプです。[時間]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time)の値を条件ロジックで使用するには、[数学フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters)を適用する必要があります。
+イベントが発生した時点のタイムスタンプです。[時間]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time)の値を条件ロジックで使用するには、[数学フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)を適用する必要があります。
 
 {% raw %}
 

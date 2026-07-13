@@ -41,7 +41,7 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [impor
 
 In diesem Abschnitt wird beschrieben, wie Sie Lytics-Daten nach Braze exportieren.
 
-### 1. Schritt: Eine Autorisierung erstellen {#step-1-create-an-authorization}
+### Schritt 1: Eine Autorisierung erstellen {#step-1-create-an-authorization}
 
 Navigieren Sie in Lytics zum Dashboard **Authorization** innerhalb der **Data**-Konsole in der Navigationsleiste. Wählen Sie **Create New Authorization**, suchen Sie nach **Braze** und wählen Sie es aus.
 
@@ -49,7 +49,7 @@ Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization*
 
 ![Lytics-Aufforderung „Configure Authorization“ für Braze mit Feldern für Bezeichnung, Beschreibung, REST-API-Schlüssel und Braze-Instanz.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 
-### 2. Schritt: Einen neuen Auftrag erstellen {#step-2-create-a-new-job}
+### Schritt 2: Einen neuen Auftrag erstellen {#step-2-create-a-new-job}
 
 Navigieren Sie in Lytics zum Dashboard **Jobs** innerhalb der **Data**-Konsole in der Navigationsleiste. Wählen Sie **Create New Job**, suchen Sie nach **Braze** und wählen Sie es aus. Wählen Sie in der daraufhin angezeigten Aufforderung **Select Job Type** die Option **Export Audience**.
 
@@ -59,9 +59,9 @@ Wählen Sie dann eine Autorisierung aus den Optionen unter **Select Authorizatio
 
 ![Lytics-Schritt „Select Authorization“ mit der Braze-Autorisierung, die für den Exportauftrag verwendet werden soll.]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
 
-### 3. Schritt: Den Auftrag konfigurieren {#step-3-configure-the-job}
+### Schritt 3: Den Auftrag konfigurieren {#step-3-configure-the-job}
 
-Geben Sie in der Aufforderung **Configure Job** eine Bezeichnung und optional eine Beschreibung ein. Wählen Sie als Nächstes im Eingabefeld **Braze External User ID Field** das Feld in Lytics aus, das die externe Braze-Nutzer-ID enthält (`braze_id`). Der nächste Schritt ist der wichtigste – wählen Sie im selben Dialog über die Zielgruppenauswahl die Zielgruppen aus, die Sie nach Braze exportieren möchten.
+Geben Sie in der Aufforderung **Configure Job** eine Bezeichnung und optional eine Beschreibung ein. Wählen Sie als Nächstes im Eingabefeld **Braze External User ID Field** das Feld in Lytics aus, das die externe Braze-Nutzer:innen-ID enthält (`braze_id`). Der nächste Schritt ist der wichtigste – wählen Sie im selben Dialog über die Zielgruppenauswahl die Zielgruppen aus, die Sie nach Braze exportieren möchten.
 
 Wählen Sie schließlich die gewünschte Option für das Kontrollkästchen **Existing Users**. Wenn Sie dieses Kästchen aktiviert lassen, werden Nutzer:innen hinzugefügt, die bereits in der ausgewählten Lytics-Zielgruppe vorhanden sind. Wenn diese Option nicht markiert ist, werden Nutzer:innen nur dann nach Braze exportiert, wenn sie die Zielgruppe nach Beginn des Workflows betreten oder verlassen.
 
@@ -112,9 +112,9 @@ Sie können Zielgruppendaten aus Braze mit den folgenden Methoden in Lytics impo
 
 ### Webhooks verwenden {#using-webhooks}
 
-#### 1. Schritt: Ein Lytics-API-Token erstellen {#step-1-create-a-lytics-api-token}
+#### Schritt 1: Ein Lytics-API-Token erstellen {#step-1-create-a-lytics-api-token}
 
-Navigieren Sie zum Lytics-Kontomenü in der linken unteren Ecke, indem Sie Ihren Kontonamen auswählen, und wählen Sie im Dropdown-Menü **Access Tokens** aus. Wählen Sie als Nächstes **Create API Token**.
+Navigieren Sie zum Lytics-Kontomenü, indem Sie Ihren Kontonamen auswählen, und wählen Sie im Dropdown-Menü **Access Tokens** aus. Wählen Sie als Nächstes **Create API Token**.
 
 ![Lytics-Bildschirm „Access Tokens“ mit ausgewählter Option „Create API Token“ im Kontomenü.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
@@ -122,7 +122,7 @@ Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer f�
 
 ![Lytics-API-Token-Berechtigungen mit aktiviertem Bereich „Data Manager“ vor der Token-Generierung.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
-#### 2. Schritt: Die Lytics-Webhook-URL konfigurieren {#step-2-configure-the-lytics-webhook-url}
+#### Schritt 2: Die Lytics-Webhook-URL konfigurieren {#step-2-configure-the-lytics-webhook-url}
 
 Die Lytics-Webhook-URL wird von Braze verwendet, um eine Nachricht von Braze an die Lytics-API zu senden. Diese Nachricht kann zur Personalisierung Ihrer Kampagnen in Lytics oder zur Anreicherung Ihres Lytics-Kundenprofils verwendet werden. Die folgenden zwei Parameter müssen in der Lytics-Webhook-URL hinzugefügt werden:
 
@@ -137,7 +137,7 @@ https://api.lytics.io/c/<ACCOUNT-NUMBER>/braze_users?key=<LYTICS-API-TOKEN>
 
 Ersetzen Sie `<ACCOUNT-NUMBER>` durch Ihre Kontonummer und `<LYTICS-API-TOKEN>` durch Ihr Lytics-API-Token.
 
-#### 3. Schritt: Einen Webhook in Braze erstellen {#step-3-create-a-webhook-on-braze}
+#### Schritt 3: Einen Webhook in Braze erstellen {#step-3-create-a-webhook-on-braze}
 
 Erstellen Sie in Braze eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook). Fügen Sie die Lytics-Webhook-URL in das Feld **Webhook URL** ein.
 
@@ -164,7 +164,7 @@ Nachdem Sie den Anfragetyp (HTTP-`POST`-Methode) definiert und die restlichen We
 
 Dieser Abschnitt beschreibt, wie Sie Braze-Nutzerdaten aus einem Segment in Lytics importieren.
 
-#### 1. Schritt: Eine Autorisierung erstellen
+#### Schritt 1: Eine Autorisierung erstellen
 
 Navigieren Sie in Lytics zum Dashboard **Authorization** innerhalb der **Data**-Konsole in der Navigationsleiste. Wählen Sie **Create New Authorization**, suchen Sie nach **Custom Integrations** und wählen Sie diese aus.
 
@@ -180,11 +180,11 @@ Public-Key-SFTP-Autorisierungen gelten nur für den SFTP-Export.
 
 Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und vervollständigen Sie die restlichen Konfigurationsanforderungen. Wählen Sie **Complete**, wenn Sie fertig sind.
 
-#### 2. Schritt: Ihre Segmentdaten als CSV exportieren {#step-2-export-your-segment-data-to-csv}
+#### Schritt 2: Ihre Segmentdaten als CSV exportieren {#step-2-export-your-segment-data-to-csv}
 
 Navigieren Sie in Braze zu **Zielgruppe** > **Segments**. Suchen Sie das Segment, das Sie exportieren möchten, und wählen Sie dann <i class="fas fa-gear" aria-label="Einstellungen"></i> und dann **Nutzerdaten als CSV exportieren**. Sie können bis zu 500.000 Nutzer:innen in einem Segment exportieren. Weitere Informationen finden Sie unter [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
-#### 3. Schritt: Einen CSV-Importauftrag konfigurieren {#step-3-configure-a-csv-import-job}
+#### Schritt 3: Einen CSV-Importauftrag konfigurieren {#step-3-configure-a-csv-import-job}
 
 Navigieren Sie in Lytics zum Dashboard **Jobs** innerhalb der **Data**-Konsole in der Navigationsleiste. Wählen Sie **Create New Job**, suchen Sie nach **Custom Integrations** und wählen Sie diese aus.
 

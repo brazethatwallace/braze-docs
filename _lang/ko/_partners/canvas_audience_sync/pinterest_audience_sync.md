@@ -43,7 +43,7 @@ Canvas에서 Pinterest Audience 단계를 설정하기 전에 다음 항목이 �
 ### 1단계: Pinterest에 연결 {#step-1-connect-to-pinterest}
 
 {% alert important %}
-Pinterest를 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 필요합니다.
+Pinterest를 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)이 필요합니다.
 {% endalert %}
 
 Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **Pinterest**를 선택합니다. Pinterest Audience Sync 아래에서 **Connect Pinterest**를 선택합니다.
@@ -66,7 +66,7 @@ Pinterest 연결은 Braze 워크스페이스 수준에서 적용됩니다. Pinte
 
 Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Audience Sync 구성요소 옵션이 있는 Canvas 단계 선택기.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Canvas 경로에 추가된 Audience Sync 구성요소 카드.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### 3단계: 동기화 설정 {#step-3-sync-setup}
 
@@ -74,7 +74,7 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
 원하는 Audience Sync 파트너로 **Pinterest**를 선택합니다.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Pinterest가 동기화 파트너로 선택된 Audience Sync 구성요소 편집기.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 그런 다음 원하는 Pinterest 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 

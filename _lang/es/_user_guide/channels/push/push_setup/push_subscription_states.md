@@ -39,7 +39,7 @@ En el constructor de segmentos, usa filtros como **`Foreground Push Enabled`**, 
 
 ### Análisis de Campaign y Canvas {#campaign-and-canvas-analytics}
 
-En la página de análisis de una **Campaign** o **Canvas** push, métricas como *Enviados*, *Rebotes* y *Aperturas* reflejan la entrega e interacción de ese envío. Para vincular esos números con perfiles individuales, exporta los destinatarios desde **Campaign Details** o **Canvas Details** usando **User Data** (CSV). Para los pasos y permisos, consulta [Exportar datos de Campaign]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data) y [Exportar datos de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data). Si los recuentos entre los análisis y una exportación no coinciden, consulta [Análisis de Campaign y Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics) en la solución de problemas de exportación.
+En la página de análisis de una **Campaign** o **Canvas** push, métricas como *Enviados*, *Rebotes* y *Aperturas* reflejan la entrega y la participación de ese envío. Para vincular esos números con perfiles individuales, exporta los destinatarios desde **Campaign Details** o **Canvas Details** usando **User Data** (CSV). Para los pasos y permisos, consulta [Exportar datos de Campaign]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data) y [Exportar datos de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data). Si los recuentos entre los análisis y una exportación no coinciden, consulta [Análisis de Campaign y Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics) en la solución de problemas de exportación.
 
 ## Acciones del usuario en iOS y estado push {#ios-user-actions-push-status}
 
@@ -141,7 +141,7 @@ El filtro `Foreground Push Enabled` tiene en cuenta lo siguiente:
 - La capacidad de Braze para enviar una notificación push (token push de primer plano)
 - La preferencia general del usuario para recibir push en cualquiera de sus dispositivos (estado de suscripción push)
 
-![Una captura de pantalla del dashboard que muestra que un usuario está "Push Registered for Marketing (iOS)"]({% image_buster /assets/img/push_enablement.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
+![Una captura de pantalla del panel que muestra que un usuario está "Push Registered for Marketing (iOS)"]({% image_buster /assets/img/push_enablement.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 Un usuario se considera "habilitado para push" o "registrado para push" si tiene un token push de primer plano activo para una aplicación dentro de tu espacio de trabajo, lo que significa que el estado de habilitación push es específico de la aplicación.
 
@@ -151,7 +151,7 @@ Para obtener información sobre cómo verificar el estado de registro push, visi
 
 ## Cómo encontrar información de registro push y registro de cambios {#finding-push-registration-and-changelog-information}
 
-En el dashboard, puedes encontrar información sobre el registro push y los registros de cambios push en:
+En el panel, puedes encontrar información sobre el registro push y los registros de cambios push en:
 
 - **Segmentación** – Filtra por estados de suscripción de los usuarios, estado habilitado, y estado habilitado en primer plano y segundo plano.
 - **Análisis de Campaign** – Consulta las estadísticas push y los comentarios de una sola Campaign o Canvas.
@@ -167,7 +167,7 @@ Si el usuario se agrega como usuario de prueba, en **Consola para desarrolladore
 - **Push en segundo plano habilitado en iOS:** El usuario ha recibido el aviso push y dijo que no, o dijo que sí y luego desactivó las notificaciones push en la configuración de su dispositivo (reflejado después de que el usuario tenga una sesión).
 - **Push en primer plano habilitado en iOS:** El usuario ha recibido el aviso push y es elegible para recibir push en primer plano.
 
-Los análisis de Campaign reflejarán las estadísticas push en línea con los detalles anteriores. También puedes descargar los perfiles de usuario que ingresaron a la Campaign o Canvas para hacer una referencia cruzada de los perfiles de usuario.
+Los análisis de Campaign reflejarán las estadísticas push en línea con los detalles anteriores en esta sección. También puedes descargar los perfiles de usuario que ingresaron a la Campaign o Canvas para hacer una referencia cruzada de los perfiles de usuario.
 
 ## Otros escenarios específicos de plataforma {#other-platform-specific-scenarios}
 
@@ -176,7 +176,7 @@ Los análisis de Campaign reflejarán las estadísticas push en línea con los d
 
 Cuando un usuario acepta el aviso nativo de permiso push, su estado de suscripción cambiará a `opted in`.
 
-Para gestionar las suscripciones, puedes usar el método de usuario [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype) para crear una página de configuración de preferencias en tu sitio, después de lo cual puedes filtrar usuarios por estado de cancelación en el dashboard.
+Para gestionar las suscripciones, puedes usar el método de usuario [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype) para crear una página de configuración de preferencias en tu sitio, después de lo cual puedes filtrar usuarios por estado de cancelación en el panel.
 
 Si un usuario deshabilita las notificaciones en su navegador, la siguiente notificación push enviada a ese usuario rebotará, y Braze actualizará el token push del usuario en consecuencia. Esto se usa para gestionar la elegibilidad de los filtros habilitados para push (`Background or Foreground Push Enabled`, `Foreground Push Enabled` y `Foreground Push Enabled for App`). El estado de suscripción establecido en el perfil del usuario es una configuración a nivel de usuario y no cambia cuando un push rebota.
 

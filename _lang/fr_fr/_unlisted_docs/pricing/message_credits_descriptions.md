@@ -39,7 +39,7 @@ Notez que le « ratio de crédits » référencé sur cette page correspond au n
 Les ratios de crédits pour les e-mails sont exprimés par tranches de mille e-mails envoyés (CPM) depuis la plateforme Braze.
 
 {% alert note %}
-Consultez notre [documentation sur les e-mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/) pour en savoir plus sur notre canal e-mail.
+Consultez notre [documentation sur les e-mails]({{site.baseurl}}/user_guide/message_building_by_channel/email) pour en savoir plus sur notre canal e-mail.
 {% endalert %}
 
 ## Détails des canaux SMS, MMS et RCS {#sms-mms-and-rcs-channel-details}
@@ -69,45 +69,45 @@ Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'
     - **RCS Rich Media (États-Unis uniquement) :** Tout média OU texte avec des suggestions/boutons plus riches (webview, localisation, calendrier, etc.), comptabilisé comme un seul message
 
 {% alert note %}
-Consultez notre [documentation SMS et MMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms/) pour en savoir plus sur nos offres de la famille SMS.
+Consultez notre [documentation SMS et MMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms) pour en savoir plus sur nos offres de la famille SMS.
 {% endalert %}
 
 ## Détails du canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### Répartition par région de facturation {#billing-region-breakdown}
+## Répartition par région de facturation {#billing-region-breakdown}
 
-#### Amérique du Nord {#north-america}
+### Amérique du Nord {#north-america}
 
 États-Unis, Canada
 
-#### Reste de l'Afrique {#rest-of-africa}
+### Reste de l'Afrique {#rest-of-africa}
 
 Algérie, Angola, Bénin, Botswana, Burkina Faso, Burundi, Cameroun, Tchad, Congo, Érythrée, Éthiopie, Gabon, Gambie, Ghana, Guinée-Bissau, Côte d'Ivoire, Kenya, Lesotho, Liberia, Libye, Madagascar, Malawi, Mali, Mauritanie, Maroc, Mozambique, Namibie, Niger, Rwanda, Sénégal, Sierra Leone, Somalie, Soudan du Sud, Soudan, Eswatini, Tanzanie, Togo, Tunisie, Ouganda, Zambie
 
-#### Reste de l'Asie-Pacifique {#rest-of-asia-pacific}
+### Reste de l'Asie-Pacifique {#rest-of-asia-pacific}
 
-Afghanistan, Australie, Bangladesh, Cambodge, Chine, Hong Kong, Japon, Laos, Mongolie, Népal, Nouvelle-Zélande, Papouasie-Nouvelle-Guinée, Philippines, Singapour, Sri Lanka, Taïwan, Tadjikistan, Thaïlande, Turkménistan, Ouzbékistan, Vietnam
+Afghanistan, Australie, Bangladesh, Cambodge, Chine, Japon, Laos, Mongolie, Népal, Nouvelle-Zélande, Papouasie-Nouvelle-Guinée, Philippines, Sri Lanka, Taïwan, Tadjikistan, Thaïlande, Turkménistan, Ouzbékistan, Vietnam
 
-#### Reste de l'Europe centrale et orientale {#rest-of-central-eastern-europe}
+### Reste de l'Europe centrale et orientale {#rest-of-central-eastern-europe}
 
-Albanie, Arménie, Azerbaïdjan, Biélorussie, Bulgarie, Croatie, République tchèque, Géorgie, Grèce, Hongrie, Lettonie, Lituanie, Macédoine, Moldavie, Pologne, Roumanie, Serbie, Slovaquie, Slovénie, Ukraine
+Albanie, Arménie, Azerbaïdjan, Biélorussie, Bulgarie, Croatie, République tchèque, Géorgie, Grèce, Lettonie, Lituanie, Macédoine, Moldavie, Serbie, Slovaquie, Slovénie, Ukraine
 
-#### Reste de l'Amérique latine {#rest-of-latin-america}
+### Reste de l'Amérique latine {#rest-of-latin-america}
 
 Bolivie, Costa Rica, République dominicaine, Équateur, El Salvador, Guatemala, Haïti, Honduras, Jamaïque, Nicaragua, Panama, Paraguay, Porto Rico, Uruguay, Venezuela
 
-#### Reste du Moyen-Orient {#rest-of-middle-east}
+### Reste du Moyen-Orient {#rest-of-middle-east}
 
-Bahreïn, Irak, Jordanie, Koweït, Liban, Oman, Qatar, Yémen
+Bahreïn, Irak, Jordanie, Koweït, Liban, Oman, Yémen
 
-#### Reste de l'Europe occidentale {#rest-of-western-europe}
+### Reste de l'Europe occidentale {#rest-of-western-europe}
 
 Autriche, Belgique, Danemark, Finlande, Irlande, Norvège, Portugal, Suède, Suisse
 
 {% alert note %}
-Consultez notre [documentation WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/) pour en savoir plus sur nos offres WhatsApp.
+Consultez notre [documentation WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp) pour en savoir plus sur nos offres WhatsApp.
 {% endalert %}
 
 ## Détails de la Console des agents {#agent-console-details}
@@ -115,7 +115,7 @@ Consultez notre [documentation WhatsApp]({{site.baseurl}}/user_guide/message_bui
 Les ratios de crédits de la Console des agents sont exprimés par tranches de mille (1 000) invocations effectuées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel vers un LLM. Par défaut, votre contrat inclut une allocation d'invocations telle que spécifiée par votre édition de plateforme pour chaque période de votre durée d'abonnement. Les invocations supplémentaires seront facturées conformément à votre bon de commande.
 
 {% alert note %}
-Consultez notre [documentation Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) pour en savoir plus sur la Console des agents.
+Consultez notre [documentation Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) pour en savoir plus sur la Console des agents.
 {% endalert %}
 
 ## Détails des canaux supplémentaires {#additional-channel-details}
@@ -125,7 +125,7 @@ Consultez notre [documentation Braze Agents]({{site.baseurl}}/user_guide/brazeai
 Les ratios de crédits LINE sont exprimés par tranches de messages LINE envoyés depuis la plateforme Braze.
 
 {% alert note %}
-Consultez notre [documentation LINE]({{site.baseurl}}/user_guide/message_building_by_channel/line/) pour en savoir plus sur l'utilisation de LINE avec Braze.
+Consultez notre [documentation LINE]({{site.baseurl}}/user_guide/message_building_by_channel/line) pour en savoir plus sur l'utilisation de LINE avec Braze.
 {% endalert %}
 
 ### KakaoTalk {#kakaotalk}
@@ -133,7 +133,7 @@ Consultez notre [documentation LINE]({{site.baseurl}}/user_guide/message_buildin
 Les ratios de crédits KakaoTalk sont exprimés par tranches de messages KakaoTalk envoyés depuis la plateforme Braze.
 
 {% alert note %}
-Consultez notre [documentation KakaoTalk]({{site.baseurl}}/kakaotalk/) pour en savoir plus sur l'utilisation de KakaoTalk avec Braze.
+Consultez notre [documentation KakaoTalk]({{site.baseurl}}/kakaotalk) pour en savoir plus sur l'utilisation de KakaoTalk avec Braze.
 {% endalert %}
 
 ### Content Cards {#content-cards}
@@ -146,7 +146,7 @@ Braze se réserve le droit de facturer des crédits pour les Content Cards en fo
     - Un ratio envois/impressions uniques quotidiennes supérieur à cent (100)
 
 {% alert note %}
-Consultez notre [documentation Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/) pour en savoir plus sur les Content Cards de Braze.
+Consultez notre [documentation Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards) pour en savoir plus sur les Content Cards de Braze.
 {% endalert %}
 
 ### Bannières {#banners}
@@ -154,7 +154,7 @@ Consultez notre [documentation Content Cards]({{site.baseurl}}/user_guide/messag
 Les ratios de crédits des bannières sont exprimés par tranches de mille impressions uniques quotidiennes.
 
 {% alert note %}
-Consultez notre [documentation sur les bannières]({{site.baseurl}}/developer_guide/banner_cards/) pour en savoir plus sur les bannières Braze.
+Consultez notre [documentation sur les bannières]({{site.baseurl}}/developer_guide/banner_cards) pour en savoir plus sur les bannières Braze.
 {% endalert %}
 
 ### Audience Sync {#audience-sync}
@@ -162,15 +162,15 @@ Consultez notre [documentation sur les bannières]({{site.baseurl}}/developer_gu
 Les ratios de crédits Audience Sync sont exprimés par tranches de mille synchronisations totales d'utilisateurs. Par défaut, votre contrat inclut cinq millions de synchronisations d'utilisateurs pour chaque période de votre durée d'abonnement. Les synchronisations d'utilisateurs supplémentaires seront facturées conformément à votre bon de commande.
 
 {% alert note %}
-Consultez notre [documentation Canvas]({{site.baseurl}}/partners/canvas_steps/) pour en savoir plus sur Canvas Audience Sync et les partenaires disponibles.
+Consultez notre [documentation Canvas]({{site.baseurl}}/partners/canvas_steps) pour en savoir plus sur Canvas Audience Sync et les partenaires disponibles.
 {% endalert %}
 
 ### Archivage des messages {#message-archiving}
 
-Les ratios de crédits de l'archivage des messages sont exprimés par tranches de mille messages archivés sur les canaux push, e-mail et SMS/MMS.
+Les ratios de crédits de l'archivage des messages sont exprimés par tranches de mille messages archivés sur les canaux notifications push, e-mail et SMS/MMS.
 
 {% alert note %}
-Consultez notre [documentation sur l'archivage des messages]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving/#message-archiving) pour en savoir plus sur l'archivage des messages.
+Consultez notre [documentation sur l'archivage des messages]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving) pour en savoir plus sur l'archivage des messages.
 {% endalert %}
 
 ### Webhooks {#webhooks}
@@ -178,5 +178,5 @@ Consultez notre [documentation sur l'archivage des messages]({{site.baseurl}}/us
 Les ratios de crédits des webhooks sont exprimés par tranches de mille webhooks envoyés depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks pour chaque période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
 
 {% alert note %}
-Consultez notre [documentation sur les webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/) pour en savoir plus sur les webhooks Braze.
+Consultez notre [documentation sur les webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) pour en savoir plus sur les webhooks Braze.
 {% endalert %}

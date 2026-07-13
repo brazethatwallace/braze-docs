@@ -10,7 +10,7 @@ channel:
 
 # Creador de plantillas de WhatsApp {#whatsapp-template-builder}
 
-> El creador de plantillas de WhatsApp te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y Meta Business Manager. Una vez que Meta apruebe tu plantilla, úsala en tantas campañas y Canvas como quieras.
+> El creador de plantillas de WhatsApp te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y Meta Business Manager. Una vez que Meta apruebe tu plantilla, úsala en tantas Campaigns y Canvas como quieras.
 
 ## Requisitos previos {#prerequisites}
 
@@ -46,7 +46,7 @@ En **Diseño**, selecciona el tipo de plantilla:
 
 #### Encabezado (opcional) {#header-optional}
 
-Añade un encabezado que aparezca encima del cuerpo del mensaje. Puedes elegir:
+Añade un encabezado que aparezca antes del cuerpo del mensaje. Puedes elegir:
 
 - **Texto:** Un encabezado de texto corto.
 - **Multimedia:** Una imagen, video o documento (solo URL). Braze almacena la referencia multimedia y envía una muestra a Meta para su aprobación.
@@ -57,7 +57,7 @@ Añade un encabezado que aparezca encima del cuerpo del mensaje. Puedes elegir:
 Introduce el contenido principal de tu mensaje y personaliza el cuerpo según sea necesario usando Liquid o variables genéricas:
 
 {% raw %}
-- Usa etiquetas de Liquid (por ejemplo, `{{${first_name}}}`). Braze guarda tu Liquid y lo muestra cuando usas la plantilla en el creador de mensajes de una campaña o Canvas.
+- Usa etiquetas de Liquid (por ejemplo, `{{${first_name}}}`). Braze guarda tu Liquid y lo muestra cuando usas la plantilla en el creador de mensajes de una Campaign o Canvas.
 - Usa variables genéricas, como marcadores de posición numerados (por ejemplo, `{{1}}`), si prefieres añadir la personalización más adelante al construir tu mensaje.
 {% endraw %}
 
@@ -65,7 +65,7 @@ Puedes añadir personalización donde aparezca el botón **+** (más). No todos 
 
 #### Pie de página (opcional) {#footer-optional}
 
-Añade un pie de página corto que aparezca debajo del cuerpo del mensaje.
+Añade un pie de página corto que aparezca después del cuerpo del mensaje.
 
 #### Botones (opcional) {#buttons-optional}
 
@@ -98,7 +98,7 @@ Actualmente, solo las plantillas de marketing son compatibles con el creador de 
 
 ## Usar una plantilla aprobada en una campaña {#use-an-approved-template-in-a-campaign}
 
-Una vez que Meta apruebe tu plantilla, puedes usarla en una campaña o Canvas de WhatsApp.
+Una vez que Meta apruebe tu plantilla, puedes usarla en una Campaign o Canvas de WhatsApp.
 
 1. Ve a **Campaigns** y selecciona **Create Campaign** > **WhatsApp**.
 2. En el creador de mensajes, selecciona tu plantilla aprobada.
@@ -106,7 +106,7 @@ Una vez que Meta apruebe tu plantilla, puedes usarla en una campaña o Canvas de
 4. Actualiza cualquier contenido variable o personalización según sea necesario. Los campos bloqueados por Meta (mostrados en gris) no se pueden editar. Para cambiar contenido bloqueado, debes editar y volver a enviar la plantilla para su aprobación.
 5. Usa la pestaña **Test** para previsualizar el mensaje, actualizar las variables del cuerpo y confirmar que el mensaje se ve como se espera antes del lanzamiento.
 
-Para más información sobre cómo crear campañas de WhatsApp, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
+Para más información sobre cómo crear Campaigns de WhatsApp, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -116,11 +116,11 @@ Las revisiones normalmente se completan en cinco minutos, pero pueden tardar has
 
 ### ¿Puedo editar una plantilla después de que ha sido aprobada? {#can-i-edit-a-template-after-its-been-approved}
 
-Cualquier cambio en el contenido bloqueado (texto del cuerpo u otros campos controlados por Meta) requiere volver a enviar la plantilla para su aprobación, lo cual debe hacerse desde WhatsApp Business Manager. Puedes actualizar el contenido y la personalización al construir tu campaña o Canvas.
+Cualquier cambio en el contenido bloqueado (texto del cuerpo u otros campos controlados por Meta) requiere volver a enviar la plantilla para su aprobación, lo cual debe hacerse desde WhatsApp Business Manager. Puedes actualizar el contenido y la personalización al construir tu Campaign o Canvas.
 
 ### ¿Qué pasa con las plantillas que envié antes de que el creador de plantillas estuviera disponible? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
-Las plantillas creadas en Meta Business Manager siguen disponibles para usar en Braze. El creador de plantillas es una forma adicional de crear y administrar plantillas sin salir del dashboard de Braze.
+Las plantillas creadas en Meta Business Manager siguen disponibles para usar en Braze. El creador de plantillas es una forma adicional de crear y administrar plantillas sin salir del panel de Braze.
 
 ### ¿Por qué no puedo añadir personalización a todos los campos? {#why-cant-i-add-personalization-to-every-field}
 

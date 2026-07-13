@@ -27,7 +27,7 @@ The `BrazeInAppMessage` object supports a subset of fields available in the nati
 
 ### Listen for in-app message data in the Dart layer
 
-To receive in-app message data in the Dart layer, use the code below to create a `StreamSubscription` and call `braze.subscribeToInAppMessages()`. Remember to `cancel()` the stream subscription when it is no longer needed.
+To receive in-app message data in the Dart layer, use the following code to create a `StreamSubscription` and call `braze.subscribeToInAppMessages()`. Remember to `cancel()` the stream subscription when it is no longer needed.
 
 ```dart
 // Create stream subscription

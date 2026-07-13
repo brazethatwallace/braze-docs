@@ -16,6 +16,7 @@ channel: email
 * [확장 프로그램 충돌](#check-conflicts)
 * [이메일 렌더링](#check-rendering)
 * [CSS 인라이닝](#switch-css-inlining)
+* [이미지 아래 여백](#white-space-under-images)
 
 ### 확장 프로그램 충돌 {#extension-conflicts}
 
@@ -35,5 +36,25 @@ channel: email
 ### CSS 인라이닝 {#css-inlining}
 
 Inbox Vision의 미리보기가 Braze에서 발송된 이메일과 여전히 일치하지 않는 경우가 있습니다. 이는 Braze와 다른 도구 간의 CSS 인라이닝 처리 방식 차이로 인해 발생할 수 있습니다. 이 경우가 의심된다면 CSS 인라이닝을 비활성화하세요.
+
+### 이미지 아래 여백 {#white-space-under-images}
+
+테스트 이메일에서 이미지 아래에 여백이나 선이 나타나는 경우, 이는 일반적으로 이메일 클라이언트가 인라인 수준 요소를 렌더링하는 방식 때문입니다. 이미지는 기본적으로 인라인 수준이며 베이스라인에 정렬되어 있어, 브라우저가 디센더(베이스라인 아래로 내려가는 "g"나 "y" 같은 글자 부분)를 수용할 수 있도록 합니다. 이로 인해 여백처럼 보이는 작은 간격이 생깁니다.
+
+이 문제를 해결하려면 이미지 CSS에 `display: block;`을 추가하세요:
+
+```html
+<style>
+  img {
+    display: block;
+  }
+</style>
+```
+
+또는 특정 이미지에 직접 스타일을 적용할 수도 있습니다:
+
+```html
+<img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
 
 추가 도움이 필요하신가요? [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.

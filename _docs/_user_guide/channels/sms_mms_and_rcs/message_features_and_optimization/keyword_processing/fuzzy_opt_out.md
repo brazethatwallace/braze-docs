@@ -26,7 +26,7 @@ Currently, only opt-out keywords (default and custom) created using English as t
 ## What is deemed as fuzzy?
 
 The criteria for an inbound response to be deemed as "fuzzy" are as follows (comparisons use every keyword in the **Opt-out** category, including defaults and custom keywords):
-- If switching a letter with the letter one to the left or right of it on a QWERTY keyword yields a matching opt-out keyword.
+- If replacing a letter with an adjacent key on a QWERTY keyboard yields a matching opt-out keyword.
 - A substring of the message matches an opt-out keyword.
 
 For example, "Stpo" or "Please stopppp" will be deemed fuzzy, and a fuzzy opt-out response will be sent. If the user then responds with an opt-out keyword, an unsubscribe event will trigger.

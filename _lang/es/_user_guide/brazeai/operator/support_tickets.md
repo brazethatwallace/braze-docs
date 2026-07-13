@@ -5,18 +5,18 @@ page_order: 3
 description: "Aprende a enviar tickets de soporte directamente desde BrazeAI Operator sin salir del panel de Braze."
 ---
 
-# Enviar tickets de soporte con BrazeAI Operator
+# Enviar tickets de soporte con BrazeAI Operator {#file-support-tickets-with-brazeai-operator}
 
 > Aprende a enviar tickets de soporte directamente desde BrazeAI Operator<sup>TM</sup> sin salir del panel de Braze.
 
-## Cómo enviar un ticket
+## Cómo enviar un ticket {#how-to-file-a-ticket}
 
-1. Hazle una pregunta a Operator y luego selecciona <i class="fa-regular fa-circle-question"></i> **File a support ticket** (o pídele a Operator que envíe uno).
+1. Hazle una pregunta a Operator y luego selecciona <i class="fa-regular fa-circle-question"></i> **Contact Support** (o pídele a Operator que envíe uno).
 2. Completa el título y la descripción del problema.
 3. Revisa los archivos adjuntos y el contexto sugeridos para incluir.
-4. Revisa y selecciona **Enviar**.
+4. Revisa y selecciona **Submit**.
 
-## Contexto incluido automáticamente
+## Contexto incluido automáticamente {#auto-included-context}
 
 Al enviar un ticket desde Operator, el siguiente contexto se incluye automáticamente:
 
@@ -27,7 +27,7 @@ Al enviar un ticket desde Operator, el siguiente contexto se incluye automática
 
 Puedes agregar contexto adicional manualmente usando el campo de texto o adjuntando archivos.
 
-## Consejos para una resolución más rápida
+## Consejos para una resolución más rápida {#tips-for-faster-resolution}
 
 - Agrega una descripción detallada de los pasos para reproducir el problema.
 - Incluye mensajes de error relevantes o comportamiento inesperado.

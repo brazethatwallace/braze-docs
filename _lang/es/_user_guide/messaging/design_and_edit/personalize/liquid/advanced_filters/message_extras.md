@@ -8,7 +8,7 @@ alias: "/message_extras_tag/"
 
 # Etiqueta de Liquid message extras {#message-extras-liquid-tag}
 
-> Usa la etiqueta de Liquid `message_extras` para anotar tus eventos de envío con datos dinámicos de Contenido conectado, Catálogos, atributos personalizados (como idioma, país), propiedades de entrada de Canvas u otros orígenes de datos.
+> Usa la etiqueta de Liquid `message_extras` para anotar tus eventos de envío con datos dinámicos de contenido conectado, catálogos, atributos personalizados (como idioma, país), propiedades de entrada de Canvas u otros orígenes de datos.
 
 La etiqueta de Liquid `message_extras` añade pares clave-valor al evento de envío correspondiente en Currents y Uso compartido de datos de Snowflake.
 

@@ -4,7 +4,7 @@ article_title: "Anwendungsfall: Einen Braze-zu-Braze-Webhook erstellen"
 page_order: 2
 channel:
   - webhooks
-description: "Dieser Referenzartikel behandelt, wann Sie Nutzeraktualisierung im Vergleich zu Braze-zu-Braze-Webhooks verwenden sollten und wie Sie einen Braze-zu-Braze-Webhook erstellen."
+description: "Dieser Referenzartikel behandelt, wann Sie die Nutzeraktualisierung im Vergleich zu Braze-zu-Braze-Webhooks verwenden sollten und wie Sie einen Braze-zu-Braze-Webhook erstellen."
 
 ---
 
@@ -13,6 +13,16 @@ description: "Dieser Referenzartikel behandelt, wann Sie Nutzeraktualisierung im
 > Braze-zu-Braze-Webhooks ermöglichen es Ihnen, die [Braze REST API]({{site.baseurl}}/api/basics) innerhalb von Braze über einen [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) in einer [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) oder einem [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) aufzurufen. Verwenden Sie dies für Orchestrierungsaufgaben wie das Triggern eines [API-getriggerten Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Zum Aktualisieren von [Nutzerattributen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder [Käufen]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) aus Canvas heraus verwenden Sie stattdessen die [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Sie ist für Änderungen am Nutzerprofil konzipiert und verarbeitet Updates effizienter.
 
 Um das Beste aus diesem Artikel herauszuholen, sollten Sie mit der [Funktionsweise von Webhooks]({{site.baseurl}}/user_guide/channels/webhooks) und dem [Erstellen eines Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) in Braze vertraut sein.
+
+## „An Ziel senden“ zum Triggern eines weiteren Canvas verwenden {#use-send-to-destination-for-triggering-another-canvas}
+
+Um einen zweiten Canvas aus einem Canvas heraus zu triggern, verwenden Sie [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) anstelle eines Braze-zu-Braze-Webhooks. Diese Canvas-Komponente wurde speziell für die Verknüpfung von Canvas-Journeys entwickelt und bietet eine einfachere, effizientere Möglichkeit, Nutzer:innen von einem Canvas in einen anderen zu senden.
+
+„An Ziel senden“ prüft Nutzer:innen anhand der Entry- und Zielgruppenkriterien des Ziel-Canvas, wenn sie den Schritt erreichen, ohne dass eine Webhook-Konfiguration oder API-Schlüssel erforderlich sind. Nutzer:innen, die die Kriterien erfüllen, treten in den Ziel-Canvas ein und können ihre Journey im Quell-Canvas fortsetzen, wenn weitere Schritte folgen.
+
+{% alert tip %}
+Fügen Sie [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) zu Ihrem Canvas hinzu, um Nutzer:innen ohne Konfiguration von Webhooks oder API-Aufrufen in eine andere Canvas-Journey zu senden.
+{% endalert %}
 
 ## Nutzeraktualisierung für Nutzerdatenänderungen verwenden {#use-user-update-for-user-data-changes}
 
@@ -28,12 +38,14 @@ Fügen Sie die [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canv
 
 Die Nutzeraktualisierung kann nahezu alle Aufgaben eines Braze-zu-Braze-Webhooks für die Aktualisierung von Nutzerprofilen übernehmen. Für komplexe Updates, die über einfache angepasste Attribute hinausgehen, können Sie den [erweiterten JSON-Composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer) verwenden.
 
-Sie können einen Braze-zu-Braze-Webhook verwenden, wenn Sie die [REST API]({{site.baseurl}}/api/basics) von Braze innerhalb von Braze für Szenarien aufrufen müssen, die über direkte Nutzeraktualisierungen aus Canvas-Schritten hinausgehen. Häufige Beispiele sind:
+„An Ziel senden“ bietet eine einfachere Möglichkeit, einen zweiten Canvas aus einem Canvas heraus zu triggern, ohne eine Webhook-Konfiguration zu benötigen.
 
-- Triggern eines [API-getriggerten Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) aus einem anderen Canvas heraus
+Sie können einen Braze-zu-Braze-Webhook verwenden, wenn Sie die [REST API]({{site.baseurl}}/api/basics) von Braze innerhalb von Braze für Szenarien aufrufen müssen, für die es keine dedizierte Canvas-Komponente gibt. Häufige Beispiele sind:
+
+- Triggern einer [API-getriggerten Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) aus einem Canvas heraus
 - Aufrufen anderer [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) für Orchestrierungsmuster, bei denen ein Workflow in Braze eine API aufrufen muss, für die es keine dedizierte Canvas-Komponente gibt
 
-Für Nutzeraktualisierungen innerhalb von Canvas ist die empfohlene Methode die [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update).
+Für Nutzeraktualisierungen innerhalb von Canvas verwenden Sie die [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Zum Triggern eines weiteren Canvas verwenden Sie [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -45,8 +57,8 @@ Der allgemeine Workflow zum Erstellen eines Braze-zu-Braze-Webhooks umfasst die 
 
 1. [Erstellen Sie einen Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) als Campaign oder Canvas-Komponente.
 2. Wählen Sie **Blank Template**.
-3. Geben Sie im Tab **Verfassen** die **Webhook URL** und den **Request Body** für Ihren API-Anwendungsfall an.
-4. Geben Sie im Tab **Einstellungen** Ihre **HTTP Method** und **Request Headers** gemäß den Anforderungen des Endpunkts an.
+3. Geben Sie im Tab **Verfassen** die **Webhook-URL** und den **Request Body** für Ihren API-Anwendungsfall an.
+4. Geben Sie im Tab **Einstellungen** Ihre **HTTP-Methode** und **Anfrage-Header** gemäß den Anforderungen des Endpunkts an.
 5. Konfigurieren Sie alle weiteren Zustellungseinstellungen (z. B. Triggern durch ein angepasstes Event) und erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas.
 
 ## Einen zweiten Canvas aus einem initialen Canvas triggern {#trigger-a-second-canvas-from-an-initial-canvas}
@@ -55,23 +67,23 @@ In diesem Anwendungsfall erstellen Sie zwei Canvases und verwenden einen Braze-z
 
 1. Beginnen Sie mit der Erstellung Ihres zweiten Canvas – dem Canvas, der von Ihrem initialen Canvas getriggert werden soll.
 2. Wählen Sie als Canvas-**Entry-Zeitplan** die Option **API-Triggered**.
-3. Notieren Sie sich Ihre **Canvas ID**. Sie benötigen diese in einem späteren Schritt.
+3. Notieren Sie sich Ihre **Canvas-ID**. Sie benötigen diese in einem späteren Schritt.
 4. Erstellen Sie die weiteren Schritte Ihres zweiten Canvas und speichern Sie den Canvas.
 5. Erstellen Sie abschließend Ihren ersten Canvas. Suchen Sie den Schritt, an dem Sie den zweiten Canvas triggern möchten, und erstellen Sie einen neuen Schritt mit einem Webhook.
 
 Beachten Sie beim Konfigurieren Ihres Webhooks Folgendes:
 
-- **Webhook URL:** Ihre [REST-Endpunkt-URL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) gefolgt von `/canvas/trigger/send`. Für die Instanz `US-06` wäre die URL beispielsweise `https://rest.iad-06.braze.com/canvas/trigger/send`.
+- **Webhook-URL:** Ihre [REST-Endpunkt-URL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) gefolgt von `/canvas/trigger/send`. Für die Instanz `US-06` wäre die URL beispielsweise `https://rest.iad-06.braze.com/canvas/trigger/send`.
 - **Request Body:** Raw Text
 
 ### Anfrage-Header und Methode {#request-headers-and-method}
 
 Braze erfordert einen HTTP-Header für die Autorisierung, der Ihren API-Schlüssel enthält, sowie einen weiteren, der Ihren Content-Typ deklariert.
 
-- **Request Headers:**
+- **Anfrage-Header:**
   - **Authorization:** `Bearer YOUR_API_KEY`
   - **Content-Type:** `application/json`
-- **HTTP Method:** `POST`
+- **HTTP-Methode:** `POST`
 
 Ersetzen Sie `YOUR_API_KEY` durch einen Braze-API-Schlüssel mit `canvas.trigger.send`-Berechtigungen. Sie können einen API-Schlüssel im Braze-Dashboard erstellen, indem Sie zu **Einstellungen** > **API-Schlüssel** navigieren.
 

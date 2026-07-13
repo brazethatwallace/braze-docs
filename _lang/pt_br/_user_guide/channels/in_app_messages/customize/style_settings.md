@@ -48,7 +48,7 @@ O editor de arrastar e soltar usa dois componentes principais para compor mensag
 
 ### Botão X de fechar {#close-x-button}
 
-Para mensagens no app do tipo modal e tela cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> no canto superior direito da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
+Para mensagens no app do tipo modal e tela cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> na parte superior da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
 
 ![Opções para personalizar o botão X de fechar em mensagens no app, incluindo tamanho do botão, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -106,7 +106,7 @@ Em um tablet ou navegador de desktop, uma mensagem no app em tela cheia ficará 
 
 Você pode adicionar uma imagem ao fundo da sua mensagem a partir da guia **Message styles**.
 
-1. Na área do Canvas, selecione o contêiner de fundo. Esta é a seção rolável da sua mensagem.
+1. Na área do canvas, selecione o contêiner de fundo. Esta é a seção rolável da sua mensagem.
 2. Na guia **Message styles**, ative a opção **Background image**.
 3. Adicione uma imagem da sua biblioteca de mídia ou insira a URL onde sua imagem está hospedada.
 

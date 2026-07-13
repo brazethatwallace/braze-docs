@@ -8,7 +8,7 @@ tool: Reports
 
 ---
 
-# Uninstall Tracking {#uninstall-tracking}
+# Uninstall Tracking
 
 > Este artículo muestra cómo puedes ver las desinstalaciones de aplicaciones agregadas a lo largo del tiempo para localizar tendencias y anomalías, y realizar un seguimiento de las desinstalaciones a nivel de Campaign para determinar si una Campaign específica está impulsando o impidiendo las instalaciones de aplicaciones.
 
@@ -67,13 +67,13 @@ Las estadísticas de desinstalación de campañas se encuentran en la página **
 
 ### Cómo funciona
 
-Braze rastrea las desinstalaciones observando cuándo los mensajes push enviados a los dispositivos de los usuarios devuelven una señal, ya sea de Firebase Cloud Messaging (FCM) o del servicio de notificaciones push de Apple (APNs), de que la aplicación ya no está instalada. Si activas Uninstall Tracking global para una aplicación, Braze envía un mensaje push silencioso diario a los usuarios para detectar si la han desinstalado. Braze envía este push «silencioso» a todos los usuarios (a menos que el usuario haya desactivado las notificaciones silenciosas en la configuración de la aplicación); el push no aparece a los usuarios. Si Braze detecta que un usuario ha desinstalado la aplicación:
+Braze rastrea las desinstalaciones observando cuándo los mensajes push enviados a los dispositivos de los usuarios devuelven una señal, ya sea de Firebase Cloud Messaging (FCM) o del servicio de notificaciones push de Apple (APN), de que la aplicación ya no está instalada. Si activas Uninstall Tracking global para una aplicación, Braze envía un mensaje push silencioso diario a los usuarios para detectar si la han desinstalado. Braze envía este push «silencioso» a todos los usuarios (a menos que el usuario haya desactivado las notificaciones silenciosas en la configuración de la aplicación); el push no aparece a los usuarios. Si Braze detecta que un usuario ha desinstalado la aplicación:
 
 * Aumenta en uno el recuento total de desinstalaciones de la aplicación.
 * Incrementa en uno el recuento de desinstalaciones de cada Campaign que el usuario haya recibido correctamente en las últimas 24 horas.
 * Si un usuario recibe tres campañas en un periodo de 24 horas y luego desinstala, incrementamos el recuento de «desinstalaciones» de las tres campañas.
 
-FCM y APNs imponen restricciones a Uninstall Tracking. Braze solo incrementa el recuento de desinstalaciones cuando FCM o APNs nos informan de que un usuario ha desinstalado la aplicación, pero estos sistemas de terceros pueden notificarnos las desinstalaciones en cualquier momento. Utiliza Uninstall Tracking para detectar tendencias direccionales en lugar de estadísticas precisas.
+FCM y APN imponen restricciones a Uninstall Tracking. Braze solo incrementa el recuento de desinstalaciones cuando FCM o APN nos informan de que un usuario ha desinstalado la aplicación, pero estos sistemas de terceros pueden notificarnos las desinstalaciones en cualquier momento. Utiliza Uninstall Tracking para detectar tendencias direccionales en lugar de estadísticas precisas.
 
 Braze trata las siguientes respuestas de FCM como respuestas de eliminación de token (desinstalación): `DEVICE_UNREGISTERED`, `BAD_REGISTRATION` y `SENDER_ID_MISMATCH`.
 
@@ -87,7 +87,7 @@ Braze marca a un usuario como desinstalado cuando detecta que la aplicación ya 
 
 ### ¿Por qué de repente veo un pico de desinstalaciones? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
-Si observas un pico de desinstalaciones de aplicaciones, puede deberse a que Firebase Cloud Messaging (FCM) y el servicio de notificaciones push de Apple (APNs) revocan tokens antiguos con una frecuencia diferente.
+Si observas un pico de desinstalaciones de aplicaciones, puede deberse a que Firebase Cloud Messaging (FCM) y el servicio de notificaciones push de Apple (APN) revocan tokens antiguos con una frecuencia diferente.
 
 {% alert note %}
 Por motivos de privacidad, los proveedores de notificaciones push de Braze pueden revocar los tokens a intervalos irregulares, lo que significa que el número de desinstalaciones puede dispararse en un periodo de tiempo determinado.<br><br>Para validar estos cambios, supervisa Uninstall Tracking junto con una métrica de acción del usuario, como la tasa de apertura directa de notificaciones push. Si las desinstalaciones aumentan considerablemente, pero las aperturas directas se mantienen estables, es probable que el pico refleje la revocación de tokens antiguos por parte de un proveedor, en lugar del comportamiento real de los usuarios.
@@ -98,17 +98,21 @@ Por motivos de privacidad, los proveedores de notificaciones push de Braze puede
 Revisa los análisis de las campañas que enviaron mensajes en torno al mismo momento en que se produjo el pico de desinstalaciones. Si un mensaje en particular se correlaciona con un aumento de desinstalaciones, puede estar influyendo en los usuarios para que desinstalen.
 
 Para ver las desinstalaciones por segmento:
-1. Ve a la página de **inicio** del dashboard.
+1. Ve a la página de **inicio** del panel.
 2. En la sección **Performance Over Time**, selecciona **Uninstalls** en **Statistics For** y **By Segment** en **Breakdown**.
 
 Si tienes un segmento que rastrea usuarios inactivos con [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) habilitado, compara su tendencia de desinstalaciones con la tendencia general de la aplicación.
 
 ### ¿Cómo puedo confirmar que las desinstalaciones son genuinas? {#how-do-i-confirm-uninstalls-are-genuine}
 
-Para APNs, revisa los perfiles de usuario en busca del error push `BadDeviceToken`. Si ves este error de forma masiva en torno al mismo periodo de tiempo que el pico de desinstalaciones, es probable que las desinstalaciones sean genuinas. `BadDeviceToken` indica que el token de notificaciones push del dispositivo ya no es válido, lo que normalmente ocurre cuando la aplicación se desinstala.
+Para APN, revisa los perfiles de usuario en busca del error push `BadDeviceToken`. Si ves este error de forma masiva en torno al mismo periodo de tiempo que el pico de desinstalaciones, es probable que las desinstalaciones sean genuinas. `BadDeviceToken` indica que el token de notificaciones push del dispositivo ya no es válido, lo que normalmente ocurre cuando la aplicación se desinstala.
 
-### ¿Por qué el número de desinstalaciones de aplicaciones difiere del que aparece en APNs? {#why-are-the-number-of-app-uninstalls-different-from-whats-in-apns}
+### ¿Por qué el número de desinstalaciones de aplicaciones difiere del que aparece en APN? {#why-are-the-number-of-app-uninstalls-different-from-whats-in-apns}
 
 La diferencia es esperable.
 
-Apple utiliza un calendario aleatorio para retrasar la notificación cuando un token de notificaciones push deja de ser válido, lo que significa que, incluso después de que un usuario desinstale una aplicación, APNs puede seguir devolviendo respuestas satisfactorias a las notificaciones push durante un periodo de tiempo. Este retraso es intencionado y está diseñado para proteger la privacidad de los usuarios. No se informará de ningún rebote o fallo hasta que APNs devuelva un estado `410` para un token no válido.
+Apple utiliza un calendario aleatorio para retrasar la notificación cuando un token de notificaciones push deja de ser válido, lo que significa que, incluso después de que un usuario desinstale una aplicación, APN puede seguir devolviendo respuestas satisfactorias a las notificaciones push durante un periodo de tiempo. Este retraso es intencionado y está diseñado para proteger la privacidad de los usuarios. No se informará de ningún rebote o fallo hasta que APN devuelva un estado `410` para un token no válido.
+
+### ¿Cómo se relaciona Uninstall Tracking con el push silencioso o en segundo plano? {#how-does-uninstall-tracking-relate-to-silent-or-background-push}
+
+La detección de desinstalaciones puede utilizar notificaciones push en segundo plano de baja prioridad que no se muestran como una notificación visible. Estas son independientes de los [**envíos**]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) de Campaign en los análisis de mensajería estándar. Al analizar las tendencias de desinstalación, revisa los gráficos de desinstalaciones junto con las métricas de participación push en lugar de comparar los push de desinstalación directamente con los totales de envíos de marketing.

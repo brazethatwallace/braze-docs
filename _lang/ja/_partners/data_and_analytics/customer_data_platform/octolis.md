@@ -10,9 +10,9 @@ search_tag: Octolis
 
 # Octolis
 
-> [Octolis](http://octolis.com)は、強力なデータアクティベーションプラットフォーム（またはヘッドレスCDP）です。自分が所有するデータベースの上に位置し、ビジネスツールでデータを統合、準備、スコア化、同期するための簡単な方法を提供します。
+> [Octolis](http://octolis.com)は、強力なデータアクティベーションプラットフォーム（またはヘッドレス顧客データプラットフォーム）です。自分が所有するデータベースの上に位置し、ビジネスツールでデータを統合、準備、スコア化、同期するための簡単な方法を提供します。
 
-_この統合はOctolisによって管理されます。_
+_この統合はOctolisによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
@@ -21,17 +21,17 @@ BrazeとOctolisの統合は、生データソースとBrazeの間のミドルウ
 2. 正規化とスコア化を行います。
 3. 計算されたフィールドとイベントをBrazeにリアルタイムで同期します。
 
-![]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
+![Octolisのデータソース、処理、およびBrazeへの同期フローを示すアーキテクチャ図。]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
 
 ## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Octolisアカウント | このパートナーシップを活用するには、Octolisアカウントが必要です。 |
-| Braze REST APIキー | [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、インスタンスのBraze URLに依存します。 |
-| Brazeアプリキー | アプリ識別子キー。これは、**Braze Dashboard > Manage Settings > API Key**で確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze REST APIキー | [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track)権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。エンドポイントは、インスタンスのBraze URLに依存します。 |
+| Brazeアプリキー | アプリ識別子キー。これは、**Brazeダッシュボード > 設定の管理 > APIキー**で確認できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -54,31 +54,31 @@ Brazeにデータを送信するには、少なくとも1つの[オーディエ�
 
 次に、Brazeを新しい送信先として設定するには、メイン画面の現在の送信先の上にある**+ Add more**を選択し、利用可能なビジネスツールから**Braze**を選択します。
 
-![]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
+![利用可能なビジネスツールからBrazeが選択されたOctolisの送信先選択画面。]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
 
 選択したら、以下を入力します。
 
-- Braze APIキー：これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。
+- Braze APIキー：これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。
 - 時間枠：Octolisは指定された期間にわたってレート制限を適用します。
 - リクエスト量：この時間枠内に実行できるリクエストの数です。
 - カスタム属性：ここで、Brazeに送信する新しいフィールド、その形式（文字列、整数、浮動小数点数）を指定し、いずれかを同期に必須にする場合は**Required for syncs**にチェックを入れます。
 
-![]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
+![APIキー、レート制限、カスタム属性のOctolis Braze送信先設定フィールド。]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
 
 設定が完了すると、ホーム画面で新しい送信先としてBrazeが表示されます。
 
 ### ステップ3:新しい同期を作成する {#step-3-create-a-new-sync}
 
-メニューから**Syncs**をクリックし、右上の**Add sync**を選択します。以前に作成したオーディエンスから、使用するオーディエンスを選択します。
+メニューから**Syncs**をクリックし、アクションバーの**Add sync**を選択します。以前に作成したオーディエンスから、使用するオーディエンスを選択します。
 次に、送信先として**Braze**を選択し、データの送信先エンティティを選択します。
 
-![]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
+![オーディエンスとBraze送信先の選択が表示されたOctolisの同期作成画面。]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
 
 ### ステップ4:出力設定を行う {#step-4-set-output-settings}
 
 デフォルトでは、送信するすべての属性がBrazeにより作成されますが、同期するフィールドのリストを文書に記録しておく必要があります。
 
-![]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
+![Brazeのフィールドマッピングと同期スケジュールのOctolis出力設定画面。]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
 
 設定フィールドの具体的な定義を次に示します。
 
@@ -90,7 +90,7 @@ Brazeにデータを送信するには、少なくとも1つの[オーディエ�
 | 同期するフィールドはどれですか？ | OctolisからBrazeへのフィールドマッピングです。利用可能なすべてのフィールドのリストがドロップダウンメニューに表示されます。計算フィールドをBrazeに送信するには、まずBrazeエンティティ内に対応する列を作成しておく必要があります。 |
 | オーディエンスをいつ同期しますか？ | Brazeへのデータの送信方法：手動、リアルタイム、またはプログラムによる送信のいずれかです。 |
 | レコードの同期タイミングは？ | 作成：オプトインの場合、Brazeテーブルがマスターのままであることが重要です。フィールドの更新時にOctolisが同期をトリガーしないようにします。<br><br>更新：一方で、たとえば名フィールドの場合、顧客が新しいエントリを入力するたびにBrazeテーブルのフィールドを更新できるようにすることがあります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set output settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4:出力設定を行う" }
 
 ## 複数キーの重複排除 {#multi-keys-deduplication}
 

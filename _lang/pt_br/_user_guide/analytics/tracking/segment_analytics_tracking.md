@@ -29,7 +29,7 @@ Após ativar o rastreamento de análise de dados, pode haver um atraso até que 
 
 ## Visualização da receita e das compras ao longo do tempo {#viewing-revenue-and-purchases-over-time}
 
-Acesse **Analytics** > **Relatório de receitas** para visualizar dados sobre [receita e compras ao longo do tempo para esse segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
+Acesse **Analytics** > **Revenue Report** para visualizar dados sobre [receita e compras ao longo do tempo para esse segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
 
 Os gráficos de receita e compras refletem a atividade registrada após a ativação do rastreamento de análise de dados para esse segmento. Ativar o rastreamento não preenche retroativamente compras anteriores nesses relatórios. Ao comparar segmentos, use apenas intervalos de tempo em que o rastreamento estava ativado para cada segmento selecionado.
 
@@ -37,7 +37,7 @@ Os gráficos de receita e compras refletem a atividade registrada após a ativa�
 
 Para comparar visualmente os dados do segmento em qualquer intervalo de tempo personalizado, adicione ou remova segmentos do gráfico. Selecione **By Segment** no menu suspenso **Breakdown** e, em seguida, selecione seus segmentos em **Breakdown values**.
 
-Selecione qualquer nome de segmento acima do gráfico para ativar ou desativar a visibilidade das métricas desse segmento.
+Selecione qualquer nome de segmento na legenda do gráfico para ativar ou desativar a visibilidade das métricas desse segmento.
 
 ![Receita para vários segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
@@ -49,7 +49,7 @@ Da mesma forma, você pode encontrar dados sobre [sessões ao longo do tempo par
 
 ## Visualizar eventos personalizados ao longo do tempo {#view-custom-events-over-time}
 
-Visualize dados sobre [eventos personalizados ao longo do tempo para segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) acessando **Analytics** > **Relatório de eventos personalizados**.
+Visualize dados sobre [eventos personalizados ao longo do tempo para segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) acessando **Analytics** > **Custom Events Report**.
 
 ## Uso de modelos do Criador de consultas {#using-query-builder-templates}
 

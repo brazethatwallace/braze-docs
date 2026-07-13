@@ -420,7 +420,7 @@ The [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/se
 
 ### Unsubscribe links and Unique Clicks
 
-When a recipient clicks an unsubscribe link, Braze counts it as a click because the action uses a URL. This applies to Braze-provided unsubscribe links and custom unsubscribe links in your message body. Those clicks contribute to *Unique Clicks* and *Total Clicks* alongside other link clicks. For metric definitions, see [Unique Clicks](#unique-clicks) above and [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+When a recipient clicks an unsubscribe link, Braze counts it as a click because the action uses a URL. This applies to Braze-provided unsubscribe links and custom unsubscribe links in your message body. Those clicks contribute to *Unique Clicks* and *Total Clicks* alongside other link clicks. For metric definitions, see [Unique Clicks](#unique-clicks) earlier in this section and [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### View in browser
 

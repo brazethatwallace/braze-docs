@@ -20,12 +20,12 @@ search_rank: 1
 
 ## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
-Sind Sie unsicher, ob Ihre Nachricht über eine Kampagne oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
+Sind Sie unsicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Campaign erstellen**.
 2. Wählen Sie **SMS/MMS/RCS** oder, für Campaigns, die auf mehrere Kanäle abzielen, **Multichannel**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
@@ -82,7 +82,7 @@ Das Verfassen-Erlebnis ändert sich je nach gewähltem Nachrichtentyp. Wählen S
 Verfassen Sie Ihre Nachricht mit Sprachen und Personalisierung (Liquid, Connected-Content und Emojis) nach Bedarf. Achten Sie darauf, unsere Zeichenlimits einzuhalten, um Ihre Chancen auf Zusatzkosten zu reduzieren.
 
 {% alert important %}
-Bevor Sie fortfahren, lesen Sie die Richtlinien zu [SMS-Nachrichten-Segmenten und Zeichenlimits]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). SMS-Nachrichten-Segmente sind die Zeichenpakete, die Mobilfunkanbieter zur Messung von Textnachrichten verwenden. Nachrichten werden pro Nachrichten-Segment abgerechnet, daher ist es sinnvoll, die Feinheiten der Nachrichtenaufteilung zu verstehen.
+Bevor Sie fortfahren, lesen Sie die Richtlinien zu [SMS-Nachrichtensegmenten und Zeichenlimits]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). SMS-Nachrichtensegmente sind die Zeichenpakete, die Mobilfunkanbieter zur Messung von Textnachrichten verwenden. Nachrichten werden pro Nachrichtensegment abgerechnet, daher ist es sinnvoll, die Feinheiten der Nachrichtenaufteilung zu verstehen.
 {% endalert %}
 
 ![SMS-Composer in Braze mit der Nachricht „Hi first_name, wir schätzen Ihre Unterstützung! Warum besuchen Sie nicht einen unserer Shops und zeigen diese SMS für einen exklusiven Rabatt? Antworten Sie STOP, um keine Nachrichten mehr von uns zu erhalten.“]({% image_buster /assets/img/sms_campaign_compose.png %})
@@ -289,7 +289,7 @@ Interessiert an Retargeting? Weitere Informationen finden Sie unter [Nutzer-Reta
 
 ### Konversions-Events wählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 
 Konversions-Events helfen Ihnen, den Erfolg Ihrer Campaign zu messen. Zum Beispiel:
 
@@ -301,7 +301,7 @@ Sie können auch angepasste Konversions-Events basierend auf Ihrem spezifischen 
 {% endtab %}
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und Intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
 
 {% endtab %}
 {% endtabs %}

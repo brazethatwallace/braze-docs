@@ -2,7 +2,7 @@
 
 ## Conditions préalables {#prerequisites}
 
-Voici les versions minimales requises du SDK pour commencer à utiliser les géorepérages :
+Voici les versions minimales du SDK requises pour commencer à utiliser les géorepérages :
 
 {% sdk_min_versions xamarin:9.0.0 %}
 
@@ -14,7 +14,7 @@ Voici les versions minimales requises du SDK pour commencer à utiliser les géo
 
 ---
 
-Veuillez ensuite suivre les instructions spécifiques à la plateforme ci-dessous, pour Android ou iOS :
+Suivez ensuite les instructions spécifiques à la plateforme ci-dessous, pour Android ou iOS :
 
 {% tabs %}
 {% tab Android %}
@@ -95,7 +95,7 @@ Ajoutez la référence au package NuGet suivante à votre projet :
 
 ### Étape 3 : Configurer l'utilisation de la localisation dans Info.plist {#step-3-configure-location-usage-in-infoplist}
 
-Ajoutez une chaîne de caractères de description d'utilisation pour les services de localisation dans votre `Info.plist` :
+Ajoutez une chaîne de description d'utilisation pour les services de localisation dans votre `Info.plist` :
 
 ```xml
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -105,7 +105,7 @@ Ajoutez une chaîne de caractères de description d'utilisation pour les service
 ```
 
 {% alert important %}
-Apple a déprécié `NSLocationAlwaysUsageDescription`. Utilisez les clés ci-dessus pour iOS 14 et versions ultérieures.
+Apple a déprécié `NSLocationAlwaysUsageDescription`. Utilisez les clés indiquées ci-dessus pour iOS 14 et versions ultérieures.
 {% endalert %}
 
 ### Étape 4 : Activer les géorepérages dans votre configuration Braze {#step-4-enable-geofences-in-your-braze-configuration}

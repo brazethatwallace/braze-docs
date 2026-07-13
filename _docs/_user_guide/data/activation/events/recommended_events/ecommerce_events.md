@@ -173,8 +173,8 @@ eCommerce recommended events power the same revenue surfaces customers already u
 For non-user calculated fields (for example, campaign or Canvas revenue), revenue is calculated the same way across all reports: `price` multiplied by `quantity` per product in the order, summed across the products in each `order_placed` event.
 
 {% alert note %}
-To avoid double-counting revenue, do not send both legacy purchases and eCommerce recommended events for the same orders. If you are planning to transition from legacy purchases to recommended events, coordinate the change with your Braze account team before making any integration changes.<br><br>
-Revenue calculations cap individual product quantities at `1,000` units per order. If a `quantity` field is missing for a product, it defaults to `1`. The original `order_placed` event retains the full quantity you sent—only the revenue calculation applies the cap.
+Revenue calculations cap individual product quantities at 1,000 units per order. If a quantity field is missing for a product, it defaults to one unit. The original `ecommerce.order_placed` event retains the full quantity you sent—only the revenue calculation applies the cap.<br><br>
+If you're migrating from legacy purchase events to `ecommerce.order_placed`, coordinate with your Braze account team before making any integration changes. During the transition period, send both legacy purchase and `ecommerce.order_placed` events to confirm they're triggering correctly and to prepare your active campaigns, Canvases, and segments to migrate to the new event. Your account team can then help you plan the cutover to switch revenue reporting from legacy purchase events to `ecommerce.order_placed`.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>

@@ -18,7 +18,7 @@ Con la integración de Zeotap y Braze, puedes ampliar la escala y el alcance de 
 | --- | --- |
 | Cuenta Zeotap | Se necesita una [cuenta Zeotap](https://zeotap.com/) para beneficiarse de esta asociación. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({% image_buster /assets/img/zeotap/zeotap1.png %}). |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia]({% image_buster /assets/img/zeotap/zeotap1.png %}). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -28,7 +28,7 @@ Con la integración de Zeotap y Braze, puedes ampliar la escala y el alcance de 
 1. Desde la plataforma Zeotap Unity, navega hasta la aplicación **DESTINATIONS**.
 2. En **All Channels**, selecciona **Braze**.
 3. En el mensaje que aparece, asigna un nombre a tu destino e indica tu nombre de cliente y la clave de API REST de Braze asociada a tu cuenta de Braze.
-4. Por último, selecciona tu instancia de punto de conexión REST de Braze en el menú desplegable y guarda el destino. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
+4. Por último, selecciona tu instancia de endpoint REST de Braze en el menú desplegable y guarda el destino. <br><br>![Configuración del destino Zeotap Braze con el menú desplegable de instancia de endpoint.]({% image_buster /assets/img/zeotap/zeotap1.png %})
 
 ### Paso 2: Crea y vincula un segmento Zeotap a tu destino {#step-2-create-and-link-a-zeotap-segment-to-your-destination}
 
@@ -37,7 +37,7 @@ Con la integración de Zeotap y Braze, puedes ampliar la escala y el alcance de 
 3. Selecciona un identificador de salida compatible: MAID, dirección de correo electrónico con hash SHA256 o cualquier identificador de cliente 1P reconocido por Braze (si deseas utilizar un identificador personalizado para tu cuenta de Braze, ponte en contacto con Zeotap para que se habilite en tu cuenta). Solo se puede utilizar un identificador de salida para la integración con Braze. Estos identificadores deben ser los mismos que el ID externo establecido al recopilar los datos del SDK de Braze.
 4. Guarda el segmento.
 
-![]({% image_buster /assets/img/zeotap/zeotap2.png %})
+![Configuración de segmento en Zeotap CONNECT vinculado al destino Braze.]({% image_buster /assets/img/zeotap/zeotap2.png %})
 
 {% alert note %}
 Los identificadores que aparecen están disponibles en el segmento y son compatibles con Braze.

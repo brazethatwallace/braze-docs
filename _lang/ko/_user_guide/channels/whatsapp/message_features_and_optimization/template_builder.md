@@ -10,7 +10,7 @@ channel:
 
 # WhatsApp 템플릿 빌더 {#whatsapp-template-builder}
 
-> WhatsApp 템플릿 빌더를 사용하면 Braze에서 직접 WhatsApp 메시지 템플릿을 생성하고 제출할 수 있으며, Braze와 Meta Business Manager 사이를 오갈 필요가 없습니다. Meta가 템플릿을 승인하면 원하는 만큼 많은 Campaigns과 Canvases에서 사용할 수 있습니다.
+> WhatsApp 템플릿 빌더를 사용하면 Braze에서 직접 WhatsApp 메시지 템플릿을 생성하고 제출할 수 있으며, Braze와 Meta Business Manager 사이를 오갈 필요가 없습니다. Meta가 템플릿을 승인하면 원하는 만큼 많은 Campaign과 Canvas에서 사용할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -49,7 +49,7 @@ channel:
 메시지 본문 위에 표시할 헤더를 추가합니다. 다음 중 선택할 수 있습니다:
 
 - **텍스트:** 짧은 텍스트 헤더입니다.
-- **미디어:** 이미지, 동영상 또는 문서(URL만 가능)입니다. Braze가 미디어 참조를 저장하고 승인을 위해 Meta에 샘플을 제출합니다.
+- **미디어:** 이미지, 비디오 또는 문서(URL만 가능)입니다. Braze가 미디어 참조를 저장하고 승인을 위해 Meta에 샘플을 제출합니다.
 - **없음:** 헤더 없음
 
 #### 본문 {#body}
@@ -104,7 +104,7 @@ Meta가 템플릿을 승인하면 WhatsApp Campaign 또는 Canvas에서 사용�
 2. 메시지 작성기에서 승인된 템플릿을 선택합니다.
 3. Braze가 템플릿 생성 시 입력한 미디어 및 Liquid를 포함하여 템플릿의 콘텐츠를 자동으로 채우므로 다시 입력할 필요가 없습니다.
 4. 필요에 따라 변수 콘텐츠 또는 개인화를 업데이트합니다. Meta에 의해 잠긴 필드(회색으로 표시)는 편집할 수 없습니다. 잠긴 콘텐츠를 변경하려면 템플릿을 편집하고 승인을 위해 다시 제출해야 합니다.
-5. **테스트** 탭을 사용하여 메시지를 미리 보고, 본문 변수를 업데이트하고, 시작 전에 메시지가 예상대로 표시되는지 확인합니다.
+5. **테스트** 탭을 사용하여 메시지를 미리 보고, 본문 변수를 업데이트하고, 발송 전에 메시지가 예상대로 표시되는지 확인합니다.
 
 WhatsApp Campaign 작성에 대한 자세한 내용은 [WhatsApp 메시지 생성]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)을 참조하세요.
 

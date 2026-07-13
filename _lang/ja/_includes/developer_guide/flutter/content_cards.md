@@ -1,6 +1,6 @@
 ## Flutterのコンテンツカードについて {#about-flutter-content-cards}
 
-Braze SDKには、コンテンツカードを使い始めるためのデフォルトのカードフィードが含まれています。カードフィードを表示するには、`braze.launchContentCards()` メソッドを使用できます。Braze SDKに含まれるデフォルトのカードフィードは、ユーザーのコンテンツカードの分析トラッキング、却下、レンダリングをすべて処理します。
+Braze SDKには、コンテンツカードを使い始めるためのデフォルトのカードフィードが含まれています。カードフィードを表示するには、`braze.launchContentCards()`メソッドを使用できます。Braze SDKに含まれるデフォルトのカードフィードは、ユーザーのContent Cardsの分析トラッキング、却下、レンダリングをすべて処理します。
 
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
@@ -11,10 +11,10 @@ Braze SDKには、コンテンツカードを使い始めるためのデフォ�
 | メソッド                                         | 説明                                                                                            |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `braze.requestContentCardsRefresh()`     | Braze SDKサーバーから最新のContent Cardsをリクエストします。                                           |
-| `braze.logContentCardClicked(contentCard)`    | 指定されたコンテンツカードオブジェクトのクリックを記録します。                                                            |
-| `braze.logContentCardImpression(contentCard)` | 指定されたコンテンツカードオブジェクトのインプレッションを記録します。                                                      |
-| `braze.logContentCardDismissed(contentCard)`  | 指定されたコンテンツカードオブジェクトの却下を記録します。                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+| `braze.logContentCardClicked(contentCard)`    | 指定されたContent Cardsオブジェクトのクリックを記録します。                                                            |
+| `braze.logContentCardImpression(contentCard)` | 指定されたContent Cardsオブジェクトのインプレッションを記録します。                                                      |
+| `braze.logContentCardDismissed(contentCard)`  | 指定されたContent Cardsオブジェクトの却下を記録します。                                                        |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カードメソッド" }
 
 ## コンテンツカードデータの受信 {#receiving-content-card-data}
 
@@ -60,6 +60,6 @@ Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイ�
 #### コンテンツカードのコールバックを再生する {#replaying-the-callback-for-content-cards}
 
 コールバックが利用可能になる前にトリガーされたコンテンツカードを保存し、設定後に再生するには、`BrazePlugin`の初期化時に次のエントリを`customConfigs`マップに追加します。
-`````````dart
+```dart
 BrazePlugin braze = new BrazePlugin(customConfigs: {replayCallbacksConfigKey: true});
 ```

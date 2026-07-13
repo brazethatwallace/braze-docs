@@ -3,7 +3,7 @@ nav_title: Salesforce Sales Cloud
 article_title: Administrar clientes potenciales con Salesforce Sales Cloud
 page_order: 3
 page_type: reference
-description: "Aprende a utilizar webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud a través del punto de conexión Salesforce sobjects/Lead."
+description: "Aprende a utilizar webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud a través del endpoint Salesforce sobjects/Lead."
 ---
 
 # Administrar clientes potenciales con Salesforce Sales Cloud {#manage-leads-with-salesforce-sales-cloud}
@@ -16,14 +16,14 @@ Se trata de una integración enviada por la comunidad y no cuenta con soporte di
 
 ## Cómo funciona {#how-it-works}
 
-La integración de Braze y Salesforce Sales Cloud utiliza webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud a través del punto de conexión de Salesforce [sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html).
+La integración de Braze y Salesforce Sales Cloud utiliza webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud a través del endpoint de Salesforce [sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html).
 
 Braze ofrece actualmente dos integraciones con Salesforce Sales Cloud para los siguientes casos de uso:
 1. [Crear un cliente potencial en Salesforce Sales Cloud](#creating-lead)
 2. [Actualizar un cliente potencial en Salesforce Sales Cloud](#updating-lead)
 
 {% alert note %}
-Esta integración es exclusivamente para actualizar Salesforce desde Braze como parte de tus esfuerzos de captación y nutrición de clientes potenciales. Para sincronizar datos de Salesforce de vuelta a Braze, consulta el [modelo de datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) o ponte en contacto con uno de nuestros [socios tecnológicos]({{site.baseurl}}/partners/home).
+Esta integración es exclusivamente para actualizar Salesforce desde Braze como parte de tus esfuerzos de captación y nutrición de clientes potenciales. Para sincronizar datos de Salesforce de vuelta a Braze, consulta el [modelo de datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) o ponte en contacto con uno de nuestros [partners tecnológicos]({{site.baseurl}}/partners/home).
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
@@ -52,7 +52,7 @@ Como plataforma de interacción con los clientes, Braze puede generar nuevos cli
 
 Utiliza plantillas para reutilizar rápidamente este webhook en toda la plataforma Braze.
 
-1. En Braze, ve a **Plantillas**, selecciona **Plantillas de Webhook** y luego selecciona **+ Crear plantilla de webhook**.
+1. En Braze, ve a **Plantillas**, selecciona **Plantillas de webhook** y luego selecciona **+ Crear plantilla de webhook**.
 2. Proporciona un nombre para la plantilla, como "Salesforce Sales Cloud > Crear cliente potencial".
 3. En la pestaña **Redactar**, introduce los siguientes datos:
 
@@ -94,7 +94,7 @@ Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de s
 
 ## Actualizar un cliente potencial en Salesforce Sales Cloud {#updating-lead}
 
-Para configurar un webhook de Braze para Salesforce Sales Cloud que actualice clientes potenciales en Salesforce, necesitas un identificador común entre Salesforce Sales Cloud y Braze. El ejemplo siguiente utiliza el `lead_id` de Salesforce como el `external_id` de Braze, pero también puedes lograrlo utilizando un `user_alias`. Para más detalles, consulta [Datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
+Para configurar un webhook de Braze para Salesforce Sales Cloud que actualice clientes potenciales en Salesforce, necesitas un identificador común entre Salesforce Sales Cloud y Braze. El ejemplo de la siguiente sección utiliza el `lead_id` de Salesforce como el `external_id` de Braze, pero también puedes lograrlo utilizando un `user_alias`. Para más detalles, consulta [Datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
 
 Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente potencial a "MQL" (Marketing Qualified Lead) después de que un cliente potencial supere un determinado umbral. Esta es una parte fundamental de nuestro caso de uso del [flujo de trabajo de puntuación de clientes potenciales B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
 
@@ -108,7 +108,7 @@ Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente po
 
 ### Paso 2: Configura tu plantilla de webhook
 
-1. En Braze, ve a **Plantillas**, selecciona **Plantillas de Webhook** y luego selecciona **+ Crear plantilla de webhook**.
+1. En Braze, ve a **Plantillas**, selecciona **Plantillas de webhook** y luego selecciona **+ Crear plantilla de webhook**.
 2. Proporciona un nombre para la plantilla, como "Salesforce Sales Cloud > Actualizar cliente potencial a MQL".
 3. En la pestaña **Redactar**, introduce los siguientes datos:
 
@@ -172,9 +172,9 @@ Añade un paso posterior a tu actualización de usuario para comprobar si un usu
 ![El grupo de ruta de audiencia "MQL Threshold" con filtros para un `lead_stage` igual a "Lead" y un `lead_score` superior a "50".]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}
 
 {: start="3" }
-3. Añade un paso de **Actualización de usuario** que actualice el valor del atributo `lead_stage` del usuario a "MQL".
+3. Añade un paso de **actualización de usuario** que actualice el valor del atributo `lead_stage` del usuario a "MQL".
 
-![El paso de Actualización de usuario "Update to MQL" que actualiza el atributo `lead_stage` para que tenga el valor "MQL".]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
+![El paso de actualización de usuario "Update to MQL" que actualiza el atributo `lead_stage` para que tenga el valor "MQL".]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
 
 {: start="4" }
 4. Añade un paso de webhook que actualice Salesforce con la nueva etapa MQL.

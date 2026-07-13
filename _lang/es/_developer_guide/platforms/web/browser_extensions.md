@@ -18,14 +18,14 @@ Integra el SDK Web de Braze en la extensión de tu navegador para recopilar aná
 
 En general, dado que las extensiones son HTML y JavaScript, puedes usar Braze para lo siguiente:
 
-* **Análisis**: Captura eventos personalizados, atributos e incluso identifica a usuarios recurrentes dentro de tu extensión. Usa estos rasgos de perfil para potenciar la mensajería multicanal.
-* **In-App Messages**: Desencadena mensajes dentro de la aplicación cuando los usuarios realicen una acción dentro de tu extensión, utilizando nuestra mensajería nativa o HTML personalizada.
-* **Content Cards**: Añade una fuente de tarjetas nativas a tu extensión para la incorporación o el contenido promocional.
-* **Notificación push web**: Envía notificaciones puntuales aunque tu página web no esté abierta en ese momento.
+* **Análisis**: captura eventos personalizados, atributos e incluso identifica a usuarios recurrentes dentro de tu extensión. Usa estos rasgos de perfil para potenciar la mensajería multicanal.
+* **In-App Messages**: desencadena mensajes dentro de la aplicación cuando los usuarios realicen una acción dentro de tu extensión, utilizando nuestra mensajería nativa o HTML personalizada.
+* **Content Cards**: añade una fuente de tarjetas nativas a tu extensión para la incorporación o el contenido promocional.
+* **Notificación push web**: envía notificaciones puntuales aunque tu página web no esté abierta en ese momento.
 
 ## Lo que no se admite {#whats-not-supported}
 
-* No se admite el uso del SDK de Braze desde un prestador de servicios. Aun así, puedes usar el SDK de Braze en la ventana emergente o la página de configuración de tu extensión.
+* No se admite el uso del SDK de Braze desde un prestador de servicios. Aun así, puedes usar el SDK de Braze en la ventana emergente o la página de configuración de tu extensión. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## Tipos de extensión {#extension-types}
 

@@ -133,7 +133,7 @@ Flowが完了すると、BrazeはFlow IDに基づいた名前でFlowカスタム
 
 ### ステップ 1: アクションパスの作成 {#step-1-create-an-action-path}
 
-[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)のキャンバスステップまたはアクションベースのキャンペーンを作成します。**Send a WhatsApp inbound message**トリガーと**Responded to Flow**条件を選択し、該当するFlowまたは**Any Flow**を選択します。
+[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)のキャンバスステップまたはアクションベースのキャンペーンを作成します。**WhatsApp インバウンドメッセージを送信**トリガーと**フローに応答しました**条件を選択し、該当するFlowまたは**任意のフロー**を選択します。
 
 ![WhatsAppインバウンドメッセージを送信し、任意のFlowに応答したユーザーのトリガー。]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
 

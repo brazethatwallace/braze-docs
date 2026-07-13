@@ -91,7 +91,7 @@ Os modelos de carrossel exibem um corpo de mensagem seguido de 2 a 10 cartões d
 | Texto do corpo do cartão | 160 caracteres | |
 | Rótulo do botão | 25 caracteres | |
 | Número de telefone (no botão de telefone) | 20 caracteres | |
-| URL (no botão de URL) | 2.000 caracteres; suporta 1 variável adicionada ao final | Botões de URL abrem no navegador padrão do usuário, fora do WhatsApp. Nenhum webhook de pedido ou conversão é acionado a partir desse ponto. |
+| URL (no botão de URL) | 2.000 caracteres; suporta 1 variável adicionada ao final | Botões de URL abrem no navegador padrão do usuário, fora do WhatsApp. Nenhum webhook de pedido ou conversão é disparado a partir desse ponto. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comprimento de caracteres por cartão" }
 
 ## Mensagens de resposta {#response-messages}

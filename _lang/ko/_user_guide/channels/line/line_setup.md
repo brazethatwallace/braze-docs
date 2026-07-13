@@ -233,9 +233,9 @@ LINE은 사용자 구독 상태의 정보 소스입니다. 사용자의 LINE ID(
 {: start="2"}
 2. **이벤트 업데이트:** 사용자의 구독 상태를 업데이트하는 데 사용됩니다. Braze가 통합된 LINE 채널에 대한 사용자 이벤트 업데이트를 수신하고 이벤트가 팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `subscribed`로 설정됩니다. 이벤트가 언팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `unsubscribed`로 설정됩니다.<br><br>- 일치하는 `native_line_id`가 있는 모든 Braze 고객 프로필이 자동으로 업데이트됩니다. <br>- 이벤트에 대해 일치하는 고객 프로필이 없으면 Braze가 [익명 사용자를 생성]({{site.baseurl}}/line/user_management)합니다.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
-위의 설정 단계를 따른 후 사용자가 업데이트될 수 있는 활용 사례입니다.
+위의 설정 단계를 따른 후 사용자가 업데이트될 수 있는 사용 사례입니다.
 
 ### 기존 Braze 고객 프로필이 이미 LINE 채널을 팔로우하는 경우 {#existing-braze-user-profile-already-follows-line-channel}
 
@@ -398,5 +398,5 @@ if (user && isLoggedIn && lineUserId) {
 2. Braze에서 Braze ID를 사용하여 특정 사용자를 검색하고 필요에 따라 수정할 수 있습니다.
 
 {% alert important %}
-Canvas에 발송을 방해하는 글로벌 컨트롤이나 대조군이 없는지 확인하세요.
+Canvas에 발송을 방해하는 전역 제어나 대조군이 없는지 확인하세요.
 {% endalert %}

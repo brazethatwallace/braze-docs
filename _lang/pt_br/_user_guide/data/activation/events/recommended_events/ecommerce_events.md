@@ -56,10 +56,10 @@ A Braze oferece três formas de segmentar usuários com base em dados de eCommer
 
 - **Filtros de eCommerce:** Use a categoria **eCommerce** no segmentador, que contém filtros alimentados por eventos recomendados de eCommerce (como **Last Order Placed**, **Total Revenue** e **Average Order Value**). Para uma lista completa dos filtros disponíveis, consulte [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 - **Filtros de evento personalizado:** Como os eventos de eCommerce se comportam como eventos personalizados, todos os filtros de eventos personalizados existentes funcionam imediatamente. Por exemplo, você pode filtrar por "Realizou o evento personalizado `ecommerce.order_placed` mais de X vezes" ou "Realizou pela primeira vez o evento personalizado `ecommerce.order_placed`".
-- **Extensões de segmento:** Para segmentar por propriedades de evento aninhadas, incluindo o array de produtos aninhados ou as propriedades dos objetos de metadados, use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com filtragem de propriedades de evento aninhadas. Isso permite criar públicos como "usuários que compraram o produto SKU-123 nos últimos 90 dias" ou combinar critérios de diferentes propriedades do mesmo pedido.
+- **Extensões de segmento:** Para segmentar por propriedades de evento aninhadas, incluindo o array de produtos aninhados ou as propriedades dos objetos de metadados, use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com filtragem de propriedades de evento aninhadas. Isso permite criar públicos como "usuários que compraram o produto SKU-123 nos últimos 90 dias" ou combinar critérios de diferentes propriedades do mesmo pedido.
 
 {% alert important %}
-As Extensões de segmento para eventos recomendados de eCommerce são um recurso pago e estão em acesso antecipado. Se você tem interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente. Confirme se o seu plano inclui acesso antes de recomendar segmentação por propriedades aninhadas para sua equipe.
+As extensões de segmento para eventos recomendados de eCommerce são um recurso pago e estão em acesso antecipado. Se você tem interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente. Confirme se o seu plano inclui acesso antes de recomendar segmentação por propriedades aninhadas para sua equipe.
 {% endalert %}
 
 ### Disparo {#triggering}
@@ -166,15 +166,15 @@ Os eventos recomendados de eCommerce alimentam as mesmas superfícies de receita
 | **Analytics** de Campaign e Canvas | Receita total atribuída a uma Campaign ou Canvas específico dentro da janela de conversão primária. |
 | Relatório de conversões | Receita vinculada a eventos de conversão em Campaigns e Canvas.<br> **Nota:** Para contabilizar a receita de `ecommerce.order_placed`, a Campaign ou Canvas deve usar o tipo de evento de conversão "Place Order" como seu evento de conversão. |
 | Insights de segmento | Comparações de receita entre segmentos no dashboard de insights de segmento. |
-| Criador de relatórios | Métricas de receita em relatórios personalizados criados no Criador de relatórios. |
-| Criador de dashboard | Métricas de receita em dashboards personalizados criados no Criador de dashboard. |
+| Report Builder | Métricas de receita em relatórios personalizados criados no Report Builder. |
+| Dashboard Builder | Métricas de receita em dashboards personalizados criados no Dashboard Builder. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Relatórios de eCommerce" }
 
 Para campos calculados não relacionados ao usuário (por exemplo, receita de Campaign ou Canvas), a receita é calculada da mesma forma em todos os relatórios: `price` multiplicado por `quantity` por produto no pedido, somado entre os produtos em cada evento `order_placed`.
 
 {% alert note %}
-Para evitar contagem dupla de receita, não envie tanto compras legadas quanto eventos recomendados de eCommerce para os mesmos pedidos. Se você está planejando fazer a transição de compras legadas para eventos recomendados, coordene a mudança com a equipe de conta da Braze antes de fazer qualquer alteração na integração.<br><br>
-Os cálculos de receita limitam as quantidades individuais de produtos a `1.000` unidades por pedido. Se o campo `quantity` estiver ausente para um produto, o padrão é `1`. O evento `order_placed` original mantém a quantidade completa que você enviou — apenas o cálculo de receita aplica o limite.
+Os cálculos de receita limitam as quantidades individuais de produtos a 1.000 unidades por pedido. Se o campo de quantidade estiver ausente para um produto, o padrão é uma unidade. O evento `ecommerce.order_placed` original mantém a quantidade completa que você enviou — apenas o cálculo de receita aplica o limite.<br><br>
+Se você está migrando de eventos de compra legados para `ecommerce.order_placed`, coordene com a equipe de conta da Braze antes de fazer qualquer alteração na integração. Durante o período de transição, envie tanto eventos de compra legados quanto `ecommerce.order_placed` para confirmar que estão sendo disparados corretamente e para preparar suas Campaigns, Canvas e segmentos ativos para migrar para o novo evento. Sua equipe de conta pode então ajudá-lo a planejar a transição para mudar os relatórios de receita de eventos de compra legados para `ecommerce.order_placed`.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>
@@ -195,4 +195,4 @@ A Braze oferece várias formas de exportar dados de eventos de eCommerce para us
 
 ### Como segmentar usuários por um produto específico? {#how-do-i-segment-users-by-a-specific-product}
 
-O segmentador permite filtrar pelo número de vezes que um usuário realizou um evento de eCommerce. Para filtrar por propriedades específicas do produto (como `product_id` ou `product_name`), use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que suportam filtragem de propriedades de evento aninhadas. Por exemplo, você pode encontrar todos os usuários que compraram o produto "SKU-123" nos últimos 90 dias.
+O segmentador permite filtrar pelo número de vezes que um usuário realizou um evento de eCommerce. Para filtrar por propriedades específicas do produto (como `product_id` ou `product_name`), use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que suportam filtragem de propriedades de evento aninhadas. Por exemplo, você pode encontrar todos os usuários que compraram o produto "SKU-123" nos últimos 90 dias.

@@ -95,7 +95,7 @@ Para encontrar a chave correta do servidor Firebase e substituí-la:
 
 1. Acesse o console do Firebase para o seu app.
 2. Em **Project Overview**, selecione **Project Settings**.
-3. Na guia **Cloud Messaging**, verifique se o Sender ID abaixo das chaves de API corresponde ao que está na Braze (em **Configurações** > **Configurações do app** > **Cloud Messaging API Key**).
+3. Na guia **Cloud Messaging**, verifique se o Sender ID nas chaves de API corresponde ao que está na Braze (em **Configurações** > **Configurações do app** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 Não altere o Sender ID no dashboard da Braze. Fazer isso fará com que os registros de push existentes sejam invalidados. Se o Sender ID não corresponder, você deve encontrar o projeto do Firebase com o Sender ID correspondente.
@@ -213,9 +213,9 @@ table {
 }
 </style>
 
-| SO      | Atalhos de teclado                                                  |
+| SO | Atalhos de teclado |
 | ------- | ------------------------------------------------------------------- |
-| Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
+| Mac | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Redefinir o Chrome no desktop" }
 

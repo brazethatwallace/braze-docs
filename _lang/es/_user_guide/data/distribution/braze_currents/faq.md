@@ -15,7 +15,7 @@ tool: Currents
 
 Para obtener métricas de Campaign o Canvas en un rango de fechas definido, utiliza uno de los siguientes enfoques:
 
-- Envía una [solicitud de producto](https://portal.braze.com/) para exportaciones alineadas por fecha cuando necesites informes de estilo panel fuera de las ventanas estándar de la API.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - Llama a los endpoints de [análisis de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) o [análisis de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) con los parámetros `ending_at` y `length` (o usa [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) y [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) para datos de series temporales.
 - Transmite eventos a tu almacén de datos con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) cuando necesites datos continuos y consultables de interacción con mensajes en Amazon S3, Azure Blob Storage u otro destino compatible.
 

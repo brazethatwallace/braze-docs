@@ -51,16 +51,16 @@ tool: Canvas
 
 ### ステップ 3: エントリスケジュールをカスタマイズする {#step-3-tailor-the-entry-schedule}
 
-エントリスケジュールは**Action-Based**のままにして、ユーザーがアクションを実行した際にキャンバスに入るようにします。テンプレートでは既に**Perform a Back in Stock Event**に設定されています。
+エントリスケジュールは**アクションベース**のままにして、ユーザーがアクションを実行した際にキャンバスに入るようにします。テンプレートでは既に**再入荷イベントを実行**に設定されています。
 
 このステップでは2つの調整を行います。
 
 1. Classic Straight Legジーンズの情報を含むカタログを選択します。ここでは「Straight Leg Pants」という名前にしています。
 
-![アクションベースのキャンバスの「Entry Schedule」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
+![アクションベースのキャンバスの「エントリスケジュール」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
 
 {: start="2"}
-2. **Start Time (Required)**を希望の開始日時に設定します。
+2. **開始時刻 (必須)**を希望の開始日時に設定します。
 
 ![開始時間が2025年1月2日午前0時の「Entry Window」セクション。]({% image_buster /assets/img/canvas_templates/back_in_stock_4.png %})
 
@@ -71,7 +71,7 @@ Classic Straight Legジーンズを購入する可能性が高いと思われる
 1. ターゲットセグメントの「Favorited - Classic Straight Leg Jeans」を選択します。これは、アプリまたはWebサイトでClassic Straight Legジーンズをお気に入りに追加したユーザーで構成されています。
 2. 「Jeans」を「0」回より多く購入したユーザーを含めるフィルターを選択します。
 
-![「Favorited - Classic Straight Leg Jeans」というセグメントが設定された「Target Audience」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
+![「Favorited - Classic Straight Leg Jeans」というセグメントが設定された「ターゲットオーディエンス」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
 
 {: start="3"}
 3. エントリコントロールを調整して、キャンバスの最大期間後にユーザーがキャンバスに再エントリできるようにし、ユーザーが同じステップを同時にトリガーする可能性を防ぎます。
@@ -87,7 +87,7 @@ Classic Straight Legジーンズを購入する可能性が高いと思われる
 
 デフォルトのサブスクリプション設定をそのまま使用し、メッセージや通知の受信を購読またはオプトインしたユーザーにのみ送信します。その他の設定（フリークエンシーキャップ、静寂時間、シードグループ）はスキップします。
 
-![購読中またはオプトインしたユーザーをターゲットにする「Send Settings」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_8.png %})
+![購読中またはオプトインしたユーザーをターゲットにする「送信設定」ステップ。]({% image_buster /assets/img/canvas_templates/back_in_stock_8.png %})
 
 ### ステップ 6: キャンバスをカスタマイズする {#step-6-customize-your-canvas}
 

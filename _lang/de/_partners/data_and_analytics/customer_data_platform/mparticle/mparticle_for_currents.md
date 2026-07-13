@@ -13,16 +13,16 @@ search_tag: Partner
 
 > [mParticle](https://www.mparticle.com) ist eine Customer Data Platform (CDP), die Daten aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Ziele in Ihrem Marketing Stack weiterleitet.
 
-Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern. Mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) können Sie auch Daten mit mParticle verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
+Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern. Mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) können Sie auch Daten mit mParticle verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Currents | Um Daten zurück in mParticle zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
+| Currents | Um Daten zurück in mParticle zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. |
 | mParticle-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [mParticle-Konto](https://app.mparticle.com/login). |
 | mParticle Server-zu-Server-Schlüssel und -Geheimnis | Diese erhalten Sie, indem Sie zu Ihrem mParticle-Dashboard navigieren und die [erforderlichen Feeds](#step-1-create-feeds) erstellen, die es mParticle ermöglichen, Braze-Interaktionsdaten für iOS-, Android- und Internet-Plattformen zu empfangen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Über mParticle-Zugangsdaten {#about-mparticle-credentials}
 
@@ -35,13 +35,13 @@ Sie können sich das so vorstellen, dass mParticle einen „Feed“ basierend au
 
 ## Integration
 
-### 1. Schritt: Feeds erstellen {#step-1-create-feeds}
+### Schritt 1: Feeds erstellen {#step-1-create-feeds}
 
 Navigieren Sie in Ihrem mParticle-Administratorkonto zu **Setup > Inputs**. Suchen Sie **Braze** im mParticle-**Directory** und fügen Sie die Feed-Integration hinzu.
 
 Die Braze-Feed-Integration unterstützt vier separate Feeds: iOS, Android, Internet und Ungebunden. Der ungebundene Feed kann für Events wie E-Mails verwendet werden, die nicht mit einer Plattform verbunden sind. Sie müssen für jeden Hauptplattform-Feed einen Input erstellen. Zusätzliche Inputs können Sie unter **Setup > Inputs** im Tab **Feed Configurations** erstellen.
 
-![]({% image_buster /assets/img/braze-feed-inputs.png %})
+![Einrichtung der mParticle-Feed-Inputs mit den Braze-Feed-Optionen für iOS, Android, Internet und Ungebunden.]({% image_buster /assets/img/braze-feed-inputs.png %})
 
 Wählen Sie für jeden Feed unter **Act as Platform** die entsprechende Plattform aus der Liste aus. Wenn Sie keine Option zur Auswahl eines **Act-as**-Feeds sehen, werden die Daten als ungebunden behandelt, können aber dennoch an Data-Warehouse-Ausgaben weitergeleitet werden.
 
@@ -49,7 +49,7 @@ Wählen Sie für jeden Feed unter **Act as Platform** die entsprechende Plattfor
 
 Beim Erstellen jedes Inputs stellt Ihnen mParticle einen Schlüssel und ein Geheimnis zur Verfügung. Kopieren Sie diese Zugangsdaten und notieren Sie, welchem Feed das jeweilige Zugangsdatenpaar zugeordnet ist.
 
-### 2. Schritt: Current erstellen {#step-2-create-current}
+### Schritt 2: Current erstellen {#step-2-create-current}
 
 Navigieren Sie in Braze zu **Currents > + Create Current > Create mParticle Export**. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail-Adresse sowie den mParticle-API-Schlüssel und den geheimen mParticle-Schlüssel für jede Plattform an. Wählen Sie anschließend die Events aus, die Sie verfolgen möchten; eine Liste der verfügbaren Events wird bereitgestellt. Klicken Sie abschließend auf **Launch Current**.
 
@@ -65,9 +65,9 @@ Alle an mParticle gesendeten Events enthalten die `external_user_id` der Nutzer:
 
 Braze unterstützt den Export der folgenden Events an mParticle:
 
-- [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Für die Payload-Struktur jedes Events wählen Sie den Tab **mParticle** im [Glossar der Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Für die Payload-Struktur jedes Events wählen Sie den Tab **mParticle** im [Glossar der Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 
 Weitere Informationen zur mParticle-Integration finden Sie in der [mParticle-Dokumentation](http://docs.mparticle.com/integrations/braze/feed).

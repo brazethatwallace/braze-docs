@@ -22,14 +22,14 @@ O Inbox Vision pode não funcionar se o conteúdo do seu e-mail depender de info
 
 De modo geral, seu e-mail não funcionará com o Inbox Vision se o conteúdo depender de informações de modelagem, como dados do perfil de usuário. Isso acontece porque a Braze modela um usuário vazio ao enviar e-mails com esse recurso.
 
-Você pode resolver isso adicionando valores padrão ou quaisquer valores ao Liquid na sua mensagem de e-mail antes de executar o Inbox Vision. Quando você terminar os testes no Inbox Vision, a mensagem de e-mail original será exibida. Se nenhum valor for fornecido, o teste pode falhar ao renderizar as pré-visualizações.
+Você pode resolver isso adicionando valores padrão ou quaisquer valores ao Liquid na sua mensagem de e-mail antes de executar o Inbox Vision. Quando você terminar os testes no Inbox Vision, a mensagem de e-mail original será exibida. Se nenhum valor for fornecido, o teste pode falhar ao renderizar as prévias.
 
 Sua empresa tem um limite de quantos e-mails podem ser pré-visualizados com o Inbox Vision. Você pode monitorar isso na guia **Email Previews** do Inbox Vision.
 
-Inclua uma linha de assunto e um domínio de envio válido para visualizar as pré-visualizações. Fique atento às diferenças de renderização entre desktop e celular. Use as pré-visualizações para confirmar que o e-mail aparece conforme o esperado.
+Inclua uma linha de assunto e um domínio de envio válido para visualizar as prévias. Fique atento às diferenças de renderização entre desktop e celular. Use as prévias para confirmar que o e-mail aparece conforme o esperado.
 
 {% alert note %}
-Se a pré-visualização de uma Campaign mostrar um erro de permissão, limpe o cache e os cookies ou tente uma janela anônima. Extensões do navegador às vezes bloqueiam a pré-visualização.
+Se a prévia de uma campanha mostrar um erro de permissão, limpe o cache e os cookies ou tente uma janela anônima. Extensões do navegador às vezes bloqueiam a prévia.
 {% endalert %}
 
 Para testar sua mensagem de e-mail no Inbox Vision:
@@ -38,20 +38,20 @@ Para testar sua mensagem de e-mail no Inbox Vision:
 2. No editor, selecione **Preview & Test**.
 3. Selecione **Inbox Vision**.
 4. Selecione **Run Inbox Vision**. Isso leva até dez minutos.
-5. Em seguida, selecione um bloco para visualizar a pré-visualização em mais detalhes. Essas pré-visualizações são agrupadas nestas seções: **Web Clients**, **Application Clients** e **Mobile Clients**.
+5. Em seguida, selecione um bloco para visualizar a prévia em mais detalhes. Essas prévias são agrupadas nestas seções: **Web Clients**, **Application Clients** e **Mobile Clients**.
 
-![A opção de selecionar clientes de e-mail para pré-visualização.]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
+![A opção de selecionar clientes de e-mail para prévia.]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
 {:start="5"}
 5. Selecione **Run Inbox Vision**. Isso pode levar de dois a dez minutos para ser concluído.
 
 {% alert note %}
-O Inbox Vision não oferece suporte a mensagens de e-mail que incluem [lógica de cancelamento]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) porque esses e-mails são renderizados como conteúdo estático.
+O Inbox Vision não oferece suporte a mensagens de e-mail que incluem [lógica de interrupção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) porque esses e-mails são renderizados como conteúdo estático.
 {% endalert %}
 
 ### Pré-visualizando como um usuário {#previewing-as-a-user}
 
-Quando você pré-visualiza como um usuário aleatório, o Inbox Vision não salva configurações ou atributos específicos do usuário (como nome ou preferências). Quando você seleciona um usuário personalizado, a pré-visualização do Inbox Vision pode diferir de outras pré-visualizações porque usa dados específicos do usuário.
+Quando você pré-visualiza como um usuário aleatório, o Inbox Vision não salva configurações ou atributos específicos do usuário (como nome ou preferências). Quando você seleciona um usuário personalizado, a prévia do Inbox Vision pode diferir de outras prévias porque usa dados específicos do usuário.
 
 ## Análise de código {#code-analysis}
 
@@ -59,31 +59,31 @@ A análise de código destaca possíveis problemas de HTML, mostra o número de 
 
 ### Visualizando informações da análise de código {#viewing-code-analysis-information}
 
-Encontre essas informações na guia **Inbox Vision** selecionando <i class="fas fa-list"></i> **List view**. A visualização em lista está disponível apenas para modelos de e-mail HTML. Para modelos de arrastar e soltar, use as pré-visualizações para resolver problemas.
+Encontre essas informações na guia **Inbox Vision** selecionando <i class="fas fa-list"></i> **List view**. A visualização em lista está disponível apenas para modelos de e-mail HTML. Para modelos de arrastar e soltar, use as prévias para resolver problemas.
 
-![Exemplo de análise de código na pré-visualização do Inbox Vision.]({% image_buster /assets/img_archive/inboxvision2.png %})
+![Exemplo de análise de código na prévia do Inbox Vision.]({% image_buster /assets/img_archive/inboxvision2.png %})
 
 {% alert note %}
-A análise de código pode aparecer mais rápido do que a pré-visualização para um cliente específico, pois a Braze aguarda até que o e-mail chegue antes de capturar a tela.
+A análise de código pode aparecer mais rápido do que a prévia para um cliente específico, pois a Braze aguarda até que o e-mail chegue antes de capturar a tela.
 {% endalert %}
 
-## Teste de spam {#spam-testing}
+## Teste de SPAM {#spam-testing}
 
-O teste de spam estima se o e-mail pode ser filtrado como spam. Os testes são executados em filtros como IronPort, SpamAssassin e Barracuda, além de filtros de provedores de acesso à internet como Gmail e Outlook, usando caixas de entrada estáticas que não abrem nem clicam por padrão.
+O teste de SPAM estima se o e-mail pode ser filtrado como SPAM. Os testes são executados em filtros como IronPort, SpamAssassin e Barracuda, além de filtros de ISP como Gmail e Outlook, usando caixas de entrada estáticas que não abrem nem clicam por padrão.
 
 {% alert important %}
-O posicionamento na caixa de entrada é impulsionado principalmente pelo engajamento real dos destinatários. Os resultados do teste de spam podem não corresponder ao que você observa em Campaigns reais.
+O posicionamento na caixa de entrada é impulsionado principalmente pelo engajamento real dos destinatários. Os resultados do teste de SPAM podem não corresponder ao que você observa em campanhas reais.
 {% endalert %}
 
-Para uma leitura mais clara sobre entregabilidade, teste o conteúdo com pequenas coortes reais — aberturas e cliques consistentes são o sinal mais confiável. Use os testes de spam como um dado adicional junto ao monitoramento de engajamento.
+Para uma leitura mais clara sobre entregabilidade, teste o conteúdo com pequenas coortes reais — aberturas e cliques consistentes são o sinal mais confiável. Use os testes de SPAM como um dado adicional junto ao monitoramento de engajamento.
 
-### Visualizando resultados do teste de spam {#viewing-spam-test-results}
+### Visualizando resultados do teste de SPAM {#viewing-spam-test-results}
 
-Para verificar os resultados do teste de spam:
+Para verificar os resultados do teste de SPAM:
 
-1. Selecione a guia **Spam Testing** na seção **Inbox Vision**. A tabela **Spam Test Result** lista o nome do filtro de spam, o status e o tipo.
-2. Revise esses resultados e faça os ajustes necessários na sua Campaign de e-mail.
-3. Selecione **Re-run Test** para recarregar os resultados do teste de spam.
+1. Selecione a guia **Spam Testing** na seção **Inbox Vision**. A tabela **Spam Test Result** lista o nome do filtro de SPAM, o status e o tipo.
+2. Revise esses resultados e faça os ajustes necessários na sua campanha de e-mail.
+3. Selecione **Re-run Test** para recarregar os resultados do teste de SPAM.
 
 ## Teste de acessibilidade {#accessibility-testing}
 
@@ -128,7 +128,7 @@ O Inbox Vision classifica os problemas de acessibilidade por severidade para aju
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de severidade" }
 
 {% alert important %}
-O editor de arrastar e soltar não oferece suporte à definição de um elemento `<title>` no documento, então o scanner de acessibilidade sempre reprova nessa verificação.<br><br>Essa limitação está sendo acompanhada para melhorias futuras. Se isso afetar seus fluxos de trabalho ou seus usuários, [compartilhe seu feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback) para que possamos priorizar correções de maior impacto.
+O editor de arrastar e soltar não oferece suporte à definição de um elemento `<title>` no documento, então o scanner de acessibilidade sempre reprova nessa verificação.<br><br>Essa limitação está sendo acompanhada para melhorias futuras. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Entendendo o teste automatizado de acessibilidade {#understanding-automated-accessibility-testing}
@@ -141,22 +141,22 @@ O editor de arrastar e soltar não oferece suporte à definição de um elemento
 
 Consulte o [dashboard de insights de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) para determinar o tipo de dispositivo e os provedores mais populares entre seus assinantes. Se você precisar de mais granularidade, como navegador, modelo do dispositivo e mais, pode usar seus dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para obter esse nível de detalhe sobre o engajamento recente de e-mail dos seus usuários.
 
-Caso contrário, a Braze usa como padrão as 20 principais pré-visualizações com base em dados gerais do setor e de especialistas, o que cobre a maioria dos ambientes onde seus assinantes estão engajando com seus e-mails. Se sua análise de dados apontar para outras pré-visualizações mais populares, você pode definir um conjunto padrão de pré-visualizações toda vez que executar o Inbox Vision.
+Caso contrário, a Braze usa como padrão as 20 principais prévias com base em dados gerais do setor e de especialistas, o que cobre a maioria dos ambientes onde seus assinantes estão engajando com seus e-mails. Se sua análise de dados apontar para outras prévias mais populares, você pode definir um conjunto padrão de prévias toda vez que executar o Inbox Vision.
 
-### Selecione pré-visualizações significativas e impactadas {#select-meaningful-previews-and-impacted-previews}
+### Selecione prévias significativas e impactadas {#select-meaningful-previews-and-impacted-previews}
 
-Se o seu negócio é baseado principalmente nos EUA, pode haver pré-visualizações específicas, como pré-visualizações internacionais como GMX.de, que são usadas apenas por um número nominal de usuários. Recomendamos priorizar e otimizar para caixas de entrada com impacto significativo nos assinantes e reservar suas pré-visualizações para caixas de entrada de maior impacto.
+Se o seu negócio é baseado principalmente nos EUA, pode haver prévias específicas, como prévias internacionais como GMX.de, que são usadas apenas por um número nominal de usuários. Recomendamos priorizar e otimizar para caixas de entrada com impacto significativo nos assinantes e reservar suas prévias para caixas de entrada de maior impacto.
 
-Ao fazer correções que afetam pré-visualizações específicas, selecione apenas as pré-visualizações impactadas para evitar consumir pré-visualizações não utilizadas.
+Ao fazer correções que afetam prévias específicas, selecione apenas as prévias impactadas para evitar consumir prévias não utilizadas.
 
 ### Execute o Inbox Vision na versão final do e-mail {#run-inbox-vision-on-the-final-email-version}
 
-Sugerimos executar o Inbox Vision quando a mensagem de e-mail estiver pronta para produção ou próxima disso. Isso permite reduzir o número de pré-visualizações geradas, já que o e-mail passa por várias iterações antes de ser finalizado e estar pronto para ser enviado aos usuários.
+Sugerimos executar o Inbox Vision quando a mensagem de e-mail estiver pronta para produção ou próxima disso. Isso permite reduzir o número de prévias geradas, já que o e-mail passa por várias iterações antes de ser finalizado e estar pronto para ser enviado aos usuários.
 
-Executar o Inbox Vision toda vez que você faz uma única edição ou alteração pode consumir pré-visualizações rapidamente. Sugerimos fazer todas as alterações necessárias no e-mail primeiro e depois executar o Inbox Vision para verificar como todas as suas alterações podem afetar a renderização do e-mail em diferentes ambientes.
+Executar o Inbox Vision toda vez que você faz uma única edição ou alteração pode consumir prévias rapidamente. Sugerimos fazer todas as alterações necessárias no e-mail primeiro e depois executar o Inbox Vision para verificar como todas as suas alterações podem afetar a renderização do e-mail em diferentes ambientes.
 
 A Braze executa testes por meio de clientes de e-mail reais e trabalha para garantir que as renderizações sejam precisas. Se você observar um problema consistente com um cliente, abra um [ticket de suporte]({{site.baseurl}}/braze_support).
 
 ### Precisão do teste versus caixas de entrada reais {#test-accuracy-versus-live-inboxes}
 
-Uma mensagem enviada pode parecer diferente da pré-visualização do editor porque os provedores interpretam o mesmo HTML de formas diferentes. Baixe uma cópia do HTML enviado para comparar e use CSS inline nos casos em que os clientes removem blocos `<style>`.
+Uma mensagem enviada pode parecer diferente da prévia do editor porque os provedores interpretam o mesmo HTML de formas diferentes. Baixe uma cópia do HTML enviado para comparar e use CSS inline nos casos em que os clientes removem blocos `<style>`.

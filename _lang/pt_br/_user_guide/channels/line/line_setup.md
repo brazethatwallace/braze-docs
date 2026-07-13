@@ -117,7 +117,7 @@ Se você precisar atualizar ou rotacionar o channel secret de um canal LINE já 
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-1. Acesse a página de Parceiros de tecnologia da Braze para o LINE e insira as informações que você anotou da guia **Providers** do LINE:
+1. Acesse a página de parceiros de tecnologia da Braze para o LINE e insira as informações que você anotou da guia **Providers** do LINE:
    - Provider ID
    - Channel ID
    - Channel secret
@@ -192,7 +192,7 @@ Aqui está um exemplo de carga útil para `/users/track` que atualiza um perfil 
 
 ## Etapa 5: Mesclar perfis (opcional) {#step-5-merge-profiles-optional}
 
-Conforme descrito acima, existe a possibilidade de vários perfis de usuários existirem com o mesmo `native_line_id`. Se seus métodos de atualização criarem perfis de usuários duplicados, você pode mesclar perfis de usuários não identificados com perfis de usuários identificados usando o endpoint `/user/merge`.
+Conforme descrito anteriormente nesta seção, existe a possibilidade de vários perfis de usuários existirem com o mesmo `native_line_id`. Se seus métodos de atualização criarem perfis de usuários duplicados, você pode mesclar perfis de usuários não identificados com perfis de usuários identificados usando o endpoint `/user/merge`.
 
 Aqui está um exemplo de carga útil para `/users/merge` que direciona um perfil de usuário não identificado pelo alias de usuário `line_id`:
 
@@ -235,7 +235,7 @@ Para ajudar a gerenciar isso, a Braze oferece ferramentas e lógica que suportam
 
 ## Casos de uso {#use-cases}
 
-Estes são casos de uso de como os usuários podem ser atualizados após você seguir as etapas de configuração acima.
+Estes são casos de uso de como os usuários podem ser atualizados após você seguir as etapas de configuração.
 
 ### Perfil de usuário existente na Braze já segue o canal LINE {#existing-braze-user-profile-already-follows-line-channel}
 

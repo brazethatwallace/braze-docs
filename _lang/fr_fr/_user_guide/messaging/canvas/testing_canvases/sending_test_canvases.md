@@ -19,8 +19,8 @@ Créer un plan de test est essentiel avant de commencer à tester votre Canvas. 
 
 Lors de l'élaboration de votre plan de test, posez-vous les questions suivantes :
 - Au moins un utilisateur a-t-il été créé pour chaque branche et chemin du Canvas ?
-- Des segments sont-ils utilisés dans votre Canvas ?
-	- Si des segments sont utilisés, il peut y avoir des conditions préalables pour qu'un utilisateur entre dans le Canvas avant d'être éligible à un parcours utilisateur.
+- Des Segments sont-ils utilisés dans votre Canvas ?
+	- Si des Segments sont utilisés, il peut y avoir des conditions préalables pour qu'un utilisateur entre dans le Canvas avant d'être éligible à un parcours utilisateur.
 - Les messages du Canvas de test contiennent-ils du Liquid dans les titres des messages qui récupèrent l'ID utilisateur ou l'adresse e-mail afin de faciliter l'identification du message et de l'utilisateur à des fins de test ?
 
 ## Étape 2 : Identifier les utilisateurs test {#step-2-identify-test-users}
@@ -33,7 +33,7 @@ Il est maintenant temps de tester votre Canvas ! Pour garder les informations de
 
 Il existe deux façons de tester votre Canvas.
 
-- **Méthode 1 :** Dans le Canvas dupliqué, modifiez la section **Audience d'entrée** du générateur de Canvas afin que seuls les utilisateurs test soient éligibles au Canvas. Vous pouvez également saisir votre propre adresse e-mail en tant qu'utilisateur test en ajoutant le filtre de test **Adresse e-mail**. Dans l'exemple ci-dessous, nous avons limité le Canvas à deux utilisateurs test qui ont utilisé l'application pour la première fois il y a moins de trois jours.
+- **Méthode 1 :** Dans le Canvas dupliqué, modifiez la section **Audience d'entrée** du générateur de Canvas afin que seuls les utilisateurs test soient éligibles au Canvas. Vous pouvez également saisir votre propre adresse e-mail en tant qu'utilisateur test en ajoutant le filtre de test **Adresse e-mail**. Dans l'exemple de la section suivante, nous avons limité le Canvas à deux utilisateurs test qui ont utilisé l'application pour la première fois il y a moins de trois jours.
 
 ![Un Canvas avec une audience d'entrée « A utilisé ces applications pour la première fois il y a moins de 3 jours » et les adresses e-mail de deux utilisateurs test.]({% image_buster /assets/img_archive/canvas_test2.png %}){: style="max-width:90%;"}
 
@@ -45,9 +45,9 @@ Lancez votre Canvas de test pour permettre aux utilisateurs de commencer à y en
 
 Vérifiez que vos utilisateurs test reçoivent les messages prévus à chaque étape du Canvas. Notez que vos utilisateurs test peuvent ne pas recevoir de message pour des raisons telles que :
 
-- Non-éligibilité au Groupe de contrôle global
+- Non-éligibilité au groupe de contrôle global
 - Limitations de la limite de fréquence
-- Appartenance à un segment non concordante
+- Appartenance à un Segment non concordante
 - Messages abandonnés
 - Jetons de notification push associés à d'autres utilisateurs
 
@@ -67,7 +67,7 @@ Au lieu de créer des utilisateurs test individuels, vous pouvez créer un [grou
 
 Pour exécuter les tests plus efficacement, nous vous suggérons de réduire les délais à quelques minutes ou secondes à des fins de test afin de pouvoir consulter les messages en temps voulu. Par exemple, prévoyez au moins 2 à 3 minutes entre les tests pour pouvoir isoler des actions spécifiques dans des parcours Canvas spécifiques.
 
-### Exploiter les Content Blocks {#leverage-content-blocks}
+### Tirer parti des Content Blocks {#leverage-content-blocks}
 
 Si du contenu est amené à être répété dans votre cadre de test (par exemple, du Liquid complexe pour filtrer les utilisateurs dans différentes étapes du Canvas), essayez d'enregistrer ce contenu répété en tant que [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Vous pourrez ainsi inclure le Content Block dans les différentes étapes du Canvas.
 

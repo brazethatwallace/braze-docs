@@ -129,7 +129,7 @@ Archivierte Abo-Gruppen können nicht bearbeitet werden und erscheinen nicht meh
 Um Ihre Gruppe auf der Seite **Subscription Groups** zu archivieren, gehen Sie wie folgt vor:
 
 1. Suchen Sie Ihre Gruppe in der Liste der Abo-Gruppen.
-2. Wählen Sie **Archivieren** aus dem <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;Dropdown-Menü.
+2. Wählen Sie **Archivieren** aus dem <i class="fa-solid fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>&nbsp;Dropdown-Menü.
 
 Braze verarbeitet keine Statusänderungen für Nutzer:innen in archivierten Gruppen. Wenn Sie beispielsweise Abo-Gruppe 1 archivieren, während Alex diese abonniert hat, bleibt Alex „abonniert“, auch wenn er auf einen Abmeldelink klickt. Das spielt keine Rolle, da Abo-Gruppe 1 archiviert ist und Sie keine Nachrichten darüber versenden können.
 
@@ -165,7 +165,7 @@ Um mehr darüber zu erfahren, wie Sie ein Präferenzzentrum hinzufügen oder anp
 
 In den meisten Fällen verwalten Nutzer:innen ihr E-Mail-Abo über Links in den E-Mails, die sie erhalten. Fügen Sie am Ende jeder E-Mail eine rechtskonforme Fußzeile mit einem Abmeldelink ein. Wenn Nutzer:innen die Abmelde-URL auswählen, meldet Braze sie ab und zeigt eine Landing-Page an, die die Änderung bestätigt. Verwenden Sie diesen Liquid-Tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
 
-Wenn eine Nutzer:in im Präferenzzentrum „Von allen oben genannten E-Mail-Typen abmelden“ auswählt, setzt Braze ihren globalen E-Mail-Abo-Status auf `unsubscribed` und meldet sie von allen Gruppen ab.
+Wenn eine Nutzer:in im Präferenzzentrum „Von allen aufgelisteten E-Mail-Typen abmelden“ auswählt, setzt Braze ihren globalen E-Mail-Abo-Status auf `unsubscribed` und meldet sie von allen Gruppen ab.
 
 ### Angepasste Fußzeilen erstellen {#custom-footer}
 

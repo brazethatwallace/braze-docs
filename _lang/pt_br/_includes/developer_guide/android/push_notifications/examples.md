@@ -2,7 +2,7 @@
 
 ## Layout de notificação personalizado {#custom-notification-layout}
 
-As notificações da Braze são enviadas como [mensagens de dados](https://firebase.google.com/docs/cloud-messaging/concept-options), o que significa que seu aplicativo sempre terá a chance de responder e executar o comportamento adequado, mesmo em segundo plano (diferentemente das mensagens de notificação, que podem ser tratadas automaticamente pelo sistema quando seu app está em segundo plano). Dessa forma, seu aplicativo terá a chance de personalizar a experiência, por exemplo, exibindo elementos personalizados de interface dentro da notificação entregue na bandeja de notificações. Embora implementar push dessa maneira possa não ser familiar para alguns, um de nossos recursos mais conhecidos na Braze, o [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/), é um excelente exemplo do uso de componentes de visualização personalizados para criar uma experiência envolvente!
+As notificações da Braze são enviadas como [mensagens de dados](https://firebase.google.com/docs/cloud-messaging/concept-options), o que significa que seu aplicativo sempre terá a chance de responder e executar o comportamento adequado, mesmo em segundo plano (diferentemente das mensagens de notificação, que podem ser tratadas automaticamente pelo sistema quando seu app está em segundo plano). Dessa forma, seu aplicativo terá a chance de personalizar a experiência, por exemplo, exibindo elementos personalizados de interface dentro da notificação entregue na bandeja de notificações. Embora implementar push dessa maneira possa não ser familiar para alguns, um de nossos recursos mais conhecidos na Braze, o [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories), é um excelente exemplo do uso de componentes de visualização personalizados para criar uma experiência envolvente!
 
 {% alert important %}
 O Android impõe algumas limitações quanto aos componentes que podem ser usados para implementar visualizações de notificação personalizadas. Os layouts de visualização de notificação devem conter _apenas_ objetos de visualização compatíveis com o framework [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews).
@@ -248,7 +248,7 @@ class MyApplication : Application() {
 
 ### Etapa 5: Enviar a atividade {#step-5-send-the-activity}
 
-Você pode usar o endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) da REST API para enviar uma notificação por push para o dispositivo Android de um usuário.
+Você pode usar o endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) da REST API para enviar uma notificação por push para o dispositivo Android de um usuário.
 
 #### Exemplo de comando curl {#example-curl-command}
 
@@ -280,7 +280,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa chamada no backend, onde você já está lidando com as [iOS Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
+Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa chamada no seu backend, onde você já está lidando com as [iOS Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
 {% endalert %}
 
 #### Parâmetros de solicitação {#request-parameters}
@@ -288,11 +288,11 @@ Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa ch
 | Chave | Descrição |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `REST_API_KEY`                | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**.                                                                                                     |
-| `BRAZE_REST_ENDPOINT`         | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints).                                                                                                                  |
+| `BRAZE_REST_ENDPOINT`         | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints).                                                                                                                  |
 | `USER_ID`                     | O ID do usuário para o qual você está enviando a notificação.                                                                                                                                                                                          |
 | `messages.android_push.title` | O título da mensagem. Por padrão, isso não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback.                                                                                                    |
 | `messages.android_push.alert` | O corpo da mensagem. Por padrão, isso não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback.                                                                                                     |
-| `messages.extra`              | Pares de chave-valor que a fábrica de notificações personalizada usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor&#8212;no entanto, no exemplo acima, `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo.  |
+| `messages.extra`              | Pares de chave-valor que a fábrica de notificações personalizada usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor&#8212;no entanto, neste exemplo, `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo.  |
 | `ASSIGNED_NOTIFICATION_ID`    | O ID de notificação que você deseja atribuir à notificação ao vivo do usuário escolhido. O ID deve ser exclusivo para esse jogo e deve ser usado para [atualizar a notificação existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parâmetros de solicitação" }
 
@@ -302,10 +302,10 @@ Para atualizar a notificação existente do RemoteView com novos dados, modifiqu
 
 ## Notificações por push personalizadas {#personalized-push-notifications}
 
-As notificações por push podem exibir informações específicas do usuário dentro de uma hierarquia de visualização personalizada. No exemplo a seguir, um gatilho de API é usado para enviar uma notificação por push personalizada a um usuário para que ele possa verificar seu progresso atual depois de concluir uma tarefa específica no app.
+As notificações por push podem exibir informações específicas do usuário dentro de uma hierarquia de visualização personalizada. No exemplo a seguir, um disparo de API é usado para enviar uma notificação por push personalizada a um usuário para que ele possa verificar seu progresso atual depois de concluir uma tarefa específica no app.
 
 ![Exemplo de push personalizado no dashboard]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
 
 Para configurar um push personalizado no dashboard, registre a categoria específica que deseja exibir e, em seguida, defina quaisquer atributos de usuário relevantes que gostaria de exibir usando Liquid.
 
-![Exemplo de push personalizado no dashboard]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
+![Exemplo de configuração de push personalizado no dashboard]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}

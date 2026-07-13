@@ -48,7 +48,7 @@ Braze에는 비인간 상호작용(NHI)이라고도 하는 의심스러운 봇 �
     - 개인화된 배리언트
 - 예상 실제 열람률
 
-의심되는 봇 클릭에 대한 구독 취소는 영향을 받지 않습니다. Braze는 평소와 같이 모든 구독 취소 요청을 계속 처리합니다. Braze에서 이러한 구독 취소를 차단하려면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 제출하세요.
+의심되는 봇 클릭에 대한 구독 취소는 영향을 받지 않습니다. Braze는 평소와 같이 모든 구독 취소 요청을 계속 처리합니다. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## 봇 필터링의 영향을 받는 세분화 필터 {#segmentation-filters-affected-by-bot-filtering}
 

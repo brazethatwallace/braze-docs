@@ -13,22 +13,22 @@ description: "Erfahren Sie, wie Sie mit Hilfe Ihres Katalogs und angepasster Eve
 
 Sie können ein angepasstes Event als Abo-Event einrichten, z. B. ein `product_clicked`-Event. Dieses Event muss eine Eigenschaft mit der Artikel-ID enthalten (Katalogartikel-IDs). Wir empfehlen, einen Katalognamen anzugeben, dies ist jedoch nicht erforderlich. Außerdem müssen Sie den Namen eines Bestandsmengenfelds angeben, das vom Datentyp „Zahl“ sein muss.
 
-Beachten Sie, dass der Bestand eines Katalogartikels auf Null stehen muss, damit ein:e Nutzer:in diesen Artikel erfolgreich abonnieren kann. Wenn ein Artikel eine Bestandsmenge größer als Null hat, sucht Braze alle Nutzer:innen, die diesen Artikel abonniert haben, und sendet ein angepasstes Event, das Sie zum Triggern einer Kampagne oder eines Canvas verwenden können.
+Beachten Sie, dass der Bestand eines Katalogartikels auf Null stehen muss, damit ein:e Nutzer:in diesen Artikel erfolgreich abonnieren kann. Wenn ein Artikel eine Bestandsmenge größer als Null hat, sucht Braze alle Nutzer:innen, die diesen Artikel abonniert haben, und sendet ein angepasstes Event, das Sie zum Triggern einer Campaign oder eines Canvas verwenden können.
 
-Die Event-Eigenschaften werden zusammen mit den Nutzerdaten gesendet, sodass Sie die Artikeldetails als Template in die Kampagne oder das Canvas einfügen können.
+Die Event-Eigenschaften werden zusammen mit den Nutzerdaten gesendet, sodass Sie die Artikeldetails als Template in die Campaign oder das Canvas einfügen können.
 
 ## „Wieder verfügbar“-Benachrichtigungen einrichten {#setting-up-back-in-stock-notifications}
 
 Führen Sie die folgenden Schritte aus, um „Wieder verfügbar“-Benachrichtigungen in einem bestimmten Katalog einzurichten.
 
 1. Gehen Sie zu Ihrem Katalog und wählen Sie den Tab **Einstellungen**.
-2. Wählen Sie den Schalter **Back in stock**.
+2. Aktivieren Sie den Schalter **Back in stock**.
 3. Wenn die globalen „Wieder verfügbar“-Einstellungen noch nicht konfiguriert wurden, werden Sie aufgefordert, die angepassten Events und Eigenschaften einzurichten, die zum Auslösen von „Wieder verfügbar“-Benachrichtigungen verwendet werden:
     <br> ![Katalogeinstellungen.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
     - **Fallback-Katalog:** Dies ist der Katalog, der für das „Wieder verfügbar“-Abo verwendet wird, wenn die Eigenschaft `catalog_name` im angepassten Event nicht vorhanden ist.
     - **Angepasstes Event für Abos** ist das angepasste Braze-Event, mit dem ein:e Nutzer:in für „Wieder verfügbar“-Benachrichtigungen registriert wird. Wenn dieses Event eintritt, wird die Person, die das Event ausgeführt hat, abonniert.
-    - **Angepasstes Event zum Abmelden** ist das angepasste Braze-Event, mit dem ein:e Nutzer:in von „Wieder verfügbar“-Benachrichtigungen abgemeldet wird. Dieses Event ist optional. Wenn die Person dieses Event nicht ausführt, wird sie nach 90 Tagen oder wenn das „Wieder verfügbar“-Event ausgelöst wird, abgemeldet – je nachdem, was zuerst eintritt.
-    - **Artikel-ID-Event-Eigenschaft** ist die Eigenschaft des oben genannten angepassten Events, die verwendet wird, um den Artikel für ein „Wieder verfügbar“-Abo oder eine Abmeldung zu bestimmen. Diese Eigenschaft des angepassten Events sollte eine Artikel-ID (`id`) enthalten, die in einem Katalog vorhanden ist. Die Artikel-ID muss als String gesendet werden, damit sie mit dem im Zielkatalog gespeicherten Datentyp `id` übereinstimmt. Das angepasste Event sollte außerdem eine `catalog_name`-Eigenschaft enthalten, um anzugeben, in welchem Katalog sich dieser Artikel befindet.
+    - **Angepasstes Event zum Abmelden** ist das angepasste Braze-Event, mit dem ein:e Nutzer:in von „Wieder verfügbar“-Benachrichtigungen abgemeldet wird. Dieses Event ist optional. Wenn die Person dieses Event nicht ausführt, wird sie nach 90 Tagen oder wenn das „Wieder verfügbar“-Event ausgelöst wird abgemeldet – je nachdem, was zuerst eintritt.
+    - **Artikel-ID-Event-Eigenschaft** ist die Eigenschaft des weiter oben in diesem Abschnitt genannten angepassten Events, die verwendet wird, um den Artikel für ein „Wieder verfügbar“-Abo oder eine Abmeldung zu bestimmen. Diese Eigenschaft des angepassten Events sollte eine Artikel-ID (`id`) enthalten, die in einem Katalog vorhanden ist. Die Artikel-ID muss als String gesendet werden, damit sie mit dem im Zielkatalog gespeicherten Datentyp `id` übereinstimmt. Das angepasste Event sollte außerdem eine `catalog_name`-Eigenschaft enthalten, um anzugeben, in welchem Katalog sich dieser Artikel befindet.
 
     - Ein Beispiel für ein angepasstes Event könnte wie folgt aussehen:
 

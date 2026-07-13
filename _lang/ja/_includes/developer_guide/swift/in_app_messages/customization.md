@@ -6,7 +6,7 @@
 - デフォルトの[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui)実装を`inAppMessagePresenter`として使用します。
 - `BrazeUI`ライブラリーをプロジェクトに含めます。
 
-### ステップ 1:`BrazeInAppMessageUIDelegate`プロトコルを実装する {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
+### ステップ1:`BrazeInAppMessageUIDelegate`プロトコルを実装する {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
 
 まず、`BrazeInAppMessageUIDelegate`プロトコルと、対応する必要なメソッドを実装します。以下の例では、このプロトコルをアプリケーションの`AppDelegate`クラスに実装しています。
 
@@ -19,7 +19,7 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-`````````objc
+```objc
 @interface AppDelegate () <BrazeInAppMessageUIDelegate>
 
 @end
@@ -31,20 +31,20 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2:`delegate`オブジェクトを割り当てる {#step-2-assign-the-delegate-object}
+### ステップ2:`delegate`オブジェクトを割り当てる {#step-2-assign-the-delegate-object}
 
 このアプリ内メッセージUIを`inAppMessagePresenter`として割り当てる前に、`BrazeInAppMessageUI`インスタンスの`delegate`オブジェクトを割り当てます。
 
 {% tabs %}
 {% tab swift %}
-`````````swift
+```swift
 let inAppMessageUI = BrazeInAppMessageUI()
 inAppMessageUI.delegate = self
 AppDelegate.braze?.inAppMessagePresenter = inAppMessageUI
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-`````````objc
+```objc
 BrazeInAppMessageUI *inAppMessageUI = [[BrazeInAppMessageUI alloc] init];
 inAppMessageUI.delegate = self;
 AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
@@ -72,7 +72,7 @@ AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | 指定されたURLを外部ブラウザで開きます。`useWebView`が`true`に設定されている場合、Webビューで開きます。 |
 | `.none` | クリックするとメッセージが閉じられます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="クリックアクションのタイプ" }
 
 {% alert important %}
 ボタンを含むアプリ内メッセージの場合、ボタンテキストを追加する前にクリックアクションが追加されると、メッセージの`clickAction`も最終ペイロードに含まれます。
@@ -85,7 +85,7 @@ AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -111,7 +111,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   shouldProcess clickAction: Braze.InAppMessage.ClickAction,
@@ -124,7 +124,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (BOOL)inAppMessage:(BrazeInAppMessageUI *)ui
        shouldProcess:(enum BRZInAppMessageRawClickAction)clickAction
                  url:(NSURL *)uri
@@ -141,7 +141,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI, shouldProcess clickAction: Braze.InAppMessage.ClickAction,
   buttonId: String?, message: Braze.InAppMessage, view: InAppMessageView
@@ -178,7 +178,7 @@ func inAppMessage(
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
-`````````objc
+```objc
 - (BOOL)inAppMessage:(BrazeInAppMessageUI *)ui
        shouldProcess:(enum BRZInAppMessageRawClickAction)clickAction
                  url:(NSURL *)uri
@@ -211,7 +211,7 @@ func inAppMessage(
 このスワイプ動作はデフォルトの`BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview)に組み込まれており、スライドアップのアプリ内メッセージにのみ適用されます。モーダルおよびフルのアプリ内メッセージはスワイプによる閉じ操作をサポートしていません。スワイプ動作を含むスライドアップビューをさらにカスタマイズするには、[`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct)を変更するか、サブクラス化によってカスタムビューを提供できます。
 
 {% alert note %}
-スライドアップメッセージの外側をタップしても、メッセージは閉じられません。モーダルまたはフルのアプリ内メッセージについては、以下で説明する`dismissOnBackgroundTap`属性を使用して、外側タップによる閉じ操作を有効にできます。
+スライドアップメッセージの外側をタップしても、メッセージは閉じられません。モーダルまたはフルのアプリ内メッセージについては、以下のセクションで説明する`dismissOnBackgroundTap`属性を使用して、外側タップによる閉じ操作を有効にできます。
 {% endalert %}
 
 ## モーダルの閉じ方をカスタマイズする {#customizing-modal-dismissals}
@@ -223,7 +223,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = true
 ```
 
@@ -241,7 +241,7 @@ BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = 
 |----------|-------------|
 | `true`         | モーダルアプリ内メッセージは外側タップで閉じられます。     |
 | `false`        | デフォルト。モーダルアプリ内メッセージは外側タップでは閉じられません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="モーダルの閉じ方のカスタマイズ" }
 
 アプリ内メッセージのカスタマイズの詳細については、こちらの[記事](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization)を参照してください。
 
@@ -257,7 +257,7 @@ BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = 
 
 {% subtabs %}
 {% subtab swift %}
-`````````swift
+```swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -269,7 +269,7 @@ func inAppMessage(
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (void)inAppMessage:(BrazeInAppMessageUI *)ui
          prepareWith:(BrazeInAppMessageUIPresentationContextRaw *)context {
   context.preferredOrientation = BRZInAppMessageRawOrientationPortrait;
@@ -286,7 +286,7 @@ func inAppMessage(
 {% subtabs %}
 {% subtab swift %}
 
-`````````swift
+```swift
 // Set inAppMessage orientation to support any configuration
 inAppMessage.orientation = .any
 
@@ -300,7 +300,7 @@ inAppMessage.orientation = .landscape
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 // Set inAppMessage orientation to support any configuration
 inAppMessage.orientation = BRZInAppMessageRawOrientationAny;
 
@@ -333,7 +333,7 @@ inAppMessage.orientation = BRZInAppMessageRawOrientationLandscape;
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   displayChoiceForMessage message: Braze.InAppMessage
@@ -343,7 +343,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui displayChoiceForMessage:(BRZInAppMessageRaw *)message
 ```
 
@@ -358,7 +358,7 @@ func inAppMessage(
 | `.reenqueue`                        | メッセージは表示されず、スタックの一番上に戻されます。                                       |
 | `.later`                            | メッセージは表示されず、スタックの一番上に戻されます。（非推奨。`.reenqueue`を使用してください） |
 | `.discard`                          | メッセージは破棄され、表示されません。                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="表示タイミングのカスタマイズ" }
 
 {% alert tip %}
 `InAppMessageUI`のサンプルについては、[Swift Braze SDKリポジトリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI)と[Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI)を確認してください。
@@ -373,7 +373,7 @@ func inAppMessage(
 | `.auto`                             | メッセージビューがステータスバーの非表示状態を決定します。                                 |
 | `.hidden`                           | ステータスバーを常に非表示にします。                                                           |
 | `.visible`                          | ステータスバーを常に表示します。                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステータスバーの非表示" }
 
 ## ダークモードを無効にする {#disabling-dark-mode}
 
@@ -384,7 +384,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -444,7 +444,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (void)inAppMessage:(BrazeInAppMessageUI *)ui
          prepareWith:(BrazeInAppMessageUIPresentationContextRaw *)context {
   switch (context.message.type) {
@@ -487,21 +487,21 @@ func inAppMessage(
 キャンペーンでアプリ内メッセージを使用して、ユーザーにApp Storeのレビューを依頼できます。
 
 {% alert note %}
-このプロンプトの例はBrazeのデフォルト動作をオーバーライドするため、実装するとインプレッションを自動的に追跡できません。[自身で分析データを記録する]({{site.baseurl}}/developer_guide/analytics/)必要があります。
+このプロンプトの例はBrazeのデフォルト動作をオーバーライドするため、実装するとインプレッションを自動的に追跡できません。[自身で分析データを記録する]({{site.baseurl}}/developer_guide/analytics)必要があります。
 {% endalert %}
 
-### ステップ 1:アプリ内メッセージデリゲートを設定する {#step-1-set-the-in-app-message-delegate}
+### ステップ1:アプリ内メッセージデリゲートを設定する {#step-1-set-the-in-app-message-delegate}
 
-まず、アプリで[`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required)を設定します。
+まず、アプリで[`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required)を設定します。
 
-### ステップ 2:デフォルトのApp Storeレビューメッセージを無効にする {#step-2-disable-the-default-app-store-review-message}
+### ステップ2:デフォルトのApp Storeレビューメッセージを無効にする {#step-2-disable-the-default-app-store-review-message}
 
 次に、`inAppMessage(_:displayChoiceForMessage:)` [デリゲートメソッド](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb)を実装して、デフォルトのApp Storeレビューメッセージを無効にします。
 
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Braze.InAppMessage) -> BrazeInAppMessageUI.DisplayChoice {
   if message.extras["AppStore Review"] != nil,
     let messageUrl = message.clickAction.url {
@@ -516,7 +516,7 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui
                             displayChoiceForMessage:(BRZInAppMessageRaw *)message {
   if (message.extras != nil && message.extras[@"AppStore Review"] != nil) {
@@ -531,14 +531,14 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3:ディープリンクを作成する {#step-3-create-a-deep-link}
+### ステップ3:ディープリンクを作成する {#step-3-create-a-deep-link}
 
 ディープリンク処理コードで、次のコードを追加して`{YOUR-APP-SCHEME}:app-store-review`ディープリンクを処理します。`SKStoreReviewController`を使用するには`StoreKit`をインポートする必要があることに注意してください。
 
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
@@ -552,7 +552,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
@@ -568,7 +568,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-### ステップ 4:クリック時のカスタム動作を設定する {#step-4-set-custom-on-click-behavior}
+### ステップ4:クリック時のカスタム動作を設定する {#step-4-set-custom-on-click-behavior}
 
 次に、以下の内容でアプリ内メッセージングキャンペーンを作成します。
 
@@ -578,5 +578,5 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endraw %}
 
 {% alert tip %}
-AppleはApp Storeのレビュープロンプトをユーザーごとに年間最大3回に制限しているため、キャンペーンの[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)はユーザーごとに年間3回に設定する必要があります。<br><br>ユーザーはApp Storeのレビュープロンプトをオフにできます。そのため、カスタムレビュープロンプトでは、App Storeのネイティブレビュープロンプトが表示されることを約束したり、直接レビューを求めたりしないでください。
+AppleはApp Storeのレビュープロンプトをユーザーごとに年間最大3回に制限しているため、キャンペーンの[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting)はユーザーごとに年間3回に設定する必要があります。<br><br>ユーザーはApp Storeのレビュープロンプトをオフにできます。そのため、カスタムレビュープロンプトでは、App Storeのネイティブレビュープロンプトが表示されることを約束したり、直接レビューを求めたりしないでください。
 {% endalert %}

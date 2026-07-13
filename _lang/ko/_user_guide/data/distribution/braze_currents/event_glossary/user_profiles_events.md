@@ -19,7 +19,7 @@ search_rank: 7
 이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부 정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables)를 확인하세요. Snowflake 데이터 공유의 고객 프로필 속성 뷰 스키마는 [고객 프로필 속성]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes)을 참조하세요.
 {% endalert %}
 
-추가 이벤트 권한에 대한 액세스가 필요한 경우 Braze 담당자에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요. 이 페이지에서 필요한 정보를 찾을 수 없는 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events), [메시지 참여 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 참조하세요.
+추가 이벤트 권한에 대한 액세스가 필요한 경우 Braze 담당자에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요. 이 페이지에서 필요한 정보를 찾을 수 없는 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events), [메시지 인게이지먼트 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 참조하세요.
 
 {% details 고객 프로필 업데이트 이벤트 구조 설명 %}
 
@@ -38,6 +38,63 @@ Currents는 페이로드가 900KB보다 큰 이벤트를 삭제합니다.
 </div>
 
 <!--overview-end-->
+
+
+{% api %}
+## 사용자 삭제 요청 이벤트 {#user-delete-request-events}
+
+{% apitags %}
+User Delete Request
+{% endapitags %}
+
+고객 요청에 의해 사용자가 삭제될 때 발생합니다.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserDeleteRequest
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "id" : "(required, string) Globally unique ID for this event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## 사용자 고아 이벤트 {#user-orphan-events}
+
+{% apitags %}
+User Orphan
+{% endapitags %}
+
+사용자가 고아 상태가 될 때 발생하며, 이는 해당 사용자가 다른 사용자의 프로필과 병합되었음을 의미합니다.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserOrphan
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "app_id" : "(optional, string) API ID of the app on which this event occurred",
+  "device_id" : "(optional, string) ID of the device on which the event occurred",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
 
 {% api %}
 ## 고객 프로필 업데이트 이벤트 {#user-profile-update-events}
@@ -59,7 +116,7 @@ Profile
   "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
   "country" : "(optional, string) [PII] Country of the user",
   "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in format \"YYYY-MM-DD\"",
+  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
   "email_address" : "(optional, string) [PII] Email address of the user",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "first_name" : "(optional, string) [PII] First name of the user",

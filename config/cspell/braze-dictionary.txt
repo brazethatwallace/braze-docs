@@ -217,7 +217,9 @@ DELIVERYFAILURE
 Demandbase
 Denada
 Deprioritization
+deprioritize
 deprioritized
+deprioritizes
 detangle
 Deutsch
 developerid
@@ -773,6 +775,7 @@ Squarespace
 SSSZ
 stackadapt
 STATECHANGE
+Stayfilm
 Stensul
 Steppington
 Stpo

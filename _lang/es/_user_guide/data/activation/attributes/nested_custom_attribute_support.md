@@ -22,10 +22,10 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los nombres de las claves y los valores de cadena tienen un límite de tamaño de 255 caracteres.
 - Los nombres de las claves no pueden contener espacios.
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
-- No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home) para confirmar si determinadas integraciones de socios admiten esta característica.
+- No todos los partners de Braze admiten atributos personalizados anidados. Consulta la [documentación del partner]({{site.baseurl}}/partners/home) para confirmar si determinadas integraciones de partners admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de segmento **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support).
-- Al previsualizar mensajes en el dashboard usando **Preview as a Custom User**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
+- De forma predeterminada, el filtro de segmentación **Atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support).
+- Al previsualizar mensajes en el panel usando **Preview as a Custom User**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
 
@@ -267,7 +267,7 @@ Usa la etiqueta de personalización `custom_attribute` y la notación de punto p
 
 Para usar Liquid de atributos personalizados anidados en tu mensaje:
 
-1. Ve a una campaña o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+1. Ve a una Campaign o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
 2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
 3. Usa **Preview & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
@@ -277,7 +277,7 @@ Puedes usar **Add Personalization** para insertar un atributo personalizado anid
 
 Para abrir **Add Personalization**:
 
-1. Ve a una campaña o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+1. Ve a una Campaign o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
 2. En el creador de mensajes, selecciona **Personalization** para abrir la barra lateral **Add Personalization**, donde puedes elegir opciones de personalización.
 
 Para configurar la personalización de atributos personalizados anidados:
@@ -327,7 +327,29 @@ Para configurar este desencadenador en una campaña basada en acciones:
 3. Selecciona la ruta del atributo personalizado anidado que quieras monitorear.
    Por ejemplo, selecciona `preferences.neighborhood_office`.
 4. Selecciona la condición de desencadenamiento que desees, como **any new value**.
-5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lanza la campaña.
+5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lánzala.
+
+## Solución de problemas {#troubleshooting}
+
+### Valores de atributos personalizados anidados no aplicados de forma consistente {#nested-custom-attribute-values-not-applied-consistently}
+
+Si notas que los valores de atributos personalizados anidados no se están añadiendo a los perfiles de usuario de forma consistente, el problema suele estar relacionado con discrepancias en el tipo de datos.
+
+Para diagnosticar y resolver este problema:
+
+1. **Compara ejemplos de usuarios:** Obtén un ejemplo de usuario exitoso y uno no exitoso donde el atributo personalizado anidado debería haberse establecido.
+2. **Revisa la estructura de datos:** Visualiza y compara los valores de atributos personalizados en ambos perfiles:
+   - ¿Las propiedades están almacenadas bajo un objeto?
+   - ¿Las propiedades están almacenadas como una matriz de propiedades?
+3. **Verifica el filtro de segmentación:** Compara la estructura de datos almacenada con la forma en que el atributo personalizado anidado se referencia en tus filtros de segmentación.
+4. **Verifica el tipo de datos:** Para identificar el tipo de datos de un atributo personalizado:
+   - Ve a **Configuración de datos** > **Atributos personalizados**.
+   - Busca el atributo personalizado de nivel superior que contiene el atributo anidado que quieras verificar.
+   - Si la fila muestra **Generate Schema**, selecciónalo para generar el esquema primero.
+   - Después de que se genere el esquema, selecciona el ícono de más en la columna **Attribute Name** de ese atributo.
+   - En el modal **Edit schema**, revisa los atributos anidados y sus valores correspondientes en la columna **Data type**.
+
+Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto usando la solicitud de API o el método de SDK apropiado.
 
 ## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 

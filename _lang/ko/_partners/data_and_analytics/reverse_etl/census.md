@@ -20,9 +20,9 @@ Braze와 Census 통합을 사용하면 오디언스 또는 제품 데이터를 B
 | --- | --- |
 | Census 계정 | 이 파트너십을 활용하려면 [Census 계정](https://www.getcensus.com/)이 필요합니다. |
 | Braze REST API 키 | 모든 사용자 데이터 권한(`users.delete` 제외)과 `segments.list` 권한이 있는 Braze REST API 키. Census가 더 많은 Braze 오브젝트를 지원함에 따라 권한 세트가 변경될 수 있으므로, 지금 더 많은 권한을 부여하거나 향후 이러한 권한을 업데이트할 계획을 세울 수 있습니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)에 따라 달라집니다. |
 | 데이터 웨어하우스 및 데이터 모델 | 통합을 시작하기 전에 Census에 데이터 웨어하우스를 설정하고 Braze에 동기화할 데이터의 하위 집합 모델을 정의해야 합니다. 사용 가능한 데이터 소스 목록과 모델 생성 안내는 [Census 설명서](https://docs.getcensus.com/destinations/braze)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -32,7 +32,7 @@ Census 플랫폼에서 Census를 통합하려면 **Connections** 탭으로 이�
 
 표시되는 프롬프트에서 이 연결의 이름을 지정하고 Braze 엔드포인트 URL과 Braze REST API 키를 입력합니다(선택적으로 코호트를 동기화하기 위한 데이터 가져오기 키도 입력할 수 있습니다).
 
-![]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
+![Braze 연결 자격 증명이 구성된 Census 새 대상 대화 상자.]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 
 ### 2단계: Census 동기화 생성 {#step-2-create-a-census-sync}
 
@@ -63,7 +63,7 @@ Census는 현재 다음 Braze 오브젝트의 동기화를 지원합니다:
 | Catalog | Update, Create, Mirror |
 | Subscription Group Membership | Mirror |
 | Event | Append |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported objects" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 오브젝트" }
 
 또한 Census는 Braze에 [구조화된 데이터](https://docs.getcensus.com/destinations/braze#supported-objects)를 전송하는 것을 지원합니다:
 - 사용자 푸시 토큰: 푸시 토큰을 전송하려면 데이터가 2~3개의 값(`app_id`, `token`, 선택 사항인 `device_id`)을 가진 오브젝트 배열로 구조화되어야 합니다.

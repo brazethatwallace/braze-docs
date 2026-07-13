@@ -1,6 +1,6 @@
 ## Braze/APNsのワークフローについて {#understanding-the-brazeapns-workflow}
 
-Apple プッシュ通知サービス（APNs）は、Appleのプラットフォームで実行されているアプリケーションにプッシュ通知を送信するためのインフラです。ユーザーのデバイスに対してプッシュ通知を有効にする方法と、Brazeがユーザーにプッシュ通知を送信する方法の簡略化された構造を以下に示します。
+Appleプッシュ通知サービス（APNs）は、Appleのプラットフォームで実行されているアプリケーションにプッシュ通知を送信するためのインフラです。ユーザーのデバイスに対してプッシュ通知を有効にする方法と、Brazeがユーザーにプッシュ通知を送信する方法の簡略化された構造を以下に示します。
 
 1. プッシュ証明書とプロビジョニングプロファイルを構成します
 2. デバイスがAPNsに登録し、Brazeにプッシュトークンを提供します
@@ -19,7 +19,7 @@ Apple プッシュ通知サービス（APNs）は、Appleのプラットフォ�
 
 ### ステップ2:デバイスがAPNsに登録し、Brazeにプッシュトークンを提供します {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-ユーザーがアプリを開くと、プッシュ通知を受け入れるように求められます。このプロンプトを受け入れると、APNsはその特定のデバイスのプッシュトークンを生成します。Swift SDKは、デフォルトの[自動フラッシュポリシー]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing)を使用して、アプリのプッシュトークンを即時かつ非同期に送信します。ユーザーにプッシュトークンが関連付けられると、ダッシュボードの**エンゲージメント**タブのユーザープロファイルに「プッシュ登録済み」と表示され、Braze キャンペーンからプッシュ通知を受け取る資格が得られます。
+ユーザーがアプリを開くと、プッシュ通知を受け入れるように求められます。このプロンプトを受け入れると、APNsはその特定のデバイスのプッシュトークンを生成します。Swift SDKは、デフォルトの[自動フラッシュポリシー]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control#automatic-request-processing)を使用して、アプリのプッシュトークンを即時かつ非同期に送信します。ユーザーにプッシュトークンが関連付けられると、ダッシュボードの**エンゲージメント**タブのユーザープロファイルに「プッシュ登録済み」と表示され、Brazeキャンペーンからプッシュ通知を受け取る資格が得られます。
 
 {% alert note %}
 macOS 13以降、一部のデバイスでは、Xcode 14上で動作するiOS 16シミュレーターでプッシュ通知をテストできます。詳細については、[Xcode 14リリースノート](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes)を参照してください。
@@ -36,7 +36,7 @@ macOS 13以降、一部のデバイスでは、Xcode 14上で動作するiOS 16�
 
 プッシュキャンペーンが開始されると、Brazeはメッセージの配信リクエストをAPNsに行います。具体的には、**ユーザーの最新のデバイスに送信**が選択されている場合を除き、現在の有効なプッシュトークンごとにリクエストがAPNsに渡されます。BrazeがAPNsから成功応答を受信した後、ユーザープロファイルに配信成功を記録します。ただし、以下の理由により、ユーザーが実際のメッセージを受信していない可能性があります。
 - デバイスの電源が切れている。
-- デバイスがインターネット（Wi-Fiまたは携帯電話回線）に接続されていない。
+- デバイスがインターネット（Wi-Fiまたはモバイルデータ通信）に接続されていない。
 - ユーザーが最近アプリをアンインストールした。
 
 Brazeは、ダッシュボードにアップロードされたSSLプッシュ証明書を使用して認証を行い、提供されたプッシュトークンへのプッシュ通知の送信が許可されていることを確認します。デバイスがオンラインの場合、キャンペーンが送信された後すぐに通知が受信されます。なお、Brazeは通知のデフォルトのAPNs[有効期限](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns#2947607)を30日に設定しています。
@@ -51,7 +51,7 @@ APNsでは、トークンが登録解除されても、最初は成功ステー�
 
 ## プッシュのエラーログの使用 {#using-the-push-error-logs}
 
-[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/)を使用すると、キャンペーンや送信に関連するメッセージ（特にエラーメッセージ）を確認できます。これにはプッシュ通知エラーも含まれます。このエラーログは、キャンペーンが期待どおりに機能していない理由を特定するのに非常に役立つさまざまな警告を提供します。エラーメッセージをクリックすると、特定のインシデントのトラブルシューティングに役立つ関連ドキュメントにリダイレクトされます。
+[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)を使用すると、キャンペーンや送信に関連するメッセージ（特にエラーメッセージ）を確認できます。これにはプッシュ通知エラーも含まれます。このエラーログは、キャンペーンが期待どおりに機能していない理由を特定するのに非常に役立つさまざまな警告を提供します。エラーメッセージをクリックすると、特定のインシデントのトラブルシューティングに役立つ関連ドキュメントにリダイレクトされます。
 
 ![エラーが発生した時間、アプリ名、チャネル、エラータイプ、およびエラーメッセージを表示するプッシュエラーログ。]({% image_buster /assets/img_archive/message_activity_log.png %})
 
@@ -59,13 +59,13 @@ APNsでは、トークンが登録解除されても、最初は成功ステー�
 
 さらに、Brazeは**エンゲージメント**タブのユーザープロファイルにプッシュ通知の変更ログも提供します。この変更ログは、トークンの無効化、プッシュ登録エラー、トークンの新規ユーザーへの移動などのプッシュ登録動作に関するインサイトを提供します。
 
-![]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
+![Brazeユーザープロファイルのエンゲージメントタブに表示されるプッシュ登録変更ログ。]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
 ### メッセージアクティビティログのエラー {#message-activity-log-errors}
 
 #### プッシュトークンへの未登録送信を受信 {#received-unregistered-sending}
 
-- メソッド`AppDelegate.braze?.notifications.register(deviceToken:)`からBrazeに送信されているプッシュトークンが有効であることを確認してください。**メッセージアクティビティログ**でプッシュトークンを確認できます。`6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`のような、文字と数字が混在する長い文字列になります。プッシュトークンが異なるように見える場合は、Brazeにプッシュトークンを送信するための[コード]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze)を確認してください。
+- メソッド`AppDelegate.braze?.notifications.register(deviceToken:)`からBrazeに送信されているプッシュトークンが有効であることを確認してください。**メッセージアクティビティログ**でプッシュトークンを確認できます。`6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`のような、文字と数字が混在する長い文字列になります。プッシュトークンが異なるように見える場合は、Brazeにプッシュトークンを送信するための[コード]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze)を確認してください。
 - プッシュプロビジョニングプロファイルがテスト対象の環境と一致することを確認します。ユニバーサル証明書は、開発または本番のAPNs環境のいずれかに送信するようにBrazeダッシュボードで構成できます。本番アプリ用の開発証明書または開発アプリ用の本番証明書は動作しません。
  - Brazeにアップロードしたプッシュトークンが、プッシュトークンの送信元のアプリのビルドに使用したプロビジョニングプロファイルと一致することを確認します。
 
@@ -81,7 +81,7 @@ APNsは、プッシュトークンが認証情報に構成されたトピック�
 4. `.p8`キーの場合、Brazeの**チームID**と**キーID**がApple Developerアカウントと一致することを確認します。
 5. 認証情報がローテーションまたは失効された場合は、有効な`.p8`キーまたは`.p12`証明書を再アップロードします。
 
-可能な場合は`.p8`認証キーを使用することをお勧めします。認証情報のタイプとダッシュボードのステータスインジケーターについては、[.p8認証キーへの移行]({{site.baseurl}}/user_guide/channels/push/troubleshooting/#migrate-to-a-p8-authentication-key)を参照してください。
+可能な場合は`.p8`認証キーを使用することをお勧めします。認証情報のタイプとダッシュボードのステータスインジケーターについては、[.p8認証キーへの移行]({{site.baseurl}}/user_guide/channels/push/troubleshooting#migrate-to-a-p8-authentication-key)を参照してください。
 
 #### プッシュトークンへのBadDeviceToken送信 {#baddevicetoken-sending-to-push-token}
 
@@ -110,7 +110,7 @@ APNsは、プッシュトークンが認証情報に構成されたトピック�
     1. Xcodeで、**Preferences** > **Accounts**に移動します（またはキーボードショートカット<kbd>Command</kbd>+<kbd>,</kbd>を使用します）。
     2. 開発者アカウントに使用するApple IDを選択し、**View Details**をクリックします。
     3. 次のページで、**<i class="fas fa-redo-alt"></i> Refresh**をクリックし、使用可能なすべてのプロビジョニングプロファイルをプルしていることを確認します。
-- アプリで[プッシュ機能が適切に有効化]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-2-enable-push-capabilities)されていることを確認します。
+- アプリで[プッシュ機能が適切に有効化]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-2-enable-push-capabilities)されていることを確認します。
 - プッシュプロビジョニングプロファイルがテスト環境と一致することを確認します。ユニバーサル証明書は、開発または本番のAPNs環境のいずれかに送信するようにBrazeダッシュボードで構成できます。本番アプリ用の開発証明書または開発アプリ用の本番証明書は動作しません。
 - コードにブレークポイントを設定して、`registerPushToken`メソッドを呼び出していることを確認します。
 - デバイスを使ってテストし（プッシュはシミュレーターでは機能しません）、ネットワーク接続が良好であることを確認します。
@@ -141,7 +141,7 @@ APNsは、プッシュトークンが認証情報に構成されたトピック�
 
 #### テスト通知のスケジュールが正しくない {#test-notification-scheduled-incorrectly}
 
-テストメッセージに設定したスケジュールを確認します。ローカルタイムゾーン配信または[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_timing/)に設定されている場合、メッセージがまだ受信されていない（または受信時にアプリがフォアグラウンドにあった）だけかもしれません。
+テストメッセージに設定したスケジュールを確認します。ローカルタイムゾーン配信または[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_timing)に設定されている場合、メッセージがまだ受信されていない（または受信時にアプリがフォアグラウンドにあった）だけかもしれません。
 
 ### テスト対象のアプリに対してユーザーが「プッシュ登録」されていない {#user-not-push-registered-for-the-app-being-tested}
 
@@ -153,16 +153,16 @@ APNsは、プッシュトークンが認証情報に構成されたトピック�
 
 ## プッシュクリックが記録されない {#push-clicks-not-logged}
 
-- [プッシュ統合のステップ]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-5-enable-push-handling)に従っていることを確認します。
-- Brazeでは、フォアグラウンドでサイレント受信したプッシュ通知（`UserNotifications`フレームワーク以前のデフォルトのフォアグラウンドプッシュ動作）は処理されません。つまり、リンクは開かれず、プッシュクリックも記録されません。アプリケーションが`UserNotifications`フレームワークをまだ統合していない場合、アプリケーション状態が`UIApplicationStateActive`のときにBrazeはプッシュ通知を処理しません。アプリで[プッシュ処理メソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-5-enable-push-handling)の呼び出しが遅延しないようにしてください。そうしなければ、Swift SDKはプッシュ通知をサイレントフォアグラウンドプッシュイベントとして扱い、それらを処理しない場合があります。
+- [プッシュ統合のステップ]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling)に従っていることを確認します。
+- Brazeでは、フォアグラウンドでサイレント受信したプッシュ通知（`UserNotifications`フレームワーク以前のデフォルトのフォアグラウンドプッシュ動作）は処理されません。つまり、リンクは開かれず、プッシュクリックも記録されません。アプリケーションが`UserNotifications`フレームワークをまだ統合していない場合、アプリケーション状態が`UIApplicationStateActive`のときにBrazeはプッシュ通知を処理しません。アプリで[プッシュ処理メソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling)の呼び出しが遅延しないようにしてください。遅延すると、Swift SDKはプッシュ通知をサイレントフォアグラウンドプッシュイベントとして扱い、処理しない場合があります。
 
 ## ディープリンクが機能しない {#deep-links-not-working}
 
-ユニバーサルリンク、カスタムスキーム、メール、Branchのようなサードパーティプロバイダーを含む、全チャネルにわたる包括的なトラブルシューティングについては、[ディープリンクのトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/)を参照してください。
+ユニバーサルリンク、カスタムスキーム、メール、Branchのようなサードパーティプロバイダーを含む、全チャネルにわたる包括的なトラブルシューティングについては、[ディープリンクのトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting)を参照してください。
 
 ### プッシュクリックからのWebリンクが開かない {#web-links-from-push-clicks-not-opening}
 
-プッシュ通知のリンクは、Webビューで開くにはATS準拠である必要があります。WebリンクがHTTPSを使用していることを確認してください。詳細については、[ATSコンプライアンス]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking/#app-transport-security-ats)を参照してください。
+プッシュ通知のリンクは、Webビューで開くにはATS準拠である必要があります。WebリンクがHTTPSを使用していることを確認してください。詳細については、[ATSコンプライアンス]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking#app-transport-security-ats)を参照してください。
 
 ### プッシュクリックからのディープリンクが開かない {#deep-links-from-push-clicks-not-opening}
 

@@ -55,17 +55,20 @@ channel:
 
 ### 3단계: 배너 작성 {#compose-a-banner}
 
-배너를 작성하려면 다음 중 하나를 선택할 수 있습니다:
+다음으로, 작성을 시작할 방법을 선택합니다:
 
-- 빈 템플릿으로 시작
-- Braze 배너 템플릿 사용
-- 저장된 배너 템플릿 선택
+- **드래그 앤 드롭 편집기:** 빈 배너에서 시작하여 블록과 행을 사용해 시각적으로 구성합니다.
+- **HTML 편집기:** 빈 배너에서 시작하여 HTML로 직접 작업합니다.
+- **템플릿:** 템플릿 라이브러리를 열고 **Braze 템플릿** 또는 **내 템플릿**에서 디자인을 선택합니다. 템플릿은 커스터마이즈를 위해 드래그 앤 드롭 편집기에서 열립니다.
 
-![빈 배너 또는 템플릿을 선택하는 옵션.]({% image_buster /assets/img/banners/choose_banner_composer.png %})
+![배너에 드래그 앤 드롭 편집기, HTML 편집기 또는 템플릿을 선택하는 옵션.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
 #### 3.1단계: 배너 스타일 지정 {#step-31-style-the-banner}
 
-블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다. 배너 편집기 블록 및 공유 속성 세부 정보에 대한 참조는 [편집기 블록(배너)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=banners)을 확인하세요.
+{% tabs %}
+{% tab 드래그 앤 드롭 편집기 %}
+
+블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다. 배너 편집기 블록 및 공유 속성 세부 정보에 대한 참조는 [편집기 블록(배너)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)을 확인하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -73,11 +76,28 @@ channel:
 
 ![배너 작성기의 스타일 패널.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% endtab %}
+{% tab HTML 편집기 %}
+
+HTML 편집기는 이미 자체 HTML 템플릿을 유지 관리하거나 마크업과 스타일링을 완전히 제어하고 싶은 팀에 적합합니다. 커스텀 HTML을 편집기에 직접 작성하거나 붙여넣을 수 있습니다. Liquid 개인화 태그가 완전히 지원되므로 사용자 속성, 커스텀 속성, 카탈로그 항목 등을 참조할 수 있습니다.
+
 {% alert tip %}
+배너 HTML 작성에 도움이 필요하신가요? HTML 편집기에서 **Ask Operator**를 선택하고 원하는 배너를 설명하세요. [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator)가 검토하고 편집기에 삽입할 수 있는 HTML을 생성합니다. 자세한 내용은 [메시지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages)을 참조하세요.
+{% endalert %}
+
+커스텀 HTML에서 클릭 및 닫기 추적을 위해서는 JavaScript 브리지 메서드를 명시적으로 호출해야 합니다. 전체 참조는 [배너용 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code)를 확인하세요.
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
 단일 배너 캠페인 내에서 다양한 언어의 사용자를 타겟팅하려면 [다국어 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)를 참조하세요.
 {% endalert %}
 
 #### 3.2단계: 클릭 시 동작 정의(선택 사항) {#step-32-define-on-click-behavior-optional}
+
+{% tabs %}
+{% tab 드래그 앤 드롭 편집기 %}
 
 사용자가 배너의 링크를 클릭하면 앱 내부로 더 깊이 이동하거나 다른 웹페이지로 리디렉션하도록 선택할 수 있습니다. 또한 [커스텀 속성 또는 이벤트를 기록]({{site.baseurl}}/developer_guide/analytics)하도록 선택하여 사용자가 배너를 클릭할 때 커스텀 데이터로 사용자 프로필을 업데이트할 수 있습니다. 보다 세분화된 클릭 추적을 위해 속성 패널의 **보고용 식별자** 필드를 사용하여 각 인터랙티브 요소에 커스텀 식별자를 할당하세요.
 
@@ -87,7 +107,24 @@ channel:
 {:/}
 {% endalert %}
 
+{% endtab %}
+{% tab HTML 편집기 %}
+
+HTML 편집기에서는 클릭 추적이 자동으로 이루어지지 않습니다. 추적하려는 각 클릭 가능한 요소에 대해 HTML 내에서 `brazeBridge.logClick()`을 호출해야 합니다. 예를 들어:
+
+```html
+<a href="https://example.com" onclick="brazeBridge.logClick()">Shop now</a>
+```
+
+전체 JavaScript 브리지 참조는 [배너용 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)를 확인하세요.
+
+{% endtab %}
+{% endtabs %}
+
 #### 3.3단계: 닫기 동작 구성(선택 사항) {#dismiss-behavior}
+
+{% tabs %}
+{% tab 드래그 앤 드롭 편집기 %}
 
 **닫기 동작** 섹션에서 **배너를 닫을 수 있음** 체크박스를 선택하여 사용자가 배너를 닫을 수 있도록 합니다. 이 옵션은 넓은 오디언스에게 한정 세일을 홍보하되, 관심이 없는 사용자가 메시지를 숨길 수 있도록 하려는 경우에 유용합니다.
 
@@ -102,6 +139,22 @@ channel:
 
 사용자가 배너를 닫으면 캠페인의 타겟팅 기준에 여전히 해당하더라도 해당 사용자에게 다시 표시되지 않습니다.
 
+{% endtab %}
+{% tab HTML 편집기 %}
+
+HTML 편집기에서는 HTML 내에서 `brazeBridge.closeMessage()`를 사용하여 닫기를 처리합니다. 닫기 동작을 클릭 이벤트로도 추적하려면 `brazeBridge.logClick()`과 함께 사용하세요. 예를 들어:
+
+```html
+<a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
+```
+
+사용자가 이 방법으로 배너를 닫으면 캠페인의 타겟팅 기준에 여전히 해당하더라도 해당 사용자에게 다시 표시되지 않습니다.
+
+전체 JavaScript 브리지 참조는 [배너용 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)를 확인하세요.
+
+{% endtab %}
+{% endtabs %}
+
 #### 3.4단계: 커스텀 속성정보 추가(선택 사항) {#custom-properties}
 
 배너에 커스텀 속성정보를 추가하여 문자열이나 JSON 오브젝트와 같은 구조화된 메타데이터를 첨부할 수 있습니다. 이러한 속성정보는 배너 표시 방식에 영향을 미치지 않지만, [Braze SDK를 통해 액세스]({{site.baseurl}}/developer_guide/banners/placements)하여 앱의 동작이나 외관을 수정할 수 있습니다. 예를 들어 다음과 같은 작업이 가능합니다:
@@ -110,7 +163,7 @@ channel:
 - `timestamp`나 JSON 오브젝트와 같은 메타데이터를 사용하여 조건 로직 트리거.
 - `ratio`나 `format`과 같은 포함된 메타데이터를 기반으로 배너 동작 제어.
 
-커스텀 속성정보를 추가하려면 **설정** > **속성정보** > **속성정보 추가**를 선택합니다.
+커스텀 속성정보는 드래그 앤 드롭 편집기와 HTML 편집기 모두에서 동일하게 작동합니다. 커스텀 속성정보를 추가하려면 **설정** > **속성정보** > **속성정보 추가**를 선택합니다.
 
 ![배너 캠페인에 첫 번째 커스텀 속성정보를 추가하는 옵션이 표시된 속성정보 페이지.]({% image_buster /assets/img/banners/add_property.png %})
 

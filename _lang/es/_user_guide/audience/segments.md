@@ -9,7 +9,7 @@ descriptions: "La segmentación de audiencia es clave para el marketing estraté
 search_rank: 4
 tool: Segments
 page_type: landing
-description: "Esta página de inicio cubre artículos sobre segmentación dentro de las Campaigns del dashboard. Aquí puedes encontrar información sobre cómo configurar un segmento, filtros, embudos, información, extensiones y más."
+description: "Esta página de inicio cubre artículos sobre segmentación dentro de las campañas del panel. Aquí puedes encontrar información sobre cómo configurar un segmento, filtros, embudos, información, extensiones y más."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
@@ -43,7 +43,7 @@ guide_menu_list:
   - name: Medir el tamaño del segmento
     link: /docs/user_guide/audience/segments/measuring_segment_size
     image: /assets/img/braze_icons/pie-chart-02.svg
-  - name: "Caso de uso: segmentar con atributos personalizados anidados"
+  - name: "Ejemplo: segmentar con atributos personalizados anidados"
     link: /docs/user_guide/audience/segments/segment_with_nested_custom_attributes
     image: /assets/img/braze_icons/dataflow-02.svg
   - name: Solución de problemas
@@ -56,11 +56,11 @@ guide_menu_list:
 
 En Braze, los segmentos son grupos dinámicos de usuarios que cumplen criterios específicos que tú defines, como atributos de usuario, comportamiento de usuario y eventos personalizados. Puedes ser granular con los criterios anidando segmentos dentro de otros segmentos y aplicando características adicionales, reduciendo el alcance de tu audiencia para que puedas enviar contenido altamente personalizado y atractivo a los usuarios correctos.
 
-Puedes crear tantos segmentos como quieras para dirigirte a los usuarios. Explora diferentes combinaciones de características de segmentos y filtros de segmentación para descubrir formas creativas de utilizar tus datos de usuario, y desbloquea nuevas formas de enviar mensajes relevantes a los usuarios y aumentar la interacción.
+Puedes crear tantos segmentos como quieras para dirigirte a los usuarios. Explora diferentes combinaciones de características de segmentos y filtros de segmentación para descubrir formas creativas de utilizar tus datos de usuario, y desbloquea nuevas formas de enviar mensajes relevantes a los usuarios y aumentar la participación.
 
-Consulta los casos de uso a continuación para una pequeña vista previa de cómo los segmentos de Braze pueden ayudarte a dirigirte a tus usuarios.
+Consulta los siguientes ejemplos para una pequeña vista previa de cómo los segmentos de Braze pueden ayudarte a dirigirte a tus usuarios.
 
-### Casos de uso {#use-cases}
+### Ejemplos {#use-cases}
 
 - **Mensajes de bienvenida:** Segmenta a los nuevos usuarios para que puedas enviar correos electrónicos de incorporación o mensajes dentro de la aplicación que les presenten tu aplicación.
 - **Recompensas de fidelización:** Segmenta a los usuarios según su frecuencia de compra, aniversario de membresía u otros hitos, y envía ofertas exclusivas o recompensas a tus usuarios más fieles.
@@ -68,7 +68,7 @@ Consulta los casos de uso a continuación para una pequeña vista previa de cóm
 - **Recomendaciones de productos:** Segmenta a los usuarios que compraron productos específicos y envíales recomendaciones de productos complementarios o de nivel superior.
 - **Pruebas A/B:** Segmenta a los usuarios para realizar pruebas A/B con diferentes mensajes, líneas del asunto o contenido para determinar qué resuena mejor con usuarios de edades, géneros y otros atributos específicos.
 
-#### Casos de uso de extensiones de segmento {#segment-extension-use-cases}
+#### Ejemplos de extensiones de segmento {#segment-extension-use-cases}
 
 Puedes refinar aún más tus segmentos utilizando [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para dirigirte a los usuarios según el comportamiento de eventos personalizados o compras almacenado durante toda la vida de su perfil de usuario.
 

@@ -340,6 +340,143 @@ def validate_liquid_paired_tags(content, label="translation"):
         )
 
 
+def _liquid_tag_line_pattern(tag_name):
+    return re.compile(
+        rf"(?m)^[ \t]*\{{%[-\s]*{re.escape(tag_name)}\b[^%]*%\}}[ \t]*(?:\n|\Z)"
+    )
+
+
+def _unmatched_open_tag_matches(content, open_tag, close_tag):
+    """Return open-tag line matches that remain unmatched at end of *content*."""
+    events = []
+    for match in _liquid_tag_line_pattern(open_tag).finditer(content):
+        events.append((match.start(), 0, match))
+    for match in _liquid_tag_line_pattern(close_tag).finditer(content):
+        events.append((match.start(), 1, match))
+    events.sort(key=lambda item: (item[0], item[1]))
+    stack = []
+    for _, kind, match in events:
+        if kind == 0:
+            stack.append(match)
+        elif stack:
+            stack.pop()
+    return stack
+
+
+def _remove_one_liquid_tag_line(
+    content,
+    tag_name,
+    *,
+    prefer_last=False,
+    skip_first=False,
+    preserve_first_n=0,
+):
+    """Remove one standalone ``{% tag %}`` line from *content*.
+
+    ``preserve_first_n`` keeps the first N matches (use the English open-count
+    when dropping extras). ``skip_first=True`` is ``preserve_first_n=1``.
+    """
+    if skip_first:
+        preserve_first_n = max(preserve_first_n, 1)
+    matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
+    if not matches:
+        raise ValueError(f"No standalone {{% {tag_name} %}} line found")
+    if preserve_first_n < 0:
+        raise ValueError("preserve_first_n must be >= 0")
+    if len(matches) <= preserve_first_n:
+        raise ValueError(
+            f"Only {len(matches)} {{% {tag_name} %}} line(s); "
+            f"cannot preserve first {preserve_first_n}"
+        )
+    pool = matches[preserve_first_n:]
+    match = pool[-1] if prefer_last else pool[0]
+    return content[: match.start()] + content[match.end() :]
+
+
+def _remove_one_extra_liquid_open_tag(content, open_tag, close_tag, *, preserve_first_n=0):
+    """Remove one excess ``{% open %}`` line, preferring unmatched opens.
+
+    Prefer the last open that is still on the Liquid stack at EOF so a spurious
+    tag between two complete blocks is removed instead of a legitimate trailing
+    open (Bugbot: skip_first only protecting match[0] when en_open > 1).
+    Fall back to preserving the first ``preserve_first_n`` opens and dropping
+    the last remaining match.
+    """
+    unmatched = _unmatched_open_tag_matches(content, open_tag, close_tag)
+    if unmatched:
+        match = unmatched[-1]
+        return content[: match.start()] + content[match.end() :]
+    return _remove_one_liquid_tag_line(
+        content,
+        open_tag,
+        prefer_last=True,
+        preserve_first_n=preserve_first_n,
+    )
+
+
+def repair_liquid_paired_tags_from_english(
+    english_content, translated_content, label="translation"
+):
+    """Align paired Liquid tag counts with balanced English when a chunk drifts."""
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        en_open = _count_liquid_tag(english_content, open_tag)
+        en_close = _count_liquid_tag(english_content, close_tag)
+        if en_open != en_close:
+            raise ValueError(
+                f"English reference unbalanced ({open_tag}/{close_tag}) in {label}"
+            )
+
+        tr_open = _count_liquid_tag(translated_content, open_tag)
+        tr_close = _count_liquid_tag(translated_content, close_tag)
+
+        while tr_open > en_open:
+            translated_content = _remove_one_extra_liquid_open_tag(
+                translated_content,
+                open_tag,
+                close_tag,
+                preserve_first_n=en_open,
+            )
+            tr_open -= 1
+
+        while tr_open > tr_close:
+            translated_content = (
+                translated_content.rstrip() + f"\n\n{{% {close_tag} %}}\n"
+            )
+            tr_close += 1
+
+        while tr_close > en_close:
+            translated_content = _remove_one_liquid_tag_line(
+                translated_content,
+                close_tag,
+                prefer_last=True,
+            )
+            tr_close -= 1
+
+    validate_liquid_paired_tags(translated_content, label=label)
+    open_blocks = _liquid_block_stack_at(translated_content, len(translated_content))
+    if open_blocks:
+        raise ValueError(
+            f"Liquid block still open at end of {label}: {open_blocks}"
+        )
+    return translated_content
+
+
+def _validate_or_repair_chunk_liquid(en_chunk, translated, chunk_label):
+    """Validate chunk Liquid; repair from English when counts drift."""
+    try:
+        validate_liquid_paired_tags(translated, label=chunk_label)
+    except ValueError:
+        translated = repair_liquid_paired_tags_from_english(
+            en_chunk, translated, label=chunk_label
+        )
+    open_blocks = _liquid_block_stack_at(translated, len(translated))
+    if open_blocks:
+        raise ValueError(
+            f"Liquid block still open at end of {chunk_label}: {open_blocks}"
+        )
+    return translated
+
+
 def split_into_chunks(content, max_chunk_kb=None):
     """Split a large Markdown file into translatable chunks.
 
@@ -497,6 +634,16 @@ def _is_retryable_api_error(exc):
     """Return True when another Claude API attempt may succeed."""
     msg = str(exc).lower()
     return any(token in msg for token in _RETRYABLE_API_ERROR_TOKENS)
+
+
+def _is_retryable_translation_error(error):
+    """Return True when re-running the full translate pass may succeed."""
+    msg = str(error)
+    if _is_retryable_api_error(msg):
+        return True
+    # Chunked reassembly can drift {% api %}/{% endapi %} counts per locale;
+    # a fresh pass often succeeds (same as manual workflow job re-runs).
+    return "liquid paired-tag imbalance" in msg.lower()
 
 
 def _api_retry_wait_seconds(exc, attempt):
@@ -705,9 +852,17 @@ step copy—use **Target Audiences** when English does. **Portuguese** \
 ``concepts``—keep **bucket** for random-bucket terminology (never *baldes*); \
 ``optimizations``—parallel plural titles and *na etapa **Públicos-alvo***. \
 **Korean** ``optimizations``—**WhatsApp Campaigns** when listing channels in \
-plural series. **Japanese** ``create_tests``—**Messaging** > **Campaigns**, \
-**Create Campaign** for US UI paths; ``ab_test_projection``—use **予測を実行** \
-consistently for “run projection”. **German** ``optimizations``—**Gewinnervariante** \
+plural series. **Japanese** ``create_tests`` and campaign composer docs \
+(``creating_campaign.md``, ``target_users.md``, channel create articles)—localize \
+bold wizard labels from ``ja.json`` (**メッセージング** > **キャンペーン**, \
+**キャンペーンを作成**, **ターゲットオーディエンス**, **配信をスケジュール**, \
+**オーディエンスの概要**, **ユーザー検索**, **レビューサマリー**, \
+**これらのユーザーに送信**, **マルチチャネル**, **チャネルを追加**, \
+**バリアントからコピー**, **バリアントを追加**); do not leave US \
+**Target Audiences** / **Schedule Delivery** / **Create Campaign** English in \
+JA prose. **Japanese** ``ab_test_projection``—use **予測を実行** consistently \
+for “run projection”. \
+**German** ``optimizations``—**Gewinnervariante** \
 /**Personalisierte Variante** (no **Winning Variant** / **Winning-Varianten**); \
 ``conversion_correlation``—**Nutzer:innen** / **Nutzerattribute** consistently \
 (no **Benutzer** mix). **French** ``conversion_correlation``—**campagnes** in \
@@ -1331,7 +1486,7 @@ def _retry_failed_translations(
     retriable = [
         item
         for item in failed_items
-        if _is_retryable_api_error(item.get("error", ""))
+        if _is_retryable_translation_error(item.get("error", ""))
     ]
     if not retriable:
         return [], list(failed_items)
@@ -1419,15 +1574,48 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 
     print(f"    [{lang_key}] chunked: {len(en_chunks)} chunks")
 
+    # Per-chunk Liquid checks: discovering a missing {% endapi %} only after
+    # all ~26 chunks finish wastes ~90 minutes on Currents glossaries.
+    chunk_liquid_attempts = max(3, (api_retries or API_RETRIES) // 2)
+
     translated_chunks = []
     try:
         for i, (en_chunk, tr_chunk) in enumerate(zip(en_chunks, tr_chunks)):
             print(f"    [{lang_key}] translating chunk {i + 1}/{len(en_chunks)} "
                   f"({len(en_chunk) // 1024}KB)...")
-            translated = translate_file(
-                client, prompt, en_chunk, tr_chunk or None,
-                lang_info["name"], extra_context, api_retries=api_retries,
+            chunk_label = (
+                f"{target.relative_to(REPO_ROOT)} chunk {i + 1}/{len(en_chunks)}"
             )
+            last_exc = None
+            translated = None
+            for attempt in range(1, chunk_liquid_attempts + 1):
+                try:
+                    candidate = translate_file(
+                        client,
+                        prompt,
+                        en_chunk,
+                        tr_chunk or None,
+                        lang_info["name"],
+                        extra_context,
+                        api_retries=api_retries,
+                    )
+                    translated = _validate_or_repair_chunk_liquid(
+                        en_chunk, candidate, chunk_label
+                    )
+                    break
+                except ValueError as exc:
+                    last_exc = exc
+                    if attempt < chunk_liquid_attempts:
+                        print(
+                            f"    [{lang_key}] chunk {i + 1} Liquid check failed "
+                            f"(attempt {attempt}/{chunk_liquid_attempts}): {exc}; "
+                            f"retrying chunk..."
+                        )
+                        time.sleep(min(30, 5 * attempt))
+                    else:
+                        raise
+            if translated is None:
+                raise last_exc or ValueError(f"No translation for {chunk_label}")
             translated_chunks.append(translated)
 
         full_translation = "\n\n".join(c.strip() for c in translated_chunks)
@@ -1603,8 +1791,6 @@ def cmd_translate(args):
         )
         results["translated"].extend(recovered)
         results["failed"] = still_failed
-        if not recovered:
-            break
 
     save_results(results)
     ok = len(results["translated"])
@@ -6428,6 +6614,95 @@ def repair_trailing_whitespace(translated_content: str):
     return translated_content, []
 
 
+_JA_CAMPAIGN_COMPOSER_UI = [
+    ("**Target Audiences**", "**ターゲットオーディエンス**"),
+    ("**Schedule Delivery**", "**配信をスケジュール**"),
+    ("**Action-Based Delivery**", "**アクションベースの配信**"),
+    ("**Action-Based**", "**アクションベース**"),
+    ("**Perform Custom Event**", "**カスタムイベントを実行**"),
+    ("**Perform a Back in Stock Event**", "**再入荷イベントを実行**"),
+    ("**Start Time (Required)**", "**開始時刻 (必須)**"),
+    ("**Edit email body**", "**メール本文を編集**"),
+    ("**Campaign Monitoring**", "**キャンペーンモニタリング**"),
+    ("**Set Up Alert**", "**アラートを設定**"),
+    ("**Send an SMS Inbound Message**", "**SMS インバウンドメッセージを送信**"),
+    ("**SMSインバウンドメッセージを送信する**", "**SMS インバウンドメッセージを送信**"),
+    ("SMSインバウンドメッセージを送信する", "SMS インバウンドメッセージを送信"),
+    ("**Send a WhatsApp inbound message**", "**WhatsApp インバウンドメッセージを送信**"),
+    ("**WhatsAppインバウンドメッセージを送信する**", "**WhatsApp インバウンドメッセージを送信**"),
+    ("WhatsAppインバウンドメッセージを送信する", "WhatsApp インバウンドメッセージを送信"),
+    ("**Entry Audience**", "**エントリオーディエンス**"),
+    ("**Delivery Controls**", "**配信コントロール**"),
+    ("「Delivery Controls」", "「配信コントロール」"),
+    ("**Send Settings:**", "**送信設定:**"),
+    ("**Send Settings**", "**送信設定**"),
+    ("**Audience Summary**", "**オーディエンスの概要**"),
+    ("**User Lookup**", "**ユーザー検索**"),
+    ("**Review Summary**", "**レビューサマリー**"),
+    ("**Send to these users**", "**これらのユーザーに送信**"),
+    ("**Multichannel キャンペーン**", "**マルチチャネル キャンペーン**"),
+    ("**Multichannel**", "**マルチチャネル**"),
+    ("**Add channel**", "**チャネルを追加**"),
+    ("**Add Variant**", "**バリアントを追加**"),
+    ("**Copy from Variant**", "**バリアントからコピー**"),
+    ("**Create Campaign**", "**キャンペーンを作成**"),
+    ("**Create キャンペーン**", "**キャンペーンを作成**"),
+    ("**Audience** > **Search Users**", "**オーディエンス** > **ユーザーを検索**"),
+    ("**Settings** > **API Keys**", "**設定** > **API キー**"),
+    ("**Settings** > **App Settings** > **+ Add App**", "**設定** > **アプリ設定** > **アプリを追加**"),
+    ("**Search Users**", "**ユーザーを検索**"),
+    ("**View User Event Properties**", "**ユーザーイベントプロパティを表示**"),
+    ("**Target Audience**", "**ターゲットオーディエンス**"),
+    ("**Entry Schedule**", "**エントリスケジュール**"),
+    ("**Pending Approval**", "**承認待ち**"),
+    ("**Summary**ステップ", "**レビューサマリー**ステップ"),
+    ("**Summary** step", "**レビューサマリー**ステップ"),
+    ("キャンペーンコンポーザーの**Schedule**", "キャンペーンコンポーザーの**配信をスケジュール**"),
+    ("campaign composer's **Schedule**", "campaign composer's **配信をスケジュール**"),
+    ("**Schedule**部分", "**配信をスケジュール**部分"),
+    (
+        "**Allow users to become re-eligible to receive campaign**",
+        "**ユーザーがキャンペーンを再度受信できるようにする**",
+    ),
+    ("**Approved**", "**承認済み**"),
+    ("[**Target Audiences (ターゲットオーディエンス)**]", "**ターゲットオーディエンス**"),
+    ("「User Lookup」", "「ユーザー検索」"),
+    ("「Lookup User」", "「ユーザーを検索」"),
+    ("「Schedule Delivery」", "「配信をスケジュール」"),
+    ("「Send Settings」", "「送信設定」"),
+    ("Schedule Deliveryステップ", "配信をスケジュールステップ"),
+]
+
+
+def repair_ja_campaign_composer_ui(translated_path, translated_content, lang_key):
+    """Localize leaked English campaign-composer wizard labels in Japanese docs."""
+    if lang_key != "ja":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    from _glossary_locale_propagation import replace_outside_fences  # noqa: WPS433
+
+    repairs = []
+    new = translated_content
+    for old, new_label in _JA_CAMPAIGN_COMPOSER_UI:
+        if old not in new:
+            continue
+        updated, count = replace_outside_fences(new, old, new_label)
+        if count:
+            new = updated
+            repairs.append(
+                "ja_campaign_composer_ui — "
+                f"{old.strip('*')} → {new_label.strip('*')}"
+            )
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_messaging_ab_testing_locale_drift(
     translated_path, translated_content, lang_key
 ):
@@ -6529,17 +6804,6 @@ def repair_messaging_ab_testing_locale_drift(
         _apply("WhatsApp Campaign에", "WhatsApp Campaigns에", "ko_ab_optim — WhatsApp Campaigns plural")
 
     if lang_key == "ja":
-        if rel.endswith("_user_guide/messaging/ab_testing/create_tests.md"):
-            _apply(
-                "1. **メッセージング** > **Campaigns**に移動します。",
-                "1. **Messaging** > **Campaigns**に移動します。",
-                "ja_ab_create — Messaging UI path",
-            )
-            _apply(
-                "2. **キャンペーンを作成**を選択し、",
-                "2. **Create Campaign**を選択し、",
-                "ja_ab_create — Create Campaign UI",
-            )
         if rel.endswith("_user_guide/messaging/ab_testing/ab_test_projection.md"):
             _apply("**投影の実行**", "**予測を実行**", "ja_ab_projection — run projection verb parity")
 
@@ -6938,6 +7202,11 @@ def qc_check_file(english_path, translated_path, lang_key):
         )
     )
     findings["repairs"].extend(ja_product_repairs)
+
+    translated_content, ja_campaign_ui_repairs = repair_ja_campaign_composer_ui(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ja_campaign_ui_repairs)
 
     translated_content, ja_particle_repairs = (
         repair_japanese_latin_token_particle_spacing(

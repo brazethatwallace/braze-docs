@@ -58,6 +58,6 @@ Você pode editar as diretrizes da marca selecionando-as na página **Diretrizes
 
 Ao redigir uma mensagem, abra o Operator para [gerar textos]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) e selecione sua diretriz da marca no menu suspenso **Aplicar diretriz da marca**. Se você designar uma diretriz da marca específica como padrão, a Braze a seleciona automaticamente no menu suspenso, mas você pode escolher uma diretriz diferente.
 
-![Operator com "Important Alerts!!" selecionado como diretriz da marca.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
+!["Operator com "Important Alerts!!" selecionado como diretriz da marca.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}

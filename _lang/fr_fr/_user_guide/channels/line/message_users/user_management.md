@@ -23,7 +23,7 @@ Les ID utilisateur LINE sont distincts par fournisseur LINE. Un utilisateur spé
 
 ## Configurer l'attribut `native_line_id` {#setting-the-native_line_id-attribute}
 
-Il existe plusieurs scénarios dans lesquels `native_line_id` est défini sur le profil utilisateur, décrits ci-dessous.
+Il existe plusieurs scénarios dans lesquels `native_line_id` est défini sur le profil utilisateur, décrits dans la liste ci-dessous.
 
 | Scénario | Existence d'un profil utilisateur avec `native_line_id` | Résultat |
 | --- | --- | --- |

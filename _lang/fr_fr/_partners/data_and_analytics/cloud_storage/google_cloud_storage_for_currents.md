@@ -24,8 +24,8 @@ L'intégration de Braze et Google Cloud Storage vous permet de transmettre en co
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Google Cloud Storage | Un compte Google Cloud Storage est nécessaire pour bénéficier de ce partenariat. |
-| Currents | Pour réexporter des données dans Google Cloud Storage, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. Currents n'est pas nécessaire si vous ne mettez en place que l'archivage des messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Currents | Pour réexporter des données dans Google Cloud Storage, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) pour votre compte. Currents n'est pas nécessaire si vous ne mettez en place que l'archivage des messages. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -41,7 +41,7 @@ Pour ce faire, suivez les instructions suivantes, qui vous guideront dans la cr�
 
 Créez un nouveau rôle dans votre console Google Cloud Platform en naviguant vers **IAM & admin** > **Roles** > **+ Create Role**.
 
-![]({% image_buster /assets/img/gcs1.png %})
+![Page des rôles IAM de Google Cloud avec l'action Créer un rôle.]({% image_buster /assets/img/gcs1.png %})
 
 Donnez un nom au rôle, puis sélectionnez **+Add Permissions** et choisissez les éléments suivants :
 
@@ -57,7 +57,7 @@ L'autorisation `storage.objects.delete` est facultative. Elle permet à Braze de
 
 Lorsque vous avez terminé, sélectionnez **Create**.
 
-![]({% image_buster /assets/img/gcs2.png %})
+![Éditeur de rôle personnalisé Google Cloud avec les autorisations de stockage sélectionnées.]({% image_buster /assets/img/gcs2.png %})
 
 ### Étape 2 : Créer un nouveau compte de service {#step-2-create-a-new-service-account}
 
@@ -65,7 +65,7 @@ Lorsque vous avez terminé, sélectionnez **Create**.
 
 Créez un nouveau compte de service dans votre console Google Cloud Platform en naviguant vers **IAM & admin** > **Service Accounts** et en sélectionnant **Create Service Account**.
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Page des comptes de service Google Cloud avec l'option Créer un compte de service sélectionnée.]({% image_buster /assets/img/gcs3.png %})
 
 Ensuite, donnez un nom au compte de service et accordez-lui l'accès à votre rôle personnalisé nouvellement créé.
 
@@ -75,7 +75,7 @@ Ensuite, donnez un nom au compte de service et accordez-lui l'accès à votre r�
 
 En bas de la page, utilisez le bouton **Create Key** pour créer une clé privée **JSON** à utiliser dans Braze. Une fois la clé créée, elle sera téléchargée sur votre machine.
 
-![]({% image_buster /assets/img/gcs5.png %})
+![Boîte de dialogue de création de clé de compte de service Google Cloud avec le type de clé JSON sélectionné.]({% image_buster /assets/img/gcs5.png %})
 
 ### Étape 3 : Configurer Currents dans Braze {#step-3-set-up-currents-in-braze}
 

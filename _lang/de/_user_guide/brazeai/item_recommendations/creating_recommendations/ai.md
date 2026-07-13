@@ -25,10 +25,10 @@ Nutzen Sie KI-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen ode
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-- Mindestens einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs), um einen der unten beschriebenen Empfehlungstypen zu verwenden.
+- Mindestens einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs), um einen der im folgenden Abschnitt beschriebenen Empfehlungstypen zu verwenden.
 - Kauf- oder Event-Daten in Braze (angepasste Events, das Event „Bestellung aufgegeben“ oder das Kauf-Objekt), die eine Referenz auf den Artikel enthalten und mit den Katalog-Artikel-IDs übereinstimmen müssen.
 
-### 1. Schritt: Eine neue Empfehlung erstellen {#step-1-create-a-new-recommendation}
+### Schritt 1: Eine neue Empfehlung erstellen {#step-1-create-a-new-recommendation}
 
 Sie können eine KI-Artikelempfehlung von zwei Stellen im Dashboard aus erstellen:
 
@@ -43,13 +43,13 @@ Sie können eine Empfehlung auch direkt aus einem einzelnen Katalog erstellen. W
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Details zur Empfehlung hinzufügen {#step-2-add-recommendation-details}
+### Schritt 2: Details zur Empfehlung hinzufügen {#step-2-add-recommendation-details}
 
 Geben Sie Ihrer Empfehlung einen Namen und eine optionale Beschreibung.
 
 ![Schritt „Empfehlungsdetails“ mit den Feldern für Name und Beschreibung.]({% image_buster /assets/img/item_recs_1.png %})
 
-### 3. Schritt: Ihre Empfehlung definieren {#recommendation-type}
+### Schritt 3: Ihre Empfehlung definieren {#recommendation-type}
 
 Wählen Sie einen Empfehlungstyp aus. Jeder Typ verwendet die Artikelinteraktionsdaten der letzten sechs Monate, z. B. Kauf-, Bestellungs- oder angepasste Event-Daten. Ausführlichere Informationen und Anwendungsfälle finden Sie unter [Typen und Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
@@ -81,7 +81,7 @@ Wenn Sie mehr Kontrolle über Ihre Empfehlung wünschen, wählen Sie eine [Auswa
 Wenn Sie Ihre Auswahl nicht finden können, vergewissern Sie sich zunächst, dass sie in Ihrem Katalog eingerichtet ist.
 {% endalert %}
 
-### 4. Schritt: Interaktion für Empfehlungen auswählen {#step-4-select-the-interaction-to-drive-recommendations}
+### Schritt 4: Interaktion für Empfehlungen auswählen {#step-4-select-the-interaction-to-drive-recommendations}
 
 Wählen Sie das Event aus, für das diese Empfehlung optimiert werden soll. Bei diesem Event handelt es sich in der Regel um einen Kauf, es kann aber auch jede andere Interaktion mit einem Artikel sein.
 
@@ -100,7 +100,7 @@ Wenn Sie **Custom Event** wählen, wählen Sie Ihr Event aus der Liste aus.
 Angepasste Events müssen über ausreichende Daten verfügen, bevor sie in der Event-Liste angezeigt werden. Sollte Ihr angepasstes Event nicht angezeigt werden, könnte dies daran liegen, dass das Braze-Backend es noch nicht verarbeitet hat oder dass nicht genügend Daten für das Modelltraining vorhanden sind. KI-Empfehlungen basieren auf historischen Daten, um Insights zu generieren. Daher sind neu erstellte oder selten getriggerte Events erst verfügbar, wenn mehr Daten gesammelt wurden.
 {% endalert %}
 
-### 5. Schritt: Den entsprechenden Eigenschaftsnamen auswählen {#property-name}
+### Schritt 5: Den entsprechenden Eigenschaftsnamen auswählen {#property-name}
 
 Um eine Empfehlung zu erstellen, müssen Sie Braze mitteilen, welches Feld Ihres Interaktions-Events (Event „Bestellung aufgegeben“, Kauf-Objekt oder angepasstes Event) den eindeutigen Bezeichner enthält, der mit dem Feld `id` eines Artikels im Katalog übereinstimmt. Nicht sicher? [Anforderungen anzeigen](#requirements).
 
@@ -326,7 +326,7 @@ Dieses Event hat die Eigenschaft `"sku": "ADI-RD-8"`, die dem zweiten Artikel im
 {% endtab %}
 {% endtabs %}
 
-### 6. Schritt: Empfehlung trainieren {#step-6-train-the-recommendation}
+### Schritt 6: Empfehlung trainieren {#step-6-train-the-recommendation}
 
 Wenn Sie so weit sind, wählen Sie **Create Recommendation**. Dieser Vorgang kann zwischen 10 Minuten und 36 Stunden dauern. Sie erhalten eine E-Mail-Benachrichtigung, wenn die Empfehlung erfolgreich trainiert wurde, oder eine Erklärung, warum die Erstellung möglicherweise fehlgeschlagen ist.
 

@@ -14,7 +14,7 @@ description: "Cet article présente en détail l'endpoint Dupliquer des campagne
 /campaigns/duplicate
 {% endapimethod %}
 
-> Utilisez cet endpoint pour dupliquer des campagnes. Cet endpoint de l'API est similaire à la [duplication des campagnes dans le tableau de bord de Braze][1].
+> Utilisez cet endpoint pour dupliquer des campagnes. Cet endpoint de l'API est similaire à la [duplication des campagnes dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
 ## Conditions préalables {#prerequisites}
 
@@ -36,7 +36,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "campaign_id": (required, string) The campaign identifier,
   "name": (required, string) The name of the resulting campaign,
   "description": (optional, string) The description of the resulting campaign,
-  "tag_names": (optional, string) The tags of the resulting campaign,
+  "tag_names": (optional, array of strings) The tags of the resulting campaign,
 }
 ```
 
@@ -47,16 +47,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types). |
 | `name` | Requis | Chaîne de caractères | Le nom de la campagne résultante. |
 | `description` | Facultatif | Chaîne de caractères | Le champ de description de la campagne résultante. |
-| `tag_names` | Facultatif | Chaîne de caractères | Les étiquettes de la campagne résultante. Il doit s'agir d'étiquettes existantes. Si vous ajoutez de nouvelles étiquettes dans la requête, elles remplaceront toutes les étiquettes présentes sur la campagne d'origine. |
+| `tag_names` | Facultatif | Tableau de chaînes de caractères | Les étiquettes de la campagne résultante. Il doit s'agir d'étiquettes existantes. Si vous ajoutez de nouvelles étiquettes dans la requête, elles remplaceront toutes les étiquettes présentes sur la campagne d'origine. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 
 ## Réponse {#response}
 
-Cet endpoint renverra un code de statut `202` et la création de la campagne se fera de manière asynchrone. Vous pouvez utiliser le [téléchargement des événements de sécurité][2] pour consulter les enregistrements indiquant quand les campagnes ont été dupliquées et par quelle clé API.
-
-
-[1]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-campaigns-and-canvases
-[2]: {{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings/#downloading-a-security-event-report
+Cet endpoint renvoie un code de statut `202` et la création de la campagne se fait de manière asynchrone. Vous pouvez utiliser le [téléchargement des événements de sécurité]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) pour consulter les enregistrements indiquant quand les campagnes ont été dupliquées et par quelle clé API.
 
 {% endapi %}

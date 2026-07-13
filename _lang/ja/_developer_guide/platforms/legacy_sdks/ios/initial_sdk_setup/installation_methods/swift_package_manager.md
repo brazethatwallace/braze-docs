@@ -26,11 +26,11 @@ tvOS は現在、Swift Package Manager 経由では利用できません。
 
 ![Swift Packages タブが選択された Xcode プロジェクト設定。]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
 
-SDKバージョン `3.33.1` 以降をインポートする場合、iOS SDKリポジトリの URL (`https://github.com/braze-inc/braze-ios-sdk`) をテキストフィールドに入力し、**Next** をクリックします。
+SDKバージョン `3.33.1` 以降をインポートする場合、iOS SDKリポジトリのURL (`https://github.com/braze-inc/braze-ios-sdk`) をテキストフィールドに入力し、**Next** をクリックします。
 
 バージョン `3.29.0` から `3.32.0` の場合、URL `https://github.com/Appboy/Appboy-ios-sdk` を使用してください。
 
-![Braze iOS SDKリポジトリ URL の Xcode パッケージ依存関係追加ダイアログ。]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
+![Braze iOS SDKリポジトリURLの Xcode パッケージ依存関係追加ダイアログ。]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
 
 次の画面で、SDKバージョンを選択し、**Next** をクリックします。バージョン `3.29.0` 以降は Swift Package Manager と互換性があります。
 
@@ -41,10 +41,10 @@ SDKバージョン `3.33.1` 以降をインポートする場合、iOS SDKリポ
 ニーズに最も適したパッケージを選択し、**Finish** をクリックします。必ず `AppboyKit` または `AppboyUI` のどちらかを選択してください。両方のパッケージを含めると、望ましくない動作が発生する可能性があります。
 
 - `AppboyUI`
-  - Brazeが提供する UI コンポーネントを使用する場合に最適です。
+  - Brazeが提供するUIコンポーネントを使用する場合に最適です。
   - `AppboyKit` が自動的に含まれます。
 - `AppboyKit`
-  - Brazeが提供する UI コンポーネント (Content Cards、アプリ内メッセージなど) を使用する必要がない場合に最適です。
+  - Brazeが提供するUIコンポーネント（Content Cards、アプリ内メッセージなど）を使用する必要がない場合に最適です。
 - `AppboyPushStory`
   - アプリに Push Stories を統合している場合は、このパッケージを含めます。これはバージョン `3.31.0` 以降でサポートされています。
   - **Add to Target** のドロップダウンで、メインアプリのターゲットの代わりに `ContentExtension` ターゲットを選択してください。
@@ -58,7 +58,7 @@ SDKバージョン `3.33.1` 以降をインポートする場合、iOS SDKリポ
 ![Other Linker Flags フィールドが表示された Xcode ビルド設定。]({% image_buster /assets/img/ios/spm/buildsettings.png %})
 
 {% alert note %}
-`-ObjC` フラグを追加しない場合、API の一部が欠落し、動作が未定義になる可能性があります。「unrecognized selector sent to class」などの予期しないエラー、アプリケーションのクラッシュ、その他の問題が発生する可能性があります。
+`-ObjC` フラグを追加しない場合、APIの一部が欠落し、動作が未定義になる可能性があります。「unrecognized selector sent to class」などの予期しないエラー、アプリケーションのクラッシュ、その他の問題が発生する可能性があります。
 {% endalert %}
 
 ## ステップ 3:ターゲットのスキームの編集 {#step-3-editing-the-targets-scheme}
@@ -66,7 +66,7 @@ SDKバージョン `3.33.1` 以降をインポートする場合、iOS SDKリポ
 Xcode 12.5 以降を使用している場合は、このステップをスキップしてください。
 {% endalert %}
 
-Xcode 12.4 以前を使用している場合は、Appboy パッケージを含むターゲットのスキームを編集します (**Product > Scheme > Edit Scheme** メニュー項目)。
+Xcode 12.4 以前を使用している場合は、Appboy パッケージを含むターゲットのスキームを編集します（**Product > Scheme > Edit Scheme** メニュー項目）。
 1. **Build** メニューを展開し、**Post-actions** を選択します。プラス (+) ボタンを押して、**New Run Script Action** を選択します。
 2. **Provide build settings from** ドロップダウンで、アプリのターゲットを選択します。
 3.  このスクリプトを開いたフィールドにコピーしてください:

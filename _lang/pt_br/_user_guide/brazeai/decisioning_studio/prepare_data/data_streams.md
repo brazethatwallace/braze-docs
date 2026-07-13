@@ -51,7 +51,7 @@ Um fluxo de eventos registra ações discretas conforme elas acontecem. Ele resp
 | Identificador do cliente | Sobre quem é este evento |
 | Tipo de evento | O que aconteceu (por exemplo, ativação, conversão, clique) |
 | Timestamp do evento | Quando o evento realmente ocorreu |
-| Timestamp de criação | Quando este registro foi criado no seu sistema (veja a nota abaixo) |
+| Timestamp de criação | Quando este registro foi criado no seu sistema (veja a nota na seção a seguir) |
 | Propriedades do evento | Metadados adicionais sobre o evento; quanto mais rico for, melhor o Decisioning Studio poderá vincular eventos ao longo da jornada do cliente |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campos obrigatórios" }
 

@@ -15,9 +15,9 @@ search_rank: 3
 
 Los eventos de compra son acciones de compra realizadas por tus usuarios, y se utilizan para registrar las compras dentro de la aplicación y establecer el valor de duración del ciclo de vida (LTV) para cada perfil de usuario. Estos eventos deben ser configurados por tu equipo. El registro de eventos de compra te permite añadir propiedades como la cantidad y el tipo, lo que te ayuda a segmentar aún más a tus usuarios en función de estas propiedades.
 
-## Registro de eventos de compra {#log-purchase-events}
+## Registrar eventos de compra {#log-purchase-events}
 
-Puedes registrar las compras pasando un [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object) a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), o utilizando una de nuestras bibliotecas SDK que se enumeran a continuación.
+Puedes registrar las compras pasando un [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object) a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), o utilizando una de nuestras bibliotecas SDK que se enumeran en la siguiente sección.
 
 {% alert note %}
 Las propiedades de eventos de compra utilizan los mismos tipos de datos que las [propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format).
@@ -97,7 +97,7 @@ En este ejemplo, el mensaje se personaliza en función de la propiedad `last_pur
 
 Un caso de uso común es enviar automáticamente un mensaje, como un correo electrónico, cuando un usuario realiza una compra. Por ejemplo, puedes enviar un mensaje de agradecimiento o un código de descuento para una compra futura.
 
-Para hacerlo, crea una campaña o Canvas basado en acciones, y luego establece la acción desencadenante como **Realizar compra**. También puedes especificar condiciones adicionales para el desencadenante, como el producto comprado o el monto de la compra.
+Para hacerlo, crea una Campaign o Canvas basado en acciones, y luego establece la acción desencadenante como **Realizar compra**. También puedes especificar condiciones adicionales para el desencadenante, como el producto comprado o el monto de la compra.
 
 También puedes personalizar tu mensaje desencadenado con Liquid. En el siguiente ejemplo, `${purchase_product_name}` es un atributo personalizado que reemplazarías con el nombre real del atributo que almacena el nombre del producto comprado en tu configuración de Braze.
 
@@ -190,7 +190,7 @@ Con las propiedades de eventos de compra, puedes establecer propiedades en las c
 Las siguientes claves están reservadas y no pueden usarse como nombres de propiedades de eventos de compra: `time`, `product_id`, `quantity`, `event_name`, `price` y `currency`. Usar una clave reservada en el objeto `properties` devolverá el error "Invalid 'properties' field".
 {% endalert %}
 
-Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario después de realizar una compra, podrías mejorar adicionalmente tu audiencia objetivo y permitir una mayor personalización de la campaña añadiendo una propiedad de evento de compra de `brand_name`.
+Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario después de realizar una compra, podrías mejorar adicionalmente tu público objetivo y permitir una mayor personalización de la campaña añadiendo una propiedad de evento de compra de `brand_name`.
 
 **Ejemplo de desencadenamiento basado en propiedades de eventos de compra:**
 
@@ -209,9 +209,9 @@ Estos filtros de segmentación incluyen:
 - Ha realizado cualquier compra con propiedad Y con valor V X veces en los últimos Y días
 - Añade segmentación de 1 a 30 días en todas las compras, eventos y propiedades dentro de compras y eventos
 
-A diferencia de las [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), los segmentos utilizados se actualizan en tiempo real, admiten una cantidad ilimitada de segmentos, ofrecen un historial retrospectivo de como máximo 30 días y generan puntos de datos. Debido al cargo adicional de puntos de datos, debes contactar a tu administrador del éxito del cliente de Braze para activar las propiedades de eventos en tus eventos personalizados.
+A diferencia de las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), los segmentos utilizados se actualizan en tiempo real, admiten una cantidad ilimitada de segmentos, ofrecen un historial retrospectivo de como máximo 30 días y generan puntos de datos. Debido al cargo adicional de puntos de datos, debes contactar a tu administrador de éxito de cliente de Braze para activar las propiedades de eventos en tus eventos personalizados.
 
-Una vez aprobado, se pueden añadir propiedades adicionales en el dashboard en **Configuración de datos** > **Eventos personalizados** seleccionando **Administrar propiedades**. Luego puedes usar estas propiedades de eventos en el paso de segmentación del constructor de campañas o Canvas.
+Una vez aprobado, se pueden añadir propiedades adicionales en el panel en **Configuración de datos** > **Eventos personalizados** seleccionando **Administrar propiedades**. Luego puedes usar estas propiedades de eventos en el paso de segmentación del constructor de Campaigns o Canvas.
 
 {% include data_activation/segmentable_purchase_properties_keys_note.md %}
 
@@ -233,4 +233,4 @@ Esto hace que los productos sean fáciles de identificar para segmentación y de
 
 Ocasionalmente puedes identificar eventos de compra que registran demasiados puntos de datos, ya no son útiles para tu estrategia de marketing o se registraron por error. Para evitar que estos datos se envíen a Braze, puedes bloquear el objeto de datos personalizado mientras tu equipo de ingeniería trabaja en eliminarlo del backend de tu aplicación o sitio web.
 
-En el dashboard de Braze, puedes administrar el bloqueo desde **Configuración de datos** > **Productos**. Consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) para más información.
+En el panel de Braze, puedes administrar el bloqueo desde **Configuración de datos** > **Productos**. Consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) para más información.

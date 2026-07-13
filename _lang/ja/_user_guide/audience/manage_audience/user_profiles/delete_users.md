@@ -38,9 +38,9 @@ Brazeダッシュボードから[個々のユーザー](#delete-individual)ま�
 
 ### 個々のユーザーの削除 {#delete-individual}
 
-Brazeから個々のユーザーを削除するには、**Audience** > **Search Users**に移動し、ユーザーを検索して選択します。重複するユーザープロファイルを削除する場合は、正しいプロファイルを選択していることを確認してください。
+Brazeから個々のユーザーを削除するには、**オーディエンス** > **ユーザーを検索**に移動し、ユーザーを検索して選択します。重複するユーザープロファイルを削除する場合は、正しいプロファイルを選択していることを確認してください。
 
-![Brazeの「Search Users」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
+![Brazeの「ユーザーを検索」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
 
 {% alert warning %}
 単一ユーザーの削除は永続的です。削除後にプロファイルを復元することはできません。

@@ -82,8 +82,8 @@ Suivez ensuite le [parcours d'investigation standard](#standard-investigation-pa
 
 | Cause probable | Ce qu'il faut vérifier |
 | --- | --- |
-| Mauvaise cible **Envoyer à** | Confirmez que la campagne ou l'étape Canvas cible **Applications mobiles** ou **Navigateurs web** selon le cas. Une campagne Web uniquement ne sera pas envoyée aux appareils Android. |
-| Une interface personnalisée ou un gestionnaire supprime l'affichage | Vérifiez les délégués (mobile) ou [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Voir [Personnalisation]({{site.baseurl}}/developer_guide/in_app_messages/customization) et votre onglet SDK ci-dessous. |
+| Mauvaise cible **Send To** | Confirmez que la campagne ou l'étape Canvas cible **Mobile Apps** ou **Web Browsers** selon le cas. Une campagne Web uniquement ne sera pas envoyée aux appareils Android. |
+| Une interface personnalisée ou un gestionnaire supprime l'affichage | Vérifiez les délégués (mobile) ou [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Voir [Personnalisation]({{site.baseurl}}/developer_guide/in_app_messages/customization) et votre onglet SDK pour votre plateforme. |
 | L'intégration n'a jamais fonctionné sur cette plateforme | Confirmez que cette plateforme et cette version de l'application ont déjà affiché des messages in-app. |
 | Le déclencheur ne s'est pas activé sur l'appareil | Le déclencheur doit se produire localement via le SDK. Un appel REST API ne peut pas déclencher un message in-app dans le SDK. Voir [Déclencher des messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages). |
 | `triggers` vide dans les journaux des événements utilisateurs | Segment, rééligibilité, plafond de fréquence ou groupe de contrôle. Voir [Résoudre les problèmes de messages non retournés](#troubleshoot-messages-not-being-returned). |
@@ -114,7 +114,7 @@ Causes courantes :
 - **Délai planifié dans le tableau de bord :** Vérifiez si un délai est configuré sur la campagne ou l'étape.
 - **Condition de concurrence des déclencheurs :** Si les utilisateurs enregistrent un événement immédiatement après le démarrage de la session, les déclencheurs peuvent ne pas encore être synchronisés. Envisagez de déclencher sur le démarrage de session et de segmenter sur l'événement visé afin que la distribution se fasse à la session suivante après l'événement.
 - **Messages in-app séquentiels :** Si vous différez ou restaurez des messages dans un parcours, voir [Différer les messages in-app déclenchés]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- **Ressources volumineuses ou CDN lent :** Optimisez les images et les vidéos pour les messages in-app HTML. Sur mobile, les images peuvent être téléchargées avant l'affichage sur les réseaux lents — sélectionnez votre onglet SDK ci-dessous pour les notes spécifiques à la plateforme.
+- **Ressources volumineuses ou CDN lent :** Optimisez les images et les vidéos pour les messages in-app HTML. Sur mobile, les images peuvent être téléchargées avant l'affichage sur les réseaux lents — sélectionnez votre onglet SDK pour les notes spécifiques à la plateforme.
 
 {% alert note %}
 Si votre message in-app est déclenché par le démarrage de session et que vous avez défini un délai d'expiration de session prolongé, fermer et rouvrir l'application dans cette fenêtre ne rafraîchira pas la session. Par exemple, avec un délai d'expiration de 300 secondes, un message in-app déclenché au démarrage de session ne s'affichera pas tant que la session ne sera pas réellement rafraîchie. Ajustez le délai d'expiration de session ou le type de déclencheur si cela affecte votre test.

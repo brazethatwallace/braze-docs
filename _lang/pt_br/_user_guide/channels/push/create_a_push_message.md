@@ -35,7 +35,7 @@ Tags facilitam encontrar suas Campaigns e criar relatórios a partir delas. Por 
 5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada variante adicionada. Para saber mais sobre esse assunto, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Depois, você pode escolher **Copy from Variant** no menu suspenso **Add Variant**.
+Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Depois, você pode escolher **Copiar da variante** no menu suspenso **Adicionar variante**.
 {% endalert %}
 
 {% endtab %}
@@ -99,13 +99,13 @@ Se você estiver adicionando texto em um idioma escrito da direita para a esquer
 
 {% tabs local %}
 {% tab ios %}
-Comece a digitar na caixa de mensagem e observe uma pré-visualização aparecer na caixa de pré-visualização à esquerda. As mensagens push devem ser formatadas em texto simples.
+Comece a digitar na caixa de mensagem e observe uma prévia aparecer na caixa de prévia ao lado. As mensagens push devem ser formatadas em texto simples.
 
 Adicione um título usando o campo **Title**. Para tornar seu push personalizado e direcionado, você pode incluir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 {% endtab %}
 
 {% tab android %}
-Comece a digitar na caixa de mensagem e observe uma pré-visualização aparecer na caixa de pré-visualização à esquerda. As mensagens push devem ser formatadas em texto simples.
+Comece a digitar na caixa de mensagem e observe uma prévia aparecer na caixa de prévia ao lado. As mensagens push devem ser formatadas em texto simples.
 
 Para tornar seu push personalizado e direcionado, você pode incluir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
@@ -190,7 +190,7 @@ Nesta etapa, você também pode especificar controles de entrega, como permitir 
 
 ### Escolha os usuários a direcionar {#choose-users-to-target}
 
-Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse Segment. Estatísticas detalhadas do público para os canais direcionados pela sua Campaign estão disponíveis no rodapé. Para ver qual porcentagem da sua base de usuários está sendo direcionada e o Lifetime Value para esse Segment, selecione **Show Additional Stats**.
+Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment. Estatísticas detalhadas do público para os canais direcionados pela sua Campaign estão disponíveis no rodapé. Para ver qual porcentagem da sua base de usuários está sendo direcionada e o valor do tempo de vida para esse Segment, selecione **Show Additional Stats**.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -200,7 +200,7 @@ Ao visualizar o Total de Usuários Contatáveis para seu público filtrado, voc�
 
 {% enddetails %}
 
-![Tabela de estatísticas detalhadas do público para Usuários Contatáveis.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
+![Tabela de estatísticas detalhadas do público para usuários contatáveis.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 
 Tenha em mente que a associação exata ao Segment é sempre calculada antes do envio da mensagem.
 
@@ -230,7 +230,7 @@ A Braze permite que você acompanhe com que frequência os usuários realizam a�
 
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 
 {% endtab %}
 {% endtabs %}

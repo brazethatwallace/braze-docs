@@ -1,9 +1,9 @@
 # フィーチャーフラグ {#feature-flags}
 
-> フィーチャーフラグを使用すると、特定のユーザーまたはランダムに選択したユーザーの機能をリモートで有効または無効にすることができます。重要なことは、追加のコードデプロイやアプリストアの更新なしに、本番環境で機能のオンオフを切り替えることができることです。これにより、新しい機能を安全かつ確信を持ってロールアウトできます。
+> フィーチャーフラグを使用すると、特定のユーザーまたはランダムに選択したユーザーの機能をリモートで有効または無効にすることができます。重要なのは、追加のコードデプロイやアプリストアの更新なしに、本番環境で機能のオンオフを切り替えられることです。これにより、新しい機能を安全かつ確信を持ってロールアウトできます。
 
 {% alert tip %}
-独自のフィーチャーフラグを作成する準備ができたら、[フィーチャーフラグの作成]({{site.baseurl}}/developer_guide/feature_flags/create/)をご確認ください。
+独自のフィーチャーフラグを作成する準備ができたら、[フィーチャーフラグの作成]({{site.baseurl}}/developer_guide/feature_flags/create)をご確認ください。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -33,11 +33,11 @@ Brazeフィーチャーフラグを使用することで、機能を段階的に
 * 人員が適切に配置されているかどうかを判断するために、この新機能を10%のユーザーに対してのみ有効にします。
 * バグがある場合は、新しいリリースを急いで配布するのではなく、ただちに機能を無効にすることができます。
 
-この機能を段階的に展開するには、「ライブチャットウィジェット」という名前の[フィーチャーフラグを作成]({{site.baseurl}}/developer_guide/feature_flags/create/)します。
+この機能を段階的に展開するには、「ライブチャットウィジェット」という名前の[フィーチャーフラグを作成]({{site.baseurl}}/developer_guide/feature_flags/create)します。
 
 ![Live Chat Widgetという名前の例のフィーチャーフラグの詳細。IDはenable_live_chatです。このフィーチャーフラグの説明は、サポートページにライブチャットウィジェットが表示されることを示しています。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
-アプリコードでは、Brazeフィーチャーフラグが有効になっている場合にのみ **Start Live Chat** ボタンを表示します。
+アプリコードでは、Brazeフィーチャーフラグが有効になっている場合にのみ**Start Live Chat**ボタンを表示します。
 
 {% tabs %}
 {% tab JavaScript %}
@@ -66,7 +66,7 @@ return (<>
 {% endtab %}
 {% tab Java %}
 
-`````````java
+```java
 // Get the initial value from the Braze SDK
 FeatureFlag featureFlag = braze.getFeatureFlag("enable_live_chat");
 Boolean liveChatEnabled = featureFlag != null && featureFlag.getEnabled();
@@ -89,7 +89,7 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Kotlin %}
 
-`````````kotlin
+```kotlin
 // Get the initial value from the Braze SDK
 val featureFlag = braze.getFeatureFlag("enable_live_chat")
 var liveChatEnabled = featureFlag?.enabled
@@ -112,7 +112,27 @@ if (liveChatEnabled) {
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+{% alert note %}
+`braze.featureFlags.featureFlags`または`braze.featureFlags.featureFlag(id:)`を読み取ると、SDKが初期化後の操作を完了するまで呼び出しスレッドがブロックされます。メインスレッドやレイテンシに敏感なコンテキストでは、代わりに[`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:))を使用してください。
+
+```swift
+// Non-blocking — completion handler always delivers on the main thread.
+braze.featureFlags.getAllFeatureFlags { flags in
+  let liveChatEnabled = flags.first(where: { $0.id == "enable_live_chat" })?.enabled ?? false
+  liveChatView.isHidden = !liveChatEnabled
+}
+```
+
+Objective-Cの場合：
+
+```objc
+[braze.featureFlags getAllFeatureFlagsWithCompletion:^(NSArray<BRZFeatureFlag *> *flags) {
+  // Use `flags` here.
+}];
+```
+{% endalert %}
+
+```swift
 // Get the initial value from the Braze SDK
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")
 var liveChatEnabled = featureFlag?.enabled ?? false
@@ -138,7 +158,7 @@ liveChatView.isHidden = !liveChatEnabled
 
 フィーチャーフラグを使用すると、Brazeによってアプリのナビゲーションリンクのコンテンツを制御し、マーケティングマネージャーが数日ではなく数分で変更を加えることが可能になります。
 
-この機能をリモートで構成するには、`navigation_promo_link` という新しいフィーチャーフラグを作成し、次の初期プロパティを定義します。
+この機能をリモートで構成するには、`navigation_promo_link`という新しいフィーチャーフラグを作成し、次の初期プロパティを定義します。
 
 ![汎用販売ページに向けたリンクとテキストプロパティを持つフィーチャーフラグ。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-navigation-link-1.png %})
 
@@ -147,7 +167,7 @@ liveChatView.isHidden = !liveChatEnabled
 {% tabs %}
 {% tab JavaScript %}
 
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 import {useState} from "react";
 
@@ -172,7 +192,7 @@ return (<>
 {% endtab %}
 {% tab Java %}
 
-`````````java
+```java
 // liveChatView is the View container for the Live Chat UI
 FeatureFlag featureFlag = braze.getFeatureFlag("navigation_promo_link");
 if (featureFlag != null && featureFlag.getEnabled()) {
@@ -188,7 +208,7 @@ liveChatView.setPromoText(featureFlag.getStringProperty("text"));
 {% endtab %}
 {% tab Kotlin %}
 
-`````````kotlin
+```kotlin
 // liveChatView is the View container for the Live Chat UI
 val featureFlag = braze.getFeatureFlag("navigation_promo_link")
 if (featureFlag?.enabled == true) {
@@ -203,7 +223,7 @@ liveChatView.promoText = featureFlag?.getStringProperty("text")
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 let featureFlag = braze.featureFlags.featureFlag(id: "navigation_promo_link")
 if let featureFlag {
   liveChatView.isHidden = !featureFlag.enabled
@@ -229,11 +249,11 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 
 たとえば、ユーザー向けに新しいロイヤルティ報酬プログラムを開始するとします。マーケティングチームとプロダクトチームにとって、プロモーションのメッセージングと機能のロールアウトのタイミングを完璧に調整するのは難しいことです。しかし、キャンバスのフィーチャーフラグを使用すると、プロダクトチームは特定のオーディエンスに対して機能を有効にする高度なロジックを適用でき、マーケティングチームは同じユーザーに対して関連するメッセージングをコントロールできます。
 
-機能のロールアウトとメッセージングを効率的に調整するために、`show_loyalty_program` という新しいフィーチャーフラグを作成します。最初の段階的リリースでは、フィーチャーフラグを有効にするタイミングと対象をキャンバスでコントロールします。この時点では、ロールアウトのパーセンテージは0%のままにし、ターゲットセグメントは選択しません。
+機能のロールアウトとメッセージングを効率的に調整するために、`show_loyalty_program`という新しいフィーチャーフラグを作成します。最初の段階的リリースでは、フィーチャーフラグを有効にするタイミングと対象をキャンバスでコントロールします。この時点では、ロールアウトのパーセンテージは0%のままにし、ターゲットセグメントは選択しません。
 
-![ロイヤルティ報酬プログラムという名前のフィーチャーフラグ。IDはshow_loyalty_programであり、ホーム画面とプロファイルページに新しいロイヤルティ報酬プログラムが表示されることを示す説明です。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
+![ロイヤルティ報酬プログラムという名前のフィーチャーフラグ。IDはshow_loyalty_programであり、ホーム画面とプロフィールページに新しいロイヤルティ報酬プログラムが表示されることを示す説明です。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
 
-次に、キャンバスで「高価値顧客」セグメント向けの `show_loyalty_program` フィーチャーフラグを有効にする[フィーチャーフラグステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/)を作成します。
+次に、キャンバスで「高価値顧客」セグメント向けの`show_loyalty_program`フィーチャーフラグを有効にする[フィーチャーフラグステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags)を作成します。
 
 ![オーディエンス分割ステップを含むキャンバスの例で、高価値顧客セグメントがshow_loyalty_programフィーチャーフラグを有効にする場合。]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
 
@@ -243,18 +263,20 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 
 フィーチャーフラグを使用して、新しい機能に関する仮説を実験で確認できます。トラフィックを2つ以上のグループに分割することで、グループ間でフィーチャーフラグの影響を比較し、その結果に基づいて最適なアクションを決定できます。
 
-[A/Bテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/)は、ユーザーの応答を変数の複数バージョンと比較する強力なツールです。
+フィーチャーフラグ実験では、1つのコントロールグループと最大8つのバリアントで、合計最大9つのグループを設定できます。
+
+[A/Bテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing)は、ユーザーの応答を変数の複数バージョンと比較する強力なツールです。
 
 この例では、チームはeコマースアプリの新しいチェックアウトフローを構築しました。ユーザーエクスペリエンスが改善されていると確信しているにもかかわらず、A/Bテストを実行して、アプリの収益に与える影響を測定したいと考えています。
 
-まず、`enable_checkout_v2` という新しいフィーチャーフラグを作成します。オーディエンスやロールアウトのパーセンテージは追加しません。代わりに、フィーチャーフラグ実験を使用して、トラフィックを分割し、機能を有効にして、結果を測定します。
+まず、`enable_checkout_v2`という新しいフィーチャーフラグを作成します。オーディエンスやロールアウトのパーセンテージは追加しません。代わりに、フィーチャーフラグ実験を使用して、トラフィックを分割し、機能を有効にして、結果を測定します。
 
 アプリでは、フィーチャーフラグが有効かどうかを確認し、応答に基づいてチェックアウトフローを切り替えます。
 
 {% tabs %}
 {% tab JavaScript %}
 
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 
 const featureFlag = braze.getFeatureFlag("enable_checkout_v2");
@@ -269,7 +291,7 @@ if (featureFlag?.enabled) {
 {% endtab %}
 {% tab Java %}
 
-`````````java
+```java
 FeatureFlag featureFlag = braze.getFeatureFlag("enable_checkout_v2");
 braze.logFeatureFlagImpression("enable_checkout_v2");
 if (featureFlag != null && featureFlag.getEnabled()) {
@@ -282,7 +304,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 {% endtab %}
 {% tab Kotlin %}
 
-`````````kotlin
+```kotlin
 val featureFlag = braze.getFeatureFlag("enable_checkout_v2")
 braze.logFeatureFlagImpression("enable_checkout_v2")
 if (featureFlag?.enabled == true) {
@@ -295,7 +317,7 @@ if (featureFlag?.enabled == true) {
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 let featureFlag = braze.featureFlags.featureFlag(id: "enable_checkout_v2")
 braze.featureFlags.logFeatureFlagImpression(id: "enable_checkout_v2")
 if let featureFlag, featureFlag.enabled {
@@ -308,7 +330,7 @@ if let featureFlag, featureFlag.enabled {
 {% endtab %}
 {% endtabs %}
 
-A/Bテストは、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments/)で設定します。
+A/Bテストは、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments)で設定します。
 
 これで、50%のユーザーが従来の体験を見て、残りの50%が新しい体験を見ることになります。その後、2つのバリアントを分析し、どちらのチェックアウトフローがより高いコンバージョン率をもたらしたかを判断できます。{% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}
 
@@ -320,9 +342,13 @@ A/Bテストは、[フィーチャーフラグ実験]({{site.baseurl}}/developer
 
 **フィーチャーフラグ**フィルターを使用して、フィーチャーフラグが有効になっているかどうかに基づいて、セグメントを作成したりユーザーにターゲットメッセージを送信したりできます。たとえば、アプリのプレミアムコンテンツをコントロールするフィーチャーフラグがあるとします。フィーチャーフラグが有効になっていないユーザーをフィルター処理するセグメントを作成し、そのセグメントに対して、プレミアムコンテンツを表示するためにアカウントをアップグレードするように促すメッセージを送信できます。
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
+1. セグメントまたはメッセージのオーディエンスを開きます。
+2. **フィーチャーフラグ**フィルターを追加します。
+3. フィーチャーフラグを選択します。
+4. フィーチャーフラグが有効なユーザーを含めるには比較演算子を**is**に設定し、有効でないユーザーを含めるには**is not**に設定します。
+![フィーチャーフラグの有効値フィルターを使用したBrazeセグメントビルダー。]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
 
-セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
+セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)を参照してください。
 
 {% alert note %}
 再帰的なセグメントを防ぐため、他のフィーチャーフラグを参照するセグメントを作成することはできません。
@@ -330,14 +356,14 @@ A/Bテストは、[フィーチャーフラグ実験]({{site.baseurl}}/developer
 
 ## プランの制限 {#plan-limitations}
 
-これらは、無料プランと有料プランのフィーチャーフラグの制限事項です。
+以下は、無料プランと有料プランにおけるフィーチャーフラグの制限事項です。
 
-| 機能                                                                                                   | 無料バージョン     | 有料バージョン      |
+| 機能 | 無料バージョン | 有料バージョン |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| [アクティブなフィーチャーフラグ](#active-feature-flags)                                                                     | ワークスペースあたり10 | ワークスペースあたり110 |
-| [アクティブなキャンペーン実験]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | ワークスペースあたり1  | ワークスペースあたり100 |
-| [フィーチャーフラグキャンバスステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | 無制限        | 無制限         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
+| [アクティブなフィーチャーフラグ](#active-feature-flags) | ワークスペースあたり10 | ワークスペースあたり110 |
+| [アクティブなキャンペーン実験]({{site.baseurl}}/developer_guide/feature_flags/experiments) | ワークスペースあたり1 | ワークスペースあたり100 |
+| [フィーチャーフラグキャンバスステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) | 無制限 | 無制限 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プランの制限" }
 
 次のいずれかに該当する場合、フィーチャーフラグはアクティブと見なされ、制限に対してカウントされます。
 

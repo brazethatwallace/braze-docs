@@ -48,7 +48,7 @@ page_order: 1
 
 ### 닫기 X 버튼 {#close-x-button}
 
-모달 및 전체화면 인앱 메시지의 경우, 메시지 오른쪽 상단에 <i class="fa-solid fa-xmark"></i>로 표시되는 닫기 버튼을 커스터마이즈할 수 있습니다. 커스터마이즈 옵션에는 버튼 위치, 크기, 채우기 색상, 배경 색상, 테두리 스타일, 테두리 반경이 포함됩니다.
+Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class="fa-solid fa-xmark"></i>로 표시되는 닫기 버튼을 커스터마이즈할 수 있습니다. 커스터마이즈 옵션에는 버튼 위치, 크기, 채우기 색상, 배경 색상, 테두리 스타일, 테두리 반경이 포함됩니다.
 
 ![버튼 크기, 채우기 색상, 배경 색상, 테두리 스타일, 테두리 반경을 포함한 인앱 메시지의 닫기 X 버튼 커스터마이즈 옵션.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -58,7 +58,7 @@ page_order: 1
 
 ![인앱 메시지에서 텍스트를 강조 표시할 때 표시되는 옵션. 작은 붓 아이콘이 스타일을 위해 스팬으로 감쌀 수 있음을 보여줍니다.]({% image_buster /assets/img_archive/span_1.png %}){: style="max-width:40%"}
 
-![최종 사용자가 글꼴 패밀리, 글꼴 두께, 글꼴 크기, 자간, 텍스트 색상을 커스터마이즈할 수 있는 "스팬 속성" 사이드 패널.]({% image_buster /assets/img_archive/span_2.png %}){: style="max-width:40%"}
+![최종사용자가 글꼴 패밀리, 글꼴 두께, 글꼴 크기, 자간, 텍스트 색상을 커스터마이즈할 수 있는 "스팬 속성" 사이드 패널.]({% image_buster /assets/img_archive/span_2.png %}){: style="max-width:40%"}
 
 ### 행 {#rows}
 
@@ -92,7 +92,7 @@ page_order: 1
 
 모든 블록에는 패딩에 대한 세밀한 제어와 같은 자체 설정이 있습니다. 오른쪽 패널은 선택한 콘텐츠 요소에 대한 스타일링 패널로 자동 전환됩니다. 자세한 내용은 [편집기 블록 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)을 참조하세요.
 
-인앱 메시지를 구축하면서 도구 모음에서 모바일, 태블릿 또는 데스크탑 보기를 선택하여 사용자 그룹에게 인앱 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 반응형인지 확인하고, 진행하면서 필요한 조정을 할 수 있습니다.
+인앱 메시지를 구축하면서 도구 모음에서 모바일, 태블릿 또는 데스크탑 보기를 선택하여 사용자 그룹에게 인앱 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 응답형인지 확인하고, 진행하면서 필요한 조정을 할 수 있습니다.
 
 ## 크리에이티브 세부 정보 {#creative-details}
 

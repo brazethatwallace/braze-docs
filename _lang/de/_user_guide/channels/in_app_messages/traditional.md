@@ -225,7 +225,7 @@ Wenn Sie sich entscheiden, nur einen Button zu verwenden, passt sich dieser auto
 
 Wenn Sie diese Buttons mit Ihren eigenen Farben formatieren, empfehlen wir, Button 2 für Ihr bevorzugtes Ergebnis zu verwenden.
 
-Mit anderen Worten: Wenn Sie möchten, dass Ihre Nutzer:innen einen Button häufiger anklicken als den anderen, stellen Sie sicher, dass er sich auf der rechten Seite befindet. Der rechte Button hat oft ein besseres Klickpotenzial gezeigt, insbesondere wenn er eine etwas kontrastierende oder anderweitig auffällige Farbe im Vergleich zum Rest der Nachricht hat. Dies wird nur verstärkt, wenn der Button auf der linken Seite visuell stärker mit der Nachricht verschmilzt.
+Mit anderen Worten: Wenn Sie möchten, dass Ihre Nutzer:innen einen Button häufiger anklicken als den anderen, stellen Sie sicher, dass es der sekundäre Button ist. Der sekundäre Button hat oft ein besseres Klickpotenzial gezeigt, insbesondere wenn er eine etwas kontrastierende oder anderweitig auffällige Farbe im Vergleich zum Rest der Nachricht hat. Dies wird nur verstärkt, wenn der primäre Button visuell stärker mit der Nachricht verschmilzt.
 
 ![Primärer und sekundärer Button in einer In-App-Nachricht]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -246,6 +246,8 @@ Wenn Ihre Kund:innen auf einen Button in Ihrer In-App-Nachricht klicken, stehen 
 Hinweis: Die Optionen __Push-Berechtigung anfordern__, __Angepasstes Event protokollieren__ und __Angepasstes Attribut protokollieren__ erfordern die folgenden SDK-Mindestversionen:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
+
+Um mehrere Aktionen zu kombinieren oder zusätzliche SDK-Aktionen auszuführen, die im Dashboard nicht verfügbar sind (z. B. das Hinzufügen zu einer Abo-Gruppe oder das Festlegen eines E-Mail-Abo-Typs), können Sie [Braze Actions-Deeplinks]({{site.baseurl}}/developer_guide/braze_actions) verwenden.
 
 ### iOS-Geräteoptionen {#ios-device-options}
 
@@ -321,7 +323,7 @@ Beachten Sie: Wenn Sie Ihre In-App-Nachricht basierend auf einem angepassten Eve
 Die Zustellung von In-App-Nachrichten basiert vollständig auf den folgenden Aktions-Triggern:
 
 - Einen Kauf tätigen
-- Die App/Webseite öffnen
+- Die App oder Webseite öffnen
 - Ein angepasstes Event ausführen (funktioniert nur mit Events, die über das SDK gesendet werden)
 - Eine bestimmte Push-Nachricht öffnen
 - Campaigns automatisch so planen, dass sie zu einer bestimmten Zeit in Bezug auf die Ortszeit jeder Nutzerin und jedes Nutzers gesendet werden.
@@ -336,7 +338,7 @@ Weitere Informationen finden Sie in unserer Entwicklerdokumentation zu [serverse
 In-App-Nachrichten funktionieren, indem die Nachricht und die Trigger an das Gerät der Nutzerin oder des Nutzers gesendet werden. Sobald die In-App-Nachrichten auf einem Gerät sind, wartet es mit der Anzeige, bis die Trigger-Bedingung erfüllt ist. Wenn die In-App-Nachrichten bereits auf dem Gerät der Nutzerin oder des Nutzers zwischengespeichert sind, können Sie In-App-Nachrichten sogar offline ohne Verbindung zu Braze auslösen (z. B. im Flugmodus).
 
 {% alert important %}
-Nachdem eine In-App-Nachricht gestoppt wurde, kann es vorkommen, dass einige Nutzer:innen die Nachricht weiterhin sehen, wenn sie eine Sitzung gestartet haben, bevor die Nachricht gestoppt wurde, und anschließend das Trigger-Event ausführen. Diese Nutzer:innen werden als einzigartige Impression gezählt, auch nachdem die Campaign gestoppt wurde.
+Nachdem eine In-App-Nachricht gestoppt wurde, kann es vorkommen, dass einige Nutzer:innen die Nachricht weiterhin sehen, wenn sie eine Sitzung gestartet haben, bevor die Nachricht gestoppt wurde, und anschließend das Trigger-Event ausführen. Diese Nutzer:innen werden als eindeutige Impression gezählt, auch nachdem die Campaign gestoppt wurde.
 {% endalert %}
 
 ### Eine Priorität wählen {#choose-a-priority}
@@ -354,7 +356,7 @@ Die Optionen für hohe, mittlere und niedrige Priorität bei getriggerten Nachri
 - **Standard-Prioritäts-Bucket:** Wenn zwei Campaigns denselben Trigger teilen und die Standard-Priorität (mittel) verwenden, erhält die zuletzt erstellte Campaign den Trigger.
 - **Spezifischer Prioritäts-Bucket:** Wenn mehrere Campaigns denselben Trigger teilen und einem bestimmten Prioritäts-Bucket zugewiesen sind, erhält die Campaign, die diesem Bucket zuletzt zugewiesen wurde, den Trigger.
 
-Um Prioritäten innerhalb dieser Buckets festzulegen, klicken Sie auf **Genaue Priorität festlegen**, und Sie können Campaigns per Drag-and-Drop in die richtige Reihenfolge bringen.
+Um Prioritäten innerhalb dieser Buckets festzulegen, klicken Sie auf **Exakte Priorität festlegen**, und Sie können Campaigns per Drag-and-Drop in die richtige Reihenfolge bringen.
 
 ![Ein Beispiel, wie die Priorität für eine In-App-Nachrichten-Campaign und ein Canvas festgelegt wird.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
@@ -390,7 +392,7 @@ Wenn ein Trigger sowohl Daten an Braze sendet als auch die In-App-Nachricht ausl
 
 ### Konversions-Events wählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
 
 {% endtab %}
 {% tab Canvas %}
@@ -406,7 +408,7 @@ Informationen zu Canvas-spezifischen In-App-Nachrichten-Optionen finden Sie unte
 
 Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, [testen Sie sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) und senden Sie sie ab!
 
-Sehen Sie sich als Nächstes [In-App-Nachrichten-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Messaging-Campaigns zugreifen können.
+Sehen Sie sich als Nächstes [In-App-Nachrichten-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Messaging-Kampagnen zugreifen können.
 
 ## Wissenswertes {#things-to-know}
 

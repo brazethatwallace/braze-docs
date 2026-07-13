@@ -14,7 +14,7 @@ search_tag: Partner
 
 _Cette intégration est maintenue par Regal._
 
-En intégrant Regal à Braze, vous pouvez unifier les données comportementales et l'intelligence artificielle conversationnelle pour orchestrer des parcours clients personnalisés et omnicanaux. Braze capture les signaux tout au long du cycle de vie client, que Regal utilise pour alimenter les conversations des agents IA, le routage et les décisions en temps réel.
+En intégrant Regal à Braze, vous pouvez unifier les données comportementales et l'IA conversationnelle pour orchestrer des parcours clients personnalisés et omnicanaux. Braze capture les signaux tout au long du cycle de vie client, que Regal utilise pour alimenter les conversations des agents IA, le routage et les décisions en temps réel.
 
 Utilisez les données Braze pour façonner ce que vos agents IA disent, comment ils répondent et quand interagir. Renvoyez les résultats et les informations des conversations vers Braze pour améliorer le ciblage et le marketing du cycle de vie. Déclenchez des appels et des SMS alimentés par l'IA à des moments clés du parcours client, et effectuez un suivi dans Braze en fonction de ce qui se passe dans chaque conversation.
 
@@ -37,7 +37,7 @@ Créez un Canvas ou une Campaign qui envoie des webhooks à Regal chaque fois qu
 
 1. Créez un Canvas ou une Campaign intitulé(e) « Créer un nouveau contact pour Regal » et sélectionnez **Basé sur l'action** comme type d'entrée.
 
-2. Définissez la logique du déclencheur comme **Événement personnalisé**, puis sélectionnez l'événement qui se déclenche lorsqu'un profil avec un numéro de téléphone est créé. Regal recommande également d'ajouter un filtre pour confirmer que le champ téléphone est défini.
+2. Définissez la logique du déclencheur sur **Événement personnalisé**, puis sélectionnez l'événement qui se déclenche lorsqu'un profil avec un numéro de téléphone est créé. Regal recommande également d'ajouter un filtre pour confirmer que le champ téléphone est défini.
 
 3. Dans votre nouveau modèle de webhook, remplissez les champs suivants :
    - **Webhook URL** : <https://events.regalvoice.com/events>
@@ -312,7 +312,7 @@ Dans les payloads d'événements de Braze vers Regal, Regal recommande d'utilise
 - Braze ne prend pas en charge les numéros de téléphone comme identifiant. Pour l'utiliser comme identifiant, le numéro de téléphone peut être défini comme [alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) dans Braze.
 - Lors de l'utilisation de la Transformation des données Braze, l'adresse e-mail peut être utilisée comme identifiant. Si l'adresse e-mail existe en tant que profil dans Braze, le profil existant sera mis à jour. Si l'adresse e-mail n'existe pas encore dans Braze, un profil uniquement e-mail sera créé.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 {% tabs %}
 {% tab Déclencher un e-mail %}
@@ -479,7 +479,7 @@ return brazecall;
 {% endtab %}
 {% tab Synchroniser vos expériences %}
 
-**Gardez vos expériences dans Braze et Regal synchronisées en utilisant les événements `contact.experiment.assigned`**
+**Synchronisez vos expériences dans Braze et Regal en utilisant les événements `contact.experiment.assigned`**
 
 Voici un exemple de payload pour un événement `contact.experiment.assigned` dans Regal.
 

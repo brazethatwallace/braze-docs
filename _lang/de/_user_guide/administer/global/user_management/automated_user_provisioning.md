@@ -14,6 +14,10 @@ alias: /scim/automated_user_provisioning/
 
 ## Zugriff auf die SCIM-Bereitstellungseinstellungen {#accessing-scim-provisioning-settings}
 
+{% alert important %}
+Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature in Ihrem Workspace nicht verfügbar ist, wenden Sie sich an Ihren Customer-Success-Manager für weitere Informationen.
+{% endalert %}
+
 1. Navigieren Sie im Braze-Dashboard zu **Einstellungen** > **Admin-Einstellungen** > **SCIM-Bereitstellung** und wählen Sie anschließend **SCIM-Integration konfigurieren**.
 2. Wählen Sie im Schritt **Braze-Konfiguration** eine Bereitstellungsmethode aus und geben Sie die Zugriffseinstellungen an.
 
@@ -27,14 +31,14 @@ alias: /scim/automated_user_provisioning/
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Verwenden Sie die Option **Okta – Braze-App**, wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben. Wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Benutzerdefinierte App-Integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Verwenden Sie die Option **Okta – Braze-App**, wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben. Wenn Sie eine angepasste App für SSO eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Angepasste App-Integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
-## 1. Schritt: SCIM-Bereitstellung einrichten {#step-1-set-up-scim-provisioning}
+## Schritt 1: SCIM-Bereitstellung einrichten {#step-1-set-up-scim-provisioning}
 
 ### Schritt 1.1: SCIM aktivieren {#step-11-enable-scim}
 
 1. Navigieren Sie in Okta zu **Applications** > **Applications** und wählen Sie dann **Create App Integration**. Wählen Sie **SAML 2.0** als Anmeldemethode.
-2. Füllen Sie die folgenden Details aus (die sich im [Schritt **IdP-Konfiguration**](#accessing-scim-provisioning-settings) von Braze befinden), um eine benutzerdefinierte App zu erstellen:
+2. Füllen Sie die folgenden Details aus (die sich im [Schritt **IdP-Konfiguration**](#accessing-scim-provisioning-settings) von Braze befinden), um eine angepasste App zu erstellen:
 - App-Logo
 - Single Sign-on URL
 - Audience URL (SP Entity ID)
@@ -66,7 +70,7 @@ Wählen Sie **Test API Credentials**. Bei erfolgreicher Integration wird eine Be
     - Deactivate Users
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping** mit den Zuordnungen, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 
-## 2. Schritt: Nutzer:innen der App zuweisen {#step-2-assign-users-to-the-app}
+## Schritt 2: Nutzer:innen der App zuweisen {#step-2-assign-users-to-the-app}
 
 1. Wählen Sie den Tab **Assignment**.
 2. Wählen Sie **Assign** und wählen Sie eine Option.
@@ -78,9 +82,9 @@ Wählen Sie **Test API Credentials**. Bei erfolgreicher Integration wird eine Be
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben. Wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Braze-App]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Verwenden Sie die Option **Okta – Angepasste App-Integration**, wenn Sie eine angepasste App für SSO eingerichtet haben. Wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Braze-App]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
-## 1. Schritt: SCIM-Bereitstellung einrichten
+## Schritt 1: SCIM-Bereitstellung einrichten
 
 ### Schritt 1.1: SCIM aktivieren
 
@@ -106,7 +110,7 @@ Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn S
     - Deactivate Users
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping** mit den Zuordnungen, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 
-## 2. Schritt: Nutzer:innen der App zuweisen
+## Schritt 2: Nutzer:innen der App zuweisen
 
 1. Wählen Sie den Tab **Assignment**.
 2. Wählen Sie **Assign** und wählen Sie eine Option.
@@ -118,7 +122,7 @@ Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn S
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Entra ID integration' %}
 
-## 1. Schritt: SCIM-Bereitstellungs-App einrichten {#step-1-set-up-scim-provisioning-app}
+## Schritt 1: SCIM-Bereitstellungs-App einrichten {#step-1-set-up-scim-provisioning-app}
 
 ### Schritt 1.1: Beim Microsoft Entra Admin Center anmelden {#step-11-log-into-microsoft-entra-admin-center}
 
@@ -145,7 +149,7 @@ Melden Sie sich bei Ihrem Microsoft Entra Admin Center an.
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping**, damit er mit den Attributen übereinstimmt, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 4. Schließen Sie die Seite **Attribute Mapping**.
 
-## 2. Schritt: Nutzer:innen der App zuweisen
+## Schritt 2: Nutzer:innen der App zuweisen
 
 1. Navigieren Sie zu **Manage** > **Users and Groups**.
 2. Wählen Sie **Add user/group**.
@@ -155,13 +159,13 @@ Melden Sie sich bei Ihrem Microsoft Entra Admin Center an.
 {% endtab %}
 {% tab Custom %}
 
-## 1. Schritt: SCIM-Einstellungen konfigurieren {#step-1-configure-your-scim-settings}
+## Schritt 1: SCIM-Einstellungen konfigurieren {#step-1-configure-your-scim-settings}
 
 - **Standard-Workspace:** Wählen Sie den Workspace aus, dem neue Nutzer:innen standardmäßig hinzugefügt werden sollen. Wenn Sie in Ihrer [SCIM-API-Anfrage]({{site.baseurl}}/post_create_user_account) keinen Workspace angeben, weist Braze Nutzer:innen diesem Workspace zu.
 - **Dienst-Herkunft:** Geben Sie die Herkunfts-Domain Ihrer SCIM-Anfragen ein. Braze verwendet diese im `X-Request-Origin`-Header, um zu überprüfen, woher die Anfragen stammen.
 - **IP-Zulassungsliste (optional):** Sie können SCIM-Anfragen auf bestimmte IP-Adressen beschränken. Geben Sie eine kommagetrennte Liste oder einen Bereich von IP-Adressen ein, die zugelassen werden sollen. Der `X-Request-Origin`-Header in jeder Anfrage wird verwendet, um die IP-Adresse der Anfrage mit der Zulassungsliste abzugleichen.
 
-## 2. Schritt: SCIM-Token generieren {#step-2-generate-a-scim-token}
+## Schritt 2: SCIM-Token generieren {#step-2-generate-a-scim-token}
 
 Nachdem Sie die erforderlichen Felder ausgefüllt haben, klicken Sie auf **SCIM-Token generieren**, um ein SCIM-Token zu generieren und Ihren SCIM-API-Endpunkt anzuzeigen. Stellen Sie sicher, dass Sie das SCIM-Token kopieren, bevor Sie die Seite verlassen. **Dieses Token wird nur einmal angezeigt.**
 

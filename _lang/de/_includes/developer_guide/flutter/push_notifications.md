@@ -2,7 +2,7 @@
 
 ## Push-Benachrichtigungen einrichten {#setting-up-push-notifications}
 
-### 1. Schritt: Ersteinrichtung abschließen {#step-1-complete-the-initial-setup}
+### Schritt 1: Ersteinrichtung abschließen {#step-1-complete-the-initial-setup}
 
 {% tabs %}
 {% tab Android %}
@@ -10,11 +10,11 @@
 
 Registrieren Sie sich für Push mit der Firebase Cloud Messaging (FCM)-API von Google. Eine ausführliche Anleitung finden Sie in den folgenden Schritten der [nativen Android-Push-Integrationsanleitung]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
 
-1. [Firebase zu Ihrem Projekt hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-1-add-firebase-to-your-project).
-2. [Cloud Messaging zu Ihren Abhängigkeiten hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-2-add-cloud-messaging-to-your-dependencies).
-3. [Ein Dienstkonto erstellen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-3-create-a-service-account).
-4. [JSON-Zugangsdaten generieren]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-4-generate-json-credentials).
-5. [Ihre JSON-Zugangsdaten auf Braze hochladen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration/#step-5-upload-your-json-credentials-to-braze).
+1. [Firebase zu Ihrem Projekt hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-1-add-firebase-to-your-project).
+2. [Cloud Messaging zu Ihren Abhängigkeiten hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-2-add-cloud-messaging-to-your-dependencies).
+3. [Ein Dienstkonto erstellen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-3-create-a-service-account).
+4. [JSON-Zugangsdaten generieren]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-4-generate-json-credentials).
+5. [Ihre JSON-Zugangsdaten auf Braze hochladen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-5-upload-your-json-credentials-to-braze).
 
 #### Schritt 1.2: Ihre Google Sender ID ermitteln {#step-12-get-your-google-sender-id}
 
@@ -40,7 +40,7 @@ Fügen Sie Folgendes zu Ihrer Datei `braze.xml` hinzu. Ersetzen Sie `FIREBASE_SE
 {% tab iOS %}
 #### Schritt 1.1: APNs-Zertifikate hochladen {#step-11-upload-apns-certificates}
 
-Generieren Sie ein Apple Push Notification Service (APNs)-Zertifikat und laden Sie es in das Braze-Dashboard hoch. Eine vollständige Anleitung finden Sie unter [Hochladen Ihres APNs-Zertifikats]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-upload-your-apns-certificate).
+Generieren Sie ein Apple Push Notification Service (APNs)-Zertifikat und laden Sie es in das Braze-Dashboard hoch. Eine vollständige Anleitung finden Sie unter [Hochladen Ihres APNs-Zertifikats]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-upload-your-apns-certificate).
 
 #### Schritt 1.2: Push-Benachrichtigungsunterstützung zu Ihrer App hinzufügen {#step-12-add-push-notification-support-to-your-app}
 
@@ -49,7 +49,7 @@ Folgen Sie der [Anleitung für die native iOS-Integration]({{site.baseurl}}/deve
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Auf Push-Benachrichtigungsereignisse lauschen (optional) {#step-2-listen-for-push-notification-events-optional}
+### Schritt 2: Auf Push-Benachrichtigungsereignisse lauschen (optional) {#step-2-listen-for-push-notification-events-optional}
 
 Um auf Push-Benachrichtigungsereignisse zu lauschen, die Braze erkannt und verarbeitet hat, rufen Sie `subscribeToPushNotificationEvents()` auf und übergeben Sie ein Argument zur Ausführung.
 
@@ -70,7 +70,7 @@ pushEventsStreamSubscription = braze.subscribeToPushNotificationEvents((BrazePus
 pushEventsStreamSubscription.cancel();
 ```
 
-##### Ereignisfelder für Push-Benachrichtigungen {#push-notification-event-fields}
+#### Ereignisfelder für Push-Benachrichtigungen {#push-notification-event-fields}
 
 {% alert note %}
 Aufgrund von Plattformbeschränkungen unter iOS kann das Braze SDK Push-Payloads nur verarbeiten, wenn die App im Vordergrund ist. Listener werden unter iOS nur beim Ereignistyp `push_opened` getriggert, nachdem Nutzer:innen mit einem Push interagiert haben.
@@ -96,7 +96,7 @@ Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in d
 | `android` | Objekt | Stellt Android-spezifische Felder dar. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisfelder für Push-Benachrichtigungen" }
 
-### 3. Schritt: Anzeige von Push-Benachrichtigungen testen {#step-3-test-displaying-push-notifications}
+### Schritt 3: Anzeige von Push-Benachrichtigungen testen {#step-3-test-displaying-push-notifications}
 
 So testen Sie Ihre Integration, nachdem Sie Push-Benachrichtigungen in der nativen Schicht konfiguriert haben:
 

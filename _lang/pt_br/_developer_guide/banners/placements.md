@@ -31,7 +31,21 @@ Estas são as versões mínimas do SDK necessárias para criar posicionamentos d
 
 ### Etapa 2: Atualize os posicionamentos no seu app {#requestBannersRefresh}
 
-Para atualizar os posicionamentos, chame o método de atualização do seu SDK. Se `subscribeToBannersUpdates` estiver ativo, o SDK republica automaticamente os IDs de posicionamento em cache no início de cada nova sessão e quando você chama `changeUser`. Essa atualização automática não consome um token de limite de frequência.
+Para atualizar os posicionamentos, chame o método de atualização do seu SDK (`requestBannersRefresh()` na Web e Android, ou `requestRefresh()` no Swift).
+
+O comportamento de atualização de Banner tem dois caminhos:
+
+1. **Atualização explícita:** Você pode chamar o método de atualização a qualquer momento durante uma sessão ativa.
+2. **Atualização automática em nova sessão:** Depois de fazer pelo menos uma solicitação de atualização explícita, o SDK pode solicitar novamente os IDs de posicionamento mais recentes quando uma nova sessão da Braze é iniciada (por exemplo, após `changeUser()` ou após um tempo limite de sessão).
+
+O papel de `subscribeToBannersUpdates()` difere por plataforma:
+
+- **iOS e Android:** `subscribeToBannersUpdates()` (ou `subscribeToUpdates()` no Swift) registra um retorno de chamada de atualização. A atualização automática no início da sessão não depende da inscrição estar ativa.
+- **Web:** A atualização automática no início da sessão está vinculada ao registro de `subscribeToBannersUpdates()`. Sem uma inscrição ativa, o SDK não repete automaticamente a atualização em uma nova sessão.
+
+Em todos os casos, você deve fazer pelo menos uma solicitação de atualização explícita por ciclo de vida do app para que o SDK saiba quais IDs de posicionamento manter atualizados. Os Banners não são buscados automaticamente na primeira inicialização sem essa chamada inicial, e os IDs de posicionamento rastreados são redefinidos após a reinicialização do app.
+
+As atualizações automáticas no início da sessão não consomem um token de limite de frequência.
 
 {% alert tip %}
 Atualize os posicionamentos o mais rápido possível para evitar atrasos no download ou na exibição dos Banners.

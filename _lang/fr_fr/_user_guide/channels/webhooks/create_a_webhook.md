@@ -32,11 +32,11 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 3. Donnez à votre campagne un nom clair et significatif.
 4. (Facultatif) Ajoutez une description pour expliquer comment cette campagne sera utilisée.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
-   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
 5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différents modèles de webhook pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Test multivarié et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copier à partir de la variante** dans le menu déroulant **Ajouter une variante**.
 {% endalert %}
 
 {% endtab %}
@@ -194,7 +194,7 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre étape Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter le test multivarié et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre étape Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter le test multivarié et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -212,7 +212,7 @@ Les webhooks reposent sur les serveurs Braze qui envoient des requêtes à un en
 - Testez votre webhook pour détecter les erreurs de syntaxe
 - Assurez-vous que les variables personnalisées ont des valeurs par défaut
 
-Si votre webhook ne parvient pas à s'envoyer, un message d'erreur est enregistré dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), et inclut des détails tels que l'horodatage de l'erreur, le nom de l'application et des détails sur l'erreur.
+Si votre webhook ne parvient pas à s'envoyer, un message d'erreur est enregistré dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), et inclut des détails tels que l'horodatage de l'erreur, le nom de l'application et des détails sur l'erreur.
 
 ![Erreur de webhook avec le message « An active access token must be used to query information about the current user ».]({% image_buster /assets/img_archive/webhook-error.png %})
 
@@ -233,14 +233,14 @@ Lorsque la requête webhook est envoyée, le serveur récepteur renvoie un code 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Codes de réponse et logique de nouvelle tentative" }
 
 {% alert note %}
-Braze effectue de nouvelles tentatives pour les codes d'état ci-dessus jusqu'à cinq fois dans un délai de 30 minutes en utilisant des délais exponentiels. Si nous ne parvenons pas à atteindre votre endpoint, les nouvelles tentatives peuvent s'étaler sur une période de 24 heures.<br><br>Chaque webhook dispose de 90 secondes avant d'expirer.
+Braze effectue de nouvelles tentatives pour les codes d'état mentionnés plus haut dans cette section jusqu'à cinq fois dans un délai de 30 minutes en utilisant des délais exponentiels. Si nous ne parvenons pas à atteindre votre endpoint, les nouvelles tentatives peuvent s'étaler sur une période de 24 heures.<br><br>Chaque webhook dispose de 90 secondes avant d'expirer.
 {% endalert %}
 
 Les en-têtes de réponse `Retry-After` et de limite de débit peuvent affecter le temps d'attente de Braze avant une tentative **réessayable** (par exemple, après `408`, `429` ou `5XX`). Ils ne rendent pas les réponses non réessayables, comme `401`, éligibles à une nouvelle tentative.
 
-#### Authentification et identifiants de Contenu connecté {#authentication-and-connected-content-credentials}
+#### Authentification et identifiants de contenu connecté {#authentication-and-connected-content-credentials}
 
-La requête HTTP sortante du webhook ne prend pas en charge l'ajout d'[identifiants de Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) pour s'authentifier auprès de votre endpoint. Configurez l'authentification en utilisant les **en-têtes de requête** du webhook à la place. Pour récupérer un jeton ou un secret au moment de l'envoi, vous pouvez placer une balise {% raw %}`{% connected_content %}`{% endraw %} dans un champ d'en-tête ou de corps afin que Liquid le résolve avant l'envoi du webhook.
+La requête HTTP sortante du webhook ne prend pas en charge l'ajout d'[identifiants de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) pour s'authentifier auprès de votre endpoint. Configurez l'authentification en utilisant les **en-têtes de requête** du webhook à la place. Pour récupérer un jeton ou un secret au moment de l'envoi, vous pouvez placer une balise {% raw %}`{% connected_content %}`{% endraw %} dans un champ d'en-tête ou de corps afin que Liquid le résolve avant l'envoi du webhook.
 
 #### Modèles de webhook enregistrés et utilisation dans les campagnes {#saved-webhook-templates-and-campaign-usage}
 
@@ -248,7 +248,7 @@ Braze ne fournit pas de rapport intégré listant chaque campagne ou étape Canv
 
 #### Résolution des problèmes et détails supplémentaires sur les erreurs {#troubleshooting-and-additional-error-details}
 
-Pour des explications détaillées, des étapes de résolution des problèmes et des conseils pour résoudre des erreurs webhook spécifiques, consultez [Résolution des problèmes liés aux requêtes webhook et Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content). Vous y trouverez également des explications sur le fonctionnement de notre système de détection d'hôtes défaillants et sur la façon dont Braze fournit des notifications d'erreur via des e-mails automatisés et une journalisation supplémentaire dans Braze Currents.
+Pour des explications détaillées, des étapes de résolution des problèmes et des conseils pour résoudre des erreurs webhook spécifiques, consultez [Résolution des problèmes liés aux requêtes webhook et contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content). Vous y trouverez également des explications sur le fonctionnement de notre système de détection d'hôtes défaillants et sur la façon dont Braze fournit des notifications d'erreur via des e-mails automatisés et une journalisation supplémentaire dans Braze Currents.
 
 ### Liste d'autorisation IP {#ip-allowlisting}
 

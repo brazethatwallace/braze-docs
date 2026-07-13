@@ -14,7 +14,7 @@ alias: /creating-agents/
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-- [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) für den Zugriff auf die **Agentenkonsole** in Ihrem Workspace. Wenden Sie sich an Ihre Braze-Administratoren, falls diese Option nicht angezeigt wird.
+- [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) für den Zugriff auf die **Agent Console** in Ihrem Workspace. Wenden Sie sich an Ihre Braze-Administratoren, falls diese Option nicht angezeigt wird.
 - Berechtigung zum Erstellen und Bearbeiten von angepassten KI-Agenten.
 - Eine Idee davon, was der Agent erreichen soll. Braze-Agenten können die folgenden Aktionen unterstützen:
    - **Personalisiertes Messaging:** Generieren Sie Betreffzeilen, Überschriften, Produkttexte oder andere Inhalte.
@@ -40,15 +40,15 @@ Die folgenden Anwendungsfälle veranschaulichen einige Möglichkeiten, angepasst
 
 Um einen Agenten zu erstellen, wählen Sie zunächst Ihren Agententyp aus:
 
-1. Gehen Sie zur **Agentenkonsole**.
-2. Wählen Sie **Canvas-Schritt-Agenten** oder **Katalog-Agenten** aus.
+1. Gehen Sie zur **Agent Console**.
+2. Wählen Sie **Canvas Step Agents** oder **Catalog Agents** aus.
 
 ### 2. Schritt: Erstellungsmethode auswählen {#step-2-choose-how-to-build-an-agent}
 
-Wählen Sie **Agent erstellen** aus und entscheiden Sie sich dann für eine der folgenden Optionen:
+Wählen Sie **Create agent** aus und entscheiden Sie sich dann für eine der folgenden Optionen:
 
-- **Angepasster Agent**, um einen Agenten von Grund auf zu erstellen
-- Eine Option unter **Agent mit Operator erstellen**, um [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) zu verwenden und ein [Starttemplate](#agent-templates-built-with-operator) anzuwenden
+- **Custom agent**, um einen Agenten von Grund auf zu erstellen
+- Eine Option unter **Create an agent with Operator**, um [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) zu verwenden und ein [Starttemplate](#agent-templates-built-with-operator) anzuwenden
 
 Wenn Sie Operator verwenden, überprüfen und genehmigen Sie die Änderungen im Chat, bevor Sie mit dem nächsten Schritt fortfahren.
 
@@ -62,7 +62,7 @@ Richten Sie anschließend die Details für Ihren Agenten ein:
 4. Wenn Sie nicht das **Braze Auto**-Modell verwenden, wählen Sie die [Denkstufe]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) des Modells aus. Sie können zwischen Minimal, Niedrig, Mittel oder Hoch wählen. Wir empfehlen, mit **Minimal** zu beginnen, die Antworten Ihres Agenten zu testen und diese bei Bedarf anzupassen.
 5. Legen Sie ein tägliches Ausführungslimit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann jedoch auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren Customer-Success-Manager, um mehr zu erfahren.
 
-![Agentenkonsole-Oberfläche zum Erstellen eines angepassten Agenten in Braze. Der Bildschirm zeigt Felder zur Eingabe des Agentennamens und der Beschreibung, zur Auswahl eines Modells und zur Festlegung eines täglichen Ausführungslimits.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Agent-Console-Oberfläche zum Erstellen eines angepassten Agenten in Braze. Der Bildschirm zeigt Felder zur Eingabe des Agentennamens und der Beschreibung, zur Auswahl eines Modells und zur Festlegung eines täglichen Ausführungslimits.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### 4. Schritt: Anweisungen verfassen {#agent-instructions}
 
@@ -78,19 +78,19 @@ Für Canvas-Agenten können Sie Liquid in Ihren Anweisungen verwenden, um auf Nu
 
 #### Kontext hinzufügen {#add-resources}
 
-Wählen Sie **+ Agentenkontext** aus, um festzulegen, worauf Ihr Agent zugreifen kann. Dies beinhaltet:
+Wählen Sie **+ Agent context** aus, um festzulegen, worauf Ihr Agent zugreifen kann. Dies beinhaltet:
 
 - [Katalogfelder]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): Gewähren Sie dem Agenten Zugriff auf Ihre Katalogdaten für genauere Antworten.
 - [Segmentzugehörigkeit]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Ermöglichen Sie dem Agenten, Antworten basierend auf der Segmentzugehörigkeit der Nutzer:innen zu personalisieren. Sie können bis zu fünf Segmente auswählen.
 - [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Referenzieren Sie die Richtlinien zur Markenstimme und zum Stil, die der Agent befolgen soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
-- [Gesamter Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analysieren Sie alle Canvas-Kontextdaten für Nutzer:innen, wenn dieser Agent aufgerufen wird, einschließlich aller Variablen, die nicht im Abschnitt **Anweisungen** referenziert werden.
+- [Gesamter Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analysieren Sie alle Canvas-Kontextdaten für Nutzer:innen, wenn dieser Agent aufgerufen wird, einschließlich aller Variablen, die nicht im Abschnitt **Instructions** referenziert werden.
 - [Nutzer:innen-Interaktionsdaten]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): Stellen Sie dem Agenten die aktuellen Öffnungs-, Klick- und Conversion-Daten der jeweiligen Nutzer:innen aus Campaigns und Canvas bereit.
 
 ### 5. Schritt: Ausgabe auswählen {#select-output}
 
-Im Abschnitt **Ausgabe** können Sie die [Ausgabe]({{site.baseurl}}/user_guide/brazeai/agents/reference#outputs) des Agenten anhand von Basisschemata oder erweiterten Schemata organisieren und definieren. Wenn Sie ein Operator-Template verwendet haben, überprüfen Sie das vorausgefüllte Ausgabeschema und bearbeiten Sie es bei Bedarf.
+Im Abschnitt **Output** können Sie die [Ausgabe]({{site.baseurl}}/user_guide/brazeai/agents/reference#outputs) des Agenten anhand von Basisschemata oder erweiterten Schemata organisieren und definieren. Wenn Sie ein Operator-Template verwendet haben, überprüfen Sie das vorausgefüllte Ausgabeschema und bearbeiten Sie es bei Bedarf.
 
-Um optimale Ergebnisse zu erzielen, stellen Sie sicher, dass die Angaben im Abschnitt **Ausgabe** mit den Agentenanweisungen übereinstimmen, die Sie in [Schritt 4](#agent-instructions) eingegeben haben. Wenn Sie beispielsweise in den Agentenanweisungen angegeben haben, dass Sie ein Objekt mit zwei Strings wünschen, stellen Sie sicher, dass Sie im Abschnitt **Ausgabe** ein Objekt mit zwei Strings angeben. Wenn Ihre Agentenanweisungen nicht mit der festgelegten Ausgabe übereinstimmen, kann der Agent verwirrt werden, eine Zeitüberschreitung verursachen oder unerwünschte Ausgaben generieren.
+Um optimale Ergebnisse zu erzielen, stellen Sie sicher, dass die Angaben im Abschnitt **Output** mit den Agentenanweisungen übereinstimmen, die Sie in [Schritt 4](#agent-instructions) eingegeben haben. Wenn Sie beispielsweise in den Agentenanweisungen angegeben haben, dass Sie ein Objekt mit zwei Strings wünschen, stellen Sie sicher, dass Sie im Abschnitt **Output** ein Objekt mit zwei Strings angeben. Wenn Ihre Agentenanweisungen nicht mit der festgelegten Ausgabe übereinstimmen, kann der Agent verwirrt werden, eine Zeitüberschreitung verursachen oder unerwünschte Ausgaben generieren.
 
 {% alert tip %}
 Wenn Sie ein [erweitertes Ausgabeschema]({{site.baseurl}}/user_guide/brazeai/agents/reference#advanced-schemas) verwenden, fügen Sie ein String-Feld namens `explanation` hinzu, wenn der Agent zusätzlich zu seinen anderen Ausgaben seine Begründung zurückgeben soll. Weisen Sie den Agenten in Ihren [Anweisungen](#agent-instructions) an, `explanation` zu befüllen, wenn Ihnen das bei der Überprüfung oder Fehlersuche hilft.
@@ -98,11 +98,11 @@ Wenn Sie ein [erweitertes Ausgabeschema]({{site.baseurl}}/user_guide/brazeai/age
 
 #### Fallback-Werte konfigurieren {#configure-fallback-values}
 
-Fallback-Werte sind nur für **Canvas-Schritt-Agenten** verfügbar. Im Abschnitt **Ausgabe** eines Canvas-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Agentenaufruf fehlschlägt – beispielsweise wenn das LLM eine Zeitüberschreitung verursacht oder einen ungültigen API-Schlüssel-Fehler zurückgibt. Fallback-Werte funktionieren wie Personalisierungsstandards. Sie könnten eine statische Betreffzeile oder eine kurze Nachricht festlegen, die den Nutzer:innen dennoch eine nützliche Ausgabe liefert, wenn der Agent nicht ausgeführt werden kann.
+Fallback-Werte sind nur für **Canvas-Schritt-Agenten** verfügbar. Im Abschnitt **Output** eines Canvas-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Agentenaufruf fehlschlägt – beispielsweise wenn das LLM eine Zeitüberschreitung verursacht oder einen ungültigen API-Schlüssel-Fehler zurückgibt. Fallback-Werte funktionieren wie Personalisierungsstandards. Sie könnten eine statische Betreffzeile oder eine kurze Nachricht festlegen, die den Nutzer:innen dennoch eine nützliche Ausgabe liefert, wenn der Agent nicht ausgeführt werden kann.
 
-**Katalog-Agenten** unterstützen die Konfiguration von Fallback-Werten in der Agentenkonsole nicht.
+**Katalog-Agenten** unterstützen die Konfiguration von Fallback-Werten in der Agent Console nicht.
 
-![Ausgabekonfiguration der Agentenkonsole mit dem Fallback-Ausgabefeld für ein Zahlenschema.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+![Ausgabekonfiguration der Agent Console mit dem Fallback-Ausgabefeld für ein Zahlenschema.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Für Canvas-Agenten unterstützen Fallback-Werte [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Templating, sodass Sie Nutzerattribute oder Kontextvariablen im Fallback-Text referenzieren können.
 
@@ -110,7 +110,7 @@ Die Fallback-Felder passen sich dem Ausgabeformat Ihres Canvas-Agenten an:
 
 | Ausgabeformat | Fallback-Konfiguration |
 | --- | --- |
-| String, Zahl oder Boolescher Wert | Geben Sie einen einzelnen Fallback-Wert ein (Liquid wird unterstützt). |
+| String, Zahl oder boolescher Wert | Geben Sie einen einzelnen Fallback-Wert ein (Liquid wird unterstützt). |
 | Felder (erweitertes Schema) | Geben Sie einen Fallback-Wert für jedes in der Ausgabe des Agenten definierte Feld ein. |
 | JSON-Schema (erweitertes Schema) | Braze liest Ihr JSON-Schema und generiert ein Eingabefeld für jede Eigenschaft, sodass Sie einen Fallback-Wert pro Schlüssel definieren können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fallback-Werte konfigurieren" }
@@ -123,15 +123,15 @@ Informationen zum Laufzeitverhalten finden Sie unter [Fehlerbehandlung und Fallb
 
 Der **Vorschaubereich** ist eine Instanz des Agenten, die als nebeneinander angeordnetes Panel innerhalb der Konfiguration angezeigt wird. Sie können diesen Bereich verwenden, um den Agenten zu testen, während Sie ihn erstellen oder aktualisieren, und ihn auf ähnliche Weise wie Endnutzer:innen zu erleben. Dieser Schritt hilft Ihnen zu bestätigen, dass er sich wie erwartet verhält, und gibt Ihnen die Möglichkeit, vor der Live-Schaltung Feinabstimmungen vorzunehmen.
 
-1. Geben Sie im Feld **Agent testen** Beispielkundendaten oder Kundenantworten ein – alles, was reale Szenarien widerspiegelt, mit denen Ihr Agent konfrontiert sein wird.
+1. Geben Sie im Feld **Test your agent** Beispielkundendaten oder Kundenantworten ein – alles, was reale Szenarien widerspiegelt, mit denen Ihr Agent konfrontiert sein wird.
 2. Zeigen Sie eine Vorschau der Antwort des Agenten für zufällige Nutzer:innen, bestehende Nutzer:innen oder angepasste Nutzer:innen an.
-3. Wählen Sie **Antwort simulieren** aus. Der Agent führt die Konfiguration aus und zeigt seine Antwort an.
+3. Wählen Sie **Simulate response** aus. Der Agent führt die Konfiguration aus und zeigt seine Antwort an.
 
 {% alert note %}
 Testläufe werden auf Ihr tägliches Ausführungslimit angerechnet.
 {% endalert %}
 
-![Agentenkonsole mit dem Vorschaubereich zum Testen eines angepassten Agenten. Die Oberfläche zeigt ein Feld für Beispieleingaben mit Beispielkundendaten, einen Button zum Ausführen des Tests und einen Antwortbereich, in dem die Ausgabe des Agenten angezeigt wird.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
+![Agent Console mit dem Vorschaubereich zum Testen eines angepassten Agenten. Die Oberfläche zeigt ein Feld für Beispieleingaben mit Beispielkundendaten, einen Button zum Ausführen des Tests und einen Antwortbereich, in dem die Ausgabe des Agenten angezeigt wird.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
 
 Überprüfen Sie die Ausgabe mit kritischem Blick. Berücksichtigen Sie die folgenden Fragen:
 
@@ -151,7 +151,7 @@ Ihr Agent ist nun einsatzbereit! Weitere Informationen finden Sie unter [Agenten
 
 ## Mit Operator erstellte Agenten-Templates {#agent-templates-built-with-operator}
 
-Operator kann Anweisungen, Ausgabefelder und Kontext für die folgenden Startvorlagen der Agentenkonsole vorkonfigurieren. Wählen Sie ein Template in Operator aus oder bitten Sie Operator, eines nach Namen anzuwenden.
+Operator kann Anweisungen, Ausgabefelder und Kontext für die folgenden Startvorlagen der Agent Console vorkonfigurieren. Wählen Sie ein Template in Operator aus oder bitten Sie Operator, eines nach Namen anzuwenden.
 
 ### Canvas-Schritt-Agenten-Templates {#canvas-step-agent-templates}
 

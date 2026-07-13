@@ -78,7 +78,9 @@ When the experiment window passes and the experiment is complete, all subsequent
 
 ## Analytics {#analytics}
 
-If Personalized Paths was turned on, your analytics view is separated into two tabs: **Initial Experiment** and **Personalized Paths**.
+When Personalized Paths is turned on and produces sufficient results, your analytics view is separated into two tabs: **Initial Experiment** and **Personalized Paths**. 
+
+If the experiment completes with insufficient results, only the **Initial Experiment** tab is shown since the model determines that personalization would not outperform sending all users down a single best-performing path. In this case, your configured fallback behavior is applied, and no Personalized Paths analytics are available.
 
 {% tabs local %}
 {% tab Initial Experiment %}

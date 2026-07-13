@@ -18,7 +18,7 @@ Cloudinary를 Braze에 연결하면 브랜드는 Cloudinary 자산에 저장된 
 이 페이지에서는 Cloudinary와 Braze 간의 가능한 네 가지 통합 방법을 설명하지만, 이에 국한되지는 않습니다. 이러한 통합 방법은 주로 Cloudinary의 미디어 라이브러리에서 수동으로 복사한 자산 링크를 수정하는 방식에 의존합니다.
 
 {% alert important %}
-[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 Cloudinary의 [Admin API](https://cloudinary.com/documentation/admin_api#banner)를 호출하는 등 보다 고급 통합 방법도 가능하지만, 접근 방식은 고객마다 다를 수 있습니다. 안내가 필요하면 Cloudinary 및 Braze 고객 성공 매니저에게 문의하세요.
+[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 사용하여 Cloudinary의 [Admin API](https://cloudinary.com/documentation/admin_api#banner)를 호출하는 등 보다 고급 통합 방법도 가능하지만, 접근 방식은 고객마다 다를 수 있습니다. 안내가 필요하면 Cloudinary 및 Braze 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
@@ -26,7 +26,7 @@ Cloudinary를 Braze에 연결하면 브랜드는 Cloudinary 자산에 저장된 
 | 요구 사항     | 설명 |
 |-----------------------|-----------------|
 | Cloudinary 계정  | 이 파트너십을 이용하려면 [Cloudinary 계정](https://cloudinary.com/users/register_free?utm_source=braze+docs+page)이 필요합니다.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 방법 {#integration-methods}
 
@@ -41,7 +41,7 @@ Cloudinary를 Braze에 연결하면 브랜드는 Cloudinary 자산에 저장된 
 
 Braze Campaigns와 Canvases에서 Cloudinary의 DAM에 있는 이미지와 동영상을 직접 사용하는 가장 간단한 방법은 Cloudinary 미디어 라이브러리의 **Asset** 페이지에서 URL을 가져오는 것입니다.
 
-![이미지 중 하나의 오른쪽 상단에 'Copy URL' 도구 설명이 강조 표시된 Cloudinary의 이미지 자산 라이브러리 그리드 보기]({% image_buster /assets/img/cloudinary/one.png %})
+![이미지 중 하나가 강조 표시되고 'Copy URL' 도구 설명이 표시된 Cloudinary의 이미지 자산 라이브러리 그리드 보기]({% image_buster /assets/img/cloudinary/one.png %})
 
 ### 이미지 및 GIF 설정 {#images-and-gifs-setup}
 
@@ -72,7 +72,7 @@ Braze Campaigns와 Canvases에서 Cloudinary의 DAM에 있는 이미지와 동�
 ```
 {% endraw %}
 
-구체적인 Android 및 iOS 고려 사항은 [동영상]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/)을 참조하세요.
+구체적인 Android 및 iOS 고려 사항은 [동영상]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html)을 참조하세요.
 
 {% endtab %}
 {% tab 동영상을 GIF로 변환 %}
@@ -190,7 +190,7 @@ Cloudinary의 [텍스트 오버레이 변환](https://cloudinary.com/documentati
 ```
 {% endraw %}
 
-![바다가 내려다보이는 파란 지붕의 흰색 교회, 이미지 왼쪽 상단에 반투명한 어두운 직사각형 위에 'John Smith'라는 글자가 표시되어 있습니다.]({% image_buster /assets/img/cloudinary/two.png %})
+![바다가 내려다보이는 파란 지붕의 흰색 교회 이미지 위에 반투명한 어두운 직사각형 안에 'John Smith'라는 글자가 표시되어 있습니다.]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

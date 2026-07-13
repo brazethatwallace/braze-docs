@@ -51,7 +51,7 @@ Führen Sie dann die folgenden Schritte aus:
 ![Berechtigungen auf Workspace-Ebene mit dem Berechtigungsset „Banner Template“.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Wählen Sie **+ Add team-level permissions** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
+2. Wählen Sie **+ Berechtigungen auf Team-Ebene hinzufügen** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
 3. Weisen Sie spezifische Berechtigungen im Abschnitt **Team**-Berechtigungen zu.
 
 ![Berechtigungen für Landing-Page-Templates auf Team-Ebene.]({% image_buster /assets/img/teams.png %})
@@ -107,6 +107,8 @@ Beschreibungen der einzelnen Nutzerberechtigungen und deren Verwendung finden Si
 ## Team-Tags zuweisen {#tags-and-filters}
 
 Sie können ein Team Canvases, Campaigns, Content Cards, Segmenten, E-Mail-Templates, Webhook-Templates, Content Blocks und Medienbibliothek-Assets mit dem Filter **Team hinzufügen** zuweisen.
+
+Bei Canvases validieren Team-Filter Nutzer:innen nur beim Canvas-Entry. Nachdem ein:e Nutzer:in ein Canvas betreten hat, erhält er/sie weiterhin Nachrichten aus allen Canvas-Schritten, auch wenn sich die Attribute ändern und er/sie die Kriterien des Team-Filters nicht mehr erfüllt. Team-Filter verhalten sich nicht wie Zustellungsvalidierungen, die Nutzer:innen bei jedem Nachrichtenschritt erneut auswerten.
 
 ![Hinzufügen eines Team-Tags zu einer Campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 

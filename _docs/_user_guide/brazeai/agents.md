@@ -39,7 +39,7 @@ Features for Braze Agents include:
 
 - **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, Google Gemini, or Databricks Mosaic).
 - **Seamless integration:** Deploy agents directly in Canvas steps or catalog fields.
-- **Testing and logging tools:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run.
+- **Testing, logging, and version history:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run. Use the **Version history** tab to review past versions and inline diffs of instruction changes.
 - **Usage controls:** Daily limits help manage performance and costs.
 
 ## About Braze Agents
@@ -57,6 +57,7 @@ Agents are configured with instructions (system prompts) that define how they be
 | [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
 | [Invocation](#limitations) | A single run of the agent. This counts against your daily limits. |
 | [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | The predefined data structure of the agent's response. |
+| [Knowledge sources]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources/) | A type of agent context used to retrieve data from a catalog more accurately than if the catalog is referenced directly in the agent's instructions. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Limitations

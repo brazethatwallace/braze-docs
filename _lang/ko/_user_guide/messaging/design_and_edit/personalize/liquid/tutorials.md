@@ -8,7 +8,7 @@ page_type: tutorial
 
 # 튜토리얼: Liquid 코드 작성하기 {#tutorials-writing-liquid-code}
 
-> Liquid가 처음이신가요? 이 튜토리얼은 초보자 친화적인 사용 사례를 위한 Liquid 코드 작성을 시작하는 데 도움이 됩니다. 각 튜토리얼은 조건 로직과 Operator 등 다양한 학습 목표 조합을 다룹니다.
+> Liquid가 처음이신가요? 이 튜토리얼은 초보자 친화적인 사용 사례를 위한 Liquid 코드 작성을 시작하는 데 도움이 됩니다. 각 튜토리얼은 조건 로직과 연산자 등 다양한 학습 목표 조합을 다룹니다.
 
 이 튜토리얼을 완료하면 다음을 할 수 있습니다:
 
@@ -20,15 +20,15 @@ page_type: tutorial
 | 튜토리얼 | 학습 목표 |
 | --- | --- |
 | [사용자 세그먼트별 메시지 개인화](#segments) | 기본값, 조건 로직 |
-| [유기한 장바구니 리마인더](#reminders) | Operator, 조건 로직 |
+| [유기한 장바구니 리마인더](#reminders) | 연산자, 조건 로직 |
 | [이벤트 카운트다운](#countdown) | 변수, 날짜 필터 |
-| [월별 생일 메시지](#birthday) | 변수, 날짜 필터, Operator |
-| [좋아하는 제품 프로모션](#favorite-product) | 변수, 날짜 필터, 수식, Operator |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutorials: Writing Liquid code" }
+| [월별 생일 메시지](#birthday) | 변수, 날짜 필터, 연산자 |
+| [좋아하는 제품 프로모션](#favorite-product) | 변수, 날짜 필터, 수식, 연산자 |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="튜토리얼: Liquid 코드 작성하기" }
 
 ## 사용자 세그먼트별 개인화된 메시지 {#segments}
 
-VIP 고객과 신규 가입자 등 다양한 사용자 세그먼트에 맞게 메시지를 커스터마이즈해 보겠습니다.
+VIP 고객과 신규 구독자 등 다양한 사용자 세그먼트에 맞게 메시지를 커스터마이즈해 보겠습니다.
 
 1. 사용자의 이름이 있는 경우와 없는 경우에 보낼 개인화된 인사말이 포함된 메시지를 작성합니다. 이를 위해 `first_name` 속성과 `first_name`이 비어 있을 때 사용할 기본값을 포함하는 Liquid 태그를 생성합니다. 이 시나리오에서는 기본값으로 "traveler"를 사용하겠습니다.
 
@@ -49,7 +49,7 @@ Thank you for being a VIP customer! Enjoy your exclusive discount code: VIPSUMMR
 {% endraw %}
 
 {: start="3"}
-3. 신규 가입자인 사용자에게 커스터마이즈된 메시지를 보내겠습니다. 조건 로직 태그 `elsif`를 사용하여 사용자의 `vip_status`가 `new`인 경우 다음 메시지가 전송되도록 지정합니다.
+3. 신규 구독자인 사용자에게 커스터마이즈된 메시지를 보내겠습니다. 조건 로직 태그 `elsif`를 사용하여 사용자의 `vip_status`가 `new`인 경우 다음 메시지가 전송되도록 지정합니다.
 
 {% raw %}
 ```liquid
@@ -88,7 +88,7 @@ Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 
 장바구니에 남아 있는 항목을 사용자에게 알리는 개인화된 메시지를 보내겠습니다. 장바구니에 있는 항목 수에 따라 추가로 커스터마이즈하여, 항목이 3개 이하인 경우 모든 항목을 나열하고, 3개를 초과하는 경우 더 간결한 메시지를 보냅니다.
 
-1. "같지 않음"을 의미하는 Operator `!=`를 사용하여 Liquid 조건 로직을 열어 사용자의 장바구니가 비어 있는지 확인합니다. 이 경우 커스텀 속성 `cart_items`가 빈 값이 아닌 조건을 설정합니다.
+1. "같지 않음"을 의미하는 연산자 `!=`를 사용하여 Liquid 조건 로직을 열어 사용자의 장바구니가 비어 있는지 확인합니다. 이 경우 커스텀 속성 `cart_items`가 빈 값이 아닌 조건을 설정합니다.
 
 {% raw %}
 ```liquid
@@ -97,7 +97,7 @@ Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 {% endraw %}
 
 {: start="2"}
-2. 그런 다음 "보다 큰"을 의미하는 Operator `>`를 사용하여 장바구니에 3개를 초과하는 항목이 있는지 확인해야 합니다.
+2. 그런 다음 "보다 큰"을 의미하는 연산자 `>`를 사용하여 장바구니에 3개를 초과하는 항목이 있는지 확인해야 합니다.
 
 {% raw %}
 ```liquid
@@ -115,7 +115,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% endraw %}
 
 {: start="4"}
-4. `else` 태그를 사용하여 이전 조건이 충족되지 않은 경우(즉, `cart_items`가 비어 있거나 3개 이하인 경우) 어떻게 할지 지정한 다음 보낼 메시지를 작성합니다. 3개의 항목은 많은 공간을 차지하지 않으므로 모두 나열할 수 있습니다. Liquid Operator `join`과 `,`를 사용하여 항목을 쉼표로 구분하여 나열하도록 지정합니다. `endif`로 로직을 닫습니다.
+4. `else` 태그를 사용하여 이전 조건이 충족되지 않은 경우(즉, `cart_items`가 비어 있거나 3개 이하인 경우) 어떻게 할지 지정한 다음 보낼 메시지를 작성합니다. 3개의 항목은 많은 공간을 차지하지 않으므로 모두 나열할 수 있습니다. Liquid 연산자 `join`과 `,`를 사용하여 항목을 쉼표로 구분하여 나열하도록 지정합니다. `endif`로 로직을 닫습니다.
 
 {% raw %}
 ```liquid
