@@ -12,7 +12,7 @@ channel: email
 
 > While you may be tempted to send campaigns to as many users as you can, there are situations when it is actually advantageous to stop messages to disengaged users. 
 
-For emails, your sending IP and domain reputation factor in engagement, spam reporting, blocklisting, and more. If reputation stays low, ISPs and mailbox filters may sort your mail into spam or low-priority folders for **all** recipients—not only inactive ones. Sunset policies limit ongoing sends to disengaged users, which helps protect reputation; pair them with regular monitoring so you can spot issues early.
+For emails, your sending IP and domain reputation factor in engagement, spam reporting, blocklisting, and more. If reputation stays low, ISPs and mailbox filters may sort your mail into spam or low-priority folders for all recipients, not only inactive ones. Sunset policies limit ongoing sends to disengaged users, which helps protect reputation; pair them with regular monitoring so you can spot issues early.
 
 ## Monitor IP and domain health
 
