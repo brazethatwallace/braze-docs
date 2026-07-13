@@ -1560,6 +1560,14 @@ def _delete_issue_comment(comment_id: int) -> None:
     )
 
 
+def _delete_all_style_review_summary_comments() -> int:
+    """Remove prior automated summary issue comments on this PR."""
+    marked = _list_pr_comments_with_marker()
+    for comment in marked:
+        _delete_issue_comment(comment["id"])
+    return len(marked)
+
+
 def sync_summary_comment(
     posted: int,
     fallback: list[dict],
@@ -1664,51 +1672,27 @@ def sync_summary_comment(
 
     body = "\n".join(lines)
 
-    # One summary comment per PR: replace content on every run (pass ↔ findings).
-    marked = _list_pr_comments_with_marker()
-    if len(marked) > 1:
-        marked.sort(key=lambda c: c["id"])
-        for duplicate in marked[:-1]:
-            _delete_issue_comment(duplicate["id"])
-            print(f"Removed duplicate summary comment {duplicate['id']}")
+    deleted = _delete_all_style_review_summary_comments()
+    if deleted:
+        print(f"Removed {deleted} prior style review summary comment(s).")
 
-    if marked:
-        target = marked[-1]
-        subprocess.run(
-            [
-                "gh",
-                "api",
-                "--method",
-                "PATCH",
-                f"repos/{owner}/{repo}/issues/comments/{target['id']}",
-                "--input",
-                "-",
-            ],
-            input=json.dumps({"body": body}),
-            cwd=REPO_ROOT,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        print(f"Updated summary comment {target['id']} (replaced prior message for this run)")
-    else:
-        subprocess.run(
-            [
-                "gh",
-                "api",
-                "--method",
-                "POST",
-                f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
-                "--input",
-                "-",
-            ],
-            input=json.dumps({"body": body}),
-            cwd=REPO_ROOT,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        print("Created summary comment")
+    subprocess.run(
+        [
+            "gh",
+            "api",
+            "--method",
+            "POST",
+            f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
+            "--input",
+            "-",
+        ],
+        input=json.dumps({"body": body}),
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    print("Created summary comment")
 
     SUMMARY_FILE.write_text(body, encoding="utf-8")
 
