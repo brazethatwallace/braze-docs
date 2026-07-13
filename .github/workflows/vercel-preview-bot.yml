@@ -16,14 +16,17 @@ concurrency:
 
 jobs:
   deploy:
+    # Skip (not "pass") for docs contributors listed in DOCS_USERNAMES so the check
+    # reports "Skipped" instead of a misleading "Successful" when no preview is built.
+    # DOCS_USERNAMES is a comma-separated list of GitHub logins (same var as
+    # jira-non-docs-reviewer); an empty/unset value runs the bot for all authors.
+    if: ${{ !contains(format(',{0},', vars.DOCS_USERNAMES), format(',{0},', github.event.pull_request.user.login)) }}
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
       HEAD_SHA: ${{ github.event.pull_request.head.sha }}
       HEAD_REF: ${{ github.event.pull_request.head.ref }}
-      # Comma-separated GitHub logins for docs contributors (same var as jira-non-docs-reviewer).
-      DOCS_USERNAMES: ${{ vars.DOCS_USERNAMES }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -53,35 +56,8 @@ jobs:
         run: |
           set -uo pipefail
 
-          author_login="${{ github.event.pull_request.user.login }}"
           base_ref="${{ github.event.pull_request.base.ref }}"
           run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-
-          # Skip bot path for docs contributors listed in DOCS_USERNAMES to avoid
-          # duplicate deployments. Prefer this allowlist over the docs-team GitHub
-          # group API — github.token cannot reliably read org team memberships.
-          author_login_lc="$(printf '%s' "${author_login}" | tr '[:upper:]' '[:lower:]')"
-          docs_usernames_normalized=",$(printf '%s' "${DOCS_USERNAMES:-}" | tr '[:upper:]' '[:lower:]' | tr -d ' '),"
-          if [[ -z "${DOCS_USERNAMES:-}" ]]; then
-            echo "DOCS_USERNAMES is not configured; bot deployment will run for all authors."
-          elif [[ "${docs_usernames_normalized}" == *",${author_login_lc},"* ]]; then
-            echo "Author ${author_login} is in DOCS_USERNAMES; skipping bot deployment."
-            {
-              echo "### Vercel preview status (docs bot)"
-              echo
-              echo "Skipped for docs contributor \`${author_login}\`."
-              echo "Native Vercel integration remains the source of truth on this PR."
-            } >> "$GITHUB_STEP_SUMMARY"
-
-            echo "deploy_state=skipped_docs_author" >> "$GITHUB_OUTPUT"
-            echo "preview_en_url=" >> "$GITHUB_OUTPUT"
-            {
-              echo "locale_links<<EOF"
-              echo "- skipped: PR author is in DOCS_USERNAMES; native Vercel checks are expected."
-              echo "EOF"
-            } >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
 
           if [[ -z "${VERCEL_TOKEN:-}" || -z "${VERCEL_ORG_ID:-}" ]]; then
             echo "Missing VERCEL_TOKEN or VERCEL_ORG_ID."
@@ -282,12 +258,7 @@ jobs:
           marker="<!-- vercel-preview-docs-bot -->"
           run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
-          if [[ "${{ steps.deploy.outputs.deploy_state }}" == "skipped_docs_author" ]]; then
-            body="$(printf '%s\n\n%s\n\n%s' \
-              "${marker} ℹ️ Docs bot Vercel preview was skipped." \
-              "Reason: PR author is listed in DOCS_USERNAMES, so native Vercel integration remains the source of truth for this PR." \
-              "No bot deployment was created in order to avoid duplicate previews.")"
-          elif [[ "${{ steps.deploy.outputs.deploy_state }}" == "success" && -n "${{ steps.deploy.outputs.preview_en_url }}" ]]; then
+          if [[ "${{ steps.deploy.outputs.deploy_state }}" == "success" && -n "${{ steps.deploy.outputs.preview_en_url }}" ]]; then
             body="$(printf '%s\n\n%s\n\n%s\n\n%s' \
               "${marker} ✅ Docs bot Vercel preview deployed successfully." \
               "EN preview: ${{ steps.deploy.outputs.preview_en_url }}" \
