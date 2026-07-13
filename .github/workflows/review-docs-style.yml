@@ -3,6 +3,7 @@
 # Skips draft PRs; runs when a draft is marked ready for review (ready_for_review).
 #
 # Posts inline review comments with ```suggestion blocks where possible (Commit suggestion).
+# Each run replaces prior automated inline comments (summary comment is updated in place).
 # Requires: ANTHROPIC_API_KEY repository secret.
 #
 # Includes bot PRs (support analyzer, etc.). Skips `_lang/` on auto-translate/* branches.

@@ -14,6 +14,9 @@ Environment:
     ANTHROPIC_API_KEY  Required
     REVIEW_MODEL       Optional (default claude-sonnet-4-6)
     MAX_INLINE_COMMENTS Optional (default 25)
+    STYLE_REVIEW_REPLACE_PRIOR_COMMENTS Optional (default 1). When enabled, each run
+        deletes prior automated inline style review comments before posting new ones.
+        Set to 0 to keep prior comments and only remove stale/outdated threads.
 """
 
 from __future__ import annotations
@@ -456,6 +459,63 @@ def _resolve_review_thread(thread_id: str) -> bool:
     }
     """
     return _graphql(mutation, {"threadId": thread_id}) is not None
+
+
+def _replace_prior_style_review_comments() -> bool:
+    return os.environ.get("STYLE_REVIEW_REPLACE_PRIOR_COMMENTS", "1").lower() not in (
+        "0",
+        "false",
+        "no",
+    )
+
+
+def _list_prior_style_review_inline_comments() -> list[dict]:
+    """Bot inline review comments from earlier style review runs on this PR."""
+    owner, repo = REPO.split("/", 1)
+    result = subprocess.run(
+        ["gh", "api", f"repos/{owner}/{repo}/pulls/{PR_NUMBER}/comments", "--paginate"],
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+        check=False,
+    )
+    if result.returncode != 0:
+        print(f"Pull comment fetch warning: {result.stderr.strip()}", file=sys.stderr)
+        return []
+
+    comments: list[dict] = []
+    for comment in json.loads(result.stdout):
+        body = comment.get("body") or ""
+        if STYLE_REVIEW_INLINE_MARKER not in body:
+            continue
+        login = (comment.get("user") or {}).get("login", "")
+        if not _is_bot_login(login):
+            continue
+        comments.append(comment)
+    return comments
+
+
+def cleanup_prior_style_review_comments() -> int:
+    """Delete prior automated inline style review comments before a fresh review."""
+    if not _replace_prior_style_review_comments():
+        removed = cleanup_stale_style_review_comments()
+        if removed:
+            print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
+        return removed
+
+    deleted = 0
+    for comment in _list_prior_style_review_inline_comments():
+        comment_id = comment.get("id")
+        path = comment.get("path") or ""
+        if not comment_id:
+            continue
+        if _delete_review_comment(int(comment_id)):
+            deleted += 1
+            line = comment.get("line") or comment.get("original_line")
+            print(f"Deleted prior style review comment on `{path}` line {line}")
+    if deleted:
+        print(f"Removed {deleted} prior automated style review inline comment(s).")
+    return deleted
 
 
 def cleanup_stale_style_review_comments() -> int:
@@ -1276,26 +1336,9 @@ def _parse_suggestion_body(body: str) -> str | None:
 
 def fetch_prior_style_suggestions() -> dict[tuple[str, int], list[str]]:
     """Earlier inline suggestions from this bot on the same PR (includes outdated comments)."""
-    owner, repo = REPO.split("/", 1)
-    result = subprocess.run(
-        ["gh", "api", f"repos/{owner}/{repo}/pulls/{PR_NUMBER}/comments", "--paginate"],
-        capture_output=True,
-        text=True,
-        cwd=REPO_ROOT,
-        check=False,
-    )
-    if result.returncode != 0:
-        print(f"Pull comment fetch warning: {result.stderr.strip()}", file=sys.stderr)
-        return {}
-
     prior: dict[tuple[str, int], list[str]] = {}
-    for comment in json.loads(result.stdout):
+    for comment in _list_prior_style_review_inline_comments():
         body = comment.get("body") or ""
-        if STYLE_REVIEW_INLINE_MARKER not in body:
-            continue
-        login = (comment.get("user") or {}).get("login", "")
-        if not _is_bot_login(login):
-            continue
         suggested = _parse_suggestion_body(body)
         path = comment.get("path") or ""
         line = comment.get("line") or comment.get("original_line")
@@ -1678,10 +1721,6 @@ def main() -> None:
         print("ERROR: ANTHROPIC_API_KEY is required", file=sys.stderr)
         sys.exit(1)
 
-    removed = cleanup_stale_style_review_comments()
-    if removed:
-        print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
-
     prior_suggestions = fetch_prior_style_suggestions()
     if prior_suggestions:
         print(
@@ -1695,6 +1734,8 @@ def main() -> None:
             f"Honoring {len(dismissed_suggested) + len(dismissed_message)} dismissed "
             "style review item(s) on this PR."
         )
+
+    cleanup_prior_style_review_comments()
 
     files = get_changed_markdown_files()
     files, code_only_files = filter_files_with_prose_changes(files)
