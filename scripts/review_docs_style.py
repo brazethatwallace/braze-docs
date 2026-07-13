@@ -577,7 +577,7 @@ def _list_prior_style_review_inline_comments() -> list[dict]:
 def cleanup_prior_style_review_comments(
     prior_inline_comments: list[dict] | None = None,
 ) -> int:
-    """Delete prior automated inline style review comments before a fresh review."""
+    """Replace or clean up prior automated inline style review comments on this PR."""
     if not _replace_prior_style_review_comments():
         removed = cleanup_stale_style_review_comments()
         if removed:
@@ -602,19 +602,6 @@ def cleanup_prior_style_review_comments(
     if deleted:
         print(f"Removed {deleted} prior automated style review inline comment(s).")
     return deleted
-
-
-def _replace_prior_inline_after_review(
-    prior_inline_comments: list[dict],
-) -> None:
-    """Replace prior bot inline comments after a successful review run."""
-    if not _replace_prior_style_review_comments():
-        removed = cleanup_stale_style_review_comments()
-        if removed:
-            print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
-        return
-
-    cleanup_prior_style_review_comments(prior_inline_comments)
 
 
 def cleanup_stale_style_review_comments() -> int:
@@ -1621,6 +1608,12 @@ def _has_style_findings(
     return posted > 0 or bool(fallback) or bool(summary_notes)
 
 
+def _latest_pr_comment(comments: list[dict]) -> dict | None:
+    if not comments:
+        return None
+    return max(comments, key=lambda comment: int(comment.get("id") or 0))
+
+
 def _list_pr_comments_with_marker() -> list[dict]:
     owner, repo = REPO.split("/", 1)
     result = subprocess.run(
@@ -1641,9 +1634,10 @@ def _list_pr_comments_with_marker() -> list[dict]:
 def _existing_summary_is_code_only_pass() -> bool:
     """True when the PR already has a no-prose (code/markup-only) pass summary."""
     marked = _list_pr_comments_with_marker()
-    if not marked:
+    latest = _latest_pr_comment(marked)
+    if not latest:
         return False
-    body = marked[-1].get("body") or ""
+    body = latest.get("body") or ""
     if CODE_ONLY_SKIP_MARKER in body:
         return True
     return "did not edit user-facing copy" in body and not _has_style_findings(0, [], [])
@@ -1668,6 +1662,8 @@ def _delete_issue_comment(comment_id: int) -> None:
 
 def _delete_style_review_summary_comments(*, keep_comment_id: int | None = None) -> int:
     """Remove prior automated summary issue comments on this PR."""
+    if keep_comment_id is None:
+        return 0
     marked = _list_pr_comments_with_marker()
     deleted = 0
     for comment in marked:
@@ -1796,6 +1792,12 @@ def sync_summary_comment(
 
     body = "\n".join(lines)
 
+    prior_summary_ids = {
+        int(comment["id"])
+        for comment in _list_pr_comments_with_marker()
+        if comment.get("id")
+    }
+
     result = subprocess.run(
         [
             "gh",
@@ -1812,12 +1814,36 @@ def sync_summary_comment(
         text=True,
         check=True,
     )
-    new_comment_id = json.loads(result.stdout).get("id")
-    deleted = _delete_style_review_summary_comments(
-        keep_comment_id=int(new_comment_id) if new_comment_id else None
-    )
-    if deleted:
-        print(f"Removed {deleted} prior style review summary comment(s).")
+
+    keep_comment_id: int | None = None
+    try:
+        response = json.loads(result.stdout)
+        if response.get("id"):
+            keep_comment_id = int(response["id"])
+    except (json.JSONDecodeError, TypeError, ValueError):
+        pass
+
+    if keep_comment_id is None:
+        new_summaries = [
+            comment
+            for comment in _list_pr_comments_with_marker()
+            if comment.get("id") and int(comment["id"]) not in prior_summary_ids
+        ]
+        if len(new_summaries) == 1:
+            keep_comment_id = int(new_summaries[0]["id"])
+        elif new_summaries:
+            keep_comment_id = max(int(comment["id"]) for comment in new_summaries)
+
+    if keep_comment_id is None:
+        print(
+            "Warning: could not identify newly created summary comment; "
+            "skipping deletion of prior summaries to preserve dismissal data.",
+            file=sys.stderr,
+        )
+    else:
+        deleted = _delete_style_review_summary_comments(keep_comment_id=keep_comment_id)
+        if deleted:
+            print(f"Removed {deleted} prior style review summary comment(s).")
     print("Created summary comment")
 
     SUMMARY_FILE.write_text(body, encoding="utf-8")
@@ -1883,7 +1909,7 @@ def main() -> None:
             dismissed_suggested=dismissed_suggested,
             dismissed_message=dismissed_message,
         )
-        _replace_prior_inline_after_review(prior_inline_comments)
+        cleanup_prior_style_review_comments(prior_inline_comments)
         if code_only_files:
             print(
                 "No user-facing prose changes in eligible Markdown; posted pass summary."
@@ -1967,7 +1993,7 @@ def main() -> None:
         dismissed_suggested=dismissed_suggested,
         dismissed_message=dismissed_message,
     )
-    _replace_prior_inline_after_review(prior_inline_comments)
+    cleanup_prior_style_review_comments(prior_inline_comments)
     print("Summary comment posted for this commit.")
 
 
